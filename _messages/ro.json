@@ -1,0 +1,6722 @@
+{
+	"about-content-one": {
+		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va ajuta să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
+	},
+	"about-content-three": {
+		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Elfii noștri prietenoși te-au invitat să explorezi și satul Moșului în timp ce el se pregătește de călătorie. Așadar pornește în explorarea satului. S-ar putea să descoperi câteva activități distractive și să întâlnești niște elfi deosebiți."
+	},
+	"about-santa": {
+		"message": "Despre"
+	},
+	"about_title": {
+		"message": "Bun venit Pe urmele lui Moș Crăciun în Google Maps!"
+	},
+	"ae_country_name": {
+		"message": "Emiratele Arabe Unite"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentina"
+	},
+	"ar_language_name": {
+		"message": "Arabă"
+	},
+	"ar_tradition": {
+		"message": "În Argentina, Crăciunul începe fix la miezul nopții. Multe familii încep sărbătoarea cu reuniuni festive în casele lor, deschid cadouri alături de cei dragi și aprind artificii la primele ore ale dimineții."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "Pentru că Australia se află în emisfera sudică, în luna decembrie este vară. În loc de sănii cu zurgălăi și ciocolată caldă, mulți australieni își petrec sărbătorile cu un prânz cu creveți și câteva jocuri de crichet, pe plajă."
+	},
+	"ba_country_name": {
+		"message": "Bosnia și Herțegovina"
+	},
+	"back_to_previous_page": {
+		"message": "Înapoi"
+	},
+	"back_to_tracker": {
+		"message": "Înapoi la traseu"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Belgia"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brazilia"
+	},
+	"br_tradition": {
+		"message": "Oamenii încep să sărbătorească Crăciunul spre miezul nopții. De obicei, are loc o cină mare în familie, se deschid cadouri, iar în biserici se ține „Missa do Galo” (slujba cocoșului). În ciuda vremii calde, de vară tropicală, nu este neobișnuit să se facă referire la iarnă și la zăpadă."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Canada"
+	},
+	"ca_tradition": {
+		"message": "De obicei, copiii din Canada au parte de un Crăciun alb, cu multă zăpadă. Se înfofolesc cu fulare și căciuli și ies la joacă în zăpadă, merg cu patinele și se dau pe tobogan! În ajunul Crăciunului, lasă lapte și prăjituri pentru Moș Crăciun lângă șemineu (și uneori câte un morcov pentru renii lui)."
+	},
+	"calendar": {
+		"message": "Calendarul"
+	},
+	"category_code": {
+		"message": "Cod"
+	},
+	"category_draw": {
+		"message": "Desen"
+	},
+	"category_listen": {
+		"message": "Ascultă"
+	},
+	"category_send": {
+		"message": "Trimite"
+	},
+	"cd_country_name": {
+		"message": "Republica Democratică Congo"
+	},
+	"cf_country_name": {
+		"message": "Republica Centrafricană"
+	},
+	"cg_country_name": {
+		"message": "Republica Congo"
+	},
+	"ch_country_name": {
+		"message": "Elveția"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Adaugă propriile fotografii de la {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, S.U.A."
+	},
+	"citylights-panorama-02-description": {
+		"message": "Piața Pușkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscova, Rusia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viena, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysées către Arcul de Triumf"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Franța"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, S.U.A."
+	},
+	"citylights-panorama-06-description": {
+		"message": "Piața de Crăciun"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Germania"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Râul Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Columbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Satul lui Moș Crăciun"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Laponia, Finlanda"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruxelles, Belgia"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londra, Anglia"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spania"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Colinele Roppongi"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Japonia"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Grădinile Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhaga, Danemarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore – Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Suedia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festivalul de iarnă al luminilor"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Cascada Niagara, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Lacul Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazilia"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"clear": {
+		"message": "Șterge"
+	},
+	"close": {
+		"message": "Închide"
+	},
+	"cm_country_name": {
+		"message": "Camerun"
+	},
+	"co_country_name": {
+		"message": "Columbia"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Înapoi la început"
+	},
+	"codeboogie-block-clap": {
+		"message": "Aplauze"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Aplaudă o dată."
+	},
+	"codeboogie-block-jump": {
+		"message": "Săritură"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Sari."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Arată spre stânga"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Arată spre stânga."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Pas spre stânga"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Fă un pas spre stânga."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Arată spre dreapta"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Arată spre dreapta."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Pas spre dreapta"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Fă un pas spre dreapta."
+	},
+	"codeboogie-block-shake": {
+		"message": "Dat din șolduri"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Dă din șolduri."
+	},
+	"codeboogie-block-split": {
+		"message": "Șpagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Fă șpagatul."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Alege un mod de joc"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Alege o etapă"
+	},
+	"codeboogie-get-dancing": {
+		"message": "La dans!"
+	},
+	"codeboogie-go": {
+		"message": "Accesează!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Continuă să dansezi"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Să dansăm"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Ora de dans"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Imită mișcările instructorului"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Stil de dans liber"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Creează-ți propriile mișcări și arată-le prietenilor"
+	},
+	"codeboogie-next-dance": {
+		"message": "Dansul următor"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Ce mișcări!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Încearcă blocul de mai jos pentru a dansa corect."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Știai că poți încheia acest dans cu numai {{ideal}} blocuri? Încearcă să folosești blocul de mai jos."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Frumoase mișcări! Ai terminat dansul perfect."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Folosești blocurile corecte. Încearcă însă mai multe pentru a finaliza dansul."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Știai că poți încheia acest dans cu doar {{ideal}} blocuri?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Ai făcut prea mulți pași."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Se pare că ai făcut un pas greșit. Iată pasul corect:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Arată-ți mișcările și provoacă-ți prietenii"
+	},
+	"codeboogie-success": {
+		"message": "Ai reușit!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Fii cu ochii pe instructor!"
+	},
+	"codeboogie-your-turn": {
+		"message": "E rândul tău."
+	},
+	"codelab-block-jump-length": {
+		"message": "sari peste"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Sari peste sectoare."
+	},
+	"codelab-block-moveeast": {
+		"message": "est"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Mută-mă spre est cu un spațiu."
+	},
+	"codelab-block-movenorth": {
+		"message": "nord"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Mută-mă spre nord cu un spațiu."
+	},
+	"codelab-block-movesouth": {
+		"message": "sud"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Mută-mă spre sud cu un spațiu."
+	},
+	"codelab-block-movewest": {
+		"message": "vest"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Mută-mă spre vest cu un spațiu."
+	},
+	"codelab-block-repeat": {
+		"message": "repetă"
+	},
+	"codelab-block-repeat-times": {
+		"message": "ori"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repetă anumite comenzi de mai multe ori."
+	},
+	"codelab-block-whenrun": {
+		"message": "ordinea"
+	},
+	"codelab-finish": {
+		"message": "Finalizează"
+	},
+	"codelab-great": {
+		"message": "Excelent"
+	},
+	"codelab-mwc-promo": {
+		"message": "Descoperă mai multe proiecte de codificare Google la \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Următoarea provocare"
+	},
+	"codelab-oops": {
+		"message": "Hopa!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Pentru a funcționa, blocul „Repetă” trebuie să conțină alte blocuri."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Unele blocuri nu sunt îmbinate corespunzător."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Se pare că te-ai rătăcit!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Încearcă unul sau mai multe din blocurile de mai jos pentru a finaliza acest puzzle."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Știai că poți termina acest nivel cu doar {{ideal}} blocuri? Încearcă să utilizezi blocul de mai jos."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Felicitări! Ai terminat perfect acest puzzle ."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Utilizezi blocurile potrivite, dar încearcă să utilizezi mai multe pentru a finaliza acest puzzle."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Știai că poți termina acest nivel cu doar {{ideal}} blocuri?"
+	},
+	"codelab-try-again": {
+		"message": "Încearcă din nou"
+	},
+	"copy-me": {
+		"message": "Copiază acest link pentru a trimite mesajul"
+	},
+	"copy-me-short": {
+		"message": "Copiază linkul și trimite-l"
+	},
+	"countdown_days": {
+		"message": "zile"
+	},
+	"countdown_hours": {
+		"message": "Ore"
+	},
+	"countdown_minutes": {
+		"message": "min."
+	},
+	"countdown_seconds": {
+		"message": "sec."
+	},
+	"countdown_until": {
+		"message": "Moș Crăciun pornește în"
+	},
+	"countdownlabel": {
+		"message": "Până pleacă Moș Crăciun la drum"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Cehă"
+	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Republica Cehă"
+	},
+	"da_language_name": {
+		"message": "Daneză"
+	},
+	"days": {
+		"message": "zile"
+	},
+	"de_country_name": {
+		"message": "Germania"
+	},
+	"de_language_name": {
+		"message": "Germană"
+	},
+	"de_tradition": {
+		"message": "În Germania, aproape fiecare orășel are piață de Crăciun. Locuitorii se adună să asculte muzică de fanfară și se bucură de târgurile tradiționale din regiunea lor. Se mănâncă inimioare de turtă dulce, migdale glazurate, dulciuri de toate felurile și se bea vin fiert (Glühwein) sau cidru de mere."
+	},
+	"deck": {
+		"message": "Decorează festiv"
+	},
+	"deckdescription": {
+		"message": "Împodobește-ți browserul cu o extensie Chrome cu Moș Crăciun."
+	},
+	"detected": {
+		"message": "detectată"
+	},
+	"difficulty": {
+		"message": "Dificultate"
+	},
+	"dk_country_name": {
+		"message": "Danemarca"
+	},
+	"do_country_name": {
+		"message": "Republica Dominicană"
+	},
+	"donate_button": {
+		"message": "Donează"
+	},
+	"donate_text": {
+		"message": "Contribuie la finanțarea unui proiect pentru nevoi speciale pe DonorsChoose.org. În această lună decembrie, dublăm impactul donând 50% din donații, până când ne atingem obiectivul de a dona 1 milion de USD. Împreună, putem promova incluziunea în sălile de clasă #ForEveryKid"
+	},
+	"dz_country_name": {
+		"message": "Algeria"
+	},
+	"easy_difficulty": {
+		"message": "Mică"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"educators": {
+		"message": "Pe urmele lui Moș Crăciun pentru învățători"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
+	"el_language_name": {
+		"message": "Greacă"
+	},
+	"elvish_language_name": {
+		"message": "Elfă"
+	},
+	"en_language_name": {
+		"message": "Engleză"
+	},
+	"endofjourneymessage": {
+		"message": "Moș Crăciun și-a încheiat călătoria pentru anul acesta! Încă se distrează cu spiridușii la Polul Nord înainte de vacanța lor anuală."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "A apărut o problemă, dar elfii lui Moș Crăciun vor afla mai multe."
+	},
+	"error-lost-connection": {
+		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
+	},
+	"error-not-found": {
+		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./village.html\"\u003esatul Moșului\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Încearcă din nou"
+	},
+	"error_try_again": {
+		"message": "Încearcă din nou"
+	},
+	"es_language_name": {
+		"message": "Spaniolă"
+	},
+	"et_country_name": {
+		"message": "Etiopia"
+	},
+	"explore": {
+		"message": "Explorează"
+	},
+	"fi_country_name": {
+		"message": "Finlanda"
+	},
+	"fi_tradition": {
+		"message": "Finlandezii cred că Moș Crăciun, „Joulupukki”, locuiește în nordul țării; mai exact, Korvatunturi. Dacă vizitezi, s-ar putea să găsești atelierul secret al Moșului, în care piticii muncesc din greu. Sau s-ar putea să găsești un ren, plimbându-se printre brazi."
+	},
+	"finished-text": {
+		"message": "Sărbători Fericite! Moșul a ajuns la sfârșitul călătoriei sale în jurul lumii și ia o pauză binemeritată. Te așteptăm anul viitor!"
+	},
+	"fr_country_name": {
+		"message": "Franța"
+	},
+	"fr_language_name": {
+		"message": "Franceză"
+	},
+	"fr_tradition": {
+		"message": "În Franța, conform tradiției, copiii își pun încălțămintea lângă șemineu, în așteptarea lui Père Noël. Dacă au fost cuminți în timpul anului, Père Noël le va umple încălțămintea cu cadouri."
+	},
+	"fullscreen": {
+		"message": "Ecran complet"
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Sfârșit!"
+	},
+	"gameover_level": {
+		"message": "Ai ajuns la nivelul:"
+	},
+	"gameover_score": {
+		"message": "Scorul tău:"
+	},
+	"getgooglemaps": {
+		"message": "Descarcă Google Maps"
+	},
+	"getready": {
+		"message": "Pregătește-te!"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "În Ghana, toată familia participă la sărbătoarea Crăciunului. Adulții se îmbracă în costume și împart bomboane și alte dulciuri în cartier. Copiii decorează locuințele cu ornamente de hârtie și cu desene făcute la școală."
+	},
+	"gl_country_name": {
+		"message": "Groenlanda"
+	},
+	"gn_country_name": {
+		"message": "Guineea"
+	},
+	"gotovillage": {
+		"message": "Mergi în sat"
+	},
+	"gplus": {
+		"message": "Google+."
+	},
+	"gr_country_name": {
+		"message": "Grecia"
+	},
+	"gr_tradition": {
+		"message": "În Grecia, se spune că niște creaturi prietenoase, dar buclucașe, numite „kallikántzari” locuiesc tot anul în centrul Pământului. Însă, de Crăciun, se ascund în casele oamenilor, îi sperie, îi păcălesc și devorează bunătățile pentru Crăciun. Grecii îndepărtează spiridușii buclucași prin ritualuri."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "În Guatemala, Crăciunul este sărbătorit cu distracție și dansuri. Se poartă pălării numite „Puritina”, se mănâncă „tamales” preparate după rețeta locală, se aprind petarde la miezul nopții și se dansează până în zori în diferite stiluri."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Mare"
+	},
+	"help": {
+		"message": "Ajutor"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Sărbători fericite!"
+	},
+	"holiday_message_1": {
+		"message": "Sărbători împlinite!"
+	},
+	"holiday_message_2": {
+		"message": "Toate cele bune!"
+	},
+	"holiday_message_3": {
+		"message": "Să ningă!"
+	},
+	"holiday_message_4": {
+		"message": "Un An Nou fericit!"
+	},
+	"holiday_message_5": {
+		"message": "Sărbători cu bucurie!"
+	},
+	"hours": {
+		"message": "ore"
+	},
+	"hr_country_name": {
+		"message": "Croația"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungaria"
+	},
+	"hu_language_name": {
+		"message": "Maghiară"
+	},
+	"id_country_name": {
+		"message": "Indonezia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Ajutați la îmbunătățirea serviciului Google Traducere"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "Islanda"
+	},
+	"is_tradition": {
+		"message": "În Islanda, de Crăciun, fiecare membru al familiei primește în dar haine călduroase. Legenda spune că acolo există o Pisică de Crăciun înfricoșătoare, care îi înfulecă pe cei nepregătiți pentru vremea rece, de iarnă. Toată familia se asigură că nimeni nu va fi mâncat de Pisica de Crăciun."
+	},
+	"it_country_name": {
+		"message": "Italia"
+	},
+	"it_language_name": {
+		"message": "Italiană"
+	},
+	"ja_language_name": {
+		"message": "Japoneză"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kârgâzstan"
+	},
+	"kg_tradition": {
+		"message": "În Kârgâzstan, Ayaz Ata (Moș Gerilă) sosește la miezul nopții în ajun de Anul Nou și lasă cadouri sub pomul de Anul Nou. Când bate miezul nopții, familiile din întreaga țară aprind artificii pentru a sărbători această ocazie specială. Orașele se luminează ca ziua."
+	},
+	"ko_language_name": {
+		"message": "Coreeană"
+	},
+	"kr_country_name": {
+		"message": "Coreea de Sud"
+	},
+	"kr_tradition": {
+		"message": "În Coreea de Sud, Crăciunul este o sărbătoare națională, dar și una romantică. Multe cupluri ies la întâlniri în oraș, unde străzile și magazinele sunt decorate cu luminițe strălucitoare."
+	},
+	"kz_country_name": {
+		"message": "Kazahstan"
+	},
+	"la_country_name": {
+		"message": "Republica Democrată Populară Laos"
+	},
+	"language": {
+		"message": "Limbă"
+	},
+	"learn": {
+		"message": "Explorează"
+	},
+	"learnmore": {
+		"message": "Află mai multe"
+	},
+	"level": {
+		"message": "Nivel"
+	},
+	"light": {
+		"message": "Aprinde luminițele"
+	},
+	"lightdescription": {
+		"message": "Înveselește televizorul cu Chromecast și aplicația pentru Android, Pe urmele lui Moș Crăciun."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lock_orientation": {
+		"message": "Pentru o experiență optimă, blochează rotirea."
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lt_tradition": {
+		"message": "În Lituania, ornamentele tradiționale de Crăciun sunt făcute din paie și fân, care se împletesc în forme geometrice, cum ar fi stele, fulgi de zăpadă sau clopoței. Multe familii folosesc paiele ca să decoreze masa de Crăciun pentru o cină denumită Kūčios."
+	},
+	"lv_country_name": {
+		"message": "Letonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Medie"
+	},
+	"meta_description": {
+		"message": "Folosește aplicația Pe urmele lui Moș Crăciun pentru a urmări călătoria Moșului în jurul lumii în Google Maps."
+	},
+	"meta_title": {
+		"message": "Pe urmele lui Moș Crăciun"
+	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
+	"minutes": {
+		"message": "minute"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mute": {
+		"message": "Dezactivează"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexic"
+	},
+	"mx_tradition": {
+		"message": "În Mexic, de Crăciun, copiii de toate vârstele sparg o „pinata”. Legați la ochi, adulții și copiii se amuză învârtindu-se și lovind în jur cu un băț, încercând să spargă niște ulcioare suspendate, în formă de stea. Când „pinata” se sparge, din ea curg nuci, fructe și dulciuri, spre bucuria tuturor."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mozambic"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"new": {
+		"message": "Nou"
+	},
+	"newtoday": {
+		"message": "Nou azi"
+	},
+	"next": {
+		"message": "Înainte"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Țările de Jos"
+	},
+	"nl_language_name": {
+		"message": "Neerlandeză"
+	},
+	"no_country_name": {
+		"message": "Norvegia"
+	},
+	"no_language_name": {
+		"message": "Norvegiană"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya oferă copiilor educație științifică practică în zonele rurale ale Indiei. Atât în centrele științifice, cât și în furgonetele științifice, prezintă totul: de la sistemul solar până la felul în care funcționează creierul. Au ajuns la peste 5 milioane de copii și 200.000 de profesori din 14 state ale Indiei. Este printre cele mai mari programe de educație științifică din lume. Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esprijină\u003c/a\u003e cu mândrie Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Profesori și elevi"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® este o organizație nonprofit dedicată extinderii accesului la informatică și creșterii nivelului de participare a femeilor și a studenților de culoare slab reprezentați. Viziunea Code.org® este ca fiecare elev, din fiecare școală, să aibă oportunitatea de a învăța informatică."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatică"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Fondată în 2000 de un profesor de istorie din Bronx, organizația DonorsChoose.org a strâns peste 480 de milioane USD pentru sălile de curs din America. Profesorii apelează la DonorsChoose.org pentru a solicita materialele și experiențele necesare pentru elevii lor."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Săli de curs"
+	},
+	"nonprofit-enable-description": {
+		"message": "Potrivit CDC (Centrul pentru Prevenirea și Controlul Bolilor), 7 din 1.000 de oameni au diferențe la nivelul membrelor, iar protezele sunt costisitoare (până la 10.000 USD). Pentru copiii în creștere, costurile se acumulează rapid. e-Nable este o comunitate globală de oameni, care colaborează pentru a crea mâini imprimate 3D pentru copiii afectați. Google.org ajută Enable Community Foundation să sprijine comunitatea e-NABLE, pentru conceperea mai multor mâini și pentru creșterea numărului de copii care le pot primi."
+	},
+	"nonprofit-enable-type": {
+		"message": "Proteze"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Alege un ornament și începe să colorezi."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Trimite arta creată familiei și prietenilor pentru ca și ei să învețe."
+	},
+	"nonprofit-intro-type": {
+		"message": "Colaborăm cu Google.org pentru a scoate în evidență cinci organizații nonprofit educaționale, care sărbătoresc anotimpul cadourilor de-a lungul anului. Derulează în jos și află mai multe despre modul în care fiecare organizație dăruiește. Arată-ți aprecierea colorând această colecție de ornamente, iar apoi atârnându-le în brad sau dăruindu-le celor dragi."
+	},
+	"nonprofit-jane-description": {
+		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Cimpanzei"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy este o organizație nonprofit cu misiunea de a oferi educație gratuită și de nivel înalt tuturor, pretutindeni în lume. Cei de la Khan Academy cred că studenții de orice vârstă ar trebui să aibă acces nelimitat la conținut educațional gratuit, pe care-l pot învăța în propriul ritm."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educație"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Fondat în 2007, cu sediul central la Paris, Libraries Without Borders este un ONG internațional, lider în dezvoltarea bazată pe cultură. A construit peste 300 de biblioteci în jurul lumii."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Biblioteci"
+	},
+	"nonprofit-more-information": {
+		"message": "Pentru mai multe informații, accesează:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy lucrează la protejarea și la restaurarea pădurilor din Statele Unite și din lume. Aceste păduri seculare susțin viața de pe întreaga planetă. Filtrează apa, purifică aerul, oferă sprijin comunităților și asigură habitatul pentru mii de specii importante de plante și animale. În ritmul actual de despădurire, pădurile vor dispărea în decurs de 100 de ani. Obiectivul programului Plant a Billion Trees (Plantați un miliard de copaci) dezvoltat de Nature Conservancy este de a planta un miliard de copaci până în 2025 și de a reface pădurile de importanță majoră din lume."
+	},
+	"nonprofit-nature-type": {
+		"message": "Păduri"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Aproape 40 % din membrii populației mondiale nu au acces la educație într-o limbă pe care o vorbesc sau o înțeleg. StoryWeaver speră să aducă o schimbare, ajutând cadrele didactice, scriitorii și traducătorii să creeze resurse de lecturi suplimentare plăcute pentru copii."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lectură"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Numeroși oameni din jurul lumii și-au pierdut vederea, dar nu în întregime. Google.org ajută RNIB să dezvolte „ochelari inteligenți”, care să ajute oamenii cu probleme de vedere să vadă mai ușor forme și siluete. Ochelarii inteligenți fac lumea mai vizibilă, ajutând oamenii să-și recapete independența și încrederea."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Ochelari inteligenți"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miliarde de oameni nu au acces la electricitate. Mulți dintre ei folosesc lămpi cu gaz, care ard combustibil și poluează casele. În schimb, luminile solare absorb energia solară în timpul zilei și oferă ore întregi de lumină seara, fără ardere sau poluare. Vă ajută să citiți, să vă jucați și să ajungeți acasă în siguranță noaptea. SolarAid oferă acces la lumini solare multora dintre cei care au nevoie. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esprijină\u003c/a\u003e cu mândrie SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Lumină solară"
+	},
+	"nonprofit-water-description": {
+		"message": "Folosim apa pentru dușuri și băi, pentru gătit și, desigur, pentru băut. Apa curată este o resursă valoroasă. Numeroși oameni se bazează pe fântâni săpate cu mâinile, pentru a avea acces la stratul acvifer, care menține apă curată sub pământ, între straturi de pietre și sol. charity: water lucrează cu parteneri locali, pentru a construi fântâni și alte proiecte similare acolo unde sunt necesare. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esprijină\u003c/a\u003e cu mândrie charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Fântână"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Poate fi dificil pentru utilizatorii de scaune cu rotile să-și dea seama ce locuri sunt accesibile: cinematografe, restaurante sau orice alte locuri în care pot călători. Wheelmap arată locurile accesibile pentru scaune cu rotile, astfel încât utilizatorii petrec mai puțin timp să plănuiască traseele și mai mult timp să exploreze lumea."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitate"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Urși polari"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Cercetările sugerează că 95 % dintre oamenii care și-au pierdut auzul pot fi tratați cu aparate auditive, dar mai puțin de 1 % dintre oamenii din țări cu venituri mici sau medii care au nevoie de aparate auditive le primesc. World Wide Hearing (WWH) oferă copiilor aparate și servicii auditive, pentru a le deschide orizonturile. WWH concepe un instrument de diagnosticare a pierderii auzului la un preț accesibil și care funcționează pe tabletă, pentru a fi folosit în țările subdezvoltate. Prin urmare, majoritatea oamenilor care au nevoie de aparate auditive le vor primi."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Auz"
+	},
+	"notice_cookies": {
+		"message": "Google folosește cookie-uri pentru a analiza traficul de pe site și a-ți optimiza experiența. Prin urmare, informații privind utilizarea site-ului vor fi trimise la Google."
+	},
+	"notice_cookies_details": {
+		"message": "Află mai multe"
+	},
+	"notification": {
+		"message": "Notificări"
+	},
+	"notification_newtoday": {
+		"message": "Noutăți în Pe urmele lui Moș Crăciun"
+	},
+	"notification_newtoday_stop": {
+		"message": "Oprește"
+	},
+	"notification_notice": {
+		"message": "Elfii lui Moș Crăciun te vor ține la curent cu programul acestuia."
+	},
+	"notification_prompt": {
+		"message": "Ține-mă la curent cu Moș Crăciun"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Noua Zeelandă"
+	},
+	"nz_tradition": {
+		"message": "În Noua Zeelandă, Crăciunul este vara, așa că prietenii și familia se strâng la un grătar. Se mănâncă miel la cuptor, gătit uneori într-un „hangi”, un fel de groapă în pământ sau un cuptor de lut. Desertul preferat este Pavlova: o bezea acoperită cu fructe proaspete, de ex., cu kiwi și căpșuni."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Numai online"
+	},
+	"offline_notification": {
+		"message": "Satul lui Moș Crăciun este disponibil offline! Elfii îți pot aduce conținut nou pe parcursul lunii decembrie."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nu, mulțumesc!"
+	},
+	"offline_user_message": {
+		"message": "Ești offline"
+	},
+	"okay": {
+		"message": "OK"
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "Moș Crăciun a pornit!"
+	},
+	"openingtomorrow": {
+		"message": "Marea deschidere de mâine"
+	},
+	"ornament-print-instructions": {
+		"message": "Îndoaie aici și lipește părțile una de alta"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Întrerupe"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua-Noua Guinee"
+	},
+	"ph_country_name": {
+		"message": "Filipine"
+	},
+	"ph_tradition": {
+		"message": "Se știe că în Filipine sezonul Crăciunului durează cel mai mult. Lunile Crăciunului sunt patru la număr: septembrie, octombrie, noiembrie și decembrie. Adesea, colindele de Crăciun pot fi auzite încă din luna septembrie."
+	},
+	"pl_country_name": {
+		"message": "Polonia"
+	},
+	"pl_language_name": {
+		"message": "Poloneză"
+	},
+	"play": {
+		"message": "Joacă"
+	},
+	"playagain": {
+		"message": "Joacă din nou"
+	},
+	"playdescription": {
+		"message": "Joacă-te cu prietenii în aplicația pentru Android, Pe urmele lui Moș Crăciun."
+	},
+	"playextra": {
+		"message": "Joacă niveluri suplimentare"
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"practice": {
+		"message": "Antrenament"
+	},
+	"press": {
+		"message": "Presă"
+	},
+	"pt_language_name": {
+		"message": "Portugheză"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Știu, este {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "sau"
+	},
+	"quickdraw-machine-see": {
+		"message": "Văd"
+	},
+	"quickdraw-newround-button": {
+		"message": "Începe"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nu știu sigur ce este."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Scuze!"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nu am putut ghici!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor a crezut că desenul tău semăna cu:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "De unde știe Tensor cum arată {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "A învățat uitându-se la aceste exemple desenate de alți oameni."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor a crezut că desenul tău semăna mai mult cu:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Desenul lui Moș Crăciun cu {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Ți s-a cerut să desenezi {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Desen"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor este robotul de învățare automată al lui Moș Crăciun, care-l ajută să descifreze rapid scrisorile pe care le primește de la copiii din întreaga lume. Pentru a-l ajuta pe Tensor să exerseze, desenează o imagine a fiecărui cuvânt festiv de pe ecran, iar el îți va spune ce vede. Cu cât desenezi mai mult, cu atât mai inteligent va fi Tensor. Ajută-l pe Moș Crăciun să fie mai eficient în timpul sărbătorilor!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor a ghicit unul dintre desenele tale."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor nu a ghicit niciunul dintre desenele tale."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Felicitări!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hopa!"
+	},
+	"ro_country_name": {
+		"message": "România"
+	},
+	"ru_country_name": {
+		"message": "Rusia"
+	},
+	"ru_language_name": {
+		"message": "Rusă"
+	},
+	"ru_tradition": {
+		"message": "Copiii din Rusia împodobesc un pom de Anul Nou, nu unul de Crăciun. Copiii îl așteaptă cu nerăbdare pe Moș Gerilă, care călătorește împreună cu nepoata sa Snegurochka pentru a împărți cadouri în toată țara. Moș Gerilă trăiește în adâncul pădurilor din Veliky Ustyug, în nordul Rusiei."
+	},
+	"sa_country_name": {
+		"message": "Arabia Saudită"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Omul de turtă dulce"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Dna Crăciun"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Moș Crăciun"
+	},
+	"santasearch_hint": {
+		"message": "Indiciu"
+	},
+	"santasearch_level_beach": {
+		"message": "La plajă"
+	},
+	"santasearch_level_lab": {
+		"message": "În laborator"
+	},
+	"santasearch_level_mountains": {
+		"message": "La munte"
+	},
+	"santasearch_level_museum": {
+		"message": "La muzeu"
+	},
+	"santasearch_level_select": {
+		"message": "Accesează!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Caută-l pe Moș Crăciun!"
+	},
+	"santasvillage": {
+		"message": "Satul lui Moș Crăciun"
+	},
+	"santatracker": {
+		"message": "Pe urmele lui Moș Crăciun"
+	},
+	"scene_airport": {
+		"message": "Aeroportul de la Polul Nord"
+	},
+	"scene_app": {
+		"message": "Aplicație Android"
+	},
+	"scene_blimp": {
+		"message": "Reîncărcarea cadourilor"
+	},
+	"scene_boatload": {
+		"message": "Praștia pentru cadouri"
+	},
+	"scene_briefing": {
+		"message": "Lecția dnei Crăciun"
+	},
+	"scene_callfromsanta": {
+		"message": "Apel de la Moș Crăciun"
+	},
+	"scene_canvas": {
+		"message": "Tabloul lui Moș Crăciun"
+	},
+	"scene_citylights": {
+		"message": "Luminile orașului"
+	},
+	"scene_clausdraws": {
+		"message": "Desenează cu Moș Crăciun"
+	},
+	"scene_codeboogie": {
+		"message": "Dans codificat"
+	},
+	"scene_codelab": {
+		"message": "Laborator de programare"
+	},
+	"scene_commandcentre": {
+		"message": "Centrul de control"
+	},
+	"scene_dash": {
+		"message": "Goana pinguinului"
+	},
+	"scene_elfski": {
+		"message": "Elfi schiori"
+	},
+	"scene_factory": {
+		"message": "Fabrica de bomboane"
+	},
+	"scene_giftmatch": {
+		"message": "Cadourile perfecte"
+	},
+	"scene_glider": {
+		"message": "Elf zburător"
+	},
+	"scene_gumball": {
+		"message": "Direct la țintă"
+	},
+	"scene_icecave": {
+		"message": "Peșteră înghețată"
+	},
+	"scene_island": {
+		"message": "Insulă"
+	},
+	"scene_jamband": {
+		"message": "Orchestra elfilor"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Livrează cadouri"
+	},
+	"scene_matching": {
+		"message": "Potrivire din memorie"
+	},
+	"scene_mercator": {
+		"message": "Test la geografie"
+	},
+	"scene_playground": {
+		"message": "Teren de joacă în Polul Nord"
+	},
+	"scene_postcard": {
+		"message": "Scrie codul unui fulg de zăpadă"
+	},
+	"scene_presentbounce": {
+		"message": "Cadouri săltărețe"
+	},
+	"scene_presentdrop": {
+		"message": "Împărțirea cadourilor"
+	},
+	"scene_quickdraw": {
+		"message": "Ghicitori desenate"
+	},
+	"scene_racer": {
+		"message": "Cursa lui Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "Elfi în parcul de distracții"
+	},
+	"scene_runner": {
+		"message": "Aleargă cu renii"
+	},
+	"scene_santasearch": {
+		"message": "Unde este Moș Crăciun?"
+	},
+	"scene_santaselfie": {
+		"message": "Moș Crăciun la frizer"
+	},
+	"scene_seasonofcaring": {
+		"message": "Sezonul compasiunii"
+	},
+	"scene_seasonofgiving": {
+		"message": "Anotimpul cadourilor"
+	},
+	"scene_snowball": {
+		"message": "Furtună cu bulgări de zăpadă"
+	},
+	"scene_speedsketch": {
+		"message": "Ghicitori desenate"
+	},
+	"scene_streetview": {
+		"message": "Vedere din stradă"
+	},
+	"scene_traditions": {
+		"message": "Tradiții de sărbători"
+	},
+	"scene_translations": {
+		"message": "Traduceri"
+	},
+	"scene_trivia": {
+		"message": "Cultură generală"
+	},
+	"scene_undersea": {
+		"message": "Sub nivelul mării"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Câți elfi încap într-o mașină?"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Camera de control"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elfi petrecăreți"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Plecarea lui Moș Crăciun"
+	},
+	"scene_videoscene_museum": {
+		"message": "O zi la muzeu"
+	},
+	"scene_videoscene_office": {
+		"message": "Farsă în birou"
+	},
+	"scene_videoscene_reload": {
+		"message": "Reîncărcarea cadourilor"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Moș Crăciun s-a întors"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie-urile Moșului"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Pierde-vară"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Tentație"
+	},
+	"scene_videoscene_tired": {
+		"message": "Ren obosit"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Încă în vacanță"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Unde este Moș Crăciun?"
+	},
+	"scene_windtunnel": {
+		"message": "Tunel de vânt"
+	},
+	"scene_wrap": {
+		"message": "Bătălia de împachetat cadouri"
+	},
+	"score": {
+		"message": "Scor"
+	},
+	"se_country_name": {
+		"message": "Suedia"
+	},
+	"seconds": {
+		"message": "secunde"
+	},
+	"select-language": {
+		"message": "Selectează limba"
+	},
+	"share-button": {
+		"message": "Postează pentru prietenii de pe Google+"
+	},
+	"share-text": {
+		"message": "Am făcut o felicitare pentru tine în aplicația Pe urmele lui Moș Crăciun cu Google. Sărbători fericite!"
+	},
+	"share-this": {
+		"message": "Postează"
+	},
+	"sk_country_name": {
+		"message": "Slovacia"
+	},
+	"sk_language_name": {
+		"message": "Slovacă"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Congelat!"
+	},
+	"snowball_remaining": {
+		"message": "Au rămas {{remaining}} din {{total}} elfi"
+	},
+	"snowball_spectate": {
+		"message": "Urmărește"
+	},
+	"snowball_waiting": {
+		"message": "Se așteaptă mai mulți elfi ai lui Moș Crăciun"
+	},
+	"snowflake_choose_background": {
+		"message": "Alege un fundal"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Folosește săgețile pentru a alege o felicitare"
+	},
+	"snowflake_code": {
+		"message": "Scrie codul propriului fulg de zăpadă"
+	},
+	"snowflake_code_instructions": {
+		"message": "Unește blocurile pentru a-ți crea propriul fulg de zăpadă"
+	},
+	"snowflake_create_message": {
+		"message": "Creează-ți propriul fulg de zăpadă"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Repetă acum!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Se repetă"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Rotește și repetă!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Se rotește și se repetă"
+	},
+	"snowflake_make_your_own": {
+		"message": "A fost creat folosind cod. Încearcă!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Alege o felicitare și trimite prietenilor fulgul tău de zăpadă"
+	},
+	"snowflake_shared_message": {
+		"message": "Ai primit un fulg de zăpadă!"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "Londra"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Elveția"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Turnul Eiffel"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Marele Zid Chinezesc"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "artă abstractă"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "portavion"
+	},
+	"speedsketch_item~airplane": {
+		"message": "avion"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "ceas cu alarmă"
+	},
+	"speedsketch_item~alien": {
+		"message": "extraterestru"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulanță"
+	},
+	"speedsketch_item~angel": {
+		"message": "înger"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "migrație de animale"
+	},
+	"speedsketch_item~ant": {
+		"message": "furnică"
+	},
+	"speedsketch_item~anvil": {
+		"message": "nicovală"
+	},
+	"speedsketch_item~apple": {
+		"message": "măr"
+	},
+	"speedsketch_item~arm": {
+		"message": "braț"
+	},
+	"speedsketch_item~arrow": {
+		"message": "săgeată"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "sparanghel"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "casetă audio"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "topor"
+	},
+	"speedsketch_item~baby": {
+		"message": "bebeluș"
+	},
+	"speedsketch_item~backpack": {
+		"message": "rucsac"
+	},
+	"speedsketch_item~banana": {
+		"message": "banană"
+	},
+	"speedsketch_item~bandage": {
+		"message": "bandaj"
+	},
+	"speedsketch_item~barn": {
+		"message": "șură"
+	},
+	"speedsketch_item~baseball": {
+		"message": "minge de baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bâtă de baseball"
+	},
+	"speedsketch_item~basket": {
+		"message": "coș"
+	},
+	"speedsketch_item~basketball": {
+		"message": "minge de baschet"
+	},
+	"speedsketch_item~bat": {
+		"message": "liliac"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "cadă"
+	},
+	"speedsketch_item~beach": {
+		"message": "plajă"
+	},
+	"speedsketch_item~bear": {
+		"message": "urs"
+	},
+	"speedsketch_item~beard": {
+		"message": "barbă"
+	},
+	"speedsketch_item~bed": {
+		"message": "pat"
+	},
+	"speedsketch_item~bee": {
+		"message": "albină"
+	},
+	"speedsketch_item~belt": {
+		"message": "curea"
+	},
+	"speedsketch_item~bench": {
+		"message": "bancă"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicicletă"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "binoclu"
+	},
+	"speedsketch_item~bird": {
+		"message": "pasăre"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "tort pentru ziua de naștere"
+	},
+	"speedsketch_item~black": {
+		"message": "negru"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "mură"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "afină"
+	},
+	"speedsketch_item~book": {
+		"message": "carte"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "cizmă"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "dop de sticlă"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "papion"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "brățară"
+	},
+	"speedsketch_item~brain": {
+		"message": "creier"
+	},
+	"speedsketch_item~bread": {
+		"message": "pâine"
+	},
+	"speedsketch_item~bridge": {
+		"message": "pod"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "mătură"
+	},
+	"speedsketch_item~bubble": {
+		"message": "balon"
+	},
+	"speedsketch_item~bucket": {
+		"message": "găleată"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobuz"
+	},
+	"speedsketch_item~bush": {
+		"message": "tufiș"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "fluture"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cactus"
+	},
+	"speedsketch_item~cake": {
+		"message": "tort"
+	},
+	"speedsketch_item~calculator": {
+		"message": "calculator"
+	},
+	"speedsketch_item~calendar": {
+		"message": "calendar"
+	},
+	"speedsketch_item~camel": {
+		"message": "cămilă"
+	},
+	"speedsketch_item~camera": {
+		"message": "cameră foto"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "camuflaj"
+	},
+	"speedsketch_item~campfire": {
+		"message": "foc de tabără"
+	},
+	"speedsketch_item~candle": {
+		"message": "lumânare"
+	},
+	"speedsketch_item~candy": {
+		"message": "bomboane"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "baton de zahăr"
+	},
+	"speedsketch_item~canoe": {
+		"message": "canoe"
+	},
+	"speedsketch_item~car": {
+		"message": "mașină"
+	},
+	"speedsketch_item~carrot": {
+		"message": "morcov"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "desen animat"
+	},
+	"speedsketch_item~castle": {
+		"message": "castel"
+	},
+	"speedsketch_item~cat": {
+		"message": "pisică"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ventilator de plafon"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "telefon mobil"
+	},
+	"speedsketch_item~cello": {
+		"message": "violoncel"
+	},
+	"speedsketch_item~chair": {
+		"message": "scaun"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "lustră"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chimie"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cireașă"
+	},
+	"speedsketch_item~chicken": {
+		"message": "pui"
+	},
+	"speedsketch_item~child": {
+		"message": "copil"
+	},
+	"speedsketch_item~chimney": {
+		"message": "horn"
+	},
+	"speedsketch_item~church": {
+		"message": "biserică"
+	},
+	"speedsketch_item~circle": {
+		"message": "cerc"
+	},
+	"speedsketch_item~city": {
+		"message": "oraș"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "clarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "ceas"
+	},
+	"speedsketch_item~cloud": {
+		"message": "nor"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "porumb"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "ceașcă de cafea"
+	},
+	"speedsketch_item~compass": {
+		"message": "busolă"
+	},
+	"speedsketch_item~computer": {
+		"message": "computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "biscuit"
+	},
+	"speedsketch_item~cooler": {
+		"message": "răcitor"
+	},
+	"speedsketch_item~couch": {
+		"message": "canapea"
+	},
+	"speedsketch_item~cow": {
+		"message": "vacă"
+	},
+	"speedsketch_item~crab": {
+		"message": "rac"
+	},
+	"speedsketch_item~crayon": {
+		"message": "creion colorat"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "crocodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "cruce"
+	},
+	"speedsketch_item~crow": {
+		"message": "cioară"
+	},
+	"speedsketch_item~crown": {
+		"message": "coroană"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "vas de croazieră"
+	},
+	"speedsketch_item~cube": {
+		"message": "cub"
+	},
+	"speedsketch_item~cup": {
+		"message": "ceașcă"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "inel cu diamant"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "mașină de spălat vase"
+	},
+	"speedsketch_item~diving board": {
+		"message": "trambulină"
+	},
+	"speedsketch_item~dog": {
+		"message": "câine"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "gogoașă"
+	},
+	"speedsketch_item~door": {
+		"message": "ușă"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dragon"
+	},
+	"speedsketch_item~dresser": {
+		"message": "comodă"
+	},
+	"speedsketch_item~drill": {
+		"message": "burghiu"
+	},
+	"speedsketch_item~drums": {
+		"message": "tobe"
+	},
+	"speedsketch_item~duck": {
+		"message": "rață"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ganteră"
+	},
+	"speedsketch_item~ear": {
+		"message": "ureche"
+	},
+	"speedsketch_item~egg": {
+		"message": "ou"
+	},
+	"speedsketch_item~elbow": {
+		"message": "cot"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elefant"
+	},
+	"speedsketch_item~elf": {
+		"message": "elf"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "plic"
+	},
+	"speedsketch_item~eraser": {
+		"message": "radieră"
+	},
+	"speedsketch_item~eye": {
+		"message": "ochi"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "ochelari"
+	},
+	"speedsketch_item~face": {
+		"message": "chip"
+	},
+	"speedsketch_item~family": {
+		"message": "familie"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilator"
+	},
+	"speedsketch_item~feather": {
+		"message": "pană"
+	},
+	"speedsketch_item~fence": {
+		"message": "gard"
+	},
+	"speedsketch_item~finger": {
+		"message": "deget"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "hidrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "șemineu"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "mașină de pompieri"
+	},
+	"speedsketch_item~fish": {
+		"message": "pește"
+	},
+	"speedsketch_item~flag": {
+		"message": "steag"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "lanternă"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "șlapi"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "lampă de podea"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "dischetă"
+	},
+	"speedsketch_item~flower": {
+		"message": "floare"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "farfurie zburătoare"
+	},
+	"speedsketch_item~fog": {
+		"message": "ceață"
+	},
+	"speedsketch_item~foot": {
+		"message": "picior"
+	},
+	"speedsketch_item~fork": {
+		"message": "furculiță"
+	},
+	"speedsketch_item~french fries": {
+		"message": "cartofi prăjiți"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "ou prăjit"
+	},
+	"speedsketch_item~frog": {
+		"message": "broască"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "tigaie"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxie"
+	},
+	"speedsketch_item~garden": {
+		"message": "grădină"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "furtun de grădină"
+	},
+	"speedsketch_item~ghost": {
+		"message": "fantomă"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "om de turtă dulce"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "girafă"
+	},
+	"speedsketch_item~goat": {
+		"message": "capră"
+	},
+	"speedsketch_item~goatee": {
+		"message": "barbișon"
+	},
+	"speedsketch_item~golf club": {
+		"message": "crosă de golf"
+	},
+	"speedsketch_item~grapes": {
+		"message": "struguri"
+	},
+	"speedsketch_item~grass": {
+		"message": "iarbă"
+	},
+	"speedsketch_item~group": {
+		"message": "grup"
+	},
+	"speedsketch_item~guitar": {
+		"message": "chitară"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "ciocan"
+	},
+	"speedsketch_item~hand": {
+		"message": "mână"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "jocul spânzurătoarea"
+	},
+	"speedsketch_item~happiness": {
+		"message": "fericire"
+	},
+	"speedsketch_item~harp": {
+		"message": "harpă"
+	},
+	"speedsketch_item~hat": {
+		"message": "pălărie"
+	},
+	"speedsketch_item~headphones": {
+		"message": "căști"
+	},
+	"speedsketch_item~heart": {
+		"message": "inimă"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "arici"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "elicopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "cască"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hexagon"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "puc de hochei"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "crosă de hochei"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "luminițe de crăciun"
+	},
+	"speedsketch_item~horse": {
+		"message": "cal"
+	},
+	"speedsketch_item~hospital": {
+		"message": "spital"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "balon cu aer cald"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "jacuzzi"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "clepsidră"
+	},
+	"speedsketch_item~house": {
+		"message": "casă"
+	},
+	"speedsketch_item~house plant": {
+		"message": "plantă ornamentală"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "uragan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "înghețată"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "patinator"
+	},
+	"speedsketch_item~infinity": {
+		"message": "infinit"
+	},
+	"speedsketch_item~island": {
+		"message": "insulă"
+	},
+	"speedsketch_item~italy": {
+		"message": "italia"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jachetă"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "zurgălăi"
+	},
+	"speedsketch_item~kale": {
+		"message": "kale"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "cangur"
+	},
+	"speedsketch_item~key": {
+		"message": "cheie"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "tastatură"
+	},
+	"speedsketch_item~kite": {
+		"message": "zmeu"
+	},
+	"speedsketch_item~knee": {
+		"message": "genunchi"
+	},
+	"speedsketch_item~knife": {
+		"message": "cuțit"
+	},
+	"speedsketch_item~knot": {
+		"message": "nod"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "scară"
+	},
+	"speedsketch_item~landscape": {
+		"message": "peisaj"
+	},
+	"speedsketch_item~lantern": {
+		"message": "felinar"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "frunză"
+	},
+	"speedsketch_item~leg": {
+		"message": "picior"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "bec"
+	},
+	"speedsketch_item~lighter": {
+		"message": "brichetă"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "far"
+	},
+	"speedsketch_item~lightning": {
+		"message": "fulger"
+	},
+	"speedsketch_item~line": {
+		"message": "linie"
+	},
+	"speedsketch_item~lion": {
+		"message": "leu"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "ruj"
+	},
+	"speedsketch_item~lobster": {
+		"message": "homar"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "acadea"
+	},
+	"speedsketch_item~love": {
+		"message": "iubire"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "căsuță poștală"
+	},
+	"speedsketch_item~man": {
+		"message": "bărbat"
+	},
+	"speedsketch_item~map": {
+		"message": "hartă"
+	},
+	"speedsketch_item~marker": {
+		"message": "cariocă"
+	},
+	"speedsketch_item~matches": {
+		"message": "chibrituri"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematică"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sirenă"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "microfon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "cuptor cu microunde"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "vâsc"
+	},
+	"speedsketch_item~mittens": {
+		"message": "mănuși"
+	},
+	"speedsketch_item~molecule": {
+		"message": "moleculă"
+	},
+	"speedsketch_item~money": {
+		"message": "bani"
+	},
+	"speedsketch_item~monkey": {
+		"message": "maimuță"
+	},
+	"speedsketch_item~moon": {
+		"message": "lună"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "țânțar"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motocicletă"
+	},
+	"speedsketch_item~mountain": {
+		"message": "munte"
+	},
+	"speedsketch_item~mouse": {
+		"message": "șoarece"
+	},
+	"speedsketch_item~moustache": {
+		"message": "mustață"
+	},
+	"speedsketch_item~mouth": {
+		"message": "gură"
+	},
+	"speedsketch_item~mug": {
+		"message": "cană"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "ciupercă"
+	},
+	"speedsketch_item~music": {
+		"message": "muzică"
+	},
+	"speedsketch_item~nail": {
+		"message": "cui"
+	},
+	"speedsketch_item~nature": {
+		"message": "natură"
+	},
+	"speedsketch_item~necklace": {
+		"message": "colier"
+	},
+	"speedsketch_item~news": {
+		"message": "știri"
+	},
+	"speedsketch_item~nose": {
+		"message": "nas"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "spărgător de nuci"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ocean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "octogon"
+	},
+	"speedsketch_item~octopus": {
+		"message": "caracatiță"
+	},
+	"speedsketch_item~onion": {
+		"message": "ceapă"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ornament"
+	},
+	"speedsketch_item~oven": {
+		"message": "cuptor"
+	},
+	"speedsketch_item~owl": {
+		"message": "bufniță"
+	},
+	"speedsketch_item~paint can": {
+		"message": "cutie de vopsea"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pensulă"
+	},
+	"speedsketch_item~painting": {
+		"message": "pictură"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmier"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "pantaloni"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "agrafă de birou"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parașută"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagal"
+	},
+	"speedsketch_item~passport": {
+		"message": "pașaport"
+	},
+	"speedsketch_item~peanut": {
+		"message": "arahidă"
+	},
+	"speedsketch_item~pear": {
+		"message": "pară"
+	},
+	"speedsketch_item~peas": {
+		"message": "mazăre"
+	},
+	"speedsketch_item~pencil": {
+		"message": "creion"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pinguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "mentă"
+	},
+	"speedsketch_item~piano": {
+		"message": "pian"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "furgonetă"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "ramă foto"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "diagrama radială"
+	},
+	"speedsketch_item~pig": {
+		"message": "porc"
+	},
+	"speedsketch_item~pillow": {
+		"message": "pernă"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "clește"
+	},
+	"speedsketch_item~police car": {
+		"message": "mașină de poliție"
+	},
+	"speedsketch_item~politician": {
+		"message": "politician"
+	},
+	"speedsketch_item~pond": {
+		"message": "iaz"
+	},
+	"speedsketch_item~pool": {
+		"message": "piscină"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "înghețată pe băț"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portret"
+	},
+	"speedsketch_item~postcard": {
+		"message": "carte poștală"
+	},
+	"speedsketch_item~potato": {
+		"message": "cartof"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "priză"
+	},
+	"speedsketch_item~present": {
+		"message": "cadou"
+	},
+	"speedsketch_item~prison": {
+		"message": "închisoare"
+	},
+	"speedsketch_item~purse": {
+		"message": "poșetă"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "puzzle"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "iepure"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "raton"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "ploaie"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "curcubeu"
+	},
+	"speedsketch_item~rake": {
+		"message": "greblă"
+	},
+	"speedsketch_item~raven": {
+		"message": "corb"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "ren"
+	},
+	"speedsketch_item~remote control": {
+		"message": "telecomandă"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "rinocer"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "bandă"
+	},
+	"speedsketch_item~river": {
+		"message": "râu"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "montaigne-russe"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "patine cu rotile"
+	},
+	"speedsketch_item~sadness": {
+		"message": "tristețe"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "barcă cu pânze"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sandviș"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Moș Crăciun"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "cârnat"
+	},
+	"speedsketch_item~saw": {
+		"message": "ferăstrău"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "autobuz școlar"
+	},
+	"speedsketch_item~scissors": {
+		"message": "foarfece"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "scorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "șurub"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "șurubelniță"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "sculptură"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "țestoasă"
+	},
+	"speedsketch_item~see saw": {
+		"message": "balansoar"
+	},
+	"speedsketch_item~shark": {
+		"message": "rechin"
+	},
+	"speedsketch_item~sheep": {
+		"message": "oaie"
+	},
+	"speedsketch_item~shoe": {
+		"message": "pantof"
+	},
+	"speedsketch_item~shorts": {
+		"message": "șort"
+	},
+	"speedsketch_item~shovel": {
+		"message": "lopată"
+	},
+	"speedsketch_item~sink": {
+		"message": "chiuvetă"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "schi"
+	},
+	"speedsketch_item~skier": {
+		"message": "schior"
+	},
+	"speedsketch_item~skirt": {
+		"message": "fustă"
+	},
+	"speedsketch_item~skull": {
+		"message": "craniu"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "zgârie-nori"
+	},
+	"speedsketch_item~sled": {
+		"message": "sanie"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "sac de dormit"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sanie"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "față zâmbitoare"
+	},
+	"speedsketch_item~snail": {
+		"message": "melc"
+	},
+	"speedsketch_item~snake": {
+		"message": "șarpe"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "tub cu oxigen"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "fulg de nea"
+	},
+	"speedsketch_item~snowman": {
+		"message": "om de zăpadă"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "minge de fotbal"
+	},
+	"speedsketch_item~sock": {
+		"message": "șosetă"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "barcă cu motor"
+	},
+	"speedsketch_item~sphere": {
+		"message": "sferă"
+	},
+	"speedsketch_item~spider": {
+		"message": "păianjen"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spirală"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lingură"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "foaie de calcul"
+	},
+	"speedsketch_item~square": {
+		"message": "pătrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "cârlionț"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "veveriță"
+	},
+	"speedsketch_item~stairs": {
+		"message": "scări"
+	},
+	"speedsketch_item~star": {
+		"message": "stea"
+	},
+	"speedsketch_item~steak": {
+		"message": "friptură"
+	},
+	"speedsketch_item~stereo": {
+		"message": "echipament audio"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoscop"
+	},
+	"speedsketch_item~still life": {
+		"message": "natură moartă"
+	},
+	"speedsketch_item~stitches": {
+		"message": "rană cusută"
+	},
+	"speedsketch_item~stock market": {
+		"message": "bursă de valori"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ciorap"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "semnul stop"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "cronometru"
+	},
+	"speedsketch_item~stove": {
+		"message": "aragaz"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "căpșună"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "felinar stradal"
+	},
+	"speedsketch_item~string bean": {
+		"message": "fasole verde"
+	},
+	"speedsketch_item~submarine": {
+		"message": "submarin"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "valiză"
+	},
+	"speedsketch_item~sun": {
+		"message": "soare"
+	},
+	"speedsketch_item~sunset": {
+		"message": "asfințit"
+	},
+	"speedsketch_item~swan": {
+		"message": "lebădă"
+	},
+	"speedsketch_item~sweater": {
+		"message": "pulover"
+	},
+	"speedsketch_item~swing set": {
+		"message": "leagăn"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "tricou"
+	},
+	"speedsketch_item~table": {
+		"message": "masă"
+	},
+	"speedsketch_item~teapot": {
+		"message": "ceainic"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "ursuleț de jucărie"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "televizor"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "rachetă de tenis"
+	},
+	"speedsketch_item~tent": {
+		"message": "cort"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "jocul x și 0"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigru"
+	},
+	"speedsketch_item~time": {
+		"message": "timp"
+	},
+	"speedsketch_item~toaster": {
+		"message": "prăjitor de pâine"
+	},
+	"speedsketch_item~toe": {
+		"message": "deget de la picior"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toaletă"
+	},
+	"speedsketch_item~tooth": {
+		"message": "dinte"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "periuță de dinți"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "pastă de dinți"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornadă"
+	},
+	"speedsketch_item~tractor": {
+		"message": "tractor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "semafor"
+	},
+	"speedsketch_item~train": {
+		"message": "tren"
+	},
+	"speedsketch_item~tree": {
+		"message": "copac"
+	},
+	"speedsketch_item~triangle": {
+		"message": "triunghi"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricicletă"
+	},
+	"speedsketch_item~trolley": {
+		"message": "cărucior"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombon"
+	},
+	"speedsketch_item~trousers": {
+		"message": "pantaloni"
+	},
+	"speedsketch_item~truck": {
+		"message": "camion"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompetă"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "umbrelă"
+	},
+	"speedsketch_item~underwear": {
+		"message": "chiloți"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "inorog"
+	},
+	"speedsketch_item~universe": {
+		"message": "univers"
+	},
+	"speedsketch_item~van": {
+		"message": "camionetă"
+	},
+	"speedsketch_item~vase": {
+		"message": "vază"
+	},
+	"speedsketch_item~violin": {
+		"message": "vioară"
+	},
+	"speedsketch_item~walnut": {
+		"message": "nucă"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "mașină de spălat"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "pepene verde"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "tobogan cu apă"
+	},
+	"speedsketch_item~wave": {
+		"message": "val"
+	},
+	"speedsketch_item~whale": {
+		"message": "balenă"
+	},
+	"speedsketch_item~wheel": {
+		"message": "roată"
+	},
+	"speedsketch_item~windmill": {
+		"message": "moară de vânt"
+	},
+	"speedsketch_item~woman": {
+		"message": "femeie"
+	},
+	"speedsketch_item~world": {
+		"message": "mapamond"
+	},
+	"speedsketch_item~wreath": {
+		"message": "coroniță"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ceas de mână"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "iaurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebră"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "fermoar"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Suedeză"
+	},
+	"td_country_name": {
+		"message": "Ciad"
+	},
+	"terms-and-privacy": {
+		"message": "Termeni și confidențialitate"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thailandeză"
+	},
+	"tilt": {
+		"message": "Înclină dispozitivul!"
+	},
+	"time": {
+		"message": "Timp"
+	},
+	"tj_country_name": {
+		"message": "Tadjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"today_only": {
+		"message": "Numai astăzi"
+	},
+	"tr_country_name": {
+		"message": "Turcia"
+	},
+	"tr_language_name": {
+		"message": "Turcă"
+	},
+	"tracker_arrival": {
+		"message": "Aterizare"
+	},
+	"tracker_arriving_in": {
+		"message": "Sosește în"
+	},
+	"tracker_current_stop": {
+		"message": "Oprirea actuală"
+	},
+	"tracker_departing_in": {
+		"message": "Plecare în"
+	},
+	"tracker_distance_away_km": {
+		"message": "Moș Crăciun este la {{distance_away}} (de) km distanță"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distanța față de tine"
+	},
+	"tracker_distance_travelled": {
+		"message": "Distanța parcursă"
+	},
+	"tracker_feed": {
+		"message": "Feed live"
+	},
+	"tracker_flight_nearby": {
+		"message": "Moș Crăciun este în apropiere. Află unde."
+	},
+	"tracker_flight_start": {
+		"message": "Moș Crăciun a plecat de la Polul Nord. Acum îi poți urmări traseul."
+	},
+	"tracker_from_google": {
+		"message": "De la toți cei de la Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Cadouri livrate"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Treceți peste introducere"
+	},
+	"tracker_intro_user_location": {
+		"message": "Sunteți la"
+	},
+	"tracker_just_in": {
+		"message": "Noutăți"
+	},
+	"tracker_next_stop": {
+		"message": "Următoarea oprire"
+	},
+	"tracker_santa_update": {
+		"message": "NOUTĂȚI DE LA MOȘ CRĂCIUN"
+	},
+	"tracker_santa_update_1": {
+		"message": "Noutăți de la Moș Crăciun"
+	},
+	"tracker_see_route": {
+		"message": "Vezi traseul"
+	},
+	"tracker_stats": {
+		"message": "Unde este Moș Crăciun?"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Moș Crăciun va sosi peste aproximativ {{hours}} ore"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Moș Crăciun va sosi în curând"
+	},
+	"tracker_track": {
+		"message": "Urmărește-l pe Moș Crăciun"
+	},
+	"tracker_travelogue": {
+		"message": "Jurnal de călătorii"
+	},
+	"tracker_weather": {
+		"message": "Condițiile meteo"
+	},
+	"tracker_world_facts": {
+		"message": "ȘTIAȚI CĂ"
+	},
+	"tracker_world_facts_1": {
+		"message": "Informații despre lume"
+	},
+	"tracker_your_location": {
+		"message": "Locația ta"
+	},
+	"traditions-next": {
+		"message": "Următoarea tradiție"
+	},
+	"traditions-prev": {
+		"message": "Tradiția anterioară"
+	},
+	"traditions-world": {
+		"message": "Mapamond"
+	},
+	"trivia_beginner_001": {
+		"message": "Pe ce continent se află Munții Anzi?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_002": {
+		"message": "Ce stat din S.U.A. este format din opt insule principale?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Ce stat din S.U.A. se află în Marile Câmpii?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Ce continent este mărginit de oceanele Atlantic, Pacific și Arctic?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_005": {
+		"message": "Ce stat se află în zona orei Pacificului?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Pe ce continent se află Munții Atlas și Deșertul Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_007": {
+		"message": "Ce stat din S.U.A. este mărginit de un lac dintre Marile Lacuri?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Pe ce continent majoritatea oamenilor vorbesc portugheză sau spaniolă?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_009": {
+		"message": "Ce stat din S.U.A. are o formă care include o fâșie strâmtă de teren atașată la acesta?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Ce continent alături de Antarctica se află complet în Emisfera Sudică?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_011": {
+		"message": "Ce continent este mărginit de zona Ronne Ice Shelf?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_012": {
+		"message": "Pe coasta de vest a cărui continent se află insulele Vancouver și Kodiak?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "În nord-vestul cărui continent se găsește Niger, una dintre țările cu cel mai mare spor natural din lume?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_014": {
+		"message": "Pe ce continent se află cele mai puține plante și cei mai puțini copaci?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_015": {
+		"message": "De pe o insulă de pe coasta de sud a cărui continent sunt originari diavolii tasmanieni?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "În ce țară mediteraneeană se află Turnul Înclinat din Pisa, o atracție turistică populară?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Pe coasta nordică a cărui continent se află orașele istorice Casablanca și Tripoli?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_018": {
+		"message": "Pe ce continent se poate găsi cactusul Saguaro în Deșertul Sonoran?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_019": {
+		"message": "În ce țară Veracruz și Acapulco sunt destinații de vacanță populare?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "În ce țară se găsesc sanctuarele urșilor panda din provincia Sichuan, care găzduiesc aproximativ 30% din populația de urși panda a lumii?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Islanda"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopia"
+	},
+	"trivia_beginner_021": {
+		"message": "Pe ce continent se găsește aproximativ 90% din gheața de pe glob?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Africa"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_022": {
+		"message": "Pe ce continent să găsește cascada Angel, cea mai mare cascadă din lume?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_023": {
+		"message": "În ce stat din S.U.A. trebuie să călătorești pentru a vizita Jackson Hole și pentru a urca pe Devils Tower?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Dakota de Nord"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "În ce stat din S.U.A. trebuie să călătorești pentru a vedea cum se colectează seva de arțar și pentru a schia în Munții Green?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Ce stat trebuie să vizitezi pentru a trece peste Chesapeake Bay Bridge și pentru a te plimba pe aleile de scânduri din Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Carolina de Nord"
+	},
+	"trivia_beginner_026": {
+		"message": "În ce stat din S.U.A. trebuie să călătorești pentru a vizita peștera Mammoth Cave și pentru a privi cursele de cai de la Churchill Downs?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Virginia de Vest"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "În ce stat din S.U.A. trebuie să călătorești pentru a vedea uriașii copaci sequoia și Insulele Canalului?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Ce mlaștină vizitezi dacă te afli în statul american Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Mlaștinile din Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Mlaștina Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Marea mlaștină Cypress"
+	},
+	"trivia_beginner_029": {
+		"message": "În ce stat din S.U.A. trebuie să călătorești pentru a face un tur al căii maritime St. Lawrence Seaway și pentru a vizita lacurile Finger Lakes?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Pe ce continent se află Muntele Everest, cel mai înalt vârf din lume?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_031": {
+		"message": "Regiunea Patagonia acoperă o mare parte din sudul cărui continent?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Africa"
+	},
+	"trivia_beginner_032": {
+		"message": "Pe ce continent este habitatul natural al pinguinilor imperiali?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "Din ce țară sunt originari cangurii și urșii koala?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_034": {
+		"message": "Pe ce continent sunt atrași turiștii de Parcul Național Serengeti?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035": {
+		"message": "Ce continent are cea mai mare suprafață de uscat?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "În ce oraș european râul Tamisa este traversat de Tower Bridge?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londra"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cape Town"
+	},
+	"trivia_beginner_037": {
+		"message": "În ce oraș din Rusia se găsește catedrala Sfântul Vasile, în Piața Roșie, în apropiere de Kremlin?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscova"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Bruxelles"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "În ce oraș european se găsește Colosseumul, clădire ridicată în secolul I. Î.Hr, pentru a găzdui luptele gladiatorilor?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "În ce oraș din Australia se află Opera House și Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praga"
+	},
+	"trivia_beginner_040": {
+		"message": "În ce oraș vechi din Orientul Mijlociu se află Cupola Stâncii și Zidul Plângerii, două dintre numeroasele locuri sfinte din această locație?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Ierusalim"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_beginner_041": {
+		"message": "În ce oraș din Grecia Parthenonul se află pe Acropole?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atena"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "În centrul cărui oraș din Franța se află Turnul Eiffel în apropierea râului Sena?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "În ce oraș din Arabia Saudită se află Moscheea al-Haram, care găzduiește Kaaba, cel mai sacru loc din Islam?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mecca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapesta"
+	},
+	"trivia_beginner_044": {
+		"message": "În centrul cărui oraș din China se află Orașul Interzis, un fost palat imperial?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Beijing"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "În ce oraș din S.U.A. aflat în zona Puget Sound se află turnul de observație Space Needle?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "În ce oraș din S.U.A., aflat la gura de vărsare a râului Charles, se află John Hancock Tower, cea mai înaltă clădire din oraș?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "În ce oraș din S.U.A. localizat în Deșertul Mojave se află Stratosphere Tower, cea mai înaltă clădire din oraș, la nord de un faimos bulevard cunoscut sub numele de The Strip?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "În portul cărui oraș din S.U.A. se află Statuia Libertății de pe Insula Liberty?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Ce oraș american leagă podul Golden Gate de peninsula marină?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "În ce oraș american de pe malul râului Mississippi se găsește „The Gateway Arch”, monument care simbolizează expansiunea spre vest a Americii în anii 1800?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "În ce țară din Africa se află Platoul Giza, care găzduiește Marea Piramidă și Sfinxul?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egipt"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazilia"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Germania"
+	},
+	"trivia_beginner_052": {
+		"message": "În ce oraș din S.U.A., în apropierea râului Delaware, se află Independence Hall, o zonă istorică importantă asociată cu Revoluția Americană?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Munții Stâncoși traversează Canada și ce altă țară?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Statele Unite ale Americii"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_054": {
+		"message": "Ce ocean mărginește țările Brazilia și Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_beginner_055": {
+		"message": "În ce ocean, pe coasta de est a Canadei, se află insula Newfoundland?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_056": {
+		"message": "În ce ocean se află insula Madagascar, pe coasta de est a Africii?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_beginner_057": {
+		"message": "Prin mijlocul cărui ocean trece o mare parte a liniei internaționale de delimitare a datei?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_beginner_058": {
+		"message": "Pe ce continent Ecuatorul străbate Bazinul Congo?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Ce continent este mărginit de Golful Mexic?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_060": {
+		"message": "Ce fluviu care curge prin Africa este cel mai lung fluviu din lume?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Fluviul Nil"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Fluviul Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Fluviul Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "Pe ce continent se află ruinele de la Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_062": {
+		"message": "Pe ce continent curge fluviul Amazon, care are cel mai mare debit de apă din lume?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_063": {
+		"message": "Pe ce continent se află Mont Blanc, cel mai înalt vârf din Munții Alpi?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_064": {
+		"message": "Ce continent este unit de America Centrală prin Istmul Panama?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Pe ce continent pot fi găsiți gheparzii, cele mai rapide mamifere terestre din lume aflate în Kenya și Tanzania?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_066": {
+		"message": "Capul Bunei Speranțe este localizat în sudul cărui continent?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_067": {
+		"message": "Pe insulele Galápagos, la vest de America de Sud, trăiește o specie de broaște țestoase gigant. În ce ocean se găsesc aceste insule?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_068": {
+		"message": "Pe ce continent se află fluviul Dunărea, care curge prin Viena și alte orașe?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Africa"
+	},
+	"trivia_beginner_069": {
+		"message": "Ce mare mărginesc insulele Cuba și Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Marea Caraibilor"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Marea Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Marea Baltică"
+	},
+	"trivia_beginner_070": {
+		"message": "Ce continent este mărginit de Golful Guineei?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_071": {
+		"message": "Ce continent a fost explorat de faimosul Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "Brațul cărui ocean este Marea Labrador?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_073": {
+		"message": "Pe ce continent se află Sahara, cel mai mare deșert din lume?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_074": {
+		"message": "Pe ce continent se află Platoul Tibet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_075": {
+		"message": "În sudul cărui continent se află Strâmtoarea Drake?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076": {
+		"message": "Pe coasta cărui continent se află Marea Barieră de Corali din Marea Coralilor?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_077": {
+		"message": "În ce țară trebuie să călătorești pentru a naviga pe canalul Suez și pentru a vizita „Orașul morților” din Cairo?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egipt"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Columbia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finlanda"
+	},
+	"trivia_beginner_078": {
+		"message": "În ce țară trebuie să călătorești pentru a vedea văcarii gaucho care își păzesc vitele și pentru a vedea dansatorii de tango din Buenos Aires?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "În ce țară trebuie să călătorești pentru a vizita vechiul cartier Fez și pentru a face drumeții în Munții Atlas?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroc"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailanda"
+	},
+	"trivia_beginner_080": {
+		"message": "În ce țară trebuie să călătorești pentru a vizita vechile ruine mayașe și pentru a te relaxa pe plajele din Cancún?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Țările de Jos"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turcia"
+	},
+	"trivia_beginner_081": {
+		"message": "În ce țară trebuie să călătorești pentru a vizita catedrala St. Patrick din Dublin și pentru a participa la festivalul de arte din Kilkenny?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "În ce țară trebuie să călătorești pentru a face un tur al pădurilor tropicale și a dansa la Carnavalul de la Rio de Janeiro?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazilia"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Regatul Unit"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "În ce țară trebuie să călătorești pentru a vizita Muzeul Hermitage din Sankt Petersburg și pentru a călători folosind calea ferată transsiberiană?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonezia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "În ce țară trebuie să călătorești pentru a merge cu trenurile de mare viteză și pentru a te caza într-un hotel din Tokyo?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japonia"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "În ce țară trebuie să călătorești pentru a mânca pesto în Genoa și a merge la operă în Florența?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libia"
+	},
+	"trivia_beginner_086": {
+		"message": "În ce țară trebuie să călătorești pentru a merge la safari în Rezervația Naturală Maasai Mara și pentru a face cumpărături în Nairobi?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Coreea de Sud"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Ce țară trebuie să vizitezi pentru a vedea fluviul Gange și pentru a explora aglomeratele străzi din Kolkata?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Germania"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Iordania"
+	},
+	"trivia_beginner_088": {
+		"message": "În mijlocul cărui ocean se află Polul Nord, cel mai nordic punct de pe glob?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_beginner_089": {
+		"message": "Ce țară are deschidere la Oceanul Atlantic?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Islanda"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japonia"
+	},
+	"trivia_beginner_090": {
+		"message": "Ce stat din S.U.A. este cunoscut sub numele de Sunshine State datorită climei calde și plajelor populare?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "În ce stat din S.U.A. se află Marele Canion?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Virginia de Vest"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dakota de Sud"
+	},
+	"trivia_beginner_092": {
+		"message": "Ce stat din S.U.A., cunoscut sub numele de Lone Star State, are pe drapel o singură stea și în trecut a fost un stat independent?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Pe ce continent se află râurile Tigru și Eufrat?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "Pe ce continent se află lacul Victoria și Munții Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Africa"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_095": {
+		"message": "Ce țară este o insulă din Oceanul Pacific?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Noua Zeelandă"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Africa de Sud"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Islanda"
+	},
+	"trivia_beginner_096": {
+		"message": "Ce țară este situată în Peninsula Scandinavă?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Suedia"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "România"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Ce țară are deschidere la Marea Mediterană?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Franța"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Ce oraș din S.U.A. se află cel mai aproape de granița cu Canada?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Ce oraș din S.U.A. are cele mai mari șanse să fie lovit de un uragan?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Care dintre lacurile următoare are cea mai mare suprafață?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Lacul Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lacul Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Lacul Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Care dintre aceste orașe din S.U.A. are cea mai mare populație?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Ce țară se află în Golful Persic?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turcia"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Care dintre țările următoare are cea mai mare suprafață de uscat?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazahstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "România"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_hard_007": {
+		"message": "Care dintre țările următoare are densitatea cea mai mare a populației?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapore"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Care dintre țările următoare cuprinde cei mai mulți vorbitori de limba germană?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovacia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "Care dintre țările următoare are granițe comune cu cele mai multe țări?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Arabia Saudită"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroc"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_010": {
+		"message": "Ce țară nu are deschidere la lacul Tanganyika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Ce țară nu este traversată de Ecuator?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonezia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Ce țară nu se află în Peninsula Balcanică?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Republica Cehă"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_hard_013": {
+		"message": "Ce țară nu are deschidere la Marea Nordului?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finlanda"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Danemarca"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Regatul Unit"
+	},
+	"trivia_hard_014": {
+		"message": "Ce țară nu are deschidere la Marea Neagră?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ucraina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turcia"
+	},
+	"trivia_hard_015": {
+		"message": "Ce țară are deschidere la mare?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croația"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungaria"
+	},
+	"trivia_hard_016": {
+		"message": "Ce țară nu se află în Deșertul Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algeria"
+	},
+	"trivia_hard_017": {
+		"message": "Ce insulă se află în cel mai estic punct?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Ce apă mărginește Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Marea Caraibilor"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_hard_019": {
+		"message": "Ce oraș este port în Golful Mexic?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Ce țară este traversată de Tropicul Racului?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazilia"
+	},
+	"trivia_hard_021": {
+		"message": "Care dintre insulele următoare are suprafața cea mai mare?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Insula Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinia"
+	},
+	"trivia_hard_022": {
+		"message": "Care este insula de care Mexicul este separat de Canalul Yucatán?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Ce oraș din Canada se află în punctul cel mai nordic?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Ce țară face parte din Antilele Mici?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermude"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Noua Scoție"
+	},
+	"trivia_hard_025": {
+		"message": "În ce țară Port-au-Prince este cel mai populat oraș?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "Ce țară este traversată de lanțul muntos Munții Carpați?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "România"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Ce țară are ca limbă oficială franceza?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuweit"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Care dintre aceste țări are cea mai mare suprafață de uscat?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Ce țară cuprinde cele mai multe grade longitudine?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazahstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Siria"
+	},
+	"trivia_hard_030": {
+		"message": "Ce țară este alcătuită din multe insule?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipine"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Cambodgia"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadjikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Care dintre următoarele țări are cele mai multe fusuri orare?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazilia"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Care este țara care se află în cel mai nordic punct?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Camerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambic"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_033": {
+		"message": "Ce țară se află între Franța și Spania?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Statul Cetății Vaticanului"
+	},
+	"trivia_hard_034": {
+		"message": "Ce țară are graniță comună cu Danemarca?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Germania"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finlanda"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Cărei țări aparține insula Sardinia?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turcia"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Regatul Unit"
+	},
+	"trivia_hard_036": {
+		"message": "Ce deșert acoperă o mare parte a zonei dintre Beijing și Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Marele Deșert Indian"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Deșertul Libian"
+	},
+	"trivia_hard_037": {
+		"message": "Din ce ocean face parte curentul Kamchatka?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_hard_038": {
+		"message": "În partea de sud a cărei mări se află Golful Sidra?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Marea Mediterană"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Marea Arabiei"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Marea Baltică"
+	},
+	"trivia_hard_039": {
+		"message": "În ce lanț muntos european se află Munții Tatra, în mare parte?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Munții Carpați"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Munții Cantabrici"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Munții Pirinei"
+	},
+	"trivia_hard_040": {
+		"message": "Ce fluviu trece prin lacul Kariba și formează granița dintre Zambia și Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Fluviul Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Fluviul Nil"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Fluviul Congo"
+	},
+	"trivia_hard_041": {
+		"message": "În ce mare se varsă râurile Tamisa, Meuse și Schelde?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Marea Nordului"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Marea Mediterană"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Marea Neagră"
+	},
+	"trivia_hard_042": {
+		"message": "Ce insulă mare este despărțită la nord de Arhipelagul Filipinelor prin Strâmtoarea Luzon?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algeria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Ce insule se află de-a lungul Dorsalei Atlantice?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azore"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Insulele Fiji"
+	},
+	"trivia_hard_044": {
+		"message": "Ce râu se varsă în Marea Laptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Râul Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Fluviul Yangtze"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Fluviul Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Ce vârf este cel mai apropiat de Ecuator?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Muntele McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Care dintre următoarele capitale are cea mai mare populație?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscova"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_hard_047": {
+		"message": "Ce oraș traversat de râul Liffey, este cel mai mare oraș din Irlanda?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhaga"
+	},
+	"trivia_hard_048": {
+		"message": "Ce oraș aflat într-o vale din Hindu Kush este cel mai mare oraș din Afghanistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Ce oraș este cel mai mare din Thailanda și se află pe cursul râului Chao Phraya?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Beijing"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Care este cel mai mare oraș din Norvegia și se află în capătul unui fiord din Strâmtoarea Skagerrak?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londra"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Bruxelles"
+	},
+	"trivia_hard_051": {
+		"message": "Ce oraș este cel mai mare din Liban și se află de-a lungul zonei estice a Mării Mediterane?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riad"
+	},
+	"trivia_hard_052": {
+		"message": "Ce oraș, aflat pe coasta Java, este cel mai mare oraș din Indonezia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Ce oraș situat în regiunea Attica este cel mai mare oraș din Grecia?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atena"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Se găsește în estuarul Río de la Plata și este cel mai mare oraș din Uruguay. Despre ce oraș este vorba?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Ce oraș este cel mai mare din Africa de Sud și în trecut făcea parte din provincia Transvaal?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Care este cel mai mare oraș din Jamaica, un centru important de cumpărături din Marea Caraibilor?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Care este cel mai mare oraș din Eritrea aflat în Valea Rift?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Care este cel mai mare oraș din Polonia și se află pe malurile fluviului Vistula?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varșovia"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Care este cel mai mare oraș din Costa Rica, un popas important pe Autostrada Panamericană?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Care este cel mai mare oraș din Zimbabwe și este un centru de comerț agricol important din Africa de Sud?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Ce oraș a fost ocupat de regimul Khmer Rouge și este cel mai mare oraș din Cambodgia?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Care este cel mai mare oraș din Liberia, cu deschidere la Oceanul Atlantic în Cape Mesurado?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Care este cel mai mare oraș din Columbia, aflat pe un platou înalt din Munții Anzi?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Ce oraș este cel mai mare din Iran și se află la baza Munților Elburz?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tashkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Ce apă este străbătută de Cercul Polar?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Marea Norvegiei"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Lacul Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Marea Caspică"
+	},
+	"trivia_hard_066": {
+		"message": "Ce apă s-a acumulat în Valea Rift?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Lacul Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Marea Tasmaniei"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Lacul Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Pe malul cărei ape se află orașul-port Arkhangelsk din Rusia?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Marea Albă"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Strâmtoarea Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golful Biscaia"
+	},
+	"trivia_hard_068": {
+		"message": "Ce țară include provinciile Hunan și Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailanda"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Yemen"
+	},
+	"trivia_hard_069": {
+		"message": "Ce țară mediteraneeană are ca limbă oficială castiliana?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spania"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grecia"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_070": {
+		"message": "Ce țară din America Centrală a fost o provincie care făcea parte din Columbia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "În ce țară despărțită de râul Rin se află orașul Basel, un centru important de transport?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Elveția"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgia"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_hard_072": {
+		"message": "Pictori precum Cézanne au fost inspirați de peisajele din Provence. În ce țară se găsește această regiune?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Franța"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Țările de Jos"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "România"
+	},
+	"trivia_hard_073": {
+		"message": "În ce țară se găsește Bahía Blanca, un port important din regiunea pampasului?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Ce țară este mărginită de Marea Mediterană, Marea Neagră și Marea Egee?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turcia"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libia"
+	},
+	"trivia_hard_075": {
+		"message": "În ce țară învecinată din nord-est migrează în fiecare an animalele gnu din Tanzania peste râul Mara?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guineea"
+	},
+	"trivia_hard_076": {
+		"message": "În sud-vestul cărei țări din Asia se află Aleppo, oraș faimos pentru Marea Moschee?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Siria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Ce țară este mărginită de Rusia și Georgia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Coreea de Nord"
+	},
+	"trivia_hard_078": {
+		"message": "Ce țară este mărginită de Panama și Brazilia?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Columbia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Ce țară este mărginită de Guatemala și de Statele Unite ale Americii?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_080": {
+		"message": "Ce țară este mărginită de Irak și Afghanistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ucraina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_081": {
+		"message": "Ce țară are granițe comune cu Lesotho și Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Africa de Sud"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "În ce țară se află Antwerp în zona în care se vorbește flamandă?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgia"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Țările de Jos"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Islanda"
+	},
+	"trivia_hard_083": {
+		"message": "În ce țară europeană se găsește orașul Gdańsk, un important port aflat la gura Vistulei?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polonia"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spania"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croația"
+	},
+	"trivia_hard_084": {
+		"message": "Ce fluviu din America de Sud are ca afluenți importanți râurile Madeira și Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Fluviul Amazon"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Fluviul Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Fluviul Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Ce țară mai este mărginită de lacul Constanța în afară de Elveția și Germania?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovacia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finlanda"
+	},
+	"trivia_hard_086": {
+		"message": "În ce țară se află Auckland, un oraș-port important cu numeroase porturi, fiind cel mai mare oraș din țară?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Noua Zeelandă"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonezia"
+	},
+	"trivia_hard_087": {
+		"message": "Ce țară aflată la vest de Togo este un producător important de cacao?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_hard_088": {
+		"message": "În ce țară din America de Sud, Guaraní este denumirea uneia dintre limbile oficiale și a monedei utilizate?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazilia"
+	},
+	"trivia_hard_089": {
+		"message": "Ce lanț muntos se desfășoară de-a lungul graniței dintre Franța și Spania?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Munții Pirinei"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Munții Apenini"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Munții Caucaz"
+	},
+	"trivia_hard_090": {
+		"message": "În ce țară râul Torrens se varsă în Golful Saint Vincent?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_091": {
+		"message": "Ce țară din Africa are deschidere la Marea Mediterană și este o monarhie?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroc"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egipt"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Republica Centrafricană"
+	},
+	"trivia_hard_092": {
+		"message": "Capitala cărei țări este Tbilisi, oraș aflat pe malurile râului Kura?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Siria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungaria"
+	},
+	"trivia_hard_093": {
+		"message": "În ce țară se află Abruzzo, o regiune muntoasă cu deschidere la Marea Adriatică?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Franța"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Ce țară în afară de Letonia este mărginită de Golful Riga?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spania"
+	},
+	"trivia_hard_095": {
+		"message": "Ce mare este unită cu Golful Suez prin Strâmtoarea Jubal?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Marea Roșie"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Marea Caraibilor"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Marea Caspică"
+	},
+	"trivia_hard_096": {
+		"message": "Ce râu aduce cea mai mare cantitate de apă în Marea Galileei?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Râul Iordan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Fluviul Gange"
+	},
+	"trivia_hard_097": {
+		"message": "Ce golf mare separă New Brunswick de Noua Scoție?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Golful Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Golful Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Golful Bengal"
+	},
+	"trivia_hard_098": {
+		"message": "În ce țară se află Catedrala Cologne în regiunea Rhineland?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Germania"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Danemarca"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "În ce țară se află Chiapas, cel mai sudic stat, care cuprinde numeroase ruine maiașe?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Ce mare este unită de Marea Marmara prin Strâmtoarea Dardanele?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Marea Egee"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Marea Barents"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Marea Tasmaniei"
+	},
+	"trivia_hard_101": {
+		"message": "Ce țară din sud-estul Asiei are ca limbă oficială Khmer?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Cambodgia"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Bazinul Donețk este o zonă industrială comună pentru Rusia și ce altă țară?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ucraina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovacia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Liban"
+	},
+	"trivia_hard_103": {
+		"message": "Pe ce continent se află Vârful Kosciuszko, cel mai înalt vârf din Munții Snowy?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_hard_104": {
+		"message": "Din ce țară fac parte insulele Madura și Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonezia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japonia"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "În ce țară din Asia se află Deșertul Taklimakan, la nord de Munții Kunlun?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Arabia Saudită"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Coreea de Sud"
+	},
+	"trivia_medium_001": {
+		"message": "Care dintre următoarele orașe din S.U.A. se află în delta unui râu?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma"
+	},
+	"trivia_medium_002": {
+		"message": "Pe ce continent se află Angkor Wat și Cappadocia, zone înscrise în Patrimoniul Mondial UNESCO?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Africa"
+	},
+	"trivia_medium_003": {
+		"message": "Pe ce continent, în partea de sud-vest, se vorbesc limbile kurdă și persană?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_004": {
+		"message": "Pe ce continent se găsește Teotihuacán, un important centru al unei civilizații timpurii?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "America de Nord"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_005": {
+		"message": "Ce continent este mărginit de Marea Bellingshausen și de Marea Ross?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_006": {
+		"message": "Coasta cărui continent este străbătută de curenții Mozambic și Benguela?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Africa"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "America de Nord"
+	},
+	"trivia_medium_007": {
+		"message": "În sud-estul cărui continent se află Arhipelagul Islas Malvinas denumit și insulele Falkland?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Ce țară aflată în Africa are cea mai mare suprafață?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algeria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Ce insulă mare se află la 200 de mile nord-vest de Islanda?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Groenlanda"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Noua Guinee"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_010": {
+		"message": "Din ce ocean fac parte Marea Kara și Marea Siberiană Orientală?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Oceanul Indian"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_medium_011": {
+		"message": "Ce țară este mărginită de Marea Baltică?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Letonia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ucraina"
+	},
+	"trivia_medium_012": {
+		"message": "Care dintre aceste orașe importante are cea mai mare populație?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brazilia"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Ce țară nu are deschidere la Oceanul Atlantic?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Care dintre următoarele țări are cea mai scurtă linie de coastă?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Ce deșert se află în Asia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Care dintre aceste țări înregistrează cea mai puternică activitate vulcanică?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonezia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egipt"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Care dintre aceste țări are cea mai mare populație?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Care dintre țările următoare include cele mai multe insule?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Ce țară se află cel mai aproape de Ecuator?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Africa de Sud"
+	},
+	"trivia_medium_020": {
+		"message": "Care este țara care se află în cel mai nordic punct?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Cambodgia"
+	},
+	"trivia_medium_021": {
+		"message": "În ce capitală aflată pe malurile râului Tagus din Portugalia se află Districtul Alfama?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisabona"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Ce capitală aflată la 25 de mile nord-est de Marea Moartă este cel mai populat oraș din Iordania?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seul"
+	},
+	"trivia_medium_023": {
+		"message": "În ce capitală se află Piața Tahrir, punctul central al unor proteste importante din Egipt?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Cairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "În ce capitală din Golful Table își are sediul parlamentul din Africa de Sud?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cape Town"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Care este cel mai mare oraș din Republica Cehă, fiind capitala țării aflată pe cursul râului Vltava?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praga"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Ce capitală, cu deschidere la Marea Mediterană, este un port important pentru Libia?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Ce capitală se află la intersecția dintre râurile Nilul Alb și Nilul Albastru și este un centru de transport și comerț foarte important din Sudan?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Ce capitală este situată pe insulele daneze Zeelanda și Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhaga"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Berna"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Ce capitală aflată pe insula New Providence este cel mai mare oraș din Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Ce capitală aflată în sudul Mării Negre reprezintă punctul central al sistemului de transport din Turcia?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Care dintre țările următoare se află parțial în Cornul Africii?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Ce țară este separată de Danemarca prin Strâmtoarea Skagerrak?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norvegia"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Regatul Unit"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Ce țară are cea mai mare suprafață acoperită de deșert?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Ciad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norvegia"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Prin ce țară curge râul Eufrat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Siria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Elveția"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailanda"
+	},
+	"trivia_medium_035": {
+		"message": "Pe ce continent se află orașul Irkutsk din apropierea lacului Baikal?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_036": {
+		"message": "Pe ce continent curg râurile importante Dnieper și Rin?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_037": {
+		"message": "Pe ce continent se află Guiana Highlands și regiunea Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "America de Nord"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "Pe ce continent se află Marele Deșert Victoria și Câmpia Nullarbor?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "În ce țară se află Rio Grande do Sul în partea cea mai de sud?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazilia"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexic"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Germania"
+	},
+	"trivia_medium_040": {
+		"message": "În ce țară se află orașul Novosibirsk pe râul Ob?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "Ce țară aflată pe Coasta Pacificului are cel mai mare risc de a înregistra un cutremur?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Franța"
+	},
+	"trivia_medium_042": {
+		"message": "Pe coasta de nord a cărei țări se află lacul Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_043": {
+		"message": "Ce țară este mărginită de Marea Arabiei?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadjikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_044": {
+		"message": "Ce țară se află în Peninsula Iberică?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugalia"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Țările de Jos"
+	},
+	"trivia_medium_045": {
+		"message": "Care dintre țările următoare are cea mai lungă linie de coastă?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailanda"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Ce stat din S.U.A. se află la vest de râul Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Ce stat din S.U.A. are suprafața acoperită cu păduri în proporție de 60%?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "În ce stat din S.U.A. se află vârful McKinley, cel mai înalt vârf din America de Nord?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Care dintre următoarele state din S.U.A. are cea mai mare suprafață?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Carolina de Sud"
+	},
+	"trivia_medium_050": {
+		"message": "În ce stat din S.U.A. se află Muntele Rushmore, situat în apropiere de Rapid City?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dakota de Sud"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Ce stat din S.U.A. are o graniță comună cu Canada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Pe coasta cărui stat din S.U.A. se află recifurile de corali?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "În ce țară este Hamburg un port important?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Germania"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croația"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_054": {
+		"message": "Ce țară înregistrează cea mai intensă activitate vulcanică?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Islanda"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Regatul Unit"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_medium_055": {
+		"message": "Ce țară se află în mare parte în Asia Minor?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turcia"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "Ce țară este despărțită de Israel prin Marea Moartă?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Iordania"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japonia"
+	},
+	"trivia_medium_057": {
+		"message": "În ce țară se află Parcul Național Serengeti, situat la est de lacul Victoria?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Yemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Ce țară este mărginită de Marea Caraibilor și este un exportator important de petrol?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Ce țară fără deschidere la mare se află la sud de Ecuator?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_medium_060": {
+		"message": "Ce țară mediteraneeană este mărginită de Marea Tireniană?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "În ce țară se află Yekaterinburg pe pantele din zona de est a Munților Ural?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lituania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgia"
+	},
+	"trivia_medium_062": {
+		"message": "Ce țară insulară se află la sud-est de Australia și este un producător important de lână?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Noua Zeelandă"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipine"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "În ce țară se află orașul-port Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Elveția"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "În ce țară se află orașul Incheon, cu deschidere la Marea Galbenă?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Coreea de Sud"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailanda"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_medium_065": {
+		"message": "Ce țară mică este situată la granița de vest a Austriei?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Siria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "În ce țară se află statele Victoria și New South Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Statele Unite ale Americii"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_067": {
+		"message": "Ce țară de pe Insula Borneo are graniță comună cu Brunei, o țară foarte mică?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ucraina"
+	},
+	"trivia_medium_068": {
+		"message": "Ce țară este despărțită de Italia prin Alpii Iulieni?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadjikistan"
+	},
+	"trivia_medium_069": {
+		"message": "În partea de nord-est a cărei țări este localizată regiunea care în trecut se numea Manchuria?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Ce țară are granițe comune cu El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Republica Dominicană"
+	},
+	"trivia_medium_071": {
+		"message": "Ce țară se află în Munții Caucaz?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungaria"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Care sunt cele două insule din Asia separate de Strâmtoarea Sunda?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonezia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Noua Zeelandă"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "În ce țară pot fi văzute văi glaciare și stânci spectaculoase în apropierea gurii de vărsare a râului Shannon?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Franța"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "În ce țară din Asia de Sud curge fluviul Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Coreea de Nord"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbaidjan"
+	},
+	"trivia_medium_075": {
+		"message": "Ce țară este mărginită de Marea Roșie?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "În ce țară se află statele Zacatecas și Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexic"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentina"
+	},
+	"trivia_medium_077": {
+		"message": "În ce țară se află Riad, un oraș cu peste 4.000 de moschee?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Arabia Saudită"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Siria"
+	},
+	"trivia_medium_078": {
+		"message": "Ce țară din Africa nu are deschidere la mare?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egipt"
+	},
+	"trivia_medium_079": {
+		"message": "În ce țară se află Muntele sacru Fuji?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japonia"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipine"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Ce țară din Antilele Mari are ca limbă oficială engleza?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Care este limba oficială din Siria, Kuweit și Algeria?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arabă"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armeană"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Germană"
+	},
+	"trivia_medium_082": {
+		"message": "Operele lui Mozart sunt interpretate adesea în timpul Festivalului Anual de la Salzburg care are loc într-o țară muntoasă din Europa. Care este aceasta?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungaria"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "România"
+	},
+	"trivia_medium_083": {
+		"message": "Valea Balenelor, un deșert ticsit cu rămășițe fosilizate ale balenelor preistorice, se află în ce țară din nordul Sudanului?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egipt"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "În ce țară europeană se află Rotterdam într-o deltă din apropierea Mării Nordului?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Țările de Jos"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Suedia"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_085": {
+		"message": "Din ce lanț muntos izvorăște fluviul Brahmaputra, care se varsă într-o deltă mare în apropiere de Golful Bengal?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Munții Ural"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Munții Alpi"
+	},
+	"trivia_medium_086": {
+		"message": "Ce țară islamică are ca limbă oficială farsi, cunoscută drept limba persană?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuweit"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libia"
+	},
+	"trivia_medium_087": {
+		"message": "În ce țară din Europa pot fi văzuți matadorii în luptele cu tauri din Sevilia?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spania"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Germania"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_medium_088": {
+		"message": "În ce țară se află orașul Istanbul, considerat un loc de întâlnire între culturile Orientale și Occidentale?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turcia"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovacia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "În ce țară învecinată cu El Salvador și Nicaragua se găsește orașul mayaș Copán, o populară atracție turistică?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_090": {
+		"message": "Timbuktu, un punct de comerț încă de acum aproape o mie de ani, se află la nord de fluviul Niger într-o țară fără deschidere la mare. Care este aceasta?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Ce stat din S.U.A., fără deschidere la mare, are granițe comune atât cu Chile, cât și cu Brazilia?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Columbia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "În ce țară se găsește orașul Belém, aflat la gura sudică a râului Amazon?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazilia"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "Ce fluviu formează o mare parte a graniței de nord a Bulgariei?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Fluviul Dunărea"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Râul Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Fluviul Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "În ce țară din Asia se află Munții Sayan în apropierea lacului Baikal?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kârgâzstan"
+	},
+	"trivia_medium_095": {
+		"message": "În ce provincie din Canada se află lacul Nipigon, cel mai mare lac din provincie?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Columbia Britanică"
+	},
+	"trivia_medium_096": {
+		"message": "Din ce mare fac parte Marea Balearică și Marea Ionică?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Marea Mediterană"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Marea Baltică"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Marea Caraibilor"
+	},
+	"trivia_medium_097": {
+		"message": "Pe ce continent se află lacurile Turkana și Natron, exemple de lacuri acumulate în viroage?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Africa"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "În ce ocean este Groapa Puerto Rico cel mai adânc punct?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Oceanul Atlantic"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Oceanul Arctic"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Oceanul Pacific"
+	},
+	"trivia_medium_099": {
+		"message": "Din partea de est a cărui continent este originară pasărea clovn Kookaburra în pădurile de eucalipt?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Africa"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "America de Sud"
+	},
+	"trivia_medium_100": {
+		"message": "Pe coasta de vest a cărei țări europene se află Haga, locul în care își desfășoară activitatea Tribunalul Internațional?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Țările de Jos"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finlanda"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Conținut de la National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Regatul Unit"
+	},
+	"uk_tradition": {
+		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării, glume și premii pentru noaptea de Crăciun."
+	},
+	"unmute": {
+		"message": "Activează"
+	},
+	"upgrade-warning": {
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Statele Unite ale Americii"
+	},
+	"us_tradition": {
+		"message": "În Statele Unite ale Americii, de Crăciun se atârnă ciorapi pentru cadouri. Legenda spune că St Nicholas a aflat despre o familie nevoiașă. Pentru a le face o surpriză, a coborât pe coș și le-a pus pungi cu aur în ciorapi. De atunci, St Nicholas a fost cunoscut ca Santa Claus, cel care aduce daruri."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Întoarce-te pe 24 decembrie și ajută-ne să-l urmărim pe Moș Crăciun toată noaptea!"
+	},
+	"village_explore": {
+		"message": "Explorează, joacă-te și învață cu elfii lui Moș Crăciun pe tot parcursul lunii decembrie"
+	},
+	"village_get_the_app": {
+		"message": "Obține aplicația Pe urmele lui Moș Crăciun pentru Android"
+	},
+	"village_more": {
+		"message": "Alte metode de explorat"
+	},
+	"village_santa_a2hs": {
+		"message": "Adaugă pe ecranul de pornire"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Adaugă în raft"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Adaugă pe desktop"
+	},
+	"village_santa_cardboard": {
+		"message": "Moș Crăciun pe Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Moș Crăciun pe Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Adaugă extensia Chrome cu Moș Crăciun"
+	},
+	"village_takesoff": {
+		"message": "Moș Crăciun pornește în"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Vizionează"
+	},
+	"wrapbattle_combo": {
+		"message": "Grozavă combinație!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Bine"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Ai ratat"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfect"
+	},
+	"ye_country_name": {
+		"message": "Yemen"
+	},
+	"yourbest": {
+		"message": "Cel mai bun scor"
+	},
+	"zh-CN_language_name": {
+		"message": "Chineză (simplificată)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chineză (tradițională)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

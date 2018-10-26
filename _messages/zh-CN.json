@@ -1,0 +1,6722 @@
+{
+	"about-content-one": {
+		"message": "我们将于平安夜隆重推出圣诞老人行踪面板，也就是圣诞老人环游世界时为他的雪橇提供动力的高科技产品。圣诞老人有许多负责开发工作的小精灵正在北极辛勤工作，帮他为圣诞节做准备。其中一位热情的圣诞精灵还特别邀请我们抢先看看圣诞老人行踪面板，它拥有最新最棒的 Google 地图技术和雪橇工程科技。在圣诞老人行踪面板中，您能够追踪圣诞老人在全世界的足迹，还能对他到访的一些地方有所了解。"
+	},
+	"about-content-three": {
+		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的\u003ca href=\"//support.google.com/santatracker\"\u003e帮助中心\u003c/a\u003e。"
+	},
+	"about-content-two": {
+		"message": "圣诞老人正在为旅程做准备，与此同时，热情友好的圣诞精灵邀请您前来探索圣诞老人的小镇。快来探索圣诞老人小镇吧，说不定还能参加一些好玩儿的活动，认识几位有趣的圣诞精灵呢。"
+	},
+	"about-santa": {
+		"message": "简介"
+	},
+	"about_title": {
+		"message": "欢迎使用 Google 地图追踪圣诞老人！"
+	},
+	"ae_country_name": {
+		"message": "阿拉伯联合酋长国"
+	},
+	"af_country_name": {
+		"message": "阿富汗"
+	},
+	"al_country_name": {
+		"message": "阿尔巴尼亚"
+	},
+	"ao_country_name": {
+		"message": "安哥拉"
+	},
+	"ar_country_name": {
+		"message": "阿根廷"
+	},
+	"ar_language_name": {
+		"message": "阿拉伯语"
+	},
+	"ar_tradition": {
+		"message": "在阿根廷，圣诞节会在午夜准时开场。为了迎接节日，许多家庭会在家中举办庆祝活动、与亲爱之人一起拆开礼物并在凌晨燃放烟花。"
+	},
+	"at_country_name": {
+		"message": "奥地利"
+	},
+	"au_country_name": {
+		"message": "澳大利亚"
+	},
+	"au_tradition": {
+		"message": "澳大利亚地处南半球，所以十二月正值仲夏时节。这里没有雪橇铃声和热腾腾的可可，许多澳大利亚人会前往海滩庆祝节日，吃一顿全虾午餐，再打几场板球。"
+	},
+	"ba_country_name": {
+		"message": "波斯尼亚和黑塞哥维那"
+	},
+	"back_to_previous_page": {
+		"message": "返回"
+	},
+	"back_to_tracker": {
+		"message": "返回至跟踪圣诞老人应用"
+	},
+	"bd_country_name": {
+		"message": "孟加拉"
+	},
+	"be_country_name": {
+		"message": "比利时"
+	},
+	"bf_country_name": {
+		"message": "布基纳法索"
+	},
+	"bg_country_name": {
+		"message": "保加利亚"
+	},
+	"bj_country_name": {
+		"message": "贝宁"
+	},
+	"bo_country_name": {
+		"message": "玻利维亚"
+	},
+	"br_country_name": {
+		"message": "巴西"
+	},
+	"br_tradition": {
+		"message": "圣诞节庆祝活动在临近午夜时拉开帷幕，通常伴以盛大的家庭晚宴、礼物拆包以及在教堂举办的“Missa do Galo”（圣诞节弥撒）庆祝仪式。尽管正值热带的酷暑气候，但冬天和雪的主题却并不鲜见。"
+	},
+	"bt_country_name": {
+		"message": "不丹"
+	},
+	"bw_country_name": {
+		"message": "博茨瓦纳"
+	},
+	"by_country_name": {
+		"message": "白俄罗斯"
+	},
+	"bz_country_name": {
+		"message": "伯利兹"
+	},
+	"ca_country_name": {
+		"message": "加拿大"
+	},
+	"ca_tradition": {
+		"message": "加拿大儿童通常会在皑皑白雪中欢度圣诞节。他们裹着围巾，戴着 Toque 毛线帽（一种加拿大羊毛帽），尽情地在雪地中玩耍、溜冰和滑雪橇！圣诞前夕，孩子们会在壁炉旁为圣诞老人准备牛奶和饼干（有时还会为圣诞老人的驯鹿准备胡萝卜）。"
+	},
+	"calendar": {
+		"message": "日历"
+	},
+	"category_code": {
+		"message": "代码"
+	},
+	"category_draw": {
+		"message": "绘图"
+	},
+	"category_listen": {
+		"message": "收听"
+	},
+	"category_send": {
+		"message": "发送"
+	},
+	"cd_country_name": {
+		"message": "刚果民主共和国"
+	},
+	"cf_country_name": {
+		"message": "中非共和国"
+	},
+	"cg_country_name": {
+		"message": "刚果共和国"
+	},
+	"ch_country_name": {
+		"message": "瑞士"
+	},
+	"ci_country_name": {
+		"message": "科特迪瓦"
+	},
+	"citylights-contribute": {
+		"message": "添加您自己拍摄的{{location}}的照片"
+	},
+	"citylights-panorama-01-description": {
+		"message": "洛克菲勒广场"
+	},
+	"citylights-panorama-01-location": {
+		"message": "美国纽约市"
+	},
+	"citylights-panorama-02-description": {
+		"message": "普希金广场"
+	},
+	"citylights-panorama-02-location": {
+		"message": "俄罗斯莫斯科"
+	},
+	"citylights-panorama-03-description": {
+		"message": "奥格斯堡市政厅广场"
+	},
+	"citylights-panorama-03-location": {
+		"message": "奥地利维也纳"
+	},
+	"citylights-panorama-04-description": {
+		"message": "香榭丽舍大街至凯旋门"
+	},
+	"citylights-panorama-04-location": {
+		"message": "法国巴黎"
+	},
+	"citylights-panorama-05-description": {
+		"message": "壮丽大道"
+	},
+	"citylights-panorama-05-location": {
+		"message": "美国芝加哥"
+	},
+	"citylights-panorama-06-description": {
+		"message": "圣诞集市"
+	},
+	"citylights-panorama-06-location": {
+		"message": "德国纽伦堡"
+	},
+	"citylights-panorama-07-description": {
+		"message": "麦德林河"
+	},
+	"citylights-panorama-07-location": {
+		"message": "哥伦比亚麦德林"
+	},
+	"citylights-panorama-08-description": {
+		"message": "圣诞老人小镇"
+	},
+	"citylights-panorama-08-location": {
+		"message": "芬兰拉普兰"
+	},
+	"citylights-panorama-09-description": {
+		"message": "布鲁塞尔大广场"
+	},
+	"citylights-panorama-09-location": {
+		"message": "比利时布鲁塞尔"
+	},
+	"citylights-panorama-10-description": {
+		"message": "特拉法尔加广场"
+	},
+	"citylights-panorama-10-location": {
+		"message": "英国伦敦"
+	},
+	"citylights-panorama-11-description": {
+		"message": "马约尔广场"
+	},
+	"citylights-panorama-11-location": {
+		"message": "西班牙马德里"
+	},
+	"citylights-panorama-12-description": {
+		"message": "六本木新城"
+	},
+	"citylights-panorama-12-location": {
+		"message": "日本东京"
+	},
+	"citylights-panorama-13-description": {
+		"message": "蒂沃利公园"
+	},
+	"citylights-panorama-13-location": {
+		"message": "丹麦哥本哈根"
+	},
+	"citylights-panorama-14-description": {
+		"message": "乌节路"
+	},
+	"citylights-panorama-14-location": {
+		"message": "新加坡新加坡市"
+	},
+	"citylights-panorama-15-description": {
+		"message": "光明巷"
+	},
+	"citylights-panorama-15-location": {
+		"message": "瑞典哥德堡"
+	},
+	"citylights-panorama-16-description": {
+		"message": "冬季彩灯节"
+	},
+	"citylights-panorama-16-location": {
+		"message": "加拿大尼亚加拉大瀑布"
+	},
+	"citylights-panorama-17-description": {
+		"message": "缤纷冬日节"
+	},
+	"citylights-panorama-17-location": {
+		"message": "中国香港"
+	},
+	"citylights-panorama-18-description": {
+		"message": "罗德里戈·德弗雷塔斯湖"
+	},
+	"citylights-panorama-18-location": {
+		"message": "巴西里约热内卢"
+	},
+	"cl_country_name": {
+		"message": "智利"
+	},
+	"clear": {
+		"message": "清除"
+	},
+	"close": {
+		"message": "关闭"
+	},
+	"cm_country_name": {
+		"message": "喀麦隆"
+	},
+	"co_country_name": {
+		"message": "哥伦比亚"
+	},
+	"codeboogie-back-to-start": {
+		"message": "回到开始页面"
+	},
+	"codeboogie-block-clap": {
+		"message": "拍手"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "拍拍手。"
+	},
+	"codeboogie-block-jump": {
+		"message": "跳跃"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "跳跃。"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "伸展左臂"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "向左伸展左臂。"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "迈左脚"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "向左踏一步。"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "伸展右臂"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "向右伸展右臂。"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "迈右脚"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "向右踏一步。"
+	},
+	"codeboogie-block-shake": {
+		"message": "扭屁股"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "扭一扭屁股。"
+	},
+	"codeboogie-block-split": {
+		"message": "一字马"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "来个一字马。"
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "选择游戏模式"
+	},
+	"codeboogie-choose-stage": {
+		"message": "选择关卡"
+	},
+	"codeboogie-get-dancing": {
+		"message": "开始跳舞吧！"
+	},
+	"codeboogie-go": {
+		"message": "开始！"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "继续跳舞"
+	},
+	"codeboogie-lets-dance": {
+		"message": "一展舞姿"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "舞蹈课堂"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "跟着老师一起跳"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "自创舞步"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "自创舞步并分享给好友"
+	},
+	"codeboogie-next-dance": {
+		"message": "下一支舞"
+	},
+	"codeboogie-nice-moves": {
+		"message": "跳得好！"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "请按照下面的拼板提示来跳舞。"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "您知道吗？只需 {{ideal}} 个拼板就能完成这支舞。来吧！用下面的拼板跳跳看。"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "真棒！这整场舞您都跳得很好。"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "您使用的拼板正确，只要再多用几个拼板就能通关哦 ！"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "您知道吗？只需 {{ideal}} 个拼板就能完成这支舞。"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "您跳得太快啦。"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "您的动作好像不对哦。试试这一步："
+	},
+	"codeboogie-share-moves": {
+		"message": "分享舞步，向好友宣战"
+	},
+	"codeboogie-success": {
+		"message": "成功！"
+	},
+	"codeboogie-watch-closely": {
+		"message": "看仔细噢！"
+	},
+	"codeboogie-your-turn": {
+		"message": "轮到你了"
+	},
+	"codelab-block-jump-length": {
+		"message": "跳过"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "跳过图块。"
+	},
+	"codelab-block-moveeast": {
+		"message": "向东"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "把我向东移一格。"
+	},
+	"codelab-block-movenorth": {
+		"message": "向北"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "把我向北移一格。"
+	},
+	"codelab-block-movesouth": {
+		"message": "向南"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "把我向南移一格。"
+	},
+	"codelab-block-movewest": {
+		"message": "向西"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "把我向西移一格。"
+	},
+	"codelab-block-repeat": {
+		"message": "重复"
+	},
+	"codelab-block-repeat-times": {
+		"message": "次"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "将某些语句重复数次。"
+	},
+	"codelab-block-whenrun": {
+		"message": "动作顺序"
+	},
+	"codelab-finish": {
+		"message": "完成"
+	},
+	"codelab-great": {
+		"message": "非常好"
+	},
+	"codelab-mwc-promo": {
+		"message": "访问 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e，了解更多 Google 编码项目。"
+	},
+	"codelab-next-challenge": {
+		"message": "下一关"
+	},
+	"codelab-oops": {
+		"message": "糟糕！"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "“重复”拼板里要有其他拼板才能起作用呢！"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "有些拼板未接好哦！"
+	},
+	"codelab-result-generic-fail": {
+		"message": "好像晕头转向了呢！"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "试着用以下拼板来通关哦！"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。请尝试使用以下拼板。"
+	},
+	"codelab-result-perfect-success": {
+		"message": "恭喜您！您完美地解开了此谜题。"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "您使用的拼板正确，只要再多用几个拼板就能通关哦。"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "您知道吗？此关卡只需 {{ideal}} 块拼板即可完成。"
+	},
+	"codelab-try-again": {
+		"message": "重试"
+	},
+	"copy-me": {
+		"message": "复制该链接即可分享您的消息"
+	},
+	"copy-me-short": {
+		"message": "复制链接以便分享"
+	},
+	"countdown_days": {
+		"message": "天"
+	},
+	"countdown_hours": {
+		"message": "小时"
+	},
+	"countdown_minutes": {
+		"message": "分钟"
+	},
+	"countdown_seconds": {
+		"message": "秒"
+	},
+	"countdown_until": {
+		"message": "圣诞老人出发倒计时"
+	},
+	"countdownlabel": {
+		"message": "圣诞老人启程倒计时"
+	},
+	"cr_country_name": {
+		"message": "哥斯达黎加"
+	},
+	"cs_language_name": {
+		"message": "捷克语"
+	},
+	"cu_country_name": {
+		"message": "古巴"
+	},
+	"cz_country_name": {
+		"message": "捷克共和国"
+	},
+	"da_language_name": {
+		"message": "丹麦语"
+	},
+	"days": {
+		"message": "天"
+	},
+	"de_country_name": {
+		"message": "德国"
+	},
+	"de_language_name": {
+		"message": "德语"
+	},
+	"de_tradition": {
+		"message": "几乎每个德国小镇都会在城镇广场开设圣诞市场。市民们聚在一起欣赏铜管乐，并享用当地的传统美食。他们会一边吃心型姜饼、糖烤杏仁以及各种甜点，一边饮用香料热饮酒 (Glühwein) 或苹果酒。"
+	},
+	"deck": {
+		"message": "换上新装"
+	},
+	"deckdescription": {
+		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
+	},
+	"detected": {
+		"message": "自动检测"
+	},
+	"difficulty": {
+		"message": "难度"
+	},
+	"dk_country_name": {
+		"message": "丹麦"
+	},
+	"do_country_name": {
+		"message": "多米尼加共和国"
+	},
+	"donate_button": {
+		"message": "捐赠"
+	},
+	"donate_text": {
+		"message": "请前往 DonorsChoose.org，帮助有特别需要的人士。今年 12 月份，在大家捐款的基础上，Google 会进一步捐出总捐款额的 50%，直至达到 1 百万美元的捐款目标。让我们同舟共济，帮助更多的孩子走进课堂 #ForEveryKid"
+	},
+	"dz_country_name": {
+		"message": "阿尔及利亚"
+	},
+	"easy_difficulty": {
+		"message": "简单"
+	},
+	"ec_country_name": {
+		"message": "厄瓜多尔"
+	},
+	"educators": {
+		"message": "面向教育工作者的“追踪圣诞老人”应用"
+	},
+	"ee_country_name": {
+		"message": "爱沙尼亚"
+	},
+	"el_language_name": {
+		"message": "希腊语"
+	},
+	"elvish_language_name": {
+		"message": "精灵语"
+	},
+	"en_language_name": {
+		"message": "英语"
+	},
+	"endofjourneymessage": {
+		"message": "圣诞老人已完成今年的旅程！他和精灵们正在北极继续庆祝，直至每年一度的假期来临。"
+	},
+	"er_country_name": {
+		"message": "厄立特里亚"
+	},
+	"error": {
+		"message": "出了点问题，但圣诞老人的小精灵们正在处理。"
+	},
+	"error-lost-connection": {
+		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
+	},
+	"error-not-found": {
+		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./village.html\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
+	},
+	"error-try-again": {
+		"message": "请重试"
+	},
+	"error_try_again": {
+		"message": "请重试"
+	},
+	"es_language_name": {
+		"message": "西班牙语"
+	},
+	"et_country_name": {
+		"message": "埃塞俄比亚"
+	},
+	"explore": {
+		"message": "探索"
+	},
+	"fi_country_name": {
+		"message": "芬兰"
+	},
+	"fi_tradition": {
+		"message": "芬兰人认为圣诞老人“Joulupukki”生活在这个国家的北部，准确地说是在“耳朵山”。如果你到那里去，说不定会发现他的秘密礼物工厂以及正在里面努力工作的小矮人们。又或者，你可能还会遇到正在松林里悠然散步的驯鹿。"
+	},
+	"finished-text": {
+		"message": "节日快乐！圣诞老人已结束环球之旅，现在需要好好休整了。欢迎明年再来！"
+	},
+	"fr_country_name": {
+		"message": "法国"
+	},
+	"fr_language_name": {
+		"message": "法语"
+	},
+	"fr_tradition": {
+		"message": "在法国，孩子们根据传统会将自己的鞋放在壁炉旁，期待圣诞老人 (Père Noël) 的到来。如果孩子们在这一年表现不错，圣诞老人就会在他们的鞋中装满礼物。"
+	},
+	"fullscreen": {
+		"message": "全屏"
+	},
+	"ga_country_name": {
+		"message": "加蓬"
+	},
+	"gameover": {
+		"message": "游戏结束！"
+	},
+	"gameover_level": {
+		"message": "您打到了以下关卡："
+	},
+	"gameover_score": {
+		"message": "您的得分："
+	},
+	"getgooglemaps": {
+		"message": "下载 Google 地图"
+	},
+	"getready": {
+		"message": "预备！"
+	},
+	"gh_country_name": {
+		"message": "加纳"
+	},
+	"gh_tradition": {
+		"message": "在加纳，圣诞节意味着全家总动员。大人们会盛装打扮，向邻居们分发糖果和甜点。孩子们则会用他们在学校制作的纸质饰品和图画装扮自己的家。"
+	},
+	"gl_country_name": {
+		"message": "格陵兰"
+	},
+	"gn_country_name": {
+		"message": "几内亚"
+	},
+	"gotovillage": {
+		"message": "前往圣诞老人小镇"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "希腊"
+	},
+	"gr_tradition": {
+		"message": "在希腊，有一种友好但又爱惹麻烦的怪物叫做“kallikántzari”，它们在一年中的大部分时间都生活在地心。但每逢圣诞节，它们喜欢藏在人们的房子里，用各种办法吓人，搞恶作剧或吃掉圣诞食物。希腊人会举行仪式来驱赶这些幽灵。"
+	},
+	"gt_country_name": {
+		"message": "危地马拉"
+	},
+	"gt_tradition": {
+		"message": "危地马拉人用欢乐和舞蹈来庆祝圣诞节。他们头戴一种名为 Puritina 的帽子，享用危地马拉风味粽子，在午夜时燃放鞭炮，并用各种风格的舞蹈跳个通宵。"
+	},
+	"gy_country_name": {
+		"message": "圭亚那"
+	},
+	"hard_difficulty": {
+		"message": "困难"
+	},
+	"help": {
+		"message": "帮助"
+	},
+	"hi_language_name": {
+		"message": "印地语"
+	},
+	"hn_country_name": {
+		"message": "洪都拉斯"
+	},
+	"holiday_message_0": {
+		"message": "节日快乐！"
+	},
+	"holiday_message_1": {
+		"message": "节日祝福！"
+	},
+	"holiday_message_2": {
+		"message": "万事如意！"
+	},
+	"holiday_message_3": {
+		"message": "下雪吧！"
+	},
+	"holiday_message_4": {
+		"message": "新年快乐！"
+	},
+	"holiday_message_5": {
+		"message": "节日的问候！"
+	},
+	"hours": {
+		"message": "小时"
+	},
+	"hr_country_name": {
+		"message": "克罗地亚"
+	},
+	"ht_country_name": {
+		"message": "海地"
+	},
+	"hu_country_name": {
+		"message": "匈牙利"
+	},
+	"hu_language_name": {
+		"message": "匈牙利语"
+	},
+	"id_country_name": {
+		"message": "印度尼西亚"
+	},
+	"ie_country_name": {
+		"message": "爱尔兰"
+	},
+	"improve_google_translate": {
+		"message": "帮助我们改进 Google 翻译"
+	},
+	"iq_country_name": {
+		"message": "伊拉克"
+	},
+	"ir_country_name": {
+		"message": "伊朗"
+	},
+	"is_country_name": {
+		"message": "冰岛"
+	},
+	"is_tradition": {
+		"message": "每逢圣诞节，冰岛人会将保暖衣物当作礼物送给每位家庭成员。据传说，有一只可怕的圣诞猫，如果有谁没做好御寒准备，就会被它吃掉。因此，每个家庭都会齐心协力，确保没有人会成为圣诞猫的盘中餐。"
+	},
+	"it_country_name": {
+		"message": "意大利"
+	},
+	"it_language_name": {
+		"message": "意大利语"
+	},
+	"ja_language_name": {
+		"message": "日语"
+	},
+	"jm_country_name": {
+		"message": "牙买加"
+	},
+	"kg_country_name": {
+		"message": "吉尔吉斯斯坦"
+	},
+	"kg_tradition": {
+		"message": "在吉尔吉斯斯坦，Ayaz Ata（冰霜爷爷）会在新年前夕降临，将礼物留在新年树下。当午夜的钟声敲响时，举国上下都会燃放烟花，同庆这一美好时刻。城市会变得亮如白昼。"
+	},
+	"ko_language_name": {
+		"message": "韩语"
+	},
+	"kr_country_name": {
+		"message": "韩国"
+	},
+	"kr_tradition": {
+		"message": "圣诞节是韩国的法定节日，同时也是一个众所周知的浪漫节日。这一天城市里的很多情侣会出门约会，而街道和商店都将被绚丽的彩灯装饰一新。"
+	},
+	"kz_country_name": {
+		"message": "哈萨克斯坦"
+	},
+	"la_country_name": {
+		"message": "老挝人民民主共和国"
+	},
+	"language": {
+		"message": "语言"
+	},
+	"learn": {
+		"message": "学知识"
+	},
+	"learnmore": {
+		"message": "了解详情"
+	},
+	"level": {
+		"message": "关卡"
+	},
+	"light": {
+		"message": "张灯结彩"
+	},
+	"lightdescription": {
+		"message": "用“追踪圣诞老人”Android 应用和 Chromecast 为您的电视注入节日气息。"
+	},
+	"lk_country_name": {
+		"message": "斯里兰卡"
+	},
+	"lock_orientation": {
+		"message": "请锁定屏幕方向，获享最理想的体验。"
+	},
+	"lr_country_name": {
+		"message": "利比里亚"
+	},
+	"lt_country_name": {
+		"message": "立陶宛"
+	},
+	"lt_tradition": {
+		"message": "在立陶宛，传统的圣诞装饰物品是用稻草或干草制作的。人们将稻草或干草编织成为几何形状，例如星星、雪花或铃铛等。在准备当地人称作 Kūčios 的圣诞大餐时，很多家庭还会用稻草装饰餐桌。"
+	},
+	"lv_country_name": {
+		"message": "拉脱维亚"
+	},
+	"ly_country_name": {
+		"message": "利比亚"
+	},
+	"md_country_name": {
+		"message": "摩尔多瓦"
+	},
+	"medium_difficulty": {
+		"message": "中等"
+	},
+	"meta_description": {
+		"message": "使用 Google 的“追踪圣诞老人”，在 Google 地图上跟随圣诞老人一起环游世界。"
+	},
+	"meta_title": {
+		"message": "Google 追踪圣诞老人"
+	},
+	"mg_country_name": {
+		"message": "马达加斯加"
+	},
+	"minutes": {
+		"message": "分钟"
+	},
+	"ml_country_name": {
+		"message": "马里"
+	},
+	"mm_country_name": {
+		"message": "缅甸"
+	},
+	"mr_country_name": {
+		"message": "毛里塔尼亚"
+	},
+	"mute": {
+		"message": "静音"
+	},
+	"mw_country_name": {
+		"message": "马拉维"
+	},
+	"mx_country_name": {
+		"message": "墨西哥"
+	},
+	"mx_tradition": {
+		"message": "在墨西哥，不同年龄的孩子通过打碎“皮纳塔”来庆祝圣诞节。大人和孩子们玩得不亦乐乎，他们戴上眼罩，在原地转圈，然后挥动棍子敲开这种星形吊罐。当皮纳塔被砸开后，各种坚果、水果和糖果四处飞溅，每个人都可以尽情享用。"
+	},
+	"my_country_name": {
+		"message": "马来西亚"
+	},
+	"mz_country_name": {
+		"message": "莫桑比克"
+	},
+	"na_country_name": {
+		"message": "纳米比亚"
+	},
+	"ne_country_name": {
+		"message": "尼日尔"
+	},
+	"new": {
+		"message": "新"
+	},
+	"newtoday": {
+		"message": "今日更新"
+	},
+	"next": {
+		"message": "下一步"
+	},
+	"ng_country_name": {
+		"message": "尼日利亚"
+	},
+	"nl_country_name": {
+		"message": "荷兰"
+	},
+	"nl_language_name": {
+		"message": "荷兰语"
+	},
+	"no_country_name": {
+		"message": "挪威"
+	},
+	"no_language_name": {
+		"message": "挪威语"
+	},
+	"nonprofit-agastya-description": {
+		"message": "印度非营利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-agastya-type": {
+		"message": "教师和学生"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® 是一家致力于普及计算机科学的公益组织，其鼓励更多女性和各肤色弱势学生积极参与。Code.org® 的愿景是让每所学校的每位学生都有机会学习计算机科学。"
+	},
+	"nonprofit-code-type": {
+		"message": "计算机科学"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org 是布朗克斯的一位历史老师在 2000 年建立的，目前已为全美学校募集了超过 4.8 亿美元的教育经费。教师如需教学相关的材料和体验，可通过 DonorsChoose.org 寻求帮助。"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "课堂"
+	},
+	"nonprofit-enable-description": {
+		"message": "CDC 调查结果显示，每 1000 人中就有 7 人有肢体残疾，而安装假肢的费用往往极为高昂，最高可达 1 万美元！发育期的孩子随着身体的成长必须不断更换假肢，长期积累下来无疑是一笔沉重的经济负担。e-Nable 是一个全球性社区，社区成员专门为上肢有残疾的孩子提供 3D 打印假手。Google.org 携手 Enable Community Foundation 赞助 e-Nable 社区设计更多假手，让更多上肢有残疾的孩子能够受益。"
+	},
+	"nonprofit-enable-type": {
+		"message": "假肢"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "选择一件装饰品，然后开始涂色。"
+	},
+	"nonprofit-instruction-share": {
+		"message": "与家人和朋友分享自己的作品，让他们也能够了解相关活动。"
+	},
+	"nonprofit-intro-type": {
+		"message": "我们与 Google.org 携手，向您介绍五家全年无私奉献的非盈利教育组织。向下滚动可详细了解每家组织如何回馈社会。您可以为这一系列的装饰品涂色，将涂好的装饰品挂在圣诞树上或赠送给亲朋好友，以此表达自己对这些组织的支持。"
+	},
+	"nonprofit-jane-description": {
+		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
+	},
+	"nonprofit-jane-type": {
+		"message": "黑猩猩"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy 是一家致力于向全球所有人免费提供一流教育的公益组织。Khan Academy 认为学习者不分年龄大小，都应有权利获得免费教育，并能按照自己的节奏进行学习。"
+	},
+	"nonprofit-khan-type": {
+		"message": "教育"
+	},
+	"nonprofit-lwb-description": {
+		"message": "成立于 2007 年的 Libraries Without Borders 是一家国际上非常有影响力的公益组织，致力于以文化带动发展，总部位于巴黎。该组织已经在全球建设了 300 多所图书馆。"
+	},
+	"nonprofit-lwb-type": {
+		"message": "图书馆"
+	},
+	"nonprofit-more-information": {
+		"message": "如需更多信息，请访问："
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy 致力于保护和恢复美国及全球各地的森林。森林为地球上的生命提供了繁衍生息的环境。这些标志性的森林可以涵养水源、净化空气、为人类提供生活资料，还可以为各种重要的动植物提供赖以生存的栖息地。按照目前的森林采伐速度计算，我们的森林在 100 年后就会消耗殆尽。Nature Conservancy 发起了 Plant a Billion Trees 计划，希望能在 2025 年之前种植 10 亿棵树，并恢复全球范围内至关重要的大森林。"
+	},
+	"nonprofit-nature-type": {
+		"message": "森林"
+	},
+	"nonprofit-pratham-description": {
+		"message": "全世界有将近 40% 的人口无法以母语或能理解的语言接受教育。StoryWeaver 希望通过帮助教育工作者、作家和翻译工作者为儿童创作有趣的课外阅读材料，借此改变这一现状。"
+	},
+	"nonprofit-pratham-type": {
+		"message": "阅读"
+	},
+	"nonprofit-rnib-description": {
+		"message": "许多视力有障碍的人士并非完全失明，很多人仍有残存视力。为了帮助这些低视力人士更易看清外界物体的形状和轮廓，Google.org 正在协助 RNIB 开发“智能眼镜”，让低视力人士更容易地看清周边的环境，增强他们独立生活的能力和信心。"
+	},
+	"nonprofit-rnib-type": {
+		"message": "智能眼镜"
+	},
+	"nonprofit-solar-description": {
+		"message": "全球仍有 13 亿人没有用上电，仍有很多人还在使用煤油灯照明，但是煤油灯要燃烧燃料、而且还会污染环境。太阳能灯可以在日间蓄能，夜间提供数小时的照明，而且既不耗费燃料，也不会造成任何污染。人们可以在太阳能灯下读书、玩耍，夜归者也可以在充足的光源下安全回家。SolarAid 为众多有需要的人士提供太阳能灯。Google.org 很荣幸能够为 SolarAid \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-solar-type": {
+		"message": "日光"
+	},
+	"nonprofit-water-description": {
+		"message": "我们的生活离不开水。除了基本的日常饮用，洗澡做饭也都需要用到水。清洁的水是宝贵资源，这种资源深深蕴含在地下岩石层和土壤层之间的含水层中，现在还有很多人依靠人工开挖的水井来满足用水需求。Charity: water 在急需用水的地区与当地合作伙伴合作，开挖水井以及开展其他水利项目。Google.org 很荣幸能够为 charity: water \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e贡献一己之力\u003c/a\u003e。"
+	},
+	"nonprofit-water-type": {
+		"message": "井"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "无论去电影院、餐厅还是其他任何地方，使用轮椅的人士都很难事先知晓目的地是否便于轮椅通行。Wheelmap 为轮椅使用者提供各地无障碍通行设施方面的信息，方便他们规划出行路线，为他们的生活添姿增彩！"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "行动能力"
+	},
+	"nonprofit-wwf-description": {
+		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持者\u003c/a\u003e，为此我们感到无比骄傲。"
+	},
+	"nonprofit-wwf-type": {
+		"message": "北极熊"
+	},
+	"nonprofit-wwh-description": {
+		"message": "研究表明，在听力有障碍的人士中，有 95% 的人能够在助听器的辅助之下重拾听力，但在中低收入国家/地区，仅有不到 1% 的听障人士能够拥有助听设备。World Wide Hearing (WWH) 向有听力障碍的儿童提供助听设备和相关服务，帮助他们重回有声世界。WWH 正在为经济落后地区的听障人士设计一款可在平板电脑上使用的平价听障诊断工具。此举将帮助更多有听力障碍的人士得到助听设备。"
+	},
+	"nonprofit-wwh-type": {
+		"message": "听力"
+	},
+	"notice_cookies": {
+		"message": "Google 利用 Cookie 来分析此网站的流量并优化您的使用体验。为实现这一目的，我们会将您对本网站的使用情况信息提供给 Google。"
+	},
+	"notice_cookies_details": {
+		"message": "参见详情"
+	},
+	"notification": {
+		"message": "通知"
+	},
+	"notification_newtoday": {
+		"message": "追踪圣诞老人：今日资讯"
+	},
+	"notification_newtoday_stop": {
+		"message": "拒收此类通知"
+	},
+	"notification_notice": {
+		"message": "圣诞老人的小精灵们会及时汇报圣诞老人的行程"
+	},
+	"notification_prompt": {
+		"message": "及时掌握圣诞老人的最新动态"
+	},
+	"np_country_name": {
+		"message": "尼泊尔"
+	},
+	"nz_country_name": {
+		"message": "新西兰"
+	},
+	"nz_tradition": {
+		"message": "由于圣诞节来临时新西兰正值夏天，亲朋好友会聚在一起举行烧烤活动。典型的圣诞美食包括烤羊羔肉，这种美食有时会在“hangi”（一种位于地下的土坑或土灶）中烹制。最受欢迎的甜点无疑是帕芙洛娃 (pavlova)：一种表面覆盖着草莓和奇异果等新鲜水果的蛋白酥蛋糕。"
+	},
+	"offline": {
+		"message": "未联网"
+	},
+	"offline_available_online": {
+		"message": "仅供在线访问"
+	},
+	"offline_notification": {
+		"message": "您现在可以离线造访圣诞老人小镇！小精灵们还会在整个 12 月份不断为您带来新的内容。"
+	},
+	"offline_notification_nothanks": {
+		"message": "不用了"
+	},
+	"offline_user_message": {
+		"message": "您没有联网"
+	},
+	"okay": {
+		"message": "确定"
+	},
+	"om_country_name": {
+		"message": "阿曼"
+	},
+	"onthego": {
+		"message": "随时关注圣诞老人"
+	},
+	"openingtomorrow": {
+		"message": "明日开放"
+	},
+	"ornament-print-instructions": {
+		"message": "由此处对折并将两边粘在一起"
+	},
+	"pa_country_name": {
+		"message": "巴拿马"
+	},
+	"pause": {
+		"message": "暂停"
+	},
+	"pe_country_name": {
+		"message": "秘鲁"
+	},
+	"pg_country_name": {
+		"message": "巴布亚新几内亚"
+	},
+	"ph_country_name": {
+		"message": "菲律宾"
+	},
+	"ph_tradition": {
+		"message": "菲律宾因拥有世界上最长的圣诞节而著称。从九月到十二月，菲律宾的圣诞节要持续四个月之久。圣诞颂歌常常从九月初就开始响起。"
+	},
+	"pl_country_name": {
+		"message": "波兰"
+	},
+	"pl_language_name": {
+		"message": "波兰语"
+	},
+	"play": {
+		"message": "玩游戏"
+	},
+	"playagain": {
+		"message": "再玩一次"
+	},
+	"playdescription": {
+		"message": "在“追踪圣诞老人”Android 应用中跟朋友一起畅玩。"
+	},
+	"playextra": {
+		"message": "继续冲关"
+	},
+	"pr_country_name": {
+		"message": "波多黎各"
+	},
+	"practice": {
+		"message": "练习"
+	},
+	"press": {
+		"message": "新闻"
+	},
+	"pt_language_name": {
+		"message": "葡萄牙语"
+	},
+	"py_country_name": {
+		"message": "巴拉圭"
+	},
+	"quickdraw-machine-know": {
+		"message": "我知道了，这是{{thing}}！"
+	},
+	"quickdraw-machine-or": {
+		"message": "或"
+	},
+	"quickdraw-machine-see": {
+		"message": "我猜是"
+	},
+	"quickdraw-newround-button": {
+		"message": "开始"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "我不知道这是什么。"
+	},
+	"quickdraw-round-sorry": {
+		"message": "抱歉"
+	},
+	"quickdraw-round-timesup": {
+		"message": "我猜不出来！"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor 觉得您画的还像是："
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor 是怎么知道{{thing}}是什么样子的？"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "它会观察其他人的画作并从中学习。"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor 觉得您画的更像是："
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "这是圣诞老人画的{{thing}}。"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "您要画的是{{thing}}。"
+	},
+	"quickdraw-slate": {
+		"message": "绘图"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上就每一个与节日相关的词语画一幅画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
+	},
+	"quickdraw-splashview-title": {
+		"message": "帮助 Tensor 练习识图吧！"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor 认出了 {{recognized}} 幅画。"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor 认出了 1 幅画。"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor 一幅画也没有认出来。"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "太棒了！"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "糟糕！"
+	},
+	"ro_country_name": {
+		"message": "罗马尼亚"
+	},
+	"ru_country_name": {
+		"message": "俄罗斯"
+	},
+	"ru_language_name": {
+		"message": "俄语"
+	},
+	"ru_tradition": {
+		"message": "俄罗斯的孩子们不装饰圣诞树，而是装饰新年树。他们等待冰霜爷爷 (Grandfather Frost) 和他的孙女雪姑娘 (Snowmaiden) 给大家带来礼物。冰霜爷爷居住在俄罗斯北部大乌斯秋格 (Veliky Ustyug) 的森林深处。"
+	},
+	"sa_country_name": {
+		"message": "沙特阿拉伯"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "姜饼人"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "圣诞老婆婆"
+	},
+	"santasearch_character_pegman": {
+		"message": "街景小人"
+	},
+	"santasearch_character_penguin": {
+		"message": "企鹅"
+	},
+	"santasearch_character_rudolph": {
+		"message": "驯鹿鲁道夫"
+	},
+	"santasearch_character_santa": {
+		"message": "圣诞老人"
+	},
+	"santasearch_hint": {
+		"message": "提示"
+	},
+	"santasearch_level_beach": {
+		"message": "奇趣海滩"
+	},
+	"santasearch_level_lab": {
+		"message": "实验室"
+	},
+	"santasearch_level_mountains": {
+		"message": "探秘山峰"
+	},
+	"santasearch_level_museum": {
+		"message": "博物馆"
+	},
+	"santasearch_level_select": {
+		"message": "开始！"
+	},
+	"santasearch_search_for_santa": {
+		"message": "寻找圣诞老人！"
+	},
+	"santasvillage": {
+		"message": "圣诞老人小镇"
+	},
+	"santatracker": {
+		"message": "追踪圣诞老人"
+	},
+	"scene_airport": {
+		"message": "北极机场"
+	},
+	"scene_app": {
+		"message": "Android 应用"
+	},
+	"scene_blimp": {
+		"message": "礼物补给"
+	},
+	"scene_boatload": {
+		"message": "礼物弹弓"
+	},
+	"scene_briefing": {
+		"message": "圣诞太太作简报"
+	},
+	"scene_callfromsanta": {
+		"message": "圣诞老人来电"
+	},
+	"scene_canvas": {
+		"message": "圣诞老人画布"
+	},
+	"scene_citylights": {
+		"message": "城市之光"
+	},
+	"scene_clausdraws": {
+		"message": "圣诞老人画册"
+	},
+	"scene_codeboogie": {
+		"message": "编码热舞"
+	},
+	"scene_codelab": {
+		"message": "编码实验室"
+	},
+	"scene_commandcentre": {
+		"message": "任务控制中心"
+	},
+	"scene_dash": {
+		"message": "企鹅向前冲"
+	},
+	"scene_elfski": {
+		"message": "精灵滑雪"
+	},
+	"scene_factory": {
+		"message": "糖果工厂"
+	},
+	"scene_giftmatch": {
+		"message": "礼物对对碰"
+	},
+	"scene_glider": {
+		"message": "精灵快递员"
+	},
+	"scene_gumball": {
+		"message": "彩球滑落"
+	},
+	"scene_icecave": {
+		"message": "冰洞"
+	},
+	"scene_island": {
+		"message": "海岛"
+	},
+	"scene_jamband": {
+		"message": "摇滚精灵乐"
+	},
+	"scene_jetpack": {
+		"message": "精灵飞侠"
+	},
+	"scene_latlong": {
+		"message": "礼物派送"
+	},
+	"scene_matching": {
+		"message": "翻牌配对"
+	},
+	"scene_mercator": {
+		"message": "地图小测验"
+	},
+	"scene_playground": {
+		"message": "北极游乐场"
+	},
+	"scene_postcard": {
+		"message": "使用编码设计雪花"
+	},
+	"scene_presentbounce": {
+		"message": "礼物弹弹跳"
+	},
+	"scene_presentdrop": {
+		"message": "礼从天降"
+	},
+	"scene_quickdraw": {
+		"message": "绘图猜猜猜"
+	},
+	"scene_racer": {
+		"message": "驯鹿狂飙"
+	},
+	"scene_rollercoaster": {
+		"message": "精灵过山车"
+	},
+	"scene_runner": {
+		"message": "驯鹿快跑接大礼"
+	},
+	"scene_santasearch": {
+		"message": "圣诞老人找找乐"
+	},
+	"scene_santaselfie": {
+		"message": "圣诞老人换造型"
+	},
+	"scene_seasonofcaring": {
+		"message": "送温暖的季节"
+	},
+	"scene_seasonofgiving": {
+		"message": "温馨分享季"
+	},
+	"scene_snowball": {
+		"message": "雪球风暴"
+	},
+	"scene_speedsketch": {
+		"message": "快手画图"
+	},
+	"scene_streetview": {
+		"message": "街景"
+	},
+	"scene_traditions": {
+		"message": "节日传统"
+	},
+	"scene_translations": {
+		"message": "翻译"
+	},
+	"scene_trivia": {
+		"message": "益智问答"
+	},
+	"scene_undersea": {
+		"message": "海底礼物派送"
+	},
+	"scene_videoscene_carpool": {
+		"message": "精灵车"
+	},
+	"scene_videoscene_comroom": {
+		"message": "控制室"
+	},
+	"scene_videoscene_jingle": {
+		"message": "叮当小精灵"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "圣诞老人出发"
+	},
+	"scene_videoscene_museum": {
+		"message": "博物馆一日游"
+	},
+	"scene_videoscene_office": {
+		"message": "办公室恶作剧"
+	},
+	"scene_videoscene_reload": {
+		"message": "礼物补给"
+	},
+	"scene_videoscene_santasback": {
+		"message": "圣诞老人回归"
+	},
+	"scene_videoscene_satellite": {
+		"message": "卫星"
+	},
+	"scene_videoscene_selfies": {
+		"message": "圣诞老人自拍照"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "偷懒"
+	},
+	"scene_videoscene_temptation": {
+		"message": "诱惑"
+	},
+	"scene_videoscene_tired": {
+		"message": "驯鹿累了"
+	},
+	"scene_videoscene_trailer": {
+		"message": "圣诞老人还在度假中"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "圣诞老人在哪里？"
+	},
+	"scene_windtunnel": {
+		"message": "风洞"
+	},
+	"scene_wrap": {
+		"message": "包装快手"
+	},
+	"score": {
+		"message": "得分"
+	},
+	"se_country_name": {
+		"message": "瑞典"
+	},
+	"seconds": {
+		"message": "秒"
+	},
+	"select-language": {
+		"message": "选择语言"
+	},
+	"share-button": {
+		"message": "在 Google+ 上与好友们分享"
+	},
+	"share-text": {
+		"message": "我在 Google 追踪圣诞老人中为你制作了这张明信片。祝你节日快乐！"
+	},
+	"share-this": {
+		"message": "分享"
+	},
+	"sk_country_name": {
+		"message": "斯洛伐克"
+	},
+	"sk_language_name": {
+		"message": "斯洛伐克语"
+	},
+	"sl_country_name": {
+		"message": "塞拉利昂"
+	},
+	"sn_country_name": {
+		"message": "塞内加尔"
+	},
+	"snowball_iced": {
+		"message": "冰冻！"
+	},
+	"snowball_remaining": {
+		"message": "还剩 {{remaining}} 个精灵，共 {{total}} 个"
+	},
+	"snowball_spectate": {
+		"message": "观看"
+	},
+	"snowball_waiting": {
+		"message": "正在等待更多圣诞老人的精灵加入"
+	},
+	"snowflake_choose_background": {
+		"message": "选择背景"
+	},
+	"snowflake_choose_postcard": {
+		"message": "使用箭头键选择一张明信片"
+	},
+	"snowflake_code": {
+		"message": "用代码设计雪花"
+	},
+	"snowflake_code_instructions": {
+		"message": "将拼板连在一起，设计独一无二的雪花"
+	},
+	"snowflake_create_message": {
+		"message": "设计您自己的雪花"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "现在重复！"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "正在重复"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "旋转并重复！"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "正在旋转和重复"
+	},
+	"snowflake_make_your_own": {
+		"message": "雪花是通过代码制作成的，亲自试一试吧！"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "选择一张明信片并与朋友分享您的雪花"
+	},
+	"snowflake_shared_message": {
+		"message": "有人送您一片雪花！"
+	},
+	"so_country_name": {
+		"message": "索马里"
+	},
+	"speedsketch_item~London": {
+		"message": "伦敦"
+	},
+	"speedsketch_item~New York": {
+		"message": "纽约"
+	},
+	"speedsketch_item~Paris": {
+		"message": "巴黎"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "上海"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "瑞士"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "埃菲尔铁塔"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "中国长城"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "蒙娜丽莎"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "抽象艺术"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "航空母舰"
+	},
+	"speedsketch_item~airplane": {
+		"message": "飞机"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "闹钟"
+	},
+	"speedsketch_item~alien": {
+		"message": "外星人"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "救护车"
+	},
+	"speedsketch_item~angel": {
+		"message": "天使"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "动物迁徙"
+	},
+	"speedsketch_item~ant": {
+		"message": "蚂蚁"
+	},
+	"speedsketch_item~anvil": {
+		"message": "铁砧"
+	},
+	"speedsketch_item~apple": {
+		"message": "苹果"
+	},
+	"speedsketch_item~arm": {
+		"message": "手臂"
+	},
+	"speedsketch_item~arrow": {
+		"message": "箭"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "芦笋"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "宇航员"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "录音带"
+	},
+	"speedsketch_item~avocado": {
+		"message": "牛油果"
+	},
+	"speedsketch_item~axe": {
+		"message": "斧头"
+	},
+	"speedsketch_item~baby": {
+		"message": "婴儿"
+	},
+	"speedsketch_item~backpack": {
+		"message": "背包"
+	},
+	"speedsketch_item~banana": {
+		"message": "香蕉"
+	},
+	"speedsketch_item~bandage": {
+		"message": "绷带"
+	},
+	"speedsketch_item~barn": {
+		"message": "谷仓"
+	},
+	"speedsketch_item~baseball": {
+		"message": "棒球"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "棒球棍"
+	},
+	"speedsketch_item~basket": {
+		"message": "篮子"
+	},
+	"speedsketch_item~basketball": {
+		"message": "篮球"
+	},
+	"speedsketch_item~bat": {
+		"message": "蝙蝠"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "浴缸"
+	},
+	"speedsketch_item~beach": {
+		"message": "海滩"
+	},
+	"speedsketch_item~bear": {
+		"message": "熊"
+	},
+	"speedsketch_item~beard": {
+		"message": "络腮胡"
+	},
+	"speedsketch_item~bed": {
+		"message": "床"
+	},
+	"speedsketch_item~bee": {
+		"message": "蜜蜂"
+	},
+	"speedsketch_item~belt": {
+		"message": "带子"
+	},
+	"speedsketch_item~bench": {
+		"message": "长椅"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "自行车"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "双筒望远镜"
+	},
+	"speedsketch_item~bird": {
+		"message": "鸟"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "生日蛋糕"
+	},
+	"speedsketch_item~black": {
+		"message": "黑色"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "黑莓"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "蓝莓"
+	},
+	"speedsketch_item~book": {
+		"message": "书"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "回旋镖"
+	},
+	"speedsketch_item~boot": {
+		"message": "靴子"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "瓶盖"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "蝴蝶领结"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "手镯"
+	},
+	"speedsketch_item~brain": {
+		"message": "大脑"
+	},
+	"speedsketch_item~bread": {
+		"message": "面包"
+	},
+	"speedsketch_item~bridge": {
+		"message": "桥"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "西兰花"
+	},
+	"speedsketch_item~broom": {
+		"message": "扫帚"
+	},
+	"speedsketch_item~bubble": {
+		"message": "气泡"
+	},
+	"speedsketch_item~bucket": {
+		"message": "桶"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "推土机"
+	},
+	"speedsketch_item~bus": {
+		"message": "公交车"
+	},
+	"speedsketch_item~bush": {
+		"message": "灌木"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "蝴蝶"
+	},
+	"speedsketch_item~cactus": {
+		"message": "仙人掌"
+	},
+	"speedsketch_item~cake": {
+		"message": "蛋糕"
+	},
+	"speedsketch_item~calculator": {
+		"message": "计算器"
+	},
+	"speedsketch_item~calendar": {
+		"message": "日历"
+	},
+	"speedsketch_item~camel": {
+		"message": "骆驼"
+	},
+	"speedsketch_item~camera": {
+		"message": "相机"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "迷彩"
+	},
+	"speedsketch_item~campfire": {
+		"message": "营火"
+	},
+	"speedsketch_item~candle": {
+		"message": "蜡烛"
+	},
+	"speedsketch_item~candy": {
+		"message": "糖果"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "拐杖糖"
+	},
+	"speedsketch_item~canoe": {
+		"message": "独木舟"
+	},
+	"speedsketch_item~car": {
+		"message": "汽车"
+	},
+	"speedsketch_item~carrot": {
+		"message": "胡萝卜"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "卡通"
+	},
+	"speedsketch_item~castle": {
+		"message": "城堡"
+	},
+	"speedsketch_item~cat": {
+		"message": "猫"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "吊扇"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "手机"
+	},
+	"speedsketch_item~cello": {
+		"message": "大提琴"
+	},
+	"speedsketch_item~chair": {
+		"message": "椅子"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "枝形吊灯"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "化学"
+	},
+	"speedsketch_item~cherry": {
+		"message": "樱桃"
+	},
+	"speedsketch_item~chicken": {
+		"message": "鸡"
+	},
+	"speedsketch_item~child": {
+		"message": "儿童"
+	},
+	"speedsketch_item~chimney": {
+		"message": "烟囱"
+	},
+	"speedsketch_item~church": {
+		"message": "教堂"
+	},
+	"speedsketch_item~circle": {
+		"message": "圆圈"
+	},
+	"speedsketch_item~city": {
+		"message": "城市"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "单簧管"
+	},
+	"speedsketch_item~clock": {
+		"message": "时钟"
+	},
+	"speedsketch_item~cloud": {
+		"message": "云"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "玉米棒"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "咖啡杯"
+	},
+	"speedsketch_item~compass": {
+		"message": "罗盘"
+	},
+	"speedsketch_item~computer": {
+		"message": "计算机"
+	},
+	"speedsketch_item~cookie": {
+		"message": "饼干"
+	},
+	"speedsketch_item~cooler": {
+		"message": "冷却器"
+	},
+	"speedsketch_item~couch": {
+		"message": "长沙发"
+	},
+	"speedsketch_item~cow": {
+		"message": "奶牛"
+	},
+	"speedsketch_item~crab": {
+		"message": "螃蟹"
+	},
+	"speedsketch_item~crayon": {
+		"message": "蜡笔"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "鳄鱼"
+	},
+	"speedsketch_item~cross": {
+		"message": "十字"
+	},
+	"speedsketch_item~crow": {
+		"message": "乌鸦"
+	},
+	"speedsketch_item~crown": {
+		"message": "皇冠"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "游轮"
+	},
+	"speedsketch_item~cube": {
+		"message": "立方体"
+	},
+	"speedsketch_item~cup": {
+		"message": "茶杯"
+	},
+	"speedsketch_item~darts": {
+		"message": "飞镖"
+	},
+	"speedsketch_item~diamond": {
+		"message": "钻石"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "钻戒"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "洗碗机"
+	},
+	"speedsketch_item~diving board": {
+		"message": "跳板"
+	},
+	"speedsketch_item~dog": {
+		"message": "狗"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "海豚"
+	},
+	"speedsketch_item~donut": {
+		"message": "甜甜圈"
+	},
+	"speedsketch_item~door": {
+		"message": "门"
+	},
+	"speedsketch_item~dragon": {
+		"message": "龙"
+	},
+	"speedsketch_item~dresser": {
+		"message": "梳妆台"
+	},
+	"speedsketch_item~drill": {
+		"message": "钻孔机"
+	},
+	"speedsketch_item~drums": {
+		"message": "鼓"
+	},
+	"speedsketch_item~duck": {
+		"message": "鸭子"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "哑铃"
+	},
+	"speedsketch_item~ear": {
+		"message": "耳朵"
+	},
+	"speedsketch_item~egg": {
+		"message": "蛋"
+	},
+	"speedsketch_item~elbow": {
+		"message": "肘部"
+	},
+	"speedsketch_item~elephant": {
+		"message": "大象"
+	},
+	"speedsketch_item~elf": {
+		"message": "精灵"
+	},
+	"speedsketch_item~emoji": {
+		"message": "表情符号"
+	},
+	"speedsketch_item~envelope": {
+		"message": "信封"
+	},
+	"speedsketch_item~eraser": {
+		"message": "橡皮擦"
+	},
+	"speedsketch_item~eye": {
+		"message": "眼睛"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "眼镜"
+	},
+	"speedsketch_item~face": {
+		"message": "脸"
+	},
+	"speedsketch_item~family": {
+		"message": "家庭"
+	},
+	"speedsketch_item~fan": {
+		"message": "风扇"
+	},
+	"speedsketch_item~feather": {
+		"message": "羽毛"
+	},
+	"speedsketch_item~fence": {
+		"message": "篱笆"
+	},
+	"speedsketch_item~finger": {
+		"message": "手指"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "消防栓"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "壁炉"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "消防车"
+	},
+	"speedsketch_item~fish": {
+		"message": "鱼"
+	},
+	"speedsketch_item~flag": {
+		"message": "旗"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "火烈鸟"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "手电筒"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "人字拖"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "落地灯"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "软盘"
+	},
+	"speedsketch_item~flower": {
+		"message": "花"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "飞碟"
+	},
+	"speedsketch_item~fog": {
+		"message": "雾"
+	},
+	"speedsketch_item~foot": {
+		"message": "脚"
+	},
+	"speedsketch_item~fork": {
+		"message": "叉子"
+	},
+	"speedsketch_item~french fries": {
+		"message": "炸薯条"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "煎蛋"
+	},
+	"speedsketch_item~frog": {
+		"message": "青蛙"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "平底锅"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "星系"
+	},
+	"speedsketch_item~garden": {
+		"message": "花园"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "园艺胶管"
+	},
+	"speedsketch_item~ghost": {
+		"message": "幽灵"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "姜饼人"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "长颈鹿"
+	},
+	"speedsketch_item~goat": {
+		"message": "山羊"
+	},
+	"speedsketch_item~goatee": {
+		"message": "山羊胡"
+	},
+	"speedsketch_item~golf club": {
+		"message": "高尔夫俱乐部"
+	},
+	"speedsketch_item~grapes": {
+		"message": "葡萄"
+	},
+	"speedsketch_item~grass": {
+		"message": "草"
+	},
+	"speedsketch_item~group": {
+		"message": "群组"
+	},
+	"speedsketch_item~guitar": {
+		"message": "吉他"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "汉堡"
+	},
+	"speedsketch_item~hammer": {
+		"message": "锤子"
+	},
+	"speedsketch_item~hand": {
+		"message": "手"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "猜单词游戏"
+	},
+	"speedsketch_item~happiness": {
+		"message": "高兴"
+	},
+	"speedsketch_item~harp": {
+		"message": "竖琴"
+	},
+	"speedsketch_item~hat": {
+		"message": "帽子"
+	},
+	"speedsketch_item~headphones": {
+		"message": "头戴式耳机"
+	},
+	"speedsketch_item~heart": {
+		"message": "爱心"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "刺猬"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "直升机"
+	},
+	"speedsketch_item~helmet": {
+		"message": "头盔"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "六边形"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "冰球"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "曲棍球棒"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "节日灯"
+	},
+	"speedsketch_item~horse": {
+		"message": "马"
+	},
+	"speedsketch_item~hospital": {
+		"message": "医院"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "热气球"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "热狗"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "热水浴缸"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "沙漏"
+	},
+	"speedsketch_item~house": {
+		"message": "房子"
+	},
+	"speedsketch_item~house plant": {
+		"message": "室内植物"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "飓风"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "冰淇淋"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "溜冰者"
+	},
+	"speedsketch_item~infinity": {
+		"message": "无限"
+	},
+	"speedsketch_item~island": {
+		"message": "海岛"
+	},
+	"speedsketch_item~italy": {
+		"message": "意大利"
+	},
+	"speedsketch_item~jacket": {
+		"message": "夹克"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "喷气背包"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "铃儿响叮当"
+	},
+	"speedsketch_item~kale": {
+		"message": "羽衣甘蓝"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "袋鼠"
+	},
+	"speedsketch_item~key": {
+		"message": "钥匙"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "键盘"
+	},
+	"speedsketch_item~kite": {
+		"message": "风筝"
+	},
+	"speedsketch_item~knee": {
+		"message": "膝盖"
+	},
+	"speedsketch_item~knife": {
+		"message": "刀"
+	},
+	"speedsketch_item~knot": {
+		"message": "结"
+	},
+	"speedsketch_item~koala": {
+		"message": "考拉"
+	},
+	"speedsketch_item~ladder": {
+		"message": "阶梯"
+	},
+	"speedsketch_item~landscape": {
+		"message": "风光"
+	},
+	"speedsketch_item~lantern": {
+		"message": "灯笼"
+	},
+	"speedsketch_item~laptop": {
+		"message": "笔记本电脑"
+	},
+	"speedsketch_item~leaf": {
+		"message": "叶子"
+	},
+	"speedsketch_item~leg": {
+		"message": "腿"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "灯泡"
+	},
+	"speedsketch_item~lighter": {
+		"message": "打火机"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "灯塔"
+	},
+	"speedsketch_item~lightning": {
+		"message": "闪电"
+	},
+	"speedsketch_item~line": {
+		"message": "线条"
+	},
+	"speedsketch_item~lion": {
+		"message": "狮子"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "口红"
+	},
+	"speedsketch_item~lobster": {
+		"message": "龙虾"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "棒棒糖"
+	},
+	"speedsketch_item~love": {
+		"message": "爱"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "邮箱"
+	},
+	"speedsketch_item~man": {
+		"message": "男人"
+	},
+	"speedsketch_item~map": {
+		"message": "地图"
+	},
+	"speedsketch_item~marker": {
+		"message": "记号笔"
+	},
+	"speedsketch_item~matches": {
+		"message": "火柴"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "数学"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "扩音器"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "美人鱼"
+	},
+	"speedsketch_item~metal": {
+		"message": "金属"
+	},
+	"speedsketch_item~microphone": {
+		"message": "麦克风"
+	},
+	"speedsketch_item~microscope": {
+		"message": "显微镜"
+	},
+	"speedsketch_item~microwave": {
+		"message": "微波炉"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "槲寄生"
+	},
+	"speedsketch_item~mittens": {
+		"message": "手套"
+	},
+	"speedsketch_item~molecule": {
+		"message": "分子"
+	},
+	"speedsketch_item~money": {
+		"message": "钱"
+	},
+	"speedsketch_item~monkey": {
+		"message": "猴子"
+	},
+	"speedsketch_item~moon": {
+		"message": "月亮"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "蚊子"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "摩托车"
+	},
+	"speedsketch_item~mountain": {
+		"message": "山"
+	},
+	"speedsketch_item~mouse": {
+		"message": "老鼠"
+	},
+	"speedsketch_item~moustache": {
+		"message": "小胡子"
+	},
+	"speedsketch_item~mouth": {
+		"message": "嘴巴"
+	},
+	"speedsketch_item~mug": {
+		"message": "马克杯"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "蘑菇"
+	},
+	"speedsketch_item~music": {
+		"message": "音乐"
+	},
+	"speedsketch_item~nail": {
+		"message": "钉子"
+	},
+	"speedsketch_item~nature": {
+		"message": "自然"
+	},
+	"speedsketch_item~necklace": {
+		"message": "项链"
+	},
+	"speedsketch_item~news": {
+		"message": "新闻"
+	},
+	"speedsketch_item~nose": {
+		"message": "鼻子"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "胡桃夹子"
+	},
+	"speedsketch_item~ocean": {
+		"message": "海洋"
+	},
+	"speedsketch_item~octagon": {
+		"message": "八边形"
+	},
+	"speedsketch_item~octopus": {
+		"message": "章鱼"
+	},
+	"speedsketch_item~onion": {
+		"message": "洋葱"
+	},
+	"speedsketch_item~ornament": {
+		"message": "装饰品"
+	},
+	"speedsketch_item~oven": {
+		"message": "烤箱"
+	},
+	"speedsketch_item~owl": {
+		"message": "猫头鹰"
+	},
+	"speedsketch_item~paint can": {
+		"message": "油漆罐"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "画笔"
+	},
+	"speedsketch_item~painting": {
+		"message": "绘画"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "棕榈树"
+	},
+	"speedsketch_item~panda": {
+		"message": "熊猫"
+	},
+	"speedsketch_item~pants": {
+		"message": "裤子"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "回形针"
+	},
+	"speedsketch_item~parachute": {
+		"message": "降落伞"
+	},
+	"speedsketch_item~parrot": {
+		"message": "鹦鹉"
+	},
+	"speedsketch_item~passport": {
+		"message": "护照"
+	},
+	"speedsketch_item~peanut": {
+		"message": "花生"
+	},
+	"speedsketch_item~pear": {
+		"message": "梨"
+	},
+	"speedsketch_item~peas": {
+		"message": "豌豆"
+	},
+	"speedsketch_item~pencil": {
+		"message": "铅笔"
+	},
+	"speedsketch_item~penguin": {
+		"message": "企鹅"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "薄荷"
+	},
+	"speedsketch_item~piano": {
+		"message": "钢琴"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "小货车"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "相框"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "饼图"
+	},
+	"speedsketch_item~pig": {
+		"message": "猪"
+	},
+	"speedsketch_item~pillow": {
+		"message": "枕头"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "菠萝"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "乒乓球"
+	},
+	"speedsketch_item~pirate": {
+		"message": "海盗"
+	},
+	"speedsketch_item~pizza": {
+		"message": "披萨"
+	},
+	"speedsketch_item~pliers": {
+		"message": "钳子"
+	},
+	"speedsketch_item~police car": {
+		"message": "警车"
+	},
+	"speedsketch_item~politician": {
+		"message": "政治人物"
+	},
+	"speedsketch_item~pond": {
+		"message": "池塘"
+	},
+	"speedsketch_item~pool": {
+		"message": "水塘"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "棒冰"
+	},
+	"speedsketch_item~portrait": {
+		"message": "人物肖像"
+	},
+	"speedsketch_item~postcard": {
+		"message": "明信片"
+	},
+	"speedsketch_item~potato": {
+		"message": "土豆"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "电源插座"
+	},
+	"speedsketch_item~present": {
+		"message": "礼物"
+	},
+	"speedsketch_item~prison": {
+		"message": "监狱"
+	},
+	"speedsketch_item~purse": {
+		"message": "钱包"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "拼图"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "兔子"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "浣熊"
+	},
+	"speedsketch_item~radio": {
+		"message": "收音机"
+	},
+	"speedsketch_item~rain": {
+		"message": "雨"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "彩虹"
+	},
+	"speedsketch_item~rake": {
+		"message": "耙子"
+	},
+	"speedsketch_item~raven": {
+		"message": "渡鸦"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "驯鹿"
+	},
+	"speedsketch_item~remote control": {
+		"message": "遥控器"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "犀牛"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "丝带"
+	},
+	"speedsketch_item~river": {
+		"message": "河流"
+	},
+	"speedsketch_item~robot": {
+		"message": "机器人"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "过山车"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "溜冰鞋"
+	},
+	"speedsketch_item~sadness": {
+		"message": "悲伤"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "帆船"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "三明治"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "圣诞老人"
+	},
+	"speedsketch_item~saturn": {
+		"message": "土星"
+	},
+	"speedsketch_item~sausage": {
+		"message": "香肠"
+	},
+	"speedsketch_item~saw": {
+		"message": "锯子"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "萨克斯管"
+	},
+	"speedsketch_item~school bus": {
+		"message": "校车"
+	},
+	"speedsketch_item~scissors": {
+		"message": "剪刀"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "蝎子"
+	},
+	"speedsketch_item~screw": {
+		"message": "螺丝钉"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "螺丝刀"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "雕塑"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "海龟"
+	},
+	"speedsketch_item~see saw": {
+		"message": "跷跷板"
+	},
+	"speedsketch_item~shark": {
+		"message": "鲨鱼"
+	},
+	"speedsketch_item~sheep": {
+		"message": "绵羊"
+	},
+	"speedsketch_item~shoe": {
+		"message": "鞋子"
+	},
+	"speedsketch_item~shorts": {
+		"message": "短裤"
+	},
+	"speedsketch_item~shovel": {
+		"message": "铁铲"
+	},
+	"speedsketch_item~sink": {
+		"message": "水槽"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "滑板"
+	},
+	"speedsketch_item~ski": {
+		"message": "滑雪"
+	},
+	"speedsketch_item~skier": {
+		"message": "滑雪者"
+	},
+	"speedsketch_item~skirt": {
+		"message": "裙子"
+	},
+	"speedsketch_item~skull": {
+		"message": "头盖骨"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "摩天大楼"
+	},
+	"speedsketch_item~sled": {
+		"message": "雪橇"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "睡袋"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "雪橇"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "笑脸"
+	},
+	"speedsketch_item~snail": {
+		"message": "蜗牛"
+	},
+	"speedsketch_item~snake": {
+		"message": "蛇"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "通气管"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "雪花"
+	},
+	"speedsketch_item~snowman": {
+		"message": "雪人"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "足球"
+	},
+	"speedsketch_item~sock": {
+		"message": "短袜"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "快艇"
+	},
+	"speedsketch_item~sphere": {
+		"message": "球体"
+	},
+	"speedsketch_item~spider": {
+		"message": "蜘蛛"
+	},
+	"speedsketch_item~spiral": {
+		"message": "螺旋"
+	},
+	"speedsketch_item~spoon": {
+		"message": "勺子"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "电子表格"
+	},
+	"speedsketch_item~square": {
+		"message": "正方形"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "波形曲线"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "松鼠"
+	},
+	"speedsketch_item~stairs": {
+		"message": "楼梯"
+	},
+	"speedsketch_item~star": {
+		"message": "星星"
+	},
+	"speedsketch_item~steak": {
+		"message": "牛排"
+	},
+	"speedsketch_item~stereo": {
+		"message": "立体声"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "听诊器"
+	},
+	"speedsketch_item~still life": {
+		"message": "静物"
+	},
+	"speedsketch_item~stitches": {
+		"message": "针迹"
+	},
+	"speedsketch_item~stock market": {
+		"message": "股市"
+	},
+	"speedsketch_item~stocking": {
+		"message": "袜子"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "停止标志"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "秒表"
+	},
+	"speedsketch_item~stove": {
+		"message": "火炉"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "草莓"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "路灯"
+	},
+	"speedsketch_item~string bean": {
+		"message": "四季豆"
+	},
+	"speedsketch_item~submarine": {
+		"message": "潜水艇"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "手提箱"
+	},
+	"speedsketch_item~sun": {
+		"message": "太阳"
+	},
+	"speedsketch_item~sunset": {
+		"message": "日落"
+	},
+	"speedsketch_item~swan": {
+		"message": "天鹅"
+	},
+	"speedsketch_item~sweater": {
+		"message": "毛衣"
+	},
+	"speedsketch_item~swing set": {
+		"message": "秋千"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "T 恤衫"
+	},
+	"speedsketch_item~table": {
+		"message": "桌子"
+	},
+	"speedsketch_item~teapot": {
+		"message": "茶壶"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "泰迪熊"
+	},
+	"speedsketch_item~telephone": {
+		"message": "电话"
+	},
+	"speedsketch_item~television": {
+		"message": "电视机"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "网球拍"
+	},
+	"speedsketch_item~tent": {
+		"message": "帐篷"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "井字游戏"
+	},
+	"speedsketch_item~tiger": {
+		"message": "老虎"
+	},
+	"speedsketch_item~time": {
+		"message": "时间"
+	},
+	"speedsketch_item~toaster": {
+		"message": "多士炉"
+	},
+	"speedsketch_item~toe": {
+		"message": "脚趾"
+	},
+	"speedsketch_item~toilet": {
+		"message": "卫生间"
+	},
+	"speedsketch_item~tooth": {
+		"message": "牙齿"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "牙刷"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "牙膏"
+	},
+	"speedsketch_item~tornado": {
+		"message": "龙卷风"
+	},
+	"speedsketch_item~tractor": {
+		"message": "拖拉机"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "红绿灯"
+	},
+	"speedsketch_item~train": {
+		"message": "火车"
+	},
+	"speedsketch_item~tree": {
+		"message": "树"
+	},
+	"speedsketch_item~triangle": {
+		"message": "三角形"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "三轮车"
+	},
+	"speedsketch_item~trolley": {
+		"message": "手推车"
+	},
+	"speedsketch_item~trombone": {
+		"message": "长号"
+	},
+	"speedsketch_item~trousers": {
+		"message": "裤子"
+	},
+	"speedsketch_item~truck": {
+		"message": "卡车"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "小号"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "雨伞"
+	},
+	"speedsketch_item~underwear": {
+		"message": "内衣"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "独角兽"
+	},
+	"speedsketch_item~universe": {
+		"message": "宇宙"
+	},
+	"speedsketch_item~van": {
+		"message": "面包车"
+	},
+	"speedsketch_item~vase": {
+		"message": "花瓶"
+	},
+	"speedsketch_item~violin": {
+		"message": "小提琴"
+	},
+	"speedsketch_item~walnut": {
+		"message": "核桃"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "洗衣机"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "西瓜"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "水滑梯"
+	},
+	"speedsketch_item~wave": {
+		"message": "波浪"
+	},
+	"speedsketch_item~whale": {
+		"message": "鲸"
+	},
+	"speedsketch_item~wheel": {
+		"message": "轮子"
+	},
+	"speedsketch_item~windmill": {
+		"message": "风车"
+	},
+	"speedsketch_item~woman": {
+		"message": "女人"
+	},
+	"speedsketch_item~world": {
+		"message": "世界"
+	},
+	"speedsketch_item~wreath": {
+		"message": "花环"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "手表"
+	},
+	"speedsketch_item~yoga": {
+		"message": "瑜伽"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "酸奶"
+	},
+	"speedsketch_item~zebra": {
+		"message": "斑马"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "Z 字形"
+	},
+	"speedsketch_item~zipper": {
+		"message": "拉链"
+	},
+	"sr_country_name": {
+		"message": "苏里南"
+	},
+	"sv_country_name": {
+		"message": "萨尔瓦多"
+	},
+	"sv_language_name": {
+		"message": "瑞典语"
+	},
+	"td_country_name": {
+		"message": "乍得"
+	},
+	"terms-and-privacy": {
+		"message": "条款和隐私权信息"
+	},
+	"tg_country_name": {
+		"message": "多哥"
+	},
+	"th_language_name": {
+		"message": "泰语"
+	},
+	"tilt": {
+		"message": "倾斜您的设备！"
+	},
+	"time": {
+		"message": "时间"
+	},
+	"tj_country_name": {
+		"message": "塔吉克斯坦"
+	},
+	"tm_country_name": {
+		"message": "土库曼斯坦"
+	},
+	"tn_country_name": {
+		"message": "突尼斯"
+	},
+	"today_only": {
+		"message": "仅限今天"
+	},
+	"tr_country_name": {
+		"message": "土耳其"
+	},
+	"tr_language_name": {
+		"message": "土耳其语"
+	},
+	"tracker_arrival": {
+		"message": "抵达"
+	},
+	"tracker_arriving_in": {
+		"message": "抵达倒计时"
+	},
+	"tracker_current_stop": {
+		"message": "当前位置"
+	},
+	"tracker_departing_in": {
+		"message": "出发倒计时"
+	},
+	"tracker_distance_away_km": {
+		"message": "圣诞老人距离您 {{distance_away}} 公里"
+	},
+	"tracker_distance_from_you": {
+		"message": "与您的距离"
+	},
+	"tracker_distance_travelled": {
+		"message": "累积里程数"
+	},
+	"tracker_feed": {
+		"message": "实时 Feed"
+	},
+	"tracker_flight_nearby": {
+		"message": "圣诞老人就在附近，快来找找看"
+	},
+	"tracker_flight_start": {
+		"message": "圣诞老人已从北极出发，您现在可以跟着他环游世界啦"
+	},
+	"tracker_from_google": {
+		"message": "Google 全体员工齐祝"
+	},
+	"tracker_gifts_delivered": {
+		"message": "已送出的礼物数"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "跳过介绍页面"
+	},
+	"tracker_intro_user_location": {
+		"message": "您目前位于"
+	},
+	"tracker_just_in": {
+		"message": "最新资讯"
+	},
+	"tracker_next_stop": {
+		"message": "下一站"
+	},
+	"tracker_santa_update": {
+		"message": "圣诞老人最新行踪"
+	},
+	"tracker_santa_update_1": {
+		"message": "圣诞老人最新动态"
+	},
+	"tracker_see_route": {
+		"message": "查看路线"
+	},
+	"tracker_stats": {
+		"message": "圣诞老人位置汇总"
+	},
+	"tracker_time_from_you_many": {
+		"message": "圣诞老人将在 {{hours}} 小时左右后到来"
+	},
+	"tracker_time_from_you_one": {
+		"message": "圣诞老人即将到来"
+	},
+	"tracker_track": {
+		"message": "追踪圣诞老人"
+	},
+	"tracker_travelogue": {
+		"message": "行踪日志"
+	},
+	"tracker_weather": {
+		"message": "天气"
+	},
+	"tracker_world_facts": {
+		"message": "您知道吗"
+	},
+	"tracker_world_facts_1": {
+		"message": "全球实况"
+	},
+	"tracker_your_location": {
+		"message": "您所在的位置"
+	},
+	"traditions-next": {
+		"message": "下一个习俗"
+	},
+	"traditions-prev": {
+		"message": "上一个习俗"
+	},
+	"traditions-world": {
+		"message": "世界"
+	},
+	"trivia_beginner_001": {
+		"message": "安第斯山脉位于哪个洲？"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_002": {
+		"message": "美国的哪个州由八座主岛组成？"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "夏威夷州"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "俄亥俄州"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "阿肯色州"
+	},
+	"trivia_beginner_003": {
+		"message": "美国的哪个州坐落于大平原？"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "堪萨斯州"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "特拉华州"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "爱达荷州"
+	},
+	"trivia_beginner_004": {
+		"message": "哪个洲同时濒临大西洋、太平洋和北冰洋？"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_005": {
+		"message": "美国哪个州位于太平洋时区？"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "加利福尼亚州"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "格鲁吉亚"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "印第安纳州"
+	},
+	"trivia_beginner_006": {
+		"message": "阿特拉斯山脉和卡拉哈里沙漠位于哪个洲？"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_007": {
+		"message": "美国哪个州濒临五大湖之一？"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "俄亥俄州"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "蒙大纳"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "新墨西哥州"
+	},
+	"trivia_beginner_008": {
+		"message": "哪个洲的大多数民众讲葡萄牙语或西班牙语？"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_009": {
+		"message": "美国的哪个州有一条狭长地段？"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "奥克拉荷马州"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "怀俄明州"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "科罗拉多州"
+	},
+	"trivia_beginner_010": {
+		"message": "南极洲和哪个洲完全坐落于南半球？"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_011": {
+		"message": "龙尼冰架毗邻哪个洲？"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_012": {
+		"message": "温哥华岛和科迪亚克岛坐落于哪个洲的西海岸附近？"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_013": {
+		"message": "尼日尔是世界上人口增长速度最快的国家之一，它位于哪个洲的西北部？"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_014": {
+		"message": "哪个洲的植被和树木最稀少？"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_015": {
+		"message": "塔斯马尼亚恶魔起源于哪个大洲的南部海岸岛屿？"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_016": {
+		"message": "比萨斜塔是地中海哪个国家/地区著名的旅游胜地？"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "意大利"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "加拿大"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "加纳"
+	},
+	"trivia_beginner_017": {
+		"message": "卡萨布兰卡和黎波里这两座历史名城均位于哪个洲的北部海岸？"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_018": {
+		"message": "生长着巨柱仙人掌的索诺兰沙漠位于哪个洲？"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_019": {
+		"message": "韦拉克鲁斯和阿卡普尔科是哪个国家/地区热门的度假胜地？"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "阿根廷"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "印度"
+	},
+	"trivia_beginner_020": {
+		"message": "世界上 30% 的大熊猫都居住在四川大熊猫栖息地，该栖息地位于哪个国家？"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "中国"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "冰岛"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "埃塞俄比亚"
+	},
+	"trivia_beginner_021": {
+		"message": "哪个洲的冰量大约占全球总冰量的 90%？"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "非洲"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_022": {
+		"message": "安赫尔瀑布是世界最高的瀑布，它位于哪个洲？"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_023": {
+		"message": "在美国哪个州可以游览杰克逊霍尔并到魔鬼塔攀岩？"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "怀俄明州"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "北达科他州"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "康涅狄格州"
+	},
+	"trivia_beginner_024": {
+		"message": "在美国哪个州可以观看枫树液的采集过程并到绿山山脉滑雪？"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "佛蒙特州"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "俄勒冈州"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "亚利桑那州"
+	},
+	"trivia_beginner_025": {
+		"message": "在美国哪个州可以驾车穿过切萨皮克湾大桥并可到大洋城的木栈道上散步？"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "马里兰州"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "堪萨斯州"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "北卡罗来纳州"
+	},
+	"trivia_beginner_026": {
+		"message": "在美国哪个州可以游览猛犸洞并在丘吉尔唐斯观看赛马？"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "肯塔基州"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "西弗吉尼亚"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "犹他州"
+	},
+	"trivia_beginner_027": {
+		"message": "在美国哪个州可以看到巨型红杉和海峡群岛？"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "加利福尼亚州"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "新泽西州"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "弗吉尼亚州"
+	},
+	"trivia_beginner_028": {
+		"message": "若在美国佛罗里达州，您会游览哪块湿地？"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "埃弗格来兹"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "迪斯默尔沼泽"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "大柏树湿地"
+	},
+	"trivia_beginner_029": {
+		"message": "在美国哪个州可以畅游圣劳伦斯航道和芬格湖群？"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "纽约"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "密歇根州"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "内华达州"
+	},
+	"trivia_beginner_030": {
+		"message": "世界最高峰珠穆朗玛峰位于哪个洲？"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_031": {
+		"message": "巴塔哥尼亚地区包括了哪个洲南部的大片地区？"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "非洲"
+	},
+	"trivia_beginner_032": {
+		"message": "帝企鹅的自然栖息地位于哪个洲？"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_033": {
+		"message": "袋鼠和考拉熊栖息在哪个国家/地区？"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_034": {
+		"message": "塞伦盖蒂国家公园的野生动物吸引了众多游客，它位于哪个洲？"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_035": {
+		"message": "哪个洲的陆地面积最大？"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_036": {
+		"message": "横跨泰晤士河的塔桥坐落于欧洲的哪座城市？"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "伦敦"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "哈瓦那"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "开普敦"
+	},
+	"trivia_beginner_037": {
+		"message": "圣巴西尔大教堂位于红场，坐落在克林姆林宫旁边，它位于俄罗斯的哪个城市？"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "莫斯科"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "布鲁塞尔"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "蒙得维的亚"
+	},
+	"trivia_beginner_038": {
+		"message": "始建于公元一世纪的 Colosseum 斗兽场是角斗士格斗的地方，它位于欧洲的哪个城市？"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "罗马"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "喀土穆"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "马尼拉"
+	},
+	"trivia_beginner_039": {
+		"message": "大歌剧院和海港大桥位于澳大利亚哪座城市？"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "悉尼"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "雅加达"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "布拉格"
+	},
+	"trivia_beginner_040": {
+		"message": "在某处古城墙内发现了多处圣地，其中就有圆顶清真寺和西墙，这些古城墙位于中东哪座城市？"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "耶路撒冷"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "东京"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "阿尔及尔"
+	},
+	"trivia_beginner_041": {
+		"message": "帕特农神庙矗立在卫城之巅，它坐落于希腊哪座城市？"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "雅典"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "基辅"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "利马"
+	},
+	"trivia_beginner_042": {
+		"message": "艾菲尔铁塔矗立在塞纳河畔，它坐落于法国哪座城市的中心？"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "巴黎"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "多伦多"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "新德里"
+	},
+	"trivia_beginner_043": {
+		"message": "禁寺是伊斯兰教最神圣之地克尔白的所在地，它位于沙特阿拉伯哪座城市？"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "麦加"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "布宜诺斯艾利斯"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "布达佩斯"
+	},
+	"trivia_beginner_044": {
+		"message": "紫禁城之前是一座帝王宫殿，它位于中国哪座城市的中心地带？"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "北京"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "圣地亚哥"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "布里斯班"
+	},
+	"trivia_beginner_045": {
+		"message": "太空针塔是一个观景塔，它位于美国普吉特海湾周边的哪座城市？"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "西雅图"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "威奇托"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "新奥尔良"
+	},
+	"trivia_beginner_046": {
+		"message": "约翰汉考克大厦是美国哪座城市（位于查尔斯河口地区）的最高建筑？"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "波士顿"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "匹兹堡"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "孟菲斯"
+	},
+	"trivia_beginner_047": {
+		"message": "云霄塔恰好位于著名的大道长街以北，这座莫哈韦沙漠中的高塔是美国哪座城市的最高建筑？"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "拉斯维加斯"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "明尼阿波利斯"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "丹佛"
+	},
+	"trivia_beginner_048": {
+		"message": "自由女神像是自由女神岛上的大型雕塑，它坐落于美国哪座城市的港口？"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "纽约市"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "亚特兰大"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "洛杉矶"
+	},
+	"trivia_beginner_049": {
+		"message": "金门大桥连接着马林半岛和哪个美国城市？"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "旧金山"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "博伊西"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "巴尔的摩"
+	},
+	"trivia_beginner_050": {
+		"message": "位于密西西比河畔的大拱门是美国 19 世纪西进运动的象征，它位于美国哪个城市？"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "圣路易斯"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "印第安纳波利斯"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "迈阿密"
+	},
+	"trivia_beginner_051": {
+		"message": "大金字塔和狮身人面像均坐落于吉萨高原，它位于非洲哪个国家/地区？"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "埃及"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "巴西"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "德国"
+	},
+	"trivia_beginner_052": {
+		"message": "特拉华河畔的独立厅是美国独立战争的重要历史遗迹，它位于美国哪座城市？"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "费城"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "圣安东尼奥"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "芝加哥"
+	},
+	"trivia_beginner_053": {
+		"message": "落基山脉穿越了加拿大及哪个国家/地区？"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "美国"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "委内瑞拉"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "俄罗斯"
+	},
+	"trivia_beginner_054": {
+		"message": "巴西和乌拉圭均濒临哪个大洋？"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_055": {
+		"message": "加拿大东海岸附近的纽芬兰岛位于哪个大洋？"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056": {
+		"message": "与非洲东海岸隔海相望的马达加斯加岛位于哪个大洋？"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_057": {
+		"message": "国际日期变更线的大部分贯穿哪个大洋的中部？"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_058": {
+		"message": "被赤道横穿而过的刚果盆地坐落于哪个洲？"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_059": {
+		"message": "哪个洲濒临墨西哥湾？"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_060": {
+		"message": "流经非洲的哪条河是世界最长的河？"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "尼罗河"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "科罗拉多河"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "奥兰治河"
+	},
+	"trivia_beginner_061": {
+		"message": "马丘比丘古城遗址位于哪个洲？"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_062": {
+		"message": "世界上水量最大的河流亚马逊河横穿哪个洲？"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_063": {
+		"message": "勃朗峰是阿尔卑斯山的最高峰，它位于哪个洲？"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_064": {
+		"message": "巴拿马地峡连接着中美洲和哪个大陆？"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_065": {
+		"message": "猎豹是全球速度最快的陆地哺乳动物，在肯尼亚和坦桑尼亚均会发现它们的身影，这两个国家位于哪个洲？"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_066": {
+		"message": "好望角临近哪个洲南端？"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_067": {
+		"message": "巨龟居住在加拉帕戈斯群岛上，该群岛位于南美洲西面的哪个大洋中？"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_068": {
+		"message": "多瑙河流经维也纳和哪个洲的其他城市？"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "非洲"
+	},
+	"trivia_beginner_069": {
+		"message": "古巴岛和伊斯帕尼奥拉岛均濒临哪个海？"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "加勒比海"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "白令海"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "波罗的海"
+	},
+	"trivia_beginner_070": {
+		"message": "哪个洲濒临几内亚湾？"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_071": {
+		"message": "欧内斯特·沙克尔顿是哪个洲著名的探险家？"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_072": {
+		"message": "拉布拉多海酷似哪个大洋的手臂？"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_073": {
+		"message": "世界最大的沙漠撒哈拉沙漠位于哪个洲？"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_074": {
+		"message": "青藏高原位于哪个洲？"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_075": {
+		"message": "德雷克海峡位于哪个洲的南端？"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_076": {
+		"message": "坐落于珊瑚海的大堡礁位于哪个洲的沿海地区？"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_077": {
+		"message": "在哪个国家可以游览苏伊士运河和探访开罗的“死人城”？"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "埃及"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "哥伦比亚"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "芬兰"
+	},
+	"trivia_beginner_078": {
+		"message": "去往哪个国家/地区可以在布宜诺斯艾利斯市见到高乔人养的牛并观看探戈舞者跳舞？"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "阿根廷"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "尼日尔"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "尼泊尔"
+	},
+	"trivia_beginner_079": {
+		"message": "在哪个国家/地区可以参观非斯市老城区并到阿特拉斯山脉地区远足？"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "摩洛哥"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "厄瓜多尔"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "泰国"
+	},
+	"trivia_beginner_080": {
+		"message": "在哪个国家可以探访玛雅遗址和\n尽享坎昆海滩游泳之乐？"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "荷兰"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "土耳其"
+	},
+	"trivia_beginner_081": {
+		"message": "在哪个国家可以游览都柏林的圣帕特里克大教堂和参加\n基尔肯尼的艺术节？"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "爱尔兰"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "索马里"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "哥斯达黎加"
+	},
+	"trivia_beginner_082": {
+		"message": "在哪个国家可以畅游热带雨林和参加\n里约热内卢的狂欢节？"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "巴西"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "英国"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "越南"
+	},
+	"trivia_beginner_083": {
+		"message": "在哪个国家/地区可以到圣彼得堡参观冬宫博物馆并乘坐西伯利亚大铁路沿线列车？"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "俄罗斯"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "印度尼西亚"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "伯利兹"
+	},
+	"trivia_beginner_084": {
+		"message": "在哪个国家/地区可以乘坐高铁并入住东京旅店享受美妙一夜？"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "日本"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "津巴布韦"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "玻利维亚"
+	},
+	"trivia_beginner_085": {
+		"message": "去往哪个国家/地区可以在热那亚吃到香蒜酱并可在佛罗伦萨观看歌剧？"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "意大利"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "巴拉圭"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "利比亚"
+	},
+	"trivia_beginner_086": {
+		"message": "在哪个国家/地区可以游览马赛马拉自然保护区并到内罗毕购物？"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "肯尼亚"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "韩国"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "智利"
+	},
+	"trivia_beginner_087": {
+		"message": "在哪个国家/地区可以游览恒河并探索加尔各答拥挤的街道？"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "印度"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "德国"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "约旦"
+	},
+	"trivia_beginner_088": {
+		"message": "地球的最北端北极坐落于哪个大洋的中部？"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "北冰洋"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "太平洋"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "印度洋"
+	},
+	"trivia_beginner_089": {
+		"message": "哪个国家/地区濒临大西洋？"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "冰岛"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "巴基斯坦"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "日本"
+	},
+	"trivia_beginner_090": {
+		"message": "美国的哪个州因其温暖的气候和游客众多的海滩而被称作阳光之州？"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "佛罗里达州"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "缅因州"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "华盛顿州"
+	},
+	"trivia_beginner_091": {
+		"message": "大峡谷坐落于美国哪个州？"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "亚利桑那州"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "西弗吉尼亚"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "南达科他州"
+	},
+	"trivia_beginner_092": {
+		"message": "美国的哪个州被称作孤星州，在其州旗上有一颗孤星并曾是一个独立的国家？"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "德克萨斯州"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "威斯康星州"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "马里兰州"
+	},
+	"trivia_beginner_093": {
+		"message": "底格里斯河和幼发拉底河位于哪个洲？"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "南极洲"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_beginner_094": {
+		"message": "维多利亚湖和维龙加山脉位于哪个洲？"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "非洲"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_beginner_095": {
+		"message": "哪个国家/地区深居太平洋？"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "新西兰"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "南非"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "冰岛"
+	},
+	"trivia_beginner_096": {
+		"message": "哪个国家/地区位于斯堪的纳维亚半岛？"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "瑞典"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "罗马尼亚"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "秘鲁"
+	},
+	"trivia_beginner_097": {
+		"message": "哪个国家/地区濒临地中海？"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "法国"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "孟加拉"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_001": {
+		"message": "美国的哪座城市最接近加拿大边境？"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "西雅图"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "萨克拉门托"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "奥马哈"
+	},
+	"trivia_hard_002": {
+		"message": "美国哪座城市最容易遭遇飓风？"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "迈阿密"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "洛杉矶"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "匹兹堡"
+	},
+	"trivia_hard_003": {
+		"message": "以下哪个湖泊的表面积最大？"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "休伦湖"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "米德湖"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "伊利湖"
+	},
+	"trivia_hard_004": {
+		"message": "以下哪座美国城市的人口最多？"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "芝加哥"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "圣路易斯"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "印第安纳波利斯"
+	},
+	"trivia_hard_005": {
+		"message": "哪个国家/地区最靠近波斯湾？"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "土耳其"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "不丹"
+	},
+	"trivia_hard_006": {
+		"message": "以下哪个国家/地区的陆地面积最大？"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "哈萨克斯坦"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "罗马尼亚"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "波兰"
+	},
+	"trivia_hard_007": {
+		"message": "以下哪个国家/地区的人口最稠密？"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "新加坡"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "老挝"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "玻利维亚"
+	},
+	"trivia_hard_008": {
+		"message": "以下哪个国家/地区讲德语的人最多？"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "奥地利"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "伊拉克"
+	},
+	"trivia_hard_009": {
+		"message": "以下哪个国家/地区接壤的国家/地区最多？"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "沙特阿拉伯"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "摩洛哥"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_hard_010": {
+		"message": "哪个国家/地区未濒临坦噶尼喀湖？"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "贝宁"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "布隆迪"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "赞比亚"
+	},
+	"trivia_hard_011": {
+		"message": "哪个国家/地区未被赤道穿过？"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "毛里塔尼亚"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "印度尼西亚"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "肯尼亚"
+	},
+	"trivia_hard_012": {
+		"message": "哪个国家/地区不在巴尔干半岛上？"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "捷克共和国"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "保加利亚"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "马其顿"
+	},
+	"trivia_hard_013": {
+		"message": "哪个国家/地区不濒临北海？"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "芬兰"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "丹麦"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "英国"
+	},
+	"trivia_hard_014": {
+		"message": "哪个国家/地区未濒临黑海？"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "阿塞拜疆"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "乌克兰"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "土耳其"
+	},
+	"trivia_hard_015": {
+		"message": "哪个国家/地区不位于内陆？"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "克罗地亚"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "白俄罗斯"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "匈牙利"
+	},
+	"trivia_hard_016": {
+		"message": "哪个国家/地区不位于撒哈拉沙漠？"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "安哥拉"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "利比亚"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "阿尔及利亚"
+	},
+	"trivia_hard_017": {
+		"message": "哪座岛位于最东端？"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "特立尼达"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "牙买加"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "古巴"
+	},
+	"trivia_hard_018": {
+		"message": "恐怖角濒临哪个水域？"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "加勒比海"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_hard_019": {
+		"message": "哪座城市是墨西哥湾沿岸的港口？"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "韦拉克鲁斯"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "蒂华纳"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "阿卡普尔科"
+	},
+	"trivia_hard_020": {
+		"message": "北回归线穿越了哪个国家/地区？"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "加拿大"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "巴西"
+	},
+	"trivia_hard_021": {
+		"message": "以下哪个岛面积最大？"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "巴芬岛"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "伊斯帕尼奥拉岛"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "撒丁岛"
+	},
+	"trivia_hard_022": {
+		"message": "尤卡坦海峡位于墨西哥和哪个岛之间？"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "古巴"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "波多黎各"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "多米尼加"
+	},
+	"trivia_hard_023": {
+		"message": "加拿大哪座城市处于最北端？"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "耶洛奈夫"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "渥太华"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "温尼伯"
+	},
+	"trivia_hard_024": {
+		"message": "哪个岛属于小安的列斯群岛？"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "圣基茨"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "百慕大"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "新斯科舍省"
+	},
+	"trivia_hard_025": {
+		"message": "太子港是哪个国家/地区人口最多的城市？"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "海地"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "苏里南"
+	},
+	"trivia_hard_026": {
+		"message": "哪个国家/地区坐落于喀尔巴阡山系？"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "罗马尼亚"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "阿尔巴尼亚"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "土库曼斯坦"
+	},
+	"trivia_hard_027": {
+		"message": "法语是哪个国家/地区的官方语言？"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "加蓬"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "科威特"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "坦桑尼亚"
+	},
+	"trivia_hard_028": {
+		"message": "以下哪个国家/地区的陆地面积最大？"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "以色列"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "巴林"
+	},
+	"trivia_hard_029": {
+		"message": "哪个国家跨越的经度最广？"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "哈萨克斯坦"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "阿富汗"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "叙利亚"
+	},
+	"trivia_hard_030": {
+		"message": "哪个国家/地区是由多个岛屿组成的？"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "菲律宾"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "柬埔寨"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "塔吉克斯坦"
+	},
+	"trivia_hard_031": {
+		"message": "以下哪个国家/地区跨越的时区最多？"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "巴西"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "加纳"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "伯利兹"
+	},
+	"trivia_hard_032": {
+		"message": "哪个国家/地区位于最北端？"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "喀麦隆"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "莫桑比克"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "澳大利亚"
+	},
+	"trivia_hard_033": {
+		"message": "哪个国家/地区位于法国和西班牙之间？"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "安道尔"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "卢森堡"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "梵蒂冈"
+	},
+	"trivia_hard_034": {
+		"message": "哪个国家/地区与丹麦接壤？"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "德国"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "芬兰"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "摩尔多瓦"
+	},
+	"trivia_hard_035": {
+		"message": "撒丁岛属于哪个国家/地区？"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "意大利"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "土耳其"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "英国"
+	},
+	"trivia_hard_036": {
+		"message": "哪个沙漠占据了北京和乌兰巴托之间的大片地区？"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "戈壁"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "印度大沙漠"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "利比亚沙漠"
+	},
+	"trivia_hard_037": {
+		"message": "堪察加洋流属于哪个大洋？"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "太平洋"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "大西洋"
+	},
+	"trivia_hard_038": {
+		"message": "锡德拉湾是哪个海南部水域的一部分？"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "地中海"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "阿拉伯海"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "波罗的海"
+	},
+	"trivia_hard_039": {
+		"message": "塔特拉山脉是欧洲哪个山系最高的山脉？"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "喀尔巴阡山脉"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "坎塔布连山脉"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "比利牛斯山脉"
+	},
+	"trivia_hard_040": {
+		"message": "哪条河流经卡里巴湖并构成了赞比亚与津巴布韦边界的一部分？"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "赞比西河"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "尼罗河"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "刚果河"
+	},
+	"trivia_hard_041": {
+		"message": "泰晤士河、默兹河及斯海尔德河都注入哪个海？"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "北海"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "地中海"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "黑海"
+	},
+	"trivia_hard_042": {
+		"message": "吕宋海峡将菲律宾与北部的哪个大岛分隔开来？"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "台湾"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "阿尔及利亚"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "斯里兰卡"
+	},
+	"trivia_hard_043": {
+		"message": "哪座海岛沿大西洋中脊分布？"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "亚速尔群岛"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "巴哈马"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "斐济群岛"
+	},
+	"trivia_hard_044": {
+		"message": "那条河流入拉普帖夫海？"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "勒拿河"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "长江"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "印度河"
+	},
+	"trivia_hard_045": {
+		"message": "哪座山峰最接近赤道？"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "乞力马扎罗山"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "勃朗峰"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "麦金利山"
+	},
+	"trivia_hard_046": {
+		"message": "哪个知名城市人口最多？"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "莫斯科"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "赫尔辛基"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "阿尔及尔"
+	},
+	"trivia_hard_047": {
+		"message": "哪座城市坐落于利菲河畔并且是爱尔兰共和国最大的城市？"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "都柏林"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "奥斯陆"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "哥本哈根"
+	},
+	"trivia_hard_048": {
+		"message": "哪座城市位于兴都库什山谷，同时还是阿富汗最大的城市？"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "喀布尔"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "萨拉热窝"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "坎帕拉"
+	},
+	"trivia_hard_049": {
+		"message": "湄南河畔的哪座城市是泰国最大的城市？"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "曼谷"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "北京"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "安曼"
+	},
+	"trivia_hard_050": {
+		"message": "哪座城市坐落于斯卡格拉克海峡某个峡湾的顶端并且是挪威最大的城市？"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "奥斯陆"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "伦敦"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "布鲁塞尔"
+	},
+	"trivia_hard_051": {
+		"message": "东地中海沿岸的哪座城市是黎巴嫩最大的城市？"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "贝鲁特"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "摩加迪沙"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "利雅得"
+	},
+	"trivia_hard_052": {
+		"message": "哪座城市位于爪哇岛沿岸并且是印度尼西亚最大的城市？"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "雅加达"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "东京"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "内罗毕"
+	},
+	"trivia_hard_053": {
+		"message": "阿提卡大区的哪座城市是希腊最大的城市？"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "雅典"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "罗马"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "巴塞罗纳"
+	},
+	"trivia_hard_054": {
+		"message": "哪个城市位于拉普拉塔河河湾并且是乌拉圭最大的城市？"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "蒙得维的亚"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "基多"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "里约热内卢"
+	},
+	"trivia_hard_055": {
+		"message": "哪座城市曾隶属德兰士瓦省并且是南非最大的城市？"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "约翰内斯堡"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "阿布亚"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "马普托"
+	},
+	"trivia_hard_056": {
+		"message": "哪座城市是加勒比海重要的航运中心并且是牙买加最大的城市？"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "金斯敦"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "加拉加斯"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "布宜诺斯艾利斯"
+	},
+	"trivia_hard_057": {
+		"message": "哪座城市坐落于东非大裂谷并且是厄立特里亚最大的城市？"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "阿斯马拉"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "巴格达"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "布拉柴维尔"
+	},
+	"trivia_hard_058": {
+		"message": "哪座城市位于维斯瓦河畔，同时还是波兰最大的城市？"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "华沙"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "柏林"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "基辅"
+	},
+	"trivia_hard_059": {
+		"message": "哪座城市是泛美公路的重要一站并且是哥斯达黎加最大的城市？"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "圣何塞"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "利马"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "苏克雷"
+	},
+	"trivia_hard_060": {
+		"message": "哪座城市是南非重要的农产品交易中心并且是津巴布韦最大的城市？"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "哈拉雷"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "温得和克"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "坎帕拉"
+	},
+	"trivia_hard_061": {
+		"message": "哪座城市曾被红色高棉政权统治并且是柬埔寨最大的城市？"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "金边"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "吉隆坡"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "达卡"
+	},
+	"trivia_hard_062": {
+		"message": "哪座城市位于大西洋上的梅苏拉多角，同时还是利比里亚最大的城市？"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "蒙罗维亚"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "阿克拉"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "卢萨卡"
+	},
+	"trivia_hard_063": {
+		"message": "哪座城市坐落于安第斯山脉的某个高原之上并且是哥伦比亚最大的城市？"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "波哥大"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "马那瓜"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "蒙特雷"
+	},
+	"trivia_hard_064": {
+		"message": "哪座城市位于厄尔布尔士山脚下并且是伊朗最大的城市？"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "德黑兰"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "塔什干"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "伊斯坦布尔"
+	},
+	"trivia_hard_065": {
+		"message": "哪个水域被北极圈穿过？"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "挪威海"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "沃尔特湖"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "里海"
+	},
+	"trivia_hard_066": {
+		"message": "哪个水体位于东非大裂谷？"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "马拉维湖"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "塔斯曼海"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "的的喀喀湖"
+	},
+	"trivia_hard_067": {
+		"message": "俄罗斯港口城市阿尔汉格尔斯克位于哪个水域沿岸？"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "白海"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "巴斯海峡"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "比斯开湾"
+	},
+	"trivia_hard_068": {
+		"message": "湖南省和山东省位于哪个国家/地区？"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "中国"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "泰国"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "也门"
+	},
+	"trivia_hard_069": {
+		"message": "卡斯蒂利亚语是地中海哪个国家/地区的官方语言？"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "西班牙"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "希腊"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "阿塞拜疆"
+	},
+	"trivia_hard_070": {
+		"message": "中美洲哪个国家/地区曾是哥伦比亚的一个省？"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "巴拿马"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "洪都拉斯"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "危地马拉"
+	},
+	"trivia_hard_071": {
+		"message": "巴塞尔市被莱茵河分隔开来，它是哪个国家/地区重要的交通枢纽？"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "瑞士"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "比利时"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "俄罗斯"
+	},
+	"trivia_hard_072": {
+		"message": "塞尚等画家的创作灵感都来源于普罗旺斯的美景，普罗旺斯地区位于哪个国家？"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "法国"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "荷兰"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "罗马尼亚"
+	},
+	"trivia_hard_073": {
+		"message": "布兰卡港是潘帕斯平原地区的一个主要运输点，它位于哪个国家？"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "阿根廷"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "玻利维亚"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "尼加拉瓜"
+	},
+	"trivia_hard_074": {
+		"message": "哪个国家/地区同时濒临地中海、黑海和爱琴海？"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "保加利亚"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "利比亚"
+	},
+	"trivia_hard_075": {
+		"message": "牛羚每年都会横渡马拉河从坦桑尼亚开始迁徙，它们会迁徙至东北部哪个相邻的国家/地区？"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "肯尼亚"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "赞比亚"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "几内亚"
+	},
+	"trivia_hard_076": {
+		"message": "阿勒颇以大清真寺而闻名于世，它是亚洲西南部哪个国家/地区最大的城市？"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "叙利亚"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "阿曼"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "孟加拉"
+	},
+	"trivia_hard_077": {
+		"message": "哪个国家/地区与俄罗斯和格鲁吉亚接壤？"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "阿塞拜疆"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "乌兹别克斯坦"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "朝鲜"
+	},
+	"trivia_hard_078": {
+		"message": "哪个国家/地区与巴拿马和巴西接壤？"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "哥伦比亚"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "秘鲁"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "哥斯达黎加"
+	},
+	"trivia_hard_079": {
+		"message": "哪个国家/地区与危地马拉和美国接壤？"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "萨尔瓦多"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_hard_080": {
+		"message": "哪个国家/地区与伊拉克和阿富汗接壤？"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "乌克兰"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_hard_081": {
+		"message": "哪个国家/地区与莱索托和博茨瓦纳接壤？"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "南非"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "津巴布韦"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "刚果"
+	},
+	"trivia_hard_082": {
+		"message": "安特卫普位于哪个国家/地区的佛兰德语区？"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "比利时"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "荷兰"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "冰岛"
+	},
+	"trivia_hard_083": {
+		"message": "格但斯克位于维斯瓦河河口附近，它是哪个欧洲国家的主要港口？"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "波兰"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "西班牙"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "克罗地亚"
+	},
+	"trivia_hard_084": {
+		"message": "马代拉河和普鲁斯河是南美洲哪个大河的主要支流？"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "亚马逊河"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "奥利诺科河"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "巴拉那河"
+	},
+	"trivia_hard_085": {
+		"message": "瑞士、德国均濒临博登湖，此外还有哪个国家/地区也濒临此湖？"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "奥地利"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "芬兰"
+	},
+	"trivia_hard_086": {
+		"message": "奥克兰拥有多个港湾，这座主要港口城市是哪个国家/地区最大的城市？"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "新西兰"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "澳大利亚"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "印度尼西亚"
+	},
+	"trivia_hard_087": {
+		"message": "哪个国家/地区恰好位于多哥以西并且是可可的主要生产地？"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "加纳"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "苏丹"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "突尼斯"
+	},
+	"trivia_hard_088": {
+		"message": "瓜拉尼 (Guaraní) 是一种官方语言的名称，同时还是哪个南美洲国家的货币？"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "巴拉圭"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "厄瓜多尔"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "巴西"
+	},
+	"trivia_hard_089": {
+		"message": "哪个山脉沿着法国与西班牙的边界延伸？"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "比利牛斯山脉"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "亚平宁山脉"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "高加索山脉"
+	},
+	"trivia_hard_090": {
+		"message": "托伦斯河在哪个国家/地区汇入圣文森特湾？"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "乌干达"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_hard_091": {
+		"message": "非洲哪个国家/地区濒临地中海并实行君主制？"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "摩洛哥"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "埃及"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "中非共和国"
+	},
+	"trivia_hard_092": {
+		"message": "位于库拉河畔的第比利斯是哪个国家/地区的首都/主要城市？"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "格鲁吉亚"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "叙利亚"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "匈牙利"
+	},
+	"trivia_hard_093": {
+		"message": "阿布鲁佐是亚得里亚海沿岸的多山区，它位于哪个国家/地区？"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "意大利"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "法国"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "卢森堡"
+	},
+	"trivia_hard_094": {
+		"message": "拉脱维亚与哪个国家/地区均濒临里加湾？"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "爱沙尼亚"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "白俄罗斯"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "西班牙"
+	},
+	"trivia_hard_095": {
+		"message": "犹八海峡连接着苏伊士湾与哪个海？"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "红海"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "加勒比海"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "里海"
+	},
+	"trivia_hard_096": {
+		"message": "加利利海的水源主要来自哪条河流？"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "约旦河"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "阿姆河"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "恒河"
+	},
+	"trivia_hard_097": {
+		"message": "哪个大海湾将新不伦瑞克省与新斯科舍省分隔开来？"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "芬地湾"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "哈德逊湾"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "孟加拉湾"
+	},
+	"trivia_hard_098": {
+		"message": "科隆大教堂坐落于莱茵兰地区，该地区位于哪个国家/地区？"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "德国"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "丹麦"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "巴基斯坦"
+	},
+	"trivia_hard_099": {
+		"message": "恰帕斯州是玛雅遗址所在地，它是哪个国家/地区最南端的州？"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "洪都拉斯"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "智利"
+	},
+	"trivia_hard_100": {
+		"message": "狭窄的达达尼尔海峡连接着马尔马拉海与哪个海？"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "爱琴海"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "巴伦支海"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "塔斯曼海"
+	},
+	"trivia_hard_101": {
+		"message": "高棉语是东南亚哪个国家/地区的官方语言？"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "柬埔寨"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "尼泊尔"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "越南"
+	},
+	"trivia_hard_102": {
+		"message": "顿涅茨盆地这一工业区由俄罗斯和哪个国家/地区共有？"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "乌克兰"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "黎巴嫩"
+	},
+	"trivia_hard_103": {
+		"message": "科西阿斯科山坐落于雪山地区，它是哪个洲的最高峰？"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_hard_104": {
+		"message": "马都拉岛和巴厘岛属于哪个国家/地区？"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "印度尼西亚"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "日本"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "巴基斯坦"
+	},
+	"trivia_hard_105": {
+		"message": "昆仑山以北的塔克拉玛干沙漠位于亚洲哪个国家/地区？"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "中国"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "沙特阿拉伯"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "韩国"
+	},
+	"trivia_medium_001": {
+		"message": "美国以下哪座城市位于河流冲积的三角洲上？"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "新奥尔良"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "奥斯汀"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "俄克拉荷马城"
+	},
+	"trivia_medium_002": {
+		"message": "联合国教科文组织认定的世界遗产吴哥窟和卡帕多细亚是在哪个洲发现的？"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "非洲"
+	},
+	"trivia_medium_003": {
+		"message": "哪个洲西南部的人民讲库尔德语和波斯语？"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "南美洲"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_medium_004": {
+		"message": "特奥蒂瓦坎是位于哪个洲的古文明中心？"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "北美洲"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_medium_005": {
+		"message": "哪个洲濒临别林斯高晋海和罗斯海？"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "南极洲"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_medium_006": {
+		"message": "莫桑比克洋流和本格拉洋流沿着哪个洲的海岸流动？"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "非洲"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "欧洲"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "北美洲"
+	},
+	"trivia_medium_007": {
+		"message": "马尔维纳斯群岛，别称福克兰群岛，位于哪个洲的东南边缘？"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_medium_008": {
+		"message": "以下哪个非洲国家/地区面积最大？"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "阿尔及利亚"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "冈比亚"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "布隆迪"
+	},
+	"trivia_medium_009": {
+		"message": "哪座大岛位于冰岛西北部 200 英里处？"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "格陵兰"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "新几内亚"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "爱尔兰"
+	},
+	"trivia_medium_010": {
+		"message": "喀拉海和东西伯利亚海是哪个大洋的一部分？"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "北冰洋"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "印度洋"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_011": {
+		"message": "哪个国家/地区濒临波罗的海？"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "拉脱维亚"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "斯洛文尼亚"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "乌克兰"
+	},
+	"trivia_medium_012": {
+		"message": "以下哪座主要城市人口最多？"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "巴西圣保罗"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "加拿大多伦多"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "越南河内"
+	},
+	"trivia_medium_013": {
+		"message": "哪个国家/地区没有大西洋海岸线？"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "马来西亚"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "安哥拉"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "乌拉圭"
+	},
+	"trivia_medium_014": {
+		"message": "以下哪个国家/地区的海岸线最短？"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "萨尔瓦多"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "秘鲁"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "智利"
+	},
+	"trivia_medium_015": {
+		"message": "哪个沙漠位于亚洲？"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "戈壁"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "卡拉哈里"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "阿塔卡马"
+	},
+	"trivia_medium_016": {
+		"message": "以下哪个国家/地区的火山活动最活跃？"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "印度尼西亚"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "埃及"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "以色列"
+	},
+	"trivia_medium_017": {
+		"message": "以下哪个国家/地区人口最多？"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "巴基斯坦"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "海地"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "委内瑞拉"
+	},
+	"trivia_medium_018": {
+		"message": "以下哪个国家/地区拥有的岛屿最多？"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "巴哈马"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "牙买加"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "萨尔瓦多"
+	},
+	"trivia_medium_019": {
+		"message": "哪个国家/地区最靠近赤道？"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "卢旺达"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "危地马拉"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "南非"
+	},
+	"trivia_medium_020": {
+		"message": "哪个国家/地区位于最北端？"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "爱沙尼亚"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "利比亚"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "柬埔寨"
+	},
+	"trivia_medium_021": {
+		"message": "坐落于葡萄牙塔霍河畔的阿法玛区位于哪座知名城市？"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "里斯本"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "柏林"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "赫尔辛基"
+	},
+	"trivia_medium_022": {
+		"message": "哪座知名城市位于死海东北部 25 英里处并且是约旦人口最多的城市？"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "安曼"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "伊斯兰堡"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "首尔"
+	},
+	"trivia_medium_023": {
+		"message": "埃及多次重大抗议活动的聚集地解放广场位于哪座知名城市？"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "开罗"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "内罗毕"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "马斯喀特"
+	},
+	"trivia_medium_024": {
+		"message": "哪座知名城市坐落于桌湾并且是南非国会的所在地？"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "开普敦"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "卢萨卡"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "金沙萨"
+	},
+	"trivia_medium_025": {
+		"message": "哪座知名城市坐落于伏尔塔瓦河畔并且是捷克共和国最大的城市？"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "布拉格"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "都柏林"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "索非亚"
+	},
+	"trivia_medium_026": {
+		"message": "哪座知名城市位于地中海并且是利比亚的重要港口？"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "的黎波里"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "摩加迪沙"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "蒙罗维亚"
+	},
+	"trivia_medium_027": {
+		"message": "哪座知名城市位于白尼罗河和青尼罗河交汇处并且是苏丹重要的贸易和交通中心？"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "喀土穆"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "突尼斯"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "约翰内斯堡"
+	},
+	"trivia_medium_028": {
+		"message": "哪座知名城市位于丹麦的西兰岛和阿迈厄岛上？"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "哥本哈根"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "伯恩"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "布拉迪斯拉发"
+	},
+	"trivia_medium_029": {
+		"message": "哪座知名城市位于新普罗维登斯岛并且是巴哈马最大的城市？"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "拿骚"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "圣多明各"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "贝尔莫潘"
+	},
+	"trivia_medium_030": {
+		"message": "哪座知名城市位于黑海南端并且是土耳其的交通枢纽？"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "安卡拉"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "明斯克"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "德黑兰"
+	},
+	"trivia_medium_031": {
+		"message": "以下哪个国家/地区的一部分位于非洲之角？"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "厄立特里亚"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "尼日尔"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "斯威士兰"
+	},
+	"trivia_medium_032": {
+		"message": "斯卡格拉克海峡将丹麦与哪个国家/地区分隔开来？"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "挪威"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "英国"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "斯里兰卡"
+	},
+	"trivia_medium_033": {
+		"message": "哪个国家/地区的沙漠面积更大？"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "乍得"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "挪威"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "越南"
+	},
+	"trivia_medium_034": {
+		"message": "幼发拉底河流经哪个国家/地区？"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "叙利亚"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "瑞士"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "泰国"
+	},
+	"trivia_medium_035": {
+		"message": "坐落于贝加尔湖畔的伊尔库茨克市位于哪个洲？"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "亚洲"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_medium_036": {
+		"message": "第聂伯河和莱茵河是哪个洲的主要河流？"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "欧洲"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "南极洲"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "亚洲"
+	},
+	"trivia_medium_037": {
+		"message": "圭亚那高原和潘塔纳尔地区坐落于哪个洲？"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "南美洲"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "北美洲"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_medium_038": {
+		"message": "维多利亚大沙漠和纳拉伯平原是哪个洲的自然景观？"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "亚洲"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_medium_039": {
+		"message": "南里奥格兰德州是哪个国家/地区最南端的州？"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "巴西"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "墨西哥"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "德国"
+	},
+	"trivia_medium_040": {
+		"message": "鄂毕河畔的新西伯利亚市位于哪个国家/地区？"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "俄罗斯"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "尼泊尔"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "中国"
+	},
+	"trivia_medium_041": {
+		"message": "哪个国家/地区位于环太平洋地区且更易发生地震？"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "智利"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "安哥拉"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "法国"
+	},
+	"trivia_medium_042": {
+		"message": "马拉开波湖位于哪个国家/地区的北部沿海？"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "委内瑞拉"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "危地马拉"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_043": {
+		"message": "哪个国家/地区濒临阿拉伯海？"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "印度"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "塔吉克斯坦"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "希腊"
+	},
+	"trivia_medium_044": {
+		"message": "哪个国家/地区坐落于伊比利亚半岛？"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "葡萄牙"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "孟加拉"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "荷兰"
+	},
+	"trivia_medium_045": {
+		"message": "以下哪个国家/地区的海岸线最长？"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "泰国"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "刚果"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "卡塔尔"
+	},
+	"trivia_medium_046": {
+		"message": "美国哪个州位于密西西比河以西？"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "科罗拉多州"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "马里兰州"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "密歇根州"
+	},
+	"trivia_medium_047": {
+		"message": "美国哪个州的森林覆盖率达到 60％ 左右？"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "弗吉尼亚州"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "亚利桑那州"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "内华达州"
+	},
+	"trivia_medium_048": {
+		"message": "麦金利山是北美洲最高峰，它位于美国哪个州？"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "阿拉斯加州"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "明尼苏达州"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "科罗拉多州"
+	},
+	"trivia_medium_049": {
+		"message": "美国以下哪个州的面积最大？"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "蒙大纳"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "康涅狄格州"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "南卡罗来纳州"
+	},
+	"trivia_medium_050": {
+		"message": "拉什莫尔山靠近拉皮德城，它位于美国的哪个州？"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "南达科他州"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "俄勒冈州"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "佛罗里达州"
+	},
+	"trivia_medium_051": {
+		"message": "美国的哪个州与加拿大接壤？"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "明尼苏达州"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "内布拉斯加州"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "肯塔基州"
+	},
+	"trivia_medium_052": {
+		"message": "在美国哪个州沿岸发现了珊瑚礁？"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "夏威夷州"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "康涅狄格州"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "内华达州"
+	},
+	"trivia_medium_053": {
+		"message": "汉堡是哪个国家/地区的重要港口？"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "德国"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "克罗地亚"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "比利时"
+	},
+	"trivia_medium_054": {
+		"message": "哪个国家/地区的火山活动最活跃？"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "冰岛"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "英国"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "波兰"
+	},
+	"trivia_medium_055": {
+		"message": "哪个国家/地区大部分坐落于小亚细亚半岛？"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "缅甸"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "爱沙尼亚"
+	},
+	"trivia_medium_056": {
+		"message": "死海构成了以色列和哪个国家/地区边境的一部分？"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "约旦"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "伊朗"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "日本"
+	},
+	"trivia_medium_057": {
+		"message": "维多利亚湖以东的塞伦盖蒂国家公园位于哪个国家/地区？"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "坦桑尼亚"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "也门"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "尼日利亚"
+	},
+	"trivia_medium_058": {
+		"message": "哪个国家/地区濒临加勒比海并且是主要的石油出口地？"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "委内瑞拉"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "智利"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "巴拉圭"
+	},
+	"trivia_medium_059": {
+		"message": "哪个内陆国家/地区恰好位于赤道以南？"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "布隆迪"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "吉布提"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "突尼斯"
+	},
+	"trivia_medium_060": {
+		"message": "地中海哪个国家/地区濒临第勒尼安海？"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "意大利"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "以色列"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "塞内加尔"
+	},
+	"trivia_medium_061": {
+		"message": "坐落于乌拉尔山脉东麓的叶卡捷琳堡位于哪个国家/地区？"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "俄罗斯"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "立陶宛"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "比利时"
+	},
+	"trivia_medium_062": {
+		"message": "哪个岛国位于澳大利亚东南部并且是羊毛的主要生产地？"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "新西兰"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "菲律宾"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "越南"
+	},
+	"trivia_medium_063": {
+		"message": "孟买是哪个国家/地区的主要港口城市？"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "印度"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "瑞士"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "不丹"
+	},
+	"trivia_medium_064": {
+		"message": "仁川市濒临黄海，它位于哪个国家/地区？"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "韩国"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "泰国"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "蒙古"
+	},
+	"trivia_medium_065": {
+		"message": "哪个小国/地区在奥地利西部边界上？"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "列支敦士登"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "叙利亚"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "摩尔多瓦"
+	},
+	"trivia_medium_066": {
+		"message": "维多利亚州和新南威尔士州隶属哪个国家/地区？"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "美国"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_067": {
+		"message": "哪个国家/地区坐落于婆罗洲岛并与小国文莱接壤？"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "马来西亚"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "伊朗"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "乌克兰"
+	},
+	"trivia_medium_068": {
+		"message": "尤利安阿尔卑斯山脉位于意大利与哪个国家/地区的边境上？"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "斯洛文尼亚"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "尼泊尔"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "塔吉克斯坦"
+	},
+	"trivia_medium_069": {
+		"message": "旧称满洲的地区位于哪个国家/地区的东北部？"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "中国"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "白俄罗斯"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "阿富汗"
+	},
+	"trivia_medium_070": {
+		"message": "哪个国家/地区与萨尔瓦多接壤？"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "洪都拉斯"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "巴拿马"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "多米尼加共和国"
+	},
+	"trivia_medium_071": {
+		"message": "哪个国家/地区位于高加索山区？"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "格鲁吉亚"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "匈牙利"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "安道尔"
+	},
+	"trivia_medium_072": {
+		"message": "巽他海峡将亚洲哪个国家/地区的两座岛屿分隔开来？"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "印度尼西亚"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "新西兰"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "老挝"
+	},
+	"trivia_medium_073": {
+		"message": "去往哪个国家/地区可以在香农河口附近见到冰川峡谷和壮丽的悬崖峭壁？"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "爱尔兰"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "法国"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "乌兹别克斯坦"
+	},
+	"trivia_medium_074": {
+		"message": "印度河流经南亚的哪个国家/地区？"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "巴基斯坦"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "朝鲜"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "阿塞拜疆"
+	},
+	"trivia_medium_075": {
+		"message": "哪个国家/地区濒临红海？"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "厄立特里亚"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "加纳"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "肯尼亚"
+	},
+	"trivia_medium_076": {
+		"message": "萨卡特卡斯州和塔巴斯科州隶属哪个国家/地区？"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "墨西哥"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "伯利兹"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "阿根廷"
+	},
+	"trivia_medium_077": {
+		"message": "利雅得拥有 4000 多座清真寺，这座城市位于哪个国家/地区？"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "沙特阿拉伯"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "阿尔巴尼亚"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "叙利亚"
+	},
+	"trivia_medium_078": {
+		"message": "非洲的哪个国家/地区位于内陆？"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "马里"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "毛里塔尼亚"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "埃及"
+	},
+	"trivia_medium_079": {
+		"message": "富士山是哪个国家/地区的神圣之地？"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "日本"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "菲律宾"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "孟加拉"
+	},
+	"trivia_medium_080": {
+		"message": "大安地列斯群岛的哪个国家/地区将英语作为官方语言？"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "牙买加"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "海地"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "古巴"
+	},
+	"trivia_medium_081": {
+		"message": "叙利亚、科威特和阿尔及利亚的官方语言是什么？"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "阿拉伯语"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "亚美尼亚语"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "德语"
+	},
+	"trivia_medium_082": {
+		"message": "在一年一度的萨尔茨堡音乐节上，时常会上演莫扎特歌剧，该音乐节在欧洲哪个多山的国家/地区举办？"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "奥地利"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "匈牙利"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "罗马尼亚"
+	},
+	"trivia_medium_083": {
+		"message": "鲸鱼谷（一片遍布史前鲸鱼化石残骸的沙漠）位于苏丹北方的哪个国家/地区？"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "埃及"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "尼日利亚"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "赞比亚"
+	},
+	"trivia_medium_084": {
+		"message": "鹿特丹坐落于北海附近的三角洲地带，它位于欧洲哪个国家/地区？"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "荷兰"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "瑞典"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "希腊"
+	},
+	"trivia_medium_085": {
+		"message": "布拉马普特拉河流入孟加拉湾附近的一个大型三角洲，它发源于哪个主要山系？"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "喜马拉雅山"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "乌拉尔山"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "阿尔卑斯山脉"
+	},
+	"trivia_medium_086": {
+		"message": "法尔斯语亦称波斯语，是哪个伊斯兰国家的官方语言？"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "伊朗"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "科威特"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "利比亚"
+	},
+	"trivia_medium_087": {
+		"message": "在塞维利亚可以观看斗牛士的斗牛表演，这座城市位于欧洲哪个国家/地区？"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "西班牙"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "德国"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "马其顿"
+	},
+	"trivia_medium_088": {
+		"message": "伊斯坦布尔被视作东西方文化的交汇地，它位于哪个国家/地区？"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "土耳其"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "斯洛伐克"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "阿曼"
+	},
+	"trivia_medium_089": {
+		"message": "科潘是玛雅时期的一座城邦，这个热门的观光景点位于哪个国家（该国与萨尔瓦多和尼加拉瓜接壤）？"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "洪都拉斯"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "智利"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "加拿大"
+	},
+	"trivia_medium_090": {
+		"message": "尼日尔河以北的廷巴克图作为商旅贸易中心已有近千年历史，它位于哪个内陆国家/地区？"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "马里"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "乌干达"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "纳米比亚"
+	},
+	"trivia_medium_091": {
+		"message": "南美哪个内陆国家/地区同时与智利和巴西接壤？"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "玻利维亚"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "哥伦比亚"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "圭亚那"
+	},
+	"trivia_medium_092": {
+		"message": "贝伦市位于亚马逊河南端河口地区，它属于哪个国家？"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "巴西"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "哥斯达黎加"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "苏里南"
+	},
+	"trivia_medium_093": {
+		"message": "哪条河流是保加利亚北部边界的重要组成部分？"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "多瑙河"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "鄂毕河"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "湄公河"
+	},
+	"trivia_medium_094": {
+		"message": "坐落于贝加尔湖畔的萨彦岭位于亚洲哪个国家/地区？"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "俄罗斯"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "印度"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "吉尔吉斯斯坦"
+	},
+	"trivia_medium_095": {
+		"message": "尼皮贡湖是加拿大哪个省最大的湖泊？"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "安大略"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "艾伯塔省"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "不列颠哥伦比亚"
+	},
+	"trivia_medium_096": {
+		"message": "巴利阿里海和伊奥尼亚海均属于哪个大海？"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "地中海"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "波罗的海"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "加勒比海"
+	},
+	"trivia_medium_097": {
+		"message": "图尔卡纳湖和纳特龙湖这两个大裂谷湖泊坐落于哪个洲？"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "非洲"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "南美洲"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "欧洲"
+	},
+	"trivia_medium_098": {
+		"message": "波多黎各海沟是哪个大洋的最深处？"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "大西洋"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "北冰洋"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "太平洋"
+	},
+	"trivia_medium_099": {
+		"message": "笑翠鸟原栖息于哪个洲东部的桉树林？"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "澳大利亚"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "非洲"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "南美洲"
+	},
+	"trivia_medium_100": {
+		"message": "海牙市是国际法庭的所在地，它位于欧洲哪个国家/地区的西海岸？"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "荷兰"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "芬兰"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "保加利亚"
+	},
+	"trivia_ngb_promo": {
+		"message": "内容由 National Geographic Bee 提供"
+	},
+	"tw_country_name": {
+		"message": "台湾"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "坦桑尼亚"
+	},
+	"ug_country_name": {
+		"message": "乌干达"
+	},
+	"uk_country_name": {
+		"message": "英国"
+	},
+	"uk_tradition": {
+		"message": "在英国，男女老少围坐在餐桌旁，一起玩圣诞拉炮的游戏。拉炮是一种用彩纸包裹的圆筒，筒的两端系有拉环。拉动拉环时，圆筒会“啪”地一声炸开，爆出里面的纸帽、玩具、写有笑话的纸条和奖品，为圣诞夜带来欢乐。"
+	},
+	"unmute": {
+		"message": "取消静音"
+	},
+	"upgrade-warning": {
+		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新版浏览器。有关详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
+	"us_country_name": {
+		"message": "美国"
+	},
+	"us_tradition": {
+		"message": "在美国，人们会在圣诞前夕挂起长袜。据传说，圣尼古拉斯听闻有户人家需要帮助。为了给他们带来惊喜，圣尼古拉斯顺着烟囱爬下屋子，将装满黄金的宝物袋放在了悬挂的长袜里。从此以后，圣尼古拉斯被称作圣诞老人，即派送礼物的使者。"
+	},
+	"uy_country_name": {
+		"message": "乌拉圭"
+	},
+	"uz_country_name": {
+		"message": "乌兹别克斯坦"
+	},
+	"ve_country_name": {
+		"message": "委内瑞拉"
+	},
+	"village_comeback": {
+		"message": "24 日平安夜，别忘了跟我们一起追踪圣诞老人的行踪！"
+	},
+	"village_explore": {
+		"message": "在温馨的 12 月里，与圣诞老人的小精灵们一起探索、玩游戏并学习新知"
+	},
+	"village_get_the_app": {
+		"message": "下载 Android 版“追踪圣诞老人”应用"
+	},
+	"village_more": {
+		"message": "更多探索方式"
+	},
+	"village_santa_a2hs": {
+		"message": "添加到主屏幕"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "添加到任务栏"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "添加到桌面"
+	},
+	"village_santa_cardboard": {
+		"message": "使用 Cardboard 寻找圣诞老人"
+	},
+	"village_santa_cast": {
+		"message": "在 Google Cast 上寻找圣诞老人"
+	},
+	"village_santa_crx": {
+		"message": "添加圣诞老人 Chrome 扩展程序"
+	},
+	"village_takesoff": {
+		"message": "圣诞老人出发倒计时"
+	},
+	"vn_country_name": {
+		"message": "越南"
+	},
+	"watch": {
+		"message": "观看视频"
+	},
+	"wrapbattle_combo": {
+		"message": "漂亮的组合指法"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "真棒"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "漏啦"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "确定"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "完美"
+	},
+	"ye_country_name": {
+		"message": "也门"
+	},
+	"yourbest": {
+		"message": "最高得分"
+	},
+	"zh-CN_language_name": {
+		"message": "中文（简体）"
+	},
+	"zh-TW_language_name": {
+		"message": "中文（繁体）"
+	},
+	"zm_country_name": {
+		"message": "赞比亚"
+	},
+	"zw_country_name": {
+		"message": "津巴布韦"
+	}
+}

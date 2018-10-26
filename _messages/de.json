@@ -1,0 +1,6722 @@
+{
+	"about-content-one": {
+		"message": "An Heiligabend präsentieren wir das Weihnachtsmann-Dashboard. Mit dieser Technologie wird der Schlitten des Weihnachtsmanns auf seiner Weltreise angetrieben. Wir haben diese spezielle Vorschau von einem der vielen Entwicklerwichtel des Weihnachtsmanns erhalten, die am Nordpol emsig dabei sind, den Weihnachtsmann bei der Vorbereitung auf seinen großen Tag zu unterstützen. Das Weihnachtsmann-Dashboard stellt die neuesten und besten Errungenschaften der Google Maps-Technologie und Schlittenkunst vor. Du kannst damit seine Weltreise verfolgen und einiges über seine Zwischenstopps erfahren."
+	},
+	"about-content-three": {
+		"message": "Google hat gemeinsam mit den Wichteln des Weihnachtsmanns \"Auf den Spuren des Weihnachtsmanns\" auf Google Maps gestaltet und entwickelt. Brauchst du Hilfe oder hast du weitere Fragen? \u003ca href=\"//support.google.com/santatracker\"\u003eWeitere Informationen findest du in der Google Maps-Hilfe.\u003c/a\u003e"
+	},
+	"about-content-two": {
+		"message": "Unsere freundlichen Wichtel laden dich zu einem Besuch ins Weihnachtsmanndorf ein, während sich der Weihnachtsmann auf seine Reise vorbereitet. Ganz bestimmt findest du dort unterhaltsame Aktivitäten und begegnest interessanten Wichteln."
+	},
+	"about-santa": {
+		"message": "Info"
+	},
+	"about_title": {
+		"message": "Willkommen bei Google Maps – auf den Spuren des Weihnachtsmanns"
+	},
+	"ae_country_name": {
+		"message": "Vereinigte Arabische Emirate"
+	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albanien"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentinien"
+	},
+	"ar_language_name": {
+		"message": "Arabisch"
+	},
+	"ar_tradition": {
+		"message": "In Argentinien beginnt Weihnachten pünktlich um Mitternacht. Viele Familien schmücken ihr Zuhause festlich und beginnen das Fest mit dem Öffnen der Geschenke im Familienkreis. In den frühen Morgenstunden zünden sie ein Feuerwerk an."
+	},
+	"at_country_name": {
+		"message": "Österreich"
+	},
+	"au_country_name": {
+		"message": "Australien"
+	},
+	"au_tradition": {
+		"message": "Da Australien so weit südlich liegt, ist es dort im Dezember Sommer. Statt mit Schlitten und Kakao feiern die Australier Weihnachten am Strand, essen Krabben und spielen ein paar Runden Kricket."
+	},
+	"ba_country_name": {
+		"message": "Bosnien und Herzegowina"
+	},
+	"back_to_previous_page": {
+		"message": "Zurück"
+	},
+	"back_to_tracker": {
+		"message": "Zurück zur Übersicht"
+	},
+	"bd_country_name": {
+		"message": "Bangladesch"
+	},
+	"be_country_name": {
+		"message": "Belgien"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgarien"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivien"
+	},
+	"br_country_name": {
+		"message": "Brasilien"
+	},
+	"br_tradition": {
+		"message": "Das Weihnachtsfest beginnt gegen Mitternacht in der Regel mit einem Abendessen im Familienkreis, dem Öffnen der Geschenke und der Feier der \"Missa do Galo\" (der Hahnenmesse) in der Kirche. Trotz des tropisch-warmen Sommerwetters sind winterliche Dekorationen nicht unüblich."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botsuana"
+	},
+	"by_country_name": {
+		"message": "Belarus"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Für kanadische Kinder bedeutet Weihnachten meist auch Schnee. Sie spielen warm eingepackt in Mützen und Schals im Schnee, gehen Eislaufen und fahren Schlitten. Am Weihnachtsabend stellen sie dem Weihnachtsmann Milch und Kekse an den Kamin. Manchmal bekommt sein Rentier auch eine Karotte."
+	},
+	"calendar": {
+		"message": "Der Kalender"
+	},
+	"category_code": {
+		"message": "Code"
+	},
+	"category_draw": {
+		"message": "Zeichnen"
+	},
+	"category_listen": {
+		"message": "Anhören"
+	},
+	"category_send": {
+		"message": "Senden"
+	},
+	"cd_country_name": {
+		"message": "Demokratische Republik Kongo"
+	},
+	"cf_country_name": {
+		"message": "Zentralafrikanische Republik"
+	},
+	"cg_country_name": {
+		"message": "Kongo"
+	},
+	"ch_country_name": {
+		"message": "Schweiz"
+	},
+	"ci_country_name": {
+		"message": "Côte d'Ivoire"
+	},
+	"citylights-contribute": {
+		"message": "Eigene Fotos von {{location}} hinzufügen"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Pushkin Square"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskau, Russland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wien, Österreich"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Elysees bis zum Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paris, Frankreich"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Weihnachtsmarkt"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Deutschland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Rio Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbien"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Weihnachtsmanndorf"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappland, Finnland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgien"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanien"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Dänemark"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Schweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winterfest der Lichter"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagarafälle, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Winterfest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas-Lagune"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasilien"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"clear": {
+		"message": "Löschen"
+	},
+	"close": {
+		"message": "Schließen"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbien"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Zurück zum Start"
+	},
+	"codeboogie-block-clap": {
+		"message": "Klatschen"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Klatsch in die Hände!"
+	},
+	"codeboogie-block-jump": {
+		"message": "Sprung"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Spring hoch!"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Linker Arm"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Zeig nach links!"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Linker Fuß"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Mach einen Schritt nach links!"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Rechter Arm"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Zeig nach rechts!"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Rechter Fuß"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Mach einen Schritt nach rechts!"
+	},
+	"codeboogie-block-shake": {
+		"message": "Hüftschwung"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Schwing die Hüften!"
+	},
+	"codeboogie-block-split": {
+		"message": "Spagat"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Mach einen Spagat!"
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Spielmodus auswählen"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Bühne auswählen"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Du bist dran!"
+	},
+	"codeboogie-go": {
+		"message": "Los"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Weitertanzen"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Lass uns tanzen"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Tanzkurs"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Mach die Schritte des Lehrers nach."
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Erfinde deine eigenen Tanzschritte und teile sie mit deinen Freunden."
+	},
+	"codeboogie-next-dance": {
+		"message": "Nächster Tanz"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Gut gemacht!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Versuch mal den Block unten, um den Tanz hinzubekommen."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Wusstest du, dass der Tanz mit nur {{ideal}} Blöcken beendet werden kann? Versuche es mal mit dem unteren Block."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Hut ab! Du tanzt wie ein Profi!"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Du benutzt zwar die richtigen Blöcke, sie reichen aber nicht für den kompletten Tanz aus."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Wusstest du, dass der Tanz mit nur {{ideal}} Blöcken beendet werden kann?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Das waren zu viele Tanzschritte."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Dieser Tanzschritt hat wohl nicht ganz gepasst. Probier es mal mit diesem hier:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Teile deine Tanzschritte mit anderen und fordere deine Freunde heraus."
+	},
+	"codeboogie-success": {
+		"message": "Geschafft!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pass genau auf!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Du bist dran"
+	},
+	"codelab-block-jump-length": {
+		"message": "Überspringe"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Springe über Kacheln."
+	},
+	"codelab-block-moveeast": {
+		"message": "Osten"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Osten."
+	},
+	"codelab-block-movenorth": {
+		"message": "Norden"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Norden."
+	},
+	"codelab-block-movesouth": {
+		"message": "Süden"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Süden."
+	},
+	"codelab-block-movewest": {
+		"message": "Westen"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Bewege mich einen Block in Richtung Westen."
+	},
+	"codelab-block-repeat": {
+		"message": "Wiederholen:"
+	},
+	"codelab-block-repeat-times": {
+		"message": "Mal"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Wiederhole einige Anweisungen mehrmals."
+	},
+	"codelab-block-whenrun": {
+		"message": "Bei Ausführung"
+	},
+	"codelab-finish": {
+		"message": "Fertigstellen"
+	},
+	"codelab-great": {
+		"message": "Super gemacht!"
+	},
+	"codelab-mwc-promo": {
+		"message": "Unter \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e findest du weitere Programmierprojekte von Google."
+	},
+	"codelab-next-challenge": {
+		"message": "Nächste Aufgabe"
+	},
+	"codelab-oops": {
+		"message": "Hoppla!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Der Wiederholungsblock muss andere Blöcke enthalten."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Einige Blöcke hängen nicht richtig zusammen."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Du hast dich offenbar verlaufen."
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Versuche, das Rätsel mit einem oder mehreren der Blöcke unten zu lösen."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Wusstest du, dass sich dieses Level mit nur {{ideal}} Blöcken meistern lässt? Verwende den Block unten."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Super gemacht! Du hast das Rätsel perfekt gelöst."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Du verwendest die richtigen Blöcke, aber nicht genügend davon."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Wusstest du, dass sich dieses Level mit nur {{ideal}} Blöcken meistern lässt?"
+	},
+	"codelab-try-again": {
+		"message": "Wiederholen"
+	},
+	"copy-me": {
+		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
+	},
+	"copy-me-short": {
+		"message": "Freigabelink kopieren"
+	},
+	"countdown_days": {
+		"message": "Tage"
+	},
+	"countdown_hours": {
+		"message": "Std."
+	},
+	"countdown_minutes": {
+		"message": "Min."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Der Weihnachtsmann startet in"
+	},
+	"countdownlabel": {
+		"message": "Bis zur Abreise des Weihnachtsmanns"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Tschechisch"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Tschechien"
+	},
+	"da_language_name": {
+		"message": "Dänisch"
+	},
+	"days": {
+		"message": "Tage"
+	},
+	"de_country_name": {
+		"message": "Deutschland"
+	},
+	"de_language_name": {
+		"message": "Deutsch"
+	},
+	"de_tradition": {
+		"message": "In nahezu jeder deutschen Stadt gibt es einen Weihnachtsmarkt. Die Menschen kommen zusammen, lauschen einer Blaskapelle, die Weihnachtslieder spielt, und genießen die traditionelle Küche der Region. Sie essen Lebkuchenherzen, geröstete Zuckermandeln, Süßigkeiten und trinken Glühwein oder Apfelwein."
+	},
+	"deck": {
+		"message": "Dekorieren"
+	},
+	"deckdescription": {
+		"message": "Schmücke deinen Browser mit einer weihnachtlichen Chrome-Erweiterung."
+	},
+	"detected": {
+		"message": "erkannt"
+	},
+	"difficulty": {
+		"message": "Schwierigkeit"
+	},
+	"dk_country_name": {
+		"message": "Dänemark"
+	},
+	"do_country_name": {
+		"message": "Dominikanische Republik"
+	},
+	"donate_button": {
+		"message": "Spenden"
+	},
+	"donate_text": {
+		"message": "Hilf mit bei der Finanzierung eines Förderprogramms auf DonorsChoose.org. Diesen Dezember ergänzen wir jede eingegangene Spende um 50 %, bis wir unser Ziel von 1 Million $ erreicht haben. Lass uns gemeinsam dafür sorgen, dass Klassenzimmer tatsächlich #ForEveryKid, also für alle Kinder, zugänglich sind."
+	},
+	"dz_country_name": {
+		"message": "Algerien"
+	},
+	"easy_difficulty": {
+		"message": "Leicht"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"educators": {
+		"message": "\"Auf den Spuren des Weihnachtsmanns\" für Lehrer"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
+	"el_language_name": {
+		"message": "Griechisch"
+	},
+	"elvish_language_name": {
+		"message": "Elfisch"
+	},
+	"en_language_name": {
+		"message": "Englisch"
+	},
+	"endofjourneymessage": {
+		"message": "Der Weihnachtsmann hat seine diesjährige Reise beendet. Er und seine Wichtel feiern jetzt am Nordpol und machen dann erst einmal Urlaub."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Ein Problem ist aufgetreten. Santas Wichtel versuchen aber gerade, es zu lösen."
+	},
+	"error-lost-connection": {
+		"message": "Oh, sieht so aus, als hätten wir die Verbindung zum Nordpol verloren. Die Wichtel arbeiten schon fleißig daran, sie wiederherzustellen. Versuche es gleich noch einmal!"
+	},
+	"error-not-found": {
+		"message": "Santas Wichtel können diese Seite leider nicht finden. Vielleicht hast du mehr Glück, wenn du zurück zum \u003ca href=\"./village.html\"\u003eDorf des Weihnachtsmanns\u003c/a\u003e gehst."
+	},
+	"error-try-again": {
+		"message": "Erneut versuchen"
+	},
+	"error_try_again": {
+		"message": "Erneut versuchen"
+	},
+	"es_language_name": {
+		"message": "Spanisch"
+	},
+	"et_country_name": {
+		"message": "Äthiopien"
+	},
+	"explore": {
+		"message": "Entdecken"
+	},
+	"fi_country_name": {
+		"message": "Finnland"
+	},
+	"fi_tradition": {
+		"message": "In Finnland glauben die Menschen, dass der Weihnachtsmann \"Joulupukki\" im nördlichen Teil des Landes in Korvatunturi lebt. Wer durch Zufall seine geheime Werkstatt ausfindig macht, kann fleißigen Zwergen bei ihrer Arbeit zusehen und in den Kiefernwäldern nach Rentieren Ausschau halten."
+	},
+	"finished-text": {
+		"message": "Schöne Feiertage! Der Weihnachtsmann ist um die ganze Welt geflogen und ruht sich nun von der anstrengenden Reise aus. Besuche uns im nächsten Jahr wieder!"
+	},
+	"fr_country_name": {
+		"message": "Frankreich"
+	},
+	"fr_language_name": {
+		"message": "Französisch"
+	},
+	"fr_tradition": {
+		"message": "In Frankreich stellen Kinder traditionell ihre Schuhe neben den Kamin und warten auf die Ankunft von Père Noël. Wenn die Kinder das Jahr über brav waren, füllt Père Noël die Schuhe mit Geschenken."
+	},
+	"fullscreen": {
+		"message": "Vollbild"
+	},
+	"ga_country_name": {
+		"message": "Gabun"
+	},
+	"gameover": {
+		"message": "Geschafft!"
+	},
+	"gameover_level": {
+		"message": "Erreichtes Level:"
+	},
+	"gameover_score": {
+		"message": "Dein Punktestand:"
+	},
+	"getgooglemaps": {
+		"message": "Google Maps aufrufen"
+	},
+	"getready": {
+		"message": "Gleich gehts los!"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Weihnachten ist in Ghana ein Familienfest. Die Erwachsenen verkleiden sich und verteilen in der Nachbarschaft Süßigkeiten. Die Kinder schmücken ihr Zuhause mit Papierschmuck und Bildern, die sie in der Schule gemalt haben."
+	},
+	"gl_country_name": {
+		"message": "Grönland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Zum Dorf"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Griechenland"
+	},
+	"gr_tradition": {
+		"message": "In Griechenland leben die \"Kallikántzari\" die meiste Zeit des Jahres unter der Erde. An Weihnachten treiben sie ihren Schabernack, verstecken sich in den Häusern der Menschen, erschrecken sie, spielen ihnen Streiche und essen das Weihnachtsessen. Die Griechen vertreiben diese Kobolde mit einem Ritual."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "In Guatemala wird Weihnachten mit ausgelassenem Tanz gefeiert. Die Menschen tragen Puritina-Hüte, essen guatemaltekische Tamales, zünden um Mitternacht Knallkörper an und tanzen die ganze Nacht hindurch."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Schwer"
+	},
+	"help": {
+		"message": "Hilfe"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Schöne Feiertage!"
+	},
+	"holiday_message_1": {
+		"message": "Frohe Weihnachten!"
+	},
+	"holiday_message_2": {
+		"message": "Alles Liebe!"
+	},
+	"holiday_message_3": {
+		"message": "Weiße Weihnachten!"
+	},
+	"holiday_message_4": {
+		"message": "Frohes neues Jahr!"
+	},
+	"holiday_message_5": {
+		"message": "Frohes Fest!"
+	},
+	"hours": {
+		"message": "Stunden"
+	},
+	"hr_country_name": {
+		"message": "Kroatien"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Ungarn"
+	},
+	"hu_language_name": {
+		"message": "Ungarisch"
+	},
+	"id_country_name": {
+		"message": "Indonesien"
+	},
+	"ie_country_name": {
+		"message": "Irland"
+	},
+	"improve_google_translate": {
+		"message": "Google Übersetzer verbessern"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "Island"
+	},
+	"is_tradition": {
+		"message": "In Island schenken sich Familien zu Weihnachten gegenseitig warme Kleidung. Der Legende nach streift eine böse Weihnachtskatze umher, die jeden verschlingt, der nicht warm genug angezogen ist. Familien achten darauf, dass niemand der Weihnachtskatze zum Opfer fällt."
+	},
+	"it_country_name": {
+		"message": "Italien"
+	},
+	"it_language_name": {
+		"message": "Italienisch"
+	},
+	"ja_language_name": {
+		"message": "Japanisch"
+	},
+	"jm_country_name": {
+		"message": "Jamaika"
+	},
+	"kg_country_name": {
+		"message": "Kirgisistan"
+	},
+	"kg_tradition": {
+		"message": "In Kirgisistan kommt am Neujahrsabend Ayaz Ata, Väterchen Frost, und legt Geschenke unter den Neujahrsbaum. Um Mitternacht feiern das die Familien im ganzen Land mit einem Feuerwerk, das die Städte taghell erleuchtet."
+	},
+	"ko_language_name": {
+		"message": "Koreanisch"
+	},
+	"kr_country_name": {
+		"message": "Südkorea"
+	},
+	"kr_tradition": {
+		"message": "Weihnachten ist in Südkorea ein Feiertag, der als besonders romantisch gilt und die Herzen höherschlagen lässt. Viele Liebespaare besuchen die Stadt mit ihren festlich erleuchteten Straßen und Geschäften."
+	},
+	"kz_country_name": {
+		"message": "Kasachstan"
+	},
+	"la_country_name": {
+		"message": "Laos"
+	},
+	"language": {
+		"message": "Sprache"
+	},
+	"learn": {
+		"message": "Lernen"
+	},
+	"learnmore": {
+		"message": "Weitere Informationen"
+	},
+	"level": {
+		"message": "Level"
+	},
+	"light": {
+		"message": "Erleuchten"
+	},
+	"lightdescription": {
+		"message": "Bring deinen Fernseher mit der Android-App \"Auf den Spuren des Weihnachtsmanns\" und mit Chromecast zum Leuchten."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lock_orientation": {
+		"message": "Deaktiviere die Drehung für eine optimale Spielerfahrung."
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Litauen"
+	},
+	"lt_tradition": {
+		"message": "In Litauen wird Weihnachtsschmuck häufig aus Stroh gebastelt. Zu den beliebtesten Formen zählen Sterne, Schneeflocken und Weihnachtsglocken. Auch beim traditionellen Weihnachtsschmaus Kūčios wird meist Stroh für die Tischdekoration verwendet."
+	},
+	"lv_country_name": {
+		"message": "Lettland"
+	},
+	"ly_country_name": {
+		"message": "Libyen"
+	},
+	"md_country_name": {
+		"message": "Republik Moldau"
+	},
+	"medium_difficulty": {
+		"message": "Mittel"
+	},
+	"meta_description": {
+		"message": "Mit \"Auf den Spuren des Weihnachtsmanns\" kannst du dem Weihnachtsmann in Google Maps auf seiner Reise um die Welt folgen."
+	},
+	"meta_title": {
+		"message": "Auf den Spuren des Weihnachtsmanns"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "Minuten"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauretanien"
+	},
+	"mute": {
+		"message": "Mikrofon aus"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexiko"
+	},
+	"mx_tradition": {
+		"message": "In Mexiko zerschlagen Kinder jeden Alters an Weihnachten Piñatas. Erwachsene und Kinder machen sich einen Spaß daraus, sich mit verbundenen Augen im Kreis zu drehen und mit einem Stock die sternförmigen hängenden Gefäße zu zerschlagen, aus denen dann Nüsse, Früchte und Süßigkeiten herausfallen."
+	},
+	"my_country_name": {
+		"message": "Malaysia"
+	},
+	"mz_country_name": {
+		"message": "Mosambik"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"new": {
+		"message": "Neu"
+	},
+	"newtoday": {
+		"message": "Heute neu"
+	},
+	"next": {
+		"message": "Weiter"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Niederlande"
+	},
+	"nl_language_name": {
+		"message": "Niederländisch"
+	},
+	"no_country_name": {
+		"message": "Norwegen"
+	},
+	"no_language_name": {
+		"message": "Norwegisch"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya bietet naturwissenschaftliche Bildung für Kinder in den ländlichen Gegenden Indiens. In seinen Wissenschaftszentren und den mobilen Wissenschaftsbussen wird alles vom Sonnensystem bis hin zur Funktionsweise des Gehirns behandelt. Die Organisation hat bisher mehr als 5 Millionen Kinder und 200.000 Lehrer in über 14 Bundesstaaten Indiens erreicht. Damit bietet sie eines der größten naturwissenschaftlichen Bildungsprogramme der Welt. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eUnterstützern\u003c/a\u003e von Agastya zu zählen."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Lehrer \u0026amp; Schüler"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® ist eine gemeinnützige Organisation, die sich dafür einsetzt, dass mehr Menschen Zugang zur Informatik erhalten. Dies gilt insbesondere für Frauen und Personen, die aufgrund ihrer Hautfarbe benachteiligt werden. Code.org® möchte, dass allen Schülern die Möglichkeit gegeben wird, Informatik zu lernen."
+	},
+	"nonprofit-code-type": {
+		"message": "Informatik"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org wurde im Jahr 2000 in New York im Stadtteil Bronx von einem Geschichtslehrer gegründet und hat bislang 480 Millionen $ an Spenden für Schulen in den USA gesammelt. Lehrer können von DonorsChoose.org die Lehrmaterialien erhalten, die sie für ihren Unterricht benötigen."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klassenzimmer"
+	},
+	"nonprofit-enable-description": {
+		"message": "Dem CDC zufolge weisen 7 von 1.000 Menschen Gliedmaßenabweichungen auf. Prothesen sind jedoch teuer. Sie können bis zu 10.000 € kosten. Bei heranwachsenden Kindern können da schnell große Summen zusammenkommen. e-Nable ist eine globale Gemeinschaft von Menschen, die gemeinsam daran arbeiten, per 3D-Druck gefertigte Hände für Kinder mit Gliedmaßenabweichungen bereitzustellen. Google.org hilft der Enable Community Foundation bei der Unterstützung der e-NABLE-Community, damit sie mehr Handprothesen entwickeln und diese noch mehr Kindern zur Verfügung stellen kann."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prothesen"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Wähle ein Schmuckstück und male es aus."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Teile deinen Schmuck mit Freunden und Familienmitgliedern, damit auch sie mehr über die Organisationen erfahren können."
+	},
+	"nonprofit-intro-type": {
+		"message": "Wir stellen gemeinsam mit Google.org fünf gemeinnützige Bildungsorganisationen vor, bei denen das ganze Jahr Weihnachten ist. Scrolle nach unten, um mehr darüber zu erfahren, welche Geschenke die einzelnen Organisationen zu vergeben haben. Du kannst deine Unterstützung zeigen, indem du diese Schmuckstücke ausmalst und entweder an deinen Weihnachtsbaum hängst oder Freunden und Familienmitgliedern schenkst."
+	},
+	"nonprofit-jane-description": {
+		"message": "Schimpansen sind die nächsten lebenden Verwandten des Menschen im Tierreich. Wegen zerstörter Lebensräume, Krankheiten und illegalen Handels gibt es heute weniger als 300.000 von ihnen. Das Jane Goodall Institute (JGI) schützt Schimpansen, indem es ihr Verhalten und ihren Lebensraum untersucht und erforscht. Außerdem fördert das JGI die Bildung einer Community, die die Tierwelt und unsere Umwelt schützen und erhalten möchte. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEntdecke die Lebensräume der Schimpansen\u003c/a\u003e in Gombe, Tansania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Schimpanse"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy ist eine gemeinnützige Organisation, deren Ziel darin besteht, allen Menschen auf der Welt kostenlosen Zugang zu hochwertiger Bildung zu bieten. Khan Academy ist davon überzeugt, dass Lernende aller Altersstufen die Möglichkeit haben sollten, kostenlos Bildungsinhalte zu nutzen und in ihrem eigenen Tempo zu bewältigen."
+	},
+	"nonprofit-khan-type": {
+		"message": "Bildung"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders ist eine führende internationale Nichtregierungsorganisation für kulturelle Entwicklung, die 2007 gegründet wurde. Der Hauptsitz befindet sich in Paris. Sie zeichnet für den Bau von über 300 Bibliotheken in der ganzen Welt verantwortlich."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotheken"
+	},
+	"nonprofit-more-information": {
+		"message": "Weitere Informationen auf:"
+	},
+	"nonprofit-nature-description": {
+		"message": "The Nature Conservancy befasst sich mit dem Schutz und der Wiederherstellung der Wälder in den USA und auf der ganzen Welt. Wälder erhalten das Leben auf unserem Planeten. Sie filtern das Wasser, säubern unsere Luft, unterstützen Gemeinschaften und bieten einen Lebensraum für wichtige Tier- und Pflanzenarten. Bei der derzeitigen Entwaldungsrate werden unsere Wälder in 100 Jahren nicht mehr existieren. Mit dem Programm \"Plant a Billion Trees\" von The Nature Conservancy sollen bis 2025 eine Milliarde Bäume gepflanzt und so die wichtigsten Wälder der Erde wieder aufgeforstet werden."
+	},
+	"nonprofit-nature-type": {
+		"message": "Wälder"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Fast 40 % der Weltbevölkerung haben keinen Zugang zu Bildung in einer Sprache, die sie sprechen oder verstehen. StoryWeaver hat sich dem Kampf gegen dieses Problem verschrieben und unterstützt Lehrer, Autoren und Übersetzer bei der Erstellung unterhaltsamer Ergänzungsliteratur für Kinder."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lesen"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Weltweit leiden viele Menschen unter einem teilweisen Verlust des Sehvermögens. Google.org unterstützt das RNIB bei der Entwicklung \"intelligenter Brillen\", durch die Menschen mit eingeschränktem Sehvermögen leichter Formen und Silhouetten erkennen können. Intelligente Brillen können dazu beitragen, die Welt sichtbar zu machen, und Menschen dabei zu helfen, ihre Unabhängigkeit und ihr Selbstvertrauen wiederzufinden."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Intelligente Brillen"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 Milliarden Menschen haben keinen Zugang zu Elektrizität und viele müssen Petroleumlampen verwenden, die infolge der Verbrennung von Brennstoff die Häuser verschmutzen. Solarzellen absorbieren bei Tag die Energie der Sonne und spenden am Abend Licht – ohne Verbrennung und Verschmutzung. Sie sorgen dafür, dass ihr, wenn es draußen dunkel wird, lesen und spielen könnt und sicher nach Hause gelangt. SolarAid bietet auf Solarzellen basierende Lichtquellen für Menschen, die sie benötigen. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eUnterstützern\u003c/a\u003e von SolarAid zu zählen."
+	},
+	"nonprofit-solar-type": {
+		"message": "Tageslicht"
+	},
+	"nonprofit-water-description": {
+		"message": "Wir nutzen Wasser zum Duschen und Baden, zum Kochen und natürlich zum Trinken. Sauberes Wasser ist ein wertvoller Rohstoff. Viele Menschen müssen per Hand Brunnen graben, um die tief im Boden zwischen Fels und Erde verborgenen Grundwasserschichten zu erreichen, die sauberes Wasser enthalten. charity: water arbeitet mit Partnern vor Ort zusammen, um dort, wo dies dringend erforderlich ist, Brunnen zu graben und andere Wasserprojekte umzusetzen. Google.org ist stolz, zu den \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eUnterstützern\u003c/a\u003e von charity: water zu zählen."
+	},
+	"nonprofit-water-type": {
+		"message": "Brunnen"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Es kann für Rollstuhlfahrer schwierig sein, herauszufinden, welche Orte für sie zugänglich sind: Kinos, Restaurants oder wo auch immer sie gern hin möchten. Wheelmap zeigt, welche Orte mit dem Rollstuhl zugänglich sind, sodass Rollstuhlfahrer weniger Zeit mit der Wegplanung und mehr Zeit draußen verbringen können."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilität"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Der Klimawandel zerstört das Gleichgewicht vieler Ökosysteme der Welt immer weiter, sowohl an warmen als auch an kalten Orten. In der Arktis verlieren die Eisbären aufgrund der steigenden Temperaturen ihren Lebensraum im Meereis und sind außerdem z. B. durch die Förderung und Verschiffung von Öl und Gas bedroht. Der WWF arbeitet daran, das Überleben der Arten durch wissenschaftliche Forschung und durch die Zusammenarbeit mit arktischen indigenen Gemeinschaften zu sichern. Google ist stolz darauf, \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eden WWF zu unterstützen\u003c/a\u003e."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Polarbär"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Untersuchungen zufolge kann 95 % aller Menschen mit eingeschränktem Hörvermögen durch Hörgeräte geholfen werden, aber weniger als 1 % der Menschen in Ländern mit niedrigen und mittleren Einkommen, die Hörhilfen benötigen, erhalten diese auch. World Wide Hearing (WWH) macht die Welt für Kinder durch Hören erfahrbar, indem es Hörgeräte und entsprechende Dienstleistungen anbietet. WWH entwickelt ein kostengünstiges, tablet-basiertes Tool für die Diagnose von Hörbeeinträchtigungen für den Einsatz in Entwicklungsländern. Dies trägt dazu bei, dass Menschen, die Hörhilfen benötigen, diese auch tatsächlich erhalten."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hörhilfen"
+	},
+	"notice_cookies": {
+		"message": "Google setzt Cookies ein, um die Zugriffe auf diese Website zu analysieren und Ihre Nutzererfahrung zu optimieren. Zu diesem Zweck werden Informationen über Ihre Verwendung unserer Website an Google weitergeleitet."
+	},
+	"notice_cookies_details": {
+		"message": "Siehe Details"
+	},
+	"notification": {
+		"message": "Benachrichtigungen"
+	},
+	"notification_newtoday": {
+		"message": "Heute neu bei \"Auf den Spuren des Weihnachtsmanns\""
+	},
+	"notification_newtoday_stop": {
+		"message": "Deaktivieren"
+	},
+	"notification_notice": {
+		"message": "Lass dir von den Wichteln verraten, was der Weihnachtsmann gerade tut"
+	},
+	"notification_prompt": {
+		"message": "Ich möchte über den Weihnachtsmann auf dem Laufenden gehalten werden"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Neuseeland"
+	},
+	"nz_tradition": {
+		"message": "Da Weihnachten in Neuseeland im Sommer stattfindet, versammeln sich Familie und Freunde bei einem Barbecue und essen traditionell Lamm, das manchmal in einer Erdgrube oder einem Erdofen, dem \"Hangi\", gegart wird. Pavlova – Baiser mit frischem Obst wie Erdbeeren und Kiwi – ist ein beliebter Nachtisch."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Nur online"
+	},
+	"offline_notification": {
+		"message": "Das Dorf des Weihnachtsmannes kann jetzt auch offline besucht werden. Die Wichtel können Ihnen auch im Dezember neue Inhalte bereitstellen."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nein danke"
+	},
+	"offline_user_message": {
+		"message": "Du bist offline"
+	},
+	"okay": {
+		"message": "OK"
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "Der Weihnachtsmann unterwegs"
+	},
+	"openingtomorrow": {
+		"message": "Morgen große Eröffnung"
+	},
+	"ornament-print-instructions": {
+		"message": "Hier falten und Seiten zusammenkleben"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Anhalten"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua-Neuguinea"
+	},
+	"ph_country_name": {
+		"message": "Philippinen"
+	},
+	"ph_tradition": {
+		"message": "Auf den Philippinen ist Weihnachten am längsten. Die vier Weihnachtsmonate sind September, Oktober, November und Dezember. Schon Anfang September werden die ersten Weihnachtslieder gesungen."
+	},
+	"pl_country_name": {
+		"message": "Polen"
+	},
+	"pl_language_name": {
+		"message": "Polnisch"
+	},
+	"play": {
+		"message": "Spielen"
+	},
+	"playagain": {
+		"message": "Neues Spiel"
+	},
+	"playdescription": {
+		"message": "Hol dir die App \"Auf den Spuren des Weihnachtsmanns\" für Android."
+	},
+	"playextra": {
+		"message": "Weitere Level spielen"
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"practice": {
+		"message": "Übungsmodus"
+	},
+	"press": {
+		"message": "Presseinhalte"
+	},
+	"pt_language_name": {
+		"message": "Portugiesisch"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Das ist Folgendes: {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "oder"
+	},
+	"quickdraw-machine-see": {
+		"message": "Ich sehe"
+	},
+	"quickdraw-newround-button": {
+		"message": "Start"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ich kann das leider nicht erkennen."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Sorry"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Schwer zu erraten!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor findet auch, dass deine Zeichnung eher so aussieht:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Woher weiß Tensor, wie der gesuchte Begriff \"{{thing}}\" aussieht?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Der Roboter lernt, indem er sich diese Beispielzeichnungen anderer Personen ansieht."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor findet, dass deine Zeichnung eher so aussieht:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Das ist die Version des Weihnachtsmanns für den Begriff \"{{thing}}\"."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Du solltest den Begriff \"{{thing}}\" zeichnen."
+	},
+	"quickdraw-slate": {
+		"message": "Zeichnen"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor ist der Roboter des Weihnachtsmanns. Er lernt fortlaufend dazu und hilft dem Weihnachtsmann dabei, die Briefe von Kindern aus aller Welt zu verstehen – und mit deiner Hilfe wird der Roboter immer besser! Male dazu die festlichen Begriffe, die auf dem Bildschirm stehen. Tensor sagt dir dann, was er sieht. Je mehr du zeichnest, desto intelligenter wird der Roboter. Wenn wir ihm alle helfen, kann der Weihnachtsmann seine Geschenke dieses Jahr bestimmt noch schneller als sonst ausliefern."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor hat eine deiner Zeichnungen erkannt."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor hat keine deiner Zeichnungen richtig erkannt."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Gut gemacht!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hoppla!"
+	},
+	"ro_country_name": {
+		"message": "Rumänien"
+	},
+	"ru_country_name": {
+		"message": "Russland"
+	},
+	"ru_language_name": {
+		"message": "Russisch"
+	},
+	"ru_tradition": {
+		"message": "Russische Kinder schmücken statt eines Weihnachtsbaums einen Neujahrsbaum. Die Kinder warten sehnsüchtig auf Väterchen Frost, der mit seiner Enkelin Schneeflöckchen Geschenke im ganzen Land verteilt. Väterchen Frost lebt tief in den Wäldern von Weliki Ustjug in Nordrussland."
+	},
+	"sa_country_name": {
+		"message": "Saudi-Arabien"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Lebkuchenmann"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Die Weihnachtsfrau"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Weihnachtsmann"
+	},
+	"santasearch_hint": {
+		"message": "Hinweis"
+	},
+	"santasearch_level_beach": {
+		"message": "Am Strand"
+	},
+	"santasearch_level_lab": {
+		"message": "Im Labor"
+	},
+	"santasearch_level_mountains": {
+		"message": "In den Bergen"
+	},
+	"santasearch_level_museum": {
+		"message": "Im Museum"
+	},
+	"santasearch_level_select": {
+		"message": "Los"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Such den Weihnachtsmann!"
+	},
+	"santasvillage": {
+		"message": "Dorf des Weihnachtsmanns"
+	},
+	"santatracker": {
+		"message": "Auf den Spuren des Weihnachtsmanns"
+	},
+	"scene_airport": {
+		"message": "Flughafen Nordpol"
+	},
+	"scene_app": {
+		"message": "Android-App"
+	},
+	"scene_blimp": {
+		"message": "Geschenkenachschub"
+	},
+	"scene_boatload": {
+		"message": "Geschenkeschleuder"
+	},
+	"scene_briefing": {
+		"message": "Vortrag der Weihnachtsfrau"
+	},
+	"scene_callfromsanta": {
+		"message": "Anruf vom Weihnachtsmann"
+	},
+	"scene_canvas": {
+		"message": "Die Leinwand des Weihnachtsmanns"
+	},
+	"scene_citylights": {
+		"message": "Lichter der Stadt"
+	},
+	"scene_clausdraws": {
+		"message": "Zeichnen mit dem Weihnachtsmann"
+	},
+	"scene_codeboogie": {
+		"message": "Code-Boogie"
+	},
+	"scene_codelab": {
+		"message": "Code-Lab"
+	},
+	"scene_commandcentre": {
+		"message": "Kontrollzentrum"
+	},
+	"scene_dash": {
+		"message": "Pinguin gib Acht"
+	},
+	"scene_elfski": {
+		"message": "Wichtel auf der Piste"
+	},
+	"scene_factory": {
+		"message": "Süßigkeitenfabrik"
+	},
+	"scene_giftmatch": {
+		"message": "Geschenkpaare"
+	},
+	"scene_glider": {
+		"message": "Schwebender Wichtel"
+	},
+	"scene_gumball": {
+		"message": "Lolli-Flipper"
+	},
+	"scene_icecave": {
+		"message": "Eishöhle"
+	},
+	"scene_island": {
+		"message": "Insel"
+	},
+	"scene_jamband": {
+		"message": "Wichtel-Wunschkonzert"
+	},
+	"scene_jetpack": {
+		"message": "Wichtel-Jetpack"
+	},
+	"scene_latlong": {
+		"message": "Geschenkepost"
+	},
+	"scene_matching": {
+		"message": "Memory"
+	},
+	"scene_mercator": {
+		"message": "Kartenquiz"
+	},
+	"scene_playground": {
+		"message": "Spielplatz am Nordpol"
+	},
+	"scene_postcard": {
+		"message": "Schneeflockencode"
+	},
+	"scene_presentbounce": {
+		"message": "Geschenkeautomat"
+	},
+	"scene_presentdrop": {
+		"message": "Bescherung"
+	},
+	"scene_quickdraw": {
+		"message": "Schnelles Zeichnen"
+	},
+	"scene_racer": {
+		"message": "Rudolfs Rennen"
+	},
+	"scene_rollercoaster": {
+		"message": "Achterbahn für Wichtel"
+	},
+	"scene_runner": {
+		"message": "Rasendes Rentier"
+	},
+	"scene_santasearch": {
+		"message": "Such den Weihnachtsmann"
+	},
+	"scene_santaselfie": {
+		"message": "Weihnachtsmann-Selfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Das Fest der Liebe"
+	},
+	"scene_seasonofgiving": {
+		"message": "Zeit des Gebens"
+	},
+	"scene_snowball": {
+		"message": "Schneeballsturm"
+	},
+	"scene_speedsketch": {
+		"message": "Frostmaler"
+	},
+	"scene_streetview": {
+		"message": "Straßenperspektive"
+	},
+	"scene_traditions": {
+		"message": "Weihnachtstraditionen aus aller Welt"
+	},
+	"scene_translations": {
+		"message": "Übersetzungen"
+	},
+	"scene_trivia": {
+		"message": "Quiz"
+	},
+	"scene_undersea": {
+		"message": "Unter Wasser"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Der Wichtelwagen"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Kommandozentrale"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Singende und tanzende Wichtel"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Abflug des Weihnachtsmanns"
+	},
+	"scene_videoscene_museum": {
+		"message": "Ein Tag im Museum"
+	},
+	"scene_videoscene_office": {
+		"message": "Bürostreich"
+	},
+	"scene_videoscene_reload": {
+		"message": "Geschenkenachschub"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Der Weihnachtsmann ist wieder da"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satellit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfies vom Weihnachtsmann"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Faulenzen"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Versuchung"
+	},
+	"scene_videoscene_tired": {
+		"message": "Das erschöpfte Rentier"
+	},
+	"scene_videoscene_trailer": {
+		"message": "Noch im Urlaub"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Wo ist der Weihnachtsmann?"
+	},
+	"scene_windtunnel": {
+		"message": "Im Windkanal"
+	},
+	"scene_wrap": {
+		"message": "Verpackungskünstler"
+	},
+	"score": {
+		"message": "Bewertung"
+	},
+	"se_country_name": {
+		"message": "Schweden"
+	},
+	"seconds": {
+		"message": "Sekunden"
+	},
+	"select-language": {
+		"message": "Sprache auswählen"
+	},
+	"share-button": {
+		"message": "Teile diese Nachricht mit Deinen Freunden auf Google+."
+	},
+	"share-text": {
+		"message": "Ich habe diese Postkarte in \"Auf den Spuren des Weihnachtsmanns\" bei Google für dich gebastelt. Frohe Feiertage!"
+	},
+	"share-this": {
+		"message": "Teilen"
+	},
+	"sk_country_name": {
+		"message": "Slowakei"
+	},
+	"sk_language_name": {
+		"message": "Slowakisch"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Erwischt!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} von {{total}} Wichteln verbleiben"
+	},
+	"snowball_spectate": {
+		"message": "Zusehen"
+	},
+	"snowball_waiting": {
+		"message": "Wir warten auf weitere Wichtel, die mitspielen"
+	},
+	"snowflake_choose_background": {
+		"message": "Such einen Hintergrund aus"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Mit den Pfeiltasten kannst du eine Postkarte auswählen"
+	},
+	"snowflake_code": {
+		"message": "Codier deine Schneeflocke"
+	},
+	"snowflake_code_instructions": {
+		"message": "Verbinde Blöcke miteinander und gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_create_message": {
+		"message": "Gestalte deine eigene Schneeflocke"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Jetzt wiederholen."
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Wiederholen"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Drehen und wiederholen."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Drehen und wiederholen"
+	},
+	"snowflake_make_your_own": {
+		"message": "Die wurde mit Code gemacht. Probier es selbst aus."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Wähl eine Postkarte aus und teil deine Schneeflocke mit deinen Freunden"
+	},
+	"snowflake_shared_message": {
+		"message": "Jemand hat dir eine Schneeflocke geschickt."
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paris"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Schweiz"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Der Eiffelturm"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Die Chinesische Mauer"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Die Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "Abstrakte Kunst"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "Flugzeugträger"
+	},
+	"speedsketch_item~airplane": {
+		"message": "Flugzeug"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "Wecker"
+	},
+	"speedsketch_item~alien": {
+		"message": "Außerirdischer"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "Krankenwagen"
+	},
+	"speedsketch_item~angel": {
+		"message": "Engel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "Tierwanderung"
+	},
+	"speedsketch_item~ant": {
+		"message": "Ameise"
+	},
+	"speedsketch_item~anvil": {
+		"message": "Amboss"
+	},
+	"speedsketch_item~apple": {
+		"message": "Apfel"
+	},
+	"speedsketch_item~arm": {
+		"message": "Arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "Pfeil"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "Spargel"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "Astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "Audiokassette"
+	},
+	"speedsketch_item~avocado": {
+		"message": "Avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "Axt"
+	},
+	"speedsketch_item~baby": {
+		"message": "Baby"
+	},
+	"speedsketch_item~backpack": {
+		"message": "Rucksack"
+	},
+	"speedsketch_item~banana": {
+		"message": "Banane"
+	},
+	"speedsketch_item~bandage": {
+		"message": "Verband"
+	},
+	"speedsketch_item~barn": {
+		"message": "Scheune"
+	},
+	"speedsketch_item~baseball": {
+		"message": "Baseball"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "Baseballschläger"
+	},
+	"speedsketch_item~basket": {
+		"message": "Korb"
+	},
+	"speedsketch_item~basketball": {
+		"message": "Basketball"
+	},
+	"speedsketch_item~bat": {
+		"message": "Fledermaus"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "Badewanne"
+	},
+	"speedsketch_item~beach": {
+		"message": "Strand"
+	},
+	"speedsketch_item~bear": {
+		"message": "Bär"
+	},
+	"speedsketch_item~beard": {
+		"message": "Vollbart"
+	},
+	"speedsketch_item~bed": {
+		"message": "Bett"
+	},
+	"speedsketch_item~bee": {
+		"message": "Biene"
+	},
+	"speedsketch_item~belt": {
+		"message": "Gürtel"
+	},
+	"speedsketch_item~bench": {
+		"message": "Sitzbank"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "Fahrrad"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "Fernglas"
+	},
+	"speedsketch_item~bird": {
+		"message": "Vogel"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "Geburtstagstorte"
+	},
+	"speedsketch_item~black": {
+		"message": "schwarz"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "Brombeere"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "Blaubeere"
+	},
+	"speedsketch_item~book": {
+		"message": "Buch"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "Bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "Stiefel"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "Flaschenverschluss"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "Fliege"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "Armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "Gehirn"
+	},
+	"speedsketch_item~bread": {
+		"message": "Brot"
+	},
+	"speedsketch_item~bridge": {
+		"message": "Brücke"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "Brokkoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "Besen"
+	},
+	"speedsketch_item~bubble": {
+		"message": "Blase"
+	},
+	"speedsketch_item~bucket": {
+		"message": "Eimer"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "Planierraupe"
+	},
+	"speedsketch_item~bus": {
+		"message": "Bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "Busch"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "Schmetterling"
+	},
+	"speedsketch_item~cactus": {
+		"message": "Kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "Kuchen"
+	},
+	"speedsketch_item~calculator": {
+		"message": "Taschenrechner"
+	},
+	"speedsketch_item~calendar": {
+		"message": "Kalender"
+	},
+	"speedsketch_item~camel": {
+		"message": "Kamel"
+	},
+	"speedsketch_item~camera": {
+		"message": "Kamera"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "Tarnung"
+	},
+	"speedsketch_item~campfire": {
+		"message": "Lagerfeuer"
+	},
+	"speedsketch_item~candle": {
+		"message": "Kerze"
+	},
+	"speedsketch_item~candy": {
+		"message": "Süßigkeit"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "Zuckerstange"
+	},
+	"speedsketch_item~canoe": {
+		"message": "Kanu"
+	},
+	"speedsketch_item~car": {
+		"message": "Auto"
+	},
+	"speedsketch_item~carrot": {
+		"message": "Karotte"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "Zeichentrick"
+	},
+	"speedsketch_item~castle": {
+		"message": "Schloss"
+	},
+	"speedsketch_item~cat": {
+		"message": "Katze"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "Deckenventilator"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "Handy"
+	},
+	"speedsketch_item~cello": {
+		"message": "Cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "Stuhl"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "Kronleuchter"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "Chemie"
+	},
+	"speedsketch_item~cherry": {
+		"message": "Kirsche"
+	},
+	"speedsketch_item~chicken": {
+		"message": "Huhn"
+	},
+	"speedsketch_item~child": {
+		"message": "Kind"
+	},
+	"speedsketch_item~chimney": {
+		"message": "Schornstein"
+	},
+	"speedsketch_item~church": {
+		"message": "Kirche"
+	},
+	"speedsketch_item~circle": {
+		"message": "Kreis"
+	},
+	"speedsketch_item~city": {
+		"message": "Stadt"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "Klarinette"
+	},
+	"speedsketch_item~clock": {
+		"message": "Uhr"
+	},
+	"speedsketch_item~cloud": {
+		"message": "Wolke"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "Maiskolben"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "Kaffeetasse"
+	},
+	"speedsketch_item~compass": {
+		"message": "Kompass"
+	},
+	"speedsketch_item~computer": {
+		"message": "Computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "Keks"
+	},
+	"speedsketch_item~cooler": {
+		"message": "Kühlbox"
+	},
+	"speedsketch_item~couch": {
+		"message": "Sofa"
+	},
+	"speedsketch_item~cow": {
+		"message": "Kuh"
+	},
+	"speedsketch_item~crab": {
+		"message": "Krabbe"
+	},
+	"speedsketch_item~crayon": {
+		"message": "Buntstift"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "Krokodil"
+	},
+	"speedsketch_item~cross": {
+		"message": "Kreuz"
+	},
+	"speedsketch_item~crow": {
+		"message": "Krähe"
+	},
+	"speedsketch_item~crown": {
+		"message": "Krone"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "Kreuzfahrtschiff"
+	},
+	"speedsketch_item~cube": {
+		"message": "Würfel"
+	},
+	"speedsketch_item~cup": {
+		"message": "Tasse"
+	},
+	"speedsketch_item~darts": {
+		"message": "Darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "Diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "Diamantring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "Geschirrspülmaschine"
+	},
+	"speedsketch_item~diving board": {
+		"message": "Sprungbrett"
+	},
+	"speedsketch_item~dog": {
+		"message": "Hund"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "Delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "Donut"
+	},
+	"speedsketch_item~door": {
+		"message": "Tür"
+	},
+	"speedsketch_item~dragon": {
+		"message": "Drache"
+	},
+	"speedsketch_item~dresser": {
+		"message": "Kommode"
+	},
+	"speedsketch_item~drill": {
+		"message": "Bohrmaschine"
+	},
+	"speedsketch_item~drums": {
+		"message": "Schlagzeug"
+	},
+	"speedsketch_item~duck": {
+		"message": "Ente"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "Hantel"
+	},
+	"speedsketch_item~ear": {
+		"message": "Ohr"
+	},
+	"speedsketch_item~egg": {
+		"message": "Ei"
+	},
+	"speedsketch_item~elbow": {
+		"message": "Ellbogen"
+	},
+	"speedsketch_item~elephant": {
+		"message": "Elefant"
+	},
+	"speedsketch_item~elf": {
+		"message": "Wichtel"
+	},
+	"speedsketch_item~emoji": {
+		"message": "Emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "Briefumschlag"
+	},
+	"speedsketch_item~eraser": {
+		"message": "Radiergummi"
+	},
+	"speedsketch_item~eye": {
+		"message": "Auge"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "Brille"
+	},
+	"speedsketch_item~face": {
+		"message": "Gesicht"
+	},
+	"speedsketch_item~family": {
+		"message": "Familie"
+	},
+	"speedsketch_item~fan": {
+		"message": "Ventilator"
+	},
+	"speedsketch_item~feather": {
+		"message": "Feder"
+	},
+	"speedsketch_item~fence": {
+		"message": "Zaun"
+	},
+	"speedsketch_item~finger": {
+		"message": "Finger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "Hydrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "Kamin"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "Feuerwehrauto"
+	},
+	"speedsketch_item~fish": {
+		"message": "Fisch"
+	},
+	"speedsketch_item~flag": {
+		"message": "Flagge"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "Flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "Taschenlampe"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "Flipflops"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "Stehlampe"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "Diskette"
+	},
+	"speedsketch_item~flower": {
+		"message": "Blume"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "Fliegende Untertasse"
+	},
+	"speedsketch_item~fog": {
+		"message": "Nebel"
+	},
+	"speedsketch_item~foot": {
+		"message": "Fuß"
+	},
+	"speedsketch_item~fork": {
+		"message": "Gabel"
+	},
+	"speedsketch_item~french fries": {
+		"message": "Pommes frites"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "Spiegelei"
+	},
+	"speedsketch_item~frog": {
+		"message": "Frosch"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "Bratpfanne"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "Galaxie"
+	},
+	"speedsketch_item~garden": {
+		"message": "Garten"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "Gartenschlauch"
+	},
+	"speedsketch_item~ghost": {
+		"message": "Geist"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "Lebkuchenmann"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "Giraffe"
+	},
+	"speedsketch_item~goat": {
+		"message": "Ziege"
+	},
+	"speedsketch_item~goatee": {
+		"message": "Ziegenbart"
+	},
+	"speedsketch_item~golf club": {
+		"message": "Golfschläger"
+	},
+	"speedsketch_item~grapes": {
+		"message": "Trauben"
+	},
+	"speedsketch_item~grass": {
+		"message": "Gras"
+	},
+	"speedsketch_item~group": {
+		"message": "Gruppe"
+	},
+	"speedsketch_item~guitar": {
+		"message": "Gitarre"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "Hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "Hammer"
+	},
+	"speedsketch_item~hand": {
+		"message": "Hand"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "Spiel \"Galgenmännchen\""
+	},
+	"speedsketch_item~happiness": {
+		"message": "Fröhlichkeit"
+	},
+	"speedsketch_item~harp": {
+		"message": "Harfe"
+	},
+	"speedsketch_item~hat": {
+		"message": "Hut"
+	},
+	"speedsketch_item~headphones": {
+		"message": "Kopfhörer"
+	},
+	"speedsketch_item~heart": {
+		"message": "Herz"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "Igel"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "Hubschrauber"
+	},
+	"speedsketch_item~helmet": {
+		"message": "Helm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "Sechseck"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "Eishockeypuck"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "Eishockeyschläger"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "Weihnachtsbeleuchtung"
+	},
+	"speedsketch_item~horse": {
+		"message": "Pferd"
+	},
+	"speedsketch_item~hospital": {
+		"message": "Krankenhaus"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "Heißluftballon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "Hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "Whirlpool"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "Sanduhr"
+	},
+	"speedsketch_item~house": {
+		"message": "Haus"
+	},
+	"speedsketch_item~house plant": {
+		"message": "Zimmerpflanze"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "Orkan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "Eiscreme"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "Eiskunstläufer"
+	},
+	"speedsketch_item~infinity": {
+		"message": "Unendlichkeit"
+	},
+	"speedsketch_item~island": {
+		"message": "Insel"
+	},
+	"speedsketch_item~italy": {
+		"message": "Italien"
+	},
+	"speedsketch_item~jacket": {
+		"message": "Jacke"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "Raketenrucksack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jingle Bells"
+	},
+	"speedsketch_item~kale": {
+		"message": "Kohl"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "Känguru"
+	},
+	"speedsketch_item~key": {
+		"message": "Schlüssel"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "Keyboard"
+	},
+	"speedsketch_item~kite": {
+		"message": "Drachen"
+	},
+	"speedsketch_item~knee": {
+		"message": "Knie"
+	},
+	"speedsketch_item~knife": {
+		"message": "Messer"
+	},
+	"speedsketch_item~knot": {
+		"message": "Knoten"
+	},
+	"speedsketch_item~koala": {
+		"message": "Koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "Leiter"
+	},
+	"speedsketch_item~landscape": {
+		"message": "Landschaft"
+	},
+	"speedsketch_item~lantern": {
+		"message": "Laterne"
+	},
+	"speedsketch_item~laptop": {
+		"message": "Laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "Blatt"
+	},
+	"speedsketch_item~leg": {
+		"message": "Bein"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "Glühbirne"
+	},
+	"speedsketch_item~lighter": {
+		"message": "Feuerzeug"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "Leuchtturm"
+	},
+	"speedsketch_item~lightning": {
+		"message": "Blitz"
+	},
+	"speedsketch_item~line": {
+		"message": "Linie"
+	},
+	"speedsketch_item~lion": {
+		"message": "Löwe"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "Lippenstift"
+	},
+	"speedsketch_item~lobster": {
+		"message": "Hummer"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "Lolli"
+	},
+	"speedsketch_item~love": {
+		"message": "Liebe"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "Briefkasten"
+	},
+	"speedsketch_item~man": {
+		"message": "Mann"
+	},
+	"speedsketch_item~map": {
+		"message": "Karte"
+	},
+	"speedsketch_item~marker": {
+		"message": "Filzstift"
+	},
+	"speedsketch_item~matches": {
+		"message": "Streichhölzer"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "Mathematik"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "Megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "Meerjungfrau"
+	},
+	"speedsketch_item~metal": {
+		"message": "Metall"
+	},
+	"speedsketch_item~microphone": {
+		"message": "Mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "Mikroskop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "Mikrowelle"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "Mistelzweig"
+	},
+	"speedsketch_item~mittens": {
+		"message": "Fausthandschuhe"
+	},
+	"speedsketch_item~molecule": {
+		"message": "Molekül"
+	},
+	"speedsketch_item~money": {
+		"message": "Geld"
+	},
+	"speedsketch_item~monkey": {
+		"message": "Affe"
+	},
+	"speedsketch_item~moon": {
+		"message": "Mond"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "Mücke"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "Motorrad"
+	},
+	"speedsketch_item~mountain": {
+		"message": "Berg"
+	},
+	"speedsketch_item~mouse": {
+		"message": "Maus"
+	},
+	"speedsketch_item~moustache": {
+		"message": "Schnurrbart"
+	},
+	"speedsketch_item~mouth": {
+		"message": "Mund"
+	},
+	"speedsketch_item~mug": {
+		"message": "Becher"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "Pilz"
+	},
+	"speedsketch_item~music": {
+		"message": "Musik"
+	},
+	"speedsketch_item~nail": {
+		"message": "Nagel"
+	},
+	"speedsketch_item~nature": {
+		"message": "Natur"
+	},
+	"speedsketch_item~necklace": {
+		"message": "Halskette"
+	},
+	"speedsketch_item~news": {
+		"message": "Nachrichten"
+	},
+	"speedsketch_item~nose": {
+		"message": "Nase"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "Nussknacker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "Ozean"
+	},
+	"speedsketch_item~octagon": {
+		"message": "Achteck"
+	},
+	"speedsketch_item~octopus": {
+		"message": "Krake"
+	},
+	"speedsketch_item~onion": {
+		"message": "Zwiebel"
+	},
+	"speedsketch_item~ornament": {
+		"message": "Weihnachtsschmuck"
+	},
+	"speedsketch_item~oven": {
+		"message": "Ofen"
+	},
+	"speedsketch_item~owl": {
+		"message": "Eule"
+	},
+	"speedsketch_item~paint can": {
+		"message": "Lackdose"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "Pinsel"
+	},
+	"speedsketch_item~painting": {
+		"message": "Gemälde"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "Palme"
+	},
+	"speedsketch_item~panda": {
+		"message": "Panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "Hose"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "Büroklammer"
+	},
+	"speedsketch_item~parachute": {
+		"message": "Fallschirm"
+	},
+	"speedsketch_item~parrot": {
+		"message": "Papagei"
+	},
+	"speedsketch_item~passport": {
+		"message": "Pass"
+	},
+	"speedsketch_item~peanut": {
+		"message": "Erdnuss"
+	},
+	"speedsketch_item~pear": {
+		"message": "Birne"
+	},
+	"speedsketch_item~peas": {
+		"message": "Erbsen"
+	},
+	"speedsketch_item~pencil": {
+		"message": "Bleistift"
+	},
+	"speedsketch_item~penguin": {
+		"message": "Pinguin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "Pfefferminze"
+	},
+	"speedsketch_item~piano": {
+		"message": "Klavier"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "Pick-up"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "Bilderrahmen"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "Kreisdiagramm"
+	},
+	"speedsketch_item~pig": {
+		"message": "Schwein"
+	},
+	"speedsketch_item~pillow": {
+		"message": "Kissen"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "Ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "Tischtennis"
+	},
+	"speedsketch_item~pirate": {
+		"message": "Pirat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "Pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "Zange"
+	},
+	"speedsketch_item~police car": {
+		"message": "Polizeiauto"
+	},
+	"speedsketch_item~politician": {
+		"message": "Politiker"
+	},
+	"speedsketch_item~pond": {
+		"message": "Teich"
+	},
+	"speedsketch_item~pool": {
+		"message": "Schwimmbecken"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "Eis am Stiel"
+	},
+	"speedsketch_item~portrait": {
+		"message": "Porträt"
+	},
+	"speedsketch_item~postcard": {
+		"message": "Postkarte"
+	},
+	"speedsketch_item~potato": {
+		"message": "Kartoffel"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "Steckdose"
+	},
+	"speedsketch_item~present": {
+		"message": "Geschenk"
+	},
+	"speedsketch_item~prison": {
+		"message": "Gefängnis"
+	},
+	"speedsketch_item~purse": {
+		"message": "Geldbörse"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "Rätsel"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "Kaninchen"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "Waschbär"
+	},
+	"speedsketch_item~radio": {
+		"message": "Radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "Regen"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "Regenbogen"
+	},
+	"speedsketch_item~rake": {
+		"message": "Harke"
+	},
+	"speedsketch_item~raven": {
+		"message": "Rabe"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "Rentier"
+	},
+	"speedsketch_item~remote control": {
+		"message": "Fernbedienung"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "Nashorn"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "Geschenkband"
+	},
+	"speedsketch_item~river": {
+		"message": "Fluss"
+	},
+	"speedsketch_item~robot": {
+		"message": "Roboter"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "Achterbahn"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "Rollschuhe"
+	},
+	"speedsketch_item~sadness": {
+		"message": "Traurigkeit"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "Segelboot"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "Sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Weihnachtsmann"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "Würstchen"
+	},
+	"speedsketch_item~saw": {
+		"message": "Säge"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "Saxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "Schulbus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "Schere"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "Skorpion"
+	},
+	"speedsketch_item~screw": {
+		"message": "Schraube"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "Schraubenzieher"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "Skulptur"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "Meeresschildkröte"
+	},
+	"speedsketch_item~see saw": {
+		"message": "Wippe"
+	},
+	"speedsketch_item~shark": {
+		"message": "Hai"
+	},
+	"speedsketch_item~sheep": {
+		"message": "Schaf"
+	},
+	"speedsketch_item~shoe": {
+		"message": "Schuh"
+	},
+	"speedsketch_item~shorts": {
+		"message": "Shorts"
+	},
+	"speedsketch_item~shovel": {
+		"message": "Schaufel"
+	},
+	"speedsketch_item~sink": {
+		"message": "Waschbecken"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "Skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "Ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "Skifahrer"
+	},
+	"speedsketch_item~skirt": {
+		"message": "Rock"
+	},
+	"speedsketch_item~skull": {
+		"message": "Totenschädel"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "Wolkenkratzer"
+	},
+	"speedsketch_item~sled": {
+		"message": "Schlitten"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "Schlafsack"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "Schlitten"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "Smiley"
+	},
+	"speedsketch_item~snail": {
+		"message": "Schnecke"
+	},
+	"speedsketch_item~snake": {
+		"message": "Schlange"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "Schnorchel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "Schneeflocke"
+	},
+	"speedsketch_item~snowman": {
+		"message": "Schneemann"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "Fußball"
+	},
+	"speedsketch_item~sock": {
+		"message": "Socke"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "Schnellboot"
+	},
+	"speedsketch_item~sphere": {
+		"message": "Kugel"
+	},
+	"speedsketch_item~spider": {
+		"message": "Spinne"
+	},
+	"speedsketch_item~spiral": {
+		"message": "Spirale"
+	},
+	"speedsketch_item~spoon": {
+		"message": "Löffel"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "Tabelle"
+	},
+	"speedsketch_item~square": {
+		"message": "Quadrat"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "Schnörkel"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "Eichhörnchen"
+	},
+	"speedsketch_item~stairs": {
+		"message": "Treppe"
+	},
+	"speedsketch_item~star": {
+		"message": "Stern"
+	},
+	"speedsketch_item~steak": {
+		"message": "Steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "Stereoanlage"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "Ste­tho­s­kop"
+	},
+	"speedsketch_item~still life": {
+		"message": "Stillleben"
+	},
+	"speedsketch_item~stitches": {
+		"message": "Nähte"
+	},
+	"speedsketch_item~stock market": {
+		"message": "Börse"
+	},
+	"speedsketch_item~stocking": {
+		"message": "Weihnachtsstrumpf"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "Stoppschild"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "Stoppuhr"
+	},
+	"speedsketch_item~stove": {
+		"message": "Herd"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "Erdbeere"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "Straßenlaterne"
+	},
+	"speedsketch_item~string bean": {
+		"message": "Grüne Bohne"
+	},
+	"speedsketch_item~submarine": {
+		"message": "U-Boot"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "Koffer"
+	},
+	"speedsketch_item~sun": {
+		"message": "Sonne"
+	},
+	"speedsketch_item~sunset": {
+		"message": "Sonnenuntergang"
+	},
+	"speedsketch_item~swan": {
+		"message": "Schwan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "Pullover"
+	},
+	"speedsketch_item~swing set": {
+		"message": "Schaukel"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "T-Shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "Tisch"
+	},
+	"speedsketch_item~teapot": {
+		"message": "Teekanne"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "Teddybär"
+	},
+	"speedsketch_item~telephone": {
+		"message": "Telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "Fernseher"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "Tennisschläger"
+	},
+	"speedsketch_item~tent": {
+		"message": "Zelt"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "Spiel \"Tic-Tac-Toe\""
+	},
+	"speedsketch_item~tiger": {
+		"message": "Tiger"
+	},
+	"speedsketch_item~time": {
+		"message": "Zeit"
+	},
+	"speedsketch_item~toaster": {
+		"message": "Toaster"
+	},
+	"speedsketch_item~toe": {
+		"message": "Zeh"
+	},
+	"speedsketch_item~toilet": {
+		"message": "Toilette"
+	},
+	"speedsketch_item~tooth": {
+		"message": "Zahn"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "Zahnbürste"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "Zahnpasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "Tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "Traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "Ampel"
+	},
+	"speedsketch_item~train": {
+		"message": "Zug"
+	},
+	"speedsketch_item~tree": {
+		"message": "Baum"
+	},
+	"speedsketch_item~triangle": {
+		"message": "Dreieck"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "Dreirad"
+	},
+	"speedsketch_item~trolley": {
+		"message": "Einkaufswagen"
+	},
+	"speedsketch_item~trombone": {
+		"message": "Posaune"
+	},
+	"speedsketch_item~trousers": {
+		"message": "Hose"
+	},
+	"speedsketch_item~truck": {
+		"message": "Lkw"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "Trompete"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "Regenschirm"
+	},
+	"speedsketch_item~underwear": {
+		"message": "Unterwäsche"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "Einhorn"
+	},
+	"speedsketch_item~universe": {
+		"message": "Universum"
+	},
+	"speedsketch_item~van": {
+		"message": "Lieferwagen"
+	},
+	"speedsketch_item~vase": {
+		"message": "Vase"
+	},
+	"speedsketch_item~violin": {
+		"message": "Geige"
+	},
+	"speedsketch_item~walnut": {
+		"message": "Walnuss"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "Waschmaschine"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "Wassermelone"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "Wasserrutsche"
+	},
+	"speedsketch_item~wave": {
+		"message": "Welle"
+	},
+	"speedsketch_item~whale": {
+		"message": "Wal"
+	},
+	"speedsketch_item~wheel": {
+		"message": "Steuerrad"
+	},
+	"speedsketch_item~windmill": {
+		"message": "Windmühle"
+	},
+	"speedsketch_item~woman": {
+		"message": "Frau"
+	},
+	"speedsketch_item~world": {
+		"message": "Welt"
+	},
+	"speedsketch_item~wreath": {
+		"message": "Kranz"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "Armbanduhr"
+	},
+	"speedsketch_item~yoga": {
+		"message": "Yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "Joghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "Zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "Zickzacklinie"
+	},
+	"speedsketch_item~zipper": {
+		"message": "Reißverschluss"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "Schwedisch"
+	},
+	"td_country_name": {
+		"message": "Tschad"
+	},
+	"terms-and-privacy": {
+		"message": "Nutzungsbed./Datenschutz"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thailändisch"
+	},
+	"tilt": {
+		"message": "Neige dein Gerät."
+	},
+	"time": {
+		"message": "Zeit"
+	},
+	"tj_country_name": {
+		"message": "Tadschikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunesien"
+	},
+	"today_only": {
+		"message": "Nur heute"
+	},
+	"tr_country_name": {
+		"message": "Türkei"
+	},
+	"tr_language_name": {
+		"message": "Türkisch"
+	},
+	"tracker_arrival": {
+		"message": "Ankunft"
+	},
+	"tracker_arriving_in": {
+		"message": "Ankunft in"
+	},
+	"tracker_current_stop": {
+		"message": "Aktueller Halt"
+	},
+	"tracker_departing_in": {
+		"message": "Abfahrt in"
+	},
+	"tracker_distance_away_km": {
+		"message": "Der Weihnachtsmann ist {{distance_away}} km entfernt."
+	},
+	"tracker_distance_from_you": {
+		"message": "Entfernung zu Ihnen"
+	},
+	"tracker_distance_travelled": {
+		"message": "Zurückgelegte Entfernung"
+	},
+	"tracker_feed": {
+		"message": "Livefeed"
+	},
+	"tracker_flight_nearby": {
+		"message": "Der Weihnachtsmann ist ganz in der Nähe. Finde heraus, wo genau."
+	},
+	"tracker_flight_start": {
+		"message": "Der Weihnachtsmann hat sich auf den Weg gemacht und den Nordpol verlassen. Du kannst ihn nun auf seiner Route verfolgen."
+	},
+	"tracker_from_google": {
+		"message": "Von uns allen bei Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Erhaltene Geschenke"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Intro überspringen"
+	},
+	"tracker_intro_user_location": {
+		"message": "Du befindest dich in"
+	},
+	"tracker_just_in": {
+		"message": "Dies ist gerade hereingekommen"
+	},
+	"tracker_next_stop": {
+		"message": "Nächster Halt"
+	},
+	"tracker_santa_update": {
+		"message": "NEUIGKEITEN ZUM WEIHNACHTSMANN"
+	},
+	"tracker_santa_update_1": {
+		"message": "Neuigkeiten zum Weihnachtsmann"
+	},
+	"tracker_see_route": {
+		"message": "Route anzeigen"
+	},
+	"tracker_stats": {
+		"message": "Weihnachtsmanndaten"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Der Weihnachtsmann kommt in circa {{hours}} Stunden an"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Der Weihnachtsmann ist im Anflug"
+	},
+	"tracker_track": {
+		"message": "Weihnachtsmann orten"
+	},
+	"tracker_travelogue": {
+		"message": "Besuchte Orte"
+	},
+	"tracker_weather": {
+		"message": "Wetter"
+	},
+	"tracker_world_facts": {
+		"message": "Schon gewusst?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Nachrichten aus aller Welt"
+	},
+	"tracker_your_location": {
+		"message": "Ihr Standort"
+	},
+	"traditions-next": {
+		"message": "Nächste Tradition"
+	},
+	"traditions-prev": {
+		"message": "Vorherige Tradition"
+	},
+	"traditions-world": {
+		"message": "Welt"
+	},
+	"trivia_beginner_001": {
+		"message": "Auf welchem Kontinent liegen die Anden?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_002": {
+		"message": "Welcher Bundesstaat der USA hat acht Hauptinseln?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Welcher Bundesstaat der USA liegt in den Great Plains?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Welcher Kontinent grenzt an den Atlantik, den Pazifik und den Arktischen Ozean?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Welcher Staat befindet sich in der Zeitzone \"Pacific Standard Time\" (UTC -8)?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornien"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Auf welchem Kontinent liegen das Atlasgebirge und die Savanne Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_007": {
+		"message": "Welcher Bundesstaat der USA liegt an einem der Großen Seen?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Auf welchem Kontinent sprechen die meisten Menschen Portugiesisch oder Spanisch?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Welcher Bundesstaat der USA hat einen Landzipfel, der \"Panhandle\" (Pfannenstiel) genannt wird?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Welches ist der einzige andere Kontinent neben der Antarktis, der vollständig auf der südlichen Erdhalbkugel liegt?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australien"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_011": {
+		"message": "An welchen Kontinent grenzt das Filchner-Ronne-Schelfeis?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Vancouver Island und Kodiak Island liegen vor der Westküste welchen Kontinents?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australien"
+	},
+	"trivia_beginner_013": {
+		"message": "Niger ist eines der Länder mit dem größten Bevölkerungswachstum weltweit. Im Nordwesten welchen Kontinents liegt Niger?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Auf welchem Kontinent gibt es die wenigsten Pflanzen und Bäume?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Die Insel, auf der Tasmanische Teufel heimisch sind, liegt südlich von welchem Kontinent?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australien"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "In welchem Land am Mittelmeer steht der berühmte Schiefe Turm von Pisa?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italien"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca und Tripolis sind historische Städte an der Nordküste welchen Kontinents?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Auf welchem Kontinent liegt die Sonora-Wüste, in der der Saguaro-Kaktus wächst?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz und Acapulco sind zwei beliebte Urlaubsorte in welchem Land?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentinien"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Indien"
+	},
+	"trivia_beginner_020": {
+		"message": "In welchem Land liegen die Sichuan-Riesenpandareservate, in denen 30 Prozent der Pandas weltweit leben?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Island"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Äthiopien"
+	},
+	"trivia_beginner_021": {
+		"message": "Auf welchem Kontinent findet man etwa 90 Prozent des Eises weltweit?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_022": {
+		"message": "Auf welchem Kontinent liegt der Salto Ángel, der höchste Wasserfall der Welt?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_023": {
+		"message": "In welchem Bundesstaat der USA kann man im Jackson Hole-Tal wandern und den Devils Tower-Felsen besteigen?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "North Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "In welchem Bundesstaat der USA kann man zusehen, wie Ahornsaft geerntet wird, und in den Green Mountains Ski fahren?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "In welchem Bundesstaat der USA kann man mit dem Auto über die Chesapeake Bay Bridge fahren und auf der Promenade in Ocean City schlendern?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "North Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "In welchem Bundesstaat der USA kann man den Mammoth-Cave-Nationalpark und ein Pferderennen auf der Rennbahn Churchill Downs besuchen?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "In welchem Bundesstaat der USA kann man Mammutbäume bestaunen und die Santa-Barbara-Inseln (auch \"Kanalinseln\" genannt) besuchen?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornien"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Welches Feuchtgebiet liegt im US-Bundesstaat Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "In welchem Bundesstaat der USA kann man den Sankt-Lorenz-Seeweg und die Finger Lakes (Fingerseen) erkunden?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Auf welchem Kontinent liegt Mount Everest, der höchste Berg der Welt?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Der südliche Teil welchen Kontinents gehört größtenteils zur Region Patagonien?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Auf welchem Kontinent kann man Kaiserpinguine in ihrer natürlichen Umgebung beobachten?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "In welchem Land leben Kängurus und Koalabären?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australien"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Auf welchem Kontinent liegt der Serengeti-Nationalpark, der Besucher aus der ganzen Welt anlockt?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australien"
+	},
+	"trivia_beginner_035": {
+		"message": "Welcher Kontinent hat die größte Landfläche?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "In welcher europäischen Stadt überquert die Tower Bridge die Themse?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havanna"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Kapstadt"
+	},
+	"trivia_beginner_037": {
+		"message": "In welcher russischen Stadt steht die Saint Basil-Kathedrale auf dem roten Platz neben dem Kreml?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskau"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brüssel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "In welcher europäischen Stadt steht das Kolosseum, das im ersten Jahrhundert nach Christus erbaut wurde, um dort Gladiatorenkämpfe zu veranstalten?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rom"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartum"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "In welcher australischen Stadt befinden sich ein berühmtes Opernhaus und die Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prag"
+	},
+	"trivia_beginner_040": {
+		"message": "Der Felsendom und die Klagemauer sind nur zwei von vielen heiligen Stätten, die man in den alten Stadtmauern welcher Stadt im Nahen Osten vorfindet?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerusalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algier"
+	},
+	"trivia_beginner_041": {
+		"message": "In welcher griechischen Stadt kann man den Parthenon auf der Akropolis bestaunen?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athen"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiew"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Der Eiffelturm liegt an der Seine und bietet einen tollen Blick über welche französische Stadt?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paris"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Neu-Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "In welcher Stadt in Saudi-Arabien liegt die al-Haram-Moschee, welche die Kaaba, das Zentralheiligtum des Islam, beherbergt?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Die Verbotene Stadt ist ein ehemaliger Kaiserpalast im Zentrum welcher chinesischen Stadt?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "In welcher Stadt der USA am Puget Sound befindet sich der Aussichtsturm Space Needle?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "Welche Stadt in den USA liegt an der Mündung des Charles River und hat als höchstes Gebäude den John Hancock Tower?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Der Stratosphere-Turm nördlich des bekannten Boulevards \"The Strip\" ist das höchste Gebäude in welcher US-Stadt in der Mojave-Wüste?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Die Freiheitsstatue auf Liberty Island findet man im Hafen welcher Stadt?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York City"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Welche Stadt in den USA ist über die Golden Gate Bridge mit der Halbinsel Marin verbunden?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Der Gateway Arch am Mississippi steht für die amerikanische Ausdehnung nach Westen in den 1800ern. In welcher Stadt steht er?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Das Giza-Plateau, auf dem sich die Cheops-Pyramide und die Sphinx befinden, liegt in welchem afrikanischen Land?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Ägypten"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasilien"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Deutschland"
+	},
+	"trivia_beginner_052": {
+		"message": "Die Independence Hall, eine wichtige historische Stätte aus der Zeit der amerikanischen Revolution, befindet sich in der Nähe des Delaware River in welcher US-Stadt?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Die Rocky Mountains verlaufen durch Kanada und welches andere Land?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "USA"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Russland"
+	},
+	"trivia_beginner_054": {
+		"message": "An welchem Ozean liegen Brasilien und Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_beginner_055": {
+		"message": "In welchem Ozean liegt die Insel Neufundland vor der Küste Kanadas?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_056": {
+		"message": "In welchem Ozean liegt Madagaskar, eine Insel vor der Ostküste Afrikas?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_beginner_057": {
+		"message": "Durch welchen Ozean verläuft ein Großteil der Datumsgrenze?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_beginner_058": {
+		"message": "Auf welchem Kontinent liegt das Kongobecken, durch das der Äquator verläuft?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Welcher Kontinent grenzt an den Golf von Mexiko?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_060": {
+		"message": "Welcher afrikanische Fluss ist der längste Fluss der Welt?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nil"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranje"
+	},
+	"trivia_beginner_061": {
+		"message": "Auf welchem Kontinent liegt die Ruinenstadt Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_062": {
+		"message": "Durch welchen Kontinent fließt der Amazonas, der wasserreichste Fluss der Erde?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_063": {
+		"message": "Auf welchem Kontinent liegt der Mont Blanc, der höchste Berg der Alpen?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_064": {
+		"message": "Der Isthmus von Panama verbindet Zentralamerika mit welchem Kontinent?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Geparden sind die schnellsten Landsäugetiere der Erde und leben in Kenia und Tansania. Auf welchem Kontinent liegen diese Länder?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_066": {
+		"message": "An der Südspitze welchen Kontinents findet man das Kap der Guten Hoffnung?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_067": {
+		"message": "In welchem Ozean auf den Galápagosinseln westlich von Südafrika leben Riesenschildkröten?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_068": {
+		"message": "Auf welchem Kontinent liegen Wien und die anderen Städte, durch welche die Donau fließt?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "An welches Meer grenzen Kuba und Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karibisches Meer"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringmeer"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Ostsee"
+	},
+	"trivia_beginner_070": {
+		"message": "An welchem Kontinent liegt der Golf von Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australien"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Welchen Kontinent erforschte Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "Die Labradorsee ist ein Meeresarm welchen Ozeans?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_073": {
+		"message": "Auf welchem Kontinent liegt die Sahara, die größte Wüste der Welt?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_074": {
+		"message": "Auf welchem Kontinent liegt das Hochland von Tibet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Südlich von welchem Kontinent liegt die Drakestraße?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australien"
+	},
+	"trivia_beginner_076": {
+		"message": "Das Great Barrier Reef liegt im Korallenmeer vor der Küste welchen Kontinents?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australien"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asien"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_077": {
+		"message": "In welchem Land kann man den Sueskanal entlang fahren und die Stadt der Toten in Kairo besuchen?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Ägypten"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolumbien"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finnland"
+	},
+	"trivia_beginner_078": {
+		"message": "In welches Land muss man reisen, wenn man Gauchos bei ihren Viehherden und Tangotänzern in Buenos Aires zusehen möchte?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentinien"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "In welches Land muss man reisen, wenn man die Altstadt von Fès besichtigen und im Atlasgebirge wandern gehen möchte?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marokko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_beginner_080": {
+		"message": "In welches Land müsstest du reisen, wenn du die alten Maya-Ruinen besuchen und an den Stränden von Cancún schwimmen möchtest?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Niederlande"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Türkei"
+	},
+	"trivia_beginner_081": {
+		"message": "In welchem Land liegt die St. Patricks-Kathedrale in Dublin und findet das Kunstfestival in Kilkenny statt?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "In welchem Land kann man den Regenwald besuchen und auf dem Karneval von Rio de Janeiro tanzen?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasilien"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Großbritannien"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "In welches Land muss man reisen, wenn man die Eremitage in Sankt Petersburg besuchen und mit der Transsibirischen Eisenbahn fahren möchte?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Russland"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesien"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "In welchem Land findet man das Schnellzugnetz Shinkansen und die Hauptstadt Tokio?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Simbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivien"
+	},
+	"trivia_beginner_085": {
+		"message": "In welches Land muss man reisen, wenn man Pesto in Genua essen und in Florenz in die Oper gehen möchte?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italien"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_beginner_086": {
+		"message": "In welchem Land laden das Naturschutzgebiet Masai Mara zu einer Safari und die Stadt Nairobi zum Shoppen ein?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenia"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Südkorea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "In welchem Land kann man den Ganges und die belebten Straßen von Kalkutta besuchen?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Indien"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Deutschland"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordanien"
+	},
+	"trivia_beginner_088": {
+		"message": "Im Mittelpunkt welchen Ozeans liegt der Nordpol, der nördlichste Punkt der Erde?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_beginner_089": {
+		"message": "Welches Land liegt am Atlantischen Ozean?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Island"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Welcher Bundesstaat der USA wird aufgrund seines milden Klimas und seiner beliebten Strände im Englischen auch als \"Sunshine State\" bezeichnet?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "In welchem Bundesstaat der USA liegt der Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "South Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Welcher Bundesstaat der USA, der als \"Lone Star State\" bekannt ist und dessen Flagge ein einzelner Stern ziert, war einmal ein unabhängiges Land?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Auf welchem Kontinent fließen der Euphrat und der Tigris?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asien"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "Auf welchem Kontinent liegen der Victoriasee und die Virunga-Vulkane?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asien"
+	},
+	"trivia_beginner_095": {
+		"message": "Welches Land ist ein Inselstaat im Pazifischen Ozean?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Neuseeland"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Südafrika"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Island"
+	},
+	"trivia_beginner_096": {
+		"message": "Welches Land liegt auf der Skandinavischen Halbinsel?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Schweden"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumänien"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Welches Land liegt am Mittelmeer?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Frankreich"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesch"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Welche Stadt in den USA liegt am nächsten an der Grenze zu Kanada?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "In welcher US-Stadt treten die meisten Hurrikane auf?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Welcher dieser Seen ist am größten?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huronsee"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Eriesee"
+	},
+	"trivia_hard_004": {
+		"message": "Welche dieser Städte in den USA hat die meisten Einwohner?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Welches Land liegt am nächsten am Persischen Golf?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Türkei"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Welches dieser Länder hat die größte Landfläche?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kasachstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumänien"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polen"
+	},
+	"trivia_hard_007": {
+		"message": "Welches dieser Länder hat die höchste Bevölkerungsdichte?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivien"
+	},
+	"trivia_hard_008": {
+		"message": "In welchem dieser Länder leben die meisten Deutschsprachigen?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Österreich"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slowakei"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Welches dieser Länder grenzt an die meisten anderen Länder an?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudi-Arabien"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marokko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolei"
+	},
+	"trivia_hard_010": {
+		"message": "Welches Land liegt nicht am Tanganjikasee?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Sambia"
+	},
+	"trivia_hard_011": {
+		"message": "Durch welches Land verläuft der Äquator nicht?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauretanien"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_hard_012": {
+		"message": "Welches Land liegt nicht auf der Balkanhalbinsel?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Tschechien"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgarien"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Mazedonien"
+	},
+	"trivia_hard_013": {
+		"message": "Welches Land liegt nicht an der Nordsee?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finnland"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dänemark"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Großbritannien"
+	},
+	"trivia_hard_014": {
+		"message": "Welches Land liegt nicht am Schwarzen Meer?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Aserbaidschan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Türkei"
+	},
+	"trivia_hard_015": {
+		"message": "Welches dieser Länder ist kein Binnenstaat?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Kroatien"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungarn"
+	},
+	"trivia_hard_016": {
+		"message": "Welches Land liegt nicht in der Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libyen"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algerien"
+	},
+	"trivia_hard_017": {
+		"message": "Welche Insel liegt am weitesten im Osten?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "An welchem Gewässer liegt Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karibisches Meer"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_hard_019": {
+		"message": "Welche dieser Städte ist eine Hafenstadt am Golf von Mexiko?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Durch welches Land verläuft der Wendekreis des Krebses?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasilien"
+	},
+	"trivia_hard_021": {
+		"message": "Welche dieser Inseln ist am größten?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffininsel"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinien"
+	},
+	"trivia_hard_022": {
+		"message": "Die Straße von Yucatán trennt Mexiko von welcher Insel?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Welche kanadische Stadt liegt am weitesten nördlich?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Welche Insel gehört zu den Kleinen Antillen?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince ist die bevölkerungsreichste Stadt welchen Landes?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "In welchem Land findet man die Karpaten, ein über 1.300 km langes Hochgebirge?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumänien"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albanien"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "In welchem Land ist Französisch eine Amtssprache?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabun"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tansania"
+	},
+	"trivia_hard_028": {
+		"message": "Welches dieser Länder hat die größte Landfläche?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Welches Land erstreckt sich über die meisten Längengrade?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kasachstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afghanistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Syrien"
+	},
+	"trivia_hard_030": {
+		"message": "Welches Land besteht aus zahlreichen Inseln?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Philippinen"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodscha"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadschikistan"
+	},
+	"trivia_hard_031": {
+		"message": "In welchem dieser Länder gibt es die meisten Zeitzonen?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasilien"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Welches dieser Länder liegt am weitesten im Norden?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mosambik"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australien"
+	},
+	"trivia_hard_033": {
+		"message": "Welches Land liegt zwischen Frankreich und Spanien?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikanstadt"
+	},
+	"trivia_hard_034": {
+		"message": "Mit welchem Land teilt Dänemark eine Grenze?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Deutschland"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finnland"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Republik Moldau"
+	},
+	"trivia_hard_035": {
+		"message": "Zu welchem Land gehört die Insel Sardinien?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italien"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Türkei"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Großbritannien"
+	},
+	"trivia_hard_036": {
+		"message": "Welche Wüste nimmt den Großteil der Fläche zwischen Peking und Ulaanbaatar ein?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Große Indische Wüste"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Libysche Wüste"
+	},
+	"trivia_hard_037": {
+		"message": "In welchem Ozean findet man den Kamtschatka-Strom?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_hard_038": {
+		"message": "Im südlichen Teil welchen Meeres liegt die Große Syrte?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Mittelmeer"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabisches Meer"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Ostsee"
+	},
+	"trivia_hard_039": {
+		"message": "Die Tatra ist der höchste Gebirgszug welchen europäischen Gebirges?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpaten"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantabrisches Gebirge"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyrenäen"
+	},
+	"trivia_hard_040": {
+		"message": "Welcher Fluss durchquert den Karibasee und ist die Grenze zwischen Sambia und Simbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Sambesi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nil"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_041": {
+		"message": "In welches Meer fließen Themse, Maas und Schelde?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Nordsee"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Mittelmeer"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Schwarzes Meer"
+	},
+	"trivia_hard_042": {
+		"message": "Wie heißt die große Insel, die jenseits der Straße von Luzon nördlich der Philippinen liegt?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algerien"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Welche Inseln liegen entlang des Mittelatlantischen Rückens?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azoren"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fidschi"
+	},
+	"trivia_hard_044": {
+		"message": "Welcher Fluss mündet in die Laptewsee?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Jangtse"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Welcher Gipfel liegt dem Äquator am nächsten?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimandscharo"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Welche Hauptstadt hat die meisten Einwohner?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskau"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algier"
+	},
+	"trivia_hard_047": {
+		"message": "Welche Stadt liegt an der Liffey und ist die größte Stadt der Republik Irland?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Welche Stadt liegt in einem Tal im Hindukusch und ist die größte Stadt Afghanistans?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajewo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Welche Stadt am Fluss Chao Phraya ist die größte Stadt Thailands?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Welche Stadt liegt an einem Fjord am Skagerrak und ist die größte Stadt Norwegens?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brüssel"
+	},
+	"trivia_hard_051": {
+		"message": "Welche Stadt an der östlichen Mittelmeerküste ist die größte Stadt des Libanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadischu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riad"
+	},
+	"trivia_hard_052": {
+		"message": "Welche Stadt an der Küste Javas ist die größte Stadt Indonesiens?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Welche Stadt in der Attika-Region ist die größte Stadt Griechenlands?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athen"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rom"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Welche Stadt an der Mündung des Río de la Plata ist die größte Stadt von Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Welche Stadt, die einst zur ehemaligen Provinz Transvaal gehörte, ist die größte Stadt Afrikas?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Welche Stadt ist ein wichtiger Umschlagplatz für Waren in der Karibik und gleichzeitig die größte Stadt Jamaikas?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Welche Stadt im Großen Afrikanischen Grabenbruch ist die größte Stadt Eritreas?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Welche Stadt an der Weichsel ist die größte Stadt Polens?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warschau"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiew"
+	},
+	"trivia_hard_059": {
+		"message": "Welche Stadt ist ein wichtiger Zwischenstopp des Schnellstraßen-Systems Panamericana und die größte Stadt von Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Welche Stadt ist die größte Stadt Simbabwes und ein wichtiger Umschlagplatz für landwirtschaftliche Produkte im Süden Afrikas?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Welche Stadt, die einst von den Roten Khmer besetzt war, ist die größte Stadt Kambodschas?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Welche Stadt am Kap Mesurado an der Atlantikküste ist die größte Stadt Liberias?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Akkra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Welche Stadt auf einer Hochebene in den Anden ist die größte Stadt Kolumbiens?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Welche Stadt am Fuße des Elburs-Gebirges ist die größte Stadt im Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taschkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Durch welches Gewässer verläuft der nördliche Polarkreis?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Europäisches Nordmeer"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Volta-Stausee"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspisches Meer"
+	},
+	"trivia_hard_066": {
+		"message": "Welches Gewässer liegt im Großen Afrikanischen Grabenbruch?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malawisee"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanische See"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicacasee"
+	},
+	"trivia_hard_067": {
+		"message": "An der Küste welchen Gewässers liegt die russische Hafenstadt Archangelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Weißes Meer"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bass-Straße"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golf von Biskaya"
+	},
+	"trivia_hard_068": {
+		"message": "In welchem Land liegen die Provinzen Hunan und Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "Kastilisch ist die Amtssprache in welchem Mittelmeerland?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spanien"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Griechenland"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Aserbaidschan"
+	},
+	"trivia_hard_070": {
+		"message": "Welches zentralamerikanische Land war früher eine Provinz Kolumbiens?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "In welchem Land liegt Basel, ein wichtiger Verkehrsknotenpunkt am Rhein?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Schweiz"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgien"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Russland"
+	},
+	"trivia_hard_072": {
+		"message": "Maler wie Cézanne ließen sich von der Landschaft der Provence inspirieren. In welchem Land liegt diese Region?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Frankreich"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Niederlande"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumänien"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca ist ein wichtiger Umschlagplatz für die Region Pampas. In welchem Land liegt Bahía Blanca?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentinien"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivien"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Welches Land grenzt an das Mittelmeer, das Schwarze Meer und das Ägäische Meer an?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Türkei"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgarien"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_hard_075": {
+		"message": "Jedes Jahr migrieren Gnus von Tansania aus über den Fluss Mara in welches Nachbarland im Nordosten?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenia"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Sambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Das für die Umayyaden-Moschee bekannte Aleppo ist die größte Stadt in welchem Land Vorderasiens?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Syrien"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesch"
+	},
+	"trivia_hard_077": {
+		"message": "Welches Land grenzt an Russland und Georgien an?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Aserbaidschan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Usbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Nordkorea"
+	},
+	"trivia_hard_078": {
+		"message": "Welches Land grenzt an Panama und Brasilien?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolumbien"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Welches Land teilt Grenzen mit Guatemala und den USA?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Welches Land grenzt an den Irak und Afghanistan an?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolei"
+	},
+	"trivia_hard_081": {
+		"message": "Welches Land grenzt an Lesotho und Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Südafrika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Simbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Republik Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerpen liegt im flämischen Teil welchen Landes?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgien"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Niederlande"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Island"
+	},
+	"trivia_hard_083": {
+		"message": "In welchem europäischen Land liegt die Hafenstadt Danzig an der Mündung der Weichsel?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polen"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spanien"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Kroatien"
+	},
+	"trivia_hard_084": {
+		"message": "In welchen südamerikanischen Strom münden der Rio Madeira und der Rio Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazonas"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Der Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Der Bodensee gehört zur Schweiz, zu Deutschland und zu welchem anderen Land?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Österreich"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slowakei"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finnland"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, ein Ballungsraum mit mehreren Häfen, ist die größte Agglomeration welchen Landes?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Neuseeland"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australien"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_087": {
+		"message": "Welches westliche Nachbarland von Togo ist ein wichtiger Kakaoproduzent?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunesien"
+	},
+	"trivia_hard_088": {
+		"message": "In welchem südamerikanischen Land ist Guaraní eine der offiziellen Amtssprachen und auch die Landeswährung?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasilien"
+	},
+	"trivia_hard_089": {
+		"message": "Welcher Gebirgszug liegt entlang der Grenze zwischen Frankreich und Spanien?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyrenäen"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennin"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukasus"
+	},
+	"trivia_hard_090": {
+		"message": "In welchem Land fließt der River Torrens in den Gulf Saint Vincent?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australien"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Welches afrikanische Land, das an das Mittelmeer angrenzt, ist eine Monarchie?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marokko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Ägypten"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Zentralafrikanische Republik"
+	},
+	"trivia_hard_092": {
+		"message": "Tiflis liegt am Ufer der Kura und ist die Hauptstadt welchen Landes?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Syrien"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungarn"
+	},
+	"trivia_hard_093": {
+		"message": "Die Abruzzen liegen an der Adria. In welchem Land findet man diese Bergregion?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italien"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Frankreich"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Der Rigaische Meerbusen grenzt an Lettland und welches andere Land an?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estland"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spanien"
+	},
+	"trivia_hard_095": {
+		"message": "Die Straße von Gubal verbindet den Golf von Sues mit welchem Meer?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Rotes Meer"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karibisches Meer"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspisches Meer"
+	},
+	"trivia_hard_096": {
+		"message": "Welcher Fluss ist der wichtigste Zufluss des See Genezareth?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amudarja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Welche große Bucht liegt zwischen New Brunswick und Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Bay of Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudson-Bucht"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bucht von Bengalen"
+	},
+	"trivia_hard_098": {
+		"message": "In welchem Land liegt am Rheinufer der Kölner Dom?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Deutschland"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dänemark"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, eine Region mit mehreren antiken Ruinen der Maya, ist der südlichste Bundesstaat welchen Landes?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Die Dardanellen sind eine Meerenge, die das Marmarameer mit welchem Gewässer verbindet?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Ägäisches Meer"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentssee"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanische See"
+	},
+	"trivia_hard_101": {
+		"message": "Die Khmer-Sprache ist die Amtssprache welchen Landes in Südostasien?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodscha"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Das Donezbecken ist ein industriell geprägtes Gebiet, das sich über Russland und welches andere Land erstreckt?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukraine"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slowakei"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Der Mount Kosciuszko liegt in den Snowy Mountains und ist der höchste Berg welchen Kontinents?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australien"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_hard_104": {
+		"message": "Zu welchem Land gehören die Inseln Madura und Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesien"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "In welchem asiatischen Land liegt die Taklamakan-Wüste nördlich des Kunlun-Gebirges?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudi-Arabien"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Südkorea"
+	},
+	"trivia_medium_001": {
+		"message": "Welche dieser Städte in den USA liegt an einem Flussdelta?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Auf welchem Kontinent liegen Angkor Wat und Kappadokien, die beide zum UNESCO-Welterbe gehören?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "Im Südwesten welchen Kontinents werden Kurdisch und Persisch gesprochen?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_004": {
+		"message": "Auf welchem Kontinent lebte einst eine frühe Zivilisation, deren Zentrum Teotihuacán war?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_005": {
+		"message": "An welchen Kontinent grenzen die Bellingshausen-See und das Rossmeer?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktis"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_006": {
+		"message": "Der Mosambikstrom und der Benguelastrom fließen an der Küste welchen Kontinents entlang?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_007": {
+		"message": "Die Falklandinseln, die auch unter dem Namen \"Islas Malvinas\" bekannt sind, liegen am südöstlichen Rand welchen Kontinents?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Welches dieser afrikanischen Länder hat die größte Fläche?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algerien"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Wie heißt die riesige Insel, die ungefähr 300 km nordwestlich von Island liegt?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grönland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Neuguinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irland"
+	},
+	"trivia_medium_010": {
+		"message": "In welchem Ozean liegen die Karasee und die Ostsibirische See?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indischer Ozean"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_medium_011": {
+		"message": "Welches Land liegt an der Ostsee?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Lettland"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slowenien"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukraine"
+	},
+	"trivia_medium_012": {
+		"message": "Welche dieser Großstädte hat die meisten Einwohner?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brasilien"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Welches Land hat keine Küste am Atlantischen Ozean?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Welches dieser Länder hat die kürzeste Küste?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Welche Wüste liegt in Asien?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Welches dieser Länder weist die stärkste Vulkanaktivität auf?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesien"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Ägypten"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "In welchem dieser Länder leben die meisten Menschen?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Welches dieser Länder hat die meisten Inseln?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Welches Land liegt dem Äquator am nächsten?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Südafrika"
+	},
+	"trivia_medium_020": {
+		"message": "Welches dieser Länder liegt am weitesten im Norden?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estland"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libyen"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodscha"
+	},
+	"trivia_medium_021": {
+		"message": "Wie heißt die Hauptstadt von Portugal, in der am Ufer des Tejo der Stadtteil Alfama liegt?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lissabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Wie heißt die Hauptstadt Jordaniens, die 40 km nordöstlich des Toten Meers liegt und auch die bevölkerungsreichste Stadt des Landes ist?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "In welcher Hauptstadt findet man den Tahrir-Platz, der durch mehrere große Proteste in der ägyptischen Geschichte bekannt wurde?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Maskat"
+	},
+	"trivia_medium_024": {
+		"message": "Welche Hauptstadt an der Tafelbucht ist der Sitz des Nationalparlaments von Südafrika?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Kapstadt"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Wie heißt die tschechische Hauptstadt an der Moldau, die auch gleichzeitig die größte Stadt des Landes ist?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prag"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Wie heißt die am Mittelmeer gelegene Hauptstadt Libyens, die auch eine wichtige Hafenstadt des Landes ist?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripolis"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadischu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Wie heißt die Hauptstadt des Sudan, die ein wichtiger Umschlagplatz für Handel und Transport ist und am Zusammenfluss des Weißen Nils mit dem Blauen Nil liegt?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartum"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Welche Hauptstadt liegt auf den dänischen Inseln Seeland und Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Wie heißt die Hauptstadt der Bahamas, die auf der Insel New Providence liegt und gleichzeitig die größte Stadt des Landes ist?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Welche Hauptstadt südlich des Schwarzen Meeres bildet das Zentrum des Transportnetzes der Türkei?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Welches dieser Länder liegt zum Teil am Horn von Afrika?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swasiland"
+	},
+	"trivia_medium_032": {
+		"message": "Das Skagerrak ist eine Wasserstraße zwischen Dänemark und welchem anderen Land?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norwegen"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Großbritannien"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Welches dieser Länder ist am meisten von Wüste bedeckt?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Tschad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norwegen"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Durch welches Land fließt der Euphrat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Syrien"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Schweiz"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_medium_035": {
+		"message": "Auf welchem Kontinent liegt Irkutsk, eine Stadt in der Nähe des Baikalsees?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asien"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_036": {
+		"message": "Durch welchen Kontinent fließen die beiden Ströme Dnjepr und Rhein?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktis"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asien"
+	},
+	"trivia_medium_037": {
+		"message": "Auf welchem Kontinent liegen das Bergland von Guayana und das Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Nordamerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "Auf welchem Kontinent liegen die Große Victoria-Wüste und die Nullarbor-Ebene?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australien"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asien"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul ist der südlichste Bundesstaat welchen Landes?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasilien"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexiko"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Deutschland"
+	},
+	"trivia_medium_040": {
+		"message": "In welchem Land liegt die Stadt Nowosibirsk am Fluss Ob?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Russland"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "In welchem Land im Pazifischen Raum treten häufiger Erdbeben auf?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Frankreich"
+	},
+	"trivia_medium_042": {
+		"message": "An der Nordküste welchen Landes liegt der Maracaibo-See?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Welches Land liegt am Arabischen Meer?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Indien"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadschikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Griechenland"
+	},
+	"trivia_medium_044": {
+		"message": "Welches Land findet man auf der Iberischen Halbinsel?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesch"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Niederlande"
+	},
+	"trivia_medium_045": {
+		"message": "Welches dieser Länder hat die längste Küste?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailand"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Republik Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Welcher Bundesstaat der USA liegt westlich des Mississippis?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Welcher Bundesstaat der USA ist zu etwa 60 % mit Wald bedeckt?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "In welchem Bundesstaat der USA liegt der Mount McKinley, der höchste Berg Nordamerikas?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Welcher dieser Bundesstaaten der USA ist flächenmäßig der größte?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "South Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "In welchem Bundesstaat der USA findet man den Mount Rushmore, der in der Nähe von Rapid City liegt?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "South Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Welcher Bundesstaat der USA hat eine gemeinsame Grenze mit Kanada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Vor der Küste welchen Bundesstaats der USA findet man Korallenriffe?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg ist eine wichtige Hafenstadt in welchem Land?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Deutschland"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Kroatien"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgien"
+	},
+	"trivia_medium_054": {
+		"message": "Welches Land weist die stärkste Vulkanaktivität auf?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Island"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Großbritannien"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polen"
+	},
+	"trivia_medium_055": {
+		"message": "Welches Land liegt überwiegend in Kleinasien?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Türkei"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estland"
+	},
+	"trivia_medium_056": {
+		"message": "Durch das Tote Meer verläuft die Grenze zwischen Israel und welchem anderen Land?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordanien"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "Der Serengeti-Nationalpark liegt östlich des Victoriasees in welchem Land?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tansania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Welches Land am Karibischen Meer ist eines der wichtigsten ölexportierenden Länder?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Welches Binnenland liegt unmittelbar südlich des Äquators?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Dschibuti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunesien"
+	},
+	"trivia_medium_060": {
+		"message": "Welcher Mittelmeerstaat liegt am Tyrrhenischen Meer?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italien"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "In welchem Land findet man das an den östlichen Hängen des Uralgebirges gelegene Jekaterinburg?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Russland"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litauen"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgien"
+	},
+	"trivia_medium_062": {
+		"message": "Welcher Inselstaat liegt südöstlich von Australien und ist einer der größten Wollproduzenten?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Neuseeland"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Philippinen"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Mumbai ist eine wichtige Hafenstadt in welchem Land?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Indien"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Schweiz"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "Zu welchem Land gehört die Stadt Incheon, die am Gelben Meer liegt?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Südkorea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolei"
+	},
+	"trivia_medium_065": {
+		"message": "Welches kleine Land ist ein westliches Nachbarland von Österreich?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Syrien"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Republik Moldau"
+	},
+	"trivia_medium_066": {
+		"message": "Victoria und New South Wales sind Bundesstaaten welchen Landes?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australien"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "USA"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "Welches Land auf der Insel Borneo grenzt an das kleine Land Brunei an?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaysia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukraine"
+	},
+	"trivia_medium_068": {
+		"message": "Die Julischen Alpen liegen an der Grenze zwischen Italien und welchem anderen Land?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slowenien"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadschikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Die früher unter dem Namen \"Mandschurei\" bekannte Region liegt im Nordosten welchen Landes?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarus"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afghanistan"
+	},
+	"trivia_medium_070": {
+		"message": "Welches Land grenzt an El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikanische Republik"
+	},
+	"trivia_medium_071": {
+		"message": "Welches Land liegt im Kaukasus?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungarn"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "In welchem asiatischen Land sind zwei Inseln durch die Sundastraße voneinander getrennt?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesien"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Neuseeland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "In der Nähe der Mündung des Flusses Shannon kann man durch Gletscher geformte Täler und atemberaubende Felsen bestaunen. In welchem Land liegt dieser Fluss?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irland"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Frankreich"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Usbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Durch welches Land in Südasien fließt der Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Nordkorea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Aserbaidschan"
+	},
+	"trivia_medium_075": {
+		"message": "Welches Land liegt am Roten Meer?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_medium_076": {
+		"message": "Zacatecas und Tabasco sind Bundesstaaten welchen Landes?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentinien"
+	},
+	"trivia_medium_077": {
+		"message": "Riad, eine Stadt mit über 4.000 Moscheen, liegt in welchem Land?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudi-Arabien"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albanien"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Syrien"
+	},
+	"trivia_medium_078": {
+		"message": "Welches afrikanische Land ist ein Binnenstaat?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauretanien"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Ägypten"
+	},
+	"trivia_medium_079": {
+		"message": "In welchem Land befindet sich der heilige Berg Fuji?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Philippinen"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesch"
+	},
+	"trivia_medium_080": {
+		"message": "In welchem Land in den Großen Antillen ist Englisch Amtssprache?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaika"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Welche Sprache ist in Syrien, Kuwait und Algerien Amtssprache?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arabisch"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Armenisch"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Deutsch"
+	},
+	"trivia_medium_082": {
+		"message": "In welchem Alpenland werden bei den Salzburger Festspielen häufig Opern von Mozart aufgeführt?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Österreich"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungarn"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumänien"
+	},
+	"trivia_medium_083": {
+		"message": "In welchem Land nördlich der Republik Sudan liegt Wadi al-Hitan (\"Tal der Wale\"), eine Wüste mit fossilen Überresten prähistorischer Wale?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Ägypten"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Sambia"
+	},
+	"trivia_medium_084": {
+		"message": "In welchem europäischen Land liegt Rotterdam an einem Flussdelta zur Nordsee?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Niederlande"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Schweden"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Griechenland"
+	},
+	"trivia_medium_085": {
+		"message": "In welchem Hochgebirgs­system entspringt der Fluss Brahmaputra, der in ein großes Delta am Golf von Bengalen mündet?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Ural"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpen"
+	},
+	"trivia_medium_086": {
+		"message": "In welchem islamischen Staat ist Farsi, wie die persische Sprache auch genannt wird, Amtssprache?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libyen"
+	},
+	"trivia_medium_087": {
+		"message": "In welchem europäischen Land kann man in Sevilla Matadoren bei Stierkämpfen zusehen?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spanien"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Deutschland"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Mazedonien"
+	},
+	"trivia_medium_088": {
+		"message": "In welchem Land liegt Istanbul, die Stadt, in der östliche und westliche Kultur aufeinandertreffen?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Türkei"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slowakei"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "Die Maya-Stadt Copán ist eine beliebte Touristenattraktion. In welchem Land, das an El Salvador und Nicaragua angrenzt, liegt sie?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "In welchem Binnenstaat liegt nördlich des Nigers die Stadt Timbuktu, die fast 1.000 Jahre lang ein Handelszentrum für Karawanen war?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Welches südamerikanische Binnenland grenzt an Chile und Brasilien?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivien"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolumbien"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "In welchem Land an der südlichen Mündung des Amazonas liegt die Stadt Belém?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasilien"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Welcher Fluss stellt einen Großteil der nördlichen Grenze Bulgariens dar?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Donau"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "In welchem asiatischen Land liegt das Sajangebirge in der Nähe des Baikalsees?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Russland"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Indien"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgisistan"
+	},
+	"trivia_medium_095": {
+		"message": "Der Nipigonsee ist der größte See in welcher kanadischen Provinz?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "British Columbia"
+	},
+	"trivia_medium_096": {
+		"message": "Zu welchem größeren Meer gehören das Balearen-Meer und das Ionische Meer?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Mittelmeer"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Ostsee"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karibisches Meer"
+	},
+	"trivia_medium_097": {
+		"message": "Der Turkana-See und der Natronsee liegen in einem Grabenbruch auf welchem Kontinent?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "Der Puerto-Rico-Graben ist der tiefste Punkt in welchem Ozean?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantischer Ozean"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Arktischer Ozean"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Pazifischer Ozean"
+	},
+	"trivia_medium_099": {
+		"message": "Der Lachende Hans, auch Kookaburra genannt, ist ein Vogel, der in den Eukalyptuswäldern im Osten welchen Kontinents lebt?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australien"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Südamerika"
+	},
+	"trivia_medium_100": {
+		"message": "An der Westküste welchen europäischen Landes liegt Den Haag, die Stadt des Internationalen Gerichtshofs?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Niederlande"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finnland"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgarien"
+	},
+	"trivia_ngb_promo": {
+		"message": "Inhalte des National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Großbritannien"
+	},
+	"uk_tradition": {
+		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug, Scherzartikel und Preise für den Weihnachtsabend aus."
+	},
+	"unmute": {
+		"message": "Mikrofon ein"
+	},
+	"upgrade-warning": {
+		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen. Weitere Informationen findest du unter \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "USA"
+	},
+	"us_tradition": {
+		"message": "In den USA werden am Weihnachtsabend Strümpfe aufgehängt. Es heißt, der heilige Nikolaus habe einst von einer Familie in Not gehört. Um sie zu überraschen, kletterte er durch den Kamin und hängte für sie Strümpfe voll Gold auf. Seit damals ist er als Santa Claus bekannt, der die Geschenke bringt."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Usbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"village_comeback": {
+		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"
+	},
+	"village_explore": {
+		"message": "Entdecke, spiele und lerne den ganzen Dezember lang gemeinsam mit den Wichteln des Weihnachtsmanns"
+	},
+	"village_get_the_app": {
+		"message": "App \"Auf den Spuren des Weihnachtsmanns\" für Android holen"
+	},
+	"village_more": {
+		"message": "Mehr entdecken"
+	},
+	"village_santa_a2hs": {
+		"message": "Zum Startbildschirm hinzufügen"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Der Ablage hinzufügen"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Dem Desktop hinzufügen"
+	},
+	"village_santa_cardboard": {
+		"message": "Mit Google Cardboard den Weihnachtsmann suchen"
+	},
+	"village_santa_cast": {
+		"message": "Mit Google Cast den Weihnachtsmann suchen"
+	},
+	"village_santa_crx": {
+		"message": "Weihnachtliche Chrome-Erweiterung hinzufügen"
+	},
+	"village_takesoff": {
+		"message": "Der Weihnachtsmann startet in"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Ansehen"
+	},
+	"wrapbattle_combo": {
+		"message": "Coole Kombi"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Gut"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Daneben"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfekt"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Höchste Punktzahl"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinesisch (vereinfacht)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinesisch (traditionell)"
+	},
+	"zm_country_name": {
+		"message": "Sambia"
+	},
+	"zw_country_name": {
+		"message": "Simbabwe"
+	}
+}
