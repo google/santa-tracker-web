@@ -1,0 +1,38 @@
+#module-languagematch {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    overflow: hidden;
+
+    .bg {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+
+        background-color: rgb(63, 138, 63);
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+
+        width: 80%;
+        height: 80%;
+
+        position: relative;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .card {
+        background-color: rgb(158, 36, 36);
+        border-radius: 5px;
+    }
+}
