@@ -52,6 +52,10 @@
     .card-back {
         @extend %card-face;
         background-color: rgb(158, 36, 36);
+        outline-color: rgb(197, 111, 111);
+        outline-width: 1px;
+        outline-style: solid;
+        outline-offset: -7px;
     }
     .card-front {
         @extend %card-face;
