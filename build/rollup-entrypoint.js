@@ -25,10 +25,8 @@ function virtualPlugin(virtual) {
   }
 }
 
-const rollupInputOptions = (filename, virtual) => ({
-  input: filename,
-  plugins: [
-    virtualPlugin(virtual),
+const rollupInputOptions = (filename, virtual) => {
+  const plugins = [
     rollupNodeResolve(),
     // NOTE(cdata): This is only necessary to support redux until
     // https://github.com/reduxjs/redux/pull/3143 lands in a release
@@ -39,23 +37,30 @@ const rollupInputOptions = (filename, virtual) => ({
       // definitions below
       'modules': {process: path.resolve('./src/lib/process.js')},
     }),
-  ],
+  ];
+  if (virtual) {
+    plugins.unshift(virtualPlugin(virtual));
+  }
 
-	onwarn(warning, onwarn) {
-    if (warning.code === 'EVAL') {
-      // Closure uses eval() through its generated code, so ignore this for now.
-    } else {
-      return onwarn(warning);
-    }
-	},
-});
+  return {
+    input: filename,
+    plugins,
+    onwarn(warning, onwarn) {
+      if (warning.code === 'EVAL') {
+        // Closure uses eval() through its generated code, so ignore this for now.
+      } else {
+        return onwarn(warning);
+      }
+    },
+  };
+};
 
 const rollupOutputOptions = (filename) => ({
   name: filename,
   format: 'es',
 });
 
-module.exports = async (filename, virtual) => {
+module.exports = async (filename, virtual=null) => {
   const bundle = await rollup.rollup(rollupInputOptions(filename, virtual));
   const {code} = await bundle.generate(rollupOutputOptions(filename));
   return code;

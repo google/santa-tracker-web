@@ -1,0 +1,6722 @@
+{
+	"about-content-one": {
+		"message": "เราภูมิใจเป็นอย่างยิ่งจะเปิดตัวแผงควบคุมของซานต้าในวันคริสต์มาสอีฟ แผงนี้เป็นเทคโนโลยีที่ให้พลังงานแก่รถเลื่อนของซานต้าระหว่างการเดินทางรอบโลก เราได้รับตัวอย่างพิเศษนี้จากเอลฟ์นักพัฒนาของซานต้า พวกเขาทำงานกันอย่างหนักที่ขั้วโลกเหนือเพื่อช่วยซานต้าเตรียมตัวสำหรับวันสำคัญ แผงควบคุมของซานต้าซึ่งใช้เทคโนโลยีใหม่ล่าสุดและดีที่สุดของ Google Maps และวิศวกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความเคลื่อนไหวของซานต้าไปรอบโลก และยังได้รับความรู้เล็กๆ น้อยๆ เกี่ยวกับจุดแวะพักของซานต้าระหว่างทางอีกด้วย"
+	},
+	"about-content-three": {
+		"message": "Google Maps ตามติดซานต้าสร้างขึ้นและพัฒนาโดย Google ด้วยความช่วยเหลือเล็กน้อยจากเหล่าเอลฟ์ของซานต้า หากมีคำถามหรือข้อสงสัย โปรดไปที่\u003ca href=\"//support.google.com/santatracker\"\u003eศูนย์ช่วยเหลือ\u003c/a\u003eของเรา"
+	},
+	"about-content-two": {
+		"message": "เอลฟ์ผู้เป็นมิตรของเราเชิญให้คุณสำรวจหมู่บ้านของซานต้าในขณะที่ซานต้ากำลังเตรียมตัวสำหรับการเดินทาง ออกสำรวจหมู่บ้านได้เลย แล้วคุณอาจได้ร่วมกิจกรรมสนุกๆ และพบกับเอลฟ์ที่น่าสนใจ"
+	},
+	"about-santa": {
+		"message": "เกี่ยวกับ"
+	},
+	"about_title": {
+		"message": "ยินดีต้อนรับสู่ Google Maps - ตามติดซานต้า"
+	},
+	"ae_country_name": {
+		"message": "สหรัฐอาหรับเอมิเรตส์"
+	},
+	"af_country_name": {
+		"message": "อัฟกานิสถาน"
+	},
+	"al_country_name": {
+		"message": "แอลเบเนีย"
+	},
+	"ao_country_name": {
+		"message": "แองโกลา"
+	},
+	"ar_country_name": {
+		"message": "อาร์เจนตินา"
+	},
+	"ar_language_name": {
+		"message": "อาหรับ"
+	},
+	"ar_tradition": {
+		"message": "ในอาร์เจนตินา คริสต์มาสจะเริ่มขึ้นทันทีในตอนเที่ยงคืน หลายครอบครัวเริ่มต้นวันหยุดนี้ด้วยการเฉลิมฉลองอย่างรื่นเริงในบ้านของตัวเอง เปิดของขวัญกับคนที่รัก และจุดเตาผิงในตอนเช้าตรู่"
+	},
+	"at_country_name": {
+		"message": "ออสเตรีย"
+	},
+	"au_country_name": {
+		"message": "ออสเตรเลีย"
+	},
+	"au_tradition": {
+		"message": "ด้วยที่ตั้งทางซีกโลกใต้ของออสเตรเลีย เดือนธันวาคมจึงตรงกับหน้าร้อน ดังนั้นแทนที่จะรอฟังเสียงกระดิ่งรถเลื่อนระหว่างจิบโกโก้ร้อนๆ ชาวออสเตรเลียจึงออกไปเฉลิมฉลองวันหยุดนี้ที่ชายหาดด้วยการกินกุ้งในมื้อเที่ยงและเล่นเกมคริกเก็ตกันรอบสองรอบ"
+	},
+	"ba_country_name": {
+		"message": "บอสเนียและเฮอร์เซโกวีนา"
+	},
+	"back_to_previous_page": {
+		"message": "ย้อนกลับ"
+	},
+	"back_to_tracker": {
+		"message": "กลับไปที่เครื่องมือติดตาม"
+	},
+	"bd_country_name": {
+		"message": "บังกลาเทศ"
+	},
+	"be_country_name": {
+		"message": "เบลเยียม"
+	},
+	"bf_country_name": {
+		"message": "บูร์กินาฟาโซ"
+	},
+	"bg_country_name": {
+		"message": "บัลแกเรีย"
+	},
+	"bj_country_name": {
+		"message": "เบนิน"
+	},
+	"bo_country_name": {
+		"message": "โบลิเวีย"
+	},
+	"br_country_name": {
+		"message": "บราซิล"
+	},
+	"br_tradition": {
+		"message": "การฉลองวันคริสต์มาสจะเริ่มขึ้นในเวลาเกือบเที่ยงคืน โดยปกติจะประกอบด้วยการรับประทานอาหารค่ำมื้อใหญ่ในครอบครัว การเปิดของขวัญ และการเฉลิมฉลอง Missa do Galo (การรำลึกวันประสูติของพระเยซู) ในโบสถ์ ถึงแม้สภาพอากาศจะเป็นฤดูร้อนในเขตอบอุ่น แต่ก็สามารถพบเห็นธีมฤดูหนาวและหิมะได้ทั่วไป"
+	},
+	"bt_country_name": {
+		"message": "ภูฏาน"
+	},
+	"bw_country_name": {
+		"message": "บอตสวานา"
+	},
+	"by_country_name": {
+		"message": "เบลารุส"
+	},
+	"bz_country_name": {
+		"message": "เบลีซ"
+	},
+	"ca_country_name": {
+		"message": "แคนาดา"
+	},
+	"ca_tradition": {
+		"message": "เด็กๆ ชาวแคนาดามักจะได้เฉลิมฉลองคริสต์มาสในบรรยากาศที่เต็มไปด้วยหิมะขาวโพลน เด็กๆ จะพันผ้าพันคอหนาหลายชั้นและสวมหมวกขนสัตว์แล้วออกมาเล่นในหิมะ เล่นสเก็ตน้ำแข็ง หรือนั่งในเลื่อนหิมะ ในคืนคริสต์มาสอีฟ พวกเขาจะวางนมและคุกกี้ข้างเตาผิงไว้ให้ซานต้า (และบางครั้งอาจมีแครอทสำหรับกวางเรนเดียร์ด้วย)"
+	},
+	"calendar": {
+		"message": "ปฏิทิน"
+	},
+	"category_code": {
+		"message": "เขียนโปรแกรม"
+	},
+	"category_draw": {
+		"message": "วาด"
+	},
+	"category_listen": {
+		"message": "ฟัง"
+	},
+	"category_send": {
+		"message": "ส่ง"
+	},
+	"cd_country_name": {
+		"message": "สาธารณรัฐประชาธิปไตยคองโก"
+	},
+	"cf_country_name": {
+		"message": "สาธารณรัฐแอฟริกากลาง"
+	},
+	"cg_country_name": {
+		"message": "สาธารณรัฐคองโก"
+	},
+	"ch_country_name": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"ci_country_name": {
+		"message": "โกตดิวัวร์"
+	},
+	"citylights-contribute": {
+		"message": "เพิ่มรูปภาพ {{location}} ของคุณเอง"
+	},
+	"citylights-panorama-01-description": {
+		"message": "ร็อคกี้เฟลเลอร์พลาซ่า"
+	},
+	"citylights-panorama-01-location": {
+		"message": "นครนิวยอร์ก สหรัฐอเมริกา"
+	},
+	"citylights-panorama-02-description": {
+		"message": "พุชกินสแควร์"
+	},
+	"citylights-panorama-02-location": {
+		"message": "กรุงมอสโก รัสเซีย"
+	},
+	"citylights-panorama-03-description": {
+		"message": "รัทเฮาส์ซปลาทซ์"
+	},
+	"citylights-panorama-03-location": {
+		"message": "กรุงเวียนนา ออสเตรีย"
+	},
+	"citylights-panorama-04-description": {
+		"message": "ถนนช็องเซลีเซสู่ประตูชัยฝรั่งเศส"
+	},
+	"citylights-panorama-04-location": {
+		"message": "กรุงปารีส ฝรั่งเศส"
+	},
+	"citylights-panorama-05-description": {
+		"message": "แมกนิฟิเซนต์ ไมล์"
+	},
+	"citylights-panorama-05-location": {
+		"message": "ชิคาโก สหรัฐอเมริกา"
+	},
+	"citylights-panorama-06-description": {
+		"message": "ตลาดคริสต์มาส"
+	},
+	"citylights-panorama-06-location": {
+		"message": "นูเรมเบิร์ก เยอรมนี"
+	},
+	"citylights-panorama-07-description": {
+		"message": "แม่น้ำเมเดลลิน"
+	},
+	"citylights-panorama-07-location": {
+		"message": "เมเดลลิน โคลอมเบีย"
+	},
+	"citylights-panorama-08-description": {
+		"message": "หมู่บ้านซานตาคลอส"
+	},
+	"citylights-panorama-08-location": {
+		"message": "แลปแลนด์ ฟินแลนด์"
+	},
+	"citylights-panorama-09-description": {
+		"message": "แกรนด์ เพลส"
+	},
+	"citylights-panorama-09-location": {
+		"message": "กรุงบรัสเซลส์ เบลเยียม"
+	},
+	"citylights-panorama-10-description": {
+		"message": "ทราฟัลการ์ สแควร์"
+	},
+	"citylights-panorama-10-location": {
+		"message": "กรุงลอนดอน อังกฤษ"
+	},
+	"citylights-panorama-11-description": {
+		"message": "พลาซาเมเยอร์"
+	},
+	"citylights-panorama-11-location": {
+		"message": "กรุงมาดริด สเปน"
+	},
+	"citylights-panorama-12-description": {
+		"message": "รปปงงิฮิลส์"
+	},
+	"citylights-panorama-12-location": {
+		"message": "กรุงโตเกียว ญี่ปุ่น"
+	},
+	"citylights-panorama-13-description": {
+		"message": "สวนสนุกทิโวลี การ์เดนส์"
+	},
+	"citylights-panorama-13-location": {
+		"message": "กรุงโคเปนเฮเกน เดนมาร์ก"
+	},
+	"citylights-panorama-14-description": {
+		"message": "ถนนออร์ชาร์ด"
+	},
+	"citylights-panorama-14-location": {
+		"message": "กรุงสิงคโปร์ สิงคโปร์"
+	},
+	"citylights-panorama-15-description": {
+		"message": "เลนออฟไลท์"
+	},
+	"citylights-panorama-15-location": {
+		"message": "กอเทนเบิร์ก สวีเดน"
+	},
+	"citylights-panorama-16-description": {
+		"message": "เทศกาลแสดงไฟประจำฤดูหนาว"
+	},
+	"citylights-panorama-16-location": {
+		"message": "น้ำตกไนแอการา แคนาดา"
+	},
+	"citylights-panorama-17-description": {
+		"message": "เทศกาลฤดูหนาว"
+	},
+	"citylights-panorama-17-location": {
+		"message": "ฮ่องกง จีน"
+	},
+	"citylights-panorama-18-description": {
+		"message": "ทะเลสาบโรดริโก เด เฟรตาส"
+	},
+	"citylights-panorama-18-location": {
+		"message": "รีโอเดจาเนโร บราซิล"
+	},
+	"cl_country_name": {
+		"message": "ชิลี"
+	},
+	"clear": {
+		"message": "ล้าง"
+	},
+	"close": {
+		"message": "ปิด"
+	},
+	"cm_country_name": {
+		"message": "แคเมอรูน"
+	},
+	"co_country_name": {
+		"message": "โคลอมเบีย"
+	},
+	"codeboogie-back-to-start": {
+		"message": "กลับไปที่จุดเริ่มต้น"
+	},
+	"codeboogie-block-clap": {
+		"message": "ปรบมือ"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "ปรบมือ"
+	},
+	"codeboogie-block-jump": {
+		"message": "กระโดด"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "กระโดด"
+	},
+	"codeboogie-block-leftarm": {
+		"message": "ขยับแขนซ้าย"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "ชี้ไปทางซ้าย"
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "ก้าวไปทางซ้าย"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "ก้าวเท้าไปทางซ้าย"
+	},
+	"codeboogie-block-rightarm": {
+		"message": "ขยับแขนขวา"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "ชี้ไปทางขวา"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "ก้าวไปทางขวา"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "ก้าวเท้าไปทางขวา"
+	},
+	"codeboogie-block-shake": {
+		"message": "ส่ายสะโพก"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "ส่ายสะโพก"
+	},
+	"codeboogie-block-split": {
+		"message": "แยกขา"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "แยกขาออกจากกัน"
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "เลือกโหมดเกม"
+	},
+	"codeboogie-choose-stage": {
+		"message": "เลือกเวที"
+	},
+	"codeboogie-get-dancing": {
+		"message": "ไปเต้นกันเถอะ!"
+	},
+	"codeboogie-go": {
+		"message": "ไป!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "เต้นต่อเลย"
+	},
+	"codeboogie-lets-dance": {
+		"message": "เริ่มเต้นกันเลย"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "ชั้นเรียนเต้นรำ"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "ทำตามท่าเต้นของครู"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "เต้นแบบฟรีสไตล์"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "เต้นตามจังหวะของคุณเอง แล้วแชร์กับเพื่อนๆ"
+	},
+	"codeboogie-next-dance": {
+		"message": "เต้นกันต่อเลย"
+	},
+	"codeboogie-nice-moves": {
+		"message": "สุดยอดเท้าไฟ!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "ลองใช้บล็อกด้านล่างเพื่อจับคู่กับการเต้น"
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบการเต้นนี้ได้ใน {{ideal}} บล็อกเท่านั้น ลองใช้บล็อกด้านล่าง"
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "สุดยอดเท้าไฟ! คุณเต้นเสร็จแล้วอย่างสมบูรณ์แบบ"
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "คุณกำลังใช้บล็อกที่ถูกต้อง แต่ลองใช้ให้มากขึ้นเพื่อเต้นจนครบทุกท่า"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบการเต้นนี้ได้ใน {{ideal}} บล็อกเท่านั้น"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "คุณเต้นมากเกินไป"
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "ดูเหมือนว่าคุณจะเต้นผิดจังหวะ ลองแบบนี้แทน:"
+	},
+	"codeboogie-share-moves": {
+		"message": "แชร์การเต้นและท้าทายเพื่อนๆ ของคุณ"
+	},
+	"codeboogie-success": {
+		"message": "สำเร็จแล้ว"
+	},
+	"codeboogie-watch-closely": {
+		"message": "ดูดีๆ อย่ากะพริบตา!"
+	},
+	"codeboogie-your-turn": {
+		"message": "ถึงตาคุณแล้ว"
+	},
+	"codelab-block-jump-length": {
+		"message": "กระโดดข้าม"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "กระโดดข้ามแผ่นกระเบื้อง"
+	},
+	"codelab-block-moveeast": {
+		"message": "ตะวันออก"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศตะวันออก 1 ที่"
+	},
+	"codelab-block-movenorth": {
+		"message": "เหนือ"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศเหนือ 1 ที่"
+	},
+	"codelab-block-movesouth": {
+		"message": "ใต้"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศใต้ 1 ที่"
+	},
+	"codelab-block-movewest": {
+		"message": "ตะวันตก"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "เลื่อนฉันไปทางทิศตะวันตก 1 ที่"
+	},
+	"codelab-block-repeat": {
+		"message": "ทำซ้ำ"
+	},
+	"codelab-block-repeat-times": {
+		"message": "ครั้ง"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "ทำซ้ำข้อความบางข้อความหลายๆ ครั้ง"
+	},
+	"codelab-block-whenrun": {
+		"message": "ทิศทางในการเดิน"
+	},
+	"codelab-finish": {
+		"message": "เสร็จสิ้น"
+	},
+	"codelab-great": {
+		"message": "ยอดเยี่ยม"
+	},
+	"codelab-mwc-promo": {
+		"message": "ดูโครงการเขียนโค้ดของ Google เพิ่มเติมที่ \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e"
+	},
+	"codelab-next-challenge": {
+		"message": "ความท้าทายถัดไป"
+	},
+	"codelab-oops": {
+		"message": "อ๊ะ!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "บล็อก \"ทำซ้ำ\" ต้องมีบล็อกอื่นๆ อยู่ข้างในเพื่อให้ทำงานได้"
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "บางส่วนของบล็อกไม่ได้แนบกันอย่างถูกต้อง"
+	},
+	"codelab-result-generic-fail": {
+		"message": "ดูเหมือนว่าคุณจะหลงทาง!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "ลองใช้อย่างน้อย 1 บล็อกด้านล่างเพื่อแก้ปริศนานี้"
+	},
+	"codelab-result-missing-block-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบระดับนี้ได้ด้วย {{ideal}} บล็อกเท่านั้น ลองใช้บล็อกด้านล่าง"
+	},
+	"codelab-result-perfect-success": {
+		"message": "ขอแสดงความยินดี คุณแก้ปริศนาเสร็จแล้ว"
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "คุณกำลังใช้บล็อกที่ถูกต้อง แต่ลองใช้ให้มากขึ้นเพื่อแก้ปริศนานี้"
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "ทราบหรือไม่ว่าคุณสามารถจบระดับนี้ได้ด้วย {{ideal}} บล็อกเท่านั้น"
+	},
+	"codelab-try-again": {
+		"message": "ลองอีกครั้ง"
+	},
+	"copy-me": {
+		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
+	},
+	"copy-me-short": {
+		"message": "คัดลอกลิงก์เพื่อแชร์"
+	},
+	"countdown_days": {
+		"message": "วัน"
+	},
+	"countdown_hours": {
+		"message": "ชั่วโมง"
+	},
+	"countdown_minutes": {
+		"message": "นาที"
+	},
+	"countdown_seconds": {
+		"message": "วินาที"
+	},
+	"countdown_until": {
+		"message": "ซานต้าจะออกเดินทางใน"
+	},
+	"countdownlabel": {
+		"message": "ก่อนที่ซานต้าจะออกเดินทาง"
+	},
+	"cr_country_name": {
+		"message": "คอสตาริกา"
+	},
+	"cs_language_name": {
+		"message": "ภาษาเช็ก"
+	},
+	"cu_country_name": {
+		"message": "คิวบา"
+	},
+	"cz_country_name": {
+		"message": "สาธารณรัฐเช็ก"
+	},
+	"da_language_name": {
+		"message": "ภาษาเดนมาร์ก"
+	},
+	"days": {
+		"message": "วัน"
+	},
+	"de_country_name": {
+		"message": "เยอรมนี"
+	},
+	"de_language_name": {
+		"message": "เยอรมัน"
+	},
+	"de_tradition": {
+		"message": "ในเกือบทุกเมืองของเยอรมัน ตลาดคริสต์มาสจะเปิดขึ้นที่จัตุรัสของเมือง ผู้คนในเมืองจะมารวมตัวกันเพื่อฟังดนตรีของวงเครื่องเป่าทองเหลืองหรืออิ่มอร่อยกับอาหารประจำภูมิภาค พวกเขาจะรับประทานขนมปังขิงรูปหัวใจ อัลมอนด์อบน้ำตาล ขนมหวานทุกประเภท และดื่มไวน์เครื่องเทศ (Glühwein) หรือน้ำแอปเปิล"
+	},
+	"deck": {
+		"message": "ตกแต่ง"
+	},
+	"deckdescription": {
+		"message": "ตกแต่งเบราว์เซอร์ของคุณด้วยส่วนขยายซานต้า Chrome"
+	},
+	"detected": {
+		"message": "ตรวจพบ"
+	},
+	"difficulty": {
+		"message": "ความยาก"
+	},
+	"dk_country_name": {
+		"message": "เดนมาร์ก"
+	},
+	"do_country_name": {
+		"message": "สาธารณรัฐโดมินิกัน"
+	},
+	"donate_button": {
+		"message": "บริจาค"
+	},
+	"donate_text": {
+		"message": "ร่วมสมทบทุนให้กับโครงการที่มีความต้องการพิเศษที่ DonorsChoose.org ในเดือนธันวาคมนี้ เราจะช่วยเพิ่มยอดบริจาคให้มากขึ้นเป็นทวีคูณด้วยการสมทบทุนอีก 50% สำหรับทุกการบริจาคของคุณ จนกว่ายอดเงินบริจาคทั้งหมดจะบรรลุเป้าหมาย 1 ล้านดอลลาร์สหรัฐฯ ตามที่เราตั้งไว้ ด้วยพลังจากน้ำใจของพวกเราทุกคน เราสามารถช่วยสร้างห้องเรียนที่เด็กๆ ทุกคนสามารถเรียนร่วมกันได้มากขึ้น #ForEveryKid"
+	},
+	"dz_country_name": {
+		"message": "แอลจีเรีย"
+	},
+	"easy_difficulty": {
+		"message": "ง่าย"
+	},
+	"ec_country_name": {
+		"message": "เอกวาดอร์"
+	},
+	"educators": {
+		"message": "ตามติดซานต้าสำหรับนักการศึกษา"
+	},
+	"ee_country_name": {
+		"message": "เอสโตเนีย"
+	},
+	"el_language_name": {
+		"message": "ภาษากรีก"
+	},
+	"elvish_language_name": {
+		"message": "ภาษาเอลฟ์"
+	},
+	"en_language_name": {
+		"message": "ภาษาอังกฤษ"
+	},
+	"endofjourneymessage": {
+		"message": "การเดินทางประจำปีของซานต้าจบลงแล้ว ซานต้ากับเหล่าเอลฟ์กำลังสนุกสนานกันที่ขั้วโลกเหนือก่อนที่จะถึงวันหยุดประจำปีของพวกเขา"
+	},
+	"er_country_name": {
+		"message": "เอริเทรีย"
+	},
+	"error": {
+		"message": "เกิดปัญหาบางอย่าง แต่เหล่าเอลฟ์ของซานต้ากำลังหาทางแก้ไขอยู่"
+	},
+	"error-lost-connection": {
+		"message": "ดูเหมือนว่าเราสูญเสียการเชื่อมต่อกับขั้วโลกเหนือ เอลฟ์ของซานต้ากำลังพยายามแก้ไข อย่าเพิ่งไปไหน"
+	},
+	"error-not-found": {
+		"message": "ขออภัย เหล่าเอลฟ์ของซานต้าไม่พบหน้านี้ ลองกลับไปค้นหาที่\u003ca href=\"./village.html\"\u003eหมู่บ้านของซานต้า\u003c/a\u003e"
+	},
+	"error-try-again": {
+		"message": "ลองอีกครั้ง"
+	},
+	"error_try_again": {
+		"message": "ลองอีกครั้ง"
+	},
+	"es_language_name": {
+		"message": "ภาษาสเปน"
+	},
+	"et_country_name": {
+		"message": "เอธิโอเปีย"
+	},
+	"explore": {
+		"message": "สำรวจ"
+	},
+	"fi_country_name": {
+		"message": "ฟินแลนด์"
+	},
+	"fi_tradition": {
+		"message": "ชาวฟินแลนด์เชื่อกันว่าจริงๆ แล้ว Joulupukki หรือซานตาคลอสนั้นอาศัยอยู่ในพื้นที่ทางตอนเหนือของประเทศบริเวณเทือกเขา Korvatunturi หากคุณไปแถวๆ นั้น คุณอาจพบโรงงานลับของเขาซึ่งภูติโนมกำลังทำงานอย่างหนัก หรือคุณอาจพบกวางเรนเดียร์เดินท่องไปในป่าสน"
+	},
+	"finished-text": {
+		"message": "สุขสันต์วันหยุด! ซานต้าเพิ่งกลับจากการเดินทางรอบโลกและกำลังพักผ่อนหลังจากเหนื่อยมานาน พบกันใหม่ปีหน้า!"
+	},
+	"fr_country_name": {
+		"message": "ฝรั่งเศส"
+	},
+	"fr_language_name": {
+		"message": "ภาษาฝรั่งเศส"
+	},
+	"fr_tradition": {
+		"message": "ในฝรั่งเศสมีประเพณีที่เด็กๆ จะวางรองเท้าไว้ข้างเตาผิงเพื่อรอให้ Père Noël มาถึง ถ้าพวกเขาเป็นเด็กดีตลอดทั้งปี Père Noël' จะวางของขวัญไว้ในรองเท้า"
+	},
+	"fullscreen": {
+		"message": "แบบเต็มหน้าจอ"
+	},
+	"ga_country_name": {
+		"message": "กาบอง"
+	},
+	"gameover": {
+		"message": "จบเกม!"
+	},
+	"gameover_level": {
+		"message": "คุณทำได้ถึงระดับ:"
+	},
+	"gameover_score": {
+		"message": "คะแนนของคุณ:"
+	},
+	"getgooglemaps": {
+		"message": "ดาวน์โหลด Google Maps"
+	},
+	"getready": {
+		"message": "เตรียมพร้อม!"
+	},
+	"gh_country_name": {
+		"message": "กานา"
+	},
+	"gh_tradition": {
+		"message": "คริสต์มาสในกานานั้นจะรวมทั้งครอบครัวมาอยู่ด้วยกัน ผู้ใหญ่จะแต่งตัวด้วยเครื่องแต่งกายพิเศษและแจกลูกอมและขนมให้แก่เพื่อนบ้าน เด็กๆ จะประดับประดาบ้านตัวเองด้วยเครื่องแขวนที่ทำจากกระดาษและภาพวาดที่พวกเขาวาดที่โรงเรียน"
+	},
+	"gl_country_name": {
+		"message": "กรีนแลนด์"
+	},
+	"gn_country_name": {
+		"message": "กินี"
+	},
+	"gotovillage": {
+		"message": "ไปที่หมู่บ้าน"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "กรีซ"
+	},
+	"gr_tradition": {
+		"message": "ในประเทศกรีซ สิ่งมีชีวิตจอมป่วนแต่เป็นมิตรที่ชื่อว่า Kallikántzari จะอาศัยอยู่ที่ใจกลางแกนโลกเกือบทั้งปี แต่ในวันคริสต์มาส พวกมันจะขึ้นมาซ่อนในบ้านของมนุษย์และแกล้งให้พวกเขาตกใจด้วยเล่ห์กลต่างๆ หรือเขมือบอาหารคริสต์มาสจนเกลี้ยง ชาวกรีกจะทำพิธีเพื่อป้องกันตัววุ่นวายเหล่านี้ให้อยู่ห่างๆ บ้านของตน"
+	},
+	"gt_country_name": {
+		"message": "กัวเตมาลา"
+	},
+	"gt_tradition": {
+		"message": "ชาวกัวเตมาลาเฉลิมฉลองคริสต์มาสอย่างความสนุกสนานและมีการเต้นรำ พวกเขาจะสวมหมวกที่เรียกว่า Puritina รับประทานทามาลีสไตล์กัวเตมาลา จุดประทัดตอนเที่ยงคืน และเต้นรำจนถึงเช้าด้วยการเต้นรำในรูปแบบต่างๆ"
+	},
+	"gy_country_name": {
+		"message": "กายอานา"
+	},
+	"hard_difficulty": {
+		"message": "ยาก"
+	},
+	"help": {
+		"message": "ความช่วยเหลือ"
+	},
+	"hi_language_name": {
+		"message": "ภาษาฮินดี"
+	},
+	"hn_country_name": {
+		"message": "ฮอนดูรัส"
+	},
+	"holiday_message_0": {
+		"message": "สุขสันต์วันหยุด!"
+	},
+	"holiday_message_1": {
+		"message": "สุขสันต์วันหยุด!"
+	},
+	"holiday_message_2": {
+		"message": "ขอให้สุขสมหวังในทุกๆ เรื่อง!"
+	},
+	"holiday_message_3": {
+		"message": "ขอให้หิมะโปรยปราย"
+	},
+	"holiday_message_4": {
+		"message": "สุขสันต์วันปีใหม่!"
+	},
+	"holiday_message_5": {
+		"message": "ขอให้มีความสุขในทุกเทศกาล!"
+	},
+	"hours": {
+		"message": "ชั่วโมง"
+	},
+	"hr_country_name": {
+		"message": "โครเอเชีย"
+	},
+	"ht_country_name": {
+		"message": "เฮติ"
+	},
+	"hu_country_name": {
+		"message": "ฮังการี"
+	},
+	"hu_language_name": {
+		"message": "ภาษาฮังการี"
+	},
+	"id_country_name": {
+		"message": "อินโดนีเซีย"
+	},
+	"ie_country_name": {
+		"message": "ไอร์แลนด์"
+	},
+	"improve_google_translate": {
+		"message": "ช่วยพัฒนา Google แปลภาษา"
+	},
+	"iq_country_name": {
+		"message": "อิรัก"
+	},
+	"ir_country_name": {
+		"message": "อิหร่าน"
+	},
+	"is_country_name": {
+		"message": "ไอซ์แลนด์"
+	},
+	"is_tradition": {
+		"message": "ในช่วงคริสต์มาสในประเทศไอซ์แลนด์ ผู้คนจะให้ของขวัญคนในครอบครัวเป็นเสื้อผ้าที่ให้ความอบอุ่น ตามตำนานเล่าว่ามีแมวยักษ์คริสต์มาสผู้น่ากลัวที่จะเขมือบใครก็ตามที่ไม่เตรียมพร้อมสำหรับอากาศหนาวเย็น ครอบครัวต่างๆ จะช่วยกันทำให้แน่ใจว่าไม่มีใครตกเป็นอาหารของแมวยักษ์คริสต์มาส"
+	},
+	"it_country_name": {
+		"message": "อิตาลี"
+	},
+	"it_language_name": {
+		"message": "ภาษาอิตาลี"
+	},
+	"ja_language_name": {
+		"message": "ภาษาญี่ปุ่น"
+	},
+	"jm_country_name": {
+		"message": "จาเมกา"
+	},
+	"kg_country_name": {
+		"message": "คีร์กีซสถาน"
+	},
+	"kg_tradition": {
+		"message": "ในคีร์กีซสถาน Ayaz Ata (Grandfather Frost) จะมาที่บ้านเด็กๆ ในตอนเที่ยงคืนของวันคริสต์มาสอีฟและวางของขวัญไว้ใต้ต้นปีใหม่ เมื่อเข็มนาฬิกาเดินถึงเลข 12 ครอบครัวทั่วประเทศจะจุดเตาผิงเพื่อเฉลิมฉลองโอกาสพิเศษอันงดงามนี้ ทั่วทั้งเมืองจะสว่างไสวราวกับเป็นตอนกลางวัน"
+	},
+	"ko_language_name": {
+		"message": "ภาษาเกาหลี"
+	},
+	"kr_country_name": {
+		"message": "เกาหลีใต้"
+	},
+	"kr_tradition": {
+		"message": "ในเกาหลีใต้ คริสต์มาสถือเป็นวันหยุดประจำชาติ และยังมีชื่อเสียงโด่งดังว่าเป็นวันหยุดอันแสนโรแมนติก คู่รักหลายคู่ต่างพากันออกเดทในเมืองที่ท้องถนนและร้านค้าต่างตกแต่งด้วยไฟสว่างสดใส"
+	},
+	"kz_country_name": {
+		"message": "คาซัคสถาน"
+	},
+	"la_country_name": {
+		"message": "สาธารณรัฐประชาธิปไตยประชาชนลาว"
+	},
+	"language": {
+		"message": "ภาษา"
+	},
+	"learn": {
+		"message": "เรียนรู้"
+	},
+	"learnmore": {
+		"message": "เรียนรู้เพิ่มเติม"
+	},
+	"level": {
+		"message": "ระดับ"
+	},
+	"light": {
+		"message": "จุดประกายความสดใส"
+	},
+	"lightdescription": {
+		"message": "จุดประกายความสดใสให้ทีวีของคุณด้วยแอปตามติดซานต้าสำหรับ Android และ Chromecast"
+	},
+	"lk_country_name": {
+		"message": "ศรีลังกา"
+	},
+	"lock_orientation": {
+		"message": "ล็อกการวางแนวหน้าจอเพื่อให้ได้รับประสบการณ์ที่ดีที่สุด"
+	},
+	"lr_country_name": {
+		"message": "ไลบีเรีย"
+	},
+	"lt_country_name": {
+		"message": "ลิทัวเนีย"
+	},
+	"lt_tradition": {
+		"message": "ในลิทัวเนีย ของตกแต่งวันคริสต์มาสแบบดั้งเดิมทำมาจากฟางหรือหญ้าแห้ง ซึ่งจะถักสานให้เป็นรูปทรงเรขาคณิต เช่น ดาว เกล็ดหิมะ หรือกระดิ่ง นอกจากนี้หลายๆ ครอบครัวยังนำฟางมาตกแต่งโต๊ะอาหารค่ำสำหรับมื้ออาหารสุดพิเศษที่เรียกว่า Kūčios อีกด้วย"
+	},
+	"lv_country_name": {
+		"message": "ลัตเวีย"
+	},
+	"ly_country_name": {
+		"message": "ลิเบีย"
+	},
+	"md_country_name": {
+		"message": "มอลโดวา"
+	},
+	"medium_difficulty": {
+		"message": "ปานกลาง"
+	},
+	"meta_description": {
+		"message": "ใช้ Google ตามติดซานต้าเพื่อติดตามซานตาคลอสบน Google Maps ในขณะที่เขากำลังเดินทางไปรอบโลก"
+	},
+	"meta_title": {
+		"message": "Google ตามติดซานต้า"
+	},
+	"mg_country_name": {
+		"message": "มาดากัสการ์"
+	},
+	"minutes": {
+		"message": "นาที"
+	},
+	"ml_country_name": {
+		"message": "มาลี"
+	},
+	"mm_country_name": {
+		"message": "เมียนมาร์"
+	},
+	"mr_country_name": {
+		"message": "มอริเตเนีย"
+	},
+	"mute": {
+		"message": "ปิดเสียง"
+	},
+	"mw_country_name": {
+		"message": "มาลาวี"
+	},
+	"mx_country_name": {
+		"message": "เม็กซิโก"
+	},
+	"mx_tradition": {
+		"message": "ในเม็กซิโก เด็กๆ ทุกวัยจะฉลองคริสต์มาสด้วยการตีพินยาต้า ผู้ใหญ่และเด็กต่างสนุกสนานกับการผูกผ้าปิดตา หมุนตัวไปรอบๆ แล้วเหวี่ยงไม้เพื่อหวดภาชนะรูปดาวที่แขวนอยู่ เมื่อพินยาต้าแตกออกแล้ว ทั้งถั่ว ผลไม้ และลูกอมที่อยู่ข้างในจะกระจัดกระจายให้ทุกคนได้เอร็ดอร่อย"
+	},
+	"my_country_name": {
+		"message": "มาเลเซีย"
+	},
+	"mz_country_name": {
+		"message": "โมซัมบิก"
+	},
+	"na_country_name": {
+		"message": "นามิเบีย"
+	},
+	"ne_country_name": {
+		"message": "ไนเจอร์"
+	},
+	"new": {
+		"message": "ใหม่"
+	},
+	"newtoday": {
+		"message": "ใหม่สำหรับวันนี้"
+	},
+	"next": {
+		"message": "ถัดไป"
+	},
+	"ng_country_name": {
+		"message": "ไนจีเรีย"
+	},
+	"nl_country_name": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"nl_language_name": {
+		"message": "ภาษาดัตช์"
+	},
+	"no_country_name": {
+		"message": "นอร์เวย์"
+	},
+	"no_language_name": {
+		"message": "ภาษานอร์เวย์"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya มอบการศึกษาด้านวิทยาศาสตร์แบบมีส่วนร่วมให้แก่เด็กๆ ทั่วพื้นที่ชนบทของอินเดีย โดยจะให้ความรู้ในทุกๆ เรื่องครอบคลุมตั้งแต่ระบบสุริยะจักรวาลไปจนถึงกลไกการทำงานของสมองผ่านศูนย์ศึกษาวิทยาศาสตร์และรถตู้วิทยาศาสตร์เคลื่อนที่ของพวก พวกเขาเข้าถึงเด็กๆ แล้วกว่า 5 ล้านคน คุณครู 200,000 คนจาก 14 รัฐในอินเดีย นี่คือหนึ่งในโปรแกรมการศึกษาด้านวิทยาศาสตร์ที่ใหญ่ที่สุดในโลก! Google.org จึงภูมิใจที่ได้เป็น\u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eผู้ให้การสนับสนุน\u003c/a\u003eของ Agastya"
+	},
+	"nonprofit-agastya-type": {
+		"message": "ครูและนักเรียน"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® คือองค์กรการกุศลที่มุ่งมั่นในการขยายการเข้าถึงวิทยาศาสตร์คอมพิวเตอร์และเพิ่มการมีส่วนร่วมของผู้หญิงและนักเรียนที่ด้อยโอกาส วิสัยทัศน์ของ Code.org® มีอยู่ว่านักเรียนในทุกๆ โรงเรียนควรมีโอกาสในการเรียนรู้วิทยาการคอมพิวเตอร์"
+	},
+	"nonprofit-code-type": {
+		"message": "วิทยาศาสตร์คอมพิวเตอร์"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org ก่อตั้งขึ้นในปี 2000 โดยครูสอนประวัติศาสตร์ในย่านบรอนซ์ ซึ่งสามารถระดมทุนได้กว่า 480 ล้านดอลลาร์สหรัฐฯ สำหรับห้องเรียนในอเมริกา ครูหลายๆ คนจะมาที่ DonorsChoose.org เพื่อขอรับสื่อการสอนและประสบการณ์ที่ต้องการใช้ในห้องเรียนของตนเอง"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "ห้องเรียน"
+	},
+	"nonprofit-enable-description": {
+		"message": "ข้อมูลจาก CDC พบว่าในประชากร 1,000 คนจะมีผู้ประสบปัญหาแขนขาพิการถึง 7 คน แต่แขนขาเทียมนั้นมีราคาสูงถึง 10,000 เหรียญสหรัฐ! สำหรับเด็กๆ ที่กำลังโต ค่าใช้จ่ายด้านแขนขาเทียมก็จะโตตามอย่างรวดเร็วด้วย e-Nable คือชุมชนของผู้คนจากทั่วโลกที่มาทำงานร่วมกันในการสร้างมือเทียมแบบพิมพ์ 3D สำหรับเด็กๆ ที่มีมือและแขนผิดปกติ Google.org กำลังให้ความช่วยเหลือ Enable Community Foundation ในการสนับสนุนชุมชน e-NABLE เรื่องการออกแบบมือเทียมเพิ่มขึ้นและช่วยให้มีเด็กๆ ที่ได้รับมือเทียมเพิ่มมากขึ้น"
+	},
+	"nonprofit-enable-type": {
+		"message": "แขนขาเทียม"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "เลือกของตกแต่งแล้วเริ่มระบายสี"
+	},
+	"nonprofit-instruction-share": {
+		"message": "แชร์ของตกแต่งกับครอบครัวและเพื่อนๆ เพื่อให้พวกเขาได้เรียนรู้ด้วยเช่นกัน"
+	},
+	"nonprofit-intro-type": {
+		"message": "เราได้ร่วมมือกับ Google.org เพื่อนำเสนอองค์กรไม่แสวงผลกำไรด้านการศึกษาจำนวน 5 แห่งที่เฉลิมฉลองเทศกาลแห่งการให้ตลอดทั้งปี เลื่อนลงไปด้านล่างเพื่อเรียนรู้เพิ่มเติมว่าองค์กรแต่ละแห่งตอบแทนสังคมอย่างไรบ้าง แสดงการสนับสนุนของคุณด้วยการระบายสีคอลเล็กชันของตกแต่งนี้ แล้วแขวนไว้บนต้นไม้หรือมอบเป็นของขวัญให้กับคนที่คุณรัก"
+	},
+	"nonprofit-jane-description": {
+		"message": "ชิมแปนซีเป็นญาติสนิทที่สุดของมนุษย์ที่ยังมีชีวิตอยู่ในอาณาจักรสัตว์! ทุกวันนี้มีลิงชิมแปนซีเหลืออยู่ไม่ถึง 300,000 ตัวเนื่องจากการสูญเสียแหล่งที่อยู่ โรคระบาด และการค้าสัตว์ผิดกฎหมาย Jane Goodall Institute (JGI) ปกป้องชิมแปนซีด้วยการเฝ้าสังเกตและทำความเข้าใจกับพฤติกรรม รวมถึงแหล่งที่อยู่ของพวกมัน นอกจากนี้ JGI ยังได้ต่อตั้งชุมชนของผู้ปกป้องและอนุรักษ์สัตว์ป่าและสิ่งแวดล้อมที่เราอาศัยอยู่ร่วมกัน \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eสำรวจแหล่งที่อยู่ของลิงชิมแปนซี\u003c/a\u003eในกอมเบ แทนซาเนีย"
+	},
+	"nonprofit-jane-type": {
+		"message": "ชิมแพนซี"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy คือองค์กรการกุศลซึ่งมีพันธกิจในการให้การศึกษาระดับโลกฟรีสำหรับทุกคนและจากทุกที่ Khan Academy เชื่อมั่นว่าผู้เรียนในทุกช่วงอายุควรมีสิทธิ์เข้าถึงเนื้อหาด้านการศึกษาฟรีที่ตนเองสามารถเรียนรู้ได้ตามเวลาที่สะดวก"
+	},
+	"nonprofit-khan-type": {
+		"message": "การศึกษา"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders คือองค์กรพัฒนาเอกชนชั้นนำระดับนานาชาติซึ่งก่อตั้งขึ้นในปี 2007 เพื่อการพัฒนาจากรากฐานวัฒนธรรม โดยมีสำนักงานใหญ่อยู่ที่ปารีส Libraries Without Borders ได้สร้างห้องสมุดมาแล้วกว่า 300 แห่งทั่วโลก"
+	},
+	"nonprofit-lwb-type": {
+		"message": "ห้องสมุด"
+	},
+	"nonprofit-more-information": {
+		"message": "สำหรับข้อมูลเพิ่มเติม โปรดไปที่"
+	},
+	"nonprofit-nature-description": {
+		"message": "The Nature Conservancy ทำงานเพื่อปกป้องและฟื้นฟูป่าทั้งในสหรัฐอเมริกาและทั่วโลก ป่าที่สำคัญเหล่านี้ช่วยค้ำจุนทุกชีวิตบนดาวโลก ทั้งกรองน้ำ ฟอกอากาศ ให้การเกื้อหนุนชุมชนมนุษย์และเป็นแหล่งที่อยู่ที่สำคัญของพืชและสัตว์หลากหลายสายพันธุ์ แต่ด้วยอัตราการทำลายป่าในปัจจุบัน ในอีก 100 ปีข้างหน้า ป่าของเราจะไม่มีเหลืออยู่อีกต่อไป โปรแกรม Plant a Billion Trees ของ The Nature Conservancy กำลังเร่งปลูกต้นไม้ให้ได้ 1 พันล้านต้นภายในปี 2025 และฟื้นฟูผืนป่าที่แสนสำคัญทั่วโลก"
+	},
+	"nonprofit-nature-type": {
+		"message": "ป่าไม้"
+	},
+	"nonprofit-pratham-description": {
+		"message": "ประชากรทั่วโลกเกือบ 40% ไม่สามารถเข้าถึงการศึกษาในภาษาท้องถิ่นหรือภาษาที่ตนเองเข้าใจ StoryWeaver จึงมุ่งมั่นที่จะเปลี่ยนแปลงสถานการณ์เหล่านั้นโดยการให้ความช่วยเหลือแก่นักการศึกษา นักเขียน และนักแปลในการสร้างทรัพยากรที่สนุกสนานเพลิดเพลินและช่วยส่งเสริมการอ่าน"
+	},
+	"nonprofit-pratham-type": {
+		"message": "การอ่าน"
+	},
+	"nonprofit-rnib-description": {
+		"message": "ผู้คนจำนวนมากบนโลกดำเนินชีวิตไปพร้อมกับการสูญเสียการมองเห็นบางส่วน Google.org กำลงร่วมมือกับ RNIB ในการพัฒนา Smart Glasses ที่จะช่วยให้ผู้มีสายตาบกพร่องมองเห็นรูปร่างและโครงร่างได้ง่ายขึ้น Smart Glasses ช่วยให้มองเห็นโลกได้ง่ายขึ้นซึ่งจะช่วยฟื้นฟูความมั่นใจและความสามารถในการพึ่งตนเองให้กับผู้ประสบปัญหาด้านการมองเห็นได้"
+	},
+	"nonprofit-rnib-type": {
+		"message": "Smart Glasses"
+	},
+	"nonprofit-solar-description": {
+		"message": "ผู้คน 1.3 พันล้านคนไม่มีไฟฟ้าใช้ หลายๆ ครอบครัวต้องใช้ตะเกียงลานที่ต้องเผาเชื้อเพลิงและก่อมลพิษในบ้าน ในขณะที่ไฟฟ้าพลังงานแสงอาทิตย์จะใช้หลักการเก็บกักพลังงานจากดวงอาทิตย์ในระหว่างวันเพื่อเปลี่ยนเป็นแสงสว่างยามค่ำโดยไม่ต้องเผาไหม้และสร้างมลพิษเลย ไฟฟ้าพลังงานแสงอาทิตย์จะช่วยให้คุณอ่าน เล่น และเดินทางถึงบ้านอย่างปลอดภัยในยามค่ำคืน SolarAid ช่วยให้ผู้คนที่ขาดแคลนได้เข้าถึงไฟฟ้าพลังงานแสงอาทิตย์ Google.org จึงภาคภูมิใจที่ได้เป็น\u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eผู้ให้การสนับสนุน\u003c/a\u003eของ SolarAid"
+	},
+	"nonprofit-solar-type": {
+		"message": "แสงอาทิตย์"
+	},
+	"nonprofit-water-description": {
+		"message": "เราใช้น้ำเพื่อชำระล้างร่างกาย ทำอาหาร และดื่มกิน น้ำสะอาดเป็นทรัพยากรที่มีค่า ผู้คนมากมายต้องพึ่งพาแหล่งน้ำจากบ่อขุดมือเพื่อให้เข้าถึงชั้นหินอุ้มน้ำ ซึ่งเป็นแหล่งเก็บกักน้ำสะอาดลึกลงไปใต้ดินซึ่งอยู่ระหว่างชั้นหินและดิน charity: water ทำงานร่วมกับพาร์ทเนอร์ท้องถิ่นในการสร้างบ่อน้ำและโครงการน้ำอื่นๆ ให้แก่พื้นที่ที่ขาดแคลน Google.org จึงภาคภูมิใจที่ได้เป็น\u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eผู้ให้การสนับสนุน\u003c/a\u003eของ charity: water"
+	},
+	"nonprofit-water-type": {
+		"message": "บ่อน้ำ"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "สำหรับผู้ที่ต้องใช้วีลแชร์แล้ว อาจเป็นเรื่องยุ่งยากทีเดียวกว่าจะทราบว่าสถานที่ใดที่พวกเขาจะเดินทางเข้าไปได้บ้าง ไม่ว่าจะเป็นโรงภาพยนตร์ ร้านอาหาร หรือสถานที่อื่นๆ Wheelmap จะแสดงสถานที่ที่วีลแชร์สามารถเข้าถึงได้ จึงช่วยผู้ใช้วีลแชร์ประหยัดเวลาในการวางแผนเส้นทางในการเดินทางและมีเวลาเพลิดเพลินกับสถานที่มากขึ้น!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "การเคลื่อนไหว"
+	},
+	"nonprofit-wwf-description": {
+		"message": "การเปลี่ยนแปลงของภูมิอากาศยังคงรบกวนสมดุลระบบนิเวศหลายแห่งของโลกอย่างต่อเนื่อง ทั้งในที่ที่อบอุ่นและหนาวเย็น ในอาร์กติก หมีขั้วโลกกำลังสูญเสียถิ่นที่อยู่บนผืนน้ำแข็งเหนือทะเลไปเนื่องจากอุณหภูมิที่เพิ่มสูงขึ้น และเผชิญกับอันตรายที่เพิ่มขึ้นจากการกระทำของมนุษย์อย่างเช่นการขุดเจาะและขนส่งน้ำมันและก๊าซ World Wildlife Fund มุ่งมั่นทำงานเพื่ออนุรักษ์สิ่งมีชีวิตผ่านการวิจัยทางวิทยาศาสตร์และร่วมมือกับชุมชนท้องถิ่นในอาร์กติก Google.org มีความภูมิใจที่ได้ทำหน้าที่เป็น\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eผู้สนับสนุน\u003c/a\u003eให้กับ World Wildlife Fund"
+	},
+	"nonprofit-wwf-type": {
+		"message": "หมีขั้วโลก"
+	},
+	"nonprofit-wwh-description": {
+		"message": "ผลการวิจัยชี้ให้เห็นว่า 95% ของผู้ที่สูญเสียการได้ยินสามารถรักษาได้ด้วยเครื่องช่วยฟัง แต่ในประเทศที่มีรายได้ต่ำหรือรายได้ปานกลางมีเพียง 1% ของประชากรที่สูญเสียการได้ยินเท่านั้นที่ได้ใช้เครื่องช่วยฟัง World Wide Hearing (WWH) ช่วยให้เด็กๆ ผู้สูญเสียการได้ยินได้ติดต่อกับโลกรอบตัวของพวกเขาอีกครั้งผ่านการจัดหาเครื่องช่วยฟังและบริการให้คำแนะนำ WWH กำลังออกแบบเครื่องมือตรวจวินิจฉัยอาการสูญเสียการได้ยินในรูปแบบแท็บเล็ตราคาย่อมเยาสำหรับประเทศกำลังพัฒนา เพื่อให้ผู้ที่สูญเสียการได้ยินสามารถเข้าถึงความช่วยเหลือได้มากขึ้น"
+	},
+	"nonprofit-wwh-type": {
+		"message": "การได้ยิน"
+	},
+	"notice_cookies": {
+		"message": "Google ให้บริการคุกกี้เพื่อวิเคราะห์การเข้าชมไซต์นี้และเพื่อให้คุณได้รับประสบการณ์ที่ดีที่สุด ข้อมูลเกี่ยวกับการใช้ไซต์นี้ของคุณจะแชร์กับ Google เพื่อวัตถุประสงค์ดังกล่าว"
+	},
+	"notice_cookies_details": {
+		"message": "ดูรายละเอียด"
+	},
+	"notification": {
+		"message": "การแจ้งเตือน"
+	},
+	"notification_newtoday": {
+		"message": "ใหม่สำหรับวันนี้ในตามติดซานต้า"
+	},
+	"notification_newtoday_stop": {
+		"message": "หยุดการแจ้งเตือนเหล่านี้"
+	},
+	"notification_notice": {
+		"message": "เหล่าเอลฟ์ของซานต้าจะอัปเดตกำหนดการของซานต้าให้กับคุณอยู่เสมอ"
+	},
+	"notification_prompt": {
+		"message": "แจ้งให้ฉันรู้ข้อมูลล่าสุดของซานต้า"
+	},
+	"np_country_name": {
+		"message": "เนปาล"
+	},
+	"nz_country_name": {
+		"message": "นิวซีแลนด์"
+	},
+	"nz_tradition": {
+		"message": "คริสต์มาสตรงกับฤดูร้อนของนิวซีแลนด์ ครอบครัวและเพื่อนฝูงจึงรวมตัวกันเพื่อทำบาร์บีคิว มื้ออาหารในวันคริสต์มาสมักจะประกอบด้วยแกะอบซึ่งบางครั้งปรุงใน Hangi หรือเตาอบที่ขุดลงไปในพื้นดิน ของหวานยอดนิยมคือ Pavlova ขนมที่ทำจากไข่ขาวตีกับน้ำตาลแล้วนำไปอบให้กรอบ วางทับด้วยผลไม้สดเช่น สตรอว์เบอร์รี่และกีวี่"
+	},
+	"offline": {
+		"message": "ออฟไลน์"
+	},
+	"offline_available_online": {
+		"message": "ออนไลน์เท่านั้น"
+	},
+	"offline_notification": {
+		"message": "ขณะนี้หมู่บ้านของซานต้าออฟไลน์อยู่ เหล่าเอลฟ์จะนำเนื้อหาใหม่ๆ มาให้คุณตลอดเดือนธันวาคม"
+	},
+	"offline_notification_nothanks": {
+		"message": "ไม่ ขอบคุณ"
+	},
+	"offline_user_message": {
+		"message": "คุณออฟไลน์อยู่"
+	},
+	"okay": {
+		"message": "ตกลง"
+	},
+	"om_country_name": {
+		"message": "โอมาน"
+	},
+	"onthego": {
+		"message": "ติดตามซานต้าได้ทุกที่ทุกเวลา"
+	},
+	"openingtomorrow": {
+		"message": "เปิดตัวครั้งยิ่งใหญ่วันพรุ่งนี้"
+	},
+	"ornament-print-instructions": {
+		"message": "พับที่นี่ และติดกาวแต่ละด้านเข้าด้วยกัน"
+	},
+	"pa_country_name": {
+		"message": "ปานามา"
+	},
+	"pause": {
+		"message": "หยุดชั่วคราว"
+	},
+	"pe_country_name": {
+		"message": "เปรู"
+	},
+	"pg_country_name": {
+		"message": "ปาปัวนิวกินี"
+	},
+	"ph_country_name": {
+		"message": "ฟิลิปปินส์"
+	},
+	"ph_tradition": {
+		"message": "ฟิลิปปินส์ได้ชื่อว่ามีเทศกาลคริสต์มาสที่ยาวนานที่สุดในโลก โดยเทศกาลคริสต์มาสที่นั่นนั้นยาวถึง 4 เดือนตั้งแต่ตุลาคมจนถึงธันวาคม ผู้คนมักจะเปิดเพลงคริสต์มาสกันตั้งแต่ต้นเดือนกันยายน"
+	},
+	"pl_country_name": {
+		"message": "โปแลนด์"
+	},
+	"pl_language_name": {
+		"message": "ภาษาโปแลนด์"
+	},
+	"play": {
+		"message": "เล่น"
+	},
+	"playagain": {
+		"message": "เล่นอีกครั้ง"
+	},
+	"playdescription": {
+		"message": "เล่นแอปตามติดซานต้าสำหรับ Android กับเพื่อนๆ"
+	},
+	"playextra": {
+		"message": "เล่นระดับพิเศษ"
+	},
+	"pr_country_name": {
+		"message": "เปอร์โตริโก"
+	},
+	"practice": {
+		"message": "ฝึกปฏิบัติ"
+	},
+	"press": {
+		"message": "สื่อ"
+	},
+	"pt_language_name": {
+		"message": "ภาษาโปรตุเกส"
+	},
+	"py_country_name": {
+		"message": "ปารากวัย"
+	},
+	"quickdraw-machine-know": {
+		"message": "อ๊ะ ฉันรู้แล้ว นี่คือ {{thing}}"
+	},
+	"quickdraw-machine-or": {
+		"message": "หรือ"
+	},
+	"quickdraw-machine-see": {
+		"message": "เข้าใจแล้ว"
+	},
+	"quickdraw-newround-button": {
+		"message": "เริ่ม"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "ฉันไม่แน่ใจว่าคือรูปอะไร"
+	},
+	"quickdraw-round-sorry": {
+		"message": "ขออภัย"
+	},
+	"quickdraw-round-timesup": {
+		"message": "ฉันทายไม่ถูก"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor ยังคิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้ด้วย:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Tensor รู้ได้อย่างไรว่า {{thing}} มีรูปร่างแบบไหน"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "ระบบได้เรียนรู้จากการดูตัวอย่างภาพที่วาดโดยผู้เล่นคนอื่น"
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor คิดว่าภาพที่คุณวาดมีรูปร่างคล้ายสิ่งเหล่านี้:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "นี่คือ {{thing}} ในเวอร์ชันซานต้า"
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "ระบบได้ขอให้คุณวาด {{thing}}"
+	},
+	"quickdraw-slate": {
+		"message": "วาด"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor เป็นหุ่นยนต์แมชชีนเลิร์นนิงของซานต้าที่ช่วยให้เขาตีความจดหมายที่ได้รับจากเด็กๆ ทั่วโลก เพื่อช่วยให้ Tensor เรียนรู้ ลองวาดภาพคำเกี่ยวกับวันหยุดเทศกาลบนหน้าจอ แล้วระบบจะบอกว่าเห็นเป็นอะไร ยิ่งคุณวาดมากเท่าใด Tensor ก็จะยิ่งเข้าใจมากขึ้นเท่านั้น มาช่วยให้ซานต้าทำงานได้อย่างราบรื่นยิ่งกว่าเคยในเทศกาลวันหยุดนี้"
+	},
+	"quickdraw-splashview-title": {
+		"message": "ช่วย Tensor ฝึกฝนการจดจำรูปภาพ"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor จำ {{recognized}} ภาพที่คุณวาดได้"
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor จำภาพใดภาพหนึ่งที่คุณวาดได้"
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor จำภาพที่คุณวาดไม่ได้เลย"
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "เยี่ยมมาก!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "อ๊ะ!"
+	},
+	"ro_country_name": {
+		"message": "โรมาเนีย"
+	},
+	"ru_country_name": {
+		"message": "รัสเซีย"
+	},
+	"ru_language_name": {
+		"message": "ภาษารัสเซีย"
+	},
+	"ru_tradition": {
+		"message": "เด็กๆ ชาวรัสเซียจะตกแต่งต้นปีใหม่แทนต้นคริสต์มาส พวกเขาจะเฝ้ารอ Grandfather Frost ที่เดินทางมากับ Snowmaiden ผู้เป็นหลานสาวเพื่อแจกของขวัญทั่วเมือง Grandfather Frost อาศัยอยู่ในป่าลึกใน Veliky Ustyug ซึ่งอยู่ทางตอนเหนือของรัสเซีย"
+	},
+	"sa_country_name": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "มนุษย์ขนมปังขิง"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "นางซานตาคลอส"
+	},
+	"santasearch_character_pegman": {
+		"message": "เพ็กแมน"
+	},
+	"santasearch_character_penguin": {
+		"message": "เพนกวิน"
+	},
+	"santasearch_character_rudolph": {
+		"message": "รูดอล์ฟ"
+	},
+	"santasearch_character_santa": {
+		"message": "ซานตาคลอส"
+	},
+	"santasearch_hint": {
+		"message": "คำใบ้"
+	},
+	"santasearch_level_beach": {
+		"message": "ที่ชายหาด"
+	},
+	"santasearch_level_lab": {
+		"message": "ในห้องทดลอง"
+	},
+	"santasearch_level_mountains": {
+		"message": "บนภูเขา"
+	},
+	"santasearch_level_museum": {
+		"message": "ในพิพิธภัณฑ์"
+	},
+	"santasearch_level_select": {
+		"message": "ไป!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "ค้นหาซานต้า!"
+	},
+	"santasvillage": {
+		"message": "หมู่บ้านซานต้า"
+	},
+	"santatracker": {
+		"message": "ตามติดซานต้า"
+	},
+	"scene_airport": {
+		"message": "สนามบินขั้วโลกเหนือ"
+	},
+	"scene_app": {
+		"message": "แอป Android"
+	},
+	"scene_blimp": {
+		"message": "โหลดของขวัญอีกครั้ง"
+	},
+	"scene_boatload": {
+		"message": "โยนของขวัญด้วยหนังสติ๊ก"
+	},
+	"scene_briefing": {
+		"message": "สรุปข้อมูลจากนางซานตาคลอส"
+	},
+	"scene_callfromsanta": {
+		"message": "ซานต้าโทรมา"
+	},
+	"scene_canvas": {
+		"message": "ผืนผ้าใบของซานต้า"
+	},
+	"scene_citylights": {
+		"message": "เมืองแห่งแสงสี"
+	},
+	"scene_clausdraws": {
+		"message": "วาดรูปซานตาคลอส"
+	},
+	"scene_codeboogie": {
+		"message": "โค้ดเต้นรำ"
+	},
+	"scene_codelab": {
+		"message": "ห้องทดลองโค้ด"
+	},
+	"scene_commandcentre": {
+		"message": "ควบคุมภารกิจ"
+	},
+	"scene_dash": {
+		"message": "เพนกวินแดช"
+	},
+	"scene_elfski": {
+		"message": "เอลฟ์เล่นสกี"
+	},
+	"scene_factory": {
+		"message": "โรงงานลูกอม"
+	},
+	"scene_giftmatch": {
+		"message": "จับคู่ของขวัญ"
+	},
+	"scene_glider": {
+		"message": "เอลฟ์บนร่มบิน"
+	},
+	"scene_gumball": {
+		"message": "เอียง Gumball"
+	},
+	"scene_icecave": {
+		"message": "ถ้ำน้ำแข็ง"
+	},
+	"scene_island": {
+		"message": "เกาะ"
+	},
+	"scene_jamband": {
+		"message": "วงแจมแบนด์ของชาวเอลฟ์"
+	},
+	"scene_jetpack": {
+		"message": "Elf Jetpack"
+	},
+	"scene_latlong": {
+		"message": "ส่งของขวัญ"
+	},
+	"scene_matching": {
+		"message": "การจับคู่ภาพ"
+	},
+	"scene_mercator": {
+		"message": "คำถามเกี่ยวกับแผนที่"
+	},
+	"scene_playground": {
+		"message": "สนามเด็กเล่นขั้วโลกเหนือ"
+	},
+	"scene_postcard": {
+		"message": "สร้างเกล็ดหิมะ"
+	},
+	"scene_presentbounce": {
+		"message": "โยนของขวัญ"
+	},
+	"scene_presentdrop": {
+		"message": "หย่อนของขวัญ"
+	},
+	"scene_quickdraw": {
+		"message": "วาดให้ไว"
+	},
+	"scene_racer": {
+		"message": "รูดอล์ฟนักวิ่งแข่ง"
+	},
+	"scene_rollercoaster": {
+		"message": "รถไฟเหาะเอลฟ์"
+	},
+	"scene_runner": {
+		"message": "นักวิ่งเรนเดียร์"
+	},
+	"scene_santasearch": {
+		"message": "ค้นหาซานต้า"
+	},
+	"scene_santaselfie": {
+		"message": "ซานต้าเซลฟี"
+	},
+	"scene_seasonofcaring": {
+		"message": "เทศกาลแห่งการแสดงน้ำใจ"
+	},
+	"scene_seasonofgiving": {
+		"message": "เทศกาลแห่งการให้"
+	},
+	"scene_snowball": {
+		"message": "ศึกปาลูกบอลหิมะ"
+	},
+	"scene_speedsketch": {
+		"message": "สเก็ตช์ภาพอย่างเร็ว"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "ประเพณีวันหยุด"
+	},
+	"scene_translations": {
+		"message": "การแปล"
+	},
+	"scene_trivia": {
+		"message": "เบ็ดเตล็ด"
+	},
+	"scene_undersea": {
+		"message": "ใต้ทะเล"
+	},
+	"scene_videoscene_carpool": {
+		"message": "รถของเอลฟ์"
+	},
+	"scene_videoscene_comroom": {
+		"message": "ห้องควบคุม"
+	},
+	"scene_videoscene_jingle": {
+		"message": "จิงเกิ้ลเอลฟ์"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "ซานต้าจะออกเดินทางแล้ว"
+	},
+	"scene_videoscene_museum": {
+		"message": "วันวานที่พิพิธภัณฑ์"
+	},
+	"scene_videoscene_office": {
+		"message": "หยอกกันในออฟฟิศ"
+	},
+	"scene_videoscene_reload": {
+		"message": "โหลดของขวัญอีกครั้ง"
+	},
+	"scene_videoscene_santasback": {
+		"message": "ซานต้ากลับมาแล้ว"
+	},
+	"scene_videoscene_satellite": {
+		"message": "ดาวเทียม"
+	},
+	"scene_videoscene_selfies": {
+		"message": "เซลฟีของซานต้า"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "อู้งาน"
+	},
+	"scene_videoscene_temptation": {
+		"message": "สิ่งล่อใจ"
+	},
+	"scene_videoscene_tired": {
+		"message": "กวางเรนเดียร์เหนื่อยแล้ว"
+	},
+	"scene_videoscene_trailer": {
+		"message": "ยังคงลาพักร้อนอยู่"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "ซานต้าอยู่ที่ไหน"
+	},
+	"scene_windtunnel": {
+		"message": "อุโมงค์ลม"
+	},
+	"scene_wrap": {
+		"message": "แข่งห่อของขวัญ"
+	},
+	"score": {
+		"message": "คะแนน"
+	},
+	"se_country_name": {
+		"message": "สวีเดน"
+	},
+	"seconds": {
+		"message": "วินาที"
+	},
+	"select-language": {
+		"message": "เลือกภาษา"
+	},
+	"share-button": {
+		"message": "แชร์กับเพื่อนๆ บน Google+"
+	},
+	"share-text": {
+		"message": "ฉันทำโพสต์การ์ดนี้ให้คุณใน Google ตามติดซานต้า สุขสันต์วันหยุด"
+	},
+	"share-this": {
+		"message": "แชร์"
+	},
+	"sk_country_name": {
+		"message": "สโลวะเกีย"
+	},
+	"sk_language_name": {
+		"message": "ภาษาสโลวัก"
+	},
+	"sl_country_name": {
+		"message": "เซียร์ราลีโอน"
+	},
+	"sn_country_name": {
+		"message": "เซเนกัล"
+	},
+	"snowball_iced": {
+		"message": "แช่แข็ง"
+	},
+	"snowball_remaining": {
+		"message": "เหลือเอลฟ์อีก {{remaining}} ตน จากทั้งหมด {{total}} ตน"
+	},
+	"snowball_spectate": {
+		"message": "รับชม"
+	},
+	"snowball_waiting": {
+		"message": "กำลังรอเอลฟ์ของซานต้าตนอื่น"
+	},
+	"snowflake_choose_background": {
+		"message": "เลือกฉากหลัง"
+	},
+	"snowflake_choose_postcard": {
+		"message": "ใช้ปุ่มลูกศรเพื่อเลือกโปสการ์ด"
+	},
+	"snowflake_code": {
+		"message": "สร้างเกล็ดหิมะของคุณ"
+	},
+	"snowflake_code_instructions": {
+		"message": "นำบล็อกมาติดเข้าด้วยกันเพื่อออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_create_message": {
+		"message": "ออกแบบเกล็ดหิมะของคุณเอง"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "ตอนนี้หมุนซ้ำ"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "การหมุนซ้ำ"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "หมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "การหมุนซ้ำเป็นวงกลม"
+	},
+	"snowflake_make_your_own": {
+		"message": "เกล็ดหิมะนี้สร้างขึ้นโดยใช้โค้ด ลองทำด้วยตัวคุณเองเลย!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "เลือกโปสการ์ด แล้วแชร์เกล็ดหิมะของคุณกับเพื่อนๆ"
+	},
+	"snowflake_shared_message": {
+		"message": "มีคนส่งเกล็ดหิมะให้คุณ!"
+	},
+	"so_country_name": {
+		"message": "โซมาเลีย"
+	},
+	"speedsketch_item~London": {
+		"message": "ลอนดอน"
+	},
+	"speedsketch_item~New York": {
+		"message": "นิวยอร์ก"
+	},
+	"speedsketch_item~Paris": {
+		"message": "ปารีส"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "เซี่ยงไฮ้"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "หอไอเฟล"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "กำแพงเมืองจีน"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "โมนาลิซ่า"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "ศิลปะแอบสแตรก"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "เรือบรรทุกเครื่องบิน"
+	},
+	"speedsketch_item~airplane": {
+		"message": "เครื่องบิน"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "นาฬิกาปลุก"
+	},
+	"speedsketch_item~alien": {
+		"message": "มนุษย์ต่างดาว"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "รถพยาบาล"
+	},
+	"speedsketch_item~angel": {
+		"message": "นางฟ้า"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "การย้ายถิ่นของสัตว์"
+	},
+	"speedsketch_item~ant": {
+		"message": "มด"
+	},
+	"speedsketch_item~anvil": {
+		"message": "ทั่ง"
+	},
+	"speedsketch_item~apple": {
+		"message": "แอปเปิล"
+	},
+	"speedsketch_item~arm": {
+		"message": "แขน"
+	},
+	"speedsketch_item~arrow": {
+		"message": "ลูกธนู"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "หน่อไม้ฝรั่ง"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "นักบินอวกาศ"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "เทปเสียง"
+	},
+	"speedsketch_item~avocado": {
+		"message": "อะโวคาโด"
+	},
+	"speedsketch_item~axe": {
+		"message": "ขวาน"
+	},
+	"speedsketch_item~baby": {
+		"message": "ทารก"
+	},
+	"speedsketch_item~backpack": {
+		"message": "เป้"
+	},
+	"speedsketch_item~banana": {
+		"message": "กล้วย"
+	},
+	"speedsketch_item~bandage": {
+		"message": "ผ้าพันแผล"
+	},
+	"speedsketch_item~barn": {
+		"message": "ยุ้งฉาง"
+	},
+	"speedsketch_item~baseball": {
+		"message": "เบสบอล"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "ไม้เบสบอล"
+	},
+	"speedsketch_item~basket": {
+		"message": "ตะกร้า"
+	},
+	"speedsketch_item~basketball": {
+		"message": "บาสเก็ตบอล"
+	},
+	"speedsketch_item~bat": {
+		"message": "ค้างคาว"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "อ่างอาบน้ำ"
+	},
+	"speedsketch_item~beach": {
+		"message": "ชายหาด"
+	},
+	"speedsketch_item~bear": {
+		"message": "หมี"
+	},
+	"speedsketch_item~beard": {
+		"message": "เครา"
+	},
+	"speedsketch_item~bed": {
+		"message": "เตียง"
+	},
+	"speedsketch_item~bee": {
+		"message": "ผึ้ง"
+	},
+	"speedsketch_item~belt": {
+		"message": "เข็มขัด"
+	},
+	"speedsketch_item~bench": {
+		"message": "ม้านั่ง"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "จักรยาน"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "กล้องส่องทางไกล"
+	},
+	"speedsketch_item~bird": {
+		"message": "นก"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "เค้กวันเกิด"
+	},
+	"speedsketch_item~black": {
+		"message": "ดำ"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "แบล็กเบอร์รี่"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "บลูเบอร์รี่"
+	},
+	"speedsketch_item~book": {
+		"message": "หนังสือ"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "บูมเมอแรง"
+	},
+	"speedsketch_item~boot": {
+		"message": "รองเท้าบูท"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "ฝาขวด"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "โบว์หูกระต่าย"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "สร้อยข้อมือ"
+	},
+	"speedsketch_item~brain": {
+		"message": "สมอง"
+	},
+	"speedsketch_item~bread": {
+		"message": "ขนมปัง"
+	},
+	"speedsketch_item~bridge": {
+		"message": "สะพาน"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "บร็อกโคลี"
+	},
+	"speedsketch_item~broom": {
+		"message": "ไม้กวาด"
+	},
+	"speedsketch_item~bubble": {
+		"message": "ลูกโป่ง"
+	},
+	"speedsketch_item~bucket": {
+		"message": "ถังน้ำ"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "รถเกลี่ยดิน"
+	},
+	"speedsketch_item~bus": {
+		"message": "รถประจำทาง"
+	},
+	"speedsketch_item~bush": {
+		"message": "พุ่มไม้"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "ผีเสื้อ"
+	},
+	"speedsketch_item~cactus": {
+		"message": "กระบองเพชร"
+	},
+	"speedsketch_item~cake": {
+		"message": "เค้ก"
+	},
+	"speedsketch_item~calculator": {
+		"message": "เครื่องคิดเลข"
+	},
+	"speedsketch_item~calendar": {
+		"message": "ปฏิทิน"
+	},
+	"speedsketch_item~camel": {
+		"message": "อูฐ"
+	},
+	"speedsketch_item~camera": {
+		"message": "กล้องถ่ายรูป"
+	},
+	"speedsketch_item~camouflage": {
+		"message": "การอำพรางตัว"
+	},
+	"speedsketch_item~campfire": {
+		"message": "แคมป์ไฟ"
+	},
+	"speedsketch_item~candle": {
+		"message": "เทียน"
+	},
+	"speedsketch_item~candy": {
+		"message": "ลูกกวาด"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "ลูกกวาดไม้เท้า"
+	},
+	"speedsketch_item~canoe": {
+		"message": "แคนู"
+	},
+	"speedsketch_item~car": {
+		"message": "รถยนต์"
+	},
+	"speedsketch_item~carrot": {
+		"message": "แครอท"
+	},
+	"speedsketch_item~cartoon": {
+		"message": "การ์ตูน"
+	},
+	"speedsketch_item~castle": {
+		"message": "ปราสาท"
+	},
+	"speedsketch_item~cat": {
+		"message": "แมว"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "พัดลมติดเพดาน"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "โทรศัพท์มือถือ"
+	},
+	"speedsketch_item~cello": {
+		"message": "เชลโล"
+	},
+	"speedsketch_item~chair": {
+		"message": "เก้าอี้"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "โคมไฟระย้า"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "เคมี"
+	},
+	"speedsketch_item~cherry": {
+		"message": "เชอร์รี"
+	},
+	"speedsketch_item~chicken": {
+		"message": "ไก่"
+	},
+	"speedsketch_item~child": {
+		"message": "เด็ก"
+	},
+	"speedsketch_item~chimney": {
+		"message": "ปล่องไฟ"
+	},
+	"speedsketch_item~church": {
+		"message": "โบสถ์"
+	},
+	"speedsketch_item~circle": {
+		"message": "วงกลม"
+	},
+	"speedsketch_item~city": {
+		"message": "เมือง"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "คลาริเน็ต"
+	},
+	"speedsketch_item~clock": {
+		"message": "นาฬิกา"
+	},
+	"speedsketch_item~cloud": {
+		"message": "เมฆ"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "ซังข้าวโพด"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "ถ้วยกาแฟ"
+	},
+	"speedsketch_item~compass": {
+		"message": "เข็มทิศ"
+	},
+	"speedsketch_item~computer": {
+		"message": "คอมพิวเตอร์"
+	},
+	"speedsketch_item~cookie": {
+		"message": "คุกกี้"
+	},
+	"speedsketch_item~cooler": {
+		"message": "กระติกน้ำแข็ง"
+	},
+	"speedsketch_item~couch": {
+		"message": "โซฟา"
+	},
+	"speedsketch_item~cow": {
+		"message": "วัว"
+	},
+	"speedsketch_item~crab": {
+		"message": "ปู"
+	},
+	"speedsketch_item~crayon": {
+		"message": "ดินสอสี"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "จระเข้"
+	},
+	"speedsketch_item~cross": {
+		"message": "ไม้กางเขน"
+	},
+	"speedsketch_item~crow": {
+		"message": "อีกา"
+	},
+	"speedsketch_item~crown": {
+		"message": "มงกุฏ"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "เรือสำราญ"
+	},
+	"speedsketch_item~cube": {
+		"message": "ลูกบาศก์"
+	},
+	"speedsketch_item~cup": {
+		"message": "ถ้วย"
+	},
+	"speedsketch_item~darts": {
+		"message": "ลูกดอก"
+	},
+	"speedsketch_item~diamond": {
+		"message": "เพชร"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "แหวนเพชร"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "เครื่องล้างจาน"
+	},
+	"speedsketch_item~diving board": {
+		"message": "กระดานกระโดดน้ำ"
+	},
+	"speedsketch_item~dog": {
+		"message": "สุนัข"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "โลมา"
+	},
+	"speedsketch_item~donut": {
+		"message": "โดนัท"
+	},
+	"speedsketch_item~door": {
+		"message": "ประตู"
+	},
+	"speedsketch_item~dragon": {
+		"message": "มังกร"
+	},
+	"speedsketch_item~dresser": {
+		"message": "ตู้ลิ้นชัก"
+	},
+	"speedsketch_item~drill": {
+		"message": "สว่าน"
+	},
+	"speedsketch_item~drums": {
+		"message": "กลอง"
+	},
+	"speedsketch_item~duck": {
+		"message": "เป็ด"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "ดัมเบล"
+	},
+	"speedsketch_item~ear": {
+		"message": "หู"
+	},
+	"speedsketch_item~egg": {
+		"message": "ไข่"
+	},
+	"speedsketch_item~elbow": {
+		"message": "ข้อศอก"
+	},
+	"speedsketch_item~elephant": {
+		"message": "ช้าง"
+	},
+	"speedsketch_item~elf": {
+		"message": "เอลฟ์"
+	},
+	"speedsketch_item~emoji": {
+		"message": "อีโมจิ"
+	},
+	"speedsketch_item~envelope": {
+		"message": "ซอง"
+	},
+	"speedsketch_item~eraser": {
+		"message": "ยางลบ"
+	},
+	"speedsketch_item~eye": {
+		"message": "ดวงตา"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "แว่นตา"
+	},
+	"speedsketch_item~face": {
+		"message": "ใบหน้า"
+	},
+	"speedsketch_item~family": {
+		"message": "ครอบครัว"
+	},
+	"speedsketch_item~fan": {
+		"message": "พัดลม"
+	},
+	"speedsketch_item~feather": {
+		"message": "ขนนก"
+	},
+	"speedsketch_item~fence": {
+		"message": "รั้ว"
+	},
+	"speedsketch_item~finger": {
+		"message": "นิ้ว"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "หัวจ่ายน้ำดับเพลิง"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "เตาผิง"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "รถดับเพลิง"
+	},
+	"speedsketch_item~fish": {
+		"message": "ปลา"
+	},
+	"speedsketch_item~flag": {
+		"message": "ธง"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "ฟลามิงโก"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "ไฟฉาย"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "รองเท้าแตะ"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "โคมไฟตั้งพื้น"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "ฟลอปปี้ดิสก์"
+	},
+	"speedsketch_item~flower": {
+		"message": "ดอกไม้"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "จานบิน"
+	},
+	"speedsketch_item~fog": {
+		"message": "หมอก"
+	},
+	"speedsketch_item~foot": {
+		"message": "เท้า"
+	},
+	"speedsketch_item~fork": {
+		"message": "ส้อม"
+	},
+	"speedsketch_item~french fries": {
+		"message": "มันฝรั่งทอด"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "ไข่ดาว"
+	},
+	"speedsketch_item~frog": {
+		"message": "กบ"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "กระทะ"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "กาแล็กซี"
+	},
+	"speedsketch_item~garden": {
+		"message": "สวน"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "สายยางรดน้ำ"
+	},
+	"speedsketch_item~ghost": {
+		"message": "วิญญาณ"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "มนุษย์ขนมปังขิง"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "ยีราฟ"
+	},
+	"speedsketch_item~goat": {
+		"message": "แพะ"
+	},
+	"speedsketch_item~goatee": {
+		"message": "เคราแพะ"
+	},
+	"speedsketch_item~golf club": {
+		"message": "สโมสรกอล์ฟ"
+	},
+	"speedsketch_item~grapes": {
+		"message": "องุ่น"
+	},
+	"speedsketch_item~grass": {
+		"message": "ทุ่งหญ้า"
+	},
+	"speedsketch_item~group": {
+		"message": "กลุ่ม"
+	},
+	"speedsketch_item~guitar": {
+		"message": "กีตาร์"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "แฮมเบอร์เกอร์"
+	},
+	"speedsketch_item~hammer": {
+		"message": "ค้อน"
+	},
+	"speedsketch_item~hand": {
+		"message": "มือ"
+	},
+	"speedsketch_item~hangman game": {
+		"message": "เกมทายคำศัพท์"
+	},
+	"speedsketch_item~happiness": {
+		"message": "ความสุข"
+	},
+	"speedsketch_item~harp": {
+		"message": "พิณ"
+	},
+	"speedsketch_item~hat": {
+		"message": "หมวก"
+	},
+	"speedsketch_item~headphones": {
+		"message": "หูฟัง"
+	},
+	"speedsketch_item~heart": {
+		"message": "หัวใจ"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "เม่น"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "เฮลิคอปเตอร์"
+	},
+	"speedsketch_item~helmet": {
+		"message": "หมวกนิรภัย"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "รูป 6 เหลี่ยม"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ลูกพัค"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "ไม้ฮ็อคกี้"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "ไฟประดับงานเทศกาล"
+	},
+	"speedsketch_item~horse": {
+		"message": "ม้า"
+	},
+	"speedsketch_item~hospital": {
+		"message": "โรงพยาบาล"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "บอลลูน"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "ฮอตดอก"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "อ่างน้ำอุ่น"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "นาฬิกาทราย"
+	},
+	"speedsketch_item~house": {
+		"message": "บ้าน"
+	},
+	"speedsketch_item~house plant": {
+		"message": "ไม้ประดับในอาคาร"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "เฮอริเคน"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ไอศกรีม"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "นักกีฬาสเก็ตน้ำแข็ง"
+	},
+	"speedsketch_item~infinity": {
+		"message": "อนันต์"
+	},
+	"speedsketch_item~island": {
+		"message": "เกาะ"
+	},
+	"speedsketch_item~italy": {
+		"message": "อิตาลี"
+	},
+	"speedsketch_item~jacket": {
+		"message": "แจ็กเก็ต"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "เจ็ทแพ็ค"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "จิงเกิลเบลส์"
+	},
+	"speedsketch_item~kale": {
+		"message": "ผักเคล"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "จิงโจ้"
+	},
+	"speedsketch_item~key": {
+		"message": "กุญแจ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "แป้นพิมพ์"
+	},
+	"speedsketch_item~kite": {
+		"message": "ว่าว"
+	},
+	"speedsketch_item~knee": {
+		"message": "เข่า"
+	},
+	"speedsketch_item~knife": {
+		"message": "มีด"
+	},
+	"speedsketch_item~knot": {
+		"message": "ปม"
+	},
+	"speedsketch_item~koala": {
+		"message": "โคอาลา"
+	},
+	"speedsketch_item~ladder": {
+		"message": "บันได"
+	},
+	"speedsketch_item~landscape": {
+		"message": "ภูมิประเทศ"
+	},
+	"speedsketch_item~lantern": {
+		"message": "โคมไฟ"
+	},
+	"speedsketch_item~laptop": {
+		"message": "แล็ปท็อป"
+	},
+	"speedsketch_item~leaf": {
+		"message": "ใบไม้"
+	},
+	"speedsketch_item~leg": {
+		"message": "ขา"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "หลอดไฟฟ้า"
+	},
+	"speedsketch_item~lighter": {
+		"message": "ไฟแช็ก"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "ประภาคาร"
+	},
+	"speedsketch_item~lightning": {
+		"message": "สายฟ้า"
+	},
+	"speedsketch_item~line": {
+		"message": "บรรทัด"
+	},
+	"speedsketch_item~lion": {
+		"message": "สิงโต"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "ลิปสติก"
+	},
+	"speedsketch_item~lobster": {
+		"message": "กุ้งมังกร"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "อมยิ้ม"
+	},
+	"speedsketch_item~love": {
+		"message": "รัก"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "กล่องจดหมาย"
+	},
+	"speedsketch_item~man": {
+		"message": "ผู้ชาย"
+	},
+	"speedsketch_item~map": {
+		"message": "แผนที่"
+	},
+	"speedsketch_item~marker": {
+		"message": "สีเมจิก"
+	},
+	"speedsketch_item~matches": {
+		"message": "ไม้ขีดไฟ"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "คณิตศาสตร์"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "โทรโข่ง"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "เงือก"
+	},
+	"speedsketch_item~metal": {
+		"message": "โลหะ"
+	},
+	"speedsketch_item~microphone": {
+		"message": "ไมโครโฟน"
+	},
+	"speedsketch_item~microscope": {
+		"message": "กล้องจุลทรรศน์"
+	},
+	"speedsketch_item~microwave": {
+		"message": "ไมโครเวฟ"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "มิสเซิลโท"
+	},
+	"speedsketch_item~mittens": {
+		"message": "นวม"
+	},
+	"speedsketch_item~molecule": {
+		"message": "โมเลกุล"
+	},
+	"speedsketch_item~money": {
+		"message": "เงิน"
+	},
+	"speedsketch_item~monkey": {
+		"message": "ลิง"
+	},
+	"speedsketch_item~moon": {
+		"message": "ดวงจันทร์"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "ยุง"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "รถจักรยานยนต์"
+	},
+	"speedsketch_item~mountain": {
+		"message": "ภูเขา"
+	},
+	"speedsketch_item~mouse": {
+		"message": "หนู"
+	},
+	"speedsketch_item~moustache": {
+		"message": "หนวด"
+	},
+	"speedsketch_item~mouth": {
+		"message": "ปาก"
+	},
+	"speedsketch_item~mug": {
+		"message": "แก้วมัค"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "เห็ด"
+	},
+	"speedsketch_item~music": {
+		"message": "เพลง"
+	},
+	"speedsketch_item~nail": {
+		"message": "เล็บ"
+	},
+	"speedsketch_item~nature": {
+		"message": "ธรรมชาติ"
+	},
+	"speedsketch_item~necklace": {
+		"message": "สร้อยคอ"
+	},
+	"speedsketch_item~news": {
+		"message": "ข่าว"
+	},
+	"speedsketch_item~nose": {
+		"message": "จมูก"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "เครื่องกะเทาะเปลือกผลไม้"
+	},
+	"speedsketch_item~ocean": {
+		"message": "มหาสมุทร"
+	},
+	"speedsketch_item~octagon": {
+		"message": "รูปแปดเหลี่ยม"
+	},
+	"speedsketch_item~octopus": {
+		"message": "ปลาหมึก"
+	},
+	"speedsketch_item~onion": {
+		"message": "หัวหอม"
+	},
+	"speedsketch_item~ornament": {
+		"message": "เครื่องประดับ"
+	},
+	"speedsketch_item~oven": {
+		"message": "เตาอบ"
+	},
+	"speedsketch_item~owl": {
+		"message": "นกฮูก"
+	},
+	"speedsketch_item~paint can": {
+		"message": "กระป๋องสี"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "พู่กัน"
+	},
+	"speedsketch_item~painting": {
+		"message": "ภาพวาด"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "ต้นปาล์ม"
+	},
+	"speedsketch_item~panda": {
+		"message": "แพนด้า"
+	},
+	"speedsketch_item~pants": {
+		"message": "กางเกง"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "คลิปหนีบกระดาษ"
+	},
+	"speedsketch_item~parachute": {
+		"message": "ร่มชูชีพ"
+	},
+	"speedsketch_item~parrot": {
+		"message": "นกแก้ว"
+	},
+	"speedsketch_item~passport": {
+		"message": "หนังสือเดินทาง"
+	},
+	"speedsketch_item~peanut": {
+		"message": "ถั่วลิสง"
+	},
+	"speedsketch_item~pear": {
+		"message": "ลูกแพร์"
+	},
+	"speedsketch_item~peas": {
+		"message": "ถั่ว"
+	},
+	"speedsketch_item~pencil": {
+		"message": "ดินสอ"
+	},
+	"speedsketch_item~penguin": {
+		"message": "เพนกวิน"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "เป็บเปอร์มินท์"
+	},
+	"speedsketch_item~piano": {
+		"message": "เปียโน"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "รถกระบะ"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "กรอบรูป"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "แผนภูมิวงกลม"
+	},
+	"speedsketch_item~pig": {
+		"message": "หมู"
+	},
+	"speedsketch_item~pillow": {
+		"message": "หมอน"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "สับปะรด"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ปิงปอง"
+	},
+	"speedsketch_item~pirate": {
+		"message": "โจรสลัด"
+	},
+	"speedsketch_item~pizza": {
+		"message": "พิซซ่า"
+	},
+	"speedsketch_item~pliers": {
+		"message": "คีม"
+	},
+	"speedsketch_item~police car": {
+		"message": "รถตำรวจ"
+	},
+	"speedsketch_item~politician": {
+		"message": "นักการเมือง"
+	},
+	"speedsketch_item~pond": {
+		"message": "หนองน้ำ"
+	},
+	"speedsketch_item~pool": {
+		"message": "สระว่ายน้ำ"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ไอศกรีมแท่ง"
+	},
+	"speedsketch_item~portrait": {
+		"message": "ภาพบุคคล"
+	},
+	"speedsketch_item~postcard": {
+		"message": "โปสการ์ด"
+	},
+	"speedsketch_item~potato": {
+		"message": "มันฝรั่ง"
+	},
+	"speedsketch_item~power outlet": {
+		"message": "ปลั๊กพ่วง"
+	},
+	"speedsketch_item~present": {
+		"message": "ของขวัญ"
+	},
+	"speedsketch_item~prison": {
+		"message": "เรือนจำ"
+	},
+	"speedsketch_item~purse": {
+		"message": "กระเป๋าสตางค์"
+	},
+	"speedsketch_item~puzzle": {
+		"message": "ปริศนา"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "กระต่าย"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "แรคคูน"
+	},
+	"speedsketch_item~radio": {
+		"message": "วิทยุ"
+	},
+	"speedsketch_item~rain": {
+		"message": "ฝน"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "รุ้ง"
+	},
+	"speedsketch_item~rake": {
+		"message": "คราด"
+	},
+	"speedsketch_item~raven": {
+		"message": "นกกาเหว่า"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "กวางเรนเดียร์"
+	},
+	"speedsketch_item~remote control": {
+		"message": "รีโมตคอนโทรล"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "แรด"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "ริบบิ้น"
+	},
+	"speedsketch_item~river": {
+		"message": "แม่น้ำ"
+	},
+	"speedsketch_item~robot": {
+		"message": "หุ่นยนต์"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "รถไฟเหาะ"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "โรลเลอร์สเกต"
+	},
+	"speedsketch_item~sadness": {
+		"message": "ความเศร้า"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "เรือใบ"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "แซนด์วิช"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "ซานตาคลอส"
+	},
+	"speedsketch_item~saturn": {
+		"message": "ดาวเสาร์"
+	},
+	"speedsketch_item~sausage": {
+		"message": "ไส้กรอก"
+	},
+	"speedsketch_item~saw": {
+		"message": "เลื่อย"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "แซกโซโฟน"
+	},
+	"speedsketch_item~school bus": {
+		"message": "รถโรงเรียน"
+	},
+	"speedsketch_item~scissors": {
+		"message": "กรรไกร"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "แมงป่อง"
+	},
+	"speedsketch_item~screw": {
+		"message": "สกรู"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "ไขควง"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "ประติมากรรม"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "เต่าทะเล"
+	},
+	"speedsketch_item~see saw": {
+		"message": "ไม้กระดานหก"
+	},
+	"speedsketch_item~shark": {
+		"message": "ปลาฉลาม"
+	},
+	"speedsketch_item~sheep": {
+		"message": "แกะ"
+	},
+	"speedsketch_item~shoe": {
+		"message": "รองเท้า"
+	},
+	"speedsketch_item~shorts": {
+		"message": "กางเกงขาสั้น"
+	},
+	"speedsketch_item~shovel": {
+		"message": "พลั่ว"
+	},
+	"speedsketch_item~sink": {
+		"message": "อ่างล้างจาน"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "สเกตบอร์ด"
+	},
+	"speedsketch_item~ski": {
+		"message": "สกี"
+	},
+	"speedsketch_item~skier": {
+		"message": "นักเล่นสกี"
+	},
+	"speedsketch_item~skirt": {
+		"message": "กระโปรง"
+	},
+	"speedsketch_item~skull": {
+		"message": "หัวกะโหลก"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "ตึกระฟ้า"
+	},
+	"speedsketch_item~sled": {
+		"message": "เลื่อน"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "ถุงนอน"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "เลื่อน"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "หน้ายิ้ม"
+	},
+	"speedsketch_item~snail": {
+		"message": "หอยทาก"
+	},
+	"speedsketch_item~snake": {
+		"message": "งู"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "สนอกเกิ้ล"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "เกล็ดหิมะ"
+	},
+	"speedsketch_item~snowman": {
+		"message": "ตุ๊กตาหิมะ"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "ลูกฟุตบอล"
+	},
+	"speedsketch_item~sock": {
+		"message": "ถุงเท้า"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "เรือเร็ว"
+	},
+	"speedsketch_item~sphere": {
+		"message": "ลูกโลก"
+	},
+	"speedsketch_item~spider": {
+		"message": "แมงมุม"
+	},
+	"speedsketch_item~spiral": {
+		"message": "เกลียว"
+	},
+	"speedsketch_item~spoon": {
+		"message": "ช้อน"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "สเปรดชีต"
+	},
+	"speedsketch_item~square": {
+		"message": "สี่เหลี่ยม"
+	},
+	"speedsketch_item~squiggle": {
+		"message": "เส้นหยัก"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "กระรอก"
+	},
+	"speedsketch_item~stairs": {
+		"message": "ขั้นบันได"
+	},
+	"speedsketch_item~star": {
+		"message": "ดาว"
+	},
+	"speedsketch_item~steak": {
+		"message": "สเต็ก"
+	},
+	"speedsketch_item~stereo": {
+		"message": "สเตอริโอ"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "หูฟังของหมอ"
+	},
+	"speedsketch_item~still life": {
+		"message": "ภาพหุ่นนิ่ง"
+	},
+	"speedsketch_item~stitches": {
+		"message": "รอยเย็บ"
+	},
+	"speedsketch_item~stock market": {
+		"message": "ตลาดหุ้น"
+	},
+	"speedsketch_item~stocking": {
+		"message": "ถุงน่อง"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "ป้ายหยุด"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "นาฬิกาจับเวลา"
+	},
+	"speedsketch_item~stove": {
+		"message": "เตา"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "สตรอเบอร์รี่"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ไฟถนน"
+	},
+	"speedsketch_item~string bean": {
+		"message": "ถั่วฝักยาว"
+	},
+	"speedsketch_item~submarine": {
+		"message": "เรือดำน้ำ"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "กระเป๋าเดินทาง"
+	},
+	"speedsketch_item~sun": {
+		"message": "ดวงอาทิตย์"
+	},
+	"speedsketch_item~sunset": {
+		"message": "พระอาทิตย์ตก"
+	},
+	"speedsketch_item~swan": {
+		"message": "หงส์"
+	},
+	"speedsketch_item~sweater": {
+		"message": "สเวตเตอร์"
+	},
+	"speedsketch_item~swing set": {
+		"message": "ชิงช้า"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "เสื้อยืด"
+	},
+	"speedsketch_item~table": {
+		"message": "โต๊ะ"
+	},
+	"speedsketch_item~teapot": {
+		"message": "กาน้ำชา"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "หมีเท็ดดี้"
+	},
+	"speedsketch_item~telephone": {
+		"message": "โทรศัพท์"
+	},
+	"speedsketch_item~television": {
+		"message": "โทรทัศน์"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "ไม้เทนนิส"
+	},
+	"speedsketch_item~tent": {
+		"message": "เต็นท์"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "เกมโอเอกซ์"
+	},
+	"speedsketch_item~tiger": {
+		"message": "เสือ"
+	},
+	"speedsketch_item~time": {
+		"message": "เวลา"
+	},
+	"speedsketch_item~toaster": {
+		"message": "เครื่องปิ้งขนมปัง"
+	},
+	"speedsketch_item~toe": {
+		"message": "นิ้วเท้า"
+	},
+	"speedsketch_item~toilet": {
+		"message": "ห้องน้ำ"
+	},
+	"speedsketch_item~tooth": {
+		"message": "ฟัน"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "แปรงสีฟัน"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "ยาสีฟัน"
+	},
+	"speedsketch_item~tornado": {
+		"message": "ทอร์นาโด"
+	},
+	"speedsketch_item~tractor": {
+		"message": "รถแทร็กเตอร์"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "ไฟจราจร"
+	},
+	"speedsketch_item~train": {
+		"message": "รถไฟ"
+	},
+	"speedsketch_item~tree": {
+		"message": "ต้นไม้"
+	},
+	"speedsketch_item~triangle": {
+		"message": "รูปสามเหลี่ยม"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "จักรยานสามล้อ"
+	},
+	"speedsketch_item~trolley": {
+		"message": "รถเข็น"
+	},
+	"speedsketch_item~trombone": {
+		"message": "ทรอมโบน"
+	},
+	"speedsketch_item~trousers": {
+		"message": "กางเกงขายาว"
+	},
+	"speedsketch_item~truck": {
+		"message": "รถบรรทุก"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "ทรัมเป็ต"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "ร่ม"
+	},
+	"speedsketch_item~underwear": {
+		"message": "ชุดชั้นใน"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "ยูนิคอร์น"
+	},
+	"speedsketch_item~universe": {
+		"message": "จักรวาล"
+	},
+	"speedsketch_item~van": {
+		"message": "รถตู้"
+	},
+	"speedsketch_item~vase": {
+		"message": "แจกัน"
+	},
+	"speedsketch_item~violin": {
+		"message": "ไวโอลิน"
+	},
+	"speedsketch_item~walnut": {
+		"message": "วอลนัท"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "เครื่องซักผ้า"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "แตงโม"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "สไลเดอร์น้ำ"
+	},
+	"speedsketch_item~wave": {
+		"message": "คลื่น"
+	},
+	"speedsketch_item~whale": {
+		"message": "วาฬ"
+	},
+	"speedsketch_item~wheel": {
+		"message": "ล้อ"
+	},
+	"speedsketch_item~windmill": {
+		"message": "กังหันลม"
+	},
+	"speedsketch_item~woman": {
+		"message": "ผู้หญิง"
+	},
+	"speedsketch_item~world": {
+		"message": "โลก"
+	},
+	"speedsketch_item~wreath": {
+		"message": "พวงดอกไม้"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "นาฬิกาข้อมือ"
+	},
+	"speedsketch_item~yoga": {
+		"message": "โยคะ"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "โยเกิร์ต"
+	},
+	"speedsketch_item~zebra": {
+		"message": "ม้าลาย"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "ซิกแซ็ก"
+	},
+	"speedsketch_item~zipper": {
+		"message": "ซิป"
+	},
+	"sr_country_name": {
+		"message": "ซูรินาเม"
+	},
+	"sv_country_name": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"sv_language_name": {
+		"message": "ภาษาสวีเดน"
+	},
+	"td_country_name": {
+		"message": "ชาด"
+	},
+	"terms-and-privacy": {
+		"message": "ข้อกำหนด \u0026amp; ข้อมูลส่วนบุคคล"
+	},
+	"tg_country_name": {
+		"message": "โตโก"
+	},
+	"th_language_name": {
+		"message": "ภาษาไทย"
+	},
+	"tilt": {
+		"message": "เอียงอุปกรณ์"
+	},
+	"time": {
+		"message": "เวลา"
+	},
+	"tj_country_name": {
+		"message": "ทาจิกิสถาน"
+	},
+	"tm_country_name": {
+		"message": "เติร์กเมนิสถาน"
+	},
+	"tn_country_name": {
+		"message": "ตูนิเซีย"
+	},
+	"today_only": {
+		"message": "เฉพาะวันนี้"
+	},
+	"tr_country_name": {
+		"message": "ตุรกี"
+	},
+	"tr_language_name": {
+		"message": "ภาษาตุรกี"
+	},
+	"tracker_arrival": {
+		"message": "เที่ยวบินขาเข้า"
+	},
+	"tracker_arriving_in": {
+		"message": "จะถึงภายใน"
+	},
+	"tracker_current_stop": {
+		"message": "ป้ายจอดรถปัจจุบัน"
+	},
+	"tracker_departing_in": {
+		"message": "จะออกภายใน"
+	},
+	"tracker_distance_away_km": {
+		"message": "ซานต้าอยู่ห่างออกไป {{distance_away}} กม."
+	},
+	"tracker_distance_from_you": {
+		"message": "ระยะทางจากตำแหน่งของคุณ"
+	},
+	"tracker_distance_travelled": {
+		"message": "ระยะที่เดินทาง"
+	},
+	"tracker_feed": {
+		"message": "ฟีดการถ่ายทอดสด"
+	},
+	"tracker_flight_nearby": {
+		"message": "ซานต้าอยู่ใกล้ๆ นี่เอง ค้นหาว่าเขาอยู่ที่ไหน"
+	},
+	"tracker_flight_start": {
+		"message": "ซานต้าออกเดินทางจากขั้วโลกเหนือแล้ว และคุณสามารถติดตามเส้นทางของเขาได้"
+	},
+	"tracker_from_google": {
+		"message": "จากพวกเราทุกคนที่ Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "ของขวัญที่ส่งแล้ว"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "ข้ามช่วงแนะนำ"
+	},
+	"tracker_intro_user_location": {
+		"message": "คุณอยู่ใน"
+	},
+	"tracker_just_in": {
+		"message": "ข้อมูลใหม่ล่าสุด"
+	},
+	"tracker_next_stop": {
+		"message": "ป้ายจอดรถถัดไป"
+	},
+	"tracker_santa_update": {
+		"message": "อัปเดตจากซานต้า"
+	},
+	"tracker_santa_update_1": {
+		"message": "อัปเดตจากซานต้า"
+	},
+	"tracker_see_route": {
+		"message": "ดูเส้นทาง"
+	},
+	"tracker_stats": {
+		"message": "สถิติของซานต้า"
+	},
+	"tracker_time_from_you_many": {
+		"message": "ซานตาจะมาถึงในอีกประมาณ {{hours}} ชั่วโมง"
+	},
+	"tracker_time_from_you_one": {
+		"message": "ซานตาจะมาถึงเร็วๆ นี้"
+	},
+	"tracker_track": {
+		"message": "ตามติดซานต้า"
+	},
+	"tracker_travelogue": {
+		"message": "บันทึกการเดินทาง"
+	},
+	"tracker_weather": {
+		"message": "สภาพอากาศ"
+	},
+	"tracker_world_facts": {
+		"message": "คุณรู้ไหม"
+	},
+	"tracker_world_facts_1": {
+		"message": "ข้อเท็จจริงของโลก"
+	},
+	"tracker_your_location": {
+		"message": "ตำแหน่งของคุณ"
+	},
+	"traditions-next": {
+		"message": "ประเพณีต่อไป"
+	},
+	"traditions-prev": {
+		"message": "ประเพณีก่อนหน้า"
+	},
+	"traditions-world": {
+		"message": "ทั่วโลก"
+	},
+	"trivia_beginner_001": {
+		"message": "เทือกเขาแอนดีสอยู่ในทวีปใด"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_002": {
+		"message": "รัฐใดของสหรัฐฯ ประกอบด้วยเกาะหลักๆ 8 เกาะ"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "ฮาวาย"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "โอไฮโอ"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "อาร์คันซอ"
+	},
+	"trivia_beginner_003": {
+		"message": "รัฐใดของสหรัฐฯ ตั้งอยู่บนที่ราบเกรตเพลนส์"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "แคนซัส"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "เดลาแวร์"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "ไอดาโฮ"
+	},
+	"trivia_beginner_004": {
+		"message": "ทวีปใดอยู่ติดกับมหาสมุทรแอตแลนติก แปซิฟิก และอาร์กติก"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_005": {
+		"message": "รัฐใดอยู่ในเขตเวลาแปซิฟิก"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "แคลิฟอร์เนีย"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "อินดีแอนา"
+	},
+	"trivia_beginner_006": {
+		"message": "ทวีปใดเป็นที่ตั้งของเทือกเขาแอตลาสและทะเลทรายคาลาฮารี"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_007": {
+		"message": "รัฐใดในสหรัฐฯ อยู่ติดกับทะเลสาบเกรตเลก"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "โอไฮโอ"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "มอนแทนา"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "นิวเม็กซิโก"
+	},
+	"trivia_beginner_008": {
+		"message": "ทวีปใดที่ประชากรส่วนใหญ่พูดภาษาโปรตุเกสหรือสเปน"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_009": {
+		"message": "รัฐใดในสหรัฐฯ มีรูปทรงที่มีด้ามกระทะ"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "โอคลาโฮมา"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "ไวโอมิง"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "โคโลราโด"
+	},
+	"trivia_beginner_010": {
+		"message": "แอนตาร์กติกาและทวีปใดตั้งอยู่ในซีกโลกใต้ทั้งหมด"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_011": {
+		"message": "หิ้งน้ำแข็ง Ronne อยู่ติดกับทวีปใด"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_012": {
+		"message": "เกาะ Vancouver กับเกาะ Kodiak ตั้งอยู่ใกล้กับชายฝั่งตะวันตกของทวีปใด"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_013": {
+		"message": "ไนเจอร์ซึ่งเป็นหนึ่งในประเทศที่มีอัตราการเติบโตของประชากรสูงที่สุดในโลกตั้งอยู่ทางตะวันตกเฉียงเหนือของทวีปใด"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_014": {
+		"message": "ทวีปใดมีพืชและต้นไม้น้อยที่สุด"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_015": {
+		"message": "แทสเมเนียนเดวิลอาศัยอยู่ในเกาะใกล้กับชายฝั่งทางใต้ของทวีปใด"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_016": {
+		"message": "หอเอนปิซาเป็นสถานที่ท่องเที่ยวยอดนิยมในประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "แคนาดา"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "กานา"
+	},
+	"trivia_beginner_017": {
+		"message": "กาซาบล็องกากับตริโปลีเป็นเมืองเก่าแก่บนชายฝั่งทางเหนือของทวีปใด"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_018": {
+		"message": "กระบอกเพชรซากัวโรพบได้ในทะเลทรายโซนอรันในทวีปใด"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_019": {
+		"message": "เวรากรูซและอะคาปุลโกเป็นแหล่งท่องเที่ยวยอดนิยมในประเทศใด"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "อาร์เจนตินา"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "อินเดีย"
+	},
+	"trivia_beginner_020": {
+		"message": "ศูนย์อนุรักษ์แพนด้าเสฉวนซึ่งเป็นที่อยู่ของแพนด้า 30 เปอร์เซ็นต์ของโลกตั้งอยู่ในประเทศใด"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "จีน"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "ไอซ์แลนด์"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "เอธิโอเปีย"
+	},
+	"trivia_beginner_021": {
+		"message": "น้ำแข็งประมาณ 90 เปอร์เซ็นต์ของโลกอยู่ในทวีปใด"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_022": {
+		"message": "Angel Falls เป็นน้ำตกที่สูงที่สุดในโลกซึ่งตั้งอยู่ในประเทศใด"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_023": {
+		"message": "หากต้องการเที่ยวชมหุบเขา Jackson Hole และปีน Devils Tower คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "ไวโอมิง"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "นอร์ทดาโคตา"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_beginner_024": {
+		"message": "หากต้องการชมการเก็บน้ำหวานจากต้นเมเปิลและเล่นสกีบนเทือกเขากรีน คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "เวอร์มอนต์"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "ออริกอน"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "แอริโซนา"
+	},
+	"trivia_beginner_025": {
+		"message": "คุณต้องไปยังรัฐใดของสหรัฐฯ หากต้องการขับรถข้ามสะพาน Chesapeake Bay และเดินบนทางไม้กระดานที่ Ocean City"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "แคนซัส"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "นอร์ทแคโรไลนา"
+	},
+	"trivia_beginner_026": {
+		"message": "ถ้าอยากเยี่ยมชมแมมมอทเคฟและดูการแข่งม้าที่ Churchill Downs ต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "เคนทักกี"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "เวสต์เวอร์จิเนีย"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "ยูทาห์"
+	},
+	"trivia_beginner_027": {
+		"message": "หากต้องการเห็นต้น Giant Sequoia และชมหมู่เกาะแชนเนล คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "แคลิฟอร์เนีย"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "นิวเจอร์ซีย์"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "เวอร์จิเนีย"
+	},
+	"trivia_beginner_028": {
+		"message": "พื้นที่ชุ่มน้ำใดที่คุณจะไปเยี่ยมชมหากอยู่ในรัฐฟลอริดาแห่งสหรัฐอเมริกา"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "เอเวอร์เกลดส์"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "ที่ลุ่มน้ำขังเกรตไซเปรส"
+	},
+	"trivia_beginner_029": {
+		"message": "หากต้องการเที่ยวชม St. Lawrence Seaway และกลุ่มทะเลสาบ Finger คุณจะต้องเดินทางไปยังรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "นิวยอร์ก"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "มิชิแกน"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_beginner_030": {
+		"message": "ภูเขาเอเวอเรสต์ซึ่งเป็นภูเขาที่สูงที่สุดในโลกตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_031": {
+		"message": "ภูมิภาคปาตาโกเนียครอบคลุมพื้นที่ทางใต้ของทวีปใดอย่างกว้างขวาง"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_032": {
+		"message": "เพนกวินจักรพรรดิพบได้ในแหล่งที่อยู่อาศัยตามธรรมชาติในทวีปใด"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_033": {
+		"message": "จิงโจ้กับหมีโคอาลาเป็นสัตว์ท้องถิ่นของประเทศใด"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_034": {
+		"message": "อุทยานแห่งชาติ Serengeti ซึ่งมีสิ่งมีชีวิตตามธรรมชาติที่ดึงดูดนักท่องเที่ยวมากมาย ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_035": {
+		"message": "ทวีปใดมีพื้นที่แผ่นดินกว้างใหญ่ที่สุด"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_036": {
+		"message": "สะพานทาวเวอร์บริดจ์ทอดข้ามแม่น้ำเทมส์ในเมืองใดของยุโรป"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "ลอนดอน"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "ฮาวานา"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "เคปทาวน์"
+	},
+	"trivia_beginner_037": {
+		"message": "วิหาร Saint Basil’s ตั้งอยู่ที่จัตุรัส Red Square ถัดจาก Kremlin ในเมืองใดของรัสเซีย"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "มอสโก"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "บรัสเซลส์"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "มอนเตวิเดโอ"
+	},
+	"trivia_beginner_038": {
+		"message": "Colosseum ซึ่งสร้างในศตวรรษแรกของคริสตศักราชเพื่อเป็นสถานที่ประลองของนักรบแกลดิเอเอตอร์ตั้งอยู่ในเมืองใดของทวีปยุโรป"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "โรม"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "คาร์ทูม"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "มะนิลา"
+	},
+	"trivia_beginner_039": {
+		"message": "Opera House และสะพาน Harbour ตั้งอยู่ในเมืองใดของออสเตรเลีย"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "ซิดนีย์"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "จาการ์ตา"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "ปราก"
+	},
+	"trivia_beginner_040": {
+		"message": "Dome of the Rock กับ Western Wall เป็นเพียงสถานที่ศักดิ์สิทธิ์ 2 แห่งจากหลายแห่งที่พบภายในกำแพงเมืองเก่าของเมืองใดในตะวันออกกลาง"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "เยรูซาเล็ม"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "โตเกียว"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "แอลเจียร์"
+	},
+	"trivia_beginner_041": {
+		"message": "วิหารพาร์เธนอนตั้งอยู่บนเนินอะโครโพลิสในเมืองใดของกรีซ"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "เอเธนส์"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "เคียฟ"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "ลิมา"
+	},
+	"trivia_beginner_042": {
+		"message": "หอไอเฟลที่อยู่ใกล้แม่น้ำแซนตั้งตระหง่านเหนือใจกลางเมืองใดในฝรั่งเศส"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "ปารีส"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "โทรอนโต"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "นิวเดลี"
+	},
+	"trivia_beginner_043": {
+		"message": "มัสยิดฮะรอมซึ่งเป็นที่ตั้งของกะอ์บะฮ์ สถานที่ศักดิ์สิทธิ์ที่สุดในศาสนาอิสลาม ตั้งอยู่ในเมืองใดของซาอุดีอาระเบีย"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "เมกกะ"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "บัวโนสไอเรส"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "บูดาเปสต์"
+	},
+	"trivia_beginner_044": {
+		"message": "พระราชวังต้องห้ามเป็นอดีตพระราชวังหลวงที่อยู่ในใจกลางเมืองใดของจีน"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "ปักกิ่ง"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "ซันติอาโก"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "บริสเบน"
+	},
+	"trivia_beginner_045": {
+		"message": "Space Needle เป็นหอสังเกตการณ์ที่ตั้งอยู่ในเมืองใดของสหรัฐฯ (เมืองนี้อยู่ที่ปากน้ำ Puget)"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "ซีแอตเติล"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "วิชิตา"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "นิวออร์ลีนส์"
+	},
+	"trivia_beginner_046": {
+		"message": "ตึก John Hancock Tower เป็นอาคารที่สูงที่สุดในเมืองใดของสหรัฐฯ (เมืองนี้ตั้งอยู่ที่ปากแม่น้ำ Charles)"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "บอสตัน"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "พิตต์สเบิร์ก"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "เมมฟิส"
+	},
+	"trivia_beginner_047": {
+		"message": "Stratosphere Tower ซึ่งตั้งอยู่ทางเหนือของถนนชื่อดังที่เรียกว่า The Strip\nเป็นสิ่งก่อสร้างที่สูงที่สุดในเมืองใดของสหรัฐฯ (เมืองนี้อยู่ในทะเลทรายโมฮาวี)"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "ลาสเวกัส"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "มินนิอาโปลิส"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "เดนเวอร์"
+	},
+	"trivia_beginner_048": {
+		"message": "อนุสาวรีย์เทพีเสรีภาพเป็นประติมากรรมขนาดใหญ่ ณ เกาะลิเบอร์ตี ซึ่งอยู่บริเวณท่าเรือของเมืองใดในสหรัฐฯ"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "นครนิวยอร์ก"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "แอตแลนตา"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "ลอสแอนเจลิส"
+	},
+	"trivia_beginner_049": {
+		"message": "สะพานโกลเดนเกตเชื่อมเมืองใดของสหรัฐอเมริกากับคาบสมุทร Marin"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "ซานฟรานซิสโก"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "บอยซี"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "บัลติมอร์"
+	},
+	"trivia_beginner_050": {
+		"message": "Gateway Arch ซึ่งเป็นสัญลักษณ์แห่งการขยายประเทศไปทางตะวันตกของอเมริกาในศตวรรษที่ 1800 ตั้งอยู่ริมแม่น้ำมิสซิสซิปปีในเมืองใดของสหรัฐอเมริกา"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "เซนต์หลุยส์"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "อินเดียแนโพลิส"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "ไมอามี"
+	},
+	"trivia_beginner_051": {
+		"message": "ที่ราบสูงกีซา ซึ่งเป็นที่ตั้งของมหาพีระมิดและสฟิงซ์ อยู่ในประเทศใดของแอฟริกา"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "อียิปต์"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "บราซิล"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "เยอรมนี"
+	},
+	"trivia_beginner_052": {
+		"message": "Independence Hall สถานที่สำคัญทางประวัติศาสตร์ที่เกี่ยวข้องกับการปฏิวัติอเมริกา ตั้งอยู่ใกล้แม่น้ำเดลาแวร์ในเมืองใดของสหรัฐฯ"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "ฟิลาเดลเฟีย"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "แซนแอนโทนีโอ"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "ชิคาโก"
+	},
+	"trivia_beginner_053": {
+		"message": "เทือกเขาร็อกกีพาดผ่านแคนาดากับประเทศใด"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "สหรัฐอเมริกา"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "รัสเซีย"
+	},
+	"trivia_beginner_054": {
+		"message": "บราซิลและอุรุกวัยอยู่ติดกับมหาสมุทรใด"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_055": {
+		"message": "เกาะนิวฟันด์แลนด์ตั้งอยู่ใกล้กับชายฝั่งตะวันออกของแคนาดาในมหาสมุทรใด"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_056": {
+		"message": "เกาะมาดากัสการ์ตั้งอยู่ใกล้กับชายฝั่งตะวันออกของแอฟริกาในมหาสมุทรใด"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_057": {
+		"message": "เส้นแบ่งเขตวันสากลทอดผ่านมหาสมุทรใดเป็นส่วนใหญ่"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_058": {
+		"message": "เส้นศูนย์สูตรพาดผ่านลุ่มน้ำคองโกในทวีปใด"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_059": {
+		"message": "ทวีปใดอยู่ติดกับอ่าวเม็กซิโก"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_060": {
+		"message": "แม่น้ำใดที่ไหลผ่านแอฟริกาและเป็นแม่น้ำสายที่ยาวที่สุดในโลก"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "แม่น้ำไนล์"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "แม่น้ำโคโลราโด"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "แม่น้ำออเรนจ์"
+	},
+	"trivia_beginner_061": {
+		"message": "ซากอารยธรรมโบราณมาชูปิกชูตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_062": {
+		"message": "แม่น้ำอะเมซอน ซึ่งเป็นแม่น้ำที่มีปริมาณน้ำมากที่สุดในโลก ไหลผ่านทวีปใด"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_063": {
+		"message": "มงบล็อง ยอดเขาบนเทือกเขาแอลป์ ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_064": {
+		"message": "คอคอดปานามาเชื่อมอเมริกากลางกับทวีปใด"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_065": {
+		"message": "เสือชีตาห์เป็นสัตว์บกที่เลี้ยงลูกด้วยนมซึ่งวิ่งเร็วที่สุดในโลก พบได้ในเคนยาและแทนซาเนียในทวีปใด"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_066": {
+		"message": "แหลมกู๊ดโฮปตั้งอยู่ใกล้ปลายแผ่นดินทางตอนใต้ของทวีปใด"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_067": {
+		"message": "เต่ายักษ์อาศัยอยู่บนเกาะกาลาปากอสซึ่งอยู่ทางตะวันตกของอเมริกาใต้ในมหาสมุทรใด"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_068": {
+		"message": "แม่น้ำดานูบไหลผ่านเวียนนาและเมืองอื่นๆ ในทวีปใด"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_069": {
+		"message": "เกาะคิวบาและฮิสปันโยลาตั้งอยู่ติดกับทะเลใด"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "ทะเลเบริง"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_beginner_070": {
+		"message": "อ่าวกินีอยู่ติดกับทวีปใด"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton เป็นนักสำรวจชื่อก้องที่สำรวจทวีปใด"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_072": {
+		"message": "ทะเล Labrador เป็นทะเลที่เชื่อมกับมหาสมุทรใด"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_073": {
+		"message": "ซาฮารา ทะเลทรายที่ใหญ่ที่สุดในโลก อยู่ในทวีปใด"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_074": {
+		"message": "ที่ราบสูงทิเบตอยู่ในทวีปใด"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_075": {
+		"message": "ช่องแคบเดรกอยู่ทางใต้ของทวีปใด"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_076": {
+		"message": "แนวปะการัง Great Barrier Reef ตั้งอยู่ในทะเลคอรัลใกล้กับชายฝั่งทวีปใด"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_077": {
+		"message": "หากต้องการล่องคลอง Suez และเยี่ยมชมนครแห่งความตายของเมืองไคโร คุณจะต้องเดินทางไปที่ประเทศใด"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "อียิปต์"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_beginner_078": {
+		"message": "ถ้าอยากดูคนขี่ม้าเลี้ยงวัวควายและชมการเต้นรำแบบแทงโกในเมืองบัวโนสไอเรส คุณจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "อาร์เจนตินา"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "ไนเจอร์"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "เนปาล"
+	},
+	"trivia_beginner_079": {
+		"message": "หากต้องการเยี่ยมชมย่านเมืองเก่าในเมือง Fez และเดินป่าในเทือกเขาแอตลาส คุณ\nต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "เอกวาดอร์"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "ประเทศไทย"
+	},
+	"trivia_beginner_080": {
+		"message": "หากต้องการเยี่ยมชมซากปรักหักพังของอาณาจักรมายาและว่ายน้ำที่ชายหาดของแคนคูน คุณต้องเดินทางไปที่ประเทศใด"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "ตุรกี"
+	},
+	"trivia_beginner_081": {
+		"message": "หากต้องการเยี่ยมชมวิหาร St. Patrick’s ในเมืองดับลินและเข้าร่วมเทศกาลศิลปะใน Kilkenny คุณจะต้องเดินทางไปที่ประเทศใด"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "ไอร์แลนด์"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "โซมาเลีย"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "คอสตาริกา"
+	},
+	"trivia_beginner_082": {
+		"message": "หากต้องการร่วมทัวร์ป่าฝนและเต้นรำในการเฉลิมฉลองงานคาร์นิวัลของริโอ เดอ จาเนโร คุณจะต้องเดินทางไปที่ประเทศใด"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "บราซิล"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "สหราชอาณาจักร"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_beginner_083": {
+		"message": "หากต้องการเยี่ยมชมพิพิธภัณฑ์ Hermitage ในเซนต์ปีเตอร์สเบิร์กและนั่งรถไฟสายทรานส์-ไซบีเรีย คุณจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "รัสเซีย"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "เบลีซ"
+	},
+	"trivia_beginner_084": {
+		"message": "หากต้องการนั่งรถไฟความเร็วสูงและพักค้างคืนในโรงแรมในโตเกียว คุณจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "ซิมบับเว"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_beginner_085": {
+		"message": "ถ้าอยากรับประทาน Pesto ในเจนัวและชมอุปรากรในฟลอเรนซ์ คุณจะต้องเดินทางไปยัง\nประเทศใด"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "ปารากวัย"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_beginner_086": {
+		"message": "หากต้องการท่องเที่ยวแบบซาฟารีในเขตอนุรักษ์ธรรมชาติ Maasai Mara และช็อปปิ้งในไนโรบี คุณจะต้อง\nเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "เคนยา"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_beginner_087": {
+		"message": "หากต้องการชมแม่น้ำคงคาและสำรวจถนนหนทางอันพลุกพล่านของกัลกัตตา คุณ\nจะต้องเดินทางไปยังประเทศใด"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "อินเดีย"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "เยอรมนี"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "จอร์แดน"
+	},
+	"trivia_beginner_088": {
+		"message": "ขั้วโลกเหนือหรือจุดเหนือสุดของโลกตั้งอยู่ในมหาสมุทรใด"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_beginner_089": {
+		"message": "ประเทศใดอยู่ติดกับมหาสมุทรแอตแลนติก"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "ไอซ์แลนด์"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_beginner_090": {
+		"message": "รัฐใดของสหรัฐฯ ที่เรียกกันว่า Sunshine State เพราะมีอากาศอบอุ่นและมีชายหาดยอดนิยม"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "ฟลอริดา"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "เมน"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "วอชิงตัน"
+	},
+	"trivia_beginner_091": {
+		"message": "แกรนด์แคนยอนตั้งอยู่ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "แอริโซนา"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "เวสต์เวอร์จิเนีย"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "เซาท์ดาโคตา"
+	},
+	"trivia_beginner_092": {
+		"message": "รัฐใดของสหรัฐฯ มีสมญานามว่า \"รัฐดาวเดี่ยว\" มีดาวดวงเดียวบนธง และเคยเป็นประเทศอิสระ"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "เทกซัส"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "วิสคอนซิน"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_beginner_093": {
+		"message": "แม่น้ำไทกริสและยูเฟรทีสอยู่ในทวีปใด"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_beginner_094": {
+		"message": "ทะเลสาบวิกตอเรียกับเทือกเขาวีรูงกาอยู่ในทวีปใด"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_beginner_095": {
+		"message": "ประเทศใดเป็นเกาะในมหาสมุทรแปซิฟิก"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "นิวซีแลนด์"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "แอฟริกาใต้"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "ไอซ์แลนด์"
+	},
+	"trivia_beginner_096": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรสแกนดิเนเวีย"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "สวีเดน"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "เปรู"
+	},
+	"trivia_beginner_097": {
+		"message": "ประเทศใดอยู่ติดกับทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "ฝรั่งเศส"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_001": {
+		"message": "เมืองใดในสหรัฐฯ ที่อยู่ใกล้กับพรมแดนแคนาดามากที่สุด"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "ซีแอตเติล"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "แซคราเมนโต"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "โอมาฮา"
+	},
+	"trivia_hard_002": {
+		"message": "เมืองใดในสหรัฐฯ มีโอกาสมากที่สุดที่จะประสบพายุเฮอริเคน"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "ไมอามี"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "ลอสแอนเจลิส"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "พิตต์สเบิร์ก"
+	},
+	"trivia_hard_003": {
+		"message": "ทะเลสาบใดต่อไปนี้มีพื้นที่ผิวน้ำใหญ่ที่สุด"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "ทะเลสาบฮูรอน"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "อ่างเก็บน้ำ Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "ทะเลสาบ Erie"
+	},
+	"trivia_hard_004": {
+		"message": "เมืองในสหรัฐฯ เมืองใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "ชิคาโก"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "เซนต์หลุยส์"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "อินเดียแนโพลิส"
+	},
+	"trivia_hard_005": {
+		"message": "ประเทศใดอยู่ใกล้กับอ่าวเปอร์เซียมากที่สุด"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "ภูฏาน"
+	},
+	"trivia_hard_006": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่แผ่นดินกว้างใหญ่ที่สุด"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "คาซัคสถาน"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "โปแลนด์"
+	},
+	"trivia_hard_007": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "สิงคโปร์"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "ลาว"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_hard_008": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรที่พูดภาษาเยอรมันมากที่สุด"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "อิรัก"
+	},
+	"trivia_hard_009": {
+		"message": "ประเทศใดต่อไปนี้มีพรมแดนติดกับหลายประเทศที่สุด"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_hard_010": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลสาบ Tanganyika"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "เบนิน"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "บุรุนดี"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "แซมเบีย"
+	},
+	"trivia_hard_011": {
+		"message": "ประเทศใดไม่ได้อยู่บนเส้นศูนย์สูตร"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "มอริเตเนีย"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "เคนยา"
+	},
+	"trivia_hard_012": {
+		"message": "ประเทศใดไม่ได้ตั้งอยู่บนคาบสมุทรบอลข่าน"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "สาธารณรัฐเช็ก"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "บัลแกเรีย"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "มาซิโดเนีย"
+	},
+	"trivia_hard_013": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลเหนือ"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "เดนมาร์ก"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "สหราชอาณาจักร"
+	},
+	"trivia_hard_014": {
+		"message": "ประเทศใดไม่ได้อยู่ติดกับทะเลดำ"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_015": {
+		"message": "ประเทศใดมีทางออกทะเล"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "ฮังการี"
+	},
+	"trivia_hard_016": {
+		"message": "ประเทศใดไม่ได้อยู่ในทะเลทรายสะฮารา"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "แองโกลา"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "ลิเบีย"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_hard_017": {
+		"message": "เกาะใดตั้งอยู่ไกลที่สุดทางทิศตะวันออก"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "ตรินิแดด"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "จาเมกา"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "คิวบา"
+	},
+	"trivia_hard_018": {
+		"message": "Cape Fear อยู่ติดกับพื้นที่ทางน้ำใด"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_hard_019": {
+		"message": "เมืองใดเป็นท่าเรือบนอ่าวเม็กซิโก"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "เวรากรูซ"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "ตีฮัวนา"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "อะคาปุลโก"
+	},
+	"trivia_hard_020": {
+		"message": "เส้นทรอปิกออฟแคนเซอร์พาดผ่านประเทศใด"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "แคนาดา"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "บราซิล"
+	},
+	"trivia_hard_021": {
+		"message": "เกาะใดต่อไปนี้มีพื้นที่ใหญ่ที่สุด"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "เกาะแบฟฟิน"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "ฮิสปันโยลา"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "ซาร์ดิเนีย"
+	},
+	"trivia_hard_022": {
+		"message": "ช่องแคบ Yucatán กั้นระหว่างเม็กซิโกกับเกาะใด"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "คิวบา"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "เปอร์โตริโก"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "โดมินิกา"
+	},
+	"trivia_hard_023": {
+		"message": "เมืองใดที่ตั้งอยู่ทางเหนือสุดของแคนาดา"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "เยลโลว์ไนฟ์"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "ออตตาวา"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "วินนิเพก"
+	},
+	"trivia_hard_024": {
+		"message": "เกาะใดเป็นส่วนหนึ่งของหมู่เกาะเลสเซอร์แอนทิลลีส"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "เซนต์คิตส์"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "เบอร์มิวดา"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "โนวาสโกเชีย"
+	},
+	"trivia_hard_025": {
+		"message": "ปอร์โตแปรงซ์เป็นเมืองที่มีประชากรหนาแน่นที่สุดในประเทศใด"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "เฮติ"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "ซูรินาเม"
+	},
+	"trivia_hard_026": {
+		"message": "ประเทศใดอยู่บนเทือกเขาคาร์เพเทียน"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "แอลเบเนีย"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "เติร์กเมนิสถาน"
+	},
+	"trivia_hard_027": {
+		"message": "ภาษาฝรั่งเศสเป็นภาษาทางการในประเทศใด"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "กาบอง"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "คูเวต"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "แทนซาเนีย"
+	},
+	"trivia_hard_028": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่ส่วนแผ่นดินใหญ่ที่สุด"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "อิสราเอล"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "บาห์เรน"
+	},
+	"trivia_hard_029": {
+		"message": "ประเทศใดที่มีความกว้างที่สุดตามองศาลองจิจูด"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "คาซัคสถาน"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "อัฟกานิสถาน"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_030": {
+		"message": "ประเทศใดประกอบด้วยเกาะมากมาย"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "ฟิลิปปินส์"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "กัมพูชา"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "ทาจิกิสถาน"
+	},
+	"trivia_hard_031": {
+		"message": "ประเทศใดต่อไปนี้มีเขตเวลามากที่สุด"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "บราซิล"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "กานา"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "เบลีซ"
+	},
+	"trivia_hard_032": {
+		"message": "ประเทศใดตั้งอยู่ทางเหนือสุด"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "แคเมอรูน"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "โมซัมบิก"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_033": {
+		"message": "ประเทศใดตั้งอยู่ระหว่างฝรั่งเศสกับสเปน"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "อันดอร์รา"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "ลักเซมเบิร์ก"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "นครรัฐวาติกัน"
+	},
+	"trivia_hard_034": {
+		"message": "เดนมาร์กอยู่ติดกับประเทศใด"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "เยอรมนี"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "มอลโดวา"
+	},
+	"trivia_hard_035": {
+		"message": "เกาะซาร์ดิเนียเป็นของประเทศใด"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "สหราชอาณาจักร"
+	},
+	"trivia_hard_036": {
+		"message": "ทะเลทรายใดครอบคลุมพื้นที่กว้างใหญ่ระหว่างปักกิ่งกับอูลานบาตอร์"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "โกบี"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "ทะเลทรายเกรทอินเดียน"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "ทะเลทรายลิเบียน"
+	},
+	"trivia_hard_037": {
+		"message": "กระแสน้ำมหาสมุทร Kamchatka เป็นส่วนหนึ่งของมหาสมุทรใด"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_038": {
+		"message": "อ่าว Sidra ตั้งอยู่ทางใต้ของทะเลใด"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "ทะเลอาหรับ"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_hard_039": {
+		"message": "เทือกเขา Tatra เป็นเทือกเขาสูงสุดในกลุ่มเทือกเขาใดของยุโรป"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "เทือกเขา Carpathian"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "เทือกเขา Cantabrian"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "พิเรนีส"
+	},
+	"trivia_hard_040": {
+		"message": "แม่น้ำใดไหลผ่านทะเลสาบ Kariba และเป็นพรมแดนระหว่างแซมเบียกับซิมบับเว"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "แม่น้ำแซมบีซี"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "แม่น้ำไนล์"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "แม่น้ำคองโก"
+	},
+	"trivia_hard_041": {
+		"message": "แม่น้ำ Thames, Meuse และ Schelde ต่างก็ไหลลงสู่ทะเลใด"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "ทะเลเหนือ"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "ทะเลดำ"
+	},
+	"trivia_hard_042": {
+		"message": "ช่องแคบลูซอนแยกฟิลิปปินส์ออกจากเกาะใหญ่ชื่อใดทางตอนเหนือ"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "ไต้หวัน"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "ศรีลังกา"
+	},
+	"trivia_hard_043": {
+		"message": "หมู่เกาะใดเรียงตัวอยู่ตามแนวเทือกเขากลางมหาสมุทรแอตแลนติก"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "อาซอเรส"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "บาฮามาส"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "หมู่เกาะฟิจิ"
+	},
+	"trivia_hard_044": {
+		"message": "แม่น้ำใดไหลลงสู่ทะเลลัปเตฟ"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "แม่น้ำลีนา"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "แม่น้ำแยงซี"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "แม่น้ำสินธุ"
+	},
+	"trivia_hard_045": {
+		"message": "ยอดเขาใดอยู่ใกล้กับเส้นศูนย์สูตรมากที่สุด"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "คิลิมันจาโร"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "มงบล็อง"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "ยอดเขาแมกคินลีย์"
+	},
+	"trivia_hard_046": {
+		"message": "เมืองหลวงใดมีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "มอสโก"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "เฮลซิงกิ"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "แอลเจียร์"
+	},
+	"trivia_hard_047": {
+		"message": "เมืองริมฝั่งแม่น้ำ Liffey เมืองใดเป็นเมืองใหญ่ที่สุดในสาธารณรัฐไอร์แลนด์"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "ดับลิน"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "ออสโล"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "โคเปนเฮเกน"
+	},
+	"trivia_hard_048": {
+		"message": "เมืองใดในหุบเขาฮินดูกูชเป็นเมืองใหญ่ที่สุดในอัฟกานิสถาน"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "คาบูล"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "ซาราเยโว"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "กัมปาลา"
+	},
+	"trivia_hard_049": {
+		"message": "เมืองริมฝั่งแม่น้ำเจ้าพระยาที่เป็นเมืองใหญ่ที่สุดในประเทศไทยคือเมืองใด"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "กรุงเทพฯ"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "ปักกิ่ง"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "อัมมาน"
+	},
+	"trivia_hard_050": {
+		"message": "เมืองใดเป็นเมืองใหญ่ที่สุดในนอร์เวย์ (เมืองนี้ตั้งอยู่ที่หัวฟยอร์ดบริเวณช่องแคบ Skagerrak)"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "ออสโล"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "ลอนดอน"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "บรัสเซลส์"
+	},
+	"trivia_hard_051": {
+		"message": "เมืองที่อยู่บริเวณทะเลเมดิเตอร์เรเนียนตะวันออกและเป็นเมืองใหญ่ที่สุดในเลบานอนคือเมืองอะไร"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "เบรุต"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "โมกาดิชู"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "ริยาด"
+	},
+	"trivia_hard_052": {
+		"message": "เมืองใดที่ตั้งอยู่บนชายฝั่งเกาะชวาและเป็นเมืองใหญ่ที่สุดในอินโดนีเซีย"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "จาการ์ตา"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "โตเกียว"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "ไนโรบี"
+	},
+	"trivia_hard_053": {
+		"message": "เมืองใดในเขต Attica ที่เป็นเมืองใหญ่ที่สุดในกรีซ"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "เอเธนส์"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "โรม"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "บาร์เซโลนา"
+	},
+	"trivia_hard_054": {
+		"message": "เมืองใดที่ตั้งอยู่บนปากน้ำ Río de la Plata มีขนาดใหญ่ที่สุดในอุรุกวัย"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "มอนเตวิเดโอ"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "กีโต"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "รีโอเดจาเนโร"
+	},
+	"trivia_hard_055": {
+		"message": "เมืองใดเคยเป็นส่วนหนึ่งของอดีตจังหวัด Transvaal และปัจจุบันเป็นเมืองใหญ่ที่สุดในแอฟริกาใต้"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "โจฮันเนสเบิร์ก"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "อาบูจา"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "มาปูโต"
+	},
+	"trivia_hard_056": {
+		"message": "เมืองใดเป็นศูนย์กลางการขนส่งทางเรือที่สำคัญแห่งทะเลแคริบเบียนและเป็นเมืองใหญ่ที่สุดในจาเมกา"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "คิงส์ตัน"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "การากัส"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "บัวโนสไอเรส"
+	},
+	"trivia_hard_057": {
+		"message": "เมืองใดตั้งอยู่ในเกรตริฟต์แวลลีย์และเป็นเมืองใหญ่ที่สุดในเอริเทรีย"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "แอสมารา"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "แบกแดด"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "บราซซาวิล"
+	},
+	"trivia_hard_058": {
+		"message": "เมืองใดบนฝั่งแม่น้ำ Vistula เป็นเมืองใหญ่ที่สุดในโปแลนด์"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "วอร์ซอ"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "เบอร์ลิน"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "เคียฟ"
+	},
+	"trivia_hard_059": {
+		"message": "เมืองใดเป็นจุดแวะพักสำคัญบนเส้นทาง Pan-American Highway และเป็นเมืองใหญ่ที่สุดในคอสตาริกา"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "ซันโฮเซ"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "ลิมา"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "ซูเกร"
+	},
+	"trivia_hard_060": {
+		"message": "เมืองใดเป็นศูนย์กลางการค้าสินค้าเกษตรที่สำคัญในแอฟริกาตอนใต้และเป็นเมืองใหญ่ที่สุดในซิมบับเว"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "ฮาราเร"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "วินด์ฮุก"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "กัมปาลา"
+	},
+	"trivia_hard_061": {
+		"message": "เมืองใดที่ครั้งหนึ่งเคยถูกปกครองโดยเขมรแดงและปัจจุบันเป็นเมืองใหญ่ที่สุดในกัมพูชา"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "พนมเปญ"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "กัวลาลัมเปอร์"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "ธากา"
+	},
+	"trivia_hard_062": {
+		"message": "เมืองใดบนแหลม Mesurado ณ มหาสมุทรแอตแลนติกที่เป็นเมืองใหญ่ที่สุดในไลบีเรีย"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "มันโรเวีย"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "อักกรา"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "ลูซากา"
+	},
+	"trivia_hard_063": {
+		"message": "เมืองใดตั้งอยู่บนที่ราบสูงในเทือกเขาแอนดีสและเป็นเมืองใหญ่ที่สุดในโคลอมเบีย"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "โบโกตา"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "มานากัว"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "มอนเตร์เรย์"
+	},
+	"trivia_hard_064": {
+		"message": "เมืองที่ตั้งอยู่บนเชิงเขาของเทือกเขา Elburz เมืองใดเป็นเมืองใหญ่ที่สุดในอิหร่าน"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "เตหะราน"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "ทาชเคนต์"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "อิสตันบูล"
+	},
+	"trivia_hard_065": {
+		"message": "พื้นที่ทางน้ำใดที่เส้นอาร์กติกเซอร์เคิลพาดผ่าน"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "ทะเลนอร์วีเจียน"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "ทะเลสาบ Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "ทะเลแคสเปียน"
+	},
+	"trivia_hard_066": {
+		"message": "พื้นที่ทางน้ำใดตั้งอยู่ในเกรตริฟต์แวลลีย์"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "ทะเลสาบมาลาวี"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "ทะเลแทสมัน"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "ทะเลสาบตีตีกากา"
+	},
+	"trivia_hard_067": {
+		"message": "เมืองท่าของรัสเซียที่ชื่อ Arkhangelsk ตั้งอยู่บนฝั่งของพื้นที่ทางน้ำใด"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "ทะเลขาว"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "ช่องแคบบาสส์"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "อ่าวบิสเคย์"
+	},
+	"trivia_hard_068": {
+		"message": "ประเทศใดเป็นที่ตั้งของมณฑลหูหนานและซานตง"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "จีน"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "ประเทศไทย"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "เยเมน"
+	},
+	"trivia_hard_069": {
+		"message": "ภาษาคาสตีลเป็นภาษาทางการของประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "สเปน"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "กรีซ"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_070": {
+		"message": "ประเทศใดในอเมริกากลางเคยเป็นเขตหนึ่งในโคลอมเบีย"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "ปานามา"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "กัวเตมาลา"
+	},
+	"trivia_hard_071": {
+		"message": "เมืองบาเซิลที่มีแม่น้ำไรน์ไหลผ่านเป็นศูนย์กลางการขนส่งที่สำคัญในประเทศใด"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "เบลเยียม"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "รัสเซีย"
+	},
+	"trivia_hard_072": {
+		"message": "จิตรกรอย่างเช่น Cézanne ได้รับแรงบันดาลใจจากภูมิทัศน์ของ Provence ซึ่งเป็นภูมิภาคหนึ่งในประเทศใด"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "ฝรั่งเศส"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca เป็นจุดที่มีการขนส่งทางทะเลที่สำคัญสำหรับภูมิภาค Pampas ในประเทศใด"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "อาร์เจนตินา"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "นิการากัว"
+	},
+	"trivia_hard_074": {
+		"message": "ประเทศใดอยู่ติดกับทะเลเมดิเตอร์เรเนียน ทะเลดำ และทะเลอีเจียน"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "บัลแกเรีย"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_hard_075": {
+		"message": "ในแต่ละปี วิลเดอบีสต์จะอพยพจากแทนซาเนียข้ามแม่น้ำ Mara ไปยังประเทศเพื่อนบ้านใดทางตะวันออกเฉียงเหนือ"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "เคนยา"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "แซมเบีย"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "กินี"
+	},
+	"trivia_hard_076": {
+		"message": "อะเลปโป ซึ่งขึ้นชื่อเรื่องมัสยิดใหญ่ เป็นเมืองใหญ่ที่สุดในประเทศใดทางเอเชียตะวันตกเฉียงใต้"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "โอมาน"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_hard_077": {
+		"message": "ประเทศใดอยู่ติดกับรัสเซียและจอร์เจีย"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "อุซเบกิสถาน"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "เกาหลีเหนือ"
+	},
+	"trivia_hard_078": {
+		"message": "ประเทศใดอยู่ติดกับปานามาและบราซิล"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "เปรู"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "คอสตาริกา"
+	},
+	"trivia_hard_079": {
+		"message": "ประเทศใดอยู่ติดกับกัวเตมาลาและสหรัฐอเมริกา"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "แคนาดา"
+	},
+	"trivia_hard_080": {
+		"message": "ประเทศใดอยู่ติดกับอิรักและอัฟกานิสถาน"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_hard_081": {
+		"message": "ประเทศใดอยู่ติดกับเลโซโทและบอตสวานา"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "แอฟริกาใต้"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "ซิมบับเว"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "คองโก"
+	},
+	"trivia_hard_082": {
+		"message": "แอนต์เวิร์ปอยู่ในพื้นที่ที่พูดภาษาเฟลมิชของประเทศใด"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "เบลเยียม"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "ไอซ์แลนด์"
+	},
+	"trivia_hard_083": {
+		"message": "Gdańsk ซึ่งตั้งอยู่ที่ปากแม่น้ำ Vistula เป็นท่าเรือหลักของประเทศใดในยุโรป"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "โปแลนด์"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "สเปน"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_hard_084": {
+		"message": "แม่น้ำ Madeira และ Purus เป็นแม่น้ำสายย่อยหลักๆ ของแม่น้ำสายใหญ่ชื่ออะไรในอเมริกาใต้"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "แม่น้ำอะเมซอน"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "แม่น้ำโอริโนโค"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "แม่น้ำ Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "ทะเลสาบคอนสแตนซ์อยู่ติดกับประเทศสวิตเซอร์แลนด์ เยอรมนี และประเทศอะไร"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_hard_086": {
+		"message": "ออกแลนด์ เมืองท่าใหญ่ที่มีท่าเรือหลายท่า เป็นเมืองใหญ่ที่สุดในประเทศใด"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "นิวซีแลนด์"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_087": {
+		"message": "ประเทศใดทางตะวันตกของโตโกเป็นผู้ผลิตโกโก้รายใหญ่"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "กานา"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "ซูดาน"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "ตูนิเซีย"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní เป็นชื่อของหนึ่งในภาษาทางการและสกุลเงินของประเทศใดในอเมริกาใต้"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "ปารากวัย"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "เอกวาดอร์"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "บราซิล"
+	},
+	"trivia_hard_089": {
+		"message": "เทือกเขาใดทอดตัวไปตามพรมแดนระหว่างฝรั่งเศสกับสเปน"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "พิเรนีส"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "แอเพนไนน์"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "เทือกเขาคอเคซัส"
+	},
+	"trivia_hard_090": {
+		"message": "แม่น้ำ Torrens ไหลออกสู่อ่าว Saint Vincent ในประเทศใด"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "ยูกันดา"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "แคนาดา"
+	},
+	"trivia_hard_091": {
+		"message": "ประเทศใดในแอฟริกาอยู่ติดกับทะเลเมดิเตอร์เรเนียนและปกครองโดยมีพระมหากษัตริย์เป็นประมุข"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "โมร็อกโก"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "อียิปต์"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "สาธารณรัฐแอฟริกากลาง"
+	},
+	"trivia_hard_092": {
+		"message": "ทบิลิซิซึ่งตั้งอยู่บนฝั่งแม่น้ำ Kura เป็นเมืองหลวงประเทศใด"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "ซีเรีย"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "ฮังการี"
+	},
+	"trivia_hard_093": {
+		"message": "อาบรุซโซเป็นแคว้นที่เต็มไปด้วยภูเขา ตั้งอยู่ติดกับทะเลเอเดรียติก ในประเทศใด"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "ฝรั่งเศส"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "ลักเซมเบิร์ก"
+	},
+	"trivia_hard_094": {
+		"message": "อ่าวริกาอยู่ติดกับลัตเวียและประเทศใด"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "สเปน"
+	},
+	"trivia_hard_095": {
+		"message": "ช่องแคบ Jubal เชื่อมอ่าวของสุเอซกับทะเลใด"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "ทะเลแดง"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "ทะเลแคสเปียน"
+	},
+	"trivia_hard_096": {
+		"message": "แหล่งน้ำที่สำคัญของทะเลแกลิลีคือแม่น้ำใด"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "แม่น้ำจอร์แดน"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "อมูดาร์ยา"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "แม่น้ำคงคา"
+	},
+	"trivia_hard_097": {
+		"message": "อ่าวใหญ่ใดที่แยกนิวบรันสวิกออกจากโนวาสโกเชีย"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "อ่าวฟันดี้"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "อ่าวฮัดสัน"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "อ่าวเบงกอล"
+	},
+	"trivia_hard_098": {
+		"message": "มหาวิหารโคโลญตั้งอยู่ในเขตไรน์แลนด์ของประเทศใด"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "เยอรมนี"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "เดนมาร์ก"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_hard_099": {
+		"message": "เชียปัส ซึ่งเป็นที่ตั้งของซากอารยธรรมมายาโบราณหลายแห่ง เป็นรัฐทางใต้สุดของประเทศใด"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_hard_100": {
+		"message": "ดาร์ดะเนลส์เป็นช่องแคบที่เชื่อมต่อทะเลมาร์มะรากับทะเลใด"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "ทะเลอีเจียน"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "ทะเลแบเร็นตส์"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "ทะเลแทสมัน"
+	},
+	"trivia_hard_101": {
+		"message": "ภาษาเขมรเป็นภาษาทางการของประเทศใดในเอเชียตะวันออกเฉียงใต้"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "กัมพูชา"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_hard_102": {
+		"message": "ลุ่มน้ำโดเนตส์เป็นเขตอุตสาหกรรมที่ครอบคลุมพื้นที่ในส่วนรัสเซียและประเทศใด"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "ยูเครน"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "เลบานอน"
+	},
+	"trivia_hard_103": {
+		"message": "ยอดเขา Kosciuszko ในเทือกเขาสโนวี่เป็นยอดเขาสูงสุดในทวีปใด"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_hard_104": {
+		"message": "เกาะมาดูรากับบาหลีเป็นส่วนหนึ่งของประเทศใด"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_hard_105": {
+		"message": "ทะเลทราย Taklimakan ตั้งอยู่ทางทิศเหนือของเทือกเขาคุนหลุนในประเทศใดของเอเชีย"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "จีน"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_medium_001": {
+		"message": "เมืองในสหรัฐฯ เมืองใดต่อไปนี้ตั้งอยู่ที่ดินดอนสามเหลี่ยมปากแม่น้ำ"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "นิวออร์ลีนส์"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "ออสติน"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "โอคลาโฮมาซิตี"
+	},
+	"trivia_medium_002": {
+		"message": "นครวัดและแคปพาโดเชียเป็นมรดกโลกของยูเนสโกที่อยู่ในทวีปใด"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_003": {
+		"message": "ผู้คนทางตะวันตกเฉียงใต้ของทวีปใดที่พูดภาษาเคิร์ดและเปอร์เซีย"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_004": {
+		"message": "Teotihuacán เป็นศูนย์กลางอันยิ่งใหญ่ในช่วงอารยธรรมตอนต้นของทวีปใด"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_005": {
+		"message": "ทะเล Bellingshausen และทะเล Ross อยู่ติดกับทวีปใด"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_006": {
+		"message": "กระแสน้ำโมซัมบิกและเบงเกวลาไหลเลียบชายฝั่งของทวีปใด"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_007": {
+		"message": "หมู่เกาะ Islas Malvinas หรือที่เรียกว่าหมู่เกาะฟอล์กแลนด์ ตั้งอยู่ใกล้กับชายฝั่งทางตะวันออกเฉียงใต้ของทวีปใด"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_008": {
+		"message": "ประเทศในแอฟริกาประเทศใดต่อไปนี้มีพื้นที่มากที่สุด"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "แอลจีเรีย"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "แกมเบีย"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "บุรุนดี"
+	},
+	"trivia_medium_009": {
+		"message": "เกาะใหญ่เกาะใดตั้งอยู่ห่างจากไอซ์แลนด์ไปทางตะวันตกเฉียงเหนือ 200 ไมล์"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "กรีนแลนด์"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "นิวกินี"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "ไอร์แลนด์"
+	},
+	"trivia_medium_010": {
+		"message": "ทะเลคารากับทะเลไซบีเรียตะวันออกเป็นส่วนหนึ่งของมหาสมุทรใด"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "มหาสมุทรอินเดีย"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_medium_011": {
+		"message": "ประเทศใดอยู่ติดกับทะเลบอลติก"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "ลัตเวีย"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "สโลวีเนีย"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "ยูเครน"
+	},
+	"trivia_medium_012": {
+		"message": "เมืองใหญ่ใดต่อไปนี้มีประชากรหนาแน่นที่สุด"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "เซาเปาโล บราซิล"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "โทรอนโต, แคนาดา"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "ฮานอย, เวียดนาม"
+	},
+	"trivia_medium_013": {
+		"message": "ประเทศใดไม่ได้มีแนวชายฝั่งติดกับมหาสมุทรแอตแลนติก"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "มาเลเซีย"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "แองโกลา"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "อุรุกวัย"
+	},
+	"trivia_medium_014": {
+		"message": "ประเทศใดต่อไปนี้มีแนวชายฝั่งสั้นที่สุด"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "เปรู"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_015": {
+		"message": "ทะเลทรายใดอยู่ในเอเชีย"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "โกบี"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "คาลาฮารี"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "อาตากามา"
+	},
+	"trivia_medium_016": {
+		"message": "ประเทศใดต่อไปนี้เกิดเหตุการณ์ภูเขาไฟระเบิดมากที่สุด"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "อิสราเอล"
+	},
+	"trivia_medium_017": {
+		"message": "ประเทศใดต่อไปนี้มีประชากรมากที่สุด"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "เฮติ"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_medium_018": {
+		"message": "ประเทศใดต่อไปนี้มีเกาะมากที่สุด"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "บาฮามาส"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "จาเมกา"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "เอลซัลวาดอร์"
+	},
+	"trivia_medium_019": {
+		"message": "ประเทศใดอยู่ใกล้กับเส้นศูนย์สูตรมากที่สุด"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "รวันดา"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "กัวเตมาลา"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "แอฟริกาใต้"
+	},
+	"trivia_medium_020": {
+		"message": "ประเทศใดตั้งอยู่ทางเหนือสุด"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "ลิเบีย"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "กัมพูชา"
+	},
+	"trivia_medium_021": {
+		"message": "เขต Alfama อยู่บนฝั่งแม่น้ำเทกัสในเมืองหลวงชื่อใดในประเทศโปรตุเกส"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "ลิสบอน"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "เบอร์ลิน"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "เฮลซิงกิ"
+	},
+	"trivia_medium_022": {
+		"message": "เมืองหลวงใดอยู่ห่างจากทะเลเดดซีไปทางตะวันออกเฉียงเหนือ 25 ไมล์และเป็นเมืองที่มีประชากรหนาแน่นที่สุดในจอร์แดน"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "อัมมาน"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "อิสลามาบัด"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "โซล"
+	},
+	"trivia_medium_023": {
+		"message": "จัตุรัส Tahrir ซึ่งเป็นศูนย์กลางการประท้วงใหญ่ๆ ในอียิปต์หลายรายการ ตั้งอยู่ในเมืองหลวงใด"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "ไคโร"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "ไนโรบี"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "มัสกัต"
+	},
+	"trivia_medium_024": {
+		"message": "เมืองหลวงใดที่ตั้งอยู่ใน Table Bay และเป็นศูนย์กลางอำนาจของรัฐสภาแอฟริกาใต้"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "เคปทาวน์"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "ลูซากา"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "กินชาซา"
+	},
+	"trivia_medium_025": {
+		"message": "เมืองใดเป็นเมืองหลวงและเมืองใหญ่ที่สุดในสาธารณรัฐเช็ก ตั้งอยู่ริมฝั่งแม่น้ำ Vltava"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "ปราก"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "ดับลิน"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "โซเฟีย"
+	},
+	"trivia_medium_026": {
+		"message": "เมืองหลวงใดตั้งอยู่ติดกับทะเลเมดิเตอร์เรเนียนและเป็นท่าเรือสำคัญของลิเบีย"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "ตริโปลี"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "โมกาดิชู"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "มันโรเวีย"
+	},
+	"trivia_medium_027": {
+		"message": "เมืองหลวงใดเป็นศูนย์กลางการค้าและคมนาคมที่สำคัญในซูดานและตั้งอยู่ที่จุดเชื่อมต่อระหว่างแม่น้ำไวท์ไนล์และบลูไนล์"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "คาร์ทูม"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "ตูนิส"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "โจฮันเนสเบิร์ก"
+	},
+	"trivia_medium_028": {
+		"message": "เมืองหลวงชื่อใดตั้งอยู่บนเกาะ Zealand และ Amager ของเดนมาร์ก"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "โคเปนเฮเกน"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "เบิร์น"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "บราติสลาวา"
+	},
+	"trivia_medium_029": {
+		"message": "เมืองหลวงใดตั้งอยู่บนเกาะ New Providence และเป็นเมืองใหญ่ที่สุดในบาฮามาส"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "แนสซอ"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "ซันโตโดมิงโก"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "เบลโมแพน"
+	},
+	"trivia_medium_030": {
+		"message": "เมืองหลวงใดที่ตั้งอยู่ทางใต้ของ Black Sea และเป็นศูนย์กลางระบบคมนาคมของตุรกี"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "อังการา"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "มินสก์"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "เตหะราน"
+	},
+	"trivia_medium_031": {
+		"message": "ประเทศใดต่อไปนี้มีพื้นที่ส่วนหนึ่งตั้งอยู่ในจะงอยแอฟริกา"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "เอริเทรีย"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "ไนเจอร์"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "สวาซิแลนด์"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak เป็นช่องแคบที่แยกเดนมาร์กออกจากประเทศใด"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "นอร์เวย์"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "สหราชอาณาจักร"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "ศรีลังกา"
+	},
+	"trivia_medium_033": {
+		"message": "ประเทศใดมีพื้นที่ทะเลทรายมากที่สุด"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "ชาด"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "นอร์เวย์"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_medium_034": {
+		"message": "แม่น้ำยูเฟรทีสไหลผ่านประเทศใด"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "ประเทศไทย"
+	},
+	"trivia_medium_035": {
+		"message": "เมืองอีร์คุตสค์อยู่ใกล้กับทะเลสาบไบคาลในทวีปใด"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_036": {
+		"message": "แม่น้ำนีเปอร์และไรน์เป็นแม่น้ำสายหลักในทวีปใด"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "แอนตาร์กติกา"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_037": {
+		"message": "เขตที่สูง Guiana และเขต Pantanal อยู่ในทวีปใด"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "อเมริกาเหนือ"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_038": {
+		"message": "ทะเลทรายเกรตวิกตอเรียและที่ราบนัลลาบอร์เป็นองค์ประกอบทางกายภาพของทวีปใด"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "เอเชีย"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_039": {
+		"message": "รีโอกรันดีโดซูลเป็นรัฐทางใต้สุดของประเทศใด"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "บราซิล"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "เยอรมนี"
+	},
+	"trivia_medium_040": {
+		"message": "เมืองโนโวซีบีสค์ตั้งอยู่ริมแม่น้ำอ็อบในประเทศใด"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "รัสเซีย"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "จีน"
+	},
+	"trivia_medium_041": {
+		"message": "ประเทศใดตั้งอยู่บนขอบแปซิฟิกและมีแนวโน้มเป็นพิเศษที่จะเกิดแผ่นดินไหว"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "แองโกลา"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "ฝรั่งเศส"
+	},
+	"trivia_medium_042": {
+		"message": "ทะเลสาบมาราไกโบอยู่บริเวณชายฝั่งทางตอนเหนือของประเทศใด"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "กัวเตมาลา"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "แคนาดา"
+	},
+	"trivia_medium_043": {
+		"message": "ประเทศใดอยู่ติดกับทะเลอาหรับ"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "อินเดีย"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "ทาจิกิสถาน"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "กรีซ"
+	},
+	"trivia_medium_044": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรไอบีเรีย"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "โปรตุเกส"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_045": {
+		"message": "ประเทศใดต่อไปนี้มีแนวชายฝั่งยาวที่สุด"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "ประเทศไทย"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "คองโก"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "กาตาร์"
+	},
+	"trivia_medium_046": {
+		"message": "รัฐใดของสหรัฐฯ ตั้งอยู่ทางตะวันตกของแม่น้ำมิสซิสซิปปี"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "โคโลราโด"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "แมริแลนด์"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "มิชิแกน"
+	},
+	"trivia_medium_047": {
+		"message": "ป่าครอบคลุมพื้นที่ประมาณ 60 เปอร์เซ็นต์ของรัฐใดในสหรัฐฯ"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "เวอร์จิเนีย"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "แอริโซนา"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_medium_048": {
+		"message": "ยอดเขาแมกคินลีย์ ซึ่งเป็นยอดเขาที่สูงที่สุดในอเมริกาเหนือ ตั้งอยู่ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "อะแลสกา"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "มินนิโซตา"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "โคโลราโด"
+	},
+	"trivia_medium_049": {
+		"message": "รัฐในสหรัฐฯ รัฐใดต่อไปนี้มีพื้นที่ใหญ่ที่สุด"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "มอนแทนา"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "เซาท์แคโรไลนา"
+	},
+	"trivia_medium_050": {
+		"message": "ภูเขารัชมอร์ตั้งอยู่ใกล้กับแรพิดซิตี้ในรัฐใดของสหรัฐฯ"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "เซาท์ดาโคตา"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "ออริกอน"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "ฟลอริดา"
+	},
+	"trivia_medium_051": {
+		"message": "รัฐใดของสหรัฐฯ ที่อยู่ติดกับแคนาดา"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "มินนิโซตา"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "เนแบรสกา"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "เคนทักกี"
+	},
+	"trivia_medium_052": {
+		"message": "มีแนวปะการังอยู่ใกล้ชายฝั่งของรัฐใดในสหรัฐฯ"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "ฮาวาย"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "คอนเนตทิคัต"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "เนวาดา"
+	},
+	"trivia_medium_053": {
+		"message": "ฮัมบูร์กเป็นท่าเรือสำคัญในประเทศใด"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "เยอรมนี"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "โครเอเชีย"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "เบลเยียม"
+	},
+	"trivia_medium_054": {
+		"message": "ประเทศใดเกิดเหตุการณ์ภูเขาไฟระเบิดมากที่สุด"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "ไอซ์แลนด์"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "สหราชอาณาจักร"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "โปแลนด์"
+	},
+	"trivia_medium_055": {
+		"message": "ประเทศใดตั้งอยู่บนคาบสมุทรเอเชียไมเนอร์เป็นส่วนใหญ่"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "เมียนมาร์"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "เอสโตเนีย"
+	},
+	"trivia_medium_056": {
+		"message": "ทะเลเดดซีเป็นส่วนหนึ่งของพรมแดนระหว่างอิสราเอลกับประเทศใด"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "จอร์แดน"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_medium_057": {
+		"message": "อุทยานแห่งชาติ Serengeti ตั้งอยู่ทางตะวันออกของทะเลสาบวิกตอเรียในประเทศใด"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "แทนซาเนีย"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "เยเมน"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "ไนจีเรีย"
+	},
+	"trivia_medium_058": {
+		"message": "ประเทศใดอยู่ติดกับทะเลแคริบเบียนและเป็นผู้ส่งออกน้ำมันรายใหญ่"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "เวเนซุเอลา"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "ปารากวัย"
+	},
+	"trivia_medium_059": {
+		"message": "ประเทศที่ไม่มีทางออกทะเลประเทศใดอยู่ห่างจากเส้นศูนย์สูตรไปทางใต้นิดเดียว"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "บุรุนดี"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "จิบูตี"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "ตูนิเซีย"
+	},
+	"trivia_medium_060": {
+		"message": "ทะเลติร์เรเนียนอยู่ติดกับประเทศใดในแถบเมดิเตอร์เรเนียน"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "อิตาลี"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "อิสราเอล"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "เซเนกัล"
+	},
+	"trivia_medium_061": {
+		"message": "เยคาเตรินบุร์กตั้งอยู่บนฝั่งตะวันออกของเทือกเขาอูราลในประเทศใด"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "รัสเซีย"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "ลิทัวเนีย"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "เบลเยียม"
+	},
+	"trivia_medium_062": {
+		"message": "ประเทศที่เป็นเกาะประเทศใดตั้งอยู่ทางตะวันออกเฉียงใต้ของออสเตรเลียและเป็นผู้ผลิตขนแกะชั้นนำ"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "นิวซีแลนด์"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "ฟิลิปปินส์"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "เวียดนาม"
+	},
+	"trivia_medium_063": {
+		"message": "มุมไบเป็นเมืองท่าใหญ่ในประเทศใด"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "อินเดีย"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "สวิตเซอร์แลนด์"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "ภูฏาน"
+	},
+	"trivia_medium_064": {
+		"message": "เมืองอินช็อนตั้งอยู่ติดกับทะเลเหลืองในประเทศใด"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "เกาหลีใต้"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "ประเทศไทย"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "มองโกเลีย"
+	},
+	"trivia_medium_065": {
+		"message": "ประเทศเล็กๆ ประเทศใดอยู่ติดกับพรมแดนฝั่งตะวันตกของออสเตรีย"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "ลิกเตนสไตน์"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "มอลโดวา"
+	},
+	"trivia_medium_066": {
+		"message": "วิกตอเรียกับนิวเซาท์เวลส์เป็นรัฐในประเทศใด"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "สหรัฐอเมริกา"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "แคนาดา"
+	},
+	"trivia_medium_067": {
+		"message": "ประเทศใดบนเกาะบอร์เนียวที่อยู่ติดกับประเทศเล็กๆ อย่างบรูไน"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "มาเลเซีย"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "ยูเครน"
+	},
+	"trivia_medium_068": {
+		"message": "เทือกเขา Julian Alps ทอดตัวไปตามพรมแดนระหว่างอิตาลีกับประเทศใด"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "สโลวีเนีย"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "เนปาล"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "ทาจิกิสถาน"
+	},
+	"trivia_medium_069": {
+		"message": "พื้นที่ที่เดิมรู้จักกันในชื่อแมนจูเรียตั้งอยู่ในส่วนตะวันออกเฉียงเหนือของประเทศใด"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "จีน"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "เบลารุส"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "อัฟกานิสถาน"
+	},
+	"trivia_medium_070": {
+		"message": "ประเทศใดอยู่ติดกับเอลซัลวาดอร์"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "ปานามา"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "สาธารณรัฐโดมินิกัน"
+	},
+	"trivia_medium_071": {
+		"message": "ประเทศใดตั้งอยู่บนเทือกเขาคอเคซัส"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "จอร์เจีย"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "ฮังการี"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "อันดอร์รา"
+	},
+	"trivia_medium_072": {
+		"message": "ช่องแคบซุนดาคั่นกลางระหว่าง 2 เกาะในประเทศใดของเอเชีย"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "อินโดนีเซีย"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "นิวซีแลนด์"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "ลาว"
+	},
+	"trivia_medium_073": {
+		"message": "หุบเขาที่เกิดจากธารน้ำแข็งและหน้าผาอันตระการตาพบได้ใกล้ปากแม่น้ำ Shannon ในประเทศใด"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "ไอร์แลนด์"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "ฝรั่งเศส"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "อุซเบกิสถาน"
+	},
+	"trivia_medium_074": {
+		"message": "แม่น้ำสินธุไหลผ่านประเทศใดในเอเชียใต้"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "ปากีสถาน"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "เกาหลีเหนือ"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "อาเซอร์ไบจาน"
+	},
+	"trivia_medium_075": {
+		"message": "ประเทศใดอยู่ติดกับทะเลแดง"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "เอริเทรีย"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "กานา"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "เคนยา"
+	},
+	"trivia_medium_076": {
+		"message": "ซากาเตกัสกับตาบัสโกเป็นรัฐในประเทศใด"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "เม็กซิโก"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "เบลีซ"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "อาร์เจนตินา"
+	},
+	"trivia_medium_077": {
+		"message": "ริยาดซึ่งเป็นเมืองที่มีมัสยิดกว่า 4,000 แห่งนั้นตั้งอยู่ในประเทศใด"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "ซาอุดีอาระเบีย"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "แอลเบเนีย"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "ซีเรีย"
+	},
+	"trivia_medium_078": {
+		"message": "ประเทศใดในแอฟริกาที่ไม่มีทางออกทะเล"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "มาลี"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "มอริเตเนีย"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_079": {
+		"message": "ภูเขาฟูจิเป็นสถานที่ศักดิ์สิทธิ์ในประเทศใด"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "ญี่ปุ่น"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "ฟิลิปปินส์"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "บังกลาเทศ"
+	},
+	"trivia_medium_080": {
+		"message": "ประเทศใดในหมู่เกาะเกรตเตอร์แอนทิลลีสที่ใช้ภาษาอังกฤษเป็นภาษาทางการ"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "จาเมกา"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "เฮติ"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "คิวบา"
+	},
+	"trivia_medium_081": {
+		"message": "ภาษาทางการของซีเรีย คูเวต และแอลจีเรียคือภาษาอะไร"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "อาหรับ"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "อาร์เมเนีย"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "เยอรมัน"
+	},
+	"trivia_medium_082": {
+		"message": "อุปรากรโมสาร์ทมักจะมีการแสดงในงานเทศกาลซาลซ์บูร์กประจำปีที่จัดขึ้นในประเทศใด (ประเทศนี้อยู่ในยุโรป เต็มไปด้วยภูเขา)"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "ออสเตรีย"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "ฮังการี"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "โรมาเนีย"
+	},
+	"trivia_medium_083": {
+		"message": "\"หุบเขาปลาวาฬ\" หรือทะเลทรายที่มีฟอสซิลปลาวาฬยุคก่อนประวัติศาสตร์ ตั้งอยู่ในประเทศใดทางทิศเหนือของซูดาน"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "อียิปต์"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "ไนจีเรีย"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "แซมเบีย"
+	},
+	"trivia_medium_084": {
+		"message": "รอตเตอร์ดัมตั้งอยู่บริเวณดินดอนสามเหลี่ยมปากแม่น้ำใกล้ทะเลเหนือในประเทศใดของยุโรป"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "สวีเดน"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "กรีซ"
+	},
+	"trivia_medium_085": {
+		"message": "เทือกเขาใหญ่ใดที่เป็นต้นน้ำของแม่น้ำพรหมบุตรที่ไหลลงสู่ดินดอนสามเหลี่ยมปากแม่น้ำใหญ่ใกล้อ่าวเบงกอล"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "หิมาลัย"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "อูรัลส์"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "แอลป์"
+	},
+	"trivia_medium_086": {
+		"message": "ฟาร์ซี หรือที่เรียกอีกชื่อหนึ่งว่าเปอร์เซีย เป็นภาษาทางการของประเทศมุสลิมใด"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "อิหร่าน"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "คูเวต"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "ลิเบีย"
+	},
+	"trivia_medium_087": {
+		"message": "เมืองเซบียาที่มีการแสดงสู้วัวของมาทาดอร์นั้นตั้งอยู่ในประเทศใดของยุโรป"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "สเปน"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "เยอรมนี"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "มาซิโดเนีย"
+	},
+	"trivia_medium_088": {
+		"message": "เมืองอิสตันบูล ซึ่งว่ากันว่าเป็นสถานที่ที่วัฒนธรรมตะวันออกและตะวันตกมาพบกัน ตั้งอยู่ในประเทศใด"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "ตุรกี"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "สโลวะเกีย"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "โอมาน"
+	},
+	"trivia_medium_089": {
+		"message": "เมืองมายาที่ชื่อ Copán เป็นสถานที่ท่องเที่ยวยอดนิยมในประเทศใด (ประเทศนี้อยู่ติดกับเอลซัลวาดอร์และนิการากัว)"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "ฮอนดูรัส"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "ชิลี"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "แคนาดา"
+	},
+	"trivia_medium_090": {
+		"message": "เมืองทิมบักตู ซึ่งเป็นศูนย์กลางการค้าแบบคาราวานมาเป็นเวลาเกือบ 1,000 ปี ตั้งอยู่ทางเหนือของแม่น้ำ Niger ในประเทศที่ไม่มีทางออกทะเลประเทศใด"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "มาลี"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "ยูกันดา"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "นามิเบีย"
+	},
+	"trivia_medium_091": {
+		"message": "ประเทศที่ไม่มีทางออกทะเลประเทศใดในอเมริกาใต้มีพรมแดนติดกับทั้งชิลีและบราซิล"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "โบลิเวีย"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "โคลอมเบีย"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "กายอานา"
+	},
+	"trivia_medium_092": {
+		"message": "เมือง Belém ตั้งอยู่ที่ปากแม่น้ำตอนล่างของแม่น้ำอเมซอนในประเทศใด"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "บราซิล"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "คอสตาริกา"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "ซูรินาเม"
+	},
+	"trivia_medium_093": {
+		"message": "แม่น้ำใดที่ทอดตัวยาวเป็นส่วนหนึ่งของพรมแดนทางตอนเหนือของบัลแกเรีย"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "แม่น้ำดานูบ"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "แม่น้ำอ็อบ"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "แม่น้ำโขง"
+	},
+	"trivia_medium_094": {
+		"message": "เทือกเขา Sayan ตั้งอยู่ใกล้กับทะเลสาบไบคาลในประเทศใดของเอเชีย"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "รัสเซีย"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "อินเดีย"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "คีร์กีซสถาน"
+	},
+	"trivia_medium_095": {
+		"message": "ทะเลสาบ Nipigon เป็นทะเลสาบใหญ่ที่สุดในรัฐใดของแคนาดา"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "ออนแทรีโอ"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "แอลเบอร์ตา"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "บริติชโคลัมเบีย"
+	},
+	"trivia_medium_096": {
+		"message": "ทะเล Balearic และทะเล Ionian เป็นส่วนหนึ่งของทะเลใด"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "ทะเลเมดิเตอร์เรเนียน"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "ทะเลบอลติก"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "ทะเลแคริบเบียน"
+	},
+	"trivia_medium_097": {
+		"message": "ทะเลสาบ Turkana กับทะเลสาบ Natron เป็นตัวอย่างของทะเลสาบหุบเขาทรุดที่ตั้งอยู่ในทวีปใด"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "ยุโรป"
+	},
+	"trivia_medium_098": {
+		"message": "ร่องลึกเปอร์โตริโกเป็นจุดลึกสุดในมหาสมุทรใด"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "มหาสมุทรแอตแลนติก"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "มหาสมุทรอาร์กติก"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "มหาสมุทรแปซิฟิก"
+	},
+	"trivia_medium_099": {
+		"message": "นก Kookaburra หัวเราะอาศัยอยู่ในป่ายูคาลิปตัสทางตะวันออกของทวีปใด"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "ออสเตรเลีย"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "แอฟริกา"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "อเมริกาใต้"
+	},
+	"trivia_medium_100": {
+		"message": "กรุงเฮก ซึ่งเป็นที่ตั้งของศาลโลก เป็นเมืองบนชายฝั่งตะวันตกของประเทศใดในยุโรป"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "เนเธอร์แลนด์"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "ฟินแลนด์"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "บัลแกเรีย"
+	},
+	"trivia_ngb_promo": {
+		"message": "เนื้อหาโดย National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "ไต้หวัน"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "แทนซาเนีย"
+	},
+	"ug_country_name": {
+		"message": "ยูกันดา"
+	},
+	"uk_country_name": {
+		"message": "สหราชอาณาจักร"
+	},
+	"uk_tradition": {
+		"message": "ในสหราชอาณาจักร ผู้เฉลิมฉลองทุกเพศทุกวัยจะสนุกกับประทัดคริสต์มาสบนโต๊ะอาหารในมื้อเย็น ประทัดนี้มีลักษณะเป็นท่อห่อด้วยกระดาษสีสันสดใสโดยมีแถบสำหรับดึงติดอยู่ทั้งสองด้าน เมื่อดึงแถบ ประทัดจะระเบิดพร้อมเสียงดัง ข้างในประทัดจะมีหมวกกระดาษ ของเล่น เรื่องตลก และรางวัลให้ได้สนุกกันในคืนคริสต์มาส"
+	},
+	"unmute": {
+		"message": "เปิดเสียง"
+	},
+	"upgrade-warning": {
+		"message": "อ๊ะ! ตามติดซานต้าไม่ได้รับการสนับสนุนในเบราว์เซอร์เวอร์ชันนี้ หากต้องการเข้าถึงตามติดซานต้า ให้ดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่ สำหรับข้อมูลเพิ่มเติม ไปที่\u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
+	},
+	"us_country_name": {
+		"message": "สหรัฐอเมริกา"
+	},
+	"us_tradition": {
+		"message": "ในสหรัฐอเมริกา ผู้คนจะแขวนถุงเท้ายาวในคืนคริสต์มาสอีฟ ตามตำนานเล่าว่าเซนต์นิโคลัสได้ข่าวเกี่ยวกับครอบครัวที่แร้นแค้น เพื่อทำให้ครอบครัวนี้ประหลาดใจ เขาจึงปีนลงมาจากปล่องไฟและวางถุงใส่ทองคำไว้ในถุงเท้ายาวที่แขวนอยู่ นับแต่นั้นเป็นต้นมา เซนต์นิโคลัสก็เป็นที่รู้จักในนามของซานต้าคลอสผู้แจกของขวัญ"
+	},
+	"uy_country_name": {
+		"message": "อุรุกวัย"
+	},
+	"uz_country_name": {
+		"message": "อุซเบกิสถาน"
+	},
+	"ve_country_name": {
+		"message": "เวเนซุเอลา"
+	},
+	"village_comeback": {
+		"message": "กลับมาดูใหม่ในวันที่ 24 และช่วยเราตามติดซานต้าตลอดทั้งคืน!"
+	},
+	"village_explore": {
+		"message": "สำรวจ เล่น และเรียนรู้ไปกับเอลฟ์ของซานต้าตลอดธันวาคมนี้"
+	},
+	"village_get_the_app": {
+		"message": "รับแอปตามติดซานต้าสำหรับ Android"
+	},
+	"village_more": {
+		"message": "วิธีอื่นๆ ในการสำรวจ"
+	},
+	"village_santa_a2hs": {
+		"message": "เพิ่มลงในหน้าแรก"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "เพิ่มไปยังชั้นวาง"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "เพิ่มไปยังเดสก์ท็อป"
+	},
+	"village_santa_cardboard": {
+		"message": "ซานต้าบน Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "ซานต้าบน Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "เพิ่มส่วนขยายซานต้า Chrome"
+	},
+	"village_takesoff": {
+		"message": "ซานต้าจะออกเดินทางใน"
+	},
+	"vn_country_name": {
+		"message": "เวียดนาม"
+	},
+	"watch": {
+		"message": "ดู"
+	},
+	"wrapbattle_combo": {
+		"message": "สวีทคอมโบ"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "ดี"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "พลาด"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "ตกลง"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "ยอดเยี่ยม"
+	},
+	"ye_country_name": {
+		"message": "เยเมน"
+	},
+	"yourbest": {
+		"message": "เวลาที่ดีที่สุด"
+	},
+	"zh-CN_language_name": {
+		"message": "ภาษาจีน (ตัวย่อ)"
+	},
+	"zh-TW_language_name": {
+		"message": "ภาษาจีน (ตัวเต็ม)"
+	},
+	"zm_country_name": {
+		"message": "แซมเบีย"
+	},
+	"zw_country_name": {
+		"message": "ซิมบับเว"
+	}
+}
