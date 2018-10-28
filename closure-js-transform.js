@@ -17,8 +17,8 @@ const COMPILE_DELAY = 1 * 1000;     // autocompile due to changed file only afte
  * @return {function(): void} cleanup/shutdown method
  */
 function watchForSceneJs(sceneName, cb) {
-  if (sceneName === '_shared') {
-    throw new Error(`unexpected '_shared' scene requested`);
+  if (sceneName[0] === '_') {
+    throw new Error(`unexpected _-prefixed scene requested`);
   }
 
   const handler = (eventType, p) => {
