@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="languagematch.css" />
+</head>
+<body>
+
+<div id="module-languagematch">
+  <div class="bg"></div>
+  <div class="cards">
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+      <div class="card">
+          <div class="card-front"></div>
+          <div class="card-back"></div>
+      </div>
+    </div>
+</div>
+
+<script type="module">
+  import api from '../../src/scene/api.js';
+  import Game from './languagematch-scene.min.js';
+
+  const game = new Game(document.getElementById('module-languagematch'));
+
+  api.ready(async (manager) => {
+    console.log('ready');
+  });
+</script>
+
+</body>
+</html>
