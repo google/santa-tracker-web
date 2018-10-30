@@ -117,11 +117,11 @@ app.Constants = {
   COLORS: [
     '#841c3f', // Pinkish
     '#3c4577', // Blue
-    '#0f4411', // Green
+    'rgb(158, 36, 36)', // Green
     'rgb(222, 156, 0)', // Yellow
 
     'rgb(29, 146, 158)', // Cyan
-    'rgb(224, 135, 56)', // Orange
+    'rgb(224, 112, 56)', // Orange
     'rgb(82, 82, 82)', // Grey
     '#4a1c52', // Purple-ish
   ]
