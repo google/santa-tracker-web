@@ -6,7 +6,7 @@ app.Game = class Game {
   constructor(elem) {
     console.info(`Language game starting`);
 
-    this.elem = elem;
+    this.root = elem.getRootNode();
 
     this.init();
   }
@@ -17,7 +17,7 @@ app.Game = class Game {
   }
 
   initFlipAnimations() {
-    const cards = this.elem.getElementsByClassName('card');
+    const cards = this.root.getElementsByClassName('card');
     for (let i = 0; i < cards.length; i ++) {
       const card = cards[i];
       card.addEventListener('click', () => {
@@ -27,7 +27,7 @@ app.Game = class Game {
   }
 
   initCardContents() {
-    const cards = Array.from(this.elem.getElementsByClassName('card'));
+    const cards = Array.from(this.root.getElementsByClassName('card'));
     if (cards.length % 2 != 0) {
       console.error('Invalid number of cards!');
     }
@@ -39,28 +39,36 @@ app.Game = class Game {
     while (cards.length > 0) {
       const color = removeRandom(colors);
       const translation = removeRandom(translations);
+      const language_code = translation[0];
+      const message = translation[1];
+      const language_name = this.getLanguageName(language_code);
 
       const firstCard = removeRandom(cards);
       const secondCard = removeRandom(cards);
-      setCardColor(firstCard, color);
-      setCardColor(secondCard, color);
+      this.setCardColor(firstCard, color);
+      this.setCardColor(secondCard, color);
 
-      setCardText(firstCard, translation[0]);
-      setCardText(secondCard, translation[1]);
+      this.setCardText(firstCard, language_name);
+      this.setCardText(secondCard, message);
     }
   }
 
+  setCardText(card, text) {
+    const contents = card.getElementsByClassName('card-contents')[0];
+    contents.textContent = text;
+  }
+  
+  setCardColor(card, color) {
+    const front = card.getElementsByClassName('card-front')[0];
+    front.style.backgroundColor = color;
+  }
+  
+  getLanguageName(code) {
+    const id = code + '_language_name';
+    return this.root.getElementById(id).textContent;
+  }
+
 };
-
-function setCardText(card, text) {
-  const contents = card.getElementsByClassName('card-contents')[0];
-  contents.textContent = text;
-}
-
-function setCardColor(card, color) {
-  const front = card.getElementsByClassName('card-front')[0];
-  front.style.backgroundColor = color;
-}
 
 // TODO(jez): Replace this with better random function?
 function randomInteger(max) {
