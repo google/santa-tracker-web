@@ -6,6 +6,8 @@
     position: absolute;
     overflow: hidden;
 
+    font-family: 'Roboto', sans-serif;
+
     .bg {
         top: 0;
         bottom: 0;
@@ -61,5 +63,13 @@
         @extend %card-face;
         background-color: rgb(255, 255, 255);
         transform: rotateY(180deg);
+    }
+    .card-contents {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 2rem;
+        color: white;
     }
 }
