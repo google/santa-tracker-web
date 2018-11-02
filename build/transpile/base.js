@@ -15,15 +15,6 @@
 var COMPILED = false;
 
 
-var global = window;
-var $jscomp = {global: global};
-
-$jscomp.inherits = function(c, p) {
-  c.prototype = Object.create(p.prototype);
-  c.prototype.constructor = c;
-  Object.setPrototypeOf(c, p);
-};
-
 /**
  * @param {string} v
  * @return {boolean} whether the variable named v is defined in global scope
@@ -53,3 +44,47 @@ goog.provide = function(v) {
 };
 
 goog.require = function() {};
+
+
+
+/*
+ * nb. Fast transpiled helpers for ES6 features below this line. This is somewhat cribbed from
+ * Closure's internal `--rewrite_polyfills` feature, which does not seem to run in WHITESPACE_ONLY
+ * mode (and is sometimes too aggressive).
+ */
+
+
+var global = window;
+var $jscomp = {global: global};
+
+$jscomp.inherits = function(c, p) {
+  c.prototype = Object.create(p.prototype);
+  c.prototype.constructor = c;
+  Object.setPrototypeOf(c, p);
+};
+
+$jscomp.arrayIteratorImpl = function(array) {
+  var index = 0;
+  return function() {
+    if (index < array.length) {
+      return {
+        done: false,
+        value: array[index++],
+      };
+    } else {
+      return {done: true};
+    }
+  };
+};
+
+$jscomp.arrayIterator = function(array) {
+  return /** @type {!Iterator<T>} */ ({next: $jscomp.arrayIteratorImpl(array)});
+};
+
+$jscomp.makeIterator = function(iterable) {
+  // NOTE: Disabling typechecking because [] not allowed on @struct.
+  var iteratorFunction = typeof Symbol != 'undefined' && Symbol.iterator &&
+      (/** @type {?} */ (iterable)[Symbol.iterator]);
+  return iteratorFunction ? iteratorFunction.call(iterable) :
+      $jscomp.arrayIterator(/** @type {!Array} */ (iterable));
+};
