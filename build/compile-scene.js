@@ -25,6 +25,8 @@ const CLOSURE_TYPESAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkVars',
 ]);
 
+const syntheticSourceRe = /\[synthetic:(.*?)\]/;
+
 
 // nb. This assumes `compile-scene.js` is one level up from `node_modules`.
 const rootDir = path.join(__dirname, '..');
@@ -72,8 +74,15 @@ async function processSourceMap(buf, root='../../') {
   o.sourceRoot = root;
   o.sourcesContent = [];
   for (const source of o.sources) {
+    // This is an ES6 synthetic source file for transpilation. Ignore.
+    const m = syntheticSourceRe.exec(source);
+    if (m) {
+      o.sourcesContent.push(null);
+      continue;
+    }
+
     const buf = await fsp.readFile(source);
-    o.sourcesContent.push(buf.toString());
+    o.sourcesContent.push(buf);
   }
   return Buffer.from(JSON.stringify(o), 'utf8');;
 }
@@ -146,12 +155,11 @@ module.exports = async function compile(config, compile=false) {
     entry_point: entryPoint,
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
-    language_in: 'ECMASCRIPT6_STRICT',
+    language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT5_STRICT',
-    process_closure_primitives: null,
-    generate_exports: null,
+    process_closure_primitives: true,
+    generate_exports: true,  // otherwise `app.Game` won't be visible to client
     jscomp_warning: config.typeSafe ? CLOSURE_TYPESAFE_WARNINGS : CLOSURE_WARNINGS,
-    rewrite_polyfills: false,  // provided by external polyfills
     output_wrapper: outputWrapper,
   };
 
