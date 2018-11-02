@@ -51,6 +51,9 @@ export default ({
     view: 'fixed',
   },
   playground: {},
+  poseboogie: {
+    view: 'portrait',
+  },
   postcard: {},
   presentbounce: {
     view: 'landscape',

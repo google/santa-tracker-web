@@ -11,6 +11,8 @@
     "@babel/core": "^7.1.2",
     "@polymer/broadway": "git+ssh://git@github.com:PolymerLabs/broadway.git#initial-implementation",
     "@polymer/lit-element": "^0.6.0",
+    "@tensorflow/tfjs": "^0.13.0",
+    "@tensorflow-models/posenet": "^0.2.3",
     "@webcomponents/webcomponentsjs": "latest",
     "ansi-colors": "^3.1.0",
     "autoprefixer": "^9.3.0",
