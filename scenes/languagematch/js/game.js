@@ -39,16 +39,16 @@ app.Game = class Game {
     while (cards.length > 0) {
       const color = removeRandom(colors);
       const translation = removeRandom(translations);
-      const language_code = translation[0];
+      const languageCode = translation[0];
       const message = translation[1];
-      const language_name = this.getLanguageName(language_code);
+      const languageName = this.getLanguageName(languageCode);
 
       const firstCard = removeRandom(cards);
       const secondCard = removeRandom(cards);
       this.setCardColor(firstCard, color);
       this.setCardColor(secondCard, color);
 
-      this.setCardText(firstCard, language_name);
+      this.setCardText(firstCard, languageName);
       this.setCardText(secondCard, message);
     }
   }
