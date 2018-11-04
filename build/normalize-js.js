@@ -119,7 +119,7 @@ function buildTemplateTagHelper(resolver) {
 
 
 /**
- * @param {string} filename where source is located
+ * @param {?string} filename where source is located
  * @param {string} js to normalize
  * @return {string} output JS
  */
@@ -132,10 +132,12 @@ module.exports = (filename, js, inlineHandler) => {
     ],
   });
 
-  const plugins = [
-    buildResolveBareSpecifiers(filename),
-    buildTemplateTagHelper(inlineHandler),
-  ];
+  const plugins = [];
+  if (filename !== null) {
+    plugins.unshift(buildResolveBareSpecifiers(filename));
+  }
+  plugins.push(buildTemplateTagHelper(inlineHandler));
+
   const result = babelCore.transformFromAst(ast, js, {presets: [], plugins});
   return result.code;
 };

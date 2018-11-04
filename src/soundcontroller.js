@@ -1,13 +1,15 @@
 
+import {urlToStatic} from './lib/location.js';
+
 /**
  * Klang script source URL.
  */
-const klangSrc = 'third_party/lib/klang/klang.js';
+const klangSrc = urlToStatic('third_party/lib/klang/klang.js');
 
 /**
  * Klang config file URL.
  */
-const klangConfigSrc = 'third_party/lib/klang/config.js';
+const klangConfigSrc = urlToStatic('third_party/lib/klang/config.js');
 
 /**
  * Local version of `window.Klang` that gets added to the page.
