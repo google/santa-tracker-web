@@ -1,18 +1,24 @@
 
+import {urlToStatic} from './lib/location.js';
+
+
 /**
  * Klang script source URL.
  */
-const klangSrc = 'third_party/lib/klang/klang.js';
+const klangSrc = urlToStatic('third_party/lib/klang/klang.js');
+
 
 /**
  * Klang config file URL.
  */
-const klangConfigSrc = 'third_party/lib/klang/config.js';
+const klangConfigSrc = urlToStatic('third_party/lib/klang/config.js');
+
 
 /**
  * Local version of `window.Klang` that gets added to the page.
  */
 let localKlang;
+
 
 /**
  * Resolved when a user gesture has completed (or if a user gesture isn't required to play).
@@ -28,10 +34,11 @@ const gesturePromise = new Promise((resolve, reject) => {
   document.addEventListener('touchend', handler);
 });
 
+
 /**
  * Resolved with the loaded Klang object.
  */
-export const klangIsLoaded = new Promise((resolve) => {
+export const klang = new Promise((resolve) => {
   const fn = async () => {
     // only load Klang once the viewport is visible
     await new Promise((r) => window.requestAnimationFrame(r))
@@ -65,46 +72,89 @@ export const klangIsLoaded = new Promise((resolve) => {
   resolve(fn());
 });
 
-/**
- * Trigger an event on Klang. This should be used for sound preload. While Klang broadly only has
- * a notion of 'events' (playing sound also counts as an 'event'), only preload events will result
- * in this method ever resolving.
- *
- * @param {string} event to load
- */
-export async function dispatch(event) {
-  await klangIsLoaded;
-  await new Promise((resolve, reject) => {
-    const empty = () => {};
-    Klang.triggerEvent(event, resolve, empty, reject);
-  });
-};
+
+const klangIsLoaded = klang.then(() => null);
+let klangEventTask = klangIsLoaded;
+let klangAmbientTask = klangIsLoaded;
+
 
 /**
- * Plays a transient sound. These are skipped if Klang is not yet loaded.
+ * Internal call to trigger a waitable event on Klang. Assumes Klang is available in `localKlang`.
+ * Klang is unhappy when multiple waitable events are in-flight, so this is intended to be called
+ * in a serial manner from `fire`.
+ *
+ * @param {string} event to fire
+ * @return {!Promise<boolean>}
+ */
+function triggerEvent(event) {
+  return new Promise((resolve, reject) => {
+    // If Klang invokes the progress callback, then wait for the complete callback to resolve,
+    // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
+    const timeout = window.setTimeout(() => resolve(), 0);
+    const progress = () => {
+      window.clearTimeout(timeout);  // progress called, expect later resolve()
+    };
+    localKlang.triggerEvent(event, resolve, progress, reject);
+  });
+}
+
+
+/**
+ * Trigger an event on Klang. This is used for sound preload and ambient sounds. Events are
+ * rate-limited so at most one event is dispatched per frame.
+ *
+ * @param {string} event to fire
+ * @return {!Promise<void>}
+ */
+export function fire(event) {
+  const localTask = klangEventTask.then(async () => {
+    await triggerEvent(event);
+    await Promise.resolve(true);  // wait microtask
+  });
+  klangEventTask = localTask;
+  return localTask;
+}
+
+
+/**
+ * Plays ambient sound via Klang. Fires the most recent `clearEvent` before allowing another fire
+ * of a new `startEvent` to occur.
+ *
+ * @param {string} startEvent to fire on start
+ * @param {string} clearEvent to fire on cleanup
+ * @return {!Promise<void>} when this audio starts
+ */
+export function ambient(startEvent, clearEvent) {
+  // TODO(samthor): If the startEvent is already running, do nothing.
+  // TODO(samthor): There are a bunch of odd ways games use sound that probably don't mesh with
+  // this model.
+
+  const localTask = klangAmbientTask.then(async (previousClearEvent) => {
+    if (localTask !== klangAmbientTask) {
+      return previousClearEvent;  // allow the next task to clean up, we're superceded
+    }
+
+    if (previousClearEvent !== null) {
+      await triggerEvent(previousClearEvent);
+    }
+    await triggerEvent(startEvent);
+    return clearEvent;
+  });
+  klangAmbientTask = localTask;
+  return localTask.then(() => undefined);
+}
+
+
+/**
+ * Plays a transient sound. Skipped if Klang is not yet loaded.
  *
  * @param {SoundDetail} sound
  */
 export function play(sound) {
-  return localKlang && triggerSound(sound);
-}
+  if (!localKlang) {
+    return;
+  }
 
-/**
- * Plays an ambient sound. These are queued if Klang is not yet loaded.
- *
- * @param {SoundDetail} sound
- */
-export async function ambient(sound) {
-  await klangIsLoaded;
-  return triggerSound(sound);
-}
-
-/**
- * Internal sound trigger. Assumes Klang is available.
- *
- * @param {SoundDetail} sound
- */
-function triggerSound(sound) {
   const soundName = (typeof sound === 'string') ? sound : sound.name;
   const args = [soundName];
 

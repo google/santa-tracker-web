@@ -1,9 +1,13 @@
-const matchSceneMin = /^scenes\/(\w+)\/\1-scene\.min\.js$/;
+const matchScene = require('./match-scene.js');
 
-module.exports = (cand) => {
-  const m = matchSceneMin.exec(cand);
-  if (!m) {
-    return null;
+/**
+ * @param {string} filename to check
+ * @return {?string} sceneName of min file
+ */
+module.exports = (filename) => {
+  const {sceneName, rest} = matchScene(filename);
+  if (rest === `${sceneName}-scene.min.js`) {
+    return sceneName;
   }
-  return m[1];
+  return null;
 }

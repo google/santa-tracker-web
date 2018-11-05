@@ -80,19 +80,10 @@ export class Entrypoint {
   }
 
   async startDefaultMusic() {
-    // Most Klang sounds won't start unless the preload event has been
-    // explicitly waited for.
-    await sc.dispatch('village_load_sounds');
-    sc.ambient('village_start');
-    sc.ambient('music_start_village');
-
-    await new Promise((r) => window.setTimeout(r, 2 * 1000));
-
-    // Some Klang sounds need to be "closed off", otherwise they can keep
-    // playing: possibly forever. There should be a way to record 'cleanup'
-    // events on scene setup, that are called before a new scene is allowed to
-    // make its audio requests.
-    sc.ambient('village_end');
+    // Most Klang sounds won't start unless the preload event has been explicitly waited for.
+    await sc.fire('village_load_sounds');
+    await sc.fire('music_start_village');
+    await sc.ambient('village_start', 'village_end');
   }
 
   syncVisibility() {

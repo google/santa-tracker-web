@@ -2,6 +2,9 @@ goog.provide('app.Game');
 
 goog.require('app.Constants');
 
+/**
+ * @export
+ */
 app.Game = class Game {
   constructor(elem) {
     console.info(`Language game starting`);
@@ -18,11 +21,10 @@ app.Game = class Game {
 
   initFlipAnimations() {
     const cards = this.root.getElementsByClassName('card');
-    for (let i = 0; i < cards.length; i ++) {
-      const card = cards[i];
+    for (const card of cards) {
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
-      })
+      });
     }
   }
 

@@ -1,6 +1,5 @@
 import * as dom from './lib/dom.js';
-
-const scope = new URL('./', self.location.href);
+import {scope} from './lib/location.js';
 
 export function fromUrl(cand) {
   if (cand === null) {

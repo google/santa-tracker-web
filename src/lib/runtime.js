@@ -53,3 +53,4 @@ export function localizeUrl(url) {
   const hasQuery = url.indexOf('?') !== -1;
   return url + (hasQuery ? '&' : '?') + `hl=${loadedWithLang}`;
 }
+
