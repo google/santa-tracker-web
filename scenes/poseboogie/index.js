@@ -5,17 +5,6 @@ const debug = true;
 const videoWidth = 600;
 const videoHeight = 500;
 
-function isAndroid() {
-  return /Android/i.test(navigator.userAgent);
-}
-
-function isiOS() {
-  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-}
-
-function isMobile() {
-  return isAndroid() || isiOS();
-}
 
 /**
  * Loads a the camera to be used in the demo
@@ -30,13 +19,12 @@ async function setupCamera() {
   video.width = videoWidth;
   video.height = videoHeight;
 
-  const mobile = isMobile();
   video.srcObject = await navigator.mediaDevices.getUserMedia({
     'audio': false,
     'video': {
       facingMode: 'user',
-      width: mobile ? undefined : videoWidth,
-      height: mobile ? undefined : videoHeight,
+      width: videoWidth,
+      height: videoHeight,
     },
   });
 
