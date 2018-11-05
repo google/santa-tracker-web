@@ -3236,6 +3236,10 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
+"tensorflow-models@git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1":
+  version "0.0.1"
+  resolved "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1d43706c1983aa534a6dd6c96f0548e1c2"
+
 thenify-all@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/thenify-all/-/thenify-all-1.6.0.tgz#1a1918d402d8fc3f98fbf234db0bcc8cc10e9726"
