@@ -1,3 +1,4 @@
+import api from '../../src/scene/api.js';
 import * as posenet from '@tensorflow-models/posenet';
 import { detectAndDrawPose } from './js/pose.js';
 
@@ -55,7 +56,7 @@ export async function bindPage() {
   try {
     video = await loadVideo();
   } catch (e) {
-    // TODO(macd): build error flow for when camera isn't available
+    // TODO(markmcd): build error flow for when camera isn't available
     console.error('this browser does not support video capture, ' +
         'or this device does not have a camera');
     throw e;
@@ -69,4 +70,7 @@ export async function bindPage() {
 
 navigator.getUserMedia = navigator.getUserMedia ||
     navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-bindPage();
+api.ready(bindPage).catch((reason) => {
+  // TODO(markmcd): display an error page with link back to village
+  console.error(`beep boop, something broke. ${reason}`);
+});
