@@ -90,15 +90,13 @@ app.Game = class Game {
     const cardElements = this.root.getElementsByClassName('card');
     for (const cardElement of cardElements) {
       cardElement.addEventListener('click', () => {
-        if (this.numberOfFlippedCards >= 2) {
+        if (this.flippedCards.length >= 2) {
           // Too many cards flipped already.
           return;
         }
         // Get the data associated with this card.
         const cardIndex = getPositionInParent(cardElement);
         const card = this.cards[cardIndex];
-
-        console.log(card);
 
         if (card.flipped) {
           // Card is already flipped.
@@ -114,7 +112,12 @@ app.Game = class Game {
         this.playSound("hello");
 
         if (this.flippedCards.length >= 2) {
-          // TODO(jez): Check if the cards are a match.
+          // Check if the cards are a match.
+          if (this.flippedCards[0].languageCode == this.flippedCards[1].languageCode) {
+            console.log(`It's a match?`)
+            this.flippedCards.forEach(card => card.matched = true);
+          }
+          // TODO(jez): Resolve timing issues when flipping multiple cards.
           setTimeout(() => this.resetCards(), 1000);
         }
       });
@@ -127,10 +130,15 @@ app.Game = class Game {
    */
   resetCards() {
     const cardElements = this.root.getElementsByClassName('card');
-    for (const card of this.cards) {
+    for (let i = 0; i < this.cards.length; i ++) {
+      const card = this.cards[i];
+      const cardElement = cardElements[i];
+
+      if (card.matched) { // Leave the matched cards as is.
+        continue;
+      }
+      
       card.flipped = false;
-    }
-    for (const cardElement of cardElements) {
       cardElement.classList.remove('flipped');
       // TODO(jez): Don't clear the card here, but only when it's stopped flipping.
       this.clearCardContent(cardElement);
