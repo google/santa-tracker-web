@@ -5,6 +5,10 @@ import { detectAndDrawPose } from './js/pose.js';
 const debug = true;
 const videoWidth = 600;
 const videoHeight = 500;
+const mobileNetArchitecture = 0.75;
+const flipHorizontal = true;  // Assume web-cam source, which flips video
+const imageScaleFactor = 0.5;
+const outputStride = 16;
 
 
 /**
@@ -48,11 +52,11 @@ async function loadVideo() {
  * available camera devices, and setting off the detectAndDrawPose function.
  */
 export async function bindPage() {
-  // Load the PoseNet model weights with architecture 0.75
-  const net = await posenet.load(0.75);
+  // Load the PoseNet model weights with architecture
+  const net = await posenet.load(mobileNetArchitecture);
 
+  // Start the camera
   let video;
-
   try {
     video = await loadVideo();
   } catch (e) {
@@ -63,13 +67,15 @@ export async function bindPage() {
   }
 
   if (debug) {
-    detectAndDrawPose(video, net, videoWidth, videoHeight);
+    detectAndDrawPose(video, net, videoWidth, videoHeight, flipHorizontal,
+        imageScaleFactor, outputStride);
   }
 }
 
 
 navigator.getUserMedia = navigator.getUserMedia ||
     navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
 api.ready(bindPage).catch((reason) => {
   // TODO(markmcd): display an error page with link back to village
   console.error(`beep boop, something broke. ${reason}`);

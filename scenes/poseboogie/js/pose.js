@@ -4,11 +4,11 @@ import {drawKeypoints, drawSkeleton} from 'tensorflow-models/posenet/demos/demo_
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
  */
-export function detectAndDrawPose(video, net, videoWidth, videoHeight) {
+export function detectAndDrawPose(video, net, videoWidth, videoHeight,
+    flipHorizontal, imageScaleFactor, outputStride) {
   const canvas = document.getElementById('output');
   const ctx = canvas.getContext('2d');
   // since images are being fed from a web-cam
-  const flipHorizontal = true;
 
   canvas.width = videoWidth;
   canvas.height = videoHeight;
@@ -16,8 +16,6 @@ export function detectAndDrawPose(video, net, videoWidth, videoHeight) {
   async function poseDetectionFrame() {
     // Scale an image down to a certain factor. Too large of an image will slow
     // down the GPU.
-    const imageScaleFactor = 0.5;
-    const outputStride = 16;
 
     const pose = await net.estimateSinglePose(
         video, imageScaleFactor, flipHorizontal, outputStride);
