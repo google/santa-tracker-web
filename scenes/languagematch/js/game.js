@@ -16,6 +16,9 @@ app.Game = class Game {
 
     this.root = elem.getRootNode();
 
+    // state variables
+    this.numberOfFlippedCards = 0;
+
     this.init();
   }
 
@@ -34,10 +37,32 @@ app.Game = class Game {
     const cards = this.root.getElementsByClassName('card');
     for (const card of cards) {
       card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
+        if (this.numberOfFlippedCards >= 2) {
+          // Too many cards flipped already.
+          return;
+        }
+        if (card.classList.contains('flipped')) {
+          // Card is already flipped.
+          return;
+        }
+
+        card.classList.add('flipped');
+        this.numberOfFlippedCards ++;
         this.playSound("hello");
+
+        if (this.numberOfFlippedCards >= 2) {
+          setTimeout(() => this.resetCards(), 1000);
+        }
       });
     }
+  }
+
+  resetCards() {
+    const cards = this.root.getElementsByClassName('card');
+    for (const card of cards) {
+      card.classList.remove('flipped');
+    }
+    this.numberOfFlippedCards = 0;
   }
 
   /**
