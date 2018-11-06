@@ -3,9 +3,14 @@ goog.provide('app.Game');
 goog.require('app.Constants');
 
 /**
+ * Runs the language matching card game.
  * @export
  */
 app.Game = class Game {
+
+  /**
+   * @param {!HTMLElement} elem Root element of the game (not necessarily of the window).
+   */
   constructor(elem) {
     console.info(`Language game starting`);
 
@@ -14,11 +19,17 @@ app.Game = class Game {
     this.init();
   }
 
+  /**
+   * @private
+   */
   init() {
     this.initFlipAnimations();
     this.initCardContents();
   }
 
+  /**
+   * @private
+   */
   initFlipAnimations() {
     const cards = this.root.getElementsByClassName('card');
     for (const card of cards) {
@@ -29,6 +40,9 @@ app.Game = class Game {
     }
   }
 
+  /**
+   * @private
+   */
   initCardContents() {
     const cards = Array.from(this.root.getElementsByClassName('card'));
     if (cards.length % 2 != 0) {
@@ -56,16 +70,36 @@ app.Game = class Game {
     }
   }
 
+  /**
+   * Sets the content of a card.
+   * @private
+   * @param {!HTMLElement} card
+   * @param {string} text Text to display on the card.
+   */
   setCardText(card, text) {
     const contents = card.getElementsByClassName('card-contents')[0];
     contents.textContent = text;
   }
   
+  /**
+   * Sets the face color of a card.
+   * @private
+   * @param {!HTMLElement} card
+   * @param {string} color CSS color for the card background.
+   */
   setCardColor(card, color) {
     const front = card.getElementsByClassName('card-front')[0];
     front.style.backgroundColor = color;
   }
   
+  /**
+   * Gets a language name in the user's local language.
+   *
+   * Implicitely relies on the inbuilt translation that happens for the page contents.
+   * @private
+   * @param {string} code Language code of the language to get the name of (not the user's language).
+   * @returns {string} Language name in user's language (e.g. 'Spanish' for 'es' if the user's language is 'en').
+   */
   getLanguageName(code) {
     const id = code + '_language_name';
     return this.root.getElementById(id).textContent;
@@ -88,6 +122,10 @@ app.Game = class Game {
 };
 
 // TODO(jez): Replace this with better random function?
+/**
+ * Picks a random integer between 0 (inclusive) and max (exclusive).
+ * @param {number} max Exclusive maximum.
+ */
 function randomInteger(max) {
   return Math.floor(max * Math.random());
 }
