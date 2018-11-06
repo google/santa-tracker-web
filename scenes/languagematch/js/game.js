@@ -1,6 +1,7 @@
 goog.provide('app.Game');
 
 goog.require('app.Constants');
+goog.require('Card');
 
 /**
  * Runs the language matching card game.
@@ -16,8 +17,14 @@ app.Game = class Game {
 
     this.root = elem.getRootNode();
 
-    // state variables
+    // Level state things
+    /** @type Array<Card> */
+    this.cards = [];
+
+    // State variables
     this.numberOfFlippedCards = 0;
+    /** @type Array<Card> */
+    this.flippedCards = [];
 
     this.init();
   }
@@ -26,31 +33,88 @@ app.Game = class Game {
    * @private
    */
   init() {
+    this.initCards();
     this.initFlipAnimations();
-    this.initCardContents();
+  }
+
+  /**
+   * Sets up the underlying data for this game.
+   * @private
+   */
+  initCards() {
+    const cardElements = Array.from(this.root.getElementsByClassName('card'));
+    if (cardElements.length % 2 != 0) {
+      console.error('Invalid number of cards!');
+    }
+
+    const translations = Object.entries(app.Constants.PHRASES[0]);
+    const colors = app.Constants.COLORS.slice();
+
+    const cards = [];
+    for (let i = 0; i < cardElements.length / 2; i ++) {
+      const color = removeRandom(colors);
+      const translation = removeRandom(translations);
+      const languageCode = translation[0];
+      const message = translation[1];
+      const languageName = this.getLanguageName(languageCode);
+
+      const languageCard = new Card();
+      languageCard.languageCode = languageCode;
+      languageCard.content = message;
+      languageCard.contentLanguage = languageCode;
+      languageCard.color = color;
+      cards.push(languageCard);
+
+      const translationCard = new Card();
+      translationCard.languageCode = languageCode;
+      translationCard.content = languageName;
+      // This is in the user's language.
+      // TODO(jez): Make this not just English.
+      translationCard.contentLanguage = 'en';
+      translationCard.color = color;
+      cards.push(translationCard);
+    }
+
+    const shuffledCards = [];
+    while (cards.length > 0) {
+      shuffledCards.push(removeRandom(cards));
+    }
+
+    this.cards = shuffledCards;
   }
 
   /**
    * @private
    */
   initFlipAnimations() {
-    const cards = this.root.getElementsByClassName('card');
-    for (const card of cards) {
-      card.addEventListener('click', () => {
+    const cardElements = this.root.getElementsByClassName('card');
+    for (const cardElement of cardElements) {
+      cardElement.addEventListener('click', () => {
         if (this.numberOfFlippedCards >= 2) {
           // Too many cards flipped already.
           return;
         }
-        if (card.classList.contains('flipped')) {
+        // Get the data associated with this card.
+        const cardIndex = getPositionInParent(cardElement);
+        const card = this.cards[cardIndex];
+
+        console.log(card);
+
+        if (card.flipped) {
           // Card is already flipped.
           return;
         }
 
-        card.classList.add('flipped');
-        this.numberOfFlippedCards ++;
+        this.setCardContent(cardElement, card);
+
+        cardElement.classList.add('flipped');
+        card.flipped = true;
+
+        this.flippedCards.push(card);
         this.playSound("hello");
 
-        if (this.numberOfFlippedCards >= 2) {
+        if (this.flippedCards.length >= 2) {
+          // TODO(jez): Check if the cards are a match.
           setTimeout(() => this.resetCards(), 1000);
         }
       });
@@ -62,64 +126,58 @@ app.Game = class Game {
    * @private
    */
   resetCards() {
-    const cards = this.root.getElementsByClassName('card');
-    for (const card of cards) {
-      card.classList.remove('flipped');
+    const cardElements = this.root.getElementsByClassName('card');
+    for (const card of this.cards) {
+      card.flipped = false;
     }
-    this.numberOfFlippedCards = 0;
+    for (const cardElement of cardElements) {
+      cardElement.classList.remove('flipped');
+      // TODO(jez): Don't clear the card here, but only when it's stopped flipping.
+      this.clearCardContent(cardElement);
+    }
+    this.flippedCards = [];
   }
 
   /**
-   * Sets up the color and contents of all the cards.
-   * TODO(jez): Only do this when the card is flipped so people can't easily cheat?
+   * Sets up the color and contents of a card element to match the underlying card object.
    * @private
+   * @param {!HTMLElement} cardElement Card HTML element.
+   * @param {Card} card Underlying card object. 
    */
-  initCardContents() {
-    const cards = Array.from(this.root.getElementsByClassName('card'));
-    if (cards.length % 2 != 0) {
-      console.error('Invalid number of cards!');
-    }
+  setCardContent(cardElement, card) {
+    this.setCardColor(cardElement, card.color);
+    this.setCardText(cardElement, card.content);
+  }
 
-    const translations = Object.entries(app.Constants.PHRASES[0]);
-
-    const colors = app.Constants.COLORS.slice();
-
-    while (cards.length > 0) {
-      const color = removeRandom(colors);
-      const translation = removeRandom(translations);
-      const languageCode = translation[0];
-      const message = translation[1];
-      const languageName = this.getLanguageName(languageCode);
-
-      const firstCard = removeRandom(cards);
-      const secondCard = removeRandom(cards);
-      this.setCardColor(firstCard, color);
-      this.setCardColor(secondCard, color);
-
-      this.setCardText(firstCard, languageName);
-      this.setCardText(secondCard, message);
-    }
+  /**
+   * Clears the style of a card element (so you can't cheat by looking at the HTML to see what it is).
+   * @private
+   * @param {!HTMLElement} cardElement Card HTML element.
+   */
+  clearCardContent(cardElement) {
+    this.setCardColor(cardElement, 'white');
+    this.setCardText(cardElement, '');
   }
 
   /**
    * Sets the content of a card.
    * @private
-   * @param {!HTMLElement} card
+   * @param {!HTMLElement} cardElement
    * @param {string} text Text to display on the card.
    */
-  setCardText(card, text) {
-    const contents = card.getElementsByClassName('card-contents')[0];
+  setCardText(cardElement, text) {
+    const contents = cardElement.getElementsByClassName('card-contents')[0];
     contents.textContent = text;
   }
   
   /**
    * Sets the face color of a card.
    * @private
-   * @param {!HTMLElement} card
+   * @param {!HTMLElement} cardElement
    * @param {string} color CSS color for the card background.
    */
-  setCardColor(card, color) {
-    const front = card.getElementsByClassName('card-front')[0];
+  setCardColor(cardElement, color) {
+    const front = cardElement.getElementsByClassName('card-front')[0];
     front.style.backgroundColor = color;
   }
   
@@ -164,9 +222,18 @@ function randomInteger(max) {
 /**
  * Removes a random element from an array.
  * 
- * @param {Array<T>} arr Element to take from.
+ * @param {Array<T>} arr Array to take from.
  * @returns {T} Element removed from array.
  */
 function removeRandom(arr) {
   return arr.splice(randomInteger(arr.length), 1)[0];
+}
+
+/**
+ * @param {!HTMLElement} elem Element to find the position in the parent of.
+ * @returns {number} The index of this element in it's parent.
+ */
+function getPositionInParent(elem) {
+  const siblings = Array.from(elem.parentNode.children);
+  return siblings.indexOf(elem);
 }
