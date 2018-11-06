@@ -6,6 +6,9 @@ goog.provide('app.Constants');
 */
 app.Constants = {
 
+  TTS_DOMAIN: 'https://translate.googleapis.com/translate_tts',
+  TTS_QUERY: '?ie=UTF-8&client=santa-tracker&tl={TL}&q={Q}',
+  
   PHRASES: [
     {
       'ar': 'بَابَا نُوِيل',

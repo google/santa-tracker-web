@@ -24,6 +24,7 @@ app.Game = class Game {
     for (const card of cards) {
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
+        this.playSound("hello");
       });
     }
   }
@@ -68,6 +69,20 @@ app.Game = class Game {
   getLanguageName(code) {
     const id = code + '_language_name';
     return this.root.getElementById(id).textContent;
+  }
+
+  /**
+   * @private
+   * @param {string} text Text to play back
+   * @param {?string} languageCode ISO language code
+   */
+  playSound(text, languageCode) {
+    languageCode = languageCode || 'en';
+    var url = app.Constants.TTS_DOMAIN + app.Constants.TTS_QUERY;
+    url = encodeURI(url.replace('{TL}', languageCode).replace('{Q}', text));
+
+    this.audio = new Audio(url);
+    this.audio.play();
   }
 
 };
