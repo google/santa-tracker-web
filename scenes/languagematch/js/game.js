@@ -57,6 +57,10 @@ app.Game = class Game {
     }
   }
 
+  /**
+   * Flips all the cards to be facing down again.
+   * @private
+   */
   resetCards() {
     const cards = this.root.getElementsByClassName('card');
     for (const card of cards) {
@@ -66,6 +70,8 @@ app.Game = class Game {
   }
 
   /**
+   * Sets up the color and contents of all the cards.
+   * TODO(jez): Only do this when the card is flipped so people can't easily cheat?
    * @private
    */
   initCardContents() {
