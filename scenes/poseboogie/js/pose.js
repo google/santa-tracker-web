@@ -20,8 +20,8 @@ export function detectAndDrawPose(video, net, videoWidth, videoHeight,
     const pose = await net.estimateSinglePose(
         video, imageScaleFactor, flipHorizontal, outputStride);
 
-    const minPoseConfidence = 0.15;
-    const minPartConfidence = 0.1;
+    const minPoseConfidence = 0.1;
+    const minPartConfidence = 0.5;
 
     ctx.clearRect(0, 0, videoWidth, videoHeight);
 
@@ -43,4 +43,28 @@ export function detectAndDrawPose(video, net, videoWidth, videoHeight,
   }
 
   poseDetectionFrame();
+}
+
+/**
+ * Draws a p2 body on the supplied context. Relies on a 'img' property on the
+ * body, and assumes that the image is the same aspect ratio as the shape it
+ * represents.
+ */
+export function drawBody(body, ctx) {
+  const x = body.interpolatedPosition[0],
+      y = body.interpolatedPosition[1],
+      s = body.shapes[0];
+  ctx.save();
+  ctx.translate(x, y);  // Translate to the center of the body
+  ctx.rotate(body.interpolatedAngle);  // Rotate to the body's orientation
+  if (s instanceof p2.Box) {
+    if (s.img && s.img.complete) {
+      ctx.drawImage(s.img, -s.width / 2, -s.height / 2, s.width, s.height);
+    }
+  } else if (s instanceof p2.Circle) {
+    if (s.img && s.img.complete) {
+      ctx.drawImage(s.img, -s.radius, -s.radius, 2*s.radius, 2*s.radius);
+    }
+  }
+  ctx.restore();
 }
