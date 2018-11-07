@@ -114,10 +114,8 @@ app.Game = class Game {
         if (this.flippedCards.length >= 2) {
           // Check if the cards are a match.
           if (this.flippedCards[0].languageCode == this.flippedCards[1].languageCode) {
-            console.log(`It's a match?`)
             this.flippedCards.forEach(card => card.matched = true);
           }
-          // TODO(jez): Resolve timing issues when flipping multiple cards.
           setTimeout(() => this.resetCards(), 1000);
         }
       });
@@ -140,10 +138,23 @@ app.Game = class Game {
       
       card.flipped = false;
       cardElement.classList.remove('flipped');
-      // TODO(jez): Don't clear the card here, but only when it's stopped flipping.
-      this.clearCardContent(cardElement);
     }
     this.flippedCards = [];
+    // After the cards have finished flipping, reset their state
+    setTimeout(() => this.clearHiddenCardContents(), 1000);
+  }
+
+  clearHiddenCardContents() {
+    const cardElements = this.root.getElementsByClassName('card');
+    for (let i = 0; i < this.cards.length; i ++) {
+      const card = this.cards[i];
+      const cardElement = cardElements[i];
+
+      if (!card.flipped) {
+        this.clearCardContent(cardElement);
+      }
+    }
+
   }
 
   /**
