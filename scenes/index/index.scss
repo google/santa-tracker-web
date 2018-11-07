@@ -1,0 +1,81 @@
+$header-size: 791px;
+$onpage-size: 325px;
+$snow-color: #f5f2e2;
+
+body {
+  margin: 0;
+}
+
+#village-container {
+  background-color: red;
+  overflow: hidden;
+  height: calc(100vh - 64px);
+  min-height: $header-size;
+  background: $snow-color;
+  position: relative;
+
+  #village-scroll {
+    will-change: transform;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-width: 1800px;
+    min-height: 1280px;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+}
+
+.village {
+  santa-weather {
+    position: absolute;
+    z-index: 1;
+    height: $header-size;
+    width: 100%;
+  }
+
+  .sky {
+    background: url(img/mountain.svg) repeat-x;
+    background-position: 50% 100%;
+    background-size: 1620px 791px;
+    width: 100%;
+    height: $header-size;
+  }
+    
+  .ground {
+    width: 100%;
+    background: url(img/ground.svg);
+    background-repeat: repeat-x;
+    background-size: 2815px 2753px;
+    background-position: 50% 0;
+    height: 100%;
+  }
+
+  .mid {
+    width: 0;
+    position: absolute;
+    left: 50%;
+    top: $header-size;
+
+    .feature-tree {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 374px;
+      height: 466px;
+      background: url(img/easteregg-tree.svg) no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+#quilt-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  margin: -2px 0;
+  border-radius: 2px;
+  background: #585fe8;
+  box-shadow: 0 2px 12px #585fe8;
+}
