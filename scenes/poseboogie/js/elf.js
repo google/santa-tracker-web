@@ -11,7 +11,7 @@ const
     armWidth = armLength / 3,
     handLength = 1.5,
     legLength = 5,
-    legWidth = legLength / 5;
+    legWidth = legLength / 2.5;
 
 export class Elf {
   constructor(world) {
@@ -199,50 +199,97 @@ export class Elf {
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - legLength/2],
+      position: [shoulderWidth/2, -torsoLength - legLength/4],
       mass: 1,
     });
     this.leftLeg.zIndex = 1;
     this.leftLegShape = new p2.Box({
       width: legWidth,
-      height: legLength,
+      height: legLength/2,
       collisionGroup: BODY_PARTS,
       collisionMask: OTHER,
     });
-    this.leftLegShape.img = document.getElementById('leg');
+    // TODO(markmcd): Do we need different graphics for the legs?
+    this.leftLegShape.img = document.getElementById('arm');
     this.leftLeg.addShape(this.leftLegShape);
     p2World.addBody(this.leftLeg);
 
+    this.leftCalf = new p2.Body({
+      position: [shoulderWidth/2, -torsoLength - legLength*3/4],
+      mass: 1,
+    });
+    this.leftCalf.zIndex = 1;
+    this.leftCalfShape = new p2.Box({
+      width: legWidth,
+      height: legLength/2,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.leftCalfShape.img = document.getElementById('arm');
+    this.leftCalf.addShape(this.leftCalfShape);
+    p2World.addBody(this.leftCalf);
+
     this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
       localPivotA: [shoulderWidth/2, -torsoLength/2],
-      localPivotB: [0, legLength/2],
+      localPivotB: [0, legLength/4],
       collideConnected: false,
     });
     this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftHip);
 
+    this.leftKnee = new p2.RevoluteConstraint(this.leftLeg, this.leftCalf, {
+      localPivotA: [0, -legLength/4],
+      localPivotB: [0, legLength/4],
+      collideConnected: false,
+    });
+    this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.leftKnee);
+
     this.rightLeg = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - legLength/2],
+      position: [-shoulderWidth/2, -torsoLength - legLength/4],
       mass: 1,
     });
     this.rightLeg.zIndex = 1;
     this.rightLegShape = new p2.Box({
       width: legWidth,
-      height: legLength,
+      height: legLength/2,
       collisionGroup: BODY_PARTS,
       collisionMask: OTHER,
     });
-    this.rightLegShape.img = document.getElementById('leg');
+    this.rightLegShape.img = document.getElementById('arm');
     this.rightLeg.addShape(this.rightLegShape);
     p2World.addBody(this.rightLeg);
 
+    this.rightCalf = new p2.Body({
+      position: [-shoulderWidth/2, -torsoLength - legLength*3/4],
+      mass: 1,
+    });
+    this.rightCalf.zIndex = 1;
+    this.rightCalfShape = new p2.Box({
+      width: legWidth,
+      height: legLength/2,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.rightCalfShape.img = document.getElementById('arm');
+    this.rightCalf.addShape(this.rightCalfShape);
+    p2World.addBody(this.rightCalf);
+
     this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
       localPivotA: [-shoulderWidth/2, -torsoLength/2],
-      localPivotB: [0, legLength/2],
+      localPivotB: [0, legLength/4],
       collideConnected: false,
     });
     this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightHip);
+
+    this.rightKnee = new p2.RevoluteConstraint(this.rightLeg, this.rightCalf, {
+      localPivotA: [0, -legLength/4],
+      localPivotB: [0, legLength/4],
+      collideConnected: false,
+    });
+    this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.rightKnee);
   }
 
   track(videoConfig) {
@@ -326,7 +373,25 @@ export class Elf {
     this.leftHand.position = scale(part('leftWrist').position);
     this.rightHand.position = scale(part('rightWrist').position);
 
-    this.leftLeg.position = scale(part('leftKnee').position);
-    this.rightLeg.position = scale(part('rightKnee').position);
+    const leftHip = part('leftHip').position;
+    const leftKnee = part('leftKnee').position;
+    const leftAnkle = part('leftAnkle').position;
+    this.leftLeg.angle = Math.PI / 2 - Math.atan2(
+        leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
+    this.leftCalf.angle = Math.PI / 2 - Math.atan2(
+        leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+
+    const rightHip = part('rightHip').position;
+    const rightKnee = part('rightKnee').position;
+    const rightAnkle = part('rightAnkle').position;
+    this.rightLeg.angle = Math.PI / 2 - Math.atan2(
+        rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
+    this.rightCalf.angle = Math.PI / 2 - Math.atan2(
+        rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+
+    this.leftLeg.position = scale(mean(['leftHip', 'leftKnee']));
+    this.leftCalf.position = scale(mean(['leftKnee', 'leftAnkle']));
+    this.rightLeg.position = scale(mean(['rightHip', 'rightKnee']));
+    this.rightCalf.position = scale(mean(['rightKnee', 'rightAnkle']));
   }
 }
