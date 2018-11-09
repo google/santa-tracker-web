@@ -26,7 +26,7 @@ export class Elf {
       position: [0, headRadius],
       mass: 1,
     });
-    this.head.zIndex = 2;
+    this.head.zIndex = 1.5;
 
     this.headShape = new p2.Circle({
       radius: headRadius,
@@ -87,7 +87,7 @@ export class Elf {
       position: [shoulderWidth/2, -torsoLength/2 - armLength/2],
       mass: 1,
     });
-    this.leftForeArm.zIndex = 1;
+    this.leftForeArm.zIndex = 2;
     this.leftForeArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
@@ -133,7 +133,7 @@ export class Elf {
       position: [-shoulderWidth/2, -torsoLength/2 - armLength/2],
       mass: 1,
     });
-    this.rightForeArm.zIndex = 1;
+    this.rightForeArm.zIndex = 2;
     this.rightForeArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
@@ -202,7 +202,7 @@ export class Elf {
       position: [shoulderWidth/2, -torsoLength - legLength/4],
       mass: 1,
     });
-    this.leftLeg.zIndex = 1;
+    this.leftLeg.zIndex = 2;
     this.leftLegShape = new p2.Box({
       width: legWidth,
       height: legLength/2,
@@ -218,7 +218,7 @@ export class Elf {
       position: [shoulderWidth/2, -torsoLength - legLength*3/4],
       mass: 1,
     });
-    this.leftCalf.zIndex = 1;
+    this.leftCalf.zIndex = 2;
     this.leftCalfShape = new p2.Box({
       width: legWidth,
       height: legLength/2,
@@ -249,7 +249,7 @@ export class Elf {
       position: [-shoulderWidth/2, -torsoLength - legLength/4],
       mass: 1,
     });
-    this.rightLeg.zIndex = 1;
+    this.rightLeg.zIndex = 2;
     this.rightLegShape = new p2.Box({
       width: legWidth,
       height: legLength/2,
@@ -264,7 +264,7 @@ export class Elf {
       position: [-shoulderWidth/2, -torsoLength - legLength*3/4],
       mass: 1,
     });
-    this.rightCalf.zIndex = 1;
+    this.rightCalf.zIndex = 2;
     this.rightCalfShape = new p2.Box({
       width: legWidth,
       height: legLength/2,
