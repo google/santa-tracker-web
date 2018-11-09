@@ -107,27 +107,50 @@ export class Elf {
     p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength/2],
+      position: [-shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
     this.rightArm.zIndex = 1;
     this.rightArmShape = new p2.Box({
       width: armWidth,
-      height: armLength,
+      height: armLength/2,
       collisionGroup: BODY_PARTS,
       collisionMask: OTHER,
     });
-    this.rightArmShape.img = document.getElementById('rightarm');
+    this.rightArmShape.img = document.getElementById('arm');
     this.rightArm.addShape(this.rightArmShape);
     p2World.addBody(this.rightArm);
 
     this.rightShoulder = new p2.RevoluteConstraint(this.torso, this.rightArm, {
       localPivotA: [-shoulderWidth/2, torsoLength/2],
-      localPivotB: [0, armLength/2],
+      localPivotB: [0, armLength/4],
       collideConnected: false,
     });
     this.rightShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.rightShoulder);
+
+    this.rightForeArm = new p2.Body({
+      position: [-shoulderWidth/2, -torsoLength/2 - armLength/2],
+      mass: 1,
+    });
+    this.rightForeArm.zIndex = 1;
+    this.rightForeArmShape = new p2.Box({
+      width: armWidth,
+      height: armLength/2,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.rightForeArmShape.img = document.getElementById('arm');
+    this.rightForeArm.addShape(this.rightForeArmShape);
+    p2World.addBody(this.rightForeArm);
+
+    this.rightElbow = new p2.RevoluteConstraint(this.rightArm, this.rightForeArm, {
+      localPivotA: [0, -armLength/4],
+      localPivotB: [0, armLength/4],
+      collideConnected: false,
+    });
+    this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.rightElbow);
 
     this.leftHand = new p2.Body({
       position: [shoulderWidth/2, -torsoLength - handLength/2],
@@ -144,12 +167,11 @@ export class Elf {
     this.leftHand.addShape(this.leftHandShape);
     p2World.addBody(this.leftHand);
 
-    this.leftWrist = new p2.RevoluteConstraint(this.leftForeArm, this.leftHand,
-        {
-          localPivotA: [0, -armLength/4],
-          localPivotB: [0, handLength/2],
-          collideConnected: false,
-        });
+    this.leftWrist = new p2.RevoluteConstraint(this.leftForeArm, this.leftHand, {
+      localPivotA: [0, -armLength/4],
+      localPivotB: [0, handLength/2],
+      collideConnected: false,
+    });
     this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.leftWrist);
 
@@ -168,12 +190,12 @@ export class Elf {
     this.rightHand.addShape(this.rightHandShape);
     p2World.addBody(this.rightHand);
 
-    this.rightWrist = new p2.RevoluteConstraint(this.rightArm, this.rightHand, {
-      localPivotA: [0, -armLength/2],
+    this.rightWrist = new p2.RevoluteConstraint(this.rightForeArm, this.rightHand, {
+      localPivotA: [0, -armLength/4],
       localPivotB: [0, handLength/2],
       collideConnected: false,
     });
-    this.rightWrist.setLimits(-Math.PI / 4, Math.PI / 4);
+    this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
@@ -288,9 +310,18 @@ export class Elf {
     this.leftForeArm.angle = Math.PI / 2 - Math.atan2(
         leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
 
+    const rightShoulder = part('rightShoulder').position;
+    const rightElbow = part('rightElbow').position;
+    const rightWrist = part('rightWrist').position;
+    this.rightArm.angle = Math.PI / 2 - Math.atan2(
+        rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
+    this.rightForeArm.angle = Math.PI / 2 - Math.atan2(
+        rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
+
     this.leftArm.position = scale(mean(['leftShoulder', 'leftElbow']));
     this.leftForeArm.position = scale(mean(['leftElbow', 'leftWrist']));
-    this.rightArm.position = scale(part('rightElbow').position);
+    this.rightArm.position = scale(mean(['rightShoulder', 'rightElbow']));
+    this.rightForeArm.position = scale(mean(['rightElbow', 'rightWrist']));
 
     this.leftHand.position = scale(part('leftWrist').position);
     this.rightHand.position = scale(part('rightWrist').position);
