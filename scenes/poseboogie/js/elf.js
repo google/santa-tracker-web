@@ -8,7 +8,7 @@ const
     torsoLength = 5,
     shoulderWidth = torsoLength * 0.7,
     armLength = torsoLength,
-    armWidth = armLength / 2.5,
+    armWidth = armLength / 3,
     handLength = 1.5,
     legLength = 5,
     legWidth = legLength / 5;
@@ -61,27 +61,50 @@ export class Elf {
     p2World.addConstraint(this.neckJoint);
 
     this.leftArm = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength/2],
+      position: [shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
     this.leftArm.zIndex = 1;
     this.leftArmShape = new p2.Box({
       width: armWidth,
-      height: armLength,
+      height: armLength/2,
       collisionGroup: BODY_PARTS,
       collisionMask: OTHER,
     });
-    this.leftArmShape.img = document.getElementById('leftarm');
+    this.leftArmShape.img = document.getElementById('arm');
     this.leftArm.addShape(this.leftArmShape);
     p2World.addBody(this.leftArm);
 
     this.leftShoulder = new p2.RevoluteConstraint(this.torso, this.leftArm, {
       localPivotA: [shoulderWidth/2, torsoLength/2],
-      localPivotB: [0, armLength/2],
+      localPivotB: [0, armLength/4],
       collideConnected: false,
     });
     this.leftShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.leftShoulder);
+
+    this.leftForeArm = new p2.Body({
+      position: [shoulderWidth/2, -torsoLength/2 - armLength/2],
+      mass: 1,
+    });
+    this.leftForeArm.zIndex = 1;
+    this.leftForeArmShape = new p2.Box({
+      width: armWidth,
+      height: armLength/2,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.leftForeArmShape.img = document.getElementById('arm');
+    this.leftForeArm.addShape(this.leftForeArmShape);
+    p2World.addBody(this.leftForeArm);
+
+    this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
+      localPivotA: [0, -armLength/4],
+      localPivotB: [0, armLength/4],
+      collideConnected: false,
+    });
+    this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
       position: [-shoulderWidth/2, -torsoLength/2],
@@ -121,12 +144,13 @@ export class Elf {
     this.leftHand.addShape(this.leftHandShape);
     p2World.addBody(this.leftHand);
 
-    this.leftWrist = new p2.RevoluteConstraint(this.leftArm, this.leftHand, {
-      localPivotA: [0, -armLength/2],
-      localPivotB: [0, handLength/2],
-      collideConnected: false,
-    });
-    this.leftWrist.setLimits(-Math.PI / 4, Math.PI / 4);
+    this.leftWrist = new p2.RevoluteConstraint(this.leftForeArm, this.leftHand,
+        {
+          localPivotA: [0, -armLength/4],
+          localPivotB: [0, handLength/2],
+          collideConnected: false,
+        });
+    this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.leftWrist);
 
     this.rightHand = new p2.Body({
@@ -236,6 +260,13 @@ export class Elf {
     const scale = ({x, y}) => [(x - this.videoWidth / 2) / this.world.zoom,
       -(y - this.videoHeight / 2) / this.world.zoom];
     const part = part => this.pose.keypoints.find(k => k.part === part);
+    const mean = partList => {
+      const parts = partList.map((label) => part(label));
+      return parts.reduce((acc, {position}) => ({
+        x: acc.x + position.x / parts.length,
+        y: acc.y + position.y / parts.length,
+      }), {x: 0, y: 0});
+    };
 
     this.head.position = scale(part('nose').position);
 
@@ -243,15 +274,22 @@ export class Elf {
     // torso-framing joints.
     // TODO(markmcd): filter out low-conf parts, but don't update if <2
     // parts or only 2 adjacent parts.
-    const torso = ['leftShoulder', 'rightShoulder', 'leftHip', 'rightHip']
-        .map((label) => part(label));
-    const position = torso.reduce((acc, {position}) => ({
-      x: acc.x + position.x / torso.length,
-      y: acc.y + position.y / torso.length,
-    }), {x: 0, y: 0});
-    this.torso.position = scale(position);
+    this.torso.position = scale(mean([
+      'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip']));
 
-    this.leftArm.position = scale(part('leftElbow').position);
+    // We can calculate the angle of these parts, so do so.
+    // TODO(markmcd): Should we cache part() calls?
+    const leftShoulder = part('leftShoulder').position;
+    const leftElbow = part('leftElbow').position;
+    const leftWrist = part('leftWrist').position;
+    // π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
+    this.leftArm.angle = Math.PI / 2 - Math.atan2(
+        leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
+    this.leftForeArm.angle = Math.PI / 2 - Math.atan2(
+        leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
+
+    this.leftArm.position = scale(mean(['leftShoulder', 'leftElbow']));
+    this.leftForeArm.position = scale(mean(['leftElbow', 'leftWrist']));
     this.rightArm.position = scale(part('rightElbow').position);
 
     this.leftHand.position = scale(part('leftWrist').position);

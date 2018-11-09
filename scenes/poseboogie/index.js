@@ -15,7 +15,7 @@ const outputStride = 16;
 api.preload.images(
   'img/face.png',
   'img/body.png',
-  'img/leftArm.png',
+  'img/arm.png',
   'img/rightArm.png',
   'img/hand_cuff.png',
   'img/leg.png',
