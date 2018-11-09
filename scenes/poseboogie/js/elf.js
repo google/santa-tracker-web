@@ -147,13 +147,13 @@ export class Elf {
     p2World.addConstraint(this.rightWrist);
   }
 
-  track(video, net, videoWidth, videoHeight, flipHorizontal, imageScaleFactor,
-      outputStride) {
-    this.videoWidth = videoWidth;
-    this.videoHeight = videoHeight;
+  track(videoConfig) {
+    this.videoWidth = videoConfig.videoWidth;
+    this.videoHeight = videoConfig.videoHeight;
 
     const trackFrame = () => {
-      net.estimateSinglePose(video, imageScaleFactor, flipHorizontal, outputStride)
+      videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
+            videoConfig.flipHorizontal, videoConfig.outputStride)
           .then((pose) => {
             this.pose = pose;
             document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);

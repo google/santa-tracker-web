@@ -77,17 +77,18 @@ export async function bindPage() {
     throw e;
   }
 
+  const videoConfig = {video, net, videoWidth, videoHeight, flipHorizontal,
+    imageScaleFactor, outputStride};
+
   const world = new World();
   const elf = new Elf(world);
 
   world.animate(document.getElementById('scene'));
-  elf.track(video, net, videoWidth, videoHeight, flipHorizontal,
-      imageScaleFactor, outputStride);
+  elf.track(videoConfig);
 
   if (debug) {
     document.getElementById('debug').style.display = 'block';
-    detectAndDrawPose(video, net, videoWidth, videoHeight, flipHorizontal,
-        imageScaleFactor, outputStride);
+    detectAndDrawPose(videoConfig);
   }
 }
 

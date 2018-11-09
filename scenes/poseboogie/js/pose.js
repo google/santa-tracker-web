@@ -4,36 +4,30 @@ import {drawKeypoints, drawSkeleton} from 'tensorflow-models/posenet/demos/demo_
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
  */
-export function detectAndDrawPose(video, net, videoWidth, videoHeight,
-    flipHorizontal, imageScaleFactor, outputStride) {
+export function detectAndDrawPose(videoConfig) {
   const canvas = document.getElementById('output');
   const ctx = canvas.getContext('2d');
-  // since images are being fed from a web-cam
 
-  canvas.width = videoWidth;
-  canvas.height = videoHeight;
+  canvas.width = videoConfig.videoWidth;
+  canvas.height = videoConfig.videoHeight;
 
   async function poseDetectionFrame() {
-    // Scale an image down to a certain factor. Too large of an image will slow
-    // down the GPU.
-
-    const pose = await net.estimateSinglePose(
-        video, imageScaleFactor, flipHorizontal, outputStride);
+    const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
+        videoConfig.imageScaleFactor, videoConfig.flipHorizontal, videoConfig.outputStride);
 
     const minPoseConfidence = 0.1;
     const minPartConfidence = 0.5;
 
-    ctx.clearRect(0, 0, videoWidth, videoHeight);
+    ctx.clearRect(0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
 
     // Draw the video feed
     ctx.save();
     ctx.scale(-1, 1);
-    ctx.translate(-videoWidth, 0);
-    ctx.drawImage(video, 0, 0, videoWidth, videoHeight);
+    ctx.translate(-videoConfig.videoWidth, 0);
+    ctx.drawImage(videoConfig.video, 0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
     ctx.restore();
 
-    // Draw the resulting skeleton and keypoints if over certain confidence
-    // scores
+    // Draw the resulting skeleton and key-points if over certain confidence scores
     if (pose.score >= minPoseConfidence) {
       drawKeypoints(pose.keypoints, minPartConfidence, ctx);
       drawSkeleton(pose.keypoints, minPartConfidence, ctx);
