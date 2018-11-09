@@ -9,12 +9,18 @@ const
     shoulderWidth = torsoLength * 0.7,
     armLength = torsoLength,
     armWidth = armLength / 2.5,
-    handLength = 1.5;
+    handLength = 1.5,
+    legLength = 5,
+    legWidth = legLength / 5;
 
 export class Elf {
   constructor(world) {
     this.world = world;
     const p2World = world.world;
+
+    // [0, 0] is the center of the body at the point below the head and above
+    // the torso. Body positions define the center of mass for the body, which
+    // by default, is the center of the shape.
 
     this.head = new p2.Body({
       position: [0, headRadius],
@@ -145,6 +151,52 @@ export class Elf {
     });
     this.rightWrist.setLimits(-Math.PI / 4, Math.PI / 4);
     p2World.addConstraint(this.rightWrist);
+
+    this.leftLeg = new p2.Body({
+      position: [shoulderWidth/2, -torsoLength - legLength/2],
+      mass: 1,
+    });
+    this.leftLeg.zIndex = 1;
+    this.leftLegShape = new p2.Box({
+      width: legWidth,
+      height: legLength,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.leftLegShape.img = document.getElementById('leg');
+    this.leftLeg.addShape(this.leftLegShape);
+    p2World.addBody(this.leftLeg);
+
+    this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
+      localPivotA: [shoulderWidth/2, -torsoLength/2],
+      localPivotB: [0, legLength/2],
+      collideConnected: false,
+    });
+    this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.leftHip);
+
+    this.rightLeg = new p2.Body({
+      position: [-shoulderWidth/2, -torsoLength - legLength/2],
+      mass: 1,
+    });
+    this.rightLeg.zIndex = 1;
+    this.rightLegShape = new p2.Box({
+      width: legWidth,
+      height: legLength,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.rightLegShape.img = document.getElementById('leg');
+    this.rightLeg.addShape(this.rightLegShape);
+    p2World.addBody(this.rightLeg);
+
+    this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
+      localPivotA: [-shoulderWidth/2, -torsoLength/2],
+      localPivotB: [0, legLength/2],
+      collideConnected: false,
+    });
+    this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
+    p2World.addConstraint(this.rightHip);
   }
 
   track(videoConfig) {
@@ -204,5 +256,8 @@ export class Elf {
 
     this.leftHand.position = scale(part('leftWrist').position);
     this.rightHand.position = scale(part('rightWrist').position);
+
+    this.leftLeg.position = scale(part('leftKnee').position);
+    this.rightLeg.position = scale(part('rightKnee').position);
   }
 }

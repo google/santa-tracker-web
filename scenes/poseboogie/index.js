@@ -18,6 +18,7 @@ api.preload.images(
   'img/leftArm.png',
   'img/rightArm.png',
   'img/hand_cuff.png',
+  'img/leg.png',
 );
 const posePromise = posenet.load(mobileNetArchitecture);
 api.preload.wait(posePromise);
