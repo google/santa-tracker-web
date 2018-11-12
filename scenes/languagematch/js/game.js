@@ -173,7 +173,7 @@ app.Game = class Game {
   playSound(text, languageCode) {
     languageCode = languageCode || 'en';
     var url = app.Constants.TTS_DOMAIN + app.Constants.TTS_QUERY;
-    url = encodeURI(url.replace('{TL}', languageCode).replace('{Q}', text));
+    url = window.encodeURI(url.replace('{TL}', languageCode).replace('{Q}', text));
 
     this.audio = new Audio(url);
     this.audio.play();
