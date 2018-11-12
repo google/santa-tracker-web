@@ -3,6 +3,7 @@ import {html, LitElement} from '@polymer/lit-element';
 
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
+import * as prefix from '../lib/prefix.js';
 
 
 function sceneIsScroll(sceneName) {
@@ -37,7 +38,7 @@ export class SantaAppElement extends LitElement {
 
   constructor() {
     super();
-    this._idPrefix = `_${Math.random().toString(16).slice(2)}_`;
+    this._idPrefix = prefix.id();
 
     // Handle 'Enter' on a focusable <label> element.
     this.shadowRoot.addEventListener('keydown', (ev) => {
