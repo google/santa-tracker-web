@@ -78,4 +78,30 @@ body {
   border-radius: 2px;
   background: #585fe8;
   box-shadow: 0 2px 12px #585fe8;
+
+  .quilt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+
+    a {
+      margin: 48px;
+    }
+  }
+
+  a {
+    display: inline-block;
+
+    santa-image-mask {
+      will-change: transform;
+      transition: transform 0.25s;
+      transform: translateY(0);
+      transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
+    }
+    &:hover santa-image-mask {
+      transform: translateY(-10px);
+      transition: transform 0.2s;
+    }  
+}
 }

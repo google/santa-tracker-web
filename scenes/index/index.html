@@ -12,6 +12,7 @@
 <script type="module">
   import api from '../../src/scene/api.js';
   import '../../src/elements/santa-weather.js';
+  import '../../src/elements/santa-image-mask.js';
 
   const offset = {x: 0, y: 0};
   let previousPointer = null;
@@ -80,6 +81,23 @@
 </div>
 
 <div id="quilt-container">
+  <div class="quilt">
+    <a href="#">
+      <santa-image-mask src="../../img/scenes/airport_1x.png" size="200">Airport</santa-image-mask>
+    </a>
+    <a href="#">
+      <santa-image-mask src="../../img/scenes/boatload_1x.png" size="200">Gift Slingshot</santa-image-mask>
+    </a>
+    <a href="#">
+      <santa-image-mask src="../../img/scenes/codeboogie_1x.png" size="200">Code Boogie</santa-image-mask>
+    </a>
+    <a href="#">
+      <santa-image-mask src="../../img/scenes/snowball_1x.png" size="200">Snowball Storm</santa-image-mask>
+    </a>
+    <a href="#">
+      <santa-image-mask src="../../img/scenes/smatch_1x.png" size="200">Gift Match</santa-image-mask>
+    </a>
+  </div>
 </div>
 
 </body>
