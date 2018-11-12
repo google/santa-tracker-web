@@ -300,7 +300,7 @@ export class Elf {
       videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
             videoConfig.flipHorizontal, videoConfig.outputStride)
           .then((pose) => {
-            this.pose = pose;
+            this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
             document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
           })
           .catch((reason) => {
@@ -326,7 +326,7 @@ export class Elf {
     // These cause the model to glitch out, so warn the user to get back into
     // the frame.
 
-    this.head.position = this.scale(this.part('nose').position);
+    this.head.position = this.scale(this.pose['nose'].position);
 
     // Set the torso position (center of mass) to the mean of the observed
     // torso-framing joints.
@@ -336,19 +336,18 @@ export class Elf {
       'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip']));
 
     // We can calculate the angle of these parts, so do so.
-    // TODO(markmcd): Should we cache part() calls?
-    const leftShoulder = this.part('leftShoulder').position;
-    const leftElbow = this.part('leftElbow').position;
-    const leftWrist = this.part('leftWrist').position;
+    const leftShoulder = this.pose['leftShoulder'].position;
+    const leftElbow = this.pose['leftElbow'].position;
+    const leftWrist = this.pose['leftWrist'].position;
     // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
     this.leftArm.angle = Math.PI / 2 - Math.atan2(
         leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
     this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
         leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
 
-    const rightShoulder = this.part('rightShoulder').position;
-    const rightElbow = this.part('rightElbow').position;
-    const rightWrist = this.part('rightWrist').position;
+    const rightShoulder = this.pose['rightShoulder'].position;
+    const rightElbow = this.pose['rightElbow'].position;
+    const rightWrist = this.pose['rightWrist'].position;
     this.rightArm.angle = Math.PI / 2 - Math.atan2(
         rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
     this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
@@ -359,20 +358,20 @@ export class Elf {
     this.rightArm.position = this.scale(this.mean(['rightShoulder', 'rightElbow']));
     this.rightForeArm.position = this.scale(this.mean(['rightElbow', 'rightWrist']));
 
-    this.leftHand.position = this.scale(this.part('leftWrist').position);
-    this.rightHand.position = this.scale(this.part('rightWrist').position);
+    this.leftHand.position = this.scale(this.pose['leftWrist'].position);
+    this.rightHand.position = this.scale(this.pose['rightWrist'].position);
 
-    const leftHip = this.part('leftHip').position;
-    const leftKnee = this.part('leftKnee').position;
-    const leftAnkle = this.part('leftAnkle').position;
+    const leftHip = this.pose['leftHip'].position;
+    const leftKnee = this.pose['leftKnee'].position;
+    const leftAnkle = this.pose['leftAnkle'].position;
     this.leftLeg.angle = Math.PI / 2 - Math.atan2(
         leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
     this.leftCalf.angle = Math.PI / 2 - Math.atan2(
         leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
 
-    const rightHip = this.part('rightHip').position;
-    const rightKnee = this.part('rightKnee').position;
-    const rightAnkle = this.part('rightAnkle').position;
+    const rightHip = this.pose['rightHip'].position;
+    const rightKnee = this.pose['rightKnee'].position;
+    const rightAnkle = this.pose['rightAnkle'].position;
     this.rightLeg.angle = Math.PI / 2 - Math.atan2(
         rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
     this.rightCalf.angle = Math.PI / 2 - Math.atan2(
@@ -389,13 +388,10 @@ export class Elf {
       -(y - this.videoHeight / 2) / this.world.zoom];
   }
 
-  part(part) {
-    return this.pose.keypoints.find(k => k.part === part);
-  }
-
   mean(parts) {
-    return parts.map(part).reduce((acc, {position}) => ({
+    return parts.map((label) => this.pose[label]).reduce((acc, {position}) => ({
       x: acc.x + position.x / parts.length,
       y: acc.y + position.y / parts.length,
-    }), {x: 0, y: 0})  }
+    }), {x: 0, y: 0})
+  }
 }
