@@ -1,5 +1,3 @@
-
-
 const parse5 = require('parse5');
 const parser = new (require('jsdom/lib/jsdom/living')).DOMParser();
 
@@ -26,13 +24,27 @@ const treeAdapter = {
 };
 
 module.exports = {
+
+  /**
+   * Parse the input into a JSDom document.
+   *
+   * @param {string|!Buffer} src
+   * @return {!Document}
+   */
   parse(src) {
-    return parser.parseFromString(src, 'text/html');
+    return parser.parseFromString(src.toString(), 'text/html');
   },
+
+  /**
+   * Seralize the JSDom document or node.
+   *
+   * @param {!Node|!Document} node
+   */
   serialize(node) {
     if ('innerHTML' in node) {
       return node.innerHTML;
     }
     return parse5.serialize(node, {treeAdapter});
   },
+
 };
