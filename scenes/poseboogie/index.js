@@ -12,7 +12,6 @@ const flipHorizontal = true;  // Assume web-cam source, which flips video
 const imageScaleFactor = 0.5;
 const outputStride = 16;
 
-// TODO(markmcd): preload posenet dependencies (model, weights, etc).
 api.preload.images(
   'img/face.png',
   'img/body.png',
@@ -20,6 +19,8 @@ api.preload.images(
   'img/rightArm.png',
   'img/hand_cuff.png',
 );
+const posePromise = posenet.load(mobileNetArchitecture);
+api.preload.wait(posePromise);
 
 /**
  * Loads a the camera to be used in the demo
@@ -63,8 +64,9 @@ async function loadVideo() {
  * available camera devices, and setting off the detectAndDrawPose function.
  */
 export async function bindPage() {
-  // Load the PoseNet model weights with architecture
-  const net = await posenet.load(mobileNetArchitecture);
+  // Load the PoseNet model weights with architecture - the preload API will have already loaded
+  // the resources so this should be quick.
+  const net = await posePromise;
 
   // Start the camera
   let video;
