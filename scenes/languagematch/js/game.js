@@ -26,8 +26,37 @@ app.Game = class Game {
    * @private
    */
   init() {
+    // TODO(jez): Dynamically pick the number of cards to use.
+    this.createCards(16);
     this.initFlipAnimations();
     this.initCardContents();
+  }
+
+  /**
+   * Adds card elements to the page.
+   * @private
+   * @param {Number} numCards Number of cards to add.
+   */
+  createCards(numCards) {
+    const cards = document.getElementsByClassName('cards')[0];
+
+    for (let i = 0; i < numCards; i ++) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      cards.appendChild(card);
+
+      const cardFront = document.createElement('div');
+      cardFront.classList.add('card-front');
+      card.appendChild(cardFront);
+
+      const cardContents = document.createElement('div');
+      cardContents.classList.add('card-contents');
+      cardFront.appendChild(cardContents);
+
+      const cardBack = document.createElement('div');
+      cardBack.classList.add('card-back');
+      card.appendChild(cardBack);
+    }
   }
 
   /**
@@ -76,7 +105,7 @@ app.Game = class Game {
    */
   initCardContents() {
     const cards = Array.from(this.root.getElementsByClassName('card'));
-    if (cards.length % 2 != 0) {
+    if ((cards.length % 2) != 0) {
       console.error('Invalid number of cards!');
     }
 
@@ -164,8 +193,9 @@ function randomInteger(max) {
 /**
  * Removes a random element from an array.
  * 
- * @param {Array<T>} arr Element to take from.
+ * @param {!Array<T>} arr Element to take from.
  * @returns {T} Element removed from array.
+ * @template T
  */
 function removeRandom(arr) {
   return arr.splice(randomInteger(arr.length), 1)[0];
