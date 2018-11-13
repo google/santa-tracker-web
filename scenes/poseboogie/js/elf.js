@@ -340,7 +340,7 @@ export class Elf {
     const leftElbow = this.pose['leftElbow'].position;
     const leftWrist = this.pose['leftWrist'].position;
     // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
-    this.leftArm.angle = Math.PI / 2 - Math.atan2(
+    this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
         leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
     this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
         leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
@@ -348,7 +348,7 @@ export class Elf {
     const rightShoulder = this.pose['rightShoulder'].position;
     const rightElbow = this.pose['rightElbow'].position;
     const rightWrist = this.pose['rightWrist'].position;
-    this.rightArm.angle = Math.PI / 2 - Math.atan2(
+    this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
         rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
     this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
         rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
