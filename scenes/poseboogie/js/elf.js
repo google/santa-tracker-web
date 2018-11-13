@@ -295,6 +295,7 @@ export class Elf {
   track(videoConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
+    this.threshold = videoConfig.minPartConfidence;
 
     const trackFrame = () => {
       videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
@@ -328,61 +329,86 @@ export class Elf {
     // These cause the model to glitch out, so warn the user to get back into
     // the frame.
 
-    this.head.position = this.scale(this.pose['nose'].position);
+    if (this.allGood('nose')) {
+      this.head.position = this.scale(this.pose['nose'].position);
+    }
 
     // Set the torso position (center of mass) to the mean of the observed
     // torso-framing joints.
     // TODO(markmcd): filter out low-conf parts, but don't update if <2
     // parts or only 2 adjacent parts.
-    this.torso.position = this.scale(this.mean(
-      'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'));
+    const chestParts = ['leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'];
+    if (this.allGood(...chestParts)) {
+      this.torso.position = this.scale(this.mean(...chestParts));
+    }
 
     // We can calculate the angle of these parts, so do so.
     const leftShoulder = this.pose['leftShoulder'].position;
     const leftElbow = this.pose['leftElbow'].position;
     const leftWrist = this.pose['leftWrist'].position;
-    // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
-    this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
-        leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
-    this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
-        leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
+
+    if (this.allGood('leftShoulder', 'leftElbow')) {
+      this.leftArm.position = this.scale(this.mean('leftShoulder', 'leftElbow'));
+      // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
+      this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
+    }
+
+    if (this.allGood('leftElbow', 'leftWrist')) {
+      this.leftForeArm.position = this.scale(this.mean('leftElbow', 'leftWrist'));
+      this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
+      this.leftHand.position = this.scale(this.pose['leftWrist'].position);
+    }
 
     const rightShoulder = this.pose['rightShoulder'].position;
     const rightElbow = this.pose['rightElbow'].position;
     const rightWrist = this.pose['rightWrist'].position;
-    this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
-        rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
-    this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
-        rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
 
-    this.leftArm.position = this.scale(this.mean('leftShoulder', 'leftElbow'));
-    this.leftForeArm.position = this.scale(this.mean('leftElbow', 'leftWrist'));
-    this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
-    this.rightForeArm.position = this.scale(this.mean('rightElbow', 'rightWrist'));
+    if (this.allGood('rightShoulder', 'rightElbow')) {
+      this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
+      this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
+    }
 
-    this.leftHand.position = this.scale(this.pose['leftWrist'].position);
-    this.rightHand.position = this.scale(this.pose['rightWrist'].position);
+    if (this.allGood('rightElbow', 'rightWrist')) {
+      this.rightForeArm.position = this.scale(this.mean('rightElbow', 'rightWrist'));
+      this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
+      this.rightHand.position = this.scale(this.pose['rightWrist'].position);
+    }
 
     const leftHip = this.pose['leftHip'].position;
     const leftKnee = this.pose['leftKnee'].position;
     const leftAnkle = this.pose['leftAnkle'].position;
-    this.leftLeg.angle = Math.PI / 2 - Math.atan2(
-        leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
-    this.leftCalf.angle = Math.PI / 2 - Math.atan2(
-        leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+
+    if (this.allGood('leftHip', 'leftKnee')) {
+      this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
+      this.leftLeg.angle = Math.PI / 2 - Math.atan2(
+          leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
+    }
+
+    if (this.allGood('leftKnee', 'leftAnkle')) {
+      this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
+      this.leftCalf.angle = Math.PI / 2 - Math.atan2(
+          leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+    }
 
     const rightHip = this.pose['rightHip'].position;
     const rightKnee = this.pose['rightKnee'].position;
     const rightAnkle = this.pose['rightAnkle'].position;
-    this.rightLeg.angle = Math.PI / 2 - Math.atan2(
-        rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
-    this.rightCalf.angle = Math.PI / 2 - Math.atan2(
-        rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
 
-    this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
-    this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
-    this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
-    this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
+    if (this.allGood('rightHip', 'rightKnee')) {
+      this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
+      this.rightLeg.angle = Math.PI / 2 - Math.atan2(
+          rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
+    }
+
+    if (this.allGood('rightKnee', 'rightAnkle')) {
+      this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
+      this.rightCalf.angle = Math.PI / 2 - Math.atan2(
+          rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+    }
   }
 
   scale({x, y}) {
@@ -395,5 +421,9 @@ export class Elf {
       x: acc.x + position.x / parts.length,
       y: acc.y + position.y / parts.length,
     }), {x: 0, y: 0})
+  }
+
+  allGood(...parts) {
+    return parts.map((label) => this.pose[label]).every((part) => part.score > this.threshold);
   }
 }
