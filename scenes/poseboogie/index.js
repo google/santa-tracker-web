@@ -15,8 +15,7 @@ const outputStride = 16;
 api.preload.images(
   'img/face.png',
   'img/body.png',
-  'img/leftArm.png',
-  'img/rightArm.png',
+  'img/arm.png',
   'img/hand_cuff.png',
 );
 const posePromise = posenet.load(mobileNetArchitecture);
