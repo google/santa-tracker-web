@@ -328,14 +328,11 @@ export class Elf {
 
     const scale = ({x, y}) => [(x - this.videoWidth / 2) / this.world.zoom,
       -(y - this.videoHeight / 2) / this.world.zoom];
-    const part = part => this.pose.keypoints.find(k => k.part === part);
-    const mean = partList => {
-      const parts = partList.map((label) => part(label));
-      return parts.reduce((acc, {position}) => ({
-        x: acc.x + position.x / parts.length,
-        y: acc.y + position.y / parts.length,
-      }), {x: 0, y: 0});
-    };
+    const part = (part) => this.pose.keypoints.find(k => k.part === part);
+    const mean = (parts) => parts.map(part).reduce((acc, {position}) => ({
+      x: acc.x + position.x / parts.length,
+      y: acc.y + position.y / parts.length,
+    }), {x: 0, y: 0});
 
     this.head.position = scale(part('nose').position);
 
