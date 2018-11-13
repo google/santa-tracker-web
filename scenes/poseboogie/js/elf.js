@@ -301,7 +301,9 @@ export class Elf {
             videoConfig.flipHorizontal, videoConfig.outputStride)
           .then((pose) => {
             this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
-            document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+            if (videoConfig.debug) {
+              document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+            }
           })
           .catch((reason) => {
             console.error('Pose estimation failed!', reason);

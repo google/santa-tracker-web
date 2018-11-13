@@ -7,6 +7,7 @@ import { World } from './js/world.js';
 const debug = true;
 const videoWidth = 600;
 const videoHeight = 500;
+const minPartConfidence = 0.5;
 const mobileNetArchitecture = 0.75;
 const flipHorizontal = true;  // Assume web-cam source, which flips video
 const imageScaleFactor = 0.5;
@@ -79,7 +80,7 @@ export async function bindPage() {
   }
 
   const videoConfig = {video, net, videoWidth, videoHeight, flipHorizontal,
-    imageScaleFactor, outputStride};
+    imageScaleFactor, outputStride, minPartConfidence, debug};
 
   const world = new World();
   const elf = new Elf(world);
