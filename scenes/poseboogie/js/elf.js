@@ -334,8 +334,8 @@ export class Elf {
     // torso-framing joints.
     // TODO(markmcd): filter out low-conf parts, but don't update if <2
     // parts or only 2 adjacent parts.
-    this.torso.position = this.scale(this.mean([
-      'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip']));
+    this.torso.position = this.scale(this.mean(
+      'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'));
 
     // We can calculate the angle of these parts, so do so.
     const leftShoulder = this.pose['leftShoulder'].position;
@@ -355,10 +355,10 @@ export class Elf {
     this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
         rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
 
-    this.leftArm.position = this.scale(this.mean(['leftShoulder', 'leftElbow']));
-    this.leftForeArm.position = this.scale(this.mean(['leftElbow', 'leftWrist']));
-    this.rightArm.position = this.scale(this.mean(['rightShoulder', 'rightElbow']));
-    this.rightForeArm.position = this.scale(this.mean(['rightElbow', 'rightWrist']));
+    this.leftArm.position = this.scale(this.mean('leftShoulder', 'leftElbow'));
+    this.leftForeArm.position = this.scale(this.mean('leftElbow', 'leftWrist'));
+    this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
+    this.rightForeArm.position = this.scale(this.mean('rightElbow', 'rightWrist'));
 
     this.leftHand.position = this.scale(this.pose['leftWrist'].position);
     this.rightHand.position = this.scale(this.pose['rightWrist'].position);
@@ -379,10 +379,10 @@ export class Elf {
     this.rightCalf.angle = Math.PI / 2 - Math.atan2(
         rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
 
-    this.leftLeg.position = this.scale(this.mean(['leftHip', 'leftKnee']));
-    this.leftCalf.position = this.scale(this.mean(['leftKnee', 'leftAnkle']));
-    this.rightLeg.position = this.scale(this.mean(['rightHip', 'rightKnee']));
-    this.rightCalf.position = this.scale(this.mean(['rightKnee', 'rightAnkle']));
+    this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
+    this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
+    this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
+    this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
   }
 
   scale({x, y}) {
@@ -390,7 +390,7 @@ export class Elf {
       -(y - this.videoHeight / 2) / this.world.zoom];
   }
 
-  mean(parts) {
+  mean(...parts) {
     return parts.map((label) => this.pose[label]).reduce((acc, {position}) => ({
       x: acc.x + position.x / parts.length,
       y: acc.y + position.y / parts.length,
