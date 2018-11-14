@@ -30,7 +30,6 @@ const syntheticSourceRe = /\[synthetic:(.*?)\]/;
 
 // nb. This assumes `compile-scene.js` is one level up from `node_modules`.
 const rootDir = path.join(__dirname, '..');
-let hasJava = undefined;
 
 
 /**

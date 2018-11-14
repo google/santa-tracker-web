@@ -1,7 +1,6 @@
 const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
-const rollupInject = require('rollup-plugin-inject');
 
 /**
  * @param {function(string, string|undefined): string|undefined}
@@ -28,15 +27,6 @@ function virtualPlugin(virtual) {
 const rollupInputOptions = (filename, virtual) => {
   const plugins = [
     rollupNodeResolve(),
-    // NOTE(cdata): This is only necessary to support redux until
-    // https://github.com/reduxjs/redux/pull/3143 lands in a release
-    rollupInject({
-      // configuration of rollupInject
-      include: 'node_modules/redux/**/*.js',
-
-      // definitions below
-      'modules': {process: path.resolve('./src/lib/process.js')},
-    }),
   ];
   if (virtual) {
     plugins.unshift(virtualPlugin(virtual));

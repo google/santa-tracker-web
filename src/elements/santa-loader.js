@@ -61,6 +61,7 @@ class SantaLoaderElement extends HTMLElement {
    * @param {!MessageEvent} ev
    */
   _onMessage(ev) {
+    // handle if it's one of ours
     const src = this._onMessageHandler.get(ev.source);
     src && src(ev);
   }
@@ -96,7 +97,7 @@ class SantaLoaderElement extends HTMLElement {
     const cleanupMessageHandler = () => this._onMessageHandler.delete(pf.contentWindow);
     const messageHandler = (ev) => {
       if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
-        throw new Error(`got unexpected message from preload: ${ev.data}`);
+        throw new Error(`got unexpected message from preload 'init': ${ev.data}`);
       }
       cleanupMessageHandler();
       frameInitReceived = true;
@@ -108,7 +109,7 @@ class SantaLoaderElement extends HTMLElement {
         }
       }, SCENE_PRELOAD_TIMEOUT);
 
-      // listen to preload events and rebroadcast to listeners
+      // listen to preload events from the frame and announce to page
       const preloadPort = ev.ports[0];
       preloadPort.onmessage = (ev) => {
         if (ev.data === null) {

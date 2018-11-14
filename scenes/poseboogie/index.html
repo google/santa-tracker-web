@@ -6,14 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800" />
   <link rel="stylesheet" href="./index.css" />
+
+  <script src="../../third_party/lib/p2/p2.js"></script>
 </head>
 <body>
 
 <div id="splash">
   <div id="mid">
-    <video id="video" playsinline></video>
-    <canvas id="output"></canvas>
+    <canvas id="scene"></canvas>
+
+    <!-- debug info and video feed -->
+    <div id="debug">
+      <textarea id="textdump"></textarea>
+      <video id="video" playsinline></video>
+      <canvas id="output"></canvas>
+    </div>
   </div>
+</div>
+
+<div id="elfbits">
+  <!-- TODO(markmcd): use the SVG images instead -->
+  <!-- TODO(markmcd): pull these from the loader when possible -->
+  <img src="img/face.png" id="face" />
+  <img src="img/body.png" id="body" />
+  <img src="img/arm.png" id="arm" />
+  <img src="img/hand_cuff.png" id="hand" />
 </div>
 
 <script src="index.js" type="module"></script>

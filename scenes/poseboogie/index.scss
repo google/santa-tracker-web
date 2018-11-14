@@ -16,7 +16,32 @@ body {
   height: 100%;
 }
 
+#elfbits {
+  display: none;
+}
+
+#debug {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#debug * {
+  display: block;
+  margin: 5px 5px 5px auto;
+}
+
 #video {
   transform: scaleX(-1);
   display: none;
+}
+
+#textdump {
+  width: 500px;
+  height: 500px;
+}
+
+#scene {
+  z-index: 1;
 }

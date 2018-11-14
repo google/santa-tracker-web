@@ -6,8 +6,9 @@ const postcss = require('postcss');
 const sass = require('sass');
 
 /**
- * This is an explicitly sync function to compile SASS => CSS. It needs to be sync as it might be
- * called as part of a Babel plugin, which cannot be async.
+ * This is an explicitly sync function to compile SASS => CSS with autoprefixer.
+ *
+ * It needs to be sync as it might be called as part of a Babel plugin, which cannot be async.
  *
  * @param {string} filename with .css extension to request
  * @param {boolean} compile whether to properly compile (autoprefixer)

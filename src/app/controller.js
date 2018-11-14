@@ -1,6 +1,6 @@
 import {Controller} from '@polymer/broadway/lib/controller';
 import {logger} from '@polymer/broadway/lib/logger';
-import {createStore} from 'redux';
+import {createStore} from 'redux/es/redux.mjs';  // package.json doesn't export mjs as module
 
 import {SantaAPI} from '../api/santaapi.js';
 
