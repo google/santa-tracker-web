@@ -144,7 +144,7 @@ app.Game = class Game {
         card.flipped = true;
 
         this.flippedCards.push(card);
-        this.playSound("hello");
+        this.playSound(card.content, card.contentLanguage);
 
         if (this.flippedCards.length >= 2) {
           // Once the flip animation has ended...
