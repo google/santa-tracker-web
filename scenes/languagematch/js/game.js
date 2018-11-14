@@ -21,10 +21,10 @@ app.Game = class Game {
     /** @type Array<Card> */
     this.cards = [];
 
-    // State variables
-    this.numberOfFlippedCards = 0;
     /** @type Array<Card> */
     this.flippedCards = [];
+    /** @type boolean */
+    this.levelWon = false;
 
     this.init();
   }
@@ -34,7 +34,7 @@ app.Game = class Game {
    */
   init() {
     // TODO(jez): Dynamically pick the number of cards to use.
-    this.createCards(16);
+    this.createCards(8);
     this.initCards();
     this.initFlipAnimations();
   }
@@ -57,6 +57,7 @@ app.Game = class Game {
       const color = removeRandom(colors);
       const translation = removeRandom(translations);
       const languageCode = translation[0];
+      // TODO(jez): Make sure this doesn't clash with an existing language.
       const message = translation[1];
       const languageName = this.getLanguageName(languageCode);
 
@@ -123,6 +124,11 @@ app.Game = class Game {
           // Too many cards flipped already.
           return;
         }
+        if (this.levelWon) {
+          // The game has been won and we're in the process of resetting.
+          return;
+        }
+
         // Get the data associated with this card.
         const cardIndex = getPositionInParent(cardElement);
         const card = this.cards[cardIndex];
@@ -141,22 +147,47 @@ app.Game = class Game {
         this.playSound("hello");
 
         if (this.flippedCards.length >= 2) {
-          // Check if the cards are a match.
-          if (this.flippedCards[0].languageCode == this.flippedCards[1].languageCode) {
+          // Once the flip animation has ended...
+          setTimeout(() => {
+            // Check if the cards are a match.
+            if (this.flippedCards[0].languageCode != this.flippedCards[1].languageCode) {
+              // Not a match. Reset guess.
+              this.resetGuesses();
+              return;
+            }
+
+            // Mark cards as matched.
             this.flippedCards.forEach(card => card.matched = true);
-          }
-          setTimeout(() => this.resetCards(), 1000);
+            // Clear the flipped cards so we can guess again.
+            this.flippedCards = [];
+
+            // If every card is matched, reset things.
+            if (this.cards.every(card => card.matched)) {
+              this.levelWon = true;
+
+              // Change the underlying cards.
+              // Note that the cards won't be visually updated until they're flipped again.
+              this.initCards();
+
+              this.resetGuesses();
+              setTimeout(() => {
+                // Allow the user to guess again.
+                this.levelWon = false;
+              }, 1000);
+            }
+          }, 1000);
         }
       });
     }
   }
 
   /**
-   * Flips all the cards to be facing down again.
+   * Flips all unmatching cards to be facing down again.
    * @private
    */
-  resetCards() {
+  resetGuesses() {
     const cardElements = this.root.getElementsByClassName('card');
+
     for (let i = 0; i < this.cards.length; i ++) {
       const card = this.cards[i];
       const cardElement = cardElements[i];
