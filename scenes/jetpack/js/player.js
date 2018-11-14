@@ -54,7 +54,9 @@ app.Player.prototype.reset = function() {
   this.shake = 0;
   this.isHit = false;
   this.hitDuration = 0;
+  this.isGoingUp = false;
   this.elem.removeClass('player--hit');
+  this.elem.removeClass('player--up');
 
   // Sound state
   this.soundFrameCounter = 0;
@@ -134,6 +136,15 @@ app.Player.prototype.onFrame = function(delta) {
       'translate3D(' + this.x + 'px,' + this.y + 'px,0) ' +
       'rotate(' + rotation + 'deg)');
   this.fireElem.css('transform', 'translateZ(0) scale(' + fireScale + ')');
+
+  // Update sprite state
+  if (nInputY === -1 && !this.isGoingUp) {
+    this.isGoingUp = true;
+    this.elem.addClass('player--up');
+  } else if (this.isGoingUp && nInputY > -1) {
+    this.isGoingUp = false;
+    this.elem.removeClass('player--up');
+  }
 
   // See if we cought any items.
   this.checkCollisions_();

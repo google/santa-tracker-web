@@ -1,10 +1,29 @@
 ##{$name} {
   .cloud {
-    background-image: url(img/cloud.png);
-    height: 110px;
-    margin-left: -91px;
-    margin-top: 55px;
+    background-image: url(img/clouds.png);
     position: absolute;
-    width: 183px;
+  }
+
+  .cloud--0 {
+    height: 68px;
+    margin-left: -70px;
+    margin-top: 34px;
+    width: 140px;
+  }
+
+  .cloud--1 {
+    background-position: -150px 0px;
+    height: 81px;
+    margin-left: -65px;
+    margin-top: 41px;
+    width: 130px;
+  }
+
+  .cloud--2 {
+    background-position: -300px 0px;
+    height: 81px;
+    margin-left: -68px;
+    margin-top: 41px;
+    width: 135px;
   }
 }

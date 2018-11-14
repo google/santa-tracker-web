@@ -72,6 +72,7 @@ app.Cloud.prototype.onInit = function() {
   this.y = -150;
 
   this.elem.css('left', Math.random() * this.game.sceneSize.width);
+  this.elem.addClass('cloud--' + type);
 };
 
 
