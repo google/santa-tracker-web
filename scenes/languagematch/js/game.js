@@ -164,7 +164,7 @@ app.Game = class Game {
       if (card.matched) { // Leave the matched cards as is.
         continue;
       }
-      
+
       card.flipped = false;
       cardElement.classList.remove('flipped');
     }
@@ -190,7 +190,7 @@ app.Game = class Game {
    * Sets up the color and contents of a card element to match the underlying card object.
    * @private
    * @param {!HTMLElement} cardElement Card HTML element.
-   * @param {Card} card Underlying card object. 
+   * @param {Card} card Underlying card object.
    */
   setCardContent(cardElement, card) {
     this.setCardColor(cardElement, card.color);
