@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 
-const watchTimeout = 15 * 1000;
+const watchTimeout = 30 * 1000;
 
 
 /**
@@ -92,7 +92,12 @@ module.exports = function(loader) {
       if (out === null) {
         return next();
       }
-      result = prepare(filename, out);
+
+      if (cached[filename] !== undefined) {
+        result = cached[filename];  // another request 'won'
+      } else {
+        result = prepare(filename, out);
+      }
     }
 
     ctx.response.body = result.body;
