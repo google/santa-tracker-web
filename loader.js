@@ -135,14 +135,23 @@ async function loader(filename) {
     ({js: body, map} = out);
   } else if (parsed.name.endsWith('.bundle')) {
     // completely bundles code
-    const clean = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-    const out = await bundleCode(path.join(parsed.dir, clean));
+    const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
+    const out = await bundleCode(path.join(parsed.dir, actual));
     ({code: body, map} = out);
   } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
     // convert JSON/JSON5 to an exportable module
-    const raw = await fsp.readFile(path.join(parsed.dir, parsed.name), 'utf8');
+    const actual = path.join(parsed.dir, parsed.name);
+    const raw = await fsp.readFile(actual, 'utf8');
     const json = JSON5.parse(raw);
     body = `const o=${JSON.stringify(json)};export default o;`;
+
+    // Pretend to have an actual source map. This just shows the source up in a browser and
+    // makes `loader-transform.js` watch the actual source file for changes.
+    // TODO(samthor): This could be done properly by using Rollup with a JSON plugin?
+    map = {
+      sources: [actual],
+      sourcesContent: [raw],
+    };
   } else {
     // regular JS file
     body = await fsp.readFile(filename, 'utf8');
@@ -161,12 +170,13 @@ async function loader(filename) {
     ({code: body, map} = result);
   }
 
-  // remove sourceRoot by flattening all deps
+  // Flatten dependant source files (so they are relative to the request path root), but also
+  // update sourceRoot so that it reflects the source's actual path for browser rendering.
   if (map !== null) {
     const dirname = path.dirname(filename);
     const sourceRoot = map.sourceRoot || '.';
     map.sources = (map.sources || []).map((f) => path.join(dirname, sourceRoot, f));
-    delete map.sourceRoot;
+    map.sourceRoot = path.relative(dirname, '.');
   }
 
   return body !== null ? {body, map} : null;
