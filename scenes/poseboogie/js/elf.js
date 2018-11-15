@@ -13,6 +13,13 @@ const
     legLength = 5,
     legWidth = legLength / 2.5;
 
+// When making very frequent updates, particularly twitchy ones, the physics engine calculates the
+// bodies as having very high velocity. This value is used to clamp the velocities to a speed
+// limit. Velocity is only used when we fail to detect a keypoint so this should be kept low to
+// ensure relatively smooth movement. This also allows us to increase our confidence threshold and
+// work at higher precision.
+const speedLimit = 1;
+
 export class Elf {
   constructor(world) {
     this.world = world;
@@ -409,6 +416,16 @@ export class Elf {
       this.rightCalf.angle = Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
     }
+
+    // Clamp velocities. See comment on speedLimit definition.
+    this.world.world.bodies.forEach((body) => {
+      body.velocity = body.velocity.map((v) => Elf.clamp(v, speedLimit));
+      body.angularVelocity = Elf.clamp(body.angularVelocity, speedLimit);
+    })
+  }
+
+  static clamp(n, limit) {
+    return Math.min(Math.max(-limit, n), limit);
   }
 
   scale({x, y}) {
