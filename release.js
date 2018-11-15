@@ -5,18 +5,18 @@
  */
 
 const color = require('ansi-colors');
-const compileCss = require('./build/compile-css.js');
-const compileScene = require('./build/compile-scene.js');
+// const compileCss = require('./build/compile-css.js');
+// const compileScene = require('./build/compile-scene.js');
 const dom = require('./build/dom.js');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
 const isUrl = require('./build/is-url.js');
 const log = require('fancy-log');
-const matchScene = require('./build/match-scene.js');
-const matchSceneMin = require('./build/match-scene-min.js');
-const normalizeJs = require('./build/normalize-js.js');
+// const matchScene = require('./build/match-scene.js');
+// const matchSceneMin = require('./build/match-scene-min.js');
+// const normalizeJs = require('./build/normalize-js.js');
 const path = require('path');
-const rollupEntrypoint = require('./build/rollup-entrypoint.js');
+// const rollupEntrypoint = require('./build/rollup-entrypoint.js');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
