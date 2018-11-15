@@ -5,7 +5,7 @@ import { Elf } from './js/elf.js';
 import { World } from './js/world.js';
 
 const debug = true;
-const videoWidth = 600;
+const videoWidth = 700;
 const videoHeight = 500;
 const minPartConfidence = 0.5;
 const mobileNetArchitecture = 0.75;
