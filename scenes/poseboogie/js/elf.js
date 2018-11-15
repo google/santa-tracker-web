@@ -391,13 +391,13 @@ export class Elf {
 
     if (this.allGood('leftHip', 'leftKnee')) {
       this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
-      this.leftLeg.angle = Math.PI / 2 - Math.atan2(
+      this.leftLeg.angle = 3 * Math.PI / 2 - Math.atan2(
           leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
     }
 
     if (this.allGood('leftKnee', 'leftAnkle')) {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
-      this.leftCalf.angle = Math.PI / 2 - Math.atan2(
+      this.leftCalf.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
     }
 
@@ -407,13 +407,13 @@ export class Elf {
 
     if (this.allGood('rightHip', 'rightKnee')) {
       this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
-      this.rightLeg.angle = Math.PI / 2 - Math.atan2(
+      this.rightLeg.angle = 3 * Math.PI / 2 - Math.atan2(
           rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
     }
 
     if (this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
-      this.rightCalf.angle = Math.PI / 2 - Math.atan2(
+      this.rightCalf.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
     }
 
