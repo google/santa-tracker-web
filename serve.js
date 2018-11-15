@@ -3,6 +3,7 @@
 const Koa = require('koa');
 const koaStatic = require('koa-static');
 const log = require('fancy-log');
+const path = require('path');
 const colors = require('ansi-colors');
 
 const yargs = require('yargs')
@@ -24,13 +25,10 @@ const yargs = require('yargs')
 async function serve() {
   const server = new Koa();
 
-  const closureJsTransform = require('./closure-js-transform.js');
-  const jsTransform = require('./js-transform.js');
-  const cssTransform = require('./css-transform.js');
+  const loader = require('./loader.js');
+  const loaderTransform = require('./loader-transform.js');
 
-  server.use(closureJsTransform({compile: yargs.compile}));
-  server.use(jsTransform);
-  server.use(cssTransform);
+  server.use(loaderTransform(loader));
 
   server.use(async (ctx, next) => {
     const simplePathMatch = /^\/(\w+)\.html(|\?.*)$/.exec(ctx.url);

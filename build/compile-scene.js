@@ -66,7 +66,7 @@ function relativeSrc(all) {
  *
  * @param {!Buffer} buf raw sourceMap to process
  * @param {string} root path to apply to sourceMap
- * @return {!Buffer} updated sourceMap containing all source file contents
+ * @return {!Object} updated sourceMap containing all source file contents
  */
 async function processSourceMap(buf, root='../../') {
   const o = JSON.parse(buf.toString());
@@ -80,10 +80,10 @@ async function processSourceMap(buf, root='../../') {
       continue;
     }
 
-    const buf = await fsp.readFile(source);
+    const buf = await fsp.readFile(source, 'utf8');
     o.sourcesContent.push(buf);
   }
-  return Buffer.from(JSON.stringify(o), 'utf8');;
+  return o;
 }
 
 
@@ -107,13 +107,13 @@ function invokeCompiler(compiler) {
 /**
  * @param {!CompileSceneOptions} config
  * @param {boolean=} compile
- * @return {{compile: boolean, js: string, sourceMap: !Buffer}}
+ * @return {{compile: boolean, js: string, map: !Object}}
  */
 module.exports = async function compile(config, compile=false) {
   const libraries = config.libraries || [];
   const compilerSrc = [
     `scenes/${config.sceneName}/js/**.js`,
-    'scenes/_shared/js/*.js',
+    'scenes/_shared/js/**.js',
     ...libraries,  // extra libraries required by scene
   ];
   const entryPoint = config.entryPoint || 'app.Game';
@@ -132,8 +132,9 @@ module.exports = async function compile(config, compile=false) {
     // "app.Game" => "app") and delcare it as a global, as well as a property of the `this` during
     // execution of the Closure-generated source.
     const leftEntryPoint = entryPoint.split('.')[0];
-    outputWrapper = `var global=window,$jscomp={global:global},${leftEntryPoint}={};
-(function(){%output%}).call({${leftEntryPoint}});${outputWrapper}`;
+    outputWrapper =
+        `var global=window,$jscomp={global:global},${leftEntryPoint}={};` +
+        `(function(){%output%}).call({${leftEntryPoint}});${outputWrapper}`;
   } else {
     // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
     // declare globals suitable for execution in module scope. This is required as Closure's
@@ -172,8 +173,12 @@ module.exports = async function compile(config, compile=false) {
   }
 
   const js = await invokeCompiler(compiler);
-  const sourceMap = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
+  const map = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
   sourceMapTemp.removeCallback();
 
-  return {compile, js, sourceMap};
+  // nb. used so that listening callers can watch the whole dir for changes.
+  map.sources.push(`scenes/${config.sceneName}/js`, `scenes/_shared/js`);
+  map.sourcesContent.push(null, null);
+
+  return {compile, js, map};
 };
