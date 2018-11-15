@@ -1,4 +1,5 @@
 const fs = require('fs');
+const mimeTypes = require('mime-types');
 const path = require('path');
 
 
@@ -6,18 +7,29 @@ const watchTimeout = 30 * 1000;
 
 
 /**
- * @param {string} filename to return defs for
- * @return {{type: ?string, cstyle: (boolean|undefined)}}
+ * @param {string} filename of the target file
+ * @param {string} content to inline within
+ * @param {!Object} map to inline
+ * @return {string} a possibly-modified content
  */
-function defs(filename) {
-  switch (path.extname(filename)) {
-    case '.js':
-      return {type: 'application/javascript', cstyle: false};
-    case '.css':
-      return {type: 'text/css', cstyle: true};
-    default:
-      return {type: null, cstyle: undefined};
+function inlineSourceMap(filename, content, map) {
+  const ext = path.extname(filename);
+
+  let cstyle;
+  if (ext === '.js') {
+    cstyle = false;
+  } else if (ext === '.css') {
+    cstyle = true;
+  } else {
+    return content;
   }
+
+  const encodedMap = Buffer.from(JSON.stringify(map), 'utf8').toString('base64');
+  const trailer = `# sourceMappingURL=data:application/json;base64,${encodedMap}`;
+  if (cstyle) {
+    return content + `\n/*${trailer} */`;
+  }
+  return content + `\n//${trailer}`;
 }
 
 
@@ -32,6 +44,7 @@ function watch(paths, done, timeout) {
     return null;
   }
 
+  // assume node_modules/ content will not change
   const valid = paths.filter((cand) => !cand.startsWith('node_modules/'));
   if (!valid.length) {
     return null;
@@ -43,7 +56,8 @@ function watch(paths, done, timeout) {
     done();
   }
   // TODO(samthor): {recursive: true} doesn't work on Linux, but this method is passed all
-  // dependant files. This will only cause problems for scenes, which build whole dirs.
+  // dependant files anyway. This will only cause problems for scenes, which build whole dirs, but
+  // observing the directory reveals immediate subtree changes regardless.
   watchers = paths.map((cand) => fs.watch(cand, {recursive: true}, shutdown));
 
   return setTimeout(shutdown, timeout);
@@ -54,44 +68,27 @@ function watch(paths, done, timeout) {
  * @param {function(string): ?Object} loader to load file from disk or build it
  * @param {string} filename to be loaded
  * @param {function(): void} cleanup to be called once file is done or cannot be loaded
- * @return {?{body: string, type: ?string}}
+ * @return {?string}
  */
 async function load(loader, filename, cleanup) {
-  const result = {
-    body: null,
-    type: null,
-  };
   let watching = false;
 
   try {
     const raw = await loader(filename);
     if (!raw) {
+      // nothing to do, defer to static handler
       return null;
-    }
-
-    const {type, cstyle} = defs(filename);
-    result.body = raw.body;
-    result.type = type;
-
-    // bail early if there's no source map, nothing to watch/append
-    if (!raw.map) {
-      return result;
-    }
-
-    // append the encoded source map if possible
-    if (typeof cstyle === 'boolean') {
-      const encodedMap = Buffer.from(JSON.stringify(raw.map), 'utf8').toString('base64');
-      const trailer = `# sourceMappingURL=data:application/json;base64,${encodedMap}`;
-      if (cstyle) {
-        result.body += `/*${trailer} */`;
-      } else {
-        result.body += `//${trailer}`;
-      }
+    } else if (!raw.map) {
+      // bail early if there's no source map, nothing to watch/append
+      return raw.body;
     }
 
     // invalidate cache if something observable changes
     watching = watch(raw.map.sources, cleanup, watchTimeout);
-    return result;
+
+    // append the encoded source map if possible
+    return inlineSourceMap(filename, raw.body, raw.map);
+
   } finally {
     // run cleanup early if it won't be run by watch
     watching || cleanup();
@@ -103,6 +100,8 @@ async function load(loader, filename, cleanup) {
 
 /**
  * Builds a Koa transform which wraps the given Loader.
+ *
+ * @param {function(string): ?Object} loader to load file from disk or build it
  */
 module.exports = function(loader) {
   const cached = {};
@@ -123,9 +122,7 @@ module.exports = function(loader) {
       return next();
     }
 
-    ctx.response.body = result.body;
-    if (result.type !== null) {
-      ctx.response.type = result.type;
-    }
+    ctx.response.body = result;
+    ctx.response.type = mimeTypes.lookup(filename) || ctx.response.type;
   };
 };

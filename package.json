@@ -25,6 +25,7 @@
     "json5": "^2.1.0",
     "koa": "^2.5.3",
     "koa-static": "^5.0.0",
+    "mime-types": "^2.1.21",
     "mkdirp": "^0.5.1",
     "mocha": "^5.2.0",
     "mocha-headless-server": "^0.1.2",
