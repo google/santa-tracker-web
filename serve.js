@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+const colors = require('ansi-colors');
+const fsp = require('./build/fsp.js');
 const Koa = require('koa');
 const koaStatic = require('koa-static');
 const log = require('fancy-log');
-const colors = require('ansi-colors');
+const path = require('path');
 
 const yargs = require('yargs')
     .strict()
@@ -12,7 +14,7 @@ const yargs = require('yargs')
       alias: 'p',
       type: 'number',
       default: process.env.PORT || 5000,
-      describe: 'Serving port',
+      describe: 'Serving port (+1 for prod)',
     })
     .option('compile', {
       type: 'boolean',
@@ -21,23 +23,40 @@ const yargs = require('yargs')
     })
     .argv;
 
+function listen(server, port) {
+  return new Promise((resolve) => server.listen(port, resolve));
+}
+
+log('Santa Tracker');
+
 async function serve() {
   const loader = require('./loader.js');
   const loaderTransform = require('./loader-transform.js');
 
   const server = new Koa();
   server.use(loaderTransform(loader));
-  server.use(async (ctx, next) => {
-    const simplePathMatch = /^\/(\w+)\.html(|\?.*)$/.exec(ctx.url);
+  server.use(koaStatic('.'));
+
+  await listen(server, yargs.port);
+  log(`=> ${colors.blue(`http://localhost:${yargs.port}`)}`);
+
+  const prod = new Koa();
+  prod.use(async (ctx, next) => {
+    const simplePathMatch = /^\/(\w+)\.html$/.exec(ctx.path);
     if (simplePathMatch) {
-      ctx.url = '/index.html';
+      const cand = path.join('prod', `${simplePathMatch[1]}.html`);
+      if (await fsp.exists(cand)) {
+        // do nothing, serve error/cast pages
+      } else {
+        ctx.url = '/index.html';
+      }
     }
     return next();
   });
-  server.use(koaStatic('.'));
+  prod.use(koaStatic('prod'));
 
-  await new Promise((resolve) => server.listen(yargs.port, resolve));
-  log(`Santa Tracker listening on ${colors.blue(`http://localhost:${yargs.port}`)}`);
+  await listen(prod, yargs.port + 1);
+  log(`=> ${colors.blue(`http://localhost:${yargs.port + 1}`)} prod`);
 }
 
 serve().catch((err) => {
