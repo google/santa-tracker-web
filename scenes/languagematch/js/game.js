@@ -17,13 +17,14 @@ app.Game = class Game {
 
     this.root = elem.getRootNode();
 
-    // Level state things
+    // Level information
     /** @type Array<Card> */
     this.cards = [];
 
+    // Game state
     /** @type Array<Card> */
     this.flippedCards = [];
-    /** @type boolean */
+    /** @type boolean Whether all the cards have been matched or not. */
     this.levelWon = false;
 
     this.init();
@@ -165,6 +166,7 @@ app.Game = class Game {
             if (this.cards.every(card => card.matched)) {
               this.levelWon = true;
 
+              // TODO(jez): Use the common santa tracker level transition.
               // Change the underlying cards.
               // Note that the cards won't be visually updated until they're flipped again.
               this.initCards();
@@ -204,6 +206,10 @@ app.Game = class Game {
     setTimeout(() => this.clearHiddenCardContents(), 1000);
   }
 
+  /**
+   * Clears the content of all face-down cards
+   * @private
+   */
   clearHiddenCardContents() {
     const cardElements = this.root.getElementsByClassName('card');
     for (let i = 0; i < this.cards.length; i ++) {
@@ -214,7 +220,6 @@ app.Game = class Game {
         this.clearCardContent(cardElement);
       }
     }
-
   }
 
   /**
