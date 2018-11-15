@@ -86,6 +86,9 @@ async function load(loader, filename, cleanup) {
     // invalidate cache if something observable changes
     watching = watch(raw.map.sources, cleanup, watchTimeout);
 
+    // TODO(samthor): paths in raw.map are relative to top-level, not ourselves, which makes Chrome
+    // and others overlay them in the incorrect location
+
     // append the encoded source map if possible
     return inlineSourceMap(filename, raw.body, raw.map);
 
