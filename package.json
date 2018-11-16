@@ -22,6 +22,7 @@
     "fancy-log": "^1.3.2",
     "google-closure-compiler": "^20180910.1.0",
     "google-closure-library": "^20180910.0.0",
+    "html-minifier": "^3.5.21",
     "jquery": "^3.3.1",
     "jsdom": "^12.2.0",
     "json5": "^2.1.0",
@@ -38,6 +39,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "sass": "^1.14.1",
     "tensorflow-models": "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1",
+    "terser": "^3.10.11",
     "tmp": "^0.0.33",
     "yargs": "^12.0.2"
   }

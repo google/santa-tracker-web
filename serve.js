@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const colors = require('ansi-colors');
+const compileHtml = require('./build/compile-html.js');
 const fsp = require('./build/fsp.js');
 const Koa = require('koa');
 const koaStatic = require('koa-static');
@@ -19,7 +20,7 @@ const yargs = require('yargs')
     .option('compile', {
       type: 'boolean',
       default: false,
-      describe: 'Always compile Closure scenes',
+      describe: 'Compile dependencies',
     })
     .argv;
 
@@ -34,7 +35,7 @@ async function serve() {
   const loaderTransform = require('./loader-transform.js');
 
   const server = new Koa();
-  server.use(loaderTransform(loader));
+  server.use(loaderTransform(loader({compile: yargs.compile})));
   server.use(koaStatic('.'));
 
   await listen(server, yargs.port);
@@ -44,14 +45,28 @@ async function serve() {
   prod.use(async (ctx, next) => {
     const simplePathMatch = /^\/(\w+)\.html$/.exec(ctx.path);
     if (simplePathMatch) {
-      const cand = path.join('prod', `${simplePathMatch[1]}.html`);
-      if (await fsp.exists(cand)) {
-        // do nothing, serve error/cast pages
-      } else {
+      const sceneName = simplePathMatch[1];
+      const exists = await fsp.exists(path.join('prod', `${sceneName}.html`));
+      if (!exists) {
+        // load the top-level path if the file doesn't already exist (e.g. error/upgrade/cast)
         ctx.url = '/index.html';
       }
+    } else if (ctx.path === '/') {
+      ctx.url = '/index.html';
     }
-    return next();
+
+    if (path.extname(ctx.path) !== '.html') {
+      return next();
+    }
+
+    // compile the HTML locally to include i18n and prod URL
+    const filename = path.join('prod', ctx.path);
+    const options = {compile: yargs.compile};
+    if (ctx.path === '/index.html') {
+      options.body = {prod: `http://localhost:${yargs.port}`};
+    }
+    ctx.response.body = await compileHtml(filename, options);
+    ctx.response.type = 'text/html';
   });
   prod.use(koaStatic('prod'));
 

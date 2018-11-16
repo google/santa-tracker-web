@@ -45,7 +45,7 @@ function watch(paths, done, timeout) {
   }
 
   // assume node_modules/ content will not change
-  const valid = paths.filter((cand) => !cand.startsWith('node_modules/'));
+  const valid = paths.filter((cand) => cand && !cand.startsWith('node_modules/'));
   if (!valid.length) {
     return null;
   }
@@ -58,7 +58,7 @@ function watch(paths, done, timeout) {
   // TODO(samthor): {recursive: true} doesn't work on Linux, but this method is passed all
   // dependant files anyway. This will only cause problems for scenes, which build whole dirs, but
   // observing the directory reveals immediate subtree changes regardless.
-  watchers = paths.map((cand) => fs.watch(cand, {recursive: true}, shutdown));
+  watchers = valid.map((cand) => fs.watch(cand, {recursive: true}, shutdown));
 
   return setTimeout(shutdown, timeout);
 }
@@ -108,7 +108,10 @@ module.exports = function(loader) {
   const cached = {};
 
   return async (ctx, next) => {
-    const filename = ctx.path.substr(1);
+    let filename = ctx.path.substr(1);
+    if (filename.endsWith('/') || filename === '') {
+      filename += 'index.html';
+    }
 
     let p = cached[filename];
     if (p === undefined) {
