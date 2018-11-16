@@ -72,11 +72,15 @@ async function processSourceMap(buf, root='../../') {
   const o = JSON.parse(buf.toString());
   o.sourceRoot = root;
   o.sourcesContent = [];
-  for (const source of o.sources) {
-    // This is an ES6 synthetic source file for transpilation. Ignore.
+  for (let i = 0; i < o.sources.length; ++i) {
+    const source = o.sources[i];
+
+    // This is an ES6 synthetic source file for transpilation. Ignore it, but it still has to be
+    // returned so the source map isn't confused.
     const m = syntheticSourceRe.exec(source);
     if (m) {
-      o.sourcesContent.push(null);
+      o.sources[i] = '';
+      o.sourcesContent.push('');
       continue;
     }
 

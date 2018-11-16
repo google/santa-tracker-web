@@ -26,7 +26,7 @@ module.exports = function buildTemplateTagReplacer(mapper) {
     const update = raw.toString();  // catches Buffer
 
     // see if we're the direct child of a literal, e.g. ${_msg`foo`}
-    const index = parent.expressions.indexOf(node);
+    const index = (parent.expressions || []).indexOf(node);
     if (parent.type !== 'TemplateLiteral' || index === -1) {
       // ... we're not, just insert the string whereever
       nodePath.replaceWith(t.stringLiteral(update));

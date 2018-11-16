@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title msgid="meta_title">Santa Tracker</title>
-  <meta property="og:title" itemprop="name" msgid="meta_title" content="Google Santa Tracker" />
+  <title msgid="meta_title"></title>
+  <meta property="og:title" itemprop="name" msgid="meta_title" />
   <meta property="og:type" content="website" />
   <meta property="og:image" itemprop="image" name="thumbnail" content="https://santatracker.google.com/images/og.png" />
   <meta property="og:image:width" content="1333" />
   <meta property="og:image:height" content="1000" />
-  <meta property="og:description" itemprop="description" name="description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world." />
+  <meta property="og:description" itemprop="description" name="description" msgid="meta_description" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@googlemaps" />
-  <meta name="twitter:title" msgid="meta_title" content="Google Santa Tracker" />
-  <meta name="twitter:description" msgid="meta_description" content="Use Google Santa Tracker to follow Santa Claus on Google Maps as he makes his journey around the world." />
+  <meta name="twitter:title" msgid="meta_title" />
+  <meta name="twitter:description" msgid="meta_description" />
   <meta name="twitter:image" content="https://santatracker.google.com/images/og.png" />
 
   <meta charset="utf-8" />
@@ -70,14 +70,13 @@ body.loading iframe {
 }
   </style>
 </head>
-<body class="loading" data-prod="http://localhost:5000">
+<body class="loading">
 
 <iframe id="iframe"></iframe>
 <noscript>
-  <meta http-equiv="refresh" content="0; url=/upgrade.html" />
-  <a href="./upgrade.html">Santa Tracker requires JavaScript.</a>
+  <meta http-equiv="refresh" content="0;url=/upgrade.html" />
 </noscript>
-<script>
+<script type="text/javascript">
 (function() {
   // Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 9+ and
   // Chromium-based browsers at m44 or above. For other browsers, YMMV.

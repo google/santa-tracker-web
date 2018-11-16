@@ -2,6 +2,7 @@ const babel = require('@babel/core');
 const buildResolveBareSpecifiers = require('./build/babel/resolve-bare-specifiers.js');
 const buildTemplateTagReplacer = require('./build/babel/template-tag-replacer.js');
 const compileCss = require('./build/compile-css.js');
+const compileHtml = require('./build/compile-html.js');
 const compileScene = require('./build/compile-scene.js');
 const fsp = require('./build/fsp.js');
 const path = require('path');
@@ -62,7 +63,7 @@ function templateTagReplacer(name, arg) {
  * @param {string} filename
  * @return {string}
  */
-async function bundleCode(filename) {
+async function bundleCode(filename, loader) {
   const virtualCache = {};
   const virtualLoader = {
     name: 'rollup-virtual-loader',
@@ -102,88 +103,92 @@ async function bundleCode(filename) {
 
 
 /**
- * @param {string} filename to load
- * @return {?{
- *   body: string,
- *   map: !Object,
- * }}
+ * @param {{
+ *   compile: boolean,
+ * }=}
  */
-async function loader(filename) {
-  if (filename.startsWith('third_party/')) {
-    return null;
-  }
-
-  const parsed = path.parse(filename);
-
-  if (parsed.ext === '.css') {
-    return {body: await compileCss(filename)};
-  } else if (parsed.ext !== '.js') {
-    return null;
-  }
-
-  let body = null;
-  let map = null;
-  const babelPlugins = [];
-
-  if (parsed.name.endsWith('.min')) {
-    // try to match scene JS
-    const sceneName = matchSceneMin(filename);
-    if (!sceneName) {
-      return null;  // do nothing to .min.js unless it's a scene
+module.exports = (options={}) => {
+  const loader = async (filename) => {
+    if (filename.startsWith('third_party/')) {
+      return null;
     }
-    const out = await compileScene({sceneName});
-    ({js: body, map} = out);
-  } else if (parsed.name.endsWith('.bundle')) {
-    // completely bundles code
-    const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-    const out = await bundleCode(path.join(parsed.dir, actual));
-    ({code: body, map} = out);
-  } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
-    // convert JSON/JSON5 to an exportable module
-    const actual = path.join(parsed.dir, parsed.name);
-    const raw = await fsp.readFile(actual, 'utf8');
-    const json = JSON5.parse(raw);
-    body = `const o=${JSON.stringify(json)};export default o;`;
 
-    // Pretend to have an actual source map. This just shows the source up in a browser and
-    // makes `loader-transform.js` watch the actual source file for changes.
-    // TODO(samthor): This could be done properly by using Rollup with a JSON plugin?
-    map = {
-      sources: [actual],
-      sourcesContent: [raw],
-    };
-  } else {
-    // regular JS file
-    body = await fsp.readFile(filename, 'utf8');
-    babelPlugins.push(buildResolveBareSpecifiers(filename));
-    babelPlugins.push(buildTemplateTagReplacer(templateTagReplacer));
-  }
+    const parsed = path.parse(filename);
+    switch (parsed.ext) {
+      case '.css':
+        return {
+          body: await compileCss(filename, options.compile),
+        };
+      case '.html':
+        const htmlOptions = {compile: options.compile};
+        return {
+          body: await compileHtml(filename, htmlOptions),
+        };
+      case '.js':
+        break;
+      default:
+        return null;
+    }
 
-  if (babelPlugins.length) {
-    babelPlugins.push(
-      '@babel/proposal-async-generator-functions',	
-      '@babel/proposal-object-rest-spread',	
-    );
-    const result = await babel.transformAsync(body, {
-      filename,
-      plugins: babelPlugins,
-      sourceMaps: true,
-      sourceType: 'module',
-      retainLines: true,
-    });
-    ({code: body, map} = result);
-  }
+    let body = null;
+    let map = null;
+    const babelPlugins = [];
 
-  // Flatten dependant source files (so they are relative to the request path root), but also
-  // update sourceRoot so that it reflects the source's actual path for browser rendering.
-  if (map !== null) {
-    const dirname = path.dirname(filename);
-    const sourceRoot = map.sourceRoot || '.';
-    map.sources = (map.sources || []).map((f) => path.join(dirname, sourceRoot, f));
-    map.sourceRoot = path.relative(dirname, '.');
-  }
+    if (parsed.name.endsWith('.min')) {
+      // try to match scene JS
+      const sceneName = matchSceneMin(filename);
+      if (!sceneName) {
+        return null;  // do nothing to .min.js unless it's a scene
+      }
+      const out = await compileScene({sceneName}, options.compile);
+      ({js: body, map} = out);
+    } else if (parsed.name.endsWith('.bundle')) {
+      // completely bundles code
+      const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
+      const out = await bundleCode(path.join(parsed.dir, actual));
+      ({code: body, map} = out);
+    } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
+      // convert JSON/JSON5 to an exportable module
+      const actual = path.join(parsed.dir, parsed.name);
+      const raw = await fsp.readFile(actual, 'utf8');
+      const json = JSON5.parse(raw);
+      body = `const o=${JSON.stringify(json)};export default o;`;
 
-  return body !== null ? {body, map} : null;
-}
+      // Pretend to have an actual source map. This just shows the source up in a browser and
+      // makes `loader-transform.js` watch the actual source file for changes.
+      // TODO(samthor): This could be done properly by using Rollup with a JSON plugin?
+      map = {
+        sources: [actual],
+        sourcesContent: [raw],
+      };
+    } else {
+      // regular JS file
+      body = await fsp.readFile(filename, 'utf8');
+      babelPlugins.push(buildResolveBareSpecifiers(filename));
+      babelPlugins.push(buildTemplateTagReplacer(templateTagReplacer));
+    }
 
-module.exports = loader;
+    if (babelPlugins.length) {
+      const result = await babel.transformAsync(body, {
+        filename,
+        plugins: babelPlugins,
+        sourceMaps: true,
+        sourceType: 'module',
+        retainLines: true,
+      });
+      ({code: body, map} = result);
+    }
+  
+    // Flatten dependant source files (so they are relative to the request path root), but also
+    // update sourceRoot so that it reflects the source's actual path for browser rendering.
+    if (map !== null) {
+      const dirname = path.dirname(filename);
+      const sourceRoot = map.sourceRoot || '.';
+      map.sources = (map.sources || []).map((f) => f && path.join(dirname, sourceRoot, f));
+      map.sourceRoot = path.relative(dirname, '.');
+    }
+
+    return body !== null ? {body, map} : null;
+  };
+  return loader;
+};

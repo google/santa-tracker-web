@@ -1,5 +1,6 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {html, LitElement} from '@polymer/lit-element';
+import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
@@ -138,7 +139,7 @@ export class SantaAppElement extends LitElement {
   <div class="noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
-    <p ?hidden=${!this._showError}>${_msg`error-not-found`}</p>
+    <p ?hidden=${!this._showError}>${unsafeHTML(_msg`error-not-found`)}</p>
   </div>
   <santa-loader
       .selectedScene="${this._selectedScene}"
