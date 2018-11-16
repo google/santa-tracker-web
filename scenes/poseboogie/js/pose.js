@@ -15,9 +15,6 @@ export function detectAndDrawPose(videoConfig) {
     const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
         videoConfig.imageScaleFactor, videoConfig.flipHorizontal, videoConfig.outputStride);
 
-    const minPoseConfidence = 0.1;
-    const minPartConfidence = 0.5;
-
     ctx.clearRect(0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
 
     // Draw the video feed
@@ -28,10 +25,8 @@ export function detectAndDrawPose(videoConfig) {
     ctx.restore();
 
     // Draw the resulting skeleton and key-points if over certain confidence scores
-    if (pose.score >= minPoseConfidence) {
-      drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-      drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-    }
+    drawKeypoints(pose.keypoints, videoConfig.minPartConfidence, ctx);
+    drawSkeleton(pose.keypoints, videoConfig.minPartConfidence, ctx);
 
     window.requestAnimationFrame(poseDetectionFrame);
   }

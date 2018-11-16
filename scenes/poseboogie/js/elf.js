@@ -13,6 +13,13 @@ const
     legLength = 5,
     legWidth = legLength / 2.5;
 
+// When making very frequent updates, particularly twitchy ones, the physics engine calculates the
+// bodies as having very high velocity. This value is used to clamp the velocities to a speed
+// limit. Velocity is only used when we fail to detect a keypoint so this should be kept low to
+// ensure relatively smooth movement. This also allows us to increase our confidence threshold and
+// work at higher precision.
+const speedLimit = 1;
+
 export class Elf {
   constructor(world) {
     this.world = world;
@@ -295,13 +302,16 @@ export class Elf {
   track(videoConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
+    this.threshold = videoConfig.minPartConfidence;
 
     const trackFrame = () => {
       videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
             videoConfig.flipHorizontal, videoConfig.outputStride)
           .then((pose) => {
-            this.pose = pose;
-            document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+            this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+            if (videoConfig.debug) {
+              document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+            }
           })
           .catch((reason) => {
             console.error('Pose estimation failed!', reason);
@@ -326,69 +336,111 @@ export class Elf {
     // These cause the model to glitch out, so warn the user to get back into
     // the frame.
 
-    const scale = ({x, y}) => [(x - this.videoWidth / 2) / this.world.zoom,
-      -(y - this.videoHeight / 2) / this.world.zoom];
-    const part = (part) => this.pose.keypoints.find(k => k.part === part);
-    const mean = (parts) => parts.map(part).reduce((acc, {position}) => ({
-      x: acc.x + position.x / parts.length,
-      y: acc.y + position.y / parts.length,
-    }), {x: 0, y: 0});
-
-    this.head.position = scale(part('nose').position);
+    if (this.allGood('nose')) {
+      this.head.position = this.scale(this.pose['nose'].position);
+    }
 
     // Set the torso position (center of mass) to the mean of the observed
     // torso-framing joints.
     // TODO(markmcd): filter out low-conf parts, but don't update if <2
     // parts or only 2 adjacent parts.
-    this.torso.position = scale(mean([
-      'leftShoulder', 'rightShoulder', 'leftHip', 'rightHip']));
+    const chestParts = ['leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'];
+    if (this.allGood(...chestParts)) {
+      this.torso.position = this.scale(this.mean(...chestParts));
+    }
 
     // We can calculate the angle of these parts, so do so.
-    // TODO(markmcd): Should we cache part() calls?
-    const leftShoulder = part('leftShoulder').position;
-    const leftElbow = part('leftElbow').position;
-    const leftWrist = part('leftWrist').position;
-    // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
-    this.leftArm.angle = Math.PI / 2 - Math.atan2(
-        leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
-    this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
-        leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
+    const leftShoulder = this.pose['leftShoulder'].position;
+    const leftElbow = this.pose['leftElbow'].position;
+    const leftWrist = this.pose['leftWrist'].position;
 
-    const rightShoulder = part('rightShoulder').position;
-    const rightElbow = part('rightElbow').position;
-    const rightWrist = part('rightWrist').position;
-    this.rightArm.angle = Math.PI / 2 - Math.atan2(
-        rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
-    this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
-        rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
+    if (this.allGood('leftShoulder', 'leftElbow')) {
+      this.leftArm.position = this.scale(this.mean('leftShoulder', 'leftElbow'));
+      // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
+      this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
+    }
 
-    this.leftArm.position = scale(mean(['leftShoulder', 'leftElbow']));
-    this.leftForeArm.position = scale(mean(['leftElbow', 'leftWrist']));
-    this.rightArm.position = scale(mean(['rightShoulder', 'rightElbow']));
-    this.rightForeArm.position = scale(mean(['rightElbow', 'rightWrist']));
+    if (this.allGood('leftElbow', 'leftWrist')) {
+      this.leftForeArm.position = this.scale(this.mean('leftElbow', 'leftWrist'));
+      this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
+      this.leftHand.position = this.scale(this.pose['leftWrist'].position);
+    }
 
-    this.leftHand.position = scale(part('leftWrist').position);
-    this.rightHand.position = scale(part('rightWrist').position);
+    const rightShoulder = this.pose['rightShoulder'].position;
+    const rightElbow = this.pose['rightElbow'].position;
+    const rightWrist = this.pose['rightWrist'].position;
 
-    const leftHip = part('leftHip').position;
-    const leftKnee = part('leftKnee').position;
-    const leftAnkle = part('leftAnkle').position;
-    this.leftLeg.angle = Math.PI / 2 - Math.atan2(
-        leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
-    this.leftCalf.angle = Math.PI / 2 - Math.atan2(
-        leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+    if (this.allGood('rightShoulder', 'rightElbow')) {
+      this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
+      this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
+    }
 
-    const rightHip = part('rightHip').position;
-    const rightKnee = part('rightKnee').position;
-    const rightAnkle = part('rightAnkle').position;
-    this.rightLeg.angle = Math.PI / 2 - Math.atan2(
-        rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
-    this.rightCalf.angle = Math.PI / 2 - Math.atan2(
-        rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+    if (this.allGood('rightElbow', 'rightWrist')) {
+      this.rightForeArm.position = this.scale(this.mean('rightElbow', 'rightWrist'));
+      this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
+      this.rightHand.position = this.scale(this.pose['rightWrist'].position);
+    }
 
-    this.leftLeg.position = scale(mean(['leftHip', 'leftKnee']));
-    this.leftCalf.position = scale(mean(['leftKnee', 'leftAnkle']));
-    this.rightLeg.position = scale(mean(['rightHip', 'rightKnee']));
-    this.rightCalf.position = scale(mean(['rightKnee', 'rightAnkle']));
+    const leftHip = this.pose['leftHip'].position;
+    const leftKnee = this.pose['leftKnee'].position;
+    const leftAnkle = this.pose['leftAnkle'].position;
+
+    if (this.allGood('leftHip', 'leftKnee')) {
+      this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
+      this.leftLeg.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
+    }
+
+    if (this.allGood('leftKnee', 'leftAnkle')) {
+      this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
+      this.leftCalf.angle = 3 * Math.PI / 2 - Math.atan2(
+          leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+    }
+
+    const rightHip = this.pose['rightHip'].position;
+    const rightKnee = this.pose['rightKnee'].position;
+    const rightAnkle = this.pose['rightAnkle'].position;
+
+    if (this.allGood('rightHip', 'rightKnee')) {
+      this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
+      this.rightLeg.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
+    }
+
+    if (this.allGood('rightKnee', 'rightAnkle')) {
+      this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
+      this.rightCalf.angle = 3 * Math.PI / 2 - Math.atan2(
+          rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+    }
+
+    // Clamp velocities. See comment on speedLimit definition.
+    this.world.world.bodies.forEach((body) => {
+      body.velocity = body.velocity.map((v) => Elf.clamp(v, speedLimit));
+      body.angularVelocity = Elf.clamp(body.angularVelocity, speedLimit);
+    })
+  }
+
+  static clamp(n, limit) {
+    return Math.min(Math.max(-limit, n), limit);
+  }
+
+  scale({x, y}) {
+    return [(x - this.videoWidth / 2) / this.world.zoom,
+      -(y - this.videoHeight / 2) / this.world.zoom];
+  }
+
+  mean(...parts) {
+    return parts.map((label) => this.pose[label]).reduce((acc, {position}) => ({
+      x: acc.x + position.x / parts.length,
+      y: acc.y + position.y / parts.length,
+    }), {x: 0, y: 0})
+  }
+
+  allGood(...parts) {
+    return parts.map((label) => this.pose[label]).every((part) => part.score > this.threshold);
   }
 }

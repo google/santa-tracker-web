@@ -26,7 +26,7 @@ export class World {
     let lastTime;
 
     // Animation loop
-    const animatePuppet = async (time) => {
+    const animatePuppet = (time) => {
       window.requestAnimationFrame(animatePuppet);
 
       // Compute elapsed time since last render frame
