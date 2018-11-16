@@ -7,7 +7,7 @@ import { World } from './js/world.js';
 const debug = true;
 const videoWidth = 700;
 const videoHeight = 500;
-const minPartConfidence = 0.5;
+const minPartConfidence = 0.8;
 const mobileNetArchitecture = 0.75;
 const flipHorizontal = true;  // Assume web-cam source, which flips video
 const imageScaleFactor = 0.5;
