@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-async-generator-functions": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@polymer/broadway": "git+ssh://git@github.com:PolymerLabs/broadway.git#initial-implementation",
     "@polymer/lit-element": "^0.6.0",
     "@tensorflow-models/posenet": "^0.2.3",

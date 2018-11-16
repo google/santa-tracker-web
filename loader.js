@@ -160,6 +160,10 @@ async function loader(filename) {
   }
 
   if (babelPlugins.length) {
+    babelPlugins.push(
+      '@babel/proposal-async-generator-functions',	
+      '@babel/proposal-object-rest-spread',	
+    );
     const result = await babel.transformAsync(body, {
       filename,
       plugins: babelPlugins,
