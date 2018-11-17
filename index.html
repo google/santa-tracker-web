@@ -38,15 +38,6 @@
       const port = mc.port1;
       let pendingPort = mc.port2;
 
-      const callback = (sceneName) => {
-        if (pendingPort) {
-          // on the first callback, tell the parent that we're alive
-          window.parent.postMessage('init', '*', [pendingPort]);
-          pendingPort = null;
-        }
-        port.postMessage({type: 'scene', payload: sceneName});
-      };
-
       port.onmessage = (ev) => {
         switch (ev.data && ev.data.type) {
           case 'go':
@@ -54,13 +45,23 @@
             break;
         }
       };
+
+      return (sceneName) => {
+        if (pendingPort) {
+          // on the first callback, tell the parent that we're alive
+          window.parent.postMessage('init', '*', [pendingPort]);
+          pendingPort = null;
+        }
+        port.postMessage({type: 'scene', payload: sceneName});
+      };
     }());
 
     const entrypoint = new Entrypoint(santaApp, callback);
-    function load(initialScene) {
-      // needs hoisting
-      entrypoint.load(initialScene);
+    // nb. load must be hoisted so port.onmessage can invoke it above
+    function load(sceneName) {
+      entrypoint.load(sceneName);
     }
+    entrypoint.load(initialScene);
 
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);
