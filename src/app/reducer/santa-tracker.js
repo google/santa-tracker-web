@@ -4,17 +4,33 @@ export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
     case SantaTrackerAction.SCENE_SELECTED:
       if (state.selectedScene === action.payload) {
-        return state;  // do nothing
+        // hide sidebar if we're already selected (pretend 'activated' again)
+        let showSidebar = state.showSidebar;
+        if (state.activeScene === action.payload) {
+          showSidebar = false;
+        }
+
+        return {
+          ...state,
+          showSidebar,
+          loadAttempt: state.loadAttempt + 1,  // might request reload
+        };
       }
 
+      // if the selected scene is already active (but not selected), then it was selected again
+      // during another scene's load: so set the scene's loadProgress to done!
       const loadProgress = (state.activeScene === action.payload) ? 1 : 0;
       return {
         ...state,
         selectedScene: action.payload,
+        loadAttempt: 0,
         loadProgress,
       };
 
     case SantaTrackerAction.SCENE_LOAD_PROGRESS:
+      if (state.activeScene === state.selectedScene) {
+        return state;  // can arrive out-of-order, ignore if scene happy
+      }
       return {...state, loadProgress: action.payload};
 
     case SantaTrackerAction.SCENE_ACTIVATED:

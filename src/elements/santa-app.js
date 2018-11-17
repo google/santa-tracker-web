@@ -28,12 +28,13 @@ export class SantaAppElement extends LitElement {
     return {
       _activeScene: {type: String},
       _selectedScene: {type: String},
+      _loadAttempt: {type: Number},
+      _loadProgress: {type: Number},
       _showError: {type: Boolean},
+      _showSidebar: {type: Boolean},
       _todayHouse: {type: String},
       _trackerIsOpen: {type: Boolean},
-      _sidebarOpen: {type: Boolean},
       _iframeScroll: {type: Boolean},
-      _progress: {type: Number},
       _idPrefix: {type: String},
     };
   }
@@ -54,13 +55,13 @@ export class SantaAppElement extends LitElement {
 
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
     this.adapter.subscribe((state) => {
-      this._sidebarOpen = state.showSidebar;
-      this._todayHouse = state.todayHouse;
-
-      this._activeScene = state.activeScene;
-      this._progress = state.loadProgress;
       this._selectedScene = state.selectedScene;
+      this._activeScene = state.activeScene;
+      this._loadAttempt = state.loadAttempt;
+      this._loadProgress = state.loadProgress;
       this._showError = state.showError;
+      this._showSidebar = state.showSidebar;
+      this._todayHouse = state.todayHouse;
     });
   }
 
@@ -97,7 +98,7 @@ export class SantaAppElement extends LitElement {
   update(changedProperties) {
     super.update(changedProperties);
 
-    if (changedProperties.has('_sidebarOpen') && this._sidebarOpen) {
+    if (changedProperties.has('_showSidebar') && this._showSidebar) {
       // Focus an element at the start of the sidebar, but then immediately
       // disallow focus. This places the browser's "cursor" here, so a keyboard
       // tab will go to the next item.
@@ -111,12 +112,12 @@ export class SantaAppElement extends LitElement {
   render() {
     return html`
 <style>${_style`santa-app`}</style>
-<div class="preload" ?hidden=${this._progress === 1}>
-  <div class="bar" style="width: ${this._progress * 100}%"></div>
+<div class="preload" ?hidden=${this._loadProgress === 1}>
+  <div class="bar" style="width: ${this._loadProgress * 100}%"></div>
 </div>
 <div class="sidebar">
   <input type="checkbox" id="${this._idPrefix}sidebar" @change=${this._onCheckboxChange} .checked=${
-        this._sidebarOpen} />
+        this._showSidebar} />
   <santa-sidebar .todayHouse=${this._todayHouse} .trackerIsOpen=${this._trackerIsOpen}>
     <div class="closer">
       <div class="sidebar-focuser"></div>
@@ -145,6 +146,7 @@ export class SantaAppElement extends LitElement {
   </div>
   <santa-loader
       .selectedScene="${this._selectedScene}"
+      .loadAttempt="${this._loadAttempt}"
       @progress=${this._onLoaderProgress}
       @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}

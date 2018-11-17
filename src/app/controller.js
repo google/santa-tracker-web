@@ -14,11 +14,12 @@ class SantaTrackerController extends Controller {
     return {
       activeScene: null,
       selectedScene: null,  // nothing loaded until we're asked
-      todayHouse: 'boatload',
+      loadAttempt: 0,
       loadProgress: 1,
-      showSidebar: false,
-      pageVisible: undefined,
       showError: false,
+      showSidebar: false,
+      todayHouse: 'boatload',
+      pageVisible: undefined,
       online: undefined,
       api: null,
     };

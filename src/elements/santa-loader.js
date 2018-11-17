@@ -38,6 +38,7 @@ class SantaLoaderElement extends HTMLElement {
     super();
     this._onMessage = this._onMessage.bind(this);
 
+    this._loadAttempt = 0;
     this._selectedScene = null;
     this._activeFrame = iframeForRoute(null);
     this._preloadFrame = null;
@@ -213,9 +214,7 @@ class SantaLoaderElement extends HTMLElement {
     this._onFrameScrollNotify = true;
   }
 
-  set selectedScene(v) {
-    this._selectedScene = v;
-
+  _loadSelectedScene() {
     // nb. This delays by a microtask because otherwise some side-effects in santa-app don't occur.
     const preloadScene = Promise.resolve().then(() => this._preloadScene(this._selectedScene));
 
@@ -223,8 +222,33 @@ class SantaLoaderElement extends HTMLElement {
     this._preloadPromise = preloadScene.then(() => this._preloadPromise);
   }
 
+  set selectedScene(v) {
+    if (this._selectedScene !== v) {
+      this._selectedScene = v;
+      this._loadSelectedScene();
+    }
+  }
+
   get selectedScene() {
     return this._selectedScene;
+  }
+
+  set loadAttempt(v) {
+    const prev = this._loadAttempt;
+    this._loadAttempt = v;
+
+    if (prev >= v) {
+      return;  // do nothing, same or lower
+    }
+
+    this._preloadPromise.catch((err) => {
+      // This is a bit racey, but at worst it'll attempt to reload a different failed scene.
+      this._loadSelectedScene();
+    });
+  }
+
+  get loadAttempt() {
+    return this._loadAttempt;
   }
 }
 
