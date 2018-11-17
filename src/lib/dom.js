@@ -1,5 +1,6 @@
 
 export function findClosestLink(ev) {
+  // can't use closest() when shadow DOM is involved
   const path = ev.composedPath();
   path.reverse();
   for (const cand of path) {

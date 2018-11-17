@@ -5,6 +5,7 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import * as prefix from '../lib/prefix.js';
+import * as route from '../route.js';
 
 
 function sceneIsScroll(sceneName) {
@@ -131,7 +132,7 @@ export class SantaAppElement extends LitElement {
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
-    <a class="linkwrap" href="./">
+    <a class="linkwrap" href=${route.href('./')}>
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
     <santa-badge style="color: ${featureColorForScene(this._activeScene)}"></santa-badge>

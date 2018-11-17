@@ -19,7 +19,10 @@ module.exports = async (filename, options={}) => {
   // apply data-key attributes to body
   if (options.body) {
     Object.keys(options.body).forEach((key) => {
-      document.body.setAttribute(`data-${key}`, options.body[key]);
+      const value = options.body[key];
+      if (value != null || value !== false) {
+        document.body.setAttribute(`data-${key}`, value === true ? '' : value);
+      }
     });
   }
 

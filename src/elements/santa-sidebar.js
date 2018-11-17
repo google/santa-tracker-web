@@ -2,6 +2,7 @@ import {html, LitElement} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
 import {getLanguage, localizeUrl, runtimeTranslate} from '../lib/runtime.js';
+import * as route from '../route.js';
 
 export class SantaSidebarElement extends LitElement {
   static get properties() {
@@ -19,7 +20,7 @@ export class SantaSidebarElement extends LitElement {
   render() {
     const todayHouse =
         (this.todayHouse ? html`
-<a href="./${this.todayHouse}.html">
+<a href=${route.scene(this.todayHouse)}>
   <div class="menucard" style="background-image: url(img/scenes/${
                                this.todayHouse}_2x.png)">
     <h2>${_msg`newtoday`}</h2>
@@ -35,14 +36,14 @@ export class SantaSidebarElement extends LitElement {
 <slot></slot>
 
 <div class="cards">
-  <a href="./">
+  <a href=${route.href('./')}>
     <div class="menucard menucard-village">
       <h2>${_msg`calendar`}</h2>
       <h3>${_msg`santasvillage`}</h3>
     </div>
   </a>
   ${todayHouse}
-  <a href=${ifDefined(this.trackerIsOpen ? './tracker.html' : undefined)}>
+  <a href=${ifDefined(this.trackerIsOpen ? route.scene('tracker') : undefined)}>
     <div class="menucard menucard-tracker">
       <div class="lock" ?hidden=${this.trackerIsOpen}></div>
       <h2>${_msg`dec24th`}</h2>
@@ -53,8 +54,8 @@ export class SantaSidebarElement extends LitElement {
 
 <div class="links">
   <ul>
-    <li><a href="./press.html">${_msg`press`}</a></li>
-    <li><a href="./educators.html">${_msg`educators`}</a></li>
+    <li><a href=${route.scene('press')}>${_msg`press`}</a></li>
+    <li><a href=${route.scene('educators')}>${_msg`educators`}</a></li>
   </ul>
 </div>
 

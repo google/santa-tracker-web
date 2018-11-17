@@ -2,7 +2,6 @@ import {Adapter} from '@polymer/broadway/lib/adapter';
 import {logger} from '@polymer/broadway/lib/logger';
 
 import {formatDuration} from '../lib/time.js';
-import * as route from '../route.js';
 import * as sc from '../soundcontroller.js';
 
 import {SantaTrackerAction} from './action.js';
@@ -10,21 +9,34 @@ import {SANTA_TRACKER_CONTROLLER_URL} from './common.js';
 
 logger.enabled = false;
 
+
+function inferActiveScene(state) {
+  if (state.activeScene !== null) {
+    return state.activeScene;
+  }
+  return state.showError ? state.selectedScene : null;
+}
+
+
 export class Entrypoint {
-  constructor(santaApp) {
+  constructor(santaApp, callback) {
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-    // Update brower location as the activated
-    let selectedScene = '';
+
+    let hostActiveScene = null;
+    let selectedScene = null;
 
     this.adapter.subscribe((state) => {
-      const currentScene = route.fromUrl(window.location);
-      if (state.selectedScene !== currentScene) {
-        window.history.pushState(null, null, route.urlFromRoute(state.selectedScene));
-      }
       selectedScene = state.selectedScene;
 
-      const {api} = state;
+      // We still want to inform the host if our selectedScene didn't load, so infer the "active"
+      // scene if showError is true.
+      const candidateHostActiveScene = inferActiveScene(state);
+      if (hostActiveScene !== candidateHostActiveScene) {
+        hostActiveScene = candidateHostActiveScene;
+        callback(hostActiveScene);
+      }
 
+      const {api} = state;
       if (api == null) {
         return;
       }
@@ -46,24 +58,6 @@ export class Entrypoint {
       }
     });
 
-    // Translate clicks on scene links into dispatched actions
-    santaApp.addEventListener('click', (ev) => {
-      const sceneName = route.fromClick(ev);
-      if (sceneName === null) {
-        return null;  // probably an external link
-      }
-      if (selectedScene === sceneName) {
-        this.adapter.dispatch({type: SantaTrackerAction.SIDEBAR_DISMISSED});
-        // TODO(samthor): If the scene is loaded but there's been an error,
-        // perhaps that could be reported declaratively: we could here then
-        // `santaApp.error = null`, to indicate that we don't care and we do
-        // want to retry.
-      } else {
-        this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
-      }
-      ev.preventDefault();
-    });
-
     window.addEventListener('offline', (ev) => this.syncIsOnline());
     window.addEventListener('online', (ev) => this.syncIsOnline());
 
@@ -73,10 +67,11 @@ export class Entrypoint {
 
     this.syncVisibility();
 
-    window.addEventListener('popstate', (ev) => this.syncLocation());
-
-    this.syncLocation();
     this.startDefaultMusic();
+  }
+
+  load(sceneName) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
   }
 
   async startDefaultMusic() {
@@ -98,10 +93,5 @@ export class Entrypoint {
       type: navigator.onLine ? SantaTrackerAction.DEVICE_WENT_ONLINE :
                                SantaTrackerAction.DEVICE_WENT_OFFLINE
     });
-  }
-
-  syncLocation() {
-    const sceneName = route.fromUrl(window.location);
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
   }
 }
