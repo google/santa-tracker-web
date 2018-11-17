@@ -3,10 +3,15 @@ import {SantaTrackerAction} from '../action.js';
 export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
     case SantaTrackerAction.SCENE_SELECTED:
+      if (state.selectedScene === action.payload) {
+        return state;  // do nothing
+      }
+
+      const loadProgress = (state.activeScene === action.payload) ? 1 : 0;
       return {
         ...state,
         selectedScene: action.payload,
-        loadProgress: 0,
+        loadProgress,
       };
 
     case SantaTrackerAction.SCENE_LOAD_PROGRESS:
