@@ -1,17 +1,9 @@
 
-import {urlToStatic} from './lib/location.js';
-
-
 /**
- * Klang script source URL.
+ * Klang path. This does not need to be normalized as soundcontroller should only be loaded by
+ * top-level code in static.
  */
-const klangSrc = urlToStatic('third_party/lib/klang/klang.js');
-
-
-/**
- * Klang config file URL.
- */
-const klangConfigSrc = urlToStatic('third_party/lib/klang/config.js');
+const klangPath = 'third_party/lib/klang';
 
 
 /**
@@ -47,17 +39,18 @@ export const klang = new Promise((resolve) => {
       await new Promise((r) => window.requestIdleCallback(r));
     }
 
-    // Insert the Klang script.
+    // Insert the Klang script. We load this dynamically as it's quite large and can be deferred=
+    // until after the page is created.
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = klangSrc;
+      script.src = `${klangPath}/klang.js`;
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
     });
 
     // Init with the Klang config.
-    const success = await new Promise((r) => Klang.init(klangConfigSrc, r))
+    const success = await new Promise((r) => Klang.init(`${klangPath}/config.js`, r));
     if (!success) {
       throw new Error('Klang failed to load config');
     }

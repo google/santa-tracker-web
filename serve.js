@@ -63,7 +63,7 @@ async function serve() {
     const filename = path.join('prod', ctx.path);
     const options = {compile: yargs.compile};
     if (ctx.path === '/index.html') {
-      options.body = {prod: `http://localhost:${yargs.port}`};
+      options.body = {static: `http://localhost:${yargs.port}/index.html`};
     }
     ctx.response.body = await compileHtml(filename, options);
     ctx.response.type = 'text/html';
