@@ -8,6 +8,13 @@ $indent-left: 24px;  // indent in the sidebar
 
 .cards {
   border-bottom: 4px solid #eee;
+  a {
+    display: block;
+    position: relative;
+    &:focus {
+      z-index: 100;  // bring focus to front
+    }
+  }
 }
 .links {
   padding: 12px 12px 4px $indent-left;

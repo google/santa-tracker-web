@@ -62,12 +62,15 @@ iframe {
   width: 100vw;
   border: 0;
   opacity: 1;
-  transition: opacity 0.25s;
+  transition: opacity 0.125s;
   display: block;
 }
 body.loading iframe {
   visibility: hidden;
   opacity: 0;
+}
+body:not(.loading) #loader {
+  display: none;  /* hides loader immediately */
 }
   </style>
 </head>

@@ -42,9 +42,10 @@ export class SantaAppElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
-    // Handle 'Enter' on a focusable <label> element.
     this.shadowRoot.addEventListener('keydown', (ev) => {
       const t = ev.target;
+
+      // Handle 'Enter' on a focusable <label> element.
       if (ev.key === 'Enter' && t.localName === 'label' && t.getAttribute('for')) {
         ev.preventDefault();
         t.click();
@@ -96,7 +97,7 @@ export class SantaAppElement extends LitElement {
   update(changedProperties) {
     super.update(changedProperties);
 
-    if (changedProperties.has('sidebarOpen') && this.sidebarOpen) {
+    if (changedProperties.has('_sidebarOpen') && this._sidebarOpen) {
       // Focus an element at the start of the sidebar, but then immediately
       // disallow focus. This places the browser's "cursor" here, so a keyboard
       // tab will go to the next item.
