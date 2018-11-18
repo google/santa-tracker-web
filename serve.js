@@ -3,6 +3,7 @@
 const colors = require('ansi-colors');
 const compileHtml = require('./build/compile-html.js');
 const fsp = require('./build/fsp.js');
+const i18n = require('./build/i18n.js');
 const Koa = require('koa');
 const koaStatic = require('koa-static');
 const log = require('fancy-log');
@@ -33,12 +34,13 @@ function listen(server, port) {
   return new Promise((resolve) => server.listen(port, resolve));
 }
 
-log('Santa Tracker');
+const messages = i18n(yargs.lang);
+log(messages('santatracker'));
 
 async function serve() {
   const loader = require('./loader.js')({
     compile: yargs.compile,
-    lang: yargs.lang,
+    messages,
   });
   const loaderTransform = require('./loader-transform.js');
 
@@ -71,7 +73,7 @@ async function serve() {
     const filename = path.join('prod', ctx.path);
     const options = {
       compile: yargs.compile,
-      lang: yargs.lang,
+      messages,
       body: {
         static: `http://localhost:${yargs.port}/index.html`,
       },

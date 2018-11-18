@@ -5,7 +5,6 @@ const compileCss = require('./build/compile-css.js');
 const compileHtml = require('./build/compile-html.js');
 const compileScene = require('./build/compile-scene.js');
 const fsp = require('./build/fsp.js');
-const messages = require('./build/messages.js');
 const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
@@ -90,15 +89,14 @@ async function bundleCode(filename, loader) {
 /**
  * @param {{
  *   compile: boolean,
- *   lang: string,
+ *   messages: function(string): string,
  * }}
  */
 module.exports = (options) => {
-  const msg = messages(options.lang);
   const templateTagReplacer = (name, arg) => {
     switch (name) {
       case '_msg':
-        return msg(arg);
+        return options.messages(arg);
       case '_style':
         return compileCss(`styles/${arg}.scss`, options.compile);
     }

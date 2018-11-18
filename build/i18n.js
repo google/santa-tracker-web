@@ -1,4 +1,5 @@
 const emptyFunc = () => {};
+const fallback = require('../en_src_messages.json');
 
 /**
  * @param {string} lang
@@ -9,11 +10,16 @@ module.exports = function(lang, callback=emptyFunc) {
   const data = require(`../_messages/${lang}.json`);
 
   return (msgid) => {
-    const o = data[msgid];
+    let o = data[msgid];
     if (!o) {
       const out = callback(msgid);
-      return typeof out === 'string' ? out : '?';
+      if (typeof out === 'string') {
+        return out;
+      } else if (out !== undefined) {
+        return '?';
+      }
+      o = fallback[msgid];
     }
-    return o['message'];
+    return o['message'] || o['raw'] || '?';
   };
 };
