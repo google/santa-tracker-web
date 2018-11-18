@@ -1,20 +1,21 @@
 const dom = require('./dom.js');
 const fsp = require('./fsp.js');
 const {minify} = require('html-minifier');
+const messages = require('./messages.js');
 const terser = require('terser');
-
-const messages = require('../en_src_messages.json');
 
 
 /**
  * @param {string} filename
  * @param {{
- *   compile: (boolean|undefined),
+ *   compile: boolean,
+ *   lang: string,
  *   body: (!Object<string, string>|undefined),
- * }=}
+ * }}
  */
-module.exports = async (filename, options={}) => {
+module.exports = async (filename, options) => {
   const document = dom.parse(await fsp.readFile(filename, 'utf8'));
+  const msg = messages(options.lang);
 
   // apply data-key attributes to body
   if (options.body) {
@@ -29,8 +30,7 @@ module.exports = async (filename, options={}) => {
   // replace all [msgid] strings
   const msgs = Array.from(document.querySelectorAll('[msgid]'));
   msgs.forEach((node) => {
-    const object = messages[node.getAttribute('msgid')];
-    const string = object && (object.raw || object.message) || '?';
+    const string = msg(node.getAttribute('msgid'));
 
     if (node.localName === 'meta') {
       node.setAttribute('content', string);

@@ -1,3 +1,4 @@
+const path = require('path');
 const glob = require('glob');
 
 /**
@@ -12,6 +13,7 @@ const glob = require('glob');
  */
 module.exports = (...req) => {
   const out = new Set();
+  const options = {mark: true};
 
   for (let cand of req) {
     const negate = cand[0] === '!';
@@ -19,7 +21,7 @@ module.exports = (...req) => {
       cand = cand.substr(1);
     }
 
-    const result = glob.sync(cand);
+    const result = glob.sync(cand, options);
     if (!result.length && !glob.hasMagic(cand)) {
       throw new Error(`couldn't match file: ${cand}`);
     }
@@ -29,5 +31,6 @@ module.exports = (...req) => {
     }
   }
 
-  return [...out];
+  // filter out directories
+  return [...out].filter((cand) => !cand.endsWith('/'));
 };

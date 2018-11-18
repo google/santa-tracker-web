@@ -5,6 +5,7 @@ const compileCss = require('./build/compile-css.js');
 const compileHtml = require('./build/compile-html.js');
 const compileScene = require('./build/compile-scene.js');
 const fsp = require('./build/fsp.js');
+const messages = require('./build/messages.js');
 const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
@@ -37,22 +38,6 @@ function bundleWarn(warning, sub) {
   if (warning.code !== 'EVAL') {
     // Closure uses eval() through its generated code, so ignore this for now.
     return sub(warning);
-  }
-}
-
-
-const messages = require('./en_src_messages.json');
-
-
-function templateTagReplacer(name, arg) {
-  switch (name) {
-    case '_msg': {
-      const object = messages[arg];
-      return object && (object.raw || object.message) || '?';
-    }
-    case '_style': {
-      return compileCss(`styles/${arg}.scss`);
-    }
   }
 }
 
@@ -105,9 +90,20 @@ async function bundleCode(filename, loader) {
 /**
  * @param {{
  *   compile: boolean,
- * }=}
+ *   lang: string,
+ * }}
  */
-module.exports = (options={}) => {
+module.exports = (options) => {
+  const msg = messages(options.lang);
+  const templateTagReplacer = (name, arg) => {
+    switch (name) {
+      case '_msg':
+        return msg(arg);
+      case '_style':
+        return compileCss(`styles/${arg}.scss`, options.compile);
+    }
+  };
+
   const loader = async (filename) => {
     if (filename.startsWith('third_party/')) {
       return null;
@@ -120,9 +116,9 @@ module.exports = (options={}) => {
           body: await compileCss(filename, options.compile),
         };
       case '.html':
-        const htmlOptions = {compile: options.compile};
+        // nb. Just pass through options as-is.
         return {
-          body: await compileHtml(filename, htmlOptions),
+          body: await compileHtml(filename, options),
         };
       case '.js':
         break;

@@ -17,6 +17,11 @@ const yargs = require('yargs')
       default: process.env.PORT || 5000,
       describe: 'Serving port (+1 for prod)',
     })
+    .option('lang', {
+      type: 'string',
+      default: 'en',
+      describe: 'Serving language',
+    })
     .option('compile', {
       type: 'boolean',
       default: false,
@@ -31,11 +36,14 @@ function listen(server, port) {
 log('Santa Tracker');
 
 async function serve() {
-  const loader = require('./loader.js');
+  const loader = require('./loader.js')({
+    compile: yargs.compile,
+    lang: yargs.lang,
+  });
   const loaderTransform = require('./loader-transform.js');
 
   const server = new Koa();
-  server.use(loaderTransform(loader({compile: yargs.compile})));
+  server.use(loaderTransform(loader));
   server.use(koaStatic('.'));
 
   await listen(server, yargs.port);
@@ -59,12 +67,15 @@ async function serve() {
       return next();
     }
 
-    // compile the HTML locally to include i18n and prod URL
+    // compile the HTML locally to include i18n and static URL
     const filename = path.join('prod', ctx.path);
-    const options = {compile: yargs.compile};
-    if (ctx.path === '/index.html') {
-      options.body = {static: `http://localhost:${yargs.port}/index.html`};
-    }
+    const options = {
+      compile: yargs.compile,
+      lang: yargs.lang,
+      body: {
+        static: `http://localhost:${yargs.port}/index.html`,
+      },
+    };
     ctx.response.body = await compileHtml(filename, options);
     ctx.response.type = 'text/html';
   });
