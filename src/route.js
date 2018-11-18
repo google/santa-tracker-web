@@ -69,3 +69,30 @@ export function scene(sceneName) {
   }
   return scope;
 }
+
+
+const resolveCache = {};
+
+/**
+ * @param {string} htmlString raw HTML to resolve containing e.g. <a href="scene.html">
+ * @return {!DocumentFragment}
+ */
+export function resolve(htmlString) {
+  const previous = resolveCache[htmlString];
+  if (previous !== undefined) {
+    return previous;
+  }
+
+  const node = document.createElement('template');
+  node.innerHTML = htmlString;
+
+  const links = Array.from(node.content.querySelectorAll('a[href]'));
+  links.forEach((link) => {
+    const v = href(link.getAttribute('href'));
+    console.info('from', link.getAttribute('href'), 'to', v);
+    link.setAttribute('href', v);
+  });
+
+  resolveCache[htmlString] = node.content;
+  return node.content;
+}

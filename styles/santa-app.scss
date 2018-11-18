@@ -30,7 +30,7 @@ main {
     height: 100%;
     visibility: hidden;
     outline: 2px solid rgba(0, 0, 0, 0.125);
-    min-width: 320px;
+    width: 320px;
     transform: translate(-100%);
     transition: transform $duration-sidebar ease-out;
     animation: santa-app__hide-nav $duration-sidebar step-end forwards;
@@ -248,6 +248,10 @@ main.scroll {
   align-items: center;
   justify-content: center;
   position: relative;
+
+  a {
+    color: inherit;
+  }
 
   santa-weather {
     position: absolute;

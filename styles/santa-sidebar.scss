@@ -1,4 +1,5 @@
 $indent-left: 24px;  // indent in the sidebar
+$padding-right: 16px;
 
 :host {
   display: block;
@@ -17,7 +18,7 @@ $indent-left: 24px;  // indent in the sidebar
   }
 }
 .links {
-  padding: 12px 12px 4px $indent-left;
+  padding: 12px $padding-right 4px $indent-left;
 
   h2 {
     color: #7bc7e5;
@@ -48,7 +49,7 @@ a {
   height: 150px;
   background: transparent center right no-repeat;
   background-size: cover;
-  padding: 12px 12px 12px $indent-left;
+  padding: 12px $padding-right 12px $indent-left;
   color: #fff;
   display: flex;
   flex-direction: column;
