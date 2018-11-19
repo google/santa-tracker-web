@@ -124,12 +124,14 @@ function msgidForScene(id, info) {
 
 async function release() {
   log(`Building Santa Tracker ${color.red(yargs.build)}...`);
-  await fsp.mkdirp('dist/static');
+
+  const staticDir = path.join('dist/static', yargs.build);
+  await fsp.mkdirp(staticDir);
   await fsp.mkdirp('dist/prod');
 
-  const staticPath = `${yargs.baseurl}${yargs.build}/`;
-  const staticPathForLang = (lang) => {
-    return lang ? `${staticPath}/${lang}.html` : staticPath;
+  const staticAttr = `${yargs.baseurl}${yargs.build}/`;
+  const staticAttrForLang = (lang) => {
+    return lang ? `${staticAttr}${lang}.html` : staticAttr;
   };
 
   // Find the list of languages by reading `_messages`.
@@ -170,7 +172,7 @@ async function release() {
     for (const lang in langs) {
       const target = path.join('dist/prod', pathForLang(lang), tail);
       const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticPathForLang(lang));
+        releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
       });
       await write(target, out);
       ++prodHtmlCount;
@@ -202,7 +204,7 @@ async function release() {
       const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
       const target = path.join('dist/prod', pathForLang(lang), filename);
       const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticPathForLang(lang));
+        releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
       });
       await write(target, out);
       ++prodHtmlCount;
@@ -282,7 +284,7 @@ async function release() {
       const id = `e${entrypoints.size}.js`;
       entrypoints.set(id, {scriptNode, dir, code, htmlFile});
 
-      // clear scriptNode
+      // Clear scriptNode.
       scriptNode.textContent = '';
       scriptNode.removeAttribute('src');
     }
@@ -365,7 +367,7 @@ async function release() {
       sourceType: 'module',
     });
     const minifiedForES = terser.minify(transpiledForES);
-    await write(path.join('dist/static/src', filename), minifiedForES.code);
+    await write(path.join(staticDir, 'src', filename), minifiedForES.code);
     totalSizeES += minifiedForES.code.length;
   }
   log(`Written ${color.cyan(totalSizeES)} bytes of ES module code`);
@@ -394,10 +396,16 @@ async function release() {
           ],
         }),
       ],
-      input: path.join('dist/static/src', filename),
+      input: path.join(staticDir, 'src', filename),
     });
     const generated = await bundle.generate({format: 'es'});
-    await write(path.join('dist/static/src', `_${filename}`), generated.code);
+    await write(path.join(staticDir, 'src', `_${filename}`), generated.code);
+
+    // Add a new scriptNode before the ES6 node.
+    const transpiledScriptNode = data.scriptNode.ownerDocument.createElement('script');
+    transpiledScriptNode.toggleAttribute('nomodule', true);
+    transpiledScriptNode.src = `src/_${filename}`;
+    data.scriptNode.parentNode.insertBefore(transpiledScriptNode, data.scriptNode);
   }
 
   // Render i18n versions of static pages.
@@ -406,14 +414,16 @@ async function release() {
     document.body.setAttribute('data-root', relativeRoot);
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
+    const scriptNode = document.createElement('script');
+    const messages = {};
 
     for (const lang in langs) {
       const filename = `${lang}.html`;
       const target = path.join('dist/static', dir, filename);
       const out = documentForLang(langs[lang], (document) => {
         // TODO(samthor): Real messages.
-        const scriptNode = document.createElement('script');
-        scriptNode.textContent = `var __msg={};function _msg(id){return '?'}`;
+        scriptNode.textContent =
+            `var __msg=${JSON.stringify(messages)};function _msg(id){return '?'}`;
         document.head.insertBefore(scriptNode, document.head.firstChild);
       });
       await write(target, out);
@@ -429,7 +439,7 @@ async function release() {
   // Copy everything else.
   const staticAll = globAll(...staticAssets).concat(...requiredScriptSources);
   log(`Copying ${color.cyan(staticAll.length)} static assets`);
-  await releaseAll(staticAll, 'static');
+  await releaseAll(staticAll, path.join('static', yargs.build));
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
