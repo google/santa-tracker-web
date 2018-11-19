@@ -4,6 +4,9 @@ const {minify} = require('html-minifier');
 const terser = require('terser');
 
 
+const emptyFunc = () => {};
+
+
 function compileHtml(raw) {
   const mo = {
     collapseBooleanAttributes: true,
@@ -95,16 +98,18 @@ function buildApplyLang(document) {
     messagesNodeMap.set(node, node.getAttribute('msgid'));
     node.removeAttribute('msgid');
   });
-  const applyMessages = (messages) => {
+  const applyMessages = (messages, lang) => {
     // set <html lang="...">
-    applyAttribute(document.documentElement, 'lang', messages ? messages(null) : null);
+    applyAttribute(document.documentElement, 'lang', lang);
     messagesNodeMap.forEach((msgid, node) => {
       const string = (messages ? messages(msgid) : '');
       applyToNode(string, node);
     });
   };
-  return (messages) => {
-    applyMessages(messages);
+  return (messages, rewriter=emptyFunc) => {
+    const lang = messages(null);
+    applyMessages(messages, lang);
+    rewriter(document, lang);
     const out = dom.serialize(document);
     applyMessages();
     return out;
@@ -116,7 +121,15 @@ module.exports = {
   applyAttribute,
   applyAttributeToAll,
 
-  async prod(filename, rewriter) {
+  async static(document) {
+    const applyLang = buildApplyLang(document);
+    return (messages, rewriter=emptyFunc) => {
+      const out = applyLang(messages, rewriter);
+      return compileHtml(out);
+    };
+  },
+
+  async prod(filename, rewriter=emptyFunc) {
     const raw = await fsp.readFile(filename, 'utf8');
     const source = compileHtml(raw);
     const document = dom.parse(source);

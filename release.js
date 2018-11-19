@@ -40,6 +40,11 @@ const yargs = require('yargs')
       default: false,
       describe: 'only generate default top-level language',
     })
+    .option('fast', {
+      type: 'boolean',
+      default: false,
+      describe: 'only build app shell, do not build scenes',
+    })
     .option('baseurl', {
       type: 'string',
       default: 'https://maps.gstatic.com/mapfiles/santatracker/',
@@ -65,11 +70,9 @@ const yargs = require('yargs')
 const staticAssets = [
   'audio/*',
   'img/**/*',
-  '!img/**/*_og.png',  // don't include OG images, too large
   'third_party/**',
   'scenes/**/models/**',
   'scenes/**/img/**',
-  // 'components/url/*.js',
   // TODO(samthor): Better support for custom scenes (#1679).
   // 'scenes/snowflake/snowflake-maker/{media,third-party}/**',
   // 'scenes/snowball/models/*',
@@ -87,8 +90,9 @@ async function copy(src, dst) {
   await fsp.copyFile(src, dst);
 }
 
-function releaseAll(all) {
-  const copies = all.map((p) => copy(p, path.join('dist', p)));
+function releaseAll(all, prefix=null) {
+  const target = prefix ? path.join('dist', prefix) : 'dist';
+  const copies = all.map((p) => copy(p, path.join(target, p)));
   return Promise.all(copies);
 }
 
@@ -123,39 +127,6 @@ function msgidForScene(id, info) {
     return `scene_${id}`;
   }
 }
-
-/**
- * Returns virtual module content for Rollup. This performs one of two tasks:
- *   1) extracts base64-encoded code from a "virtual" import (one generated from inside HTML)
- *   2) returns a Promise for Closure scene compilation
- */
-function virtualModuleContent(id, importer) {
-  if (importer === undefined) {
-    const virtualSplitIndex = id.indexOf('::\0');
-    if (virtualSplitIndex !== -1) {
-      const buf = Buffer.from(id.slice(virtualSplitIndex + 3), 'base64');
-      return buf.toString();
-    }
-  }
-
-  if (!id.startsWith('./') && !id.startsWith('../')) {
-    return undefined;  // not a real file
-  }
-
-  // Find where the target source file lives relative to the root.
-  const dir = path.dirname(importer);
-  const resolved = path.relative(__dirname, path.resolve(dir, id));
-
-  // If it matches a scene, return a Promise for its compilation.
-  const sceneName = matchSceneMin(resolved);
-  if (sceneName !== null) {
-    return (async () => {
-      const {js, sourceMap} = await compileScene({sceneName}, true);
-      return {code: js, map: sourceMap};
-    })();
-  }
-}
-
 
 async function release() {
   log(`Building Santa Tracker ${color.red(yargs.build)}...`);
@@ -196,14 +167,14 @@ async function release() {
   let prodHtmlCount = 0;
   const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
   for (const htmlFile of prodOtherHtml) {
-    const documentForLang = await releaseHtml.prod(htmlFile, (document) => {
-      releaseHtml.applyAttribute(document.body, 'data-static', staticPath);
-    });
+    const documentForLang = await releaseHtml.prod(htmlFile);
 
     const tail = path.basename(htmlFile);
     for (const lang in langs) {
       const target = path.join('dist/prod', pathForLang(lang), tail);
-      const out = documentForLang(langs[lang]);
+      const out = documentForLang(langs[lang], (document) => {
+        releaseHtml.applyAttribute(document.body, 'data-static', staticPath + `${lang}.html`);
+      });
       await write(target, out);
       ++prodHtmlCount;
     }
@@ -213,7 +184,6 @@ async function release() {
   for (const sceneName in scenes) {
     const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
       const head = document.head;
-      releaseHtml.applyAttribute(document.body, 'data-static', staticPath);
       releaseHtml.applyAttribute(document.body, 'data-version', yargs.build);
 
       const image = `prod/images/og/${sceneName}.png`;
@@ -234,7 +204,9 @@ async function release() {
     for (const lang in langs) {
       const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
       const target = path.join('dist/prod', pathForLang(lang), filename);
-      const out = documentForLang(langs[lang]);
+      const out = documentForLang(langs[lang], (document) => {
+        releaseHtml.applyAttribute(document.body, 'data-static', staticPath + `${lang}.html`);
+      });
       await write(target, out);
       ++prodHtmlCount;
     }
@@ -254,7 +226,6 @@ async function release() {
 
   // Shared resources needed by prod build.
   const entrypoints = new Map();
-  const virtualScripts = new Map();
   const requiredScriptSources = new Set();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
@@ -262,7 +233,8 @@ async function release() {
   // or JS on its own, it must be included by one of our HTML entry points.
   // FIXME(samthor): Bundle code is only loaded imperatively. Need to fix.
   const loader = require('./loader.js')({compile: true});
-  const htmlFiles = ['index.html'].concat(globAll('scenes/*/index.html'));
+  const htmlFiles = yargs.fast ?
+      ['index.html'] : ['index.html'].concat(globAll('scenes/*/index.html'));
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
@@ -386,6 +358,7 @@ async function release() {
       presets: [
         ['@babel/preset-env', {
           targets: {esmodules: true},
+          modules: false,
         }],
       ],
       plugins: [
@@ -429,6 +402,29 @@ async function release() {
     const generated = await bundle.generate({format: 'es'});
     await write(path.join('dist/static/src', `_${filename}`), generated.code);
   }
+
+  // Render i18n versions of static pages.
+  for (const [htmlFile, document] of htmlDocuments) {
+    const documentForLang = await releaseHtml.static(document);
+    const dir = path.dirname(htmlFile);
+
+    for (const lang in langs) {
+      const filename = `${lang}.html`;
+      const target = path.join('dist/static', dir, filename);
+      const out = documentForLang(langs[lang], (document) => {
+        // TODO(samthor): Real messages.
+        const scriptNode = document.createElement('script');
+        scriptNode.textContent = `var __msg={};function _msg(id){return '?'}`;
+        document.head.insertBefore(scriptNode, document.head.firstChild);
+      });
+      await write(target, out);
+    }
+  }
+
+  // Copy everything else.
+  const staticAll = globAll(...staticAssets).concat(...requiredScriptSources);
+  log(`Copying ${color.cyan(staticAll.length)} static assets`);
+  await releaseAll(staticAll, 'static');
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
