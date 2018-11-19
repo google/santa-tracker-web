@@ -414,17 +414,18 @@ async function release() {
     document.body.setAttribute('data-root', relativeRoot);
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
+
     const scriptNode = document.createElement('script');
+    document.head.insertBefore(scriptNode, document.head.firstChild);
     const messages = {};
 
     for (const lang in langs) {
       const filename = `${lang}.html`;
-      const target = path.join('dist/static', dir, filename);
+      const target = path.join(staticDir, dir, filename);
       const out = documentForLang(langs[lang], (document) => {
         // TODO(samthor): Real messages.
         scriptNode.textContent =
             `var __msg=${JSON.stringify(messages)};function _msg(id){return '?'}`;
-        document.head.insertBefore(scriptNode, document.head.firstChild);
       });
       await write(target, out);
     }
@@ -433,7 +434,7 @@ async function release() {
   // Special-case some loaded code.
   for (const loaderFile of staticLoaderFiles) {
     const out = await loader(loaderFile);
-    await write(path.join('dist/static', loaderFile), out.body);
+    await write(path.join(staticDir, loaderFile), out.body);
   }
 
   // Copy everything else.
