@@ -6,7 +6,8 @@ body {
 
 #mid {
   position: absolute;
-  background-color: #7CA6D6;
+  background: #7CA6D6 url('img/stages/stage3.svg') center;
+  background-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
