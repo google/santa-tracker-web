@@ -89,7 +89,6 @@ export function resolve(htmlString) {
   const links = Array.from(node.content.querySelectorAll('a[href]'));
   links.forEach((link) => {
     const v = href(link.getAttribute('href'));
-    console.info('from', link.getAttribute('href'), 'to', v);
     link.setAttribute('href', v);
   });
 
