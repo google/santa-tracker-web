@@ -120,74 +120,86 @@ app.Game = class Game {
   initFlipAnimations() {
     const cardElements = this.root.querySelectorAll('.card');
     for (const cardElement of cardElements) {
-      cardElement.addEventListener('click', () => {
-        if (this.flippedCards.length >= 2) {
-          // Too many cards flipped already.
-          return;
-        }
-        if (this.levelWon) {
-          // The game has been won and we're in the process of resetting.
-          return;
-        }
-
-        // Get the data associated with this card.
-        const cardIndex = getPositionInParent(cardElement);
-        const card = this.cards[cardIndex];
-
-        if (card.flipped) {
-          // Card is already flipped.
-          return;
-        }
-
-        this.setCardContent(cardElement, card);
-
-        cardElement.classList.add('flipped');
-        card.flipped = true;
-
-        this.flippedCards.push(card);
-        this.playSound(card.content, card.contentLanguage);
-
-        if (this.flippedCards.length >= 2) {
-          // Once the flip animation has ended...
-          setTimeout(() => {
-            // Check if the cards are a match.
-            if (this.flippedCards[0].languageCode != this.flippedCards[1].languageCode) {
-              // Not a match. Reset guess.
-              this.resetGuesses();
-              return;
-            }
-
-            // Mark cards as matched.
-            this.flippedCards.forEach(card => card.matched = true);
-            // Clear the flipped cards so we can guess again.
-            this.flippedCards = [];
-
-            // If every card is matched, reset things.
-            if (this.cards.every(card => card.matched)) {
-              this.levelWon = true;
-
-              // TODO(jez): Use the common santa tracker level transition.
-              // Change the underlying cards.
-              // Note that the cards won't be visually updated until they're flipped again.
-              this.initCards();
-
-              this.resetGuesses();
-              setTimeout(() => {
-                // Allow the user to guess again.
-                this.levelWon = false;
-              }, 1000);
-            }
-          }, 1000);
-        }
-      });
+      cardElement.addEventListener('click', () => this.selectCard(cardElement));
     }
+  }
+
+  /**
+   * Selects a card and checks if it matches.
+   * @param {!HTMLElement} cardElement Card selected
+   */
+  async selectCard(cardElement) {
+    if (this.flippedCards.length >= 2) {
+      // Too many cards flipped already.
+      return;
+    }
+    if (this.levelWon) {
+      // The game has been won and we're in the process of resetting.
+      return;
+    }
+
+    // Get the data associated with this card.
+    const cardIndex = getPositionInParent(cardElement);
+    const card = this.cards[cardIndex];
+
+    if (card.flipped) {
+      // Card is already flipped.
+      return;
+    }
+
+    this.setCardContent(cardElement, card);
+
+    cardElement.classList.add('flipped');
+    card.flipped = true;
+
+    this.flippedCards.push(card);
+    this.playSound(card.content, card.contentLanguage);
+
+    if (this.flippedCards.length < 2) {
+     // Not enough flipped cards, lets check for a match.
+     return;
+    }
+
+    // Wait for the flip animation
+    // TODO: use transitionend event
+    await new Promise((r) => window.setTimeout(r, 1000));
+
+    // Check if the cards are a match.
+    if (this.flippedCards[0].languageCode != this.flippedCards[1].languageCode) {
+      // Not a match. Reset guess.
+      await this.resetGuesses();
+      return;
+    }
+
+    // Mark cards as matched.
+    this.flippedCards.forEach(card => card.matched = true);
+    // Clear the flipped cards so we can guess again.
+    this.flippedCards = [];
+
+    if (!this.cards.every(card => card.matched)) {
+      // Still more cards to be matched
+      return;
+    }
+
+    // They've won!
+    this.levelWon = true;
+
+    // TODO(jez): Use the common santa tracker level transition.
+    // Change the underlying cards.
+    // Note that the cards won't be visually updated until they're flipped again.
+    this.initCards();
+
+    await this.resetGuesses();
+
+    // Allow the user to guess again.
+    this.levelWon = false;
   }
 
   /**
    * Flips all unmatching cards to be facing down again.
    * @private
    */
-  resetGuesses() {
+  async resetGuesses() {
     const cardElements = this.root.querySelectorAll('.card');
 
     for (let i = 0; i < this.cards.length; i ++) {
@@ -202,8 +214,10 @@ app.Game = class Game {
       cardElement.classList.remove('flipped');
     }
     this.flippedCards = [];
-    // After the cards have finished flipping, reset their state
-    setTimeout(() => this.clearHiddenCardContents(), 1000);
+
+    // TODO: use transitionend event
+    await new Promise((r) => window.setTimeout(r, 1000));
+    this.clearHiddenCardContents();
   }
 
   /**
