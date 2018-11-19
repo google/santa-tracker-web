@@ -45,9 +45,9 @@ app.Game = class Game {
    * @private
    */
   initCards() {
-    const cardElements = Array.from(this.root.getElementsByClassName('card'));
+    const cardElements = this.root.querySelectorAll('.card');
     if ((cardElements.length) % 2 != 0) {
-      console.error('Invalid number of cards!');
+      throw Error('Invalid number of cards!');
     }
 
     const translations = Object.entries(app.Constants.PHRASES[0]);
@@ -93,7 +93,7 @@ app.Game = class Game {
    * @param {Number} numCards Number of cards to add.
    */
   createCards(numCards) {
-    const cards = document.getElementsByClassName('cards')[0];
+    const cards = this.root.querySelector('.cards');
 
     for (let i = 0; i < numCards; i ++) {
       const card = document.createElement('div');
@@ -118,7 +118,7 @@ app.Game = class Game {
    * @private
    */
   initFlipAnimations() {
-    const cardElements = this.root.getElementsByClassName('card');
+    const cardElements = this.root.querySelectorAll('.card');
     for (const cardElement of cardElements) {
       cardElement.addEventListener('click', () => {
         if (this.flippedCards.length >= 2) {
@@ -188,7 +188,7 @@ app.Game = class Game {
    * @private
    */
   resetGuesses() {
-    const cardElements = this.root.getElementsByClassName('card');
+    const cardElements = this.root.querySelectorAll('.card');
 
     for (let i = 0; i < this.cards.length; i ++) {
       const card = this.cards[i];
@@ -211,7 +211,7 @@ app.Game = class Game {
    * @private
    */
   clearHiddenCardContents() {
-    const cardElements = this.root.getElementsByClassName('card');
+    const cardElements = this.root.querySelectorAll('.card');
     for (let i = 0; i < this.cards.length; i ++) {
       const card = this.cards[i];
       const cardElement = cardElements[i];
@@ -250,7 +250,7 @@ app.Game = class Game {
    * @param {string} text Text to display on the card.
    */
   setCardText(cardElement, text) {
-    const contents = cardElement.getElementsByClassName('card-contents')[0];
+    const contents = cardElement.querySelector('.card-contents');
     contents.textContent = text;
   }
   
@@ -261,7 +261,7 @@ app.Game = class Game {
    * @param {string} color CSS color for the card background.
    */
   setCardColor(cardElement, color) {
-    const front = cardElement.getElementsByClassName('card-front')[0];
+    const front = cardElement.querySelector('.card-front');
     front.style.backgroundColor = color;
   }
   
