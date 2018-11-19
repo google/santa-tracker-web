@@ -2,6 +2,12 @@
  * @fileoverview Runtime information for Santa Tracker's scenes.
  */
 {
+// index scene
+
+  '': {},
+
+// scenes
+
   airport: {},
   blimp: {},
   boatload: {

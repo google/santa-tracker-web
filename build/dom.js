@@ -1,3 +1,4 @@
+const fsp = require('./fsp.js');
 const parse5 = require('parse5');
 const parser = new (require('jsdom/lib/jsdom/living')).DOMParser();
 
@@ -23,16 +24,28 @@ const treeAdapter = {
   isElementNode: (node) => Boolean(node.tagName),
 };
 
+/**
+ * Parse the input into a JSDom document.
+ *
+ * @param {string|!Buffer} src
+ * @return {!Document}
+ */
+function parse(src) {
+  return parser.parseFromString(src.toString(), 'text/html');
+}
+
 module.exports = {
+  parse,
 
   /**
-   * Parse the input into a JSDom document.
+   * Parse the file into a JSDom document.
    *
-   * @param {string|!Buffer} src
-   * @return {!Document}
+   * @param {string} filename
+   * @return {!Promise<!Document>}
    */
-  parse(src) {
-    return parser.parseFromString(src.toString(), 'text/html');
+  async read(filename) {
+    const raw = await fsp.readFile(filename, 'utf8');
+    return parse(raw);
   },
 
   /**

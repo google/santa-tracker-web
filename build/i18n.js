@@ -1,15 +1,22 @@
+const fs = require('fs');
+const path = require('path');
+
 const emptyFunc = () => {};
 const fallback = require('../en_src_messages.json');
 
 /**
  * @param {string} lang
  * @param {function(string): ?string} callback
- * @return {function(string): string}
+ * @return {function(?string): string}
  */
-module.exports = function(lang, callback=emptyFunc) {
+function lookup(lang, callback=emptyFunc) {
   const data = require(`../_messages/${lang}.json`);
 
   return (msgid) => {
+    if (msgid === null) {
+      return lang;
+    }
+
     let o = data[msgid];
     if (!o) {
       const out = callback(msgid);
@@ -20,6 +27,23 @@ module.exports = function(lang, callback=emptyFunc) {
       }
       o = fallback[msgid];
     }
-    return o['message'] || o['raw'] || '?';
+    return o && (o['message'] || o['raw']) || '?';
   };
+}
+
+let langCache;
+
+lookup.all = function(callback=emptyFunc) {
+  if (langCache === undefined) {
+    const cands = fs.readdirSync(path.join(__dirname, '..', '_messages'));
+    langCache = cands.map((file) => file.split('.')[0]);
+  }
+
+  const out = {};
+  langCache.forEach((lang) => {
+    out[lang] = lookup(lang, (msgid) => callback(lang, msgid));
+  });
+  return out;
 };
+
+module.exports = lookup;
