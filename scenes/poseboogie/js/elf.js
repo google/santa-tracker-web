@@ -1,3 +1,4 @@
+import * as posenet from '@tensorflow-models/posenet';
 import {BODY_PARTS, OTHER} from './world.js';
 
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being
@@ -299,25 +300,36 @@ export class Elf {
     p2World.addConstraint(this.rightKnee);
   }
 
-  track(videoConfig) {
+  track(videoConfig, appConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
-    this.threshold = videoConfig.minPartConfidence;
 
     const trackFrame = () => {
-      videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
-            videoConfig.flipHorizontal, videoConfig.outputStride)
-          .then((pose) => {
-            // TODO(markmcd): check the overall pose score, show help info / error state
-            this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
-            if (videoConfig.debug) {
-              document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
-            }
-          })
-          .catch((reason) => {
-            console.error('Pose estimation failed!', reason);
-          })
-          .then(() => window.requestAnimationFrame(trackFrame));
+      this.threshold = appConfig.minPartConfidence;
+
+      // Reload the model if the UI setting has changed
+      let loadModel = Promise.resolve(videoConfig.net);
+      if (appConfig.modelReload) {
+        videoConfig.net.dispose();
+        videoConfig.net.discarded = true;
+        appConfig.modelReload = false;
+        loadModel = posenet.load(+appConfig.mobileNetArchitecture);
+      }
+
+      loadModel.then((net) => {
+        videoConfig.net = net;
+        net.estimateSinglePose(videoConfig.video, appConfig.imageScaleFactor,
+                appConfig.flipHorizontal, +appConfig.outputStride)
+            .then((pose) => {
+              // TODO(markmcd): check the overall pose score, show help info / error state
+              this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+              if (appConfig.debug) {
+                document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+              }
+            })
+            .catch((reason) => console.error('Pose estimation failed!', reason))
+            .then(() => window.requestAnimationFrame(trackFrame));
+        });
     };
 
     this.world.world.on('postStep', () => this.updatePosition());

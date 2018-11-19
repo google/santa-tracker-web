@@ -1,17 +1,21 @@
 import api from '../../src/scene/api.js';
+import * as dat from 'dat.gui';
 import * as posenet from '@tensorflow-models/posenet';
 import { detectAndDrawPose } from './js/pose.js';
 import { Elf } from './js/elf.js';
 import { World } from './js/world.js';
 
-const debug = true;
 const videoWidth = 700;
 const videoHeight = 500;
-const minPartConfidence = 0.8;
-const mobileNetArchitecture = 0.75;
-const flipHorizontal = true;  // Assume web-cam source, which flips video
-const imageScaleFactor = 0.5;
-const outputStride = 16;
+
+const appConfig = {
+  debug: true,
+  mobileNetArchitecture: 0.75,
+  minPartConfidence: 0.8,
+  flipHorizontal: true, // Default to web-cam source, which flips video
+  imageScaleFactor: 0.5,
+  outputStride: 16,
+};
 
 api.preload.images(
   'img/face.png',
@@ -19,7 +23,7 @@ api.preload.images(
   'img/arm.png',
   'img/hand_cuff.png',
 );
-const posePromise = posenet.load(mobileNetArchitecture);
+const posePromise = posenet.load(appConfig.mobileNetArchitecture);
 api.preload.wait(posePromise);
 
 /**
@@ -59,6 +63,17 @@ async function loadVideo() {
   return video;
 }
 
+function setUpDebugControls() {
+  const gui = new dat.GUI();
+  gui.add(appConfig, 'mobileNetArchitecture', ['1.01', '1.00', '0.75', '0.50']).onChange((val) => {
+    appConfig.modelReload = val;
+  });
+  gui.add(appConfig, 'minPartConfidence', 0.0, 1.0);
+  gui.add(appConfig, 'flipHorizontal');
+  gui.add(appConfig, 'imageScaleFactor').min(0.2).max(1.0);
+  gui.add(appConfig, 'outputStride', [8, 16, 32]);
+}
+
 /**
  * Kicks off the demo by loading the posenet model, finding and loading
  * available camera devices, and setting off the detectAndDrawPose function.
@@ -79,18 +94,18 @@ export async function bindPage() {
     throw e;
   }
 
-  const videoConfig = {video, net, videoWidth, videoHeight, flipHorizontal,
-    imageScaleFactor, outputStride, minPartConfidence, debug};
+  const videoConfig = {video, net, videoWidth, videoHeight};
 
   const world = new World();
   const elf = new Elf(world);
 
   world.animate(document.getElementById('scene'));
-  elf.track(videoConfig);
+  elf.track(videoConfig, appConfig);
 
   if (debug) {
     document.getElementById('debug').style.display = 'block';
-    detectAndDrawPose(videoConfig);
+    setUpDebugControls();
+    detectAndDrawPose(videoConfig, appConfig);
   }
 }
 

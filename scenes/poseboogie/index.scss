@@ -32,6 +32,11 @@ body {
   margin: 5px 5px 5px auto;
 }
 
+/* Ensure dat.gui controls are drawn over the canvas. */
+.dg.ac {
+  z-index: 2 !important;
+}
+
 #video {
   transform: scaleX(-1);
   display: none;

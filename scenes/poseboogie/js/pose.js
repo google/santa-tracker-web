@@ -4,7 +4,7 @@ import {drawKeypoints, drawSkeleton} from 'tensorflow-models/posenet/demos/demo_
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
  */
-export function detectAndDrawPose(videoConfig) {
+export function detectAndDrawPose(videoConfig, appConfig) {
   const canvas = document.getElementById('output');
   const ctx = canvas.getContext('2d');
 
@@ -12,8 +12,13 @@ export function detectAndDrawPose(videoConfig) {
   canvas.height = videoConfig.videoHeight;
 
   async function poseDetectionFrame() {
+    if (videoConfig.net.discarded) {
+      window.requestAnimationFrame(poseDetectionFrame);
+      return;
+    }
+
     const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
-        videoConfig.imageScaleFactor, videoConfig.flipHorizontal, videoConfig.outputStride);
+        appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
 
     ctx.clearRect(0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
 
@@ -25,8 +30,8 @@ export function detectAndDrawPose(videoConfig) {
     ctx.restore();
 
     // Draw the resulting skeleton and key-points if over certain confidence scores
-    drawKeypoints(pose.keypoints, videoConfig.minPartConfidence, ctx);
-    drawSkeleton(pose.keypoints, videoConfig.minPartConfidence, ctx);
+    drawKeypoints(pose.keypoints, appConfig.minPartConfidence, ctx);
+    drawSkeleton(pose.keypoints, appConfig.minPartConfidence, ctx);
 
     window.requestAnimationFrame(poseDetectionFrame);
   }
