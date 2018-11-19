@@ -5,22 +5,19 @@
  */
 
 const color = require('ansi-colors');
-// const compileCss = require('./build/compile-css.js');
-// const compileScene = require('./build/compile-scene.js');
 const dom = require('./build/dom.js');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
 const isUrl = require('./build/is-url.js');
+const releaseHtml = require('./build/release-html.js');
 const log = require('fancy-log');
-// const matchScene = require('./build/match-scene.js');
-// const matchSceneMin = require('./build/match-scene-min.js');
-// const normalizeJs = require('./build/normalize-js.js');
 const path = require('path');
-// const rollupEntrypoint = require('./build/rollup-entrypoint.js');
+const loader = require('./loader.js');
+const i18n = require('./build/i18n.js');
+require('json5/lib/register');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
-const DEFAULT_LANG = 'en';
 
 const yargs = require('yargs')
     .strict()
@@ -31,12 +28,22 @@ const yargs = require('yargs')
       default: DEFAULT_STATIC_VERSION,
       describe: 'production build tag',
     })
+    .option('default-lang', {
+      type: 'string',
+      default: 'en',
+      describe: 'default top-level language',
+    })
     .option('baseurl', {
       type: 'string',
-      default: '/static',
-      describe: 'absolute path or URL to static content',
+      default: 'https://maps.gstatic.com/mapfiles/santatracker/',
+      describe: 'URL to static content',
     })
-    .option('api_base', {
+    .option('prod', {
+      type: 'string',
+      default: 'https://santatracker.google.com/',
+      describe: 'base prod URL',
+    })
+    .option('api-base', {
       type: 'string',
       default: 'https://santa-api.appspot.com/',
       describe: 'base URL for Santa\'s API',
@@ -76,13 +83,34 @@ function prodToStatic(req) {
   return path.join(yargs.baseurl, req);
 }
 
+function pathForLang(lang) {
+  if (lang === yargs.defaultLang) {
+    return '.';
+  }
+  return `intl/${lang}_ALL`
+}
+
+async function copy(src, dst) {
+  await fsp.mkdirp(path.dirname(dst));
+  await fsp.copyFile(src, dst);
+}
+
+function releaseAll(all) {
+  const copies = all.map((p) => copy(p, path.join('dist', p)));
+  return Promise.all(copies);
+}
+
 async function write(target, content) {
   await fsp.mkdirp(path.dirname(target));
   await fsp.writeFile(target, content);
 }
 
-async function releaseAssets(target, req, extra=[]) {
-  const assetsToCopy = globAll(...[].concat(req, extra));
+async function read(target) {
+  return fsp.readFile(target, 'utf8');
+}
+
+async function releaseAssets(target, ...all) {
+  const assetsToCopy = globAll(...all);
   log(`Copying ${color.blue(assetsToCopy.length)} ${target} assets`);
   for (const asset of assetsToCopy) {
     const targetAssetPath = path.join('dist', target, asset);
@@ -113,7 +141,7 @@ function translatedPathForFile(filename, lang) {
  * @param {?Object} info from scenes.js
  * @return {string} msgid to use for naming the scene
  */
-function nameForScene(id, info) {
+function msgidForScene(id, info) {
   if (!id || !info) {
     return 'santatracker';
   } else if ('msgid' in info) {
@@ -157,21 +185,102 @@ function virtualModuleContent(id, importer) {
   }
 }
 
+
 async function release() {
   log(`Building Santa Tracker ${color.red(yargs.build)}...`);
   await fsp.mkdirp('dist/static');
   await fsp.mkdirp('dist/prod');
 
-  // Find the list of languages by reading `_messages_`.
-  const langs = (await fsp.readdir('_messages')).map((file) => file.split('.')[0]);
-  if (!langs.includes(DEFAULT_LANG)) {
-    throw new Error(`default lang '${DEFAULT_LANG}' not found in _messages`);
-  }
-  log(`Found ${color.blue(langs.length)} languages`);
+  const staticPath = `${yargs.baseurl}${yargs.build}/`;
 
-  // Read the ES6 scenes module by eval-ing it in place. Don't try this at home.
-  const scenes = eval((await fsp.readFile('./scenes.js', 'utf8')).replace('export default', ''));
-  log(`Found ${color.blue(Object.keys(scenes).length)} scenes`);
+  // Find the list of languages by reading `_messages`.
+  const missingMessages = {};
+  const langs = i18n.all((lang, msgid) => {
+    if (!(msgid in missingMessages)) {
+      missingMessages[msgid] = new Set();
+    }
+    missingMessages[msgid].add(lang);
+  });
+  if (!(yargs.defaultLang in langs)) {
+    throw new Error(`default lang '${yargs.defaultLang}' not found in _messages`);
+  }
+  log(`Found ${color.cyan(Object.keys(langs).length)} languages`);
+
+  // Fanout these scenes in prod.
+  const scenes = require('./scenes.json5');
+  log(`Found ${color.cyan(Object.keys(scenes).length)} scenes`);
+
+  const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
+  await releaseAll(prodAll);
+
+  // Match non-index.html pages, like cast, error etc.
+  let prodHtmlCount = 0;
+  const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
+  for (const htmlFile of prodOtherHtml) {
+    const documentForLang = await releaseHtml.prod(htmlFile, (document) => {
+      releaseHtml.applyAttribute(document.body, 'data-static', staticPath);
+    });
+
+    const tail = path.basename(htmlFile);
+    for (const lang in langs) {
+      const target = path.join('dist/prod', pathForLang(lang), tail);
+      const out = documentForLang(langs[lang]);
+      await write(target, out);
+      ++prodHtmlCount;
+    }
+  }
+
+  // Fanout index.html to all scenes and langs.
+  for (const sceneName in scenes) {
+    const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
+      const head = document.head;
+      releaseHtml.applyAttribute(document.body, 'data-static', staticPath);
+      releaseHtml.applyAttribute(document.body, 'data-version', yargs.build);
+
+      const image = `prod/images/og/${sceneName}.png`;
+      if (await fsp.exists(image)) {
+        const url = `${yargs.prod}images/og/${sceneName}.png`;
+        const all = [
+          '[property="og:image"]',
+          '[name="twitter:image"]',
+        ];
+        releaseHtml.applyAttributeToAll(head, all, 'content', url);
+      }
+
+      const msgid = msgidForScene(sceneName, scenes[sceneName]);
+      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
+      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+    });
+
+    for (const lang in langs) {
+      const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
+      const target = path.join('dist/prod', pathForLang(lang), filename);
+      const out = documentForLang(langs[lang]);
+      await write(target, out);
+      ++prodHtmlCount;
+    }
+  }
+
+  log(`Written ${color.cyan(prodHtmlCount)} prod HTML files`);
+
+
+
+  // Display information about missing messages.
+  const missingMessagesKeys = Object.keys(missingMessages);
+  if (missingMessagesKeys.length) {
+    log(`Missing ${color.red(missingMessagesKeys.length)} messages:`);
+    missingMessagesKeys.forEach((msgid) => {
+      const missingLangs = missingMessages[msgid];
+      const ratio = (missingLangs.size / Object.keys(langs).length * 100).toFixed() + '%';
+      const rest = (missingLangs.size <= 10) ? `[${[...missingLangs]}]` : '';
+      console.info(color.yellow(msgid), 'for', color.red(ratio), 'of langs', rest);
+    });
+  }
+
+
+  return;
+
+
 
   // Collects all script entrypoints in Santa Tracker.
   let virtualScriptIndex = 0;

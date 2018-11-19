@@ -1,5 +1,4 @@
 const dom = require('./dom.js');
-const fsp = require('./fsp.js');
 const {minify} = require('html-minifier');
 const terser = require('terser');
 
@@ -13,7 +12,7 @@ const terser = require('terser');
  * }}
  */
 module.exports = async (filename, options) => {
-  const document = dom.parse(await fsp.readFile(filename, 'utf8'));
+  const document = await dom.read(filename);
 
   // apply data-key attributes to body
   if (options.body) {
