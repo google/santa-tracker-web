@@ -354,6 +354,7 @@ async function release() {
     input: Array.from(entrypoints.keys()),
     plugins: [rollupNodeResolve(), virtualLoader],
   });
+
   const generated = await bundle.generate({
     format: 'es',
     chunkFileNames: 'c[hash].js',
@@ -368,6 +369,7 @@ async function release() {
     const {isEntry, code} = generated.output[filename];
 
     if (isEntry) {
+      // TODO(samthor): can we determine the tree here and add preloads?
       const {scriptNode, dir} = entrypoints.get(filename);
       scriptNode.setAttribute('src', path.relative(dir, `src/${filename}`));
     }
@@ -381,10 +383,14 @@ async function release() {
     // Transpile down for the ES module high-water mark. This is the `type="module"` import above.
     const {code: transpiledForES} = await babel.transformAsync(code, {
       filename,
+      presets: [
+        ['@babel/preset-env', {
+          targets: {esmodules: true},
+        }],
+      ],
       plugins: [
         // include _style replacements as a byproduct
         buildTemplateTagReplacer(templateTagReplacer),
-        '@babel/plugin-proposal-object-rest-spread',
       ],
       sourceType: 'module',
     });
@@ -392,7 +398,35 @@ async function release() {
     await write(path.join('dist/static/src', filename), minifiedForES.code);
     totalSizeES += minifiedForES.code.length;
   }
-  log(`Written ${color.cyan(totalSizeES)} bytes of JavaScript`);
+  log(`Written ${color.cyan(totalSizeES)} bytes of ES module code`);
+
+  // Generate ES5 versions of entrypoints.
+  const babelPlugin = require('rollup-plugin-babel');
+  for (const [filename, data] of entrypoints) {
+    console.info('entrypoint', filename);
+
+    // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
+    // https://github.com/MatAtBread/fast-async#runtimepattern
+    const bundle = await rollup.rollup({
+      plugins: [
+        babelPlugin({
+          plugins: [
+            // TODO(samthor): Grab _msg use here and pass to entrypoints.
+            'module:fast-async',  // use fast-async over transform-regenerator
+          ],
+          presets: [
+            ['@babel/preset-env', {
+              targets: {browsers: 'ie >= 11'},
+              exclude: ['transform-regenerator'],
+            }],
+          ],
+        }),
+      ],
+      input: path.join('dist/static/src', filename),
+    });
+    const generated = await bundle.generate({format: 'es'});
+    await write(path.join('dist/static/src', `_${filename}`), generated.code);
+  }
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
