@@ -123,8 +123,8 @@ module.exports = {
 
   async static(document) {
     const applyLang = buildApplyLang(document);
-    return (messages, rewriter=emptyFunc) => {
-      const out = applyLang(messages, rewriter);
+    return (messages) => {
+      const out = applyLang(messages);
       return compileHtml(out);
     };
   },

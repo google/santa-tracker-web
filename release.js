@@ -226,6 +226,7 @@ async function release() {
   // Shared resources needed by prod build.
   const entrypoints = new Map();
   const requiredScriptSources = new Set();
+  const messagesForHtmlFile = new Map();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
@@ -239,6 +240,7 @@ async function release() {
     const dir = path.dirname(htmlFile);
     const document = await dom.read(htmlFile);
     htmlDocuments.set(htmlFile, document);
+    messagesForHtmlFile.set(htmlFile, new Set());
 
     const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
     const allScripts = Array.from(document.querySelectorAll('script')).filter((scriptNode) => {
@@ -377,6 +379,14 @@ async function release() {
   for (const [filename, data] of entrypoints) {
     log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
 
+    // Piggyback on ES5 transpilation process to get messages required for this HTML entrypoint.
+    const messages = messagesForHtmlFile.get(data.htmlFile);
+    const messageTagObserver = (name, arg) => {
+      if (name === '_msg') {
+        messages.add(arg);
+      }
+    };
+
     // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
     // https://github.com/MatAtBread/fast-async#runtimepattern
     const bundle = await rollup.rollup({
@@ -385,7 +395,7 @@ async function release() {
           sourceMaps: false,  // babel barfs on some large entrypoints
           compact: true,      // otherwise it prettyprints
           plugins: [
-            // TODO(samthor): Grab _msg use here and pass to entrypoints.
+            buildTemplateTagReplacer(messageTagObserver),
             'module:fast-async',  // use fast-async over transform-regenerator
           ],
           presets: [
@@ -402,10 +412,11 @@ async function release() {
     await write(path.join(staticDir, 'src', `_${filename}`), generated.code);
 
     // Add a new scriptNode before the ES6 node.
-    const transpiledScriptNode = data.scriptNode.ownerDocument.createElement('script');
+    const {scriptNode, dir} = data;
+    const transpiledScriptNode = scriptNode.ownerDocument.createElement('script');
     transpiledScriptNode.toggleAttribute('nomodule', true);
-    transpiledScriptNode.src = `src/_${filename}`;
-    data.scriptNode.parentNode.insertBefore(transpiledScriptNode, data.scriptNode);
+    transpiledScriptNode.src = path.relative(dir, `src/_${filename}`);
+    scriptNode.parentNode.insertBefore(transpiledScriptNode, scriptNode);
   }
 
   // Render i18n versions of static pages.
@@ -415,19 +426,26 @@ async function release() {
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
 
+    // If there were any messages required for this file, add a script node.
+    const msgids = messagesForHtmlFile.get(htmlFile);
     const scriptNode = document.createElement('script');
-    document.head.insertBefore(scriptNode, document.head.firstChild);
-    const messages = {};
+    if (msgids.size) {
+      document.head.insertBefore(scriptNode, document.head.firstChild);
+    }
 
     for (const lang in langs) {
       const filename = `${lang}.html`;
       const target = path.join(staticDir, dir, filename);
-      const out = documentForLang(langs[lang], (document) => {
-        // TODO(samthor): Real messages.
-        scriptNode.textContent =
-            `var __msg=${JSON.stringify(messages)};function _msg(id){return '?'}`;
-      });
-      await write(target, out);
+
+      // Build the message lookup object. This won't be on the page if there's no messages.
+      const lookup = langs[lang];
+      const messages = {};
+      for (const msgid of msgids) {
+        messages[msgid] = lookup(msgid);
+      }
+      scriptNode.textContent =
+          `var __msg=${JSON.stringify(messages)};function _msg(x){return __msg[x]}`;
+      await write(target, documentForLang(lookup));
     }
   }
 
