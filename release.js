@@ -78,6 +78,10 @@ const staticAssets = [
   // 'scenes/snowball/models/*',
 ];
 
+const staticLoaderFiles = [
+  'src/app/controller.bundle.js',
+];
+
 function pathForLang(lang) {
   if (lang === yargs.defaultLang) {
     return '.';
@@ -99,16 +103,6 @@ function releaseAll(all, prefix=null) {
 async function write(target, content) {
   await fsp.mkdirp(path.dirname(target));
   await fsp.writeFile(target, content);
-}
-
-async function releaseAssets(target, ...all) {
-  const assetsToCopy = globAll(...all);
-  log(`Copying ${color.blue(assetsToCopy.length)} ${target} assets`);
-  for (const asset of assetsToCopy) {
-    const targetAssetPath = path.join('dist', target, asset);
-    await fsp.mkdirp(path.dirname(targetAssetPath));
-    await fsp.copyFile(asset, targetAssetPath);
-  }
 }
 
 /**
@@ -134,6 +128,9 @@ async function release() {
   await fsp.mkdirp('dist/prod');
 
   const staticPath = `${yargs.baseurl}${yargs.build}/`;
+  const staticPathForLang = (lang) => {
+    return lang ? `${staticPath}/${lang}.html` : staticPath;
+  };
 
   // Find the list of languages by reading `_messages`.
   const missingMessages = {};
@@ -173,7 +170,7 @@ async function release() {
     for (const lang in langs) {
       const target = path.join('dist/prod', pathForLang(lang), tail);
       const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticPath + `${lang}.html`);
+        releaseHtml.applyAttribute(document.body, 'data-static', staticPathForLang(lang));
       });
       await write(target, out);
       ++prodHtmlCount;
@@ -205,7 +202,7 @@ async function release() {
       const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
       const target = path.join('dist/prod', pathForLang(lang), filename);
       const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticPath + `${lang}.html`);
+        releaseHtml.applyAttribute(document.body, 'data-static', staticPathForLang(lang));
       });
       await write(target, out);
       ++prodHtmlCount;
@@ -283,7 +280,7 @@ async function release() {
         code = `import '${src}';`
       }
       const id = `e${entrypoints.size}.js`;
-      entrypoints.set(id, {scriptNode, dir, code});
+      entrypoints.set(id, {scriptNode, dir, code, htmlFile});
 
       // clear scriptNode
       scriptNode.textContent = '';
@@ -376,7 +373,7 @@ async function release() {
   // Generate ES5 versions of entrypoints.
   const babelPlugin = require('rollup-plugin-babel');
   for (const [filename, data] of entrypoints) {
-    console.info('entrypoint', filename);
+    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
 
     // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
     // https://github.com/MatAtBread/fast-async#runtimepattern
@@ -405,6 +402,8 @@ async function release() {
 
   // Render i18n versions of static pages.
   for (const [htmlFile, document] of htmlDocuments) {
+    const relativeRoot = path.relative(path.dirname(htmlFile), '.') || '.';
+    document.body.setAttribute('data-root', relativeRoot);
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
 
@@ -419,6 +418,12 @@ async function release() {
       });
       await write(target, out);
     }
+  }
+
+  // Special-case some loaded code.
+  for (const loaderFile of staticLoaderFiles) {
+    const out = await loader(loaderFile);
+    await write(path.join('dist/static', loaderFile), out.body);
   }
 
   // Copy everything else.
