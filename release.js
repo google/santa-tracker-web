@@ -410,6 +410,8 @@ async function release() {
     const bundle = await rollup.rollup({
       plugins: [
         babelPlugin({
+          sourceMaps: false,  // babel barfs on some large entrypoints
+          compact: true,      // otherwise it prettyprints
           plugins: [
             // TODO(samthor): Grab _msg use here and pass to entrypoints.
             'module:fast-async',  // use fast-async over transform-regenerator
