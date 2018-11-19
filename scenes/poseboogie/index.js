@@ -15,6 +15,7 @@ const appConfig = {
   flipHorizontal: true, // Default to web-cam source, which flips video
   imageScaleFactor: 0.5,
   outputStride: 16,
+  enableJointLimits: false,
 };
 
 api.preload.images(
@@ -72,6 +73,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'flipHorizontal');
   gui.add(appConfig, 'imageScaleFactor').min(0.2).max(1.0);
   gui.add(appConfig, 'outputStride', [8, 16, 32]);
+  gui.add(appConfig, 'enableJointLimits');
 }
 
 /**

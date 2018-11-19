@@ -65,7 +65,6 @@ export class Elf {
       localPivotB: [0, torsoLength/2],
       collideConnected: false,
     });
-    this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
     p2World.addConstraint(this.neckJoint);
 
     this.leftArm = new p2.Body({
@@ -88,7 +87,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.leftShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.leftShoulder);
 
     this.leftForeArm = new p2.Body({
@@ -111,7 +109,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
@@ -134,7 +131,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.rightShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.rightShoulder);
 
     this.rightForeArm = new p2.Body({
@@ -157,7 +153,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightElbow);
 
     this.leftHand = new p2.Body({
@@ -180,7 +175,6 @@ export class Elf {
       localPivotB: [0, handLength/2],
       collideConnected: false,
     });
-    this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.leftWrist);
 
     this.rightHand = new p2.Body({
@@ -203,7 +197,6 @@ export class Elf {
       localPivotB: [0, handLength/2],
       collideConnected: false,
     });
-    this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
@@ -242,7 +235,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftHip);
 
     this.leftKnee = new p2.RevoluteConstraint(this.leftLeg, this.leftCalf, {
@@ -250,7 +242,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftKnee);
 
     this.rightLeg = new p2.Body({
@@ -288,7 +279,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightHip);
 
     this.rightKnee = new p2.RevoluteConstraint(this.rightLeg, this.rightCalf, {
@@ -296,8 +286,35 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightKnee);
+  }
+
+  enableLimits(enabled) {
+    if (enabled) {
+      this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
+      this.leftShoulder.setLimits(-Math.PI, Math.PI);
+      this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightShoulder.setLimits(-Math.PI, Math.PI);
+      this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
+      this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
+      this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
+      this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
+      this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
+    } else {
+      this.neckJoint.setLimits(false, false);
+      this.leftShoulder.setLimits(false, false);
+      this.leftElbow.setLimits(false, false);
+      this.rightShoulder.setLimits(false, false);
+      this.rightElbow.setLimits(false, false);
+      this.leftWrist.setLimits(false, false);
+      this.rightWrist.setLimits(false, false);
+      this.leftHip.setLimits(false, false);
+      this.leftKnee.setLimits(false, false);
+      this.rightHip.setLimits(false, false);
+      this.rightKnee.setLimits(false, false);
+    }
   }
 
   track(videoConfig, appConfig) {
@@ -306,6 +323,7 @@ export class Elf {
 
     const trackFrame = () => {
       this.threshold = appConfig.minPartConfidence;
+      this.enableLimits(appConfig.enableJointLimits);
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
