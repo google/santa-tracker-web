@@ -5,6 +5,7 @@
  */
 
 const color = require('ansi-colors');
+const compileCss = require('./build/compile-css.js');
 const dom = require('./build/dom.js');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
@@ -359,20 +360,39 @@ async function release() {
   });
   log(`Generated ${color.cyan(Object.keys(generated.output).length)} total modules`);
 
-  let totalSize = 0;
-  for (const name in generated.output) {
-    const {isEntry, code} = generated.output[name];
-    const minified = terser.minify(code);
+  const babel = require('@babel/core');
+  const buildTemplateTagReplacer = require('./build/babel/template-tag-replacer.js');
+
+  let totalSizeES = 0;
+  for (const filename in generated.output) {
+    const {isEntry, code} = generated.output[filename];
 
     if (isEntry) {
-      const {scriptNode, dir} = entrypoints.get(name);
-      scriptNode.setAttribute('src', path.relative(dir, `src/${name}`));
+      const {scriptNode, dir} = entrypoints.get(filename);
+      scriptNode.setAttribute('src', path.relative(dir, `src/${filename}`));
     }
 
-    await write(path.join('dist/static/src', name), minified.code);
-    totalSize += minified.code.length;
+    const templateTagReplacer = (name, arg) => {
+      if (name === '_style') {
+        return compileCss(`styles/${arg}.scss`, true);
+      }
+    };
+
+    // Transpile down for the ES module high-water mark. This is the `type="module"` import above.
+    const {code: transpiledForES} = await babel.transformAsync(code, {
+      filename,
+      plugins: [
+        // include _style replacements as a byproduct
+        buildTemplateTagReplacer(templateTagReplacer),
+        '@babel/plugin-proposal-object-rest-spread',
+      ],
+      sourceType: 'module',
+    });
+    const minifiedForES = terser.minify(transpiledForES);
+    await write(path.join('dist/static/src', filename), minifiedForES.code);
+    totalSizeES += minifiedForES.code.length;
   }
-  log(`Written ${color.cyan(totalSize)} bytes of JavaScript`);
+  log(`Written ${color.cyan(totalSizeES)} bytes of JavaScript`);
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
@@ -385,177 +405,6 @@ async function release() {
       console.info(color.yellow(msgid), 'for', color.red(ratio), 'of langs', rest);
     });
   }
-
-
-  return;
-
-  // Santa Tracker builds by finding HTML entry points and parsing/rewriting each file, including
-  // traversing their dependencies like CSS and JS. It doesn't specifically compile CSS or JS on
-  // its own, it must be included by one of our HTML entry points.
-  for (const htmlFile of htmlFiles) {
-    const dir = path.dirname(htmlFile);
-    const src = await fsp.readFile(htmlFile, 'utf8');
-    const document = dom.parse(src);
-    htmlDocuments.set(htmlFile, document);
-
-    // Add release/build notes to HTML.
-    document.body.setAttribute('data-version', yargs.build);
-    const devNode = document.getElementById('DEV');
-    devNode && devNode.remove();
-
-    // Inline all referenced styles which are available locally.
-    const styleLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
-    for (const styleLink of styleLinks) {
-      if (isUrl(styleLink.href)) {
-        continue;
-      }
-      // TODO(samthor): Make reusable for compiling CSS-in-JS.
-      const cssFile = path.join(dir, styleLink.href);
-      const css = await compileCss(cssFile, {compile: true});
-      const inlineStyleTag = document.createElement('style');
-      inlineStyleTag.innerHTML = css;
-      styleLink.parentNode.replaceChild(inlineStyleTag, styleLink);
-    }
-
-    const allScripts = Array.from(document.querySelectorAll('script'));
-
-    // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
-    // catalogued and then included in the production output.
-    const plainScriptNodes = allScripts.filter((s) => !s.type && s.src);
-    for (const scriptNode of plainScriptNodes) {
-      const resolved = path.relative(__dirname, path.join(dir, scriptNode.src));
-      requiredScriptSources.add(resolved);
-
-      // If this is from prod, redirect it to static paths.
-      if (dir === '.') {
-        scriptNode.src = prodToStatic(scriptNode.src);
-      }
-    }
-    
-    // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
-    const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
-    for (const scriptNode of moduleScriptNodes) {
-      let entrypoint;
-      if (scriptNode.src) {
-        entrypoint = path.join(dir, scriptNode.src);
-      } else {
-        // This is a script node with inline script. Create a virtual script that is used as the
-        // Rollup entry point, with its content base64-encoded as a suffix.
-        entrypoint = `${dir}/:${++virtualScriptIndex}::\0` +
-            Buffer.from(scriptNode.textContent).toString('base64');
-      }
-      entrypoints.add({
-        htmlFile,
-        document,
-        filename: entrypoint,
-        scriptNode,
-      });
-    }
-  }
-
-  // Modify the index.html a bit more.
-  const indexDocument = htmlDocuments.get('index.html');
-  indexDocument.body.setAttribute('data-baseurl', yargs.baseurl);
-
-  // Compile all found entrypoints.
-  log(`Compiling ${color.blue(entrypoints.size)} ES entrypoints`);
-  for (const {filename, scriptNode, document} of entrypoints) {
-    // Run Rollup on the entrypoint. After compilation, it still contains magic template literals
-    // `_msg` and `_style`. These are build-time translations and styles. If the output has any use
-    // of `_msg`, the JS and HTML files must be fanned out per-language.
-    const js = await rollupEntrypoint(filename, virtualModuleContent);
-
-    // Interpolate styles and record needed strings for i18n fanout later.
-    const stringsNeeded = new Set();
-    const handler = (name, arg) => {
-      switch (name) {
-        case '_msg':
-          stringsNeeded.add(arg);
-          break;
-        case '_style':
-          return compileCss(`styles/${arg}.scss`, true);
-      }
-    };
-    const compiled = normalizeJs(null, js, handler);  // null filename: don't do imports
-    scriptRequiresStrings.set(scriptNode, stringsNeeded);
-
-    // Update the entrypoint with the compiled code. Include a preamble for Safari 10's broken
-    // nomodule support, which prevents double execution: if noModule doesn't exist but this module
-    // code *is* being executed, then fail early and fall-through to the ES5 version.
-    // TODO(samthor): This should really use graph thinger to generate only the minimum needed
-    // dependencies for ES6 builds.
-    scriptNode.removeAttribute('src');
-    scriptNode.textContent = `if(!('noModule' in document.createElement('script')))eval('return;');\n` + compiled;
-    scriptNode.toggleAttribute('defer', true);
-
-    // Insert the nomodule/ES5 of the code immediately after the module code.
-    // TODO(samthor): This should compile to ES5 for a `<script nomodule>`.
-    const nomoduleScriptNode = document.createElement('script');
-    nomoduleScriptNode.textContent = compiled;
-    nomoduleScriptNode.toggleAttribute('nomodule', true);
-    nomoduleScriptNode.toggleAttribute('defer', true);
-    scriptNode.parentNode.insertBefore(nomoduleScriptNode, scriptNode);
-
-    // TODO(samthor): This should minify and write the files somewhere, rather than inlining.
-  }
-
-  // Write out all documents.
-  log(`Writing ${color.blue(htmlDocuments.size)} HTML entrypoints for ${color.blue(langs.length)} langs`);
-  for (const [htmlFile, document] of htmlDocuments) {
-    const {sceneName} = matchScene(htmlFile);
-    const allScripts = Array.from(document.querySelectorAll('script'));
-    const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
-
-    // Merge all needed strings for this particular document.
-    const allStringsNeeded = new Set();
-    for (const scriptNode of moduleScriptNodes) {
-      for (const neededString of scriptRequiresStrings.get(scriptNode) || []) {
-        allStringsNeeded.add(neededString);
-      }
-    }
-    log(`Need ${color.green(allStringsNeeded.size)} strings for ${color.cyan(htmlFile)}`);
-
-    // Create an optional node to contain translations.
-    const msgNode = document.createElement('script');
-    if (allStringsNeeded.size) {
-      msgNode.toggleAttribute('defer', true);
-      document.head.insertBefore(msgNode, document.head.firstChild);
-    }
-
-    for (const lang of langs) {
-      const messages = require(`./_messages/${lang}.json`);
-
-      // Update the message preamble for every language.
-      const limitedStrings = {};
-      allStringsNeeded.forEach((msgid) => {
-        if (!(msgid in messages)) {
-          // TODO(samthor): Do centrally so we can provide language stats at end
-          log(`Missing string ${msgid} for ${lang}`);
-          limitedStrings[msgid] = '?';
-        } else {
-          limitedStrings[msgid] = messages[msgid].message;
-        }
-      });
-      msgNode.textContent = `var __msg=${JSON.stringify(limitedStrings)};function _msg(id){return __msg[id]}`;
-
-      const msgid = nameForScene(sceneName, scenes[sceneName]);
-      document.documentElement.lang = lang;
-      document.title = messages[msgid].message;
-
-      const dir = path.dirname(htmlFile);
-      const outputDir = (dir === '.' ? 'dist/prod' : 'dist/static');  // translatedPath includes tail path
-      const translatedPath = translatedPathForFile(htmlFile, lang);
-      await write(path.join(outputDir, translatedPath), dom.serialize(document));
-    }
-
-    // const dir = path.dirname(htmlFile);
-    // const outputDir = (dir === '.' ? 'dist/prod' : path.join('dist/static', dir));
-    // await write(path.join(outputDir, path.basename(htmlFile), dom.serialize(document));
-  }
-
-  // Copy static/prod files.
-  await releaseAssets('prod', prodAssets);
-  await releaseAssets('static', staticAssets, [...requiredScriptSources]);
 
   log(`Done!`);
 }
