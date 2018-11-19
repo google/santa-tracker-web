@@ -308,6 +308,7 @@ export class Elf {
       videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
             videoConfig.flipHorizontal, videoConfig.outputStride)
           .then((pose) => {
+            // TODO(markmcd): check the overall pose score, show help info / error state
             this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
             if (videoConfig.debug) {
               document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
