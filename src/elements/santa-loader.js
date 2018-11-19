@@ -20,9 +20,16 @@ function iframeForRoute(route) {
   }
 
   // don't actually load "index", or URLs that aren't in the simple \w+ form
-  if (route !== 'index' && /^(|\w+)$/.exec(route)) {
-    iframe.src = `./scenes/${route || 'index'}/`;
+  if (route === 'index' || !/^(|\w+)$/.exec(route)) {
+    return iframe;  // ignore
   }
+
+  let src = `./scenes/${route || 'index'}/`;
+  if (document.documentElement.lang) {
+    // TODO(samthor): leaky abstraction of determining URL
+    src += `${document.documentElement.lang}.html`;
+  }
+  iframe.src = src;
 
   return iframe;
 }

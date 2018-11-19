@@ -9,7 +9,14 @@ export async function runtimeTranslate(runtimeId) {
   // TODO(samthor): Implement mapping code.
   const id = runtimeId.replace('/', '_');
 
-  const messages = await messagesJSON;
+  let messages;
+  try {
+    messages = await messagesJSON;
+  } catch (e) {
+    console.warn('could not get runtime message', runtimeId, e);
+    return '?';
+  }
+
   const data = messages[id];
   if (!data) {
     return '?'
