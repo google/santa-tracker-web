@@ -5,7 +5,7 @@ goog.provide('Card');
  * @export
  * @record
  */
-class Card {
+var Card = class {
 
   constructor() {
     this.flipped = false;

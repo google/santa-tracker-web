@@ -18,13 +18,13 @@ app.Game = class Game {
     this.root = elem.getRootNode();
 
     // Level information
-    /** @type Array<Card> */
+    /** @private {!Array<!Card>} */
     this.cards = [];
 
     // Game state
-    /** @type Array<Card> */
+    /** @private {!Array<!Card>} */
     this.flippedCards = [];
-    /** @type boolean Whether all the cards have been matched or not. */
+    /** @private {boolean} Whether all the cards have been matched or not. */
     this.levelWon = false;
 
     this.init();
