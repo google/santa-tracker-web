@@ -210,10 +210,11 @@ async function release() {
   const scenes = require('./scenes.json5');
   log(`Found ${color.cyan(Object.keys(scenes).length)} scenes`);
 
+  // Release all non-HTML prod assets.
   const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
   await releaseAll(prodAll);
 
-  // Match non-index.html pages, like cast, error etc.
+  // Match non-index.html prod pages, like cast, error etc.
   let prodHtmlCount = 0;
   const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
   for (const htmlFile of prodOtherHtml) {
@@ -230,7 +231,7 @@ async function release() {
     }
   }
 
-  // Fanout index.html to all scenes and langs.
+  // Fanout prod index.html to all scenes and langs.
   for (const sceneName in scenes) {
     const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
       const head = document.head;
@@ -263,7 +264,15 @@ async function release() {
 
   log(`Written ${color.cyan(prodHtmlCount)} prod HTML files`);
 
-
+  // Generate manifest.json for every language.
+  const manifest = require('./prod/manifest.json');
+  for (const lang in langs) {
+    const messages = langs[lang];
+    manifest['name'] = messages('santatracker');
+    // TODO(samthor): Waiting for 'santa' to be translated for `short_name`.
+    const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
+    await write(target, JSON.stringify(manifest));
+  }
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
