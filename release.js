@@ -33,6 +33,12 @@ const yargs = require('yargs')
       default: 'en',
       describe: 'default top-level language',
     })
+    .option('default-only', {
+      alias: 'o',
+      type: 'boolean',
+      default: false,
+      describe: 'only generate default top-level language',
+    })
     .option('baseurl', {
       type: 'string',
       default: 'https://maps.gstatic.com/mapfiles/santatracker/',
@@ -68,21 +74,6 @@ const staticAssets = [
   // 'scenes/snowball/models/*',
 ];
 
-const prodAssets = [
-  'img/**/*_og.png',
-  'robots.txt',
-  'img/*',  // TODO(samthor): split static/prod assets again
-];
-
-function prodToStatic(req) {
-  if (isUrl(yargs.baseurl)) {
-    // treat http://foo/bar as http://foo/bar/
-    const trailer = yargs.baseurl.endsWith('/') ? '' : '/';
-    return new URL(req, yargs.baseurl + trailer);
-  }
-  return path.join(yargs.baseurl, req);
-}
-
 function pathForLang(lang) {
   if (lang === yargs.defaultLang) {
     return '.';
@@ -105,10 +96,6 @@ async function write(target, content) {
   await fsp.writeFile(target, content);
 }
 
-async function read(target) {
-  return fsp.readFile(target, 'utf8');
-}
-
 async function releaseAssets(target, ...all) {
   const assetsToCopy = globAll(...all);
   log(`Copying ${color.blue(assetsToCopy.length)} ${target} assets`);
@@ -117,23 +104,6 @@ async function releaseAssets(target, ...all) {
     await fsp.mkdirp(path.dirname(targetAssetPath));
     await fsp.copyFile(asset, targetAssetPath);
   }
-}
-
-function translatedPathForFile(filename, lang) {
-  const dir = path.dirname(filename);
-  if (dir === '.') {
-    if (lang === DEFAULT_LANG) {
-      return filename;  // en goes in top-level dir
-    }
-    return `intl/${lang}_ALL/${filename}`;
-  }
-
-  const {sceneName, rest} = matchScene(filename);
-  if (rest === 'index.html') {
-    return path.join(dir, `${lang}.html`);
-  }
-
-  throw new Error(`Can't find translated path for ${filename}`);
 }
 
 /**
@@ -203,6 +173,13 @@ async function release() {
   });
   if (!(yargs.defaultLang in langs)) {
     throw new Error(`default lang '${yargs.defaultLang}' not found in _messages`);
+  }
+  if (yargs.defaultOnly) {
+    Object.keys(langs).forEach((otherLang) => {
+      if (otherLang !== yargs.defaultLang) {
+        delete langs[otherLang];
+      }
+    });
   }
   log(`Found ${color.cyan(Object.keys(langs).length)} languages`);
 
@@ -274,6 +251,129 @@ async function release() {
     await write(target, JSON.stringify(manifest));
   }
 
+  // Shared resources needed by prod build.
+  const entrypoints = new Map();
+  const virtualScripts = new Map();
+  const requiredScriptSources = new Set();
+
+  // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
+  // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
+  // or JS on its own, it must be included by one of our HTML entry points.
+  // FIXME(samthor): Bundle code is only loaded imperatively. Need to fix.
+  const loader = require('./loader.js')({compile: true});
+  const htmlFiles = ['index.html'].concat(globAll('scenes/*/index.html'));
+  const htmlDocuments = new Map();
+  for (const htmlFile of htmlFiles) {
+    const dir = path.dirname(htmlFile);
+    const document = await dom.read(htmlFile);
+    htmlDocuments.set(htmlFile, document);
+
+    const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
+    const allScripts = Array.from(document.querySelectorAll('script')).filter((scriptNode) => {
+      return !(scriptNode.src && isUrl(scriptNode.src));
+    });
+
+    // Add release/build notes to HTML.
+    document.body.setAttribute('data-version', yargs.build);
+    const devNode = document.getElementById('DEV');
+    devNode && devNode.remove();
+
+    // Inline all referenced styles which are available locally.
+    for (const styleLink of styleLinks) {
+      if (isUrl(styleLink.href)) {
+        continue;
+      }
+      const out = await loader(path.join(dir, styleLink.href), {compile: true});
+      const inlineStyleTag = document.createElement('style');
+      inlineStyleTag.innerHTML = out.body;
+      styleLink.parentNode.replaceChild(inlineStyleTag, styleLink);
+    }
+
+    // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
+    // catalogued and then included in the production output.
+    allScripts
+        .filter((s) => s.src && (!s.type || s.type === 'text/javascript'))
+        .map((s) => path.join(dir, s.src))
+        .forEach((src) => requiredScriptSources.add(src));
+
+    // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
+    const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
+    for (const scriptNode of moduleScriptNodes) {
+      let code = scriptNode.textContent;
+
+      // If it's an external script, pretend that we have local code that imports it.
+      if (scriptNode.src) {
+        let src = scriptNode.src;
+        if (!src.startsWith('.')) {
+          src = `./${src}`;
+        }
+        code = `import '${src}';`
+      }
+      const id = `e${entrypoints.size}.js`;
+      entrypoints.set(id, {scriptNode, dir, code});
+
+      // clear scriptNode
+      scriptNode.textContent = '';
+      scriptNode.removeAttribute('src');
+    }
+  }
+  log(`Found ${color.cyan(entrypoints.size)} module entrypoints`);
+
+  // Awkwardly insert rollup step in the middle of the release process.
+  // TODO(samthor): refactor out?
+  const rollup = require('rollup');
+  const rollupNodeResolve = require('rollup-plugin-node-resolve');
+  const terser = require('terser');
+  const virtualCache = {};
+  const virtualLoader = {
+    name: 'rollup-virtual-loader-release',
+    async resolveId(id, importer) {
+      if (importer === undefined) {
+        const data = entrypoints.get(id);
+        virtualCache[id] = data.code;
+        return id;
+      }
+
+      const data = entrypoints.get(importer);
+      const resolved = path.resolve(data ? data.dir : path.dirname(importer), id);
+
+      // try the loader
+      const out = await loader(resolved, {compile: true});
+      if (out) {
+        virtualCache[resolved] = out.body.toString();
+        return resolved;
+      }
+    },
+    load(id) {
+      return virtualCache[id];
+    },
+  };
+  const bundle = await rollup.rollup({
+    experimentalCodeSplitting: true,
+    input: Array.from(entrypoints.keys()),
+    plugins: [rollupNodeResolve(), virtualLoader],
+  });
+  const generated = await bundle.generate({
+    format: 'es',
+    chunkFileNames: 'c[hash].js',
+  });
+  log(`Generated ${color.cyan(Object.keys(generated.output).length)} total modules`);
+
+  let totalSize = 0;
+  for (const name in generated.output) {
+    const {isEntry, code} = generated.output[name];
+    const minified = terser.minify(code);
+
+    if (isEntry) {
+      const {scriptNode, dir} = entrypoints.get(name);
+      scriptNode.setAttribute('src', path.relative(dir, `src/${name}`));
+    }
+
+    await write(path.join('dist/static/src', name), minified.code);
+    totalSize += minified.code.length;
+  }
+  log(`Written ${color.cyan(totalSize)} bytes of JavaScript`);
+
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
   if (missingMessagesKeys.length) {
@@ -289,19 +389,9 @@ async function release() {
 
   return;
 
-
-
-  // Collects all script entrypoints in Santa Tracker.
-  let virtualScriptIndex = 0;
-  const entrypoints = new Set();
-  const requiredScriptSources = new Set();
-  const scriptRequiresStrings = new WeakMap();
-
   // Santa Tracker builds by finding HTML entry points and parsing/rewriting each file, including
   // traversing their dependencies like CSS and JS. It doesn't specifically compile CSS or JS on
   // its own, it must be included by one of our HTML entry points.
-  const htmlFiles = ['index.html'].concat(globAll('scenes/*/index.html'));
-  const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
     const src = await fsp.readFile(htmlFile, 'utf8');

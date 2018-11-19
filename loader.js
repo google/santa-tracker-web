@@ -94,11 +94,10 @@ async function bundleCode(filename, loader) {
  */
 module.exports = (options) => {
   const templateTagReplacer = (name, arg) => {
-    switch (name) {
-      case '_msg':
-        return options.messages(arg);
-      case '_style':
-        return compileCss(`styles/${arg}.scss`, options.compile);
+    if (name === '_style') {
+      return compileCss(`styles/${arg}.scss`, options.compile);
+    } else if (options.messages && name === '_msg') {
+      return options.messages(arg);
     }
   };
 
