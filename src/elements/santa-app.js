@@ -42,6 +42,12 @@ export class SantaAppElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
+    // TODO(samthor): This could be part of global state.
+    this._loaderSuffix = '';
+    if (document.documentElement.lang) {
+      this._loaderSuffix = `${document.documentElement.lang}.html`;
+    }
+
     this.shadowRoot.addEventListener('keydown', (ev) => {
       const t = ev.target;
 
@@ -146,6 +152,7 @@ export class SantaAppElement extends LitElement {
   <santa-loader
       .selectedScene="${this._selectedScene}"
       .loadAttempt="${this._loadAttempt}"
+      .loaderSuffix="${this._loaderSuffix}"
       @progress=${this._onLoaderProgress}
       @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}

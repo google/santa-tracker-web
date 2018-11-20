@@ -1,5 +1,6 @@
 import * as location from './location.js';
 import * as transport from './transport.js';
+import '../polyfill/event-target.js';
 
 
 export class SantaAPI extends EventTarget {
@@ -166,10 +167,10 @@ export class SantaAPI extends EventTarget {
       // ok
     } else if (online) {
       this._online = true;
-      this.dispatchEvent(new CustomEvent('online'));
+      this.dispatchEvent(new Event('online'));
     } else {
       this._online = false;
-      this.dispatchEvent(new CustomEvent('offline'));
+      this.dispatchEvent(new Event('offline'));
     }
   }
 
@@ -208,7 +209,7 @@ export class SantaAPI extends EventTarget {
         this._updateOnlineState(true);
       } else {
         console.error('api', result['status'], 'switchOff', result['switchOff']);
-        this.dispatchEvent(new CustomEvent('kill'));
+        this.dispatchEvent(new Event('kill'));
       }
 
       // The API provides a time and offset that the client must respect.
@@ -224,7 +225,7 @@ export class SantaAPI extends EventTarget {
       const upgradeToVersion = result['upgradeToVersion'];
       if (upgradeToVersion && this._version && this._version < upgradeToVersion) {
         console.warn('reload: this', this._version, 'upgrade to', upgradeToVersion);
-        this.dispatchEvent(new CustomEvent('reload', {detail: upgradeToVersion}));
+        this.dispatchEvent(new Event('reload', {detail: upgradeToVersion}));
       }
 
       // The API may return a guess of the user's location, based on geoIP.
@@ -275,7 +276,7 @@ export class SantaAPI extends EventTarget {
                             });
 
     // Inform listeners that sync has occured.
-    safePromise.then(() => this.dispatchEvent(new CustomEvent('sync')));
+    safePromise.then(() => this.dispatchEvent(new Event('sync')));
 
     return this._activeSync;
   }

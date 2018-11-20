@@ -2,7 +2,7 @@
 const EMPTY_PAGE = 'data:text/html;base64,';
 
 
-function iframeForRoute(route) {
+function iframeForRoute(route=null, loaderSuffix='') {
   const iframe = document.createElement('iframe');
   iframe.src = EMPTY_PAGE;
 
@@ -24,13 +24,7 @@ function iframeForRoute(route) {
     return iframe;  // ignore
   }
 
-  let src = `./scenes/${route || 'index'}/`;
-  if (document.documentElement.lang) {
-    // TODO(samthor): leaky abstraction of determining URL
-    src += `${document.documentElement.lang}.html`;
-  }
-  iframe.src = src;
-
+  iframe.src = `./scenes/${route || 'index'}/${loaderSuffix}`;;
   return iframe;
 }
 
@@ -45,9 +39,11 @@ class SantaLoaderElement extends HTMLElement {
     super();
     this._onMessage = this._onMessage.bind(this);
 
-    this._loadAttempt = 0;
     this._selectedScene = null;
-    this._activeFrame = iframeForRoute(null);
+    this._loadAttempt = 0;
+    this._loaderSuffix = '';
+
+    this._activeFrame = iframeForRoute();
     this._preloadFrame = null;
     this._preloadResolve = null;
     this._preloadPromise = Promise.resolve(null);
@@ -77,7 +73,7 @@ class SantaLoaderElement extends HTMLElement {
   _preloadScene(route) {
     this._maybeStopPreload('cancelled');
 
-    const pf = iframeForRoute(route);
+    const pf = iframeForRoute(route, this._loaderSuffix);
     if (this._activeFrame.src === pf.src) {
       // nothing to do, we're already loaded for some reason
       return this._preloadPromise;
@@ -88,9 +84,6 @@ class SantaLoaderElement extends HTMLElement {
     this.dispatchEvent(new CustomEvent('progress', {detail: 0}));
     this.appendChild(pf);
   
-    // explicitly disallow URL changes in this frame by failing if we're unloaded
-    pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'URL loaded inside frame'));
-
     // fail on unhandled contentWindow error
     pf.contentWindow.addEventListener('error', (ev) => {
       console.warn('contained frame got error', route, ev);
@@ -160,6 +153,7 @@ class SantaLoaderElement extends HTMLElement {
     this._dispose(this._activeFrame);
     this._activeFrame = document.createElement('iframe');
     this.dispatchEvent(new CustomEvent('error', {detail: reason}));
+    this._preloadPromise = Promise.reject(reason);
     this._onFrameScroll();
   }
 
@@ -177,19 +171,22 @@ class SantaLoaderElement extends HTMLElement {
   }
 
   /**
-   * @param {!HTMLIFrameElement} preloadFrame that should be matched to upgrade
+   * @param {!HTMLIFrameElement} pf that should be matched to upgrade
    * @param {string} route being loaded, to announce via event
    * @return {boolean} whether the preload was upgraded
    */
-  _upgradePreload(preloadFrame, route) {
-    if (this._preloadFrame !== preloadFrame) {
+  _upgradePreload(pf, route) {
+    if (this._preloadFrame !== pf) {
       return false;
     }
 
     this._dispose(this._activeFrame);
 
-    this._preloadFrame.hidden = false;
-    this._activeFrame = this._preloadFrame;
+    // explicitly disallow URL changes in this frame by failing if we're unloaded
+    pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'URL loaded inside frame'));
+
+    pf.hidden = false;
+    this._activeFrame = pf;
     this._preloadResolve();
     this._preloadFrame = null;
     this._preloadResolve = null;
@@ -256,6 +253,14 @@ class SantaLoaderElement extends HTMLElement {
 
   get loadAttempt() {
     return this._loadAttempt;
+  }
+
+  set loaderSuffix(v) {
+    this._loaderSuffix = v;
+  }
+
+  get loaderSuffix() {
+    return this._loaderSuffix;
   }
 }
 

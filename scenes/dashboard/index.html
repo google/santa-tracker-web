@@ -26,14 +26,16 @@ body {
     };
 
     keys.forEach((sceneName) => {
+      const data = scenes[sceneName];
       const li = document.createElement('li');
       const a = document.createElement('a');
 
-      a.href = `/${sceneName}.html`;
-      a.textContent = sceneName;
+      // TODO(samthor): Doesn't account for global scope.
+      a.href = sceneName ? `/${sceneName}.html` : '/';
+      a.textContent = (sceneName || 'index');
       a.addEventListener('click', handler.bind(null, sceneName));
 
-      if (scenes[sceneName].video) {
+      if (data.video) {
         li.appendChild(document.createTextNode('video '));
       }
       li.appendChild(a);

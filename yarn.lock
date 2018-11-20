@@ -1574,6 +1574,11 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
 
+event-target@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/event-target/-/event-target-1.2.3.tgz#fda2a5009762c13e1162ddffb0c5dee160ce4def"
+  integrity sha512-ImybBIuODDMQKeSDX3wS0+cCpcb/bmE3Ve+IvKqQTTuCc5RBS+ERM7J2eTJTX8v2hJfnGO9x5bJT9GS6t9tV4A==
+
 execa@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-0.10.0.tgz#ff456a8f53f90f8eccc71a96d11bdfc7f082cb50"
