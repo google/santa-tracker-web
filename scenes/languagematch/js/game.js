@@ -165,10 +165,10 @@ app.Game = class Game {
 
     // Check if the cards are a match.
     if (this.flippedCards[0].languageCode != this.flippedCards[1].languageCode) {
+      // Not a match. Reset guess.
+
       // Pause for a bit so someone has time to process
       await this.waitForSeconds(0.5);
-
-      // Not a match. Reset guess.
       await this.resetGuesses();
       return;
     }
@@ -186,16 +186,15 @@ app.Game = class Game {
     // They've won!
     this.levelWon = true;
 
+    // TODO(jez): Use the common santa tracker level transition.
+
     // Pause for a bit so someone has time to process
     await this.waitForSeconds(0.5);
-
-    // TODO(jez): Use the common santa tracker level transition.
-    // Change the underlying cards.
-    // Note that the cards won't be visually updated until they're flipped again.
-    this.initCards();
-
+    this.cards.forEach(card => card.matched = false);
     await this.resetGuesses();
 
+    // Switch to a new set of cards.
+    this.initCards();
     // Allow the user to guess again.
     this.levelWon = false;
   }
