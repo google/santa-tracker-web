@@ -83,8 +83,9 @@ async function serve() {
   });
   prod.use(koaStatic('prod'));
 
+  // advertise 127.0.0.1, not localhost, as this emulates-ish CORS for Chrome
   await listen(prod, yargs.port + 1);
-  log(`=> ${colors.blue(`http://localhost:${yargs.port + 1}`)} prod`);
+  log(`=> ${colors.blue(`http://127.0.0.1:${yargs.port + 1}`)} prod`);
 }
 
 serve().catch((err) => {

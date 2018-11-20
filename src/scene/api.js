@@ -19,8 +19,9 @@ class PreloadApi {
     this._donePromise.then(() => cb(1));
 
     // If nothing was requested after a frame, then assume that nothing ever will be, and resolve
-    // the preloader Promise immediately.
-    window.requestAnimationFrame(() => {
+    // the preloader Promise immediately. Note that this can't be a rAF, as the iframe is probably
+    // hidden.
+    Promise.resolve().then(() => {
       if (this._total === 0) {
         this._doneResolve();
       }
