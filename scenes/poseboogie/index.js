@@ -17,6 +17,7 @@ const appConfig = {
   imageScaleFactor: 0.5,
   outputStride: 16,
   enableJointLimits: false,
+  resizeBodyParts: false,
 };
 
 api.preload.images(
@@ -75,6 +76,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'imageScaleFactor').min(0.2).max(1.0);
   gui.add(appConfig, 'outputStride', [8, 16, 32]);
   gui.add(appConfig, 'enableJointLimits');
+  gui.add(appConfig, 'resizeBodyParts');
 }
 
 /**
