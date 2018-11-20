@@ -278,7 +278,7 @@ async function release() {
       // If it's an external script, pretend that we have local code that imports it.
       if (scriptNode.src) {
         let src = scriptNode.src;
-        if (!src.startsWith('.')) {
+        if (!src.startsWith('./')) {
           src = `./${src}`;
         }
         code = `import '${src}';`
