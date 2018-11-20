@@ -162,6 +162,10 @@ module.exports = (options) => {
     }
 
     if (babelPlugins.length) {
+      babelPlugins.push(
+        '@babel/plugin-proposal-object-rest-spread',
+      )
+
       const result = await babel.transformAsync(body, {
         filename,
         plugins: babelPlugins,
