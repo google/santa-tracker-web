@@ -29,35 +29,5 @@ export async function runtimeTranslate(runtimeId) {
 
 
 export function getLanguage() {
-  return 'en';
+  return document.documentElement.lang;
 }
-
-
-function languageFromUrl() {
-  // Look for /intl/../ (look for _last_). This wins over ?hl=...
-  const match = window.location.pathname.match(/.*\/intl\/([^_/]+)(?:|_ALL)\//);
-  let lang = match && match[1];
-
-  // Otherwise, look for ?hl=....
-  if (!lang) {
-    const search = window.location.search || '';
-    const matchLang = /(?:\?|&)hl=([^&]*)\b/;
-    const match = matchLang.exec(search);
-    lang = match && match[1];
-  }
-
-  return lang || '';
-}
-
-
-const loadedWithLang = languageFromUrl();
-
-
-export function localizeUrl(url) {
-  if (!loadedWithLang) {
-    return url;
-  }
-  const hasQuery = url.indexOf('?') !== -1;
-  return url + (hasQuery ? '&' : '?') + `hl=${loadedWithLang}`;
-}
-

@@ -1,7 +1,7 @@
 import {html, LitElement} from '@polymer/lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
-import {getLanguage, localizeUrl, runtimeTranslate} from '../lib/runtime.js';
+import {getLanguage, runtimeTranslate} from '../lib/runtime.js';
 import * as route from '../route.js';
 
 export class SantaSidebarElement extends LitElement {
@@ -106,26 +106,16 @@ export class SantaSidebarElement extends LitElement {
   <ul>
     <!-- TODO(samthor): re-add A2HS code -->
     <li>
-      <a target="_blank" rel="noopener" href=${
-        localizeUrl(
-            'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')}>${
-        _msg`village_get_the_app`}</a>
+      <a target="_blank" rel="noopener" href=${route.localize('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')}>${_msg`village_get_the_app`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${
-        localizeUrl(
-            'https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')}>${
-        _msg`village_santa_crx`}</a>
+      <a target="_blank" rel="noopener" href=${route.localize('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')}>${_msg`village_santa_crx`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${
-        localizeUrl(
-            'https://policies.google.com/')}>${_msg`terms-and-privacy`}</a>
+      <a target="_blank" rel="noopener" href=${route.localize('https://policies.google.com/')}>${_msg`terms-and-privacy`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${
-        localizeUrl(
-            'https://maps.google.com/maps/about/')}>${_msg`getgooglemaps`}</a>
+      <a target="_blank" rel="noopener" href=${route.localize('https://maps.google.com/maps/about/')}>${_msg`getgooglemaps`}</a>
     </li>
   </ul>
 </div>

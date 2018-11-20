@@ -72,6 +72,16 @@ export function scene(sceneName) {
 
 
 /**
+ * @param {string} url to localize
+ * @return {string} localized url
+ */
+export function localize(url) {
+  // TODO(samthor): This should optionally add ?hl=LANG.
+  return url;
+}
+
+
+/**
  * @param {?string} language to load, null for default
  * @param {string=} sceneName to load
  * @return {string} public URL to scene name
@@ -89,6 +99,7 @@ export function intl(lang, sceneName='') {
   }
   return out;
 }
+
 
 const resolveCache = {};
 
