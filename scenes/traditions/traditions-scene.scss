@@ -8,6 +8,12 @@ $name: 'module-traditions';
   height: 100%;
   background: #f6efe2;
 
+  .dottedLine {
+    border-top: dotted 1px;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+  }
+
   #tradition-img {
     position: absolute;
     right: 90px;
@@ -44,7 +50,7 @@ $name: 'module-traditions';
       width: 53px;
       height: 75px;
       display: inline-block;
-      background: url(img/teacher.svg) no-repeat;
+      background: url(img/teacher_custer.svg) no-repeat;
       position: relative;
       top: 29px;
     }
@@ -64,12 +70,12 @@ $name: 'module-traditions';
 
   .traditions-tradition {
     display: none;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 1);
     box-sizing: border-box;
-    padding: 8px 24px;
+    padding: 8px 34px;
     border-radius: 4px;
     backdrop-filter: blur(2px);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+    box-shadow: 8px 8px 1px rgba(0,0,0,.16);
 
     position: absolute;
     max-width: 390px;
@@ -79,6 +85,7 @@ $name: 'module-traditions';
     h2 {
       font-family: 'Lobster', sans-serif;
       font-size: 51px;
+      font-weight: lighter;
       color: #424242;
       white-space: nowrap;
       margin: 0;
@@ -86,7 +93,9 @@ $name: 'module-traditions';
 
     p {
       color: #424242;
-      font-size: 1.2em;
+      font-size: 1.1em;
+      line-height: 1.5;
+      margin-bottom: 2em;
     }
   }
 

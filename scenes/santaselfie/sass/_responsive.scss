@@ -4,3 +4,19 @@
     display: none !important;
   }
 }
+
+// Tools' styles on mobile and tablet
+@media (max-width: 800px), (max-height: 690px) {
+  ##{$name} {
+    .Tool-ornament {
+      background-image: none !important;
+    }
+    
+    .Tools--scrollable {
+      background-color: #B444BB  !important;
+      background-image: none !important;
+      height: 48px !important;
+      width: 455px !important;
+    }
+  }
+}
