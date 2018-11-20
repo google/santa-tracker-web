@@ -126,6 +126,7 @@ app.Game = class Game {
 
   /**
    * Selects a card and checks if it matches.
+   * @private
    * @param {!HTMLElement} cardElement Card selected
    */
   async selectCard(cardElement) {
@@ -320,6 +321,7 @@ app.Game = class Game {
 
   /**
    * Waits for a CSS transition to finish
+   * @private
    * @param {!HTMLElement} element Element currently transitioning
    */
   async waitForTransition(element) {
@@ -328,6 +330,7 @@ app.Game = class Game {
 
   /**
    * Waits for a set amount of time
+   * @private
    * @param {number} seconds Number of seconds to wait for
    */
   async waitForSeconds(seconds) {
