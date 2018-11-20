@@ -71,6 +71,25 @@ export function scene(sceneName) {
 }
 
 
+/**
+ * @param {?string} language to load, null for default
+ * @param {string=} sceneName to load
+ * @return {string} public URL to scene name
+ */
+export function intl(lang, sceneName='') {
+  const scope = determineScope();
+
+  let out = scope;
+  if (lang) {
+    const suffix = (scope === 'santatracker.google.com' ? '' : '_ALL');
+    out += `intl/${lang}${suffix}/`;
+  }
+  if (sceneName) {
+    out += `${sceneName}.html`;
+  }
+  return out;
+}
+
 const resolveCache = {};
 
 /**

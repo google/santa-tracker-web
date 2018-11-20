@@ -13,8 +13,7 @@ export class SantaSidebarElement extends LitElement {
   }
 
   _onLanguageChange(ev) {
-    // TODO(samthor): Change site language.
-    console.info('got language change', ev.target.value);
+    window.parent.location = route.intl(ev.target.value);
   }
 
   render() {
