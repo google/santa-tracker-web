@@ -138,7 +138,7 @@ module.exports = (options) => {
     } else if (parsed.name.endsWith('.bundle')) {
       // completely bundles code
       const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-      const out = await bundleCode(path.join(parsed.dir, actual));
+      const out = await bundleCode(path.join(parsed.dir, actual), loader);
       ({code: body, map} = out);
     } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
       // convert JSON/JSON5 to an exportable module
