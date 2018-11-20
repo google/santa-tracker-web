@@ -218,7 +218,7 @@ async function release() {
   for (const lang in langs) {
     const messages = langs[lang];
     manifest['name'] = messages('santatracker');
-    // TODO(samthor): Waiting for 'santa' to be translated for `short_name`.
+    manifest['short_name'] = messages('santa');
     const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
     await write(target, JSON.stringify(manifest));
   }
