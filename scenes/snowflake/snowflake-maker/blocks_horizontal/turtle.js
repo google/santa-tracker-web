@@ -46,10 +46,10 @@ Turtle.Blocks.makeMenuIcon_ = function(path, value, alt) {
 
 Turtle.Blocks.categoryColours =
   {
-    starter: {primary:"#ffeb3b",secondary:"#fdd835",tertiary:"#f9a825"},
-    pen: {primary:"#3f51b5",secondary:"#212f75",tertiary:"#303f9f"},
-    shapes: {primary:"#0fBD8C",secondary:"#01724f",tertiary:"#0B8E69"},
-    movement: {primary:"#2196f3",secondary:"#0d47a1",tertiary:"#1976d2"},
+    starter: {primary:"#f5c244",secondary:"#fdd835",tertiary:"#f9a825"},
+    pen: {primary:"#7e57c2",secondary:"#4e2499",tertiary:"#603aa5"},
+    shapes: {primary:"#e13059",secondary:"#b2173b",tertiary:"#bc1a3f"},
+    movement: {primary:"#26c6da",secondary:"#027887",tertiary:"#12a4b7"},
   };
 
 // Extensions to Blockly's language and JavaScript generator.

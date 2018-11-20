@@ -162,7 +162,7 @@ $name: 'module-turtle';
 }
 
 .circle-button-layer {
-  background-color: white;
+  background-color: #3f4da1;
   border-radius: 50%;
   height: 80px;
   position: relative;
@@ -172,10 +172,10 @@ $name: 'module-turtle';
 }
 
 .circle-button {
-  background: #93d629;
+  background: #32a658;
   border-radius: 50%;
   border: none;
-  box-shadow: 0px 6px #2aaf4b;
+  box-shadow: 0px 6px #2a8c4a;
   cursor: pointer;
   font-size: inherit;
   height: 56px;
@@ -197,11 +197,11 @@ $name: 'module-turtle';
   background-size: cover;
   content: '';
   display: block;
-  height: 48px;
-  left: calc(50% - 24px);
+  height: 32px;
+  left: calc(50% - 16px);
   position: absolute;
-  top: calc(50% - 24px);
-  width: 48px;
+  top: calc(50% - 16px);
+  width: 32px;
 }
 
 .circle-button::after {
