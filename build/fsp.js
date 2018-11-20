@@ -16,6 +16,7 @@ module.exports = {
   copyFile: util.promisify(fs.copyFile),
   exists,
   readdir: util.promisify(fs.readdir),
+  readlink: util.promisify(fs.readlink),
   readFile: util.promisify(fs.readFile),
   stat,
   writeFile: util.promisify(fs.writeFile),

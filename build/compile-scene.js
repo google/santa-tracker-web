@@ -35,9 +35,6 @@ const rootDir = path.join(__dirname, '..');
 /**
  * @typedef {{
  *   sceneName: string,
- *   entryPoint: (string|undefined),
- *   closureLibrary: (boolean|undefined),
- *   libraries: (!Array<string>|undefined),
  *   typeSafe: (boolean|undefined),
  * }}
  */
@@ -109,43 +106,71 @@ function invokeCompiler(compiler) {
 
 
 /**
+ * Closure won't resolve symlinks in its source arguments. Scenes can specify additional
+ * dependencies via symlinks, so resolve them.
+ *
+ * @param {string} sceneName
+ * @return {!Array<string>}
+ */
+async function resolveCodeLinks(sceneName) {
+  const root = `scenes/${sceneName}/js`;
+  const all = await fsp.readdir(root);
+  const out = [];
+
+  for (const cand of all) {
+    const target = path.join(root, cand);
+    let link;
+    try {
+      link = await fsp.readlink(target);
+    } catch (e) {
+      continue;  // not a link
+    }
+
+    const resolved = path.join(root, link);
+    const stat = await fsp.stat(resolved);
+    if (stat.isDirectory()) {
+      out.push(`${resolved}/**.js`);
+    } else {
+      out.push(resolved);
+    }
+  }
+
+  return out;
+}
+
+
+/**
  * @param {!CompileSceneOptions} config
  * @param {boolean=} compile
  * @return {{compile: boolean, js: string, map: !Object}}
  */
 module.exports = async function compile(config, compile=false) {
-  const libraries = config.libraries || [];
   const compilerSrc = [
-    `scenes/${config.sceneName}/js/**.js`,
+    'build/transpile/export.js',
     'scenes/_shared/js/**.js',
-    ...libraries,  // extra libraries required by scene
+    `scenes/${config.sceneName}/js/**.js`,
+    '!**_test.js',
   ];
-  const entryPoint = config.entryPoint || 'app.Game';
+  compilerSrc.unshift(...(await resolveCodeLinks(config.sceneName)));
 
-  // Configure prefix and compilation options. In some cases (no libraries, not dist), we can
-  // skip scene compilation for  more rapid development.
-  let outputWrapper = `export default ${entryPoint};`;
-  compile = compile || libraries.length || config.closureLibrary;
+  // Scenes are compiled with Closure and then re-exported as modules. An export helper requires
+  // `app.Game` and re-exports this (via string) onto `_globalExport`, which is defined in the
+  // `outputWrapper` below. In some cases (no Closure library, not forced compile), this uses
+  // 'WHITESPACE_ONLY' for much more rapid development.
+  const containsClosureLibrary =
+      (compilerSrc.findIndex((cand) => cand.startsWith(CLOSURE_LIBRARY_PATH)) !== -1);
+  compile = compile || containsClosureLibrary;
   if (compile) {
-    compilerSrc.unshift(
-      CLOSURE_LIBRARY_PATH + (config.closureLibrary ? '/**.js' : '/base.js'),
-      `!${CLOSURE_LIBRARY_PATH}/**_test.js`,
-    );
-    // The compiled code needs a valid `this` to evaluate on (as there's no `this` when the built
-    // code is run naïvely as a module), so calculate the left part of the entry point (e.g.
-    // "app.Game" => "app") and delcare it as a global, as well as a property of the `this` during
-    // execution of the Closure-generated source.
-    const leftEntryPoint = entryPoint.split('.')[0];
-    outputWrapper =
-        `var global=window,$jscomp={global:global},${leftEntryPoint}={};` +
-        `(function(){%output%}).call({${leftEntryPoint}});${outputWrapper}`;
+    // If the Closure library wasn't requested, the compile still needs `base.js` for basic goog
+    // methods like `goog.provide`. This is a no-op if already included.
+    compilerSrc.unshift(`${CLOSURE_LIBRARY_PATH}/base.js`);
   } else {
     // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
-    // declare globals suitable for execution in module scope. This is required as Closure's
-    // built-in `goog.provide` doesn't play well when imported as a module.
+    // declare globals suitable for execution in module scope.
     compilerSrc.unshift('build/transpile/base.js');
-    outputWrapper = `%output%;${outputWrapper}`;
   }
+  const outputWrapper =
+      'var _globalExport;(function(){%output%}).call(self);export default _globalExport;';
 
   // Create a temporary place to store the source map. Closure can only write this to a real file.
   const sourceMapTemp = tmp.fileSync();
@@ -155,16 +180,16 @@ module.exports = async function compile(config, compile=false) {
     externs: relativeSrc(EXTERNS),
     create_source_map: sourceMapTemp.name,
     assume_function_wrapper: true,
-    dependency_mode: 'STRICT',  // ignore all but exported via entryPoint
-    entry_point: entryPoint,
+    dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
+    entry_point: '_globalExportEntry',
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT5_STRICT',
     process_closure_primitives: true,
-    generate_exports: true,  // otherwise `app.Game` won't be visible to client
     jscomp_warning: config.typeSafe ? CLOSURE_TYPESAFE_WARNINGS : CLOSURE_WARNINGS,
     output_wrapper: outputWrapper,
+    rewrite_polyfills: false,
   };
 
   const compiler = new closureCompiler.compiler(compilerFlags);

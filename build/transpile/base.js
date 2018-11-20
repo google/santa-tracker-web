@@ -21,7 +21,7 @@ var COMPILED = false;
  */
 function _check(v) {
   try {
-    window.eval(v);
+    self.eval(v);
   } catch (e) {
     return false;
   }
@@ -40,7 +40,7 @@ goog.provide = function(v) {
     var part = all.slice(0, i).join('.');
     run += part + '=' + part + '||{};';
   }
-  window.eval(run);
+  self.eval(run);
 };
 
 goog.require = function() {};
@@ -54,7 +54,7 @@ goog.require = function() {};
  */
 
 
-var global = window;
+var global = self;
 var $jscomp = {global: global};
 
 $jscomp.inherits = function(c, p) {

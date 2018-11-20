@@ -44,8 +44,10 @@ function watch(paths, done, timeout) {
     return null;
   }
 
-  // assume node_modules/ content will not change
-  const valid = paths.filter((cand) => cand && !cand.startsWith('node_modules/'));
+  // assume non-src/scene content will not change
+  const valid = paths.filter((cand) => {
+    return cand && (cand.startsWith('src/') || cand.startsWith('scenes/'));
+  });
   if (!valid.length) {
     return null;
   }
