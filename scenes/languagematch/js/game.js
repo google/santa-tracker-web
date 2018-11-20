@@ -161,11 +161,13 @@ app.Game = class Game {
     }
 
     // Wait for the flip animation
-    // TODO: use transitionend event
-    await new Promise((r) => window.setTimeout(r, 1000));
+    await this.waitForTransition(cardElement);
 
     // Check if the cards are a match.
     if (this.flippedCards[0].languageCode != this.flippedCards[1].languageCode) {
+      // Pause for a bit so someone has time to process
+      await this.waitForSeconds(0.5);
+
       // Not a match. Reset guess.
       await this.resetGuesses();
       return;
@@ -183,6 +185,9 @@ app.Game = class Game {
 
     // They've won!
     this.levelWon = true;
+
+    // Pause for a bit so someone has time to process
+    await this.waitForSeconds(0.5);
 
     // TODO(jez): Use the common santa tracker level transition.
     // Change the underlying cards.
@@ -202,6 +207,8 @@ app.Game = class Game {
   async resetGuesses() {
     const cardElements = this.root.querySelectorAll('.card');
 
+    let animatingCard = null;
+
     for (let i = 0; i < this.cards.length; i ++) {
       const card = this.cards[i];
       const cardElement = cardElements[i];
@@ -212,11 +219,17 @@ app.Game = class Game {
 
       card.flipped = false;
       cardElement.classList.remove('flipped');
+
+      // Save an arbitrary card so we can use it to wait for the animation to end.
+      animatingCard = cardElement;
     }
     this.flippedCards = [];
 
-    // TODO: use transitionend event
-    await new Promise((r) => window.setTimeout(r, 1000));
+    if (animatingCard === null) {
+      return;
+    }
+
+    await this.waitForTransition(animatingCard);
     this.clearHiddenCardContents();
   }
 
@@ -304,6 +317,22 @@ app.Game = class Game {
 
     this.audio = new Audio(url);
     this.audio.play();
+  }
+
+  /**
+   * Waits for a CSS transition to finish
+   * @param {!HTMLElement} element Element currently transitioning
+   */
+  async waitForTransition(element) {
+    await new Promise(r => element.addEventListener('transitionend', r));
+  }
+
+  /**
+   * Waits for a set amount of time
+   * @param {number} seconds Number of seconds to wait for
+   */
+  async waitForSeconds(seconds) {
+    await new Promise(r => setTimeout(r, seconds * 1000));
   }
 
 };
