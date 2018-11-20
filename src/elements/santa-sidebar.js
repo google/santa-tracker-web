@@ -20,14 +20,12 @@ export class SantaSidebarElement extends LitElement {
     const todayHouse =
         (this.todayHouse ? html`
 <a href=${route.scene(this.todayHouse)}>
-  <div class="menucard" style="background-image: url(img/scenes/${
-                               this.todayHouse}_2x.png)">
+  <div class="menucard" style="background-image: url(img/scenes/${this.todayHouse}_2x.png)">
     <h2>${_msg`newtoday`}</h2>
     <h3>${runtimeTranslate(`scene/${this.todayHouse}`)}</h3>
   </div>
 </a>
-    ` :
-                           '');
+    ` : '');
 
     return html`
 <style>${_style`santa-sidebar`}</style>
@@ -59,8 +57,7 @@ export class SantaSidebarElement extends LitElement {
 </div>
 
 <div class="lang">
-  <select id="language" .value=${getLanguage()} @change=${
-        this._onLanguageChange}>
+  <select id="language" .value=${getLanguage()} @change=${this._onLanguageChange}>
     <option value="af">Afrikaans</option>
     <option value="ca">Català</option>
     <option value="zh-CN">中文 (简体)</option>
