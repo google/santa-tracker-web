@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Codi: {0}"
 	},
+	"category_computer-science": {
+		"message": "Informàtica"
+	},
 	"category_draw": {
 		"message": "Dibuix"
+	},
+	"category_language": {
+		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Escolta"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "A gairebé totes les poblacions d'Alemanya, es munten mercats de Nadal a les places. Els ciutadans surten als carrers per sentir les xarangues i gaudeixen de la beguda i del menjar típics de la regió: cors de gingebre, ametlles garapinyades, llaminadures de tot tipus, Glühwein (vi calent) i sidra de poma."
 	},
+	"dec24th": {
+		"message": "24 de desembre"
+	},
 	"deck": {
 		"message": "Decora"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Grec"
 	},
+	"elf_choose_body": {
+		"message": "Selecciona un cos d'elf"
+	},
 	"elvish_language_name": {
 		"message": "Èlfic"
 	},
@@ -567,7 +579,7 @@
 		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
 	},
 	"error-not-found": {
-		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis al \u003ca href=\"./village.html\"\u003ellogaret del Pare Noel\u003c/a\u003e."
+		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis a l'\u003ca href=\"./\"\u003ealdea del Pare Noel\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Torna-ho a provar"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Parc infantil del pol nord"
 	},
-	"scene_postcard": {
-		"message": "Crea un floc de neu amb codi"
-	},
 	"scene_presentbounce": {
 		"message": "Que no caigui el regal!"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempesta de boles de neu"
+	},
+	"scene_snowflake": {
+		"message": "Crea un floc de neu amb codi"
 	},
 	"scene_speedsketch": {
 		"message": "Esbós ràpid"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Broma a l'oficina"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Encara de vacances"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recàrrega de regals"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Ren cansat"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Encara de vacances"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "On és el Pare Noel?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "escombra"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bombolla"
-	},
 	"speedsketch_item~bucket": {
 		"message": "galleda"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "càmera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflatge"
-	},
 	"speedsketch_item~campfire": {
 		"message": "foguera"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "pastanaga"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "dibuixos animats"
 	},
 	"speedsketch_item~castle": {
 		"message": "castell"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cirera"
-	},
-	"speedsketch_item~chicken": {
-		"message": "pollastre"
 	},
 	"speedsketch_item~child": {
 		"message": "nen"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "cocodril"
-	},
-	"speedsketch_item~cross": {
-		"message": "creu"
 	},
 	"speedsketch_item~crow": {
 		"message": "corb"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "mà"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "joc del penjat"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicitat"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "illa"
 	},
-	"speedsketch_item~italy": {
-		"message": "Itàlia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jaqueta"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "cascavells"
-	},
-	"speedsketch_item~kale": {
-		"message": "col verda"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "cangur"
@@ -2355,7 +2343,7 @@
 		"message": "pingüí"
 	},
 	"speedsketch_item~peppermint": {
-		"message": "menta"
+		"message": "menta pebrera"
 	},
 	"speedsketch_item~piano": {
 		"message": "piano"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "patata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "endoll"
-	},
 	"speedsketch_item~present": {
 		"message": "regal"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "bossa de mà"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "trencaclosques"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "conill"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "quadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "gargot"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "esquirol"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natura morta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "punts de sutura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "mercat de valors"
 	},
 	"speedsketch_item~stocking": {
 		"message": "mitjó nadalenc"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricicle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carretó"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombó"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "molí de vent"
@@ -5541,7 +5508,7 @@
 		"message": "Quina d'aquestes grans ciutats és la més poblada?"
 	},
 	"trivia_medium_012_answer0": {
-		"message": "São Paulo, Brasil"
+		"message": "Sao Paulo, Brasil"
 	},
 	"trivia_medium_012_answer1": {
 		"message": "Toronto, Canadà"
@@ -6627,10 +6594,7 @@
 		"message": "Al Regne Unit, els més festers s'ho passen pipa amb els crackers de Nadal mentre sopen. Els crackers són uns cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines, acudits i premis per alegrar la nit de Nadal."
 	},
 	"unmute": {
-		"message": "Activa el so"
-	},
-	"upgrade-warning": {
-		"message": "Segueix el Pare Noel no és compatible amb la versió del vostre navegador. Per accedir a Segueix el Pare Noel, heu de baixar un navegador més modern. Per obtenir més informació, visiteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Deixa de silenciar"
 	},
 	"us_country_name": {
 		"message": "Estats Units"

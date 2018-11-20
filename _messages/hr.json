@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Programiraj"
 	},
+	"category_computer-science": {
+		"message": "Računalstvo"
+	},
 	"category_draw": {
 		"message": "Crtaj"
+	},
+	"category_language": {
+		"message": "Jezik"
 	},
 	"category_listen": {
 		"message": "Slušaj"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "U gotovo svim njemačkim gradovima na trgovima se otvaraju božićni sajmovi. Građani se okupljaju da bi čuli limenu glazbu i uživali u tradicionalnim jelima regije. Jedu medena srca, pržene ušećerene bademe i slatkiše svih vrsta te piju kuhano vino (Glühwein) ili jabukovaču."
 	},
+	"dec24th": {
+		"message": "24. prosinca"
+	},
 	"deck": {
 		"message": "Ukrasi"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "grčki"
 	},
+	"elf_choose_body": {
+		"message": "Odaberi lik vilenjaka"
+	},
 	"elvish_language_name": {
 		"message": "vilinski"
 	},
@@ -567,7 +579,7 @@
 		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
 	},
 	"error-not-found": {
-		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./village.html\"\u003eDjedovo selo\u003c/a\u003e."
+		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Pokušaj ponovno"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Igralište na Sjevernom polu"
 	},
-	"scene_postcard": {
-		"message": "Izrada pahuljice pomoću koda"
-	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Grudalište"
+	},
+	"scene_snowflake": {
+		"message": "Izrada pahuljice pomoću koda"
 	},
 	"scene_speedsketch": {
 		"message": "Brzo skiciranje"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Uredska podvala"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Još uvijek na odmoru"
+	},
 	"scene_videoscene_reload": {
 		"message": "Učitavanje dodatnih poklona"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Umorni sob"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Još uvijek na odmoru"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Gdje je Djed Božićnjak?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "metla"
 	},
-	"speedsketch_item~bubble": {
-		"message": "oblačić"
-	},
 	"speedsketch_item~bucket": {
 		"message": "kanta"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "fotoaparat"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflaža"
-	},
 	"speedsketch_item~campfire": {
 		"message": "logorska vatra"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "mrkva"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "crtić"
 	},
 	"speedsketch_item~castle": {
 		"message": "dvorac"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "trešnja"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kokoš"
 	},
 	"speedsketch_item~child": {
 		"message": "dijete"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "križ"
 	},
 	"speedsketch_item~crow": {
 		"message": "vrana"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "šaka"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "igra vješala"
-	},
 	"speedsketch_item~happiness": {
 		"message": "sreća"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "otok"
 	},
-	"speedsketch_item~italy": {
-		"message": "italija"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jakna"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Zvončići"
-	},
-	"speedsketch_item~kale": {
-		"message": "kelj"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "klokan"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "krumpir"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "utičnica"
-	},
 	"speedsketch_item~present": {
 		"message": "poklon"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "torbica"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "slagalica"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "zec"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "črčkarija"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "vjeverica"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "mrtva priroda"
-	},
-	"speedsketch_item~stitches": {
-		"message": "šavovi"
-	},
-	"speedsketch_item~stock market": {
-		"message": "burza"
 	},
 	"speedsketch_item~stocking": {
 		"message": "duga čarapa"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricikl"
 	},
-	"speedsketch_item~trolley": {
-		"message": "kolica"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombon"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "kit"
-	},
-	"speedsketch_item~wheel": {
-		"message": "kotač"
 	},
 	"speedsketch_item~windmill": {
 		"message": "vjetrenjača"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Uključi zvuk"
-	},
-	"upgrade-warning": {
-		"message": "Ups! Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji preglednika. Da biste pristupili aplikaciji Slijedi Djeda Božićnjaka, preuzmite suvremeni preglednik. Više informacija potražite na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"

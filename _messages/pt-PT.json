@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Programar"
 	},
+	"category_computer-science": {
+		"message": "Informática"
+	},
 	"category_draw": {
 		"message": "Desenhar"
+	},
+	"category_language": {
+		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Ouvir"
@@ -126,7 +132,7 @@
 		"message": "Costa do Marfim"
 	},
 	"citylights-contribute": {
-		"message": "Adicione as suas próprias fotografias de {{location}}"
+		"message": "Adicione as suas próprias fotos de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Em quase todas as cidades alemãs, os mercados de Natal são realizados em praças. Os habitantes das cidades reúnem-se para ouvir as bandas e usufruir do comércio tradicional da região. Comem corações feitos de pão de gengibre, amêndoas doces, guloseimas de toda a espécie e bebem vinho quente com açúcar (Glühwein) ou cidra de maçã."
 	},
+	"dec24th": {
+		"message": "24 de dezembro"
+	},
 	"deck": {
 		"message": "Decorar"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Grego"
 	},
+	"elf_choose_body": {
+		"message": "Escolher um corpo de elfo"
+	},
 	"elvish_language_name": {
 		"message": "Elvigês"
 	},
@@ -567,7 +579,7 @@
 		"message": "Parece que perdemos a ligação ao Polo Norte. Os duendes do Pai Natal estão a trabalhar para restabelecê-la, fique atento."
 	},
 	"error-not-found": {
-		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./village.html\"\u003eAldeia do Pai Natal\u003c/a\u003e."
+		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./\"\u003eAldeia do Pai Natal\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Tente novamente"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Parque infantil no Polo Norte"
 	},
-	"scene_postcard": {
-		"message": "Codifique um floco de neve"
-	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempestade de bolas de neve"
+	},
+	"scene_snowflake": {
+		"message": "Codifique um floco de neve"
 	},
 	"scene_speedsketch": {
 		"message": "Esboços rápidos"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Praxe no escritório"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Ainda de férias"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recarregamento de presentes"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Rena cansada"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Ainda de férias"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Onde está o Pai Natal?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "vassoura"
 	},
-	"speedsketch_item~bubble": {
-		"message": "balão"
-	},
 	"speedsketch_item~bucket": {
 		"message": "balde"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "câmara"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflagem"
-	},
 	"speedsketch_item~campfire": {
 		"message": "fogueira"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "cenoura"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "desenhos animados"
 	},
 	"speedsketch_item~castle": {
 		"message": "castelo"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cereja"
-	},
-	"speedsketch_item~chicken": {
-		"message": "galinha"
 	},
 	"speedsketch_item~child": {
 		"message": "criança"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodilo"
-	},
-	"speedsketch_item~cross": {
-		"message": "cruz"
 	},
 	"speedsketch_item~crow": {
 		"message": "corvo"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "mão"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "jogo da forca"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicidade"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "ilha"
 	},
-	"speedsketch_item~italy": {
-		"message": "itália"
-	},
 	"speedsketch_item~jacket": {
 		"message": "casaco"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "couve"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "canguru"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "batata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "tomada elétrica"
-	},
 	"speedsketch_item~present": {
 		"message": "presente"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "carteira"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "coelho"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "quadrado"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "enfeite"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "esquilo"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natureza-morta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "costura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bolsa de valores"
 	},
 	"speedsketch_item~stocking": {
 		"message": "meia"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triciclo"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carrinho"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "baleia"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "moinho de vento"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Ativar som"
-	},
-	"upgrade-warning": {
-		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador mais atual. Para mais informações, visite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

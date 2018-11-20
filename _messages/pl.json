@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Kod"
 	},
+	"category_computer-science": {
+		"message": "Informatyka"
+	},
 	"category_draw": {
 		"message": "Rysuj"
+	},
+	"category_language": {
+		"message": "Język"
 	},
 	"category_listen": {
 		"message": "Posłuchaj"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Tradycją niemal każdego niemieckiego miasteczka są jarmarki bożonarodzeniowe. Mieszkańcy gromadzą się na rynku, by posłuchać orkiestry dętej oraz spróbować regionalnych wyrobów. Zajadają się cynamonowymi sercami, prażonymi migdałami w cukrze, różnymi innymi słodkościami oraz piją grzane wino (Glühwein) lub cydr."
 	},
+	"dec24th": {
+		"message": "24 grudnia"
+	},
 	"deck": {
 		"message": "Dekoracje"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "grecki"
 	},
+	"elf_choose_body": {
+		"message": "Wybierz typ ciała elfa"
+	},
 	"elvish_language_name": {
 		"message": "elficki"
 	},
@@ -567,7 +579,7 @@
 		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
 	},
 	"error-not-found": {
-		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do \u003ca href=\"./village.html\"\u003ewioski Mikołaja\u003c/a\u003e."
+		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do \u003ca href=\"./\"\u003ewioski Mikołaja\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Spróbuj jeszcze raz"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Plac zabaw na Biegunie Północnym"
 	},
-	"scene_postcard": {
-		"message": "Zakoduj śnieżynkę"
-	},
 	"scene_presentbounce": {
 		"message": "Podskakujące prezenty"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Atak śnieżkami"
+	},
+	"scene_snowflake": {
+		"message": "Zakoduj śnieżynkę"
 	},
 	"scene_speedsketch": {
 		"message": "Rysowanie na czas"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Żart biurowy"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Wakacje w pełni"
+	},
 	"scene_videoscene_reload": {
 		"message": "Mikołaj uzupełnia prezenty"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Zmęczony renifer"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Wakacje w pełni"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Gdzie jest Mikołaj?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "miotła"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bańka"
-	},
 	"speedsketch_item~bucket": {
 		"message": "wiadro"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "aparat"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflaż"
-	},
 	"speedsketch_item~campfire": {
 		"message": "ognisko"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "marchewka"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "kreskówka"
 	},
 	"speedsketch_item~castle": {
 		"message": "zamek"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "wiśnia"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kurczak"
 	},
 	"speedsketch_item~child": {
 		"message": "dziecko"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodyl"
-	},
-	"speedsketch_item~cross": {
-		"message": "krzyż"
 	},
 	"speedsketch_item~crow": {
 		"message": "wrona"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "dłoń"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "gra w wisielca"
-	},
 	"speedsketch_item~happiness": {
 		"message": "szczęście"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "wyspa"
 	},
-	"speedsketch_item~italy": {
-		"message": "Włochy"
-	},
 	"speedsketch_item~jacket": {
 		"message": "kurtka"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "jarmuż"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangur"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "ziemniak"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "gniazdko"
-	},
 	"speedsketch_item~present": {
 		"message": "prezent"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "torebka"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "królik"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kwadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "zawijas"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "wiewiórka"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "martwa natura"
-	},
-	"speedsketch_item~stitches": {
-		"message": "szwy"
-	},
-	"speedsketch_item~stock market": {
-		"message": "giełda"
 	},
 	"speedsketch_item~stocking": {
 		"message": "pończocha"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "rower o trzech kołach"
 	},
-	"speedsketch_item~trolley": {
-		"message": "wózek"
-	},
 	"speedsketch_item~trombone": {
 		"message": "puzon"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "wieloryb"
-	},
-	"speedsketch_item~wheel": {
-		"message": "koło"
 	},
 	"speedsketch_item~windmill": {
 		"message": "wiatrak"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Wyłącz wyciszenie"
-	},
-	"upgrade-warning": {
-		"message": "Ta wersja przeglądarki nie obsługuje Trasy Świętego Mikołaja. Pobierz nowszą przeglądarkę. Więcej informacji znajdziesz na stronie \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Stany Zjednoczone"

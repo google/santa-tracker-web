@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Kode"
 	},
+	"category_computer-science": {
+		"message": "Rekenaarwetenskap"
+	},
 	"category_draw": {
 		"message": "Skets"
+	},
+	"category_language": {
+		"message": "Taal"
 	},
 	"category_listen": {
 		"message": "Luister"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "In byna elke Duitse dorp is daar 'n Kersmark op die dorpsplein. Dorpsmense kom byeen om na blaasorkeste te luister en tradisionele kos van die streek te geniet. Hulle eet gemmerkoekharte, amandels in suiker gebraai en allerlei lekkergoed en drink gekruide wyn (Glühwein) of appelwyn."
 	},
+	"dec24th": {
+		"message": "24 Desember"
+	},
 	"deck": {
 		"message": "Versier"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Grieks"
 	},
+	"elf_choose_body": {
+		"message": "Kies 'n elflyf"
+	},
 	"elvish_language_name": {
 		"message": "Elwetaal"
 	},
@@ -567,7 +579,7 @@
 		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – byt net vas!"
 	},
 	"error-not-found": {
-		"message": "Agge nee, Kersvader se elwe kan nie hierdie bladsy vind nie! Dit sal dalk beter wees as jy teruggaan na \u003ca href=\"./village.html\"\u003eKersvader se dorpie\u003c/a\u003e."
+		"message": "Agge nee, Kersvader se elwe kan nie hierdie bladsy vind nie! Dit sal dalk beter wees as jy teruggaan na \u003ca href=\"./\"\u003eKersvader se dorpie\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Probeer weer"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Noordpool-speelterrein"
 	},
-	"scene_postcard": {
-		"message": "Kodeer 'n sneeuvlokkie"
-	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Sneeubalstorm"
+	},
+	"scene_snowflake": {
+		"message": "Kodeer 'n sneeuvlokkie"
 	},
 	"scene_speedsketch": {
 		"message": "Spoedskets"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Kantoorpoets"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Steeds met vakansie"
+	},
 	"scene_videoscene_reload": {
 		"message": "Herlaai presente"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Moeë rendier"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Steeds met vakansie"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Waar's Kersvader?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "besem"
 	},
-	"speedsketch_item~bubble": {
-		"message": "borrel"
-	},
 	"speedsketch_item~bucket": {
 		"message": "emmer"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamoeflering"
-	},
 	"speedsketch_item~campfire": {
 		"message": "kampvuur"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "wortel"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "strokiesprent"
 	},
 	"speedsketch_item~castle": {
 		"message": "kasteel"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "kersie"
-	},
-	"speedsketch_item~chicken": {
-		"message": "hoender"
 	},
 	"speedsketch_item~child": {
 		"message": "kind"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "kruis"
 	},
 	"speedsketch_item~crow": {
 		"message": "kraai"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "hand"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "laksman-speletjie"
-	},
 	"speedsketch_item~happiness": {
 		"message": "blydskap"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "eiland"
 	},
-	"speedsketch_item~italy": {
-		"message": "italië"
-	},
 	"speedsketch_item~jacket": {
 		"message": "baadjie"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Veerklokkies"
-	},
-	"speedsketch_item~kale": {
-		"message": "krulkool"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangaroe"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "aartappel"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "kragpunt"
-	},
 	"speedsketch_item~present": {
 		"message": "geskenk"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "beursie"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "legkaart"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "haas"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "vierkant"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "krabbel"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "eekhoring"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "stillewe"
-	},
-	"speedsketch_item~stitches": {
-		"message": "steke"
-	},
-	"speedsketch_item~stock market": {
-		"message": "aandelemark"
 	},
 	"speedsketch_item~stocking": {
 		"message": "kous"
@@ -2709,7 +2682,7 @@
 		"message": "tent"
 	},
 	"speedsketch_item~tic tac toe game": {
-		"message": "nulletjies-en-kruisies"
+		"message": "kringetjies-en-kruisies"
 	},
 	"speedsketch_item~tiger": {
 		"message": "tier"
@@ -2755,9 +2728,6 @@
 	},
 	"speedsketch_item~tricycle": {
 		"message": "driewiel"
-	},
-	"speedsketch_item~trolley": {
-		"message": "trollie"
 	},
 	"speedsketch_item~trombone": {
 		"message": "skuiftrompet"
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "walvis"
-	},
-	"speedsketch_item~wheel": {
-		"message": "wiel"
 	},
 	"speedsketch_item~windmill": {
 		"message": "windmeul"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Ontdemp"
-	},
-	"upgrade-warning": {
-		"message": "Oeps! Hierdie weergawe van jou blaaier steun nie Santa Tracker nie. Laai 'n moderne blaaier af om toegang tot Santa Tracker te verkry. Besoek \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e vir verdere inligting."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"

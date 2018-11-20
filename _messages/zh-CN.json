@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "代码"
 	},
+	"category_computer-science": {
+		"message": "计算机科学"
+	},
 	"category_draw": {
 		"message": "绘图"
+	},
+	"category_language": {
+		"message": "语言"
 	},
 	"category_listen": {
 		"message": "收听"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "几乎每个德国小镇都会在城镇广场开设圣诞市场。市民们聚在一起欣赏铜管乐，并享用当地的传统美食。他们会一边吃心型姜饼、糖烤杏仁以及各种甜点，一边饮用香料热饮酒 (Glühwein) 或苹果酒。"
 	},
+	"dec24th": {
+		"message": "12 月 24 日"
+	},
 	"deck": {
 		"message": "换上新装"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "希腊语"
 	},
+	"elf_choose_body": {
+		"message": "选择小精灵的体型"
+	},
 	"elvish_language_name": {
 		"message": "精灵语"
 	},
@@ -567,7 +579,7 @@
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
 	},
 	"error-not-found": {
-		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./village.html\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
+		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
 	},
 	"error-try-again": {
 		"message": "请重试"
@@ -1125,7 +1137,7 @@
 		"message": "绘图"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上就每一个与节日相关的词语画一幅画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
+		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上画出与节日词语相关的图画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
 	},
 	"quickdraw-splashview-title": {
 		"message": "帮助 Tensor 练习识图吧！"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "北极游乐场"
 	},
-	"scene_postcard": {
-		"message": "使用编码设计雪花"
-	},
 	"scene_presentbounce": {
 		"message": "礼物弹弹跳"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "雪球风暴"
+	},
+	"scene_snowflake": {
+		"message": "使用编码设计雪花"
 	},
 	"scene_speedsketch": {
 		"message": "快手画图"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "办公室恶作剧"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "圣诞老人还在度假中"
+	},
 	"scene_videoscene_reload": {
 		"message": "礼物补给"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "驯鹿累了"
-	},
-	"scene_videoscene_trailer": {
-		"message": "圣诞老人还在度假中"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "圣诞老人在哪里？"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "扫帚"
 	},
-	"speedsketch_item~bubble": {
-		"message": "气泡"
-	},
 	"speedsketch_item~bucket": {
 		"message": "桶"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "相机"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "迷彩"
-	},
 	"speedsketch_item~campfire": {
 		"message": "营火"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "胡萝卜"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "卡通"
 	},
 	"speedsketch_item~castle": {
 		"message": "城堡"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "樱桃"
-	},
-	"speedsketch_item~chicken": {
-		"message": "鸡"
 	},
 	"speedsketch_item~child": {
 		"message": "儿童"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "鳄鱼"
-	},
-	"speedsketch_item~cross": {
-		"message": "十字"
 	},
 	"speedsketch_item~crow": {
 		"message": "乌鸦"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "手"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "猜单词游戏"
-	},
 	"speedsketch_item~happiness": {
 		"message": "高兴"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "海岛"
 	},
-	"speedsketch_item~italy": {
-		"message": "意大利"
-	},
 	"speedsketch_item~jacket": {
 		"message": "夹克"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "铃儿响叮当"
-	},
-	"speedsketch_item~kale": {
-		"message": "羽衣甘蓝"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "袋鼠"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "土豆"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "电源插座"
-	},
 	"speedsketch_item~present": {
 		"message": "礼物"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "钱包"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "拼图"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "兔子"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "正方形"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "波形曲线"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "松鼠"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "静物"
-	},
-	"speedsketch_item~stitches": {
-		"message": "针迹"
-	},
-	"speedsketch_item~stock market": {
-		"message": "股市"
 	},
 	"speedsketch_item~stocking": {
 		"message": "袜子"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "三轮车"
 	},
-	"speedsketch_item~trolley": {
-		"message": "手推车"
-	},
 	"speedsketch_item~trombone": {
 		"message": "长号"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "鲸"
-	},
-	"speedsketch_item~wheel": {
-		"message": "轮子"
 	},
 	"speedsketch_item~windmill": {
 		"message": "风车"
@@ -3060,7 +3027,7 @@
 		"message": "俄亥俄州"
 	},
 	"trivia_beginner_007_answer1": {
-		"message": "蒙大纳"
+		"message": "蒙大拿州"
 	},
 	"trivia_beginner_007_answer2": {
 		"message": "新墨西哥州"
@@ -5985,7 +5952,7 @@
 		"message": "美国以下哪个州的面积最大？"
 	},
 	"trivia_medium_049_answer0": {
-		"message": "蒙大纳"
+		"message": "蒙大拿州"
 	},
 	"trivia_medium_049_answer1": {
 		"message": "康涅狄格州"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "取消静音"
-	},
-	"upgrade-warning": {
-		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新版浏览器。有关详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美国"

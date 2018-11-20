@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Написати код"
 	},
+	"category_computer-science": {
+		"message": "Інформатика"
+	},
 	"category_draw": {
 		"message": "Малювати"
+	},
+	"category_language": {
+		"message": "Мова"
 	},
 	"category_listen": {
 		"message": "Слухати"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "На Різдво майже в усіх німецьких містах проходять ярмарки. Люди збираються на міських площах, щоб послухати духові оркестри та скуштувати традиційні місцеві ласощі. Особливо німці полюбляють імбирні пряники у формі серця та смажений мигдаль із цукром, а запивають їх глінтвейном або яблучним сидром."
 	},
+	"dec24th": {
+		"message": "24 грудня"
+	},
 	"deck": {
 		"message": "Створіть святкову атмосферу"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "грецька"
 	},
+	"elf_choose_body": {
+		"message": "Виберіть тип тіла ельфа"
+	},
 	"elvish_language_name": {
 		"message": "ельфійська"
 	},
@@ -567,7 +579,7 @@
 		"message": "Схоже, ми втратили зв’язок із Північним полюсом. Помічники Діда Мороза невпинно працюють, щоб відновити його, тож залишайтеся з нами."
 	},
 	"error-not-found": {
-		"message": "На жаль, помічникам Діда Мороза не вдалося знайти цю сторінку. Мабуть, краще повернутись у \u003ca href=\"./village.html\"\u003eмістечко Діда Мороза\u003c/a\u003e."
+		"message": "На жаль, помічникам Діда Мороза не вдалося знайти цю сторінку. Мабуть, краще повернутись у \u003ca href=\"./\"\u003eмістечко Діда Мороза\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Спробуйте знову"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Ігровий майданчик на Північному полюсі"
 	},
-	"scene_postcard": {
-		"message": "Створи сніжинку"
-	},
 	"scene_presentbounce": {
 		"message": "Підкидання подарунків"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Бій сніжками"
+	},
+	"scene_snowflake": {
+		"message": "Створи сніжинку"
 	},
 	"scene_speedsketch": {
 		"message": "Швидка замальовка"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Офісна витівка"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Ще у відпустці"
+	},
 	"scene_videoscene_reload": {
 		"message": "Дозавантаження подарунків"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Утомлений олень"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Ще у відпустці"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Де Санта?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "мітла"
 	},
-	"speedsketch_item~bubble": {
-		"message": "бульбашка"
-	},
 	"speedsketch_item~bucket": {
 		"message": "відро"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "фотоапарат"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "камуфляж"
-	},
 	"speedsketch_item~campfire": {
 		"message": "багаття"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "морква"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "мультфільм"
 	},
 	"speedsketch_item~castle": {
 		"message": "замок"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "вишня"
-	},
-	"speedsketch_item~chicken": {
-		"message": "курка"
 	},
 	"speedsketch_item~child": {
 		"message": "дитина"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "крокодил"
-	},
-	"speedsketch_item~cross": {
-		"message": "хрест"
 	},
 	"speedsketch_item~crow": {
 		"message": "ворона"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "рука"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "гра \"вішалка\""
-	},
 	"speedsketch_item~happiness": {
 		"message": "щастя"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "острів"
 	},
-	"speedsketch_item~italy": {
-		"message": "Італія"
-	},
 	"speedsketch_item~jacket": {
 		"message": "куртка"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "капуста"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "кенгуру"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "картопля"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "розетка"
-	},
 	"speedsketch_item~present": {
 		"message": "подарунок"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "гаманець"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "головоломка"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "кролик"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "квадрат"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "карлючка"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "білка"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "натюрморт"
-	},
-	"speedsketch_item~stitches": {
-		"message": "стібки"
-	},
-	"speedsketch_item~stock market": {
-		"message": "фондова біржа"
 	},
 	"speedsketch_item~stocking": {
 		"message": "панчоха"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "триколісний велосипед"
 	},
-	"speedsketch_item~trolley": {
-		"message": "візок"
-	},
 	"speedsketch_item~trombone": {
 		"message": "тромбон"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "кит"
-	},
-	"speedsketch_item~wheel": {
-		"message": "колесо"
 	},
 	"speedsketch_item~windmill": {
 		"message": "вітряк"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Увімкнути звук"
-	},
-	"upgrade-warning": {
-		"message": "На жаль, поточна версія вашого веб-переглядача не підтримує додаток Де Дід Мороз. Щоб користуватися ним, завантажте найновішу версію. Дізнайтеся більше на сайті \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "США"

@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Coder"
 	},
+	"category_computer-science": {
+		"message": "Science informatique"
+	},
 	"category_draw": {
 		"message": "Dessin"
+	},
+	"category_language": {
+		"message": "Langue"
 	},
 	"category_listen": {
 		"message": "Écouter"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Les Allemands se réunissent dans leur marché de Noël afin d'écouter des fanfares et manger des plats typiques de leur région. Ils y mangent des cœurs en pain d'épices, des amandes grillées au sucre et d'autres sucreries et y boivent du vin chaud (Glühwein) ou du cidre de pomme."
 	},
+	"dec24th": {
+		"message": "24 décembre"
+	},
 	"deck": {
 		"message": "Décorer"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Grec"
 	},
+	"elf_choose_body": {
+		"message": "Choisis un corps pour le lutin"
+	},
 	"elvish_language_name": {
 		"message": "Dialecte des lutins"
 	},
@@ -567,7 +579,7 @@
 		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
 	},
 	"error-not-found": {
-		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./village.html\"\u003evillage du père Noël\u003c/a\u003e."
+		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Réessayer"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Terrain de jeu du Pôle Nord"
 	},
-	"scene_postcard": {
-		"message": "Coder un flocon de neige"
-	},
 	"scene_presentbounce": {
 		"message": "Rebond de cadeaux"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempête de boules de neige"
+	},
+	"scene_snowflake": {
+		"message": "Coder un flocon de neige"
 	},
 	"scene_speedsketch": {
 		"message": "Croquis rapide"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Plaisanterie au bureau"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Toujours en vacances"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recharge de cadeaux"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Renne fatigué"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Toujours en vacances"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Où est le père Noël?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "balai"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bulle"
-	},
 	"speedsketch_item~bucket": {
 		"message": "seau"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "appareil photo"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "feu de camp"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carotte"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "dessins animés"
 	},
 	"speedsketch_item~castle": {
 		"message": "château"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cerise"
-	},
-	"speedsketch_item~chicken": {
-		"message": "poulet"
 	},
 	"speedsketch_item~child": {
 		"message": "enfant"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodile"
-	},
-	"speedsketch_item~cross": {
-		"message": "croix"
 	},
 	"speedsketch_item~crow": {
 		"message": "corbeau"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "main"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "bonhomme pendu"
-	},
 	"speedsketch_item~happiness": {
 		"message": "bonheur"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "île"
 	},
-	"speedsketch_item~italy": {
-		"message": "italie"
-	},
 	"speedsketch_item~jacket": {
 		"message": "veste"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Vive le vent"
-	},
-	"speedsketch_item~kale": {
-		"message": "chou frisé"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangourou"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "pomme de terre"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "prise de courant"
-	},
 	"speedsketch_item~present": {
 		"message": "cadeau"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "sac à main"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "casse-tête"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "lapin"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "carré"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "gribouillis"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "écureuil"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "nature morte"
-	},
-	"speedsketch_item~stitches": {
-		"message": "points de suture"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bourse"
 	},
 	"speedsketch_item~stocking": {
 		"message": "bas"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricycle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "chariot"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "baleine"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roue"
 	},
 	"speedsketch_item~windmill": {
 		"message": "moulin à vent"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Réactiver le son"
-	},
-	"upgrade-warning": {
-		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "États-Unis"

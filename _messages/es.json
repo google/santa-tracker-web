@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Código:"
 	},
+	"category_computer-science": {
+		"message": "Informática"
+	},
 	"category_draw": {
 		"message": "Dibujar"
+	},
+	"category_language": {
+		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Escuchar"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "En casi todas las poblaciones de Alemania hay mercados de Navidad en las plazas. Los habitantes acuden para escuchar a bandas musicales y disfrutar de platos tradicionales de la región. Comen corazones de pan de jengibre, almendras con azúcar tostado y beben vino caliente (Glühwein) o sidra de manzana."
 	},
+	"dec24th": {
+		"message": "24 de diciembre"
+	},
 	"deck": {
 		"message": "Decorar"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Griego"
 	},
+	"elf_choose_body": {
+		"message": "Elige un cuerpo para tu elfo"
+	},
 	"elvish_language_name": {
 		"message": "Élfico"
 	},
@@ -567,7 +579,7 @@
 		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
 	},
 	"error-not-found": {
-		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./village.html\"\u003ealdea\u003c/a\u003e."
+		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Inténtalo de nuevo"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "El parque del Polo Norte"
 	},
-	"scene_postcard": {
-		"message": "Crea un copo de nieve con código"
-	},
 	"scene_presentbounce": {
 		"message": "¡Que no se caiga el regalo!"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Pelea de bolas de nieve"
+	},
+	"scene_snowflake": {
+		"message": "Crea un copo de nieve con código"
 	},
 	"scene_speedsketch": {
 		"message": "Retratos contrarreloj"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Bromas en la oficina"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Aún está de vacaciones"
+	},
 	"scene_videoscene_reload": {
 		"message": "Repostando regalos"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "El reno cansado"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Aún está de vacaciones"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "¿Dónde está Papá Noel?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "escoba"
 	},
-	"speedsketch_item~bubble": {
-		"message": "burbuja"
-	},
 	"speedsketch_item~bucket": {
 		"message": "cubo"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "cámara"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflaje"
-	},
 	"speedsketch_item~campfire": {
 		"message": "hoguera"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "zanahoria"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "dibujos animados"
 	},
 	"speedsketch_item~castle": {
 		"message": "castillo"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cereza"
-	},
-	"speedsketch_item~chicken": {
-		"message": "pollo"
 	},
 	"speedsketch_item~child": {
 		"message": "niño"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "cocodrilo"
-	},
-	"speedsketch_item~cross": {
-		"message": "cruz"
 	},
 	"speedsketch_item~crow": {
 		"message": "cuervo"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "mano"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "juego del ahorcado"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicidad"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "isla"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "chaqueta"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "cascabeles"
-	},
-	"speedsketch_item~kale": {
-		"message": "col rizada"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "canguro"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "patata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "enchufe de pared"
-	},
 	"speedsketch_item~present": {
 		"message": "regalo"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "monedero"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "conejo"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "cuadrado"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "garabato"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "ardilla"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "bodegón"
-	},
-	"speedsketch_item~stitches": {
-		"message": "puntos de sutura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "mercado de valores"
 	},
 	"speedsketch_item~stocking": {
 		"message": "calcetín navideño"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triciclo"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carrito"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombón"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "ballena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "rueda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "molino"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Activar sonido"
-	},
-	"upgrade-warning": {
-		"message": "¡Vaya! Esta versión de tu navegador no admite Seguir a Papá Noel. Para acceder a Seguir a Papá Noel, descarga un navegador más moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

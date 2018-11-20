@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Koda - {0}"
 	},
+	"category_computer-science": {
+		"message": "Računalništvo"
+	},
 	"category_draw": {
 		"message": "Nariši"
+	},
+	"category_language": {
+		"message": "Jezik"
 	},
 	"category_listen": {
 		"message": "Poslušaj"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "V skoraj vsakem nemškem mestu so na mestnih trgih postavljene božične tržnice. Meščani se zberejo ter poslušajo pihalne orkestre in uživajo tradicionalne regijske jedi. Jedo medenjake, karamelizirane mandlje, slaščice vseh vrst in pijejo kuhano vino (Glühwein) ali jabolčnik."
 	},
+	"dec24th": {
+		"message": "24. december"
+	},
 	"deck": {
 		"message": "Okrasitev"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "grščina"
 	},
+	"elf_choose_body": {
+		"message": "Izberite telo palčka"
+	},
 	"elvish_language_name": {
 		"message": "škratovščina"
 	},
@@ -567,7 +579,7 @@
 		"message": "Kaže, da smo izgubili povezavo s Severnim tečajem. Božičkovi škratje si na vso moč prizadevajo odpraviti težavo, zato ostanite na zvezi!"
 	},
 	"error-not-found": {
-		"message": "Božičkovi palčki ne morejo najti te strani. Morda boste imeli več sreče, če se vrnete v \u003ca href=\"./village.html\"\u003eBožičkovo vas\u003c/a\u003e."
+		"message": "Božičkovi palčki ne morejo najti te strani. Morda boste imeli več sreče, če se vrnete v \u003ca href=\"./\"\u003eBožičkovo vas\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Poskusi znova"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Igrišče Severni pol"
 	},
-	"scene_postcard": {
-		"message": "Kodiranje snežinke"
-	},
 	"scene_presentbounce": {
 		"message": "Poskočna darila"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Nevihta kep"
+	},
+	"scene_snowflake": {
+		"message": "Kodiranje snežinke"
 	},
 	"scene_speedsketch": {
 		"message": "Hitrostno skiciranje"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Pisarniška potegavščina"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Še vedno na počitnicah"
+	},
 	"scene_videoscene_reload": {
 		"message": "Ponovno nalaganje daril"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Utrujeni jelen"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Še vedno na počitnicah"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Kje je Božiček?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "metla"
 	},
-	"speedsketch_item~bubble": {
-		"message": "oblaček"
-	},
 	"speedsketch_item~bucket": {
 		"message": "vedro"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "fotoaparat"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflaža"
-	},
 	"speedsketch_item~campfire": {
 		"message": "taborni ogenj"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "korenček"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "risanka"
 	},
 	"speedsketch_item~castle": {
 		"message": "grad"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "češnja"
-	},
-	"speedsketch_item~chicken": {
-		"message": "piščanec"
 	},
 	"speedsketch_item~child": {
 		"message": "otrok"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "križ"
 	},
 	"speedsketch_item~crow": {
 		"message": "vrana"
@@ -1887,7 +1884,7 @@
 		"message": "palček"
 	},
 	"speedsketch_item~emoji": {
-		"message": "znak »emoji«"
+		"message": "emodži"
 	},
 	"speedsketch_item~envelope": {
 		"message": "kuverta"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "roka"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "vislice"
-	},
 	"speedsketch_item~happiness": {
 		"message": "sreča"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "otok"
 	},
-	"speedsketch_item~italy": {
-		"message": "italija"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jakna"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Zvončki pojejo"
-	},
-	"speedsketch_item~kale": {
-		"message": "ohrovt"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kenguru"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "krompir"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "vtičnica"
-	},
 	"speedsketch_item~present": {
 		"message": "trenutno"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "torbica"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "sestavljanka"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "zajec"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "vijuga"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "veverica"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "tihožitje"
-	},
-	"speedsketch_item~stitches": {
-		"message": "šivi"
-	},
-	"speedsketch_item~stock market": {
-		"message": "borza"
 	},
 	"speedsketch_item~stocking": {
 		"message": "dolga nogavica"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricikel"
 	},
-	"speedsketch_item~trolley": {
-		"message": "voziček"
-	},
 	"speedsketch_item~trombone": {
 		"message": "pozavna"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "kit"
-	},
-	"speedsketch_item~wheel": {
-		"message": "kolo"
 	},
 	"speedsketch_item~windmill": {
 		"message": "mlin na veter"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Vklopi zvok"
-	},
-	"upgrade-warning": {
-		"message": "Ojej! Spremljanje Božičkove poti ni podprto v tej različici brskalnika. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik. Za več informacij obiščite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Združene države"

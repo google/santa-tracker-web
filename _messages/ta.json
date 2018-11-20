@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "கிறிஸ்துமஸ் பண்டிகையையொட்டி, சான்டாவின் டாஷ்போர்டில், அவரது இந்த உலகச் சுற்றுப் பயணத்திற்குப் பயன்படுத்தும் பனிச்சறுக்கு வண்டியில் பயன்படுத்தப்பட்டுள்ள தொழில்நுட்பத்தைப் பெருமையுடன் உங்களுக்குக் காண்பிப்போம். கிறிஸ்துமஸ் தினத்துக்கு சான்டா தயாராவதற்கு, வட துருவத்தில் கடுமையாக டெவலப்பர்களாக உழைத்துவரும் சான்டாவின் குட்டி தேவதைகள் ஒருவரிடமிருந்து இந்தப் பிரத்யேக முன்னோட்டக் காட்சி எங்களுக்கு வந்துள்ளது. மிகச் சமீபத்திய Google வரைபடத் தொழில்நுட்பத்தையும், மிகச் சிறந்த பனிச்சறுக்கு வண்டி பொறியியலையும் பயன்படுத்தி சான்டாவின் டாஷ்போர்டு உருவாக்கப்பட்டுள்ளது, இதில் நீங்கள் அவருடைய உலகச் சுற்றுப் பயணத்தைப் பின்தொடரலாம், வழியில் அவர் செல்லும் இடங்களைப் பற்றி அறிந்துகொள்ளலாம்."
+		"message": "கிறிஸ்துமஸ் பண்டிகையையொட்டி, சான்டாவின் டாஷ்போர்டில், அவரது இந்த உலகச் சுற்றுப் பயணத்திற்குப் பயன்படுத்தும் பனிச்சறுக்கு வண்டியில் பயன்படுத்தப்பட்டுள்ள தொழில்நுட்பத்தைப் பெருமையுடன் உங்களுக்குக் காண்பிப்போம். கிறிஸ்துமஸ் தினத்துக்கு சான்டா தயாராவதற்கு, வட துருவத்தில் கடுமையாக டெவலப்பர்களாக உழைத்துவரும் சான்டாவின் குட்டி தேவதைகள் ஒருவரிடமிருந்து இந்தப் பிரத்தியேக முன்னோட்டக் காட்சி எங்களுக்கு வந்துள்ளது. மிகச் சமீபத்திய Google வரைபடத் தொழில்நுட்பத்தையும், மிகச் சிறந்த பனிச்சறுக்கு வண்டி பொறியியலையும் பயன்படுத்தி சான்டாவின் டாஷ்போர்டு உருவாக்கப்பட்டுள்ளது, இதில் நீங்கள் அவருடைய உலகச் சுற்றுப் பயணத்தைப் பின்தொடரலாம், வழியில் அவர் செல்லும் இடங்களைப் பற்றி அறிந்துகொள்ளலாம்."
 	},
 	"about-content-three": {
 		"message": "Google வரைபட சான்டா டிராக்கரை, சான்டாவின் குட்டி தேவதைகளின் சிறு உதவியுடன் Google உருவாக்கியுள்ளது. உதவி தேவையா அல்லது வேறு ஏதேனும் கேள்வி உள்ளதா? எங்கள் \u003ca href=\"//support.google.com/santatracker\"\u003eஉதவி மையத்துக்குச்\u003c/a\u003e சென்று பார்க்கவும்."
@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "குறியீடு"
 	},
+	"category_computer-science": {
+		"message": "கணினி அறிவியல்"
+	},
 	"category_draw": {
 		"message": "வரை"
+	},
+	"category_language": {
+		"message": "மொழி"
 	},
 	"category_listen": {
 		"message": "கேளுங்கள்"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "கிட்டத்தட்ட ஒவ்வொரு ஜெர்மன் நகரிலும் கிறிஸ்துமஸ் சந்தைகள் அந்தந்த நகரத்தின் சதுக்கங்களில் திறக்கப்படும். நகரவாசிகள் அனைவரும் பிராஸ்பேண்ட் இசையைக் கேட்டு, அந்தப் பகுதியின் பாரம்பரிய நிகழ்ச்சியை ரசிக்க ஒன்று கூடுவார்கள். அவர்கள் ஜிஞ்சர்பிரெட் ஹார்ட்ஸ், சர்க்கரையால் வறுத்த பாதாம் பருப்புகள், எல்லா வகை இனிப்புகளையும் சாப்பிட்டு Glühwein எனப்படும் காய்ச்சிய ஒயின் அல்லது ஆப்பிள் பழச்சாற்றைக் குடிப்பார்கள்."
 	},
+	"dec24th": {
+		"message": "டிசம்பர் 24"
+	},
 	"deck": {
 		"message": "அலங்கரிக்கவும்"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "கிரேக்கம்"
 	},
+	"elf_choose_body": {
+		"message": "எல்ஃப் உடலைத் தேர்ந்தெடுக்கவும்"
+	},
 	"elvish_language_name": {
 		"message": "எல்விஷ்"
 	},
@@ -567,7 +579,7 @@
 		"message": "வட துருவ இணைப்பை இழந்துவிட்டதாகத் தெரிகிறது. சான்டாவின் குட்டி தேவதைகள் அதைச் சரி செய்யக் கடுமையாக உழைத்து வருகின்றனர் - இணைந்திருங்கள்!"
 	},
 	"error-not-found": {
-		"message": "அச்சச்சோ, சான்டாவின் குட்டித் தேவதைகளால் இந்தப் பக்கத்தைக் கண்டறிய முடியவில்லை! \u003ca href=\"./village.html\"\u003eசான்டாவின் கிராமத்திற்குச்\u003c/a\u003e சென்றால், உங்களுக்கு அதிர்ஷ்டம் உண்டாகலாம்."
+		"message": "அச்சச்சோ, சான்டாவின் குட்டித் தேவதைகளால் இந்தப் பக்கத்தைக் கண்டறிய முடியவில்லை! \u003ca href=\"./\"\u003eசான்டாவின் கிராமத்திற்குச்\u003c/a\u003e சென்றால், உங்களுக்கு அதிர்ஷ்டம் உண்டாகலாம்."
 	},
 	"error-try-again": {
 		"message": "மீண்டும் முயற்சிக்கவும்"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "வட துருவ விளையாட்டுத்திடல்"
 	},
-	"scene_postcard": {
-		"message": "ஸ்னோஃப்ளேக் கோடிங்"
-	},
 	"scene_presentbounce": {
 		"message": "பிரசென்ட் பவுன்ஸ்"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "ஸ்னோபால் ஸ்டோர்ம்"
+	},
+	"scene_snowflake": {
+		"message": "ஸ்னோஃப்ளேக் கோடிங்"
 	},
 	"scene_speedsketch": {
 		"message": "ஸ்பீடு ஸ்கெட்ச்"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "அலுவலகக் குறும்பு"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "இன்னும் விடுமுறையில் உள்ளார்"
+	},
 	"scene_videoscene_reload": {
 		"message": "பரிசை ஏற்றுதல்"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "சோர்வான கலைமான்"
-	},
-	"scene_videoscene_trailer": {
-		"message": "இன்னும் விடுமுறையில் உள்ளார்"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "சான்டா எங்கே?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "துடைப்பம்"
 	},
-	"speedsketch_item~bubble": {
-		"message": "குமிழ்"
-	},
 	"speedsketch_item~bucket": {
 		"message": "வாளி"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "கேமரா"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "கேமோஃபிலேஜ்"
-	},
 	"speedsketch_item~campfire": {
 		"message": "கேம்ப்ஃபயர்"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "கேரட்"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "கார்ட்டூன்"
 	},
 	"speedsketch_item~castle": {
 		"message": "கோட்டை"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "செர்ரி"
-	},
-	"speedsketch_item~chicken": {
-		"message": "கோழி"
 	},
 	"speedsketch_item~child": {
 		"message": "குழந்தை"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "முதலை"
-	},
-	"speedsketch_item~cross": {
-		"message": "கிராஸ்"
 	},
 	"speedsketch_item~crow": {
 		"message": "காகம்"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "கை"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "ஹேங்மேன் கேம்"
-	},
 	"speedsketch_item~happiness": {
 		"message": "மகிழ்ச்சி"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "தீவு"
 	},
-	"speedsketch_item~italy": {
-		"message": "இத்தாலி"
-	},
 	"speedsketch_item~jacket": {
 		"message": "ஜாக்கெட்"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "ஜிங்கில் பெல்ஸ்"
-	},
-	"speedsketch_item~kale": {
-		"message": "காலே"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "கங்காரு"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "உருளைக்கிழங்கு"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "மின் பிளக்"
-	},
 	"speedsketch_item~present": {
 		"message": "பிரசென்ட்"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "பர்ஸ்"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "புதிர்"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "முயல்"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "சதுரம்"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "வளைந்து நெளிந்த கோடு"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "அணில்"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "ஸ்டில் வாழ்க்கை"
-	},
-	"speedsketch_item~stitches": {
-		"message": "தையல்கள்"
-	},
-	"speedsketch_item~stock market": {
-		"message": "பங்குச் சந்தை"
 	},
 	"speedsketch_item~stocking": {
 		"message": "ஸ்டாக்கிங்"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "ட்ரை சைக்கிள்"
 	},
-	"speedsketch_item~trolley": {
-		"message": "தள்ளுவண்டி"
-	},
 	"speedsketch_item~trombone": {
 		"message": "ட்ரோம்போன்"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "திமிங்கலம்"
-	},
-	"speedsketch_item~wheel": {
-		"message": "சக்கரம்"
 	},
 	"speedsketch_item~windmill": {
 		"message": "காற்றாலை"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "ஒலி இயக்கு"
-	},
-	"upgrade-warning": {
-		"message": "அச்சச்சோ! சான்டா டிராக்கர் உங்கள் உலாவியின் இந்தப் பதிப்பில் ஆதரிக்கப்படவில்லை. சான்டா டிராக்கரை அணுக, நவீன உலாவியைப் பதிவிறக்கவும். மேலும் தகவலுக்கு \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003eக்குச் செல்லவும்."
 	},
 	"us_country_name": {
 		"message": "யுனைடெட் ஸ்டேட்ஸ்"

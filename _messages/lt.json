@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Kodas"
 	},
+	"category_computer-science": {
+		"message": "Kompiuterija"
+	},
 	"category_draw": {
 		"message": "Piešti"
+	},
+	"category_language": {
+		"message": "Kalba"
 	},
 	"category_listen": {
 		"message": "Klausyti"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Beveik kiekvieno Vokietijos miesto aikštėje atidaroma kalėdinė mugė. Žmonės susirenka pasiklausyti pučiamųjų instrumentų muzikos, mėgaujasi tradiciniu maistu: valgo imbierines širdeles, cukruje skrudintus migdolus, įvairius saldainius, geria su prieskoniais kaitintą vyną (Glühwein) ar obuolių sidrą."
 	},
+	"dec24th": {
+		"message": "Gruodžio 24 d."
+	},
 	"deck": {
 		"message": "Dekoracijos"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Graikų"
 	},
+	"elf_choose_body": {
+		"message": "Pasirinkite elfo kūną"
+	},
 	"elvish_language_name": {
 		"message": "Elfų"
 	},
@@ -567,7 +579,7 @@
 		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
 	},
 	"error-not-found": {
-		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./village.html\"\u003eKalėdų Senelio kaimelį\u003c/a\u003e."
+		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./\"\u003eKalėdų Senelio kaimą\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Bandykite dar kartą"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Šiaurės ašigalio žaidimų aikštelė"
 	},
-	"scene_postcard": {
-		"message": "Sugeneruokite snaigės kodą"
-	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Gniūžčių lietus"
+	},
+	"scene_snowflake": {
+		"message": "Sugeneruokite snaigės kodą"
 	},
 	"scene_speedsketch": {
 		"message": "Greitas eskizas"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Biuro juokelis"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Dar atostogauja"
+	},
 	"scene_videoscene_reload": {
 		"message": "Dovanų papildymas"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Pavargęs šiaurės elnias"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Dar atostogauja"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Kur Kalėdų Senelis?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "šluota"
 	},
-	"speedsketch_item~bubble": {
-		"message": "burbulas"
-	},
 	"speedsketch_item~bucket": {
 		"message": "kibiras"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "fotoaparatas"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "maskuotė"
-	},
 	"speedsketch_item~campfire": {
 		"message": "laužas"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "morka"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "animacinis filmas"
 	},
 	"speedsketch_item~castle": {
 		"message": "pilis"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "vyšnia"
-	},
-	"speedsketch_item~chicken": {
-		"message": "višta"
 	},
 	"speedsketch_item~child": {
 		"message": "vaikas"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodilas"
-	},
-	"speedsketch_item~cross": {
-		"message": "kryžiukas"
 	},
 	"speedsketch_item~crow": {
 		"message": "varna"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "ranka"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "kartuvių žaidimas"
-	},
 	"speedsketch_item~happiness": {
 		"message": "laimė"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "sala"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italija"
-	},
 	"speedsketch_item~jacket": {
 		"message": "švarkas"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "lapinis kopūstas"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kengūra"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "bulvė"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "elektros lizdas"
-	},
 	"speedsketch_item~present": {
 		"message": "dabar"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "piniginė"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "dėlionė"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "triušis"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadratas"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "vingiuota linija"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "voverė"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natiurmortas"
-	},
-	"speedsketch_item~stitches": {
-		"message": "siūlės"
-	},
-	"speedsketch_item~stock market": {
-		"message": "vertybinių popierių birža"
 	},
 	"speedsketch_item~stocking": {
 		"message": "kojinė"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triratis"
 	},
-	"speedsketch_item~trolley": {
-		"message": "vežimėlis"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombonas"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "banginis"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ratas"
 	},
 	"speedsketch_item~windmill": {
 		"message": "vėjo malūnas"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Garsas"
-	},
-	"upgrade-warning": {
-		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šios versijos naršyklėje. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę. Jei reikia daugiau informacijos, apsilankykite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Jungtinės Amerikos Valstijos"

@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "寫程式"
 	},
+	"category_computer-science": {
+		"message": "電腦科學"
+	},
 	"category_draw": {
 		"message": "繪製"
+	},
+	"category_language": {
+		"message": "語言"
 	},
 	"category_listen": {
 		"message": "聆聽"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "幾乎每個德國小鎮都會在鎮廣場舉辦聖誕市集。鎮民聚在一起聆聽銅管樂隊演奏，享用當地的傳統美食。他們會吃心型薑餅、糖烤杏仁和各種甜點，還會喝香料酒 (Glühwein) 或蘋果酒。"
 	},
+	"dec24th": {
+		"message": "12 月 24 日"
+	},
 	"deck": {
 		"message": "換上新裝"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "希臘文"
 	},
+	"elf_choose_body": {
+		"message": "選擇小精靈的身形"
+	},
 	"elvish_language_name": {
 		"message": "精靈文"
 	},
@@ -567,7 +579,7 @@
 		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
 	},
 	"error-not-found": {
-		"message": "糟糕，聖誕老人的助手小精靈找不到這個網頁！請先返回\u003ca href=\"./village.html\"\u003e聖誕村\u003c/a\u003e，等運氣好時再試一次。"
+		"message": "糟糕，聖誕老人的助手小精靈找不到這個網頁！請回\u003ca href=\"./\"\u003e聖誕老人村\u003c/a\u003e再試一次，也許這次運氣會更好。"
 	},
 	"error-try-again": {
 		"message": "再試一次"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "北極遊樂場"
 	},
-	"scene_postcard": {
-		"message": "使用程式碼設計雪花"
-	},
 	"scene_presentbounce": {
 		"message": "彈跳小禮物"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "雪球大戰"
+	},
+	"scene_snowflake": {
+		"message": "使用程式碼設計雪花"
 	},
 	"scene_speedsketch": {
 		"message": "急速繪畫"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "辦公室惡作劇"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "休假中"
+	},
 	"scene_videoscene_reload": {
 		"message": "禮物補充"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "疲憊的馴鹿"
-	},
-	"scene_videoscene_trailer": {
-		"message": "休假中"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "聖誕老人在哪裡？"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "掃帚"
 	},
-	"speedsketch_item~bubble": {
-		"message": "泡泡"
-	},
 	"speedsketch_item~bucket": {
 		"message": "水桶"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "相機"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "迷彩服"
-	},
 	"speedsketch_item~campfire": {
 		"message": "營火"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "紅蘿蔔"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "卡通"
 	},
 	"speedsketch_item~castle": {
 		"message": "城堡"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "櫻桃"
-	},
-	"speedsketch_item~chicken": {
-		"message": "雞"
 	},
 	"speedsketch_item~child": {
 		"message": "兒童"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "鱷魚"
-	},
-	"speedsketch_item~cross": {
-		"message": "十字"
 	},
 	"speedsketch_item~crow": {
 		"message": "烏鴉"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "手"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "猜字遊戲"
-	},
 	"speedsketch_item~happiness": {
 		"message": "快樂"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "島嶼"
 	},
-	"speedsketch_item~italy": {
-		"message": "義大利"
-	},
 	"speedsketch_item~jacket": {
 		"message": "夾克"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "聖誕鈴鐺"
-	},
-	"speedsketch_item~kale": {
-		"message": "羽衣甘藍"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "袋鼠"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "馬鈴薯"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "電源插座"
-	},
 	"speedsketch_item~present": {
 		"message": "禮物"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "錢包"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "謎題"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "兔子"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "正方形"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "塗鴉"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "松鼠"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "靜物"
-	},
-	"speedsketch_item~stitches": {
-		"message": "縫線"
-	},
-	"speedsketch_item~stock market": {
-		"message": "股市"
 	},
 	"speedsketch_item~stocking": {
 		"message": "長襪"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "三輪車"
 	},
-	"speedsketch_item~trolley": {
-		"message": "手推車"
-	},
 	"speedsketch_item~trombone": {
 		"message": "長號"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "鯨魚"
-	},
-	"speedsketch_item~wheel": {
-		"message": "輪子"
 	},
 	"speedsketch_item~windmill": {
 		"message": "風車"
@@ -2958,7 +2925,7 @@
 		"message": "追蹤聖誕老人"
 	},
 	"tracker_travelogue": {
-		"message": "行程紀錄"
+		"message": "行程記錄"
 	},
 	"tracker_weather": {
 		"message": "天氣"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "取消靜音"
-	},
-	"upgrade-warning": {
-		"message": "糟糕！這個版本的瀏覽器不支援聖誕老人追蹤器。如要使用聖誕老人追蹤器，請下載新版瀏覽器。詳情請造訪 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美國"

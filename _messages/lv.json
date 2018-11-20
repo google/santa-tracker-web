@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Kodēt"
 	},
+	"category_computer-science": {
+		"message": "Datorzinātne"
+	},
 	"category_draw": {
 		"message": "Zīmēt"
+	},
+	"category_language": {
+		"message": "Valoda"
 	},
 	"category_listen": {
 		"message": "Klausīties"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Gandrīz ikvienas Vācijas pilsētas centrālajā laukumā darbojas Ziemassvētku tirdziņš. Iedzīvotāji pulcējas, lai klausītos pūtēju orķestrus un baudītu vietējos ēdienus. Tiek ēstas piparkūku sirdis, cukurotas mandeles, dažādi saldumi, piedzerot karstvīnu (Glühwein) vai ābolu sidru."
 	},
+	"dec24th": {
+		"message": "24. decembris"
+	},
 	"deck": {
 		"message": "Izrotāt"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Grieķu"
 	},
+	"elf_choose_body": {
+		"message": "Izvēlieties rūķīša ķermeni"
+	},
 	"elvish_language_name": {
 		"message": "Rūķīšu"
 	},
@@ -567,7 +579,7 @@
 		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
 	},
 	"error-not-found": {
-		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./village.html\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
+		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Mēģiniet vēlreiz"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Ziemeļpola rotaļlaukums"
 	},
-	"scene_postcard": {
-		"message": "Sniegpārsliņas izveide ar kodu"
-	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Sniega piku kauja"
+	},
+	"scene_snowflake": {
+		"message": "Sniegpārsliņas izveide ar kodu"
 	},
 	"scene_speedsketch": {
 		"message": "Zīmēšana uz ātrumu"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Izjokošana birojā"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Joprojām atvaļinājumā"
+	},
 	"scene_videoscene_reload": {
 		"message": "Dāvanu iekraušana"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Nogurušais ziemeļbriedis"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Joprojām atvaļinājumā"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Kur ir Ziemassvētku vecītis?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "slota"
 	},
-	"speedsketch_item~bubble": {
-		"message": "burbulis"
-	},
 	"speedsketch_item~bucket": {
 		"message": "spainis"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflāža"
-	},
 	"speedsketch_item~campfire": {
 		"message": "ugunskurs"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "burkāns"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "multiplikācijas filma"
 	},
 	"speedsketch_item~castle": {
 		"message": "pils"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "ķirsis"
-	},
-	"speedsketch_item~chicken": {
-		"message": "cālis"
 	},
 	"speedsketch_item~child": {
 		"message": "bērns"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodils"
-	},
-	"speedsketch_item~cross": {
-		"message": "krusts"
 	},
 	"speedsketch_item~crow": {
 		"message": "vārna"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "plauksta"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "karātavu spēle"
-	},
 	"speedsketch_item~happiness": {
 		"message": "laime"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "sala"
 	},
-	"speedsketch_item~italy": {
-		"message": "Itālija"
-	},
 	"speedsketch_item~jacket": {
 		"message": "žakete"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Zvaniņš skan"
-	},
-	"speedsketch_item~kale": {
-		"message": "kacenkāposts"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "ķengurs"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "kartupelis"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "rozete"
-	},
 	"speedsketch_item~present": {
 		"message": "dāvana"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "somiņa"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "atjautības spēle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "trusis"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadrāts"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "ķeburs"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "vāvere"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "klusā daba"
-	},
-	"speedsketch_item~stitches": {
-		"message": "dūrieni"
-	},
-	"speedsketch_item~stock market": {
-		"message": "birža"
 	},
 	"speedsketch_item~stocking": {
 		"message": "zeķe"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "trīsritenis"
 	},
-	"speedsketch_item~trolley": {
-		"message": "ratiņi"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombons"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "valis"
-	},
-	"speedsketch_item~wheel": {
-		"message": "rats"
 	},
 	"speedsketch_item~windmill": {
 		"message": "dzirnavas"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Ieslēgt skaņu"
-	},
-	"upgrade-warning": {
-		"message": "Diemžēl lietotne Ziemassvētku vecīša ceļojums netiek atbalstīta šajā pārlūkprogrammas versijā. Lai piekļūtu lietotnei Ziemassvētku vecīša ceļojums, lejupielādējiet jaunāku pārlūkprogrammu. Plašāku informāciju skatiet vietnē \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"

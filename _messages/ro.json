@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Cod"
 	},
+	"category_computer-science": {
+		"message": "Informatică"
+	},
 	"category_draw": {
 		"message": "Desen"
+	},
+	"category_language": {
+		"message": "Limbă"
 	},
 	"category_listen": {
 		"message": "Ascultă"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "În Germania, aproape fiecare orășel are piață de Crăciun. Locuitorii se adună să asculte muzică de fanfară și se bucură de târgurile tradiționale din regiunea lor. Se mănâncă inimioare de turtă dulce, migdale glazurate, dulciuri de toate felurile și se bea vin fiert (Glühwein) sau cidru de mere."
 	},
+	"dec24th": {
+		"message": "24 decembrie"
+	},
 	"deck": {
 		"message": "Decorează festiv"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Greacă"
 	},
+	"elf_choose_body": {
+		"message": "Alege un tip de elf"
+	},
 	"elvish_language_name": {
 		"message": "Elfă"
 	},
@@ -567,7 +579,7 @@
 		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
 	},
 	"error-not-found": {
-		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./village.html\"\u003esatul Moșului\u003c/a\u003e."
+		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Încearcă din nou"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Teren de joacă în Polul Nord"
 	},
-	"scene_postcard": {
-		"message": "Scrie codul unui fulg de zăpadă"
-	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Furtună cu bulgări de zăpadă"
+	},
+	"scene_snowflake": {
+		"message": "Scrie codul unui fulg de zăpadă"
 	},
 	"scene_speedsketch": {
 		"message": "Ghicitori desenate"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Farsă în birou"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Încă în vacanță"
+	},
 	"scene_videoscene_reload": {
 		"message": "Reîncărcarea cadourilor"
 	},
@@ -1365,7 +1380,7 @@
 		"message": "Satelit"
 	},
 	"scene_videoscene_selfies": {
-		"message": "Selfie-urile Moșului"
+		"message": "Autoportretele Moșului"
 	},
 	"scene_videoscene_slackingoff": {
 		"message": "Pierde-vară"
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Ren obosit"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Încă în vacanță"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Unde este Moș Crăciun?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "mătură"
 	},
-	"speedsketch_item~bubble": {
-		"message": "balon"
-	},
 	"speedsketch_item~bucket": {
 		"message": "găleată"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "cameră foto"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflaj"
-	},
 	"speedsketch_item~campfire": {
 		"message": "foc de tabără"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "morcov"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "desen animat"
 	},
 	"speedsketch_item~castle": {
 		"message": "castel"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cireașă"
-	},
-	"speedsketch_item~chicken": {
-		"message": "pui"
 	},
 	"speedsketch_item~child": {
 		"message": "copil"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "cruce"
 	},
 	"speedsketch_item~crow": {
 		"message": "cioară"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "mână"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "jocul spânzurătoarea"
-	},
 	"speedsketch_item~happiness": {
 		"message": "fericire"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "insulă"
 	},
-	"speedsketch_item~italy": {
-		"message": "italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jachetă"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "zurgălăi"
-	},
-	"speedsketch_item~kale": {
-		"message": "kale"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "cangur"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "cartof"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "priză"
-	},
 	"speedsketch_item~present": {
 		"message": "cadou"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "poșetă"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "iepure"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "pătrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "cârlionț"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "veveriță"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natură moartă"
-	},
-	"speedsketch_item~stitches": {
-		"message": "rană cusută"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bursă de valori"
 	},
 	"speedsketch_item~stocking": {
 		"message": "ciorap"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricicletă"
 	},
-	"speedsketch_item~trolley": {
-		"message": "cărucior"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombon"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balenă"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roată"
 	},
 	"speedsketch_item~windmill": {
 		"message": "moară de vânt"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Activează"
-	},
-	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în această versiune de browser. Pentru a accesa aplicația Pe urmele lui Moș Crăciun, descarcă un browser nou. Pentru mai multe informații, accesează \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"

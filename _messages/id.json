@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "Buat Kode"
 	},
+	"category_computer-science": {
+		"message": "Ilmu Komputer"
+	},
 	"category_draw": {
 		"message": "Gambar"
+	},
+	"category_language": {
+		"message": "Bahasa"
 	},
 	"category_listen": {
 		"message": "Dengarkan"
@@ -492,7 +498,7 @@
 		"message": "Republik Ceko"
 	},
 	"da_language_name": {
-		"message": "Dansk"
+		"message": "Denmark"
 	},
 	"days": {
 		"message": "Hari"
@@ -505,6 +511,9 @@
 	},
 	"de_tradition": {
 		"message": "Hampir semua kota di Jerman menggelar pasar Natal di alun-alun. Penduduk kota berkumpul untuk mendengarkan orkes musik dan menikmati makanan tradisional daerahnya. Mereka makan kue jahe berbentuk hati, almond panggang karamel, semua jenis permen, dan minum anggur berempah (Glühwein) atau sari apel."
+	},
+	"dec24th": {
+		"message": "24 Desember"
 	},
 	"deck": {
 		"message": "Hias"
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Yunani"
 	},
+	"elf_choose_body": {
+		"message": "Pilih badan kurcaci"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -567,7 +579,7 @@
 		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
 	},
 	"error-not-found": {
-		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Semoga peruntungan Anda lebih baik jika kembali ke \u003ca href=\"./village.html\"\u003eDesa Sinterklas\u003c/a\u003e."
+		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Cobalah kembali ke \u003ca href=\"./\"\u003eDesa Sinterklas\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Coba lagi"
@@ -753,7 +765,7 @@
 		"message": "Kazakstan"
 	},
 	"la_country_name": {
-		"message": "Republik Demokratik Rakyat Laos"
+		"message": "Laos"
 	},
 	"language": {
 		"message": "Bahasa"
@@ -1053,7 +1065,7 @@
 		"message": "Polandia"
 	},
 	"pl_language_name": {
-		"message": "Polski"
+		"message": "Polandia"
 	},
 	"play": {
 		"message": "Main"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Taman Bermain Kutub Utara"
 	},
-	"scene_postcard": {
-		"message": "Buat Kode Snowflake"
-	},
 	"scene_presentbounce": {
 		"message": "Pantulan Hadiah"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Badai Bola Salju"
+	},
+	"scene_snowflake": {
+		"message": "Buat Kode Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Sketsa Cepat"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Gurauan Kantor"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Masih Liburan"
+	},
 	"scene_videoscene_reload": {
 		"message": "Isi Ulang Hadiah"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Rusa Lelah"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Masih Liburan"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Di Mana Santa?"
@@ -1413,7 +1425,7 @@
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
-		"message": "Slovak"
+		"message": "Slovakia"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "sapu"
 	},
-	"speedsketch_item~bubble": {
-		"message": "gelembung"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ember"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflase"
-	},
 	"speedsketch_item~campfire": {
 		"message": "api unggun"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "wortel"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "kartun"
 	},
 	"speedsketch_item~castle": {
 		"message": "kastil"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "ceri"
-	},
-	"speedsketch_item~chicken": {
-		"message": "ayam"
 	},
 	"speedsketch_item~child": {
 		"message": "anak"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "buaya"
-	},
-	"speedsketch_item~cross": {
-		"message": "silang"
 	},
 	"speedsketch_item~crow": {
 		"message": "gagak"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "tangan"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "game hangman"
-	},
 	"speedsketch_item~happiness": {
 		"message": "kebahagiaan"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "pulau"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jaket"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "kubis"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kanguru"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "kentang"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "stopkontak"
-	},
 	"speedsketch_item~present": {
 		"message": "kado"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "tas dompet"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "teka-teki"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "kelinci"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "kotak"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "coretan"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "tupai"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "lukisan benda mati"
-	},
-	"speedsketch_item~stitches": {
-		"message": "jahitan"
-	},
-	"speedsketch_item~stock market": {
-		"message": "pasar saham"
 	},
 	"speedsketch_item~stocking": {
 		"message": "stoking"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "sepeda roda 3"
 	},
-	"speedsketch_item~trolley": {
-		"message": "troli"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombon"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "paus"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "kincir angin"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Aktifkan suara"
-	},
-	"upgrade-warning": {
-		"message": "Ups! Pelacak Sinterklas tidak didukung di versi browser Anda. Untuk mengakses Pelacak Sinterklas, unduh browser modern. Untuk informasi lebih lanjut, kunjungi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Amerika Serikat"

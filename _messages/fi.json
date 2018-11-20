@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "KOODI"
 	},
+	"category_computer-science": {
+		"message": "Tietojenkäsittelytiede"
+	},
 	"category_draw": {
 		"message": "Piirrä"
+	},
+	"category_language": {
+		"message": "Kieli"
 	},
 	"category_listen": {
 		"message": "Kuuntele"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Lähes jokaisessa saksalaiskaupungissa järjestetään joulumarkkinat. Kaupunkilaiset kokoontuvat kuuntelemaan puhallinorkestereja ja nauttimaan markkinatunnelmasta.Tarjolla on sydänpipareita, paahdettuja ja sokeroituja manteleita, makeisia, ja juomana hehkuviiniä (Glühwein) tai omenasiideriä."
 	},
+	"dec24th": {
+		"message": "24. joulukuuta"
+	},
 	"deck": {
 		"message": "Koristele"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "kreikka"
 	},
+	"elf_choose_body": {
+		"message": "Valitse tontun vartalo"
+	},
 	"elvish_language_name": {
 		"message": "tonttukieli"
 	},
@@ -567,7 +579,7 @@
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
 	},
 	"error-not-found": {
-		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa \u003ca href=\"./village.html\"\u003eKorvatunturille\u003c/a\u003e ja yritä uudelleen."
+		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa \u003ca href=\"./\"\u003eKorvatunturille\u003c/a\u003e ja yritä uudelleen."
 	},
 	"error-try-again": {
 		"message": "Yritä uudelleen"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "Korvatunturin leikkikenttä"
 	},
-	"scene_postcard": {
-		"message": "Koodaa lumihiutale"
-	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Lumisota"
+	},
+	"scene_snowflake": {
+		"message": "Koodaa lumihiutale"
 	},
 	"scene_speedsketch": {
 		"message": "Pikapiirros"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Toimistojekku"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Lomaileva pukki"
+	},
 	"scene_videoscene_reload": {
 		"message": "Lahjalataus"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Väsynyt poro"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Lomaileva pukki"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Missä pukki luuraa?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "luuta"
 	},
-	"speedsketch_item~bubble": {
-		"message": "kupla"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ämpäri"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "naamiointi"
-	},
 	"speedsketch_item~campfire": {
 		"message": "nuotio"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "porkkana"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "piirretty"
 	},
 	"speedsketch_item~castle": {
 		"message": "linna"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "kirsikka"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kana"
 	},
 	"speedsketch_item~child": {
 		"message": "lapsi"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokotiili"
-	},
-	"speedsketch_item~cross": {
-		"message": "risti"
 	},
 	"speedsketch_item~crow": {
 		"message": "varis"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "käsi"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "hirsipuupeli"
-	},
 	"speedsketch_item~happiness": {
 		"message": "onnellisuus"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "saari"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "takki"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Kulkuset"
-	},
-	"speedsketch_item~kale": {
-		"message": "lehtikaali"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kenguru"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "peruna"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "pistorasia"
-	},
 	"speedsketch_item~present": {
 		"message": "lahja"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "kukkaro"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "pulma"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "kani"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "neliö"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "koukero"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "orava"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "asetelma"
-	},
-	"speedsketch_item~stitches": {
-		"message": "tikit"
-	},
-	"speedsketch_item~stock market": {
-		"message": "pörssi"
 	},
 	"speedsketch_item~stocking": {
 		"message": "sukkahousut"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "kolmipyörä"
 	},
-	"speedsketch_item~trolley": {
-		"message": "kärryt"
-	},
 	"speedsketch_item~trombone": {
 		"message": "pasuuna"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "valas"
-	},
-	"speedsketch_item~wheel": {
-		"message": "pyörä"
 	},
 	"speedsketch_item~windmill": {
 		"message": "tuulimylly"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "Poista mykistys"
-	},
-	"upgrade-warning": {
-		"message": "Hups! Joulupukin jäljitin ei tue tätä selaimen versiota. Lataa uudempi versio, jos haluat käyttää Joulupukin jäljitintä. Lisätietoja on osoitteessa \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Yhdysvallat"

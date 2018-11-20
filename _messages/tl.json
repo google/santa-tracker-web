@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "CODE2040"
 	},
+	"category_computer-science": {
+		"message": "Computer Science"
+	},
 	"category_draw": {
 		"message": "Iguhit"
+	},
+	"category_language": {
+		"message": "Wika"
 	},
 	"category_listen": {
 		"message": "Makinig"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "Sa halos lahat ng bayan sa Germany, nagkakaroon ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at kainin ang tradisyunal na pagkain sa rehiyon. Kumakain sila ng mga gingerbread heart, sugar-roasted na almond, iba't ibang uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
 	},
+	"dec24th": {
+		"message": "Disyembre 24"
+	},
 	"deck": {
 		"message": "I-deck out"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "Greek"
 	},
+	"elf_choose_body": {
+		"message": "Pumili ng katawan ng elf"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -567,7 +579,7 @@
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
 	},
 	"error-not-found": {
-		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./village.html\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Subukang muli"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "North Pole Playground"
 	},
-	"scene_postcard": {
-		"message": "Code a Snowflake"
-	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "Snowball Storm"
+	},
+	"scene_snowflake": {
+		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "Office Prank"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Still on Vacation"
+	},
 	"scene_videoscene_reload": {
 		"message": "Present Reload"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "Tired Reindeer"
-	},
-	"scene_videoscene_trailer": {
-		"message": "Still on Vacation"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Where's Santa?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "walis"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bula"
-	},
 	"speedsketch_item~bucket": {
 		"message": "timba"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "camera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "campfire"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carrot"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "cartoon"
 	},
 	"speedsketch_item~castle": {
 		"message": "kastilyo"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cherry"
-	},
-	"speedsketch_item~chicken": {
-		"message": "manok"
 	},
 	"speedsketch_item~child": {
 		"message": "anak"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "buwaya"
-	},
-	"speedsketch_item~cross": {
-		"message": "krus"
 	},
 	"speedsketch_item~crow": {
 		"message": "crow"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "kamay"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "hangman game"
-	},
 	"speedsketch_item~happiness": {
 		"message": "kaligayahan"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "isla"
 	},
-	"speedsketch_item~italy": {
-		"message": "italy"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jacket"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "kale"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangaroo"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "patatas"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "power outlet"
-	},
 	"speedsketch_item~present": {
 		"message": "kasalukuyan"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "purse"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "kuneho"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "parisukat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "squiggle"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "squirrel"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "still life"
-	},
-	"speedsketch_item~stitches": {
-		"message": "mga tahi"
-	},
-	"speedsketch_item~stock market": {
-		"message": "stock market"
 	},
 	"speedsketch_item~stocking": {
 		"message": "stocking"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricycle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "trolley"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balyena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "gulong"
 	},
 	"speedsketch_item~windmill": {
 		"message": "windmill"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "I-unmute"
-	},
-	"upgrade-warning": {
-		"message": "Oops! Hindi suportado ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa karagdagang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "United States"

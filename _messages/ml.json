@@ -101,8 +101,14 @@
 	"category_code": {
 		"message": "കോഡ്"
 	},
+	"category_computer-science": {
+		"message": "കമ്പ്യൂട്ടർ സയൻസ്"
+	},
 	"category_draw": {
 		"message": "വരയ്ക്കുക"
+	},
+	"category_language": {
+		"message": "ഭാഷ"
 	},
 	"category_listen": {
 		"message": "കേൾക്കുക"
@@ -506,6 +512,9 @@
 	"de_tradition": {
 		"message": "ജർമ്മനിയിലെ ഓരോ നഗരത്തിലും ക്രിസ്‌മസ് രാത്രിയിൽ മാർക്കറ്റുകളിൽ ആഘോഷമായിരിക്കും. ബ്രാൻസ് ബാൻഡുകൾ കേൾക്കാൻ ആളുകൾ നാനാഭാഗത്തുനിന്നും നഗരത്തിന്റെ കവലകളിൽ ഒത്തുചേരുന്നു, പ്രദേശത്തിന്റെ വിനോദങ്ങളിൽ അവർ മുഴുകും. ജിഞ്ചെർബ്രെഡ് ഹാർട്ടും പഞ്ചസാരയിലിട്ട് റോസ്റ്റുചെയ്ത ആൽമണ്ടും എല്ലാ തരം മധുര പലഹാരങ്ങളും മാർക്കറ്റുകളിൽ ആ രാത്രി ലഭ്യമായിരിക്കും. വീഞ്ഞോ (ഗ്ലുഹ്‌വീൻ) ആപ്പിളിൽ നിന്നുണ്ടാക്കുന്ന മദ്യമോ ആണ് ആഘോഷിച്ച് തളരുന്നവർ അകത്താക്കുക."
 	},
+	"dec24th": {
+		"message": "ഡിസംബര്‍ 24"
+	},
 	"deck": {
 		"message": "ആകർഷകമാക്കൂ"
 	},
@@ -548,6 +557,9 @@
 	"el_language_name": {
 		"message": "ഗ്രീക്ക്"
 	},
+	"elf_choose_body": {
+		"message": "ഒരു കുട്ടിച്ചാത്തന്റെ ശരീരം തിരഞ്ഞെടുക്കുക"
+	},
 	"elvish_language_name": {
 		"message": "എൽവിഷ്"
 	},
@@ -567,7 +579,7 @@
 		"message": "ഉത്തരധ്രുവവുമായുള്ള ബന്ധം നഷ്ടമായത് പോലെ തോന്നുന്നു. സാന്തയുടെ കുട്ടിച്ചാത്തന്മാർ അത് പരിഹരിക്കാൻ യത്നിക്കുകയാണ് - കാക്കുമല്ലോ!"
 	},
 	"error-not-found": {
-		"message": "ക്ഷമിക്കണം, സാന്തയുടെ എൽവ്‌സിന് ഈ പേജ് കണ്ടെത്താനായില്ല! \u003ca href=\"./village.html\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോകുന്നെങ്കിൽ, നിങ്ങൾ ഭാഗ്യവാനായി മാറിയേക്കാം."
+		"message": "ക്ഷമിക്കണം, സാന്തയുടെ എൽവ്‌സിന് ഈ പേജ് കണ്ടെത്താനായില്ല! \u003ca href=\"./\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോയാൽ നിങ്ങൾക്ക് ഭാഗ്യമുണ്ടായേക്കാം."
 	},
 	"error-try-again": {
 		"message": "വീണ്ടും ശ്രമിക്കൂ"
@@ -1283,9 +1295,6 @@
 	"scene_playground": {
 		"message": "ഉത്തരധ്രുവ പ്ലേഗ്രൗണ്ട്"
 	},
-	"scene_postcard": {
-		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
-	},
 	"scene_presentbounce": {
 		"message": "നിലവിലെ ബൗൺസ്"
 	},
@@ -1318,6 +1327,9 @@
 	},
 	"scene_snowball": {
 		"message": "സ്‌നോബോൾ സ്‌റ്റോം"
+	},
+	"scene_snowflake": {
+		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
 	},
 	"scene_speedsketch": {
 		"message": "സ്‌പീഡ് സ്‌കെച്ച്"
@@ -1355,6 +1367,9 @@
 	"scene_videoscene_office": {
 		"message": "ഓഫീസ് പ്രാങ്ക്"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "ഇപ്പോഴും വെക്കേഷനിൽ"
+	},
 	"scene_videoscene_reload": {
 		"message": "പ്രസന്റ് റീലോഡ്"
 	},
@@ -1375,9 +1390,6 @@
 	},
 	"scene_videoscene_tired": {
 		"message": "തളർന്ന റെയിൻഡിയർ"
-	},
-	"scene_videoscene_trailer": {
-		"message": "ഇപ്പോഴും വെക്കേഷനിൽ"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "സാന്ത എവിടെയാണ്?"
@@ -1658,9 +1670,6 @@
 	"speedsketch_item~broom": {
 		"message": "ചൂൽ"
 	},
-	"speedsketch_item~bubble": {
-		"message": "ബബിൾ"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ബക്കറ്റ്"
 	},
@@ -1694,9 +1703,6 @@
 	"speedsketch_item~camera": {
 		"message": "ക്യാമറ"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "ചായം തേച്ച മുഖം"
-	},
 	"speedsketch_item~campfire": {
 		"message": "ക്യാമ്പ് ഫയർ"
 	},
@@ -1717,9 +1723,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "കാരറ്റ്"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "കാർട്ടൂൺ"
 	},
 	"speedsketch_item~castle": {
 		"message": "കോട്ട"
@@ -1747,9 +1750,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "ചെറി"
-	},
-	"speedsketch_item~chicken": {
-		"message": "ചിക്കൻ"
 	},
 	"speedsketch_item~child": {
 		"message": "കുട്ടി"
@@ -1807,9 +1807,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "മുതല"
-	},
-	"speedsketch_item~cross": {
-		"message": "ക്രോസ്"
 	},
 	"speedsketch_item~crow": {
 		"message": "കാക്ക"
@@ -2024,9 +2021,6 @@
 	"speedsketch_item~hand": {
 		"message": "കൈ"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "ഹാംഗ് മാൻ ഗെയിം"
-	},
 	"speedsketch_item~happiness": {
 		"message": "സന്തോഷം"
 	},
@@ -2102,9 +2096,6 @@
 	"speedsketch_item~island": {
 		"message": "ദ്വീപ്"
 	},
-	"speedsketch_item~italy": {
-		"message": "ഇറ്റലി"
-	},
 	"speedsketch_item~jacket": {
 		"message": "ജാക്കറ്റ്"
 	},
@@ -2113,9 +2104,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "ജിംഗിൾ ബെൽസ്"
-	},
-	"speedsketch_item~kale": {
-		"message": "കേൽ"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "കംഗാരു"
@@ -2414,9 +2402,6 @@
 	"speedsketch_item~potato": {
 		"message": "ഉരുളക്കിഴങ്ങ്"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "പവർ ഔട്ട്‌ലെറ്റ്"
-	},
 	"speedsketch_item~present": {
 		"message": "സമ്മാനം"
 	},
@@ -2425,9 +2410,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "പേഴ്‌സ്"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "വിഷമപ്രശ്നം"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "മുയൽ"
@@ -2612,9 +2594,6 @@
 	"speedsketch_item~square": {
 		"message": "സമചതുരം"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "വളഞ്ഞുപുളഞ്ഞ വര"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "അണ്ണാൻ"
 	},
@@ -2635,12 +2614,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "നിശ്ചല ജീവിതം"
-	},
-	"speedsketch_item~stitches": {
-		"message": "തുന്നൽ"
-	},
-	"speedsketch_item~stock market": {
-		"message": "സ്റ്റോക്ക് മാര്‍‌ക്കറ്റ്"
 	},
 	"speedsketch_item~stocking": {
 		"message": "സ്റ്റോക്കിംഗ്"
@@ -2756,9 +2729,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "ട്രൈസൈക്കിൾ"
 	},
-	"speedsketch_item~trolley": {
-		"message": "ട്രോളി"
-	},
 	"speedsketch_item~trombone": {
 		"message": "ട്രോംബോൺ"
 	},
@@ -2809,9 +2779,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "തിമിംഗലം"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ചക്രം"
 	},
 	"speedsketch_item~windmill": {
 		"message": "കാറ്റാടി"
@@ -6628,9 +6595,6 @@
 	},
 	"unmute": {
 		"message": "ശബ്‌ദമുള്ളതാക്കുക"
-	},
-	"upgrade-warning": {
-		"message": "ക്ഷമിക്കണം! നിങ്ങളുടെ നിലവിലെ ബ്രൗസർ പതിപ്പിനെ സാന്താ ട്രാക്കർ പിന്തുണയ്ക്കുന്നില്ല. സാന്ത ട്രാക്കർ ആക്സസ് ചെയ്യുന്നതിന്, ഒരു ആധുനിക ബ്രൗസർ ഡൗൺലോഡ് ചെയ്യുക. കൂടുതൽ വിവരങ്ങൾക്ക് \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e സന്ദർശിക്കുക."
 	},
 	"us_country_name": {
 		"message": "യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"
