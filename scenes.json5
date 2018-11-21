@@ -4,13 +4,17 @@
 {
 // index scene
 
-  '': {},
+  '': {
+    scroll: true,
+  },
 
 // scenes
 
   airport: {},
   blimp: {},
   boatload: {
+    color: '#fdbe27',
+    featureColor: '#003799',
     view: 'landscape',
   },
   briefing: {},

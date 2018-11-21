@@ -5,21 +5,7 @@ import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import * as prefix from '../lib/prefix.js';
 import * as route from '../route.js';
-
-
-function sceneIsScroll(sceneName) {
-  return !sceneName || sceneName === 'village';
-}
-
-
-function colorForScene(sceneName) {
-  return sceneName === 'boatload' ? '#fdbe27' : '';
-}
-
-
-function featureColorForScene(sceneName) {
-  return sceneName === 'boatload' ? '#003799' : '';
-}
+import scenes from '../../scenes.json5.js';
 
 
 export class SantaAppElement extends LitElement {
@@ -115,6 +101,7 @@ export class SantaAppElement extends LitElement {
   }
 
   render() {
+    const sceneInfo = scenes[this._activeScene] || {};
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._loadProgress === 1}>
@@ -133,16 +120,16 @@ export class SantaAppElement extends LitElement {
   </santa-sidebar>
   <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
-<main @focusin=${this._onMainFocus} class=${sceneIsScroll(this._activeScene) ? 'scroll' : ''}>
+<main @focusin=${this._onMainFocus} class=${sceneInfo.scroll ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
-    <div class="bg" style="color: ${colorForScene(this._activeScene)}"></div>
+    <div class="bg" style="color: ${sceneInfo.color || ''}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href=${route.href('./')}>
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
-    <santa-badge style="color: ${featureColorForScene(this._activeScene)}"></santa-badge>
+    <santa-badge style="color: ${sceneInfo.featureColor || ''}"></santa-badge>
   </header>
   <div class="noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
