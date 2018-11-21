@@ -347,6 +347,7 @@ export class Elf {
       this.threshold = appConfig.minPartConfidence;
       this.resize = appConfig.resizeBodyParts;
       this.enableLimits(appConfig.enableJointLimits);
+      this.humanSize = appConfig.humanSize;
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
@@ -364,6 +365,7 @@ export class Elf {
             .then((pose) => {
               // TODO(markmcd): check the overall pose score, show help info / error state
               this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+              this.scaleSkeleton();
               if (appConfig.debug) {
                 document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
               }
@@ -500,6 +502,17 @@ export class Elf {
       body.velocity = body.velocity.map((v) => Elf.clamp(v, speedLimit));
       body.angularVelocity = Elf.clamp(body.angularVelocity, speedLimit);
     })
+  }
+
+  scaleSkeleton() {
+    // Scale around the center of the video feed, otherwise a person moving towards/away from the
+    // camera ends up sliding off towards the top-left.
+    Object.entries(this.pose).forEach(([part, pose]) => {
+      this.pose[part].position = {
+        x: (pose.position.x - this.videoWidth/2) * this.humanSize + this.videoWidth/2,
+        y: (pose.position.y - this.videoHeight/2) * this.humanSize + this.videoHeight/2,
+      };
+    });
   }
 
   resizeCircle(shape, newRadius) {
