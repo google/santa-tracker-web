@@ -18,6 +18,7 @@ const appConfig = {
   outputStride: 16,
   enableJointLimits: false,
   resizeBodyParts: false,
+  smoothLimbs: true,
 };
 
 api.preload.images(
@@ -77,6 +78,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'outputStride', [8, 16, 32]);
   gui.add(appConfig, 'enableJointLimits');
   gui.add(appConfig, 'resizeBodyParts');
+  gui.add(appConfig, 'smoothLimbs');
 }
 
 /**
@@ -101,7 +103,7 @@ export async function bindPage() {
 
   const videoConfig = {video, net, videoWidth, videoHeight};
 
-  const world = new World();
+  const world = new World(appConfig);
   const elf = new Elf(world);
 
   world.animate(document.getElementById('scene'));

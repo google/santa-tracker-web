@@ -21,6 +21,12 @@ const
 // work at higher precision.
 const speedLimit = 1;
 
+// 2D context styles that are passed on everywhere we draw instead of using images.
+const lineStyle = {
+  lineCap: 'round',
+  strokeStyle: '#32a658',
+};
+
 export class Elf {
   constructor(world) {
     this.world = world;
@@ -104,6 +110,10 @@ export class Elf {
     this.leftForeArm.addShape(this.leftForeArmShape);
     p2World.addBody(this.leftForeArm);
 
+    this.leftArm.curveWith = this.leftForeArm;
+    this.leftForeArm.curveWith = false;
+    this.leftArm.style = lineStyle;
+
     this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
       localPivotA: [0, -armLength/4],
       localPivotB: [0, armLength/4],
@@ -147,6 +157,10 @@ export class Elf {
     this.rightForeArmShape.img = document.getElementById('arm');
     this.rightForeArm.addShape(this.rightForeArmShape);
     p2World.addBody(this.rightForeArm);
+
+    this.rightArm.curveWith = this.rightForeArm;
+    this.rightForeArm.curveWith = false;
+    this.rightArm.style = lineStyle;
 
     this.rightElbow = new p2.RevoluteConstraint(this.rightArm, this.rightForeArm, {
       localPivotA: [0, -armLength/4],
@@ -230,6 +244,10 @@ export class Elf {
     this.leftCalf.addShape(this.leftCalfShape);
     p2World.addBody(this.leftCalf);
 
+    this.leftLeg.curveWith = this.leftCalf;
+    this.leftCalf.curveWith = false;
+    this.leftLeg.style = lineStyle;
+
     this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
       localPivotA: [shoulderWidth/2, -torsoLength/2],
       localPivotB: [0, legLength/4],
@@ -273,6 +291,10 @@ export class Elf {
     this.rightCalfShape.img = document.getElementById('arm');
     this.rightCalf.addShape(this.rightCalfShape);
     p2World.addBody(this.rightCalf);
+
+    this.rightLeg.curveWith = this.rightCalf;
+    this.rightCalf.curveWith = false;
+    this.rightLeg.style = lineStyle;
 
     this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
       localPivotA: [-shoulderWidth/2, -torsoLength/2],
