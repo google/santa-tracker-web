@@ -2,6 +2,7 @@ $duration-sidebar: 0.25s;
 $duration-header: 0.4s;
 $color-loader: #db513c;
 $size-header: 38px;
+$size-resize: 500px;
 
 @keyframes santa-app__hide-nav {
   from { visibility: visible; pointer-events: none; }
@@ -133,6 +134,7 @@ header {
   position: relative;
 
   santa-badge {
+    color: #00e8bf;  // default badge color
     will-change: opacity;
     transition: opacity $duration-header ease-in-out;
   }
@@ -239,6 +241,61 @@ main.scroll {
   }
 }
 
+.info {
+  p {
+    margin: 2em auto;
+    max-width: 90%;
+    color: #fff;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+
+.rotate {
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  background: #3f4ea1;
+
+  p {
+    margin: 1em auto 0;
+    font-weight: 700;
+  }
+
+  img {
+    max-width: 200px;
+    max-height: 50vh;
+  }
+
+  &.portrait {
+    @media (max-height: $size-resize) and (orientation: landscape) {
+      flex-grow: 1;
+      display: flex;
+
+      // hide game while incorrectly sized
+      & ~ santa-loader {
+        display: none;
+      }
+    }
+  }
+  &.landscape {
+    @media (max-width: $size-resize) and (orientation: portrait) {
+      flex-grow: 1;
+      display: flex;
+
+      // hide game while incorrectly sized
+      & ~ santa-loader {
+        display: none;
+      }
+    }
+    img {
+      transform: rotate(90deg) scale(-1, 1);
+    }
+  }
+}
+
 .noscene {
   background: url(img/error.svg) bottom center no-repeat;
   background-size: cover;
@@ -281,15 +338,6 @@ main.scroll {
     border: (($size-icon - $size-background) / 2) solid transparent;
     box-sizing: border-box;
     overflow: hidden;
-  }
-
-  p {
-    margin: 2em auto;
-    max-width: 90%;
-    color: #fff;
-    font-size: 16px;
-    line-height: 28px;
-    text-align: center;
   }
 
   &:not([hidden]) ~ santa-loader {

@@ -1,6 +1,18 @@
 /**
  * @fileoverview Runtime information for Santa Tracker's scenes.
  */
+
+/**
+ * {{
+ *    scroll: boolean,
+ *    video: boolean,  // ID of video
+ *    msgid: string,   // if different from default
+ *    view: string,    // optional locked viewport (portrait/landscape/fixed)
+ *    color: string,
+ *    featureColor: string,
+ * }}
+ */
+
 {
 // index scene
 
@@ -10,22 +22,32 @@
 
 // scenes
 
-  airport: {},
-  blimp: {},
-  boatload: {
+  airport: {
     color: '#fdbe27',
-    featureColor: '#003799',
+    featureColor: '#83ce00',
+  },
+  blimp: {
+    color: '#575769',
+  },
+  boatload: {
     view: 'landscape',
   },
-  briefing: {},
-  citylights: {},
+  briefing: {
+    color: '#007ab6',
+  },
   codeboogie: {
     view: 'portrait',
+    color: '#9a519f',
+    featureColor: '#f9ce1d',
   },
   codelab: {
     view: 'portrait',
+    color: '#9a519f',
+    featureColor: '#f9ce1d',
   },
-  commandcentre: {},
+  commandcentre: {
+    color: '#575769',
+  },
   educators: {
     msgid: 'educators',
     scroll: true,
@@ -34,39 +56,52 @@
   factory: {},
   glider: {
     view: 'landscape',
+    color: '#675ab9',
   },
   gumball: {
     view: 'landscape',
+    color: '#fdbe27',
   },
   icecave: {},
-  island: {},
+  island: {
+    color: '#1da1a1',
+  },
   jamband: {
     view: 'landscape',
+    color: '#fdbe27',
   },
-  jetpack: {},
+  jetpack: {
+    color: '#9a519f',
+  },
   latlong: {
     view: 'portrait',
+    color: '#76b1cc',
   },
   matching: {
     view: 'landscape',
+    color: '#76b1cc',
   },
   mercator: {
     view: 'landscape',
   },
   penguindash: {
     msgid: 'scene_dash',
-    view: 'fixed',
+    view: 'default',
+    color: '#9a519f',
   },
-  playground: {},
+  playground: {
+    color: '#575769',
+  },
   poseboogie: {
     view: 'portrait',
   },
-  postcard: {},
   presentbounce: {
     view: 'landscape',
+    color: '#e53935',
   },
   presentdrop: {
     view: 'landscape',
+    color: '#b4b6b9',
   },
   press: {
     msgid: 'press',
@@ -77,35 +112,58 @@
   rollercoaster: {},
   runner: {
     view: 'landscape',
+    color: '#575769',
   },
   santascanvas: {
     msgid: 'scene_canvas',
     view: 'portrait',
+    color: '#00c6ed',
   },
-  santasearch: {},
-  santaselfie: {},
+  santasearch: {
+    color: '#00904a',
+    featureColor: '#f9ce1d',
+  },
+  santaselfie: {
+    color: '#4172e8',
+  },
   seasonofgiving: {
     view: 'portrait',
+    color: '#09904a',
   },
   smatch: {
     msgid: 'scene_giftmatch',
+    color: '#00c6ed',
   },
   snowball: {},
   snowflake: {
     msgid: 'scene_postcard',
     view: 'landscape',
   },
+  speedsketch: {
+    color: '#00c6ed',
+  },
   streetview: {},
   tracker: {
     msgid: 'tracker_track',
   },
-  traditions: {},
-  translations: {},
+  traditions: {
+    color: '#fdbe27',
+  },
+  translations: {
+    color: '#558b2f',
+    featureColor: '#83ce00',
+  },
   trivia: {},
-  undersea: {},
-  windtunnel: {},
+  undersea: {
+    color: '#ba594e',
+  },
+  windtunnel: {
+    color: '#575769',
+  },
   wrapbattle: {
     msgid: 'scene_wrap',
+    color: '#1866be',
+    featureColor: '#003799',
   },
 
 // videos

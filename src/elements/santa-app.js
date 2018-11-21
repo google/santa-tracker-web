@@ -21,12 +21,14 @@ export class SantaAppElement extends LitElement {
       _trackerIsOpen: {type: Boolean},
       _iframeScroll: {type: Boolean},
       _idPrefix: {type: String},
+      _activeSceneInfo: {type: Object},
     };
   }
 
   constructor() {
     super();
     this._idPrefix = prefix.id();
+    this._activeSceneInfo = {};
 
     // TODO(samthor): This could be part of global state.
     this._loaderSuffix = '';
@@ -53,6 +55,8 @@ export class SantaAppElement extends LitElement {
       this._showError = state.showError;
       this._showSidebar = state.showSidebar;
       this._todayHouse = state.todayHouse;
+
+      this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
   }
 
@@ -101,7 +105,7 @@ export class SantaAppElement extends LitElement {
   }
 
   render() {
-    const sceneInfo = scenes[this._activeScene] || {};
+    const info = this._activeSceneInfo;
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._loadProgress === 1}>
@@ -120,21 +124,25 @@ export class SantaAppElement extends LitElement {
   </santa-sidebar>
   <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
-<main @focusin=${this._onMainFocus} class=${sceneInfo.scroll ? 'scroll' : ''}>
+<main @focusin=${this._onMainFocus} class=${info.scroll ? 'scroll' : ''}>
   <header class=${this._iframeScroll ? '' : 'up'}>
-    <div class="bg" style="color: ${sceneInfo.color || ''}"></div>
+    <div class="bg" style="color: ${info.color || ''}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
 <svg><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
     </label>
     <a class="linkwrap" href=${route.href('./')}>
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
-    <santa-badge style="color: ${sceneInfo.featureColor || ''}"></santa-badge>
+    <santa-badge style="color: ${info.featureColor || ''}"></santa-badge>
   </header>
-  <div class="noscene" ?hidden=${!this._showError && this._activeScene !== null}>
+  <div class="info noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
     <p ?hidden=${!this._showError}>${route.resolve(_msg`error-not-found`)}</p>
+  </div>
+  <div class="info rotate ${info.view || ''}">
+    <img src="img/rotate.svg" />
+    <p>${_msg`tilt`}</p>
   </div>
   <santa-loader
       .selectedScene="${this._selectedScene}"
