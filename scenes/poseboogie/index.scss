@@ -6,7 +6,8 @@ body {
 
 #mid {
   position: absolute;
-  background-color: #7CA6D6;
+  background: #7CA6D6 url('img/stages/stage3.svg') center;
+  background-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,6 +31,11 @@ body {
 #debug * {
   display: block;
   margin: 5px 5px 5px auto;
+}
+
+/* Ensure dat.gui controls are drawn over the canvas. */
+.dg.ac {
+  z-index: 2 !important;
 }
 
 #video {

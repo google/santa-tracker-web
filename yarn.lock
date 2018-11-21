@@ -1369,6 +1369,11 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+dat.gui@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.7.3.tgz#fae5317a8baf65b509242d1f59b5a31a49bbb1a7"
+  integrity sha512-VfVWUcuTwae6/MTia/s2aPB1NLZXA2Gz6PiVyYOrVfODbXJLNAkVjn0aiuxx08cR68ucOuwrNXXt0m9MNVJvkQ==
+
 data-urls@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/data-urls/-/data-urls-1.0.1.tgz#d416ac3896918f29ca84d81085bc3705834da579"

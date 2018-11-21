@@ -1,3 +1,4 @@
+import * as posenet from '@tensorflow-models/posenet';
 import {BODY_PARTS, OTHER} from './world.js';
 
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being
@@ -64,7 +65,6 @@ export class Elf {
       localPivotB: [0, torsoLength/2],
       collideConnected: false,
     });
-    this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
     p2World.addConstraint(this.neckJoint);
 
     this.leftArm = new p2.Body({
@@ -87,7 +87,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.leftShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.leftShoulder);
 
     this.leftForeArm = new p2.Body({
@@ -110,7 +109,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
@@ -133,7 +131,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.rightShoulder.setLimits(-Math.PI, Math.PI);
     p2World.addConstraint(this.rightShoulder);
 
     this.rightForeArm = new p2.Body({
@@ -156,7 +153,6 @@ export class Elf {
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
-    this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightElbow);
 
     this.leftHand = new p2.Body({
@@ -179,7 +175,6 @@ export class Elf {
       localPivotB: [0, handLength/2],
       collideConnected: false,
     });
-    this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.leftWrist);
 
     this.rightHand = new p2.Body({
@@ -202,7 +197,6 @@ export class Elf {
       localPivotB: [0, handLength/2],
       collideConnected: false,
     });
-    this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
@@ -241,7 +235,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftHip);
 
     this.leftKnee = new p2.RevoluteConstraint(this.leftLeg, this.leftCalf, {
@@ -249,7 +242,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.leftKnee);
 
     this.rightLeg = new p2.Body({
@@ -287,7 +279,6 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightHip);
 
     this.rightKnee = new p2.RevoluteConstraint(this.rightLeg, this.rightCalf, {
@@ -295,28 +286,68 @@ export class Elf {
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
-    this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
     p2World.addConstraint(this.rightKnee);
   }
 
-  track(videoConfig) {
+  enableLimits(enabled) {
+    if (enabled) {
+      this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
+      this.leftShoulder.setLimits(-Math.PI, Math.PI);
+      this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightShoulder.setLimits(-Math.PI, Math.PI);
+      this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
+      this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
+      this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
+      this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
+      this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
+      this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
+    } else {
+      this.neckJoint.setLimits(false, false);
+      this.leftShoulder.setLimits(false, false);
+      this.leftElbow.setLimits(false, false);
+      this.rightShoulder.setLimits(false, false);
+      this.rightElbow.setLimits(false, false);
+      this.leftWrist.setLimits(false, false);
+      this.rightWrist.setLimits(false, false);
+      this.leftHip.setLimits(false, false);
+      this.leftKnee.setLimits(false, false);
+      this.rightHip.setLimits(false, false);
+      this.rightKnee.setLimits(false, false);
+    }
+  }
+
+  track(videoConfig, appConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
-    this.threshold = videoConfig.minPartConfidence;
 
     const trackFrame = () => {
-      videoConfig.net.estimateSinglePose(videoConfig.video, videoConfig.imageScaleFactor,
-            videoConfig.flipHorizontal, videoConfig.outputStride)
-          .then((pose) => {
-            this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
-            if (videoConfig.debug) {
-              document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
-            }
-          })
-          .catch((reason) => {
-            console.error('Pose estimation failed!', reason);
-          })
-          .then(() => window.requestAnimationFrame(trackFrame));
+      this.threshold = appConfig.minPartConfidence;
+      this.enableLimits(appConfig.enableJointLimits);
+
+      // Reload the model if the UI setting has changed
+      let loadModel = Promise.resolve(videoConfig.net);
+      if (appConfig.modelReload) {
+        videoConfig.net.dispose();
+        videoConfig.net.discarded = true;
+        appConfig.modelReload = false;
+        loadModel = posenet.load(+appConfig.mobileNetArchitecture);
+      }
+
+      loadModel.then((net) => {
+        videoConfig.net = net;
+        net.estimateSinglePose(videoConfig.video, appConfig.imageScaleFactor,
+                appConfig.flipHorizontal, +appConfig.outputStride)
+            .then((pose) => {
+              // TODO(markmcd): check the overall pose score, show help info / error state
+              this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+              if (appConfig.debug) {
+                document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
+              }
+            })
+            .catch((reason) => console.error('Pose estimation failed!', reason))
+            .then(() => window.requestAnimationFrame(trackFrame));
+        });
     };
 
     this.world.world.on('postStep', () => this.updatePosition());
