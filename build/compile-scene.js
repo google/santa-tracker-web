@@ -162,8 +162,10 @@ module.exports = async function compile(config, compile=false) {
   compile = compile || containsClosureLibrary;
   if (compile) {
     // If the Closure library wasn't requested, the compile still needs `base.js` for basic goog
-    // methods like `goog.provide`. This is a no-op if already included.
-    compilerSrc.unshift(`${CLOSURE_LIBRARY_PATH}/base.js`);
+    // methods like `goog.provide`.
+    if (!containsClosureLibrary) {
+      compilerSrc.unshift(`${CLOSURE_LIBRARY_PATH}/base.js`);
+    }
   } else {
     // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
     // declare globals suitable for execution in module scope.
