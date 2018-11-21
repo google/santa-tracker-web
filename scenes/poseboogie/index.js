@@ -1,4 +1,5 @@
 import api from '../../src/scene/api.js';
+// TODO(markmcd): Move dat.gui to a devDependency and conditionally import
 import * as dat from 'dat.gui';
 import * as posenet from '@tensorflow-models/posenet';
 import { detectAndDrawPose } from './js/pose.js';
