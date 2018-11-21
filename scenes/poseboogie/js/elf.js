@@ -40,7 +40,7 @@ export class Elf {
       position: [0, headRadius],
       mass: 1,
     });
-    this.head.zIndex = 1.5;
+    this.head.zIndex = 1;
 
     this.headShape = new p2.Circle({
       radius: headRadius,
@@ -77,7 +77,7 @@ export class Elf {
       position: [shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
-    this.leftArm.zIndex = 1;
+    this.leftArm.zIndex = 2;
     this.leftArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
@@ -125,7 +125,7 @@ export class Elf {
       position: [-shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
-    this.rightArm.zIndex = 1;
+    this.rightArm.zIndex = 2;
     this.rightArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
