@@ -1,0 +1,189 @@
+##{$name} {
+  $result-large: "(min-width : 570px) and (min-height: 500px)";
+
+  .result {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transition: opacity 0.3s, visibility 0 0.3s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 10;
+
+    @media #{$result-large} {
+      padding: 20px;
+    }
+  }
+
+  .result.is-visible {
+    opacity: 1;
+    transition-delay: 0;
+    visibility: visible;
+  }
+
+  .result__title {
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translate(0, -100px);
+    transition: opacity 0.4s, transform 0.4s;
+    transition-delay: 0.3s; // Delay transition so it doesn't run when fading out. Shorter below.
+
+    @media #{$result-large} {
+      font-size: 140px;
+    }
+  }
+
+  // Transition opacity and slide down.
+  .is-visible > .result__title {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0.1s;
+  }
+
+  .result__details {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    max-width: 530px;
+    opacity: 0;
+    transition: opacity 0.4s 0.4s;
+
+    @media #{$result-large} {
+      font-size: 30px;
+    }
+  }
+
+  .result__missing-block {
+    height: 48px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.4s 0.4s;
+  }
+
+  .result__graphic {
+    flex-shrink: 4;
+    height: 150px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transition: opacity 0.4s 0.4s;
+    width: 100%;
+
+    @media #{$result-large} {
+      height: 300px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .result__buttons {
+    margin: 0 -5px;
+    opacity: 0;
+    transition: opacity 0.4s 0.8s;
+
+    @media #{$result-large} {
+      margin: 0 -15px;
+    }
+  }
+
+  .result__button {
+    background: #F68C38;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white;
+    font: 900 12px 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 5px;
+    min-width: 140px;
+    padding: 10px;
+    text-transform: uppercase;
+
+    @media #{$result-large} {
+      font-size: 20px;
+      margin: 0 15px;
+      min-width: 250px;
+      padding: 15px;
+    }
+  }
+
+  .result__code-label {
+    display: none;
+    font: 900 16px / 32px Roboto, sans-serif;
+    margin-bottom: 20px;
+    max-width: 530px;
+
+    @media #{$result-large} {
+      font-size: 20px;
+    }
+  }
+
+  .result__code {
+    background: transparent;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.14);
+    box-sizing: border-box;
+    color: white;
+    display: none;
+    font: 14px / 32px Monaco, Consolas, "Lucida Console", monospace;
+    height: 180px;
+    margin-bottom: 30px;
+    max-width: 530px;
+    padding: 6px 10px;
+    width: 100%;
+
+    @media #{$result-large} {
+      padding: 16px 20px;
+      font-size: 16px;
+    }
+  }
+
+  .result__code-link {
+    color: #F5C637;
+    cursor: pointer;
+    display: inline-block;
+    font: 700 15px Roboto, sans-serif;
+    margin-top: 15px;
+    padding: 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Transition opacity on the results.
+
+  .is-visible > .result__details,
+  .is-visible > .result__missing-block,
+  .is-visible > .result__graphic,
+  .is-visible > .result__buttons {
+    opacity: 1;
+  }
+
+  .result--show-code {
+    > .result__code-label,
+    > .result__code {
+      display: block;
+    }
+
+    > .result__details,
+    > .result__missing-block,
+    > .result__graphic,
+    .result__code-link {
+      display: none !important;
+    }
+  }
+}
