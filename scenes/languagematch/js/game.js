@@ -46,7 +46,7 @@ app.Game = class Game {
    */
   initCards() {
     const cardElements = this.root.querySelectorAll('.card');
-    if ((cardElements.length) % 2 != 0) {
+    if ((cardElements.length % 2) != 0) {
       throw Error('Invalid number of cards!');
     }
 
