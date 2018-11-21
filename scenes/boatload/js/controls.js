@@ -26,6 +26,7 @@ Controls = function(game) {
   this.game = game;
   this.player = this.game.player;
   this.tutorial = this.game.tutorial;
+  this.keyDownCounter = 0;
 
   // Touch state
   this.currentTouchId = null;
@@ -104,8 +105,8 @@ Controls.prototype.onKeydown = function(e) {
       this.tutorial.off('spacenav-space');
       this.spacePressed = true;
     }
-
     this.isSpaceDown_ = true;
+    this.getDistance();
     this.player.preparePresent();
   }
 
@@ -130,10 +131,28 @@ Controls.prototype.onKeyup = function(e) {
   } else if (e.keyCode === 40) { // Down
     this.isDownDown_ = false;
   } else if (e.keyCode === 32 || e.keyCode === 39) { // Space (and right)
+    this.stopCount = clearInterval(this.timer);
     this.isSpaceDown_ = false;
     this.player.dropPresent();
   }
   this.updatePlayerFromKeyboard();
+};
+
+/**
+ * Calculate space(and right) key pressed duration.
+ */
+Controls.prototype.getDistance = function() {
+  this.keyDownCounter = 0;
+  this.player.distance = 0;
+    this.timer = setInterval(() => {
+      this.keyDownCounter += 0.15;
+      //Add player movement limit. Max 3 to the left.
+      if(this.keyDownCounter < 3) {
+        this.player.distance = this.keyDownCounter;
+      } else {
+        this.player.distance = 3;
+      }
+    }, 10);
 };
 
 /**
@@ -176,6 +195,7 @@ Controls.prototype.onTouchstart = function(e) {
 
   this.currentTouchId = touch.identifier;
   this.player.setY(touchY);
+  this.getDistance();
   this.player.preparePresent();
   e.preventDefault();
 
@@ -210,7 +230,7 @@ Controls.prototype.onTouchend = function(e) {
   if (!touch) {
     return;
   }
-
+this.stopCount = clearInterval(this.timer);
   this.currentTouchId = null;
   this.player.touchEnded();
 };
