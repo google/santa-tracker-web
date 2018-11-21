@@ -325,7 +325,7 @@ app.Game = class Game {
    * @param {!HTMLElement} element Element currently transitioning
    */
   async waitForTransition(element) {
-    await new Promise(r => element.addEventListener('transitionend', r));
+    await new Promise(r => element.addEventListener('transitionend', r, {once: true}));
   }
 
   /**
