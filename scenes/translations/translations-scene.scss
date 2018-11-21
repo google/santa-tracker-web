@@ -1,7 +1,7 @@
 $name: 'module-translations';
 
 @import "../shared/sass/penner-easing";
-@import "sass/record-player";
+@import "sass/google-home";
 @import "sass/elves";
 
 ##{$name} {
@@ -81,9 +81,9 @@ $name: 'module-translations';
    */
   .elves {
     position: absolute;
-    top: -731px;
+    top: -826px;
     left: 50%;
-    margin-left: -350px;
+    margin-left: -365px;
   }
 
   .desk {
@@ -153,8 +153,9 @@ $name: 'module-translations';
     text-align: left;
 
     select {
-      color: #E43834;
+      color: #fff;
       font-size: 16px;
+      font-weight: 700;
       appearance: none;
       background: none;
       border: none;
@@ -163,6 +164,7 @@ $name: 'module-translations';
 
       &:focus,
       &:active {
+        background-image: url(img/dropdown-arrow-active.svg);
         color: #D85F05;
       }
     }
@@ -212,6 +214,20 @@ $name: 'module-translations';
 
 @import "../shared/sass/responsive";
 
+@media (max-height: 600px) {
+  ##{$name} .scene {
+    .elves {
+      top: -800px;
+      transform: scale(.6);
+    }
+
+    .google-home {
+      top: -626px;
+      transform: scale(.6);
+    }
+  }
+}
+
 @media (max-width: 400px) {
   ##{$name} .scene {
     transform: scale(0.55);
@@ -234,8 +250,9 @@ $name: 'module-translations';
       margin-left: -1317px;
     }
     .elves {
-      top: 5px;
+      top: -75px;
       margin-left: -215px;
+      transform: scale(.8);
     }
     .desk-content {
       width: 100%;
@@ -262,7 +279,7 @@ $name: 'module-translations';
       font-size: 20px;
       font-weight: 600;
     }
-    .record-player {
+    .google-home {
       display: none;
     }
   }
@@ -285,7 +302,8 @@ $name: 'module-translations';
       top: 160px;
     }
     .elves {
-      top: -80px
+      top: -153px;
+      transform: scale(.5);
     }
     .desk-content {
       top: 185px;
@@ -302,7 +320,7 @@ $name: 'module-translations';
       top: 300px;
     }
     .elves {
-      top: 50px;
+      top: -30px;
     }
     .desk-content {
       top: 375px;
