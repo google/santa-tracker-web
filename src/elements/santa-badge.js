@@ -11,7 +11,7 @@ export class SantaBadgeElement extends LitElement {
   static get properties() {
     return {
       level: {type: Number},
-      levels: {type: Number},
+      maxLevel: {type: Number},
       score: {type: Number},
       _levelActive: {type: Boolean},
       time: {type: Number},
@@ -23,7 +23,7 @@ export class SantaBadgeElement extends LitElement {
     super();
     // TODO(samthor): Shown for a demo.
     this.level = 1;
-    this.levels = 3;
+    this.maxLevel = 3;
     this.score = 10e3;
     this.time = 20;
 
@@ -97,7 +97,7 @@ export class SantaBadgeElement extends LitElement {
   <div class="part-level">
     <div class="cell" .hidden=${!this.level}>
       <div class="value">
-${this.level}<span class="dim" .hidden=${!this.levels}><small>&middot;</small>${this.levels}</span>
+${this.level}<span class="dim" .hidden=${!this.maxLevel}><small>&middot;</small>${this.maxLevel}</span>
       </div>
       <div class="label">${_msg`level`}</div>
     </div>

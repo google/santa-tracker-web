@@ -155,7 +155,7 @@ Scoreboard.prototype.announce_ = function() {
     const detail = {
       score: this.score,
       level: this.level + 1,  // games are zero-indexed
-      levels: this.levels,
+      maxLevel: this.levels,
       time: this.lastSeconds || this.countdown,
     };
     window.santaApp.fire('game-score', detail);

@@ -40,6 +40,7 @@ export const santaTrackerReducer = (state, action) => {
         loadProgress: 1,
         showError: false,
         showSidebar: false,
+        score: null,
       };
 
     case SantaTrackerAction.SCENE_FAILED:
@@ -51,6 +52,12 @@ export const santaTrackerReducer = (state, action) => {
         showError: true,
         showSidebar: false,
       };
+
+    case SantaTrackerAction.SCORE_UPDATE:
+      if (state.activeScene !== action.payload.sceneName) {
+        return state;
+      }
+      return {...state, score: action.payload.detail};
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};

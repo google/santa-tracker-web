@@ -109,6 +109,14 @@ class SceneManager {
   route(sceneName) {
     this._adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
   }
+
+  score(detail) {
+    const payload = {
+      sceneName: this._name,
+      detail,
+    };
+    this._adapter.dispatch({type: SantaTrackerAction.SCORE_UPDATE, payload});
+  }
 }
 
 
@@ -127,6 +135,7 @@ class SceneManager {
 class SceneApi {
   constructor(sceneName) {
     this._name = sceneName;
+    this._manager = null;
 
     let updateProgress = (ratio) => {};
 
@@ -151,8 +160,8 @@ class SceneApi {
   async ready(fn) {
     await this._preload.done;
 
-    const manager = new SceneManager(this._name);
-    await fn(manager);
+    this._manager = new SceneManager(this._name);
+    await fn(this._manager);
   }
 
   get preload() {
@@ -160,23 +169,28 @@ class SceneApi {
   }
 
   installV1Handlers() {
-    window.santaApp = {
-      fire(eventName, arg) {
-        // TODO(samthor): do something with events
-        switch (eventName) {
-        case 'sound-trigger':
-          break;
-        case 'sound-ambient':
-          break;
-        case 'game-score':
-          // TODO(samthor): emit score to game
-          break;
-        case 'game-stop':
-          // TODO(samthor): game is stopped
-          break;
-        }
-      },
-    };
+    const fire = (eventName, arg) => {
+      console.info('got fired', eventName, this._manager);
+      if (!this._manager) {
+        return;
+      }
+
+      // TODO(samthor): do something with events
+      switch (eventName) {
+      case 'sound-trigger':
+        break;
+      case 'sound-ambient':
+        break;
+      case 'game-score':
+        this._manager.score(arg);
+        break;
+      case 'game-stop':
+        // TODO(samthor): game is stopped
+        break;
+      }
+  }
+
+    window.santaApp = {fire};
     window.ga = function() {
       // TODO(samthor): log GA events
     };

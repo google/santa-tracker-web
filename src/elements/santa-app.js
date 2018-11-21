@@ -22,6 +22,7 @@ export class SantaAppElement extends LitElement {
       _iframeScroll: {type: Boolean},
       _idPrefix: {type: String},
       _activeSceneInfo: {type: Object},
+      _score: {type: Object},
     };
   }
 
@@ -55,6 +56,7 @@ export class SantaAppElement extends LitElement {
       this._showError = state.showError;
       this._showSidebar = state.showSidebar;
       this._todayHouse = state.todayHouse;
+      this._score = state.score;
 
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
@@ -106,6 +108,7 @@ export class SantaAppElement extends LitElement {
 
   render() {
     const info = this._activeSceneInfo;
+    const score = this._score || {};
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._loadProgress === 1}>
@@ -133,7 +136,11 @@ export class SantaAppElement extends LitElement {
     <a class="linkwrap" href=${route.href('./')}>
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
-    <santa-badge style="color: ${info.featureColor || ''}"></santa-badge>
+    <santa-badge style="color: ${info.featureColor || ''}"
+        .level=${score.level || 0}
+        .maxLevel=${score.maxLevel || 0}
+        .score=${score.score || 0}
+        .time=${score.time || 0}></santa-badge>
   </header>
   <div class="info noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>

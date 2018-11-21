@@ -12,6 +12,9 @@ export const SantaTrackerAction = {
   SCENE_ACTIVATED: 'scene-activated',
   SCENE_FAILED: 'scene-failed',
 
+  // Things a scene can do
+  SCORE_UPDATE: 'score-update',
+
   // Visibility / connectivity
   PAGE_BECAME_VISIBLE: 'page-became-visible',
   PAGE_BECAME_HIDDEN: 'page-became-hidden',
