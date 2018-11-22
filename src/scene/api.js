@@ -135,6 +135,11 @@ class SceneManager {
   }
 
   gameover(detail) {
+    const payload = {
+      sceneName: this._name,
+      detail,
+    };
+    this._adapter.dispatch({type: SantaTrackerAction.SCORE_GAMEOVER, payload});
     this._updateGame({type: 'ongameover', data: detail});
   }
 }

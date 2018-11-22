@@ -40,7 +40,8 @@ export const santaTrackerReducer = (state, action) => {
         loadProgress: 1,
         showError: false,
         showSidebar: false,
-        score: null,
+        score: {},
+        gameover: false,
       };
 
     case SantaTrackerAction.SCENE_FAILED:
@@ -53,8 +54,18 @@ export const santaTrackerReducer = (state, action) => {
         showSidebar: false,
       };
 
-    case SantaTrackerAction.SCORE_UPDATE:
+    case SantaTrackerAction.SCORE_GAMEOVER:
       if (state.activeScene !== action.payload.sceneName) {
+        return state;
+      }
+      return {
+        ...state,
+        score: {score: action.payload.detail.score},
+        gameover: true,
+      };
+
+    case SantaTrackerAction.SCORE_UPDATE:
+      if (state.activeScene !== action.payload.sceneName || state.gameover) {
         return state;
       }
       return {...state, score: action.payload.detail};

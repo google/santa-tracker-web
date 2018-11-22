@@ -1,0 +1,66 @@
+:host {
+  position: relative;
+}
+
+.wrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+nav {
+  padding: 30px;
+  padding-left: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  background: currentColor;
+
+  santa-button {
+    margin-left: 20px;
+
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+}
+
+.hero {
+  flex-grow: 1;
+  align-self: stretch;
+
+  background: transparent center bottom no-repeat;
+  background-size: contain;
+  &.gameover {
+    max-height: 285px;
+    background-image: url(img/overlay/gameover.png);
+  }
+  &.pause {
+    max-height: 343px;
+    background-image: url(img/overlay/pause.png);
+  }
+}
+
+.score {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.16);
+  text-align: center;
+  color: white;
+  h1 {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: -8px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  h2 {
+    color: #fff;
+    line-height: 64px;
+    font-size: 64px;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 2px 4px 0 rgba(0,0,0,0.34);
+  }
+}

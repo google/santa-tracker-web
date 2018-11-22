@@ -4,6 +4,12 @@ $color-loader: #db513c;
 $size-header: 38px;
 $size-resize: 500px;
 
+$order-preload: 101;
+$order-sidebar: 100;
+$order-hider: 99;
+$order-header: 90;
+$order-overlay: 80;
+
 @keyframes santa-app__hide-nav {
   from { visibility: visible; pointer-events: none; }
     to { visibility: hidden; pointer-events: none; }
@@ -11,6 +17,10 @@ $size-resize: 500px;
 
 :host {
   display: block;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 main {
@@ -25,7 +35,7 @@ main {
 
 .sidebar {
   santa-sidebar {
-    z-index: 9;
+    z-index: $order-sidebar;
     position: fixed;
     top: 0;
     height: 100%;
@@ -45,7 +55,7 @@ main {
 
   .hider {
     pointer-events: none;
-    z-index: 8;
+    z-index: $order-hider;
     display: block;
     position: fixed;
     top: 0;
@@ -77,7 +87,7 @@ main {
 
 .preload {
   display: block;
-  z-index: 10;
+  z-index: $order-preload;
   pointer-events: none;
   position: fixed;
   top: 0;
@@ -125,7 +135,7 @@ santa-loader {
 
 
 header {
-  z-index: 7;
+  z-index: $order-header;
   height: $size-header;
   padding: 0 12px;
   display: flex;
@@ -214,7 +224,6 @@ main.scroll {
   justify-content: center;
   width: $size-header;
   position: relative;
-  z-index: 10;
 
   &::before {
     content: '';
@@ -228,7 +237,7 @@ main.scroll {
     left: 2px;
     right: 2px;
     bottom: 2px;
-    z-index: -100;
+    z-index: -1;
   }
   &:active::before {
     opacity: 0.1;
@@ -356,6 +365,33 @@ main.scroll {
       min-width: $size-icon;  // otherwise we get squished
       border: (($size-icon - $size-background) / 2) solid transparent;
       margin: 0 1em;
+    }
+  }
+}
+
+.overlay {
+  position: absolute;  // not fixed, safari scrolls it weirdly
+  padding-top: 38px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $order-overlay;
+  pointer-events: none;  // TODO: revert
+  background: fade-out(#6f00ff, 0.75);
+
+  santa-overlay {
+    pointer-events: auto;
+    height: 80vh;
+    width: 90vw;
+    color: #6f00ff;
+
+    @media (max-width: 420px) {
+      // fits five buttons roughly on 320px
+      transform: scale(0.8);
     }
   }
 }

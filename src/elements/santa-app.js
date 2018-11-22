@@ -23,6 +23,7 @@ export class SantaAppElement extends LitElement {
       _idPrefix: {type: String},
       _activeSceneInfo: {type: Object},
       _score: {type: Object},
+      _gameover: {type: Boolean},
     };
   }
 
@@ -30,6 +31,7 @@ export class SantaAppElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
     this._activeSceneInfo = {};
+    this._score = {};
 
     // TODO(samthor): This could be part of global state.
     this._loaderSuffix = '';
@@ -57,6 +59,7 @@ export class SantaAppElement extends LitElement {
       this._showSidebar = state.showSidebar;
       this._todayHouse = state.todayHouse;
       this._score = state.score;
+      this._gameover = state.gameover;
 
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
@@ -80,6 +83,10 @@ export class SantaAppElement extends LitElement {
 
   _onIframeScroll(ev) {
     this._iframeScroll = (ev.detail !== 0);
+  }
+
+  _onClickHome(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: ''});
   }
 
   _onCheckboxChange(ev) {
@@ -108,7 +115,9 @@ export class SantaAppElement extends LitElement {
 
   render() {
     const info = this._activeSceneInfo;
-    const score = this._score || {};
+    const badge = !this._gameover && this._score || {};
+    const overlayScore = (this._gameover && this._score.score || 0);
+
     return html`
 <style>${_style`santa-app`}</style>
 <div class="preload" ?hidden=${this._loadProgress === 1}>
@@ -128,6 +137,11 @@ export class SantaAppElement extends LitElement {
   <label class="hider" for="${this._idPrefix}sidebar"></label>
 </div>
 <main @focusin=${this._onMainFocus} class=${info.scroll ? 'scroll' : ''}>
+  <div class="overlay" ?hidden=${!this._gameover}>
+    <santa-overlay
+        @home=${this._onClickHome}
+        score="${overlayScore}"></santa-overlay>
+  </div>
   <header class=${this._iframeScroll ? '' : 'up'}>
     <div class="bg" style="color: ${info.color || ''}"></div>
     <label for="${this._idPrefix}sidebar" class="svg-label" tabindex="0">
@@ -137,10 +151,10 @@ export class SantaAppElement extends LitElement {
 <div class="logo">Google </div><h1>${_msg`santatracker`}</h1>
     </a>
     <santa-badge style="color: ${info.featureColor || ''}"
-        .level=${score.level || 0}
-        .maxLevel=${score.maxLevel || 0}
-        .score=${score.score || 0}
-        .time=${score.time || 0}></santa-badge>
+        .level=${badge.level || 0}
+        .maxLevel=${badge.maxLevel || 0}
+        .score=${badge.score || 0}
+        .time=${badge.time || 0}></santa-badge>
   </header>
   <div class="info noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>

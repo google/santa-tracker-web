@@ -1,0 +1,84 @@
+:host {
+  width: 55px;
+  height: 55px;
+  font-size: 32px;
+}
+
+button {
+  $duration-in: 0.05s;
+  $duration-out: 0.25s;
+  $offset-x: 3px;
+  $offset-y: 5px;
+  $shadow-x: 5px;
+  $shadow-y: 2px;
+
+  line-height: 100%;
+
+  @mixin pop($dark) {  
+    box-shadow: $offset-x $offset-y 0 $dark,
+        ($offset-x + $shadow-x) ($offset-y + $shadow-y) 0 2px rgba(0, 0, 0, 0.24);
+    &:active {
+      box-shadow: 0 0 0 $dark, 0 0 1px rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: 20000px;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  &[hidden] {
+    display: none;
+  }
+  text-align: center;
+  font: inherit;
+  font-family: 'Material Icons';
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+
+  will-change: box-shadow, transform;
+  transition: box-shadow $duration-out ease-in, transform $duration-out ease-in;
+  transform: translate(-$offset-x, -$offset-y);
+
+  fill: white;  // for svg
+
+  &:active {
+    transition-duration: $duration-in;
+    transform: translate(0, 0);
+  }
+
+  &.yellow {
+    background: #ffc100;
+    @include pop(#f0922b);
+  }
+  &.pink {
+    background: #ff0060;
+    @include pop(#e70058);
+  }
+  &.red {
+    background: #ff3f00;
+    @include pop(#f52f00);
+  }
+  &.purple {
+    background: #ad00ad;
+    @include pop(#8f0093);
+  }
+  &.white {
+    background: #efefef;
+    @include pop(#c1dbd9);
+  }
+  &.green {
+    background: #32a658;
+    @include pop(#2a8c4a);
+  }
+  &.orange {
+    background: #ff9802;
+    @include pop(#f57c00);
+  }
+}

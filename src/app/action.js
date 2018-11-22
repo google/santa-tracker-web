@@ -14,6 +14,7 @@ export const SantaTrackerAction = {
 
   // Things a scene can do
   SCORE_UPDATE: 'score-update',
+  SCORE_GAMEOVER: 'score-gameover',
 
   // Visibility / connectivity
   PAGE_BECAME_VISIBLE: 'page-became-visible',
