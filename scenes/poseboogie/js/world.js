@@ -1,4 +1,4 @@
-import { drawBody } from './pose.js';
+import {drawBody, drawCurve} from './pose.js';
 
 // collision groups
 export const
@@ -6,7 +6,8 @@ export const
     BODY_PARTS = Math.pow(2,2);
 
 export class World {
-  constructor() {
+  constructor(config) {
+    this.config = config;
     this.world = new p2.World({
       // supply some slight downwards gravity
       gravity: [0, -1],
@@ -49,11 +50,23 @@ export class World {
 
       // Sort bodies by z-index to ensure they're drawn correctly.
       const bodies = this.world.bodies.sort((a, b) => a.zIndex - b.zIndex);
+      const alreadyDrawn = {};
 
       // And draw!
       for (let i = 0; i < bodies.length; i++) {
         const body = bodies[i];
-        drawBody(body, ctx);
+        if (this.config.smoothLimbs && body.curveWith !== undefined) {
+          // curveWidth is defined, but false when it's part of a curve, but not the originating
+          // part. Order matters for drawCurve, so we need to ensure it's ordered correctly, and
+          // not drawn as a body, below. We can't rely on definition order as z-index sorting may
+          // change the order.
+          if (body.curveWith) {
+            drawCurve(body, body.curveWith, ctx);
+            alreadyDrawn[body.curveWith.id] = true;
+          }
+        } else if (!(body.id in alreadyDrawn)) {
+          drawBody(body, ctx);
+        }
       }
 
       lastTime = time;

@@ -21,6 +21,12 @@ const
 // work at higher precision.
 const speedLimit = 1;
 
+// 2D context styles that are passed on everywhere we draw instead of using images.
+const lineStyle = {
+  lineCap: 'round',
+  strokeStyle: '#32a658',
+};
+
 export class Elf {
   constructor(world) {
     this.world = world;
@@ -34,7 +40,7 @@ export class Elf {
       position: [0, headRadius],
       mass: 1,
     });
-    this.head.zIndex = 1.5;
+    this.head.zIndex = 1;
 
     this.headShape = new p2.Circle({
       radius: headRadius,
@@ -71,7 +77,7 @@ export class Elf {
       position: [shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
-    this.leftArm.zIndex = 1;
+    this.leftArm.zIndex = 2;
     this.leftArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
@@ -104,6 +110,10 @@ export class Elf {
     this.leftForeArm.addShape(this.leftForeArmShape);
     p2World.addBody(this.leftForeArm);
 
+    this.leftArm.curveWith = this.leftForeArm;
+    this.leftForeArm.curveWith = false;
+    this.leftArm.style = lineStyle;
+
     this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
       localPivotA: [0, -armLength/4],
       localPivotB: [0, armLength/4],
@@ -115,7 +125,7 @@ export class Elf {
       position: [-shoulderWidth/2, -torsoLength/2 + armLength/2],
       mass: 1,
     });
-    this.rightArm.zIndex = 1;
+    this.rightArm.zIndex = 2;
     this.rightArmShape = new p2.Box({
       width: armWidth,
       height: armLength/2,
@@ -147,6 +157,10 @@ export class Elf {
     this.rightForeArmShape.img = document.getElementById('arm');
     this.rightForeArm.addShape(this.rightForeArmShape);
     p2World.addBody(this.rightForeArm);
+
+    this.rightArm.curveWith = this.rightForeArm;
+    this.rightForeArm.curveWith = false;
+    this.rightArm.style = lineStyle;
 
     this.rightElbow = new p2.RevoluteConstraint(this.rightArm, this.rightForeArm, {
       localPivotA: [0, -armLength/4],
@@ -230,6 +244,10 @@ export class Elf {
     this.leftCalf.addShape(this.leftCalfShape);
     p2World.addBody(this.leftCalf);
 
+    this.leftLeg.curveWith = this.leftCalf;
+    this.leftCalf.curveWith = false;
+    this.leftLeg.style = lineStyle;
+
     this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
       localPivotA: [shoulderWidth/2, -torsoLength/2],
       localPivotB: [0, legLength/4],
@@ -273,6 +291,10 @@ export class Elf {
     this.rightCalfShape.img = document.getElementById('arm');
     this.rightCalf.addShape(this.rightCalfShape);
     p2World.addBody(this.rightCalf);
+
+    this.rightLeg.curveWith = this.rightCalf;
+    this.rightCalf.curveWith = false;
+    this.rightLeg.style = lineStyle;
 
     this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
       localPivotA: [-shoulderWidth/2, -torsoLength/2],
@@ -323,7 +345,9 @@ export class Elf {
 
     const trackFrame = () => {
       this.threshold = appConfig.minPartConfidence;
+      this.resize = appConfig.resizeBodyParts;
       this.enableLimits(appConfig.enableJointLimits);
+      this.humanSize = appConfig.humanSize;
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
@@ -341,6 +365,7 @@ export class Elf {
             .then((pose) => {
               // TODO(markmcd): check the overall pose score, show help info / error state
               this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+              this.scaleSkeleton();
               if (appConfig.debug) {
                 document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
               }
@@ -370,6 +395,9 @@ export class Elf {
     if (this.allGood('nose')) {
       this.head.position = this.scale(this.pose['nose'].position);
     }
+    if (this.allGood('leftEar', 'rightEar')) {
+      this.resizeCircle(this.head.shapes[0], this.dist('leftEar', 'rightEar') * headRadius / 2);
+    }
 
     // Set the torso position (center of mass) to the mean of the observed
     // torso-framing joints.
@@ -378,6 +406,17 @@ export class Elf {
     const chestParts = ['leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'];
     if (this.allGood(...chestParts)) {
       this.torso.position = this.scale(this.mean(...chestParts));
+    }
+    // Prefer scaling with the long sides, as they more accurately represent torso size
+    // (shoulders/hips work, but when they converge it's probably rotation).
+    if (this.allGood('leftHip', 'leftShoulder')) {
+      this.resizeBox(this.torso.shapes[0], this.dist('leftHip', 'leftShoulder'), null);
+    } else if (this.allGood('rightHip', 'rightShoulder')) {
+      this.resizeBox(this.torso.shapes[0], this.dist('rightHip', 'rightShoulder'), null);
+    } else if (this.allGood('leftShoulder', 'rightShoulder')) {
+      this.resizeBox(this.torso.shapes[0], null, this.dist('leftShoulder', 'rightShoulder'));
+    } else if (this.allGood('leftHip', 'rightHip')) {
+      this.resizeBox(this.torso.shapes[0], null, this.dist('leftHip', 'rightHip'));
     }
 
     // We can calculate the angle of these parts, so do so.
@@ -390,6 +429,8 @@ export class Elf {
       // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
       this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
           leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
+      // TODO(markmcd): is preserving aspect ratio the right thing to do here? things get chunky.
+      this.resizeBox(this.leftArm.shapes[0], this.dist('leftShoulder', 'leftElbow'), null);
     }
 
     if (this.allGood('leftElbow', 'leftWrist')) {
@@ -397,6 +438,8 @@ export class Elf {
       this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
           leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
       this.leftHand.position = this.scale(this.pose['leftWrist'].position);
+      // TODO(markmcd): resize hands/feet
+      this.resizeBox(this.leftForeArm.shapes[0], this.dist('leftElbow', 'leftWrist'), null);
     }
 
     const rightShoulder = this.pose['rightShoulder'].position;
@@ -407,6 +450,7 @@ export class Elf {
       this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
       this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
           rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
+      this.resizeBox(this.rightArm.shapes[0], this.dist('rightShoulder', 'rightElbow'), null);
     }
 
     if (this.allGood('rightElbow', 'rightWrist')) {
@@ -414,6 +458,7 @@ export class Elf {
       this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
           rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
       this.rightHand.position = this.scale(this.pose['rightWrist'].position);
+      this.resizeBox(this.rightForeArm.shapes[0], this.dist('rightElbow', 'rightWrist'), null);
     }
 
     const leftHip = this.pose['leftHip'].position;
@@ -424,12 +469,14 @@ export class Elf {
       this.leftLeg.position = this.scale(this.mean('leftHip', 'leftKnee'));
       this.leftLeg.angle = 3 * Math.PI / 2 - Math.atan2(
           leftHip.y - leftKnee.y, leftHip.x - leftKnee.x);
+      this.resizeBox(this.leftLeg.shapes[0], this.dist('leftHip', 'leftKnee'), null);
     }
 
     if (this.allGood('leftKnee', 'leftAnkle')) {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
       this.leftCalf.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+      this.resizeBox(this.leftCalf.shapes[0], this.dist('leftKnee', 'leftAnkle'), null);
     }
 
     const rightHip = this.pose['rightHip'].position;
@@ -440,12 +487,14 @@ export class Elf {
       this.rightLeg.position = this.scale(this.mean('rightHip', 'rightKnee'));
       this.rightLeg.angle = 3 * Math.PI / 2 - Math.atan2(
           rightHip.y - rightKnee.y, rightHip.x - rightKnee.x);
+      this.resizeBox(this.rightLeg.shapes[0], this.dist('rightHip', 'rightKnee'), null);
     }
 
     if (this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
       this.rightCalf.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+      this.resizeBox(this.rightCalf.shapes[0], this.dist('rightKnee', 'rightAnkle'), null);
     }
 
     // Clamp velocities. See comment on speedLimit definition.
@@ -455,8 +504,53 @@ export class Elf {
     })
   }
 
+  scaleSkeleton() {
+    // Scale around the center of the video feed, otherwise a person moving towards/away from the
+    // camera ends up sliding off towards the top-left.
+    Object.entries(this.pose).forEach(([part, pose]) => {
+      this.pose[part].position = {
+        x: (pose.position.x - this.videoWidth/2) * this.humanSize + this.videoWidth/2,
+        y: (pose.position.y - this.videoHeight/2) * this.humanSize + this.videoHeight/2,
+      };
+    });
+  }
+
+  resizeCircle(shape, newRadius) {
+    if (!this.resize) { return; }
+    shape.radius = newRadius;
+    // These seem to only matter when using collision detection, but are recommended so ¯\_(ツ)_/¯
+    shape.updateArea();
+    shape.updateBoundingRadius();
+  }
+
+  resizeBox(shape, height, width) {
+    if (!this.resize) { return; }
+    if (height && width) {
+      shape.height = height;
+      shape.width = width;
+    } else if (height) {
+      shape.width = shape.width / (shape.height / height);
+      shape.height = height;
+    } else if (width) {
+      shape.height = shape.height / (shape.width / width);
+      shape.width = width;
+    }
+    shape.updateArea();
+    shape.updateBoundingRadius();
+    shape.updateCenterOfMass();  // I think this is used outside of collision detection
+    shape.updateTriangles();
+  }
+
   static clamp(n, limit) {
     return Math.min(Math.max(-limit, n), limit);
+  }
+
+  dist(aPose, bPose) {
+    const a = this.scale(this.pose[aPose].position);
+    const b = this.scale(this.pose[bPose].position);
+    const x = a[0] - b[0];
+    const y = a[1] - b[1];
+    return Math.sqrt(x ** 2 + y ** 2);
   }
 
   scale({x, y}) {

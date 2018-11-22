@@ -62,3 +62,50 @@ export function drawBody(body, ctx) {
   }
   ctx.restore();
 }
+
+/**
+ * Draws a curved line along the path of the two provided p2 bodies. The line is drawn from the
+ * "start" (e.g. top or left) of body1 to the "end" (e.g. bottom or right) or body2, so the order
+ * of the bodies is important. Provide any 2D context styles as a dict/map on body1.style.
+ *
+ * The first shape attached to p2 bodies is used, and these must be p2.Box instances.
+ */
+export function drawCurve(body1, body2, ctx) {
+  // Convenient shape aliases
+  const s1 = body1.shapes[0];
+  const s2 = body2.shapes[0];
+  if (!(s1 instanceof p2.Box && s2 instanceof p2.Box)) {
+    throw new Error('Unable to draw curves between non-Box shapes.');
+  }
+
+  // Body positions are center coordinates, and are rotated, so we need to find the start and
+  // end positions through some trig.
+  const [cx1, cy1] = body1.interpolatedPosition;
+  const [cx2, cy2] = body2.interpolatedPosition;
+  const theta1 = body1.interpolatedAngle;
+  const theta2 = body2.interpolatedAngle;
+
+  // Start of first shape
+  const x1 = cx1 - Math.sin(theta1) * s1.height/2;
+  const y1 = cy1 + Math.cos(theta1) * s1.height/2;
+  // End of second shape
+  const x2 = cx2 + Math.sin(theta2) * s2.height/2;
+  const y2 = cy2 - Math.cos(theta2) * s2.height/2;
+
+  // To find the "joint" we pick the mid-point between the two shapes.
+  const mx1 = cx1 + Math.sin(theta1) * s1.height/2;
+  const my1 = cy1 - Math.sin(theta1) * s1.height/2;
+  const mx2 = cx2 - Math.sin(theta2) * s2.height/2;
+  const my2 = cy2 + Math.sin(theta2) * s2.height/2;
+  const mx = (mx1 + mx2) / 2;
+  const my = (my1 + my2) / 2;
+
+  ctx.save();
+  ctx.beginPath();
+  // Apply supplied styles.
+  Object.assign(ctx, {lineWidth: s1.width/2, ...body1.style});
+  ctx.moveTo(x1, y1);
+  ctx.quadraticCurveTo(mx, my, x2, y2);
+  ctx.stroke();
+  ctx.restore();
+}
