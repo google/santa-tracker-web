@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style type="text/css">
+html {
+  background: #3ec4f0;
+}
+body {
+  margin: 0;
+}
+iframe {
+  min-height: 100vh;
+  width: 100vw;
+  border: 0;
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+  <iframe id="iframe" allow="accelerometer; autoplay; camera; fullscreen; encrypted-media; gyroscope; picture-in-picture; speaker; unsized-media" allowfullscreen></iframe>
+  <script>
+
+function configureFrame() {
+  const sceneName = window.location.hash.substr(1) || window.location.search.substr(1);
+  if (!sceneName) {
+    throw new Error('no scene provided');
+  }
+  const staticPath = document.body.getAttribute('data-static') || '';
+  const m = staticPath.match(/^(.*)(\/[^\/]*)$/);
+  if (!m) {
+    throw new Error(`couldn't match static path: ${staticPath}`);
+  }
+  iframe.src = `${m[1]}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html`;
+}
+
+function post(port, type, data) {
+  if (port) {
+    port.postMessage(JSON.stringify({type, data}));
+  }
+}
+
+async function run() {
+  const embedPort = await matchWindowMessage((ev) => {
+    if (ev.data === 'santaandroid') {
+      return ev.ports[0];
+    }
+  });
+
+  const gamePortPromise = matchWindowMessage((ev) => {
+    if (ev.source === iframe.contentWindow && ev.data === 'game') {
+      return ev.ports[0];
+    }
+  });
+  await configureFrame();  // configure after waiting for port
+
+  const gamePort = await gamePortPromise;  // implies ready
+
+  embedPort.onmessage = (ev) => {
+    switch (ev.data) {
+      // TODO: lazy-load Klang frame
+      case 'unmute':
+        break;
+      case 'mute':
+        break;
+      default:
+        gamePort.postMessage(ev.data);
+    }
+  };
+  gamePort.onmessage = (ev) => {
+    let data = ev.data;
+    if (typeof data !== 'string') {
+      data = JSON.stringify(data);
+    }
+    embedPort.postMessage(data);
+  };
+
+  // TODO: get pause screen status from game
+  post(embedPort, 'onready', {hasPauseScreen: true});
+}
+
+function matchWindowMessage(check) {
+  return new Promise((resolve) => {
+    const handler = (ev) => {
+      const out = check(ev);
+      if (out !== undefined) {
+        resolve(out);
+        window.removeEventListener('message', handler);
+      }
+    };
+    window.addEventListener('message', handler);
+  });
+}
+
+
+run().catch((err) => {
+  throw err;
+});
+
+
+  </script>
+
+</body>
+</html>

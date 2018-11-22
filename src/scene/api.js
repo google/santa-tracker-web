@@ -3,6 +3,9 @@ import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 
 
+const isInFrame = window.parent && window.parent !== window;
+
+
 class PreloadApi {
 
   /**
@@ -104,6 +107,18 @@ class SceneManager {
   constructor(sceneName) {
     this._name = sceneName;
     this._adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
+    this._updateGame = connectParentChannel('game', (data) => {
+      switch (data) {
+        case 'pauseGame':
+          break;
+        case 'resumeGame':
+          break;
+        case 'restartGame':
+          break;
+      }
+    });
+
+    this._updateGame({type: 'onready', data: {hasPauseScreen: true}});
   }
 
   route(sceneName) {
@@ -116,7 +131,26 @@ class SceneManager {
       detail,
     };
     this._adapter.dispatch({type: SantaTrackerAction.SCORE_UPDATE, payload});
+    this._updateGame({type: 'onscore', data: detail});
   }
+
+  gameover(detail) {
+    this._updateGame({type: 'ongameover', data: detail});
+  }
+}
+
+
+function connectParentChannel(mode, callback=null) {
+  if (!isInFrame) {
+    return (data) => {};  // literally do nothing
+  }
+
+  const mc = new MessageChannel();
+  window.parent.postMessage(mode, '*', [mc.port2]);
+  if (callback) {
+    mc.port1.onmessage = (ev) => callback(ev.data);
+  }
+  return (data) => mc.port1.postMessage(data);
 }
 
 
@@ -137,19 +171,10 @@ class SceneApi {
     this._name = sceneName;
     this._manager = null;
 
-    let updateProgress = (ratio) => {};
-
     // This breaks the Actor model abstraction during loading, and we just post progress directly
     // to our parent (if we have one). This lets us pretend that loading is a task that just takes
     // time, and which is managed entirely by `santa-loader`.
-    const isInFrame = Boolean(window.parent);
-    if (isInFrame) {
-      // Rather than posting lots of messages, just send a single message with a MessagePort.
-      const mc = new MessageChannel();
-      window.parent.postMessage('init', '*', [mc.port2]);
-      updateProgress = (ratio) => mc.port1.postMessage(ratio);
-    }
-
+    const updateProgress = connectParentChannel('init');
     this._preload = new PreloadApi(updateProgress);
     this._preload.done.then(() => updateProgress(null));  // post null to indicate done
   }
@@ -170,7 +195,6 @@ class SceneApi {
 
   installV1Handlers() {
     const fire = (eventName, arg) => {
-      console.info('got fired', eventName, this._manager);
       if (!this._manager) {
         return;
       }
@@ -185,7 +209,7 @@ class SceneApi {
         this._manager.score(arg);
         break;
       case 'game-stop':
-        // TODO(samthor): game is stopped
+        this._manager.gameover(arg);
         break;
       }
   }
