@@ -9,10 +9,13 @@ const watchTimeout = 30 * 1000;
 /**
  * @param {string} filename of the target file
  * @param {string} content to inline within
- * @param {!Object} map to inline
+ * @param {?Object} map to inline
  * @return {string} a possibly-modified content
  */
 function inlineSourceMap(filename, content, map) {
+  if (!map) {
+    return content;
+  }
   const ext = path.extname(filename);
 
   let cstyle;
