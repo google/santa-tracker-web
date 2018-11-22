@@ -18,8 +18,6 @@ iframe {
   </style>
 </head>
 <body>
-
-  <iframe id="iframe" allow="accelerometer; autoplay; camera; fullscreen; encrypted-media; gyroscope; picture-in-picture; speaker; unsized-media" allowfullscreen></iframe>
   <script>
 
 function configureFrame() {
@@ -32,34 +30,45 @@ function configureFrame() {
   if (!m) {
     throw new Error(`couldn't match static path: ${staticPath}`);
   }
+
+  const iframe = document.createElement('iframe');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; camera; fullscreen; encrypted-media; gyroscope; picture-in-picture; speaker; unsized-media');
+  iframe.setAttribute('allowfullscreen', '');
+  console.info('setting inner frame src', iframe.src);
   iframe.src = `${m[1]}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html`;
+  document.body.appendChild(iframe);
+  return iframe;
 }
 
-function post(port, type, data) {
+function post(port, message) {
   if (port) {
-    port.postMessage(JSON.stringify({type, data}));
+    if (typeof message !== 'string') {
+      message = JSON.stringify(message);
+    }
+    port.postMessage(message);
   }
 }
 
 async function run() {
   const embedPort = await matchWindowMessage((ev) => {
-    if (ev.data === 'santaandroid') {
+    // nb. data should be 'santaandroid'
+    if (ev.ports && ev.ports[0]) {
+      console.info('got port from', ev.source);
       return ev.ports[0];
     }
   });
 
-  const gamePortPromise = matchWindowMessage((ev) => {
+  const iframe = await configureFrame();
+  const gamePort = await matchWindowMessage((ev) => {
     if (ev.source === iframe.contentWindow && ev.data === 'game') {
       return ev.ports[0];
     }
   });
-  await configureFrame();  // configure after waiting for port
-
-  const gamePort = await gamePortPromise;  // implies ready
 
   embedPort.onmessage = (ev) => {
+    console.debug('got data from embed', ev.data);
     switch (ev.data) {
-      // TODO: lazy-load Klang frame
+      // TODO: lazy-load Klang frame if unmuted
       case 'unmute':
         break;
       case 'mute':
@@ -68,23 +77,23 @@ async function run() {
         gamePort.postMessage(ev.data);
     }
   };
-  gamePort.onmessage = (ev) => {
-    let data = ev.data;
-    if (typeof data !== 'string') {
-      data = JSON.stringify(data);
-    }
-    embedPort.postMessage(data);
-  };
 
-  // TODO: get pause screen status from game
-  post(embedPort, 'onready', {hasPauseScreen: true});
+  gamePort.onmessage = (ev) => {
+    console.info('posting to embed', ev.data);
+    post(embedPort, ev.data);
+  };
 }
 
+
+/**
+ * @param {function(!Event): ?MessagePort} check to run
+ * @return {!Promise<!MessagePort>}
+ */
 function matchWindowMessage(check) {
   return new Promise((resolve) => {
     const handler = (ev) => {
       const out = check(ev);
-      if (out !== undefined) {
+      if (out != null) {
         resolve(out);
         window.removeEventListener('message', handler);
       }
@@ -98,8 +107,6 @@ run().catch((err) => {
   throw err;
 });
 
-
   </script>
-
 </body>
 </html>
