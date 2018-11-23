@@ -72,6 +72,9 @@ export function drawBody(body, ctx) {
  * of the bodies is important. Provide any 2D context styles as a dict/map on body1.style.
  *
  * The first shape attached to p2 bodies is used, and these must be p2.Box instances.
+ *
+ * Shapes positioned by the physics system have pivots defined in the constraints. When we position
+ * shapes by pose, we need to account for these offsets, via the 'offset' property on the body.
  */
 export function drawCurve(body1, body2, ctx) {
   // Convenient shape aliases
@@ -90,7 +93,7 @@ export function drawCurve(body1, body2, ctx) {
 
   // Start of first shape
   const x1 = cx1 - Math.sin(theta1) * s1.height/2;
-  const y1 = cy1 + Math.cos(theta1) * s1.height/2;
+  const y1 = cy1 + Math.cos(theta1) * s1.height/2 - body1.offset;
   // End of second shape
   const x2 = cx2 + Math.sin(theta2) * s2.height/2;
   const y2 = cy2 - Math.cos(theta2) * s2.height/2;

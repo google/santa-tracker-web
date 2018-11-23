@@ -8,6 +8,7 @@ const
     neckLength = 0.1,
     torsoLength = 5,
     shoulderWidth = torsoLength * 0.7,
+    torsoJointOffset = 0.7,  // distance from outside of torso img the legs/arms should attach.
     armLength = torsoLength,
     armWidth = armLength / 3,
     handLength = 1.5,
@@ -92,7 +93,7 @@ export class Elf {
     p2World.addBody(this.leftArm);
 
     this.leftShoulder = new p2.RevoluteConstraint(this.torso, this.leftArm, {
-      localPivotA: [shoulderWidth/2, torsoLength/2],
+      localPivotA: [shoulderWidth/2 - torsoJointOffset, torsoLength/2],
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
@@ -116,8 +117,9 @@ export class Elf {
     this.leftArm.curveWith = this.leftForeArm;
     this.leftForeArm.curveWith = false;
     this.leftArm.style = lineStyle;
+    this.leftArm.offset = torsoJointOffset;
 
-    this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
+        this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
       localPivotA: [0, -armLength/4],
       localPivotB: [0, armLength/4],
       collideConnected: false,
@@ -140,7 +142,7 @@ export class Elf {
     p2World.addBody(this.rightArm);
 
     this.rightShoulder = new p2.RevoluteConstraint(this.torso, this.rightArm, {
-      localPivotA: [-shoulderWidth/2, torsoLength/2],
+      localPivotA: [-shoulderWidth/2 + torsoJointOffset, torsoLength/2],
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
@@ -164,6 +166,7 @@ export class Elf {
     this.rightArm.curveWith = this.rightForeArm;
     this.rightForeArm.curveWith = false;
     this.rightArm.style = lineStyle;
+    this.rightArm.offset = torsoJointOffset;
 
     this.rightElbow = new p2.RevoluteConstraint(this.rightArm, this.rightForeArm, {
       localPivotA: [0, -armLength/4],
@@ -250,9 +253,10 @@ export class Elf {
     this.leftLeg.curveWith = this.leftCalf;
     this.leftCalf.curveWith = false;
     this.leftLeg.style = lineStyle;
+    this.leftLeg.offset = -torsoJointOffset;
 
     this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
-      localPivotA: [shoulderWidth/2, -torsoLength/2],
+      localPivotA: [shoulderWidth/2 - torsoJointOffset, -torsoLength/2],
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
@@ -321,9 +325,10 @@ export class Elf {
     this.rightLeg.curveWith = this.rightCalf;
     this.rightCalf.curveWith = false;
     this.rightLeg.style = lineStyle;
+    this.rightLeg.offset = -torsoJointOffset;
 
     this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
-      localPivotA: [-shoulderWidth/2, -torsoLength/2],
+      localPivotA: [-shoulderWidth/2 + torsoJointOffset, -torsoLength/2],
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
