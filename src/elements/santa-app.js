@@ -51,7 +51,6 @@ export class SantaAppElement extends LitElement {
 
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
     this.adapter.subscribe((state) => {
-      this._selectedScene = state.selectedScene;
       this._activeScene = state.activeScene;
       this._loadAttempt = state.loadAttempt;
       this._loadProgress = state.loadProgress;
@@ -60,6 +59,15 @@ export class SantaAppElement extends LitElement {
       this._todayHouse = state.todayHouse;
       this._score = state.score;
       this._gameover = state.gameover;
+
+      // FIXME: This is a bit of a hack, as the selectedScene routes us officially back to '_video',
+      // which isn't really valid anyway.
+      const pendingSceneInfo = scenes[state.selectedScene] || {};
+      if (pendingSceneInfo.video) {
+        this._selectedScene = '_video';
+      } else {
+        this._selectedScene = state.selectedScene;
+      }
 
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });

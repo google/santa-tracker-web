@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  background: black;
+}
+#ytplayer {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+#ytplayer[hidden] {
+  visibility: hidden;
+}
+  </style>
+</head>
+<body>
+
+<script type="module">
+
+import api from '../../src/scene/api.js';
+
+const playerVars = {
+  playsinline: 1,
+  cc_load_policy: 1,
+  disablekb: 1,
+  fs: 0,
+  controls: 0,
+  modestbranding: 1,
+  showinfo: 0,
+  iv_load_policy: 3,
+  rel: 0,
+  autoplay: 0,
+  origin: window.location.hostname,
+};
+if (document.documentElement.lang) {
+  playerVars.hl = document.documentElement.lang;
+}
+
+
+// TODO: pull from querystring or similar
+const videoId = 'ZJPL56IPTjw';
+
+
+
+const apiPromise = new Promise((resolve) => {
+  // YT leaves a bunch of globals on the page, but resolve with YT anyway
+  window.onYouTubePlayerAPIReady = () => resolve(window.YT);
+  const script = document.createElement('script');
+  script.src = 'https://www.youtube.com/player_api';
+  script.onerror = (ev) => {
+    throw new Error('error loading YT API');
+  };
+  document.head.appendChild(script);
+});
+
+const playerPromise = apiPromise.then((YT) => {
+  return new Promise((resolve, reject) => {
+    const player = new YT.Player('ytplayer', {
+      videoId,
+      playerVars,
+      events: {
+        onError: (ev) => reject(ev.data),
+        onReady: (ev) => resolve(player),
+      },
+    });
+  });
+});
+
+// wait for both, so we get 50% done status
+api.preload.wait(apiPromise);
+api.preload.wait(playerPromise);
+
+api.ready(async (manager) => {
+  const player = await playerPromise;
+  const element = document.getElementById('ytplayer');
+
+  player.addEventListener('onStateChange', (ev) => {
+    if (ev.data) {
+      // video is playing or has an error
+    } else {
+      // video is finished, cue again: this mostly hides related videos
+      player.cueVideoById(videoId);
+    }
+  });
+
+  player.playVideo();
+});
+
+</script>
+
+<div id="ytplayer"></div>
+
+</body>
+</html>

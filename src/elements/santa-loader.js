@@ -20,7 +20,7 @@ function iframeForRoute(route=null, loaderSuffix='') {
   }
 
   // don't actually load "index", or URLs that aren't in the simple \w+ form
-  if (route === 'index' || !/^(|\w+)$/.exec(route)) {
+  if (route !== '_video' && (route === 'index' || !/^(|\w+)$/.exec(route))) {
     return iframe;  // ignore
   }
 
