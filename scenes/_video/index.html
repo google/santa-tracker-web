@@ -12,6 +12,8 @@ body {
 #ytplayer {
   width: 100vw;
   height: 100vh;
+  min-width: 320px;
+  min-height: 200px;
   display: block;
 }
 #ytplayer[hidden] {
@@ -46,7 +48,7 @@ if (document.documentElement.lang) {
 const videoId = window.location.search.substr(1) || '';
 
 
-
+// Load the YT API.
 const apiPromise = new Promise((resolve) => {
   // YT leaves a bunch of globals on the page, but resolve with YT anyway
   window.onYouTubePlayerAPIReady = () => resolve(window.YT);
@@ -58,6 +60,7 @@ const apiPromise = new Promise((resolve) => {
   document.head.appendChild(script);
 });
 
+// Create a new YT.Player, and wait for its onReady.
 const playerPromise = apiPromise.then((YT) => {
   return new Promise((resolve, reject) => {
     const player = new YT.Player('ytplayer', {
@@ -71,9 +74,31 @@ const playerPromise = apiPromise.then((YT) => {
   });
 });
 
-// wait for both, so we get 50% done status
+// 'seek to' zero, which starts the player, and wait for it to start.
+const startedPromise = playerPromise.then((player) => {
+  player.seekTo(0);
+
+  return new Promise((resolve) => {
+    window.setTimeout(done, 5 * 1000);  // timeout after 5s
+
+    const handler = (ev) => {
+      if (ev.data === 1) {
+        done();
+      }
+    };
+    player.addEventListener('onStateChange', handler);
+
+    // hoisted above
+    function done() {
+      player.removeEventListener('onStateChange', handler);
+      resolve();
+    }
+  });
+});
+
 api.preload.wait(apiPromise);
 api.preload.wait(playerPromise);
+api.preload.wait(startedPromise);
 
 api.ready(async (manager) => {
   const player = await playerPromise;
@@ -87,8 +112,6 @@ api.ready(async (manager) => {
       player.cueVideoById(videoId);
     }
   });
-
-  player.playVideo();
 });
 
 </script>

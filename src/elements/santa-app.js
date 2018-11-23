@@ -14,6 +14,7 @@ const loaderSuffix = document.documentElement.lang ? `${document.documentElement
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
+      _selectedScene: {type: String},
       _activeScene: {type: String},
       _loadAttempt: {type: Number},
       _loadProgress: {type: Number},
@@ -68,6 +69,7 @@ export class SantaAppElement extends LitElement {
         this._urlToLoad = null;
       }
 
+      this._selectedScene = state.selectedScene;
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
   }
@@ -77,7 +79,8 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderLoad(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: ev.detail});
+    // nb. could selectedScene be racey?
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: this._selectedScene});
   }
 
   _onLoaderProgress(ev) {
