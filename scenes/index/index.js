@@ -58,8 +58,21 @@ window.addEventListener('resize', (ev) => updateOffset());
 
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../../../src/app/common.js';
+
+const countdown = document.getElementById('countdown');
 const adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-adapter.subscribe((state) => {
-  const {api} = state;
-  console.info('got api', api, api && api.range);
+
+const initialUpdatePromise = new Promise((resolve) => {
+  adapter.subscribe((state) => {
+    const {api} = state;
+    if (!api) {
+      return;
+    }
+    const now = api.now + (+new Date - api.at);
+    countdown.time = api.range.start - now;
+  });
+  resolve();
 });
+
+
+api.preload.wait(initialUpdatePromise);

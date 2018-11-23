@@ -65,11 +65,12 @@ class SantaTrackerController extends Controller {
 
     santaApi.addEventListener('sync', (ev) => {
       const p = (async () => {
-        const [now, state, range] =
-            await Promise.all([santaApi.now, santaApi.state(), santaApi.range()]);
+        const now = santaApi.now;
+        const at = +new Date;
+        const [state, range] = await Promise.all([santaApi.state(), santaApi.range()]);
 
         santaTrackerStore.dispatch(
-            {type: SantaTrackerAction.API_SYNC_COMPLETED, payload: {now, state, range}});
+            {type: SantaTrackerAction.API_SYNC_COMPLETED, payload: {at, now, state, range}});
       })();
 
       p.catch((err) => {

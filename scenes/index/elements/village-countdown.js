@@ -17,22 +17,41 @@ export class VillageCountdownElement extends LitElement {
   static get properties() {
     return {
       time: {type: Number},
+      _now: {type: Number},
       _time: {type: Object},
-      _prev: {type: Array},
+      _prev: {type: Object},
     };
+  }
+
+  _tick() {
+    this._now = this.time + (this._timeSetAt - +new Date);
   }
 
   update(changedProperties) {
     if (changedProperties.has('time')) {
-      const timeSplit = countdownSplit(this.time);
-      this._prev = {};
+      console.info('got new time', this.time);
+      if (this.time <= 0) {
+        window.clearInterval(this._interval);
+        this._interval = 0;
+        this._now = 0;
+      } else if (!this._interval) {
+        this._now = this.time;
+        this._interval = window.setInterval(() => this._tick(), 1000);
+      }
+      this._timeSetAt = +new Date;
+    }
+
+    if (changedProperties.has('_now')) {
+      const timeSplit = countdownSplit(this._now);
+      const prev = this._prev || {};
       const lastTime = this._time || {};
       for (const k in timeSplit) {
         if (lastTime[k] !== timeSplit[k]) {
-          this._prev[k] = lastTime[k];
+          prev[k] = lastTime[k];
         }
       }
       this._time = timeSplit;
+      this._prev = prev;  // possibly dangerous, same object ref
     }
 
     super.update(changedProperties);
@@ -45,7 +64,7 @@ export class VillageCountdownElement extends LitElement {
 
   render() {
     const prev = this._prev || {};
-    const split = countdownSplit(this.time);
+    const split = this._time || {};
     const classFor = (x) => {
       return split[x] !== prev[x] && prev[x] !== undefined ? 'anim' : '';
     };
