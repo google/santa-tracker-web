@@ -57,7 +57,10 @@ export function drawBody(body, ctx) {
     }
   } else if (s instanceof p2.Circle) {
     if (s.img && s.img.complete) {
-      ctx.drawImage(s.img, -s.radius, -s.radius, 2*s.radius, 2*s.radius);
+      // Circles can be drawn by rectangular images, to do so we use 2*radius as the target width
+      // and scale the height based on the original aspect ratio.
+      const aspect = s.img.height / s.img.width;
+      ctx.drawImage(s.img, -s.radius, -s.radius, 2*s.radius, 2*s.radius * aspect);
     }
   }
   ctx.restore();

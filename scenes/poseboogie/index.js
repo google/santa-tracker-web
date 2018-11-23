@@ -23,7 +23,7 @@ const appConfig = {
 };
 
 api.preload.images(
-  'img/face.png',
+  'img/facehat.png',
   'img/body.png',
   'img/arm.png',
   'img/hand_cuff.png',
