@@ -79,6 +79,9 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderLoad(ev) {
+    // nb. grab early, so the header doesn't pop in/out
+    this._activeSceneInfo = scenes[this._selectedScene] || {};
+
     // nb. could selectedScene be racey?
     this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: this._selectedScene});
   }

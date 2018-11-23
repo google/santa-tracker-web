@@ -36,6 +36,7 @@ export const santaTrackerReducer = (state, action) => {
     case SantaTrackerAction.SCENE_ACTIVATED:
       return {
         ...state,
+        ready: true,
         activeScene: action.payload,
         loadProgress: 1,
         showError: false,

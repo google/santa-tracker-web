@@ -19,10 +19,6 @@ $order-overlay: 80;
   display: block;
 }
 
-[hidden] {
-  display: none !important;
-}
-
 main {
   min-height: 100%;
   position: absolute;
@@ -96,7 +92,7 @@ main {
   height: 2px;
   background: rgba(0, 0, 0, 0.125);
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   will-change: opacity;
 
   &:not([hidden]) {
@@ -127,7 +123,6 @@ santa-loader {
 
   iframe[hidden] {
     // this allows frames that actually need real w/h to load
-    display: block !important;  // nb. override hidden above
     min-width: 100vw;
     min-height: 100vh;
     visibility: hidden;
@@ -392,8 +387,11 @@ main.scroll {
   align-items: center;
   justify-content: center;
   z-index: $order-overlay;
-  pointer-events: none;  // TODO: revert
   background: fade-out(#6f00ff, 0.75);
+
+  &[hidden] {
+    display: none;
+  }
 
   santa-overlay {
     pointer-events: auto;

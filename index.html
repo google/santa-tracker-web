@@ -38,6 +38,8 @@
     });
 
     const entrypoint = new Entrypoint(santaApp, (sceneName) => {
+      // TODO(samthor): This fires when the scene changes, not when activated. That's great for the
+      // URL but not for the 'initial' load.
       parent({type: 'scene', payload: {sceneName, data: null}});
     });
 

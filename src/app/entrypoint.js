@@ -10,31 +10,18 @@ import {SANTA_TRACKER_CONTROLLER_URL} from './common.js';
 logger.enabled = false;
 
 
-function inferActiveScene(state) {
-  if (state.activeScene !== null) {
-    return state.activeScene;
-  }
-  return state.showError ? state.selectedScene : null;
-}
-
-
 export class Entrypoint {
   constructor(santaApp, callback) {
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
-    let hostActiveScene = null;
     let selectedScene = null;
 
     this.adapter.subscribe((state) => {
-      selectedScene = state.selectedScene;
-
-      // We still want to inform the host if our selectedScene didn't load, so infer the "active"
-      // scene if showError is true.
-      const candidateHostActiveScene = inferActiveScene(state);
-      if (hostActiveScene !== candidateHostActiveScene) {
-        hostActiveScene = candidateHostActiveScene;
-        callback(hostActiveScene);
+      if (selectedScene !== state.selectedScene) {
+        selectedScene = state.selectedScene;
+        callback(selectedScene);
       }
+      selectedScene = state.selectedScene;
 
       const {api} = state;
       if (api == null) {
