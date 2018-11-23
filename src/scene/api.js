@@ -2,9 +2,7 @@ import {Adapter} from '@polymer/broadway/lib/adapter';
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import '../polyfill/event-target.js';
-
-
-const isInFrame = window.parent && window.parent !== window;
+import * as channel from '../lib/channel.js';
 
 
 class PreloadApi {
@@ -110,7 +108,7 @@ class SceneManager extends EventTarget {
 
     this._name = sceneName;
     this._adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-    this._updateGame = connectParentChannel('game', (data) => {
+    this._updateGame = channel.parent('game', (data) => {
       // TODO(samthor): currently just used for embed.
       switch (data) {
         case 'pauseGame':
@@ -157,20 +155,6 @@ class SceneManager extends EventTarget {
 }
 
 
-function connectParentChannel(mode, callback=null) {
-  if (!isInFrame) {
-    return (data) => {};  // literally do nothing
-  }
-
-  const mc = new MessageChannel();
-  window.parent.postMessage(mode, '*', [mc.port2]);
-  if (callback) {
-    mc.port1.onmessage = (ev) => callback(ev.data);
-  }
-  return (data) => mc.port1.postMessage(data);
-}
-
-
 /**
  * Scene API helper which exposes a `.preload` property to scenes which allows preloading assets
  * as part of traditional 'loading' before the Controller is activated.
@@ -191,7 +175,7 @@ class SceneApi {
     // This breaks the Actor model abstraction during loading, and we just post progress directly
     // to our parent (if we have one). This lets us pretend that loading is a task that just takes
     // time, and which is managed entirely by `santa-loader`.
-    const updateProgress = connectParentChannel('init');
+    const updateProgress = channel.parent('init');
     this._preload = new PreloadApi(updateProgress);
     this._preload.done.then(() => updateProgress(null));  // post null to indicate done
   }

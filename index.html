@@ -17,51 +17,28 @@
   <santa-app id="santaApp"></santa-app>
   <script type="module">
     import './src/elements.js';
+    import * as channel from './src/lib/channel.js';
     import {Entrypoint} from './src/app/entrypoint.js';
     import * as route from './src/route.js';
 
     const params = new URLSearchParams(window.location.search);
-    const initialScene = params.get('scene');
-
     const scope = params.get('scope');
     if (scope !== null) {
       document.body.setAttribute('data-scope', scope);
     }
 
-    const callback = (function() {
-      if (!window.parent || window.parent === window) {
-        // not in a frame, probably during dev
-        return () => {};
+    const load = (sceneName) => entrypoint.load(sceneName);
+    const parent = channel.parent('init', (data) => {
+      switch (data && data.type) {
+        case 'go':
+          load(data.payload.sceneName);
+          break;
       }
+    });
 
-      const mc = new MessageChannel();
-      const port = mc.port1;
-      let pendingPort = mc.port2;
-
-      port.onmessage = (ev) => {
-        switch (ev.data && ev.data.type) {
-          case 'go':
-            load(ev.data.payload);
-            break;
-        }
-      };
-
-      return (sceneName) => {
-        if (pendingPort) {
-          // on the first callback, tell the parent that we're alive
-          window.parent.postMessage('init', '*', [pendingPort]);
-          pendingPort = null;
-        }
-        port.postMessage({type: 'scene', payload: sceneName});
-      };
-    }());
-
-    const entrypoint = new Entrypoint(santaApp, callback);
-    // nb. load must be hoisted so port.onmessage can invoke it above
-    function load(sceneName) {
-      entrypoint.load(sceneName);
-    }
-    entrypoint.load(initialScene);
+    const entrypoint = new Entrypoint(santaApp, (sceneName) => {
+      parent({type: 'scene', payload: sceneName});
+    });
 
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);
