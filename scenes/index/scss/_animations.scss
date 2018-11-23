@@ -1,0 +1,87 @@
+@keyframes easteregg-walrus {
+    0%, 100% {
+      transform: translateY(100%);
+    }
+    40%, 50% {
+      transform: translateY(0%);
+    }
+  }
+  
+  @keyframes easteregg-seesaw {
+    0%, 100% {
+      transform: rotateZ(-17deg);
+    }
+    50% {
+      transform: rotateZ(17deg);
+    }
+  }
+  
+  
+  @keyframes easteregg-swing {
+    0%, 20%, 40%, 60%, 100% {
+      transform: rotateZ(0);
+    }
+    10%, 30%, 50%, 70% {
+      transform: rotateZ(100deg);
+    }
+    99% {
+      transform: rotateZ(-360deg);
+    }
+    99.001% {
+      transform: rotateZ(0);
+    }
+  }
+  
+  @keyframes easteregg-slide {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    40%, 100% {
+      transform: translateX(50px) translateY(34px);
+    }
+  }
+  
+  // TODO(samthor): We may not be able to animate in terms of 'vw'.
+  
+  @keyframes easteregg-plane {
+    /**
+     * Delay the plane on either side of the screen. The speed is only 20% of the
+     * total speed, so most of the time the plane is just chillin'.
+     */
+    0%, 80% { transform: translate(-100vw); }
+    100%    { transform: translate(+200vw); }
+  }
+  
+  @keyframes easteregg-bounce {
+    0% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(0);
+    }
+  
+    63% {
+      transform: translateY(-7px);
+    }
+  
+    67% {
+      transform: translateY(0px);
+    }
+  
+    70% {
+      transform: translateY(0);
+    }
+  
+    83% {
+      transform: translateY(-7px);
+    }
+  
+    87% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }  

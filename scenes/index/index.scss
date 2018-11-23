@@ -1,3 +1,5 @@
+@import "scss/animations";
+
 $header-size: 791px;
 $onpage-size: 325px;
 $snow-color: #f5f2e2;
@@ -53,6 +55,17 @@ body {
     height: 100%;
   }
 
+  .road {
+    width: 100%;
+    background: url(img/road.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: $header-size;
+    background-position: calc(50% - -29px) -587px;
+    background-size: 3765px auto;
+    height: 100%;
+  }
+
   .mid {
     width: 0;
     position: absolute;
@@ -67,6 +80,177 @@ body {
       background: url(img/easteregg-tree.svg) no-repeat;
       background-size: contain;
     }
+
+    .easteregg {
+      position: absolute;
+      background-size: contain;
+    }
+
+    #easteregg-blocks {
+      top: 690px;
+      left: -332px;
+      background: url(img/easteregg-blocks.svg) no-repeat;
+      width: 360px;
+      height: 150px
+    }
+
+    #easteregg-statue {
+      top: 170px;
+      left: -350px;
+      width: 287px;
+      height: 171px;
+      background: url(img/easteregg-statue.svg) no-repeat;
+    }
+
+    #easteregg-walrus {
+      top: 940px;
+      left: 270px;       
+      width: 22px;
+      height: 19px;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/easteregg-walrus.svg);
+        animation: easteregg-walrus 3s ease infinite;
+      }
+    }
+
+    #easteregg-penguin-revolt {
+      top: 650px;
+      left: 150px;
+      width: 174px;
+      height: 55px;
+      background: url(img/easteregg-penguin-revolt.svg) no-repeat;
+    }
+
+    #easteregg-snowman-reading {
+      top: 360px;
+      left: -820px;
+      width: 571px;
+      height: 237px;
+      background: url(img/easteregg-snowman-reading.svg) no-repeat;
+    }
+
+    #easteregg-rosetta-stone {
+      top: 50px;
+      left: 1050px;
+      width: 117px;
+      height: 96px;
+      background: url(img/easteregg-rosetta-stone.svg) no-repeat;
+    }
+
+    #easteregg-white-board {
+      top: 210px;
+      left: 260px;
+      width: 121px;
+      height: 62px;
+      background: url(img/easteregg-white-board.svg) no-repeat;
+    }
+
+    #easteregg-schoolyard {
+      top: -100px;
+      left: -820px;
+      width: 434px;
+      height: 160px;
+      background: url(img/easteregg-schoolyard.svg) no-repeat;
+
+      .seesaw {
+        position: absolute;
+        width: 58px;
+        height: 30px;
+        left: 219px;
+        top: 99px;
+        background-repeat: no-repeat;
+        background-image: url(img/seesaw.svg);
+        transform-origin: 50% 80%;
+        will-change: transform;
+        animation: easteregg-seesaw 3s ease infinite;
+      }
+  
+      .slide {
+        position: absolute;
+        width: 15px;
+        height: 27px;
+        background-repeat: no-repeat;
+        background-image: url(img/slide.svg);
+        top: 68px;
+        left: 341px;
+        will-change: transform;
+        animation: easteregg-slide 4s ease infinite;
+      }
+  
+      .swing {
+        position: absolute;
+        width: 27px;
+        height: 29px;
+        transform-origin: 0 0;
+        left: 310px;
+        top: 61px;
+        background-repeat: no-repeat;
+        background-image: url(img/swing.svg);
+        will-change: transform;
+        animation: easteregg-swing 10s ease-in-out infinite;
+      }
+    }
+
+    #easteregg-book-club {
+      top: 310px;
+      left: 110px;
+      width: 90px;
+      height: 97px;
+      background: url(img/easteregg-book-club.svg) no-repeat;
+    }
+
+    #easteregg-tictactoe {
+      top: -70px;
+      left: 230px;
+      width: 475px;
+      height: 150px;
+      background: url(img/easteregg-tictactoe.svg) top left no-repeat;
+      background-size: 447px;
+
+      @import "scss/tictactoe";
+    }
+
+    #easteregg-snowmobile1 {
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      background: url(img/easteregg-snowmobile1.svg) no-repeat;
+    }
+
+    #easteregg-snowmobile2 {
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+    }
+
+    #easteregg-snowmobile3 {
+    }
+
+    #easteregg-snowmobile4 {
+    }
+
+    #easteregg-unicycle {
+      top: 420px;
+      left: -170px;
+      width: 21px;
+      height: 57px;
+      background: url(img/easteregg-unicycle.svg) no-repeat;
+    }
+
+    /*#easteregg-wrangler {
+      top: $header-size;
+      left: 0;        0     0     700   2250,
+    #easteregg-balloon {
+      top: $header-size;
+      left: 0;*/
   }
 }
 
@@ -103,5 +287,5 @@ body {
       transform: translateY(-10px);
       transition: transform 0.2s;
     }  
-}
+  }
 }
