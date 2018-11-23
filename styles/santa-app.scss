@@ -118,10 +118,18 @@ santa-loader {
   position: relative;
 
   iframe {
+    display: block !important;  // nb. override hidden above
     border: 0;
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+
+  iframe[hidden] {
+    // this allows frames that actually need real w/h to load
+    min-width: 100vw;
+    min-height: 100vh;
+    visibility: hidden;
   }
 }
 
@@ -350,7 +358,10 @@ main.scroll {
   }
 
   &:not([hidden]) ~ santa-loader {
-    display: none;
+    // santa-loader should be hidden, but not `display: none` during loads
+    visibility: hidden;
+    flex-shrink: 1;
+    flex-grow: 0;
   }
 
   @media (max-height: 400px) {

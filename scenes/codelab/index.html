@@ -155,11 +155,32 @@ specific language governing permissions and limitations under the License.
       import api from '../../src/scene/api.js';
       import Game from './codelab-scene.min.js';
 
+      api.preload.sounds('computer_load_sounds', 40);
+      api.preload.images(
+        'img/block-east.svg',
+        'img/block-jump.svg',
+        'img/block-left.svg',
+        'img/block-north.svg',
+        'img/block-repeat.svg',
+        'img/block-right.svg',
+        'img/block-south.svg',
+        'img/block-west.svg',
+        'img/jigsaw.png',
+        'img/jump.svg',
+        'img/madewithcode.svg',
+        'img/puzzle-1.png',
+        'img/puzzle-2.png',
+        'img/media/sprites.png',
+      );
+
       api.installV1Handlers();
       const game = new Game(document.getElementById('module-codelab'));
 
       api.ready(async (manager) => {
         // nothing to do
+
+        // this.fire('sound-ambient', 'music_start_scene');
+        // this.fire('sound-ambient', 'computer_end');
       });
     </script>
 
