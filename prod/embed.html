@@ -52,8 +52,7 @@ function post(port, message) {
 async function run() {
   const embedPort = await matchWindowMessage((ev) => {
     // nb. data should be 'santaandroid'
-    if (ev.ports && ev.ports[0]) {
-      console.info('got port from', ev.source);
+    if (ev.source === null && ev.ports && ev.ports[0]) {
       return ev.ports[0];
     }
   });
@@ -70,18 +69,17 @@ async function run() {
     switch (ev.data) {
       // TODO: lazy-load Klang frame if unmuted
       case 'unmute':
+        console.debug('TODO: unmute sound');
         break;
       case 'mute':
+        console.debug('TODO: mute sound');
         break;
       default:
         gamePort.postMessage(ev.data);
     }
   };
 
-  gamePort.onmessage = (ev) => {
-    console.info('posting to embed', ev.data);
-    post(embedPort, ev.data);
-  };
+  gamePort.onmessage = (ev) => post(embedPort, ev.data);
 }
 
 

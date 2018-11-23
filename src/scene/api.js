@@ -1,6 +1,7 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
+import '../polyfill/event-target.js';
 
 
 const isInFrame = window.parent && window.parent !== window;
@@ -103,22 +104,33 @@ class PreloadApi {
 }
 
 
-class SceneManager {
-  constructor(sceneName) {
+class SceneManager extends EventTarget {
+  constructor(sceneName, opts) {
+    super();
+
     this._name = sceneName;
     this._adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
     this._updateGame = connectParentChannel('game', (data) => {
+      // TODO(samthor): currently just used for embed.
       switch (data) {
         case 'pauseGame':
+          this.dispatchEvent(new Event('pause'));
           break;
         case 'resumeGame':
+          this.dispatchEvent(new Event('resume'));
           break;
         case 'restartGame':
+          this.dispatchEvent(new Event('restart'));
           break;
+        default:
+          console.debug('got unhandled embed data', data);
       }
     });
 
-    this._updateGame({type: 'onready', data: {hasPauseScreen: true}});
+    const data = {
+      hasPauseScreen: Boolean(opts.hasPauseScreen),
+    };
+    this._updateGame({type: 'onready', data});
   }
 
   route(sceneName) {
@@ -186,11 +198,12 @@ class SceneApi {
 
   /**
    * @param {function(): !Promise<undefined>} fn 
+   * @param {{hasPauseScreen: boolean}=}
    */
-  async ready(fn) {
+  async ready(fn, opts={}) {
     await this._preload.done;
 
-    this._manager = new SceneManager(this._name);
+    this._manager = new SceneManager(this._name, opts);
     await fn(this._manager);
   }
 

@@ -77,9 +77,11 @@
   const game = new Game(document.getElementById('module-boatload'));
 
   api.ready(async (manager) => {
-    // TODO(samthor): hook up play/pause global state.
     game.start();
-  });
+    manager.addEventListener('pause', (ev) => game.pause());
+    manager.addEventListener('resume', (ev) => game.resume());
+    manager.addEventListener('restart', (ev) => game.restart());
+}, {hasPauseScreen: true});
 
 </script>
 
