@@ -60,6 +60,7 @@ export const klang = new Promise((resolve) => {
 
     // Save Klang, and return it here anyway.
     localKlang = window.Klang;
+
     return window.Klang;
   };
   resolve(fn());
@@ -83,6 +84,9 @@ function triggerEvent(event) {
   return new Promise((resolve, reject) => {
     // If Klang invokes the progress callback, then wait for the complete callback to resolve,
     // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
+
+    // I've added a triggerLoadEvent function for the loadEvents which are the events using callbacks, 
+    // so not sure we need this timeout? /Andreas (plan8)
     const timeout = window.setTimeout(() => resolve(), 0);
     const progress = () => {
       window.clearTimeout(timeout);  // progress called, expect later resolve()
@@ -91,6 +95,41 @@ function triggerEvent(event) {
   });
 }
 
+/**
+ * Internal call to trigger a waitable event on Klang. Assumes Klang is available in `localKlang`.
+ * Klang is unhappy when multiple waitable events are in-flight, so this is intended to be called
+ * in a serial manner from `fire`.
+ *
+ * @param {string} event to fire
+ * @return {!Promise<boolean>}
+ */
+function triggerLoadEvent(event) {
+  return new Promise((resolve, reject) => {
+
+    const progress = () => {};
+
+    localKlang.triggerEvent(event, resolve, progress, reject);
+  });
+
+}
+/**
+ * Trigger an LOAD event on Klang. This is used for sound preload. 
+ * Load events contains the string "load_sounds" in the event name.
+ * Events are rate-limited so at most one event is dispatched per frame.
+ *
+ * @param {string} event to fire
+ * @return {!Promise<void>}
+ */
+export function loadSounds(event) {
+  
+  const localTask = klangEventTask.then(async () => {
+    await triggerLoadEvent(event);
+    await Promise.resolve(true);  // wait microtask
+  });
+  klangEventTask = localTask;
+  return localTask;
+
+}
 
 /**
  * Trigger an event on Klang. This is used for sound preload and ambient sounds. Events are
@@ -100,6 +139,7 @@ function triggerEvent(event) {
  * @return {!Promise<void>}
  */
 export function fire(event) {
+  
   const localTask = klangEventTask.then(async () => {
     await triggerEvent(event);
     await Promise.resolve(true);  // wait microtask

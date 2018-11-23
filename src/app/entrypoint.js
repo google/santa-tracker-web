@@ -76,9 +76,9 @@ export class Entrypoint {
 
   async startDefaultMusic() {
     // Most Klang sounds won't start unless the preload event has been explicitly waited for.
-    await sc.fire('village_load_sounds');
-    await sc.fire('music_start_village');
-    await sc.ambient('village_start', 'village_end');
+    await sc.loadSounds('village_load_sounds');
+    sc.ambient('music_start_village');
+    sc.fire('village_start', 'village_end');
   }
 
   syncVisibility() {
