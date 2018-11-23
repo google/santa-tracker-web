@@ -24,6 +24,7 @@ const appConfig = {
   smoothLimbs: true,
   humanSize: 1,
   quadraticElbows: true,
+  multiPoseMode: false,
 };
 
 api.preload.images(
@@ -92,6 +93,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'smoothLimbs');
   gui.add(appConfig, 'humanSize').min(minHumanSize).max(maxHumanSize).step(humanSizeStep).listen();
   gui.add(appConfig, 'quadraticElbows');
+  gui.add(appConfig, 'multiPoseMode');
 }
 
 /**

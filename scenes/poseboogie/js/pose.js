@@ -17,8 +17,16 @@ export function detectAndDrawPose(videoConfig, appConfig) {
       return;
     }
 
-    const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
-        appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
+    let poses = [];
+    if (appConfig.multiPoseMode) {
+      // TODO(markmcd): wire up the nmsRadius and maxPoses to UI?
+      poses = await videoConfig.net.estimateMultiplePoses(videoConfig.video,
+          appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
+    } else {
+      const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
+          appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
+      poses.push(pose);
+    }
 
     ctx.clearRect(0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
 
@@ -29,9 +37,11 @@ export function detectAndDrawPose(videoConfig, appConfig) {
     ctx.drawImage(videoConfig.video, 0, 0, videoConfig.videoWidth, videoConfig.videoHeight);
     ctx.restore();
 
-    // Draw the resulting skeleton and key-points if over certain confidence scores
-    drawKeypoints(pose.keypoints, appConfig.minPartConfidence, ctx);
-    drawSkeleton(pose.keypoints, appConfig.minPartConfidence, ctx);
+    // Draw the resulting skeletons and key-points if over certain confidence scores
+    poses.forEach((pose) => {
+      drawKeypoints(pose.keypoints, appConfig.minPartConfidence, ctx);
+      drawSkeleton(pose.keypoints, appConfig.minPartConfidence, ctx);
+    });
 
     window.requestAnimationFrame(poseDetectionFrame);
   }
