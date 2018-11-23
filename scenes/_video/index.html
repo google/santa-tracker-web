@@ -43,8 +43,7 @@ if (document.documentElement.lang) {
 }
 
 
-// TODO: pull from querystring or similar
-const videoId = 'ZJPL56IPTjw';
+const videoId = window.location.search.substr(1) || '';
 
 
 

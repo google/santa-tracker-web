@@ -2,35 +2,8 @@
 const EMPTY_PAGE = 'data:text/html;base64,';
 
 
-function iframeForRoute(route=null, loaderSuffix='') {
-  const iframe = document.createElement('iframe');
-  iframe.src = EMPTY_PAGE;
-
-  if (route == null || typeof route !== 'string') {
-    return iframe;
-  }
-
-  try {
-    // this is a real URL; it's not clear these are supported yet
-    const url = new URL(route);
-    iframe.src = url.toString();
-    return iframe;
-  } catch (e) {
-    // ignore
-  }
-
-  // don't actually load "index", or URLs that aren't in the simple \w+ form
-  if (route !== '_video' && (route === 'index' || !/^(|\w+)$/.exec(route))) {
-    return iframe;  // ignore
-  }
-
-  iframe.src = `./scenes/${route || 'index'}/${loaderSuffix}`;;
-  return iframe;
-}
-
-
-// This controls the time a scene is allowed to preload. After this point, it is made visible
-// regardless of whether it has reported success.
+// This controls the time a URL is allowed to preload. After this point, it is made visible
+// regardless of whether it has reported back with an 'init' call.
 const SCENE_PRELOAD_TIMEOUT = 10 * 1000;
 
 
@@ -39,11 +12,11 @@ class SantaLoaderElement extends HTMLElement {
     super();
     this._onMessage = this._onMessage.bind(this);
 
-    this._selectedScene = null;
+    this._targetUrl = null;
     this._loadAttempt = 0;
-    this._loaderSuffix = '';
 
-    this._activeFrame = iframeForRoute();
+    this._activeFrame = document.createElement('iframe');
+    this._activeFrame.src = EMPTY_PAGE;
     this._preloadFrame = null;
     this._preloadResolve = null;
     this._preloadPromise = Promise.resolve(null);
@@ -70,10 +43,11 @@ class SantaLoaderElement extends HTMLElement {
     src && src(ev);
   }
 
-  _preloadScene(route) {
+  _preloadUrl(url) {
     this._maybeStopPreload('cancelled');
 
-    const pf = iframeForRoute(route, this._loaderSuffix);
+    const pf = document.createElement('iframe');
+    pf.src = url || EMPTY_PAGE;
     if (this._activeFrame.src === pf.src) {
       // nothing to do, we're already loaded for some reason
       return this._preloadPromise;
@@ -86,7 +60,7 @@ class SantaLoaderElement extends HTMLElement {
   
     // fail on unhandled contentWindow error
     pf.contentWindow.addEventListener('error', (ev) => {
-      console.warn('contained frame got error', route, ev);
+      console.warn('contained frame got error', url, ev);
       this._fail(pf, ev.message);
     });
 
@@ -103,10 +77,10 @@ class SantaLoaderElement extends HTMLElement {
       cleanupMessageHandler();
       frameInitReceived = true;
 
-      // after ~timeout, just open the scene anyway (slow connection?)
+      // after ~timeout, just open the URL anyway (slow connection?)
       window.setTimeout(() => {
-        if (this._upgradePreload(pf, route)) {
-          console.debug('started', route, 'due to timeout');
+        if (this._upgradePreload(pf, url)) {
+          console.debug('started', url, 'due to timeout');
         }
       }, SCENE_PRELOAD_TIMEOUT);
 
@@ -114,7 +88,7 @@ class SantaLoaderElement extends HTMLElement {
       const preloadPort = ev.ports[0];
       preloadPort.onmessage = (ev) => {
         if (ev.data === null) {
-          this._upgradePreload(pf, route);  // null indicates done
+          this._upgradePreload(pf, url);  // null indicates done
         } else {
           this.dispatchEvent(new CustomEvent('progress', {detail: ev.data}));
         }
@@ -134,7 +108,7 @@ class SantaLoaderElement extends HTMLElement {
     const p = new Promise((resolve) => {
       this._preloadResolve = resolve;
     });
-    return this._preloadPromise = p.then(() => route);
+    return this._preloadPromise = p.then(() => url);
   }
 
   /**
@@ -172,10 +146,10 @@ class SantaLoaderElement extends HTMLElement {
 
   /**
    * @param {!HTMLIFrameElement} pf that should be matched to upgrade
-   * @param {string} route being loaded, to announce via event
+   * @param {string} url being loaded, to announce via event
    * @return {boolean} whether the preload was upgraded
    */
-  _upgradePreload(pf, route) {
+  _upgradePreload(pf, url) {
     if (this._preloadFrame !== pf) {
       return false;
     }
@@ -191,7 +165,7 @@ class SantaLoaderElement extends HTMLElement {
     this._preloadFrame = null;
     this._preloadResolve = null;
 
-    this.dispatchEvent(new CustomEvent('load', {detail: route}));
+    this.dispatchEvent(new CustomEvent('load', {detail: url}));
     this._onFrameScroll();
     return true;
   }
@@ -218,23 +192,23 @@ class SantaLoaderElement extends HTMLElement {
     this._onFrameScrollNotify = true;
   }
 
-  _loadSelectedScene() {
+  _loadTargetUrl() {
     // nb. This delays by a microtask because otherwise some side-effects in santa-app don't occur.
-    const preloadScene = Promise.resolve().then(() => this._preloadScene(this._selectedScene));
+    const preloadUrl = Promise.resolve().then(() => this._preloadUrl(this._targetUrl));
 
     // if callers fetch preload now, they'll wait until the next tick
-    this._preloadPromise = preloadScene.then(() => this._preloadPromise);
+    this._preloadPromise = preloadUrl.then(() => this._preloadPromise);
   }
 
-  set selectedScene(v) {
-    if (this._selectedScene !== v) {
-      this._selectedScene = v;
-      this._loadSelectedScene();
+  set targetUrl(v) {
+    if (this._targetUrl !== v) {
+      this._targetUrl = v;
+      this._loadTargetUrl();
     }
   }
 
-  get selectedScene() {
-    return this._selectedScene;
+  get targetUrl() {
+    return this._targetUrl;
   }
 
   set loadAttempt(v) {
@@ -247,20 +221,12 @@ class SantaLoaderElement extends HTMLElement {
 
     this._preloadPromise.catch((err) => {
       // This is a bit racey, but at worst it'll attempt to reload a different failed scene.
-      this._loadSelectedScene();
+      this._loadTargetUrl();
     });
   }
 
   get loadAttempt() {
     return this._loadAttempt;
-  }
-
-  set loaderSuffix(v) {
-    this._loaderSuffix = v;
-  }
-
-  get loaderSuffix() {
-    return this._loaderSuffix;
   }
 }
 

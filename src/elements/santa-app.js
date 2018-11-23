@@ -8,11 +8,13 @@ import * as route from '../route.js';
 import scenes from '../../scenes.json5.js';
 
 
+const loaderSuffix = document.documentElement.lang ? `${document.documentElement.lang}.html` : '';
+
+
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
       _activeScene: {type: String},
-      _selectedScene: {type: String},
       _loadAttempt: {type: Number},
       _loadProgress: {type: Number},
       _showError: {type: Boolean},
@@ -24,6 +26,8 @@ export class SantaAppElement extends LitElement {
       _activeSceneInfo: {type: Object},
       _score: {type: Object},
       _gameover: {type: Boolean},
+
+      _urlToLoad: {type: String},
     };
   }
 
@@ -32,12 +36,6 @@ export class SantaAppElement extends LitElement {
     this._idPrefix = prefix.id();
     this._activeSceneInfo = {};
     this._score = {};
-
-    // TODO(samthor): This could be part of global state.
-    this._loaderSuffix = '';
-    if (document.documentElement.lang) {
-      this._loaderSuffix = `${document.documentElement.lang}.html`;
-    }
 
     this.shadowRoot.addEventListener('keydown', (ev) => {
       const t = ev.target;
@@ -60,13 +58,14 @@ export class SantaAppElement extends LitElement {
       this._score = state.score;
       this._gameover = state.gameover;
 
-      // FIXME: This is a bit of a hack, as the selectedScene routes us officially back to '_video',
-      // which isn't really valid anyway.
       const pendingSceneInfo = scenes[state.selectedScene] || {};
       if (pendingSceneInfo.video) {
-        this._selectedScene = '_video';
+        this._urlToLoad = `./scenes/_video/${loaderSuffix}?${pendingSceneInfo.video}`;
+      } else if (state.selectedScene !== null) {
+        const sceneName = state.selectedScene || 'index';
+        this._urlToLoad = `./scenes/${sceneName}/${loaderSuffix}`;
       } else {
-        this._selectedScene = state.selectedScene;
+        this._urlToLoad = null;
       }
 
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
@@ -174,9 +173,8 @@ export class SantaAppElement extends LitElement {
     <p>${_msg`tilt`}</p>
   </div>
   <santa-loader
-      .selectedScene="${this._selectedScene}"
+      .targetUrl="${this._urlToLoad}"
       .loadAttempt="${this._loadAttempt}"
-      .loaderSuffix="${this._loaderSuffix}"
       @progress=${this._onLoaderProgress}
       @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}
