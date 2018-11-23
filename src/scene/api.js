@@ -49,7 +49,7 @@ class PreloadApi {
     }
     ++this._total;
 
-    p.catch((err) => console.warn('preload error', err)).then(() => {
+    p.catch((err) => console.warn('preload error', err, err.target)).then(() => {
       ++this._done;
 
       const ratio = this._done / this._total;
@@ -232,7 +232,10 @@ class SceneApi {
       }
   }
 
-    window.santaApp = {fire};
+    window.santaApp = {
+      fire,
+      headerSize: 0,
+    };
     window.ga = function() {
       // TODO(samthor): log GA events
     };

@@ -63,6 +63,8 @@ $jscomp.inherits = function(c, p) {
   Object.setPrototypeOf(c, p);
 };
 
+goog.inherits = $jscomp.inherits;
+
 $jscomp.arrayIteratorImpl = function(array) {
   var index = 0;
   return function() {
