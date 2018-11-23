@@ -6,6 +6,7 @@ $snow-color: #f5f2e2;
 
 body {
   margin: 0;
+  font-family: 'Roboto', 'Arial', 'Sans-Serif';
 }
 
 #village-container {
@@ -44,8 +45,15 @@ body {
     background-size: 1620px 791px;
     width: 100%;
     height: $header-size;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    village-countdown {
+      margin-top: 42px;
+    }
   }
-    
+
   .ground {
     width: 100%;
     background: url(img/ground.svg);

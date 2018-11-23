@@ -1,0 +1,117 @@
+$tick-time: 0.6s;  // time for number to tick over
+
+:host {
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+h2 {
+  letter-spacing: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 1px 0;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+  color: white;
+
+  > h2 {
+    margin-bottom: 6px;
+  }
+}
+
+.counter {
+  display: flex;
+  user-select: none;
+
+  // nb: we expand #counter up/down so that its layer can include the animation, otherwise the
+  // outer element (or at worst, the page) needs rerendering.
+  $overflow: 100px / 2;  // TODO(samthor): We assume box is max 100px.
+  margin: -($overflow) 0;
+  padding: $overflow 0;
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+}
+
+$timer-box-size: 77px;
+$timer-font-size: 34px;
+
+.counter-box {
+  width: $timer-box-size;
+  height: $timer-box-size;
+  position: relative;
+  margin: 0 2px;
+
+  &::before {
+    content: '';
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yNTYgMzQ3LjYgOTguNCA5OC40Ij48cGF0aCBmaWxsPSIjOThlZGY3IiBkPSJNLTE5NC40IDM1Ni4yYzMuMS4xIDYtLjEgOC43LS40IDUuNC0uNiAxMi40LTEuMyAxNi41IDMuNCA0LjcgNC4xIDQuMSAxMSAzLjQgMTYuNS0uMyAyLjctLjUgNS42LS40IDguNy4xIDcuNCAzLjQgMTEuMyA4LjYgMTIuNC01LjMgMS4xLTguNSA1LTguNiAxMi40LS4xIDMuMS4xIDYgLjQgOC43LjYgNS41IDEuMyAxMi40LTMuNCAxNi41LTQuMSA0LjctMTEgNC4xLTE2LjUgMy40LTIuNy0uMy01LjYtLjUtOC43LS40LTcuNC4xLTExLjMgMy40LTEyLjQgOC42LTEuMS01LjMtNS04LjYtMTIuNC04LjYtMy4xLS4xLTYgLjEtOC43LjQtNS41LjYtMTIuNCAxLjMtMTYuNS0zLjQtNC43LTQuMS00LTExLjEtMy40LTE2LjUuMy0yLjcuNS01LjYuNC04LjctLjEtNy40LTMuNC0xMS4zLTguNi0xMi40IDUuMi0xLjEgOC41LTUgOC42LTEyLjQuMS0zLjEtLjEtNi0uNC04LjctLjYtNS40LTEuMy0xMi40IDMuNC0xNi41IDQuMS00LjcgMTEtNC4xIDE2LjUtMy40IDIuNy4zIDUuNi41IDguNy40IDcuNC0uMSAxMS4zLTMuMyAxMi40LTguNiAxIDUuMyA1IDguNSAxMi40IDguNnoiLz48L3N2Zz4K);
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+  }
+
+  .holder {
+    font-size: $timer-font-size;
+    font-weight: 700;
+    line-height: $timer-box-size;
+    text-shadow: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(0);
+    will-change: transform;
+    z-index: 100;
+    animation-duration: $tick-time;
+
+    &.prev {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  &.anim {
+    .holder.active {
+      animation-name: village-countdown__counter-step-active;
+    }
+    .holder.prev {
+      animation-name: village-countdown__counter-step-prev;
+    }
+  }
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@keyframes village-countdown__counter-step-active {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes village-countdown__counter-step-prev {
+  0% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lobster" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
@@ -13,6 +13,7 @@
   import api from '../../src/scene/api.js';
   import '../../src/elements/santa-weather.js';
   import '../../src/elements/santa-image-mask.js';
+  import './elements/village-countdown.js';
 
   const offset = {x: 0, y: 0};
   let previousPointer = null;
@@ -72,9 +73,11 @@
 <div id="village-container">
   <div id="village-scroll" class="village">
     <santa-weather></santa-weather>
-    <div class="sky"></div>
+    <div class="sky">
+      <village-countdown time="1000000"></village-countdown>
+    </div>
     <div class="ground"></div>
-    <div class="road"></div>      
+    <div class="road"></div>
     <div class="mid">
       <div class="feature-tree"></div>
       <div id="easteregg-blocks" class="easteregg"></div>

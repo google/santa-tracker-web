@@ -32,3 +32,31 @@ export function formatDuration(ms) {
 
   return `${prefix}${~~days}d${out}`;
 }
+
+
+const msPerDay = 24 * 60 * 60 * 1000;
+
+
+/**
+ * Splits a countdown (in ms) into days, hours, minutes, and seconds. Does not return -ve numbers.
+ *
+ * @param {number} ms countdown in milliseconds
+ * @return {{days: number, hours: number, minutes: number, seconds: number}}
+ */
+export function countdownSplit(ms) {
+  ms = Math.max(0, ms || 0);
+
+  const daysX = ms / msPerDay;
+  const days = Math.floor(daysX);
+
+  const hoursX = (daysX - days) * 24;
+  const hours = Math.floor(hoursX);
+
+  const minutesX = (hoursX - hours) * 60;
+  const minutes = Math.floor(minutesX);
+
+  const secondsX = (minutesX - minutes) * 60;
+  const seconds = Math.floor(secondsX);
+
+  return {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds};
+}
