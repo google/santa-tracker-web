@@ -118,7 +118,7 @@ santa-loader {
   position: relative;
 
   iframe {
-    display: block !important;  // nb. override hidden above
+    display: block;
     border: 0;
     position: absolute;
     width: 100%;
@@ -127,6 +127,7 @@ santa-loader {
 
   iframe[hidden] {
     // this allows frames that actually need real w/h to load
+    display: block !important;  // nb. override hidden above
     min-width: 100vw;
     min-height: 100vh;
     visibility: hidden;

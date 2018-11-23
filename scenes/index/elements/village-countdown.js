@@ -29,7 +29,6 @@ export class VillageCountdownElement extends LitElement {
 
   update(changedProperties) {
     if (changedProperties.has('time')) {
-      console.info('got new time', this.time);
       if (this.time <= 0) {
         window.clearInterval(this._interval);
         this._interval = 0;
