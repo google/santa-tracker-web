@@ -175,7 +175,7 @@ export class SantaAppElement extends LitElement {
     <p ?hidden=${!this._showError}>${route.resolve(_msg`error-not-found`)}</p>
   </div>
   <div class="info rotate ${info.view || ''}">
-    <img src="img/rotate.svg" />
+    <img src="${_root`img/rotate.svg`}" />
     <p>${_msg`tilt`}</p>
   </div>
   <santa-loader

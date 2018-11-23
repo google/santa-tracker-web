@@ -20,7 +20,7 @@ export class SantaSidebarElement extends LitElement {
     const todayHouse =
         (this.todayHouse ? html`
 <a href=${route.scene(this.todayHouse)}>
-  <div class="menucard" style="background-image: url(img/scenes/${this.todayHouse}_2x.png)">
+  <div class="menucard" style="background-image: url(${_root`img/scenes/`}${this.todayHouse}_2x.png)">
     <h2>${_msg`newtoday`}</h2>
     <h3>${runtimeTranslate(`scene/${this.todayHouse}`)}</h3>
   </div>

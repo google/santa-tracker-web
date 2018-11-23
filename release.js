@@ -13,7 +13,6 @@ const isUrl = require('./build/is-url.js');
 const releaseHtml = require('./build/release-html.js');
 const log = require('fancy-log');
 const path = require('path');
-const loader = require('./loader.js');
 const i18n = require('./build/i18n.js');
 require('json5/lib/register');
 
@@ -130,9 +129,17 @@ async function release() {
   await fsp.mkdirp('dist/prod');
 
   const staticAttr = `${yargs.baseurl}${yargs.build}/`;
+  const staticRoot = (new URL(staticAttr)).pathname;
   const staticAttrForLang = (lang) => {
     return lang ? `${staticAttr}${lang}.html` : staticAttr;
   };
+
+  // Display the static URL plus the root (in a different color).
+  if (!staticAttr.endsWith(staticRoot)) {
+    throw new TypeError(`invalid static resolution: ${staticAttr} vs ${staticRoot}`)
+  }
+  const leftPart = staticAttr.substr(0, staticAttr.length - staticRoot.length);
+  log(`Static at ${color.green(leftPart)}${color.greenBright(staticRoot)}`);
 
   // Find the list of languages by reading `_messages`.
   const missingMessages = {};
@@ -231,8 +238,8 @@ async function release() {
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
   // or JS on its own, it must be included by one of our HTML entry points.
-  // FIXME(samthor): Bundle code is only loaded imperatively. Need to fix.
-  const loader = require('./loader.js')({compile: true});
+  const loaderOptions = {compile: true, root: staticRoot};
+  const loader = require('./loader.js')(loaderOptions);
   const htmlFiles = yargs.fast ?
       ['index.html'] : ['index.html'].concat(globAll('scenes/*/index.html'));
   const htmlDocuments = new Map();
@@ -349,7 +356,7 @@ async function release() {
 
     const templateTagReplacer = (name, arg) => {
       if (name === '_style') {
-        const {css} = compileCss(`styles/${arg}.scss`, true);
+        const {css} = compileCss(`styles/${arg}.scss`, loaderOptions);
         return css;
       }
     };

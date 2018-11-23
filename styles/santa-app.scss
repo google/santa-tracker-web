@@ -179,7 +179,7 @@ header {
     .logo {
       width: 62px;
       min-width: 62px;
-      background: url(img/google_logo.svg) 0 0 no-repeat;
+      background: _root("img/google_logo.svg") 0 0 no-repeat;
       background-size: contain;
       color: transparent;
       font-size: 0;
@@ -310,7 +310,7 @@ main.scroll {
 }
 
 .noscene {
-  background: url(img/error.svg) bottom center no-repeat;
+  background: _root("img/error.svg") bottom center no-repeat;
   background-size: cover;
   flex-grow: 1;
   display: flex;
@@ -344,7 +344,7 @@ main.scroll {
     height: $size-icon;
     border-radius: 10000px;
     box-shadow: 4px 14px 0 rgba(0,0,0,.125);
-    background: #7ec6e5 url(img/snowman.png) center no-repeat;
+    background: #7ec6e5 _root("img/snowman.png") center no-repeat;
     // background is contained within border, so create one which limits us
     // to the target $background-size
     background-size: contain;
