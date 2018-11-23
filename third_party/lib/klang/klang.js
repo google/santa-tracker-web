@@ -13,22 +13,25 @@
 	Main(function () {
 	    var Klang = {};
 	    Klang.version = Klang.versionNumber = 3;
-	    Klang.context;
-	    Klang.engineVersion;
-	    Klang.progressCallback;
-	    Klang.readyCallback;
-	    Klang.browser;
-	    Klang.os;
-	    Klang.isMobile;
-	    Klang.isIOS;
-	    Klang.fallback;
+	    Klang.context = null;
+	    Klang.engineVersion = 'N/A';
+	    Klang.progressCallback = null;
+	    Klang.readyCallback = null;
+	    Klang.browser = null;
+	    Klang.os = null;
+	    Klang.isMobile = null;
+	    Klang.isIOS = null;
+	    Klang.fallback = null;
 	    Klang.loggingEnabled = false;
 	    Klang.useMonoBuffers = false;
-	    Klang.Panner;
+	    Klang.Panner = null;
 	    Klang.safari = false;
-	    Klang.initOptions;
 	    Klang.Model = {};
 	    return Klang;
+	});
+	Module(function () {
+	    
+	    window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
 	});
 	Module(function (Klang) {
 	    return Klang.Model.Data = function (data, name) {
@@ -202,6 +205,10 @@
 	        this._bufferQue = [];
 	        this._groups = {};
 	        this._lastSentPercent = -1;
+	        // set to true to require a second .getFilehandlerInstance().decode
+	        // to decode files after init
+	        this.deferDecoding = false;
+	        this.stremingFileIds = [];    //Which files are used by StreamingAudioSource
 	    }
 	    FileHandler.inst = null;
 	    Object.defineProperty(FileHandler, 'instance', {
@@ -279,7 +286,6 @@
 	                var group = _this._groups[info.load_group];
 	                _this._decoding = false;
 	                // Gör om till mono i iOS
-	                // Gör om till mono i iOS
 	                if (Klang.useMonoBuffers) {
 	                    var bufferLength = buf.length;
 	                    // Skapa ny buffer
@@ -287,10 +293,17 @@
 	                    // Kopiera samples från vänster till monobuffern (finns det bättre sätt än loopa igenom alla?)
 	                    var leftChannelData = buf.getChannelData(0);
 	                    var monoChannelData = monoBuffer.getChannelData(0);
-	                    for (var ix = 0; ix < bufferLength; ix++) {
-	                        monoChannelData[ix] = leftChannelData[ix];
+	                    if (typeof monoChannelData.set === 'function') {
+	                        monoChannelData.set(leftChannelData);
+	                    } else {
+	                        for (var ix = 0; ix < bufferLength; ix++) {
+	                            monoChannelData[ix] = leftChannelData[ix];
+	                        }
+	                        buf = monoBuffer;
 	                    }
-	                    buf = monoBuffer;
+	                }
+	                if (Klang.downSample && Klang.downSample !== Klang.context.sampleRate) {
+	                    buf = Klang.Util.downSample(buf, Klang.downSample);
 	                }
 	                _this.memUsage += buf.length * buf.numberOfChannels * Float32Array.BYTES_PER_ELEMENT;
 	                var memUsageBytes = _this.memUsage;
@@ -309,6 +322,7 @@
 	            });
 	        }
 	    };
+	    FileHandler.prototype.decode = FileHandler.prototype.decodeBufferQue;
 	    /**
 	   * Loads one audio file into memory.
 	   * @param {Object} info Data about the file to load.
@@ -331,12 +345,13 @@
 	        };
 	        request.onload = function (e) {
 	            var group = _this._groups[info.load_group];
-	            _this._bufferQue.push({
+	            var queueItem = {
 	                data: request.response,
 	                load_group: group,
 	                info: info,
 	                callback: callback
-	            });
+	            };
+	            _this._bufferQue.push(queueItem);
 	            if (request['loadedBytes']) {
 	                var deltaBytes = request['totalBytes'] - request['loadedBytes'];
 	                group.progress.loadedBytes += deltaBytes;
@@ -345,7 +360,16 @@
 	                group.progress.loadedBytes += 1;
 	            }
 	            _this.updateProgress(request, e);
-	            _this.decodeBufferQue();
+	            if (!_this.deferDecoding) {
+	                _this.decodeBufferQue();
+	            } else {
+	                //done
+	                queueItem.callback && queueItem.callback();
+	                queueItem.load_group.progress.bufferedFiles++;
+	                if (queueItem.load_group.progress.bufferedFiles === queueItem.load_group.progress.totalFiles) {
+	                    queueItem.load_group.filesLoadedCallback(true, queueItem.load_group._loadedFiles);
+	                }
+	            }
 	            try {
 	                request.response = null;
 	            } catch (e) {
@@ -456,6 +480,7 @@
 	                convertedFiles: 0
 	            };
 	        }
+	        this.checkStreaming();
 	        // Börja ladda in alla filer
 	        for (var ix = 0, len = this._fileInfo.length; ix < len; ix++) {
 	            var info = this._fileInfo[ix];
@@ -464,7 +489,11 @@
 	            if (groupIx != -1 && !this._files[info.id] && !info.only_audio_tag) {
 	                switch (info.file_type) {
 	                case 'audio':
-	                    this.loadAudioBuffer(info);
+	                    if (this.stremingFileIds.indexOf(info.id) === -1) {
+	                        this.loadAudioBuffer(info);
+	                    } else {
+	                        continue;
+	                    }
 	                    break;
 	                case 'midi':
 	                    this.loadMidiFile(info);
@@ -483,6 +512,16 @@
 	                if (this._groups[group[ix]].filesLoadedCallback && !this._groups[group[ix]]._loadInterrupted) {
 	                    this._groups[group[ix]].filesLoadedCallback(true, this._groups[group[ix]]._loadedFiles);
 	                }
+	            }
+	        }
+	    };
+	    FileHandler.prototype.checkStreaming = function () {
+	        var objects = Klang.core.Core.instance._objectTable;
+	        for (var key in objects) {
+	            var object = objects[key];
+	            if (object instanceof Klang.Model.StreamingAudioSource) {
+	                var fileId = object._fileId;
+	                this.stremingFileIds.push(fileId);
 	            }
 	        }
 	    };
@@ -521,6 +560,11 @@
 	            if (group.indexOf(info.load_group) != -1) {
 	                this._files[info.id] = null;
 	            }
+	        }
+	    };
+	    FileHandler.prototype.freeSoundFile = function (id) {
+	        if (this._files[id]) {
+	            this._files[id] = null;
 	        }
 	    };
 	    /**
@@ -565,6 +609,8 @@
 	            }
 	        }
 	        return undefined;
+	    };
+	    FileHandler.prototype.preloadFiles = function (loadgroups) {
 	    };
 	    Object.defineProperty(FileHandler.prototype, 'progress', {
 	        get: /**
@@ -1073,6 +1119,33 @@
 	            return Klang.engineVersion == 'webaudio' ? Klang.context.currentTime : 0;
 	        }
 	        Util.now = now;
+	        function downSample(buffer, sampleRate) {
+	            var ratio = sampleRate / Klang.context.sampleRate;
+	            var stepLen = Math.floor(1 / ratio);
+	            var newLen = Math.floor(buffer.length * ratio);
+	            var newSampleRate = Math.floor(Klang.context.sampleRate * ratio);
+	            var downSampleBuff = Klang.context.createBuffer(buffer.numberOfChannels, newLen, newSampleRate);
+	            for (var c = 0; c < buffer.numberOfChannels; c++) {
+	                var buffDataIn = buffer.getChannelData(c);
+	                var buffDataOut = downSampleBuff.getChannelData(c);
+	                var j = 0;
+	                for (var i = 0; i < buffDataIn.length; i += stepLen) {
+	                    var acc = 0;
+	                    for (var j = 0; j < stepLen; j++) {
+	                        acc += buffDataIn[i + j];
+	                    }
+	                    buffDataOut[i / stepLen] = acc / stepLen;
+	                }
+	            }
+	            return downSampleBuff;
+	        }
+	        Util.downSample = downSample;
+	        function semitonesToPlaybackRate(semitones) {
+	            var semitoneRatio = Math.pow(2, 1 / 12);
+	            var playbackRate = Math.pow(semitoneRatio, semitones);
+	            return playbackRate;
+	        }
+	        Util.semitonesToPlaybackRate = semitonesToPlaybackRate;
 	        /**
 	     * Converts a midi note number to frequency.
 	     * http://www.dzone.com/snippets/midi-note-number-and-frequency
@@ -1140,26 +1213,37 @@
 	        Util.getParameterByName = getParameterByName;
 	        // Starts an AudioSource (to) in sync with another.
 	        // to can be AudioSource or Array of AudioSources
-	        function transition(from, to, bpm, sync, fadeOutTime) {
+	        function transition(from, to, bpm, sync, fadeOutTime, fadeInTime, useOffset, fadeOutImmediately, setOffset) {
+	            var i = 0;
 	            var bpm = bpm || 120;
 	            var fadeOutTime = fadeOutTime || 2;
-	            var from = from;
-	            var to = to;
+	            var toStop = [];
 	            if (!to) {
 	                return Util.now();
 	            }
-	            if (from === to) {
-	                return Util.now();
+	            if (from && !Array.isArray(from)) {
+	                from = [from];
 	            }
-	            if (Array.isArray(from)) {
+	            if (from) {
 	                var playingLoop;
-	                for (var i = 0; i < from.length; i++) {
-	                    if (from[i].playing) {
-	                        playingLoop = from[i];
-	                        break;
+	                for (i = 0; i < from.length; i++) {
+	                    if (from[i].playing || from[i].scheduledToPlay()) {
+	                        //check witch loop to sync with. preferably one that is playing
+	                        if (playingLoop && playingLoop.scheduledToPlay() && from[i].playing) {
+	                            playingLoop = from[i];
+	                        } else {
+	                            playingLoop = playingLoop || from[i];
+	                        }
+	                        //stop all loops except if it's the same loop that is started and it's not stopping.
+	                        if (!from[i]._stopping && from[i] !== to) {
+	                            toStop.push(from[i]);
+	                        }
 	                    }
 	                }
 	                from = playingLoop;
+	            }
+	            if (from === to && !from._stopping) {
+	                return Util.now();
 	            }
 	            if (!from) {
 	                to.play(Util.now(), 0, false);
@@ -1168,12 +1252,15 @@
 	            var bps = 60 / bpm;
 	            var spb = bpm / 60;
 	            var p1 = from ? from.position : 0;
-	            p1 = p1 || 0    //from.position sometimes returns NaN
-	;
+	            p1 = p1 || 0;
+	            //from.position sometimes returns NaN
 	            var beat1 = p1 * spb;
 	            var sync = sync || 4;
 	            var toNextBar = sync - beat1 % sync;
 	            if (toNextBar < 0.5) {
+	                toNextBar += sync;
+	            }
+	            while (fadeOutImmediately && toNextBar < fadeOutTime * spb) {
 	                toNextBar += sync;
 	            }
 	            var toNextBarSec = toNextBar * bps;
@@ -1181,8 +1268,25 @@
 	                toNextBarSec = 0;
 	            }
 	            var scheduleTime = Util.now() + toNextBarSec;
-	            to.play(scheduleTime, 0, false);
-	            from && from.fadeOutAndStop(fadeOutTime, scheduleTime);
+	            var offset = 0;
+	            if (useOffset) {
+	                offset = from.position + toNextBarSec;
+	            }
+	            if (setOffset) {
+	                offset = setOffset;
+	            }
+	            if (fadeInTime) {
+	                to.fadeInAndPlay(fadeInTime, scheduleTime, offset);
+	            } else {
+	                to.play(scheduleTime, offset, false);
+	            }
+	            var fadeOutStartTime = fadeOutImmediately ? scheduleTime - fadeOutTime : scheduleTime;
+	            if (fadeOutImmediately && fadeOutStartTime < Klang.context.currentTime) {
+	                fadeOutTime = scheduleTime - Klang.context.currentTime;
+	            }
+	            for (i = 0; i < toStop.length; i++) {
+	                toStop[i].fadeOutAndStop(fadeOutTime, fadeOutStartTime);
+	            }
 	            return scheduleTime;
 	        }
 	        Util.transition = transition;
@@ -1641,6 +1745,20 @@
 	            }
 	        }
 	    };
+	    Core.prototype.getPlaying = function () {
+	        var playing = [];
+	        for (var p in this._objectTable) {
+	            var obj = this._objectTable[p];
+	            if (obj instanceof Klang.Model.AudioSource && obj.playing) {
+	                playing.push(obj);
+	            } else if (obj instanceof Klang.Model.AudioGroup && obj.playing) {
+	                if (obj.latestPlayed) {
+	                    playing.push(obj.latestPlayed);
+	                }
+	            }
+	        }
+	        return playing;
+	    };
 	    /**
 	   * Asynchronously loads a JSON config file.
 	   * @param {Object} options URL to the config-file to load. vafan heter den options för...?
@@ -1880,6 +1998,7 @@
 	                });
 	            }
 	        }
+	        this.maxSimultaneousSounds = data.settings.max_simultaneous_sounds;
 	        // om filarrayen skickas med används den, annars används filer från configen
 	        Klang.core.FileHandler.instance.fileInfo = (files !== undefined && files !== null ? files : data.files) || [];
 	        this._eventTable = data.events || {};
@@ -2051,16 +2170,37 @@
 	    };
 	    /**
 	   * Releases the buffers for all audio files in a load group, allowing the memory to be garbage collected.
-	   * @param {string} name Name of the pack of sound files to free.
+	   * @param {string or array} name Name of the pack of sound files to free.
 	   */
 	    Core.prototype.freeSoundFiles = function (name) {
-	        Klang.core.FileHandler.instance.freeSoundFiles(name);
-	        for (var p in this._objectTable) {
-	            var obj = this._objectTable[p];
-	            if (obj._type == 'AudioSource') {
-	                var fileInfo = Klang.core.FileHandler.instance.getFileInfo(obj._fileId);
-	                if (fileInfo && fileInfo.load_group == name) {
-	                    obj.freeBuffer();
+	        var loadGroups = Klang.core.FileHandler.instance.getLoadGroups();
+	        if (typeof name === 'string') {
+	            name = [name];
+	        }
+	        for (var i = 0; i < name.length; i++) {
+	            var isLoadGroup = false;
+	            //Check if name is loadgroup
+	            if (loadGroups.includes(name[i])) {
+	                //if loadgroup, free all files in the group
+	                Klang.core.FileHandler.instance.freeSoundFiles(name[i]);
+	                isLoadGroup = true;
+	                Klang.log('freeing loadgroup!', name[i]);
+	            }
+	            ;
+	            for (var p in this._objectTable) {
+	                var obj = this._objectTable[p];
+	                if (obj._type == 'AudioSource') {
+	                    var fileInfo = Klang.core.FileHandler.instance.getFileInfo(obj._fileId);
+	                    if (isLoadGroup) {
+	                        if (fileInfo && fileInfo.load_group == name[i]) {
+	                            obj.freeBuffer();
+	                        }
+	                    } else if (obj.editorName === name[i]) {
+	                        //if name is audioSource name free that file and the audioSource buffer.
+	                        Klang.core.FileHandler.instance.freeSoundFile(obj._fileId);
+	                        obj.freeBuffer();
+	                        Klang.log('freeing buffer!', name[i]);
+	                    }
 	                }
 	            }
 	        }
@@ -2822,7 +2962,7 @@
 	        this._type = data.type;
 	        this._output = Klang.context.createGain();
 	        this._volume = data.volume !== undefined ? data.volume : 1;
-	        this._output.gain.value = this._volume;
+	        this._output.gain.setValueAtTime(this._volume, Klang.context.currentTime);
 	        // Spara destination och lägg på ihopkopplingskön om destination är definierad
 	        if (data.destination_name) {
 	            this.destinationName = data.destination_name;
@@ -3000,6 +3140,9 @@
 	    };
 	    Audio.prototype.clone = function () {
 	        var clone = new this['constructor'](this.data, this._name);
+	        if (this.data.panner) {
+	            this.data.panner = new Klang.Model.Panner(this.data.panner.data);
+	        }
 	        clone.connect(Klang.core.Core.instance.findInstance(this.destinationName).input);
 	        return clone;
 	    };
@@ -3067,6 +3210,9 @@
 	    var AudioSource = function (_super) {
 	        Klang.Util.__extends(AudioSource, _super);
 	        function AudioSource(data, name) {
+	            if (data.streaming && Klang.Model.StreamingAudioSource) {
+	                return new Klang.Model.StreamingAudioSource(data, name);
+	            }
 	            _super.call(this, data, name);
 	            this._sources = [];
 	            this._startTime = 0;
@@ -3090,12 +3236,12 @@
 	            this._duration = data.duration || 0;
 	            this._reverse = data.reverse;
 	            this._retrig = data.retrig !== undefined ? data.retrig : true;
-	            this._lockPlaybackrate = data.lock_playback_rate !== undefined ? data.lock_playback_rate : false;
 	            this._volumeStartRange = data.volume_start_range;
 	            this._volumeEndRange = data.volume_end_range;
 	            this._pitchStartRange = data.pitch_start_range;
 	            this._pitchEndRange = data.pitch_end_range;
 	            this._maxSources = data.max_sources || -1;
+	            this.priority;
 	            if (data.panner) {
 	                this._panner = data.panner;
 	            }
@@ -3214,8 +3360,15 @@
 	            offset = offset || 0;
 	            resume = !!resume;
 	            this.removeUnusedSources();
+	            if (this.priority !== undefined && Klang.getCoreInstance().maxSimultaneousSounds) {
+	                var canPlay = this.checkPriority();
+	                if (!canPlay) {
+	                    Klang.warn('AudioSource: Skipped', this.editorName, 'due to priority. Priority:', this.priority, 'Max sources:', Klang.getCoreInstance().maxSimultaneousSounds);
+	                    return;
+	                }
+	            }
 	            if (this._maxSources > -1 && this._sources.length > this._maxSources) {
-	                Klang.warn('AudioSource: Max sources reached', this._name);
+	                Klang.warn('AudioSource: Max sources reached', this.editorName);
 	                return;
 	            }
 	            if (!duration) {
@@ -3230,14 +3383,14 @@
 	                this.init();
 	                //this._buffer = Klang.core.FileHandler.instance.getFile(this._fileId);
 	                if (!this._buffer) {
-	                    Klang.warn('AudioSource: Buffer not found!', this._name);
+	                    Klang.warn('AudioSource: Buffer not found!', this.editorName);
 	                    return;
 	                }
 	            }
 	            when = when || 0;
 	            // spela inte om tiden har passerat (för att inte klumpa ihop massa ljud vid scroll på ios)
 	            if (when !== 0 && when + 0.01 <= Klang.context.currentTime) {
-	                Klang.warn('AudioSource: Returned, playTime < currentTime', this._name);
+	                Klang.warn('AudioSource: Returned, playTime < currentTime', this.editorName);
 	                return this;
 	            }
 	            if (when === 0) {
@@ -3305,7 +3458,7 @@
 	                Klang.warn('AudioSource: no destination node');
 	            }
 	            if (typeof this._destination != 'object') {
-	                Klang.warn('AudioSource: destination is not an object', this._name);
+	                Klang.warn('AudioSource: destination is not an object', this.editorName);
 	            }
 	            source.connect(this._output);
 	            if (offset > this._duration) {
@@ -3313,7 +3466,8 @@
 	            }
 	            this._startOffset = this._offset + offset;
 	            if (this._pitchStartRange !== undefined) {
-	                source.playbackRate.value = this._playbackRate * (Math.random() * (this._pitchEndRange - this._pitchStartRange) + this._pitchStartRange);
+	                var _randomplaybackrateValue = this._playbackRate * (Math.random() * (this._pitchEndRange - this._pitchStartRange) + this._pitchStartRange);
+	                source.playbackRate.setValueAtTime(_randomplaybackrateValue, Klang.context.currentTime);
 	            }
 	            source['startTime'] = when;
 	            // Fixes Chrome loop issue
@@ -3368,6 +3522,7 @@
 	            } else {
 	                this._loopPlaying = false;
 	            }
+	            this._startTime = -1;
 	            return this;
 	        };
 	        /**
@@ -3425,7 +3580,7 @@
 	     */
 	        AudioSource.prototype.createBufferSource = function () {
 	            var source = Klang.context.createBufferSource();
-	            source.playbackRate.value = this._playbackRate;
+	            source.playbackRate.setValueAtTime(this._playbackRate, Klang.context.currentTime);
 	            this._sources.push(source);
 	            return source;
 	        };
@@ -3473,11 +3628,14 @@
 	     * @return {Klang.Model.AudioSource} Self
 	     */
 	        AudioSource.prototype.fadeOutAndStop = function (duration, when) {
-	            if (!this.playing) {
+	            if (!this.playing && !this.scheduledToPlay()) {
 	                return;
 	            }
 	            if (when === undefined) {
 	                when = Klang.context.currentTime;
+	            }
+	            if (when <= this._startTime) {
+	                return this.stop();
 	            }
 	            if (this._stopping) {
 	                clearTimeout(this._stoppingId);
@@ -3502,6 +3660,32 @@
 	            return this;
 	        };
 	        /**
+	    * Checks the priority of this source and if using limited simultaneous sounds stops a lower prioritized sound
+	    * returns true if sound is alloed to play or false if not.
+	    */
+	        AudioSource.prototype.checkPriority = function () {
+	            var core = Klang.getCoreInstance();
+	            var playing = core.getPlaying();
+	            var canPlay = true;
+	            var maxSounds = core.maxSimultaneousSounds;
+	            if (playing.length > core.maxSimultaneousSounds) {
+	                //check priority of playing sounds
+	                playing.sort(function (a, b) {
+	                    return parseFloat(a.priority) - parseFloat(b.priority);
+	                });
+	                //fadeout lowest priority sounds
+	                if (playing.length) {
+	                    if (playing[0].priority < this.priority) {
+	                        playing[0].fadeOutAndStop(0.1);
+	                        Klang.warn('AudioSource: Stopped', playing[0].editorName, 'due to priority. Priority:', playing[0].priority, 'Max sources:', Klang.getCoreInstance().maxSimultaneousSounds);
+	                    } else {
+	                        canPlay = false;
+	                    }
+	                }
+	            }
+	            return canPlay;
+	        };
+	        /**
 	     * Removes any stopped or finished source nodes.
 	     * @private
 	     */
@@ -3522,9 +3706,6 @@
 	     *   @return {Klang.Model.AudioSource} Self
 	     */
 	        AudioSource.prototype.curvePlaybackRate = function (value, duration, when) {
-	            if (this._lockPlaybackrate) {
-	                return;
-	            }
 	            var startTime = when ? when : Klang.Util.now();
 	            var node = this.playbackRateNode;
 	            if (node) {
@@ -3535,15 +3716,15 @@
 	            this._playbackRate = value;
 	            return this;
 	        };
+	        /**
+	     * GETTERS / SETTERS
+	     *********************/
+	        /**
+	     * The last source node that was created.
+	     * @type {AudioBufferSourceNode}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'lastSource', {
-	            get: /**
-	       * GETTERS / SETTERS
-	       *********************/
-	            /**
-	       * The last source node that was created.
-	       * @type {AudioBufferSourceNode}
-	       */
-	            function () {
+	            get: function () {
 	                var numSources = this._sources.length;
 	                if (numSources == 0) {
 	                    return null;
@@ -3553,12 +3734,12 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Whether playback of the buffer should loop or not.
+	     * @type {boolean}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'loop', {
-	            get: /**
-	       * Whether playback of the buffer should loop or not.
-	       * @type {boolean}
-	       */
-	            function () {
+	            get: function () {
 	                return this._loop;
 	            },
 	            set: function (value) {
@@ -3567,12 +3748,12 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Where in the buffer to start playing, in seconds.
+	     * @type {number}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'offset', {
-	            get: /**
-	       * Where in the buffer to start playing, in seconds.
-	       * @type {number}
-	       */
-	            function () {
+	            get: function () {
 	                return this._offset;
 	            },
 	            set: function (value) {
@@ -3604,12 +3785,12 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Number of seconds after the offset to stop playing the buffer.
+	     * @member {number}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'duration', {
-	            get: /**
-	       * Number of seconds after the offset to stop playing the buffer.
-	       * @member {number}
-	       */
-	            function () {
+	            get: function () {
 	                return this._duration;    //return this._buffer.duration - this._offset;
 	            },
 	            set: function (value) {
@@ -3618,29 +3799,26 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Whether this AudioSource has been paused or not.
+	     * @type {boolean}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'paused', {
-	            get: /**
-	       * Whether this AudioSource has been paused or not.
-	       * @type {boolean}
-	       */
-	            function () {
+	            get: function () {
 	                return this._paused;
 	            },
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * The playback speed of the buffer where 2 means double speed.
+	     * @member {number}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'playbackRate', {
-	            get: /**
-	       * The playback speed of the buffer where 2 means double speed.
-	       * @member {number}
-	       */
-	            function () {
+	            get: function () {
 	                return this._playbackRate;
 	            },
 	            set: function (value) {
-	                if (this._lockPlaybackrate) {
-	                    return;
-	                }
 	                var node = this.playbackRateNode;
 	                if (node) {
 	                    node.cancelScheduledValues(Klang.Util.now());
@@ -3653,27 +3831,24 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     *   The playbackrate for the next source node that is created, NOT the currently playing sources.
+	     *   Used by SamplePlayer
+	     *   @type {number}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'nextPlaybackRate', {
-	            set: /**
-	       *   The playbackrate for the next source node that is created, NOT the currently playing sources.
-	       *   Used by SamplePlayer
-	       *   @type {number}
-	       */
-	            function (value) {
-	                if (this._lockPlaybackrate) {
-	                    return;
-	                }
+	            set: function (value) {
 	                this._playbackRate = value;
 	            },
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Node for manipulating the playback rate.
+	     * @type {AudioParam}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'playbackRateNode', {
-	            get: /**
-	       * Node for manipulating the playback rate.
-	       * @type {AudioParam}
-	       */
-	            function () {
+	            get: function () {
 	                var source = this.lastSource;
 	                // if (!source || source.playbackState === 3) {
 	                //     source = this.createBufferSource();
@@ -3683,12 +3858,12 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * The audio buffer that this AudioSource plays.
+	     * @type {AudioBuffer}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'buffer', {
-	            get: /**
-	       * The audio buffer that this AudioSource plays.
-	       * @type {AudioBuffer}
-	       */
-	            function () {
+	            get: function () {
 	                if (!this._buffer) {
 	                    this._buffer = Klang.core.FileHandler.instance.getFile(this._fileId);
 	                }
@@ -3700,27 +3875,27 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * Whether or not this AudioSource is currently playing.
+	     * @type {boolean}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'playing', {
-	            get: /**
-	       * Whether or not this AudioSource is currently playing.
-	       * @type {boolean}
-	       */
-	            function () {
-	                return this._endTime == -1 || this._endTime > Klang.Util.now();
+	            get: function () {
+	                return (this._endTime == -1 || this._endTime > Klang.Util.now()) && this._startTime <= Klang.Util.now();
 	            },
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * The state of the playback of this AudioSource. Valid states:
+	     * 0: not started
+	     * 1: scheduled
+	     * 2: playing
+	     * 3: stopped
+	     * @type {number}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'playbackState', {
-	            get: /**
-	       * The state of the playback of this AudioSource. Valid states:
-	       * 0: not started
-	       * 1: scheduled
-	       * 2: playing
-	       * 3: stopped
-	       * @type {number}
-	       */
-	            function () {
+	            get: function () {
 	                var source = this.lastSource;
 	                if (source) {
 	                    return source.playbackState;
@@ -3730,12 +3905,12 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * The audio's output.
+	     * @type {GainNode}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'output', {
-	            get: /**
-	       * The audio's output.
-	       * @type {GainNode}
-	       */
-	            function () {
+	            get: function () {
 	                if (this._panner) {
 	                    return this._panner.output;
 	                } else {
@@ -3745,17 +3920,20 @@
 	            enumerable: true,
 	            configurable: true
 	        });
+	        /**
+	     * The audio's 3d panner.
+	     * @type {Model.Panner}
+	     */
 	        Object.defineProperty(AudioSource.prototype, 'panner', {
-	            get: /**
-	       * The audio's 3d panner.
-	       * @type {Model.Panner}
-	       */
-	            function () {
+	            get: function () {
 	                return this._panner;
 	            },
 	            enumerable: true,
 	            configurable: true
 	        });
+	        AudioSource.prototype.scheduledToPlay = function () {
+	            return this._startTime > Klang.Util.now();
+	        };
 	        AudioSource.prototype.freeBuffer = function () {
 	            this._buffer = null;
 	            for (var ix = 0, len = this._sources.length; ix < len; ix++) {
@@ -4299,8 +4477,10 @@
 	                this._effects[i].setActive(false);
 	            }
 	        }
-	        this._input.gain.value = data.input_vol !== undefined ? data.input_vol : 1;
-	        this._output.gain.value = data.output_vol !== undefined ? data.output_vol : 1;
+	        var inputVol = data.input_vol !== undefined ? data.input_vol : 1;
+	        var outputVol = data.output_vol !== undefined ? data.output_vol : 1;
+	        this._input.gain.setValueAtTime(inputVol, Klang.context.currentTime);
+	        this._output.gain.setValueAtTime(outputVol, Klang.context.currentTime);
 	        // Spara destination och lägg på ihopkopplingskön om destination är definierad
 	        if (data.destination_name) {
 	            this.destinationName = data.destination_name;
@@ -4718,202 +4898,6 @@
 	    Klang.engines.webAudio.Util.getNoteInScale = getNoteInScale;
 	    Klang.engines.webAudio.Util.getTransposeFromScale = getTransposeFromScale;
 	    Klang.engines.webAudio.Util.scales = scales;
-	});
-	Module(function (Klang) {
-	    /**
-	   * Represents any type of audio that can be played through a bus.
-	   * @param {Object} data Configuration data.
-	   * @param {string} name Identifying name.
-	   * @constructor
-	   */
-	    function Audio(data, name) {
-	        this.data = data;
-	        this._name = name;
-	        this._type = data.type;
-	        this._output = Klang.context.createGain();
-	        this._volume = data.volume !== undefined ? data.volume : 1;
-	        this._output.gain.value = this._volume;
-	        // Spara destination och lägg på ihopkopplingskön om destination är definierad
-	        if (data.destination_name) {
-	            this.destinationName = data.destination_name;
-	            if (!Klang.core.Core.instance.initComplete) {
-	                Klang.core.Core.instance.pushToConnectStack(this);
-	            }
-	        }
-	    }
-	    /**
-	   * Sets the destination for this audio's output.
-	   * @param {AudioNode} destination Where to route this audio's output.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.connect = function (destination) {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.connect in', this);
-	        return this;
-	    };
-	    /**
-	   * Removes all previous connections.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.disconnect = function () {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.disconnect in', this);
-	        return this;
-	    };
-	    /**
-	   * Schedules this audio to start playing.
-	   * @param {number} when When in web audio context time to start playing.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.play = function (when, offset) {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.play in', this);
-	        return this;
-	    };
-	    /**
-	   * Stops playing back this audio.
-	   * @param {number} when When in web audio context time to stop playing.
-	   */
-	    Audio.prototype.stop = function (when) {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.stop in', this);
-	        return this;
-	    };
-	    /**
-	   * Pauses playback.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.pause = function () {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.pause in', this);
-	        return this;
-	    };
-	    /**
-	   * Resumes playback.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.unpause = function () {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.unpause in', this);
-	        return this;
-	    };
-	    /**
-	   *   Exponentially changes the playbackrate.
-	   *   @param {number} value PlaybackRate to change to.
-	   *   @param {number} duration Duration in seconds for the curve change.
-	   *   @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.curvePlaybackRate = function (value, duration) {
-	        Klang.warn('Audio: Invocation of abstract method: Audio.curvePlaybackRate in', this);
-	        return this;
-	    };
-	    /**
-	   * Starts playing the audio and fades it's volume from 0 to 1.
-	   * @param {number} duration Time in seconds to reach full volume.
-	   * @param {number} when When in web audio context time to start playing.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.fadeInAndPlay = function (duration, when) {
-	        console.warn('Audio: Invocation of abstract method: Audio.fadeInAndPlay in', this);
-	        return this;
-	    };
-	    /**
-	   * Starts fading out the volume of the audio and stops playback when the volume reaches 0.
-	   * @param {number} duration Time in seconds to reach zero volume
-	   * @param {number} [when] When in Web Audio Context time to start fading out.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.fadeOutAndStop = function (duration, when) {
-	        console.warn('Audio: Invocation of abstract method: Audio.fadeOutAndStop in', this);
-	        return this;
-	    };
-	    /**
-	   * Deschedules everything that has been scheduled but has not started playing.
-	   * @return {Klang.Model.Audio} Self
-	   */
-	    Audio.prototype.deschedule = function () {
-	        console.warn('Audio: Invocation of abstract method: Audio.deschedule in', this);
-	        return this;
-	    };
-	    Object.defineProperty(Audio.prototype, 'playbackRate', {
-	        set: /***
-	     * GETTERS / SETTERS
-	     *********************/
-	        /**
-	     * The playback speed of the buffer where 2 means double speed.
-	     * @member {number}
-	     */
-	        function (value) {
-	            Klang.warn('Audio: Invocation of abstract property: Audio.playbackRate in', this);
-	            return this;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Audio.prototype, 'playing', {
-	        get: /**
-	     * Whether or not this AudioSource is currently playing.
-	     * @type {boolean}
-	     */
-	        function () {
-	            Klang.warn('Audio: Invocation of abstract property: Audio.playing in', this);
-	            return false;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Audio.prototype, 'duration', {
-	        get: /**
-	     * The length of the audio in seconds.
-	     * @type {number}
-	     */
-	        function () {
-	            Klang.warn('Audio: Invocation of abstract property: Audio.duration in', this);
-	            return 0;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Audio.prototype, 'output', {
-	        get: /**
-	     * The audio's output.
-	     * @type {GainNode}
-	     */
-	        function () {
-	            return this._output;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    Object.defineProperty(Audio.prototype, 'playbackState', {
-	        get: /**
-	     * The state of the playback of this AudioSource. Valid states:
-	     * 0: not started
-	     * 1: scheduled
-	     * 2: playing
-	     * 3: stopped
-	     * @type {number}
-	     */
-	        function () {
-	            Klang.warn('Audio: Invocation of abstract property: Audio.playbackState in', this);
-	            return 0;
-	        },
-	        enumerable: true,
-	        configurable: true
-	    });
-	    /**
-	   * Updates the properties of this instance.
-	   * @param {Object} data Configuration data.
-	   */
-	    Audio.prototype.setData = function (data) {
-	        this._volume = data.volume === undefined ? 1 : data.volume;
-	        this._output.gain.value = this._volume;
-	        if (this.destinationName != data.destination_name) {
-	            this.destinationName = data.destination_name;
-	            this.disconnect();
-	            this.connect(Klang.core.Core.instance.findInstance(this.destinationName).input);
-	        }
-	    };
-	    Audio.prototype.clone = function () {
-	        var clone = new this['constructor'](this.data, this._name);
-	        clone.connect(Klang.core.Core.instance.findInstance(this.destinationName).input);
-	        return clone;
-	    };
-	    return Klang.Model.Audio = Audio;
 	});
 	Module(function (Klang) {
 	    /**
@@ -6512,722 +6496,6 @@
 	});
 	Module(function (Klang) {
 	    /**
-	   * Source:::src/klangPath/engines/webaudio/model/audio/Pattern.ts
-	   */
-	    (function (PatternState) {
-	        PatternState._map = [];
-	        PatternState._map[0] = 'PrePlaying';
-	        PatternState.PrePlaying = 0;
-	        // innan mainloopen börjar, ev upptakt spelas
-	        PatternState._map[1] = 'Playing';
-	        PatternState.Playing = 1;
-	        // mainloopen
-	        PatternState._map[2] = 'PreStopping';
-	        PatternState.PreStopping = 2;
-	        // räknar ned tills mainloopen ska sluta
-	        PatternState._map[3] = 'PostStop';
-	        PatternState.PostStop = 3;
-	        // fortsättar att spela tills fade ut är klar
-	        PatternState._map[4] = 'Stopped';
-	        PatternState.Stopped = 4;    // inget spelas
-	    }(Klang.Model.PatternState || (Klang.Model.PatternState = {})));
-	    var PatternState = Klang.Model.PatternState;
-	    /**
-	   * Convert pattern state id to a string for readability.
-	   * @param {number} state State id to convert.
-	   * @return {string} String representation of the state.
-	   */
-	    function getPatternStateString(state) {
-	        switch (state) {
-	        case PatternState.PrePlaying:
-	            return 'PrePlaying';
-	        case PatternState.Playing:
-	            return 'Playing';
-	        case PatternState.PreStopping:
-	            return 'PreStopping';
-	        case PatternState.PostStop:
-	            return 'PostStop';
-	        case PatternState.Stopped:
-	            return 'Stopped';
-	        }
-	    }
-	    Klang.Model.getPatternStateString = getPatternStateString;
-	    /**
-	   * A sequence of audio objects to be played back synced with to a sequencer.
-	   * @param {Object} data Configuration data.
-	   * @param {string} name Identifying name.
-	   * @constructor
-	   * @extends {Klang.Model.Audio}
-	   */
-	    var Pattern = function (_super) {
-	        Klang.Util.__extends(Pattern, _super);
-	        function Pattern(data, name) {
-	            _super.call(this, data, name);
-	            this._startStep = 0;
-	            this._totalStep = 0;
-	            this._currentStep = 0;
-	            this._syncStep = 0;
-	            this._stepCount = 0;
-	            this._fadeTime = 0;
-	            this._length = 2;
-	            this._loop = true;
-	            this._tail = false;
-	            this._forceFade = false;
-	            this._activeUpbeat = -1;
-	            this._startOffset = 0;
-	            this._state = PatternState.Stopped;
-	            this._beatSubscription = data.beat_subscription || 0.25;
-	            this._length = data.length || 0;
-	            this._startStep = data.start_step || 0;
-	            this._loop = data.loop !== undefined ? data.loop : true;
-	            this._tail = data.tail !== undefined ? data.tail : false;
-	            this._clips = [];
-	            this._upbeats = [];
-	            this._sequencerName = data.sequencer;
-	            this._initData = {
-	                dummyClips: data.content,
-	                dummyUpbeats: data.upbeats
-	            };
-	            Klang.core.Core.instance.pushToPreLoadInitStack(this);
-	        }
-	        /**
-	     * Fills the content array according to the names specified in the config for this pattern.
-	     * @memberof Klang.Model.Pattern
-	     * @method init
-	     * @instance
-	     */
-	        Pattern.prototype.init = function () {
-	            // Hitta instanser för alla ljud i clippen
-	            if (this._initData.dummyClips) {
-	                for (var ix = 0, len = this._initData.dummyClips.length; ix < len; ix++) {
-	                    var dummy = this._initData.dummyClips[ix];
-	                    // Hitta rätt ljud om ett ljud ska spelas upp
-	                    if (dummy.audio) {
-	                        this._clips.push({
-	                            audio: Klang.core.Core.instance.findInstance(dummy.audio),
-	                            process: null,
-	                            args: null,
-	                            step: dummy.step
-	                        });
-	                        this._clips[this._clips.length - 1].audio._parentType = this._type;
-	                    } else
-	                        // Hitta processen om en process ska köras
-	                        {
-	                            this._clips.push({
-	                                audio: null,
-	                                process: Klang.core.Core.instance.findInstance(dummy.process),
-	                                args: dummy.args,
-	                                step: dummy.step
-	                            });
-	                        }
-	                }
-	            }
-	            // Hitta instanser för alla ljud i upbeats
-	            if (this._initData.dummyUpbeats) {
-	                for (var ix = 0, ilen = this._initData.dummyUpbeats.length; ix < ilen; ix++) {
-	                    var dummyUpbeat = this._initData.dummyUpbeats[ix];
-	                    var upbeatClips = [];
-	                    for (var jx = 0, jlen = dummyUpbeat.content.length; jx < jlen; jx++) {
-	                        var dummyClip = dummyUpbeat.content[jx];
-	                        // Copy-pasta från första initieringen....
-	                        if (dummyClip.audio) {
-	                            upbeatClips.push({
-	                                audio: Klang.core.Core.instance.findInstance(dummyClip.audio),
-	                                process: null,
-	                                args: null,
-	                                step: dummyClip.step
-	                            });
-	                            this._clips[this._clips.length - 1].audio._parentType = this._type;
-	                        } else
-	                            // Hitta processen om en process ska köras
-	                            {
-	                                upbeatClips.push({
-	                                    audio: null,
-	                                    process: Klang.core.Core.instance.findInstance(dummyClip.process),
-	                                    args: dummyClip.args,
-	                                    step: dummyClip.step
-	                                });
-	                            }
-	                    }
-	                    dummyUpbeat.clips = upbeatClips;
-	                    this._upbeats.push({
-	                        length: dummyUpbeat.length,
-	                        clips: upbeatClips
-	                    });
-	                }
-	                // Sortera upptakterna så att den längsta ligger först
-	                this._upbeats.sort(function (a, b) {
-	                    return b.length - a.length;
-	                });
-	            }
-	            // Hämta sequencern
-	            this._sequencer = Klang.core.Core.instance.findInstance(this._sequencerName);
-	            this._sequencer.registerPattern(this);
-	            this._initData = null;
-	        };
-	        /**
-	     * Sets the destination for this audio's output.
-	     * @param {AudioNode} destination Where to route this audio's output.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.connect = function (destination) {
-	            for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                var a = this._clips[ix].audio;
-	                // Kopplar in audioSourcen bara om den är kopplad till mastern
-	                if (a && (!a.destinationName || Klang.core.Core.instance.findInstance(a.destinationName).destinationName == '$OUT')) {
-	                    a.disconnect();
-	                    a.connect(this._output);
-	                }
-	            }
-	            this._output.connect(destination);
-	            return this;
-	        };
-	        /**
-	     * Removes all previous connections.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.disconnect = function () {
-	            this._output.disconnect();
-	            return this;
-	        };
-	        /**
-	     * Sets what state this pattern is in.
-	     * @param {number} state State to change to.
-	     */
-	        Pattern.prototype.changeState = function (state) {
-	            // byt inte state om bytet är till samma state vi redan är på
-	            if (state == this._state) {
-	                return;
-	            }
-	            if (Klang.core.Core.callbacks && Klang.core.Core.callbacks.changePatternState) {
-	                Klang.core.Core.callbacks.changePatternState({
-	                    pattern: this,
-	                    lastState: this._state,
-	                    newState: state,
-	                    step: this._sequencer.currentStep
-	                });
-	            }
-	            this._state = state;
-	        };
-	        /**
-	     * Schedules this pattern to start playing at the specified step.
-	     * If this pattern includes any upbeats, the longest upbeat that fits in the remaining steps will be played.
-	     * @param {number} steps number of steps until starting the pattern.
-	     * @param {number} syncStep At what step to start playing the pattern.
-	     * @param {boolean} restart Force start from the beginning if already playing.
-	     * @param {boolean} fadeIn Whether to fade in the pattern.
-	     * @param {number} duration
-	     * @return {Klang.Model.Pattern}
-	     */
-	        Pattern.prototype.prePlaySchedule = function (steps, syncStep, restart, fadeIn, duration, offset) {
-	            restart = restart || false;
-	            var t = Klang.context.currentTime;
-	            // var t = this._sequencer.getBeatTime(steps);
-	            // Övergå till att fortsätta om vi håller på att avsluta
-	            if (this._state == PatternState.PreStopping || this._state == PatternState.PostStop) {
-	                this._output.gain.cancelScheduledValues(t);
-	                this._output.gain.setValueAtTime(this._output.gain.value, t);
-	                this._output.gain.linearRampToValueAtTime(this._volume, t + 0.5);
-	                this.changeState(PatternState.Playing);
-	                clearTimeout(this._stoppingId);
-	                return this;
-	            } else if (this._output.gain.value != this._volume || PatternState.Stopped) {
-	                var v;
-	                if (this._state === PatternState.Stopped && fadeIn) {
-	                    v = 0;
-	                } else {
-	                    v = this._output.gain.value;
-	                }
-	                this._output.gain.cancelScheduledValues(t);
-	                this._output.gain.setValueAtTime(v, t);
-	                this._output.gain.linearRampToValueAtTime(this._volume, t + duration);
-	            } else if (fadeIn) {
-	                var playTime = this._sequencer.getBeatTime(steps);
-	                this._output.gain.cancelScheduledValues(playTime);
-	                this._output.gain.setValueAtTime(0, playTime);
-	                this._output.gain.linearRampToValueAtTime(this._volume, playTime + duration);
-	            }
-	            // inget händer om det redan spelas
-	            if (this._state == PatternState.Playing || this._state == PatternState.PrePlaying) {
-	                if (restart) {
-	                    this._syncStep = syncStep;
-	                    this.stop(steps, true, 0);
-	                } else {
-	                    return this;
-	                }
-	            }
-	            // hoppa in i filen om offset
-	            if (offset !== undefined) {
-	                this._startOffset = offset;
-	            }
-	            this._syncStep = syncStep % this._length + this._startStep;
-	            if (steps > 0 || restart) {
-	                this._stepCount = steps;
-	                this._currentStep = this._startStep;
-	                this._totalStep = 0;
-	                this._activeUpbeat = -1;
-	                for (var ix = 0, len = this._upbeats.length; ix < len; ix++) {
-	                    var upbeat = this._upbeats[ix];
-	                    if (upbeat.length <= steps) {
-	                        if (this._activeUpbeat == -1 || this._upbeats[this._activeUpbeat].length < upbeat.length) {
-	                            this._activeUpbeat = ix;
-	                        }
-	                    }
-	                }
-	                this.changeState(PatternState.PrePlaying);
-	            } else {
-	                this.changeState(PatternState.Playing);
-	            }
-	            return this;
-	        };
-	        /**
-	     * Schedules this pattern to start playing.
-	     * @param {number} when When in web audio context time to start playing.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.play = function (when) {
-	            // inget händer om det redan spelas
-	            if (this._state == PatternState.Playing || this._state == PatternState.PrePlaying) {
-	                return this;
-	            } else if (this._state == PatternState.PreStopping || this._state == PatternState.PostStop) {
-	                clearTimeout(this._stoppingId);
-	            }
-	            // Schemalägg volym om en tidpunkt anges
-	            /*if (when && when != 0) {
-	      var targetVol = this._output.gain.value;
-	      this._output.gain.setValueAtTime(0, 0);
-	      this._output.gain.setValueAtTime(targetVol, when);
-	      }*/
-	            this._currentStep = this._sequencer.currentStep % this._length + this._startStep;
-	            this.changeState(PatternState.Playing);
-	            // Starta sequencern om den inte är igång
-	            if (!this._sequencer.started) {
-	                this._sequencer.start();
-	            }
-	            return this;
-	        };
-	        /**
-	     * Stops playing this pattern.
-	     * @param {number} when When to stop playing.
-	     * @param {boolean} beat Whether to stop on a beat or at a specific time.
-	     * @param {number} fadeTime Over how long to fade out.
-	     * @param {number} wait Number of steps to wait before stopping.
-	     * @return {Klang.Model.MidiPattern} Self
-	     */
-	        Pattern.prototype.stop = function (when, beat, fadeTime, wait) {
-	            // Stoppa endast om den spelar
-	            if (this._state == PatternState.Stopped) {
-	                return this;
-	            } else if (this._state === PatternState.PrePlaying) {
-	                // Stoppar direkt om den inte börjat spela än.
-	                // OBS Kan bli problem med upptakter eftersom dom ju spelar i PrePlaying läge och då kommer stoppas direkt.
-	                this.changeState(PatternState.Stopped);
-	                return;
-	            }
-	            // utan argument stoppas det direkt
-	            if (when === undefined) {
-	                this.changeState(PatternState.Stopped);
-	                this._currentStep = 0;
-	                return this;
-	            }
-	            // Om man inte anger beat är true default, eftersom det är vanligast.
-	            if (beat === undefined) {
-	                beat = true;
-	            }
-	            // börja stega ned tills pattern ska sluta spela
-	            if (beat) {
-	                this._stepCount = this._sequencer.getStepsToNext(this._sequencer.beatLength * when) || 0;
-	                this._fadeTime = fadeTime;
-	                this.changeState(PatternState.PreStopping);
-	                if (wait > 0) {
-	                    this._stepCount += wait;
-	                }
-	            } else
-	                // fortsätt spela tills den fadat ut helt och hållet
-	                {
-	                    if (fadeTime) {
-	                        var fadeBeats = fadeTime / this._sequencer.getNoteTime(1);
-	                        // antal beats att fada ut över
-	                        this._stepCount = Math.ceil(fadeBeats);
-	                        this.changeState(PatternState.Stopped);
-	                        var t = Klang.context.currentTime;
-	                        for (var i = 0; i < this._clips.length; i++) {
-	                            if (this._clips[i].audio) {
-	                                this._clips[i].audio.fadeOutAndStop(fadeTime, when);
-	                            }
-	                        }    // var t = context.currentTime;
-	                             // this._output.gain.cancelScheduledValues(t);
-	                             // this._output.gain.setValueAtTime(this._output.gain.value, t);
-	                             // this._output.gain.linearRampToValueAtTime(0.0, t + fadeTime);
-	                             // var _this = this;
-	                             // this._stoppingId = setTimeout(function() {
-	                             //     for (var i=0; i<_this._clips.length; i++) {
-	                             //         if (_this._clips[i].audio) {
-	                             //             _this._clips[i].audio.stop(0);
-	                             //         }
-	                             //     }
-	                             // }, ( t - context.currentTime + fadeTime ) * 1000 );
-	                    } else {
-	                        this.changeState(PatternState.Stopped);
-	                        this._currentStep = 0;
-	                        for (var i = 0; i < this._clips.length; i++) {
-	                            if (this._clips[i].audio) {
-	                                this._clips[i].audio.stop(when + this._sequencer.getNoteTime(this._sequencer.resolution));
-	                            }
-	                        }
-	                    }
-	                }
-	            return this;
-	        };
-	        /**
-	     * Pauses playback.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.pause = function () {
-	            for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                if (this._clips[ix].audio) {
-	                    this._clips[ix].audio.pause();
-	                }
-	            }
-	            return this;
-	        };
-	        /**
-	     * Resumes playback.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.unpause = function () {
-	            for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                if (this._clips[ix].audio) {
-	                    this._clips[ix].audio.unpause();
-	                }
-	            }
-	            return this;
-	        };
-	        /**
-	     * Handles events at a certain step.
-	     * @private
-	     * @param {number} currentStep Step to handle.
-	     * @param {number} scheduleTime Time to schedule events at this step.
-	     */
-	        Pattern.prototype.playStep = function (currentStep, scheduleTime) {
-	            if (this._currentStep >= this._length + this._startStep) {
-	                if (this._loop) {
-	                    this._currentStep = this._startStep;
-	                } else if (!this._loop) {
-	                    // Sluta lyssna om den inte ska loopa
-	                    this.changeState(PatternState.Stopped);
-	                }
-	            }
-	            // Hitta på ett sätt att inte loopa igenom alla clips varje gång??
-	            for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                if (this._clips[ix].step == this._currentStep) {
-	                    var clip = this._clips[ix];
-	                    // spela ljud
-	                    if (clip.audio) {
-	                        clip.audio.play(scheduleTime, this._startOffset);
-	                    } else
-	                        // kör process
-	                        {
-	                            clip.process.start(clip.args);
-	                        }
-	                }
-	            }
-	            this._totalStep += this._beatSubscription;
-	            this._currentStep += this._beatSubscription;
-	        };
-	        /**
-	     * Handles updates from the sequencer.
-	     * @param {number} currentStep Step to handle.
-	     * @param {number} scheduleTime Time to schedule events at this step.
-	     * @return {Klang.Model.Pattern}
-	     */
-	        Pattern.prototype.update = function (currentStep, scheduleTime) {
-	            // Räkna fram och köa upp endast om denna pattern lyssnar
-	            if (this._state != PatternState.Stopped && currentStep % this._beatSubscription == 0) {
-	                switch (this._state) {
-	                case PatternState.PrePlaying: {
-	                        if (this._activeUpbeat != -1) {
-	                            var upbeat = this._upbeats[this._activeUpbeat];
-	                            for (var ix = 0, len = upbeat.clips.length; ix < len; ix++) {
-	                                var clip = upbeat.clips[ix];
-	                                if (clip.step == upbeat.length - this._stepCount) {
-	                                    // spela ljud
-	                                    if (clip.audio) {
-	                                        clip.audio.play(scheduleTime);
-	                                    } else
-	                                        // kör process
-	                                        {
-	                                            clip.process.start(clip.args);
-	                                        }
-	                                }
-	                            }
-	                        }
-	                        this._stepCount -= this._beatSubscription;
-	                        if (this._stepCount <= 0) {
-	                            this._currentStep = this._startStep + this._syncStep % this._length;
-	                            this._syncStep = 0;
-	                            this.changeState(PatternState.Playing);
-	                        }
-	                        break;
-	                    }
-	                case PatternState.Playing: {
-	                        // När vi nått slutet av denna pattern
-	                        this.playStep(currentStep, scheduleTime);
-	                        break;
-	                    }
-	                case PatternState.PreStopping: {
-	                        this._stepCount -= this._beatSubscription;
-	                        if (this._stepCount <= 0) {
-	                            if (!this._tail || this._forceFade) {
-	                                this.stop(scheduleTime, false, this._fadeTime);
-	                            } else {
-	                                this.changeState(PatternState.Stopped);
-	                                // Resets _currentStep so pattern starts from beginning next time it's played.
-	                                this._currentStep = 0;
-	                            }
-	                        } else {
-	                            this.playStep(currentStep, scheduleTime);
-	                        }
-	                        break;
-	                    }
-	                case PatternState.PostStop: {
-	                        // Den här (playStep) borde inte köras om patternet inte spelar, alltså stoppas innan det har börjat spela.
-	                        this.playStep(currentStep, scheduleTime);
-	                        this._stepCount -= this._beatSubscription;
-	                        if (this._stepCount <= 0) {
-	                            this._forceFade = false;
-	                            this.changeState(PatternState.Stopped);
-	                            // Resets _currentStep so pattern starts from beginning next time it's played.
-	                            this._currentStep = 0;
-	                        }
-	                        break;
-	                    }
-	                }
-	            }
-	            return this;
-	        };
-	        /**
-	     * Deschedules everything that has been scheduled but has not started playing.
-	     * @return {Klang.Model.Pattern} Self
-	     */
-	        Pattern.prototype.deschedule = function (steps) {
-	            if (steps === undefined) {
-	                steps = this._length;
-	            }
-	            if (this._state != PatternState.Stopped) {
-	                steps = steps % this._length;
-	                for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                    var clip = this._clips[ix];
-	                    if (clip.audio) {
-	                        clip.audio.deschedule();
-	                    }
-	                }
-	                clearTimeout(this._stoppingId);
-	                this._output.gain.cancelScheduledValues(Klang.Util.now());
-	                this._currentStep = this._currentStep - steps    // återställ nuvarande steg
-	;
-	                // om vi gick förbi startsteget går vi till slutet av patternet istället
-	                if (this._currentStep < this._startStep) {
-	                    var stepDelta = this._startStep - this._currentStep;
-	                    this._currentStep = this._startStep + this._length - stepDelta;
-	                }
-	            }
-	            return this;
-	        };
-	        /**
-	     * Starts playing the audio and fades it's volume from 0 to 1.
-	     * @param {number} duration Time in seconds to reach full volume.
-	     * @param {number} when When in web audio context time to start playing.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.fadeInAndPlay = function (duration, when) {
-	            return this;
-	        };
-	        /**
-	     * Starts fading out the volume of the audio and stops playback when the volume reaches 0.
-	     * @param {number} duration Time in seconds to reach zero volume
-	     * @param {number} [when] When in Web Audio Context time to start fading out.
-	     * @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.fadeOutAndStop = function (duration, when) {
-	            when = when || Klang.Util.now();
-	            this.stop(when, false, duration);
-	            return this;
-	        };
-	        /**
-	     *   Exponentially changes the playbackrate.
-	     *   @param {number} value PlaybackRate to change to.
-	     *   @param {number} duration Duration in seconds for the curve change.
-	     *   @return {Klang.Model.Audio} Self
-	     */
-	        Pattern.prototype.curvePlaybackRate = function (value, duration) {
-	            for (var i = 0, l = this._clips.length; i < l; i++) {
-	                this._clips[i].audio.curvePlaybackRate(value, duration);
-	            }
-	            return this;
-	        };
-	        /**
-	     *   Calculates next bar based on beat modifier.
-	     *   @param {number} x Beat modifier = bar length to count with.
-	     *   @return Next bar
-	     */
-	        Pattern.prototype.getNextBar = function (x) {
-	            var nextBar = Math.ceil(this._currentStep / x);
-	            if (this._currentStep > this._length - x) {
-	                nextBar = 0;
-	            }
-	            return nextBar;
-	        };
-	        Object.defineProperty(Pattern.prototype, 'forceFade', {
-	            set: /**
-	       * GETTERS / SETTERS
-	       *********************/
-	            /**
-	       *   Whether to force fade when stopped.
-	       *   If all patterns should fade when stopped, overrides _tail = true;
-	       *   @type {boolean} value
-	       */
-	            function (value) {
-	                this._forceFade = value;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'playbackRate', {
-	            set: /**
-	       * The playback speed of the buffer where 2 means double speed.
-	       * @member {number}
-	       */
-	            function (value) {
-	                for (var ix = 0, len = this._clips.length; ix < len; ix++) {
-	                    this._clips[ix].audio.playbackRate = value;
-	                }
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'length', {
-	            get: /**
-	       * The length of the pattern in steps.
-	       * @type {number}
-	       */
-	            function () {
-	                return this._length;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'loop', {
-	            get: /**
-	       * Whether this pattern loops or not.
-	       * @type {bool}
-	       */
-	            function () {
-	                return this._loop;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'state', {
-	            get: /**
-	       * Playing state
-	       * @type {number}
-	       */
-	            function () {
-	                return this._state;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'playing', {
-	            get: /**
-	       * Whether or not this pattern is playing.
-	       * @type {boolean}
-	       */
-	            function () {
-	                var _playing = false;
-	                if (this._state === 1 || this._state === 1) {
-	                    _playing = true;
-	                }
-	                return _playing;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'duration', {
-	            get: /**
-	       * The length of the audio in seconds.
-	       * @type {number}
-	       */
-	            function () {
-	                return this._length * this._sequencer.getNoteTime(1);
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'playbackState', {
-	            get: /**
-	       * The state of the playback of this AudioSource. Valid states:
-	       * 0: not started
-	       * 1: scheduled
-	       * 2: playing
-	       * 3: stopped
-	       * @type {number}
-	       */
-	            function () {
-	                return 0;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        Object.defineProperty(Pattern.prototype, 'currentStep', {
-	            get: function () {
-	                return this._currentStep;
-	            },
-	            enumerable: true,
-	            configurable: true
-	        });
-	        /**
-	     * Updates the properties of this instance.
-	     * @param {Object} data Configuration data.
-	     */
-	        Pattern.prototype.setData = function (data) {
-	            _super.prototype.setData.call(this, data);
-	            var reinit = false;
-	            this._beatSubscription = data.beat_subscription !== undefined ? data.beat_subscription : 0.25;
-	            this._length = data.length !== undefined ? data.length : 0;
-	            this._startStep = data.start_step !== undefined ? data.start_step : 0;
-	            this._loop = data.loop === undefined ? true : data.loop;
-	            this._tail = data.tail === undefined ? false : data.tail;
-	            if (data.sequencer !== undefined && this._sequencerName != data.sequencer) {
-	                this._sequencerName = data.sequencer;
-	                reinit = true;
-	            }
-	            this._initData = {
-	                dummyClips: null,
-	                dummyUpbeats: null
-	            };
-	            if (data.content) {
-	                this._initData.dummyClips = data.content;
-	                this._clips = [];
-	                reinit = true;
-	            }
-	            if (data.upbeats) {
-	                this._initData.dummyUpbeats = data.upbeats;
-	                this._upbeats = [];
-	                reinit = true;
-	            }
-	            if (reinit) {
-	                this._sequencer.unregisterPattern(this);
-	                this.init();
-	            }
-	        };
-	        return Pattern;
-	    }(Klang.Model.Audio);
-	    return Klang.Model.Pattern = Pattern;
-	});
-	Module(function (Klang) {
-	    /**
 	   * Superclass for all effects. Contains one input and one output node.
 	   * @param {Object} data Configuration data.
 	   * @constructor
@@ -7235,8 +6503,9 @@
 	    function Effect(data) {
 	        this.active = true;
 	        this._type = data.type;
-	        this._input = Klang.context.createGain !== undefined ? Klang.context.createGain() : Klang.context.createGainNode();
-	        this._output = Klang.context.createGain !== undefined ? Klang.context.createGain() : Klang.context.createGainNode();
+	        this._output && this.disconnect();
+	        this._input = Klang.context.createGain();
+	        this._output = Klang.context.createGain();
 	        if (data.active === false) {
 	            this.active = false;
 	        }
@@ -7265,25 +6534,25 @@
 	        return this;
 	    };
 	    Object.defineProperty(Effect.prototype, 'input', {
-	        get: /***
+	        /***
 	     * GETTERS / SETTERS
 	     *********************/
 	        /**
 	     * The effect's input node. Connect an Audio Node to this node have it's output be affected by the effect.
 	     * @type {GainNode}
 	     */
-	        function () {
+	        get: function () {
 	            return this._input;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
 	    Object.defineProperty(Effect.prototype, 'output', {
-	        get: /**
+	        /**
 	     * The effect's output.
 	     * @type {GainNode}
 	     */
-	        function () {
+	        get: function () {
 	            return this._output;
 	        },
 	        enumerable: true,
@@ -7306,7 +6575,7 @@
 	        function EffectSend(data) {
 	            _super.call(this, data);
 	            this._wet = Klang.context.createGain();
-	            this._wet.gain.value = data.wet;
+	            this._wet.gain.setValueAtTime(data.wet, Klang.context.currentTime);
 	            this._input.connect(this._wet);
 	            this._input.connect(this._output);
 	            this.destinationName = data.destination_name;
@@ -7525,9 +6794,12 @@
 	            this._filter.type = Klang.Util.safeFilterType(data.filter_type);
 	            this._input.connect(this._filter);
 	            this._filter.connect(this._output);
-	            this._filter.frequency.value = data.frequency !== undefined ? data.frequency : 1000;
-	            this._filter.Q.value = data.Q !== undefined ? data.Q : 1;
-	            this._filter.gain.value = data.gain !== undefined ? data.gain : 0;
+	            var _filterStartFreq = data.frequency !== undefined ? data.frequency : 1000;
+	            this._filter.frequency.setValueAtTime(_filterStartFreq, Klang.context.currentTime);
+	            var _filterStartQ = data.Q !== undefined ? data.Q : 1;
+	            this._filter.Q.setValueAtTime(_filterStartQ, Klang.context.currentTime);
+	            var _filterStartGain = data.gain !== undefined ? data.gain : 0;
+	            this._filter.gain.setValueAtTime(_filterStartGain, Klang.context.currentTime);
 	        };
 	        /**
 	     * Activates or deactives the effect. An inactive effet is bypassed.
@@ -8181,14 +7453,14 @@
 	            }
 	            this._splitter = Klang.context.createChannelSplitter(2);
 	            this._merger = Klang.context.createChannelMerger(2);
-	            this._leftDelay = new Delay(data.left || {});
-	            this._rightDelay = new Delay(data.right || {});
+	            this._leftDelay = Klang.context.createDelay();
+	            this._rightDelay = Klang.context.createDelay();
 	            this._input.connect(this._splitter);
-	            this._splitter.connect(this._leftDelay.input, 0, 0);
-	            this._splitter.connect(this._rightDelay.input, 0, 0);
-	            this._splitter.connect(this._rightDelay.input, 1, 0);
-	            this._leftDelay.output.connect(this._merger, 0, 0);
-	            this._rightDelay.output.connect(this._merger, 0, 1);
+	            this._splitter.connect(this._leftDelay, 0, 0);
+	            this._splitter.connect(this._rightDelay, 0, 0);
+	            this._splitter.connect(this._rightDelay, 1, 0);
+	            this._leftDelay.connect(this._merger, 0, 0);
+	            this._rightDelay.connect(this._merger, 0, 1);
 	            this._merger.connect(this._output);
 	        }
 	        /**
@@ -8296,11 +7568,14 @@
 	                Klang.core.Core.instance.pushToPreLoadInitStack(this);
 	                this.syncResolution = data.delay_time || 1;
 	            } else {
-	                this._leftDelay.delayTime.value = data.delay_time || 0.125;
-	                this._rightDelay.delayTime.value = this._leftDelay.delayTime.value;
+	                var _delayStartTime = data.delay_time || 0.125;
+	                this._leftDelay.delayTime.setValueAtTime(_delayStartTime, Klang.context.currentTime);
+	                this._rightDelay.delayTime.setValueAtTime(_delayStartTime, Klang.context.currentTime);
 	            }
-	            this._feedback.gain.value = data.feedback || 0.3;
-	            this._output.gain.value = data.output_vol || data.wet || 1;
+	            var _startFeedback = data.feedback || 0.3;
+	            this._feedback.gain.setValueAtTime(_startFeedback, Klang.context.currentTime);
+	            var _startOutput = data.output_vol || data.wet || 1;
+	            this._output.gain.setValueAtTime(_startOutput, Klang.context.currentTime);
 	        }
 	        /**
 	     * Activates or deactives the effect. An inactive effet is bypassed.
@@ -8529,6 +7804,7 @@
 	        Klang.Util.__extends(Panner, _super);
 	        function Panner(data) {
 	            _super.call(this, data);
+	            this.data = data;
 	            this._name = data.name;
 	            this._panner = Klang.context.createPanner();
 	            this._input.connect(this._panner);
@@ -11012,6 +10288,7 @@
 	            this._hasNoteOffSamples = false;
 	            this._hasSustainOnSamples = false;
 	            this._hasSustainOffSamples = false;
+	            this._useEnvelope = true;
 	            this._pitchBendRange = 0.25;
 	            this._pedalOnTime = -1;
 	            this._sustained = [];
@@ -11204,13 +10481,18 @@
 	            copy.nextPlaybackRate = rate * this._currentPitch;
 	            copy.play(when);
 	            //copy.output.gain.value = 0.0;
-	            var attackWhen = Math.max(when + 0.0001, when + this._gainEG.attack);
-	            copy.output.gain.setValueAtTime(0, when);
-	            copy.output.gain.linearRampToValueAtTime(vol, attackWhen);
-	            if (copy.output.gain.setTargetAtTime) {
-	                copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, attackWhen, this._gainEG.decay || 0.01);
-	            } else if (copy.output.gain.setTargetValueAtTime) {
-	                copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, attackWhen, this._gainEG.decay);
+	            if (this._useEnvelope) {
+	                var attackWhen = Math.max(when + 0.0001, when + this._gainEG.attack);
+	                copy.output.gain.setValueAtTime(0, when);
+	                copy.output.gain.linearRampToValueAtTime(vol, attackWhen);
+	                if (copy.output.gain.setTargetAtTime) {
+	                    copy.output.gain.setTargetAtTime(vol * this._gainEG.sustain, attackWhen, this._gainEG.decay || 0.01);
+	                } else if (copy.output.gain.setTargetValueAtTime) {
+	                    copy.output.gain.setTargetValueAtTime(vol * this._gainEG.sustain, attackWhen, this._gainEG.decay);
+	                }
+	            } else {
+	                copy.output.gain.setValueAtTime(vol, when);
+	                copy.output.gain.value = vol;
 	            }
 	        };
 	        /**
@@ -11263,15 +10545,19 @@
 	                        if (when < Klang.Util.now()) {
 	                            when = Klang.Util.now();
 	                        }
-	                        var val = this._playingVoices[i].source.output.gain.value;
-	                        this._playingVoices[i].source.output.gain.cancelScheduledValues(when);
-	                        if (when != Klang.Util.now() || Klang.detector.browser['name'] == 'Firefox') {
-	                            this._playingVoices[i].source.output.gain.setValueAtTime(this._gainEG.sustain, when);
+	                        if (this._useEnvelope) {
+	                            var val = this._playingVoices[i].source.output.gain.value;
+	                            this._playingVoices[i].source.output.gain.cancelScheduledValues(when);
+	                            if (when != Klang.Util.now() || Klang.detector.browser['name'] == 'Firefox') {
+	                                this._playingVoices[i].source.output.gain.setValueAtTime(this._gainEG.sustain, when);
+	                            } else {
+	                                this._playingVoices[i].source.output.gain.setValueAtTime(val, when);
+	                            }
+	                            this._playingVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
+	                            this._playingVoices[i].source.output.gain.setTargetAtTime(0, when, this._gainEG.release);
 	                        } else {
-	                            this._playingVoices[i].source.output.gain.setValueAtTime(val, when);
+	                            this._playingVoices[i].source.fadeOutAndStop(this._gainEG.release, when);
 	                        }
-	                        this._playingVoices[i].source.stop(when + this._gainEG.release * this._stopFactor);
-	                        this._playingVoices[i].source.output.gain.setTargetAtTime(0, when, this._gainEG.release);
 	                        if (this._hasNoteOffSamples) {
 	                            var t = Klang.Util.now() - this._playingVoices[i].time;
 	                            var v = Math.min(Math.exp(-t) / 3, 1);
@@ -11532,10 +10818,11 @@
 	     * Starts scheduling.
 	     * @return {Klang.Model.Sequencer}
 	     */
-	        Sequencer.prototype.start = function () {
+	        Sequencer.prototype.start = function (offset) {
+	            offset = offset || 0;
 	            if (!this._started) {
 	                this._started = true;
-	                this._scheduleTime = Klang.context.currentTime;
+	                this._scheduleTime = Klang.context.currentTime + offset;
 	                if (this._scheduleAheadTime <= 0.2) {
 	                    this._scheduleTime += 0.3;
 	                }
@@ -12440,6 +11727,7 @@
 	            clone.audioElement = new Audio();
 	            clone.ready = !!this.ready;
 	            clone.audioElement.src = this._url;
+	            //this.audioElement.el.src;
 	            clone.audioElement.volume = 0;
 	            clone.audioElement.play();
 	            return clone;
@@ -12471,6 +11759,14 @@
 	            this._loop = !!this._data.loop;
 	            this._gain = new ATGainNode(data.volume, this);
 	            //this._currentFile.audioElement.loop = this._loop;
+	            if (this._loop) {
+	                //create a second AT to crossfade between
+	                //this._currentFile
+	                this._files = [
+	                    this._currentFile,
+	                    this._currentFile.clone()
+	                ];
+	            }
 	            this.beforeEnding = this.beforeEnding.bind(this);
 	        }
 	        ATAudioSource.STATE_PLAYING = 3;
@@ -12481,7 +11777,9 @@
 	                var otherFile = this._currentFile;
 	                this._currentFile = otherFile === this._files[0] ? this._files[1] : this._files[0];
 	                this._currentFile.currentTime = this._loopStart;
+	                //if ( !isNaN(this._currentFile.audioElement.duration)){
 	                this._currentFile.audioElement.currentTime = this._loopStart;
+	                //}
 	                otherFile.audioElement.pause();
 	                //this._currentFile.audioElement.volume =
 	                this.update();
@@ -12532,14 +11830,6 @@
 	            this._currentFile.audioElement.play();
 	            this._playing = true;
 	            if (this._loop) {
-	                if (!this._files) {
-	                    //create a second AT to crossfade between
-	                    //this._currentFile
-	                    this._files = [
-	                        this._currentFile,
-	                        this._currentFile.clone()
-	                    ];
-	                }
 	                clearTimeout(this._xLoopTimer);
 	                this._xLoopTimer = setTimeout(this.beforeEnding, (this._currentFile.audioElement.duration - offset - this._loopStart - (this._loopEnd ? this._currentFile.audioElement.duration - this._loopEnd : 0)) * 1000);    //this._currentFile.audioElement.addEventListener( 'ended', this.beforeEnding, false );
 	            }
@@ -13204,6 +12494,715 @@
 	        clearTimeout(this._periodicTimer);
 	    };
 	    return Klang.AudioTagHandler = AudioTagHandler;
+	});
+	Module(function (Klang) {
+	    /**
+	   * Represents a buffer for one audio file and how to play it back.
+	   * @param {Object} data Configuration data.
+	   * @param {string} name Identifying name.
+	   * @constructor
+	   * @extends {Klang.Model.Audio}
+	   */
+	    var StreamingAudioSource = function () {
+	        Klang.Util.__extends(StreamingAudioSource, Klang.Model.Audio);
+	        function StreamingAudioSource(data, name) {
+	            Klang.Model.Audio.call(this, data, name);
+	            this._startTime = 0;
+	            // När play kördes senast
+	            this._loopStartTime = 0;
+	            this._scheduleAhead = 0.2;
+	            this._stopping = false;
+	            this._fading = false;
+	            this._paused = false;
+	            this._pauseTime = -1;
+	            this._connected = false;
+	            this._durationTimeout = 0;
+	            // Hur lång tid av ljudet som spelats
+	            this._pauseStartTime = -1;
+	            this.data = data;
+	            this.editorName = data.editorName;
+	            this._fileId = data.file_id;
+	            this._playbackRate = data.playback_rate || 1;
+	            this._endTime = 0;
+	            this._loop = data.loop !== undefined ? data.loop : false;
+	            this._loopStart = data.loop_start;
+	            this._loopEnd = data.loop_end;
+	            this._offset = data.offset || 0;
+	            this._duration = data.duration || 0;
+	            this._reverse = data.reverse;
+	            this._retrig = data.retrig !== undefined ? data.retrig : true;
+	            this._lockPlaybackrate = data.lock_playback_rate !== undefined ? data.lock_playback_rate : false;
+	            this._volumeStartRange = data.volume_start_range;
+	            this._volumeEndRange = data.volume_end_range;
+	            if (data.panner) {
+	                this._panner = data.panner;
+	            }
+	            if (!Klang.core.Core.instance.pushToPostLoadInitStack(this)) {
+	                this.init();
+	            }
+	            Klang.core.internalEventBus.on('INIT_IOS', this.initIOS.bind(this));
+	        }
+	        /**
+	     * Initializes the AudioSouce.
+	     */
+	        StreamingAudioSource.prototype.init = function () {
+	            var self = this;
+	            var url;
+	            this._audioElement = new Audio();
+	            this._mediaElementSource = Klang.context.createMediaElementSource(this._audioElement);
+	            this._mediaElementSource.connect(this._output);
+	            this._audioElement.crossOrigin = 'anonymous';
+	            if (this._fileId) {
+	                if (typeof this._fileId === 'string') {
+	                    //this._buffer = FileHandler.instance.getFile(this._fileId);
+	                    var info = Klang.core.FileHandler.instance.getFileInfo(this._fileId);
+	                    url = (info.external ? '' : Klang.core.FileHandler.instance._baseURL) + info.url;
+	                }
+	            } else {
+	                url = this.data.url;
+	            }
+	            var format = '.mp3';
+	            if (Klang.detector.browser['name'] === 'Firefox' || Klang.detector.browser['name'] === 'Chrome') {
+	                format = '.ogg';
+	            }
+	            this._audioElement.src = url + format;
+	            if (!this._duration) {
+	                this._audioElement.addEventListener('loadedmetadata', function onMetaData(_event) {
+	                    self._duration = self._audioElement.duration;
+	                    self._audioElement.removeEventListener('loadedmetadata', onMetaData, false);
+	                }, false);
+	            }
+	        };
+	        /**
+	     * Sets what part of the audio buffer to loop if looping is turned on.
+	     * @param {number} loopStart Timestamp in seconds where in the buffer the loop starts.
+	     * @param {number} loopEnd Timestamp in seconds where in the buffer the loop ends.
+	     */
+	        StreamingAudioSource.prototype.setLoopRegion = function (loopStart, loopEnd) {
+	            this._loopStart = loopStart || this._loopStart;
+	            this._loopEnd = loopEnd || this._loopEnd;
+	            this._audioElement.loopStart = this._loopStart;
+	            this._audioElement.loopEnd = this._loopEnd;
+	            return this;
+	        };
+	        /**
+	     * Sets the destination for this StreamingAudioSource's audio output.
+	     * @param {AudioNode} destination Where to route this StreamingAudioSource's output.
+	     * @param {boolean} forceConnect Enables connecting to more than 1 destination.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.connect = function (destination, forceConnect) {
+	            // Only do the connection if it's not already connected
+	            if (!this._destination || forceConnect) {
+	                this._destination = destination;
+	                if (this._panner) {
+	                    this._output.connect(this._panner.input);
+	                    this._panner.output.connect(destination);    //this._pannerOut.connect(destination);
+	                } else {
+	                    this._output.connect(destination);
+	                }
+	            }
+	            return this;
+	        };
+	        /**
+	     * Removes all previous connections.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.disconnect = function () {
+	            this._output.disconnect();
+	            this._destination = null;
+	            if (this._panner) {
+	                this._panner.output.disconnect();
+	            }
+	            return this;
+	        };
+	        /**
+	     * Schedules this StreamingAudioSource to start playing.
+	     * @param {number} when When in web audio context time to start playing.
+	     * @param {bool} resume Whether to resume previous playback, if the StreamingAudioSource has been paused.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.play = function (when, offset, duration, resume) {
+	            var now = Klang.context.currentTime;
+	            clearTimeout(this._stopTimeout);
+	            Klang.log('StreamingAudioSource.play. Playing: ' + this._playing);
+	            if (this._playing) {
+	                this.stop(when);
+	            }
+	            when = when || 0;
+	            offset = offset || 0;
+	            resume = !false;
+	            this.removeUnusedSources();
+	            if (!duration) {
+	                // no default duration if looping
+	                if (this._loop) {
+	                    duration = 9999999999;
+	                } else {
+	                    duration = this._duration;
+	                }
+	            }
+	            if (!this._audioElement) {
+	                this.init();
+	            }
+	            // spela inte om tiden har passerat (för att inte klumpa ihop massa ljud vid scroll på ios)
+	            if (when !== 0 && when + 0.01 <= now) {
+	                Klang.warn('StreamingAudioSource: Returned, playTime < currentTime', this._name);
+	                return this;
+	            } else if (when == 0) {
+	                when = now;
+	            }
+	            this.output.gain.cancelScheduledValues(when);
+	            this.output.gain.setValueAtTime(this._volume, when);
+	            if (!this.paused) {
+	                this._pauseStartTime = when;
+	            }
+	            //  Resets _pauseTime if not started from unpause()
+	            if (!resume) {
+	                this._pauseTime = 0;
+	            }
+	            this._startTime = when;
+	            this._loopStartTime = when + this.duration;
+	            this._paused = false;
+	            if (this._stopping && !this._retrig) {
+	                this.output.gain.cancelScheduledValues(when);
+	                this.output.gain.setValueAtTime(this.output.gain.value, when);
+	                this.output.gain.linearRampToValueAtTime(this._volume, when + 0.25);
+	                clearTimeout(this._stoppingId);
+	                this._stopping = false;
+	                return;
+	            }
+	            this._fading = false;
+	            // Used to check if StreamingAudioSource is playing if not looping.
+	            if (!this._retrig && !this.loop) {
+	                if (when < this._endTime) {
+	                    return;
+	                }    // }
+	                     // else if (this.loop && !this._retrig) {
+	                     //   if (this._endTime == -1 || when < this._endTime) {
+	                     //     return;
+	                     //   }
+	                     // Used to check if StreamingAudioSource is playing if looping.
+	            } else if (this.loop && this._retrig && this.playing && !this._stopping) {
+	                return;
+	            } else if (this._stopping) {
+	                this._stopping = false;
+	            } else if (Math.round(this._endTime * 1000) / 1000 == Math.round((when + this._duration) * 1000) / 1000) {
+	                Klang.warn('StreamingAudioSource: Returned, Doubletrig', this._name);
+	                return this;
+	            }
+	            this._endTime = this.loop ? -1 : when + this._duration;
+	            if (this._loop) {
+	                this._audioElement.loop = true;
+	                this._audioElement.loopStart = this._loopStart ? this._loopStart : 0;
+	                this._audioElement.loopEnd = this._loopEnd ? this._loopEnd : this._duration;
+	            }
+	            if (!this._destination) {
+	                Klang.warn('StreamingAudioSource: no destination node');
+	            }
+	            if (typeof this._destination != 'object') {
+	                Klang.warn('StreamingAudioSource: destination is not an object', this._name);
+	            }
+	            // if (!this._connected) {
+	            //   source.connect(this._output);
+	            //   this._connected = true;
+	            // }
+	            if (offset > this._duration) {
+	                offset = offset % this._duration;
+	            }
+	            this._startOffset = this._offset + offset;
+	            this._playing = true;
+	            Klang.log('AudioElement.play');
+	            this._playTimeout = setTimeout(function () {
+	                this._audioElement.play();
+	            }.bind(this), Math.max(0, when - Klang.Util.now()) * 1000);
+	            return this;
+	        };
+	        StreamingAudioSource.prototype.getNumberOfSamples = function () {
+	            return this._duration * Klang.context.sampleRate;
+	        };
+	        /**
+	     * Stops all currently playing instances of this StreamingAudioSource's buffer.
+	     * @param {number} when When in web audio context time to stop playing.
+	     */
+	        StreamingAudioSource.prototype.stop = function (when) {
+	            if (typeof when === 'undefined') {
+	                when = 0;
+	            }
+	            clearTimeout(this._playTimeout);
+	            clearTimeout(this._durationTimeout);
+	            if (this._stopping) {
+	                this._stopping = false;
+	                clearTimeout(this._stoppingId);
+	            }
+	            var whenDelta = when - Klang.context.currentTime;
+	            if (whenDelta > 0) {
+	                this._stopTimeout = setTimeout(function () {
+	                    this._audioElement.pause();
+	                    this._audioElement.currentTime = 0;
+	                    this._stopping = false;
+	                }.bind(this), whenDelta * 1000);
+	                this._stopping = true;
+	                this._endTime = when;
+	            } else {
+	                this._audioElement.pause();
+	                this._audioElement.currentTime = 0;
+	                this._endTime = Klang.Util.now();
+	            }
+	            this._playing = false;
+	            return this;
+	        };
+	        /**
+	     * Deschedules everything that has been scheduled but has not started playing.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.deschedule = function () {
+	            this._audioElement.pause();
+	            return this;
+	        };
+	        /**
+	     * Pauses the playback of this StreamingAudioSource.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.pause = function () {
+	            if (this._endTime > Klang.Util.now()) {
+	                this._paused = true;
+	                var pauseDelta = Klang.Util.now() - this._startTime;
+	                // Tid som spelats sedan senaste start/unpause
+	                this._pauseTime += pauseDelta;
+	                this.stop();
+	            }
+	            return this;
+	        };
+	        /**
+	     * Resumes the playback of this StreamingAudioSource.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.unpause = function () {
+	            if (this.paused) {
+	                // Spara vanlig offset
+	                var realOffset = this._offset;
+	                // Ändra offset för att endast spela vad som är kvar av buffern
+	                this._offset += this._pauseTime;
+	                // Spela upp och ändra tillbaka offset
+	                this.play(0, 0, null, true);
+	                this._offset = realOffset;
+	                this._paused = false;
+	            }
+	            return this;
+	        };
+	        /**
+	     * Creates a new source node for playing back this StreamingAudioSource.
+	     * @private
+	     * @return {AudioBufferSourceNode} The source node that was created.
+	     */
+	        StreamingAudioSource.prototype.createMediaElementSource = function () {
+	            if (!this._connected) {
+	                var source = Klang.context.createMediaElementSource(this._audioElement);
+	                this._source = source;
+	            } else {
+	                var source = this._source;
+	            }
+	            return source;
+	        };
+	        StreamingAudioSource.prototype.initIOS = function () {
+	            if (!this._audioElement) {
+	                this.init();
+	            }
+	            this._audioElement.play();
+	            this._audioElement.pause();
+	        };
+	        /**
+	     * Starts playing the audio and fades it's volume from 0 to 1.
+	     * @param {number} duration Time in seconds to reach full volume.
+	     * @param {number} when When in web audio context time to start playing.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.fadeInAndPlay = function (fadeDuration, when, offset, duration) {
+	            if (typeof offset === 'undefined') {
+	                offset = 0;
+	            }
+	            if (typeof duration === 'undefined') {
+	                duration = this._duration;
+	            }
+	            var now = Klang.context.currentTime;
+	            if (!when) {
+	                when = now;
+	            }
+	            if (this.loop && (!this._retrig && (this._endTime == -1 || when < this._endTime)) && !this._stopping) {
+	                return;
+	            } else if (this.loop && this._retrig && this.playing && !this._stopping) {
+	                return;
+	            }
+	            this.output.gain.cancelScheduledValues(when);
+	            // if StreamingAudioSource is fading out and retrig is set to false, it will abort the stopping and fade up the volume again.
+	            if (this._stopping && !this._retrig) {
+	                clearTimeout(this._stoppingId);
+	                this.output.gain.setValueAtTime(this.output.gain.value, when);
+	            } else {
+	                // if StreamingAudioSource is not stopping, just play fade in and play.
+	                this._fading = true;
+	                this.play(when == now ? 0 : when, offset, duration);
+	                this.output.gain.setValueAtTime(0, when);
+	            }
+	            this._stopping = false;
+	            this.output.gain.linearRampToValueAtTime(this._volume, when + fadeDuration);
+	            return this;
+	        };
+	        /**
+	     * Starts fading out the volume of the audio and stops playback when the volume reaches 0.
+	     * @param {number} duration Time in seconds to reach zero volume
+	     * @param {number} [when] When in Web Audio Context time to start fading out.
+	     * @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.fadeOutAndStop = function (duration, when) {
+	            if (!this.playing) {
+	                return;
+	            }
+	            if (when === undefined) {
+	                when = Klang.context.currentTime;
+	            }
+	            if (this._stopping) {
+	                clearTimeout(this._stoppingId);
+	            }
+	            // if retrig is set to true and StreamingAudioSource is not already fading out, the latest source fades out and stops. Fade is done with a temporary gainNode, this allows another source to be faded in at the same time.
+	            // if retrig is set to false, StreamingAudioSource fades out and stopped after a timeout, this allows the stopping to be aborted if played again.
+	            this.output.gain.cancelScheduledValues(when);
+	            this.output.gain.setValueAtTime(this.output.gain.value || this._volume, when);
+	            this.output.gain.linearRampToValueAtTime(0, when + duration);
+	            var _this = this;
+	            this._stoppingId = setTimeout(function () {
+	                if (!_this._stopping) {
+	                    return;
+	                }
+	                _this._stopping = false;
+	                if (_this.loop) {
+	                    _this._loopPlaying = false;
+	                }
+	                _this.stop(when + duration);
+	            }, (duration + (when - Klang.Util.now()) - _this._scheduleAhead) * 1000);
+	            this._stopping = true;
+	            return this;
+	        };
+	        /**
+	     * Removes any stopped or finished source nodes.
+	     * @private
+	     */
+	        StreamingAudioSource.prototype.removeUnusedSources = function () {
+	        };
+	        /**
+	     *   Exponentially changes the playbackrate.
+	     *   @param {number} value PlaybackRate to change to.
+	     *   @param {number} duration Duration in seconds for the curve change.
+	     *   @return {Klang.Model.StreamingAudioSource} Self
+	     */
+	        StreamingAudioSource.prototype.curvePlaybackRate = function (value, duration, when) {
+	            if (this._lockPlaybackrate) {
+	                return;
+	            }
+	            var startTime = when ? when : Klang.Util.now();
+	            var node = this.playbackRateNode;
+	            if (node) {
+	                node.cancelScheduledValues(startTime);
+	                node.setValueAtTime(node.value == 0 ? Klang.Util.EXP_MIN_VALUE : node.value, startTime);
+	                node.exponentialRampToValueAtTime(value, startTime + duration);
+	            }
+	            this._playbackRate = value;
+	            return this;
+	        };
+	        Object.defineProperty(StreamingAudioSource.prototype, 'lastSource', {
+	            /**
+	       * GETTERS / SETTERS
+	       *********************/
+	            /**
+	       * The last source node that was created.
+	       * @type {AudioBufferSourceNode}
+	       */
+	            get: function () {
+	                return this._audioElement;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'loop', {
+	            /**
+	       * Whether playback of the buffer should loop or not.
+	       * @type {boolean}
+	       */
+	            get: function () {
+	                return this._loop;
+	            },
+	            set: function (value) {
+	                this._loop = value;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'offset', {
+	            /**
+	       * Where in the buffer to start playing, in seconds.
+	       * @type {number}
+	       */
+	            get: function () {
+	                return this._offset;
+	            },
+	            set: function (value) {
+	                if (typeof value === 'string' && value.indexOf('%') !== -1) {
+	                    value = this._duration * parseFloat(value);
+	                }
+	                this._offset = value;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'position', {
+	            get: function () {
+	                if (!this.playing || !this._duration) {
+	                    return 0;
+	                }
+	                var duration = this._duration;
+	                if (this._loopStart || this._loopEnd) {
+	                    duration = (this._loopEnd || duration) - (this._loopStart || 0);
+	                }
+	                var timePlayed = Klang.Util.now() - this._startTime;
+	                var loopTimePlayed = Klang.Util.now() + this._startOffset - this._loopStartTime;
+	                if (this._startOffset + timePlayed > this._duration) {
+	                    return this._loopStart + loopTimePlayed % duration;
+	                } else {
+	                    return this._startOffset + timePlayed;
+	                }
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'duration', {
+	            /**
+	       * Number of seconds after the offset to stop playing the buffer.
+	       * @member {number}
+	       */
+	            get: function () {
+	                return this._duration;    //return this._duration - this._offset;
+	            },
+	            set: function (value) {
+	                this._duration = value;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'paused', {
+	            /**
+	       * Whether this StreamingAudioSource has been paused or not.
+	       * @type {boolean}
+	       */
+	            get: function () {
+	                return this._paused;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'playbackRate', {
+	            /**
+	       * The playback speed of the buffer where 2 means double speed.
+	       * @member {number}
+	       */
+	            get: function () {
+	                return this._playbackRate;
+	            },
+	            set: function (value) {
+	                if (this._lockPlaybackrate) {
+	                    return;
+	                }
+	                var node = this.playbackRateNode;
+	                if (node) {
+	                    node.cancelScheduledValues(Klang.Util.now());
+	                }
+	                this._playbackRate = value;
+	                for (var ix = 0, len = this._sources.length; ix < len; ix++) {
+	                    this._sources[ix].playbackRate.value = this._playbackRate;
+	                }
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'nextPlaybackRate', {
+	            /**
+	       *   The playbackrate for the next source node that is created, NOT the currently playing sources.
+	       *   Used by SamplePlayer
+	       *   @type {number}
+	       */
+	            set: function (value) {
+	                if (this._lockPlaybackrate) {
+	                    return;
+	                }
+	                this._playbackRate = value;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'playbackRateNode', {
+	            /**
+	       * Node for manipulating the playback rate.
+	       * @type {AudioParam}
+	       */
+	            get: function () {
+	                var source = this.lastSource;
+	                // if (!source || source.playbackState === 3) {
+	                //     source = this.createMediaElementSource();
+	                // }
+	                return source && source.playbackRate;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'buffer', {
+	            /**
+	       * The audio buffer that this StreamingAudioSource plays.
+	       * @type {AudioBuffer}
+	       */
+	            get: function () {
+	                return null;
+	            },
+	            set: function (buffer) {
+	                console.error('can\'t set buffer on a streaming source');
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'playing', {
+	            /**
+	       * Whether or not this StreamingAudioSource is currently playing.
+	       * @type {boolean}
+	       */
+	            get: function () {
+	                return this._endTime == -1 || this._endTime > Klang.Util.now();
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'playbackState', {
+	            get: /**
+	       * The state of the playback of this StreamingAudioSource. Valid states:
+	       * 0: not started
+	       * 1: scheduled
+	       * 2: playing
+	       * 3: stopped
+	       * @type {number}
+	       */
+	            function () {
+	                var source = this.lastSource;
+	                if (source) {
+	                    return source.playbackState;
+	                }
+	                return 0;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'output', {
+	            /**
+	       * The audio's output.
+	       * @type {GainNode}
+	       */
+	            get: function () {
+	                if (this._panner) {
+	                    return this._panner.output;
+	                } else {
+	                    return this._output;
+	                }
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        Object.defineProperty(StreamingAudioSource.prototype, 'panner', {
+	            /**
+	       * The audio's 3d panner.
+	       * @type {Model.Panner}
+	       */
+	            get: function () {
+	                return this._panner;
+	            },
+	            enumerable: true,
+	            configurable: true
+	        });
+	        StreamingAudioSource.prototype.freeBuffer = function () {
+	        };
+	        /**
+	     * Updates the properties of this instance.
+	     * @param {Object} data Configuration data.
+	     */
+	        StreamingAudioSource.prototype.setData = function (data) {
+	            Klang.Model.Audio.prototype.setData.call(this, data);
+	            var reinit = false;
+	            this._volumeStartRange = data.volume_start_range;
+	            this._volumeEndRange = data.volume_end_range;
+	            if (data.file_id !== undefined && this._fileId != data.file_id) {
+	                this._fileId = data.file_id;
+	                reinit = true;
+	            }
+	            this._playbackRate = data.playback_rate === undefined ? 1 : data.playback_rate;
+	            if (this.playbackRateNode) {
+	                this.playbackRateNode.value = this._playbackRate;
+	            }
+	            this._loop = data.loop === undefined ? false : data.loop;
+	            if (this.lastSource) {
+	                this.lastSource.loop = this._loop;
+	            }
+	            if (!this._loop) {
+	                this._loopPlaying = false;
+	            }
+	            this._loopStart = data.loop_start === undefined ? 0 : data.loop_start;
+	            if (this.lastSource) {
+	                this.lastSource.loopStart = this._loopStart;
+	            }
+	            this._loopEnd = data.loop_end === undefined ? 0 : data.loop_end;
+	            if (this.lastSource) {
+	                this.lastSource.loopEnd = this._loopEnd;
+	            }
+	            var offset = data.offset === undefined ? 0 : data.offset;
+	            if (this._offset != offset) {
+	                this._offset = offset;
+	                reinit = true;
+	            }
+	            var duration = data.duration === undefined ? 0 : data.duration;
+	            if (this._duration != duration) {
+	                this._duration = duration;
+	                reinit = true;
+	            }
+	            this._retrig = data.retrig === undefined ? true : data.retrig;
+	            if (data.reverse === undefined) {
+	                data.reverse = false;
+	            }
+	            if (this._reverse != data.reverse) {
+	                this._reverse = data.reverse;
+	                reinit = true;
+	            }
+	            if (this.data.xfade != data.xfade) {
+	                reinit = true;
+	            }
+	            this.data = data;
+	            if (reinit) {
+	                this.init();
+	            }
+	            if (data.panner) {
+	                if (!this._panner) {
+	                    var d = this._destination;
+	                    this.disconnect();
+	                    this._panner = newPanner(data.panner);
+	                    this.connect(d);
+	                } else {
+	                    this._panner.setData(data.panner);
+	                }
+	            } else if (!data.panner) {
+	                if (this._panner) {
+	                    var d = this._destination;
+	                    this.disconnect();
+	                    this._panner = null;
+	                    this.connect(d);
+	                }
+	            }
+	        };
+	        return StreamingAudioSource;
+	    }();
+	    return Klang.Model.StreamingAudioSource = StreamingAudioSource;
 	});
 	/**
 	* Main module
