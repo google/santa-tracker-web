@@ -335,6 +335,29 @@ export class Elf {
       collideConnected: false,
     });
     p2World.addConstraint(this.rightKnee);
+
+    this.rightFoot = new p2.Body({
+      position: [-shoulderWidth/2 - shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      mass: 1,
+    });
+    this.rightFoot.zIndex = 3;
+    this.rightFootShape = new p2.Box({
+      width: shoeWidth,
+      height: shoeHeight,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.rightFootShape.img = document.getElementById('rightshoe');
+    this.rightFoot.addShape(this.rightFootShape);
+    p2World.addBody(this.rightFoot);
+
+    this.rightAnkle = new p2.RevoluteConstraint(this.rightCalf, this.rightFoot, {
+      localPivotA: [0, -legLength/4],
+      localPivotB: [+shoeWidth/2 - (shoeWidth * ankleOffset),
+        shoeHeight/2 - (shoeWidth * ankleOffset)],
+      collideConnected: false,
+    });
+    p2World.addConstraint(this.rightAnkle);
   }
 
   enableLimits(enabled) {
@@ -351,6 +374,7 @@ export class Elf {
       this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
       this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
       this.leftAnkle.setLimits(0, 0);
+      this.rightAnkle.setLimits(0, 0);
     } else {
       this.neckJoint.setLimits(false, false);
       this.leftShoulder.setLimits(false, false);
@@ -364,6 +388,7 @@ export class Elf {
       this.rightHip.setLimits(false, false);
       this.rightKnee.setLimits(false, false);
       this.leftAnkle.setLimits(false, false);
+      this.rightAnkle.setLimits(false, false);
     }
   }
 
@@ -520,7 +545,7 @@ export class Elf {
 
     if (this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
-      this.rightCalf.angle = 3 * Math.PI / 2 - Math.atan2(
+      this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
       this.resizeBox(this.rightCalf.shapes[0], this.dist('rightKnee', 'rightAnkle'), null);
     }
