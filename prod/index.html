@@ -118,24 +118,42 @@ body:not(.loading) #loader {
     return;
   }
 
+  function getUrlParameters(from) {
+    var out = {};
+    var search = from || location.search || '?';
+
+    search.substr(1).split('&').forEach(function(part) {
+      const p = part.split('=');
+      const key = decodeURIComponent(p[0] || '');
+      if (key && !(key in out)) {
+        // match URLSearchParams.get(), return the 1st param only.
+        out[key] = decodeURIComponent(p[1] || '');
+      }
+    });
+
+    return out;
+  }
+
+  function buildUrlParameters(raw) {
+    var out = Object.keys(raw || {}).map(function(key) {
+      return encodeURIComponent(key) + '=' + encodeURIComponent(raw[key]);
+    });
+    var search = out.join('&');
+    return search ? '?' + search : '';
+  }
+
   // Find the canonical URL for sharing and URL changes. Look in /intl/.../ and ?hl=... for user
   // override lang. Send the browser to the correct /intl/ version via History API. e.g.,
   //  * loading "/#foo?hl=de" will get "/intl/de/#foo"
   //  * loading "/intl/xx/" will get "/intl/xx/", but load default lang (xx doesn't exist)
   var load = (function() {
+    var params = getUrlParameters();
+
     // Look for /intl/../ (look for _last_). This wins over ?hl=...
     var pathname = location.pathname || '/';
     var match = pathname.match(/^\/intl\/([^_/]+)(?:|_ALL)\//);
-    var requestLang = match && match[1];
-
-    // Otherwise, look for ?hl=..., and remove it from the URL regardless.
-    var search = location.search || '';
-    var matchLang = /(?:\?|&)hl=([^&]*)\b/;
-    if (!requestLang) {
-      match = matchLang.exec(search);
-      requestLang = match && match[1];
-    }
-    search = search.replace(matchLang, '').replace(/^&/, '?');
+    var requestLang = match && match[1] || params['hl'];
+    delete params['hl'];
 
     // Grab the final URL component. This intentionally only matches the last part, as this site
     // should only be served through the top-level and the /intl/.../ paths above.
@@ -154,16 +172,14 @@ body:not(.loading) #loader {
     return {
       scope: scope,
       sceneName: sceneName,
-      url: scope + pathnameFor(sceneName) + search + location.hash,
+      data: params,
     };
   })();
 
-  function pathnameFor(sceneName) {
-    return (sceneName ? sceneName + '.html' : '');
-  }
   function updateHistory(sceneName, data) {
-    var url = load.scope + pathnameFor(sceneName);
+    var url = load.scope + (sceneName ? sceneName + '.html' : '') + buildUrlParameters(data);
     var state = {sceneName: sceneName, data: data};
+    console.info('updating history', state, url);
 
     if (!history.state || history.state.sceneName !== sceneName) {
       window.history.pushState(state, null, url);
@@ -171,7 +187,7 @@ body:not(.loading) #loader {
       window.history.replaceState(state, null, url);
     }
   }
-  updateHistory(load.sceneName, null);
+  updateHistory(load.sceneName, load.data);
 
   function ready() {
     document.body.classList.remove('loading');
@@ -183,9 +199,9 @@ body:not(.loading) #loader {
         ga.apply(null, ev.data.payload);
         break;
       case 'scene':
-        // TODO: support 'sharable' data ?params
         ready();  // first scene implies ready
-        updateHistory(ev.data.payload);
+        var payload = ev.data.payload;
+        updateHistory(payload.sceneName, payload.data);
         break;
       default:
         console.warn('unhandled', ev.data);

@@ -31,13 +31,14 @@
     const parent = channel.parent('init', (data) => {
       switch (data && data.type) {
         case 'go':
+          // TODO(samthor): Don't discard state.
           load(data.payload.sceneName);
           break;
       }
     });
 
     const entrypoint = new Entrypoint(santaApp, (sceneName) => {
-      parent({type: 'scene', payload: sceneName});
+      parent({type: 'scene', payload: {sceneName, data: null}});
     });
 
     santaApp.addEventListener('click', (ev) => {
