@@ -349,7 +349,8 @@ async function release() {
 
     const templateTagReplacer = (name, arg) => {
       if (name === '_style') {
-        return compileCss(`styles/${arg}.scss`, true);
+        const {css} = compileCss(`styles/${arg}.scss`, true);
+        return css;
       }
     };
 

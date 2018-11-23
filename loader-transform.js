@@ -47,9 +47,21 @@ function watch(paths, done, timeout) {
     return null;
   }
 
+  // TODO(samthor): Maybe update this if we ever move all static into static/.
+  const validWatchPrefix = [
+    'src/', 'scenes/', 'styles/', 'index.html',
+  ];
+
   // assume non-src/scene content will not change
   const valid = paths.filter((cand) => {
-    return cand && (cand.startsWith('src/') || cand.startsWith('scenes/'));
+    if (cand) {
+      for (const prefix of validWatchPrefix) {
+        if (cand.startsWith(prefix)) {
+          return true;
+        }
+      }
+    }
+    return false;
   });
   if (!valid.length) {
     return null;
@@ -85,6 +97,7 @@ async function load(loader, filename, cleanup) {
       return null;
     } else if (!raw.map) {
       // bail early if there's no source map, nothing to watch/append
+      console.info('not watching', filename);
       return raw.body;
     }
 
