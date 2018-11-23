@@ -49,7 +49,6 @@ export class VillageCountdownElement extends LitElement {
     const classFor = (x) => {
       return split[x] !== prev[x] && prev[x] !== undefined ? 'anim' : '';
     };
-    console.info('rendering', split, prev);
 
     return html`
 <style>${_style`village-countdown`}</style>
