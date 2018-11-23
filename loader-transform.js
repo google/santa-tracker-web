@@ -97,7 +97,6 @@ async function load(loader, filename, cleanup) {
       return null;
     } else if (!raw.map) {
       // bail early if there's no source map, nothing to watch/append
-      console.info('not watching', filename);
       return raw.body;
     }
 
