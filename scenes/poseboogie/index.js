@@ -16,7 +16,7 @@ const appConfig = {
   flipHorizontal: true, // Default to web-cam source, which flips video
   imageScaleFactor: 0.5,
   outputStride: 16,
-  enableJointLimits: false,
+  enableJointLimits: true,
   resizeBodyParts: false,
   smoothLimbs: true,
   humanSize: 1,

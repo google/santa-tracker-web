@@ -362,31 +362,15 @@ export class Elf {
 
   enableLimits(enabled) {
     if (enabled) {
-      this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
-      this.leftShoulder.setLimits(-Math.PI, Math.PI);
-      this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightShoulder.setLimits(-Math.PI, Math.PI);
-      this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
-      this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
-      this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
-      this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
-      this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
+      this.neckJoint.setLimits(-Math.PI/8, Math.PI/8);  // π/4 = 45°
+      this.leftWrist.setLimits(Math.PI/4, -Math.PI/4);
+      this.rightWrist.setLimits(Math.PI/4, -Math.PI/4);
       this.leftAnkle.setLimits(0, 0);
       this.rightAnkle.setLimits(0, 0);
     } else {
       this.neckJoint.setLimits(false, false);
-      this.leftShoulder.setLimits(false, false);
-      this.leftElbow.setLimits(false, false);
-      this.rightShoulder.setLimits(false, false);
-      this.rightElbow.setLimits(false, false);
       this.leftWrist.setLimits(false, false);
       this.rightWrist.setLimits(false, false);
-      this.leftHip.setLimits(false, false);
-      this.leftKnee.setLimits(false, false);
-      this.rightHip.setLimits(false, false);
-      this.rightKnee.setLimits(false, false);
       this.leftAnkle.setLimits(false, false);
       this.rightAnkle.setLimits(false, false);
     }
