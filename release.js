@@ -358,6 +358,8 @@ async function release() {
       if (name === '_style') {
         const {css} = compileCss(`styles/${arg}.scss`, loaderOptions);
         return css;
+      } else if (name === '_root') {
+        return path.join(loaderOptions.root, arg);
       }
     };
 
