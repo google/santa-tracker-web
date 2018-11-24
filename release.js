@@ -431,8 +431,6 @@ async function release() {
 
   // Render i18n versions of static pages.
   for (const [htmlFile, document] of htmlDocuments) {
-    const relativeRoot = path.relative(path.dirname(htmlFile), '.') || '.';
-    document.body.setAttribute('data-root', relativeRoot);
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
 
