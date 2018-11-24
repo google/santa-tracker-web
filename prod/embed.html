@@ -30,7 +30,7 @@ const staticOrigin = (new URL(staticBase)).origin;
 
 
 async function waitForEvent(target, eventName) {
-  return new Promise((r) => target.addEventListener('load', r, {once: true}));
+  return new Promise((r) => target.addEventListener(eventName, r, {once: true}));
 }
 
 
@@ -64,12 +64,17 @@ async function configureFrame() {
 
 
 async function run() {
-  const klangFrame = await configureKlangFrame();
-  const klangPost = (...args) => klangFrame.contentWindow.postMessage(args, staticOrigin);
-  klangPost('fire', 'global_sound_off');
-
-  // nb. Wait for `global_sound_off`, as it fades out.
-  await new Promise((r) => window.setTimeout(r, 500));
+  // create Klang frame and send mute, but don't await until all other work is done
+  const klangFramePromise = configureKlangFrame();
+  const klangPostPromise = klangFramePromise.then((klangFrame) => {
+    return (...args) => klangFrame.contentWindow.postMessage(args, staticOrigin);
+  });
+  const timeoutMutePromise = klangPostPromise.then((klangPost) => {
+    // If we later decide that scenes should start loud, this can be removed: the timeout mostly
+    // just ensures the initial beat of whatever scene music doesn't play (otw it would fade out).
+    klangPost('fire', 'global_sound_off');
+    return new Promise((r) => window.setTimeout(r, 500));
+  });
 
   const embedPort = await matchWindowMessage((ev) => {
     // nb. data should be 'santaandroid'
@@ -85,7 +90,10 @@ async function run() {
     }
   });
 
-  embedPort.onmessage = (ev) => {
+  const klangPost = await klangPostPromise;
+  await timeoutMutePromise;
+
+  const embedmessage = (ev) => {
     console.debug('got data from embed', ev.data);
     switch (ev.data) {
       case 'unmute':
@@ -98,6 +106,7 @@ async function run() {
         gamePort.postMessage(ev.data);
     }
   };
+  embedPort.onmessage = embedmessage;
 
   gamePort.onmessage = (ev) => {
     const {type, payload} = ev.data;
