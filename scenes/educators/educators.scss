@@ -1,65 +1,13 @@
 @import "../_info/base";
 @import "../_info/card";
 
-#content {
-  background: #F7FCFB;
-  -webkit-font-smoothing: antialiased;
-}
-
-#lang {
-  --info-chooser-background: rgba(255, 255, 255, 0.95);
-  --info-chooser-color: #555;
-}
-
 #hero {
-  background: url(img/bg-hero.png) center bottom/cover no-repeat;
   height: 800px;
-  padding: 20px 0 0 0;
-  width: 100%;
   border-bottom: 5px solid #e8eff0;
-
-  .header, .description  {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 1010px;
-    padding: 0 30px;
-  }
-
-  .header {
-    padding: 30px 0 50px 0;
-    text-align: center;
-
-    .title {
-      display: inline-block;
-      transform: rotate(-5deg);
-    }
-  }
-
-  h3 {
-    margin-top: -10px;
-    color: #fff;
-  }
-
-  .description {
-    display: flex;
-    align-items: center;
-
-    p {
-      color: rgba(38, 50, 56, 0.8);
-      font-weight: 300;
-    }
-  }
-
   .left {
-    width: 20%;
     .square {
-      background: url(img/illust-teacher_2x.png) center/contain no-repeat;
-      width: 100%;
+      background-image: url(img/illust-teacher_2x.png);
     }
-  }
-
-  .right {
-    width: 80%;
   }
 }
 
@@ -200,36 +148,5 @@
   }
 }
 
-#educators-footer {
-  will-change: transform;  // avoid chrome hiding this layer
-  background: #17CC82;
-  text-align: center;
-  padding: 100px;
-
-  p {
-    color: #fff;
-    padding-bottom: 25px;
-    font-size: 16px;
-  }
-
-  a {
-    background: #FFBE26;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    height: 50px;
-    opacity: 1;
-    padding: 15px 35px;
-    text-decoration: none;
-    transition: background .3s;
-    width: 250px;
-
-    &:hover {
-      background: #ffd54f;
-    }
-  }
-}
 
 @import "responsive";

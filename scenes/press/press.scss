@@ -1,72 +1,17 @@
 @import "../_info/base";
 @import "../_info/card";
 
-#press-content {
-  background: #F7FCFB;
-  -webkit-font-smoothing: antialiased;
-}
-
 #press-banner {
   display: block;
   height: 315px;
 }
 
-#press-hero {
-  background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
-  background-size: cover;
+#hero {
   height: 1000px;
-  padding: 20px 0 0 0;
-  width: 100%;
-
-  .press-header, .press-description  {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 1010px;
-    padding: 0 30px;
-  }
-
-  .press-header {
-    background: url(img/title-bg-swirl_2x.png) center/contain no-repeat;
-    padding: 30px 0 50px 0;
-    text-align: center;
-    width: 100%;
-
-    .press-title {
-      @extend .clearfix;
-      display: inline-block;
-      transform: rotate(-5deg);
-    }
-  }
-
-  h3 {
-    margin-top: -10px;
-    color: #fff;
-  }
-
-  .press-description {
-    @extend .clearfix;
-
-    p {
-      color: rgba(38, 50, 56, 0.8);
-      font-weight: 300;
-    }
-  }
-
-  .press-description-left {
-    float: left;
-    padding: 30px 0 0 0;
-    width: 26%;
-
+  .left {
     .square {
-      background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
-      background-size: contain;
-      width: 100%;
+      background-image: url(img/illust-reporter_2x.png);
     }
-  }
-
-  .press-description-right {
-    float: left;
-    width: 74%;
   }
 }
 
@@ -236,38 +181,6 @@
         width: 128px;
         margin: 25px auto;
       }
-    }
-  }
-}
-
-#press-footer {
-  will-change: transform;  // avoid chrome hiding this layer
-  background: #17CC82;
-  text-align: center;
-  padding: 100px;
-
-  p {
-    color: #fff;
-    padding-bottom: 25px;
-    font-size: 16px;
-  }
-
-  a {
-    background: #FFBE26;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    height: 50px;
-    opacity: 1;
-    padding: 15px 35px;
-    text-decoration: none;
-    transition: background .3s;
-    width: 250px;
-
-    &:hover {
-      background: #ffd54f;
     }
   }
 }
