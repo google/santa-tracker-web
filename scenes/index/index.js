@@ -74,5 +74,12 @@ const initialUpdatePromise = new Promise((resolve) => {
   resolve();
 });
 
-
 api.preload.wait(initialUpdatePromise);
+
+api.preload.images(
+  'img/mountain.svg',
+  'img/road.svg',
+  'img/ground.svg',
+  'img/easteregg-tree.svg',
+);
+
