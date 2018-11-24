@@ -22,7 +22,7 @@ const loaderSuffix = document.documentElement.lang ? `${document.documentElement
  * @return {string}
  */
 export function buildIframeUrl(scene, params={}) {
-  if (scene === null) {
+  if (scene === null || scene === 'index') {
     return 'data:text/html;base64,';
   }
   const p = new URLSearchParams();

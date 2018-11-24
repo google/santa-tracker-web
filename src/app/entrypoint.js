@@ -26,8 +26,10 @@ export class Entrypoint extends EventTarget {
       }
 
       // TODO(samthor): This dispatches constantly when any state changes.
-      const detail = {sceneName: state.selectedScene, data: state.selectedData};
-      this.dispatchEvent(new CustomEvent('scene', {detail}))
+      if (state.selectedScene !== null) {
+        const detail = {sceneName: state.selectedScene, data: state.selectedData};
+        this.dispatchEvent(new CustomEvent('scene', {detail}))
+      }
 
       const {api} = state;
       if (api == null) {

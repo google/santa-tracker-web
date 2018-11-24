@@ -158,7 +158,9 @@ body:not(.loading) #loader {
     // should only be served through the top-level and the /intl/.../ paths above.
     match = pathname.match(/\/(?:(\w+)\.html|)$/)
     var sceneName = match && match[1] || '';  // might be undefined, so no ?
-    if (sceneName === 'index') {
+
+    // Redirect non-scenes. This will replaceState for the initial load.
+    if (sceneName === 'index' || sceneName === 'village') {
       sceneName = '';
     }
 
@@ -174,17 +176,18 @@ body:not(.loading) #loader {
     };
   })();
 
-  function updateHistory(sceneName, data) {
+  function updateHistory(sceneName, data, replace) {
     var url = load.scope + (sceneName ? sceneName + '.html' : '') + buildUrlParameters(data);
     var state = {sceneName: sceneName, data: data};
 
-    if (!history.state || history.state.sceneName !== sceneName) {
+    if (!replace && (!history.state || history.state.sceneName !== sceneName)) {
       window.history.pushState(state, null, url);
     } else if (url !== window.location.href) {
-      window.history.replaceState(state, null, url);
+      replace = true;
     }
+    replace && window.history.replaceState(state, null, url);
   }
-  updateHistory(load.sceneName, load.data);
+  updateHistory(load.sceneName, load.data, true);
 
   function ready() {
     document.body.classList.remove('loading');
