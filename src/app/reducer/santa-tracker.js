@@ -21,7 +21,7 @@ export const santaTrackerReducer = (state, action) => {
 
       // if the selected scene is already active (but not selected), then it was selected again
       // during another scene's load: so set the scene's loadProgress to done!
-      const loadProgress = (state.activeScene === action.payload) ? 1 : 0;
+      const loadProgress = (state.activeScene === sceneName) ? 1 : 0;
       return {
         ...state,
         selectedScene: sceneName,
