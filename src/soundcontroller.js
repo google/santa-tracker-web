@@ -1,9 +1,8 @@
 
 /**
- * Klang path. This does not need to be normalized as soundcontroller should only be loaded by
- * top-level code in static.
+ * Klang path. This is normalized, but shouldn't really be loaded more than once anyway.
  */
-const klangPath = 'third_party/lib/klang';
+const klangPath = _root`third_party/lib/klang`;
 
 
 /**
@@ -14,6 +13,8 @@ let localKlang;
 
 /**
  * Resolved when a user gesture has completed (or if a user gesture isn't required to play).
+ *
+ * TODO(samthor): If this is running in a controller iframe, this makes little sense.
  */
 const gesturePromise = new Promise((resolve, reject) => {
   // TODO(samthor): play a zero-length Audio to check for rejection
@@ -128,9 +129,9 @@ export function ambient(startEvent, clearEvent) {
     }
 
     if (previousClearEvent !== null) {
-      await triggerEvent(previousClearEvent);
+      await fire(previousClearEvent);
     }
-    await triggerEvent(startEvent);
+    await fire(startEvent);
     return clearEvent;
   });
   klangAmbientTask = localTask;
