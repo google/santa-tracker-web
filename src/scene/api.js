@@ -54,7 +54,6 @@ class PreloadApi {
       if (ratio >= 1) {
         this._doneResolve();
       } else {
-        // TODO(samthor): This is very noisy. Only send one per every few rAFs?
         this._cb(ratio);
       }
     });

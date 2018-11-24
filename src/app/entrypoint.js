@@ -20,9 +20,9 @@ export class Entrypoint extends EventTarget {
     let activeScene = null;
 
     this.adapter.subscribe((state) => {
-      if (state.activeScene !== activeScene) {
+      if (state.activeScene !== activeScene || state.showError) {
         activeScene = state.activeScene;
-        this.dispatchEvent(new Event('ready', {detail: activeScene}));
+        this.dispatchEvent(new Event('ready'));
       }
 
       // TODO(samthor): This dispatches constantly when any state changes.

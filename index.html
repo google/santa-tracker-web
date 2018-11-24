@@ -30,6 +30,14 @@
     entrypoint.addEventListener('ready', (ev) => parent({type: 'ready'}));
     entrypoint.addEventListener('scene', (ev) => parent({type: 'scene', payload: ev.detail}));
 
+    window.ga = function() {
+      const payload = Array.from(arguments);
+      if (payload[0] !== 'send' || payload[1] !== 'event') {
+        console.warn('non-event', payload);
+      }
+      parent({type: 'ga', payload});
+    };
+
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);
       if (sceneName !== null) {

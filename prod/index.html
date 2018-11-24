@@ -194,7 +194,6 @@ body:not(.loading) #loader {
     switch (ev.data && ev.data.type) {
       case 'ga':
         // event from container
-        ev.data.payload.unshift('send', 'event');
         ga.apply(null, ev.data.payload);
         break;
       case 'scene':

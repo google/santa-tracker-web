@@ -45,7 +45,8 @@ if (document.documentElement.lang) {
 }
 
 
-const videoId = window.location.searchParams.get('video') || '';
+const params = new URLSearchParams(window.location.search);
+const videoId = params.get('video') || '';
 
 
 // Load the YT API.

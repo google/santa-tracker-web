@@ -87,7 +87,7 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderError(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED});
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED, payload: ev.detail});
   }
 
   _onIframeScroll(ev) {
@@ -120,6 +120,16 @@ export class SantaAppElement extends LitElement {
       node.setAttribute('tabindex', '0')
       node.focus();
       node.removeAttribute('tabindex');
+    }
+  }
+
+  _errorText() {
+    if (!this._showError) {
+      return '';
+    } else if (this._showError === 'missing') {
+      return _msg`error-not-found`;
+    } else {
+      return _msg`error-internal`;
     }
   }
 
@@ -169,7 +179,7 @@ export class SantaAppElement extends LitElement {
   <div class="info noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
-    <p ?hidden=${!this._showError}>${route.resolve(_msg`error-not-found`)}</p>
+    <p ?hidden=${!this._showError}>${route.resolve(this._errorText())}</p>
   </div>
   <div class="info rotate ${info.view || ''}">
     <img src="${_root`img/rotate.svg`}" />

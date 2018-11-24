@@ -61,7 +61,14 @@ class SantaLoaderElement extends HTMLElement {
     // fail on unhandled contentWindow error
     pf.contentWindow.addEventListener('error', (ev) => {
       console.warn('contained frame got error', url, ev);
-      this._fail(pf, ev.message);
+      let s = ev.message;
+      try {
+        const u = new URL(ev.filename || url);
+        s = `${u.pathname}:${ev.lineno}\n${ev.message}`;
+      } catch (e) {
+        // do nothing
+      }
+      this._fail(pf, 'error', s);
     });
 
     // listen to scroll so the top bar can be made visible/hidden
@@ -72,7 +79,7 @@ class SantaLoaderElement extends HTMLElement {
     const cleanupMessageHandler = () => this._onMessageHandler.delete(pf.contentWindow);
     const messageHandler = (ev) => {
       if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
-        throw new Error(`got unexpected message from preload 'init': ${ev.data}`);
+        throw new Error(`unexpected from preload: ${ev.data}`);
       }
       cleanupMessageHandler();
       frameInitReceived = true;
@@ -99,7 +106,7 @@ class SantaLoaderElement extends HTMLElement {
         // if the loader hasn't received a postMessage one tick after load, then fail the frame
         cleanupMessageHandler();
         if (!frameInitReceived) {
-          this._fail(pf, `frame failed to send 'init' event`);
+          this._fail(pf, 'missing');
         }
       }, 0);
     });
@@ -118,9 +125,7 @@ class SantaLoaderElement extends HTMLElement {
     return this._preloadPromise;
   }
 
-  _fail(iframe, reason='failed') {
-    // TODO(samthor): Change to enum reason and message, so that the message displayed be relevant
-    // (missing, error, ...).
+  _fail(iframe, reason, more='') {
     this._maybeStopPreload(reason, iframe);
 
     // fail clears the _activeFrame, so that players are told the load failed
@@ -129,6 +134,8 @@ class SantaLoaderElement extends HTMLElement {
     this.dispatchEvent(new CustomEvent('error', {detail: reason}));
     this._preloadPromise = Promise.reject(reason);
     this._onFrameScroll();
+
+    ga('send', 'event', 'loader-error', reason, more.toString());
   }
 
   _maybeStopPreload(reason, preloadFrame=null) {
@@ -157,7 +164,7 @@ class SantaLoaderElement extends HTMLElement {
     this._dispose(this._activeFrame);
 
     // explicitly disallow URL changes in this frame by failing if we're unloaded
-    pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'URL loaded inside frame'));
+    pf.contentWindow.addEventListener('beforeunload', (ev) => this._fail(pf, 'load'));
 
     pf.hidden = false;
     this._activeFrame = pf;
@@ -165,7 +172,8 @@ class SantaLoaderElement extends HTMLElement {
     this._preloadFrame = null;
     this._preloadResolve = null;
 
-    this.dispatchEvent(new CustomEvent('load', {detail: url}));
+    const detail = {url, iframe: pf};
+    this.dispatchEvent(new CustomEvent('load', {detail}));
     this._onFrameScroll();
     return true;
   }

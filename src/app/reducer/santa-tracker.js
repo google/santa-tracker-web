@@ -54,7 +54,7 @@ export const santaTrackerReducer = (state, action) => {
         ...state,
         activeScene: null,
         loadProgress: 1,
-        showError: true,
+        showError: action.payload || true,
         showSidebar: false,
       };
 
