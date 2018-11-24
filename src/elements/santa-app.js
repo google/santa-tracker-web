@@ -99,7 +99,8 @@ export class SantaAppElement extends LitElement {
   }
 
   _onClickHome(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: ''});
+    const payload = {sceneName: ''};
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
   }
 
   _onCheckboxChange(ev) {

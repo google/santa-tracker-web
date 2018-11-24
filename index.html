@@ -25,21 +25,16 @@
       document.body.setAttribute('data-scope', scope);
     }
 
-    const load = (sceneName) => entrypoint.load(sceneName);
+    const entrypoint = new Entrypoint(santaApp);
     const parent = channel.parent('init', (data) => {
       switch (data && data.type) {
         case 'go':
-          // TODO(samthor): Don't discard state.
-          load(data.payload.sceneName);
+          entrypoint.load(data.payload.sceneName, data.payload.data);
           break;
       }
     });
-
-    const entrypoint = new Entrypoint(santaApp, (sceneName) => {
-      // TODO(samthor): This fires when the scene changes, not when activated. That's great for the
-      // URL but not for the 'initial' load.
-      parent({type: 'scene', payload: {sceneName, data: null}});
-    });
+    entrypoint.addEventListener('ready', (ev) => parent({type: 'ready'}));
+    entrypoint.addEventListener('scene', (ev) => parent({type: 'scene', payload: ev.detail}));
 
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);

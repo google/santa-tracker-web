@@ -179,11 +179,10 @@ body:not(.loading) #loader {
   function updateHistory(sceneName, data) {
     var url = load.scope + (sceneName ? sceneName + '.html' : '') + buildUrlParameters(data);
     var state = {sceneName: sceneName, data: data};
-    console.info('updating history', state, url);
 
     if (!history.state || history.state.sceneName !== sceneName) {
       window.history.pushState(state, null, url);
-    } else {
+    } else if (url !== window.location.href) {
       window.history.replaceState(state, null, url);
     }
   }
@@ -198,8 +197,10 @@ body:not(.loading) #loader {
       case 'ga':
         ga.apply(null, ev.data.payload);
         break;
+      case 'ready':
+        ready();
+        break;
       case 'scene':
-        ready();  // first scene implies ready
         var payload = ev.data.payload;
         updateHistory(payload.sceneName, payload.data);
         break;

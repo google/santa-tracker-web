@@ -1,5 +1,6 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {logger} from '@polymer/broadway/lib/logger';
+import '../polyfill/event-target.js';
 
 import {formatDuration} from '../lib/time.js';
 import * as sc from '../soundcontroller.js';
@@ -10,18 +11,23 @@ import {SANTA_TRACKER_CONTROLLER_URL} from './common.js';
 logger.enabled = false;
 
 
-export class Entrypoint {
-  constructor(santaApp, callback) {
+export class Entrypoint extends EventTarget {
+  constructor(santaApp) {
+    super();
+
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
-    let selectedScene = null;
+    let dispatchedReady = false;
 
     this.adapter.subscribe((state) => {
-      if (selectedScene !== state.selectedScene) {
-        selectedScene = state.selectedScene;
-        callback(selectedScene);
+      if (state.activeScene !== null && !dispatchedReady) {
+        dispatchedReady = true;
+        this.dispatchEvent(new Event('ready'));
       }
-      selectedScene = state.selectedScene;
+
+      // TODO(samthor): This dispatches constantly when any state changes.
+      const detail = {sceneName: state.selectedScene, data: state.selectedData};
+      this.dispatchEvent(new CustomEvent('scene', {detail}))
 
       const {api} = state;
       if (api == null) {
@@ -57,8 +63,9 @@ export class Entrypoint {
     this.startDefaultMusic();
   }
 
-  load(sceneName) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
+  load(sceneName, data) {
+    const payload = {sceneName, data};
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
   }
 
   async startDefaultMusic() {

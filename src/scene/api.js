@@ -131,8 +131,9 @@ class SceneManager extends EventTarget {
     this._updateGame({type: 'onready', data});
   }
 
-  route(sceneName) {
-    this._adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
+  route(sceneName, data) {
+    const payload = {sceneName, data};
+    this._adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
   }
 
   score(detail) {

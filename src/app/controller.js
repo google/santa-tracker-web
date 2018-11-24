@@ -14,6 +14,7 @@ class SantaTrackerController extends Controller {
     return {
       activeScene: null,
       selectedScene: null,  // nothing loaded until we're asked
+      selectedData: null,   // only selectedScene can have query data
       loadAttempt: 0,
       loadProgress: 1,
       showError: false,
@@ -45,7 +46,7 @@ class SantaTrackerController extends Controller {
       // store. Eventually, we may want to map the actions to
       // action creators, which are functions that should be invoked
       // with the dispatch function as one of their arguments.
-      console.warn('Dispatching action', action);
+      logger.enabled && console.warn('Dispatching action', action);
       santaTrackerStore.dispatch(action);
     });
 
