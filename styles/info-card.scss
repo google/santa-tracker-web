@@ -6,10 +6,9 @@
 }
 
 .card {
-  border-radius: var(--info-card-border-radius, 5px);
+  border-radius: 5px;
   background: #fff;
-  box-shadow: 0 3px 5px var(--info-card-shadow-color, #ddd);
-  overflow: hidden;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
   text-align: left;
   will-change: transform;  /* force layer */
   transform: translateZ(0);
@@ -17,7 +16,8 @@
 
 .background {
   background: transparent center/cover no-repeat;
-  border-radius: inherit;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   color: #fff;
   height: 265px;
   overflow: hidden;
@@ -36,17 +36,6 @@
   width: 100%;
 }
 
-span.unlock {
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-span.unlock-day {
-  font-family: 'Lobster', sans-serif;
-  font-size: 30px;
-}
-
 .info {
   color: #546e7a;
   padding: 25px;
@@ -54,34 +43,8 @@ span.unlock-day {
   line-height: 24px;
 }
 
-h4 {
-  margin: 0;
-  font-size: 22px;
-}
-
-h5 {
-  margin: 0;
-  color: #90a4ae;
-  font: inherit;
-}
-
 a {
   text-decoration: none;
   position: relative;
   display: block;
-
-  &:focus {
-    outline: none;
-
-    &::after {
-      content: '';
-      border: 4px solid black;
-      opacity: 0.33;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;  
-    }
-  }
 }

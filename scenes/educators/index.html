@@ -38,17 +38,7 @@
     <div class="educators-secondary-inner">
       <h2>Games for the classroom</h2>
 
-      <info-chooser choices="geography computerscience language socialstudies" value="" showall>
-        <template is="dom-repeat" items="[[cards]]" as="card">
-          <info-card filter$="[[card.filter]]"
-              image="[[_computeInfoCardImage(card.key)]]"
-              type="[[card.type]]"
-              href="[[urlFor(card.key)]]">
-            <div slot="title">[[card.title]]</div>
-            <p>[[card.description]]</p>
-          </info-card>
-        </template>
-      </info-chooser>
+      <info-chooser id="chooser" choices="geography computerscience language socialstudies" value="" showall></info-chooser>
     </div>
   </div>
 

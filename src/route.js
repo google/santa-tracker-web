@@ -42,6 +42,10 @@ export function fromClick(ev) {
  * @return {string} href with scope as appropriate
  */
 export function href(cand) {
+  if (cand == null) {
+    return cand;
+  }
+
   try {
     const url = new URL(cand);
     return url.toString();

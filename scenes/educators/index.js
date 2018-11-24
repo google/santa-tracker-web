@@ -3,6 +3,19 @@ import '../../src/elements/info-card.js';
 import '../../src/elements/info-chooser.js';
 
 import {html, render} from 'lit-html';
+import {modelsTemplate} from '../_info/render.js';
+import models from '../_info/models.js';
+
+
+const eduModels = models.filter((model) => {
+  return model.filter.split(/\s+/g).indexOf('education') !== -1;
+});
+
+
+const chooser = document.getElementById('chooser');
+const template = modelsTemplate(eduModels, false);
+render(template(), chooser);
+
 
 async function setup() {
   await customElements.whenDefined('info-chooser');
