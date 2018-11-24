@@ -1,0 +1,275 @@
+@import "../_info/base";
+@import "../_info/card";
+
+#press-content {
+  background: #F7FCFB;
+  -webkit-font-smoothing: antialiased;
+}
+
+#press-banner {
+  display: block;
+  height: 315px;
+}
+
+#press-hero {
+  background: url(img/bg-press-page-hero.png) 50% 100% no-repeat;
+  background-size: cover;
+  height: 1000px;
+  padding: 20px 0 0 0;
+  width: 100%;
+
+  .press-header, .press-description  {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1010px;
+    padding: 0 30px;
+  }
+
+  .press-header {
+    background: url(img/title-bg-swirl_2x.png) center/contain no-repeat;
+    padding: 30px 0 50px 0;
+    text-align: center;
+    width: 100%;
+
+    .press-title {
+      @extend .clearfix;
+      display: inline-block;
+      transform: rotate(-5deg);
+    }
+  }
+
+  h3 {
+    margin-top: -10px;
+    color: #fff;
+  }
+
+  .press-description {
+    @extend .clearfix;
+
+    p {
+      color: rgba(38, 50, 56, 0.8);
+      font-weight: 300;
+    }
+  }
+
+  .press-description-left {
+    float: left;
+    padding: 30px 0 0 0;
+    width: 26%;
+
+    .square {
+      background: url(img/illust-reporter_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+      width: 100%;
+    }
+  }
+
+  .press-description-right {
+    float: left;
+    width: 74%;
+  }
+}
+
+#press-intro {
+  display: flex;
+  align-items: stretch;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  h2, {
+    color: #fff;
+  }
+
+  p, ul {
+    color: #fff;
+  }
+
+  ul {
+    text-align: left;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  .press-intro-inner {
+    text-align: center;
+    width: 75%;
+  }
+
+  .press-intro-col {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+    width: 50%;
+
+    .rect {
+      margin: 5% 0;
+      width: 100%;
+    }
+  }
+
+  .press-intro-left {
+    background: #17CC82;
+
+    .rect {
+      background: url(img/illust-educational_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .press-intro-right {
+    background: #9575CD;
+
+    .rect {
+      background: url(img/illust-new_2x.png) 50% 50% no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+#press-primary {
+  text-align: center;
+  padding: 100px 0 0 0;
+
+  h2 {
+    margin-bottom: 50px;
+  }
+
+  .press-primary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 0 10px;
+    width: 1010px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  p {
+    min-height: 144px;
+  }
+}
+
+#press-secondary {
+  padding: 100px 0 100px 0;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .press-secondary-inner {
+    margin: 0 auto;
+    overflow: auto;
+    width: 1010px;
+  }
+}
+
+#press-embed {
+  background: #9575CD;
+  padding: 100px 0;
+  text-align: center;
+
+  .press-embed-inner {
+    margin: 0 auto;
+    width: 640px;
+  }
+
+  a {
+    color: #80DEEA;
+    text-decoration: none;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  .rect {
+    background: url(img/illust-embed_2x.png) 50% 50% no-repeat;
+    background-size: contain;
+  }
+}
+
+#press-device {
+  padding: 50px 0;
+  text-align: center;
+
+  h3, h4, p {
+    color: #607D8B;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  .press-device-grid {
+    margin: 0 auto;
+    max-width: 1010px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    .press-device-square {
+      will-change: transform;  // avoid chrome hiding this layer
+      padding: 0 15px 30px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 25%;
+      min-width: 240px;
+
+      .square {
+        background: transparent center/contain no-repeat;
+        width: 128px;
+        margin: 25px auto;
+      }
+    }
+  }
+}
+
+#press-footer {
+  will-change: transform;  // avoid chrome hiding this layer
+  background: #17CC82;
+  text-align: center;
+  padding: 100px;
+
+  p {
+    color: #fff;
+    padding-bottom: 25px;
+    font-size: 16px;
+  }
+
+  a {
+    background: #FFBE26;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    opacity: 1;
+    padding: 15px 35px;
+    text-decoration: none;
+    transition: background .3s;
+    width: 250px;
+
+    &:hover {
+      background: #ffd54f;
+    }
+  }
+}
+
+@import "responsive";
