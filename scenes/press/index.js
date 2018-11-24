@@ -45,22 +45,22 @@ const template = () => html`${r}`;
 render(template(), chooser);
 
 
-/*
-        <template is="dom-repeat" items="[[androidCards]]" as="card">
 
-          <info-card filter$="[[card.filter]]"
-              image="[[_computeInfoCardImage(card.key, 'app')]]"
-              opens="[[card.opens]]"
-              type="[[card.type]]">
-            <div slot="title">[[card.title]]</div>
-            <p>[[card.description]]</p>
-            <div class="card-links" hidden$="[[!card.screenshotUrl]]">
-              <span class="card-title">Press resources</span>
-              <a href="[[card.screenshotUrl]]" rel="noopener">
-                Still Screenshot <span>(PNG file)</span>
-              </a>
-            </div>
-          </info-card>
-
-        </template>
-*/
+api.preload.images(
+  'img/bg-press-page-hero.png',
+  'img/card-tracker.png',
+  'img/card-village.png',
+  'img/illust-chromecast_2x.png',
+  'img/illust-educational_2x.png',
+  'img/illust-embed_2x.png',
+  'img/illust-google-maps_2x.png',
+  'img/illust-google-search_2x.png',
+  'img/illust-mobile-app_2x.png',
+  'img/illust-new_2x.png',
+  'img/illust-reporter_2x.png',
+  'img/illust-wear_2x.png',
+  'img/illust-web-cardboard_2x.png',
+  'img/illust-web-googlehome_2x.png',
+  'img/illust-web-optimized_2x.png',
+  'img/title-bg-swirl_2x.png',
+);

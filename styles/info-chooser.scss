@@ -27,11 +27,20 @@ label div {
   color: #9575cd;
   margin: 2px;
   border: 2px solid transparent;
+
+  :host(.white) & {
+    color: white;
+  }
 }
 
 label input:checked + div {
   background: #9575cd;
   color: white;
+
+  :host(.white) & {
+    background: rgba(255, 255, 255, 0.95);
+    color: #555;
+  }
 }
 label input:focus + div {
   @extend .default-focus;

@@ -15,11 +15,11 @@ const names = {
   'computerscience': 'Computer Science',
   'language': 'Language',
   'socialstudies': 'Social Studies',
-  'lang_en': 'English',
-  'lang_es': 'Español',
-  'lang_fr': 'Français',
-  'lang_ja': '日本語',
-  'lang_ko': '한국어',
+  'en': 'English',
+  'es': 'Español',
+  'fr': 'Français',
+  'ja': '日本語',
+  'ko': '한국어',
 };
 
 
@@ -34,18 +34,23 @@ export class InfoChooserElement extends LitElement {
 
   _choiceChange(ev) {
     this.value = ev.target.value;
+    this.dispatchEvent(new Event('change'));
   }
 
-  _choicesArray() {
+  choicesArray() {
     const array = this.choices.split(spaceRe);
     if (array[0] !== '' && this.showAll) {
       array.unshift('');
     }
-    return array;
+    return Object.freeze(array);
+  }
+
+  get text() {
+    return names[this.value] || '';
   }
 
   render() {
-    const choices = this._choicesArray();
+    const choices = this.choicesArray();
 
     // TODO(samthor): Does this work in polyfill mode?
     const children = Array.from(this.children);
