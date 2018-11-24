@@ -19,12 +19,6 @@
     import {Entrypoint} from './src/app/entrypoint.js';
     import * as route from './src/route.js';
 
-    const params = new URLSearchParams(window.location.search);
-    const scope = params.get('scope');
-    if (scope !== null) {
-      document.body.setAttribute('data-scope', scope);
-    }
-
     const entrypoint = new Entrypoint(santaApp);
     const parent = channel.parent('init', (data) => {
       switch (data && data.type) {

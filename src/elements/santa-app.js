@@ -8,9 +8,6 @@ import * as route from '../route.js';
 import scenes from '../../scenes.json5.js';
 
 
-const loaderSuffix = document.documentElement.lang ? `${document.documentElement.lang}.html` : '';
-
-
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
@@ -61,10 +58,9 @@ export class SantaAppElement extends LitElement {
 
       const pendingSceneInfo = scenes[state.selectedScene] || {};
       if (pendingSceneInfo.video) {
-        this._urlToLoad = `./scenes/_video/${loaderSuffix}?${pendingSceneInfo.video}`;
+        this._urlToLoad = route.buildIframeUrl('_video', {video: pendingSceneInfo.video});
       } else if (state.selectedScene !== null) {
-        const sceneName = state.selectedScene || 'index';
-        this._urlToLoad = `./scenes/${sceneName}/${loaderSuffix}`;
+        this._urlToLoad = route.buildIframeUrl(state.selectedScene);
       } else {
         this._urlToLoad = null;
       }
