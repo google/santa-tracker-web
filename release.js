@@ -220,7 +220,7 @@ async function release() {
   for (const lang in langs) {
     const messages = langs[lang];
     manifest['name'] = messages('santatracker');
-    manifest['short_name'] = messages('santa');
+    manifest['short_name'] = messages('santa-app');
     const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
     await write(target, JSON.stringify(manifest));
   }
@@ -235,7 +235,7 @@ async function release() {
   // or JS on its own, it must be included by one of our HTML entry points.
   const loaderOptions = {compile: true, root: staticRoot};
   const loader = require('./loader.js')(loaderOptions);
-  const htmlFiles = globAll('index.html', 'scenes/*/index.html', 'controller/*.html');
+  const htmlFiles = globAll('index.html', 'scenes/*/index.html', 'controllers/*.html');
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
