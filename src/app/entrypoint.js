@@ -17,12 +17,12 @@ export class Entrypoint extends EventTarget {
 
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
-    let dispatchedReady = false;
+    let activeScene = null;
 
     this.adapter.subscribe((state) => {
-      if (state.activeScene !== null && !dispatchedReady) {
-        dispatchedReady = true;
-        this.dispatchEvent(new Event('ready'));
+      if (state.activeScene !== activeScene) {
+        activeScene = state.activeScene;
+        this.dispatchEvent(new Event('ready', {detail: activeScene}));
       }
 
       // TODO(samthor): This dispatches constantly when any state changes.
