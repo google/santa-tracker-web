@@ -57,7 +57,7 @@ scroll.addEventListener('pointermove', (ev) => {
 window.addEventListener('resize', (ev) => updateOffset());
 
 import {Adapter} from '@polymer/broadway/lib/adapter';
-import {SANTA_TRACKER_CONTROLLER_URL} from '../../../src/app/common.js';
+import {SANTA_TRACKER_CONTROLLER_URL} from '../../src/app/common.js';
 
 const countdown = document.getElementById('countdown');
 const adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
