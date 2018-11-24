@@ -104,6 +104,7 @@ class SantaLoaderElement extends HTMLElement {
     pf.addEventListener('load', (ev) => {
       window.setTimeout(() => {
         // if the loader hasn't received a postMessage one tick after load, then fail the frame
+        // nb. This works because the frame isn't isolated from us.
         cleanupMessageHandler();
         if (!frameInitReceived) {
           this._fail(pf, 'missing');
