@@ -125,10 +125,15 @@ santa-loader {
     // this allows frames that actually need real w/h to load
     min-width: 100vw;
     min-height: 100vh;
-    visibility: hidden;  // Safari doesn't seem to always respect this on iframes
+    visibility: hidden;
     opacity: 0;
     z-index: -100;
-    top: 100vh;
+
+    // Safari doesn't seem to always respect `visibility: hidden` on iframes, so set `opacity`
+    // and `z-index` as a poor approximation.
+
+    // Chrome hides this for a few frames if placed at `top: 100vh` (or generally
+    // out-of-position) while clearing the `hidden` attribute. So don't!
   }
 }
 
