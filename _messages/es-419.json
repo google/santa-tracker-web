@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "El calendario"
 	},
+	"category_all": {
+		"message": "Ver todo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Código"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Dibujar"
 	},
+	"category_education": {
+		"message": "Juegos educativos"
+	},
+	"category_geography": {
+		"message": "Región geográfica"
+	},
 	"category_language": {
 		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Escuchar"
 	},
+	"category_new-this-year": {
+		"message": "Novedades de este año"
+	},
 	"category_send": {
 		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Ciencias sociales"
 	},
 	"cd_country_name": {
 		"message": "República Democrática del Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Ayuda a financiar un proyecto para niños con necesidades especiales en DonorsChoose.org. En diciembre, ayudaremos a duplicar el impacto mediante un aporte igual al 50% de las donaciones hasta alcanzar el objetivo de donar USD 1,000,000. Juntos podemos ayudar a crear aulas más inclusivas. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Descarga y disfruta más juegos"
+	},
 	"dz_country_name": {
 		"message": "Argelia"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Sigue a Santa para educadores"
+	},
+	"educators-games": {
+		"message": "Juegos para el aula"
+	},
+	"educators-learn": {
+		"message": "Aprende con Sigue a Santa"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Ocurrió un problema. Los duendes de Santa están tratando de resolverlo."
+	},
+	"error-internal": {
+		"message": "Ocurrió un problema. Ya les avisamos a los duendes, pero puedes regresar a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para volver a intentarlo."
 	},
 	"error-lost-connection": {
 		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pausar"
 	},
+	"paused": {
+		"message": "Pausado"
+	},
 	"pe_country_name": {
 		"message": "Perú"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "¡Uy!"
 	},
+	"readyquestion": {
+		"message": "¿Listo?"
+	},
 	"ro_country_name": {
 		"message": "Rumania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudí"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Hombre de jengibre"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingüinos de alta velocidad"
 	},
+	"scene_elfmaker": {
+		"message": "Crea tu duende"
+	},
 	"scene_elfski": {
 		"message": "Duendes en esquí"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Parque de juegos del Polo Norte"
+	},
+	"scene_poseboogie": {
+		"message": "Poses de baile"
+	},
+	"scene_postcard": {
+		"message": "Postales de Santa"
 	},
 	"scene_presentbounce": {
 		"message": "Rebotes de regalos"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Todavía de vacaciones"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renos preocupados"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recarga de regalos"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Holgazaneando"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Despegue"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentación"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "¿Dónde está Santa?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Taller de Santa"
+	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Revuelta de envoltorios"
 	},
 	"score": {
+		"message": "Puntuación"
+	},
+	"score_short": {
 		"message": "Puntuación"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Omitir introducción"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leona"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Activar sonido"
 	},
+	"upgrade-warning": {
+		"message": "Sigue a Santa no es compatible con este navegador o tienes inhabilitado JavaScript. Para acceder a Sigue a Santa, descarga un navegador más reciente o habilita JavaScript.\nObtén más información en \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Llama a Santa con el Asistente de Google"
 	},
 	"village_comeback": {
 		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Santa toda la noche!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Agrega la extensión de Santa para Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Cuestionario de Santa sobre la Tierra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"

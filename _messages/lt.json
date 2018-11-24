@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalendorius"
 	},
+	"category_all": {
+		"message": "Peržiūrėti viską"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kodas"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Piešti"
 	},
+	"category_education": {
+		"message": "Edukaciniai žaidimai"
+	},
+	"category_geography": {
+		"message": "Geografija"
+	},
 	"category_language": {
 		"message": "Kalba"
 	},
 	"category_listen": {
 		"message": "Klausyti"
 	},
+	"category_new-this-year": {
+		"message": "Šiųmetės naujienos"
+	},
 	"category_send": {
 		"message": "Siųsti"
+	},
+	"category_social-studies": {
+		"message": "Socialiniai mokslai"
 	},
 	"cd_country_name": {
 		"message": "Kongo Demokratinė Respublika"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Prisidėkite finansuojant projektą, susijusį su specialiaisiais poreikiais, svetainėje DonorsChoose.org. Šį gruodį padėsime padvigubinti projektui paaukotus pinigus, padovanodami iki 50 proc. jų vertės, kol pasieksime tikslą paaukoti US$1m. Mūsų bendromis pastangomis klasės gali tapti patrauklesnės #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Atsisiųskite ir žaiskite dar daugiau žaidimų"
+	},
 	"dz_country_name": {
 		"message": "Alžyras"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Kalėdų Senelio kelionė mokytojams"
+	},
+	"educators-games": {
+		"message": "Žaisti klasėje skirti žaidimai"
+	},
+	"educators-learn": {
+		"message": "Mokymasis naudojant Kalėdų Senelio kelionę"
 	},
 	"ee_country_name": {
 		"message": "Estija"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Iškilo problema, bet Kalėdų Senelio elfai sprendžia ją."
+	},
+	"error-internal": {
+		"message": "O ne, kilo problema! Pranešėme Kalėdų Senelio elfams, bet pabandykite grįžti į \u003ca href=\"./\"\u003eKalėdų Senelio kaimą\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Panašu, kad ką tik praradome ryšį su Šiaurės ašigaliu. Kalėdų Senelio elfai stengiasi išspręsti šią problemą – stebėkite naujienas!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pristabdyti"
 	},
+	"paused": {
+		"message": "Pristabdyta"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oi!"
 	},
+	"readyquestion": {
+		"message": "Pasiruošę?"
+	},
 	"ro_country_name": {
 		"message": "Rumunija"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudo Arabija"
+	},
+	"santa-app": {
+		"message": "Kalėdų Senelis"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Imbierinis žmogeliukas"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvinas ant ledkalnių"
 	},
+	"scene_elfmaker": {
+		"message": "Elfo kūrimas"
+	},
 	"scene_elfski": {
 		"message": "Elfų slidinėjimas"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Šiaurės ašigalio žaidimų aikštelė"
+	},
+	"scene_poseboogie": {
+		"message": "Parodykite elfams, kaip šokti bugivugį"
+	},
+	"scene_postcard": {
+		"message": "Kalėdų Senelio atvirukai"
 	},
 	"scene_presentbounce": {
 		"message": "Dovanų atmušinėjimas"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Dar atostogauja"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Sunerimę šiaurės elniai"
+	},
 	"scene_videoscene_reload": {
 		"message": "Dovanų papildymas"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Tinginiavimas"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Pakilimas"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Pagunda"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Kur Kalėdų Senelis?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Kalėdų Senelio dirbtuvės"
+	},
 	"scene_windtunnel": {
 		"message": "Vėjo tunelis"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Vyniotuvės"
 	},
 	"score": {
+		"message": "Rezultatas"
+	},
+	"score_short": {
 		"message": "Rezultatas"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakų"
+	},
+	"skip-training": {
+		"message": "Praleisti mokymą"
 	},
 	"sl_country_name": {
 		"message": "Siera Leonė"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Garsas"
 	},
+	"upgrade-warning": {
+		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šioje naršyklėje arba esate išjungę „JavaScript“. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę arba įgalinkite „JavaScript“. Jei reikia daugiau informacijos, apsilankykite adresu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Jungtinės Amerikos Valstijos"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venesuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Paskambinti Kalėdų Seneliui naudojant „Google“ padėjėją"
 	},
 	"village_comeback": {
 		"message": "Grįžk 24-ąją ir padėk mums visą naktį sekti Kalėdų Senelį!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Pridėti Kalėdų Senelį kaip „Chrome“ plėtinį"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Kalėdų Senelio viktorina apie Žemę"
+	},
+	"village_santa_install": {
+		"message": "Įdiegti"
 	},
 	"village_takesoff": {
 		"message": "Kalėdų Senelis išvyksta už"

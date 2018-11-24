@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Der Kalender"
 	},
+	"category_all": {
+		"message": "Alle ansehen"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Code"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Zeichnen"
 	},
+	"category_education": {
+		"message": "Lernspiele"
+	},
+	"category_geography": {
+		"message": "Erdkunde"
+	},
 	"category_language": {
 		"message": "Sprache"
 	},
 	"category_listen": {
 		"message": "Anhören"
 	},
+	"category_new-this-year": {
+		"message": "Dieses Jahr neu"
+	},
 	"category_send": {
 		"message": "Senden"
+	},
+	"category_social-studies": {
+		"message": "Geschichte und Sozialkunde"
 	},
 	"cd_country_name": {
 		"message": "Demokratische Republik Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Hilf mit bei der Finanzierung eines Förderprogramms auf DonorsChoose.org. Diesen Dezember ergänzen wir jede eingegangene Spende um 50 %, bis wir unser Ziel von 1 Million $ erreicht haben. Lass uns gemeinsam dafür sorgen, dass Klassenzimmer tatsächlich #ForEveryKid, also für alle Kinder, zugänglich sind."
 	},
+	"download-cta": {
+		"message": "Herunterladen und noch mehr Spiele genießen"
+	},
 	"dz_country_name": {
 		"message": "Algerien"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "\"Auf den Spuren des Weihnachtsmanns\" für Lehrer"
+	},
+	"educators-games": {
+		"message": "Spiele fürs Klassenzimmer"
+	},
+	"educators-learn": {
+		"message": "Weisheiten des Weihnachtsmanns"
 	},
 	"ee_country_name": {
 		"message": "Estland"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Ein Problem ist aufgetreten. Santas Wichtel versuchen aber gerade, es zu lösen."
+	},
+	"error-internal": {
+		"message": "Leider ist ein Problem aufgetreten. Die Wichtel des Weihnachtsmanns wurden schon informiert. Vielleicht hast du mehr Glück, wenn du zum \u003ca href=\"./\"\u003eDorf des Weihnachtsmanns\u003c/a\u003e zurückkehrst."
 	},
 	"error-lost-connection": {
 		"message": "Oh, sieht so aus, als hätten wir die Verbindung zum Nordpol verloren. Die Wichtel arbeiten schon fleißig daran, sie wiederherzustellen. Versuche es gleich noch einmal!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Anhalten"
 	},
+	"paused": {
+		"message": "Pausiert"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hoppla!"
 	},
+	"readyquestion": {
+		"message": "Bereit?"
+	},
 	"ro_country_name": {
 		"message": "Rumänien"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
+	},
+	"santa-app": {
+		"message": "Santa Tracker"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Lebkuchenmann"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pinguin gib Acht"
 	},
+	"scene_elfmaker": {
+		"message": "Wichtelkiste"
+	},
 	"scene_elfski": {
 		"message": "Wichtel auf der Piste"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Spielplatz am Nordpol"
+	},
+	"scene_poseboogie": {
+		"message": "Posieren bitte!"
+	},
+	"scene_postcard": {
+		"message": "Postkarten vom Weihnachtsmann"
 	},
 	"scene_presentbounce": {
 		"message": "Geschenkeautomat"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Noch im Urlaub"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Die Sorgen der Rentiere"
+	},
 	"scene_videoscene_reload": {
 		"message": "Geschenkenachschub"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Faulenzen"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Los gehts!"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Versuchung"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Wo ist der Weihnachtsmann?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "In der Geschenkewerkstatt des Weihnachtsmanns"
+	},
 	"scene_windtunnel": {
 		"message": "Im Windkanal"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Verpackungskünstler"
 	},
 	"score": {
+		"message": "Bewertung"
+	},
+	"score_short": {
 		"message": "Bewertung"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slowakisch"
+	},
+	"skip-training": {
+		"message": "Einführung überspringen"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Mikrofon ein"
 	},
+	"upgrade-warning": {
+		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt oder du hast JavaScript deaktiviert. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen oder JavaScript aktivieren. Weitere Informationen findest du unter \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Den Weihnachtsmann mit Google Assistant anrufen"
 	},
 	"village_comeback": {
 		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Weihnachtliche Chrome-Erweiterung hinzufügen"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Das Weihnachtsquiz rund um die Welt"
+	},
+	"village_santa_install": {
+		"message": "Installieren"
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

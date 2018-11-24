@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "The Calendar"
 	},
+	"category_all": {
+		"message": "View all"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Code"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Draw"
 	},
+	"category_education": {
+		"message": "Education-focused"
+	},
+	"category_geography": {
+		"message": "Geography"
+	},
 	"category_language": {
 		"message": "Language"
 	},
 	"category_listen": {
 		"message": "Listen"
 	},
+	"category_new-this-year": {
+		"message": "New this year"
+	},
 	"category_send": {
 		"message": "Send"
+	},
+	"category_social-studies": {
+		"message": "Social studies"
 	},
 	"cd_country_name": {
 		"message": "Democratic Republic of the Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Download to play even more games"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Santa Tracker for Educators"
+	},
+	"educators-games": {
+		"message": "Games for the classroom"
+	},
+	"educators-learn": {
+		"message": "Learning with Santa Tracker"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "There was a problem, but Santa's Elves are looking into it."
+	},
+	"error-internal": {
+		"message": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it – stay tuned!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pause"
 	},
+	"paused": {
+		"message": "Paused"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oops!"
 	},
+	"readyquestion": {
+		"message": "Ready?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Arabia"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Gingerbread Man"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfmaker": {
+		"message": "Elf Maker"
+	},
 	"scene_elfski": {
 		"message": "Elf Ski"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "North Pole Playground"
+	},
+	"scene_poseboogie": {
+		"message": "Pose Boogie"
+	},
+	"scene_postcard": {
+		"message": "Santa postcards"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Still on Holiday"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Reindeer Worries"
+	},
 	"scene_videoscene_reload": {
 		"message": "Present Reload"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slacking Off"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Take Off"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Where's Santa?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Santa's Workshop"
+	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Score"
+	},
+	"score_short": {
 		"message": "Score"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-training": {
+		"message": "Skip training"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Unmute"
 	},
+	"upgrade-warning": {
+		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "United States"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Call Santa with the Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Come back on the 24th and help us track Santa all night!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Add the Santa Chrome Extension"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Santa Earth Quiz"
+	},
+	"village_santa_install": {
+		"message": "Install"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

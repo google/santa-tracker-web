@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "கேலெண்டர்"
 	},
+	"category_all": {
+		"message": "எல்லாம் காட்டு"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "குறியீடு"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "வரை"
 	},
+	"category_education": {
+		"message": "கற்றல் விளையாட்டுகள்"
+	},
+	"category_geography": {
+		"message": "நிலவியல்"
+	},
 	"category_language": {
 		"message": "மொழி"
 	},
 	"category_listen": {
 		"message": "கேளுங்கள்"
 	},
+	"category_new-this-year": {
+		"message": "இந்த ஆண்டிற்கான புதிய கேம்கள்"
+	},
 	"category_send": {
 		"message": "அனுப்பு"
+	},
+	"category_social-studies": {
+		"message": "சமூக ஆய்வுகள்"
 	},
 	"cd_country_name": {
 		"message": "காங்கோ ஜனநாயகக் குடியரசு"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "DonorsChoose.org என்பதில் சிறப்புத் தேவைகளுக்கான திட்டப்பணிக்கு நிதியுதவி அளிக்கவும். இந்த டிசம்பர் மாதத்தில், எங்கள் ஒரு மில்லியன் அமெரிக்க டாலர்கள் நன்கொடை இலக்கை அடையும்வரை, பயனர்கள் அளிக்கும் நன்கொடைகளின் 50% தொகையை கூடுதல் நன்கொடையாக நாங்கள் அளித்து உதவுகின்றோம். நாம் ஒன்றாக இணைந்து, வகுப்பறைகளை எல்லா வித மாணவர்களுக்கும் பயன்படுமாறு செய்ய உதவலாம் #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "மேலும் பல கேம்களை விளையாடப் பதிவிறக்கவும்"
+	},
 	"dz_country_name": {
 		"message": "அல்ஜீரியா"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "கற்பிப்பவர்களுக்கான சான்டா டிராக்கர்"
+	},
+	"educators-games": {
+		"message": "வகுப்பறை விளையாட்டுகள்"
+	},
+	"educators-learn": {
+		"message": "சான்டா டிராக்கர் மூலம் கற்றல்"
 	},
 	"ee_country_name": {
 		"message": "எஸ்டோனியா"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "ஏதோ சிக்கல் உள்ளது, சான்டாவின் குட்டித் தேவதைகள் அதைச் சரிசெய்கின்றன."
+	},
+	"error-internal": {
+		"message": "அச்சச்சோ, ஏதோ சிக்கல் உள்ளது! சான்டாவின் குட்டித் தேவதைகளிடம் தெரிவித்துவிட்டோம், \u003ca href=\"./\"\u003eசான்டாவின் கிராமத்திற்குத்\u003c/a\u003e திரும்பிச்செல்ல முயலவும்."
 	},
 	"error-lost-connection": {
 		"message": "வட துருவ இணைப்பை இழந்துவிட்டதாகத் தெரிகிறது. சான்டாவின் குட்டி தேவதைகள் அதைச் சரி செய்யக் கடுமையாக உழைத்து வருகின்றனர் - இணைந்திருங்கள்!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "இடைநிறுத்து"
 	},
+	"paused": {
+		"message": "நிறுத்தப்பட்டது"
+	},
 	"pe_country_name": {
 		"message": "பெரு"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "அச்சச்சோ!"
 	},
+	"readyquestion": {
+		"message": "தயாரா?"
+	},
 	"ro_country_name": {
 		"message": "ருமேனியா"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "சவுதி அரேபியா"
+	},
+	"santa-app": {
+		"message": "சான்டா"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "ஜிஞ்சர்பிரட் மேன்"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "பென்குயின் டேஷ்"
 	},
+	"scene_elfmaker": {
+		"message": "எல்ஃப் மேக்கர்"
+	},
 	"scene_elfski": {
 		"message": "எல்ஃப் பனிச்சறுக்கு"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "வட துருவ விளையாட்டுத்திடல்"
+	},
+	"scene_poseboogie": {
+		"message": "போஸ் பூகி"
+	},
+	"scene_postcard": {
+		"message": "சான்டா அஞ்சலட்டைகள்"
 	},
 	"scene_presentbounce": {
 		"message": "பிரசென்ட் பவுன்ஸ்"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "இன்னும் விடுமுறையில் உள்ளார்"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "கலைமான்கள் கவலையாக உள்ளன"
+	},
 	"scene_videoscene_reload": {
 		"message": "பரிசை ஏற்றுதல்"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "வேலை செய்வதற்குப் பதிலாக வீடியோ கேம்கள் விளையாடுவது"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "புறப்படத் தயார்"
+	},
 	"scene_videoscene_temptation": {
 		"message": "தூண்டுதல்"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "சான்டா எங்கே?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "சான்டாவின் வொர்க்ஷாப்"
+	},
 	"scene_windtunnel": {
 		"message": "வின்ட் டனல்"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "ராப் பாட்டில்"
 	},
 	"score": {
+		"message": "ஸ்கோர்"
+	},
+	"score_short": {
 		"message": "ஸ்கோர்"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "ஸ்லோவாக்"
+	},
+	"skip-training": {
+		"message": "பயிற்சியைத் தவிர்"
 	},
 	"sl_country_name": {
 		"message": "சியரா லியோன்"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "ஒலி இயக்கு"
 	},
+	"upgrade-warning": {
+		"message": "அச்சச்சோ! சான்டா டிராக்கர் உங்கள் உலாவியில் ஆதரிக்கப்படவில்லை அல்லது நீங்கள் JavaScriptஐ முடக்கியுள்ளீர்கள். சான்டா டிராக்கரை அணுக, நவீன உலாவியைப் பதிவிறக்கவும் அல்லது JavaScriptஐ இயக்கவும்.\nமேலும் தகவலுக்கு \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e என்ற வலைத்தளத்தைப் பார்வையிடவும்."
+	},
 	"us_country_name": {
 		"message": "யுனைடெட் ஸ்டேட்ஸ்"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "வெனிசுலா"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google அசிஸ்டண்ட் மூலம் சான்டாவை அழைக்கவும்"
 	},
 	"village_comeback": {
 		"message": "24 ஆம் தேதி மீண்டும் வந்து, இரவு முழுவதும் சான்டா இருக்கும் இடத்தை அறிய எங்களுக்கு உதவவும்!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "சான்டா Chrome நீட்டிப்பைச் சேர்"
+	},
+	"village_santa_earth_quiz": {
+		"message": "சான்டா எர்த் க்விஸ்"
+	},
+	"village_santa_install": {
+		"message": "நிறுவு"
 	},
 	"village_takesoff": {
 		"message": "சான்டா புறப்படுவதற்கான கவுண்ட்டவுன்"

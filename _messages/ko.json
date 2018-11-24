@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "크리스마스 달력"
 	},
+	"category_all": {
+		"message": "모두 보기"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "코드"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "그리기"
 	},
+	"category_education": {
+		"message": "교육용"
+	},
+	"category_geography": {
+		"message": "지리"
+	},
 	"category_language": {
 		"message": "언어"
 	},
 	"category_listen": {
 		"message": "듣기"
 	},
+	"category_new-this-year": {
+		"message": "올해의 새로운 게임"
+	},
 	"category_send": {
 		"message": "보내기"
+	},
+	"category_social-studies": {
+		"message": "사회"
 	},
 	"cd_country_name": {
 		"message": "콩고 민주공화국"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "특별한 관심을 필요로 하는 아이들을 위한 DonorsChoose.org의 프로젝트 기금 마련에 따뜻한 손길을 보내 주세요. 올 12월, Google은 100만 달러 기부 목표를 달성할 때까지 기부금을 50% 지원하여 나눔의 효과를 높이고자 합니다. 우리 모두 교실의 모든 아이들이(#ForEveryKid) 불편함 없는 환경에서 공부할 수 있도록 도웁시다."
 	},
+	"download-cta": {
+		"message": "다운로드하여 보다 다양한 게임 즐기기"
+	},
 	"dz_country_name": {
 		"message": "알제리"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "교육기관용 산타 추적기"
+	},
+	"educators-games": {
+		"message": "교실용으로 적합한 게임"
+	},
+	"educators-learn": {
+		"message": "산타 추적기로 학습하기"
 	},
 	"ee_country_name": {
 		"message": "에스토니아"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "문제가 발생했지만 산타의 엘프 친구들이 문제를 확인하는 중입니다."
+	},
+	"error-internal": {
+		"message": "문제가 발생했습니다. 산타의 엘프 친구들에게 이 문제에 대해 알렸습니다. \u003ca href=\"./\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
 	},
 	"error-lost-connection": {
 		"message": "방금 북극과의 연결이 끊어진 것 같습니다. 산타의 엘프 친구들이 열심히 고치는 중이니 기다려 주세요."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "일시중지"
 	},
+	"paused": {
+		"message": "일시중지됨"
+	},
 	"pe_country_name": {
 		"message": "페루"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "앗!"
 	},
+	"readyquestion": {
+		"message": "준비되셨나요?"
+	},
 	"ro_country_name": {
 		"message": "루마니아"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "사우디아라비아"
+	},
+	"santa-app": {
+		"message": "산타"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "진저브레드맨"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "펭귄 질주"
 	},
+	"scene_elfmaker": {
+		"message": "엘프 만들기"
+	},
 	"scene_elfski": {
 		"message": "엘프 스키"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "북극 놀이터"
+	},
+	"scene_poseboogie": {
+		"message": "부기 댄스 자세"
+	},
+	"scene_postcard": {
+		"message": "산타 엽서"
 	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "휴가 중"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "걱정하는 사슴"
+	},
 	"scene_videoscene_reload": {
 		"message": "선물 다시 로드"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "딴짓 중"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "출발"
+	},
 	"scene_videoscene_temptation": {
 		"message": "템테이션"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "산타가 어디 있을까요?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "산타의 작업공방"
+	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "선물 포장 시합"
 	},
 	"score": {
+		"message": "점수"
+	},
+	"score_short": {
 		"message": "점수"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "슬로바키아어"
+	},
+	"skip-training": {
+		"message": "학습 건너뛰기"
 	},
 	"sl_country_name": {
 		"message": "시에라리온"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "음소거 해제"
 	},
+	"upgrade-warning": {
+		"message": "산타 추적기가 지원되지 않는 브라우저이거나 자바스크립트가 사용 중지되어 있습니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하거나 자바스크립트를 사용 설정하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
+	},
 	"us_country_name": {
 		"message": "미국"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "베네수엘라"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google 어시스턴트로 산타와 통화"
 	},
 	"village_comeback": {
 		"message": "12월 24일에 다시 방문해 밤새 산타를 추적해 보세요."
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "산타 Chrome 확장 프로그램 추가"
+	},
+	"village_santa_earth_quiz": {
+		"message": "산타와 함께하는 세계 상식 퀴즈"
+	},
+	"village_santa_install": {
+		"message": "설치"
 	},
 	"village_takesoff": {
 		"message": "산타 출발까지 남은 시간"

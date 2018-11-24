@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalenteri"
 	},
+	"category_all": {
+		"message": "Näytä kaikki"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "KOODI"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Piirrä"
 	},
+	"category_education": {
+		"message": "Opetuspelit"
+	},
+	"category_geography": {
+		"message": "Maantiede"
+	},
 	"category_language": {
 		"message": "Kieli"
 	},
 	"category_listen": {
 		"message": "Kuuntele"
 	},
+	"category_new-this-year": {
+		"message": "Uutta tänä vuonna"
+	},
 	"category_send": {
 		"message": "Lähetä"
+	},
+	"category_social-studies": {
+		"message": "Yhteiskuntaoppi"
 	},
 	"cd_country_name": {
 		"message": "Kongon demokraattinen tasavalta"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Anna lahjoitus hyväntekeväisyysjärjestölle osoitteessa DonorsChoose.org. Joulukuun ajan Google tukee tehtyjä lahjoituksia 50 %:n lisäsummalla, kunnes saavutamme lahjoitustavoitteemme 1 miljoona Yhdysvaltain dollaria. Yhdessä voimme tukea kaikkien lasten koulutaivalta. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Lataa niin pääset pelaamaan vielä enemmän pelejä"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Joulupukin jäljitin opettajille"
+	},
+	"educators-games": {
+		"message": "Pelejä luokkahuoneeseen"
+	},
+	"educators-learn": {
+		"message": "Joulupukin jäljitin auttaa oppimaan"
 	},
 	"ee_country_name": {
 		"message": "Viro"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Ilmeni ongelma, mutta tontut selvittävät asiaa."
+	},
+	"error-internal": {
+		"message": "Voi voi, jokin meni vikaan! Olemme kertoneet ongelmasta tontuille. Yritä sillä välin palata \u003ca href=\"./\"\u003ePukin kylään\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Keskeytä"
 	},
+	"paused": {
+		"message": "Keskeytetty"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hups!"
 	},
+	"readyquestion": {
+		"message": "Valmis?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
+	},
+	"santa-app": {
+		"message": "Joulupukki"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Piparkakkupoika"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingviinikilpa"
 	},
+	"scene_elfmaker": {
+		"message": "Tontuntekijä"
+	},
 	"scene_elfski": {
 		"message": "Tonttuslalom"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Korvatunturin leikkikenttä"
+	},
+	"scene_poseboogie": {
+		"message": "Poseeraustanssi"
+	},
+	"scene_postcard": {
+		"message": "Pukin postikortit"
 	},
 	"scene_presentbounce": {
 		"message": "Pomppivat paketit"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Lomaileva pukki"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Huolestuneet porot"
+	},
 	"scene_videoscene_reload": {
 		"message": "Lahjalataus"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Lorvailua"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Matkaan"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Houkutus"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Missä pukki luuraa?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Pukin paja"
+	},
 	"scene_windtunnel": {
 		"message": "Tuulitunneli"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Paketointikilpailu"
 	},
 	"score": {
+		"message": "Tulos"
+	},
+	"score_short": {
 		"message": "Tulos"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovakki"
+	},
+	"skip-training": {
+		"message": "Ohita opastus"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Poista mykistys"
 	},
+	"upgrade-warning": {
+		"message": "Hups! Selaimesi ei tue Joulupukin jäljitintä tai JavaScript on pois käytöstä. Lataa uusi selain tai ota JavaScript käyttöön, jos haluat käyttää Joulupukin jäljitintä.\nLisätietoja on osoitteessa \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Yhdysvallat"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Soita Joulupukille Google Assistantilla"
 	},
 	"village_comeback": {
 		"message": "Tule takaisin 24.12. ja seuraa pukin matkaa kanssamme!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Lisää Chromen joulupukkilaajennus"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Joulupukin maapallovisa"
+	},
+	"village_santa_install": {
+		"message": "Asenna"
 	},
 	"village_takesoff": {
 		"message": "Aikaa joulupukin lähtöön:"

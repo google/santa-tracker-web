@@ -1187,6 +1187,10 @@
     "description": "This is a short label on a button to go to the next step.",
     "message": "Next"
   },
+  "next_game": {
+    "description": "This is a short label on a button to go to the next game",
+    "message": "Next Game"
+  },
   "ng_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Nigeria"
@@ -1486,6 +1490,114 @@
   "press": {
     "description": "Menu item for press, aka journalism/media, information.",
     "message": "Press"
+  },
+  "press-about-village": {
+    "description": "Heading of the Press page",
+    "message": "About Santa's Village"
+  },
+  "press-about-village1": {
+    "description": "Long-form text about Santa Tracker",
+    "message": "Santa's Village is celebrating its fifteenth year of fun, educational, and interactive holiday activities. Under Mrs. Claus’s expert guidance, the elves have updated the village with a snazzy look and feel along with some brand new content. And, thanks to a new, hot-cocoa powered heating system, the village will no longer take all of December to thaw—all two dozen activities will be available starting on December 4. Now the elves (and you!) have more time to play and explore in Santa's Village."
+  },
+  "press-about-village2": {
+    "description": "Long-form text about Santa Tracker",
+    "raw": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops, and learn more about charitable organizations like <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://www.khanacademy.org/\"&gt;</ph>Khan Academy<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> and <ph name=\"BEGIN_LINK2\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://code.org/\"&gt;</ph>Code.org<ph name=\"END_LINK2\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>. Teachers can even <ph name=\"BEGIN_LINK3\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>download lesson plans<ph name=\"END_LINK3\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> with video guides to help teach their students fundamental coding skills and holiday traditions in English, Spanish, French, Japanese and Korean."
+  },
+  "press-about-tracker": {
+    "description": "Heading of the Press page",
+    "message": "About Santa Tracker"
+  },
+  "press-about-tracker1": {
+    "description": "Long-form text about Santa Tracker",
+    "message": "On December 24th, we'll launch the Tracker, a dashboard that allows Santa fans to follow his progress as he whips from city to city. You can also see his live location on Google Maps and ask the Google Assistant, \"OK Google, Where’s Santa?\"—so you can keep a pulse on Santa's whereabouts even when you’re on the go."
+  },
+  "press-edu": {
+    "description": "Heading of the Press page",
+    "message": "Educational adventures"
+  },
+  "press-edu1": {
+    "description": "Long-form text about Santa Tracker",
+    "raw": "We've expanded our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>educator resource page<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to provide teachers with video guides to accompany lesson plans now available in four languages. All of your favorite games remain introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>our educational games<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to learn more."
+  },
+  "press-whatsnew": {
+    "description": "Heading of the Press page",
+    "message": "What's new this year"
+  },
+  "press-whatsnew1-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "Build an elf:"
+  },
+  "press-whatsnew1-text": {
+    "description": "Long description of a thing which is new this year",
+    "message": "Build your own elf from head to toe and make sure it looks elftastic for the many holiday soirées happening on the North Pole."
+  },
+  "press-whatsnew2-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "Dance(s) with elves:"
+  },
+  "press-whatsnew2-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "raw": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now’s your chance. Almost. Using a machine learning model called <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"&gt;</ph>PoseNet<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, you can train an elf to learn your moves so can get your elf on the dance floor."
+  },
+  "press-whatsnew3-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "A new way to track Santa:"
+  },
+  "press-whatsnew3-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description: note that 'hamburger' refers to the three-line 'more' menu sometimes nicknamed the hamburger menu, and Location Sharing is a feature of Google Maps",
+    "message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+  },
+  "press-whatsnew4-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "More holiday fun:"
+  },
+  "press-whatsnew4-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+  },
+  "press-villagetracker-title": {
+    "description": "Heading of the Press page",
+    "message": "Santa's Village and The Tracker"
+  },
+  "press-villagetracker-opendec": {
+    "description": "Title indicating that Santa Tracker is available all December",
+    "message": "Open all December"
+  },
+  "press-villagetracker-open24th": {
+    "description": "Title indicating that the Tracker itself is open on the 24th",
+    "message": "Opens December 24th"
+  },
+  "press-games-title": {
+    "description": "Heading of the Press page",
+    "message": "All the fun and games"
+  },
+  "press-device-title": {
+    "description": "Heading of the Press page",
+    "message": "Santa Tracker on your device"
+  },
+  "press-device-text": {
+    "description": "Blurb about Santa Tracker being available on phones, Chromecast, Assistant etc",
+    "message": "The spirit of the holidays is everywhere, including all your devices!"
+  },
+  "press-need-title": {
+    "description": "Title, in the form of a question, asking if users need more information",
+    "message": "Need something?"
+  },
+  "press-need-text": {
+    "description": "Blurb about Elves and Googlers available to help. 'Googlers' refers to Google employees, and should likely not be translated.",
+    "message": "Elves and Googlers are here to help."
+  },
+  "press-asset-resources": {
+    "description": "Title for downloadable assets usable by press",
+    "message": "Press resources"
+  },
+  "press-asset-screenshot": {
+    "description": "Used as a link to a demonstration screenshot of a game",
+    "message": "Screenshot"
+  },
+  "press-asset-animation": {
+    "description": "Used as a link to a demonstration animation of a game",
+    "message": "Animation"
   },
   "pt_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
@@ -1936,7 +2048,11 @@
     "message": "Wrap Battle"
   },
   "score": {
-    "description": "15 char limit. Label for a numeric score.",
+    "description": "9 char limit. Short label that is used to indicate a player's points in a game, or score.",
+    "message": "Score"
+  },
+  "score_short": {
+    "description": "Short label that is used to indicate a player's points in a game, or score. [CHAR LIMIT=9]",
     "message": "Score"
   },
   "se_country_name": {

@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Die kalender"
 	},
+	"category_all": {
+		"message": "Bekyk alles"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kode"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Skets"
 	},
+	"category_education": {
+		"message": "Opvoedkunde-gefokus"
+	},
+	"category_geography": {
+		"message": "Geografie"
+	},
 	"category_language": {
 		"message": "Taal"
 	},
 	"category_listen": {
 		"message": "Luister"
 	},
+	"category_new-this-year": {
+		"message": "Nuut hierdie jaar"
+	},
 	"category_send": {
 		"message": "Stuur"
+	},
+	"category_social-studies": {
+		"message": "Sosiale studies"
 	},
 	"cd_country_name": {
 		"message": "Demokratiese Republiek van die Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Help om 'n projek vir spesiale behoeftes op DonorsChoose.org te befonds. Hierdie Desember help ons om die impak te verdubbel deur skenkings met 50% te ewenaar totdat ons ons doelwit bereik het om $1 miljoen te skenk. Tesame kan ons help om klaskamers vir alle kinders meer inklusief te maak #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Laai af om selfs meer speletjies te speel"
+	},
 	"dz_country_name": {
 		"message": "Algerië"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Waar is Kersvader vir Opvoeders"
+	},
+	"educators-games": {
+		"message": "Speletjies vir die klaskamer"
+	},
+	"educators-learn": {
+		"message": "Leer met Waar Is Kersvader"
 	},
 	"ee_country_name": {
 		"message": "Estland"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Daar was 'n probleem, maar Kersvader se elwe is besig om dit te ondersoek."
+	},
+	"error-internal": {
+		"message": "Agge nee, daar was 'n fout! Ons het Kersvader se elwe laat weet, maar probeer om terugkeer na \u003ca href=\"./\"\u003eKersvader se dorpie\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Dit lyk asof ons ons verbinding met die Noordpool verloor het. Kersvader se elfies werk hard om dit reg te maak – byt net vas!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Laat wag"
 	},
+	"paused": {
+		"message": "Wag tans"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oeps!"
 	},
+	"readyquestion": {
+		"message": "Gereed?"
+	},
 	"ro_country_name": {
 		"message": "Roemenië"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saoedi-Arabië"
+	},
+	"santa-app": {
+		"message": "Kersvader"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Gemmerbroodmannetjie"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pikkewynjaagtog"
 	},
+	"scene_elfmaker": {
+		"message": "Elf-maker"
+	},
 	"scene_elfski": {
 		"message": "Elf-ski"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Noordpool-speelterrein"
+	},
+	"scene_poseboogie": {
+		"message": "Poseer-boogie"
+	},
+	"scene_postcard": {
+		"message": "Kersvader-poskaarte"
 	},
 	"scene_presentbounce": {
 		"message": "Geskenkhop"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Steeds met vakansie"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Rendier-kommer"
+	},
 	"scene_videoscene_reload": {
 		"message": "Herlaai presente"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Steek lyf weg"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Opstyg"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Versoeking"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Waar's Kersvader?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Kersvader se werkswinkel"
+	},
 	"scene_windtunnel": {
 		"message": "Windtonnel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Toedraaistryd"
 	},
 	"score": {
+		"message": "Telling"
+	},
+	"score_short": {
 		"message": "Telling"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slowaaks"
+	},
+	"skip-training": {
+		"message": "Slaan opleiding oor"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Ontdemp"
 	},
+	"upgrade-warning": {
+		"message": "Oeps! Waar Is Kersvader word nie deur jou blaaier gesteun nie of jou JavaScript is gedeaktiveer. Laai 'n moderne blaaier af of aktiveer JavaScript om toegang tot Waar Is Kersvader te kry.\nVir verdere inligting, besoek: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Verenigde State"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Bel Kersvader met die Google Assistent"
 	},
 	"village_comeback": {
 		"message": "Kom terug op die 24ste en help ons die hele nag om Kersvader te volg!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Voeg die Santa-uitbreiding by Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Kersvader se aardevasvra"
+	},
+	"village_santa_install": {
+		"message": "Installeer"
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

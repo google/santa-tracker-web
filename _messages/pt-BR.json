@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Calendário"
 	},
+	"category_all": {
+		"message": "Ver tudo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Código"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Desenhar"
 	},
+	"category_education": {
+		"message": "Educativos"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
 	"category_language": {
 		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Ouvir"
 	},
+	"category_new-this-year": {
+		"message": "Novidades deste ano"
+	},
 	"category_send": {
 		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Estudos sociais"
 	},
 	"cd_country_name": {
 		"message": "República Democrática do Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Ajude a financiar um projeto para pessoas com necessidades especiais, em DonorsChoose.org. No mês de dezembro, ajudaremos a duplicar o impacto cobrindo o valor das doações em 50%, até alcançarmos nossa meta de doar R$ 1 mi. Juntos podemos tornar as salas de aula mais inclusivas #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Faça o download para jogar ainda mais"
+	},
 	"dz_country_name": {
 		"message": "Argélia"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Siga o Papai Noel para educadores"
+	},
+	"educators-games": {
+		"message": "Jogos para a sala de aula"
+	},
+	"educators-learn": {
+		"message": "Aprenda com o Siga o Papai Noel"
 	},
 	"ee_country_name": {
 		"message": "Estônia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Houve um problema, mas fique tranquilo. Os duendes do Papai Noel estão investigando."
+	},
+	"error-internal": {
+		"message": "Ah não, temos um problema! Já avisamos os duendes, mas tente voltar para a \u003ca href=\"./\"\u003eVila do Papai Noel\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Perdemos nossa conexão com o Polo Norte. Os duendes do Papai Noel estão trabalhando duro para corrigir o problema. Fique ligado!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pausar"
 	},
+	"paused": {
+		"message": "Pausado"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ops!"
 	},
+	"readyquestion": {
+		"message": "Tudo pronto?"
+	},
 	"ro_country_name": {
 		"message": "Romênia"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arábia Saudita"
+	},
+	"santa-app": {
+		"message": "Noel"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Boneco de gengibre"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Corrida do pinguim"
 	},
+	"scene_elfmaker": {
+		"message": "Criador de duendes"
+	},
 	"scene_elfski": {
 		"message": "Esqui de duendes"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Parquinho do Polo Norte"
+	},
+	"scene_poseboogie": {
+		"message": "Faça uma pose"
+	},
+	"scene_postcard": {
+		"message": "Cartões postais do Papai Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Pula-pula de presentes"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ainda de férias"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Rena preocupada"
+	},
 	"scene_videoscene_reload": {
 		"message": "Presentes recarregados"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Empurrando com a barriga"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Decolagem"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentação"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Cadê o Papai Noel?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Oficina do Papai Noel"
+	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Competição de embrulhos"
 	},
 	"score": {
+		"message": "Pontuação"
+	},
+	"score_short": {
 		"message": "Pontuação"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Pular o treinamento"
 	},
 	"sl_country_name": {
 		"message": "Serra Leoa"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Ativar som"
 	},
+	"upgrade-warning": {
+		"message": "Ops! O Siga o Papai Noel não é compatível com seu navegador ou você desativou o JavaScript. Para acessar o jogo, faça o download de um navegador atualizado ou ative o JavaScript.\nPara mais informações, visite: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ligue para o Papai Noel com o Google Assistente"
 	},
 	"village_comeback": {
 		"message": "Volte no dia 24 e acompanhe o Papai Noel a noite toda."
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Adicionar extensão para Chrome do Siga o Papai Noel"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Teste do Papai Noel sobre a Terra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"

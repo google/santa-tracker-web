@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Calendarul"
 	},
+	"category_all": {
+		"message": "Afișează-le pe toate"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Cod"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Desen"
 	},
+	"category_education": {
+		"message": "Axate pe educație"
+	},
+	"category_geography": {
+		"message": "Geografie"
+	},
 	"category_language": {
 		"message": "Limbă"
 	},
 	"category_listen": {
 		"message": "Ascultă"
 	},
+	"category_new-this-year": {
+		"message": "Apărute anul acesta"
+	},
 	"category_send": {
 		"message": "Trimite"
+	},
+	"category_social-studies": {
+		"message": "Studii sociale"
 	},
 	"cd_country_name": {
 		"message": "Republica Democratică Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Contribuie la finanțarea unui proiect pentru nevoi speciale pe DonorsChoose.org. În această lună decembrie, dublăm impactul donând 50% din donații, până când ne atingem obiectivul de a dona 1 milion de USD. Împreună, putem promova incluziunea în sălile de clasă #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Descarcă pentru a accesa și mai multe jocuri"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Pe urmele lui Moș Crăciun pentru învățători"
+	},
+	"educators-games": {
+		"message": "Jocuri pentru sala de clasă"
+	},
+	"educators-learn": {
+		"message": "Învățare cu Pe urmele lui Moș Crăciun"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "A apărut o problemă, dar elfii lui Moș Crăciun vor afla mai multe."
+	},
+	"error-internal": {
+		"message": "A apărut o problemă! I-am anunțat pe elfii lui Moș Crăciun, dar încearcă să revii la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Întrerupe"
 	},
+	"paused": {
+		"message": "Întrerupt"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hopa!"
 	},
+	"readyquestion": {
+		"message": "Ești gata?"
+	},
 	"ro_country_name": {
 		"message": "România"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudită"
+	},
+	"santa-app": {
+		"message": "Moș Crăciun"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Omul de turtă dulce"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Goana pinguinului"
 	},
+	"scene_elfmaker": {
+		"message": "Creator de elfi"
+	},
 	"scene_elfski": {
 		"message": "Elfi schiori"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Teren de joacă în Polul Nord"
+	},
+	"scene_poseboogie": {
+		"message": "Pași de dans"
+	},
+	"scene_postcard": {
+		"message": "Cărți poștale cu Moș Crăciun"
 	},
 	"scene_presentbounce": {
 		"message": "Cadouri săltărețe"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Încă în vacanță"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Reni îngrijorați"
+	},
 	"scene_videoscene_reload": {
 		"message": "Reîncărcarea cadourilor"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Pierde-vară"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Plecare"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentație"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Unde este Moș Crăciun?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Atelierul lui Moș Crăciun"
+	},
 	"scene_windtunnel": {
 		"message": "Tunel de vânt"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Bătălia de împachetat cadouri"
 	},
 	"score": {
+		"message": "Scor"
+	},
+	"score_short": {
 		"message": "Scor"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovacă"
+	},
+	"skip-training": {
+		"message": "Omite instruirea"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Activează"
 	},
+	"upgrade-warning": {
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în browserul tău sau ai dezactivat JavaScript. Pentru a accesa aplicația, descarcă un browser nou sau activează JavaScript.\nPentru mai multe informații, accesează: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Sună-l pe Moșul folosind Asistentul Google"
 	},
 	"village_comeback": {
 		"message": "Întoarce-te pe 24 decembrie și ajută-ne să-l urmărim pe Moș Crăciun toată noaptea!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Adaugă extensia Chrome cu Moș Crăciun"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Testul lui Moș Crăciun despre Pământ"
+	},
+	"village_santa_install": {
+		"message": "Instalează"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

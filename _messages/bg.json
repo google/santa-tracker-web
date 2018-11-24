@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Календарът"
 	},
+	"category_all": {
+		"message": "Преглед на всички"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Програмиране"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Рисуване"
 	},
+	"category_education": {
+		"message": "Фокусирано обучение"
+	},
+	"category_geography": {
+		"message": "География"
+	},
 	"category_language": {
 		"message": "Език"
 	},
 	"category_listen": {
 		"message": "Слушане"
 	},
+	"category_new-this-year": {
+		"message": "Ново от тази година"
+	},
 	"category_send": {
 		"message": "Изпращане"
+	},
+	"category_social-studies": {
+		"message": "Социални науки"
 	},
 	"cd_country_name": {
 		"message": "Демократична република Конго"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Помогнете за финансирането на проект за деца със специални нужди в DonorsChoose.org. Този декември ще съдействаме за удвояването на помощта, като предоставим сума, равна на 50% от даренията, за да достигнем крайната ни цел от 1 млн. щ.д. Заедно можем да направим класните стаи по-приобщаващи #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Изтеглете, за да играете още повече игри"
+	},
 	"dz_country_name": {
 		"message": "Алжир"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Къде е Дядо Коледа за преподаватели"
+	},
+	"educators-games": {
+		"message": "Игри за учебната стая"
+	},
+	"educators-learn": {
+		"message": "Обучение за Къде е Дядо Коледа"
 	},
 	"ee_country_name": {
 		"message": "Естония"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Възникна проблем, но джуджетата на Дядо Коледа работят по отстраняването му."
+	},
+	"error-internal": {
+		"message": "Ами сега! Възникна проблем! Информирахме джуджетата на Дядо Коледа, но опитайте да се върнете в \u003ca href=\"./\"\u003eселцето на Дядо Коледа\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Изглежда, че току-що изгубихме връзка със Северния полюс. Джуджетата на Дядо Коледа работят усърдно по отстраняване на проблема – не си тръгвайте!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Пауза"
 	},
+	"paused": {
+		"message": "На пауза"
+	},
 	"pe_country_name": {
 		"message": "Перу"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ами сега!"
 	},
+	"readyquestion": {
+		"message": "В готовност ли сте?"
+	},
 	"ro_country_name": {
 		"message": "Румъния"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Саудитска Арабия"
+	},
+	"santa-app": {
+		"message": "Дядо Коледа"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Джинджифилово човече"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Бързият пингвин"
 	},
+	"scene_elfmaker": {
+		"message": "Създаване на джудже"
+	},
 	"scene_elfski": {
 		"message": "Джуджета на ски"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Площадка за игра на Северния полюс"
+	},
+	"scene_poseboogie": {
+		"message": "Танцова стъпка"
+	},
+	"scene_postcard": {
+		"message": "Коледни картички"
 	},
 	"scene_presentbounce": {
 		"message": "Подскачащи подаръци"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Все още във ваканция"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Тревогите на елена"
+	},
 	"scene_videoscene_reload": {
 		"message": "Презареждане с подаръци"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Скатавка"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Старт"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Изкушение"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Къде е Дядо Коледа?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Работилницата на Дядо Коледа"
+	},
 	"scene_windtunnel": {
 		"message": "Аеродинамичен тунел"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Опаковане на подаръци"
 	},
 	"score": {
+		"message": "Резултат"
+	},
+	"score_short": {
 		"message": "Резултат"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "словашки"
+	},
+	"skip-training": {
+		"message": "Пропускане на обучението"
 	},
 	"sl_country_name": {
 		"message": "Сиера Леоне"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Със звук"
 	},
+	"upgrade-warning": {
+		"message": "Ами сега! Къде е Дядо Коледа не се поддържа в браузъра ви или JavaScript е деактивиран. За достъп до Къде е Дядо Коледа изтеглете съвременен браузър или активирайте JavaScript. За още информация отворете: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Съединени щати"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Венецуела"
+	},
+	"village_assistant-call_santa": {
+		"message": "Обадете се на Дядо Коледа чрез Google Асистент"
 	},
 	"village_comeback": {
 		"message": "Върнете се на 24 декември и ни помогнете да следим Дядо Коледа през цялата нощ!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Добавяне на разширението „Дядо Коледа“ за Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Викторина на Дядо Коледа за Земята"
+	},
+	"village_santa_install": {
+		"message": "Инсталиране"
 	},
 	"village_takesoff": {
 		"message": "Дядо Коледа потегля след"

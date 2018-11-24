@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "日曆"
 	},
+	"category_all": {
+		"message": "查看全部"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "編寫程式"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "繪圖"
 	},
+	"category_education": {
+		"message": "教育性質"
+	},
+	"category_geography": {
+		"message": "地理"
+	},
 	"category_language": {
 		"message": "語言"
 	},
 	"category_listen": {
 		"message": "收聽"
 	},
+	"category_new-this-year": {
+		"message": "今年的新遊戲"
+	},
 	"category_send": {
 		"message": "傳送"
+	},
+	"category_social-studies": {
+		"message": "社會學"
 	},
 	"cd_country_name": {
 		"message": "剛果民主共和國"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "前往 DonorsChoose.org 贊助慈善項目，幫助有需要人士。今個 12 月，Google 會捐出總捐款的 50%，直至達到 $100 萬美元的捐款目標。只要我們攜手努力，便可讓每個小孩都有機會接受教育！#ForEveryKid"
 	},
+	"download-cta": {
+		"message": "下載即可玩更多遊戲"
+	},
 	"dz_country_name": {
 		"message": "阿爾及利亞"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "「聖誕老人追蹤器」教育版"
+	},
+	"educators-games": {
+		"message": "課堂遊戲"
+	},
+	"educators-learn": {
+		"message": "一邊使用「聖誕老人追蹤器」一邊學習"
 	},
 	"ee_country_name": {
 		"message": "愛沙尼亞"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "發生問題，但聖誕老人的小精靈正在查明原因。"
+	},
+	"error-internal": {
+		"message": "糟糕，發生問題！我們已通知聖誕老人的小精靈，您不妨先返回「\u003ca href=\"./\"\u003e聖誕老人村\u003c/a\u003e」。"
 	},
 	"error-lost-connection": {
 		"message": "我們似乎剛剛與北極失去了聯絡，聖誕老人的小精靈們正在努力解決問題。敬請密切留意！"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "暫停"
 	},
+	"paused": {
+		"message": "已暫停"
+	},
 	"pe_country_name": {
 		"message": "秘魯"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "噢！"
 	},
+	"readyquestion": {
+		"message": "準備好了嗎？"
+	},
 	"ro_country_name": {
 		"message": "羅馬尼亞"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "沙地阿拉伯"
+	},
+	"santa-app": {
+		"message": "聖誕老人"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "薑餅人"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "企鵝衝衝衝"
 	},
+	"scene_elfmaker": {
+		"message": "小精靈製造器"
+	},
 	"scene_elfski": {
 		"message": "小精靈高山滑雪"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "北極遊樂場"
+	},
+	"scene_poseboogie": {
+		"message": "熱舞擺 Pose"
+	},
+	"scene_postcard": {
+		"message": "聖誕老人明信片"
 	},
 	"scene_presentbounce": {
 		"message": "禮物彈彈跳"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "仍在度假"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "馴鹿慌失失"
+	},
 	"scene_videoscene_reload": {
 		"message": "補充禮物"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "偷懶"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "起飛"
+	},
 	"scene_videoscene_temptation": {
 		"message": "心思思"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "聖誕老人在哪裡？"
 	},
+	"scene_videoscene_workshop": {
+		"message": "聖誕老人工作坊"
+	},
 	"scene_windtunnel": {
 		"message": "馳騁風洞"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "聖誕禮物密密包"
 	},
 	"score": {
+		"message": "得分"
+	},
+	"score_short": {
 		"message": "得分"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克文"
+	},
+	"skip-training": {
+		"message": "略過教學"
 	},
 	"sl_country_name": {
 		"message": "塞拉利昂"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "取消靜音"
 	},
+	"upgrade-warning": {
+		"message": "很抱歉，您的瀏覽器版本並不支援「聖誕老人追蹤器」，又或者您停用了 JavaScript。若要使用「聖誕老人追蹤器」，請下載最新版本的瀏覽器或啟用 JavaScript。詳情請瀏覽 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
 	"us_country_name": {
 		"message": "美國"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "委內瑞拉"
+	},
+	"village_assistant-call_santa": {
+		"message": "使用「Google 助理」致電聖誕老人"
 	},
 	"village_comeback": {
 		"message": "我們邀請您在 24 日平安夜一起追縱聖誕老人！"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "新增「聖誕老人」Chrome 擴充程式"
+	},
+	"village_santa_earth_quiz": {
+		"message": "聖誕老人地理測驗"
+	},
+	"village_santa_install": {
+		"message": "安裝"
 	},
 	"village_takesoff": {
 		"message": "聖誕老人出發倒數"

@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "日历"
 	},
+	"category_all": {
+		"message": "查看全部"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "代码"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "绘图"
 	},
+	"category_education": {
+		"message": "教育类"
+	},
+	"category_geography": {
+		"message": "地理百科"
+	},
 	"category_language": {
 		"message": "语言"
 	},
 	"category_listen": {
 		"message": "收听"
 	},
+	"category_new-this-year": {
+		"message": "今年推出的新游戏"
+	},
 	"category_send": {
 		"message": "发送"
+	},
+	"category_social-studies": {
+		"message": "社会研究"
 	},
 	"cd_country_name": {
 		"message": "刚果民主共和国"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "请前往 DonorsChoose.org，帮助有特别需要的人士。今年 12 月份，在大家捐款的基础上，Google 会进一步捐出总捐款额的 50%，直至达到 1 百万美元的捐款目标。让我们同舟共济，帮助更多的孩子走进课堂 #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "下载畅玩更多游戏"
+	},
 	"dz_country_name": {
 		"message": "阿尔及利亚"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "面向教育工作者的“追踪圣诞老人”应用"
+	},
+	"educators-games": {
+		"message": "课堂游戏"
+	},
+	"educators-learn": {
+		"message": "边玩“追踪圣诞老人”边学习"
 	},
 	"ee_country_name": {
 		"message": "爱沙尼亚"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "出了点问题，但圣诞老人的小精灵们正在处理。"
+	},
+	"error-internal": {
+		"message": "糟糕，出了点问题！我们已通知圣诞老人的小精灵们，不妨先回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e看看。"
 	},
 	"error-lost-connection": {
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "暂停"
 	},
+	"paused": {
+		"message": "已暂停"
+	},
 	"pe_country_name": {
 		"message": "秘鲁"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "糟糕！"
 	},
+	"readyquestion": {
+		"message": "准备好了吗？"
+	},
 	"ro_country_name": {
 		"message": "罗马尼亚"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
+	},
+	"santa-app": {
+		"message": "圣诞老人"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "姜饼人"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "企鹅向前冲"
 	},
+	"scene_elfmaker": {
+		"message": "精灵制造"
+	},
 	"scene_elfski": {
 		"message": "精灵滑雪"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "北极游乐场"
+	},
+	"scene_poseboogie": {
+		"message": "造型热舞"
+	},
+	"scene_postcard": {
+		"message": "圣诞老人明信片"
 	},
 	"scene_presentbounce": {
 		"message": "礼物弹弹跳"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "圣诞老人还在度假中"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "迷失的驯鹿"
+	},
 	"scene_videoscene_reload": {
 		"message": "礼物补给"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "偷懒"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "出发"
+	},
 	"scene_videoscene_temptation": {
 		"message": "诱惑"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "圣诞老人在哪里？"
 	},
+	"scene_videoscene_workshop": {
+		"message": "圣诞老人的魔法小屋"
+	},
 	"scene_windtunnel": {
 		"message": "风洞"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "包装快手"
 	},
 	"score": {
+		"message": "得分"
+	},
+	"score_short": {
 		"message": "得分"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克语"
+	},
+	"skip-training": {
+		"message": "跳过练习"
 	},
 	"sl_country_name": {
 		"message": "塞拉利昂"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "取消静音"
 	},
+	"upgrade-warning": {
+		"message": "很抱歉，您的浏览器不支持“追踪圣诞老人”，或者您已停用 JavaScript。要访问“追踪圣诞老人”，请下载新版浏览器或启用 JavaScript。如需更多详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
 	"us_country_name": {
 		"message": "美国"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "委内瑞拉"
+	},
+	"village_assistant-call_santa": {
+		"message": "使用 Google 助理给圣诞老人打个电话"
 	},
 	"village_comeback": {
 		"message": "24 日平安夜，别忘了跟我们一起追踪圣诞老人的行踪！"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "添加圣诞老人 Chrome 扩展程序"
+	},
+	"village_santa_earth_quiz": {
+		"message": "圣诞老人地球知识测验"
+	},
+	"village_santa_install": {
+		"message": "安装"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"
