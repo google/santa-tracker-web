@@ -1,3 +1,4 @@
+import * as messageSource from '../lib/message-source.js';
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 
@@ -10,7 +11,6 @@ const SCENE_PRELOAD_TIMEOUT = 10 * 1000;
 class SantaLoaderElement extends HTMLElement {
   constructor() {
     super();
-    this._onMessage = this._onMessage.bind(this);
 
     this._targetUrl = null;
     this._loadAttempt = 0;
@@ -22,25 +22,6 @@ class SantaLoaderElement extends HTMLElement {
     this._preloadPromise = Promise.resolve(null);
 
     this._onFrameScrollNotify = false;
-
-    this._onMessageHandler = new WeakMap();
-  }
-
-  connectedCallback() {
-    window.addEventListener('message', this._onMessage);
-  }
-
-  disconnectedCallback() {
-    window.removeEventListener('message', this._onMessage);
-  }
-
-  /**
-   * @param {!MessageEvent} ev
-   */
-  _onMessage(ev) {
-    // handle if it's one of ours
-    const src = this._onMessageHandler.get(ev.source);
-    src && src(ev);
   }
 
   _preloadUrl(url) {
@@ -76,7 +57,7 @@ class SantaLoaderElement extends HTMLElement {
 
     // wait for "hello" message before actual load
     let frameInitReceived = false;
-    const cleanupMessageHandler = () => this._onMessageHandler.delete(pf.contentWindow);
+    const cleanupMessageHandler = () => messageSource.remove(pf.contentWindow);
     const messageHandler = (ev) => {
       if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
         throw new Error(`unexpected from preload: ${ev.data}`);
@@ -111,7 +92,7 @@ class SantaLoaderElement extends HTMLElement {
         }
       }, 0);
     });
-    this._onMessageHandler.set(pf.contentWindow, messageHandler);
+    messageSource.add(pf.contentWindow, messageHandler);
 
     const p = new Promise((resolve) => {
       this._preloadResolve = resolve;
@@ -182,7 +163,7 @@ class SantaLoaderElement extends HTMLElement {
   _dispose(iframe) {
     if (iframe) {
       iframe.remove();
-      this._onMessageHandler.delete(iframe.contentWindow);
+      messageSource.remove(iframe.contentWindow);
     }
   }
 
