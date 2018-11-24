@@ -125,7 +125,10 @@ santa-loader {
     // this allows frames that actually need real w/h to load
     min-width: 100vw;
     min-height: 100vh;
-    visibility: hidden;
+    visibility: hidden;  // Safari doesn't seem to always respect this on iframes
+    opacity: 0;
+    z-index: -100;
+    top: 100vh;
   }
 }
 
