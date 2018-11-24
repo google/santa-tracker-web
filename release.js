@@ -39,11 +39,6 @@ const yargs = require('yargs')
       default: false,
       describe: 'only generate default top-level language',
     })
-    .option('fast', {
-      type: 'boolean',
-      default: false,
-      describe: 'only build app shell, do not build scenes',
-    })
     .option('baseurl', {
       type: 'string',
       default: 'https://maps.gstatic.com/mapfiles/santatracker/',
@@ -240,8 +235,7 @@ async function release() {
   // or JS on its own, it must be included by one of our HTML entry points.
   const loaderOptions = {compile: true, root: staticRoot};
   const loader = require('./loader.js')(loaderOptions);
-  const htmlFiles = yargs.fast ?
-      ['index.html'] : ['index.html'].concat(globAll('scenes/*/index.html'));
+  const htmlFiles = globAll('index.html', 'scenes/*/index.html', 'controller/*.html');
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
@@ -433,12 +427,20 @@ async function release() {
   for (const [htmlFile, document] of htmlDocuments) {
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
+    const fanout = (path.basename(htmlFile) === 'index.html');
 
     // If there were any messages required for this file, add a script node.
     const msgids = messagesForHtmlFile.get(htmlFile);
     const scriptNode = document.createElement('script');
     if (msgids.size) {
+      if (!fanout) {
+        throw new Error(`i18n required for non-index.html file: ${htmlFile}`)
+      }
       document.head.insertBefore(scriptNode, document.head.firstChild);
+    } else if (fanout) {
+      const target = path.join(staticDir, htmlFile);
+      await write(target, documentForLang());
+      continue;
     }
 
     for (const lang in langs) {

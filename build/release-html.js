@@ -124,6 +124,10 @@ module.exports = {
   async static(document) {
     const applyLang = buildApplyLang(document);
     return (messages) => {
+      if (!messages) {
+        // emit without any langs
+        return compileHtml(dom.serialize(document));
+      }
       const out = applyLang(messages);
       return compileHtml(out);
     };
