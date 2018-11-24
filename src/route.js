@@ -6,7 +6,7 @@ const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
 const {scope, hasScope, scopeLang} = (() => {
   const params = new URLSearchParams(window.location.search);
   const raw = params.get('_scope');
-  const scope = raw || 'https://santatracker.google.com';
+  const scope = raw || 'https://santatracker.google.com/';
   const m = /\/intl\/([-\w+])/.exec(scope);
   const scopeLang = m ? m[1] : '';
   return {scope, scopeLang, hasScope: Boolean(raw)};
