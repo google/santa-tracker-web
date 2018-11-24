@@ -193,10 +193,9 @@ api.preload.images(
   'img/tools/sprays/yellow.png',
 );
 
-api.installV1Handlers();
 const game = new Game(document.getElementById('module-santaselfie'));
 
-api.ready(async (manager) => {
+api.ready(async () => {
   game.start();
 
   // this.fire('sound-ambient', 'selfie_start');

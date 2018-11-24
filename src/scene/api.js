@@ -1,6 +1,3 @@
-import {Adapter} from '@polymer/broadway/lib/adapter';
-import {SantaTrackerAction} from '../app/action.js';
-import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 
@@ -21,7 +18,10 @@ class PreloadApi {
     this._donePromise = new Promise((resolve) => {
       this._doneResolve = resolve;
     });
-    this._donePromise.then(() => cb(1));
+    this._donePromise.then(() => {
+      this._cb(1);
+      this._cb = () => {};  // do nothing from here-on-in
+    });
 
     // If nothing was requested after a frame, then assume that nothing ever will be, and resolve
     // the preloader Promise immediately. Note that this can't be a rAF, as the iframe is probably
@@ -105,155 +105,146 @@ class PreloadApi {
 }
 
 
-class SceneManager extends EventTarget {
-  constructor(sceneName, opts) {
-    super();
-
-    this._name = sceneName;
-    this._adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-    this._updateGame = channel.parent('game', (data) => {
-      // TODO(samthor): currently just used for embed.
-      switch (data) {
-        case 'pauseGame':
-          this.dispatchEvent(new Event('pause'));
-          break;
-        case 'resumeGame':
-          this.dispatchEvent(new Event('resume'));
-          break;
-        case 'restartGame':
-          this.dispatchEvent(new Event('restart'));
-          break;
-        default:
-          console.debug('got unhandled embed data', data);
-      }
-    });
-
-    pendingSoundPreload.forEach((sound) => this._sound('fire', sound));
-
-    const payload = {
-      hasPauseScreen: Boolean(opts.hasPauseScreen),
-    };
-    this._updateGame({type: 'ready', payload});
-  }
-
-  play(sound) {
-    this._sound('play', sound);
-  }
-
-  ambient(start, end) {
-    this._sound('ambient', start, end);
-  }
-
-  _sound(...args) {
-    this._updateGame({type: 'klang', payload: args});
-  }
-
-  route(sceneName, data) {
-    const payload = {sceneName, data};
-    this._adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
-  }
-
-  score(detail) {
-    const payload = {
-      sceneName: this._name,
-      detail,
-    };
-    this._adapter.dispatch({type: SantaTrackerAction.SCORE_UPDATE, payload});
-    this._updateGame({type: 'score', payload: detail});
-  }
-
-  gameover(detail) {
-    const payload = {
-      sceneName: this._name,
-      detail,
-    };
-    this._adapter.dispatch({type: SantaTrackerAction.SCORE_GAMEOVER, payload});
-    this._updateGame({type: 'gameover', payload: detail});
-  }
-}
-
-
 /**
  * Scene API helper which exposes a `.preload` property to scenes which allows preloading assets
  * as part of traditional 'loading' before the Controller is activated.
  *
- * Pass a method to `.ready` which will be invoked once preload is complete. This method will be
- * passed an instance of `SceneManager`, which connects to and exposes the Controller.
+ * Games should configure event handlers and config in the initial frame.
+ * 
+ * Pass a method to `.ready` which will be invoked once preload is complete.
  *
  * e.g.:
- *    const api = new SceneApi('scene-name-here');
+ *    const api = new SceneApi();
  *    api.preload.images(...);
- *    api.ready(async (manager) => { ... });
+ *    api.ready(async () => { ... });
  */
-class SceneApi {
-  constructor(sceneName) {
-    this._name = sceneName;
-    this._manager = null;
+class SceneApi extends EventTarget {
+  constructor() {
+    super();
 
-    // This breaks the Actor model abstraction during loading, and we just post progress directly
-    // to our parent (if we have one). This lets us pretend that loading is a task that just takes
-    // time, and which is managed entirely by `santa-loader`.
-    const updateProgress = channel.parent('init');
-    this._preload = new PreloadApi(updateProgress);
-    this._preload.done.then(() => updateProgress(null));  // post null to indicate done
+    // connect to parent frame: during preload, error on data
+    this._updateFromHost = (data) => {
+      throw new Error('got unexpected early data from host');
+    };
+    this._updateParent = channel.parent('init', (data) => this._updateFromHost(data));
+    this._preload = new PreloadApi(this._updateParent);
+
+    // queue of events sent by the game during preload
+    const sendQueue = [];
+    this._send = (type, payload) => this.sendQueue.push({type, payload});
+
+    // after preload, do a bunch of setup work
+    this._ready = (async() => {
+      await this._preload.done;
+      this._updateParent(null);  // preload is done
+
+      this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
+      this._send = (type, payload) => this._updateParent({type, payload});
+  
+      // FIXME: send awkward preload events
+      pendingSoundPreload.forEach((event) => this._send('klang', ['fire', event]));
+
+      // send ready event
+      // TODO: allow scenes to configure these options
+      this._send('ready', {hasPauseScreen: true});
+
+      // clear backlog of events
+      sendQueue.forEach(this._updateParent)
+    })();
+  }
+
+  _handleHostMessage(type, payload) {
+    switch (type) {
+      case 'pause':
+      case 'resume':
+      case 'restart':
+        this.dispatchEvent(new Event(type));
+        break;
+    }
   }
 
   /**
    * @param {function(): !Promise<undefined>} fn 
    * @param {{hasPauseScreen: boolean}=}
    */
-  async ready(fn, opts={}) {
-    await this._preload.done;
-
-    this._manager = new SceneManager(this._name, opts);
-    await fn(this._manager);
+  async ready(fn) {
+    await this._ready;
+    await fn();
   }
 
   get preload() {
     return this._preload;
   }
 
-  installV1Handlers() {
-    const fire = (eventName, ...args) => {
-      if (!this._manager) {
-        return;
-      }
-
-      // TODO(samthor): do something with events
-      switch (eventName) {
-      case 'sound-trigger':
-        this._manager.play(args[0]);
-        break;
-      case 'sound-ambient':
-        this._manager.ambient(args[0], args[1]);
-        break;
-      case 'game-score':
-        this._manager.score(args[0] || {});
-        break;
-      case 'game-stop':
-        this._manager.gameover(args[0] || {});
-        break;
-      }
+  /**
+   * @param {string} route to go to
+   */
+  go(route) {
+    this._send('go', route);
   }
 
-    window.santaApp = {
-      fire,
-      headerSize: 0,
-    };
-    window.ga = function() {
-      // TODO(samthor): log GA events
-    };
+  /**
+   * @param {string} sound to play via Klang
+   */
+  play(sound) {
+    this._send('klang', ['play', sound]);
+  }
+
+  /**
+   * @param {string} startEvent ambient sound event to play
+   * @param {?string=} endEvent ambient event to trigger on new ambient
+   */
+  ambient(startEvent, endEvent=null) {
+    this._send('klang', ['ambient', startEvent, endEvent]);
+  }
+
+  score(detail) {
+    this._send('score', detail);
+  }
+
+  gameover(detail) {
+    this._send('gameover', detail);
+  }
+
+  ga(...args) {
+    this._send('ga', args);
   }
 }
 
-// Identify the sceneName from the loaded URL.
-const sceneNameRe = /\/scenes\/(\w+)\//;
-const match = sceneNameRe.exec(window.location.pathname);
-if (!match) {
-  throw new TypeError('could not identify scene name from pathname: ' + window.location.pathname);
-}
-const sceneName = match[1];
 
-const sceneApi = new SceneApi(sceneName);
+const sceneApi = new SceneApi();
 export default sceneApi;
+
+
+/**
+ * Installs handlers for V1, including `santaApp` and global `ga`.
+ */
+function installV1Handlers() {
+  window.ga = sceneApi.ga.bind(sceneApi);
+
+  const fire = (eventName, ...args) => {
+    switch (eventName) {
+    case 'sound-trigger':
+      sceneApi.play(args[0]);
+      break;
+    case 'sound-ambient':
+      sceneApi.ambient(args[0], args[1]);
+      break;
+    case 'game-score':
+      sceneApi.score(args[0] || {});
+      break;
+    case 'game-stop':
+      sceneApi.gameover(args[0] || {});
+      break;
+    }
+  }
+
+  window.santaApp = {
+    fire,
+    headerSize: 0,
+  };
+}
+
+installV1Handlers();
+
 

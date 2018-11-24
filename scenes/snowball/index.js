@@ -33,7 +33,6 @@ const jumpBtn = document.getElementById('jumpBtn');
 const splash = document.getElementById('splash');
 let game = null;
 
-api.installV1Handlers();
 api.ready(async () => {
   jumpBtn.addEventListener('click', (ev) => {
     jumpBtn.hidden = true;

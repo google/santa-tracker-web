@@ -101,7 +101,7 @@ api.preload.wait(apiPromise);
 api.preload.wait(playerPromise);
 api.preload.wait(startedPromise);
 
-api.ready(async (manager) => {
+api.ready(async () => {
   const player = await playerPromise;
   const element = document.getElementById('ytplayer');
 

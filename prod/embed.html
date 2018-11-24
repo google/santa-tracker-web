@@ -103,7 +103,12 @@ async function run() {
         klangPost('fire', 'global_sound_off');
         break;
       default:
-        gamePort.postMessage(ev.data);
+        if (ev.data.endsWith('Game')) {
+          const type = ev.data.substr(ev.data.length - 4);
+          gamePort.postMessage({type: ev.data, payload: nul});
+        } else {
+          console.debug('unhandled from embed', ev.data);
+        }
     }
   };
   embedPort.onmessage = embedmessage;
