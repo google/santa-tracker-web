@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
 }
-iframe {
+iframe.game {
   min-height: 100vh;
   width: 100vw;
   border: 0;
@@ -20,36 +20,57 @@ iframe {
 <body>
   <script>
 
-function configureFrame() {
+const staticPath = document.body.getAttribute('data-static') || '';
+const m = staticPath.match(/^(.*)(\/[^\/]*)$/);
+if (!m) {
+  throw new Error(`couldn't match static path: ${staticPath}`);
+}
+const staticBase = m[1];
+const staticOrigin = (new URL(staticBase)).origin;
+
+
+async function waitForEvent(target, eventName) {
+  return new Promise((r) => target.addEventListener('load', r, {once: true}));
+}
+
+
+async function configureKlangFrame() {
+  const iframe = document.createElement('iframe');
+  iframe.hidden = true;
+  iframe.setAttribute('allow', 'speaker');
+  iframe.src = `${staticBase}/controllers/klang.html`;
+  document.body.appendChild(iframe);
+  await waitForEvent(iframe, 'load');
+  return iframe;
+}
+
+
+async function configureFrame() {
   const sceneName = window.location.hash.substr(1) || window.location.search.substr(1);
   if (!sceneName) {
     throw new Error('no scene provided');
   }
-  const staticPath = document.body.getAttribute('data-static') || '';
-  const m = staticPath.match(/^(.*)(\/[^\/]*)$/);
-  if (!m) {
-    throw new Error(`couldn't match static path: ${staticPath}`);
-  }
 
   const iframe = document.createElement('iframe');
+  iframe.className = 'game';
   iframe.setAttribute('allow', 'accelerometer; autoplay; camera; fullscreen; encrypted-media; gyroscope; picture-in-picture; speaker; unsized-media');
   iframe.setAttribute('allowfullscreen', '');
   console.info('setting inner frame src', iframe.src);
-  iframe.src = `${m[1]}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html`;
+  iframe.src = `${staticBase}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html`;
   document.body.appendChild(iframe);
+  await waitForEvent(iframe, 'load');
   return iframe;
 }
 
-function post(port, message) {
-  if (port) {
-    if (typeof message !== 'string') {
-      message = JSON.stringify(message);
-    }
-    port.postMessage(message);
-  }
-}
 
 async function run() {
+  const klangFrame = await configureKlangFrame();
+  const klangPost = (...args) => klangFrame.contentWindow.postMessage(args, staticOrigin);
+  klangPost('fire', 'global_sound_off');
+
+  // nb. Wait for `global_sound_off`, as it fades out.
+  await new Promise((r) => window.setTimeout(r, 500));
+
   const embedPort = await matchWindowMessage((ev) => {
     // nb. data should be 'santaandroid'
     if (ev.source === null && ev.ports && ev.ports[0]) {
@@ -67,19 +88,27 @@ async function run() {
   embedPort.onmessage = (ev) => {
     console.debug('got data from embed', ev.data);
     switch (ev.data) {
-      // TODO: lazy-load Klang frame if unmuted
       case 'unmute':
-        console.debug('TODO: unmute sound');
+        klangPost('fire', 'global_sound_on');
         break;
       case 'mute':
-        console.debug('TODO: mute sound');
+        klangPost('fire', 'global_sound_off');
         break;
       default:
         gamePort.postMessage(ev.data);
     }
   };
 
-  gamePort.onmessage = (ev) => post(embedPort, ev.data);
+  gamePort.onmessage = (ev) => {
+    const {type, payload} = ev.data;
+
+    if (type === 'klang') {
+      klangPost(...payload);
+    } else {
+      const message = {type: `on${type}`, data: payload};
+      embedPort.postMessage(JSON.stringify(message));
+    }
+  };
 }
 
 

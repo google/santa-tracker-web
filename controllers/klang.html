@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script type="module">
+
+// Exists as a temporary solution to not loading Klang in scenes, for embed.
+
+import * as sc from '../src/soundcontroller.js';
+
+window.addEventListener('message', (ev) => {
+  const args = ev.data;
+  switch (args[0]) {
+    case 'fire':
+      sc.fire(args[1]);
+      break;
+    case 'ambient':
+      sc.ambient(args[1], args[2]);
+      break;
+    case 'play':
+      sc.play(args[1]);
+      break;
+  }
+});
+
+</script>
+
+</body>
+</html>

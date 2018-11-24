@@ -128,7 +128,7 @@ export function ambient(startEvent, clearEvent) {
       return previousClearEvent;  // allow the next task to clean up, we're superceded
     }
 
-    if (previousClearEvent !== null) {
+    if (previousClearEvent) {
       await fire(previousClearEvent);
     }
     await fire(startEvent);

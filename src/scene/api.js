@@ -5,6 +5,9 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 
 
+const pendingSoundPreload = [];
+
+
 class PreloadApi {
 
   /**
@@ -64,6 +67,7 @@ class PreloadApi {
    */
   sounds(event) {
     // TODO(samthor): awkwardly pass to window.parent to load for us
+    pendingSoundPreload.push(event);
   }
 
   /**
@@ -124,10 +128,24 @@ class SceneManager extends EventTarget {
       }
     });
 
-    const data = {
+    pendingSoundPreload.forEach((sound) => this._sound('fire', sound));
+
+    const payload = {
       hasPauseScreen: Boolean(opts.hasPauseScreen),
     };
-    this._updateGame({type: 'onready', data});
+    this._updateGame({type: 'ready', payload});
+  }
+
+  play(sound) {
+    this._sound('play', sound);
+  }
+
+  ambient(start, end) {
+    this._sound('ambient', start, end);
+  }
+
+  _sound(...args) {
+    this._updateGame({type: 'klang', payload: args});
   }
 
   route(sceneName, data) {
@@ -141,7 +159,7 @@ class SceneManager extends EventTarget {
       detail,
     };
     this._adapter.dispatch({type: SantaTrackerAction.SCORE_UPDATE, payload});
-    this._updateGame({type: 'onscore', data: detail});
+    this._updateGame({type: 'score', payload: detail});
   }
 
   gameover(detail) {
@@ -150,7 +168,7 @@ class SceneManager extends EventTarget {
       detail,
     };
     this._adapter.dispatch({type: SantaTrackerAction.SCORE_GAMEOVER, payload});
-    this._updateGame({type: 'ongameover', data: detail});
+    this._updateGame({type: 'gameover', payload: detail});
   }
 }
 
@@ -196,7 +214,7 @@ class SceneApi {
   }
 
   installV1Handlers() {
-    const fire = (eventName, arg) => {
+    const fire = (eventName, ...args) => {
       if (!this._manager) {
         return;
       }
@@ -204,14 +222,16 @@ class SceneApi {
       // TODO(samthor): do something with events
       switch (eventName) {
       case 'sound-trigger':
+        this._manager.play(args[0]);
         break;
       case 'sound-ambient':
+        this._manager.ambient(args[0], args[1]);
         break;
       case 'game-score':
-        this._manager.score(arg);
+        this._manager.score(args[0] || {});
         break;
       case 'game-stop':
-        this._manager.gameover(arg);
+        this._manager.gameover(args[0] || {});
         break;
       }
   }
