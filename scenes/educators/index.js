@@ -95,5 +95,6 @@ api.preload.images(
   'img/logo-lwb.png',
   'img/logo-scratch.png',
   'img/logo-storyweaver.png',
+  'img/title-bg-swirl_2x.png',
 );
 api.preload.wait(p);

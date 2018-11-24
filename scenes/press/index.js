@@ -15,7 +15,7 @@ render(template(), chooser);
 
 
 api.preload.images(
-  'img/bg-press-page-hero.png',
+  'img/bg-hero.png',
   'img/card-tracker.png',
   'img/card-village.png',
   'img/illust-chromecast_2x.png',
