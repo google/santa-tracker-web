@@ -36,7 +36,7 @@ main {
     top: 0;
     height: 100%;
     visibility: hidden;
-    outline: 2px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
     width: 320px;
     transform: translate(-100%);
     transition: transform $duration-sidebar ease-out;
