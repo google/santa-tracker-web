@@ -42,7 +42,7 @@ export async function installGestureResume(target=document, force=false) {
     return;  // nothing to do
   }
 
-  const events = ['mousedown', 'touchend', 'touchstart', 'scroll', 'wheel'];
+  const events = ['mousedown', 'touchend', 'touchstart', 'scroll', 'wheel', 'keydown'];
   const options = {capture: true, passive: true};
 
   return new Promise((resolve) => {
