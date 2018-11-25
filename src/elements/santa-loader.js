@@ -113,7 +113,6 @@ class SantaLoaderElement extends HTMLElement {
     // fail on unhandled contentWindow error
     pf.contentWindow.addEventListener('error', (ev) => {
       console.warn('contained frame got error', url, ev);
-      debugger;
       let s = ev.message;
       try {
         const u = new URL(ev.filename || url);
