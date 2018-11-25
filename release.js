@@ -33,6 +33,11 @@ const yargs = require('yargs')
       default: 'en',
       describe: 'default top-level language',
     })
+    .options('transpile', {
+      type: 'boolean',
+      default: true,
+      describe: 'transpile for ES5 browsers (slow)',
+    })
     .option('default-only', {
       alias: 'o',
       type: 'boolean',
@@ -378,11 +383,13 @@ async function release() {
   }
   log(`Written ${color.cyan(totalSizeES)} bytes of ES module code`);
 
+  if (!yargs.transpile) {
+    log(`Transpilation ${color.red('disabled')}, only support ES module browsers`);
+  }
+
   // Generate ES5 versions of entrypoints.
   const babelPlugin = require('rollup-plugin-babel');
   for (const [filename, data] of entrypoints) {
-    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
-
     // Piggyback on ES5 transpilation process to get messages required for this HTML entrypoint.
     const messages = messagesForHtmlFile.get(data.htmlFile);
     const messageTagObserver = (name, arg) => {
@@ -390,6 +397,25 @@ async function release() {
         messages.add(arg);
       }
     };
+
+    // Optionally skip transpilation.
+    if (!yargs.transpile) {
+      log(`Analyzing ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
+      await rollup.rollup({
+        plugins: [
+          babelPlugin({
+            sourceMaps: false,
+            compact: true,
+            plugins: [
+              buildTemplateTagReplacer(messageTagObserver),
+            ],
+          }),
+        ],
+        input: path.join(staticDir, 'src', filename),
+      });
+      continue;
+    }
+    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
 
     // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
     // https://github.com/MatAtBread/fast-async#runtimepattern
@@ -434,10 +460,10 @@ async function release() {
     const scriptNode = document.createElement('script');
     if (msgids.size) {
       if (!fanout) {
-        throw new Error(`i18n required for non-index.html file: ${htmlFile}`)
+        throw new Error(`found msgid for non-index.html file: ${htmlFile}`)
       }
       document.head.insertBefore(scriptNode, document.head.firstChild);
-    } else if (fanout) {
+    } else if (!fanout) {
       const target = path.join(staticDir, htmlFile);
       await write(target, documentForLang());
       continue;
