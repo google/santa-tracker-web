@@ -70,18 +70,17 @@ async function run() {
   const gamePort = await gamePortPromise;
 
   const embedmessage = (ev) => {
-    console.debug('got data from embed', ev.data);
     switch (ev.data) {
       case 'unmute':
-        gamePort.postMessage({type: 'embed-unmute'});
+        gamePort.postMessage({type: 'embed:unmute'});
         break;
       case 'mute':
-        gamePort.postMessage({type: 'embed-mute'});
+        gamePort.postMessage({type: 'embed:mute'});
         break;
       default:
         if (ev.data.endsWith('Game')) {
           const type = ev.data.substr(ev.data.length - 4);
-          gamePort.postMessage({type: ev.data, payload: nul});
+          gamePort.postMessage({type: ev.data, payload: null});
         } else {
           console.debug('unhandled from embed', ev.data);
         }
