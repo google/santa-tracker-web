@@ -332,7 +332,6 @@ app.Game.prototype.hitTarget = function(sphere, x, y) {
 app.Game.prototype.start = function() {
   this.restart();
   this.tutorial.start();
-  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-trigger', 'gb_game_start');
 };
 
@@ -356,6 +355,7 @@ app.Game.prototype.restart = function() {
   this.bumpLevel_();
 
   // Start game
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-trigger', 'gb_game_start');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'gumball'});
   this.unfreezeGame();
