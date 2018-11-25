@@ -1,0 +1,45 @@
+$name: 'module-speedsketch';
+$color-background: #009933;
+$color-card: $color-background;
+$color-slate-bg: $color-background;
+$color-slate-border: #e8c31c;
+$color-gameview-background: #5e35b1;
+$color-machine-secondary:#ef5c00;
+$mobile-breakpoint: 767px;
+
+@import "../_shared/sass/button";
+
+@import "sass/card";
+@import "sass/slate";
+@import "sass/splashview";
+@import "sass/gameview";
+@import "sass/newround";
+@import "sass/rounddetails";
+@import "sass/timesup";
+
+body {
+  overflow: hidden;
+  font-family: 'Roboto', 'Arial', 'Sans-Serif';
+}
+
+##{$name} {
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+
+ .scene {
+   background-color: #009933;
+
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+ }
+
+ .strings {
+   display: none;
+ }
+}
