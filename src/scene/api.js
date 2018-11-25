@@ -168,6 +168,9 @@ class SceneApi extends EventTarget {
 
       // clear backlog of events
       sendQueue.forEach(this._updateParent)
+
+      // focus ourselves (useful for embed and testing)
+      lazyFocusPage();
     })();
   }
 
@@ -247,6 +250,18 @@ class SceneApi extends EventTarget {
 
 const sceneApi = new SceneApi();
 export default sceneApi;
+
+
+/**
+ * Lazy focus on this page.
+ */
+function lazyFocusPage() {
+  var x = document.createElement('button');
+  x.setAttribute('tabindex', 0);
+  document.body.appendChild(x);
+  x.focus();
+  document.body.removeChild(x);
+}
 
 
 /**
