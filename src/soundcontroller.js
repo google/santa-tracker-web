@@ -28,7 +28,8 @@ export const initialSuspend = zeroAudioContext.state === 'suspended';
  */
 export function resume() {
   zeroAudioContext.resume();
-  localKlang && localKlang.context && localKlang.context.resume();
+  localKlang && localKlang.context.resume();
+  console.info('resumed context', zeroAudioContext.state, localKlang && localKlang.context.state)
   return zeroAudioContext.state !== 'suspended';
 }
 
