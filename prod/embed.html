@@ -47,7 +47,6 @@ async function configureFrame() {
   iframe.src = `${staticBase}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html?_embed=1`;
   console.info('setting inner frame src', iframe.src);
   document.body.appendChild(iframe);
-  await waitForEvent(iframe, 'load');
   return iframe;
 }
 
@@ -61,11 +60,14 @@ async function run() {
   });
 
   const iframe = await configureFrame();
-  const gamePort = await matchWindowMessage((ev) => {
-    if (ev.source === iframe.contentWindow && ev.data === 'game') {
+  const gamePortPromise = matchWindowMessage((ev) => {
+    if (ev.source === iframe.contentWindow && ev.data === 'init') {
       return ev.ports[0];
     }
   });
+
+  await waitForEvent(iframe, 'load');
+  const gamePort = await gamePortPromise;
 
   const embedmessage = (ev) => {
     console.debug('got data from embed', ev.data);
@@ -88,6 +90,10 @@ async function run() {
   embedPort.onmessage = embedmessage;
 
   gamePort.onmessage = (ev) => {
+    if (typeof ev.data === 'number' || ev.data === null) {
+      return;  // preload
+    }
+
     const {type, payload} = ev.data;
     if (type === 'klang') {
       return;  // ignore, can't play sounds here
