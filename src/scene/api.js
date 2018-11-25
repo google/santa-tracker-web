@@ -259,6 +259,9 @@ class SceneApi extends EventTarget {
   }
 
   gameover(detail) {
+    if ('url' in detail) {
+      // TODO: infer URL from data and send it
+    }
     this._send('gameover', detail);
   }
 
