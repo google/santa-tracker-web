@@ -79,7 +79,7 @@ async function run() {
         break;
       default:
         if (ev.data.endsWith('Game')) {
-          const type = ev.data.substr(ev.data.length - 4);
+          const type = ev.data.substr(0, ev.data.length - 4);
           gamePort.postMessage({type, payload: null});
         } else {
           console.debug('unhandled from embed', ev.data);
@@ -94,9 +94,6 @@ async function run() {
     }
 
     const {type, payload} = ev.data;
-    if (type === 'klang') {
-      return;  // ignore, can't play sounds here
-    }
     const message = {type: `on${type}`, data: payload};
     embedPort.postMessage(JSON.stringify(message));
   };

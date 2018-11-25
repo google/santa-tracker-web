@@ -180,6 +180,7 @@ class SceneApi extends EventTarget {
   }
 
   _handleHostMessage(type, payload) {
+    console.info('hostMessage', type, payload);
     switch (type) {
       case 'pause':
       case 'resume':
@@ -193,7 +194,7 @@ class SceneApi extends EventTarget {
         this._klang('fire', 'global_sound_off');
         break;
       default:
-        console.info('got', type, payload);
+        console.debug('unhandled hostMessage', type);
     }
   }
 
