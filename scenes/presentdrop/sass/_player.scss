@@ -1,0 +1,174 @@
+##{$name} {
+  @mixin rope {
+    background-color: #fff;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 111px;
+    width: 100%;
+  }
+
+  .rope {
+    @include rope();
+  }
+
+  .rope-end {
+    background: #002C65;
+    height: 100px;
+    position: absolute;
+    width: 100px;
+
+    &:before {
+        content: "";
+        @include rope();
+        top: 50%;
+    }
+
+    &.left {
+        left: -30px;
+        transform: rotate(-35deg);
+        top: 90px;
+    }
+
+    &.right {
+        right: -30px;
+        transform: rotate(35deg);
+        top: 90px;
+    }
+  }
+
+  .elf-rope {
+    height: 105px;
+    position: absolute;
+    top: 62px;
+    width: 66px;
+
+    &.left {
+      background: url(img/environment.png) -150px -300px;
+      left: 22px;
+    }
+
+    &.right {
+      background: url(img/environment.png) -150px -150px;
+      right: 33px;
+    }
+
+    &.left.back {
+      background: url(img/environment.png) -216px -300px;
+      left: 33px;
+    }
+
+    &.right.back {
+      background: url(img/environment.png) -216px -150px;
+      right: 22px;
+    }
+  }
+
+  .player-rails {
+      background: url(img/player-rails.png) repeat-x;
+      height: 26px;
+      position: absolute;
+      top: 164px;
+      width: 100%;
+  }
+
+  .player-rails-shadow {
+      background-position: -10px 0;
+      background: url(img/player-rails.png) 0 -30px repeat-x;
+      height: 25px;
+      left: 0;
+      position: absolute;
+      top: 193px;
+      width: 100%;
+  }
+
+  .player {
+    height: 127px;
+    left: 300px;
+    position: absolute;
+    top: 52px;
+    transform: translateZ(0);
+    width: 288px; // Use a width so the person is in the exact middle.
+
+    .hide-rope {
+      background-color: #002C65;
+      height: 4px;
+      left: 30px;
+      position: absolute;
+      top: 58px;
+      width: 220px;
+    }
+
+    .sled {
+      background: url(img/player.png) 0 -110px no-repeat;
+      height: 127px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 288px;
+    }
+
+    .elf {
+      width: 62px;
+      height: 103px;
+      position: absolute;
+      bottom: 41px;
+      left: 107px;
+
+      background: url(img/player.png);
+      background-position: -186px 0;
+    }
+
+    .elf.newpresent {
+      animation: 0.5s #{$name}-newpresent step-start;
+    }
+  }
+
+  .present {
+    background: #DB4536;
+    height: 20px;
+    position: absolute;
+    transform: translateZ(0);
+    width: 20px;
+
+    &::before {
+      background: #FEDF00;
+      content: '';
+      height: 2px;
+      left: 0;
+      margin-top: -1px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
+
+    &::after {
+      background: #FEDF00;
+      bottom: 0;
+      content: '';
+      left: 50%;
+      margin-left: -1px;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+  }
+}
+
+@keyframes #{$name}-newpresent {
+  0% {
+    background-position: -186px 0;
+  }
+  25% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -62px 0;
+  }
+  75% {
+    background-position: -124px 0;
+  }
+  100% {
+    background-position: -186px 0;
+  }
+}
