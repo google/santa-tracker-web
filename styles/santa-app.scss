@@ -119,6 +119,10 @@ santa-loader {
     position: absolute;
     width: 100%;
     height: 100%;
+
+    // some browsers still force this to be zero size on load
+    min-height: 200px;
+    min-width: 200px;
   }
 
   iframe[hidden] {

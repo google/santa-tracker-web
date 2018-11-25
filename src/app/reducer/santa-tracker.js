@@ -2,6 +2,12 @@ import {SantaTrackerAction} from '../action.js';
 
 export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
+    case SantaTrackerAction.SCENE_DATA:
+      return {
+        ...state,
+        selectedData: action.payload,
+      };
+
     case SantaTrackerAction.SCENE_SELECTED:
       const {sceneName, data} = action.payload;
       if (state.selectedScene === sceneName) {

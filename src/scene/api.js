@@ -125,9 +125,14 @@ class PreloadApi {
 class SceneApi extends EventTarget {
   constructor() {
     super();
+    this._initialData = null;
 
     // connect to parent frame: during preload, error on data
     this._updateFromHost = (data) => {
+      if (data.type === 'data') {
+        this._initialData = data.payload;
+        return;
+      }
       throw new Error('got unexpected early data from host');
     };
     this._updateParent = channel.parent('init', (data) => this._updateFromHost(data));
@@ -181,16 +186,18 @@ class SceneApi extends EventTarget {
       case 'restart':
         this.dispatchEvent(new Event(type));
         break;
+      default:
+        console.info('got', type, payload);
     }
   }
 
   /**
-   * @param {function(): !Promise<undefined>} fn 
+   * @param {function(*): !Promise<undefined>} fn 
    * @param {{hasPauseScreen: boolean}=}
    */
   async ready(fn) {
     await this._ready;
-    await fn();
+    await fn(this._initialData);
   }
 
   get preload() {
@@ -202,6 +209,13 @@ class SceneApi extends EventTarget {
    */
   go(route) {
     this._send('go', route);
+  }
+
+  /**
+   * @param {*} data to set for this scene
+   */
+  data(data) {
+    this._send('data', data);
   }
 
   /**

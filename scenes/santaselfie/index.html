@@ -193,16 +193,13 @@ api.preload.images(
   'img/tools/sprays/yellow.png',
 );
 
-const game = new Game(document.getElementById('module-santaselfie'));
+const callback = (data) => api.data(data);
+const game = new Game(document.getElementById('module-santaselfie'), callback);
 
-api.ready(async () => {
-  game.start();
-
-  // this.fire('sound-ambient', 'selfie_start');
-  // this.fire('sound-ambient', 'music_start_ingame');
-
-  // this.fire('sound-ambient', 'selfie_end');
-
+api.ready(async (data) => {
+  game.start(data);
+  api.fire('music_start_ingame');
+  api.ambient('selfie_start', 'selfie_end');
 });
 
 </script>

@@ -24,7 +24,7 @@ class GamePort {
   _ready(messagePort) {
     this._port = messagePort;
     this._sendQueue.forEach(({data, resolve}) => {
-      this._port.send(data);
+      this._port.postMessage(data);
       resolve();
     });
     this._sendQueue = null;
@@ -56,7 +56,7 @@ class GamePort {
   async send(type, payload) {
     const data = {type, payload};
     if (this._port !== null) {
-      this._port.send(data);
+      this._port.postMessage(data);
       return;
     }
     return new Promise((resolve) => {
@@ -113,6 +113,7 @@ class SantaLoaderElement extends HTMLElement {
     // fail on unhandled contentWindow error
     pf.contentWindow.addEventListener('error', (ev) => {
       console.warn('contained frame got error', url, ev);
+      debugger;
       let s = ev.message;
       try {
         const u = new URL(ev.filename || url);
@@ -139,6 +140,10 @@ class SantaLoaderElement extends HTMLElement {
       // init sends preload/game control port
       const messagePort = ev.ports[0];
       const gamePort = new GamePort();
+
+      // allow caller to send initial data
+      const send = (data) => messagePort.postMessage(data);
+      this.dispatchEvent(new CustomEvent('prepare', {detail: send}));
 
       // after ~timeout, just open the URL anyway (slow connection?)
       window.setTimeout(() => {

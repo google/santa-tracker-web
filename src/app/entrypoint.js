@@ -22,12 +22,15 @@ export class Entrypoint extends EventTarget {
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
     let activeScene = null;
+    this.selectedData = null;
 
     this.adapter.subscribe((state) => {
       if (state.activeScene !== activeScene || state.showError) {
         activeScene = state.activeScene;
         this.dispatchEvent(new Event('ready'));
       }
+
+      this.selectedData = state.selectedData;
 
       // TODO(samthor): This dispatches constantly when any state changes.
       if (state.selectedScene !== null) {
@@ -75,6 +78,12 @@ export class Entrypoint extends EventTarget {
     switch (type) {
       case 'ready':
         // TODO: configure pause button availability etc
+        break;
+      case 'go':
+        this.load(payload);
+        break;
+      case 'data':
+        this._adapterDispatch(SantaTrackerAction.SCENE_DATA, payload);
         break;
       case 'klang':
         handleKlang(payload[0], payload.slice(1));

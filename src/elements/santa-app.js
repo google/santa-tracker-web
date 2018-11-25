@@ -12,6 +12,7 @@ export class SantaAppElement extends LitElement {
   static get properties() {
     return {
       _selectedScene: {type: String},
+      _selectedData: {type: Object},
       _activeScene: {type: String},
       _loadAttempt: {type: Number},
       _loadProgress: {type: Number},
@@ -66,6 +67,7 @@ export class SantaAppElement extends LitElement {
       }
 
       this._selectedScene = state.selectedScene;
+      this._selectedData = state.selectedData;
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
   }
@@ -83,6 +85,13 @@ export class SantaAppElement extends LitElement {
 
     // nb. could selectedScene be racey?
     this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: this._selectedScene});
+  }
+
+  _onLoaderPrepare(ev) {
+    const send = ev.detail;
+    if (this._selectedData) {
+      send({type: 'data', payload: this._selectedData});
+    }
   }
 
   _onLoaderProgress(ev) {
@@ -191,6 +200,7 @@ export class SantaAppElement extends LitElement {
   <santa-loader
       .targetUrl="${this._urlToLoad}"
       .loadAttempt="${this._loadAttempt}"
+      @prepare=${this._onLoaderPrepare}
       @progress=${this._onLoaderProgress}
       @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}

@@ -27,13 +27,15 @@ goog.require('app.shared.ShareOverlay');
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
+ * @param {function({beard: string}): void} callback
  * @constructor
  * @export
  */
-app.Game = function(elem) {
+app.Game = function(elem, callback) {
   this.elem = $(elem);
   this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
+  this.callback_ = callback;
 
   var clothCanvas = this.sceneElem.find('#beard')[0];
 
@@ -56,9 +58,10 @@ app.Game = function(elem) {
 
 /**
  * Start the game
+ * @param {?{beard: string}}
  * @export
  */
-app.Game.prototype.start = function() {
+app.Game.prototype.start = function(data) {
   this.tools.start();
   this.cloth.start();
   this.face.start();
@@ -77,9 +80,9 @@ app.Game.prototype.start = function() {
 
   this.initialBeard_ = this.cloth.save();
 
-  // FIXME(samthor): global state
-//  var beard = getUrlParameter('beard');
-//  beard && this.cloth.restore(beard);
+  if (data && data.beard) {
+    this.cloth.restore(data.beard);
+  }
 };
 
 
@@ -150,14 +153,8 @@ app.Game.prototype.interactionDone = function() {
  */
 app.Game.prototype.updateUrlState_ = function() {
   const s = this.cloth.save();
-  const url = new URL(window.location.toString());
-
-  if (s === this.initialBeard_) {
-    url.search = '';
-  } else {
-    url.search = '?beard=' + window.encodeURIComponent(s);
-  }
-  window.history.replaceState(null, '', url.toString());
+  const data = (s === this.initialBeard_) ? null : {'beard': s};
+  this.callback_(data)
 };
 
 
