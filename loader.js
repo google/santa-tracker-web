@@ -131,11 +131,6 @@ module.exports = (options) => {
       }
       const out = await compileScene({sceneName}, options.compile);
       ({js: body, map} = out);
-    } else if (parsed.name.endsWith('.bundle')) {
-      // completely bundles code
-      const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-      const out = await bundleCode(path.join(parsed.dir, actual), loader);
-      ({code: body, map} = out);
     } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
       // convert JSON/JSON5 to an exportable module
       const actual = path.join(parsed.dir, parsed.name);
@@ -151,6 +146,16 @@ module.exports = (options) => {
         sourcesContent: [raw],
       };
     } else {
+      if (parsed.name.endsWith('.bundle')) {
+        // completely bundles code
+        const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
+        const out = await bundleCode(path.join(parsed.dir, actual), loader);
+        ({code: body, map} = out);
+      } else {
+        // regular JS file
+        body = await fsp.readFile(filename, 'utf8');
+      }
+
       // compile all tags
       const templateTagReplacer = (name, arg) => {
         if (name === '_style') {
@@ -164,8 +169,6 @@ module.exports = (options) => {
         }
       };
 
-      // regular JS file
-      body = await fsp.readFile(filename, 'utf8');
       babelPlugins.push(buildResolveBareSpecifiers(filename));
       babelPlugins.push(buildTemplateTagReplacer(templateTagReplacer));
     }
@@ -179,6 +182,7 @@ module.exports = (options) => {
         filename,
         plugins: babelPlugins,
         sourceMaps: true,
+        inputSourceMap: map || undefined,
         sourceType: 'module',
         retainLines: true,
       });

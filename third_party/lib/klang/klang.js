@@ -2192,10 +2192,12 @@
 	    /**
 	   * Creates a silent audio buffer and plays it back to initialize web audio for iOS devices.
 	   */
-	    Core.prototype.initIOS = function () {
+	    Core.prototype.resumeAudio = function () {
 	        var src = Klang.context.createBufferSource();
 	        src.start(0);
-	        Klang.core.internalEventBus.trigger('INIT_IOS');
+			Klang.core.internalEventBus.trigger('INIT_IOS');
+			// resume suspended context (we only have one)
+			Klang.context.resume();
 	    };
 	    Object.defineProperty(Core.prototype, 'timeHandler', {
 	        get: /**
@@ -2391,18 +2393,20 @@
 	                Klang.log('Execution time: ' + time);
 	            }, progressCallback, json);
 	        }
-	        return true;    }
+			return true;
+		}
 	    Klang.init = init;
 	    /**
 	     * Initializes web audio for iOS devices, should be called on a touch event.
 	     */
-	    function initIOS(gui) {
+	    function resumeAudio(gui) {
 	        if (Klang.engineVersion == 'webaudio') {
-	            Klang.core.Core.instance.initIOS();        } else if (Klang.engineVersion == 'audiotag' && Klang.isMobile) {
-	            Klang.audioTagHandler.initIOS();
+				Klang.core.Core.instance.resumeAudio();
+			} else if (Klang.engineVersion == 'audiotag' && Klang.isMobile) {
+	            Klang.audioTagHandler.resumeAudio();
 	        }
 	    }
-	    Klang.initIOS = function (debugButton) {
+	    Klang.resumeAudio = function (debugButton) {
 	        // if ( debugButton ){
 	        //   var d = document;
 	        //   var w = d.createElement('div');
@@ -2420,8 +2424,9 @@
 	        // } else {
 	        //   initIOS();
 	        // }
-	        initIOS();
-	    };
+	        resumeAudio();
+		};
+		Klang.initIOS = Klang.resumeAudio;
 	    /**
 	     * Get a list of loadgroups
 	     * @return {string[]} List of availible load groups (excluding the "auto" load group)
@@ -13002,7 +13007,7 @@
 	        // otherwise it's not supported
 	        return null;
 	    };
-	    AudioTagHandler.prototype.initIOS = function () {
+	    AudioTagHandler.prototype.resumeAudio = function () {
 	        if (Klang.isIOS || Klang.isMobile) {
 	            for (var p in this._audioFiles) {
 	                this._audioFiles[p].load();

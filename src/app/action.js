@@ -12,6 +12,9 @@ export const SantaTrackerAction = {
   SCENE_ACTIVATED: 'scene-activated',
   SCENE_FAILED: 'scene-failed',
 
+  // User-ish controllable global state
+  GLOBAL_MUTE: 'global-mute',
+
   // Things a scene can do
   SCORE_UPDATE: 'score-update',
   SCORE_GAMEOVER: 'score-gameover',

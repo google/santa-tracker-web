@@ -2,6 +2,10 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 
 
+const params = new URLSearchParams(window.location.search);
+const isEmbed = params.has('_embed');
+
+
 const pendingSoundPreload = [];
 
 
@@ -135,6 +139,20 @@ class SceneApi extends EventTarget {
 
     // after preload, do a bunch of setup work
     this._ready = (async() => {
+
+      // In embed, we need to load the soundcontroller directly and have it listen to events
+      // on the body. Otherwise it's incredibly tricky to get a user gesture to resume audio.
+      if (isEmbed) {
+        const script = document.createElement('script');
+        script.setAttribute('type', 'module');
+        script.src = _root`src/soundcontroller-embed.bundle.js`;
+        document.body.appendChild(script);
+        await new Promise((resolve, reject) => {
+          script.onload = resolve;
+          script.onerror = reject;
+        });
+      }
+
       await this._preload.done;
       this._updateParent(null);  // preload is done
 
@@ -142,7 +160,7 @@ class SceneApi extends EventTarget {
       this._send = (type, payload) => this._updateParent({type, payload});
 
       // FIXME: send awkward preload events
-      pendingSoundPreload.forEach((event) => this._send('klang', ['fire', event]));
+      pendingSoundPreload.forEach((event) => this.fire(event));
 
       // send ready event
       // TODO: allow scenes to configure these options
@@ -187,14 +205,14 @@ class SceneApi extends EventTarget {
    * @param {string} sound to play via Klang
    */
   play(sound) {
-    this._send('klang', ['play', sound]);
+    this._klang('play', sound);
   }
 
   /**
    * @param {string} sound to fire via Klang
    */
   fire(sound) {
-    this._send('klang', ['fire', sound]);
+    this._klang('fire', sound);
   }
 
   /**
@@ -202,7 +220,15 @@ class SceneApi extends EventTarget {
    * @param {?string=} endEvent ambient event to trigger on new ambient
    */
   ambient(startEvent, endEvent=null) {
-    this._send('klang', ['ambient', startEvent, endEvent]);
+    this._klang('ambient', startEvent, endEvent);
+  }
+
+  _klang(...args) {
+    if (isEmbed) {
+      document.body.dispatchEvent(new CustomEvent('_klang', {detail: args}));
+    } else {
+      this._send('klang', args);
+    }
   }
 
   score(detail) {
@@ -230,7 +256,6 @@ function installV1Handlers() {
   window.ga = sceneApi.ga.bind(sceneApi);
 
   const fire = (eventName, ...args) => {
-    console.info('got', eventName, args);
     switch (eventName) {
     case 'sound-fire':
       sceneApi.fire(args[0]);

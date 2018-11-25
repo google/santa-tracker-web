@@ -17,21 +17,46 @@ let localKlang;
 let klangEngine;
 
 
+
+const zeroAudioContext = new AudioContext();
+export const initialSuspend = zeroAudioContext.state === 'suspended';
+
+
+
 /**
- * Resolved when a user gesture has completed (or if a user gesture isn't required to play).
- *
- * TODO(samthor): If this is running in a controller iframe, this makes little sense.
+ * @return {boolean} whether audio is now unsuspended
  */
-const gesturePromise = new Promise((resolve, reject) => {
-  // TODO(samthor): play a zero-length Audio to check for rejection
-  function handler() {
-    document.removeEventListener('mousedown', handler);
-    document.removeEventListener('touchend', handler);
-    resolve();
+export function resume() {
+  zeroAudioContext.resume();
+  localKlang && localKlang.context && localKlang.context.resume();
+  return zeroAudioContext.state !== 'suspended';
+}
+
+
+/**
+ * @param {!Node=} target to add handlers on
+ * @param {boolean=} force install of resume handler
+ */
+export async function installGestureResume(target=document, force=false) {
+  if (!force && zeroAudioContext.state !== 'suspended') {
+    return;  // nothing to do
   }
-  document.addEventListener('mousedown', handler);
-  document.addEventListener('touchend', handler);
-});
+
+  const events = ['mousedown', 'touchend', 'touchstart', 'scroll', 'wheel'];
+  const options = {capture: true, passive: true};
+
+  return new Promise((resolve) => {
+    function handler(ev) {
+      const resumed = resume();
+      console.info('handler for gesturePromise', ev.type, resumed);
+      if (resumed) {
+        events.forEach((event) => target.removeEventListener(event, handler, options));
+        resolve();
+      }
+    }
+    events.forEach((event) => target.addEventListener(event, handler, options));
+  });
+}
 
 
 /**
@@ -50,7 +75,7 @@ export const klang = new Promise((resolve) => {
     // until after the page is created.
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = `${klangPath}/klang.js`;
+      script.src = `${klangPath}/klang.min.js`;
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
@@ -61,9 +86,6 @@ export const klang = new Promise((resolve) => {
     if (!success) {
       throw new Error('Klang failed to load config');
     }
-
-    // This isn't really for iOS, but for environments where sound won't play until a gesture.
-    gesturePromise.then(() => Klang.initIOS());
 
     // Save Klang, and return it here anyway.
     localKlang = window.Klang;

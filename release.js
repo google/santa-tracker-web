@@ -79,6 +79,7 @@ const staticAssets = [
 
 const staticLoaderFiles = [
   'src/app/controller.bundle.js',
+  'src/soundcontroller-embed.bundle.js',
 ];
 
 function pathForLang(lang) {

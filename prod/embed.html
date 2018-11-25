@@ -34,17 +34,6 @@ async function waitForEvent(target, eventName) {
 }
 
 
-async function configureKlangFrame() {
-  const iframe = document.createElement('iframe');
-  iframe.hidden = true;
-  iframe.setAttribute('allow', 'speaker');
-  iframe.src = `${staticBase}/controllers/klang.html`;
-  document.body.appendChild(iframe);
-  await waitForEvent(iframe, 'load');
-  return iframe;
-}
-
-
 async function configureFrame() {
   const sceneName = window.location.hash.substr(1) || window.location.search.substr(1);
   if (!sceneName) {
@@ -55,8 +44,8 @@ async function configureFrame() {
   iframe.className = 'game';
   iframe.setAttribute('allow', 'accelerometer; autoplay; camera; fullscreen; encrypted-media; gyroscope; picture-in-picture; speaker; unsized-media');
   iframe.setAttribute('allowfullscreen', '');
+  iframe.src = `${staticBase}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html?_embed=1`;
   console.info('setting inner frame src', iframe.src);
-  iframe.src = `${staticBase}/scenes/${sceneName}/${document.documentElement.lang || 'index'}.html`;
   document.body.appendChild(iframe);
   await waitForEvent(iframe, 'load');
   return iframe;
@@ -64,18 +53,6 @@ async function configureFrame() {
 
 
 async function run() {
-  // create Klang frame and send mute, but don't await until all other work is done
-  const klangFramePromise = configureKlangFrame();
-  const klangPostPromise = klangFramePromise.then((klangFrame) => {
-    return (...args) => klangFrame.contentWindow.postMessage(args, staticOrigin);
-  });
-  const timeoutMutePromise = klangPostPromise.then((klangPost) => {
-    // If we later decide that scenes should start loud, this can be removed: the timeout mostly
-    // just ensures the initial beat of whatever scene music doesn't play (otw it would fade out).
-    klangPost('fire', 'global_sound_off');
-    return new Promise((r) => window.setTimeout(r, 500));
-  });
-
   const embedPort = await matchWindowMessage((ev) => {
     // nb. data should be 'santaandroid'
     if (ev.source === null && ev.ports && ev.ports[0]) {
@@ -90,17 +67,14 @@ async function run() {
     }
   });
 
-  const klangPost = await klangPostPromise;
-  await timeoutMutePromise;
-
   const embedmessage = (ev) => {
     console.debug('got data from embed', ev.data);
     switch (ev.data) {
       case 'unmute':
-        klangPost('fire', 'global_sound_on');
+        gamePort.postMessage({type: 'embed-unmute'});
         break;
       case 'mute':
-        klangPost('fire', 'global_sound_off');
+        gamePort.postMessage({type: 'embed-mute'});
         break;
       default:
         if (ev.data.endsWith('Game')) {
@@ -115,13 +89,11 @@ async function run() {
 
   gamePort.onmessage = (ev) => {
     const {type, payload} = ev.data;
-
     if (type === 'klang') {
-      klangPost(...payload);
-    } else {
-      const message = {type: `on${type}`, data: payload};
-      embedPort.postMessage(JSON.stringify(message));
+      return;  // ignore, can't play sounds here
     }
+    const message = {type: `on${type}`, data: payload};
+    embedPort.postMessage(JSON.stringify(message));
   };
 }
 
