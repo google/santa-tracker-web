@@ -83,3 +83,10 @@ api.preload.images(
   'img/easteregg-tree.svg',
 );
 
+api.preload.sounds('village_load_sounds');
+
+api.ready(async () => {
+  api.fire('music_start_village');
+  api.ambient('village_start', 'village_end');
+});
+

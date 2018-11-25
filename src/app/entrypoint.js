@@ -15,6 +15,10 @@ export class Entrypoint extends EventTarget {
   constructor(santaApp) {
     super();
 
+    // start default music
+    sc.fire('traditions_load_sounds');  // nb. this loads 'lounge' => 'music_start_scene'
+    sc.fire('music_start_scene');
+
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
     let activeScene = null;
@@ -61,20 +65,44 @@ export class Entrypoint extends EventTarget {
     document.addEventListener('visibilitychange', (ev) => this.syncVisibility());
 
     this.syncVisibility();
+  }
 
-    this.startDefaultMusic();
+  _adapterDispatch(type, payload) {
+    this.adapter.dispatch({type, payload});
+  }
+
+  async handleSceneMessage(type, payload) {
+    switch (type) {
+      case 'ready':
+        // TODO: configure pause button availability etc
+        break;
+      case 'klang':
+        handleKlang(payload[0], payload.slice(1));
+        break;
+      case 'score':
+        this._adapterDispatch(SantaTrackerAction.SCORE_UPDATE, payload);
+        break;
+      case 'gameover':
+        this._adapterDispatch(SantaTrackerAction.SCORE_GAMEOVER, payload);
+        break;
+      default:
+        console.warn('got unhandled scene message', type);
+    }
+  }
+
+  async scene(port) {
+    for (;;) {
+      const {type, payload} = await port.next();
+      if (type === port.shutdown) {
+        return;
+      }
+      await this.handleSceneMessage(type, payload);
+    }
   }
 
   load(sceneName, data) {
     const payload = {sceneName, data};
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
-  }
-
-  async startDefaultMusic() {
-    // Most Klang sounds won't start unless the preload event has been explicitly waited for.
-    await sc.fire('village_load_sounds');
-    await sc.fire('music_start_village');
-    await sc.ambient('village_start', 'village_end');
+    this._adapterDispatch(SantaTrackerAction.SCENE_SELECTED, payload);
   }
 
   syncVisibility() {
@@ -89,5 +117,19 @@ export class Entrypoint extends EventTarget {
       type: navigator.onLine ? SantaTrackerAction.DEVICE_WENT_ONLINE :
                                SantaTrackerAction.DEVICE_WENT_OFFLINE
     });
+  }
+}
+
+
+function handleKlang(command, args) {
+  switch (command) {
+    case 'play':
+      return sc.play(args[0]);
+    case 'fire':
+      return sc.fire(args[0]);
+    case 'ambient':
+      return sc.ambient(args[0], args[1]);
+    default:
+      throw new Error(`unhandled Klang: ${command}`);
   }
 }

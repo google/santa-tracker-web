@@ -140,7 +140,7 @@ class SceneApi extends EventTarget {
 
       this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
       this._send = (type, payload) => this._updateParent({type, payload});
-  
+
       // FIXME: send awkward preload events
       pendingSoundPreload.forEach((event) => this._send('klang', ['fire', event]));
 
@@ -191,6 +191,13 @@ class SceneApi extends EventTarget {
   }
 
   /**
+   * @param {string} sound to fire via Klang
+   */
+  fire(sound) {
+    this._send('klang', ['fire', sound]);
+  }
+
+  /**
    * @param {string} startEvent ambient sound event to play
    * @param {?string=} endEvent ambient event to trigger on new ambient
    */
@@ -223,8 +230,13 @@ function installV1Handlers() {
   window.ga = sceneApi.ga.bind(sceneApi);
 
   const fire = (eventName, ...args) => {
+    console.info('got', eventName, args);
     switch (eventName) {
-    case 'sound-trigger':
+    case 'sound-fire':
+      sceneApi.fire(args[0]);
+      break;
+    case 'sound-play':
+    case 'sound-trigger':  // old-style
       sceneApi.play(args[0]);
       break;
     case 'sound-ambient':
@@ -236,6 +248,8 @@ function installV1Handlers() {
     case 'game-stop':
       sceneApi.gameover(args[0] || {});
       break;
+    default:
+      console.debug('unhandled santaApi.fire', eventName)
     }
   }
 

@@ -138,8 +138,8 @@ Game.prototype.restart = function() {
 
   // Start game
   this.unfreezeGame();
-  window.santaApp.fire('sound-trigger', 'bl_game_start');
-  window.santaApp.fire('sound-ambient', 'music_start_ingame');
+  window.santaApp.fire('sound-ambient', 'bl_game_start', 'bl_game_stop');
+  window.santaApp.fire('sound-fire', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'boatload'});
   this.gameStartTime = +new Date;
 };
@@ -316,7 +316,7 @@ Game.prototype.updateLevel_ = function(delta) {
  */
 Game.prototype.dropPresent = function(present) {
   this.entities.push(present);
-  window.santaApp.fire('sound-trigger', 'bl_shoot');
+  window.santaApp.fire('sound-play', 'bl_shoot');
 };
 
 /**
@@ -344,7 +344,7 @@ Game.prototype.missedBoat = function(present, x, y) {
   this.animate_(this.splashElem, x, y);
   this.lastMissedPresent = present;
   present.missed();
-  window.santaApp.fire('sound-trigger', 'bl_hit_water');
+  window.santaApp.fire('sound-play', 'bl_hit_water');
   window.ga('send', 'event', 'game', 'miss', 'boatload');
 };
 
@@ -390,8 +390,8 @@ Game.prototype.unfreezeGame = function() {
 Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
-  window.santaApp.fire('sound-trigger', 'bl_game_stop');
-  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
+  window.santaApp.fire('sound-fire', 'bl_game_stop');
+  window.santaApp.fire('sound-fire', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'boatload',
     score: this.scoreboard.score,

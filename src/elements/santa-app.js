@@ -75,22 +75,8 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderLoad(ev) {
-    const {iframe, port} = ev.detail;
-
-    async function runner() {
-      for (;;) {
-        const {type, payload} = await port.next();
-        if (type === port.shutdown) {
-          console.debug('got shutdown message');
-          return;
-        }
-        console.info('runner got', type, payload);
-      }
-    };
-
-    runner().catch((err) => {
-      throw err;
-    });
+    const detail = {port: ev.detail.port};
+    this.dispatchEvent(new CustomEvent('scene', {detail}));
 
     // nb. grab early, so the header doesn't pop in/out
     this._activeSceneInfo = scenes[this._selectedScene] || {};

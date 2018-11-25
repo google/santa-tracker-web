@@ -38,6 +38,14 @@
       parent({type: 'ga', payload});
     };
 
+    santaApp.addEventListener('scene', (ev) => {
+      const p = entrypoint.scene(ev.detail.port);
+      p.catch((err) => {
+        // TODO: make specific scene fail
+        throw err;
+      });
+    });
+
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);
       if (sceneName !== null) {

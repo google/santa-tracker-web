@@ -12,6 +12,12 @@ let localKlang;
 
 
 /**
+ * Internal Klang engine. Used for load detection.
+ */
+let klangEngine;
+
+
+/**
  * Resolved when a user gesture has completed (or if a user gesture isn't required to play).
  *
  * TODO(samthor): If this is running in a controller iframe, this makes little sense.
@@ -61,6 +67,8 @@ export const klang = new Promise((resolve) => {
 
     // Save Klang, and return it here anyway.
     localKlang = window.Klang;
+    klangEngine = localKlang.audioTagHandler || localKlang.getCoreInstance();
+
     return window.Klang;
   };
   resolve(fn());
@@ -74,21 +82,24 @@ let klangAmbientTask = klangIsLoaded;
 
 /**
  * Internal call to trigger a waitable event on Klang. Assumes Klang is available in `localKlang`.
- * Klang is unhappy when multiple waitable events are in-flight, so this is intended to be called
- * in a serial manner from `fire`.
+ * Klang is sometimes (?) unhappy when multiple waitable events are in-flight, so this is intended
+ * to be called in a serial manner from `fire`.
  *
  * @param {string} event to fire
  * @return {!Promise<boolean>}
  */
 function triggerEvent(event) {
   return new Promise((resolve, reject) => {
-    // If Klang invokes the progress callback, then wait for the complete callback to resolve,
+    // If Klang retains the progress callback, then wait for the complete callback to resolve,
     // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
-    const timeout = window.setTimeout(() => resolve(), 0);
-    const progress = () => {
-      window.clearTimeout(timeout);  // progress called, expect later resolve()
-    };
+    // TODO(samthor): Callbacks only seem to be used for `load` events, which _do_ need to happen
+    // in-order. No other events seem to care?
+
+    const progress = () => {};  // used as nonce
     localKlang.triggerEvent(event, resolve, progress, reject);
+    if (!klangEngine || klangEngine._progressCallback !== progress) {
+      resolve();  // there's no progress, resolve now
+    }
   });
 }
 
