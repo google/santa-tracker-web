@@ -1,0 +1,45 @@
+##{$name} {
+  .spheres {
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    top: 50%;
+    margin-top: -480px;
+  }
+
+  .sphere {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    margin-left: -19px;
+    margin-top: -19px;
+
+    border-radius: 38px;
+    background: url('img/sphere.svg');
+    transform: translateZ(0); // Put it on the GPU.
+  }
+
+  .sphere--1 {
+    background-color: #47ba80;
+  }
+
+  .sphere--2 {
+    background-color: #914296;
+  }
+
+  .sphere--3 {
+    background-color: #00adef;
+  }
+
+  .sphere--4 {
+    background-color: #db4536;
+  }
+
+  .sphere--5 {
+    background-color: #f68b37;
+  }
+
+  .sphere--6 {
+    background-color: #fddf00;
+  }
+}
