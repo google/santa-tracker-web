@@ -48,10 +48,12 @@ export const santaTrackerReducer = (state, action) => {
         ready: true,
         activeScene: action.payload,
         loadProgress: 1,
+        restartCount: 0,
         showError: false,
         showSidebar: false,
         score: {},
         gameover: false,
+        shareUrl: false,
       };
 
     case SantaTrackerAction.SCENE_FAILED:
@@ -62,23 +64,27 @@ export const santaTrackerReducer = (state, action) => {
         loadProgress: 1,
         showError: action.payload || true,
         showSidebar: false,
+        gameover: false,
+        shareUrl: false,
+      };
+
+    case SantaTrackerAction.SCENE_RESTART:
+      return {
+        ...state,
+        gameover: false,
+        shareUrl: false,
       };
 
     case SantaTrackerAction.SCORE_GAMEOVER:
-      if (state.activeScene !== action.payload.sceneName) {
-        return state;
-      }
       return {
         ...state,
-        score: {score: action.payload.detail.score},
+        score: {score: action.payload.score},
         gameover: true,
+        shareUrl: 'url' in action.payload,
       };
 
     case SantaTrackerAction.SCORE_UPDATE:
-      if (state.activeScene !== action.payload.sceneName || state.gameover) {
-        return state;
-      }
-      return {...state, score: action.payload.detail};
+      return {...state, score: action.payload};
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};

@@ -44,6 +44,10 @@ api.ready(async () => {
   });  
 });
 
+api.addEventListener('restart', (ev) => {
+  startGame();
+});
+
 // TODO(cdata): Wire this up to an API event.
 function startGame() {
   if (game !== null) {

@@ -24,6 +24,7 @@ class SantaTrackerController extends Controller {
       online: undefined,
       api: null,
       score: {},
+      shareUrl: false,
       gameover: false,
     };
   }
