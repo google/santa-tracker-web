@@ -35,6 +35,11 @@ export class MakerControlElement extends LitElement {
     this.accessoriesColor = '';
   }
 
+  update(changedProperties) {
+    this.dispatchEvent(new CustomEvent('change'));
+    return super.update(changedProperties);
+  }
+
   _categoryChange(ev) {
     this.category = ev.detail.value;
   }

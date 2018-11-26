@@ -88,12 +88,41 @@ async function run() {
   };
   embedPort.onmessage = embedmessage;
 
+  let shareData;
   gamePort.onmessage = (ev) => {
     if (typeof ev.data === 'number' || ev.data === null) {
       return;  // preload
     }
 
     const {type, payload} = ev.data;
+
+    if (type === 'data') {
+      // retain the payload for a future share event
+      shareData = payload;
+      return;
+    }
+
+    if (type === 'gameover') {
+      // this is actually a share event if we've previously had data
+      if (shareData || payload.image) {
+        const data = {};
+
+        if (shareData) {
+          const u = new URL('https://santatracker.google.com');
+          for (const k of shareData) {
+            u.searchParams.set(k, shareData[k]);
+          }
+          data.text = u.toString();
+        }
+        if (payload.image) {
+          data.image = image;
+        }
+
+        const message = {type: 'onshare', data};
+        embedPort.postMessage(JSON.stringify(message));
+      }
+    }
+
     const message = {type: `on${type}`, data: payload};
     embedPort.postMessage(JSON.stringify(message));
   };

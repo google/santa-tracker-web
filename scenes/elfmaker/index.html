@@ -9,13 +9,47 @@
 </head>
 <body>
 
-<maker-control category="body"></maker-control>
+<maker-control category="body" id="control"></maker-control>
+
+<button id="share">Share Test</button>
+<canvas id="dummy"></canvas>
 
 <script type="module">
 
 import api from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
+
+const dataProperties = [
+  'skinTone', 'hairColor', 'suitColor', 'eyesColor', 'earsColor', 'hatsColor', 'accessoriesColor',
+];
+
+const control = document.getElementById('control');
+control.addEventListener('change', (ev) => {
+  const config = dataProperties.map((prop) => control[prop]).join('|');
+  const data = {
+    config: window.btoa(config),
+  }
+  api.data(data);
+});
+
+const dummyCanvas = document.getElementById('dummy');
+dummyCanvas.style.border = '2px solid red';
+const ctx = dummyCanvas.getContext('2d');
+dummyCanvas.addEventListener('pointermove', (ev) => {
+  if (ev.buttons) {
+    ctx.fillStyle = 'black';
+    ctx.beginPath();
+    ctx.arc(ev.offsetX, ev.offsetY, 10, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+});
+
+const share = document.getElementById('share');
+share.addEventListener('click', (ev) => {
+  api.gameover({image: dummyCanvas.toDataURL()});
+});
+window._canvas = dummyCanvas;
 
 api.ready(async () => {
   // TODO: something
