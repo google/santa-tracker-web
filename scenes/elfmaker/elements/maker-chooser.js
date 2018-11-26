@@ -5,13 +5,19 @@ import {repeat} from 'lit-html/directives/repeat';
 import * as prefix from '../../../src/lib/prefix.js';
 
 
-const options = {
+export const options = Object.freeze({
   'category': ['body', 'hair', 'eyes', 'ears', 'hats', 'accessories'],
   'skin': ['#faddbd', '#debb95', '#bf8f69', '#9a653d', '#584638'],
-  'color': ['#ff3334', '#ff7733', '#ffe04d', '#31a658', '#00acc2', '#339aff', '#6f00ff', '#ad01ad', '#342e2e'],
+  'color': ['#ff3334', '#ff7733', '#ffe04d', '#31a658', '#00acc2', '#339aff', '#6f00ff', '#ad01ad', '#4e3e3e'],
   'hair': ['#f5be1b', '#f57c01', '#f57455', '#a14343', '#853f4a', '#774c2e', '#342e2e', '#f5f5f5'],
-};
+});
 
+
+export function randomOption(category) {
+  const o = options[category] || [];
+  const choice = ~~(Math.random() * o.length);
+  return o[choice] || null;
+}
 
 
 export class MakerChooserElement extends LitElement {
@@ -43,13 +49,6 @@ export class MakerChooserElement extends LitElement {
     if (changedProperties.has('mode')) {
       this._options = options[this.mode] || [];
     }
-
-    if (this.value === '') {
-      const choice = ~~(Math.random() * this._options.length);
-      this.value = this._options[choice] || undefined;
-      this._announceChange();
-    }
-
     return super.update(changedProperties);
   }
 

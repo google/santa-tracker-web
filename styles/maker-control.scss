@@ -2,12 +2,16 @@
   display: block;
 }
 
+
+
 maker-chooser[mode="category"] {
   background: #eee;
   border-radius: 12px;
+  width: 240px;
 }
 
 main {
   display: flex;
+  flex-flow: row;
   align-items: stretch;
 }

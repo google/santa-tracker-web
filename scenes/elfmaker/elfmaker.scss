@@ -1,10 +1,29 @@
 
 body {
   margin: 0;
-  overflow: hidden;
+  background: url(img/bg-complex.png) no-repeat center/cover;
 }
 
 #share {
   width: 200px;
   height: 40px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
 }

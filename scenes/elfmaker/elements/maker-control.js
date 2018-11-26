@@ -5,6 +5,8 @@ import {repeat} from 'lit-html/directives/repeat';
 import * as prefix from '../../../src/lib/prefix.js';
 
 
+import {randomOption} from './maker-chooser.js';
+
 
 export class MakerControlElement extends LitElement {
   static get properties() {
@@ -26,13 +28,13 @@ export class MakerControlElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
-    this.skinTone = '';
-    this.hairColor = '';
-    this.suitColor = '';
-    this.eyesColor = '';
-    this.earsColor = '';
-    this.hatsColor = '';
-    this.accessoriesColor = '';
+    this.skinTone = randomOption('skin');
+    this.hairColor = randomOption('hair');
+    this.suitColor = randomOption('color');
+    this.eyesColor = randomOption('color');
+    this.earsColor = randomOption('color');
+    this.hatsColor = randomOption('color');
+    this.accessoriesColor = randomOption('color');
   }
 
   update(changedProperties) {

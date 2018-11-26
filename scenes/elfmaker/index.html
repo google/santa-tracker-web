@@ -9,16 +9,29 @@
 </head>
 <body>
 
-<maker-control category="body" id="control"></maker-control>
+<main>
+  <maker-elf id="elf"></maker-elf>
+</main>
 
-<button id="share">Share Test</button>
-<canvas id="dummy"></canvas>
+<footer>
+  <maker-control category="body" id="control"></maker-control>
+</footer>
+
+<div style="position: fixed; display: flex; align-items: center; flex-flow: row;">
+  <canvas id="dummy"></canvas>
+  <button id="share">Share Test</button>
+</div>
 
 <script type="module">
 
 import api from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
+import './elements/maker-elf.js';
+
+api.preload.images(
+  'img/bg-complex.png',
+);
 
 const dataProperties = [
   'skinTone', 'hairColor', 'suitColor', 'eyesColor', 'earsColor', 'hatsColor', 'accessoriesColor',
@@ -31,6 +44,10 @@ control.addEventListener('change', (ev) => {
     config: window.btoa(config),
   }
   api.data(data);
+
+  elf.skinTone = control.skinTone;
+  elf.suitColor = control.suitColor;
+  elf.hatsColor = control.hatsColor;
 });
 
 const dummyCanvas = document.getElementById('dummy');
