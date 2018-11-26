@@ -4,6 +4,8 @@ import {repeat} from 'lit-html/directives/repeat';
 
 import * as prefix from '../../../src/lib/prefix.js';
 
+import * as defs from '../defs.js';
+
 
 export const options = Object.freeze({
   'category': ['body', 'hair', 'eyes', 'ears', 'hats', 'accessories'],

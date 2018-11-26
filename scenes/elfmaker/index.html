@@ -9,18 +9,22 @@
 </head>
 <body>
 
-<main>
-  <maker-elf id="elf"></maker-elf>
+<main id="main">
+  <div class="buttons"></div>
+  <div class="mid">
+    <maker-elf id="elf"></maker-elf>
+  </div>
+  <div class="buttons">
+    <santa-button id="share" color="green">share</santa-button>
+    <a id="download" target="_self" href="#">
+      <santa-button color="red">save</santa-button>
+    </a>
+  </div>
 </main>
 
 <footer>
   <maker-control category="body" id="control"></maker-control>
 </footer>
-
-<div style="position: fixed; display: flex; align-items: center; flex-flow: row;">
-  <canvas id="dummy"></canvas>
-  <button id="share">Share Test</button>
-</div>
 
 <script type="module">
 
@@ -28,6 +32,7 @@ import api from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
 import './elements/maker-elf.js';
+import '../../src/elements/santa-button.js';
 
 api.preload.images(
   'img/bg-complex.png',
@@ -50,23 +55,20 @@ control.addEventListener('change', (ev) => {
   elf.hatsColor = control.hatsColor;
 });
 
-const dummyCanvas = document.getElementById('dummy');
-dummyCanvas.style.border = '2px solid red';
-const ctx = dummyCanvas.getContext('2d');
-dummyCanvas.addEventListener('pointermove', (ev) => {
-  if (ev.buttons) {
-    ctx.fillStyle = 'black';
-    ctx.beginPath();
-    ctx.arc(ev.offsetX, ev.offsetY, 10, 0, 2 * Math.PI);
-    ctx.fill();
-  }
+share.addEventListener('click', (ev) => {
+  elf.draw().then((result) => {
+    console.info('got image', result);
+    api.gameover({image: result});
+  });
 });
 
-const share = document.getElementById('share');
-share.addEventListener('click', (ev) => {
-  api.gameover({image: dummyCanvas.toDataURL()});
+download.addEventListener('mousedown', (ev) => {
+  download.href = '#';
+  elf.draw().then((result) => {
+    console.info('got image', result);
+    download.href = result;
+  });
 });
-window._canvas = dummyCanvas;
 
 api.ready(async () => {
   // TODO: something

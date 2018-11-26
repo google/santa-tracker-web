@@ -1,6 +1,5 @@
 import {html, svg, LitElement} from '@polymer/lit-element';
-import {unsafeHTML} from 'lit-html/directives/unsafe-html';
-
+import {render} from 'lit-html';
 
 
 const hats = [
@@ -18,7 +17,6 @@ svg`
 </g>
   `,
 ];
-
 
 
 function interpolateAngle(start, c1, c2, end) {
@@ -90,6 +88,34 @@ export class MakerElfElement extends LitElement {
     run();
   }
 
+  /**
+   * @return {!Promise<string>}
+   */
+  draw() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 280;  // matches the SVG size in <style> below
+    canvas.height = 400;
+
+    // create div, find the svg
+    const div = document.createElement('div');
+    render(this.render(), div);
+    const svg = div.querySelector('svg');
+
+    // load an Image with the base64 version of the SVG
+    const raw = 'data:image/svg+xml;base64,' + window.btoa(svg.outerHTML);
+
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = raw;
+      img.onload = () => {
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        resolve(canvas.toDataURL());
+      };
+      img.onerror = reject;
+    });
+  }
+
   render() {
     const rightArmDegrees = 100 + (50 * Math.cos(this._offset / 0.8));
     const leftArmDegrees = 135 + (10 * Math.sin(this._offset * 1.5));
@@ -103,7 +129,7 @@ export class MakerElfElement extends LitElement {
     }
     </style>
 
-    <svg viewBox="-30 0 320 428.64" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 0 320 428.64" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
       <defs>
         <style>
 .suit {fill: ${this.suitColor || 'red'};}

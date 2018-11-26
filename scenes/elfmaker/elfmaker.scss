@@ -4,11 +4,6 @@ body {
   background: url(img/bg-complex.png) no-repeat center/cover;
 }
 
-#share {
-  width: 200px;
-  height: 40px;
-}
-
 footer {
   position: fixed;
   bottom: 0;
@@ -26,4 +21,27 @@ main {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+
+  .mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .buttons {
+    width: 20vw;
+    min-width: 80px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    santa-button {
+      width: 90px;
+      height: 90px;
+      margin: 12px 0;
+      font-size: 4em;
+      display: inline-block;
+    }
+  }
 }
