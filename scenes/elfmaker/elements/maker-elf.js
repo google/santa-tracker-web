@@ -108,7 +108,7 @@ width: 280px;
 }
 </style>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 0 320 428.64" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 320 460" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
   <style>${defs.baseSvgStyle}${this.svgStyle}</style>
 
   <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">

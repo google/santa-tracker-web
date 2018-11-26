@@ -53,10 +53,10 @@ export class MakerChooserElement extends LitElement {
         style = `background-color: ${colors[0]}`;
       }
       return html`
-        <label class="item">
-          <input type="radio" name="${this._idPrefix}choice" value="${r}" .checked=${this.value === r} />
-          <div class="opt value-${r}" style="${style}"></div>
-        </label>
+<label class="item">
+  <input type="radio" name="${this._idPrefix}choice" value="${r}" .checked=${this.value === r} />
+  <div class="opt value-${r}" style="${style}"></div>
+</label>
         `;
     });
     return html`
