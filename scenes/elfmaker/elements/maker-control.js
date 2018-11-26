@@ -146,12 +146,13 @@ ${renderClass('hair', 'fill', this.hairColor)}
     const inner = this._renderCategory(this.category);
     const choice = this.categoryChoice[this.category] || 0;;
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
+      let front = '';
+      let back = '';
 
-      const parts = [defs.head];
       if (this.category === 'hair') {
-        parts.push(p);
+        front = p;
       } else {
-        parts.unshift(p);
+        back = p;
       }
 
       return html`
@@ -159,7 +160,9 @@ ${renderClass('hair', 'fill', this.hairColor)}
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 345">
-${parts}
+<g class=${this.category}>${back}</g>
+${defs.head}
+<g class=${this.category}>${front}</g>
 </svg>
   </div>
 </label>

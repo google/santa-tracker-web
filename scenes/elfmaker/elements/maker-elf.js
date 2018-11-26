@@ -112,14 +112,12 @@ width: 280px;
   <style>${defs.baseSvgStyle}${this.svgStyle}</style>
 
   <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">
-    <g transform="translate(-105, -25)">
-      ${defs.hats[this.categoryChoice['hats']]}
-    </g>
 
     <!-- head -->
     <g transform="translate(-105, -18)">
+      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
       ${defs.head}
-      ${defs.hair[this.categoryChoice['hair']]}
+      <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
     </g>
 
     <!-- body -->
