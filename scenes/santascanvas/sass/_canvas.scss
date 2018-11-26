@@ -1,0 +1,27 @@
+##{$name} {
+  .Canvas {
+    bottom: 20px;
+    left: 105px;
+    position: absolute;
+    right: 85px;
+    top: 20px;
+
+    #back-canvas {
+      background: #fff;
+    }
+
+    canvas {
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: $mobile-width) {
+      bottom: 50px;
+      left: 0;
+      right: 0;
+      top: 50px;
+    }
+  }
+}

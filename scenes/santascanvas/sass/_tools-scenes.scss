@@ -1,0 +1,55 @@
+$scene-names: "air", "airport", "beach", "dock", "gingerbread", "iceberg", "livingroom", "night", "snow", "underwater";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="scene"] {
+    .Tools-display-inner {
+      background-image: url(img/tools/tool_scene.svg);
+      background-size: cover;
+    }
+  }
+
+  // TOOLBAR
+  [data-tool-category="scene"] {
+    .Tool {
+      background-position: center 10%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex: 0 0 185px;
+      margin-left: 10px;
+      margin-top: 20px;
+      max-width: 185px;
+      position: relative;
+      width: 185px;
+
+      @each $current-scene in $scene-names {
+        &[data-tool="scene-#{$current-scene}"] {
+          background-image: url(img/tools/scenes/tool_scene_#{$current-scene}.png);
+        }
+      }
+
+      &[data-tool="scene-none"] {
+        background-image: url(img/tools/scenes/tool_scene_none.png);
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      justify-content: space-around;
+
+      .Tool {
+        background-position: center 30%;
+        border-bottom: 0;
+        flex: 0 0 49%;
+        height: 20vh;
+        margin: 10px 0 0;
+        width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Tool {
+        height: 16vh;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+$name: 'module-santascanvas';
+$mobile-width: 768px;
+
+@import "../_shared/sass/button";
+
+@import "sass/colors";
+@import "sass/utils";
+
+@import "sass/buttons";
+@import "sass/canvas";
+@import "sass/colorpicker";
+@import "sass/slider";
+@import "sass/tools";
+@import "sass/tools-drawing";
+@import "sass/tools-roller";
+@import "sass/tools-scenes";
+@import "sass/tools-shapes";
+@import "sass/tools-sprays";
+@import "sass/tools-stamps";
+@import "sass/tools-stickers";
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+##{$name} {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .scene {
+    background-color: #E9FEFF;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    font-size: 1px;
+
+    &.ui-hidden {
+      .Tools--primary,
+      .Tools--secondary {
+        transform: translateY(120%);
+      }
+
+      .Tools--tertiary .Tools-mobile {
+        .Tools-mobile--left {
+          transform: translateX(-150%);
+        }
+
+        .Tools-mobile--right {
+          transform: translateX(150%);
+        }
+      }
+    }
+  }
+
+  /**
+   * Hides the element but still keeps it composed on the GPU by translating it off-screen.
+   * By keeping things composed we get respectable performance on android browsers since
+   * the biggest overhead is in moving things to the GPU there.
+   * http://code.google.com/p/android/issues/detail?id=25147
+   */
+  .hidden {
+    transform: translate3d(0, 9999px, 0) !important;
+  }
+}

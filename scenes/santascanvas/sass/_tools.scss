@@ -1,0 +1,759 @@
+$category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "sticker", "eraser";
+
+##{$name} {
+  .Tools {
+    display: inline-block;
+    font-size: 12px;
+    position: absolute;
+  }
+
+  .Tools--primary {
+    background-color: #B457C1;
+    bottom: 0;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, .25);
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    transition: transform .3s;
+    width: 85px;
+    z-index: 2;
+
+    .Tools-mobile-settings {
+      background-color: transparent;
+      background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
+      bottom: 0;
+      display: none;
+      height: 85px;
+      left: 0;
+      padding-right: 10px;
+      position: absolute;
+      width: 100px;
+
+      &::after {
+        background: #A341B7;
+        content: '';
+        display: block;
+        height: 15px;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      flex-direction: row;
+      height: 75px;
+      padding-left: 95px;
+      right: 0;
+      top: auto;
+      width: auto;
+
+      position: fixed;
+      bottom: 0;
+
+      .Tools-mobile-settings {
+        display: block;
+
+        .Tools-colorpicker {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .Tools-display {
+    height: 100%;
+    left: 0;
+    padding-right: 10px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .Tools-display-outer {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      height: 70px;
+      margin: 8px auto;
+      width: 70px;
+    }
+
+    .Tools-display-inner {
+      // background-color: #fff;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 50%;
+      height: 58px;
+      margin: 7px auto;
+      overflow: hidden;
+      width: 58px;
+    }
+
+    &[data-current-category="eraser"],
+    &[data-current-category="scene"],
+    &[data-current-category="sticker"], {
+      pointer-events: auto;
+
+      .Tools-display-outer {
+        background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
+        border-radius: 0;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .Tools-display-inner {
+        border-radius: 0;
+        height: 80%;
+        margin: 10%;
+        width: 80%;
+      }
+    }
+
+    &[data-current-category="eraser"] {
+      .Tools-display-inner {
+        background-image: url(img/tools/tool_eraser.svg);
+      }
+    }
+  }
+
+  .Tools--secondary {
+    background-color: #fff;
+    bottom: 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, .07);
+    height: 140px;
+    left: 85px;
+    position: fixed;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform .3s;
+    z-index: 1;
+
+    .Tools-toggle {
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, .07);
+      cursor: pointer;
+      height: 50px;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      transform: translate(0, -53%);
+      transition: transform .3s;
+      width: 50px;
+      z-index: -1;
+
+      &::before {
+        background: url(img/icons/next.svg) center / 20% no-repeat;
+        border-radius: 50%;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: -10%;
+        transform: rotate(-90deg);
+        transition: transform .3s;
+        width: 100%;
+      }
+
+      &.is-hidden {
+        display: none;
+      }
+
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+    &:not(.is-active) {
+      .Tools-toggle {
+        &:hover {
+          transform: translate(0, -63%);
+        }
+      }
+    }
+
+    &.is-active {
+      transform: none;
+
+      .Tools-toggle {
+        &::before {
+          transform: rotate(-90deg) scale(-1);
+        }
+      }
+    }
+
+    .Tool {
+      flex: 0 0 130px;
+      max-width: 130px;
+      width: 130px;
+    }
+
+    @media (max-width: $mobile-width) {
+      bottom: 75px;
+      height: auto;
+      left: 0;
+      position: fixed;
+      top: 44px;
+
+      .Tool {
+        border-bottom: 1px solid #eee;
+        flex: 0 0 33%;
+        height: 20vh;
+        margin: 15px 0;
+        overflow: hidden;
+        width: auto;
+
+        svg {
+          height: auto;
+          position: relative;
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Tool {
+        height: 16vh;
+      }
+    }
+  }
+
+  .Tools--tertiary {
+    background-color: #E9FEFF;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 85px;
+
+    .Tools-desktop {
+      margin-top: 20px;
+    }
+
+    .Tools-mobile {
+      display: none;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      .Button {
+        height: 50px;
+        margin: 0 0 15px;
+        pointer-events: auto;
+        width: 50px;
+      }
+
+      .Tools-mobile--right,
+      .Tools-mobile--left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform .3s;
+      }
+
+      .Tools-mobile--right {
+        right: 0;
+      }
+
+      .Tools-mobile--left {
+        left: 0;
+      }
+
+      .Tools-rotator {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .Tools-slider {
+        padding: 20px 15px;
+        transform: rotate(-90deg) translate(-50%, 10%);
+        transform-origin: center left;
+
+        .Slider-base,
+        .Slider-dot {
+          pointer-events: auto;
+        }
+
+        .Slider-inner {
+          height: 15px;
+          width: 300px;
+        }
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      background-color: transparent;
+      bottom: 95px;
+      left: 20px;
+      pointer-events: none;
+      right: 20px;
+      top: 20px;
+      width: auto;
+
+      .Tools-mobile {
+        display: block;
+      }
+
+      .Tools-desktop {
+        display: none;
+      }
+    }
+  }
+
+  .Tools-clear {
+    margin: 20px 0 30px;
+  }
+
+  .Tools-categories {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 90px;
+    max-height: 750px;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    padding-top: 15px;
+
+    @media (max-width: $mobile-width) {
+      flex-direction: row;
+      margin: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0;
+    }
+
+    @media (max-height: 640px) {
+      .Category {
+        &::before {
+          padding-top: 60%;
+          width: 60%;
+        }
+      }
+
+      .Category--snow {
+        min-height: 70px;
+
+        .Button--snowglobe {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  .Tools-inner {
+    background: #fff;
+    bottom: 0;
+    display: flex;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: auto;
+
+      .Colorpicker {
+        display: block;
+      }
+
+      .Tools-nav.is-active {
+        .Button {
+          pointer-events: auto;
+        }
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      .Tools-settings {
+        display: none;
+      }
+    }
+  }
+
+  .Tools-settings {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    height: 100%;
+    padding: 0 20px;
+    position: relative;
+
+    &::after {
+      background: #F6F6F6;
+      content: '';
+      display: block;
+      height: 110px;
+      position: absolute;
+      right: 0;
+      top: 15px;
+      width: 2px;
+    }
+  }
+
+  .Tools-tray {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      flex: 0 0 50px;
+      height: 100%;
+      width: 50px;
+    }
+
+    @media (max-width: $mobile-width) {
+      // align-items: flex-start;
+      align-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 20px;
+      width: 100%;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  .Tools-rotator {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px 20px;
+
+    .Button {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+
+  .Tools-nav {
+    align-items: center;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    height: 140px;
+    justify-content: center;
+    margin-left: auto;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    width: 85px;
+
+    .Button {
+      margin: 8px auto;
+    }
+
+    &::before {
+      background: linear-gradient(to left, #fff 30%, rgba(255, 255, 255, 0));
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 120%;
+    }
+
+    &.is-active {
+      display: flex;
+    }
+  }
+
+  .Tools-divider {
+    background: #C1DBD9;
+
+    &--horizontal {
+      height: 2px;
+      margin: 20px auto;
+      width: 50%;
+    }
+
+    &--vertical {
+      flex: 0 0 2px;
+      height: 80%;
+      margin: 0 20px;
+      width: 2px;
+    }
+  }
+
+  .Tools-submenu {
+    background: #EFEFEF;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 15px;
+    width: 140px;
+
+    &__item {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 75% 75%;
+      border-radius: 50%;
+      cursor: pointer;
+      flex: 0 0 35px;
+      height: 35px;
+
+      &.is-active {
+        background-color: #FFD200;
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+      padding: 0;
+      width: 100%;
+
+      &__item {
+        flex: 0 0 30px;
+        height: 30px;
+        margin: 0 3px;
+      }
+    }
+  }
+
+  .Tools-subsection {
+    display: none;
+    height: 100%;
+
+    &.is-active {
+      display: flex;
+    }
+
+    @media (max-width: $mobile-width) {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+
+  .Category {
+    cursor: pointer;
+    flex: 1;
+    margin: 0 auto;
+    min-height: 45px;
+    position: relative;
+    width: 75px;
+
+    &:hover {
+      .Category-inner {
+        transform: translate3d(-50%, -50%, 0) scale(1.1);
+      }
+    }
+
+    &::before {
+      background: #AB44BB;
+      border-radius: 50%;
+      box-shadow: inset 0 0 4.54px 1px rgba(0, 0, 0, .1);
+      content: '';
+      display: block;
+      left: 50%;
+      opacity: 0;
+      padding-top: 80%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity .25s;
+      width: 80%;
+    }
+
+    .Category-inner {
+      height: 65%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      transition: transform .25s;
+      width: 65%;
+    }
+
+    .Category-popup {
+      background: #fff;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translate(85px, -50%);
+      transition: opacity .25s;
+
+      &::before {
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid #fff;
+        border-top: 15px solid transparent;
+        content: '';
+        height: 0;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        width: 0;
+      }
+    }
+
+    &--snow {
+      min-height: 80px;
+
+      .Button {
+        margin: 0 auto;
+      }
+
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+    @each $cat in $category-names {
+      &--#{$cat} {
+        .Category-inner {
+          background: url(img/tools/tool_#{$cat}.svg) center / contain no-repeat;
+        }
+      }
+    }
+
+    &--drawing {
+      .Category-inner {
+        height: 60%;
+        width: 60%;
+      }
+    }
+
+    &--spray {
+      .Category-inner {
+        background-image: url(img/tools/spray/tool_spray_color.svg);
+        height: 55%;
+        width: 55%;
+      }
+    }
+
+    &--sticker {
+      .Category-inner {
+        height: 70%;
+        width: 70%;
+      }
+    }
+
+    &--eraser {
+      .Category-inner {
+        height: 75%;
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+        width: 75%;
+      }
+
+      &:hover {
+        .Category-inner {
+          transform: translate3d(-50%, -50%, 0) rotate(45deg) scale(1.1);
+        }
+      }
+    }
+
+    &.is-active {
+      &::before {
+        opacity: 1;
+      }
+
+      &:hover {
+        .Category-popup {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      flex: none;
+
+      &::before {
+        padding-top: 90%;
+        width: 90%;
+      }
+
+      .Category-inner {
+        height: 50%;
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      flex: 1;
+    }
+  }
+
+  .Tool {
+    cursor: pointer;
+    height: 100%;
+
+    &--eraser {
+      background-image: url(img/tools/tool_eraser.svg);
+    }
+  }
+
+  .Tool-hover {
+    pointer-events: none;
+    position: fixed;
+    z-index: 3;
+
+    &.is-selected {
+      .Tool-hover-inactive {
+        opacity: 1;
+      }
+    }
+
+    &.is-down {
+      .Tool-hover-inactive {
+        opacity: 0;
+      }
+
+      .Tool-hover-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .Tool-hover-circle {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    border-style: dashed;
+    height: 20px;
+    width: 20px;
+  }
+
+  .Tool-hover-active,
+  .Tool-hover-inactive {
+    opacity: 0;
+    position: absolute;
+    transform: translate(100%, -100%);
+    transition: opacity 0.1s;
+    right: 0;
+    top: 0;
+  }
+
+  .Tool-hover-minitool,
+  .Tool-hover-preview {
+    display: none;
+    text-align: center;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
