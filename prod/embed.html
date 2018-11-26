@@ -109,17 +109,20 @@ async function run() {
 
         if (shareData) {
           const u = new URL('https://santatracker.google.com');
-          for (const k of shareData) {
+          for (const k in shareData) {
             u.searchParams.set(k, shareData[k]);
           }
           data.text = u.toString();
         }
         if (payload.image) {
-          data.image = image;
+          // split "data:image/png;base64,....", just send right-side bytes
+          const parts = payload.image.split(',');
+          data.image = parts[1] || parts[0] || '';
         }
 
         const message = {type: 'onshare', data};
         embedPort.postMessage(JSON.stringify(message));
+        return;  // done
       }
     }
 
