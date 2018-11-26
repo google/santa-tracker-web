@@ -13,3 +13,44 @@ main {
   flex-flow: row;
   align-items: stretch;
 }
+
+.previews {
+  display: flex;
+  flex-flow: row;
+  align-items: stretch;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  .item {
+    $border: 2px;
+
+    width: 140px;
+    position: relative;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .preview {
+      background: #f3f3f3;
+      border-radius: 12px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      border: $border solid transparent;
+
+      svg {
+        max-width: 100%;
+      }
+    }
+
+    input:checked + .preview {
+      border-color: #2cc4d6;
+    }
+  }
+}

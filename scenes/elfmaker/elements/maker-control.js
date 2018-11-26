@@ -21,12 +21,27 @@ export class MakerControlElement extends LitElement {
       earsColor: {type: String},
       hatsColor: {type: String},
       accessoriesColor: {type: String},
+
+      categoryChoice: {type: Object},
+
+      svgStyle: {type: String},
+
+      _previews: {type: Object},
     };
   }
 
   constructor() {
     super();
     this._idPrefix = prefix.id();
+
+    this.categoryChoice = {
+      body: 0,
+      hair: 0,
+      eyes: 0,
+      ears: 0,
+      hats: 0,
+      accessories: 0,
+    };
 
     this.skinTone = defs.random('skin');
     this.hairColor = defs.random('hair');
@@ -37,8 +52,41 @@ export class MakerControlElement extends LitElement {
     this.accessoriesColor = defs.random('color');
   }
 
+  renderSvgStyle() {
+    const renderClass = (name, prop, value) => {
+      const colors = defs.colors[value];
+      return colors.map((color, i) => `.${name}${i || ''}{${prop}:${color}}`).join('');
+    };
+    return `
+${renderClass('suit', 'fill', this.suitColor)}
+${renderClass('hats', 'fill', this.hatsColor)}
+${renderClass('limb', 'stroke', this.suitColor)}
+${renderClass('skin', 'fill', this.skinTone)}
+    `;
+  }
+
   update(changedProperties) {
-    this.dispatchEvent(new CustomEvent('change'));
+    for (const k of changedProperties.keys()) {
+      if (k[0] !== '_') {
+        this.svgStyle = this.renderSvgStyle();
+        this.dispatchEvent(new CustomEvent('change'));
+        break;
+      }
+    }
+
+    if (changedProperties.has('category')) {
+      this._previews = [];
+
+      const previews = [];
+      switch (this.category) {
+        case 'hats':
+          previews.push(...defs.hats);
+          break;
+      }
+
+      this._previews = previews;
+    }
+
     return super.update(changedProperties);
   }
 
@@ -86,14 +134,37 @@ export class MakerControlElement extends LitElement {
     return '';
   }
 
+  _onPreviewChange(ev) {
+    this.categoryChoice = Object.freeze({
+      ...this.categoryChoice,
+      [this.category]: +ev.target.value,
+    });
+  }
+
   render() {
     const inner = this._renderCategory(this.category);
+    const choice = this.categoryChoice[this.category] || 0;;
+    const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
+      return html`
+<label class="item">
+  <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
+  <div class="preview">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 345">
+      <style>${defs.baseSvgStyle}${this.svgStyle}</style>
+      ${p}
+      ${defs.head}
+    </svg>
+  </div>
+</label>
+      `;
+    });
 
     return html`
 <style>${_style`maker-control`}</style>
 <main>
   ${this._chooser('category', 'category')}
   ${inner}
+  <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
 </main>
     `;
   }
