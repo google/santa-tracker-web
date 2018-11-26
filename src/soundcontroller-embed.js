@@ -16,7 +16,7 @@ document.body.addEventListener('_klang', (ev) => {
       sc.ambient(args[1], args[2]);
       break;
     case 'play':
-      sc.play(args[1]);
+      sc.play(args[1], args[2]);
       break;
   }
 });

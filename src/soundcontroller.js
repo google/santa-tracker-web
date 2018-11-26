@@ -111,7 +111,7 @@ let klangAmbientTask = klangIsLoaded;
  * @param {string} event to fire
  * @return {!Promise<boolean>}
  */
-function triggerEvent(event) {
+function triggerEvent(event, arg) {
   return new Promise((resolve, reject) => {
     // If Klang retains the progress callback, then wait for the complete callback to resolve,
     // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
@@ -177,14 +177,18 @@ export function ambient(startEvent, clearEvent) {
  * Plays a transient sound. Skipped if Klang is not yet loaded.
  *
  * @param {SoundDetail} sound
+ * @param {*=} arg to pass
  */
-export function play(sound) {
+export function play(sound, arg=undefined) {
   if (!localKlang) {
     return;
   }
 
   const soundName = (typeof sound === 'string') ? sound : sound.name;
   const args = [soundName];
+  if (arg) {
+    args.push(arg);
+  }
 
   if (Array.isArray(sound['args'])) {
     args.push(...sound['args']);

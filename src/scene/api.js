@@ -156,6 +156,11 @@ class SceneApi extends EventTarget {
           script.onload = resolve;
           script.onerror = reject;
         });
+
+        // start muted
+        document.body.dispatchEvent(new CustomEvent('_klang', {detail: ['global_sound_off']}));
+        const muteDelayPromise = new Promise((r) => window.setTimeout(r, 500));
+        this._preload.wait(muteDelayPromise);
       }
 
       await this._preload.done;
@@ -227,9 +232,10 @@ class SceneApi extends EventTarget {
 
   /**
    * @param {string} sound to play via Klang
+   * @param {*=} arg to pass
    */
-  play(sound) {
-    this._klang('play', sound);
+  play(sound, arg=undefined) {
+    this._klang('play', sound, arg);
   }
 
   /**
@@ -301,7 +307,7 @@ function installV1Handlers() {
       break;
     case 'sound-play':
     case 'sound-trigger':  // old-style
-      sceneApi.play(args[0]);
+      sceneApi.play(args[0], args[1]);
       break;
     case 'sound-ambient':
       sceneApi.ambient(args[0], args[1]);
