@@ -76,7 +76,7 @@ export function drawBody(body, ctx) {
  * Shapes positioned by the physics system have pivots defined in the constraints. When we position
  * shapes by pose, we need to account for these offsets, via the 'offset' property on the body.
  */
-export function drawCurve(body1, body2, ctx) {
+export function drawCurve(body1, body2, ctx, quadratic=false) {
   // Convenient shape aliases
   const s1 = body1.shapes[0];
   const s2 = body2.shapes[0];
@@ -109,9 +109,14 @@ export function drawCurve(body1, body2, ctx) {
   ctx.save();
   ctx.beginPath();
   // Apply supplied styles.
-  Object.assign(ctx, {lineWidth: s1.width/2, ...body1.style});
+  Object.assign(ctx, {lineWidth: s1.width/2, lineJoin: 'round', ...body1.style});
   ctx.moveTo(x1, y1);
-  ctx.quadraticCurveTo(mx, my, x2, y2);
+  if (quadratic) {
+    ctx.quadraticCurveTo(mx, my, x2, y2);
+  } else {
+    ctx.lineTo(mx, my);
+    ctx.lineTo(x2, y2);
+  }
   ctx.stroke();
   ctx.restore();
 }

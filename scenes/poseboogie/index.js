@@ -20,6 +20,7 @@ const appConfig = {
   resizeBodyParts: false,
   smoothLimbs: true,
   humanSize: 1,
+  quadraticElbows: true,
 };
 
 api.preload.images(
@@ -83,6 +84,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'resizeBodyParts');
   gui.add(appConfig, 'smoothLimbs');
   gui.add(appConfig, 'humanSize', { Small: 2, Medium: 1.5, Large: 1 });
+  gui.add(appConfig, 'quadraticElbows');
 }
 
 /**
