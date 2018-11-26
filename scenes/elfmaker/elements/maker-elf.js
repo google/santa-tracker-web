@@ -72,8 +72,8 @@ export class MakerElfElement extends LitElement {
    */
   draw() {
     const canvas = document.createElement('canvas');
-    canvas.width = 280;  // matches the SVG size in <style> below
-    canvas.height = 400;
+    canvas.width = defs.width * 2;  // matches the SVG size in <style> below
+    canvas.height = defs.height * 2;
 
     // create div, find the svg
     const div = document.createElement('div');
@@ -104,11 +104,15 @@ export class MakerElfElement extends LitElement {
     return html`
 <style>
 svg {
-width: 280px;
+  width: ${defs.width}px;
+}
+.shadow {
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125));
 }
 </style>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 320 460" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
+<div class="shadow">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 320 460">
   <style>${defs.baseSvgStyle}${this.svgStyle}</style>
 
   <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">
@@ -149,6 +153,7 @@ width: 280px;
   <path class="high2" d="M157.49,399.29H150a5,5,0,1,1,0-10h7.51a5,5,0,0,1,0,10Z"/>
 
 </svg>
+</div>
     `;
   }
 
