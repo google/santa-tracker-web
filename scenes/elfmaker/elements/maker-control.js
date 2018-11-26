@@ -62,6 +62,7 @@ ${renderClass('suit', 'fill', this.suitColor)}
 ${renderClass('hats', 'fill', this.hatsColor)}
 ${renderClass('limb', 'stroke', this.suitColor)}
 ${renderClass('skin', 'fill', this.skinTone)}
+${renderClass('hair', 'fill', this.hairColor)}
     `;
   }
 
@@ -75,16 +76,16 @@ ${renderClass('skin', 'fill', this.skinTone)}
     }
 
     if (changedProperties.has('category')) {
-      this._previews = [];
-
-      const previews = [];
       switch (this.category) {
         case 'hats':
-          previews.push(...defs.hats);
+          this._previews = defs.hats;
           break;
+        case 'hair':
+          this._previews = defs.hair;
+          break;
+        default:
+          this._previews = [];
       }
-
-      this._previews = previews;
     }
 
     return super.update(changedProperties);
@@ -145,12 +146,20 @@ ${renderClass('skin', 'fill', this.skinTone)}
     const inner = this._renderCategory(this.category);
     const choice = this.categoryChoice[this.category] || 0;;
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
+
+      const parts = [defs.head];
+      if (this.category === 'hair') {
+        parts.push(p);
+      } else {
+        parts.unshift(p);
+      }
+
       return html`
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 345">
-<style>${defs.baseSvgStyle}${this.svgStyle}</style>${p}${defs.head}
+${parts}
 </svg>
   </div>
 </label>
@@ -159,6 +168,7 @@ ${renderClass('skin', 'fill', this.skinTone)}
 
     return html`
 <style>${_style`maker-control`}</style>
+<style>${defs.baseSvgStyle}${this.svgStyle}</style>
 <main>
   ${this._chooser('category', 'category')}
   ${inner}

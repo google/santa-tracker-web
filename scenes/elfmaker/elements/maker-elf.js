@@ -119,6 +119,7 @@ width: 280px;
     <!-- head -->
     <g transform="translate(-105, -18)">
       ${defs.head}
+      ${defs.hair[this.categoryChoice['hair']]}
     </g>
 
     <!-- body -->
