@@ -71,7 +71,8 @@ export class TicTacToeElement extends LitElement {
   async showWin_(player, w) {
     this.isPlaying = false;
 
-    console.log('show win for', player, w);
+    //TODO: hook up GA
+    //window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
 
     await delay(SHOW_LINE_TIME);
     this.winClass = `${player} pos-${w}`;
@@ -102,7 +103,6 @@ export class TicTacToeElement extends LitElement {
    * @private 
    */
   async playCell_(index, cell) {
-    console.log('play cell', index, cell);
     const moveTime = 500;
     const drawTime = 200;
     const doneDrawTime = 500;
