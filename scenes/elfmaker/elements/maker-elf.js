@@ -1,6 +1,8 @@
 import {html, svg, LitElement} from '@polymer/lit-element';
 import {render} from 'lit-html';
 
+import * as defs from '../defs.js';
+
 
 const hats = [
   '',
@@ -11,7 +13,7 @@ const hats = [
 `,
 svg`
 <g transform="translate(0, 6)">
-  <path class="hats-dark" d="M138.8,146.14c0-27.58-16-43.69-33.8-43.69s-33.8,16.11-33.8,43.69Z"/>
+  <path class="hats1" d="M138.8,146.14c0-27.58-16-43.69-33.8-43.69s-33.8,16.11-33.8,43.69Z"/>
   <circle class="white" cx="105" cy="87.61" r="14.84"/>
   <ellipse class="hats" cx="105" cy="165.92" rx="70.33" ry="55.17"/>
 </g>
@@ -41,6 +43,7 @@ export class MakerElfElement extends LitElement {
       hatsColor: {type: String},
       skinTone: {type: String},
       _offset: {type: Number},
+      _style: {type: String},
     };
   }
 
@@ -73,19 +76,33 @@ export class MakerElfElement extends LitElement {
     `;
   }
 
-  _updateArmAngle() {
-    this._offset = (performance.now() / 1000);
-  }
-
   connectedCallback() {
     const run = () => {
       if (!this.isConnected) {
         return;
       }
       window.requestAnimationFrame(run);
-      this._updateArmAngle();
+      this._offset = (performance.now() / 1000);
     };
     run();
+  }
+
+  update(changedProperties) {
+    if (!changedProperties.has('_style')) {
+      const renderClass = (name, prop, value) => {
+        const colors = defs.colors[value];
+        return colors.map((color, i) => `.${name}${i || ''}{${prop}:${color}}`).join('');
+      };
+
+      this._style = `
+${renderClass('suit', 'fill', this.suitColor)}
+${renderClass('hats', 'fill', this.hatsColor)}
+${renderClass('limb', 'stroke', this.suitColor)}
+${renderClass('skin', 'fill', this.skinTone)}
+      `;
+    }
+
+    return super.update(changedProperties);
   }
 
   /**
@@ -132,20 +149,17 @@ export class MakerElfElement extends LitElement {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 0 320 428.64" style="filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))">
       <defs>
         <style>
-.suit {fill: ${this.suitColor || 'red'};}
-.hats {fill: ${this.hatsColor || 'red'}}
+.high1 {fill: #332e2e;}
+.high2 {fill: #f9ce1d;}
+.eyes {fill: #332e2e;}
+.white {fill: #fff;}
 .limb {
   fill: none;
-  stroke: ${this.suitColor || 'red'};
   stroke-linecap: round;
   stroke-miterlimit: 10;
   stroke-width: 20px;
 }
-.high1 {fill: #332e2e;}
-.eyes {fill: #332e2e;}
-.high2 {fill: #f9ce1d;}
-.white {fill: #fff;}
-.skin {fill: ${this.skinTone};};
+${this._style}
         </style>
       </defs>
 

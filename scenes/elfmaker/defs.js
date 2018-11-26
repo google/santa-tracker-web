@@ -34,3 +34,10 @@ export const colors = {
   'brunette': ['#764C2E', '#684127'],
   'black': ['#332E2E', '#211E1E'],
 };
+
+
+export function random(category) {
+  const o = options[category] || [];
+  const choice = ~~(Math.random() * o.length);
+  return o[choice] || null;
+}
