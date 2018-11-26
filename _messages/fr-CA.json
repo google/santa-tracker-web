@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Calendrier"
 	},
+	"category_all": {
+		"message": "Tout afficher"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Coder"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Dessin"
 	},
+	"category_education": {
+		"message": "Axés sur l'éducation"
+	},
+	"category_geography": {
+		"message": "Géographie"
+	},
 	"category_language": {
 		"message": "Langue"
 	},
 	"category_listen": {
 		"message": "Écouter"
 	},
+	"category_new-this-year": {
+		"message": "Nouveau cette année"
+	},
 	"category_send": {
 		"message": "Envoyer"
+	},
+	"category_social-studies": {
+		"message": "Études sociales"
 	},
 	"cd_country_name": {
 		"message": "République démocratique du Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Contribuez au financement d'un projet pour enfants à besoins spéciaux sur DonorsChoose.org. En ce mois de décembre, nous doublerons l'aide en donnant 50 % du montant amassé par les utilisateurs, jusqu'à concurrence de notre objectif de 1 M$ US. Ensemble, nous pouvons rendre les classes plus accueillantes pour tous. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Téléchargez l'application pour jouer à encore plus de jeux"
+	},
 	"dz_country_name": {
 		"message": "Algérie"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Sur les traces du père Noël pour les éducateurs"
+	},
+	"educators-games": {
+		"message": "Jeux pour la classe"
+	},
+	"educators-learn": {
+		"message": "Apprendre avec Sur les traces du père Noël"
 	},
 	"ee_country_name": {
 		"message": "Estonie"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Un problème s'est produit, mais les lutins du père Noël s'en occupent."
+	},
+	"error-internal": {
+		"message": "Oh non, un problème s'est produit! Nous en avons informé les lutins, mais essaie de revenir au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Interrompre"
 	},
+	"paused": {
+		"message": "En pause"
+	},
 	"pe_country_name": {
 		"message": "Pérou"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oups!"
 	},
+	"readyquestion": {
+		"message": "Prêt?"
+	},
 	"ro_country_name": {
 		"message": "Roumanie"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
+	},
+	"santa-app": {
+		"message": "Père Noël"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Bonhomme en pain d'épice"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "La ruée du pingouin"
 	},
+	"scene_elfmaker": {
+		"message": "Créateur de lutin"
+	},
 	"scene_elfski": {
 		"message": "Le ski des lutins"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Terrain de jeu du Pôle Nord"
+	},
+	"scene_poseboogie": {
+		"message": "Pose de boogie"
+	},
+	"scene_postcard": {
+		"message": "Cartes postales du père Noël"
 	},
 	"scene_presentbounce": {
 		"message": "Rebond de cadeaux"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Toujours en vacances"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Les rennes sont inquiets"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recharge de cadeaux"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Relaxation"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Décollage"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Où est le père Noël?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Atelier du père Noël"
+	},
 	"scene_windtunnel": {
 		"message": "Soufflerie"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "La bataille de l'emballage"
 	},
 	"score": {
+		"message": "Pointage"
+	},
+	"score_short": {
 		"message": "Pointage"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovaque"
+	},
+	"skip-training": {
+		"message": "Ignorer la formation"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Réactiver le son"
 	},
+	"upgrade-warning": {
+		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur ou JavaScript a été désactivé. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente ou activez JavaScript. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "États-Unis"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Appeler le père Noël avec l'Assistant Google"
 	},
 	"village_comeback": {
 		"message": "Reviens le 24 et aide-nous à suivre le père Noël toute la nuit!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Ajouter l'extension Sur les traces du père Noël pour Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Questions sur la Terre du père Noël"
+	},
+	"village_santa_install": {
+		"message": "Installer"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

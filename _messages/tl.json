@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Ang Kalendaryo"
 	},
+	"category_all": {
+		"message": "Tingnan Lahat"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "CODE2040"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Iguhit"
 	},
+	"category_education": {
+		"message": "Nakatuon sa Edukasyon"
+	},
+	"category_geography": {
+		"message": "Heograpiya"
+	},
 	"category_language": {
 		"message": "Wika"
 	},
 	"category_listen": {
 		"message": "Makinig"
 	},
+	"category_new-this-year": {
+		"message": "Bago Ngayong Taon"
+	},
 	"category_send": {
 		"message": "Ipadala"
+	},
+	"category_social-studies": {
+		"message": "Araling Panlipunan"
 	},
 	"cd_country_name": {
 		"message": "Democratic Republic of the Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Tumulong na pondohan ang isang proyekto para sa mga espesyal na pangangailangan sa DonorsChoose.org. Ngayong Disyembre, tutulong kami na madoble ang epekto sa pamamagitan ng pagtutumbas sa mga donasyon nang 50%, hanggang sa maabot namin ang aming layunin na makapag-ambag ng US$1m. Sama-sama, makatutulong tayong gawing mas kumpleto ang mga silid-aralan #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "I-download para makapaglaro ng mas marami pang laro"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Santa Tracker para sa mga Nagtuturo"
+	},
+	"educators-games": {
+		"message": "Mga laro para sa silid-aralan"
+	},
+	"educators-learn": {
+		"message": "Pag-aaral gamit ang Santa Tracker"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Nagkaproblema, pero sinusuri ito ng mga Elf ni Santa."
+	},
+	"error-internal": {
+		"message": "Naku, nagkaproblema! Sinabihan na namin ang mga Elf ni Santa, pero subukang bumalik sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "I-pause"
 	},
+	"paused": {
+		"message": "Naka-pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oops!"
 	},
+	"readyquestion": {
+		"message": "Handa ka na?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Arabia"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Gingerbread Man"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfmaker": {
+		"message": "Elf Maker"
+	},
 	"scene_elfski": {
 		"message": "Elf Ski"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "North Pole Playground"
+	},
+	"scene_poseboogie": {
+		"message": "Pose Boogie"
+	},
+	"scene_postcard": {
+		"message": "Mga Santa Postcard"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Still on Vacation"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Mga Alalahanin ng Reindeer"
+	},
 	"scene_videoscene_reload": {
 		"message": "Present Reload"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slacking Off"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Paglipad"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Where's Santa?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Santa's Workshop"
+	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Score"
+	},
+	"score_short": {
 		"message": "Score"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-training": {
+		"message": "Laktawan ang Pagsasanay"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "I-unmute"
 	},
+	"upgrade-warning": {
+		"message": "Oops! Hindi suportado ang Santa Tracker sa iyong browser o naka-disable ang JavaScript mo. Para ma-access ang Santa Tracker, mag-download ng modernong browser o i-enable ang JavaScript.\nPara sa karagdagang impormasyon, bisitahin ang: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "United States"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Tawagan si Santa gamit ang Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Bumalik sa ika-24 at tulungan kaming subaybayan si Santa buong gabi!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Idagdag ang Santa Chrome Extension"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Santa Earth Quiz"
+	},
+	"village_santa_install": {
+		"message": "I-install"
 	},
 	"village_takesoff": {
 		"message": "Lilipad na si Santa sa loob ng"

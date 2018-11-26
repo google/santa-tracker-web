@@ -1,0 +1,251 @@
+##{$name} {
+  // Only for larger screens.
+  .background {
+    display: none;
+  }
+
+  .sky {
+    background-size: auto 40%;
+    background: #8bbedb repeat-x left bottom;
+    height: 2440px;
+    left: -100%;
+    background-image: linear-gradient(#8bbedb, #a0d7ef);
+    margin-top: -2000px;
+    position: absolute;
+    right: -100%;
+    top: 50%;
+  }
+
+  .snow {
+    background-size: auto 20%;
+    background: #ffffff repeat-x left top;
+    height: 2000px;
+    left: -100%;
+    background-image: linear-gradient(#ededed, #fff);
+    margin-top: 440px;
+    position: absolute;
+    right: -100%;
+    top: 50%;
+  }
+
+  .house {
+    background-color: #CCCCCC;
+    height: 700px;
+    left: 250px;
+    position: absolute;
+    top: 360px;
+    width: 1291px;
+  }
+
+  .roof {
+    background-color: #808284;
+    height: 20px;
+    left: -6px;
+    position: absolute;
+    top: -20px;
+    width: 1304px;
+
+    &:after {
+      background-color: #b4b6b9;
+      bottom: -12px;
+      content: "";
+      height: 12px;
+      left: 6px;
+      position: absolute;
+      width: 1291px;
+    }
+  }
+
+  .elf {
+    background: url(img/environment.png) no-repeat;
+    bottom: -10px;
+    height: 92px;
+    position: absolute;
+    width: 55px;
+
+    &.left {
+      background-position: -75px -150px;
+      left: 130px;
+    }
+
+    &.right {
+      background-position: 0 -150px;
+      right: 115px;
+    }
+  }
+
+  .background {
+    display: block;
+  }
+
+  .mountains {
+    background: url(img/mountains.png) repeat-x;
+    bottom: 135px;
+    height: 196px;
+    left: -100%;
+    position: absolute;
+    width: 300%;
+  }
+
+  .trees {
+    background: url(img/environment.png) no-repeat;
+    bottom: 100px;
+    height: 150px;
+    position: absolute;
+    width: 210px;
+  }
+
+  .trees.left {
+    background-position: -300px -150px;
+    left: 65px;
+  }
+
+  .trees.right {
+    background-position: -300px 0px;
+    right: 75px;
+  }
+
+  .sun {
+    background: url(img/environment.png) -150px 0 no-repeat;
+    height: 114px;
+    position: absolute;
+    right: 90px;
+    top: 310px;
+    width: 114px;
+  }
+
+  @media (min-width: 1025px) {
+    .clouds > div {
+      background: url(img/environment.png) no-repeat;
+      height: 88px;
+      position: absolute;
+      width: 146px;
+    }
+
+    .c1 {
+      right: 80px;
+      top: 500px;
+    }
+    .c2 {
+      right: 300px;
+      top: 150px;
+    }
+    .c3 {
+      right: 700px;
+      top: 100px;
+      transform: scale(0.5,0.5);
+    }
+    .c4 {
+      left: 100px;
+      top: 140px;
+      transform: scale(0.5,0.5);
+    }
+    .c5 {
+      left: 500px;
+      top: 200px;
+      transform: scale(0.7,0.7);
+    }
+    .c6 {
+      left: 100px;
+      top: 600px;
+      transform: scale(0.7,0.7);
+    }
+    .c7 {
+      left: 30px;
+      top: 400px;
+      transform: scale(0.85,0.85);
+    }
+  }
+
+  .window {
+    background-color: #009EE1;
+    height: 24px;
+    position: absolute;
+    width: 18px;
+
+    &:after {
+      background-color: #A7A9AB;
+      bottom: -6px;
+      content: "";
+      height: 6px;
+      left: -3px;
+      position: absolute;
+      width: 24px;
+    }
+
+    &.floor1 {
+      top: 495px;
+    }
+    &.floor2 {
+      top: 370px;
+    }
+    &.floor3 {
+      top: 250px;
+    }
+    &.floor4 {
+      top: 130px;
+    }
+    &.left {
+      left: 63px;
+    }
+    &.right {
+      right: 63px;
+    }
+  }
+
+  .door {
+    background-color: #6D6E70;
+    bottom: 0;
+    height: 100px;
+    left: 46px;
+    position: absolute;
+    width: 55px;
+
+    .knob {
+      background-color: #A7A9AB;
+      height: 17px;
+      position: absolute;
+      right: 7px;
+      top: 42px;
+      width: 5px;
+    }
+
+    &:after {
+      background-color: #ffffff;
+      height: 25px;
+      left: 15px;
+      position: absolute;
+      top: 15px;
+      content: "";
+      width: 25px;
+    }
+  }
+
+  .elevator {
+    background-color: #6D6E70;
+    bottom: 0;
+    height: 102px;
+    position: absolute;
+    right: 70px;
+    width: 40px;
+
+    .buttons {
+      background: url(img/environment.png) -300px -300px;
+      height: 17px;
+      left: -14px;
+      position: absolute;
+      top: 47px;
+      width: 9px;
+    }
+
+    &:after {
+      background-color: #6D6E70;
+      content: "";
+      height: 102px;
+      left: 44px;
+      position: absolute;
+      top: 0;
+      width: 40px;
+    }
+  }
+}

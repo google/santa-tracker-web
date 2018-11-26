@@ -13,7 +13,6 @@ const isUrl = require('./build/is-url.js');
 const releaseHtml = require('./build/release-html.js');
 const log = require('fancy-log');
 const path = require('path');
-const loader = require('./loader.js');
 const i18n = require('./build/i18n.js');
 require('json5/lib/register');
 
@@ -34,16 +33,16 @@ const yargs = require('yargs')
       default: 'en',
       describe: 'default top-level language',
     })
+    .options('transpile', {
+      type: 'boolean',
+      default: true,
+      describe: 'transpile for ES5 browsers (slow)',
+    })
     .option('default-only', {
       alias: 'o',
       type: 'boolean',
       default: false,
       describe: 'only generate default top-level language',
-    })
-    .option('fast', {
-      type: 'boolean',
-      default: false,
-      describe: 'only build app shell, do not build scenes',
     })
     .option('baseurl', {
       type: 'string',
@@ -80,6 +79,7 @@ const staticAssets = [
 
 const staticLoaderFiles = [
   'src/app/controller.bundle.js',
+  'src/soundcontroller-embed.bundle.js',
 ];
 
 function pathForLang(lang) {
@@ -130,9 +130,17 @@ async function release() {
   await fsp.mkdirp('dist/prod');
 
   const staticAttr = `${yargs.baseurl}${yargs.build}/`;
+  const staticRoot = (new URL(staticAttr)).pathname;
   const staticAttrForLang = (lang) => {
     return lang ? `${staticAttr}${lang}.html` : staticAttr;
   };
+
+  // Display the static URL plus the root (in a different color).
+  if (!staticAttr.endsWith(staticRoot)) {
+    throw new TypeError(`invalid static resolution: ${staticAttr} vs ${staticRoot}`)
+  }
+  const leftPart = staticAttr.substr(0, staticAttr.length - staticRoot.length);
+  log(`Static at ${color.green(leftPart)}${color.greenBright(staticRoot)}`);
 
   // Find the list of languages by reading `_messages`.
   const missingMessages = {};
@@ -218,7 +226,7 @@ async function release() {
   for (const lang in langs) {
     const messages = langs[lang];
     manifest['name'] = messages('santatracker');
-    manifest['short_name'] = messages('santa');
+    manifest['short_name'] = messages('santa-app');
     const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
     await write(target, JSON.stringify(manifest));
   }
@@ -231,10 +239,9 @@ async function release() {
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
   // or JS on its own, it must be included by one of our HTML entry points.
-  // FIXME(samthor): Bundle code is only loaded imperatively. Need to fix.
-  const loader = require('./loader.js')({compile: true});
-  const htmlFiles = yargs.fast ?
-      ['index.html'] : ['index.html'].concat(globAll('scenes/*/index.html'));
+  const loaderOptions = {compile: true, root: staticRoot};
+  const loader = require('./loader.js')(loaderOptions);
+  const htmlFiles = globAll('index.html', 'scenes/*/index.html', 'controllers/*.html');
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
@@ -349,8 +356,10 @@ async function release() {
 
     const templateTagReplacer = (name, arg) => {
       if (name === '_style') {
-        const {css} = compileCss(`styles/${arg}.scss`, true);
+        const {css} = compileCss(`styles/${arg}.scss`, loaderOptions);
         return css;
+      } else if (name === '_root') {
+        return path.join(loaderOptions.root, arg);
       }
     };
 
@@ -375,11 +384,13 @@ async function release() {
   }
   log(`Written ${color.cyan(totalSizeES)} bytes of ES module code`);
 
+  if (!yargs.transpile) {
+    log(`Transpilation ${color.red('disabled')}, only support ES module browsers`);
+  }
+
   // Generate ES5 versions of entrypoints.
   const babelPlugin = require('rollup-plugin-babel');
   for (const [filename, data] of entrypoints) {
-    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
-
     // Piggyback on ES5 transpilation process to get messages required for this HTML entrypoint.
     const messages = messagesForHtmlFile.get(data.htmlFile);
     const messageTagObserver = (name, arg) => {
@@ -387,6 +398,25 @@ async function release() {
         messages.add(arg);
       }
     };
+
+    // Optionally skip transpilation.
+    if (!yargs.transpile) {
+      log(`Analyzing ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
+      await rollup.rollup({
+        plugins: [
+          babelPlugin({
+            sourceMaps: false,
+            compact: true,
+            plugins: [
+              buildTemplateTagReplacer(messageTagObserver),
+            ],
+          }),
+        ],
+        input: path.join(staticDir, 'src', filename),
+      });
+      continue;
+    }
+    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
 
     // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
     // https://github.com/MatAtBread/fast-async#runtimepattern
@@ -422,16 +452,22 @@ async function release() {
 
   // Render i18n versions of static pages.
   for (const [htmlFile, document] of htmlDocuments) {
-    const relativeRoot = path.relative(path.dirname(htmlFile), '.') || '.';
-    document.body.setAttribute('data-root', relativeRoot);
     const documentForLang = await releaseHtml.static(document);
     const dir = path.dirname(htmlFile);
+    const fanout = (path.basename(htmlFile) === 'index.html');
 
     // If there were any messages required for this file, add a script node.
     const msgids = messagesForHtmlFile.get(htmlFile);
     const scriptNode = document.createElement('script');
     if (msgids.size) {
+      if (!fanout) {
+        throw new Error(`found msgid for non-index.html file: ${htmlFile}`)
+      }
       document.head.insertBefore(scriptNode, document.head.firstChild);
+    } else if (!fanout) {
+      const target = path.join(staticDir, htmlFile);
+      await write(target, documentForLang());
+      continue;
     }
 
     for (const lang in langs) {

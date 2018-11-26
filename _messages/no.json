@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalenderen"
 	},
+	"category_all": {
+		"message": "Se alle"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kode"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Tegning"
 	},
+	"category_education": {
+		"message": "Pedagogisk"
+	},
+	"category_geography": {
+		"message": "Geografi"
+	},
 	"category_language": {
 		"message": "Språk"
 	},
 	"category_listen": {
 		"message": "Lytt"
 	},
+	"category_new-this-year": {
+		"message": "Nye i år"
+	},
 	"category_send": {
 		"message": "Send"
+	},
+	"category_social-studies": {
+		"message": "Samfunnsvitenskap"
 	},
 	"cd_country_name": {
 		"message": "Den demokratiske republikken Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Gi et bidrag til barn med spesielle behov på DonorsChoose.org. Vi vil gjøre en større forskjell, og for hver donasjon som gis i desember, gir vi en donasjon på 50 % av beløpet frem til vi når målet vårt på 1 million dollar. Vi kan gjøre klasserommene mer inkluderende for alle. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Last ned for å spille flere spill"
+	},
 	"dz_country_name": {
 		"message": "Algerie"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Følg julenissen for lærere"
+	},
+	"educators-games": {
+		"message": "Pedagogiske spill"
+	},
+	"educators-learn": {
+		"message": "Følg julenissen for å lære mer"
 	},
 	"ee_country_name": {
 		"message": "Estland"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Det har oppstått et problem, men Julenissens hjelpere er på saken."
+	},
+	"error-internal": {
+		"message": "Beklager, det oppsto et problem. Vi har informert alvene, men du kan prøve å dra tilbake til \u003ca href=\"./\"\u003eJulenissens landsby\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Vi har nettopp mistet forbindelsen med Nordpolen. Nissens alver jobber hardt for å løse problemet. Følg med!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Sett på pause"
 	},
+	"paused": {
+		"message": "Satt på pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oi sann!"
 	},
+	"readyquestion": {
+		"message": "Klar?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabia"
+	},
+	"santa-app": {
+		"message": "Nissen"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Pepperkakemannen"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pakkepingvin"
 	},
+	"scene_elfmaker": {
+		"message": "Lag en alv"
+	},
 	"scene_elfski": {
 		"message": "Alveskikjøring"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Lekeplass på Nordpolen"
+	},
+	"scene_poseboogie": {
+		"message": "Positurboogie"
+	},
+	"scene_postcard": {
+		"message": "Nissepostkort"
 	},
 	"scene_presentbounce": {
 		"message": "Gavesprett"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ferien fortsetter"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Reinsdyrene er bekymret"
+	},
 	"scene_videoscene_reload": {
 		"message": "Gavepåfyll"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Unnasluntring"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Klar til avgang"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Fartsfristelser"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Finn julenissen"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Julenissens verksted"
+	},
 	"scene_windtunnel": {
 		"message": "Vindtunnelen"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Pakkekamp"
 	},
 	"score": {
+		"message": "Poeng"
+	},
+	"score_short": {
 		"message": "Poeng"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakisk"
+	},
+	"skip-training": {
+		"message": "Hopp over opplæringen"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Slå på lyden"
 	},
+	"upgrade-warning": {
+		"message": "Oi sann! Følg julenissen er ikke støttet i nettleseren din, eller du har slått av JavaScript. Last ned en nyere nettleser eller slå på JavaScript for å få tilgang til Følg julenissen.\nDu finner mer informasjon på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ring nissen med Google-assistenten"
 	},
 	"village_comeback": {
 		"message": "Kom innom på julaften, og hjelp oss med å følge julenissen hele natten!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Legg til Chrome-utvidelsen for Følg julenissen"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Nissens quiz om jordkloden"
+	},
+	"village_santa_install": {
+		"message": "Installer"
 	},
 	"village_takesoff": {
 		"message": "Julenissen tar av om"

@@ -1,9 +1,8 @@
 
 /**
- * Klang path. This does not need to be normalized as soundcontroller should only be loaded by
- * top-level code in static.
+ * Klang path. This is normalized, but shouldn't really be loaded more than once anyway.
  */
-const klangPath = 'third_party/lib/klang';
+const klangPath = _root`third_party/lib/klang`;
 
 
 /**
@@ -13,18 +12,51 @@ let localKlang;
 
 
 /**
- * Resolved when a user gesture has completed (or if a user gesture isn't required to play).
+ * Internal Klang engine. Used for load detection.
  */
-const gesturePromise = new Promise((resolve, reject) => {
-  // TODO(samthor): play a zero-length Audio to check for rejection
-  function handler() {
-    document.removeEventListener('mousedown', handler);
-    document.removeEventListener('touchend', handler);
-    resolve();
+let klangEngine;
+
+
+
+const zeroAudioContext = new AudioContext();
+export const initialSuspend = zeroAudioContext.state === 'suspended';
+
+
+
+/**
+ * @return {boolean} whether audio is now unsuspended
+ */
+export function resume() {
+  zeroAudioContext.resume();
+  localKlang && localKlang.context && localKlang.context.resume();
+  return zeroAudioContext.state !== 'suspended';
+}
+
+
+/**
+ * @param {!Node=} target to add handlers on
+ * @param {boolean=} force install of resume handler
+ */
+export async function installGestureResume(target=document, force=false) {
+  if (!force && zeroAudioContext.state !== 'suspended') {
+    return;  // nothing to do
   }
-  document.addEventListener('mousedown', handler);
-  document.addEventListener('touchend', handler);
-});
+
+  const events = ['mousedown', 'touchend', 'touchstart', 'scroll', 'wheel', 'keydown'];
+  const options = {capture: true, passive: true};
+
+  return new Promise((resolve) => {
+    function handler(ev) {
+      const resumed = resume();
+      console.info('handler for gesturePromise', ev.type, resumed);
+      if (resumed) {
+        events.forEach((event) => target.removeEventListener(event, handler, options));
+        resolve();
+      }
+    }
+    events.forEach((event) => target.addEventListener(event, handler, options));
+  });
+}
 
 
 /**
@@ -43,7 +75,7 @@ export const klang = new Promise((resolve) => {
     // until after the page is created.
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = `${klangPath}/klang.js`;
+      script.src = `${klangPath}/klang.min.js`;
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
@@ -55,11 +87,10 @@ export const klang = new Promise((resolve) => {
       throw new Error('Klang failed to load config');
     }
 
-    // This isn't really for iOS, but for environments where sound won't play until a gesture.
-    gesturePromise.then(() => Klang.initIOS());
-
     // Save Klang, and return it here anyway.
     localKlang = window.Klang;
+    klangEngine = localKlang.audioTagHandler || localKlang.getCoreInstance();
+
     return window.Klang;
   };
   resolve(fn());
@@ -73,21 +104,24 @@ let klangAmbientTask = klangIsLoaded;
 
 /**
  * Internal call to trigger a waitable event on Klang. Assumes Klang is available in `localKlang`.
- * Klang is unhappy when multiple waitable events are in-flight, so this is intended to be called
- * in a serial manner from `fire`.
+ * Klang is sometimes (?) unhappy when multiple waitable events are in-flight, so this is intended
+ * to be called in a serial manner from `fire`.
  *
  * @param {string} event to fire
  * @return {!Promise<boolean>}
  */
 function triggerEvent(event) {
   return new Promise((resolve, reject) => {
-    // If Klang invokes the progress callback, then wait for the complete callback to resolve,
+    // If Klang retains the progress callback, then wait for the complete callback to resolve,
     // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
-    const timeout = window.setTimeout(() => resolve(), 0);
-    const progress = () => {
-      window.clearTimeout(timeout);  // progress called, expect later resolve()
-    };
+    // TODO(samthor): Callbacks only seem to be used for `load` events, which _do_ need to happen
+    // in-order. No other events seem to care?
+
+    const progress = () => {};  // used as nonce
     localKlang.triggerEvent(event, resolve, progress, reject);
+    if (!klangEngine || klangEngine._progressCallback !== progress) {
+      resolve();  // there's no progress, resolve now
+    }
   });
 }
 
@@ -127,10 +161,10 @@ export function ambient(startEvent, clearEvent) {
       return previousClearEvent;  // allow the next task to clean up, we're superceded
     }
 
-    if (previousClearEvent !== null) {
-      await triggerEvent(previousClearEvent);
+    if (previousClearEvent) {
+      await fire(previousClearEvent);
     }
-    await triggerEvent(startEvent);
+    await fire(startEvent);
     return clearEvent;
   });
   klangAmbientTask = localTask;

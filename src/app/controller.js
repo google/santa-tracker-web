@@ -14,6 +14,7 @@ class SantaTrackerController extends Controller {
     return {
       activeScene: null,
       selectedScene: null,  // nothing loaded until we're asked
+      selectedData: null,   // only selectedScene can have query data
       loadAttempt: 0,
       loadProgress: 1,
       showError: false,
@@ -23,6 +24,7 @@ class SantaTrackerController extends Controller {
       online: undefined,
       api: null,
       score: {},
+      shareUrl: false,
       gameover: false,
     };
   }
@@ -45,7 +47,7 @@ class SantaTrackerController extends Controller {
       // store. Eventually, we may want to map the actions to
       // action creators, which are functions that should be invoked
       // with the dispatch function as one of their arguments.
-      console.warn('Dispatching action', action);
+      logger.enabled && console.warn('Dispatching action', action);
       santaTrackerStore.dispatch(action);
     });
 
@@ -65,11 +67,12 @@ class SantaTrackerController extends Controller {
 
     santaApi.addEventListener('sync', (ev) => {
       const p = (async () => {
-        const [now, state, range] =
-            await Promise.all([santaApi.now, santaApi.state(), santaApi.range()]);
+        const now = santaApi.now;
+        const at = +new Date;
+        const [state, range] = await Promise.all([santaApi.state(), santaApi.range()]);
 
         santaTrackerStore.dispatch(
-            {type: SantaTrackerAction.API_SYNC_COMPLETED, payload: {now, state, range}});
+            {type: SantaTrackerAction.API_SYNC_COMPLETED, payload: {at, now, state, range}});
       })();
 
       p.catch((err) => {

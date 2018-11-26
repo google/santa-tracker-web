@@ -16,13 +16,13 @@ body {
   import api from '../../src/scene/api.js';
   import scenes from '../../scenes.json5.js';
 
-  api.ready(async (manager) => {
+  api.ready(async () => {
     const listing = document.getElementById('listing');
     const keys = Object.keys(scenes).sort();
 
     const handler = (sceneName, ev) => {
       ev.preventDefault();
-      manager.route(sceneName);
+      api.go(sceneName);
     };
 
     keys.forEach((sceneName) => {

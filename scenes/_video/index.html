@@ -45,7 +45,8 @@ if (document.documentElement.lang) {
 }
 
 
-const videoId = window.location.search.substr(1) || '';
+const params = new URLSearchParams(window.location.search);
+const videoId = params.get('video') || '';
 
 
 // Load the YT API.
@@ -100,7 +101,7 @@ api.preload.wait(apiPromise);
 api.preload.wait(playerPromise);
 api.preload.wait(startedPromise);
 
-api.ready(async (manager) => {
+api.ready(async () => {
   const player = await playerPromise;
   const element = document.getElementById('ytplayer');
 

@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Календар"
 	},
+	"category_all": {
+		"message": "Переглянути всі"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Написати код"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Малювати"
 	},
+	"category_education": {
+		"message": "Освітні ігри"
+	},
+	"category_geography": {
+		"message": "Географія"
+	},
 	"category_language": {
 		"message": "Мова"
 	},
 	"category_listen": {
 		"message": "Слухати"
 	},
+	"category_new-this-year": {
+		"message": "Цьогорічні новинки"
+	},
 	"category_send": {
 		"message": "Надіслати"
+	},
+	"category_social-studies": {
+		"message": "Суспільні науки"
 	},
 	"cd_country_name": {
 		"message": "Демократична Республіка Конго"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Допоможіть нам профінансувати проект на DonorsChoose.org для допомоги дітям з особливими потребами. У грудні цього року ми подвоїмо суму благодійних внесків користувачів, щоб досягти нашої цілі – пожертви на суму 1 млн дол. США. Разом ми дамо можливість навчатися кожній дитині. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Завантажте, щоб грати в ще більше ігор"
+	},
 	"dz_country_name": {
 		"message": "Алжир"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Додаток Де Дід Мороз для викладачів"
+	},
+	"educators-games": {
+		"message": "Ігри для класу"
+	},
+	"educators-learn": {
+		"message": "Навчання в сервісі Де Дід Мороз"
 	},
 	"ee_country_name": {
 		"message": "Естонія"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Виникла проблема, але помічники Діда Мороза працюють над її вирішенням."
+	},
+	"error-internal": {
+		"message": "У нас проблема! Ми вже сповістили помічників Діда Мороза, проте спробуємо повернутись у \u003ca href=\"./\"\u003eмістечко Діда Мороза\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Схоже, ми втратили зв’язок із Північним полюсом. Помічники Діда Мороза невпинно працюють, щоб відновити його, тож залишайтеся з нами."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Призупинити"
 	},
+	"paused": {
+		"message": "Призупинено"
+	},
 	"pe_country_name": {
 		"message": "Перу"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Отакої!"
 	},
+	"readyquestion": {
+		"message": "Готові?"
+	},
 	"ro_country_name": {
 		"message": "Румунія"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Саудівська Аравія"
+	},
+	"santa-app": {
+		"message": "Дід Мороз"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Пряничок"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Біг пінгвіна"
 	},
+	"scene_elfmaker": {
+		"message": "Конструктор ельфів"
+	},
 	"scene_elfski": {
 		"message": "Ельф на лижах"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Ігровий майданчик на Північному полюсі"
+	},
+	"scene_poseboogie": {
+		"message": "Поза бугі-вугі"
+	},
+	"scene_postcard": {
+		"message": "Новорічні листівки"
 	},
 	"scene_presentbounce": {
 		"message": "Підкидання подарунків"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ще у відпустці"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Олень хвилюється"
+	},
 	"scene_videoscene_reload": {
 		"message": "Дозавантаження подарунків"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Ельф сачкує"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Зліт"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Спокуса"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Де Санта?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Майстерня Діда Мороза"
+	},
 	"scene_windtunnel": {
 		"message": "Потік вітру"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Пакування подарунків"
 	},
 	"score": {
+		"message": "Результат"
+	},
+	"score_short": {
 		"message": "Результат"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "словацька"
+	},
+	"skip-training": {
+		"message": "Пропустити навчання"
 	},
 	"sl_country_name": {
 		"message": "Сьєрра-Леоне"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Увімкнути звук"
 	},
+	"upgrade-warning": {
+		"message": "На жаль, сервіс Де Дід Мороз не підтримується в цьому веб-переглядачі або ви вимкнули JavaScript. Щоб відстежувати, де Дід Мороз, завантажте найновішу версію веб-переглядача або ввімкніть JavaScript. Дізнатися поточну версію можна на сайті \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "США"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Венесуела"
+	},
+	"village_assistant-call_santa": {
+		"message": "Телефонувати Діду Морозу через Google Асистента"
 	},
 	"village_comeback": {
 		"message": "Стежте за подорожжю Діда Мороза всю ніч із 24 на 25 грудня!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Додати розширення для Chrome \"Де Дід Мороз\""
+	},
+	"village_santa_earth_quiz": {
+		"message": "Вікторина \"Планета Діда Мороза\""
+	},
+	"village_santa_install": {
+		"message": "Установити"
 	},
 	"village_takesoff": {
 		"message": "Дід Мороз злітає за"

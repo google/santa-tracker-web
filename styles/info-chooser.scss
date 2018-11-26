@@ -1,0 +1,54 @@
+@import "shared";
+
+.chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 8px 46px;
+}
+
+input {
+  opacity: 0;
+  position: absolute;
+}
+
+label div {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 16px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+  display: inline-block;
+  border-radius: 8px;
+  background: transparent;
+  color: #9575cd;
+  margin: 2px;
+  border: 2px solid transparent;
+
+  :host(.white) & {
+    color: white;
+  }
+}
+
+label input:checked + div {
+  background: #9575cd;
+  color: white;
+
+  :host(.white) & {
+    background: rgba(255, 255, 255, 0.95);
+    color: #555;
+  }
+}
+label input:focus + div {
+  @extend .default-focus;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}

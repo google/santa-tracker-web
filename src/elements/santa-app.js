@@ -8,13 +8,11 @@ import * as route from '../route.js';
 import scenes from '../../scenes.json5.js';
 
 
-const loaderSuffix = document.documentElement.lang ? `${document.documentElement.lang}.html` : '';
-
-
 export class SantaAppElement extends LitElement {
   static get properties() {
     return {
       _selectedScene: {type: String},
+      _selectedData: {type: Object},
       _activeScene: {type: String},
       _loadAttempt: {type: Number},
       _loadProgress: {type: Number},
@@ -37,6 +35,7 @@ export class SantaAppElement extends LitElement {
     this._idPrefix = prefix.id();
     this._activeSceneInfo = {};
     this._score = {};
+    this._activePort = null;
 
     this.shadowRoot.addEventListener('keydown', (ev) => {
       const t = ev.target;
@@ -61,15 +60,15 @@ export class SantaAppElement extends LitElement {
 
       const pendingSceneInfo = scenes[state.selectedScene] || {};
       if (pendingSceneInfo.video) {
-        this._urlToLoad = `./scenes/_video/${loaderSuffix}?${pendingSceneInfo.video}`;
+        this._urlToLoad = route.buildIframeUrl('_video', {video: pendingSceneInfo.video});
       } else if (state.selectedScene !== null) {
-        const sceneName = state.selectedScene || 'index';
-        this._urlToLoad = `./scenes/${sceneName}/${loaderSuffix}`;
+        this._urlToLoad = route.buildIframeUrl(state.selectedScene);
       } else {
         this._urlToLoad = null;
       }
 
       this._selectedScene = state.selectedScene;
+      this._selectedData = state.selectedData;
       this._activeSceneInfo = !this._showError && scenes[state.activeScene] || {};
     });
   }
@@ -79,8 +78,22 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderLoad(ev) {
+    const detail = {port: ev.detail.port};
+    this._activePort = ev.detail.port;
+    this.dispatchEvent(new CustomEvent('scene', {detail}));
+
+    // nb. grab early, so the header doesn't pop in/out
+    this._activeSceneInfo = scenes[this._selectedScene] || {};
+
     // nb. could selectedScene be racey?
     this.adapter.dispatch({type: SantaTrackerAction.SCENE_ACTIVATED, payload: this._selectedScene});
+  }
+
+  _onLoaderPrepare(ev) {
+    const send = ev.detail;
+    if (this._selectedData) {
+      send({type: 'data', payload: this._selectedData});
+    }
   }
 
   _onLoaderProgress(ev) {
@@ -88,7 +101,7 @@ export class SantaAppElement extends LitElement {
   }
 
   _onLoaderError(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED});
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_FAILED, payload: ev.detail});
   }
 
   _onIframeScroll(ev) {
@@ -96,7 +109,17 @@ export class SantaAppElement extends LitElement {
   }
 
   _onClickHome(ev) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: ''});
+    const payload = {sceneName: ''};
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload});
+  }
+
+  _onClickResume(ev) {
+    this._activePort && this._activePort.send('resume');
+  }
+
+  _onClickRestart(ev) {
+    this.adapter.dispatch({type: SantaTrackerAction.SCENE_RESTART});
+    this._activePort && this._activePort.send('restart');
   }
 
   _onCheckboxChange(ev) {
@@ -123,10 +146,20 @@ export class SantaAppElement extends LitElement {
     }
   }
 
+  _errorText() {
+    if (!this._showError) {
+      return '';
+    } else if (this._showError === 'missing') {
+      return _msg`error-not-found`;
+    } else {
+      return _msg`error-internal`;
+    }
+  }
+
   render() {
     const info = this._activeSceneInfo;
     const badge = !this._gameover && this._score || {};
-    const overlayScore = (this._gameover && this._score.score || 0);
+    const overlayScore = (this._gameover && this._score.score || -1);
 
     return html`
 <style>${_style`santa-app`}</style>
@@ -150,6 +183,8 @@ export class SantaAppElement extends LitElement {
   <div class="overlay" ?hidden=${!this._gameover}>
     <santa-overlay
         @home=${this._onClickHome}
+        @resume=${this._onClickResume}
+        @restart=${this._onClickRestart}
         score="${overlayScore}"></santa-overlay>
   </div>
   <header class=${this._iframeScroll ? '' : 'up'}>
@@ -169,15 +204,16 @@ export class SantaAppElement extends LitElement {
   <div class="info noscene" ?hidden=${!this._showError && this._activeScene !== null}>
     <santa-weather></santa-weather>
     <div class="icon"></div>
-    <p ?hidden=${!this._showError}>${route.resolve(_msg`error-not-found`)}</p>
+    <p ?hidden=${!this._showError}>${route.resolve(this._errorText())}</p>
   </div>
   <div class="info rotate ${info.view || ''}">
-    <img src="img/rotate.svg" />
+    <img src="${_root`img/rotate.svg`}" />
     <p>${_msg`tilt`}</p>
   </div>
   <santa-loader
       .targetUrl="${this._urlToLoad}"
       .loadAttempt="${this._loadAttempt}"
+      @prepare=${this._onLoaderPrepare}
       @progress=${this._onLoaderProgress}
       @load=${this._onLoaderLoad}
       @error=${this._onLoaderError}

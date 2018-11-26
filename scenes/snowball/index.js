@@ -33,7 +33,6 @@ const jumpBtn = document.getElementById('jumpBtn');
 const splash = document.getElementById('splash');
 let game = null;
 
-api.installV1Handlers();
 api.ready(async () => {
   jumpBtn.addEventListener('click', (ev) => {
     jumpBtn.hidden = true;
@@ -43,6 +42,10 @@ api.ready(async () => {
   
     awaitAnimation(dropCloud).then(() => startGame());
   });  
+});
+
+api.addEventListener('restart', (ev) => {
+  startGame();
 });
 
 // TODO(cdata): Wire this up to an API event.

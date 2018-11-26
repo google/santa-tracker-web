@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalendārs"
 	},
+	"category_all": {
+		"message": "Skatīt visu"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kodēt"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Zīmēt"
 	},
+	"category_education": {
+		"message": "Izglītojošas spēles"
+	},
+	"category_geography": {
+		"message": "Ģeogrāfija"
+	},
 	"category_language": {
 		"message": "Valoda"
 	},
 	"category_listen": {
 		"message": "Klausīties"
 	},
+	"category_new-this-year": {
+		"message": "Šīgada jaunumi"
+	},
 	"category_send": {
 		"message": "Sūtīt"
+	},
+	"category_social-studies": {
+		"message": "Sociālās zinības"
 	},
 	"cd_country_name": {
 		"message": "Kongo Demokrātiskā Republika"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Palīdziet finansēt īpašām vajadzībām paredzētu projektu vietnē DonorsChoose.org. Šajā decembrī mēs palīdzam veikt labus darbus, ziedojot 50% no lietotāju ziedojumiem, līdz sasniegsim mērķi, kas ir 1 miljons ASV dolāru. Kopīgiem spēkiem mēs varam izveidot pilnīgākas klases #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Lejupielādējiet, lai varētu spēlēt vēl vairāk spēļu"
+	},
 	"dz_country_name": {
 		"message": "Alžīrija"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Ziemassvētku vecīša ceļojums pedagogiem"
+	},
+	"educators-games": {
+		"message": "Spēles klasei"
+	},
+	"educators-learn": {
+		"message": "Ziemassvētku vecīša ceļojums — apmācība"
 	},
 	"ee_country_name": {
 		"message": "Igaunija"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Radās problēma, bet Ziemassvētku vecīša rūķīši to mēģina risināt."
+	},
+	"error-internal": {
+		"message": "Radās problēma. Mēs informējām Ziemassvētku vecīša rūķīšus, tomēr iesakām atgriezties \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Apturēt"
 	},
+	"paused": {
+		"message": "Apturēta"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ak, vai!"
 	},
+	"readyquestion": {
+		"message": "Vai esat gatavs?"
+	},
 	"ro_country_name": {
 		"message": "Rumānija"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saūda Arābija"
+	},
+	"santa-app": {
+		"message": "Vecītis"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Piparkūku vīriņš"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvīna skrējiens"
 	},
+	"scene_elfmaker": {
+		"message": "Rūķīšu veidotājs"
+	},
 	"scene_elfski": {
 		"message": "Slēpojošie rūķīši"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Ziemeļpola rotaļlaukums"
+	},
+	"scene_poseboogie": {
+		"message": "Bugi poza"
+	},
+	"scene_postcard": {
+		"message": "Ziemassvētku vecīša pastkartes"
 	},
 	"scene_presentbounce": {
 		"message": "Dāvanu mētāšana"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Joprojām atvaļinājumā"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Ziemeļbriedis uztraucas"
+	},
 	"scene_videoscene_reload": {
 		"message": "Dāvanu iekraušana"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slinkošana"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Pacelšanās"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Kārdinājums"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Kur ir Ziemassvētku vecītis?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Ziemassvētku vecīša darbnīca"
+	},
 	"scene_windtunnel": {
 		"message": "Vēja tunelis"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Dāvanu saiņošanas spēle"
 	},
 	"score": {
+		"message": "Rezultāts"
+	},
+	"score_short": {
 		"message": "Rezultāts"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovāku"
+	},
+	"skip-training": {
+		"message": "Izlaist apmācību"
 	},
 	"sl_country_name": {
 		"message": "Sjerraleone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Ieslēgt skaņu"
 	},
+	"upgrade-warning": {
+		"message": "Hmm... Ziemassvētku vecīša ceļojums netiek atbalstīts jūsu pārlūkprogrammā, vai arī jums ir atspējots JavaScript. Lai piekļūtu Ziemassvētku vecīša ceļojumam, lejupielādējiet jaunāku pārlūkprogrammu vai iespējojiet JavaScript.\nPlašāka informācija: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venecuēla"
+	},
+	"village_assistant-call_santa": {
+		"message": "Zvanīt Ziemassvētku vecītim, izmantojot Google asistentu"
 	},
 	"village_comeback": {
 		"message": "Atgriezieties 24. datumā un palīdziet mums sekot Ziemassvētku vecītim visu nakti!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Pievienot Chrome paplašinājumu"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Ziemassvētku vecīša viktorīna par pasauli"
+	},
+	"village_santa_install": {
+		"message": "Instalēt"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"

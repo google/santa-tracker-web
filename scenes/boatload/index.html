@@ -73,11 +73,13 @@
     'img/trees-top.svg',
   );
 
-  api.installV1Handlers();
   const game = new Game(document.getElementById('module-boatload'));
 
-  api.ready(async (manager) => {
-    // TODO(samthor): hook up play/pause global state.
+  api.addEventListener('pause', (ev) => game.pause());
+  api.addEventListener('resume', (ev) => game.resume());
+  api.addEventListener('restart', (ev) => game.restart());
+
+  api.ready(async () => {
     game.start();
   });
 

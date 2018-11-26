@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalendern"
 	},
+	"category_all": {
+		"message": "Visa alla"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kod"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Teckna"
 	},
+	"category_education": {
+		"message": "Fokus på utbildning"
+	},
+	"category_geography": {
+		"message": "Geografi"
+	},
 	"category_language": {
 		"message": "Språk"
 	},
 	"category_listen": {
 		"message": "Lyssna"
 	},
+	"category_new-this-year": {
+		"message": "Nytt i år"
+	},
 	"category_send": {
 		"message": "Skicka"
+	},
+	"category_social-studies": {
+		"message": "Samhällsorientering"
 	},
 	"cd_country_name": {
 		"message": "Demokratiska republiken Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Bidra till ett projekt för personer med särskilda behov på DonorsChoose.org. I december dubblerar vi effekten genom att matcha alla donationer med 50 % tills vi har nått målet på 1 000 000 USD. Tillsammans kan vi göra klassrummen till en plats för alla. #ForEveryKid."
 	},
+	"download-cta": {
+		"message": "Ladda ned för att spela ännu fler spel"
+	},
 	"dz_country_name": {
 		"message": "Algeriet"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Följ jultomten för lärare"
+	},
+	"educators-games": {
+		"message": "Spel för klassrummet"
+	},
+	"educators-learn": {
+		"message": "Inlärning med Följ jultomten"
 	},
 	"ee_country_name": {
 		"message": "Estland"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Det uppstod ett problem men jultomtens nissar försöker lösa det."
+	},
+	"error-internal": {
+		"message": "Hoppsan, ett problem uppstod! Vi har informerat tomtenissarna, men du kan testa att gå tillbaka till \u003ca href=\"./\"\u003etomtebyn\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Vi verkar ha tappat anslutningen till Nordpolen. Jultomtens nissar jobbar frenetiskt för att rätta till det – kom snart tillbaka!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pausa"
 	},
+	"paused": {
+		"message": "Pausat"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hoppsan!"
 	},
+	"readyquestion": {
+		"message": "Är du redo?"
+	},
 	"ro_country_name": {
 		"message": "Rumänien"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudiarabien"
+	},
+	"santa-app": {
+		"message": "Tomten"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Pepparkaksgubben"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvinloppet"
 	},
+	"scene_elfmaker": {
+		"message": "Skapa en tomtenisse"
+	},
 	"scene_elfski": {
 		"message": "Nisseslalom"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Nordpolens lekpark"
+	},
+	"scene_poseboogie": {
+		"message": "Danspose"
+	},
+	"scene_postcard": {
+		"message": "Tomtevykort"
 	},
 	"scene_presentbounce": {
 		"message": "Julklappsstuds"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Fortfarande på semester"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renarna är oroliga"
+	},
 	"scene_videoscene_reload": {
 		"message": "Presenter laddas"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slappar"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Redo för start"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Frestelsen"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Var är jultomten?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Tomteverkstan"
+	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Den stora inslagningen"
 	},
 	"score": {
+		"message": "Poäng"
+	},
+	"score_short": {
 		"message": "Poäng"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovakiska"
+	},
+	"skip-training": {
+		"message": "Hoppa över träning"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Visa"
 	},
+	"upgrade-warning": {
+		"message": "Hoppsan! Följ jultomten stöds inte i din webbläsare eller så är JavaScript inaktiverat. Hämta en modern webbläsare eller aktivera JavaScript för att använda Följ jultomten.\nMer information finns på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
+	},
 	"us_country_name": {
 		"message": "USA"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ring tomten med Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Kom tillbaka den 24 december och hjälp oss spåra tomten hela natten."
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Lägg till Jultomten som Chrome-tillägg"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Tomtens världsquiz"
+	},
+	"village_santa_install": {
+		"message": "Installera"
 	},
 	"village_takesoff": {
 		"message": "Tomten lyfter om"

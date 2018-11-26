@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "O calendário"
 	},
+	"category_all": {
+		"message": "Ver tudo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Programar"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Desenhar"
 	},
+	"category_education": {
+		"message": "Focados na educação"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
 	"category_language": {
 		"message": "Idioma"
 	},
 	"category_listen": {
 		"message": "Ouvir"
 	},
+	"category_new-this-year": {
+		"message": "Novidades deste ano"
+	},
 	"category_send": {
 		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Estudos sociais"
 	},
 	"cd_country_name": {
 		"message": "República Democrática do Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Ajude a financiar um projeto de ajuda a pessoas com necessidades especiais em DonorsChoose.org. Durante o mês de dezembro, queremos duplicar o efeito solidário: acrescentamos 50% a todas as doações até chegarmos ao objetivo total de 1 milhão de USD. Juntos, queremos tornar as salas de aula mais inclusivas para todas as crianças. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Transfira para aceder a ainda mais jogos"
+	},
 	"dz_country_name": {
 		"message": "Argélia"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "A viagem do Pai Natal para Educadores"
+	},
+	"educators-games": {
+		"message": "Jogos para a sala de aula"
+	},
+	"educators-learn": {
+		"message": "Aprender com A viagem do Pai Natal"
 	},
 	"ee_country_name": {
 		"message": "Estónia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Ocorreu um problema, mas os Elfos do Pai Natal estão a tentar resolvê-lo."
+	},
+	"error-internal": {
+		"message": "Oh, não! Ocorreu um problema. Informámos os elfos do Pai Natal, mas experimente voltar à \u003ca href=\"./\"\u003eAldeia do Pai Natal\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Parece que perdemos a ligação ao Polo Norte. Os duendes do Pai Natal estão a trabalhar para restabelecê-la, fique atento."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Colocar em pausa"
 	},
+	"paused": {
+		"message": "Em pausa"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ups!"
 	},
+	"readyquestion": {
+		"message": "Preparado?"
+	},
 	"ro_country_name": {
 		"message": "Roménia"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arábia Saudita"
+	},
+	"santa-app": {
+		"message": "Pai Natal"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Homem-biscoito"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Corrida do pinguim"
 	},
+	"scene_elfmaker": {
+		"message": "Criador de elfos"
+	},
 	"scene_elfski": {
 		"message": "Elfos esquiadores"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Parque infantil no Polo Norte"
+	},
+	"scene_poseboogie": {
+		"message": "Pose de dança"
+	},
+	"scene_postcard": {
+		"message": "Postais do Pai Natal"
 	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ainda de férias"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renas preocupadas"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recarregamento de presentes"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "A Mandriar"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Descolagem"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentação"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Onde está o Pai Natal?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Oficina do Pai Natal"
+	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Toca a embrulhar"
 	},
 	"score": {
+		"message": "Pontuação"
+	},
+	"score_short": {
 		"message": "Pontuação"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Ignorar formação"
 	},
 	"sl_country_name": {
 		"message": "Serra Leoa"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Ativar som"
 	},
+	"upgrade-warning": {
+		"message": "Ups! A viagem do Pai Natal não é suportada no seu navegador ou tem o JavaScript desativado. Para aceder a este produto, transfira um navegador mais atual ou ative o JavaScript.\nPara mais informações, visite: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Estados Unidos"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ligue ao Pai Natal com o Assistente Google"
 	},
 	"village_comeback": {
 		"message": "Volte no dia 24 e ajude-nos a seguir o Pai Natal durante toda a noite!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Adicionar a extensão do Pai Natal no Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Questionário do Pai Natal sobre a Terra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
 	},
 	"village_takesoff": {
 		"message": "O Pai Natal levanta voo daqui a"

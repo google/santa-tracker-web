@@ -36,11 +36,11 @@ nav {
   background-size: contain;
   &.gameover {
     max-height: 285px;
-    background-image: url(img/overlay/gameover.png);
+    background-image: _root("img/overlay/gameover.png");
   }
   &.pause {
     max-height: 343px;
-    background-image: url(img/overlay/pause.png);
+    background-image: _root("img/overlay/pause.png");
   }
 }
 

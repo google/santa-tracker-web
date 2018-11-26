@@ -41,6 +41,7 @@ async function serve() {
   const loader = require('./loader.js')({
     compile: yargs.compile,
     messages,
+    root: '/',
   });
   const loaderTransform = require('./loader-transform.js');
 

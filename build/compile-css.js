@@ -10,10 +10,10 @@ const sass = require('sass');
  * It needs to be sync as it might be called as part of a Babel plugin, which cannot be async.
  *
  * @param {string} filename with .css extension to request
- * @param {boolean} compile whether to properly compile (autoprefixer)
+ * @param {{compile: boolean, root: string}} options
  * @return {{css: string, map: !Object}}
  */
-module.exports = (filename, compile=false) => {
+module.exports = (filename, options) => {
   const ext = path.extname(filename);
   let css;
   let map = null;
@@ -29,6 +29,17 @@ module.exports = (filename, compile=false) => {
 
   // Otherwise, assume this is SASS and compile accordingly.
   if (css === undefined) {
+    const functions = {
+      '_root($url)': (url) => {
+        // This places the URL at the root of the static output.
+        const raw = path.join(options.root || '/', url.getValue());
+        if (raw.indexOf('(') !== -1 || raw.indexOf(')') !== -1) {
+          throw new Error(`got unexpected char in URL: ${raw}`);
+        }
+        return new sass.types.String(`url(${raw})`);
+      },
+    };
+
     // nb. uses renderSync, https://sass-lang.com/dart-sass is adamant it's 2x faster
     const sassOptions = {
       file: filename.substr(0, filename.length - ext.length) + '.scss',
@@ -38,8 +49,9 @@ module.exports = (filename, compile=false) => {
       sourceMapEmbed: false,
       sourceMapRoot: '.',
       outFile: '_.css',  // just used for relative paths
+      functions,
     };
-    if (compile) {
+    if (options.compile) {
       sassOptions.outputStyle = 'compressed';
     }
     const out = sass.renderSync(sassOptions);
@@ -62,7 +74,7 @@ module.exports = (filename, compile=false) => {
   }
 
   // Optionally apply autoprefixer for release.
-  if (compile) {
+  if (options.compile) {
     const result = postcss([autoprefixer]).process(css, {from: filename});
     result.warnings().forEach((warn) => {
       console.warn(warn.toString());

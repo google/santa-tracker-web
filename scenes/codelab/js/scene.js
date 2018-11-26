@@ -331,10 +331,6 @@ app.Scene.prototype.getWorldTransform_ = function(progress) {
  */
 app.Scene.prototype.calculateViewport_ = function(force=false, event=null) {
   // Blockly spams window.onresize for their scrollbar logic. Let's ignore those.
-  // TODO(samthor): Initial load sometimes misplaces Blockly components, even though resize
-  // is called with the correct size.
-  // console.info('got calculateViewport_', force, window.innerWidth, window.innerHeight, event);
-
   const min = 320;
   const innerWidth = Math.max(min, window.innerWidth);
   const innerHeight = Math.max(min, window.innerHeight);

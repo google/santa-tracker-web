@@ -90,6 +90,7 @@ async function bundleCode(filename, loader) {
  * @param {{
  *   compile: boolean,
  *   messages: function(string): string,
+ *   root: string,
  * }}
  */
 module.exports = (options) => {
@@ -101,7 +102,7 @@ module.exports = (options) => {
     const parsed = path.parse(filename);
     switch (parsed.ext) {
       case '.css':
-        const {css, map} = await compileCss(filename, options.compile);
+        const {css, map} = await compileCss(filename, options);
         return {
           body: css,
           map,
@@ -130,11 +131,6 @@ module.exports = (options) => {
       }
       const out = await compileScene({sceneName}, options.compile);
       ({js: body, map} = out);
-    } else if (parsed.name.endsWith('.bundle')) {
-      // completely bundles code
-      const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-      const out = await bundleCode(path.join(parsed.dir, actual), loader);
-      ({code: body, map} = out);
     } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
       // convert JSON/JSON5 to an exportable module
       const actual = path.join(parsed.dir, parsed.name);
@@ -150,19 +146,29 @@ module.exports = (options) => {
         sourcesContent: [raw],
       };
     } else {
-      // compile _msg/_style
+      if (parsed.name.endsWith('.bundle')) {
+        // completely bundles code
+        const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
+        const out = await bundleCode(path.join(parsed.dir, actual), loader);
+        ({code: body, map} = out);
+      } else {
+        // regular JS file
+        body = await fsp.readFile(filename, 'utf8');
+      }
+
+      // compile all tags
       const templateTagReplacer = (name, arg) => {
         if (name === '_style') {
-          const {css, map} = compileCss(`styles/${arg}.scss`, options.compile);
+          const {css, map} = compileCss(`styles/${arg}.scss`, options);
           extraSources.push(...map.sources);
           return css;
         } else if (options.messages && name === '_msg') {
           return options.messages(arg);
+        } else if (name === '_root') {
+          return path.join(options.root, arg);
         }
       };
 
-      // regular JS file
-      body = await fsp.readFile(filename, 'utf8');
       babelPlugins.push(buildResolveBareSpecifiers(filename));
       babelPlugins.push(buildTemplateTagReplacer(templateTagReplacer));
     }
@@ -176,6 +182,7 @@ module.exports = (options) => {
         filename,
         plugins: babelPlugins,
         sourceMaps: true,
+        inputSourceMap: map || undefined,
         sourceType: 'module',
         retainLines: true,
       });

@@ -19,10 +19,6 @@ $order-overlay: 80;
   display: block;
 }
 
-[hidden] {
-  display: none !important;
-}
-
 main {
   min-height: 100%;
   position: absolute;
@@ -40,7 +36,7 @@ main {
     top: 0;
     height: 100%;
     visibility: hidden;
-    outline: 2px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
     width: 320px;
     transform: translate(-100%);
     transition: transform $duration-sidebar ease-out;
@@ -96,7 +92,7 @@ main {
   height: 2px;
   background: rgba(0, 0, 0, 0.125);
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   will-change: opacity;
 
   &:not([hidden]) {
@@ -118,10 +114,30 @@ santa-loader {
   position: relative;
 
   iframe {
+    display: block;
     border: 0;
     position: absolute;
     width: 100%;
     height: 100%;
+
+    // some browsers still force this to be zero size on load
+    min-height: 200px;
+    min-width: 200px;
+  }
+
+  iframe[hidden] {
+    // this allows frames that actually need real w/h to load
+    min-width: 100vw;
+    min-height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -100;
+
+    // Safari doesn't seem to always respect `visibility: hidden` on iframes, so set `opacity`
+    // and `z-index` as a poor approximation.
+
+    // Chrome hides this for a few frames if placed at `top: 100vh` (or generally
+    // out-of-position) while clearing the `hidden` attribute. So don't!
   }
 }
 
@@ -175,7 +191,7 @@ header {
     .logo {
       width: 62px;
       min-width: 62px;
-      background: url(img/google_logo.svg) 0 0 no-repeat;
+      background: _root("img/google_logo.svg") 0 0 no-repeat;
       background-size: contain;
       color: transparent;
       font-size: 0;
@@ -306,7 +322,7 @@ main.scroll {
 }
 
 .noscene {
-  background: url(img/error.svg) bottom center no-repeat;
+  background: _root("img/error.svg") bottom center no-repeat;
   background-size: cover;
   flex-grow: 1;
   display: flex;
@@ -340,7 +356,7 @@ main.scroll {
     height: $size-icon;
     border-radius: 10000px;
     box-shadow: 4px 14px 0 rgba(0,0,0,.125);
-    background: #7ec6e5 url(img/snowman.png) center no-repeat;
+    background: #7ec6e5 _root("img/snowman.png") center no-repeat;
     // background is contained within border, so create one which limits us
     // to the target $background-size
     background-size: contain;
@@ -350,7 +366,10 @@ main.scroll {
   }
 
   &:not([hidden]) ~ santa-loader {
-    display: none;
+    // santa-loader should be hidden, but not `display: none` during loads
+    visibility: hidden;
+    flex-shrink: 1;
+    flex-grow: 0;
   }
 
   @media (max-height: 400px) {
@@ -380,8 +399,11 @@ main.scroll {
   align-items: center;
   justify-content: center;
   z-index: $order-overlay;
-  pointer-events: none;  // TODO: revert
   background: fade-out(#6f00ff, 0.75);
+
+  &[hidden] {
+    display: none;
+  }
 
   santa-overlay {
     pointer-events: auto;

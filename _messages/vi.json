@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Lịch"
 	},
+	"category_all": {
+		"message": "Xem tất cả"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Mã"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Vẽ"
 	},
+	"category_education": {
+		"message": "Tập trung vào giáo dục"
+	},
+	"category_geography": {
+		"message": "Địa lý"
+	},
 	"category_language": {
 		"message": "Ngôn ngữ"
 	},
 	"category_listen": {
 		"message": "Nghe"
 	},
+	"category_new-this-year": {
+		"message": "Trò chơi mới trong năm nay"
+	},
 	"category_send": {
 		"message": "Gửi"
+	},
+	"category_social-studies": {
+		"message": "Khoa học xã hội"
 	},
 	"cd_country_name": {
 		"message": "Cộng hòa dân chủ Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Hãy tài trợ dự án đặc biệt trên DonorsChoose.org để giúp đỡ người hoạn nạn. Tháng 12 này, chúng ta sẽ hỗ trợ gấp đôi bằng cách tăng số tiền đóng góp lên 50% cho đến khi chúng ta đạt mục tiêu đóng góp là 1 triệu USD. Chúng ta có thể cùng nhau giúp các lớp học trở nên toàn diện hơn #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Tải xuống để tận hưởng nhiều trò chơi hơn nữa"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Theo chân ông già Noel cho Nhà giáo dục"
+	},
+	"educators-games": {
+		"message": "Trò chơi chơi trong lớp học"
+	},
+	"educators-learn": {
+		"message": "Học tập qua trò chơi Theo chân ông già Noel"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Đã xảy ra sự cố nhưng phụ tá của ông già Noel đang kiểm tra."
+	},
+	"error-internal": {
+		"message": "Rất tiếc, đã có vấn đề xảy ra! Chúng tôi đã thông báo cho các chú lùn của ông già Noel. Bạn hãy thử quay lại \u003ca href=\"./\"\u003eNgôi làng của ông già noel\u003c/a\u003e xem."
 	},
 	"error-lost-connection": {
 		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Tạm dừng"
 	},
+	"paused": {
+		"message": "Đã tạm dừng"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Rất tiếc!"
 	},
+	"readyquestion": {
+		"message": "Bạn đã sẵn sàng chưa?"
+	},
 	"ro_country_name": {
 		"message": "Rumani"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Ả-Rập Xê-út"
+	},
+	"santa-app": {
+		"message": "Ông già Noel"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Người bánh gừng"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Chim cánh cụt tấn công"
 	},
+	"scene_elfmaker": {
+		"message": "Tạo chú lùn của bạn"
+	},
 	"scene_elfski": {
 		"message": "Yêu tinh trượt tuyết"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Sân chơi ở Bắc Cực"
+	},
+	"scene_poseboogie": {
+		"message": "Khiêu vũ ấn tượng"
+	},
+	"scene_postcard": {
+		"message": "Bưu thiếp của ông già Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Vẫn đi nghỉ"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Tuần lộc lo lắng"
+	},
 	"scene_videoscene_reload": {
 		"message": "Nạp lại quà"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Chểnh mảng"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Cất cánh"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Sự cám dỗ"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Ông già Noel ở đâu?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Xưởng đồ chơi của ông già Noel"
+	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Điểm số"
+	},
+	"score_short": {
 		"message": "Điểm số"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Tiếng Slovak"
+	},
+	"skip-training": {
+		"message": "Bỏ qua hướng dẫn chơi"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Bật tiếng"
 	},
+	"upgrade-warning": {
+		"message": "Rất tiếc! Trò chơi Theo chân ông già Noel không được hỗ trợ trên trình duyệt của bạn hoặc bạn đã tắt JavaScript. Để theo chân ông già Noel, hãy tải xuống trình duyệt mới hoặc bật JavaScript.\nĐể biết thêm thông tin, hãy truy cập vào: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Hoa Kỳ"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Gọi cho ông già Noel bằng Trợ lý Google"
 	},
 	"village_comeback": {
 		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân ông già Noel suốt cả đêm!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Thêm tiện ích ông già Noel của Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Đố vui về Trái Đất cùng ông già Noel"
+	},
+	"village_santa_install": {
+		"message": "Cài đặt"
 	},
 	"village_takesoff": {
 		"message": "Ông già Noel sẽ khởi hành sau"
