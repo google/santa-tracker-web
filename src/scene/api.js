@@ -140,7 +140,7 @@ class SceneApi extends EventTarget {
 
     // queue of events sent by the game during preload
     const sendQueue = [];
-    this._send = (type, payload) => this.sendQueue.push({type, payload});
+    this._send = (type, payload) => sendQueue.push({type, payload});
 
     // after preload, do a bunch of setup work
     this._ready = (async() => {
