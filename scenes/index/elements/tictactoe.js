@@ -1,5 +1,4 @@
 import {html, LitElement} from '@polymer/lit-element';
-import {ifDefined} from 'lit-html/directives/if-defined';
 
 const WINS = Object.freeze([7, 56, 448, 73, 146, 292, 273, 84]);
 const SHOW_LINE_TIME = 1000;
@@ -29,6 +28,7 @@ export class TicTacToeElement extends LitElement {
   }
 
   connectedCallback() {
+    super.connectedCallback();
     this.play_();
   }
 
