@@ -5,6 +5,7 @@ import './elements/village-countdown.js';
 import './elements/tictactoe.js';
 import './elements/hotair-balloon.js';
 import './elements/snowmobile.js';
+import './elements/wrangler.js';
 
 
 const offset = {x: 0, y: 0};
