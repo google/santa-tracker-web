@@ -63,6 +63,7 @@ ${renderClass('hats', 'fill', this.hatsColor)}
 ${renderClass('limb', 'stroke', this.suitColor)}
 ${renderClass('skin', 'fill', this.skinTone)}
 ${renderClass('hair', 'fill', this.hairColor)}
+${renderClass('accessories', 'fill', this.accessoriesColor)}
     `;
   }
 
@@ -82,6 +83,9 @@ ${renderClass('hair', 'fill', this.hairColor)}
           break;
         case 'hair':
           this._previews = defs.hair;
+          break;
+        case 'accessories':
+          this._previews = defs.accessories;
           break;
         default:
           this._previews = [];
@@ -152,7 +156,7 @@ ${renderClass('hair', 'fill', this.hairColor)}
       let front = '';
       let back = '';
 
-      if (this.category === 'hair') {
+      if (this.category === 'hair' || this.category === 'accessories') {
         front = p;
       } else {
         back = p;

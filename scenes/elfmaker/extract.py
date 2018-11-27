@@ -15,7 +15,7 @@ for fp in files:
         match = y and y.group(1) or ''
         if not match:
             continue
+        match = match.replace('/>', '/>\n')
         print("""  svg`
-{}
-`,  // {}""".format(match, fp))
+{}`,  // {}""".format(match, fp))
 

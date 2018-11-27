@@ -116,14 +116,6 @@ svg {
   <style>${defs.baseSvgStyle}${this.svgStyle}</style>
 
   <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">
-
-    <!-- head -->
-    <g transform="translate(-105, -18)">
-      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
-      ${defs.head}
-      <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
-    </g>
-
     <!-- body -->
     <path transform="translate(-130, 0)" class="suit" d="M130,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42.65,42.65,0,1,0,85.3,0V245.35A42.66,42.66,0,0,0,130,202.7Z"/>
 
@@ -139,6 +131,14 @@ svg {
     <!-- right arm -->
     <g transform="translate(+10, 216) scale(-1, -1)">
       ${this._buildArm(rightArmDegrees, shrug)}
+    </g>
+
+    <!-- head -->
+    <g transform="translate(-105, -18)">
+      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
+      ${defs.head}
+      <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
+      <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
     </g>
   </g>
 
