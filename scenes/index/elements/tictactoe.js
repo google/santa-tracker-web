@@ -15,23 +15,21 @@ export class TicTacToeElement extends LitElement {
       turn: {type: Boolean},
       redScore: {type: Number},
       blueScore: {type: Number},
+      cellClasses: {type: Array},
       winClass: {type: String},
+      redTeamClass: {type: String, default: ''},
+      blueTeamClass: {type: String, default: ''},
     };
   }
 
   constructor() {
     super();
 
-    this.playInterval_;
     this.cellsAvailable_ = [];
-    this.cells_ = [];
-    this.timers_ = [];
   }
 
-  connectedCallback() {    
-    window.setTimeout(() => {
-      this.play_();
-    }, 1000);
+  connectedCallback() {
+    this.play_();
   }
 
   play_() {
@@ -45,23 +43,90 @@ export class TicTacToeElement extends LitElement {
       this.turn = Boolean(Math.random() >= .5);
 
       this.winClass = '';
-      this.redPlayer_ = this.shadowRoot.querySelector('#elves-red');
-      this.bluePlayer_ = this.shadowRoot.querySelector('#elves-blue');
-      this.redPlayer_.className = 'elves';
-      this.bluePlayer_.className = 'elves';
+      this.redTeamClass = '';
+      this.blueTeamClass = '';
 
-      this.cells_ = Array.from(this.shadowRoot.querySelectorAll('.cell'));
-      this.cells_.forEach(cell => cell.className = 'cell empty');
-      this.cellsAvailable_ = Array.from(this.cells_);
+      this.cellsAvailable_ = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+      this.cellClasses = new Array(9).fill('empty');
     }
 
     // Random is the best AI....
     const rnd = Math.floor(Math.random() * this.cellsAvailable_.length);
     const cell = this.cellsAvailable_.splice(rnd, 1).pop();
-    const idx = this.cells_.indexOf(cell);
 
-    this.playCell_(idx, cell);
+    this.playCell_(cell);
   }
+
+  /**
+   * @param {number} index
+   * @private 
+   */
+  async playCell_(index) {
+    const moveTime = 500;
+    const drawTime = 200;
+    const doneDrawTime = 500;
+    const moveBackTime = 500;
+    const playAgainTime = 1000;
+    const posClass = `to-pos-${index + 1}`;
+
+    if (this.turn) {
+      this.redTeamClass = posClass;
+    } else {
+      this.blueTeamClass = posClass;
+    }
+
+    await delay(moveTime);
+
+    if (this.turn) {
+      this.redTeamClass += ' draw';
+    } else {
+      this.blueTeamClass += ' draw';
+    }
+
+    await delay(drawTime);
+
+    const c = Array.from(this.cellClasses);
+    c[index] = this.turn ? 'red' : 'blue';
+    this.cellClasses = c;
+
+    await delay(doneDrawTime);
+
+    if (this.turn) {
+      this.redTeamClass = '';
+    } else {
+      this.blueTeamClass = '';
+    }
+
+    await delay(moveBackTime);
+
+
+    if (this.turn) {
+      this.redScore += (1 << index);
+      var w = this.checkWin_(this.redScore);
+      if (w !== false) {
+        this.showWin_('red', w);
+        return;
+      }
+    } else {
+      this.blueScore += (1 << index);
+      var w = this.checkWin_(this.blueScore);
+      if (w !== false) {
+        this.showWin_('blue', w);
+        return;
+      }
+    }
+
+    if (!this.cellsAvailable_.length) {
+      // Draw
+      window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
+    }
+
+    this.turn = !this.turn;
+
+    await delay(playAgainTime);
+    this.play_();
+  }
+
 
   /**
    * 
@@ -71,8 +136,7 @@ export class TicTacToeElement extends LitElement {
   async showWin_(player, w) {
     this.isPlaying = false;
 
-    //TODO: hook up GA
-    //window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
+    window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
 
     await delay(SHOW_LINE_TIME);
     this.winClass = `${player} pos-${w}`;
@@ -97,83 +161,19 @@ export class TicTacToeElement extends LitElement {
     return false;
   }
 
-  /**
-   * @param {number} index
-   * @param {!Element} cell}
-   * @private 
-   */
-  async playCell_(index, cell) {
-    const moveTime = 500;
-    const drawTime = 200;
-    const doneDrawTime = 500;
-    const moveBackTime = 500;
-    const playAgainTime = 1000;
-    const posClass = `to-pos-${index + 1}`;
-
-    const player = this.turn ? this.redPlayer_ : this.bluePlayer_;
-
-    player.classList.add(posClass);
-    await delay(moveTime);
-
-    player.classList.add('draw');
-    await delay(drawTime);
-
-    cell.classList.add(this.turn ? 'red' : 'blue');
-    cell.classList.remove('empty');
-    await delay(doneDrawTime);
-
-    player.classList.remove('draw');
-    player.classList.remove(posClass);
-    await delay(moveBackTime);
-
-    if (this.turn) {
-      this.redScore += (1 << index);
-      var w = this.checkWin_(this.redScore);
-      if (w !== false) {
-        this.showWin_('red', w);
-        return;
-      }
-    } else {
-      this.blueScore += (1 << index);
-      var w = this.checkWin_(this.blueScore);
-      if (w !== false) {
-        this.showWin_('blue', w);
-        return;
-      }
-    }
-
-    if (!this.cellsAvailable_.length) {
-      // Draw
-      //TODO, hook up ga? Is it still done like this?
-      //window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
-    }
-
-    this.turn = !this.turn;
-
-    await delay(playAgainTime);
-    this.play_();
-  }
-
   update(changedProperties) {
     super.update(changedProperties);
   }
 
   render() {
+
     return html`
     <style>${_style`tictactoe`}</style>
     <div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
+      ${this.cellClasses.map(c => html`<div class="cell ${c}"></div>`)}
     </div>
-    <div id="elves-red" class="elves"></div>
-    <div id="elves-blue" class="elves"></div>
+    <div id="elves-red" class="elves ${this.redTeamClass}"></div>
+    <div id="elves-blue" class="elves ${this.blueTeamClass}"></div>
     <div id="win" class="${this.winClass}"></div>
     `;
   }
