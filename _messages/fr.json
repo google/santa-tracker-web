@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Calendrier"
 	},
+	"category_all": {
+		"message": "Tout afficher"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Coder"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Match nul"
 	},
+	"category_education": {
+		"message": "Axés sur l'éducation"
+	},
+	"category_geography": {
+		"message": "Géographie"
+	},
 	"category_language": {
 		"message": "Langue"
 	},
 	"category_listen": {
 		"message": "Écouter"
 	},
+	"category_new-this-year": {
+		"message": "Nouveautés de cette année"
+	},
 	"category_send": {
 		"message": "Envoyer"
+	},
+	"category_social-studies": {
+		"message": "Sociologie"
 	},
 	"cd_country_name": {
 		"message": "République démocratique du Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Aidez à financer un projet destiné aux enfants handicapés sur DonorsChoose.org. En décembre, nous en doublons l'impact en contribuant à hauteur de 50 % des dons, jusqu'à atteindre notre objectif d'un million de dollars. Ensemble, nous pouvons promouvoir la diversité dans les salles de classe #ForEveryKid."
 	},
+	"download-cta": {
+		"message": "Téléchargez l'application pour jouer à encore plus de jeux"
+	},
 	"dz_country_name": {
 		"message": "Algérie"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Sur la piste du père Noël pour les enseignants"
+	},
+	"educators-games": {
+		"message": "Jeux pour la classe"
+	},
+	"educators-learn": {
+		"message": "Apprendre avec \"Sur la piste du Père Noël\""
 	},
 	"ee_country_name": {
 		"message": "Estonie"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Un problème est survenu, mais les lutins du père Noël s'en occupent."
+	},
+	"error-internal": {
+		"message": "Un problème est survenu. Nous en avons informé les lutins du Père Noël. En attendant, retournez au \u003ca href=\"./\"\u003evillage du Père Noël\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Nous avons perdu le contact avec le pôle Nord. Mais pas de panique : les lutins du père Noël sont déjà à pied d'œuvre pour rétablir la connexion. N'hésitez pas à revenir régulièrement."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pause"
 	},
+	"paused": {
+		"message": "Pause"
+	},
 	"pe_country_name": {
 		"message": "Pérou"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Raté !"
 	},
+	"readyquestion": {
+		"message": "OK ?"
+	},
 	"ro_country_name": {
 		"message": "Roumanie"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
+	},
+	"santa-app": {
+		"message": "Père Noël"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Bonhomme de pain d'épices"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "La promenade du pingouin"
 	},
+	"scene_elfmaker": {
+		"message": "Créateur de lutin"
+	},
 	"scene_elfski": {
 		"message": "La descente en skis de l'elfe"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Le terrain de jeu du Pôle Nord"
+	},
+	"scene_poseboogie": {
+		"message": "Le boogie des poses"
+	},
+	"scene_postcard": {
+		"message": "Cartes postales du Père Noël"
 	},
 	"scene_presentbounce": {
 		"message": "Le cadeau rebondissant"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Toujours en vadrouille"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Les rennes s'inquiètent"
+	},
 	"scene_videoscene_reload": {
 		"message": "Rechargement de cadeaux"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Moment de détente"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "C'est parti"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Où est le père Noël ?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "L'atelier du Père Noël"
+	},
 	"scene_windtunnel": {
 		"message": "La soufflerie"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Concours d'emballage de cadeaux"
 	},
 	"score": {
+		"message": "Score"
+	},
+	"score_short": {
 		"message": "Score"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovaque"
+	},
+	"skip-training": {
+		"message": "Passer l'entraînement"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Réactiver"
 	},
+	"upgrade-warning": {
+		"message": "Petit problème… \"Sur la piste du Père Noël\" ne fonctionne pas sur votre navigateur, ou JavaScript est désactivé. Pour accéder au jeu, téléchargez un navigateur plus récent ou activez JavaScript.\nPour en savoir plus, accédez à \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "États-Unis"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Appelez le Père Noël avec l'Assistant Google"
 	},
 	"village_comeback": {
 		"message": "Revenez le 24 pour suivre avec nous le père Noël toute la nuit !"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Ajouter l'extension Sur la piste du père Noël pour Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Quiz sur la Terre du Père Noël"
+	},
+	"village_santa_install": {
+		"message": "Installer"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël s'envolera dans"

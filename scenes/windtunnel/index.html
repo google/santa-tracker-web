@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="windtunnel-scene.css" />
+</head>
+<body>
+
+<div id="module-windtunnel">
+  <div class="scene">
+    <div class="windtunnel">
+      <div class="main">
+        <div class="machine">
+          <div class="lights">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+          </div>
+
+          <div class="rudolf-wrap rudolf-wrap--normal">
+            <div id="rudolf" class="rudolf">
+              <div class="rudolf-light"></div>
+            </div>
+
+            <div class="parachute-wrap">
+              <div class="parachute"></div>
+              <div class="parachute-shadow"></div>
+            </div>
+          </div>
+
+          <div class="lift-wrap">
+            <div class="lift"></div>
+          </div>
+
+          <div class="fan-base">
+            <div class="fan">
+              <div class="threads">
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+                <div class="thread thread--low"></div>
+              </div>
+
+              <div class="indicator-wrap">
+                <div class="indicator"></div>
+              </div>
+
+              <div id="leverwrap" class="lever-wrap">
+                <div class="lever"></div>
+                <div class="lever-base"></div>
+              </div>
+
+              <div class="controller">
+                <div class="elf"></div>
+                <div class="shadow"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="consoles">
+            <div class="console c1"></div>
+            <div class="console c2">
+              <div class="meters"></div>
+            </div>
+            <div class="console c3">
+              <div class="tapes">
+                <div class="tape"></div>
+                <div class="tape"></div>
+              </div>
+            </div>
+            <div class="console c4">
+              <div class="graph"></div>
+              <div class="blibs"></div>
+            </div>
+            <div class="console c5">
+              <div class="tapes">
+                <div class="tape"></div>
+                <div class="tape"></div>
+              </div>
+              <div class="lights"></div>
+            </div>
+          </div>
+
+          <div class="snowblower">
+            <div id="snowblower" class="snowblower-switch snowblower-switch--med"></div>
+          </div>
+
+          <canvas class="snow-canvas"></canvas>
+
+          <div class="screen-frame">
+            <div class="screen"></div>
+            <div class="shadow"></div>
+          </div>
+
+          <div class="window"></div>
+
+          <div class="cogs">
+            <div class="cog small"></div>
+            <div class="cog big"></div>
+          </div>
+
+          <div class="wind-balloon"></div>
+        </div>
+      </div>
+      <div class="split"></div>
+    </div>
+  </div>
+</div>
+
+<script src="../../node_modules/web-animations-js/web-animations-next.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module">
+import api from '../../src/scene/api.js';
+import Game from './windtunnel-scene.min.js';
+
+api.preload.sounds('windtunnel_load_sounds', 10);
+api.preload.images(
+  'img/logo.svg',
+  'img/base-back.png',
+  'img/cog-big.png',
+  'img/cog-small.png',
+  'img/console-blibs.png',
+  'img/console-graph.png',
+  'img/console-lights.png',
+  'img/console-meters.png',
+  'img/console-tape.png',
+  'img/consoles.png',
+  'img/elfs.png',
+  'img/fan-base.png',
+  'img/fan-controller-shadow.png',
+  'img/fan-controller.png',
+  'img/fan-indicator.png',
+  'img/fan-lever-base.png',
+  'img/fan-lever-handle.png',
+  'img/fan-shadow.png',
+  'img/fan-threads-high.png',
+  'img/fan-threads-low.png',
+  'img/fan-threads-med.png',
+  'img/lift-shadow.png',
+  'img/lift.png',
+  'img/light.png',
+  'img/machine-base.png',
+  'img/parachute-shadow.png',
+  'img/parachute.png',
+  'img/rudolf-nose-light.png',
+  'img/rudolf-serious.png',
+  'img/rudolf-serious-shadow.png',
+  'img/rudolf-shadow.png',
+  'img/rudolf.png',
+  'img/screen.png',
+  'img/snow-layer1.png',
+  'img/snow-layer2.png',
+  'img/snow-layer3.png',
+  'img/snow-layer4.png',
+  'img/snowblower-switch.png',
+  'img/snowblower.png',
+  'img/wind-balloon.png',
+  'img/wires.png',
+);
+
+        // case 'left':
+        // case 'right':
+        //   this.$.leverwrap.click();
+        //   break;
+        // case 'down':
+        // case 'up':
+        //   this.$.snowblower.click();
+        //   break;
+        // case 'enter':
+        // case 'space':
+        //   this.$.rudolf.click();
+        //   break;
+
+const game = new Game(document.getElementById('module-windtunnel'));
+
+api.ready(async () => {
+  api.ambient('windtunnel_start', 'windtunnel_end');
+  api.fire('music_start_scene');
+});
+
+</script>
+
+</body>
+</html>

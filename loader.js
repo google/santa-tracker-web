@@ -90,17 +90,10 @@ async function bundleCode(filename, loader) {
  * @param {{
  *   compile: boolean,
  *   messages: function(string): string,
+ *   root: string,
  * }}
  */
 module.exports = (options) => {
-  const templateTagReplacer = (name, arg) => {
-    if (name === '_style') {
-      return compileCss(`styles/${arg}.scss`, options.compile);
-    } else if (options.messages && name === '_msg') {
-      return options.messages(arg);
-    }
-  };
-
   const loader = async (filename) => {
     if (filename.startsWith('third_party/')) {
       return null;
@@ -109,8 +102,10 @@ module.exports = (options) => {
     const parsed = path.parse(filename);
     switch (parsed.ext) {
       case '.css':
+        const {css, map} = await compileCss(filename, options);
         return {
-          body: await compileCss(filename, options.compile),
+          body: css,
+          map,
         };
       case '.html':
         // nb. Just pass through options as-is.
@@ -126,6 +121,7 @@ module.exports = (options) => {
     let body = null;
     let map = null;
     const babelPlugins = [];
+    const extraSources = [];
 
     if (parsed.name.endsWith('.min')) {
       // try to match scene JS
@@ -135,11 +131,6 @@ module.exports = (options) => {
       }
       const out = await compileScene({sceneName}, options.compile);
       ({js: body, map} = out);
-    } else if (parsed.name.endsWith('.bundle')) {
-      // completely bundles code
-      const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
-      const out = await bundleCode(path.join(parsed.dir, actual), loader);
-      ({code: body, map} = out);
     } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
       // convert JSON/JSON5 to an exportable module
       const actual = path.join(parsed.dir, parsed.name);
@@ -155,8 +146,29 @@ module.exports = (options) => {
         sourcesContent: [raw],
       };
     } else {
-      // regular JS file
-      body = await fsp.readFile(filename, 'utf8');
+      if (parsed.name.endsWith('.bundle')) {
+        // completely bundles code
+        const actual = parsed.name.substr(0, parsed.name.length - '.bundle'.length) + '.js';
+        const out = await bundleCode(path.join(parsed.dir, actual), loader);
+        ({code: body, map} = out);
+      } else {
+        // regular JS file
+        body = await fsp.readFile(filename, 'utf8');
+      }
+
+      // compile all tags
+      const templateTagReplacer = (name, arg) => {
+        if (name === '_style') {
+          const {css, map} = compileCss(`styles/${arg}.scss`, options);
+          extraSources.push(...map.sources);
+          return css;
+        } else if (options.messages && name === '_msg') {
+          return options.messages(arg);
+        } else if (name === '_root') {
+          return path.join(options.root, arg);
+        }
+      };
+
       babelPlugins.push(buildResolveBareSpecifiers(filename));
       babelPlugins.push(buildTemplateTagReplacer(templateTagReplacer));
     }
@@ -170,6 +182,7 @@ module.exports = (options) => {
         filename,
         plugins: babelPlugins,
         sourceMaps: true,
+        inputSourceMap: map || undefined,
         sourceType: 'module',
         retainLines: true,
       });
@@ -183,6 +196,12 @@ module.exports = (options) => {
       const sourceRoot = map.sourceRoot || '.';
       map.sources = (map.sources || []).map((f) => f && path.join(dirname, sourceRoot, f));
       map.sourceRoot = path.relative(dirname, '.');
+
+      // append all extra deps, e.g. the SASS files sourced from
+      for (const extraSource of extraSources) {
+        map.sources.push(extraSource);
+        map.sourcesContent.push(null);
+      }
     }
 
     return body !== null ? {body, map} : null;

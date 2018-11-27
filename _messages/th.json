@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "ปฏิทิน"
 	},
+	"category_all": {
+		"message": "ดูทั้งหมด"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "เขียนโปรแกรม"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "วาด"
 	},
+	"category_education": {
+		"message": "มุ่งเน้นการศึกษา"
+	},
+	"category_geography": {
+		"message": "ภูมิศาสตร์"
+	},
 	"category_language": {
 		"message": "ภาษา"
 	},
 	"category_listen": {
 		"message": "ฟัง"
 	},
+	"category_new-this-year": {
+		"message": "ใหม่ในปีนี้"
+	},
 	"category_send": {
 		"message": "ส่ง"
+	},
+	"category_social-studies": {
+		"message": "สังคมศึกษา"
 	},
 	"cd_country_name": {
 		"message": "สาธารณรัฐประชาธิปไตยคองโก"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "ร่วมสมทบทุนให้กับโครงการที่มีความต้องการพิเศษที่ DonorsChoose.org ในเดือนธันวาคมนี้ เราจะช่วยเพิ่มยอดบริจาคให้มากขึ้นเป็นทวีคูณด้วยการสมทบทุนอีก 50% สำหรับทุกการบริจาคของคุณ จนกว่ายอดเงินบริจาคทั้งหมดจะบรรลุเป้าหมาย 1 ล้านดอลลาร์สหรัฐฯ ตามที่เราตั้งไว้ ด้วยพลังจากน้ำใจของพวกเราทุกคน เราสามารถช่วยสร้างห้องเรียนที่เด็กๆ ทุกคนสามารถเรียนร่วมกันได้มากขึ้น #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "ดาวน์โหลดเพื่อเล่นเกมอื่นๆ มากมาย"
+	},
 	"dz_country_name": {
 		"message": "แอลจีเรีย"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "ตามติดซานต้าสำหรับนักการศึกษา"
+	},
+	"educators-games": {
+		"message": "เกมสำหรับห้องเรียน"
+	},
+	"educators-learn": {
+		"message": "เรียนรู้ไปกับติดตามซานตาคลอส"
 	},
 	"ee_country_name": {
 		"message": "เอสโตเนีย"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "เกิดปัญหาบางอย่าง แต่เหล่าเอลฟ์ของซานต้ากำลังหาทางแก้ไขอยู่"
+	},
+	"error-internal": {
+		"message": "ไม่นะ เกิดปัญหาบางอย่างขึ้น เราได้แจ้งเหล่าเอลฟ์ของซานตาแล้ว แต่ลองกลับไปที่\u003ca href=\"./\"\u003eหมู่บ้านของซานตา\u003c/a\u003eดูสิ"
 	},
 	"error-lost-connection": {
 		"message": "ดูเหมือนว่าเราสูญเสียการเชื่อมต่อกับขั้วโลกเหนือ เอลฟ์ของซานต้ากำลังพยายามแก้ไข อย่าเพิ่งไปไหน"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "หยุดชั่วคราว"
 	},
+	"paused": {
+		"message": "หยุดชั่วคราว"
+	},
 	"pe_country_name": {
 		"message": "เปรู"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "อ๊ะ!"
 	},
+	"readyquestion": {
+		"message": "พร้อมไหม"
+	},
 	"ro_country_name": {
 		"message": "โรมาเนีย"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "ซาอุดีอาระเบีย"
+	},
+	"santa-app": {
+		"message": "ซานตา"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "มนุษย์ขนมปังขิง"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "เพนกวินแดช"
 	},
+	"scene_elfmaker": {
+		"message": "เครื่องผลิตเอลฟ์"
+	},
 	"scene_elfski": {
 		"message": "เอลฟ์เล่นสกี"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "สนามเด็กเล่นขั้วโลกเหนือ"
+	},
+	"scene_poseboogie": {
+		"message": "เอลฟ์ออกมาเต้น"
+	},
+	"scene_postcard": {
+		"message": "ไปรษณียบัตรซานตา"
 	},
 	"scene_presentbounce": {
 		"message": "โยนของขวัญ"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "ยังคงลาพักร้อนอยู่"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "ความกังวลของกวางเรนเดียร์"
+	},
 	"scene_videoscene_reload": {
 		"message": "โหลดของขวัญอีกครั้ง"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "อู้งาน"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "ไปเลย"
+	},
 	"scene_videoscene_temptation": {
 		"message": "สิ่งล่อใจ"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "ซานต้าอยู่ที่ไหน"
 	},
+	"scene_videoscene_workshop": {
+		"message": "เวิร์กชอปของซานตา"
+	},
 	"scene_windtunnel": {
 		"message": "อุโมงค์ลม"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "แข่งห่อของขวัญ"
 	},
 	"score": {
+		"message": "คะแนน"
+	},
+	"score_short": {
 		"message": "คะแนน"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "ภาษาสโลวัก"
+	},
+	"skip-training": {
+		"message": "ข้ามการฝึก"
 	},
 	"sl_country_name": {
 		"message": "เซียร์ราลีโอน"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "เปิดเสียง"
 	},
+	"upgrade-warning": {
+		"message": "อ๊ะ เบราว์เซอร์ของคุณไม่รองรับ \"ติดตามซานตาคลอส\" หรือคุณปิดใช้ JavaScript อยู่ หากต้องการเข้าถึงติดตามซานตาคลอส ลองดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่หรือเปิดใช้ JavaScript\nไปที่ \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e เพื่อดูข้อมูลเพิ่มเติม"
+	},
 	"us_country_name": {
 		"message": "สหรัฐอเมริกา"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "เวเนซุเอลา"
+	},
+	"village_assistant-call_santa": {
+		"message": "โทรหาซานตาด้วย Google Assistant"
 	},
 	"village_comeback": {
 		"message": "กลับมาดูใหม่ในวันที่ 24 และช่วยเราตามติดซานต้าตลอดทั้งคืน!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "เพิ่มส่วนขยายซานต้า Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "แบบทดสอบเรื่องโลกของซานตา"
+	},
+	"village_santa_install": {
+		"message": "ติดตั้ง"
 	},
 	"village_takesoff": {
 		"message": "ซานต้าจะออกเดินทางใน"

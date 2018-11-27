@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "日曆"
 	},
+	"category_all": {
+		"message": "全部顯示"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "寫程式"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "繪製"
 	},
+	"category_education": {
+		"message": "教育性質"
+	},
+	"category_geography": {
+		"message": "地理"
+	},
 	"category_language": {
 		"message": "語言"
 	},
 	"category_listen": {
 		"message": "聆聽"
 	},
+	"category_new-this-year": {
+		"message": "今年的新遊戲"
+	},
 	"category_send": {
 		"message": "傳送"
+	},
+	"category_social-studies": {
+		"message": "社會科學"
 	},
 	"cd_country_name": {
 		"message": "剛果民主共和國"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "DonorsChoose.org 有一項特殊需求慈善活動需要您的支持！今年 12 月，只要捐款贊助這項慈善活動，Google 就會共襄盛舉，以您捐款金額的 50% 加碼贊助，和您一起攜手做公益，目標是募得一百萬美元。懇請您伸出援手，幫助更多孩童穩定就學 #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "下載應用程式即可暢玩更多遊戲"
+	},
 	"dz_country_name": {
 		"message": "阿爾及利亞"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "聖誕老人追蹤器教職人員版"
+	},
+	"educators-games": {
+		"message": "適用於課堂教學的遊戲"
+	},
+	"educators-learn": {
+		"message": "聖誕老人追蹤器，快樂學習好工具"
 	},
 	"ee_country_name": {
 		"message": "愛沙尼亞"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "開啟網頁時發生問題。不過別擔心，聖誕老人的助手小精靈正在調查。"
+	},
+	"error-internal": {
+		"message": "糟糕，發生問題！我們已經通知聖誕老人的助手小精靈，你可以試著回到\u003ca href=\"./\"\u003e聖誕老人村\u003c/a\u003e。"
 	},
 	"error-lost-connection": {
 		"message": "看來我們與北極的連線剛斷了，聖誕老人的小精靈正努力修復中，別走開喔！"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "暫停"
 	},
+	"paused": {
+		"message": "已暫停"
+	},
 	"pe_country_name": {
 		"message": "秘魯"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "糟糕！"
 	},
+	"readyquestion": {
+		"message": "準備好了嗎？"
+	},
 	"ro_country_name": {
 		"message": "羅馬尼亞"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "沙烏地阿拉伯"
+	},
+	"santa-app": {
+		"message": "聖誕老人"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "薑餅人"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "企鵝向前衝"
 	},
+	"scene_elfmaker": {
+		"message": "精靈製造機"
+	},
 	"scene_elfski": {
 		"message": "精靈滑雪板"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "北極遊樂場"
+	},
+	"scene_poseboogie": {
+		"message": "扭腰擺臀"
+	},
+	"scene_postcard": {
+		"message": "聖誕老人明信片"
 	},
 	"scene_presentbounce": {
 		"message": "彈跳小禮物"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "休假中"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "聖誕老人不見了"
+	},
 	"scene_videoscene_reload": {
 		"message": "禮物補充"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "偷懶"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "啟程"
+	},
 	"scene_videoscene_temptation": {
 		"message": "擋不住的誘惑"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "聖誕老人在哪裡？"
 	},
+	"scene_videoscene_workshop": {
+		"message": "聖誕老人工作坊"
+	},
 	"scene_windtunnel": {
 		"message": "風洞"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "包裝快手"
 	},
 	"score": {
+		"message": "分數"
+	},
+	"score_short": {
 		"message": "分數"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克文"
+	},
+	"skip-training": {
+		"message": "略過遊戲教學"
 	},
 	"sl_country_name": {
 		"message": "獅子山"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "取消靜音"
 	},
+	"upgrade-warning": {
+		"message": "糟糕！你的瀏覽器不支援聖誕老人追蹤器，或是你已停用 JavaScript。如要使用聖誕老人追蹤器，請下載新版瀏覽器或啟用 JavaScript。詳情請參閱 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+	},
 	"us_country_name": {
 		"message": "美國"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "委內瑞拉"
+	},
+	"village_assistant-call_santa": {
+		"message": "透過 Google 助理打電話給聖誕老人"
 	},
 	"village_comeback": {
 		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "新增聖誕老人 Chrome 擴充功能"
+	},
+	"village_santa_earth_quiz": {
+		"message": "聖誕老人地理大哉問"
+	},
+	"village_santa_install": {
+		"message": "安裝"
 	},
 	"village_takesoff": {
 		"message": "距離聖誕老人出發時間還有"

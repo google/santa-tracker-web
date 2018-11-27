@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+main {
+  $size: 64px;
+  $border: 4px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .item {
+    border: 0;
+    position: relative;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .opt {
+      border-radius: 1000px;
+      margin: 4px;
+      width: $size;
+      height: $size;
+      position: relative;
+      box-sizing: border-box;
+      border: $border solid transparent;
+      background: transparent no-repeat center/contain;
+
+      &::before {
+        content: '';
+        color: white;
+        display: block;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $size * 0.6;
+        font-weight: 900;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.33);
+
+        font-family: 'Material Icons';
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'liga';
+      }
+    }
+
+    input:focus + .opt {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // category chooser overrides
+  &.mode-category {
+    .item {
+      input:checked + .opt {
+        background-color: #f8ce3c;
+      }
+    }
+
+    .value-body {
+      background-image: _root("scenes/elfmaker/img/btn_body.svg");
+    }
+    .value-hair {
+      background-image: _root("scenes/elfmaker/img/btn_hair.svg");
+    }
+    .value-ears {
+      background-image: _root("scenes/elfmaker/img/btn_ears.svg");
+    }
+    .value-eyes {
+      background-image: _root("scenes/elfmaker/img/btn_eyes.svg");
+    }
+    .value-accessories {
+      background-image: _root("scenes/elfmaker/img/btn_accessories.svg");
+    }
+    .value-hats {
+      background-image: _root("scenes/elfmaker/img/btn_hats.svg");
+    }
+  }
+
+  // color chooser overrides
+  &:not(.mode-category) {
+    .item {
+      input:checked + .opt {
+        box-shadow: 0 0 0 4px rgba(96, 96, 96, 0.1);
+        &::before {
+          content: 'check';
+        }
+      }
+    }
+  }
+}
+
+

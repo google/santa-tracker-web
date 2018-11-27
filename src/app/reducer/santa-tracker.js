@@ -2,16 +2,24 @@ import {SantaTrackerAction} from '../action.js';
 
 export const santaTrackerReducer = (state, action) => {
   switch (action.type) {
+    case SantaTrackerAction.SCENE_DATA:
+      return {
+        ...state,
+        selectedData: action.payload,
+      };
+
     case SantaTrackerAction.SCENE_SELECTED:
-      if (state.selectedScene === action.payload) {
+      const {sceneName, data} = action.payload;
+      if (state.selectedScene === sceneName) {
         // hide sidebar if we're already selected (pretend 'activated' again)
         let showSidebar = state.showSidebar;
-        if (state.activeScene === action.payload) {
+        if (state.activeScene === sceneName) {
           showSidebar = false;
         }
 
         return {
           ...state,
+          selectedData: data || state.selectedData,  // use new if provided
           showSidebar,
           loadAttempt: state.loadAttempt + 1,  // might request reload
         };
@@ -19,10 +27,11 @@ export const santaTrackerReducer = (state, action) => {
 
       // if the selected scene is already active (but not selected), then it was selected again
       // during another scene's load: so set the scene's loadProgress to done!
-      const loadProgress = (state.activeScene === action.payload) ? 1 : 0;
+      const loadProgress = (state.activeScene === sceneName) ? 1 : 0;
       return {
         ...state,
-        selectedScene: action.payload,
+        selectedScene: sceneName,
+        selectedData: data,
         loadAttempt: 0,
         loadProgress,
       };
@@ -36,12 +45,15 @@ export const santaTrackerReducer = (state, action) => {
     case SantaTrackerAction.SCENE_ACTIVATED:
       return {
         ...state,
+        ready: true,
         activeScene: action.payload,
         loadProgress: 1,
+        restartCount: 0,
         showError: false,
         showSidebar: false,
         score: {},
         gameover: false,
+        shareUrl: false,
       };
 
     case SantaTrackerAction.SCENE_FAILED:
@@ -50,25 +62,29 @@ export const santaTrackerReducer = (state, action) => {
         ...state,
         activeScene: null,
         loadProgress: 1,
-        showError: true,
+        showError: action.payload || true,
         showSidebar: false,
+        gameover: false,
+        shareUrl: false,
+      };
+
+    case SantaTrackerAction.SCENE_RESTART:
+      return {
+        ...state,
+        gameover: false,
+        shareUrl: false,
       };
 
     case SantaTrackerAction.SCORE_GAMEOVER:
-      if (state.activeScene !== action.payload.sceneName) {
-        return state;
-      }
       return {
         ...state,
-        score: {score: action.payload.detail.score},
+        score: {score: action.payload.score},
         gameover: true,
+        shareUrl: 'url' in action.payload,
       };
 
     case SantaTrackerAction.SCORE_UPDATE:
-      if (state.activeScene !== action.payload.sceneName || state.gameover) {
-        return state;
-      }
-      return {...state, score: action.payload.detail};
+      return {...state, score: action.payload};
 
     case SantaTrackerAction.PAGE_BECAME_VISIBLE:
       return {...state, pageVisible: true};

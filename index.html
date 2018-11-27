@@ -7,61 +7,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lobster|Material+Icons" />
   <link rel="stylesheet" href="styles/santa.css" />
-  <link id="DEV" />
   <base target="_blank" />
 
-  <!-- Polyfills only needed for Firefox and Edge. -->
   <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 </head>
 <body>
   <santa-app id="santaApp"></santa-app>
   <script type="module">
     import './src/elements.js';
+    import * as channel from './src/lib/channel.js';
     import {Entrypoint} from './src/app/entrypoint.js';
     import * as route from './src/route.js';
 
-    const params = new URLSearchParams(window.location.search);
-    const initialScene = params.get('scene');
-
-    const scope = params.get('scope');
-    if (scope !== null) {
-      document.body.setAttribute('data-scope', scope);
-    }
-
-    const callback = (function() {
-      if (!window.parent || window.parent === window) {
-        // not in a frame, probably during dev
-        return () => {};
+    const entrypoint = new Entrypoint(santaApp);
+    const parent = channel.parent('init', (data) => {
+      switch (data && data.type) {
+        case 'go':
+          entrypoint.load(data.payload.sceneName, data.payload.data);
+          break;
       }
+    });
+    entrypoint.addEventListener('ready', (ev) => parent({type: 'ready'}));
+    entrypoint.addEventListener('scene', (ev) => parent({type: 'scene', payload: ev.detail}));
 
-      const mc = new MessageChannel();
-      const port = mc.port1;
-      let pendingPort = mc.port2;
+    window.ga = function() {
+      const payload = Array.from(arguments);
+      if (payload[0] !== 'send' || payload[1] !== 'event') {
+        console.warn('non-event', payload);
+      }
+      parent({type: 'ga', payload});
+    };
 
-      port.onmessage = (ev) => {
-        switch (ev.data && ev.data.type) {
-          case 'go':
-            load(ev.data.payload);
-            break;
-        }
-      };
-
-      return (sceneName) => {
-        if (pendingPort) {
-          // on the first callback, tell the parent that we're alive
-          window.parent.postMessage('init', '*', [pendingPort]);
-          pendingPort = null;
-        }
-        port.postMessage({type: 'scene', payload: sceneName});
-      };
-    }());
-
-    const entrypoint = new Entrypoint(santaApp, callback);
-    // nb. load must be hoisted so port.onmessage can invoke it above
-    function load(sceneName) {
-      entrypoint.load(sceneName);
-    }
-    entrypoint.load(initialScene);
+    santaApp.addEventListener('scene', (ev) => {
+      const p = entrypoint.scene(ev.detail.port);
+      p.catch((err) => {
+        // TODO: make specific scene fail
+        throw err;
+      });
+    });
 
     santaApp.addEventListener('click', (ev) => {
       const sceneName = route.fromClick(ev);

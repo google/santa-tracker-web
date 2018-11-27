@@ -62,16 +62,16 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(img/lock.svg) 90% 50% no-repeat;
+    background: _root("img/lock.svg") 90% 50% no-repeat;
     background-color: rgba(87, 214, 147, 0.5);
     background-size: 42px 42px;
   }
 }
 .menucard-village {
-  background-image: url(img/menu-village.png);
+  background-image: _root("img/menu-village.png");
 }
 .menucard-tracker {
-  background-image: url(img/menu-tracker.png);
+  background-image: _root("img/menu-tracker.png");
 }
 
 h2 {

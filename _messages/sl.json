@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Koledar"
 	},
+	"category_all": {
+		"message": "Prikaži vse"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Koda - {0}"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Nariši"
 	},
+	"category_education": {
+		"message": "Izobraževalne igre"
+	},
+	"category_geography": {
+		"message": "Geografija"
+	},
 	"category_language": {
 		"message": "Jezik"
 	},
 	"category_listen": {
 		"message": "Poslušaj"
 	},
+	"category_new-this-year": {
+		"message": "Letošnje novosti"
+	},
 	"category_send": {
 		"message": "Pošlji"
+	},
+	"category_social-studies": {
+		"message": "Družboslovje"
 	},
 	"cd_country_name": {
 		"message": "Demokratična republika Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Sodelujte pri financiranju projekta, ki pomaga osebam s posebnimi potrebami, na DonorsChoose.org. Ta december bomo še dodatno prispevali 50 % vaših donacij, dokler ne dosežemo ciljnega milijona dolarjev. Skupaj lahko dosežemo, da bodo učilnice prijaznejše vsem #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Prenesite aplikacijo za še več iger"
+	},
 	"dz_country_name": {
 		"message": "Alžirija"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Spremljanje Božičkove poti za učitelje"
+	},
+	"educators-games": {
+		"message": "Igre za učilnico"
+	},
+	"educators-learn": {
+		"message": "Poučno Spremljanje Božičkove poti"
 	},
 	"ee_country_name": {
 		"message": "Estonija"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Prišlo je do težav, vendar jih poskušajo Božičkovi palčki odpraviti."
+	},
+	"error-internal": {
+		"message": "Prišlo je do težav. Obvestili smo Božičkove palčke, a priporočamo, da se vrnete v \u003ca href=\"./\"\u003eBožičkovo vas\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Kaže, da smo izgubili povezavo s Severnim tečajem. Božičkovi škratje si na vso moč prizadevajo odpraviti težavo, zato ostanite na zvezi!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Začasno ustavi"
 	},
+	"paused": {
+		"message": "Zaustavljeno"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ojej!"
 	},
+	"readyquestion": {
+		"message": "Ste pripravljeni?"
+	},
 	"ro_country_name": {
 		"message": "Romunija"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Savdska Arabija"
+	},
+	"santa-app": {
+		"message": "Božiček"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Lectov možic"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvinova odprava"
 	},
+	"scene_elfmaker": {
+		"message": "Ustvarjanje palčka"
+	},
 	"scene_elfski": {
 		"message": "Palček smuča"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Igrišče Severni pol"
+	},
+	"scene_poseboogie": {
+		"message": "Ples s pozami"
+	},
+	"scene_postcard": {
+		"message": "Božičkove razglednice"
 	},
 	"scene_presentbounce": {
 		"message": "Poskočna darila"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Še vedno na počitnicah"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Jelenje skrbi"
+	},
 	"scene_videoscene_reload": {
 		"message": "Ponovno nalaganje daril"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Lenarjenje"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Vzlet"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Skušnjava"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Kje je Božiček?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Božičkova delavnica"
+	},
 	"scene_windtunnel": {
 		"message": "Vetrovnik"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Zavijalni dvoboj"
 	},
 	"score": {
+		"message": "Rezultat"
+	},
+	"score_short": {
 		"message": "Rezultat"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovaščina"
+	},
+	"skip-training": {
+		"message": "Preskoči uvod"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Vklopi zvok"
 	},
+	"upgrade-warning": {
+		"message": "Ojej! Spremljanje Božičkove poti ni podprto v vašem brskalniku ali pa je JavaScript onemogočen. Za dostop do spremljanja Božičkove poti prenesite sodobnejši brskalnik ali omogočite JavaScript.\nZa več informacij obiščite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Združene države"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Pokličite Božička s Pomočnikom Google"
 	},
 	"village_comeback": {
 		"message": "Vrnite se 24. decembra in nam pomagajte vso noč slediti Božičku."
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Dodajte razširitev Božiček za Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Božičkov kviz o Zemlji"
+	},
+	"village_santa_install": {
+		"message": "Namesti"
 	},
 	"village_takesoff": {
 		"message": "Božiček odleti čez:"

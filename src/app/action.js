@@ -11,10 +11,12 @@ export const SantaTrackerAction = {
   SCENE_LOAD_PROGRESS: 'scene-load-progress',
   SCENE_ACTIVATED: 'scene-activated',
   SCENE_FAILED: 'scene-failed',
+  SCENE_RESTART: 'scene-restart',
 
   // Things a scene can do
   SCORE_UPDATE: 'score-update',
   SCORE_GAMEOVER: 'score-gameover',
+  SCENE_DATA: 'scene-data',
 
   // Visibility / connectivity
   PAGE_BECAME_VISIBLE: 'page-became-visible',

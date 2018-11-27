@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster|Material+Icons" />
+  <link rel="stylesheet" href="elfmaker.css" />
+</head>
+<body>
+
+<main id="main">
+  <div class="buttons"></div>
+  <div class="mid">
+    <maker-elf id="elf"></maker-elf>
+  </div>
+  <div class="buttons">
+    <santa-button id="share" color="green">share</santa-button>
+    <santa-button id="camera" color="red">photo_camera</santa-button>
+  </div>
+</main>
+
+<footer>
+  <maker-control category="body" id="control"></maker-control>
+</footer>
+
+<div class="picture">
+  <div class="flash" id="flash"></div>
+  <div class="anim">
+    <label class="outline" hidden id="picture-outline">
+      <div class="inner" id="picture-inner"></div>
+    </label>
+  </div>
+</div>
+
+<script type="module">
+
+import api from '../../src/scene/api.js';
+import './elements/maker-chooser.js';
+import './elements/maker-control.js';
+import './elements/maker-elf.js';
+import '../../src/elements/santa-button.js';
+import * as defs from './defs.js';
+
+api.preload.images(
+  'img/bg-complex.png',
+);
+
+const dataProperties = [
+  'skinTone', 'hairColor', 'suitColor', 'eyesColor', 'earsColor', 'hatsColor', 'accessoriesColor',
+];
+
+const control = document.getElementById('control');
+control.addEventListener('change', (ev) => {
+  const config = dataProperties.map((prop) => control[prop]).join('|');
+  const data = {
+    config: window.btoa(config),
+  }
+  api.data(data);
+
+  elf.categoryChoice = control.categoryChoice;
+  elf.svgStyle = control.svgStyle;
+});
+
+share.addEventListener('click', (ev) => {
+  elf.draw().then((result) => {
+    console.info('got image', result);
+    api.gameover({image: result});
+  });
+});
+
+const outline = document.getElementById('picture-outline');
+outline.addEventListener('click', (ev) => {
+  outline.hidden = true;
+});
+
+let activeResolve;
+flash.addEventListener('transitionend', (ev) => {
+  if (flash.classList.contains('fill')) {
+    flash.classList.remove('fill');
+    activeResolve();
+  }
+});
+
+camera.addEventListener('click', (ev) => {
+  const p = new Promise((resolve) => {
+    activeResolve = resolve;
+    flash.classList.add('fill');
+  });
+
+  elf.draw().then(async (result) => {
+    await p;
+
+    const image = new Image();
+    image.width = defs.width;
+    image.height = defs.height;
+    image.src = result;
+
+    outline.hidden = false;
+
+    const inner = document.getElementById('picture-inner');
+    inner.textContent = '';
+    inner.appendChild(image);
+  });
+});
+
+api.ready(async () => {
+  // TODO: something
+});
+
+</script>
+
+</body>
+</html>

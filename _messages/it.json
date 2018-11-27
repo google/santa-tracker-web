@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Calendario"
 	},
+	"category_all": {
+		"message": "Visualizza tutti"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Codice"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Disegna"
 	},
+	"category_education": {
+		"message": "Didattici"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
 	"category_language": {
 		"message": "Lingua"
 	},
 	"category_listen": {
 		"message": "Ascolta"
 	},
+	"category_new-this-year": {
+		"message": "Novità di quest'anno"
+	},
 	"category_send": {
 		"message": "Invia"
+	},
+	"category_social-studies": {
+		"message": "Studi sociali"
 	},
 	"cd_country_name": {
 		"message": "Repubblica Democratica del Congo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Contribuisci a sostenere un progetto per bambini in difficoltà su DonorsChoose.org. Questo dicembre, raddoppiamo il nostro sostegno aumentando del 50% ogni donazione, fino a raggiungere il nostro obiettivo di $ 1 milione. Insieme, possiamo rendere le classi più partecipative per tutti i bambini #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Scarica per accedere ad ancora più giochi"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Segui Babbo Natale per insegnanti"
+	},
+	"educators-games": {
+		"message": "Giochi per gli studenti"
+	},
+	"educators-learn": {
+		"message": "Imparare con Segui Babbo Natale"
 	},
 	"ee_country_name": {
 		"message": "Estonia"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Si è verificato un problema, ma i folletti di Babbo Natale stanno cercando una soluzione."
+	},
+	"error-internal": {
+		"message": "Purtroppo si è verificato un problema. Abbiamo informato gli elfi di Babbo Natale, ma prova a tornare al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pausa"
 	},
+	"paused": {
+		"message": "In pausa"
+	},
 	"pe_country_name": {
 		"message": "Perù"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Mannaggia!"
 	},
+	"readyquestion": {
+		"message": "Cominciamo?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudita"
+	},
+	"santa-app": {
+		"message": "Babbo Natale"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Omino di Pan di Zenzero"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Lo scatto del pinguino"
 	},
+	"scene_elfmaker": {
+		"message": "Crea un elfo"
+	},
 	"scene_elfski": {
 		"message": "Folletti che sciano"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Parco giochi al Polo Nord"
+	},
+	"scene_poseboogie": {
+		"message": "Passo di danza"
+	},
+	"scene_postcard": {
+		"message": "Cartoline di Babbo Natale"
 	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ancora in vacanza"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Le renne sono preoccupate"
+	},
 	"scene_videoscene_reload": {
 		"message": "Ricarica i regali"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Voglia di lavorare zero"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Decollo"
+	},
 	"scene_videoscene_temptation": {
 		"message": "La tentazione"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Dov'è Babbo Natale?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "L'officina di Babbo Natale"
+	},
 	"scene_windtunnel": {
 		"message": "Galleria del vento"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Incarta il regalo"
 	},
 	"score": {
+		"message": "Punti"
+	},
+	"score_short": {
 		"message": "Punti"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovacco"
+	},
+	"skip-training": {
+		"message": "Salta il training"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Riattiva audio"
 	},
+	"upgrade-warning": {
+		"message": "Spiacenti. Segui Babbo Natale non è supportato nel tuo browser oppure hai disattivato JavaScript. Per accedere a Segui Babbo Natale, scarica un browser più recente o attiva JavaScript.\nPer ulteriori informazioni visita: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Stati Uniti"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Chiama Babbo Natale con l'Assistente Google"
 	},
 	"village_comeback": {
 		"message": "Torna il 24 e aiutaci a seguire Babbo Natale tutta la notte!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Aggiungi l'estensione di Babbo Natale per Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Quiz di Babbo Natale sul pianeta Terra"
+	},
+	"village_santa_install": {
+		"message": "Installa"
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

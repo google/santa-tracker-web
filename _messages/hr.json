@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalendar"
 	},
+	"category_all": {
+		"message": "Prikaži sve"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Programiraj"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Crtaj"
 	},
+	"category_education": {
+		"message": "Obrazovanje u fokusu"
+	},
+	"category_geography": {
+		"message": "Geografija"
+	},
 	"category_language": {
 		"message": "Jezik"
 	},
 	"category_listen": {
 		"message": "Slušaj"
 	},
+	"category_new-this-year": {
+		"message": "Novo ove godine"
+	},
 	"category_send": {
 		"message": "Pošalji"
+	},
+	"category_social-studies": {
+		"message": "Društvene znanosti"
 	},
 	"cd_country_name": {
 		"message": "Demokratska Republika Kongo"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Pomozi u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo učionice učiniti prilagođenijima svoj djeci, #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Preuzmi aplikaciju za dodatne igre"
+	},
 	"dz_country_name": {
 		"message": "Alžir"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Slijedi Djeda Božićnjaka za učitelje"
+	},
+	"educators-games": {
+		"message": "Igre za razred"
+	},
+	"educators-learn": {
+		"message": "Učenje uz igru Slijedi Djeda Božićnjaka"
 	},
 	"ee_country_name": {
 		"message": "Estonija"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Pojavio se problem, no Djedovi vilenjaci rade na njegovu rješavanju."
+	},
+	"error-internal": {
+		"message": "O, ne! Pojavio se problem. Obavijestili smo Djedove vilenjake, no pokušaj se vratiti u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Pauza"
 	},
+	"paused": {
+		"message": "Pauzirano"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Žao nam je!"
 	},
+	"readyquestion": {
+		"message": "Jesi li spreman?"
+	},
 	"ro_country_name": {
 		"message": "Rumunjska"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudijska Arabija"
+	},
+	"santa-app": {
+		"message": "Djed Božićnjak"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Đumbirko"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Utrka pingvina"
 	},
+	"scene_elfmaker": {
+		"message": "Tvorac vilenjaka"
+	},
 	"scene_elfski": {
 		"message": "Skijalište vilenjaka"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Igralište na Sjevernom polu"
+	},
+	"scene_poseboogie": {
+		"message": "Plesni pokreti"
+	},
+	"scene_postcard": {
+		"message": "Djedove razglednice"
 	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Još uvijek na odmoru"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Zabrinuti sobovi"
+	},
 	"scene_videoscene_reload": {
 		"message": "Učitavanje dodatnih poklona"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Ljenčarenje"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Uzlijetanje"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Iskušenje"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Gdje je Djed Božićnjak?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Djedova radionica"
+	},
 	"scene_windtunnel": {
 		"message": "Vjetrotunel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Dvoboj u zamatanju darova"
 	},
 	"score": {
+		"message": "Rezultat"
+	},
+	"score_short": {
 		"message": "Rezultat"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovački"
+	},
+	"skip-training": {
+		"message": "Preskoči obuku"
 	},
 	"sl_country_name": {
 		"message": "Sijera Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Uključi zvuk"
 	},
+	"upgrade-warning": {
+		"message": "Ups! Igra Slijedi Djeda Božićnjaka nije podržana u tvojem pregledniku ili je onemogućen JavaScript. Za pristup igri Slijedi Djeda Božićnjaka preuzmi suvremeni preglednik ili omogući JavaScript.\nViše informacija možeš pronaći na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Nazovi Djeda Božićnjaka putem Google asistenta"
 	},
 	"village_comeback": {
 		"message": "Vrati se 24. i pomozi nam u cjelonoćnom praćenju Djeda Božićnjaka!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Dodaj proširenje Slijedi Djeda Božićnjaka za Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Djedov kviz o Zemlji"
+	},
+	"village_santa_install": {
+		"message": "Instaliraj"
 	},
 	"village_takesoff": {
 		"message": "Djed Božićnjak kreće za"

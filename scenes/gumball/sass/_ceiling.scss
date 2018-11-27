@@ -1,0 +1,124 @@
+##{$name} {
+  /**
+   * Ceiling.
+   */
+  .ceiling {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    top: 0;
+    margin-bottom: 316px;
+    background-color: #939597;
+  }
+
+  .ceiling-windows {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 78px;
+    bottom: 0;
+    background: url('img/windows.png') 50% top repeat-x;
+  }
+
+  .ceiling-rail {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    margin-left: (-862px / 2);
+    width: 862px;
+    height: 6px;
+    background: #9d9fa2;
+  }
+
+  .ceiling-rail-shadow {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #a46d3e;
+  }
+
+  .ceiling-pipe {
+    position: absolute;
+    width: 127px;
+    top: 0;
+    bottom: -32px;
+    right: 50%;
+    margin-right: 555px;
+    background: url('img/toppipe.svg') left bottom no-repeat;
+    z-index: 20;
+    transform: translateZ(0);
+  }
+
+  .ceiling-pipe-extend {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 100px;
+    left: 0;
+    margin: 0 (127px - 103px) 0 58px;
+    background: #bcbec0;
+  }
+
+  .ceiling-pipe-hand {
+    background: url('img/toppipe-hand.svg') no-repeat;
+    position: absolute;
+    width: 27px;
+    height: 6px;
+    bottom: 54px;
+    left: 19px;
+    transform: rotate(-18deg);
+    transform-origin: 3px center;
+  }
+
+  .toggle-lever > .ceiling-pipe-hand {
+    animation: linear 0.6s module-gumball-move-hand;
+  }
+
+  .ceiling-pipe-lever {
+    position: absolute;
+    width: 17px;
+    height: 3px;
+    bottom: 54px;
+    right: 68px;
+    background: #949090;
+    transform: rotate(22deg);
+    transform-origin: right center;
+  }
+
+  .toggle-lever > .ceiling-pipe-lever {
+    animation: linear 0.6s module-gumball-move-lever;
+  }
+}
+
+@keyframes module-gumball-move-hand {
+  from {
+    transform: rotate(-18deg);
+  }
+
+  30% {
+    animation-timing-function: ease-in;
+    transform: rotate(22deg);
+  }
+
+  to {
+    transform: rotate(-18deg);
+  }
+}
+
+@keyframes module-gumball-move-lever {
+  from {
+    transform: rotate(22deg);
+  }
+
+  30% {
+    animation-timing-function: ease-in;
+    transform: rotate(-26deg);
+  }
+
+  to {
+    transform: rotate(22deg);
+  }
+}

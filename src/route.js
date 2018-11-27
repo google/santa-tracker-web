@@ -2,13 +2,40 @@ import * as dom from './lib/dom.js';
 
 const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
 
+
+const {scope, hasScope, scopeLang} = (() => {
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get('_scope');
+  const scope = raw || 'https://santatracker.google.com/';
+  const m = /\/intl\/([-\w+])/.exec(scope);
+  const scopeLang = m ? m[1] : '';
+  return {scope, scopeLang, hasScope: Boolean(raw)};
+})();
+
+
+const loaderSuffix = document.documentElement.lang ? `${document.documentElement.lang}.html` : '';
+
+
 /**
- * @return {string} prod scope
+ * @param {string} scene to load, including e.g. _video
+ * @param {!Object<string, string>=} params to set on URLSearchParams
+ * @return {string}
  */
-function determineScope() {
-  const scope = document.body.getAttribute('data-scope');
-  return scope || 'https://santatracker.google.com/';
+export function buildIframeUrl(scene, params={}) {
+  if (scene === null || scene === 'index') {
+    return 'data:text/html;base64,';
+  }
+  const p = new URLSearchParams();
+  for (const k in params) {
+    p.set(k, params[k]);
+  }
+  if (hasScope) {
+    p.set('_scope', scope);
+  }
+  const s = p.toString();
+  return `./scenes/${scene || 'index'}/${loaderSuffix}` + (s ? `?${s}` : '');
 }
+
 
 /**
  * @param {!Event} ev to read from
@@ -21,7 +48,6 @@ export function fromClick(ev) {
   }
 
   const check = url.origin + url.pathname;
-  const scope = determineScope();
   if (!check.startsWith(scope)) {
     return null;
   }
@@ -42,13 +68,16 @@ export function fromClick(ev) {
  * @return {string} href with scope as appropriate
  */
 export function href(cand) {
+  if (cand == null) {
+    return cand;
+  }
+
   try {
     const url = new URL(cand);
     return url.toString();
   } catch (e) {
     // not a URL, probably a scene
   }
-  const scope = determineScope();
   try {
     const url = new URL(cand, scope);
     return url.toString();
@@ -62,7 +91,6 @@ export function href(cand) {
  * @return {string} public URL to scene name
  */
 export function scene(sceneName) {
-  const scope = determineScope();
   if (sceneName) {
     const url = new URL(`${sceneName}.html`, scope);
     return url.toString();
@@ -76,7 +104,11 @@ export function scene(sceneName) {
  * @return {string} localized url
  */
 export function localize(url) {
-  // TODO(samthor): This should optionally add ?hl=LANG.
+  if (scopeLang) {
+    const u = new URL(url);
+    u.searchParams.set('hl', scopeLang);
+    return u.toString();
+  }
   return url;
 }
 
@@ -87,12 +119,9 @@ export function localize(url) {
  * @return {string} public URL to scene name
  */
 export function intl(lang, sceneName='') {
-  const scope = determineScope();
-
   let out = scope;
   if (lang) {
-    const suffix = (scope === 'santatracker.google.com' ? '' : '_ALL');
-    out += `intl/${lang}${suffix}/`;
+    out += `intl/${lang}/`;
   }
   if (sceneName) {
     out += `${sceneName}.html`;

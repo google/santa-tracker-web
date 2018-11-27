@@ -1,5 +1,6 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {logger} from '@polymer/broadway/lib/logger';
+import '../polyfill/event-target.js';
 
 import {formatDuration} from '../lib/time.js';
 import * as sc from '../soundcontroller.js';
@@ -10,30 +11,31 @@ import {SANTA_TRACKER_CONTROLLER_URL} from './common.js';
 logger.enabled = false;
 
 
-function inferActiveScene(state) {
-  if (state.activeScene !== null) {
-    return state.activeScene;
-  }
-  return state.showError ? state.selectedScene : null;
-}
+export class Entrypoint extends EventTarget {
+  constructor(santaApp) {
+    super();
 
+    // start default music
+    sc.fire('traditions_load_sounds');  // nb. this loads 'lounge' => 'music_start_scene'
+    sc.fire('music_start_scene');
 
-export class Entrypoint {
-  constructor(santaApp, callback) {
     this.adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
 
-    let hostActiveScene = null;
-    let selectedScene = null;
+    let activeScene = null;
+    this.selectedData = null;
 
     this.adapter.subscribe((state) => {
-      selectedScene = state.selectedScene;
+      if (state.activeScene !== activeScene || state.showError) {
+        activeScene = state.activeScene;
+        this.dispatchEvent(new Event('ready'));
+      }
 
-      // We still want to inform the host if our selectedScene didn't load, so infer the "active"
-      // scene if showError is true.
-      const candidateHostActiveScene = inferActiveScene(state);
-      if (hostActiveScene !== candidateHostActiveScene) {
-        hostActiveScene = candidateHostActiveScene;
-        callback(hostActiveScene);
+      this.selectedData = state.selectedData;
+
+      // TODO(samthor): This dispatches constantly when any state changes.
+      if (state.selectedScene !== null) {
+        const detail = {sceneName: state.selectedScene, data: state.selectedData};
+        this.dispatchEvent(new CustomEvent('scene', {detail}))
       }
 
       const {api} = state;
@@ -66,19 +68,50 @@ export class Entrypoint {
     document.addEventListener('visibilitychange', (ev) => this.syncVisibility());
 
     this.syncVisibility();
-
-    this.startDefaultMusic();
   }
 
-  load(sceneName) {
-    this.adapter.dispatch({type: SantaTrackerAction.SCENE_SELECTED, payload: sceneName});
+  _adapterDispatch(type, payload) {
+    this.adapter.dispatch({type, payload});
   }
 
-  async startDefaultMusic() {
-    // Most Klang sounds won't start unless the preload event has been explicitly waited for.
-    await sc.loadSounds('village_load_sounds');
-    sc.ambient('music_start_village');
-    sc.fire('village_start', 'village_end');
+  async handleSceneMessage(type, payload) {
+    switch (type) {
+      case 'ready':
+        // TODO: configure pause button availability etc
+        break;
+      case 'go':
+        this.load(payload);
+        break;
+      case 'data':
+        this._adapterDispatch(SantaTrackerAction.SCENE_DATA, payload);
+        break;
+      case 'klang':
+        handleKlang(payload[0], payload.slice(1));
+        break;
+      case 'score':
+        this._adapterDispatch(SantaTrackerAction.SCORE_UPDATE, payload);
+        break;
+      case 'gameover':
+        this._adapterDispatch(SantaTrackerAction.SCORE_GAMEOVER, payload);
+        break;
+      default:
+        console.warn('got unhandled scene message', type);
+    }
+  }
+
+  async scene(port) {
+    for (;;) {
+      const {type, payload} = await port.next();
+      if (type === port.shutdown) {
+        return;
+      }
+      await this.handleSceneMessage(type, payload);
+    }
+  }
+
+  load(sceneName, data) {
+    const payload = {sceneName, data};
+    this._adapterDispatch(SantaTrackerAction.SCENE_SELECTED, payload);
   }
 
   syncVisibility() {
@@ -93,5 +126,19 @@ export class Entrypoint {
       type: navigator.onLine ? SantaTrackerAction.DEVICE_WENT_ONLINE :
                                SantaTrackerAction.DEVICE_WENT_OFFLINE
     });
+  }
+}
+
+
+function handleKlang(command, args) {
+  switch (command) {
+    case 'play':
+      return sc.play(args[0]);
+    case 'fire':
+      return sc.fire(args[0]);
+    case 'ambient':
+      return sc.ambient(args[0], args[1]);
+    default:
+      throw new Error(`unhandled Klang: ${command}`);
   }
 }

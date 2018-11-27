@@ -335,14 +335,24 @@ export class SantaAPI extends EventTarget {
   range() {
     const p = this._lastRoute();
     return p.then((route) => {
-      if (route === null) {
-        return null;
+      if (route !== null) {
+        const first = route.locations[0];
+        const last = route.locations[route.locations.length - 1];
+        return {
+          start: first.departure,
+          end: last.arrival,
+        };
       }
-      const first = route.locations[0];
-      const last = route.locations[route.locations.length - 1];
+
+      // fallback to previoust flight times, for the current year >= Oct
+      const now = new Date();
+      const year = now.getFullYear() - (now.getMonth() < 10 ? 1 : 0);
+      const flightHours = 25;
+
+      const start = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
       return {
-        start: first.departure,
-        end: last.arrival,
+        start,
+        end: start + (flightHours * 60 * 60 * 1000),    // 25th Dec at 11:00 UTC
       };
     });
   }

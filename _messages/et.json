@@ -98,6 +98,12 @@
 	"calendar": {
 		"message": "Kalender"
 	},
+	"category_all": {
+		"message": "Kuva kõik"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kood"
 	},
@@ -107,14 +113,26 @@
 	"category_draw": {
 		"message": "Joonista"
 	},
+	"category_education": {
+		"message": "Harivad"
+	},
+	"category_geography": {
+		"message": "Geograafia"
+	},
 	"category_language": {
 		"message": "Keel"
 	},
 	"category_listen": {
 		"message": "Kuulake"
 	},
+	"category_new-this-year": {
+		"message": "Selleaastased"
+	},
 	"category_send": {
 		"message": "Saatke"
+	},
+	"category_social-studies": {
+		"message": "Inimesed ja ühiskond"
 	},
 	"cd_country_name": {
 		"message": "Kongo Demokraatlik Vabariik"
@@ -539,6 +557,9 @@
 	"donate_text": {
 		"message": "Aidake saidil DonorsChoose.org erivajadustega lastele mõeldud projekte rahastada. Kahekordistame detsembrikuu jooksul kasutajate annetused, annetades omalt poolt 50%, kuni saavutame eesmärgi miljon USA dollarit. Koos aitame muuta klassid kaasavamaks. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Laadige alla, et mängida veel mänge"
+	},
 	"dz_country_name": {
 		"message": "Alžeeria"
 	},
@@ -550,6 +571,12 @@
 	},
 	"educators": {
 		"message": "Santa Tracker õpetajatele"
+	},
+	"educators-games": {
+		"message": "Klassis mängimiseks"
+	},
+	"educators-learn": {
+		"message": "Õpime jõuluvana teekonda jälgides"
 	},
 	"ee_country_name": {
 		"message": "Eesti"
@@ -574,6 +601,9 @@
 	},
 	"error": {
 		"message": "Tekkis probleem – päkapikud uurivad asja."
+	},
+	"error-internal": {
+		"message": "Oih, ilmnes probleem! Teavitasime päkapikke sellest, kuid proovige \u003ca href=\"./\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
 	},
 	"error-lost-connection": {
 		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
@@ -1049,6 +1079,9 @@
 	"pause": {
 		"message": "Peata"
 	},
+	"paused": {
+		"message": "Peatatud"
+	},
 	"pe_country_name": {
 		"message": "Peruu"
 	},
@@ -1157,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oih!"
 	},
+	"readyquestion": {
+		"message": "Valmis?"
+	},
 	"ro_country_name": {
 		"message": "Rumeenia"
 	},
@@ -1171,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Araabia"
+	},
+	"santa-app": {
+		"message": "Jõuluvana"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Piparkoogimehike"
@@ -1256,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingviinijooks"
 	},
+	"scene_elfmaker": {
+		"message": "Päkapikudisainija"
+	},
 	"scene_elfski": {
 		"message": "Päkapikuslaalom"
 	},
@@ -1294,6 +1336,12 @@
 	},
 	"scene_playground": {
 		"message": "Põhjapooluse mänguväljak"
+	},
+	"scene_poseboogie": {
+		"message": "Kivikujutants"
+	},
+	"scene_postcard": {
+		"message": "Jõuluvana postkaardid"
 	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"
@@ -1370,6 +1418,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ikka veel puhkusel"
 	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Põhjapõtrade mure"
+	},
 	"scene_videoscene_reload": {
 		"message": "Kingituste laadimine"
 	},
@@ -1385,6 +1436,9 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Aeg maha"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Õhkutõus"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Kiusatus"
 	},
@@ -1394,6 +1448,9 @@
 	"scene_videoscene_wheressanta": {
 		"message": "Kus on jõuluvana?"
 	},
+	"scene_videoscene_workshop": {
+		"message": "Jõuluvana töökoda"
+	},
 	"scene_windtunnel": {
 		"message": "Tuuletunnel"
 	},
@@ -1401,6 +1458,9 @@
 		"message": "Kiirpakkija"
 	},
 	"score": {
+		"message": "Tulemus"
+	},
+	"score_short": {
 		"message": "Tulemus"
 	},
 	"se_country_name": {
@@ -1426,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovaki keel"
+	},
+	"skip-training": {
+		"message": "Jäta õpetus vahele"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -6596,6 +6659,9 @@
 	"unmute": {
 		"message": "Tühista vaigistus"
 	},
+	"upgrade-warning": {
+		"message": "Oih! Teie brauser ei toeta jõuluvana teekonna jälgimise rakendust või teil on JavaScript keelatud. Jõuluvana teekonna jälgimiseks laadige alla uuem brauser või lubage JavaScript.\nLisateavet leiate aadressilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
 	"us_country_name": {
 		"message": "Ameerika Ühendriigid"
 	},
@@ -6610,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Helistage jõuluvanale Google'i assistendi abil"
 	},
 	"village_comeback": {
 		"message": "Tulge 24ndal tagasi ja aidake meil öö läbi jõuluvana teekonda jälgida!"
@@ -6640,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Lisa jõuluvana Chrome'i laiend"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Jõuluvana küsimused planeedi Maa kohta"
+	},
+	"village_santa_install": {
+		"message": "Installi"
 	},
 	"village_takesoff": {
 		"message": "Jõuluvana asub teele"

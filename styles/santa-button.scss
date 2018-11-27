@@ -72,6 +72,7 @@ button {
   &.white {
     background: #efefef;
     @include pop(#c1dbd9);
+    color: #555;
   }
   &.green {
     background: #32a658;

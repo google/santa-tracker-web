@@ -13,11 +13,11 @@ export class SantaOverlayElement extends LitElement {
   }
 
   _dispatchResume() {
-
+    this.dispatchEvent(new Event('resume'));
   }
 
   _dispatchRestart() {
-    
+    this.dispatchEvent(new Event('restart'));
   }
 
   _dispatchHome() {
@@ -25,24 +25,23 @@ export class SantaOverlayElement extends LitElement {
   }
 
   render() {
-    const paused = (this.score == null && !this.shareUrl);
+    // TODO: proper paused state
     let heroClass = 'gameover';
-    if (paused) {
-      heroClass = 'pause';
-    } else if (this.shareUrl) {
+    if (this.shareUrl) {
       heroClass = 'share';
     }
+//   <santa-button color="purple" @click="${this._dispatchResume}">play_arrow</santa-button>
+
     return html`
 <style>${_style`santa-overlay`}</style>
 <div class="wrap">
 <div class="hero ${heroClass}">
-  <div class="score" ?hidden="${this.score == null}">
+  <div class="score" ?hidden="${this.score < 0}">
     <h1>${_msg`gameover_score`}</h1>
     <h2>${this.score}</h2>
   </div>
 </div>
 <nav>
-  <santa-button color="purple" @click="${this._dispatchResume}" ?hidden=${!paused}>play_arrow</santa-button>
   <santa-button color="purple" @click="${this._dispatchRestart}">refresh</santa-button>
   <santa-button color="purple" @click="${this._dispatchHome}" data-action="home">home</santa-button>
   <santa-button data-share="share" ?hidden=${!supportsShare}>share</santa-button>

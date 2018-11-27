@@ -1,0 +1,83 @@
+$roller-names: "checkered", "diagonal", "horizontal", "polkadots", "snowflakes", "trees", "vertical";
+
+##{$name} {
+  // MOBILE CURRENT TOOL
+  .Tools-display[data-current-category="roller"] {
+    pointer-events: auto;
+
+    .Tools-display-outer {
+      background: url(img/icons/mobile_ornament.svg) center/contain no-repeat;
+      border-radius: 0;
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .Tools-display-inner {
+      background-image: url(img/tools/tool_roller.svg);
+      background-size: cover;
+      height: 70px;
+      width: 70px;
+    }
+
+    @each $current-roller in $roller-names {
+      &[data-current-tool="roller-#{$current-roller}"] {
+        .Tools-display-inner {
+          background-image: url(img/patterns/#{$current-roller}.svg);
+        }
+      }
+    }
+  }
+
+  // TOOLBAR
+  [data-tool-category="roller"] {
+    .Tool {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80% 80%;
+      position: relative;
+
+      @each $current-roller in $roller-names {
+        &--roller-#{$current-roller} {
+          background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+        }
+      }
+
+      @media (max-width: $mobile-width) {
+        background-size: contain;
+        border: none;
+      }
+    }
+
+    .Tool--selected {
+      opacity: 0.5;
+    }
+  }
+
+  // HOVER
+  [data-tool-hover-category="roller"] {
+    .Tool-hover-minitool {
+      height: 100px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(100%, -100%) rotate(-135deg);
+      width: 100px;
+    }
+
+    .Tool-hover-minitool--default {
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @each $current-roller in $roller-names {
+    [data-tool-hover-tool="roller-#{$current-roller}"] {
+      .Tool-hover-minitool--default {
+        background-image: url(img/tools/roller/tool_roller_#{$current-roller}.svg);
+        display: block;
+      }
+    }
+  }
+}
