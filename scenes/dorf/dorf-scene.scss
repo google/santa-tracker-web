@@ -598,6 +598,8 @@ footer {
   }
 
   a {
+    cursor: pointer;
+
     &:hover {
       .play-round {
         transform: translateY(-16px);
