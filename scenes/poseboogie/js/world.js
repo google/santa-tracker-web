@@ -12,6 +12,7 @@ export class World {
       // supply some slight downwards gravity
       gravity: [0, -1],
     });
+    this.paused = true;
 
     // This is the ratio of p2 units to canvas pixels & controls how big the
     // world shapes appear on the canvas.
@@ -30,12 +31,6 @@ export class World {
     const animatePuppet = (time) => {
       window.requestAnimationFrame(animatePuppet);
 
-      // Compute elapsed time since last render frame
-      let deltaTime = lastTime ? (time - lastTime) / 1000 : 0;
-
-      // Move bodies forward in time
-      this.world.step(fixedTimeStep, deltaTime, maxSubSteps);
-
       // Render
       canvas.width = canvas.parentElement.clientWidth;
       canvas.height = canvas.parentElement.clientHeight;
@@ -43,10 +38,21 @@ export class World {
       const [w, h] = [canvas.width, canvas.height];
       ctx.clearRect(0, 0, w, h);
 
+      if (this.paused) {
+        lastTime = 0;
+        return;
+      }
+
       // Use the p2 coordinate system
       ctx.save();
       ctx.translate(w / 2, h / 2);  // Translate to the center
       ctx.scale(this.zoom, -this.zoom);   // Zoom in and flip y axis
+
+      // Compute elapsed time since last render frame
+      let deltaTime = lastTime ? (time - lastTime) / 1000 : 0;
+
+      // Move bodies forward in time
+      this.world.step(fixedTimeStep, deltaTime, maxSubSteps);
 
       // Sort bodies by z-index to ensure they're drawn correctly.
       const bodies = this.world.bodies.sort((a, b) => a.zIndex - b.zIndex);

@@ -12,7 +12,8 @@ const videoHeight = 500;
 const appConfig = {
   debug: true,
   mobileNetArchitecture: 0.75,
-  minPartConfidence: 0.8,
+  minPartConfidence: 0.7,
+  minPoseConfidence: 0.6,
   flipHorizontal: true, // Default to web-cam source, which flips video
   imageScaleFactor: 0.5,
   outputStride: 16,
@@ -77,6 +78,7 @@ function setUpDebugControls() {
     appConfig.modelReload = val;
   });
   gui.add(appConfig, 'minPartConfidence', 0.0, 1.0);
+  gui.add(appConfig, 'minPoseConfidence', 0.0, 1.0);
   gui.add(appConfig, 'flipHorizontal');
   gui.add(appConfig, 'imageScaleFactor').min(0.2).max(1.0);
   gui.add(appConfig, 'outputStride', [8, 16, 32]);
@@ -111,6 +113,11 @@ export async function bindPage() {
 
   const world = new World(appConfig);
   const elf = new Elf(world);
+
+  elf.addEventListener('pose-change', (evt) => {
+    document.getElementById('bad-pose').style.display = !evt.detail ? 'block' : 'none';
+    world.paused = !evt.detail;
+  });
 
   world.animate(document.getElementById('scene'));
   elf.track(videoConfig, appConfig);
