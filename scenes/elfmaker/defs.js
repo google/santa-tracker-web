@@ -18,6 +18,16 @@ export const baseSvgStyle = `
 }
 
 .red {fill: #f44336;}
+
+.blink {
+  animation: elves-blink 5.234s infinite alternate;
+}
+
+@keyframes elves-blink {
+  0%   { transform: scaleY(1); }
+  98%  { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
 `;
 
 
@@ -76,10 +86,16 @@ export const head = svg`
   <path class="skin" d="M161.48,148.65l-21.81,21.8a11.29,11.29,0,1,0,16,16C169.25,172.79,161.48,148.65,161.48,148.65Z"/>
   <path class="skin" d="M70.33,170.45l-21.81-21.8s-7.77,24.14,5.85,37.76a11.29,11.29,0,1,0,16-16Z"/>
   <circle class="skin" cx="105" cy="178.43" r="42.65"/>
-  <path class="eyes" d="M96.39,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,96.39,166.2Z"/>
+  <g transform="translate(113.62 166.2)">
+    <path class="eyes blink" d="M-17.23,0a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,-17.23,0Z"/>
+    <path class="eyes blink" d="M17.23,0a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,17.23,0Z"/>
+  </g>
   <path class="white" d="M130.85,183.43a25.85,25.85,0,1,1-51.69,0Z"/>
-  <path class="eyes" d="M130.85,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,130.85,166.2Z"/>
 `;
+
+// <path class="eyes blink" d="M96.39,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,96.39,166.2Z"/>
+// <path class="eyes blink" d="M130.85,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,130.85,166.2Z"/>
+
 
 
 export const hats = [
