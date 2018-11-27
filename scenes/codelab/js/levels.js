@@ -15,7 +15,6 @@
  */
 
 goog.provide('app.levels');
-goog.provide('app.extraLevels');
 
 goog.require('app.Map');
 goog.require('app.MazeLevel');
@@ -27,12 +26,6 @@ goog.require('app.blocks');
  * @type {!Array.<!app.PuzzleLevel>}
  */
 app.levels = [];
-
-/**
- * Array of levels.
- * @type {!Array.<!app.PuzzleLevel>}
- */
-app.extraLevels = [];
 
 /**
  * Create levels. If you add or remove levels, be sure to adjust the total number of levels
@@ -201,7 +194,7 @@ app.levels.push(new app.MazeLevel({
       app.blocks.miniBlockXml('controls_repeat')
 }));
 
-app.extraLevels.push(new app.MazeLevel({
+app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[8],
   idealBlockCount: 1,
   playerX: 2,
@@ -217,7 +210,7 @@ app.extraLevels.push(new app.MazeLevel({
       app.blocks.miniBlockXml('controls_jump')
 }));
 
-app.extraLevels.push(new app.MazeLevel({
+app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[9],
   idealBlockCount: 2,
   playerX: 2,
@@ -233,7 +226,7 @@ app.extraLevels.push(new app.MazeLevel({
       app.blocks.miniBlockXml('controls_jump')
 }));
 
-app.extraLevels.push(new app.MazeLevel({
+app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[10],
   idealBlockCount: 1,
   playerX: 3,
@@ -249,7 +242,7 @@ app.extraLevels.push(new app.MazeLevel({
       app.blocks.miniBlockXml('controls_jump')
 }));
 
-app.extraLevels.push(new app.MazeLevel({
+app.levels.push(new app.MazeLevel({
   bounds: app.Map.LEVEL_BOUNDS[11],
   idealBlockCount: 2,
   playerX: 3,
