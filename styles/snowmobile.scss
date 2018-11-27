@@ -68,4 +68,8 @@
 
 .drive.right {
   animation: burnout 10s linear;
+
+  span {
+    transform: rotateY(180deg);
+  }
 }
