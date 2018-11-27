@@ -25,7 +25,6 @@ goog.require('app.Scene');
 goog.require('app.Levels');
 goog.require('app.freestyleLevel');
 goog.require('app.monkeypatches');
-goog.require('app.shared.FrameRPC');
 goog.require('app.shared.utils');
 goog.require('app.Sequencer');
 
@@ -158,6 +157,11 @@ app.Game = class {
    * @param {string=} param
    */
   restart(mode, param) {
+    if (mode === app.GameMode.FREESTYLE && this.currentMode === mode) {
+      // do nothing
+      return;
+    }
+
     this.levelNumber = -1;
     this.currentMode = mode || app.GameMode.TEACHER;
 

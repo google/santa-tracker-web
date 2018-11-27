@@ -383,7 +383,7 @@ app.DanceLevel = class extends app.Level {
     if (steps.length === 0) { return null; }
 
     // Format url.
-    return '?dance=' + btoa(level + steps.join(''));
+    return btoa(level + steps.join(''));
   }
 };
 
