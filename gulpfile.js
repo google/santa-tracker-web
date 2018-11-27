@@ -87,6 +87,8 @@ const yargs = require('yargs')
     });
 const argv = yargs.argv;
 
+fs.writeFileSync('version', argv.build)
+
 const SASS_FILES = '{scenes,sass,elements}/**/*.scss';
 const IGNORE_COMPILED_JS = '!**/*.min.js';
 const CLOSURE_FILES = ['scenes/*/js/**/*.js', IGNORE_COMPILED_JS];
