@@ -2,6 +2,7 @@ import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
 import '../../src/elements/santa-image-mask.js';
 import './elements/village-countdown.js';
+import './elements/tictactoe.js';
 
 const offset = {x: 0, y: 0};
 let previousPointer = null;
