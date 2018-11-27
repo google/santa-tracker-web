@@ -84,4 +84,28 @@
     100% {
       transform: translateY(0);
     }
-  }  
+  }
+
+  @keyframes unicycle {
+    33% {
+      transform: rotateZ(10deg);
+    }
+    66% {
+      transform: rotateZ(-10deg);
+    }
+  }
+  
+  @keyframes travel {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(100vw);
+    }
+    50.00001% {
+      transform: translateX(-100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

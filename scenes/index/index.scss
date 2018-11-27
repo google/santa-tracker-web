@@ -256,11 +256,15 @@ body {
     }
 
     #easteregg-unicycle {
-      top: 420px;
+      top: 310px;
       left: -170px;
-      width: 21px;
-      height: 57px;
-      background: url(img/easteregg-unicycle.svg) no-repeat;
+      div {
+        width: 21px;
+        height: 57px;
+        background: url(img/easteregg-unicycle.svg) no-repeat;
+        animation: unicycle 1s ease infinite;
+      }
+      animation: travel 160s linear infinite;
     }
 
     /*#easteregg-wrangler {

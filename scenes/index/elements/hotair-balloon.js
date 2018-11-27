@@ -6,7 +6,6 @@ const FLIGHT_TIME = 30000;
 const RANDOM_EGG_WAIT_MIN = 5000;
 const RANDOM_EGG_WAIT_MAX = 30000;
 
-
 export class HotAirBalloonElement extends LitElement {
   static get properties() {
     return {
@@ -27,6 +26,9 @@ export class HotAirBalloonElement extends LitElement {
   }
 
   randomlyFly_() {
+    if (!this.isConnected) {
+      return;
+    }
     window.clearTimeout(this.flyTimout_);
 
     const timeout = RANDOM_EGG_WAIT_MIN + (Math.random() * RANDOM_EGG_WAIT_MAX);
