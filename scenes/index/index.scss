@@ -256,11 +256,15 @@ body {
     }
 
     #easteregg-unicycle {
-      top: 420px;
+      top: 310px;
       left: -170px;
-      width: 21px;
-      height: 57px;
-      background: url(img/easteregg-unicycle.svg) no-repeat;
+      div {
+        width: 21px;
+        height: 57px;
+        background: url(img/easteregg-unicycle.svg) no-repeat;
+        animation: unicycle 1s ease infinite;
+      }
+      animation: travel 160s linear infinite;
     }
 
     /*#easteregg-wrangler {
@@ -268,66 +272,9 @@ body {
       left: 0;        0     0     700   2250,
     }*/
 
-    #easteregg-balloon, #easteregg-balloon-flight, #easteregg-balloon-ropes {
-      transition: opacity 0.2s ease-out;
-      will-change: transform;
-    }
-
     #easteregg-balloon {
       top: 420px;
-      left: 590px;  
-      width: 183px;
-      height: 209px;
-      background: url(img/easteregg-balloon.svg) no-repeat;
-
-    }
-
-    #easteregg-balloon-ropes {
-      top: 620px;
-      left: 563px;
-      width: 234px;
-      height: 40px;
-      background: url(img/easteregg-balloon-ropes.svg) no-repeat;
-
-    }
-
-    #easteregg-balloon-flight {
-      width: 155px;
-      height: 209px;
-      top: 419px;
-      left: 593px;
-      background: url(img/easteregg-balloon-flight.svg) no-repeat;
-
-    }
-  
-    #easteregg-balloon {
-      opacity: 1;
-      &.flying {
-        opacity: 0;
-      }
-    }
-  
-    #easteregg-balloon-flight, #easteregg-balloon-ropes {
-      pointer-events: none;
-      opacity: 0;
-  
-      &.flying {
-        opacity: 1;
-      }
-    }
-  
-    #easteregg-balloon-flight {
-      &.flying {
-        animation: fly 30s linear;
-      }
-    }
-  
-    #easteregg-balloon, #easteregg-balloon-ropes {
-      will-change: opacity;
-    }
-  
-    #easteregg-balloon-flight {
-      will-change: transform, opacity;
+      left: 590px;
     }
   }
 }
