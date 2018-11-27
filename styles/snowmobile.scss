@@ -1,0 +1,71 @@
+.snowmobile {
+
+  position: absolute;
+  span {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    transition: transform .125s;
+    transform: rotateZ(0deg);
+    transform-origin: bottom center;
+
+    &:hover {
+      transform: rotateZ(10deg);
+    }
+  }
+}
+
+.right {
+  transform: rotateY(180deg);
+}
+
+.blue {
+  background: url(img/easteregg-snowmobile1.svg) no-repeat;
+}
+
+.red {
+  background: url(img/easteregg-snowmobile2.svg) no-repeat;
+}
+
+.yellow {
+  background: url(img/easteregg-snowmobile3.svg) no-repeat;
+}
+
+.purple {
+  background: url(img/easteregg-snowmobile4.svg) no-repeat;
+}
+
+@keyframes burnout {
+  0% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+  0.5% {
+    transform: rotateZ(-20deg) translateY(-4px) translateX(.5vw);
+  }
+  1% {
+    transform: rotateZ(0) translateY(0) translateX(1vw);
+  }
+  50% {
+    transform: rotateZ(0) translateY(0) translateX(200vw);
+  }
+  50.00001% {
+    transform: rotateZ(0) translateY(0) translateX(-200vw);
+  }
+  99% {
+    transform: rotateZ(0) translateY(0) translateX(-1vw);
+  }
+  99.5% {
+    transform: rotateZ(20deg) translateY(-4px) translateX(-.5vw);
+  }
+  100% {
+    transform: rotateZ(0) translateY(0) translateX(0);
+  }
+}
+
+.drive {
+  animation: burnout 10s linear reverse;
+}
+
+.drive.right {
+  animation: burnout 10s linear;
+}
