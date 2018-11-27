@@ -138,6 +138,8 @@ function handleKlang(command, args) {
       return sc.fire(args[0]);
     case 'ambient':
       return sc.ambient(args[0], args[1]);
+    case 'transition':
+      return sc.transition(...args);
     default:
       throw new Error(`unhandled Klang: ${command}`);
   }

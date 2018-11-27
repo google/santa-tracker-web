@@ -76,7 +76,7 @@ export const klang = new Promise((resolve) => {
     // until after the page is created.
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = `${klangPath}/klang.min.js`;
+      script.src = `${klangPath}/klang.js`;
       script.onload = resolve;
       script.onerror = reject;
       document.head.appendChild(script);
@@ -128,6 +128,22 @@ function triggerEvent(event, arg) {
 
 
 /**
+ * Triggers an event inline with klangEventTask.
+ *
+ * @param {function(): *} cb 
+ */
+function withEventTask(cb) {
+  const localTask = klangEventTask.then(async () => {
+    await cb();
+    await Promise.resolve(true);  // wait microtask
+  });
+  klangEventTask = localTask;
+  return localTask;
+
+}
+
+
+/**
  * Trigger an event on Klang. This is used for sound preload and ambient sounds. Events are
  * rate-limited so at most one event is dispatched per frame.
  *
@@ -135,12 +151,9 @@ function triggerEvent(event, arg) {
  * @return {!Promise<void>}
  */
 export function fire(event) {
-  const localTask = klangEventTask.then(async () => {
+  return withEventTask(async () => {
     await triggerEvent(event);
-    await Promise.resolve(true);  // wait microtask
   });
-  klangEventTask = localTask;
-  return localTask;
 }
 
 
@@ -165,7 +178,9 @@ export function ambient(startEvent, clearEvent) {
     if (previousClearEvent) {
       await fire(previousClearEvent);
     }
-    await fire(startEvent);
+    if (startEvent) {
+      await fire(startEvent);
+    }
     return clearEvent;
   });
   klangAmbientTask = localTask;
@@ -194,4 +209,43 @@ export function play(sound, arg=undefined) {
     args.push(...sound['args']);
   }
   localKlang.triggerEvent.apply(localKlang, args);
+}
+
+
+function getPlayingLoop(tracks) {
+  let playingLoop = undefined;
+  for (let i = 0; i < tracks.length; ++i) {
+    if (tracks[i].playing && tracks[i].position >= 0) {
+      if (!playingLoop || tracks[i].position < playingLoop.position) {
+        playingLoop = tracks[i];
+      }
+    }
+  }
+  return playingLoop;
+}
+
+
+/**
+ * Used by Code Boogie to transition smoothly between music.
+ *
+ * @param {string} collection
+ * @param {number} index
+ * @param {number} bpm
+ * @param {number} arg0
+ * @param {number} arg1
+ */
+export function transition(collection, index, bpm, arg0, arg1) {
+  // nb. Waiting for the event task is fraught with peril because we're probably going to delay
+  // this audio transition, which effects games like Code Boogie or Wrap Battle.
+  return withEventTask(async () => {
+    const klangUtil = localKlang.getUtil();
+    const tracks = Klang.engineVersion === 'webaudio' ? Klang.$(collection)._content : [];
+    const track = tracks[index];
+    if (!track) {
+      console.warn('no track to transition to', collection, index);
+      return;
+    }
+    const playingLoop = getPlayingLoop(tracks);
+    klangUtil.transition(playingLoop, track, bpm, arg0, arg1);
+  });
 }
