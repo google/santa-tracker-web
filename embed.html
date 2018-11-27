@@ -122,7 +122,7 @@ document.addEventListener('beforeload', (ev) => {
   window._testRecv = recv;
 
   window.addEventListener('message', (e) => {
-    if (e.source === null && (e.data === '' || e.data === 'androidembed')) {
+    if (e.source === null && (e.data === '' || e.data === 'santaandroid')) {
       // great
     } else {
       console.debug('ignoring incoming message', e);

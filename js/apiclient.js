@@ -21,6 +21,8 @@
 
 goog.provide('SantaService');
 
+var storage = window.localStorage || {};  // doesn't exist in incognito
+
 /**
  * Creates a new Santa service object.
  *
@@ -231,7 +233,7 @@ SantaService.prototype.sync = function() {
     this.scheduleSync_(/** @type {number} */ (result['refresh']), false);
 
     const routeUrl = /** @type {string} */ (result['route']);
-    if (routeUrl && window.localStorage['routeUrl'] !== routeUrl) {
+    if (routeUrl && storage['routeUrl'] !== routeUrl) {
       this.route_ = null;  // invalid promise, force refresh
     }
 
@@ -266,9 +268,9 @@ SantaService.prototype.route = function() {
     const url = /** @type {string} */ (data['route']);
 
     // Check old data, if we have any at all.
-    const previousUrl = window.localStorage['routeUrl'];
+    const previousUrl = storage['routeUrl'];
     if (previousUrl && previousUrl === url) {
-      const routeData = window.localStorage['route'];
+      const routeData = storage['route'];
       if (routeData) {
         let json;
         try {
@@ -301,8 +303,8 @@ SantaService.prototype.route = function() {
 
       // This will store about ~600-700kb of route data: the best resources online indicate that
       // this is totally safe to do. At worst, eviction will just force another network request.
-      window.localStorage['routeUrl'] = url;
-      window.localStorage['route'] = JSON.stringify(routeData);
+      storage['routeUrl'] = url;
+      storage['route'] = JSON.stringify(routeData);
 
       return new Route(url, routeData);
     });
