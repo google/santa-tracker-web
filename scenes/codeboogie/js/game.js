@@ -92,7 +92,7 @@ app.Game = class {
     this.level = this.levels[this.levelNumber];
     if (!this.level) {
       if (this.currentMode === app.GameMode.TEACHER) {
-        santaApp.fire('game-end', {
+        santaApp.fire('game-stop', {
           level: this.levelNumber,
         });
       } else {
@@ -141,7 +141,7 @@ app.Game = class {
    */
   share(query) {
     santaApp.fire('game-data', {dance: query});
-    santaApp.fire('game-end');
+    santaApp.fire('game-stop');
   }
 
   /**
@@ -158,9 +158,8 @@ app.Game = class {
    * @param {string=} param
    */
   restart(mode, param) {
-    console.debug('got restart', mode, param);
     this.levelNumber = -1;
-    this.currentMode = mode;
+    this.currentMode = mode || app.GameMode.TEACHER;
 
     if (mode === app.GameMode.FREESTYLE) {
       this.levels = app.Levels.createFreestyleLevel(param);
