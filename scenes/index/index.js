@@ -4,6 +4,7 @@ import '../../src/elements/santa-image-mask.js';
 import './elements/village-countdown.js';
 import './elements/tictactoe.js';
 import './elements/hotair-balloon.js';
+import './elements/snowmobile.js';
 
 
 const offset = {x: 0, y: 0};
