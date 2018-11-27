@@ -23,14 +23,13 @@
     }
 
     .cards {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
 
-        width: 80%;
-        height: 80%;
-
+        width: 100%;
+        height: 100%;
         position: relative;
         margin: auto;
         top: 50%;
@@ -38,6 +37,9 @@
     }
 
     .card {
+        width: 20vw;
+        height: 20vh;
+        margin: 1vh 1vw;
         transition: transform 0.5s;
         transform: perspective(500px);
         transform-style: preserve-3d;
