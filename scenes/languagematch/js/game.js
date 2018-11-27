@@ -27,6 +27,10 @@ app.Game = class Game {
     /** @private {boolean} Whether all the cards have been matched or not. */
     this.levelWon = false;
 
+    // Level state
+    /** @private {number} Current level */
+    this.level = 0;
+
     this.init();
   }
 
@@ -34,10 +38,21 @@ app.Game = class Game {
    * @private
    */
   init() {
-    // TODO(jez): Dynamically pick the number of cards to use.
-    this.createCards(8);
+    const numCards = this.getNumCards(this.level);
+    this.createCards(numCards);
     this.initCards();
     this.initFlipAnimations();
+
+    window.santaApp.fire('game-score', {level: this.level + 1, levels: 10});
+  }
+
+  /**
+   * Gets the amount of cards a level should have
+   * @param {number} level Level the player is up to
+   * @returns {number} number of cards
+   */
+  getNumCards(level) {
+    return 2 * (level + 1)
   }
 
   /**
@@ -111,6 +126,14 @@ app.Game = class Game {
       const cardBack = document.createElement('div');
       cardBack.classList.add('card-back');
       card.appendChild(cardBack);
+    }
+  }
+
+  clearCards() {
+    const cards = this.root.querySelector('.cards');
+
+    while (cards.lastChild) {
+      cards.removeChild(cards.lastChild);
     }
   }
 
@@ -194,8 +217,10 @@ app.Game = class Game {
     this.cards.forEach(card => card.matched = false);
     await this.resetGuesses();
 
+    this.level++;
     // Switch to a new set of cards.
-    this.initCards();
+    this.clearCards();
+    this.init();
     // Allow the user to guess again.
     this.levelWon = false;
   }
