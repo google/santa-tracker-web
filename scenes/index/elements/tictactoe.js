@@ -17,8 +17,8 @@ export class TicTacToeElement extends LitElement {
       blueScore: {type: Number},
       cellClasses: {type: Array},
       winClass: {type: String},
-      redTeamClass: {type: String, default: ''},
-      blueTeamClass: {type: String, default: ''},
+      redTeamClass: {type: String},
+      blueTeamClass: {type: String},
     };
   }
 
