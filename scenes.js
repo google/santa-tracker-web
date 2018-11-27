@@ -150,6 +150,9 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Scene'
   },
+  poseboogie: {
+    msgid: 'scene_poseboogie',
+  },
   postcard: {
     msgid: 'scene_postcard',
     typeSafe: false,
