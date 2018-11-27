@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Calendrier"
 	},
+	"category_all": {
+		"message": "Tout afficher"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Coder"
+	},
+	"category_computer-science": {
+		"message": "Science informatique"
 	},
 	"category_draw": {
 		"message": "Dessin"
 	},
+	"category_education": {
+		"message": "Axés sur l'éducation"
+	},
+	"category_geography": {
+		"message": "Géographie"
+	},
+	"category_language": {
+		"message": "Langue"
+	},
 	"category_listen": {
 		"message": "Écouter"
 	},
+	"category_new-this-year": {
+		"message": "Nouveau cette année"
+	},
 	"category_send": {
 		"message": "Envoyer"
+	},
+	"category_social-studies": {
+		"message": "Études sociales"
 	},
 	"cd_country_name": {
 		"message": "République démocratique du Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "Les Allemands se réunissent dans leur marché de Noël afin d'écouter des fanfares et manger des plats typiques de leur région. Ils y mangent des cœurs en pain d'épices, des amandes grillées au sucre et d'autres sucreries et y boivent du vin chaud (Glühwein) ou du cidre de pomme."
 	},
+	"dec24th": {
+		"message": "24 décembre"
+	},
 	"deck": {
 		"message": "Décorer"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Contribuez au financement d'un projet pour enfants à besoins spéciaux sur DonorsChoose.org. En ce mois de décembre, nous doublerons l'aide en donnant 50 % du montant amassé par les utilisateurs, jusqu'à concurrence de notre objectif de 1 M$ US. Ensemble, nous pouvons rendre les classes plus accueillantes pour tous. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Téléchargez l'application pour jouer à encore plus de jeux"
+	},
 	"dz_country_name": {
 		"message": "Algérie"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Sur les traces du père Noël pour les éducateurs"
 	},
+	"educators-games": {
+		"message": "Jeux pour la classe"
+	},
+	"educators-learn": {
+		"message": "Apprendre avec Sur les traces du père Noël"
+	},
 	"ee_country_name": {
 		"message": "Estonie"
 	},
 	"el_language_name": {
 		"message": "Grec"
+	},
+	"elf_choose_body": {
+		"message": "Choisis un corps pour le lutin"
 	},
 	"elvish_language_name": {
 		"message": "Dialecte des lutins"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Un problème s'est produit, mais les lutins du père Noël s'en occupent."
 	},
+	"error-internal": {
+		"message": "Oh non, un problème s'est produit! Nous en avons informé les lutins, mais essaie de revenir au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Il semble que nous ayons perdu notre connexion avec le pôle Nord. Les elfes du père Noël tentent de la rétablir, alors réessayez plus tard!"
 	},
 	"error-not-found": {
-		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./village.html\"\u003evillage du père Noël\u003c/a\u003e."
+		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Réessayer"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Interrompre"
 	},
+	"paused": {
+		"message": "En pause"
+	},
 	"pe_country_name": {
 		"message": "Pérou"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oups!"
 	},
+	"readyquestion": {
+		"message": "Prêt?"
+	},
 	"ro_country_name": {
 		"message": "Roumanie"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabie saoudite"
+	},
+	"santa-app": {
+		"message": "Père Noël"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Bonhomme en pain d'épice"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "La ruée du pingouin"
 	},
+	"scene_elfmaker": {
+		"message": "Créateur de lutin"
+	},
 	"scene_elfski": {
 		"message": "Le ski des lutins"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Terrain de jeu du Pôle Nord"
 	},
+	"scene_poseboogie": {
+		"message": "Pose de boogie"
+	},
 	"scene_postcard": {
-		"message": "Coder un flocon de neige"
+		"message": "Cartes postales du père Noël"
 	},
 	"scene_presentbounce": {
 		"message": "Rebond de cadeaux"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempête de boules de neige"
+	},
+	"scene_snowflake": {
+		"message": "Coder un flocon de neige"
 	},
 	"scene_speedsketch": {
 		"message": "Croquis rapide"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Plaisanterie au bureau"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Toujours en vacances"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Les rennes sont inquiets"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recharge de cadeaux"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Relaxation"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Décollage"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentation"
 	},
 	"scene_videoscene_tired": {
 		"message": "Renne fatigué"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Toujours en vacances"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Où est le père Noël?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Atelier du père Noël"
 	},
 	"scene_windtunnel": {
 		"message": "Soufflerie"
@@ -1389,6 +1458,9 @@
 		"message": "La bataille de l'emballage"
 	},
 	"score": {
+		"message": "Pointage"
+	},
+	"score_short": {
 		"message": "Pointage"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovaque"
+	},
+	"skip-training": {
+		"message": "Ignorer la formation"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "balai"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bulle"
-	},
 	"speedsketch_item~bucket": {
 		"message": "seau"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "appareil photo"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "feu de camp"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carotte"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "dessins animés"
 	},
 	"speedsketch_item~castle": {
 		"message": "château"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cerise"
-	},
-	"speedsketch_item~chicken": {
-		"message": "poulet"
 	},
 	"speedsketch_item~child": {
 		"message": "enfant"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodile"
-	},
-	"speedsketch_item~cross": {
-		"message": "croix"
 	},
 	"speedsketch_item~crow": {
 		"message": "corbeau"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "main"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "bonhomme pendu"
-	},
 	"speedsketch_item~happiness": {
 		"message": "bonheur"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "île"
 	},
-	"speedsketch_item~italy": {
-		"message": "italie"
-	},
 	"speedsketch_item~jacket": {
 		"message": "veste"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Vive le vent"
-	},
-	"speedsketch_item~kale": {
-		"message": "chou frisé"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangourou"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "pomme de terre"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "prise de courant"
-	},
 	"speedsketch_item~present": {
 		"message": "cadeau"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "sac à main"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "casse-tête"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "lapin"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "carré"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "gribouillis"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "écureuil"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "nature morte"
-	},
-	"speedsketch_item~stitches": {
-		"message": "points de suture"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bourse"
 	},
 	"speedsketch_item~stocking": {
 		"message": "bas"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricycle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "chariot"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "baleine"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roue"
 	},
 	"speedsketch_item~windmill": {
 		"message": "moulin à vent"
@@ -6630,7 +6660,7 @@
 		"message": "Réactiver le son"
 	},
 	"upgrade-warning": {
-		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur ou JavaScript a été désactivé. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente ou activez JavaScript. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "États-Unis"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Appeler le père Noël avec l'Assistant Google"
 	},
 	"village_comeback": {
 		"message": "Reviens le 24 et aide-nous à suivre le père Noël toute la nuit!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Ajouter l'extension Sur les traces du père Noël pour Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Questions sur la Terre du père Noël"
+	},
+	"village_santa_install": {
+		"message": "Installer"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

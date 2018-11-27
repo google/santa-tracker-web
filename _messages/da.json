@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Kalender"
 	},
+	"category_all": {
+		"message": "Se alle"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kode"
+	},
+	"category_computer-science": {
+		"message": "Computervidenskab"
 	},
 	"category_draw": {
 		"message": "Tegn"
 	},
+	"category_education": {
+		"message": "Spil til undervisning"
+	},
+	"category_geography": {
+		"message": "Geografi"
+	},
+	"category_language": {
+		"message": "Sprog"
+	},
 	"category_listen": {
 		"message": "Lyt"
 	},
+	"category_new-this-year": {
+		"message": "Nyt i år"
+	},
 	"category_send": {
 		"message": "Send"
+	},
+	"category_social-studies": {
+		"message": "Samfundsfag"
 	},
 	"cd_country_name": {
 		"message": "Den Demokratiske Republik Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "I næsten alle tyske byer er der julemarkeder på byens pladser. Folk i byen samles for at høre hornorkestre og nyde områdets traditionelle retter. De spiser honninghjerter, brændte mandler og slik, og de drikker gløgg (Glühwein) eller æblecider."
 	},
+	"dec24th": {
+		"message": "24. december"
+	},
 	"deck": {
 		"message": "Pynt op"
 	},
@@ -525,10 +552,13 @@
 		"message": "Den Dominikanske Republik"
 	},
 	"donate_button": {
-		"message": "Giv donation"
+		"message": "Donér"
 	},
 	"donate_text": {
 		"message": "Hjælp med at finansiere et projekt, der fokuserer på særlige behov, på DonorsChoose.org. I december hjælper vi med at fordoble indflydelsen ved at matche 50 % af alle donationer, indtil vi når målet om at donere 1 mio. USD. Sammen kan vi gøre klasseværelset til et godt sted for alle. #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Download appen for at spille endnu flere spil"
 	},
 	"dz_country_name": {
 		"message": "Algeriet"
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Følg julemanden for undervisere"
 	},
+	"educators-games": {
+		"message": "Spil til klasseværelset"
+	},
+	"educators-learn": {
+		"message": "Bliv klogere med Følg julemanden"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
 	"el_language_name": {
 		"message": "Græsk"
+	},
+	"elf_choose_body": {
+		"message": "Vælg en nissekrop"
 	},
 	"elvish_language_name": {
 		"message": "Nissesprog"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Der opstod et problem, men julemandens hjælpere ser på det."
 	},
+	"error-internal": {
+		"message": "Åh nej, der opstod et problem! Vi har givet julemandens hjælpere besked, men prøv at tage tilbage til \u003ca href=\"./\"\u003eJulemandens landsby\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Det ser ud til, at vi har mistet forbindelsen til Nordpolen. Julemandens nisser arbejder hårdt på at løse problemet – vent et øjeblik."
 	},
 	"error-not-found": {
-		"message": "Åh nej, julemandens hjælpere kan ikke finde denne side! Du har måske mere held, hvis du går tilbage til \u003ca href=\"./village.html\"\u003eJulemandens landsby\u003c/a\u003e."
+		"message": "Åh nej, julemandens hjælpere kan ikke finde denne side! Du har måske mere held, hvis du går tilbage til \u003ca href=\"./\"\u003eJulemandens landsby\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Prøv igen"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Sæt på pause"
 	},
+	"paused": {
+		"message": "Sat på pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ups!"
 	},
+	"readyquestion": {
+		"message": "Klar?"
+	},
 	"ro_country_name": {
 		"message": "Rumænien"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi-Arabien"
+	},
+	"santa-app": {
+		"message": "Julemanden"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Honningkagemand"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvin med fart på"
 	},
+	"scene_elfmaker": {
+		"message": "Lav en nisse"
+	},
 	"scene_elfski": {
 		"message": "Nisseskiløb"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Legeplads på Nordpolen"
 	},
+	"scene_poseboogie": {
+		"message": "Boogie-undervisning"
+	},
 	"scene_postcard": {
-		"message": "Lav et snefnug med kode"
+		"message": "Julemandspostkort"
 	},
 	"scene_presentbounce": {
 		"message": "Gaveregn"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Sneboldkrig"
+	},
+	"scene_snowflake": {
+		"message": "Lav et snefnug med kode"
 	},
 	"scene_speedsketch": {
 		"message": "Hurtigtegner"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Spøg på kontoret"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Han er stadig på ferie"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Bekymrede rensdyr"
+	},
 	"scene_videoscene_reload": {
 		"message": "Et nyt læs gaver"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Dovner den"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Flyvefærdig"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Det er svært at modstå fristelsen"
 	},
 	"scene_videoscene_tired": {
 		"message": "Et træt rensdyr"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Han er stadig på ferie"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Hvor er julemanden?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Julemandens værksted"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
@@ -1389,6 +1458,9 @@
 		"message": "Gaveindpakningens mester"
 	},
 	"score": {
+		"message": "Point"
+	},
+	"score_short": {
 		"message": "Point"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakisk"
+	},
+	"skip-training": {
+		"message": "Spring intro over"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "kost"
 	},
-	"speedsketch_item~bubble": {
-		"message": "boble"
-	},
 	"speedsketch_item~bucket": {
 		"message": "spand"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "lejrbål"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "gulerod"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "tegnefilm"
 	},
 	"speedsketch_item~castle": {
 		"message": "slot"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "kirsebær"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kylling"
 	},
 	"speedsketch_item~child": {
 		"message": "barn"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodille"
-	},
-	"speedsketch_item~cross": {
-		"message": "kors"
 	},
 	"speedsketch_item~crow": {
 		"message": "krage"
@@ -1887,7 +1947,7 @@
 		"message": "nisse"
 	},
 	"speedsketch_item~emoji": {
-		"message": "humørikon"
+		"message": "emoji"
 	},
 	"speedsketch_item~envelope": {
 		"message": "kuvert"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "hånd"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "galgespil"
-	},
 	"speedsketch_item~happiness": {
 		"message": "lykke"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "ø"
 	},
-	"speedsketch_item~italy": {
-		"message": "italien"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jakke"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "juleklokker"
-	},
-	"speedsketch_item~kale": {
-		"message": "grønkål"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kænguru"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "kartoffel"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "stikkontakt"
-	},
 	"speedsketch_item~present": {
 		"message": "gave"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "pung"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puslespil"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "kanin"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "firkant"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "krusedulle"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "egern"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "stilleben"
-	},
-	"speedsketch_item~stitches": {
-		"message": "sting"
-	},
-	"speedsketch_item~stock market": {
-		"message": "aktiemarked"
 	},
 	"speedsketch_item~stocking": {
 		"message": "sok"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "trehjulet cykel"
 	},
-	"speedsketch_item~trolley": {
-		"message": "trækvogn"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trækbasun"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "hval"
-	},
-	"speedsketch_item~wheel": {
-		"message": "hjul"
 	},
 	"speedsketch_item~windmill": {
 		"message": "vindmølle"
@@ -6630,7 +6660,7 @@
 		"message": "Lyd til"
 	},
 	"upgrade-warning": {
-		"message": "Ups! \"Følg julemanden\" understøttes ikke i denne version af din browser. Hvis du vil have adgang til \"Følg julemanden\", skal du downloade en moderne browser. Du kan få flere oplysninger her \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Følg julemanden understøttes ikke af din browser, eller JavaScript er deaktiveret. Du kan få adgang til Følg julemanden ved at downloade en moderne browser eller aktivere JavaScript.\nDu kan få flere oplysninger på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Kald på julemanden med Google Assistent"
 	},
 	"village_comeback": {
 		"message": "Kom tilbage den 24., og hjælp os med at følge julemanden hele natten!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Tilføj julemanden som Chrome-udvidelse"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Julemandens quiz om verden"
+	},
+	"village_santa_install": {
+		"message": "Installer"
 	},
 	"village_takesoff": {
 		"message": "Julemanden tager afsted om"

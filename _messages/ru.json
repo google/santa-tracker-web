@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Календарь"
 	},
+	"category_all": {
+		"message": "Просмотреть все"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Код"
+	},
+	"category_computer-science": {
+		"message": "Компьютерные науки"
 	},
 	"category_draw": {
 		"message": "Нарисовать"
 	},
+	"category_education": {
+		"message": "Образовательные игры"
+	},
+	"category_geography": {
+		"message": "География"
+	},
+	"category_language": {
+		"message": "Язык"
+	},
 	"category_listen": {
 		"message": "Послушать"
 	},
+	"category_new-this-year": {
+		"message": "Новинки этого года"
+	},
 	"category_send": {
 		"message": "Отправить"
+	},
+	"category_social-studies": {
+		"message": "Общественные науки"
 	},
 	"cd_country_name": {
 		"message": "Демократическая Республика Конго"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "В Германии Рождество – пора городских ярмарок. На площадях играют духовые оркестры и проводятся праздники. Традиционными угощениями являются миндаль в карамели и другие сласти, а из напитков – глинтвейн (Glühwein) и яблочный сидр."
 	},
+	"dec24th": {
+		"message": "24 декабря"
+	},
 	"deck": {
 		"message": "Украсить"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Помогите нам собрать миллион долларов США в поддержку школьников с ограниченными возможностями. Сделайте взнос на сайте donorschoose.org. В декабре мы будем удваивать все пожертвования. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Загрузите наше приложение и попробуйте ещё больше игр"
+	},
 	"dz_country_name": {
 		"message": "Алжир"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Ресурсы для преподавателей"
 	},
+	"educators-games": {
+		"message": "Игры в классе"
+	},
+	"educators-learn": {
+		"message": "Учимся с Радаром Санта-Клауса"
+	},
 	"ee_country_name": {
 		"message": "Эстония"
 	},
 	"el_language_name": {
 		"message": "Греческий"
+	},
+	"elf_choose_body": {
+		"message": "Выберите, как будет выглядеть ваш эльф"
 	},
 	"elvish_language_name": {
 		"message": "эльфийский"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Произошла ошибка. Эльфы Санты уже ищут решение."
 	},
+	"error-internal": {
+		"message": "Произошла ошибка. \u003ca href=\"./\"\u003eВернуться в деревню Санты\u003c/a\u003e"
+	},
 	"error-lost-connection": {
 		"message": "Похоже, связь с Северным полюсом прервалась. Подождите немного, эльфы Санты уже пытаются решить проблему."
 	},
 	"error-not-found": {
-		"message": "Страница не найдена. \u003ca href=\"./village.html\"\u003eВернуться в деревню Санты\u003c/a\u003e"
+		"message": "Страница не найдена. \u003ca href=\"./\"\u003eВернуться в деревню Санты\u003c/a\u003e"
 	},
 	"error-try-again": {
 		"message": "Повторить попытку"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Пауза"
 	},
+	"paused": {
+		"message": "Приостановлено"
+	},
 	"pe_country_name": {
 		"message": "Перу"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Не повезло!"
 	},
+	"readyquestion": {
+		"message": "Готовы?"
+	},
 	"ro_country_name": {
 		"message": "Румыния"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Саудовская Аравия"
+	},
+	"santa-app": {
+		"message": "Радар Санты"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Пряничный человечек"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Быстрый пингвин"
 	},
+	"scene_elfmaker": {
+		"message": "Создаем эльфа"
+	},
 	"scene_elfski": {
 		"message": "Лыжный спуск"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Игровая площадка Санты"
 	},
+	"scene_poseboogie": {
+		"message": "Буги-вуги"
+	},
 	"scene_postcard": {
-		"message": "Создай снежинку из кода"
+		"message": "Рождественские открытки"
 	},
 	"scene_presentbounce": {
 		"message": "Попади в цель"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Снежная перестрелка"
+	},
+	"scene_snowflake": {
+		"message": "Создай снежинку из кода"
 	},
 	"scene_speedsketch": {
 		"message": "Узоры на окне"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Офисный розыгрыш"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Отпуск"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Олени волнуются"
+	},
 	"scene_videoscene_reload": {
 		"message": "Дозаправка"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Лишь бы не работать"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Пора в путь"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Искушение"
 	},
 	"scene_videoscene_tired": {
 		"message": "Уставший олень"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Отпуск"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Где Санта?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Мастерская Санты"
 	},
 	"scene_windtunnel": {
 		"message": "Аэродинамическая труба"
@@ -1389,6 +1458,9 @@
 		"message": "Упаковка на скорость"
 	},
 	"score": {
+		"message": "Счет"
+	},
+	"score_short": {
 		"message": "Счет"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Словацкий"
+	},
+	"skip-training": {
+		"message": "Пропустить обучение"
 	},
 	"sl_country_name": {
 		"message": "Сьерра-Леоне"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "метла"
 	},
-	"speedsketch_item~bubble": {
-		"message": "пузырь"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ведро"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "фотоаппарат"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "камуфляж"
-	},
 	"speedsketch_item~campfire": {
 		"message": "костер"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "морковка"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "мультфильм"
 	},
 	"speedsketch_item~castle": {
 		"message": "дворец"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "вишня"
-	},
-	"speedsketch_item~chicken": {
-		"message": "курица"
 	},
 	"speedsketch_item~child": {
 		"message": "ребенок"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "крокодил"
-	},
-	"speedsketch_item~cross": {
-		"message": "крест"
 	},
 	"speedsketch_item~crow": {
 		"message": "ворона"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "кисть руки"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "игра \"виселица\""
-	},
 	"speedsketch_item~happiness": {
 		"message": "счастье"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "остров"
 	},
-	"speedsketch_item~italy": {
-		"message": "Италия"
-	},
 	"speedsketch_item~jacket": {
 		"message": "куртка"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "кудрявая капуста"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "кенгуру"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "картошка"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "розетка"
-	},
 	"speedsketch_item~present": {
 		"message": "подарок"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "сумка"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "пазл"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "кролик"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "квадрат"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "каракули"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "белка"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "натюрморт"
-	},
-	"speedsketch_item~stitches": {
-		"message": "швы"
-	},
-	"speedsketch_item~stock market": {
-		"message": "фондовая биржа"
 	},
 	"speedsketch_item~stocking": {
 		"message": "носок"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "трицикл"
 	},
-	"speedsketch_item~trolley": {
-		"message": "тележка"
-	},
 	"speedsketch_item~trombone": {
 		"message": "тромбон"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "кит"
-	},
-	"speedsketch_item~wheel": {
-		"message": "колесо"
 	},
 	"speedsketch_item~windmill": {
 		"message": "ветряная мельница"
@@ -6630,7 +6660,7 @@
 		"message": "Включить звук"
 	},
 	"upgrade-warning": {
-		"message": "Радар Санта-Клауса не будет работать в этой версии браузера. Перейдите на страницу \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e и скачайте новый."
+		"message": "Радар Санта-Клауса не будет работать в этом браузере. Перейдите на страницу \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e и скачайте новый."
 	},
 	"us_country_name": {
 		"message": "США"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Венесуэла"
+	},
+	"village_assistant-call_santa": {
+		"message": "Позвоните Санте при помощи Google Ассистента"
 	},
 	"village_comeback": {
 		"message": "Загляните сюда 24 декабря и следите за путешествиями Санты всю ночь."
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Установить расширение для Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Географическая викторина Санты"
+	},
+	"village_santa_install": {
+		"message": "Установить"
 	},
 	"village_takesoff": {
 		"message": "Санта отправится в путь через"

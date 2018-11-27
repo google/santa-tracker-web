@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "The Calendar"
 	},
+	"category_all": {
+		"message": "View All"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Code"
+	},
+	"category_computer-science": {
+		"message": "Computer Science"
 	},
 	"category_draw": {
 		"message": "Draw"
 	},
+	"category_education": {
+		"message": "Education Focused"
+	},
+	"category_geography": {
+		"message": "Geography"
+	},
+	"category_language": {
+		"message": "Language"
+	},
 	"category_listen": {
 		"message": "Listen"
 	},
+	"category_new-this-year": {
+		"message": "New This Year"
+	},
 	"category_send": {
 		"message": "Send"
+	},
+	"category_social-studies": {
+		"message": "Social Studies"
 	},
 	"cd_country_name": {
 		"message": "Democratic Republic of the Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Glühwein) or apple cider."
 	},
+	"dec24th": {
+		"message": "December 24"
+	},
 	"deck": {
 		"message": "Deck Out"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Download to play even more games"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Santa Tracker for Educators"
 	},
+	"educators-games": {
+		"message": "Games for the classroom"
+	},
+	"educators-learn": {
+		"message": "Learning with Santa Tracker"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
 	"el_language_name": {
 		"message": "Greek"
+	},
+	"elf_choose_body": {
+		"message": "Choose an elf body"
 	},
 	"elvish_language_name": {
 		"message": "Elvish"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "There was a problem, but Santa's Elves are looking into it."
 	},
+	"error-internal": {
+		"message": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
 	},
 	"error-not-found": {
-		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to \u003ca href=\"./village.html\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Try again"
@@ -854,6 +896,9 @@
 	"next": {
 		"message": "Next"
 	},
+	"next_game": {
+		"message": "Next Game"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1037,6 +1082,9 @@
 	"pause": {
 		"message": "Pause"
 	},
+	"paused": {
+		"message": "Paused"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1075,6 +1123,87 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "About Santa Tracker"
+	},
+	"press-about-tracker1": {
+		"message": "On December 24th, we'll launch the Tracker, a dashboard that allows Santa fans to follow his progress as he whips from city to city. You can also see his live location on Google Maps and ask the Google Assistant, \"OK Google, Where’s Santa?\"—so you can keep a pulse on Santa's whereabouts even when you’re on the go."
+	},
+	"press-about-village": {
+		"message": "About Santa's Village"
+	},
+	"press-about-village1": {
+		"message": "Santa's Village is celebrating its fifteenth year of fun, educational, and interactive holiday activities. Under Mrs. Claus’s expert guidance, the elves have updated the village with a snazzy look and feel along with some brand new content. And, thanks to a new, hot-cocoa powered heating system, the village will no longer take all of December to thaw—all two dozen activities will be available starting on December 4. Now the elves (and you!) have more time to play and explore in Santa's Village."
+	},
+	"press-about-village2": {
+		"message": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops, and learn more about charitable organizations like \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e and \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Teachers can even \u003ca href=\"./educators.html\"\u003edownload lesson plans\u003c/a\u003e with video guides to help teach their students fundamental coding skills and holiday traditions in English, Spanish, French, Japanese and Korean."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Press resources"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "The spirit of the holidays is everywhere, including all your devices!"
+	},
+	"press-device-title": {
+		"message": "Santa Tracker on your device"
+	},
+	"press-edu": {
+		"message": "Educational adventures"
+	},
+	"press-edu1": {
+		"message": "We've expanded our \u003ca href=\"./educators.html\"\u003eeducator resource page\u003c/a\u003e to provide teachers with video guides to accompany lesson plans now available in four languages. All of your favorite games remain introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see \u003ca href=\"./educators.html\"\u003eour educational games\u003c/a\u003e to learn more."
+	},
+	"press-games-title": {
+		"message": "All the fun and games"
+	},
+	"press-need-text": {
+		"message": "Elves and Googlers are here to help."
+	},
+	"press-need-title": {
+		"message": "Need something?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Opens December 24th"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Open all December"
+	},
+	"press-villagetracker-title": {
+		"message": "Santa's Village and The Tracker"
+	},
+	"press-whatsnew": {
+		"message": "What's new this year"
+	},
+	"press-whatsnew1-text": {
+		"message": "Build your own elf from head to toe and make sure it looks elftastic for the many holiday soirées happening on the North Pole."
+	},
+	"press-whatsnew1-title": {
+		"message": "Build an elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now’s your chance. Almost. Using a machine learning model called \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, you can train an elf to learn your moves so can get your elf on the dance floor."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dance(s) with elves:"
+	},
+	"press-whatsnew3-text": {
+		"message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+	},
+	"press-whatsnew3-title": {
+		"message": "A new way to track Santa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+	},
+	"press-whatsnew4-title": {
+		"message": "More holiday fun:"
 	},
 	"pt_language_name": {
 		"message": "Portuguese"
@@ -1145,6 +1274,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oops!"
 	},
+	"readyquestion": {
+		"message": "Ready?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1159,6 +1291,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Arabia"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Gingerbread Man"
@@ -1244,6 +1379,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfmaker": {
+		"message": "Elf Maker"
+	},
 	"scene_elfski": {
 		"message": "Elf Ski"
 	},
@@ -1283,8 +1421,11 @@
 	"scene_playground": {
 		"message": "North Pole Playground"
 	},
+	"scene_poseboogie": {
+		"message": "Pose Boogie"
+	},
 	"scene_postcard": {
-		"message": "Code a Snowflake"
+		"message": "Santa Postcards"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1318,6 +1459,9 @@
 	},
 	"scene_snowball": {
 		"message": "Snowball Storm"
+	},
+	"scene_snowflake": {
+		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
@@ -1355,6 +1499,12 @@
 	"scene_videoscene_office": {
 		"message": "Office Prank"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Still on Vacation"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Reindeer Worries"
+	},
 	"scene_videoscene_reload": {
 		"message": "Present Reload"
 	},
@@ -1370,17 +1520,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slacking Off"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Take Off"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
 	},
 	"scene_videoscene_tired": {
 		"message": "Tired Reindeer"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Still on Vacation"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Where's Santa?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Santa's Workshop"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
@@ -1389,6 +1542,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Score"
+	},
+	"score_short": {
 		"message": "Score"
 	},
 	"se_country_name": {
@@ -1414,6 +1570,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-training": {
+		"message": "Skip Training"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1817,6 @@
 	"speedsketch_item~broom": {
 		"message": "broom"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bubble"
-	},
 	"speedsketch_item~bucket": {
 		"message": "bucket"
 	},
@@ -1694,9 +1850,6 @@
 	"speedsketch_item~camera": {
 		"message": "camera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "campfire"
 	},
@@ -1717,9 +1870,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carrot"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "cartoon"
 	},
 	"speedsketch_item~castle": {
 		"message": "castle"
@@ -1747,9 +1897,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cherry"
-	},
-	"speedsketch_item~chicken": {
-		"message": "chicken"
 	},
 	"speedsketch_item~child": {
 		"message": "child"
@@ -1807,9 +1954,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodile"
-	},
-	"speedsketch_item~cross": {
-		"message": "cross"
 	},
 	"speedsketch_item~crow": {
 		"message": "crow"
@@ -2024,9 +2168,6 @@
 	"speedsketch_item~hand": {
 		"message": "hand"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "hangman game"
-	},
 	"speedsketch_item~happiness": {
 		"message": "happiness"
 	},
@@ -2102,9 +2243,6 @@
 	"speedsketch_item~island": {
 		"message": "island"
 	},
-	"speedsketch_item~italy": {
-		"message": "italy"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jacket"
 	},
@@ -2113,9 +2251,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "kale"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangaroo"
@@ -2414,9 +2549,6 @@
 	"speedsketch_item~potato": {
 		"message": "potato"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "power outlet"
-	},
 	"speedsketch_item~present": {
 		"message": "present"
 	},
@@ -2425,9 +2557,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "purse"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "rabbit"
@@ -2612,9 +2741,6 @@
 	"speedsketch_item~square": {
 		"message": "square"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "squiggle"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "squirrel"
 	},
@@ -2635,12 +2761,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "still life"
-	},
-	"speedsketch_item~stitches": {
-		"message": "stitches"
-	},
-	"speedsketch_item~stock market": {
-		"message": "stock market"
 	},
 	"speedsketch_item~stocking": {
 		"message": "stocking"
@@ -2756,9 +2876,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricycle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "trolley"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2926,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "whale"
-	},
-	"speedsketch_item~wheel": {
-		"message": "wheel"
 	},
 	"speedsketch_item~windmill": {
 		"message": "windmill"
@@ -6630,7 +6744,7 @@
 		"message": "Unmute"
 	},
 	"upgrade-warning": {
-		"message": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -6646,6 +6760,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Call Santa with the Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Come back on the 24th and help us track Santa all night!"
@@ -6676,6 +6793,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Add the Santa Chrome Extension"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Santa Earth Quiz"
+	},
+	"village_santa_install": {
+		"message": "Install"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

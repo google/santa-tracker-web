@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "크리스마스 달력"
 	},
+	"category_all": {
+		"message": "모두 보기"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "코드"
+	},
+	"category_computer-science": {
+		"message": "컴퓨터 과학"
 	},
 	"category_draw": {
 		"message": "그리기"
 	},
+	"category_education": {
+		"message": "교육용"
+	},
+	"category_geography": {
+		"message": "지리"
+	},
+	"category_language": {
+		"message": "언어"
+	},
 	"category_listen": {
 		"message": "듣기"
 	},
+	"category_new-this-year": {
+		"message": "올해의 새로운 게임"
+	},
 	"category_send": {
 		"message": "보내기"
+	},
+	"category_social-studies": {
+		"message": "사회"
 	},
 	"cd_country_name": {
 		"message": "콩고 민주공화국"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "크리스마스가 되면 거의 모든 독일 마을의 광장에 크리스마스 시장이 섭니다. 마을 사람들은 함께 모여 관악대의 음악을 감상하고 지역의 전통 음식을 즐깁니다. 하트 모양의 생강 쿠키, 설탕을 입혀 구운 아몬드 등 다양한 종류의 과자를 먹고 와인에 향신료를 넣어 데운 글뤼바인이나 사과주를 마십니다."
 	},
+	"dec24th": {
+		"message": "12월 24일"
+	},
 	"deck": {
 		"message": "장식하기"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "특별한 관심을 필요로 하는 아이들을 위한 DonorsChoose.org의 프로젝트 기금 마련에 따뜻한 손길을 보내 주세요. 올 12월, Google은 100만 달러 기부 목표를 달성할 때까지 기부금을 50% 지원하여 나눔의 효과를 높이고자 합니다. 우리 모두 교실의 모든 아이들이(#ForEveryKid) 불편함 없는 환경에서 공부할 수 있도록 도웁시다."
 	},
+	"download-cta": {
+		"message": "다운로드하여 보다 다양한 게임 즐기기"
+	},
 	"dz_country_name": {
 		"message": "알제리"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "교육기관용 산타 추적기"
 	},
+	"educators-games": {
+		"message": "교실용으로 적합한 게임"
+	},
+	"educators-learn": {
+		"message": "산타 추적기로 학습하기"
+	},
 	"ee_country_name": {
 		"message": "에스토니아"
 	},
 	"el_language_name": {
 		"message": "그리스어"
+	},
+	"elf_choose_body": {
+		"message": "엘프 모양 선택"
 	},
 	"elvish_language_name": {
 		"message": "엘프어"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "문제가 발생했지만 산타의 엘프 친구들이 문제를 확인하는 중입니다."
 	},
+	"error-internal": {
+		"message": "문제가 발생했습니다. 산타의 엘프 친구들에게 이 문제에 대해 알렸습니다. \u003ca href=\"./\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
+	},
 	"error-lost-connection": {
 		"message": "방금 북극과의 연결이 끊어진 것 같습니다. 산타의 엘프 친구들이 열심히 고치는 중이니 기다려 주세요."
 	},
 	"error-not-found": {
-		"message": "산타의 엘프 친구들이 페이지를 찾을 수 없습니다. \u003ca href=\"./village.html\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
+		"message": "산타의 엘프 친구들이 페이지를 찾을 수 없습니다. \u003ca href=\"./\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
 	},
 	"error-try-again": {
 		"message": "다시 시도"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "일시중지"
 	},
+	"paused": {
+		"message": "일시중지됨"
+	},
 	"pe_country_name": {
 		"message": "페루"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "앗!"
 	},
+	"readyquestion": {
+		"message": "준비되셨나요?"
+	},
 	"ro_country_name": {
 		"message": "루마니아"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "사우디아라비아"
+	},
+	"santa-app": {
+		"message": "산타"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "진저브레드맨"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "펭귄 질주"
 	},
+	"scene_elfmaker": {
+		"message": "엘프 만들기"
+	},
 	"scene_elfski": {
 		"message": "엘프 스키"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "북극 놀이터"
 	},
+	"scene_poseboogie": {
+		"message": "부기 댄스 자세"
+	},
 	"scene_postcard": {
-		"message": "눈송이 코드"
+		"message": "산타 엽서"
 	},
 	"scene_presentbounce": {
 		"message": "선물 튕기기"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "맹공의 눈싸움"
+	},
+	"scene_snowflake": {
+		"message": "눈송이 코드"
 	},
 	"scene_speedsketch": {
 		"message": "빨리 그리기"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "장난 사무실"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "휴가 중"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "걱정하는 사슴"
+	},
 	"scene_videoscene_reload": {
 		"message": "선물 다시 로드"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "딴짓 중"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "출발"
+	},
 	"scene_videoscene_temptation": {
 		"message": "템테이션"
 	},
 	"scene_videoscene_tired": {
 		"message": "피곤한 순록"
 	},
-	"scene_videoscene_trailer": {
-		"message": "휴가 중"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "산타가 어디 있을까요?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "산타의 작업공방"
 	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"
@@ -1389,6 +1458,9 @@
 		"message": "선물 포장 시합"
 	},
 	"score": {
+		"message": "점수"
+	},
+	"score_short": {
 		"message": "점수"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "슬로바키아어"
+	},
+	"skip-training": {
+		"message": "학습 건너뛰기"
 	},
 	"sl_country_name": {
 		"message": "시에라리온"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "빗자루"
 	},
-	"speedsketch_item~bubble": {
-		"message": "풍선"
-	},
 	"speedsketch_item~bucket": {
 		"message": "양동이"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "카메라"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "위장(카무플라주)"
-	},
 	"speedsketch_item~campfire": {
 		"message": "모닥불"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "당근"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "만화"
 	},
 	"speedsketch_item~castle": {
 		"message": "성"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "체리"
-	},
-	"speedsketch_item~chicken": {
-		"message": "닭"
 	},
 	"speedsketch_item~child": {
 		"message": "어린이"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "악어"
-	},
-	"speedsketch_item~cross": {
-		"message": "십자가"
 	},
 	"speedsketch_item~crow": {
 		"message": "까마귀"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "손"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "행맨 게임"
-	},
 	"speedsketch_item~happiness": {
 		"message": "행복"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "섬"
 	},
-	"speedsketch_item~italy": {
-		"message": "이탈리아"
-	},
 	"speedsketch_item~jacket": {
 		"message": "재킷"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "징글벨"
-	},
-	"speedsketch_item~kale": {
-		"message": "케일"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "캥거루"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "감자"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "전원 콘센트"
-	},
 	"speedsketch_item~present": {
 		"message": "현재"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "핸드백"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "퍼즐"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "토끼"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "정사각형"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "구불구불한 선"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "다람쥐"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "정물화"
-	},
-	"speedsketch_item~stitches": {
-		"message": "바늘땀"
-	},
-	"speedsketch_item~stock market": {
-		"message": "주식 시장"
 	},
 	"speedsketch_item~stocking": {
 		"message": "스타킹"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "삼륜차"
 	},
-	"speedsketch_item~trolley": {
-		"message": "트롤리"
-	},
 	"speedsketch_item~trombone": {
 		"message": "트롬본"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "고래"
-	},
-	"speedsketch_item~wheel": {
-		"message": "바퀴"
 	},
 	"speedsketch_item~windmill": {
 		"message": "풍차"
@@ -6630,7 +6660,7 @@
 		"message": "음소거 해제"
 	},
 	"upgrade-warning": {
-		"message": "산타 추적기가 지원되지 않는 버전의 브라우저입니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
+		"message": "산타 추적기가 지원되지 않는 브라우저이거나 자바스크립트가 사용 중지되어 있습니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하거나 자바스크립트를 사용 설정하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
 	},
 	"us_country_name": {
 		"message": "미국"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "베네수엘라"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google 어시스턴트로 산타와 통화"
 	},
 	"village_comeback": {
 		"message": "12월 24일에 다시 방문해 밤새 산타를 추적해 보세요."
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "산타 Chrome 확장 프로그램 추가"
+	},
+	"village_santa_earth_quiz": {
+		"message": "산타와 함께하는 세계 상식 퀴즈"
+	},
+	"village_santa_install": {
+		"message": "설치"
 	},
 	"village_takesoff": {
 		"message": "산타 출발까지 남은 시간"

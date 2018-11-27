@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "カレンダー"
 	},
+	"category_all": {
+		"message": "すべて表示"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "コード"
+	},
+	"category_computer-science": {
+		"message": "コンピュータ サイエンス"
 	},
 	"category_draw": {
 		"message": "絵を描く"
 	},
+	"category_education": {
+		"message": "学び・教育"
+	},
+	"category_geography": {
+		"message": "地理"
+	},
+	"category_language": {
+		"message": "言語"
+	},
 	"category_listen": {
 		"message": "音楽を聴く"
 	},
+	"category_new-this-year": {
+		"message": "今年の新作"
+	},
 	"category_send": {
 		"message": "送信"
+	},
+	"category_social-studies": {
+		"message": "社会科"
 	},
 	"cd_country_name": {
 		"message": "コンゴ民主共和国"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "ドイツでは、ほとんどの町の広場でクリスマス マーケットが開かれ、ブラスバンドの演奏や宗教にちなんだ伝統的なお祭りを楽しむ人々で賑わいます。ハート型のジンジャー ブレッド、シュガー ロースト アーモンド、スイーツ全般、グリューヴァイン（ホットワイン）やリンゴ酒がクリスマスの定番メニューです。"
 	},
+	"dec24th": {
+		"message": "12/24"
+	},
 	"deck": {
 		"message": "飾り付け"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "DonorsChoose.org の特別支援プロジェクトへの資金援助をお願いいたします。今年の 12 月、目標の 100 万米ドルに達するまで、Google は皆様からの寄付額の最大 50% の資金を提供します。Google とともに、もっと学びやすい教室を作る手助けをしてください。#ForEveryKid"
 	},
+	"download-cta": {
+		"message": "ダウンロードしてさらに多くのゲームで遊びましょう"
+	},
 	"dz_country_name": {
 		"message": "アルジェリア"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "教育者向け「サンタを追いかけよう」"
 	},
+	"educators-games": {
+		"message": "授業で使えるゲーム"
+	},
+	"educators-learn": {
+		"message": "「サンタを追いかけよう」で学ぶ"
+	},
 	"ee_country_name": {
 		"message": "エストニア"
 	},
 	"el_language_name": {
 		"message": "ギリシャ語"
+	},
+	"elf_choose_body": {
+		"message": "妖精の体を選ぼう"
 	},
 	"elvish_language_name": {
 		"message": "妖精語"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "問題が発生しました。"
 	},
+	"error-internal": {
+		"message": "問題が発生しました。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
+	},
 	"error-lost-connection": {
 		"message": "北極との通信が途切れてしまったようです。サンタさんの妖精たちが修復に取り掛かっています。しばらくお待ちください。"
 	},
 	"error-not-found": {
-		"message": "ページが見つかりません。\u003ca href=\"./village.html\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
+		"message": "ページが見つかりません。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
 	},
 	"error-try-again": {
 		"message": "もう一度やり直してください"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "一時停止"
 	},
+	"paused": {
+		"message": "一時停止"
+	},
 	"pe_country_name": {
 		"message": "ペルー"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "クリア失敗"
 	},
+	"readyquestion": {
+		"message": "準備は OK？"
+	},
 	"ro_country_name": {
 		"message": "ルーマニア"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "サウジアラビア"
+	},
+	"santa-app": {
+		"message": "サンタ"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "ジンジャーブレッド マン"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "ペンギン ダッシュ"
 	},
+	"scene_elfmaker": {
+		"message": "妖精メーカー"
+	},
 	"scene_elfski": {
 		"message": "妖精のスキー"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "北極の遊び場"
 	},
+	"scene_poseboogie": {
+		"message": "ブギを踊ろう"
+	},
 	"scene_postcard": {
-		"message": "雪の結晶を描こう"
+		"message": "サンタの手紙"
 	},
 	"scene_presentbounce": {
 		"message": "プレゼント バウンス"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "雪玉の嵐"
+	},
+	"scene_snowflake": {
+		"message": "雪の結晶を描こう"
 	},
 	"scene_speedsketch": {
 		"message": "スピード スケッチ"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "オフィスでのいたずら"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "まだ休暇中"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "トナカイの心配事"
+	},
 	"scene_videoscene_reload": {
 		"message": "プレゼント補充"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "サボりの現行犯"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "離陸のお手伝い"
+	},
 	"scene_videoscene_temptation": {
 		"message": "誘惑"
 	},
 	"scene_videoscene_tired": {
 		"message": "疲れたトナカイ"
 	},
-	"scene_videoscene_trailer": {
-		"message": "まだ休暇中"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "サンタさんは今どこ？"
+	},
+	"scene_videoscene_workshop": {
+		"message": "サンタの工房"
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"
@@ -1389,6 +1458,9 @@
 		"message": "妖精のプレゼント ラッピング"
 	},
 	"score": {
+		"message": "スコア"
+	},
+	"score_short": {
 		"message": "スコア"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "スロバキア語"
+	},
+	"skip-training": {
+		"message": "トレーニングをスキップ"
 	},
 	"sl_country_name": {
 		"message": "シェラレオネ"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "ほうき"
 	},
-	"speedsketch_item~bubble": {
-		"message": "バルーン"
-	},
 	"speedsketch_item~bucket": {
 		"message": "バケツ"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "カメラ"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "カモフラージュ"
-	},
 	"speedsketch_item~campfire": {
 		"message": "キャンプファイヤー"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "ニンジン"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "漫画"
 	},
 	"speedsketch_item~castle": {
 		"message": "城"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "さくらんぼ"
-	},
-	"speedsketch_item~chicken": {
-		"message": "チキン"
 	},
 	"speedsketch_item~child": {
 		"message": "子ども"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "ワニ"
-	},
-	"speedsketch_item~cross": {
-		"message": "十字架"
 	},
 	"speedsketch_item~crow": {
 		"message": "カラス"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "手"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "ハングマン ゲーム"
-	},
 	"speedsketch_item~happiness": {
 		"message": "幸せ"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "島"
 	},
-	"speedsketch_item~italy": {
-		"message": "イタリア"
-	},
 	"speedsketch_item~jacket": {
 		"message": "ジャケット"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "ジングルベル"
-	},
-	"speedsketch_item~kale": {
-		"message": "ケール"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "カンガルー"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "ジャガイモ"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "コンセント"
-	},
 	"speedsketch_item~present": {
 		"message": "プレゼント"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "ハンドバッグ"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "パズル"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "ウサギ"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "正方形"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "くねくねした線"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "リス"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "静物画"
-	},
-	"speedsketch_item~stitches": {
-		"message": "縫い傷"
-	},
-	"speedsketch_item~stock market": {
-		"message": "株式市場"
 	},
 	"speedsketch_item~stocking": {
 		"message": "ストッキング"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "三輪車"
 	},
-	"speedsketch_item~trolley": {
-		"message": "トロリー"
-	},
 	"speedsketch_item~trombone": {
 		"message": "トロンボーン"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "クジラ"
-	},
-	"speedsketch_item~wheel": {
-		"message": "車輪"
 	},
 	"speedsketch_item~windmill": {
 		"message": "風車"
@@ -6630,7 +6660,7 @@
 		"message": "ミュート解除"
 	},
 	"upgrade-warning": {
-		"message": "アプリ「サンタを追いかけよう」はこのバージョンのブラウザには対応していません。このアプリをご利用になるには、最新のブラウザをダウンロードしてください。詳しくは \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
+		"message": "アプリ「サンタを追いかけよう」がお使いのブラウザに対応していないか、JavaScript が無効になっています。このアプリをご利用になるには、最新のブラウザをダウンロードするか、JavaScript を有効にしてください。詳しくは \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
 	},
 	"us_country_name": {
 		"message": "アメリカ"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "ベネズエラ"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google アシスタントでサンタに電話"
 	},
 	"village_comeback": {
 		"message": "24 日になったら、一晩中サンタさんを追いかけるのを手伝ってください！"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Chrome にサンタの拡張機能を追加"
+	},
+	"village_santa_earth_quiz": {
+		"message": "サンタの地球クイズ"
+	},
+	"village_santa_install": {
+		"message": "インストール"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"

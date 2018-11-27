@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Kalendern"
 	},
+	"category_all": {
+		"message": "Visa alla"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kod"
+	},
+	"category_computer-science": {
+		"message": "Datorvetenskap"
 	},
 	"category_draw": {
 		"message": "Teckna"
 	},
+	"category_education": {
+		"message": "Fokus på utbildning"
+	},
+	"category_geography": {
+		"message": "Geografi"
+	},
+	"category_language": {
+		"message": "Språk"
+	},
 	"category_listen": {
 		"message": "Lyssna"
 	},
+	"category_new-this-year": {
+		"message": "Nytt i år"
+	},
 	"category_send": {
 		"message": "Skicka"
+	},
+	"category_social-studies": {
+		"message": "Samhällsorientering"
 	},
 	"cd_country_name": {
 		"message": "Demokratiska republiken Kongo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "I nästan varje tysk stad hålls julmarknad på torgen. Stadsborna samlas för att höra mässingsorkestrar och äta regionens traditionella rätter. De äter pepparkakshjärtan, brända mandlar och godis av alla de slag, och de dricker glögg (Glühwein) eller äppelcider."
 	},
+	"dec24th": {
+		"message": "24 december"
+	},
 	"deck": {
 		"message": "Dekorera"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Bidra till ett projekt för personer med särskilda behov på DonorsChoose.org. I december dubblerar vi effekten genom att matcha alla donationer med 50 % tills vi har nått målet på 1 000 000 USD. Tillsammans kan vi göra klassrummen till en plats för alla. #ForEveryKid."
 	},
+	"download-cta": {
+		"message": "Ladda ned för att spela ännu fler spel"
+	},
 	"dz_country_name": {
 		"message": "Algeriet"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Följ jultomten för lärare"
 	},
+	"educators-games": {
+		"message": "Spel för klassrummet"
+	},
+	"educators-learn": {
+		"message": "Inlärning med Följ jultomten"
+	},
 	"ee_country_name": {
 		"message": "Estland"
 	},
 	"el_language_name": {
 		"message": "grekiska"
+	},
+	"elf_choose_body": {
+		"message": "Välj kropp"
 	},
 	"elvish_language_name": {
 		"message": "alviska"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Det uppstod ett problem men jultomtens nissar försöker lösa det."
 	},
+	"error-internal": {
+		"message": "Hoppsan, ett problem uppstod! Vi har informerat tomtenissarna, men du kan testa att gå tillbaka till \u003ca href=\"./\"\u003etomtebyn\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Vi verkar ha tappat anslutningen till Nordpolen. Jultomtens nissar jobbar frenetiskt för att rätta till det – kom snart tillbaka!"
 	},
 	"error-not-found": {
-		"message": "Åh nej! Jultomtens nissar kan inte hitta sidan! Du kanske lyckas bättre om du går tillbaka till \u003ca href=\"./village.html\"\u003eTomtebyn\u003c/a\u003e."
+		"message": "Åh nej! Jultomtens nissar kan inte hitta sidan! Du kanske lyckas bättre om du går tillbaka till \u003ca href=\"./\"\u003eTomtebyn\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Försök igen"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Pausa"
 	},
+	"paused": {
+		"message": "Pausat"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hoppsan!"
 	},
+	"readyquestion": {
+		"message": "Är du redo?"
+	},
 	"ro_country_name": {
 		"message": "Rumänien"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudiarabien"
+	},
+	"santa-app": {
+		"message": "Tomten"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Pepparkaksgubben"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingvinloppet"
 	},
+	"scene_elfmaker": {
+		"message": "Skapa en tomtenisse"
+	},
 	"scene_elfski": {
 		"message": "Nisseslalom"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Nordpolens lekpark"
 	},
+	"scene_poseboogie": {
+		"message": "Danspose"
+	},
 	"scene_postcard": {
-		"message": "Koda en snöflinga"
+		"message": "Tomtevykort"
 	},
 	"scene_presentbounce": {
 		"message": "Julklappsstuds"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Snöbollsstorm"
+	},
+	"scene_snowflake": {
+		"message": "Koda en snöflinga"
 	},
 	"scene_speedsketch": {
 		"message": "Snabbskissa"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Kontorsspratt"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Fortfarande på semester"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renarna är oroliga"
+	},
 	"scene_videoscene_reload": {
 		"message": "Presenter laddas"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slappar"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Redo för start"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Frestelsen"
 	},
 	"scene_videoscene_tired": {
 		"message": "Trött ren"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Fortfarande på semester"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Var är jultomten?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Tomteverkstan"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
@@ -1389,6 +1458,9 @@
 		"message": "Den stora inslagningen"
 	},
 	"score": {
+		"message": "Poäng"
+	},
+	"score_short": {
 		"message": "Poäng"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovakiska"
+	},
+	"skip-training": {
+		"message": "Hoppa över träning"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "kvast"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bubbla"
-	},
 	"speedsketch_item~bucket": {
 		"message": "hink"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "kamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "lägereld"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "morot"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "tecknat"
 	},
 	"speedsketch_item~castle": {
 		"message": "slott"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "körsbär"
-	},
-	"speedsketch_item~chicken": {
-		"message": "höna"
 	},
 	"speedsketch_item~child": {
 		"message": "barn"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "kors"
 	},
 	"speedsketch_item~crow": {
 		"message": "kråka"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "hand"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "hänga gubbe, spel"
-	},
 	"speedsketch_item~happiness": {
 		"message": "lycka"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "ö"
 	},
-	"speedsketch_item~italy": {
-		"message": "italien"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jacka"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Bjällerklang"
-	},
-	"speedsketch_item~kale": {
-		"message": "grönkål"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "känguru"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "potatis"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "vägguttag"
-	},
 	"speedsketch_item~present": {
 		"message": "present"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "handväska"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "pussel"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "hare"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "krumelur"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "ekorre"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "stilleben"
-	},
-	"speedsketch_item~stitches": {
-		"message": "stygn"
-	},
-	"speedsketch_item~stock market": {
-		"message": "börsen"
 	},
 	"speedsketch_item~stocking": {
 		"message": "strumpa"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "trehjuling"
 	},
-	"speedsketch_item~trolley": {
-		"message": "vagn"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombon"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "val"
-	},
-	"speedsketch_item~wheel": {
-		"message": "hjul"
 	},
 	"speedsketch_item~windmill": {
 		"message": "väderkvarn"
@@ -6630,7 +6660,7 @@
 		"message": "Visa"
 	},
 	"upgrade-warning": {
-		"message": "Hoppsan! Följ jultomten stöds inte i den här versionen av din webbläsare. Hämta en modern webbläsare för att använda Följ jultomten. Mer information finns på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hoppsan! Följ jultomten stöds inte i din webbläsare eller så är JavaScript inaktiverat. Hämta en modern webbläsare eller aktivera JavaScript för att använda Följ jultomten.\nMer information finns på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ring tomten med Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Kom tillbaka den 24 december och hjälp oss spåra tomten hela natten."
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Lägg till Jultomten som Chrome-tillägg"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Tomtens världsquiz"
+	},
+	"village_santa_install": {
+		"message": "Installera"
 	},
 	"village_takesoff": {
 		"message": "Tomten lyfter om"

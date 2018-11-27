@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Kalendar"
 	},
+	"category_all": {
+		"message": "Prikaži sve"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Programiraj"
+	},
+	"category_computer-science": {
+		"message": "Računalstvo"
 	},
 	"category_draw": {
 		"message": "Crtaj"
 	},
+	"category_education": {
+		"message": "Obrazovanje u fokusu"
+	},
+	"category_geography": {
+		"message": "Geografija"
+	},
+	"category_language": {
+		"message": "Jezik"
+	},
 	"category_listen": {
 		"message": "Slušaj"
 	},
+	"category_new-this-year": {
+		"message": "Novo ove godine"
+	},
 	"category_send": {
 		"message": "Pošalji"
+	},
+	"category_social-studies": {
+		"message": "Društvene znanosti"
 	},
 	"cd_country_name": {
 		"message": "Demokratska Republika Kongo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "U gotovo svim njemačkim gradovima na trgovima se otvaraju božićni sajmovi. Građani se okupljaju da bi čuli limenu glazbu i uživali u tradicionalnim jelima regije. Jedu medena srca, pržene ušećerene bademe i slatkiše svih vrsta te piju kuhano vino (Glühwein) ili jabukovaču."
 	},
+	"dec24th": {
+		"message": "24. prosinca"
+	},
 	"deck": {
 		"message": "Ukrasi"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Pomozi u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo učionice učiniti prilagođenijima svoj djeci, #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Preuzmi aplikaciju za dodatne igre"
+	},
 	"dz_country_name": {
 		"message": "Alžir"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Slijedi Djeda Božićnjaka za učitelje"
 	},
+	"educators-games": {
+		"message": "Igre za razred"
+	},
+	"educators-learn": {
+		"message": "Učenje uz igru Slijedi Djeda Božićnjaka"
+	},
 	"ee_country_name": {
 		"message": "Estonija"
 	},
 	"el_language_name": {
 		"message": "grčki"
+	},
+	"elf_choose_body": {
+		"message": "Odaberi lik vilenjaka"
 	},
 	"elvish_language_name": {
 		"message": "vilinski"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Pojavio se problem, no Djedovi vilenjaci rade na njegovu rješavanju."
 	},
+	"error-internal": {
+		"message": "O, ne! Pojavio se problem. Obavijestili smo Djedove vilenjake, no pokušaj se vratiti u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
 	},
 	"error-not-found": {
-		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./village.html\"\u003eDjedovo selo\u003c/a\u003e."
+		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Pokušaj ponovno"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Pauza"
 	},
+	"paused": {
+		"message": "Pauzirano"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Žao nam je!"
 	},
+	"readyquestion": {
+		"message": "Jesi li spreman?"
+	},
 	"ro_country_name": {
 		"message": "Rumunjska"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudijska Arabija"
+	},
+	"santa-app": {
+		"message": "Djed Božićnjak"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Đumbirko"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Utrka pingvina"
 	},
+	"scene_elfmaker": {
+		"message": "Tvorac vilenjaka"
+	},
 	"scene_elfski": {
 		"message": "Skijalište vilenjaka"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Igralište na Sjevernom polu"
 	},
+	"scene_poseboogie": {
+		"message": "Plesni pokreti"
+	},
 	"scene_postcard": {
-		"message": "Izrada pahuljice pomoću koda"
+		"message": "Djedove razglednice"
 	},
 	"scene_presentbounce": {
 		"message": "Skakutanje s darovima"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Grudalište"
+	},
+	"scene_snowflake": {
+		"message": "Izrada pahuljice pomoću koda"
 	},
 	"scene_speedsketch": {
 		"message": "Brzo skiciranje"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Uredska podvala"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Još uvijek na odmoru"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Zabrinuti sobovi"
+	},
 	"scene_videoscene_reload": {
 		"message": "Učitavanje dodatnih poklona"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Ljenčarenje"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Uzlijetanje"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Iskušenje"
 	},
 	"scene_videoscene_tired": {
 		"message": "Umorni sob"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Još uvijek na odmoru"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Gdje je Djed Božićnjak?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Djedova radionica"
 	},
 	"scene_windtunnel": {
 		"message": "Vjetrotunel"
@@ -1389,6 +1458,9 @@
 		"message": "Dvoboj u zamatanju darova"
 	},
 	"score": {
+		"message": "Rezultat"
+	},
+	"score_short": {
 		"message": "Rezultat"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovački"
+	},
+	"skip-training": {
+		"message": "Preskoči obuku"
 	},
 	"sl_country_name": {
 		"message": "Sijera Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "metla"
 	},
-	"speedsketch_item~bubble": {
-		"message": "oblačić"
-	},
 	"speedsketch_item~bucket": {
 		"message": "kanta"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "fotoaparat"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflaža"
-	},
 	"speedsketch_item~campfire": {
 		"message": "logorska vatra"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "mrkva"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "crtić"
 	},
 	"speedsketch_item~castle": {
 		"message": "dvorac"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "trešnja"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kokoš"
 	},
 	"speedsketch_item~child": {
 		"message": "dijete"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodil"
-	},
-	"speedsketch_item~cross": {
-		"message": "križ"
 	},
 	"speedsketch_item~crow": {
 		"message": "vrana"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "šaka"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "igra vješala"
-	},
 	"speedsketch_item~happiness": {
 		"message": "sreća"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "otok"
 	},
-	"speedsketch_item~italy": {
-		"message": "italija"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jakna"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Zvončići"
-	},
-	"speedsketch_item~kale": {
-		"message": "kelj"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "klokan"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "krumpir"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "utičnica"
-	},
 	"speedsketch_item~present": {
 		"message": "poklon"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "torbica"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "slagalica"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "zec"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "kvadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "črčkarija"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "vjeverica"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "mrtva priroda"
-	},
-	"speedsketch_item~stitches": {
-		"message": "šavovi"
-	},
-	"speedsketch_item~stock market": {
-		"message": "burza"
 	},
 	"speedsketch_item~stocking": {
 		"message": "duga čarapa"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricikl"
 	},
-	"speedsketch_item~trolley": {
-		"message": "kolica"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombon"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "kit"
-	},
-	"speedsketch_item~wheel": {
-		"message": "kotač"
 	},
 	"speedsketch_item~windmill": {
 		"message": "vjetrenjača"
@@ -6630,7 +6660,7 @@
 		"message": "Uključi zvuk"
 	},
 	"upgrade-warning": {
-		"message": "Ups! Aplikacija Slijedi Djeda Božićnjaka nije podržana u ovoj verziji preglednika. Da biste pristupili aplikaciji Slijedi Djeda Božićnjaka, preuzmite suvremeni preglednik. Više informacija potražite na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Igra Slijedi Djeda Božićnjaka nije podržana u tvojem pregledniku ili je onemogućen JavaScript. Za pristup igri Slijedi Djeda Božićnjaka preuzmi suvremeni preglednik ili omogući JavaScript.\nViše informacija možeš pronaći na adresi \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Sjedinjene Američke Države"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Nazovi Djeda Božićnjaka putem Google asistenta"
 	},
 	"village_comeback": {
 		"message": "Vrati se 24. i pomozi nam u cjelonoćnom praćenju Djeda Božićnjaka!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Dodaj proširenje Slijedi Djeda Božićnjaka za Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Djedov kviz o Zemlji"
+	},
+	"village_santa_install": {
+		"message": "Instaliraj"
 	},
 	"village_takesoff": {
 		"message": "Djed Božićnjak kreće za"

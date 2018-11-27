@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "日历"
 	},
+	"category_all": {
+		"message": "查看全部"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "代码"
+	},
+	"category_computer-science": {
+		"message": "计算机科学"
 	},
 	"category_draw": {
 		"message": "绘图"
 	},
+	"category_education": {
+		"message": "教育类"
+	},
+	"category_geography": {
+		"message": "地理百科"
+	},
+	"category_language": {
+		"message": "语言"
+	},
 	"category_listen": {
 		"message": "收听"
 	},
+	"category_new-this-year": {
+		"message": "今年推出的新游戏"
+	},
 	"category_send": {
 		"message": "发送"
+	},
+	"category_social-studies": {
+		"message": "社会研究"
 	},
 	"cd_country_name": {
 		"message": "刚果民主共和国"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "几乎每个德国小镇都会在城镇广场开设圣诞市场。市民们聚在一起欣赏铜管乐，并享用当地的传统美食。他们会一边吃心型姜饼、糖烤杏仁以及各种甜点，一边饮用香料热饮酒 (Glühwein) 或苹果酒。"
 	},
+	"dec24th": {
+		"message": "12 月 24 日"
+	},
 	"deck": {
 		"message": "换上新装"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "请前往 DonorsChoose.org，帮助有特别需要的人士。今年 12 月份，在大家捐款的基础上，Google 会进一步捐出总捐款额的 50%，直至达到 1 百万美元的捐款目标。让我们同舟共济，帮助更多的孩子走进课堂 #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "下载畅玩更多游戏"
+	},
 	"dz_country_name": {
 		"message": "阿尔及利亚"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "面向教育工作者的“追踪圣诞老人”应用"
 	},
+	"educators-games": {
+		"message": "课堂游戏"
+	},
+	"educators-learn": {
+		"message": "边玩“追踪圣诞老人”边学习"
+	},
 	"ee_country_name": {
 		"message": "爱沙尼亚"
 	},
 	"el_language_name": {
 		"message": "希腊语"
+	},
+	"elf_choose_body": {
+		"message": "选择小精灵的体型"
 	},
 	"elvish_language_name": {
 		"message": "精灵语"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "出了点问题，但圣诞老人的小精灵们正在处理。"
 	},
+	"error-internal": {
+		"message": "糟糕，出了点问题！我们已通知圣诞老人的小精灵们，不妨先回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e看看。"
+	},
 	"error-lost-connection": {
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
 	},
 	"error-not-found": {
-		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./village.html\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
+		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
 	},
 	"error-try-again": {
 		"message": "请重试"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "暂停"
 	},
+	"paused": {
+		"message": "已暂停"
+	},
 	"pe_country_name": {
 		"message": "秘鲁"
 	},
@@ -1125,7 +1170,7 @@
 		"message": "绘图"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上就每一个与节日相关的词语画一幅画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
+		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上画出与节日词语相关的图画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
 	},
 	"quickdraw-splashview-title": {
 		"message": "帮助 Tensor 练习识图吧！"
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "糟糕！"
 	},
+	"readyquestion": {
+		"message": "准备好了吗？"
+	},
 	"ro_country_name": {
 		"message": "罗马尼亚"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "沙特阿拉伯"
+	},
+	"santa-app": {
+		"message": "圣诞老人"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "姜饼人"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "企鹅向前冲"
 	},
+	"scene_elfmaker": {
+		"message": "精灵制造"
+	},
 	"scene_elfski": {
 		"message": "精灵滑雪"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "北极游乐场"
 	},
+	"scene_poseboogie": {
+		"message": "造型热舞"
+	},
 	"scene_postcard": {
-		"message": "使用编码设计雪花"
+		"message": "圣诞老人明信片"
 	},
 	"scene_presentbounce": {
 		"message": "礼物弹弹跳"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "雪球风暴"
+	},
+	"scene_snowflake": {
+		"message": "使用编码设计雪花"
 	},
 	"scene_speedsketch": {
 		"message": "快手画图"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "办公室恶作剧"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "圣诞老人还在度假中"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "迷失的驯鹿"
+	},
 	"scene_videoscene_reload": {
 		"message": "礼物补给"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "偷懒"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "出发"
+	},
 	"scene_videoscene_temptation": {
 		"message": "诱惑"
 	},
 	"scene_videoscene_tired": {
 		"message": "驯鹿累了"
 	},
-	"scene_videoscene_trailer": {
-		"message": "圣诞老人还在度假中"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "圣诞老人在哪里？"
+	},
+	"scene_videoscene_workshop": {
+		"message": "圣诞老人的魔法小屋"
 	},
 	"scene_windtunnel": {
 		"message": "风洞"
@@ -1389,6 +1458,9 @@
 		"message": "包装快手"
 	},
 	"score": {
+		"message": "得分"
+	},
+	"score_short": {
 		"message": "得分"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克语"
+	},
+	"skip-training": {
+		"message": "跳过练习"
 	},
 	"sl_country_name": {
 		"message": "塞拉利昂"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "扫帚"
 	},
-	"speedsketch_item~bubble": {
-		"message": "气泡"
-	},
 	"speedsketch_item~bucket": {
 		"message": "桶"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "相机"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "迷彩"
-	},
 	"speedsketch_item~campfire": {
 		"message": "营火"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "胡萝卜"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "卡通"
 	},
 	"speedsketch_item~castle": {
 		"message": "城堡"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "樱桃"
-	},
-	"speedsketch_item~chicken": {
-		"message": "鸡"
 	},
 	"speedsketch_item~child": {
 		"message": "儿童"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "鳄鱼"
-	},
-	"speedsketch_item~cross": {
-		"message": "十字"
 	},
 	"speedsketch_item~crow": {
 		"message": "乌鸦"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "手"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "猜单词游戏"
-	},
 	"speedsketch_item~happiness": {
 		"message": "高兴"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "海岛"
 	},
-	"speedsketch_item~italy": {
-		"message": "意大利"
-	},
 	"speedsketch_item~jacket": {
 		"message": "夹克"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "铃儿响叮当"
-	},
-	"speedsketch_item~kale": {
-		"message": "羽衣甘蓝"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "袋鼠"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "土豆"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "电源插座"
-	},
 	"speedsketch_item~present": {
 		"message": "礼物"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "钱包"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "拼图"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "兔子"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "正方形"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "波形曲线"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "松鼠"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "静物"
-	},
-	"speedsketch_item~stitches": {
-		"message": "针迹"
-	},
-	"speedsketch_item~stock market": {
-		"message": "股市"
 	},
 	"speedsketch_item~stocking": {
 		"message": "袜子"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "三轮车"
 	},
-	"speedsketch_item~trolley": {
-		"message": "手推车"
-	},
 	"speedsketch_item~trombone": {
 		"message": "长号"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "鲸"
-	},
-	"speedsketch_item~wheel": {
-		"message": "轮子"
 	},
 	"speedsketch_item~windmill": {
 		"message": "风车"
@@ -3060,7 +3090,7 @@
 		"message": "俄亥俄州"
 	},
 	"trivia_beginner_007_answer1": {
-		"message": "蒙大纳"
+		"message": "蒙大拿州"
 	},
 	"trivia_beginner_007_answer2": {
 		"message": "新墨西哥州"
@@ -5985,7 +6015,7 @@
 		"message": "美国以下哪个州的面积最大？"
 	},
 	"trivia_medium_049_answer0": {
-		"message": "蒙大纳"
+		"message": "蒙大拿州"
 	},
 	"trivia_medium_049_answer1": {
 		"message": "康涅狄格州"
@@ -6630,7 +6660,7 @@
 		"message": "取消静音"
 	},
 	"upgrade-warning": {
-		"message": "很抱歉，您的浏览器版本不支持“追踪圣诞老人”。要访问“追踪圣诞老人”，请下载新版浏览器。有关详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+		"message": "很抱歉，您的浏览器不支持“追踪圣诞老人”，或者您已停用 JavaScript。要访问“追踪圣诞老人”，请下载新版浏览器或启用 JavaScript。如需更多详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
 	},
 	"us_country_name": {
 		"message": "美国"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "委内瑞拉"
+	},
+	"village_assistant-call_santa": {
+		"message": "使用 Google 助理给圣诞老人打个电话"
 	},
 	"village_comeback": {
 		"message": "24 日平安夜，别忘了跟我们一起追踪圣诞老人的行踪！"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "添加圣诞老人 Chrome 扩展程序"
+	},
+	"village_santa_earth_quiz": {
+		"message": "圣诞老人地球知识测验"
+	},
+	"village_santa_install": {
+		"message": "安装"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"

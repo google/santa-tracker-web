@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Lịch"
 	},
+	"category_all": {
+		"message": "Xem tất cả"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Mã"
+	},
+	"category_computer-science": {
+		"message": "Khoa học máy tính"
 	},
 	"category_draw": {
 		"message": "Vẽ"
 	},
+	"category_education": {
+		"message": "Tập trung vào giáo dục"
+	},
+	"category_geography": {
+		"message": "Địa lý"
+	},
+	"category_language": {
+		"message": "Ngôn ngữ"
+	},
 	"category_listen": {
 		"message": "Nghe"
 	},
+	"category_new-this-year": {
+		"message": "Trò chơi mới trong năm nay"
+	},
 	"category_send": {
 		"message": "Gửi"
+	},
+	"category_social-studies": {
+		"message": "Khoa học xã hội"
 	},
 	"cd_country_name": {
 		"message": "Cộng hòa dân chủ Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "Hầu như ở mọi thị trấn của Đức, chợ Giáng sinh được mở tại quảng trường thị trấn. Người dân sẽ tụ tập để nghe các ban nhạc kèn đồng và thưởng thức món ăn truyền thống của vùng. Họ ăn bánh gừng hình trái tim, hạnh nhân ngào đường, các loại đồ ngọt và uống rượu được pha chế (Glühwein) hoặc rượu táo."
 	},
+	"dec24th": {
+		"message": "Ngày 24 tháng 12"
+	},
 	"deck": {
 		"message": "Trang trí"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Hãy tài trợ dự án đặc biệt trên DonorsChoose.org để giúp đỡ người hoạn nạn. Tháng 12 này, chúng ta sẽ hỗ trợ gấp đôi bằng cách tăng số tiền đóng góp lên 50% cho đến khi chúng ta đạt mục tiêu đóng góp là 1 triệu USD. Chúng ta có thể cùng nhau giúp các lớp học trở nên toàn diện hơn #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Tải xuống để tận hưởng nhiều trò chơi hơn nữa"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Theo chân ông già Noel cho Nhà giáo dục"
 	},
+	"educators-games": {
+		"message": "Trò chơi chơi trong lớp học"
+	},
+	"educators-learn": {
+		"message": "Học tập qua trò chơi Theo chân ông già Noel"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
 	"el_language_name": {
 		"message": "Tiếng Hy Lạp"
+	},
+	"elf_choose_body": {
+		"message": "Chọn vóc dáng cho chú lùn"
 	},
 	"elvish_language_name": {
 		"message": "Elvish"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Đã xảy ra sự cố nhưng phụ tá của ông già Noel đang kiểm tra."
 	},
+	"error-internal": {
+		"message": "Rất tiếc, đã có vấn đề xảy ra! Chúng tôi đã thông báo cho các chú lùn của ông già Noel. Bạn hãy thử quay lại \u003ca href=\"./\"\u003eNgôi làng của ông già noel\u003c/a\u003e xem."
+	},
 	"error-lost-connection": {
 		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
 	},
 	"error-not-found": {
-		"message": "Rất tiếc, phụ tá của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./village.html\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
+		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
 	},
 	"error-try-again": {
 		"message": "Thử lại"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Tạm dừng"
 	},
+	"paused": {
+		"message": "Đã tạm dừng"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Rất tiếc!"
 	},
+	"readyquestion": {
+		"message": "Bạn đã sẵn sàng chưa?"
+	},
 	"ro_country_name": {
 		"message": "Rumani"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Ả-Rập Xê-út"
+	},
+	"santa-app": {
+		"message": "Ông già Noel"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Người bánh gừng"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Chim cánh cụt tấn công"
 	},
+	"scene_elfmaker": {
+		"message": "Tạo chú lùn của bạn"
+	},
 	"scene_elfski": {
 		"message": "Yêu tinh trượt tuyết"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Sân chơi ở Bắc Cực"
 	},
+	"scene_poseboogie": {
+		"message": "Khiêu vũ ấn tượng"
+	},
 	"scene_postcard": {
-		"message": "Viết mã cho bông tuyết"
+		"message": "Bưu thiếp của ông già Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Trò chơi nảy quà"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Bão bóng tuyết"
+	},
+	"scene_snowflake": {
+		"message": "Viết mã cho bông tuyết"
 	},
 	"scene_speedsketch": {
 		"message": "Ký họa nhanh"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Ô làm việc phủ giấy"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Vẫn đi nghỉ"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Tuần lộc lo lắng"
+	},
 	"scene_videoscene_reload": {
 		"message": "Nạp lại quà"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Chểnh mảng"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Cất cánh"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Sự cám dỗ"
 	},
 	"scene_videoscene_tired": {
 		"message": "Chú tuần lộc mệt mỏi"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Vẫn đi nghỉ"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Ông già Noel ở đâu?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Xưởng đồ chơi của ông già Noel"
 	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"
@@ -1389,6 +1458,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Điểm số"
+	},
+	"score_short": {
 		"message": "Điểm số"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Tiếng Slovak"
+	},
+	"skip-training": {
+		"message": "Bỏ qua hướng dẫn chơi"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "cái chổi"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bong bóng"
-	},
 	"speedsketch_item~bucket": {
 		"message": "cái xô"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "máy ảnh"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "đồ ngụy trang"
-	},
 	"speedsketch_item~campfire": {
 		"message": "lửa trại"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "cà rốt"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "hoạt hình"
 	},
 	"speedsketch_item~castle": {
 		"message": "lâu đài"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "quả anh đào"
-	},
-	"speedsketch_item~chicken": {
-		"message": "gà con"
 	},
 	"speedsketch_item~child": {
 		"message": "đứa trẻ"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "con cá sấu"
-	},
-	"speedsketch_item~cross": {
-		"message": "chữ thập"
 	},
 	"speedsketch_item~crow": {
 		"message": "con quạ"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "bàn tay"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "trò chơi người treo cổ"
-	},
 	"speedsketch_item~happiness": {
 		"message": "hạnh phúc"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "đảo"
 	},
-	"speedsketch_item~italy": {
-		"message": "ý"
-	},
 	"speedsketch_item~jacket": {
 		"message": "áo khoác"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "cải xoăn"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "con chuột túi"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "khoai tây"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "ổ cắm điện"
-	},
 	"speedsketch_item~present": {
 		"message": "hiện tại"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "cái ví"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "câu đố"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "con thỏ"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "hình vuông"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "dòng lượn sóng ngắn"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "con sóc"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "tĩnh vật"
-	},
-	"speedsketch_item~stitches": {
-		"message": "vết khâu"
-	},
-	"speedsketch_item~stock market": {
-		"message": "thị trường chứng khoán"
 	},
 	"speedsketch_item~stocking": {
 		"message": "bít tất"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "xe đạp ba bánh"
 	},
-	"speedsketch_item~trolley": {
-		"message": "xe đẩy"
-	},
 	"speedsketch_item~trombone": {
 		"message": "kèn trombone"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "cá voi"
-	},
-	"speedsketch_item~wheel": {
-		"message": "bánh xe"
 	},
 	"speedsketch_item~windmill": {
 		"message": "cối xay gió"
@@ -6630,7 +6660,7 @@
 		"message": "Bật tiếng"
 	},
 	"upgrade-warning": {
-		"message": "Rất tiếc! Theo chân ông già Noel không được hỗ trợ trong phiên bản trình duyệt này của bạn. Để truy cập Theo chân ông già Noel, hãy tải xuống trình duyệt hiện đại. Để biết thêm thông tin, hãy truy cập vào \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Rất tiếc! Trò chơi Theo chân ông già Noel không được hỗ trợ trên trình duyệt của bạn hoặc bạn đã tắt JavaScript. Để theo chân ông già Noel, hãy tải xuống trình duyệt mới hoặc bật JavaScript.\nĐể biết thêm thông tin, hãy truy cập vào: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Hoa Kỳ"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Gọi cho ông già Noel bằng Trợ lý Google"
 	},
 	"village_comeback": {
 		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân ông già Noel suốt cả đêm!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Thêm tiện ích ông già Noel của Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Đố vui về Trái Đất cùng ông già Noel"
+	},
+	"village_santa_install": {
+		"message": "Cài đặt"
 	},
 	"village_takesoff": {
 		"message": "Ông già Noel sẽ khởi hành sau"

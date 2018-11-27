@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Calendario"
 	},
+	"category_all": {
+		"message": "Visualizza tutti"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Codice"
+	},
+	"category_computer-science": {
+		"message": "Informatica"
 	},
 	"category_draw": {
 		"message": "Disegna"
 	},
+	"category_education": {
+		"message": "Didattici"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
+	"category_language": {
+		"message": "Lingua"
+	},
 	"category_listen": {
 		"message": "Ascolta"
 	},
+	"category_new-this-year": {
+		"message": "Novità di quest'anno"
+	},
 	"category_send": {
 		"message": "Invia"
+	},
+	"category_social-studies": {
+		"message": "Studi sociali"
 	},
 	"cd_country_name": {
 		"message": "Repubblica Democratica del Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "In Germania, quasi tutte le città ospitano i mercatini nelle loro piazze. Gli abitanti si riuniscono per ascoltare le bande di ottoni e assaggiare le tipiche pietanze della regione: biscotti allo zenzero, mandorle tostate zuccherate, dolcetti di tutti i tipi e vin brulé (Glühwein) o sidro di mele."
 	},
+	"dec24th": {
+		"message": "24 dicembre"
+	},
 	"deck": {
 		"message": "Decora"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Contribuisci a sostenere un progetto per bambini in difficoltà su DonorsChoose.org. Questo dicembre, raddoppiamo il nostro sostegno aumentando del 50% ogni donazione, fino a raggiungere il nostro obiettivo di $ 1 milione. Insieme, possiamo rendere le classi più partecipative per tutti i bambini #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Scarica per accedere ad ancora più giochi"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Segui Babbo Natale per insegnanti"
 	},
+	"educators-games": {
+		"message": "Giochi per gli studenti"
+	},
+	"educators-learn": {
+		"message": "Imparare con Segui Babbo Natale"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
 	"el_language_name": {
 		"message": "Greco"
+	},
+	"elf_choose_body": {
+		"message": "Scegli un corpo da elfo"
 	},
 	"elvish_language_name": {
 		"message": "Lingua degli elfi"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Si è verificato un problema, ma i folletti di Babbo Natale stanno cercando una soluzione."
 	},
+	"error-internal": {
+		"message": "Purtroppo si è verificato un problema. Abbiamo informato gli elfi di Babbo Natale, ma prova a tornare al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
 	},
 	"error-not-found": {
-		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al \u003ca href=\"./village.html\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
+		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Riprova"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Pausa"
 	},
+	"paused": {
+		"message": "In pausa"
+	},
 	"pe_country_name": {
 		"message": "Perù"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Mannaggia!"
 	},
+	"readyquestion": {
+		"message": "Cominciamo?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudita"
+	},
+	"santa-app": {
+		"message": "Babbo Natale"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Omino di Pan di Zenzero"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Lo scatto del pinguino"
 	},
+	"scene_elfmaker": {
+		"message": "Crea un elfo"
+	},
 	"scene_elfski": {
 		"message": "Folletti che sciano"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Parco giochi al Polo Nord"
 	},
+	"scene_poseboogie": {
+		"message": "Passo di danza"
+	},
 	"scene_postcard": {
-		"message": "Disegna con il codice"
+		"message": "Cartoline di Babbo Natale"
 	},
 	"scene_presentbounce": {
 		"message": "Palleggia con il regalo"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Battaglia di palle di neve"
+	},
+	"scene_snowflake": {
+		"message": "Disegna con il codice"
 	},
 	"scene_speedsketch": {
 		"message": "Indovina il disegno"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Scherzo in ufficio"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Ancora in vacanza"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Le renne sono preoccupate"
+	},
 	"scene_videoscene_reload": {
 		"message": "Ricarica i regali"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Voglia di lavorare zero"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Decollo"
+	},
 	"scene_videoscene_temptation": {
 		"message": "La tentazione"
 	},
 	"scene_videoscene_tired": {
 		"message": "La renna stanca"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Ancora in vacanza"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Dov'è Babbo Natale?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "L'officina di Babbo Natale"
 	},
 	"scene_windtunnel": {
 		"message": "Galleria del vento"
@@ -1389,6 +1458,9 @@
 		"message": "Incarta il regalo"
 	},
 	"score": {
+		"message": "Punti"
+	},
+	"score_short": {
 		"message": "Punti"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovacco"
+	},
+	"skip-training": {
+		"message": "Salta il training"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "scopa"
 	},
-	"speedsketch_item~bubble": {
-		"message": "fumetto"
-	},
 	"speedsketch_item~bucket": {
 		"message": "secchio"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "videocamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "mimetizzazione"
-	},
 	"speedsketch_item~campfire": {
 		"message": "falò"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carota"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "cartoni animati"
 	},
 	"speedsketch_item~castle": {
 		"message": "castello"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "ciliegia"
-	},
-	"speedsketch_item~chicken": {
-		"message": "gallina"
 	},
 	"speedsketch_item~child": {
 		"message": "bambino/bambina"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "coccodrillo"
-	},
-	"speedsketch_item~cross": {
-		"message": "croce"
 	},
 	"speedsketch_item~crow": {
 		"message": "corvo"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "mano"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "gioco dell'impiccato"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicità"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "isola"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "giacca"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "cavolo riccio"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "canguro"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "patata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "presa di corrente"
-	},
 	"speedsketch_item~present": {
 		"message": "regalo"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "borsellino"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "coniglio"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "quadrato"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "scarabocchio"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "scoiattolo"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natura morta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "sutura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "mercato azionario"
 	},
 	"speedsketch_item~stocking": {
 		"message": "calze"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triciclo"
 	},
-	"speedsketch_item~trolley": {
-		"message": "trolley"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ruota"
 	},
 	"speedsketch_item~windmill": {
 		"message": "mulino a vento"
@@ -6630,7 +6660,7 @@
 		"message": "Riattiva audio"
 	},
 	"upgrade-warning": {
-		"message": "Spiacenti. Segui Babbo Natale non è supportato in questa versione del tuo browser. Per accedervi, scarica un browser più recente. Per ulteriori informazioni, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Spiacenti. Segui Babbo Natale non è supportato nel tuo browser oppure hai disattivato JavaScript. Per accedere a Segui Babbo Natale, scarica un browser più recente o attiva JavaScript.\nPer ulteriori informazioni visita: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Stati Uniti"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Chiama Babbo Natale con l'Assistente Google"
 	},
 	"village_comeback": {
 		"message": "Torna il 24 e aiutaci a seguire Babbo Natale tutta la notte!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Aggiungi l'estensione di Babbo Natale per Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Quiz di Babbo Natale sul pianeta Terra"
+	},
+	"village_santa_install": {
+		"message": "Installa"
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Ang Kalendaryo"
 	},
+	"category_all": {
+		"message": "Tingnan Lahat"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "CODE2040"
+	},
+	"category_computer-science": {
+		"message": "Computer Science"
 	},
 	"category_draw": {
 		"message": "Iguhit"
 	},
+	"category_education": {
+		"message": "Nakatuon sa Edukasyon"
+	},
+	"category_geography": {
+		"message": "Heograpiya"
+	},
+	"category_language": {
+		"message": "Wika"
+	},
 	"category_listen": {
 		"message": "Makinig"
 	},
+	"category_new-this-year": {
+		"message": "Bago Ngayong Taon"
+	},
 	"category_send": {
 		"message": "Ipadala"
+	},
+	"category_social-studies": {
+		"message": "Araling Panlipunan"
 	},
 	"cd_country_name": {
 		"message": "Democratic Republic of the Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "Sa halos lahat ng bayan sa Germany, nagkakaroon ng mga Christmas market sa mga town square. Nagtitipon ang taumbayan upang makinig sa mga brass band at kainin ang tradisyunal na pagkain sa rehiyon. Kumakain sila ng mga gingerbread heart, sugar-roasted na almond, iba't ibang uri ng matatamis, at umiinom sila ng mulled wine (Glühwein) o apple cider."
 	},
+	"dec24th": {
+		"message": "Disyembre 24"
+	},
 	"deck": {
 		"message": "I-deck out"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Tumulong na pondohan ang isang proyekto para sa mga espesyal na pangangailangan sa DonorsChoose.org. Ngayong Disyembre, tutulong kami na madoble ang epekto sa pamamagitan ng pagtutumbas sa mga donasyon nang 50%, hanggang sa maabot namin ang aming layunin na makapag-ambag ng US$1m. Sama-sama, makatutulong tayong gawing mas kumpleto ang mga silid-aralan #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "I-download para makapaglaro ng mas marami pang laro"
+	},
 	"dz_country_name": {
 		"message": "Algeria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Santa Tracker para sa mga Nagtuturo"
 	},
+	"educators-games": {
+		"message": "Mga laro para sa silid-aralan"
+	},
+	"educators-learn": {
+		"message": "Pag-aaral gamit ang Santa Tracker"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
 	"el_language_name": {
 		"message": "Greek"
+	},
+	"elf_choose_body": {
+		"message": "Pumili ng katawan ng elf"
 	},
 	"elvish_language_name": {
 		"message": "Elvish"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Nagkaproblema, pero sinusuri ito ng mga Elf ni Santa."
 	},
+	"error-internal": {
+		"message": "Naku, nagkaproblema! Sinabihan na namin ang mga Elf ni Santa, pero subukang bumalik sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
 	},
 	"error-not-found": {
-		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./village.html\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Subukang muli"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "I-pause"
 	},
+	"paused": {
+		"message": "Naka-pause"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oops!"
 	},
+	"readyquestion": {
+		"message": "Handa ka na?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Arabia"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Gingerbread Man"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfmaker": {
+		"message": "Elf Maker"
+	},
 	"scene_elfski": {
 		"message": "Elf Ski"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "North Pole Playground"
 	},
+	"scene_poseboogie": {
+		"message": "Pose Boogie"
+	},
 	"scene_postcard": {
-		"message": "Code a Snowflake"
+		"message": "Mga Santa Postcard"
 	},
 	"scene_presentbounce": {
 		"message": "Present Bounce"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Snowball Storm"
+	},
+	"scene_snowflake": {
+		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Office Prank"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Still on Vacation"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Mga Alalahanin ng Reindeer"
+	},
 	"scene_videoscene_reload": {
 		"message": "Present Reload"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Slacking Off"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Paglipad"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Temptation"
 	},
 	"scene_videoscene_tired": {
 		"message": "Tired Reindeer"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Still on Vacation"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Where's Santa?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Santa's Workshop"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
@@ -1389,6 +1458,9 @@
 		"message": "Wrap Battle"
 	},
 	"score": {
+		"message": "Score"
+	},
+	"score_short": {
 		"message": "Score"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-training": {
+		"message": "Laktawan ang Pagsasanay"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "walis"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bula"
-	},
 	"speedsketch_item~bucket": {
 		"message": "timba"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "camera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camouflage"
-	},
 	"speedsketch_item~campfire": {
 		"message": "campfire"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "carrot"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "cartoon"
 	},
 	"speedsketch_item~castle": {
 		"message": "kastilyo"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cherry"
-	},
-	"speedsketch_item~chicken": {
-		"message": "manok"
 	},
 	"speedsketch_item~child": {
 		"message": "anak"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "buwaya"
-	},
-	"speedsketch_item~cross": {
-		"message": "krus"
 	},
 	"speedsketch_item~crow": {
 		"message": "crow"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "kamay"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "hangman game"
-	},
 	"speedsketch_item~happiness": {
 		"message": "kaligayahan"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "isla"
 	},
-	"speedsketch_item~italy": {
-		"message": "italy"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jacket"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "kale"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "kangaroo"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "patatas"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "power outlet"
-	},
 	"speedsketch_item~present": {
 		"message": "kasalukuyan"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "purse"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "kuneho"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "parisukat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "squiggle"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "squirrel"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "still life"
-	},
-	"speedsketch_item~stitches": {
-		"message": "mga tahi"
-	},
-	"speedsketch_item~stock market": {
-		"message": "stock market"
 	},
 	"speedsketch_item~stocking": {
 		"message": "stocking"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricycle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "trolley"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balyena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "gulong"
 	},
 	"speedsketch_item~windmill": {
 		"message": "windmill"
@@ -6630,7 +6660,7 @@
 		"message": "I-unmute"
 	},
 	"upgrade-warning": {
-		"message": "Oops! Hindi suportado ang Santa Tracker sa bersyong ito ng iyong browser. Upang ma-access ang Santa Tracker, mag-download ng makabagong browser. Para sa karagdagang impormasyon, bisitahin ang \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Hindi suportado ang Santa Tracker sa iyong browser o naka-disable ang JavaScript mo. Para ma-access ang Santa Tracker, mag-download ng modernong browser o i-enable ang JavaScript.\nPara sa karagdagang impormasyon, bisitahin ang: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Tawagan si Santa gamit ang Google Assistant"
 	},
 	"village_comeback": {
 		"message": "Bumalik sa ika-24 at tulungan kaming subaybayan si Santa buong gabi!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Idagdag ang Santa Chrome Extension"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Santa Earth Quiz"
+	},
+	"village_santa_install": {
+		"message": "I-install"
 	},
 	"village_takesoff": {
 		"message": "Lilipad na si Santa sa loob ng"
