@@ -160,6 +160,7 @@ export class SantaAppElement extends LitElement {
     const info = this._activeSceneInfo;
     const badge = !this._gameover && this._score || {};
     const overlayScore = (this._gameover && this._score.score || -1);
+    const data = this._gameover && this._selectedData || null;
 
     return html`
 <style>${_style`santa-app`}</style>
@@ -185,6 +186,8 @@ export class SantaAppElement extends LitElement {
         @home=${this._onClickHome}
         @resume=${this._onClickResume}
         @restart=${this._onClickRestart}
+        .scene=${this._selectedScene}
+        .data=${data}
         score="${overlayScore}"></santa-overlay>
   </div>
   <header class=${this._iframeScroll ? '' : 'up'}>
