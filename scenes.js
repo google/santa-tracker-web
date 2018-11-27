@@ -86,6 +86,9 @@ module.exports = {
     msgid: 'educators',
     dependencies: ['press']
   },
+  elfmaker: {
+    msgid: 'scene_elfmaker',
+  },
   elfski: {
     msgid: 'scene_elfski',
     entryPoint: 'scenes/elfski/js/game-three.js',
