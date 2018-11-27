@@ -579,9 +579,9 @@ footer {
   }
 }
 
-// # New Today
+// # Play Round
 
-#house-new-today {
+#house-play-round {
   left: 16px;
   top: 32px;
   width: 144px;
@@ -599,14 +599,14 @@ footer {
 
   a {
     &:hover {
-      .new-today {
+      .play-round {
         transform: translateY(-16px);
         transition: transform 0.2s;
       }
     }
   }
 
-  .new-today {
+  .play-round {
     pointer-events: none;
     background: transparent center no-repeat;
     background-size: contain;
@@ -618,10 +618,10 @@ footer {
     display: flex;
     flex-flow: column;
     align-items: center;
+    background-image: url(img/new-today/briefing_2x.png);
 
     h4 {
       font-size: 2em;
-      transform: none;
     }
   }
 }

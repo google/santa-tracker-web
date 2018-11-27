@@ -91,7 +91,7 @@ Santa Tracker app.
 
     <santa-badge id="badge" slot="feature"></santa-badge>
 
-    <santa-sidebar slot="drawer" today-house="[[todayHouse]]"></santa-sidebar>
+    <santa-sidebar slot="drawer"></santa-sidebar>
 
     <santa-overlay id="overlay" hidden$="[[!userPause]]"
         share-options="[[shareOptions]]"></santa-overlay>
@@ -459,15 +459,6 @@ Polymer({
     },
 
     /**
-     * The house open today.
-     */
-    todayHouse: {
-      type: String,
-      value: '',
-      notify: true,
-    },
-
-    /**
      * Whether sounds are muted by the user.
      */
     userMute: {
@@ -544,7 +535,7 @@ Polymer({
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
       type: Boolean,
-      value: !window.DEV,
+      value: true,
     },
 
     /**
@@ -596,7 +587,7 @@ Polymer({
     shareOptions: {
       type: Array,
       value: function() {
-        const options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
+        const options = navigator.share ? ['webshare'] : ['twitter', 'facebook'];
         return Object.freeze(options);
       },
       readOnly: true,
@@ -647,7 +638,7 @@ Polymer({
 
     for (let i = 0, house; house = window.HOUSES[i]; ++i) {
       house.disabled = false;
-      house.locked = !window.DEV;  // initial state
+      house.locked = false;
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
@@ -1004,45 +995,17 @@ Polymer({
   },
 
   /**
-   * Determines whether a given scene is open. This is a superset of unlocked, which is whether
-   * the scene is visibily unlocked in the village. Scenes are open as soon as any place on Earth
-   * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
-   * has access to it).
+   * In 2018+, all houses are unlocked all the time.
    *
    * @param {string} sceneName to check
    * @param {boolean} skipEdu whether to skip edu checks
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
   sceneIsOpen: function(sceneName, skipEdu) {
-    if (this.currentTime === undefined) {
-      return true;  // fail open before time ready
-    } else if (sceneName === 'village' || sceneName === 'cast') {
-      return true;  // village
-    } else if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
+    if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
-
-    const targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
-    const dateNow = new Date(this.currentTime);
-    const userOffset = dateNow.getTimezoneOffset() * 60000;
-    const eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
-
-    for (let i = 0, house; house = this.houses[i]; ++i) {
-      if (house.module === sceneName) {
-        if (house.disabled) {
-          return false;
-        } else if ((!skipEdu && house.edu) || !house.locked) {
-          return true;
-        }
-        let launchDate = house.launchDate;
-        if (santaApp.mode == 'portal' && house.portalLaunchDate) {
-          launchDate = house.portalLaunchDate;
-        }
-        return eastDateNow > launchDate;
-      }
-    }
-
-    return undefined;  // couldn't find this scene/house, defer to caller
+    return true;
   },
 
   /**
@@ -1051,7 +1014,6 @@ Polymer({
    */
   _updateLock: function(currentTime, scheduleChecked) {
     const todayDate = new Date(this.currentTime || Date.now());
-    let todayHouse = '';
     let change = false;
 
     switch (todayDate.getMonth()) {
@@ -1060,11 +1022,9 @@ Polymer({
       case 11: // December
         for (let i = 0, house; house = this.houses[i]; ++i) {
           let launchDate = house.launchDate;
-          if (santaApp.mode == 'portal' && house.portalLaunchDate) {
-            launchDate = house.portalLaunchDate;
-          }
-          if (isSameDay(launchDate, todayDate)) {
-            todayHouse = house.module;
+          if (!launchDate) {
+            house.locked = false;
+            continue;  // always unlocked
           }
           if (this.scheduleChecked) {
             const locked = (launchDate > todayDate);
@@ -1086,7 +1046,6 @@ Polymer({
         }
         break;
     }
-    this.todayHouse = todayHouse;
     change && this.fire('houses-changed');
 
     this.$.lazypages.revalidate();  // hint to maybe reload
@@ -1175,12 +1134,6 @@ Polymer({
     let out = '';
 
     switch (network) {
-    case 'gplus':
-      out = `https://plus.google.com/share?url=${enc}`;
-      if (window.requestLang) {
-        out += `&hl=${window.requestLang}`;
-      }
-      break;
     case 'twitter':
       out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
           window.encodeURIComponent(title) + `&url=${enc}`;
