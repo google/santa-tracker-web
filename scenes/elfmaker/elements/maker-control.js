@@ -143,6 +143,9 @@ ${renderClass('hair', 'fill', this.hairColor)}
   }
 
   render() {
+    const indent = 35;
+    const lowerIndent = 40;
+
     const inner = this._renderCategory(this.category);
     const choice = this.categoryChoice[this.category] || 0;;
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
@@ -159,7 +162,7 @@ ${renderClass('hair', 'fill', this.hairColor)}
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 345">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${indent} 0 ${210 - indent * 2} ${345 - lowerIndent}">
 <g class=${this.category}>${back}</g>
 ${defs.head}
 <g class=${this.category}>${front}</g>

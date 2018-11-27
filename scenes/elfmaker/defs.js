@@ -104,8 +104,7 @@ export const hats = [
   // TODO(samthor): Slight edge showing. Merge both inner paths.
   svg`
 <circle class="hats3" cx="105" cy="148.04" r="38.43"/>
-<path d="M9.28,154.21H200.72C147.86,121.79,62.15,121.79,9.28,154.21Z"/>
-<path  d="M9.28,154.21H200.72C184.5,227.65,25.51,227.65,9.28,154.21Z"/>
+<path transform="translate(9, 79)" d="M0.28,75.21 C53.15,42.79 138.86,42.79 191.72,75.21 C175.5,148.65 16.51,148.65 0.28,75.21 Z"/>
 <circle class="white" cx="105" cy="94.76" r="14.84"/>
 `,
   svg`
