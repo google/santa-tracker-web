@@ -82,9 +82,7 @@ Santa Tracker app.
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
-      mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      hide-buttons="[[hideButtons(mode)]]"
       clients="[[clients]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
@@ -93,7 +91,7 @@ Santa Tracker app.
 
     <santa-sidebar slot="drawer"></santa-sidebar>
 
-    <santa-overlay id="overlay" hidden$="[[!userPause]]"
+    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"
         share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Video Picture-In-Picture -->
@@ -105,6 +103,7 @@ Santa Tracker app.
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
+        mode$="[[mode]]"
         route="{{route}}"
         progress="{{_progress}}"
         selected-item="{{selectedScene}}"
@@ -435,8 +434,7 @@ Polymer({
      */
     headerSize: {
       type: Number,
-      readOnly: true,
-      value: 44,
+      computed: '_computeHeaderSize(mode)',
     },
 
     /**
@@ -599,6 +597,13 @@ Polymer({
 
   },
 
+  _computeHeaderSize: function(mode) {
+    if (mode === 'embed' || mode === 'cast') {
+      return 0;
+    }
+    return 44;
+  },
+
   observers: [
     '_updateLock(currentTime, scheduleChecked)',
   ],
@@ -657,7 +662,7 @@ Polymer({
     }
 
     // Don't load sounds in Cast mode.
-    if (!this.omitSantaChrome(this.mode)) {
+    if (this.mode !== 'cast') {
       const staticUrl = this.resolveUrl('../../');
       const sc = new SoundController(staticUrl);
       this.addEventListener('sound-preload', (ev) => {
@@ -805,6 +810,13 @@ Polymer({
     if ('pause' in this.selectedScene) {
       this.$.overlay.pregame = true;
       this.userPause = true;
+
+      if (this.mode === 'embed') {
+        // wait a frame and then start, we never see overlay
+        window.setTimeout(function() {
+          this.fire('game-start');
+        }.bind(this), 0);
+      }
     }
   },
 
@@ -923,13 +935,24 @@ Polymer({
     o.shareUrl = detail.url || null;
 
     this.userPause = true;
+
+    this.fire('embed', {type: 'ongameover', data: {
+      // TODO(samthor): pass image/data
+    }});
   },
 
   onScoreGame: function(event, detail) {
     this.$.badge.score = detail.score !== undefined ? detail.score : null;
     this.$.badge.level = detail.level || null;
-    this.$.badge.levels = detail.levels || null;
+    this.$.badge.levels = detail.levels || detail.maxLevels || null;
     this.$.badge.time = detail.time || null;
+
+    this.fire('embed', {type: 'onscore', data: {
+      score: detail.score || 0,
+      level: detail.level || 0,
+      maxLevel: detail.levels || detail.maxLevels || 0,
+      time: detail.time || 0,
+    }});
   },
 
   _computePause: function(userPause, pageInBackground) {
@@ -1164,11 +1187,14 @@ Polymer({
   },
 
   omitSantaChrome: function(mode) {
-    return mode === 'cast';
+    return mode === 'cast' || mode === 'embed';
   },
 
-  hideButtons: function(mode) {
-    return mode === 'embed';
+  _computeOverlayHidden: function(userPause, mode) {
+    if (mode === 'cast' || mode === 'embed') {
+      return true;
+    }
+    return !userPause;
   },
 
   /**
