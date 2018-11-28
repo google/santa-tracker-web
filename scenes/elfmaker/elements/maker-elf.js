@@ -80,6 +80,10 @@ export class MakerElfElement extends LitElement {
     render(this.render(), div);
     const svg = div.querySelector('svg');
 
+    // set w/h explicitly, otherwise Chrome or other browsers assume 'natural' SVG size
+    svg.setAttribute('width', defs.width * 2);
+    svg.setAttribute('height', defs.height * 2);
+
     // load an Image with the base64 version of the SVG
     const raw = 'data:image/svg+xml;base64,' + window.btoa(svg.outerHTML);
 
