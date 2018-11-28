@@ -177,36 +177,35 @@ svg {
     <path class="high2" d="M157.49,399.29H150a5,5,0,1,1,0-10h7.51a5,5,0,0,1,0,10Z"/>
   </g>
 
-  <g transform="translate(160, ${80 - legsAdjust})">
-    <g transform="rotate(${bodyDegrees}, 0, 280)">
-      <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}">
-        <!-- body -->
-        <g class="suit">${body}</g>
+  <!-- top part -->
+  <g transform="translate(160, ${80 - legsAdjust}) rotate(${bodyDegrees}, 0, 280)">
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}">
+      <!-- body -->
+      <g class="suit">${body}</g>
 
-        <!-- belt -->
-        <g clip-path="url(#${this._idPrefix}body-clip)">
-          <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
-          <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
-        </g>
+      <!-- belt -->
+      <g clip-path="url(#${this._idPrefix}body-clip)">
+        <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
+        <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
       </g>
+    </g>
 
-      <!-- left arm -->
-      <g transform="translate(-10, 216) scale(+1, -1)">
-        ${this._buildArm(leftArmDegrees, shrug)}
-      </g>
+    <!-- left arm -->
+    <g transform="translate(-10, 216) scale(+1, -1)">
+      ${this._buildArm(leftArmDegrees, shrug)}
+    </g>
 
-      <!-- right arm -->
-      <g transform="translate(+10, 216) scale(-1, -1)">
-        ${this._buildArm(rightArmDegrees, shrug)}
-      </g>
+    <!-- right arm -->
+    <g transform="translate(+10, 216) scale(-1, -1)">
+      ${this._buildArm(rightArmDegrees, shrug)}
+    </g>
 
-      <!-- head -->
-      <g transform="translate(-105, -18)">
-        <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
-        ${defs.head}
-        <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
-        <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
-      </g>
+    <!-- head -->
+    <g transform="translate(-105, -18)">
+      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
+      ${defs.head}
+      <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
+      <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
     </g>
   </g>
 
