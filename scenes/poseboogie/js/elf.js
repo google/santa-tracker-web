@@ -8,11 +8,15 @@ const
     neckLength = 0.1,
     torsoLength = 5,
     shoulderWidth = torsoLength * 0.7,
+    torsoJointOffset = 0.7,  // distance from outside of torso img the legs/arms should attach.
     armLength = torsoLength,
     armWidth = armLength / 3,
     handLength = 1.5,
     legLength = 5,
-    legWidth = legLength / 2.5;
+    legWidth = legLength / 3.6,
+    shoeHeight = 2,
+    shoeWidth = shoeHeight * 3/2,
+    ankleOffset = 0.14; // fraction of shoe size around which shoe rotates
 
 // When making very frequent updates, particularly twitchy ones, the physics engine calculates the
 // bodies as having very high velocity. This value is used to clamp the velocities to a speed
@@ -89,7 +93,7 @@ export class Elf {
     p2World.addBody(this.leftArm);
 
     this.leftShoulder = new p2.RevoluteConstraint(this.torso, this.leftArm, {
-      localPivotA: [shoulderWidth/2, torsoLength/2],
+      localPivotA: [shoulderWidth/2 - torsoJointOffset, torsoLength/2],
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
@@ -113,8 +117,9 @@ export class Elf {
     this.leftArm.curveWith = this.leftForeArm;
     this.leftForeArm.curveWith = false;
     this.leftArm.style = lineStyle;
+    this.leftArm.offset = torsoJointOffset;
 
-    this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
+        this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
       localPivotA: [0, -armLength/4],
       localPivotB: [0, armLength/4],
       collideConnected: false,
@@ -137,7 +142,7 @@ export class Elf {
     p2World.addBody(this.rightArm);
 
     this.rightShoulder = new p2.RevoluteConstraint(this.torso, this.rightArm, {
-      localPivotA: [-shoulderWidth/2, torsoLength/2],
+      localPivotA: [-shoulderWidth/2 + torsoJointOffset, torsoLength/2],
       localPivotB: [0, armLength/4],
       collideConnected: false,
     });
@@ -161,6 +166,7 @@ export class Elf {
     this.rightArm.curveWith = this.rightForeArm;
     this.rightForeArm.curveWith = false;
     this.rightArm.style = lineStyle;
+    this.rightArm.offset = torsoJointOffset;
 
     this.rightElbow = new p2.RevoluteConstraint(this.rightArm, this.rightForeArm, {
       localPivotA: [0, -armLength/4],
@@ -247,9 +253,10 @@ export class Elf {
     this.leftLeg.curveWith = this.leftCalf;
     this.leftCalf.curveWith = false;
     this.leftLeg.style = lineStyle;
+    this.leftLeg.offset = -torsoJointOffset;
 
     this.leftHip = new p2.RevoluteConstraint(this.torso, this.leftLeg, {
-      localPivotA: [shoulderWidth/2, -torsoLength/2],
+      localPivotA: [shoulderWidth/2 - torsoJointOffset, -torsoLength/2],
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
@@ -261,6 +268,29 @@ export class Elf {
       collideConnected: false,
     });
     p2World.addConstraint(this.leftKnee);
+
+    this.leftFoot = new p2.Body({
+      position: [shoulderWidth/2 + shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      mass: 1,
+    });
+    this.leftFoot.zIndex = 3;
+    this.leftFootShape = new p2.Box({
+      width: shoeWidth,
+      height: shoeHeight,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.leftFootShape.img = document.getElementById('leftshoe');
+    this.leftFoot.addShape(this.leftFootShape);
+    p2World.addBody(this.leftFoot);
+
+    this.leftAnkle = new p2.RevoluteConstraint(this.leftCalf, this.leftFoot, {
+      localPivotA: [0, -legLength/4],
+      localPivotB: [-shoeWidth/2 + (shoeWidth * ankleOffset),
+        shoeHeight/2 - (shoeWidth * ankleOffset)],
+      collideConnected: false,
+    });
+    p2World.addConstraint(this.leftAnkle);
 
     this.rightLeg = new p2.Body({
       position: [-shoulderWidth/2, -torsoLength - legLength/4],
@@ -295,9 +325,10 @@ export class Elf {
     this.rightLeg.curveWith = this.rightCalf;
     this.rightCalf.curveWith = false;
     this.rightLeg.style = lineStyle;
+    this.rightLeg.offset = -torsoJointOffset;
 
     this.rightHip = new p2.RevoluteConstraint(this.torso, this.rightLeg, {
-      localPivotA: [-shoulderWidth/2, -torsoLength/2],
+      localPivotA: [-shoulderWidth/2 + torsoJointOffset, -torsoLength/2],
       localPivotB: [0, legLength/4],
       collideConnected: false,
     });
@@ -309,33 +340,44 @@ export class Elf {
       collideConnected: false,
     });
     p2World.addConstraint(this.rightKnee);
+
+    this.rightFoot = new p2.Body({
+      position: [-shoulderWidth/2 - shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      mass: 1,
+    });
+    this.rightFoot.zIndex = 3;
+    this.rightFootShape = new p2.Box({
+      width: shoeWidth,
+      height: shoeHeight,
+      collisionGroup: BODY_PARTS,
+      collisionMask: OTHER,
+    });
+    this.rightFootShape.img = document.getElementById('rightshoe');
+    this.rightFoot.addShape(this.rightFootShape);
+    p2World.addBody(this.rightFoot);
+
+    this.rightAnkle = new p2.RevoluteConstraint(this.rightCalf, this.rightFoot, {
+      localPivotA: [0, -legLength/4],
+      localPivotB: [+shoeWidth/2 - (shoeWidth * ankleOffset),
+        shoeHeight/2 - (shoeWidth * ankleOffset)],
+      collideConnected: false,
+    });
+    p2World.addConstraint(this.rightAnkle);
   }
 
   enableLimits(enabled) {
     if (enabled) {
-      this.neckJoint.setLimits(-Math.PI / 8, Math.PI / 8);  // π/4 = 45°
-      this.leftShoulder.setLimits(-Math.PI, Math.PI);
-      this.leftElbow.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightShoulder.setLimits(-Math.PI, Math.PI);
-      this.rightElbow.setLimits(-Math.PI/2, Math.PI/2);
-      this.leftWrist.setLimits(Math.PI / 4, -Math.PI / 4);
-      this.rightWrist.setLimits(Math.PI / 4, -Math.PI / 4);
-      this.leftHip.setLimits(-Math.PI/2, Math.PI/2);
-      this.leftKnee.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightHip.setLimits(-Math.PI/2, Math.PI/2);
-      this.rightKnee.setLimits(-Math.PI/2, Math.PI/2);
+      this.neckJoint.setLimits(-Math.PI/8, Math.PI/8);  // π/4 = 45°
+      this.leftWrist.setLimits(Math.PI/4, -Math.PI/4);
+      this.rightWrist.setLimits(Math.PI/4, -Math.PI/4);
+      this.leftAnkle.setLimits(0, 0);
+      this.rightAnkle.setLimits(0, 0);
     } else {
       this.neckJoint.setLimits(false, false);
-      this.leftShoulder.setLimits(false, false);
-      this.leftElbow.setLimits(false, false);
-      this.rightShoulder.setLimits(false, false);
-      this.rightElbow.setLimits(false, false);
       this.leftWrist.setLimits(false, false);
       this.rightWrist.setLimits(false, false);
-      this.leftHip.setLimits(false, false);
-      this.leftKnee.setLimits(false, false);
-      this.rightHip.setLimits(false, false);
-      this.rightKnee.setLimits(false, false);
+      this.leftAnkle.setLimits(false, false);
+      this.rightAnkle.setLimits(false, false);
     }
   }
 
@@ -474,7 +516,7 @@ export class Elf {
 
     if (this.allGood('leftKnee', 'leftAnkle')) {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
-      this.leftCalf.angle = 3 * Math.PI / 2 - Math.atan2(
+      this.leftCalf.angle = this.leftFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
       this.resizeBox(this.leftCalf.shapes[0], this.dist('leftKnee', 'leftAnkle'), null);
     }
@@ -492,7 +534,7 @@ export class Elf {
 
     if (this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
-      this.rightCalf.angle = 3 * Math.PI / 2 - Math.atan2(
+      this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
       this.resizeBox(this.rightCalf.shapes[0], this.dist('rightKnee', 'rightAnkle'), null);
     }

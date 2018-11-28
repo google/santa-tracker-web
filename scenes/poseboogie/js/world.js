@@ -61,7 +61,7 @@ export class World {
           // not drawn as a body, below. We can't rely on definition order as z-index sorting may
           // change the order.
           if (body.curveWith) {
-            drawCurve(body, body.curveWith, ctx);
+            drawCurve(body, body.curveWith, ctx, this.config.quadraticElbows);
             alreadyDrawn[body.curveWith.id] = true;
           }
         } else if (!(body.id in alreadyDrawn)) {

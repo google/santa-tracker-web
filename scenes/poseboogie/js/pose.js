@@ -57,7 +57,10 @@ export function drawBody(body, ctx) {
     }
   } else if (s instanceof p2.Circle) {
     if (s.img && s.img.complete) {
-      ctx.drawImage(s.img, -s.radius, -s.radius, 2*s.radius, 2*s.radius);
+      // Circles can be drawn by rectangular images, to do so we use 2*radius as the target width
+      // and scale the height based on the original aspect ratio.
+      const aspect = s.img.height / s.img.width;
+      ctx.drawImage(s.img, -s.radius, -s.radius, 2*s.radius, 2*s.radius * aspect);
     }
   }
   ctx.restore();
@@ -69,8 +72,11 @@ export function drawBody(body, ctx) {
  * of the bodies is important. Provide any 2D context styles as a dict/map on body1.style.
  *
  * The first shape attached to p2 bodies is used, and these must be p2.Box instances.
+ *
+ * Shapes positioned by the physics system have pivots defined in the constraints. When we position
+ * shapes by pose, we need to account for these offsets, via the 'offset' property on the body.
  */
-export function drawCurve(body1, body2, ctx) {
+export function drawCurve(body1, body2, ctx, quadratic=false) {
   // Convenient shape aliases
   const s1 = body1.shapes[0];
   const s2 = body2.shapes[0];
@@ -87,7 +93,7 @@ export function drawCurve(body1, body2, ctx) {
 
   // Start of first shape
   const x1 = cx1 - Math.sin(theta1) * s1.height/2;
-  const y1 = cy1 + Math.cos(theta1) * s1.height/2;
+  const y1 = cy1 + Math.cos(theta1) * s1.height/2 - body1.offset;
   // End of second shape
   const x2 = cx2 + Math.sin(theta2) * s2.height/2;
   const y2 = cy2 - Math.cos(theta2) * s2.height/2;
@@ -103,9 +109,14 @@ export function drawCurve(body1, body2, ctx) {
   ctx.save();
   ctx.beginPath();
   // Apply supplied styles.
-  Object.assign(ctx, {lineWidth: s1.width/2, ...body1.style});
+  Object.assign(ctx, {lineWidth: s1.width/2, lineJoin: 'round', ...body1.style});
   ctx.moveTo(x1, y1);
-  ctx.quadraticCurveTo(mx, my, x2, y2);
+  if (quadratic) {
+    ctx.quadraticCurveTo(mx, my, x2, y2);
+  } else {
+    ctx.lineTo(mx, my);
+    ctx.lineTo(x2, y2);
+  }
   ctx.stroke();
   ctx.restore();
 }

@@ -16,17 +16,20 @@ const appConfig = {
   flipHorizontal: true, // Default to web-cam source, which flips video
   imageScaleFactor: 0.5,
   outputStride: 16,
-  enableJointLimits: false,
+  enableJointLimits: true,
   resizeBodyParts: false,
   smoothLimbs: true,
   humanSize: 1,
+  quadraticElbows: true,
 };
 
 api.preload.images(
-  'img/face.png',
+  'img/facehat.png',
   'img/body.png',
   'img/arm.png',
   'img/hand_cuff.png',
+  'img/leftshoe.png',
+  'img/rightshoe.png',
 );
 const posePromise = posenet.load(appConfig.mobileNetArchitecture);
 api.preload.wait(posePromise);
@@ -81,6 +84,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'resizeBodyParts');
   gui.add(appConfig, 'smoothLimbs');
   gui.add(appConfig, 'humanSize', { Small: 2, Medium: 1.5, Large: 1 });
+  gui.add(appConfig, 'quadraticElbows');
 }
 
 /**
