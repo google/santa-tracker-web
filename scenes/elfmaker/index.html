@@ -42,6 +42,8 @@ import './elements/maker-elf.js';
 import '../../src/elements/santa-button.js';
 import * as defs from './defs.js';
 
+api.preload.sounds('elfmaker_load_sounds', 40);
+
 api.preload.images(
   'img/bg-complex.png',
   'img/bg-simple.png',
@@ -78,11 +80,13 @@ share.addEventListener('click', (ev) => {
     console.info('got image', result);
     api.gameover({image: result});
   });
+  window.santaApp.fire('sound-trigger', 'generic_button_click');
 });
 
 const outline = document.getElementById('picture-outline');
 outline.addEventListener('click', (ev) => {
   outline.hidden = true;
+  window.santaApp.fire('sound-trigger', 'elfmaker_photo_close');
 });
 
 let activeResolve;
@@ -113,10 +117,14 @@ camera.addEventListener('click', (ev) => {
     inner.textContent = '';
     inner.appendChild(image);
   });
+
+  window.santaApp.fire('sound-trigger', 'elfmaker_photo');
+
 });
 
 api.ready(async () => {
   // TODO: something
+  window.santaApp.fire('sound-ambient', 'music_start_scene');
 });
 
 </script>
