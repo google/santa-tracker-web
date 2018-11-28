@@ -1,0 +1,12 @@
+$gameover-bg: #3F4EA1;  // for rotate background
+$name: 'module-iframe';
+@import "../shared/sass/rotate";
+
+main {
+  background: #364189;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
