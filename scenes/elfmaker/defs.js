@@ -1,8 +1,8 @@
 import {svg} from '@polymer/lit-element';
 
 
-export const width = 280;
-export const height = 400;
+export const width = 320;
+export const height = 500;
 
 
 export const baseSvgStyle = `
@@ -12,8 +12,6 @@ export const baseSvgStyle = `
 .white {fill: #fff;}
 .limb {
   fill: none;
-  stroke-linecap: round;
-  stroke-miterlimit: 10;
   stroke-width: 20px;
 }
 

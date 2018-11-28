@@ -167,8 +167,8 @@ svg {
   <g transform="translate(30, 30) ${scaleAt(scale, scale, 130, 428.65)}">
 
     <!-- legs -->
-    <path class="limb" d="M112.51,410v${-(legsAdjust + 100) / scale}"/>
-    <path class="limb" d="M147.49,410v${-(legsAdjust + 100) / scale}"/>
+    <path class="limb" d="M112.51,389.94v${-(legsAdjust + 100) / scale}"/>
+    <path class="limb" d="M147.49,389.94v${-(legsAdjust + 100) / scale}"/>
 
     <!-- feet and buckles -->
     <path class="high1" d="M68.15,389.94a19.36,19.36,0,0,0,19.36,19.35h0a15,15,0,0,0,15-15V379.94h20v43.7a5,5,0,0,1-5,5H68.62c-10.5,0-19.43-8.16-19.81-18.65A19.35,19.35,0,0,1,68.15,389.94Z"/>
@@ -179,6 +179,12 @@ svg {
 
   <!-- top part -->
   <g transform="translate(160, ${80 - legsAdjust}) rotate(${bodyDegrees}, 0, 280)">
+
+    <!-- hat (first, before body) -->
+    <g transform="translate(-105, -18)">
+      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
+    </g>
+
     <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}">
       <!-- body -->
       <g class="suit">${body}</g>
@@ -202,7 +208,6 @@ svg {
 
     <!-- head -->
     <g transform="translate(-105, -18)">
-      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
       ${defs.head}
       <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
       <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
