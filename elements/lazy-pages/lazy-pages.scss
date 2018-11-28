@@ -34,6 +34,12 @@
   }
 }
 
+:host([mode="embed"]) {
+  #scene > * {
+    top: 0;
+  }
+}
+
 #error {
   position: absolute;
   top: 0;

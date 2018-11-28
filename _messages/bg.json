@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Календарът"
 	},
+	"category_all": {
+		"message": "Преглед на всички"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Програмиране"
+	},
+	"category_computer-science": {
+		"message": "Информатика"
 	},
 	"category_draw": {
 		"message": "Рисуване"
 	},
+	"category_education": {
+		"message": "Фокусирано обучение"
+	},
+	"category_geography": {
+		"message": "География"
+	},
+	"category_language": {
+		"message": "Език"
+	},
 	"category_listen": {
 		"message": "Слушане"
 	},
+	"category_new-this-year": {
+		"message": "Ново от тази година"
+	},
 	"category_send": {
 		"message": "Изпращане"
+	},
+	"category_social-studies": {
+		"message": "Социални науки"
 	},
 	"cd_country_name": {
 		"message": "Демократична република Конго"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "В почти всеки германски град се откриват коледни пазари на градския площад. Хората се събират, за да слушат духови оркестри и да се насладят на традиционната храна за региона. Похапват джинджифилови курабийки във формата на сърца, печени захаросани бадеми, различни видове сладкиши и пият греяно вино (Glühwein) или ябълков сайдер."
 	},
+	"dec24th": {
+		"message": "24 декември"
+	},
 	"deck": {
 		"message": "Украсяване"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Помогнете за финансирането на проект за деца със специални нужди в DonorsChoose.org. Този декември ще съдействаме за удвояването на помощта, като предоставим сума, равна на 50% от даренията, за да достигнем крайната ни цел от 1 млн. щ.д. Заедно можем да направим класните стаи по-приобщаващи #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Изтеглете, за да играете още повече игри"
+	},
 	"dz_country_name": {
 		"message": "Алжир"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Къде е Дядо Коледа за преподаватели"
 	},
+	"educators-games": {
+		"message": "Игри за учебната стая"
+	},
+	"educators-learn": {
+		"message": "Обучение за Къде е Дядо Коледа"
+	},
 	"ee_country_name": {
 		"message": "Естония"
 	},
 	"el_language_name": {
 		"message": "гръцки"
+	},
+	"elf_choose_body": {
+		"message": "Изберете тяло на джудже"
 	},
 	"elvish_language_name": {
 		"message": "елфски"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Възникна проблем, но джуджетата на Дядо Коледа работят по отстраняването му."
 	},
+	"error-internal": {
+		"message": "Ами сега! Възникна проблем! Информирахме джуджетата на Дядо Коледа, но опитайте да се върнете в \u003ca href=\"./\"\u003eселцето на Дядо Коледа\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Изглежда, че току-що изгубихме връзка със Северния полюс. Джуджетата на Дядо Коледа работят усърдно по отстраняване на проблема – не си тръгвайте!"
 	},
 	"error-not-found": {
-		"message": "Ами сега! Джуджетата на Дядо Коледа не могат да намерят тази страница! Може да имате повече късмет, ако се върнете в \u003ca href=\"./village.html\"\u003eселцето на Дядо Коледа\u003c/a\u003e."
+		"message": "Ами сега! Джуджетата на Дядо Коледа не могат да намерят тази страница! Може да имате повече късмет, ако се върнете в \u003ca href=\"./\"\u003eселцето на Дядо Коледа\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Опитайте отново"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Пауза"
 	},
+	"paused": {
+		"message": "На пауза"
+	},
 	"pe_country_name": {
 		"message": "Перу"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ами сега!"
 	},
+	"readyquestion": {
+		"message": "В готовност ли сте?"
+	},
 	"ro_country_name": {
 		"message": "Румъния"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Саудитска Арабия"
+	},
+	"santa-app": {
+		"message": "Дядо Коледа"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Джинджифилово човече"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Бързият пингвин"
 	},
+	"scene_elfmaker": {
+		"message": "Създаване на джудже"
+	},
 	"scene_elfski": {
 		"message": "Джуджета на ски"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Площадка за игра на Северния полюс"
 	},
+	"scene_poseboogie": {
+		"message": "Танцова стъпка"
+	},
 	"scene_postcard": {
-		"message": "Кодиране на снежинка"
+		"message": "Коледни картички"
 	},
 	"scene_presentbounce": {
 		"message": "Подскачащи подаръци"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Бой със снежни топки"
+	},
+	"scene_snowflake": {
+		"message": "Кодиране на снежинка"
 	},
 	"scene_speedsketch": {
 		"message": "Рисуване върху заскрежено стъкло"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Офис шега"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Все още във ваканция"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Тревогите на елена"
+	},
 	"scene_videoscene_reload": {
 		"message": "Презареждане с подаръци"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Скатавка"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Старт"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Изкушение"
 	},
 	"scene_videoscene_tired": {
 		"message": "Уморен елен"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Все още във ваканция"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Къде е Дядо Коледа?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Работилницата на Дядо Коледа"
 	},
 	"scene_windtunnel": {
 		"message": "Аеродинамичен тунел"
@@ -1389,6 +1458,9 @@
 		"message": "Опаковане на подаръци"
 	},
 	"score": {
+		"message": "Резултат"
+	},
+	"score_short": {
 		"message": "Резултат"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "словашки"
+	},
+	"skip-training": {
+		"message": "Пропускане на обучението"
 	},
 	"sl_country_name": {
 		"message": "Сиера Леоне"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "метла"
 	},
-	"speedsketch_item~bubble": {
-		"message": "балонче"
-	},
 	"speedsketch_item~bucket": {
 		"message": "кофа"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "камера"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "маскировка"
-	},
 	"speedsketch_item~campfire": {
 		"message": "лагерен огън"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "морков"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "анимация"
 	},
 	"speedsketch_item~castle": {
 		"message": "замък"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "череша"
-	},
-	"speedsketch_item~chicken": {
-		"message": "пиле"
 	},
 	"speedsketch_item~child": {
 		"message": "дете"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "крокодил"
-	},
-	"speedsketch_item~cross": {
-		"message": "кръст"
 	},
 	"speedsketch_item~crow": {
 		"message": "врана"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "ръка"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "бесеница"
-	},
 	"speedsketch_item~happiness": {
 		"message": "щастие"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "остров"
 	},
-	"speedsketch_item~italy": {
-		"message": "Италия"
-	},
 	"speedsketch_item~jacket": {
 		"message": "яке"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "коледни звънчета"
-	},
-	"speedsketch_item~kale": {
-		"message": "къдраво зеле"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "кенгуру"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "картоф"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "електрически контакт"
-	},
 	"speedsketch_item~present": {
 		"message": "подарък"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "портмоне"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "пъзел"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "заек"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "квадрат"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "завъртулка"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "катерица"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "натюрморт"
-	},
-	"speedsketch_item~stitches": {
-		"message": "бримки"
-	},
-	"speedsketch_item~stock market": {
-		"message": "фондова борса"
 	},
 	"speedsketch_item~stocking": {
 		"message": "дълъг чорап"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "триколка"
 	},
-	"speedsketch_item~trolley": {
-		"message": "количка"
-	},
 	"speedsketch_item~trombone": {
 		"message": "тромбон"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "кит"
-	},
-	"speedsketch_item~wheel": {
-		"message": "колело"
 	},
 	"speedsketch_item~windmill": {
 		"message": "вятърна мелница"
@@ -6630,7 +6660,7 @@
 		"message": "Със звук"
 	},
 	"upgrade-warning": {
-		"message": "Ами сега! „Къде е Дядо Коледа“ не се поддържа в тази версия на браузъра ви. За достъп до „Къде е Дядо Коледа“ изтеглете съвременен браузър. За повече информация посетете \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ами сега! Къде е Дядо Коледа не се поддържа в браузъра ви или JavaScript е деактивиран. За достъп до Къде е Дядо Коледа изтеглете съвременен браузър или активирайте JavaScript. За още информация отворете: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Съединени щати"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Венецуела"
+	},
+	"village_assistant-call_santa": {
+		"message": "Обадете се на Дядо Коледа чрез Google Асистент"
 	},
 	"village_comeback": {
 		"message": "Върнете се на 24 декември и ни помогнете да следим Дядо Коледа през цялата нощ!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Добавяне на разширението „Дядо Коледа“ за Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Викторина на Дядо Коледа за Земята"
+	},
+	"village_santa_install": {
+		"message": "Инсталиране"
 	},
 	"village_takesoff": {
 		"message": "Дядо Коледа потегля след"

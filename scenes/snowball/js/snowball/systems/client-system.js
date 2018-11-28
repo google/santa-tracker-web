@@ -12,6 +12,8 @@ const localClientId = 'local';
 
 export class ClientSystem {
   constructor() {
+    this.recentAnnounce = 0;
+
     this.player = null;
     this.targetedPosition = null;
     this.destination = null;
@@ -84,10 +86,15 @@ export class ClientSystem {
       return;
     }
 
-    window.santaApp.fire('game-score', {
-      score: knockedOut,
-      time: (clockSystem.time / 1000),
-    });
+    const announce = Math.floor(clockSystem.time / 1000);
+    if (this.recentAnnounce !== announce) {
+      this.recentAnnounce = announce;
+      window.santaApp.fire('game-score', {
+        score: knockedOut,
+        time: announce,
+      });
+    }
+
     this.lastValidScore = knockedOut;
 
     const { networkSystem, playerSystem, mapSystem } = game;

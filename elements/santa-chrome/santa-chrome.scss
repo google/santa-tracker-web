@@ -10,15 +10,6 @@ $feature-width: 198px;
   display: block;
 }
 
-:host([mode="embed"]) #drawer,
-:host([mode="embed"]) .toolbar-icon,
-:host([mode="embed"]) .title {
-  display: none !important;
-}
-:host([mode="embed"]) #buttons {
-  flex-grow: 1;
-}
-
 app-drawer {
   --app-drawer-width: 320px;
   --app-drawer-scrim-background: fade-out($santa-color, 0.4);

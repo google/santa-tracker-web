@@ -1,6 +1,6 @@
 {
 	"about-content-one": {
-		"message": "เราภูมิใจเป็นอย่างยิ่งจะเปิดตัวแผงควบคุมของซานต้าในวันคริสต์มาสอีฟ แผงนี้เป็นเทคโนโลยีที่ให้พลังงานแก่รถเลื่อนของซานต้าระหว่างการเดินทางรอบโลก เราได้รับตัวอย่างพิเศษนี้จากเอลฟ์นักพัฒนาของซานต้า พวกเขาทำงานกันอย่างหนักที่ขั้วโลกเหนือเพื่อช่วยซานต้าเตรียมตัวสำหรับวันสำคัญ แผงควบคุมของซานต้าซึ่งใช้เทคโนโลยีใหม่ล่าสุดและดีที่สุดของ Google Maps และวิศวกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความเคลื่อนไหวของซานต้าไปรอบโลก และยังได้รับความรู้เล็กๆ น้อยๆ เกี่ยวกับจุดแวะพักของซานต้าระหว่างทางอีกด้วย"
+		"message": "เราภูมิใจเป็นอย่างยิ่งจะเปิดตัวแผงควบคุมของซานต้าในวันคริสต์มาสอีฟ แผงนี้เป็นเทคโนโลยีที่ให้พลังงานแก่รถเลื่อนของซานต้าระหว่างการเดินทางรอบโลก เราได้รับตัวอย่างพิเศษนี้จากเอลฟ์นักพัฒนาของซานต้า พวกเขาทำงานกันอย่างหนักที่ขั้วโลกเหนือเพื่อช่วยซานต้าเตรียมตัวสำหรับวันสำคัญ แผงควบคุมของซานต้าซึ่งใช้เทคโนโลยีใหม่ล่าสุดและดีที่สุดของ Google Maps และวิศวกรรมรถเลื่อนจะทำให้คุณสามารถติดตามความเคลื่อนไหวของซานต้าไปรอบโลก และยังได้รับความรู้เล็กๆ น้อยๆ เกี่ยวกับจุดแวะของซานต้าระหว่างทางอีกด้วย"
 	},
 	"about-content-three": {
 		"message": "Google Maps ตามติดซานต้าสร้างขึ้นและพัฒนาโดย Google ด้วยความช่วยเหลือเล็กน้อยจากเหล่าเอลฟ์ของซานต้า หากมีคำถามหรือข้อสงสัย โปรดไปที่\u003ca href=\"//support.google.com/santatracker\"\u003eศูนย์ช่วยเหลือ\u003c/a\u003eของเรา"
@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "ปฏิทิน"
 	},
+	"category_all": {
+		"message": "ดูทั้งหมด"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "เขียนโปรแกรม"
+	},
+	"category_computer-science": {
+		"message": "วิทยาศาสตร์คอมพิวเตอร์"
 	},
 	"category_draw": {
 		"message": "วาด"
 	},
+	"category_education": {
+		"message": "มุ่งเน้นการศึกษา"
+	},
+	"category_geography": {
+		"message": "ภูมิศาสตร์"
+	},
+	"category_language": {
+		"message": "ภาษา"
+	},
 	"category_listen": {
 		"message": "ฟัง"
 	},
+	"category_new-this-year": {
+		"message": "ใหม่ในปีนี้"
+	},
 	"category_send": {
 		"message": "ส่ง"
+	},
+	"category_social-studies": {
+		"message": "สังคมศึกษา"
 	},
 	"cd_country_name": {
 		"message": "สาธารณรัฐประชาธิปไตยคองโก"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "ในเกือบทุกเมืองของเยอรมัน ตลาดคริสต์มาสจะเปิดขึ้นที่จัตุรัสของเมือง ผู้คนในเมืองจะมารวมตัวกันเพื่อฟังดนตรีของวงเครื่องเป่าทองเหลืองหรืออิ่มอร่อยกับอาหารประจำภูมิภาค พวกเขาจะรับประทานขนมปังขิงรูปหัวใจ อัลมอนด์อบน้ำตาล ขนมหวานทุกประเภท และดื่มไวน์เครื่องเทศ (Glühwein) หรือน้ำแอปเปิล"
 	},
+	"dec24th": {
+		"message": "24 ธันวาคม"
+	},
 	"deck": {
 		"message": "ตกแต่ง"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "ร่วมสมทบทุนให้กับโครงการที่มีความต้องการพิเศษที่ DonorsChoose.org ในเดือนธันวาคมนี้ เราจะช่วยเพิ่มยอดบริจาคให้มากขึ้นเป็นทวีคูณด้วยการสมทบทุนอีก 50% สำหรับทุกการบริจาคของคุณ จนกว่ายอดเงินบริจาคทั้งหมดจะบรรลุเป้าหมาย 1 ล้านดอลลาร์สหรัฐฯ ตามที่เราตั้งไว้ ด้วยพลังจากน้ำใจของพวกเราทุกคน เราสามารถช่วยสร้างห้องเรียนที่เด็กๆ ทุกคนสามารถเรียนร่วมกันได้มากขึ้น #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "ดาวน์โหลดเพื่อเล่นเกมอื่นๆ มากมาย"
+	},
 	"dz_country_name": {
 		"message": "แอลจีเรีย"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "ตามติดซานต้าสำหรับนักการศึกษา"
 	},
+	"educators-games": {
+		"message": "เกมสำหรับห้องเรียน"
+	},
+	"educators-learn": {
+		"message": "เรียนรู้ไปกับติดตามซานตาคลอส"
+	},
 	"ee_country_name": {
 		"message": "เอสโตเนีย"
 	},
 	"el_language_name": {
 		"message": "ภาษากรีก"
+	},
+	"elf_choose_body": {
+		"message": "เลือกร่างเอลฟ์"
 	},
 	"elvish_language_name": {
 		"message": "ภาษาเอลฟ์"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "เกิดปัญหาบางอย่าง แต่เหล่าเอลฟ์ของซานต้ากำลังหาทางแก้ไขอยู่"
 	},
+	"error-internal": {
+		"message": "ไม่นะ เกิดปัญหาบางอย่างขึ้น เราได้แจ้งเหล่าเอลฟ์ของซานตาแล้ว แต่ลองกลับไปที่\u003ca href=\"./\"\u003eหมู่บ้านของซานตา\u003c/a\u003eดูสิ"
+	},
 	"error-lost-connection": {
 		"message": "ดูเหมือนว่าเราสูญเสียการเชื่อมต่อกับขั้วโลกเหนือ เอลฟ์ของซานต้ากำลังพยายามแก้ไข อย่าเพิ่งไปไหน"
 	},
 	"error-not-found": {
-		"message": "ขออภัย เหล่าเอลฟ์ของซานต้าไม่พบหน้านี้ ลองกลับไปค้นหาที่\u003ca href=\"./village.html\"\u003eหมู่บ้านของซานต้า\u003c/a\u003e"
+		"message": "ขออภัย เหล่าเอลฟ์ของซานต้าไม่พบหน้านี้ ลองกลับไปค้นหาที่\u003ca href=\"./\"\u003eหมู่บ้านของซานต้า\u003c/a\u003e"
 	},
 	"error-try-again": {
 		"message": "ลองอีกครั้ง"
@@ -762,7 +804,7 @@
 		"message": "เรียนรู้"
 	},
 	"learnmore": {
-		"message": "เรียนรู้เพิ่มเติม"
+		"message": "ดูข้อมูลเพิ่มเติม"
 	},
 	"level": {
 		"message": "ระดับ"
@@ -900,7 +942,7 @@
 		"message": "แชร์ของตกแต่งกับครอบครัวและเพื่อนๆ เพื่อให้พวกเขาได้เรียนรู้ด้วยเช่นกัน"
 	},
 	"nonprofit-intro-type": {
-		"message": "เราได้ร่วมมือกับ Google.org เพื่อนำเสนอองค์กรไม่แสวงผลกำไรด้านการศึกษาจำนวน 5 แห่งที่เฉลิมฉลองเทศกาลแห่งการให้ตลอดทั้งปี เลื่อนลงไปด้านล่างเพื่อเรียนรู้เพิ่มเติมว่าองค์กรแต่ละแห่งตอบแทนสังคมอย่างไรบ้าง แสดงการสนับสนุนของคุณด้วยการระบายสีคอลเล็กชันของตกแต่งนี้ แล้วแขวนไว้บนต้นไม้หรือมอบเป็นของขวัญให้กับคนที่คุณรัก"
+		"message": "เราได้ร่วมมือกับ Google.org เพื่อนำเสนอองค์กรไม่แสวงผลกำไรด้านการศึกษาจำนวน 5 แห่งที่เฉลิมฉลองเทศกาลแห่งการให้ตลอดทั้งปี เลื่อนลงไปด้านล่างเพื่อดูข้อมูลเพิ่มเติมว่าองค์กรแต่ละแห่งตอบแทนสังคมอย่างไรบ้าง แสดงการสนับสนุนของคุณด้วยการระบายสีคอลเล็กชันของตกแต่งนี้ แล้วแขวนไว้บนต้นไม้หรือมอบเป็นของขวัญให้กับคนที่คุณรัก"
 	},
 	"nonprofit-jane-description": {
 		"message": "ชิมแปนซีเป็นญาติสนิทที่สุดของมนุษย์ที่ยังมีชีวิตอยู่ในอาณาจักรสัตว์! ทุกวันนี้มีลิงชิมแปนซีเหลืออยู่ไม่ถึง 300,000 ตัวเนื่องจากการสูญเสียแหล่งที่อยู่ โรคระบาด และการค้าสัตว์ผิดกฎหมาย Jane Goodall Institute (JGI) ปกป้องชิมแปนซีด้วยการเฝ้าสังเกตและทำความเข้าใจกับพฤติกรรม รวมถึงแหล่งที่อยู่ของพวกมัน นอกจากนี้ JGI ยังได้ต่อตั้งชุมชนของผู้ปกป้องและอนุรักษ์สัตว์ป่าและสิ่งแวดล้อมที่เราอาศัยอยู่ร่วมกัน \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eสำรวจแหล่งที่อยู่ของลิงชิมแปนซี\u003c/a\u003eในกอมเบ แทนซาเนีย"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "หยุดชั่วคราว"
 	},
+	"paused": {
+		"message": "หยุดชั่วคราว"
+	},
 	"pe_country_name": {
 		"message": "เปรู"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "อ๊ะ!"
 	},
+	"readyquestion": {
+		"message": "พร้อมไหม"
+	},
 	"ro_country_name": {
 		"message": "โรมาเนีย"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "ซาอุดีอาระเบีย"
+	},
+	"santa-app": {
+		"message": "ซานตา"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "มนุษย์ขนมปังขิง"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "เพนกวินแดช"
 	},
+	"scene_elfmaker": {
+		"message": "เครื่องผลิตเอลฟ์"
+	},
 	"scene_elfski": {
 		"message": "เอลฟ์เล่นสกี"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "สนามเด็กเล่นขั้วโลกเหนือ"
 	},
+	"scene_poseboogie": {
+		"message": "เอลฟ์ออกมาเต้น"
+	},
 	"scene_postcard": {
-		"message": "สร้างเกล็ดหิมะ"
+		"message": "ไปรษณียบัตรซานตา"
 	},
 	"scene_presentbounce": {
 		"message": "โยนของขวัญ"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "ศึกปาลูกบอลหิมะ"
+	},
+	"scene_snowflake": {
+		"message": "สร้างเกล็ดหิมะ"
 	},
 	"scene_speedsketch": {
 		"message": "สเก็ตช์ภาพอย่างเร็ว"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "หยอกกันในออฟฟิศ"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "ยังคงลาพักร้อนอยู่"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "ความกังวลของกวางเรนเดียร์"
+	},
 	"scene_videoscene_reload": {
 		"message": "โหลดของขวัญอีกครั้ง"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "อู้งาน"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "ไปเลย"
+	},
 	"scene_videoscene_temptation": {
 		"message": "สิ่งล่อใจ"
 	},
 	"scene_videoscene_tired": {
 		"message": "กวางเรนเดียร์เหนื่อยแล้ว"
 	},
-	"scene_videoscene_trailer": {
-		"message": "ยังคงลาพักร้อนอยู่"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "ซานต้าอยู่ที่ไหน"
+	},
+	"scene_videoscene_workshop": {
+		"message": "เวิร์กชอปของซานตา"
 	},
 	"scene_windtunnel": {
 		"message": "อุโมงค์ลม"
@@ -1389,6 +1458,9 @@
 		"message": "แข่งห่อของขวัญ"
 	},
 	"score": {
+		"message": "คะแนน"
+	},
+	"score_short": {
 		"message": "คะแนน"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "ภาษาสโลวัก"
+	},
+	"skip-training": {
+		"message": "ข้ามการฝึก"
 	},
 	"sl_country_name": {
 		"message": "เซียร์ราลีโอน"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "ไม้กวาด"
 	},
-	"speedsketch_item~bubble": {
-		"message": "ลูกโป่ง"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ถังน้ำ"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "กล้องถ่ายรูป"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "การอำพรางตัว"
-	},
 	"speedsketch_item~campfire": {
 		"message": "แคมป์ไฟ"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "แครอท"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "การ์ตูน"
 	},
 	"speedsketch_item~castle": {
 		"message": "ปราสาท"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "เชอร์รี"
-	},
-	"speedsketch_item~chicken": {
-		"message": "ไก่"
 	},
 	"speedsketch_item~child": {
 		"message": "เด็ก"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "จระเข้"
-	},
-	"speedsketch_item~cross": {
-		"message": "ไม้กางเขน"
 	},
 	"speedsketch_item~crow": {
 		"message": "อีกา"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "มือ"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "เกมทายคำศัพท์"
-	},
 	"speedsketch_item~happiness": {
 		"message": "ความสุข"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "เกาะ"
 	},
-	"speedsketch_item~italy": {
-		"message": "อิตาลี"
-	},
 	"speedsketch_item~jacket": {
 		"message": "แจ็กเก็ต"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "จิงเกิลเบลส์"
-	},
-	"speedsketch_item~kale": {
-		"message": "ผักเคล"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "จิงโจ้"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "มันฝรั่ง"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "ปลั๊กพ่วง"
-	},
 	"speedsketch_item~present": {
 		"message": "ของขวัญ"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "กระเป๋าสตางค์"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "ปริศนา"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "กระต่าย"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "สี่เหลี่ยม"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "เส้นหยัก"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "กระรอก"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "ภาพหุ่นนิ่ง"
-	},
-	"speedsketch_item~stitches": {
-		"message": "รอยเย็บ"
-	},
-	"speedsketch_item~stock market": {
-		"message": "ตลาดหุ้น"
 	},
 	"speedsketch_item~stocking": {
 		"message": "ถุงน่อง"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "จักรยานสามล้อ"
 	},
-	"speedsketch_item~trolley": {
-		"message": "รถเข็น"
-	},
 	"speedsketch_item~trombone": {
 		"message": "ทรอมโบน"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "วาฬ"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ล้อ"
 	},
 	"speedsketch_item~windmill": {
 		"message": "กังหันลม"
@@ -4842,7 +4872,7 @@
 		"message": "เคียฟ"
 	},
 	"trivia_hard_059": {
-		"message": "เมืองใดเป็นจุดแวะพักสำคัญบนเส้นทาง Pan-American Highway และเป็นเมืองใหญ่ที่สุดในคอสตาริกา"
+		"message": "เมืองใดเป็นจุดแวะสำคัญบนเส้นทาง Pan-American Highway และเป็นเมืองใหญ่ที่สุดในคอสตาริกา"
 	},
 	"trivia_hard_059_answer0": {
 		"message": "ซันโฮเซ"
@@ -6630,7 +6660,7 @@
 		"message": "เปิดเสียง"
 	},
 	"upgrade-warning": {
-		"message": "อ๊ะ! ตามติดซานต้าไม่ได้รับการสนับสนุนในเบราว์เซอร์เวอร์ชันนี้ หากต้องการเข้าถึงตามติดซานต้า ให้ดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่ สำหรับข้อมูลเพิ่มเติม ไปที่\u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
+		"message": "อ๊ะ เบราว์เซอร์ของคุณไม่รองรับ \"ติดตามซานตาคลอส\" หรือคุณปิดใช้ JavaScript อยู่ หากต้องการเข้าถึงติดตามซานตาคลอส ลองดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่หรือเปิดใช้ JavaScript\nไปที่ \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e เพื่อดูข้อมูลเพิ่มเติม"
 	},
 	"us_country_name": {
 		"message": "สหรัฐอเมริกา"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "เวเนซุเอลา"
+	},
+	"village_assistant-call_santa": {
+		"message": "โทรหาซานตาด้วย Google Assistant"
 	},
 	"village_comeback": {
 		"message": "กลับมาดูใหม่ในวันที่ 24 และช่วยเราตามติดซานต้าตลอดทั้งคืน!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "เพิ่มส่วนขยายซานต้า Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "แบบทดสอบเรื่องโลกของซานตา"
+	},
+	"village_santa_install": {
+		"message": "ติดตั้ง"
 	},
 	"village_takesoff": {
 		"message": "ซานต้าจะออกเดินทางใน"

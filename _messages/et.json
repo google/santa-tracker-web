@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Kalender"
 	},
+	"category_all": {
+		"message": "Kuva kõik"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Kood"
+	},
+	"category_computer-science": {
+		"message": "Informaatika"
 	},
 	"category_draw": {
 		"message": "Joonista"
 	},
+	"category_education": {
+		"message": "Harivad"
+	},
+	"category_geography": {
+		"message": "Geograafia"
+	},
+	"category_language": {
+		"message": "Keel"
+	},
 	"category_listen": {
 		"message": "Kuulake"
 	},
+	"category_new-this-year": {
+		"message": "Selleaastased"
+	},
 	"category_send": {
 		"message": "Saatke"
+	},
+	"category_social-studies": {
+		"message": "Inimesed ja ühiskond"
 	},
 	"cd_country_name": {
 		"message": "Kongo Demokraatlik Vabariik"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "Peaaegu igas Saksamaa linnas avatakse linnaväljakul jõuluturg. Inimesed kogunevad, et kuulata puhkpilliorkestreid ja nautida kohalikke kaupu. Süüakse piparkoogisüdameid, magusaid mandleid, igasuguseid maiustusi ning juuakse hõõgveini (Glühwein) või õunasiidrit."
 	},
+	"dec24th": {
+		"message": "24. detsember"
+	},
 	"deck": {
 		"message": "Dekoreerige"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Aidake saidil DonorsChoose.org erivajadustega lastele mõeldud projekte rahastada. Kahekordistame detsembrikuu jooksul kasutajate annetused, annetades omalt poolt 50%, kuni saavutame eesmärgi miljon USA dollarit. Koos aitame muuta klassid kaasavamaks. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Laadige alla, et mängida veel mänge"
+	},
 	"dz_country_name": {
 		"message": "Alžeeria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Santa Tracker õpetajatele"
 	},
+	"educators-games": {
+		"message": "Klassis mängimiseks"
+	},
+	"educators-learn": {
+		"message": "Õpime jõuluvana teekonda jälgides"
+	},
 	"ee_country_name": {
 		"message": "Eesti"
 	},
 	"el_language_name": {
 		"message": "kreeka keel"
+	},
+	"elf_choose_body": {
+		"message": "Valige päkapikule keha"
 	},
 	"elvish_language_name": {
 		"message": "päkapiku keel"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Tekkis probleem – päkapikud uurivad asja."
 	},
+	"error-internal": {
+		"message": "Oih, ilmnes probleem! Teavitasime päkapikke sellest, kuid proovige \u003ca href=\"./\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
+	},
 	"error-lost-connection": {
 		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
 	},
 	"error-not-found": {
-		"message": "Oih, päkapikud ei leia seda lehte! Proovige \u003ca href=\"./village.html\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
+		"message": "Oih, päkapikud ei leia seda lehte! Proovige \u003ca href=\"./\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
 	},
 	"error-try-again": {
 		"message": "Proovige uuesti"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Peata"
 	},
+	"paused": {
+		"message": "Peatatud"
+	},
 	"pe_country_name": {
 		"message": "Peruu"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oih!"
 	},
+	"readyquestion": {
+		"message": "Valmis?"
+	},
 	"ro_country_name": {
 		"message": "Rumeenia"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Saudi Araabia"
+	},
+	"santa-app": {
+		"message": "Jõuluvana"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Piparkoogimehike"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingviinijooks"
 	},
+	"scene_elfmaker": {
+		"message": "Päkapikudisainija"
+	},
 	"scene_elfski": {
 		"message": "Päkapikuslaalom"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Põhjapooluse mänguväljak"
 	},
+	"scene_poseboogie": {
+		"message": "Kivikujutants"
+	},
 	"scene_postcard": {
-		"message": "Lumehelbe kodeerimine"
+		"message": "Jõuluvana postkaardid"
 	},
 	"scene_presentbounce": {
 		"message": "Põrkavad kingid"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Lumesõda"
+	},
+	"scene_snowflake": {
+		"message": "Lumehelbe kodeerimine"
 	},
 	"scene_speedsketch": {
 		"message": "Arva ära"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Vingerpuss kontoris"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Ikka veel puhkusel"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Põhjapõtrade mure"
+	},
 	"scene_videoscene_reload": {
 		"message": "Kingituste laadimine"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Aeg maha"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Õhkutõus"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Kiusatus"
 	},
 	"scene_videoscene_tired": {
 		"message": "Väsinud põhjapõder"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Ikka veel puhkusel"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Kus on jõuluvana?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Jõuluvana töökoda"
 	},
 	"scene_windtunnel": {
 		"message": "Tuuletunnel"
@@ -1389,6 +1458,9 @@
 		"message": "Kiirpakkija"
 	},
 	"score": {
+		"message": "Tulemus"
+	},
+	"score_short": {
 		"message": "Tulemus"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovaki keel"
+	},
+	"skip-training": {
+		"message": "Jäta õpetus vahele"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "põrandahari"
 	},
-	"speedsketch_item~bubble": {
-		"message": "mull"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ämber"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "kaamera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "kamuflaaž"
-	},
 	"speedsketch_item~campfire": {
 		"message": "lõke"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "porgand"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "multifilm"
 	},
 	"speedsketch_item~castle": {
 		"message": "loss"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "kirss"
-	},
-	"speedsketch_item~chicken": {
-		"message": "kana"
 	},
 	"speedsketch_item~child": {
 		"message": "laps"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "krokodill"
-	},
-	"speedsketch_item~cross": {
-		"message": "rist"
 	},
 	"speedsketch_item~crow": {
 		"message": "vares"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "käsi"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "poomismäng"
-	},
 	"speedsketch_item~happiness": {
 		"message": "õnn"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "saar"
 	},
-	"speedsketch_item~italy": {
-		"message": "Itaalia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jakk"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "aisakell"
-	},
-	"speedsketch_item~kale": {
-		"message": "lehtkapsas"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "känguru"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "kartul"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "pistikupesa"
-	},
 	"speedsketch_item~present": {
 		"message": "kingitus"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "käekott"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "pusle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "küülik"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "ruut"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "laineline joon"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "orav"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "vaikelu"
-	},
-	"speedsketch_item~stitches": {
-		"message": "õmblused"
-	},
-	"speedsketch_item~stock market": {
-		"message": "aktsiaturg"
 	},
 	"speedsketch_item~stocking": {
 		"message": "sukk"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "kolmratas"
 	},
-	"speedsketch_item~trolley": {
-		"message": "käru"
-	},
 	"speedsketch_item~trombone": {
 		"message": "tromboon"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "vaal"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ratas"
 	},
 	"speedsketch_item~windmill": {
 		"message": "tuuleveski"
@@ -6630,7 +6660,7 @@
 		"message": "Tühista vaigistus"
 	},
 	"upgrade-warning": {
-		"message": "Oih! Teie brauseri versioon ei toeta jõuluvana teekonna jälgimise rakendust. Jõuluvana teekonna jälgimiseks laadige alla uuem brauser. Lisateavet leiate aadressilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oih! Teie brauser ei toeta jõuluvana teekonna jälgimise rakendust või teil on JavaScript keelatud. Jõuluvana teekonna jälgimiseks laadige alla uuem brauser või lubage JavaScript.\nLisateavet leiate aadressilt \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Ameerika Ühendriigid"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Helistage jõuluvanale Google'i assistendi abil"
 	},
 	"village_comeback": {
 		"message": "Tulge 24ndal tagasi ja aidake meil öö läbi jõuluvana teekonda jälgida!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Lisa jõuluvana Chrome'i laiend"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Jõuluvana küsimused planeedi Maa kohta"
+	},
+	"village_santa_install": {
+		"message": "Installi"
 	},
 	"village_takesoff": {
 		"message": "Jõuluvana asub teele"

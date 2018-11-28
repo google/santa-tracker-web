@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "El calendario"
 	},
+	"category_all": {
+		"message": "Ver todo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Código"
+	},
+	"category_computer-science": {
+		"message": "Informática"
 	},
 	"category_draw": {
 		"message": "Dibujar"
 	},
+	"category_education": {
+		"message": "Juegos educativos"
+	},
+	"category_geography": {
+		"message": "Región geográfica"
+	},
+	"category_language": {
+		"message": "Idioma"
+	},
 	"category_listen": {
 		"message": "Escuchar"
 	},
+	"category_new-this-year": {
+		"message": "Novedades de este año"
+	},
 	"category_send": {
 		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Ciencias sociales"
 	},
 	"cd_country_name": {
 		"message": "República Democrática del Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "En casi todas las ciudades alemanas, se instalan mercados de Navidad en las plazas principales. Los vecinos se reúnen para escuchar orquestas y probar comidas y bebidas típicas: corazones de jengibre, almendras garrapiñadas, dulces, “glühwein” (vino caliente con especias) o sidra de manzana."
 	},
+	"dec24th": {
+		"message": "24 de diciembre"
+	},
 	"deck": {
 		"message": "Decorar"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Ayuda a financiar un proyecto para niños con necesidades especiales en DonorsChoose.org. En diciembre, ayudaremos a duplicar el impacto mediante un aporte igual al 50% de las donaciones hasta alcanzar el objetivo de donar USD 1,000,000. Juntos podemos ayudar a crear aulas más inclusivas. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Descarga y disfruta más juegos"
+	},
 	"dz_country_name": {
 		"message": "Argelia"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Sigue a Santa para educadores"
 	},
+	"educators-games": {
+		"message": "Juegos para el aula"
+	},
+	"educators-learn": {
+		"message": "Aprende con Sigue a Santa"
+	},
 	"ee_country_name": {
 		"message": "Estonia"
 	},
 	"el_language_name": {
 		"message": "Griego"
+	},
+	"elf_choose_body": {
+		"message": "Elige un cuerpo de duende"
 	},
 	"elvish_language_name": {
 		"message": "Elfo"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Ocurrió un problema. Los duendes de Santa están tratando de resolverlo."
 	},
+	"error-internal": {
+		"message": "Ocurrió un problema. Ya les avisamos a los duendes, pero puedes regresar a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para volver a intentarlo."
+	},
 	"error-lost-connection": {
 		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
 	},
 	"error-not-found": {
-		"message": "Los duendes de Santa no encontraron la página. Vuelve a la \u003ca href=\"./village.html\"\u003eAldea\u003c/a\u003e."
+		"message": "Los duendes de Santa no pudieron encontrar la página. Vuelve a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para buscarla."
 	},
 	"error-try-again": {
 		"message": "Volver a intentarlo"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Pausar"
 	},
+	"paused": {
+		"message": "Pausado"
+	},
 	"pe_country_name": {
 		"message": "Perú"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "¡Uy!"
 	},
+	"readyquestion": {
+		"message": "¿Listo?"
+	},
 	"ro_country_name": {
 		"message": "Rumania"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arabia Saudí"
+	},
+	"santa-app": {
+		"message": "Santa"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Hombre de jengibre"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Pingüinos de alta velocidad"
 	},
+	"scene_elfmaker": {
+		"message": "Crea tu duende"
+	},
 	"scene_elfski": {
 		"message": "Duendes en esquí"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Parque de juegos del Polo Norte"
 	},
+	"scene_poseboogie": {
+		"message": "Poses de baile"
+	},
 	"scene_postcard": {
-		"message": "Codifica un copo de nieve"
+		"message": "Postales de Santa"
 	},
 	"scene_presentbounce": {
 		"message": "Rebotes de regalos"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tormenta de bolas de nieve"
+	},
+	"scene_snowflake": {
+		"message": "Codifica un copo de nieve"
 	},
 	"scene_speedsketch": {
 		"message": "Bosquejos rápidos"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Broma de oficina"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Todavía de vacaciones"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renos preocupados"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recarga de regalos"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Holgazaneando"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Despegue"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentación"
 	},
 	"scene_videoscene_tired": {
 		"message": "Reno cansado"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Todavía de vacaciones"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "¿Dónde está Santa?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Taller de Santa"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"
@@ -1389,6 +1458,9 @@
 		"message": "Revuelta de envoltorios"
 	},
 	"score": {
+		"message": "Puntuación"
+	},
+	"score_short": {
 		"message": "Puntuación"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Omitir introducción"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leona"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "escoba"
 	},
-	"speedsketch_item~bubble": {
-		"message": "burbuja"
-	},
 	"speedsketch_item~bucket": {
 		"message": "cubeta"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "cámara"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflaje"
-	},
 	"speedsketch_item~campfire": {
 		"message": "fogata"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "zanahoria"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "caricatura"
 	},
 	"speedsketch_item~castle": {
 		"message": "castillo"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cereza"
-	},
-	"speedsketch_item~chicken": {
-		"message": "pollo"
 	},
 	"speedsketch_item~child": {
 		"message": "niño"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "cocodrilo"
-	},
-	"speedsketch_item~cross": {
-		"message": "cruz"
 	},
 	"speedsketch_item~crow": {
 		"message": "cuervo"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "mano"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "juego del ahorcado"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicidad"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "isla"
 	},
-	"speedsketch_item~italy": {
-		"message": "Italia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "chaqueta"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "villancico"
-	},
-	"speedsketch_item~kale": {
-		"message": "col rizada"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "canguro"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "papa"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "enchufe"
-	},
 	"speedsketch_item~present": {
 		"message": "regalo"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "bolso"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "rompecabezas"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "conejo"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "cuadrado"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "garabato"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "ardilla"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "naturaleza muerta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "puntos de sutura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bolsa de valores"
 	},
 	"speedsketch_item~stocking": {
 		"message": "calceta"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triciclo"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carrito"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombón"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "ballena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "rueda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "molino"
@@ -6630,7 +6660,7 @@
 		"message": "Activar sonido"
 	},
 	"upgrade-warning": {
-		"message": "Sigue a Santa no es compatible con esta versión del navegador. Para acceder a Sigue a Santa, descarga un navegador moderno. Para obtener más información, visita \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Sigue a Santa no es compatible con este navegador o tienes inhabilitado JavaScript. Para acceder a Sigue a Santa, descarga un navegador más reciente o habilita JavaScript.\nObtén más información en \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Llama a Santa con el Asistente de Google"
 	},
 	"village_comeback": {
 		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Santa toda la noche!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Agrega la extensión de Santa para Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Cuestionario de Santa sobre la Tierra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"

@@ -82,18 +82,16 @@ Santa Tracker app.
 
   <!-- Chrome, including toolbar and sidebar -->
   <santa-chrome id="chrome"
-      mode$="[[mode]]"
       disabled="[[omitSantaChrome(mode)]]"
-      hide-buttons="[[hideButtons(mode)]]"
       clients="[[clients]]"
       mute="{{userMute}}"
       pause="{{userPause}}">
 
     <santa-badge id="badge" slot="feature"></santa-badge>
 
-    <santa-sidebar slot="drawer" today-house="[[todayHouse]]"></santa-sidebar>
+    <santa-sidebar slot="drawer"></santa-sidebar>
 
-    <santa-overlay id="overlay" hidden$="[[!userPause]]"
+    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"
         share-options="[[shareOptions]]"></santa-overlay>
 
     <!-- Video Picture-In-Picture -->
@@ -105,6 +103,7 @@ Santa Tracker app.
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
+        mode$="[[mode]]"
         route="{{route}}"
         progress="{{_progress}}"
         selected-item="{{selectedScene}}"
@@ -127,6 +126,16 @@ Santa Tracker app.
           path$="scenes/press/press-scene.html"
           slot="santa-scene"
           allow-page-scrolling></press-scene>
+
+      <!-- santaweb scenes -->
+
+      <iframe-scene route="elfmaker" icon="1f9dd"
+          path$="scenes/iframe/iframe-scene.html"
+          slot="santa-scene"></iframe-scene>
+
+      <iframe-scene route="poseboogie" icon="1f57a"
+          path$="scenes/iframe/iframe-scene.html"
+          slot="santa-scene"></iframe-scene>
 
       <!-- Keep scenes (non-village) ordered alphabetically -->
 
@@ -435,8 +444,7 @@ Polymer({
      */
     headerSize: {
       type: Number,
-      readOnly: true,
-      value: 44,
+      computed: '_computeHeaderSize(mode)',
     },
 
     /**
@@ -456,15 +464,6 @@ Polymer({
       readOnly: true,
       notify: true,
       value: window.HOUSES,
-    },
-
-    /**
-     * The house open today.
-     */
-    todayHouse: {
-      type: String,
-      value: '',
-      notify: true,
     },
 
     /**
@@ -544,7 +543,7 @@ Polymer({
     /** Whether the schedule is checked. If false, houses will remain unlocked. */
     scheduleChecked: {
       type: Boolean,
-      value: !window.DEV,
+      value: true,
     },
 
     /**
@@ -596,7 +595,7 @@ Polymer({
     shareOptions: {
       type: Array,
       value: function() {
-        const options = navigator.share ? ['webshare'] : ['gplus', 'twitter', 'facebook'];
+        const options = navigator.share ? ['webshare'] : ['twitter', 'facebook'];
         return Object.freeze(options);
       },
       readOnly: true,
@@ -606,6 +605,13 @@ Polymer({
       type: Boolean,
     },
 
+  },
+
+  _computeHeaderSize: function(mode) {
+    if (mode === 'embed' || mode === 'cast') {
+      return 0;
+    }
+    return 44;
   },
 
   observers: [
@@ -647,7 +653,7 @@ Polymer({
 
     for (let i = 0, house; house = window.HOUSES[i]; ++i) {
       house.disabled = false;
-      house.locked = !window.DEV;  // initial state
+      house.locked = false;
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
@@ -666,7 +672,7 @@ Polymer({
     }
 
     // Don't load sounds in Cast mode.
-    if (!this.omitSantaChrome(this.mode)) {
+    if (this.mode !== 'cast') {
       const staticUrl = this.resolveUrl('../../');
       const sc = new SoundController(staticUrl);
       this.addEventListener('sound-preload', (ev) => {
@@ -814,6 +820,13 @@ Polymer({
     if ('pause' in this.selectedScene) {
       this.$.overlay.pregame = true;
       this.userPause = true;
+
+      if (this.mode === 'embed') {
+        // wait a frame and then start, we never see overlay
+        window.setTimeout(function() {
+          this.fire('game-start');
+        }.bind(this), 0);
+      }
     }
   },
 
@@ -932,13 +945,24 @@ Polymer({
     o.shareUrl = detail.url || null;
 
     this.userPause = true;
+
+    this.fire('embed', {type: 'ongameover', data: {
+      // TODO(samthor): pass image/data
+    }});
   },
 
   onScoreGame: function(event, detail) {
     this.$.badge.score = detail.score !== undefined ? detail.score : null;
     this.$.badge.level = detail.level || null;
-    this.$.badge.levels = detail.levels || null;
+    this.$.badge.levels = detail.levels || detail.maxLevels || null;
     this.$.badge.time = detail.time || null;
+
+    this.fire('embed', {type: 'onscore', data: {
+      score: detail.score || 0,
+      level: detail.level || 0,
+      maxLevel: detail.levels || detail.maxLevels || 0,
+      time: detail.time || 0,
+    }});
   },
 
   _computePause: function(userPause, pageInBackground) {
@@ -1004,45 +1028,17 @@ Polymer({
   },
 
   /**
-   * Determines whether a given scene is open. This is a superset of unlocked, which is whether
-   * the scene is visibily unlocked in the village. Scenes are open as soon as any place on Earth
-   * matches the launch date (e.g., a scene is open for everyone as soon as someone in New Zealand
-   * has access to it).
+   * In 2018+, all houses are unlocked all the time.
    *
    * @param {string} sceneName to check
    * @param {boolean} skipEdu whether to skip edu checks
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
   sceneIsOpen: function(sceneName, skipEdu) {
-    if (this.currentTime === undefined) {
-      return true;  // fail open before time ready
-    } else if (sceneName === 'village' || sceneName === 'cast') {
-      return true;  // village
-    } else if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
+    if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
       return false;  // special-case tracker, as it's open only when Santa is in flight
     }
-
-    const targetOffset = -14 * (60 * 60000);  // UTC+14 is pretty far east
-    const dateNow = new Date(this.currentTime);
-    const userOffset = dateNow.getTimezoneOffset() * 60000;
-    const eastDateNow = new Date(+dateNow + (userOffset - targetOffset));
-
-    for (let i = 0, house; house = this.houses[i]; ++i) {
-      if (house.module === sceneName) {
-        if (house.disabled) {
-          return false;
-        } else if ((!skipEdu && house.edu) || !house.locked) {
-          return true;
-        }
-        let launchDate = house.launchDate;
-        if (santaApp.mode == 'portal' && house.portalLaunchDate) {
-          launchDate = house.portalLaunchDate;
-        }
-        return eastDateNow > launchDate;
-      }
-    }
-
-    return undefined;  // couldn't find this scene/house, defer to caller
+    return true;
   },
 
   /**
@@ -1051,7 +1047,6 @@ Polymer({
    */
   _updateLock: function(currentTime, scheduleChecked) {
     const todayDate = new Date(this.currentTime || Date.now());
-    let todayHouse = '';
     let change = false;
 
     switch (todayDate.getMonth()) {
@@ -1060,11 +1055,9 @@ Polymer({
       case 11: // December
         for (let i = 0, house; house = this.houses[i]; ++i) {
           let launchDate = house.launchDate;
-          if (santaApp.mode == 'portal' && house.portalLaunchDate) {
-            launchDate = house.portalLaunchDate;
-          }
-          if (isSameDay(launchDate, todayDate)) {
-            todayHouse = house.module;
+          if (!launchDate) {
+            house.locked = false;
+            continue;  // always unlocked
           }
           if (this.scheduleChecked) {
             const locked = (launchDate > todayDate);
@@ -1086,7 +1079,6 @@ Polymer({
         }
         break;
     }
-    this.todayHouse = todayHouse;
     change && this.fire('houses-changed');
 
     this.$.lazypages.revalidate();  // hint to maybe reload
@@ -1175,12 +1167,6 @@ Polymer({
     let out = '';
 
     switch (network) {
-    case 'gplus':
-      out = `https://plus.google.com/share?url=${enc}`;
-      if (window.requestLang) {
-        out += `&hl=${window.requestLang}`;
-      }
-      break;
     case 'twitter':
       out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
           window.encodeURIComponent(title) + `&url=${enc}`;
@@ -1211,11 +1197,14 @@ Polymer({
   },
 
   omitSantaChrome: function(mode) {
-    return mode === 'cast';
+    return mode === 'cast' || mode === 'embed';
   },
 
-  hideButtons: function(mode) {
-    return mode === 'embed';
+  _computeOverlayHidden: function(userPause, mode) {
+    if (mode === 'cast' || mode === 'embed') {
+      return true;
+    }
+    return !userPause;
   },
 
   /**

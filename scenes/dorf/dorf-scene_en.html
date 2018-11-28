@@ -66,9 +66,8 @@ Santa's Village.
           href$="[[_calculateHref(item, item.locked)]]"
           target$="[[_calculateTarget(item.link)]]"
           house$="[[item.module]]"
-          style$="[[_computeLinkStyle(item.module, item.hideDate, item.launchDate)]]">
+          style$="[[_computeLinkStyle(item.module, item.launchDate)]]">
         <div class="card">
-          <div class="launchdate">[[_computeDateNo(item.hideDate, item.launchDate)]]</div>
           <h4>[[_string('category', item.category, strings)]]</h4>
           <h3>[[_string('scene', item.module, strings)]]</h3>
         </div>
@@ -156,15 +155,13 @@ Santa's Village.
             href="[[urlFor('windtunnel')]]"></effect-wrangler>
       </div>
       <div id="houses" class="cells">
-        <!-- The 'New Today' house exists in the regular grid -->
-        <div class="cell new-today">
-          <div id="house-new-today">
-            <a href$="[[urlFor(todayHouse)]]"
-                hidden$="[[!todayHouse]]"
-                on-click="_onClickNewTodayHouse">
-              <div class="new-today" style$="[[_computeTodayHouseStyle(todayHouse)]]">
-                <h4><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3>[[_string('scene', todayHouse, strings)]]</h3>
+        <!-- The 'Play A Round' house exists in the regular grid -->
+        <div class="cell play-round">
+          <div id="house-play-round">
+            <a on-click="_onClickPlayRound" tabindex="0">
+              <div class="play-round">
+                <h4><i18n-msg msgid="quickdraw-newround-button">PLACEHOLDER_i18n</i18n-msg></h4>
+                <h3><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h3>
               </div>
             </a>
           </div>
@@ -172,7 +169,7 @@ Santa's Village.
         <template is="dom-repeat" items="[[houses]]">
           <div class="cell">
             <village-house house="[[item.module]]"
-                opens="[[_computeDateNo(item.hideDate, item.launchDate)]]"
+                opens="[[_computeDateNo(item.launchDate)]]"
                 locked="[[item.locked]]"></village-house>
           </div>
         </template>
@@ -205,11 +202,6 @@ Santa's Village.
       houses: {
         type: Array,
         value: null,
-      },
-
-      todayHouse: {
-        type: String,
-        value: '',
       },
 
       /** Easter eggs helper, used for template. */
@@ -281,8 +273,8 @@ Santa's Village.
     /**
      * Calculates the numeric (i.e., day of month) date for this Date.
      */
-    _computeDateNo: function(hideDate, date) {
-      return !hideDate && date && date.getDate() || '';
+    _computeDateNo: function(date) {
+      return date && date.getDate() || '';
     },
 
     /**
@@ -291,18 +283,6 @@ Santa's Village.
      */
     _string: function(type, id, strings) {
       return strings ? strings[type + '-' + id] : null;
-    },
-
-    /**
-     * Computes the style for the specified today house.
-     */
-    _computeTodayHouseStyle: function(todayHouse) {
-      if (!todayHouse) {
-        return null;
-      }
-      // TODO(samthor): This might not always exist. Check first?
-      const url = this.resolveUrl(`img/new-today/${todayHouse}_2x.png`);
-      return `background-image: url(${url})`;
     },
 
     _onHousesOver: function(event) {
@@ -366,7 +346,6 @@ Santa's Village.
     created: function() {
       const t = window.santaApp;
       this._refreshHouseData = () => {
-        this.todayHouse = t.todayHouse;
         this.houses = t.houses;
 
         // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
@@ -382,7 +361,6 @@ Santa's Village.
         });
       };
 
-      this.todayHouse = t.todayHouse;
       this.houses = t.houses;
     },
 
@@ -410,19 +388,16 @@ Santa's Village.
       this.cancelDebouncer('easteregg');
     },
 
-    _onClickNewTodayHouse: function() {
-      window.ga('send', 'event', 'village', 'click', 'newtoday');
+    _onClickPlayRound: function() {
+      window.santaApp.fire('play-round');
+      window.ga('send', 'event', 'village', 'click', 'play-round');
     },
 
     /**
      * Computes the CSS variables for the given module.
      */
-    _computeLinkStyle: function(id, hideDate, launchDate) {
+    _computeLinkStyle: function(id, launchDate) {
       const parts = [];
-
-      if (!hideDate) {
-        parts.push(`--release-order: ${-launchDate.getDate()}`);
-      }
 
       // TODO(samthor): Remove `window.santaApp` refs and instead include this in the CSS.
       const color = window.santaApp.colorForRoute(id);

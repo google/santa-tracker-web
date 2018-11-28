@@ -1,3 +1,4 @@
+yHtouse
 <!--
 Copyright 2017 Google Inc. All rights reserved.
 
@@ -32,20 +33,14 @@ specific language governing permissions and limitations under the License.
   <div class="cards">
     <a href$="[[urlFor('village')]]">
       <div class="menucard menucard-village">
-        <h2><i18n-msg msgid="calendar">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2><i18n-msg msgid="press-villagetracker-opendec">PLACEHOLDER_i18n</i18n-msg></h2>
         <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
-      </div>
-    </a>
-    <a href$="[[urlFor(todayHouse)]]" hidden$="[[!todayHouse]]">
-      <div class="menucard" style$="[[_computeTodayHouseBackgroundStyle(todayHouse)]]">
-        <h2><i18n-msg msgid="newtoday">PLACEHOLDER_i18n</i18n-msg></h2>
-        <h3>[[_computeStringScene(todayHouse, _strings)]]</h3>
       </div>
     </a>
     <a href$="[[_computeTrackerUrl(_duringTracker)]]">
       <div class="menucard menucard-tracker">
         <div class="lock" hidden$="[[_duringTracker]]"></div>
-        <h2>[[_computeDec24th(_language)]]</h2>
+        <h2><i18n-msg msgid="dec24th">PLACEHOLDER_i18n</i18n-msg></h2>
         <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
       </div>
     </a>
@@ -124,10 +119,7 @@ specific language governing permissions and limitations under the License.
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
-      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')]]">
-        <i18n-msg msgid="village_santa_crx">PLACEHOLDER_i18n</i18n-msg>
-      </a></li>
-      <li><a target="_blank" href$="[[localizeUrl('https://www.google.com/policies/')]]">
+      <li><a target="_blank" href$="[[localizeUrl('https://policies.google.com/')]]">
         <i18n-msg msgid="terms-and-privacy">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
       <li><a target="_blank" href$="[[localizeUrl('https://maps.google.com/maps/about/')]]">
@@ -145,14 +137,6 @@ Polymer({
   ],
 
   properties: {
-
-    /**
-     * The house unlocked today, by ID.
-     */
-    todayHouse: {
-      type: String,
-      value: '',
-    },
 
     a2hsAvailable: {
       type: Boolean,
@@ -174,18 +158,6 @@ Polymer({
       value: false,
     },
 
-  },
-
-  _computeTodayHouseBackgroundStyle: function(todayHouse) {
-    if (!todayHouse) { return null; }
-    const url = this.resolveUrl('../../images/scenes/' + todayHouse + '_2x.png');
-    return 'background-image: url(' + url + ')';
-  },
-
-  /** Computes "December 24" in the local language. */
-  _computeDec24th: function(language) {
-    const d = new Date('December 24, ' + (new Date).getUTCFullYear());
-    return d.toLocaleDateString(language, {month: 'long', day: 'numeric'});
   },
 
   _computeTrackerUrl: function(duringTracker) {

@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "O calendário"
 	},
+	"category_all": {
+		"message": "Ver tudo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Programar"
+	},
+	"category_computer-science": {
+		"message": "Informática"
 	},
 	"category_draw": {
 		"message": "Desenhar"
 	},
+	"category_education": {
+		"message": "Focados na educação"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
+	"category_language": {
+		"message": "Idioma"
+	},
 	"category_listen": {
 		"message": "Ouvir"
 	},
+	"category_new-this-year": {
+		"message": "Novidades deste ano"
+	},
 	"category_send": {
 		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Estudos sociais"
 	},
 	"cd_country_name": {
 		"message": "República Democrática do Congo"
@@ -126,7 +150,7 @@
 		"message": "Costa do Marfim"
 	},
 	"citylights-contribute": {
-		"message": "Adicione as suas próprias fotografias de {{location}}"
+		"message": "Adicione as suas próprias fotos de {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "Em quase todas as cidades alemãs, os mercados de Natal são realizados em praças. Os habitantes das cidades reúnem-se para ouvir as bandas e usufruir do comércio tradicional da região. Comem corações feitos de pão de gengibre, amêndoas doces, guloseimas de toda a espécie e bebem vinho quente com açúcar (Glühwein) ou cidra de maçã."
 	},
+	"dec24th": {
+		"message": "24 de dezembro"
+	},
 	"deck": {
 		"message": "Decorar"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Ajude a financiar um projeto de ajuda a pessoas com necessidades especiais em DonorsChoose.org. Durante o mês de dezembro, queremos duplicar o efeito solidário: acrescentamos 50% a todas as doações até chegarmos ao objetivo total de 1 milhão de USD. Juntos, queremos tornar as salas de aula mais inclusivas para todas as crianças. #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "Transfira para aceder a ainda mais jogos"
+	},
 	"dz_country_name": {
 		"message": "Argélia"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "A viagem do Pai Natal para Educadores"
 	},
+	"educators-games": {
+		"message": "Jogos para a sala de aula"
+	},
+	"educators-learn": {
+		"message": "Aprender com A viagem do Pai Natal"
+	},
 	"ee_country_name": {
 		"message": "Estónia"
 	},
 	"el_language_name": {
 		"message": "Grego"
+	},
+	"elf_choose_body": {
+		"message": "Escolher um corpo de elfo"
 	},
 	"elvish_language_name": {
 		"message": "Elvigês"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Ocorreu um problema, mas os Elfos do Pai Natal estão a tentar resolvê-lo."
 	},
+	"error-internal": {
+		"message": "Oh, não! Ocorreu um problema. Informámos os elfos do Pai Natal, mas experimente voltar à \u003ca href=\"./\"\u003eAldeia do Pai Natal\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Parece que perdemos a ligação ao Polo Norte. Os duendes do Pai Natal estão a trabalhar para restabelecê-la, fique atento."
 	},
 	"error-not-found": {
-		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./village.html\"\u003eAldeia do Pai Natal\u003c/a\u003e."
+		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./\"\u003eAldeia do Pai Natal\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Tente novamente"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Colocar em pausa"
 	},
+	"paused": {
+		"message": "Em pausa"
+	},
 	"pe_country_name": {
 		"message": "Peru"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ups!"
 	},
+	"readyquestion": {
+		"message": "Preparado?"
+	},
 	"ro_country_name": {
 		"message": "Roménia"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Arábia Saudita"
+	},
+	"santa-app": {
+		"message": "Pai Natal"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Homem-biscoito"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Corrida do pinguim"
 	},
+	"scene_elfmaker": {
+		"message": "Criador de elfos"
+	},
 	"scene_elfski": {
 		"message": "Elfos esquiadores"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Parque infantil no Polo Norte"
 	},
+	"scene_poseboogie": {
+		"message": "Pose de dança"
+	},
 	"scene_postcard": {
-		"message": "Codifique um floco de neve"
+		"message": "Postais do Pai Natal"
 	},
 	"scene_presentbounce": {
 		"message": "Salto dos presentes"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempestade de bolas de neve"
+	},
+	"scene_snowflake": {
+		"message": "Codifique um floco de neve"
 	},
 	"scene_speedsketch": {
 		"message": "Esboços rápidos"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Praxe no escritório"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Ainda de férias"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Renas preocupadas"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recarregamento de presentes"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "A Mandriar"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Descolagem"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Tentação"
 	},
 	"scene_videoscene_tired": {
 		"message": "Rena cansada"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Ainda de férias"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "Onde está o Pai Natal?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Oficina do Pai Natal"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
@@ -1389,6 +1458,9 @@
 		"message": "Toca a embrulhar"
 	},
 	"score": {
+		"message": "Pontuação"
+	},
+	"score_short": {
 		"message": "Pontuação"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Ignorar formação"
 	},
 	"sl_country_name": {
 		"message": "Serra Leoa"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "vassoura"
 	},
-	"speedsketch_item~bubble": {
-		"message": "balão"
-	},
 	"speedsketch_item~bucket": {
 		"message": "balde"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "câmara"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflagem"
-	},
 	"speedsketch_item~campfire": {
 		"message": "fogueira"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "cenoura"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "desenhos animados"
 	},
 	"speedsketch_item~castle": {
 		"message": "castelo"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cereja"
-	},
-	"speedsketch_item~chicken": {
-		"message": "galinha"
 	},
 	"speedsketch_item~child": {
 		"message": "criança"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "crocodilo"
-	},
-	"speedsketch_item~cross": {
-		"message": "cruz"
 	},
 	"speedsketch_item~crow": {
 		"message": "corvo"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "mão"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "jogo da forca"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicidade"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "ilha"
 	},
-	"speedsketch_item~italy": {
-		"message": "itália"
-	},
 	"speedsketch_item~jacket": {
 		"message": "casaco"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "Jingle Bells"
-	},
-	"speedsketch_item~kale": {
-		"message": "couve"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "canguru"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "batata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "tomada elétrica"
-	},
 	"speedsketch_item~present": {
 		"message": "presente"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "carteira"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "puzzle"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "coelho"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "quadrado"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "enfeite"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "esquilo"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natureza-morta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "costura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "bolsa de valores"
 	},
 	"speedsketch_item~stocking": {
 		"message": "meia"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "triciclo"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carrinho"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombone"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "baleia"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "moinho de vento"
@@ -6630,7 +6660,7 @@
 		"message": "Ativar som"
 	},
 	"upgrade-warning": {
-		"message": "Ups! A viagem do Pai Natal não é suportada nesta versão do seu navegador. Para aceder a este produto, transfira um navegador mais atual. Para mais informações, visite \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! A viagem do Pai Natal não é suportada no seu navegador ou tem o JavaScript desativado. Para aceder a este produto, transfira um navegador mais atual ou ative o JavaScript.\nPara mais informações, visite: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Ligue ao Pai Natal com o Assistente Google"
 	},
 	"village_comeback": {
 		"message": "Volte no dia 24 e ajude-nos a seguir o Pai Natal durante toda a noite!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Adicionar a extensão do Pai Natal no Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Questionário do Pai Natal sobre a Terra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
 	},
 	"village_takesoff": {
 		"message": "O Pai Natal levanta voo daqui a"

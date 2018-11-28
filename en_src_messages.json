@@ -131,21 +131,53 @@
     "description": "A link to a calendar view of the site navigation. Refers to an advent calendar of the month of December.",
     "message": "The Calendar"
   },
+  "category_all": {
+    "description": "Button text. Category label that shows all games.",
+    "message": "View All"
+  },
+  "category_android": {
+    "description": "Button text. Category label that shows games available on Android devices.",
+    "message": "Android"
+  },
   "category_code": {
     "description": "Button text. 15char limit. A label on an activity that will let the user write some programming code.",
     "message": "Code"
+  },
+  "category_computer-science": {
+    "description": "Button text. Category label that shows educational games with a Computer Science focus.",
+    "message": "Computer Science"
   },
   "category_draw": {
     "description": "Button text. 15char limit. A label on an activity that will let the user write draw a picture",
     "message": "Draw"
   },
+  "category_education": {
+    "description": "Button text. Category label that shows all educational games.",
+    "message": "Education Focused"
+  },
+  "category_geography": {
+    "description": "Button text. Category label that shows educational geography games.",
+    "message": "Geography"
+  },
+  "category_language": {
+    "description": "Button text. Category label that shows educational games with a language focus.",
+    "message": "Language"
+  },
   "category_listen": {
     "description": "Button text. 15char limit. A label on an activity that will let the user listen to some music.",
     "message": "Listen"
   },
+  "category_new-this-year": {
+    "description": "Button text. Category label that shows games that are new for the current year.",
+    "message": "New This Year"
+  },
   "category_send": {
     "description": "Button text. 15char limit. A label on an activity that will let the user send a message (like an e-mail).",
     "message": "Send"
+  },
+  "category_social-studies": {
+    "description": "Button text. Category label that shows educational games with a social studies (e.g., culture/traditions) focus.",
+    "message": "Social Studies"
   },
   "cd_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -707,6 +739,10 @@
     "description": "Information about donations and that Google will match 50% of all user donations. Don't translate '#ForEveryKid', or the DonorsChoose.org domain link.",
     "message": "Help fund a special needs project on DonorsChoose.org. This December, we're helping to double the impact by matching donations by 50%, until we reach our goal of donating US$1m. Together, we can help to make classrooms more inclusive #ForEveryKid"
   },
+  "download-cta": {
+    "description": "Call to action asking the user to download the Android app.",
+    "message": "Download to play even more games"
+  },
   "dz_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Algeria"
@@ -722,6 +758,14 @@
   "educators": {
     "description": "Menu item/heading for a page containing teacher resources.",
     "message": "Santa Tracker for Educators"
+  },
+  "educators-learn": {
+    "description": "Subheading for Santa Tracker's educators page",
+    "message": "Learning with Santa Tracker"
+  },
+  "educators-games": {
+    "description": "Heading used above a categorization of educational games",
+    "message": "Games for the classroom"
   },
   "ee_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -757,7 +801,11 @@
   },
   "error-not-found": {
     "description": "Paragraph text that appears on an error page if something can't be found, with a link back to Santa's Village. Text should be non-specific and light hearted.",
-    "raw": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./village.html\"&gt;</ph>Santa's Village<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+    "raw": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./\"&gt;</ph>Santa's Village<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+  },
+  "error-internal": {
+    "description": "Paragraph text that appears on an error page if the site encountered an error, with a link back to Santa's Village. Text should be non-specific and light hearted.",
+    "raw": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./\"&gt;</ph>Santa's Village<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "error-try-again": {
     "description": "Link text. Please keep this short. Link appears on an error page. Clicking the link will reload the application.",
@@ -1139,6 +1187,10 @@
     "description": "This is a short label on a button to go to the next step.",
     "message": "Next"
   },
+  "next_game": {
+    "description": "This is a short label on a button to go to the next game",
+    "message": "Next Game"
+  },
   "ng_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Nigeria"
@@ -1379,6 +1431,10 @@
     "description": "Button text. 15 char limit. Lets a user pause a game.",
     "message": "Pause"
   },
+  "paused": {
+    "description": "Label text. 15 char limit. A game is paused.",
+    "message": "Paused"
+  },
   "pa_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Panama"
@@ -1434,6 +1490,114 @@
   "press": {
     "description": "Menu item for press, aka journalism/media, information.",
     "message": "Press"
+  },
+  "press-about-village": {
+    "description": "Heading of the Press page",
+    "message": "About Santa's Village"
+  },
+  "press-about-village1": {
+    "description": "Long-form text about Santa Tracker",
+    "message": "Santa's Village is celebrating its fifteenth year of fun, educational, and interactive holiday activities. Under Mrs. Claus’s expert guidance, the elves have updated the village with a snazzy look and feel along with some brand new content. And, thanks to a new, hot-cocoa powered heating system, the village will no longer take all of December to thaw—all two dozen activities will be available starting on December 4. Now the elves (and you!) have more time to play and explore in Santa's Village."
+  },
+  "press-about-village2": {
+    "description": "Long-form text about Santa Tracker",
+    "raw": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops, and learn more about charitable organizations like <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://www.khanacademy.org/\"&gt;</ph>Khan Academy<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> and <ph name=\"BEGIN_LINK2\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://code.org/\"&gt;</ph>Code.org<ph name=\"END_LINK2\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>. Teachers can even <ph name=\"BEGIN_LINK3\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>download lesson plans<ph name=\"END_LINK3\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> with video guides to help teach their students fundamental coding skills and holiday traditions in English, Spanish, French, Japanese and Korean."
+  },
+  "press-about-tracker": {
+    "description": "Heading of the Press page",
+    "message": "About Santa Tracker"
+  },
+  "press-about-tracker1": {
+    "description": "Long-form text about Santa Tracker",
+    "message": "On December 24th, we'll launch the Tracker, a dashboard that allows Santa fans to follow his progress as he whips from city to city. You can also see his live location on Google Maps and ask the Google Assistant, \"OK Google, Where’s Santa?\"—so you can keep a pulse on Santa's whereabouts even when you’re on the go."
+  },
+  "press-edu": {
+    "description": "Heading of the Press page",
+    "message": "Educational adventures"
+  },
+  "press-edu1": {
+    "description": "Long-form text about Santa Tracker",
+    "raw": "We've expanded our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>educator resource page<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to provide teachers with video guides to accompany lesson plans now available in four languages. All of your favorite games remain introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>our educational games<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to learn more."
+  },
+  "press-whatsnew": {
+    "description": "Heading of the Press page",
+    "message": "What's new this year"
+  },
+  "press-whatsnew1-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "Build an elf:"
+  },
+  "press-whatsnew1-text": {
+    "description": "Long description of a thing which is new this year",
+    "message": "Build your own elf from head to toe and make sure it looks elftastic for the many holiday soirées happening on the North Pole."
+  },
+  "press-whatsnew2-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "Dance(s) with elves:"
+  },
+  "press-whatsnew2-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "raw": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now’s your chance. Almost. Using a machine learning model called <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"&gt;</ph>PoseNet<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, you can train an elf to learn your moves so can get your elf on the dance floor."
+  },
+  "press-whatsnew3-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "A new way to track Santa:"
+  },
+  "press-whatsnew3-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description: note that 'hamburger' refers to the three-line 'more' menu sometimes nicknamed the hamburger menu, and Location Sharing is a feature of Google Maps",
+    "message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+  },
+  "press-whatsnew4-title": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "message": "More holiday fun:"
+  },
+  "press-whatsnew4-text": {
+    "description": "Title of a thing that is new, to be used as a prefix of a longer description",
+    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+  },
+  "press-villagetracker-title": {
+    "description": "Heading of the Press page",
+    "message": "Santa's Village and The Tracker"
+  },
+  "press-villagetracker-opendec": {
+    "description": "Title indicating that Santa Tracker is available all December",
+    "message": "Open all December"
+  },
+  "press-villagetracker-open24th": {
+    "description": "Title indicating that the Tracker itself is open on the 24th",
+    "message": "Opens December 24th"
+  },
+  "press-games-title": {
+    "description": "Heading of the Press page",
+    "message": "All the fun and games"
+  },
+  "press-device-title": {
+    "description": "Heading of the Press page",
+    "message": "Santa Tracker on your device"
+  },
+  "press-device-text": {
+    "description": "Blurb about Santa Tracker being available on phones, Chromecast, Assistant etc",
+    "message": "The spirit of the holidays is everywhere, including all your devices!"
+  },
+  "press-need-title": {
+    "description": "Title, in the form of a question, asking if users need more information",
+    "message": "Need something?"
+  },
+  "press-need-text": {
+    "description": "Blurb about Elves and Googlers available to help. 'Googlers' refers to Google employees, and should likely not be translated.",
+    "message": "Elves and Googlers are here to help."
+  },
+  "press-asset-resources": {
+    "description": "Title for downloadable assets usable by press",
+    "message": "Press resources"
+  },
+  "press-asset-screenshot": {
+    "description": "Used as a link to a demonstration screenshot of a game",
+    "message": "Screenshot"
+  },
+  "press-asset-animation": {
+    "description": "Used as a link to a demonstration animation of a game",
+    "message": "Animation"
   },
   "pt_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
@@ -1527,6 +1691,10 @@
     "description": "A title that explains how a robot guessed your drawings.",
     "message": "It learned by looking at these examples drawn by other people."
   },
+  "readyquestion": {
+    "description": "Short string with an explicit question mark, asking if the user is ready.",
+    "message": "Ready?"
+  },
   "ro_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Romania"
@@ -1546,6 +1714,10 @@
   "sa_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Saudi Arabia"
+  },
+  "santa-app": {
+    "description": "A very short description of Santa Tracker, in English just 'Santa's is fine, to be used on an app launcher icon, e.g. on an Android home screen. Ideally this will be <=12 chars.",
+    "message": "Santa"
   },
   "santasearch_character_gingerbread_man": {
     "description": "The name of a character that can be found in a Search game, a gingerbread man.",
@@ -1655,6 +1827,10 @@
     "description": "Title of a scene/game. Help a penguin navigate icebergs to pick up presents.",
     "message": "Penguin Dash"
   },
+  "scene_elfmaker": {
+    "description": "Title of a scene/game. Create an Elf that looks just like you.",
+    "message": "Elf Maker"
+  },
   "scene_elfski": {
     "description": "Title of a scene/game. Elves ski down a mountain.",
     "message": "Elf Ski"
@@ -1707,9 +1883,13 @@
     "description": "Title of a scene/game. A Santa-themed playground with see-saws, slides and other play equipment.",
     "message": "North Pole Playground"
   },
+  "scene_poseboogie": {
+    "description": "Title of a scene/game. You can dance Santa's Elves how to dance ('boogie') through making a pose.",
+    "message": "Pose Boogie"
+  },
   "scene_postcard": {
     "description": "Title of a scene/game. Generate postcards and share them with your friends.",
-    "message": "Code a Snowflake"
+    "message": "Santa Postcards"
   },
   "scene_presentbounce": {
     "description": "Title of a scene/game. Create a \"Rube Goldberg\"-style machine to bounce presents into a bag.",
@@ -1759,6 +1939,10 @@
     "description": "Title of a scene/game. Throw snowballs at fellow elves until only one remains standing up.",
     "message": "Snowball Storm"
   },
+  "scene_snowflake": {
+    "description": "Title of a scene/game. Use coding to create postcards with snowflakes, and share them with your friends.",
+    "message": "Code a Snowflake"
+  },
   "scene_speedsketch": {
     "description": "Title of a scene/game. Draw images on a frosted glass window that Santa's helper robot tries to identify.",
     "message": "Speed Sketch"
@@ -1807,9 +1991,17 @@
     "description": "Title of a video scene. An office prank where an elf has his desk covered in wrapping paper.",
     "message": "Office Prank"
   },
+  "scene_videoscene_onvacation": {
+    "description": "Title of a video scene. Santa is on vacation in a city before his work in December.",
+    "message": "Still on Vacation"
+  },
   "scene_videoscene_reload": {
     "description": "Title of a video scene. Santa restocks presents mid-journey.",
     "message": "Present Reload"
+  },
+  "scene_videoscene_reindeerworries": {
+    "description": "Title of a video scene. Santa is missing from the North Pole, and the reindeers are worried.",
+    "message": "Reindeer Worries"
   },
   "scene_videoscene_santasback": {
     "description": "Title of a video scene. Alternative meaning is 'Santa has returned'.",
@@ -1827,6 +2019,10 @@
     "description": "Title of a video scene. An elf is caught playing video games instead of working.",
     "message": "Slacking Off"
   },
+  "scene_videoscene_takeoff": {
+    "description": "Title of a video scene. Santa and the reindeer are ready to go, but they need a little hlep from the coding elves before they can go.",
+    "message": "Take Off"
+  },
   "scene_videoscene_temptation": {
     "description": "Title of a video scene. An elf is tempted by a giant red button that rapidly accelerates Santa's sleigh",
     "message": "Temptation"
@@ -1835,13 +2031,13 @@
     "description": "Title of a video scene. The reindeers slow down as one is tired and needs a break.",
     "message": "Tired Reindeer"
   },
-  "scene_videoscene_trailer": {
-    "description": "Title of a video scene. Santa is on vacation in a city before his work in December.",
-    "message": "Still on Vacation"
-  },
   "scene_videoscene_wheressanta": {
     "description": "Title of a video scene. Santa is on vacation on a desert island before his work in December.",
     "message": "Where's Santa?"
+  },
+  "scene_videoscene_workshop": {
+    "description": "Title of a video scene. Learn about Santa's workshop, where the elves work and presents are made.",
+    "message": "Santa's Workshop"
   },
   "scene_windtunnel": {
     "description": "Title of a scene/game. Watch Rudolph's flying skills be tested in a wind tunnel.",
@@ -1852,7 +2048,11 @@
     "message": "Wrap Battle"
   },
   "score": {
-    "description": "15 char limit. Label for a numeric score.",
+    "description": "9 char limit. Short label that is used to indicate a player's points in a game, or score.",
+    "message": "Score"
+  },
+  "score_short": {
+    "description": "Short label that is used to indicate a player's points in a game, or score. [CHAR LIMIT=9]",
     "message": "Score"
   },
   "se_country_name": {
@@ -1878,6 +2078,10 @@
   "share-this": {
     "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
     "message": "Share"
+  },
+  "skip-training": {
+    "description": "Button text. 30char limit. Lets a user skip past an early training or introductory part of a game.",
+    "message": "Skip Training"
   },
   "snowball_iced": {
     "description": "A player has been 'iced', hit by a snowball and is out of a game.",
@@ -8775,7 +8979,7 @@
   },
   "upgrade-warning": {
     "description": "An error message. Error appears as the sole text on an HTML page.",
-    "raw": "Oops! Santa Tracker isn't supported in this version of your browser. To access Santa Tracker, download a modern browser. For more information visit <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+    "raw": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "us_country_name": {
     "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -8813,6 +9017,10 @@
     "description": "Menu item to find more ways to learn, play, explore etc about Santa.",
     "message": "More Ways to Explore"
   },
+  "village_santa_install": {
+    "description": "Menu item that allows users to install Santa Tracker. Short and does not imply platform (web/Android etc).",
+    "message": "Install"
+  },
   "village_santa_a2hs": {
     "description": "Menu item that allows users to add the Santa Tracker site as an app icon to the home screen of a mobile device.",
     "message": "Add to Home Screen"
@@ -8836,6 +9044,18 @@
   "village_santa_crx": {
     "description": "Menu item for adding Santa as a Google Chrome extension. Don't translate \"Chrome\".",
     "message": "Add the Santa Chrome Extension"
+  },
+  "village_santa_earth_quiz": {
+    "description": "Menu item for playing a quiz with Santa",
+    "message": "Santa Earth Quiz"
+  },
+  "village_assistant-call_santa": {
+    "description": "Menu item linking to information about listening to a story with the Google Assistant",
+    "message": "Holiday Story with the Google Assistant"
+  },
+  "village_assistant-call_santa": {
+    "description": "Menu item linking to information about calling Santa with the Assistant",
+    "message": "Call Santa with the Google Assistant"
   },
   "village_takesoff": {
     "description": "Message describing when Santa Takes off, will be followed by a countdown",
@@ -8892,5 +9112,13 @@
   "wrapbattle_feedback_perfect": {
     "description": "A message to show when the player has hit the key perfectly",
     "message": "Perfect"
+  },
+  "elf_choose_body": {
+    "description": "Asks the player to choose a body type for a game where you design yourself as one of Santa's elves",
+    "message": "Choose an elf body"
+  },
+  "dec24th": {
+    "description": "The date of December 24 (please do not use -th suffixes etc). Used as a subtitle indicating that you can track Santa from this date.",
+    "message": "December 24"
   }
 }

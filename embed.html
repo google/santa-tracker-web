@@ -70,47 +70,23 @@ document.addEventListener('beforeload', (ev) => {
   let messagePort = null;
 
   /**
-   * @param {!TypedArray} buffer to encode
-   * @return {string} base64 encoded version of uint8
-   */
-  function encodeArrayBuffer(buffer) {
-    const u = new Uint8Array(buffer);
-    const CHUNK_SIZE = 256 * 256;
-
-    // nb. doing this at once for large buffers causes "Maximum call stack size exceeded" in Chrome
-    let s = '';
-    for (let i = 0; i < u.length; i += CHUNK_SIZE) {
-      const sub = u.subarray(i, i + CHUNK_SIZE);
-      s += String.fromCharCode.apply(null, sub);
-    }
-    return window.btoa(s);
-  }
-
-  /**
    * Send a message to the controlling interface.
    *
-   * @param {string|!ImageData} message
+   * @param {string|{type: string, data: *}} message
    */
   function send(message) {
-    const msg = {};
-
     if (typeof message === 'string') {
-      msg.type = message;
-    } else if (message instanceof window.ImageData) {
-      msg.type = 'image';
-      msg.width = message.width;
-      msg.height = message.height;
-      msg.payload = encodeArrayBuffer(message.data);  // base64 encode
-    } else {
+      message = {type: message, data: null};
+    } else if (!message.type) {
       console.warn('unhandled embed message', message);
       return;
     }
 
-    console.debug('sending', msg);
+    console.debug('sending', message);
     if (!messagePort) {
       return;
     }
-    messagePort.postMessage(JSON.stringify(msg));
+    messagePort.postMessage(JSON.stringify(message));
   }
 
   /**
@@ -119,13 +95,23 @@ document.addEventListener('beforeload', (ev) => {
    * @param {string} message
    */
   function recv(message) {
+    console.debug('handling incoming', message);
     switch (message) {
+      case 'mute':
+        s.userMute = true;
+        break;
+      case 'unmute':
+        s.userMute = false;
+        break;
       case 'restart':
+      case 'restartGame':
         s.onStartGame();
         break;
       case 'pauseGame':
+      case 'pause':
         s.userPause = true;
         break;
+      case 'resumeGame':
       case 'resume':
         s.onResumeGame();
         break;
@@ -133,11 +119,13 @@ document.addEventListener('beforeload', (ev) => {
         console.warn('unhandled from messagePort', message);
     }
   }
+  window._testRecv = recv;
 
   window.addEventListener('message', (e) => {
-    if (typeof e.data === 'object' || e.data || !e.ports.length) {
-      // this is probably from FrameRPC, ignore
-      // Android sends us an empty string for data.
+    if (e.source === null && (e.data === '' || e.data === 'santaandroid')) {
+      // great
+    } else {
+      console.debug('ignoring incoming message', e);
       return;
     }
 

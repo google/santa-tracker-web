@@ -1,0 +1,127 @@
+<!--
+Copyright 2018 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../scene-behavior.html">
+
+<link rel="import" href="iframe-scene_module.html">
+
+<dom-module id="iframe-scene">
+<template>
+  <style include="iframe-scene_module"></style>
+  <main id="module-iframe">
+    <iframe
+        id="iframe"
+        src$="[[_computeIframeSrc(route)]]"
+        allow="camera"
+        scrolling="no"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        data-computer-love></iframe>
+    <div class="gui" hidden="[[_computeHidden(viewport)]]">
+      <div class$="force-rotate [[viewport]]">
+        <div class="force-rotate-graphic"></div>
+        <div class="force-rotate-explanation">
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
+<script>
+(function() {
+  Polymer({
+    is: 'iframe-scene',
+    behaviors: [window.SantaSceneBehavior],
+
+    properties: {
+      viewport: {
+        type: String,
+        default: '',
+      },
+
+      route: {
+        type: String,
+        default: '',
+      },
+
+      _preloadResolve: {
+        type: Object,
+      },
+    },
+
+    ready: function() {
+      this._onIframeMessage = this._onIframeMessage.bind(this);
+    },
+
+    attached: function() {
+      window.addEventListener('message', this._onIframeMessage);
+    },
+
+    detached: function() {
+      window.removeEventListener('message', this._onIframeMessage);
+    },
+
+    _onIframeMessage: function(ev) {
+      if (ev.source !== this.$.iframe.contentWindow) {
+        return;  // not for us
+      }
+
+      let duringProgress = true;
+      const port = ev.ports[0];
+      port.onmessage = (ev) => {
+        if (duringProgress) {
+          if (ev.data === null) {
+            duringProgress = false;
+          }
+          return;
+        }
+
+        if (ev.data.type === 'ready') {
+          this._preloadResolve && this._preloadResolve();
+        }
+      };
+    },
+
+    _computeIframeSrc: function(route) {
+      if (!route) {
+        return 'about:blank';
+      } else if (window.DEV && window.location.hostname === 'localhost') {
+        return 'http://localhost:5000/scenes/' + route + '/';
+      }
+      return this.resolveUrl('../' + route + '/' + document.documentElement.lang + '.html');
+    },
+
+    _computeHidden: function(viewport) {
+      return !!viewport;
+    },
+
+    onPreload: function() {
+      this.preloadPromise(new Promise((resolve) => {
+        this._preloadResolve = resolve;
+      }));
+      this.preloadSounds('computer_load_sounds', 40);
+    },
+
+    onShow: function() {
+      this.fire('sound-ambient', 'music_start_scene');
+    },
+
+    onHide: function() {
+      this.fire('sound-ambient', 'computer_end');
+    },
+  });
+
+})();
+</script>
+</dom-module>

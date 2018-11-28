@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "Calendari"
 	},
+	"category_all": {
+		"message": "Mostra-ho tot"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "Codi: {0}"
+	},
+	"category_computer-science": {
+		"message": "Informàtica"
 	},
 	"category_draw": {
 		"message": "Dibuix"
 	},
+	"category_education": {
+		"message": "Educatius"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
+	"category_language": {
+		"message": "Idioma"
+	},
 	"category_listen": {
 		"message": "Escolta"
 	},
+	"category_new-this-year": {
+		"message": "Nous d'aquest any"
+	},
 	"category_send": {
 		"message": "Envia"
+	},
+	"category_social-studies": {
+		"message": "Educació social"
 	},
 	"cd_country_name": {
 		"message": "República Democràtica del Congo"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "A gairebé totes les poblacions d'Alemanya, es munten mercats de Nadal a les places. Els ciutadans surten als carrers per sentir les xarangues i gaudeixen de la beguda i del menjar típics de la regió: cors de gingebre, ametlles garapinyades, llaminadures de tot tipus, Glühwein (vi calent) i sidra de poma."
 	},
+	"dec24th": {
+		"message": "24 de desembre"
+	},
 	"deck": {
 		"message": "Decora"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "Ajudeu a finançar un projecte per a nens amb necessitats especials a DonorsChoose.org. Aquest desembre igualarem l'import de les donacions per duplicar-ne l'impacte, fins que assolim el nostre objectiu de donar 1 milió de dòlars. Junts podem millorar la inclusió a les aules #ForEveryKid."
 	},
+	"download-cta": {
+		"message": "Baixa per jugar encara a més jocs"
+	},
 	"dz_country_name": {
 		"message": "Algèria"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "Segueix el Pare Noel per a educadors"
 	},
+	"educators-games": {
+		"message": "Jocs per a l'aula"
+	},
+	"educators-learn": {
+		"message": "Aprèn amb Segueix el Pare Noel"
+	},
 	"ee_country_name": {
 		"message": "Estònia"
 	},
 	"el_language_name": {
 		"message": "Grec"
+	},
+	"elf_choose_body": {
+		"message": "Selecciona un cos d'elf"
 	},
 	"elvish_language_name": {
 		"message": "Èlfic"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "Hi ha hagut un problema, però els elfs del Pare Noel ja l'estan intentant solucionar."
 	},
+	"error-internal": {
+		"message": "Hi ha hagut un problema. Ja n'hem informat els elfs, però prova de tornar a l'\u003ca href=\"./\"\u003ealdea del Pare Noel\u003c/a\u003e."
+	},
 	"error-lost-connection": {
 		"message": "Sembla que acabem de perdre la connexió amb el pol nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
 	},
 	"error-not-found": {
-		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis al \u003ca href=\"./village.html\"\u003ellogaret del Pare Noel\u003c/a\u003e."
+		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis a l'\u003ca href=\"./\"\u003ealdea del Pare Noel\u003c/a\u003e."
 	},
 	"error-try-again": {
 		"message": "Torna-ho a provar"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "Posa en pausa"
 	},
+	"paused": {
+		"message": "En pausa"
+	},
 	"pe_country_name": {
 		"message": "Perú"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Vaja!"
 	},
+	"readyquestion": {
+		"message": "Preparat?"
+	},
 	"ro_country_name": {
 		"message": "Romania"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "Aràbia Saudita"
+	},
+	"santa-app": {
+		"message": "Pare Noel"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "Home de gingebre"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "Carrera de pingüins"
 	},
+	"scene_elfmaker": {
+		"message": "Creador d'elfs"
+	},
 	"scene_elfski": {
 		"message": "Els elfs van a esquiar"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "Parc infantil del pol nord"
 	},
+	"scene_poseboogie": {
+		"message": "Ball de postures"
+	},
 	"scene_postcard": {
-		"message": "Crea un floc de neu amb codi"
+		"message": "Postals del Pare Noel"
 	},
 	"scene_presentbounce": {
 		"message": "Que no caigui el regal!"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "Tempesta de boles de neu"
+	},
+	"scene_snowflake": {
+		"message": "Crea un floc de neu amb codi"
 	},
 	"scene_speedsketch": {
 		"message": "Esbós ràpid"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "Broma a l'oficina"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "Encara de vacances"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "La preocupació dels rens"
+	},
 	"scene_videoscene_reload": {
 		"message": "Recàrrega de regals"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "Fent el dropo"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "Enlairament"
+	},
 	"scene_videoscene_temptation": {
 		"message": "Temptació"
 	},
 	"scene_videoscene_tired": {
 		"message": "Ren cansat"
 	},
-	"scene_videoscene_trailer": {
-		"message": "Encara de vacances"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "On és el Pare Noel?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "El taller del Pare Noel"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vent"
@@ -1389,6 +1458,9 @@
 		"message": "Batalla d'embolicar regals"
 	},
 	"score": {
+		"message": "Puntuació"
+	},
+	"score_short": {
 		"message": "Puntuació"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovac"
+	},
+	"skip-training": {
+		"message": "Omet la introducció"
 	},
 	"sl_country_name": {
 		"message": "Sierra Leone"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "escombra"
 	},
-	"speedsketch_item~bubble": {
-		"message": "bombolla"
-	},
 	"speedsketch_item~bucket": {
 		"message": "galleda"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "càmera"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "camuflatge"
-	},
 	"speedsketch_item~campfire": {
 		"message": "foguera"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "pastanaga"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "dibuixos animats"
 	},
 	"speedsketch_item~castle": {
 		"message": "castell"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "cirera"
-	},
-	"speedsketch_item~chicken": {
-		"message": "pollastre"
 	},
 	"speedsketch_item~child": {
 		"message": "nen"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "cocodril"
-	},
-	"speedsketch_item~cross": {
-		"message": "creu"
 	},
 	"speedsketch_item~crow": {
 		"message": "corb"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "mà"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "joc del penjat"
-	},
 	"speedsketch_item~happiness": {
 		"message": "felicitat"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "illa"
 	},
-	"speedsketch_item~italy": {
-		"message": "Itàlia"
-	},
 	"speedsketch_item~jacket": {
 		"message": "jaqueta"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "cascavells"
-	},
-	"speedsketch_item~kale": {
-		"message": "col verda"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "cangur"
@@ -2355,7 +2406,7 @@
 		"message": "pingüí"
 	},
 	"speedsketch_item~peppermint": {
-		"message": "menta"
+		"message": "menta pebrera"
 	},
 	"speedsketch_item~piano": {
 		"message": "piano"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "patata"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "endoll"
-	},
 	"speedsketch_item~present": {
 		"message": "regal"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "bossa de mà"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "trencaclosques"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "conill"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "quadrat"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "gargot"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "esquirol"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "natura morta"
-	},
-	"speedsketch_item~stitches": {
-		"message": "punts de sutura"
-	},
-	"speedsketch_item~stock market": {
-		"message": "mercat de valors"
 	},
 	"speedsketch_item~stocking": {
 		"message": "mitjó nadalenc"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "tricicle"
 	},
-	"speedsketch_item~trolley": {
-		"message": "carretó"
-	},
 	"speedsketch_item~trombone": {
 		"message": "trombó"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "balena"
-	},
-	"speedsketch_item~wheel": {
-		"message": "roda"
 	},
 	"speedsketch_item~windmill": {
 		"message": "molí de vent"
@@ -5541,7 +5571,7 @@
 		"message": "Quina d'aquestes grans ciutats és la més poblada?"
 	},
 	"trivia_medium_012_answer0": {
-		"message": "São Paulo, Brasil"
+		"message": "Sao Paulo, Brasil"
 	},
 	"trivia_medium_012_answer1": {
 		"message": "Toronto, Canadà"
@@ -6627,10 +6657,10 @@
 		"message": "Al Regne Unit, els més festers s'ho passen pipa amb els crackers de Nadal mentre sopen. Els crackers són uns cilindres embolicats amb paper de colors que tenen llengüetes als extrems. Quan s'estiren aquestes llengüetes, el cilindre explota i fa un fort soroll. En poden sortir barrets de paper, joguines, acudits i premis per alegrar la nit de Nadal."
 	},
 	"unmute": {
-		"message": "Activa el so"
+		"message": "Deixa de silenciar"
 	},
 	"upgrade-warning": {
-		"message": "Segueix el Pare Noel no és compatible amb la versió del vostre navegador. Per accedir a Segueix el Pare Noel, heu de baixar un navegador més modern. Per obtenir més informació, visiteu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Segueix el Pare Noel no és compatible amb el teu navegador o tens JavaScript desactivat. Per accedir a Segueix el Pare Noel, has de baixar una versió més recent del navegador o activar JavaScript.\nPer obtenir més informació, visita: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estats Units"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "Veneçuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Truca al Pare Noel amb l'Assistent de Google"
 	},
 	"village_comeback": {
 		"message": "Torna la nit de Nadal i ajuda'ns a seguir el Pare Noel tota la nit!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "Afegeix l'extensió Segueix el Pare Noel"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Joc de preguntes i respostes sobre la Terra del Pare Noel"
+	},
+	"village_santa_install": {
+		"message": "Instal·la"
 	},
 	"village_takesoff": {
 		"message": "El Pare Noel surt d'aquí a"

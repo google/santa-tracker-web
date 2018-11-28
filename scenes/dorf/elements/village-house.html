@@ -65,7 +65,6 @@ sup {
 
   <main>
     <img id="house" />
-    <sup hidden="[[!opens]]">[[opens]]</sup>
     <img id="ice" />
   </main>
 
@@ -82,14 +81,6 @@ Polymer({
   is: 'village-house',
 
   properties: {
-
-    /**
-     * The day within December that this scene opens. Zero or null for no indicator.
-     */
-    opens: {
-      type: Number,
-      value: 0,
-    },
 
     /**
      * The ID of the house to display.

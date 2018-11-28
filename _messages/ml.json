@@ -98,17 +98,41 @@
 	"calendar": {
 		"message": "കലണ്ടർ"
 	},
+	"category_all": {
+		"message": "എല്ലാം കാണുക"
+	},
+	"category_android": {
+		"message": "Android"
+	},
 	"category_code": {
 		"message": "കോഡ്"
+	},
+	"category_computer-science": {
+		"message": "കമ്പ്യൂട്ടർ സയൻസ്"
 	},
 	"category_draw": {
 		"message": "വരയ്ക്കുക"
 	},
+	"category_education": {
+		"message": "വിദ്യാഭ്യാസ കേന്ദ്രീകൃതം"
+	},
+	"category_geography": {
+		"message": "ഭൂമിശാസ്‌ത്രം"
+	},
+	"category_language": {
+		"message": "ഭാഷ"
+	},
 	"category_listen": {
 		"message": "കേൾക്കുക"
 	},
+	"category_new-this-year": {
+		"message": "ഈ വർഷത്തെ പുതിയത്"
+	},
 	"category_send": {
 		"message": "അയക്കുക"
+	},
+	"category_social-studies": {
+		"message": "സാമൂഹിക പഠനങ്ങൾ"
 	},
 	"cd_country_name": {
 		"message": "ഡെമോക്രാറ്റിക് റിപ്പബ്ലിക് ഓഫ് കോംഗോ"
@@ -506,6 +530,9 @@
 	"de_tradition": {
 		"message": "ജർമ്മനിയിലെ ഓരോ നഗരത്തിലും ക്രിസ്‌മസ് രാത്രിയിൽ മാർക്കറ്റുകളിൽ ആഘോഷമായിരിക്കും. ബ്രാൻസ് ബാൻഡുകൾ കേൾക്കാൻ ആളുകൾ നാനാഭാഗത്തുനിന്നും നഗരത്തിന്റെ കവലകളിൽ ഒത്തുചേരുന്നു, പ്രദേശത്തിന്റെ വിനോദങ്ങളിൽ അവർ മുഴുകും. ജിഞ്ചെർബ്രെഡ് ഹാർട്ടും പഞ്ചസാരയിലിട്ട് റോസ്റ്റുചെയ്ത ആൽമണ്ടും എല്ലാ തരം മധുര പലഹാരങ്ങളും മാർക്കറ്റുകളിൽ ആ രാത്രി ലഭ്യമായിരിക്കും. വീഞ്ഞോ (ഗ്ലുഹ്‌വീൻ) ആപ്പിളിൽ നിന്നുണ്ടാക്കുന്ന മദ്യമോ ആണ് ആഘോഷിച്ച് തളരുന്നവർ അകത്താക്കുക."
 	},
+	"dec24th": {
+		"message": "ഡിസംബര്‍ 24"
+	},
 	"deck": {
 		"message": "ആകർഷകമാക്കൂ"
 	},
@@ -530,6 +557,9 @@
 	"donate_text": {
 		"message": "DonorsChoose.org-ലെ ഒരു പ്രത്യേക ലക്ഷ്യത്തിനായുള്ള പ്രോജക്റ്റിലേക്ക് സംഭാവന ചെയ്യൂ. ഈ ഡിസംബറിൽ, US$1m സംഭാവന ചെയ്യുകയെന്ന ലക്ഷ്യത്തിലെത്തുന്നതുവരെ നിങ്ങളുടെ സംഭാവനകൾക്കൊപ്പം അതിന്റെ 50% കൂടി കൂട്ടിച്ചേർത്തുകൊണ്ട് ഞങ്ങൾ സഹായത്തിന്റെ വ്യാപ്തി വർധിപ്പിക്കുന്നു. വരൂ, നമുക്കൊരുമിച്ച് ക്ലാസ്മുറികളെ കൂടുതൽ മികവുറ്റതാക്കാം #ForEveryKid"
 	},
+	"download-cta": {
+		"message": "ഇനിയും കൂടുതൽ ഗെയിമുകൾ കളിക്കാൻ, ഡൗൺലോഡ് ചെയ്യുക"
+	},
 	"dz_country_name": {
 		"message": "അൾജീരിയ"
 	},
@@ -542,11 +572,20 @@
 	"educators": {
 		"message": "എജ്യുക്കേറ്റർമാർക്കുള്ള സാന്ത ട്രാക്കർ"
 	},
+	"educators-games": {
+		"message": "ക്ലാസ് റൂമുകൾക്കുള്ള ഗെയിമുകൾ"
+	},
+	"educators-learn": {
+		"message": "സാന്താ ട്രാക്കർ ഉപയോഗിച്ചുള്ള പഠനം"
+	},
 	"ee_country_name": {
 		"message": "എസ്‌റ്റോണിയ"
 	},
 	"el_language_name": {
 		"message": "ഗ്രീക്ക്"
+	},
+	"elf_choose_body": {
+		"message": "ഒരു കുട്ടിച്ചാത്തന്റെ ശരീരം തിരഞ്ഞെടുക്കുക"
 	},
 	"elvish_language_name": {
 		"message": "എൽവിഷ്"
@@ -563,11 +602,14 @@
 	"error": {
 		"message": "ഒരു പിശക് ഉണ്ടായി എന്നാൽ സാന്തയുടെ എൽവ്‌സ് അത് പരിശോധിക്കുന്നു."
 	},
+	"error-internal": {
+		"message": "ക്ഷമിക്കണം, ഒരു പ്രശ്‌നം ഉണ്ടായിരുന്നു! ഞങ്ങൾ സാന്തയുടെ കുട്ടിച്ചാത്തൻമാരെ അറിയിച്ചിട്ടുണ്ട്, എന്നാലും, \u003ca href=\"./\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോകാൻ ശ്രമിക്കൂ."
+	},
 	"error-lost-connection": {
 		"message": "ഉത്തരധ്രുവവുമായുള്ള ബന്ധം നഷ്ടമായത് പോലെ തോന്നുന്നു. സാന്തയുടെ കുട്ടിച്ചാത്തന്മാർ അത് പരിഹരിക്കാൻ യത്നിക്കുകയാണ് - കാക്കുമല്ലോ!"
 	},
 	"error-not-found": {
-		"message": "ക്ഷമിക്കണം, സാന്തയുടെ എൽവ്‌സിന് ഈ പേജ് കണ്ടെത്താനായില്ല! \u003ca href=\"./village.html\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോകുന്നെങ്കിൽ, നിങ്ങൾ ഭാഗ്യവാനായി മാറിയേക്കാം."
+		"message": "ക്ഷമിക്കണം, സാന്തയുടെ എൽവ്‌സിന് ഈ പേജ് കണ്ടെത്താനായില്ല! \u003ca href=\"./\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോയാൽ നിങ്ങൾക്ക് ഭാഗ്യമുണ്ടായേക്കാം."
 	},
 	"error-try-again": {
 		"message": "വീണ്ടും ശ്രമിക്കൂ"
@@ -1037,6 +1079,9 @@
 	"pause": {
 		"message": "താൽക്കാലികമായി നിർത്തുക"
 	},
+	"paused": {
+		"message": "താൽക്കാലികമായി നിർത്തി"
+	},
 	"pe_country_name": {
 		"message": "പെറു"
 	},
@@ -1145,6 +1190,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "ശ്ശെ!"
 	},
+	"readyquestion": {
+		"message": "തയ്യാറാണോ?"
+	},
 	"ro_country_name": {
 		"message": "റുമാനിയ"
 	},
@@ -1159,6 +1207,9 @@
 	},
 	"sa_country_name": {
 		"message": "സൗദി അറേബ്യ"
+	},
+	"santa-app": {
+		"message": "സാന്താ"
 	},
 	"santasearch_character_gingerbread_man": {
 		"message": "ജിഞ്ചർബ്രെഡ് മാൻ"
@@ -1244,6 +1295,9 @@
 	"scene_dash": {
 		"message": "പെൻഗ്വിൻ ഡാഷ്"
 	},
+	"scene_elfmaker": {
+		"message": "കുട്ടിച്ചാത്തൻ സൃഷ്‌ടാവ്"
+	},
 	"scene_elfski": {
 		"message": "എൽഫ് സ്‌കീ"
 	},
@@ -1283,8 +1337,11 @@
 	"scene_playground": {
 		"message": "ഉത്തരധ്രുവ പ്ലേഗ്രൗണ്ട്"
 	},
+	"scene_poseboogie": {
+		"message": "ബൂഗീയായി പോസ് ചെയ്യുക"
+	},
 	"scene_postcard": {
-		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
+		"message": "സാന്താ പോസ്‌റ്റ് കാർഡുകൾ"
 	},
 	"scene_presentbounce": {
 		"message": "നിലവിലെ ബൗൺസ്"
@@ -1318,6 +1375,9 @@
 	},
 	"scene_snowball": {
 		"message": "സ്‌നോബോൾ സ്‌റ്റോം"
+	},
+	"scene_snowflake": {
+		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
 	},
 	"scene_speedsketch": {
 		"message": "സ്‌പീഡ് സ്‌കെച്ച്"
@@ -1355,6 +1415,12 @@
 	"scene_videoscene_office": {
 		"message": "ഓഫീസ് പ്രാങ്ക്"
 	},
+	"scene_videoscene_onvacation": {
+		"message": "ഇപ്പോഴും വെക്കേഷനിൽ"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "റെയിൻഡിയർ ആശങ്കകൾ"
+	},
 	"scene_videoscene_reload": {
 		"message": "പ്രസന്റ് റീലോഡ്"
 	},
@@ -1370,17 +1436,20 @@
 	"scene_videoscene_slackingoff": {
 		"message": "അലസനായി കളിച്ചിരിക്കുന്നു"
 	},
+	"scene_videoscene_takeoff": {
+		"message": "പുറപ്പെടാൻ തയ്യാറായി"
+	},
 	"scene_videoscene_temptation": {
 		"message": "ടെംപ്‌റ്റേഷൻ"
 	},
 	"scene_videoscene_tired": {
 		"message": "തളർന്ന റെയിൻഡിയർ"
 	},
-	"scene_videoscene_trailer": {
-		"message": "ഇപ്പോഴും വെക്കേഷനിൽ"
-	},
 	"scene_videoscene_wheressanta": {
 		"message": "സാന്ത എവിടെയാണ്?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "സാന്തായുടെ വർക്ക്ഷോപ്പ്"
 	},
 	"scene_windtunnel": {
 		"message": "വിൻഡ് ടണൽ"
@@ -1389,6 +1458,9 @@
 		"message": "റാപ് ബാറ്റിൽ"
 	},
 	"score": {
+		"message": "സ്‌കോർ"
+	},
+	"score_short": {
 		"message": "സ്‌കോർ"
 	},
 	"se_country_name": {
@@ -1414,6 +1486,9 @@
 	},
 	"sk_language_name": {
 		"message": "സ്ലൊവാക്"
+	},
+	"skip-training": {
+		"message": "പരിശീലനം ഒഴിവാക്കുക"
 	},
 	"sl_country_name": {
 		"message": "സിയെറ ലിയോൺ"
@@ -1658,9 +1733,6 @@
 	"speedsketch_item~broom": {
 		"message": "ചൂൽ"
 	},
-	"speedsketch_item~bubble": {
-		"message": "ബബിൾ"
-	},
 	"speedsketch_item~bucket": {
 		"message": "ബക്കറ്റ്"
 	},
@@ -1694,9 +1766,6 @@
 	"speedsketch_item~camera": {
 		"message": "ക്യാമറ"
 	},
-	"speedsketch_item~camouflage": {
-		"message": "ചായം തേച്ച മുഖം"
-	},
 	"speedsketch_item~campfire": {
 		"message": "ക്യാമ്പ് ഫയർ"
 	},
@@ -1717,9 +1786,6 @@
 	},
 	"speedsketch_item~carrot": {
 		"message": "കാരറ്റ്"
-	},
-	"speedsketch_item~cartoon": {
-		"message": "കാർട്ടൂൺ"
 	},
 	"speedsketch_item~castle": {
 		"message": "കോട്ട"
@@ -1747,9 +1813,6 @@
 	},
 	"speedsketch_item~cherry": {
 		"message": "ചെറി"
-	},
-	"speedsketch_item~chicken": {
-		"message": "ചിക്കൻ"
 	},
 	"speedsketch_item~child": {
 		"message": "കുട്ടി"
@@ -1807,9 +1870,6 @@
 	},
 	"speedsketch_item~crocodile": {
 		"message": "മുതല"
-	},
-	"speedsketch_item~cross": {
-		"message": "ക്രോസ്"
 	},
 	"speedsketch_item~crow": {
 		"message": "കാക്ക"
@@ -2024,9 +2084,6 @@
 	"speedsketch_item~hand": {
 		"message": "കൈ"
 	},
-	"speedsketch_item~hangman game": {
-		"message": "ഹാംഗ് മാൻ ഗെയിം"
-	},
 	"speedsketch_item~happiness": {
 		"message": "സന്തോഷം"
 	},
@@ -2102,9 +2159,6 @@
 	"speedsketch_item~island": {
 		"message": "ദ്വീപ്"
 	},
-	"speedsketch_item~italy": {
-		"message": "ഇറ്റലി"
-	},
 	"speedsketch_item~jacket": {
 		"message": "ജാക്കറ്റ്"
 	},
@@ -2113,9 +2167,6 @@
 	},
 	"speedsketch_item~jingle bells": {
 		"message": "ജിംഗിൾ ബെൽസ്"
-	},
-	"speedsketch_item~kale": {
-		"message": "കേൽ"
 	},
 	"speedsketch_item~kangaroo": {
 		"message": "കംഗാരു"
@@ -2414,9 +2465,6 @@
 	"speedsketch_item~potato": {
 		"message": "ഉരുളക്കിഴങ്ങ്"
 	},
-	"speedsketch_item~power outlet": {
-		"message": "പവർ ഔട്ട്‌ലെറ്റ്"
-	},
 	"speedsketch_item~present": {
 		"message": "സമ്മാനം"
 	},
@@ -2425,9 +2473,6 @@
 	},
 	"speedsketch_item~purse": {
 		"message": "പേഴ്‌സ്"
-	},
-	"speedsketch_item~puzzle": {
-		"message": "വിഷമപ്രശ്നം"
 	},
 	"speedsketch_item~rabbit": {
 		"message": "മുയൽ"
@@ -2612,9 +2657,6 @@
 	"speedsketch_item~square": {
 		"message": "സമചതുരം"
 	},
-	"speedsketch_item~squiggle": {
-		"message": "വളഞ്ഞുപുളഞ്ഞ വര"
-	},
 	"speedsketch_item~squirrel": {
 		"message": "അണ്ണാൻ"
 	},
@@ -2635,12 +2677,6 @@
 	},
 	"speedsketch_item~still life": {
 		"message": "നിശ്ചല ജീവിതം"
-	},
-	"speedsketch_item~stitches": {
-		"message": "തുന്നൽ"
-	},
-	"speedsketch_item~stock market": {
-		"message": "സ്റ്റോക്ക് മാര്‍‌ക്കറ്റ്"
 	},
 	"speedsketch_item~stocking": {
 		"message": "സ്റ്റോക്കിംഗ്"
@@ -2756,9 +2792,6 @@
 	"speedsketch_item~tricycle": {
 		"message": "ട്രൈസൈക്കിൾ"
 	},
-	"speedsketch_item~trolley": {
-		"message": "ട്രോളി"
-	},
 	"speedsketch_item~trombone": {
 		"message": "ട്രോംബോൺ"
 	},
@@ -2809,9 +2842,6 @@
 	},
 	"speedsketch_item~whale": {
 		"message": "തിമിംഗലം"
-	},
-	"speedsketch_item~wheel": {
-		"message": "ചക്രം"
 	},
 	"speedsketch_item~windmill": {
 		"message": "കാറ്റാടി"
@@ -6630,7 +6660,7 @@
 		"message": "ശബ്‌ദമുള്ളതാക്കുക"
 	},
 	"upgrade-warning": {
-		"message": "ക്ഷമിക്കണം! നിങ്ങളുടെ നിലവിലെ ബ്രൗസർ പതിപ്പിനെ സാന്താ ട്രാക്കർ പിന്തുണയ്ക്കുന്നില്ല. സാന്ത ട്രാക്കർ ആക്സസ് ചെയ്യുന്നതിന്, ഒരു ആധുനിക ബ്രൗസർ ഡൗൺലോഡ് ചെയ്യുക. കൂടുതൽ വിവരങ്ങൾക്ക് \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e സന്ദർശിക്കുക."
+		"message": "ക്ഷമിക്കണം! സാന്താ ട്രാക്കർ നിങ്ങളുടെ ബ്രൗസറിന് അനുയോജ്യമല്ല അല്ലെങ്കിൽ നിങ്ങളുടെ JavaScript പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. സാന്താ ട്രാക്കർ ആക്‌സസ് ചെയ്യാൻ, ഒരു ആധുനിക ബ്രൗസർ ഡൗൺലോഡ് ചെയ്യുക അല്ലെങ്കിൽ JavaScript പ്രവർത്തനക്ഷമമാക്കുക. കൂടുതൽ വിവരങ്ങൾക്ക്: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e സന്ദർശിക്കുക."
 	},
 	"us_country_name": {
 		"message": "യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"
@@ -6646,6 +6676,9 @@
 	},
 	"ve_country_name": {
 		"message": "വെനിസ്വേല"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google അസിസ്‌റ്റന്റ് ഉപയോഗിച്ച് സാന്തായെ വിളിക്കുക"
 	},
 	"village_comeback": {
 		"message": "24-ന് തിരിച്ചെത്തുക, രാത്രി മുഴുവൻ സാന്തയെ ട്രാക്കുചെയ്യാൻ ഞങ്ങളെ സഹായിക്കുക!"
@@ -6676,6 +6709,12 @@
 	},
 	"village_santa_crx": {
 		"message": "സാന്ത Chrome വിപുലീകരണം ചേർക്കുക"
+	},
+	"village_santa_earth_quiz": {
+		"message": "സാന്താ ഭൗമ ക്വിസ്"
+	},
+	"village_santa_install": {
+		"message": "ഇൻസ്‌റ്റാൾ‌ ചെയ്യുക"
 	},
 	"village_takesoff": {
 		"message": "സാന്ത യാത്ര തുടങ്ങുന്നത്"
