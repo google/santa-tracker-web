@@ -91,10 +91,18 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
           this._previews = [];
       }
     }
-
+    this.playChangeSound(changedProperties);
     return super.update(changedProperties);
   }
-
+  playChangeSound(changedProperties) {
+    if (changedProperties.has('category')) {
+      window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
+    }else if (changedProperties.has('categoryChoice')) {
+      window.santaApp.fire('sound-trigger', 'elfmaker_switch_item');
+    }else {
+      window.santaApp.fire('sound-trigger', 'elfmaker_switch_color');
+    }
+  }
   _categoryChange(ev) {
     this.category = ev.detail.value;
   }
