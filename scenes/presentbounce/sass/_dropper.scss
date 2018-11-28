@@ -11,6 +11,7 @@
     z-index: $z-index-above-present;
 
     &__pipe {
+      top: 30px;
       width: $pipe-width;
       position: absolute;
 

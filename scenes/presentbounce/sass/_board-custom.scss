@@ -2,12 +2,18 @@
 
 	.board {
 		border-radius: 0;
-		bottom: 0;
+		top: 50%;
+		margin-top: -130px;
 
 		transform: none; // no downscale - messes up dragNdrop
 
 		@media (min-width: $board-desktop-breakpoint) {
 			bottom: auto;
+		}
+
+		@media (max-width: $board-desktop-breakpoint) {
+			top: auto;
+			bottom: 0;
 		}
 
 		.score,
