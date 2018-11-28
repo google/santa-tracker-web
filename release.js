@@ -72,9 +72,9 @@ const staticAssets = [
   'third_party/**',
   'scenes/**/models/**',
   'scenes/**/img/**',
-  // TODO(samthor): Better support for custom scenes (#1679).
-  // 'scenes/snowflake/snowflake-maker/{media,third-party}/**',
-  // 'scenes/snowball/models/*',
+
+  // release WC bundles, as they're injected at runtime
+  'node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
 ];
 
 const staticLoaderFiles = [
