@@ -1,0 +1,83 @@
+@keyframes fly {
+  0% {
+    transform: translateZ(0) translateY(0) translateX(0);
+  }
+
+  10% {
+    transform: translateZ(0) translateY(-220px) translateX(50px);
+  }
+
+  50% {
+    transform: translateZ(0) translateY(-220px) translateX(100vw);
+  }
+
+  50.1% {
+    transform: translateZ(0) translateY(-100vw) translateX(100vw);
+  }
+
+  50.2% {
+    transform: translateZ(0) translateY(-100vw) translateX(-100vw);
+  }
+
+  50.3% {
+    transform: translateZ(0) translateY(-220px) translateX(-100vw);
+  }
+
+  90% {
+    transform: translateZ(0) translateY(-220px) translateX(-280px);
+  }
+  100% {
+    transform: translateZ(0) translateY(0) translateX(0);
+  }
+}
+
+.balloon, .balloon-flight, .balloon-ropes {
+  transition: opacity 0.2s ease-out;
+  will-change: transform;
+  position: absolute;
+}
+
+.balloon {
+  width: 183px;
+  height: 209px;
+  background: url(img/easteregg-balloon.svg) no-repeat;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.balloon-ropes {
+  top: 199px;
+  left: -24px;
+  width: 234px;
+  height: 40px;
+  background: url(img/easteregg-balloon-ropes.svg) no-repeat;
+
+}
+
+.balloon-flight {
+  width: 155px;
+  height: 209px;
+  left: 2px;
+  background: url(img/easteregg-balloon-flight.svg) no-repeat;
+  will-change: transform, opacity;
+}
+
+.balloon-flight, .balloon-ropes {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flying {
+  .balloon-flight, .balloon-ropes {
+    opacity: 1;
+  }
+
+  .balloon-flight {
+    animation: fly 30s linear;
+  }
+
+  .balloon {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

@@ -306,8 +306,14 @@ function installV1Handlers() {
     case 'sound-trigger':  // old-style
       sceneApi.play(args[0], args[1]);
       break;
+    case 'sound-transition':
+      sceneApi._klang('transition', ...args);
+      break;
     case 'sound-ambient':
       sceneApi.ambient(args[0], args[1]);
+      break;
+    case 'game-data':
+      sceneApi.data(args[0] || null);
       break;
     case 'game-score':
       sceneApi.score(args[0] || {});

@@ -232,45 +232,49 @@ body {
       height: 150px;
       background: url(img/easteregg-tictactoe.svg) top left no-repeat;
       background-size: 447px;
-
-      @import "scss/tictactoe";
     }
 
     #easteregg-snowmobile1 {
-      top: 0;
-      left: 0;
-      width: 32px;
-      height: 32px;
-      background: url(img/easteregg-snowmobile1.svg) no-repeat;
+      top: -120px;
+      left: -240px;
     }
 
     #easteregg-snowmobile2 {
-      top: 0;
-      left: 0;
-      width: 32px;
-      height: 32px;
+      top: 177px;
+      left: 230px;
     }
 
     #easteregg-snowmobile3 {
+      top: 570px;
+      left: 300px;
     }
 
     #easteregg-snowmobile4 {
+      top: 1100px;
+      left: -610px;
     }
 
     #easteregg-unicycle {
-      top: 420px;
+      top: 310px;
       left: -170px;
-      width: 21px;
-      height: 57px;
-      background: url(img/easteregg-unicycle.svg) no-repeat;
+      div {
+        width: 21px;
+        height: 57px;
+        background: url(img/easteregg-unicycle.svg) no-repeat;
+        animation: unicycle 1s ease infinite;
+      }
+      animation: travel 160s linear infinite;
     }
 
-    /*#easteregg-wrangler {
-      top: $header-size;
-      left: 0;        0     0     700   2250,
+    #easteregg-wrangler {
+      top: 1010px;
+      left: -240px;
+    }
+
     #easteregg-balloon {
-      top: $header-size;
-      left: 0;*/
+      top: 420px;
+      left: 590px;
+    }
   }
 }
 

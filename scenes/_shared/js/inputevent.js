@@ -17,7 +17,7 @@
 goog.provide('app.InputEvent');
 goog.require('app.shared.utils');
 
-goog.scope(function() {
+(function() {
   let eventStart, eventMove, eventCancel, eventEnd;
 
   (function() {
@@ -63,4 +63,4 @@ goog.scope(function() {
     END: eventEnd,
     normalize: getNormalizedEvent
   };
-});
+}());

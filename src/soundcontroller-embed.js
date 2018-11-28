@@ -8,15 +8,19 @@ sc.installGestureResume(document, true);
 
 document.body.addEventListener('_klang', (ev) => {
   const args = ev.detail;
-  switch (args[0]) {
+  const command = args.shift();
+  switch (command) {
     case 'fire':
-      sc.fire(args[1]);
+      sc.fire(args[0]);
       break;
     case 'ambient':
-      sc.ambient(args[1], args[2]);
+      sc.ambient(args[0], args[1]);
       break;
     case 'play':
-      sc.play(args[1], args[2]);
+      sc.play(args[0], args[1]);
+      break;
+    case 'transition':
+      sc.transition(...args);
       break;
   }
 });
