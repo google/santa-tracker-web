@@ -95,6 +95,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     return super.update(changedProperties);
   }
   playChangeSound(changedProperties) {
+    if (changedProperties.has('_idPrefix')) return; //first event, play no sound
     if (changedProperties.has('category')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
     }else if (changedProperties.has('categoryChoice')) {
