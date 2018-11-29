@@ -17,7 +17,7 @@ export class MakerControlElement extends LitElement {
       skinTone: {type: String},
       hairColor: {type: String},
       suitColor: {type: String},
-      eyesColor: {type: String},
+      glassesColor: {type: String},
       earsColor: {type: String},
       hatsColor: {type: String},
       accessoriesColor: {type: String},
@@ -46,7 +46,7 @@ export class MakerControlElement extends LitElement {
     this.skinTone = defs.random('skin');
     this.hairColor = defs.random('hair');
     this.suitColor = defs.random('color');
-    this.eyesColor = defs.random('color');
+    this.glassesColor = defs.random('glasses');
     this.earsColor = defs.random('color');
     this.hatsColor = defs.random('color');
     this.accessoriesColor = defs.random('color');
@@ -60,6 +60,11 @@ export class MakerControlElement extends LitElement {
     return `
 ${renderClass('suit', 'fill', this.suitColor)}
 ${renderClass('hats', 'fill', this.hatsColor)}
+${renderClass('glasses', 'fill', this.glassesColor)}
+.glasses-stroke {
+  fill: none; stroke: ${defs.colors[this.glassesColor][0]}; stroke-width: 5px;
+}
+${renderClass('ears', 'fill', this.earsColor)}
 ${renderClass('limb', 'stroke', this.suitColor)}
 ${renderClass('skin', 'fill', this.skinTone)}
 ${renderClass('hair', 'fill', this.hairColor)}
@@ -86,6 +91,12 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
           break;
         case 'hair':
           this._previews = defs.hair;
+          break;
+        case 'glasses':
+          this._previews = defs.glasses;
+          break;
+        case 'ears':
+          this._previews = defs.ears;
           break;
         case 'accessories':
           this._previews = defs.accessories;
@@ -133,9 +144,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
         return html`
           ${this._chooser('hairColor', 'hair')}
         `;
-      case 'eyes':
+      case 'glasses':
         return html`
-          ${this._chooser('eyesColor', 'color')}
+          ${this._chooser('glassesColor', 'glasses')}
         `;
       case 'ears':
         return html`
@@ -175,10 +186,10 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
       let back = '';
       let width = 210;
 
-      if (this.category === 'hair' || this.category === 'accessories') {
-        front = p;
-      } else {
+      if (this.category === 'hats') {
         back = p;
+      } else {
+        front = p;
       }
 
       return html`

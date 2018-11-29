@@ -199,6 +199,8 @@ ${this.svgStyle}
     <g transform="translate(-105, -18)">
       ${defs.head}
       <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
+      <g class="glasses">${defs.glasses[this.categoryChoice['glasses']]}</g>
+      <g class="ears">${defs.ears[this.categoryChoice['ears']]}</g>
       <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
     </g>
   </g>
