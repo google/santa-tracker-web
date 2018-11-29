@@ -8,12 +8,12 @@ main {
 
   display: flex;
 
-  @media (min-width: 500px + 1px) {
+  @media (min-width: 768px) {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: (768px - 1px)) {
     &::before,
     &::after {
       content: '';

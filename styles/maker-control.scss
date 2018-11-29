@@ -102,7 +102,7 @@ maker-chooser[mode="category"] {
   background: #eee;
 }
 
-@media (min-width: (500px + 1px)) {
+@media (min-width: 768px) {
   maker-chooser {
     height: 144px;
     border-radius: 12px;
@@ -137,13 +137,19 @@ maker-chooser[mode="category"] {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: (768px - 1px)) {
   main {
     flex-flow: column;
   }
   maker-chooser {
     overflow-x: scroll;
     padding: 8px;
+  }
+  maker-chooser[mode="category"] {
+    position: sticky;
+    top: calc(50vh - 88px);
+    z-index: 1000;  // above main
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   }
 
   .previews {

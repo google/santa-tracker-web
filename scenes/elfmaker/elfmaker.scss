@@ -1,26 +1,30 @@
 
 body {
   margin: 0;
-  background: url(img/bg-complex.png) no-repeat center/cover;
   display: flex;
   flex-flow: column;
   height: 100vh;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 footer {
   background: white;
   padding: 16px;
   box-sizing: border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
 }
 
 main {
+  background: url(img/bg-complex.png) no-repeat center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
   padding-bottom: 5vh;
-  box-shadow: inset 0 -12px 12px -12px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  z-index: 100;
+  transform: translateZ(-1000px);
 
   maker-elf {
     width: 100%;
@@ -49,13 +53,15 @@ main {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: (768px - 1px)) {
   body {
     overflow-y: auto;
     min-height: 100vh;
   }
   main {
-    min-height: 60vh;
+    height: 50vh;
+    position: fixed;
+    width: 100%;
 
     .buttons {
       // TODO(samthor): restore
@@ -63,6 +69,11 @@ main {
     }
   }
   footer {
+    margin-top: 50vh;
     padding: 0;
+
+    maker-control {
+      min-height: 50vh;
+    }
   }
 }
