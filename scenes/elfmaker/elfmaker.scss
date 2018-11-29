@@ -14,6 +14,10 @@ footer {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
 }
 
+maker-photo {
+  z-index: 102;
+}
+
 main {
   background: url(img/bg-complex.png) no-repeat center/cover;
   display: flex;
