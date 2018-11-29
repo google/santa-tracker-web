@@ -42,10 +42,15 @@ export class MakerElfElement extends LitElement {
 
   _buildArm(angle=0, shrug=1, length=120) {
     const rads = (angle / 180) * Math.PI;
+
+    // Make the arm shorter the more the bezier curve takes effect. 90 degrees (pi/2) is the
+    // highest length, as it's directly out to the side: 270 is lowest, back over the body.
+    length *= (Math.sin(rads) + 1) / 2;
+
     const offset = {x: Math.sin(rads) * length, y: Math.cos(rads) * length};
 
-    const bodyControl = {x: shrug * -50, y: 0};  // 40.51 goes away from start arm
-    const handControl = {x: -81.2, y: 29.27};
+    const bodyControl = {x: shrug * -length/3, y: -4};  // 40.51 goes away from start arm
+    const handControl = {x: length * -0.75, y: 0};
 
     const interpolate = interpolateAngle(
       {x: 0, y: 0},
@@ -56,7 +61,7 @@ export class MakerElfElement extends LitElement {
     const angleAt = interpolate(1) - 90;
 
     return svg`
-<path class="limb arm" d="M0,0c${bodyControl.x},${bodyControl.y},${handControl.x},${handControl.y},${-offset.x},${offset.y}"/>
+<path class="limb arm" d="M0,0c${bodyControl.x},${bodyControl.y},${handControl.x},${handControl.y},${-offset.x},${offset.y}" pathLength="${length/2}" />
 <g transform="translate(${-offset.x}, ${offset.y}) rotate(${angleAt})">
   <circle class="skin" cx="0" cy="0" r="21.32"/>
   <path transform="translate(-48.8, -303.89)" class="white" d="M66.87,272.56H30.73a10,10,0,0,0,0,20H66.87a10,10,0,0,0,0-20Z"/>
@@ -116,13 +121,12 @@ export class MakerElfElement extends LitElement {
 
     // normally 20px, but adjust for weight (18-26)
     const limbWidth = (18 + bodyType['weight'] * 8);
+    const legLength = (bodyType['height'] || 0) * 96 + 32;
+    const armLength = (bodyType['height'] || 0) * 64 + 96; 
 
     // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
     const scale = (limbWidth / 20);
     const bodyScale = Math.sqrt(limbWidth / 20);
-
-    // legs roughly go from 0-120 size
-    const legsAdjust = (bodyType['legs'] || 0) * 128;
 
     return html`
 <style>
@@ -160,8 +164,8 @@ ${this.svgStyle}
   <g transform="translate(30, 30) ${scaleAt(scale, scale, 130, 428.65)}">
 
     <!-- legs -->
-    <path class="limb" d="M112.51,389.94v${-(legsAdjust + 100) / scale}"/>
-    <path class="limb" d="M147.49,389.94v${-(legsAdjust + 100) / scale}"/>
+    <path class="limb" d="M112.51,389.94v${-(legLength + 100) / scale}"/>
+    <path class="limb" d="M147.49,389.94v${-(legLength + 100) / scale}"/>
 
     <!-- feet and buckles -->
     <path class="high1" d="M68.15,389.94a19.36,19.36,0,0,0,19.36,19.35h0a15,15,0,0,0,15-15V379.94h20v43.7a5,5,0,0,1-5,5H68.62c-10.5,0-19.43-8.16-19.81-18.65A19.35,19.35,0,0,1,68.15,389.94Z"/>
@@ -171,7 +175,7 @@ ${this.svgStyle}
   </g>
 
   <!-- top part -->
-  <g transform="translate(160, ${80 - legsAdjust}) rotate(${bodyDegrees}, 0, 280)">
+  <g transform="translate(160, ${80 - legLength}) rotate(${bodyDegrees}, 0, 280)">
 
     <!-- hat (first, before body) -->
     <g transform="translate(-105, -18)">
@@ -187,12 +191,12 @@ ${this.svgStyle}
 
     <!-- left arm -->
     <g transform="translate(-10, 216) scale(+1, -1)">
-      ${this._buildArm(leftArmDegrees, shrug)}
+      ${this._buildArm(leftArmDegrees, shrug, armLength)}
     </g>
 
     <!-- right arm -->
     <g transform="translate(+10, 216) scale(-1, -1)">
-      ${this._buildArm(rightArmDegrees, shrug)}
+      ${this._buildArm(rightArmDegrees, shrug, armLength)}
     </g>
 
     <!-- head -->

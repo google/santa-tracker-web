@@ -92,26 +92,36 @@ export const body = svg`<path d="M0,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42
 
 export const bodyTypes = [
   {
-    legs: 0.5,
+    height: 0.5,
     weight: 0.25,
   },
   {
-    legs: 0.8,
-    weight: 0.4,
+    height: 0.6,
+    weight: 1.0,
   },
   {
-    legs: 0.2,
-    weight: 0.2,
-  },
-  {
-    legs: 1,
+    height: 0.8,
     weight: 0.8,
+  },
+  {
+    height: 0.2,
+    weight: 0.0,
+  },
+  {
+    height: 1.0,
+    weight: 0.8,
+  },
+  {
+    height: 0.0,
+    weight: 0.75,
   },
 ];
 
 
 // TODO(samthor): generate or build preview elves.
 export const bodyPreviews = [
+  '',
+  '',
   '',
   '',
   '',
