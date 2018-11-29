@@ -117,7 +117,18 @@ svg {
 
 <div class="shadow">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 320 460">
-  <style>${defs.baseSvgStyle}${this.svgStyle}</style>
+  <style>
+  ${defs.baseSvgStyle}
+  ${this.svgStyle}
+  .blink {
+    animation: elves-blink 5.234s infinite alternate;
+  }
+  @keyframes elves-blink {
+    0%   { transform: scaleY(1); }
+    98%  { transform: scaleY(1); }
+    100% { transform: scaleY(0); }
+  }
+  </style>
 
   <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">
     <!-- body -->

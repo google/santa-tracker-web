@@ -18,16 +18,6 @@ export const baseSvgStyle = `
 }
 
 .red {fill: #f44336;}
-
-.blink {
-  animation: elves-blink 5.234s infinite alternate;
-}
-
-@keyframes elves-blink {
-  0%   { transform: scaleY(1); }
-  98%  { transform: scaleY(1); }
-  100% { transform: scaleY(0); }
-}
 `;
 
 
