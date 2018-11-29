@@ -6,92 +6,59 @@ main {
   display: flex;
   flex-flow: row;
   align-items: stretch;
+  z-index: 100;
 }
 
-.scroller {
+santa-choice {
   flex-grow: 1;
-  width: 200%;  // we're not kidding around, forces flex-grow to work
-  max-width: 100%;  // ... but not actually bigger than 100%
+  width: 400%;
+  max-width: 100%;
   overflow: hidden;
-  position: relative;
+  padding: 4px;
   box-sizing: border-box;
-  display: flex;
 
-/*
-  &::before, &::after {
-    content: '';
-    background: linear-gradient(to right, white, transparent);
+  .previews {
+    display: flex;
+    flex-grow: 1;
+  }
+}
+
+.item {
+  $border: 2px;
+  margin: 2px;
+  align-self: stretch;
+
+  min-width: 80px;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .preview {
+    background: #f3f3f3;
+    border-radius: 12px;
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 20%;
-    display: block;
-    z-index: 100;
-  }
-  &::after {
-    background: linear-gradient(to left, white, transparent);
-    right: 0px;
-  }
-*/
+    overflow: hidden;
+    border: $border solid transparent;
+    display: flex;
+    justify-content: center;
 
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
-  &::-webkit-scrollbar {
-    display: none;  // Safari and Chrome
-  }
-}
-.buttons {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0 8px;
-}
-
-.previews {
-  overflow-x: auto;
-  position: relative;
-  display: flex;
-  margin: 2px;
-
-  flex-grow: 1;  // for mobile
-
-  .item {
-    $border: 2px;
-    margin: 2px;
-
-    min-width: 80px;
-    position: relative;
-    cursor: pointer;
-
-    input {
-      position: absolute;
-      opacity: 0;
+    svg {
+      min-width: 120px;
+      width: 120px;
+      min-height: 140px;
     }
+  }
 
-    .preview {
-      background: #f3f3f3;
-      border-radius: 12px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      border: $border solid transparent;
-      display: flex;
-      justify-content: center;
-
-      svg {
-        min-width: 120px;
-        width: 120px;
-        min-height: 140px;
-      }
-    }
-
-    input:checked + .preview {
-      border-color: #2cc4d6;
-    }
+  input:checked + .preview {
+    border-color: #2cc4d6;
   }
 }
 
@@ -117,7 +84,7 @@ maker-chooser[mode="category"] {
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   }
 
-  .scroller {
+  santa-choice {
     margin-top: -4px;
   }
 
@@ -129,8 +96,9 @@ maker-chooser[mode="category"] {
       height: 96px;
       min-width: 60px;
       flex-grow: 1;
-    }
+    }  
   }
+
   .buttons {
     display: none;
   }

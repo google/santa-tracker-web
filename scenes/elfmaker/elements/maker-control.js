@@ -2,6 +2,8 @@ import {html, LitElement} from '@polymer/lit-element';
 import {repeat} from 'lit-html/directives/repeat';
 
 
+import '../../../src/elements/santa-choice.js';
+
 import * as prefix from '../../../src/lib/prefix.js';
 
 
@@ -172,24 +174,6 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     });
   }
 
-  _onForward(ev) {
-    const closest = ev.target.closest('main');
-    const inner = closest.querySelector('.previews');
-    inner.scrollLeft += inner.offsetWidth / 3;
-  }
-
-  _onBack(ev) {
-    const closest = ev.target.closest('main');
-    const inner = closest.querySelector('.previews');
-    inner.scrollLeft -= inner.offsetWidth / 3;
-  }
-
-  _onWheel(ev) {
-    // nb. makes up/down scrolling effect the scroller
-    const scroller = ev.target.closest('.previews');
-    scroller.scrollLeft += ev.deltaY;
-  }
-
   render() {
     // all category types except 'body' use the shared elf head to preview look, so override sizes
     // for displaying a larger elf body
@@ -232,13 +216,11 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   ${this._chooser('category', 'category')}
   ${inner}
 
-  <div class="scroller" @wheel=${this._onWheel}>
-    <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
-  </div>
-  <div class="buttons">
-    <santa-button color="white" @click=${this._onForward}>arrow_forward</santa-button>
-    <santa-button color="white" @click=${this._onBack}>arrow_back</santa-button>
-  </div>
+  <santa-choice>
+    <div class="previews" @change=${this._onPreviewChange}>
+      ${previews}
+    </div>
+  </santa-choice>
 </main>
     `;
   }

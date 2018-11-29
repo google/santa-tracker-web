@@ -136,9 +136,10 @@ export class MakerElfElement extends LitElement {
 }
 .shadow {
   height: 100%;
-  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125));
   display: flex;
   justify-content: center;
+  will-change: transform;  // nb. gives about 3x speedup
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125));
 }
 svg {
   width: 100%;

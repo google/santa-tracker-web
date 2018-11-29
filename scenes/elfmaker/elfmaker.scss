@@ -22,6 +22,7 @@ main {
   flex-grow: 1;
   padding-bottom: 5vh;
   box-sizing: border-box;
+  z-index: 100;
 
   maker-elf {
     width: 100%;
