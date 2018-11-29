@@ -1,14 +1,22 @@
+$ui-offset: 165px;
+$ui-offset-mobile: 100px;
+
 ##{$name} {
   .Buttons {
-    bottom: 20em;
     display: flex;
+    flex-direction: column;
     position: absolute;
-    right: 60em;
+    top: $ui-offset;
+    right: 20px;
     z-index: 1;
+
+    @media (max-width: $button-bp) {
+      top: $ui-offset-mobile;
+    }
   }
 
   .Button {
-    margin-right: 15px;
+    margin-top: 15px;
   }
 
   .Button--reset {

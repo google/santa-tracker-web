@@ -1,6 +1,6 @@
 // Mobile and tablet
 @media (max-width: 800px), (max-height: 690px) {
-  ##{$name} .Background-pole, ##{$name} .Buttons {
+  ##{$name} .Background-pole {
     display: none !important;
   }
 }
@@ -15,8 +15,9 @@
     .Tools--scrollable {
       background-color: #B444BB  !important;
       background-image: none !important;
-      height: 48px !important;
-      width: 455px !important;
+      width: 320px !important;
+      height: auto !important;
+      padding: 5px !important;
     }
   }
 }

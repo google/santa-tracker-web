@@ -1,7 +1,11 @@
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 668px;
+$ui-offset: 165px;
+$ui-offset-mobile: 100px;
 
 $name: 'module-traditions';
+
+@import "../shared/sass/button";
 
 ##{$name} {
   width: 100%;
@@ -104,54 +108,38 @@ $name: 'module-traditions';
   }
 
   .controls {
-    background: #22b129;
     border-radius: 0 0 4px 4px;
     position: absolute;
-    left: 20px;
-    width: 200px;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.23);
+    top: $ui-offset;
+    right: 20px;
 
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
+      flex-direction: column;
       align-items: stretch;
 
       li {
         box-sizing: border-box;
         flex-grow: 1;
-        width: 40px;
 
-        &:nth-child(2) {
-          border-left: 1px solid #19991f;
-          border-right: 1px solid #19991f;
+        &:not(:first-of-type) {
+          @include ButtonColor(white);
+          margin-top: 20px;
         }
 
         a {
           display: block;
-          height: 52px;
+          height: 55px;
           text-indent: -3000em;
         }
-
-        #traditions-world {
-          background-image: url(img/smallglobe.svg);
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-        }
-
-        #traditions-prev {
-          background-image: url(img/left.svg);
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-        }
-
-        #traditions-next {
-          background-image: url(img/right.svg);
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-        }
       }
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+      top: $ui-offset-mobile;
     }
   }
 }
@@ -183,7 +171,6 @@ $name: 'module-traditions';
       left: auto;
       bottom: 20px;
       border-radius: 12px 0 0 12px;
-      right: 0;
       box-shadow: none;
 
       ul li a {
@@ -216,6 +203,21 @@ $name: 'module-traditions';
       transform: scale(0.5);
       top: -80px;
       right: -10px;
+    }
+  }
+}
+
+@media (min-width: 1px) and (max-width: $mobileBreakpoint) and (orientation: landscape) {
+  ##{$name} {
+    .traditions-tradition {
+      bottom: 40px;
+      max-width: 60%;
+    }
+
+    #tradition-img {
+      left: auto;
+      right: 10px;
+      top: 10px;
     }
   }
 }
