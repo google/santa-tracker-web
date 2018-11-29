@@ -1,0 +1,66 @@
+@keyframes float {
+  from { transform: rotate(2deg) rotateX(10deg); }
+  to   { transform: rotate(-2deg) rotateX(-10deg); }
+}
+@keyframes flash {
+  from { opacity: 0; }
+  50%  { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 10000px;
+}
+
+.flash {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.15s;
+  &[fill] {
+    opacity: 1;
+  }
+}
+
+.anim {
+  animation: float 2s infinite alternate;
+}
+
+.outline {
+  background: white;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  border: 8px solid transparent;
+  border-radius: 2px;
+  transform: rotate(10deg);
+  pointer-events: auto;
+  cursor: pointer;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.100, 0.755, 0.160, 1.04);
+  transform: translate(-80%) scale(0.7) rotate(0);
+
+  &[hidden] {
+    animation: none;
+    pointer-events: none;
+    transform: translateY(-60vh) scale(0) rotate(360deg);
+  }
+
+  .inner {
+    box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, 0.125);
+    background: #777;
+  }
+}
