@@ -6,7 +6,7 @@ import * as prefix from '../../../src/lib/prefix.js';
 import * as defs from '../defs.js';
 
 
-export const categories = Object.freeze(['body', 'hair', 'eyes', 'ears', 'hats', 'accessories']);
+export const categories = Object.freeze(['body', 'color', 'hair', 'eyes', 'ears', 'hats', 'accessories']);
 
 
 export class MakerChooserElement extends LitElement {

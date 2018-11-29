@@ -1,6 +1,7 @@
 import {html, svg, LitElement} from '@polymer/lit-element';
 import {render} from 'lit-html';
 import * as defs from '../defs.js';
+import * as prefix from '../../../src/lib/prefix.js';
 
 
 function interpolateAngle(start, c1, c2, end) {
@@ -18,18 +19,25 @@ function interpolateAngle(start, c1, c2, end) {
 }
 
 
+function scaleAt(scaleX, scaleY, x, y) {
+  return `matrix(${scaleX}, 0, 0, ${scaleY}, ${x - scaleX*x}, ${y - scaleY*y})`;
+}
+
+
 export class MakerElfElement extends LitElement {
   static get properties() {
     return {
       svgStyle: {type: String},
       categoryChoice: {type: Object},
       _offset: {type: Number},
+      _idPrefix: {type: String},
     };
   }
 
   constructor() {
     super();
     this._offset = 0;
+    this._idPrefix = prefix.id();
   }
 
   _buildArm(angle=0, shrug=1, length=120) {
@@ -48,7 +56,7 @@ export class MakerElfElement extends LitElement {
     const angleAt = interpolate(1) - 90;
 
     return svg`
-<path class="limb" d="M0,0c${bodyControl.x},${bodyControl.y},${handControl.x},${handControl.y},${-offset.x},${offset.y}"/>
+<path class="limb arm" d="M0,0c${bodyControl.x},${bodyControl.y},${handControl.x},${handControl.y},${-offset.x},${offset.y}"/>
 <g transform="translate(${-offset.x}, ${offset.y}) rotate(${angleAt})">
   <circle class="skin" cx="0" cy="0" r="21.32"/>
   <path transform="translate(-48.8, -303.89)" class="white" d="M66.87,272.56H30.73a10,10,0,0,0,0,20H66.87a10,10,0,0,0,0-20Z"/>
@@ -104,6 +112,17 @@ export class MakerElfElement extends LitElement {
     const leftArmDegrees = 135 + (10 * Math.sin(this._offset * 1.5));
     const shrug = (Math.cos(this._offset) + 1) / 2;
     const bodyDegrees = (Math.cos(this._offset) * 0.5) * 10;
+    const bodyType = defs.bodyTypes[this.categoryChoice['body']];
+
+    // normally 20px, but adjust for weight (18-26)
+    const limbWidth = (18 + bodyType['weight'] * 8);
+
+    // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
+    const scale = (limbWidth / 20);
+    const bodyScale = Math.sqrt(limbWidth / 20);
+
+    // legs roughly go from 0-120 size
+    const legsAdjust = (bodyType['legs'] || 0) * 128;
 
     return html`
 <style>
@@ -116,30 +135,58 @@ svg {
 </style>
 
 <div class="shadow">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 320 460">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -100 320 560">
   <style>
-  ${defs.baseSvgStyle}
-  ${this.svgStyle}
-  .blink {
-    animation: elves-blink 5.234s infinite alternate;
-  }
-  @keyframes elves-blink {
-    0%   { transform: scaleY(1); }
-    98%  { transform: scaleY(1); }
-    100% { transform: scaleY(0); }
-  }
+${defs.baseSvgStyle}
+${this.svgStyle}
+.blink {
+  animation: elves-blink 5.234s infinite alternate;
+}
+@keyframes elves-blink {
+  0%   { transform: scaleY(1); }
+  98%  { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+.limb.arm {
+  stroke-width: ${limbWidth}px;
+}
   </style>
 
-  <g transform="translate(130, 0) rotate(${bodyDegrees}, 0, 280)">
-    <!-- body -->
-    <path transform="translate(-130, 0)" class="suit" d="M130,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42.65,42.65,0,1,0,85.3,0V245.35A42.66,42.66,0,0,0,130,202.7Z"/>
+  <defs>
+    <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${defs.body}</clipPath>
+  </defs>
 
-    <!-- belt -->
-    <rect class="high1" x="-42.65" y="259.76" width="85.3" height="21.32"/>
-    <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
+  <!-- lower part -->
+  <g transform="translate(30, 30) ${scaleAt(scale, scale, 130, 428.65)}">
+
+    <!-- legs -->
+    <path class="limb" d="M112.51,389.94v${-(legsAdjust + 100) / scale}"/>
+    <path class="limb" d="M147.49,389.94v${-(legsAdjust + 100) / scale}"/>
+
+    <!-- feet and buckles -->
+    <path class="high1" d="M68.15,389.94a19.36,19.36,0,0,0,19.36,19.35h0a15,15,0,0,0,15-15V379.94h20v43.7a5,5,0,0,1-5,5H68.62c-10.5,0-19.43-8.16-19.81-18.65A19.35,19.35,0,0,1,68.15,389.94Z"/>
+    <path class="high2" d="M102.51,399.29H110a5,5,0,0,0,0-10h-7.51a5,5,0,1,0,0,10Z"/>
+    <path class="high1" d="M191.85,389.94a19.36,19.36,0,0,1-19.36,19.35h0a15,15,0,0,1-15-15V379.94h-20v43.7a5,5,0,0,0,5,5h48.89c10.5,0,19.43-8.16,19.81-18.65A19.35,19.35,0,0,0,191.85,389.94Z"/>
+    <path class="high2" d="M157.49,399.29H150a5,5,0,1,1,0-10h7.51a5,5,0,0,1,0,10Z"/>
+  </g>
+
+  <!-- top part -->
+  <g transform="translate(160, ${80 - legsAdjust}) rotate(${bodyDegrees}, 0, 280)">
+
+    <!-- hat (first, before body) -->
+    <g transform="translate(-105, -18)">
+      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
+    </g>
+
+    <!-- body and belt -->
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" clip-path="url(#${this._idPrefix}body-clip)">
+      <rect class="suit" x="-100" y="200" width="200" height="200"/>
+      <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
+      <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
+    </g>
 
     <!-- left arm -->
-    <g transform="translate(-10, 216) scale(1, -1)">
+    <g transform="translate(-10, 216) scale(+1, -1)">
       ${this._buildArm(leftArmDegrees, shrug)}
     </g>
 
@@ -150,22 +197,11 @@ svg {
 
     <!-- head -->
     <g transform="translate(-105, -18)">
-      <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
       ${defs.head}
       <g class="hair">${defs.hair[this.categoryChoice['hair']]}</g>
       <g class="accessories">${defs.accessories[this.categoryChoice['accessories']]}</g>
     </g>
   </g>
-
-  <!-- legs -->
-  <path class="limb" d="M112.51,301.25v78.69"/>
-  <path class="limb" d="M147.49,301.25v78.69"/>
-
-  <!-- feet and buckles -->
-  <path class="high1" d="M68.15,389.94a19.36,19.36,0,0,0,19.36,19.35h0a15,15,0,0,0,15-15V379.94h20v43.7a5,5,0,0,1-5,5H68.62c-10.5,0-19.43-8.16-19.81-18.65A19.35,19.35,0,0,1,68.15,389.94Z"/>
-  <path class="high2" d="M102.51,399.29H110a5,5,0,0,0,0-10h-7.51a5,5,0,1,0,0,10Z"/>
-  <path class="high1" d="M191.85,389.94a19.36,19.36,0,0,1-19.36,19.35h0a15,15,0,0,1-15-15V379.94h-20v43.7a5,5,0,0,0,5,5h48.89c10.5,0,19.43-8.16,19.81-18.65A19.35,19.35,0,0,0,191.85,389.94Z"/>
-  <path class="high2" d="M157.49,399.29H150a5,5,0,1,1,0-10h7.51a5,5,0,0,1,0,10Z"/>
 
 </svg>
 </div>

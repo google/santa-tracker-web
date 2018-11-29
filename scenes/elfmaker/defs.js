@@ -1,8 +1,8 @@
 import {svg} from '@polymer/lit-element';
 
 
-export const width = 280;
-export const height = 400;
+export const width = 320;
+export const height = 500;
 
 
 export const baseSvgStyle = `
@@ -12,8 +12,6 @@ export const baseSvgStyle = `
 .white {fill: #fff;}
 .limb {
   fill: none;
-  stroke-linecap: round;
-  stroke-miterlimit: 10;
   stroke-width: 20px;
 }
 
@@ -83,9 +81,37 @@ export const head = svg`
   <path class="white" d="M130.85,183.43a25.85,25.85,0,1,1-51.69,0Z"/>
 `;
 
-// <path class="eyes blink" d="M96.39,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,96.39,166.2Z"/>
-// <path class="eyes blink" d="M130.85,166.2a8.62,8.62,0,1,1-8.62-8.61A8.63,8.63,0,0,1,130.85,166.2Z"/>
 
+export const body = svg`<path d="M0,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42.65,42.65,0,1,0,85.3,0V245.35A42.66,42.66,0,0,0,0,202.7Z"/>`;
+
+
+export const bodyTypes = [
+  {
+    legs: 0.5,
+    weight: 0.25,
+  },
+  {
+    legs: 0.8,
+    weight: 0.4,
+  },
+  {
+    legs: 0.2,
+    weight: 0.2,
+  },
+  {
+    legs: 1,
+    weight: 0.8,
+  },
+];
+
+
+// TODO(samthor): generate or build preview elves.
+export const bodyPreviews = [
+  '',
+  '',
+  '',
+  '',
+];
 
 
 export const hats = [
