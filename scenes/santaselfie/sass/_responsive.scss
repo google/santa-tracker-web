@@ -1,3 +1,5 @@
+$ui-offset-mobile: 119px;
+
 // Mobile and tablet
 @media (max-width: 800px), (max-height: 690px) {
   ##{$name} .Background-pole {
@@ -8,6 +10,17 @@
 // Tools' styles on mobile and tablet
 @media (max-width: 800px), (max-height: 690px) {
   ##{$name} {
+    .Buttons {
+      top: $ui-offset-mobile !important;
+    }
+
+    .Button {
+      background-size: 24px;
+      width: 32px;
+      height: 32px;
+      min-height: 32px;
+    }
+
     .Tool-ornament {
       background-image: none !important;
     }
