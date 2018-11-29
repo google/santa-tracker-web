@@ -161,6 +161,8 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   }
 
   render() {
+    // all category types except 'body' use the shared elf head to preview look, so override sizes
+    // for displaying a larger elf body
     const indent = (this.category === 'body' ? 50 : 35);
     const lowerIndent = 40;
     const previewWidth = (this.category === 'body' ? 260 : 210);
