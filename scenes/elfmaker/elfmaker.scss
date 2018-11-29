@@ -52,7 +52,7 @@ main {
 
 @media (max-width: (768px - 1px)) {
   body {
-    overflow-y: auto;
+    overflow: auto;
     min-height: 100vh;
   }
   main {
