@@ -29,6 +29,8 @@ $button-icons: (
   replay: replay,
   trash: trash,
   unmute: volume-on,
+  next-arrow: arrow-right,
+  prev-arrow: arrow-left
 );
 
 @function setColor($color, $tone: base) {

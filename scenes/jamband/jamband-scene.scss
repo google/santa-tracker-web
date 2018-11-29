@@ -12,6 +12,8 @@ $rotate-bg: #148F4C;
 @import "sass/lights";
 @import "sass/stage";
 
+$button-bp-override: 700px;
+
 ##{$name} {
   .fill {
     position: absolute;

@@ -129,14 +129,14 @@
     }
 
     .machineview {
-      bottom: 5%;
+      bottom: 0;
       display: flex;
       flex-flow: column;
       height: 80%;
       justify-content: flex-end;
       position: absolute;
-      right: 2%;
-      width: 20%;
+      right: 4%;
+      width: 18%;
 
       @media (max-width: $mobile-breakpoint) {
         background-color: #009245;
