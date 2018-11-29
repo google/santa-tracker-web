@@ -40,6 +40,16 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 (function() {
+  function makeSearchParam(data) {
+    var parts = [];
+    if (data) {
+      for (var k in data) {
+        parts.push(k + '=' + window.encodeURIComponent(data[k]));
+      }
+    }
+    return parts.length ? '?' + parts.join('&') : '';
+  }
+
   Polymer({
     is: 'iframe-scene',
     behaviors: [window.SantaSceneBehavior],
@@ -87,8 +97,25 @@ specific language governing permissions and limitations under the License.
           return;
         }
 
-        if (ev.data.type === 'ready') {
-          this._preloadResolve && this._preloadResolve();
+        switch (ev.data.type) {
+          case 'ready':
+            this._preloadResolve && this._preloadResolve();
+            break;
+          case 'klang':
+            var opt = ev.data.payload[0];
+            if (opt === 'fire' || opt === 'play') {
+              this.fire('sound-trigger', ev.data.payload[1]);
+            } else {
+              console.debug('got unhanled Klang op', opt);
+            }
+            break;
+          case 'data':
+            var url = new URL(window.location.toString());
+            url.search = makeSearchParam(ev.data.payload);
+            window.history.replaceState(null, '', url.toString());
+            break;
+          default:
+            console.debug('got', ev.data.type, 'from iframe-scene');
         }
       };
     },
