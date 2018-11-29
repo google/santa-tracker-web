@@ -12,7 +12,6 @@ footer {
   background: white;
   box-sizing: border-box;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
 }
 
 main {
@@ -23,7 +22,6 @@ main {
   flex-grow: 1;
   padding-bottom: 5vh;
   box-sizing: border-box;
-  z-index: 100;
 
   maker-elf {
     width: 100%;

@@ -184,6 +184,12 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     inner.scrollLeft -= inner.offsetWidth / 3;
   }
 
+  _onWheel(ev) {
+    // nb. makes up/down scrolling effect the scroller
+    const scroller = ev.target.closest('.previews');
+    scroller.scrollLeft += ev.deltaY;
+  }
+
   render() {
     // all category types except 'body' use the shared elf head to preview look, so override sizes
     // for displaying a larger elf body
@@ -226,7 +232,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   ${this._chooser('category', 'category')}
   ${inner}
 
-  <div class="scroller">
+  <div class="scroller" @wheel=${this._onWheel}>
     <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
   </div>
   <div class="buttons">

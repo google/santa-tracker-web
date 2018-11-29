@@ -10,7 +10,7 @@ main {
 
 .scroller {
   flex-grow: 1;
-  width: 100%;  // forces flex-grow to work
+  width: 200%;  // we're not kidding around, forces flex-grow to work
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
