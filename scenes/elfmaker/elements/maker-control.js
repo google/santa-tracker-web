@@ -174,13 +174,13 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 
   _onForward(ev) {
     const closest = ev.target.closest('main');
-    const inner = closest.querySelector('.inner');
+    const inner = closest.querySelector('.previews');
     inner.scrollLeft += inner.offsetWidth / 3;
   }
 
   _onBack(ev) {
     const closest = ev.target.closest('main');
-    const inner = closest.querySelector('.inner');
+    const inner = closest.querySelector('.previews');
     inner.scrollLeft -= inner.offsetWidth / 3;
   }
 
@@ -227,9 +227,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   ${inner}
 
   <div class="scroller">
-    <div class="inner">
-      <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
-    </div>
+    <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
   </div>
   <div class="buttons">
     <santa-button color="white" @click=${this._onForward}>arrow_forward</santa-button>
