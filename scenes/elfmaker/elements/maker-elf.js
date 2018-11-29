@@ -72,12 +72,6 @@ export class MakerElfElement extends LitElement {
       }
       window.requestAnimationFrame(run);
       this._offset = (performance.now() / 1000);
-
-      this.bodyProps = {
-        'legs': (Math.sin(this._offset) + 1) / 2,
-        'weight': (Math.cos(this._offset) + 1) / 2,
-      };
-
     };
     run();
   }
@@ -128,7 +122,7 @@ export class MakerElfElement extends LitElement {
     const bodyScale = Math.sqrt(limbWidth / 20);
 
     // legs roughly go from 0-120 size
-    const legsAdjust = (this.bodyProps['legs'] || 0) * 120;
+    const legsAdjust = (this.bodyProps['legs'] || 0) * 128;
 
     const body = defs.body[0];
     return html`
