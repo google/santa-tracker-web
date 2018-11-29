@@ -101,7 +101,7 @@ export const bodyTypes = [
   },
   {
     height: 0.8,
-    weight: 0.8,
+    weight: 0.6,
   },
   {
     height: 0.2,
@@ -112,6 +112,10 @@ export const bodyTypes = [
     weight: 0.8,
   },
   {
+    height: 0.9,
+    weight: 0.15,
+  },
+  {
     height: 0.0,
     weight: 0.75,
   },
@@ -120,6 +124,7 @@ export const bodyTypes = [
 
 // TODO(samthor): generate or build preview elves.
 export const bodyPreviews = [
+  '',
   '',
   '',
   '',
