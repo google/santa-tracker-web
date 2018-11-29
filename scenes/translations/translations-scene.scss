@@ -1,5 +1,6 @@
 $name: 'module-translations';
 
+@import "../shared/sass/button";
 @import "../shared/sass/penner-easing";
 @import "sass/google-home";
 @import "sass/elves";
@@ -171,12 +172,13 @@ $name: 'module-translations';
   }
 
   .desk-content__selector__shuffle {
+    @include ButtonColor(orangered);
+    background-size: 30px;
+    bottom: 20px;
+    height: 55px;
     position: absolute;
-    bottom: 6px;
     right: 5px;
-    svg {
-      display: block;
-    }
+    width: 55px;
   }
 
   .desk-content__arrows {
@@ -193,6 +195,22 @@ $name: 'module-translations';
     cursor: pointer;
     vertical-align: middle;
     margin: 0 1em;
+
+    &.Button--next,
+    &.Button--prev {
+      background-size: 30px;
+      height: 55px;
+      width: 55px;
+    }
+
+    &.Button--play {
+      background-color: #D81B60;
+      box-shadow: 5px 7px 0 #AD1457, 13px 14px $button-shadow !important;
+
+      &:active {
+        box-shadow: none !important;
+      }
+    }
   }
   .desk-content__button #btn-play-shadow {
     transform-origin: 20% 50%;
