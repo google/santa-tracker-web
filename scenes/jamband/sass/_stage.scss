@@ -60,6 +60,18 @@
     .Instrument {
       padding-left: 70em;
     }
+
+    // quick guide for aliging elves
+    &::before {
+      background: cyan;
+      content: '';
+      display: none;
+      height: 500px;
+      left: 147px;
+      position: absolute;
+      top: 0;
+      width: 1px;
+    }
   }
 }
 

@@ -28,32 +28,35 @@
 
   .Stage {
     .Instrument-bass {
-      margin-left: 53em;
+      margin-left: 35em;  // tweak margins to align elves (see _stage.scss line 64)
+      overflow: visible;  // arm goes outside frame
     }
 
     .Instrument-bell {
-      margin-left: 58em;
+      margin-left: 56em;
     }
 
     .Instrument-boombox {
-      margin-left: 37em;
+      margin-left: 36em;
+      overflow: visible;  // arm goes outside frame
     }
 
     .Instrument-drums {
-      margin-left: 11em;
+      margin-left: 6em;
+      overflow: visible;  // kick goes outside frame
     }
 
     .Instrument-guitar {
-      margin-left: 40em;
+      margin-left: 30em;
     }
 
     .Instrument-rap {
-      margin-left: 40em;
+      margin-left: 23em;
       overflow: visible;  // arm goes outside frame
     }
 
     .Instrument-sax {
-      margin-left: 64em;
+      margin-left: 55em;
       overflow: visible;  // sax rotates outside frame
     }
 
@@ -62,11 +65,11 @@
     }
 
     .Instrument-tamb {
-      margin-left: 55em;
+      margin-left: 50em;
     }
 
     .Instrument-xylo {
-      margin-left: 21em;
+      margin-left: -7em;
     }
   }
 }
@@ -106,13 +109,13 @@
 
   // rap.scss
   .Rap, .Rap > div {
-    height: 266.3em;
-    width: 115.8em;
+    height: 269.6em;
+    width: 148.4em;
   }
 
   @include part(Rap, body);
 
-  @include part-animation(Rap, arm--left, $for: playing-1, $animation: 1s infinite, $origin: 66em 124em) {
+  @include part-animation(Rap, arm--left, $for: playing-1, $animation: 1s infinite, $origin: 69em 132em) {
     0%, 100% {
       transform: rotate(-60deg);
       animation-timing-function: ease;
@@ -123,7 +126,7 @@
     }
   }
 
-  @include part-animation(Rap, arm--right, $for: playing-1, $animation: -0.5s 2s infinite, $origin: 101em 124em) {
+  @include part-animation(Rap, arm--right, $for: playing-1, $animation: -0.5s 2s infinite, $origin: 117em 132em) {
     0%, 50%, 100% {
       transform: rotate(-20deg);
       animation-timing-function: ease;
@@ -139,7 +142,7 @@
     50% { transform: translateY(0); }
   }
 
-  @include part-animation(Rap, foot, $for: waiting playing, $origin: 70em 266em) {
+  @include part-animation(Rap, foot, $for: waiting playing, $origin: 90em 253em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(2em) rotate(-10deg) }
   }
@@ -147,13 +150,13 @@
 
   // _bass.scss
   .Bass, .Bass > div {
-    height: 266.3em;
-    width: 204.4em;
+    height: 270em;
+    width: 215.4em;
   }
 
   @include part(Bass, body);
 
-  @include part-animation(Bass, foot, $for: waiting playing, $origin: 70em 266em) {
+  @include part-animation(Bass, foot, $for: waiting playing, $origin: 80em 255em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
@@ -171,13 +174,13 @@
 
   // _guitar.scss
   .Guitar, .Guitar > div {
-    height: 266.2em;
-    width: 199.3em;
+    height: 270em;
+    width: 205em;
   }
 
   @include part(Guitar, body);
 
-  @include part-animation(Guitar, foot, $for: waiting playing, $origin: 84em 266em) {
+  @include part-animation(Guitar, foot, $for: waiting playing, $origin: 85em 255em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
@@ -212,25 +215,25 @@
     }
   }
 
-  @include part-animation(Guitar, arm--left, $animation: 2s infinite) {
+  @include part-animation(Guitar, arm--right, $animation: 2s infinite) {
     0%, 25%, 100% {
       transform: scaleY(1);
     }
-    80% {
+    75% {
       transform: translate3d(-5px, 3px, 0);
     }
   }
 
-  @include part-animation(Guitar, arm--left, $for: playing-1, $animation: -1s 2s infinite) {
-    0%, 25%, 100% {
+  @include part-animation(Guitar, arm--right, $for: playing-1, $animation: -1s 2s infinite) {
+    0%, 37.5%, 100% {
       transform: scaleY(1);
     }
-    80% {
+    75% {
       transform: translate3d(-5px, 3px, 0);
     }
   }
 
-  @include part-animation(Guitar, arm--right, $animation: 1s infinite) {
+  @include part-animation(Guitar, arm--left, $animation: 1s infinite) {
     0%, 50%, 100% { transform: rotate(0deg); }
     25%, 75% {
       transform: rotate(3deg) skew(-7deg);
@@ -241,13 +244,13 @@
 
   // _drums.scss
   .Drums, .Drums > div {
-    height: 266em;
-    width: 192.8em;
+    height: 270em;
+    width: 201.2em;
   }
 
   @include part(Drums, body);
 
-  @include part-animation(Drums, arm--left, $for: playing-1, $animation: -0.5s 1s infinite, $origin: 77em 124em) {
+  @include part-animation(Drums, arm--left, $for: playing-1, $animation: -0.5s 1s infinite, $origin: 86em 128em) {
     0%, 100% {
       transform: rotate(-30deg);
       animation-timing-function: ease;
@@ -258,7 +261,7 @@
     }
   }
 
-  @include part-animation(Drums, arm--right, $for: playing-1, $origin: 117em 124em) {
+  @include part-animation(Drums, arm--right, $for: playing-1, $origin: 119em 128em) {
     0%, 100% {
       transform: rotate(32deg);
       animation-timing-function: ease;
@@ -287,14 +290,14 @@
 
   // _synth.scss
   .Synth, .Synth > div {
-    height: 266.3em;
+    height: 270.4em;
     width: 146.7em;
   }
 
   @include part(Synth, body);
 
 
-  @include part-animation(Synth, arm--left, $for: playing-0, $origin: 53em 124em) {
+  @include part-animation(Synth, arm--left, $for: playing-0, $origin: 55em 126em) {
     0%, 100% {
       transform: scaleY(0.9);
     }
@@ -303,7 +306,7 @@
     }
   }
 
-  @include part-animation(Synth, arm--right, $for: playing-0, $origin: 93em 124em) {
+  @include part-animation(Synth, arm--right, $for: playing-0, $origin: 91em 126em) {
     0%, 100% {
       transform: scaleY(0.9);
     }
@@ -312,7 +315,7 @@
     }
   }
 
-  @include part-animation(Synth, arm--left, $for: playing-1, $animation: -0.25s 0.5s infinite, $origin: 53em 124em) {
+  @include part-animation(Synth, arm--left, $for: playing-1, $animation: -0.25s 0.5s infinite, $origin: 55em 126em) {
     0%, 100% {
       transform: rotate(-10deg);
       animation-timing-function: ease;
@@ -323,7 +326,7 @@
     }
   }
 
-  @include part-animation(Synth, arm--right, $for: playing-1, $origin: 93em 124em) {
+  @include part-animation(Synth, arm--right, $for: playing-1, $origin: 91em 126em) {
     0%, 100% {
       transform: rotate(-10deg);
       animation-timing-function: ease;
@@ -344,7 +347,7 @@
     50% { transform: translateY(2em); }
   }
 
-  @include part-animation(Synth, foot, $for: waiting playing, $origin: 84em 266em) {
+  @include part-animation(Synth, foot, $for: waiting playing, $origin: 78em 252em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
@@ -352,8 +355,8 @@
 
   // sax.scss
   .Sax, .Sax div {
-    height: 269.6em;
-    width: 110.8em;
+    height: 270em;
+    width: 118.8em;
   }
 
   @include part(Sax, base);
@@ -365,11 +368,11 @@
       transform: rotate(-25deg);
     }
   }
-  @include part-animation(Sax, foot, $for: waiting playing, $origin: 59em 269em) {
+  @include part-animation(Sax, foot, $for: waiting playing, $origin: 60em 255em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
-  @include part-animation(Sax, sax, $origin: 63em 111em, $animation: 3s ease-in-out infinite) {
+  @include part-animation(Sax, sax, $origin: 60em 109em, $animation: 3s ease-in-out infinite) {
     0%, 100% {
       transform: none;
     }
@@ -377,7 +380,7 @@
       transform: rotate(-10deg);
     }
   }
-  @include part-animation(Sax, sax-mouth, $origin: 53em 208em, $animation: 2s ease-in-out infinite) {
+  @include part-animation(Sax, sax-mouth, $origin: 55em 204em, $animation: 2s ease-in-out infinite) {
     0%, 100% {
       transform: none;
     }
@@ -390,13 +393,13 @@
 
   // bell.scss
   .Bell, .Bell > div {
-    height: 266.3em;
-    width: 115.8em;
+    height: 270em;
+    width: 132.1em;
   }
 
   @include part(Bell, body);
 
-  @include part-animation(Bell, arm--left, $for: playing, $animation: -0.25s 2s infinite, $origin: 24em 125em) {
+  @include part-animation(Bell, arm--left, $for: playing, $animation: -0.25s 2s infinite, $origin: 51em 125em) {
     0%, 25%, 50%, 75%, 87.5%, 100% {
       transform: rotate(-5deg);
       animation-timing-function: ease;
@@ -407,7 +410,7 @@
     }
   }
 
-  @include part-animation(Bell, arm--left, $for: playing-1, $animation: 1s infinite, $origin: 24em 125em) {
+  @include part-animation(Bell, arm--left, $for: playing-1, $animation: 1s infinite, $origin: 51em 125em) {
     0%, 25%, 50%, 75%, 100% {
       transform: rotate(0);
       animation-timing-function: ease;
@@ -418,7 +421,7 @@
     }
   }
 
-  @include part-animation(Bell, bell, $for: playing, $animation: -0.5s 1s ease-in-out infinite, $origin: 96em 98em) {
+  @include part-animation(Bell, bell, $for: playing, $animation: -0.5s 1s ease-in-out infinite, $origin: 108em 90em) {
     0%, 100% {
       transform: rotate(-5deg);
     }
@@ -432,7 +435,7 @@
     50% { transform: translateY(0); }
   }
 
-  @include part-animation(Bell, foot, $for: waiting playing, $origin: 50em 266em) {
+  @include part-animation(Bell, foot, $for: waiting playing, $origin: 60em 255em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
@@ -440,13 +443,13 @@
 
   // _synth.scss
   .Xylo, .Xylo div {
-    height: 266em;
-    width: 180em;
+    height: 270em;
+    width: 228.9em;
   }
 
   @include part(Xylo, body);
 
-  @include part-animation(Xylo, arm--left, $origin: 70em 125em, $animation: -0.25s 1s infinite) {
+  @include part-animation(Xylo, arm--left, $origin: 102em 125em, $animation: -0.25s 1s infinite) {
     0%, 100% {
       transform: none;
     }
@@ -455,7 +458,7 @@
     }
   }
 
-  @include part-animation(Xylo, stick--left, $animation: -0.25s 0.5s infinite, $origin: 29em 151em) {
+  @include part-animation(Xylo, stick--left, $animation: -0.25s 0.5s infinite, $origin: 26em 142em) {
     0%, 100% {
       transform: rotate(150deg);
       animation-timing-function: ease;
@@ -466,7 +469,7 @@
     }
   }
 
-  @include part-animation(Xylo, arm--right, $animation: -0.5s 1s infinite, $origin: 111em 125em) {
+  @include part-animation(Xylo, arm--right, $animation: -0.5s 1s infinite, $origin: 138em 125em) {
     0%, 100% {
       transform: none;
     }
@@ -475,7 +478,7 @@
     }
   }
 
-  @include part-animation(Xylo, stick--right, $origin: 153em 151em) {
+  @include part-animation(Xylo, stick--right, $origin: 206em 142em) {
     0%, 100% {
       transform: rotate(210deg);
       animation-timing-function: ease;
@@ -491,12 +494,12 @@
     50% { transform: translateY(0); }
   }
 
-  @include part-animation(Xylo, board, $for: playing-1, $origin: 0 266em, $animation: 0.5s 0.05s infinite) {
+  @include part-animation(Xylo, board, $for: playing-1, $origin: 0 270em, $animation: 0.5s 0.05s infinite) {
     0%, 100% { transform: scaleY(1); }
     50% { transform: scaleY(0.98); }
   }
 
-  @include part-animation(Xylo, foot, $for: waiting playing, $origin: 90em 266em) {
+  @include part-animation(Xylo, foot, $for: waiting playing, $origin: 122em 252em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(2em) rotate(-10deg) }
   }
@@ -504,7 +507,7 @@
 
   // _boombox.scss
   .Boombox, .Boombox div {
-    height: 266.3em;
+    height: 270em;
     width: 146.7em;
   }
 
@@ -513,11 +516,11 @@
     0%, 100% { transform: translateY(3em); }
     50% { transform: translateY(0); }
   }
-  @include part-animation(Boombox, foot, $for: waiting playing, $origin: 73em 266em) {
+  @include part-animation(Boombox, foot, $for: waiting playing, $origin: 82em 255em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(2em) rotate(-10deg) }
   }
-  @include part-animation(Boombox, arm--left, $for: playing, $animation: -0.5s 0.5s ease-in-out infinite, $origin: 37em 119em) {
+  @include part-animation(Boombox, arm--left, $for: playing, $animation: -0.5s 0.5s ease-in-out infinite, $origin: 42em 120em) {
     0%, 50%, 100% { transform: rotate(0); }
     25% { transform: rotate(10deg); }
     75% { transform: rotate(15deg); }
@@ -526,8 +529,8 @@
 
 
   .Tamb, .Tamb div {
-    height: 265.9em;
-    width: 178.5em;
+    height: 270em;
+    width: 198em;
   }
 
   @include part(Tamb, body);
@@ -535,11 +538,11 @@
     0%, 100% { transform: translateY(3em); }
     50% { transform: translateY(0); }
   }
-  @include part-animation(Tamb, foot, $for: waiting playing, $origin: 55em 266em) {
+  @include part-animation(Tamb, foot, $for: waiting playing, $origin: 65em 253em) {
     0%, 100% { transform: rotate(0deg); }
     50% { transform: translateX(3em) rotate(-10deg) }
   }
-  @include part-animation(Tamb, arm, $for: playing, $animation: -0.5s 0.5s ease-in-out infinite, $origin: 37em 119em) {
+  @include part-animation(Tamb, arm, $for: playing, $animation: -0.5s 0.5s ease-in-out infinite, $origin: 37em 128em) {
     0%, 50%, 100% { transform: rotate(0); }
     25% { transform: rotate(10deg); }
     75% { transform: scaleY(0.9) rotate(20deg); }
