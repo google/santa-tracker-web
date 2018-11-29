@@ -78,6 +78,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 
     if (changedProperties.has('category')) {
       switch (this.category) {
+        case 'body':
+          this._previews = defs.bodyPreviews;
+          break;
         case 'hats':
           this._previews = defs.hats;
           break;
@@ -121,6 +124,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
       case 'body':
         return html`
           ${this._chooser('skinTone', 'skin')}
+        `;
+      case 'color':
+        return html`
           ${this._chooser('suitColor', 'color')}
         `;
       case 'hair':
@@ -155,14 +161,17 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   }
 
   render() {
-    const indent = 35;
+    const indent = (this.category === 'body' ? 50 : 35);
     const lowerIndent = 40;
+    const previewWidth = (this.category === 'body' ? 260 : 210);
+    const head = (this.category !== 'body') ? defs.head : '';
 
     const inner = this._renderCategory(this.category);
     const choice = this.categoryChoice[this.category] || 0;;
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
       let front = '';
       let back = '';
+      let width = 210;
 
       if (this.category === 'hair' || this.category === 'accessories') {
         front = p;
@@ -174,9 +183,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="${indent} 0 ${210 - indent * 2} ${345 - lowerIndent}">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${indent} 0 ${previewWidth - indent * 2} ${345 - lowerIndent}">
 <g class=${this.category}>${back}</g>
-${defs.head}
+${head}
 <g class=${this.category}>${front}</g>
 </svg>
   </div>

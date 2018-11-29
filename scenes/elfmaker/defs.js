@@ -82,8 +82,35 @@ export const head = svg`
 `;
 
 
-export const body = [
-  svg`<path d="M0,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42.65,42.65,0,1,0,85.3,0V245.35A42.66,42.66,0,0,0,0,202.7Z"/>`,
+export const body = svg`<path d="M0,202.7a42.66,42.66,0,0,0-42.65,42.65v35.74a42.65,42.65,0,1,0,85.3,0V245.35A42.66,42.66,0,0,0,0,202.7Z"/>`;
+
+
+export const bodyTypes = [
+  {
+    legs: 0.5,
+    weight: 0.25,
+  },
+  {
+    legs: 0.8,
+    weight: 0.4,
+  },
+  {
+    legs: 0.2,
+    weight: 0.2,
+  },
+  {
+    legs: 1,
+    weight: 0.8,
+  },
+];
+
+
+// TODO(samthor): generate or build preview elves.
+export const bodyPreviews = [
+  '',
+  '',
+  '',
+  '',
 ];
 
 

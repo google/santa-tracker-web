@@ -31,7 +31,6 @@ export class MakerElfElement extends LitElement {
       categoryChoice: {type: Object},
       _offset: {type: Number},
       _idPrefix: {type: String},
-      bodyProps: {type: Object},
     };
   }
 
@@ -113,18 +112,18 @@ export class MakerElfElement extends LitElement {
     const leftArmDegrees = 135 + (10 * Math.sin(this._offset * 1.5));
     const shrug = (Math.cos(this._offset) + 1) / 2;
     const bodyDegrees = (Math.cos(this._offset) * 0.5) * 10;
+    const bodyType = defs.bodyTypes[this.categoryChoice['body']];
 
     // normally 20px, but adjust for weight (18-26)
-    const limbWidth = (18 + this.bodyProps['weight'] * 8);
+    const limbWidth = (18 + bodyType['weight'] * 8);
 
     // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
     const scale = (limbWidth / 20);
     const bodyScale = Math.sqrt(limbWidth / 20);
 
     // legs roughly go from 0-120 size
-    const legsAdjust = (this.bodyProps['legs'] || 0) * 128;
+    const legsAdjust = (bodyType['legs'] || 0) * 128;
 
-    const body = defs.body[0];
     return html`
 <style>
 svg {
@@ -154,7 +153,7 @@ ${this.svgStyle}
   </style>
 
   <defs>
-    <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${body}</clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${defs.body}</clipPath>
   </defs>
 
   <!-- lower part -->
@@ -179,15 +178,11 @@ ${this.svgStyle}
       <g class="hats">${defs.hats[this.categoryChoice['hats']]}</g>
     </g>
 
-    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}">
-      <!-- body -->
-      <g class="suit">${body}</g>
-
-      <!-- belt -->
-      <g clip-path="url(#${this._idPrefix}body-clip)">
-        <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
-        <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
-      </g>
+    <!-- body and belt -->
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" clip-path="url(#${this._idPrefix}body-clip)">
+      <rect class="suit" x="-100" y="200" width="200" height="200"/>
+      <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
+      <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
     </g>
 
     <!-- left arm -->
