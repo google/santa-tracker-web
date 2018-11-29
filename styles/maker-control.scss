@@ -11,6 +11,7 @@ main {
 .scroller {
   flex-grow: 1;
   width: 200%;  // we're not kidding around, forces flex-grow to work
+  max-width: 100%;  // ... but not actually bigger than 100%
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
