@@ -108,6 +108,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     this.playChangeSound(changedProperties);
     return super.update(changedProperties);
   }
+
   playChangeSound(changedProperties) {
     if (changedProperties.has('category')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
@@ -171,6 +172,18 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     });
   }
 
+  _onForward(ev) {
+    const closest = ev.target.closest('main');
+    const inner = closest.querySelector('.inner');
+    inner.scrollLeft += inner.offsetWidth / 3;
+  }
+
+  _onBack(ev) {
+    const closest = ev.target.closest('main');
+    const inner = closest.querySelector('.inner');
+    inner.scrollLeft -= inner.offsetWidth / 3;
+  }
+
   render() {
     // all category types except 'body' use the shared elf head to preview look, so override sizes
     // for displaying a larger elf body
@@ -212,7 +225,16 @@ ${head}
 <main>
   ${this._chooser('category', 'category')}
   ${inner}
-  <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
+
+  <div class="scroller">
+    <div class="inner">
+      <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
+    </div>
+  </div>
+  <div class="buttons">
+    <santa-button color="white" @click=${this._onForward}>arrow_forward</santa-button>
+    <santa-button color="white" @click=${this._onBack}>arrow_back</santa-button>
+  </div>
 </main>
     `;
   }

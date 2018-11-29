@@ -43,12 +43,55 @@ main {
   }
 }
 
+.scroller {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+
+/*
+  &::before, &::after {
+    content: '';
+    background: linear-gradient(to right, white, transparent);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    display: block;
+    z-index: 100;
+  }
+  &::after {
+    background: linear-gradient(to left, white, transparent);
+    right: 0px;
+  }
+*/
+
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar {
+    display: none;  // Safari and Chrome
+  }
+
+  .inner {
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex-grow: 1;
+    position: relative;
+  }
+}
+.buttons {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 8px;
+}
+
 .previews {
+  height: 100%;
   display: flex;
   flex-flow: row;
   align-items: stretch;
-  overflow-y: hidden;
-  overflow-x: auto;
 
   .item {
     $border: 2px;
