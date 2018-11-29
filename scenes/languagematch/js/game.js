@@ -3,6 +3,7 @@ goog.provide('app.Game');
 goog.require('app.Constants');
 goog.require('Card');
 goog.require('app.shared.LevelUp');
+goog.require('app.shared.utils');
 
 /**
  * Runs the language matching card game.
@@ -219,9 +220,7 @@ app.Game = class Game {
 
     // Start ending the level
     this.levelUp.show(this.level + 1);
-
-    this.cards.forEach(card => card.matched = false);
-    await this.resetGuesses();
+    await this.waitForTransition(this.levelUp.bgElem)
 
     this.level++;
     // Switch to a new set of cards.
@@ -353,9 +352,11 @@ app.Game = class Game {
   /**
    * Waits for a CSS transition to finish
    * @private
-   * @param {!HTMLElement} element Element currently transitioning
+   * @param {!HTMLElement|!jQuery} element Element currently transitioning
    */
   async waitForTransition(element) {
+    element = app.shared.utils.unwrapElement(element);
+
     await new Promise(r => element.addEventListener('transitionend', r, {once: true}));
   }
 
