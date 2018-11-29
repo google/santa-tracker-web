@@ -284,7 +284,7 @@ Snowball Storm scene.
     onJumpClicked() {
       this.$.jumpBtn.hidden = true;
       this.classList.add('intro');
-
+      this.fire('sound-trigger', 'generic_button_click');
       this.$.tutorial.show = false;  // only show before game starts
 
       awaitAnimation(this.$.dropCloud).then(() => {
@@ -297,7 +297,7 @@ Snowball Storm scene.
         this.game.teardown();
         this.shadowRoot.removeChild(this.game);
       }
-
+      this.fire('sound-ambient', 'music_start_ingame');
       this.classList.remove('intro');
       this.game = document.createElement('snowball-game');
 
