@@ -180,6 +180,7 @@ Polymer({
     window.requestAnimationFrame(this._draw);
     this._tickInterval = window.setInterval(this._tick, tickInterval);
     this._onResize();
+    this.fire('sound-ambient', 'music_start_ingame');
   },
 
   onHide: function() {
@@ -311,6 +312,7 @@ Polymer({
 
     if (!this._playerCrashedAt) {
       this.fire('sound-trigger', 'elfski_crash');
+      
       this._playerCrashedAt = now;
     }
 
@@ -323,6 +325,7 @@ Polymer({
       this.fire('game-stop', {
         score: this._lastValidScore,
       });
+      this.fire('sound-trigger', 'music_ingame_gameover');
     }
   },
 
