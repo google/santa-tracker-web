@@ -2,13 +2,13 @@
 body {
   margin: 0;
   background: url(img/bg-complex.png) no-repeat center/cover;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  overflow: hidden;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background: white;
   padding: 16px;
   box-sizing: border-box;
@@ -19,14 +19,17 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  flex-grow: 1;
+  padding-bottom: 5vh;
+
+  maker-elf {
+    width: 100%;
+  }
 
   .mid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-self: stretch;  // actually limits this size
     flex-grow: 1;
+    max-width: 80vw;
   }
   
   .buttons {

@@ -122,7 +122,7 @@ export class MakerElfElement extends LitElement {
     // normally 20px, but adjust for weight (18-26)
     const limbWidth = (18 + bodyType['weight'] * 8);
     const legLength = (bodyType['height'] || 0) * 96 + 32;
-    const armLength = (bodyType['height'] || 0) * 64 + 96; 
+    const armLength = (bodyType['height'] || 0) * 64 + 96;
 
     // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
     const scale = (limbWidth / 20);
@@ -130,16 +130,23 @@ export class MakerElfElement extends LitElement {
 
     return html`
 <style>
-svg {
-  width: ${defs.width}px;
+:host {
+  height: 100%;
+  display: inline-block;
 }
 .shadow {
+  height: 100%;
   filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125));
+  display: flex;
+  justify-content: center;
+}
+svg {
+  height: 100%;
 }
 </style>
 
 <div class="shadow">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -100 320 560">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-40 -100 400 560">
   <style>
 ${defs.baseSvgStyle}
 ${this.svgStyle}
