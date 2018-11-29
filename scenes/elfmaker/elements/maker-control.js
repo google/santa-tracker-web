@@ -188,7 +188,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     // all category types except 'body' use the shared elf head to preview look, so override sizes
     // for displaying a larger elf body
     const indent = (this.category === 'body' ? 50 : 35);
-    const lowerIndent = 40;
+    const lowerIndent = (this.category === 'hats' ? 0 : 80);
     const previewWidth = (this.category === 'body' ? 260 : 210);
     const head = (this.category !== 'body') ? defs.head : '';
 
@@ -209,7 +209,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="${indent} 0 ${previewWidth - indent * 2} ${345 - lowerIndent}">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${indent} ${lowerIndent} ${previewWidth - indent * 2} ${345 - lowerIndent}">
 <g class=${this.category}>${back}</g>
 ${head}
 <g class=${this.category}>${front}</g>
