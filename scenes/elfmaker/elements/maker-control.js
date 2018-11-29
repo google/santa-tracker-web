@@ -64,6 +64,7 @@ ${renderClass('glasses', 'fill', this.glassesColor)}
 .glasses-stroke {
   fill: none; stroke: ${defs.colors[this.glassesColor][0]}; stroke-width: 5px;
 }
+${renderClass('ears', 'fill', this.earsColor)}
 ${renderClass('limb', 'stroke', this.suitColor)}
 ${renderClass('skin', 'fill', this.skinTone)}
 ${renderClass('hair', 'fill', this.hairColor)}
@@ -93,6 +94,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
           break;
         case 'glasses':
           this._previews = defs.glasses;
+          break;
+        case 'ears':
+          this._previews = defs.ears;
           break;
         case 'accessories':
           this._previews = defs.accessories;
