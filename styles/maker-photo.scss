@@ -51,7 +51,7 @@
   cursor: pointer;
   display: block;
   transition: transform 1.2s cubic-bezier(0.100, 0.755, 0.160, 1.04);
-  transform: translate(-80%) scale(0.7) rotate(0);
+  transform: translateY(0) scale(0.7) rotate(0);
 
   &[hidden] {
     animation: none;
@@ -61,6 +61,6 @@
 
   .inner {
     box-shadow: inset 0 1px 3px 2px rgba(0, 0, 0, 0.125);
-    background: #777;
+    background: url(img/bg-simple.png) center/cover no-repeat;
   }
 }
