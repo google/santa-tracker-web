@@ -1,14 +1,74 @@
+import '../../../src/elements/santa-choice.js';
+
 import {html, LitElement} from '@polymer/lit-element';
 import {repeat} from 'lit-html/directives/repeat';
 
-
-import '../../../src/elements/santa-choice.js';
-
 import * as prefix from '../../../src/lib/prefix.js';
-
-
 import * as defs from '../defs.js';
 
+export const parseQueryString = () =>
+    window.location.search.slice(1).split('&').reduce((query, part) => {
+      const [key, value] = part.split('=');
+      query[key] = value;
+      return query;
+    }, {});
+
+const categoryNames = [
+  'body',
+  'hair',
+  'glasses',
+  'eyes',
+  'ears',
+  'hats',
+  'accessories',
+];
+
+const colorProperties = {
+  'skinTone': 'skin',
+  'hairColor': 'hair',
+  'suitColor': 'color',
+  'glassesColor': 'glasses',
+  'earsColor': 'color',
+  'hatsColor': 'color',
+  'accessoriesColor': 'color'
+};
+
+const colorPropertyNames = Object.keys(colorProperties);
+
+const defaultCategoryChoices = () => categoryNames.reduce((defaultChoice, categoryName) => {
+  defaultChoice[categoryName] = 0;
+  return defaultChoice;
+}, {});
+
+const defaultPropertyColors = () =>
+    Object.keys(colorProperties).reduce((propertyColors, property) => {
+      propertyColors[property] = defs.random(colorProperties[property]);
+      return propertyColors;
+    }, {});
+
+const deserializeQueryStringState = () => {
+  const categoryChoices = defaultCategoryChoices();
+  const propertyColors = defaultPropertyColors();
+
+  if (window.location.search) {
+    const {elf} = parseQueryString();
+
+    if (elf != null) {
+      elf.split(',').forEach((choiceString, index) => {
+        if (index < categoryNames.length) {
+          const feature = categoryNames[index];
+          categoryChoices[feature] = self.parseInt(choiceString, 10);
+        } else {
+          const propertyIndex = index - categoryNames.length;
+          const property = colorPropertyNames[propertyIndex];
+          propertyColors[property] = choiceString;
+        }
+      });
+    }
+  }
+
+  return [categoryChoices, propertyColors];
+};
 
 export class MakerControlElement extends LitElement {
   static get properties() {
@@ -32,26 +92,29 @@ export class MakerControlElement extends LitElement {
     };
   }
 
+  serializeState() {
+    const serialized = [];
+
+    categoryNames.forEach((categoryName) => {
+      serialized.push(this.categoryChoice[categoryName]);
+    });
+
+    colorPropertyNames.forEach((colorPropertyName) => {
+      serialized.push(this[colorPropertyName]);
+    });
+
+    return serialized.join(',');
+  }
+
   constructor() {
     super();
     this._idPrefix = prefix.id();
 
-    this.categoryChoice = {
-      body: 0,
-      hair: 0,
-      eyes: 0,
-      ears: 0,
-      hats: 0,
-      accessories: 0,
-    };
+    const [categoryChoice, propertyColors] =
+        deserializeQueryStringState(categoryNames, colorProperties);
 
-    this.skinTone = defs.random('skin');
-    this.hairColor = defs.random('hair');
-    this.suitColor = defs.random('color');
-    this.glassesColor = defs.random('glasses');
-    this.earsColor = defs.random('color');
-    this.hatsColor = defs.random('color');
-    this.accessoriesColor = defs.random('color');
+    this.categoryChoice = categoryChoice;
+    Object.assign(this, propertyColors);
   }
 
   renderSvgStyle() {
@@ -114,9 +177,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   playChangeSound(changedProperties) {
     if (changedProperties.has('category')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
-    }else if (changedProperties.has('categoryChoice')) {
+    } else if (changedProperties.has('categoryChoice')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_item');
-    }else {
+    } else {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_color');
     }
   }
@@ -181,7 +244,8 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     const head = (this.category !== 'body') ? defs.head : '';
 
     const inner = this._renderCategory(this.category);
-    const choice = this.categoryChoice[this.category] || 0;;
+    const choice = this.categoryChoice[this.category] || 0;
+
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
       let front = '';
       let back = '';
@@ -197,12 +261,12 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="${defs.width*0.2} ${lowerIndent} ${defs.width*0.6} ${345 - lowerIndent}">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${defs.width * 0.2} ${lowerIndent} ${defs.width * 0.6} ${345 - lowerIndent}">
 <g transform="translate(55)">
   <g class=${this.category}>${back}</g>
   ${head}
   <g class=${this.category}>${front}</g>
-  </g>
+</g>
 </svg>
   </div>
 </label>

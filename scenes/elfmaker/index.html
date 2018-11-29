@@ -74,6 +74,7 @@ control.addEventListener('change', (ev) => {
 share.addEventListener('click', (ev) => {
   elf.draw().then((result) => {
     console.info('got image', result);
+    api.data(control.serializeState());
     api.gameover({image: result});
   });
   window.santaApp.fire('sound-trigger', 'generic_button_click');
