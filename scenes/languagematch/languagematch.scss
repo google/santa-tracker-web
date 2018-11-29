@@ -1,3 +1,10 @@
+$name: 'module-languagematch';
+$gameover-bg: #8fd7f7;
+$rotate-bg: $gameover-bg;
+
+@import "../_shared/sass/rotate";
+@import "../_shared/sass/levelup";
+
 #module-languagematch {
     top: 0;
     bottom: 0;

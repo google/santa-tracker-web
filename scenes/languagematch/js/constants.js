@@ -1,4 +1,6 @@
 goog.provide('app.Constants');
+// Required to make the scoreboard work. But doesn't actually provide anything.
+goog.provide('Constants');
 
 /**
  * Scene constants

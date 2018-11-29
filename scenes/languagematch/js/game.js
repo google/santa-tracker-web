@@ -2,6 +2,7 @@ goog.provide('app.Game');
 
 goog.require('app.Constants');
 goog.require('Card');
+goog.require('app.shared.LevelUp');
 
 /**
  * Runs the language matching card game.
@@ -16,6 +17,7 @@ app.Game = class Game {
     console.info(`Language game starting`);
 
     this.root = elem.getRootNode();
+    this.levelUp = new LevelUp(this, this.root.querySelector('.levelup'), this.root.querySelector('.levelup--number'));
 
     // Level information
     /** @private {!Array<!Card>} */
@@ -214,6 +216,10 @@ app.Game = class Game {
 
     // Pause for a bit so someone has time to process
     await this.waitForSeconds(0.5);
+
+    // Start ending the level
+    this.levelUp.show(this.level + 1);
+
     this.cards.forEach(card => card.matched = false);
     await this.resetGuesses();
 
