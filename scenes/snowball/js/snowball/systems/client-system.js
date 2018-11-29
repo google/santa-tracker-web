@@ -81,6 +81,7 @@ export class ClientSystem {
         window.santaApp.fire('game-stop', {
           score: this.lastValidScore,
         });
+        window.santaApp.fire('sound-ambient', 'music_ingame_gameover');
         this.announcedDeath = true;
       }
       return;

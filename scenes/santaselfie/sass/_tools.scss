@@ -3,21 +3,23 @@
     bottom: 0;
     position: absolute;
     right: 0;
+    
   }
 
   .Tools--scrollable {
-    background-color: #B444BB;
+    background-image: url(img/tray_lg.svg);
     display: flex;
     flex-wrap: wrap;
+    height: 580px;
     justify-content: flex-end;
   }
 
   .Tool-container {
-    border: 1px solid #AD35B6;
     box-sizing:border-box;
     cursor: pointer;
     display: none;
     height: 48px;
+    left: -15px;
     position: relative;
     width: 48px;
   }
@@ -130,10 +132,19 @@
     background-image: url(img/tools/decorations/holly.svg);
   }
 
+  .Tool-ornament {
+    background-image: url(img/tray_ornament_lg.svg);
+  }
+
+  .Tool-ornament {
+    height: 40px;
+    left: -3px;
+  }
+
   .Tool-clipper {
     &.Tool--selected {
-      width: 80em;
       height: 172em;
+      width: 80em;
     }
   }
 
@@ -234,11 +245,11 @@
   ##{$name} {
     .Tools {
       border-radius: 0 0 5px 5px;
-      box-shadow: 1.53px 1.53px 3px rgba(0, 0, 0, 0.16);
       height: 2 * 156px + 3 * 78px;
       left: 20px;
-      top: 0;
-      width: 208px;
+      top: 50%;
+      margin-top: -290px;
+      width: 232.3px;
     }
 
     /**
@@ -266,8 +277,9 @@
       width: 104px;
 
       &--small {
-        width: 52px;
         height: 78px;
+        top: -15px;
+        width: 52px;
       }
     }
 
@@ -291,6 +303,7 @@
 
     .Tool-hairgrow {
       background-size: 85px 98px;
+
     }
 
     .Tool-hairclean {
@@ -333,10 +346,12 @@
 
     .Tool-shadow--clipper {
       background-size: 46px 98px;
+      top: 30px;
     }
 
     .Tool-shadow--hairgrow {
       background-size: 84px 97px;
+      top: 30px;
     }
 
     .Tool-shadow--hairclean {
@@ -354,6 +369,7 @@
     .Tool-shadow--snowman {
       background-size: 32px 53px;
       border-radius: 0 0 0 5px;
+      margin-bottom: 20px;
     }
 
     .Tool-shadow--bauble {

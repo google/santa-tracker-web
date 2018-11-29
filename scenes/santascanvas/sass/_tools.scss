@@ -9,12 +9,12 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
 
   .Tools--primary {
     background-color: #B457C1;
-    bottom: 0;
-    box-shadow: 3px 0 3px rgba(0, 0, 0, .25);
+    bottom: 60px;
     display: flex;
     flex-direction: column;
-    left: 0;
-    top: 0;
+    left: 10px;
+    min-height: 460px;
+    top: 140px;
     transition: transform .3s;
     width: 85px;
     z-index: 2;
@@ -37,21 +37,23 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
         height: 15px;
         position: absolute;
         top: 100%;
+
         width: 100%;
         z-index: 1;
       }
     }
 
     @media (max-width: $mobile-width) {
+      bottom: 0;
       flex-direction: row;
       height: 75px;
+      left: 0;
+      min-height: auto;
       padding-left: 95px;
+      position: fixed;
       right: 0;
       top: auto;
       width: auto;
-
-      position: fixed;
-      bottom: 0;
 
       .Tools-mobile-settings {
         display: block;
@@ -125,7 +127,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     bottom: 0;
     box-shadow: 0 -2px 6px rgba(0, 0, 0, .07);
     height: 140px;
-    left: 85px;
+    left: 0;
     position: fixed;
     right: 0;
     transform: translateY(100%);
@@ -230,7 +232,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     width: 85px;
 
     .Tools-desktop {
-      margin-top: 20px;
+      margin-top: 150px;
     }
 
     .Tools-mobile {
@@ -315,7 +317,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 90px;
+    // margin-bottom: 90px;
     max-height: 750px;
     // overflow-x: hidden;
     // overflow-y: auto;
@@ -353,7 +355,7 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     bottom: 0;
     display: flex;
     height: 100%;
-    left: 0;
+    left: 100px;
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -376,6 +378,8 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
     }
 
     @media (max-width: $mobile-width) {
+      left: 0;
+
       .Tools-settings {
         display: none;
       }
@@ -567,17 +571,19 @@ $category-names: "drawing", "roller", "stamp", "spray", "shapes", "scene", "stic
       display: block;
       left: 50%;
       opacity: 0;
-      padding-top: 80%;
+      padding-top: 75%;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity .25s;
-      width: 80%;
+      width: 75%;
     }
 
     .Category-inner {
       height: 65%;
       left: 50%;
+      min-height: 40px;
+      min-width: 40px;
       position: absolute;
       top: 50%;
       transform: translate3d(-50%, -50%, 0);

@@ -2,35 +2,40 @@
   .player {
     background-image: url(img/player.png);
     background-repeat: no-repeat;
-    height: 149px;
+    height: 216px;
     left: 50%;
-    margin-left: -58px;
-    margin-top: -70px;
-    transform-origin: center 47%;
+    margin-left: -43px;
+    margin-top: -104px;
+    transform-origin: center 48%;
     position: absolute;
     top: 75%;
-    width: 116px;
+    width: 86px;
+  }
+
+  .player--up {
+    background-position: -100px 0px;
   }
 
   .player--hit {
     background-image: url(img/player-hit.svg);
-    height: 236px;
-    margin-left: -111px;
-    margin-top: -150px;
-    padding-top: 90px;
-    width: 223px;
+    height: 215px;
+    margin-left: -94px;
+    margin-top: -111px;
+    padding-left: 4px;
+    padding-top: 8px;
+    width: 180px;
   }
 
   .player-overlay {
     animation: #{$name}-playerHit 300ms linear infinite alternate;
     background-image: url(img/player-overlay.svg);
     display: none;
-    height: 175px;
-    left: 21px;
+    height: 215px;
+    left: 0;
     position: absolute;
     opacity: 0.8;
-    top: 63px;
-    width: 186px;
+    top: 0;
+    width: 180px;
   }
 
   .player--hit .player-overlay {
@@ -39,7 +44,7 @@
 
   .fire {
     height: 98px;
-    margin: 102px auto 0;
+    margin: 131px auto 0;
     position: relative;
     transition: all 0.20s;
     transform-origin: center top;
@@ -93,14 +98,14 @@
   }
 
   .sparkles {
-    left: 40px;
+    left: 28px;
     position: absolute;
     top: 140px;
   }
 
   .player--hit .sparkles {
-    left: 95px;
-    top: 230px;
+    left: 79px;
+    top: 147px;
   }
 
   .sparkle:nth-child(1) {

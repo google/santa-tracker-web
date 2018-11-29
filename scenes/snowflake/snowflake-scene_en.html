@@ -142,7 +142,6 @@ Postcard scene.
 
     onShow: function() {
       var module = this.$['module-snowflake'];
-      this.fire('sound-ambient', 'sm_start');
       this.fire('sound-ambient', 'music_start_scene');
       this.scene = new scenes.snowflake.Scene(module, this._strings);
 
@@ -241,7 +240,6 @@ Postcard scene.
     onHide: function() {
       this.scene.dispose();
       this.scene = null;
-      this.fire('sound-ambient', 'sm_end');
     },
 
     receiveMessage: function(event) {

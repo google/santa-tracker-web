@@ -111,6 +111,7 @@ app.Player.prototype = {
       app.PlayerSound.walk(),
       new GroupEffect([
         new KeyframeEffect(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
+        new KeyframeEffect(this.jumpEl, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
         this.walkAnimation_(),
         new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(oldX, oldY)},
@@ -151,6 +152,9 @@ app.Player.prototype = {
         app.PlayerSound.jump(),
         new KeyframeEffect(this.spriteEl, [
           {opacity: 1}, {opacity: 0}
+        ], {fill: 'forwards'}),
+        new KeyframeEffect(this.jumpEl, [
+          {opacity: 0}, {opacity: 1}
         ], {fill: 'forwards'}),
         this.jumpAnimation_(),
         new KeyframeEffect(this.el, [
@@ -231,7 +235,7 @@ app.Player.prototype = {
     // Animates the sprite as if the elf is walking. Doesn't move the elf.
     return new KeyframeEffect(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -52.8em)'}
+      {transform: 'translateZ(0) translate(0, -55.8em)'}
     ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)'});
   },
 
@@ -239,7 +243,7 @@ app.Player.prototype = {
     // Animates the sprite as if the elf is jumping. Doesn't move the elf.
     return new KeyframeEffect(this.jumpEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -130.4em)'}
+      {transform: 'translateZ(0) translate(0, -133.56em)'}
     ], {duration: app.Player.JUMP_DURATION, easing: 'steps(15, end)'});
   },
 

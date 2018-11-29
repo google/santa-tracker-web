@@ -8,32 +8,24 @@
   }
 
   .Button {
-    @include ButtonColor(#F98C24, #ED6C1F);
+    @include ButtonColor(orangered);
 
-    font-size: 28em;
-    height: (70 / 28) +em;
-    line-height: (70 / 28) +em;
-    margin-right: (10 / 28) +em;
-    min-height: 0;
-    width: (70 / 28) +em;
+    // force different media query in this game
+    @media (max-width: $button-bp-override) {
+      background-size: 20px;
+      font-size: 16px;
+      line-height: 32px;
+      min-height: 32px;
+      padding: 0 18px;
 
-    @media (max-width: 1024px) {
-      height: (85 / 28) +em;
-      line-height: (85 / 28) +em;
-      width: (85 / 28) +em;
+      &--round {
+        height: 32px;
+        width: 32px;
+      }
     }
   }
 
-  .Button-random {
-    background-image: url(img/icons/random.svg);
-    background-position: 60% 75%;
-    background-repeat: no-repeat;
-    background-size: 64%;
-  }
-
   .Button-share {
-    padding: 0 (10 / 28) +em;
-    width: auto;
     visibility: var(--link-visibility);
   }
 }

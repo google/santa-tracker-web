@@ -1,0 +1,27 @@
+##{$name} {
+
+  .tray {
+    background-repeat: no-repeat;
+    height: 50px;
+    margin-bottom: -40px;
+    position: relative;
+
+    &--hidden {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .tray-top {
+    background-image: url(img/tray_lg_top.svg);
+    top: -25px;
+  }
+
+  .tray-bottom {
+    background-image: url(img/tray_lg_bottom.svg);
+    top: -15px;
+  }
+}

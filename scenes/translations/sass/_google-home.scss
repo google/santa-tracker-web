@@ -1,0 +1,72 @@
+##{$name} {
+  .google-home {
+    left: 50%;
+    margin-left: 200px;
+    position: absolute;
+    top: -660px;
+    z-index: 1;
+
+    #google-home-blue,
+    #google-home-green,
+    #google-home-red,
+    #google-home-yellow {
+      opacity: .5;
+    }
+
+    .google-home-soundwaves {
+      bottom: 185px;
+      opacity: 0;
+      position: absolute;
+      right: 17px;
+      z-index: -1;
+    }
+  }
+}
+
+// enable some animations for tablet upwards
+@media (min-width: 400px) {
+  ##{$name} {
+    &.playing-phrase {
+      .google-home {
+        #google-home-red,
+        #google-home-green {
+          animation-name: #{$name}-google-home-blink;
+          animation-iteration-count: infinite;
+          animation-duration: .6s;
+          animation-timing-function: step-start;
+        }
+
+        #google-home-blue,
+        #google-home-yellow {
+          animation-name: #{$name}-google-home-blink-alt;
+          animation-iteration-count: infinite;
+          animation-duration: .6s;
+          animation-timing-function: step-start;
+        }
+
+        .google-home-soundwaves {
+          animation-name: #{$name}-google-home-soundwaves;
+          animation-iteration-count: infinite;
+          animation-duration: 2s;
+          animation-timing-function: linear;
+        }
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-google-home-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+@keyframes #{$name}-google-home-blink-alt {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+@keyframes #{$name}-google-home-soundwaves {
+  0%   { transform: scale(0.7) translate(0%, 150%); opacity: 1; }
+  60% { transform: scale(1) translate(0%, 0%) }
+  100% { transform: scale(2) translate(0%, -40%); opacity: 0; }
+}

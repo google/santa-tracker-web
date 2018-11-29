@@ -279,7 +279,7 @@ export class GameThree {
 
       if (pickups.length) {
         pickups.forEach((pickup) => pickup.pickup());
-        window.santaApp.fire('sound-trigger', 'pb_level_up');
+        window.santaApp.fire('sound-trigger', 'generic_score');
         this._presentsFound += pickups.length;
       }
     }

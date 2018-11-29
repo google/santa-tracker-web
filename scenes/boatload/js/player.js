@@ -27,6 +27,7 @@ goog.require('Constants');
 Player = function(game, elem) {
   this.game = game;
   this.elem = elem;
+  this.distance = 0;
   this.railsElem = this.game.elem.find('.player-rails');
   this.elfElem = this.elem.find('.player-elf');
   this.leftRopeElem = this.elem.find('.player-rope--left');
@@ -205,9 +206,9 @@ Player.prototype.dropPresent = function() {
  * @param {number} status The animation progress (between 0 and 1).
  */
 Player.prototype.animate = function(status) {
-  var left = -60 * status;
-  var scale = .48 + .2 * status;
-  var rotate = 14 + 36 * status;
+  let left = -this.distance * 20 * status;
+  let scale = 0.07 * status * this.distance + 0.48;
+  let rotate = 12 * this.distance * status + 14;
   this.elfElem.css('transform', 'translateX(' + left + 'px) translateZ(0)');
   this.present.addX = left;
   this.present.draw();

@@ -142,8 +142,6 @@ app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
     this.audio = new Audio(url);
     this.audio.play();
   }
-
-  window.santaApp.fire('sound-trigger', 'translations_gramophone');
 };
 
 /**

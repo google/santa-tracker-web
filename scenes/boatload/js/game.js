@@ -315,6 +315,11 @@ Game.prototype.updateLevel_ = function(delta) {
  * @param {Present} present The present to drop.
  */
 Game.prototype.dropPresent = function(present) {
+  if (this.player.distance !== 0) {
+    present.velocity = this.player.distance * 350;
+  } else {
+    present.velocity = Constants.PRESENT_INITIAL_VELOCITY;
+  }
   this.entities.push(present);
   window.santaApp.fire('sound-trigger', 'bl_shoot');
 };

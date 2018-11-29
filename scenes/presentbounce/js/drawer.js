@@ -38,6 +38,7 @@ app.Drawer = function(elem, game) {
 
   this.$drawers = {};
   this.$restart = this.$elem.find( '.' + this.CLASS_RESTART );
+  this.$tray = this.$elem.find( '.tray' );
   this.setDrawers();
 
   this.$drawers[Constants.USER_OBJECT_TYPE_BELT]
@@ -63,6 +64,7 @@ app.Drawer.prototype.CLASS_HOLDER_VISIBLE = 'drawer__holder--visible';
 app.Drawer.prototype.CLASS_COUNT_VISIBLE = 'drawer__counter--visible';
 app.Drawer.prototype.CLASS_OBJECT_VISIBLE = 'object--visible';
 app.Drawer.prototype.CLASS_ANIMATE = 'animate';
+app.Drawer.prototype.CLASS_TRAY_HIDDEN = 'tray--hidden';
 
 /**
  * Sets the state to be paused.
@@ -211,6 +213,7 @@ app.Drawer.prototype.onDropSuccess = function($el) {
   var drawerType = this.getDrawerTypeFromEl_($el);
   var drawer = this.$drawers[drawerType];
   $el.remove();
+  this.hideTray();
   // Note: no need to decrement the counter here
   // as that already happens onDrag for instant feedback
   // so, just check if we reached zero
@@ -225,6 +228,7 @@ app.Drawer.prototype.onDropSuccess = function($el) {
  * @param  {jQuery} $el The drawer element
  */
 app.Drawer.prototype.showDrawer = function(drawer) {
+  this.showTray();
   var $drawer = drawer.$node;
   $drawer.addClass( this.CLASS_HOLDER_VISIBLE );
   setTimeout(function() {
@@ -241,6 +245,23 @@ app.Drawer.prototype.hideDrawer = function(drawer) {
   var $drawer = drawer.$node;
   $drawer.removeClass( this.CLASS_HOLDER_VISIBLE );
   this.hideCounter( this.getCounterEl_($drawer) );
+};
+
+/**
+ * Shows tool tray.
+ */
+app.Drawer.prototype.showTray = function() {
+  this.$tray.removeClass( this.CLASS_TRAY_HIDDEN );
+};
+
+/**
+ * Hides the tray when no belt or spring left.
+ */
+app.Drawer.prototype.hideTray = function(drawer) {
+  if ( this.$drawers.USER_OBJECT_TYPE_BELT.count == 0 &&
+       this.$drawers.USER_OBJECT_TYPE_SPRING.count == 0 ) {
+    this.$tray.addClass( this.CLASS_TRAY_HIDDEN );
+  }
 };
 
 /**
