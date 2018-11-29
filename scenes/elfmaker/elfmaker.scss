@@ -12,7 +12,6 @@ footer {
   background: white;
   padding: 16px;
   box-sizing: border-box;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
 }
 
 main {
@@ -21,6 +20,7 @@ main {
   justify-content: center;
   flex-grow: 1;
   padding-bottom: 5vh;
+  box-shadow: inset 0 -12px 12px -12px rgba(0, 0, 0, 0.25);
 
   maker-elf {
     width: 100%;
@@ -46,5 +46,23 @@ main {
       font-size: 4em;
       display: inline-block;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+  main {
+    min-height: 60vh;
+
+    .buttons {
+      // TODO(samthor): restore
+      display: none;
+    }
+  }
+  footer {
+    padding: 0;
   }
 }
