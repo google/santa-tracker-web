@@ -26,14 +26,7 @@
   <maker-control category="body" id="control"></maker-control>
 </footer>
 
-<div class="picture">
-  <div class="flash" id="flash"></div>
-  <div class="anim">
-    <label class="outline" hidden id="picture-outline">
-      <div class="inner" id="picture-inner"></div>
-    </label>
-  </div>
-</div>
+<maker-photo id="photo"></maker-photo>
 
 <script type="module">
 
@@ -41,6 +34,7 @@ import api from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
 import './elements/maker-elf.js';
+import './elements/maker-photo.js';
 import '../../src/elements/santa-button.js';
 import * as defs from './defs.js';
 
@@ -85,43 +79,8 @@ share.addEventListener('click', (ev) => {
   window.santaApp.fire('sound-trigger', 'generic_button_click');
 });
 
-const outline = document.getElementById('picture-outline');
-outline.addEventListener('click', (ev) => {
-  outline.hidden = true;
-  window.santaApp.fire('sound-trigger', 'elfmaker_photo_close');
-});
-
-let activeResolve;
-flash.addEventListener('transitionend', (ev) => {
-  if (flash.classList.contains('fill')) {
-    flash.classList.remove('fill');
-    activeResolve();
-  }
-});
-
 camera.addEventListener('click', (ev) => {
-  const p = new Promise((resolve) => {
-    activeResolve = resolve;
-    flash.classList.add('fill');
-  });
-
-  elf.draw().then(async (result) => {
-    await p;
-
-    const image = new Image();
-    image.width = defs.width;
-    image.height = defs.height;
-    image.src = result;
-
-    outline.hidden = false;
-
-    const inner = document.getElementById('picture-inner');
-    inner.textContent = '';
-    inner.appendChild(image);
-  });
-
-  window.santaApp.fire('sound-trigger', 'elfmaker_photo');
-
+  photo.capture(elf.draw());
 });
 
 api.ready(async () => {
