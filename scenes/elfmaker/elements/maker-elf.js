@@ -138,19 +138,19 @@ svg {
 <div class="shadow">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 -100 320 560">
   <style>
-    ${defs.baseSvgStyle}
-    ${this.svgStyle}
-    .blink {
-      animation: elves-blink 5.234s infinite alternate;
-    }
-    @keyframes elves-blink {
-      0%   { transform: scaleY(1); }
-      98%  { transform: scaleY(1); }
-      100% { transform: scaleY(0); }
-    }
-    .limb.arm {
-      stroke-width: ${limbWidth}px;
-    }
+${defs.baseSvgStyle}
+${this.svgStyle}
+.blink {
+  animation: elves-blink 5.234s infinite alternate;
+}
+@keyframes elves-blink {
+  0%   { transform: scaleY(1); }
+  98%  { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+.limb.arm {
+  stroke-width: ${limbWidth}px;
+}
   </style>
 
   <defs>
