@@ -10,6 +10,7 @@ main {
 
 .scroller {
   flex-grow: 1;
+  width: 100%;  // forces flex-grow to work
   overflow: hidden;
   position: relative;
 
@@ -37,11 +38,13 @@ main {
   }
 
   .inner {
+    width: 100%;
     height: 100%;
     overflow-y: hidden;
     overflow-x: auto;
     flex-grow: 1;
     position: relative;
+    display: flex;
   }
 }
 .buttons {
@@ -49,15 +52,14 @@ main {
   flex-flow: column;
   align-items: center;
   justify-content: space-around;
-  margin-left: 8px;
+  margin: 0 8px;
 }
 
 .previews {
-  height: 100%;
   display: flex;
   flex-flow: row;
   align-items: stretch;
-  margin: -2px 2px;
+  margin: 2px;
 
   .item {
     $border: 2px;
@@ -98,43 +100,11 @@ main {
   }
 }
 
-maker-chooser[mode="category"] {
-  background: #eee;
+maker-chooser {
+  padding: 8px;
 }
-
-@media (min-width: 768px) {
-  maker-chooser {
-    height: 144px;
-    border-radius: 12px;
-  }
-
-  maker-chooser[mode="category"] {
-    // fits 4 icons across
-    max-width: 288px;
-    min-width: 288px;
-    width: 288px;
-  }
-
-  maker-chooser[mode="color"] {
-    // fits 5 icons across
-    max-width: 360px;
-    min-width: 360px;
-    width: 360px;
-  }
-
-  maker-chooser[mode="skin"] {
-    // fits 3 icons across
-    max-width: 216px;
-    min-width: 216px;
-    width: 216px;
-  }
-
-  maker-chooser[mode="hair"] {
-    // fits 4 icons across
-    max-width: 288px;
-    min-width: 288px;
-    width: 288px;
-  }
+maker-chooser[mode="category"] {
+  background: #f0f0f0;
 }
 
 @media (max-width: (768px - 1px)) {
@@ -143,11 +113,11 @@ maker-chooser[mode="category"] {
   }
   maker-chooser {
     overflow-x: scroll;
-    padding: 8px;
+    padding: 4px;
   }
   maker-chooser[mode="category"] {
     position: sticky;
-    top: calc(50vh - 88px);
+    top: calc(50vh - 71px);  // this is the height of ourself
     z-index: 1000;  // above main
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   }
@@ -155,7 +125,6 @@ maker-chooser[mode="category"] {
   .previews {
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2px;
 
     .item {
       height: 96px;

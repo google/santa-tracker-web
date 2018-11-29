@@ -3,10 +3,18 @@
 }
 
 main {
-  $size: 64px;
-  $border: 4px;
+  $margin: 4px;
+  $size: 55px;
+  $border: 3px;
 
   display: flex;
+
+  .row {
+    display: flex;
+  }
+
+  display: flex;
+  margin: $margin / 2;
 
   @media (min-width: 768px) {
     flex-wrap: wrap;
@@ -25,6 +33,7 @@ main {
     border: 0;
     position: relative;
     cursor: pointer;
+    margin: $margin / 2;
 
     input {
       position: absolute;
@@ -33,7 +42,6 @@ main {
 
     .opt {
       border-radius: 1000px;
-      margin: 4px;
       width: $size;
       height: $size;
       position: relative;

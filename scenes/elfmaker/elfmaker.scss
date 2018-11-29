@@ -10,9 +10,9 @@ body {
 
 footer {
   background: white;
-  padding: 16px;
   box-sizing: border-box;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
 }
 
 main {
@@ -24,7 +24,6 @@ main {
   padding-bottom: 5vh;
   box-sizing: border-box;
   z-index: 100;
-  transform: translateZ(-1000px);
 
   maker-elf {
     width: 100%;
@@ -71,6 +70,7 @@ main {
   footer {
     margin-top: 50vh;
     padding: 0;
+    z-index: auto;
 
     maker-control {
       min-height: 50vh;
