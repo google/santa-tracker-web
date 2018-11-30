@@ -4,11 +4,7 @@ $indent-left: 24px;  // indent in the sidebar
   border-bottom: 4px solid #eee;
 }
 .links {
-  padding: 12px 12px 4px $indent-left;
-
-  &.external {
-    visibility: var(--link-visibility);
-  }
+  padding: 4px 12px 4px $indent-left;
 
   h2 {
     color: #7bc7e5;
@@ -26,8 +22,6 @@ $indent-left: 24px;  // indent in the sidebar
   select {
     vertical-align: middle;
   }
-  padding-bottom: 8px;
-  visibility: var(--link-visibility);  // this is sort of an external link
 }
 
 a {
@@ -85,7 +79,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-top: 6px;
+  padding-top: 4px;
   line-height: 1.2em;
   font-size: 1.2em;
   font-weight: 500;
