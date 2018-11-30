@@ -31,8 +31,8 @@
 
   .gearBig {
     position: absolute;
-    width: 238px;
-    height: 238px;
+    width: 242px;
+    height: 242px;
     background: url('img/wheelbig.svg');
   }
 
@@ -54,25 +54,25 @@
 
   .gearSmall {
     position: absolute;
-    width: 154px;
-    height: 154px;
+    width: 158px;
+    height: 158px;
     background: url('img/wheelsmall.svg');
 
   }
 
   .gearSmall--left {
     top: 50%;
-    margin-top: -120px;
+    margin-top: -128px;
     right: 50%;
-    margin-right: 370px;
+    margin-right: 364px;
     transform: translateZ(0) rotate(21deg);
   }
 
   .gearSmall--right {
     top: 50%;
-    margin-top: -210px;
+    margin-top: -203px;
     left: 50%;
-    margin-left: 370px;
+    margin-left: 362px;
     transform: translateZ(0) rotate(20deg);
   }
 }
