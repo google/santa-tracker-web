@@ -122,14 +122,6 @@ export class MakerElfElement extends LitElement {
     svg.setAttribute('width', canvasWidth);
     svg.setAttribute('height', canvasHeight);
 
-    const clip = svg.querySelector('[clip-path]');
-    console.info('clip was', clip.outerHTML);
-//    clip.setAttribute('clip-path', );
-    clip.removeAttribute('clip-path');
-    clip.style.clipPath = `url(#${this._idPrefix}body-clip)`;
-    console.info('clip', clip.outerHTML);
-    const outer = svg.outerHTML;
-
     // load the elf image with the base64 version of the SVG
     const elf = new Image();
     elf.src = 'data:image/svg+xml;base64,' + window.btoa(svg.outerHTML);
@@ -137,9 +129,6 @@ export class MakerElfElement extends LitElement {
       elf.onload = resolve;
       elf.onerror = reject;
     });
-    elf.style.zIndex = 100000;
-    elf.style.position = 'absolute';
-    document.body.appendChild(elf);
     
     ctx.drawImage(elf, 0, 0);
     return canvas.toDataURL();
@@ -199,6 +188,9 @@ ${svgStyle}
 .limb.arm {
   stroke-width: ${limbWidth}px;
 }
+.body-clip {
+  clip-path: url(#${this._idPrefix}body-clip);
+}
   </style>
   <defs>
     <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${defs.body}</clipPath>
@@ -227,7 +219,7 @@ ${svgStyle}
     </g>
 
     <!-- body and belt -->
-    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" clip-path="url('#${this._idPrefix}body-clip')">
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" class="body-clip">
       <rect class="suit" x="-100" y="200" width="200" height="200"/>
       <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
       <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
