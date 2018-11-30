@@ -63,7 +63,7 @@ export class SantaChoiceElement extends HTMLElement {
       if (delta > 16) {
         preventNextClick = window.setTimeout(() => {
           preventNextClick = 0;
-        }, 0);  
+        }, 0);
       }
     };
 
