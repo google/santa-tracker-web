@@ -22,6 +22,11 @@ function interpolateAngle(start, c1, c2, end) {
 }
 
 
+function interpolateNumber(start, end, t) {
+  return start + (end - start) * t;
+}
+
+
 function scaleAt(scaleX, scaleY, x, y) {
   return `matrix(${scaleX}, 0, 0, ${scaleY}, ${x - scaleX * x}, ${y - scaleY * y})`;
 }
@@ -43,7 +48,7 @@ export class MakerElfElement extends LitElement {
 
     this._danceDuration = 3000;
     this._moveDuration = this._danceDuration / 6;
-    this._danceMoves = [[30, 140], [140, 30], [80, 180], [180, 80], [20, 20], [60, 60]];
+    this._danceMoves = [[30, 140], [140, 30], [80, 180], [180, 80], [20, 20], [120, 120]];
 
     // Edge fails to ever render if it has NaN/invalid data, so set all defaults here.
     this._offset = 0;
@@ -155,7 +160,17 @@ export class MakerElfElement extends LitElement {
     const moveIndex = Math.min(
         Math.max(Math.floor(danceTime / this._moveDuration), 0), this._danceMoves.length - 1);
 
-    return this._danceMoves[moveIndex];
+    const moveTime = danceTime - (moveIndex * this._moveDuration);
+    const moveInterval = moveTime / this._moveDuration;
+
+    const move = this._danceMoves[moveIndex];
+
+    const previousMove = this._danceMoves[moveIndex - 1] || [0, 0];
+
+    return [
+      interpolateNumber(previousMove[0], move[0], moveInterval),
+      interpolateNumber(previousMove[1], move[1], moveInterval)
+    ];
   }
 
   /**
