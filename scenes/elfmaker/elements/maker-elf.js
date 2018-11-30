@@ -92,7 +92,7 @@ export class MakerElfElement extends LitElement {
     const ctx = canvas.getContext('2d');
 
     const bg = new Image();
-    bg.src = defs.backgrounds[this.categoryChoice['backgrounds']];
+    bg.src = defs.categoryChoice('backgrounds', this.categoryChoice['backgrounds']);
     await new Promise((resolve, reject) => {
       bg.onload = resolve;
       bg.onerror = reject;
@@ -153,7 +153,7 @@ export class MakerElfElement extends LitElement {
   height: 100%;
   display: flex;
   justify-content: center;
-  will-change: transform;  // nb. gives about 3x speedup
+  will-change: transform;  /* nb. gives about 3x speedup */
   filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125));
 }
 svg {
