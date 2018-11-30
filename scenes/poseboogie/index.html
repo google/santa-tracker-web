@@ -14,8 +14,26 @@
 <div id="splash">
   <div id="mid">
     <canvas id="scene"></canvas>
+
     <div id="bad-pose">
       <img src="img/svg/rudolph-dancing2_2.svg" id="reindeer" />
+    </div>
+
+    <div id="controls">
+      <button class="hidden-trigger" id="skeleton-smaller"></button>
+      <label class="circle" for="skeleton-smaller">
+        <img src="img/svg/elf_silhouette.svg" alt="Resize for smaller person" />
+      </label>
+
+      <input class="hidden-trigger" id="mirror" type="checkbox" />
+      <label class="circle" for="mirror">
+        <img src="img/svg/mirror.svg" alt="Flip camera horizontally" />
+      </label>
+
+      <button class="hidden-trigger" id="skeleton-larger"></button>
+      <label class="circle" for="skeleton-larger">
+        <img src="img/svg/elf_silhouette.svg" alt="Resize for larger person" />
+      </label>
     </div>
 
     <!-- debug info and video feed -->
