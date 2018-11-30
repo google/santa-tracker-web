@@ -38,7 +38,6 @@ export class MakerElfElement extends LitElement {
     super();
     this._offset = 0;
     this._idPrefix = prefix.id();
-    this.backgroundSrc = 'img/bg-complex.png';
   }
 
   _buildArm(angle=0, shrug=1, length=120) {
@@ -93,7 +92,7 @@ export class MakerElfElement extends LitElement {
     const ctx = canvas.getContext('2d');
 
     const bg = new Image();
-    bg.src = this.backgroundSrc;
+    bg.src = defs.backgrounds[this.categoryChoice['backgrounds']];
     await new Promise((resolve, reject) => {
       bg.onload = resolve;
       bg.onerror = reject;
