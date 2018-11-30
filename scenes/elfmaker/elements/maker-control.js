@@ -180,35 +180,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     }
 
     if (changedProperties.has('category')) {
-<<<<<<< HEAD
-      switch (this.category) {
-        case 'body':
-          this._previews = defs.bodyPreviews;
-          break;
-        case 'hats':
-          this._previews = defs.hats;
-          break;
-        case 'hair':
-          this._previews = defs.hair;
-          break;
-        case 'glasses':
-          this._previews = defs.glasses;
-          break;
-        case 'ears':
-          this._previews = defs.ears;
-          break;
-        case 'accessories':
-          this._previews = defs.accessories;
-          break;
-        case 'backgrounds':
-          this._previews = defs.backgrounds;
-          break;
-        default:
-          this._previews = [];
-      }
-=======
       this._previews = defs.categories[this.category] || [];
->>>>>>> add random choice, rewrite defs a bit
     }
     this.playChangeSound(changedProperties);
     return super.update(changedProperties);
