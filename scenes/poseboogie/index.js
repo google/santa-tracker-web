@@ -20,7 +20,7 @@ const appConfig = {
   imageScaleFactor: 0.5,
   outputStride: 16,
   enableJointLimits: true,
-  resizeBodyParts: false,
+  resizeBodyParts: true,
   smoothLimbs: true,
   humanSize: 1,
   quadraticElbows: true,
