@@ -211,7 +211,7 @@ Polymer({
     this._lastValidScore = 0;
 
     this._game && this._game.dispose();
-    this._game = new scenes.elfski.GameThree(this.$.gl3d, this.resolveUrl('.'))
+    this._game = new scenes.elfski.Game(this.$.gl3d, this.resolveUrl('.'))
     this._onResize();
 
     this.fire('game-score', {});
