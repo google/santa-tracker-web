@@ -266,7 +266,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
     ${this.category === 'backgrounds' ? html`
-<img src=${p}>
+<div style="background: url(${p}) center/cover; width: 100%"></div>
     ` : html`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="${defs.width * 0.2} ${lowerIndent} ${defs.width * 0.6} ${345 - lowerIndent}">
 <g transform="translate(55)">
