@@ -17,6 +17,16 @@ body {
   height: 100%;
 }
 
+#bad-pose {
+  position: absolute;
+  height: 100%;
+}
+
+#reindeer {
+  height: 50%;
+  transform: translateY(50%);
+}
+
 #elfbits {
   display: none;
 }

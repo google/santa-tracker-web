@@ -1,4 +1,5 @@
 import * as posenet from '@tensorflow-models/posenet';
+import '../../../src/polyfill/event-target.js';
 import {BODY_PARTS, OTHER} from './world.js';
 
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being
@@ -31,8 +32,10 @@ const lineStyle = {
   strokeStyle: '#32a658',
 };
 
-export class Elf {
+export class Elf extends EventTarget {
   constructor(world) {
+    super();
+    this.hasPose = false;
     this.world = world;
     const p2World = world.world;
 
@@ -405,9 +408,20 @@ export class Elf {
         net.estimateSinglePose(videoConfig.video, appConfig.imageScaleFactor,
                 appConfig.flipHorizontal, +appConfig.outputStride)
             .then((pose) => {
-              // TODO(markmcd): check the overall pose score, show help info / error state
-              this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
-              this.scaleSkeleton();
+              if (pose.score >= appConfig.minPoseConfidence) {
+                if (!this.hasPose) {
+                  this.dispatchEvent(new CustomEvent('pose-change', {detail: true}));
+                }
+                this.hasPose = true;
+                this.pose = pose.keypoints.reduce((dict, kp) => ({...dict, [kp.part]: kp}), {});
+                this.scaleSkeleton();
+              } else {
+                if (this.hasPose) {
+                  this.dispatchEvent(new CustomEvent('pose-change', {detail: false}));
+                }
+                this.hasPose = false;
+                this.pose = null;
+              }
               if (appConfig.debug) {
                 document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
               }
@@ -422,17 +436,10 @@ export class Elf {
   }
 
   updatePosition() {
-    if (!this.pose) {
+    if (!this.hasPose || !this.pose) {
       return;
     }
     // TODO(markmcd): Smooth out these position updates.
-    // TODO(markmcd): Sanity check keypoints / scores and give user feedback
-    // Some cases we could check for easily:
-    // - If head / leg / hand positions are outside of the video frame
-    // - If the hips are twisted relative to the shoulders
-    // - If parts are below low thresholds (e.g. <0.2)
-    // These cause the model to glitch out, so warn the user to get back into
-    // the frame.
 
     if (this.allGood('nose')) {
       this.head.position = this.scale(this.pose['nose'].position);
