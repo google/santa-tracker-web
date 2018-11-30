@@ -32,6 +32,7 @@ api.preload.images(
   'img/hand_cuff.png',
   'img/leftshoe.png',
   'img/rightshoe.png',
+  'img/svg/mirror.svg',
 );
 const posePromise = posenet.load(appConfig.mobileNetArchitecture);
 api.preload.wait(posePromise);
@@ -80,7 +81,7 @@ function setUpDebugControls() {
   });
   gui.add(appConfig, 'minPartConfidence', 0.0, 1.0);
   gui.add(appConfig, 'minPoseConfidence', 0.0, 1.0);
-  gui.add(appConfig, 'flipHorizontal');
+  gui.add(appConfig, 'flipHorizontal').listen();
   gui.add(appConfig, 'imageScaleFactor').min(0.2).max(1.0);
   gui.add(appConfig, 'outputStride', [8, 16, 32]);
   gui.add(appConfig, 'enableJointLimits');
@@ -95,6 +96,9 @@ function setUpDebugControls() {
  * available camera devices, and setting off the detectAndDrawPose function.
  */
 export async function bindPage() {
+  document.getElementById('mirror').addEventListener('change', (evt) =>
+    appConfig.flipHorizontal = !evt.srcElement.checked);
+
   // Load the PoseNet model weights with architecture - the preload API will have already loaded
   // the resources so this should be quick.
   const net = await posePromise;

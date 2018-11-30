@@ -61,3 +61,62 @@ body {
 #scene {
   z-index: 1;
 }
+
+// material-style controls
+$circle: #3F51B5;
+
+#controls {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  margin-bottom: 100px;
+}
+
+.hidden-trigger {
+  display: none;
+  &:checked + .circle {
+    transform: scale(0.90);
+    cursor: pointer;
+    background-color: lighten($circle, 10%);
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+  &:checked + .circle img {
+    transform: rotate(180deg);
+  }
+}
+
+.circle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  transform: rotate(0deg);
+}
+
+.circle {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  z-index: 98;
+  margin: 0 auto;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  background-color: $circle;
+  transition: 0.2s;
+  text-align: center;
+  &:active {
+    transform: scale(0.90);
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($circle, 10%);
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.3);
+  }
+}
