@@ -123,18 +123,10 @@ export const bodyTypes = [
 
 
 // TODO(samthor): generate or build preview elves.
-export const bodyPreviews = [
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-];
+const bodyPreviews = bodyTypes.map(() => '');
 
 
-export const hats = [
+const hats = [
   svg`
 <circle class="white" cx="105" cy="57.59" r="14.84"/>
 <polygon points="147.65 157.59 105 72.43 62.35 157.59 147.65 157.59"/>
@@ -220,7 +212,7 @@ export const hats = [
 ];
 
 
-export const hair = [
+const hair = [
   '',
   svg`
 <path d="M133.81,189.57H76.2A16,16,0,0,1,91.79,177.3h26.43a16,16,0,0,1,15.59,12.27Z"/>
@@ -380,7 +372,7 @@ export const hair = [
 ];
 
 
-export const glasses = [
+const glasses = [
   '',
   svg`
 <path class="glasses" d="M98.46,163a6.54,6.54,0,0,1,6.54-6.54h0a6.54,6.54,0,0,1,6.55,6.54h-3.08a3.47,3.47,0,0,0-3.47-3.47h0a3.47,3.47,0,0,0-3.47,3.47Z"/>
@@ -400,7 +392,7 @@ export const glasses = [
 ];
 
 
-export const ears = [
+const ears = [
   '',
   svg`
 <circle cx="150.74" cy="183.43" r="2.32"/>
@@ -440,7 +432,7 @@ export const ears = [
 ];
 
 
-export const accessories = [
+const accessories = [
   '',
   svg`
 <rect x="77.85" y="246.93" width="75.3" height="25.75" transform="translate(375.3 144.3) rotate(90)"/>
@@ -487,7 +479,7 @@ export const accessories = [
 ];
 
 
-export const backgrounds = [
+const backgrounds = [
   'img/backgrounds/snow.png',
   'img/backgrounds/air.png',
   'img/backgrounds/airport.png',
@@ -499,3 +491,22 @@ export const backgrounds = [
   'img/backgrounds/night.png',
   'img/backgrounds/underwater.png',
 ];
+
+
+export const categories = {
+  body: bodyPreviews,
+  ears,
+  glasses,
+  hair,
+  hats,
+  accessories,
+  backgrounds,
+};
+
+
+export function categoryChoice(categoryChoices, category) {
+  const userChoice = categoryChoices[category];
+
+  const categoryOptions = categories[category] || [];
+  return categoryOptions[userChoice] || '';
+}

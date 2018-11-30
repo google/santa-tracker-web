@@ -11,7 +11,6 @@ const categoryNames = [
   'body',
   'hair',
   'glasses',
-  'eyes',
   'ears',
   'hats',
   'accessories',
@@ -33,8 +32,21 @@ const colorProperties = {
 const colorPropertyNames = Object.keys(colorProperties);
 
 
-const defaultCategoryChoices = () => categoryNames.reduce((defaultChoice, categoryName) => {
-  defaultChoice[categoryName] = 0;
+const defaultCategoryChoices = (random=false) => categoryNames.reduce((defaultChoice, categoryName) => {
+  if (random) {
+    const length = (defs.categories[categoryName] || []).length;
+
+    // weight the first choice by +1/length (categories with fewer weight 1st higher)
+    let choice = Math.random() * length * (1 + 1 / length);
+    if (choice >= length) {
+      choice = 0;
+    } else {
+      choice = ~~choice;
+    }
+    defaultChoice[categoryName] = choice;
+  } else {
+    defaultChoice[categoryName] = 0;
+  }
   return defaultChoice;
 }, {});
 
@@ -66,6 +78,18 @@ export class MakerControlElement extends LitElement {
 
       _previews: {type: Object},
     };
+  }
+
+  /**
+   * Choose a random config, including random category choices. Note that this is only called when
+   * the user explicitly asks for a random elf, normally only colors are random.
+   */
+  chooseRandom() {
+    const categoryChoice = defaultCategoryChoices(true);
+    const propertyColors = defaultPropertyColors();
+
+    this.categoryChoice = categoryChoice;
+    Object.assign(this, propertyColors);
   }
 
   serializeState() {
@@ -124,7 +148,9 @@ export class MakerControlElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
-    this.deserializeState(null);  // sets default
+    // At ctor time, we don't yet have state to deserialize. It'll probably arrive right after,
+    // but just use defaults for now.
+    this.deserializeState(null);
   }
 
   renderSvgStyle() {
@@ -157,38 +183,16 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     }
 
     if (changedProperties.has('category')) {
-      switch (this.category) {
-        case 'body':
-          this._previews = defs.bodyPreviews;
-          break;
-        case 'hats':
-          this._previews = defs.hats;
-          break;
-        case 'hair':
-          this._previews = defs.hair;
-          break;
-        case 'glasses':
-          this._previews = defs.glasses;
-          break;
-        case 'ears':
-          this._previews = defs.ears;
-          break;
-        case 'accessories':
-          this._previews = defs.accessories;
-          break;
-        case 'backgrounds':
-          this._previews = defs.backgrounds;
-          break;
-        default:
-          this._previews = [];
-      }
+      this._previews = defs.categories[this.category] || [];
     }
     this.playChangeSound(changedProperties);
     return super.update(changedProperties);
   }
 
   playChangeSound(changedProperties) {
-    if (changedProperties.has('_idPrefix')) return; //first event, play no sound
+    if (changedProperties.has('_idPrefix')) {
+      return; // first event, play no sound
+    }
     if (changedProperties.has('category')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
     } else if (changedProperties.has('categoryChoice')) {
