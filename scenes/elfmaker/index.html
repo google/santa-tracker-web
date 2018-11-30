@@ -61,11 +61,7 @@ const dataProperties = [
 
 const control = document.getElementById('control');
 control.addEventListener('change', (ev) => {
-  const config = dataProperties.map((prop) => control[prop]).join('|');
-  const data = {
-    config: window.btoa(config),
-  }
-  api.data(data);
+  api.data({elf: control.serializeState()});
 
   elf.categoryChoice = control.categoryChoice;
   elf.svgStyle = control.svgStyle;
@@ -74,7 +70,6 @@ control.addEventListener('change', (ev) => {
 share.addEventListener('click', (ev) => {
   elf.draw().then((result) => {
     console.info('got image', result);
-    api.data(control.serializeState());
     api.gameover({image: result});
   });
   window.santaApp.fire('sound-trigger', 'generic_button_click');
@@ -84,8 +79,8 @@ camera.addEventListener('click', (ev) => {
   photo.capture(elf.draw());
 });
 
-api.ready(async () => {
-  // TODO: something
+api.ready(async (data) => {
+  control.deserializeState(data && data.elf);
   window.santaApp.fire('sound-ambient', 'music_start_scene');
 });
 

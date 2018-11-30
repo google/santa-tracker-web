@@ -6,12 +6,6 @@ import {repeat} from 'lit-html/directives/repeat';
 import * as prefix from '../../../src/lib/prefix.js';
 import * as defs from '../defs.js';
 
-export const parseQueryString = () =>
-    window.location.search.slice(1).split('&').reduce((query, part) => {
-      const [key, value] = part.split('=');
-      query[key] = value;
-      return query;
-    }, {});
 
 const categoryNames = [
   'body',
@@ -23,6 +17,7 @@ const categoryNames = [
   'accessories',
 ];
 
+
 const colorProperties = {
   'skinTone': 'skin',
   'hairColor': 'hair',
@@ -33,12 +28,15 @@ const colorProperties = {
   'accessoriesColor': 'color'
 };
 
+
 const colorPropertyNames = Object.keys(colorProperties);
+
 
 const defaultCategoryChoices = () => categoryNames.reduce((defaultChoice, categoryName) => {
   defaultChoice[categoryName] = 0;
   return defaultChoice;
 }, {});
+
 
 const defaultPropertyColors = () =>
     Object.keys(colorProperties).reduce((propertyColors, property) => {
@@ -46,29 +44,6 @@ const defaultPropertyColors = () =>
       return propertyColors;
     }, {});
 
-const deserializeQueryStringState = () => {
-  const categoryChoices = defaultCategoryChoices();
-  const propertyColors = defaultPropertyColors();
-
-  if (window.location.search) {
-    const {elf} = parseQueryString();
-
-    if (elf != null) {
-      elf.split(',').forEach((choiceString, index) => {
-        if (index < categoryNames.length) {
-          const feature = categoryNames[index];
-          categoryChoices[feature] = self.parseInt(choiceString, 10);
-        } else {
-          const propertyIndex = index - categoryNames.length;
-          const property = colorPropertyNames[propertyIndex];
-          propertyColors[property] = choiceString;
-        }
-      });
-    }
-  }
-
-  return [categoryChoices, propertyColors];
-};
 
 export class MakerControlElement extends LitElement {
   static get properties() {
@@ -98,23 +73,57 @@ export class MakerControlElement extends LitElement {
     categoryNames.forEach((categoryName) => {
       serialized.push(this.categoryChoice[categoryName]);
     });
+    serialized.push('|');  // put a nonce in case we change the number of categories later
 
     colorPropertyNames.forEach((colorPropertyName) => {
       serialized.push(this[colorPropertyName]);
     });
 
-    return serialized.join(',');
+    return window.btoa(serialized.join(','));
+  }
+
+  deserializeState(state) {
+    const categoryChoice = defaultCategoryChoices();
+    const propertyColors = defaultPropertyColors();
+
+    if (state) {
+      let decoded = '';
+      try {
+        decoded = window.atob(state);
+      } catch (e) {
+        // ignore
+      }
+
+      let colorsFromIndex = null;
+      decoded.split(',').forEach((choiceString, index) => {
+        if (choiceString === '|') {
+          colorsFromIndex = index + 1;
+        } else if (colorsFromIndex === null) {
+          const feature = categoryNames[index];
+
+          // TODO(samthor): validate that this numbered choice is OK
+          categoryChoice[feature] = self.parseInt(choiceString, 10) || 0;
+        } else {
+          const propertyIndex = index - colorsFromIndex;
+          const property = colorPropertyNames[propertyIndex];
+
+          if (defs.colors[choiceString]) {
+            // sanity-check in case we change colors, don't set the value
+            propertyColors[property] = choiceString;
+          }
+        }
+      });
+    }
+
+    this.categoryChoice = categoryChoice;
+    Object.assign(this, propertyColors);
   }
 
   constructor() {
     super();
     this._idPrefix = prefix.id();
 
-    const [categoryChoice, propertyColors] =
-        deserializeQueryStringState(categoryNames, colorProperties);
-
-    this.categoryChoice = categoryChoice;
-    Object.assign(this, propertyColors);
+    this.deserializeState(null);  // sets default
   }
 
   renderSvgStyle() {
