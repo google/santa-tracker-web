@@ -443,6 +443,7 @@ export class Elf extends EventTarget {
 
     if (this.allGood('nose')) {
       this.head.position = this.scale(this.pose['nose'].position);
+      this.head.position[1] += neckLength;
     }
 
     // Set the torso position (center of mass) to the mean of the observed
