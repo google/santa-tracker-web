@@ -94,7 +94,8 @@ export class MakerControlElement extends LitElement {
 
     // At ctor time, we don't yet have state to deserialize. It'll probably arrive right after,
     // but just use defaults for now.
-    this.deserializeState(null);
+    this.categoryChoice = defaultCategoryChoices();
+    Object.assign(this, defaultPropertyColors());
 
     if (self.ShadyCSS) {
       if (globalElfStyle) {
@@ -133,37 +134,39 @@ export class MakerControlElement extends LitElement {
   }
 
   deserializeState(state) {
+    if (!state) {
+      return;
+    }
+
+    let decoded = '';
+    try {
+      decoded = window.atob(state);
+    } catch (e) {
+      return;
+    }
+
     const categoryChoice = defaultCategoryChoices();
     const propertyColors = defaultPropertyColors();
 
-    if (state) {
-      let decoded = '';
-      try {
-        decoded = window.atob(state);
-      } catch (e) {
-        // ignore
-      }
+    let colorsFromIndex = null;
+    decoded.split(',').forEach((choiceString, index) => {
+      if (choiceString === '|') {
+        colorsFromIndex = index + 1;
+      } else if (colorsFromIndex === null) {
+        const feature = categoryNames[index];
 
-      let colorsFromIndex = null;
-      decoded.split(',').forEach((choiceString, index) => {
-        if (choiceString === '|') {
-          colorsFromIndex = index + 1;
-        } else if (colorsFromIndex === null) {
-          const feature = categoryNames[index];
+        // TODO(samthor): validate that this numbered choice is OK
+        categoryChoice[feature] = self.parseInt(choiceString, 10) || 0;
+      } else {
+        const propertyIndex = index - colorsFromIndex;
+        const property = colorPropertyNames[propertyIndex];
 
-          // TODO(samthor): validate that this numbered choice is OK
-          categoryChoice[feature] = self.parseInt(choiceString, 10) || 0;
-        } else {
-          const propertyIndex = index - colorsFromIndex;
-          const property = colorPropertyNames[propertyIndex];
-
-          if (defs.colors[choiceString]) {
-            // sanity-check in case we change colors, don't set the value
-            propertyColors[property] = choiceString;
-          }
+        if (defs.colors[choiceString]) {
+          // sanity-check in case we change colors, don't set the value
+          propertyColors[property] = choiceString;
         }
-      });
-    }
+      }
+    });
 
     this.categoryChoice = categoryChoice;
     Object.assign(this, propertyColors);
