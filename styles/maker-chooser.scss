@@ -3,17 +3,37 @@
 }
 
 main {
-  $size: 64px;
-  $border: 4px;
+  $margin: 4px;
+  $size: 55px;
+  $border: 3px;
 
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
+  .row {
+    display: flex;
+  }
+
+  display: flex;
+  margin: $margin / 2;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: (768px - 1px)) {
+    &::before,
+    &::after {
+      content: '';
+      flex-grow: 1;
+    }
+  }
 
   .item {
     border: 0;
     position: relative;
     cursor: pointer;
+    margin: $margin / 2;
 
     input {
       position: absolute;
@@ -22,7 +42,6 @@ main {
 
     .opt {
       border-radius: 1000px;
-      margin: 4px;
       width: $size;
       height: $size;
       position: relative;
@@ -52,7 +71,7 @@ main {
     }
 
     input:focus + .opt {
-      border-color: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.33);
     }
   }
 
@@ -62,25 +81,31 @@ main {
       input:checked + .opt {
         background-color: #f8ce3c;
       }
-    }
 
-    .value-body {
-      background-image: _root("scenes/elfmaker/img/btn_body.svg");
-    }
-    .value-hair {
-      background-image: _root("scenes/elfmaker/img/btn_hair.svg");
-    }
-    .value-ears {
-      background-image: _root("scenes/elfmaker/img/btn_ears.svg");
-    }
-    .value-eyes {
-      background-image: _root("scenes/elfmaker/img/btn_eyes.svg");
-    }
-    .value-accessories {
-      background-image: _root("scenes/elfmaker/img/btn_accessories.svg");
-    }
-    .value-hats {
-      background-image: _root("scenes/elfmaker/img/btn_hats.svg");
+      .value-body {
+        background-image: _root("scenes/elfmaker/img/btn_body.svg");
+      }
+      .value-suit {
+        background-image: _root("scenes/elfmaker/img/btn_suit.svg");
+      }
+      .value-hair {
+        background-image: _root("scenes/elfmaker/img/btn_hair.svg");
+      }
+      .value-ears {
+        background-image: _root("scenes/elfmaker/img/btn_ears.svg");
+      }
+      .value-glasses {
+        background-image: _root("scenes/elfmaker/img/btn_glasses.svg");
+      }
+      .value-accessories {
+        background-image: _root("scenes/elfmaker/img/btn_accessories.svg");
+      }
+      .value-hats {
+        background-image: _root("scenes/elfmaker/img/btn_hats.svg");
+      }
+      .value-backgrounds {
+        background-image: _root("scenes/elfmaker/img/btn_backgrounds.svg");
+      }
     }
   }
 

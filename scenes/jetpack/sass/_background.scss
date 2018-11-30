@@ -1,0 +1,57 @@
+##{$name} {
+  $background-transition: 100%;
+  $background-size: 100% + $background-transition;
+
+  .background {
+    height: $background-size;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  $colors: #90D4F5 #AD95F5 #F59393 #EBCA46 #ED5B37 #C93C3C #9719D1 #4D2DC2 #51057A #04266E;
+  $i: 0;
+  @each $color in $colors {
+    .background--#{$i} {
+      background: linear-gradient(180deg, $color, $color percentage(100% / $background-size), rgba($color, 0));
+
+      &:after {
+        background: url(img/levelclouds.svg) 50% 0% / 1150px no-repeat;
+        color: #fff;
+        content: '#{$i + 1}';
+        font-family: Lobster, sans-serif;
+        font-size: 160px;
+        left: 0;
+        margin-bottom: -0.5em;
+        position: absolute;
+        opacity: 0.3;
+        text-align: center;
+        bottom: percentage(($background-transition / 2) / $background-size);
+        width: 100%;
+
+        @media (min-width: 661px) {
+          font-size: 280px;
+          background-size: 2000px;
+        }
+
+        @media (min-width: 1025px) {
+          font-size: 400px;
+          background-size: 3000px;
+        }
+      }
+    }
+
+    $i: $i + 1;
+  }
+
+  .background--10 {
+    background: #04266E;
+    bottom: 100%;
+    content: ' ';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+  }
+}

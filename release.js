@@ -52,17 +52,17 @@ const yargs = require('yargs')
     .option('prod', {
       type: 'string',
       default: 'https://santatracker.google.com/',
-      describe: 'base prod URL',
+      describe: 'base prod URL (disable for no prod)',
     })
-    .option('api-base', {
-      type: 'string',
-      default: 'https://santa-api.appspot.com/',
-      describe: 'base URL for Santa\'s API',
+    .option('scene', {
+      type: 'array',
+      default: [],
+      describe: 'if specified, only compile these scenes',
     })
-    .option('autoprefixer', {
-      type: 'string',
-      default: '> 3%, chrome >= 44, ios_saf >= 9, ie >= 11',
-      describe: 'browsers to run autoprefixer for',
+    .options('index', {
+      type: 'boolean',
+      default: true,
+      describe: 'whether to build static index entrypoint',
     })
     .argv;
 
@@ -72,9 +72,9 @@ const staticAssets = [
   'third_party/**',
   'scenes/**/models/**',
   'scenes/**/img/**',
-  // TODO(samthor): Better support for custom scenes (#1679).
-  // 'scenes/snowflake/snowflake-maker/{media,third-party}/**',
-  // 'scenes/snowball/models/*',
+
+  // release WC bundles, as they're injected at runtime
+  'node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
 ];
 
 const staticLoaderFiles = [
@@ -167,68 +167,72 @@ async function release() {
   log(`Found ${color.cyan(Object.keys(scenes).length)} scenes`);
 
   // Release all non-HTML prod assets.
-  const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
-  await releaseAll(prodAll);
+  if (!yargs.prod) {
+    log(`${color.red('Skipping prod release')}`);
+  } else {
+    const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
+    await releaseAll(prodAll);
 
-  // Match non-index.html prod pages, like cast, error etc.
-  let prodHtmlCount = 0;
-  const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
-  for (const htmlFile of prodOtherHtml) {
-    const documentForLang = await releaseHtml.prod(htmlFile);
+    // Match non-index.html prod pages, like cast, error etc.
+    let prodHtmlCount = 0;
+    const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
+    for (const htmlFile of prodOtherHtml) {
+      const documentForLang = await releaseHtml.prod(htmlFile);
 
-    const tail = path.basename(htmlFile);
-    for (const lang in langs) {
-      const target = path.join('dist/prod', pathForLang(lang), tail);
-      const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
-      });
-      await write(target, out);
-      ++prodHtmlCount;
-    }
-  }
-
-  // Fanout prod index.html to all scenes and langs.
-  for (const sceneName in scenes) {
-    const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
-      const head = document.head;
-      releaseHtml.applyAttribute(document.body, 'data-version', yargs.build);
-
-      const image = `prod/images/og/${sceneName}.png`;
-      if (await fsp.exists(image)) {
-        const url = `${yargs.prod}images/og/${sceneName}.png`;
-        const all = [
-          '[property="og:image"]',
-          '[name="twitter:image"]',
-        ];
-        releaseHtml.applyAttributeToAll(head, all, 'content', url);
+      const tail = path.basename(htmlFile);
+      for (const lang in langs) {
+        const target = path.join('dist/prod', pathForLang(lang), tail);
+        const out = documentForLang(langs[lang], (document) => {
+          releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
+        });
+        await write(target, out);
+        ++prodHtmlCount;
       }
-
-      const msgid = msgidForScene(sceneName, scenes[sceneName]);
-      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
-      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
-    });
-
-    for (const lang in langs) {
-      const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
-      const target = path.join('dist/prod', pathForLang(lang), filename);
-      const out = documentForLang(langs[lang], (document) => {
-        releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
-      });
-      await write(target, out);
-      ++prodHtmlCount;
     }
-  }
 
-  log(`Written ${color.cyan(prodHtmlCount)} prod HTML files`);
+    // Fanout prod index.html to all scenes and langs.
+    for (const sceneName in scenes) {
+      const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
+        const head = document.head;
+        releaseHtml.applyAttribute(document.body, 'data-version', yargs.build);
 
-  // Generate manifest.json for every language.
-  const manifest = require('./prod/manifest.json');
-  for (const lang in langs) {
-    const messages = langs[lang];
-    manifest['name'] = messages('santatracker');
-    manifest['short_name'] = messages('santa-app');
-    const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
-    await write(target, JSON.stringify(manifest));
+        const image = `prod/images/og/${sceneName}.png`;
+        if (await fsp.exists(image)) {
+          const url = `${yargs.prod}images/og/${sceneName}.png`;
+          const all = [
+            '[property="og:image"]',
+            '[name="twitter:image"]',
+          ];
+          releaseHtml.applyAttributeToAll(head, all, 'content', url);
+        }
+
+        const msgid = msgidForScene(sceneName, scenes[sceneName]);
+        const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
+        releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+      });
+
+      for (const lang in langs) {
+        const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
+        const target = path.join('dist/prod', pathForLang(lang), filename);
+        const out = documentForLang(langs[lang], (document) => {
+          releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
+        });
+        await write(target, out);
+        ++prodHtmlCount;
+      }
+    }
+
+    log(`Written ${color.cyan(prodHtmlCount)} prod HTML files`);
+
+    // Generate manifest.json for every language.
+    const manifest = require('./prod/manifest.json');
+    for (const lang in langs) {
+      const messages = langs[lang];
+      manifest['name'] = messages('santatracker');
+      manifest['short_name'] = messages('santa-app');
+      const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
+      await write(target, JSON.stringify(manifest));
+    }
   }
 
   // Shared resources needed by prod build.
@@ -241,7 +245,22 @@ async function release() {
   // or JS on its own, it must be included by one of our HTML entry points.
   const loaderOptions = {compile: true, root: staticRoot};
   const loader = require('./loader.js')(loaderOptions);
-  const htmlFiles = globAll('index.html', 'scenes/*/index.html', 'controllers/*.html');
+
+  const htmlFiles = [];
+  if (yargs.index) {
+    htmlFiles.push('index.html');
+  } else {
+    log(`${color.red('Skipping static index entrypoint')}`);
+  }
+  if (yargs.scene.length) {
+    htmlFiles.push(...yargs.scene.map((scene) => path.join('scenes', scene, 'index.html')));
+  } else {
+    htmlFiles.push('scenes/*/index.html');
+  }
+  if (!htmlFiles.length) {
+    throw new Error('no entrypoints matched')
+  }
+
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);

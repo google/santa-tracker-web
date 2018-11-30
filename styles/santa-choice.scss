@@ -1,0 +1,68 @@
+.wrap {
+  position: relative;
+  height: 100%;
+}
+
+.scroller {
+  overflow-x: auto;
+  position: relative;
+  display: flex;
+  z-index: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+button {
+  border: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 42px;
+  background: #eee;
+  z-index: 2;
+  will-change: opacity;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: rgba(128, 128, 128, 0.8);
+
+  &::before {
+    content: '';
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MC42IiBoZWlnaHQ9IjcwLjYiIHZpZXdCb3g9IjAgMCA3MC42IDcwLjYiPjxnIHN0cm9rZT0id2hpdGUiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMyI+PGNpcmNsZSBjeD0iMzUuMyIgY3k9IjM1LjMiIHI9IjMzLjgiLz48cGF0aCBkPSJNNDAuOCAyNC4yTDI5LjEgMzUuOWwxMS43IDExLjciLz48L2c+PC9zdmc+Cg==) center/contain no-repeat;
+
+    position: absolute;
+    top: 0;
+    left: 4px;
+    right: 4px;
+    bottom: 0;
+  }
+
+  &.left {
+    left: 0;
+    box-shadow: 2px 0 rgba(0, 0, 0, 0.125);
+  }
+
+  &.right {
+    right: 0;
+    box-shadow: -2px 0 rgba(0, 0, 0, 0.125);
+
+    &::before {
+      transform: scale(-1, 1);
+    }
+  }
+}
+
+.wrap.left {
+  button.left {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.wrap.right {
+  button.right {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -23,9 +23,7 @@ goog.require('app.Constants');
 goog.require('app.Result');
 goog.require('app.Scene');
 goog.require('app.levels');
-goog.require('app.extraLevels');
 goog.require('app.monkeypatches');
-goog.require('app.shared.FrameRPC');
 goog.require('app.shared.utils');
 
 /**
@@ -45,12 +43,9 @@ app.Game = function(elem) {
   this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
   this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
 
-  this.iframeChannel = new app.shared.FrameRPC(window.parent, {
-    restart: this.restart.bind(this),
-    playExtra: this.playExtra.bind(this),
+  Klang.setEventListener((arg1, arg2) => {
+    santaApp.fire('sound-play', arg1, arg2)
   });
-
-  Klang.setEventListener(this.iframeChannel.call.bind(this.iframeChannel, 'triggerSound'));
 
   this.dismissUnnamedTutorial = () => this.dismissTutorial();
   document.body.addEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
@@ -59,8 +54,6 @@ app.Game = function(elem) {
   this.onFocus = this.onFocus.bind(this);
   window.addEventListener('blur', this.onBlur);
   window.addEventListener('focus', this.onFocus);
-
-  this.start();
 };
 
 /**
@@ -78,7 +71,7 @@ app.Game.prototype.dismissTutorial = function(name = undefined) {
   if (name === undefined) {
     name = this.tutorialForLevel_(this.levelNumber);
   }
-  this.iframeChannel.call('dismissTutorial', name);
+  santaApp.fire('dismiss-tutorial', name);
 };
 
 /**
@@ -103,11 +96,16 @@ app.Game.prototype.bumpLevel = function() {
 
   this.level = app.levels[this.levelNumber];
   if (!this.level) {
-    this.iframeChannel.call('gameover', this.levelNumber < 11);
+    santaApp.fire('game-stop', {
+      level: this.levelNumber + 1,
+    });
     return;
   }
 
-  this.iframeChannel.call('setLevel', this.levelNumber);
+  santaApp.fire('game-score', {
+    level: this.levelNumber + 1,
+    maxLevel: app.levels.length,
+  });
 
   this.elem.className = 'level--' + this.level.type + ' level--' + this.level.id;
 
@@ -124,15 +122,15 @@ app.Game.prototype.bumpLevel = function() {
   if (this.levelNumber === 2 && this.scene.getPortraitMode()) {
     tutorials.unshift('codelab_tray.mp4');  // put first
   }
-  this.iframeChannel.call('showTutorial', tutorials.join(' '));
+  santaApp.fire('show-tutorial', tutorials.join(' '));
 };
 
 app.Game.prototype.onBlur = function() {
-  this.iframeChannel.call('iframeFocusChange', 'blur');
+  // this.iframeChannel.call('iframeFocusChange', 'blur');
 };
 
 app.Game.prototype.onFocus = function() {
-  this.iframeChannel.call('iframeFocusChange', 'focus');
+  // this.iframeChannel.call('iframeFocusChange', 'focus');
 };
 
 /**
@@ -147,30 +145,17 @@ app.Game.prototype.restartLevel = function() {
 /**
  * Starts the game.
  */
-app.Game.prototype.start = function() {
-  this.restart();
+app.Game.prototype.start = function(level=1) {
+  this.restart(level);
 
   Klang.triggerEvent('computer_start');
 };
 
 /**
- * Adds extra levels and restarts the game at the first extra level.
- */
-app.Game.prototype.playExtra = function() {
-  this.levelNumber = app.levels.length - 1;
-  app.levels = app.levels.concat(app.extraLevels);
-
-  this.scene.reset();
-  this.bumpLevel();
-};
-
-/**
  * Resets all game entities and restarts the game. Can be called at any time.
  */
-app.Game.prototype.restart = function() {
-  var match = location.search.match(/[?&]level=(\d+)/) || [];
-  var levelNumber = (+match[1] || 0) - 1;
-  this.levelNumber = levelNumber;
+app.Game.prototype.restart = function(level=1) {
+  this.levelNumber = level - 2;  // gets bumped to zero
 
   this.scene.reset();
 

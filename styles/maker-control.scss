@@ -2,55 +2,104 @@
   display: block;
 }
 
-maker-chooser[mode="category"] {
-  background: #eee;
-  border-radius: 12px;
-  width: 240px;
-}
-
 main {
   display: flex;
   flex-flow: row;
   align-items: stretch;
+  z-index: 100;
 }
 
-.previews {
-  display: flex;
-  flex-flow: row;
-  align-items: stretch;
-  overflow-y: hidden;
-  overflow-x: auto;
+santa-choice {
+  flex-grow: 1;
+  width: 400%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 4px;
+  box-sizing: border-box;
 
-  .item {
-    $border: 2px;
+  .previews {
+    display: flex;
+    flex-grow: 1;
+  }
+}
 
-    width: 140px;
-    position: relative;
-    cursor: pointer;
+.item {
+  $border: 2px;
+  margin: 2px;
+  align-self: stretch;
 
-    input {
-      position: absolute;
-      opacity: 0;
+  min-width: 80px;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .preview {
+    background: #f3f3f3;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border: $border solid transparent;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      min-width: 120px;
+      width: 120px;
+      min-height: 140px;
     }
+  }
 
-    .preview {
-      background: #f3f3f3;
-      border-radius: 12px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
-      border: $border solid transparent;
+  input:checked + .preview {
+    border-color: #2cc4d6;
+  }
+}
 
-      svg {
-        max-width: 100%;
-      }
-    }
+maker-chooser {
+  padding: 8px;
+}
+maker-chooser[mode="category"] {
+  background: #f0f0f0;
+}
 
-    input:checked + .preview {
-      border-color: #2cc4d6;
-    }
+@media (max-width: (768px - 1px)) {
+  main {
+    flex-flow: column;
+  }
+  maker-chooser {
+    overflow-x: scroll;
+    padding: 4px;
+  }
+  maker-chooser[mode="category"] {
+    position: sticky;
+    top: calc(50vh - 71px);  // this is the height of ourself
+    z-index: 1000;  // above main
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  santa-choice {
+    margin-top: -4px;
+  }
+
+  .previews {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+      height: 96px;
+      min-width: 60px;
+      flex-grow: 1;
+    }  
+  }
+
+  .buttons {
+    display: none;
   }
 }

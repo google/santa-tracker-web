@@ -6,7 +6,16 @@ import * as prefix from '../../../src/lib/prefix.js';
 import * as defs from '../defs.js';
 
 
-export const categories = Object.freeze(['body', 'hair', 'eyes', 'ears', 'hats', 'accessories']);
+export const categories = Object.freeze([
+  'body',
+  'suit',
+  'hair',
+  'glasses',
+  'ears',
+  'hats',
+  'accessories',
+  'backgrounds',
+]);
 
 
 export class MakerChooserElement extends LitElement {
@@ -23,6 +32,8 @@ export class MakerChooserElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
     this._options = [];
+    this.mode = '';
+    this.value = '';
   }
 
   _onChange(event) {
@@ -46,7 +57,7 @@ export class MakerChooserElement extends LitElement {
   }
 
   render() {
-    const buttons = repeat(this._options, (r) => r, (r) => {
+    const renderButton = (r) => {
       let style = '';
       if (this.mode !== 'category') {
         const colors = defs.colors[r];
@@ -58,10 +69,17 @@ export class MakerChooserElement extends LitElement {
   <div class="opt value-${r}" style="${style}"></div>
 </label>
         `;
-    });
+    };
+
+    const half = Math.ceil(this._options.length / 2)
+    const buttonsHigh = repeat(this._options.slice(0, half), (r) => r, renderButton);
+    const buttonsLow = repeat(this._options.slice(half), (r) => r, renderButton);
     return html`
 <style>${_style`maker-chooser`}</style>
-<main class="mode-${this.mode}" @change=${this._onChange}>${buttons}</main>
+<main class="mode-${this.mode}" @change=${this._onChange}>
+  <div class="row">${buttonsHigh}</div>
+  <div class="row">${buttonsLow}</div>
+</main>
     `;
   }
 }
