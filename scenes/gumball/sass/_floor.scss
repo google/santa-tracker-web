@@ -9,7 +9,7 @@
     left: 0;
     right: 0;
     margin-top: 265px;
-    background-color: #787575;
+    background-color: #797575;
     z-index: 10;
   }
 
@@ -30,6 +30,28 @@
     right: 0;
     background-color: #9d9fa2;
     transform: translateZ(0);
+
+    &::before {
+      background: #000;
+      bottom: -15px;
+      content: '';
+      height: 1px;
+      left: 0;
+      opacity: .2;
+      position: absolute;
+      width: 100%;
+    }
+
+    &::after {
+      border-style: solid;
+      border-width: 0 100vw 3vw 0;
+      border-color: transparent #230000 transparent transparent;
+      content: '';
+      opacity: .1;
+      position: absolute;
+      right: 0;
+      top: 61px;
+    }
   }
 
   .bottomPipe-panel {
@@ -125,6 +147,24 @@
     margin: 0 -7px;
     background: #895930;
     border-radius: 6px;
+  }
+
+  .bottomPipe-controls {
+    background: url('img/control.svg') no-repeat;
+    height: 60px;
+    position: absolute;
+    top: -143px;
+    width: 80px;
+  }
+
+  .bottomPipe-controls--right {
+    left: 50%;
+    margin-left: 520px;
+  }
+
+  .bottomPipe-controls--left {
+    margin-right: 520px;
+    right: 50%;
   }
 
   .funnel {

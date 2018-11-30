@@ -1,6 +1,8 @@
 ##{$name} {
   .bg {
-    background-color: #b67845;
+    background: url('img/bg-line.svg') #b67845 repeat;
+    background-position: 50% calc(50% - 30px);
+    background-size: 172px auto;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -13,12 +15,12 @@
    */
   .pipe {
     position: absolute;
-    width: 45px;
+    width: 49px;
     top: 0;
     bottom: 0;
     right: 50%;
     margin-right: 613px;
-    background: #bcbec0;
+    background: url('img/pipe.svg') repeat-y;
     z-index: 20;
   }
 
