@@ -2,41 +2,41 @@
 
 // ID dateX dateY
 $houses:
-"codeboogie"       21 152,
-"traditions"       124 227,
-"airport"          130 286,
-"app"              105 265,
-"presentbounce"    80 45,
-"santasback"       -107 92,
-"museum"       -107 92,
-"translations"     66 150,
-"snowflake"        -60 193,
-"seasonofgiving"  58 192,
-"santaselfie"      99 165,
-"penguindash"    -56 111,
-"santasearch"    80 81,
-"codelab"        -101 108,
-"commandcentre" -76 84,
-"gumball" -63 165,
-"jamband"  -88 122,
-"wrapbattle"  100 46,
-"boatload" 75 115,
-"runner"  -107 99,
-"jetpack"  47 130,
-"carpool"  75 194,
-"briefing"  91 169,
-"presentdrop" -65 120,
-"mercator" -112 205,
-"racer"  -65 197,
-"matching"  82 153,
-"liftoff"  -58 233,
-"callfromsanta"  98 195,
-"citylights"  115 112,
-"postcard" 87 179,
-"santascanvas"    60 190,
-"elfski"          -20 120,
-"snowball"        60 100,
-"speedsketch"     -100 22,
+"codeboogie",
+"traditions",
+"elfmaker",
+"app",
+"presentbounce",
+"santasback",
+"museum",
+"translations",
+"snowflake",
+"seasonofgiving",
+"santaselfie",
+"penguindash",
+"santasearch",
+"codelab",
+"commandcentre",
+"gumball",
+"jamband",
+"wrapbattle",
+"boatload",
+"runner",
+"jetpack",
+"carpool",
+"briefing",
+"presentdrop",
+"mercator",
+"racer",
+"matching",
+"liftoff",
+"callfromsanta",
+"citylights",
+"postcard",
+"santascanvas",
+"elfski",
+"snowball",
+"speedsketch",
 ;
 
 // 0th is 'new today'
@@ -47,7 +47,7 @@ $cells:
     124 227,
     130 286,
     // row 1
-    156 353,
+    134 290,
     145 264,
     192 242,
     204 240,
@@ -144,18 +144,6 @@ $cells:
         left: ($col * 320px) + $x;
         top: ($row * 320px) + $y;
       }
-    }
-  }
-}
-
-#houses {
-  @for $i from 1 through length($houses) {
-    $house: nth($houses, $i);
-    $id: nth($house, 1);
-
-    village-house[house="#{$id}"] {
-      --date-x: nth($house, 2) * 1px;
-      --date-y: nth($house, 3) * -1px;
     }
   }
 }

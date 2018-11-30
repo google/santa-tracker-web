@@ -22,16 +22,16 @@ window.HOUSES = [{
   module: 'wrapbattle',
   category: 'play',
 }, {
-  module: 'traditions',
-  category: 'learn',
-  edu: true,
+  module: 'elfmaker',
+  category: 'play',
 }, {
   module: 'codelab',
   category: 'learn',
   edu: true,
 }, {
-  module: 'airport',
-  category: 'explore',
+  module: 'traditions',
+  category: 'learn',
+  edu: true,
 }, {
   module: 'app',
   category: 'play',
