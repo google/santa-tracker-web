@@ -8,7 +8,7 @@ import * as defs from '../defs.js';
 
 export const categories = Object.freeze([
   'body',
-  'color',
+  'suit',
   'hair',
   'glasses',
   'ears',

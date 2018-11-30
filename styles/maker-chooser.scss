@@ -86,6 +86,9 @@ main {
     .value-body {
       background-image: _root("scenes/elfmaker/img/btn_body.svg");
     }
+    .value-suit {
+      background-image: _root("scenes/elfmaker/img/btn_suit.svg");
+    }
     .value-hair {
       background-image: _root("scenes/elfmaker/img/btn_hair.svg");
     }
@@ -100,6 +103,9 @@ main {
     }
     .value-hats {
       background-image: _root("scenes/elfmaker/img/btn_hats.svg");
+    }
+    .value-backgrounds {
+      background-image: _root("scenes/elfmaker/img/btn_backgrounds.svg");
     }
   }
 

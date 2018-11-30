@@ -220,7 +220,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
         return html`
           ${this._chooser('skinTone', 'skin')}
         `;
-      case 'color':
+      case 'suit':
         return html`
           ${this._chooser('suitColor', 'color')}
         `;
