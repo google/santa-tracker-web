@@ -50,9 +50,9 @@ specific language governing permissions and limitations under the License.
           <template is="dom-repeat" items="[[cards]]" as="card">
             <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key)]]"
-                type="[[card.type]]"
                 href="[[urlFor(card.key)]]">
-              <div slot="title">[[card.title]]</div>
+              <h4>[[card.title]]</h4>
+              <h5>[[card.type]]</h5>
               <p>[[card.description]]</p>
             </info-card>
           </template>
@@ -72,38 +72,38 @@ specific language governing permissions and limitations under the License.
 
       <div class="educators-primary-inner">
         <info-card image="[[importPath]]img/lesson-plan-traditions.png">
-          <div slot="title">Christmas traditions around the world</div>
+          <h4>Christmas traditions around the world</h4>
           <p>
             Students will be able to compare, contrast, and reflect upon Christmas traditions in different countries.
           </p>
           <div class="card-links">
             <span class="card-title">Aligned with Common Core standards</span>
-            <a data-id="traditions_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades K-2.pdf" target="_blank">Grades K-2 <span>(PDF file, [[_lessonLangText]])</span></a>
-            <a data-id="traditions_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 3-5.pdf" target="_blank">Grades 3-5 <span>(PDF file, [[_lessonLangText]])</span></a>
-            <a data-id="traditions_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 6-8.pdf" target="_blank">Grades 6-8 <span>(PDF file, [[_lessonLangText]])</span></a>
-            <a data-id="traditions_9-10" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 9-10.pdf" target="_blank">Grades 9-10 <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades K-2.pdf" target="_blank">Grades K-2 <span>(PDF, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 3-5.pdf" target="_blank">Grades 3-5 <span>(PDF, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 6-8.pdf" target="_blank">Grades 6-8 <span>(PDF, [[_lessonLangText]])</span></a>
+            <a data-id="traditions_9-10" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Grades 9-10.pdf" target="_blank">Grades 9-10 <span>(PDF, [[_lessonLangText]])</span></a>
           </div>
         </info-card>
 
         <info-card image="[[importPath]]img/lesson-plan-code.png">
-          <div slot="title">Practice coding with Santa's elves</div>
+          <h4>Practice coding with Santa's elves</h4>
           <p>
             Students will learn how to move elves and make snowflakes with code, experimenting with sequences and loops.
           </p>
           <div class="card-links">
             <span class="card-title">Aligned with ISTE standards</span>
             <a class="card-play" data-id="coding_youtube_k-2" href="https://youtu.be/t_tuZl-CfFs" target="_blank">
-              Grades K-2: Code Lab <span>(video tutorial)</span>
+              Grades K-2: Code Lab <span>(YouTube)</span>
             </a>
-            <a data-id="coding_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Lab-Grades K-2.pdf" target="_blank">Grades K-2: Code Lab <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="coding_k-2" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Lab-Grades K-2.pdf" target="_blank">Grades K-2: Code Lab <span>(PDF, [[_lessonLangText]])</span></a>
             <a class="card-play" data-id="coding_youtube_3-5" href="https://youtu.be/BotTyMAw4ho" target="_blank">
-              Grades 3-5: Code Boogie <span>(video tutorial)</span>
+              Grades 3-5: Code Boogie <span>(YouTube)</span>
             </a>
-            <a data-id="coding_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Boogie-Grades 3-5.pdf" target="_blank">Grades 3-5: Code Boogie <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="coding_3-5" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Boogie-Grades 3-5.pdf" target="_blank">Grades 3-5: Code Boogie <span>(PDF, [[_lessonLangText]])</span></a>
             <a class="card-play" data-id="coding_youtube_6-8" href="https://youtu.be/zUEQzwd4MnE" target="_blank">
-              Grades 3-5: Code a Snowflake <span>(video tutorial)</span>
+              Grades 3-5: Code a Snowflake <span>(YouTube)</span>
             </a>
-            <a data-id="coding_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Snowflake-Grades 6-8.pdf" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF file, [[_lessonLangText]])</span></a>
+            <a data-id="coding_6-8" href="https://storage.googleapis.com/santa/lessonplans/[[_lessonLang]]/ST-Lesson Plan-Code Snowflake-Grades 6-8.pdf" target="_blank">Grades 6-8: Code a Snowflake <span>(PDF, [[_lessonLangText]])</span></a>
           </div>
         </info-card>
       </div>
@@ -114,7 +114,7 @@ specific language governing permissions and limitations under the License.
 
         <div class="educators-card-container center">
           <info-card image="[[importPath]]img/coding.png">
-            <div slot="title">Coding resources</div>
+            <h4>Coding resources</h4>
             <p>Learn more about Computer Science through these free, online coding resources.</p>
             <div class="card-links">
               <span class="card-title">Links</span>
@@ -174,8 +174,8 @@ specific language governing permissions and limitations under the License.
     </div>
 
     <div id="educators-footer">
-      <h3>Need something?</h3>
-      <p>Elves and Googlers are here to help.</p>
+      <h3><i18n-msg msgid="press-need-title">PLACEHOLDER_i18n</i18n-msg></h3>
+      <p><i18n-msg msgid="press-need-text">PLACEHOLDER_i18n</i18n-msg></p>
       <a href="https://google.com/edu" target="_blank">Google for Education</a>
     </div>
 

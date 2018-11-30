@@ -17,7 +17,6 @@
 goog.provide('app.Scene');
 
 goog.require('app.Models');
-goog.require('app.AndroidModels');
 
 /**
  * Press Scene class. Provides access to models.
@@ -39,11 +38,4 @@ app.Scene.prototype.getModels = function(opt_locked) {
     out.forEach((model) => model.locked = opt_locked(model.key));
   }
   return out;
-};
-
-/**
- * @return {!Array<!Object>} model objects
- */
-app.Scene.prototype.getAndroidModels = function() {
-  return app.AndroidModels;
 };

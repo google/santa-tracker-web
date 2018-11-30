@@ -59,33 +59,11 @@ Reusable card showing information about a scene or other item. Used by info scen
     width: 100%;
   }
 
-  span#unlock {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  span#unlock-day {
-    font-family: 'Lobster', sans-serif;
-    font-size: 30px;
-  }
-
   #info {
     color: #546e7a;
     padding: 25px;
     font-size: 14px;
     line-height: 24px;
-  }
-
-  h4 {
-    margin: 0;
-    font-size: 22px;
-  }
-
-  h5 {
-    margin: 0;
-    color: #90a4ae;
-    font: inherit;
   }
 
   a {
@@ -115,16 +93,11 @@ Reusable card showing information about a scene or other item. Used by info scen
     <a href$="[[_computeHref(href, locked)]]">
       <div id="background" style$="[[_computeCardStyle(image)]]">
         <template is="dom-if" if="[[locked]]">
-          <div id="lock">
-            <span id="unlock">Unlocks December</span>
-            <span id="unlock-day">[[_dayOfMonth(opens)]]</span>
-          </div>
+          <div id="lock"></div>
         </template>
       </div>
     </a>
     <div id="info">
-      <h4><slot name="title"></slot></h4>
-      <h5>[[_computeInfo(opens, type)]]</h5>
       <slot></slot>
     </div>
   </div>
@@ -135,14 +108,6 @@ Polymer({
   is: 'info-card',
 
   properties: {
-
-    /**
-     * The day within December that this scene opens. Zero for always open, null for not openable.
-     */
-    opens: {
-      type: Number,
-      value: null,
-    },
 
     /**
      * Whether this scene is locked.
@@ -156,14 +121,6 @@ Polymer({
      * The URL to link to. Will be clickable if unlocked.
      */
     href: {
-      type: String,
-      value: null,
-    },
-
-    /**
-     * The type of scene, if any.
-     */
-    type: {
       type: String,
       value: null,
     },
@@ -182,33 +139,6 @@ Polymer({
       return null;
     }
     return 'background-image: url(' + image + ')';
-  },
-
-  _computeInfo: function(opens, type) {
-    const parts = [];
-
-    if (+opens === opens) {
-      if (opens <= 0) {
-        parts.push('Open all December')
-      } else if (opens <= 31) {
-        parts.push('Opens December ' + this._dayOfMonth(opens))
-      }
-    }
-
-    type && parts.push(type);  // nb. this is passed titlecase
-    return parts.join(' • ');
-  },
-
-  _dayOfMonth: function(n) {
-    switch (+n % 10) {
-    case 1:
-      return n + 'st';
-    case 2:
-      return n + 'nd';
-    case 3:
-      return n + 'rd';
-    }
-    return n + 'th';
   },
 
 });

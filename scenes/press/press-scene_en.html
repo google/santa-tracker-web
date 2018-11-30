@@ -48,7 +48,7 @@ specific language governing permissions and limitations under the License.
         <div class="press-intro-inner">
           <div class="rect"></div>
           <h2><i18n-msg msgid="press-edu">PLACEHOLDER_i18n</i18n-msg></h2>
-          <p><i18n-msg msgid="press-edu">PLACEHOLDER_i18n</i18n-msg></p>
+          <p><i18n-msg msgid="press-edu1">PLACEHOLDER_i18n</i18n-msg></p>
         </div>
       </div>
       <div class="press-intro-col press-intro-right">
@@ -69,22 +69,24 @@ specific language governing permissions and limitations under the License.
       <div class="press-primary-inner">
         <h2><i18n-msg msgid="press-villagetracker-title">PLACEHOLDER_i18n</i18n-msg></h2>
 
-        <info-card image="[[importPath]]img/tmb-santas-village.png" opens="0">
-          <div slot="title">Santa's Village</div>
+        <info-card image="[[importPath]]img/tmb-santas-village.png">
+          <h4><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h4>
+          <h5><i18n-msg msgid="press-villagetracker-opendec">PLACEHOLDER_i18n</i18n-msg></h5>
           <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they've realized it's time to study up on geography and coding to ensure Santa's sleigh goes on the most efficient path around the world using the most advanced algorithms. It's his biggest night of the year! </p>
           <div class="card-links">
-            <span class="card-title">Press resources</span>
-            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" target="_blank">Still screenshot <span>(PNG file)</span></a>
+            <span class="card-title"><i18n-msg msgid="press-asset-resources">PLACEHOLDER_i18n</i18n-msg></span>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-village-with-santa.png" target="_blank"><i18n-msg msgid="press-asset-screenshot">PLACEHOLDER_i18n</i18n-msg> <span>(PNG)</span></a>
           </div>
         </info-card>
 
-        <info-card image="[[importPath]]img/tmb-santa-tracker.png" opens="24">
-          <div slot="title">The Tracker</div>
+        <info-card image="[[importPath]]img/tmb-santa-tracker.png">
+          <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
+          <h5><i18n-msg msgid="press-villagetracker-open24th">PLACEHOLDER_i18n</i18n-msg></h5>
           <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way on <a href="https://google.com/santatracker">google.com/santatracker</a>. Get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he'll visit that night.</p>
           <div class="card-links">
-            <span class="card-title">Press resources</span>
-            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" target="_blank">Still screenshot <span>(PNG file)</span></a>
-            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" target="_blank">Animation <span>(GIF file)</span></a>
+            <span class="card-title"><i18n-msg msgid="press-asset-resources">PLACEHOLDER_i18n</i18n-msg></span>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/santa-tracker-tracker-map.png" target="_blank"><i18n-msg msgid="press-asset-screenshot">PLACEHOLDER_i18n</i18n-msg> <span>(PNG)</span></a>
+            <a href="https://storage.googleapis.com/mapsdevsite/santa-2015/DEC24-tracker-full.gif" target="_blank"><i18n-msg msgid="press-asset-animation">PLACEHOLDER_i18n</i18n-msg> <span>(GIF)</span></a>
           </div>
         </info-card>
 
@@ -93,50 +95,24 @@ specific language governing permissions and limitations under the License.
 
     <div id="press-secondary">
       <div class="press-secondary-inner">
-        <h2>All the fun and games</h2>
+        <h2><i18n-msg msgid="press-games-title"">PLACEHOLDER_i18n</i18n-msg></h2>
 
-        <info-chooser choices="education android new" value="education">
+        <info-chooser choices="education watch android new" value="education">
           <template is="dom-repeat" items="[[cards]]" as="card">
 
             <info-card filter$="[[card.filter]]"
                 image="[[_computeInfoCardImage(card.key)]]"
-                opens="[[card.opens]]"
-                locked="[[card.locked]]"
-                type="[[card.type]]"
                 href="[[urlFor(card.key)]]">
-              <div slot="title">[[card.title]]</div>
+              <h4>[[card.title]]</h4>
+              <h5>[[card.type]]</h5>
               <p>[[card.description]]</p>
-              <div class="card-links">
-                <span class="card-title">Press resources</span>
-                <div hidden$="[[card.locked]]">
-                  <template is="dom-repeat" items="[[card.resources]]">
-                    <a href="[[item.url]]" class$="[[item.class]]" target="_blank">
-                      [[item.title]] <span>([[item.type]])</span>
-                    </a>
-                  </template>
-                </div>
-                <div hidden$="[[!card.locked]]">
-                  <a class="card-locked">
-                    <span>Assets available soon</span>
+              <div hidden$="[[!card.resources.length]]" class="card-links">
+                <span class="card-title"><i18n-msg msgid="press-asset-resources">PLACEHOLDER_i18n</i18n-msg></span>
+                <template is="dom-repeat" items="[[card.resources]]">
+                  <a href="[[item]]" target="_blank">
+                    [[_computeStringForType(item)]] <span>([[_computeTypeOfURL(item)]])</span>
                   </a>
-                </div>
-              </div>
-            </info-card>
-
-          </template>
-          <template is="dom-repeat" items="[[androidCards]]" as="card">
-
-            <info-card filter$="[[card.filter]]"
-                image="[[_computeInfoCardImage(card.key, 'app')]]"
-                opens="[[card.opens]]"
-                type="[[card.type]]">
-              <div slot="title">[[card.title]]</div>
-              <p>[[card.description]]</p>
-              <div class="card-links" hidden$="[[!card.screenshotUrl]]">
-                <span class="card-title">Press resources</span>
-                <a href="[[card.screenshotUrl]]" target="_blank">
-                  Still Screenshot <span>(PNG file)</span>
-                </a>
+                </template>
               </div>
             </info-card>
 
@@ -147,41 +123,41 @@ specific language governing permissions and limitations under the License.
     </div>
 
     <div id="press-device">
-      <h2>Santa Tracker on your device</h2>
-      <p class="press-device-intro">The spirit of the holidays is everywhere, including all your devices!</p>
+      <h2><i18n-msg msgid="press-device-title">PLACEHOLDER_i18n</i18n-msg></h2>
+      <p class="press-device-intro"><i18n-msg msgid="press-device-text">PLACEHOLDER_i18n</i18n-msg></p>
 
       <div class="press-device-grid">
         <!-- <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-chromecast_2x.png);"></div>
+          <div class="square" style$="background-image: url([[importPath]]img/illust-chromecast_2x.png)"></div>
           <h4>Chromecast</h4>
           <p>Broadcast the adventure to your TV using Chromecast.</p>
           <a href="https://chromecast.com">Learn More</a>
         </div> -->
-        <!-- <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-web-googlehome_2x.png);"></div>
-          <h4>New assistant</h4>
+        <div class="press-device-square">
+          <div class="square" style$="background-image: url([[importPath]]img/illust-web-googlehome_2x.png)"></div>
+          <h4>New Assistant</h4>
           <p>As we get closer to the big day, ask your Pixel device or Google Home “Where is Santa”. The answer may surprise you.</p>
           <a href="https://assistant.google.com">Learn More</a>
-        </div> -->
+        </div>
         <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-mobile-app_2x.png);"></div>
-          <h4>Android app</h4>
+          <div class="square" style$="background-image: url([[importPath]]img/illust-mobile-app_2x.png)"></div>
+          <h4>Android App</h4>
           <p>Download the Santa Tracker App for Android on the Play Store.</p>
           <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker">Learn More</a>
         </div>
         <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-wear_2x.png);"></div>
+          <div class="square" style$="background-image: url([[importPath]]img/illust-wear_2x.png)"></div>
           <h4>Android Wear</h4>
           <p>Track Santa from your wrist with Android Wear integration.</p>
           <a href="https://www.android.com/wear/">Learn More</a>
         </div>
         <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-web-optimized_2x.png);"></div>
-          <h4>Mobile optimized</h4>
+          <div class="square" style$="background-image: url([[importPath]]img/illust-web-optimized_2x.png)"></div>
+          <h4>Mobile Optimized</h4>
           <p><a href="https://google.com/santatracker">google.com/santatracker</a> works on laptops, phones, and tablets so you can track Santa on the ho-ho-go.</p>
         </div>
         <div class="press-device-square">
-          <div class="square" style$="background-image: url([[importPath]]img/illust-google-search_2x.png);"></div>
+          <div class="square" style$="background-image: url([[importPath]]img/illust-google-search_2x.png)"></div>
           <h4>Google Search</h4>
           <p>Search for "Santa" on <a href="https://google.com">google.com</a> to see a countdown to Santa's round-the-world journey and a holiday-themed results page.</p>
         </div>
@@ -190,9 +166,14 @@ specific language governing permissions and limitations under the License.
     </div>
 
     <div id="press-footer">
-      <h3>Need something?</h3>
-      <p>Elves and Googlers are here to help.</p>
+      <h3><i18n-msg msgid="press-need-title">PLACEHOLDER_i18n</i18n-msg></h3>
+      <p><i18n-msg msgid="press-need-text">PLACEHOLDER_i18n</i18n-msg></p>
       <a href="mailto:press@google.com">press@google.com</a>
+    </div>
+
+    <div class="hidden">
+      <div id="msg_PNG"><i18n-msg msgid="press-asset-screenshot">PLACEHOLDER_i18n</i18n-msg></div>
+      <div id="msg_GIF"><i18n-msg msgid="press-asset-animation">PLACEHOLDER_i18n</i18n-msg></div>
     </div>
 
   </div>
@@ -205,7 +186,20 @@ specific language governing permissions and limitations under the License.
     properties: {
       scene: Object,
       cards: Array,
-      androidCards: Array,
+    },
+
+    _computeTypeOfURL: function(path) {
+      const index = path.lastIndexOf('.');
+      if (index !== -1) {
+        return path.substr(index + 1).toUpperCase();
+      }
+      return '?';
+    },
+
+    _computeStringForType: function(path) {
+      const type = this._computeTypeOfURL(path);
+      const el = this.$['msg_' + type];
+      return el && el.textContent || 'Download';
     },
 
     onPreload: function() {
@@ -223,19 +217,18 @@ specific language governing permissions and limitations under the License.
         'img/illust-web-optimized_2x.png',
         'img/illust-web-googlehome_2x.png',
         'img/title-bg-swirl_2x.png',
+        'img/illust-google-maps_2x.png',
+        'img/illust-web-cardboard_2x.png',
       ];
-
-      // nb. disused
-        // 'img/illust-google-maps_2x.png',
-        // 'img/illust-web-cardboard_2x.png',
-
       this.preloadImages(images);
     },
 
     onShow: function() {
       this.scene = new scenes.press.Scene();
-      this.androidCards = this.scene.getAndroidModels();
       this.cards = this.scene.getModels(function(key) {
+        if (key[0] === '_') {
+          return false;  // android
+        }
         var locked = santaApp.sceneIsOpen(key, true) === false;
         if (window.DEV && Math.random() > 0.5) {
           locked = true;
@@ -244,11 +237,11 @@ specific language governing permissions and limitations under the License.
       });
     },
 
-    _computeInfoCardImage: function(sceneName, opt_mode) {
+    _computeInfoCardImage: function(sceneName) {
       if (!sceneName) {
         return null;
-      } else if (opt_mode === 'app') {
-        return this.resolveUrl('img/app_' + sceneName + '.png');
+      } else if (sceneName[0] === '_') {
+        return this.resolveUrl('img/app_' + sceneName.slice(1) + '.png');
       }
       return this.resolveUrl('../../images/scenes/' + sceneName + '_2x.png');
     },
