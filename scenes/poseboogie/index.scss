@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  background: #71a7db;
+  background: #000;
   touch-action: none;
 }
 
 #mid {
   position: absolute;
-  background: #7CA6D6 url('img/stages/stage3.svg') center;
-  background-size: 100%;
+  background: #000 url('img/stages/stage3.svg') no-repeat center;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
