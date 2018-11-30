@@ -47,11 +47,11 @@
   }
 
   border-radius: 4px;
-  @include ButtonConfig(#99529f, 0, 4px);
+  @include ButtonConfig(#ad00ad, 0, 4px);
 
   &.Button--share {
     border-radius: 1000px;
-    @include ButtonConfig(#ffc101, 1px, 4px);
+    @include ButtonConfig(#ffc100, 1px, 4px);
 
     width: 42px;
     height: 42px;

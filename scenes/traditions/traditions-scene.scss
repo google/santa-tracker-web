@@ -1,7 +1,8 @@
 $tabletBreakpoint: 1024px;
 $mobileBreakpoint: 668px;
+$mobileBreakpoint-height: 420px;
 $ui-offset: 165px;
-$ui-offset-mobile: 100px;
+$ui-offset-mobile: 119px;
 
 $name: 'module-traditions';
 
@@ -139,6 +140,21 @@ $name: 'module-traditions';
     }
 
     @media (max-width: $mobileBreakpoint) {
+      top: $ui-offset-mobile;
+    }
+  }
+}
+
+@media (max-height: $mobileBreakpoint-height) {
+  ##{$name} {
+    .Button {
+      background-size: 24px;
+      min-height: 32px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .controls {
       top: $ui-offset-mobile;
     }
   }
