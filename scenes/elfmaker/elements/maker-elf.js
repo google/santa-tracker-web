@@ -92,7 +92,7 @@ export class MakerElfElement extends LitElement {
     const ctx = canvas.getContext('2d');
 
     const bg = new Image();
-    bg.src = defs.categoryChoice('backgrounds', this.categoryChoice['backgrounds']);
+    bg.src = defs.categoryChoice(this.categoryChoice, 'backgrounds');
     await new Promise((resolve, reject) => {
       bg.onload = resolve;
       bg.onerror = reject;
@@ -203,7 +203,7 @@ ${this.svgStyle}
 
     <!-- hat (first, before body) -->
     <g transform="translate(-105, -18)">
-      <g class="hats">${defs.categoryChoice('hats', this.categoryChoice['hats'])}</g>
+      <g class="hats">${defs.categoryChoice(this.categoryChoice, 'hats')}</g>
     </g>
 
     <!-- body and belt -->
@@ -226,10 +226,10 @@ ${this.svgStyle}
     <!-- head -->
     <g transform="translate(-105, -18)">
       ${defs.head}
-      <g class="hair">${defs.categoryChoice('hair', this.categoryChoice['hair'])}</g>
-      <g class="glasses">${defs.categoryChoice('glasses', this.categoryChoice['glasses'])}</g>
-      <g class="ears">${defs.categoryChoice('ears', this.categoryChoice['ears'])}</g>
-      <g class="accessories">${defs.categoryChoice('accessories', this.categoryChoice['accessories'])}</g>
+      <g class="hair">${defs.categoryChoice(this.categoryChoice, 'hair')}</g>
+      <g class="glasses">${defs.categoryChoice(this.categoryChoice, 'glasses')}</g>
+      <g class="ears">${defs.categoryChoice(this.categoryChoice, 'ears')}</g>
+      <g class="accessories">${defs.categoryChoice(this.categoryChoice, 'accessories')}</g>
     </g>
   </g>
 

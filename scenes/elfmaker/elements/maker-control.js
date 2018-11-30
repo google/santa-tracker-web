@@ -81,10 +81,11 @@ export class MakerControlElement extends LitElement {
   }
 
   /**
-   * Choose a random config.
+   * Choose a random config, including random category choices. Note that this is only called when
+   * the user explicitly asks for a random elf, normally only colors are random.
    */
-  chooseRandom(category=true) {
-    const categoryChoice = defaultCategoryChoices(category);
+  chooseRandom() {
+    const categoryChoice = defaultCategoryChoices(true);
     const propertyColors = defaultPropertyColors();
 
     this.categoryChoice = categoryChoice;
@@ -147,7 +148,9 @@ export class MakerControlElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
-    this.chooseRandom(false);
+    // At ctor time, we don't yet have state to deserialize. It'll probably arrive right after,
+    // but just use defaults for now.
+    this.deserializeState(null);
   }
 
   renderSvgStyle() {

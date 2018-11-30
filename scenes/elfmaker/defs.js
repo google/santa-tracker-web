@@ -504,7 +504,9 @@ export const categories = {
 };
 
 
-export function categoryChoice(category, value) {
-  const choices = categories[category] || [];
-  return choices[value] || '';
+export function categoryChoice(categoryChoices, category) {
+  const userChoice = categoryChoices[category];
+
+  const categoryOptions = categories[category] || [];
+  return categoryOptions[userChoice] || '';
 }
