@@ -13,11 +13,11 @@ const renderModel = (model, showResources) => {
     links = html`
 <div class="card-links">
 <span class="card-title">Press Resources</span>
-${repeat(model.resources, (r) => r.url, (r) => {
-  const extMatch = /\.(\w+)$/.exec(r.url);
+${repeat(model.resources, (r) => r, (r) => {
+  const extMatch = /\.(\w+)$/.exec(r);
   const ext = extMatch && extMatch[1] || '';
   const title = ext === 'gif' ? 'Animation': 'Screenshot';
-  return html`<a class="card-dl" href="${r.url}" rel="noopener">${title} <span ?hidden=${!ext}>(${ext.toUpperCase()})</span></a>`;
+  return html`<a class="card-dl" href="${r}" rel="noopener">${title} <span ?hidden=${!ext}>(${ext.toUpperCase()})</span></a>`;
 })}
 </div>`;
   }
