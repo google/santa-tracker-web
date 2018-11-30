@@ -507,6 +507,10 @@ export class Elf extends EventTarget {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
       this.leftCalf.angle = this.leftFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+      this.leftFoot.position = this.scale(this.pose['leftAnkle'].position);
+      // These offsets match the local pivots used in the revolute constraint above
+      this.leftFoot.position[0] += shoeWidth/2 - (shoeWidth * ankleOffset);
+      this.leftFoot.position[1] -= shoeHeight/2 - (shoeWidth * ankleOffset);
       this.resizeBox(this.leftCalf.shapes[0], this.dist('leftKnee', 'leftAnkle'), null);
     }
 
@@ -525,6 +529,9 @@ export class Elf extends EventTarget {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
       this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+      this.rightFoot.position = this.scale(this.pose['rightAnkle'].position);
+      this.rightFoot.position[0] -= shoeWidth/2 - (shoeWidth * ankleOffset);
+      this.rightFoot.position[1] -= shoeHeight/2 - (shoeWidth * ankleOffset);
       this.resizeBox(this.rightCalf.shapes[0], this.dist('rightKnee', 'rightAnkle'), null);
     }
 
