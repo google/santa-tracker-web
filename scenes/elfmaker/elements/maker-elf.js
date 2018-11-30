@@ -188,13 +188,8 @@ ${svgStyle}
 .limb.arm {
   stroke-width: ${limbWidth}px;
 }
-.body-clip {
-  clip-path: url(#${this._idPrefix}body-clip);
-}
   </style>
-  <defs>
-    <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${defs.body}</clipPath>
-  </defs>
+  <!-- nb. We can't use clipPath, as Edge doesn't render it in .drawImage() -->
 
   <!-- lower part -->
   <g transform="translate(30, 30) ${scaleAt(scale, scale, 130, 428.65)}">
@@ -219,9 +214,9 @@ ${svgStyle}
     </g>
 
     <!-- body and belt -->
-    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" class="body-clip">
-      <rect class="suit" x="-100" y="200" width="200" height="200"/>
-      <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" class="suit">
+      ${defs.body}
+      <rect class="high1" x="-42.66" y="259.76" width="85.32" height="21.32"/>
       <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
     </g>
 

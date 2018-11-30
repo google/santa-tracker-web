@@ -4,8 +4,7 @@ body {
   display: flex;
   flex-flow: column;
   height: 100vh;
-  overflow: hidden;
-  box-sizing: border-box;
+  max-height: 100vh;
 }
 
 footer {
@@ -20,23 +19,33 @@ maker-photo {
 
 #main {
   background: url(img/backgrounds/snow.png) no-repeat center/cover;
-  display: flex;
-  align-items: stretcn;
-  justify-content: center;
   flex-grow: 1;
-  padding-bottom: 5vh;
-  box-sizing: border-box;
   z-index: 100;
   position: relative;
 
-  maker-elf {
-    width: 100%;
+  .viewport {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
   }
 
   .mid {
-    align-self: stretch;  // actually limits this size
     flex-grow: 1;
     max-width: 80vw;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    maker-elf {
+      flex-grow: 1;
+      box-sizing: border-box;
+      height: 100%;
+      padding: 1em 0;
+    }
   }
   
   .buttons {
@@ -61,10 +70,10 @@ maker-photo {
     }
 
     santa-button {
-      width: 90px;
-      height: 90px;
-      margin: 12px 0;
-      font-size: 4em;
+      width: 72px;
+      height: 72px;
+      margin: 12px;
+      font-size: 3em;
       display: inline-block;
     }
   }
@@ -79,6 +88,10 @@ maker-photo {
     height: 50vh;
     position: fixed;
     width: 100%;
+
+    .mid {
+      height: 100%;
+    }
 
     .buttons {
       santa-button {
