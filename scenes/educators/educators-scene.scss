@@ -1,12 +1,13 @@
 @import "../press/sass/card";
 
 :host {
-  user-select: auto;
+  user-select: text;
 }
 
 #content {
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
+  user-select: text;
 }
 
 #lang {
@@ -55,9 +56,10 @@ h1 {
   font-family: 'Lobster', sans-serif;
   font-size: 115px;
   font-weight: normal;
-  margin: 10px;
-  float: left;
   color: #fff;
+  line-height: 1em;
+  margin: 10px;
+  margin-bottom: 0.25em;
 
   &::first-letter {
     font-size: 161px;
@@ -119,7 +121,6 @@ ul {
     text-align: center;
 
     .title {
-      display: inline-block;
       transform: rotate(-5deg);
     }
   }
