@@ -8,6 +8,7 @@ import { World } from './js/world.js';
 
 const videoWidth = 700;
 const videoHeight = 500;
+const [minHumanSize, maxHumanSize] = [0.25, 1.5];
 
 const appConfig = {
   debug: true,
@@ -87,7 +88,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'enableJointLimits');
   gui.add(appConfig, 'resizeBodyParts');
   gui.add(appConfig, 'smoothLimbs');
-  gui.add(appConfig, 'humanSize', { Small: 2, Medium: 1.5, Large: 1 });
+  gui.add(appConfig, 'humanSize').min(minHumanSize).max(maxHumanSize).step(0.25);
   gui.add(appConfig, 'quadraticElbows');
 }
 
