@@ -16,13 +16,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;  // only needed for iOS
+  overflow: hidden;
   z-index: 0;  // gives the scene its own stacking context
 
   &[allow-page-scrolling] {
     top: 0;
     bottom: auto;
-    overflow: auto;
   }
 
   &:focus {
