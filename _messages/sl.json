@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Naprej"
 	},
+	"next_game": {
+		"message": "Naslednja igra"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Mediji"
+	},
+	"press-about-tracker": {
+		"message": "Več o Spremljanju Božičkove poti"
+	},
+	"press-about-tracker1": {
+		"message": "24. decembra bomo uvedli Spremljanje Božičkove poti, ki Božičkovim oboževalcem omogoča, da spremljajo njegovo pot od mesta do mesta. V Google Zemljevidih si lahko ogledate njegovo trenutno lokacijo in Pomočnika Google vprašate »OK Google, Where’s Santa?« ter tako spremljate Božičkovo potovanje tudi na poti."
+	},
+	"press-about-village": {
+		"message": "Več o Božičkovi vasi"
+	},
+	"press-about-village1": {
+		"message": "Božičkova vas praznuje 15 let zabavnih, izobraževalnih in interaktivnih prazničnih dejavnosti. Palčki so pod strokovnim vodstvom gospe Božiček poskrbeli za šik videz vasi in nekaj popolnoma nove vsebine. Vas je tudi opremljena z novim ogrevalnim sistemom, ki deluje na kakav. Tako ne bo več trajalo ves december, da se vas reši iz ledenega oklepa. Vseh 24 dejavnosti bo tako na voljo od 4. decembra, da se boste lahko s palčki dlje časa igrali v Božičkovi vasi in jo raziskovali."
+	},
+	"press-about-village2": {
+		"message": "V vasi lahko izpopolnite svoje veščine kodiranja, ustvarjate izvirne umetnine, preskusite svoje geografske spretnosti in pridobite več informacij o dobrodelnih organizacijah, kot sta \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e in \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Učitelji lahko tudi \u003ca href=\"./educators.html\"\u003eprenesejo učne načrte\u003c/a\u003e z videovodniki, s katerimi lahko učencem pomagajo osvojiti temeljno znanje o kodiranju in prazničnih običajih v angleščini, španščini, francoščini, japonščini in korejščini."
+	},
+	"press-asset-animation": {
+		"message": "Animacija"
+	},
+	"press-asset-resources": {
+		"message": "Viri za novinarje"
+	},
+	"press-asset-screenshot": {
+		"message": "Posnetek zaslona"
+	},
+	"press-device-text": {
+		"message": "Praznično vzdušje je povsod, tudi v vseh vaših napravah."
+	},
+	"press-device-title": {
+		"message": "Spremljanje Božičkove poti v napravi"
+	},
+	"press-edu": {
+		"message": "Izobraževalne dogodivščine"
+	},
+	"press-games-title": {
+		"message": "Sama zabava in igre"
+	},
+	"press-need-text": {
+		"message": "Palčki in zaposleni pri Googlu so vam na voljo za pomoč."
+	},
+	"press-need-title": {
+		"message": "Potrebujete še kaj?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Na voljo od 24. decembra"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Na voljo ves december"
+	},
+	"press-villagetracker-title": {
+		"message": "Božičkova vas in Spremljanje Božičkove poti"
+	},
+	"press-whatsnew": {
+		"message": "Letošnje novosti"
+	},
+	"press-whatsnew1-text": {
+		"message": "Ustvarite povsem svojega palčka in poskrbite za njegov palčkastičen videz na vseh prazničnih dogodkih, ki se bodo odvijali na Severnem tečaju."
+	},
+	"press-whatsnew1-title": {
+		"message": "Ustvarite palčka:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Če že od nekdaj sanjate, da bi ustanovili plesno skupino z izjemno nadarjenimi plešočimi palčki, lahko zdaj te sanje uresničite. No, skoraj. Z modelom strojnega učenja \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e lahko palčka naučite plesnih gibov, s katerimi se bo izkazal na plesišču."
+	},
+	"press-whatsnew2-title": {
+		"message": "Ples s palčki:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Trenutno lokacijo Božička si lahko ogledate v Google Zemljevidih. Dotaknite se gumba za več možnosti in nato možnosti »Skupna raba lokacije« ter si oglejte trenutno lokacijo Božička na poti."
+	},
+	"press-whatsnew3-title": {
+		"message": "Nov način spremljanja Božička:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Če želite še več božičnega vzdušja, si oglejte praznične nalepke Gboard, ki so ekskluzivno na voljo v naši \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikaciji za Android\u003c/a\u003e, in spremljajte trende, kot je najbolj iskan piškotek v posameznih ameriških zveznih državah. Stopite v stik z najpomembnejšo osebo letošnjih praznikov tako, da Pomočniku Google z ukazom »Call Santa« naročite, naj pokliče Božička, z ukazom »Tell me a holiday story« pa se podajte na literarno popotovanje."
+	},
+	"press-whatsnew4-title": {
+		"message": "Še več praznične zabave:"
 	},
 	"pt_language_name": {
 		"message": "portugalščina"

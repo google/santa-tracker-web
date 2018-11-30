@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Next"
 	},
+	"next_game": {
+		"message": "Next Game"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "About Santa Tracker"
+	},
+	"press-about-tracker1": {
+		"message": "On 24 December, we'll launch the Tracker, a dashboard that allows Santa fans to follow his progress as he whips from city to city. You can also see his live location on Google Maps and ask the Google Assistant, 'Ok Google, Where's Santa?' – so you can keep a finger on the pulse of Santa's whereabouts even when you're on the go."
+	},
+	"press-about-village": {
+		"message": "About Santa's Village"
+	},
+	"press-about-village1": {
+		"message": "Santa's Village is celebrating its fifteenth year of fun, educational and interactive festive activities. Under Mrs. Claus's expert guidance, the elves have updated the village with a snazzy look and feel along with some brand new content. And, thanks to a new, hot-cocoa-powered heating system, the village will no longer take all of December to thaw – all two-dozen activities will be available starting on 4 December. Now the elves (and you!) have more time to play and explore in Santa's Village."
+	},
+	"press-about-village2": {
+		"message": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops and learn more about charitable organisations like \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e and \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Teachers can even \u003ca href=\"./educators.html\"\u003edownload lesson plans\u003c/a\u003e with video guides to help teach their students fundamental coding skills and festive traditions in English, Spanish, French, Japanese and Korean."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Press resources"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "The spirit of the festive season is everywhere, including all your devices!"
+	},
+	"press-device-title": {
+		"message": "Santa Tracker on your device"
+	},
+	"press-edu": {
+		"message": "Educational adventures"
+	},
+	"press-games-title": {
+		"message": "All the fun and games"
+	},
+	"press-need-text": {
+		"message": "Elves and Googlers are here to help."
+	},
+	"press-need-title": {
+		"message": "Need something?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Opens 24 December"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Open all December"
+	},
+	"press-villagetracker-title": {
+		"message": "Santa's Village and the Tracker"
+	},
+	"press-whatsnew": {
+		"message": "What's new this year"
+	},
+	"press-whatsnew1-text": {
+		"message": "Build your own elf from head to toe and make sure that it looks elf-tastic for the many festive soirées happening on the North Pole."
+	},
+	"press-whatsnew1-title": {
+		"message": "Build an elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now's your chance. Almost. Using a machine-learning model called \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, you can train an elf to learn your moves, so you can get your elf on the dance floor."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dance(s) with elves:"
+	},
+	"press-whatsnew3-text": {
+		"message": "You'll also be able to see Santa's real-time location on Google Maps – just tap on the hamburger button and then on 'Location Sharing' to see exactly where Santa is throughout his journey."
+	},
+	"press-whatsnew3-title": {
+		"message": "A new way to track Santa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "If you're craving more Christmas cheer, take a look at the Gboard festive stickers, available exclusively on our \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to 'Call Santa', and then wind down with 'Tell me a holiday story' to enjoy some literary fun."
+	},
+	"press-whatsnew4-title": {
+		"message": "More festive fun:"
 	},
 	"pt_language_name": {
 		"message": "Portuguese"

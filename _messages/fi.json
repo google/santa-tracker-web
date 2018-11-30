@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Seuraava"
 	},
+	"next_game": {
+		"message": "Seuraava peli"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Lehdistö"
+	},
+	"press-about-tracker": {
+		"message": "Tietoja Joulupukin jäljittimestä"
+	},
+	"press-about-tracker1": {
+		"message": "Avaamme 24. joulukuuta jäljittimen, jonka avulla voi seurata Joulupukin matkaa paikasta toiseen. Pukin sijainti näkyy myös livenä Google Mapsissa, ja voit kysyä Google Assistantilta, \"OK Google, Where’s Santa?\" (\"OK Google, missä Pukki menee?\"), niin pysyt Pukin jäljillä missä tahansa."
+	},
+	"press-about-village": {
+		"message": "Tietoja Joulupukin kylästä"
+	},
+	"press-about-village1": {
+		"message": "Joulupukin kylä ja sen hauskat, opettavaiset ja interaktiiviset joulupuuhat täyttävät tänä vuonna 15 vuotta. Joulumuorin osaavalla opastuksella tontut ovat uudistaneet kylän tyylikkäästi ja lisänneet myös aivan uutta sisältöä. Uusi kaakaolla toimiva lämmitysjärjestelmä pitää huolen, ettei kylän sulaminen kestä koko joulukuuta, vaan kaikkien parinkymmenen puuhan pariin pääsee jo 4. joulukuuta. Nyt tontuilla (ja sinulla!) on enemmän aikaa pelaamiseen ja tutkimiseen Joulupukin kylässä."
+	},
+	"press-about-village2": {
+		"message": "Kylässä voit harjoitella koodauksen perustaitoja, tehdä omaa taidetta, opetella maantietoa ja tutustua tarkemmin hyväntekeväisyysjärjestöihin, kuten \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e ja \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Opettajat voivat myös \u003ca href=\"./educators.html\"\u003eladata tuntisuunnitelmia\u003c/a\u003e ja niiden tueksi video-ohjeita, joiden avulla he voivat opettaa koodauksen perusasioita ja kertoa joulunajan perinteistä englanniksi, espanjaksi, ranskaksi, japaniksi ja koreaksi."
+	},
+	"press-asset-animation": {
+		"message": "Animaatio"
+	},
+	"press-asset-resources": {
+		"message": "Lehdistömateriaalit"
+	},
+	"press-asset-screenshot": {
+		"message": "Kuvakaappaus"
+	},
+	"press-device-text": {
+		"message": "Joulumieltä on joka puolella, myös kaikilla laitteillasi!"
+	},
+	"press-device-title": {
+		"message": "Joulupukin jäljitin laitteellasi"
+	},
+	"press-edu": {
+		"message": "Oppimisseikkailuja"
+	},
+	"press-games-title": {
+		"message": "Iloa ja pelejä"
+	},
+	"press-need-text": {
+		"message": "Tontut ja googlelaiset ovat apunasi."
+	},
+	"press-need-title": {
+		"message": "Tarvitsetko jotain?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Aukeaa 24. joulukuuta"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Auki koko joulukuun"
+	},
+	"press-villagetracker-title": {
+		"message": "Joulupukin kylä ja jäljitin"
+	},
+	"press-whatsnew": {
+		"message": "Uutta tänä vuonna"
+	},
+	"press-whatsnew1-text": {
+		"message": "Tee päästä varpaisiin oma tonttu, joka on tonttumaisen tyylikkäänä valmis kaikkiin Korvatunturin jouluiltamiin."
+	},
+	"press-whatsnew1-title": {
+		"message": "Tee tonttu:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Jos olet aina halunnut perustaa tanssiryhmän huippulahjakkaiden tonttujen kanssa, tässä on tilaisuutesi. No ainakin melkein. \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e-koneoppimismallin avulla voit opettaa tonttua ottamaan tanssilattian haltuun omilla liikkeilläsi."
+	},
+	"press-whatsnew2-title": {
+		"message": "Tanssi(i) tonttujen kanssa:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Näet myös Joulupukin sijainnin reaaliajassa Google Mapsissa – napauta vain hampparipainiketta ja valitse sitten Sijainnin jakaminen, niin näet, missä Pukki on menossa."
+	},
+	"press-whatsnew3-title": {
+		"message": "Uusi tapa seurata Pukin matkaa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Luo lisää joulumieltä vain \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-sovellukselle\u003c/a\u003e saatavilla Gboard-joulutarroilla ja näe kiehtovia trendejä, kuten mitä keksejä missäkin Yhdysvaltojen osavaltiossa haetaan. Pirauta Pukille sanomalla Google Assistantille \"Call Santa\" (\"Soita Joulupukille\") ja valmistaudu sitten hauskoihin kuunteluhetkiin sanoilla \"Tell me a holiday story\" (\"Kerro minulle joulutarina\")."
+	},
+	"press-whatsnew4-title": {
+		"message": "Lisää iloa joulunaikaan:"
 	},
 	"pt_language_name": {
 		"message": "portugali"

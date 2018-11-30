@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Berikutnya"
 	},
+	"next_game": {
+		"message": "Game Berikutnya"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Pers"
+	},
+	"press-about-tracker": {
+		"message": "Tentang Pelacak Sinterklas"
+	},
+	"press-about-tracker1": {
+		"message": "Pada 24 Desember, kami akan meluncurkan Pelacak, sebuah dasbor yang memungkinkan penggemar Sinterklas untuk mengikuti perjalannya dengan cepat dari kota ke kota. Anda juga dapat melihat lokasinya secara langsung di Google Maps dan bertanya kepada Asisten Google, \"OK Google, Di mana Sinterklas?\"—supaya Anda dapat mengetahui keberadaan Sinterklas meski saat sedang bepergian."
+	},
+	"press-about-village": {
+		"message": "Tentang Desa Sinterklas"
+	},
+	"press-about-village1": {
+		"message": "Desa Sinterklas merayakan lima belas tahun aktivitas liburan seru yang mendidik dan interaktif. Di bawah bimbingan sang ahli, Ny. Claus, pada kurcaci telah merenovasi desa dengan tampilan dan nuansa menarik, lengkap dengan berbagai konten baru. Dan berkat sistem pemanas bertenaga coklat panas, tidak perlu waktu lama lagi untuk mencairkan desa ini di bulan Desember—semua aktivitas ini akan tersedia mulai tanggal 4 Desember. Sekarang, para kurcaci (dan Anda!) memiliki lebih banyak waktu untuk bermain dan menjelajahi Desa Sinterklas."
+	},
+	"press-about-village2": {
+		"message": "Di desa, Anda dapat mempraktikkan keahlian pengkodean dasar Anda, membuat karya seni orisinal, berlatih tentang geografi, dan mempelajari lebih lanjut tentang organisasi amal, seperti \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e dan \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Para guru bahkan dapat \u003ca href=\"./educators.html\"\u003emendownload paket pelajaran\u003c/a\u003e dengan panduan video untuk membantu mengajarkan keterampilan pengkodean dasar dan tradisi liburan dalam bahasa Inggris, Spanyol, Prancis, Jepang, dan Korea kepada murid mereka."
+	},
+	"press-asset-animation": {
+		"message": "Animasi"
+	},
+	"press-asset-resources": {
+		"message": "Resource pers"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Semangat liburan ada di mana-mana, termasuk di semua perangkat Anda!"
+	},
+	"press-device-title": {
+		"message": "Pelacak Sinterklas di perangkat Anda"
+	},
+	"press-edu": {
+		"message": "Petualangan pendidikan"
+	},
+	"press-games-title": {
+		"message": "Semua keseruan dan game"
+	},
+	"press-need-text": {
+		"message": "Kurcaci dan Googler siap membantu."
+	},
+	"press-need-title": {
+		"message": "Butuh sesuatu?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Dibuka pada 24 Desember"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Dibuka selama bulan Desember"
+	},
+	"press-villagetracker-title": {
+		"message": "Desa Sinterklas dan Pelacak"
+	},
+	"press-whatsnew": {
+		"message": "Yang baru tahun ini"
+	},
+	"press-whatsnew1-text": {
+		"message": "Buat kurcaci Anda sendiri, dari ujung kepala hingga ujing kaki, dan pastikan dandanannya sudah kuren untuk menghadiri berbagai pesta liburan yang diadakan di Kutub Utara."
+	},
+	"press-whatsnew1-title": {
+		"message": "Membuat kurcaci:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Jika Anda bercita-cita untuk membentuk grup tari bersama sekelompok kurcaci penari berbakat, inilah saatnya. Hampir. Melalui model machine learning yang bernama \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, Anda dapat melatih kurcaci untuk mempelajari gerakan Anda supaya mereka bisa Anda kirim ke lantai dansa."
+	},
+	"press-whatsnew2-title": {
+		"message": "Menari dengan para kurcaci:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Anda juga dapat melihat lokasi real-time Sinterklas di Google Maps—cukup tap tombol hamburger, kemudian \"Berbagi Lokasi\" untuk memantau posisi Sinterklas di sepanjang perjalanannya."
+	},
+	"press-whatsnew3-title": {
+		"message": "Cara baru untuk melacak Sinterklas:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Jika Anda ingin liburan yang lebih seru, lihat stiker liburan Gboard yang tersedia secara eksklusif di \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikasi Android\u003c/a\u003e kami dan pantau berbagai tren, seperti kukis yang paling banyak ditelusuri secara unik di setiap negara bagian di Amerika Serikat. Hubungi VIP musim ini dengan mengatakan \"Hubungi Sinterklas\" kepada Asisten Google dan akhiri dengan \"Ceritakan dongeng liburan\" untuk menikmati sejumlah karya sastra menarik."
+	},
+	"press-whatsnew4-title": {
+		"message": "Keseruan liburan lainnya:"
 	},
 	"pt_language_name": {
 		"message": "Portugis"

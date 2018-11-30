@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Avanti"
 	},
+	"next_game": {
+		"message": "Prossimo gioco"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Stampa"
+	},
+	"press-about-tracker": {
+		"message": "Informazioni su Segui Babbo Natale"
+	},
+	"press-about-tracker1": {
+		"message": "Il 24 dicembre lanceremo Segui Babbo Natale, una dashboard che consente ai fan di Babbo Natale di seguire il suo percorso di città in città. Potrai anche visualizzare la sua posizione in tempo reale su Google Maps e chiedere all'Assistente Google \"Ok Google, dov'è Babbo Natale?\", per scoprire dove si trova in qualsiasi momento."
+	},
+	"press-about-village": {
+		"message": "Informazioni sul villaggio di Babbo Natale"
+	},
+	"press-about-village1": {
+		"message": "Il villaggio di Babbo Natale offre per il 15° anno consecutivo attività natalizie interattive ed educative, nello spirito del divertimento. Sotto l'occhio esperto della signora Natale, i folletti hanno rimodernato il villaggio con un look molto chic e contenuti nuovi di zecca. Grazie a un sistema di riscaldamento alimentato da cioccolata calda, non ci vorrà tutto il mese di dicembre per scongelarlo. Decine di attività saranno disponibili a partire dal 4 dicembre, il che significa che sia tu sia i folletti avrete ancora più tempo per giocare ed esplorare il villaggio di Babbo Natale."
+	},
+	"press-about-village2": {
+		"message": "Nel villaggio, potrai fare pratica con competenze di programmazione base, creare opere d'arte originali, mettere alla prova le tue conoscenze geografiche e imparare di più sulle organizzazioni di beneficenza come la \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Gli insegnanti possono persino \u003ca href=\"./educators.html\"\u003escaricare i piani delle lezioni\u003c/a\u003e corredati da guide video per spiegare agli studenti i concetti base della programmazione e le tradizioni natalizie in inglese, spagnolo, francese, giapponese e coreano."
+	},
+	"press-asset-animation": {
+		"message": "Animazione"
+	},
+	"press-asset-resources": {
+		"message": "Risorse per la stampa"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Lo spirito natalizio è ovunque, anche sui tuoi dispositivi."
+	},
+	"press-device-title": {
+		"message": "Segui Babbo Natale sul tuo dispositivo"
+	},
+	"press-edu": {
+		"message": "Avventure educative"
+	},
+	"press-games-title": {
+		"message": "Giochi e divertimento"
+	},
+	"press-need-text": {
+		"message": "I folletti e i Googler sono qui per aiutarti."
+	},
+	"press-need-title": {
+		"message": "Ti serve qualcosa?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponibile dal 24 dicembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponibile per tutto il mese di dicembre"
+	},
+	"press-villagetracker-title": {
+		"message": "Il villaggio di Babbo Natale e Segui Babbo Natale"
+	},
+	"press-whatsnew": {
+		"message": "Le novità di quest'anno"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crea il tuo folletto personalizzato dalla testa ai piedi, con un look el(f)egante per le serate di gala natalizie al Polo Nord."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crea un folletto:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Se hai sempre sognato di fondare una compagnia di danza con un gruppo di folletti ballerini di gran talento, ecco la tua occasione. O quasi. Grazie a un modello di machine learning chiamato \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, potrai insegnare i tuoi passi di danza a un folletto, in modo che sia pronto per la pista."
+	},
+	"press-whatsnew2-title": {
+		"message": "Balla con i folletti:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Potrai vedere la posizione di Babbo Natale in tempo reale su Google Maps: basta toccare il pulsante del menu con tre trattini e poi \"Condivisione della posizione\" per scoprire dove si trovi precisamente Babbo Natale."
+	},
+	"press-whatsnew3-title": {
+		"message": "Un nuovo modo per seguire Babbo Natale:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Se vuoi diffondere lo spirito natalizio ancora di più, usa uno degli adesivi di Gboard creati per le feste e disponibili in esclusiva sulla nostra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp per Android\u003c/a\u003e e scopri le ultime tendenze, ad esempio qual è il biscotto più cercato in ogni stato americano. Contatta il VIP della stagione natalizia tramite l'Assistente Google dicendo \"Chiama Babbo Natale\" e pronuncia la frase \"Raccontami una storia natalizia\" per rilassarti con un po' di divertimento letterario."
+	},
+	"press-whatsnew4-title": {
+		"message": "Ancora più divertimento natalizio:"
 	},
 	"pt_language_name": {
 		"message": "Portoghese"

@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Înainte"
 	},
+	"next_game": {
+		"message": "Jocul următor"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Presă"
+	},
+	"press-about-tracker": {
+		"message": "Despre Pe urmele lui Moș Crăciun"
+	},
+	"press-about-tracker1": {
+		"message": "Pe 24 decembrie, vom lansa Pe urmele lui Moș Crăciun, un tablou de bord în care fanii Moșului pot să-i urmărească progresul pe măsură ce zboară de la un oraș la altul. Poți să-i vezi locația live în Google Maps și să-l întrebi pe Asistentul Google, „Ok Google, Where’s Santa?” (Unde este Moșul?), astfel încât să fii la curent cu locația Moșului chiar și din mers."
+	},
+	"press-about-village": {
+		"message": "Despre satul Moșului"
+	},
+	"press-about-village1": {
+		"message": "Satul Moșului sărbătorește al cincisprezecelea an de activități festive distractive, educative și interactive. Sub conducerea atentă a dnei Crăciun, elfii au actualizat satul, dându-i un aspect atractiv și adăugând conținut nou-nouț. Mulțumită noului sistem de încălzire cu ciocolată caldă, satul nu mai are nevoie de întreaga lună decembrie pentru a se dezgheța: toate cele 24 de activități vor fi disponibile începând din 4 decembrie. Acum tu și elfii aveți mai mult timp să vă jucați și să explorați satul Moșului."
+	},
+	"press-about-village2": {
+		"message": "În sat, poți să-ți exersezi aptitudinile de codificare, să creezi imagini originale, să-ți testezi cunoștințele despre geografie și să afli mai multe despre organizații caritabile precum \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e și \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Cadrele didactice pot \u003ca href=\"./educators.html\"\u003esă descarce planuri de lecție\u003c/a\u003e cu ghiduri video, pentru a le preda elevilor noțiuni de bază despre codificare și tradiții de sărbători, în engleză, spaniolă, franceză, japoneză și coreeană."
+	},
+	"press-asset-animation": {
+		"message": "Animație"
+	},
+	"press-asset-resources": {
+		"message": "Resurse pentru presă"
+	},
+	"press-asset-screenshot": {
+		"message": "Captură de ecran"
+	},
+	"press-device-text": {
+		"message": "Spiritul sărbătorilor este pretutindeni, inclusiv pe toate dispozitivele tale!"
+	},
+	"press-device-title": {
+		"message": "Pe urmele lui Moș Crăciun pe dispozitivul tău"
+	},
+	"press-edu": {
+		"message": "Aventuri educative"
+	},
+	"press-games-title": {
+		"message": "Distracție și jocuri"
+	},
+	"press-need-text": {
+		"message": "Elfii și angajații Google sunt aici să te ajute."
+	},
+	"press-need-title": {
+		"message": "Ai nevoie de ceva?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponibil pe 24 decembrie"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponibil în decembrie"
+	},
+	"press-villagetracker-title": {
+		"message": "Satul Moșului și Pe urmele acestuia"
+	},
+	"press-whatsnew": {
+		"message": "Noutăți anul acesta"
+	},
+	"press-whatsnew1-text": {
+		"message": "Creează-ți propriul elf, din cap până în picioare, și asigură-te că arată spectaculos pentru petrecerile de sărbători de la Polul Nord."
+	},
+	"press-whatsnew1-title": {
+		"message": "Creează un elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Dacă visul tău dintotdeauna a fost să începi o trupă de dans cu un grup de elfi dansatori foarte talentați, acum a sosit momentul. Aproape. Folosind modelul de învățare automată numit \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, poți să antrenezi un elf să-ți învețe mișcările, astfel încât să arate ce poate pe ringul de dans."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dansează cu elfii:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Vei putea să vezi locația în timp real a Moșului în Google Maps. Pur și simplu, atinge butonul hamburger, iar apoi „Afișarea locației”, pentru a vedea exact unde se află Moșul de-a lungul călătoriei sale."
+	},
+	"press-whatsnew3-title": {
+		"message": "Un nou mod în care să-l urmărești pe Moș Crăciun:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Dacă vrei să simți spiritul sărbătorilor, încearcă stickerele de sărbători de la Gboard, disponibile exclusiv în \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicația Android\u003c/a\u003e, și descoperă tendințe precum cea mai căutată prăjitură în fiecare stat din S.U.A. Intră în legătură cu cea mai importantă persoană a sezonului festiv, spunându-i Asistentului Google, „Call Santa” (Sună-l pe Moș Crăciun), iar apoi relaxează-te zicând „Tell me a holiday story” (Spune-mi o poveste de sărbători), pentru a te bucura de distracție literară."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mai multă distracție de sărbători:"
 	},
 	"pt_language_name": {
 		"message": "Portugheză"

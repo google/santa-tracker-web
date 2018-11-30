@@ -896,6 +896,9 @@
 	"next": {
 		"message": "下一步"
 	},
+	"next_game": {
+		"message": "下一个游戏"
+	},
 	"ng_country_name": {
 		"message": "尼日利亚"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "新闻"
+	},
+	"press-about-tracker": {
+		"message": "“追踪圣诞老人”简介"
+	},
+	"press-about-tracker1": {
+		"message": "我们将在 12 月 24 日推出“追踪圣诞老人”，圣诞迷们可以在这个信息平台上追踪圣诞老人的足迹，随他赶着驯鹿走过一个又一个城市。您还可以在 Google 地图上查看他的实时位置，为此，只需对 Google 助理说：“Ok Google, Where’s Santa?”（Ok Google，圣诞老人在哪里？）。无论您在哪里，都能随时随地掌握圣诞老人的行踪。"
+	},
+	"press-about-village": {
+		"message": "圣诞老人小镇简介"
+	},
+	"press-about-village1": {
+		"message": "圣诞老人小镇正在举行玩教一体的节日互动活动来庆祝上线十五周年。在圣诞老奶奶专业的指导下，精灵们将小镇装扮一新，还提供了一些全新的内容。另外，多亏了一个由热巧克力提供动力的全新供暖系统，小镇再也不用感受天寒地冻的 12 月了。从 12 月 4 日起，将有二十四个活动陆续推出。现在，精灵们（当然还有您！）可以有更多的时间在圣诞老人小镇中尽情玩耍、探索。"
+	},
+	"press-about-village2": {
+		"message": "在圣诞老人小镇里，您可以练习基本的编程技能、制作原创艺术品、实际运用您的地理知识，并深入了解 \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e 和 \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e 等慈善组织。教师们甚至可以\u003ca href=\"./educators.html\"\u003e下载教案\u003c/a\u003e以及指导视频，教学生一些基础编程技能和节日传统；目前支持英语、西班牙语、法语、日语和韩语。"
+	},
+	"press-asset-animation": {
+		"message": "动画"
+	},
+	"press-asset-resources": {
+		"message": "新闻资源"
+	},
+	"press-asset-screenshot": {
+		"message": "屏幕截图"
+	},
+	"press-device-text": {
+		"message": "节日的气息无处不在，您的所有设备也能感受得到！"
+	},
+	"press-device-title": {
+		"message": "您设备上的“追踪圣诞老人”"
+	},
+	"press-edu": {
+		"message": "精彩的教育之旅"
+	},
+	"press-games-title": {
+		"message": "游戏王国，快乐天堂"
+	},
+	"press-need-text": {
+		"message": "精灵们和 Google 员工随时为您提供帮助。"
+	},
+	"press-need-title": {
+		"message": "需要帮助？"
+	},
+	"press-villagetracker-open24th": {
+		"message": "12 月 24 日开放"
+	},
+	"press-villagetracker-opendec": {
+		"message": "12 月全月开放"
+	},
+	"press-villagetracker-title": {
+		"message": "圣诞老人小镇和“追踪圣诞老人”"
+	},
+	"press-whatsnew": {
+		"message": "今年新变化"
+	},
+	"press-whatsnew1-text": {
+		"message": "从头至脚制作您自己的精灵，让它在北极举办的诸多节日晚会上光彩照人，尽显精灵气质。"
+	},
+	"press-whatsnew1-title": {
+		"message": "制作一个精灵："
+	},
+	"press-whatsnew2-text": {
+		"message": "如果您的毕生梦想是与一群天才舞蹈精灵们成立一个舞蹈团，那么现在您很快就要梦想成真了。借助一个叫做 \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e 的机器学习模型，您可以训练一个精灵学习您的舞步，最后让它步入舞池翩翩起舞。"
+	},
+	"press-whatsnew2-title": {
+		"message": "与精灵共舞："
+	},
+	"press-whatsnew3-text": {
+		"message": "您还可以在 Google 地图上查看圣诞老人的实时位置。只需依次点按汉堡形按钮、“位置信息分享”，即可查看圣诞老人在旅途中的确切位置。"
+	},
+	"press-whatsnew3-title": {
+		"message": "追踪圣诞老人的全新方式："
+	},
+	"press-whatsnew4-text": {
+		"message": "如果您渴望体验更多节日乐趣，可以查看我们的 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid 版应用\u003c/a\u003e特有的 Gboard 节日贴纸，另外，您还可以饱览各种趋势，例如，美国各州搜索最多（按唯一身份用户数量计算）的曲奇饼干分别是什么。如果对 Google 助理说：“Call Santa”（打电话给圣诞老人），就能联系这个季节最受欢迎的人物，再说：“Tell me a holiday story”（给我讲一个节日故事），就能放松下来享受曼妙的文章。"
+	},
+	"press-whatsnew4-title": {
+		"message": "更多节日乐趣："
 	},
 	"pt_language_name": {
 		"message": "葡萄牙语"

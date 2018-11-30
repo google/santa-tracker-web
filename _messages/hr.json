@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Sljedeće"
 	},
+	"next_game": {
+		"message": "Sljedeća igra"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Mediji"
+	},
+	"press-about-tracker": {
+		"message": "O igri Slijedi Djeda Božićnjaka"
+	},
+	"press-about-tracker1": {
+		"message": "Dana 24. prosinca pokrenut ćemo Praćenje, nadzornu ploču koja Djedovim poklonicima omogućuje da prate njegov napredak na putovanju od grada do grada. Njegovu lokaciju možeš provjeriti uživo na Google kartama ili tako da Google asistentu postaviš pitanje \"OK Google, Where’s Santa?\" – na taj će ti način Djedova lokacija uvijek biti poznata, čak i dok si u pokretu."
+	},
+	"press-about-village": {
+		"message": "O Djedovu selu"
+	},
+	"press-about-village1": {
+		"message": "U Djedovu selu slavi se petnaest godina održavanja zabavnih, poučnih i interaktivnih blagdanskih aktivnosti. Pod stručnim vodstvom Bake Božićnjak vilenjaci su ažurirali selo, podarili mu privlačan izgled i dodali neke potpuno nove sadržaje. A zahvaljujući novom sustavu grijanja na vrući kakao, više ne trebamo čekati cijeli prosinac da se selo otopi – sve 24 aktivnosti bit će dostupne već od 4. prosinca. Sada vilenjaci (a i ti s njima) imaju više vremena za igru i istraživanje u Djedovu selu."
+	},
+	"press-about-village2": {
+		"message": "U selu možeš vježbati osnove pisanja koda, izrađivati originalne rukotvorine, razvijati geografske vještine i saznati više o dobrotvornim organizacijama kao što su \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Učitelji mogu čak i \u003ca href=\"./educators.html\"\u003epreuzimati nastavne planove\u003c/a\u003e s videovodičima koji im na engleskom, španjolskom, francuskom, japanskom i korejskom pomažu da učenicima prenesu znanja o osnovnim vještinama pisanja koda i blagdanskim tradicijama."
+	},
+	"press-asset-animation": {
+		"message": "Animacija"
+	},
+	"press-asset-resources": {
+		"message": "Tiskovni materijali"
+	},
+	"press-asset-screenshot": {
+		"message": "Snimka zaslona"
+	},
+	"press-device-text": {
+		"message": "Blagdanski je duh prisutan posvuda, uključujući sve tvoje uređaje!"
+	},
+	"press-device-title": {
+		"message": "Slijedi Djeda Božićnjaka na svojem uređaju"
+	},
+	"press-edu": {
+		"message": "Poučne avanture"
+	},
+	"press-games-title": {
+		"message": "Sva zabava i igre"
+	},
+	"press-need-text": {
+		"message": "Vilenjaci i Googleovi zaposlenici rado će ti pomoći."
+	},
+	"press-need-title": {
+		"message": "Potrebno ti je više informacija?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Otvara se 24. prosinca"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Dostupno cijelog prosinca"
+	},
+	"press-villagetracker-title": {
+		"message": "Djedovo selo i Praćenje"
+	},
+	"press-whatsnew": {
+		"message": "Što je novo ove godine?"
+	},
+	"press-whatsnew1-text": {
+		"message": "Samostalno izradi svojeg vilenjaka i uredi ga od glave do pete, tako da zabljesne svojom pojavom na brojnim blagdanskim domjencima na Sjevernom polu."
+	},
+	"press-whatsnew1-title": {
+		"message": "Izrada vilenjaka:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ako je tvoj životni san osnivanje plesne skupine talentiranih rasplesanih vilenjaka, sada je njegovo ostvarivanje nadohvat ruke. Pomoću modela strojnog učenja pod nazivom \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e možeš vilenjaku pokazati plesne pokrete i pripremiti ga za nastup na plesnom podiju."
+	},
+	"press-whatsnew2-title": {
+		"message": "Ples s vilenjacima:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Djedovu lokaciju možeš provjeriti i uživo na Google kartama: jednostavno dodirni gumb izbornika, a zatim \"Dijeljenje lokacije\" te pogledaj gdje se točno Djedica trenutačno nalazi na svojem putovanju."
+	},
+	"press-whatsnew3-title": {
+		"message": "Novi način praćenja Djeda Božićnjaka:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ako želiš još više blagdanskog veselja, pogledaj blagdanske naljepnice za Gboard dostupne ekskluzivno u našoj \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikacija za Android\u003c/a\u003e ili si uljepšaj dan trendovima poput jedinstvenih kolačića iz svake savezne državi SAD-a. Možeš se i obratiti najvećoj faci blagdana, tako da Google asistentu kažeš \"Call Santa\", a zatim mu kaži \"Tell me a holiday story\" i ušuškaj se slušajući zabavne priče."
+	},
+	"press-whatsnew4-title": {
+		"message": "Više blagdanske zabave:"
 	},
 	"pt_language_name": {
 		"message": "portugalski"

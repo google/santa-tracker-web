@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Nästa"
 	},
+	"next_game": {
+		"message": "Nästa spel"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "Om Följ jultomten"
+	},
+	"press-about-tracker1": {
+		"message": "Den 24 december lanserar vi Följ jultomten, en översikt där du kan följa tomten när han reser från stad till stad i sin släde. Du kan även se var tomten befinner sig i Google Maps och fråga Google Assistent: ”Ok Google, var är jultomten?” för att kunna följa honom även när du själv är i farten."
+	},
+	"press-about-village": {
+		"message": "Om tomtebyn"
+	},
+	"press-about-village1": {
+		"message": "Tomtebyn firar femton år med roliga, lärorika och interaktiva julaktiviteter. Med tomtemors experthjälp har nissarna gett byn en sprillans ny look och känsla och försett den med nytt innehåll. Tack vare det nya effektiva värmesystemet som drivs av varm choklad tar det inte lika lång tid att få fram innehållet – alla aktiviteter blir tillgängliga 4 december. Så nu har tomtenissarna (och du!) mer tid på sig att utforska tomtebyn."
+	},
+	"press-about-village2": {
+		"message": "I tomtebyn kan du lära dig grundläggande kodning, skapa egna konstverk, träna på geografi och lära dig mer om välgörenhetsorganisationer som \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e och \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Lärare kan till och med \u003ca href=\"./educators.html\"\u003eladda ned läroplaner\u003c/a\u003e med videoguider som lär eleverna om grundläggande kodning och jultraditioner på engelska, spanska, franska, japanska och koreanska."
+	},
+	"press-asset-animation": {
+		"message": "Animering"
+	},
+	"press-asset-resources": {
+		"message": "För press"
+	},
+	"press-asset-screenshot": {
+		"message": "Skärmdump"
+	},
+	"press-device-text": {
+		"message": "Julstämningen är på topp i alla dina enheter!"
+	},
+	"press-device-title": {
+		"message": "Följ jultomten på din enhet"
+	},
+	"press-edu": {
+		"message": "Lärorika äventyr"
+	},
+	"press-games-title": {
+		"message": "Skoj och spel"
+	},
+	"press-need-text": {
+		"message": "Ta hjälp av tomtenissar och googlare."
+	},
+	"press-need-title": {
+		"message": "Behöver du något?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Tillgängligt 24 december"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Tillgängligt hela december"
+	},
+	"press-villagetracker-title": {
+		"message": "Tomtebyn och Följ jultomten"
+	},
+	"press-whatsnew": {
+		"message": "Nytt för i år"
+	},
+	"press-whatsnew1-text": {
+		"message": "Skapa en egen tomtenisse som är chic från topp till tå och redo för julfirandet i Nordpolen."
+	},
+	"press-whatsnew1-title": {
+		"message": "Skapa en tomtenisse:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Om du alltid har drömt om att starta en danstrupp men ett gäng begåvade tomtenissar har du chansen nu. Snart. Med hjälp av maskininlärningsmodellen \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kan du träna tomtenissarna att lära sig dina moves innan de intar dansgolvet."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dansar med nissar:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Dessutom kan du se var jultomten befinner sig i Google Maps. Tryck bara på hamburgaren och sedan Platsdelning så kan du följa tomten på resan."
+	},
+	"press-whatsnew3-title": {
+		"message": "Ett nytt sätt att följa tomten:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Om du vill ha ännu mer julstämning kan du kolla in Gboard-juldekalerna som bara finns i vår \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-app\u003c/a\u003e och se trender som vilka kakor man har sökt på i olika delstater i USA. Be Google Assistent att ”ringa jultomten”, och kom i kontakt med huvudpersonen själv, eller säg: ”berätta en julsaga” och varva ner med en berättelse."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mer skoj i jul:"
 	},
 	"pt_language_name": {
 		"message": "portugisiska"

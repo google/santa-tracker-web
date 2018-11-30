@@ -896,6 +896,9 @@
 	"next": {
 		"message": "繼續"
 	},
+	"next_game": {
+		"message": "下一個遊戲"
+	},
 	"ng_country_name": {
 		"message": "尼日利亞"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "新聞稿"
+	},
+	"press-about-tracker": {
+		"message": "關於聖誕老人追蹤器"
+	},
+	"press-about-tracker1": {
+		"message": "我們將於 12 月 24 日推出聖誕老人追蹤器，讓聖誕老人的支持者看到他在城市之間穿梭的情況。您亦可在「Google 地圖」上看到他的實時位置，或者向「Google 助理」發問：「OK Google，聖誕老人喺邊？」，便可隨時隨地掌握聖誕老人的行蹤。"
+	},
+	"press-about-village": {
+		"message": "關於聖誕老人村"
+	},
+	"press-about-village1": {
+		"message": "聖誕老人村正在慶祝第 15 年的聖誕節日活動，這裡充滿有趣、互動和富教育意義的節目。在聖誕老婆婆的專業指導下，小精靈們用全新的內容佈置村莊，令這裡煥然一新。全靠最新的熱朱古力暖氣系統，無需花上整個 12 月來慢慢解凍村莊了。由 12 月 4 日開始，村莊將一口氣舉辦二十多個活動！您和眾多小精靈現在有更多時間遊玩和探索聖誕老人村了！"
+	},
+	"press-about-village2": {
+		"message": "在村莊裡，您可以練習基本的編碼技巧、製作原創作品、學習地理知識，以及認識如 \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e 和 \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e 等慈善組織。教師甚至可以\u003ca href=\"./educators.html\"\u003e下載課程計劃\u003c/a\u003e和影片指南 (提供英文、西班牙文、法文、日文和韓文版本)，協助他們向學生教授基本編碼技巧和節日傳統。"
+	},
+	"press-asset-animation": {
+		"message": "動畫"
+	},
+	"press-asset-resources": {
+		"message": "媒體資源"
+	},
+	"press-asset-screenshot": {
+		"message": "螢幕擷圖"
+	},
+	"press-device-text": {
+		"message": "節日歡樂無處不在，你可以在所有裝置上感受氣氛了！"
+	},
+	"press-device-title": {
+		"message": "裝置上的聖誕老人追蹤器"
+	},
+	"press-edu": {
+		"message": "精彩教育之旅"
+	},
+	"press-games-title": {
+		"message": "遊戲多多，樂趣滿滿"
+	},
+	"press-need-text": {
+		"message": "小精靈和 Google 員工樂意為您提供協助。"
+	},
+	"press-need-title": {
+		"message": "有什麼需要嗎？"
+	},
+	"press-villagetracker-open24th": {
+		"message": "在 12 月 24 日開放使用"
+	},
+	"press-villagetracker-opendec": {
+		"message": "整個 12 月開放使用"
+	},
+	"press-villagetracker-title": {
+		"message": "聖誕老人村和聖誕老人追蹤器"
+	},
+	"press-whatsnew": {
+		"message": "今年新加功能"
+	},
+	"press-whatsnew1-text": {
+		"message": "從頭到腳製作屬於您的小精靈，以仙氣十足的「精靈」造型迎接北極的節日聚會。"
+	},
+	"press-whatsnew1-title": {
+		"message": "製作小精靈："
+	},
+	"press-whatsnew2-text": {
+		"message": "如果您一直以來的夢想是與一群才華橫溢的舞蹈小精靈組成一隊舞蹈團，現在就是大好機會。使用 \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e 這個機器學習模型，訓練小精靈學習舞步，讓它們登上舞池。"
+	},
+	"press-whatsnew2-title": {
+		"message": "與小精靈共舞："
+	},
+	"press-whatsnew3-text": {
+		"message": "您亦可在「Google 地圖」上查看聖誕老人的實時位置。只需輕按漢堡包按鈕，然後選擇 [位置分享]，即可看到聖誕老人當前的行蹤。"
+	},
+	"press-whatsnew3-title": {
+		"message": "追蹤聖誕老人的新方法："
+	},
+	"press-whatsnew4-text": {
+		"message": "如果您想更投入節日氣氛，看看我們在 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid 應用程式\u003c/a\u003e獨家推出的 Gboard 聖誕貼圖，以及緊貼流行趨勢，例如美國各州最獨特的 Cookie 搜尋。想與聖誕老人聯繫，您可以對「Google 助理」說「打電話俾聖誕老人」，然後叫他「講一個節日故事」，享受文學的樂趣。"
+	},
+	"press-whatsnew4-title": {
+		"message": "節日更添歡樂："
 	},
 	"pt_language_name": {
 		"message": "葡萄牙文"

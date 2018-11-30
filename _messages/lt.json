@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Kitas"
 	},
+	"next_game": {
+		"message": "Kitas žaidimas"
+	},
 	"ng_country_name": {
 		"message": "Nigerija"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Žiniasklaida"
+	},
+	"press-about-tracker": {
+		"message": "Apie Kalėdų Senelio kelionę"
+	},
+	"press-about-tracker1": {
+		"message": "Gruodžio 24 d. pristatysime kelionės stebėjimo priemonę, informacijos suvestinę, kuri leis Kalėdų Senelio gerbėjams stebėti jo kelionę lekiant iš vieno miesto į kitą. Be to, galėsite pamatyti jo buvimo vietą „Google“ žemėlapiuose ir paklausti „Google“ padėjėjo: „Ei, „Google“, kur Kalėdų Senelis?“ Tokiu būdu galėsite sekti, kur yra Kalėdų Senelis, net būdami kelyje."
+	},
+	"press-about-village": {
+		"message": "Apie Kalėdų Senelio kaimą"
+	},
+	"press-about-village1": {
+		"message": "Kalėdų Senelio kaimas švenčia penkioliktuosius įdomios mokomosios ir interaktyvios šventinės veiklos metus. Vadovaujant patyrusiai Kalėdų Senelei elfai atnaujino kaimą suteikdami jam daugiau patrauklumo ir papildydami nauju turiniu. Todėl, veikiant naujajai karšta kakava varomai šildymo sistemai, kaimui nebereikės viso gruodžio, kad sušiltų – nuo gruodžio 4-osios bus prieinami net dvidešimt keturi užsiėmimai. Dabar elfai (ir jūs!) turės daugiau laiko žaisti ir tyrinėti Kalėdų Senelio kaime."
+	},
+	"press-about-village2": {
+		"message": "Kaime galite panaudoti pagrindinius kodavimo įgūdžius, kurti originalius meno kūrinius, naudotis savo geografiniais ženklais ir sužinoti daugiau apie tokias labdaros organizacijas kaip \u003ca href=\"https://www.khanacademy.org/\"\u003eKhano akademija\u003c/a\u003e ir \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Mokytojai netgi gali \u003ca href=\"./educators.html\"\u003eatsisiųsti pamokų planus\u003c/a\u003e su vaizdo vadovais, kad padėtų savo mokiniams išmokti pagrindinių kodavimo įgūdžių ir šventinių tradicijų anglų, ispanų, prancūzų, japonų ir korėjiečių kalba."
+	},
+	"press-asset-animation": {
+		"message": "Animacija"
+	},
+	"press-asset-resources": {
+		"message": "Spaudos ištekliai"
+	},
+	"press-asset-screenshot": {
+		"message": "Ekrano kopija"
+	},
+	"press-device-text": {
+		"message": "Visur tvyro šventinė nuotaika, net ir visuose jūsų įrenginiuose!"
+	},
+	"press-device-title": {
+		"message": "Kalėdų Senelio kelionė jūsų įrenginyje"
+	},
+	"press-edu": {
+		"message": "Lavinamieji nuotykiai"
+	},
+	"press-games-title": {
+		"message": "Visos linksmybės ir žaidimai"
+	},
+	"press-need-text": {
+		"message": "Elfai ir „Google“ darbuotojai pasiruošę padėti."
+	},
+	"press-need-title": {
+		"message": "Kažko ieškote?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Prasideda gruodžio 24 d."
+	},
+	"press-villagetracker-opendec": {
+		"message": "Veikia visą gruodį"
+	},
+	"press-villagetracker-title": {
+		"message": "Kalėdų Senelio kaimas ir kelionė"
+	},
+	"press-whatsnew": {
+		"message": "Kas naujo šiais metais"
+	},
+	"press-whatsnew1-text": {
+		"message": "Sukurkite savo elfą nuo galvos iki kojų ir užtikrinkite, kad jis atrodytų elfiškai fantastiškai, kai dalyvaus daugybėje Šiaurės ašigalyje vykstančių šventinių pobūvių."
+	},
+	"press-whatsnew1-title": {
+		"message": "Sukurkite elfą:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Jei jūsų viso gyvenimo svajonė buvo suburti šokių trupę su labai talentingų šokančių elfų grupe, dabar tokią galimybę turite. Beveik. Naudodamiesi mašininio mokymosi modeliu „\u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e“ galite išmokyti elfą atlikti jūsų judesius, kad jis galėtų pasirodyti šokių aikštelėje."
+	},
+	"press-whatsnew2-title": {
+		"message": "Šokis (-iai) su elfais:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Taip pat Kalėdų Senelio buvimo vietą realiuoju laiku galėsite pamatyti „Google“ žemėlapiuose – tiesiog palieskite mėsainių mygtuką, o tada – „Vietos bendrinimas“, kad pamatytumėte, kur tiksliai savo kelionės metu yra Kalėdų Senelis."
+	},
+	"press-whatsnew3-title": {
+		"message": "Naujasis būdas stebėti Kalėdų Senelį:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Jei norite daugiau šventinės nuotaikos, peržiūrėkite „Gboard“ šventinius animuotuosius paveiksliukus, kuriuos galite rasti tik mūsų \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003e„Android“ programėlėje\u003c/a\u003e, ir paganykite akis į tendencijas, pvz., kiekvienoje JAV valstijoje ypatingai ieškomą sausainiuką. Susisiekite su svarbiausiuoju švenčių asmeniu, pasakę „Google“ padėjėjui „paskambinti Kalėdų Seneliui“, o vėliau atsipūskite paprašę „papasakok man šventinę istoriją“ ir patirkite šiek tiek literatūrinio džiaugsmo."
+	},
+	"press-whatsnew4-title": {
+		"message": "Daugiau šventinių linksmybių:"
 	},
 	"pt_language_name": {
 		"message": "Portugalų"

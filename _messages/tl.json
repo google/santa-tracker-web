@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Susunod"
 	},
+	"next_game": {
+		"message": "Susunod na Laro"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "Tungkol sa Santa Tracker"
+	},
+	"press-about-tracker1": {
+		"message": "Sa ika-24 ng Disyembre 24, ilulunsad namin ang Tracker, isang dashboard na nagbibigay-kakayahan sa mga tagahanga ni Santa na sundan ang kanyang progreso habang nagpapalipat-lipat siya ng lungsod. Maaari mo ring makita ang kanyang live na lokasyon sa Google Maps at tanungin ang Google Assistant, \"OK Google, Where’s Santa?\" —para lagi mong napupulsuhan ang kinaroroonan ni Santa kahit na on the go ka."
+	},
+	"press-about-village": {
+		"message": "Tungkol sa Santa's Village"
+	},
+	"press-about-village1": {
+		"message": "Ipinagdiriwang ng Santa's Village ang ika-labinlimang taon nito ng kasiyahan, pang-edukasyon, at interactive na aktibidad sa kapaskuhan. Sa ilalim ng ekspertong gabay ni Mrs. Claus, na-update ng mga elf ang village sa isang mapormang hitsura at dating kasama ang ilang bagumbagong content. At, salamat sa isang bagong, heating system na pinagagana ng mainit na tsokolate, hindi na tatagal ng buong Disyembre para malusaw ang village—magiging available ang lahat ng dalawang dosenang aktibidad simula Disyembre 4. Ngayon ay mas marami nang oras para maglaro at mag-explore ang mga elf (pati ikaw!) sa Santa's Village."
+	},
+	"press-about-village2": {
+		"message": "Sa village, masasanay mo ang mga basic na kasanayan sa coding, makakagawa ng orihinal na artwork, masasanay ang kaalaman mo sa heograpiya, at malalaman ang iba pa tungkol sa mga organisasyong pangkawanggawa tulad ng \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e at \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Maaari ring \u003ca href=\"./educators.html\"\u003emag-download ng mga lesson plan\u003c/a\u003e ang mga guro na may mga gabay na video para makatulong sa pagtuturo sa kanilang mga mag-aaral ng mga pangunahing kasanayan sa coding at mga tradisyon sa kapaskuhan sa English, Spanish, French, Japanese, at Korean."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Mga resource para sa press"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Nasa buong paligid ang diwa ng kapaskuhan, pati na sa lahat ng device mo!"
+	},
+	"press-device-title": {
+		"message": "Santa Tracker sa iyong device"
+	},
+	"press-edu": {
+		"message": "Mga adventure na pang-edukasyon"
+	},
+	"press-games-title": {
+		"message": "Lahat ng kasiyahan at laro"
+	},
+	"press-need-text": {
+		"message": "Narito ang mga Elf at Googler para makatulong."
+	},
+	"press-need-title": {
+		"message": "May kailangan ka ba?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Magbubukas sa ika-24 ng Disyembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Bukas buong Disyembre"
+	},
+	"press-villagetracker-title": {
+		"message": "Santa's Village at Ang Tracker"
+	},
+	"press-whatsnew": {
+		"message": "Ano ang bago ngayong taon"
+	},
+	"press-whatsnew1-text": {
+		"message": "Bumuo ng sarili mong elf mula ulo hanggang paa at tiyaking elftastic ito para sa maraming party sa kapaskuhan na nangyayari sa North Pole."
+	},
+	"press-whatsnew1-title": {
+		"message": "Bumuo ng elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Kung ang pangarap mo sa buhay ay makapagsimula ng dance troupe ng isang grupo ng mahuhusay na talentadong nagsasayaw na elf, pagkakataon mo na ngayon. Halos. Gamit ang isang machine learning na modelo na tinatawag na \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, maaari mong sanayin ang isang elf na matutunan ang mga kilos mo para mapasayaw ang iyong elf sa dance floor."
+	},
+	"press-whatsnew2-title": {
+		"message": "Pagsasayaw kasama ang mga elf:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Makikita mo ang lokasyon ni Santa sa aktuwal na oras sa Google Maps—i-tap lang ang hamburger button at pagkatapos ay ang \"Pagbabahagi ng Lokasyon\" para makita kung nasaan mismo si Santa sa kanyang paglalakbay."
+	},
+	"press-whatsnew3-title": {
+		"message": "Bagong paraan para masubaybayan si Santa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Kung nagke-crave ka ng higit pang kasiyahan sa kapaskuhan, tingnan ang mga holiday sticker ng Gboard na available lang sa aming \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e, at magpakasawa sa pagtingin ng mga trend na tulad ng pinakahinahanap na cookie sa bawat estado ng US. Makipag-ugnayan sa VIP ng season sa pamamagitan ng pagsasabi sa Google Assistant na \"Call Santa\" at pagkatapos ay magtapos sa \"Tell me a holiday story\" para makapag-enjoy ng ilang kasiyahang pampanitikan."
+	},
+	"press-whatsnew4-title": {
+		"message": "Higit pang kasiyahan sa kapaskuhan:"
 	},
 	"pt_language_name": {
 		"message": "Portuguese"

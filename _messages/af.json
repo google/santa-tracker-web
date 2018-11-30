@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Volgende"
 	},
+	"next_game": {
+		"message": "Volgende speletjie"
+	},
 	"ng_country_name": {
 		"message": "Nigerië"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Pers"
+	},
+	"press-about-tracker": {
+		"message": "Meer oor Waar is Kersvader"
+	},
+	"press-about-tracker1": {
+		"message": "Op 24 Desember begin ons met die Opspoorder, 'n kontroleskerm wat Kersvader se aanhangers toelaat om sy vordering te volg soos hy van stad tot stad rits. Jy kan ook sy ligging regstreeks op Google Maps volg en die Google Assistent vra, \"Ok Google, waar is Kersvader?\" – sodat jy op hoogte van Kersvader se posisie kan bly, al is jy aan die beweeg."
+	},
+	"press-about-village": {
+		"message": "Meer oor Kersvader se dorpie"
+	},
+	"press-about-village1": {
+		"message": "Kersvader se dorpie vier sy vyftiende jaar van pret, opvoedkundige en interaktiewe feestydaktiwiteite. Met mev. Kersvader aan die stuur, het die elwe die dorpie opgedateer met 'n stylvolle voorkoms en gevoel, tesame met splinternuwe inhoud. En te danke aan 'n nuwe, warmsjokolade-aangedrewe verhittingstelsel gaan die dorpie nie meer die hele Desember neem om te ontdooi nie – die hele twee dosyn aktiwiteite sal vanaf 4 Desember beskikbaar wees. Nou het die elwe (en jy!) meer tyd om te speel en om Kersvader se dorpie te verken."
+	},
+	"press-about-village2": {
+		"message": "Jy kan in die dorpie basiese koderingvaardighede oefen, oorspronklike kunswerke skep, jou geografiese vaardighede oefen en meer te wete kom oor liefdadigheidsorganisasies soos \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e en \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Onderwysers kan selfs \u003ca href=\"./educators.html\"\u003elesplanne aflaai\u003c/a\u003e met videogidse om hul studente basiese koderingvaardighede en feestydtradisies in Engels, Spaans, Frans, Japannees en Koreaans te help leer."
+	},
+	"press-asset-animation": {
+		"message": "Animasie"
+	},
+	"press-asset-resources": {
+		"message": "Pershulpbronne"
+	},
+	"press-asset-screenshot": {
+		"message": "Skermkiekie"
+	},
+	"press-device-text": {
+		"message": "Die feestydgees is oral, ook op al jou toestelle!"
+	},
+	"press-device-title": {
+		"message": "Waar is Kersvader op jou toestel"
+	},
+	"press-edu": {
+		"message": "Opvoedkundige avonture"
+	},
+	"press-games-title": {
+		"message": "Al die pret en speletjies"
+	},
+	"press-need-text": {
+		"message": "Elwe en Googlers is hier om te help."
+	},
+	"press-need-title": {
+		"message": "Kort jy iets?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Maak 24 Desember oop"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Die hele Desember oop"
+	},
+	"press-villagetracker-title": {
+		"message": "Kersvader se dorpie en Die Opspoorder"
+	},
+	"press-whatsnew": {
+		"message": "Wat is hierdie jaar nuut"
+	},
+	"press-whatsnew1-text": {
+		"message": "Bou jou eie elf van kop tot tone en maak seker dit lyk elftasties vir die vele feestydpartytjies wat in die Noordpool gaan plaasvind."
+	},
+	"press-whatsnew1-title": {
+		"message": "Bou 'n elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "As jy jou lewe lank 'n dansgroep saam met 'n groep uiters talentvolle, dansende elwe wou begin, is dit nou jou kans. Amper. Met gebruik van 'n masjienleermodel genaamd \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, kan jy 'n elf jou danspassies leer sodat jy jou elf op die dansvloer kan kry."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dans(e) met elwe:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Jy sal ook Kersvader se intydse ligging op Google Maps kan sien – tik net op die hamburger-knoppie en dan op \"Liggingdeling\" om deurgaans presies te sien waar Kersvader op sy reis is."
+	},
+	"press-whatsnew3-title": {
+		"message": "'n Nuwe manier om Kersvader te volg:"
+	},
+	"press-whatsnew4-text": {
+		"message": "As jy na nog feestydvreugde smag, moet jy gaan kyk na die Gboard-feestydplakkers wat eksklusief op ons \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-program\u003c/a\u003e beskikbaar is, en verkyk jou aan neigings soos die uniekste webkoekie wat in elke VSA-deelstaat gesoek is. Kom in aanraking met die feestyd se BBP deur vir die Google Assistent te sê \"Bel Kersvader\" en begin dan ontspan met \"Vertel vir my 'n feestydstorie\" en geniet so literêre pret."
+	},
+	"press-whatsnew4-title": {
+		"message": "Nog feestydpret:"
 	},
 	"pt_language_name": {
 		"message": "Portugees"

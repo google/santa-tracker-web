@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Næste"
 	},
+	"next_game": {
+		"message": "Næste spil"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Medier"
+	},
+	"press-about-tracker": {
+		"message": "Om Følg julemanden"
+	},
+	"press-about-tracker1": {
+		"message": "Den 24. december lancerer vi Følg julemanden, et betjeningspanel, som giver julemandens største fans mulighed for at følge hans kanetur fra by til by. Du kan også se hans aktuelle placering i Google Maps og spørge Google Assistent \"Ok Google, hvor er julemanden?\"– så du hele tiden ved, hvor julemanden er."
+	},
+	"press-about-village": {
+		"message": "Om Julemandens landsby"
+	},
+	"press-about-village1": {
+		"message": "Julemandens landsby fejrer sit femtende år med sjove, lærerige og interaktive juleaktiviteter. Med kyndig vejledning fra julemandens kone har nisserne opdateret landsbyen med et flot look og noget helt nyt indhold. Og takket været et nyt varmesystem, der kører på varm kakao, vil det ikke længere tage landsbyen hele december at tø op – alle de mange aktiviteter starter allerede den 4. december. Nu har nisserne (og du!) mere tid til at lege og gå på opdagelse i julemandens landsby."
+	},
+	"press-about-village2": {
+		"message": "I landsbyen kan du øve dig i grundlæggende kodning, skabe originale illustrationer, træne dine geografiske kundskaber og lære mere om velgørende organisationer som f.eks. \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e og \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Lærere kan også \u003ca href=\"./educators.html\"\u003edownloade lektionsplaner\u003c/a\u003e med videovejledninger til undervisning i kodningsfærdigheder og juletraditioner på engelsk, fransk, japansk, koreansk og spansk."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Pressemateriale"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Der er julestemning overalt, og på alle dine enheder."
+	},
+	"press-device-title": {
+		"message": "Følg julemanden på din enhed"
+	},
+	"press-edu": {
+		"message": "Lærerige eventyr"
+	},
+	"press-games-title": {
+		"message": "Alt til sjov og spil"
+	},
+	"press-need-text": {
+		"message": "Nisser og Googlere sidder klar til at hjælpe."
+	},
+	"press-need-title": {
+		"message": "Har du brug for noget?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Åbner den 24. december"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Åben hele december"
+	},
+	"press-villagetracker-title": {
+		"message": "Julemandens landsby og Følg julemanden"
+	},
+	"press-whatsnew": {
+		"message": "Nyt i år"
+	},
+	"press-whatsnew1-text": {
+		"message": "Byg din egen nisse fra top til tå, og sørg for, at den ser fantastisk ud til de mange julefester på Nordpolen."
+	},
+	"press-whatsnew1-title": {
+		"message": "Byg en nisse:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Hvis du har en livslang drøm om at starte en dansetrup med talentfulde dansenisser, så har du chancen nu. Næsten. Ved at bruge maskinlæringsmodellen \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kan du træne en nisse til at lære dine bevægelser, så du kan få nissen ud på dansegulvet."
+	},
+	"press-whatsnew2-title": {
+		"message": "Danser med nisser:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Du kan også se julemandens aktuelle placering i Google Maps – tryk bare på hamburgerknappen og derefter på \"Placeringsdeling\" for at se præcis, hvor julemanden er under hele turen."
+	},
+	"press-whatsnew3-title": {
+		"message": "En ny måde at følge julemanden på:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Hvis du er i humør til mere julehygge, så tjek Gboard-julemærkaterne, som kun er tilgængelige i vores \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp til Android\u003c/a\u003e, og se trends som f.eks. den småkage, som optræder i flest søgninger i hver af de amerikanske stater. Kontakt julens VIP ved at sige \"Kald på julemanden\" i Google Assistent, og slut så af med \"Fortæl mig en julehistorie\" for at få lidt litterær underholdning."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mere juleunderholdning:"
 	},
 	"pt_language_name": {
 		"message": "Portugisisk"

@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Seguinte"
 	},
+	"next_game": {
+		"message": "Jogo seguinte"
+	},
 	"ng_country_name": {
 		"message": "Nigéria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Comunicação social"
+	},
+	"press-about-tracker": {
+		"message": "Acerca de A viagem do Pai Natal"
+	},
+	"press-about-tracker1": {
+		"message": "No dia 24 de dezembro, vamos lançar a Viagem do Pai Natal, um painel de controlo que permite que os fãs do Pai Natal acompanhem o seu progresso à medida que viaja de cidade para cidade. Pode ainda verificar a sua localização em tempo real no Google Maps e perguntar ao Assistente Google \"OK Google, onde está o Pai Natal?\". Assim, pode ver por onde anda o Pai Natal, mesmo quando está em viagem."
+	},
+	"press-about-village": {
+		"message": "Acerca da aldeia do Pai Natal"
+	},
+	"press-about-village1": {
+		"message": "A aldeia do Pai Natal está a celebrar 15 anos de atividades natalícias divertidas, educativas e interativas. Com a supervisão da Mãe Natal, os elfos atualizaram a aldeia com um novo estilo moderno e algum conteúdo novinho em folha. Além disso, graças a um novo sistema de aquecimento alimentado a chocolate quente, a aldeia já não demora todo o mês de dezembro a descongelar. As 24 atividades vão estar disponíveis a partir de 4 de dezembro. Agora, os elfos (e toda a gente!) têm mais tempo para brincar e explorar a aldeia do Pai Natal."
+	},
+	"press-about-village2": {
+		"message": "Na aldeia, pode praticar técnicas de codificação básicas, criar obras de arte originais, testar os seus conhecimentos geográficos e saber mais sobre organizações de caridade como a \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Os professores podem até \u003ca href=\"./educators.html\"\u003etransferir planos de aula\u003c/a\u003e com guias em vídeo para ajudar a ensinar aos seus alunos técnicas de codificação básicas e tradições natalícias em inglês, espanhol, francês, japonês e coreano."
+	},
+	"press-asset-animation": {
+		"message": "Animação"
+	},
+	"press-asset-resources": {
+		"message": "Recursos para a imprensa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de ecrã"
+	},
+	"press-device-text": {
+		"message": "O espírito natalício está por toda a parte, incluindo em todos os dispositivos!"
+	},
+	"press-device-title": {
+		"message": "A viagem do Pai Natal no seu dispositivo"
+	},
+	"press-edu": {
+		"message": "Aventuras educativas"
+	},
+	"press-games-title": {
+		"message": "Diversão e jogos"
+	},
+	"press-need-text": {
+		"message": "Os elfos e os funcionários da Google estão aqui para ajudar."
+	},
+	"press-need-title": {
+		"message": "Precisa de algo?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponível a 24 de dezembro"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponível todo o mês de dezembro"
+	},
+	"press-villagetracker-title": {
+		"message": "A viagem e a aldeia do Pai Natal"
+	},
+	"press-whatsnew": {
+		"message": "Novidades deste ano"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crie o seu próprio elfo da cabeça aos pés e certifique-se de que está vestido a rigor para as muitas celebrações natalícias a decorrer no Polo Norte."
+	},
+	"press-whatsnew1-title": {
+		"message": "Criar um elfo:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Se sempre sonhou formar uma companhia de dança com um grupo de elfos dançarinos extremamente talentosos, esta é a sua oportunidade. Está quase... Ao utilizar um modelo de aprendizagem automática chamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, pode treinar um elfo para aprender movimentos e colocá-lo na pista de dança."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dança(s) com elfos:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Também vai poder ver a localização do Pai Natal em tempo real no Google Maps. Basta tocar no botão de menu e, depois, em \"Partilha de localização\" para ver exatamente onde o Pai Natal está durante a sua viagem."
+	},
+	"press-whatsnew3-title": {
+		"message": "Uma nova forma de localizar o Pai Natal:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Se procura mais animação festiva, não perca os autocolantes natalícios do Gboard, disponíveis exclusivamente na nossa \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicação Android\u003c/a\u003e, e deixe-se alegrar por tendências como o biscoito mais pesquisado individualmente em cada estado dos EUA. Contacte o VIP da época ao pedir ao Assistente Google para \"Ligar ao Pai Natal\" e, depois, descontraia com \"Conta-me uma história natalícia\" para desfrutar de diversão literária."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mais diversão festiva:"
 	},
 	"pt_language_name": {
 		"message": "Português"

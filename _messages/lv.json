@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Tālāk"
 	},
+	"next_game": {
+		"message": "Nākamā spēle"
+	},
 	"ng_country_name": {
 		"message": "Nigērija"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Prese"
+	},
+	"press-about-tracker": {
+		"message": "Par Ziemassvētku vecīša ceļojumu"
+	},
+	"press-about-tracker1": {
+		"message": "24. decembrī tiks uzsākts Ziemassvētku vecīša ceļojums, kas būs redzams informācijas panelī, kurā Ziemassvētku vecīša fani varēs sekot viņa ceļojumam no pilsētas uz pilsētu. Varēsit arī redzēt viņa reāllaika atrašanās vietu pakalpojumā Google Maps un uzdot Google asistentam jautājumu “OK Google, Where’s Santa?”, lai uzzinātu Ziemassvētku vecīša atrašanās vietu arī tad, ja pats atradīsities ceļā."
+	},
+	"press-about-village": {
+		"message": "Par Ziemassvētku vecīša ciematu"
+	},
+	"press-about-village1": {
+		"message": "Ziemassvētku vecīša ciemats svin 15. jubileju — jautras, izglītojošas un interaktīvas svētku aktivitātes. Ziemassvētku vecīša kundzes vadībā rūķīši ir atjauninājuši ciematu, piešķirot tam stilīgu izskatu un noskaņu, kā arī pievienojot jaunu saturu. Pateicoties jaunai apsildes sistēmai, kura darbojas ar karstu kakao, ciematā vairs nebūs jāpavada viss decembris, lai pamazām atkausētu visu saturu, jo visas 24 aktivitātes būs pieejamas jau no 4. decembra. Tagad rūķīšiem (un jums) būs vairāk laika, lai spēlētu un izpētītu Ziemassvētku vecīša ciematu."
+	},
+	"press-about-village2": {
+		"message": "Ciematā varat izmēģināt savas kodēšanas prasmes, radīt oriģinālus mākslas darbus, likt lietā zināšanas par ģeogrāfiju un uzzināt vairāk par labdarības organizācijām, piemēram, \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e un \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Skolotāji var arī \u003ca href=\"./educators.html\"\u003elejupielādēt nodarbību plānus\u003c/a\u003e ar video ceļvežiem, kas skolēniem palīdzēs iegūt pamatzināšanas par kodēšanu, kā arī svētku tradīcijām angļu, spāņu, franču, japāņu un korejiešu valodā."
+	},
+	"press-asset-animation": {
+		"message": "Animācija"
+	},
+	"press-asset-resources": {
+		"message": "Preses resursi"
+	},
+	"press-asset-screenshot": {
+		"message": "Ekrānuzņēmums"
+	},
+	"press-device-text": {
+		"message": "Svētku noskaņa ir visur — arī jūsu ierīcēs."
+	},
+	"press-device-title": {
+		"message": "Ziemassvētku vecīša ceļojums jūsu ierīcē"
+	},
+	"press-edu": {
+		"message": "Izglītojoši piedzīvojumi"
+	},
+	"press-games-title": {
+		"message": "Liela jautrība un spēles"
+	},
+	"press-need-text": {
+		"message": "Rūķīši un Google darbinieki var palīdzēt."
+	},
+	"press-need-title": {
+		"message": "Vai nepieciešama plašāka informācija?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Tiks atvērts 24. decembrī"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Pieejams visu decembri"
+	},
+	"press-villagetracker-title": {
+		"message": "Ziemassvētku vecīša ciemats un ceļojums"
+	},
+	"press-whatsnew": {
+		"message": "Šīgada jaunumi"
+	},
+	"press-whatsnew1-text": {
+		"message": "Izveidojiet pats savu rūķīti, kurš būs gatavs piedalīties lieliskos svētku pasākumos Ziemeļpolā."
+	},
+	"press-whatsnew1-title": {
+		"message": "Izveidojiet rūķīti"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ja jums vienmēr ir bijis sapnis izveidot deju trupu ar ļoti talantīgiem dejojošiem rūķīšiem, tagad jums ir iespēja to izdarīt. Jūsu sapnis ir gandrīz piepildījies. Izmantojot mašīnmācīšanās modeli \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, varat apmācīt rūķīti, lai viņš apgūst jūsu deju soļus un var tos atkārtot uz deju grīdas."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dejas ar rūķīšiem"
+	},
+	"press-whatsnew3-text": {
+		"message": "Varēsit arī redzēt Ziemassvētku vecīša reāllaika atrašanās vietu pakalpojumā Google Maps — vienkārši pieskarieties hamburgera pogai, pēc tam pieskarieties vienumam Atrašanās vietas kopīgošana, lai redzētu precīzu Ziemassvētku vecīša atrašanās vietu ceļojuma laikā."
+	},
+	"press-whatsnew3-title": {
+		"message": "Jauns veids, kā sekot Ziemassvētku vecītim."
+	},
+	"press-whatsnew4-text": {
+		"message": "Ja vēlaties vairāk svētku jautrības, apskatiet Gboard svētku uzlīmes, kuras ekskluzīvi pieejamas mūsu \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid lietotnē\u003c/a\u003e, kā arī apskatiet tādas tendences kā unikālākos sīkfailus, kas meklēti katrā ASV štatā. Uzziniet par šīs sezonas svarīgākajām personām, sakot Google asistentam frāzi “Call Santa”, pēc tam sakiet frāzi “Tell me a holiday story”, lai noklausītos svētku stāstu."
+	},
+	"press-whatsnew4-title": {
+		"message": "Vairāk jautrības brīvdienām"
 	},
 	"pt_language_name": {
 		"message": "Portugāļu"

@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Próxima"
 	},
+	"next_game": {
+		"message": "Próximo jogo"
+	},
 	"ng_country_name": {
 		"message": "Nigéria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Imprensa"
+	},
+	"press-about-tracker": {
+		"message": "Sobre o Siga o Papai Noel"
+	},
+	"press-about-tracker1": {
+		"message": "Em 24 de dezembro, lançaremos um painel chamado Siga o Papai Noel. Com ele, os fãs do bom velhinho podem acompanhar o trajeto do trenó nas cidades do mundo. Você também poderá ver a localização dele em tempo real no Google Maps e perguntar ao Google Assistente \"Ok Google, onde está o Papai Noel?\" para acompanhar o paradeiro do bom velhinho de qualquer lugar."
+	},
+	"press-about-village": {
+		"message": "Sobre a Vila do Papai Noel"
+	},
+	"press-about-village1": {
+		"message": "A Vila do Papai Noel está comemorando 15 anos de atividades natalinas divertidas, educativas e interativas. Supervisionados pela Mamãe Noel, os duendes atualizaram a vila com uma aparência incrível e adicionaram conteúdo novinho em folha. Além disso, devido a um novo sistema de aquecimento movido a chocolate quente, a vila não vai demorar quase todo o mês de dezembro para descongelar. Todas as atividades estarão disponíveis no dia 4 de dezembro. Agora, os duendes (e você) terão mais tempo para brincar e conhecer a Vila do Papai Noel."
+	},
+	"press-about-village2": {
+		"message": "Na vila, você pode praticar suas habilidades básicas de codificação, criar obras de arte originais, testar seu conhecimento geográfico e conhecer organizações de caridade, como a \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Os professores podem \u003ca href=\"./educators.html\"\u003efazer o download de planos de aula\u003c/a\u003e com guias em vídeo para ajudar a ensinar recursos fundamentais de codificação e tradições de fim de ano aos alunos em inglês, espanhol, francês, japonês e coreano."
+	},
+	"press-asset-animation": {
+		"message": "Animação"
+	},
+	"press-asset-resources": {
+		"message": "Recursos da imprensa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de tela"
+	},
+	"press-device-text": {
+		"message": "O espírito natalino está em toda parte, incluindo em todos os seus dispositivos!"
+	},
+	"press-device-title": {
+		"message": "O Siga o Papai Noel está no seu dispositivo"
+	},
+	"press-edu": {
+		"message": "Aventuras educativas"
+	},
+	"press-games-title": {
+		"message": "Diversão e jogos"
+	},
+	"press-need-text": {
+		"message": "Os duendes e os Googlers estão aqui para ajudar."
+	},
+	"press-need-title": {
+		"message": "Precisa de algo?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponível a partir de 24 de dezembro"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponível em todo o mês de dezembro"
+	},
+	"press-villagetracker-title": {
+		"message": "Vila do Papai Noel e Siga o Papai Noel"
+	},
+	"press-whatsnew": {
+		"message": "Novidades neste ano"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crie seu próprio duende da cabeça aos pés. Não se esqueça de deixá-lo duentástico para que ele arrase nas festas natalinas que acontecem no Polo Norte."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crie um duende:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Se você sempre sonhou em fundar um grupo de dança com duendes muito talentosos, este momento é seu. Com um modelo de aprendizado de máquina chamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, você pode treinar um duende para que ele arrase na pista usando seus passos de dança."
+	},
+	"press-whatsnew2-title": {
+		"message": "Danças com duendes:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Você também poderá ver a localização em tempo real do Papai Noel no Google Maps. Basta tocar nas três linhas horizontais e selecionar \"Compartilhamento de local\" para ver exatamente onde o Papai Noel está ao longo da jornada dele."
+	},
+	"press-whatsnew3-title": {
+		"message": "Uma nova maneira de seguir o Papai Noel:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Se você procura mais espírito natalino, veja os adesivos temáticos do Gboard disponíveis apenas no \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp Android\u003c/a\u003e e confira tendências como o cookie mais pesquisado em cada estado dos EUA. Entre em contato com o manda-chuva natalino ao pedir para o Google Assistente \"Chamar o Papai Noel\" e depois \"Contar uma história de Natal\" para relaxar ouvindo uma boa história."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mais diversão de fim de ano:"
 	},
 	"pt_language_name": {
 		"message": "Português"

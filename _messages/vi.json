@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Tiếp"
 	},
+	"next_game": {
+		"message": "Trò chơi tiếp theo"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Báo chí"
+	},
+	"press-about-tracker": {
+		"message": "Giới thiệu về trang Theo chân ông già Noel"
+	},
+	"press-about-tracker1": {
+		"message": "Vào ngày 24 tháng 12, chúng tôi sẽ ra mắt trang Theo chân ông già Noel, một trang tổng quan cho phép người hâm mộ ông già Noel theo dõi quá trình di chuyển bằng tuần lộc của ông già Noel từ thành phố này sang thành phố khác. Bạn cũng có thể xem vị trí trực tiếp của mình trên Google Maps và hỏi Trợ lý Google: \"OK Google, ông già Noel ở đâu?\"—để bạn có thể theo dõi vị trí của ông già Noel ngay cả khi bạn đang di chuyển."
+	},
+	"press-about-village": {
+		"message": "Giới thiệu về Ngôi làng của ông già Noel"
+	},
+	"press-about-village1": {
+		"message": "Ngôi làng của ông già Noel đang kỷ niệm 15 năm tổ chức các hoạt động vui chơi, giáo dục và tương tác trong mùa lễ hội. Dưới sự hướng dẫn chuyên môn của bà già Noel, các chú yêu tinh đã trang trí ngôi làng với vẻ ngoài hợp mốt cùng với một số nội dung hoàn toàn mới. Và nhờ vào hệ thống sưởi ấm mới chạy bằng cacao, ngôi làng sẽ không còn đóng cứng trông suốt tháng 12 nữa—cả hai tá hoạt động sẽ bắt đầu vào ngày 4 tháng 12. Giờ đây, các chú yêu tinh (và cả bạn!) sẽ có nhiều thời gian hơn để vui chơi và khám phá ở Ngôi làng của ông già Noel."
+	},
+	"press-about-village2": {
+		"message": "Trong làng, bạn có thể thực hành các kỹ năng lập trình cơ bản, tạo ra các tác phẩm nghệ thuật nguyên gốc, trổ tài hiểu biết địa lý và tìm hiểu thêm về các tổ chức từ thiện như \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e và \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Các giáo viên thậm chí có thể \u003ca href=\"./educators.html\"\u003etải giáo án xuống\u003c/a\u003e với video hướng dẫn để giúp dạy cho học viên kỹ năng lập trình cơ bản và truyền thống giáng sinh bằng tiếng Anh, tiếng Tây Ban Nha, tiếng Pháp, tiếng Nhật Bản và tiếng Hàn Quốc."
+	},
+	"press-asset-animation": {
+		"message": "Hoạt ảnh"
+	},
+	"press-asset-resources": {
+		"message": "Tài nguyên dành cho báo chí"
+	},
+	"press-asset-screenshot": {
+		"message": "Ảnh chụp màn hình"
+	},
+	"press-device-text": {
+		"message": "Tinh thần mùa lễ hội ở khắp mọi nơi, kể cả trên tất cả thiết bị của bạn!"
+	},
+	"press-device-title": {
+		"message": "Trang Theo chân ông già Noel trên thiết bị"
+	},
+	"press-edu": {
+		"message": "Cuộc phiêu lưu giáo dục"
+	},
+	"press-games-title": {
+		"message": "Tất cả những trò chơi thú vị"
+	},
+	"press-need-text": {
+		"message": "Các chú lùn yêu tinh và người của Google đều ở đây để giúp bạn."
+	},
+	"press-need-title": {
+		"message": "Bạn cần trợ giúp?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Hoạt động vào ngày 24 tháng 12"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Hoạt động trong suốt tháng 12"
+	},
+	"press-villagetracker-title": {
+		"message": "Ngôi làng của ông già Noel và trang Theo chân ông già Noel"
+	},
+	"press-whatsnew": {
+		"message": "Nội dung mới của năm nay"
+	},
+	"press-whatsnew1-text": {
+		"message": "Sáng tạo chú yêu tinh của riêng bạn từ đầu đến chân và chắc chắn rằng chú ta trông thật thu hút cho các buổi dạ tiệc giáng sinh ở Bắc Cực."
+	},
+	"press-whatsnew1-title": {
+		"message": "Sáng tạo yêu tinh:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Nếu ước mơ cả đời của bạn là lập một vũ đoàn với một nhóm yêu tinh nhảy múa tài năng, thì giờ là cơ hội của bạn. Sắp rồi! Bằng cách sử dụng mô hình máy học có tên là \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, bạn có thể huấn luyện một chú yêu tinh học theo bước nhảy của mình để đưa chú ta hiên ngang lên sàn nhảy."
+	},
+	"press-whatsnew2-title": {
+		"message": "Khiêu vũ với các chú yêu tinh:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Bạn cũng sẽ có thể xem vị trí trong thời gian thực của ông già Noel trên Google Maps—chỉ cần nhấn vào nút bánh hình bánh mỳ kẹp thịt và sau đó nhấp vào \"Chia sẻ vị trí\" để xem chính xác vị trí của ông già Noel đang trong suốt hành trình của ông."
+	},
+	"press-whatsnew3-title": {
+		"message": "Một cách mới để theo chân ông già Noel:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Nếu bạn muốn tận hưởng nhiều niềm vui hơn trong ngày lễ, hãy xem các hình dán của Gboard theo chủ đề giáng sinh (chỉ có trên \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eứng dụng Android\u003c/a\u003e của chúng tôi) và mãn nhãn với các xu hướng như loại bánh quy đặc trưng được tìm kiếm nhiều nhất ở mỗi tiểu bang của Hoa Kỳ. Hãy liên lạc với nhân vật quan trọng nhất của mùa lễ bằng cách yêu cầu Trợ lý Google \"Gọi cho ông già Noel\" và sau đó thư giãn bằng cách ra lệnh \"Kể cho tôi nghe một câu chuyện về giáng sinh\" để thưởng thức một số câu chuyện văn học thú vị."
+	},
+	"press-whatsnew4-title": {
+		"message": "Thêm niềm vui trong kỳ nghỉ:"
 	},
 	"pt_language_name": {
 		"message": "Tiếng Bồ Đào Nha"

@@ -896,6 +896,9 @@
 	"next": {
 		"message": "Järgmine"
 	},
+	"next_game": {
+		"message": "Järgmine mäng"
+	},
 	"ng_country_name": {
 		"message": "Nigeeria"
 	},
@@ -1120,6 +1123,84 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "Jõuluvana teekonna jälgimise rakenduse teave"
+	},
+	"press-about-tracker1": {
+		"message": "24. detsembril anname välja juhtpaneeli, mis võimaldab jõuluvana fännidel jälgida tema teekonda linnast linna. Lisaks näete tema asukohta Google Mapsis ning võite küsida Google'i assistendilt „OK Google, Where's Santa?”, et jõuluvana tegemistega kõikjal kursis püsida."
+	},
+	"press-about-village": {
+		"message": "Teave jõuluküla kohta"
+	},
+	"press-about-village1": {
+		"message": "Jõuluküla tähistab viieteistkümnendat hooaega täis lõbusaid ja harivaid interaktiivseid pühadetegevusi. Jõulumemme juhendamisel vuntsisid päkapikud küla üles ja lisasid hulga uut sisu. Kakaotoitel keskküttesüsteemiga ei kulu jõuluküla kütmiseks enam kogu detsembrit – kõik kaks tosinat tegevust on saadaval juba 4. detsembril. Nii on päkapikkudel (ja teil) mängimiseks ja jõuluküla avastamiseks rohkem aega."
+	},
+	"press-about-village2": {
+		"message": "Jõulukülas saate harjutada programmeerimist, tegeleda kunstiga, panna proovile oma geograafiateadmised ning tutvuda heategevuslike organisatsioonidega, näiteks \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e ja \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Õpetajatele on allalaadimiseks saadaval isegi videojuhenditega \u003ca href=\"./educators.html\"\u003eainekavad\u003c/a\u003e õpilastele programmeerimise põhialuste ja pühadetraditsioonide õpetamiseks inglise, hispaania, prantsuse, jaapani ja korea keeles."
+	},
+	"press-asset-animation": {
+		"message": "Animatsioon"
+	},
+	"press-asset-resources": {
+		"message": "Pressimaterjalid"
+	},
+	"press-asset-screenshot": {
+		"message": "Ekraanipilt"
+	},
+	"press-device-text": {
+		"message": "Pühaderõõm on kõikjal, isegi teie seadmetes!"
+	},
+	"press-device-title": {
+		"message": "Jõuluvana teekonna jälgimine teie seadmes"
+	},
+	"press-edu": {
+		"message": "Harivad seiklused"
+	},
+	"press-games-title": {
+		"message": "Tali ja mängud"
+	},
+	"press-need-text": {
+		"message": "Päkapikud ja Google'i töötajad aitavad."
+	},
+	"press-need-title": {
+		"message": "Kas tahate midagi teada?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Avatakse 24. detsembril"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Avatud kogu detsember"
+	},
+	"press-villagetracker-title": {
+		"message": "Jõuluküla ja jõuluvana teekonna jälgimine"
+	},
+	"press-whatsnew": {
+		"message": "Uus sel aastal"
+	},
+	"press-whatsnew1-text": {
+		"message": "Disainige omaenda päkapikk – tehke temast Põhjanaba pühadeballide täht."
+	},
+	"press-whatsnew1-title": {
+		"message": "Disainige päkapikk:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Kui olete alati unistanud andekate päkapikkude tantsutrupi kokkupanemisest, siis nüüd on hea võimalus. Peaaegu. Masinõppemudel nimega \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e aitab teil päkapikule enda lemmikliigutusi õpetada."
+	},
+	"press-whatsnew2-title": {
+		"message": "Tantsud päkapikkudega:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Saate jõuluvana asukohta vaadata ka Google Mapsis – lihtsalt puudutage kolmetäpinuppu ja seejärel valikut „Asukoha jagamine”, et näha, kus täpselt jõuluvana parajasti viibib."
+	},
+	"press-whatsnew3-title": {
+		"message": "Uus viis jõuluvana teekonna jälgimiseks:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Kui pühaderõõmu ei ole teile kunagi liiga palju, tutvuge meie \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroidi rakenduses\u003c/a\u003e eksklusiivsete pühadeteemaliste Gboardi kleebiste ja huvitavate teabekildudega, näiteks enim otsitud küpsiseretseptidega USA osariikide kaupa. Google Assistant võtab käsu „Call Santa” peale ühendust jõuluvana endaga ja käsu „Tell me a holiday story” peale räägib muheda jõululoo."
+	},
+	"press-whatsnew4-title": {
+		"message": "Veel pühaderõõmu:"
 	},
 	"pt_language_name": {
 		"message": "portugali keel"
