@@ -1,4 +1,5 @@
 import * as posenet from '@tensorflow-models/posenet';
+import '../../../src/polyfill/event-target.js';
 import {BODY_PARTS, OTHER} from './world.js';
 
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being

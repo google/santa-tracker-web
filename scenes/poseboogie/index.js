@@ -114,8 +114,9 @@ export async function bindPage() {
   const world = new World(appConfig);
   const elf = new Elf(world);
 
+  const badPoseElement = document.getElementById('bad-pose');
   elf.addEventListener('pose-change', (evt) => {
-    document.getElementById('bad-pose').style.display = !evt.detail ? 'block' : 'none';
+    badPoseElement.hidden = Boolean(evt.detail);
     world.paused = !evt.detail;
   });
 
