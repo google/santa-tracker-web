@@ -1,4 +1,4 @@
-$color-purple: #99529f;
+$color-purple: #6f00ff;
 $height-lr: 440px;   // at this height or below, use side-by-side mode
 $width-base: 240px;  // min width of overlay
 $header-size: 44px;
@@ -58,9 +58,9 @@ h4 {
   cursor: pointer;
   padding: 0;
   border: 0;
-  background: url(img/startbutton.svg) no-repeat;
-  height: 210px;
-  width: 177px;
+  background: url(img/btn_play_01.svg) no-repeat;
+  height: 230px;
+  width: 227px;
   margin-bottom: 11px;
 
   @media (max-height: $height-lr) {
@@ -69,7 +69,7 @@ h4 {
   }
 
   &:active {
-    background-position: -177px 0;
+    background-image: url(img/btn_play_02.svg);
   }
 }
 
