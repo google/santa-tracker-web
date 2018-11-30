@@ -65,6 +65,9 @@ control.addEventListener('change', (ev) => {
 
   elf.categoryChoice = control.categoryChoice;
   elf.svgStyle = control.svgStyle;
+
+  const bgUrl = defs.backgrounds[control.categoryChoice['backgrounds']];
+  main.style.backgroundImage = `url(${bgUrl})`;
 });
 
 share.addEventListener('click', (ev) => {

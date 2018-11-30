@@ -83,10 +83,28 @@ export class MakerElfElement extends LitElement {
   /**
    * @return {!Promise<string>}
    */
-  draw() {
+  async draw() {
+    const canvasWidth = defs.width * 2;
+    const canvasHeight = defs.height * 2;
     const canvas = document.createElement('canvas');
-    canvas.width = defs.width * 2;  // matches the SVG size in <style> below
-    canvas.height = defs.height * 2;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    const ctx = canvas.getContext('2d');
+
+    const bg = new Image();
+    bg.src = defs.backgrounds[this.categoryChoice['backgrounds']];
+    await new Promise((resolve, reject) => {
+      bg.onload = resolve;
+      bg.onerror = reject;
+    });
+
+    // draw the center of the scaled background image
+    const bgScale = 0.75;
+    const sw = canvasWidth / bgScale;
+    const sh = canvasHeight / bgScale;
+    const sx = (bg.width - sw) / 2;
+    const sy = (bg.height - sh) / 2;
+    ctx.drawImage(bg, sx, sy, sw, sh, 0, 0, canvasWidth, canvasHeight);
 
     // create div, find the svg
     const div = document.createElement('div');
@@ -94,22 +112,19 @@ export class MakerElfElement extends LitElement {
     const svg = div.querySelector('svg');
 
     // set w/h explicitly, otherwise Chrome or other browsers assume 'natural' SVG size
-    svg.setAttribute('width', defs.width * 2);
-    svg.setAttribute('height', defs.height * 2);
+    svg.setAttribute('width', canvasWidth);
+    svg.setAttribute('height', canvasHeight);
 
-    // load an Image with the base64 version of the SVG
-    const raw = 'data:image/svg+xml;base64,' + window.btoa(svg.outerHTML);
-
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = raw;
-      img.onload = () => {
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-        resolve(canvas.toDataURL());
-      };
-      img.onerror = reject;
+    // load the elf image with the base64 version of the SVG
+    const elf = new Image();
+    elf.src = 'data:image/svg+xml;base64,' + window.btoa(svg.outerHTML);
+    await new Promise((resolve, reject) => {
+      elf.onload = resolve;
+      elf.onerror = reject;
     });
+    
+    ctx.drawImage(elf, 0, 0);
+    return canvas.toDataURL();
   }
 
   render() {

@@ -15,6 +15,7 @@ const categoryNames = [
   'ears',
   'hats',
   'accessories',
+  'backgrounds',
 ];
 
 
@@ -175,6 +176,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
         case 'accessories':
           this._previews = defs.accessories;
           break;
+        case 'backgrounds':
+          this._previews = defs.backgrounds;
+          break;
         default:
           this._previews = [];
       }
@@ -259,7 +263,6 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     const previews = repeat(this._previews, (p, i) => `${this.category}${i}`, (p, i) => {
       let front = '';
       let back = '';
-      let width = 210;
 
       if (this.category === 'hats') {
         back = p;
@@ -271,6 +274,9 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
 <label class="item">
   <input type="radio" name="${this._idPrefix}preview" value=${i} .checked=${choice === i} />
   <div class="preview">
+    ${this.category === 'backgrounds' ? html`
+<div style="background: url(${p}) center/cover; width: 100%"></div>
+    ` : html`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="${defs.width * 0.2} ${lowerIndent} ${defs.width * 0.6} ${345 - lowerIndent}">
 <g transform="translate(55)">
   <g class=${this.category}>${back}</g>
@@ -278,6 +284,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   <g class=${this.category}>${front}</g>
 </g>
 </svg>
+    `}
   </div>
 </label>
       `;
