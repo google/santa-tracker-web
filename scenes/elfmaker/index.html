@@ -19,6 +19,7 @@
   <div class="buttons">
     <santa-button id="share" color="green">share</santa-button>
     <santa-button id="camera" color="red">photo_camera</santa-button>
+    <santa-button id="random" color="purple">shuffle</santa-button>
   </div>
 </main>
 
@@ -77,8 +78,15 @@ share.addEventListener('click', (ev) => {
   window.santaApp.fire('sound-trigger', 'generic_button_click');
 });
 
+random.addEventListener('click', (ev) => {
+  window.santaApp.fire('sound-trigger', 'elfmaker_switch_item');
+  control.chooseRandom();
+  window.ga('send', 'event', 'game', 'random', 'elfmaker');
+});
+
 camera.addEventListener('click', (ev) => {
   photo.capture(elf.draw());
+  window.ga('send', 'event', 'game', 'photo', 'elfmaker');
 });
 
 api.ready(async (data) => {

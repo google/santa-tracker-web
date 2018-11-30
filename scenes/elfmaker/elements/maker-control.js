@@ -11,7 +11,6 @@ const categoryNames = [
   'body',
   'hair',
   'glasses',
-  'eyes',
   'ears',
   'hats',
   'accessories',
@@ -33,8 +32,21 @@ const colorProperties = {
 const colorPropertyNames = Object.keys(colorProperties);
 
 
-const defaultCategoryChoices = () => categoryNames.reduce((defaultChoice, categoryName) => {
-  defaultChoice[categoryName] = 0;
+const defaultCategoryChoices = (random=false) => categoryNames.reduce((defaultChoice, categoryName) => {
+  if (random) {
+    const length = (defs.categories[categoryName] || []).length;
+
+    // weight the first choice by +1/length (categories with fewer weight 1st higher)
+    let choice = Math.random() * length * (1 + 1 / length);
+    if (choice >= length) {
+      choice = 0;
+    } else {
+      choice = ~~choice;
+    }
+    defaultChoice[categoryName] = choice;
+  } else {
+    defaultChoice[categoryName] = 0;
+  }
   return defaultChoice;
 }, {});
 
@@ -66,6 +78,17 @@ export class MakerControlElement extends LitElement {
 
       _previews: {type: Object},
     };
+  }
+
+  /**
+   * Choose a random config.
+   */
+  chooseRandom(category=true) {
+    const categoryChoice = defaultCategoryChoices(category);
+    const propertyColors = defaultPropertyColors();
+
+    this.categoryChoice = categoryChoice;
+    Object.assign(this, propertyColors);
   }
 
   serializeState() {
@@ -124,7 +147,7 @@ export class MakerControlElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
 
-    this.deserializeState(null);  // sets default
+    this.chooseRandom(false);
   }
 
   renderSvgStyle() {
@@ -157,6 +180,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     }
 
     if (changedProperties.has('category')) {
+<<<<<<< HEAD
       switch (this.category) {
         case 'body':
           this._previews = defs.bodyPreviews;
@@ -182,13 +206,18 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
         default:
           this._previews = [];
       }
+=======
+      this._previews = defs.categories[this.category] || [];
+>>>>>>> add random choice, rewrite defs a bit
     }
     this.playChangeSound(changedProperties);
     return super.update(changedProperties);
   }
 
   playChangeSound(changedProperties) {
-    if (changedProperties.has('_idPrefix')) return; //first event, play no sound
+    if (changedProperties.has('_idPrefix')) {
+      return; // first event, play no sound
+    }
     if (changedProperties.has('category')) {
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_type');
     } else if (changedProperties.has('categoryChoice')) {
