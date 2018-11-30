@@ -19,7 +19,7 @@ export class SantaChoiceElement extends HTMLElement {
 </div>
 `;
     if (self.ShadyCSS) {
-      self.ShadyCSS.prepareTemplate(template, is);
+      self.ShadyCSS.prepareTemplate(template, 'santa-choice');
     }
 
     this.attachShadow({mode: 'open'});

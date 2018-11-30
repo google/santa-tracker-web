@@ -7,6 +7,9 @@ import * as prefix from '../../../src/lib/prefix.js';
 import * as defs from '../defs.js';
 
 
+let globalElfStyle;  // for ShadyCSS + lit-html
+
+
 const categoryNames = [
   'body',
   'hair',
@@ -32,7 +35,7 @@ const colorProperties = {
 const colorPropertyNames = Object.keys(colorProperties);
 
 
-const defaultCategoryChoices = (random=false) => categoryNames.reduce((defaultChoice, categoryName) => {
+export const defaultCategoryChoices = (random=false) => categoryNames.reduce((defaultChoice, categoryName) => {
   if (random) {
     const length = (defs.categories[categoryName] || []).length;
 
@@ -78,6 +81,28 @@ export class MakerControlElement extends LitElement {
 
       _previews: {type: Object},
     };
+  }
+
+  constructor() {
+    super();
+    this._idPrefix = prefix.id();
+
+    // Set defaults for Edge's benefit.
+    this.category = 'body';
+    this.svgStyle = '';
+    this._previews = [];
+
+    // At ctor time, we don't yet have state to deserialize. It'll probably arrive right after,
+    // but just use defaults for now.
+    this.deserializeState(null);
+
+    if (self.ShadyCSS) {
+      if (globalElfStyle) {
+        throw new Error(`can't recreate maker-chooser in ShadyCSS mode`);
+      }
+      globalElfStyle = document.createElement('style');
+      document.head.appendChild(globalElfStyle);
+    }
   }
 
   /**
@@ -144,15 +169,6 @@ export class MakerControlElement extends LitElement {
     Object.assign(this, propertyColors);
   }
 
-  constructor() {
-    super();
-    this._idPrefix = prefix.id();
-
-    // At ctor time, we don't yet have state to deserialize. It'll probably arrive right after,
-    // but just use defaults for now.
-    this.deserializeState(null);
-  }
-
   renderSvgStyle() {
     const renderClass = (name, prop, value) => {
       const colors = defs.colors[value];
@@ -173,10 +189,18 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     `;
   }
 
+  _updateSvgStyle() {
+    this.svgStyle = this.renderSvgStyle();
+    if (globalElfStyle) {
+      // for ShadyCSS + lit-html
+      globalElfStyle.textContent = this.svgStyle;
+    }
+  }
+
   update(changedProperties) {
     for (const k of changedProperties.keys()) {
       if (k[0] !== '_') {
-        this.svgStyle = this.renderSvgStyle();
+        this._updateSvgStyle();
         this.dispatchEvent(new CustomEvent('change'));
         break;
       }
@@ -201,6 +225,7 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
       window.santaApp.fire('sound-trigger', 'elfmaker_switch_color');
     }
   }
+
   _categoryChange(ev) {
     this.category = ev.detail.value;
   }
@@ -217,33 +242,19 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   _renderCategory(category) {
     switch (category) {
       case 'body':
-        return html`
-          ${this._chooser('skinTone', 'skin')}
-        `;
+        return this._chooser('skinTone', 'skin');
       case 'suit':
-        return html`
-          ${this._chooser('suitColor', 'color')}
-        `;
+        return this._chooser('suitColor', 'color');
       case 'hair':
-        return html`
-          ${this._chooser('hairColor', 'hair')}
-        `;
+        return this._chooser('hairColor', 'hair');
       case 'glasses':
-        return html`
-          ${this._chooser('glassesColor', 'glasses')}
-        `;
+        return this._chooser('glassesColor', 'glasses');
       case 'ears':
-        return html`
-          ${this._chooser('earsColor', 'color')}
-        `;
+        return this._chooser('earsColor', 'color');
       case 'hats':
-        return html`
-          ${this._chooser('hatsColor', 'color')}
-        `;
+        return this._chooser('hatsColor', 'color');
       case 'accessories':
-        return html`
-          ${this._chooser('accessoriesColor', 'color')}
-        `;
+        return this._chooser('accessoriesColor', 'color');
     }
     return '';
   }
@@ -294,17 +305,17 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
       `;
     });
 
+    // only render real styles in Shadow DOM
+    const svgStyle = (self.ShadyCSS ? '' : this.svgStyle);
+
     return html`
 <style>${_style`maker-control`}</style>
-<style>${defs.baseSvgStyle}${this.svgStyle}</style>
+<style>${defs.baseSvgStyle}${svgStyle}</style>
 <main>
   ${this._chooser('category', 'category')}
   ${inner}
-
   <santa-choice>
-    <div class="previews" @change=${this._onPreviewChange}>
-      ${previews}
-    </div>
+    <div class="previews" @change=${this._onPreviewChange}>${previews}</div>
   </santa-choice>
 </main>
     `;

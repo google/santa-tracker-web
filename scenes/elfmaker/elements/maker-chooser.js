@@ -32,6 +32,8 @@ export class MakerChooserElement extends LitElement {
     super();
     this._idPrefix = prefix.id();
     this._options = [];
+    this.mode = '';
+    this.value = '';
   }
 
   _onChange(event) {

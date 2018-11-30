@@ -61,10 +61,6 @@ api.preload.images(
   'img/btn_backgrounds.svg',
 );
 
-const dataProperties = [
-  'skinTone', 'hairColor', 'suitColor', 'eyesColor', 'earsColor', 'hatsColor', 'accessoriesColor',
-];
-
 const control = document.getElementById('control');
 control.addEventListener('change', (ev) => {
   api.data({elf: control.serializeState()});

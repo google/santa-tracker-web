@@ -3,6 +3,8 @@ import {render} from 'lit-html';
 import * as defs from '../defs.js';
 import * as prefix from '../../../src/lib/prefix.js';
 
+import {defaultCategoryChoices} from './maker-control.js';
+
 
 function interpolateAngle(start, c1, c2, end) {
 	return (t) => {
@@ -36,8 +38,12 @@ export class MakerElfElement extends LitElement {
 
   constructor() {
     super();
+
+    // Edge fails to ever render if it has NaN/invalid data, so set all defaults here.
     this._offset = 0;
     this._idPrefix = prefix.id();
+    this.svgStyle = '';
+    this.categoryChoice = defaultCategoryChoices();
   }
 
   _buildArm(angle=0, shrug=1, length=120) {
@@ -70,6 +76,7 @@ export class MakerElfElement extends LitElement {
   }
 
   connectedCallback() {
+    super.connectedCallback();
     const run = () => {
       if (!this.isConnected) {
         return;
@@ -108,12 +115,20 @@ export class MakerElfElement extends LitElement {
 
     // create div, find the svg
     const div = document.createElement('div');
-    render(this.render(), div);
+    render(this.render(true), div);
     const svg = div.querySelector('svg');
 
     // set w/h explicitly, otherwise Chrome or other browsers assume 'natural' SVG size
     svg.setAttribute('width', canvasWidth);
     svg.setAttribute('height', canvasHeight);
+
+    const clip = svg.querySelector('[clip-path]');
+    console.info('clip was', clip.outerHTML);
+//    clip.setAttribute('clip-path', );
+    clip.removeAttribute('clip-path');
+    clip.style.clipPath = `url(#${this._idPrefix}body-clip)`;
+    console.info('clip', clip.outerHTML);
+    const outer = svg.outerHTML;
 
     // load the elf image with the base64 version of the SVG
     const elf = new Image();
@@ -122,12 +137,15 @@ export class MakerElfElement extends LitElement {
       elf.onload = resolve;
       elf.onerror = reject;
     });
+    elf.style.zIndex = 100000;
+    elf.style.position = 'absolute';
+    document.body.appendChild(elf);
     
     ctx.drawImage(elf, 0, 0);
     return canvas.toDataURL();
   }
 
-  render() {
+  render(force) {
     const rightArmDegrees = 100 + (50 * Math.cos(this._offset / 0.8));
     const leftArmDegrees = 135 + (10 * Math.sin(this._offset * 1.5));
     const shrug = (Math.cos(this._offset) + 1) / 2;
@@ -142,6 +160,9 @@ export class MakerElfElement extends LitElement {
     // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
     const scale = (limbWidth / 20);
     const bodyScale = Math.sqrt(limbWidth / 20);
+
+    // only render real styles in Shadow DOM
+    const svgStyle = (!force && self.ShadyCSS ? '' : this.svgStyle);
 
     return html`
 <style>
@@ -166,7 +187,7 @@ svg {
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-40 -100 400 560">
   <style>
 ${defs.baseSvgStyle}
-${this.svgStyle}
+${svgStyle}
 .blink {
   animation: elves-blink 5.234s infinite alternate;
 }
@@ -179,7 +200,6 @@ ${this.svgStyle}
   stroke-width: ${limbWidth}px;
 }
   </style>
-
   <defs>
     <clipPath clipPathUnits="userSpaceOnUse" id="${this._idPrefix}body-clip">${defs.body}</clipPath>
   </defs>
@@ -207,7 +227,7 @@ ${this.svgStyle}
     </g>
 
     <!-- body and belt -->
-    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" clip-path="url(#${this._idPrefix}body-clip)">
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" clip-path="url('#${this._idPrefix}body-clip')">
       <rect class="suit" x="-100" y="200" width="200" height="200"/>
       <rect class="high1" x="-80" y="259.76" width="160" height="21.32"/>
       <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>

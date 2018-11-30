@@ -18,7 +18,7 @@ maker-photo {
   z-index: 1000;
 }
 
-main {
+#main {
   background: url(img/backgrounds/snow.png) no-repeat center/cover;
   display: flex;
   align-items: stretcn;
@@ -75,7 +75,7 @@ main {
     overflow: auto;
     min-height: 100vh;
   }
-  main {
+  #main {
     height: 50vh;
     position: fixed;
     width: 100%;
