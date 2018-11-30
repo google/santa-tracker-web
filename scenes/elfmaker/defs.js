@@ -488,6 +488,14 @@ export const accessories = [
 
 
 export const backgrounds = [
-  'img/bg-complex.png',
-  'img/bg-simple.png',
+  'img/backgrounds/snow.png',
+  'img/backgrounds/air.png',
+  'img/backgrounds/airport.png',
+  'img/backgrounds/beach.png',
+  'img/backgrounds/dock.png',
+  'img/backgrounds/gingerbread.png',
+  'img/backgrounds/iceberg.png',
+  'img/backgrounds/livingroom.png',
+  'img/backgrounds/night.png',
+  'img/backgrounds/underwater.png',
 ];

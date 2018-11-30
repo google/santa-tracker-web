@@ -99,7 +99,7 @@ export class MakerElfElement extends LitElement {
     });
 
     // draw the center of the scaled background image
-    const bgScale = 0.75;
+    const bgScale = 1.2;
     const sw = canvasWidth / bgScale;
     const sh = canvasHeight / bgScale;
     const sx = (bg.width - sw) / 2;
