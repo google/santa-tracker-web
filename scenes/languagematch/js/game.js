@@ -68,7 +68,7 @@ app.Game = class Game {
       throw Error('Invalid number of cards!');
     }
 
-    const translations = Object.entries(app.Constants.PHRASES[0]);
+    const translations = Object.entries(app.Constants.PHRASES['Season\'s Greetings']);
     const colors = app.Constants.COLORS.slice();
 
     const cards = [];
