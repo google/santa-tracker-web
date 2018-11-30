@@ -70,6 +70,24 @@ specific language governing permissions and limitations under the License.
       },
     },
 
+    _dataFromClient: function(data) {
+      // only update every ~1s
+      if (this._pendingData === undefined) {
+        window.setTimeout(() => {
+          if (!this.isConnected) {
+            return;
+          }
+
+          var url = new URL(window.location.toString());
+          url.search = makeSearchParam(this._pendingData);
+          window.history.replaceState(null, '', url.toString());
+          this._pendingData = undefined;
+        }, 1000);
+      }
+
+      this._pendingData = data || null;
+    },
+
     ready: function() {
       this._onIframeMessage = this._onIframeMessage.bind(this);
     },
@@ -87,8 +105,10 @@ specific language governing permissions and limitations under the License.
         return;  // not for us
       }
 
-      let duringProgress = true;
       const port = ev.ports[0];
+      port.postMessage({type: 'data', payload: getUrlParameters()});
+
+      let duringProgress = true;
       port.onmessage = (ev) => {
         if (duringProgress) {
           if (ev.data === null) {
@@ -110,9 +130,7 @@ specific language governing permissions and limitations under the License.
             }
             break;
           case 'data':
-            var url = new URL(window.location.toString());
-            url.search = makeSearchParam(ev.data.payload);
-            window.history.replaceState(null, '', url.toString());
+            this._dataFromClient(ev.data.payload || null);
             break;
           default:
             console.debug('got', ev.data.type, 'from iframe-scene');
