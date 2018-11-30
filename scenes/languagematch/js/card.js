@@ -18,7 +18,8 @@ var Card = class {
      * translation, but the language names are in the user's language.
      */
     this.contentLanguage = '';
-    this.color = '';
+    this.backgroundColor = '';
+    this.textColor = '';
   }
 
 }

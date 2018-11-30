@@ -72,7 +72,8 @@ $rotate-bg: $gameover-bg;
     }
     .card-front {
         @extend %card-face;
-        background-color: rgb(255, 255, 255);
+        background-color: white;
+        color: black;
         transform: rotateY(180deg);
     }
     .card-contents {
@@ -81,7 +82,6 @@ $rotate-bg: $gameover-bg;
         transform: translateY(-50%);
         text-align: center;
         font-size: 1.5rem;
-        color: white;
         overflow-wrap: break-word;
     }
 }
