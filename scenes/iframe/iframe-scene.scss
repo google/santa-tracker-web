@@ -4,9 +4,13 @@ $name: 'module-iframe';
 
 main {
   background: #364189;
-  min-height: calc(100vh - 44px);
+  min-height: calc(100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   iframe {
-    min-height: calc(100vh - 44px);
+    min-height: calc(100vh);
   }
 }

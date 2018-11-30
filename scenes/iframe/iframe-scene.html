@@ -68,24 +68,48 @@ specific language governing permissions and limitations under the License.
       _preloadResolve: {
         type: Object,
       },
+
+      _recentData: {
+        type: Object,
+      },
     },
 
     _dataFromClient: function(data) {
-      // only update every ~1s
-      if (this._pendingData === undefined) {
-        window.setTimeout(() => {
-          if (!this.isConnected) {
-            return;
-          }
+      this._recentData = data || null;
 
-          var url = new URL(window.location.toString());
-          url.search = makeSearchParam(this._pendingData);
-          window.history.replaceState(null, '', url.toString());
-          this._pendingData = undefined;
-        }, 1000);
+      // only update every ~1s
+      if (this._dataTimeout) {
+        return;
+      }
+      this._dataTimeout = window.setTimeout(() => {
+        this._dataTimeout = 0;
+        if (!this.isConnected) {
+          return;
+        }
+
+        var url = new URL(window.location.toString());
+        url.search = makeSearchParam(this._recentData);
+        window.history.replaceState(null, '', url.toString());
+      }, 1000);
+    },
+
+    _gameoverFromClient: function(payload) {
+      var searchParam = makeSearchParam(this._recentData);
+      var url = new URL(window.location.toString());
+      url.search = searchParam;
+
+      var image = payload.image;
+      if (image) {
+        var parts = image.split(',');
+        image = parts[1] || parts[0];
       }
 
-      this._pendingData = data || null;
+      // TODO(samthor): Not all embed scenes should generate URLs.
+      santaApp.fire('game-stop', {
+        image: image || null,
+        score: payload.score || 0,
+        url: url.toString(),
+      });
     },
 
     ready: function() {
@@ -106,7 +130,8 @@ specific language governing permissions and limitations under the License.
       }
 
       const port = ev.ports[0];
-      port.postMessage({type: 'data', payload: getUrlParameters()});
+      this._recentData = getUrlParameters();
+      port.postMessage({type: 'data', payload: this._recentData});
 
       let duringProgress = true;
       port.onmessage = (ev) => {
@@ -132,8 +157,11 @@ specific language governing permissions and limitations under the License.
           case 'data':
             this._dataFromClient(ev.data.payload || null);
             break;
+          case 'gameover':
+            this._gameoverFromClient(ev.data.payload || {});
+            break;
           default:
-            console.debug('got', ev.data.type, 'from iframe-scene');
+            console.debug('got', ev.data.type, 'from iframe-scene', ev.data.payload);
         }
       };
     },

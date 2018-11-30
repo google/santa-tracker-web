@@ -946,9 +946,16 @@ Polymer({
 
     this.userPause = true;
 
-    this.fire('embed', {type: 'ongameover', data: {
-      // TODO(samthor): pass image/data
-    }});
+    if (detail.url || detail.image) {
+      this.fire('embed', {type: 'onshare', data: {
+        url: detail.url || null,
+        image: detail.image || null,
+      }});
+    } else {
+      this.fire('embed', {type: 'ongameover', data: {
+        score: o.score,
+      }});
+    }
   },
 
   onScoreGame: function(event, detail) {
