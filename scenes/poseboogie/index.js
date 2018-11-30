@@ -9,6 +9,7 @@ import { World } from './js/world.js';
 const videoWidth = 700;
 const videoHeight = 500;
 const [minHumanSize, maxHumanSize] = [0.25, 1.5];
+const humanSizeStep = 0.25;
 
 const appConfig = {
   debug: true,
@@ -27,13 +28,14 @@ const appConfig = {
 
 api.preload.images(
   'img/svg/rudolph-dancing2_2.svg',
+  'img/svg/elf_silhouette.svg',
+  'img/svg/mirror.svg',
   'img/facehat.png',
   'img/body.png',
   'img/arm.png',
   'img/hand_cuff.png',
   'img/leftshoe.png',
   'img/rightshoe.png',
-  'img/svg/mirror.svg',
 );
 const posePromise = posenet.load(appConfig.mobileNetArchitecture);
 api.preload.wait(posePromise);
@@ -88,7 +90,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'enableJointLimits');
   gui.add(appConfig, 'resizeBodyParts');
   gui.add(appConfig, 'smoothLimbs');
-  gui.add(appConfig, 'humanSize').min(minHumanSize).max(maxHumanSize).step(0.25);
+  gui.add(appConfig, 'humanSize').min(minHumanSize).max(maxHumanSize).step(humanSizeStep).listen();
   gui.add(appConfig, 'quadraticElbows');
 }
 
@@ -98,7 +100,11 @@ function setUpDebugControls() {
  */
 export async function bindPage() {
   document.getElementById('mirror').addEventListener('change', (evt) =>
-    appConfig.flipHorizontal = !evt.srcElement.checked);
+      appConfig.flipHorizontal = !evt.srcElement.checked);
+  document.getElementById('skeleton-smaller').addEventListener('click', () =>
+      appConfig.humanSize = Math.max(minHumanSize, appConfig.humanSize - humanSizeStep));
+  document.getElementById('skeleton-larger').addEventListener('click', () =>
+      appConfig.humanSize = Math.min(maxHumanSize, appConfig.humanSize + humanSizeStep));
 
   // Load the PoseNet model weights with architecture - the preload API will have already loaded
   // the resources so this should be quick.
