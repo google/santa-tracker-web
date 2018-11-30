@@ -25,6 +25,7 @@ const appConfig = {
 };
 
 api.preload.images(
+  'img/svg/rudolph-dancing2_2.svg',
   'img/facehat.png',
   'img/body.png',
   'img/arm.png',
