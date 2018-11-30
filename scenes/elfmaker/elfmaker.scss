@@ -15,18 +15,19 @@ footer {
 }
 
 maker-photo {
-  z-index: 102;
+  z-index: 1000;
 }
 
 main {
   background: url(img/backgrounds/snow.png) no-repeat center/cover;
   display: flex;
-  align-items: center;
+  align-items: stretcn;
   justify-content: center;
   flex-grow: 1;
   padding-bottom: 5vh;
   box-sizing: border-box;
   z-index: 100;
+  position: relative;
 
   maker-elf {
     width: 100%;
@@ -42,8 +43,22 @@ main {
     width: 20vw;
     min-width: 80px;
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
+    justify-content: center;
     align-items: center;
+    max-height: 100%;
+
+    #download {
+      will-change: opacity;
+      opacity: 1;
+      transition: opacity 0.25s;
+
+      &:not([href]) {
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
 
     santa-button {
       width: 90px;
@@ -66,8 +81,12 @@ main {
     width: 100%;
 
     .buttons {
-      // TODO(samthor): restore
-      display: none;
+      santa-button {
+        width: 45px;
+        height: 45px;
+        font-size: 26px;
+        margin: 4px 0;
+      }
     }
   }
   footer {

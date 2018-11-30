@@ -14,10 +14,20 @@ export class MakerPhotoElement extends LitElement {
   constructor() {
     super();
     this._hidden = true;
+    this._recentImageSrc = null;
   }
 
   _hide() {
     this._hidden = true;
+    this._recentImageSrc = null;
+    this.dispatchEvent(new Event('hide'));
+  }
+
+  /**
+   * @return {!Promise<string>}
+   */
+  get recentImage() {
+    return this._recentImageSrc;
   }
 
   _flashTransitionend() {
@@ -27,6 +37,8 @@ export class MakerPhotoElement extends LitElement {
   }
 
   async capture(imageSrc) {
+    this._recentImageSrc = imageSrc;
+
     window.santaApp.fire('sound-trigger', 'elfmaker_photo');
 
     const flash = new Promise((resolve) => {

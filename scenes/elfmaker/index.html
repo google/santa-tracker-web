@@ -12,14 +12,18 @@
 <body>
 
 <main id="main">
-  <div class="buttons"></div>
+  <div class="buttons">
+    <santa-button id="random" color="purple">shuffle</santa-button>
+    <santa-button id="share" color="green">share</santa-button>
+    <santa-button id="camera" color="red">photo_camera</santa-button>
+    <a id="download" download="elfmaker.png">
+      <santa-button color="red">save</santa-button>
+    </a>
+  </div>
   <div class="mid">
     <maker-elf id="elf"></maker-elf>
   </div>
   <div class="buttons">
-    <santa-button id="share" color="green">share</santa-button>
-    <santa-button id="camera" color="red">photo_camera</santa-button>
-    <santa-button id="random" color="purple">shuffle</santa-button>
   </div>
 </main>
 
@@ -72,7 +76,9 @@ control.addEventListener('change', (ev) => {
 });
 
 share.addEventListener('click', (ev) => {
-  elf.draw().then((result) => {
+  // if there's a selfie image hovering, share that instead
+  const recentImage = photo.recentImage;
+  (recentImage || elf.draw()).then((result) => {
     console.info('got image', result);
     api.gameover({image: result});
   });
@@ -86,8 +92,16 @@ random.addEventListener('click', (ev) => {
 });
 
 camera.addEventListener('click', (ev) => {
-  photo.capture(elf.draw());
+  const image = elf.draw();
+  photo.capture(image);
+  image.then((src) => {
+    download.setAttribute('href', src);
+  });
   window.ga('send', 'event', 'game', 'photo', 'elfmaker');
+});
+
+photo.addEventListener('hide', (ev) => {
+  download.removeAttribute('href');
 });
 
 api.ready(async (data) => {
