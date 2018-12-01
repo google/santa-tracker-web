@@ -44,7 +44,7 @@ specific language governing permissions and limitations under the License.
   <santa-state remaining-time="{{_remainingTime}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
-    <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
+    <app-drawer id="drawer" opened="{{drawerOpen}}" slot="drawer">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer">
           <paper-icon-button icon="santa:close"></paper-icon-button>
@@ -60,7 +60,7 @@ specific language governing permissions and limitations under the License.
   
     <div id="bar-holder">
       <div id="bar">
-        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon"></paper-icon-button>
+        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon" on-click="_onOpenDrawerClick"></paper-icon-button>
         <div id="extra" hidden$="[[!hasGameButtons]]">
           <paper-icon-button icon="santa:pause" on-click="_onPauseClick" class="toolbar-icon"></paper-icon-button>
         </div>
@@ -128,28 +128,15 @@ specific language governing permissions and limitations under the License.
       /**
        * True if the drawer is opened. Used for Analytics.
        */
-      _drawerOpened: {
+      drawerOpen: {
         type: Boolean,
-        observer: '_drawerOpenedChanged',
+        value: false,
       },
 
     },
 
-    /**
-     * Close the `santa-chrome` drawer.
-     * @return {boolean} true if the drawer was closed
-     */
-    closeDrawer: function() {
-      const wasClosed = this.$.drawer.opened;
-      this.$.drawer.close();
-      window.santaApp.focus();
-      return wasClosed;
-    },
-
-    _drawerOpenedChanged: function() {
-      if (this._drawerOpened) {
-        window.ga('send', 'event', 'nav', 'click', 'drawer');
-      }
+    _onOpenDrawerClick: function() {
+      window.ga('send', 'event', 'nav', 'click', 'drawer');
     },
 
     _onTitleClick: function() {

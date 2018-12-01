@@ -612,6 +612,7 @@ Polymer({
 
     _videoActive: {
       type: Boolean,
+      value: false,
     },
 
   },
@@ -787,7 +788,7 @@ Polymer({
    */
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.hasGameButtons = false;
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
     this.userPause = false;
 
     this._updateStylingForScene(this.selectedScene);
@@ -804,7 +805,7 @@ Polymer({
 
       if (v.started && window.matchMedia('(hover: hover)').matches) {
         // great, keep playing
-      } else {
+      } else if (v.reset) {
         v.reset();  // otherwise, reset, don't show the PIP
       }
     }
@@ -851,12 +852,16 @@ Polymer({
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     // Show the badge if not in allow-page-scrolling mode.
-    this.$.badge.reset();
+    if (this.$.badge.reset) {
+      this.$.badge.reset();
+    }
     this.$.badge.hidden = scrolling;
     this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // Reset the overlay.
-    this.$.overlay.reset();
+    if (this.$.overlay.reset) {
+      this.$.overlay.reset();
+    }
     this.$.overlay.hero = scene.getAttribute('hero-src');
     if ('pause' in scene) {
       this.$.overlay.hasPause = true;
@@ -1107,7 +1112,8 @@ Polymer({
   _defaultAction: function() {
     let action = false;
 
-    if (this.$.chrome.closeDrawer()) {
+    if (this.$.chrome.drawerOpen) {
+      this.$.chrome.drawerOpen = false;
       action = true;
     }
     if (window.scrollY > 0) {
@@ -1126,7 +1132,7 @@ Polymer({
   },
 
   onCloseDrawer: function(event) {
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
   },
 
   /**
