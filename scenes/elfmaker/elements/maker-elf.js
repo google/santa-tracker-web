@@ -97,9 +97,12 @@ export class MakerElfElement extends LitElement {
     return (performance.now() - this._danceStartTime) < defs.danceDuration;
   }
 
-  render() {
+  /**
+   * @param {boolean} force include CSS, for ShadyCSS modes
+   */
+  render(force) {
     // only render real styles in Shadow DOM
-    const svgStyle = (self.ShadyCSS ? '' : this.svgStyle);
+    const svgStyle = (!force && self.ShadyCSS ? '' : this.svgStyle);
 
     return html`
 <style>
