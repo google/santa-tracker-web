@@ -21,6 +21,7 @@
 window.HOUSES = [{
   module: 'elfmaker',
   category: 'play',
+  launchDate: new Date('Dec 4, 2018'),
 }, {
   module: 'wrapbattle',
   category: 'play',
@@ -36,9 +37,9 @@ window.HOUSES = [{
   category: 'learn',
   edu: true,
 }, {
-  module: 'app',
+  module: 'poseboogie',
   category: 'play',
-  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker',
+  launchDate: new Date('Dec 14, 2018'),
 }, {
   module: 'snowflake',
   category: 'learn',
@@ -58,8 +59,9 @@ window.HOUSES = [{
   category: 'play',
   edu: true,
 }, {
-  module: 'penguindash',
+  module: 'app',
   category: 'play',
+  link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker',
 }, {
   module: 'seasonofgiving',
   category: 'learn',
@@ -68,7 +70,7 @@ window.HOUSES = [{
   module: 'gumball',
   category: 'play',
 }, {
-  module: 'jamband',
+  module: 'penguindash',
   category: 'play',
 }, {
   module: 'speedsketch',
@@ -89,7 +91,7 @@ window.HOUSES = [{
   module: 'boatload',
   category: 'play',
 }, {
-  module: 'racer',
+  module: 'jamband',
   category: 'play',
 }, {
   module: 'jetpack',
