@@ -91,8 +91,7 @@ Santa Tracker app.
 
     <santa-sidebar slot="drawer"></santa-sidebar>
 
-    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"
-        share-options="[[shareOptions]]"></santa-overlay>
+    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"></santa-overlay>
 
     <!-- Video Picture-In-Picture -->
     <div id="pip" hidden$="[[!_videoActive]]">
@@ -590,18 +589,6 @@ Polymer({
       type: Boolean,
     },
 
-    /**
-     * The networks that Santa can share to.
-     */
-    shareOptions: {
-      type: Array,
-      value: function() {
-        const options = navigator.share ? ['webshare'] : ['twitter', 'facebook'];
-        return Object.freeze(options);
-      },
-      readOnly: true,
-    },
-
     _videoActive: {
       type: Boolean,
     },
@@ -635,7 +622,6 @@ Polymer({
     'video-load': 'onVideoLoad',
     'video-play': 'onVideoPlay',
     'video-done': 'onVideoDone',
-    'share': 'onShare',
     'close-drawer': 'onCloseDrawer',
   },
 
@@ -667,9 +653,6 @@ Polymer({
   ready: function() {
     if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
-    }
-    if (!this.hasAttribute('routing')) {
-      this._setShareOptions([]);
     }
 
     // Don't load sounds in Cast mode.
@@ -1133,63 +1116,6 @@ Polymer({
     if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
       this.$.lazypages.load(this.defaultRoute);
     }
-  },
-
-  /**
-   * Triggered on a request to share. Creates sharing popup for the specified service (passed as
-   * detail of event).
-   */
-  onShare: function(e, detail) {
-    const network = detail.network;
-    const url = detail.url || window.location.href;
-    const route = this.route || '';
-    const hashtags = ['santatracker'];
-    let title = this.$.strings.s(`scene-${route}`) || this.$.strings.s('santatracker') || '';
-
-    switch (route) {
-    case 'snowflake':
-      hashtags.push('codeasnowflake');
-      if (detail.overlay) {
-        // If this was from the overlay / share button prompt, use the longer messaage.
-        title = this.$.strings.s('snowflake_make_your_own');
-      }
-      break;
-    }
-
-    window.ga('send', 'social', network, 'share', '/' + route);
-
-    const shareUrl = this._findShareUrl(network, url, hashtags, title);
-    if (network === 'webshare' && navigator.share) {
-      navigator.share({title: title, url: url});
-    } else if (shareUrl) {
-      const opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
-      window.open(shareUrl, '', opts);
-    }
-  },
-
-  /**
-   * Returns the URL to popup open in response to a sharing action.
-   */
-  _findShareUrl: function(network, url, hashtags, title) {
-    const enc = window.encodeURIComponent(url);
-    let out = '';
-
-    switch (network) {
-    case 'twitter':
-      out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
-          window.encodeURIComponent(title) + `&url=${enc}`;
-      if (window.requestLang) {
-        out += `&hl=${window.requestLang}`;
-      }
-      break;
-    case 'facebook':
-      out = `https://facebook.com/sharer.php?p[url]=${enc}`;
-      break;
-    default:
-      return undefined;
-    }
-
-    return out;
   },
 
   onCloseDrawer: function(event) {

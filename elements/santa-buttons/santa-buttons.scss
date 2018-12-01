@@ -100,36 +100,11 @@ $bighover-media: "(min-width: $tablet-width) and (hover: hover), (min-width: $ta
     }
   }
 
-  .group {
-    display: flex;
-
-    &.external-link {
-      display: var(--link-display, flex);
-    }
-
-    paper-icon-button {
-      margin-left: 6px;
-    }
-  }
-
   @for $i from 1 through 10 {
     > paper-icon-button:nth-child(#{$i}) {
       transition-delay: 0.04s * ($i - 1);
     }
   }
-
-  // when hover and on a tablet, use the space the "more" button consumed
-//  @media #{$bighover-media} {
-//    top: 0;
-//
-//    > paper-icon-button.first,
-//    > .first paper-icon-button {
-//      margin-top: 2px;
-//      background: none;
-//      box-shadow: none;
-//    }
-//  }
-}
 
 // open/closed modifiers
 

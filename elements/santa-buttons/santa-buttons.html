@@ -34,22 +34,6 @@ specific language governing permissions and limitations under the License.
     <paper-icon-button icon="santa:more" on-click="_onShowMore"></paper-icon-button>
 
     <div class="buttons-overflow" id="choices" on-click="_onClickOverflow">
-      <div class="group" hidden$="[[_supportsWebShare]]" class="external-link" on-click="_onShare">
-        <paper-icon-button id="facebook" icon="santa:share-facebook"></paper-icon-button>
-        <paper-icon-button id="twitter" icon="santa:share-twitter"></paper-icon-button>
-      </div>
-
-      <paper-icon-button id="webshare" data-title$="[[_computeLabel(_strings, 'share')]]"
-          class="external-link"
-          hidden$="[[!_supportsWebShare]]"
-          on-click="_onShare"
-          icon="santa:share">
-      </paper-icon-button>
-
-      <!-- <paper-icon-button data-title="Fullscreen"
-          icon="santa:fullscreen">
-      </paper-icon-button> -->
-
       <paper-icon-button id="sound" data-title$="[[_computeMuteString(_strings, mute)]]"
           data-mute$="[[mute]]"
           on-click="_toggleSounds"
@@ -82,14 +66,6 @@ specific language governing permissions and limitations under the License.
         readOnly: true,
         notify: true,
         value: false,
-      },
-
-      /**
-       * Whether we support Web Share.
-       */
-      _supportsWebShare: {
-        type: Boolean,
-        value: () => 'share' in navigator,
       },
 
       _strings: {
@@ -172,15 +148,6 @@ specific language governing permissions and limitations under the License.
 
       // TODO: restore when CSS supports this
       // this._singleOrNoIcon = (found.length <= 1);
-    },
-
-    _onShare: function(ev) {
-      window.ga('send', 'event', 'nav', 'click', 'share');
-      const p = ev.target.closest('paper-icon-button');
-      if (p) {
-        ev.preventDefault();
-        this.fire('share', {network: p.id});
-      }
     },
 
     _computeLabel: function(strings, id) {

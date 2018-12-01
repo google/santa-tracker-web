@@ -60,13 +60,6 @@ Shared overlay for Santa Tracker games.
           <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
           <input id="url" type="url" readonly value="[[shortShareUrl]]" on-click="_selectUrl" />
         </div>
-        <div id="shareButtons" on-tap="_onShare">
-          <template is="dom-repeat" items="[[shareOptions]]">
-            <button class="Button Button--share" id$="[[item]]">
-              <iron-icon icon$="santa:share-[[item]]"></iron-icon>
-            </button>
-          </template>
-        </div>
       </section>
 
     </div>
@@ -228,15 +221,6 @@ Polymer({
     window.ga('send', 'event', 'nav', 'click', 'play-extra');
     this.reset();
     this.fire('game-extra');
-  },
-
-  _onShare: function(ev) {
-    window.ga('send', 'event', 'nav', 'click', 'share');
-    const p = ev.target.closest('button');
-    if (p) {
-      ev.preventDefault();
-      this.fire('share', {network: p.id, url: this.shortShareUrl || this.shareUrl, overlay: true});
-    }
   },
 
   /**
