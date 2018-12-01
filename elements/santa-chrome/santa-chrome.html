@@ -18,13 +18,11 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 
-<link rel="import" href="../../components/app-layout/app-header/app-header.html">
 <link rel="import" href="../../components/app-layout/app-scroll-effects/effects/waterfall.html">
 <link rel="import" href="../../components/app-layout/app-scroll-effects/effects/fade-background.html">
 <link rel="import" href="../../components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../../components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../../components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
 <link rel="import" href="../santa-buttons/santa-buttons.html">
@@ -40,17 +38,7 @@ specific language governing permissions and limitations under the License.
         box-shadow: 2px 0 0 rgba(0,0,0,0.125);
       };
     }
-    app-header {
-      --app-header-background-rear-layer: {
-        background-color: var(--santa-header-color, rgb(48,203,236));
-      };
-      --app-header-shadow: {
-        bottom: 0;  /** this is -5px by default */
-        box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-      };
-    }
   </style>
-  <santa-state offline="{{_offline}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
@@ -62,35 +50,24 @@ specific language governing permissions and limitations under the License.
         <slot name="drawer"></slot>
       </div>
     </app-drawer>
-    <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall fade-background" slot="header">
-        <div id="fixed-background"></div>
-        <app-toolbar hidden$="[[disabled]]">
-          <paper-icon-button icon="santa:menu" drawer-toggle
-              class="toolbar-icon"></paper-icon-button>
-          <div class="title">
-            <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
-              <div id="logo" title="Google"></div>
-              <h1>
-                <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-              </h1>
-            </a>
-          </div>
-          <div class="feature">
-            <slot name="feature"></slot>
-          </div>
-          <santa-buttons
-              has-game-buttons="[[hasGameButtons]]"
-              mute="{{mute}}"
-              pause="{{pause}}"></santa-buttons>
-        </app-toolbar>
-      </app-header>
 
-      <div id="main-content">
-        <slot></slot>
+    <div id="main">
+      <slot></slot>
+    </div>
+  
+    <div id="bar-holder">
+      <div id="bar">
+        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon"></paper-icon-button>
+        <div id="title">
+          <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
+            <div class="logo">Google</div>
+            <h1>
+              <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+            </h1>
+          </a>
+        </div>
       </div>
-
-    </app-header-layout>
+    </div>
   </app-drawer-layout>
 
 </template>

@@ -70,7 +70,7 @@ Santa Tracker app.
     santa-video.scene {
       position: fixed;
       width: 100%;
-      height: calc(100% - 44px);
+      height: 100%;
       bottom: 0;
       right: 0;
     }
@@ -465,7 +465,7 @@ Polymer({
      */
     headerSize: {
       type: Number,
-      computed: '_computeHeaderSize(mode)',
+      value: 0,
     },
 
     /**
@@ -614,13 +614,6 @@ Polymer({
       type: Boolean,
     },
 
-  },
-
-  _computeHeaderSize: function(mode) {
-    if (mode === 'embed' || mode === 'cast') {
-      return 0;
-    }
-    return 44;
   },
 
   observers: [
