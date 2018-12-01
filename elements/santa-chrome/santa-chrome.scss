@@ -44,30 +44,24 @@ app-drawer {
 
 #bar-holder {
   position: fixed;
-  width: 100vw;
+  width: 100%;
 }
 #bar {
   position: relative;
   height: $toolbar-height;
   color: white;
-  border-radius: $toolbar-height;
   margin: 20px auto 0;
-  width: 80vw;
+  width: 80%;
   box-sizing: border-box;
   padding-left: $toolbar-height;  // toolbar button is fixed here
-  padding-right: ($toolbar-height / 4);
+  padding-right: 10px;
   transition: transform 0.25s ease-in-out;
   transform: translate(0);
 
   countdown-timer {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateY(2px);
-    right: 16px;
-
     h2 {
-      font-size: 10px;
-      line-height: 10px;
+      font-size: 8px;
+      line-height: 8px;
       font-weight: 800;
       color: #fff;
       margin: 0;
@@ -99,7 +93,7 @@ app-drawer {
   @media (max-width: ($mobile-width - 1px)) {
     $offset: (64px - $toolbar-height) / 2;
     margin-top: $offset;
-    width: calc(100vw - #{$offset * 2});
+    width: calc(100% - #{$offset * 2});
     max-width: auto;
 
     &::before {
@@ -142,11 +136,13 @@ app-drawer {
     text-decoration: none;
     display: inline-flex;
     max-width: 100%;
+    min-width: 1%;
     align-items: center;
     text-decoration: none;
     color: inherit;
     margin-left: 2px;
     line-height: $toolbar-height;
+    overflow: hidden;
 
     .logo {
       width: 62px;

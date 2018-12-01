@@ -8,7 +8,10 @@ $bar-color: #ff0160;
 }
 
 #counter {
+  text-align: center;
   user-select: none;
+  display: flex;
+  justify-content: stretch;
 
   // nb: we expand #counter up/down so that its layer can include the animation, otherwise the
   // outer element (or at worst, the page) needs rerendering.
@@ -19,28 +22,30 @@ $bar-color: #ff0160;
   position: relative;
 }
 
-#background {
-  background: $bar-color;
-  border-radius: 8px;
-  display: flex;
-  justify-content: stretch;
-  padding: 6px 0;
-  box-shadow: 1px 3px 0 3px rgba(0, 0, 0, 0.1);
+.counter-box:not([hidden]) + .counter-box {
+  margin-left: 1px;
 
-  .bar {
+  &:before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 7px;
+    bottom: 7px;
     width: 1px;
     background: rgba(0, 0, 0, 0.25);
+    display: block;
   }
 }
 
 .counter-box {
-  $height: 42px;
-  width: 44px;
+  $height: 44px;
+  width: 40px;
   height: $height;
   position: relative;
 
   .holder {
     width: 100%;
+    height: 100%;
     font-size: 24px;
     color: white;
     font-weight: 400;
@@ -52,6 +57,9 @@ $bar-color: #ff0160;
     will-change: transform;
     z-index: 100;
     animation-duration: $tick-time;
+
+    margin-left: -1px;
+    letter-spacing: -2px;
 
     &.prev {
       transform: translateY(100%);
@@ -71,10 +79,26 @@ $bar-color: #ff0160;
 
 .bottom {
   position: absolute;
-  bottom: 0;
+  bottom: 4px;
   left: 0;
   right: 0;
-  text-align: center;
+  opacity: 0.7;
+} 
+
+@media (max-width: 374px) {
+  .counter-box[data-hide="3"] {
+    display: none;
+  }
+}
+@media (max-width: 410px) {
+  .counter-box[data-hide="2"] {
+    display: none;
+  }
+}
+@media (max-width: 446px) {
+  .counter-box[data-hide="1"] {
+    display: none;
+  }
 }
 
 @keyframes counter-step-active {
