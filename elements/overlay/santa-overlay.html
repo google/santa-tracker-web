@@ -34,7 +34,7 @@ Shared overlay for Santa Tracker games.
     <div id="hero"
         style$="[[_computeBackgroundStyle(hero)]]"
         class$="[[_computeHeroClass(score, shareUrl)]]">
-      <div class="score" hidden$="[[!_computeHasValidScore(score)]]">
+      <div class="score" hidden$="[[_computeScoreHidden(score)]]">
         <h2><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h3>
         <div hidden$="[[!score]]">[[score]]</div>
       </div>
@@ -131,8 +131,8 @@ Polymer({
     });
   },
 
-  _computeHasValidScore: function(score) {
-    return score != null;  // check for null/undefined, zero is valid score
+  _computeScoreHidden: function(score) {
+    return score == null;  // check for null/undefined, zero is valid score
   },
 
   _computeCanResume: function(score, hasPause) {

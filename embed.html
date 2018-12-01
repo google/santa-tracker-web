@@ -68,6 +68,7 @@ document.addEventListener('beforeload', (ev) => {
 (function() {
   const s = window.santaApp;
   let messagePort = null;
+  let queue = {};
 
   /**
    * Send a message to the controlling interface.
@@ -84,6 +85,7 @@ document.addEventListener('beforeload', (ev) => {
 
     console.debug('sending to embed', message);
     if (!messagePort) {
+      queue[message.type] = message.data;
       return;
     }
     messagePort.postMessage(JSON.stringify(message));
@@ -131,7 +133,12 @@ document.addEventListener('beforeload', (ev) => {
 
     messagePort = e.ports[0];
     messagePort.onmessage = (e) => recv(e.data);
-    console.debug('got messagePort from embed', messagePort);
+    console.debug('got messagePort from embed', messagePort, 'clearing queue', queue);
+
+    for (const k in queue) {
+      messagePort.postMessage(JSON.stringify({type: k, data: queue[k]}))
+    }
+    queue = null;
   });
   s.addEventListener('embed', (e) => send(e.detail));
 }());
