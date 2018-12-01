@@ -63,33 +63,33 @@ app.BlocklyLayout.TOOLBOX_MD_MARGIN = 59;
  * Whitespace to top on mobile.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_TOP = 10;
+app.BlocklyLayout.TOOLBOX_TOP = 100;
 /**
  * Whitespace to top on tablet.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_SM_TOP = 24;
+app.BlocklyLayout.TOOLBOX_SM_TOP = 165;
 /**
  * Whitespace to top on desktop.
  * @type {number}
  */
-app.BlocklyLayout.TOOLBOX_MD_TOP = 32;
+app.BlocklyLayout.TOOLBOX_MD_TOP = 165;
 
 /**
  * Top position of when run block on mobile.
  * @type {number}
  */
-app.BlocklyLayout.WHENRUN_TOP = 10;
+app.BlocklyLayout.WHENRUN_TOP = 100;
 /**
  * Top position of when run block on tablet.
  * @type {number}
  */
-app.BlocklyLayout.WHENRUN_SM_TOP = 24;
+app.BlocklyLayout.WHENRUN_SM_TOP = 165;
 /**
  * Top position of when run block on desktop.
  * @type {number}
  */
-app.BlocklyLayout.WHENRUN_MD_TOP = 32;
+app.BlocklyLayout.WHENRUN_MD_TOP = 165;
 
 /**
  * Left position of when run block on mobile.

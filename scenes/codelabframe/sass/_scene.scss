@@ -44,13 +44,14 @@
   }
 
   .scene__play-tab {
-    background: white;
+    background: #364189;
     border-radius: 50%;
     bottom: 60px;
     height: 16em;
     left: (-16em / 2);
     position: absolute;
     width: 16em;
+    z-index: 1;
 
     @media (min-width: 661px) {
       bottom: 80px;
@@ -73,29 +74,14 @@
   }
 
   .scene__play {
-    background: #F68C38;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0.5em 0.5em #F26739;
+    @include ButtonColor(orangered);
+    background-size: 50%;
     cursor: pointer;
     font-size: inherit;
-    height: 13em;
+    height: 12.5em;
     position: relative;
     margin: 1.5em;
     padding: 0;
-    width: 13em;
-  }
-
-  .scene__play:before {
-    border-bottom: 2.8em solid transparent;
-    border-top: 2.8em solid transparent;
-    border-left: 5em solid white;
-    content: '';
-    display: block;
-    height: 0;
-    left: calc(50% - 2.2em);
-    position: absolute;
-    top: calc(50% - 2.8em);
-    width: 0;
+    width: 12.5em;
   }
 }
