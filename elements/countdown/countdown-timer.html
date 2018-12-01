@@ -33,36 +33,41 @@ Example
   <template>
     <style include="countdown-timer_module"></style>
 
-    <div id="counter" on-animationend="_counterAnimationEnd">
-      <div class="counter-box" hidden$="[[_daysHidden]]">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="days"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="hours"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="minutes"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="seconds"></slot>
-        </div>
+<div id="counter" on-animationend="_counterAnimationEnd">
+  <div id="background">
+    <div class="counter-box" hidden$="[[_daysHidden]]">
+      <div class="holder active"></div>
+      <div class="holder prev"></div>
+      <div class="bottom">
+        <slot name="days"></slot>
       </div>
     </div>
+    <div class="bar"></div>
+    <div class="counter-box">
+      <div class="holder active"></div>
+      <div class="holder prev"></div>
+      <div class="bottom">
+        <slot name="hours"></slot>
+      </div>
+    </div>
+    <div class="bar"></div>
+    <div class="counter-box">
+      <div class="holder active"></div>
+      <div class="holder prev"></div>
+      <div class="bottom">
+        <slot name="minutes"></slot>
+      </div>
+    </div>
+    <div class="bar"></div>
+    <div class="counter-box">
+      <div class="holder active"></div>
+      <div class="holder prev"></div>
+      <div class="bottom">
+        <slot name="seconds"></slot>
+      </div>
+    </div>
+  </div>
+</div>
 
   </template>
   <script>
@@ -124,11 +129,8 @@ Example
       _tickInterval: 0,
 
       attached: function() {
-        this._setHolders(Array.prototype.slice.call(this.$.counter.children));
-
-        this.fire('preload', [
-          'img/number-bg.svg',
-        ]);
+        const children = Array.prototype.slice.call(this.$.background.children);
+        this._setHolders(children.filter((x) => x.classList.contains('counter-box')));
       },
 
       _startInterval: function(isAttached, remainingTime) {

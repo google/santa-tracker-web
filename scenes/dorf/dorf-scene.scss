@@ -57,6 +57,13 @@ h3 {
 
 // # Header
 
+countdown-timer {
+  position: fixed;
+  z-index: 20000;
+  top: 0;
+  right: 0;
+}
+
 village-header {
   p {
     font-weight: 600;

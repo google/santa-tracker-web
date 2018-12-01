@@ -40,6 +40,8 @@ specific language governing permissions and limitations under the License.
     }
   </style>
 
+  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
@@ -57,6 +59,12 @@ specific language governing permissions and limitations under the License.
   
     <div id="bar-holder">
       <div id="bar">
+        <countdown-timer hidden="[[!_remainingTime]]" remaining-time="[[remainingTime]]">
+          <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+          <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+          <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+          <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
+        </countdown-timer>
         <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon"></paper-icon-button>
         <div id="title">
           <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
@@ -81,14 +89,6 @@ specific language governing permissions and limitations under the License.
     ],
 
     properties: {
-
-      /**
-       * Whether the top-right buttons are visible.
-       */
-      _buttonsOpen: {
-        type: Boolean,
-        value: false,
-      },
 
       /**
        * Whether the current scene has 'game buttons', reset and pause.
@@ -122,14 +122,6 @@ specific language governing permissions and limitations under the License.
       _drawerOpened: {
         type: Boolean,
         observer: '_drawerOpenedChanged',
-      },
-
-      /**
-       * Whether to disable this `santa-chrome` completely, effectively hiding
-       * its contents. Used by cast.
-       */
-      disabled: {
-        type: Boolean,
       },
 
     },

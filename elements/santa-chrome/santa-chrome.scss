@@ -59,6 +59,22 @@ app-drawer {
   transition: transform 0.25s ease-in-out;
   transform: translate(0);
 
+  countdown-timer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateY(2px);
+    right: 16px;
+
+    h2 {
+      font-size: 10px;
+      line-height: 10px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      text-transform: uppercase;
+    }  
+  }
+
   #title {
     display: flex;
     align-items: center;
