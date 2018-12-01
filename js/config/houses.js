@@ -19,10 +19,13 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#Differences_in_assumed_time-zone
 
 window.HOUSES = [{
+  module: 'elfmaker',
+  category: 'play',
+}, {
   module: 'wrapbattle',
   category: 'play',
 }, {
-  module: 'elfmaker',
+  module: 'translations',
   category: 'play',
 }, {
   module: 'codelab',
@@ -41,7 +44,7 @@ window.HOUSES = [{
   category: 'learn',
   edu: true,
 }, {
-  module: 'translations',
+  module: 'presentbounce',
   category: 'learn',
   edu: true,
 }, {
@@ -54,9 +57,6 @@ window.HOUSES = [{
   module: 'codeboogie',
   category: 'play',
   edu: true,
-}, {
-  module: 'presentbounce',
-  category: 'play',
 }, {
   module: 'penguindash',
   category: 'play',
@@ -87,6 +87,9 @@ window.HOUSES = [{
   category: 'play',
 }, {
   module: 'boatload',
+  category: 'play',
+}, {
+  module: 'racer',
   category: 'play',
 }, {
   module: 'jetpack',

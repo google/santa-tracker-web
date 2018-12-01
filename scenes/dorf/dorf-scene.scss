@@ -66,8 +66,28 @@ countdown-timer {
 
 village-header {
   p {
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 600px;
+  }
+
+  #play {
+    background: #ff0160;
+    border-radius: 10000px;
+    border: 5px solid white;
+    width: 120px;
+    height: 120px;
+    box-shadow: inset -5px -5px rgba(0, 0, 0, 0.125);
+    color: #fff;
     font-weight: 600;
-    max-width: 400px;
+    font-family: 'Lobster';
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+    font-size: 34px;
+    transform: rotate(-5deg);
+    word-wrap: break-word;
+    cursor: pointer;
+
+    margin-top: 6px;
   }
 
   $extra-height: 132px;
@@ -579,55 +599,6 @@ footer {
       village-house {
         transform: none;  // revert scale: 0.6
       }
-    }
-  }
-}
-
-// # Play Round
-
-#house-play-round {
-  left: 16px;
-  top: 32px;
-  width: 144px;
-  height: 144px;
-  position: relative;
-  text-align: center;
-  color: white;
-  z-index: 10000;
-  pointer-events: auto;
-
-  @media (min-width: $width-desktop) {
-    width: 240px;
-    height: 240px;
-  }
-
-  a {
-    cursor: pointer;
-
-    &:hover {
-      .play-round {
-        transform: translateY(-16px);
-        transition: transform 0.2s;
-      }
-    }
-  }
-
-  .play-round {
-    pointer-events: none;
-    background: transparent center no-repeat;
-    background-size: contain;
-    height: 100%;
-    padding-right: 5%;  // overcome shadow
-    transform: translateY(0);
-    transition: transform 0.5s cubic-bezier(0.47, 2.02, 0.31, -0.36);
-    will-change: transform;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    background-image: url(img/new-today/briefing_2x.png);
-
-    h4 {
-      font-size: 2em;
     }
   }
 }

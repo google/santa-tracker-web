@@ -17,7 +17,6 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../../components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../components/iron-media-query/iron-media-query.html">
-<link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/weather/santa-weather.html">
 <link rel="import" href="../../elements/santa-state.html">
@@ -47,6 +46,10 @@ Santa's Village.
       <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
     </a>
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+
+    <button id="play" on-click="_onClickPlayRound">
+      <i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg>
+    </button>
 
     <div slot="effects" id="effect-sun"></div>
     <santa-weather slot="effects"></santa-weather>
@@ -153,17 +156,6 @@ Santa's Village.
             href="[[urlFor('windtunnel')]]"></effect-wrangler>
       </div>
       <div id="houses" class="cells">
-        <!-- The 'Play A Round' house exists in the regular grid -->
-        <div class="cell play-round">
-          <div id="house-play-round">
-            <a on-click="_onClickPlayRound" tabindex="0">
-              <div class="play-round">
-                <h4><i18n-msg msgid="quickdraw-newround-button">PLACEHOLDER_i18n</i18n-msg></h4>
-                <h3><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h3>
-              </div>
-            </a>
-          </div>
-        </div>
         <template is="dom-repeat" items="[[houses]]">
           <div class="cell">
             <village-house house="[[item.module]]"
