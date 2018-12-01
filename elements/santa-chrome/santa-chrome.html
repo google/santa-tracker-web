@@ -52,7 +52,7 @@ specific language governing permissions and limitations under the License.
   </style>
   <santa-state offline="{{_offline}}"></santa-state>
 
-  <app-drawer-layout fullbleed force-narrow on-click="_maybeCloseButtons">
+  <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
       <div class="drawer-content">
         <app-toolbar class="close-sidebar" on-tap="closeDrawer">
@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
           <div class="feature">
             <slot name="feature"></slot>
           </div>
-          <santa-buttons id="buttons"
+          <santa-buttons
               has-game-buttons="[[hasGameButtons]]"
               mute="{{mute}}"
               pause="{{pause}}"></santa-buttons>
@@ -171,13 +171,6 @@ specific language governing permissions and limitations under the License.
     _drawerOpenedChanged: function() {
       if (this._drawerOpened) {
         window.ga('send', 'event', 'nav', 'click', 'drawer');
-      }
-    },
-
-    _maybeCloseButtons: function(ev) {
-      if (this.$.buttons.close()) {
-        ev.preventDefault();
-        ev.stopPropagation();
       }
     },
 
