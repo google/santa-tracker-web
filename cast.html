@@ -23,12 +23,19 @@ specific language governing permissions and limitations under the License.
   <link id="DEV" comment="element removed in prod" />
   <link id="ES5_ADAPTER" comment="replaced with es5 adapter in prod" />
   <script>
-
 window.Polymer = {
   noUrlSettings: true,
   dom: 'shadow',
   lazyRegister: 'max',
   useNativeCSSProperties: true,
+};
+
+const skipElements = ['paper-icon-button', 'santa-badge', 'santa-sidebar', 'santa-overlay', 'santa-video'];
+const realCEDefine = customElements.define;
+customElements.define = (name, ctor) => {
+  if (skipElements.indexOf(name) === -1) {
+    return realCEDefine.call(customElements, name, ctor);
+  }
 };
 
 window.ga = () => {};  // no analytics in Cast

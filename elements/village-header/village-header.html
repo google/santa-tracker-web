@@ -25,15 +25,6 @@ specific language governing permissions and limitations under the License.
       <slot name="effects"></slot>
     </div>
     <div id="ornament" class$="[[_computeOrnamentClass(remainingTime)]]"></div>
-    <div hidden="[[!remainingTime]]">
-      <h2><i18n-msg msgid="countdown_until">PLACEHOLDER_i18n</i18n-msg></h2>
-      <countdown-timer remaining-time="[[remainingTime]]" fast="[[fast]]">
-        <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
-        <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
-        <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
-        <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
-      </countdown-timer>
-    </div>
     <div class="spacer"></div>
     <div class="google" hidden$="[[nobranding]]"></div>
     <h1><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h1>

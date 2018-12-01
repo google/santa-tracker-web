@@ -70,7 +70,7 @@ Santa Tracker app.
     santa-video.scene {
       position: fixed;
       width: 100%;
-      height: calc(100% - 44px);
+      height: 100%;
       bottom: 0;
       right: 0;
     }
@@ -465,7 +465,7 @@ Polymer({
      */
     headerSize: {
       type: Number,
-      computed: '_computeHeaderSize(mode)',
+      value: 0,
     },
 
     /**
@@ -612,15 +612,9 @@ Polymer({
 
     _videoActive: {
       type: Boolean,
+      value: false,
     },
 
-  },
-
-  _computeHeaderSize: function(mode) {
-    if (mode === 'embed' || mode === 'cast') {
-      return 0;
-    }
-    return 44;
   },
 
   observers: [
@@ -794,7 +788,7 @@ Polymer({
    */
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.hasGameButtons = false;
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
     this.userPause = false;
 
     this._updateStylingForScene(this.selectedScene);
@@ -811,7 +805,7 @@ Polymer({
 
       if (v.started && window.matchMedia('(hover: hover)').matches) {
         // great, keep playing
-      } else {
+      } else if (v.reset) {
         v.reset();  // otherwise, reset, don't show the PIP
       }
     }
@@ -858,12 +852,16 @@ Polymer({
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     // Show the badge if not in allow-page-scrolling mode.
-    this.$.badge.reset();
+    if (this.$.badge.reset) {
+      this.$.badge.reset();
+    }
     this.$.badge.hidden = scrolling;
     this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // Reset the overlay.
-    this.$.overlay.reset();
+    if (this.$.overlay.reset) {
+      this.$.overlay.reset();
+    }
     this.$.overlay.hero = scene.getAttribute('hero-src');
     if ('pause' in scene) {
       this.$.overlay.hasPause = true;
@@ -944,8 +942,6 @@ Polymer({
 
   /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
   onStopGame: function(event, detail) {
-    this.$.chrome.hasGameButtons = false;
-
     const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
@@ -1116,7 +1112,8 @@ Polymer({
   _defaultAction: function() {
     let action = false;
 
-    if (this.$.chrome.closeDrawer()) {
+    if (this.$.chrome.drawerOpen) {
+      this.$.chrome.drawerOpen = false;
       action = true;
     }
     if (window.scrollY > 0) {
@@ -1135,7 +1132,7 @@ Polymer({
   },
 
   onCloseDrawer: function(event) {
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
   },
 
   /**
