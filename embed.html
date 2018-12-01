@@ -82,7 +82,7 @@ document.addEventListener('beforeload', (ev) => {
       return;
     }
 
-    console.debug('sending', message);
+    console.debug('sending to embed', message);
     if (!messagePort) {
       return;
     }
@@ -131,6 +131,7 @@ document.addEventListener('beforeload', (ev) => {
 
     messagePort = e.ports[0];
     messagePort.onmessage = (e) => recv(e.data);
+    console.debug('got messagePort from embed', messagePort);
   });
   s.addEventListener('embed', (e) => send(e.detail));
 }());

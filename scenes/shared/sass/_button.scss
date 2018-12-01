@@ -37,30 +37,43 @@ $button-icons: (
 
 @mixin ButtonColor($color) {
   background-color: setColor($color);
-  box-shadow: 0px 8px 0 setColor($color, shadow), 0px 0px $button-shadow;
+  box-shadow: 3px 6px 0 setColor($color, shadow), 8px 9px 0 $button-shadow;
+  transform: translate(-3px, -6px);
+  &:active {
+    // transition to a shadow of the same color, but just hidden
+    box-shadow:
+        0 0 0 setColor($color, shadow),
+        0 0 2px $button-shadow !important;
+  }
 
   @if $color == white {
-    color: #b1b1b1;
+    color: #444;
   }
 
   &.Button--round {
-    box-shadow: 3px 6px 0 setColor($color, shadow), 8px 9px $button-shadow;
+    // same as square shadow/transform
 
     &.Button--small {
-      box-shadow: 2px 4px 0 setColor($color, shadow), 5px 7px $button-shadow;
+      box-shadow: 2px 4px 0 setColor($color, shadow), 5px 7px 0 $button-shadow;
+      transform: translate(-2px, -4px);
     }
 
     &.Button--large {
-      box-shadow: 5px 7px 0 setColor($color, shadow), 13px 14px $button-shadow;
+      box-shadow: 5px 7px 0 setColor($color, shadow), 13px 14px 0 $button-shadow;
+      transform: translate(-5px, -7px);
     }
   }
 }
 
+$shared: '../shared/' !default;
 @mixin ButtonIcon($icon) {
-  background-image: url(../shared/img/button/#{$icon}.svg);
+  background-image: url(#{$shared}img/button/#{$icon}.svg);
 }
 
 ##{$name} {
+  $duration-in: 0.05s;
+  $duration-out: 0.25s;
+
   .Button {
     -webkit-font-smoothing: antialiased;
     background-position: 50% 50%;
@@ -77,15 +90,13 @@ $button-icons: (
     -webkit-font-smoothing: antialiased;
     font-weight: normal;
     line-height: 32px;
-    margin: 0 5px;
+    margin: 0 4px;
     min-height: 32px;
-    outline: none;
-    padding: 0 18px;
+    padding: 0 8px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    transform: translateZ(0);
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition: box-shadow $duration-out ease-in, transform $duration-out ease-in;
     user-select: none;
 
     @include ButtonColor(purple);
@@ -95,15 +106,13 @@ $button-icons: (
       border-radius: 8px;
       font-size: 22px;
       line-height: 52px;
-      margin: 0 10px;
       min-height: 52px;
-      padding: 0 30px;
+      padding: 0 12px;
     }
 
     &:active {
-      box-shadow: none !important;
-      transform: translateY(4px) translateZ(0);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition-duration: $duration-in;
+      transform: translate(0, 0);
     }
   }
 
@@ -114,10 +123,6 @@ $button-icons: (
     line-height: 32px;
     min-height: 32px;
     padding: 0 18px;
-
-    &:active {
-      transform: translateY(3px) translateZ(0);
-    }
   }
 
   .Button--large {
@@ -129,25 +134,32 @@ $button-icons: (
   }
 
   .Button--round {
-    border-radius: 50%;
+    border-radius: 10000px;
     height: 32px;
-    padding: 0 !important;
     width: 32px;
+    min-width: 32px;
 
     @media (min-width: $button-bp) {
       height: 55px;
       width: 55px;
+      min-width: 55px;
     }
 
     &.Button--small {
       height: 32px;
       width: 32px;
+      min-width: 32px;
     }
 
     &.Button--large {
       height: 88px;
       width: 88px;
+      min-width: 88px;
     }
+  }
+
+  .Button--text {
+    width: auto;
   }
 
   .Button--noText {
@@ -158,7 +170,7 @@ $button-icons: (
 
   @each $icon, $file in $button-icons {
     .Button--#{$icon} {
-      background-image: url(../shared/img/button/#{$file}.svg);
+      background-image: url(#{$shared}img/button/#{$file}.svg);
     }
   }
 }

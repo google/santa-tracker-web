@@ -65,6 +65,7 @@ specific language governing permissions and limitations under the License.
     },
 
     _toggleSounds: function() {
+      this.fire('sound-trigger', 'generic_button_click');
       window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
       this.mute = !this.mute;
     },
@@ -78,6 +79,7 @@ specific language governing permissions and limitations under the License.
     },
 
     _togglePause: function() {
+      this.fire('sound-trigger', 'generic_button_click');
       window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
       this.pause = !this.pause;
     },
