@@ -30,38 +30,30 @@ Shared overlay for Santa Tracker games.
     <img src="[[_computeHeroUrl(hero)]]" />
   </div>
 
-  <div id="background" class="fit"></div>
-  <div id="main" class="fit" on-click="_onMainClick">
-    <div id="bigbutton" hidden$="[[_computeButtonHidden(pregame, _hasValidScore, shareUrl)]]">
-      <button id="start" on-mousedown="_onStartDown" on-touchstart="_onStartDown" on-click="_onStartClick"></button>
-    </div>
+  <div id="main">
     <div id="hero"
         style$="[[_computeBackgroundStyle(hero)]]"
-        class$="[[_computeHeroClass(_hasValidScore, shareUrl)]]"
-        hidden$="[[!_computeButtonHidden(pregame, _hasValidScore, shareUrl)]]">
-      <div hidden$="[[!_hasValidScore]]">
+        class$="[[_computeHeroClass(score, shareUrl)]]">
+      <div class="score" hidden$="[[!_computeHasValidScore(score)]]">
         <h2><i18n-msg msgid="gameover">PLACEHOLDER_i18n</i18n-msg></h3>
-        <div hidden$="[[!score]]">
-          <h4><i18n-msg msgid="gameover_score">PLACEHOLDER_i18n</i18n-msg></h4>
-          <div class="score">[[score]]</div>
-        </div>
+        <div hidden$="[[!score]]">[[score]]</div>
       </div>
     </div>
-    <div id="controls" hidden$="[[pregame]]">
-      <section id="controlArea">
-        <button class="Button" on-click="_onPlayAgainClick"><i18n-msg msgid="playagain">PLACEHOLDER_i18n</i18n-msg></button>
-        <button class="Button" hidden$="[[!playExtra]]" on-click="_onPlayExtraClick">
-          <i18n-msg msgid="playextra">PLACEHOLDER_i18n</i18n-msg>
+    <div id="controls">
+      <div class="url" hidden$="[[!shareUrl]]">
+        <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
+        <div class="link" on-click="_selectUrl">[[_shortShareUrl]]</div>
+      </div>
+      <section class="Buttons">
+        <button hidden$="[[!_canResume]]" on-click="_onResumeClick" class="Button Button--round Button--play"></button>
+        <button on-click="_onPlayAgainClick" class="Button Button--round Button--refresh"></button>
+        <button on-click="_onHomeClick" class="Button Button--round Button--home"></button>
+        <button on-click="_onNextClick" class="Button Button--round Button--text">
+          <h3>
+            <i18n-msg msgid="next_game">PLACEHOLDER_i18n</i18n-msg>
+          </h3>
         </button>
-        <a class="Button" href$="[[urlFor('village')]]"><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></a>
       </section>
-      <section id="shareArea" class$="[[_computeShareAreaClass(shareUrl)]]">
-        <div hidden$="[[!shareUrl]]">
-          <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
-          <input id="url" type="url" readonly value="[[shortShareUrl]]" on-click="_selectUrl" />
-        </div>
-      </section>
-
     </div>
   </div>
 
@@ -89,28 +81,16 @@ Polymer({
 
   properties: {
 
-    /** If true, shows a replay button. */
-    replay: {
-      type: Boolean,
-      value: false,
-    },
-
     /** Score to display. Shows a "Game Over" message if non-null. */
     score: {
       type: Number,
       value: null,
     },
 
-    /** If true, shows a 'play extra levels' button. */
-    playExtra: {
+    /** Whether to show the resume button, because the game can be paused. */
+    hasPause: {
       type: Boolean,
       value: false,
-    },
-
-    /** Whether the score is valid and non-null. */
-    _hasValidScore: {
-      type: Boolean,
-      computed: '_computeHasValidScore(score)',
     },
 
     /** Custom URL to share. Will be automagically shortened. */
@@ -120,65 +100,78 @@ Polymer({
       observer: '_shareUrlChanged',
     },
 
-    /** Short version of the shareUrl. Generated automagically. */
-    shortShareUrl: {
-      type: String,
-      readOnly: true,
-    },
-
-    /**
-     * Whether we are in the pregame state, showing a large start button only. Used for scenes that
-     * need to be started.
-     */
-    pregame: {
-      type: Boolean,
-      value: false,
-    },
-
     /** Custom hero image to use for a share/gameover screen. */
     hero: {
       type: String,
       value: null,
     },
 
-    /** Sharing options available. */
-    shareOptions: Array,
+    /** Short version of the shareUrl. Generated automagically. */
+    _shortShareUrl: {
+      type: String,
+    },
 
+    _canResume: {
+      computed: '_computeCanResume(score, hasPause)',
+    },
+
+  },
+
+  ready: function() {
+    this.addEventListener('click', (ev) => {
+      const target = ev.path && ev.path[0] || ev.target || null;
+      if (this.$.main !== target && this.$.main.contains(target)) {
+        return;
+      }
+      if (this._canResume) {
+        this.fire(this.hasPause ? 'game-resume' : 'game-restart');
+        window.ga('send', 'event', 'overlay', 'click', 'background');
+      }
+      ev.preventDefault();
+    });
   },
 
   _computeHasValidScore: function(score) {
     return score != null;  // check for null/undefined, zero is valid score
   },
 
-  _computeHeroClass: function(hasValidScore, shareUrl) {
-    return hasValidScore ? '' : 'share';
+  _computeCanResume: function(score, hasPause) {
+    return score == null && hasPause;
   },
 
-  _computeShareAreaClass: function(shareUrl) {
-    return shareUrl ? 'background' : '';
-  },
-
-  _computeButtonHidden: function(pregame, hasValidScore, shareUrl) {
-    return hasValidScore || shareUrl;
-  },
-
-  _selectUrl: function() {
-    this.$.url.select();
+  _computeHeroClass: function(score, shareUrl) {
+    if (shareUrl) {
+      return 'share';
+    } else if (score == null) {
+      return 'pause';
+    } else {
+      return '';  // gameover
+    }
   },
 
   _shareUrlChanged: function(newValue) {
-    this._setShortShareUrl(null);
-    if (!this.shareUrl) { return; }
+    this._shortShareUrl = null;
+    if (!this.shareUrl) {
+      return;
+    }
 
-    window.ga('send', 'event', 'nav', 'share', 'overlay');
+    window.ga('send', 'event', 'overlay', 'share', 'url');
 
     shortenUrl(this.shareUrl).catch((err) => {
       console.warn('couldn\'t shorten URL', err);
+      return newValue;
     }).then((url) => {
-      if (this.shareUrl !== newValue) { return; }
-      this._setShortShareUrl(url || this.shareUrl);
-      this._selectUrl();
+      if (this.shareUrl !== newValue) {
+        return;
+      }
+      this._shortShareUrl = url;
     });
+  },
+
+  _selectUrl: function(ev) {
+    ev.preventDefault();
+    window.getSelection().selectAllChildren(ev.target);
+    document.execCommand('copy');
   },
 
   _computeBackgroundStyle: function(hero) {
@@ -193,44 +186,35 @@ Polymer({
     return hero ? this.resolveUrl('../../' + hero) : '';
   },
 
-  _onStartDown: function() {
+  _onHomeClick: function() {
     this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'overlay', 'click', 'home');
+    this.fire('nav', '');
   },
 
-  _onStartClick: function() {
-    // If this is the initial startButton click, hide ourselves and trigger the 'play again' flow.
-    if (this.pregame) {
-      return this._onPlayAgainClick();
-    }
+  _onResumeClick: function() {
+    this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'overlay', 'click', 'resume');
     this.fire('game-resume');
   },
 
-  _onMainClick: function() {
-    if (this.pregame) {
-      this._onPlayAgainClick();
-    }
-  },
-
   _onPlayAgainClick: function() {
-    window.ga('send', 'event', 'nav', 'click', 'play-again');
-    this.reset();
-    this.fire('game-start');
+    this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'overlay', 'click', 'play-again');
+    this.fire('game-restart');
   },
 
-  _onPlayExtraClick: function() {
-    window.ga('send', 'event', 'nav', 'click', 'play-extra');
-    this.reset();
-    this.fire('game-extra');
+  _onNextClick: function() {
+    this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'overlay', 'click', 'play-next');
+    this.fire('random');
   },
 
-  /**
-   * Resets the internal state of this game. Used for the restart button(s).
-   */
   reset: function() {
-    this.pregame = false;
+    this.hasPause = false;
     this.score = null;
-    this.playExtra = false;
     this.shareUrl = null;
+    this.hero = null;
   },
 
 });

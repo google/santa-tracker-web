@@ -43,6 +43,27 @@ Santa Tracker app.
       --link-display: none !important;
     }
 
+    santa-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 200;  /* TODO(samthor): Workaround for scenes, which have UI/buttons in 1xx. */
+    }
+    santa-overlay::before {
+      content: '';
+      display: block;
+      z-index: -1;
+      background-color: var(--santa-header-color, #00c6ed);
+      opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     santa-video {
       border-radius: inherit;
     }
@@ -614,7 +635,9 @@ Polymer({
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
-    'game-start': 'onStartGame',
+    'nav': 'onNav',
+    'random': 'onRandom',
+    'game-restart': 'onRestartGame',
     'game-extra': 'onGameExtra',
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
@@ -801,17 +824,16 @@ Polymer({
     }
 
     // nb. Effectively checking for SantaSceneGameButtonsBehavior.
-    if ('pause' in this.selectedScene) {
-      this.$.overlay.pregame = true;
-      this.userPause = true;
-
-      if (this.mode === 'embed') {
-        // wait a frame and then start, we never see overlay
-        window.setTimeout(function() {
-          this.fire('game-start');
-        }.bind(this), 0);
-      }
+    const hasPause = 'pause' in this.selectedScene;
+    if (hasPause) {
+      window.setTimeout(() => {
+        this.selectedScene.start();
+      }, 0);
     }
+    this.fire('embed', {
+      type: 'onready',
+      data: {hasPauseScreen: hasPause},
+    });  // notify embed scene is ready to show
   },
 
   _updateStylingForScene: function(scene) {
@@ -843,6 +865,10 @@ Polymer({
     // Reset the overlay.
     this.$.overlay.reset();
     this.$.overlay.hero = scene.getAttribute('hero-src');
+    if ('pause' in scene) {
+      this.$.overlay.hasPause = true;
+      this.$.chrome.hasGameButtons = true;
+    }
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
@@ -877,35 +903,33 @@ Polymer({
     window.ga('send', 'pageview');
   },
 
-  /**
-   * Handler for 'game-start' event. Resests overlay state, and if the game supports pausing,
-   * shows those buttons and starts the scene.
-   */
-  onStartGame: function() {
-    this.userPause = false;
-    this.$.overlay.reset();
-
-    const scene = this.selectedScene;
-    if (scene) {
-      if ('pause' in scene) {
-        this.$.chrome.hasGameButtons = true;
-      }
-      scene.start && scene.start();
-      this.fire('embed', 'onstart');
+  onNav: function(ev) {
+    const route = ev.detaul || this.defaultRoute;
+    if (this.route === route) {
+      this._defaultAction();
     }
+    this.$.lazypages.load(route);
+  },
+
+  onRandom: function(ev) {
+    // TODO(samthor): random
+    let target = 'elfmaker';
+    if (santaApp.route === target) {
+      target = 'codeboogie';
+    }
+    this.$.lazypages.load(target);
   },
 
   /**
-   * Handler for 'game-extra' event. Resests overlay state, and if the game
-   * has extra levels, starts the game at extra level.
+   * Handler for 'game-restart' event. Resests overlay state, and if the game supports pausing,
+   * shows those buttons and starts the scene.
    */
-  onGameExtra: function() {
+  onRestartGame: function() {
     this.userPause = false;
-    this.$.overlay.reset();
-
     const scene = this.selectedScene;
-    if (scene) {
-      scene.playExtra && scene.playExtra();
+    if (scene && scene.start) {
+      scene.start();
+      this.fire('embed', 'onstart');
     }
   },
 
@@ -925,7 +949,6 @@ Polymer({
     const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
-    o.playExtra = detail.hasPlayExtra || false;
     o.shareUrl = detail.url || null;
 
     this.userPause = true;
@@ -1080,13 +1103,6 @@ Polymer({
       case 'esc':
         if (this._defaultAction()) {
           this.$.lazypages.load(this.defaultRoute);
-        }
-        break;
-      case 'enter':
-        // TODO(samthor): Clean up ugly state machine.
-        const scene = this.selectedScene;
-        if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
-          this.onStartGame();
         }
         break;
     }
