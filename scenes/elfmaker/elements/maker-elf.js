@@ -14,15 +14,12 @@ export class MakerElfElement extends LitElement {
       categoryChoice: {type: Object},
       _offset: {type: Number},
       _idPrefix: {type: String},
-      _danceTime: {type: Number}
+      _danceStartTime: {type: Number}
     };
   }
 
   constructor() {
     super();
-
-    this._danceDuration = 3000;
-    this._moveDuration = this._danceDuration / 6;
 
     // Edge fails to ever render if it has NaN/invalid data, so set all defaults here.
     this._offset = 0;
@@ -92,12 +89,12 @@ export class MakerElfElement extends LitElement {
 
   dance() {
     if (!this._isDancing) {
-      this._danceTime = performance.now();
+      this._danceStartTime = performance.now();
     }
   }
 
   get _isDancing() {
-    return (performance.now() - this._danceTime) < this._danceDuration;
+    return (performance.now() - this._danceStartTime) < defs.danceDuration;
   }
 
   render() {
@@ -162,7 +159,7 @@ ${svgStyle}
   100%   { transform: translate3d(0, 0, 0) rotateZ(0); }
 }
   </style>
-  ${defs.drawElf(this.categoryChoice, this._offset, this._isDancing, this._danceTime, this._moveDuration)}
+  ${defs.drawElf(this.categoryChoice, this._offset, this._isDancing, this._danceStartTime)}
 </svg>
 </div>
     `;

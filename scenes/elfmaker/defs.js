@@ -176,12 +176,13 @@ function drawArm(angle=0, shrug=1, length=120) {
   `;
 }
 
-
+export const danceDuration = 3000;
 const danceMoves = [[30, 140], [140, 30], [80, 180], [180, 80], [20, 20], [120, 120]];
+const moveDuration = danceDuration / danceMoves.length;
 
 
-function getCurrentDanceMove(dt, moveDuration) {
-  const danceTime = performance.now() - dt;
+function getCurrentDanceMove(time, danceStartTime) {
+  const danceTime = time - danceStartTime;
   const moveIndex = Math.min(
       Math.max(Math.floor(danceTime / moveDuration), 0), danceMoves.length - 1);
 
@@ -199,9 +200,9 @@ function getCurrentDanceMove(dt, moveDuration) {
 }
 
 
-export function drawElf(config, time=2, isDancing=false, danceTime, moveDuration) {
+export function drawElf(config, time=2, isDancing=false, danceStartTime=0) {
   const armDegrees = isDancing ?
-      getCurrentDanceMove(danceTime, moveDuration) :
+      getCurrentDanceMove(time, danceStartTime) :
       [100 + (50 * Math.cos(time / 0.8)), 135 + (10 * Math.sin(time * 1.5))];
   const [rightArmDegrees, leftArmDegrees] = armDegrees;
 
