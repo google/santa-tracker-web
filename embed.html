@@ -39,6 +39,15 @@ window.Polymer = {
   useNativeCSSProperties: true,
 };
 
+const skipElements = ['santa-chrome', 'santa-badge', 'santa-sidebar', 'santa-overlay', 'santa-video'];
+const realCEDefine = customElements.define;
+customElements.define = (name, ctor) => {
+  if (skipElements.indexOf(name) === -1) {
+    return realCEDefine.call(customElements, name, ctor);
+  }
+};
+
+
 window.addEventListener('DOMContentLoaded', function() {
   // initial route is always /embed.html#route
   window.santaApp.route = window.location.hash.substr(1);
