@@ -343,7 +343,7 @@
   // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
   // which is why we force this bigger parent on the GPU.
   .scene__play-layer {
-    background-color: $worldBackground;
+    background-color: #364189;
     border-radius: 50%;
     height: $button-background-diameter;
     position: relative;
@@ -353,10 +353,8 @@
   }
 
   .scene__play {
-    background: $button-color;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0px $button-margin / 2 darken($button-color, 5%);
+    @include ButtonColor(orangered);
+    background-size: 50%;
     cursor: pointer;
     font-size: inherit;
     height: $button-diameter - $button-margin / 2;
@@ -364,48 +362,7 @@
     padding: 0;
     position: relative;
     width: $button-diameter;
-    transition: box-shadow 100ms, transform 100ms;
     z-index: 1;
-  }
-
-  .scene__play:before {
-    border-bottom: 18px solid transparent;
-    border-left: 30px solid white;
-    border-top: 18px solid transparent;
-    content: '';
-    display: block;
-    height: 0;
-    left: calc(50% - 12px);
-    position: absolute;
-    top: calc(50% - 18px);
-    width: 0;
-  }
-
-  .scene__play:after {
-    border-radius: 50%;
-    bottom: 0;
-    box-shadow: 3px 8px 0 3px rgba(0, 0, 0, 0.15);
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-    transition: box-shadow 100ms;
-  }
-
-  .scene__play:focus {
-    outline: 0;
-  }
-
-  .scene__play:active {
-    outline: 0;
-    transform: translate3d(0, 6px, 0);
-    box-shadow: 0px 0px darken($button-color, 5%);
-
-    &:after {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);
-    }
   }
 }
 
