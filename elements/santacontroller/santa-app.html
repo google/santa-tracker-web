@@ -937,8 +937,6 @@ Polymer({
 
   /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
   onStopGame: function(event, detail) {
-    this.$.chrome.hasGameButtons = false;
-
     const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero

@@ -61,6 +61,9 @@ specific language governing permissions and limitations under the License.
     <div id="bar-holder">
       <div id="bar">
         <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon"></paper-icon-button>
+        <div id="extra" hidden$="[[!hasGameButtons]]">
+          <paper-icon-button icon="santa:pause" on-click="_onPauseClick" class="toolbar-icon"></paper-icon-button>
+        </div>
         <div id="title">
           <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
             <div class="logo">Google</div>
@@ -151,6 +154,11 @@ specific language governing permissions and limitations under the License.
 
     _onTitleClick: function() {
       window.ga('send', 'event', 'nav', 'click', 'title');
+    },
+
+    _onPauseClick: function() {
+      this.pause = true;
+      window.ga('send', 'event', 'nav', 'click', 'pause');
     },
 
   });

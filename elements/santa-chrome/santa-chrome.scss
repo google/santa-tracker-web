@@ -166,5 +166,26 @@ app-drawer {
       white-space: nowrap;
     }
   }
+
+  #extra {
+    display: block;
+    position: absolute;
+    background: $bar-color;
+    width: $toolbar-height;
+    height: $toolbar-height;
+    margin-left: 12px;
+    border-radius: 1000px;
+    z-index: -100;
+    transform: translate(0);
+    opacity: 1;
+    transition: transform 0.25s, opacity 0.25s;
+
+    &[hidden] {
+      display: block;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-12px) translate(-$toolbar-height);
+    }
+  }
 }
 
