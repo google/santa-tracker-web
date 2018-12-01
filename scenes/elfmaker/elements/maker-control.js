@@ -294,6 +294,10 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
   <div class="preview">
     ${this.category === 'backgrounds' ? html`
 <div style="background: url(${p}) center/cover; width: 100%"></div>
+    ` : this.category === 'body' ? html`
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -30 440 660">
+  ${defs.drawElf({...this.categoryChoice, body: p})}
+</svg>
     ` : html`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="${defs.width * 0.2} ${lowerIndent} ${defs.width * 0.6} ${345 - lowerIndent}">
 <g transform="translate(55)">

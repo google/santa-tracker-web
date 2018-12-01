@@ -122,8 +122,160 @@ export const bodyTypes = [
 ];
 
 
-// TODO(samthor): generate or build preview elves.
-const bodyPreviews = bodyTypes.map(() => '');
+function interpolateAngle(start, c1, c2, end) {
+	return (t) => {
+    const tangentX =
+      (3 * Math.pow(1 - t, 2) * (c1.x - start.x)) +
+      (6 * (1 - t) * t * (c2.x - c1.x)) +
+      (3 * Math.pow(t, 2) * (end.x - c2.x));
+    const tangentY =
+      (3 * Math.pow(1 - t, 2) * (c1.y - start.y)) +
+      (6 * (1 - t) * t * (c2.y - c1.y)) +
+      (3 * Math.pow(t, 2) * (end.y - c2.y));
+    return Math.atan2(tangentY, tangentX) * (180 / Math.PI);
+  }
+}
+
+
+function interpolateNumber(start, end, t) {
+  return start + (end - start) * t;
+}
+
+
+function scaleAt(scaleX, scaleY, x, y) {
+  return `matrix(${scaleX}, 0, 0, ${scaleY}, ${x - scaleX * x}, ${y - scaleY * y})`;
+}
+
+
+function drawArm(angle=0, shrug=1, length=120) {
+  const rads = (angle / 180) * Math.PI;
+
+  // Make the arm shorter the more the bezier curve takes effect. 90 degrees (pi/2) is the
+  // highest length, as it's directly out to the side: 270 is lowest, back over the body.
+  length *= (Math.sin(rads) + 1) / 2;
+
+  const offset = {x: Math.sin(rads) * length, y: Math.cos(rads) * length};
+
+  const bodyControl = {x: shrug * -length / 3, y: -4};  // 40.51 goes away from start arm
+  const handControl = {x: length * -0.75, y: 0};
+
+  const interpolate = interpolateAngle(
+    {x: 0, y: 0},
+    bodyControl,
+    handControl,
+    {x: -offset.x, y: offset.y},
+  );
+  const angleAt = interpolate(1) - 90;
+
+  return svg`
+<path class="limb arm" d="M0,0c${bodyControl.x},${bodyControl.y},${handControl.x},${handControl.y},${- offset.x},${offset.y}" pathLength="${length / 2}" />
+<g transform="translate(${- offset.x}, ${offset.y}) rotate(${angleAt})">
+<circle class="skin" cx="0" cy="0" r="21.32"/>
+<path transform="translate(-48.8, -303.89)" class="white" d="M66.87,272.56H30.73a10,10,0,0,0,0,20H66.87a10,10,0,0,0,0-20Z"/>
+</g>
+  `;
+}
+
+export const danceDuration = 3000;
+const danceMoves = [[30, 140], [140, 30], [80, 180], [180, 80], [20, 20], [120, 120]];
+const moveDuration = danceDuration / danceMoves.length;
+
+
+function getCurrentDanceMove(time, danceStartTime) {
+  const danceTime = time - danceStartTime;
+  const moveIndex = Math.min(
+      Math.max(Math.floor(danceTime / moveDuration), 0), danceMoves.length - 1);
+
+  const moveTime = danceTime - (moveIndex * moveDuration);
+  const moveInterval = moveTime / moveDuration;
+
+  const move = danceMoves[moveIndex];
+
+  const previousMove = danceMoves[moveIndex - 1] || [0, 0];
+
+  return [
+    interpolateNumber(previousMove[0], move[0], moveInterval),
+    interpolateNumber(previousMove[1], move[1], moveInterval)
+  ];
+}
+
+
+export function drawElf(config, time=2, isDancing=false, danceStartTime=0) {
+  const armDegrees = isDancing ?
+      getCurrentDanceMove(time, danceStartTime) :
+      [100 + (50 * Math.cos(time / 0.8)), 135 + (10 * Math.sin(time * 1.5))];
+  const [rightArmDegrees, leftArmDegrees] = armDegrees;
+
+  const shrug = (Math.cos(time) + 1) / 2;
+  const bodyDegrees = (Math.cos(time) * 0.5) * 10;
+  const bodyType = bodyTypes[config['body']];
+
+  // normally 20px, but adjust for weight (18-26)
+  const limbWidth = (18 + bodyType['weight'] * 8);
+  const legLength = (bodyType['height'] || 0) * 96 + 32;
+  const armLength = (bodyType['height'] || 0) * 64 + 96;
+
+  // feet are drawn at 20px, but unlike arms, we scale them (so shoes also get scaled)
+  const scale = (limbWidth / 20);
+
+  return svg`
+<style>
+${baseSvgStyle}
+.limb.arm { stroke-width: ${limbWidth}px; }
+</style>
+<!-- nb. We can't use clipPath, as Edge doesn't render it in .drawImage() -->
+
+<g class="${isDancing ? 'dance' : ''}">
+  <g transform="translate(30, 30) ${scaleAt(scale, scale, 130, 428.65)}">
+
+    <!-- legs -->
+    <path class="limb" d="M112.51,389.94v${- (legLength + 100) / scale}"/>
+    <path class="limb" d="M147.49,389.94v${- (legLength + 100) / scale}"/>
+
+    <!-- feet and buckles -->
+    <path class="high1" d="M68.15,389.94a19.36,19.36,0,0,0,19.36,19.35h0a15,15,0,0,0,15-15V379.94h20v43.7a5,5,0,0,1-5,5H68.62c-10.5,0-19.43-8.16-19.81-18.65A19.35,19.35,0,0,1,68.15,389.94Z"/>
+    <path class="high2" d="M102.51,399.29H110a5,5,0,0,0,0-10h-7.51a5,5,0,1,0,0,10Z"/>
+    <path class="high1" d="M191.85,389.94a19.36,19.36,0,0,1-19.36,19.35h0a15,15,0,0,1-15-15V379.94h-20v43.7a5,5,0,0,0,5,5h48.89c10.5,0,19.43-8.16,19.81-18.65A19.35,19.35,0,0,0,191.85,389.94Z"/>
+    <path class="high2" d="M157.49,399.29H150a5,5,0,1,1,0-10h7.51a5,5,0,0,1,0,10Z"/>
+  </g>
+
+  <!-- top part -->
+  <g transform="translate(160, ${80 - legLength}) rotate(${bodyDegrees}, 0, 280)">
+
+    <!-- hat (first, before body) -->
+    <g transform="translate(-105, -18)">
+      <g class="hats">${categoryChoice(config, 'hats')}</g>
+    </g>
+
+    <!-- body and belt -->
+    <g transform="${scaleAt(Math.pow(scale, 0.5), Math.pow(scale, 0.25), 0, 202.7)}" class="suit">
+      ${body}
+      <rect class="high1" x="-42.66" y="259.76" width="85.32" height="21.32"/>
+      <rect class="high2" x="-10.66" y="258.76" width="21.32" height="23.32"/>
+    </g>
+
+    <!-- left arm -->
+    <g transform="translate(-10, 216) scale(+1, -1)">
+      ${drawArm(leftArmDegrees, shrug, armLength)}
+    </g>
+
+    <!-- right arm -->
+    <g transform="translate(+10, 216) scale(-1, -1)">
+      ${drawArm(rightArmDegrees, shrug, armLength)}
+    </g>
+
+    <!-- head -->
+    <g transform="translate(-105, -18)">
+      ${head}
+      <g class="hair">${categoryChoice(config, 'hair')}</g>
+      <g class="glasses">${categoryChoice(config, 'glasses')}</g>
+      <g class="ears">${categoryChoice(config, 'ears')}</g>
+      <g class="accessories">${categoryChoice(config, 'accessories')}</g>
+    </g>
+  </g>
+</g>
+  `;
+}
 
 
 const hats = [
@@ -494,7 +646,7 @@ const backgrounds = [
 
 
 export const categories = {
-  body: bodyPreviews,
+  body: bodyTypes.map((b, i) => i),
   ears,
   glasses,
   hair,
