@@ -42,9 +42,28 @@ app-drawer {
   }
 }
 
+#feature-holder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 14px;
+  pointer-events: none;
+  z-index: 2000;
+
+  @media (max-width: 600px) {
+    justify-content: flex-end;
+  }
+}
+
+
 #bar-holder {
   position: fixed;
   width: 100%;
+  pointer-events: none;
 }
 #bar {
   position: relative;
@@ -120,7 +139,8 @@ app-drawer {
     width: ($toolbar-height - 4px);
     height: ($toolbar-height - 4px);
     margin: 2px;
-    
+    pointer-events: auto;
+
     &[drawer-toggle] {
       position: absolute;
       left: 0;
@@ -133,6 +153,7 @@ app-drawer {
   }
 
   .linkwrap {
+    pointer-events: auto;
     text-decoration: none;
     display: inline-flex;
     max-width: 100%;

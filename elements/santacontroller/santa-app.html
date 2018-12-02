@@ -868,9 +868,18 @@ Polymer({
     // nb. Effectively checking for SantaSceneGameButtonsBehavior.
     const hasPause = 'pause' in this.selectedScene;
     if (hasPause) {
-      window.setTimeout(() => {
-        this.selectedScene.start();
-      }, 0);
+      const scene = this.selectedScene;
+      const now = +new Date();
+      const retry = () => {
+        if (!this.selectedScene.start()) {
+          const since = (+new Date) - now;
+          if (since > 5000) {
+            throw new Error('could not start after 5s');
+          }
+          window.requestAnimationFrame(retry);
+        }
+      };
+      retry();
     }
     this.fire('embed', {
       type: 'onready',
@@ -903,7 +912,6 @@ Polymer({
     if (this.$.badge.reset) {
       this.$.badge.reset();
     }
-    this.$.badge.hidden = scrolling;
     this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // Reset the overlay.
@@ -1032,6 +1040,8 @@ Polymer({
   },
 
   onScoreGame: function(event, detail) {
+    // TODO(samthor): This is technically racey. We can get scores for previous games.
+
     this.$.badge.score = detail.score !== undefined ? detail.score : null;
     this.$.badge.level = detail.level || null;
     this.$.badge.levels = detail.levels || detail.maxLevels || null;

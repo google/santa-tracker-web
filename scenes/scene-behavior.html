@@ -309,7 +309,7 @@ specific language governing permissions and limitations under the License.
     /** Plays or restarts this game. */
     start: function() {
       if (!this.game) {
-        return;
+        return false;
       }
 
       if (this._firstPlay) {
@@ -319,7 +319,7 @@ specific language governing permissions and limitations under the License.
         this.game.restart();
       }
 
-      this.pause && this.game.pause();  // paused before start
+      return true;
     },
 
     _pauseChanged: function() {
