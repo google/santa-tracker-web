@@ -4,6 +4,7 @@ $mobile-size: 305px;
 $width-tablet: 768px;
 
 header {
+  pointer-events: none;
   height: $header-size;
   margin-bottom: ($onpage-size - $header-size);
   background-image: url(img/mountain.svg);

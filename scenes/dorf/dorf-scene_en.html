@@ -64,8 +64,8 @@ Santa's Village.
   <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
-          target="_blank"
-          href$="[[_calculateHref(item, item.locked)]]"
+          target$="[[_calculateTarget(item.link)]]"
+          href$="[[_calculateHref(item.link, item.module, item.locked)]]"
           house$="[[item.module]]"
           style$="[[_computeLinkStyle(item.module, item.launchDate)]]">
         <div class="card">
@@ -241,14 +241,15 @@ Santa's Village.
       return screenWidth >= 768;
     },
 
+    _calculateTarget: function(link) {
+      return link ? '_blank' : null;
+    },
+
     /**
      * Calculates the href to load for this house.
      */
-    _calculateHref: function(house, locked) {
-      if (!house || locked) {
-        return null;
-      }
-      return house.link || this.urlFor(house.module);
+    _calculateHref: function(link, module, locked) {
+      return locked || (link || this.urlFor(module)) || null;
     },
 
     /**
