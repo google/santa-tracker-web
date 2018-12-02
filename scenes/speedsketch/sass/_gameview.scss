@@ -42,7 +42,7 @@
 
       @media (max-width: $mobile-breakpoint) {
         left: initial;
-        height: 70%;
+        height: calc(73% - 60px);
         padding-bottom: 0 !important;
         padding: 0;
         top: 0;
@@ -235,7 +235,7 @@
       @media (max-width: $mobile-breakpoint) {
         background-color: #F9CE1D;
         bottom: initial;
-        height: 10%;
+        height: calc(7% + 60px);
         left: initial;
         position: relative;
         right: initial;
@@ -262,6 +262,7 @@
           display: flex;
           padding-left: 16px;
           position: relative;
+          top: 75%;
         }
       }
 

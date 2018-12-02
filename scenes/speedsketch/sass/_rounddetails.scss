@@ -15,6 +15,7 @@ $ui-offset--mobile: 100px;
       @media (max-width: $mobile-breakpoint) {
         font-size: 35px;
         line-height: 1.2;
+        padding: 0 25px;
       }
     }
 
@@ -140,7 +141,7 @@ $ui-offset--mobile: 100px;
     }
 
     &__back-btn {
-      left: 30px;
+      left: 20px;
       position: fixed;
       top: $ui-offset;
       z-index: 1;

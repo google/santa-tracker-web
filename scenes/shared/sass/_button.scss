@@ -134,8 +134,9 @@ $shared: '../shared/' !default;
   }
 
   .Button--round {
-    border-radius: 10000px;
+    border-radius: 50%;
     height: 32px;
+    padding: 0 !important; // no padding on circles
     width: 32px;
     min-width: 32px;
 
@@ -155,6 +156,10 @@ $shared: '../shared/' !default;
       height: 88px;
       width: 88px;
       min-width: 88px;
+    }
+
+    &.Button--text {
+      border-radius: 10000px;
     }
   }
 
