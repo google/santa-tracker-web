@@ -42,7 +42,7 @@ Shared overlay for Santa Tracker games.
     <div id="controls">
       <div class="url" hidden$="[[!shareUrl]]">
         <h4><i18n-msg msgid="copy-me-short">PLACEHOLDER_i18n</i18n-msg></h4>
-        <div class="link" on-click="_selectUrl">[[_shortShareUrl]]</div>
+        <div class="link" on-click="_selectUrl" tabindex="0">[[_shortShareUrl]]</div>
       </div>
       <section class="Buttons">
         <button hidden$="[[!_canResume]]" on-click="_onResumeClick" class="Button Button--round Button--play"></button>
