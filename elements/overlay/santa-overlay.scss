@@ -37,7 +37,7 @@ h3 {
 h4 {
   // "copy to share"
   color: #fff;
-  font-size: 0.5em;
+  font-size: 0.6em;
   font-weight: 800;
   margin: 0;
   text-transform: uppercase;
@@ -49,14 +49,19 @@ h4 {
   position: absolute;
   top: 0;
   left: 50%;
-  margin-left: -160px;
-  width: 320px;
+  margin-left: -180px;
+  width: 360px;
   bottom: 0;
 
   display: flex;
   align-items: stretch;
   justify-content: center;
   flex-flow: column;
+
+  @media (max-width: 400px) {
+    margin-left: -160px;
+    width: 320px;
+  }
 }
 
 // trick the shared sass into generating #controls
@@ -72,14 +77,14 @@ $shared: '../../scenes/shared/';
     @include ButtonColor(orangered);
   }
 
-  background: $color-purple;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, .25);
+  border-radius: 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
 
   box-sizing: border-box;
-  padding: 4px 10px;
+  padding: 12px 10px;
   position: relative;
 
   section {
@@ -98,20 +103,20 @@ $shared: '../../scenes/shared/';
       }
 
       overflow: hidden;
-      margin-top: 4px;
+      margin-top: 8px;
       background: #fff;
       border-radius: 4px;
-      box-shadow: inset 2px 3px 0 rgba(0, 0, 0, 0.16);
+      box-shadow: inset 0 0 10px rgba(0,0,0,.4);
       box-sizing: border-box;
       color: #6a1B9a;
-      line-height: 1.5em;
+      line-height: 1.2em;
       font-weight: 600;
-      margin-bottom: 10px;
-      padding: 0;
-      padding-top: 3px;
+      margin-bottom: 12px;
+      margin-left: 5%;
+      padding: 10px 0;
       text-align: center;
       display: block;
-      width: 100%;
+      width: 90%;
       cursor: copy;
       user-select: all;  // Firefox needs 'all', not 'auto'
     }
