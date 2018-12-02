@@ -317,16 +317,24 @@
     animation-fill-mode: forwards;
   }
 
+  $button-background-diameter: 120px;
+  $button-margin: 16px;
+  $button-diameter: $button-background-diameter - $button-margin * 2;
+  $button-mobile-scale: .75;
+
   .scene__play-tab {
     border-radius: 50%;
     bottom: 60px;
-    height: 100px;
-    left: (-100px / 2);
+    height: $button-background-diameter * $button-mobile-scale;
+    left: (-$button-background-diameter / 2) * $button-mobile-scale;
     position: absolute;
-    width: 100px;
+    width: $button-background-diameter * $button-mobile-scale;
 
     @media (min-width: 661px) {
       bottom: 80px;
+      height: $button-background-diameter;
+      left: (-$button-background-diameter / 2);
+      width: $button-background-diameter;
     }
 
     @media (min-width: 1025px) {
@@ -334,22 +342,22 @@
     }
   }
 
-  $button-background-diameter: 100px;
-  $button-margin: 12px;
-  $button-diameter: $button-background-diameter - $button-margin * 2;
-  $button-color: #FF8B39;
-
   // We need to force this play button on GPU for Safari for some reason so the z-index works.
   // Some browsers also round down the pixel size of the GPU layer which trims the box-shadow,
   // which is why we force this bigger parent on the GPU.
   .scene__play-layer {
     background-color: #364189;
     border-radius: 50%;
-    height: $button-background-diameter;
+    height: $button-background-diameter * $button-mobile-scale;
     position: relative;
     -webkit-transform: translateZ(0);
-    width: $button-background-diameter;
+    width: $button-background-diameter * $button-mobile-scale;
     z-index: 1;
+
+    @media (min-width: 661px) {
+      height: $button-background-diameter;
+      width: $button-background-diameter;
+    }
   }
 
   .scene__play {
@@ -357,12 +365,18 @@
     background-size: 50%;
     cursor: pointer;
     font-size: inherit;
-    height: $button-diameter - $button-margin / 2;
-    margin: $button-margin;
+    height: $button-diameter * $button-mobile-scale;
+    margin: $button-margin * $button-mobile-scale;
     padding: 0;
     position: relative;
-    width: $button-diameter;
+    width: $button-diameter * $button-mobile-scale;
     z-index: 1;
+
+    @media (min-width: 661px) {
+      height: $button-diameter;
+      margin: $button-margin;
+      width: $button-diameter;
+    }
   }
 }
 
