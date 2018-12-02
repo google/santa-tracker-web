@@ -18,21 +18,27 @@
 
   // Overlay trash over the toolbar responsively.
   .blockly__trash {
+    background: rgba(0, 0, 0, .15);
+    border-radius: 50%;
     bottom: 8px;
     display: none;
-    left: (64px - 32px) / 2;
+    height: 32px;
+    left: ((64px - 32px - 20px) / 2);
+    padding: 10px;
     position: absolute;
     width: 32px;
 
     @media (min-width: 661px) {
       bottom: 24px;
-      left: (96px - 32px) / 2;
+      left: (96px - 32px - 20px) / 2;
     }
 
     @media (min-width: 1025px) {
-      bottom: (96px + 8px);
-      left: (244px - 48px) / 2;
-      width: 48px;
+      // bottom: (96px + 8px);
+      height: 72px;
+      left: (244px - 72px - 30px) / 2;
+      width: 72px;
+      padding: 15px;
     }
   }
 

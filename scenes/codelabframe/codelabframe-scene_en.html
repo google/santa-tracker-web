@@ -55,15 +55,15 @@ specific language governing permissions and limitations under the License.
       </svg>
       <div class="codelab">
         <div class="blockly">
-          <div class="blockly__trash"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 47.2" enable-background="new 0 0 32 47.2"><g fill="#fff"><path d="M22.4 47.2H9.7c-3 0-5.5-2.5-5.8-5.5L1.8 15.2h28.6l-2.2 26.5c-.3 3-2.8 5.5-5.8 5.5z"/><path d="M32 12.2H0v.3c0-4 3.5-7.3 7.5-7.3h17.7c4 0 6.8 3.2 6.8 7.3v-.3z"/><circle cx="15.9" cy="5.8" r="5.8"/></g></svg>
-
+          <div class="blockly__trash">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="#fff"/><path d="M0 0h24v24H0z" fill="none"/></svg>
           </div>
         </div>
         <div hidden class="scene-underlay"></div>
         <div hidden class="scene">
           <div class="scene__play-tab">
             <div class="scene__play-layer">
-              <button class="scene__play"></button>
+              <button class="Button Button--round Button--play scene__play"></button>
             </div>
           </div>
           <div class="scene__world">
@@ -98,7 +98,7 @@ specific language governing permissions and limitations under the License.
             <use xlink:href="#result-failure" class="result__graphic-type"></use>
           </svg>
           <div class="result__buttons">
-            <button data-retry class="result__button result__button--retry"><i18n-msg msgid="codelab-try-again">PLACEHOLDER_i18n</i18n-msg></button>
+            <button data-retry class="Button result__button result__button--retry"><i18n-msg msgid="codelab-try-again">PLACEHOLDER_i18n</i18n-msg></button>
           </div>
         </div>
         <div class="result result--success">
@@ -114,8 +114,8 @@ specific language governing permissions and limitations under the License.
             <use xlink:href="#result-success" class="result__graphic-type"></use>
           </svg>
           <div class="result__buttons">
-            <button data-retry class="result__button result__button--retry"><i18n-msg msgid="codelab-try-again">PLACEHOLDER_i18n</i18n-msg></button>
-            <button data-continue class="result__button result__button--continue"><i18n-msg msgid="codelab-next-challenge">PLACEHOLDER_i18n</i18n-msg></button>
+            <button data-retry class="Button result__button result__button--retry"><i18n-msg msgid="codelab-try-again">PLACEHOLDER_i18n</i18n-msg></button>
+            <button data-continue class="Button result__button result__button--continue"><i18n-msg msgid="codelab-next-challenge">PLACEHOLDER_i18n</i18n-msg></button>
             <div class="no-en"><a class="result__code-link">View code</a></div>
           </div>
         </div>
