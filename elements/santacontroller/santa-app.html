@@ -43,13 +43,34 @@ Santa Tracker app.
       --link-display: none !important;
     }
 
+    santa-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 200;  /* TODO(samthor): Workaround for scenes, which have UI/buttons in 1xx. */
+    }
+    santa-overlay::before {
+      content: '';
+      display: block;
+      z-index: -1;
+      background-color: var(--santa-header-color, #00c6ed);
+      opacity: 0.9;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
     santa-video {
       border-radius: inherit;
     }
     santa-video.scene {
       position: fixed;
       width: 100%;
-      height: calc(100% - 44px);
+      height: 100%;
       bottom: 0;
       right: 0;
     }
@@ -91,8 +112,7 @@ Santa Tracker app.
 
     <santa-sidebar slot="drawer"></santa-sidebar>
 
-    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"
-        share-options="[[shareOptions]]"></santa-overlay>
+    <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"></santa-overlay>
 
     <!-- Video Picture-In-Picture -->
     <div id="pip" hidden$="[[!_videoActive]]">
@@ -434,6 +454,48 @@ const ANALYTICS = new Analytics();
 
 let messagePort;
 
+
+const HOUSES_DICT = {};
+window.HOUSES.forEach((house) => {
+  HOUSES_DICT[house.module] = house;
+});
+
+
+const randomHouses = (function() {
+  let count = 0;
+  let weight = 0;
+  const source = {};
+  window.HOUSES.forEach((item) => {
+    if (item.link) {
+      return;
+    }
+    const value = item.edu ? 5 : 1;
+    source[item.module] = value;
+    weight += value;
+    ++count;
+  });
+
+  const out = [];
+  while (count) {
+    let choice = (Math.random() * weight);
+    let k;
+    for (k in source) {
+      choice -= source[k];
+      if (choice <= 0) {
+        break;
+      }
+    }
+    weight -= source[k];
+    --count;
+    delete source[k];
+    out.push(k);
+  }
+
+  return out;
+}());
+
+
+
 Polymer({
   is: 'santa-app',
   hostAttributes: {'tabindex': '0'},
@@ -445,7 +507,7 @@ Polymer({
      */
     headerSize: {
       type: Number,
-      computed: '_computeHeaderSize(mode)',
+      value: 0,
     },
 
     /**
@@ -465,6 +527,11 @@ Polymer({
       readOnly: true,
       notify: true,
       value: window.HOUSES,
+    },
+
+    _housesLocked: {
+      type: Object,
+      value: () => {},
     },
 
     /**
@@ -545,6 +612,7 @@ Polymer({
     scheduleChecked: {
       type: Boolean,
       value: true,
+      observer: '_scheduleCheckedChanged',
     },
 
     /**
@@ -590,33 +658,15 @@ Polymer({
       type: Boolean,
     },
 
-    /**
-     * The networks that Santa can share to.
-     */
-    shareOptions: {
-      type: Array,
-      value: function() {
-        const options = navigator.share ? ['webshare'] : ['twitter', 'facebook'];
-        return Object.freeze(options);
-      },
-      readOnly: true,
-    },
-
     _videoActive: {
       type: Boolean,
+      value: false,
     },
 
-  },
-
-  _computeHeaderSize: function(mode) {
-    if (mode === 'embed' || mode === 'cast') {
-      return 0;
-    }
-    return 44;
   },
 
   observers: [
-    '_updateLock(currentTime, scheduleChecked)',
+    '_updateLock(currentTime)',
   ],
 
   listeners: {
@@ -627,7 +677,9 @@ Polymer({
     'analytics-track-game-start': 'trackGameStart',
     'analytics-track-game-quit': 'trackGameQuit',
     'analytics-track-game-over': 'trackGameOver',
-    'game-start': 'onStartGame',
+    'nav': 'onNav',
+    'random': 'onRandom',
+    'game-restart': 'onRestartGame',
     'game-extra': 'onGameExtra',
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
@@ -635,8 +687,8 @@ Polymer({
     'video-load': 'onVideoLoad',
     'video-play': 'onVideoPlay',
     'video-done': 'onVideoDone',
-    'share': 'onShare',
     'close-drawer': 'onCloseDrawer',
+    'houses-changed': 'onHousesChanged',
   },
 
   created: function() {
@@ -654,7 +706,6 @@ Polymer({
 
     for (let i = 0, house; house = window.HOUSES[i]; ++i) {
       house.disabled = false;
-      house.locked = false;
       switch (house.module) {
         case 'app':
           // Disable Google Play house on iOS devices
@@ -667,9 +718,6 @@ Polymer({
   ready: function() {
     if (getUrlParameter('mode') === 'web_portal') {
       this.mode = 'portal';
-    }
-    if (!this.hasAttribute('routing')) {
-      this._setShareOptions([]);
     }
 
     // Don't load sounds in Cast mode.
@@ -788,7 +836,7 @@ Polymer({
    */
   _selectedSceneChanged: function(newValue, oldValue) {
     this.$.chrome.hasGameButtons = false;
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
     this.userPause = false;
 
     this._updateStylingForScene(this.selectedScene);
@@ -805,7 +853,7 @@ Polymer({
 
       if (v.started && window.matchMedia('(hover: hover)').matches) {
         // great, keep playing
-      } else {
+      } else if (v.reset) {
         v.reset();  // otherwise, reset, don't show the PIP
       }
     }
@@ -818,17 +866,25 @@ Polymer({
     }
 
     // nb. Effectively checking for SantaSceneGameButtonsBehavior.
-    if ('pause' in this.selectedScene) {
-      this.$.overlay.pregame = true;
-      this.userPause = true;
-
-      if (this.mode === 'embed') {
-        // wait a frame and then start, we never see overlay
-        window.setTimeout(function() {
-          this.fire('game-start');
-        }.bind(this), 0);
-      }
+    const hasPause = 'pause' in this.selectedScene;
+    if (hasPause) {
+      const scene = this.selectedScene;
+      const now = +new Date();
+      const retry = () => {
+        if (!this.selectedScene.start()) {
+          const since = (+new Date) - now;
+          if (since > 5000) {
+            throw new Error('could not start after 5s');
+          }
+          window.requestAnimationFrame(retry);
+        }
+      };
+      retry();
     }
+    this.fire('embed', {
+      type: 'onready',
+      data: {hasPauseScreen: hasPause},
+    });  // notify embed scene is ready to show
   },
 
   _updateStylingForScene: function(scene) {
@@ -853,13 +909,20 @@ Polymer({
     META_THEME.content = headerColor || META_THEME_DEFAULT;
 
     // Show the badge if not in allow-page-scrolling mode.
-    this.$.badge.reset();
-    this.$.badge.hidden = scrolling;
+    if (this.$.badge.reset) {
+      this.$.badge.reset();
+    }
     this.$.badge.logoUrl = scene.getAttribute('logo');
 
     // Reset the overlay.
-    this.$.overlay.reset();
+    if (this.$.overlay.reset) {
+      this.$.overlay.reset();
+    }
     this.$.overlay.hero = scene.getAttribute('hero-src');
+    if ('pause' in scene) {
+      this.$.overlay.hasPause = true;
+      this.$.chrome.hasGameButtons = true;
+    }
 
     // Optionally update the document title (with emoji/scene name).
     if (this.routing) {
@@ -877,8 +940,17 @@ Polymer({
     }
   },
 
+  /**
+   * Something is trying to load a scene. Try to work out whether it's open, and call
+   * .preventDefault() if it's locked.
+   */
   onBeforeLoad: function(ev) {
     const route = ev.detail;
+
+    const item = HOUSES_DICT[route];
+    if (item && item.edu) {
+      return;  // edu is always available to load
+    }
 
     if (this.sceneIsOpen(route) === false) {
       if (!window.DEV) {
@@ -894,35 +966,51 @@ Polymer({
     window.ga('send', 'pageview');
   },
 
-  /**
-   * Handler for 'game-start' event. Resests overlay state, and if the game supports pausing,
-   * shows those buttons and starts the scene.
-   */
-  onStartGame: function() {
-    this.userPause = false;
-    this.$.overlay.reset();
-
-    const scene = this.selectedScene;
-    if (scene) {
-      if ('pause' in scene) {
-        this.$.chrome.hasGameButtons = true;
-      }
-      scene.start && scene.start();
-      this.fire('embed', 'onstart');
+  onNav: function(ev) {
+    const route = ev.detaul || this.defaultRoute;
+    if (this.route === route) {
+      this._defaultAction();
     }
+    this.$.lazypages.load(route);
+  },
+
+  get nextRandom() {
+    let i;
+    for (i = 0; i < randomHouses.length; ++i) {
+      const check = randomHouses[i];
+      if (santaApp.route === check) {
+        continue;
+      }
+
+      // this does NOT allow edu games, only serves open scenes
+      if (!this.scheduleChecked || !this._housesLocked[check]) {
+        break;
+      }
+    }
+    return randomHouses[i];
+  },
+
+  onRandom: function(ev) {
+    const choice = this.nextRandom;
+    const index = randomHouses.indexOf(choice);
+    if (index !== -1) {
+      // place skipped options at the end of randomHouses, so we always look from the front
+      const done = randomHouses.splice(0, index + 1);
+      randomHouses.push.apply(randomHouses, done);
+    }
+    this.$.lazypages.load(choice || this.defaultRoute);
   },
 
   /**
-   * Handler for 'game-extra' event. Resests overlay state, and if the game
-   * has extra levels, starts the game at extra level.
+   * Handler for 'game-restart' event. Resests overlay state, and if the game supports pausing,
+   * shows those buttons and starts the scene.
    */
-  onGameExtra: function() {
+  onRestartGame: function() {
     this.userPause = false;
-    this.$.overlay.reset();
-
     const scene = this.selectedScene;
-    if (scene) {
-      scene.playExtra && scene.playExtra();
+    if (scene && scene.start) {
+      scene.start();
+      this.fire('embed', 'onstart');
     }
   },
 
@@ -937,12 +1025,9 @@ Polymer({
 
   /** Handler for 'game-stop' event. Fired by the gameover shared JS component. */
   onStopGame: function(event, detail) {
-    this.$.chrome.hasGameButtons = false;
-
     const o = this.$.overlay;
     detail = detail || {};
     o.score = 'score' in detail ? detail.score : null;  // allow zero
-    o.playExtra = detail.hasPlayExtra || false;
     o.shareUrl = detail.url || null;
 
     this.userPause = true;
@@ -960,6 +1045,8 @@ Polymer({
   },
 
   onScoreGame: function(event, detail) {
+    // TODO(samthor): This is technically racey. We can get scores for previous games.
+
     this.$.badge.score = detail.score !== undefined ? detail.score : null;
     this.$.badge.level = detail.level || null;
     this.$.badge.levels = detail.levels || detail.maxLevels || null;
@@ -1024,72 +1111,70 @@ Polymer({
 
   unlockAllHouses: function() {
     window.ga('send', 'event', 'Routing', 'unlockAllHouses');
-    for (let i = 0, house; house = this.houses[i]; ++i) {
-      house.locked = false;
-    }
-    if (this.scheduleChecked) {
-      this.scheduleChecked = false;
-    } else {
-      this.$.lazypages.revalidate();
-    }
-    this.fire('houses-changed');
+    this.scheduleChecked = false;
   },
 
   /**
    * In 2018+, all houses are unlocked all the time.
    *
    * @param {string} sceneName to check
-   * @param {boolean} skipEdu whether to skip edu checks
    * @return {boolean=} true if open, false if not, or undefined if unknown
    */
-  sceneIsOpen: function(sceneName, skipEdu) {
-    if (sceneName === TRACKER_ROUTE && !this.duringTracker) {
-      return false;  // special-case tracker, as it's open only when Santa is in flight
+  sceneIsOpen: function(sceneName) {
+    if (!this.scheduleChecked) {
+      return true;
     }
-    return true;
+    return !this._housesLocked[sceneName];
   },
 
   /**
    * Unlocks the correct houses based on the day (index).
    * @private
    */
-  _updateLock: function(currentTime, scheduleChecked) {
-    const todayDate = new Date(this.currentTime || Date.now());
-    let change = false;
+  _updateLock: function(currentTime) {
+    const localNow = new Date();
+    const now = this.currentTime || (+localNow);
 
-    switch (todayDate.getMonth()) {
-      case 0:  // January
-        // fall-through to December logic
-      case 11: // December
-        for (let i = 0, house; house = this.houses[i]; ++i) {
-          let launchDate = house.launchDate;
-          if (!launchDate) {
-            house.locked = false;
-            continue;  // always unlocked
-          }
-          if (this.scheduleChecked) {
-            const locked = (launchDate > todayDate);
-            if (house.locked !== locked) {
-              change = true;
-              house.locked = locked;
-            }
-          }
+    // launchDate is in local time, but we want it in "NZ time" (GMT+13)
+    const targetTimeZone = -13;
+    const targetOffset = (targetTimeZone * 60);
+    const offsetDelta = targetOffset - localNow.getTimezoneOffset();  // always 'local' tz offset
+
+    // update behavior, replace _housesLocked later if anything changed
+    const previousLocked = this._housesLocked || {};
+    let updateLocked = null;
+    const update = (sceneName, locked) => {
+      if (Boolean(previousLocked[sceneName]) !== locked) {
+        if (!updateLocked) {
+          updateLocked = {};
         }
-        break;
-      default:
-        if (this.scheduleChecked) {
-          for (let i = 0, house; house = this.houses[i]; ++i) {
-            if (!house.locked) {
-              change = true;
-              house.locked = true;
-            }
-          }
+        if (locked) {
+          updateLocked[sceneName] = true;
         }
-        break;
+      }
+    };
+
+    // tracker is locked not during tracker
+    update(TRACKER_ROUTE, !this.duringTracker);
+
+    // check all houses
+    this.houses.map((item) => {
+      if (!item.launchDate) {
+        return false;  // no launch date, locked
+      }
+
+      // locked if before check time
+      const checker = new Date(item.launchDate);
+      checker.setMinutes(checker.getMinutes() + offsetDelta);
+      return now < +checker;
+    }).forEach((locked, i) => {
+      update(this.houses[i].module, locked);
+    });
+
+    if (updateLocked) {
+      this._housesLocked = Object.freeze(updateLocked);
+      this.fire('houses-changed');
     }
-    change && this.fire('houses-changed');
-
-    this.$.lazypages.revalidate();  // hint to maybe reload
   },
 
   _onKeysPressed: function(e, detail) {
@@ -1097,13 +1182,6 @@ Polymer({
       case 'esc':
         if (this._defaultAction()) {
           this.$.lazypages.load(this.defaultRoute);
-        }
-        break;
-      case 'enter':
-        // TODO(samthor): Clean up ugly state machine.
-        const scene = this.selectedScene;
-        if (scene && 'pause' in scene && !this.$.chrome.hasGameButtons && this.$.overlay.pregame) {
-          this.onStartGame();
         }
         break;
     }
@@ -1117,7 +1195,8 @@ Polymer({
   _defaultAction: function() {
     let action = false;
 
-    if (this.$.chrome.closeDrawer()) {
+    if (this.$.chrome.drawerOpen) {
+      this.$.chrome.drawerOpen = false;
       action = true;
     }
     if (window.scrollY > 0) {
@@ -1128,6 +1207,10 @@ Polymer({
     return !action;
   },
 
+  _scheduleCheckedChanged: function() {
+    this.fire('houses-changed');
+  },
+
   _duringTrackerChanged: function() {
     // If the tracker was open, it's now locked: send the user back to the Village.
     if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
@@ -1135,65 +1218,12 @@ Polymer({
     }
   },
 
-  /**
-   * Triggered on a request to share. Creates sharing popup for the specified service (passed as
-   * detail of event).
-   */
-  onShare: function(e, detail) {
-    const network = detail.network;
-    const url = detail.url || window.location.href;
-    const route = this.route || '';
-    const hashtags = ['santatracker'];
-    let title = this.$.strings.s(`scene-${route}`) || this.$.strings.s('santatracker') || '';
-
-    switch (route) {
-    case 'snowflake':
-      hashtags.push('codeasnowflake');
-      if (detail.overlay) {
-        // If this was from the overlay / share button prompt, use the longer messaage.
-        title = this.$.strings.s('snowflake_make_your_own');
-      }
-      break;
-    }
-
-    window.ga('send', 'social', network, 'share', '/' + route);
-
-    const shareUrl = this._findShareUrl(network, url, hashtags, title);
-    if (network === 'webshare' && navigator.share) {
-      navigator.share({title: title, url: url});
-    } else if (shareUrl) {
-      const opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
-      window.open(shareUrl, '', opts);
-    }
-  },
-
-  /**
-   * Returns the URL to popup open in response to a sharing action.
-   */
-  _findShareUrl: function(network, url, hashtags, title) {
-    const enc = window.encodeURIComponent(url);
-    let out = '';
-
-    switch (network) {
-    case 'twitter':
-      out = `https://twitter.com/intent/tweet?hashtags=${hashtags.join(',')}&text=` +
-          window.encodeURIComponent(title) + `&url=${enc}`;
-      if (window.requestLang) {
-        out += `&hl=${window.requestLang}`;
-      }
-      break;
-    case 'facebook':
-      out = `https://facebook.com/sharer.php?p[url]=${enc}`;
-      break;
-    default:
-      return undefined;
-    }
-
-    return out;
-  },
-
   onCloseDrawer: function(event) {
-    this.$.chrome.closeDrawer();
+    this.$.chrome.drawerOpen = false;
+  },
+
+  onHousesChanged: function() {
+    this.$.lazypages.revalidate();
   },
 
   /**

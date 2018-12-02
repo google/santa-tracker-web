@@ -1,6 +1,7 @@
 $toolbar-height: 44px;
 $mobile-width: 768px;
 $santa-color: #00c6ed;
+$bar-color: #ff0160;
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -14,41 +15,8 @@ app-drawer {
   --app-drawer-width: 320px;
   --app-drawer-scrim-background: fade-out($santa-color, 0.4);
 }
-app-header {
-  background-color: transparent;
-}
-
-.button-set:not(.alternate),
-#fixed-background {
-  color: var(--santa-header-color, $santa-color);
-}
-:host(.fixed) #fixed-background {
-  visibility: visible;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-#fixed-background {
-  // nb. The app-header layer can be manipulated, but somewhat unreliabily. This exists under it
-  // and is made visible only when the host is .fixed.
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-  background-color: currentColor;
-  visibility: hidden;
-}
 
 app-drawer {
-  #main-content {
-    position: relative;
-    height: 100%;
-  }
-
   .drawer-content {
     height: 100%;
     overflow: auto;
@@ -60,88 +28,184 @@ app-drawer {
     font-size: 2em;
     color: #ccc;
     pointer-events: auto;
+    height: $toolbar-height + 40px;
+    padding: 0 20px;
 
     paper-icon-button {
       margin-right: 6px;
     }
+
+    @media (max-width: ($mobile-width - 1px)) {
+      height: $toolbar-height + 20px;
+      padding: 0 10px;
+    }
   }
 }
 
-app-toolbar {
+#feature-holder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 14px;
+  pointer-events: none;
+  z-index: 2000;
+
+  @media (max-width: 600px) {
+    justify-content: flex-end;
+  }
+}
+
+
+#bar-holder {
+  position: fixed;
+  width: 100%;
+  pointer-events: none;
+}
+#bar {
+  position: relative;
   height: $toolbar-height;
   color: white;
+  margin: 20px auto 0;
+  width: 80%;
+  box-sizing: border-box;
+  padding-left: $toolbar-height;  // toolbar button is fixed here
+  padding-right: 10px;
+  transition: transform 0.25s ease-in-out;
+  transform: translate(0);
 
-  paper-icon-button[drawer-toggle] {
-    margin-right: 4px;
-    min-width: 40px;
-    color: white;
+  countdown-timer {
+    h2 {
+      font-size: 8px;
+      line-height: 8px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      text-transform: uppercase;
+    }  
   }
 
-  // Common button reset.
-  button {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background: transparent;
-    cursor: pointer;
-  }
-
-  a.linkwrap {
-    display: inline-flex;
-    max-width: 100%;
-    text-decoration: none;
-  }
-
-  #logo {
-    width: 62px;
-    min-width: 62px;
-    background: url(img/google_logo.svg) 0 14px no-repeat;
-    background-size: contain;
-  }
-
-  h1 {
-    padding-left: 4px;
-    margin: 0;
-    font-family: 'Lobster', sans-serif;
-    font-size: 19px;
-    line-height: $toolbar-height;
-    font-weight: 300;
-    color: white;
+  #title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: width 0.25s ease-in-out;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
-  .title {
-    height: 100%;
-    min-width: 1px;  // nb. without any min-width, title can't be clipped to size
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    border-radius: $toolbar-height;
+    box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
+    background: $bar-color;
+    transition: box-shadow 0.25s ease-in-out, width 0.25s ease-in-out;
+  }
+  @media (max-width: ($mobile-width - 1px)) {
+    $offset: (64px - $toolbar-height) / 2;
+    margin-top: $offset;
+    width: calc(100% - #{$offset * 2});
+    max-width: auto;
+
+    &::before {
+      box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
+    }
+  }
+
+  :host(.fixed) & {
+    @media (min-width: $mobile-width) {
+      transform: translate(-10vw) translate(20px);
+    }
+
+    #title {
+      width: 0;
+    }
+
+    &::before {
+      width: $toolbar-height;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) !important;
+    }
+  }
+
+  paper-icon-button {
+    width: ($toolbar-height - 4px);
+    height: ($toolbar-height - 4px);
+    margin: 2px;
+    pointer-events: auto;
+
+    &[drawer-toggle] {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .grow {
     flex-grow: 1;
   }
 
-  .feature {
-    z-index: 10;
-    height: 100%;
-    text-align: center;
-    position: relative;
+  .linkwrap {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    max-width: 100%;
+    min-width: 1%;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 2px;
+    line-height: $toolbar-height;
+    overflow: hidden;
+
+    .logo {
+      width: 62px;
+      min-width: 62px;
+      background: url(img/google_logo.svg) center no-repeat;
+      background-size: contain;
+      color: transparent;
+      font-size: 0;
+      line-height: inherit;
+    }
+
+    h1 {
+      margin: 0;
+      margin-left: 0.4ch;
+      font-family: 'Lobster', Sans-Serif;
+      font-size: 19px;
+      line-height: inherit;
+      font-weight: 300;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
-  /**
-   * In the full village experience, make the left/right (.title/.buttons respectively) grow to the
-   * same center point.
-   */
-  @media (min-width: $mobile-width) {
-    .title {
-      width: 69px - 44px;
-    }
-    .feature:not([hidden]) + santa-buttons {
-      // where there's a feature, grow the right-hand side (sharer)
-      width: 69px;
-      flex-grow: 1;
-    }
-    .feature {
-      // .. and the feature has a min-width set, for future scores/times etc
-      min-width: $feature-width;
+  #extra {
+    display: block;
+    position: absolute;
+    background: $bar-color;
+    width: $toolbar-height;
+    height: $toolbar-height;
+    margin-left: 12px;
+    border-radius: 1000px;
+    z-index: -100;
+    transform: translate(0);
+    opacity: 1;
+    transition: transform 0.25s, opacity 0.25s;
+
+    &[hidden] {
+      display: block;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-12px) translate(-$toolbar-height);
     }
   }
 }

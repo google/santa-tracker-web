@@ -1,182 +1,140 @@
 $color-purple: #6f00ff;
-$height-lr: 440px;   // at this height or below, use side-by-side mode
-$width-base: 240px;  // min width of overlay
-$header-size: 44px;
+$transition: 0.25s;
 
-@import "sass/_button.scss";
+:host {
+  display: block !important;
+  transition: opacity $transition ease-in;
 
-[hidden] {
-  display: none !important;
+  [hidden] {
+    display: none !important;
+  }
 }
+:host([hidden]) {
+  pointer-events: none;
+  opacity: 0;
+
+  #main {
+    transform: translateY(-100vh);
+    transition-timing-function: cubic-bezier(.83,.02,1,.01);
+  }
+}
+
 h2 {
-  color: #fff;
+  // "game over" or similar
   opacity: 0.95;
   margin: 0;
-  font-size: 2.875em;
-  line-height: 1.25em;
+  font-size: 1em;
   font-family: 'Lobster';
 }
-h4 {
+h3 {
+  // "next game"
+  font-family: 'Lobster';
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0;
   color: #fff;
-  font-size: 0.8em;
+}
+h4 {
+  // "copy to share"
+  color: #fff;
+  font-size: 0.6em;
   font-weight: 800;
   margin: 0;
   text-transform: uppercase;
 }
 
-:host {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 200;  // TODO(samthor): Workaround for scenes, which have UI/buttons in 1xx.
-}
-.fit {
+#main {
+  transform: translate(0);
+  transition: transform $transition cubic-bezier(0, 1.52, 0.295, 0.86);
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  margin-left: -180px;
+  width: 360px;
   bottom: 0;
+
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-}
+  flex-flow: column;
 
-#background {
-  background-color: var(--santa-header-color, #00c6ed);
-  opacity: 0.9;
-  transition: opacity 0.1s;
-
-  &.fadeout {
-    opacity: 0;
+  @media (max-width: 400px) {
+    margin-left: -160px;
+    width: 320px;
   }
 }
 
-#start {
-  display: block;
-  cursor: pointer;
-  padding: 0;
-  border: 0;
-  background: url(img/btn_play_01.svg) no-repeat;
-  height: 230px;
-  width: 227px;
-  margin-bottom: 11px;
-
-  @media (max-height: $height-lr) {
-    margin-bottom: 0;
-    margin-right: 11px;
-  }
-
-  &:active {
-    background-image: url(img/btn_play_02.svg);
-  }
-}
-
-// Normally, display the hero above the controls.
-#main {
-  flex-direction: column;
-  top: $header-size;
-
-  // But below a certain height, display the feature/controls side-by-side. The hero image will be
-  // flat to the bottom of the page (nb: an iPhone 6+ is 414px high).
-  @media (max-height: $height-lr) {
-    flex-direction: row;
-
-    #hero {
-      align-self: flex-end;
-    }
-  }
-
-  transition: transform 0.1s;
-
-  &.fadeout {
-    transform: transformY(100%);
-  }
-}
+// trick the shared sass into generating #controls
+$name: 'controls';
+$shared: '../../scenes/shared/';
+@import "../../scenes/shared/sass/_button.scss";
 
 #controls {
-  background: rgba(255, 255, 255, 0.25);
-  width: $width-base;
-  border-radius: 8px;
+  .Button--home {
+    @include ButtonColor(red);
+  }
+  .Button--text {
+    @include ButtonColor(orangered);
+  }
+
+  background: rgba(255, 255, 255, .25);
+  border-radius: 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
 
   box-sizing: border-box;
+  padding: 12px 10px;
   position: relative;
 
-  .Button {
-    margin-bottom: 12px;
-  }
-
-  .Button--share {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  #shareArea {
-    display: var(--link-display, initial);
-  }
-
-  #shareButtons {
-    display: flex;
-    justify-content: space-around;
-  }
-
   section {
-    padding: 4px 8px;
-
-    &:first-child {
-      padding-bottom: 0;
-    }
-    &.background {
-      border-radius: 8px;
-      background: $color-purple;
-      order: -1;
-    }
-    &#controlArea {
-      .Button {
-        display: block;
-        width: 100%;
-      }
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 6px 0;
   }
 
-  #url {
-    margin-top: 4px;
-    background: #fff;
-    border: 0;
-    border-radius: 4px;
-    box-shadow: inset 2px 3px 0 rgba(0, 0, 0, 0.16);
-    box-sizing: border-box;
-    color: #6a1B9a;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    height: 34px;
+  .url {
     font-size: 16px;
-    margin-bottom: 10px;
-    outline: none;
-    padding: 0;
-    padding-top: 3px;
-    text-align: center;
-    width: 100%;
-    cursor: pointer;
-    user-select: all;  // Firefox needs 'all', not 'auto'
+
+    .link {
+      &::before {
+        content: "\00a0";  // non-breaking space to force height
+      }
+
+      overflow: hidden;
+      margin-top: 8px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,.4);
+      box-sizing: border-box;
+      color: #6a1B9a;
+      line-height: 2.5em;
+      font-weight: 600;
+      margin-bottom: 12px;
+      margin-left: 5%;
+      padding: 0;
+      text-align: center;
+      display: block;
+      width: 90%;
+      cursor: copy;
+      user-select: all;  // Firefox needs 'all', not 'auto'
+    }
   }
 }
 
 #hero {
   background: url(img/gameover.svg) no-repeat bottom center;
   background-size: contain;
-  width: $width-base;
-  padding-bottom: 136px;  // nb. should be enough to contain images
+  max-height: 136px;
+  flex-grow: 1;
   text-align: center;
 
   &.share {
     background-image: url(img/share.svg);
+  }
+  &.pause {
+    background-image: url(img/pause.svg);
   }
 
   .score {
@@ -190,32 +148,25 @@ h4 {
   }
 }
 
-@media (min-height: 660px) {
+// shrink width when narrow width
+@media (max-width: 660px) {
+  :host {
+    font-size: 18px;  // adjusts "Game Over" text size
+  }
+  main {
+    margin-left: -140px;
+    width: 280px;
+  }
+}
+
+// expand hero/url size when tall
+@media (min-height: 500px) {
   #hero {
-    width: 320px;
-    padding-bottom: 218px;
+    max-height: 218px;
   }
   #controls {
-    width: 320px;
-
-    #url {
-      height: 48px;
-      font-size: 24px;
+    .url {
+      font-size: 20px;
     }
-  }
-
-  @media (min-width: 600px) {
-    #controls {
-      width: 500px;
-
-      #url {
-        height: 64px;
-        font-size: 32px;
-      }
-    }
-  }
-
-  #main {
-    font-size: 18px;
   }
 }

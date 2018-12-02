@@ -4,6 +4,7 @@ $mobile-size: 305px;
 $width-tablet: 768px;
 
 header {
+  pointer-events: none;
   height: $header-size;
   margin-bottom: ($onpage-size - $header-size);
   background-image: url(img/mountain.svg);
@@ -36,7 +37,7 @@ header {
   flex-flow: column;
   align-items: center;
 
-  padding-top: 66px;
+  padding-top: 86px;
   box-sizing: border-box;
   position: relative;
   z-index: 0;  // create stacking context so ornament can be behind
@@ -106,17 +107,6 @@ header {
       font-size: 54px;
       line-height: 40px;
     }
-  }
-
-  h2 {
-    font-size: var(--smallcaps-size, 12px);
-    line-height: var(--smallcaps-size, 12px);
-    letter-spacing: 1px;
-    font-weight: 800;
-    color: #fff;
-    margin: 0;
-    text-transform: uppercase;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   }
 
   @media (max-width: $width-tablet - 1) {

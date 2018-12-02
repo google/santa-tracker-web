@@ -56,13 +56,6 @@
     width: 42px;
     height: 42px;
     font-size: 0;
-
-    &#gplus {
-      iron-icon {
-        width: 32px;
-        height: 32px;
-      }
-    }
   }
 }
 
@@ -70,19 +63,5 @@
   .Button {
     font-size: 24px;
     line-height: 42px;
-
-    &.Button--share {
-      width: 80px;
-      height: 80px;
-
-      iron-icon {
-        width: 48px;
-        height: 48px;
-      }
-      &#gplus iron-icon {
-        width: 64px;
-        height: 64px;
-      }
-    }
   }
 }

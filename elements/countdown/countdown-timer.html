@@ -33,55 +33,44 @@ Example
   <template>
     <style include="countdown-timer_module"></style>
 
-    <div id="counter" on-animationend="_counterAnimationEnd">
-      <div class="counter-box" hidden$="[[_daysHidden]]">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="days"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="hours"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="minutes"></slot>
-        </div>
-      </div>
-      <div class="counter-box">
-        <div class="holder active"></div>
-        <div class="holder prev"></div>
-        <div class="bottom">
-          <slot name="seconds"></slot>
-        </div>
-      </div>
+<div id="counter" on-animationend="_counterAnimationEnd">
+  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 4)]]" hidden$="[[_daysHidden]]">
+    <div class="holder active"></div>
+    <div class="holder prev"></div>
+    <div class="bottom">
+      <slot name="days"></slot>
     </div>
+  </div>
+  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 3)]]" hidden$="[[_hoursHidden]]">
+    <div class="holder active"></div>
+    <div class="holder prev"></div>
+    <div class="bottom">
+      <slot name="hours"></slot>
+    </div>
+  </div>
+  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 2)]]" hidden$="[[_minutesHidden]]">
+    <div class="holder active"></div>
+    <div class="holder prev"></div>
+    <div class="bottom">
+      <slot name="minutes"></slot>
+    </div>
+  </div>
+  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 1)]]">
+    <div class="holder active"></div>
+    <div class="holder prev"></div>
+    <div class="bottom">
+      <slot name="seconds"></slot>
+    </div>
+  </div>
+</div>
 
   </template>
   <script>
   (function() {
-
-    const _TRANSITION_TIME = 400;
-
     Polymer({
       is: 'countdown-timer',
 
       properties: {
-
-        /**
-         * True if animations should be disabled.
-         */
-        fast: {
-          type: Boolean,
-          value: false,
-        },
 
         /**
          * Whether the "Days" counter is hidden.
@@ -89,6 +78,21 @@ Example
         _daysHidden: {
           type: Boolean,
           value: false,
+        },
+
+        _hoursHidden: {
+          type: Boolean,
+          value: false,
+        },
+
+        _minutesHidden: {
+          type: Boolean,
+          value: false,
+        },
+
+        _hideOffset: {
+          type: Number,
+          value: 0,
         },
 
         /**
@@ -124,11 +128,13 @@ Example
       _tickInterval: 0,
 
       attached: function() {
-        this._setHolders(Array.prototype.slice.call(this.$.counter.children));
+        const children = Array.prototype.slice.call(this.$.counter.children);
+        this._setHolders(children.filter((x) => x.classList.contains('counter-box')));
+      },
 
-        this.fire('preload', [
-          'img/number-bg.svg',
-        ]);
+      _calculateHide: function(_hideOffset, count) {
+        const out = _hideOffset + count;
+        return out <= 0 ? null : out;
       },
 
       _startInterval: function(isAttached, remainingTime) {
@@ -171,6 +177,16 @@ Example
           padDigits(parts.seconds),
         ];
         this._daysHidden = (parts.days <= 0);
+        this._hoursHidden = this._daysHidden && (parts.hours <= 0);
+        this._minutesHidden = this._hoursHidden && (parts.seconds <= 0);
+
+        if (parts.days) {
+          this._hideOffset = 0;
+        } else if (parts.hours) {
+          this._hideOffset = -1;
+        } else if (parts.minutes) {
+          this._hideOffset = -2;
+        }
 
         // Ensure holders exist. Solves inconsistent asyncs.
         if (this.holders.length) {

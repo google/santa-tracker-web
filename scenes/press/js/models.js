@@ -64,17 +64,6 @@ app.Models = [
     ],
   },
   {
-    'key': 'airport',
-    'title': 'North Pole Airport',
-    'type': 'Play',
-    'filter': '',
-    'description': 'It\'s arrival time! Elves land at the North Pole Airport (ELV) - check out the conveyor belt for surprises.',
-    'resources': [
-      'https://storage.googleapis.com/santa/scenes/airport.png',
-      'https://storage.googleapis.com/santa/scenes/airport.gif',
-    ],
-  },
-  {
     'key': 'snowflake',
     'title': 'Code a Snowflake',
     'type': 'Play',

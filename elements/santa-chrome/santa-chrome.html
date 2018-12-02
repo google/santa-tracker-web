@@ -18,15 +18,14 @@ specific language governing permissions and limitations under the License.
 
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
 
-<link rel="import" href="../../components/app-layout/app-header/app-header.html">
 <link rel="import" href="../../components/app-layout/app-scroll-effects/effects/waterfall.html">
 <link rel="import" href="../../components/app-layout/app-scroll-effects/effects/fade-background.html">
 <link rel="import" href="../../components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../../components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../../components/app-layout/app-toolbar/app-toolbar.html">
-<link rel="import" href="../../components/app-layout/app-header-layout/app-header-layout.html">
 
 <link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../../elements/countdown/countdown-timer.html">
 <link rel="import" href="../santa-buttons/santa-buttons.html">
 <link rel="import" href="../santa-icons.html">
 <link rel="import" href="../santa-state.html">
@@ -40,57 +39,54 @@ specific language governing permissions and limitations under the License.
         box-shadow: 2px 0 0 rgba(0,0,0,0.125);
       };
     }
-    app-header {
-      --app-header-background-rear-layer: {
-        background-color: var(--santa-header-color, rgb(48,203,236));
-      };
-      --app-header-shadow: {
-        bottom: 0;  /** this is -5px by default */
-        box-shadow: 0 2px 0 rgba(0,0,0,0.25);
-      };
-    }
   </style>
-  <santa-state offline="{{_offline}}"></santa-state>
 
-  <app-drawer-layout fullbleed force-narrow on-click="_maybeCloseButtons">
-    <app-drawer id="drawer" opened="{{_drawerOpened}}" slot="drawer">
+  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+
+  <app-drawer-layout fullbleed force-narrow>
+    <app-drawer id="drawer" opened="{{drawerOpen}}" slot="drawer">
       <div class="drawer-content">
-        <app-toolbar class="close-sidebar" on-tap="closeDrawer">
+        <app-toolbar class="close-sidebar" on-tap="_closeDrawer">
           <paper-icon-button icon="santa:close"></paper-icon-button>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </app-toolbar>
         <slot name="drawer"></slot>
       </div>
     </app-drawer>
-    <app-header-layout fullbleed>
-      <app-header fixed effects="waterfall fade-background" slot="header">
-        <div id="fixed-background"></div>
-        <app-toolbar hidden$="[[disabled]]">
-          <paper-icon-button icon="santa:menu" drawer-toggle
-              class="toolbar-icon"></paper-icon-button>
-          <div class="title">
-            <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
-              <div id="logo" title="Google"></div>
-              <h1>
-                <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
-              </h1>
-            </a>
-          </div>
-          <div class="feature">
-            <slot name="feature"></slot>
-          </div>
-          <santa-buttons id="buttons"
-              has-game-buttons="[[hasGameButtons]]"
-              mute="{{mute}}"
-              pause="{{pause}}"></santa-buttons>
-        </app-toolbar>
-      </app-header>
 
-      <div id="main-content">
-        <slot></slot>
+    <div id="main">
+      <slot></slot>
+    </div>
+  
+    <div id="feature-holder">
+      <div id="feature">
+        <slot name="feature"></slot>
       </div>
+    </div>
 
-    </app-header-layout>
+    <div id="bar-holder">
+      <div id="bar">
+        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon" on-click="_onOpenDrawerClick"></paper-icon-button>
+        <div id="extra" hidden$="[[!hasGameButtons]]">
+          <paper-icon-button icon="santa:pause" on-click="_onPauseClick" class="toolbar-icon"></paper-icon-button>
+        </div>
+        <div id="title">
+          <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
+            <div class="logo">Google</div>
+            <h1>
+              <i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg>
+            </h1>
+          </a>
+          <div class="grow"></div>
+          <countdown-timer hidden="[[!_remainingTime]]" remaining-time="[[_remainingTime]]">
+            <h2 slot="days"><i18n-msg msgid="countdown_days">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="hours"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
+            <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
+          </countdown-timer>
+        </div>
+      </div>
+    </div>
   </app-drawer-layout>
 
 </template>
@@ -105,12 +101,8 @@ specific language governing permissions and limitations under the License.
 
     properties: {
 
-      /**
-       * Whether the top-right buttons are visible.
-       */
-      _buttonsOpen: {
-        type: Boolean,
-        value: false,
+      _remainingTime: {
+        type: Number,
       },
 
       /**
@@ -142,47 +134,28 @@ specific language governing permissions and limitations under the License.
       /**
        * True if the drawer is opened. Used for Analytics.
        */
-      _drawerOpened: {
+      drawerOpen: {
         type: Boolean,
-        observer: '_drawerOpenedChanged',
-      },
-
-      /**
-       * Whether to disable this `santa-chrome` completely, effectively hiding
-       * its contents. Used by cast.
-       */
-      disabled: {
-        type: Boolean,
+        value: false,
       },
 
     },
 
-    /**
-     * Close the `santa-chrome` drawer.
-     * @return {boolean} true if the drawer was closed
-     */
-    closeDrawer: function() {
-      const wasClosed = this.$.drawer.opened;
-      this.$.drawer.close();
-      window.santaApp.focus();
-      return wasClosed;
+    _closeDrawer: function() {
+      this.drawerOpen = false;
     },
 
-    _drawerOpenedChanged: function() {
-      if (this._drawerOpened) {
-        window.ga('send', 'event', 'nav', 'click', 'drawer');
-      }
-    },
-
-    _maybeCloseButtons: function(ev) {
-      if (this.$.buttons.close()) {
-        ev.preventDefault();
-        ev.stopPropagation();
-      }
+    _onOpenDrawerClick: function() {
+      window.ga('send', 'event', 'nav', 'click', 'drawer');
     },
 
     _onTitleClick: function() {
       window.ga('send', 'event', 'nav', 'click', 'title');
+    },
+
+    _onPauseClick: function() {
+      this.pause = true;
+      window.ga('send', 'event', 'nav', 'click', 'pause');
     },
 
   });

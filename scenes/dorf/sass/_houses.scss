@@ -14,6 +14,7 @@ $houses:
 "seasonofgiving",
 "santaselfie",
 "penguindash",
+"poseboogie",
 "santasearch",
 "codelab",
 "commandcentre",
@@ -39,12 +40,11 @@ $houses:
 "speedsketch",
 ;
 
-// 0th is 'new today'
 $cells:
     // row 0
-    0   0  ,
-    123 208,
-    124 227,
+    170 225,
+    143 218,
+    124 230,
     130 286,
     // row 1
     134 290,
@@ -115,7 +115,7 @@ $cells:
       transform: translate(-50%, -50%);
     }
     @for $i from 1 through length($cells) {
-      .link:nth-child(#{$i - 1}) {
+      .link:nth-child(#{$i}) {
         $row: floor(($i - 1) / 4);
         $col: ($i - 1) % 4;
 
@@ -133,7 +133,7 @@ $cells:
   #links {
     // FIXME: this is a horrible clone of above for 320px dimensions.
     @for $i from 1 through length($cells) {
-      .link:nth-child(#{$i - 1}) {
+      .link:nth-child(#{$i}) {
         $row: floor(($i - 1) / 4);
         $col: ($i - 1) % 4;
 

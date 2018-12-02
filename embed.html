@@ -1,5 +1,5 @@
 <!--
-Copyright 2017 Google Inc. All rights reserved.
+Copyright 2018 Google LLC
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
@@ -39,6 +39,15 @@ window.Polymer = {
   useNativeCSSProperties: true,
 };
 
+const skipElements = ['santa-chrome', 'santa-badge', 'santa-sidebar', 'santa-overlay', 'santa-video'];
+const realCEDefine = customElements.define;
+customElements.define = (name, ctor) => {
+  if (skipElements.indexOf(name) === -1) {
+    return realCEDefine.call(customElements, name, ctor);
+  }
+};
+
+
 window.addEventListener('DOMContentLoaded', function() {
   // initial route is always /embed.html#route
   window.santaApp.route = window.location.hash.substr(1);
@@ -68,6 +77,7 @@ document.addEventListener('beforeload', (ev) => {
 (function() {
   const s = window.santaApp;
   let messagePort = null;
+  let queue = {};
 
   /**
    * Send a message to the controlling interface.
@@ -82,8 +92,9 @@ document.addEventListener('beforeload', (ev) => {
       return;
     }
 
-    console.debug('sending', message);
+    console.debug('sending to embed', message);
     if (!messagePort) {
+      queue[message.type] = message.data;
       return;
     }
     messagePort.postMessage(JSON.stringify(message));
@@ -131,6 +142,12 @@ document.addEventListener('beforeload', (ev) => {
 
     messagePort = e.ports[0];
     messagePort.onmessage = (e) => recv(e.data);
+    console.debug('got messagePort from embed', messagePort, 'clearing queue', queue);
+
+    for (const k in queue) {
+      messagePort.postMessage(JSON.stringify({type: k, data: queue[k]}))
+    }
+    queue = null;
   });
   s.addEventListener('embed', (e) => send(e.detail));
 }());
