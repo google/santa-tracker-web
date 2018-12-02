@@ -974,7 +974,7 @@ Polymer({
     this.$.lazypages.load(route);
   },
 
-  onRandom: function(ev) {
+  get nextRandom() {
     let i;
     for (i = 0; i < randomHouses.length; ++i) {
       const check = randomHouses[i];
@@ -983,17 +983,18 @@ Polymer({
         break;
       }
     }
-    if (i === randomHouses.length) {
-      return;  // nothing found?
+    return randomHouses[i];
+  },
+
+  onRandom: function(ev) {
+    const choice = this.nextRandom;
+    const index = randomHouses.indexOf(choice);
+    if (index !== -1) {
+      // place skipped options at the end of randomHouses, so we always look from the front
+      const done = randomHouses.splice(0, index + 1);
+      randomHouses.push.apply(randomHouses, done);
     }
-
-    // place skipped options at the end of randomHouses, so we always look from the front
-    const choice = randomHouses[i];
-    const done = randomHouses.splice(0, i + 1);
-    randomHouses.push.apply(randomHouses, done);
-
-//    santaApp.route = choice;
-    this.$.lazypages.load(choice);
+    this.$.lazypages.load(choice || this.defaultRoute);
   },
 
   /**
@@ -1167,7 +1168,6 @@ Polymer({
     });
 
     if (updateLocked) {
-      console.info('got changes', updateLocked);
       this._housesLocked = Object.freeze(updateLocked);
       this.fire('houses-changed');
     }

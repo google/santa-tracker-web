@@ -47,7 +47,7 @@ Santa's Village.
     </a>
     <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
 
-    <button id="play" on-click="_onClickPlayRound">
+    <button id="play" hidden$="[[_playHidden]]" on-click="_onClickPlayRound">
       <i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg>
     </button>
 
@@ -199,6 +199,10 @@ Santa's Village.
         value: Object.freeze(EASTER_EGGS),
       },
 
+      _playHidden: {
+        type: Boolean,
+      },
+
       /** Whether this is the full village. Used to control stamping of easter eggs. */
       _isSceneVillage: {
         type: Boolean,
@@ -325,6 +329,7 @@ Santa's Village.
       const t = window.santaApp;
 
       this._refreshHouseData = () => {
+        this._playHidden = !(t.nextRandom);
         this.houses = t.houses.map((house) => {
           return {
             locked: !t.sceneIsOpen(house.module),

@@ -34,6 +34,7 @@ window.HOUSES = [{
 }, {
   module: 'codelab',
   category: 'learn',
+  launchDate: new Date('Dec 4, 2018'),
   edu: true,
 }, {
   module: 'traditions',
@@ -47,6 +48,7 @@ window.HOUSES = [{
 }, {
   module: 'snowflake',
   category: 'learn',
+  launchDate: new Date('Dec 4, 2018'),
   edu: true,
 }, {
   module: 'presentbounce',
@@ -61,9 +63,11 @@ window.HOUSES = [{
   module: 'santascanvas',
   category: 'play',
   launchDate: new Date('Dec 4, 2018'),
+  edu: true,
 }, {
   module: 'codeboogie',
   category: 'play',
+  launchDate: new Date('Dec 4, 2018'),
   edu: true,
 }, {
   module: 'app',
