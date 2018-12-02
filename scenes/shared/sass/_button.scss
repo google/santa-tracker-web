@@ -112,7 +112,7 @@ $shared: '../shared/' !default;
 
     &:active {
       transition-duration: $duration-in;
-      transform: translate(0, 0);
+      transform: translate(0, 0) !important;
     }
   }
 
