@@ -249,7 +249,10 @@ Santa's Village.
      * Calculates the href to load for this house.
      */
     _calculateHref: function(link, module, locked) {
-      return locked || (link || this.urlFor(module)) || null;
+      if (locked) {
+        return null;
+      }
+      return link || this.urlFor(module) || null;
     },
 
     /**
