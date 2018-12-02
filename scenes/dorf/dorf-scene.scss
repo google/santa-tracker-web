@@ -502,8 +502,8 @@ footer {
     }
 
     &[href] {
-      // order in reverse order, if released
-      order: var(--release-order, 0);
+      // if unlocked, then move to top
+      order: -1;
 
       .card {
         &::after {
