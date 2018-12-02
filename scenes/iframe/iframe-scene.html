@@ -160,6 +160,9 @@ specific language governing permissions and limitations under the License.
           case 'gameover':
             this._gameoverFromClient(ev.data.payload || {});
             break;
+          case 'ga':
+            window.ga.apply(window.ga, ev.data.payload);
+            break;
           default:
             console.debug('got', ev.data.type, 'from iframe-scene', ev.data.payload);
         }
