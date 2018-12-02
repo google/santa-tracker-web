@@ -1131,13 +1131,13 @@
 		"message": "El 24 de desembre llançarem Segueix el Pare Noel, un tauler que permet als fans del Pare Noel seguir el seu recorregut per totes les ciutats. També pots veure la seva ubicació en directe a Google Maps i preguntar a l'Assistent de Google \"OK Google, on és el Pare Noel?\". D'aquesta manera, pots saber on és el Pare Noel en qualsevol moment, siguis on siguis."
 	},
 	"press-about-village": {
-		"message": "Sobre l'aldea del Pare Noel"
+		"message": "Sobre el llogaret del Pare Noel"
 	},
 	"press-about-village1": {
-		"message": "L'aldea del Pare Noel celebra el quinzè any d'activitats nadalenques divertides, educatives i interactives. Sota l'atenta supervisió de la Mare Noel, els elfs han redissenyat l'aldea amb un estil elegant i contingut nou. A més, gràcies a un nou sistema de calefacció que funciona amb xocolata calenta, no caldrà esperar tot el mes de desembre per poder gaudir de les més de 20 activitats: estaran disponibles a partir del dia 4. D'aquesta manera, tindràs més temps per jugar i explorar l'aldea del Pare Noel amb els elfs."
+		"message": "El llogaret del Pare Noel celebra el quinzè any d'activitats nadalenques divertides, educatives i interactives. Sota l'atenta supervisió de la Mare Noel, els elfs han redissenyat l'aldea amb un estil elegant i contingut nou. A més, gràcies a un nou sistema de calefacció que funciona amb xocolata calenta, no caldrà esperar tot el mes de desembre per poder gaudir de les més de 20 activitats: estaran disponibles a partir del dia 4. D'aquesta manera, tindràs més temps per jugar i explorar el llogaret del Pare Noel amb els elfs."
 	},
 	"press-about-village2": {
-		"message": "A l'aldea, pots practicar habilitats de programació bàsiques, crear material gràfic original, posar a prova els teus coneixements de geografia i obtenir més informació sobre organitzacions benèfiques, com ara \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Els professors fins i tot poden \u003ca href=\"./educators.html\"\u003ebaixar classes\u003c/a\u003e amb videoguies que permetran als estudiants aprendre habilitats de programació bàsiques i tradicions nadalenques en anglès, espanyol, francès, japonès i coreà."
+		"message": "Al llogaret, pots fer activitats bàsiques de programació, crear il·lustracions originals, posar a prova els teus coneixements de geografia i obtenir més informació sobre organitzacions benèfiques, com ara \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Els professors fins i tot poden \u003ca href=\"./educators.html\"\u003ebaixar unitats didàctiques\u003c/a\u003e amb videoguies que permetran als estudiants aprendre conceptes bàsics de programació i tradicions nadalenques en anglès, espanyol, francès, japonès i coreà."
 	},
 	"press-asset-animation": {
 		"message": "Animació"
@@ -1173,13 +1173,13 @@
 		"message": "Obert tot desembre"
 	},
 	"press-villagetracker-title": {
-		"message": "L'aldea del Pare Noel i Segueix el Pare Noel"
+		"message": "El llogaret del Pare Noel i Segueix el Pare Noel"
 	},
 	"press-whatsnew": {
 		"message": "Novetats d'aquest any"
 	},
 	"press-whatsnew1-text": {
-		"message": "Dissenya el teu propi elf de cap a peus i assegura't que quedi elftàstic per a totes les festes nadalenques que se celebren al pol nord."
+		"message": "Dissenya el teu propi elf de cap a peus i assegura't que quedi el(f)egant per a totes les festes nadalenques que se celebren al pol Nord."
 	},
 	"press-whatsnew1-title": {
 		"message": "Crea un elf:"
@@ -1191,7 +1191,7 @@
 		"message": "Balla amb els elfs:"
 	},
 	"press-whatsnew3-text": {
-		"message": "També podràs consultar la ubicació del Pare Noel en temps real a Google Maps. Només has de tocar el botó d'hamburguesa i, a continuació, a \"Ubicació compartida\" per mirar on és exactament el Pare Noel durant el seu recorregut."
+		"message": "També podràs consultar la ubicació del Pare Noel en temps real a Google Maps. Només has de tocar el botó de tres punts i, a continuació, a Ubicació compartida per mirar on és exactament el Pare Noel durant el seu recorregut."
 	},
 	"press-whatsnew3-title": {
 		"message": "Una nova manera de seguir el Pare Noel:"
@@ -6757,9 +6757,6 @@
 	},
 	"ve_country_name": {
 		"message": "Veneçuela"
-	},
-	"village_assistant-call_santa": {
-		"message": "Truca al Pare Noel amb l'Assistent de Google"
 	},
 	"village_comeback": {
 		"message": "Torna el dia 24 i ajuda'ns a seguir el Pare Noel tota la nit!"

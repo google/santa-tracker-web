@@ -2147,6 +2147,22 @@
     "description": "Tell user to make a postcard and share it.",
     "message": "Choose a postcard and share your snowflake with friends"
   },
+  "sidebar_earth_quiz": {
+    "description": "Link to a quiz hosted on Google Earth",
+    "message": "Google Earth: Holiday Traditions quiz"
+  },
+  "sidebar_trends": {
+    "description": "Link to information about holiday-themed searches",
+    "message": "Google Trends: Holiday searches"
+  },
+  "sidebar_code_emoji": {
+    "description": "Link to a tool on the 'Made with Code' site that helps you make a custom emoji",
+    "message": "Made with Code: Holiday Emoji"
+  },
+  "sidebar_santas_location": {
+    "description": "Link to information about seeing Santa in the Location Sharing feature inside Google Maps",
+    "message": "Google Maps: Santa's Location"
+  },
   "sk_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Slovakia"
@@ -9049,13 +9065,17 @@
     "description": "Menu item for playing a quiz with Santa",
     "message": "Santa Earth Quiz"
   },
-  "village_assistant-call_santa": {
+  "village_assistant-holiday_story": {
     "description": "Menu item linking to information about listening to a story with the Google Assistant",
-    "message": "Holiday Story with the Google Assistant"
+    "message": "Google Assistant: Holiday Story"
   },
   "village_assistant-call_santa": {
     "description": "Menu item linking to information about calling Santa with the Assistant",
-    "message": "Call Santa with the Google Assistant"
+    "message": "Google Assistant: Call Santa"
+  },
+  "village_assistant-wheres_santa": {
+    "description": "Menu item linking to information about finding out where Santa is with the Assistant",
+    "message": "Google Assistant: Where's Santa"
   },
   "village_takesoff": {
     "description": "Message describing when Santa Takes off, will be followed by a countdown",
