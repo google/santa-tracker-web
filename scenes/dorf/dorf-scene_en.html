@@ -64,8 +64,8 @@ Santa's Village.
   <div id="links" on-mouseover="_onHousesOver" on-mouseout="_onHousesOut">
     <template is="dom-repeat" items="[[houses]]">
       <a class="link"
+          target="_blank"
           href$="[[_calculateHref(item, item.locked)]]"
-          target$="[[_calculateTarget(item.link)]]"
           house$="[[item.module]]"
           style$="[[_computeLinkStyle(item.module, item.launchDate)]]">
         <div class="card">
@@ -158,9 +158,7 @@ Santa's Village.
       <div id="houses" class="cells">
         <template is="dom-repeat" items="[[houses]]">
           <div class="cell">
-            <village-house house="[[item.module]]"
-                opens="[[_computeDateNo(item.launchDate)]]"
-                locked="[[item.locked]]"></village-house>
+            <village-house house="[[item.module]]" locked="[[item.locked]]"></village-house>
           </div>
         </template>
       </div>
@@ -254,20 +252,6 @@ Santa's Village.
     },
 
     /**
-     * Calculates the target to load this link into.
-     */
-    _calculateTarget: function(href) {
-      return Boolean(href) ? '_blank' : null;
-    },
-
-    /**
-     * Calculates the numeric (i.e., day of month) date for this Date.
-     */
-    _computeDateNo: function(date) {
-      return date && date.getDate() || '';
-    },
-
-    /**
      * Returns the string from the passed Object in the form `type-id`. Used
      * to look up dynamic strings.
      */
@@ -335,35 +319,29 @@ Santa's Village.
 
     created: function() {
       const t = window.santaApp;
-      this._refreshHouseData = () => {
-        this.houses = t.houses;
 
-        // TODO(samthor): Notify all properties that might change. Polymer 1.x+ cannot use O.o, and
-        // there's no way to notify a whole house.
-        const propertiesToNotify = ['locked', 'disabled'];
-        const path = ['houses', 0, ''];
-        this.houses.forEach((house, i) => {
-          path[1] = i;
-          propertiesToNotify.forEach((property) => {
-            path[2] = property;
-            this.notifyPath(path, house[property]);
-          });
+      this._refreshHouseData = () => {
+        this.houses = t.houses.map((house) => {
+          return {
+            locked: !t.sceneIsOpen(house.module),
+            module: house.module,
+            link: house.link,
+            launchDate: house.launchDate,
+            category: house.category,
+          };
         });
       };
-
-      this.houses = t.houses;
+      this._refreshHouseData();
     },
 
     attached: function() {
       const t = window.santaApp;
-      t.addEventListener('today-house-changed', this._refreshHouseData);
       t.addEventListener('houses-changed', this._refreshHouseData);
       this._refreshHouseData();
     },
 
     detached: function() {
       const t = window.santaApp;
-      t.removeEventListener('today-house-changed', this._refreshHouseData);
       t.removeEventListener('houses-changed', this._refreshHouseData);
     },
 

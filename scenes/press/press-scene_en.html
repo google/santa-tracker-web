@@ -101,6 +101,7 @@ specific language governing permissions and limitations under the License.
           <template is="dom-repeat" items="[[cards]]" as="card">
 
             <info-card filter$="[[card.filter]]"
+                locked="[[card.locked]]"
                 image="[[_computeInfoCardImage(card.key)]]"
                 href="[[urlFor(card.key)]]">
               <h4>[[card.title]]</h4>
@@ -229,11 +230,7 @@ specific language governing permissions and limitations under the License.
         if (key[0] === '_') {
           return false;  // android
         }
-        var locked = santaApp.sceneIsOpen(key, true) === false;
-        if (window.DEV && Math.random() > 0.5) {
-          locked = true;
-        }
-        return locked;
+        return !santaApp.sceneIsOpen(key, true);
       });
     },
 
