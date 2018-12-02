@@ -34,6 +34,12 @@ specific language governing permissions and limitations under the License.
      * Returns the URL for the given route.
      */
     urlFor: function(route) {
+      route = route || '';
+
+      if (route[0] === '_') {
+        return null;  // app link, don't do anything
+      }
+
       // nb. When Santa used base href, this used to calculate an origin-relative link. Now, it's
       // still needed. Real URLs in Polymer elements are automagically resolved, but we don't want
       // this, so a simple attribute helper avoids that.

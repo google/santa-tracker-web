@@ -92,6 +92,18 @@ function isSameDay(date1, date2) {
 }
 
 /**
+ * Generates the locale-based string for the given long date, like "December 4".
+ *
+ * @param {string} longDate 
+ * @return {string}
+ * @export
+ */
+function computeDateName(longDate) {
+  const d = new Date(longDate + ', ' + (new Date).getUTCFullYear());
+  return d.toLocaleDateString(document.documentElement.lang || 'en', {month: 'long', day: 'numeric'});
+}
+
+/**
  * @param {string} param URL parameter to look for.
  * @return {string|undefined} undefined if the URL parameter does not exist.
  * @export

@@ -33,14 +33,14 @@ specific language governing permissions and limitations under the License.
   <div class="cards">
     <a href$="[[urlFor('village')]]">
       <div class="menucard menucard-village">
-        <h2><i18n-msg msgid="press-villagetracker-opendec">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2>[[_dec4th]]</h2>
         <h3><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h3>
       </div>
     </a>
     <a href$="[[_computeTrackerUrl(_duringTracker)]]">
       <div class="menucard menucard-tracker">
         <div class="lock" hidden$="[[_duringTracker]]"></div>
-        <h2><i18n-msg msgid="dec24th">PLACEHOLDER_i18n</i18n-msg></h2>
+        <h2>[[_dec24th]]</h2>
         <h3><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></h3>
       </div>
     </a>
@@ -68,6 +68,20 @@ specific language governing permissions and limitations under the License.
       <li hidden$="[[!_holidaySeason]]"><a target="_blank" href$="[[localizeUrl('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')]]">
         <i18n-msg msgid="village_get_the_app">PLACEHOLDER_i18n</i18n-msg>
       </a></li>
+
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href="https://g.co/earth/holidayquiz">
+        <i18n-msg msgid="sidebar_earth_quiz">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href="https://www.madewithcode.com/projects/holidayemoji">
+        <i18n-msg msgid="sidebar_code_emoji">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href="https://assistant.google.com/services/a/uid/00000049b093b19c">
+        <i18n-msg msgid="village_assistant-call_santa">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+      <li hidden$="[[!_holidaySeason]]"><a target="_blank" href="https://assistant.google.com/services/a/uid/0000005e3cde0cc0">
+        <i18n-msg msgid="village_assistant-holiday_story">PLACEHOLDER_i18n</i18n-msg>
+      </a></li>
+
     </ul>
   </div>
 
@@ -131,6 +145,16 @@ Polymer({
   ],
 
   properties: {
+
+    _dec24th: {
+      type: String,
+      value: computeDateName('December 24'),
+    },
+
+    _dec4th: {
+      type: String,
+      value: computeDateName('December 4'),
+    },
 
     a2hsAvailable: {
       type: Boolean,

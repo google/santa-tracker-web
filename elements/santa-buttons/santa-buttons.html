@@ -15,54 +15,27 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../../components/polymer/polymer.html">
 
 <link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
 <link rel="import" href="../santa-icons.html">
-<link rel="import" href="../santa-state.html">
-<link rel="import" href="../santa-strings.html">
 <link rel="import" href="santa-buttons_module.html">
 
 <dom-module id="santa-buttons">
 <template>
   <style include="santa-buttons_module"></style>
-  <santa-strings strings="{{_strings}}"></santa-strings>
 
-  <iron-media-query query="(min-width: 768px)"
-      query-matches="{{_isTabletMode}}"></iron-media-query>
+  <div class="buttons">
 
-  <div class="buttons" open$="[[_computeOpenAttr(open, _singleOrNoIcon, _isTabletMode)]]">
+    <paper-icon-button
+        hidden$="[[!hasGameButtons]]"
+        on-click="_togglePause"
+        icon$="[[_computeGameIcon(pause)]]">
+    </paper-icon-button>
 
-    <paper-icon-button icon="santa:more" on-click="_onShowMore"></paper-icon-button>
+    <paper-icon-button id="sound"
+        data-mute$="[[mute]]"
+        on-click="_toggleSounds"
+        icon$="[[_computeSoundIcon(mute)]]">
+    </paper-icon-button>
 
-    <div class="buttons-overflow" id="choices" on-click="_onClickOverflow">
-      <div class="group" hidden$="[[_supportsWebShare]]" class="external-link" on-click="_onShare">
-        <paper-icon-button id="facebook" icon="santa:share-facebook"></paper-icon-button>
-        <paper-icon-button id="twitter" icon="santa:share-twitter"></paper-icon-button>
-      </div>
-
-      <paper-icon-button id="webshare" data-title$="[[_computeLabel(_strings, 'share')]]"
-          class="external-link"
-          hidden$="[[!_supportsWebShare]]"
-          on-click="_onShare"
-          icon="santa:share">
-      </paper-icon-button>
-
-      <!-- <paper-icon-button data-title="Fullscreen"
-          icon="santa:fullscreen">
-      </paper-icon-button> -->
-
-      <paper-icon-button id="sound" data-title$="[[_computeMuteString(_strings, mute)]]"
-          data-mute$="[[mute]]"
-          on-click="_toggleSounds"
-          icon$="santa:[[_computeSoundIcon(mute)]]">
-      </paper-icon-button>
-
-      <paper-icon-button data-title$="[[_computePauseString(_strings, pause)]]"
-          hidden$="[[!hasGameButtons]]"
-          on-click="_togglePause"
-          icon$="santa:[[_computeGameIcon(pause)]]">
-      </paper-icon-button>
-
-    </div>
   </div>
 
 </template>
@@ -73,28 +46,6 @@ specific language governing permissions and limitations under the License.
     is: 'santa-buttons',
 
     properties: {
-
-      /**
-       * Whether the button display is open.
-       */
-      open: {
-        type: Boolean,
-        readOnly: true,
-        notify: true,
-        value: false,
-      },
-
-      /**
-       * Whether we support Web Share.
-       */
-      _supportsWebShare: {
-        type: Boolean,
-        value: () => 'share' in navigator,
-      },
-
-      _strings: {
-        type: Object,
-      },
 
       hasGameButtons: {
         type: Boolean,
@@ -111,106 +62,24 @@ specific language governing permissions and limitations under the License.
         notify: true,
       },
 
-      _isTabletMode: {
-        type: Boolean,
-      },
-
-      _singleOrNoIcon: {
-        type: Boolean,
-        value: false,
-      },
-
-    },
-
-    observers: [
-      '_updateDisplayMode(_supportsWebShare, hasGameButtons, _isTabletMode, mute)',
-    ],
-
-    close: function() {
-      if (this.open) {
-        this._setOpen(false);
-        return true;
-      }
-      return false;
-    },
-
-    _onClickOverflow: function(ev) {
-      ev.stopPropagation();
-    },
-
-    _onShowMore: function(ev) {
-      ev.stopPropagation();
-      ev.preventDefault();
-
-      const v = !(this.open && ev.type === 'click');
-      this._setOpen(v);
-    },
-
-    _computeOpenAttr: function(open, singleOrNoIcon, tabletMode) {
-      if (open) {
-        return true;
-      } else if (singleOrNoIcon && tabletMode) {
-        return true;
-      }
-      return false;
-    },
-
-    _updateDisplayMode: function() {
-      const choices = this.$.choices.children;
-      const found = [];
-      for (let i = 0; i < choices.length; ++i) {
-        const cand = choices[i];
-        if (cand.offsetWidth) {
-          if (!found.length) {
-            cand.classList.add('first');
-          }
-          found.push(cand);
-          continue;
-        }
-        cand.classList.remove('first');
-      }
-
-      // TODO: restore when CSS supports this
-      // this._singleOrNoIcon = (found.length <= 1);
-    },
-
-    _onShare: function(ev) {
-      window.ga('send', 'event', 'nav', 'click', 'share');
-      const p = ev.target.closest('paper-icon-button');
-      if (p) {
-        ev.preventDefault();
-        this.fire('share', {network: p.id});
-      }
-    },
-
-    _computeLabel: function(strings, id) {
-      return (strings && strings[id]) || '';
-    },
-
-    _computeMuteString: function(strings, mute) {
-      const id = mute ? 'unmute' : 'mute';
-      return this._computeLabel(strings, id);
-    },
-
-    _computePauseString: function(strings, pause) {
-      const id = pause ? 'play' : 'pause';
-      return this._computeLabel(strings, id);
-    },
-
-    _computeSoundIcon: function(mute) {
-      return mute ? 'sound-off' : 'sound-on';
     },
 
     _toggleSounds: function() {
+      this.fire('sound-trigger', 'generic_button_click');
       window.ga('send', 'event', 'nav', 'click', this.mute ? 'mute' : 'unmute');
       this.mute = !this.mute;
     },
 
     _computeGameIcon: function(pause) {
-      return pause ? 'play' : 'pause';
+      return 'santa:' + (pause ? 'play' : 'pause');
+    },
+
+    _computeSoundIcon: function(mute) {
+      return 'santa:' + (mute ? 'sound-off' : 'sound-on');
     },
 
     _togglePause: function() {
+      this.fire('sound-trigger', 'generic_button_click');
       window.ga('send', 'event', 'nav', 'click', this.pause ? 'pause' : 'play');
       this.pause = !this.pause;
     },

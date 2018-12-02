@@ -5,41 +5,67 @@ $size-inset: 8px;
   will-change: transform;
 }
 
-[hidden] {
-  display: none !important;
+svg {
+  .shadow { opacity: 0.1; }
+  .fill { fill: #6f00ff; }
 }
+
 .items {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 38px;
   position: relative;
+  color: white;
+  transition: transform 0.25s ease-in-out;
+  transform: translateY(0);
+
+  &[hidden] {
+    display: flex;
+    transform: translateY(-60px);
+  }
 
   > div {
-    min-width: 66px;
+    width: 56px;
+    min-width: 56px;
+  }
+}
+
+#background {
+  $width: 184px;
+  position: absolute;
+  left: 50%;
+  width: $width;
+  margin-left: -($width / 2);
+  z-index: -1;
+
+  svg {
+    width: $width;
   }
 }
 
 .cell {
+  z-index: 1;  // Edge needs this or it might disappear - maybe layer equivalent?
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   text-align: center;
-  font-weight: 900;
+  font-weight: 700;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .value {
-  font-size: 19px;
-  line-height: 25px;
+  font-size: 17px;
+  line-height: 21px;
   will-change: transform;
 }
 
 .feature {
-  align-self: flex-start;
   position: relative;
-  height: 48px;
-  width: 55px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -47,18 +73,15 @@ $size-inset: 8px;
   svg {
     position: absolute;
     left: 50%;
-    top: 0;
-    transform: translate(-50%);
-    width: 80px;
+    top: 50%;
+    transform: translate(-50%, -50%) translateY(4px) scaleX(0.8);
+    width: 68px;
 
-    #shadow { opacity: 0.1; }
-    #fill { fill: var(--santa-feature-color, #00e8bf); }
+    .fill {
+      fill: #5f00ee;
+    }
   }
 
-  .value {
-    font-size: 21px;
-  }
-  
   .icon {
     position: absolute;
     left: 0;
@@ -75,7 +98,6 @@ $size-inset: 8px;
   .cell {
     transition: transform 0.4s;
     will-change: transform;
-    transform: translateY(0);
   }
   &.icon .icon {
     transform: translateY(0);
@@ -88,7 +110,7 @@ $size-inset: 8px;
 .label {
   font-size: 9px;
   line-height: 13px;
-  font-weight: 900;
+  letter-spacing: -0.25px;
   text-transform: uppercase;
 }
 .dim {
@@ -102,33 +124,6 @@ small {
   transform: scale(0.6);
   margin: 0 -5px;
   font-weight: normal;
-}
-
-@media (max-width: 768px - 1px) {
-  #level {
-    // This is a bit ugly: we're still in the flexbox, but move us to the left, where the #score
-    // exists. We then translate ourselves up to hide.
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transform: translateY(-100%);
-    will-change: transform;
-    transition: transform 0.4s;
-  }
-
-  #score {
-    transform: translateY(0);
-    will-change: transform;
-    transition: transform 0.4s;
-  }
-
-  .level-active #level {
-    transform: translateY(0);
-  }
-  .level-active #score {
-    transform: translateX(100%);
-  }
 }
 
 .feature .icon {

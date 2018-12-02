@@ -45,6 +45,13 @@ app.Game = class {
     this.elem = $(elem);
     this.componentDir = componentDir;
 
+    this.ready = new Promise((resolve) => {
+      this._resolveReady = resolve;
+    });
+    this.ready = this.ready.then(() => {
+      this.setUpCacheCanvas();
+    });
+
     this.gameStartTime = null;
     this.paused = false;
     this.isPlaying = false;
@@ -239,8 +246,8 @@ app.Game = class {
     image.onload = () => {
       this.images[name] = image;
       this.imagesLoaded++;
-      if (this.imagesLoaded == 4) {
-        this.setUpCacheCanvas();
+      if (this.imagesLoaded >= this.imageNames.length) {
+        this._resolveReady();
       }
     };
 

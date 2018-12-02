@@ -227,12 +227,13 @@ Wrap Battle scene.
         // TODO: Don't load a 3.2mb gif :|
         this.preloadImages(['img/wrap-battle-mobile.gif']);
       }
+
+      var module = this.$['module-wrapbattle'];
+      this.game = new scenes.wrapbattle.Game(module, this.resolveUrl('.'));
+      this.preloadPromise(this.game.ready);
     },
 
     onShow: function() {
-      var module = this.$['module-wrapbattle'];
-
-      this.game = new scenes.wrapbattle.Game(module, this.resolveUrl('.'));
       this.fire('sound-ambient', 'wrapbattle_start');
     },
 

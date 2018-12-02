@@ -71,7 +71,7 @@ specific language governing permissions and limitations under the License.
 
         <info-card image="[[importPath]]img/tmb-santas-village.png">
           <h4><i18n-msg msgid="santasvillage">PLACEHOLDER_i18n</i18n-msg></h4>
-          <h5><i18n-msg msgid="press-villagetracker-opendec">PLACEHOLDER_i18n</i18n-msg></h5>
+          <h5>[[_dec4th]]</h5>
           <p>While millions of people eagerly await Dec 24th, Santa and his elves are keeping busy at the North Pole. This year, they've realized it's time to study up on geography and coding to ensure Santa's sleigh goes on the most efficient path around the world using the most advanced algorithms. It's his biggest night of the year! </p>
           <div class="card-links">
             <span class="card-title"><i18n-msg msgid="press-asset-resources">PLACEHOLDER_i18n</i18n-msg></span>
@@ -81,7 +81,7 @@ specific language governing permissions and limitations under the License.
 
         <info-card image="[[importPath]]img/tmb-santa-tracker.png">
           <h4><i18n-msg msgid="santatracker">PLACEHOLDER_i18n</i18n-msg></h4>
-          <h5><i18n-msg msgid="press-villagetracker-open24th">PLACEHOLDER_i18n</i18n-msg></h5>
+          <h5>[[_dec24th]]</h5>
           <p>On his sleigh, arguably the fastest airborne vehicle in the world, Santa whips from city to city. Follow him each step of the way on <a href="https://google.com/santatracker">google.com/santatracker</a>. Get the latest updates on his location, play exclusive games only available on the 24th, or dive into Street View of all the cities he'll visit that night.</p>
           <div class="card-links">
             <span class="card-title"><i18n-msg msgid="press-asset-resources">PLACEHOLDER_i18n</i18n-msg></span>
@@ -101,6 +101,7 @@ specific language governing permissions and limitations under the License.
           <template is="dom-repeat" items="[[cards]]" as="card">
 
             <info-card filter$="[[card.filter]]"
+                locked="[[card.locked]]"
                 image="[[_computeInfoCardImage(card.key)]]"
                 href="[[urlFor(card.key)]]">
               <h4>[[card.title]]</h4>
@@ -171,7 +172,7 @@ specific language governing permissions and limitations under the License.
       <a href="mailto:press@google.com">press@google.com</a>
     </div>
 
-    <div class="hidden">
+    <div hidden>
       <div id="msg_PNG"><i18n-msg msgid="press-asset-screenshot">PLACEHOLDER_i18n</i18n-msg></div>
       <div id="msg_GIF"><i18n-msg msgid="press-asset-animation">PLACEHOLDER_i18n</i18n-msg></div>
     </div>
@@ -184,6 +185,18 @@ specific language governing permissions and limitations under the License.
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
+
+      _dec24th: {
+        type: String,
+        value: computeDateName('December 24'),
+      },
+
+      _dec4th: {
+        type: String,
+        value: computeDateName('December 4'),
+      },
+
+
       scene: Object,
       cards: Array,
     },
@@ -229,11 +242,7 @@ specific language governing permissions and limitations under the License.
         if (key[0] === '_') {
           return false;  // android
         }
-        var locked = santaApp.sceneIsOpen(key, true) === false;
-        if (window.DEV && Math.random() > 0.5) {
-          locked = true;
-        }
-        return locked;
+        return !santaApp.sceneIsOpen(key, true);
       });
     },
 
