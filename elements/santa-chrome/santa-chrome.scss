@@ -74,7 +74,7 @@ app-drawer {
     align-items: center;
     width: 100%;
     transition: width 0.25s ease-in-out;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   &::before {

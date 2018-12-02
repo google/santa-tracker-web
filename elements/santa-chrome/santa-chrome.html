@@ -46,7 +46,7 @@ specific language governing permissions and limitations under the License.
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" opened="{{drawerOpen}}" slot="drawer">
       <div class="drawer-content">
-        <app-toolbar class="close-sidebar" on-tap="closeDrawer">
+        <app-toolbar class="close-sidebar" on-tap="_closeDrawer">
           <paper-icon-button icon="santa:close"></paper-icon-button>
           <span><i18n-msg msgid="close">PLACEHOLDER_i18n</i18n-msg></span>
         </app-toolbar>
@@ -133,6 +133,10 @@ specific language governing permissions and limitations under the License.
         value: false,
       },
 
+    },
+
+    _closeDrawer: function() {
+      this.drawerOpen = false;
     },
 
     _onOpenDrawerClick: function() {
