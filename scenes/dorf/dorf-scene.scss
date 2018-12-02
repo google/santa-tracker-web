@@ -21,10 +21,14 @@ p {
   text-align: center;
   font-weight: 500;
   font-size: 20px;
-  letter-spacing: -1px;
   line-height: 24px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+
+  > span {
+    display: block;
+  }
 }
+
 a {
   color: inherit;
   text-decoration: none;
@@ -66,9 +70,10 @@ countdown-timer {
 
 village-header {
   p {
-    font-size: 16px;
-    font-weight: 500;
     max-width: 600px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-shadow: 0 0 4px #34d4f0, 0 1px 0 rgba(0, 0, 0, .1);
   }
 
   #play {
@@ -249,10 +254,9 @@ footer {
   p {
     padding: 20px 12px;
     color: #3474ba;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 24px;
     max-width: 400px;
-    text-shadow: none;
     text-shadow: 0 1px 0 white; 
     position: relative;
     z-index: 1;  // put above ::after

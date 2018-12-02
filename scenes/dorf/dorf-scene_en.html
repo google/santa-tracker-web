@@ -45,8 +45,14 @@ Santa's Village.
     <a class="button" href$="[[urlFor('tracker')]]">
       <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
     </a>
-    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
-
+    <p hidden$="[[!_playHidden]]" class="date">
+      <i18n-msg msgid="getready">PLACEHOLDER_i18n</i18n-msg>
+      <span>[[_dec4th]]</span>
+    </p>
+    <p hidden$="[[_playHidden]]">
+      <i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg>
+    </p>
+  
     <button id="play" hidden$="[[_playHidden]]" on-click="_onClickPlayRound">
       <i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg>
     </button>
@@ -57,7 +63,13 @@ Santa's Village.
   </village-header>
 
   <div id="mobiletext">
-    <p><i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg></p>
+    <p hidden$="[[!_playHidden]]" class="date">
+      <i18n-msg msgid="getready">PLACEHOLDER_i18n</i18n-msg>
+      <span>[[_dec4th]]</span>
+    </p>
+    <p hidden$="[[_playHidden]]">
+      <i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg>
+    </p>
   </div>
 
   <!-- Actual house links -->
@@ -197,6 +209,11 @@ Santa's Village.
         type: Array,
         readOnly: true,
         value: Object.freeze(EASTER_EGGS),
+      },
+
+      _dec4th: {
+        type: String,
+        value: computeDateName('December 4'),
       },
 
       _playHidden: {

@@ -978,8 +978,12 @@ Polymer({
     let i;
     for (i = 0; i < randomHouses.length; ++i) {
       const check = randomHouses[i];
+      if (santaApp.route === check) {
+        continue;
+      }
+
       // this does NOT allow edu games, only serves open scenes
-      if (santaApp.route !== check && !this._housesLocked[check]) {
+      if (!this.scheduleChecked || !this._housesLocked[check]) {
         break;
       }
     }

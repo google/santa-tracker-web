@@ -45,6 +45,7 @@ svg {
 }
 
 .cell {
+  z-index: 1;  // Edge needs this or it might disappear - maybe layer equivalent?
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
