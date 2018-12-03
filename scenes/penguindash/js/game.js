@@ -227,6 +227,7 @@ app.Game.prototype.watchSceneSize_ = function() {
         height = window.innerHeight - window.santaApp.headerSize,
         scale = width < 980 ? (width + 490) / (980 + 490) : 1;
     this.setScale(scale);
+    console.info('got size', scale);
 
     this.sceneSize.height = height * (1 / this.scale);
     this.sceneSize.width = width * (1 / this.scale);
@@ -244,18 +245,18 @@ app.Game.prototype.watchSceneSize_ = function() {
  * @private
  */
 app.Game.prototype.watchOrientation_ = function() {
-  var updateOrientation = function() {
-    if ((screen.orientation && screen.orientation.angle !== 0) ||
-      (window.orientation && window.orientation !== 0)) {
-      this.pause();
-    }
-    else {
-      this.resume();
-    }
-  }.bind(this);
+  // var updateOrientation = function() {
+  //   if ((screen.orientation && screen.orientation.angle !== 0) ||
+  //     (window.orientation && window.orientation !== 0)) {
+  //     this.pause();
+  //   }
+  //   else {
+  //     this.resume();
+  //   }
+  // }.bind(this);
 
-  updateOrientation();
-  $(window).on('orientationchange.penguindash', updateOrientation);
+  // updateOrientation();
+  // $(window).on('orientationchange.penguindash', updateOrientation);
 };
 
 

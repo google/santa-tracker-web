@@ -117,7 +117,7 @@ Jetpack scene.
       var locked = window.screen.lockOrientation && window.screen.lockOrientation('portrait');
       if (locked || window.santaApp.getAttribute('mode') === 'embed') {
         console.info('locked or embed');
-        locked.hidden = true;
+        this.$.locked.hidden = true;
       }
     },
 
