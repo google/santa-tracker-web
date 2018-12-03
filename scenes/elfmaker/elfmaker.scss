@@ -6,6 +6,7 @@ body {
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 footer {
@@ -27,6 +28,7 @@ maker-elf {
   flex-grow: 1;
   z-index: 100;
   position: relative;
+  overflow: hidden;
 
   .viewport {
     position: absolute;
@@ -39,7 +41,6 @@ maker-elf {
 
   .mid {
     flex-grow: 1;
-    max-width: 80vw;
     position: relative;
 
     display: flex;
@@ -52,35 +53,17 @@ maker-elf {
       padding: 1em 0;
     }
   }
-  
-  .buttons {
-    width: 20vw;
-    min-width: 80px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    max-height: 100%;
+}
 
-    #download {
-      will-change: opacity;
-      opacity: 1;
-      transition: opacity 0.25s;
+santa-button {
+  margin: 12px;
 
-      &:not([href]) {
-        display: block;
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
-
-    santa-button {
-      width: 72px;
-      height: 72px;
-      margin: 12px;
-      font-size: 3em;
-      display: inline-block;
-    }
+  @media (min-width: 768px) {
+    width: 72px;
+    height: 72px;
+    margin: 12px;
+    font-size: 3em;
+    display: inline-block;
   }
 }
 
@@ -97,15 +80,6 @@ maker-elf {
     .mid {
       height: 100%;
     }
-
-    .buttons {
-      santa-button {
-        width: 45px;
-        height: 45px;
-        font-size: 26px;
-        margin: 4px 0;
-      }
-    }
   }
   footer {
     margin-top: 50vh;
@@ -116,4 +90,52 @@ maker-elf {
       min-height: 50vh;
     }
   }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+  align-self: center;
+
+  &.left {
+    left: 20px;
+
+    &::before {
+      content: '';
+      background: red;
+      background: url(img/tray_lg.svg) center/contain no-repeat;
+      position: absolute;
+      left: -20px;
+      top: -20px;
+      right: -20px;
+      bottom: -20px;
+      display: block;
+    }
+  }
+  &.right {
+    right: 20px;
+  }
+}
+
+#download {
+  transform: translate(0);
+  transition: transform 0.25s;
+  margin: 12px;
+  width: 55px;
+  height: 55px;
+
+  santa-button {
+    margin: 0;
+  }
+
+  &:not([href]) {
+    pointer-events: none;
+    transform: translate(180px);
+  }
+}
+
+santa-button[hidden] {
+  display: none !important;
 }

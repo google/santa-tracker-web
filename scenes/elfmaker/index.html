@@ -13,18 +13,19 @@
 
 <main id="main">
   <div class="viewport">
-    <div class="buttons">
+    <div class="buttons left">
       <santa-button id="random" color="purple">shuffle</santa-button>
-      <santa-button id="share" color="green">share</santa-button>
       <santa-button id="camera" color="red">photo_camera</santa-button>
-      <a id="download" download="elfmaker.png">
-        <santa-button color="red">save</santa-button>
-      </a>
     </div>
     <div class="mid">
       <maker-elf id="elf"></maker-elf>
     </div>
-    <div class="buttons"></div>
+    <div class="buttons right">
+      <santa-button id="share" color="green">share</santa-button>
+      <a id="download" download="elfmaker.png">
+        <santa-button color="red">save</santa-button>
+      </a>
+    </div>
   </div>
 </main>
 
@@ -37,6 +38,7 @@
 <script type="module">
 
 import api from '../../src/scene/api.js';
+import {isV1Embed} from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
 import './elements/maker-elf.js';
@@ -69,6 +71,8 @@ api.preload.images(
   'img/btn_right.svg',
   'img/btn_share.svg',
   'img/btn_backgrounds.svg',
+  'img/tray_lg.svg',
+  'img/tray_ornament_lg.svg',
 );
 
 const control = document.getElementById('control');
@@ -111,6 +115,15 @@ camera.addEventListener('click', (ev) => {
 photo.addEventListener('hide', (ev) => {
   download.removeAttribute('href');
 });
+
+if (isV1Embed) {
+  // in embed, make download act like share
+  download.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    share.click();
+  });
+  share.hidden = true;
+}
 
 
 const defaultStep = {className: '', left: {target: 140, range: 5, rate: 1.25}, right: {target: 140, range: 5, rate: 1.5}};

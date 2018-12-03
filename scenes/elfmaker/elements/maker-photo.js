@@ -37,6 +37,9 @@ export class MakerPhotoElement extends LitElement {
   }
 
   async capture(imageSrc) {
+    if (this._flashing) {
+      return;  // do nothing
+    }
     this._recentImageSrc = imageSrc;
 
     window.santaApp.fire('sound-trigger', 'elfmaker_photo');
@@ -61,10 +64,12 @@ export class MakerPhotoElement extends LitElement {
     return html`
 <style>${_style`maker-photo`}</style>
 <div class="flash" ?fill=${this._flashing} @transitionend=${this._flashTransitionend}></div>
-<div class="anim">
-  <label class="outline" ?hidden=${this._hidden} @click=${this._hide}>
-    <div class="inner">${this._image}</div>
-  </label>
+<div class="position">
+  <div class="anim">
+    <label class="outline" ?hidden=${this._hidden} @click=${this._hide}>
+      <div class="inner">${this._image}</div>
+    </label>
+  </div>
 </div>
     `;
   }

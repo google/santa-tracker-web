@@ -9,9 +9,6 @@
 }
 
 :host {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -39,6 +36,18 @@
 
 .anim {
   animation: float 2s infinite alternate;
+}
+
+.position {
+  position: absolute;
+  top: calc(50vh - 75px);
+  right: 0;
+  transform: translate(-80px, -50%);
+
+  @media (max-width: 767px) {
+    top: calc(30vh);
+    transform: translate(-50px, -50%);
+  }
 }
 
 .outline {

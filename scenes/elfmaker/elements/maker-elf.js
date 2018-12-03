@@ -24,6 +24,7 @@ export class MakerElfElement extends LitElement {
     this._leftArm = null;
     this._rightArm = null;
     this.elfClass = '';
+    this._drawing = null;
 
     // Edge fails to ever render if it has NaN/invalid data, so set all defaults here.
     this._offset = performance.now();
@@ -44,10 +45,22 @@ export class MakerElfElement extends LitElement {
     run();
   }
 
+  draw() {
+    if (this._drawing) {
+      return this._drawing;
+    }
+    const d = this._internalDraw();
+    this._drawing = d.then((out) => {
+      this._drawing = null;
+      return out;
+    });
+    return this._drawing;
+  }
+
   /**
    * @return {!Promise<string>}
    */
-  async draw() {
+  async _internalDraw() {
     const canvasWidth = defs.width * 2;
     const canvasHeight = defs.height * 2;
     const canvas = document.createElement('canvas');

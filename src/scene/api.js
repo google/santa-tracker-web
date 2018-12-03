@@ -4,6 +4,7 @@ import * as channel from '../lib/channel.js';
 
 const params = new URLSearchParams(window.location.search);
 const isEmbed = params.has('_embed');
+export const isV1Embed = params.has('_v1-embed');
 
 
 const pendingSoundPreload = [];
