@@ -30,7 +30,7 @@ window.Polymer = {
   useNativeCSSProperties: true,
 };
 
-const skipElements = ['paper-icon-button', 'santa-badge', 'santa-sidebar', 'santa-overlay', 'santa-video'];
+const skipElements = ['paper-icon-button', 'santa-badge', 'santa-sidebar', 'santa-overlay', 'santa-hint'];
 const realCEDefine = customElements.define;
 customElements.define = (name, ctor) => {
   if (skipElements.indexOf(name) === -1) {

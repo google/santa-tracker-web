@@ -1,0 +1,142 @@
+<!--
+Copyright 2018 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-icon/iron-icon.html">
+<link rel="import" href="../santa-app-behavior.html">
+<link rel="import" href="../santa-icons.html">
+<link rel="import" href="santa-hint_module.html">
+
+<!--
+Shared hint for Santa Tracker games.
+-->
+<dom-module id="santa-hint">
+<template>
+  <style include="santa-hint_module"></style>
+
+  <div class="holder" hidden$="[[_computeHidden(pause, _hidden, _preload)]]">
+    <button class="hint" on-click="_onClick">
+      <div class="pulse">
+        <div class="circle" style$="[[_computeCircleStyle(route, _preload)]]">
+          <h4><i18n-msg msgid="next_game">PLACEHOLDER_i18n</i18n-msg></h4>
+        </div>
+      </div>
+    </button>
+    <button class="dismiss" on-click="_onDismiss" hidden$="[[pause]]">
+      <i18n-msg msgid="offline_notification_nothanks">PLACEHOLDER_i18n</i18n-msg>
+    </button>
+  </div>
+
+</template>
+<script>
+
+Polymer({
+  is: 'santa-hint',
+  behaviors: [window.SantaAppBehavior],
+
+  properties: {
+
+    hintSeconds: {
+      type: Number,
+      value: 180,
+    },
+
+    pause: {
+      type: Boolean,
+      value: false,
+    },
+
+    route: {
+      type: String,
+      observer: '_onRouteChanged',
+    },
+
+    _preload: {
+      type: String,
+      value: '',
+    },
+
+    _hidden: {
+      type: Boolean,
+      value: true,
+    },
+
+  },
+
+  _routeImageSrc: function(route) {
+    return this.resolveUrl('../../images/scenes/' + route + '_2x.png');
+  },
+
+  _computeHidden: function(pause, hidden, preload) {
+    return (hidden && !pause) || !preload;
+  },
+
+  _computeCircleStyle: function(route, preload) {
+    if (!route || preload !== 'ok') {
+      return null;
+    }
+    return 'background-image: url(' + this._routeImageSrc(route) + ')';
+  },
+
+  _onRouteChanged: function(route) {
+    this._preload = '';
+    this._hidden = true;
+
+    if (!route) {
+      return;
+    }
+
+    const img = new Image();
+    img.src = this._routeImageSrc(route);
+    img.onload = (ev) => {
+      if (this.route === route) {
+        this._preload = 'ok';
+      }
+    };
+    img.onerror = (ev) => {
+      if (this.route === route) {
+        this._preload = 'fail';  // this shows the default image
+      }
+    };
+
+    window.clearTimeout(this._timeout);
+    this._timeout = window.setTimeout(() => {
+      this._hidden = false;
+    }, this.hintSeconds * 1000);
+  },
+
+  _onDismiss: function() {
+    this._hidden = true;
+    this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'hint', 'click', 'hide');
+  },
+
+  _onClick: function() {
+    this._hidden = true;
+    this.fire('sound-trigger', 'generic_button_click');
+    window.ga('send', 'event', 'hint', 'click', 'play');
+    this.fire('random');
+  },
+
+  reset: function() {
+    this.hasPause = false;
+    this.score = null;
+    this.shareUrl = null;
+    this.hero = null;
+  },
+
+});
+
+</script>
+</dom-module>

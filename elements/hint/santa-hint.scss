@@ -1,0 +1,136 @@
+$dismiss-height: 32px;
+
+:host {
+  pointer-events: none;
+}
+
+.holder {
+  position: absolute;
+  bottom: 0vh;
+  right: 0vw;
+  display: block;
+  color: white;
+  font-family: 'Lobster', sans-serif;
+
+  button {
+    font: inherit;
+    color: white;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    display: block;
+    transition: transform 2s cubic-bezier(0, 1.52, 0.295, 0.86);
+  }
+
+  button.dismiss {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1em;
+    min-width: calc(150px + 2vw);
+    height: $dismiss-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 1px 0 rgba(0,0,0,.25);
+    transform: translate(0);
+    padding: 0 8px;
+    white-space: nowrap;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    z-index: -1;
+    background: rgba(0,0,0,.25);
+    transform: rotate(-45deg) translate(50%);
+    transform-origin: bottom right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    height: 180px;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+  &[hidden] {
+    display: block;
+
+    button {
+      pointer-events: none;
+    }
+    button.dismiss {
+      opacity: 0;
+      transform: translateY(120%);
+    }
+
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+button.hint {
+  margin-bottom: $dismiss-height;
+  transform: translate(0) translate(0);
+
+  [hidden] & {
+    display: block;
+    transform: translate(100%) translate(30px);
+  }
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  background: url(../../images/scenes/callfromsanta_2x.png) center/cover no-repeat;
+  border-radius: 10000px;
+  box-shadow: 2px 7px 0 rgba(0,0,0,.125);
+  transform: scale(0.8) rotate(0);
+  transition: transform 1s cubic-bezier(0, 1.52, 0.295, 0.86);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1) rotate(20deg);
+  }
+
+  h4 {
+    display: inline-block;
+    padding-top: .2em;
+    font-size: 24px;
+    line-height: 1em;
+    text-shadow: 0 2px 0 rgba(0,0,0,.5);
+    transform: rotateZ(-3deg);
+    width: auto;
+    margin: 0;
+    white-space: nowrap;
+  }
+}
+
+@keyframes santa-hint-pulse {
+  from { transform: scale(0.90); }
+  to   { transform: scale(1); }
+}
+
+.pulse {
+  border: 0;
+  background: transparent;
+  margin: 2vh 2vw;
+  border-radius: 32px;
+  transition: transform 0.125s ease-in-out;
+  will-change: transform;
+
+  & :not([hidden]) {
+    animation: santa-hint-pulse 1s infinite alternate;
+  }
+}

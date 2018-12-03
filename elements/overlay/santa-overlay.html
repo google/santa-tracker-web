@@ -48,7 +48,7 @@ Shared overlay for Santa Tracker games.
         <button hidden$="[[!_canResume]]" on-click="_onResumeClick" class="Button Button--round Button--play"></button>
         <button on-click="_onPlayAgainClick" class="Button Button--round Button--refresh"></button>
         <button on-click="_onHomeClick" class="Button Button--round Button--home"></button>
-        <button on-click="_onNextClick" class="Button Button--text">
+        <button on-click="_onNextClick" class="Button Button--text" hidden$="[[!nextRoute]]">
           <h3>
             <i18n-msg msgid="next_game">PLACEHOLDER_i18n</i18n-msg>
           </h3>
@@ -102,6 +102,11 @@ Polymer({
 
     /** Custom hero image to use for a share/gameover screen. */
     hero: {
+      type: String,
+      value: null,
+    },
+
+    nextRoute: {
       type: String,
       value: null,
     },
