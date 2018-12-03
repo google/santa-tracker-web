@@ -1138,13 +1138,14 @@ Polymer({
     // check all houses
     this.houses.map((item) => {
       if (!item.launchDate) {
-        return false;  // no launch date, locked
+        return false;  // no launch date, unlocked
       }
 
       // locked if before check time
       const checker = new Date(item.launchDate);
       checker.setMinutes(checker.getMinutes() + offsetDelta);
-      return now < +checker;
+      const left = checker - now;
+      return left > 0;  // locked if we have >0 seconds left
     }).forEach((locked, i) => {
       update(this.houses[i].module, locked);
     });
