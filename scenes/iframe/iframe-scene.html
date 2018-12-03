@@ -150,6 +150,8 @@ specific language governing permissions and limitations under the License.
             var opt = ev.data.payload[0];
             if (opt === 'fire' || opt === 'play') {
               this.fire('sound-trigger', ev.data.payload[1]);
+            } else if (opt === 'ambient') {
+              this.fire('sound-ambient', ev.data.payload[1]);
             } else {
               console.debug('got unhanled Klang op', opt);
             }
