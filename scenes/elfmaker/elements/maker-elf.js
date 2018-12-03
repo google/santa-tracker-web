@@ -91,6 +91,7 @@ export class MakerElfElement extends LitElement {
     // set w/h explicitly, otherwise Chrome or other browsers assume 'natural' SVG size
     svg.setAttribute('width', canvasWidth);
     svg.setAttribute('height', canvasHeight);
+    svg.style.filter = 'drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.125))';
 
     // load the elf image with the base64 version of the SVG
     const elf = new Image();

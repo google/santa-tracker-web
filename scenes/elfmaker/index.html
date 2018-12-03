@@ -88,10 +88,9 @@ control.addEventListener('change', (ev) => {
 });
 
 share.addEventListener('click', (ev) => {
-  // if there's a selfie image hovering, share that instead
+  // if there's a selfie image hovering, share that instead (which should always be true in embed)
   const recentImage = photo.recentImage;
   (recentImage || elf.draw()).then((result) => {
-    console.info('got image', result);
     api.gameover({image: result});
   });
   window.santaApp.fire('sound-trigger', 'generic_button_click');
@@ -121,8 +120,16 @@ if (isV1Embed) {
   download.addEventListener('click', (ev) => {
     ev.preventDefault();
     share.click();
+    photo.dismiss();
   });
   share.hidden = true;
+} else {
+  download.addEventListener('click', (ev) => {
+    window.setTimeout(() => {
+      // dismiss clears href, so delay it
+      photo.dismiss();
+    }, 0);
+  });
 }
 
 

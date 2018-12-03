@@ -17,6 +17,12 @@ export class MakerPhotoElement extends LitElement {
     this._recentImageSrc = null;
   }
 
+  dismiss() {
+    if (!this._hidden) {
+      this._hide();
+    }
+  }
+
   _hide() {
     this._hidden = true;
     this._recentImageSrc = null;
