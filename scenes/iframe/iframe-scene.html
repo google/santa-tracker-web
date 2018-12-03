@@ -170,14 +170,16 @@ specific language governing permissions and limitations under the License.
     },
 
     _computeIframeSrc: function(route) {
+      const suffix = (santaApp.mode === 'embed' ? '?_v1-embed' : '');
+
       const host = window.location.hostname;
       const isLocal = (host === 'localhost' || host.substr(0, 8) === '192.168.');
       if (!route) {
         return 'about:blank';
       } else if (window.DEV && isLocal) {
-        return 'http://' + host + ':5000/scenes/' + route + '/';
+        return 'http://' + host + ':5000/scenes/' + route + '/' + suffix;
       }
-      return this.resolveUrl('../' + route + '/' + document.documentElement.lang + '.html');
+      return this.resolveUrl('../' + route + '/' + document.documentElement.lang + '.html' + suffix);
     },
 
     _computeHidden: function(viewport) {
