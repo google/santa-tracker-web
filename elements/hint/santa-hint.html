@@ -28,7 +28,7 @@ Shared hint for Santa Tracker games.
   <div class="holder" hidden$="[[_computeHidden(pause, _hidden, _preload)]]">
     <button class="hint" on-click="_onClick">
       <div class="pulse">
-        <div class="circle" style$="[[_computeCircleStyle(route, _preload)]]">
+        <div class="circle" style$="[[_circleStyle]]">
           <h4><i18n-msg msgid="next_game">PLACEHOLDER_i18n</i18n-msg></h4>
         </div>
       </div>
@@ -49,7 +49,7 @@ Polymer({
 
     hintSeconds: {
       type: Number,
-      value: 180,
+      value: 90,
     },
 
     pause: {
@@ -72,6 +72,11 @@ Polymer({
       value: true,
     },
 
+    _circleStyle: {
+      type: String,
+      value: null,
+    },
+
   },
 
   _routeImageSrc: function(route) {
@@ -82,16 +87,10 @@ Polymer({
     return (hidden && !pause) || !preload;
   },
 
-  _computeCircleStyle: function(route, preload) {
-    if (!route || preload !== 'ok') {
-      return null;
-    }
-    return 'background-image: url(' + this._routeImageSrc(route) + ')';
-  },
-
   _onRouteChanged: function(route) {
     this._preload = '';
     this._hidden = true;
+    // don't reset _circleStyle until unhidden, avoid flash of image change
 
     if (!route) {
       return;
@@ -101,11 +100,13 @@ Polymer({
     img.src = this._routeImageSrc(route);
     img.onload = (ev) => {
       if (this.route === route) {
+        this._circleStyle = 'background-image: url(' + img.src + ')';
         this._preload = 'ok';
       }
     };
     img.onerror = (ev) => {
       if (this.route === route) {
+        this._circleStyle = null;
         this._preload = 'fail';  // this shows the default image
       }
     };
@@ -127,13 +128,6 @@ Polymer({
     this.fire('sound-trigger', 'generic_button_click');
     window.ga('send', 'event', 'hint', 'click', 'play');
     this.fire('random');
-  },
-
-  reset: function() {
-    this.hasPause = false;
-    this.score = null;
-    this.shareUrl = null;
-    this.hero = null;
   },
 
 });
