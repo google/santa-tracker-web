@@ -5,7 +5,7 @@ $dismiss-height: 32px;
 }
 :host([hidden]) {
   // override parent hidden, just useful for embed where the element's not loaded
-  display: block;
+  display: block !important;
 }
 
 .holder {
@@ -100,12 +100,12 @@ button.hint {
   background: url(../../images/scenes/callfromsanta_2x.png) center/cover no-repeat;
   border-radius: 10000px;
   box-shadow: 2px 7px 0 rgba(0,0,0,.125);
-  transform: scale(0.8) rotate(0);
+  transform: scale(0.8);
   transition: transform 1s cubic-bezier(0, 1.52, 0.295, 0.86);
   cursor: pointer;
 
   &:hover {
-    transform: scale(1) rotate(20deg);
+    transform: scale(1);
   }
 
   h4 {
