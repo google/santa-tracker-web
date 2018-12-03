@@ -10,6 +10,12 @@ main {
   left: 0;
   width: 100%;
 
+  .gui {
+    &[hidden] {
+      display: none !important;
+    }
+  }
+
   iframe {
     min-height: calc(100vh);
   }

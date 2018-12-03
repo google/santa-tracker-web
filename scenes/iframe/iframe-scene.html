@@ -29,7 +29,7 @@ specific language governing permissions and limitations under the License.
         height="100%"
         frameBorder="0"
         data-computer-love></iframe>
-    <div class="gui" hidden="[[_computeHidden(viewport)]]">
+    <div class="gui" hidden$="[[_computeHidden(viewport)]]">
       <div class$="force-rotate [[viewport]]">
         <div class="force-rotate-graphic"></div>
         <div class="force-rotate-explanation">
@@ -183,7 +183,7 @@ specific language governing permissions and limitations under the License.
     },
 
     _computeHidden: function(viewport) {
-      return !!viewport;
+      return !viewport;
     },
 
     onPreload: function() {
