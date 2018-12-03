@@ -14,15 +14,19 @@ export class MakerElfElement extends LitElement {
       categoryChoice: {type: Object},
       _offset: {type: Number},
       _idPrefix: {type: String},
-      _danceStartTime: {type: Number}
+      _danceStartTime: {type: Number},
+      elfClass: {type: String},
     };
   }
 
   constructor() {
     super();
+    this._leftArm = null;
+    this._rightArm = null;
+    this.elfClass = '';
 
     // Edge fails to ever render if it has NaN/invalid data, so set all defaults here.
-    this._offset = 0;
+    this._offset = performance.now();
     this._idPrefix = prefix.id();
     this.svgStyle = '';
     this.categoryChoice = defaultCategoryChoices();
@@ -97,12 +101,58 @@ export class MakerElfElement extends LitElement {
     return (performance.now() - this._danceStartTime) < defs.danceDuration;
   }
 
+  targetArm(isLeft, arg) {
+    let target;
+    let range = 10;
+    let rate = 1;
+
+    if (typeof arg === 'number') {
+      target = arg;
+    } else {
+      target = arg.target;
+      range = arg.range || range;
+      rate = arg.rate || rate;
+    }
+
+    const prev = isLeft ? this._leftArm : this._rightArm;
+    const update = {
+      target,
+      range,
+      rate,
+      prevAt: this._offset,
+      prevValue: this._degrees(prev, this._offset),
+    };
+    if (isLeft) {
+      this._leftArm = update;
+    } else {
+      this._rightArm = update;
+    }
+  }
+
+  _degrees(c, time=this._offset) {
+    if (!c) {
+      return 130;
+    }
+    const actual = c.target + (Math.sin(time * c.rate) * c.range);
+    const delta = Math.min((time - c.prevAt) * 1.5, 1);
+    const ratio = Math.sin(delta * Math.PI/2);
+    return (ratio * actual) + ((1 - ratio) * c.prevValue);
+  }
+
   /**
    * @param {boolean} force include CSS, for ShadyCSS modes
    */
   render(force) {
     // only render real styles in Shadow DOM
     const svgStyle = (!force && self.ShadyCSS ? '' : this.svgStyle);
+
+    const time = this._offset;
+    const setup = {
+      shrugFactor: (Math.cos(time) + 1) / 2,
+      bodyDegrees: (Math.cos(time) * 0.5) * 10,
+      leftArmDegrees: this._degrees(this._leftArm),
+      rightArmDegrees: this._degrees(this._rightArm),
+    };
 
     return html`
 <style>
@@ -126,6 +176,7 @@ svg {
 <div class="shadow" @click="${this.dance}">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-40 -100 400 560">
   <style>
+${defs.baseSvgStyle}
 ${svgStyle}
 .blink {
   animation: elves-blink 5.234s infinite alternate;
@@ -133,7 +184,7 @@ ${svgStyle}
 
 .dance {
   transform-origin: center 100%;
-  animation: elves-dance 3s ease-in-out infinite alternate;
+  animation: elves-dance 4.8s ease-in-out infinite alternate;
 }
 
 @keyframes elves-blink {
@@ -162,7 +213,9 @@ ${svgStyle}
   100%   { transform: translate3d(0, 0, 0) rotateZ(0); }
 }
   </style>
-  ${defs.drawElf(this.categoryChoice, this._offset, this._isDancing, this._danceStartTime)}
+  <g class="${this.elfClass}">
+${defs.drawElf(this.categoryChoice, setup)}
+  </g>
 </svg>
 </div>
     `;

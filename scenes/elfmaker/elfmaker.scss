@@ -5,6 +5,7 @@ body {
   flex-flow: column;
   height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
 }
 
 footer {
@@ -15,6 +16,10 @@ footer {
 
 maker-photo {
   z-index: 1000;
+}
+
+maker-elf {
+  cursor: pointer;
 }
 
 #main {
