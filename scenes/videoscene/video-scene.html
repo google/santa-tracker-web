@@ -13,6 +13,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../components/google-apis/google-youtube-api.html">
 
 <!--
 Video scene. This scene actually doesn't contain anything: it simply instructs `santa-app` to
@@ -21,16 +22,56 @@ play our video in the main viewport.
 <dom-module id="video-scene">
 <template>
   <style>
-#preview {
+:host {
+  background: black;
+  overflow: hidden;
+}
+#player {
+  display: block;
+  border: 0;
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: black center no-repeat;
-  background-size: contain;
+  min-height: 200px;
+  min-width: 200px;
+}
+#hider {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100px;
+  pointer-events: auto;
 }
   </style>
-  <div id="preview"></div>
+  <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
+  <div id="holder">
+    <div id="player" sandbox=""></div>
+  </div>
+  <div id="hider"><!-- prevents hover over top-left icon --></div>
 </template>
 <script>
+(function() {
+
+const playerVars = {
+  playsinline: 1,
+  cc_load_policy: 1,
+  disablekb: 1,
+  fs: 0,
+  controls: 0,
+  modestbranding: 1,
+  showinfo: 0,
+  iv_load_policy: 3,
+  rel: 0,
+  autoplay: 0,
+  origin: window.location.hostname,
+};
+if (document.documentElement.lang) {
+  playerVars.hl = document.documentElement.lang;
+}
+Object.freeze(playerVars);
+
 Polymer({
   is: 'video-scene',
   behaviors: [window.SantaSceneBehavior],
@@ -45,25 +86,93 @@ Polymer({
       computed: '_computeVideoId(route)',
     },
 
+    _firstLoad: {
+      type: Boolean,
+      value: true,
+    },
+
+    _api: {
+      type: Object,
+    },
+
+    _player: {
+      type: Object,
+    },
+
+  },
+
+  created: function() {
+    this._preloadPromise = new Promise((resolve) => {
+      this._preloadResolve = resolve;
+    });
+  },
+
+  _apiLoad: function(ev) {
+    this._api = ev.target.api;
+
+    const playerPromise = new Promise((resolve, reject) => {
+      // create a Player and resolve with it when done
+      const player = new this._api.Player(this.$.player, {
+        videoId: this.videoId,
+        playerVars,
+        events: {
+          onError: (ev) => reject(ev.data),
+          onReady: (ev) => resolve(player),
+        },
+      });
+      const playerNode = this.$.holder.children[0];
+      playerNode.setAttribute('sandbox', '');
+      playerNode.setAttribute('src', playerNode.src + '&');
+
+      this._player = player;
+    });
+
+    const startedPromise = playerPromise.then((player) => {
+      player.seekTo(0);
+      this._firstLoad = false;
+
+      return new Promise((resolve) => {
+        window.setTimeout(done, 5 * 1000);  // timeout after 5s
+
+        const handler = (ev) => {
+          if (ev.data === 1) {
+            done();
+          }
+        };
+        player.addEventListener('onStateChange', handler);
+
+        // hoisted above
+        function done() {
+          player.removeEventListener('onStateChange', handler);
+          resolve();
+        }
+      });
+    });
+
+    // setup some behaviour for when the player is finished
+    playerPromise.then((player) => {
+      player.addEventListener('onStateChange', (ev) => {
+        if (ev.data) {
+          // video is playing or has an error
+        } else {
+          // video is finished, cue again: this mostly hides related videos
+          this.fire('game-stop', {});
+          player.cueVideoById(this.videoId);
+        }
+      });
+    });
+
+    this._preloadResolve(startedPromise);
   },
 
   onPreload: function() {
-    this.fire('video-load', this.videoId);
+    // we resolve this above when we've started playing
+    this.preloadPromise(this._preloadPromise);
   },
 
   onShow: function() {
     this.fire('sound-ambient', 'videoplayer_start');
-
-    // load image as video is playing, for completion
-    const image = new Image();
-    image.src = `https://img.youtube.com/vi/${this.videoId}/maxresdefault.jpg`;
-    image.onload = () => {
-      if (this.isAttached) {
-        this.$.preview.style.backgroundImage = `url(${image.src})`;
-      }
-    };
-
-    this._logVideoPlay();
+    window.ga('send', 'event', 'video', 'play', this.route);
   },
 
   onHide: function() {
@@ -75,14 +184,13 @@ Polymer({
   },
 
   start: function() {
-    this.fire('video-play', this.videoId);
-    this._logVideoPlay();
+    if (!this._firstLoad) {
+      this._player.seekTo(0);
+    }
   },
 
-  _logVideoPlay: function() {
-   window.ga('send', 'event', 'video', 'play', this.route);
- },
-
 });
+
+}());
 </script>
 </dom-module>

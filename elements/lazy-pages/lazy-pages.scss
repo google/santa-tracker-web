@@ -32,11 +32,13 @@
     display: none !important;
   }
 }
-
-:host([mode="embed"]) {
-  #scene > * {
-    top: 0;
-  }
+#scene > video-scene[preload] {
+  // YT needs to exist on the page, it does weird size calcs
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
+  min-width: 200px;
+  min-height: 200px;
 }
 
 #error {

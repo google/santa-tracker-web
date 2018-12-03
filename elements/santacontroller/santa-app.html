@@ -63,28 +63,6 @@ Santa Tracker app.
       right: 0;
       bottom: 0;
     }
-
-    santa-video {
-      border-radius: inherit;
-    }
-    santa-video.scene {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      bottom: 0;
-      right: 0;
-    }
-    #pip {
-      position: fixed;
-      bottom: 20px;
-      width: 320px;
-      height: 180px;
-      right: 20px;
-      z-index: 1;  /* above scene */
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      border-radius: 2px;
-      cursor: pointer;
-    }
   </style>
 
   <!-- Shared i18n strings -->
@@ -113,13 +91,6 @@ Santa Tracker app.
     <santa-sidebar slot="drawer"></santa-sidebar>
 
     <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]"></santa-overlay>
-
-    <!-- Video Picture-In-Picture -->
-    <div id="pip" hidden$="[[!_videoActive]]">
-      <!-- Shared `santa-video` element. This can't be attached/detached from the DOM without
-        stopping the video itself, so it is reused by all video scenes -->
-      <santa-video id="video" active="{{_videoActive}}" mute="[[userMute]]"></santa-video>
-    </div>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"
@@ -658,11 +629,6 @@ Polymer({
       type: Boolean,
     },
 
-    _videoActive: {
-      type: Boolean,
-      value: false,
-    },
-
   },
 
   observers: [
@@ -841,23 +807,6 @@ Polymer({
 
     this._updateStylingForScene(this.selectedScene);
 
-    // Update the `santa-video` element that acts on behalf of `video-scene`.
-    // TODO(samthor): Move this to a different helper.
-    const v = this.$.video;
-    if (newValue && newValue.localName === 'video-scene') {
-      v.classList.add('scene');
-      v.controls = false;
-    } else {
-      v.classList.remove('scene');
-      v.controls = true;
-
-      if (v.started && window.matchMedia('(hover: hover)').matches) {
-        // great, keep playing
-      } else if (v.reset) {
-        v.reset();  // otherwise, reset, don't show the PIP
-      }
-    }
-
     if (!this.selectedScene) {
       return;
     } else if (!this.selectedScene.is) {
@@ -1016,10 +965,6 @@ Polymer({
 
   /** Handler for 'game-resume' event. Just unpauses. */
   onResumeGame: function() {
-    // FIXME(samthor): Hack for `video-scene.`
-    if (this.selectedScene && this.selectedScene.localName === 'video-scene') {
-      this.selectedScene.start();
-    }
     this.userPause = false;
   },
 

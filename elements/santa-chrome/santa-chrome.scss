@@ -109,11 +109,11 @@ app-drawer {
     background: $bar-color;
     transition: box-shadow 0.25s ease-in-out, width 0.25s ease-in-out;
   }
+
   @media (max-width: ($mobile-width - 1px)) {
     $offset: (64px - $toolbar-height) / 2;
     margin-top: $offset;
     width: calc(100% - #{$offset * 2});
-    max-width: auto;
 
     &::before {
       box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
@@ -122,7 +122,7 @@ app-drawer {
 
   :host(.fixed) & {
     @media (min-width: $mobile-width) {
-      transform: translate(-10vw) translate(20px);
+      transform: translate(-10vw) translate(10px);
     }
 
     #title {
