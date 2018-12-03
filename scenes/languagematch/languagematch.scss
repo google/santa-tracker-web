@@ -1,3 +1,10 @@
+$name: 'module-languagematch';
+$gameover-bg: #8fd7f7;
+$rotate-bg: $gameover-bg;
+
+@import "../_shared/sass/rotate";
+@import "../_shared/sass/levelup";
+
 #module-languagematch {
     top: 0;
     bottom: 0;
@@ -23,13 +30,10 @@
     }
 
     .cards {
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-
-        width: 80%;
-        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
 
         position: relative;
         margin: auto;
@@ -38,6 +42,9 @@
     }
 
     .card {
+        width: 20vw;
+        height: 20vh;
+        margin: 1vh 1vw;
         transition: transform 0.5s;
         transform: perspective(500px);
         transform-style: preserve-3d;
@@ -65,7 +72,8 @@
     }
     .card-front {
         @extend %card-face;
-        background-color: rgb(255, 255, 255);
+        background-color: white;
+        color: black;
         transform: rotateY(180deg);
     }
     .card-contents {
@@ -74,7 +82,6 @@
         transform: translateY(-50%);
         text-align: center;
         font-size: 1.5rem;
-        color: white;
         overflow-wrap: break-word;
     }
 }

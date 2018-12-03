@@ -1,7 +1,10 @@
 goog.provide('app.Game');
 
 goog.require('app.Constants');
+goog.require('app.shared.LevelUp');
+goog.require('app.shared.utils');
 goog.require('Card');
+goog.require('LevelModel');
 
 /**
  * Runs the language matching card game.
@@ -16,75 +19,51 @@ app.Game = class Game {
     console.info(`Language game starting`);
 
     this.root = elem.getRootNode();
+    this.levelUp = new LevelUp(this, this.root.querySelector('.levelup'), this.root.querySelector('.levelup--number'));
+
+    // Game information
+    this.levels = [
+      new LevelModel(2, true),
+      new LevelModel(4, true),
+      new LevelModel(8, true),
+      new LevelModel(4, false),
+      new LevelModel(12, true),
+      new LevelModel(6, false),
+      new LevelModel(16, true),
+      new LevelModel(8, false),
+      new LevelModel(12, false),
+      new LevelModel(16, false),
+    ]
+
+    // Game state
+    /** @private {number} Current level */
+    this.levelIndex = 0;
 
     // Level information
     /** @private {!Array<!Card>} */
     this.cards = [];
 
-    // Game state
+    // Level state
     /** @private {!Array<!Card>} */
     this.flippedCards = [];
     /** @private {boolean} Whether all the cards have been matched or not. */
     this.levelWon = false;
 
-    this.init();
+    this.initLevel(this.levels[0]);
   }
 
   /**
    * @private
+   * @param {!LevelModel} levelModel Information to create the level
    */
-  init() {
-    // TODO(jez): Dynamically pick the number of cards to use.
-    this.createCards(8);
-    this.initCards();
+  initLevel(levelModel) {
+    const numCards = levelModel.numCards;
+    this.cards = levelModel.generateCards(this.root);
+
+    this.createCards(numCards);
     this.initFlipAnimations();
-  }
 
-  /**
-   * Sets up the underlying data for this game.
-   * @private
-   */
-  initCards() {
-    const cardElements = this.root.querySelectorAll('.card');
-    if ((cardElements.length % 2) != 0) {
-      throw Error('Invalid number of cards!');
-    }
-
-    const translations = Object.entries(app.Constants.PHRASES[0]);
-    const colors = app.Constants.COLORS.slice();
-
-    const cards = [];
-    for (let i = 0; i < cardElements.length / 2; i ++) {
-      const color = removeRandom(colors);
-      const translation = removeRandom(translations);
-      const languageCode = translation[0];
-      // TODO(jez): Make sure this doesn't clash with an existing language.
-      const message = translation[1];
-      const languageName = this.getLanguageName(languageCode);
-
-      const languageCard = new Card();
-      languageCard.languageCode = languageCode;
-      languageCard.content = message;
-      languageCard.contentLanguage = languageCode;
-      languageCard.color = color;
-      cards.push(languageCard);
-
-      const translationCard = new Card();
-      translationCard.languageCode = languageCode;
-      translationCard.content = languageName;
-      // This is in the user's language.
-      // TODO(jez): Make this not just English.
-      translationCard.contentLanguage = 'en';
-      translationCard.color = color;
-      cards.push(translationCard);
-    }
-
-    const shuffledCards = [];
-    while (cards.length > 0) {
-      shuffledCards.push(removeRandom(cards));
-    }
-
-    this.cards = shuffledCards;
+    window.santaApp.fire('game-score', {level: this.levelIndex + 1, levels: this.levels.length});
   }
 
   /**
@@ -111,6 +90,18 @@ app.Game = class Game {
       const cardBack = document.createElement('div');
       cardBack.classList.add('card-back');
       card.appendChild(cardBack);
+    }
+  }
+
+  /**
+   * Removes all the cards elements on a page.
+   * @private
+   */
+  clearCards() {
+    const cards = this.root.querySelector('.cards');
+
+    while (cards.lastChild) {
+      cards.removeChild(cards.lastChild);
     }
   }
 
@@ -191,11 +182,17 @@ app.Game = class Game {
 
     // Pause for a bit so someone has time to process
     await this.waitForSeconds(0.5);
-    this.cards.forEach(card => card.matched = false);
-    await this.resetGuesses();
 
+    // TODO: Possibly win the game here?
+
+    // Start ending the level. Show the next level the user is about to play.
+    this.levelUp.show((this.levelIndex + 1) + 1);
+    await this.waitForTransition(this.levelUp.bgElem, 1);
+
+    this.levelIndex++;
     // Switch to a new set of cards.
-    this.initCards();
+    this.clearCards();
+    this.initLevel(this.levels[this.levelIndex]);
     // Allow the user to guess again.
     this.levelWon = false;
   }
@@ -253,10 +250,10 @@ app.Game = class Game {
    * Sets up the color and contents of a card element to match the underlying card object.
    * @private
    * @param {!HTMLElement} cardElement Card HTML element.
-   * @param {Card} card Underlying card object.
+   * @param {!Card} card Underlying card object.
    */
   setCardContent(cardElement, card) {
-    this.setCardColor(cardElement, card.color);
+    this.setCardColor(cardElement, card.backgroundColor, card.textColor);
     this.setCardText(cardElement, card.content);
   }
 
@@ -285,26 +282,15 @@ app.Game = class Game {
    * Sets the face color of a card.
    * @private
    * @param {!HTMLElement} cardElement
-   * @param {string} color CSS color for the card background.
+   * @param {string} backgroundColor CSS color for the card background.
+   * @param {string} textColor CSS color for the card text.
    */
-  setCardColor(cardElement, color) {
+  setCardColor(cardElement, backgroundColor, textColor) {
     const front = cardElement.querySelector('.card-front');
-    front.style.backgroundColor = color;
+    front.style.backgroundColor = backgroundColor;
+    front.style.color = textColor;
   }
   
-  /**
-   * Gets a language name in the user's local language.
-   *
-   * Implicitely relies on the inbuilt translation that happens for the page contents.
-   * @private
-   * @param {string} code Language code of the language to get the name of (not the user's language).
-   * @returns {string} Language name in user's language (e.g. 'Spanish' for 'es' if the user's language is 'en').
-   */
-  getLanguageName(code) {
-    const id = code + '_language_name';
-    return this.root.getElementById(id).textContent;
-  }
-
   /**
    * @private
    * @param {string} text Text to play back
@@ -322,10 +308,16 @@ app.Game = class Game {
   /**
    * Waits for a CSS transition to finish
    * @private
-   * @param {!HTMLElement} element Element currently transitioning
+   * @param {!HTMLElement|!jQuery} element Element currently transitioning
+   * @param {number=} timeout Fallback timeout in seconds.
    */
-  async waitForTransition(element) {
-    await new Promise(r => element.addEventListener('transitionend', r, {once: true}));
+  async waitForTransition(element, timeout=1) {
+    element = app.shared.utils.unwrapElement(element);
+
+    await new Promise(r => {
+      element.addEventListener('transitionend', r, {once: true});
+      setTimeout(r, timeout * 1000)
+    });
   }
 
   /**
@@ -338,26 +330,6 @@ app.Game = class Game {
   }
 
 };
-
-// TODO(jez): Replace this with better random function?
-/**
- * Picks a random integer between 0 (inclusive) and max (exclusive).
- * @param {number} max Exclusive maximum.
- */
-function randomInteger(max) {
-  return Math.floor(max * Math.random());
-}
-
-/**
- * Removes a random element from an array.
- * 
- * @param {!Array<T>} arr Array to take from.
- * @returns {T} Element removed from array.
- * @template T
- */
-function removeRandom(arr) {
-  return arr.splice(randomInteger(arr.length), 1)[0];
-}
 
 /**
  * @param {!HTMLElement} elem Element to find the position in the parent of.

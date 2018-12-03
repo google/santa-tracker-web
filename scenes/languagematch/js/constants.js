@@ -1,4 +1,6 @@
 goog.provide('app.Constants');
+// Required to make the scoreboard work. But doesn't actually provide anything.
+goog.provide('Constants');
 
 /**
  * Scene constants
@@ -9,8 +11,8 @@ app.Constants = {
   TTS_DOMAIN: 'https://translate.googleapis.com/translate_tts',
   TTS_QUERY: '?ie=UTF-8&client=santa-tracker&tl={TL}&q={Q}',
   
-  PHRASES: [
-    {
+  PHRASES: {
+    'Santa Claus': {
       'ar': 'بَابَا نُوِيل',
       'zh-CN': '圣诞老人',
       'zh-TW': '聖誕老人',
@@ -36,33 +38,7 @@ app.Constants = {
       'th': 'ซานตาคลอส',
       'tr': 'Noel Baba'
     },
-    {
-      'ar': 'هو هو هو',
-      'zh-CN': '嗬嗬嗬',
-      'zh-TW': '嗬嗬嗬',
-      'cs': 'Ho Ho Ho',
-      'da': 'Ho Ho Ho',
-      'nl': 'Ho Ho Ho',
-      'en': 'Ho Ho Ho',
-      'fr': 'Ho Ho Ho',
-      'de': 'Ho Ho Ho',
-      'el': 'Χο χο χο',
-      'hi': 'हो हो हो',
-      'hu': 'Ho Ho Ho',
-      'it': 'Ho Ho Ho',
-      'ja': 'ホーホーホー',
-      'ko': '호 호 호',
-      'no': 'Ho Ho Ho',
-      'pl': 'Ho Ho Ho',
-      'pt': 'Ho Ho Ho',
-      'ru': 'Хо-хо-хо',
-      'sk': 'Ho Ho Ho',
-      'es': 'Ho Ho Ho',
-      'sv': 'Ho ho ho',
-      'th': 'โฮ โฮ โฮ',
-      'tr': 'Ho Ho Ho'
-    },
-    {
+    'Happy New Year': {
       'ar': 'كل عام وأنتم بخير',
       'zh-CN': '新年快乐',
       'zh-TW': '新年快樂',
@@ -88,7 +64,7 @@ app.Constants = {
       'th': 'สวัสดีปีใหม่',
       'tr': 'Mutlu Yıllar'
     },
-    {
+    'Season\'s Greetings': {
       'ar': 'تهاني الموسم',
       'zh-CN': '节日问候',
       'zh-TW': '節慶祝賀',
@@ -114,7 +90,7 @@ app.Constants = {
       'th': 'ส่งความสุขช่วงเทศกาล',
       'tr': 'Tatil Kutlamaları'
     }
-  ],
+  },
 
   // TODO(jez): Replace these placeholder colors
   COLORS: [
