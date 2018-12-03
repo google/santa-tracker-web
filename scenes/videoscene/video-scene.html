@@ -47,7 +47,7 @@ play our video in the main viewport.
   </style>
   <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
   <div id="holder">
-    <div id="player" sandbox=""></div>
+    <div id="player"></div>
   </div>
   <div id="hider"><!-- prevents hover over top-left icon --></div>
 </template>
@@ -120,9 +120,6 @@ Polymer({
           onReady: (ev) => resolve(player),
         },
       });
-      const playerNode = this.$.holder.children[0];
-      playerNode.setAttribute('sandbox', '');
-      playerNode.setAttribute('src', playerNode.src + '&');
 
       this._player = player;
     });
