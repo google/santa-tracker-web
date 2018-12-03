@@ -33,6 +33,15 @@ goog.require('app.shared.Tutorial');
  * @export
  */
 app.Game = function(elem, componentDir) {
+  this.startPromise = new Promise((resolve) => {
+    this.resolveStart = resolve;
+  });
+  this.startPromise.then(() => {
+    console.info('this is', this, this.updateSize_);
+    this.updateSize_();
+  });
+
+  this._realElem = elem;
   this.elem = $(elem);
   this.componentDir = componentDir;
 
@@ -85,6 +94,20 @@ app.Game.prototype.start = function() {
 
   this.scoreboard.reset();
   this.scoreboard.restart();
+
+
+  // make sure canvas is real size
+  const canvas = this._realElem.querySelector('canvas');
+  function checkSize() {
+
+    if (canvas.width && canvas.height) {
+      return;  // great
+    }
+    window.dispatchEvent(new Event('resize'));  // kick phaser
+
+    window.requestAnimationFrame(checkSize);
+  }
+  checkSize();
 };
 
 
@@ -217,26 +240,34 @@ app.Game.prototype.showLockscreenMessage = function () {
 };
 
 
+app.Game.prototype.updateSize_ = function() {
+  var width = window.innerWidth,
+    height = window.innerHeight - window.santaApp.headerSize,
+    scale = width < 980 ? (width + 490) / (980 + 490) : 1;
+  this.setScale(scale);
+  console.info('got size', scale);
+
+  this.sceneSize.height = height * (1 / this.scale);
+  this.sceneSize.width = width * (1 / this.scale);
+
+  const canvas = this._realElem.querySelector('canvas');
+  if (canvas) {
+    canvas.focus();
+  } else {
+    this._realElem.focus();
+  }
+
+  this.showLockscreenMessage();
+};
+
+
 /**
  * Manages a cache of the scene size. Updates on window resize.
  * @private
  */
 app.Game.prototype.watchSceneSize_ = function() {
-  var updateSize = function() {
-    var width = window.innerWidth,
-        height = window.innerHeight - window.santaApp.headerSize,
-        scale = width < 980 ? (width + 490) / (980 + 490) : 1;
-    this.setScale(scale);
-    console.info('got size', scale);
-
-    this.sceneSize.height = height * (1 / this.scale);
-    this.sceneSize.width = width * (1 / this.scale);
-
-    this.showLockscreenMessage();
-  }.bind(this);
-
-  updateSize();
-  $(window).on('resize.penguindash', updateSize);
+  this.updateSize_();
+  $(window).on('resize.penguindash', this.updateSize_.bind(this));
 };
 
 

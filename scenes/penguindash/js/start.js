@@ -34,8 +34,8 @@ app.Start = function(game) {
   game.setScale = this.setScale.bind(this);
   window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('sound-trigger', 'pnd_slide_start');
-  this.isMobileOrIE = window.innerWidth < 600 || window.innerHeight < 600 || typeof Object.assign != 'function';
-  this.isLowPerformance = window.innerWidth < 350 || window.innerHeight < 350;
+  this.isMobileOrIE = typeof Object.assign != 'function';
+  this.isLowPerformance = false;
 };
 
 
@@ -103,6 +103,8 @@ app.Start.prototype.create = function() {
  * Update canvas with game play. Called by Phaser.
  */
 app.Start.prototype.update = function() {
+  this.game.st_parent.resolveStart();
+
   if (!this.isMobileOrIE) {
     this.wave.sendBack();
     this.world.sendToBack(this.vidsprite);

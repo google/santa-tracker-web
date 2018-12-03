@@ -107,12 +107,14 @@ Jetpack scene.
         'img/sprite-walrus.png',
         'img/wave-bg-slow-big-no-waves.mp4'
       ]);
-    },
 
-    onShow: function() {
       var module = this.$['module-penguindash'];
       this.game = new scenes.penguindash.Game(module, this.resolveUrl('.'));
 
+      this.preloadPromise(this.game.startPromise);
+    },
+
+    onShow: function() {
       // Attempt to lock the screen, or if in embed mode, don't show the notice.
       var locked = window.screen.lockOrientation && window.screen.lockOrientation('portrait');
       if (locked || window.santaApp.getAttribute('mode') === 'embed') {
