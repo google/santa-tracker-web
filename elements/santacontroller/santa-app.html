@@ -94,7 +94,7 @@ Santa Tracker app.
 
     <santa-overlay id="overlay" hidden$="[[_computeOverlayHidden(userPause, mode)]]" next-route="[[nextRandom]]"></santa-overlay>
 
-    <santa-hint pause="{{userPause}}" route="[[_computeNextRandomForHint(nextRandom, route)]]"></santa-hint>
+    <santa-hint hidden pause="{{userPause}}" route="[[_computeNextRandomForHint(nextRandom, route)]]"></santa-hint>
 
     <!-- Scenes -->
     <lazy-pages id="lazypages"

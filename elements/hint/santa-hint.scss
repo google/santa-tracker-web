@@ -3,6 +3,10 @@ $dismiss-height: 32px;
 :host {
   pointer-events: none;
 }
+:host([hidden]) {
+  // override parent hidden, just useful for embed where the element's not loaded
+  display: block;
+}
 
 .holder {
   position: absolute;
