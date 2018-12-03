@@ -22,7 +22,7 @@
     </div>
     <div class="buttons right">
       <santa-button id="share" color="green">share</santa-button>
-      <a id="download" download="elfmaker.png">
+      <a id="download" target="_blank" download="elfmaker.png">
         <santa-button color="red">save</santa-button>
       </a>
     </div>
@@ -118,6 +118,7 @@ photo.addEventListener('hide', (ev) => {
 if (isV1Embed) {
   // in embed, make download act like share
   download.addEventListener('click', (ev) => {
+    window.ga('send', 'event', 'game', 'download', 'elfmaker');
     ev.preventDefault();
     share.click();
     photo.dismiss();
@@ -125,6 +126,7 @@ if (isV1Embed) {
   share.hidden = true;
 } else {
   download.addEventListener('click', (ev) => {
+    window.ga('send', 'event', 'game', 'download', 'elfmaker');
     window.setTimeout(() => {
       // dismiss clears href, so delay it
       photo.dismiss();
