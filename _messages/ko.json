@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "교육 활동"
 	},
+	"press-edu1": {
+		"message": "\u003ca href=\"./educators.html\"\u003e교육자용 리소스 페이지\u003c/a\u003e가 확대되어 이제 5가지 언어로 교사에게 강의 계획과 함께 동영상 가이드를 제공합니다. 전 세계의 크리스마스 전통에 코딩의 기본 개념을 접목한 모든 인기 게임은 계속 유지됩니다. Google 산타 추적기를 통해 크리스마스에 대해 재미있게 학습해 볼 수 있습니다. 자세히 알아보려면 \u003ca href=\"./educators.html\"\u003e교육용 게임\u003c/a\u003e을 확인해 보세요."
+	},
 	"press-games-title": {
 		"message": "재미있게 즐기는 게임"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "공유"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: 연말 이모티콘"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google 어스: 크리스마스 전통에 관한 퀴즈"
+	},
+	"sidebar_santas_location": {
+		"message": "Google 지도: 산타의 위치"
+	},
+	"sidebar_trends": {
+		"message": "Google 트렌드: 연말 검색어"
 	},
 	"sk_country_name": {
 		"message": "슬로바키아"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "베네수엘라"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google 어시스턴트: 산타와 통화하기"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google 어시스턴트: 크리스마스에 어울리는 동화"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google 어시스턴트: 산타 찾기"
 	},
 	"village_comeback": {
 		"message": "12월 24일에 다시 방문해 밤새 산타를 추적해 보세요."

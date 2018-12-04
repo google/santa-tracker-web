@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "楽しい教材"
 	},
+	"press-edu1": {
+		"message": "今年は\u003ca href=\"./educators.html\"\u003e教育者向けのリソースページ\u003c/a\u003eがさらに充実しました。このページでは、クラスで利用できる学習プランと、そのガイド動画を提供しています（5 か国語に対応）。好評だったゲームはすべて今年も公開され、楽しみながらコーディングの基礎や世界のクリスマスの過ごし方を学べます。Google の「サンタを追いかけよう」で、冬休みの学習体験をもっと楽しいものにしましょう。詳しくは\u003ca href=\"./educators.html\"\u003e学習ゲーム\u003c/a\u003eをご覧ください。"
+	},
 	"press-games-title": {
 		"message": "お楽しみやゲームが盛りだくさん"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "共有"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: クリスマスの絵文字"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: クリスマスの伝統クイズ"
+	},
+	"sidebar_santas_location": {
+		"message": "Google マップ: サンタの現在地"
+	},
+	"sidebar_trends": {
+		"message": "Google トレンド: クリスマスにまつわる検索"
 	},
 	"sk_country_name": {
 		"message": "スロバキア"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "ベネズエラ"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google アシスタント: サンタさんに電話する"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google アシスタント: クリスマスにまつわるお話"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google アシスタント: サンタさんは今どこ"
 	},
 	"village_comeback": {
 		"message": "24 日になったら、一晩中サンタさんを追いかけるのを手伝ってください！"

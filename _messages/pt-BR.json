@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Aventuras educativas"
 	},
+	"press-edu1": {
+		"message": "Ampliamos nossa \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e a fim de fornecer aos professores guias em vídeo para acompanhar planos de aula que agora estão disponíveis em cinco idiomas. Todos seus jogos favoritos continuam apresentando conceitos básicos de codificação aplicados a tradições de fim de ano globais. O Siga o Papai Noel no Google incentiva o aprendizado sobre as festas de fim de ano de forma divertida. Para saber mais, confira \u003ca href=\"./educators.html\"\u003enossos jogos educativos\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Diversão e jogos"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Compartilhar"
+	},
+	"sidebar_code_emoji": {
+		"message": "Feito com Code: Emoji de fim de ano"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Questionário sobre tradições de fim de ano"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Localização do Papai Noel"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Pesquisas de fim de ano"
 	},
 	"sk_country_name": {
 		"message": "Eslováquia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistente: Chamar o Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistente: História de Natal"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistente: Cadê o Papai Noel?"
 	},
 	"village_comeback": {
 		"message": "Volte no dia 24 e acompanhe o Papai Noel a noite toda."

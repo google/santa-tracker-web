@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Przygody z edukacją"
 	},
+	"press-edu1": {
+		"message": "Poszerzyliśmy zawartość naszej \u003ca href=\"./educators.html\"\u003estrony z materiałami edukacyjnymi\u003c/a\u003e o przewodniki wideo dla nauczycieli. Są one uzupełnieniem planów lekcji dostępnych w pięciu językach. Wszystkie Twoje ulubione gry są na miejscu i nadal wprowadzają podstawowe założenia kodowania do globalnych tradycji związanych ze Świętami. Trasa Świętego Mikołaja w Google zachęca do nauki połączonej z zabawą podczas Świąt. Aby dowiedzieć się więcej, przejrzyj \u003ca href=\"./educators.html\"\u003enasze gry edukacyjne\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Gry i zabawy"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Udostępnij"
+	},
+	"sidebar_code_emoji": {
+		"message": "Strona Made with Code: świąteczny emotikon"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: quiz na temat tradycji świątecznych"
+	},
+	"sidebar_santas_location": {
+		"message": "Mapy Google: lokalizacja św. Mikołaja"
+	},
+	"sidebar_trends": {
+		"message": "Trendy Google: wyszukiwania związane ze Świętami"
 	},
 	"sk_country_name": {
 		"message": "Słowacja"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Wenezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Asystent Google: zadzwoń do Mikołaja"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asystent Google: świąteczna historia"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asystent Google: gdzie jest Mikołaj"
 	},
 	"village_comeback": {
 		"message": "Wróć 24 grudnia i razem z nami wypatruj Świętego Mikołaja przez całą noc!"

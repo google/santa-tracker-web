@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "การผจญภัยเพื่อการเรียนรู้"
 	},
+	"press-edu1": {
+		"message": "เราได้ขยาย\u003ca href=\"./educators.html\"\u003eหน้าแหล่งข้อมูลสำหรับนักการศึกษา\u003c/a\u003eเพื่อมอบวิดีโอคำแนะนำแก่ครูสำหรับใช้วางแผนการสอน ตอนนี้วิดีโอพร้อมให้บริการใน 5 ภาษาแล้ว โดยยังมีเกมโปรดของทุกคนเหมือนเดิม ทั้งเกมที่นำเสนอแนวคิดการเขียนโค้ดขั้นพื้นฐานไปจนถึงธรรมเนียมวันหยุดของทั่วโลก ติดตามซานตาคลอสของ Google ช่วยส่งเสริมประสบการณ์การเรียนรู้เกี่ยวกับวันหยุดด้วยวิธีที่สนุกสนาน ดูข้อมูลเพิ่มเติมได้ที่\u003ca href=\"./educators.html\"\u003eเกมเกี่ยวกับการศึกษา\u003c/a\u003e"
+	},
 	"press-games-title": {
 		"message": "ความสนุกสนานทั้งหมดรวมอยู่ที่นี่แล้ว"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "แชร์"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: อิโมจิสำหรับวันหยุด"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: แบบทดสอบเกี่ยวกับธรรมเนียมวันหยุด"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: ตำแหน่งของซานต้า"
+	},
+	"sidebar_trends": {
+		"message": "Google เทรนด์: การค้นหาวันหยุด"
 	},
 	"sk_country_name": {
 		"message": "สโลวะเกีย"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "เวเนซุเอลา"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistant: โทรหาซานต้า"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: เรื่องราววันหยุด"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: ซานต้าอยู่ที่ไหน"
 	},
 	"village_comeback": {
 		"message": "กลับมาดูใหม่ในวันที่ 24 และช่วยเราตามติดซานต้าตลอดทั้งคืน!"

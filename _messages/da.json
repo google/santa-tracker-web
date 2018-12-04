@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Lærerige eventyr"
 	},
+	"press-edu1": {
+		"message": "Vi har udvidet vores \u003ca href=\"./educators.html\"\u003eressourceside for undervisere\u003c/a\u003e for at give lærere videovejledninger til at supplere de lektionsplaner, der nu er tilgængelige på fem sprog. Alle dine yndlingsspil fortsætter med at introducere grundlæggende kodning ved hjælp af alverdens juletraditioner. Googles Følg julemanden gør julen lærerig på en sjov måde – se \u003ca href=\"./educators.html\"\u003evores pædagogiske spil\u003c/a\u003e for at få flere oplysninger."
+	},
 	"press-games-title": {
 		"message": "Alt til sjov og spil"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Del"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Juleemoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz om juletraditioner"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Julemandens placering"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Julerelaterede søgninger"
 	},
 	"sk_country_name": {
 		"message": "Slovakiet"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistent: Kald på julemanden"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: Julehistorie"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: Hvor er julemanden?"
 	},
 	"village_comeback": {
 		"message": "Kom tilbage den 24., og hjælp os med at følge julemanden hele natten!"

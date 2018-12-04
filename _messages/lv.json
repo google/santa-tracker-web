@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Izglītojoši piedzīvojumi"
 	},
+	"press-edu1": {
+		"message": "Esam paplašinājuši \u003ca href=\"./educators.html\"\u003epedagogu resursu lapu\u003c/a\u003e, lai nodrošinātu skolotājiem video ceļvežus, kas varētu papildināt nodarbību plānus (tagad pieejami piecās valodās). Visas jūsu iecienītās spēles ir pieejamas, un tajās ir iekļauti kodēšanas pamatprincipi, izmantojot starptautiskas svētku tradīcijas. Google Ziemassvētku vecīša ceļojums rosina apgūt svētku pieredzi jautrā veidā. Lai uzzinātu vairāk, apskatiet \u003ca href=\"./educators.html\"\u003emūsu izglītojošās spēles\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Liela jautrība un spēles"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Kopīgot"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code. Svētku emocijzīmes"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth. Svētku tradīciju viktorīna"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps. Ziemassvētku vecīša atrašanās vieta"
+	},
+	"sidebar_trends": {
+		"message": "Google tendences. Svētku meklēšanas vaicājumi"
 	},
 	"sk_country_name": {
 		"message": "Slovākija"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venecuēla"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google asistents. Zvanīt Ziemassvētku vecītim"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google asistents. Svētku stāsts"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google asistents. Kur ir Ziemassvētku vecītis?"
 	},
 	"village_comeback": {
 		"message": "Atgriezieties 24. datumā un palīdziet mums sekot Ziemassvētku vecītim visu nakti!"

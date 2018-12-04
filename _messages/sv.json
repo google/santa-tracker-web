@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Lärorika äventyr"
 	},
+	"press-edu1": {
+		"message": "Vi har utökat vår \u003ca href=\"./educators.html\"\u003eresurssida för utbildare\u003c/a\u003e med videoguider på fem olika språk som lärare kan använda i sina lektioner. Alla populära spel som introducerar grundläggande kodning och globala jultraditioner är kvar. Googles Följ jultomten är en väg till roligt lärande i juletid. Besök \u003ca href=\"./educators.html\"\u003evåra pedagogiska spel\u003c/a\u003e för att få mer information."
+	},
 	"press-games-title": {
 		"message": "Skoj och spel"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Dela"
+	},
+	"sidebar_code_emoji": {
+		"message": "Gjort med kod: Julemoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz om jultraditioner"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Jultomtens plats"
+	},
+	"sidebar_trends": {
+		"message": "Google Trender: Julsökningar"
 	},
 	"sk_country_name": {
 		"message": "Slovakien"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistent: Ring jultomten"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: Julsaga"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: Var är jultomten"
 	},
 	"village_comeback": {
 		"message": "Kom tillbaka den 24 december och hjälp oss spåra tomten hela natten."

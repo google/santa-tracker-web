@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Aventuras educativas"
 	},
+	"press-edu1": {
+		"message": "Hemos ampliado nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones navideñas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque navideño. Para obtener más información, echa un vistazo a \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Todos los juegos y actividades divertidas"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Compartir"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Emoji navideño"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Cuestionario sobre tradiciones navideñas"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Ubicación de Papá Noel"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Búsquedas navideñas"
 	},
 	"sk_country_name": {
 		"message": "Eslovaquia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Asistente de Google: Llamar a Papá Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistente de Google: Cuento navideño"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistente de Google: ¿Dónde está Papá Noel?"
 	},
 	"village_comeback": {
 		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Papá Noel toda la noche!"

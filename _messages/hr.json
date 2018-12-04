@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Poučne avanture"
 	},
+	"press-edu1": {
+		"message": "Proširili smo \u003ca href=\"./educators.html\"\u003estranicu resursa za edukatore\u003c/a\u003e i dodali joj videovodiče koji su sada dostupni na pet jezika i služe učiteljima kao nadopuna nastavnim planovima. Zadržali smo sve omiljene igre koje u blagdanske tradicije iz svih dijelova svijeta uvode osnovna načela pisanja koda. Googleova igra Slijedi Djeda Božićnjaka potiče na učenje kroz blagdansku zabavu; više možeš saznati u \u003ca href=\"./educators.html\"\u003enašim poučnim igrama\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Sva zabava i igre"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Dijeli"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: blagdanski emojiji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: kviz o blagdanskim tradicijama"
+	},
+	"sidebar_santas_location": {
+		"message": "Google karte: lokacija Djeda Božićnjaka"
+	},
+	"sidebar_trends": {
+		"message": "Google trendovi: pretraživanja blagdanskih pojmova"
 	},
 	"sk_country_name": {
 		"message": "Slovačka"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google asistent: nazovi Djeda Božićnjaka"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google asistent: blagdanska priča"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google asistent: gdje je Djed Božićnjak?"
 	},
 	"village_comeback": {
 		"message": "Vrati se 24. i pomozi nam u cjelonoćnom praćenju Djeda Božićnjaka!"

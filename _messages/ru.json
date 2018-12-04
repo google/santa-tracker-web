@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Увлекательное обучение"
 	},
+	"press-edu1": {
+		"message": "Мы добавили новые \u003ca href=\"./educators.html\"\u003eобразовательные ресурсы\u003c/a\u003e. Чтобы помочь учителям сделать уроки веселее и интереснее, мы подготовили занятия на различные темы: от основ программирования до праздничных традиций. Материалы доступны на пяти языках. Посмотреть наши познавательные игры можно \u003ca href=\"./educators.html\"\u003eздесь\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Игры и развлечения"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Поделиться"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code \u003e Праздничные эмодзи"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Планета Земля \u003e Викторина о праздничных традициях"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Карты \u003e Местоположение Санта-Клауса"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends \u003e Поисковые запросы, связанные с Новым годом"
 	},
 	"sk_country_name": {
 		"message": "Словакия"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Венесуэла"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Ассистент \u003e Позвонить Санте"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Ассистент \u003e Рождественская история"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Ассистент \u003e Где Санта?"
 	},
 	"village_comeback": {
 		"message": "Загляните сюда 24 декабря и следите за путешествиями Санты всю ночь."

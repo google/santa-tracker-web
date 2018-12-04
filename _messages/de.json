@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Lehrreiche Abenteuer"
 	},
+	"press-edu1": {
+		"message": "Auf unserer \u003ca href=\"./educators.html\"\u003eRessourcenseite für Pädagogen\u003c/a\u003e sind jetzt auch begleitende Videoanleitungen für die Unterrichtspläne in fünf Sprachen verfügbar. Außerdem kannst du weiterhin durch unterhaltsame Spiele die grundlegenden Konzepte des Programmierens und Wissenswertes über Weihnachtstraditionen in der ganzen Welt lernen. \"Auf den Spuren des Weihnachtsmanns\" fördert spielerisches Lernen mit festlicher Thematik. In den \u003ca href=\"./educators.html\"\u003eLernspielen\u003c/a\u003e erfährst du mehr dazu."
+	},
 	"press-games-title": {
 		"message": "Alle Spiele und Aktivitäten"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Teilen"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Festliche Emojis"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz über Weihnachtstraditionen"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Aktueller Standort des Weihnachtsmanns"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Suchanfragen zum Thema Weihnachten"
 	},
 	"sk_country_name": {
 		"message": "Slowakei"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistant: Weihnachtsmann anrufen"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Weihnachtsgeschichte"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Wo ist der Weihnachtsmann"
 	},
 	"village_comeback": {
 		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"

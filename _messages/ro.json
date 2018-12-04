@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Aventuri educative"
 	},
+	"press-edu1": {
+		"message": "Am extins \u003ca href=\"./educators.html\"\u003epagina de resurse pentru cadre didactice\u003c/a\u003e pentru a oferi ghiduri video alături de planurile de lecție, disponibile acum în cinci limbi. Toate jocurile tale preferate continuă să fie disponibile, prezentând de la concepte de bază despre programare, la tradiții de sărbători din întreaga lume. Pe urmele lui Moș Crăciun cu Google încurajează experiențele de învățare în timpul sărbătorilor într-un mod distractiv. Pentru a afla mai multe, accesează \u003ca href=\"./educators.html\"\u003ejocurile noastre educative\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Distracție și jocuri"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Postează"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Emoji de sărbători"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Test despre tradiții de sărbători"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Locația lui Moș Crăciun"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Căutări de sărbători"
 	},
 	"sk_country_name": {
 		"message": "Slovacia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Asistent Google: Sună-l pe Moș Crăciun"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistent Google: Poveste de sărbători"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistent Google: Unde este Moș Crăciun?"
 	},
 	"village_comeback": {
 		"message": "Întoarce-te pe 24 decembrie și ajută-ne să-l urmărim pe Moș Crăciun toată noaptea!"

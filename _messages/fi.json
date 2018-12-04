@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Oppimisseikkailuja"
 	},
+	"press-edu1": {
+		"message": "Olemme laajentaneet \u003ca href=\"./educators.html\"\u003eopetusresurssisivuamme\u003c/a\u003e, ja saatavilla on nyt tuntisuunnitelmien tueksi video-ohjeita viidellä kielellä. Sivulta löytyvät edelleen kaikki suosikkipelisi, jotka yhdistävät koodauksen peruskäsitteet maailmalla tunnettuihin joulunajan perinteisiin. Googlen Joulupukin jäljitin kannustaa hauskaan oppimiseen joulun aikaan. Tutustu \u003ca href=\"./educators.html\"\u003eopetuspeleihin\u003c/a\u003e tarkemmin."
+	},
 	"press-games-title": {
 		"message": "Iloa ja pelejä"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Jaa"
+	},
+	"sidebar_code_emoji": {
+		"message": "Koodin voima: Joulunajan emojit"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Joulunajan perinnevisa"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Joulupukin sijainti"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Joulunajan haut"
 	},
 	"sk_country_name": {
 		"message": "Slovakia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistant: Soita joulupukille"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Joulutarina"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Missä Pukki luuraa?"
 	},
 	"village_comeback": {
 		"message": "Tule takaisin 24.12. ja seuraa pukin matkaa kanssamme!"

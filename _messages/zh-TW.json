@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "教育冒險"
 	},
+	"press-edu1": {
+		"message": "我們在\u003ca href=\"./educators.html\"\u003e教育工作者資源頁面\u003c/a\u003e中加入了更多內容，為教師提供多種影片指南，可搭配目前共有五種語言版本的教案使用。所有你最喜愛的遊戲同樣會一邊介紹編寫程式碼的基本概念，一邊帶你探索世界各地的佳節傳統。另外，你也可以透過 Google 的聖誕老人追蹤器，以有趣的方式鼓勵學生在假期間持續學習新知。詳情請參閱\u003ca href=\"./educators.html\"\u003e我們的教育類遊戲\u003c/a\u003e。"
+	},
 	"press-games-title": {
 		"message": "各式各樣的遊戲，帶給你無窮樂趣"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "分享"
+	},
+	"sidebar_code_emoji": {
+		"message": "用程式碼打造世界：佳節表情符號"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google 地球：佳節傳統大問哉"
+	},
+	"sidebar_santas_location": {
+		"message": "Google 地圖：聖誕老人的所在位置"
+	},
+	"sidebar_trends": {
+		"message": "Google 搜尋趨勢：佳節搜尋記錄"
 	},
 	"sk_country_name": {
 		"message": "斯洛伐克"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "委內瑞拉"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google 助理：呼叫聖誕老人"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google 助理：佳節故事"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google 助理：聖誕老人在哪裡"
 	},
 	"village_comeback": {
 		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"

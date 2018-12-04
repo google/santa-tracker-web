@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Lavinamieji nuotykiai"
 	},
+	"press-edu1": {
+		"message": "Išplėtėme \u003ca href=\"./educators.html\"\u003epedagogams skirtų išteklių puslapį\u003c/a\u003e, kad mokytojams galėtume pateikti vaizdo įrašus (vadovus) kartu su pamokų planais, kurie dabar pateikiami penkiomis kalbomis. Visuose jūsų mėgstamuose žaidimuose ir toliau pateikiamos pagrindinės sąvokos, susijusios su pasaulinių šventinių tradicijų kodavimu. „Google“ Kalėdų Senelio kelionė smagiai skatina mokymosi švenčių metu patirtis – sužinosite daugiau peržiūrėję \u003ca href=\"./educators.html\"\u003emokomuosius žaidimus\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Visos linksmybės ir žaidimai"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Bendrinti"
+	},
+	"sidebar_code_emoji": {
+		"message": "Sukurta naudojant Kodą: Šventiniai jaustukai"
+	},
+	"sidebar_earth_quiz": {
+		"message": "„Google Earth“: Viktorina apie švenčių tradicijas"
+	},
+	"sidebar_santas_location": {
+		"message": "„Google“ žemėlapiai: Kalėdų Senelio vietovė"
+	},
+	"sidebar_trends": {
+		"message": "„Google Trends“: Su šventėmis susijusios paieškos"
 	},
 	"sk_country_name": {
 		"message": "Slovakija"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venesuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "„Google“ padėjėjas: Skambinti Kalėdų Seneliui"
+	},
+	"village_assistant-holiday_story": {
+		"message": "„Google“ padėjėjas: Šventinė istorija"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "„Google“ padėjėjas: Kur Kalėdų Senelis?"
 	},
 	"village_comeback": {
 		"message": "Grįžk 24-ąją ir padėk mums visą naktį sekti Kalėdų Senelį!"

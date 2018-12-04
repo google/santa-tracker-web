@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Educational adventures"
 	},
+	"press-edu1": {
+		"message": "We've expanded our \u003ca href=\"./educators.html\"\u003eeducator resource page\u003c/a\u003e to provide teachers with video guides to accompany lesson plans, now available in five languages. All of your favourite games remain, introducing basic concepts of coding to global festive traditions. Google's Santa Tracker encourages festive learning experiences in a fun way – see \u003ca href=\"./educators.html\"\u003eour educational games\u003c/a\u003e to learn more."
+	},
 	"press-games-title": {
 		"message": "All the fun and games"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Share"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with code: Festive emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Festive traditions quiz"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Santa's location"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Festive searches"
 	},
 	"sk_country_name": {
 		"message": "Slovakia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistant: Call Santa"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Holiday story"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Where's Santa"
 	},
 	"village_comeback": {
 		"message": "Come back on the 24th and help us track Santa all night!"

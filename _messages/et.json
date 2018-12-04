@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Harivad seiklused"
 	},
+	"press-edu1": {
+		"message": "Lisasime \u003ca href=\"./educators.html\"\u003eõpetajatele mõeldud materjalide lehele\u003c/a\u003e viies keeles ainekavade videojuhendid. Olemas on kõik teie lemmikmängud, mis õpetavad programmeerimise põhitõdesid ja eri rahvaste pühadetraditsioone. Google'i jõuluvana jälgimise rakendus innustab lapsi pühade ajal lõbusalt õppima – tutvuge \u003ca href=\"./educators.html\"\u003emeie harivate mängudega\u003c/a\u003e."
+	},
 	"press-games-title": {
 		"message": "Tali ja mängud"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Jaga"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: pühadeemotikonid"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: küsimused pühadetraditsioonide kohta"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: jõuluvana asukoht"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: pühadeotsingud"
 	},
 	"sk_country_name": {
 		"message": "Slovakkia"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google'i assistent: helistage jõuluvanale"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google'i assistent: pühadelugu"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google'i assistent: kus on jõuluvana?"
 	},
 	"village_comeback": {
 		"message": "Tulge 24ndal tagasi ja aidake meil öö läbi jõuluvana teekonda jälgida!"

@@ -1157,6 +1157,9 @@
 	"press-edu": {
 		"message": "Opvoedkundige avonture"
 	},
+	"press-edu1": {
+		"message": "Ons het ons \u003ca href=\"./educators.html\"\u003eopvoeder-hulpbronbladsy\u003c/a\u003e uitgebrei om onderwysers van videogidse saam met lesplanne te voorsien, wat nou in vyf tale beskikbaar is. Al jou gunstelingspeletjies hou aan om basiese konsepte van kodering aan wêreldwye feestydtradisies bekend te stel. Google se Waar is Kersvader moedig leerervarings vir die feestyd op 'n prettige manier aan – sien \u003ca href=\"./educators.html\"\u003eons opvoedkundige speletjies\u003c/a\u003e om meer te wete te kom."
+	},
 	"press-games-title": {
 		"message": "Al die pret en speletjies"
 	},
@@ -1561,6 +1564,18 @@
 	},
 	"share-this": {
 		"message": "Deel"
+	},
+	"sidebar_code_emoji": {
+		"message": "Gemaak met Kode: Feestyd-emosiekoon"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Vasvra oor feestydtradisies"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Kersvader se ligging"
+	},
+	"sidebar_trends": {
+		"message": "Google Neigings: Feestydsoektogte"
 	},
 	"sk_country_name": {
 		"message": "Slowakye"
@@ -6757,6 +6772,15 @@
 	},
 	"ve_country_name": {
 		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistent: Bel Kersvader"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: Feestydstorie"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: Waar is Kersvader"
 	},
 	"village_comeback": {
 		"message": "Kom terug op die 24ste en help ons die hele nag om Kersvader te volg!"
