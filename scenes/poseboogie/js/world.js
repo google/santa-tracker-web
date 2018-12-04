@@ -9,8 +9,8 @@ export class World {
   constructor(config) {
     this.config = config;
     this.world = new p2.World({
-      // supply some slight downwards gravity
-      gravity: [0, -1],
+      // supply downwards gravity
+      gravity: [0, -9.8],
     });
     this.paused = true;
 

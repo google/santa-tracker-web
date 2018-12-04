@@ -443,29 +443,14 @@ export class Elf extends EventTarget {
 
     if (this.allGood('nose')) {
       this.head.position = this.scale(this.pose['nose'].position);
-    }
-    if (this.allGood('leftEar', 'rightEar')) {
-      this.resizeCircle(this.head.shapes[0], this.dist('leftEar', 'rightEar') * headRadius / 2);
+      this.head.position[1] += neckLength;
     }
 
     // Set the torso position (center of mass) to the mean of the observed
     // torso-framing joints.
-    // TODO(markmcd): filter out low-conf parts, but don't update if <2
-    // parts or only 2 adjacent parts.
     const chestParts = ['leftShoulder', 'rightShoulder', 'leftHip', 'rightHip'];
     if (this.allGood(...chestParts)) {
       this.torso.position = this.scale(this.mean(...chestParts));
-    }
-    // Prefer scaling with the long sides, as they more accurately represent torso size
-    // (shoulders/hips work, but when they converge it's probably rotation).
-    if (this.allGood('leftHip', 'leftShoulder')) {
-      this.resizeBox(this.torso.shapes[0], this.dist('leftHip', 'leftShoulder'), null);
-    } else if (this.allGood('rightHip', 'rightShoulder')) {
-      this.resizeBox(this.torso.shapes[0], this.dist('rightHip', 'rightShoulder'), null);
-    } else if (this.allGood('leftShoulder', 'rightShoulder')) {
-      this.resizeBox(this.torso.shapes[0], null, this.dist('leftShoulder', 'rightShoulder'));
-    } else if (this.allGood('leftHip', 'rightHip')) {
-      this.resizeBox(this.torso.shapes[0], null, this.dist('leftHip', 'rightHip'));
     }
 
     // We can calculate the angle of these parts, so do so.
@@ -478,7 +463,6 @@ export class Elf extends EventTarget {
       // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
       this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
           leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
-      // TODO(markmcd): is preserving aspect ratio the right thing to do here? things get chunky.
       this.resizeBox(this.leftArm.shapes[0], this.dist('leftShoulder', 'leftElbow'), null);
     }
 
@@ -487,7 +471,6 @@ export class Elf extends EventTarget {
       this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
           leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
       this.leftHand.position = this.scale(this.pose['leftWrist'].position);
-      // TODO(markmcd): resize hands/feet
       this.resizeBox(this.leftForeArm.shapes[0], this.dist('leftElbow', 'leftWrist'), null);
     }
 
@@ -525,6 +508,10 @@ export class Elf extends EventTarget {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
       this.leftCalf.angle = this.leftFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
+      this.leftFoot.position = this.scale(this.pose['leftAnkle'].position);
+      // These offsets match the local pivots used in the revolute constraint above
+      this.leftFoot.position[0] += shoeWidth/2 - (shoeWidth * ankleOffset);
+      this.leftFoot.position[1] -= shoeHeight/2 - (shoeWidth * ankleOffset);
       this.resizeBox(this.leftCalf.shapes[0], this.dist('leftKnee', 'leftAnkle'), null);
     }
 
@@ -543,6 +530,9 @@ export class Elf extends EventTarget {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
       this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
+      this.rightFoot.position = this.scale(this.pose['rightAnkle'].position);
+      this.rightFoot.position[0] -= shoeWidth/2 - (shoeWidth * ankleOffset);
+      this.rightFoot.position[1] -= shoeHeight/2 - (shoeWidth * ankleOffset);
       this.resizeBox(this.rightCalf.shapes[0], this.dist('rightKnee', 'rightAnkle'), null);
     }
 
@@ -564,24 +554,12 @@ export class Elf extends EventTarget {
     });
   }
 
-  resizeCircle(shape, newRadius) {
-    if (!this.resize) { return; }
-    shape.radius = newRadius;
-    // These seem to only matter when using collision detection, but are recommended so ¯\_(ツ)_/¯
-    shape.updateArea();
-    shape.updateBoundingRadius();
-  }
-
   resizeBox(shape, height, width) {
     if (!this.resize) { return; }
-    if (height && width) {
+    if (height) {
       shape.height = height;
-      shape.width = width;
-    } else if (height) {
-      shape.width = shape.width / (shape.height / height);
-      shape.height = height;
-    } else if (width) {
-      shape.height = shape.height / (shape.width / width);
+    }
+    if (width) {
       shape.width = width;
     }
     shape.updateArea();
