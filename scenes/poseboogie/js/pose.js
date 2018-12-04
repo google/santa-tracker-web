@@ -21,7 +21,7 @@ export function detectAndDrawPose(videoConfig, appConfig) {
     if (appConfig.multiPoseMode) {
       // TODO(markmcd): wire up the nmsRadius and maxPoses to UI?
       poses = await videoConfig.net.estimateMultiplePoses(videoConfig.video,
-          appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
+          appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride, 2);
     } else {
       const pose = await videoConfig.net.estimateSinglePose(videoConfig.video,
           appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride);
