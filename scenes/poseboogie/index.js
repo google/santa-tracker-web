@@ -12,7 +12,7 @@ const [minHumanSize, maxHumanSize] = [0.25, 1.5];
 const humanSizeStep = 0.25;
 
 const appConfig = {
-  debug: true,
+  debug: /[&?;]debug\b/.test(window.location.search),
   mobileNetArchitecture: 0.75,
   minPartConfidence: 0.7,
   minPoseConfidence: 0.6,
@@ -41,7 +41,7 @@ const posePromise = posenet.load(appConfig.mobileNetArchitecture);
 api.preload.wait(posePromise);
 
 /**
- * Loads a the camera to be used in the demo
+ * Loads the camera to be used in the demo
  */
 async function setupCamera() {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -96,7 +96,7 @@ function setUpDebugControls() {
 
 /**
  * Kicks off the demo by loading the posenet model, finding and loading
- * available camera devices, and setting off the detectAndDrawPose function.
+ * available camera devices, wiring up local events and creating the world.
  */
 export async function bindPage() {
   document.getElementById('mirror').addEventListener('change', (evt) =>
@@ -135,7 +135,7 @@ export async function bindPage() {
   world.animate(document.getElementById('scene'));
   elf.track(videoConfig, appConfig);
 
-  if (debug) {
+  if (appConfig.debug) {
     document.getElementById('debug').style.display = 'block';
     setUpDebugControls();
     detectAndDrawPose(videoConfig, appConfig);
