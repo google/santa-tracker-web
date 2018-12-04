@@ -289,7 +289,7 @@ app.world.LevelObject = class {
       this.world_.DestroyBody(this.body_);
     }
     this.unregisterForCollisions();
-    $(this.el_).remove();
-    $(this.shadowEl_).remove();
+    this.$el_.remove();
+    this.$shadowEl_.remove()
   }
 }
