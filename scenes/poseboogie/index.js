@@ -26,6 +26,7 @@ const appConfig = {
   quadraticElbows: true,
   multiPoseMode: false,
   drawGrid: false,
+  pinnedFeet: true, // Need to refresh if this changes, since we can't change types on the fly.
 };
 
 api.preload.images(

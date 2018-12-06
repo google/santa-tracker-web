@@ -275,6 +275,7 @@ export class Elf extends EventTarget {
 
     this.leftFoot = new p2.Body({
       position: [shoulderWidth/2 + shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
     this.leftFoot.zIndex = 3;
@@ -347,6 +348,7 @@ export class Elf extends EventTarget {
 
     this.rightFoot = new p2.Body({
       position: [-shoulderWidth/2 - shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
     this.rightFoot.zIndex = 3;
@@ -394,6 +396,7 @@ export class Elf extends EventTarget {
       this.resize = this.config.resizeBodyParts;
       this.enableLimits(this.config.enableJointLimits);
       this.humanSize = this.config.humanSize;
+      this.pinnedFeet = this.config.pinnedFeet;
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
@@ -546,7 +549,7 @@ export class Elf extends EventTarget {
       this.resizeBox(this.leftLeg.shapes[0], this.dist('leftHip', 'leftKnee'), null);
     }
 
-    if (this.allGood('leftKnee', 'leftAnkle')) {
+    if (!this.pinnedFeet && this.allGood('leftKnee', 'leftAnkle')) {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
       this.leftCalf.angle = this.leftFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
@@ -568,7 +571,7 @@ export class Elf extends EventTarget {
       this.resizeBox(this.rightLeg.shapes[0], this.dist('rightHip', 'rightKnee'), null);
     }
 
-    if (this.allGood('rightKnee', 'rightAnkle')) {
+    if (!this.pinnedFeet && this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
       this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
