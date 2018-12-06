@@ -18,6 +18,8 @@ let klangEngine;
 
 
 
+self.AudioContext = self.AudioContext || self.webkitAudioContext;
+
 const zeroAudioContext = new AudioContext();
 export const initialSuspend = zeroAudioContext.state === 'suspended';
 
