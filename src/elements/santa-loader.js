@@ -99,6 +99,7 @@ class SantaLoaderElement extends HTMLElement {
     this._maybeStopPreload('cancelled');
 
     const pf = document.createElement('iframe');
+    pf.setAttribute('scrolling', 'no');  // stops iOS doing stupid things
     pf.src = url || EMPTY_PAGE;
     if (this._activeFrame.src === pf.src) {
       // nothing to do, we're already loaded for some reason
