@@ -1545,7 +1545,7 @@
   },
   "press-whatsnew3-text": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description: note that 'hamburger' refers to the three-line 'more' menu sometimes nicknamed the hamburger menu, and Location Sharing is a feature of Google Maps",
-    "message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+    "raw": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey. You can also go to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://g.co/findsanta\"&gt;</ph>https://g.co/findsanta<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> for an easy shortcut!"
   },
   "press-whatsnew4-title": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description",
@@ -1553,7 +1553,7 @@
   },
   "press-whatsnew4-text": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description",
-    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available on <ph name=\"BEGIN_LINK1\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"&gt;</ph>Android<ph name=\"END_LINK1\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, <ph name=\"BEGIN_LINK2\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"&gt;</ph>iOS<ph name=\"END_LINK2\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>. And, enjoy some literary fun by asking the Google Assistant to \"Tell me a holiday story\" and \"Where's Santa?\""
   },
   "press-villagetracker-title": {
     "description": "Heading of the Press page",
