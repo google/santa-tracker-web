@@ -5,6 +5,7 @@ import {BODY_PARTS, OTHER} from './world.js';
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being
 // downwards and negative X being leftwards.
 const
+    offset = [0, 4.0],  // initial body translation offsets
     headRadius = 2.8,
     neckLength = 0.1,
     torsoLength = 5,
@@ -45,7 +46,7 @@ export class Elf extends EventTarget {
     // by default, is the center of the shape.
 
     this.head = new p2.Body({
-      position: [0, headRadius],
+      position: Elf.translate([0, headRadius], offset),
       mass: 1,
     });
     this.head.zIndex = 1;
@@ -60,7 +61,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.head);
 
     this.torso = new p2.Body({
-      position: [0, -torsoLength/2],
+      position: Elf.translate([0, -torsoLength/2], offset),
       mass: 1,
     });
     this.torso.zIndex = 0;
@@ -82,7 +83,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.neckJoint);
 
     this.leftArm = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength/2 + armLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength/2 + armLength/2], offset),
       mass: 1,
     });
     this.leftArm.zIndex = 2;
@@ -104,7 +105,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftShoulder);
 
     this.leftForeArm = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength/2 - armLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength/2 - armLength/2], offset),
       mass: 1,
     });
     this.leftForeArm.zIndex = 2;
@@ -131,7 +132,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength/2 + armLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength/2 + armLength/2], offset),
       mass: 1,
     });
     this.rightArm.zIndex = 2;
@@ -153,7 +154,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightShoulder);
 
     this.rightForeArm = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength/2 - armLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength/2 - armLength/2], offset),
       mass: 1,
     });
     this.rightForeArm.zIndex = 2;
@@ -180,7 +181,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightElbow);
 
     this.leftHand = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - handLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - handLength/2], offset),
       mass: 1,
     });
     this.leftHand.zIndex = 3;
@@ -202,7 +203,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftWrist);
 
     this.rightHand = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - handLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - handLength/2], offset),
       mass: 1,
     });
     this.rightHand.zIndex = 3;
@@ -224,7 +225,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - legLength/4],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - legLength/4], offset),
       mass: 1,
     });
     this.leftLeg.zIndex = 2;
@@ -240,7 +241,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.leftLeg);
 
     this.leftCalf = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - legLength*3/4],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - legLength*3/4], offset),
       mass: 1,
     });
     this.leftCalf.zIndex = 2;
@@ -274,7 +275,8 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftKnee);
 
     this.leftFoot = new p2.Body({
-      position: [shoulderWidth/2 + shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      position: Elf.translate([shoulderWidth/2 + shoeWidth/2,
+        -torsoLength - legLength - shoeHeight/2], offset),
       type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
@@ -298,7 +300,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftAnkle);
 
     this.rightLeg = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - legLength/4],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - legLength/4], offset),
       mass: 1,
     });
     this.rightLeg.zIndex = 2;
@@ -313,7 +315,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.rightLeg);
 
     this.rightCalf = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - legLength*3/4],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - legLength*3/4], offset),
       mass: 1,
     });
     this.rightCalf.zIndex = 2;
@@ -347,7 +349,8 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightKnee);
 
     this.rightFoot = new p2.Body({
-      position: [-shoulderWidth/2 - shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      position: Elf.translate([-shoulderWidth/2 - shoeWidth/2,
+        -torsoLength - legLength - shoeHeight/2], offset),
       type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
