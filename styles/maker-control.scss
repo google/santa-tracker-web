@@ -78,9 +78,10 @@ maker-chooser[mode="category"] {
     padding: 4px;
   }
   maker-chooser[mode="category"] {
+    position: -webkit-sticky;
     position: sticky;
     top: calc(50vh - 71px);  // this is the height of ourself
-    z-index: 1000;  // above main
+    z-index: 20000;  // above main
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
   }
 

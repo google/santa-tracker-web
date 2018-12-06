@@ -19,7 +19,7 @@ class SantaTrackerController extends Controller {
       loadProgress: 1,
       showError: false,
       showSidebar: false,
-      todayHouse: 'boatload',
+      todayHouse: 'elfmaker',
       pageVisible: undefined,
       online: undefined,
       api: null,
