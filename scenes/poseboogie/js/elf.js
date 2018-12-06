@@ -379,8 +379,14 @@ export class Elf extends EventTarget {
       this.neckJoint.setLimits(-Math.PI/8, Math.PI/8);  // π/4 = 45°
       this.leftWrist.setLimits(Math.PI/4, -Math.PI/4);
       this.rightWrist.setLimits(Math.PI/4, -Math.PI/4);
-      this.leftAnkle.setLimits(0, 0);
-      this.rightAnkle.setLimits(0, 0);
+      if (this.config.pinnedFeet) {
+        // Stop the ankles from rotating below the (fixed) shoes.
+        this.leftAnkle.setLimits(-Math.PI/2, Math.PI/2);
+        this.rightAnkle.setLimits(-Math.PI/2, Math.PI/2);
+      } else {
+        this.leftAnkle.setLimits(0, 0);
+        this.rightAnkle.setLimits(0, 0);
+      }
     } else {
       this.neckJoint.setLimits(false, false);
       this.leftWrist.setLimits(false, false);
