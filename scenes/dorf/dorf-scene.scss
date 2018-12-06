@@ -71,8 +71,6 @@ countdown-timer {
 village-header {
   p {
     max-width: 600px;
-    font-weight: 600;
-    letter-spacing: -1px;
     text-shadow: 0 0 4px #34d4f0, 0 1px 0 rgba(0, 0, 0, .1);
   }
 
@@ -84,6 +82,7 @@ village-header {
     color: #fff;
     font-weight: 400;
     font-family: 'Lobster';
+    margin-top: 30px;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
     font-size: 32px;
     transform: rotate(-5deg);
@@ -130,7 +129,9 @@ village-header {
       }
     }
 
-    margin-top: 6px;
+    @media (max-width: ($width-tablet - 1)) {
+      margin-top: 6px;
+    }
   }
 
   $extra-height: 132px;
@@ -215,7 +216,7 @@ village-header {
   #effect-plane {
     will-change: transform;
     position: absolute;
-    top: 32px;
+    top: 80px;
     width: 171px;
     height: 82px;
     margin-left: -(171px/2);
@@ -259,7 +260,7 @@ footer {
     font-size: 20px;
     line-height: 24px;
     max-width: 400px;
-    text-shadow: 0 1px 0 white; 
+    text-shadow: 0 1px 0 white;
     position: relative;
     z-index: 1;  // put above ::after
   }
@@ -522,7 +523,7 @@ footer {
       .card {
         justify-content: center;
       }
-      h3 { 
+      h3 {
         display: none;
       }
       .launchdate {
