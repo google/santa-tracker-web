@@ -11,9 +11,7 @@ body {
 }
 
 footer {
-  background: white;
-  box-sizing: border-box;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  z-index: 22000;
 }
 
 maker-photo {
@@ -30,6 +28,7 @@ maker-elf {
   z-index: 100;
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 12px 12px -12px red;
 
   .viewport {
     position: absolute;
@@ -54,6 +53,10 @@ maker-elf {
       padding: 1em 0;
     }
   }
+}
+
+maker-control {
+  background: white;
 }
 
 santa-button {
@@ -83,9 +86,13 @@ santa-button {
     }
   }
   footer {
-    margin-top: 50vh;
-    padding: 0;
-    z-index: auto;
+    position: absolute;
+    top: 30vh;
+    width: 100%;
+    height: 70vh;
+    padding-top: 20vh;
+    box-sizing: border-box;
+    overflow: scroll;
 
     maker-control {
       min-height: 50vh;
