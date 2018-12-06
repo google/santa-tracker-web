@@ -28,7 +28,7 @@ maker-elf {
   z-index: 100;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 12px 12px -12px red;
+  box-shadow: inset 0 -12px 12px -12px rgba(0, 0, 0, 0.125);
 
   .viewport {
     position: absolute;
@@ -87,15 +87,17 @@ santa-button {
   }
   footer {
     position: absolute;
-    top: 30vh;
+    top: 45vh;
     width: 100%;
-    height: 70vh;
-    padding-top: 20vh;
+    height: 55vh;
+    padding-top: 5vh;
     box-sizing: border-box;
     overflow: scroll;
 
     maker-control {
+      box-sizing: border-box;
       min-height: 50vh;
+      padding-bottom: 15vh;
     }
   }
 }
@@ -112,7 +114,6 @@ santa-button {
 
     &::before {
       content: '';
-      background: red;
       background: url(img/tray_lg.svg) center/contain no-repeat;
       position: absolute;
       left: -20px;
