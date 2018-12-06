@@ -82,14 +82,16 @@ village-header {
     width: 120px;
     height: 120px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'Lobster';
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
     font-size: 32px;
     transform: rotate(-5deg);
     word-wrap: break-word;
+    letter-spacing: -1px;
     cursor: pointer;
     position: relative;
+    padding: 0;
 
     &::before,
     &::after {
