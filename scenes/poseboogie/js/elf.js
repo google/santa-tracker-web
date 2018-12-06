@@ -33,8 +33,9 @@ const lineStyle = {
 };
 
 export class Elf extends EventTarget {
-  constructor(world) {
+  constructor(world, appConfig) {
     super();
+    this.config = appConfig;
     this.hasPose = false;
     this.world = world;
     const p2World = world.world;
@@ -384,42 +385,42 @@ export class Elf extends EventTarget {
     }
   }
 
-  track(videoConfig, appConfig) {
+  track(videoConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
 
     const trackFrame = () => {
-      this.threshold = appConfig.minPartConfidence;
-      this.resize = appConfig.resizeBodyParts;
-      this.enableLimits(appConfig.enableJointLimits);
-      this.humanSize = appConfig.humanSize;
+      this.threshold = this.config.minPartConfidence;
+      this.resize = this.config.resizeBodyParts;
+      this.enableLimits(this.config.enableJointLimits);
+      this.humanSize = this.config.humanSize;
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
-      if (appConfig.modelReload) {
+      if (this.config.modelReload) {
         videoConfig.net.dispose();
         videoConfig.net.discarded = true;
-        appConfig.modelReload = false;
-        loadModel = posenet.load(+appConfig.mobileNetArchitecture);
+        this.config.modelReload = false;
+        loadModel = posenet.load(+this.config.mobileNetArchitecture);
       }
 
       loadModel.then((net) => {
         videoConfig.net = net;
         let singlePosePromise;
-        if (appConfig.multiPoseMode) {
+        if (this.config.multiPoseMode) {
           singlePosePromise = net.estimateMultiplePoses(videoConfig.video,
-                  appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride)
+                  this.config.imageScaleFactor, this.config.flipHorizontal, +this.config.outputStride)
               // Pull out the best pose from the batch
               .then((poses) => poses.reduce(
                   (bestPose, pose) => !bestPose || pose.score > bestPose.score ? pose : bestPose));
         } else {
           singlePosePromise = net.estimateSinglePose(videoConfig.video,
-              appConfig.imageScaleFactor,
-              appConfig.flipHorizontal, +appConfig.outputStride);
+              this.config.imageScaleFactor,
+              this.config.flipHorizontal, +this.config.outputStride);
         }
         singlePosePromise
             .then((pose) => {
-              if (pose.score >= appConfig.minPoseConfidence) {
+              if (pose.score >= this.config.minPoseConfidence) {
                 if (!this.hasPose) {
                   this.dispatchEvent(new CustomEvent('pose-change', {detail: true}));
                 }
@@ -433,7 +434,7 @@ export class Elf extends EventTarget {
                 this.hasPose = false;
                 this.pose = null;
               }
-              if (appConfig.debug) {
+              if (this.config.debug) {
                 document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
               }
             })

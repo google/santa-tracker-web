@@ -128,7 +128,7 @@ export async function bindPage() {
   const videoConfig = {video, net, videoWidth, videoHeight};
 
   const world = new World(appConfig);
-  const elf = new Elf(world);
+  const elf = new Elf(world, appConfig);
 
   const badPoseElement = document.getElementById('bad-pose');
   elf.addEventListener('pose-change', (evt) => {
@@ -137,7 +137,7 @@ export async function bindPage() {
   });
 
   world.animate(document.getElementById('scene'));
-  elf.track(videoConfig, appConfig);
+  elf.track(videoConfig);
 
   if (appConfig.debug) {
     document.getElementById('debug').style.display = 'block';
