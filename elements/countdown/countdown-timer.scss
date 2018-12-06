@@ -39,7 +39,7 @@ $bar-color: #ff0160;
 
 .counter-box {
   $height: 44px;
-  width: 40px;
+  width: 44px;
   height: $height;
   position: relative;
 
@@ -48,8 +48,10 @@ $bar-color: #ff0160;
     height: 100%;
     font-size: 24px;
     color: white;
-    font-weight: 400;
-    line-height: $height - 8px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: $height - 14px;
+    margin-left: -1px;
     margin-bottom: 8px;
     text-shadow: none;
     position: absolute;
@@ -57,9 +59,6 @@ $bar-color: #ff0160;
     will-change: transform;
     z-index: 100;
     animation-duration: $tick-time;
-
-    margin-left: -1px;
-    letter-spacing: -2px;
 
     &.prev {
       transform: translateY(100%);
@@ -82,8 +81,7 @@ $bar-color: #ff0160;
   bottom: 4px;
   left: 0;
   right: 0;
-  opacity: 0.7;
-} 
+}
 
 @media (max-width: 374px) {
   .counter-box[data-hide="3"] {

@@ -81,12 +81,13 @@ app-drawer {
   countdown-timer {
     h2 {
       font-size: 8px;
-      line-height: 8px;
+      letter-spacing: 1px;
+      line-height: 12px;
       font-weight: 800;
       color: #fff;
       margin: 0;
       text-transform: uppercase;
-    }  
+    }
   }
 
   #title {
