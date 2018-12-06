@@ -1,5 +1,16 @@
 $indent-left: 24px;  // indent in the sidebar
 
+.en {
+  display: none;
+}
+
+.en:lang(en) {
+  display: block;
+}
+.en:lang(en-GB) {
+  display: block;
+}
+
 .cards {
   border-bottom: 4px solid #eee;
 }
