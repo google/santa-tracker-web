@@ -25,6 +25,7 @@ const appConfig = {
   humanSize: 1,
   quadraticElbows: true,
   multiPoseMode: false,
+  drawGrid: false,
 };
 
 api.preload.images(
@@ -94,6 +95,7 @@ function setUpDebugControls() {
   gui.add(appConfig, 'humanSize').min(minHumanSize).max(maxHumanSize).step(humanSizeStep).listen();
   gui.add(appConfig, 'quadraticElbows');
   gui.add(appConfig, 'multiPoseMode');
+  gui.add(appConfig, 'drawGrid');
 }
 
 /**
