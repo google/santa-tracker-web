@@ -85,12 +85,18 @@ village-header {
     margin-top: 30px;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
     font-size: 32px;
-    transform: rotate(-5deg);
+    transform: translateZ(0);
     word-wrap: break-word;
     letter-spacing: -1px;
     cursor: pointer;
     position: relative;
     padding: 0;
+
+    span {
+      display: inline-block;
+      transform: rotate(-5deg);
+      white-space: nowrap;
+    }
 
     &::before,
     &::after {
