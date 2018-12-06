@@ -2,6 +2,7 @@ $toolbar-height: 55px;
 $mobile-width: 768px;
 $santa-color: #00c6ed;
 $bar-color: #ff0160;
+$bar-shadow-color: #e70058;
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -130,7 +131,7 @@ app-drawer {
 
     &::before {
       width: $toolbar-height;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
     }
   }
 
@@ -138,6 +139,7 @@ app-drawer {
     width: ($toolbar-height - 4px);
     height: ($toolbar-height - 4px);
     margin: 2px;
+    padding: 14px;
     pointer-events: auto;
 
     &[drawer-toggle] {
@@ -199,6 +201,7 @@ app-drawer {
     transform: translate(0);
     opacity: 1;
     transition: transform 0.25s, opacity 0.25s;
+    box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
 
     &[hidden] {
       display: block;
