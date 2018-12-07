@@ -5,6 +5,7 @@ import {BODY_PARTS, OTHER} from './world.js';
 // The p2 world co-ordinates are centered on (0, 0), with negative Y being
 // downwards and negative X being leftwards.
 const
+    offset = [0, 4.0],  // initial body translation offsets
     headRadius = 2.8,
     neckLength = 0.1,
     torsoLength = 5,
@@ -33,8 +34,9 @@ const lineStyle = {
 };
 
 export class Elf extends EventTarget {
-  constructor(world) {
+  constructor(world, appConfig) {
     super();
+    this.config = appConfig;
     this.hasPose = false;
     this.world = world;
     const p2World = world.world;
@@ -44,7 +46,7 @@ export class Elf extends EventTarget {
     // by default, is the center of the shape.
 
     this.head = new p2.Body({
-      position: [0, headRadius],
+      position: Elf.translate([0, headRadius], offset),
       mass: 1,
     });
     this.head.zIndex = 1;
@@ -59,7 +61,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.head);
 
     this.torso = new p2.Body({
-      position: [0, -torsoLength/2],
+      position: Elf.translate([0, -torsoLength/2], offset),
       mass: 1,
     });
     this.torso.zIndex = 0;
@@ -81,7 +83,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.neckJoint);
 
     this.leftArm = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength/2 + armLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength/2 + armLength/2], offset),
       mass: 1,
     });
     this.leftArm.zIndex = 2;
@@ -103,7 +105,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftShoulder);
 
     this.leftForeArm = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength/2 - armLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength/2 - armLength/2], offset),
       mass: 1,
     });
     this.leftForeArm.zIndex = 2;
@@ -130,7 +132,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftElbow);
 
     this.rightArm = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength/2 + armLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength/2 + armLength/2], offset),
       mass: 1,
     });
     this.rightArm.zIndex = 2;
@@ -152,7 +154,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightShoulder);
 
     this.rightForeArm = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength/2 - armLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength/2 - armLength/2], offset),
       mass: 1,
     });
     this.rightForeArm.zIndex = 2;
@@ -179,7 +181,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightElbow);
 
     this.leftHand = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - handLength/2],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - handLength/2], offset),
       mass: 1,
     });
     this.leftHand.zIndex = 3;
@@ -201,7 +203,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftWrist);
 
     this.rightHand = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - handLength/2],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - handLength/2], offset),
       mass: 1,
     });
     this.rightHand.zIndex = 3;
@@ -223,7 +225,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightWrist);
 
     this.leftLeg = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - legLength/4],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - legLength/4], offset),
       mass: 1,
     });
     this.leftLeg.zIndex = 2;
@@ -239,7 +241,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.leftLeg);
 
     this.leftCalf = new p2.Body({
-      position: [shoulderWidth/2, -torsoLength - legLength*3/4],
+      position: Elf.translate([shoulderWidth/2, -torsoLength - legLength*3/4], offset),
       mass: 1,
     });
     this.leftCalf.zIndex = 2;
@@ -273,7 +275,9 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftKnee);
 
     this.leftFoot = new p2.Body({
-      position: [shoulderWidth/2 + shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      position: Elf.translate([shoulderWidth/2 + shoeWidth/2,
+        -torsoLength - legLength - shoeHeight/2], offset),
+      type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
     this.leftFoot.zIndex = 3;
@@ -296,7 +300,7 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.leftAnkle);
 
     this.rightLeg = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - legLength/4],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - legLength/4], offset),
       mass: 1,
     });
     this.rightLeg.zIndex = 2;
@@ -311,7 +315,7 @@ export class Elf extends EventTarget {
     p2World.addBody(this.rightLeg);
 
     this.rightCalf = new p2.Body({
-      position: [-shoulderWidth/2, -torsoLength - legLength*3/4],
+      position: Elf.translate([-shoulderWidth/2, -torsoLength - legLength*3/4], offset),
       mass: 1,
     });
     this.rightCalf.zIndex = 2;
@@ -345,7 +349,9 @@ export class Elf extends EventTarget {
     p2World.addConstraint(this.rightKnee);
 
     this.rightFoot = new p2.Body({
-      position: [-shoulderWidth/2 - shoeWidth/2, -torsoLength - legLength - shoeHeight/2],
+      position: Elf.translate([-shoulderWidth/2 - shoeWidth/2,
+        -torsoLength - legLength - shoeHeight/2], offset),
+      type: this.config.pinnedFeet ? p2.Body.KINEMATIC : p2.Body.DYNAMIC,
       mass: 1,
     });
     this.rightFoot.zIndex = 3;
@@ -373,8 +379,14 @@ export class Elf extends EventTarget {
       this.neckJoint.setLimits(-Math.PI/8, Math.PI/8);  // π/4 = 45°
       this.leftWrist.setLimits(Math.PI/4, -Math.PI/4);
       this.rightWrist.setLimits(Math.PI/4, -Math.PI/4);
-      this.leftAnkle.setLimits(0, 0);
-      this.rightAnkle.setLimits(0, 0);
+      if (this.config.pinnedFeet) {
+        // Stop the ankles from rotating below the (fixed) shoes.
+        this.leftAnkle.setLimits(-Math.PI/2, Math.PI/2);
+        this.rightAnkle.setLimits(-Math.PI/2, Math.PI/2);
+      } else {
+        this.leftAnkle.setLimits(0, 0);
+        this.rightAnkle.setLimits(0, 0);
+      }
     } else {
       this.neckJoint.setLimits(false, false);
       this.leftWrist.setLimits(false, false);
@@ -384,42 +396,43 @@ export class Elf extends EventTarget {
     }
   }
 
-  track(videoConfig, appConfig) {
+  track(videoConfig) {
     this.videoWidth = videoConfig.videoWidth;
     this.videoHeight = videoConfig.videoHeight;
 
     const trackFrame = () => {
-      this.threshold = appConfig.minPartConfidence;
-      this.resize = appConfig.resizeBodyParts;
-      this.enableLimits(appConfig.enableJointLimits);
-      this.humanSize = appConfig.humanSize;
+      this.threshold = this.config.minPartConfidence;
+      this.resize = this.config.resizeBodyParts;
+      this.enableLimits(this.config.enableJointLimits);
+      this.humanSize = this.config.humanSize;
+      this.pinnedFeet = this.config.pinnedFeet;
 
       // Reload the model if the UI setting has changed
       let loadModel = Promise.resolve(videoConfig.net);
-      if (appConfig.modelReload) {
+      if (this.config.modelReload) {
         videoConfig.net.dispose();
         videoConfig.net.discarded = true;
-        appConfig.modelReload = false;
-        loadModel = posenet.load(+appConfig.mobileNetArchitecture);
+        this.config.modelReload = false;
+        loadModel = posenet.load(+this.config.mobileNetArchitecture);
       }
 
       loadModel.then((net) => {
         videoConfig.net = net;
         let singlePosePromise;
-        if (appConfig.multiPoseMode) {
+        if (this.config.multiPoseMode) {
           singlePosePromise = net.estimateMultiplePoses(videoConfig.video,
-                  appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride)
+                  this.config.imageScaleFactor, this.config.flipHorizontal, +this.config.outputStride)
               // Pull out the best pose from the batch
               .then((poses) => poses.reduce(
                   (bestPose, pose) => !bestPose || pose.score > bestPose.score ? pose : bestPose));
         } else {
           singlePosePromise = net.estimateSinglePose(videoConfig.video,
-              appConfig.imageScaleFactor,
-              appConfig.flipHorizontal, +appConfig.outputStride);
+              this.config.imageScaleFactor,
+              this.config.flipHorizontal, +this.config.outputStride);
         }
         singlePosePromise
             .then((pose) => {
-              if (pose.score >= appConfig.minPoseConfidence) {
+              if (pose.score >= this.config.minPoseConfidence) {
                 if (!this.hasPose) {
                   this.dispatchEvent(new CustomEvent('pose-change', {detail: true}));
                 }
@@ -433,7 +446,7 @@ export class Elf extends EventTarget {
                 this.hasPose = false;
                 this.pose = null;
               }
-              if (appConfig.debug) {
+              if (this.config.debug) {
                 document.getElementById('textdump').innerText = JSON.stringify(pose, null, 2);
               }
             })
@@ -545,7 +558,7 @@ export class Elf extends EventTarget {
       this.resizeBox(this.leftLeg.shapes[0], this.dist('leftHip', 'leftKnee'), null);
     }
 
-    if (this.allGood('leftKnee', 'leftAnkle')) {
+    if (!this.pinnedFeet && this.allGood('leftKnee', 'leftAnkle')) {
       this.leftCalf.position = this.scale(this.mean('leftKnee', 'leftAnkle'));
       this.leftCalf.angle = this.leftFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           leftKnee.y - leftAnkle.y, leftKnee.x - leftAnkle.x);
@@ -567,7 +580,7 @@ export class Elf extends EventTarget {
       this.resizeBox(this.rightLeg.shapes[0], this.dist('rightHip', 'rightKnee'), null);
     }
 
-    if (this.allGood('rightKnee', 'rightAnkle')) {
+    if (!this.pinnedFeet && this.allGood('rightKnee', 'rightAnkle')) {
       this.rightCalf.position = this.scale(this.mean('rightKnee', 'rightAnkle'));
       this.rightCalf.angle = this.rightFoot.angle = 3 * Math.PI / 2 - Math.atan2(
           rightKnee.y - rightAnkle.y, rightKnee.x - rightAnkle.x);
