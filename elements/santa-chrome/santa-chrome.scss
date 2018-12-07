@@ -1,4 +1,6 @@
 $toolbar-height: 55px;
+$toolbar-height-mobile: 42px;
+$toolbar-transition: 0.25s ease-in-out;
 $mobile-width: 768px;
 $santa-color: #00c6ed;
 $bar-color: #ff0160;
@@ -75,7 +77,7 @@ app-drawer {
   box-sizing: border-box;
   padding-left: $toolbar-height;  // toolbar button is fixed here
   padding-right: 10px;
-  transition: transform 0.25s ease-in-out;
+  transition: transform $toolbar-transition, height $toolbar-transition;
   transform: translate(0);
 
   countdown-timer {
@@ -113,7 +115,9 @@ app-drawer {
   }
 
   @media (max-width: ($mobile-width - 1px)) {
+    height: $toolbar-height-mobile;
     margin-top: 10px;
+    padding-left: $toolbar-height-mobile;
     width: calc(100% - (16px * 2));
 
     &::before {
@@ -122,17 +126,21 @@ app-drawer {
   }
 
   :host(.fixed) & {
-    @media (min-width: $mobile-width) {
-      transform: translate(-5vw) translate(25px);
-    }
-
     #title {
       width: 0;
     }
 
     &::before {
-      width: $toolbar-height;
       box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
+      width: $toolbar-height-mobile;
+    }
+
+    @media (min-width: $mobile-width) {
+      transform: translate(-5vw) translate(25px);
+
+      &::before {
+        width: $toolbar-height;
+      }
     }
   }
 
@@ -142,11 +150,18 @@ app-drawer {
     margin: 2px;
     padding: 14px;
     pointer-events: auto;
+    transition: height $toolbar-transition, padding $toolbar-transition, width $toolbar-transition;
 
     &[drawer-toggle] {
       position: absolute;
       left: 0;
       top: 0;
+    }
+
+    @media (max-width: ($mobile-width - 1px)) {
+      height: ($toolbar-height-mobile - 4px);
+      padding: 10px;
+      width: ($toolbar-height-mobile - 4px);
     }
   }
 
@@ -166,6 +181,7 @@ app-drawer {
     margin-left: 2px;
     line-height: $toolbar-height;
     overflow: hidden;
+    transition: line-height $toolbar-transition;
 
     .logo {
       width: 62px;
@@ -188,6 +204,10 @@ app-drawer {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    @media (max-width: ($mobile-width - 1px)) {
+      line-height: $toolbar-height-mobile;
+    }
   }
 
   #extra {
@@ -201,7 +221,7 @@ app-drawer {
     z-index: -100;
     transform: translate(0);
     opacity: 1;
-    transition: transform 0.25s, opacity 0.25s;
+    transition: transform $toolbar-transition 0.45s, width $toolbar-transition, height $toolbar-transition;
     box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
 
     &[hidden] {
@@ -209,6 +229,15 @@ app-drawer {
       pointer-events: none;
       opacity: 0;
       transform: translate(-12px) translate(-$toolbar-height);
+    }
+
+    @media (max-width: ($mobile-width - 1px)) {
+      height: $toolbar-height-mobile;
+      width: $toolbar-height-mobile;
+
+      &[hidden] {
+        transform: translate(-12px) translate(-$toolbar-height-mobile);
+      }
     }
   }
 }

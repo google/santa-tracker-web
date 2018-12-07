@@ -1,5 +1,7 @@
 $tick-time: 0.6s;  // time for number to tick over
 $bar-color: #ff0160;
+$mobile-width: 768px;
+$toolbar-transition: 0.25s ease-in-out;
 
 :host {
   display: block;
@@ -42,6 +44,7 @@ $bar-color: #ff0160;
   width: 44px;
   height: $height;
   position: relative;
+  transition: height $toolbar-transition, width $toolbar-transition;
 
   .holder {
     width: 100%;
@@ -56,6 +59,7 @@ $bar-color: #ff0160;
     text-shadow: none;
     position: absolute;
     transform: translateY(0);
+    transition: font-size $toolbar-transition;
     will-change: transform;
     z-index: 100;
     animation-duration: $tick-time;
@@ -72,6 +76,15 @@ $bar-color: #ff0160;
     }
     .holder.prev {
       animation-name: counter-step-prev;
+    }
+  }
+
+  @media (max-width: ($mobile-width - 1px)) {
+    height: 40px;
+    width: 40px;
+
+    .holder {
+      font-size: 18px;
     }
   }
 }
