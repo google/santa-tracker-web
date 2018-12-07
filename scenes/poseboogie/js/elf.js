@@ -405,8 +405,19 @@ export class Elf extends EventTarget {
 
       loadModel.then((net) => {
         videoConfig.net = net;
-        net.estimateSinglePose(videoConfig.video, appConfig.imageScaleFactor,
-                appConfig.flipHorizontal, +appConfig.outputStride)
+        let singlePosePromise;
+        if (appConfig.multiPoseMode) {
+          singlePosePromise = net.estimateMultiplePoses(videoConfig.video,
+                  appConfig.imageScaleFactor, appConfig.flipHorizontal, +appConfig.outputStride)
+              // Pull out the best pose from the batch
+              .then((poses) => poses.reduce(
+                  (bestPose, pose) => !bestPose || pose.score > bestPose.score ? pose : bestPose));
+        } else {
+          singlePosePromise = net.estimateSinglePose(videoConfig.video,
+              appConfig.imageScaleFactor,
+              appConfig.flipHorizontal, +appConfig.outputStride);
+        }
+        singlePosePromise
             .then((pose) => {
               if (pose.score >= appConfig.minPoseConfidence) {
                 if (!this.hasPose) {
