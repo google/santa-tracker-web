@@ -58,6 +58,24 @@ export class World {
       const bodies = this.world.bodies.sort((a, b) => a.zIndex - b.zIndex);
       const alreadyDrawn = {};
 
+      if (this.config.drawGrid) {
+        ctx.lineWidth = 0.1;
+        ctx.strokeStyle = 'white';
+        for (let x = -5; x <= 5; x += 1) {
+          ctx.moveTo(x, -this.zoom);
+          ctx.lineTo(x, this.zoom);
+        }
+        for (let y = -5; y <= 5; y += 1) {
+          ctx.moveTo(-this.zoom, y);
+          ctx.lineTo(this.zoom, y);
+        }
+        ctx.stroke();
+
+        ctx.moveTo(0, 0);
+        ctx.arc(0, 0, 0.5, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+
       // And draw!
       for (let i = 0; i < bodies.length; i++) {
         const body = bodies[i];

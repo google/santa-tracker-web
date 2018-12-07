@@ -122,7 +122,7 @@ export class Elf extends EventTarget {
     this.leftArm.style = lineStyle;
     this.leftArm.offset = torsoJointOffset;
 
-        this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
+    this.leftElbow = new p2.RevoluteConstraint(this.leftArm, this.leftForeArm, {
       localPivotA: [0, -armLength/4],
       localPivotB: [0, armLength/4],
       collideConnected: false,
@@ -469,19 +469,34 @@ export class Elf extends EventTarget {
     const leftElbow = this.pose['leftElbow'].position;
     const leftWrist = this.pose['leftWrist'].position;
 
+    let leftArmOffset = [0, 0];
     if (this.allGood('leftShoulder', 'leftElbow')) {
-      this.leftArm.position = this.scale(this.mean('leftShoulder', 'leftElbow'));
       // 3π/2 - x to adjust to p2's reference point (0 is 12 o'clock)
       this.leftArm.angle = 3 * Math.PI / 2 - Math.atan2(
           leftShoulder.y - leftElbow.y, leftShoulder.x - leftElbow.x);
+
+      const leftArmCenter = this.scale(this.mean('leftShoulder', 'leftElbow'));
+      const leftShoulderPivot = Elf.findRotatedPivotPoint(
+          this.torso.position,
+          Elf.translate(this.torso.position, this.leftShoulder.pivotA),  // un-rotated pivot point
+          this.torso.interpolatedAngle);
+      const leftArmPivot = Elf.findRotatedPivotPoint(
+          leftArmCenter,
+          Elf.translate(leftArmCenter, this.leftShoulder.pivotB),
+          this.leftArm.angle);
+      leftArmOffset = [leftArmPivot[0] - leftShoulderPivot[0],
+        leftArmPivot[1] - leftShoulderPivot[1]];
+      this.leftArm.position = Elf.translate(leftArmCenter, leftArmOffset, -1);
       this.resizeBox(this.leftArm.shapes[0], this.dist('leftShoulder', 'leftElbow'), null);
     }
 
     if (this.allGood('leftElbow', 'leftWrist')) {
-      this.leftForeArm.position = this.scale(this.mean('leftElbow', 'leftWrist'));
+      this.leftForeArm.position =
+          Elf.translate(this.scale(this.mean('leftElbow', 'leftWrist')), leftArmOffset, -1);
       this.leftForeArm.angle = this.leftHand.angle = 3 * Math.PI / 2 - Math.atan2(
           leftElbow.y - leftWrist.y, leftElbow.x - leftWrist.x);
-      this.leftHand.position = this.scale(this.pose['leftWrist'].position);
+      this.leftHand.position =
+          Elf.translate(this.scale(this.pose['leftWrist'].position), leftArmOffset, -1);
       this.resizeBox(this.leftForeArm.shapes[0], this.dist('leftElbow', 'leftWrist'), null);
     }
 
@@ -489,18 +504,33 @@ export class Elf extends EventTarget {
     const rightElbow = this.pose['rightElbow'].position;
     const rightWrist = this.pose['rightWrist'].position;
 
+    let rightArmOffset = [0, 0];
     if (this.allGood('rightShoulder', 'rightElbow')) {
-      this.rightArm.position = this.scale(this.mean('rightShoulder', 'rightElbow'));
       this.rightArm.angle = 3 * Math.PI / 2 - Math.atan2(
           rightShoulder.y - rightElbow.y, rightShoulder.x - rightElbow.x);
+
+      const rightArmCenter = this.scale(this.mean('rightShoulder', 'rightElbow'));
+      const rightShoulderPivot = Elf.findRotatedPivotPoint(
+          this.torso.position,
+          Elf.translate(this.torso.position, this.rightShoulder.pivotA),  // un-rotated pivot point
+          this.torso.interpolatedAngle);
+      const rightArmPivot = Elf.findRotatedPivotPoint(
+          rightArmCenter,
+          Elf.translate(rightArmCenter, this.rightShoulder.pivotB),
+          this.rightArm.angle);
+      rightArmOffset = [rightArmPivot[0] - rightShoulderPivot[0],
+          rightArmPivot[1] - rightShoulderPivot[1]];
+      this.rightArm.position = Elf.translate(rightArmCenter, rightArmOffset, -1);
       this.resizeBox(this.rightArm.shapes[0], this.dist('rightShoulder', 'rightElbow'), null);
     }
 
     if (this.allGood('rightElbow', 'rightWrist')) {
-      this.rightForeArm.position = this.scale(this.mean('rightElbow', 'rightWrist'));
+      this.rightForeArm.position =
+          Elf.translate(this.scale(this.mean('rightElbow', 'rightWrist')), rightArmOffset, -1);
       this.rightForeArm.angle = this.rightHand.angle = 3 * Math.PI / 2 - Math.atan2(
           rightElbow.y - rightWrist.y, rightElbow.x - rightWrist.x);
-      this.rightHand.position = this.scale(this.pose['rightWrist'].position);
+      this.rightHand.position =
+          Elf.translate(this.scale(this.pose['rightWrist'].position), rightArmOffset, -1);
       this.resizeBox(this.rightForeArm.shapes[0], this.dist('rightElbow', 'rightWrist'), null);
     }
 
@@ -579,6 +609,16 @@ export class Elf extends EventTarget {
     shape.updateTriangles();
   }
 
+  static findRotatedPivotPoint(origin, point, rotation) {
+    // To rotate around a point we first translate, then rotate, then translate back.
+    return [
+        Math.cos(rotation) * (point[0] - origin[0]) -
+          Math.sin(rotation) * (point[1] - origin[1]) + origin[0],
+        Math.sin(rotation) * (point[0] - origin[0]) +
+          Math.cos(rotation) * (point[1] - origin[1]) + origin[1],
+    ];
+  }
+
   static clamp(n, limit) {
     return Math.min(Math.max(-limit, n), limit);
   }
@@ -594,6 +634,10 @@ export class Elf extends EventTarget {
   scale({x, y}) {
     return [(x - this.videoWidth / 2) / this.world.zoom,
       -(y - this.videoHeight / 2) / this.world.zoom];
+  }
+
+  static translate(vec, offset, scale=1) {
+    return [vec[0] + scale * offset[0], vec[1] + scale * offset[1]];
   }
 
   mean(...parts) {
