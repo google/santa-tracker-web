@@ -1,4 +1,4 @@
-$ui-offset-mobile: 119px;
+$ui-offset-mobile: 75px;
 
 // Mobile and tablet
 @media (max-width: 800px), (max-height: 690px) {
@@ -17,7 +17,7 @@ $ui-offset-mobile: 119px;
     .Tool-ornament {
       background-image: none !important;
     }
-    
+
     .Tools--scrollable {
       background-color: #B444BB  !important;
       background-image: none !important;
