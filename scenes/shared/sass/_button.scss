@@ -1,4 +1,4 @@
-$button-bp: 661px;
+$button-bp: 768px; // matches santa-chrome bp
 $button-colors: (
   green:      (base: #32a658, shadow: #2a8c4a),
   orange:     (base: #ff9802, shadow: #f57c00),
@@ -9,6 +9,16 @@ $button-colors: (
   yellow:     (base: #ffc100, shadow: #f0922b),
 );
 $button-shadow: rgba(0, 0, 0, 0.16);
+
+// s: default mobile size and small btn
+// m: default desktop size
+// l: large btn
+// rad is for default rectangular button
+$button-sizes: (
+  s: (size: 42px, bg: 22px, font: 16px, pad: 0 8px, rad: 5px, line-diff: 0px),
+  m: (size: 55px, bg: 30px, font: 22px, pad: 0 12px, rad: 8px, line-diff: 3px),
+  l: (size: 88px, bg: 50px, font: 28px, pad: 0 45px, rad: 8px, line-diff: 8px),
+);
 
 $button-icons: (
   globe: globe,
@@ -31,18 +41,31 @@ $button-icons: (
   prev-arrow: arrow-left
 );
 
+// Button color mixins
 @function setColor($color, $tone: base) {
   @return map-get(map-get($button-colors, $color), $tone);
 }
 
-@mixin ButtonColor($color) {
-  background-color: setColor($color);
-  box-shadow: 3px 6px 0 setColor($color, shadow), 8px 9px 0 $button-shadow;
+@mixin ButtonColor($color, $custom-base: null, $custom-shadow: null) {
+  $color-base: '';
+  $color-shadow: '';
+
+  @if $custom-base and $custom-shadow {
+    $color-base: $custom-base;
+    $color-shadow: $custom-shadow;
+  } @else {
+    $color-base: setColor($color);
+    $color-shadow: setColor($color, shadow);
+  }
+
+  background-color: $color-base;
+  box-shadow: 3px 6px 0 $color-shadow, 8px 9px 0 $button-shadow;
   transform: translate(-3px, -6px);
+
   &:active {
     // transition to a shadow of the same color, but just hidden
     box-shadow:
-        0 0 0 setColor($color, shadow),
+        0 0 0 $color-shadow,
         0 0 2px $button-shadow !important;
   }
 
@@ -54,15 +77,37 @@ $button-icons: (
     // same as square shadow/transform
 
     &.Button--small {
-      box-shadow: 2px 4px 0 setColor($color, shadow), 5px 7px 0 $button-shadow;
+      box-shadow: 2px 4px 0 $color-shadow, 5px 7px 0 $button-shadow;
       transform: translate(-2px, -4px);
     }
 
     &.Button--large {
-      box-shadow: 5px 7px 0 setColor($color, shadow), 13px 14px 0 $button-shadow;
+      box-shadow: 5px 7px 0 $color-shadow, 13px 14px 0 $button-shadow;
       transform: translate(-5px, -7px);
     }
   }
+}
+
+// Button size mixins
+@function getSize($s, $val: size) {
+  @return map-get(map-get($button-sizes, $s), $val);
+}
+
+@mixin ButtonSize($s) {
+  $height: getSize($s) - getSize($s, line-diff);
+
+  background-size: getSize($s, bg);
+  border-radius: getSize($s, rad);
+  font-size: getSize($s, font);
+  line-height: $height;
+  padding: getSize($s, pad);
+  min-height: $height;
+}
+
+@mixin ButtonRound($s) {
+  height: getSize($s);
+  min-width: getSize($s);
+  width: getSize($s);
 }
 
 $shared: '../shared/' !default;
@@ -78,36 +123,26 @@ $shared: '../shared/' !default;
     -webkit-font-smoothing: antialiased;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 20px;
     border: none;
-    border-radius: 5px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     font-weight: normal;
-    line-height: 32px;
     margin: 0 4px;
-    min-height: 32px;
-    padding: 0 8px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: box-shadow $duration-out ease-in, transform $duration-out ease-in;
+    transition: box-shadow $duration-out ease-in-out, transform $duration-out ease-in-out, height $duration-out ease-in-out, width $duration-out ease-in-out;
     user-select: none;
 
     @include ButtonColor(purple);
+    @include ButtonSize(s);
 
     @media (min-width: $button-bp) {
-      background-size: 30px;
-      border-radius: 8px;
-      font-size: 22px;
-      line-height: 52px;
-      min-height: 52px;
-      padding: 0 12px;
+      @include ButtonSize(m);
     }
 
     &:active {
@@ -117,49 +152,32 @@ $shared: '../shared/' !default;
   }
 
   .Button--small {
-    background-size: 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    line-height: 32px;
-    min-height: 32px;
-    padding: 0 18px;
+    @include ButtonSize(s);
   }
 
   .Button--large {
-    background-size: 50px;
-    font-size: 28px;
-    line-height: 80px;
-    min-height: 80px;
-    padding: 0 45px;
+    @include ButtonSize(l);
   }
 
   .Button--round {
-    border-radius: 50%;
-    height: 32px;
+    @include ButtonRound(s);
+    border-radius: 50% !important;
     padding: 0 !important; // no padding on circles
-    width: 32px;
-    min-width: 32px;
 
     @media (min-width: $button-bp) {
-      height: 55px;
-      width: 55px;
-      min-width: 55px;
+      @include ButtonRound(m);
     }
 
     &.Button--small {
-      height: 32px;
-      width: 32px;
-      min-width: 32px;
+      @include ButtonRound(s);
     }
 
     &.Button--large {
-      height: 88px;
-      width: 88px;
-      min-width: 88px;
+      @include ButtonRound(l);
     }
 
     &.Button--text {
-      border-radius: 10000px;
+      border-radius: 10000px !important;
     }
   }
 
