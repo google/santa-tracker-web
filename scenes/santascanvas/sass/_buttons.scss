@@ -15,32 +15,14 @@
 
   .Button--nav,
   .Button--rotate,
-  .Button--utility, {
+  .Button--utility {
     @include ButtonColor(white);
+    @extend .Button--small;
     margin: 10px auto;
   }
 
   .Button--nav {
     background-size: 25%;
-  }
-
-  .Button--utility {
-    background-size: 50%;
-    height: 50px;
-    width: 50px;
-
-    @media (min-width: $mobile-width + 1) {
-      background-color: #fff;
-    }
-  }
-
-  .Button--nav,
-  .Button--redo,
-  .Button--rotate,
-  .Button--save,
-  .Button--undo {
-    height: 40px;
-    width: 40px;
   }
 
   .Button--primary {
@@ -66,7 +48,7 @@
 
     &[data-snowglobe-snowing="true"] {
       box-shadow: none !important;
-      transform: translateY(7px) translateZ(0);
+      transform: translateZ(0);
       transition: transform 0.2s, box-shadow 0.2s;
     }
   }
@@ -95,7 +77,7 @@
 
   .Button--rotate {
     background-image: url(img/icons/rotate_clock.svg);
-    background-size: 50%;
+    background-size: 40%;
   }
 
   .Button--rotate-counter {

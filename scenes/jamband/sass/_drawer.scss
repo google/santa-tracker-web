@@ -83,7 +83,7 @@
       margin-right: -22px;
     }
 
-    @media (min-width: $button-bp-override) {
+    @media (min-width: $button-bp) {
       padding: 14px;
 
       &--next {
