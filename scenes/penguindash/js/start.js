@@ -109,6 +109,8 @@ app.Start.prototype.update = function() {
     this.wave.sendBack();
     this.world.sendToBack(this.vidsprite);
   }
+  this.game.stage.backgroundColor = '#3ec4f0';
+
 
   //this.game.debug.bodyInfo(this.penguin, 32, 32);
   // this.game.debug.body(this.penguin.elem);

@@ -37,7 +37,6 @@ app.Game = function(elem, componentDir) {
     this.resolveStart = resolve;
   });
   this.startPromise.then(() => {
-    console.info('this is', this, this.updateSize_);
     this.updateSize_();
   });
 
@@ -230,7 +229,7 @@ app.Game.prototype.showLockscreenMessage = function () {
       this.pause();
     }
     lockElem.removeClass('hidden');
-    window.setTimeout(function() {
+    window.setTimeout(() => {
       lockElem.addClass('hidden');
       if (!paused) {
         this.resume();
