@@ -38,7 +38,7 @@ const LevelModel = class LevelModel {
       const translation = removeRandom(translations);
       const languageCode = translation[0];
       const message = translation[1];
-      const languageName = this.getLanguageName(root, languageCode);
+      const languageName = app.Constants.LANGUAGE_NAMES[languageCode];
 
       const languageCard = new Card();
       languageCard.languageCode = languageCode;
@@ -53,7 +53,7 @@ const LevelModel = class LevelModel {
       translationCard.content = languageName;
       // This is in the user's language.
       // TODO(jez): Make this not just English.
-      translationCard.contentLanguage = 'en';
+      translationCard.contentLanguage = document.documentElement.lang || 'en';
       translationCard.backgroundColor = backgroundColor;
       translationCard.textColor = textColor;
       cards.push(translationCard);
@@ -66,21 +66,6 @@ const LevelModel = class LevelModel {
 
     return shuffledCards;
   }
-
-  /**
-   * Gets a language name in the user's local language.
-   *
-   * Implicitely relies on the inbuilt translation that happens for the page contents.
-   * @private
-   * @param {!HTMLElement} root Game root
-   * @param {string} code Language code of the language to get the name of (not the user's language).
-   * @returns {string} Language name in user's language (e.g. 'Spanish' for 'es' if the user's language is 'en').
-   */
-  getLanguageName(root, code) {
-    const id = code + '_language_name';
-    return root.getElementById(id).textContent;
-  }
-
 }
 
 /**
