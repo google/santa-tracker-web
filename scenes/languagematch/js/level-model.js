@@ -49,11 +49,10 @@ const LevelModel = class LevelModel {
       cards.push(languageCard);
 
       const translationCard = new Card();
-      translationCard.languageCode = document.documentElement.lang || 'en';
+      translationCard.languageCode = languageCode;
       translationCard.content = languageName;
       // This is in the user's language.
-      // TODO(jez): Make this not just English.
-      translationCard.contentLanguage = 'en';
+      translationCard.contentLanguage = document.documentElement.lang || 'en';
       translationCard.backgroundColor = backgroundColor;
       translationCard.textColor = textColor;
       cards.push(translationCard);
