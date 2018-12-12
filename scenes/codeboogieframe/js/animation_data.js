@@ -45,10 +45,16 @@ app.AnimationData = () => {
       "offsetY": 138
     },
     "clap_0": {
-      "width": 235,
-      "height": 361,
-      "offsetX": 480,
-      "offsetY": 149
+      "width": 255,
+      "height": 346,
+      "offsetX": 450,
+      "offsetY": 153
+    },
+    "clap_1": {
+      "width": 259,
+      "height": 347,
+      "offsetX": 446,
+      "offsetY": 153
     },
     "elvis_0": {
       "width": 236,
@@ -63,58 +69,58 @@ app.AnimationData = () => {
       "offsetY": 145
     },
     "hip_0": {
-      "width": 219,
-      "height": 360,
+      "width": 198,
+      "height": 350,
       "offsetX": 468,
       "offsetY": 150
     },
     "hip_1": {
-      "width": 237,
-      "height": 359,
-      "offsetX": 446,
-      "offsetY": 151
+      "width": 194,
+      "height": 349,
+      "offsetX": 486,
+      "offsetY": 150
     },
     "idle_0": {
-      "width": 182,
-      "height": 361,
-      "offsetX": 480,
-      "offsetY": 149
+      "width": 190,
+      "height": 348,
+      "offsetX": 481,
+      "offsetY": 151
     },
     "jump_0": {
-      "width": 236,
-      "height": 432,
-      "offsetX": 453,
-      "offsetY": 78
+      "width": 275,
+      "height": 459,
+      "offsetX": 441,
+      "offsetY": 40
     },
     "jump_1": {
-      "width": 212,
-      "height": 433,
-      "offsetX": 470,
-      "offsetY": 77
+      "width": 261,
+      "height": 457,
+      "offsetX": 437,
+      "offsetY": 42
     },
     "pointLeft_0": {
-      "width": 219,
-      "height": 367,
-      "offsetX": 459,
-      "offsetY": 143
+      "width": 194,
+      "height": 345,
+      "offsetX": 472,
+      "offsetY": 154
     },
     "pointLeft_1": {
-      "width": 222,
-      "height": 367,
-      "offsetX": 439,
-      "offsetY": 143
+      "width": 282,
+      "height": 345,
+      "offsetX": 459,
+      "offsetY": 156
     },
     "pointRight_0": {
-      "width": 254,
-      "height": 366,
-      "offsetX": 480,
-      "offsetY": 144
+      "width": 240,
+      "height": 345,
+      "offsetX": 474,
+      "offsetY": 154
     },
     "pointRight_1": {
-      "width": 275,
-      "height": 370,
-      "offsetX": 480,
-      "offsetY": 140
+      "width": 242,
+      "height": 340,
+      "offsetX": 474,
+      "offsetY": 159
     },
     "splits_0": {
       "width": 254,
@@ -141,28 +147,28 @@ app.AnimationData = () => {
       "offsetY": 141
     },
     "stepLeft_0": {
-      "width": 375,
-      "height": 436,
-      "offsetX": 299,
-      "offsetY": 74
+      "width": 305,
+      "height": 362,
+      "offsetX": 396,
+      "offsetY": 139
     },
     "stepLeft_1": {
-      "width": 398,
-      "height": 361,
-      "offsetX": 262,
-      "offsetY": 149
+      "width": 338,
+      "height": 387,
+      "offsetX": 328,
+      "offsetY": 112
     },
     "stepRight_0": {
-      "width": 244,
-      "height": 360,
-      "offsetX": 480,
-      "offsetY": 150
+      "width": 266,
+      "height": 345,
+      "offsetX": 478,
+      "offsetY": 154
     },
     "stepRight_1": {
-      "width": 289,
-      "height": 366,
-      "offsetX": 481,
-      "offsetY": 144
+      "width": 257,
+      "height": 344,
+      "offsetX": 493,
+      "offsetY": 155
     },
     "thriller_0": {
       "width": 186,
@@ -189,28 +195,28 @@ app.AnimationData = () => {
       "offsetY": 149
     },
     "watch_0": {
-      "width": 183,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
+      "width": 200,
+      "height": 346,
+      "offsetX": 466,
+      "offsetY": 153
     },
     "watch_1": {
-      "width": 183,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
+      "width": 189,
+      "height": 345,
+      "offsetX": 476,
+      "offsetY": 154
     },
     "fail_0": {
-      "width": 317,
-      "height": 354,
-      "offsetX": 400,
-      "offsetY": 156
+      "width": 285,
+      "height": 346,
+      "offsetX": 411,
+      "offsetY": 153
     },
     "fail_1": {
-      "width": 234,
-      "height": 358,
-      "offsetX": 480,
-      "offsetY": 152
+      "width": 293,
+      "height": 328,
+      "offsetX": 409,
+      "offsetY": 171
     }
   };
 };
