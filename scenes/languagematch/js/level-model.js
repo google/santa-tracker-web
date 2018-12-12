@@ -49,7 +49,7 @@ const LevelModel = class LevelModel {
       cards.push(languageCard);
 
       const translationCard = new Card();
-      translationCard.languageCode = languageCode;
+      translationCard.languageCode = document.documentElement.lang || 'en';
       translationCard.content = languageName;
       // This is in the user's language.
       // TODO(jez): Make this not just English.
@@ -77,7 +77,7 @@ const LevelModel = class LevelModel {
    * @returns {string} Language name in user's language (e.g. 'Spanish' for 'es' if the user's language is 'en').
    */
   getLanguageName(root, code) {
-    const id = code + '_language_name';
+    const id = 'lang-' + code;
     return root.getElementById(id).textContent;
   }
 
