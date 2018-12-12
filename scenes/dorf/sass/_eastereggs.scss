@@ -26,7 +26,7 @@
       "snowmobile2"     0     0     900   680 ,
       "snowmobile3"     0     0     665   895 ,
       "snowmobile4"     0     0     640   2090,
-      "unicycle"        21    57    310   500 ,
+      "unicycle"        22    49    310   500 ,
       "wrangler"        0     0     700   2250,
   ;
 
@@ -87,18 +87,18 @@
   }
 
   #easteregg-schoolyard {
-    $w: 434;
-    $h: 160;
+    $w: 433;
+    $h: 165;
 
     .seesaw {
       position: absolute;
-      width: percent(58 * $svg-ratio, $w);
-      height: percent(30 * $svg-ratio, $h);
-      left: 181px;
-      top: 83px;
+      width: percent(65, $w);
+      height: percent(28, $h);
+      left: 172px;
+      top: 75px;
       @media (max-width: ($width-desktop - 1)) {
-        left: 109px;
-        top: 50px;
+        left: 103px;
+        top: 45px;
       }
 
       background-repeat: no-repeat;
@@ -110,15 +110,15 @@
 
     .slide {
       position: absolute;
-      width: percent(15 * $svg-ratio, $w);
-      height: percent(27 * $svg-ratio, $h);
+      width: percent(18, $w);
+      height: percent(31, $h);
       background-repeat: no-repeat;
       background-image: url(img/slide.svg);
-      top: 58px;
+      top: 56px;
       left: 276px;
       @media (max-width: ($width-desktop - 1)) {
-        top: 35px;
-        left: 165px;
+        top: 33px;
+        left: 166px;
       }
       @include will-change(transform);
       animation: #{$name}-slide 4s ease infinite;
@@ -126,14 +126,14 @@
 
     .swing {
       position: absolute;
-      width: percent(27 * $svg-ratio, $w);
-      height: percent(29 * $svg-ratio, $h);
+      width: percent(32, $w);
+      height: percent(30, $h);
       transform-origin: 0 0;
-      left: 239px;
-      top: 51px;
+      left: 233px;
+      top: 50px;
       @media (max-width: ($width-desktop - 1)) {
-        left: 144px;
-        top: 32px;
+        left: 139px;
+        top: 29px;
       }
       background-repeat: no-repeat;
       background-image: url(img/swing.svg);
