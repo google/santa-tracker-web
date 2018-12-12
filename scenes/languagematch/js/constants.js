@@ -10,7 +10,7 @@ app.Constants = {
 
   TTS_DOMAIN: 'https://translate.googleapis.com/translate_tts',
   TTS_QUERY: '?ie=UTF-8&client=santa-tracker&tl={TL}&q={Q}',
-
+  
   PHRASES: {
     'Santa Claus': {
       'ar': 'بَابَا نُوِيل',
@@ -90,32 +90,6 @@ app.Constants = {
       'th': 'ส่งความสุขช่วงเทศกาล',
       'tr': 'Tatil Kutlamaları'
     }
-  },
-  LANGUAGE_NAMES: {
-    'ar': _msg`ar_language_name`,
-    'zh-CN': _msg`zh-CN_language_name`,
-    'zh-TW': _msg`zh-TW_language_name`,
-    'cs': _msg`cs_language_name`,
-    'da': _msg`da_language_name`,
-    'nl': _msg`nl_language_name`,
-    'en': _msg`en_language_name`,
-    'fr': _msg`fr_language_name`,
-    'de': _msg`de_language_name`,
-    'el': _msg`el_language_name`,
-    'hi': _msg`hi_language_name`,
-    'hu': _msg`hu_language_name`,
-    'it': _msg`it_language_name`,
-    'ja': _msg`ja_language_name`,
-    'ko': _msg`ko_language_name`,
-    'no': _msg`no_language_name`,
-    'pl': _msg`pl_language_name`,
-    'pt': _msg`pt_language_name`,
-    'ru': _msg`ru_language_name`,
-    'sk': _msg`sk_language_name`,
-    'es': _msg`es_language_name`,
-    'sv': _msg`sv_language_name`,
-    'th': _msg`th_language_name`,
-    'tr': _msg`tr_language_name`,
   },
 
   // TODO(jez): Replace these placeholder colors
