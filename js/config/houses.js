@@ -44,7 +44,7 @@ window.HOUSES = [{
 }, {
   module: 'poseboogie',
   category: 'play',
-  launchDate: new Date('Dec 14, 2018'),
+  launchDate: new Date('Dec 31, 2020'),
 }, {
   module: 'snowflake',
   category: 'learn',
@@ -73,7 +73,7 @@ window.HOUSES = [{
   module: 'app',
   category: 'play',
   link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker',
-  launchDate: new Date('Dec 10, 2018'),
+  launchDate: new Date('Dec 4, 2018'),
 }, {
   module: 'seasonofgiving',
   category: 'learn',
