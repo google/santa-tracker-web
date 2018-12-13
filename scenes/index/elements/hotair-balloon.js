@@ -59,7 +59,7 @@ export class HotAirBalloonElement extends LitElement {
 
   render() {
     return html`
-    <style>${_style`hotairballoon`}</style>
+    <style>${_style`hotair-balloon`}</style>
     <div class="${this.flying ? 'flying' : ''}">
       <a href="#" @click="${(e) => this.fly(e)}" class="balloon"></a>
       <div class="balloon-ropes"></div>

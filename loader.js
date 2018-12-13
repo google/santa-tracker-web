@@ -157,9 +157,9 @@ module.exports = (options) => {
       }
 
       // compile all tags
-      const templateTagReplacer = (name, arg) => {
+      const templateTagReplacer = (name, arg, dirname) => {
         if (name === '_style') {
-          const {css, map} = compileCss(`styles/${arg}.scss`, options);
+          const {css, map} = compileCss(path.join(dirname, `${arg}.scss`), options);
           extraSources.push(...map.sources);
           return css;
         } else if (options.messages && name === '_msg') {

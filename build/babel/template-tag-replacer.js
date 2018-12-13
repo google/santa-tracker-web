@@ -1,4 +1,5 @@
 const babel = require('@babel/core');
+const path = require('path');
 const t = babel.types;
 
 /**
@@ -6,7 +7,11 @@ const t = babel.types;
  * @return {!Object} Babel plugin
  */
 module.exports = function buildTemplateTagReplacer(mapper) {
-  const handler = (nodePath) => {
+  // nb. not an arrow function, so we get the context this
+  const handler = function(nodePath) {
+    const filename = this.file.opts.filename;
+    const dirname = path.dirname(filename);
+
     const {node, parent} = nodePath;
     const {tag, quasi} = node;
 
@@ -15,7 +20,7 @@ module.exports = function buildTemplateTagReplacer(mapper) {
       return;  // not sure what to do here
     }
     const key = qnode.value.raw;
-    const raw = mapper(tag.name, key);
+    const raw = mapper(tag.name, key, dirname);
     if (raw === undefined) {
       return;
     } else if (raw instanceof Buffer) {

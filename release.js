@@ -373,9 +373,9 @@ async function release() {
       scriptNode.setAttribute('src', path.relative(dir, `src/${filename}`));
     }
 
-    const templateTagReplacer = (name, arg) => {
+    const templateTagReplacer = (name, arg, dirname) => {
       if (name === '_style') {
-        const {css} = compileCss(`styles/${arg}.scss`, loaderOptions);
+        const {css} = compileCss(path.join(dirname, `/${arg}.scss`), loaderOptions);
         return css;
       } else if (name === '_root') {
         return path.join(loaderOptions.root, arg);
