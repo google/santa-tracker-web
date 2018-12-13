@@ -191,6 +191,7 @@ app-drawer {
       color: transparent;
       font-size: 0;
       line-height: inherit;
+      margin-top: -1px;
     }
 
     h1 {
@@ -207,6 +208,10 @@ app-drawer {
 
     @media (max-width: ($mobile-width - 1px)) {
       line-height: $toolbar-height-mobile;
+
+      .logo {
+        margin-top: 0;
+      }
     }
   }
 

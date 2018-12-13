@@ -40,7 +40,7 @@ $toolbar-transition: 0.25s ease-in-out;
 }
 
 .counter-box {
-  $height: 44px;
+  $height: 43px;
   width: 44px;
   height: $height;
   position: relative;
@@ -91,9 +91,13 @@ $toolbar-transition: 0.25s ease-in-out;
 
 .bottom {
   position: absolute;
-  bottom: 4px;
+  bottom: 3px;
   left: 0;
   right: 0;
+
+  @media (max-width: ($mobile-width - 1px)) {
+    bottom: 5px;
+  }
 }
 
 @media (max-width: 374px) {
