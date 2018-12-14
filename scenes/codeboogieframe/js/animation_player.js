@@ -55,7 +55,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     this.el = el;
     this.player = new app.Character(
-        el.querySelector('.scene__character--player'), 'purple');
+        el.querySelector('.scene__character--player'), 'red');
     this.teacher = new app.Character(
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
@@ -201,6 +201,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   setLevel(level) {
     this.moveTiles.setLevel(level);
     this.lights.setLevel(level);
-    this.player.setColor(level.freestyle ? 'green' : 'purple');
+    this.player.setColor(level.freestyle ? 'green' : 'red');
   }
 };

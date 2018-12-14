@@ -39,11 +39,11 @@ const frameCounts = {
   [app.Step.RIGHT_FOOT]: 48,
   [app.Step.JUMP]: 48,
   [app.Step.SHAKE]: 48,
-  [app.Step.SPLIT]: 48,
-  [app.Step.CARLTON]: 96,
-  [app.Step.SPONGEBOB]: 48,
-  [app.Step.ELVIS]: 48,
-  [app.Step.THRILLER]: 96
+  [app.Step.SPLIT]: 96,
+  [app.Step.FLOSS]: 96,
+  [app.Step.HIPHOP]: 96,
+  [app.Step.MCHAMMER]: 96,
+  [app.Step.PONY]: 104
 };
 
 app.Animation = class {

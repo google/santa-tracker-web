@@ -20,30 +20,6 @@ goog.provide('app.AnimationData');
 
 app.AnimationData = () => {
   return {
-    "carlton_0": {
-      "width": 240,
-      "height": 369,
-      "offsetX": 476,
-      "offsetY": 141
-    },
-    "carlton_1": {
-      "width": 243,
-      "height": 371,
-      "offsetX": 471,
-      "offsetY": 139
-    },
-    "carlton_2": {
-      "width": 257,
-      "height": 372,
-      "offsetX": 458,
-      "offsetY": 138
-    },
-    "carlton_3": {
-      "width": 248,
-      "height": 372,
-      "offsetX": 467,
-      "offsetY": 138
-    },
     "clap_0": {
       "width": 255,
       "height": 346,
@@ -56,17 +32,29 @@ app.AnimationData = () => {
       "offsetX": 446,
       "offsetY": 153
     },
-    "elvis_0": {
-      "width": 236,
-      "height": 367,
-      "offsetX": 480,
-      "offsetY": 143
+    "floss_0": {
+      "width": 222,
+      "height": 345,
+      "offsetX": 449,
+      "offsetY": 154
     },
-    "elvis_1": {
-      "width": 225,
-      "height": 365,
-      "offsetX": 478,
-      "offsetY": 145
+    "floss_1": {
+      "width": 245,
+      "height": 342,
+      "offsetX": 465,
+      "offsetY": 157
+    },
+    "floss_2": {
+      "width": 248,
+      "height": 343,
+      "offsetX": 454,
+      "offsetY": 156
+    },
+    "floss_3": {
+      "width": 256,
+      "height": 343,
+      "offsetX": 454,
+      "offsetY": 156
     },
     "hip_0": {
       "width": 198,
@@ -79,6 +67,30 @@ app.AnimationData = () => {
       "height": 349,
       "offsetX": 486,
       "offsetY": 150
+    },
+    "hiphop_0": {
+      "width": 196,
+      "height": 345,
+      "offsetX": 476,
+      "offsetY": 154
+    },
+    "hiphop_1": {
+      "width": 196,
+      "height": 309,
+      "offsetX": 476,
+      "offsetY": 190
+    },
+    "hiphop_2": {
+      "width": 196,
+      "height": 309,
+      "offsetX": 476,
+      "offsetY": 190
+    },
+    "hiphop_3": {
+      "width": 196,
+      "height": 334,
+      "offsetX": 476,
+      "offsetY": 165
     },
     "idle_0": {
       "width": 190,
@@ -97,6 +109,30 @@ app.AnimationData = () => {
       "height": 457,
       "offsetX": 437,
       "offsetY": 42
+    },
+    "mchammer_0": {
+      "width": 258,
+      "height": 345,
+      "offsetX": 414,
+      "offsetY": 154
+    },
+    "mchammer_1": {
+      "width": 248,
+      "height": 309,
+      "offsetX": 360,
+      "offsetY": 190
+    },
+    "mchammer_2": {
+      "width": 251,
+      "height": 313,
+      "offsetX": 368,
+      "offsetY": 186
+    },
+    "mchammer_3": {
+      "width": 243,
+      "height": 343,
+      "offsetX": 429,
+      "offsetY": 156
     },
     "pointLeft_0": {
       "width": 194,
@@ -122,29 +158,59 @@ app.AnimationData = () => {
       "offsetX": 474,
       "offsetY": 159
     },
-    "splits_0": {
-      "width": 254,
-      "height": 360,
-      "offsetX": 449,
-      "offsetY": 151
-    },
-    "splits_1": {
-      "width": 268,
-      "height": 380,
-      "offsetX": 438,
-      "offsetY": 131
-    },
-    "spongebob_0": {
-      "width": 262,
-      "height": 374,
-      "offsetX": 480,
+    "pony_0": {
+      "width": 205,
+      "height": 363,
+      "offsetX": 464,
       "offsetY": 136
     },
-    "spongebob_1": {
-      "width": 246,
-      "height": 369,
-      "offsetX": 450,
-      "offsetY": 141
+    "pony_1": {
+      "width": 205,
+      "height": 363,
+      "offsetX": 464,
+      "offsetY": 136
+    },
+    "pony_2": {
+      "width": 205,
+      "height": 363,
+      "offsetX": 464,
+      "offsetY": 136
+    },
+    "pony_3": {
+      "width": 205,
+      "height": 364,
+      "offsetX": 464,
+      "offsetY": 135
+    },
+    "pony_4": {
+      "width": 205,
+      "height": 345,
+      "offsetX": 464,
+      "offsetY": 154
+    },
+    "splits_0": {
+      "width": 223,
+      "height": 345,
+      "offsetX": 443,
+      "offsetY": 144
+    },
+    "splits_1": {
+      "width": 247,
+      "height": 367,
+      "offsetX": 433,
+      "offsetY": 144
+    },
+    "splits_2": {
+      "width": 249,
+      "height": 354,
+      "offsetX": 421,
+      "offsetY": 172
+    },
+    "splits_3": {
+      "width": 180,
+      "height": 346,
+      "offsetX": 486,
+      "offsetY": 154
     },
     "stepLeft_0": {
       "width": 305,
@@ -169,30 +235,6 @@ app.AnimationData = () => {
       "height": 344,
       "offsetX": 493,
       "offsetY": 155
-    },
-    "thriller_0": {
-      "width": 186,
-      "height": 365,
-      "offsetX": 480,
-      "offsetY": 145
-    },
-    "thriller_1": {
-      "width": 237,
-      "height": 370,
-      "offsetX": 465,
-      "offsetY": 140
-    },
-    "thriller_2": {
-      "width": 277,
-      "height": 373,
-      "offsetX": 485,
-      "offsetY": 137
-    },
-    "thriller_3": {
-      "width": 235,
-      "height": 361,
-      "offsetX": 480,
-      "offsetY": 149
     },
     "watch_0": {
       "width": 200,
