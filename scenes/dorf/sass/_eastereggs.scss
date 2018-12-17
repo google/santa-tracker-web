@@ -26,7 +26,7 @@
       "snowmobile2"     0     0     900   680 ,
       "snowmobile3"     0     0     665   895 ,
       "snowmobile4"     0     0     640   2090,
-      "unicycle"        21    57    310   500 ,
+      "unicycle"        22    49    310   500 ,
       "wrangler"        0     0     700   2250,
   ;
 
@@ -87,18 +87,18 @@
   }
 
   #easteregg-schoolyard {
-    $w: 434;
-    $h: 160;
+    $w: 433;
+    $h: 165;
 
     .seesaw {
       position: absolute;
-      width: percent(58 * $svg-ratio, $w);
-      height: percent(30 * $svg-ratio, $h);
-      left: 181px;
-      top: 83px;
+      width: percent(65, $w);
+      height: percent(28, $h);
+      left: 171px;
+      top: 75px;
       @media (max-width: ($width-desktop - 1)) {
-        left: 109px;
-        top: 50px;
+        left: 103px;
+        top: 45px;
       }
 
       background-repeat: no-repeat;
@@ -110,15 +110,15 @@
 
     .slide {
       position: absolute;
-      width: percent(15 * $svg-ratio, $w);
-      height: percent(27 * $svg-ratio, $h);
+      width: percent(18, $w);
+      height: percent(31, $h);
       background-repeat: no-repeat;
       background-image: url(img/slide.svg);
-      top: 58px;
+      top: 56px;
       left: 276px;
       @media (max-width: ($width-desktop - 1)) {
-        top: 35px;
-        left: 165px;
+        top: 33px;
+        left: 166px;
       }
       @include will-change(transform);
       animation: #{$name}-slide 4s ease infinite;
@@ -126,14 +126,14 @@
 
     .swing {
       position: absolute;
-      width: percent(27 * $svg-ratio, $w);
-      height: percent(29 * $svg-ratio, $h);
+      width: percent(32, $w);
+      height: percent(30, $h);
       transform-origin: 0 0;
-      left: 239px;
-      top: 51px;
+      left: 231px;
+      top: 50px;
       @media (max-width: ($width-desktop - 1)) {
-        left: 144px;
-        top: 32px;
+        left: 139px;
+        top: 29px;
       }
       background-repeat: no-repeat;
       background-image: url(img/swing.svg);
@@ -252,29 +252,29 @@
       @include will-change(opacity);
     }
 
-    .elf-green, .elf-blue {
-      width: percent(14 * $svg-ratio, $w);
+    .elf-yellow, .elf-blue {
+      width: percent(22 * $svg-ratio, $w);
       height: percent(62 * $svg-ratio, $h);
     }
 
-    .elf-sit-red {
+    .elf-sit {
       width: percent(19.5 * $svg-ratio, $w);
       height: percent(48 * $svg-ratio, $h);
     }
 
     .elf-stop:nth-child(1) {
-      left: percent(5, $w);
-      top: percent(-16, $h);
+      left: percent(4, $w);
+      top: percent(-14, $h);
     }
 
     .elf-stop:nth-child(2) {
-      left: percent(25, $w);
-      top: percent(-22, $h);
+      left: percent(22, $w);
+      top: percent(-20, $h);
     }
 
     .elf-stop:nth-child(3) {
-      left: percent(45, $w);
-      top: percent(-22, $h);
+      left: percent(42, $w);
+      top: percent(-20, $h);
     }
 
     &.bus-load {
@@ -336,11 +336,10 @@
       .elf-bus {
         width: percent(3.25 * $svg-ratio, $w);
         height: percent(4.5 * $svg-ratio, $h);
-        background-image: url(img/elf-bus.svg);
       }
 
       $elfStart: 24;
-      $elfGap: 3.8;
+      $elfGap: 3.9;
       $elfDelay: 350, 1150, 50, 900, 1500, 2000;
       @for $i from 1 through 6 {
         $idx: $i - 1;
@@ -378,19 +377,19 @@
       will-change: opacity;
     }
 
-    .elf-green, .elf-blue {
-      width: percent(14 * $svg-ratio, $w);
+    .elf-purple, .elf-blue {
+      width: percent(22 * $svg-ratio, $w);
       height: percent(62 * $svg-ratio, $h);
     }
 
     .elf-stop:nth-child(1) {
-      left: percent(5, $w);
-      top: percent(-25, $h);
+      left: percent(2, $w);
+      top: percent(-20, $h);
     }
 
     .elf-stop:nth-child(2) {
-      left: percent(30, $w);
-      top: percent(-22, $h);
+      left: percent(25, $w);
+      top: percent(-20, $h);
     }
 
     &.bus-load {
@@ -452,7 +451,6 @@
       .elf-bus {
         width: percent(3.25 * $svg-ratio, $w);
         height: percent(4.5 * $svg-ratio, $h);
-        background-image: url(img/elf-bus.svg);
       }
 
       $elfStart: 17;
@@ -536,32 +534,32 @@
     }
 
     .elf-stop:nth-child(1) {
-      left: percent(50, $w);
-      top: percent(19, $h);
+      left: percent(45, $w);
+      top: percent(24, $h);
     }
 
     .elf-stop:nth-child(2) {
-      left: percent(70, $w);
-      top: percent(19, $h);
+      left: percent(65, $w);
+      top: percent(24, $h);
     }
 
     .elf-stop:nth-child(3) {
       left: percent(90, $w);
-      top: percent(22, $h);
+      top: percent(25, $h);
     }
 
     .elf-stop:nth-child(4) {
-      left: percent(105, $w);
-      top: percent(22, $h);
+      left: percent(110, $w);
+      top: percent(24, $h);
     }
 
     .elf-stop:nth-child(5) {
-      left: percent(120, $w);
+      left: percent(130, $w);
       top: percent(22, $h);
     }
 
-    .elf-green, .elf-orange, .elf-blue {
-      width: percent(14 * $svg-ratio, $w);
+    .elf-purple, .elf-yellow, .elf-red, .elf-blue {
+      width: percent(22 * $svg-ratio, $w);
       height: percent(62 * $svg-ratio, $h);
     }
 
@@ -588,7 +586,6 @@
       .elf-bus {
         width: percent(13 * $svg-ratio, $w);
         height: percent(18 * $svg-ratio, $h);
-        background-image: url(img/elf-bus.svg);
       }
 
       .snowman-bus {
@@ -603,13 +600,13 @@
       }
 
       $elfStart: 32;
-      $elfGap: 7.5;
+      $elfGap: 7.8;
       $elfDelay: 350, 1150, 50, 900, 1500, 2000;
       @for $i from 2 through 6 {
         $idx: $i - 2;
 
         > div:nth-child(#{$i}) {
-          top: percent(15, $h);
+          top: percent(16, $h);
           $l: $elfStart + ($idx * $elfGap);
           left: percent($l, $w);
           transition-delay: #{nth($elfDelay, $idx+1)}ms;
@@ -637,20 +634,44 @@
     }
   }
 
-  .elf-green {
-    background-image: url(img/elf-green.svg);
-  }
-
-  .elf-orange {
-    background-image: url(img/elf-orange.svg);
-  }
-
   .elf-blue {
     background-image: url(img/elf-blue.svg);
   }
 
-  .elf-sit-red {
-    background-image: url(img/elf-sit-red.svg);
+  .elf-purple {
+    background-image: url(img/elf-purple.svg);
+  }
+
+  .elf-red {
+    background-image: url(img/elf-red.svg);
+  }
+
+  .elf-yellow {
+    background-image: url(img/elf-yellow.svg);
+  }
+
+  .elf-sit {
+    background-image: url(img/elf-sit.svg);
+  }
+
+  .elf-bus--blue {
+    background-image: url(img/elf-bus-blue.svg);
+  }
+
+  .elf-bus--purple {
+    background-image: url(img/elf-bus-purple.svg);
+  }
+
+  .elf-bus--yellow {
+    background-image: url(img/elf-bus-yellow.svg);
+  }
+
+  .elf-bus--sit {
+    background-image: url(img/elf-bus-purple.svg);
+  }
+
+  .elf-bus--red {
+    background-image: url(img/elf-bus-red.svg);
   }
 
   .biz-snowman {
