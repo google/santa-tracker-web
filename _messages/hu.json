@@ -1,0 +1,6863 @@
+{
+	"about-content-one": {
+		"message": "Karácsony estéjén büszkén mutatjuk be a Mikulás irányítópultját, azaz a Mikulás szánját a világ körüli út során irányító technológiát. Ez a különleges előnézetet a Mikulás számos fejlesztőmanójának egyikétől kaptuk. A manók keményen dolgoznak az Északi-sarkon, hogy a Mikulás megfelelően felkészülhessen a nagy napra. A Mikulás irányítópultja a Google Térkép legújabb és legjobb funkcióit alkalmazza, valamint élvonalbeli szántervezési technológiát használ. Mindez lehetővé teszi számodra, hogy kövesd a Mikulás világ körüli útját, miközben az utazás néhány állomásáról is megtudhatsz egyet s mást."
+	},
+	"about-content-three": {
+		"message": "A Google Térkép Mikuláskövetőjét a Google hozta létre és fejleszti, de azért a Mikulás manói is segítettek egy kicsit. Segítségre van szükséged, vagy más kérdésed lenne? Itt találod a \u003ca href=\"//support.google.com/santatracker\"\u003eSúgónkat\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "A barátságos manók is meghívtak Mikulásfalva felfedezésére, ahol a Mikulás készülődik a világ körüli útra. Rajta, fedezd fel a falut, ahol szórakoztató dolgok várnak rád, sőt érdekes manókkal is találkozhatsz!"
+	},
+	"about-santa": {
+		"message": "Névjegy"
+	},
+	"about_title": {
+		"message": "Üdvözlünk a Google Térkép Mikuláskövetőjében!"
+	},
+	"ae_country_name": {
+		"message": "Egyesült Arab Emírségek"
+	},
+	"af_country_name": {
+		"message": "Afganisztán"
+	},
+	"al_country_name": {
+		"message": "Albánia"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentína"
+	},
+	"ar_language_name": {
+		"message": "Arab"
+	},
+	"ar_tradition": {
+		"message": "Argentínában a karácsony pontosan éjfélkor kezdődik. Számos család otthon ünnepel. A családtagok szeretteikkel együtt kibontják az ajándékokat, a kora reggeli órákban pedig tűzijátékot rendeznek."
+	},
+	"at_country_name": {
+		"message": "Ausztria"
+	},
+	"au_country_name": {
+		"message": "Ausztrália"
+	},
+	"au_tradition": {
+		"message": "Ausztrália a déli féltekén található, ezért ott decemberben éppen nyár van. Az ausztrálok nagy része az ünnepen száncsengettyűk és forró csoki helyett garnélarákot eszeget és krikettezik a strandon."
+	},
+	"ba_country_name": {
+		"message": "Bosznia-Hercegovina"
+	},
+	"back_to_previous_page": {
+		"message": "Vissza"
+	},
+	"back_to_tracker": {
+		"message": "Vissza a Mikuláskövetőhöz"
+	},
+	"bd_country_name": {
+		"message": "Banglades"
+	},
+	"be_country_name": {
+		"message": "Belgium"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgária"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolívia"
+	},
+	"br_country_name": {
+		"message": "Brazília"
+	},
+	"br_tradition": {
+		"message": "A karácsony megünneplése éjfél körül kezdődik, általában hatalmas családi vacsorával, az ajándékok kibontásával és az éjféli misével (Missa do Galo). A forró trópusi nyár ellenére nem ritkaság a téllel kapcsolatos témák és a hó ábrázolása."
+	},
+	"bt_country_name": {
+		"message": "Bhután"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarusz"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "A kanadai gyerekek gyakran gyönyörködhetnek fehér karácsonyban. A sálat és gyapjúsapkát viselő gyerekek csoportjai vidáman játszanak a hóban, korcsolyáznak és szánkóznak. Karácsonyeste tejet és süteményt készítenek a kandalló mellé a Mikulásnak (sőt időnként répát is a rénszarvasnak)."
+	},
+	"calendar": {
+		"message": "Adventi naptár"
+	},
+	"category_all": {
+		"message": "Összes megtekintése"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Kódolás"
+	},
+	"category_computer-science": {
+		"message": "Számítástechnika"
+	},
+	"category_draw": {
+		"message": "Rajzolás"
+	},
+	"category_education": {
+		"message": "Oktatási"
+	},
+	"category_geography": {
+		"message": "Földrajzi"
+	},
+	"category_language": {
+		"message": "Nyelv"
+	},
+	"category_listen": {
+		"message": "Meghallgatás"
+	},
+	"category_new-this-year": {
+		"message": "Idei újdonságok"
+	},
+	"category_send": {
+		"message": "Küldés"
+	},
+	"category_social-studies": {
+		"message": "Társadalomtudományok"
+	},
+	"cd_country_name": {
+		"message": "Kongói Demokratikus Köztársaság"
+	},
+	"cf_country_name": {
+		"message": "Közép-afrikai Köztársaság"
+	},
+	"cg_country_name": {
+		"message": "Kongói Köztársaság"
+	},
+	"ch_country_name": {
+		"message": "Svájc"
+	},
+	"ci_country_name": {
+		"message": "Elefántcsontpart"
+	},
+	"citylights-contribute": {
+		"message": "Töltsd fel a következőről készített fotóidat: {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puskin tér"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moszkva, Oroszország"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Bécs, Ausztria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "A Champs-Élysées a Diadalívig"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Párizs, Franciaország"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Karácsonyi vásár"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Németország"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellín folyó"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Mikulásfalva"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappföld, Finnország"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüsszel, Belgium"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar tér"
+	},
+	"citylights-panorama-10-location": {
+		"message": "London, Anglia"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanyolország"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokió, Japán"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Koppenhága, Dánia"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Szingapúr, Szingapúr"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Svédország"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara-vízesés, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, Kína"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas tó"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazília"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"clear": {
+		"message": "Törlés"
+	},
+	"close": {
+		"message": "Bezárás"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbia"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Vissza az elejére"
+	},
+	"codeboogie-block-clap": {
+		"message": "Taps"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Tapsolj."
+	},
+	"codeboogie-block-jump": {
+		"message": "Ugrás"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Ugorj."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Mutass balra"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Mozgasd a bal karodat."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Lépj balra"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Lépj egyet balra."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Mutass jobbra"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Mutass jobbra."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Lépj jobbra"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Lépj egyet jobbra."
+	},
+	"codeboogie-block-shake": {
+		"message": "Csípőriszálás"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Riszáld a csípődet."
+	},
+	"codeboogie-block-split": {
+		"message": "Spárga"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Spárgázz."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Válassz játékmódot"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Válassz helyet"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Táncra fel!"
+	},
+	"codeboogie-go": {
+		"message": "Mehet!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Tánc kezdése"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Táncra fel!"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Tánctanfolyam"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Utánozd a tanár mozdulatait"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Szabad stílusú tánc"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Hozz létre saját mozdulatokat, és oszd meg őket az ismerőseiddel"
+	},
+	"codeboogie-next-dance": {
+		"message": "Következő tánc"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Micsoda mozgás!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Próbáld az alábbi blokkot hozzáilleszteni a tánchoz."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Tudtad, hogy akár {{ideal}} blokkal is befejezheted ezt a táncot? Használd az alábbi blokkot."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Micsoda technika! Tökéletes tánc volt."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Megfelelő blokkokat használsz, de a tánc befejezéséhez több blokkra van szükség."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Tudtad, hogy akár {{ideal}} blokkal is befejezheted ezt a táncot?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Túl sok lépést végeztél."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Úgy tűnik, nem jó mozdulatot végeztél. Próbáld ki inkább ezt:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Oszd meg a mozdulataidat, és versenyezz az ismerőseiddel"
+	},
+	"codeboogie-success": {
+		"message": "Sikerült!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Jól figyelj!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Te jössz!"
+	},
+	"codelab-block-jump-length": {
+		"message": "átugrás"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Ugord át a csempéket."
+	},
+	"codelab-block-moveeast": {
+		"message": "keletre"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Vigyél keletre."
+	},
+	"codelab-block-movenorth": {
+		"message": "északra"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Vigyél északra."
+	},
+	"codelab-block-movesouth": {
+		"message": "délre"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Vigyél délre."
+	},
+	"codelab-block-movewest": {
+		"message": "nyugatra"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Vigyél nyugatra."
+	},
+	"codelab-block-repeat": {
+		"message": "ismétlés"
+	},
+	"codelab-block-repeat-times": {
+		"message": "alkalommal"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Egyes utasításokat érdemes többszöri megismételni."
+	},
+	"codelab-block-whenrun": {
+		"message": "sorban:"
+	},
+	"codelab-finish": {
+		"message": "Befejezés"
+	},
+	"codelab-great": {
+		"message": "Kiváló"
+	},
+	"codelab-mwc-promo": {
+		"message": "A \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e linkre kattintva további Google kódolási projekteket fedezhetsz fel."
+	},
+	"codelab-next-challenge": {
+		"message": "Következő"
+	},
+	"codelab-oops": {
+		"message": "Hoppá!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Az „Ismétlés” blokk működéséhez szükséges, hogy más blokkokat is használj."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Nem minden blokk illeszkedik egymáshoz megfelelően."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Úgy tűnik, eltévedtél!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "A feladvány megoldásához próbálkozz egy vagy több alábbi blokkal."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Tudtad, hogy ez a szint akár {{ideal}} blokkal is teljesíthető? Használd az alábbi blokkot."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Gratulálunk! Tökéletesen megoldottad a feladványt."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Megfelelő blokkokat használsz, de a feladvány megoldásához több blokkra van szükség."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Tudtad, hogy ez a szint akár {{ideal}} blokkal is teljesíthető?"
+	},
+	"codelab-try-again": {
+		"message": "Újra"
+	},
+	"copy-me": {
+		"message": "Másold ki a linket az üzeneted megosztásához"
+	},
+	"copy-me-short": {
+		"message": "Megosztási link másolása"
+	},
+	"countdown_days": {
+		"message": "nap"
+	},
+	"countdown_hours": {
+		"message": "óra"
+	},
+	"countdown_minutes": {
+		"message": "perc"
+	},
+	"countdown_seconds": {
+		"message": "mp"
+	},
+	"countdown_until": {
+		"message": "A Mikulás indulásáig hátralévő idő:"
+	},
+	"countdownlabel": {
+		"message": "A Mikulás indulásáig hátralévő idő"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
+	},
+	"cs_language_name": {
+		"message": "Cseh"
+	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Csehország"
+	},
+	"da_language_name": {
+		"message": "Dán"
+	},
+	"days": {
+		"message": "nap"
+	},
+	"de_country_name": {
+		"message": "Németország"
+	},
+	"de_language_name": {
+		"message": "Német"
+	},
+	"de_tradition": {
+		"message": "Majdnem minden német városban rendeznek karácsonyi vásárt a város nagyobb terein. A városlakók összegyűlnek, hogy meghallgassák a fúvószenekart, és a régióra jellemző ételeket egyenek. Mézeskalácsszívet, cukros pörkölt mandulát és mindenféle más édességet esznek, majd forralt borral (Glühwein) vagy almaborral öblítik le."
+	},
+	"dec24th": {
+		"message": "December 24."
+	},
+	"deck": {
+		"message": "Díszítés"
+	},
+	"deckdescription": {
+		"message": "Díszítsd böngésződet a Mikulás Chrome-bővítményével."
+	},
+	"detected": {
+		"message": "észlelve"
+	},
+	"difficulty": {
+		"message": "Nehézség"
+	},
+	"dk_country_name": {
+		"message": "Dánia"
+	},
+	"do_country_name": {
+		"message": "Dominikai Köztársaság"
+	},
+	"donate_button": {
+		"message": "Adományozás"
+	},
+	"donate_text": {
+		"message": "Segíts te is a DonorsChoose.org szervezet speciális igényeket kielégítő projektjének támogatásában. Idén decemberben minden beérkező adomány összegének megduplázásával járulunk hozzá a projekthez, amíg csak el nem érjük 1 milliárd dolláros adományozási célunkat. A #ForEveryKid szervezettel együttműködésben egyre több gyermek számára tesszük lehetővé az oktatásban való részvételt."
+	},
+	"download-cta": {
+		"message": "Töltsd le, hogy még több játékot játszhass"
+	},
+	"dz_country_name": {
+		"message": "Algéria"
+	},
+	"easy_difficulty": {
+		"message": "Könnyű"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"educators": {
+		"message": "Mikuláskövető az oktatók számára"
+	},
+	"educators-games": {
+		"message": "Tantermi játékok"
+	},
+	"educators-learn": {
+		"message": "Tanulás a Mikuláskövetővel"
+	},
+	"ee_country_name": {
+		"message": "Észtország"
+	},
+	"el_language_name": {
+		"message": "Görög"
+	},
+	"elf_choose_body": {
+		"message": "Válaszd ki a manó testét"
+	},
+	"elvish_language_name": {
+		"message": "Manónyelv"
+	},
+	"en_language_name": {
+		"message": "Angol"
+	},
+	"endofjourneymessage": {
+		"message": "A Mikulás idei útja véget ért. Még mulat egy kicsit a manókkal az Északi-sarkon, mielőtt mind megkezdenék éves szabadságukat."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Probléma merült fel, de a Mikulás manói már dolgoznak a megoldáson."
+	},
+	"error-internal": {
+		"message": "Sajnos ez nem sikerült! Tájékoztattuk a Mikulás manóit. A legjobb, ha visszamész \u003ca href=\"./\"\u003eMikulásfalvába\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Úgy tűnik, elveszítettük a kapcsolatot az Északi-sarkkal. A Mikulás manói nagyon igyekeznek helyreállítani a kapcsolatot, ezért érdemes hamarosan visszanézned."
+	},
+	"error-not-found": {
+		"message": "Sajnos a Mikulás manói nem találják ezt az oldalt! Talán nagyobb szerencsével jársz, ha visszamész \u003ca href=\"./\"\u003eMikulásfalvába\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Újra"
+	},
+	"error_try_again": {
+		"message": "Újra"
+	},
+	"es_language_name": {
+		"message": "Spanyol"
+	},
+	"et_country_name": {
+		"message": "Etiópia"
+	},
+	"explore": {
+		"message": "Felfedezés"
+	},
+	"fi_country_name": {
+		"message": "Finnország"
+	},
+	"fi_tradition": {
+		"message": "A finn emberek szerint Karácsonyapó, azaz Joulupukki az országuk északi részén, egészen pontosan Korvatunturiban lakik. Aki ellátogat hozzá, megtalálhatja a titkos műhelyét, ahol a manók keményen dolgoznak. Sőt esetleg a fenyőerdőkben barangoló rénszarvasokkal is találkozhat."
+	},
+	"finished-text": {
+		"message": "Kellemes ünnepeket! A Mikulás befejezte világ körüli utazását, és itt az ideje, hogy kivegye jól megérdemelt szabadságát. Várunk jövőre is!"
+	},
+	"fr_country_name": {
+		"message": "Franciaország"
+	},
+	"fr_language_name": {
+		"message": "Francia"
+	},
+	"fr_tradition": {
+		"message": "Franciaországban a hagyományok szerint a gyerekek a kandalló mellé teszik a cipőjüket, így várva az ottani Mikulás, azaz Père Noël érkezését. Ha a gyerekek az egész évben jól viselkedtek, akkor Père Noël ajándékokkal tölti meg a cipőjüket."
+	},
+	"fullscreen": {
+		"message": "Teljes képernyő"
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Játék vége!"
+	},
+	"gameover_level": {
+		"message": "A következő szintre léptél:"
+	},
+	"gameover_score": {
+		"message": "Pontszámod:"
+	},
+	"getgooglemaps": {
+		"message": "A Google Térkép beszerzése"
+	},
+	"getready": {
+		"message": "Felkészülés!"
+	},
+	"gh_country_name": {
+		"message": "Ghána"
+	},
+	"gh_tradition": {
+		"message": "Ghanában a karácsony az egész család ünnepe. A felnőttek jelmezbe öltöznek, és édességeket osztogatnak a szomszédaiknak. A gyerekek az iskolában készített papírdíszekkel és rajzokkal ékesítik az otthonokat."
+	},
+	"gl_country_name": {
+		"message": "Grönland"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Mikulásfalvára"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Görögország"
+	},
+	"gr_tradition": {
+		"message": "Görögországban „kallikántzaros” nevű barátságos, ám nyugtalanító lények élnek, az év nagy részében szerencsére a föld alatt. Karácsonykor azonban szeretnek elrejtőzni a házakban, ijesztgetni és rászedni az embereket, sőt megenni a karácsonyi ételeiket. A görögök különböző szertartásokkal igyekeznek távol tartani ezeket a manókat."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Guatemala lakói tánccal és mulatozással ünneplik a karácsonyt. Puritina nevű kalapot viselnek, gautemalai stílusú tortillát esznek, éjfélkor petárdát gyújtanak, és különböző stílusú táncokkal mulatnak egész éjjel."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Nehéz"
+	},
+	"help": {
+		"message": "Súgó"
+	},
+	"hi_language_name": {
+		"message": "Hindi"
+	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Kellemes ünnepeket!"
+	},
+	"holiday_message_1": {
+		"message": "Kellemes ünnepeket!"
+	},
+	"holiday_message_2": {
+		"message": "Vidám ünnepet!"
+	},
+	"holiday_message_3": {
+		"message": "Szép havazást!"
+	},
+	"holiday_message_4": {
+		"message": "Boldog új évet!"
+	},
+	"holiday_message_5": {
+		"message": "Boldog ünnepeket!"
+	},
+	"hours": {
+		"message": "Óra"
+	},
+	"hr_country_name": {
+		"message": "Horvátország"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Magyarország"
+	},
+	"hu_language_name": {
+		"message": "Magyar"
+	},
+	"id_country_name": {
+		"message": "Indonézia"
+	},
+	"ie_country_name": {
+		"message": "Írország"
+	},
+	"improve_google_translate": {
+		"message": "Segíts a Google Fordító fejlesztésében"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Irán"
+	},
+	"is_country_name": {
+		"message": "Izland"
+	},
+	"is_tradition": {
+		"message": "Karácsonykor Izlandon a családtagok meleg ruhát ajándékoznak egymásnak. A legenda szerint karácsonykor egy óriási félelmetes macska felfalja mindazokat, akik nincsenek a téli hidegnek megfelelően öltözve. A családok igyekeznek, nehogy bárki a karácsonyi macska karmaiba kerüljön."
+	},
+	"it_country_name": {
+		"message": "Olaszország"
+	},
+	"it_language_name": {
+		"message": "Olasz"
+	},
+	"ja_language_name": {
+		"message": "Japán"
+	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kirgizisztán"
+	},
+	"kg_tradition": {
+		"message": "Kirgizisztánban Ayaz Ata (Fagy nagyapó) szilveszter éjféljén érkezik, és ajándékokat helyez el az újévi fa alatt. Amint az óra elüti az éjfélt, a családok az egész országban tűzijátékkal köszöntik az ünnepet. A városok nappali fényben tündökölnek."
+	},
+	"ko_language_name": {
+		"message": "Koreai"
+	},
+	"kr_country_name": {
+		"message": "Dél-Korea"
+	},
+	"kr_tradition": {
+		"message": "Dél-Koreában a karácsony nemzeti ünnep, sőt a szerelmesek ünnepeként is számontartják. A párok a belváros káprázatos fényekkel feldíszített utcáin és üzleteiben randevúznak."
+	},
+	"kz_country_name": {
+		"message": "Kazahsztán"
+	},
+	"la_country_name": {
+		"message": "Laoszi NDK"
+	},
+	"language": {
+		"message": "Nyelv"
+	},
+	"learn": {
+		"message": "Tanulás"
+	},
+	"learnmore": {
+		"message": "További információ"
+	},
+	"level": {
+		"message": "Szint"
+	},
+	"light": {
+		"message": "Karácsonyi fények"
+	},
+	"lightdescription": {
+		"message": "Élvezd TV-n a Mikuláskövető Android-alkalmazás és a Chromecast használatát."
+	},
+	"lk_country_name": {
+		"message": "Srí Lanka"
+	},
+	"lock_orientation": {
+		"message": "A legjobb játékélmény érdekében rögzítsd az eszközöd tájolását."
+	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
+	"lt_country_name": {
+		"message": "Litvánia"
+	},
+	"lt_tradition": {
+		"message": "Litvániában a hagyományos karácsonyi díszek szalmából vagy szénából készülnek. Geometrikus alakzatokat készítenek belőlük, például csillagokat, hópelyheket és csengettyűket. Számos család az asztalt is szalmával díszíti a Kūčios elnevezésű kiadós vacsorához."
+	},
+	"lv_country_name": {
+		"message": "Lettország"
+	},
+	"ly_country_name": {
+		"message": "Líbia"
+	},
+	"md_country_name": {
+		"message": "Moldova"
+	},
+	"medium_difficulty": {
+		"message": "Közepes"
+	},
+	"meta_description": {
+		"message": "A Google Mikuláskövetőjével a Google Térképen követheted a Mikulás világ körüli útját."
+	},
+	"meta_title": {
+		"message": "A Google Mikuláskövetője"
+	},
+	"mg_country_name": {
+		"message": "Madagaszkár"
+	},
+	"minutes": {
+		"message": "Perc"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mianmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritánia"
+	},
+	"mute": {
+		"message": "Némítás"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexikó"
+	},
+	"mx_tradition": {
+		"message": "Mexikóban a gyerekek (kortól függetlenül) edények széttörésével ünneplik a karácsonyt. A felnőttek és gyerekek bekötött szemmel forognak, és bottal hadonászva próbálják széttörni a csillag alakú, felakasztott edényeket. Ha sikerül eltörni egy edényt, dió, gyümölcsök és édességek esnek ki belőle mindenki nagy örömére."
+	},
+	"my_country_name": {
+		"message": "Malajzia"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namíbia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"new": {
+		"message": "Új"
+	},
+	"newtoday": {
+		"message": "Újdonság"
+	},
+	"next": {
+		"message": "Tovább"
+	},
+	"next_game": {
+		"message": "Következő játék"
+	},
+	"ng_country_name": {
+		"message": "Nigéria"
+	},
+	"nl_country_name": {
+		"message": "Hollandia"
+	},
+	"nl_language_name": {
+		"message": "Holland"
+	},
+	"no_country_name": {
+		"message": "Norvégia"
+	},
+	"no_language_name": {
+		"message": "Norvég"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Az Agastya szervezet gyakorlati tudományos képzést tesz lehetővé az India vidéki területein élő gyermekek számára. Tudományos központjaikban és oktatási kisbuszaikban mindenről szó esik, a Naprendszertől egészen az agy működéséig. A világ egyik legnagyobb tudományos oktatási programjaként eddig több mint 5 millió gyermekhez és 200 000 tanárhoz jutottak el India 14 államában. A Google.org büszke arra, hogy \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etámogatja\u003c/a\u003e az Agastya szervezetet."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Oktatók és tanulók"
+	},
+	"nonprofit-code-description": {
+		"message": "A Code.org® egy nonprofit szervezet, amelynek célja a számítástechnika szélesebb körű rendelkezésre bocsátása, valamint a nők és a bőrszín tekintetében alulreprezentált diákok részvételének növelése az oktatásban. A Code.org® filozófiája, hogy az összes iskola összes diákjának lehetőséget kell adni a számítástechnikai ismeretek elsajátítására."
+	},
+	"nonprofit-code-type": {
+		"message": "Számítástechnika"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "A 2000-ben egy bronxi történelemtanár által alapított DonorsChoose.org több mint 480 millió USD-t gyűjtött össze az amerikai iskolák számára. A DonorsChoose.org a tanításhoz szükséges anyagokat és tapasztalatokat bocsát a tanárok rendelkezésére."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Tantermek"
+	},
+	"nonprofit-enable-description": {
+		"message": "A CDC (amerikai járványügyi központ) adatai szerint 1000 emberből 7 szenved végtagproblémáktól, a protézisek pedig sokba (akár 10 000 dollárba is) kerülhetnek. A még fejlődésben lévő gyermekek esetén a költségek rohamosan nőhetnek. Az e-Nable olyan globális közösség, amely azért munkálkodik, hogy 3D-nyomtatóval készített végtagokkal lássák el a végtagproblémától szenvedő gyermekeket. Az Enable Community Foundation a Google.org segítségével támogatja az e-NABLE közösséget abban, hogy több műkezet tervezhessen, és egyre több gyermeket láthasson el műkézzel."
+	},
+	"nonprofit-enable-type": {
+		"message": "Végtagprotézis"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Válassz egy díszt, és kezdd el kiszínezni."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Oszd meg a műveidet a családtagjaiddal és a barátaiddal, hogy ötleteket meríthessenek belőlük."
+	},
+	"nonprofit-intro-type": {
+		"message": "A Google.org programmal együttműködésben bemutatunk öt oktatási nonprofit szervezetet, amelyeknél az egész évben adományozási időszak van. Lefelé görgetve további információt találsz az egyes szervezetek munkájáról. Támogatásodat a díszek kiszínezésével és a karácsonyfádra akasztásával vagy a szeretteidnek ajándékozásával fejezheted ki."
+	},
+	"nonprofit-jane-description": {
+		"message": "A csimpánzok az ember legközelebbi élő rokonai az állatvilágban. Az élőhelyvesztés, a betegségek és az illegális kereskedelem következtében azonban napjainkra kevesebb mint 300 000 csimpánz maradt. A Jane Goodall Intézet (JGI) célja a csimpánzok védelme a viselkedésük és az élőhelyeik megfigyelése révén. A JGI a vadvilág védelmével és megőrzésével, illetve környezetvédelemmel foglalkozó közösség létrehozásán is dolgozik. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eFedezd fel a csimpánzok élőhelyeit\u003c/a\u003e a tanzániai Gombe Nemzeti Parkban."
+	},
+	"nonprofit-jane-type": {
+		"message": "Csimpánzok"
+	},
+	"nonprofit-khan-description": {
+		"message": "A Khan Academy egy nonprofit szervezet, amely azt tűzte ki célul, hogy mindenhol és mindenkinek ingyenes, világszínvonalú oktatást biztosít. A Khan Academy meggyőződése szerint kortól függetlenül minden tanulónak joga van az ingyenes oktatási anyagok korlátlan használatára, hogy a saját tempójában sajátíthassa el az ismereteket."
+	},
+	"nonprofit-khan-type": {
+		"message": "Oktatás"
+	},
+	"nonprofit-lwb-description": {
+		"message": "A 2007-ben alapított Libraries Without Borders a kultúrán alapuló fejlesztés terén tevékenykedő, vezető nemzetközi civil szervezet. Székhelye Párizsban található. Több mint 300 könyvtárat hozott létre a világon."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Könyvtárak"
+	},
+	"nonprofit-more-information": {
+		"message": "További információ:"
+	},
+	"nonprofit-nature-description": {
+		"message": "A Nature Conservancy nonprofit szervezet igyekszik hozzájárulni az erdők megóvásához és újratelepítéséhez az Egyesült Államokban és a világ más országaiban. Ezek a hatalmas erdőségek tartják fenn az életet a bolygónkon. Megszűrik a vizet, tisztítják a levegőt, hozzájárulnak az emberi közösségek fennmaradásához, illetve élőhelyet biztosítanak a fontos növény- és állatfajoknak. Az erdőirtás jelenlegi ütemét fenntartva 100 éven belül teljesen el fognak tűnni az erdőségeink. A „Nature Conservancy’s Plant a Billion Trees” program 2025-ig egymilliárd fát igyekszik telepíteni, ezzel helyreállítva a világ leginkább veszélyeztetett erdőségeit."
+	},
+	"nonprofit-nature-type": {
+		"message": "Erdők"
+	},
+	"nonprofit-pratham-description": {
+		"message": "A világ népességének közel 40%-a nem tanulhat az általa beszélt vagy megértett nyelven. A StoryWeaver úgy igyekszik ezen változtatni, hogy segíti az oktatókat, a szerzőket és a fordítókat abban, hogy élvezetes olvasási segédanyagokat készítsenek a gyermekek számára."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Olvasás"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Számos olyan látássérült él a világon, akik nem veszítették el teljesen a látásukat. A Google.org segítségével az RNIB „okosszemüvegeket” fejleszt, amelyek segítségével a gyengénlátók jobban kivehetik az alakokat és a körvonalakat. Az okosszemüvegek használatával a világ jobban láthatóvá válik a gyengénlátók számára, és így a rászorulók visszaszerezhetik függetlenségüket és magabiztosságukat."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Okosszemüveg"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milliárd ember számára nem áll rendelkezésre elektromos áram. Közülük sokan petróleumlámpa használatára kényszerülnek, amely a petróleum elégetésének következtében szennyezi az otthonok levegőjét. A napenergiával működő fényforrások azonban több órányi világosságot tudnak biztosítani a napközben összegyűjtött napenergiával anélkül, hogy égésterméket termelnének vagy szennyeznék a környezetet. A segítségükkel lehetségessé válik az olvasás, a játék és a biztonságos hazajutás napnyugta után. A SolarAid szervezet számos rászoruló számára biztosít napenergiával működő fényforrásokat. A Google.org büszke arra, hogy \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etámogatja\u003c/a\u003e a SolarAid szervezetet."
+	},
+	"nonprofit-solar-type": {
+		"message": "Napfény"
+	},
+	"nonprofit-water-description": {
+		"message": "Vizet használunk a zuhanyozáshoz és a fürdéshez, illetve a főzéshez, és természetesen vizet is iszunk. A tiszta víz értékes erőforrás. Sokak vízellátását kézzel ásott kutak biztosítják. A tiszta víz mélyen, a kőzetréteg és a talaj alatti részen található. A charity: water nonprofit szervezet a helyi partnerekkel együttműködésben épít kutakat és egyéb vízellátási lehetőségeket a rendkívül rosszul ellátott térségekben. A Google.org büszkén \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etámogatja\u003c/a\u003e a charity: water szervezetet."
+	},
+	"nonprofit-water-type": {
+		"message": "Kút"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "A kerekesszékkel közlekedőknek sokszor nehéz megtudniuk, mely helyek közelíthetők meg számukra: például mozik, éttermek és más helyek. A Wheelmap megmutatja, mely helyek közelíthetők meg kerekesszékkel, hogy a kerekesszéket használók kevesebb időt tölthessenek az útvonal megtervezésével és többet a világ felfedezésével!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilitás"
+	},
+	"nonprofit-wwf-description": {
+		"message": "A klímaváltozás folyamatosan rombolja a világ számos ökoszisztémájának egyensúlyát, mind a melegebb, mind a hidegebb térségekben. A sarkvidéken az emelkedő hőmérséklet miatt a jegesmedvék fokozatosan elveszítik a jégtakarón lévő élőhelyeiket, ráadásul olyan emberi tevékenységek is fenyegetik őket, mint a kőolaj- és földgáz-kitermelés, valamint a hajózás. A Természetvédelmi Világalap (WWF) tudományos kutatás és az Antarktiszon élő népekkel való együttműködés révén igyekszik biztosítani az állatfaj túlélését. A Google.org büszke arra, hogy \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etámogatja\u003c/a\u003e a Természetvédelmi Világalapot."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Jegesmedve"
+	},
+	"nonprofit-wwh-description": {
+		"message": "A kutatások szerint a hallást segítő eszközök használata a halláskárosultak 95%-ának hallásán javít, azonban az alacsony és közepes jövedelmű országokban élő rászorulók kevesebb mint 1%-a jut hallókészülékhez. A World Wide Hearing (WWH) szervezet hallást segítő eszközök biztosításával teszik lehetővé, hogy a halláskárosult gyermekek is részt vehessenek a mindennapi életben. A WWH megfizethető árú, táblagépen működő, a halláskárosodást diagnosztizáló eszköz kifejlesztésén dolgozik, amelyet a fejlődő országokban alkalmaznának. Ennek eredményeképpen több rászoruló részesülhet a hallást segítő eszközök előnyeiből."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Hallás"
+	},
+	"notice_cookies": {
+		"message": "A Google a webhelyre érkező forgalom elemzése és a felhasználói élmény optimalizálása érdekében cookie-kat használ. A webhelyünk használatára vonatkozó információkhoz a Google ebből a célból fér hozzá."
+	},
+	"notice_cookies_details": {
+		"message": "Részletes adatok"
+	},
+	"notification": {
+		"message": "Értesítések"
+	},
+	"notification_newtoday": {
+		"message": "Mai újdonság a Mikuláskövetőben"
+	},
+	"notification_newtoday_stop": {
+		"message": "Leállítás"
+	},
+	"notification_notice": {
+		"message": "A manók folyamatosan értesítenek majd a Mikulás időbeosztásáról"
+	},
+	"notification_prompt": {
+		"message": "Naprakész szeretnék lenni a Mikulással kapcsolatban."
+	},
+	"np_country_name": {
+		"message": "Nepál"
+	},
+	"nz_country_name": {
+		"message": "Új-Zéland"
+	},
+	"nz_tradition": {
+		"message": "Mivel karácsonykor Új-Zélandon nyár van, a családtagok és a barátok kerti grillpartit rendeznek. A tipikus karácsonyi ételek közé tartozik a báránysült, amelyet időnként „hangiban” (földbe ásott gödör) készítenek. Kedvenc desszertjük a pavlova, amely egy habcsók állagú sütemény friss gyümölccsel (pl. eper vagy kivi) díszítve."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Csak online"
+	},
+	"offline_notification": {
+		"message": "Mikulásfalva már offline is rendelkezésre áll! A manók is egész decemberben szállíthatnak új tartalmat neked."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nem"
+	},
+	"offline_user_message": {
+		"message": "Offline állapotban vagy"
+	},
+	"okay": {
+		"message": "OK"
+	},
+	"om_country_name": {
+		"message": "Omán"
+	},
+	"onthego": {
+		"message": "A Mikulás útja"
+	},
+	"openingtomorrow": {
+		"message": "Holnap kezdődik!"
+	},
+	"ornament-print-instructions": {
+		"message": "Itt hajtsd össze, majd ragaszd össze az oldalakat"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Szünet"
+	},
+	"paused": {
+		"message": "Szüneteltetve"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Pápua Új-Guinea"
+	},
+	"ph_country_name": {
+		"message": "Fülöp-szigetek"
+	},
+	"ph_tradition": {
+		"message": "A Fülöp-szigetek arról híres, hogy a karácsonyi időszak ott a leghosszabb a világon. A négy karácsonyi hónap a következő: szeptember, október, november és december. Karácsonyi énekek gyakran már szeptember elején hallhatók."
+	},
+	"pl_country_name": {
+		"message": "Lengyelország"
+	},
+	"pl_language_name": {
+		"message": "Lengyel"
+	},
+	"play": {
+		"message": "Lejátszás"
+	},
+	"playagain": {
+		"message": "Újrajátszás"
+	},
+	"playdescription": {
+		"message": "Játssz barátaiddal a Mikuláskövető Android-alkalmazás használatával."
+	},
+	"playextra": {
+		"message": "Próbáld ki a magasabb szinteket is!"
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"practice": {
+		"message": "Gyakorlás"
+	},
+	"press": {
+		"message": "Sajtó"
+	},
+	"press-about-tracker": {
+		"message": "A Mikuláskövetőről"
+	},
+	"press-about-tracker1": {
+		"message": "December 24-én elindítjuk a Követőt, egy olyan irányítópultot, amely lehetővé teszi a Mikulás rajongóinak, hogy nyomon kövessék előrehaladását, amint egyik városból a másikba suhan tovább. Ezenkívül a Google Térképen élőben láthatod a helyzetét, a Google Segédtől pedig megkérdezheted: „OK Google, Hol van a Mikulás?” – így még útközben is nyomon követheted a Mikulás hollétét."
+	},
+	"press-about-village": {
+		"message": "Mikulásfalváról"
+	},
+	"press-about-village1": {
+		"message": "Mikulásfalva a szórakoztató, oktató jellegű és interaktív ünnepi tevékenységek tizenötödik születésnapját ünnepli. Mikulásné szakértői irányítása alatt a manók megújították a falu arculatát, amely így elegánssá vált, és vadonatúj tartalmak is bekerültek. Ezenkívül egy új, forró kakaóval működő fűtési rendszernek köszönhetően a falunak többé már nem kell egész december a kiolvadáshoz – mind a két tucat tevékenység december 4-től rendelkezésre áll. Így a manóknak (és neked!) több idő jut a játékra és a felfedezésre Mikulásfalván."
+	},
+	"press-about-village2": {
+		"message": "A faluban gyakorolhatod az alapvető kódolási ismereteket, eredeti műalkotásokat készíthetsz, próbára teheted földrajzi tudásodat, és további információhoz juthatsz olyan jótékonysági szervezetekről, mint a \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e és a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. A tanárok pedig olyan, videoútmutatókkal ellátott \u003ca href=\"./educators.html\"\u003eóraterveket is letölthetnek\u003c/a\u003e, amelyek elősegítik az alapvető kódolási ismeretek és az ünnepi hagyományok oktatását a diákok számára angolul, franciául, japánul, koreaiul és spanyolul."
+	},
+	"press-asset-animation": {
+		"message": "Animáció"
+	},
+	"press-asset-resources": {
+		"message": "Sajtóanyagok"
+	},
+	"press-asset-screenshot": {
+		"message": "Képernyőkép"
+	},
+	"press-device-text": {
+		"message": "Az ünnepek szelleme mindenütt jelen van, beleértve eszközeidet is!"
+	},
+	"press-device-title": {
+		"message": "Mikuláskövető az eszközödön"
+	},
+	"press-edu": {
+		"message": "Oktatási kalandok"
+	},
+	"press-edu1": {
+		"message": "Kibővítettük az \u003ca href=\"./educators.html\"\u003eoktatóknak szóló segédanyagokat tartalmazó oldalunkat\u003c/a\u003e, hogy az immár öt nyelven rendelkezésre álló tantervekhez videoútmutatókat is biztosítsunk a tanároknak. Természetesen az összes kedvenc játékod továbbra is rendelkezésre áll, sőt a világ ünnepi hagyományaihoz kapcsolódó alapvető kódolási fogalmakat is bevezettünk. A Google Mikuláskövetője szórakoztató módon ösztönöz a tanulásra az ünnepi időszak alatt – további információért lásd \u003ca href=\"./educators.html\"\u003eoktatójátékainkat\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Csupa szórakozás és játék"
+	},
+	"press-need-text": {
+		"message": "A manók és a Google-alkalmazottak szívesen segítenek."
+	},
+	"press-need-title": {
+		"message": "Szükséged van valamire?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "December 24-én indul"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Egész decemberben rendelkezésre áll"
+	},
+	"press-villagetracker-title": {
+		"message": "Mikulásfalva és a Követő"
+	},
+	"press-whatsnew": {
+		"message": "Idei újdonságok"
+	},
+	"press-whatsnew1-text": {
+		"message": "Készítsd el saját manódat a feje búbjától a lábujjhegyéig, és gondoskodj fantörpikus kinézetéről a számos északi-sarki vidám estéhez."
+	},
+	"press-whatsnew1-title": {
+		"message": "Készíts manót:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ha egész életedben arról álmodtál, hogy tánccsoportot alakíts egy csapat rendkívül tehetséges táncoló manóval, akkor most szerencséd van. Vagyis majdnem. A \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e nevű, gépi tanuláson alapuló modell segítségével megtaníthatsz egy manót a mozdulataidra, és így együtt rophatod vele a táncparketten."
+	},
+	"press-whatsnew2-title": {
+		"message": "Tánc(ok) a manókkal:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Ezenkívül valós időben láthatod a Mikulás helyzetét a Google Térképen – mindössze koppints a hamburgergombra, majd a „Helyzetmegosztás” elemre, hogy láthasd, pontosan hol tart a Mikulás az útja során. Még egyszerűbb, ha ellátogatsz a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e oldalra!"
+	},
+	"press-whatsnew3-title": {
+		"message": "A Mikulás követésének új módja:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ha még több ünnepi vidámságra vágysz, nézd meg a Gboard ünnepi matricáit, amelyek \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e és \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e rendszerű készülékeken, továbbá \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-alkalmazásunkban\u003c/a\u003e is rendelkezésre állnak. Ha pedig irodalmi örömökre vágysz, mondd a következőt a Google Segédnek: „Mesélj el egy ünnepi történetet!”, vagy kérdezd meg tőle: „Hol van a Mikulás?”"
+	},
+	"press-whatsnew4-title": {
+		"message": "Még több vidámság az ünnepi időszakban:"
+	},
+	"pt_language_name": {
+		"message": "Portugál"
+	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Már tudom, ez egy {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "vagy"
+	},
+	"quickdraw-machine-see": {
+		"message": "Szerintem"
+	},
+	"quickdraw-newround-button": {
+		"message": "Kezdés"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Nem igazán tudom, hogy mi ez."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Bocsánat"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Nem találtam ki!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tenzor szerint a rajzod ezekre is hasonlít:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Honnan tudja Tenzor, hogy néz ki egy {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Mások által rajzolt ábrák alapján tanulta meg felismerni (lásd a példákat)."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tenzor szerint a rajzod ezekre jobban hasonlít:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Ez a Mikulás verziója a következőről: {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "A következő rajzolására kértünk: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Rajzolás"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tenzor egy gépi tanulással fejlődő robot, amely a Mikulás segítségére van a gyerekek által a világ minden tájáról írt levelek gyors megfejtésében. Ha segíteni szeretnél Tenzornak a gyakorlásban, rajzolj a képernyőn megjelenő, az ünneppel kapcsolatos szavaknak megfelelő ábrákat, Tenzor pedig megmondja, mit lát a rajzokon. Minél többet rajzolsz, Tenzor annál okosabb lesz. Segíts a Mikulásnak, hogy idén karácsonykor minden eddiginél hatékonyabban dolgozhasson!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Segíts Tenzornak a képfelismerés gyakorlásában!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tenzor {{recognized}} rajzodat ismerte fel."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tenzor felismerte az egyik rajzodat."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tenzor egyik rajzodat sem ismerte fel."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Ügyes!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Hoppá!"
+	},
+	"readyquestion": {
+		"message": "Készen állsz?"
+	},
+	"ro_country_name": {
+		"message": "Románia"
+	},
+	"ru_country_name": {
+		"message": "Oroszország"
+	},
+	"ru_language_name": {
+		"message": "Orosz"
+	},
+	"ru_tradition": {
+		"message": "Az orosz gyerekek nem karácsonyfát, hanem újévi fát díszítenek. A gyerekek türelmetlenül várják Fagy apót, aki Hópelyhecske nevű unokájával hozza az ajándékokat. Fagy apó az Oroszország északi részén fekvő Velikij Usztyug egyik erdejének mélyén lakik."
+	},
+	"sa_country_name": {
+		"message": "Szaúd-Arábia"
+	},
+	"santa-app": {
+		"message": "Mikulás"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Mézeskalács figura"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mikulásné"
+	},
+	"santasearch_character_pegman": {
+		"message": "Emberke"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingvin"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Mikulás"
+	},
+	"santasearch_hint": {
+		"message": "Tipp"
+	},
+	"santasearch_level_beach": {
+		"message": "A tengerparton"
+	},
+	"santasearch_level_lab": {
+		"message": "A laborban"
+	},
+	"santasearch_level_mountains": {
+		"message": "A hegyekben"
+	},
+	"santasearch_level_museum": {
+		"message": "A múzeumban"
+	},
+	"santasearch_level_select": {
+		"message": "Mehet!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Keresd meg a Mikulást!"
+	},
+	"santasvillage": {
+		"message": "Mikulásfalva"
+	},
+	"santatracker": {
+		"message": "Mikuláskövető"
+	},
+	"scene_airport": {
+		"message": "Északi-sarki repülőtér"
+	},
+	"scene_app": {
+		"message": "Android-alkalmazás"
+	},
+	"scene_blimp": {
+		"message": "Ajándék-újratöltés"
+	},
+	"scene_boatload": {
+		"message": "Ajándékcsúzlizás"
+	},
+	"scene_briefing": {
+		"message": "A Mikulásné utasításai"
+	},
+	"scene_callfromsanta": {
+		"message": "Hívás a Mikulástól"
+	},
+	"scene_canvas": {
+		"message": "Kreatív rajzolás"
+	},
+	"scene_citylights": {
+		"message": "Nagyvárosi fények"
+	},
+	"scene_clausdraws": {
+		"message": "Mikulásrajzok"
+	},
+	"scene_codeboogie": {
+		"message": "Boogie-tanítás"
+	},
+	"scene_codelab": {
+		"message": "Kódlabor"
+	},
+	"scene_commandcentre": {
+		"message": "Irányítóközpont"
+	},
+	"scene_dash": {
+		"message": "Pingvinvezérlés"
+	},
+	"scene_elfmaker": {
+		"message": "Manókészítő"
+	},
+	"scene_elfski": {
+		"message": "Síelő manók"
+	},
+	"scene_factory": {
+		"message": "Édességgyár"
+	},
+	"scene_giftmatch": {
+		"message": "Ajándékpárosítás"
+	},
+	"scene_glider": {
+		"message": "Manóreptető"
+	},
+	"scene_gumball": {
+		"message": "Cukorkadobálás"
+	},
+	"scene_icecave": {
+		"message": "Jégbarlang"
+	},
+	"scene_island": {
+		"message": "sziget"
+	},
+	"scene_jamband": {
+		"message": "Manóbanda"
+	},
+	"scene_jetpack": {
+		"message": "Manó-hátirakéta"
+	},
+	"scene_latlong": {
+		"message": "Ajándékszállítás"
+	},
+	"scene_matching": {
+		"message": "Memóriajáték"
+	},
+	"scene_mercator": {
+		"message": "Térképkitalálós"
+	},
+	"scene_playground": {
+		"message": "Északi-sarki játszótér"
+	},
+	"scene_poseboogie": {
+		"message": "Táncpóz"
+	},
+	"scene_postcard": {
+		"message": "Mikulásos képeslapok"
+	},
+	"scene_presentbounce": {
+		"message": "Ajándékelhelyezés"
+	},
+	"scene_presentdrop": {
+		"message": "Ajándékledobás"
+	},
+	"scene_quickdraw": {
+		"message": "Vázlatrajz"
+	},
+	"scene_racer": {
+		"message": "Rudolffutam"
+	},
+	"scene_rollercoaster": {
+		"message": "Manók a hullámvasúton"
+	},
+	"scene_runner": {
+		"message": "Rénszarvasfuttató"
+	},
+	"scene_santasearch": {
+		"message": "Mikuláskutatás"
+	},
+	"scene_santaselfie": {
+		"message": "Mikulásszelfi"
+	},
+	"scene_seasonofcaring": {
+		"message": "A gondoskodás időszaka"
+	},
+	"scene_seasonofgiving": {
+		"message": "Az adakozás ideje"
+	},
+	"scene_snowball": {
+		"message": "Hógolyócsata"
+	},
+	"scene_snowflake": {
+		"message": "Hópehelykódolás"
+	},
+	"scene_speedsketch": {
+		"message": "Ablakrajz"
+	},
+	"scene_streetview": {
+		"message": "Utcakép"
+	},
+	"scene_traditions": {
+		"message": "Ünnepi hagyományok"
+	},
+	"scene_translations": {
+		"message": "Fordítás"
+	},
+	"scene_trivia": {
+		"message": "Érdekességek"
+	},
+	"scene_undersea": {
+		"message": "Tengerfenék"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Manóautó"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Vezérlőterem"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Éneklő és táncoló manók"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Indul a Mikulás"
+	},
+	"scene_videoscene_museum": {
+		"message": "Egy nap a múzeumban"
+	},
+	"scene_videoscene_office": {
+		"message": "Asztalcsomagolás"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Még szabadságon"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Aggódó rénszarvasok"
+	},
+	"scene_videoscene_reload": {
+		"message": "Ajándék-újratöltés"
+	},
+	"scene_videoscene_santasback": {
+		"message": "A Mikulás visszatért"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Műhold"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Mikulásszelfik"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Lazsálás"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Indulás"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Kísértés"
+	},
+	"scene_videoscene_tired": {
+		"message": "Fáradt rénszarvas"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Hol van a Mikulás?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "A Mikulás műhelye"
+	},
+	"scene_windtunnel": {
+		"message": "Szélcsatorna"
+	},
+	"scene_wrap": {
+		"message": "Csomagolás"
+	},
+	"score": {
+		"message": "Pontszám"
+	},
+	"score_short": {
+		"message": "Pontszám"
+	},
+	"se_country_name": {
+		"message": "Svédország"
+	},
+	"seconds": {
+		"message": "Másodperc"
+	},
+	"select-language": {
+		"message": "Nyelv kiválasztása"
+	},
+	"share-button": {
+		"message": "Oszd meg ismerőseiddel a Google+-on"
+	},
+	"share-text": {
+		"message": "Ezt a képeslapot a Google Mikuláskeresőjében készítettem neked. Kellemes ünnepeket!"
+	},
+	"share-this": {
+		"message": "Megosztás"
+	},
+	"sidebar_code_emoji": {
+		"message": "A Code-dal készült: Ünnepi hangulatjelek"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Kvíz az ünnepi hagyományokról"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Térkép: A Mikulás tartózkodási helye"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Az ünnepekkel kapcsolatos keresések"
+	},
+	"sk_country_name": {
+		"message": "Szlovákia"
+	},
+	"sk_language_name": {
+		"message": "Szlovák"
+	},
+	"skip-training": {
+		"message": "Ismertetés átugrása"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Szenegál"
+	},
+	"snowball_iced": {
+		"message": "Kiesés!"
+	},
+	"snowball_remaining": {
+		"message": "{{total}}/{{remaining}} manó maradt játékban"
+	},
+	"snowball_spectate": {
+		"message": "Megtekintés folytatása"
+	},
+	"snowball_waiting": {
+		"message": "Várakozás a Mikulás további manóira"
+	},
+	"snowflake_choose_background": {
+		"message": "Válassz hátteret"
+	},
+	"snowflake_choose_postcard": {
+		"message": "A nyílgombokkal választhatsz ki egy képeslapot"
+	},
+	"snowflake_code": {
+		"message": "Készíts saját hópelyhet"
+	},
+	"snowflake_code_instructions": {
+		"message": "A blokkok egymáshoz illesztésével tervezz saját hópelyhet"
+	},
+	"snowflake_create_message": {
+		"message": "Tervezz saját hópelyhet"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Most ismételd meg!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Ismétlés"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Forgasd el, majd ismételd meg!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Forgatás és ismétlés"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ez kódolással készült. Próbáld ki te is!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Válassz egy képeslapot, és oszd meg a hópelyhedet az ismerőseiddel"
+	},
+	"snowflake_shared_message": {
+		"message": "Valaki hópelyhet küldött neked!"
+	},
+	"so_country_name": {
+		"message": "Szomália"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Párizs"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Sanghaj"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Svájc"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Az Eiffel-torony"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "A kínai nagy fal"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "A Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "absztrakt mű"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "repülőgép-anyahajó"
+	},
+	"speedsketch_item~airplane": {
+		"message": "repülőgép"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "ébresztőóra"
+	},
+	"speedsketch_item~alien": {
+		"message": "földönkívüli"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "mentőautó"
+	},
+	"speedsketch_item~angel": {
+		"message": "angyal"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "vonuló állatok"
+	},
+	"speedsketch_item~ant": {
+		"message": "hangya"
+	},
+	"speedsketch_item~anvil": {
+		"message": "üllő"
+	},
+	"speedsketch_item~apple": {
+		"message": "alma"
+	},
+	"speedsketch_item~arm": {
+		"message": "kar"
+	},
+	"speedsketch_item~arrow": {
+		"message": "nyíl"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "spárga"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "űrhajós"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audiokazetta"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokádó"
+	},
+	"speedsketch_item~axe": {
+		"message": "fejsze"
+	},
+	"speedsketch_item~baby": {
+		"message": "kisbaba"
+	},
+	"speedsketch_item~backpack": {
+		"message": "hátizsák"
+	},
+	"speedsketch_item~banana": {
+		"message": "banán"
+	},
+	"speedsketch_item~bandage": {
+		"message": "kötés"
+	},
+	"speedsketch_item~barn": {
+		"message": "csűr"
+	},
+	"speedsketch_item~baseball": {
+		"message": "baseball-labda"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "baseballütő"
+	},
+	"speedsketch_item~basket": {
+		"message": "kosár"
+	},
+	"speedsketch_item~basketball": {
+		"message": "kosárlabda"
+	},
+	"speedsketch_item~bat": {
+		"message": "denevér"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "fürdőkád"
+	},
+	"speedsketch_item~beach": {
+		"message": "tengerpart"
+	},
+	"speedsketch_item~bear": {
+		"message": "medve"
+	},
+	"speedsketch_item~beard": {
+		"message": "szakáll"
+	},
+	"speedsketch_item~bed": {
+		"message": "ágy"
+	},
+	"speedsketch_item~bee": {
+		"message": "méh"
+	},
+	"speedsketch_item~belt": {
+		"message": "öv"
+	},
+	"speedsketch_item~bench": {
+		"message": "pad"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "kerékpár"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "távcső"
+	},
+	"speedsketch_item~bird": {
+		"message": "madár"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "születésnapi torta"
+	},
+	"speedsketch_item~black": {
+		"message": "fekete"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "szeder"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "áfonya"
+	},
+	"speedsketch_item~book": {
+		"message": "könyv"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumeráng"
+	},
+	"speedsketch_item~boot": {
+		"message": "csizma"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "kupak"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "csokornyakkendő"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "karkötő"
+	},
+	"speedsketch_item~brain": {
+		"message": "agy"
+	},
+	"speedsketch_item~bread": {
+		"message": "kenyér"
+	},
+	"speedsketch_item~bridge": {
+		"message": "híd"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokkoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "seprű"
+	},
+	"speedsketch_item~bucket": {
+		"message": "vödör"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldózer"
+	},
+	"speedsketch_item~bus": {
+		"message": "busz"
+	},
+	"speedsketch_item~bush": {
+		"message": "bokor"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "pillangó"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktusz"
+	},
+	"speedsketch_item~cake": {
+		"message": "torta"
+	},
+	"speedsketch_item~calculator": {
+		"message": "számológép"
+	},
+	"speedsketch_item~calendar": {
+		"message": "naptár"
+	},
+	"speedsketch_item~camel": {
+		"message": "teve"
+	},
+	"speedsketch_item~camera": {
+		"message": "kamera"
+	},
+	"speedsketch_item~campfire": {
+		"message": "tábortűz"
+	},
+	"speedsketch_item~candle": {
+		"message": "gyertya"
+	},
+	"speedsketch_item~candy": {
+		"message": "cukorka"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "selyemcukor"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kenu"
+	},
+	"speedsketch_item~car": {
+		"message": "gépkocsi"
+	},
+	"speedsketch_item~carrot": {
+		"message": "sárgarépa"
+	},
+	"speedsketch_item~castle": {
+		"message": "kastély"
+	},
+	"speedsketch_item~cat": {
+		"message": "macska"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "mennyezeti ventilátor"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobiltelefon"
+	},
+	"speedsketch_item~cello": {
+		"message": "cselló"
+	},
+	"speedsketch_item~chair": {
+		"message": "szék"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "csillár"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "vegyészet"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cseresznye"
+	},
+	"speedsketch_item~child": {
+		"message": "gyerek"
+	},
+	"speedsketch_item~chimney": {
+		"message": "kémény"
+	},
+	"speedsketch_item~church": {
+		"message": "templom"
+	},
+	"speedsketch_item~circle": {
+		"message": "kör"
+	},
+	"speedsketch_item~city": {
+		"message": "város"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinét"
+	},
+	"speedsketch_item~clock": {
+		"message": "óra"
+	},
+	"speedsketch_item~cloud": {
+		"message": "felhő"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "csöves kukorica"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kávéscsésze"
+	},
+	"speedsketch_item~compass": {
+		"message": "iránytű"
+	},
+	"speedsketch_item~computer": {
+		"message": "számítógép"
+	},
+	"speedsketch_item~cookie": {
+		"message": "sütemény"
+	},
+	"speedsketch_item~cooler": {
+		"message": "hűtő"
+	},
+	"speedsketch_item~couch": {
+		"message": "kanapé"
+	},
+	"speedsketch_item~cow": {
+		"message": "tehén"
+	},
+	"speedsketch_item~crab": {
+		"message": "rák"
+	},
+	"speedsketch_item~crayon": {
+		"message": "zsírkréta"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodil"
+	},
+	"speedsketch_item~crow": {
+		"message": "varjú"
+	},
+	"speedsketch_item~crown": {
+		"message": "korona"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "óceánjáró"
+	},
+	"speedsketch_item~cube": {
+		"message": "kocka"
+	},
+	"speedsketch_item~cup": {
+		"message": "csésze"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "gyémánt"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "gyémántgyűrű"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "mosogatógép"
+	},
+	"speedsketch_item~diving board": {
+		"message": "ugródeszka"
+	},
+	"speedsketch_item~dog": {
+		"message": "kutya"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfin"
+	},
+	"speedsketch_item~donut": {
+		"message": "fánk"
+	},
+	"speedsketch_item~door": {
+		"message": "ajtó"
+	},
+	"speedsketch_item~dragon": {
+		"message": "sárkány"
+	},
+	"speedsketch_item~dresser": {
+		"message": "öltözőasztal"
+	},
+	"speedsketch_item~drill": {
+		"message": "fúró"
+	},
+	"speedsketch_item~drums": {
+		"message": "dob"
+	},
+	"speedsketch_item~duck": {
+		"message": "kacsa"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "súlyzó"
+	},
+	"speedsketch_item~ear": {
+		"message": "fül"
+	},
+	"speedsketch_item~egg": {
+		"message": "tojás"
+	},
+	"speedsketch_item~elbow": {
+		"message": "könyök"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elefánt"
+	},
+	"speedsketch_item~elf": {
+		"message": "manó"
+	},
+	"speedsketch_item~emoji": {
+		"message": "hangulatjel"
+	},
+	"speedsketch_item~envelope": {
+		"message": "boríték"
+	},
+	"speedsketch_item~eraser": {
+		"message": "radír"
+	},
+	"speedsketch_item~eye": {
+		"message": "szem"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "szemüveg"
+	},
+	"speedsketch_item~face": {
+		"message": "arc"
+	},
+	"speedsketch_item~family": {
+		"message": "család"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilátor"
+	},
+	"speedsketch_item~feather": {
+		"message": "madártoll"
+	},
+	"speedsketch_item~fence": {
+		"message": "kerítés"
+	},
+	"speedsketch_item~finger": {
+		"message": "ujj"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "tűzcsap"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "kandalló"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "tűzoltóautó"
+	},
+	"speedsketch_item~fish": {
+		"message": "hal"
+	},
+	"speedsketch_item~flag": {
+		"message": "zászló"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingó"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "zseblámpa"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "flipflop"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "állólámpa"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "flopilemez"
+	},
+	"speedsketch_item~flower": {
+		"message": "virág"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "repülő csészealj"
+	},
+	"speedsketch_item~fog": {
+		"message": "köd"
+	},
+	"speedsketch_item~foot": {
+		"message": "lábfej"
+	},
+	"speedsketch_item~fork": {
+		"message": "villa"
+	},
+	"speedsketch_item~french fries": {
+		"message": "sült krumpli"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "tükörtojás"
+	},
+	"speedsketch_item~frog": {
+		"message": "béka"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "serpenyő"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxis"
+	},
+	"speedsketch_item~garden": {
+		"message": "kert"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "öntözőcső"
+	},
+	"speedsketch_item~ghost": {
+		"message": "szellem"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "mézeskalács figura"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "zsiráf"
+	},
+	"speedsketch_item~goat": {
+		"message": "kecske"
+	},
+	"speedsketch_item~goatee": {
+		"message": "kecskeszakáll"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfütő"
+	},
+	"speedsketch_item~grapes": {
+		"message": "szőlő"
+	},
+	"speedsketch_item~grass": {
+		"message": "fű"
+	},
+	"speedsketch_item~group": {
+		"message": "csoport"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitár"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "kalapács"
+	},
+	"speedsketch_item~hand": {
+		"message": "kéz"
+	},
+	"speedsketch_item~happiness": {
+		"message": "boldogság"
+	},
+	"speedsketch_item~harp": {
+		"message": "hárfa"
+	},
+	"speedsketch_item~hat": {
+		"message": "kalap"
+	},
+	"speedsketch_item~headphones": {
+		"message": "fejhallgató"
+	},
+	"speedsketch_item~heart": {
+		"message": "szív"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "sündisznó"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "sisak"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hatszög"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokikorong"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokiütő"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "ünnepi fények"
+	},
+	"speedsketch_item~horse": {
+		"message": "ló"
+	},
+	"speedsketch_item~hospital": {
+		"message": "kórház"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "hőlégballon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "jacuzzi"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "homokóra"
+	},
+	"speedsketch_item~house": {
+		"message": "ház"
+	},
+	"speedsketch_item~house plant": {
+		"message": "szobanövény"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "hurrikán"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "jégkrém"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "korcsolyázó"
+	},
+	"speedsketch_item~infinity": {
+		"message": "végtelen"
+	},
+	"speedsketch_item~island": {
+		"message": "sziget"
+	},
+	"speedsketch_item~jacket": {
+		"message": "dzseki"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "hátirakéta"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Két karácsonyi csengettyű egymás mellett"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kenguru"
+	},
+	"speedsketch_item~key": {
+		"message": "kulcs"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "billentyűzet"
+	},
+	"speedsketch_item~kite": {
+		"message": "papírsárkány"
+	},
+	"speedsketch_item~knee": {
+		"message": "térd"
+	},
+	"speedsketch_item~knife": {
+		"message": "kés"
+	},
+	"speedsketch_item~knot": {
+		"message": "csomó"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "létra"
+	},
+	"speedsketch_item~landscape": {
+		"message": "tájkép"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lámpás"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "levél"
+	},
+	"speedsketch_item~leg": {
+		"message": "láb"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "izzó"
+	},
+	"speedsketch_item~lighter": {
+		"message": "öngyújtó"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "világítótorony"
+	},
+	"speedsketch_item~lightning": {
+		"message": "villám"
+	},
+	"speedsketch_item~line": {
+		"message": "vonal"
+	},
+	"speedsketch_item~lion": {
+		"message": "oroszlán"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "rúzs"
+	},
+	"speedsketch_item~lobster": {
+		"message": "homár"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "nyalóka"
+	},
+	"speedsketch_item~love": {
+		"message": "szerelem"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "postaláda"
+	},
+	"speedsketch_item~man": {
+		"message": "férfi"
+	},
+	"speedsketch_item~map": {
+		"message": "térkép"
+	},
+	"speedsketch_item~marker": {
+		"message": "filctoll"
+	},
+	"speedsketch_item~matches": {
+		"message": "gyufa"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "sellő"
+	},
+	"speedsketch_item~metal": {
+		"message": "fém"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroszkóp"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrohullámú sütő"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "fagyöngy"
+	},
+	"speedsketch_item~mittens": {
+		"message": "egyujjas kesztyű"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekula"
+	},
+	"speedsketch_item~money": {
+		"message": "pénz"
+	},
+	"speedsketch_item~monkey": {
+		"message": "majom"
+	},
+	"speedsketch_item~moon": {
+		"message": "hold"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "szúnyog"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorkerékpár"
+	},
+	"speedsketch_item~mountain": {
+		"message": "hegy"
+	},
+	"speedsketch_item~mouse": {
+		"message": "egér"
+	},
+	"speedsketch_item~moustache": {
+		"message": "bajusz"
+	},
+	"speedsketch_item~mouth": {
+		"message": "száj"
+	},
+	"speedsketch_item~mug": {
+		"message": "bögre"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "gomba"
+	},
+	"speedsketch_item~music": {
+		"message": "zene"
+	},
+	"speedsketch_item~nail": {
+		"message": "szög"
+	},
+	"speedsketch_item~nature": {
+		"message": "természet"
+	},
+	"speedsketch_item~necklace": {
+		"message": "nyaklánc"
+	},
+	"speedsketch_item~news": {
+		"message": "hírek"
+	},
+	"speedsketch_item~nose": {
+		"message": "orr"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "diótörő"
+	},
+	"speedsketch_item~ocean": {
+		"message": "óceán"
+	},
+	"speedsketch_item~octagon": {
+		"message": "nyolcszög"
+	},
+	"speedsketch_item~octopus": {
+		"message": "polip"
+	},
+	"speedsketch_item~onion": {
+		"message": "hagyma"
+	},
+	"speedsketch_item~ornament": {
+		"message": "dísz"
+	},
+	"speedsketch_item~oven": {
+		"message": "sütő"
+	},
+	"speedsketch_item~owl": {
+		"message": "bagoly"
+	},
+	"speedsketch_item~paint can": {
+		"message": "festékes doboz"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "ecset"
+	},
+	"speedsketch_item~painting": {
+		"message": "festmény"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "pálmafa"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "nadrág"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "iratkapocs"
+	},
+	"speedsketch_item~parachute": {
+		"message": "ejtőernyő"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagáj"
+	},
+	"speedsketch_item~passport": {
+		"message": "útlevél"
+	},
+	"speedsketch_item~peanut": {
+		"message": "földimogyoró"
+	},
+	"speedsketch_item~pear": {
+		"message": "körte"
+	},
+	"speedsketch_item~peas": {
+		"message": "borsó"
+	},
+	"speedsketch_item~pencil": {
+		"message": "ceruza"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingvin"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "borsmenta"
+	},
+	"speedsketch_item~piano": {
+		"message": "zongora"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "furgon"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "képkeret"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "kördiagram"
+	},
+	"speedsketch_item~pig": {
+		"message": "malac"
+	},
+	"speedsketch_item~pillow": {
+		"message": "párna"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananász"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "pingpong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "kalóz"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "fogó"
+	},
+	"speedsketch_item~police car": {
+		"message": "rendőrautó"
+	},
+	"speedsketch_item~politician": {
+		"message": "politikus"
+	},
+	"speedsketch_item~pond": {
+		"message": "tavacska"
+	},
+	"speedsketch_item~pool": {
+		"message": "medence"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "pálcás fagyi"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portré"
+	},
+	"speedsketch_item~postcard": {
+		"message": "képeslap"
+	},
+	"speedsketch_item~potato": {
+		"message": "krumpli"
+	},
+	"speedsketch_item~present": {
+		"message": "ajándék"
+	},
+	"speedsketch_item~prison": {
+		"message": "börtön"
+	},
+	"speedsketch_item~purse": {
+		"message": "pénztárca"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "nyúl"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "mosómedve"
+	},
+	"speedsketch_item~radio": {
+		"message": "rádió"
+	},
+	"speedsketch_item~rain": {
+		"message": "eső"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "szivárvány"
+	},
+	"speedsketch_item~rake": {
+		"message": "gereblye"
+	},
+	"speedsketch_item~raven": {
+		"message": "holló"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "rénszarvas"
+	},
+	"speedsketch_item~remote control": {
+		"message": "távvezérlő"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "orrszarvú"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "szalag"
+	},
+	"speedsketch_item~river": {
+		"message": "folyó"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "hullámvasút"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "görkorcsolya"
+	},
+	"speedsketch_item~sadness": {
+		"message": "bánat"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "vitorlás"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "szendvics"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Mikulás"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Szaturnusz"
+	},
+	"speedsketch_item~sausage": {
+		"message": "kolbász"
+	},
+	"speedsketch_item~saw": {
+		"message": "fűrész"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "szaxofon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "iskolabusz"
+	},
+	"speedsketch_item~scissors": {
+		"message": "olló"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "skorpió"
+	},
+	"speedsketch_item~screw": {
+		"message": "csavar"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "csavarhúzó"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "szobor"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "tengeri teknős"
+	},
+	"speedsketch_item~see saw": {
+		"message": "mérleghinta"
+	},
+	"speedsketch_item~shark": {
+		"message": "cápa"
+	},
+	"speedsketch_item~sheep": {
+		"message": "bárány"
+	},
+	"speedsketch_item~shoe": {
+		"message": "cipő"
+	},
+	"speedsketch_item~shorts": {
+		"message": "rövidnadrág"
+	},
+	"speedsketch_item~shovel": {
+		"message": "ásó"
+	},
+	"speedsketch_item~sink": {
+		"message": "mosogató"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "gördeszka"
+	},
+	"speedsketch_item~ski": {
+		"message": "sí"
+	},
+	"speedsketch_item~skier": {
+		"message": "síelő"
+	},
+	"speedsketch_item~skirt": {
+		"message": "szoknya"
+	},
+	"speedsketch_item~skull": {
+		"message": "koponya"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "felhőkarcoló"
+	},
+	"speedsketch_item~sled": {
+		"message": "szánkó"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "hálózsák"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "szán"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "mosolygós arc"
+	},
+	"speedsketch_item~snail": {
+		"message": "csiga"
+	},
+	"speedsketch_item~snake": {
+		"message": "kígyó"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "búvárpipa"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "hópehely"
+	},
+	"speedsketch_item~snowman": {
+		"message": "hóember"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "focilabda"
+	},
+	"speedsketch_item~sock": {
+		"message": "zokni"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "motorcsónak"
+	},
+	"speedsketch_item~sphere": {
+		"message": "gömb"
+	},
+	"speedsketch_item~spider": {
+		"message": "pók"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spirál"
+	},
+	"speedsketch_item~spoon": {
+		"message": "kanál"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "táblázat"
+	},
+	"speedsketch_item~square": {
+		"message": "négyzet"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "mókus"
+	},
+	"speedsketch_item~stairs": {
+		"message": "lépcső"
+	},
+	"speedsketch_item~star": {
+		"message": "csillag"
+	},
+	"speedsketch_item~steak": {
+		"message": "steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "magnó"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "sztetoszkóp"
+	},
+	"speedsketch_item~still life": {
+		"message": "csendélet"
+	},
+	"speedsketch_item~stocking": {
+		"message": "harisnya"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stoptábla"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopper"
+	},
+	"speedsketch_item~stove": {
+		"message": "tűzhely"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "eper"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "utcai lámpa"
+	},
+	"speedsketch_item~string bean": {
+		"message": "zöldbab"
+	},
+	"speedsketch_item~submarine": {
+		"message": "tengeralattjáró"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "bőrönd"
+	},
+	"speedsketch_item~sun": {
+		"message": "nap"
+	},
+	"speedsketch_item~sunset": {
+		"message": "naplemente"
+	},
+	"speedsketch_item~swan": {
+		"message": "hattyú"
+	},
+	"speedsketch_item~sweater": {
+		"message": "pulóver"
+	},
+	"speedsketch_item~swing set": {
+		"message": "hinta"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "póló"
+	},
+	"speedsketch_item~table": {
+		"message": "asztal"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teáskanna"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "plüssmackó"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefon"
+	},
+	"speedsketch_item~television": {
+		"message": "televízió"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "teniszütő"
+	},
+	"speedsketch_item~tent": {
+		"message": "sátor"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "tic-tac-toe (ix-ox) játék"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigris"
+	},
+	"speedsketch_item~time": {
+		"message": "idő"
+	},
+	"speedsketch_item~toaster": {
+		"message": "kenyérpirító"
+	},
+	"speedsketch_item~toe": {
+		"message": "lábujj"
+	},
+	"speedsketch_item~toilet": {
+		"message": "vécé"
+	},
+	"speedsketch_item~tooth": {
+		"message": "fog"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "fogkefe"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "fogkrém"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornádó"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "közlekedési lámpa"
+	},
+	"speedsketch_item~train": {
+		"message": "vonat"
+	},
+	"speedsketch_item~tree": {
+		"message": "fa"
+	},
+	"speedsketch_item~triangle": {
+		"message": "háromszög"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "tricikli"
+	},
+	"speedsketch_item~trombone": {
+		"message": "harsona"
+	},
+	"speedsketch_item~trousers": {
+		"message": "nadrág"
+	},
+	"speedsketch_item~truck": {
+		"message": "kamion"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trombita"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "esernyő"
+	},
+	"speedsketch_item~underwear": {
+		"message": "fehérnemű"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "egyszarvú"
+	},
+	"speedsketch_item~universe": {
+		"message": "univerzum"
+	},
+	"speedsketch_item~van": {
+		"message": "kisteherautó"
+	},
+	"speedsketch_item~vase": {
+		"message": "váza"
+	},
+	"speedsketch_item~violin": {
+		"message": "hegedű"
+	},
+	"speedsketch_item~walnut": {
+		"message": "dió"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "mosógép"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "görögdinnye"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "vízi csúszda"
+	},
+	"speedsketch_item~wave": {
+		"message": "hullám"
+	},
+	"speedsketch_item~whale": {
+		"message": "bálna"
+	},
+	"speedsketch_item~windmill": {
+		"message": "szélmalom"
+	},
+	"speedsketch_item~woman": {
+		"message": "nő"
+	},
+	"speedsketch_item~world": {
+		"message": "világ"
+	},
+	"speedsketch_item~wreath": {
+		"message": "koszorú"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "karóra"
+	},
+	"speedsketch_item~yoga": {
+		"message": "jóga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "joghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "cikcakk"
+	},
+	"speedsketch_item~zipper": {
+		"message": "cipzár"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "Salvador"
+	},
+	"sv_language_name": {
+		"message": "Svéd"
+	},
+	"td_country_name": {
+		"message": "Csád"
+	},
+	"terms-and-privacy": {
+		"message": "Feltételek és adatvédelem"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
+	"th_language_name": {
+		"message": "Thai"
+	},
+	"tilt": {
+		"message": "Fordítsd el az eszközödet!"
+	},
+	"time": {
+		"message": "Idő"
+	},
+	"tj_country_name": {
+		"message": "Tádzsikisztán"
+	},
+	"tm_country_name": {
+		"message": "Türkmenisztán"
+	},
+	"tn_country_name": {
+		"message": "Tunézia"
+	},
+	"today_only": {
+		"message": "Csak a mai nap"
+	},
+	"tr_country_name": {
+		"message": "Törökország"
+	},
+	"tr_language_name": {
+		"message": "Török"
+	},
+	"tracker_arrival": {
+		"message": "Érkezés"
+	},
+	"tracker_arriving_in": {
+		"message": "Érkezés ennyi idő múlva:"
+	},
+	"tracker_current_stop": {
+		"message": "Jelenlegi állomás"
+	},
+	"tracker_departing_in": {
+		"message": "Indulás ennyi idő múlva:"
+	},
+	"tracker_distance_away_km": {
+		"message": "A Mikulás {{distance_away}} kilométerre van"
+	},
+	"tracker_distance_from_you": {
+		"message": "Tőled való távolság:"
+	},
+	"tracker_distance_travelled": {
+		"message": "Megtett távolság"
+	},
+	"tracker_feed": {
+		"message": "Élő közvetítés"
+	},
+	"tracker_flight_nearby": {
+		"message": "A Mikulás már a közelben van, keresd meg!"
+	},
+	"tracker_flight_start": {
+		"message": "A Mikulás elindult az Északi-sarkról, és mostantól követheted az útvonalát"
+	},
+	"tracker_from_google": {
+		"message": "A Google összes munkatársa"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Szétosztott ajándékok"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Intro átugrása"
+	},
+	"tracker_intro_user_location": {
+		"message": "Tartózkodási hely:"
+	},
+	"tracker_just_in": {
+		"message": "Legfrissebb"
+	},
+	"tracker_next_stop": {
+		"message": "Következő állomás"
+	},
+	"tracker_santa_update": {
+		"message": "FRISSÍTÉS A MIKULÁSTÓL"
+	},
+	"tracker_santa_update_1": {
+		"message": "Frissítés a Mikulástól"
+	},
+	"tracker_see_route": {
+		"message": "Útvonal"
+	},
+	"tracker_stats": {
+		"message": "A Mikulás helyadatai"
+	},
+	"tracker_time_from_you_many": {
+		"message": "A Mikulás kb. {{hours}} óra múlva érkezik"
+	},
+	"tracker_time_from_you_one": {
+		"message": "A Mikulás hamarosan megérkezik"
+	},
+	"tracker_track": {
+		"message": "Kövesd a Mikulást!"
+	},
+	"tracker_travelogue": {
+		"message": "élménybeszámoló"
+	},
+	"tracker_weather": {
+		"message": "Időjárás"
+	},
+	"tracker_world_facts": {
+		"message": "TUDTAD?"
+	},
+	"tracker_world_facts_1": {
+		"message": "A világra vonatkozó tények"
+	},
+	"tracker_your_location": {
+		"message": "Tartózkodási helyed"
+	},
+	"traditions-next": {
+		"message": "Következő hagyomány"
+	},
+	"traditions-prev": {
+		"message": "Előző hagyomány"
+	},
+	"traditions-world": {
+		"message": "Világ"
+	},
+	"trivia_beginner_001": {
+		"message": "Melyik kontinensen található az Andok?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_002": {
+		"message": "Melyik USA-állam áll nyolc fő szigetből?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Melyik USA-állam található a Great Plains síkságon?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Melyik kontinenst határolja az Atlanti- és a Csendes-óceán, valamint a Jeges-tenger?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Melyik állam található a csendes-óceáni időzónában?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornia"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Grúzia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Melyik kontinensen található az Atlasz hegység és a Kalahári sivatag?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_007": {
+		"message": "Melyik USA-államot határolja a Nagy-tavak egyike?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Új-Mexikó"
+	},
+	"trivia_beginner_008": {
+		"message": "Melyik az a kontinens, ahol a legtöbben portugálul vagy spanyolul beszélnek?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Melyik USA-államhoz tartozik földnyelv?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Az Antarktiszon kívül melyik másik kontinens teljes területe található a déli féltekén?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_011": {
+		"message": "Melyik kontinenst határolja a Ronne-jégmező?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Melyik kontinens nyugati partvidékénél található a Vancouver-sziget és a Kodiak-sziget?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_013": {
+		"message": "Melyik kontinens északnyugati részén található a világ egyik leggyorsabban növekedő népességével rendelkező Niger?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Melyik kontinensen található a legkevesebb cserje és fa?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Melyik kontinens déli partvidékénél található az a sziget, ahol őshonos az erszényes (más néven tasmán) ördög?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_016": {
+		"message": "Melyik földközi-tengeri országban népszerű turistalátványosság a pisai ferde torony?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Olaszország"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghána"
+	},
+	"trivia_beginner_017": {
+		"message": "Melyik kontinens északi partvidékén található Casablanca és Tripoli történelmi városa?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Melyik kontinensen található a Sonora-sivatag, ahol a saguaro kaktusz (más néven kandeláberkaktusz) él?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_019": {
+		"message": "Melyik ország üdülőparadicsoma Veracruz és Acapulco?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "Melyik országban található a Szecsuáni Óriáspanda Rezervátum, amely a világon élő összes panda 30%-ának ad otthont?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Kína"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Izland"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiópia"
+	},
+	"trivia_beginner_021": {
+		"message": "Melyik kontinensen található a világ jégtakarójának kb. 90%-a?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_022": {
+		"message": "Melyik kontinensen található az Angel-vízesés, a világ legmagasabb vízesése?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Melyik USA-államba utaznál a Jackson Hole felkereséséhez és az Ördögtorony megmászásához?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Észak-Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Melyik USA-államba utaznál ahhoz, hogy lásd a juharfák nedvének összegyűjtését és síelj a Zöld-hegységben?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Melyik USA-államba utaznál, hogy átautózz a Chesapeake-öböl hídon és sétálj Ocean City Boardwalk nevű negyedében?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Észak-Karolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Melyik USA-államba utaznál a Mamut-barlang felkereséséhez és egy Churchill Downs-i lóverseny megnézéséhez?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Nyugat-Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Melyik USA-államba utaznál az óriási mamutfenyők és a Csatorna-szigetek megnézéséhez?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornia"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Melyik lápvidéket keresnéd fel, ha az USA Florida nevű államában lennél éppen?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal-mocsár"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "Melyik USA-államba utaznál a Szent Lőrinc-víziút és a Finger Lakes felkereséséhez?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Melyik kontinensen található a Mount Everest, a világ legmagasabb hegysége?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Melyik kontinens déli részének jelentős területét foglalja el a Patagónia régió?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Melyik kontinens a császárpingvin természetes élőhelye?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_033": {
+		"message": "Melyik országban őshonosak a kenguruk és a koalák?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Melyik kontinensen található a vadvilág iránt érdeklődő turistákat vonzó Serengeti Nemzeti Park?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_035": {
+		"message": "Melyik kontinensnek a legnagyobb a szárazföldi területe?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_036": {
+		"message": "Melyik európai városban köti össze a Tower híd a Temze folyó két partját?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havanna"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Fokváros"
+	},
+	"trivia_beginner_037": {
+		"message": "Melyik orosz városban található a Vörös téren a Kreml mellett álló Boldog Vazul-székesegyház?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moszkva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brüsszel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Melyik európai városban található az i. sz. első században épült Colosseum, a gladiátorviadalok egyik helyszíne?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Róma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Kartúm"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Melyik ausztriáliai városban található az Operaház és a Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prága"
+	},
+	"trivia_beginner_040": {
+		"message": "Melyik közel-keleti város régi városfalaiban található számos szent hely közül kettő, a Sziklamecset és a Siratófal?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruzsálem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokió"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algír"
+	},
+	"trivia_beginner_041": {
+		"message": "Melyik görögországi városban található az Akropoliszon lévő Parthenón?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athén"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kijev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Melyik francia városban áll a Szajna közelében lévő Eiffel-torony, amelynek tetejéről csodálatos kilátás nyílik a városra?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Párizs"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Új-Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "Melyik szaúd-arábiai városban helyezkedik el az iszlám vallás legszentebb helye, az al-Maszdzsid al-Harám mecset, ahol a Kába-kő található?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Melyik kínai város központjában található a Tiltott Város, amely korábban császári palotaként szolgált?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Melyik egyesült államokbeli városban található a Puget Sound-i Space Needle torony?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "A Charles tó torkolatánál elhelyezkedő melyik egyesült államokbeli város legmagasabb épülete a John Hancock torony?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "A Mojave-sivatagban található melyik egyesült államokbeli város legmagasabb épülete a The Strip nevű híres sugárúttól északra lévő Stratosphere torony?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Melyik az az egyesült államokbeli város, amelynek a kikötőjénél lévő Liberty Islanden áll a hatalmas Szabadság-szobor?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Melyik egyesült államokbeli várost köti össze a Golden Gate híd a Marin félszigettel?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Melyik egyesült államokbeli városban található az 1800-as években Amerika nyugati irányú terjeszkedését szimbolizáló, a Mississippi folyó közelében elhelyezkedő Gateway Arch?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Melyik afrikai országban helyezkedik el a gízai fennsík, ahol a nagy piramis és a szfinx található?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egyiptom"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazília"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Németország"
+	},
+	"trivia_beginner_052": {
+		"message": "Melyik egyesült államokbeli városban található az amerikai forradalommal kapcsolatos fontos történelmi emlékhely, a Delaware folyótól nem messze lévő Independence Hall?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Kanadán kívül melyik másik országot szeli át a Sziklás-hegység?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Egyesült Államok"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Oroszország"
+	},
+	"trivia_beginner_054": {
+		"message": "Melyik óceán határolja Brazíliát és Uruguayt?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_beginner_055": {
+		"message": "Melyik óceánban található a Kanada keleti partvidékénél elhelyezkedő Új-Fundland sziget?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_056": {
+		"message": "Az Afrika keleti partjánál fekvő Madagaszkár melyik óceán egyik szigete?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_beginner_057": {
+		"message": "Melyik óceán közepén halad át a nemzetközi dátumválasztó vonal legnagyobb része?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_beginner_058": {
+		"message": "Melyik kontinensen halad át az Egyenlítő a Kongó-medencén?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_059": {
+		"message": "Melyik kontinens határolja a Mexikói-öblöt?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_060": {
+		"message": "Melyik a világ leghosszabb folyója, amely átfolyik Afrikán?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nílus"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranje folyó"
+	},
+	"trivia_beginner_061": {
+		"message": "Melyik kontinensen találhatók Machu Picchu ősi romjai?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_062": {
+		"message": "Melyik kontinenst szeli át az Amazonas folyó, a világ legtöbb vizet szállító folyója?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_063": {
+		"message": "Melyik kontinensen található a Mont Blanc, az Alpok legmagasabb csúcsa?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Európa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_064": {
+		"message": "Melyik kontinenssel köti össze Közép-Amerikát a Panamai-földszoros?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_065": {
+		"message": "Melyik kontinensen élnek a kenyai és tanzániai gepárdok, a leggyorsabb szárazföldi emlősök a Földön?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Melyik kontinens déli csücskének közelében található a Jóreménység foka?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_067": {
+		"message": "Melyik óceánban találhatók a Dél-Amerikától délre fekvő Galápagos-szigetek, ahol az óriásteknősök élnek?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_068": {
+		"message": "Melyik kontinensen folyik át a Duna Bécsen és más városokon?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Európa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Melyik tenger határolja Kuba és Hispaniola szigetét?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karib-tenger"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Bering-tenger"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Balti-tenger"
+	},
+	"trivia_beginner_070": {
+		"message": "Melyik kontinenst határolja a Guineai-öböl?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Melyik kontinens híres felfedezője volt Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_072": {
+		"message": "Melyik óceán része a Labrador-tenger?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_073": {
+		"message": "Melyik kontinensen található a Szahara, a világ legnagyobb sivatagja?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_074": {
+		"message": "Melyik kontinensen található a Tibeti-fennsík?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Melyik kontinenstől délre található a Drake-átjáró?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_076": {
+		"message": "Melyik kontinens partjainál található a Nagy-korallzátony a Korall-tengerben?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_077": {
+		"message": "Melyik országba utaznál a Szuezi-csatorna és a kairói Halottak Városa felkereséséhez?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egyiptom"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolumbia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finnország"
+	},
+	"trivia_beginner_078": {
+		"message": "Melyik országba utaznál ahhoz, hogy láthass „gaucho” marhapásztorokat és tangótáncosokat Buenos Aires városában?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepál"
+	},
+	"trivia_beginner_079": {
+		"message": "Melyik országba utaznál Fez óvárosának felkereséséhez és az Atlasz hegységben való kiránduláshoz?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marokkó"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thaiföld"
+	},
+	"trivia_beginner_080": {
+		"message": "Melyik országba utaznál ahhoz, hogy megnézd az ősi maja romokat és fürödj Cancún strandjain?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Hollandia"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Törökország"
+	},
+	"trivia_beginner_081": {
+		"message": "Melyik országba utaznál a dublini Szent Patrik-székesegyház és a Kilkennyben rendezett Arts Festival megtekintéséhez?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Írország"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Szomália"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Melyik országba utaznál ahhoz, hogy körülnézz egy esőerdőben és táncolj a riói karneválon?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Egyesült Királyság"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Melyik országba utaznál ahhoz, hogy ellátogass a szentpétervári Ermitázs múzeumba és utazz a Transzszibériai expresszen?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Oroszország"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonézia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Melyik országba utaznál ahhoz, hogy felszállj a szuperexpresszre és megszállj egy tokiói szállodában?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japán"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_beginner_085": {
+		"message": "Melyik országba utaznál, hogy pestót ehess Genovában és megnézz egy operát Firenzében?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Olaszország"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_beginner_086": {
+		"message": "Melyik országba utaznál, ha szafarira szeretnél menni a Masai Mara Nemzeti Rezervátumban és szívesen vásárolnál Nairobiban?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Dél-Korea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Melyik országba utaznál a Gangesz megnézéséhez és Kalkutta zsúfolt utcáinak felfedezéséhez?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Németország"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordánia"
+	},
+	"trivia_beginner_088": {
+		"message": "Melyik óceán közepén helyezkedik el az Északi-sark, a Föld legészakibb pontja?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_beginner_089": {
+		"message": "Melyik ország határa található az Atlanti-óceánnál?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Izland"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakisztán"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japán"
+	},
+	"trivia_beginner_090": {
+		"message": "Melyik USA-állam kapta meleg klímája és népszerű strandjai miatt a Sunshine State (Napfény állam) elnevezést?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Melyik USA-államban található a Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Nyugat-Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dél-Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Melyik USA-állam az, amelyet Lone Star State-nek is neveznek, a zászlaján egyetlen csillag van, és egykor független ország volt?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Melyik kontinensen található a Tigris és az Eufrátesz folyó?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktisz"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_094": {
+		"message": "Melyik kontinensen található a Viktória-tó és a Virunga-hegység?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_beginner_095": {
+		"message": "Melyik ország a Csendes-óceánban található szigetország?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Új-Zéland"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Dél-afrikai Köztársaság"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Izland"
+	},
+	"trivia_beginner_096": {
+		"message": "Melyik ország található a Skandináv-félszigeten?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Svédország"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Románia"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Melyik országot határolja a Földközi-tenger?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Franciaország"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Banglades"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Melyik USA-állam fekszik a legközelebb a kanadai határhoz?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Melyik egyesült államokbeli városban a legvalószínűbb a hurrikán előfordulása?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Melyik alábbi folyónak a legnagyobb a felülete?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huron-tó"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Erie-tó"
+	},
+	"trivia_hard_004": {
+		"message": "Melyik alábbi egyesült államokbeli város rendelkezik a legnagyobb népességgel?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Melyik ország helyezkedik el a legközelebb a Perzsa-öbölhöz?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Törökország"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhután"
+	},
+	"trivia_hard_006": {
+		"message": "Melyik alábbi ország rendelkezik a legnagyobb földterülettel?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazahsztán"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Románia"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Lengyelország"
+	},
+	"trivia_hard_007": {
+		"message": "Melyik alábbi országban a legnagyobb a népsűrűség?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Szingapúr"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laosz"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_008": {
+		"message": "Melyik alábbi országban él a legtöbb német ajkú?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Ausztria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Szlovákia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Melyik alábbi ország határos a legtöbb országgal?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Szaúd-Arábia"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marokkó"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongólia"
+	},
+	"trivia_hard_010": {
+		"message": "Melyik ország nem határos a Tanganyika-tóval?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Melyik országot nem szeli át az Egyenlítő?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritánia"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Melyik ország nem a Balkán-félszigeten található?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Csehország"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgária"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedónia"
+	},
+	"trivia_hard_013": {
+		"message": "Melyik ország nem határos az Északi-tengerrel?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finnország"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dánia"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Egyesült Királyság"
+	},
+	"trivia_hard_014": {
+		"message": "Melyik ország nem határos a Fekete-tengerrel?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbajdzsán"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukrajna"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Törökország"
+	},
+	"trivia_hard_015": {
+		"message": "Melyik ország rendelkezik tengerparttal?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Horvátország"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarusz"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Magyarország"
+	},
+	"trivia_hard_016": {
+		"message": "Melyik ország nem a Szaharában található?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Líbia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algéria"
+	},
+	"trivia_hard_017": {
+		"message": "Melyik sziget található a legkeletebbre?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "Melyik vízterület határán található a Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karib-tenger"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_hard_019": {
+		"message": "Melyik város egyben a Mexikói-öböl egyik kikötője?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Melyik országot szeli át a Ráktérítő?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazília"
+	},
+	"trivia_hard_021": {
+		"message": "Melyik alábbi szigetnek a legnagyobb a területe?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffin-sziget"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Szardínia"
+	},
+	"trivia_hard_022": {
+		"message": "Melyik szigettől választja el Mexikót a Yucatán-csatorna?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominika"
+	},
+	"trivia_hard_023": {
+		"message": "Melyik kanadai város fekszik a legészakabbra?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Melyik sziget a Kis-Antillák része?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Saint Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda-szigetek"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Új-Skócia"
+	},
+	"trivia_hard_025": {
+		"message": "Melyik ország legnépesebb városa Port-au-Prince?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Melyik ország található a Kárpátokban?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Románia"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albánia"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Türkmenisztán"
+	},
+	"trivia_hard_027": {
+		"message": "Melyik ország egyik hivatalos nyelve a francia?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuvait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzánia"
+	},
+	"trivia_hard_028": {
+		"message": "Melyik alábbi ország rendelkezik a legnagyobb földterülettel?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrein"
+	},
+	"trivia_hard_029": {
+		"message": "Melyik ország halad át a legtöbb hosszúsági fokon?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazahsztán"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganisztán"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Szíria"
+	},
+	"trivia_hard_030": {
+		"message": "Melyik ország áll számos szigetből?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Fülöp-szigetek"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodzsa"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tádzsikisztán"
+	},
+	"trivia_hard_031": {
+		"message": "Melyik alábbi ország halad át a legtöbb időzónán?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghána"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Melyik ország fekszik a legészakabbra?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambik"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Ausztrália"
+	},
+	"trivia_hard_033": {
+		"message": "Melyik ország fekszik Franciaország és Spanyolország között?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikánváros"
+	},
+	"trivia_hard_034": {
+		"message": "Melyik ország határos Dániával?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Németország"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finnország"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_hard_035": {
+		"message": "Melyik országhoz tartozik Szardínia szigete?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Olaszország"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Törökország"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Egyesült Királyság"
+	},
+	"trivia_hard_036": {
+		"message": "Melyik sivatag foglalja el a Peking és Ulánbátor közötti terület nagy részét?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Góbi-sivatag"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Nagy-Indiai-sivatag (Thar-sivatag)"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Líbiai-sivatag"
+	},
+	"trivia_hard_037": {
+		"message": "Melyik óceán része a kamcsatkai áramlat?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_hard_038": {
+		"message": "Melyik tenger déli részén található a Szidra-öböl?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Földközi-tenger"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arab-tenger"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Balti-tenger"
+	},
+	"trivia_hard_039": {
+		"message": "Melyik európai hegylánc legmagasabb hegysége a Tátra?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Kárpátok"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantábriai-hegység"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pireneusok"
+	},
+	"trivia_hard_040": {
+		"message": "Zambia és Zimbabwe közötti melyik határfolyó halad át a Kariba-tón?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambézi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nílus"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongó"
+	},
+	"trivia_hard_041": {
+		"message": "Melyik tengerbe ömlik a Temze, a Meuse és a Schelde folyó?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Északi-tenger"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Földközi-tenger"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Fekete-tenger"
+	},
+	"trivia_hard_042": {
+		"message": "Melyik nagy szigetet választja el északon a Luzon-szoros a Fülöp-szigetektől?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Tajvan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algéria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Mely szigetek találhatók a Közép-Atlanti-hátság mentén?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azori-szigetek"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahama-szigetek"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fidzsi-szigetek"
+	},
+	"trivia_hard_044": {
+		"message": "Melyik folyó ömlik a Laptyev-tengerbe?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Léna"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Jangce"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Melyik csúcs helyezkedik el a legközelebb az Egyenlítőhöz?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimandzsáró"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Melyik a legnépesebb főváros?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moszkva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algír"
+	},
+	"trivia_hard_047": {
+		"message": "A Liffey-folyónál található melyik város Írország legnagyobb városa?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Koppenhága"
+	},
+	"trivia_hard_048": {
+		"message": "Melyik Afganisztán legnagyobb, a Hindu Kush völgyében fekvő városa?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Szarajevó"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "A Csophraja folyónál lévő melyik város Thaiföld legnagyobb városa?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Ammán"
+	},
+	"trivia_hard_050": {
+		"message": "A Skagerrak-szorosnál lévő fjord csúcsánál lévő melyik város Norvégia legnagyobb városa?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brüsszel"
+	},
+	"trivia_hard_051": {
+		"message": "Melyik a legnagyobb, a Földközi-tenger keleti részénél fekvő libanoni város?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Bejrút"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Rijád"
+	},
+	"trivia_hard_052": {
+		"message": "Melyik Indonézia legnagyobb, a Jáva-tenger partján található városa?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokió"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Az Attika régióban található melyik város Görögország legnagyobb városa?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athén"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Róma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Melyik Uruguay legnagyobb városa, amely a Río de la Plata torkolatnál található?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Melyik a Dél-afrikai Köztársaság legnagyobb városa, amely valaha az egykori Transvaal tartomány része volt?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Melyik Jamaica legnagyobb városa, a Karib-tenger fontos szállítási központja?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Melyik Eritrea legnagyobb városa, amely a Nagy-hasadékvölgyben található?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Melyik a Visztula partjainál található legnagyobb lengyel város?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varsó"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kijev"
+	},
+	"trivia_hard_059": {
+		"message": "Melyik Costa Rica legnagyobb városa és egyben a Pánamerikai főútvonal fontos állomása?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Melyik Zimbabwe legnagyobb városa, egyben Dél-Afrika fontos mezőgazdasági kereskedelmi központja?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Melyik Kambodzsa legnagyobb városa, amelyet egykor elfoglalt a vörös khmer rezsim?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnompen"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dakka"
+	},
+	"trivia_hard_062": {
+		"message": "Melyik Libéria legnagyobb városa, amely az Atlanti-óceánnál, a Mesurado-foknál helyezkedik el?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Melyik Kolumbia legnagyobb városa, amely az andoki fennsíkon található?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Melyik Irán legnagyobb városa, amely az Elburz hegység lábánál fekszik?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teherán"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taskent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Isztambul"
+	},
+	"trivia_hard_065": {
+		"message": "Melyik vízterületet szeli át az Északi-sarkkör?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Norvég-tenger"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Volta-tó"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaszpi-tenger"
+	},
+	"trivia_hard_066": {
+		"message": "Melyik vízterület található a Nagy-hasadékvölgyben?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malawi (Nyasza)-tó"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasman-tenger"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicaca-tó"
+	},
+	"trivia_hard_067": {
+		"message": "Melyik vízterület partján fekszik az Arhangelszk nevű orosz kikötőváros?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Fehér-tenger"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bass-szoros"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Vizcayai-öböl"
+	},
+	"trivia_hard_068": {
+		"message": "Melyik országhoz tartozik a Hunan és a Santung tartomány?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Kína"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thaiföld"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "Melyik földközi-tengeri ország hivatalos nyelve a kasztíliai?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spanyolország"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Görögország"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbajdzsán"
+	},
+	"trivia_hard_070": {
+		"message": "Melyik közép-amerikai ország volt egykor Kolumbia egyik tartománya?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "A Rajna által kettéosztott Bázel városa melyik ország jelentős közlekedési csomópontja?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Svájc"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgium"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Oroszország"
+	},
+	"trivia_hard_072": {
+		"message": "Melyik országban található a Provence-i régió, amely számos festőt, köztük Cézanne-t is megihletett?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Franciaország"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Hollandia"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Románia"
+	},
+	"trivia_hard_073": {
+		"message": "Melyik országban a pampák régió jelentős szállítási pontja a Bahía Blanca?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Melyik országot határolja a Földközi-, a Fekete- és az Égei-tenger?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Törökország"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgária"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_hard_075": {
+		"message": "Melyik Tanzániával szomszédos északkeleti országba vándorolnak a gnúk a Mara folyón át minden évben?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "A Nagymecsetről híres Aleppó melyik délnyugati-ázsiai ország legnagyobb városa?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Szíria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omán"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Banglades"
+	},
+	"trivia_hard_077": {
+		"message": "Melyik országgal szomszédos Oroszország és Grúzia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbajdzsán"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Üzbegisztán"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Észak-Korea"
+	},
+	"trivia_hard_078": {
+		"message": "Melyik országot határolja Panama és Brazília?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolumbia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Melyik ország határos Guatemalával és az Egyesült Államokkal?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Melyik országot határolja Irak és Afganisztán?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukrajna"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongólia"
+	},
+	"trivia_hard_081": {
+		"message": "Melyik országot határolja Lesotho és Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Dél-afrikai Köztársaság"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongói Köztársaság"
+	},
+	"trivia_hard_082": {
+		"message": "Melyik ország flamandul beszélő részén található Antwerpen?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgium"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Hollandia"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Izland"
+	},
+	"trivia_hard_083": {
+		"message": "Melyik európai ország fontos kikötője a Visztula torkolatának közelében található Gdańsk?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Lengyelország"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spanyolország"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Horvátország"
+	},
+	"trivia_hard_084": {
+		"message": "Melyik nagy dél-amerikai folyó fő mellékfolyója a Madeira és a Purus folyó?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazonas"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Paraná folyó"
+	},
+	"trivia_hard_085": {
+		"message": "Svájcon és Németországon kívül melyik országot határolja a Bodeni-tó?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Ausztria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Szlovákia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finnország"
+	},
+	"trivia_hard_086": {
+		"message": "Melyik ország legnagyobb városa Auckland, a számos kikötővel rendelkező fontos kikötőváros?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Új-Zéland"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Ausztrália"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_087": {
+		"message": "Melyik jelentős kakaótermelő ország terül el Togótól közvetlenül nyugatra?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghána"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Szudán"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunézia"
+	},
+	"trivia_hard_088": {
+		"message": "Melyik dél-amerikai ország hivatalos nyelve és egyben pénzneme a guarani?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazília"
+	},
+	"trivia_hard_089": {
+		"message": "Melyik hegyvonulat húzódik Franciaország és Spanyolország határánál?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pireneusok"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Appeninek"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukázus"
+	},
+	"trivia_hard_090": {
+		"message": "Melyik országban torkollik a Torrens folyó a Saint Vincent öbölbe?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "A Földközi-tenger által határolt melyik afrikai ország államformája monarchia?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marokkó"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egyiptom"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Közép-afrikai Köztársaság"
+	},
+	"trivia_hard_092": {
+		"message": "Melyik ország fővárosa a Kura folyó két partján fekvő Tbiliszi?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Grúzia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Szíria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Magyarország"
+	},
+	"trivia_hard_093": {
+		"message": "Melyik országban található Abruzzo, az Adriai-tengernél elhelyezkedő hegyvidéki régió?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Olaszország"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Franciaország"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "Lettországon kívül melyik másik országot határolja a Rigai-öböl?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Észtország"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarusz"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spanyolország"
+	},
+	"trivia_hard_095": {
+		"message": "Melyik tengerrel köti össze a Szuezi-csatornát a Jubal szoros?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Vörös-tenger"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karib-tenger"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaszpi-tenger"
+	},
+	"trivia_hard_096": {
+		"message": "Melyik folyóból nyeri a legnagyobb vízmennyiséget a Galileai-tenger?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordán folyó"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu-darja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Gangesz"
+	},
+	"trivia_hard_097": {
+		"message": "Melyik nagy öböl választja el Új-Brunswickot Új-Skóciától?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fundy-öböl"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudson-öböl"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengáli-öböl"
+	},
+	"trivia_hard_098": {
+		"message": "Melyik ország Rajna-vidéki régiójában található a kölni dóm?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Németország"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dánia"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakisztán"
+	},
+	"trivia_hard_099": {
+		"message": "Melyik ország legdélebbi államában található Chiapas, számos ősi maja rom helyszíne?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Melyik tengerrel köti össze a Márvány-tengert a Dardanellák nevű keskeny szoros?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Égei-tenger"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barents-tenger"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasman-tenger"
+	},
+	"trivia_hard_101": {
+		"message": "Melyik délkelet-ázsiai ország hivatalos nyelve a khmer?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodzsa"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Oroszországon kívül melyik másik országhoz tartozik a Donyec-medence ipari terület?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukrajna"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Szlovákia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Melyik kontinens legmagasabb csúcsa a Snowy-hegységben található Mount Kosciuszko?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Európa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_hard_104": {
+		"message": "Melyik ország része Madura és Bali szigete?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japán"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakisztán"
+	},
+	"trivia_hard_105": {
+		"message": "Melyik ázsiai országban helyezkedik el a Kunlun hegységtől északra eső Takla-Makán sivatag?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Kína"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Szaúd-Arábia"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Dél-Korea"
+	},
+	"trivia_medium_001": {
+		"message": "Melyik egyesült államokbeli város fekszik deltatorkolatnál?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Melyik kontinensen található az UNESCO világörökségi helyszínei közé tartozó Angkorvat és Kappadókia?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "Melyik kontinens délnyugati részén élő emberek beszélik a kurd és a perzsa nyelvet?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_004": {
+		"message": "Melyik kontinensen található Teotihuacan, egy ősi civilizáció jelentős központja?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_005": {
+		"message": "Melyik kontinenst határolja a Bellingshausen-tenger és a Ross-tenger?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktisz"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_006": {
+		"message": "Melyik kontinens partvidékénél folyik a Mozambiki-áramlat és a Benguela-áramlat?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_medium_007": {
+		"message": "Melyik kontinens délkeleti szélénél helyezkednek el a Malvin-szigetek (más néven Falkland-szigetek)?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_008": {
+		"message": "Melyik alábbi afrikai ország rendelkezik a legnagyobb területtel?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algéria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Melyik nagy sziget fekszik Izlandtól kb. 322 kilométerre északnyugatra?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grönland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Új-Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Írország"
+	},
+	"trivia_medium_010": {
+		"message": "Melyik óceán része a Kara-tenger és a Kelet-szibériai-tenger?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indiai-óceán"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_medium_011": {
+		"message": "Melyik országot határolja a Balti-tenger?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Lettország"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Szlovénia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukrajna"
+	},
+	"trivia_medium_012": {
+		"message": "Melyik alábbi nagyváros rendelkezik a legnagyobb népességgel?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brazília"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Melyik ország nem rendelkezik atlanti-óceáni tengerparttal?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malajzia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Melyik alábbi ország rendelkezik a legrövidebb tengerparttal?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Melyik sivatag található Ázsiában?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Góbi-sivatag"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahári"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Melyik alábbi országban a legjelentősebb a vulkáni tevékenység?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egyiptom"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Izrael"
+	},
+	"trivia_medium_017": {
+		"message": "Melyik alábbi ország rendelkezik a legnagyobb népességgel?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakisztán"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Melyik alábbi ország rendelkezik a legtöbb szigettel?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahama-szigetek"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Melyik ország van a legközelebb az Egyenlítőhöz?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Dél-afrikai Köztársaság"
+	},
+	"trivia_medium_020": {
+		"message": "Melyik ország fekszik a legészakabbra?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Észtország"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Líbia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodzsa"
+	},
+	"trivia_medium_021": {
+		"message": "Melyik fővárosban található a portugáliai Alfama városrész, amely a Tajó folyó partjánál helyezkedik el?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisszabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlin"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Melyik Jordánia legnépesebb városa, amely egyben a Holt-tengertől kb. 40 kilométerre északkeletre található főváros?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Ammán"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Iszlámábád"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Szöul"
+	},
+	"trivia_medium_023": {
+		"message": "Melyik fővárosban található a Tahrír tér, több jelentős egyiptomi tüntetés helyszíne?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kairó"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "A Tábla-öbölnél elhelyezkedő melyik fővárosban található a Dél-afrikai Köztársaság nemzeti parlamentjének székhelye?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Fokváros"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Melyik a Cseh Köztársaságnak a Moldva partján fekvő legnagyobb városa?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prága"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Szófia"
+	},
+	"trivia_medium_026": {
+		"message": "A Földközi-tengernél található melyik főváros Líbia jelentős kikötője?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Melyik főváros Szudán fontos, a Fehér-Nílus és a Kék-Nílus összefolyásánál elhelyezkedő kereskedelmi és szállítási központja?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Kartúm"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunisz"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Melyik főváros található a Sjælland és az Amager dán szigeteken?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Koppenhága"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Pozsony"
+	},
+	"trivia_medium_029": {
+		"message": "A New Providence szigetén található melyik főváros a Bahama-szigetek legnagyobb városa?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "A Fekete-tengertől délre elhelyezkedő melyik főváros számít Törökország közlekedési rendszere központjának?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minszk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teherán"
+	},
+	"trivia_medium_031": {
+		"message": "Melyik alábbi országok találhatók részben Északkelet-Afrikában?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Szváziföld"
+	},
+	"trivia_medium_032": {
+		"message": "Melyik országtól választja el Dániát a Skagerrak tengerszoros?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Norvégia"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Egyesült Királyság"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Melyik ország földterületének nagyobb részét borítja sivatag?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Csád"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Norvégia"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Melyik országon folyik keresztül az Eufrátesz?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Szíria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Svájc"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thaiföld"
+	},
+	"trivia_medium_035": {
+		"message": "Melyik kontinensen található a Bajkál-tótól nem messze fekvő Irkutszk városa?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_036": {
+		"message": "Melyik kontinens fontos folyója a Dnyeper és a Rajna?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Európa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktisz"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_037": {
+		"message": "Melyik kontinensen található a Guyanai-felföld és a Pantanal régió?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Észak-Amerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_038": {
+		"message": "Melyik kontinensen található a Nagy-Viktória-sivatag és a Nullarbor Plain?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Ázsia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_039": {
+		"message": "Melyik ország legdélebbi állama a Rio Grande do Sul?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexikó"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Németország"
+	},
+	"trivia_medium_040": {
+		"message": "Melyik országban található az Ob folyó partján elhelyezkedő Novoszibirszk?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Oroszország"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Kína"
+	},
+	"trivia_medium_041": {
+		"message": "A csendes-óceáni térség melyik országában nagyobb a földrengés valószínűsége?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Franciaország"
+	},
+	"trivia_medium_042": {
+		"message": "Melyik ország északi partvidékénél helyezkedik el a Maracaibo-tó?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Melyik országot határolja az Arab-tenger?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tádzsikisztán"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Görögország"
+	},
+	"trivia_medium_044": {
+		"message": "Melyik ország található az Ibériai-félszigeten?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugália"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Banglades"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Hollandia"
+	},
+	"trivia_medium_045": {
+		"message": "Melyik alábbi ország rendelkezik a leghosszabb tengerparttal?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thaiföld"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongói Köztársaság"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Melyik USA-állam fekszik a Mississippitől nyugatra?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Melyik USA-állam közel 60%-át borítja erdőség?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Melyik USA-államban található a McKinley-csúcs, Észak-Amerika legmagasabb csúcsa?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaszka"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Melyik alábbi USA-államnak a legnagyobb a területe?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Dél-Karolina"
+	},
+	"trivia_medium_050": {
+		"message": "Melyik USA-államban található a Rapid City közelében elhelyezkedő Rushmore-hegy?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dél-Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Melyik USA-állam határos Kanadával?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Melyik USA-állam partjainál találhatók korallzátonyok?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Melyik ország fontos kikötője Hamburg?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Németország"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Horvátország"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgium"
+	},
+	"trivia_medium_054": {
+		"message": "Melyik országban a legjelentősebb a vulkáni tevékenység?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Izland"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Egyesült Királyság"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Lengyelország"
+	},
+	"trivia_medium_055": {
+		"message": "Melyik ország legnagyobb része fekszik Kis-Ázsia félszigetén?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Törökország"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Mianmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Észtország"
+	},
+	"trivia_medium_056": {
+		"message": "Izrael és melyik másik ország közötti határ része a Holt-tenger?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordánia"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japán"
+	},
+	"trivia_medium_057": {
+		"message": "Melyik kontinensen található a Viktória-tótól keletre elterülő Serengeti Nemzeti Park?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzánia"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigéria"
+	},
+	"trivia_medium_058": {
+		"message": "A Karib-tenger által határolt melyik ország jelentős kőolajexportőr?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Melyik, tengerparttal nem rendelkező ország fekszik közvetlenül az Egyenlítőtől délre?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Dzsibuti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunézia"
+	},
+	"trivia_medium_060": {
+		"message": "Melyik földközi-tengeri országot határolja a Tirrén-tenger?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Olaszország"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Szenegál"
+	},
+	"trivia_medium_061": {
+		"message": "Melyik országban található az Urál-hegység keleti lejtőjén fekvő Jekatyerinburg városa?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Oroszország"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litvánia"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgium"
+	},
+	"trivia_medium_062": {
+		"message": "Melyik jelentős gyapjúfeldolgozó szigetország fekszik Ausztráliától délkeletre?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Új-Zéland"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Fülöp-szigetek"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Melyik ország fontos kikötője Mumbai?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Svájc"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhután"
+	},
+	"trivia_medium_064": {
+		"message": "Melyik országban található a Sárga-tengernél fekvő Incshon városa?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Dél-Korea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thaiföld"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongólia"
+	},
+	"trivia_medium_065": {
+		"message": "Melyik kicsi ország található Ausztria nyugati határánál?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Szíria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldova"
+	},
+	"trivia_medium_066": {
+		"message": "Melyik ország két állama Victoria és Új-Dél-Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Egyesült Államok"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "A Borneó szigeten lévő melyik ország határolja a kis méretű Brunei országot?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malajzia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukrajna"
+	},
+	"trivia_medium_068": {
+		"message": "Olaszország és melyik másik ország határán húzódik a Júliai-Alpok?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Szlovénia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tádzsikisztán"
+	},
+	"trivia_medium_069": {
+		"message": "Melyik ország északkeleti részén fekszik a korábban Mandzsúria néven ismert régió?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Kína"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarusz"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganisztán"
+	},
+	"trivia_medium_070": {
+		"message": "Melyik ország határolja Salvadort?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikai Köztársaság"
+	},
+	"trivia_medium_071": {
+		"message": "Melyik ország található a Kaukázus hegységnél?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Grúzia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Magyarország"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Melyik ázsiai országban választ el két szigetet egymástól a Szunda-szoros?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Új-Zéland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laosz"
+	},
+	"trivia_medium_073": {
+		"message": "Melyik országban találhatók eljegesedett völgyek és lenyűgöző sziklatömbök a Shannon folyó torkolatához közel?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Írország"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Franciaország"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Üzbegisztán"
+	},
+	"trivia_medium_074": {
+		"message": "Melyik dél-ázsiai országon folyik keresztül az Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakisztán"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Észak-Korea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbajdzsán"
+	},
+	"trivia_medium_075": {
+		"message": "Melyik országot határolja a Vörös-tenger?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghána"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "Melyik ország államai Zacatecas és Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexikó"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentína"
+	},
+	"trivia_medium_077": {
+		"message": "Melyik országban található a több mint 4000 mecsettel rendelkező Rijád városa?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Szaúd-Arábia"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albánia"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Szíria"
+	},
+	"trivia_medium_078": {
+		"message": "Melyik afrikai ország nem rendelkezik tengerparttal?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritánia"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egyiptom"
+	},
+	"trivia_medium_079": {
+		"message": "Melyik országban számít szent helynek a Fudzsi hegy?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japán"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Fülöp-szigetek"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Banglades"
+	},
+	"trivia_medium_080": {
+		"message": "A Nagy-Antillák melyik országában hivatalos nyelv az angol?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Mi Szíria, Kuvait és Algéria hivatalos nyelve?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Arab"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Örmény"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Német"
+	},
+	"trivia_medium_082": {
+		"message": "Melyik, hegyvidékben gazdag európai országban rendezik meg minden évben a Salzburgi Ünnepi Játékokat, amelynek keretében gyakran adnak elő Mozart-operákat?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Ausztria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Magyarország"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Románia"
+	},
+	"trivia_medium_083": {
+		"message": "Melyik, Szudántól északra lévő országban található a Bálnák völgye, amely a történelem előtti időkben élt bálnák megkövesedett maradványait tartalmazó sivatag?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egyiptom"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigéria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Melyik európai országban található az Északi-tengertől nem messze lévő deltatorkolatnál fekvő Rotterdam?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Hollandia"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Svédország"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Görögország"
+	},
+	"trivia_medium_085": {
+		"message": "Melyik nagyobb hegyláncban ered a Brahmaputra folyó, amelynek hatalmas deltatorkolata a Bengáli-öböl mellett található?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalája"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Urál"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpok"
+	},
+	"trivia_medium_086": {
+		"message": "Melyik iszlám ország hivatalos nyelve a fárszi (más néven perzsa) nyelv?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Irán"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuvait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Líbia"
+	},
+	"trivia_medium_087": {
+		"message": "Melyik országban található Sevilla városa, a számos nézőt vonzó bikaviadalok helyszíne?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spanyolország"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Németország"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedónia"
+	},
+	"trivia_medium_088": {
+		"message": "Melyik országban található Isztambul, a keleti és a nyugati kultúra találkozási pontja?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Törökország"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Szlovákia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omán"
+	},
+	"trivia_medium_089": {
+		"message": "Melyik Salvadorral és Nicaraguával szomszédos országban népszerű turistalátványosság a Copán nevű maja város?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "Melyik, tengerparttal nem rendelkező országban található a közel ezer éve a karavánok kereskedelmi központjának számító Timbuktu, amely a Niger folyótól északra helyezkedik el?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namíbia"
+	},
+	"trivia_medium_091": {
+		"message": "Melyik, tengerparttal nem rendelkező országot határolja Chile és Brazília egyaránt?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolívia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolumbia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "Melyik országban található az Amazonas déli torkolatánál elhelyezkedő Belém városa?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Melyik folyó alkotja Bulgária északi határának nagy részét?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Duna"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "Melyik ázsiai országban húzódik a Szajánok a Bajkál-tó közelében?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Oroszország"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgizisztán"
+	},
+	"trivia_medium_095": {
+		"message": "Melyik kanadai tartomány legnagyobb tava a Nipigon-tó?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Brit Kolumbia"
+	},
+	"trivia_medium_096": {
+		"message": "Melyik nagyobb tenger része a Baleár-tenger és a Jón-tenger?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Földközi-tenger"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Balti-tenger"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karib-tenger"
+	},
+	"trivia_medium_097": {
+		"message": "Melyik kontinens rendelkezik olyan hasadékvölgyi tavakkal, mint pl. a Turkana-tó és a Nátron-tó?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_098": {
+		"message": "Melyik óceán legmélyebb pontja a Puerto Ricó-i árok?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlanti-óceán"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Jeges-tenger"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Csendes-óceán"
+	},
+	"trivia_medium_099": {
+		"message": "Melyik kontinens keleti felén lévő eukaliptuszerdőkben őshonos a kacagójancsi nevű madár?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Ausztrália"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Dél-Amerika"
+	},
+	"trivia_medium_100": {
+		"message": "Melyik európai ország nyugati partvidékén található Hága, a Nemzetközi Bíróság székhelye?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Hollandia"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finnország"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgária"
+	},
+	"trivia_ngb_promo": {
+		"message": "Forrás: National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Tajvan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzánia"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Egyesült Királyság"
+	},
+	"uk_tradition": {
+		"message": "Az Egyesült Királyságban kortól függetlenül mindenki élvezi a pukkantó használatát a karácsonyi vacsoránál. A pukkantó színes papírba csomagolt, mindkét végén tépőszalaggal ellátott, henger alakú tárgy. A szalag meghúzásakor a pukkantó erős hang kíséretében széttörik, és kiesnek belőle a karácsonyesti szórakozás elengedhetetlen kellékei: a papírkalapok, játékok, vicces tárgyak és nyeremények."
+	},
+	"unmute": {
+		"message": "Némítást felold"
+	},
+	"upgrade-warning": {
+		"message": "Hoppá! A Mikuláskereső nem használható a böngésződben, vagy letiltottad a JavaScript programot. A Mikuláskereső használatához tölts le újabb böngészőt, vagy engedélyezd a JavaScript használatát.\nTovábbi információ: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Egyesült Államok"
+	},
+	"us_tradition": {
+		"message": "Az Egyesült Államokban karácsonyeste harisnyákat akasztanak fel. A legenda szerint Szent Miklós értesült egy szűkölködő családról. Hogy meglepje őket, lemászott a kéményükben, és aranyat helyezett el a felfüggesztett harisnyákban. Ettől kezdve Szent Miklóst ajándékot hozó Mikulásként ismerjük."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Üzbegisztán"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Segéd: Hívd a Mikulást"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Segéd: Ünnepi történet"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Segéd: Hol van a Mikulás?"
+	},
+	"village_comeback": {
+		"message": "Gyere vissza 24-én, és segíts a Mikulás követésében egész éjszaka!"
+	},
+	"village_explore": {
+		"message": "Felfedezés, játék és tanulás egész decemberben a Mikulás manóival"
+	},
+	"village_get_the_app": {
+		"message": "Szerezd be az Android-rendszerhez kifejlesztett Mikuláskövetőt"
+	},
+	"village_more": {
+		"message": "A felfedezés további lehetőségei"
+	},
+	"village_santa_a2hs": {
+		"message": "Elhelyezés a kezdőképernyőn"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Hozzáadás a polchoz"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Hozzáadás az asztalhoz"
+	},
+	"village_santa_cardboard": {
+		"message": "A Mikulás a Cardboardon"
+	},
+	"village_santa_cast": {
+		"message": "A Mikulás a Google Cast platformon"
+	},
+	"village_santa_crx": {
+		"message": "Hozzáadás a Mikulás Chrome-bővítményéhez"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Mikulásos Earth-kvíz"
+	},
+	"village_santa_install": {
+		"message": "Telepítés"
+	},
+	"village_takesoff": {
+		"message": "A Mikulás indulásáig hátralévő idő:"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Megtekintés"
+	},
+	"wrapbattle_combo": {
+		"message": "Sikeres kombó"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Jó"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Kihagyott"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Tökéletes"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Legmagasabb pontszám"
+	},
+	"zh-CN_language_name": {
+		"message": "Kínai (egyszerűsített)"
+	},
+	"zh-TW_language_name": {
+		"message": "Kínai (hagyományos)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
+	}
+}

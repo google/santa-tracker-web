@@ -1,0 +1,6863 @@
+{
+	"about-content-one": {
+		"message": "На Бадње вече представљамо Деда Мразову команду таблу, технологију коју користи за погоњење санки на путу око света. Један од бројних вредних вилењака са Северног пола који програмирају код Деда Мраза нам је послао ову посебну верзију ради прегледа. Деда Мразова командна табла користи најновије и најбоље Google Maps технологије и конструкцијска решења за санке и омогућава да пратиш како Деда Мраз напредује на путу око света, као и да научиш понешто о местима на која свраћа."
+	},
+	"about-content-three": {
+		"message": "Google Maps локатор Деда Мраза је направио Google уз мало помоћи Деда Мразових вилењака. Треба вам помоћ или имате још питања? Посетите \u003ca href=\"//support.google.com/santatracker\"\u003eцентар за помоћ\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Пријатељски расположени Вилењаци су те позвали да истражиш Деда Мразово село док се он спрема за путовање. Дакле, напред у истраживање – можда нађеш забавне активности и сретнеш занимљиве вилењаке."
+	},
+	"about-santa": {
+		"message": "Преглед"
+	},
+	"about_title": {
+		"message": "Добро дошли у Локатор Деда Мраза Google мапа!"
+	},
+	"ae_country_name": {
+		"message": "Уједињени Арапски Емирати"
+	},
+	"af_country_name": {
+		"message": "Aвганистан"
+	},
+	"al_country_name": {
+		"message": "Албанија"
+	},
+	"ao_country_name": {
+		"message": "Ангола"
+	},
+	"ar_country_name": {
+		"message": "Аргентина"
+	},
+	"ar_language_name": {
+		"message": "арапски"
+	},
+	"ar_tradition": {
+		"message": "У Аргентини Божићно славље почиње тачно у поноћ. Многе породице почињу празник слављењем у кући, отварањем поклона са вољенима и паљењем ватромета у цик зоре."
+	},
+	"at_country_name": {
+		"message": "Аустрија"
+	},
+	"au_country_name": {
+		"message": "Аустралија"
+	},
+	"au_tradition": {
+		"message": "Аустралија је на јужној земљиној полулопти, што значи да тамо лето почиње у децембру. Уместо уз звончиће и какао, Аустралијанци често славе празнике на плажи, уз коктел од рачића и партију крикета."
+	},
+	"ba_country_name": {
+		"message": "Босна и Херцеговина"
+	},
+	"back_to_previous_page": {
+		"message": "Назад"
+	},
+	"back_to_tracker": {
+		"message": "Врати се на Локатор"
+	},
+	"bd_country_name": {
+		"message": "Бангладеш"
+	},
+	"be_country_name": {
+		"message": "Белгија"
+	},
+	"bf_country_name": {
+		"message": "Буркина Фасо"
+	},
+	"bg_country_name": {
+		"message": "Бугарска"
+	},
+	"bj_country_name": {
+		"message": "Бенин"
+	},
+	"bo_country_name": {
+		"message": "Боливија"
+	},
+	"br_country_name": {
+		"message": "Бразил"
+	},
+	"br_tradition": {
+		"message": "Прослава католичког Божића почиње близу поноћи, најчешће уз обилну породичну вечеру и отварање поклона, а у црквама се служе божићне мисе. Иако је време летње и тропско, зимске и снежне теме су честе."
+	},
+	"bt_country_name": {
+		"message": "Бутан"
+	},
+	"bw_country_name": {
+		"message": "Боцвана"
+	},
+	"by_country_name": {
+		"message": "Белорусија"
+	},
+	"bz_country_name": {
+		"message": "Белизе"
+	},
+	"ca_country_name": {
+		"message": "Канада"
+	},
+	"ca_tradition": {
+		"message": "Деца у Канади често имају Божић са много снега. Ушушкани у капе и шалове, ови клинци и клинцезе уживају у играријама на снегу! На Бадње вече остављају млеко и колачиће поред огњишта, за Деда Мраза (понекад се ту затекне и шаргарепа, за ирвасе)."
+	},
+	"calendar": {
+		"message": "Календар"
+	},
+	"category_all": {
+		"message": "Прикажи све"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Кôд"
+	},
+	"category_computer-science": {
+		"message": "Информатика"
+	},
+	"category_draw": {
+		"message": "Реми"
+	},
+	"category_education": {
+		"message": "Усмерено на образовање"
+	},
+	"category_geography": {
+		"message": "Географија"
+	},
+	"category_language": {
+		"message": "Језик"
+	},
+	"category_listen": {
+		"message": "Слушајте"
+	},
+	"category_new-this-year": {
+		"message": "Ново ове године"
+	},
+	"category_send": {
+		"message": "Пошаљи"
+	},
+	"category_social-studies": {
+		"message": "Друштвене студије"
+	},
+	"cd_country_name": {
+		"message": "Демократска Република Конго"
+	},
+	"cf_country_name": {
+		"message": "Централноафричка Република"
+	},
+	"cg_country_name": {
+		"message": "Република Конго"
+	},
+	"ch_country_name": {
+		"message": "Швајцарска"
+	},
+	"ci_country_name": {
+		"message": "Обала Слоноваче"
+	},
+	"citylights-contribute": {
+		"message": "Додајте своје слике локације {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Рокфелер Плаза"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Њујорк, САД"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Пушкинов трг"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Москва, Русија"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ратхаусплац"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Беч, Аустрија"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Од Јелисејских поља до Тријумфалне капије"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Париз, Француска"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Сјајна миља"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Чикаго, САД"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Божићни базар"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Нирнберг, Немачка"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Река Меделин"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Меделин, Колумбија"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Деда Мразово село"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Лапонија, Финска"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Велики трг"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Брисел, Белгија"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Трафалгар Сквер"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Лондон, Енглеска"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Велики трг"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Мадрид, Шпанија"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Ропонги Хилс"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Токио, Јапан"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Парк Тиволи"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Копенхаген, Данска"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Воћњачки пут"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Сингапур, Сингапур"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Авенија светлости"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Гетебург, Шведска"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Зимски фестивал светлости"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Водопади Нијагаре, Канада"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Зимски празници"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Хонгконг, Кина"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Лагуна Родриго де Фреиташ"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Рио де Жанеиро, Бразил"
+	},
+	"cl_country_name": {
+		"message": "Чиле"
+	},
+	"clear": {
+		"message": "Обриши"
+	},
+	"close": {
+		"message": "Затвори"
+	},
+	"cm_country_name": {
+		"message": "Камерун"
+	},
+	"co_country_name": {
+		"message": "Колумбија"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Назад на почетак"
+	},
+	"codeboogie-block-clap": {
+		"message": "Пљесак"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Пљешћи."
+	},
+	"codeboogie-block-jump": {
+		"message": "Прескакање"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Скочи."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Покажи лево"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Покажи лево."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Искорачи лево"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Направи корак улево."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Покажи десно"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Покажи десно."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Закорачи удесно"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Направи корак удесно."
+	},
+	"codeboogie-block-shake": {
+		"message": "Трешење куковима"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Треси куковима."
+	},
+	"codeboogie-block-split": {
+		"message": "Подели"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Направи шпагу."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Изабери режим игре"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Изабери локацију"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Плешимо!"
+	},
+	"codeboogie-go": {
+		"message": "Иди!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Плеши"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Хајде да плешемо"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Час плеса"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Понови покрете учитеља"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Плес слободним стилом"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Осмисли своје покрете и дели их са пријатељима"
+	},
+	"codeboogie-next-dance": {
+		"message": "Следећи плес"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Одлични покрети!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Испробај блок испод да би се поклопио са плесом."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Знаш ли да можеш да завршиш плес са само неколико блокова? Пробај са блоком испод."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Одлични покрети! Савршено отплесано."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Користиш одговарајуће блокове, али ти треба више њих да завршиш плес."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Знаш ли да можеш да завршиш плес са само неколико блокова?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Направио/ла си превише корака."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Изгледа да је то погрешан потез. Боље пробај ово:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Дели своје покрете и пошаљи изазов пријатељима"
+	},
+	"codeboogie-success": {
+		"message": "Успело је!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Добро гледај!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Ред је на вас"
+	},
+	"codelab-block-jump-length": {
+		"message": "прескочи"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Скочи по плочи."
+	},
+	"codelab-block-moveeast": {
+		"message": "исток"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Помери ме један корак на исток."
+	},
+	"codelab-block-movenorth": {
+		"message": "север"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Помери ме један корак на север."
+	},
+	"codelab-block-movesouth": {
+		"message": "југ"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Помери ме један корак на југ."
+	},
+	"codelab-block-movewest": {
+		"message": "запад"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Помери ме један корак на запад."
+	},
+	"codelab-block-repeat": {
+		"message": "понови"
+	},
+	"codelab-block-repeat-times": {
+		"message": "множење"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Поновите неке изјаве неколико пута."
+	},
+	"codelab-block-whenrun": {
+		"message": "при пуштању"
+	},
+	"codelab-finish": {
+		"message": "Заврши"
+	},
+	"codelab-great": {
+		"message": "Одлично"
+	},
+	"codelab-mwc-promo": {
+		"message": "Истражите још Google пројеката за програмирање на \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Следећи изазов"
+	},
+	"codelab-oops": {
+		"message": "Упс!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Блок Понови мора да садржи друге блокове да би функционисао."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Неки блокови нису правилно спојени."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Изгледа да си се изгубио!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Пробај један или више блокова да би решио загонетку."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Знаш ли да мoжеш да завршиш овај ниво са само {{ideal}} блокова? Пробај са блоком испод."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Честитамо! Беспрекорно пређен ниво."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Користиш одговарајуће блокове, али ти треба више њих да решиш загонетку."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Знаш ли да мoжеш да завршиш овај ниво са само {{ideal}} блокова?"
+	},
+	"codelab-try-again": {
+		"message": "Пробај поново"
+	},
+	"copy-me": {
+		"message": "Копирајте овај линк да бисте делили поруку"
+	},
+	"copy-me-short": {
+		"message": "Копирај линк ради дељења"
+	},
+	"countdown_days": {
+		"message": "Дани"
+	},
+	"countdown_hours": {
+		"message": "с"
+	},
+	"countdown_minutes": {
+		"message": "Мин."
+	},
+	"countdown_seconds": {
+		"message": "сек"
+	},
+	"countdown_until": {
+		"message": "Деда Мраз полеће за"
+	},
+	"countdownlabel": {
+		"message": "До Деда Мразовог поласка"
+	},
+	"cr_country_name": {
+		"message": "Костарика"
+	},
+	"cs_language_name": {
+		"message": "чешки"
+	},
+	"cu_country_name": {
+		"message": "Куба"
+	},
+	"cz_country_name": {
+		"message": "Чешка"
+	},
+	"da_language_name": {
+		"message": "дански"
+	},
+	"days": {
+		"message": "Дани"
+	},
+	"de_country_name": {
+		"message": "Немачка"
+	},
+	"de_language_name": {
+		"message": "немачки"
+	},
+	"de_tradition": {
+		"message": "На градским трговима скоро свих немачких градова постављају се божићни базари. Грађани се окупљају да би слушали дувачке оркестре у уживали у традиционалној храни и пићу из региона. Једу се кексићи од ђумбира у облику срца, ушећерени бадеми и слаткиши свих врста, а пије се кувано вино и цидер."
+	},
+	"dec24th": {
+		"message": "24. децембар"
+	},
+	"deck": {
+		"message": "Украшавање"
+	},
+	"deckdescription": {
+		"message": "Украсите прегледач уз Деда Мраз додатак за Chrome."
+	},
+	"detected": {
+		"message": "откривен је"
+	},
+	"difficulty": {
+		"message": "Тежина"
+	},
+	"dk_country_name": {
+		"message": "Данска"
+	},
+	"do_country_name": {
+		"message": "Доминиканска Република"
+	},
+	"donate_button": {
+		"message": "Донирајте"
+	},
+	"donate_text": {
+		"message": "Подржите пројекат за особе са посебним потребама на DonorsChoose.org. Овог децембра помажемо да учињено буде двоструко веће, уплаћивањем износа до 50% донација док не дођемо до циља, 1 милион USD у донацијама. Заједно можемо да учионице учимино приступачним за све #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Преузми да би играo/ла још више игара"
+	},
+	"dz_country_name": {
+		"message": "Алжир"
+	},
+	"easy_difficulty": {
+		"message": "Лако"
+	},
+	"ec_country_name": {
+		"message": "Еквадор"
+	},
+	"educators": {
+		"message": "Локатор Деда Мраза за наставно особље"
+	},
+	"educators-games": {
+		"message": "Игре за учионицу"
+	},
+	"educators-learn": {
+		"message": "Учење уз праћење Деда Мраза"
+	},
+	"ee_country_name": {
+		"message": "Естонија"
+	},
+	"el_language_name": {
+		"message": "грчки"
+	},
+	"elf_choose_body": {
+		"message": "Изабери тело вилењака"
+	},
+	"elvish_language_name": {
+		"message": "Вилењачки"
+	},
+	"en_language_name": {
+		"message": "енглески"
+	},
+	"endofjourneymessage": {
+		"message": "Деда Мраз је завршио овогодишње путовање! Он и вилењаци се још увек забављају на Северном полу пре него што оду на годишњи одмор."
+	},
+	"er_country_name": {
+		"message": "Еритреја"
+	},
+	"error": {
+		"message": "Појавио се проблем, Деда Мразови вилењаци га решавају."
+	},
+	"error-internal": {
+		"message": "Јаооо, проблем! Јавили смо то Деда Мразовим вилењацима, али пробај да се вратиш у \u003ca href=\"./\"\u003eДеда Мразово село\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Изгледа да смо изгубили везу са Северним полом. Деада Мразови вилењаци решавају проблем, сачекај!"
+	},
+	"error-not-found": {
+		"message": "Имамо проблем – Деда Мразови вилењаци не могу да нађу ову страницу. Боље се врати у \u003ca href=\"./\"\u003eДеда Мразово село\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Пробај поново"
+	},
+	"error_try_again": {
+		"message": "Пробај поново"
+	},
+	"es_language_name": {
+		"message": "шпански"
+	},
+	"et_country_name": {
+		"message": "Етиопија"
+	},
+	"explore": {
+		"message": "Истражите"
+	},
+	"fi_country_name": {
+		"message": "Финска"
+	},
+	"fi_tradition": {
+		"message": "Финци верују да Божић Бата (Јулупуки) живи на северу земље, у области Корватунтури. Ако вас тамо нанесе пут, можда нађете његову скривену радионицу, у којој раде патуљци. А можда сретнете и ирвасе који лутају по боровим шумама."
+	},
+	"finished-text": {
+		"message": "Срећни празници! Деда Мраз је завршио овогодишње путовање око света и отишао је на заслужени одмор. Посети нас поново догодине!"
+	},
+	"fr_country_name": {
+		"message": "Француска"
+	},
+	"fr_language_name": {
+		"message": "француски"
+	},
+	"fr_tradition": {
+		"message": "Деца у Француској по традицији остављају обућу поред огњишта, чекајући долазак Божић Бате. Ако су деца била добра током године, Божић Бата им оставља поклоне у ципелама."
+	},
+	"fullscreen": {
+		"message": "Цео екран"
+	},
+	"ga_country_name": {
+		"message": "Габон"
+	},
+	"gameover": {
+		"message": "Игра је завршена!"
+	},
+	"gameover_level": {
+		"message": "Стигли сте до нивоа бр."
+	},
+	"gameover_score": {
+		"message": "Резултат:"
+	},
+	"getgooglemaps": {
+		"message": "Набавите Google мапе"
+	},
+	"getready": {
+		"message": "Спремите се!"
+	},
+	"gh_country_name": {
+		"message": "Гана"
+	},
+	"gh_tradition": {
+		"message": "Божић је у Гани породични празник. Одрасли се костимирају и деле слаткише и колаче по суседству. Деца украшавају домове папирним украсима које праве у школи."
+	},
+	"gl_country_name": {
+		"message": "Гренланд"
+	},
+	"gn_country_name": {
+		"message": "Гвинеја"
+	},
+	"gotovillage": {
+		"message": "Иди у село"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Грчка"
+	},
+	"gr_tradition": {
+		"message": "Грци верују да пријатељски настројена али уопштено проблематична створења, каликанцари, живе у центру земље целе године. Али на Божић се радо скривају по кућама, препадају људе, праве зврчке и ждеру храну спремљену за Божић. Грци терају ове караконџулице разним обредима."
+	},
+	"gt_country_name": {
+		"message": "Гватемала"
+	},
+	"gt_tradition": {
+		"message": "Божић у Гватемали се прославља уз забаву и плесање. Гватемалци носе капе зване пуритина, једу тамале на гватемалски начин, бацају петарде у поноћ и плешу целу ноћ, стилом по личном избору."
+	},
+	"gy_country_name": {
+		"message": "Гвајана"
+	},
+	"hard_difficulty": {
+		"message": "Тешко"
+	},
+	"help": {
+		"message": "Помоћ"
+	},
+	"hi_language_name": {
+		"message": "хинди"
+	},
+	"hn_country_name": {
+		"message": "Хондурас"
+	},
+	"holiday_message_0": {
+		"message": "Срећни празници!"
+	},
+	"holiday_message_1": {
+		"message": "Срећни празници!"
+	},
+	"holiday_message_2": {
+		"message": "Са срећом!"
+	},
+	"holiday_message_3": {
+		"message": "Снежне чаролије"
+	},
+	"holiday_message_4": {
+		"message": "Срећна Нова година!"
+	},
+	"holiday_message_5": {
+		"message": "Срећни празници!"
+	},
+	"hours": {
+		"message": "Сати"
+	},
+	"hr_country_name": {
+		"message": "Хрватска"
+	},
+	"ht_country_name": {
+		"message": "Хаити"
+	},
+	"hu_country_name": {
+		"message": "Мађарска"
+	},
+	"hu_language_name": {
+		"message": "мађарски"
+	},
+	"id_country_name": {
+		"message": "Индонезија"
+	},
+	"ie_country_name": {
+		"message": "Ирска"
+	},
+	"improve_google_translate": {
+		"message": "Помозите нам да побољшамо Google преводилац"
+	},
+	"iq_country_name": {
+		"message": "Ирак"
+	},
+	"ir_country_name": {
+		"message": "Иран"
+	},
+	"is_country_name": {
+		"message": "Исланд"
+	},
+	"is_tradition": {
+		"message": "На Исланду, чланови домаћинства једни другима за Божић дарују топлу одећу. Према легенди, ово служи за заштиту од страшног Божићног мачора, који прождире сваког ко није добро припремљен за хладно зимско време. Породице заједничким напорима спречавају да Божићни мачор смаже неког њиховог."
+	},
+	"it_country_name": {
+		"message": "Италија"
+	},
+	"it_language_name": {
+		"message": "италијански"
+	},
+	"ja_language_name": {
+		"message": "јапански"
+	},
+	"jm_country_name": {
+		"message": "Јамајка"
+	},
+	"kg_country_name": {
+		"message": "Киргистан"
+	},
+	"kg_tradition": {
+		"message": "У Киригстану, Ајаз Ата (Деда Мраз) долази у поноћ за нову годину и оставља поклоне испод новогодишње јелке. Када сат откуца поноћ, породице широм земље пале ватромет да обележе ову лепу прилику. Градови постају светли као да је дан."
+	},
+	"ko_language_name": {
+		"message": "корејски"
+	},
+	"kr_country_name": {
+		"message": "Јужна Кореја"
+	},
+	"kr_tradition": {
+		"message": "Божић је у Јужној Кореји државни празник, обојен романтиком. Многи парови излазе на састанке у град, чије улице и продавнице блистају шареним светлима."
+	},
+	"kz_country_name": {
+		"message": "Казахстан"
+	},
+	"la_country_name": {
+		"message": "НДР Лаос"
+	},
+	"language": {
+		"message": "Језик"
+	},
+	"learn": {
+		"message": "Учите"
+	},
+	"learnmore": {
+		"message": "Сазнајте више"
+	},
+	"level": {
+		"message": "Ниво"
+	},
+	"light": {
+		"message": "Пали лампице"
+	},
+	"lightdescription": {
+		"message": "Улепшајте ТВ помоћу Android апликације Локатор Деда Мраза и Chromecast-а."
+	},
+	"lk_country_name": {
+		"message": "Шри Ланка"
+	},
+	"lock_orientation": {
+		"message": "Закључај телефон за најбољи доживљај."
+	},
+	"lr_country_name": {
+		"message": "Либерија"
+	},
+	"lt_country_name": {
+		"message": "Литванија"
+	},
+	"lt_tradition": {
+		"message": "Традиционални божићни украси у Литванији праве се од сена или сламе, од које се ткају геометријски облици, као што су звезде, пахуљице и звончићи. Многе породице стављају сламу и на божићну трпезу, коју зову Кучиос."
+	},
+	"lv_country_name": {
+		"message": "Летонија"
+	},
+	"ly_country_name": {
+		"message": "Либија"
+	},
+	"md_country_name": {
+		"message": "Молдавија"
+	},
+	"medium_difficulty": {
+		"message": "Средње"
+	},
+	"meta_description": {
+		"message": "Користи Google локатор Деда Мраза и прати га на Google Maps-у док путује око света."
+	},
+	"meta_title": {
+		"message": "Google локатор Деда Мраза"
+	},
+	"mg_country_name": {
+		"message": "Мадагаскар"
+	},
+	"minutes": {
+		"message": "Минути"
+	},
+	"ml_country_name": {
+		"message": "Мали"
+	},
+	"mm_country_name": {
+		"message": "Мјанмар"
+	},
+	"mr_country_name": {
+		"message": "Мауританија"
+	},
+	"mute": {
+		"message": "Искључи звук"
+	},
+	"mw_country_name": {
+		"message": "Малави"
+	},
+	"mx_country_name": {
+		"message": "Мексико"
+	},
+	"mx_tradition": {
+		"message": "У Мексику, деца свих узраста прослављају Божић разбијајући пињате. Одрасли и деца се забављају тако што се заврте везаних очију и онда тако дезоријентисани покушавају да штапом разбију висеће посуде у облику звезде. Кад се пињата разбије, из ње испадају воће и слаткиши у којима сви уживају."
+	},
+	"my_country_name": {
+		"message": "Малезија"
+	},
+	"mz_country_name": {
+		"message": "Мозамбик"
+	},
+	"na_country_name": {
+		"message": "Намибија"
+	},
+	"ne_country_name": {
+		"message": "Нигер"
+	},
+	"new": {
+		"message": "Нови"
+	},
+	"newtoday": {
+		"message": "Ново данас"
+	},
+	"next": {
+		"message": "Даље"
+	},
+	"next_game": {
+		"message": "Следећа игра"
+	},
+	"ng_country_name": {
+		"message": "Нигерија"
+	},
+	"nl_country_name": {
+		"message": "Холандија"
+	},
+	"nl_language_name": {
+		"message": "холандски"
+	},
+	"no_country_name": {
+		"message": "Норвешка"
+	},
+	"no_language_name": {
+		"message": "норвешки"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya доноси практично образовање деци у целој руралној Индији. У својим научним центрима и научним комбијима обрађују све теме од Сунчевог система до начина функционисања људског мозга. Ово је један од највећих научно-образовних програма у свету: досеже до 5 милиона деце и 200.000 наставника у 14 држава у Индији. Google.org поносно \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eподржава\u003c/a\u003e организацију Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Наставно особље и ученици"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® је непрофитна организација посвећена ширењу приступа настави рачунарства и информатике већем броју жена и недовољно заступљеним ученицима који нису белци. Визија коју има Code.org® је да сваки ученик у свакој школи треба да има прилику да учи рачунарство и информатику."
+	},
+	"nonprofit-code-type": {
+		"message": "Информатика"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org је 2000. основао наставник историје из Бронкса, а од тад је прикупио преко 480 милиона USD за учионице у Америци. Наставници од DonorsChoose.org траже материјал и искуства потребна за рад у настави."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Учионице"
+	},
+	"nonprofit-enable-description": {
+		"message": "Према организацији CDC, 7 од 1000 људи има деформитете удова, а протезе су скупе – и до 10.000 USD! Трошкови брзо расту за децу која расту. e-Nable је глобална заједница људи који заједно раде да би штампали 3Д шаке за децу са деформитетима удова. Google.org помаже фондацији Enable Community да подржи заједницу e-NABLE у производњи већег броја шака и повећању броја деце која могу да имају своје шаке."
+	},
+	"nonprofit-enable-type": {
+		"message": "Протезе"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Изабери украс и почни да бојиш."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Делите украсе са породицом и пријатељима, да би и они сазнали о овоме."
+	},
+	"nonprofit-intro-type": {
+		"message": "Склопили смо партнерство са Google.org ради представљања пет непрофитних организација које су посвећене образовању и којима сезона даривања траје целе године. Померите страницу надоле и сазнајте више о томе како свака од ових организација помаже. Покажите подршку: Обојите ову колекцију украса и окачите их на јелку или их поклоните особама до којих вам је стало."
+	},
+	"nonprofit-jane-description": {
+		"message": "Шимпанзе су најближи сродници људи у царству животиња. Данас има мање од 300.000, због губитка станишта, болести и незаконите трговине. Jane Goodall Institute (JGI) је организација која штити шимпанзе посматрањем и проучавањем и њиховог понашања и станишта у којима живе. JGI ради и на стварању заједнице људи који штите дивље животиње и природну средину коју делимо са њима. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eИстражите станишта шимпанзи\u003c/a\u003e у Гомбеу, Танзанија."
+	},
+	"nonprofit-jane-type": {
+		"message": "Шимпанза"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy је непрофитна организација чији је циљ да пружи врхунско бесплатно образовање свима и свуда. Khan Academy сматра да ученици свих година треба да имају неограничен приступ бесплатном образовном садржају, који могу да савладавају својим темпом."
+	},
+	"nonprofit-khan-type": {
+		"message": "Образовање"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders је водећа међународна невладина организација која развија културу. Основана је 2007. у Паризу. Саградила је преко 300 библиотека широм света."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Библиотеке"
+	},
+	"nonprofit-more-information": {
+		"message": "Додатне информација потражите на:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Организација Nature Conservancy ради на заштити и опоравку шума у САД и свету. Шуме одржавају живот широм планете. Филтрирају воду, пречишћавају ваздух, корисне су људским заједницама и представљају станиште за многе важне врсте биљака и животиња. При овој брзини сече шума, наше шуме ће нестати за 100 година. Програм Засади милијарду стабала организације Nature Conservancy намењен је садњи једне милијарде стабала до 2025. и опоравку једне од најважнијих шума на планети."
+	},
+	"nonprofit-nature-type": {
+		"message": "Шуме"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Скоро 40% светске популације нема приступ образовању на језику који говори или разуме. StoryWeaver покушава да то промени тако што помаже наставном особљу, писцима и преводиоцима да направе забаван материјал за читање намењен деци."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Читање"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Много људи на свету има тешко оштећен, али у одређеној мери употребљив вид. Google.org помаже организацији RNIB да направи паметне наочари, које помажу слабовидим особама да јасније виде облике и силуете. Паметне наочаре олакшавају да се свет види и помажу људима да задрже независност и самопоуздање."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Паметне наочаре"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 милијарде људи нема струју, а многи од њих користе фењере, који раде на гориво и загађују домове и околину. Соларна светла преко дана упијају сунчеву енергију, а ноћу сијају сатима, не трошећи додатну енергију и не загађујући. Оне помажу да читаш, играш се и увече безбедно дођеш кући. SolarAid обезбеђује соларна светла многима којима су потребна. Google.org поносно \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eподржава\u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Сунчева светлост"
+	},
+	"nonprofit-water-description": {
+		"message": "Воду користимо за купање, кување, па чак и за пијење. Чиста вода је драгоцен ресурс и многи људи користе ручно копане бунаре за приступ водоносном слоју тла, који држи чисту воду дубоко у земљи, између слојева стена и земљишта. Добротворна организација charity: water сарађује са локалним партнерима да би градила бунаре и друге пројекте у вези са водом тамо где су најпотребнији. Google.org поносно \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eподржава\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Бунар"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Корисницима инвалидских колица је понекад тешко да оцене која места су приступачна: биоскопи, ресторани и друга места на која би отишли. Wheelmap показује која места имају приступ за инвалидска колица, да би њихови корисници мање планирали руте а више истраживали свет."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Мобилност"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Климантске промене нарушавају равнотежу многих екосистема, било да је реч о хладним или топлим пределима. Поларни медведи на Арктику губе своје станиште, морски лед, због виших температура, и суочавају се са додатним опасностима због људских активности, као што су истраживање и транспорт нафте и гаса. World Wildlife Fund ради на омогућавању опстанка врсте научним истраживањем и партнерством са заједницама урођеника са Арктика. Google.org поносно \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eподржава\u003c/a\u003e World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Бели медвед"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Истраживање показује да 95% људи са губитком слуха може да користи слушни апарат, али мање од 1% људи у земљама у којима су приходи ниски и средњи, а требају им ови апарати, може да их набави. Организација World Wide Hearing (WWH) повезује децу са светом обезбеђујући им слушне апарате и друге услуге. WWH конструише јефтин алат за дијагностику губитка слуха, заснован на таблету, намењен земљама у развоју. Тако ће више људи којима су потребни слушни апарати моћи да их добије."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Слух"
+	},
+	"notice_cookies": {
+		"message": "Google приказује колачиће да би анализирао саобраћај ка овом сајту и да би вам побољшао доживљај. У ту сврху се информације о коришћењу нашег сајта деле са Google-ом."
+	},
+	"notice_cookies_details": {
+		"message": "Прикажи детаље"
+	},
+	"notification": {
+		"message": "Обавештења"
+	},
+	"notification_newtoday": {
+		"message": "Новости дана у Локатору Деда Мраза"
+	},
+	"notification_newtoday_stop": {
+		"message": "Заустави ово"
+	},
+	"notification_notice": {
+		"message": "Деада Мразови вилењаци ће ти помоћи да га пратиш"
+	},
+	"notification_prompt": {
+		"message": "Обавештавај ме о кретању Деда Мраза"
+	},
+	"np_country_name": {
+		"message": "Непал"
+	},
+	"nz_country_name": {
+		"message": "Нови Зеланд"
+	},
+	"nz_tradition": {
+		"message": "Божић на Новом Зеланду пада у лето, па се породица не окупља око камина, него око роштиља. Уобичајен божићни оброк укључује јагњетину са ражња или испод сача, који локалци називају „ханги“. Омиљени слаткиш се зове павлова. То је пуслица обложена свежим воћем, као што су јагоде и киви."
+	},
+	"offline": {
+		"message": "Офлајн"
+	},
+	"offline_available_online": {
+		"message": "Само онлајн"
+	},
+	"offline_notification": {
+		"message": "Деда Мразово село је сад доступно и офлајн! Вилењаци могу да доносе нов садржај и током децембра."
+	},
+	"offline_notification_nothanks": {
+		"message": "Не, хвала"
+	},
+	"offline_user_message": {
+		"message": "Офлајн сте"
+	},
+	"okay": {
+		"message": "Потврди"
+	},
+	"om_country_name": {
+		"message": "Оман"
+	},
+	"onthego": {
+		"message": "Деда Мраз у покрету"
+	},
+	"openingtomorrow": {
+		"message": "Сутра је велико отварање"
+	},
+	"ornament-print-instructions": {
+		"message": "Савијте овде и залепите странице"
+	},
+	"pa_country_name": {
+		"message": "Панама"
+	},
+	"pause": {
+		"message": "Паузирај"
+	},
+	"paused": {
+		"message": "Паузирано"
+	},
+	"pe_country_name": {
+		"message": "Перу"
+	},
+	"pg_country_name": {
+		"message": "Папуа Нова Гвинеја"
+	},
+	"ph_country_name": {
+		"message": "Филипини"
+	},
+	"ph_tradition": {
+		"message": "Божићна сезона најдуже траје на Филипинима. Божићна сезона траје четири месеца: септембар, октобар, новембар и децембар. Божићне песме се понекад чују већ почетком септембра."
+	},
+	"pl_country_name": {
+		"message": "Пољска"
+	},
+	"pl_language_name": {
+		"message": "пољски"
+	},
+	"play": {
+		"message": "Пусти"
+	},
+	"playagain": {
+		"message": "Пусти поново"
+	},
+	"playdescription": {
+		"message": "Играј се са пријатељима уз апликацију Локатор Деда Мраза за Android."
+	},
+	"playextra": {
+		"message": "Пређи на додатне нивое"
+	},
+	"pr_country_name": {
+		"message": "Порторико"
+	},
+	"practice": {
+		"message": "Вежбање"
+	},
+	"press": {
+		"message": "Медији"
+	},
+	"press-about-tracker": {
+		"message": "О Локатору Деда Мраза"
+	},
+	"press-about-tracker1": {
+		"message": "24. децембра објављујемо Локатор, контролну таблу која омогућава свима који знају да Деда Мраз постоји да прате како језди између градова. Можете и да видите где се налази уживо на Google мапама и да питате Google помоћника „ОК Google, где је Деда Мраз?“. Тако можете да пратите Деда Мраза и у ходу."
+	},
+	"press-about-village": {
+		"message": "О Деда Мразовом селу"
+	},
+	"press-about-village1": {
+		"message": "Деда Мразово село слави петнаесту годишњицу забавних, образовних и интерактивних празничних активности. Вилењаци су под стручним вођством Баба Мразице налицкали село и додали му још новог, занимљивог садржаја. Захваљујући новом централном грејању на врели какао, село више не чека цео децембар да лед попусти: два туцета активности вас чека још од 4. децембра. И вилењаци и ви имате више времена за игру и истраживање у Деда Мразовом селу."
+	},
+	"press-about-village2": {
+		"message": "У селу можете да увежбавате основне вештине програмирања, правите оригиналне илустрације, користите своје познавање географије и сазнате више о добротворним организацијама као што су \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e и \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Наставници могу и да \u003ca href=\"./educators.html\"\u003eпреузму наставни план\u003c/a\u003e са видео водичима за учење основних вештина програмирања и празничних обичаја, и то на енглеском, јапанском, корејском, француском и шпанском."
+	},
+	"press-asset-animation": {
+		"message": "Анимација"
+	},
+	"press-asset-resources": {
+		"message": "Ресурси за штампу"
+	},
+	"press-asset-screenshot": {
+		"message": "Снимак екрана"
+	},
+	"press-device-text": {
+		"message": "Празнични дух је свуда, укључујући све ваше уређаје!"
+	},
+	"press-device-title": {
+		"message": "Локатор Деда Мраза на вашем уређају"
+	},
+	"press-edu": {
+		"message": "Образовне авантуре"
+	},
+	"press-edu1": {
+		"message": "Проширили смо \u003ca href=\"./educators.html\"\u003eстраницу са ресурсима за просветне раднике\u003c/a\u003e да бисмо наставницима обезбедили пратеће видео водиче за наставни план, на пет језика. Задржане су све ваше омиљене игре које приказују основне концепте програмирања уз празничне обичаје. Google локатор Деда Мраза подстиче учење током празника на забаван начин – погледајте \u003ca href=\"./educators.html\"\u003eнаше образовне игре\u003c/a\u003e да бисте сазнали више."
+	},
+	"press-games-title": {
+		"message": "Само игре и забава"
+	},
+	"press-need-text": {
+		"message": "Вилењаци и запослени у Google-у су спремни да вам помогну."
+	},
+	"press-need-title": {
+		"message": "Треба вам нешто?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Отвара се 24. децембра"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Доступан целог децембра"
+	},
+	"press-villagetracker-title": {
+		"message": "Деда Мразово село и Локатор"
+	},
+	"press-whatsnew": {
+		"message": "Шта има ново ове године"
+	},
+	"press-whatsnew1-text": {
+		"message": "Направите свог вилењака од главе до пете. Нека изгледа бајковито на свим вечерњим пријемима за празнике на Северном полу."
+	},
+	"press-whatsnew1-title": {
+		"message": "Направите вилењака:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ако сте целог живота желели да оснујете плесну трупу са талентованим вилењацима, сад имате прилику. Па, скоро. Уз модел машинског учења зван \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e можете да научите вилењака својим покретима и тако га припремите за подијум."
+	},
+	"press-whatsnew2-title": {
+		"message": "Плес са вилењацима:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Можете и да видите локацију Деда Мраза у реалном времену на Google мапама – само додирните дугме са хамбургером, па „Дељење локације“ да бисте видели докле је Деда Мраз стигао на путовању. Можете и да одете на брзу пречицу: \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Нови начин да пратите Деда Мраза:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ако желите празничнију атмосферу, погледајте Gboard празничне налепнице доступне за \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e и \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003eи за \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eапликацију за Android\u003c/a\u003e. Уживајте и у књижевним делима, реците Google асистенту „Испричај ми празничну причу“ или „Где је Деда Мраз?“"
+	},
+	"press-whatsnew4-title": {
+		"message": "Више празничне забаве:"
+	},
+	"pt_language_name": {
+		"message": "португалски"
+	},
+	"py_country_name": {
+		"message": "Парагвај"
+	},
+	"quickdraw-machine-know": {
+		"message": "Знам! То је {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "или"
+	},
+	"quickdraw-machine-see": {
+		"message": "Видим"
+	},
+	"quickdraw-newround-button": {
+		"message": "Почни"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Нисам сигуран шта је то."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Жао ми је"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Не могу да погодим."
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Тензор је мислио да је твој цртеж сличан овима:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Откуд Тензор зна како изгледа {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Научио је гледањем ових примера које су нацртали људи."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Тензор је мислио да је твој цртеж више налик овима:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "{{thing}}, како је нацртао Деда Мраз."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Затражено је да нацрташ: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Реми"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Тензор је Деда Мразов робот за машинско учење, који му помаже да брзо протумачи писма која добија од деце широм света. Да бисте помогли Тензору да вежба, нацртајте слику сваке празничне речи са екрана, а он ће вам рећи шта види. Што више цртате, то је Тензор паметнији – хајде да помогнемо Деда Мразу да ове године буде ефикаснији него икад!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Помозите Тензору да увежба препознавање слика!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Тензор је препознао {{recognized}} твојих цртежа."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Тензор је препознао један од цртежа."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Тензор није препознао ниједан цртеж."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Браво!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Упс!"
+	},
+	"readyquestion": {
+		"message": "Спреман/на?"
+	},
+	"ro_country_name": {
+		"message": "Румунија"
+	},
+	"ru_country_name": {
+		"message": "Русија"
+	},
+	"ru_language_name": {
+		"message": "руски"
+	},
+	"ru_tradition": {
+		"message": "Деца у Русији немају божићну, него новогодишњу јелку. Деца жељно ишчекују Дедушку Мраза и његову унуку, Снежну краљицу, који по земљи разносе поклоне. Дедушка Мраз живи дубоко у шумама Великог Устјуга на северу Русије."
+	},
+	"sa_country_name": {
+		"message": "Саудијска Арабија"
+	},
+	"santa-app": {
+		"message": "Деда Мраз"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Кексић од ђумбира"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Баба Мраз"
+	},
+	"santasearch_character_pegman": {
+		"message": "Човечуљак"
+	},
+	"santasearch_character_penguin": {
+		"message": "Пингвин"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Рудолф"
+	},
+	"santasearch_character_santa": {
+		"message": "Деда Мраз"
+	},
+	"santasearch_hint": {
+		"message": "Савет"
+	},
+	"santasearch_level_beach": {
+		"message": "На плажи"
+	},
+	"santasearch_level_lab": {
+		"message": "У лабораторији"
+	},
+	"santasearch_level_mountains": {
+		"message": "На планини"
+	},
+	"santasearch_level_museum": {
+		"message": "У музеју"
+	},
+	"santasearch_level_select": {
+		"message": "Иди!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Потражи Деда Мраза!"
+	},
+	"santasvillage": {
+		"message": "Село Деда Мраза"
+	},
+	"santatracker": {
+		"message": "Деда Мраз локатор"
+	},
+	"scene_airport": {
+		"message": "Аеродром Северни пол"
+	},
+	"scene_app": {
+		"message": "Android апликација"
+	},
+	"scene_blimp": {
+		"message": "Допуњавање поклона"
+	},
+	"scene_boatload": {
+		"message": "Праћкарење поклона"
+	},
+	"scene_briefing": {
+		"message": "Састанак код Бабе Мраз"
+	},
+	"scene_callfromsanta": {
+		"message": "Позив од Деда Мраза"
+	},
+	"scene_canvas": {
+		"message": "Деда Мразово сликарско платно"
+	},
+	"scene_citylights": {
+		"message": "Светла града"
+	},
+	"scene_clausdraws": {
+		"message": "Новогодишње цртарије"
+	},
+	"scene_codeboogie": {
+		"message": "Кôд за буги"
+	},
+	"scene_codelab": {
+		"message": "Лабораторија за кодирање"
+	},
+	"scene_commandcentre": {
+		"message": "Команда мисије"
+	},
+	"scene_dash": {
+		"message": "Пингвинација"
+	},
+	"scene_elfmaker": {
+		"message": "Вилинкрој"
+	},
+	"scene_elfski": {
+		"message": "Вилинско скијање"
+	},
+	"scene_factory": {
+		"message": "Фабрика слаткиша"
+	},
+	"scene_giftmatch": {
+		"message": "Поклон за поклон"
+	},
+	"scene_glider": {
+		"message": "Вилинглајдер"
+	},
+	"scene_gumball": {
+		"message": "Нагињање жвакица"
+	},
+	"scene_icecave": {
+		"message": "Ледена пећина"
+	},
+	"scene_island": {
+		"message": "Острво"
+	},
+	"scene_jamband": {
+		"message": "Вилинско рокање"
+	},
+	"scene_jetpack": {
+		"message": "Вилински ракетни ранац"
+	},
+	"scene_latlong": {
+		"message": "Испорука поклона"
+	},
+	"scene_matching": {
+		"message": "Игра памћења"
+	},
+	"scene_mercator": {
+		"message": "Географски квиз"
+	},
+	"scene_playground": {
+		"message": "Игралиште на северном полу"
+	},
+	"scene_poseboogie": {
+		"message": "Поза за ђускање"
+	},
+	"scene_postcard": {
+		"message": "Деда Мразове разгледнице"
+	},
+	"scene_presentbounce": {
+		"message": "Суманута пакерица"
+	},
+	"scene_presentdrop": {
+		"message": "Остављање поклона"
+	},
+	"scene_quickdraw": {
+		"message": "Брзо цртање"
+	},
+	"scene_racer": {
+		"message": "Тркач Рудолф"
+	},
+	"scene_rollercoaster": {
+		"message": "Вилински рингишпил"
+	},
+	"scene_runner": {
+		"message": "Ирвас тркач"
+	},
+	"scene_santasearch": {
+		"message": "Потрага за Деда Мразом"
+	},
+	"scene_santaselfie": {
+		"message": "Мразов селфи"
+	},
+	"scene_seasonofcaring": {
+		"message": "Време пажње"
+	},
+	"scene_seasonofgiving": {
+		"message": "Време даривања"
+	},
+	"scene_snowball": {
+		"message": "Олуја грудви"
+	},
+	"scene_snowflake": {
+		"message": "Направи пахуљицу"
+	},
+	"scene_speedsketch": {
+		"message": "Брзо цртање"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "Празнични обичаји"
+	},
+	"scene_translations": {
+		"message": "Преводи"
+	},
+	"scene_trivia": {
+		"message": "Тривиа"
+	},
+	"scene_undersea": {
+		"message": "Под морем"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Вилинмобил"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Командна соба"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Вилин-звона"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Деда Мразово полетање"
+	},
+	"scene_videoscene_museum": {
+		"message": "Дан у музеју"
+	},
+	"scene_videoscene_office": {
+		"message": "Канцеларијска завитланција"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Још увек на одмору"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Ирваси брину"
+	},
+	"scene_videoscene_reload": {
+		"message": "Допуњавање поклона"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Деда Мраз се вратио"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Сателит"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Деда Мразови селфији"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Ухваћен у хватању кривине"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Полетање"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Искушење"
+	},
+	"scene_videoscene_tired": {
+		"message": "Уморни ирвас"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Где је Деда Мраз?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Деда Мразова радионица"
+	},
+	"scene_windtunnel": {
+		"message": "Ваздушни тунел"
+	},
+	"scene_wrap": {
+		"message": "Замотуљци"
+	},
+	"score": {
+		"message": "Резултат"
+	},
+	"score_short": {
+		"message": "Резултат"
+	},
+	"se_country_name": {
+		"message": "Шведска"
+	},
+	"seconds": {
+		"message": "Секунде"
+	},
+	"select-language": {
+		"message": "Изаберите језик"
+	},
+	"share-button": {
+		"message": "Делите са пријатељима на Google+"
+	},
+	"share-text": {
+		"message": "Направио/ла сам ову разгледницу за тебе у Google локатору Деда Мраза. Срећни празници!"
+	},
+	"share-this": {
+		"message": "Дели"
+	},
+	"sidebar_code_emoji": {
+		"message": "Направљено уз Google Code: Празнични емоџији"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth Квиз о празничним обичајима"
+	},
+	"sidebar_santas_location": {
+		"message": "Google мапе: Локација Деда Мраза"
+	},
+	"sidebar_trends": {
+		"message": "Google трендови: Типичне претраге за празнике"
+	},
+	"sk_country_name": {
+		"message": "Словачка"
+	},
+	"sk_language_name": {
+		"message": "словачки"
+	},
+	"skip-training": {
+		"message": "Прескочи обуку"
+	},
+	"sl_country_name": {
+		"message": "Сијера Леоне"
+	},
+	"sn_country_name": {
+		"message": "Сенегал"
+	},
+	"snowball_iced": {
+		"message": "Залеђен!"
+	},
+	"snowball_remaining": {
+		"message": "Преостаје {{remaining}} од {{total}} вилењака"
+	},
+	"snowball_spectate": {
+		"message": "Гледајте"
+	},
+	"snowball_waiting": {
+		"message": "Чекамо на још вилењака"
+	},
+	"snowflake_choose_background": {
+		"message": "Изаберите позадину"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Изаберите разгледницу помоћу тастера са стрелицама"
+	},
+	"snowflake_code": {
+		"message": "Направите пахуљицу"
+	},
+	"snowflake_code_instructions": {
+		"message": "Спој блокове да направиш своју верзију пахуљице"
+	},
+	"snowflake_create_message": {
+		"message": "Дизајнирај пахуљицу"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Понови ако умеш!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Понављамо…"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Ротирамо и понављамо."
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Ротирање и понављање"
+	},
+	"snowflake_make_your_own": {
+		"message": "Ово је направљено помоћу шифре. Пробај и ти!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Изаберите разгледницу и делите своју пахуљицу са пријатељима"
+	},
+	"snowflake_shared_message": {
+		"message": "Неко ти је послао пахуљицу!"
+	},
+	"so_country_name": {
+		"message": "Сомалија"
+	},
+	"speedsketch_item~London": {
+		"message": "Лондон"
+	},
+	"speedsketch_item~New York": {
+		"message": "Њујорк"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Париз"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Шангај"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Швајцарска"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Ајфелова кула"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Кинески зид"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Мона Лиза"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "апстрактна уметност"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "носач авиона"
+	},
+	"speedsketch_item~airplane": {
+		"message": "авион"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "будилник"
+	},
+	"speedsketch_item~alien": {
+		"message": "ванземаљац"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "кола хитне помоћи"
+	},
+	"speedsketch_item~angel": {
+		"message": "анђео"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "сеоба животиња"
+	},
+	"speedsketch_item~ant": {
+		"message": "мрав"
+	},
+	"speedsketch_item~anvil": {
+		"message": "наковањ"
+	},
+	"speedsketch_item~apple": {
+		"message": "јабука"
+	},
+	"speedsketch_item~arm": {
+		"message": "рука"
+	},
+	"speedsketch_item~arrow": {
+		"message": "стрелица"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "шпаргла"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "астронаут"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "аудио касета"
+	},
+	"speedsketch_item~avocado": {
+		"message": "авокадо"
+	},
+	"speedsketch_item~axe": {
+		"message": "секира"
+	},
+	"speedsketch_item~baby": {
+		"message": "беба"
+	},
+	"speedsketch_item~backpack": {
+		"message": "ранац"
+	},
+	"speedsketch_item~banana": {
+		"message": "банана"
+	},
+	"speedsketch_item~bandage": {
+		"message": "завој"
+	},
+	"speedsketch_item~barn": {
+		"message": "штала"
+	},
+	"speedsketch_item~baseball": {
+		"message": "лоптица за бејзбол"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "палица за бејзбол"
+	},
+	"speedsketch_item~basket": {
+		"message": "кош"
+	},
+	"speedsketch_item~basketball": {
+		"message": "кошаркашка лопта"
+	},
+	"speedsketch_item~bat": {
+		"message": "слепи миш"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "када за купање"
+	},
+	"speedsketch_item~beach": {
+		"message": "плажа"
+	},
+	"speedsketch_item~bear": {
+		"message": "медвед"
+	},
+	"speedsketch_item~beard": {
+		"message": "брада"
+	},
+	"speedsketch_item~bed": {
+		"message": "кревет"
+	},
+	"speedsketch_item~bee": {
+		"message": "пчела"
+	},
+	"speedsketch_item~belt": {
+		"message": "каиш"
+	},
+	"speedsketch_item~bench": {
+		"message": "клупа"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "бицикл"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "двоглед"
+	},
+	"speedsketch_item~bird": {
+		"message": "птица"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "рођенданскa тортa"
+	},
+	"speedsketch_item~black": {
+		"message": "црна"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "купина"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "боровница"
+	},
+	"speedsketch_item~book": {
+		"message": "књига"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "бумеранг"
+	},
+	"speedsketch_item~boot": {
+		"message": "чизма"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "чеп за флашу"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "лептир-машна"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "наруквица"
+	},
+	"speedsketch_item~brain": {
+		"message": "мозак"
+	},
+	"speedsketch_item~bread": {
+		"message": "хлеб"
+	},
+	"speedsketch_item~bridge": {
+		"message": "мост"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "броколи"
+	},
+	"speedsketch_item~broom": {
+		"message": "метла"
+	},
+	"speedsketch_item~bucket": {
+		"message": "кофа"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "булдожер"
+	},
+	"speedsketch_item~bus": {
+		"message": "аутобус"
+	},
+	"speedsketch_item~bush": {
+		"message": "грм"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "лептир"
+	},
+	"speedsketch_item~cactus": {
+		"message": "кактус"
+	},
+	"speedsketch_item~cake": {
+		"message": "торта"
+	},
+	"speedsketch_item~calculator": {
+		"message": "калкулатор"
+	},
+	"speedsketch_item~calendar": {
+		"message": "календар"
+	},
+	"speedsketch_item~camel": {
+		"message": "камила"
+	},
+	"speedsketch_item~camera": {
+		"message": "камеру"
+	},
+	"speedsketch_item~campfire": {
+		"message": "логорска ватра"
+	},
+	"speedsketch_item~candle": {
+		"message": "свећа"
+	},
+	"speedsketch_item~candy": {
+		"message": "бомбона"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "шећерна луша"
+	},
+	"speedsketch_item~canoe": {
+		"message": "кану"
+	},
+	"speedsketch_item~car": {
+		"message": "аутомобил"
+	},
+	"speedsketch_item~carrot": {
+		"message": "шаргарепа"
+	},
+	"speedsketch_item~castle": {
+		"message": "замак"
+	},
+	"speedsketch_item~cat": {
+		"message": "мачка"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "плафонски вентилатор"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "мобилни телефон"
+	},
+	"speedsketch_item~cello": {
+		"message": "виолончело"
+	},
+	"speedsketch_item~chair": {
+		"message": "столица"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "лустер"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "хемија"
+	},
+	"speedsketch_item~cherry": {
+		"message": "трешња"
+	},
+	"speedsketch_item~child": {
+		"message": "дете"
+	},
+	"speedsketch_item~chimney": {
+		"message": "димњак"
+	},
+	"speedsketch_item~church": {
+		"message": "црква"
+	},
+	"speedsketch_item~circle": {
+		"message": "круг"
+	},
+	"speedsketch_item~city": {
+		"message": "град"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "кларинет"
+	},
+	"speedsketch_item~clock": {
+		"message": "сат"
+	},
+	"speedsketch_item~cloud": {
+		"message": "облак"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "кукурузни клип"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "шоља за кафу"
+	},
+	"speedsketch_item~compass": {
+		"message": "компас"
+	},
+	"speedsketch_item~computer": {
+		"message": "рачунар"
+	},
+	"speedsketch_item~cookie": {
+		"message": "колачић"
+	},
+	"speedsketch_item~cooler": {
+		"message": "ручни фрижидер"
+	},
+	"speedsketch_item~couch": {
+		"message": "кауч"
+	},
+	"speedsketch_item~cow": {
+		"message": "крава"
+	},
+	"speedsketch_item~crab": {
+		"message": "краба"
+	},
+	"speedsketch_item~crayon": {
+		"message": "бојица"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "крокодил"
+	},
+	"speedsketch_item~crow": {
+		"message": "врана"
+	},
+	"speedsketch_item~crown": {
+		"message": "круна"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "крстарица"
+	},
+	"speedsketch_item~cube": {
+		"message": "коцка"
+	},
+	"speedsketch_item~cup": {
+		"message": "шољица"
+	},
+	"speedsketch_item~darts": {
+		"message": "пикадо"
+	},
+	"speedsketch_item~diamond": {
+		"message": "дијамант"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "дијамантски прстен"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "машина за прање судова"
+	},
+	"speedsketch_item~diving board": {
+		"message": "даска за скокове у воду"
+	},
+	"speedsketch_item~dog": {
+		"message": "пас"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "делфин"
+	},
+	"speedsketch_item~donut": {
+		"message": "крофна"
+	},
+	"speedsketch_item~door": {
+		"message": "врата"
+	},
+	"speedsketch_item~dragon": {
+		"message": "змај"
+	},
+	"speedsketch_item~dresser": {
+		"message": "комода"
+	},
+	"speedsketch_item~drill": {
+		"message": "бушилица"
+	},
+	"speedsketch_item~drums": {
+		"message": "бубњеви"
+	},
+	"speedsketch_item~duck": {
+		"message": "патка"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "тег"
+	},
+	"speedsketch_item~ear": {
+		"message": "ухо"
+	},
+	"speedsketch_item~egg": {
+		"message": "јаје"
+	},
+	"speedsketch_item~elbow": {
+		"message": "лакат"
+	},
+	"speedsketch_item~elephant": {
+		"message": "слон"
+	},
+	"speedsketch_item~elf": {
+		"message": "патуљак"
+	},
+	"speedsketch_item~emoji": {
+		"message": "емоџи"
+	},
+	"speedsketch_item~envelope": {
+		"message": "коверта"
+	},
+	"speedsketch_item~eraser": {
+		"message": "гумица за брисање"
+	},
+	"speedsketch_item~eye": {
+		"message": "око"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "наочаре"
+	},
+	"speedsketch_item~face": {
+		"message": "лице"
+	},
+	"speedsketch_item~family": {
+		"message": "породица"
+	},
+	"speedsketch_item~fan": {
+		"message": "вентилатор"
+	},
+	"speedsketch_item~feather": {
+		"message": "перо"
+	},
+	"speedsketch_item~fence": {
+		"message": "ограда"
+	},
+	"speedsketch_item~finger": {
+		"message": "прст"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "хидрант"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "камин"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "ватрогасни камион"
+	},
+	"speedsketch_item~fish": {
+		"message": "риба"
+	},
+	"speedsketch_item~flag": {
+		"message": "пријави"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "фламинго"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "батеријска лампа"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "јапанке"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "подна лампа"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "дискета"
+	},
+	"speedsketch_item~flower": {
+		"message": "цвет"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "летећи тањир"
+	},
+	"speedsketch_item~fog": {
+		"message": "магла"
+	},
+	"speedsketch_item~foot": {
+		"message": "стопало"
+	},
+	"speedsketch_item~fork": {
+		"message": "виљушка"
+	},
+	"speedsketch_item~french fries": {
+		"message": "помфрит"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "пржено јаје"
+	},
+	"speedsketch_item~frog": {
+		"message": "жаба"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "тигањ"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "галаксија"
+	},
+	"speedsketch_item~garden": {
+		"message": "башта"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "црево за поливање"
+	},
+	"speedsketch_item~ghost": {
+		"message": "дух"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "кексић од ђумбира"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "жирафа"
+	},
+	"speedsketch_item~goat": {
+		"message": "коза"
+	},
+	"speedsketch_item~goatee": {
+		"message": "козја брадица"
+	},
+	"speedsketch_item~golf club": {
+		"message": "штап за голф"
+	},
+	"speedsketch_item~grapes": {
+		"message": "грожђе"
+	},
+	"speedsketch_item~grass": {
+		"message": "трава"
+	},
+	"speedsketch_item~group": {
+		"message": "група"
+	},
+	"speedsketch_item~guitar": {
+		"message": "гитара"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "хамбургер"
+	},
+	"speedsketch_item~hammer": {
+		"message": "чекић"
+	},
+	"speedsketch_item~hand": {
+		"message": "рука"
+	},
+	"speedsketch_item~happiness": {
+		"message": "срећа"
+	},
+	"speedsketch_item~harp": {
+		"message": "харфа"
+	},
+	"speedsketch_item~hat": {
+		"message": "шешир"
+	},
+	"speedsketch_item~headphones": {
+		"message": "слушалице"
+	},
+	"speedsketch_item~heart": {
+		"message": "срце"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "јеж"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "хеликоптер"
+	},
+	"speedsketch_item~helmet": {
+		"message": "кацига"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "шестоугао"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "пак за хокеј"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "палица за хокеј"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "празнична светла"
+	},
+	"speedsketch_item~horse": {
+		"message": "коњ"
+	},
+	"speedsketch_item~hospital": {
+		"message": "болница"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "летећи балон"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "хотдог"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "ђакузи"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "пешчаник"
+	},
+	"speedsketch_item~house": {
+		"message": "кућа"
+	},
+	"speedsketch_item~house plant": {
+		"message": "собна биљка"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "ураган"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "сладолед"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "клизач на леду"
+	},
+	"speedsketch_item~infinity": {
+		"message": "бесконачно"
+	},
+	"speedsketch_item~island": {
+		"message": "Исланд"
+	},
+	"speedsketch_item~jacket": {
+		"message": "јакна"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "ракетни ранац"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Звончићи, звончићи"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "кенгур"
+	},
+	"speedsketch_item~key": {
+		"message": "кључ"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "тастатура"
+	},
+	"speedsketch_item~kite": {
+		"message": "змај"
+	},
+	"speedsketch_item~knee": {
+		"message": "колено"
+	},
+	"speedsketch_item~knife": {
+		"message": "нож"
+	},
+	"speedsketch_item~knot": {
+		"message": "чвор"
+	},
+	"speedsketch_item~koala": {
+		"message": "коала"
+	},
+	"speedsketch_item~ladder": {
+		"message": "мердевине"
+	},
+	"speedsketch_item~landscape": {
+		"message": "пејзаж"
+	},
+	"speedsketch_item~lantern": {
+		"message": "фењер"
+	},
+	"speedsketch_item~laptop": {
+		"message": "лаптоп"
+	},
+	"speedsketch_item~leaf": {
+		"message": "лист"
+	},
+	"speedsketch_item~leg": {
+		"message": "нога"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "сијалица"
+	},
+	"speedsketch_item~lighter": {
+		"message": "упаљач"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "светионик"
+	},
+	"speedsketch_item~lightning": {
+		"message": "муња"
+	},
+	"speedsketch_item~line": {
+		"message": "линија"
+	},
+	"speedsketch_item~lion": {
+		"message": "лав"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "кармин"
+	},
+	"speedsketch_item~lobster": {
+		"message": "јастог"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "лизалица"
+	},
+	"speedsketch_item~love": {
+		"message": "љубав"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "поштанско сандуче"
+	},
+	"speedsketch_item~man": {
+		"message": "мушкарац"
+	},
+	"speedsketch_item~map": {
+		"message": "мапа"
+	},
+	"speedsketch_item~marker": {
+		"message": "маркер"
+	},
+	"speedsketch_item~matches": {
+		"message": "шибице"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "математика"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "мегафон"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "сирена"
+	},
+	"speedsketch_item~metal": {
+		"message": "метал"
+	},
+	"speedsketch_item~microphone": {
+		"message": "микрофон"
+	},
+	"speedsketch_item~microscope": {
+		"message": "микроскоп"
+	},
+	"speedsketch_item~microwave": {
+		"message": "микроталасна пећница"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "имела"
+	},
+	"speedsketch_item~mittens": {
+		"message": "рукавице без прстију"
+	},
+	"speedsketch_item~molecule": {
+		"message": "молекул"
+	},
+	"speedsketch_item~money": {
+		"message": "новац"
+	},
+	"speedsketch_item~monkey": {
+		"message": "мајмун"
+	},
+	"speedsketch_item~moon": {
+		"message": "месец"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "комарац"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "мотоцикл"
+	},
+	"speedsketch_item~mountain": {
+		"message": "планина"
+	},
+	"speedsketch_item~mouse": {
+		"message": "миш"
+	},
+	"speedsketch_item~moustache": {
+		"message": "бркови"
+	},
+	"speedsketch_item~mouth": {
+		"message": "уста"
+	},
+	"speedsketch_item~mug": {
+		"message": "шоља"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "печурка"
+	},
+	"speedsketch_item~music": {
+		"message": "музика"
+	},
+	"speedsketch_item~nail": {
+		"message": "ексер"
+	},
+	"speedsketch_item~nature": {
+		"message": "природа"
+	},
+	"speedsketch_item~necklace": {
+		"message": "огрлица"
+	},
+	"speedsketch_item~news": {
+		"message": "вести"
+	},
+	"speedsketch_item~nose": {
+		"message": "нос"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "крцкалица"
+	},
+	"speedsketch_item~ocean": {
+		"message": "океан"
+	},
+	"speedsketch_item~octagon": {
+		"message": "осмоугао"
+	},
+	"speedsketch_item~octopus": {
+		"message": "хоботница"
+	},
+	"speedsketch_item~onion": {
+		"message": "црни лук"
+	},
+	"speedsketch_item~ornament": {
+		"message": "украс"
+	},
+	"speedsketch_item~oven": {
+		"message": "пећница"
+	},
+	"speedsketch_item~owl": {
+		"message": "сова"
+	},
+	"speedsketch_item~paint can": {
+		"message": "конзерва боје"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "четка за фарбање"
+	},
+	"speedsketch_item~painting": {
+		"message": "сликање"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "палма"
+	},
+	"speedsketch_item~panda": {
+		"message": "панда"
+	},
+	"speedsketch_item~pants": {
+		"message": "панталоне"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "спајалица"
+	},
+	"speedsketch_item~parachute": {
+		"message": "падобран"
+	},
+	"speedsketch_item~parrot": {
+		"message": "папагај"
+	},
+	"speedsketch_item~passport": {
+		"message": "пасош"
+	},
+	"speedsketch_item~peanut": {
+		"message": "кикирики"
+	},
+	"speedsketch_item~pear": {
+		"message": "крушка"
+	},
+	"speedsketch_item~peas": {
+		"message": "грашак"
+	},
+	"speedsketch_item~pencil": {
+		"message": "оловка"
+	},
+	"speedsketch_item~penguin": {
+		"message": "пингвин"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "пеперминт"
+	},
+	"speedsketch_item~piano": {
+		"message": "клавир"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "камионет"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "рам за слику"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "кружни графикон"
+	},
+	"speedsketch_item~pig": {
+		"message": "прасе"
+	},
+	"speedsketch_item~pillow": {
+		"message": "јастук"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ананас"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "стони тенис"
+	},
+	"speedsketch_item~pirate": {
+		"message": "пират"
+	},
+	"speedsketch_item~pizza": {
+		"message": "пица"
+	},
+	"speedsketch_item~pliers": {
+		"message": "клешта"
+	},
+	"speedsketch_item~police car": {
+		"message": "полицијски аутомобил"
+	},
+	"speedsketch_item~politician": {
+		"message": "политичар"
+	},
+	"speedsketch_item~pond": {
+		"message": "језерце"
+	},
+	"speedsketch_item~pool": {
+		"message": "базен"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "сладолед на штапићу"
+	},
+	"speedsketch_item~portrait": {
+		"message": "портрет"
+	},
+	"speedsketch_item~postcard": {
+		"message": "разгледница"
+	},
+	"speedsketch_item~potato": {
+		"message": "кромпир"
+	},
+	"speedsketch_item~present": {
+		"message": "до сада"
+	},
+	"speedsketch_item~prison": {
+		"message": "затвор"
+	},
+	"speedsketch_item~purse": {
+		"message": "ташна"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "зец"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "ракун"
+	},
+	"speedsketch_item~radio": {
+		"message": "радио-апарат"
+	},
+	"speedsketch_item~rain": {
+		"message": "киша"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "дуга"
+	},
+	"speedsketch_item~rake": {
+		"message": "грабуље"
+	},
+	"speedsketch_item~raven": {
+		"message": "гавран"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "ирвас"
+	},
+	"speedsketch_item~remote control": {
+		"message": "даљински управљач"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "носорог"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "бочна трака"
+	},
+	"speedsketch_item~river": {
+		"message": "река"
+	},
+	"speedsketch_item~robot": {
+		"message": "робот"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "ролеркостер"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "ролери"
+	},
+	"speedsketch_item~sadness": {
+		"message": "туга"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "једрењак"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "сендвич"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Деда Мраз"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Сатурн"
+	},
+	"speedsketch_item~sausage": {
+		"message": "кобасица"
+	},
+	"speedsketch_item~saw": {
+		"message": "тестера"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "саксофон"
+	},
+	"speedsketch_item~school bus": {
+		"message": "школски аутобус"
+	},
+	"speedsketch_item~scissors": {
+		"message": "маказе"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "шкорпион"
+	},
+	"speedsketch_item~screw": {
+		"message": "завртањ"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "одвијач"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "скулптура"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "морска корњача"
+	},
+	"speedsketch_item~see saw": {
+		"message": "клацкалица"
+	},
+	"speedsketch_item~shark": {
+		"message": "ајкула"
+	},
+	"speedsketch_item~sheep": {
+		"message": "овца"
+	},
+	"speedsketch_item~shoe": {
+		"message": "ципела"
+	},
+	"speedsketch_item~shorts": {
+		"message": "шортс"
+	},
+	"speedsketch_item~shovel": {
+		"message": "лопата"
+	},
+	"speedsketch_item~sink": {
+		"message": "судопера"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "скејтборд"
+	},
+	"speedsketch_item~ski": {
+		"message": "ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "скијаш"
+	},
+	"speedsketch_item~skirt": {
+		"message": "сукњa"
+	},
+	"speedsketch_item~skull": {
+		"message": "лобања"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "солитер"
+	},
+	"speedsketch_item~sled": {
+		"message": "санке"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "врећа за спавање"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "саонице"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "смајли"
+	},
+	"speedsketch_item~snail": {
+		"message": "пуж"
+	},
+	"speedsketch_item~snake": {
+		"message": "змија"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "маска за роњење"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "пахуљица"
+	},
+	"speedsketch_item~snowman": {
+		"message": "Снешко Белић"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "фудбалска лопта"
+	},
+	"speedsketch_item~sock": {
+		"message": "чарапа"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "глисер"
+	},
+	"speedsketch_item~sphere": {
+		"message": "сфера"
+	},
+	"speedsketch_item~spider": {
+		"message": "паук"
+	},
+	"speedsketch_item~spiral": {
+		"message": "спирала"
+	},
+	"speedsketch_item~spoon": {
+		"message": "кашика"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "сто"
+	},
+	"speedsketch_item~square": {
+		"message": "квадрат"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "веверица"
+	},
+	"speedsketch_item~stairs": {
+		"message": "степенице"
+	},
+	"speedsketch_item~star": {
+		"message": "звездица"
+	},
+	"speedsketch_item~steak": {
+		"message": "бифтек"
+	},
+	"speedsketch_item~stereo": {
+		"message": "стерео-уређај"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "стетоскоп"
+	},
+	"speedsketch_item~still life": {
+		"message": "мртва природа"
+	},
+	"speedsketch_item~stocking": {
+		"message": "чарапа"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "знак стоп"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "штоперица"
+	},
+	"speedsketch_item~stove": {
+		"message": "пећ"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "јагода"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "улична лампа"
+	},
+	"speedsketch_item~string bean": {
+		"message": "боранија"
+	},
+	"speedsketch_item~submarine": {
+		"message": "подморница"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "кофер"
+	},
+	"speedsketch_item~sun": {
+		"message": "сунце"
+	},
+	"speedsketch_item~sunset": {
+		"message": "залазак сунца"
+	},
+	"speedsketch_item~swan": {
+		"message": "лабуд"
+	},
+	"speedsketch_item~sweater": {
+		"message": "џемпер"
+	},
+	"speedsketch_item~swing set": {
+		"message": "љуљашка"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "мајица"
+	},
+	"speedsketch_item~table": {
+		"message": "сто"
+	},
+	"speedsketch_item~teapot": {
+		"message": "чајник"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "плишани меда"
+	},
+	"speedsketch_item~telephone": {
+		"message": "телефон"
+	},
+	"speedsketch_item~television": {
+		"message": "телевизор"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "тениски рекет"
+	},
+	"speedsketch_item~tent": {
+		"message": "шатор"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "икс-окс"
+	},
+	"speedsketch_item~tiger": {
+		"message": "тигар"
+	},
+	"speedsketch_item~time": {
+		"message": "време"
+	},
+	"speedsketch_item~toaster": {
+		"message": "тостер"
+	},
+	"speedsketch_item~toe": {
+		"message": "ножни прст"
+	},
+	"speedsketch_item~toilet": {
+		"message": "тоалет"
+	},
+	"speedsketch_item~tooth": {
+		"message": "зуб"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "четкица за зубе"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "паста за зубе"
+	},
+	"speedsketch_item~tornado": {
+		"message": "торнадо"
+	},
+	"speedsketch_item~tractor": {
+		"message": "трактор"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "семафор"
+	},
+	"speedsketch_item~train": {
+		"message": "воз"
+	},
+	"speedsketch_item~tree": {
+		"message": "дрво"
+	},
+	"speedsketch_item~triangle": {
+		"message": "троугао"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "трицикл"
+	},
+	"speedsketch_item~trombone": {
+		"message": "тромбон"
+	},
+	"speedsketch_item~trousers": {
+		"message": "панталоне"
+	},
+	"speedsketch_item~truck": {
+		"message": "камион"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "труба"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "кишобран"
+	},
+	"speedsketch_item~underwear": {
+		"message": "доњи веш"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "једнорог"
+	},
+	"speedsketch_item~universe": {
+		"message": "свемир"
+	},
+	"speedsketch_item~van": {
+		"message": "комби"
+	},
+	"speedsketch_item~vase": {
+		"message": "ваза"
+	},
+	"speedsketch_item~violin": {
+		"message": "виолина"
+	},
+	"speedsketch_item~walnut": {
+		"message": "Walnut"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "машина за прање веша"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "лубеница"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "водени тобоган"
+	},
+	"speedsketch_item~wave": {
+		"message": "талас"
+	},
+	"speedsketch_item~whale": {
+		"message": "кит"
+	},
+	"speedsketch_item~windmill": {
+		"message": "ветрењача"
+	},
+	"speedsketch_item~woman": {
+		"message": "жена"
+	},
+	"speedsketch_item~world": {
+		"message": "свет"
+	},
+	"speedsketch_item~wreath": {
+		"message": "венац"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ручни сат"
+	},
+	"speedsketch_item~yoga": {
+		"message": "јога"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "јогурт"
+	},
+	"speedsketch_item~zebra": {
+		"message": "зебра"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "цик-цак"
+	},
+	"speedsketch_item~zipper": {
+		"message": "рајсфершлус"
+	},
+	"sr_country_name": {
+		"message": "Суринам"
+	},
+	"sv_country_name": {
+		"message": "Салвадор"
+	},
+	"sv_language_name": {
+		"message": "шведски"
+	},
+	"td_country_name": {
+		"message": "Чад"
+	},
+	"terms-and-privacy": {
+		"message": "Услови и приватност"
+	},
+	"tg_country_name": {
+		"message": "Того"
+	},
+	"th_language_name": {
+		"message": "тајски"
+	},
+	"tilt": {
+		"message": "Нагните уређај!"
+	},
+	"time": {
+		"message": "Време"
+	},
+	"tj_country_name": {
+		"message": "Таџикистан"
+	},
+	"tm_country_name": {
+		"message": "Туркменистан"
+	},
+	"tn_country_name": {
+		"message": "Тунис"
+	},
+	"today_only": {
+		"message": "Само данас"
+	},
+	"tr_country_name": {
+		"message": "Турска"
+	},
+	"tr_language_name": {
+		"message": "турски"
+	},
+	"tracker_arrival": {
+		"message": "Долазак"
+	},
+	"tracker_arriving_in": {
+		"message": "Стиже за"
+	},
+	"tracker_current_stop": {
+		"message": "Тренутно одмориште"
+	},
+	"tracker_departing_in": {
+		"message": "Полази за"
+	},
+	"tracker_distance_away_km": {
+		"message": "Деда Мраз је удаљен {{distance_away}} км"
+	},
+	"tracker_distance_from_you": {
+		"message": "Растојање од тебе"
+	},
+	"tracker_distance_travelled": {
+		"message": "Пређени пут"
+	},
+	"tracker_feed": {
+		"message": "Фид уживо"
+	},
+	"tracker_flight_nearby": {
+		"message": "Деда Мраз је близу, отркиј где"
+	},
+	"tracker_flight_start": {
+		"message": "Деда Мраз је кренуо са Северног пола и можеш да му пратиш руту"
+	},
+	"tracker_from_google": {
+		"message": "Од свих нас у Google-у"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Донетих поклона:"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Прескочи увод"
+	},
+	"tracker_intro_user_location": {
+		"message": "Налазите се овде:"
+	},
+	"tracker_just_in": {
+		"message": "Најновије вести"
+	},
+	"tracker_next_stop": {
+		"message": "Следећа станица"
+	},
+	"tracker_santa_update": {
+		"message": "НОВОСТИ ОД ДЕДА МРАЗА"
+	},
+	"tracker_santa_update_1": {
+		"message": "Новости од Деда Мраза"
+	},
+	"tracker_see_route": {
+		"message": "Прикажи руту"
+	},
+	"tracker_stats": {
+		"message": "Деда Мразова статистика"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Деда Мраз стиже за {{hours}} сата"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Деда Мраз ускоро стиже"
+	},
+	"tracker_track": {
+		"message": "Прати Деда Мраза"
+	},
+	"tracker_travelogue": {
+		"message": "Путопрат"
+	},
+	"tracker_weather": {
+		"message": "Временски услови"
+	},
+	"tracker_world_facts": {
+		"message": "ДА ЛИ ЗНАТЕ"
+	},
+	"tracker_world_facts_1": {
+		"message": "Чињенице из света"
+	},
+	"tracker_your_location": {
+		"message": "Ваша локација"
+	},
+	"traditions-next": {
+		"message": "Следећи обичаји"
+	},
+	"traditions-prev": {
+		"message": "Претходни обичаји"
+	},
+	"traditions-world": {
+		"message": "Свет"
+	},
+	"trivia_beginner_001": {
+		"message": "На ком континенту су Анди?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_002": {
+		"message": "Која држава САД се простире на осам великих и више мањих острва?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Хаваји"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Охајо"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Арканзас"
+	},
+	"trivia_beginner_003": {
+		"message": "Која савезна држава САД се налази у Великим равницама?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Канзас"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Делавер"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Ајдахо"
+	},
+	"trivia_beginner_004": {
+		"message": "Који континент излази на Атлантик, Пацифик и Арктички океан?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Азија"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_005": {
+		"message": "Која држава се налази у Пацифичкој временској зони?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Калифорнија"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Грузија"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Индијана"
+	},
+	"trivia_beginner_006": {
+		"message": "На ком континенту су Атласке планине и пустиња Калахари?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_007": {
+		"message": "Која држава САД се граничи са једним од Великих језера?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Охајо"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Монтана"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Нови Мексико"
+	},
+	"trivia_beginner_008": {
+		"message": "На ком континенту већина људи говори португалски или шпански?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_009": {
+		"message": "Која држава САД личи на тигањ?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Оклахома"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Вајоминг"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Колорадо"
+	},
+	"trivia_beginner_010": {
+		"message": "Антарктик и још један континент у целости леже на јужној Земљиној полулопти. Који је то континент?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_011": {
+		"message": "Уз који континент лежи Филхнер-Ронеова ледена плоча?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_012": {
+		"message": "Острва Ванкувер и Кодијак налазе се уз западну обалу ког континента?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_013": {
+		"message": "Нигер је једна од земаља чија се популација најбрже увећава. Налази се на северозападу ког континента?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_014": {
+		"message": "На ком континенту расте најмање биљака?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_015": {
+		"message": "Тасманијски ђаволи потичу са острва поред јужне обале ког континента?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_016": {
+		"message": "Криви торањ у Пизи је популарно туристичко одредиште у којој медитеранској земљи?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Италија"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Канада"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Гана"
+	},
+	"trivia_beginner_017": {
+		"message": "Казабланка и Триполи су стари градови на северној обали ког континента?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_018": {
+		"message": "У Сонорској пустињи расту Сагуаро кактуси. На ком је то континенту?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_019": {
+		"message": "Веракруз и Акапулко су популарна одмаралишта у којој земљи?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Аргентина"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Индија"
+	},
+	"trivia_beginner_020": {
+		"message": "Резерват великих панди у Сечуану је дом за 30% светске популације панди. У којој земљи се налази?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Кина"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Исланд"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Етиопија"
+	},
+	"trivia_beginner_021": {
+		"message": "На ком континенту се налази око 90 посто леда на планети?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Африка"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_022": {
+		"message": "Анђеоски водопад је највиши на свету, а на ком континенту се налази?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_023": {
+		"message": "У коју државу САД морате да одете да бисте посетили Џексон Хол и Ђаволову кулу?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Вајоминг"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Северна Дакота"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Конектикат"
+	},
+	"trivia_beginner_024": {
+		"message": "Да бисте видели сакупљање јаворовог сирупа и скијали на Зеленим планинама, кују државу у САД треба да посетите?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Вермонт"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Орегон"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Аризона"
+	},
+	"trivia_beginner_025": {
+		"message": "У коју савезну државу САД треба да одете да бисте се провозали преко моста Чесапик беј и прошетали уздигнутим шеталиштем у Оушан Ситију?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Мериленд"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Канзас"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Северна Каролина"
+	},
+	"trivia_beginner_026": {
+		"message": "У којој држави САД можете да посетите Мамутску пећину и да гледате трке коња\nу Черчил Даунсу?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Кентаки"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Западна Вирџинија"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Јута"
+	},
+	"trivia_beginner_027": {
+		"message": "У коју државу САД треба отпутовати да бисте видели џиновска стабла секвоје и острва Ченел?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Калифорнија"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Њу Џерзи"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Вирџинија"
+	},
+	"trivia_beginner_028": {
+		"message": "Коју мочвару можете да посетите ако отпутујете на Флориду?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Еверглејдс"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Мочвара ужаса"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Велика чемпресова мочвара"
+	},
+	"trivia_beginner_029": {
+		"message": "Ако желите да допловите на чувена Велика језера пловним путем Сен Лоренс, у коју државу САД треба да одете?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Њујорк"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Мичиген"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Невада"
+	},
+	"trivia_beginner_030": {
+		"message": "На ком континенту је Монт Еверест, највиша планина на свету?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Азија"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_031": {
+		"message": "Патагонија покрива већи део југа ког континента?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Африка"
+	},
+	"trivia_beginner_032": {
+		"message": "Којим континентом владају краљевски пингвини?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_033": {
+		"message": "Из које земље потичу коале и кенгури?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_034": {
+		"message": "На ком континенту је познати национални парк Серенгети?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_035": {
+		"message": "Који континент је највећи?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Азија"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_036": {
+		"message": "Мост Тауер премошћава реку Темзу. У ком европском граду?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Лондон"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Хавана"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Кејптаун"
+	},
+	"trivia_beginner_037": {
+		"message": "Храм Василија Блаженог је на Црвеном тргу, поред Кремља – у ком руском граду?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Москва"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Брисел"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Монтевидео"
+	},
+	"trivia_beginner_038": {
+		"message": "У ком европском граду се налази гладијаторска арена Колосеум, изграђена у првом веку нове ере?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Рим"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Картум"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Манила"
+	},
+	"trivia_beginner_039": {
+		"message": "У ком аустралијском граду се налазе лучки мост и чувена опера?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Сиднеј"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Џакарта"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Праг"
+	},
+	"trivia_beginner_040": {
+		"message": "Купола на стени и Зид плача су два од бројних светих места у старом делу једног града на Блиском истоку. Који је то град?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Јерусалим"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Токио"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_beginner_041": {
+		"message": "Партенон се уздиже на брду Акропољ у Грчкој. У ком граду?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Атина"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Кијев"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Лима"
+	},
+	"trivia_beginner_042": {
+		"message": "Ајфелова кула се уздиже изнад реке Сене. На који француски град ова кула баца сенку?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Париз"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Торонто"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Њу Делхи"
+	},
+	"trivia_beginner_043": {
+		"message": "У Светој џамији налази се Каба, најсветије место ислама. У ком граду у Саудијској Арабији је ова џамија?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Мека"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Буенос Ајрес"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Будимпешта"
+	},
+	"trivia_beginner_044": {
+		"message": "Забрањени град је некадашња царска палата у центру ког града?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Пекинг"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Сантјаго"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Бризбејн"
+	},
+	"trivia_beginner_045": {
+		"message": "Који град у заливу Пјуџит у САД је дом куле „Space Needle“ (Свемирска игла)?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Сијетл"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Вичита"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Њу Орлеанс"
+	},
+	"trivia_beginner_046": {
+		"message": "Кула Џона Хенкока је највише здање у граду у САД на ушћу реке Чарлс. Који је то град?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Бостон"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Питсбург"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Мемфис"
+	},
+	"trivia_beginner_047": {
+		"message": "Кула Стратосфера је северно од булевара званог „The Strip“ и највиша је зграда у САД. Град у којем је налази се у пустињи Мохаве. Како се зове град?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Лас Вегас"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Минеаполис"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Денвер"
+	},
+	"trivia_beginner_048": {
+		"message": "Кип слободе је велика статуа на Острву слободе у луци ког града у САД?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Њујорк"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Атланта"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Лос Анђелес"
+	},
+	"trivia_beginner_049": {
+		"message": "Мост Голден Гејт повезује један град у САД са полуострвом Марин. Који?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "Сан Франциско"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Бојси"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Балтимор"
+	},
+	"trivia_beginner_050": {
+		"message": "Споменик Врата запада је симбол ширења Америке на запад током 1880-их и налази се уз реку Мисисипи. У ком граду у САД?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Сент Луис"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Индијанаполис"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Мајами"
+	},
+	"trivia_beginner_051": {
+		"message": "На платоу Гизе налазе се велике пирамиде и Сфинга. У којој је то афричкој земљи?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Египат"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Бразил"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Немачка"
+	},
+	"trivia_beginner_052": {
+		"message": "Дворана независности је историјско здање повезано са Америчким ратом за независност и стоји близу реке Делавер. У којем је то граду у САД?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Филаделфија"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "Сан Антонио"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Чикаго"
+	},
+	"trivia_beginner_053": {
+		"message": "Стеновите планине пружају се дуж Канаде и које друге државе?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "САД"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Венецуела"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Русија"
+	},
+	"trivia_beginner_054": {
+		"message": "На који океан излазе Бразил и Уругвај?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Атлантски океан"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Арктички океан"
+	},
+	"trivia_beginner_055": {
+		"message": "Њуфаундленд се налази источно од канадских обала. У ком је океану?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Атлантски океан"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_056": {
+		"message": "Острво Мадагаскар налази се уз источну обалу Африке, али у ком океану?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Арктички океан"
+	},
+	"trivia_beginner_057": {
+		"message": "Већи део међународне датумске границе иде посред ког океана?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Атлантски океан"
+	},
+	"trivia_beginner_058": {
+		"message": "Екватор пресеца басен реке Конго. На ком континенту?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_059": {
+		"message": "Који континент се граничи са Мексичким заливом?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_060": {
+		"message": "Која река, која тече кроз Африку, је најдужа на свету?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Река Нил"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Река Колорадо"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Река Орање"
+	},
+	"trivia_beginner_061": {
+		"message": "На ком континенту се налазе остаци древног Мачу Пичуа?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_062": {
+		"message": "Река Амазон садржи више воде од било које друге реке на свету. По ком континенту тече Амазон?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_063": {
+		"message": "На ком континенту је Мон Блан, највиши врх Алпа?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Европа"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_064": {
+		"message": "Са којим континентом је Централна Америка повезана Панамским земљоузом?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_065": {
+		"message": "Гепарди су најбрже копнене животиње на Земљи. Јуре по равницама Кеније и Танзаније – на ком континенту?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_066": {
+		"message": "Рт добре наде налази се близу најјужније тачке ког континента?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_067": {
+		"message": "Џиновске корњаче живе на Галапагоским острвима, западно од Јужне Америке. У ком океану се налазе та острва?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Арктички океан"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_068": {
+		"message": "Река Дунав протиче кроз Нови Сад, Београд и још неколико градова на ком континенту?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Европа"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Африка"
+	},
+	"trivia_beginner_069": {
+		"message": "Које море запљускује острва Куба и Хаити?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Карипско море"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Берингово море"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Балтичко море"
+	},
+	"trivia_beginner_070": {
+		"message": "Уз који континент се простире Гвинејски залив?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_071": {
+		"message": "Који континент је истраживао чувени истраживач Ернест Шеклтон?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_072": {
+		"message": "Лабрадорско море је ивично море ког океана?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Атлантски океан"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_073": {
+		"message": "На ком континенту се налази Сахара, највећа пустиња на свету?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_074": {
+		"message": "На ком континенту се налази Тибетски плато?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Азија"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_075": {
+		"message": "Дрејков пролаз се налази јужно од ког континента?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Европа"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_076": {
+		"message": "Велики корални гребен налази се у Коралном мору, уз обале ког континента?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Азија"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_077": {
+		"message": "У коју државу треба да отпутујете да бисте посетили Суецки канал и Град мртвих у Каиру?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Египат"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Колумбија"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Финска"
+	},
+	"trivia_beginner_078": {
+		"message": "Коју државу треба да посетите да бисте видели гаучосе како гоне своја крда и да бисте одиграли танго у Буенос Ајресу?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Аргентина"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Нигер"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Непал"
+	},
+	"trivia_beginner_079": {
+		"message": "Да бисте посетили стару четврт у граду Фесу и да бисте прошетали по Атласким планинама, у коју земљу треба да одете?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Мароко"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Еквадор"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Тајланд"
+	},
+	"trivia_beginner_080": {
+		"message": "У којој земљи леже рушевине древних Маја и предивне плаже Канкуна?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Холандија"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Турска"
+	},
+	"trivia_beginner_081": {
+		"message": "У којој земљи можете да посетите катедралу Светог Патрика у Даблину и да обиђете Фестивал уметности у Килкенију?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ирска"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Сомалија"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Костарика"
+	},
+	"trivia_beginner_082": {
+		"message": "У којој земљи можеш и да истражујеш кишне шуме и да плешеш на карневалу у Рију де Жанеиру?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Бразил"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Уједињено Краљевство"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Вијетнам"
+	},
+	"trivia_beginner_083": {
+		"message": "Да бисте посетили музеј Ермитаж и возили се транссибирском железницом, у коју земљу треба да одете?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Русија"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Индонезија"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Белизе"
+	},
+	"trivia_beginner_084": {
+		"message": "Коју државу треба да посетите да бисте се возили веома брзим возом и провели ноћ у хотелу у Токију?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Јапан"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Зимбабве"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Боливија"
+	},
+	"trivia_beginner_085": {
+		"message": "У којој земљи се за ручак може јести песто у Ђенови, а пре вечере слушати опера у Фиренци?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Италија"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Парагвај"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Либија"
+	},
+	"trivia_beginner_086": {
+		"message": "У коју земљу треба отпутовати да бисте отишли на сафари у резерват Масаи Мара и у куповину у Најробију?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Кенија"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Јужна Кореја"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Чиле"
+	},
+	"trivia_beginner_087": {
+		"message": "У коју земљу треба да отпутујете да бисте видели реку Ганг и прошетали крцатим улицама Калкуте?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Индија"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Немачка"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Јордан"
+	},
+	"trivia_beginner_088": {
+		"message": "Северни пол, најсевернија тачка на Земљи, налази се усред океана. Ког?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Арктички океан"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Пацифик"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Индијски океан"
+	},
+	"trivia_beginner_089": {
+		"message": "Која земља излази на Атлантски океан?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Исланд"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Пакистан"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Јапан"
+	},
+	"trivia_beginner_090": {
+		"message": "Која савезна држава САД се назива сунчаном због топле климе и популарних плажа?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Флорида"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Мејн"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Вашингтон"
+	},
+	"trivia_beginner_091": {
+		"message": "У којој савезној држави САД се налази Велики кањон?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Аризона"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Западна Вирџинија"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Јужна Дакота"
+	},
+	"trivia_beginner_092": {
+		"message": "Која савезна држава САД је позната као Држава усамљене звезде, има једну звезду на застави и некад је била независна?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Тексас"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Висконсин"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Мериленд"
+	},
+	"trivia_beginner_093": {
+		"message": "На ком континенту се налазе реке Тигар и Еуфрат?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Азија"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Антарктик"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Европа"
+	},
+	"trivia_beginner_094": {
+		"message": "На ком континенту се налазе језеро Викторија и планине Вирунга?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Африка"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Азија"
+	},
+	"trivia_beginner_095": {
+		"message": "Која земља је острвска земља у Пацифику?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Нови Зеланд"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Јужна Африка"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Исланд"
+	},
+	"trivia_beginner_096": {
+		"message": "Која земља се налази на Скандинавском полуострву?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Шведска"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Румунија"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Перу"
+	},
+	"trivia_beginner_097": {
+		"message": "Која земља излази на Средоземно море?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Француска"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Бангладеш"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Никарагва"
+	},
+	"trivia_hard_001": {
+		"message": "Који град у САД је најближи граници са Канадом?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Сијетл"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Сакраменто"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Омаха"
+	},
+	"trivia_hard_002": {
+		"message": "Који град у САД ће највероватније да продрма ураган?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Мајами"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Лос Анђелес"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Питсбург"
+	},
+	"trivia_hard_003": {
+		"message": "Које од ових језера има највећу површину?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Језеро Хјурон"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Језеро Мид"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Језеро Ири"
+	},
+	"trivia_hard_004": {
+		"message": "Која од ове три савезне државе САД има највише становника?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Чикаго"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Сент Луис"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Индијанаполис"
+	},
+	"trivia_hard_005": {
+		"message": "Која земља је најближа Персијском заливу?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Турска"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Бутан"
+	},
+	"trivia_hard_006": {
+		"message": "Која од ових земаља је највећа?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Казахстан"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Румунија"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Пољска"
+	},
+	"trivia_hard_007": {
+		"message": "Која од ових земаља је најгушће насељена?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Сингапур"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Лаос"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Боливија"
+	},
+	"trivia_hard_008": {
+		"message": "У којој од ових земаља се налази највише људи који говоре немачки?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Аустрија"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Словачка"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Ирак"
+	},
+	"trivia_hard_009": {
+		"message": "Која од ових држава се граничи са највише држава?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Саудијска Арабија"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Мароко"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Монголија"
+	},
+	"trivia_hard_010": {
+		"message": "Која земља не излази на језеро Тангањика?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Бенин"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Бурунди"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Замбија"
+	},
+	"trivia_hard_011": {
+		"message": "Коју земљу не пресеца Екватор?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Мауританија"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Индонезија"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Кенија"
+	},
+	"trivia_hard_012": {
+		"message": "Која земља није на Балканском полуострву?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Чешка"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Бугарска"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Македонија"
+	},
+	"trivia_hard_013": {
+		"message": "Која земља не излази на Северно море?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Финска"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Данска"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Уједињено Краљевство"
+	},
+	"trivia_hard_014": {
+		"message": "Која земља не излази на Црно Море?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Азербејџан"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Украјина"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Турска"
+	},
+	"trivia_hard_015": {
+		"message": "Која од земаља има излаз на море?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Хрватска"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Белорусија"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Мађарска"
+	},
+	"trivia_hard_016": {
+		"message": "Која земља није у Сахари?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Ангола"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Либија"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_hard_017": {
+		"message": "Које острво је најисточније?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Тринидад"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Јамајка"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Куба"
+	},
+	"trivia_hard_018": {
+		"message": "Чије воде запљускују Рт Страха?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Атлантски океан"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Карипско море"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Пацифик"
+	},
+	"trivia_hard_019": {
+		"message": "Који је један од важних лучких градова у Мексичком заливу?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Веракруз"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Тихуана"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Акапулко"
+	},
+	"trivia_hard_020": {
+		"message": "Коју државу пресеца северни повратник?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Канада"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Бразил"
+	},
+	"trivia_hard_021": {
+		"message": "Које од ових острва је највеће?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Бафинова земља"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Хаити"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Сардинија"
+	},
+	"trivia_hard_022": {
+		"message": "Јукатански канал раздваја Мексико од ког острва?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Куба"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Порторико"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Доминика"
+	},
+	"trivia_hard_023": {
+		"message": "Који је најсевернији град у Канади?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Јелоунајф"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Отава"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Винипег"
+	},
+	"trivia_hard_024": {
+		"message": "Које острво припада Малим Антилима?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Сент Китс"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Бермуди"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Нова Шкотска"
+	},
+	"trivia_hard_025": {
+		"message": "Порт о Пренс је најнасељенији град у којој земљи?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Хаити"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Никарагва"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Суринам"
+	},
+	"trivia_hard_026": {
+		"message": "Која земља се налази у Карпатима?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Румунија"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Албанија"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Туркменистан"
+	},
+	"trivia_hard_027": {
+		"message": "У којој земљи је француски службени језик?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Габон"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Кувајт"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Танзанија"
+	},
+	"trivia_hard_028": {
+		"message": "Која од ових земаља је највећа?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Израел"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Бахреин"
+	},
+	"trivia_hard_029": {
+		"message": "Која земља се простире преко највише степени географске дужине?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Казахстан"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Aвганистан"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Сирија"
+	},
+	"trivia_hard_030": {
+		"message": "Која земља се састоји од мноштва острва?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Филипини"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Камбоџа"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Таџикистан"
+	},
+	"trivia_hard_031": {
+		"message": "Која од ових држава има највише временских зона?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Бразил"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Гана"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Белизе"
+	},
+	"trivia_hard_032": {
+		"message": "Која земља лежи најдаље на северу?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Камерун"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Мозамбик"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Аустралија"
+	},
+	"trivia_hard_033": {
+		"message": "Која земља се налази између Франсуске и Шпаније?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Андора"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Луксембург"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Ватикан"
+	},
+	"trivia_hard_034": {
+		"message": "Са којом државом се граничи Данска?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Немачка"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Финска"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Молдавија"
+	},
+	"trivia_hard_035": {
+		"message": "Којој земљи припада острво Сардинија?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Италија"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Турска"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Уједињено Краљевство"
+	},
+	"trivia_hard_036": {
+		"message": "Која пустиња покрива највећи део простора између Улан Батора и Пекинга?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Гоби"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Велика индијска пустиња"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Либанска пустиња"
+	},
+	"trivia_hard_037": {
+		"message": "Ком океану припада Камчатска струја?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Пацифик"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Атлантски океан"
+	},
+	"trivia_hard_038": {
+		"message": "Залив Сидра се налази на југу ког мора?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Средоземно море"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Арапско море"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Балтичко море"
+	},
+	"trivia_hard_039": {
+		"message": "Татре су највише планине ког европског планинског масива?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Карпатске планине"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Кантабријске планине"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Пиринеји"
+	},
+	"trivia_hard_040": {
+		"message": "Која река формира језеро Кариба и представља границу Замбије и Зимбабвеа?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Река Замбези"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Река Нил"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Река Конго"
+	},
+	"trivia_hard_041": {
+		"message": "Темза, Меза и Шелда су реке које се уливају у које море?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Северно море"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Средоземно море"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Црно море"
+	},
+	"trivia_hard_042": {
+		"message": "Лузонски мореуз раздваја Филипине од великог острва на северу. Ког?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Тајван"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Алжир"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Шри Ланка"
+	},
+	"trivia_hard_043": {
+		"message": "Која острва леже посред средњеатлантског гребена?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Азори"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Бахами"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Острва Фиџи"
+	},
+	"trivia_hard_044": {
+		"message": "Која река се улива у Лаптевско море?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Река Лена"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Река Јангце"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Река Инд"
+	},
+	"trivia_hard_045": {
+		"message": "Који врх је најближи Екватору?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Килиманџаро"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Монблан"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Врх Мекинли"
+	},
+	"trivia_hard_046": {
+		"message": "Који главни град је најнасељенији?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Москва"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Хелсинки"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Алжир"
+	},
+	"trivia_hard_047": {
+		"message": "Који град на реци Лифи је највећи у Републици Ирској?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Даблин"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Осло"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Копенхаген"
+	},
+	"trivia_hard_048": {
+		"message": "Који град у долини Хиндукуша је највећи град у Авганистану?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Кабул"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Сарајево"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Кампала"
+	},
+	"trivia_hard_049": {
+		"message": "Који град на обали реке Чао Праја је највећи на Тајланду?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Банкок"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Пекинг"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Аман"
+	},
+	"trivia_hard_050": {
+		"message": "Који град, на почетку фјорда који се отвара у мореуз Скагерак, је највећи град у Норвешкој?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Осло"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Лондон"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Брисел"
+	},
+	"trivia_hard_051": {
+		"message": "Који град на источној обали Средоземног мора је највећи у Либану?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Бејрут"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Могадиш"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Ријад"
+	},
+	"trivia_hard_052": {
+		"message": "Који град на источној обали Јаве је највећи у Индонезији?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Џакарта"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Токио"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Најроби"
+	},
+	"trivia_hard_053": {
+		"message": "Који град у региону Атика је највећи град у Грчкој?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Атина"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Рим"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Барселона"
+	},
+	"trivia_hard_054": {
+		"message": "Који град, у естуару Рио де ла Плата, је највећи град у Уругвају?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Монтевидео"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Кито"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Рио де Жанеиро"
+	},
+	"trivia_hard_055": {
+		"message": "Који град, некад део бивше провинције Трансвал, је највећи град Јужноафричке Републике?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Јоханесбург"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Абуџа"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Мапуто"
+	},
+	"trivia_hard_056": {
+		"message": "Који град је важан транспортни центар у Карипском мору, највећи град Јамајке?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Кингстон"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Каракас"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Буенос Ајрес"
+	},
+	"trivia_hard_057": {
+		"message": "Који град, који се налази у великој раседној долини, је главни град Еритреје?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Асмара"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Багдад"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Бразавил"
+	},
+	"trivia_hard_058": {
+		"message": "Који град на реци Висли је највећи град Пољске?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Варшава"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Берлин"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Кијев"
+	},
+	"trivia_hard_059": {
+		"message": "Који град, важно свратиште на Панамеричком аутопуту, је највећи град Костарике?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "Сан Хозе"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Лима"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Сукре"
+	},
+	"trivia_hard_060": {
+		"message": "Који град, највећи у Зимбабвеу, је важан трговински центар за пољопривредне производе?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Хараре"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Виндхук"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Кампала"
+	},
+	"trivia_hard_061": {
+		"message": "Који град, који је некад био под окупацијом Црвених Кмера, је највећи у Камбоџи?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Пном Пен"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Куала Лумпур"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Дака"
+	},
+	"trivia_hard_062": {
+		"message": "Који град на Атлантском океану, поред рта Мезурадо, је највећи град Либерије?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Монровија"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Акра"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Лусака"
+	},
+	"trivia_hard_063": {
+		"message": "Који град, на платоу Анда, је највећи у Колумбији?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Богота"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Манагва"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Монтереј"
+	},
+	"trivia_hard_064": {
+		"message": "Који град, на обронцима планине Елбрус, је највећи град Ирана?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Техеран"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Ташкент"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Истанбул"
+	},
+	"trivia_hard_065": {
+		"message": "Коју водену површину пресеца поларни круг?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Норвешко море"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Језеро Волта"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Каспијско море"
+	},
+	"trivia_hard_066": {
+		"message": "Која водена површина се налази у Великој раседној долини?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Језеро Малави"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Тасманско море"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Језеро Титикака"
+	},
+	"trivia_hard_067": {
+		"message": "На коју водену површину излази руски лучки град Архангелск?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Бело море"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Басов мореуз"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Бискајски залив"
+	},
+	"trivia_hard_068": {
+		"message": "У којој земљи се налазе провинције Хунан и Шандунг?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Кина"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Тајланд"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Јемен"
+	},
+	"trivia_hard_069": {
+		"message": "У којој медитеранској земљи је кастиљански службени језик?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Шпанија"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Грчка"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Азербејџан"
+	},
+	"trivia_hard_070": {
+		"message": "Која централноамеричка земља је једном била провинција у склопу Колумбије?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Панама"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Хондурас"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Гватемала"
+	},
+	"trivia_hard_071": {
+		"message": "Град Базел, кроз који протиче река Рајна, је важан транспортни центар које земље?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Швајцарска"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Белгија"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Русија"
+	},
+	"trivia_hard_072": {
+		"message": "Сликаре попут Сезана је инспирисао пејзаж Провансе. У којој земљи се налази тај регион?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Француска"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Холандија"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Румунија"
+	},
+	"trivia_hard_073": {
+		"message": "Баија Бланка је важна трговачка лука у области Пампаса. У којој земљи се налази?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Аргентина"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Боливија"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Никарагва"
+	},
+	"trivia_hard_074": {
+		"message": "Која земља излази на Средоземно, Црно и Егејско море?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Турска"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Бугарска"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Либија"
+	},
+	"trivia_hard_075": {
+		"message": "Сваке године гнуови мигрирају из Танзаније у суседну земљу на североистоку преко реке Мара. Која је то земља?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Кенија"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Замбија"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Гвинеја"
+	},
+	"trivia_hard_076": {
+		"message": "Алеп је град познат по Великој џамији и највећи је град које југозападне азијске земље?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Сирија"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Оман"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Бангладеш"
+	},
+	"trivia_hard_077": {
+		"message": "Која земља се граничи са Русијом и Грузијом?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Азербејџан"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Узбекистан"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Северна Кореја"
+	},
+	"trivia_hard_078": {
+		"message": "Која земља се граничи са Панамом и Бразилом?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Колумбија"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Перу"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Костарика"
+	},
+	"trivia_hard_079": {
+		"message": "Која земља се граничи са Гватемалом и САД?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "Салвадор"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Канада"
+	},
+	"trivia_hard_080": {
+		"message": "Која земља се граничи са Ираком и Авганистаном?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Иран"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Украјина"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Монголија"
+	},
+	"trivia_hard_081": {
+		"message": "Која земља се граничи са Лесотом и Боцваном?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Јужна Африка"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Зимбабве"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Конго"
+	},
+	"trivia_hard_082": {
+		"message": "Антверпен се налази у региону једне земље у ком се говори Фламански. Која је то земља?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Белгија"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Холандија"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Исланд"
+	},
+	"trivia_hard_083": {
+		"message": "Гдањск се налази близу ушћа реке Висле и велика је лука у једној европској земљи. Којој?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Пољска"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Шпанија"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Хрватска"
+	},
+	"trivia_hard_084": {
+		"message": "Реке Мадеира и Пурус су главне притоке које велике реке у Јужној Америци?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Река Амазон"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Река Ориноко"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Река Парана"
+	},
+	"trivia_hard_085": {
+		"message": "Боденско језеро се налази између Немачке, Швајцарске и – ?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Аустрија"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Словачка"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Финска"
+	},
+	"trivia_hard_086": {
+		"message": "Оукланд је велики лучки град са више лука и највећи град које земље?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Нови Зеланд"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Аустралија"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Индонезија"
+	},
+	"trivia_hard_087": {
+		"message": "Која земља, одмах западно од Тогоа, је велики произвођач какаа?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Гана"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Судан"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Тунис"
+	},
+	"trivia_hard_088": {
+		"message": "Гварани је један од службених језика и назив валуте у једној јужноамеричкој земљи. Којој?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Парагвај"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Еквадор"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Бразил"
+	},
+	"trivia_hard_089": {
+		"message": "Који планински ланац се пружа границом Француске и Шпаније?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Пиринеји"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Апенини"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Кавкаске планине"
+	},
+	"trivia_hard_090": {
+		"message": "Река Торенс утиче у Залив светог Винсента – у којој земљи?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Уганда"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Канада"
+	},
+	"trivia_hard_091": {
+		"message": "Која афричка земља која излази на Средоземно море је краљевина?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Мароко"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Египат"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Централноафричка Република"
+	},
+	"trivia_hard_092": {
+		"message": "Тбилиси, град на обали реке Кура, је престоница које државе?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Грузија"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Сирија"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Мађарска"
+	},
+	"trivia_hard_093": {
+		"message": "Абруцо је планинска област уз Јадранско море. У којој земљи се налази?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Италија"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Француска"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Луксембург"
+	},
+	"trivia_hard_094": {
+		"message": "Ришки залив лежи између Летоније и које земље?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Естонија"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Белорусија"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Шпанија"
+	},
+	"trivia_hard_095": {
+		"message": "Мореуз Џубал повезује Суецки залив са морем. Којим?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Црвено море"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Карипско море"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Каспијско море"
+	},
+	"trivia_hard_096": {
+		"message": "Из које реке Галилејско језеро добија већину своје воде?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Река Јордан"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Аму Дарја"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Река Ганг"
+	},
+	"trivia_hard_097": {
+		"message": "Који велики залив раздваја Њу Брансвик од Нове Шкотске?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Залив Фанди"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Залив Хадсон"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Бенгалски залив"
+	},
+	"trivia_hard_098": {
+		"message": "Келнска катедрала је у области Рајна. У којој држави?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Немачка"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Данска"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Пакистан"
+	},
+	"trivia_hard_099": {
+		"message": "У Чијапасу се налази неколико рушевина градова Маја. То је најјужнија савезна држава које земље?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Хондурас"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Чиле"
+	},
+	"trivia_hard_100": {
+		"message": "Дарданели је мореуз који повезује Мраморно море са још једним. Којим?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Егејско море"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Баренцово море"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Тасманско море"
+	},
+	"trivia_hard_101": {
+		"message": "Кмерски је службени језик једне земље у југоисточној Азији. Које?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Камбоџа"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Непал"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Вијетнам"
+	},
+	"trivia_hard_102": {
+		"message": "Доњецки басен је индустријска област између Русије и које земље?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Украјина"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Словачка"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Либан"
+	},
+	"trivia_hard_103": {
+		"message": "Врх Кошћушко налази се на Великим разводним планинама и највиши је врх ког континента?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Европа"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_hard_104": {
+		"message": "Којој земљи припадају острва Мадура и Бали?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Индонезија"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Јапан"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Пакистан"
+	},
+	"trivia_hard_105": {
+		"message": "Пустиња Такла Макан налази се северно од планина Квен Лун у којој азијској земљи?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Кина"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Саудијска Арабија"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Јужна Кореја"
+	},
+	"trivia_medium_001": {
+		"message": "Који од ових градова у САД се налази на речној делти?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Њу Орлеанс"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Остин"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Оклахома Сити"
+	},
+	"trivia_medium_002": {
+		"message": "Анкор Ват и Кападокија су Светска културна баштина Унеска, а налазе се на ком континенту?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Азија"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Африка"
+	},
+	"trivia_medium_003": {
+		"message": "Курдски и Персијски језик говоре људи на југозападу ког континента?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Азија"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_004": {
+		"message": "Теотивакан је био велики град древне цивилизације. На ком континенту се налази?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Азија"
+	},
+	"trivia_medium_005": {
+		"message": "Који континент запљускују Белингсхаусеново море и Росово море?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Антарктик"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Азија"
+	},
+	"trivia_medium_006": {
+		"message": "Бенгуелска струја и Мозамбичка струја теку дуж обала ког континента?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Африка"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Европа"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_007": {
+		"message": "Малвинска или Фолкландска острва су архипелаг који се налази уз југоисточну ивицу ког континента?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_008": {
+		"message": "Која од ових афричких земаља је највећа?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Алжир"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Гамбија"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Бурунди"
+	},
+	"trivia_medium_009": {
+		"message": "Које велико острво се налази 200 миља северозападно од Исланда?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Гренланд"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Нова Гвинеја"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ирска"
+	},
+	"trivia_medium_010": {
+		"message": "Карско море и Источносибирско море су делови ког океана?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Арктички океан"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Индијски океан"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Пацифик"
+	},
+	"trivia_medium_011": {
+		"message": "Која земља излази на Балтичко море?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Летонија"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Словенија"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Украјина"
+	},
+	"trivia_medium_012": {
+		"message": "Који од ових великих градова има највише становника?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "Сао Паоло, Бразил"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Торонто, Канада"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Ханој, Вијетнам"
+	},
+	"trivia_medium_013": {
+		"message": "Која земља не излази на Атлантик?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Малезија"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Ангола"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Уругвај"
+	},
+	"trivia_medium_014": {
+		"message": "Која од ових земаља има најкраћу обалу?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Салвадор"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Перу"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Чиле"
+	},
+	"trivia_medium_015": {
+		"message": "Која пустиња се налази у Азији?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Гоби"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Калахари"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Атакама"
+	},
+	"trivia_medium_016": {
+		"message": "Која од ових земаља има највећу вулканску активност?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Индонезија"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Египат"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Израел"
+	},
+	"trivia_medium_017": {
+		"message": "Која од ових земаља има највише становника?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Пакистан"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Хаити"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_018": {
+		"message": "Која од следећих држава има највише острва?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Бахами"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Јамајка"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Салвадор"
+	},
+	"trivia_medium_019": {
+		"message": "Која земља је најближа Екватору?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Руанда"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Гватемала"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Јужна Африка"
+	},
+	"trivia_medium_020": {
+		"message": "Која земља лежи најдаље на северу?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Естонија"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Либија"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Камбоџа"
+	},
+	"trivia_medium_021": {
+		"message": "Четврт Алфама лежи на обалама реке Тахо у Португалији. У ком главном граду?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Лисабон"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Берлин"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Хелсинки"
+	},
+	"trivia_medium_022": {
+		"message": "Који главни град, који се налази 25 миља североисточно од Мртвог мора, је најнасељенији град у Јордану?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Аман"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Исламабад"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Сеул"
+	},
+	"trivia_medium_023": {
+		"message": "Трг Тахрир је често поприште великих протестних скупова у Египту. Како се зове главни град у ком се налази?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Каиро"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Најроби"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Мускат"
+	},
+	"trivia_medium_024": {
+		"message": "Како се зове град у Тејбл Беју у ком се налази скупштина Јужноафричке Републике и који је главни град те државе?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Кејптаун"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Лусака"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Киншаса"
+	},
+	"trivia_medium_025": {
+		"message": "Највећи град и престоница Чешке, на реци Влтави, зове се?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Праг"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Даблин"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Софија"
+	},
+	"trivia_medium_026": {
+		"message": "Који медитерански град је важна лука и главни град Либије?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Триполи"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Могадиш"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Монровија"
+	},
+	"trivia_medium_027": {
+		"message": "Који главни град, важан трговински и саобраћајни чвор, лежи на споју Белог и Плавог Нила?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Картум"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Тунис"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Јоханесбург"
+	},
+	"trivia_medium_028": {
+		"message": "Који главни град лежи на данским острвима Сјеланд и Амагер?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Копенхаген"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Берн"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Братислава"
+	},
+	"trivia_medium_029": {
+		"message": "Који град на острву Њу Провиденс је главни и највећи град Бахама?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Насау"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Санто Доминго"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Белмопан"
+	},
+	"trivia_medium_030": {
+		"message": "Који главни град, јужно од Црног мора, је центар транспортног система у Турској?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Анкара"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Минск"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Техеран"
+	},
+	"trivia_medium_031": {
+		"message": "Која од ових земаља се делимично простире на Афричком рогу?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Еритреја"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Нигер"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Свазиленд"
+	},
+	"trivia_medium_032": {
+		"message": "Скагерак је мореуз који раздваја Данску и?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Норвешка"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Уједињено Краљевство"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Шри Ланка"
+	},
+	"trivia_medium_033": {
+		"message": "Коју земљу покрива више пустиње?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Чад"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Норвешка"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Вијетнам"
+	},
+	"trivia_medium_034": {
+		"message": "Кроз коју земљу протиче река Еуфрат?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Сирија"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Швајцарска"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Тајланд"
+	},
+	"trivia_medium_035": {
+		"message": "Град Иркутск лежи поред Бајкалског језера – на ком континенту?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Азија"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_036": {
+		"message": "Дњепар и Рајна су велике реке на ком континенту?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Европа"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Антарктик"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Азија"
+	},
+	"trivia_medium_037": {
+		"message": "Гвајанска висораван и регион Пантанал налазе се на ком континенту?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Северна Америка"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_038": {
+		"message": "Велика Викторијина пустиња и равница Нуларбор су географске регије ког континента?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Азија"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_039": {
+		"message": "Најјужнија савезна држава које државе је Рио Гранде до Сул?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Бразил"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Мексико"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Немачка"
+	},
+	"trivia_medium_040": {
+		"message": "Новосибирск је град на обали реке Об. У којој земљи?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Русија"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Непал"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Кина"
+	},
+	"trivia_medium_041": {
+		"message": "Која земља се налази на Пацифичком ватреном појасу, па је лако могуће да ће вас тамо размрдати земљотрес?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Чиле"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Ангола"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Француска"
+	},
+	"trivia_medium_042": {
+		"message": "Језеро Маракаибо се пружа дуж северне обале једне земље. Које?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Гватемала"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_043": {
+		"message": "Која земља излази на Арабијско море?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Индија"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Таџикистан"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Грчка"
+	},
+	"trivia_medium_044": {
+		"message": "Која земља се налази на Иберијском полуострву?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Португалија"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Бангладеш"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Холандија"
+	},
+	"trivia_medium_045": {
+		"message": "Која од ових земаља има најдужу обалу?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Тајланд"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Конго"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Катар"
+	},
+	"trivia_medium_046": {
+		"message": "Која савезна држава САД се налази западно од реке Мисисипи?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Колорадо"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Мериленд"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Мичиген"
+	},
+	"trivia_medium_047": {
+		"message": "60% једне државе у САД је под шумом. Које?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Вирџинија"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Аризона"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Невада"
+	},
+	"trivia_medium_048": {
+		"message": "Макинли је највиши врх Северне Америке. У којој савезној држави САД се налази?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Аљаска"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Минесота"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Колорадо"
+	},
+	"trivia_medium_049": {
+		"message": "Која од следећих држава САД је највећа?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Монтана"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Конектикат"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Јужна Каролина"
+	},
+	"trivia_medium_050": {
+		"message": "Маунт Рашмор се налази у близини Рапид Ситија у којој савезној држави САД?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Јужна Дакота"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Орегон"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Флорида"
+	},
+	"trivia_medium_051": {
+		"message": "Која држава САД се граничи са Канадом?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Минесота"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Небраска"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Кентаки"
+	},
+	"trivia_medium_052": {
+		"message": "Уз обалу једне државе САД се налазе корални гребени. Које?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Хаваји"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Конектикат"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Невада"
+	},
+	"trivia_medium_053": {
+		"message": "Хамбург је важна лука једне земље. Које?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Немачка"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Хрватска"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Белгија"
+	},
+	"trivia_medium_054": {
+		"message": "Која од ових земаља има највећу вулканску активност?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Исланд"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Уједињено Краљевство"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Пољска"
+	},
+	"trivia_medium_055": {
+		"message": "Која земља се налази углавном на полуострву званом Мала Азија?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Турска"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Мјанмар"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Естонија"
+	},
+	"trivia_medium_056": {
+		"message": "Мртво море лежи на граници између Израела и које земље?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Јордан"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Иран"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Јапан"
+	},
+	"trivia_medium_057": {
+		"message": "Национални парк Серенгети налази се источно од језера Викторија. У којој земљи?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Танзанија"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Јемен"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Нигерија"
+	},
+	"trivia_medium_058": {
+		"message": "Која земља излази на Карипско море и велики је извозник нафте?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Венецуела"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Чиле"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Парагвај"
+	},
+	"trivia_medium_059": {
+		"message": "Која земља лежи одмах јужно од екватора и нема излаз на море?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Бурунди"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Џибути"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Тунис"
+	},
+	"trivia_medium_060": {
+		"message": "Тиренско море запљускује западну обалу које медитеранске земље?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Италија"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Израел"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Сенегал"
+	},
+	"trivia_medium_061": {
+		"message": "Јекатеринбург се налази на источним падинама планине Урал. У којој земљи?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Русија"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Литванија"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Белгија"
+	},
+	"trivia_medium_062": {
+		"message": "Која се острвска земља налази југоисточно од Аустралије и највећи је произвођач вуне на свету?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Нови Зеланд"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Филипини"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Вијетнам"
+	},
+	"trivia_medium_063": {
+		"message": "Мумбај је важан лучки град у којој земљи?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Индија"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Швајцарска"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Бутан"
+	},
+	"trivia_medium_064": {
+		"message": "Град Инчон се налази на Жутом мору. У којој земљи?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Јужна Кореја"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Тајланд"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Монголија"
+	},
+	"trivia_medium_065": {
+		"message": "Која мала земља се налази уз западну границу Аустрије?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Лихтенштајн"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Сирија"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Молдавија"
+	},
+	"trivia_medium_066": {
+		"message": "Викторија и Нови Јужни Велс су савезне државе које земље?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "САД"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_067": {
+		"message": "Која држава на острву Борнео се граничи са малом државом Брунеј?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Малезија"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Иран"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Украјина"
+	},
+	"trivia_medium_068": {
+		"message": "Јулијски Алпи се налазе се на граници Италије и које земље?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Словенија"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Непал"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Таџикистан"
+	},
+	"trivia_medium_069": {
+		"message": "Област која се некад звала Манџурија налази се у североисточном делу које земље?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Кина"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Белорусија"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Aвганистан"
+	},
+	"trivia_medium_070": {
+		"message": "Која земља се граничи са Салвадором?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Хондурас"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Панама"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Доминиканска Република"
+	},
+	"trivia_medium_071": {
+		"message": "Која земља се налази на Кавказу?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Грузија"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Мађарска"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Андора"
+	},
+	"trivia_medium_072": {
+		"message": "Сундски пролаз раздваја два острва у којој азијској земљи?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Индонезија"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Нови Зеланд"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Лаос"
+	},
+	"trivia_medium_073": {
+		"message": "Ледничке долине и спектакуларне литице красе околину ушћа реке Шенон у којој земљи?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ирска"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Француска"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Узбекистан"
+	},
+	"trivia_medium_074": {
+		"message": "Кроз коју земљу у јужној Азији протиче река Инд?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Пакистан"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Северна Кореја"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Азербејџан"
+	},
+	"trivia_medium_075": {
+		"message": "Која земља излази на Црвено море?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Еритреја"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Гана"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Кенија"
+	},
+	"trivia_medium_076": {
+		"message": "Закатекас и Табаско су савезне државе у којој земљи?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Мексико"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Белизе"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Аргентина"
+	},
+	"trivia_medium_077": {
+		"message": "Ријад је град са преко 4000 џамија. У којој је земљи?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Саудијска Арабија"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Албанија"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Сирија"
+	},
+	"trivia_medium_078": {
+		"message": "Која афричка земља нема излаз на море?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Мали"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Мауританија"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Египат"
+	},
+	"trivia_medium_079": {
+		"message": "Планина Фуџи је свето место у којој земљи?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Јапан"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Филипини"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Бангладеш"
+	},
+	"trivia_medium_080": {
+		"message": "Која земља Великих Антила користи енглески као службени језик?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Јамајка"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Хаити"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Куба"
+	},
+	"trivia_medium_081": {
+		"message": "Који језик је службени језик у Сирији, Кувајту и Алжиру?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "арапски"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "јерменски"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "немачки"
+	},
+	"trivia_medium_082": {
+		"message": "Моцартове опере су редован део годишњег Салцбуршког фестивала, који се одржава у којој планинској европској земљи?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Аустрија"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Мађарска"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Румунија"
+	},
+	"trivia_medium_083": {
+		"message": "Долина китова је део пустиње пун фосилизованих остатака праисторијских китова. Налази се у земљи северно од Судана. Којој?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Египат"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Нигерија"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Замбија"
+	},
+	"trivia_medium_084": {
+		"message": "Ротердам се налази на уређеној делти на Северном мору. У којој земљи?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Холандија"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Шведска"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Грчка"
+	},
+	"trivia_medium_085": {
+		"message": "Река Брамапутра формира велику делту у Бенгалском заливу, а извире у ком планинском масиву?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Хималаји"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Урал"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Алпи"
+	},
+	"trivia_medium_086": {
+		"message": "У којој исламској земљи је фарси, односно персијски, службени језик?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Иран"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Кувајт"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Либија"
+	},
+	"trivia_medium_087": {
+		"message": "Матадори и борбе са биковима могу да се виде у Севиљи, граду у којој европској земљи?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Шпанија"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Немачка"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Македонија"
+	},
+	"trivia_medium_088": {
+		"message": "Истанбул је град за који се каже да је место на ком исток среће запад. Где се он налази?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Турска"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Словачка"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Оман"
+	},
+	"trivia_medium_089": {
+		"message": "Копан, град Маја, је популарна туристичка атракција у земљи која се граничи са Салвадором и Никарагвом?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Хондурас"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Чиле"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Канада"
+	},
+	"trivia_medium_090": {
+		"message": "Тимбукту је хиљаду година центар караванске трговине, а налази се северно од реке Нигер. У којој земљи, која нема излаз на море, се налази овај град?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Мали"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Уганда"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Намибија"
+	},
+	"trivia_medium_091": {
+		"message": "Која земља у Јужној Америци нема излаз на море а граничи се са Чилеом и Бразилом?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Боливија"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Колумбија"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Гвајана"
+	},
+	"trivia_medium_092": {
+		"message": "Град Белем налази се на јужном крају делте реке Амазон. У којој је то земљи?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Бразил"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Костарика"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Суринам"
+	},
+	"trivia_medium_093": {
+		"message": "Која река чини већи део северне границе Бугарске?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Река Дунав"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Река Об"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Река Меконг"
+	},
+	"trivia_medium_094": {
+		"message": "Сајанске планине су близу Бајкалског језера. У којој азијској земљи се налазе?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Русија"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Индија"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Киргистан"
+	},
+	"trivia_medium_095": {
+		"message": "Језеро Нипигон је највеће језеро које канадске провинције?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Онтарио"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Алберта"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Британска Колумбија"
+	},
+	"trivia_medium_096": {
+		"message": "Којем већем мору припадају Балеарско и Јонско море?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Средоземно море"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Балтичко море"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Карипско море"
+	},
+	"trivia_medium_097": {
+		"message": "Језера Туркана и Натрон су пример језера у раседним долинама, а на ком су континенту?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Африка"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Европа"
+	},
+	"trivia_medium_098": {
+		"message": "Порториканска бразда је најдубља тачка ког океана?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Атлантски океан"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Арктички океан"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Пацифик"
+	},
+	"trivia_medium_099": {
+		"message": "Кукабара је птица из породице водомара. Живи у еукалиптусовим шумама на истоку једног континента. Ког?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Аустралија"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Африка"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Јужна Америка"
+	},
+	"trivia_medium_100": {
+		"message": "У Хагу је смештен Међународни суд правде. То је град на западној обали које земље?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Холандија"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Финска"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Бугарска"
+	},
+	"trivia_ngb_promo": {
+		"message": "Садржај обезбеђује National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Тајван"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Танзанија"
+	},
+	"ug_country_name": {
+		"message": "Уганда"
+	},
+	"uk_country_name": {
+		"message": "Уједињено Краљевство"
+	},
+	"uk_tradition": {
+		"message": "У Уједињеном Краљевству, весељаци свих узраста уз вечеру уживају у божићним пуцкалицама. Пуцкалице су картонске цеви умотане у шарени папир, са језичцима за натезање са обе стране. Кад се двоје натеже, један од језичака пукне уз прасак – победнику остаје језичак са цеви, у којој су шешири, награде, играчке и друге награде за уживање у божићној ноћи."
+	},
+	"unmute": {
+		"message": "Укључи звук"
+	},
+	"upgrade-warning": {
+		"message": "Упс! Твој прегледач не подржава Праћење Деда Мраза или је JavaScript онемогућен. За Праћење Деда Мраза треба да преузмеш модеран прегледач или да омогућиш JavaScript.\nЗа више информација посети \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "САД"
+	},
+	"us_tradition": {
+		"message": "У САД, за Бадње вече се на згодно место вешају чарапе. Легенда каже да је Свети Никола чуо за породицу којој је била потребна помоћ. Да би их изненадио, спустио им се у кућу кроз димњак и оставио им врећице злата у чарапама које су биле обешене над огњиштем. Од тада је Свети Никола у католичком свету познатији као Деда Мраз, поклоноша."
+	},
+	"uy_country_name": {
+		"message": "Уругвај"
+	},
+	"uz_country_name": {
+		"message": "Узбекистан"
+	},
+	"ve_country_name": {
+		"message": "Венецуела"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google помоћник: Позови Деда Мраза"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google помоћник: Божићна прича"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google помоћник: Где је Деда Мраз"
+	},
+	"village_comeback": {
+		"message": "Врати се 24-ог и помози да пратимо Деда Мраза целе ноћи!"
+	},
+	"village_explore": {
+		"message": "Истражујте, играјте се и учите уз Деда Мразове вилењаке целог децембра"
+	},
+	"village_get_the_app": {
+		"message": "Преузми апликацију Локатор Деда Мраза за Android"
+	},
+	"village_more": {
+		"message": "Више начина за истраживање"
+	},
+	"village_santa_a2hs": {
+		"message": "Додај на почетни екран"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Додај на полицу"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Додај на рачунар"
+	},
+	"village_santa_cardboard": {
+		"message": "Деда Мраз на Cardboard-у"
+	},
+	"village_santa_cast": {
+		"message": "Деда Мраз на Google Cast-у"
+	},
+	"village_santa_crx": {
+		"message": "Додај Деда Мраз додатак за Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Деда Мразов квиз о Земљи"
+	},
+	"village_santa_install": {
+		"message": "Инсталирај"
+	},
+	"village_takesoff": {
+		"message": "Деда Мраз полеће за"
+	},
+	"vn_country_name": {
+		"message": "Вијетнам"
+	},
+	"watch": {
+		"message": "Гледај"
+	},
+	"wrapbattle_combo": {
+		"message": "Слатка комбинација"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Добро"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Промашај"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "У реду"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Савршено"
+	},
+	"ye_country_name": {
+		"message": "Јемен"
+	},
+	"yourbest": {
+		"message": "Најбољи резултат"
+	},
+	"zh-CN_language_name": {
+		"message": "Кинески (поједностављен)"
+	},
+	"zh-TW_language_name": {
+		"message": "Кинески (традиционални)"
+	},
+	"zm_country_name": {
+		"message": "Замбија"
+	},
+	"zw_country_name": {
+		"message": "Зимбабве"
+	}
+}

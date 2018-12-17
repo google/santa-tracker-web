@@ -1193,8 +1193,14 @@
 	"press-whatsnew2-title": {
 		"message": "วาดลวดลายกับบรรดาเอลฟ์"
 	},
+	"press-whatsnew3-text": {
+		"message": "นอกจากนี้คุณจะยังดูตำแหน่งของซานต้าแบบเรียลไทม์ได้บน Google Maps เพียงแค่แตะที่ปุ่ม 3 ขีด แล้วไปที่ \"การแชร์ตำแหน่ง\" เพื่อดูว่าซานตาอยู่ที่ใดในการเดินทาง คุณยังไปที่ \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e เพื่อดูทางลัดง่ายๆ ได้ด้วย"
+	},
 	"press-whatsnew3-title": {
 		"message": "วิธีใหม่ในการติดตามซานตา"
+	},
+	"press-whatsnew4-text": {
+		"message": "หากต้องการสีสันของวันหยุดที่มากกว่านี้ ลองดูสติกเกอร์วันหยุด Gboard ที่มีอยู่ใน \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e และ\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eแอป Android\u003c/a\u003e และเพลิดเพลินไปกับเรื่องเล่าสนุกๆ ด้วยการบอก Google Assistant ให้ \"เล่าเรื่องราววันหยุดให้ฉันฟังหน่อย\" และถามว่า \"ซานต้าอยู่ที่ไหน\""
 	},
 	"press-whatsnew4-title": {
 		"message": "เพิ่มความสนุกช่วงวันหยุด"

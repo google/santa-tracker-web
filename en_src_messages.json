@@ -827,6 +827,10 @@
     "description": "Button text. 15char limit. A label on an activity that will let the user explore a scene.",
     "message": "Explore"
   },
+  "explore-village": {
+    "description": "Button text. Allows users to return to Santa's Village.",
+    "message": "Explore Santa's Village"
+  },
   "fi_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Finland"
@@ -2078,6 +2082,10 @@
   "share-this": {
     "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
     "message": "Share"
+  },
+  "skip-intro": {
+    "description": "Button text. 30char limit. Lets a user skip an introductary video that will be playing behind the button.",
+    "message": "Skip Intro"
   },
   "skip-training": {
     "description": "Button text. 30char limit. Lets a user skip past an early training or introductory part of a game.",
@@ -4010,6 +4018,14 @@
   "tr_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
     "message": "Turkish"
+  },
+  "tracker-game_awesome": {
+    "description": "Link to a game which lets users learn about safety and privacy on the Internet",
+    "message": "Be Internet Awesome"
+  },
+  "tracker-game_awesome": {
+    "description": "Link to a game which lets users learn about safety and privacy on the Internet",
+    "message": "Play Tower of Teasure"
   },
   "tracker_arrival": {
     "message": "Arrival"
@@ -9088,6 +9104,10 @@
   "watch": {
     "description": "Button text. 15char limit. A label on an activity that will show the user a video.",
     "message": "Watch"
+  },
+  "watch-video": {
+    "description": "Button text. 20char limit. Allows a user to watch a video.",
+    "message": "Watch Video"
   },
   "ye_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",

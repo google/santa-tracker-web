@@ -1,0 +1,6863 @@
+{
+	"about-content-one": {
+		"message": "Την Παραμονή Χριστουγέννων θα παρουσιάσουμε με περηφάνια τον πίνακα ελέγχου του Άγιου Βασίλη, την τεχνολογία που κινεί το έλκηθρό του στο ταξίδι του σε ολόκληρο τον κόσμο. Λάβαμε αυτήν την ειδική προεπισκόπηση από ένα από τα πολλά ξωτικά-προγραμματιστές του Άγιου Βασίλη, τα οποία δουλεύουν σκληρά στον Βόρειο Πόλο, για να βοηθήσουν τον Άγιο Βασίλη να προετοιμαστεί για τη μεγάλη μέρα. Ο πίνακας ελέγχου του Άγιου Βασίλη, ο οποίος διαθέτει την πιο πρόσφατη και καλύτερη τεχνολογία Χαρτών Google και μηχανικής έλκηθρων, θα σας δώσει τη δυνατότητα να ακολουθήσετε την πρόοδό του σε όλο τον κόσμο και επίσης να μάθετε μερικές πληροφορίες για μερικές από τις στάσεις που θα κάνει."
+	},
+	"about-content-three": {
+		"message": "Το Santa Tracker στους Χάρτες Google δημιουργείται και αναπτύσσεται από την Google, με μικρή βοήθεια από τα ξωτικά του Άγιου Βασίλη. Χρειάζεστε βοήθεια ή έχετε κάποια άλλη ερώτηση; Επισκεφτείτε το \u003ca href=\"//support.google.com/santatracker\"\u003eΚέντρο βοήθειας\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Τα φιλικά ξωτικά μας σας προσκάλεσαν επίσης να εξερευνήσετε το χωριό του Άγιου Βασίλη, ενώ ο Άγιος Βασίλης ετοιμάζεται για το ταξίδι του. Εξερευνήστε το χωριό του και μπορεί να βρείτε μερικές διασκεδαστικές δραστηριότητες και να γνωρίσετε ορισμένα ενδιαφέροντα ξωτικά."
+	},
+	"about-santa": {
+		"message": "Πληροφορίες"
+	},
+	"about_title": {
+		"message": "Καλώς ήρθατε στο Santa Tracker από τους Χάρτες Google!"
+	},
+	"ae_country_name": {
+		"message": "Ηνωμένα Αραβικά Εμιράτα"
+	},
+	"af_country_name": {
+		"message": "Αφγανιστάν"
+	},
+	"al_country_name": {
+		"message": "Αλβανία"
+	},
+	"ao_country_name": {
+		"message": "Αγκόλα"
+	},
+	"ar_country_name": {
+		"message": "Αργεντινή"
+	},
+	"ar_language_name": {
+		"message": "Αραβικά"
+	},
+	"ar_tradition": {
+		"message": "Στην Αργεντινή, τα Χριστούγεννα ξεκινούν ακριβώς τα μεσάνυχτα. Πολλές οικογένειες ξεκινούν την περίοδο των γιορτών διοργανώνοντας εορταστικές συγκεντρώσεις στα σπίτια τους, ανοίγοντας δώρα με τους αγαπημένους τους και εκτοξεύοντας πυροτεχνήματα τις πρώτες πρωινές ώρες."
+	},
+	"at_country_name": {
+		"message": "Αυστρία"
+	},
+	"au_country_name": {
+		"message": "Αυστραλία"
+	},
+	"au_tradition": {
+		"message": "Η Αυστραλία βρίσκεται στο νότιο ημισφαίριο, γεγονός που σημαίνει ότι είναι καλοκαίρι τον Δεκέμβριο. Αντί να στολίζουν τα έλκηθρα με καμπανάκια και να πίνουν ζεστό κακάο, πολλοί Αυστραλοί πηγαίνουν στην παραλία για να γιορτάσουν τα Χριστούγεννα τρώγοντας θαλασσινά και παίζοντας κρίκετ."
+	},
+	"ba_country_name": {
+		"message": "Βοσνία και Ερζεγοβίνη"
+	},
+	"back_to_previous_page": {
+		"message": "Πίσω"
+	},
+	"back_to_tracker": {
+		"message": "Πίσω στο Santa Tracker"
+	},
+	"bd_country_name": {
+		"message": "Μπανγκλαντές"
+	},
+	"be_country_name": {
+		"message": "Βέλγιο"
+	},
+	"bf_country_name": {
+		"message": "Μπουρκίνα Φάσο"
+	},
+	"bg_country_name": {
+		"message": "Βουλγαρία"
+	},
+	"bj_country_name": {
+		"message": "Μπενίν"
+	},
+	"bo_country_name": {
+		"message": "Βολιβία"
+	},
+	"br_country_name": {
+		"message": "Βραζιλία"
+	},
+	"br_tradition": {
+		"message": "Οι εορτασμοί των Χριστουγέννων ξεκινούν κοντά στα μεσάνυχτα, συνήθως με μεγάλα οικογενειακά δείπνα, άνοιγμα δώρων και την εορταστική \"Missa do Galo\" (λειτουργία του πετεινού) στις εκκλησίες. Παρά τον ζεστό καιρό του τροπικού καλοκαιριού, η παρουσία θεμάτων του χειμώνα και του χιονιού είναι συχνή."
+	},
+	"bt_country_name": {
+		"message": "Μπουτάν"
+	},
+	"bw_country_name": {
+		"message": "Μποτσουάνα"
+	},
+	"by_country_name": {
+		"message": "Λευκορωσία"
+	},
+	"bz_country_name": {
+		"message": "Μπελίζ"
+	},
+	"ca_country_name": {
+		"message": "Καναδάς"
+	},
+	"ca_tradition": {
+		"message": "Τα παιδιά στον Καναδά γιορτάζουν συνήθως λευκά Χριστούγεννα. Φορούν κασκόλ και τόκες, ένα καναδικό μάλλινο καπέλο, για να παίξουν στο χιόνι, να κάνουν πατινάζ και έλκηθρο! Την Παραμονή των Χριστουγέννων, αφήνουν γάλα και μπισκότα στο τζάκι για τον Άγιο Βασίλη (και ίσως ένα καρότο για τον τάρανδό του)."
+	},
+	"calendar": {
+		"message": "Το ημερολόγιο"
+	},
+	"category_all": {
+		"message": "Προβολή όλων"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Κώδικας"
+	},
+	"category_computer-science": {
+		"message": "Επιστήμη υπολογιστών"
+	},
+	"category_draw": {
+		"message": "Σχέδιο"
+	},
+	"category_education": {
+		"message": "Με στόχο την εκπαίδευση"
+	},
+	"category_geography": {
+		"message": "Γεωγραφική θέση"
+	},
+	"category_language": {
+		"message": "Γλώσσα"
+	},
+	"category_listen": {
+		"message": "Ακρόαση"
+	},
+	"category_new-this-year": {
+		"message": "Νέα φέτος"
+	},
+	"category_send": {
+		"message": "Αποστολή"
+	},
+	"category_social-studies": {
+		"message": "Κοινωνικές σπουδές"
+	},
+	"cd_country_name": {
+		"message": "Δημοκρατία του Κονγκό"
+	},
+	"cf_country_name": {
+		"message": "Κεντροαφρικανική Δημοκρατία"
+	},
+	"cg_country_name": {
+		"message": "Δημοκρατία του Κονγκό"
+	},
+	"ch_country_name": {
+		"message": "Ελβετία"
+	},
+	"ci_country_name": {
+		"message": "Ακτή Ελεφαντοστού"
+	},
+	"citylights-contribute": {
+		"message": "Προσθέστε τις δικές σας φωτογραφίες από την τοποθεσία {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Πλατεία Ροκφέλερ"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Νέα Υόρκη, ΗΠΑ"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Πλατεία Πούσκιν"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Μόσχα, Ρωσία"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ράταουσπλατς"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Βιέννη, Αυστρία"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Λεωφόρος Ηλυσίων Πεδίων μέχρι την Αψίδα του Θριάμβου"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Παρίσι, Γαλλία"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Σικάγο, ΗΠΑ"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Χριστουγεννιάτικη αγορά"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Νυρεμβέργη, Γερμανία"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Ποταμός Μεδεγίν"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Μεδεγίν, Κολομβία"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Χωριό του Άγιου Βασίλη"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Λάπλαντ, Φινλανδία"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Γκραν-Πλας"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Βρυξέλλες, Βέλγιο"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Πλατεία Τραφάλγκαρ"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Λονδίνο, Αγγλία"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Πλάθα Μαγιόρ"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Μαδρίτη, Ισπανία"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Ροπόντζι Χιλς"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Τόκιο, Ιαπωνία"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Κήποι Τίβολι"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Κοπεγχάγη, Δανία"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Οδός Όρτσαρντ"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Σιγκαπούρη, Σιγκαπούρη"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Lane of Light"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Γκέτεμποργκ, Σουηδία"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Καταρράκτες του Νιαγάρα, Καναδάς"
+	},
+	"citylights-panorama-17-description": {
+		"message": "WinterFest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Χονγκ Κονγκ, Κίνα"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Λίμνη Ροντρίγκο ντε Φρέιτας"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Ρίο ντε Τζανέιρο, Βραζιλία"
+	},
+	"cl_country_name": {
+		"message": "Χιλή"
+	},
+	"clear": {
+		"message": "Διαγραφή"
+	},
+	"close": {
+		"message": "Κλείσιμο"
+	},
+	"cm_country_name": {
+		"message": "Καμερούν"
+	},
+	"co_country_name": {
+		"message": "Κολομβία"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Επιστροφή στην αρχή"
+	},
+	"codeboogie-block-clap": {
+		"message": "Παλαμάκια"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Χτύπα παλαμάκια."
+	},
+	"codeboogie-block-jump": {
+		"message": "Άλμα"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Κάνε άλμα."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Δείξε αριστερά"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Δείξε προς τα αριστερά."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Βήμα αριστερά"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Κάνε ένα βήμα στα αριστερά."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Δείξε δεξιά"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Δείξε προς τα δεξιά."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Βήμα δεξιά"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Κάνε ένα βήμα στα δεξιά."
+	},
+	"codeboogie-block-shake": {
+		"message": "Κούνημα γοφών"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Κούνησε τους γοφούς."
+	},
+	"codeboogie-block-split": {
+		"message": "Σπαγγάτο"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Κάνε σπαγγάτο."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Επιλέξτε λειτουργία παιχνιδιού"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Επιλέξτε τοποθεσία"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Ώρα για χορό!"
+	},
+	"codeboogie-go": {
+		"message": "Πάμε!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Συνεχίστε τον χορό"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Ας χορέψουμε"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Μάθημα χορού"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Αντίγραψε τις κινήσεις του δασκάλου"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Χορός freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Κάντε τις δικές σας κινήσεις και μοιραστείτε τις με φίλους"
+	},
+	"codeboogie-next-dance": {
+		"message": "Επόμενος χορός"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Ωραίες κινήσεις"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Δοκιμάστε το παρακάτω τετράγωνο για να αντιστοιχίσετε τον χορό."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Ξέρατε ότι μπορείτε να ολοκληρώσετε αυτόν τον χορό μόλις με {{ideal}} τετράγωνα; Δοκιμάστε να χρησιμοποιήσετε το παρακάτω τετράγωνο."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Εκπληκτικές κινήσεις! Ολοκληρώσατε τέλεια τον χορό."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Χρησιμοποιείτε τα σωστά τετράγωνα, αλλά δοκιμάστε να χρησιμοποιήσετε περισσότερα από αυτά για να ολοκληρώσετε τον χορό."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Ξέρατε ότι μπορείτε να ολοκληρώσετε αυτόν τον χορό μόλις με {{ideal}} τετράγωνα;"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Κάνατε πάρα πολλά βήματα."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Φαίνεται ότι κάνατε λάθος κίνηση. Δοκιμάστε αυτήν την κίνηση:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Μοιραστείτε τις κινήσεις σας και προκαλέστε τους φίλους σας"
+	},
+	"codeboogie-success": {
+		"message": "Επιτυχία!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Δείτε προσεκτικά!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Η σειρά σας"
+	},
+	"codelab-block-jump-length": {
+		"message": "άλμα"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Πηδήξτε πάνω από πλακίδια."
+	},
+	"codelab-block-moveeast": {
+		"message": "ανατολικά"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Να μετακινηθώ ανατολικά κατά ένα κενό."
+	},
+	"codelab-block-movenorth": {
+		"message": "βόρεια"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Να μετακινηθώ βόρεια κατά ένα κενό."
+	},
+	"codelab-block-movesouth": {
+		"message": "νότια"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Να μετακινηθώ νότια κατά ένα κενό."
+	},
+	"codelab-block-movewest": {
+		"message": "δυτικά"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Να μετακινηθώ δυτικά κατά ένα κενό."
+	},
+	"codelab-block-repeat": {
+		"message": "επανάληψη"
+	},
+	"codelab-block-repeat-times": {
+		"message": "φορές"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Επαναλάβετε ορισμένες προτάσεις αρκετές φορές."
+	},
+	"codelab-block-whenrun": {
+		"message": "σε εκτέλεση"
+	},
+	"codelab-finish": {
+		"message": "Τέλος"
+	},
+	"codelab-great": {
+		"message": "Εξαιρετικά"
+	},
+	"codelab-mwc-promo": {
+		"message": "Εξερευνήστε περισσότερα έργα κωδικοποίησης της Google στο \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Νέα πρόκληση"
+	},
+	"codelab-oops": {
+		"message": "Ωχ!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Το τετράγωνο \"Επανάληψη\" πρέπει να έχει άλλα τετράγωνα στο εσωτερικό του για να λειτουργήσει."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Ορισμένα από τα τετράγωνα δεν είναι σωστά συνδεδεμένα μεταξύ τους."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Φαίνεται ότι χαθήκατε!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Δοκιμάστε ένα ή περισσότερα από τα παρακάτω τετράγωνα, για να λύσετε αυτό το παζλ."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Ξέρατε ότι μπορείτε να ολοκληρώσετε αυτό το επίπεδο με μόλις {{ideal}} τετράγωνα; Δοκιμάστε να χρησιμοποιήσετε το παρακάτω τετράγωνο."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Συγχαρητήρια! Ολοκληρώσατε τέλεια το παζλ."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Χρησιμοποιείτε τα σωστά τετράγωνα, αλλά δοκιμάστε να χρησιμοποιήσετε περισσότερα από αυτά για να ολοκληρώσετε αυτό το παζλ."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Ξέρατε ότι μπορείτε να ολοκληρώσετε αυτό το επίπεδο με μόλις {{ideal}} τετράγωνα;"
+	},
+	"codelab-try-again": {
+		"message": "Δοκιμάστε ξανά"
+	},
+	"copy-me": {
+		"message": "Αντιγράψτε αυτόν το σύνδεσμο για να μοιραστείτε το μήνυμά σας"
+	},
+	"copy-me-short": {
+		"message": "Αντιγραφή συνδέσμου για κοινή χρήση"
+	},
+	"countdown_days": {
+		"message": "Μέρες"
+	},
+	"countdown_hours": {
+		"message": "Ώρες"
+	},
+	"countdown_minutes": {
+		"message": "Λεπτά"
+	},
+	"countdown_seconds": {
+		"message": "Δευτ."
+	},
+	"countdown_until": {
+		"message": "Ο Άγιος Βασίλης απογειώνεται σε"
+	},
+	"countdownlabel": {
+		"message": "Μέχρι την αναχώρηση του Άγιου Βασίλη"
+	},
+	"cr_country_name": {
+		"message": "Κόστα Ρίκα"
+	},
+	"cs_language_name": {
+		"message": "Τσεχικά"
+	},
+	"cu_country_name": {
+		"message": "Κούβα"
+	},
+	"cz_country_name": {
+		"message": "Δημοκρατία της Τσεχίας"
+	},
+	"da_language_name": {
+		"message": "Δανικά"
+	},
+	"days": {
+		"message": "Μέρες"
+	},
+	"de_country_name": {
+		"message": "Γερμανία"
+	},
+	"de_language_name": {
+		"message": "Γερμανικά"
+	},
+	"de_tradition": {
+		"message": "Σχεδόν σε κάθε γερμανική πόλη, ανοίγουν Χριστουγεννιάτικες αγορές στις πλατείες. Οι δημότες συγκεντρώνονται για να ακούσουν μπάντες με χάλκινα και να απολαύσουν παραδοσιακό φαγητό της περιοχής. Τρώνε τζιτζιρόψωμο, αμύγδαλα με ζάχαρη, γλυκά κάθε είδους και πίνουν ζεστό κρασί (Glühwein) ή μηλίτη."
+	},
+	"dec24th": {
+		"message": "24 Δεκεμβρίου"
+	},
+	"deck": {
+		"message": "Διακόσμηση"
+	},
+	"deckdescription": {
+		"message": "Διακοσμήστε το πρόγραμμα περιήγησής σας με μια επέκταση του Chrome για τον Άγιο Βασίλη."
+	},
+	"detected": {
+		"message": "εντοπίστηκε"
+	},
+	"difficulty": {
+		"message": "Δυσκολία"
+	},
+	"dk_country_name": {
+		"message": "Δανία"
+	},
+	"do_country_name": {
+		"message": "Δομινικανή Δημοκρατία"
+	},
+	"donate_button": {
+		"message": "Δωρεά"
+	},
+	"donate_text": {
+		"message": "Βοηθήστε μας να συγκεντρώσουμε χρήματα για ένα έργο για άτομα με ειδικές ανάγκες στο DonorsChoose.org. Φέτος τον Δεκέμβριο, βοηθάμε να διπλασιαστεί ο αντίκτυπος, δωρίζοντας ποσό αντίστοιχο των δωρεών κατά 50%, μέχρι να φτάσουμε τον στόχο δωρεάς μας 1.000.000 δολάρια ΗΠΑ. Μαζί, μπορούμε να βοηθήσουμε ώστε να γίνουν οι αίθουσες διδασκαλίας πιο ανοιχτές σε όλους #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Λήψη για αναπαραγωγή ακόμα περισσότερων παιχνιδιών"
+	},
+	"dz_country_name": {
+		"message": "Αλγερία"
+	},
+	"easy_difficulty": {
+		"message": "Εύκολο"
+	},
+	"ec_country_name": {
+		"message": "Ισημερινός"
+	},
+	"educators": {
+		"message": "Santa Tracker για εκπαιδευτές"
+	},
+	"educators-games": {
+		"message": "Παιχνίδια για την τάξη"
+	},
+	"educators-learn": {
+		"message": "Εκμάθηση με το Santa Tracker"
+	},
+	"ee_country_name": {
+		"message": "Εσθονία"
+	},
+	"el_language_name": {
+		"message": "Ελληνικά"
+	},
+	"elf_choose_body": {
+		"message": "Επιλέξτε σώμα ξωτικού"
+	},
+	"elvish_language_name": {
+		"message": "Γλώσσα των ξωτικών"
+	},
+	"en_language_name": {
+		"message": "Αγγλικά"
+	},
+	"endofjourneymessage": {
+		"message": "Ο Άγιος Βασίλης ολοκλήρωσε το ταξίδι του για αυτήν τη χρονιά! Αυτός και τα ξωτικά τους εξακολουθούν να διασκεδάζουν στον Βόρειο Πόλο πριν την ετήσια άδειά τους."
+	},
+	"er_country_name": {
+		"message": "Ερυθραία"
+	},
+	"error": {
+		"message": "Παρουσιάστηκε πρόβλημα, αλλά τα ξωτικά του Άη Βασίλη το εξετάζουν."
+	},
+	"error-internal": {
+		"message": "Δυστυχώς, παρουσιάστηκε πρόβλημα! Ενημερώσαμε τα ξωτικά του Άη Βασίλη, αλλά προσπαθήστε να επιστρέψετε στο \u003ca href=\"./\"\u003eχωριό του Άη Βασίλη\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Φαίνεται ότι μόλις χάσαμε τη σύνδεσή μας με τον Βόρειο Πόλο. Τα ξωτικά του Άγιου Βασίλη δουλεύουν σκληρά για να διορθώσουν το πρόβλημα. Μείνετε συντονισμένοι!"
+	},
+	"error-not-found": {
+		"message": "Ωχ όχι! Τα ξωτικά του Άη Βασίλη δεν μπορούν να βρουν αυτήν τη σελίδα! Ίσως έχετε καλύτερη τύχη, αν επιστρέψετε στο \u003ca href=\"./\"\u003eΧωριό του Άη Βασίλη\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Επανάληψη"
+	},
+	"error_try_again": {
+		"message": "Επανάληψη"
+	},
+	"es_language_name": {
+		"message": "Ισπανικά"
+	},
+	"et_country_name": {
+		"message": "Αιθιοπία"
+	},
+	"explore": {
+		"message": "Εξερεύνηση"
+	},
+	"fi_country_name": {
+		"message": "Φινλανδία"
+	},
+	"fi_tradition": {
+		"message": "Οι Φινλανδοί πιστεύουν ότι ο Άη Βασίλης, ή αλλιώς \"Joulupukki\", ζει στο βόρειο τμήμα της χώρας και συγκεκριμένα στο Korvatunturi. Αν το επισκεφτείτε, μπορεί να βρείτε το μυστικό εργαστήριο, όπου οι νάνοι του δουλεύουν σκληρά. Ή μπορείτε να βρείτε κάποιον τάρανδο να περιηγείται στα δάση με τα έλατα."
+	},
+	"finished-text": {
+		"message": "Καλές γιορτές! Ο Άγιος Βασίλης ολοκλήρωσε το ταξίδι του σε ολόκληρο τον κόσμο και τώρα κάνει το διάλειμμα που του αξίζει. Επισκεφτείτε μας ξανά την επόμενη χρονιά!"
+	},
+	"fr_country_name": {
+		"message": "Γαλλία"
+	},
+	"fr_language_name": {
+		"message": "Γαλλικά"
+	},
+	"fr_tradition": {
+		"message": "Στη Γαλλία, τα παιδιά παραδοσιακά βάζουν τα παπούτσια τους δίπλα στο τζάκι περιμένοντας την άφιξη του Άγιου Βασίλη. Αν τα παιδιά έδειξαν καλή συμπεριφορά όλο τον χρόνο, ο Άγιος Βασίλης γεμίζει τα παπούτσια τους με δώρα."
+	},
+	"fullscreen": {
+		"message": "Πλήρης οθόνη"
+	},
+	"ga_country_name": {
+		"message": "Γκαμπόν"
+	},
+	"gameover": {
+		"message": "Τέλος παιχνιδιού!"
+	},
+	"gameover_level": {
+		"message": "Φτάσατε στο επίπεδο:"
+	},
+	"gameover_score": {
+		"message": "Η βαθμολογία σας:"
+	},
+	"getgooglemaps": {
+		"message": "Λήψη Χαρτών Google"
+	},
+	"getready": {
+		"message": "Ετοιμαστείτε!"
+	},
+	"gh_country_name": {
+		"message": "Γκάνα"
+	},
+	"gh_tradition": {
+		"message": "Τα Χριστούγεννα στην Γκάνα συμμετέχουν όλα τα μέλη της οικογένειας. Οι ενήλικες μεταμφιέζονται με κοστούμια και μοιράζουν καραμέλες και γλυκά στη γειτονιά. Τα παιδιά διακοσμούν τα σπίτια τους με χάρτινα στολίδια και ζωγραφιές που φτιάχνουν στο σχολείο."
+	},
+	"gl_country_name": {
+		"message": "Γροιλανδία"
+	},
+	"gn_country_name": {
+		"message": "Γουινέα"
+	},
+	"gotovillage": {
+		"message": "Μετάβαση στο Χωριό"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Ελλάδα"
+	},
+	"gr_tradition": {
+		"message": "Στην Ελλάδα, οι φιλικοί αλλά ενοχλητικοί καλικάντζαροι ζουν τον περισσότερο καιρό στο κέντρο της γης. Ωστόσο, τα Χριστούγεννα, λατρεύουν να κρύβονται στα σπίτια των ανθρώπων, τρομάζοντάς τους, κάνοντας ζαβολιές ή τρώγοντας τα γιορτινά εδέσματα. Οι Έλληνες έχουν τελετουργίες για να διώχνουν τους καλικάντζαρους."
+	},
+	"gt_country_name": {
+		"message": "Γουατεμάλα"
+	},
+	"gt_tradition": {
+		"message": "Οι κάτοικοι της Γουατεμάλας γιορτάζουν τα Χριστούγεννα με διασκέδαση και χορό. Φορούν καπέλα που ονομάζονται \"Puritina\", τρώνε παραδοσιακές ταμάλες της Γουατεμάλας, ανάβουν βεγγαλικά τα μεσάνυχτα και χορεύουν διάφορους χορούς όλη τη νύχτα."
+	},
+	"gy_country_name": {
+		"message": "Γουιάνα"
+	},
+	"hard_difficulty": {
+		"message": "Δύσκολο"
+	},
+	"help": {
+		"message": "Βοήθεια"
+	},
+	"hi_language_name": {
+		"message": "Χίντι"
+	},
+	"hn_country_name": {
+		"message": "Ονδούρα"
+	},
+	"holiday_message_0": {
+		"message": "Καλές γιορτές!"
+	},
+	"holiday_message_1": {
+		"message": "Χριστουγεννιάτικες ευχές!"
+	},
+	"holiday_message_2": {
+		"message": "Τα καλύτερα!"
+	},
+	"holiday_message_3": {
+		"message": "Ας χιονίσει!"
+	},
+	"holiday_message_4": {
+		"message": "Ευτυχισμένος ο καινούργιος χρόνος!"
+	},
+	"holiday_message_5": {
+		"message": "Χρόνια πολλά!"
+	},
+	"hours": {
+		"message": "Ώρες"
+	},
+	"hr_country_name": {
+		"message": "Κροατία"
+	},
+	"ht_country_name": {
+		"message": "Αϊτή"
+	},
+	"hu_country_name": {
+		"message": "Ουγγαρία"
+	},
+	"hu_language_name": {
+		"message": "Ουγγρικά"
+	},
+	"id_country_name": {
+		"message": "Ινδονησία"
+	},
+	"ie_country_name": {
+		"message": "Ιρλανδία"
+	},
+	"improve_google_translate": {
+		"message": "Συμβάλετε στη βελτίωση της Μετάφρασης Google"
+	},
+	"iq_country_name": {
+		"message": "Ιράκ"
+	},
+	"ir_country_name": {
+		"message": "Ιράν"
+	},
+	"is_country_name": {
+		"message": "Ισλανδία"
+	},
+	"is_tradition": {
+		"message": "Τα Χριστούγεννα στην Ισλανδία, οι οικογένειες δωρίζουν ζεστά ρούχα σε κάθε μέλος του σπιτιού. Σύμφωνα με τον θρύλο, η τρομακτική Χριστουγεννιάτικη Γάτα καταβροχθίζει όσους δεν έχουν εξοπλιστεί για τον κρύο καιρό. Οι οικογένειες συνεργάζονται ώστε κανείς να μην \"καταλήξει στα σαγόνια της Γάτας\"."
+	},
+	"it_country_name": {
+		"message": "Ιταλία"
+	},
+	"it_language_name": {
+		"message": "Ιταλικά"
+	},
+	"ja_language_name": {
+		"message": "Ιαπωνικά"
+	},
+	"jm_country_name": {
+		"message": "Τζαμάικα"
+	},
+	"kg_country_name": {
+		"message": "Κιργιζία"
+	},
+	"kg_tradition": {
+		"message": "Στην Κιργιζία, ο Ayaz Ata (Πατερούλης Πάγος) έρχεται τα μεσάνυχτα την Παραμονή της Πρωτοχρονιάς κι αφήνει δώρα κάτω από το πρωτοχρονιάτικο δέντρο. Όταν το ρολόι χτυπήσει μεσάνυχτα, οι οικογένειες σε όλη τη χώρα ανάβουν πυροτεχνήματα να το γιορτάσουν. Οι πόλεις φωτίζονται τόσο που η νύχτα γίνεται μέρα."
+	},
+	"ko_language_name": {
+		"message": "Κορεατικά"
+	},
+	"kr_country_name": {
+		"message": "Νότιος Κορέα"
+	},
+	"kr_tradition": {
+		"message": "Στη Νότια Κορέα, τα Χριστούγεννα είναι εθνική γιορτή. Επίσης, είναι γνωστά ως ρομαντική γιορτή. Πολλά ζευγάρια βγαίνουν ραντεβού στην πόλη, όπου οι δρόμοι και τα καταστήματα είναι γεμάτοι φωτάκια που αναβοσβήνουν."
+	},
+	"kz_country_name": {
+		"message": "Καζακστάν"
+	},
+	"la_country_name": {
+		"message": "Λαϊκή Δημοκρατία του Λάος"
+	},
+	"language": {
+		"message": "Γλώσσα"
+	},
+	"learn": {
+		"message": "Εκμάθηση"
+	},
+	"learnmore": {
+		"message": "Μάθετε περισσότερα"
+	},
+	"level": {
+		"message": "Επίπεδο"
+	},
+	"light": {
+		"message": "Ανάψτε τα φώτα"
+	},
+	"lightdescription": {
+		"message": "Φωτίστε την τηλεόρασή σας με την εφαρμογή Santa Tracker για Android και το Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Σρι Λάνκα"
+	},
+	"lock_orientation": {
+		"message": "Κλειδώστε την περιστροφή για καλύτερη εμπειρία."
+	},
+	"lr_country_name": {
+		"message": "Λιβερία"
+	},
+	"lt_country_name": {
+		"message": "Λιθουανία"
+	},
+	"lt_tradition": {
+		"message": "Στη Λιθουανία, τα παραδοσιακά χριστουγεννιάτικα στολίδια φτιάχνονται από άχυρο ή σανό. Πλέκονται σε γεωμετρικά σχήματα, όπως αστέρια, χιονονιφάδες ή κουδουνάκια. Πολλές οικογένειες χρησιμοποιούν επίσης άχυρο για να διακοσμήσουν το τραπέζι του δείπνου πριν από ένα σημαντικό γεύμα και λέγεται Kūčios."
+	},
+	"lv_country_name": {
+		"message": "Λετονία"
+	},
+	"ly_country_name": {
+		"message": "Λιβύη"
+	},
+	"md_country_name": {
+		"message": "Μολδαβία"
+	},
+	"medium_difficulty": {
+		"message": "Μεσαία"
+	},
+	"meta_description": {
+		"message": "Χρησιμοποιήστε το Santa Tracker της Google για να ακολουθήσετε τον Άγιο Βασίλη μέσα από τους Χάρτες Google στο ταξίδι του σε όλο τον κόσμο."
+	},
+	"meta_title": {
+		"message": "Google Santa Tracker"
+	},
+	"mg_country_name": {
+		"message": "Μαδαγασκάρη"
+	},
+	"minutes": {
+		"message": "Λεπτά"
+	},
+	"ml_country_name": {
+		"message": "Μάλι"
+	},
+	"mm_country_name": {
+		"message": "Μιανμάρ"
+	},
+	"mr_country_name": {
+		"message": "Μαυριτανία"
+	},
+	"mute": {
+		"message": "Σίγαση"
+	},
+	"mw_country_name": {
+		"message": "Μαλάουι"
+	},
+	"mx_country_name": {
+		"message": "Μεξικό"
+	},
+	"mx_tradition": {
+		"message": "Στο Μεξικό, παιδιά κάθε ηλικίας γιορτάζουν τα Χριστούγεννα σπάζοντας πινιάτες. Ενήλικες και παιδιά διασκεδάζουν καλύπτοντας τα μάτια τους, στριφογυρίζοντας και κουνώντας ένα ξύλο για να σπάσουν τα δοχεία σε σχήμα αστεριού. Όταν σπάσουν την πινιάτα, ξεχύνονται καρποί, φρούτα και καραμέλες για όλους."
+	},
+	"my_country_name": {
+		"message": "Μαλαισία"
+	},
+	"mz_country_name": {
+		"message": "Μοζαμβίκη"
+	},
+	"na_country_name": {
+		"message": "Ναμίμπια"
+	},
+	"ne_country_name": {
+		"message": "Νίγηρας"
+	},
+	"new": {
+		"message": "Νέο"
+	},
+	"newtoday": {
+		"message": "Νέο σήμερα"
+	},
+	"next": {
+		"message": "Επόμενο"
+	},
+	"next_game": {
+		"message": "Επόμενο παιχνίδι"
+	},
+	"ng_country_name": {
+		"message": "Νιγηρία"
+	},
+	"nl_country_name": {
+		"message": "Ολλανδία"
+	},
+	"nl_language_name": {
+		"message": "Ολλανδικά"
+	},
+	"no_country_name": {
+		"message": "Νορβηγία"
+	},
+	"no_language_name": {
+		"message": "Νορβηγικά"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Η οργάνωση Agastya προσφέρει πρακτική επιστημονική εκπαίδευση σε παιδιά σε όλη την αγροτική Ινδία. Στα επιστημονικά κέντρα και τα κινούμενα επιστημονικά φορτηγάκια, καλύπτουν τα πάντα, από το ηλιακό σύστημα μέχρι τον τρόπο λειτουργίας του εγκεφάλου. Έχουν επισκεφτεί περισσότερα από 5 εκατομμύρια παιδιά και 200.000 δασκάλους σε 14 πολιτείες στην Ινδία. Πρόκειται για ένα από τα μεγαλύτερα επιστημονικά εκπαιδευτικά προγράμματα στον κόσμο! Η Google.org είναι υπερήφανος \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eυποστηρικτής\u003c/a\u003e της οργάνωσης Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Δάσκαλοι και μαθητές"
+	},
+	"nonprofit-code-description": {
+		"message": "Το Code.org® είναι ένας ΜΚΟ με κύρια αποστολή του την επέκταση πρόσβασης στην επιστήμη υπολογιστών και την αύξηση της συμμετοχής των έγχρωμων γυναικών και μαθητών που δεν εκπροσωπούνται επαρκώς. Το όραμα που έχει ο Code.org® είναι κάθε μαθητής σε κάθε σχολείο να έχει την ευκαιρία να μάθει την επιστήμη των υπολογιστών."
+	},
+	"nonprofit-code-type": {
+		"message": "Επιστήμη υπολογιστών"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Ο DonorsChoose.org, που ιδρύθηκε το 2000 από έναν καθηγητή ιστορίας στο Μπρονξ, συγκέντρωσε πάνω από 480 εκατομμύρια $ ΗΠΑ για τα μαθήματα της Αμερικής. Οι καθηγητές έρχονται στον DonorsChoose.org για να ζητήσουν τα υλικά και τις εμπειρίες που χρειάζονται για τις τάξεις τους."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Μαθήματα"
+	},
+	"nonprofit-enable-description": {
+		"message": "Σύμφωνα με το Κέντρο Ελέγχου Νοσημάτων των ΗΠΑ. (CDC), 7 στους 1.000 ανθρώπους παρουσιάζουν διαφορές άκρων, ενώ τα προσθετικά μέλη είναι τόσο ακριβά που φτάνουν σε κόστος έως τα 10.000 δολάρια ΗΠΑ.! Για τα παιδιά που βρίσκονται στην ανάπτυξη, το κόστος μπορεί να αυξηθεί ταχύτατα. Το e-Nable είναι μια παγκόσμια κοινότητα ανθρώπων που συνεργάζονται για τη δημιουργία χεριών μέσω τρισδιάστατου εκτυπωτή, για παιδιά με διαφορές άκρων. Η Google.org βοηθάει το ίδρυμα Enable Community Foundation να στηρίζει την Κοινότητα e-NABLE για τη σχεδίαση περισσότερων χεριών και την αύξηση του αριθμού των παιδιών που μπορούν να λάβουν χέρια."
+	},
+	"nonprofit-enable-type": {
+		"message": "Προσθετικά άκρα"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Επιλέξτε ένα στολίδι και αρχίστε να το χρωματίζετε."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Μοιραστείτε την τέχνη σας με φίλους και συγγενείς, για να μάθουν κι αυτοί."
+	},
+	"nonprofit-intro-type": {
+		"message": "Συνεργαστήκαμε με το Google.org για να παρουσιάσουμε πέντε εκπαιδευτικούς ΜΚΟ που γιορτάζουν την εποχή της προσφοράς όλο τον χρόνο. Κάντε κύλιση προς τα κάτω και μάθετε περισσότερα για τον τρόπο ανταπόδοσης κάθε οργανισμού. Δείξτε τη στήριξή σας χρωματίζοντας αυτήν τη συλλογή από στολίδια και μετά κρεμάστε τα στο δέντρο σας ή χαρίστε τα στους αγαπημένους σας."
+	},
+	"nonprofit-jane-description": {
+		"message": "Οι χιμπαντζήδες είναι οι πιο στενοί επιζώντες συγγενείς των ανθρώπων στο ζωικό βασίλειο! Σήμερα, απομένουν λιγότεροι από 300.000 χιμπαντζήδες λόγω απώλειας των οικοτόπων, λόγω ασθενειών και παράνομου εμπορίου. Η οργάνωση Jane Goodall Institute (JGI) προστατεύει τους χιμπαντζήδες, παρατηρώντας και κατανοώντας τις συμπεριφορές τους, καθώς και τους οικοτόπους όπου ζουν. Η οργάνωση JGI εργάζεται επίσης με στόχο τη δημιουργία μιας κοινότητας ανθρώπων που προστατεύουν και διατηρούν την άγρια ζωή και το περιβάλλον που μοιραζόμαστε. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eΕξερευνήστε τους οικοτ'οπους των χιμπαντζήδων\u003c/a\u003e στο Γκόμπε της Τανζανίας."
+	},
+	"nonprofit-jane-type": {
+		"message": "Χιμπαντζής"
+	},
+	"nonprofit-khan-description": {
+		"message": "Ο Khan Academy είναι ένας ΜΚΟ με αποστολή να παρέχει δωρεάν, κορυφαία εκπαίδευση για όλους, οπουδήποτε. Ο Khan Academy υποστηρίζει ότι οι μαθητές όλων των ηλικιών θα έπρεπε να έχουν απεριόριστη πρόσβαση σε δωρεάν εκπαιδευτικό περιεχόμενο που θα έχουν την ευκαιρία να αφομοιώσουν με τον δικό τους ρυθμό."
+	},
+	"nonprofit-khan-type": {
+		"message": "Εκπαίδευση"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Ο οργανισμός Libraries Without Borders είναι ένας κορυφαίος διεθνής ΜΚΟ για την πολιτιστική ανάπτυξη που ιδρύθηκε το 2007, με κεντρικά γραφεία στο Παρίσι. Έχει ιδρύσει πάνω από 300 βιβλιοθήκες ανά τον κόσμο."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Βιβλιοθήκες"
+	},
+	"nonprofit-more-information": {
+		"message": "Για πρόσθετες πληροφορίες, επισκεφτείτε:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Η οργάνωση The Nature Conservancy εργάζεται για την προστασία και την αποκατάσταση των δασών στις Ηνωμένες Πολιτείες και σε ολόκληρο τον κόσμο. Αυτά τα εμβληματικά δάση συντηρούν τη ζωή στον πλανήτη. Φιλτράρουν το νερό, καθαρίζουν τον αέρα, υποστηρίζουν κοινότητες ανθρώπων και παρέχουν έναν οικότοπο για σημαντικά είδη χλωρίδας και πανίδας. Με τον τρέχοντα ρυθμό αποψίλωσης, τα δάση μας θα εξαφανιστούν μέσα σε 100 χρόνια. Το πρόγραμμα Plant a Billion Trees της οργάνωσης The Nature Conservancy έχει στόχο τη φύτευση ενός δισεκατομμυρίου δέντρων μέχρι το 2025 και την αποκατάσταση των σημαντικότερων δασών στον κόσμο."
+	},
+	"nonprofit-nature-type": {
+		"message": "Δάση"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Σχεδόν το 40% του παγκόσμιου πληθυσμού δεν έχει πρόσβαση στην εκπαίδευση σε γλώσσα που μιλάει ή κατανοεί. Ο οργανισμός StoryWeaver ελπίζει να το αλλάξει βοηθώντας τους εκπαιδευτές, τους συγγραφείς και τους μεταφραστές να δημιουργούν χαρούμενους, συμπληρωματικούς πόρους ανάγνωσης για παιδιά."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Ανάγνωση"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Υπάρχουν πολλοί άνθρωποι στον κόσμο που ζουν με απώλεια όρασης, αλλά εξακολουθούν να βλέπουν σε κάποιον βαθμό. Η Google.org βοηθάει τον οργανισμό RNIB να αναπτύξει \"έξυπνα γυαλιά\" που βοηθούν τους ανθρώπους με χαμηλή όραση να αναγνωρίζουν πιο εύκολα σχήματα και σιλουέτες. Τα έξυπνα γυαλιά μπορούν να βοηθήσουν τους ανθρώπους να βλέπουν ευκολότερα τον κόσμο και να ανακτήσουν την ανεξαρτησία και την αυτοπεποίθησή τους."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Έξυπνα γυαλιά"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 δισεκατομμύρια άνθρωποι δεν έχουν πρόσβαση σε ηλεκτρικό ρεύμα και πολλοί πρέπει να χρησιμοποιούν λάμπες κηροζίνης που καίνε καύσιμο και ρυπαίνουν τα σπίτια. Ωστόσο, τα ηλιακά φωτιστικά απορροφούν ενέργεια από τον ήλιο κατά τη διάρκεια της ημέρας και παρέχουν ώρες φωτός το απόγευμα χωρίς καύση ή ρύπανση. Βοηθούν στο διάβασμα, στο παιχνίδι και στην ασφαλή επιστροφή στο σπίτι τη νύχτα. Η SolarAid παρέχει πρόσβαση σε ηλιακά φωτιστικά σε πολλούς ανθρώπους που τα χρειάζονται. Η Google.org είναι υπερήφανος \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eυποστηρικτής\u003c/a\u003e της SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Ηλιακό φως"
+	},
+	"nonprofit-water-description": {
+		"message": "Χρησιμοποιούμε νερό για να κάνουμε ντους και μπάνιο, να μαγειρέψουμε και φυσικά για να το πιούμε. Το καθαρό νερό είναι ένας πολύτιμος πόρος και πολλοί άνθρωποι χρησιμοποιούν πηγάδια που σκάβουν με τα χέρια τους, για να αποκτήσουν πρόσβαση σε υδροφορείς, οι οποίοι έχουν καθαρό νερό βαθιά στο έδαφος ανάμεσα σε στρώσεις βράχων και εδάφους. Η οργάνωση charity: water μαζί με τοπικούς συνεργάτες κατασκευάζει πηγάδια και άλλα υδάτινα έργα, όπου είναι πραγματικά απαραίτητα. Η Google.org είναι υπερήφανος \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eυποστηρικτής\u003c/a\u003e της οργάνωσης charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Πηγάδι"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Όσοι χρησιμοποιούν αναπηρικό αμαξίδιο μπορεί να δυσκολεύονται να καταλάβουν ποια μέρη είναι προσβάσιμα: κινηματογράφοι, εστιατόρια και όπου αλλού μπορεί να ταξιδέψουν. Το Wheelmap δείχνει ποια μέρη είναι προσβάσιμα με αναπηρικό αμαξίδιο, έτσι ώστε όσοι χρησιμοποιούν αναπηρικό αμαξίδιο να μπορούν να αφιερώνουν λιγότερο χρόνο στον προγραμματισμό διαδρομών και περισσότερο χρόνο στην εξερεύνηση του κόσμου!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Κινητικότητα"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Η κλιματική αλλαγή συνεχίζει να διαταράσσει την ισορροπία πολλών οικοσυστημάτων στον κόσμο, σε τοποθεσίες με υψηλές και χαμηλές θερμοκρασίες. Στην Αρκτική, οι πολικές αρκούδες χάνουν το περιβάλλον θαλάσσιου πάγου λόγω της αύξησης της θερμοκρασίας και αντιμετωπίζουν πρόσθετες απειλές από ανθρώπινες δραστηριότητες, όπως είναι η ανάπτυξη πετρελαίου και αερίου, καθώς και οι μεταφορές. Η οργάνωση World Wildlife Fund εργάζεται για τη διασφάλιση της επιβίωσης των ειδών μέσω επιστημονικής έρευνας και σε συνεργασία με τις αρκτικές τοπικές κοινότητες. Η Google.org είναι υπερήφανος \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eυποστηρικτής\u003c/a\u003e της οργάνωσης World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Πολική αρκούδα"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Βάσει ερευνών, το 95% των ανθρώπων με απώλεια ακοής μπορεί να αντιμετωπίσει το πρόβλημά του με ακουστικά βοηθήματα. Ωστόσο, λιγότερο από το 1% των ανθρώπων που χρειάζονται ακουστικά βοηθήματα σε χώρες χαμηλών και μεσαίων εισοδημάτων, τελικά τα αποκτά. Ο οργανισμός World Wide Hearing (WWH) φέρνει σε επαφή τα παιδιά με τον κόσμο παρέχοντάς τους ακουστικά βοηθήματα και υπηρεσίες. Ο οργανισμός WWH σχεδιάζει ένα οικονομικά προσιτό εργαλείο διάγνωσης της απώλειας ακοής βάσει tablet, για χρήση στον αναπτυσσόμενο κόσμο. Έτσι, περισσότεροι άνθρωποι που χρειάζονται ακουστικά βοηθήματα, μπορούν να τα αποκτήσουν."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Ακοή"
+	},
+	"notice_cookies": {
+		"message": "Η Google προβάλλει cookies για την ανάλυση της επισκεψιμότητας σε αυτόν τον ιστότοπο και τη βελτιστοποίηση της εμπειρίας σας. Ειδικά για τον σκοπό αυτό, η Google κοινοποιεί πληροφορίες σχετικά με την από μέρους σας χρήση αυτού του ιστοτόπου."
+	},
+	"notice_cookies_details": {
+		"message": "Προβολή λεπτομερειών"
+	},
+	"notification": {
+		"message": "Ειδοποιήσεις"
+	},
+	"notification_newtoday": {
+		"message": "Νέο στοιχείο σήμερα στο Santa Tracker"
+	},
+	"notification_newtoday_stop": {
+		"message": "Διακοπή"
+	},
+	"notification_notice": {
+		"message": "Τα ξωτικά του Άη Βασίλη θα σας ενημερώνουν για το πρόγραμμά του"
+	},
+	"notification_prompt": {
+		"message": "Να ενημερώνομαι για τον Άγιο Βασίλη"
+	},
+	"np_country_name": {
+		"message": "Νεπάλ"
+	},
+	"nz_country_name": {
+		"message": "Νέα Ζηλανδία"
+	},
+	"nz_tradition": {
+		"message": "Επειδή τα Χριστούγεννα στη Νέα Ζηλανδία είναι καλοκαίρι, φίλοι και συγγενείς κάνουν μπάρμπεκιου. Συνήθως, τα τραπέζια έχουν ψητό αρνί, που μαγειρεύεται σε ένα \"hangi\", μια τρύπα κάτω από τη γη, ή σε φούρνο από πηλό. Αγαπημένο επιδόρπιο η Πάβλοβα: μαρέγκα με φρέσκα φρούτα, όπως φράουλες και ακτινίδια."
+	},
+	"offline": {
+		"message": "Εκτός σύνδεσης"
+	},
+	"offline_available_online": {
+		"message": "Μόνο στο διαδίκτυο"
+	},
+	"offline_notification": {
+		"message": "Το χωριό του Άγιου Βασίλη είναι τώρα διαθέσιμο εκτός σύνδεσης! Τα ξωτικά μπορούν επίσης να σας φέρουν νέο περιεχόμενο καθ' όλη τη διάρκεια του Δεκεμβρίου."
+	},
+	"offline_notification_nothanks": {
+		"message": "Όχι, ευχαριστώ"
+	},
+	"offline_user_message": {
+		"message": "Είστε εκτός σύνδεσης"
+	},
+	"okay": {
+		"message": "ΟΚ"
+	},
+	"om_country_name": {
+		"message": "Ομάν"
+	},
+	"onthego": {
+		"message": "Ο Άγιος Βασίλης βρίσκεται καθ' οδόν"
+	},
+	"openingtomorrow": {
+		"message": "Μεγάλα εγκαίνια αύριο"
+	},
+	"ornament-print-instructions": {
+		"message": "Διπλώστε εδώ και κολλήστε τα πλαϊνά μαζί"
+	},
+	"pa_country_name": {
+		"message": "Παναμάς"
+	},
+	"pause": {
+		"message": "Παύση"
+	},
+	"paused": {
+		"message": "Σε παύση"
+	},
+	"pe_country_name": {
+		"message": "Περού"
+	},
+	"pg_country_name": {
+		"message": "Παπούα Νέα Γουινέα"
+	},
+	"ph_country_name": {
+		"message": "Φιλιππίνες"
+	},
+	"ph_tradition": {
+		"message": "Στις Φιλιππίνες είναι γνωστό ότι η περίοδος των Χριστουγέννων είναι η μεγαλύτερη σε διάρκεια στον κόσμο. Οι τέσσερις παρακάτω μήνες θεωρούνται ως οι μήνες των Χριστουγέννων: Σεπτέμβριος, Οκτώβριος, Νοέμβριος, Δεκέμβριος. Τα κάλαντα των Χριστουγέννων ξεκινούν μερικές φορές πολύ νωρίς, αρχές Σεπτεμβρίου."
+	},
+	"pl_country_name": {
+		"message": "Πολωνία"
+	},
+	"pl_language_name": {
+		"message": "Πολωνικά"
+	},
+	"play": {
+		"message": "Παίξτε"
+	},
+	"playagain": {
+		"message": "Επανάληψη αναπαραγωγής"
+	},
+	"playdescription": {
+		"message": "Παίξτε με φίλους στην εφαρμογή Santa Tracker για Android."
+	},
+	"playextra": {
+		"message": "Παίξτε επιπλέον επίπεδα"
+	},
+	"pr_country_name": {
+		"message": "Πουέρτο Ρίκο"
+	},
+	"practice": {
+		"message": "Εξάσκηση"
+	},
+	"press": {
+		"message": "Τύπος"
+	},
+	"press-about-tracker": {
+		"message": "Πληροφορίες για το Santa Tracker"
+	},
+	"press-about-tracker1": {
+		"message": "Στις 24 Δεκεμβρίου, θα κυκλοφορήσουμε το Tracker, έναν πίνακα ελέγχου μέσω του οποίου οι θαυμαστές του Άγιου Βασίλη θα μπορούν να παρακολουθούν την πορεία του, καθώς ταξιδεύει από πόλη σε πόλη. Επίσης, μπορείτε να δείτε την τοποθεσία του σε πραγματικό χρόνο μέσω των Χαρτών Google και να ρωτήσετε τον Βοηθό Google \"Ok Google, πού βρίσκεται ο Άγιος Βασίλης;\", για να έχετε μια εικόνα για το πού βρίσκεται ο Άγιος Βασίλης ακόμα κι αν είστε εν κινήσει."
+	},
+	"press-about-village": {
+		"message": "Σχετικά με το χωριό του Άγιου Βασίλη"
+	},
+	"press-about-village1": {
+		"message": "Το χωριό του Άγιου Βασίλη γιορτάζει δεκαπέντε χρόνια διασκεδαστικών, εκπαιδευτικών και διαδραστικών εορταστικών δραστηριοτήτων. Υπό την ειδική καθοδήγηση της συζύγου του, τα ξωτικά έδωσαν στο χωριό μια στιλάτη όψη και αίσθηση μαζί με ολοκαίνουργιο περιεχόμενο. Επίσης, χάρη στο νέο σύστημα θέρμανσης που βασίζεται στη σκόνη κακάο, το χωριό δεν χρειάζεται πλέον όλο τον Δεκέμβριο για να ζεσταθεί, και οι εικοσιτέσσερις δραστηριότητες θα είναι διαθέσιμες από τις 4 Δεκεμβρίου. Πλέον, τα ξωτικά (κι εσείς!) θα έχετε περισσότερο χρόνο παιχνιδιού και εξερεύνησης στο χωριό του Άγιου Βασίλη."
+	},
+	"press-about-village2": {
+		"message": "Στο χωριό, μπορείτε να εξασκήσετε τις βασικές δεξιότητες κωδικοποίησης, να δημιουργήσετε πρωτότυπα έργα, να εξασκήσετε τις γεωγραφικές σας γνώσεις και να μάθετε περισσότερα για φιλανθρωπικές οργανώσεις, όπως το \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e και το \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Οι εκπαιδευτικοί μπορούν ακόμα επίσης να κατεβάζουν τα \u003ca href=\"./educators.html\"\u003eπλάνα των μαθημάτων\u003c/a\u003e με οδηγούς βίντεο, που θα τους βοηθούν να διδάσκουν τους μαθητές τις βασικές δεξιότητες κωδικοποίησης και εορταστικές παραδόσεις στα Αγγλικά, τα Ισπανικά, τα Γαλλικά, τα Ιαπωνικά και τα Κορεατικά."
+	},
+	"press-asset-animation": {
+		"message": "Κινούμενες εικόνες"
+	},
+	"press-asset-resources": {
+		"message": "Πόροι τύπου"
+	},
+	"press-asset-screenshot": {
+		"message": "Στιγμιότυπο οθόνης"
+	},
+	"press-device-text": {
+		"message": "Το εορταστικό πνεύμα βρίσκεται παντού, μέχρι και στις συσκευές σας!"
+	},
+	"press-device-title": {
+		"message": "Το Santa Tracker στη συσκευή σας"
+	},
+	"press-edu": {
+		"message": "Εκπαιδευτικές περιπέτειες"
+	},
+	"press-edu1": {
+		"message": "Διευρύναμε τη \u003ca href=\"./educators.html\"\u003eσελίδα εκπαιδευτικών πόρων\u003c/a\u003e, ώστε οι εκπαιδευτικοί να έχουν στη διάθεσή τους συμπληρωματικούς οδηγούς βίντεο για τα πλάνα μαθημάτων, που διατίθενται πλέον σε πέντε γλώσσες. Όλα τα αγαπημένα σας παιχνίδια διατηρούνται, ενώ παρουσιάζουν βασικές ιδέες κωδικοποίησης μέχρι παγκόσμιες χριστουγεννιάτικες παραδόσεις. Το Santa Tracker της Google ενθαρρύνει τις χριστουγεννιάτικες εμπειρίες εκμάθησης με διασκεδαστικό τρόπο. Για να μάθετε περισσότερα, ανατρέξτε στα \u003ca href=\"./educators.html\"\u003eεκπαιδευτικά παιχνίδια\u003c/a\u003e μας."
+	},
+	"press-games-title": {
+		"message": "Όλη η ψυχαγωγία και τα παιχνίδια"
+	},
+	"press-need-text": {
+		"message": "Τα ξωτικά και οι Googler ήρθαν να σας βοηθήσουν."
+	},
+	"press-need-title": {
+		"message": "Χρειάζεστε κάτι;"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Ξεκινάει στις 24 Δεκεμβρίου"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Διατίθεται όλο τον Δεκέμβριο"
+	},
+	"press-villagetracker-title": {
+		"message": "Το χωριό του Άγιου Βασίλη και το Tracker"
+	},
+	"press-whatsnew": {
+		"message": "Τι νέο υπάρχει φέτος"
+	},
+	"press-whatsnew1-text": {
+		"message": "Δημιουργήστε το δικό σας ξωτικό από την κορυφή έως τα νύχια και βεβαιωθείτε ότι έχει τη χαρακτηριστική όψη του ξωτικού για τα πολλά εορταστικά βράδια στον Βόρειο Πόλο."
+	},
+	"press-whatsnew1-title": {
+		"message": "Δημιουργήστε ένα ξωτικό:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Αν το όνειρο της ζωής σας ήταν να δημιουργήσετε ένα χορευτικό θίασο με μια ομάδα από ξωτικά με ιδιαίτερο ταλέντο στον χορό, τώρα είναι η ευκαιρία σας. Με τη χρήση του μοντέλου μηχανικής εκμάθησης \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, μπορείτε να εκπαιδεύσετε ένα ξωτικό να μάθει τις κινήσεις σας, ώστε να το έχετε μαζί σας στην πίστα."
+	},
+	"press-whatsnew2-title": {
+		"message": "Χορευτικές φιγούρες με ξωτικά:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Επίσης, θα μπορείτε να δείτε την τοποθεσία του Άγιου Βασίλη σε πραγματικό χρόνο στους Χάρτες Google. Απλώς πατήστε το κουμπί με το χάμπουργκερ και μετά \"Κοινοποίηση τοποθεσίας\" για να δείτε σε ποιο ακριβώς σημείο του ταξιδιού του βρίσκεται ο Άγιος Βασίλης. Ως εύκολη συντόμευση, μπορείτε να χρησιμοποιήσετε επίσης τη διεύθυνση \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Ένας νέος τρόπος να παρακολουθείτε τον Άγιο Βασίλη:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Για να μπείτε ακόμα πιο πολύ στο εορταστικό κλίμα, ρίξτε μια ματιά στα εορταστικά αυτοκόλλητα του Gboard που διατίθενται αποκλειστικά σε \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e και στην \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eεφαρμογή μας Android\u003c/a\u003e. Επίσης, απολαύστε λίγη παραμυθένια ψυχαγωγία, λέγοντας στον Βοηθό Google \"Πες μου μια χριστουγεννιάτικη ιστορία\" και \"Πού είναι ο Άγιος Βασίλης\";"
+	},
+	"press-whatsnew4-title": {
+		"message": "Περισσότερη διασκέδαση στις γιορτές:"
+	},
+	"pt_language_name": {
+		"message": "Πορτογαλικά"
+	},
+	"py_country_name": {
+		"message": "Παραγουάη"
+	},
+	"quickdraw-machine-know": {
+		"message": "Το βρήκα, είναι {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "ή"
+	},
+	"quickdraw-machine-see": {
+		"message": "Βλέπω"
+	},
+	"quickdraw-newround-button": {
+		"message": "Έναρξη"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Δεν καταλαβαίνω τι είναι αυτό."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Συγγνώμη"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Δεν θα το έβρισκα!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Ο Tensor σκέφτηκε ότι το σχέδιό σας έμοιαζε με αυτά:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Πώς ξέρει ο Tensor τι είναι το {{thing}};"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Έμαθε κοιτάζοντας αυτά τα παραδείγματα που σχεδίασαν άλλα άτομα."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Ο Tensor σκέφτηκε ότι το σχέδιό σας έμοιαζε περισσότερο με αυτά:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Αυτή είναι η έκδοση {{thing}} του Άη Βασίλη."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Σας ζητήθηκε να σχεδιάσετε {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Σχέδιο"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Ο Tensor είναι το ρομπότ μηχανικής εκμάθησης του Άη Βασίλη που τον βοηθάει να αποκρυπτογραφεί γρήγορα τα γράμματα που λαμβάνει από τα παιδιά σε όλο τον κόσμο. Για να βοηθήσετε τον Tensor να εξασκηθεί, σχεδιάστε μια εικόνα για κάθε γιορτινή λέξη που εμφανίζεται στην οθόνη και θα σας πει τι βλέπει. Όσο πιο πολλά σχεδιάζετε, τόσο πιο έξυπνος θα γίνει ο Tensor, γι' αυτό ας βοηθήσουμε τον Άη Βασίλη να γίνει πιο αποτελεσματικός από ποτέ φέτος τις γιορτές!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Βοηθήστε τον Tensor να εξασκηθεί στην αναγνώριση εικόνας!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Ο Tensor αναγνώρισε {{recognized}} από τα σχέδιά σας."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Ο Tensor αναγνώρισε ένα από τα σχέδιά σας."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Ο Tensor δεν αναγνώρισε κανένα από τα σχέδιά σας."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Μπράβο!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ωχ!"
+	},
+	"readyquestion": {
+		"message": "Έτοιμοι;"
+	},
+	"ro_country_name": {
+		"message": "Ρουμανία"
+	},
+	"ru_country_name": {
+		"message": "Ρωσία"
+	},
+	"ru_language_name": {
+		"message": "Ρωσικά"
+	},
+	"ru_tradition": {
+		"message": "Τα παιδιά στη Ρωσία στολίζουν πρωτοχρονιάτικο αντί για χριστουγεννιάτικο δέντρο. Τα παιδιά περιμένουν ανυπόμονα τον Ντεντ Μορόζ που ταξιδεύει με την εγγονή του, την Κόρη του Χιονιού, και μοιράζει δώρα σε όλη τη χώρα. Ο Ντεντ Μορόζ ζει βαθιά μέσα στο δάσος στο Βελίκι Ουστιούγκ, στη βόρεια Ρωσία."
+	},
+	"sa_country_name": {
+		"message": "Σαουδική Αραβία"
+	},
+	"santa-app": {
+		"message": "Άη Βασίλης"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Άντρας από τζίντζερμπρεντ"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Κυρία Κλάους"
+	},
+	"santasearch_character_pegman": {
+		"message": "Ανθρωπάκι"
+	},
+	"santasearch_character_penguin": {
+		"message": "Πιγκουίνος"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Ρούντολφ"
+	},
+	"santasearch_character_santa": {
+		"message": "Άγιος Βασίλης"
+	},
+	"santasearch_hint": {
+		"message": "Υπόδειξη"
+	},
+	"santasearch_level_beach": {
+		"message": "Στην παραλία"
+	},
+	"santasearch_level_lab": {
+		"message": "Στο εργαστήριο"
+	},
+	"santasearch_level_mountains": {
+		"message": "Στα βουνά"
+	},
+	"santasearch_level_museum": {
+		"message": "Στο μουσείο"
+	},
+	"santasearch_level_select": {
+		"message": "Πάμε!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Αναζητήστε τον Άγιο Βασίλη!"
+	},
+	"santasvillage": {
+		"message": "Χωριό του Άγιου Βασίλη"
+	},
+	"santatracker": {
+		"message": "Santa Tracker"
+	},
+	"scene_airport": {
+		"message": "Αεροδρόμιο Βόρειου Πόλου"
+	},
+	"scene_app": {
+		"message": "Εφαρμογή Android"
+	},
+	"scene_blimp": {
+		"message": "Επανάληψη φόρτωσης δώρων"
+	},
+	"scene_boatload": {
+		"message": "Σφεντόνα δώρων"
+	},
+	"scene_briefing": {
+		"message": "Ενημέρωση από την Κυρία Κλάους"
+	},
+	"scene_callfromsanta": {
+		"message": "Κλήση από τον Άγιο Βασίλη"
+	},
+	"scene_canvas": {
+		"message": "Καμβάς του Άη Βασίλη"
+	},
+	"scene_citylights": {
+		"message": "Φώτα της πόλης"
+	},
+	"scene_clausdraws": {
+		"message": "Αγιοβασιλιάτικα σχέδια"
+	},
+	"scene_codeboogie": {
+		"message": "Κωδικοποίηση μπούγκι"
+	},
+	"scene_codelab": {
+		"message": "Εργαστήριο κώδικα"
+	},
+	"scene_commandcentre": {
+		"message": "Έλεγχος αποστολής"
+	},
+	"scene_dash": {
+		"message": "Τρεχάλα με πιγκουίνους"
+	},
+	"scene_elfmaker": {
+		"message": "Σχεδίαση ξωτικού"
+	},
+	"scene_elfski": {
+		"message": "Σκι με ξωτικά"
+	},
+	"scene_factory": {
+		"message": "Εργοστάσιο ζαχαρωτών"
+	},
+	"scene_giftmatch": {
+		"message": "Αντιστοίχιση δώρων"
+	},
+	"scene_glider": {
+		"message": "Ανεμόπτερο ξωτικών"
+	},
+	"scene_gumball": {
+		"message": "Κυλίστε τις καραμέλες"
+	},
+	"scene_icecave": {
+		"message": "Παγοσπηλιά"
+	},
+	"scene_island": {
+		"message": "Νησί"
+	},
+	"scene_jamband": {
+		"message": "Elf Jamband"
+	},
+	"scene_jetpack": {
+		"message": "Jetpack ξωτικών"
+	},
+	"scene_latlong": {
+		"message": "Παράδοση δώρων"
+	},
+	"scene_matching": {
+		"message": "Αντιστοίχιση μνήμης"
+	},
+	"scene_mercator": {
+		"message": "Κουίζ χάρτη"
+	},
+	"scene_playground": {
+		"message": "Παιδική χαρά Βόρειου Πόλου"
+	},
+	"scene_poseboogie": {
+		"message": "Χορευτική φιγούρα"
+	},
+	"scene_postcard": {
+		"message": "Ταχυδρομικές κάρτες Άη Βασίλη"
+	},
+	"scene_presentbounce": {
+		"message": "Αναπήδηση δώρων"
+	},
+	"scene_presentdrop": {
+		"message": "Παράδοση δώρων"
+	},
+	"scene_quickdraw": {
+		"message": "Γρήγορη σχεδίαση"
+	},
+	"scene_racer": {
+		"message": "Αγώνας δρόμου με τον Ρούντολφ"
+	},
+	"scene_rollercoaster": {
+		"message": "Ρόλερ κόστερ με ξωτικά"
+	},
+	"scene_runner": {
+		"message": "Αγώνας δρόμου με ταράνδους"
+	},
+	"scene_santasearch": {
+		"message": "Αναζήτηση Άγιου Βασίλη"
+	},
+	"scene_santaselfie": {
+		"message": "Σέλφι με τον Άγιο Βασίλη"
+	},
+	"scene_seasonofcaring": {
+		"message": "Εποχή φροντίδας"
+	},
+	"scene_seasonofgiving": {
+		"message": "Εποχή προσφοράς"
+	},
+	"scene_snowball": {
+		"message": "Χιονοθύελλα"
+	},
+	"scene_snowflake": {
+		"message": "Κωδικοποίηση χιονονιφάδας"
+	},
+	"scene_speedsketch": {
+		"message": "Σχέδιο ταχύτητας"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "Γιορτινές παραδόσεις"
+	},
+	"scene_translations": {
+		"message": "Μεταφράσεις"
+	},
+	"scene_trivia": {
+		"message": "Παιχνίδια γενικών γνώσεων"
+	},
+	"scene_undersea": {
+		"message": "Κάτω από τη θάλασσα"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Αυτοκίνητο ξωτικών"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Αρχηγείο"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Χορός και τραγούδι με ξωτικά"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Η απογείωση του Άγιου Βασίλη"
+	},
+	"scene_videoscene_museum": {
+		"message": "Μια μέρα στο μουσείο"
+	},
+	"scene_videoscene_office": {
+		"message": "Φάρσα στο γραφείο"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Ακόμα σε διακοπές"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Οι τάρανδοι ανησυχούν"
+	},
+	"scene_videoscene_reload": {
+		"message": "Επανάληψη φόρτωσης δώρων"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Ο Άγιος Βασίλης επέστρεψε"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Δορυφόρος"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Σέλφι με τον Άη Βασίλη"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Λουφάρισμα"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Απογείωση"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Πειρασμός"
+	},
+	"scene_videoscene_tired": {
+		"message": "Κουρασμένος τάρανδος"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Πού είναι ο Άη Βασίλης;"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Το εργαστήριο του Άη Βασίλη"
+	},
+	"scene_windtunnel": {
+		"message": "Αεροδυναμική σήραγγα"
+	},
+	"scene_wrap": {
+		"message": "Τύλιγμα δώρων"
+	},
+	"score": {
+		"message": "Σκορ"
+	},
+	"score_short": {
+		"message": "Σκορ"
+	},
+	"se_country_name": {
+		"message": "Σουηδία"
+	},
+	"seconds": {
+		"message": "Δευτερόλεπτα"
+	},
+	"select-language": {
+		"message": "Επιλογή γλώσσας"
+	},
+	"share-button": {
+		"message": "Κοινή χρήση με τους φίλους σας στο Google+"
+	},
+	"share-text": {
+		"message": "Έφτιαξα αυτήν την κάρτα για εσένα στο Google Santa Tracker. Καλές γιορτές!"
+	},
+	"share-this": {
+		"message": "Κοινή χρήση"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Γιορτινό emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Κουίζ για τις γιορτινές παραδόσεις"
+	},
+	"sidebar_santas_location": {
+		"message": "Χάρτες Google: Η τοποθεσία του Άη Βασίλη"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Γιορτινές αναζητήσεις"
+	},
+	"sk_country_name": {
+		"message": "Σλοβακία"
+	},
+	"sk_language_name": {
+		"message": "Σλοβακικά"
+	},
+	"skip-training": {
+		"message": "Παράβλεψη εκπαίδευσης"
+	},
+	"sl_country_name": {
+		"message": "Σιέρα Λεόνε"
+	},
+	"sn_country_name": {
+		"message": "Σενεγάλη"
+	},
+	"snowball_iced": {
+		"message": "Τέλος!"
+	},
+	"snowball_remaining": {
+		"message": "Απομένουν {{remaining}} από {{total}} ξωτικά"
+	},
+	"snowball_spectate": {
+		"message": "Παρακολούθηση"
+	},
+	"snowball_waiting": {
+		"message": "Αναμονή για άλλα ξωτικά του Άη Βασίλη"
+	},
+	"snowflake_choose_background": {
+		"message": "Επιλέξτε ένα φόντο"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Χρησιμοποιήστε τα πλήκτρα βέλους για να επιλέξετε μια καρτ ποστάλ"
+	},
+	"snowflake_code": {
+		"message": "Κωδικοποιήστε τη χιονονιφάδα σας"
+	},
+	"snowflake_code_instructions": {
+		"message": "Ενώστε κομμάτια για να σχεδιάσετε τη δική σας χιονονιφάδα"
+	},
+	"snowflake_create_message": {
+		"message": "Σχεδιάστε τη δική σας χιονονιφάδα"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Επαναλάβετε!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Επανάληψη"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Στρίψτε και επαναλάβετε!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Περιστροφή και επανάληψη"
+	},
+	"snowflake_make_your_own": {
+		"message": "Δημιουργήθηκε με κωδικό. Δοκιμάστε το κι εσείς!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Επιλέξτε μια καρτ ποστάλ και μοιραστείτε τη χιονονιφάδα σας με φίλους"
+	},
+	"snowflake_shared_message": {
+		"message": "Κάποιος σας έστειλε χιονονιφάδα!"
+	},
+	"so_country_name": {
+		"message": "Σομαλία"
+	},
+	"speedsketch_item~London": {
+		"message": "Λονδίνο"
+	},
+	"speedsketch_item~New York": {
+		"message": "Νέα Υόρκη"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Παρίσι"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Σανγκάη"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Ελβετία"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Ο Πύργος του Άιφελ"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Το Σινικό Τείχος της Κίνας"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Η Μόνα Λίζα"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "αφηρημένη τέχνη"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "αεροπλανοφόρο"
+	},
+	"speedsketch_item~airplane": {
+		"message": "αεροπλάνο"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "ξυπνητήρι"
+	},
+	"speedsketch_item~alien": {
+		"message": "εξωγήινος"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ασθενοφόρο"
+	},
+	"speedsketch_item~angel": {
+		"message": "αγγελούδι"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "μετανάστευση ζώων"
+	},
+	"speedsketch_item~ant": {
+		"message": "μυρμήγκι"
+	},
+	"speedsketch_item~anvil": {
+		"message": "αμόνι"
+	},
+	"speedsketch_item~apple": {
+		"message": "μήλο"
+	},
+	"speedsketch_item~arm": {
+		"message": "μπράτσο"
+	},
+	"speedsketch_item~arrow": {
+		"message": "βέλος"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "σπαράγγι"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "αστροναύτης"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "κασέτα"
+	},
+	"speedsketch_item~avocado": {
+		"message": "αβοκάντο"
+	},
+	"speedsketch_item~axe": {
+		"message": "τσεκούρι"
+	},
+	"speedsketch_item~baby": {
+		"message": "μωρό"
+	},
+	"speedsketch_item~backpack": {
+		"message": "σακίδιο πλάτης"
+	},
+	"speedsketch_item~banana": {
+		"message": "μπανάνα"
+	},
+	"speedsketch_item~bandage": {
+		"message": "επίδεσμος"
+	},
+	"speedsketch_item~barn": {
+		"message": "αχυρώνας"
+	},
+	"speedsketch_item~baseball": {
+		"message": "μπέιζμπολ"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "ρόπαλο του μπέιζμπολ"
+	},
+	"speedsketch_item~basket": {
+		"message": "καλάθι"
+	},
+	"speedsketch_item~basketball": {
+		"message": "μπάσκετ"
+	},
+	"speedsketch_item~bat": {
+		"message": "νυχτερίδα"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "μπανιέρα"
+	},
+	"speedsketch_item~beach": {
+		"message": "παραλία"
+	},
+	"speedsketch_item~bear": {
+		"message": "αρκούδα"
+	},
+	"speedsketch_item~beard": {
+		"message": "γενειάδα"
+	},
+	"speedsketch_item~bed": {
+		"message": "κρεβάτι"
+	},
+	"speedsketch_item~bee": {
+		"message": "μέλισσα"
+	},
+	"speedsketch_item~belt": {
+		"message": "ζώνη"
+	},
+	"speedsketch_item~bench": {
+		"message": "παγκάκι"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "ποδήλατο"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "κιάλια"
+	},
+	"speedsketch_item~bird": {
+		"message": "πουλί"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "τούρτα γενεθλίων"
+	},
+	"speedsketch_item~black": {
+		"message": "μαύρο"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "βατόμουρο"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "μύρτιλο"
+	},
+	"speedsketch_item~book": {
+		"message": "βιβλίο"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "μπούμερανγκ"
+	},
+	"speedsketch_item~boot": {
+		"message": "μπότα"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "πώμα φιάλης"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "παπιγιόν"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "βραχιόλι"
+	},
+	"speedsketch_item~brain": {
+		"message": "εγκέφαλος"
+	},
+	"speedsketch_item~bread": {
+		"message": "ψωμί"
+	},
+	"speedsketch_item~bridge": {
+		"message": "γέφυρα"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "μπρόκολο"
+	},
+	"speedsketch_item~broom": {
+		"message": "σκούπα"
+	},
+	"speedsketch_item~bucket": {
+		"message": "κουβάς"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "μπουλντόζα"
+	},
+	"speedsketch_item~bus": {
+		"message": "λεωφορείο"
+	},
+	"speedsketch_item~bush": {
+		"message": "θάμνος"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "πεταλούδα"
+	},
+	"speedsketch_item~cactus": {
+		"message": "κάκτος"
+	},
+	"speedsketch_item~cake": {
+		"message": "κέικ"
+	},
+	"speedsketch_item~calculator": {
+		"message": "αριθμομηχανή"
+	},
+	"speedsketch_item~calendar": {
+		"message": "ημερολόγιο"
+	},
+	"speedsketch_item~camel": {
+		"message": "καμήλα"
+	},
+	"speedsketch_item~camera": {
+		"message": "κάμερα"
+	},
+	"speedsketch_item~campfire": {
+		"message": "φωτιά κατασκήνωσης"
+	},
+	"speedsketch_item~candle": {
+		"message": "κερί"
+	},
+	"speedsketch_item~candy": {
+		"message": "γλυκά"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "ζαχαρωτό μπαστούνι"
+	},
+	"speedsketch_item~canoe": {
+		"message": "κανό"
+	},
+	"speedsketch_item~car": {
+		"message": "αυτοκίνητο"
+	},
+	"speedsketch_item~carrot": {
+		"message": "καρότο"
+	},
+	"speedsketch_item~castle": {
+		"message": "κάστρο"
+	},
+	"speedsketch_item~cat": {
+		"message": "γάτα"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ανεμιστήρας οροφής"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "κινητό τηλέφωνο"
+	},
+	"speedsketch_item~cello": {
+		"message": "τσέλο"
+	},
+	"speedsketch_item~chair": {
+		"message": "καρέκλα"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "πολυέλαιος"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "χημεία"
+	},
+	"speedsketch_item~cherry": {
+		"message": "κεράσι"
+	},
+	"speedsketch_item~child": {
+		"message": "παιδί"
+	},
+	"speedsketch_item~chimney": {
+		"message": "καμινάδα"
+	},
+	"speedsketch_item~church": {
+		"message": "εκκλησία"
+	},
+	"speedsketch_item~circle": {
+		"message": "κύκλος"
+	},
+	"speedsketch_item~city": {
+		"message": "πόλη"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "κλαρινέτο"
+	},
+	"speedsketch_item~clock": {
+		"message": "ρολόι"
+	},
+	"speedsketch_item~cloud": {
+		"message": "συννεφάκι"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "καλαμπόκι"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "φλιτζάνι καφέ"
+	},
+	"speedsketch_item~compass": {
+		"message": "πυξίδα"
+	},
+	"speedsketch_item~computer": {
+		"message": "υπολογιστής"
+	},
+	"speedsketch_item~cookie": {
+		"message": "μπισκότο"
+	},
+	"speedsketch_item~cooler": {
+		"message": "ψυγειάκι"
+	},
+	"speedsketch_item~couch": {
+		"message": "καναπές"
+	},
+	"speedsketch_item~cow": {
+		"message": "αγελάδα"
+	},
+	"speedsketch_item~crab": {
+		"message": "καβούρι"
+	},
+	"speedsketch_item~crayon": {
+		"message": "κηρομπογιά"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "κροκόδειλος"
+	},
+	"speedsketch_item~crow": {
+		"message": "κοράκι"
+	},
+	"speedsketch_item~crown": {
+		"message": "στέμμα"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "κρουαζιερόπλοιο"
+	},
+	"speedsketch_item~cube": {
+		"message": "κύβος"
+	},
+	"speedsketch_item~cup": {
+		"message": "φλιτζάνι"
+	},
+	"speedsketch_item~darts": {
+		"message": "βελάκια"
+	},
+	"speedsketch_item~diamond": {
+		"message": "διαμάντι"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "δαχτυλίδι με διαμάντι"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "πλυντήριο πιάτων"
+	},
+	"speedsketch_item~diving board": {
+		"message": "εξέδρα καταδύσεων"
+	},
+	"speedsketch_item~dog": {
+		"message": "σκύλος"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "δελφίνι"
+	},
+	"speedsketch_item~donut": {
+		"message": "ντόνατ"
+	},
+	"speedsketch_item~door": {
+		"message": "πόρτα"
+	},
+	"speedsketch_item~dragon": {
+		"message": "δράκος"
+	},
+	"speedsketch_item~dresser": {
+		"message": "μπουφές"
+	},
+	"speedsketch_item~drill": {
+		"message": "τρυπάνι"
+	},
+	"speedsketch_item~drums": {
+		"message": "τύμπανα"
+	},
+	"speedsketch_item~duck": {
+		"message": "πάπια"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "βαράκι"
+	},
+	"speedsketch_item~ear": {
+		"message": "αυτί"
+	},
+	"speedsketch_item~egg": {
+		"message": "αυγό"
+	},
+	"speedsketch_item~elbow": {
+		"message": "αγκώνας"
+	},
+	"speedsketch_item~elephant": {
+		"message": "ελέφαντας"
+	},
+	"speedsketch_item~elf": {
+		"message": "ξωτικό"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "φάκελος"
+	},
+	"speedsketch_item~eraser": {
+		"message": "γόμα"
+	},
+	"speedsketch_item~eye": {
+		"message": "μάτι"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "γυαλιά όρασης"
+	},
+	"speedsketch_item~face": {
+		"message": "πρόσωπο"
+	},
+	"speedsketch_item~family": {
+		"message": "οικογένεια"
+	},
+	"speedsketch_item~fan": {
+		"message": "ανεμιστήρας"
+	},
+	"speedsketch_item~feather": {
+		"message": "φτερό"
+	},
+	"speedsketch_item~fence": {
+		"message": "φράχτης"
+	},
+	"speedsketch_item~finger": {
+		"message": "δάχτυλο"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "πυροσβεστικός κρουνός"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "τζάκι"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "πυροσβεστικό όχημα"
+	},
+	"speedsketch_item~fish": {
+		"message": "ψάρι"
+	},
+	"speedsketch_item~flag": {
+		"message": "σημαία"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "φλαμίνγκο"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "φακός"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "σαγιονάρες"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "φωτιστικό δαπέδου"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "δισκέτα"
+	},
+	"speedsketch_item~flower": {
+		"message": "λουλούδι"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "ιπτάμενος δίσκος"
+	},
+	"speedsketch_item~fog": {
+		"message": "ομίχλη"
+	},
+	"speedsketch_item~foot": {
+		"message": "πόδι"
+	},
+	"speedsketch_item~fork": {
+		"message": "πιρούνι"
+	},
+	"speedsketch_item~french fries": {
+		"message": "τηγανητές πατάτες"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "τηγανητό αυγό"
+	},
+	"speedsketch_item~frog": {
+		"message": "βάτραχος"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "τηγάνι"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "γαλαξίας"
+	},
+	"speedsketch_item~garden": {
+		"message": "κήπος"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "λάστιχο κήπου"
+	},
+	"speedsketch_item~ghost": {
+		"message": "φάντασμα"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "άντρας από τζίντζερμπρεντ"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "καμηλοπάρδαλη"
+	},
+	"speedsketch_item~goat": {
+		"message": "κατσίκα"
+	},
+	"speedsketch_item~goatee": {
+		"message": "μούσι"
+	},
+	"speedsketch_item~golf club": {
+		"message": "μπαστούνι του γκολφ"
+	},
+	"speedsketch_item~grapes": {
+		"message": "σταφύλια"
+	},
+	"speedsketch_item~grass": {
+		"message": "γρασίδι"
+	},
+	"speedsketch_item~group": {
+		"message": "ομάδα"
+	},
+	"speedsketch_item~guitar": {
+		"message": "κιθάρα"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "χάμπουργκερ"
+	},
+	"speedsketch_item~hammer": {
+		"message": "σφυρί"
+	},
+	"speedsketch_item~hand": {
+		"message": "χέρι"
+	},
+	"speedsketch_item~happiness": {
+		"message": "ευτυχία"
+	},
+	"speedsketch_item~harp": {
+		"message": "άρπα"
+	},
+	"speedsketch_item~hat": {
+		"message": "καπέλο"
+	},
+	"speedsketch_item~headphones": {
+		"message": "ακουστικά"
+	},
+	"speedsketch_item~heart": {
+		"message": "καρδιά"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "σκαντζόχοιρος"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "ελικόπτερο"
+	},
+	"speedsketch_item~helmet": {
+		"message": "κράνος"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "εξάγωνο"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "δίσκος του χόκεϊ"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "μπαστούνι του χόκεϊ"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "χριστουγεννιάτικα φώτα"
+	},
+	"speedsketch_item~horse": {
+		"message": "άλογο"
+	},
+	"speedsketch_item~hospital": {
+		"message": "νοσοκομείο"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "αερόστατο"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "χοτ ντογκ"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "τζακούζι"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "κλεψύδρα"
+	},
+	"speedsketch_item~house": {
+		"message": "σπίτι"
+	},
+	"speedsketch_item~house plant": {
+		"message": "φυτό εσωτερικού χώρου"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "τυφώνας"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "παγωτό"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "πατινέρ"
+	},
+	"speedsketch_item~infinity": {
+		"message": "άπειρο"
+	},
+	"speedsketch_item~island": {
+		"message": "νησί"
+	},
+	"speedsketch_item~jacket": {
+		"message": "σακάκι"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Κουδουνάκια"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "καγκουρό"
+	},
+	"speedsketch_item~key": {
+		"message": "κλειδί"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "πληκτρολόγιο"
+	},
+	"speedsketch_item~kite": {
+		"message": "χαρταετός"
+	},
+	"speedsketch_item~knee": {
+		"message": "γόνατο"
+	},
+	"speedsketch_item~knife": {
+		"message": "μαχαίρι"
+	},
+	"speedsketch_item~knot": {
+		"message": "κόμπος"
+	},
+	"speedsketch_item~koala": {
+		"message": "κοάλα"
+	},
+	"speedsketch_item~ladder": {
+		"message": "σκάλα"
+	},
+	"speedsketch_item~landscape": {
+		"message": "τοπίο"
+	},
+	"speedsketch_item~lantern": {
+		"message": "φανάρι"
+	},
+	"speedsketch_item~laptop": {
+		"message": "φορητός υπολογιστής"
+	},
+	"speedsketch_item~leaf": {
+		"message": "φύλλο"
+	},
+	"speedsketch_item~leg": {
+		"message": "πόδι"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "λαμπτήρας"
+	},
+	"speedsketch_item~lighter": {
+		"message": "αναπτήρας"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "φάρος"
+	},
+	"speedsketch_item~lightning": {
+		"message": "αστραπή"
+	},
+	"speedsketch_item~line": {
+		"message": "γραμμή"
+	},
+	"speedsketch_item~lion": {
+		"message": "λιοντάρι"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "κραγιόν"
+	},
+	"speedsketch_item~lobster": {
+		"message": "αστακός"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "γλειφιτζούρι"
+	},
+	"speedsketch_item~love": {
+		"message": "αγάπη"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "γραμματοκιβώτιο"
+	},
+	"speedsketch_item~man": {
+		"message": "άνδρας"
+	},
+	"speedsketch_item~map": {
+		"message": "χάρτης"
+	},
+	"speedsketch_item~marker": {
+		"message": "μαρκαδόρος"
+	},
+	"speedsketch_item~matches": {
+		"message": "σπίρτα"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "μαθηματικά"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "μεγάφωνο"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "γοργόνα"
+	},
+	"speedsketch_item~metal": {
+		"message": "μέταλλο"
+	},
+	"speedsketch_item~microphone": {
+		"message": "μικρόφωνο"
+	},
+	"speedsketch_item~microscope": {
+		"message": "μικροσκόπιο"
+	},
+	"speedsketch_item~microwave": {
+		"message": "φούρνος μικροκυμάτων"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "γκι"
+	},
+	"speedsketch_item~mittens": {
+		"message": "γάντια χωρίς δάχτυλα"
+	},
+	"speedsketch_item~molecule": {
+		"message": "μόριο"
+	},
+	"speedsketch_item~money": {
+		"message": "χρήματα"
+	},
+	"speedsketch_item~monkey": {
+		"message": "πίθηκος"
+	},
+	"speedsketch_item~moon": {
+		"message": "φεγγάρι"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "κουνούπι"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "μοτοσικλέτα"
+	},
+	"speedsketch_item~mountain": {
+		"message": "βουνό"
+	},
+	"speedsketch_item~mouse": {
+		"message": "ποντίκι"
+	},
+	"speedsketch_item~moustache": {
+		"message": "μουστάκι"
+	},
+	"speedsketch_item~mouth": {
+		"message": "στόμα"
+	},
+	"speedsketch_item~mug": {
+		"message": "κούπα"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "μανιτάρι"
+	},
+	"speedsketch_item~music": {
+		"message": "μουσική"
+	},
+	"speedsketch_item~nail": {
+		"message": "νύχι"
+	},
+	"speedsketch_item~nature": {
+		"message": "φύση"
+	},
+	"speedsketch_item~necklace": {
+		"message": "κολιέ"
+	},
+	"speedsketch_item~news": {
+		"message": "ειδήσεις"
+	},
+	"speedsketch_item~nose": {
+		"message": "μύτη"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "καρυοθραύστης"
+	},
+	"speedsketch_item~ocean": {
+		"message": "ωκεανός"
+	},
+	"speedsketch_item~octagon": {
+		"message": "οκτάγωνο"
+	},
+	"speedsketch_item~octopus": {
+		"message": "χταπόδι"
+	},
+	"speedsketch_item~onion": {
+		"message": "κρεμμύδι"
+	},
+	"speedsketch_item~ornament": {
+		"message": "στολίδι"
+	},
+	"speedsketch_item~oven": {
+		"message": "φούρνος"
+	},
+	"speedsketch_item~owl": {
+		"message": "κουκουβάγια"
+	},
+	"speedsketch_item~paint can": {
+		"message": "κουτί μπογιάς"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "πινέλο"
+	},
+	"speedsketch_item~painting": {
+		"message": "ζωγραφική"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "φοίνικας"
+	},
+	"speedsketch_item~panda": {
+		"message": "πάντα"
+	},
+	"speedsketch_item~pants": {
+		"message": "παντελόνι"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "συνδετήρας"
+	},
+	"speedsketch_item~parachute": {
+		"message": "αλεξίπτωτο"
+	},
+	"speedsketch_item~parrot": {
+		"message": "παπαγάλος"
+	},
+	"speedsketch_item~passport": {
+		"message": "διαβατήριο"
+	},
+	"speedsketch_item~peanut": {
+		"message": "φιστίκι"
+	},
+	"speedsketch_item~pear": {
+		"message": "αχλάδι"
+	},
+	"speedsketch_item~peas": {
+		"message": "αρακάς"
+	},
+	"speedsketch_item~pencil": {
+		"message": "μολύβι"
+	},
+	"speedsketch_item~penguin": {
+		"message": "πιγκουίνος"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "μέντα"
+	},
+	"speedsketch_item~piano": {
+		"message": "πιάνο"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "ημιφορτηγό"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "κορνίζα"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "γράφημα πίτας"
+	},
+	"speedsketch_item~pig": {
+		"message": "γουρούνι"
+	},
+	"speedsketch_item~pillow": {
+		"message": "μαξιλάρι"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ανανάς"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "πινγκ πονγκ"
+	},
+	"speedsketch_item~pirate": {
+		"message": "πειρατής"
+	},
+	"speedsketch_item~pizza": {
+		"message": "πίτσα"
+	},
+	"speedsketch_item~pliers": {
+		"message": "τανάλια"
+	},
+	"speedsketch_item~police car": {
+		"message": "περιπολικό"
+	},
+	"speedsketch_item~politician": {
+		"message": "πολιτικός"
+	},
+	"speedsketch_item~pond": {
+		"message": "λιμνούλα"
+	},
+	"speedsketch_item~pool": {
+		"message": "πισίνα"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "παγωτό γρανίτα"
+	},
+	"speedsketch_item~portrait": {
+		"message": "πορτραίτο"
+	},
+	"speedsketch_item~postcard": {
+		"message": "καρτ ποστάλ"
+	},
+	"speedsketch_item~potato": {
+		"message": "πατάτα"
+	},
+	"speedsketch_item~present": {
+		"message": "δώρο"
+	},
+	"speedsketch_item~prison": {
+		"message": "φυλακή"
+	},
+	"speedsketch_item~purse": {
+		"message": "γυναικείο τσαντάκι"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "κουνέλι"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "ρακούν"
+	},
+	"speedsketch_item~radio": {
+		"message": "ραδιόφωνο"
+	},
+	"speedsketch_item~rain": {
+		"message": "βροχή"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "ουράνιο τόξο"
+	},
+	"speedsketch_item~rake": {
+		"message": "τσουγκράνα"
+	},
+	"speedsketch_item~raven": {
+		"message": "κοράκι"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "τάρανδος"
+	},
+	"speedsketch_item~remote control": {
+		"message": "τηλεχειριστήριο"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "ρινόκερος"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "κορδέλα"
+	},
+	"speedsketch_item~river": {
+		"message": "ποταμός"
+	},
+	"speedsketch_item~robot": {
+		"message": "ρομπότ"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "τρενάκι λούνα παρκ"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "πατίνια"
+	},
+	"speedsketch_item~sadness": {
+		"message": "λύπη"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "ιστιοπλοϊκό"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "σάντουιτς"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Άγιος Βασίλης"
+	},
+	"speedsketch_item~saturn": {
+		"message": "κρόνος"
+	},
+	"speedsketch_item~sausage": {
+		"message": "λουκάνικο"
+	},
+	"speedsketch_item~saw": {
+		"message": "πριόνι"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "σαξόφωνο"
+	},
+	"speedsketch_item~school bus": {
+		"message": "σχολικό λεωφορείο"
+	},
+	"speedsketch_item~scissors": {
+		"message": "ψαλίδι"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "σκορπιός"
+	},
+	"speedsketch_item~screw": {
+		"message": "βίδα"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "κατσαβίδι"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "γλυπτική"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "θαλάσσια χελώνα"
+	},
+	"speedsketch_item~see saw": {
+		"message": "τραμπάλα"
+	},
+	"speedsketch_item~shark": {
+		"message": "καρχαρίας"
+	},
+	"speedsketch_item~sheep": {
+		"message": "πρόβατο"
+	},
+	"speedsketch_item~shoe": {
+		"message": "παπούτσι"
+	},
+	"speedsketch_item~shorts": {
+		"message": "σορτς"
+	},
+	"speedsketch_item~shovel": {
+		"message": "φτυάρι"
+	},
+	"speedsketch_item~sink": {
+		"message": "νεροχύτης"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "σκέιτμπορντ"
+	},
+	"speedsketch_item~ski": {
+		"message": "σκι"
+	},
+	"speedsketch_item~skier": {
+		"message": "σκιέρ"
+	},
+	"speedsketch_item~skirt": {
+		"message": "φούστα"
+	},
+	"speedsketch_item~skull": {
+		"message": "νεκροκεφαλή"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "ουρανοξύστης"
+	},
+	"speedsketch_item~sled": {
+		"message": "έλκηθρο"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "υπνόσακος"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "έλκηθρο"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "γελαστό πρόσωπο"
+	},
+	"speedsketch_item~snail": {
+		"message": "σαλιγκάρι"
+	},
+	"speedsketch_item~snake": {
+		"message": "φίδι"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "αναπνευστήρας"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "νιφάδα χιονιού"
+	},
+	"speedsketch_item~snowman": {
+		"message": "χιονάνθρωπος"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "μπάλα ποδοσφαίρου"
+	},
+	"speedsketch_item~sock": {
+		"message": "κάλτσα"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "ταχύπλοο"
+	},
+	"speedsketch_item~sphere": {
+		"message": "σφαίρα"
+	},
+	"speedsketch_item~spider": {
+		"message": "αράχνη"
+	},
+	"speedsketch_item~spiral": {
+		"message": "σπείρα"
+	},
+	"speedsketch_item~spoon": {
+		"message": "κουτάλι"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "υπολογιστικό φύλλο"
+	},
+	"speedsketch_item~square": {
+		"message": "τετράγωνο"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "σκίουρος"
+	},
+	"speedsketch_item~stairs": {
+		"message": "σκάλες"
+	},
+	"speedsketch_item~star": {
+		"message": "αστέρι"
+	},
+	"speedsketch_item~steak": {
+		"message": "μπριζόλα"
+	},
+	"speedsketch_item~stereo": {
+		"message": "στέρεο"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "στηθοσκόπιο"
+	},
+	"speedsketch_item~still life": {
+		"message": "νεκρή φύση"
+	},
+	"speedsketch_item~stocking": {
+		"message": "κάλτσα"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "σήμα \"στοπ\""
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "χρονόμετρο"
+	},
+	"speedsketch_item~stove": {
+		"message": "κουζίνα"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "φράουλα"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "φως δρόμου"
+	},
+	"speedsketch_item~string bean": {
+		"message": "αμπελοφάσουλο"
+	},
+	"speedsketch_item~submarine": {
+		"message": "υποβρύχιο"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "βαλίτσα"
+	},
+	"speedsketch_item~sun": {
+		"message": "ήλιος"
+	},
+	"speedsketch_item~sunset": {
+		"message": "ηλιοβασίλεμα"
+	},
+	"speedsketch_item~swan": {
+		"message": "κύκνος"
+	},
+	"speedsketch_item~sweater": {
+		"message": "πουλόβερ"
+	},
+	"speedsketch_item~swing set": {
+		"message": "κούνιες"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "μπλουζάκι"
+	},
+	"speedsketch_item~table": {
+		"message": "τραπέζι"
+	},
+	"speedsketch_item~teapot": {
+		"message": "τσαγιέρα"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "αρκουδάκι"
+	},
+	"speedsketch_item~telephone": {
+		"message": "τηλέφωνο"
+	},
+	"speedsketch_item~television": {
+		"message": "τηλεόραση"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "ρακέτα τένις"
+	},
+	"speedsketch_item~tent": {
+		"message": "σκηνή"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "τρίλιζα"
+	},
+	"speedsketch_item~tiger": {
+		"message": "τίγρης"
+	},
+	"speedsketch_item~time": {
+		"message": "ώρα"
+	},
+	"speedsketch_item~toaster": {
+		"message": "τοστιέρα"
+	},
+	"speedsketch_item~toe": {
+		"message": "δάχτυλο ποδιού"
+	},
+	"speedsketch_item~toilet": {
+		"message": "τουαλέτα"
+	},
+	"speedsketch_item~tooth": {
+		"message": "δόντι"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "οδοντόβουρτσα"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "οδοντόκρεμα"
+	},
+	"speedsketch_item~tornado": {
+		"message": "ανεμοστρόβιλος"
+	},
+	"speedsketch_item~tractor": {
+		"message": "τρακτέρ"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "φωτεινός σηματοδότης"
+	},
+	"speedsketch_item~train": {
+		"message": "τρένο"
+	},
+	"speedsketch_item~tree": {
+		"message": "δέντρο"
+	},
+	"speedsketch_item~triangle": {
+		"message": "τρίγωνο"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "τρίκυκλο"
+	},
+	"speedsketch_item~trombone": {
+		"message": "τρομπόνι"
+	},
+	"speedsketch_item~trousers": {
+		"message": "παντελόνι"
+	},
+	"speedsketch_item~truck": {
+		"message": "φορτηγό"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "τρομπέτα"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "ομπρέλα"
+	},
+	"speedsketch_item~underwear": {
+		"message": "εσώρουχα"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "μονόκερος"
+	},
+	"speedsketch_item~universe": {
+		"message": "σύμπαν"
+	},
+	"speedsketch_item~van": {
+		"message": "βαν"
+	},
+	"speedsketch_item~vase": {
+		"message": "βάζο"
+	},
+	"speedsketch_item~violin": {
+		"message": "βιολί"
+	},
+	"speedsketch_item~walnut": {
+		"message": "καρύδι"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "πλυντήριο ρούχων"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "καρπούζι"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "νεροτσουλήθρα"
+	},
+	"speedsketch_item~wave": {
+		"message": "κύμα"
+	},
+	"speedsketch_item~whale": {
+		"message": "φάλαινα"
+	},
+	"speedsketch_item~windmill": {
+		"message": "ανεμόμυλος"
+	},
+	"speedsketch_item~woman": {
+		"message": "γυναίκα"
+	},
+	"speedsketch_item~world": {
+		"message": "κόσμος"
+	},
+	"speedsketch_item~wreath": {
+		"message": "στεφάνι"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "ρολόι χειρός"
+	},
+	"speedsketch_item~yoga": {
+		"message": "γιόγκα"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "γιαούρτι"
+	},
+	"speedsketch_item~zebra": {
+		"message": "ζέβρα"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "ζιγκ ζαγκ"
+	},
+	"speedsketch_item~zipper": {
+		"message": "φερμουάρ"
+	},
+	"sr_country_name": {
+		"message": "Σουρινάμ"
+	},
+	"sv_country_name": {
+		"message": "Ελ Σαλβαδόρ"
+	},
+	"sv_language_name": {
+		"message": "Σουηδικά"
+	},
+	"td_country_name": {
+		"message": "Τσαντ"
+	},
+	"terms-and-privacy": {
+		"message": "Όροι και Απόρρητο"
+	},
+	"tg_country_name": {
+		"message": "Τόγκο"
+	},
+	"th_language_name": {
+		"message": "Ταϊλανδικά"
+	},
+	"tilt": {
+		"message": "Γείρετε τη συσκευή σας!"
+	},
+	"time": {
+		"message": "Ώρα"
+	},
+	"tj_country_name": {
+		"message": "Τατζικιστάν"
+	},
+	"tm_country_name": {
+		"message": "Τουρκμενιστάν"
+	},
+	"tn_country_name": {
+		"message": "Τυνησία"
+	},
+	"today_only": {
+		"message": "Μόνο σήμερα"
+	},
+	"tr_country_name": {
+		"message": "Τουρκία"
+	},
+	"tr_language_name": {
+		"message": "Τουρκικά"
+	},
+	"tracker_arrival": {
+		"message": "Άφιξη"
+	},
+	"tracker_arriving_in": {
+		"message": "Άφιξη σε"
+	},
+	"tracker_current_stop": {
+		"message": "Τρέχουσα στάση"
+	},
+	"tracker_departing_in": {
+		"message": "Αναχώρηση σε"
+	},
+	"tracker_distance_away_km": {
+		"message": "Ο Άγιος Βασίλης είναι {{distance_away}} χλμ. μακριά"
+	},
+	"tracker_distance_from_you": {
+		"message": "Απόσταση από εσάς"
+	},
+	"tracker_distance_travelled": {
+		"message": "Απόσταση ταξιδιού"
+	},
+	"tracker_feed": {
+		"message": "Ζωντανή ροή"
+	},
+	"tracker_flight_nearby": {
+		"message": "Ο Άγιος Βασίλης είναι κοντά. Μάθετε πού βρίσκεται"
+	},
+	"tracker_flight_start": {
+		"message": "Ο Άγιος Βασίλης αναχώρησε από τον Βόρειο Πόλο και πλέον μπορείτε να ακολουθήσετε τη διαδρομή του"
+	},
+	"tracker_from_google": {
+		"message": "Από όλους εμάς στην Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Τα δώρα παραδόθηκαν"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Παρ. εισ."
+	},
+	"tracker_intro_user_location": {
+		"message": "Είστε στην περιοχή"
+	},
+	"tracker_just_in": {
+		"message": "Τα νέα τώρα"
+	},
+	"tracker_next_stop": {
+		"message": "Επόμενη στάση"
+	},
+	"tracker_santa_update": {
+		"message": "ΕΝΗΜΕΡΩΣΗ ΓΙΑ ΤΟΝ ΑΓΙΟ ΒΑΣΙΛΗ"
+	},
+	"tracker_santa_update_1": {
+		"message": "Ενημέρωση για τον Άγιο Βασίλη"
+	},
+	"tracker_see_route": {
+		"message": "Δείτε τη διαδρομή"
+	},
+	"tracker_stats": {
+		"message": "Στατιστικά Άη Βασίλη"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Ο Άγιος Βασίλης θα φτάσει σε περίπου {{hours}} ώρες"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Ο Άγιος Βασίλης θα φτάσει σύντομα"
+	},
+	"tracker_track": {
+		"message": "Παρακολούθηση Άγιου Βασίλη"
+	},
+	"tracker_travelogue": {
+		"message": "Ταξιδολόγιο"
+	},
+	"tracker_weather": {
+		"message": "Καιρός"
+	},
+	"tracker_world_facts": {
+		"message": "ΓΝΩΡΙΖΑΤΕ ΟΤΙ"
+	},
+	"tracker_world_facts_1": {
+		"message": "Παγκόσμια γεγονότα"
+	},
+	"tracker_your_location": {
+		"message": "Η τοποθεσία σας"
+	},
+	"traditions-next": {
+		"message": "Επόμενη στην κατηγορία Παράδοση"
+	},
+	"traditions-prev": {
+		"message": "Προηγούμενη μετάφραση"
+	},
+	"traditions-world": {
+		"message": "Κόσμος"
+	},
+	"trivia_beginner_001": {
+		"message": "Σε ποια ήπειρο βρίσκονται οι Άνδεις;"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_002": {
+		"message": "Ποια πολιτεία των ΗΠΑ αποτελείται από οκτώ κύρια νησιά;"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Χαβάη"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Οχάιο"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Αρκάνσας"
+	},
+	"trivia_beginner_003": {
+		"message": "Ποια πολιτεία των ΗΠΑ βρίσκεται στις Μεγάλες Πεδιάδες;"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Κάνσας"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Ντέλαγουερ"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Αϊντάχο"
+	},
+	"trivia_beginner_004": {
+		"message": "Ποια ήπειρος συνορεύει με τον Ατλαντικό, τον Ειρηνικό και τον Αρκτικό Ωκεανό;"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_005": {
+		"message": "Ποια πολιτεία βρίσκεται στη ζώνη ώρας του Ειρηνικού;"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Καλιφόρνια"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Γεωργία"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Ιντιάνα"
+	},
+	"trivia_beginner_006": {
+		"message": "Ποια ήπειρος περιλαμβάνει την Οροσειρά του Άτλαντα και την έρημο Καλαχάρι;"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_007": {
+		"message": "Ποια πολιτεία των ΗΠΑ συνορεύει με μια Μεγάλη Λίμνη;"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Οχάιο"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Μοντάνα"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Νέο Μεξικό"
+	},
+	"trivia_beginner_008": {
+		"message": "Σε ποια ήπειρο οι περισσότεροι άνθρωποι μιλάνε Πορτογαλικά ή Ισπανικά;"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_009": {
+		"message": "Ποια πολιτεία των ΗΠΑ έχει σχήμα που περιλαμβάνει μια στενή λωρίδα γης;"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Οκλαχόμα"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Γουαϊόμινγκ"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Κολοράντο"
+	},
+	"trivia_beginner_010": {
+		"message": "Η Ανταρκτική και ποια άλλη ήπειρος βρίσκονται εξ ολοκλήρου στο Νότιο Ημισφαίριο;"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_011": {
+		"message": "Με ποια ήπειρο συνορεύει η παγονησίδα Ronne;"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_012": {
+		"message": "Πέρα από τη δυτική ακτή ποιας ηπείρου βρίσκονται οι νήσοι Βανκούβερ και Κόντιακ;"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_013": {
+		"message": "Στο βορειοδυτικό τμήμα ποιας ηπείρου βρίσκεται ο Νίγηρας, μια χώρα με έναν από τους ταχύτερα αναπτυσσόμενους πληθυσμούς στον κόσμο;"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_014": {
+		"message": "Ποια είναι η ήπειρος με τα λιγότερα δέντρα και φυτά;"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_015": {
+		"message": "Οι Δαίμονες της Τασμανίας ζουν σε ένα νησί πέρα από τη νότια ακτή ποιας ηπείρου;"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_016": {
+		"message": "Σε ποια μεσογειακή χώρα βρίσκεται ο κεκλιμένος Πύργος της Πίζας, ο οποίος είναι ένα δημοφιλές τουριστικό αξιοθέατο;"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Ιταλία"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Καναδάς"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Γκάνα"
+	},
+	"trivia_beginner_017": {
+		"message": "Στη βόρεια ακτή ποιας ηπείρου βρίσκονται οι ιστορικές πόλεις Καζαμπλάνκα και Τρίπολη;"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_018": {
+		"message": "Σε ποια έρημο βρίσκονται οι κάκτοι Σαγκουάρο στην έρημο Σονόρα;"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_019": {
+		"message": "Σε ποια χώρα είναι δημοφιλείς παραθεριστικοί προορισμοί η Βερακρούς και το Ακαπούλκο;"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Αργεντινή"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Ινδία"
+	},
+	"trivia_beginner_020": {
+		"message": "Σε ποια χώρα βρίσκονται τα καταφύγια των γιγάντιων πάντα του Σιτσουάν που φιλοξενούν το 30 τοις εκατό των πάντα παγκοσμίως;"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Κίνα"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Ισλανδία"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Αιθιοπία"
+	},
+	"trivia_beginner_021": {
+		"message": "Σε ποια ήπειρο βρίσκεται περίπου το 90% των παγκόσμιων πάγων;"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_022": {
+		"message": "Σε ποια ήπειρο βρίσκονται οι Καταρράκτες Έιντζελ, ο υψηλότερος καταρράκτης στον κόσμο;"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_023": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ θα πρέπει να ταξιδέψετε για να επισκεφτείτε το Jackson Hole και να αναρριχηθείτε στο Devils Tower;"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Γουαϊόμινγκ"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Βόρεια Ντακότα"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Κονέκτικατ"
+	},
+	"trivia_beginner_024": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ πρέπει να ταξιδέψετε για να δείτε πώς γίνεται η συγκομιδή του χυμού από το δέντρο σφένδαμος και να πάτε για σκι στην οροσειρά Green Mountains;"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Βερμόντ"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Όρεγκον"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Αριζόνα"
+	},
+	"trivia_beginner_025": {
+		"message": "Ποια πολιτεία των ΗΠΑ πρέπει να επισκεφτείτε για να διασχίσετε τη γέφυρα Τσέζαπικ Μπέι στο Μέριλαντ και να περπατήσετε στην ξύλινη εξέδρα του Ocean City;"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Μέριλαντ"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Κάνσας"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Βόρεια Καρολίνα"
+	},
+	"trivia_beginner_026": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ πρέπει να ταξιδέψετε για να επισκεφτείτε το Σπήλαιο Μαμούθ και να παρακολουθήσετε έναν αγώνα ιππασίας στο στάδιο Churchill Downs;"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Κεντάκι"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Δυτική Βιρτζίνια"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Γιούτα"
+	},
+	"trivia_beginner_027": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ θα πρέπει να ταξιδέψετε, για να δείτε γιγαντιαίες Σεκόιες και τα Νησιά της Μάγχης;"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Καλιφόρνια"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Νιού Τζέρσεϊ"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Βιρτζίνια"
+	},
+	"trivia_beginner_028": {
+		"message": "Ποιον υγρότοπο θα επισκεπτόσασταν αν ήσασταν στη Φλόριντα των ΗΠΑ;"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Έβεργκλεϊντς"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Έλος Ντίσμαλ"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Έλος Great Cypress"
+	},
+	"trivia_beginner_029": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ θα πρέπει να ταξιδέψετε, για να περιηγηθείτε στη Θαλάσσια οδό Σεντ Λόρενς και στις Φίνγκερ Λέικς;"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Νέα Υόρκη"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Μίσιγκαν"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Νεβάδα"
+	},
+	"trivia_beginner_030": {
+		"message": "Σε ποια ήπειρο βρίσκεται το Όρος Έβερεστ, το υψηλότερο βουνό στον κόσμο;"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_031": {
+		"message": "Το περισσότερο από το νότιο τμήμα ποιας ηπείρου καλύπτει η περιοχή της Παταγονίας;"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_032": {
+		"message": "Σε ποια ήπειρο βρίσκονται οι αυτοκρατορικοί πιγκουίνοι;"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_033": {
+		"message": "Σε ποια χώρα ζουν τα καγκουρό και τα κοάλα;"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_034": {
+		"message": "Σε ποια ήπειρο τα άγρια ζώα προσελκύουν τους τουρίστες στο Εθνικό πάρκο Σερενγκέτι;"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_035": {
+		"message": "Ποια ήπειρος έχει τη μεγαλύτερη χερσαία έκταση;"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_036": {
+		"message": "Σε ποια ευρωπαϊκή χώρα η Γέφυρα του Λονδίνου τέμνει τον ποταμό Τάμεση;"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Λονδίνο"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Αβάνα"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Κέιπ Τάουν"
+	},
+	"trivia_beginner_037": {
+		"message": "Σε ποια πόλη της Ρωσίας είναι ο Καθεδρικός Ναός Αγίου Βασιλείου που βρίσκεται στην Κόκκινη Πλατεία δίπλα στο Κρεμλίνο;"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Μόσχα"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Βρυξέλλες"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Μοντεβιδέο"
+	},
+	"trivia_beginner_038": {
+		"message": "Σε ποια Ευρωπαϊκή πόλη βρίσκεται το Κολοσσαίο, το οποίο χτίστηκε τον πρώτο αιώνα μ.Χ. για αγώνες μονομάχων;"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Ρώμη"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Χαρτούμ"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Μανίλα"
+	},
+	"trivia_beginner_039": {
+		"message": "Σε ποια πόλη της Αυστραλίας βρίσκονται η Όπερα και η Γέφυρα του Λιμανιού;"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Σίδνεϊ"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Τζακάρτα"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Πράγα"
+	},
+	"trivia_beginner_040": {
+		"message": "Σε ποια πόλη της Μέσης Ανατολής, ο Θόλος του Βράχου και το Δυτικό Τείχος είναι μόνο δύο από τις πολλές ιερές τοποθεσίες που βρίσκονται μέσα στα τείχη της παλιάς πόλης;"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Ιερουσαλήμ"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Τόκιο"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Αλγέρι"
+	},
+	"trivia_beginner_041": {
+		"message": "Σε ποια πόλη στην Ελλάδα βρίσκεται ο Παρθενώνας στην κορυφή της Ακρόπολης;"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Αθήνα"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Κίεβο"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Λίμα"
+	},
+	"trivia_beginner_042": {
+		"message": "Στο κέντρο ποιας πόλης έχει θέα ο Πύργος του Άιφελ, οποίος βρίσκεται κοντά στον ποταμό Σηκουάνα;"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Παρίσι"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Τορόντο"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Νέο Δελχί"
+	},
+	"trivia_beginner_043": {
+		"message": "Σε ποια πόλη της Σαουδικής Αραβίας βρίσκεται το τέμενος αλ-Χαράμ, το οποίο φιλοξενεί την Κάαμπα, την ιερότερη τοποθεσία στο Ισλάμ;"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Μέκκα"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Μπουένος Άιρες"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Βουδαπέστη"
+	},
+	"trivia_beginner_044": {
+		"message": "Στο κέντρο ποιας κινεζικής πόλης βρίσκεται η Απαγορευμένη Πόλη, η οποία είναι το πρώην αυτοκρατορικό παλάτι;"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Πεκίνο"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Σαντιάγο"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Μπρισμπέιν"
+	},
+	"trivia_beginner_045": {
+		"message": "Σε ποια πόλη των ΗΠΑ βρίσκεται ο πύργος παρατήρησης Space Needle στο Πάτζετ Σάουντ;"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Σιάτλ"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Ουιτσίτα"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Νέα Ορλεάνη"
+	},
+	"trivia_beginner_046": {
+		"message": "Σε ποια πόλη των ΗΠΑ στις εκβολές του ποταμού Τσαρλς βρίσκεται ο πύργος John Hancock, ο οποίος είναι το ψηλότερο κτήριο;"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Βοστόνη"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Πίτσμπουργκ"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Μέμφις"
+	},
+	"trivia_beginner_047": {
+		"message": "Σε ποια πόλη των ΗΠΑ στην Έρημο Μοχάβι βρίσκεται το Stratosphere Tower, το οποίο είναι το ψηλότερο κτήριο στη βόρεια πλευρά μιας διάσημης λεωφόρου, γνωστής και ως Strip;"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Λας Βέγκας"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Μινεάπολις"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Ντένβερ"
+	},
+	"trivia_beginner_048": {
+		"message": "Στο λιμάνι ποιας πόλης των ΗΠΑ βρίσκεται το Άγαλμα της Ελευθερίας, ένα μεγάλο γλυπτό που βρίσκεται στο Νησί της Ελευθερίας;"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Πόλη της Νέας Υόρκης"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Ατλάντα"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Λος Άντζελες"
+	},
+	"trivia_beginner_049": {
+		"message": "Ποια πόλη των ΗΠΑ συνδέει η Γέφυρα Γκόλντεν Γκέιτ με τη Χερσόνησο Μάριν;"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "Σαν Φρανσίσκο"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Μπόιζι"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Βαλτιμόρη"
+	},
+	"trivia_beginner_050": {
+		"message": "Σε ποια πόλη των ΗΠΑ βρίσκεται η Πύλη για τη Δύση, η οποία συμβολίζει την επέκταση της Αμερικής προς τη Δύση τη δεκαετία του 1800, και είναι κατά μήκος του ποταμού Μισισιπή;"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Σεντ Λούις"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Ιντιανάπολις"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Μαϊάμι"
+	},
+	"trivia_beginner_051": {
+		"message": "Σε ποια χώρα της Αφρικής βρίσκεται το οροπέδιο της Γκίζας, με τη Μεγάλη Πυραμίδα και τη Σφίγγα;"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Βραζιλία"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Γερμανία"
+	},
+	"trivia_beginner_052": {
+		"message": "Σε ποια πόλη των ΗΠΑ κοντά στον ποταμό Ντέλαγουερ βρίσκεται το Ιντιπέντενς Χολ, μια σημαντική ιστορική τοποθεσία που συνδέεται με την Αμερικανική Επανάσταση;"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Φιλαδέλφεια"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "Σαν Αντόνιο"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Σικάγο"
+	},
+	"trivia_beginner_053": {
+		"message": "Τα Βραχώδη Όρη εκτείνονται στον Καναδά και σε ποια άλλη χώρα;"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Ηνωμένες Πολιτείες"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Βενεζουέλα"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Ρωσία"
+	},
+	"trivia_beginner_054": {
+		"message": "Από ποιον ωκεανό βρέχονται η Βραζιλία και η Ουρουγουάη;"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_beginner_055": {
+		"message": "Σε ποιον ωκεανό πέρα από την ανατολική ακτή του Καναδά βρίσκεται το νησί Νέα Γη;"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_056": {
+		"message": "Σε ποιον ωκεανό πέρα από την ανατολική ακτή της Αφρικής βρίσκεται το νησί της Μαδαγασκάρης;"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_beginner_057": {
+		"message": "Το μεγαλύτερο μέρος της διεθνούς γραμμής ημερομηνίας περνά από το μέσον ποιου ωκεανού;"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_beginner_058": {
+		"message": "Ο Ισημερινός περνά από τη Λεκάνη Κονγκό σε ποια ήπειρο;"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_059": {
+		"message": "Ποια ήπειρος συνορεύει με τον Κόλπο του Μεξικού;"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_060": {
+		"message": "Ποιος ποταμός που διατρέχει την Αφρική είναι ο μεγαλύτερος ποταμός του κόσμου;"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Ποταμός Νείλος"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Ποταμός Κολοράντο"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Ποταμός Οράγγης"
+	},
+	"trivia_beginner_061": {
+		"message": "Σε ποια ήπειρο βρίσκονται τα αρχαία ερείπια του Μάτσου Πίτσου;"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_062": {
+		"message": "Κατά μήκος ποιας ηπείρου κυλάει ο ποταμός Αμαζόνιος, ο οποίος μεταφέρει περισσότερο νερό από οποιονδήποτε άλλο ποταμό στον κόσμο;"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_063": {
+		"message": "Σε ποια ήπειρο βρίσκεται το Λευκό Όρος, το ψηλότερο σημείο των Άλπεων;"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_064": {
+		"message": "Με ποια ήπειρο συνδέει ο Ισθμός του Παναμά την Κεντρική Αμερική;"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_065": {
+		"message": "Σε ποια ήπειρο βρίσκονται οι γατόπαρδοι στην Κένυα και στην Τανζανία, οι οποίοι είναι τα ταχύτερα χερσαία θηλαστικά στη Γη;"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_066": {
+		"message": "Στο νότιο άκρο ποιας ηπείρου βρίσκεται το Ακρωτήριο της Καλής Ελπίδος;"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_067": {
+		"message": "Σε ποιον ωκεανό δυτικά της Νότιας Αμερικής βρίσκονται τα Νησιά Γκαλαπάγκος όπου κατοικούν γιγάντιες χελώνες;"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_068": {
+		"message": "Σε ποια ήπειρο ο ποταμός Δούναβης διασχίζει τη Βιέννη και άλλες πόλεις;"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_069": {
+		"message": "Από ποια θάλασσα βρέχονται τα νησιά της Κούβας και της Ισπανιόλα;"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Καραϊβική Θάλασσα"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Βερίγγειος Θάλασσα"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Βαλτική θάλασσα"
+	},
+	"trivia_beginner_070": {
+		"message": "Με ποια ήπειρο συνορεύει ο κόλπος της Γουινέας;"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_071": {
+		"message": "Σε ποια ήπειρο ήταν διάσημος εξερευνητής ο Έρνεστ Σάκλετον;"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_072": {
+		"message": "Η Θάλασσα του Λαμπραντόρ είναι τμήμα ποιου ωκεανού;"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_073": {
+		"message": "Σε ποια ήπειρο βρίσκεται η Σαχάρα, η μεγαλύτερη έρημος στον κόσμο;"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_074": {
+		"message": "Σε ποια ήπειρο βρίσκεται το Οροπέδιο του Θιβέτ;"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_075": {
+		"message": "Σε ποια ήπειρο βρίσκεται ο Πορθμός του Ντρέικ;"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_076": {
+		"message": "Ο Μεγάλος Κοραλλιογενής Ύφαλος βρίσκεται στη Θάλασσα των Κοραλλίων, πέρα από την ακτή ποιας ηπείρου;"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_077": {
+		"message": "Σε ποια χώρα θα πρέπει να ταξιδέψετε, για να περιηγηθείτε στη Διώρυγα του Σουέζ και να επισκεφτείτε το City of the Dead στο Κάιρο;"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Κολομβία"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Φινλανδία"
+	},
+	"trivia_beginner_078": {
+		"message": "Σε ποια χώρα θα πρέπει να ταξιδέψετε, για να δείτε γκάουτσο να αρμέγουν και να παρακολουθήσετε χορευτές τάνγκο στην πόλη Μπουένος Άιρες;"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Αργεντινή"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Νίγηρας"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Νεπάλ"
+	},
+	"trivia_beginner_079": {
+		"message": "Σε ποια χώρα πρέπει να ταξιδέψετε για να επισκεφτείτε την παλιά συνοικία στη πόλη της Φεζ και να πάτε πεζοπορία στην Οροσειρά του Άτλαντα;"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Μαρόκο"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ισημερινός"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Ταϊλάνδη"
+	},
+	"trivia_beginner_080": {
+		"message": "Σε ποια χώρα θα πρέπει να ταξιδέψετε, για να επισκεφτείτε τα αρχαία ερείπια των Μάγια και να κολυμπήσετε στις παραλίες του Κανκούν;"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Ολλανδία"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Τουρκία"
+	},
+	"trivia_beginner_081": {
+		"message": "Σε ποια χώρα θα πρέπει να ταξιδέψετε, για να επισκεφτείτε τον Καθεδρικό Ναό Αγίου Πατρίκιου στο Δουβλίνο και να απολαύσετε το Φεστιβάλ Τεχνών στο Κιλκένι;"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ιρλανδία"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Σομαλία"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Κόστα Ρίκα"
+	},
+	"trivia_beginner_082": {
+		"message": "Σε ποια χώρα πρέπει να ταξιδέψετε, για να περιηγηθείτε σε ένα τροπικό δάσος και να χορέψετε με τους εορτασμούς τους καρναβαλιού στο Ρίο ντε Τζανέιρο;"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Βραζιλία"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Βιετνάμ"
+	},
+	"trivia_beginner_083": {
+		"message": "Σε ποια χώρα πρέπει να ταξιδέψετε για να επισκεφτείτε το Μουσείο Ερμιτάζ στην Αγία Πετρούπολη και να ταξιδέψετε με τον Υπερσιβηρικό σιδηρόδρομο;"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Ρωσία"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Ινδονησία"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Μπελίζ"
+	},
+	"trivia_beginner_084": {
+		"message": "Ποια χώρα πρέπει να επισκεφτείτε, για να ταξιδέψετε με το τρένο υψηλής ταχύτητας και να περάσετε το βράδυ σε ένα ξενοδοχείο στο Τόκιο;"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Ιαπωνία"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Ζιμπάμπουε"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Βολιβία"
+	},
+	"trivia_beginner_085": {
+		"message": "Σε ποια χώρα πρέπει να ταξιδέψετε για να φάτε πέστο στη Γένοβα και να παρακολουθήσετε μια όπερα στη Φλωρεντία;"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Ιταλία"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Παραγουάη"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Λιβύη"
+	},
+	"trivia_beginner_086": {
+		"message": "Σε ποια χώρα πρέπει να ταξιδέψετε για να πάτε για σαφάρι στο καταφύγιο Μασάι Μάρα και να κάνετε αγορές στο Ναϊρόμπι;"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Κένυα"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Νότιος Κορέα"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Χιλή"
+	},
+	"trivia_beginner_087": {
+		"message": "Σε ποια χώρα θα πρέπει να ταξιδέψετε, για να δείτε τον Ποταμό Γάγγη και να εξερευνήσετε τους συνωστισμένους δρόμους της Καλκούτα;"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Ινδία"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Γερμανία"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Ιορδανία"
+	},
+	"trivia_beginner_088": {
+		"message": "Ο Βόρειος Πόλος, το βορειότερο σημείο στη Γη, βρίσκεται στο μέσον ποιου ωκεανού;"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_beginner_089": {
+		"message": "Ποια χώρα συνορεύει με τον Ατλαντικό Ωκεανό;"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Ισλανδία"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Πακιστάν"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Ιαπωνία"
+	},
+	"trivia_beginner_090": {
+		"message": "Ποια πολιτεία των ΗΠΑ είναι γνωστή ως Sunshine State εξαιτίας του ζεστού κλίματος και των δημοφιλών ακτών της;"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Φλόριντα"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Μέιν"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Ουάσιγκτον"
+	},
+	"trivia_beginner_091": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ βρίσκεται το Γκραντ Κάνυον;"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Αριζόνα"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Δυτική Βιρτζίνια"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Νότια Ντακότα"
+	},
+	"trivia_beginner_092": {
+		"message": "Ποια πολιτεία των ΗΠΑ., η οποία είναι γνωστή ως η Πολιτεία του Μοναχικού Αστεριού, έχει ένα μόνο αστέρι στη σημαία της και ήταν κάποτε ανεξάρτητη χώρα;"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Τέξας"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Ουισκόνσιν"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Μέριλαντ"
+	},
+	"trivia_beginner_093": {
+		"message": "Σε ποια ήπειρο βρίσκονται οι ποταμοί Τίγρης και Ευφράτης;"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_beginner_094": {
+		"message": "Σε ποια ήπειρο βρίσκονται η Λίμνη Βικτώρια και τα Όρη Βιρούνγκα;"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_beginner_095": {
+		"message": "Ποια είναι νησιωτική χώρα στον Ειρηνικό Ωκεανό;"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Νέα Ζηλανδία"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Νότια Αφρική"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Ισλανδία"
+	},
+	"trivia_beginner_096": {
+		"message": "Ποια χώρα βρίσκεται στη Σκανδιναβική Χερσόνησο;"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Σουηδία"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Ρουμανία"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Περού"
+	},
+	"trivia_beginner_097": {
+		"message": "Ποια χώρα συνορεύει με τη Μεσόγειο Θάλασσα;"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Γαλλία"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Μπανγκλαντές"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Νικαράγουα"
+	},
+	"trivia_hard_001": {
+		"message": "Ποια πόλη των ΗΠΑ βρίσκεται πιο κοντά στα καναδικά σύνορα;"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Σιάτλ"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Σακραμέντο"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Ομάχα"
+	},
+	"trivia_hard_002": {
+		"message": "Σε ποια πόλη των ΗΠΑ είναι πιθανότερο να παρουσιαστεί τυφώνας;"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Μαϊάμι"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Λος Άντζελες"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Πίτσμπουργκ"
+	},
+	"trivia_hard_003": {
+		"message": "Ποια από αυτές τις λίμνες καλύπτει τη μεγαλύτερη επιφάνεια;"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Λίμνη Χιούρον"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Λίμνη Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Λίμνη Ήρι"
+	},
+	"trivia_hard_004": {
+		"message": "Ποια από αυτές τις πόλεις των ΗΠΑ έχει τους περισσότερους κατοίκους;"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Σικάγο"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Σεντ Λούις"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Ιντιανάπολις"
+	},
+	"trivia_hard_005": {
+		"message": "Ποια χώρα βρίσκεται πιο κοντά στον Περσικό Κόλπο;"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Ιράν"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Τουρκία"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Μπουτάν"
+	},
+	"trivia_hard_006": {
+		"message": "Ποια από αυτές τις χώρες έχει τη μεγαλύτερη χερσαία έκταση;"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Καζακστάν"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Ρουμανία"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Πολωνία"
+	},
+	"trivia_hard_007": {
+		"message": "Ποια από αυτές τις χώρες είναι η πιο πυκνοκατοικημένη;"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Σιγκαπούρη"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Λάος"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Βολιβία"
+	},
+	"trivia_hard_008": {
+		"message": "Ποιες από αυτές τις χώρες έχει τον μεγαλύτερο αριθμό γερμανόφωνων κατοίκων;"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Αυστρία"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Σλοβακία"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Ιράκ"
+	},
+	"trivia_hard_009": {
+		"message": "Ποια από αυτές τις χώρες συνορεύει με τις περισσότερες χώρες;"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Σαουδική Αραβία"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Μαρόκο"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Μογγολία"
+	},
+	"trivia_hard_010": {
+		"message": "Ποια χώρα δεν συνορεύει με τη Λίμνη Τανγκανίκα;"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Μπενίν"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Μπουρούντι"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Ζάμπια"
+	},
+	"trivia_hard_011": {
+		"message": "Από ποια χώρα δεν περνάει ο Ισημερινός;"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Μαυριτανία"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Ινδονησία"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Κένυα"
+	},
+	"trivia_hard_012": {
+		"message": "Ποια χώρα δεν βρίσκεται στη Βαλκανική Χερσόνησο;"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Δημοκρατία της Τσεχίας"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Βουλγαρία"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "ΠΓΔΜ"
+	},
+	"trivia_hard_013": {
+		"message": "Ποια χώρα δεν βρέχεται από τη Βόρεια Θάλασσα;"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Φινλανδία"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Δανία"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"trivia_hard_014": {
+		"message": "Ποια χώρα δεν βρέχεται από τη Μαύρη Θάλασσα;"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Αζερμπαϊτζάν"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ουκρανία"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Τουρκία"
+	},
+	"trivia_hard_015": {
+		"message": "Ποια χώρα δεν είναι περίκλειστη;"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Κροατία"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Λευκορωσία"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ουγγαρία"
+	},
+	"trivia_hard_016": {
+		"message": "Ποια χώρα δεν βρίσκεται στη Σαχάρα;"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Αγκόλα"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Λιβύη"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Αλγερία"
+	},
+	"trivia_hard_017": {
+		"message": "Ποιο νησί βρίσκεται πιο μακριά ανατολικά;"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Τρινιντάντ"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Τζαμάικα"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Κούβα"
+	},
+	"trivia_hard_018": {
+		"message": "Από ποια υδάτινη μάζα βρέχεται το Ακρωτήρι του φόβου;"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Καραϊβική Θάλασσα"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_hard_019": {
+		"message": "Ποια πόλη είναι λιμάνι στον Κόλπο του Μεξικού;"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Βερακρούζ"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Τιχουάνα"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Ακαπούλκο"
+	},
+	"trivia_hard_020": {
+		"message": "Ποια χώρα τέμνει ο Τροπικός του Καρκίνου;"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Καναδάς"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Βραζιλία"
+	},
+	"trivia_hard_021": {
+		"message": "Ποιο από αυτά τα νησιά είναι μεγαλύτερο σε έκταση;"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Νήσος Μπάφιν"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Ισπανιόλα"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Σαρδηνία"
+	},
+	"trivia_hard_022": {
+		"message": "Το Κανάλι του Γιουκατάν χωρίζει το Μεξικό και ποιο νησί;"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Κούβα"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Πουέρτο Ρίκο"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Ντομίνικα"
+	},
+	"trivia_hard_023": {
+		"message": "Ποια πόλη του Καναδά βρίσκεται πιο μακριά στα βόρεια;"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Γελοουνάιφ"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Οτάβα"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Γουίνιπεγκ"
+	},
+	"trivia_hard_024": {
+		"message": "Ποιο νησί ανήκει στις Μικρές Αντίλλες;"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Σεν Κιτς"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Βερμούδες"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Νέα Σκωτία"
+	},
+	"trivia_hard_025": {
+		"message": "Σε ποια χώρα το Πορτ-ο-Πρενς είναι η πόλη με τους περισσότερους κατοίκους;"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Αϊτή"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Νικαράγουα"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Σουρινάμ"
+	},
+	"trivia_hard_026": {
+		"message": "Σε ποια χώρα βρίσκεται η οροσειρά των Καρπαθίων;"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Ρουμανία"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Αλβανία"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Τουρκμενιστάν"
+	},
+	"trivia_hard_027": {
+		"message": "Τα Γαλλικά είναι επίσημη γλώσσα ποιας χώρας;"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Γκαμπόν"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Κουβέιτ"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Τανζανία"
+	},
+	"trivia_hard_028": {
+		"message": "Ποια από αυτές τις χώρες έχει μεγαλύτερη χερσαία έκταση;"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Ιράν"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Ισραήλ"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Μπαχρέιν"
+	},
+	"trivia_hard_029": {
+		"message": "Ποια χώρα εκτείνεται στις περισσότερες μοίρες γεωγραφικού μήκους;"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Καζακστάν"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Αφγανιστάν"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Συρία"
+	},
+	"trivia_hard_030": {
+		"message": "Ποια χώρα αποτελείται από πολλά νησιά;"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Φιλιππίνες"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Καμπότζη"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Τατζικιστάν"
+	},
+	"trivia_hard_031": {
+		"message": "Ποια από αυτές τις χώρες έχει τις περισσότερες ζώνες ώρας;"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Βραζιλία"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Γκάνα"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Μπελίζ"
+	},
+	"trivia_hard_032": {
+		"message": "Ποια χώρα βρίσκεται πιο μακριά στα βόρεια;"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Καμερούν"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Μοζαμβίκη"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Αυστραλία"
+	},
+	"trivia_hard_033": {
+		"message": "Ποια χώρα βρίσκεται ανάμεσα στη Γαλλία και την Ισπανία;"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Ανδόρα"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Λουξεμβούργο"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Πόλη του Βατικανού"
+	},
+	"trivia_hard_034": {
+		"message": "Με ποια χώρα συνορεύει η Δανία;"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Γερμανία"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Φινλανδία"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Μολδαβία"
+	},
+	"trivia_hard_035": {
+		"message": "Σε ποια χώρα ανήκει το νησί της Σαρδηνίας;"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Ιταλία"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Τουρκία"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"trivia_hard_036": {
+		"message": "Ποια έρημος καλύπτει τη μεγαλύτερη περιοχή μεταξύ του Πεκίνου και του Ουλάν Μπατόρ;"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Γκόμπι"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Μεγάλη Ινδική Έρημος"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Λιβυκή Έρημος"
+	},
+	"trivia_hard_037": {
+		"message": "Το Ρεύμα της Καμτσάτκα είναι τμήμα ποιου ωκεανού;"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_hard_038": {
+		"message": "Στο νότιο τμήμα ποιας θάλασσας βρίσκεται ο Κόλπος της Σύρτης;"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Μεσόγειος Θάλασσα"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Αραβική Θάλασσα"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Βαλτική θάλασσα"
+	},
+	"trivia_hard_039": {
+		"message": "Ποια οροσειρά της Ευρώπης έχει ως υψηλότερο σημείο τα Όρη Τάτρα;"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Καρπάθια Όρη"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Κανταβρικά Όρη"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Πυρηναία"
+	},
+	"trivia_hard_040": {
+		"message": "Ποιος ποταμός εκβάλει στη Λίμνη Καρίμπα και σχηματίζει τα σύνορα ανάμεσα στη Ζάμπια και τη Ζιμπάμπουε;"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Ποταμός Ζαμβέζης"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Ποταμός Νείλος"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Ποταμός Κονγκό"
+	},
+	"trivia_hard_041": {
+		"message": "Σε ποια θάλασσα εκρέουν τα ποτάμια Τάμεσης, Μεύσης και Σκάλδης;"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Βόρεια Θάλασσα"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Μεσόγειος Θάλασσα"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Μαύρη Θάλασσα"
+	},
+	"trivia_hard_042": {
+		"message": "Από ποιο μεγάλο νησί στον βορρά χωρίζει τις Φιλιππίνες το Στενό της Λουζόν;"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Ταϊβάν"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Αλγερία"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Σρι Λάνκα"
+	},
+	"trivia_hard_043": {
+		"message": "Ποια νησιά βρίσκονται στη Μεσο-Ατλαντική Ράχη;"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Αζόρες"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Μπαχάμες"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Νησιά Φίτζι"
+	},
+	"trivia_hard_044": {
+		"message": "Ποιος ποταμός εκβάλλει στη Θάλασσα Λάπτεφ;"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Ποταμός Λένα"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Ποταμός Γιανγκτσέ"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Ποταμός Ινδός"
+	},
+	"trivia_hard_045": {
+		"message": "Ποια κορυφή βρίσκεται πιο κοντά στον Ισημερινό;"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Κιλιμάντζαρο"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Λευκό Όρος"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Όρος ΜακΚίνλεϊ"
+	},
+	"trivia_hard_046": {
+		"message": "Ποια πρωτεύουσα είναι η πιο πυκνοκατοικημένη;"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Μόσχα"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Ελσίνκι"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Αλγέρι"
+	},
+	"trivia_hard_047": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στον ποταμό Liffey, είναι η μεγαλύτερη πόλη της Δημοκρατίας της Ιρλανδίας;"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Δουβλίνο"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Όσλο"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Κοπεγχάγη"
+	},
+	"trivia_hard_048": {
+		"message": "Ποια πόλη, η οποία βρίσκεται σε μια κοιλάδα του Χίντου Κους, είναι η μεγαλύτερη πόλη στο Αφγανιστάν;"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Καμπούλ"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Σεράγεβο"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Καμπάλα"
+	},
+	"trivia_hard_049": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στον ποταμό Τσάο Πράγια, είναι η μεγαλύτερη πόλη στην Ταϊλάνδη;"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Μπανγκόκ"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Πεκίνο"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Αμμάν"
+	},
+	"trivia_hard_050": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην κορυφή ενός φιόρδ στον πορθμό Σκάγκερακ, είναι η μεγαλύτερη πόλη στη Νορβηγία;"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Όσλο"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Λονδίνο"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Βρυξέλλες"
+	},
+	"trivia_hard_051": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην ανατολική Μεσόγειο Θάλασσα, είναι η μεγαλύτερη πόλη στον Λίβανο;"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Βηρυτός"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Μογκαντίσου"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Ριάντ"
+	},
+	"trivia_hard_052": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην ακτή Ιάβα, είναι η μεγαλύτερη πόλη στην Ινδονησία;"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Τζακάρτα"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Τόκιο"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Ναϊρόμπι"
+	},
+	"trivia_hard_053": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην Περιφέρεια Αττικής, είναι η μεγαλύτερη πόλη στην Ελλάδα;"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Αθήνα"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Ρώμη"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Βαρκελώνη"
+	},
+	"trivia_hard_054": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην εκβολή του ποταμού Ρίο ντε λα Πλάτα, είναι η μεγαλύτερη πόλη στην Ουρουγουάη;"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Μοντεβιδέο"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Κίτο"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Ρίο ντε Τζανέιρο"
+	},
+	"trivia_hard_055": {
+		"message": "Ποια πόλη, η οποία κάποτε ήταν μέρος της πρώην επαρχίας του Τράνσβααλ, είναι η μεγαλύτερη πόλη στη Νότια Αφρική;"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Γιοχάνεσμπουργκ"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Αμπούζα"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Μαπούτο"
+	},
+	"trivia_hard_056": {
+		"message": "Ποια πόλη, η οποία είναι ένα σημαντικό ναυτιλιακό κέντρο στην Καραϊβική Θάλασσα, είναι η μεγαλύτερη πόλη στην Τζαμάικα;"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Κίνγκστον"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Καράκας"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Μπουένος Άιρες"
+	},
+	"trivia_hard_057": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στην Κοιλάδα του Μεγάλου Ρήγματος, είναι η μεγαλύτερη πόλη στην Ερυθραία;"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Ασμάρα"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Βαγδάτη"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Μπραζαβίλ"
+	},
+	"trivia_hard_058": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στις όχθες του ποταμού Βιστούλα, είναι η μεγαλύτερη πόλη στην Πολωνία;"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Βαρσοβία"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Βερολίνο"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Κίεβο"
+	},
+	"trivia_hard_059": {
+		"message": "Ποια πόλη, η οποία αποτελεί σημαντική στάση στον Παναμερικανικό Αυτοκινητόδρομο, είναι η μεγαλύτερη πόλη στην Κόστα Ρίκα;"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "Σαν Χοσέ"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Λίμα"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Σούκρε"
+	},
+	"trivia_hard_060": {
+		"message": "Ποια πόλη, η οποία αποτελεί σημαντικό γεωργικό εμπορικό κέντρο στη νότια Αφρική, είναι η μεγαλύτερη πόλη στη Ζιμπάμπουε;"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Χαράρε"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Βίντχουκ"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Καμπάλα"
+	},
+	"trivia_hard_061": {
+		"message": "Ποια πόλη, η οποία βρισκόταν κάποτε υπό το καθεστώς των Ερυθρών Χμερ, είναι η μεγαλύτερη πόλη στην Καμπότζη;"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Πνομ Πενχ"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Κουάλα Λουμπούρ"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Ντάκα"
+	},
+	"trivia_hard_062": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στο Ακρωτήριο Μεσουράντο στον Ατλαντικό Ωκεανό, είναι η μεγαλύτερη πόλη στη Λιβερία;"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Μονρόβια"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Άκκρα"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Λουσάκα"
+	},
+	"trivia_hard_063": {
+		"message": "Ποια πόλη, η οποία βρίσκεται σε ένα ψηλό οροπέδιο στις Άνδεις, είναι η μεγαλύτερη πόλη στην Κολομβία;"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Μπογκοτά"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Μανάγκουα"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Μοντερέι"
+	},
+	"trivia_hard_064": {
+		"message": "Ποια πόλη, η οποία βρίσκεται στους πρόποδες της Οροσειράς Ελμπούρτζ, είναι η μεγαλύτερη πόλη στο Ιράν;"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Τεχεράνη"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Τασκένδη"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Κωνσταντινούπολη"
+	},
+	"trivia_hard_065": {
+		"message": "Ποια υδάτινη μάζα τέμνεται από τον Αρκτικό Κύκλο;"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Νορβηγική Θάλασσα"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Λίμνη Βόλτα"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Κασπία Θάλασσα"
+	},
+	"trivia_hard_066": {
+		"message": "Ποια υδάτινη μάζα βρίσκεται στην Κοιλάδα του Μεγάλου Ρήγματος;"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Λίμνη Μαλάουι"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Θάλασσα της Τασμανίας"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Λίμνη Τιτικάκα"
+	},
+	"trivia_hard_067": {
+		"message": "Στις ακτές ποιας μάζας νερού βρίσκεται η ρωσική πόλη-λιμάνι Αρχάγγελσκ;"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Λευκή Θάλασσα"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Στενό Μπας"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Βισκαϊκός Κόλπος"
+	},
+	"trivia_hard_068": {
+		"message": "Ποια χώρα περιλαμβάνει της επαρχίες Χουνάν και Σαντόνγκ;"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Κίνα"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Ταϊλάνδη"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Υεμένη"
+	},
+	"trivia_hard_069": {
+		"message": "Ποια μεσογειακή χώρα έχει ως επίσημη γλώσσα τα Καστιλιανικά;"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Ισπανία"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Ελλάδα"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Αζερμπαϊτζάν"
+	},
+	"trivia_hard_070": {
+		"message": "Ποια χώρα της Κεντρικής Αμερικής ήταν κάποτε επαρχία που ανήκε στην Κολομβία;"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Παναμάς"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Ονδούρα"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Γουατεμάλα"
+	},
+	"trivia_hard_071": {
+		"message": "Σε ποια χώρα η πόλη της Βασιλείας, την οποία διασχίζει ο ποταμός Ρήνος, είναι ένα σημαντικό κέντρο μεταφορών;"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Ελβετία"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Βέλγιο"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Ρωσία"
+	},
+	"trivia_hard_072": {
+		"message": "Σε ποια χώρα βρίσκεται η Προβηγκία, από το τοπίο της οποίας εμπνέονταν ζωγράφοι, όπως ο Σεζάν;"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Γαλλία"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Ολλανδία"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Ρουμανία"
+	},
+	"trivia_hard_073": {
+		"message": "Σε ποια χώρα η Μπαΐα Μπλάνκα είναι σημαντική τοποθεσία μεταφορών για την περιοχή Πάμπα;"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Αργεντινή"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Βολιβία"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Νικαράγουα"
+	},
+	"trivia_hard_074": {
+		"message": "Ποια χώρα βρέχεται από τη Μεσόγειο Θάλασσα, τη Μαύρη Θάλασσα και το Αιγαίο Πέλαγος;"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Τουρκία"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Βουλγαρία"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Λιβύη"
+	},
+	"trivia_hard_075": {
+		"message": "Σε ποια γειτονική χώρα στα βορειανατολικά μεταναστεύουν κάθε χρόνο τα γνου από την Τανζανία διασχίζοντας τον Ποταμό Μάρα;"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Κένυα"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Ζάμπια"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Γουινέα"
+	},
+	"trivia_hard_076": {
+		"message": "Ποια νοτιοδυτική χώρα της Ασίας έχει ως μεγαλύτερη πόλη το Χαλέπι, το οποίο είναι διάσημο για το Μεγάλο Τέμενος;"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Συρία"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Ομάν"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Μπανγκλαντές"
+	},
+	"trivia_hard_077": {
+		"message": "Ποια χώρα συνορεύει με τη Ρωσία και τη Γεωργία;"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Αζερμπαϊτζάν"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Ουζμπεκιστάν"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Βόρεια Κορέα"
+	},
+	"trivia_hard_078": {
+		"message": "Ποια χώρα συνορεύει με τον Παναμά και τη Βραζιλία;"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Κολομβία"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Περού"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Κόστα Ρίκα"
+	},
+	"trivia_hard_079": {
+		"message": "Ποια χώρα συνορεύει με τη Γουατεμάλα και τις Ηνωμένες Πολιτείες;"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "Ελ Σαλβαδόρ"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Καναδάς"
+	},
+	"trivia_hard_080": {
+		"message": "Ποια χώρα συνορεύει με το Ιράκ και το Αφγανιστάν;"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Ιράν"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ουκρανία"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Μογγολία"
+	},
+	"trivia_hard_081": {
+		"message": "Ποια χώρα συνορεύει με το Λεσότο και την Μποτσουάνα;"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Νότια Αφρική"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Ζιμπάμπουε"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Κόνγκο"
+	},
+	"trivia_hard_082": {
+		"message": "Η Αμβέρσα βρίσκεται στο φλαμανδικό τμήμα ποιας χώρας;"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Βέλγιο"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Ολλανδία"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Ισλανδία"
+	},
+	"trivia_hard_083": {
+		"message": "Κοντά στην εκβολή του ποταμού Βιστούλα, το Γκντανσκ είναι ένα σημαντικό λιμάνι σε ποια Ευρωπαϊκή χώρα;"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Πολωνία"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Ισπανία"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Κροατία"
+	},
+	"trivia_hard_084": {
+		"message": "Σε ποιον μεγάλο ποταμό της Νότιας Αμερικής ανήκουν οι παραπόταμοι Μαδέιρα και Πούρους;"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Ποταμός Αμαζόνιος"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Ποταμός Ορινόκο"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Ποταμός Παρανά"
+	},
+	"trivia_hard_085": {
+		"message": "Η λίμνη Κωνσταντίας συνορεύει με την Ελβετία, τη Γερμανία και ποια άλλη χώρα;"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Αυστρία"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Σλοβακία"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Φινλανδία"
+	},
+	"trivia_hard_086": {
+		"message": "Ποιας χώρας η μεγαλύτερη πόλη είναι το Όκλαντ, μια σημαντική πόλη-λιμάνι με πολλούς λιμένες;"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Νέα Ζηλανδία"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Αυστραλία"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Ινδονησία"
+	},
+	"trivia_hard_087": {
+		"message": "Ποια χώρα, που βρίσκεται ακριβώς στα δυτικά του Τόγκο, είναι σημαντική παραγωγός κακάο;"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Γκάνα"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Σουδάν"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Τυνησία"
+	},
+	"trivia_hard_088": {
+		"message": "Γκουαρανί είναι το όνομα μίας από τις επίσημες γλώσσες και επίσης το νόμισμα ποια χώρας στη Νότια Αμερική;"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Παραγουάη"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ισημερινός"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Βραζιλία"
+	},
+	"trivia_hard_089": {
+		"message": "Ποια οροσειρά εκτείνεται κατά μήκος των συνόρων μεταξύ Γαλλίας και Ισπανίας;"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Πυρηναία"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Απένινα Όρη"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Καυκάσια Όρη"
+	},
+	"trivia_hard_090": {
+		"message": "Σε ποια χώρα εκβάλλει ο ποταμός Τόρενς στον κόλπο του Αγίου Βικεντίου;"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Ουγκάντα"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Καναδάς"
+	},
+	"trivia_hard_091": {
+		"message": "Ποια χώρα της Αφρικής που συνορεύει με τη Μεσόγειο Θάλασσα έχει μοναρχία;"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Μαρόκο"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Κεντροαφρικανική Δημοκρατία"
+	},
+	"trivia_hard_092": {
+		"message": "Ποιας χώρας πρωτεύουσα είναι η Τιφλίδα, η οποία βρίσκεται στις όχθες του ποταμού Κούρα;"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Γεωργία"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Συρία"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ουγγαρία"
+	},
+	"trivia_hard_093": {
+		"message": "Σε ποια χώρα βρίσκεται το Αμπρούτσο, μια ορεινή περιοχή στις ακτές της Αδριατικής Θάλασσας;"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Ιταλία"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Γαλλία"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Λουξεμβούργο"
+	},
+	"trivia_hard_094": {
+		"message": "Ο Κόλπος της Ρίγας συνορεύει με τη Λετονία και ποια άλλη χώρα;"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Εσθονία"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Λευκορωσία"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Ισπανία"
+	},
+	"trivia_hard_095": {
+		"message": "Με ποια θάλασσα συνδέει τον Κόλπο του Σουέζ το Στενό του Τζουμπάλ;"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Ερυθρά Θάλασσα"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Καραϊβική Θάλασσα"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Κασπία Θάλασσα"
+	},
+	"trivia_hard_096": {
+		"message": "Από τα νερά ποιου μεγάλου ποταμού προέρχεται μεγάλος μέρος της εισροής υδάτων στη Θάλασσα της Γαλιλαίας;"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Ποταμός Ιορδάνης"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Αμού Ντάρια"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ποταμός Γάγγης"
+	},
+	"trivia_hard_097": {
+		"message": "Ποιος μεγάλος όρμος χωρίζει το Νιου Μπράνσγουικ από τη Νέα Σκοτία;"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Κόλπος Φούντι"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Χάντσον Μπέι"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Κόλπος της Βεγγάλης"
+	},
+	"trivia_hard_098": {
+		"message": "Σε ποια χώρα βρίσκεται ο καθεδρικός ναός της Κολωνίας, ο οποίος είναι στην περιοχή της Ρηνανίας;"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Γερμανία"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Δανία"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Πακιστάν"
+	},
+	"trivia_hard_099": {
+		"message": "Ποιας χώρας το νοτιότερο άκρο είναι η πολιτεία Τσιάπας, όπου βρίσκονται αρκετά αρχαία ερείπια των Μάγιας;"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Ονδούρα"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Χιλή"
+	},
+	"trivia_hard_100": {
+		"message": "Με ποια θάλασσα συνδέουν τη Θάλασσα του Μαρμαρά τα Δαρδανέλια, τα οποία είναι ένα στενό πέρασμα;"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Αιγαίο Πέλαγος"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Θάλασσα Μπάρεντς"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Θάλασσα της Τασμανίας"
+	},
+	"trivia_hard_101": {
+		"message": "Ποια χώρα της νοτιοανατολικής Ασίας έχει ως επίσημη γλώσσα τα Χμερ;"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Καμπότζη"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Νεπάλ"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Βιετνάμ"
+	},
+	"trivia_hard_102": {
+		"message": "Η κοιλάδα του Ντόνετς είναι μια βιομηχανική περιοχή που μοιράζονται η Ρωσία και ποια άλλη χώρα;"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ουκρανία"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Σλοβακία"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Λίβανος"
+	},
+	"trivia_hard_103": {
+		"message": "Ποιας ηπείρου υψηλότερη κορυφή είναι το Όρος Κοσιούσκο, το οποίο βρίσκεται στα Χιονισμένα Όρη;"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_hard_104": {
+		"message": "Ποιας χώρας τμήματα αποτελούν τα νησιά Μαντούρα και Μπαλί;"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Ινδονησία"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Ιαπωνία"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Πακιστάν"
+	},
+	"trivia_hard_105": {
+		"message": "Σε ποια χώρα της Ασίας βρίσκεται η έρημος Τάκλα Μακάν, στα βόρεια της οροσειράς Κουνλούν;"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Κίνα"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Σαουδική Αραβία"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Νότιος Κορέα"
+	},
+	"trivia_medium_001": {
+		"message": "Ποια από αυτές τις πόλεις των ΗΠΑ βρίσκεται σε δέλτα ποταμού;"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Νέα Ορλεάνη"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Ώστιν"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Οκλαχόμα Σίτι"
+	},
+	"trivia_medium_002": {
+		"message": "Σε ποια ήπειρο βρίσκονται το Άνγκορ Βατ και η Καππαδοκία που αποτελούν μνημεία Παγκόσμιας Κληρονομιάς της UNESCO;"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_003": {
+		"message": "Στο νοτιοδυτικό τμήμα ποιας ηπείρου μιλάνε την Κουρδική και την Περσική γλώσσα;"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_004": {
+		"message": "Σε ποια ήπειρο το Τεοτιουακάν ήταν το σπουδαιότερο κέντρο ενός πρώιμου πολιτισμού;"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_medium_005": {
+		"message": "Με ποια ήπειρο συνορεύουν η Θάλασσα Μπέλινγκσχαουζεν και η Θάλασσα Ρος;"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_medium_006": {
+		"message": "Κατά μήκος των ακτών ποιας ηπείρου ρέουν τα ρεύματα της Μοζαμβίκης και της Μπενγκουέλα;"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_medium_007": {
+		"message": "Πέρα από το νοτιοδυτικό άκρο ποιας ηπείρου βρίσκεται το αρχιπέλαγος των Νήσων Μαλβίνας, οι οποίες ονομάζονται επίσης και Νήσοι Φώκλαντ;"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_008": {
+		"message": "Ποια από αυτές τις χώρες της Αφρικής έχει τη μεγαλύτερη έκταση;"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Αλγερία"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Γκάμπια"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Μπουρούντι"
+	},
+	"trivia_medium_009": {
+		"message": "Ποιο μεγάλο νησί βρίσκεται 322 χλμ. βορειοδυτικά της Ισλανδίας;"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Γροιλανδία"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Νέα Γουινέα"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ιρλανδία"
+	},
+	"trivia_medium_010": {
+		"message": "Η Θάλασσα του Κάρα και η Ανατολική Σιβηρική Θάλασσα είναι τμήμα ποιου ωκεανού;"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Ινδικός Ωκεανός"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_medium_011": {
+		"message": "Ποια χώρα συνορεύει με τη Βαλτική Θάλασσα;"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Λετονία"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Σλοβενία"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ουκρανία"
+	},
+	"trivia_medium_012": {
+		"message": "Ποια από αυτές τις μεγάλες πόλεις έχει τους περισσότερους κατοίκους;"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "Σάο Πάολο, Βραζιλία"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Τορόντο, Καναδάς"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Ανόι, Βιετνάμ"
+	},
+	"trivia_medium_013": {
+		"message": "Ποια χώρα δεν έχει ακτογραμμή στον Ατλαντικό Ωκεανό;"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Μαλαισία"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Αγκόλα"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Ουρουγουάη"
+	},
+	"trivia_medium_014": {
+		"message": "Ποια από αυτές τις χώρες έχει τη μικρότερη ακτογραμμή;"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Ελ Σαλβαδόρ"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Περού"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Χιλή"
+	},
+	"trivia_medium_015": {
+		"message": "Ποια έρημος βρίσκεται στην Ασία;"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Γκόμπι"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Καλαχάρι"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Ατακάμα"
+	},
+	"trivia_medium_016": {
+		"message": "Ποια από αυτές τις χώρες παρουσιάζει την πιο έντονη ηφαιστειακή δραστηριότητα;"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Ινδονησία"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Ισραήλ"
+	},
+	"trivia_medium_017": {
+		"message": "Ποια από αυτές τις χώρες έχει τον μεγαλύτερο πληθυσμό;"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Πακιστάν"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Αϊτή"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Βενεζουέλα"
+	},
+	"trivia_medium_018": {
+		"message": "Ποια από αυτές τις χώρες έχει τα περισσότερα νησιά;"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Μπαχάμες"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Τζαμάικα"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Ελ Σαλβαδόρ"
+	},
+	"trivia_medium_019": {
+		"message": "Ποια χώρα βρίσκεται πιο κοντά στον Ισημερινό;"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ρουάντα"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Γουατεμάλα"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Νότια Αφρική"
+	},
+	"trivia_medium_020": {
+		"message": "Ποια χώρα βρίσκεται πιο μακριά στα βόρεια;"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Εσθονία"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Λιβύη"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Καμπότζη"
+	},
+	"trivia_medium_021": {
+		"message": "Σε ποια πρωτεύουσα βρίσκεται η συνοικία Αλφάμα, η οποία είναι στην Πορτογαλία στις όχθες του ποταμού Τάγου;"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Λισαβόνα"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Βερολίνο"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Ελσίνκι"
+	},
+	"trivia_medium_022": {
+		"message": "Ποια πρωτεύουσα, η οποία βρίσκεται 40 χλμ. βορειοδυτικά της Νεκράς Θάλασσας, είναι η πόλη με τους περισσότερους κατοίκους στην Ιορδανία;"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Αμμάν"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Ισλαμαμπάντ"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Σεούλ"
+	},
+	"trivia_medium_023": {
+		"message": "Σε ποια πρωτεύουσα βρίσκεται η πλατεία Ταχρίρ, η οποία είναι το κεντρικό σημείο αρκετών μεγάλων διαμαρτυριών στην Αίγυπτο;"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Κάιρο"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Ναϊρόμπι"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Μουσκάτ"
+	},
+	"trivia_medium_024": {
+		"message": "Ποια πρωτεύουσα, η οποία βρίσκεται στον Κόλπο Τέιμπλ, είναι η έδρα του εθνικού κοινοβουλίου της Νότιας Αφρικής;"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Κέιπ Τάουν"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Λουσάκα"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Κινσάσα"
+	},
+	"trivia_medium_025": {
+		"message": "Ποια πρωτεύουσα βρίσκεται στον ποταμό Μολδάβα και είναι η μεγαλύτερη πόλη της Δημοκρατίας της Τσεχίας;"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Πράγα"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Δουβλίνο"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Σόφια"
+	},
+	"trivia_medium_026": {
+		"message": "Ποια πρωτεύουσα, η οποία βρίσκεται στη Μεσόγειο Θάλασσα, είναι ένα σημαντικό λιμάνι για τη Λιβύη;"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Τρίπολη"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Μογκαντίσου"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Μονρόβια"
+	},
+	"trivia_medium_027": {
+		"message": "Ποια πρωτεύουσα, σημαντικό κέντρο εμπορίου και μεταφορών στο Σουδάν, βρίσκεται στη συμβολή του Λευκού Νείλου και του Κυανού Νείλου;"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Χαρτούμ"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Τύνιδα"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Γιοχάνεσμπουργκ"
+	},
+	"trivia_medium_028": {
+		"message": "Ποια πρωτεύουσα βρίσκεται στα δανικά νησιά του Σγιέλαν και του Άμαγκερ;"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Κοπεγχάγη"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Βέρνη"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Μπρατισλάβα"
+	},
+	"trivia_medium_029": {
+		"message": "Ποια πρωτεύουσα, η οποία βρίσκεται στο νησί Νιου Πρόβιντενς, είναι η μεγαλύτερη πόλη στις Μπαχάμες;"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Νασάου"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Σάντο Ντομίνγκο"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Μπελμοπάν"
+	},
+	"trivia_medium_030": {
+		"message": "Νότια της Μαύρης Θάλασσας, ποια πρωτεύουσα είναι το κέντρο του συστήματος μεταφορών της Τουρκίας;"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Άγκυρα"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Μινσκ"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Τεχεράνη"
+	},
+	"trivia_medium_031": {
+		"message": "Ποια από αυτές τις χώρες βρίσκεται εν μέρει στο Κέρας της Αφρικής;"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Ερυθραία"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Νίγηρας"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Σουαζιλάνδη"
+	},
+	"trivia_medium_032": {
+		"message": "Από ποια χώρα χωρίζει τη Δανία ο πορθμός Σκάγκερακ;"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Νορβηγία"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Σρι Λάνκα"
+	},
+	"trivia_medium_033": {
+		"message": "Ποια χώρα έχει τη μεγαλύτερη χερσαία έκταση που καλύπτεται από έρημο;"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Τσαντ"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Νορβηγία"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Βιετνάμ"
+	},
+	"trivia_medium_034": {
+		"message": "Από ποια χώρα περνάει ο ποταμός Ευφράτης;"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Συρία"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Ελβετία"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Ταϊλάνδη"
+	},
+	"trivia_medium_035": {
+		"message": "Σε ποια ήπειρο βρίσκεται η πόλη του Ιρκούτσκ, που είναι κοντά στη λίμνη Βαϊκάλη;"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Ασία"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_036": {
+		"message": "Σε ποια ήπειροι είναι σημαντικοί ποταμοί ο Δνείπερος και ο Ρήνος;"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Ανταρκτική"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Ασία"
+	},
+	"trivia_medium_037": {
+		"message": "Σε ποια ήπειρο βρίσκονται τα Γκιάνα Χάιλαντς και η περιοχή Παντανάλ;"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Βόρεια Αμερική"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_038": {
+		"message": "Σε ποια ήπειρο βρίσκονται η Μεγάλη Έρημος της Βικτόρια και η Πεδιάδα Νούλαρμπορ;"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Ασία"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_039": {
+		"message": "Ποιας χώρας η νοτιότερη πολιτεία είναι το Ρίο Γκράντε ντο Σουλ;"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Βραζιλία"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Μεξικό"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Γερμανία"
+	},
+	"trivia_medium_040": {
+		"message": "Σε ποια χώρα στον ποταμό Ομπ βρίσκεται η πόλη Νοβοσιμπίρσκ;"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Ρωσία"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Νεπάλ"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Κίνα"
+	},
+	"trivia_medium_041": {
+		"message": "Σε ποια από τις παράκτιες χώρες του Ειρηνικού Ωκεανού είναι πιθανότερο να συμβεί σεισμός;"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Χιλή"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Αγκόλα"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Γαλλία"
+	},
+	"trivia_medium_042": {
+		"message": "Η Λίμνη Μαρακαΐμπο βρίσκεται κατά μήκος της βόρειας ακτής ποιας χώρας;"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Βενεζουέλα"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Γουατεμάλα"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Καναδάς"
+	},
+	"trivia_medium_043": {
+		"message": "Ποια χώρα βρέχεται από την Αραβική Θάλασσα;"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Ινδία"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Τατζικιστάν"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Ελλάδα"
+	},
+	"trivia_medium_044": {
+		"message": "Ποια χώρα βρίσκεται στην Ιβηρική Χερσόνησο;"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Πορτογαλία"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Μπανγκλαντές"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Ολλανδία"
+	},
+	"trivia_medium_045": {
+		"message": "Ποια από αυτές τις χώρες έχει τη μεγαλύτερη ακτογραμμή;"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Ταϊλάνδη"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Κόνγκο"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Κατάρ"
+	},
+	"trivia_medium_046": {
+		"message": "Ποια πολιτεία των ΗΠΑ βρίσκεται στα δυτικά του ποταμού Μισισιπή;"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Κολοράντο"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Μέριλαντ"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Μίσιγκαν"
+	},
+	"trivia_medium_047": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ τα δάση καλύπτουν περίπου το 60%;"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Βιρτζίνια"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Αριζόνα"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Νεβάδα"
+	},
+	"trivia_medium_048": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ βρίσκεται το Όρος ΜακΚίνλεϊ, η υψηλότερη κορυφή στη Βόρεια Αμερική;"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Αλάσκα"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Μινεσότα"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Κολοράντο"
+	},
+	"trivia_medium_049": {
+		"message": "Ποια από αυτές τις πολιτείες των ΗΠΑ. είναι μεγαλύτερη σε έκταση;"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Μοντάνα"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Κονέκτικατ"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Νότια Καρολίνα"
+	},
+	"trivia_medium_050": {
+		"message": "Σε ποια πολιτεία των ΗΠΑ βρίσκεται το όρος Ράσμορ κοντά στο Ράπιντ Σίτι;"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Νότια Ντακότα"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Όρεγκον"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Φλόριντα"
+	},
+	"trivia_medium_051": {
+		"message": "Ποια πολιτεία των ΗΠΑ συνορεύει με τον Καναδά;"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Μινεσότα"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Νεμπράσκα"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Κεντάκι"
+	},
+	"trivia_medium_052": {
+		"message": "Οι κοραλλιογενείς ύφαλοι βρίσκονται πέρα από την ακτή ποιας πολιτείας των ΗΠΑ;"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Χαβάη"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Κονέκτικατ"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Νεβάδα"
+	},
+	"trivia_medium_053": {
+		"message": "Ποιας χώρας σημαντικό λιμάνι είναι το Αμβούργο;"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Γερμανία"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Κροατία"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Βέλγιο"
+	},
+	"trivia_medium_054": {
+		"message": "Ποια χώρα παρουσιάζει τη μεγαλύτερη ηφαιστειακή δραστηριότητα;"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Ισλανδία"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Πολωνία"
+	},
+	"trivia_medium_055": {
+		"message": "Ποια χώρα βρίσκεται κυρίως στη χερσόνησο της Μικράς Ασίας;"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Τουρκία"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Μιανμάρ"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Εσθονία"
+	},
+	"trivia_medium_056": {
+		"message": "Η Νεκρά Θάλασσα σχηματίζει ένα τμήμα των συνόρων μεταξύ του Ισραήλ και ποιας άλλης χώρας;"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Ιορδανία"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Ιράν"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Ιαπωνία"
+	},
+	"trivia_medium_057": {
+		"message": "Σε ποια χώρα ανατολικά της λίμνης Βικτόρια βρίσκεται το Εθνικό πάρκο Σερενγκέτι;"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Τανζανία"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Υεμένη"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Νιγηρία"
+	},
+	"trivia_medium_058": {
+		"message": "Ποια χώρα βρέχεται από την Καραϊβική Θάλασσα και είναι σημαντική παραγωγός πετρελαίου;"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Βενεζουέλα"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Χιλή"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Παραγουάη"
+	},
+	"trivia_medium_059": {
+		"message": "Ποια περίκλειστη χώρα βρίσκεται νότια του Ισημερινού;"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Μπουρούντι"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Τζιμπουτί"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Τυνησία"
+	},
+	"trivia_medium_060": {
+		"message": "Ποια μεσογειακή χώρα βρέχεται από την Τυρρηνική Θάλασσα;"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Ιταλία"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Ισραήλ"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Σενεγάλη"
+	},
+	"trivia_medium_061": {
+		"message": "Σε ποια χώρα βρίσκεται το Γεκατερίνμπουργκ που είναι στις ανατολικές πλαγιές των Ουραλίων Ορέων;"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Ρωσία"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Λιθουανία"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Βέλγιο"
+	},
+	"trivia_medium_062": {
+		"message": "Ποια νησιωτική χώρα βρίσκεται νότια της Αυστραλίας και είναι κορυφαία παραγωγός μαλλιού;"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Νέα Ζηλανδία"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Φιλιππίνες"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Βιετνάμ"
+	},
+	"trivia_medium_063": {
+		"message": "Σε ποια χώρα βρίσκεται η σημαντική πόλη-λιμάνι Μουμπάι;"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Ινδία"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Ελβετία"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Μπουτάν"
+	},
+	"trivia_medium_064": {
+		"message": "Σε ποια χώρα βρίσκεται η πόλη του Ίντσον στην Κίτρινη Θάλασσα;"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Νότιος Κορέα"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Ταϊλάνδη"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Μογγολία"
+	},
+	"trivia_medium_065": {
+		"message": "Ποια μικρή χώρα βρίσκεται στα δυτικά σύνορα της Αυστρίας;"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Λιχτενστάιν"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Συρία"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Μολδαβία"
+	},
+	"trivia_medium_066": {
+		"message": "Σε ποια χώρα βρίσκονται οι δύο πολιτείες, Βικτώρια και Νέα Νότια Ουαλία;"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Ηνωμένες Πολιτείες"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Καναδάς"
+	},
+	"trivia_medium_067": {
+		"message": "Ποια χώρα στο νησί Βόρνεο συνορεύει με τη μικρή χώρα του Μπρουνέι;"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Μαλαισία"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Ιράν"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ουκρανία"
+	},
+	"trivia_medium_068": {
+		"message": "Οι Ιουλιανές Άλπεις βρίσκονται στα σύνορα ανάμεσα στην Ιταλία και ποια άλλη χώρα;"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Σλοβενία"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Νεπάλ"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Τατζικιστάν"
+	},
+	"trivia_medium_069": {
+		"message": "Στο βορειοδυτικό τμήμα ποιας χώρας βρίσκεται μια περιοχή που ήταν γνωστή στο παρελθόν ως Μαντζουρία;"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Κίνα"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Λευκορωσία"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Αφγανιστάν"
+	},
+	"trivia_medium_070": {
+		"message": "Ποια χώρα συνορεύει με το Ελ Σαλβαδόρ;"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Ονδούρα"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Παναμάς"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Δομινικανή Δημοκρατία"
+	},
+	"trivia_medium_071": {
+		"message": "Ποια χώρα βρίσκεται στα Καυκάσια Όρη;"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Γεωργία"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ουγγαρία"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Ανδόρα"
+	},
+	"trivia_medium_072": {
+		"message": "Σε ποια χώρα της Ασίας ο πορθμός Σούντα χωρίζει δύο νησιά;"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Ινδονησία"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Νέα Ζηλανδία"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Λάος"
+	},
+	"trivia_medium_073": {
+		"message": "Σε ποια χώρα βρίσκονται κοιλάδες και θεαματικοί βράχοι που καλύπτονται από παγετώνα κοντά στις εκβολές του ποταμού Σάνον;"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ιρλανδία"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Γαλλία"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Ουζμπεκιστάν"
+	},
+	"trivia_medium_074": {
+		"message": "Ποια χώρα της Νότιας Ασίας διασχίζει ο ποταμός Ινδός;"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Πακιστάν"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Βόρεια Κορέα"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Αζερμπαϊτζάν"
+	},
+	"trivia_medium_075": {
+		"message": "Ποια χώρα συνορεύει με την Ερυθρά Θάλασσα;"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Ερυθραία"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Γκάνα"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Κένυα"
+	},
+	"trivia_medium_076": {
+		"message": "Σε ποια χώρα είναι πολιτείες το Σακατέκας και το Ταμπάσκο;"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Μεξικό"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Μπελίζ"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Αργεντινή"
+	},
+	"trivia_medium_077": {
+		"message": "Σε ποια χώρα βρίσκεται το Ριάντ, μια πόλη που διαθέτει περισσότερα από 4.000 τεμένη;"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Σαουδική Αραβία"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Αλβανία"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Συρία"
+	},
+	"trivia_medium_078": {
+		"message": "Ποια Αφρικανική χώρα είναι περίκλειστη;"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Μάλι"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Μαυριτανία"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_medium_079": {
+		"message": "Σε ποια χώρα βρίσκεται το Όρος Φούτζι που είναι ιερή τοποθεσία;"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Ιαπωνία"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Φιλιππίνες"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Μπανγκλαντές"
+	},
+	"trivia_medium_080": {
+		"message": "Ποια χώρα στις Μεγάλες Αντίλλες χρησιμοποιεί τα Αγγλικά ως επίσημη γλώσσα;"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Τζαμάικα"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Αϊτή"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Κούβα"
+	},
+	"trivia_medium_081": {
+		"message": "Ποια είναι η επίσημη γλώσσα της Συρίας, του Κουβέιτ και της Αλγερίας;"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "Αραβικά"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "Αρμενικά"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "Γερμανικά"
+	},
+	"trivia_medium_082": {
+		"message": "Σε ποια ορεινή ευρωπαϊκή χώρα διοργανώνονται συχνά παραστάσεις με όπερες του Μότσαρτ κατά τη διάρκεια του ετήσιου φεστιβάλ του Σάλτσουμπουργκ;"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Αυστρία"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ουγγαρία"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Ρουμανία"
+	},
+	"trivia_medium_083": {
+		"message": "Σε ποια χώρα βόρεια του Σουδάν βρίσκεται η Κοιλάδα των Φαλαινών, μια έρημος γεμάτη από απολιθωμένα λείψανα προϊστορικών φαλαινών;"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Αίγυπτος"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Νιγηρία"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Ζάμπια"
+	},
+	"trivia_medium_084": {
+		"message": "Σε ποια ευρωπαϊκή χώρα βρίσκεται το Ρότερνταμ, το οποίο είναι πάνω σε ένα δέλτα κοντά στη Βόρεια Θάλασσα;"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Ολλανδία"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Σουηδία"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Ελλάδα"
+	},
+	"trivia_medium_085": {
+		"message": "Από ποια μεγάλη οροσειρά πηγάζει ο ποταμός Βραχμαπούτρα, ο οποίος ρέει σε ένα μεγάλο δέλτα κοντά στον κόλπο της Βεγγάλης;"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Ιμαλάια"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Ουράλια Όρη"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Άλπεις"
+	},
+	"trivia_medium_086": {
+		"message": "Ποια ισλαμική χώρα έχει ως επίσημη γλώσσα τα Φαρσί, που είναι γνωστά επίσης και ως Περσικά;"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Ιράν"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Κουβέιτ"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Λιβύη"
+	},
+	"trivia_medium_087": {
+		"message": "Σε ποια ευρωπαϊκή χώρα βρίσκεται η Σεβίλλη, μια πόλη όπου ο κόσμος παρακολουθεί τους ταυρομάχους να συμμετέχουν σε ταυρομαχίες;"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Ισπανία"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Γερμανία"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "ΠΓΔΜ"
+	},
+	"trivia_medium_088": {
+		"message": "Σε ποια χώρα βρίσκεται η Κωνσταντινούπολη, που θεωρείται σημείο συνάντησης του ανατολικού και του δυτικού πολιτισμού;"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Τουρκία"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Σλοβακία"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Ομάν"
+	},
+	"trivia_medium_089": {
+		"message": "Σε ποια χώρα που συνορεύει με το Ελ Σαλβαδόρ και τη Νικαράγουα είναι δημοφιλές τουριστικό αξιοθέατο η πόλη των Μάγια, Κοπάν;"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Ονδούρα"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Χιλή"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Καναδάς"
+	},
+	"trivia_medium_090": {
+		"message": "Σε ποια περίκλειστη χώρα βόρεια του ποταμού Νίγηρα βρίσκεται το Τιμπουκτού, το κέντρο εμπορίου των καραβανιών για περίπου χίλια χρόνια;"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Μάλι"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Ουγκάντα"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Ναμίμπια"
+	},
+	"trivia_medium_091": {
+		"message": "Ποια περίκλειστη χώρα της Νότιας Αμερικής συνορεύει με τη Χιλή και τη Βραζιλία;"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Βολιβία"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Κολομβία"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Γουιάνα"
+	},
+	"trivia_medium_092": {
+		"message": "Σε ποια χώρα στη νότια εκβολή του ποταμού Αμαζονίου βρίσκεται η πόλη Μπελέμ;"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Βραζιλία"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Κόστα Ρίκα"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Σουρινάμ"
+	},
+	"trivia_medium_093": {
+		"message": "Ποιος ποταμός σχηματίζει το μεγαλύτερο βόρειο σύνορο της Βουλγαρίας;"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Ποταμός Δούναβης"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ποταμός Ομπ"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Ποταμός Μεκόνγκ"
+	},
+	"trivia_medium_094": {
+		"message": "Σε ποια χώρα της Ασίας βρίσκεται η Οροσειρά Σαγιάν που είναι κοντά στη Λίμνη Βαϊκάλη;"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Ρωσία"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Ινδία"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Κιργιζία"
+	},
+	"trivia_medium_095": {
+		"message": "Σε ποια επαρχία του Καναδά η μεγαλύτερη λίμνη είναι η λίμνη Νιπιγκόν;"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Οντάριο"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Αλμπέρτα"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Βρετανική Κολούμπια"
+	},
+	"trivia_medium_096": {
+		"message": "Σε ποια μεγαλύτερη θάλασσα ανήκουν η Ιβηρική Θάλασσα και το Ιόνιο Πέλαγος;"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Μεσόγειος Θάλασσα"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Βαλτική θάλασσα"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Καραϊβική Θάλασσα"
+	},
+	"trivia_medium_097": {
+		"message": "Σε ποια ήπειρο βρίσκονται η λίμνη Τουρκάνα και η λίμνη Νάτρον, οι οποίες είναι παραδείγματα λιμνών ρηξιγενούς κοιλάδας;"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Ευρώπη"
+	},
+	"trivia_medium_098": {
+		"message": "Ποιανού ωκεανού βαθύτερο σημείο αποτελεί η Τάφρος του Πουέρτο Ρίκο;"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Ατλαντικός Ωκεανός"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Αρκτικός Ωκεανός"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Ειρηνικός Ωκεανός"
+	},
+	"trivia_medium_099": {
+		"message": "Στο ανατολικό τμήμα ποιας ηπείρου βρίσκεται το πουλί Κουκαμπούρα που γελάει, το οποίο κατοικεί στα δάση των ευκαλύπτων;"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Αυστραλία"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Αφρική"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Νότια Αμερική"
+	},
+	"trivia_medium_100": {
+		"message": "Στη δυτική ακτή ποιας ευρωπαϊκής χώρας βρίσκεται η Χάγη, η οποία είναι η έδρα του Διεθνούς Δικαστηρίου;"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Ολλανδία"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Φινλανδία"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Βουλγαρία"
+	},
+	"trivia_ngb_promo": {
+		"message": "Περιεχόμενο από το National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Ταϊβάν"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Τανζανία"
+	},
+	"ug_country_name": {
+		"message": "Ουγκάντα"
+	},
+	"uk_country_name": {
+		"message": "Ηνωμένο Βασίλειο"
+	},
+	"uk_tradition": {
+		"message": "Στο ΗΒ, οι γλεντζέδες κάθε ηλικίας απολαμβάνουν τα χριστουγεννιάτικα κράκερ στο δείπνο. Τα κράκερ είναι σωλήνες τυλιγμένοι με πολύχρωμο χαρτί, όπου τραβάς τις δύο άκρες. Όταν τραβάς τις άκρες, ο σωλήνας σκάει με θόρυβο! Μέσα υπάρχουν χάρτινα καπέλα, παιχνίδια, ανέκδοτα και βραβεία."
+	},
+	"unmute": {
+		"message": "Κατάργ. σίγασης"
+	},
+	"upgrade-warning": {
+		"message": "Ωχ! Το Santa Tracker δεν υποστηρίζεται στο πρόγραμμα περιήγησής σας ή έχετε απενεργοποιήσει το JavaScript. Για να έχετε πρόσβαση στο Santa Tracker, κατεβάστε μια νεότερη έκδοση του προγράμματος περιήγησης ή ενεργοποιήστε το JavaScript.\nΓια περισσότερες πληροφορίες, επισκεφτείτε το \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Ηνωμένες Πολιτείες"
+	},
+	"us_tradition": {
+		"message": "Στις ΗΠΑ, οι άνθρωποι κρεμούν κάλτσες Παραμονή των Χριστουγέννων. Σύμφωνα με τον θρύλο, κάποτε ο Άγιος Βασίλης έμαθε για μια φτωχή οικογένεια. Για να τους κάνει έκπληξη, μπήκε από την καμινάδα και τοποθέτησε σακούλια με πολύτιμο χρυσό στις κάλτσες. Από τότε, ο άγιος αυτός είναι πασίγνωστος για τα δώρα."
+	},
+	"uy_country_name": {
+		"message": "Ουρουγουάη"
+	},
+	"uz_country_name": {
+		"message": "Ουζμπεκιστάν"
+	},
+	"ve_country_name": {
+		"message": "Βενεζουέλα"
+	},
+	"village_assistant-call_santa": {
+		"message": "Βοηθός Google: Καλέστε τον Άη Βασίλη"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Βοηθός Google: Γιορτινή ιστορία"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Βοηθός Google: Πού είναι ο Άη Βασίλης;"
+	},
+	"village_comeback": {
+		"message": "Επιστρέψτε στις 24 του μήνα και βοηθήστε μας να εντοπίσουμε τον Άγιο Βασίλη όλη νύχτα!"
+	},
+	"village_explore": {
+		"message": "Εξερευνήστε, παίξτε και μάθετε με τα ξωτικά του Άη Βασίλη όλο τον Δεκέμβριο"
+	},
+	"village_get_the_app": {
+		"message": "Αποκτήστε την εφαρμογή Santa Tracker για Android"
+	},
+	"village_more": {
+		"message": "Περισσότεροι τρόποι εξερεύνησης"
+	},
+	"village_santa_a2hs": {
+		"message": "Προσθήκη στην αρχική οθόνη"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Προσθήκη στο ράφι"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Προσθήκη στον επιτραπέζιο υπολογιστή"
+	},
+	"village_santa_cardboard": {
+		"message": "Ο Άγιος Βασίλης στο Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Ο Άγιος Βασίλης στο Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Προσθήκη της Επέκτασης Chrome για τον Άγιο Βασίλη"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Κουίζ για το χωριό του Άη Βασίλη"
+	},
+	"village_santa_install": {
+		"message": "Εγκατάσταση"
+	},
+	"village_takesoff": {
+		"message": "Ο Άγιος Βασίλης απογειώνεται σε"
+	},
+	"vn_country_name": {
+		"message": "Βιετνάμ"
+	},
+	"watch": {
+		"message": "Παρακολούθηση"
+	},
+	"wrapbattle_combo": {
+		"message": "Γλυκός συνδυασμός"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Καλό"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Αστοχία"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "ΟΚ"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Τέλεια"
+	},
+	"ye_country_name": {
+		"message": "Υεμένη"
+	},
+	"yourbest": {
+		"message": "Καλύτερη βαθμολογία"
+	},
+	"zh-CN_language_name": {
+		"message": "Κινεζικά (απλοποιημένα)"
+	},
+	"zh-TW_language_name": {
+		"message": "Κινεζικά (παραδοσιακά)"
+	},
+	"zm_country_name": {
+		"message": "Ζάμπια"
+	},
+	"zw_country_name": {
+		"message": "Ζιμπάμπουε"
+	}
+}
