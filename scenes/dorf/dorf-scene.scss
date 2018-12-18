@@ -190,7 +190,7 @@ village-header {
   }
 
   $extra-height: 132px;
-  a.button {
+  a#tracker {
     pointer-events: auto;
     margin-top: $extra-height;
     background: #83ce00;
@@ -235,7 +235,7 @@ village-header {
   }
 
   &:not(.track) {
-    a.button {
+    #tracker {
       display: none;
     }
   }
