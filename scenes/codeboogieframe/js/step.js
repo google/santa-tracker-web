@@ -30,10 +30,10 @@ app.Step = {
   SHAKE: 'hip',
 
   // Special moves
-  CARLTON: 'carlton',
-  SPONGEBOB: 'spongebob',
-  ELVIS: 'elvis',
-  THRILLER: 'thriller',
+  FLOSS: 'floss',
+  HIPHOP: 'hiphop',
+  MCHAMMER: 'mchammer',
+  PONY: 'pony',
 
   // Non blockly moves
   IDLE: 'idle',

@@ -67,7 +67,7 @@ app.Levels = {
         app.blocks.miniBlockXml('dance_splits') +
         app.blocks.miniBlockXml('dance_hip') +
         app.blocks.miniBlockXml('controls_repeat'),
-        specialMove: app.Step.SPONGEBOB
+        specialMove: app.Step.PONY
       })
     ];
   }
@@ -90,7 +90,7 @@ const danceClasses = [
     toolbox: app.blocks.miniBlockXml('dance_pointLeft') +
              app.blocks.miniBlockXml('dance_pointRight'),
     fadeTiles: false,
-    specialMove: app.Step.CARLTON
+    specialMove: app.Step.PONY
   }),
 
   new app.DanceLevel({
@@ -109,7 +109,7 @@ const danceClasses = [
         app.blocks.miniBlockXml('dance_stepLeft') +
         app.blocks.miniBlockXml('dance_stepRight'),
     fadeTiles: false,
-    specialMove: app.Step.CARLTON
+    specialMove: app.Step.PONY
   }),
 
   new app.DanceLevel({
@@ -132,7 +132,7 @@ const danceClasses = [
         app.blocks.miniBlockXml('dance_stepLeft') +
         app.blocks.miniBlockXml('dance_stepRight') +
         app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.CARLTON,
+    specialMove: app.Step.PONY,
     startBlocks: app.blocks.blockXml('controls_repeat', null, {TIMES: '2'},
         app.blocks.blockXml('dance_pointLeft', null, null, null,
             app.blocks.blockXml('dance_pointRight')
@@ -162,7 +162,7 @@ const danceClasses = [
         app.blocks.miniBlockXml('dance_stepRight') +
         app.blocks.miniBlockXml('dance_jump') +
         app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.ELVIS
+    specialMove: app.Step.HIPHOP
   }),
 
   new app.DanceLevel({
@@ -186,7 +186,7 @@ const danceClasses = [
     app.blocks.miniBlockXml('dance_stepRight') +
     app.blocks.miniBlockXml('dance_jump') +
     app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.ELVIS
+    specialMove: app.Step.HIPHOP
   }),
 
   new app.DanceLevel({
@@ -211,7 +211,7 @@ const danceClasses = [
     app.blocks.miniBlockXml('dance_jump') +
     app.blocks.miniBlockXml('dance_splits') +
     app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.ELVIS
+    specialMove: app.Step.HIPHOP
   }),
 
   new app.DanceLevel({
@@ -238,7 +238,7 @@ const danceClasses = [
         app.blocks.miniBlockXml('dance_splits') +
         app.blocks.miniBlockXml('dance_hip') +
         app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.SPONGEBOB
+    specialMove: app.Step.FLOSS
   }),
 
   new app.DanceLevel({
@@ -264,7 +264,7 @@ const danceClasses = [
     app.blocks.miniBlockXml('dance_splits') +
     app.blocks.miniBlockXml('dance_hip') +
     app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.SPONGEBOB
+    specialMove: app.Step.FLOSS
   }),
 
   new app.DanceLevel({
@@ -301,6 +301,6 @@ const danceClasses = [
     app.blocks.miniBlockXml('dance_splits') +
     app.blocks.miniBlockXml('dance_hip') +
     app.blocks.miniBlockXml('controls_repeat'),
-    specialMove: app.Step.SPONGEBOB
+    specialMove: app.Step.FLOSS
   })
 ];
