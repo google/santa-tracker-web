@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Entdecken"
 	},
+	"explore-village": {
+		"message": "Dorf des Weihnachtsmanns erkunden"
+	},
 	"fi_country_name": {
 		"message": "Finnland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slowakisch"
+	},
+	"skip-intro": {
+		"message": "Intro überspringen"
 	},
 	"skip-training": {
 		"message": "Einführung überspringen"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Türkisch"
+	},
+	"tracker-game_awesome": {
+		"message": "\"Tower of Treasure\" spielen"
 	},
 	"tracker_arrival": {
 		"message": "Ankunft"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Ansehen"
+	},
+	"watch-video": {
+		"message": "Video ansehen"
 	},
 	"wrapbattle_combo": {
 		"message": "Coole Kombi"

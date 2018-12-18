@@ -50,11 +50,29 @@
 	"pl_language_name": {
 		"message": "pólska"
 	},
+	"press-whatsnew3-text": {
+		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ef þú ert í stuði fyrir meira hátíðargaman skaltu skoða hátíðarlímmiða á Gboard sem fást fyrir \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e og \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid forritið okkar\u003c/a\u003e. Og njóttu þess líka að hlusta á sögu með því að spyrja Google hjálparann: „Segðu mér hátíðarsögu“ og „Hvar er jólasveinninn?“"
+	},
 	"pt_language_name": {
 		"message": "portúgalska"
 	},
 	"ru_language_name": {
 		"message": "rússneska"
+	},
+	"sidebar_code_emoji": {
+		"message": "Gert með Code: hátíðar emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Jörð: Spurningakeppni um hátíðarhefðir"
+	},
+	"sidebar_santas_location": {
+		"message": "Google kort: Staðsetning jólasveinsins"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Leitir um hátíðarnar"
 	},
 	"sk_language_name": {
 		"message": "slóvakíska"
@@ -97,5 +115,14 @@
 	},
 	"trivia_medium_081_answer2": {
 		"message": "þýska"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google hjálpari: Hringdu í jólasveininn"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google hjálpari: Hátíðarsaga"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google hjálpari: Hvar er jólasveinninn"
 	}
 }

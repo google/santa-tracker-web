@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Avastage"
 	},
+	"explore-village": {
+		"message": "Vaadake jõulukülas ringi"
+	},
 	"fi_country_name": {
 		"message": "Soome"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovaki keel"
+	},
+	"skip-intro": {
+		"message": "Jäta intro vahele"
 	},
 	"skip-training": {
 		"message": "Jäta õpetus vahele"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "türgi keel"
+	},
+	"tracker-game_awesome": {
+		"message": "Mängige Aardetorni"
 	},
 	"tracker_arrival": {
 		"message": "Saabumine"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Vaadake"
+	},
+	"watch-video": {
+		"message": "Vaadake videot"
 	},
 	"wrapbattle_combo": {
 		"message": "Kõva kombo"

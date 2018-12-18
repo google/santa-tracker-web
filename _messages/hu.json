@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Felfedezés"
 	},
+	"explore-village": {
+		"message": "Vissza Mikulásfalvára"
+	},
 	"fi_country_name": {
 		"message": "Finnország"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Szlovák"
+	},
+	"skip-intro": {
+		"message": "Intró kihagyása"
 	},
 	"skip-training": {
 		"message": "Ismertetés átugrása"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Török"
+	},
+	"tracker-game_awesome": {
+		"message": "Játék a Tower of Treasure-rel"
 	},
 	"tracker_arrival": {
 		"message": "Érkezés"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Megtekintés"
+	},
+	"watch-video": {
+		"message": "Videó megtekintése"
 	},
 	"wrapbattle_combo": {
 		"message": "Sikeres kombó"

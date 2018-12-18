@@ -56,11 +56,29 @@
 	"pl_language_name": {
 		"message": "Poľština"
 	},
+	"press-whatsnew3-text": {
+		"message": "Budete si tiež môcť pozrieť Santovu aktuálnu polohu v Mapách Google – stačí klepnúť na tlačidlo ponuky ďalších možností a potom na položku Zdieľanie polohy a uvidíte, kde presne na svojej ceste sa Santa nachádza. Prípadne použite skratku – prejdite rovno na \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+	},
+	"press-whatsnew4-text": {
+		"message": "Ak túžite zažiť ešte veselšiu sviatočnú atmosféru, pozrite si nálepky na klávesnici Gboard, ktoré sú k dispozícii v \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroide\u003c/a\u003e a \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003esystéme iOS\u003c/a\u003e a tiež v našej aplikácii pre \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid\u003c/a\u003e. Potešte sa aj veselou odpoveďou Asistenta Google. Môžete ho poprosiť o sviatočný príbeh alebo sa ho spýtať, kde je Santa."
+	},
 	"pt_language_name": {
 		"message": "Portugalčina"
 	},
 	"ru_language_name": {
 		"message": "Ruština"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: sviatočné ikony emodži"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: kvíz o sviatočných tradíciách"
+	},
+	"sidebar_santas_location": {
+		"message": "Mapy Google: Santova poloha"
+	},
+	"sidebar_trends": {
+		"message": "Trendy Google: vyhľadávania súvisiace so sviatkami"
 	},
 	"sk_language_name": {
 		"message": "Slovenčina"
@@ -106,5 +124,14 @@
 	},
 	"trivia_medium_081_answer2": {
 		"message": "Nemčina"
+	},
+	"village_assistant-call_santa": {
+		"message": "Asistent Google: volania Santovi"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistent Google: sviatočný príbeh"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistent Google: kde je Santa?"
 	}
 }

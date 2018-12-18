@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explore"
 	},
+	"explore-village": {
+		"message": "Explore Santa's Village"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-intro": {
+		"message": "Skip Intro"
 	},
 	"skip-training": {
 		"message": "Skip training"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turkish"
+	},
+	"tracker-game_awesome": {
+		"message": "Play Tower of Treasure"
 	},
 	"tracker_arrival": {
 		"message": "Arrival"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Watch"
+	},
+	"watch-video": {
+		"message": "Watch Video"
 	},
 	"wrapbattle_combo": {
 		"message": "Great Combo"

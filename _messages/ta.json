@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "உலாவு"
 	},
+	"explore-village": {
+		"message": "சான்டாவின் கிராமத்திற்குக் செல்"
+	},
 	"fi_country_name": {
 		"message": "ஃபின்லாந்து"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "ஸ்லோவாக்"
+	},
+	"skip-intro": {
+		"message": "அறிமுகம் வேண்டாம்"
 	},
 	"skip-training": {
 		"message": "பயிற்சியைத் தவிர்"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "டர்கிஷ்"
+	},
+	"tracker-game_awesome": {
+		"message": "புதையல் கோபுரம் கேம் விளையாடுக"
 	},
 	"tracker_arrival": {
 		"message": "வருகை"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "பார்க்க"
+	},
+	"watch-video": {
+		"message": "வீடியோவைப் பார்"
 	},
 	"wrapbattle_combo": {
 		"message": "ஸ்வீட் காம்போ"

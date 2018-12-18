@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explora"
 	},
+	"explore-village": {
+		"message": "Visita el llogaret del Pare Noel"
+	},
 	"fi_country_name": {
 		"message": "Finlàndia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovac"
+	},
+	"skip-intro": {
+		"message": "Omet la presentació"
 	},
 	"skip-training": {
 		"message": "Omet la introducció"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turc"
+	},
+	"tracker-game_awesome": {
+		"message": "Juga a La torre del tresor"
 	},
 	"tracker_arrival": {
 		"message": "Arribada"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Vídeo"
+	},
+	"watch-video": {
+		"message": "Mira el vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "Bona combinació"

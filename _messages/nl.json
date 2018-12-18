@@ -1,39 +1,771 @@
 {
+	"about-content-one": {
+		"message": "Op kerstavond tonen we jullie vol trots het speciale dashboard van de Kerstman, mogelijk gemaakt door dezelfde technologie die hij op zijn wereldreis gebruikt voor zijn vliegende slee. Dit speciale voorproefje hebben we ontvangen van een van de ontwikkelingselfen, die samen met zijn team op de Noordpool hard werkt aan alle voorbereidingen voor de grote dag. Het dashboard van de Kerstman bevat de nieuwste en beste technologieën van Google Maps en uit de wereld van de sleetechniek. Zo kun jij de kerstman volgen op zijn reis rond de wereld en tegelijk wat meer leren over enkele van zijn tussenstops."
+	},
+	"about-content-three": {
+		"message": "De functie 'Kerstman vinden' in Google Maps is ontwikkeld door Google, met een beetje hulp van de elfen van de Kerstman. Heb je hulp nodig of wil je iets vragen? Bezoek dan ons \u003ca href=\"//support.google.com/santatracker\"\u003eHelpcentrum\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Terwijl de Kerstman zich voorbereidt op zijn reis, hebben de vriendelijke elfen je uitgenodigd om hun dorp te ontdekken. Kijk dus vooral eens rond, wie weet ontdek je leuke activiteiten en maak je kennis met een paar interessante elfen."
+	},
+	"about-santa": {
+		"message": "Over"
+	},
+	"about_title": {
+		"message": "Welkom bij 'Kerstman vinden' van Google Maps!"
+	},
+	"ae_country_name": {
+		"message": "Verenigde Arabische Emiraten"
+	},
+	"af_country_name": {
+		"message": "Afghanistan"
+	},
+	"al_country_name": {
+		"message": "Albanië"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentinië"
+	},
 	"ar_language_name": {
 		"message": "Arabisch"
+	},
+	"ar_tradition": {
+		"message": "In Argentinië begint Kerstmis om klokslag middernacht. Veel families beginnen deze dag met feestelijkheden bij hen thuis, waar ze cadeautjes uitpakken met hun dierbaren. Vroeg in de ochtend steken ze vuurwerk af."
+	},
+	"at_country_name": {
+		"message": "Oostenrijk"
+	},
+	"au_country_name": {
+		"message": "Australië"
+	},
+	"au_tradition": {
+		"message": "Doordat Australië op het zuidelijke halfrond ligt, valt de zomer er in december. Australiërs vieren de feestdagen niet met sleeritten en warme chocolademelk, maar zetten koers naar het strand, waar ze genieten van een lunch met garnalen en een relaxte cricketwedstrijd."
+	},
+	"ba_country_name": {
+		"message": "Bosnië-Herzegovina"
+	},
+	"back_to_previous_page": {
+		"message": "Terug"
+	},
+	"back_to_tracker": {
+		"message": "Terug naar 'Kerstman vinden'"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "België"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgarije"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brazilië"
+	},
+	"br_tradition": {
+		"message": "Rond middernacht beginnen de kerstvieringen, meestal met grote familiediners, cadeautjes en de viering van de 'Missa do Galo' (letterlijk: de mis van de haan) in de lokale kerk. Ondanks het warme, tropische zomerweer wordt er regelmatig gekozen voor winterse thema's met veel sneeuw."
+	},
+	"bt_country_name": {
+		"message": "Bhutan"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Wit-Rusland"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Canada"
+	},
+	"ca_tradition": {
+		"message": "Canadese kinderen genieten meestal van een witte Kerst. Met hun sjaal om en toque op (een Canadese wollen muts) spelen ze de hele dag in de sneeuw en gaan schaatsen of sleeën. Op Kerstavond zetten ze speciaal voor de Kerstman melk en koekjes bij de open haard (en soms een wortel voor zijn rendieren)."
+	},
+	"calendar": {
+		"message": "De kalender"
+	},
+	"category_all": {
+		"message": "Alles bekijken"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Code"
+	},
+	"category_computer-science": {
+		"message": "Computerwetenschappen"
+	},
+	"category_draw": {
+		"message": "Tekenen"
+	},
+	"category_education": {
+		"message": "Educatief"
+	},
+	"category_geography": {
+		"message": "Geografie"
+	},
+	"category_language": {
+		"message": "Taal"
+	},
+	"category_listen": {
+		"message": "Luisteren"
+	},
+	"category_new-this-year": {
+		"message": "Nieuw dit jaar"
+	},
+	"category_send": {
+		"message": "Verzenden"
+	},
+	"category_social-studies": {
+		"message": "Sociale wetenschappen"
+	},
+	"cd_country_name": {
+		"message": "Democratische Republiek Congo"
+	},
+	"cf_country_name": {
+		"message": "Centraal-Afrikaanse Republiek"
+	},
+	"cg_country_name": {
+		"message": "Republiek Congo"
+	},
+	"ch_country_name": {
+		"message": "Zwitserland"
+	},
+	"ci_country_name": {
+		"message": "Ivoorkust"
+	},
+	"citylights-contribute": {
+		"message": "Voeg je eigen foto's van {{location}} toe"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, VS"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Poesjkin-plein"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskou, Rusland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Wenen, Oostenrijk"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Champs-Élysées met uitzicht op de Arc de Triomphe"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Parijs, Frankrijk"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, VS"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Kerstmarkt"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Neurenberg, Duitsland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "De Medellín"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Santa Claus Village"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lapland, Finland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grote Markt"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brussel, België"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londen, Engeland"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spanje"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tivoli-park"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kopenhagen, Denemarken"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapore, Singapore"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Laan van het licht"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Göteborg, Zweden"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Winter Festival of Lights"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagarawatervallen, Canada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Winterfeest"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Lagoa Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Groningen, Nederland"
+	},
+	"cl_country_name": {
+		"message": "Chili"
+	},
+	"clear": {
+		"message": "Wissen"
+	},
+	"close": {
+		"message": "Sluiten"
+	},
+	"cm_country_name": {
+		"message": "Kameroen"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Terug naar begin"
+	},
+	"codeboogie-block-clap": {
+		"message": "Klap"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Klap."
+	},
+	"codeboogie-block-jump": {
+		"message": "Springen"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Maak een sprong."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Links wijzen"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Wijs naar links."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Stap naar links"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Zet een stap naar links."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Wijs rechts"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Wijs naar rechts."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Stap rechts"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Zet een stap naar rechts."
+	},
+	"codeboogie-block-shake": {
+		"message": "Heupen schudden"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Schud met je heupen."
+	},
+	"codeboogie-block-split": {
+		"message": "Splitsen"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Maak een split."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Kies een gamemodus"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Kies een podium"
+	},
+	"codeboogie-get-dancing": {
+		"message": "De dansvloer op"
+	},
+	"codeboogie-go": {
+		"message": "Start!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Blijven dansen"
+	},
+	"codeboogie-lets-dance": {
+		"message": "De dansvloer op"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Dansles"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Doe de leraar na"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Freestylen"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Maak je eigen moves en deel ze met je vrienden"
+	},
+	"codeboogie-next-dance": {
+		"message": "Volgende dans"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Indrukwekkende moves!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Probeer het onderstaande blok om de dans goed uit te voeren."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Wist je dat de deze dans met slechts {{ideal}} blokken kunt doen? Probeer het maar eens met de onderstaande blokken."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Indrukwekkende moves! Je hebt de dans perfect onder de knie."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Je gebruikt de juiste blokken, maar probeer er een paar meer te gebruiken voor een complete dans."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Wist je dat je deze dans met slechts {{ideal}} blokken kunt doen?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Je hebt te veel stappen gezet."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Oeps, dat was niet de juiste beweging. Probeer deze eens:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Jouw moves mogen gezien worden, dus daag je vrienden uit"
+	},
+	"codeboogie-success": {
+		"message": "Gelukt!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Opgelet!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Het is jouw beurt"
+	},
+	"codelab-block-jump-length": {
+		"message": "spring over"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Spring over tegels."
+	},
+	"codelab-block-moveeast": {
+		"message": "oosten"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Verplaats mij één blok naar het oosten."
+	},
+	"codelab-block-movenorth": {
+		"message": "noorden"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Verplaats mij één blok naar het noorden."
+	},
+	"codelab-block-movesouth": {
+		"message": "zuiden"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Verplaats mij één blok naar het zuiden."
+	},
+	"codelab-block-movewest": {
+		"message": "westen"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Verplaats mij één blok naar het westen."
+	},
+	"codelab-block-repeat": {
+		"message": "herhalen"
+	},
+	"codelab-block-repeat-times": {
+		"message": "keer"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Sommige opdrachten moet je een paar keer herhalen."
+	},
+	"codelab-block-whenrun": {
+		"message": "bij uitvoering"
+	},
+	"codelab-finish": {
+		"message": "Voltooien"
+	},
+	"codelab-great": {
+		"message": "Prima"
+	},
+	"codelab-mwc-promo": {
+		"message": "Ontdek meer programmeerprojecten van Google op \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Volgende uitdaging"
+	},
+	"codelab-oops": {
+		"message": "Oeps!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Het herhaal-blok werkt alleen als er andere blokken in zitten."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Sommige blokken zitten niet goed aan elkaar vast."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Het lijkt erop dat je de weg kwijt bent!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Probeer een of meer van de onderstaande blokken te gebruiken om deze puzzel op te lossen."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Wist je dat je dit level kunt voltooien met slechts {{ideal}} blokken? Probeer het maar eens met de onderstaande blokken."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Gefeliciteerd! Je hebt de puzzel opgelost."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Je gebruikt de juiste blokken, maar probeer er een paar meer te gebruiken om deze puzzel op te lossen."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Wist je dat je dit level kunt voltooien met slechts {{ideal}} blokken?"
+	},
+	"codelab-try-again": {
+		"message": "Opnieuw"
+	},
+	"copy-me": {
+		"message": "Kopieer deze link om je bericht te delen"
+	},
+	"copy-me-short": {
+		"message": "Link kopiëren om te delen"
+	},
+	"countdown_days": {
+		"message": "Dagen"
+	},
+	"countdown_hours": {
+		"message": "Uur"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Sec."
+	},
+	"countdown_until": {
+		"message": "De Kerstman vertrekt over"
+	},
+	"countdownlabel": {
+		"message": "Tot het vertrek van de Kerstman"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
 	},
 	"cs_language_name": {
 		"message": "Tsjechisch"
 	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "Tsjechië"
+	},
 	"da_language_name": {
 		"message": "Deens"
+	},
+	"days": {
+		"message": "Dagen"
+	},
+	"de_country_name": {
+		"message": "Duitsland"
 	},
 	"de_language_name": {
 		"message": "Duits"
 	},
+	"de_tradition": {
+		"message": "In bijna elke Duitse stad worden kerstmarkten gehouden. De inwoners komen samen op het dorpsplein, waar ze luisteren naar blaaskapellen en genieten van traditionele producten uit de regio. Dat alles gebeurt onder het genot van harten van kruidkoek, geroosterde suikeramandelen, allerlei snoepgoed en dranken zoals glühwein en appelcider."
+	},
+	"dec24th": {
+		"message": "24 december"
+	},
+	"deck": {
+		"message": "Leef je uit met decoraties"
+	},
+	"deckdescription": {
+		"message": "Versier je browser met een Chrome-extensie van de Kerstman."
+	},
+	"detected": {
+		"message": "gedetecteerd"
+	},
+	"difficulty": {
+		"message": "Moeilijkheidsgraad"
+	},
+	"dk_country_name": {
+		"message": "Denemarken"
+	},
+	"do_country_name": {
+		"message": "Dominicaanse Republiek"
+	},
+	"donate_button": {
+		"message": "Doneren"
+	},
+	"donate_text": {
+		"message": "Help ons speciale onderwijsprojecten te ondersteunen op DonorsChoose.org. Deze decembermaand dragen ook wij ons steentje bij door alle donaties te verdubbelen totdat we ons doel van 1 miljoen dollar hebben bereikt. Samen kunnen we ervoor zorgen dat klaslokalen toegankelijker worden #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Download en speel nog meer games"
+	},
+	"dz_country_name": {
+		"message": "Algerije"
+	},
+	"easy_difficulty": {
+		"message": "Gemakkelijk"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"educators": {
+		"message": "'Waar is de Kerstman?' voor leraren"
+	},
+	"educators-games": {
+		"message": "Games voor in het klaslokaal"
+	},
+	"educators-learn": {
+		"message": "Leren met 'Kerstman vinden'"
+	},
+	"ee_country_name": {
+		"message": "Estland"
+	},
 	"el_language_name": {
 		"message": "Grieks"
+	},
+	"elf_choose_body": {
+		"message": "Kies een elfenlichaam"
+	},
+	"elvish_language_name": {
+		"message": "Elfs"
 	},
 	"en_language_name": {
 		"message": "Engels"
 	},
+	"endofjourneymessage": {
+		"message": "De Kerstman heeft zijn reis voor dit jaar er weer opzitten! Samen met zijn elfen heeft hij nog wat napret op de Noordpool, voordat hun jaarlijkse verlof begint."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Er is een probleem opgetreden, maar de Kerstman en zijn elfen werken hard aan een oplossing."
+	},
+	"error-internal": {
+		"message": "Oeps, er is een probleem opgetreden! We hebben de elfen op de hoogte gebracht, maar je kunt beter proberen om terug te gaan naar het \u003ca href=\"./\"\u003edorp van de Kerstman\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Het lijkt erop dat we geen verbinding meer hebben met de Noordpool. De elfen zijn hard aan het werk om dit op te lossen - even geduld!"
+	},
+	"error-not-found": {
+		"message": "Oeps, de elfen kunnen deze pagina niet vinden. Ga terug naar het \u003ca href=\"./\"\u003edorp van de Kerstman\u003c/a\u003e en probeer het opnieuw."
+	},
+	"error-try-again": {
+		"message": "Opnieuw"
+	},
+	"error_try_again": {
+		"message": "Opnieuw"
+	},
 	"es_language_name": {
 		"message": "Spaans"
+	},
+	"et_country_name": {
+		"message": "Ethiopië"
+	},
+	"explore": {
+		"message": "Ontdek"
+	},
+	"fi_country_name": {
+		"message": "Finland"
+	},
+	"fi_tradition": {
+		"message": "Finnen geloven dat de Kerstman ('Joulupukki') in het noorden van hun land op de berg Korvatunturi  woont. Als je daar bent, kijk dan goed rond of je zijn geheime werkplaats vindt, waar kabouters hard aan het werk zijn. Of wie weet kom je zijn rendieren tegen terwijl ze rondzwerven door de bossen."
+	},
+	"finished-text": {
+		"message": "Fijne feestdagen! De Kerstman is klaar met zijn wereldreis en geniet nu van zijn welverdiende rust. Volgend jaar zijn we weer van de partij!"
+	},
+	"fr_country_name": {
+		"message": "Frankrijk"
 	},
 	"fr_language_name": {
 		"message": "Frans"
 	},
+	"fr_tradition": {
+		"message": "In Frankrijk zetten kinderen traditioneel hun schoen naast de open haard in afwachting van de komst van Père Noël. Als ze het hele jaar braaf zijn geweest, vult Père Noël de schoenen met cadeautjes."
+	},
+	"fullscreen": {
+		"message": "Volledig scherm"
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Spel afgelopen!"
+	},
+	"gameover_level": {
+		"message": "Je bent nu op level:"
 	},
 	"gameover_score": {
 		"message": "Je score:"
 	},
+	"getgooglemaps": {
+		"message": "Google Maps gebruiken"
+	},
+	"getready": {
+		"message": "Ben je er klaar voor?"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "In Ghana is Kerstmis echt een familiegebeuren. Volwassenen trekken hun mooiste kleren aan en delen snoep uit aan de hele buurt. Kinderen versieren hun huizen met papieren decoraties en tekeningen die ze op school hebben gemaakt."
+	},
+	"gl_country_name": {
+		"message": "Groenland"
+	},
+	"gn_country_name": {
+		"message": "Guinee"
+	},
+	"gotovillage": {
+		"message": "Naar het dorp"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Griekenland"
+	},
+	"gr_tradition": {
+		"message": "In Griekenland leven de goedaardige maar lastige 'kallikántzari' het grootse deel van het jaar onder de grond. Maar rond Kerst verstoppen ze zich in huizen, waar ze mensen laten schrikken, listen uithalen of eten verslinden. De Grieken hebben speciale rituelen om deze kwelgeesten buiten te houden."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "In Guatemala wordt Kerst gevierd met veel gedans en andere pret. De mensen dragen speciale Puritina-hoeden, eten tamales volgens Guatemalaans recept, steken om middernacht rotjes af en dansen de hele nacht in allerlei stijlen."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Moeilijk"
+	},
+	"help": {
+		"message": "Help"
+	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Fijne feestdagen!"
+	},
+	"holiday_message_1": {
+		"message": "Fijne feestdagen!"
+	},
+	"holiday_message_2": {
+		"message": "Fijne feestdagen!"
+	},
+	"holiday_message_3": {
+		"message": "Laat de sneeuw maar komen"
+	},
+	"holiday_message_4": {
+		"message": "Gelukkig nieuwjaar!"
+	},
+	"holiday_message_5": {
+		"message": "Fijne feestdagen!"
+	},
+	"hours": {
+		"message": "Uur"
+	},
+	"hr_country_name": {
+		"message": "Kroatië"
+	},
+	"ht_country_name": {
+		"message": "Haïti"
+	},
+	"hu_country_name": {
+		"message": "Hongarije"
+	},
 	"hu_language_name": {
 		"message": "Hongaars"
+	},
+	"id_country_name": {
+		"message": "Indonesië"
+	},
+	"ie_country_name": {
+		"message": "Ierland"
+	},
+	"improve_google_translate": {
+		"message": "Help Google Translate verbeteren"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Iran"
+	},
+	"is_country_name": {
+		"message": "IJsland"
+	},
+	"is_tradition": {
+		"message": "In IJsland geven alle gezinsleden elkaar met Kerstmis warme kleding. Volgens een legende verslindt een angstaanjagende kerstkat iedereen die niet goed is voorbereid op het koude, winterse weer. Met hun cadeaus zorgen de families dat niemand het volgende slachtoffer wordt van de kerstkat."
+	},
+	"it_country_name": {
+		"message": "Italië"
 	},
 	"it_language_name": {
 		"message": "Italiaans"
@@ -41,41 +773,2243 @@
 	"ja_language_name": {
 		"message": "Japans"
 	},
+	"jm_country_name": {
+		"message": "Jamaica"
+	},
+	"kg_country_name": {
+		"message": "Kirgizië"
+	},
+	"kg_tradition": {
+		"message": "In Kirgizië komt Ayaz Ata (Grootvader Vorst) op Oudejaarsavond om middernacht langs en laat cadeautjes achter onder de Nieuwjaarsboom. Om dit te vieren steekt iedereen op dat tijdstip vuurwerk af. Het is daardoor zo licht in de steden dat het wel dag lijkt."
+	},
 	"ko_language_name": {
 		"message": "Koreaans"
 	},
 	"kr_country_name": {
 		"message": "Zuid-Korea"
 	},
+	"kr_tradition": {
+		"message": "In Zuid-Korea is Kerstmis een nationale feestdag. Het is daar bovendien een echt romantisch feest. Veel stelletjes gaan uit in de stad, waar de straten en winkels zijn ondergedompeld in vele betoverende lichtjes."
+	},
+	"kz_country_name": {
+		"message": "Kazachstan"
+	},
+	"la_country_name": {
+		"message": "Democratische Volksrepubliek Laos"
+	},
+	"language": {
+		"message": "Taal"
+	},
+	"learn": {
+		"message": "Leren"
+	},
+	"learnmore": {
+		"message": "Meer informatie"
+	},
+	"level": {
+		"message": "Niveau"
+	},
+	"light": {
+		"message": "Laat ze branden"
+	},
+	"lightdescription": {
+		"message": "Laat je tv stralen met de Android-app 'Waar is de Kerstman?' en je Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lock_orientation": {
+		"message": "Voor een optimale ervaring zorg je dat het scherm niet kan draaien."
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Litouwen"
+	},
+	"lt_tradition": {
+		"message": "In Litouwen maken ze traditionele kerstversieringen van riet of hooi. De mensen weven ze tot geometrische vormen zoals sterren, sneeuwvlokken of klokken. Veel families gebruiken ook hooi om de eettafel te versieren voor een grote maaltijd, de Kūčios."
+	},
+	"lv_country_name": {
+		"message": "Letland"
+	},
+	"ly_country_name": {
+		"message": "Libië"
+	},
+	"md_country_name": {
+		"message": "Moldavië"
+	},
+	"medium_difficulty": {
+		"message": "Medium"
+	},
+	"meta_description": {
+		"message": "Gebruik 'Kerstman vinden' van Google om de Kerstman op Google Maps te volgen tijdens zijn wereldreis."
+	},
+	"meta_title": {
+		"message": "'Kerstman vinden' van Google"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "Minuten"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Myanmar"
+	},
+	"mr_country_name": {
+		"message": "Mauritanië"
+	},
+	"mute": {
+		"message": "Dempen"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexico"
+	},
+	"mx_tradition": {
+		"message": "In Mexico viert jong en oud Kerst door piñatas stuk te slaan. Mensen krijgen een blinddoek om, worden rondgedraaid en slaan met een stok om zich heen om de stervormige hangers open te breken. Als het raak is, barst de piñata open en vallen er noten, fruit en snoep uit waar iedereen van kan smullen."
+	},
+	"my_country_name": {
+		"message": "Maleisië"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibië"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"new": {
+		"message": "Nieuw"
+	},
+	"newtoday": {
+		"message": "Nieuw"
+	},
+	"next": {
+		"message": "Volgende"
+	},
+	"next_game": {
+		"message": "Volgende game"
+	},
+	"ng_country_name": {
+		"message": "Nigeria"
+	},
+	"nl_country_name": {
+		"message": "Nederland"
+	},
 	"nl_language_name": {
 		"message": "Nederlands"
+	},
+	"no_country_name": {
+		"message": "Noorwegen"
 	},
 	"no_language_name": {
 		"message": "Noors"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya verzorgt wetenschappelijk praktijkonderwijs voor kinderen op het platteland van India. In de speciale centra en mobiele scheikundebusjes van de organisatie wordt van alles uitgelegd - van het zonnestelsel tot de werking van het brein. Het wetenschappelijke onderwijsprogramma heeft inmiddels al meer dan 5 miljoen kinderen en 200.000 leraren in 14 Indiase staten bereikt. Je kunt dus wel zeggen dat dit een van de grootste programma's ter wereld is! Google.org is een trotse \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esponsor\u003c/a\u003e van Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Leraren en leerlingen"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® is een non-profitorganisatie die streeft naar meer toegang tot computerwetenschappen en  meer participatie door vrouwen en ondervertegenwoordigde gekleurde leerlingen. Volgens de visie van Code.org® moet elke leerling op elke school de kans krijgen om computerwetenschappen te leren."
+	},
+	"nonprofit-code-type": {
+		"message": "Computerwetenschappen"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org werd in 2000 opgericht door een geschiedenisleraar in de New Yorkse wijk de Bronx. Inmiddels heeft deze organisatie meer dan 480 miljoen dollar ingezameld voor Amerikaanse klaslokalen. Leraren kunnen bij DonorsChoose.org terecht voor materialen en ervaringen die zij in hun lessen willen gebruiken."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Klaslokalen"
+	},
+	"nonprofit-enable-description": {
+		"message": "Volgens de CDC missen 7 van de 1000 mensen een ledemaat. Prostheses zijn erg duur: soms kosten ze wel 10.000 dollar! Voor kinderen in de groei kunnen de kosten snel oplopen. e-Nable is een internationale community van mensen die samen 3D-geprinte handen maken voor kinderen die een ledemaat missen. Google.org helpt de Enable Community Foundation de e-NABLE-community te ondersteunen , zodat er meer handen voor meer kinderen kunnen worden gemaakt."
+	},
+	"nonprofit-enable-type": {
+		"message": "Prothetische ledematen"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Kies een versiering en kleuren maar."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Deel je kunstwerken met je familie en vrienden, zodat zij ook iets kunnen opsteken."
+	},
+	"nonprofit-intro-type": {
+		"message": "In samenwerking met Google.org willen we vijf non-profitorganisaties op het gebied van onderwijs extra aandacht geven. Deze organisaties geven niet alleen met de feestdagen, maar het hele jaar door. Scrol omlaag voor meer informatie over elke organisatie. Laat ook jouw steun blijken door deze versieringen in te kleuren en ze in je boom te hangen of cadeau te doen aan dierbaren."
+	},
+	"nonprofit-jane-description": {
+		"message": "Van alle dieren in het dierenrijk zijn de chimpansees het meest verwant aan de mens. Wegens het verlies van hun leefgebied, ziektes en illegale handel zijn er tegenwoordig nog maar minder dan 300.000 chimpansees. Het Jane Goodall Institute (JGI) beschermt chimpansees door hun gedrag en leefgebied te observeren en analyseren. Verder streeft het JGI naar een samenleving die zich inzet om wilde dieren en de omgeving die wij met hen delen, te beschermen en behouden. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eOntdek het leefgebied van de chimpansees\u003c/a\u003e in Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Chimpansee"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy is een non-profitorganisatie die als missie heeft om gratis onderwijs van uitstekende kwaliteit voor iedereen beschikbaar te maken, waar dan ook ter wereld. Khan Academy vindt dat leerlingen van alle leeftijden onbeperkt toegang moeten hebben tot gratis onderwijsmaterialen en deze in hun eigen tempo moeten kunnen bestuderen."
+	},
+	"nonprofit-khan-type": {
+		"message": "Educatie"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders is een gerenommeerde internationale NGO die zich richt op culturele ontwikkeling. De organisatie werd in 2007 opgericht en het hoofdkantoor is gevestigd in Parijs. De organisatie heeft wereldwijd al meer dan 300 bibliotheken gebouwd."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotheken"
+	},
+	"nonprofit-more-information": {
+		"message": "Ga voor meer informatie naar:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy streeft naar bescherming en herstel van bossen in de Verenigde Staten en elders in de wereld. Deze indrukwekkende bossen zijn een bron van leven voor de hele planeet. Ze filteren het water, zuiveren de lucht, ondersteunen lokale gemeenschappen en vormen de leefomgeving voor belangrijke plant- en diersoorten. Als de ontbossing in het huidige tempo aanhoudt, zullen onze bossen binnen 100 jaar volledig zijn verdwenen. Onder het Plant a Billion Trees-programma van Nature Conservancy wordt geprobeerd om uiterlijk 2025 een miljard bomen te hebben geplant en de belangrijkste bossen ter wereld te hebben hersteld."
+	},
+	"nonprofit-nature-type": {
+		"message": "Bossen"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Bijna 40% van alle mensen in de wereld heeft geen toegang tot onderwijs in een taal die ze zelf spreken of begrijpen. StoryWeaver wil daar verandering in brengen door onderwijzers, schrijvers en vertalers te helpen leuk ondersteunend leesmateriaal voor kinderen te ontwikkelen."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lezen"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Wereldwijd zijn er heel veel mensen die problemen hebben met hun gezichtsvermogen, maar niet helemaal blind zijn. Google.org helpt RNIB met de ontwikkeling van een 'slimme bril' waarmee deze mensen makkelijker vormen en silhouetten kunnen zien. Met zo'n slimme bril kunnen zij zich beter redden in de wereld en krijgen ze een groot deel van hun onafhankelijkheid en zelfvertrouwen terug."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Slimme bril"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miljard mensen hebben geen toegang tot elektriciteit en zijn aangewezen op kerosinelampen die brandstof verbruiken en hun huizen vervuilen. Zonne-verlichting absorbeert overdag energie van de zon en geeft 's avonds urenlang licht zonder brandstofverbruik of vervuiling. Hiermee kan iedereen 's avonds lezen, spelen en veilig thuiskomen. SolarAid geeft mensen die het hard nodig hebben, toegang tot zonne-verlichting. Google.org is een trotse \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esponsor\u003c/a\u003e van SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Zonlicht"
+	},
+	"nonprofit-water-description": {
+		"message": "We gebruiken water onder de douche en in bad, tijdens het koken en natuurlijk om te drinken. Schoon water is een waardevolle grondstof. Veel mensen zijn ervoor afhankelijk van handmatig gegraven putten die hen toegang geven tot aquifers: schoon water diep onder de grond, ingesloten tussen lagen van rots en zand. charity: water werkt samen met lokale partners aan meer putten en andere waterprojecten op plaatsen waar deze hard nodig zijn. Google.org is een trotse \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esponsor\u003c/a\u003e van  charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Bron"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Voor rolstoelgebruikers kan het lastig zijn om goed toegankelijke locaties te vinden: bioscopen, restaurants en allerlei andere plekken kunnen een hele uitdaging zijn. Wheelmap laat zien welke locaties rolstoelvriendelijk zijn, zodat rolstoelgebruikers minder tijd kwijt zijn aan het plannen van hun route en meer tijd kunnen besteden aan het ontdekken van de wereld!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobiliteit"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Klimaatverandering blijft overal ter wereld de balans van ecosystemen verstoren, zowel op warme als koude plaatsen. In het Noordpoolgebied verdwijnt de habitat van de ijsbeer in snel tempo door de stijgende temperaturen. Daarnaast worden deze dieren ook nog eens bedreigd door menselijke activiteiten, zoals olie- en gaswinning en -transport. Door wetenschappelijk onderzoek en samenwerking met lokale gemeenschappen wil het Wereld Natuur Fonds werken aan het behoud van deze diersoort. Google.org is een trotse \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esponsor\u003c/a\u003e van het Wereld Natuur Fonds."
+	},
+	"nonprofit-wwf-type": {
+		"message": "IJsbeer"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Uit onderzoek blijkt dat 95% van de mensen met gehoorverlies baat heeft bij een gehoortoestel. Helaas krijgt minder dan 1% van deze mensen in landen met lage en middellage inkomens ook daadwerkelijk zo'n apparaat. World Wide Hearing (WWH) brengt kinderen weer in contact met de wereld om hen heen door hen toegang te bieden tot hoortoestellen en -services. WWH werkt momenteel aan een betaalbare diagnostische tool voor gehoorverlies speciaal voor tablets. Deze tool is bestemd voor gebruik in ontwikkelingslanden, zodat meer mensen die een hoortoestel nodig hebben, er ook een krijgen."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Gehoor"
+	},
+	"notice_cookies": {
+		"message": "Google gebruikt cookies om het verkeer naar deze site te analyseren en je optimaal gebruiksgemak te bieden. Informatie over je gebruik van deze site wordt voor dit doeleinde met Google gedeeld."
+	},
+	"notice_cookies_details": {
+		"message": "Details weergeven"
+	},
+	"notification": {
+		"message": "Meldingen"
+	},
+	"notification_newtoday": {
+		"message": "Vandaag nieuw in 'Kerstman vinden'"
+	},
+	"notification_newtoday_stop": {
+		"message": "Stopzetten"
+	},
+	"notification_notice": {
+		"message": "De elfen houden je op de hoogte van het schema van de Kerstman"
+	},
+	"notification_prompt": {
+		"message": "Houd mij op de hoogte van de reis van de Kerstman"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Nieuw-Zeeland"
+	},
+	"nz_tradition": {
+		"message": "Omdat Kerst in Nieuw-Zeeland in de zomer valt, komen mensen er meestal samen rond de barbecue. Typische kerstgerechten zijn gebraden lam, soms bereid in een 'hangi' - een oven van hete stenen onder de grond. Een favoriet dessert is pavlova: een merengue bedekt met vers fruit zoals aardbeien en kiwi's."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Alleen online"
+	},
+	"offline_notification": {
+		"message": "Je kunt het dorp van de Kerstman nu ook offline bezoeken! De elfen kunnen bovendien de hele maand december nieuwe content bij je bezorgen."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nee"
+	},
+	"offline_user_message": {
+		"message": "Je bent offline"
+	},
+	"okay": {
+		"message": "OK"
+	},
+	"om_country_name": {
+		"message": "Oman"
+	},
+	"onthego": {
+		"message": "De Kerstman is onderweg"
+	},
+	"openingtomorrow": {
+		"message": "Vanaf morgen geopend"
+	},
+	"ornament-print-instructions": {
+		"message": "Hier vouwen en de randen aan elkaar lijmen"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Onderbreken"
+	},
+	"paused": {
+		"message": "Onderbroken"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papoea-Nieuw-Guinea"
+	},
+	"ph_country_name": {
+		"message": "Filipijnen"
+	},
+	"ph_tradition": {
+		"message": "De Filipijnen hebben de langste kerstperiode ter wereld. Ze hebben hier maar liefst vier kerstmaanden: september, oktober, november en december. Soms hoor je begin september al de eerste kerstliedjes."
+	},
+	"pl_country_name": {
+		"message": "Polen"
+	},
 	"pl_language_name": {
 		"message": "Pools"
+	},
+	"play": {
+		"message": "Afspelen"
+	},
+	"playagain": {
+		"message": "Opnieuw afspelen"
+	},
+	"playdescription": {
+		"message": "Speel samen met vrienden in de Android-app 'Kerstman vinden'."
+	},
+	"playextra": {
+		"message": "Extra levels spelen"
+	},
+	"pr_country_name": {
+		"message": "Puerto Rico"
+	},
+	"practice": {
+		"message": "Oefenen"
+	},
+	"press": {
+		"message": "Pers"
+	},
+	"press-about-tracker": {
+		"message": "Over 'Kerstman vinden'"
+	},
+	"press-about-tracker1": {
+		"message": "Op 24 december lanceren we het Kerstman vinden-dashboard, waarmee fans van de Kerstman zijn voortgang kunnen volgen terwijl hij de ene na de andere stad aandoet. Je kunt ook zijn live locatie zien op Google Maps en de Google Assistent vragen waar hij is. Zo kun je dus precies in de gaten houden wat de Kerstman allemaal uitspookt, zelfs als je zelf onderweg bent."
+	},
+	"press-about-village": {
+		"message": "Over het dorp van de Kerstman"
+	},
+	"press-about-village1": {
+		"message": "Het dorp van de Kerstman staat voor het vijftiende jaar op rij in het teken van leuke, educatieve en interactieve kerstactiviteiten. Onder het wakende oog van de vrouw van de Kerstman hebben de elfen het dorp een hippe make-over gegeven. Verder hebben ze allerlei spiksplinternieuwe content toegevoegd. Dankzij een nieuw verwarmingssysteem dat draait op warme chocolademelk duurt het bovendien niet meer een hele maand voordat het dorp is ontdooid: alle 24 activiteiten zijn vanaf 4 december beschikbaar. De elfen (en jijzelf!) hebben nu dus nog meer tijd om het dorp van de Kerstman te verkennen en op te gaan in alle spelpret."
+	},
+	"press-about-village2": {
+		"message": "In het dorp kun je eenvoudige programmeervaardigheden oefenen, je eigen kunstwerken maken, je geografische kennis testen en meer te weten komen over goede doelen zoals \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e en \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Docenten kunnen zelfs een \u003ca href=\"./educators.html\"\u003elesplan\u003c/a\u003e met instructievideo's downloaden, zodat zij hun leerlingen kunnen helpen bij het aanleren van fundamentele programmeervaardigheden en het aanscherpen van hun kennis over kersttradities. De lesplannen zijn beschikbaar in het Engels, Spaans, Frans, Japans en Koreaans."
+	},
+	"press-asset-animation": {
+		"message": "Animatie"
+	},
+	"press-asset-resources": {
+		"message": "Bronnen voor de pers"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Alles en iedereen is al in de kerststemming, zelfs al je apparaten!"
+	},
+	"press-device-title": {
+		"message": "'Kerstman vinden' op jouw apparaat"
+	},
+	"press-edu": {
+		"message": "Educatieve avonturen"
+	},
+	"press-edu1": {
+		"message": "We hebben onze \u003ca href=\"./educators.html\"\u003epagina met bronnen voor docenten\u003c/a\u003e uitgebreid. Je vindt hier nu hulpvideo's ter begeleiding van lesplannen in maar liefst vijf talen. Natuurlijk vind je er ook nog al je favoriete games, waarin de basisprincipes van programmeren worden uitgelegd aan de hand van wereldwijde kersttradities. 'Kerstman vinden' van Google stimuleert kinderen om op een leuke manier allerlei leerervaringen aan te gaan — zie \u003ca href=\"./educators.html\"\u003eonze educatieve games\u003c/a\u003e voor meer informatie."
+	},
+	"press-games-title": {
+		"message": "De allerleukste games"
+	},
+	"press-need-text": {
+		"message": "De elfen en Googlers staan voor je klaar."
+	},
+	"press-need-title": {
+		"message": "Wil je meer weten?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Geopend vanaf 24 december"
+	},
+	"press-villagetracker-opendec": {
+		"message": "De hele maand december geopend"
+	},
+	"press-villagetracker-title": {
+		"message": "Het dorp van de Kerstman en Kerstman vinden"
+	},
+	"press-whatsnew": {
+		"message": "Nieuw dit jaar"
+	},
+	"press-whatsnew1-text": {
+		"message": "Maak je eigen elf die de show steelt tijdens de vele feestjes die tijdens de feestdagen op de Noordpool worden gehouden."
+	},
+	"press-whatsnew1-title": {
+		"message": "Maak je eigen elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Is het altijd al je droom geweest om samen met een groep zeer getalenteerde dansende elfen een dansgezelschap op te richten? Dan is dit je kans. Bijna. Met het machine learning-model \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kun je een elf jouw bewegingen aanleren en de digitale dansvloer onveilig maken."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dansen met de elfen:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Je kunt ook de realtime locatie van de kerstman volgen op Google Maps. Tik op de knop met drie horizontale strepen en daarna op 'Locatie delen' om precies te zien waar de kerstman zich bevindt op zijn reis. Je kunt ook de handige snelkoppeling \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e gebruiken."
+	},
+	"press-whatsnew3-title": {
+		"message": "Een nieuwe manier om de Kerstman te volgen:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Kun je geen genoeg krijgen van de feestdagen? Bekijk de Gboard-feestdagenstickers voor \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e en \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e en gebruik onze \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-app\u003c/a\u003e. Voor een beetje literair plezier vraag je de Google Assistent \"Vertel me een verhaal over de feestdagen\" of \"Waar is de kerstman\"."
+	},
+	"press-whatsnew4-title": {
+		"message": "Meer kerstpret:"
 	},
 	"pt_language_name": {
 		"message": "Portugees"
 	},
+	"py_country_name": {
+		"message": "Paraguay"
+	},
+	"quickdraw-machine-know": {
+		"message": "Aha! Dit is {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "of"
+	},
+	"quickdraw-machine-see": {
+		"message": "OK"
+	},
+	"quickdraw-newround-button": {
+		"message": "Begin"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ik weet niet zeker wat dat is."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Sorry"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Het is me niet gelukt!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor vond je tekening ook hierop lijken:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hoe weet Tensor hoe een {{thing}} eruitziet?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Hij heeft al veel geleerd door deze tekeningen van andere mensen te bestuderen."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor vond je tekening meer hierop lijken:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Dit is wat de Kerstman heeft gemaakt van {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Dit moest je tekenen: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Tekenen"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor is een Machine Learning-robot die de Kerstman helpt snel alle brieven te ontcijferen die hij ontvangt van kinderen over de hele wereld. Help Tensor te oefenen en maak een tekening van elk kerstwoord dat op het scherm verschijnt. Tensor vertelt je dan wat hij ziet. Hoe meer je tekent, hoe slimmer Tensor wordt en hoe efficiënter de Kerstman deze Kerst zijn werk kan doen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Help Tensor te oefenen met het herkennen van beelden!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor heeft {{recognized}} van je tekeningen herkend."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor heeft een van je tekeningen herkend."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor heeft geen enkele tekening herkend."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Klasse!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Oeps!"
+	},
+	"readyquestion": {
+		"message": "Klaar?"
+	},
+	"ro_country_name": {
+		"message": "Roemenië"
+	},
+	"ru_country_name": {
+		"message": "Rusland"
+	},
 	"ru_language_name": {
 		"message": "Russisch"
+	},
+	"ru_tradition": {
+		"message": "Russische kinderen versieren geen kerstboom, maar een nieuwjaarsboom. Ze kijken reikhalzend uit naar Grootvadertje Vorst, die samen met zijn kleindochter de Sneeuwmaagd in heel het land cadeautjes uitdeelt. Grootvadertje Vorst woont diep in de bossen van Veliki Oestjoeg, in het noorden van Rusland."
+	},
+	"sa_country_name": {
+		"message": "Saudi-Arabië"
+	},
+	"santa-app": {
+		"message": "Kerstman"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Peperkoekpop"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "De vrouw van de Kerstman"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pinguïn"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Kerstman"
+	},
+	"santasearch_hint": {
+		"message": "Tip"
+	},
+	"santasearch_level_beach": {
+		"message": "Op het strand"
+	},
+	"santasearch_level_lab": {
+		"message": "In het lab"
+	},
+	"santasearch_level_mountains": {
+		"message": "In de bergen"
+	},
+	"santasearch_level_museum": {
+		"message": "In het museum"
+	},
+	"santasearch_level_select": {
+		"message": "Start!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Waar is de Kerstman?"
+	},
+	"santasvillage": {
+		"message": "Dorp van de Kerstman"
+	},
+	"santatracker": {
+		"message": "Kerstman vinden"
+	},
+	"scene_airport": {
+		"message": "Luchthaven Noordpool"
+	},
+	"scene_app": {
+		"message": "Android-app"
+	},
+	"scene_blimp": {
+		"message": "Cadeautjes bijvullen"
+	},
+	"scene_boatload": {
+		"message": "Cadeautjes schieten"
+	},
+	"scene_briefing": {
+		"message": "De vrouw van de Kerstman geeft een briefing"
+	},
+	"scene_callfromsanta": {
+		"message": "Telefoon van de Kerstman"
+	},
+	"scene_canvas": {
+		"message": "Schilderen met de Kerstman"
+	},
+	"scene_citylights": {
+		"message": "De lichtjes van de stad"
+	},
+	"scene_clausdraws": {
+		"message": "Kerstkleuren"
+	},
+	"scene_codeboogie": {
+		"message": "Codeboogie"
+	},
+	"scene_codelab": {
+		"message": "Codelab"
+	},
+	"scene_commandcentre": {
+		"message": "Controlecentrum"
+	},
+	"scene_dash": {
+		"message": "Klunen met pinguïns"
+	},
+	"scene_elfmaker": {
+		"message": "Maak je eigen elf"
+	},
+	"scene_elfski": {
+		"message": "Skiën met elfen"
+	},
+	"scene_factory": {
+		"message": "De snoepfabriek"
+	},
+	"scene_giftmatch": {
+		"message": "Het passende cadeau"
+	},
+	"scene_glider": {
+		"message": "De elfenvlucht"
+	},
+	"scene_gumball": {
+		"message": "Kauwgomballen kantelen"
+	},
+	"scene_icecave": {
+		"message": "IJsgrot"
+	},
+	"scene_island": {
+		"message": "Eiland"
+	},
+	"scene_jamband": {
+		"message": "Elfenband"
+	},
+	"scene_jetpack": {
+		"message": "Elf-jetpack"
+	},
+	"scene_latlong": {
+		"message": "Cadeautjes bezorgen"
+	},
+	"scene_matching": {
+		"message": "Memory-paar"
+	},
+	"scene_mercator": {
+		"message": "Landkaartquiz"
+	},
+	"scene_playground": {
+		"message": "Speelpret op de Noordpool"
+	},
+	"scene_poseboogie": {
+		"message": "Boogie-pose"
+	},
+	"scene_postcard": {
+		"message": "Kerstkaarten"
+	},
+	"scene_presentbounce": {
+		"message": "Cadeautjes kaatsen"
+	},
+	"scene_presentdrop": {
+		"message": "Cadeautjes droppen"
+	},
+	"scene_quickdraw": {
+		"message": "Snel tekenen"
+	},
+	"scene_racer": {
+		"message": "Racen met Rudolf"
+	},
+	"scene_rollercoaster": {
+		"message": "Elfenachtbaan"
+	},
+	"scene_runner": {
+		"message": "Rendier-race"
+	},
+	"scene_santasearch": {
+		"message": "Zoek de Kerstman"
+	},
+	"scene_santaselfie": {
+		"message": "Kerstmanselfie"
+	},
+	"scene_seasonofcaring": {
+		"message": "Gulle feestdagen"
+	},
+	"scene_seasonofgiving": {
+		"message": "Het cadeauseizoen"
+	},
+	"scene_snowball": {
+		"message": "Sneeuwbalgevecht"
+	},
+	"scene_snowflake": {
+		"message": "Sneeuwvlokken coderen"
+	},
+	"scene_speedsketch": {
+		"message": "Snelschets"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "Kersttradities"
+	},
+	"scene_translations": {
+		"message": "Vertalingen"
+	},
+	"scene_trivia": {
+		"message": "Trivia"
+	},
+	"scene_undersea": {
+		"message": "Onder water"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Onderweg met de elfen"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Commandokamer"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elfenfestijn"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "De Kerstman vertrekt"
+	},
+	"scene_videoscene_museum": {
+		"message": "Een dagje naar het museum"
+	},
+	"scene_videoscene_office": {
+		"message": "Kantoorgrappen"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Hij is nog steeds op vakantie"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Bezorgde rendieren"
+	},
+	"scene_videoscene_reload": {
+		"message": "Cadeautjes bijvullen"
+	},
+	"scene_videoscene_santasback": {
+		"message": "De Kerstman is terug"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelliet"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Kerstmanselfies"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "De kantjes eraf lopen"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Klaar voor vertrek"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Verleiding"
+	},
+	"scene_videoscene_tired": {
+		"message": "Uitgeput rendier"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Waar hangt de Kerstman uit?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "De werkplaats van de Kerstman"
+	},
+	"scene_windtunnel": {
+		"message": "Windtunnel"
+	},
+	"scene_wrap": {
+		"message": "Inpakken maar"
+	},
+	"score": {
+		"message": "Score"
+	},
+	"score_short": {
+		"message": "Score"
+	},
+	"se_country_name": {
+		"message": "Zweden"
+	},
+	"seconds": {
+		"message": "Seconden"
+	},
+	"select-language": {
+		"message": "Taal selecteren"
+	},
+	"share-button": {
+		"message": "Delen met vrienden op Google+"
+	},
+	"share-text": {
+		"message": "Ik heb deze ansichtkaart speciaal voor jou gemaakt in 'Kerstman vinden' van Google. Fijne feestdagen!"
+	},
+	"share-this": {
+		"message": "Delen"
+	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: feestdagen-emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: quiz over tradities rondom de feestdagen"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: locatie van de kerstman"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: zoekopdrachten voor de feestdagen"
+	},
+	"sk_country_name": {
+		"message": "Slowakije"
 	},
 	"sk_language_name": {
 		"message": "Slowaaks"
 	},
+	"skip-training": {
+		"message": "Training overslaan"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "IJskoud geraakt!"
+	},
+	"snowball_remaining": {
+		"message": "Nog {{remaining}} van {{total}} elfen resterend"
+	},
+	"snowball_spectate": {
+		"message": "Volgen als toeschouwer"
+	},
+	"snowball_waiting": {
+		"message": "Wachten op meer elfen"
+	},
+	"snowflake_choose_background": {
+		"message": "Een achtergrond kiezen"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Gebruik de pijltoetsen om een ansichtkaart te kiezen"
+	},
+	"snowflake_code": {
+		"message": "Programmeer je eigen sneeuwvlok"
+	},
+	"snowflake_code_instructions": {
+		"message": "Lijn de blokken uit en ontwerp zo je eigen sneeuwvlok"
+	},
+	"snowflake_create_message": {
+		"message": "Ontwerp je eigen sneeuwvlok"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Ga door"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Herhaling"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Draaien en herhalen!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Draaien en herhalen"
+	},
+	"snowflake_make_your_own": {
+		"message": "Deze sneeuwvlok is gemaakt met code. Probeer het zelf."
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Kies een ansichtkaart en deel je sneeuwvlok met vrienden"
+	},
+	"snowflake_shared_message": {
+		"message": "Je hebt een sneeuwvlok ontvangen!"
+	},
+	"so_country_name": {
+		"message": "Somalië"
+	},
+	"speedsketch_item~London": {
+		"message": "Londen"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Parijs"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Sjanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Zwitserland"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "De Eiffeltoren"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "De Chinese Muur"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "De Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstracte kunst"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "vliegdekschip"
+	},
+	"speedsketch_item~airplane": {
+		"message": "vliegtuig"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "wekker"
+	},
+	"speedsketch_item~alien": {
+		"message": "alien"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulance"
+	},
+	"speedsketch_item~angel": {
+		"message": "engel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "trekkende dieren"
+	},
+	"speedsketch_item~ant": {
+		"message": "mier"
+	},
+	"speedsketch_item~anvil": {
+		"message": "aambeeld"
+	},
+	"speedsketch_item~apple": {
+		"message": "appel"
+	},
+	"speedsketch_item~arm": {
+		"message": "arm"
+	},
+	"speedsketch_item~arrow": {
+		"message": "pijl"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "asperge"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "cassettebandje"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avocado"
+	},
+	"speedsketch_item~axe": {
+		"message": "bijl"
+	},
+	"speedsketch_item~baby": {
+		"message": "baby"
+	},
+	"speedsketch_item~backpack": {
+		"message": "rugzak"
+	},
+	"speedsketch_item~banana": {
+		"message": "banaan"
+	},
+	"speedsketch_item~bandage": {
+		"message": "verband"
+	},
+	"speedsketch_item~barn": {
+		"message": "schuur"
+	},
+	"speedsketch_item~baseball": {
+		"message": "honkbal"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "honkbalknuppel"
+	},
+	"speedsketch_item~basket": {
+		"message": "mand"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketbal"
+	},
+	"speedsketch_item~bat": {
+		"message": "vleermuis"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "badkuip"
+	},
+	"speedsketch_item~beach": {
+		"message": "strand"
+	},
+	"speedsketch_item~bear": {
+		"message": "beer"
+	},
+	"speedsketch_item~beard": {
+		"message": "baard"
+	},
+	"speedsketch_item~bed": {
+		"message": "bed"
+	},
+	"speedsketch_item~bee": {
+		"message": "bij"
+	},
+	"speedsketch_item~belt": {
+		"message": "riem"
+	},
+	"speedsketch_item~bench": {
+		"message": "bank"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "fiets"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "verrekijker"
+	},
+	"speedsketch_item~bird": {
+		"message": "vogel"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "verjaardagstaart"
+	},
+	"speedsketch_item~black": {
+		"message": "zwart"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "braam"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "bosbes"
+	},
+	"speedsketch_item~book": {
+		"message": "boek"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "boemerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "laars"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "flessendop"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "vlinderdas"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "hersenen"
+	},
+	"speedsketch_item~bread": {
+		"message": "brood"
+	},
+	"speedsketch_item~bridge": {
+		"message": "brug"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "broccoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "bezem"
+	},
+	"speedsketch_item~bucket": {
+		"message": "emmer"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "bulldozer"
+	},
+	"speedsketch_item~bus": {
+		"message": "bus"
+	},
+	"speedsketch_item~bush": {
+		"message": "struik"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "vlinder"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cactus"
+	},
+	"speedsketch_item~cake": {
+		"message": "gebak"
+	},
+	"speedsketch_item~calculator": {
+		"message": "rekenmachine"
+	},
+	"speedsketch_item~calendar": {
+		"message": "agenda"
+	},
+	"speedsketch_item~camel": {
+		"message": "kameel"
+	},
+	"speedsketch_item~camera": {
+		"message": "camera"
+	},
+	"speedsketch_item~campfire": {
+		"message": "kampvuur"
+	},
+	"speedsketch_item~candle": {
+		"message": "kaars"
+	},
+	"speedsketch_item~candy": {
+		"message": "snoep"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "Zuurstok"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kano"
+	},
+	"speedsketch_item~car": {
+		"message": "auto"
+	},
+	"speedsketch_item~carrot": {
+		"message": "wortel"
+	},
+	"speedsketch_item~castle": {
+		"message": "kasteel"
+	},
+	"speedsketch_item~cat": {
+		"message": "kat"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "plafondventilator"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobiele telefoon"
+	},
+	"speedsketch_item~cello": {
+		"message": "cello"
+	},
+	"speedsketch_item~chair": {
+		"message": "stoel"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "kroonluchter"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "scheikunde"
+	},
+	"speedsketch_item~cherry": {
+		"message": "kers"
+	},
+	"speedsketch_item~child": {
+		"message": "kind"
+	},
+	"speedsketch_item~chimney": {
+		"message": "schoorsteen"
+	},
+	"speedsketch_item~church": {
+		"message": "kerk"
+	},
+	"speedsketch_item~circle": {
+		"message": "cirkel"
+	},
+	"speedsketch_item~city": {
+		"message": "stad"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "klok"
+	},
+	"speedsketch_item~cloud": {
+		"message": "wolk"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "maiskolf"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "koffiekop"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompas"
+	},
+	"speedsketch_item~computer": {
+		"message": "computer"
+	},
+	"speedsketch_item~cookie": {
+		"message": "koekje"
+	},
+	"speedsketch_item~cooler": {
+		"message": "koeler"
+	},
+	"speedsketch_item~couch": {
+		"message": "bankstel"
+	},
+	"speedsketch_item~cow": {
+		"message": "koe"
+	},
+	"speedsketch_item~crab": {
+		"message": "krab"
+	},
+	"speedsketch_item~crayon": {
+		"message": "krijtje"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodil"
+	},
+	"speedsketch_item~crow": {
+		"message": "kraai"
+	},
+	"speedsketch_item~crown": {
+		"message": "kroon"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "cruiseschip"
+	},
+	"speedsketch_item~cube": {
+		"message": "kubus"
+	},
+	"speedsketch_item~cup": {
+		"message": "beker"
+	},
+	"speedsketch_item~darts": {
+		"message": "darts"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diamanten ring"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "vaatwasser"
+	},
+	"speedsketch_item~diving board": {
+		"message": "duikplank"
+	},
+	"speedsketch_item~dog": {
+		"message": "hond"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "dolfijn"
+	},
+	"speedsketch_item~donut": {
+		"message": "donut"
+	},
+	"speedsketch_item~door": {
+		"message": "deur"
+	},
+	"speedsketch_item~dragon": {
+		"message": "draak"
+	},
+	"speedsketch_item~dresser": {
+		"message": "dressoir"
+	},
+	"speedsketch_item~drill": {
+		"message": "boor"
+	},
+	"speedsketch_item~drums": {
+		"message": "drumstel"
+	},
+	"speedsketch_item~duck": {
+		"message": "eend"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "halter"
+	},
+	"speedsketch_item~ear": {
+		"message": "oor"
+	},
+	"speedsketch_item~egg": {
+		"message": "ei"
+	},
+	"speedsketch_item~elbow": {
+		"message": "elleboog"
+	},
+	"speedsketch_item~elephant": {
+		"message": "olifant"
+	},
+	"speedsketch_item~elf": {
+		"message": "elf"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji"
+	},
+	"speedsketch_item~envelope": {
+		"message": "envelop"
+	},
+	"speedsketch_item~eraser": {
+		"message": "gum"
+	},
+	"speedsketch_item~eye": {
+		"message": "oog"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "bril"
+	},
+	"speedsketch_item~face": {
+		"message": "gezicht"
+	},
+	"speedsketch_item~family": {
+		"message": "familie"
+	},
+	"speedsketch_item~fan": {
+		"message": "waaier"
+	},
+	"speedsketch_item~feather": {
+		"message": "veer"
+	},
+	"speedsketch_item~fence": {
+		"message": "hek"
+	},
+	"speedsketch_item~finger": {
+		"message": "vinger"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "brandkraan"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "haard"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "brandweerauto"
+	},
+	"speedsketch_item~fish": {
+		"message": "vis"
+	},
+	"speedsketch_item~flag": {
+		"message": "vlag"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "zaklamp"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "slippers"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "schemerlamp"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "diskette"
+	},
+	"speedsketch_item~flower": {
+		"message": "bloem"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "vliegende schotel"
+	},
+	"speedsketch_item~fog": {
+		"message": "mist"
+	},
+	"speedsketch_item~foot": {
+		"message": "voet"
+	},
+	"speedsketch_item~fork": {
+		"message": "vork"
+	},
+	"speedsketch_item~french fries": {
+		"message": "frietjes"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "gebakken ei"
+	},
+	"speedsketch_item~frog": {
+		"message": "kikker"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "koekenpan"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "sterrenstelsel"
+	},
+	"speedsketch_item~garden": {
+		"message": "tuin"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "tuinslang"
+	},
+	"speedsketch_item~ghost": {
+		"message": "geest"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "peperkoekpop"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "giraf"
+	},
+	"speedsketch_item~goat": {
+		"message": "geit"
+	},
+	"speedsketch_item~goatee": {
+		"message": "sik"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfclub"
+	},
+	"speedsketch_item~grapes": {
+		"message": "druiven"
+	},
+	"speedsketch_item~grass": {
+		"message": "gras"
+	},
+	"speedsketch_item~group": {
+		"message": "groep"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitaar"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "hamer"
+	},
+	"speedsketch_item~hand": {
+		"message": "hand"
+	},
+	"speedsketch_item~happiness": {
+		"message": "geluk"
+	},
+	"speedsketch_item~harp": {
+		"message": "harp"
+	},
+	"speedsketch_item~hat": {
+		"message": "hoed"
+	},
+	"speedsketch_item~headphones": {
+		"message": "hoofdtelefoon"
+	},
+	"speedsketch_item~heart": {
+		"message": "hart"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "egel"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikopter"
+	},
+	"speedsketch_item~helmet": {
+		"message": "helm"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "zeshoek"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "ijshockeypuck"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hockeystick"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "kerstlichtjes"
+	},
+	"speedsketch_item~horse": {
+		"message": "paard"
+	},
+	"speedsketch_item~hospital": {
+		"message": "ziekenhuis"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "luchtballon"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "bubbelbad"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "zandloper"
+	},
+	"speedsketch_item~house": {
+		"message": "huis"
+	},
+	"speedsketch_item~house plant": {
+		"message": "kamerplant"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "orkaan"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "ijs"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "schaatser"
+	},
+	"speedsketch_item~infinity": {
+		"message": "oneindig"
+	},
+	"speedsketch_item~island": {
+		"message": "eiland"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jas"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "jetpack"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Kerstklokken"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kangoeroe"
+	},
+	"speedsketch_item~key": {
+		"message": "sleutel"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "toetsenbord"
+	},
+	"speedsketch_item~kite": {
+		"message": "vlieger"
+	},
+	"speedsketch_item~knee": {
+		"message": "knie"
+	},
+	"speedsketch_item~knife": {
+		"message": "mes"
+	},
+	"speedsketch_item~knot": {
+		"message": "knoop"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "ladder"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landschap"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lantaarn"
+	},
+	"speedsketch_item~laptop": {
+		"message": "laptop"
+	},
+	"speedsketch_item~leaf": {
+		"message": "blad"
+	},
+	"speedsketch_item~leg": {
+		"message": "been"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "gloeilamp"
+	},
+	"speedsketch_item~lighter": {
+		"message": "aansteker"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "vuurtoren"
+	},
+	"speedsketch_item~lightning": {
+		"message": "bliksem"
+	},
+	"speedsketch_item~line": {
+		"message": "lijn"
+	},
+	"speedsketch_item~lion": {
+		"message": "leeuw"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "lippenstift"
+	},
+	"speedsketch_item~lobster": {
+		"message": "kreeft"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "lolly"
+	},
+	"speedsketch_item~love": {
+		"message": "liefde"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "brievenbus"
+	},
+	"speedsketch_item~man": {
+		"message": "man"
+	},
+	"speedsketch_item~map": {
+		"message": "kaart"
+	},
+	"speedsketch_item~marker": {
+		"message": "markeerstift"
+	},
+	"speedsketch_item~matches": {
+		"message": "lucifers"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "wiskunde"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafoon"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "zeemeermin"
+	},
+	"speedsketch_item~metal": {
+		"message": "metaal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "microfoon"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscoop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "magnetron"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistletoe"
+	},
+	"speedsketch_item~mittens": {
+		"message": "wanten"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molecuul"
+	},
+	"speedsketch_item~money": {
+		"message": "geld"
+	},
+	"speedsketch_item~monkey": {
+		"message": "aap"
+	},
+	"speedsketch_item~moon": {
+		"message": "maan"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "mug"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorfiets"
+	},
+	"speedsketch_item~mountain": {
+		"message": "berg"
+	},
+	"speedsketch_item~mouse": {
+		"message": "muis"
+	},
+	"speedsketch_item~moustache": {
+		"message": "snor"
+	},
+	"speedsketch_item~mouth": {
+		"message": "mond"
+	},
+	"speedsketch_item~mug": {
+		"message": "mok"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "paddenstoel"
+	},
+	"speedsketch_item~music": {
+		"message": "muziek"
+	},
+	"speedsketch_item~nail": {
+		"message": "spijker"
+	},
+	"speedsketch_item~nature": {
+		"message": "natuur"
+	},
+	"speedsketch_item~necklace": {
+		"message": "ketting"
+	},
+	"speedsketch_item~news": {
+		"message": "nieuws"
+	},
+	"speedsketch_item~nose": {
+		"message": "neus"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "notenkraker"
+	},
+	"speedsketch_item~ocean": {
+		"message": "oceaan"
+	},
+	"speedsketch_item~octagon": {
+		"message": "achthoek"
+	},
+	"speedsketch_item~octopus": {
+		"message": "octopus"
+	},
+	"speedsketch_item~onion": {
+		"message": "ui"
+	},
+	"speedsketch_item~ornament": {
+		"message": "versiering"
+	},
+	"speedsketch_item~oven": {
+		"message": "oven"
+	},
+	"speedsketch_item~owl": {
+		"message": "uil"
+	},
+	"speedsketch_item~paint can": {
+		"message": "verfblik"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "kwast"
+	},
+	"speedsketch_item~painting": {
+		"message": "schilderijen"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmboom"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "broek"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "paperclip"
+	},
+	"speedsketch_item~parachute": {
+		"message": "parachute"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papegaai"
+	},
+	"speedsketch_item~passport": {
+		"message": "paspoort"
+	},
+	"speedsketch_item~peanut": {
+		"message": "pinda"
+	},
+	"speedsketch_item~pear": {
+		"message": "peer"
+	},
+	"speedsketch_item~peas": {
+		"message": "erwten"
+	},
+	"speedsketch_item~pencil": {
+		"message": "potlood"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pinguïn"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "pepermunt"
+	},
+	"speedsketch_item~piano": {
+		"message": "piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pick-uptruck"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "fotolijstje"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "cirkeldiagram"
+	},
+	"speedsketch_item~pig": {
+		"message": "pig"
+	},
+	"speedsketch_item~pillow": {
+		"message": "kussen"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "pingpong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "piraat"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "tang"
+	},
+	"speedsketch_item~police car": {
+		"message": "politieauto"
+	},
+	"speedsketch_item~politician": {
+		"message": "politicus"
+	},
+	"speedsketch_item~pond": {
+		"message": "vijver"
+	},
+	"speedsketch_item~pool": {
+		"message": "zwembad"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "ijslolly"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portret"
+	},
+	"speedsketch_item~postcard": {
+		"message": "briefkaart"
+	},
+	"speedsketch_item~potato": {
+		"message": "aardappel"
+	},
+	"speedsketch_item~present": {
+		"message": "cadeau"
+	},
+	"speedsketch_item~prison": {
+		"message": "gevangenis"
+	},
+	"speedsketch_item~purse": {
+		"message": "handtas"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "konijn"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "wasbeer"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "regen"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "regenboog"
+	},
+	"speedsketch_item~rake": {
+		"message": "hark"
+	},
+	"speedsketch_item~raven": {
+		"message": "raaf"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "rendier"
+	},
+	"speedsketch_item~remote control": {
+		"message": "afstandsbediening"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "neushoorn"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "lint"
+	},
+	"speedsketch_item~river": {
+		"message": "rivier"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "achtbaan"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "rolschaatsen"
+	},
+	"speedsketch_item~sadness": {
+		"message": "verdriet"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "zeilboot"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sandwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Kerstman"
+	},
+	"speedsketch_item~saturn": {
+		"message": "Saturnus"
+	},
+	"speedsketch_item~sausage": {
+		"message": "worst"
+	},
+	"speedsketch_item~saw": {
+		"message": "zaag"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofoon"
+	},
+	"speedsketch_item~school bus": {
+		"message": "schoolbus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "schaar"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "schorpioen"
+	},
+	"speedsketch_item~screw": {
+		"message": "schroef"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "schroevendraaier"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "beeldhouwwerk"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "zeeschildpad"
+	},
+	"speedsketch_item~see saw": {
+		"message": "wipwap"
+	},
+	"speedsketch_item~shark": {
+		"message": "haai"
+	},
+	"speedsketch_item~sheep": {
+		"message": "schaap"
+	},
+	"speedsketch_item~shoe": {
+		"message": "schoen"
+	},
+	"speedsketch_item~shorts": {
+		"message": "korte broek"
+	},
+	"speedsketch_item~shovel": {
+		"message": "schep"
+	},
+	"speedsketch_item~sink": {
+		"message": "wastafel"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skateboard"
+	},
+	"speedsketch_item~ski": {
+		"message": "ski"
+	},
+	"speedsketch_item~skier": {
+		"message": "skiër"
+	},
+	"speedsketch_item~skirt": {
+		"message": "rok"
+	},
+	"speedsketch_item~skull": {
+		"message": "schedel"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "wolkenkrabber"
+	},
+	"speedsketch_item~sled": {
+		"message": "slee"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "slaapzak"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "slee"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "smiley"
+	},
+	"speedsketch_item~snail": {
+		"message": "slak"
+	},
+	"speedsketch_item~snake": {
+		"message": "slang"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorkel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "sneeuwvlok"
+	},
+	"speedsketch_item~snowman": {
+		"message": "sneeuwpop"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "voetbal"
+	},
+	"speedsketch_item~sock": {
+		"message": "sok"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "speedboot"
+	},
+	"speedsketch_item~sphere": {
+		"message": "bol"
+	},
+	"speedsketch_item~spider": {
+		"message": "spin"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spiraal"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lepel"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "spreadsheet"
+	},
+	"speedsketch_item~square": {
+		"message": "vierkant"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "eekhoorn"
+	},
+	"speedsketch_item~stairs": {
+		"message": "trap"
+	},
+	"speedsketch_item~star": {
+		"message": "ster"
+	},
+	"speedsketch_item~steak": {
+		"message": "biefstuk"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo-installatie"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stethoscoop"
+	},
+	"speedsketch_item~still life": {
+		"message": "stilleven"
+	},
+	"speedsketch_item~stocking": {
+		"message": "kousen"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stopbord"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopwatch"
+	},
+	"speedsketch_item~stove": {
+		"message": "fornuis"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "aardbei"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "straatlantaarn"
+	},
+	"speedsketch_item~string bean": {
+		"message": "snijboon"
+	},
+	"speedsketch_item~submarine": {
+		"message": "onderzeeër"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "koffer"
+	},
+	"speedsketch_item~sun": {
+		"message": "zon"
+	},
+	"speedsketch_item~sunset": {
+		"message": "zonsondergang"
+	},
+	"speedsketch_item~swan": {
+		"message": "zwaan"
+	},
+	"speedsketch_item~sweater": {
+		"message": "trui"
+	},
+	"speedsketch_item~swing set": {
+		"message": "schommel"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "t-shirt"
+	},
+	"speedsketch_item~table": {
+		"message": "tafel"
+	},
+	"speedsketch_item~teapot": {
+		"message": "theepot"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "teddybeer"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefoon"
+	},
+	"speedsketch_item~television": {
+		"message": "televisie"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennisracket"
+	},
+	"speedsketch_item~tent": {
+		"message": "tent"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "boter, kaas en eieren"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tijger"
+	},
+	"speedsketch_item~time": {
+		"message": "tijd"
+	},
+	"speedsketch_item~toaster": {
+		"message": "broodrooster"
+	},
+	"speedsketch_item~toe": {
+		"message": "teen"
+	},
+	"speedsketch_item~toilet": {
+		"message": "toilet"
+	},
+	"speedsketch_item~tooth": {
+		"message": "tand"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "tandenborstel"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "tandpasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "tractor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "verkeerslicht"
+	},
+	"speedsketch_item~train": {
+		"message": "trein"
+	},
+	"speedsketch_item~tree": {
+		"message": "boom"
+	},
+	"speedsketch_item~triangle": {
+		"message": "driehoek"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "driewieler"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombone"
+	},
+	"speedsketch_item~trousers": {
+		"message": "broek"
+	},
+	"speedsketch_item~truck": {
+		"message": "vrachtwagen"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "paraplu"
+	},
+	"speedsketch_item~underwear": {
+		"message": "ondergoed"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "eenhoorn"
+	},
+	"speedsketch_item~universe": {
+		"message": "universum"
+	},
+	"speedsketch_item~van": {
+		"message": "bestelwagen"
+	},
+	"speedsketch_item~vase": {
+		"message": "vaas"
+	},
+	"speedsketch_item~violin": {
+		"message": "viool"
+	},
+	"speedsketch_item~walnut": {
+		"message": "walnoot"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "wasmachine"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "watermeloen"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "waterglijbaan"
+	},
+	"speedsketch_item~wave": {
+		"message": "golf"
+	},
+	"speedsketch_item~whale": {
+		"message": "walvis"
+	},
+	"speedsketch_item~windmill": {
+		"message": "windmolen"
+	},
+	"speedsketch_item~woman": {
+		"message": "vrouw"
+	},
+	"speedsketch_item~world": {
+		"message": "wereld"
+	},
+	"speedsketch_item~wreath": {
+		"message": "krans"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "polshorloge"
+	},
+	"speedsketch_item~yoga": {
+		"message": "yoga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "yoghurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "rits"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
 	"sv_language_name": {
 		"message": "Zweeds"
+	},
+	"td_country_name": {
+		"message": "Tsjaad"
+	},
+	"terms-and-privacy": {
+		"message": "Voorwaarden en privacy"
+	},
+	"tg_country_name": {
+		"message": "Togo"
 	},
 	"th_language_name": {
 		"message": "Thai"
 	},
+	"tilt": {
+		"message": "Kantel je apparaat."
+	},
 	"time": {
 		"message": "Tijd"
 	},
+	"tj_country_name": {
+		"message": "Tadzjikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Tunesië"
+	},
 	"today_only": {
 		"message": "Alleen vandaag"
+	},
+	"tr_country_name": {
+		"message": "Turkije"
 	},
 	"tr_language_name": {
 		"message": "Turks"
@@ -83,20 +3017,3482 @@
 	"tracker_arrival": {
 		"message": "Aankomst"
 	},
+	"tracker_arriving_in": {
+		"message": "Aankomst over"
+	},
+	"tracker_current_stop": {
+		"message": "Huidige tussenstop"
+	},
+	"tracker_departing_in": {
+		"message": "Vertrek over"
+	},
+	"tracker_distance_away_km": {
+		"message": "De Kerstman is {{distance_away}} km van je vandaan"
+	},
+	"tracker_distance_from_you": {
+		"message": "Afstand ten opzichte van jouw locatie"
+	},
+	"tracker_distance_travelled": {
+		"message": "Afgelegde afstand"
+	},
+	"tracker_feed": {
+		"message": "Live feed"
+	},
+	"tracker_flight_nearby": {
+		"message": "De Kerstman is in de buurt - ontdek zelf waar hij nu is"
+	},
+	"tracker_flight_start": {
+		"message": "De Kerstman is vertrokken van de Noordpool - je kunt vanaf nu zijn route volgen"
+	},
+	"tracker_from_google": {
+		"message": "Namens iedereen bij Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Bezorgde cadeautjes"
+	},
 	"tracker_intro_skip_intro": {
 		"message": "Intro overslaan"
+	},
+	"tracker_intro_user_location": {
+		"message": "Je bevindt je in"
+	},
+	"tracker_just_in": {
+		"message": "Vers van de pers"
+	},
+	"tracker_next_stop": {
+		"message": "Volgende stop"
+	},
+	"tracker_santa_update": {
+		"message": "UPDATE VAN DE KERSTMAN"
+	},
+	"tracker_santa_update_1": {
+		"message": "Update van de Kerstman"
+	},
+	"tracker_see_route": {
+		"message": "Route bekijken"
+	},
+	"tracker_stats": {
+		"message": "De Kerstman in cijfers"
+	},
+	"tracker_time_from_you_many": {
+		"message": "De Kerstman is er over ongeveer {{hours}} uur"
+	},
+	"tracker_time_from_you_one": {
+		"message": "De Kerstman is er bijna"
+	},
+	"tracker_track": {
+		"message": "Volg de Kerstman"
+	},
+	"tracker_travelogue": {
+		"message": "Reislog"
 	},
 	"tracker_weather": {
 		"message": "Weer"
 	},
+	"tracker_world_facts": {
+		"message": "WIST JE DIT?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Wereldwijde trivia"
+	},
+	"tracker_your_location": {
+		"message": "Je locatie"
+	},
+	"traditions-next": {
+		"message": "Volgende traditie"
+	},
+	"traditions-prev": {
+		"message": "Vorige traditie"
+	},
+	"traditions-world": {
+		"message": "Wereld"
+	},
+	"trivia_beginner_001": {
+		"message": "Op welk continent ligt het Andesgebergte?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_002": {
+		"message": "Welke Amerikaanse staat bestaat uit acht hoofdeilanden?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaï"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Welke Amerikaanse staat ligt in de Great Plains?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Welk continent ligt aan de Atlantische Oceaan, de Stille Oceaan en de Noordelijke IJszee?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Azië"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Welke staat ligt in de PST-tijdzone?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Californië"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Op welk continent liggen zowel het Atlasgebergte als de Kalahariwoestijn?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_007": {
+		"message": "Welke Amerikaanse staat grenst aan een van de Grote Meren?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "New Mexico"
+	},
+	"trivia_beginner_008": {
+		"message": "Op welk continent spreken de meeste mensen Portugees of Spaans?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Welke Amerikaanse staat heeft onder andere de vorm van een pannensteel?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Antarctica en welk ander continent liggen volledig op het zuidelijk halfrond?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australië"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_011": {
+		"message": "Aan welk continent grenst het Ronne-ijsplateau?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Vancouver Island en Kodiak Island liggen voor de westkust van welk continent?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australië"
+	},
+	"trivia_beginner_013": {
+		"message": "In het noordwestelijk deel van welk continent ligt Niger, een land met een van de snelstgroeiende inwonersaantallen ter wereld?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Op welk continent komen de minste planten en bomen voor?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Tasmaanse duivels zijn inheemse dieren op een eiland voor de zuidelijke kust van welk continent?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australië"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "De Toren van Pisa is een populaire toeristische attractie in welk land aan de Middellandse Zee?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italië"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca en Tripoli zijn historische steden aan de noordkust van welk continent?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Op welk continent vind je de Sonorawoestijn met zijn typische Saguaro-cactussen?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz en Acapulco zijn populaire vakantiebestemmingen in welk land?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentinië"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "In welk land liggen de reservaten van de reuzenpanda in Sichuan, waar maar liefst 30 procent van alle panda's ter wereld leeft?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "IJsland"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Ethiopië"
+	},
+	"trivia_beginner_021": {
+		"message": "Op welk continent vind je zo'n 90 procent van al het ijs ter wereld?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_022": {
+		"message": "Op welk continent ligt de Ángelwaterval, de hoogste waterval ter wereld?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Als je Jackson Hole wilt bezoeken en de Devils Tower wilt beklimmen, naar welke Amerikaanse staat moet je dan reizen?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "North Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Als je wilt zien hoe esdoornsap wordt getapt en wilt skiën in de Green Mountains, naar welke Amerikaanse staat moet je dan reizen?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Welke Amerikaanse staat moet je bezoeken als je over de Chesapeake Bay Bridge wilt rijden en over de promenade van Ocean City wilt flaneren?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "North Carolina"
+	},
+	"trivia_beginner_026": {
+		"message": "Als je een bezoek wilt brengen aan Mammoth Cave en bij Churchill Downs een paardenrace wil bijwonen, naar welke Amerikaanse staat moet je dan reizen?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Als je reusachtige sequoia's en het Channel Islands National Park wilt zien, naar welke Amerikaanse staat moet je dan reizen?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Californië"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginia"
+	},
+	"trivia_beginner_028": {
+		"message": "Welk moeras bezoek je in de Amerikaanse staat Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal Swamp"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress Swamp"
+	},
+	"trivia_beginner_029": {
+		"message": "Wie wil varen door de St. Lawrencezeeweg en over de Finger Lakes, moet daarvoor naar welke Amerikaanse staat?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Op welk continent ligt Mount Everest, de hoogste berg ter wereld?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Azië"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_031": {
+		"message": "De regio Patagonië strekt zich grotendeels uit over het zuidelijk deel van welk continent?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Keizerpinguïns komen van nature voor op welk continent?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "In welk land komen kangoeroes en koala's in het wild voor?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australië"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Op welk continent trekken de wilde dieren in het Serengeti National Park vele toeristen?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australië"
+	},
+	"trivia_beginner_035": {
+		"message": "Welk continent heeft het grootste landoppervlak?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Azië"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "In welke Europese stad vind je de Tower Bridge over de rivier de Theems?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londen"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Kaapstad"
+	},
+	"trivia_beginner_037": {
+		"message": "In welke Russische stad staat de Basiliuskathedraal aan het Rode Plein naast het Kremlin?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskou"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brussel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "In welke Europese stad ligt het Colosseum, dat in de eerste eeuw na Christus werd gebouwd als strijdarena voor gladiatoren?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rome"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartoem"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manilla"
+	},
+	"trivia_beginner_039": {
+		"message": "In welke Australische stad liggen het Opera House en de Harbour Bridge?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praag"
+	},
+	"trivia_beginner_040": {
+		"message": "De Rotskoepel en de Westmuur zijn slechts twee van de vele heilige plaatsen binnen de oude stadsmuren van welke stad in het Midden-Oosten?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruzalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_beginner_041": {
+		"message": "In welke Griekse stand vind je het Parthenon, boven op de Akropolis?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Athene"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "De Eiffeltoren ligt aan de over van de Seine en kijkt uit over het centrum van welke Franse stad?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Parijs"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "New Delhi"
+	},
+	"trivia_beginner_043": {
+		"message": "In de moskee Al-Masjid al-Haram bevindt zich de Ka'aba, het centrale heiligdom van de islam. In welke stad in Saoedi-Arabië vind je dit bouwwerk?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Boedapest"
+	},
+	"trivia_beginner_044": {
+		"message": "De Verboden Stad is een voormalig keizerlijk paleis in het centrum van welke Chinese stad?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "In welke Amerikaanse stad aan de Puget Sound vind je observatietoren de Space Needle?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "De John Hancock Tower is het grootste gebouw van welke Amerikaanse stad aan de monding van de rivier de Charles?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "De Stratosphere Tower ligt ten noorden van een beroemde boulevard die ook wel The Strip wordt genoemd. Dit is het grootste gebouw van welke Amerikaanse stad in de Mojavewoestijn?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Het Vrijheidsbeeld is een groot standbeeld op Liberty Island. In de haven van welke Amerikaanse stad ligt dit eiland?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York City"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "De Golden Gate Bridge verbindt welke Amerikaanse stad met het Marin-schiereiland?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "De Gateway Arch symboliseert de westwaartse uitbreiding van Amerika in de 19e eeuw. De boog ligt aan de rivier de Mississippi in welke Amerikaanse stad?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "Saint Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "In welk Afrikaans land ligt het Gizeh-plateau, waar je onder andere de Grote Piramide en de Sfinx kunt vinden?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egypte"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazilië"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Duitsland"
+	},
+	"trivia_beginner_052": {
+		"message": "Independence Hall, een belangrijke historische locatie in verband met de Amerikaanse Revolutie, ligt in de buurt van de rivier de Delaware. In welke Amerikaanse stad is dit?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "De Rocky Mountains lopen door Canada en welk ander land?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "United States"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusland"
+	},
+	"trivia_beginner_054": {
+		"message": "Aan welke oceaan liggen Brazilië en Uruguay?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_beginner_055": {
+		"message": "Het eiland Newfoundland ligt voor oostkust van Canada in welke oceaan?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_056": {
+		"message": "Het eiland Madagaskar ligt voor de oostkust van Afrika in welke oceaan?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_beginner_057": {
+		"message": "Door welke oceaan loopt het grootste deel van de internationale datumgrens?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_beginner_058": {
+		"message": "Op welk continent loopt de evenaar dwars door het Congobekken?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Welk continent ligt aan de Golf van Mexico?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_060": {
+		"message": "Welke rivier in Afrika is de langste rivier ter wereld?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nijl"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "De Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Oranjerivier"
+	},
+	"trivia_beginner_061": {
+		"message": "Op welk continent vind je de eeuwenoude ruïnes van Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_062": {
+		"message": "Door welk continent stroom de Amazone, de waterrijkste rivier ter wereld?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_063": {
+		"message": "Op welk continent ligt de Mont Blanc, het hoogste punt van de Alpen?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_064": {
+		"message": "De landengte van Panama verbindt Centraal-Amerika met welk continent?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Cheeta's zijn de snelste landzoogdieren op aarde en leven in Kenia en Tanzania. Op welk continent is dat?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Kaap de Goede Hoop ligt aan de meest zuidelijke punt van welk continent?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_067": {
+		"message": "De Galápagoseilanden zijn onder andere beroemd om de reuzenschildpadden die er leven. In welke oceaan ten westen van Zuid-Amerika ligt deze eilandengroep?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_068": {
+		"message": "Op welk continent stroomt de Donau door Wenen en diverse andere steden?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "De eilanden Cuba en Hispaniola liggen allebei in welke zee?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Caribische Zee"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringzee"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Oostzee"
+	},
+	"trivia_beginner_070": {
+		"message": "Aan welk continent ligt de Golf van Guinee?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australië"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton was een beroemde ontdekker van welk continent?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "Van welke oceaan is de Labradorzee een aftakking?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_073": {
+		"message": "Op welk continent ligt de Sahara, de grootste woestijn ter wereld?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_074": {
+		"message": "Op welk continent ligt het Tibetaans Hoogland?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Azië"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Ten zuiden van welk continent ligt de Straat Drake?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australië"
+	},
+	"trivia_beginner_076": {
+		"message": "Het Groot Barrièrerif ligt in de Koraalzee voor de kust van welk continent?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australië"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Azië"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_077": {
+		"message": "Als je door het Suezkanaal wilt navigeren en de Dodenstad van Caïro wilt bezoeken, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egypte"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finland"
+	},
+	"trivia_beginner_078": {
+		"message": "Als je wilt zien hoe gauchos hun vee hoeden en de tangodansers van Buenos Aires wilt bewonderen, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentinië"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Als je het oude centrum van Fez wilt bezoeken en een trektocht wilt maken door het Atlasgebergte, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marokko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_beginner_080": {
+		"message": "Als je eeuwenoude Mayaruïnes wilt bezoeken en wilt zwemmen aan de stranden van Cancún, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Nederland"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turkije"
+	},
+	"trivia_beginner_081": {
+		"message": "Als je  St. Patrick’s Cathedral in Dublin wilt bezoeken en het Arts Festival in Kilkenny wilt bijwonen, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Ierland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalië"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Als je een tocht door het regenwoud wilt maken en uit je dak wilt gaan tijdens het carnaval van Rio de Janeiro, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazilië"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Als je de Hermitage in Sint Petersburg wilt bezoeken en een tocht over de Trans-Siberische spoorlijn wilt maken, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusland"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesië"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Als je een rit wilt maken in een échte hogesnelheidstrein en wilt slapen in een hotel in Tokio, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Als je pesto wilt eten in Genua en een opera wilt bijwonen in Florence, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italië"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguay"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libië"
+	},
+	"trivia_beginner_086": {
+		"message": "Als je op safari wilt in natuurreservaat Masai Mara en wilt winkelen in Nairobi, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenia"
+	},
 	"trivia_beginner_086_answer1": {
 		"message": "Zuid-Korea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chili"
+	},
+	"trivia_beginner_087": {
+		"message": "Als je de rivier de Ganges wilt zien en de drukke straten van Calcutta wilt ontdekken, naar welk land moet je dan reizen?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Duitsland"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordanië"
+	},
+	"trivia_beginner_088": {
+		"message": "In welke oceaan ligt de Noordpool, het noordelijkste punt van onze aarde?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_beginner_089": {
+		"message": "Welk land ligt aan de Atlantische Oceaan?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "IJsland"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Welke Amerikaanse staat wordt wegens het warme klimaat en de populaire stranden ook wel de Sunshine State genoemd?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "In welke Amerikaanse staat ligt de Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "West Virginia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "South Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Welke Amerikaanse staat was ooit een onafhankelijk land en wordt ook wel de Lone Star State genoemd, vanwege zijn vlag met één ster?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Op welk continent liggen de rivieren Tigris en Eufraat?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Azië"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "Op welk continent liggen het Victoriameer en het Virunga-gebergte?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Azië"
+	},
+	"trivia_beginner_095": {
+		"message": "Welk land is een eilandstaat in de Stille Oceaan?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nieuw-Zeeland"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Zuid-Afrika"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "IJsland"
+	},
+	"trivia_beginner_096": {
+		"message": "Welk land ligt op het Scandinavisch Schiereiland?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Zweden"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Roemenië"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Welk land grenst aan de Middellandse Zee?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Frankrijk"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Welke Amerikaans stad ligt het dichtst bij de Canadese grens?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Welke Amerikaanse stad loopt het grootste risico om te worden getroffen door een orkaan?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Welk van deze meren heeft de grootste oppervlakte?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huronmeer"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lake Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Eriemeer"
+	},
+	"trivia_hard_004": {
+		"message": "Welk van deze Amerikaanse steden is het dichtstbevolkt?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "Saint Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Welk land ligt het dichtst bij de Perzische Golf?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turkije"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_hard_006": {
+		"message": "Welk van deze landen heeft het grootste landoppervlak?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazachstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Roemenië"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polen"
+	},
+	"trivia_hard_007": {
+		"message": "Welk van deze landen is het dichtstbevolkt?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapore"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Welk van deze landen heeft de meeste Duitstalige inwoners?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Oostenrijk"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slowakije"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Welk van deze landen grenst aan de meeste andere landen?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudi-Arabië"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marokko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolië"
+	},
+	"trivia_hard_010": {
+		"message": "Welk land ligt niet aan het Tanganyikameer?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Welk land ligt niet op de evenaar?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritanië"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesië"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_hard_012": {
+		"message": "Welk land ligt niet op het Balkanschiereiland?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Tsjechië"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgarije"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonië"
+	},
+	"trivia_hard_013": {
+		"message": "Welk land ligt niet aan de Noordzee?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finland"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Denemarken"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"trivia_hard_014": {
+		"message": "Welk land ligt niet aan de Zwarte Zee?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbeidzjan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Oekraïne"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turkije"
+	},
+	"trivia_hard_015": {
+		"message": "Welk land wordt niet volledig omgeven door andere landen?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Kroatië"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Wit-Rusland"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hongarije"
+	},
+	"trivia_hard_016": {
+		"message": "Welk land ligt niet in de Sahara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libië"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Algerije"
+	},
+	"trivia_hard_017": {
+		"message": "Welk eiland ligt het meest oostelijk?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Aan welk water ligt Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Caribische Zee"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_hard_019": {
+		"message": "Welke stad is een haven aan de Golf van Mexico?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Door welk land loopt de Kreeftskeerkring?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazilië"
+	},
+	"trivia_hard_021": {
+		"message": "Welk van deze eilanden heeft het grootste oppervlak?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffineiland"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinië"
+	},
+	"trivia_hard_022": {
+		"message": "De Straat Yucatán scheidt Mexico en welk eiland van elkaar?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Puerto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Welke Canadese stad ligt het meest noordelijk?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Welk eiland behoort tot de Kleine Antillen?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermuda"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince is de dichtstbevolkte stad van welk land?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haïti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Welk land ligt in de Karpaten?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Roemenië"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albanië"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "In welk land is Frans een officiële taal?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Koeweit"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Welk van deze landen heeft het grootste landoppervlak?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israël"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrein"
+	},
+	"trivia_hard_029": {
+		"message": "Welk land strekt zich uit over de meeste lengtegraden?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazachstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afghanistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Syrië"
+	},
+	"trivia_hard_030": {
+		"message": "Welk land bestaat uit heel veel eilanden?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipijnen"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Cambodja"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadzjikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Welk van deze landen heeft de meeste tijdzones?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazilië"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Welk land ligt het meest noordelijk?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kameroen"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambique"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australië"
+	},
+	"trivia_hard_033": {
+		"message": "Welk land ligt tussen Frankrijk en Spanje?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vaticaanstad"
+	},
+	"trivia_hard_034": {
+		"message": "Aan welk land grenst Denemarken?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Duitsland"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finland"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavië"
+	},
+	"trivia_hard_035": {
+		"message": "Bij welk land hoort het eiland Sardinië?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italië"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turkije"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"trivia_hard_036": {
+		"message": "Welke woestijn bedekt grotendeels het gebied tussen Peking en Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobiwoestijn"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Tharwoestijn"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Libische Woestijn"
+	},
+	"trivia_hard_037": {
+		"message": "De Kamtsjatka-stroom is onderdeel van welke oceaan?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_hard_038": {
+		"message": "In het zuidelijke deel van welke zee ligt de Golf van Sidra?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Middellandse Zee"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabische Zee"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Oostzee"
+	},
+	"trivia_hard_039": {
+		"message": "Het Tatragebergte is de hoogste keten van welk Europees berggebied?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpaten"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Cantabrisch Gebergte"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyreneeën"
+	},
+	"trivia_hard_040": {
+		"message": "Welke rivier stroomt door het Karibameer en vormt de grens tussen Zambia en Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nijl"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_041": {
+		"message": "De rivieren Theems, Maas en Schelde monden alle drie uit in welke zee?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Noordzee"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Middellandse Zee"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Zwarte Zee"
+	},
+	"trivia_hard_042": {
+		"message": "De Straat Luzon scheidt de Filipijnen van welk groot eiland ten noorden ervan?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Algerije"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Welke eilanden liggen langs de Mid-Atlantische Rug?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azoren"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahama's"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fiji-eilanden"
+	},
+	"trivia_hard_044": {
+		"message": "Welke rivier mondt uit in de Laptevzee?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Yangtze"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Welke bergpiek ligt het dichtst bij de evenaar?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Wat is de dichtstbevolkte hoofdstad ter wereld?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskou"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Algiers"
+	},
+	"trivia_hard_047": {
+		"message": "Welke plaats aan de rivier de Liffey is de grootste stad van Ierland?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kopenhagen"
+	},
+	"trivia_hard_048": {
+		"message": "Welke stad in een vallei van het Hindoekoesj-gebergte is de grootste stad van Afghanistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kaboel"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Welke plaats aan de de rivier de Menam is de grootste stad van Thailand?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Welke plaats in een fjord aan het Skagerrak is de grootste stad van Noorwegen?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londen"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brussel"
+	},
+	"trivia_hard_051": {
+		"message": "Welke plaats aan de oostkust van de Middellandse Zee is de grootste stad van Libanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beiroet"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riyad"
+	},
+	"trivia_hard_052": {
+		"message": "Welke stad aan de kust van Java is de grootste stad van Indonesië?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Welke plaats in de regio Attica is de grootste stad van Griekenland?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Athene"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rome"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Welke plaats aan het estuarium van de Río de la Plata is de grootste stad van Uruguay?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Welke plaats die ooit deel uitmaakte van de voormalige provincie Transvaal, is de grootste stad van Zuid-Afrika?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Welke plaats die ook bekend staat als een belangrijke doorvoerhaven in de Caribische Zee, is de grootste stad van Jamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Carácas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Welke plaats in de Grote Slenk is de grootste stad van Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Welke plaats aan de oevers van de Wisla is de grootste stad van Polen?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Warschau"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlijn"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Welke stad is een belangrijke stop langs de Pan-Amerikaanse weg en tevens de grootste stad van Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Welke plaats is een belangrijke landbouwkundige handelsplaats in het zuiden van Afrika en tevens de grootste stad van Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Welke plaats die ooit werd bezet door het regime van de Rode Khmer, is de grootste stad van Cambodja?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Welke plaats bij Kaap Mesurado aan de Atlantische kust is de grootste stad van Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Welke plaats op een hoog plateau in de Andes is de grootste stad van Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Welke plaats aan de voet van de Elboers is de grootste stad van Iran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tasjkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanboel"
+	},
+	"trivia_hard_065": {
+		"message": "Door welke watermassa loopt de Noordpoolcirkel?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Noorse Zee"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Voltameer"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspische Zee"
+	},
+	"trivia_hard_066": {
+		"message": "Welke watermassa ligt in de Grote Slenk?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malawimeer"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanzee"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicacameer"
+	},
+	"trivia_hard_067": {
+		"message": "Aan de oever van welke watermassa ligt de Russische havenstad Arkhangelsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Witte Zee"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Straat Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golf van Biskaje"
+	},
+	"trivia_hard_068": {
+		"message": "In welk land liggen de provincies Hunan en Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "In welk land aan de Middellandse Zee is Castiliaans de officiële taal?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spanje"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Griekenland"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbeidzjan"
+	},
+	"trivia_hard_070": {
+		"message": "Welk land in Midden-Amerika was ooit een provincie van Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "In welk land is de stad Bazel, die door de Rijn in twee delen wordt gesplitst, een belangrijk handelscentrum?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Zwitserland"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "België"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusland"
+	},
+	"trivia_hard_072": {
+		"message": "Schilders zoals Cézanne lieten zich inspireren door de landschappen van de Provence. In welk land ligt deze regio?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Frankrijk"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Nederland"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Roemenië"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca is een belangrijk vertrekpunt voor de Pampa-regio in welk land?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentinië"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Welk land ligt aan de Middellandse Zee, de Zwarte Zee én de Egeïsche Zee?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turkije"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgarije"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libië"
+	},
+	"trivia_hard_075": {
+		"message": "Elk jaar steken gnoes uit Tanzania de rivier de Mara over tijdens hun trek naar welk noordoostelijk buurland?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenia"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinee"
+	},
+	"trivia_hard_076": {
+		"message": "Aleppo, een plaats die bekend staat om de Grote Moskee, is de grootste stad van welk land in het zuidwesten van Azië?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Syrië"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Oman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Welk land grenst aan zowel Rusland als Georgië?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbeidzjan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Oezbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Noord-Korea"
+	},
+	"trivia_hard_078": {
+		"message": "Welk land grenst aan zowel Panama als Brazilië?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Welk land grenst aan zowel Guatemala als de Verenigde Staten?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_080": {
+		"message": "Welk land grenst aan Irak en Afghanistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Iran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Oekraïne"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolië"
+	},
+	"trivia_hard_081": {
+		"message": "Welk land grenst aan Lesotho en Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Zuid-Afrika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerpen ligt in het Vlaamstalig deel van welk land?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "België"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Nederland"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "IJsland"
+	},
+	"trivia_hard_083": {
+		"message": "In welk Europees land ligt Gdańsk, een belangrijke haven aan de monding van de Wisla?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polen"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spanje"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Kroatië"
+	},
+	"trivia_hard_084": {
+		"message": "Van welke grote rivier in Zuid-Amerika zijn de Madeira en de Purus belangrijke zijrivieren?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazone"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Rivier de Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Het Bodenmeer grenst aan Zwitserland, Duitsland en welk ander land?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Oostenrijk"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slowakije"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finland"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland is een belangrijke havenstad met meerdere havens. Van welk land is dit de grootste stad?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nieuw-Zeeland"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australië"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesië"
+	},
+	"trivia_hard_087": {
+		"message": "Welk land ten westen van Togo is een grote producent van cacao?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Soedan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunesië"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní is de naam van een van de officiële talen én van de munteenheid in welk Zuid-Amerikaans land?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguay"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazilië"
+	},
+	"trivia_hard_089": {
+		"message": "Welke bergketen strekt zich uit langs de grens tussen Frankrijk en Spanje?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyreneeën"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennijnen"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukasusgebergte"
+	},
+	"trivia_hard_090": {
+		"message": "In welk land is de Torrens een rivier die uitmondt in de Golf Saint Vincent?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australië"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Oeganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canada"
+	},
+	"trivia_hard_091": {
+		"message": "Welk Afrikaans land aan de Middellandse Zee is een monarchie?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marokko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egypte"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Centraal-Afrikaanse Republiek"
+	},
+	"trivia_hard_092": {
+		"message": "Van welk land is Tbilisi de hoofdstad, een fraaie stad aan de oevers van de Koera?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Syrië"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hongarije"
+	},
+	"trivia_hard_093": {
+		"message": "In welk land liggen de Abruzzen, een bergachtige regio aan de Adriatische Zee?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italië"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Frankrijk"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburg"
+	},
+	"trivia_hard_094": {
+		"message": "De Golf van Riga grenst aan Letland en welk ander land?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estland"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Wit-Rusland"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spanje"
+	},
+	"trivia_hard_095": {
+		"message": "De Straat van Jubal verbindt de Golf van Suez met welke zee?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Rode Zee"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Caribische Zee"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspische Zee"
+	},
+	"trivia_hard_096": {
+		"message": "Door het water van welke rivier wordt het Meer van Tiberias grotendeels gevoed?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jordaan"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Welke grote baai scheidt New Brunswick van Nova Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fundybaai"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsonbaai"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Golf van Bengalen"
+	},
+	"trivia_hard_098": {
+		"message": "In welk land vind je de Dom van Keulen, gelegen in de Rijnland-regio?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Duitsland"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Denemarken"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "In welk land is Chiapas de meest zuidelijke staat en de vindplaats van diverse eeuwenoude Mayaruïnes?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chili"
+	},
+	"trivia_hard_100": {
+		"message": "De Dardanellen is een smalle zeestraat die de Zee van Marmara verbindt met welke andere zee?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egeïsche Zee"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentszzee"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanzee"
+	},
+	"trivia_hard_101": {
+		"message": "Van welk land in Zuidoost-Azië is Khmer de officiële taal?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Cambodja"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Het Donetsbekken is een industrieel gebied dat zowel in Rusland als welk ander land ligt?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Oekraïne"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slowakije"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Op welk continent ligt Mount Kosciuszko, de hoogste berg van de Snowy Mountains?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australië"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_hard_104": {
+		"message": "Bij welk land horen de eilanden Madura en Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesië"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "In welk Aziatisch land ligt de Taklamakan, een woestijn ten noorden van de bergketen Kunlun?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudi-Arabië"
 	},
 	"trivia_hard_105_answer2": {
 		"message": "Zuid-Korea"
 	},
+	"trivia_medium_001": {
+		"message": "Welke van deze Amerikaanse steden ligt aan een rivierdelta?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Op welk continent zijn Angkor Wat en Cappadocia twee UNESCO Werelderfgoed-locaties?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Azië"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "Koerdisch en Perzisch zijn twee talen die in het zuidwesten van welk continent worden gesproken?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Azië"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_004": {
+		"message": "Op welk continent was Teotihuacán ooit het centrale middelpunt van een eeuwenoude beschaving?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Azië"
+	},
+	"trivia_medium_005": {
+		"message": "Aan welk continent grenzen de Bellingshausenzee en de Rosszee?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Azië"
+	},
+	"trivia_medium_006": {
+		"message": "Langs de kust van welk continent stromen de Mozambique- en Benguelastroom?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_medium_007": {
+		"message": "De eilandengroep Islas Malvinas (ook wel de Falklandeilanden genoemd) ligt voor de zuidoostelijke kust van welk continent?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Welk van deze Afrikaanse landen heeft het grootste oppervlak?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Algerije"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Welk groot eiland ligt ruim 300 kilometer ten noordwesten van IJsland?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Groenland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nieuw-Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Ierland"
+	},
+	"trivia_medium_010": {
+		"message": "Tot welke oceaan behoren de Karazee en de Oost-Siberische Zee?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indische Oceaan"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_medium_011": {
+		"message": "Welk land ligt aan de Baltische Zee?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Letland"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovenië"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Oekraïne"
+	},
+	"trivia_medium_012": {
+		"message": "Welke van deze grote steden is het dichtstbevolkt?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brazilië"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Welk land heeft geen kustlijn langs de Atlantische Oceaan?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Maleisië"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguay"
+	},
+	"trivia_medium_014": {
+		"message": "Welk van deze landen heeft de kortste kustlijn?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chili"
+	},
+	"trivia_medium_015": {
+		"message": "Welke woestijn ligt in Azië?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobiwoestijn"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Welk van deze landen heeft de meeste vulkanische activiteit?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesië"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egypte"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israël"
+	},
+	"trivia_medium_017": {
+		"message": "Welk van deze landen heeft de meeste inwoners?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haïti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Welk van deze landen heeft de meeste eilanden?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahama's"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Welk land ligt het dichtst bij de evenaar?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Zuid-Afrika"
+	},
+	"trivia_medium_020": {
+		"message": "Welk land ligt het meest noordelijk?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estland"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libië"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Cambodja"
+	},
+	"trivia_medium_021": {
+		"message": "In welke hoofdstad ligt de Portugese wijk Alfama, aan de oever van de rivier de Taag?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lissabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlijn"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Welke hoofdstad 40 kilometer ten noordoosten van de Dode Zee is de dichtstbevolkte stad van Jordanië?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seoul"
+	},
+	"trivia_medium_023": {
+		"message": "Het Tahrirplein is een centrale locatie voor allerlei grote Egyptische protesten. In welke hoofdstad ligt dit plein?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Caïro"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "In welke aan de Tafelbaai gelegen hoofdstad is het nationale parlement van Zuid-Afrika gevestigd?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Kaapstad"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Welke hoofdstad aan de rivier de Moldau is de grootste stad van Tsjechië?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praag"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Welke hoofdstad aan de Middellandse Zee is een belangrijke haven voor Libië?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Welke hoofdstad op de plaats waar de Blauwe en de Witte Nijl samenkomen, is een belangrijk handels- en transportcentrum in Soedan?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartoem"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Welke hoofdstad ligt op de Deense eilanden Seeland en Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kopenhagen"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Welke plaats op het eiland New Providence is de grootste stad en tevens de hoofdstad van de Bahama's?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Welke hoofdstad ten zuiden van de Zwarte Zee vormt de centrale spil van het Turkse vervoersnetwerk?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Welke van deze landen ligt deels in de Hoorn van Afrika?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Swaziland"
+	},
+	"trivia_medium_032": {
+		"message": "Het Skagerrak is een zeestraat die Denemarken scheidt van welk ander land?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Noorwegen"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Welk land heeft het grootste woestijngebied?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Tsjaad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Noorwegen"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Door welk land stroomt de rivier de Eufraat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Syrië"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Zwitserland"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thailand"
+	},
+	"trivia_medium_035": {
+		"message": "Irkoetsk is een plaats in de buurt van het Baikalmeer. Op welk continent ligt deze stad?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Azië"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_036": {
+		"message": "Op welk continent zijn de Dnjeper en de Rijn twee belangrijke rivieren?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarctica"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Azië"
+	},
+	"trivia_medium_037": {
+		"message": "Op welk continent liggen het Hoogland van Guyana en de regio Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Noord-Amerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "De Grote Victoriawoestijn en de Nullarborvlakte zijn natuurlijke verschijnselen op welk continent?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australië"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Azië"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul is de meest zuidelijke staat van welk land?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazilië"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexico"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Duitsland"
+	},
+	"trivia_medium_040": {
+		"message": "In welk land ligt de stad Novosibirsk, aan de rivier de Ob?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusland"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "Welk land ligt aan de Pacific Rim en heeft daardoor meer kans om te worden getroffen door een aardbeving?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chili"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Frankrijk"
+	},
+	"trivia_medium_042": {
+		"message": "Het Meer van Maracaibo ligt aan de noordkust van welk land?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_043": {
+		"message": "Welk land ligt aan de Arabische Zee?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadzjikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Griekenland"
+	},
+	"trivia_medium_044": {
+		"message": "Welk land ligt op het Iberisch Schiereiland?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Nederland"
+	},
+	"trivia_medium_045": {
+		"message": "Welk van deze landen heeft de langste kustlijn?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thailand"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Welke Amerikaanse staat ligt ten westen van de Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Welke Amerikaanse staat bestaat voor ongeveer 60 procent uit bossen?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "Mount McKinley is de hoogste berg van Noord-Amerika. In welke Amerikaanse staat ligt deze berg?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Welke van deze Amerikaanse staten heeft het grootste oppervlak?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "South Carolina"
+	},
+	"trivia_medium_050": {
+		"message": "Mount Rushmore ligt in de buurt van Rapid City. In welke Amerikaanse staat is dat?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "South Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Welke Amerikaanse staat deelt een grens met Canada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Voor de kust van welke Amerikaanse staat komen koraalriffen voor?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaï"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg is een belangrijke haven in welk land?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Duitsland"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Kroatië"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "België"
+	},
+	"trivia_medium_054": {
+		"message": "Welk land heeft de meeste vulkanische activiteit?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "IJsland"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polen"
+	},
+	"trivia_medium_055": {
+		"message": "Welk land ligt grotendeels op het schiereiland Anatolië?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turkije"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Myanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estland"
+	},
+	"trivia_medium_056": {
+		"message": "De Dode Zee vormt een deel van de grens tussen Israël en welk ander land?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordanië"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "In welk land ligt Nationaal Park Serengeti ten oosten van het Victoriameer?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_058": {
+		"message": "Welk land ligt aan de Caribische Zee en is een grote olie-exporteur?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chili"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguay"
+	},
+	"trivia_medium_059": {
+		"message": "Welk land zonder kust ligt net ten zuiden van de evenaar?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibouti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunesië"
+	},
+	"trivia_medium_060": {
+		"message": "De Tyrreense Zee grenst aan welk mediterraans land?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italië"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israël"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "In welk land ligt Jekaterinenburg, op de oostelijke hellingen van het Oeralgebergte?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusland"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litouwen"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "België"
+	},
+	"trivia_medium_062": {
+		"message": "Welke eilandstaat ligt ten zuidoosten van Australië en is een van de grootste wolproducenten ter wereld?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nieuw-Zeeland"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipijnen"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Mumbai is een belangrijke haven van welk land?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Zwitserland"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhutan"
+	},
+	"trivia_medium_064": {
+		"message": "In welk land vind je de stad Incheon, gelegen aan de Gele Zee?"
+	},
 	"trivia_medium_064_answer0": {
 		"message": "Zuid-Korea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thailand"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolië"
+	},
+	"trivia_medium_065": {
+		"message": "Welk klein land ligt aan de westelijke grens van Oostenrijk?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Syrië"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavië"
+	},
+	"trivia_medium_066": {
+		"message": "Victoria en New South Wales zijn twee staten in welk land?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australië"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "United States"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_067": {
+		"message": "Welk land op het eiland Borneo grenst aan het kleine land Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Maleisië"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Iran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Oekraïne"
+	},
+	"trivia_medium_068": {
+		"message": "De Julische Alpen liggen op de grens tussen Italië en welk ander land?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovenië"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadzjikistan"
+	},
+	"trivia_medium_069": {
+		"message": "In het noordoosten van welk land ligt de regio die ooit Mantsjoerije werd genoemd?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Wit-Rusland"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afghanistan"
+	},
+	"trivia_medium_070": {
+		"message": "Welk land grenst aan El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominicaanse Republiek"
+	},
+	"trivia_medium_071": {
+		"message": "Welk land ligt in de Kaukasus?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hongarije"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "De Straat Soenda scheidt twee eilanden van welk Aziatisch land van elkaar?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesië"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nieuw-Zeeland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "In welk land kun je gletsjervalleien en spectaculaire kliffen ontdekken aan de monding van de rivier de Shannon?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Ierland"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Frankrijk"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Oezbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Door welk land in Zuid-Azië stroomt de Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Noord-Korea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbeidzjan"
+	},
+	"trivia_medium_075": {
+		"message": "Welk land ligt aan de Rode Zee?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenia"
+	},
+	"trivia_medium_076": {
+		"message": "Zacatecas en Tabasco zijn staten in welk land?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexico"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentinië"
+	},
+	"trivia_medium_077": {
+		"message": "In welk land ligt Riyad, een stad met meer dan 4000 moskeeën?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudi-Arabië"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albanië"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Syrië"
+	},
+	"trivia_medium_078": {
+		"message": "Welk Afrikaans land heeft helemaal geen kust?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritanië"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egypte"
+	},
+	"trivia_medium_079": {
+		"message": "In welk land wordt de berg Fuji als een heilige locatie beschouwd?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipijnen"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "In welk land van de Grote Antillen is Engels de officiële taal?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haïti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Wat is de officiële taal van Syrië, Koeweit en Algerije?"
 	},
 	"trivia_medium_081_answer0": {
 		"message": "Arabisch"
@@ -106,5 +6502,362 @@
 	},
 	"trivia_medium_081_answer2": {
 		"message": "Duits"
+	},
+	"trivia_medium_082": {
+		"message": "Tijdens de jaarlijkse Salzburger Festspiele worden vaak opera's van Mozart opgevoerd. In welk bergachtig Europees land wordt dit festival gehouden?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Oostenrijk"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hongarije"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Roemenië"
+	},
+	"trivia_medium_083": {
+		"message": "In welk land ten noorden van Soedan ligt de Walvisvallei, een woestijn vol fossielen van prehistorische walvissen?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egypte"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "In welk Europees land ligt Rotterdam, aan een delta in de buurt van de Noordzee?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Nederland"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Zweden"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Griekenland"
+	},
+	"trivia_medium_085": {
+		"message": "In welk gebergte ontspringt de rivier de Brahmaputra, die uiteindelijk uitmondt in een grote delta bij de Golf van Bengalen?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaya"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Oeral"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpen"
+	},
+	"trivia_medium_086": {
+		"message": "Farsi, ook wel Perzisch genoemd, is de officiële taal van welk land?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Iran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Koeweit"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libië"
+	},
+	"trivia_medium_087": {
+		"message": "In welk Europees land bezoeken mensen de stad Sevilla om matadors in actie te zien tijdens een stierengevecht?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spanje"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Duitsland"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonië"
+	},
+	"trivia_medium_088": {
+		"message": "In welk land ligt Istanboel, de stad waar Oosterse en Westerse culturen samenkomen?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turkije"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slowakije"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Oman"
+	},
+	"trivia_medium_089": {
+		"message": "In welk land dat grenst aan El Salvador en Nicaragua is de oude Mayastad Copán een populaire toeristische attractie?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chili"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canada"
+	},
+	"trivia_medium_090": {
+		"message": "Timboektoe was duizenden jaren een belangrijke pleisterplaats voor handelskaravanen en ligt ten noorden van de rivier de Niger in welk land?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Oeganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibië"
+	},
+	"trivia_medium_091": {
+		"message": "Welk volledig door andere landen omsloten Zuid-Amerikaans land grenst aan zowel Chili als Brazilië?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "In welk land ligt de stad Belém aan de zuidelijke monding van de Amazone?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazilië"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Welke rivier vormt grotendeels de noordgrens van Bulgarije?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Donau"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "In welk Aziatisch land ligt het Sajan-gebergte, in de buurt van het Baikalmeer?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusland"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgizië"
+	},
+	"trivia_medium_095": {
+		"message": "Het Nipigonmeer is het grootste meer van welke Canadese provincie?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Brits-Columbia"
+	},
+	"trivia_medium_096": {
+		"message": "De Balearische Zee en Ionische Zee liggen allebei in welke grotere zee?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Middellandse Zee"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Oostzee"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Caribische Zee"
+	},
+	"trivia_medium_097": {
+		"message": "Het Turkanameer en het Natronmeer zijn voorbeelden van meren in de riftvalleien op welk continent?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "De Trog van Puerto Rico is het diepste punt van welke oceaan?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantische Oceaan"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Arctische Oceaan"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Stille Oceaan"
+	},
+	"trivia_medium_099": {
+		"message": "De kookaburra is een lachende vogel die voorkomt in de eucalyptusbossen in het oosten van welk continent?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australië"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Zuid-Amerika"
+	},
+	"trivia_medium_100": {
+		"message": "In Den Haag is onder andere het Internationaal Gerechtshof gevestigd. Aan de westkust van welk Europees land ligt deze stad?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Nederland"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finland"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgarije"
+	},
+	"trivia_ngb_promo": {
+		"message": "Content aangeboden door National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Oeganda"
+	},
+	"uk_country_name": {
+		"message": "Verenigd Koninkrijk"
+	},
+	"uk_tradition": {
+		"message": "In het Verenigd Koninkrijk zie je overal Christmas crackers op tafel tijdens het eten. Dit zijn vrolijk gekleurde kokers met een treklipje aan elk uiteinde. Als je daaraan trekt, barst de koker met een knal open. Binnenin zit een feesthoedje, speeltje of ander klein cadeautje speciaal voor Kerstavond."
+	},
+	"unmute": {
+		"message": "Dempen opheffen"
+	},
+	"upgrade-warning": {
+		"message": "Oeps! 'Kerstman vinden' wordt niet ondersteund door je browser of JavaScript is niet ingeschakeld. Download een nieuwere browserversie of schakel JavaScript in.\nGa naar \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e voor meer informatie."
+	},
+	"us_country_name": {
+		"message": "United States"
+	},
+	"us_tradition": {
+		"message": "In de VS hangt iedereen op Kerstavond een sok op. Volgens de legende hoorde Sint Nicolaas over een familie die het zwaar had. Als verrassing klom hij door hun schoorsteen en liet kostbare zakken met goud achter in hun sokken. Sindsdien is Sint Nicolaas daar bekend als 'Santa Claus', de grote weldoener."
+	},
+	"uy_country_name": {
+		"message": "Uruguay"
+	},
+	"uz_country_name": {
+		"message": "Oezbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google Assistent: bel de kerstman"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: verhaal over de feestdagen"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: waar is de kerstman?"
+	},
+	"village_comeback": {
+		"message": "Bezoek ons de 24e opnieuw en help ons de hele nacht bij te houden waar de Kerstman is!"
+	},
+	"village_explore": {
+		"message": "De hele maand december kun je met de elfen van de Kerstman spelen, leren en op ontdekkingstocht"
+	},
+	"village_get_the_app": {
+		"message": "Download app 'Kerstman vinden' voor Android"
+	},
+	"village_more": {
+		"message": "Meer ontdekkingsmogelijkheden"
+	},
+	"village_santa_a2hs": {
+		"message": "Toevoegen aan startscherm"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Toevoegen aan plank"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Toevoegen aan bureaublad"
+	},
+	"village_santa_cardboard": {
+		"message": "De Kerstman op Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "De Kerstman op Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Chrome-extensie van de Kerstman toevoegen"
+	},
+	"village_santa_earth_quiz": {
+		"message": "De wereldquiz van de Kerstman"
+	},
+	"village_santa_install": {
+		"message": "Installeren"
+	},
+	"village_takesoff": {
+		"message": "De Kerstman vertrekt over"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Kijken"
+	},
+	"wrapbattle_combo": {
+		"message": "Mooi werk"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Goed"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Mis"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfect"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Beste score"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinees (vereenvoudigd)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinees (traditioneel)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

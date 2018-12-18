@@ -53,11 +53,29 @@
 	"pl_language_name": {
 		"message": "Polaco"
 	},
+	"press-whatsnew3-text": {
+		"message": "Poderás utilizar Google Maps para ver a localización de Papá Noel en tempo real. Só terás que tocar o botón das tres raias e despois a opción Compartir localización, así verás en que punto exacto do percorrido se atopa. Tamén podes utilizar un atallo faciliño: \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+	},
+	"press-whatsnew4-text": {
+		"message": "Se deveces por mergullarte aínda máis no espírito destas festas, bótalles unha ollada aos adhesivos de Nadal de Gboard. Están dispoñibles en \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, en \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e na nosa \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicación para Android\u003c/a\u003e. Tamén podes divertirte coa literatura dicíndolle ao Asistente de Google \"Cóntame un conto do Nadal\" e \"Onde está Papá Noel?\"."
+	},
 	"pt_language_name": {
 		"message": "Portugués"
 	},
 	"ru_language_name": {
 		"message": "Ruso"
+	},
+	"sidebar_code_emoji": {
+		"message": "Creados con Code: Emojis do Nadal"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Xogo de preguntas sobre as tradicións do Nadal"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Localización de Papá Noel"
+	},
+	"sidebar_trends": {
+		"message": "Tendencias de Google: Buscas relacionadas co Nadal"
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
@@ -97,5 +115,14 @@
 	},
 	"trivia_medium_081_answer2": {
 		"message": "Alemán"
+	},
+	"village_assistant-call_santa": {
+		"message": "Asistente de Google: Chamar a Papá Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistente de Google: Conto do Nadal"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistente de Google: Onde está Papá Noel?"
 	}
 }
