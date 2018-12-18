@@ -1,8 +1,8 @@
 $tabletBreakpoint: 1024px;
-$mobileBreakpoint: 668px;
+$mobileBreakpoint: 768px;
 $mobileBreakpoint-height: 420px;
-$ui-offset: 165px;
-$ui-offset-mobile: 119px;
+$ui-offset: 105px;
+$ui-offset-mobile: 75px;
 
 $name: 'module-traditions';
 
@@ -125,6 +125,8 @@ $name: 'module-traditions';
       li {
         box-sizing: border-box;
         flex-grow: 1;
+        margin-left: 0;
+        margin-right: 0;
 
         &:not(:first-of-type) {
           @include ButtonColor(white);
@@ -139,7 +141,7 @@ $name: 'module-traditions';
       }
     }
 
-    @media (max-width: $mobileBreakpoint) {
+    @media (max-width: ($mobileBreakpoint - 1px)) {
       top: $ui-offset-mobile;
     }
   }
@@ -148,11 +150,11 @@ $name: 'module-traditions';
 @media (max-height: $mobileBreakpoint-height) {
   ##{$name} {
     .Button {
-      background-size: 24px;
-      min-height: 32px;
-      min-width: 32px;
-      width: 32px;
-      height: 32px;
+      @include ButtonSize(s);
+    }
+
+    .Button--round {
+      @include ButtonRound(s);
     }
 
     .controls {
@@ -197,7 +199,7 @@ $name: 'module-traditions';
   }
 }
 
-@media (min-width: 1px) and (max-width: $mobileBreakpoint) {
+@media (min-width: 1px) and (max-width: ($mobileBreakpoint - 1px)) {
   ##{$name} {
     .traditions-tradition {
       left: 20px;
@@ -224,7 +226,7 @@ $name: 'module-traditions';
   }
 }
 
-@media (min-width: 1px) and (max-width: $mobileBreakpoint) and (orientation: landscape) {
+@media (min-width: 1px) and (max-width: ($mobileBreakpoint - 1px)) and (orientation: landscape) {
   ##{$name} {
     .traditions-tradition {
       bottom: 40px;

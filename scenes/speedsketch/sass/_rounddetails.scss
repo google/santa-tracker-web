@@ -1,5 +1,5 @@
-$ui-offset: 120px;
-$ui-offset--mobile: 100px;
+$ui-offset: 105px;
+$ui-offset--mobile: 75px;
 
 ##{$name} {
   .rounddetails-card {
@@ -141,13 +141,14 @@ $ui-offset--mobile: 100px;
     }
 
     &__back-btn {
-      left: 20px;
+      left: 28px; // 25px to match header + 3px to account for btn translate
+      margin: 0;
       position: fixed;
       top: $ui-offset;
       z-index: 1;
 
       @media (max-width: $mobile-breakpoint) {
-        left: 10px;
+        left: 19px; // 16px to match header + 3px to account for btn translate
         top: $ui-offset--mobile;
       }
     }

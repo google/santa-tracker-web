@@ -1,4 +1,6 @@
 $toolbar-height: 44px;
+$toolbar-duration: 0.333s;
+$toolbar-transition: $toolbar-duration ease-in-out;
 $mobile-width: 768px;
 $santa-color: #00c6ed;
 $bar-color: #ff0160;
@@ -70,11 +72,11 @@ app-drawer {
   height: $toolbar-height;
   color: white;
   margin: 20px auto 0;
-  width: 80%;
+  width: 90%;
   box-sizing: border-box;
   padding-left: $toolbar-height;  // toolbar button is fixed here
   padding-right: 10px;
-  transition: transform 0.25s ease-in-out;
+  transition: transform $toolbar-transition;
   transform: translate(0);
 
   countdown-timer {
@@ -85,14 +87,18 @@ app-drawer {
       color: #fff;
       margin: 0;
       text-transform: uppercase;
-    }  
+
+      @media (min-width: $mobile-width) {
+        letter-spacing: 1px;
+      }
+    }
   }
 
   #title {
     display: flex;
     align-items: center;
     width: 100%;
-    transition: width 0.25s ease-in-out;
+    transition: width $toolbar-transition;
     overflow: hidden;
   }
 
@@ -107,13 +113,17 @@ app-drawer {
     border-radius: $toolbar-height;
     box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
     background: $bar-color;
-    transition: box-shadow 0.25s ease-in-out, width 0.25s ease-in-out;
+    transition: box-shadow $toolbar-transition, width $toolbar-transition, opacity $toolbar-transition;
+    transform: translate(0);
+    opacity: 1;
   }
 
   @media (max-width: ($mobile-width - 1px)) {
+    // nb. this fits toolbar centered within top 64px (height=44px, will be at {10,10})
     $offset: (64px - $toolbar-height) / 2;
     margin-top: $offset;
     width: calc(100% - #{$offset * 2});
+    opacity: 0;
 
     &::before {
       box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
@@ -122,7 +132,11 @@ app-drawer {
 
   :host(.fixed) & {
     @media (min-width: $mobile-width) {
-      transform: translate(-10vw) translate(10px);
+      transform: translate(-5vw) translate(24px);
+    }
+
+    paper-icon-button {
+      pointer-events: none !important;
     }
 
     #title {
@@ -131,7 +145,8 @@ app-drawer {
 
     &::before {
       width: $toolbar-height;
-      box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
+      opacity: 0;
     }
   }
 
@@ -187,26 +202,55 @@ app-drawer {
       white-space: nowrap;
     }
   }
+}
 
-  #extra {
-    display: block;
-    position: absolute;
-    background: $bar-color;
-    width: $toolbar-height;
-    height: $toolbar-height;
-    margin-left: 12px;
+// trick the shared sass into generating #extra
+$name: 'extra';
+$shared: '../../scenes/shared/';
+@import "../../scenes/shared/sass/_button.scss";
+
+@keyframes hold-visibility {
+  from { visibility: visible; }
+  to   { visibility: visible; }
+}
+
+#extra {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  margin-right: 12px;
+  margin-left: 2px;
+  opacity: 1;
+  transition: opacity $toolbar-transition;
+  pointer-events: auto;
+  visibility: visible;
+
+  :host(:not(.fixed)) & {
+    pointer-events: none;
+    opacity: 0;
+    animation: hold-visibilty $toolbar-transition;
+    visibility: hidden;
+  }
+
+  .Button {
+    margin: 0;
+    margin-right: 12px;
+    background-size: 24px;
+    @include ButtonColor(red);
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     border-radius: 1000px;
-    z-index: -100;
-    transform: translate(0);
-    opacity: 1;
-    transition: transform 0.25s, opacity 0.25s;
 
     &[hidden] {
-      display: block;
-      pointer-events: none;
-      opacity: 0;
-      transform: translate(-12px) translate(-$toolbar-height);
+      display: none !important;
     }
   }
 }
+
 

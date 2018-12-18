@@ -330,7 +330,7 @@
     position: absolute;
     width: $button-background-diameter * $button-mobile-scale;
 
-    @media (min-width: 661px) {
+    @media (min-width: $button-bp) {
       bottom: 80px;
       height: $button-background-diameter;
       left: (-$button-background-diameter / 2);
@@ -354,7 +354,7 @@
     width: $button-background-diameter * $button-mobile-scale;
     z-index: 1;
 
-    @media (min-width: 661px) {
+    @media (min-width: $button-bp) {
       height: $button-background-diameter;
       width: $button-background-diameter;
     }
@@ -372,7 +372,7 @@
     width: $button-diameter * $button-mobile-scale;
     z-index: 1;
 
-    @media (min-width: 661px) {
+    @media (min-width: $button-bp) {
       height: $button-diameter;
       margin: $button-margin;
       width: $button-diameter;

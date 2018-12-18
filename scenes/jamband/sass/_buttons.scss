@@ -9,21 +9,6 @@
 
   .Button {
     @include ButtonColor(orangered);
-
-    // force different media query in this game
-    @media (max-width: $button-bp-override) {
-      background-size: 20px;
-      font-size: 16px;
-      line-height: 32px;
-      min-height: 32px;
-      padding: 0 18px;
-
-      &--round {
-        height: 32px;
-        min-width: 32px;
-        width: 32px;
-      }
-    }
   }
 
   .Button-share {

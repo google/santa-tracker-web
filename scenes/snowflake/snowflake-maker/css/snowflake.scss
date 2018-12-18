@@ -142,14 +142,6 @@ $name: 'module-turtle';
     pointer-events: auto;
   }
 
-  .play-button::before {
-    border-radius: 50%;
-    background-image: url('../img/play.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-  }
-
   .circle-button-tab {
     border-radius: 50%;
     bottom: 46px;

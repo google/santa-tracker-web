@@ -65,6 +65,16 @@ $rotate-bg: $gameover-bg;
     }
   }
 
+  smatch-secret {
+    left: 5px;
+    top: 65px;
+
+    @media (min-width: $button-bp) {
+      left: 15px;
+      top: 95px;
+    }
+  }
+
   #heroSnowflake {
     left: 552px;
     top: 290px;
