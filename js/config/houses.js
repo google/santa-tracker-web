@@ -42,9 +42,10 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2018'),
   edu: true,
 }, {
-  module: 'poseboogie',
+  module: 'codeboogie',
   category: 'play',
-  launchDate: new Date('Dec 31, 2020'),
+  launchDate: new Date('Dec 4, 2018'),
+  edu: true,
 }, {
   module: 'snowflake',
   category: 'learn',
@@ -65,10 +66,9 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2018'),
   edu: true,
 }, {
-  module: 'codeboogie',
+  module: 'speedsketch',
   category: 'play',
   launchDate: new Date('Dec 4, 2018'),
-  edu: true,
 }, {
   module: 'app',
   category: 'play',
@@ -88,7 +88,7 @@ window.HOUSES = [{
   category: 'play',
   launchDate: new Date('Dec 4, 2018'),
 }, {
-  module: 'speedsketch',
+  module: 'racer',
   category: 'play',
   launchDate: new Date('Dec 4, 2018'),
 }, {
