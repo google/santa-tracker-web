@@ -1,10 +1,9 @@
-$toolbar-height: 55px;
-$toolbar-height-mobile: 42px;
-$toolbar-transition: 0.25s ease-in-out;
+$toolbar-height: 44px;
+$toolbar-duration: 0.333s;
+$toolbar-transition: $toolbar-duration ease-in-out;
 $mobile-width: 768px;
 $santa-color: #00c6ed;
 $bar-color: #ff0160;
-$bar-shadow-color: #e70058;
 
 // nb. somewhat arbitrary: "Auf den Spuren des Weihnachtsmanns" plus misc takes up ~413px on left
 // using Chrome Mac 54. Thus, 1024 - (413 * 2) == 198px.
@@ -77,18 +76,21 @@ app-drawer {
   box-sizing: border-box;
   padding-left: $toolbar-height;  // toolbar button is fixed here
   padding-right: 10px;
-  transition: transform $toolbar-transition, height $toolbar-transition;
+  transition: transform $toolbar-transition;
   transform: translate(0);
 
   countdown-timer {
     h2 {
       font-size: 8px;
-      letter-spacing: 1px;
-      line-height: 12px;
+      line-height: 8px;
       font-weight: 800;
       color: #fff;
       margin: 0;
       text-transform: uppercase;
+
+      @media (min-width: $mobile-width) {
+        letter-spacing: 1px;
+      }
     }
   }
 
@@ -96,7 +98,7 @@ app-drawer {
     display: flex;
     align-items: center;
     width: 100%;
-    transition: width 0.25s ease-in-out;
+    transition: width $toolbar-transition;
     overflow: hidden;
   }
 
@@ -111,14 +113,17 @@ app-drawer {
     border-radius: $toolbar-height;
     box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
     background: $bar-color;
-    transition: box-shadow 0.25s ease-in-out, width 0.25s ease-in-out;
+    transition: box-shadow $toolbar-transition, width $toolbar-transition, opacity $toolbar-transition;
+    transform: translate(0);
+    opacity: 1;
   }
 
   @media (max-width: ($mobile-width - 1px)) {
-    height: $toolbar-height-mobile;
-    margin-top: 10px;
-    padding-left: $toolbar-height-mobile;
-    width: calc(100% - (16px * 2));
+    // nb. this fits toolbar centered within top 64px (height=44px, will be at {10,10})
+    $offset: (64px - $toolbar-height) / 2;
+    margin-top: $offset;
+    width: calc(100% - #{$offset * 2});
+    opacity: 0;
 
     &::before {
       box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
@@ -126,21 +131,22 @@ app-drawer {
   }
 
   :host(.fixed) & {
+    @media (min-width: $mobile-width) {
+      transform: translate(-5vw) translate(24px);
+    }
+
+    paper-icon-button {
+      pointer-events: none !important;
+    }
+
     #title {
       width: 0;
     }
 
     &::before {
-      box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
-      width: $toolbar-height-mobile;
-    }
-
-    @media (min-width: $mobile-width) {
-      transform: translate(-5vw) translate(25px);
-
-      &::before {
-        width: $toolbar-height;
-      }
+      width: $toolbar-height;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
+      opacity: 0;
     }
   }
 
@@ -148,20 +154,12 @@ app-drawer {
     width: ($toolbar-height - 4px);
     height: ($toolbar-height - 4px);
     margin: 2px;
-    padding: 14px;
     pointer-events: auto;
-    transition: height $toolbar-transition, padding $toolbar-transition, width $toolbar-transition;
 
     &[drawer-toggle] {
       position: absolute;
       left: 0;
       top: 0;
-    }
-
-    @media (max-width: ($mobile-width - 1px)) {
-      height: ($toolbar-height-mobile - 4px);
-      padding: 10px;
-      width: ($toolbar-height-mobile - 4px);
     }
   }
 
@@ -181,7 +179,6 @@ app-drawer {
     margin-left: 2px;
     line-height: $toolbar-height;
     overflow: hidden;
-    transition: line-height $toolbar-transition;
 
     .logo {
       width: 62px;
@@ -191,7 +188,6 @@ app-drawer {
       color: transparent;
       font-size: 0;
       line-height: inherit;
-      margin-top: -1px;
     }
 
     h1 {
@@ -205,45 +201,56 @@ app-drawer {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+  }
+}
 
-    @media (max-width: ($mobile-width - 1px)) {
-      line-height: $toolbar-height-mobile;
+// trick the shared sass into generating #extra
+$name: 'extra';
+$shared: '../../scenes/shared/';
+@import "../../scenes/shared/sass/_button.scss";
 
-      .logo {
-        margin-top: 0;
-      }
-    }
+@keyframes hold-visibility {
+  from { visibility: visible; }
+  to   { visibility: visible; }
+}
+
+#extra {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  margin-right: 12px;
+  margin-left: 2px;
+  opacity: 1;
+  transition: opacity $toolbar-transition;
+  pointer-events: auto;
+  visibility: visible;
+
+  :host(:not(.fixed)) & {
+    pointer-events: none;
+    opacity: 0;
+    animation: hold-visibilty $toolbar-transition;
+    visibility: hidden;
   }
 
-  #extra {
-    display: block;
-    position: absolute;
-    background: $bar-color;
-    width: $toolbar-height;
-    height: $toolbar-height;
-    margin-left: 12px;
+  .Button {
+    margin: 0;
+    margin-right: 12px;
+    background-size: 24px;
+    @include ButtonColor(red);
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     border-radius: 1000px;
-    z-index: -100;
-    transform: translate(0);
-    opacity: 1;
-    transition: transform $toolbar-transition 0.45s, width $toolbar-transition, height $toolbar-transition;
-    box-shadow: 3px 6px 0 $bar-shadow-color, 8px 9px 0 rgba(0, 0, 0, 0.16) !important; // match shared btns
 
     &[hidden] {
-      display: block;
-      pointer-events: none;
-      opacity: 0;
-      transform: translate(-12px) translate(-$toolbar-height);
-    }
-
-    @media (max-width: ($mobile-width - 1px)) {
-      height: $toolbar-height-mobile;
-      width: $toolbar-height-mobile;
-
-      &[hidden] {
-        transform: translate(-12px) translate(-$toolbar-height-mobile);
-      }
+      display: none !important;
     }
   }
 }
+
 

@@ -66,10 +66,11 @@ specific language governing permissions and limitations under the License.
 
     <div id="bar-holder">
       <div id="bar">
-        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon" on-click="_onOpenDrawerClick"></paper-icon-button>
-        <div id="extra" hidden$="[[!hasGameButtons]]">
-          <paper-icon-button icon="santa:pause" on-click="_onPauseClick" class="toolbar-icon"></paper-icon-button>
+        <div id="extra">
+          <button on-click="_onOpenDrawerClick" drawer-toggle class="Button Button--menu"></button>
+          <button hidden$="[[!hasGameButtons]]" on-click="_onPauseClick" class="Button Button--pause"></button>
         </div>
+        <paper-icon-button icon="santa:menu" drawer-toggle class="toolbar-icon" on-click="_onOpenDrawerClick"></paper-icon-button>
         <div id="title">
           <a class="linkwrap" href$="[[urlFor('')]]" on-click="_onTitleClick">
             <div class="logo">Google</div>

@@ -24,6 +24,7 @@ $toolbar-transition: 0.25s ease-in-out;
   position: relative;
 }
 
+// draws the line between counter-box elements which are not hidden
 .counter-box:not([hidden]) + .counter-box {
   margin-left: 1px;
 
@@ -40,8 +41,8 @@ $toolbar-transition: 0.25s ease-in-out;
 }
 
 .counter-box {
-  $height: 43px;
-  width: 44px;
+  $height: 44px;
+  width: 40px;
   height: $height;
   position: relative;
   transition: height $toolbar-transition, width $toolbar-transition;
@@ -51,18 +52,19 @@ $toolbar-transition: 0.25s ease-in-out;
     height: 100%;
     font-size: 24px;
     color: white;
-    font-weight: 600;
-    letter-spacing: -1px;
-    line-height: $height - 14px;
-    margin-left: -1px;
+    font-weight: 500;
+    line-height: $height - 8px;
     margin-bottom: 8px;
     text-shadow: none;
     position: absolute;
     transform: translateY(0);
-    transition: font-size $toolbar-transition;
     will-change: transform;
     z-index: 100;
     animation-duration: $tick-time;
+
+    // `text-align: center` seems not to work on -ve letter-spacing
+    margin-left: -1px;
+    letter-spacing: -2px;
 
     &.prev {
       transform: translateY(100%);
@@ -79,25 +81,17 @@ $toolbar-transition: 0.25s ease-in-out;
     }
   }
 
-  @media (max-width: ($mobile-width - 1px)) {
-    height: 40px;
-    width: 40px;
-
-    .holder {
-      font-size: 18px;
-    }
+  @media (min-width: $mobile-width) {
+    width: 44px;
   }
 }
 
 .bottom {
   position: absolute;
-  bottom: 3px;
+  bottom: 4px;
   left: 0;
   right: 0;
-
-  @media (max-width: ($mobile-width - 1px)) {
-    bottom: 5px;
-  }
+  opacity: 0.8;
 }
 
 @media (max-width: 374px) {
