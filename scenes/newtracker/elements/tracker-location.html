@@ -54,8 +54,6 @@ Tracker location information, including photos.
 <script>
 (function() {
   const OVERLAY_COUNT = 17;
-  const PANORAMIO_PATH_MEDIUM = '//mw2.google.com/mw-panoramio/photos/medium/';
-  const PANORAMIO_PATH_ORIGINAL = '//static.panoramio.com.storage.googleapis.com/photos/large/';
 
   const overlays = [];
   for (let i = 0; i < OVERLAY_COUNT; ++i) {
@@ -109,36 +107,60 @@ Tracker location information, including photos.
 
       // Queue function for the below onload handler.
       let rotate = -((Math.random() * 2) + 3);
-      function queue(i, src) {
+      const queueImage = (src, count) => {
         if (this.details !== details) {
-          return;  // abort
+          return;  // abort, something changed
         }
 
-        const div = move[i];
+        const div = move[count];
         div.classList.remove('offscreen');
 
         const photo = div.querySelector('.photo');
-        const scale = 100 - i * (Math.random() * 5);
+        const scale = 100 - count * (Math.random() * 5);
         photo.style.transform = 'rotate(' + rotate + 'deg) scale(' + scale/100 + ')';
-        photo.style.backgroundImage = `url(${src})`
+        photo.style.backgroundImage = `url(${src})`;
         rotate *= -0.90;
       }
 
       // Load photos for this location. On onload, slide in the new images.
-      let delay = 0;
-      this.details.panoramio.forEach((photo, i) => {
-        if (i >= move.length) {
-          return;  // should never be more than 2 photos, but just in case
+      let loaded = 0;
+      const photos = (this.details.photos || []).slice();
+
+      // pick a random photo (or undefined) with higher odds 
+      const pickRandomPhoto = () => {
+        for (let i = 0; i < photos.length; ++i) {
+          const odds = (Math.random() * photos.length) - 1;
+          if (odds > i) {
+            return photos.splice(i, 1)[0];
+          }
         }
+        return photos.pop() || null;  // fallback to pop or null
+      };
+
+      const loadNextPhoto = () => {
+        const choice = pickRandomPhoto();
+        if (!choice) {
+          return;  // no more photos
+        }
+
         const image = new Image();
-        image.src = PANORAMIO_PATH_ORIGINAL + photo.id + '.jpg';
+        image.src = choice.url;
         image.onload = () => {
-          this.async(queue.bind(this, i, image.src), delay);
-          delay += 1000;
+          const call = queueImage.bind(this, image.src, loaded);
+          this.async(call, loaded * 1000);
+          ++loaded;
         };
-        // If there was an error loading the photo (e.g. 404), that's fine. We can just ignore it
-        // and that photo div will never move onscreen.
-      });
+        image.onerror = () => {
+          // try another one if this fails
+          console.debug('failed to load', image.src);
+          loadNextPhoto();
+          window.ga('send', 'event', 'tracker', 'photo-missing', image.src);
+        };
+      }
+
+      // kickoff two loads
+      loadNextPhoto();
+      loadNextPhoto();
     },
 
     /**

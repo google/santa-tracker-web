@@ -73,7 +73,7 @@ Polymer({
       link.setAttribute('target', '_blank');
       link.href = link.href.replace(/^http\b/, 'https');
 
-      // nb. Panoramio only has a valid cert for www.
+      // nb. Panoramio only has a valid cert for www., needed for 2017 and earlier.
       link.href = link.href.replace(/\bpanoramio\.com\b/, 'www.panoramio.com');
     });
 

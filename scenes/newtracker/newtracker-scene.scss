@@ -24,16 +24,6 @@ a {
   overflow: hidden;
 }
 
-#topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
 /** "you lost santa" button */
 paper-icon-button#search {
   // FIXME(samthor): Merge with santa-buttons.
