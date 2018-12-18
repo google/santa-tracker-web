@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探索"
 	},
+	"explore-village": {
+		"message": "探索圣诞老人小镇"
+	},
 	"fi_country_name": {
 		"message": "芬兰"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克语"
+	},
+	"skip-intro": {
+		"message": "跳过介绍"
 	},
 	"skip-training": {
 		"message": "跳过练习"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "土耳其语"
+	},
+	"tracker-game_awesome": {
+		"message": "玩《珍宝塔》"
 	},
 	"tracker_arrival": {
 		"message": "抵达"
@@ -6825,6 +6834,9 @@
 		"message": "越南"
 	},
 	"watch": {
+		"message": "观看视频"
+	},
+	"watch-video": {
 		"message": "观看视频"
 	},
 	"wrapbattle_combo": {

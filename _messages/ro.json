@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorează"
 	},
+	"explore-village": {
+		"message": "Explorează satul lui Moș Craciun"
+	},
 	"fi_country_name": {
 		"message": "Finlanda"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovacă"
+	},
+	"skip-intro": {
+		"message": "Omite introducerea"
 	},
 	"skip-training": {
 		"message": "Omite instruirea"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turcă"
+	},
+	"tracker-game_awesome": {
+		"message": "Joacă Tower of Treasure"
 	},
 	"tracker_arrival": {
 		"message": "Aterizare"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Vizionează"
+	},
+	"watch-video": {
+		"message": "Vizionează clipul"
 	},
 	"wrapbattle_combo": {
 		"message": "Grozavă combinație!"

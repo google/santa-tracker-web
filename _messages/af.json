@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Verken"
 	},
+	"explore-village": {
+		"message": "Verken Kersvader se dorpie"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slowaaks"
+	},
+	"skip-intro": {
+		"message": "Slaan inleiding oor"
 	},
 	"skip-training": {
 		"message": "Slaan opleiding oor"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turks"
+	},
+	"tracker-game_awesome": {
+		"message": "Speel Toring van Skatte"
 	},
 	"tracker_arrival": {
 		"message": "Aankoms"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Kyk"
+	},
+	"watch-video": {
+		"message": "Kyk video"
 	},
 	"wrapbattle_combo": {
 		"message": "Goeie kombinasie"

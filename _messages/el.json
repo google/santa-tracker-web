@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Εξερεύνηση"
 	},
+	"explore-village": {
+		"message": "Εξερευνήστε το χωριό του Άη Βασίλη"
+	},
 	"fi_country_name": {
 		"message": "Φινλανδία"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Σλοβακικά"
+	},
+	"skip-intro": {
+		"message": "Παράλειψη εισαγωγής"
 	},
 	"skip-training": {
 		"message": "Παράβλεψη εκπαίδευσης"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Τουρκικά"
+	},
+	"tracker-game_awesome": {
+		"message": "Παίξτε τον Πύργο του θησαυρού"
 	},
 	"tracker_arrival": {
 		"message": "Άφιξη"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Παρακολούθηση"
+	},
+	"watch-video": {
+		"message": "Παρακολούθηση βίντεο"
 	},
 	"wrapbattle_combo": {
 		"message": "Γλυκός συνδυασμός"

@@ -1,36 +1,771 @@
 {
+	"about-content-one": {
+		"message": "En Noiteboa, teremos o honor de presentar o panel de control de Papá Noel, a tecnoloxía que impulsa a súa zorra durante a súa viaxe por todo o mundo. Recibimos esta vista previa tan especial dun dos moitos elfos programadores de Papá Noel, que traballan duro no Polo Norte para axudarlle a prepararse para o gran día. O panel de control de Papá Noel, que inclúe a tecnoloxía máis recente e innovadora de Google Maps, permitirá seguir a súa viaxe polo mundo e coñecer un pouco os sitios que visite."
+	},
+	"about-content-three": {
+		"message": "Google creou e desenvolveu Sigue a Papá Noel de Google Maps cun pouco de axuda dos elfos de Papá Noel. Necesitas axuda ou tes algunha outra pregunta? Visita o noso \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de Axuda\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Os nosos amigos, os elfos, invitáronte a visitar a aldea de Papá Noel mentres el se prepara para a viaxe. Pasa e explora a aldea; quizais encontres actividades divertidas e coñezas elfos moi interesantes."
+	},
+	"about-santa": {
+		"message": "Acerca de"
+	},
+	"about_title": {
+		"message": "Dámosche a benvida a Sigue a Papá Noel de Google Maps!"
+	},
+	"ae_country_name": {
+		"message": "Emiratos Árabes Unidos"
+	},
+	"af_country_name": {
+		"message": "Afganistán"
+	},
+	"al_country_name": {
+		"message": "Albania"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Arxentina"
+	},
 	"ar_language_name": {
 		"message": "Árabe"
+	},
+	"ar_tradition": {
+		"message": "En Arxentina o Nadal comeza puntualmente á medianoite. Moitas familias inician as festas organizando celebracións nas súas casas, abrindo agasallos cos seus seres queridos e botando fogos de artificio durante as primeiras horas da mañá."
+	},
+	"at_country_name": {
+		"message": "Austria"
+	},
+	"au_country_name": {
+		"message": "Australia"
+	},
+	"au_tradition": {
+		"message": "En Australia, no hemisferio sur, é verán en decembro. En vez de escoitar as campás da zorra e tomar unha cunca de chocolate, moitos australianos van á praia para celebrar as festas cun almorzo de gambas e cunhas cantas rondas de crícket."
+	},
+	"ba_country_name": {
+		"message": "Bosnia e Hercegovina"
+	},
+	"back_to_previous_page": {
+		"message": "Volver"
+	},
+	"back_to_tracker": {
+		"message": "Volver a Sigue a Papá Noel"
+	},
+	"bd_country_name": {
+		"message": "Bangladesh"
+	},
+	"be_country_name": {
+		"message": "Bélxica"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulgaria"
+	},
+	"bj_country_name": {
+		"message": "Benín"
+	},
+	"bo_country_name": {
+		"message": "Bolivia"
+	},
+	"br_country_name": {
+		"message": "Brasil"
+	},
+	"br_tradition": {
+		"message": "As celebracións de Nadal comezan case a medianoite, normalmente con grandes ceas familiares, a apertura de agasallos e a celebración da \"Missa do Galo\" (misa do galo) nas igrexas. A pesar do clima cálido tropical, os temas de inverno e a neve son habituais."
+	},
+	"bt_country_name": {
+		"message": "Bután"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Belarús"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Canadá"
+	},
+	"ca_tradition": {
+		"message": "Normalmente, os nenos canadenses celebran un Nadal branco e nevado. Levan as súas bufandas e toques (uns gorros canadenses de la) para xogar na neve, patinar e andar na zorra. En Noiteboa, deixan leite e galletas preto da cheminea para Papá Noel e, ás veces, unha cenoria para o seu reno."
+	},
+	"calendar": {
+		"message": "Calendario"
+	},
+	"category_all": {
+		"message": "Ver todo"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Código"
+	},
+	"category_computer-science": {
+		"message": "Informática"
+	},
+	"category_draw": {
+		"message": "Debuxar"
+	},
+	"category_education": {
+		"message": "Xogos educativos"
+	},
+	"category_geography": {
+		"message": "Xeografía"
+	},
+	"category_language": {
+		"message": "Idioma"
+	},
+	"category_listen": {
+		"message": "Escoitar"
+	},
+	"category_new-this-year": {
+		"message": "Novidades deste ano"
+	},
+	"category_send": {
+		"message": "Enviar"
+	},
+	"category_social-studies": {
+		"message": "Estudos sociais"
+	},
+	"cd_country_name": {
+		"message": "República Democrática do Congo"
+	},
+	"cf_country_name": {
+		"message": "República Centroafricana"
+	},
+	"cg_country_name": {
+		"message": "República do Congo"
+	},
+	"ch_country_name": {
+		"message": "Suíza"
+	},
+	"ci_country_name": {
+		"message": "Costa do Marfil"
+	},
+	"citylights-contribute": {
+		"message": "Engade as túas propias fotos de: {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "Nova York, EUA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Praza Pushkin"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moscova, Rusia"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Praza Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viena, Austria"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Dos Campos Elíseos ao Arco do Triunfo"
+	},
+	"citylights-panorama-04-location": {
+		"message": "París, Francia"
+	},
+	"citylights-panorama-05-description": {
+		"message": "A Milla Magnífica"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, EUA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Mercado de Nadal"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Alemaña"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Río Medellín"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellín, Colombia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Aldea de Papá Noel"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Laponia, Finlandia"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Praza Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Bruxelas, Bélxica"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londres, Inglaterra"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Praza Maior"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, España"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokyo, Xapón"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Xardíns Tívoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Copenhague, Dinamarca"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Rúa Orchard"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Avenida da Luz"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gotemburgo, Suecia"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Festival de Luces de Inverno"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Cataratas do Niágara, Canadá"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Festival de Inverno"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, China"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Lagoa Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Río de Xaneiro, Brasil"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"clear": {
+		"message": "Borrar"
+	},
+	"close": {
+		"message": "Pechar"
+	},
+	"cm_country_name": {
+		"message": "Camerún"
+	},
+	"co_country_name": {
+		"message": "Colombia"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Volver ao inicio"
+	},
+	"codeboogie-block-clap": {
+		"message": "Aplauso"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Aplaude."
+	},
+	"codeboogie-block-jump": {
+		"message": "Saltar"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Dá un salto."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Cara á esquerda"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Alzar o brazo á esquerda."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Paso á esquerda"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Dá un paso á esquerda."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Brazo á dereita"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Alzar o brazo á dereita."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Paso á dereita"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Dá un paso á dereita."
+	},
+	"codeboogie-block-shake": {
+		"message": "Move a cadeira"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Move as cadeiras."
+	},
+	"codeboogie-block-split": {
+		"message": "Dividir"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Ábrete de pernas."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Escolle un modo de xogo"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Escolle un escenario"
+	},
+	"codeboogie-get-dancing": {
+		"message": "A bailar!"
+	},
+	"codeboogie-go": {
+		"message": "Vamos aló!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Que o ritmo non pare"
+	},
+	"codeboogie-lets-dance": {
+		"message": "A bailar!"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Clase de baile"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Sigue os pasos do profesor"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Estilo de baile libre"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Crea os teus propios pasos e compárteos cos amigo"
+	},
+	"codeboogie-next-dance": {
+		"message": "Próximo baile"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Iso si que é moverse!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Proba co bloque aparece debaixo e imita o baile."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Sabías que podes rematar o baile con só {{ideal}} bloques? Proba a usar o bloque que tes debaixo."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Iso si que é moverse! Acabaches o baile perfectamente."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Estás utilizando os bloques correctos, por que non probas a usar máis para completar o baile?"
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Sabías que podes completar o baile con só {{ideal}} bloques?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Fixeches demasiados pasos."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Parece que non fixeches o paso correcto. Proba con este:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Comparte os teus pasos de baile e desafía os teus amigos"
+	},
+	"codeboogie-success": {
+		"message": "Ben feito!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Mira ben!"
+	},
+	"codeboogie-your-turn": {
+		"message": "A túa quenda"
+	},
+	"codelab-block-jump-length": {
+		"message": "saltar sobre"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Salta por enriba dos mosaicos."
+	},
+	"codelab-block-moveeast": {
+		"message": "leste"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Móveme un espazo cara ao leste."
+	},
+	"codelab-block-movenorth": {
+		"message": "norte"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Moverme un espazo cara ao norte."
+	},
+	"codelab-block-movesouth": {
+		"message": "sur"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Móveme un espazo cara ao sur."
+	},
+	"codelab-block-movewest": {
+		"message": "oeste"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Móveme un espazo cara ao oeste."
+	},
+	"codelab-block-repeat": {
+		"message": "repetir"
+	},
+	"codelab-block-repeat-times": {
+		"message": "veces"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Repetir algunhas declaracións varias veces"
+	},
+	"codelab-block-whenrun": {
+		"message": "en orde"
+	},
+	"codelab-finish": {
+		"message": "Finalizar"
+	},
+	"codelab-great": {
+		"message": "Xenial!"
+	},
+	"codelab-mwc-promo": {
+		"message": "Explora máis proxectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Seguinte desafío"
+	},
+	"codelab-oops": {
+		"message": "Vaia!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "O bloque Repetir debe ter outros bloques dentro para que funcione."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Algúns dos bloques non están ben unidos."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Parece que te perdiches!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Proba cunha ou con máis pezas das que aparecen debaixo para resolver o crebacabezas."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Sabías que podes completar este nivel con tan só {{ideal}} pezas? Proba a usar a peza que tes debaixo."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Parabéns! Remataches o crebacabezas correctamente."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Estás utilizando as pezas adecuadas, pero proba a utilizar máis para finalizar este crebacabezas."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Sabías que podes finalizar este nivel con {{ideal}} bloques?"
+	},
+	"codelab-try-again": {
+		"message": "Tentar de novo"
+	},
+	"copy-me": {
+		"message": "Copiar esta ligazón e comparte a túa mensaxe"
+	},
+	"copy-me-short": {
+		"message": "Copiar ligazón para compartir"
+	},
+	"countdown_days": {
+		"message": "Días"
+	},
+	"countdown_hours": {
+		"message": "H"
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "Seg"
+	},
+	"countdown_until": {
+		"message": "Papá Noel despegará en"
+	},
+	"countdownlabel": {
+		"message": "Ata que Papá Noel despegue"
+	},
+	"cr_country_name": {
+		"message": "Costa Rica"
 	},
 	"cs_language_name": {
 		"message": "Checo"
 	},
+	"cu_country_name": {
+		"message": "Cuba"
+	},
+	"cz_country_name": {
+		"message": "República Checa"
+	},
 	"da_language_name": {
 		"message": "Danés"
+	},
+	"days": {
+		"message": "Días"
+	},
+	"de_country_name": {
+		"message": "Alemaña"
 	},
 	"de_language_name": {
 		"message": "Alemán"
 	},
+	"de_tradition": {
+		"message": "En case todas as vilas de Alemaña hai mercados de Nadal nas prazas. Os habitantes acoden para escoitar as bandas de música e desfrutar dos pratos tradicionais da rexión. Comen corazóns de pan de xenxibre, améndoas garapiñadas e doces de todo tipo, e beben viño quente (Glühwein) ou sidra de mazá."
+	},
+	"dec24th": {
+		"message": "24 de decembro"
+	},
+	"deck": {
+		"message": "Decorar"
+	},
+	"deckdescription": {
+		"message": "Decora o teu navegador coa extensión de Chrome Sigue a Papá Noel."
+	},
+	"detected": {
+		"message": "detectado"
+	},
+	"difficulty": {
+		"message": "Dificultade"
+	},
+	"dk_country_name": {
+		"message": "Dinamarca"
+	},
+	"do_country_name": {
+		"message": "República Dominicana"
+	},
+	"donate_button": {
+		"message": "Doar"
+	},
+	"donate_text": {
+		"message": "Contribúe á causa dalgún proxecto de educación especial en DonorsChoose.org. Ao longo de decembro, imos igualar as doazóns realizadas nun 50 %, para así duplicar a súa repercusión. O noso obxectivo é chegar a 1 millón de dólares. Entre todos podemos conseguir que as aulas sexan cada vez máis inclusivas #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Descarga a aplicación para desfrutar aínda de máis xogos"
+	},
+	"dz_country_name": {
+		"message": "Alxeria"
+	},
+	"easy_difficulty": {
+		"message": "Fácil"
+	},
+	"ec_country_name": {
+		"message": "Ecuador"
+	},
+	"educators": {
+		"message": "Sigue a Papá Noel para mestres"
+	},
+	"educators-games": {
+		"message": "Xogos para as aulas"
+	},
+	"educators-learn": {
+		"message": "Aprendendo con Sigue a Papá Noel"
+	},
+	"ee_country_name": {
+		"message": "Estonia"
+	},
 	"el_language_name": {
 		"message": "Grego"
+	},
+	"elf_choose_body": {
+		"message": "Escolle un corpo para o teu elfo"
+	},
+	"elvish_language_name": {
+		"message": "Élfico"
 	},
 	"en_language_name": {
 		"message": "Inglés"
 	},
+	"endofjourneymessage": {
+		"message": "Papá Noel chegou á fin da súa viaxe deste ano. El e os elfo aínda están de festa no Polo Norte, antes de coller as súas vacacións anuais."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Produciuse un problema, pero os elfos de Papá Noel están investigándoo."
+	},
+	"error-internal": {
+		"message": "Vaia! Parece que houbo algún problema. Xa informamos aos elfos, pero proba a volver á \u003ca href=\"./\"\u003ealdea de Papá Noel\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Parece que acabamos de perder a conexión co Polo Norte. Os elfos de Papá Noel están traballando duro para solucionar o problema. Non vaias moi lonxe."
+	},
+	"error-not-found": {
+		"message": "Vaia, os elfos de Papá Noel non atoparon a páxina! Quizais teñas máis sorte se volves á súa \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Tentar de novo"
+	},
+	"error_try_again": {
+		"message": "Tentar de novo"
+	},
 	"es_language_name": {
 		"message": "Español"
+	},
+	"et_country_name": {
+		"message": "Etiopía"
+	},
+	"explore": {
+		"message": "Explorar"
+	},
+	"fi_country_name": {
+		"message": "Finlandia"
+	},
+	"fi_tradition": {
+		"message": "Os fineses cren que Papá Noel, \"Joulupukki\", vive no norte do país (concretamente, en Korvatunturi). Se visitas a zona, é posible que descubras o seu obradoiro secreto, onde os gnomos non paran de traballar. Tamén podes ver renos paseando polos piñeirais."
+	},
+	"finished-text": {
+		"message": "Boas festas! Papá Noel chegou ao final da súa viaxe arredor do mundo e vai tomar un descanso máis que merecido. Volve visitarnos o ano que vén."
+	},
+	"fr_country_name": {
+		"message": "Francia"
 	},
 	"fr_language_name": {
 		"message": "Francés"
 	},
+	"fr_tradition": {
+		"message": "En Francia, tradicionalmente, os nenos poñen os seus zapatos xunto á cheminea en previsión da chegada de Père Noël. Se os nenos foron bos durante todo o ano, Père Noël encherá os zapatos de agasallos."
+	},
+	"fullscreen": {
+		"message": "Pantalla completa"
+	},
+	"ga_country_name": {
+		"message": "Gabón"
+	},
 	"gameover": {
 		"message": "Fin do xogo"
+	},
+	"gameover_level": {
+		"message": "Alcanzaches o nivel:"
+	},
+	"gameover_score": {
+		"message": "A túa puntuación:"
+	},
+	"getgooglemaps": {
+		"message": "Descarga Google Maps"
+	},
+	"getready": {
+		"message": "Prepárate!"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "O Nadal en Ghana implica a toda la familia. Os adultos disfrázanse e reparten caramelos e doces polo barrio. Os nenos decoran as súas casas con adornos de papel e debuxos que fan na escola."
+	},
+	"gl_country_name": {
+		"message": "Groenlandia"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Ir á aldea"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Grecia"
+	},
+	"gr_tradition": {
+		"message": "En Grecia hai uns trasnos fedellos e amistosos chamados \"kallikántzari\" que viven a maior parte do año no centro da Terra. Non obstante, no Nadal, gústalles esconderse nas casas, dar sustos, facer bromas ou devorar comida de Nadal. Os gregos fan rituais para mantelos lonxes."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Os guatemaltecos celebran o Nadal con diversión e bailes. Levan sombreiros chamados puritina, comen tamais ao estilo guatemalteco, acenden petardos á medianoite e pasan a noite bailando."
+	},
+	"gy_country_name": {
+		"message": "Güiana"
+	},
+	"hard_difficulty": {
+		"message": "Difícil"
+	},
+	"help": {
+		"message": "Axuda"
 	},
 	"hi_language_name": {
 		"message": "Hindi"
 	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Boas festas"
+	},
+	"holiday_message_1": {
+		"message": "Bo Nadal!"
+	},
+	"holiday_message_2": {
+		"message": "Mellor todo!"
+	},
+	"holiday_message_3": {
+		"message": "Viva a neve!"
+	},
+	"holiday_message_4": {
+		"message": "Feliz Aninovo!"
+	},
+	"holiday_message_5": {
+		"message": "Bo Nadal!"
+	},
+	"hours": {
+		"message": "Horas"
+	},
+	"hr_country_name": {
+		"message": "Croacia"
+	},
+	"ht_country_name": {
+		"message": "Haití"
+	},
+	"hu_country_name": {
+		"message": "Hungría"
+	},
 	"hu_language_name": {
 		"message": "Húngaro"
+	},
+	"id_country_name": {
+		"message": "Indonesia"
+	},
+	"ie_country_name": {
+		"message": "Irlanda"
+	},
+	"improve_google_translate": {
+		"message": "Axuda a mellorar o Tradutor de Google"
+	},
+	"iq_country_name": {
+		"message": "Iraq"
+	},
+	"ir_country_name": {
+		"message": "Irán"
+	},
+	"is_country_name": {
+		"message": "Islandia"
+	},
+	"is_tradition": {
+		"message": "Na época de Nadal en Islandia, as familias agasallan roupa de abrigo entre os seus membros. Segundo a lenda, hai un gato aterrador que come aos que non estean equipados para o frío e o inverno. As familias colaboran unidas para asegurarse de que o Gato de Nadal non coma a ninguén."
+	},
+	"it_country_name": {
+		"message": "Italia"
 	},
 	"it_language_name": {
 		"message": "Italiano"
@@ -38,32 +773,797 @@
 	"ja_language_name": {
 		"message": "Xaponés"
 	},
+	"jm_country_name": {
+		"message": "Xamaica"
+	},
+	"kg_country_name": {
+		"message": "Kirguizistán"
+	},
+	"kg_tradition": {
+		"message": "En Kirguizistán, Ayaz Ata (o Avó das Neves) chega á medianoite de Fin de Ano e deixa agasallos debaixo do árbore do Aninovo. Cando o reloxo marca as doce da noite, as familias acenden fogos de artificio para festexar a ocasión. As cidades brillan coma se fose de día."
+	},
 	"ko_language_name": {
 		"message": "Coreano"
 	},
 	"kr_country_name": {
 		"message": "Corea do Sur"
 	},
+	"kr_tradition": {
+		"message": "En Corea do Sur, o día de Nadal é festivo nacional. Ademais, é un dos días máis románticos do ano. Un montón de luces resplandecentes iluminan as rúas e as tendas, e as parellas aproveitan para facer plans na cidade."
+	},
+	"kz_country_name": {
+		"message": "Casaquistán"
+	},
+	"la_country_name": {
+		"message": "República Democrática Popular Lao"
+	},
+	"language": {
+		"message": "Idioma"
+	},
+	"learn": {
+		"message": "Aprender"
+	},
+	"learnmore": {
+		"message": "Máis información"
+	},
+	"level": {
+		"message": "Nivel"
+	},
+	"light": {
+		"message": "Acender"
+	},
+	"lightdescription": {
+		"message": "Ilumina a televisión coa aplicación de Android Sigue a Papá Noel e Chromecast"
+	},
+	"lk_country_name": {
+		"message": "Sri Lanka"
+	},
+	"lock_orientation": {
+		"message": "Bloquea a rotación para gozar da mellor experiencia."
+	},
+	"lr_country_name": {
+		"message": "Liberia"
+	},
+	"lt_country_name": {
+		"message": "Lituania"
+	},
+	"lt_tradition": {
+		"message": "En Lituania, os adornos tradicionais de Nadal están feitos de palla ou feo. Técense con formas xeométricas, como estrelas, folerpas ou campás. Moitas familias tamén aproveitan este material para decorar a mesa onde se reúnen para celebrar a cea de Kūčios."
+	},
+	"lv_country_name": {
+		"message": "Letonia"
+	},
+	"ly_country_name": {
+		"message": "Libia"
+	},
+	"md_country_name": {
+		"message": "Moldavia"
+	},
+	"medium_difficulty": {
+		"message": "Dificultade media"
+	},
+	"meta_description": {
+		"message": "Utiliza Sigue a Papá Noel de Google para acompañar a Santa na súa viaxe por todo o mundo a través de Google Maps."
+	},
+	"meta_title": {
+		"message": "Sigue a Papá Noel de Google"
+	},
+	"mg_country_name": {
+		"message": "Madagascar"
+	},
+	"minutes": {
+		"message": "Minutos"
+	},
+	"ml_country_name": {
+		"message": "Malí"
+	},
+	"mm_country_name": {
+		"message": "Birmania"
+	},
+	"mr_country_name": {
+		"message": "Mauritania"
+	},
+	"mute": {
+		"message": "Silenciar"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "México"
+	},
+	"mx_tradition": {
+		"message": "En México, nenos de todas as idades celebran o Nadal rompendo piñatas. Os adultos e os nenos divírtense xogando a pór unha venda nos ollos, dar voltas e mover un pau para romper figuras colgantes en forma de estrela. Cando se rompe a piñata, saen froitos secos, froitas e doces para que todos desfruten."
+	},
+	"my_country_name": {
+		"message": "Malaisia"
+	},
+	"mz_country_name": {
+		"message": "Mozambique"
+	},
+	"na_country_name": {
+		"message": "Namibia"
+	},
+	"ne_country_name": {
+		"message": "Níxer"
+	},
+	"new": {
+		"message": "Novo"
+	},
+	"newtoday": {
+		"message": "Novidade"
+	},
+	"next": {
+		"message": "Seguinte"
+	},
+	"next_game": {
+		"message": "Próximo xogo"
+	},
+	"ng_country_name": {
+		"message": "Nixeria"
+	},
+	"nl_country_name": {
+		"message": "Países Baixos"
+	},
 	"nl_language_name": {
 		"message": "Neerlandés"
+	},
+	"no_country_name": {
+		"message": "Noruega"
 	},
 	"no_language_name": {
 		"message": "Noruegués"
 	},
+	"nonprofit-agastya-description": {
+		"message": "O obxectivo de Agastya é achegar a educación científica práctica aos nenos de núcleos rurais de toda a India. Xa sexa de forma estática (en centros de ciencias) ou de forma móbil (en furgonetas de ciencias), explican temas que van desde a estrutura do sistema solar ata o funcionamento do cerebro. Así, chegaron xa a máis de 5 millóns de nenos e 200 000 profesores de 14 estados da India. De feito, é un dos maiores programas educativos en materia científica de todo o mundo. Por iso, Google.org brinda \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eapoio\u003c/a\u003e con orgullo a Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Profesores e estudantes"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® é unha ONG dedicada a facilitar o acceso á informática e a fomentar a participación das mulleres e dos alumnos de minorías étnicas. Segundo a visión desta organización, todos os alumnos de calquera escola deberían ter a oportunidade de adquirir coñecementos informáticos."
+	},
+	"nonprofit-code-type": {
+		"message": "Informática"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Un profesor de historia del Bronx fundou DonorsChoose.org no ano 2000. Desde entón, recadou máis de 480 millóns de dólares, que se destinaron a aulas dos Estados Unidos. Os profesores acoden á organización para conseguir os materiais e a experiencia que necesitan para as súas clases"
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Aulas"
+	},
+	"nonprofit-enable-description": {
+		"message": "Segundo Centers for Disease Control (CDC), 7 de cada 1000 persoas presentan diversidade funcional nas súas extremidades e necesitan custosas próteses de ata 10 000 USD. O gasto en próteses aumenta rapidamente cando os usuarios son nenos en fase de crecemento. e-Nable é unha comunidade de persoas de todo o mundo que traballan cóbado con cóbado para fabricar mans protésicas mediante impresión 3D destinadas a nenos que as necesitan. Google.org colabora con Enable Community Foundation para apoiar a e-NABLE Community no seu esforzo por deseñar máis próteses e chegar a máis nenos que as necesiten."
+	},
+	"nonprofit-enable-type": {
+		"message": "Próteses de extremidades"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Escolle un adorno e coloréao."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Comparte o teu talento artístico con amigos e familiares para que eles tamén poidan aprender."
+	},
+	"nonprofit-intro-type": {
+		"message": "Asociámonos con Google.org para patrocinar cinco organizacións educativas sen ánimo de lucro para as que o Nadal dura todo o ano. Desprázate cara abaixo e descubre que aporta cada unha das organizacións. Para demostrar o teu apoio, colorea esta colección de adornos e cólgaos na árbore de Nadal ou regálallos aos teus seres queridos."
+	},
+	"nonprofit-jane-description": {
+		"message": "Os chimpancés son a familia de animais máis próxima ao ser humano. Hoxe, quedan menos de 300 000 chimpancés debido á perda do hábitat, as enfermidades e o comercio ilegal. O Jane Goodall Institute (JGI) protexe os chimpancés observando e tentando entender o seu comportamento e o hábitat no que viven. O JGI tamén traballa para crear unha comunidade de persoas que protexan e conserven a fauna e o contorno que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva o hábitat dos chimpancés\u003c/a\u003e de Gombe, Tanzania."
+	},
+	"nonprofit-jane-type": {
+		"message": "Chimpancé"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy é unha organización sen ánimo de lucro cuxo obxectivo é ofrecer educación gratuíta e de calidade a calquera persoa, independentemente de onde se atope. Os seus membros cren firmemente que todos os alumnos, teñan a idade que teñan, deberían desfrutar de acceso ilimitado a contido educativo gratuíto que poidan asimilar ao seu propio ritmo"
+	},
+	"nonprofit-khan-type": {
+		"message": "Ensino"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders é unna coñecida ONG internacional. Fundouse en 2007, ten a sede en París e nela foméntase o desenvolvemento a partir da cultura. Grazas a esta organización, construíronse máis de 300 bibliotecas en todo o mundo."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bibliotecas"
+	},
+	"nonprofit-more-information": {
+		"message": "Para obter máis información, visita:"
+	},
+	"nonprofit-nature-description": {
+		"message": "The Nature Conservancy traballa para protexer e restaurar bosques dos Estados Unidos e de todo o mundo. Grazas a estes bosques emblemáticos hai vida en todo o planeta. Filtran a agua, limpan o aire, danlle traballo a comunidades de persoas e son o hábitat de importantes especies de animais e de plantas. Co ritmo actual de deforestación, os nosos bosques desaparecerán totalmente en 100 años. Por ese motivo, os membros de The Nature Conservancy puxeron en marcha o programa Plant a Billion Trees (Planta mil millóns de árbores) para conseguir plantar mil millóns de árbores de aquí a 2025 e repoboar os bosques máis importantes do mundo."
+	},
+	"nonprofit-nature-type": {
+		"message": "Bosques"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Arredor do 40 % da poboación mundial non ten acceso á ensinanza nun idioma que fale ou entenda. Coa intención de cambiar esta situación, StoryWeaver encárgase de axudar a profesores, escritores e tradutores a crear recursos de lectura adicionais moi divertidos e orientados aos nenos."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lectura"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Hai miles de persoas en todo o mundo que, pese a certa perda, conservan algo de visión. Google.org colabora con RNIB para desenvolver \"gafas intelixentes\" coas que as persoas con escasa visión poidan percibir mellor formas e siluetas. Estas gafas intelixentes permiten ver o mundo con outros ollos, xa que axudan a recuperar a confianza e a independencia."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Lentes intelixentes"
+	},
+	"nonprofit-solar-description": {
+		"message": "No mundo, 1300 millóns de persoas no teñen acceso á rede eléctrica e utilizan lámpadas de queroseno, un combustible que contamina os seus fogares. Sen embargo, os dispositivos de iluminación solares absorben a enerxía do sol durante o día e fornecen horas de luz ao chegar a noite sen combustión nin contaminación. Así, permiten ler, xogar e chegar á casa sans e salvos pola noite. SolarAid proporciona acceso á iluminación solar a moitas persoas que a necesitan. Por iso, Google.org brinda \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eapoio\u003c/a\u003e con orgullo a SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Luz solar"
+	},
+	"nonprofit-water-description": {
+		"message": "A auga potable é un valioso recurso necesario para a ducha ou o baño e para cociñar ou beber. Almacénase en acuíferos subterráneos a gran profundidade (entre capas de solo e rocha) aos que moitas persoas teñen que acceder mediante pozos escavados a man. charity: water colabora con socios locais para construír pozos e realizar outros proxectos relacionados co acceso á auga para os que máis a necesitan. Por iso, Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eapoia\u003c/a\u003econ gran orgullo a causa de charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Pozo"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Aos usuarios que utilizan cadeira de rodas pode resultarlles difícil saber que sitios son accesibles: cines, restaurantes ou calquera destino de viaxe. Wheelmap móstralles aqueles que ofrecen accesibilidade para cadeiras de rodas, de forma que tarden menos en planificar a ruta e poidan adicar máis tempo a explorar o mundo que lles rodea."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilidade"
+	},
+	"nonprofit-wwf-description": {
+		"message": "O cambio climático segue alterando o equilibrio de moitos ecosistemas do mundo, tanto nas zonas cálidas como nas frías. No Ártico, os osos polares están perdendo o seu hábitat de xeo mariño debido ao aumento da temperatura e enfróntanse a outras ameazas orixinadas polas actividades humanas, como a explotación do petróleo e o gas, e a navegación marítima. World Wildlife Fund traballa para garantir a supervivencia das especies mediante a investigación científica en cooperación con comunidades nativas do Ártico. Por iso, Google.org brinda \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eapoio\u003c/a\u003e con orgullo a World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Oso polar"
+	},
+	"nonprofit-wwh-description": {
+		"message": "As investigacións mostran que o 95 % das persoas con perda de audición son aptas para utilizar audiófonos, pero menos do 1 % dos individuos que necesitan estes dispositivos teñen acceso a eles en países de ingresos baixos e medios. World Wide Hearing (WWH) proporciona audiófonos e servizos relacionados para axudar aos nenos a relacionarse co entorno. WWH está deseñando una ferramenta accesible de diagnóstico de perda auditiva para tabletas destinada a áreas en desenvolvemento. Así, moitas máis persoas poderán recibir os audiófonos que necesitan."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Audición"
+	},
+	"notice_cookies": {
+		"message": "Google utiliza cookies para analizar o tráfico a este sitio e optimizar a túa experiencia. A información sobre o uso que fas do noso sitio compártese con Google polo motivo mencionado."
+	},
+	"notice_cookies_details": {
+		"message": "Ver detalles"
+	},
+	"notification": {
+		"message": "Notificacións"
+	},
+	"notification_newtoday": {
+		"message": "Novidade hoxe en Sigue a Papá Noel"
+	},
+	"notification_newtoday_stop": {
+		"message": "Deter"
+	},
+	"notification_notice": {
+		"message": "Os elfos contaranche que plans ten Papá Noel"
+	},
+	"notification_prompt": {
+		"message": "Manterme ao tanto do que fai Papá Noel"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Nova Zelandia"
+	},
+	"nz_tradition": {
+		"message": "Como o Nadal é no verán en Nova Zelandia, os amigos e familiares reúnense arredor dunha grellada. As comidas típicas de Nadal son o cordeiro asado, a veces cociñado nun hangi (un buraco ou forno baixo a terra). A sobremesa favorita é pavlova, un merengue cuberto de froita fresca, como amorodos ou kiwi."
+	},
+	"offline": {
+		"message": "Sen conexión"
+	},
+	"offline_available_online": {
+		"message": "Só en liña"
+	},
+	"offline_notification": {
+		"message": "A aldea de Papá Noel está dispoñible sen conexión. Os elfos traerán contido novo ao longo de decembro."
+	},
+	"offline_notification_nothanks": {
+		"message": "Non, grazas"
+	},
+	"offline_user_message": {
+		"message": "Estás sen conexión"
+	},
+	"okay": {
+		"message": "Aceptar"
+	},
+	"om_country_name": {
+		"message": "Omán"
+	},
+	"onthego": {
+		"message": "Papá Noel vai de camiño"
+	},
+	"openingtomorrow": {
+		"message": "Mañá gran inauguración"
+	},
+	"ornament-print-instructions": {
+		"message": "Dobra aquí e e pega os lados xuntos."
+	},
+	"pa_country_name": {
+		"message": "Panamá"
+	},
+	"pause": {
+		"message": "Pór en pausa"
+	},
+	"paused": {
+		"message": "En pausa"
+	},
+	"pe_country_name": {
+		"message": "Perú"
+	},
+	"pg_country_name": {
+		"message": "Papúa-Nova Guinea"
+	},
+	"ph_country_name": {
+		"message": "Filipinas"
+	},
+	"ph_tradition": {
+		"message": "Filipinas coñécese por ter o Nadal máis longo do mundo. Catro meses son os que se consideran meses de Nadal: setembro, outubro, novembro e decembro. A miúdo, pódense escoitar panxoliñas a principios de setembro."
+	},
+	"pl_country_name": {
+		"message": "Polonia"
+	},
 	"pl_language_name": {
 		"message": "Polaco"
+	},
+	"play": {
+		"message": "Xogar"
+	},
+	"playagain": {
+		"message": "Xogar de novo"
+	},
+	"playdescription": {
+		"message": "Xoga cos amigos na aplicación de Android Sigue a Papá Noel"
+	},
+	"playextra": {
+		"message": "Xoga a outros niveis."
+	},
+	"pr_country_name": {
+		"message": "Porto Rico"
+	},
+	"practice": {
+		"message": "Practicar"
+	},
+	"press": {
+		"message": "Prensa"
+	},
+	"press-about-tracker": {
+		"message": "Acerca de Sigue a Papá Noel"
+	},
+	"press-about-tracker1": {
+		"message": "O 24 de decembro lanzaremos Sigue a Papá Noel, un panel de control no que podes seguir o percorrido da súa zorra de cidade en cidade. Tamén podes consultar a localización en tempo real a través de Google Maps e incluso utiliza o Asistente de Google para facer un seguimento dos lugares polos que pasa esteas onde esteas (para facelo, só tes que dicir \"Ok Google, onde está Papá Noel?)"
+	},
+	"press-about-village": {
+		"message": "Información sobre a aldea de Papá Noel"
+	},
+	"press-about-village1": {
+		"message": "Na aldea de Papá Noel están de aniversario: concretamente, celébranse quince anos de actividades de Nadal interactivas que combinan diversión e aprendizaxe. Baixo a experta mirada de Mamá Noel, os elfos proporcionaron á aldea un deseño vistoso e un contido totalmente novo. Ademais, grazas ao seu novo sistema térmico baseado na tecnoloxía do chocolate quente, a aldea xa non tardará todo o mes de decembro en desconxelarse: todas as actividades estarán dispoñibles a partir do día 4. Agora, tanto os elfos coma ti poderedes pasar moito máis tempo xogando e explorando a aldea de Papá Noel."
+	},
+	"press-about-village2": {
+		"message": "Na aldea, podes practicar actividades básicas de codificación, crear ilustracións orixinais, poñer en práctica os teus coñecementos de xeografía e obter máis información sobre organizacións benéficas como \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Pola súa banda, os profesores poden \u003ca href=\"./educators.html\"\u003edescargar unidades didácticas\u003c/a\u003e con guías de vídeo que lles axudarán a ensinarlles aos estudantes conceptos básicos sobre codificación e tradicións de Nadal en coreano, español, francés, inglés e xaponés."
+	},
+	"press-asset-animation": {
+		"message": "Animación"
+	},
+	"press-asset-resources": {
+		"message": "Recursos de prensa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de pantalla"
+	},
+	"press-device-text": {
+		"message": "O espírito do Nadal está por todas partes, mesmo en todos os teus dispositivos!"
+	},
+	"press-device-title": {
+		"message": "Sigue a Papá Noel no teu dispositivo"
+	},
+	"press-edu": {
+		"message": "Aventuras educativas"
+	},
+	"press-edu1": {
+		"message": "Ampliamos a nosa \u003ca href=\"./educators.html\"\u003epáxina de recursos para educadores\u003c/a\u003e. Agora, os docentes dispoñen dunha serie de guías en formato de vídeo (dispoñibles en cinco idiomas) que poden compaxinar coas súas unidades didácticas. Poderás seguir desfrutando de todos os teus xogos favoritos, nos que non só se abordan conceptos básicos de codificación, senón que tamén serven para familiarizarse coas tradicións de Nadal de todo o mundo. Con Sigue a Papá Noel, queremos que a experiencia de aprendizaxe sexa moito máis divertida, grazas ao seu toque de Nadal. Para obter máis información, bota unha ollada aos \u003ca href=\"./educators.html\"\u003enosos xogos educativos\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Todo xogos e diversión"
+	},
+	"press-need-text": {
+		"message": "Os elfos e os Googlers tan só queren axudar."
+	},
+	"press-need-title": {
+		"message": "Necesitas algo?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Abre o 24 de decembro"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Dispoñible durante todo o mes de decembro"
+	},
+	"press-villagetracker-title": {
+		"message": "Aldea de Papá Noel e Sigue a Papá Noel"
+	},
+	"press-whatsnew": {
+		"message": "Novidades deste ano"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crea o teu propio elfo dos pés á cabeza e déixao feito un pincel para as festas do Nadal que se celebran no Polo Norte."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crea un elfo:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Soñaches algunha vez con crear un grupo de baile formado por elfos cheos de talento? Agora podes facelo. Máis ou menos. A través dun modelo de aprendizaxe automática chamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, podes adestrar un elfo para que aprenda os pasos e o dea todo na pista de baile."
+	},
+	"press-whatsnew2-title": {
+		"message": "Baile/s con elfos:"
 	},
 	"press-whatsnew3-text": {
 		"message": "Poderás utilizar Google Maps para ver a localización de Papá Noel en tempo real. Só terás que tocar o botón das tres raias e despois a opción Compartir localización, así verás en que punto exacto do percorrido se atopa. Tamén podes utilizar un atallo faciliño: \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
 	},
+	"press-whatsnew3-title": {
+		"message": "Unha nova forma de facer un seguimento de Papá Noel:"
+	},
 	"press-whatsnew4-text": {
 		"message": "Se deveces por mergullarte aínda máis no espírito destas festas, bótalles unha ollada aos adhesivos de Nadal de Gboard. Están dispoñibles en \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, en \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e na nosa \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicación para Android\u003c/a\u003e. Tamén podes divertirte coa literatura dicíndolle ao Asistente de Google \"Cóntame un conto do Nadal\" e \"Onde está Papá Noel?\"."
+	},
+	"press-whatsnew4-title": {
+		"message": "Máis diversión de Nadal:"
 	},
 	"pt_language_name": {
 		"message": "Portugués"
 	},
+	"py_country_name": {
+		"message": "Paraguai"
+	},
+	"quickdraw-machine-know": {
+		"message": "Xa o sei, é: {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "ou"
+	},
+	"quickdraw-machine-see": {
+		"message": "Vexo"
+	},
+	"quickdraw-newround-button": {
+		"message": "Comezar"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Non teño claro o que é iso."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Desculpa"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Non sei que é!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor cre que o teu debuxo tamén se parece a estes elementos:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Como sabe Tensor a que se parece: {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Para ir aprendendo, estudou estes exemplos de debuxos que fixeron outras persoas."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor pensou que o teu debuxo se parece máis ben a:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Esta é a versión de Papá Noel de: {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Tes que debuxar: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Debuxar"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor é un robot de Papá Noel especializado na aprendizaxe automática, que lle axuda a descifrar rapidamente as cartas que lle envían os nenos de todo o mundo. Gustaríache axudarlle a practicar? Fai un debuxo das palabras que saen na pantalla e dirache o que ve. Todas elas están relacionadas co Nadal! Botamos unha man a Papá Noel para que Tensor sexa máis eficiente estas festas? Cantos máis debuxos fagas, máis intelixente se volverá!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Axuda a Tensor a practicar o recoñecemento de imaxes!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor recoñeceu {{recognized}} dos teus debuxos."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor recoñeceu un dos teus debuxos."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor non recoñeceu ningún dos teus debuxos."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Ben feito!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Vaia!"
+	},
+	"readyquestion": {
+		"message": "Listo?"
+	},
+	"ro_country_name": {
+		"message": "Romanía"
+	},
+	"ru_country_name": {
+		"message": "Rusia"
+	},
 	"ru_language_name": {
 		"message": "Ruso"
+	},
+	"ru_tradition": {
+		"message": "Os nenos rusos decoran a árbore de Aninovo, en lugar da árbore de Nadal. Gardan con anhelo ao Avó das Neves, que viaxa coa súa neta, a Doncela da Neve, entregando agasallos polo mundo. O Avó das Neves vive no bosque de Veliki Ústiug, no norte de Rusia."
+	},
+	"sa_country_name": {
+		"message": "Arabia Saudita"
+	},
+	"santa-app": {
+		"message": "Papá Noel"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Boneco de xenxibre"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Mamá Noel"
+	},
+	"santasearch_character_pegman": {
+		"message": "Homiño laranxa"
+	},
+	"santasearch_character_penguin": {
+		"message": "Pingüín"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolph"
+	},
+	"santasearch_character_santa": {
+		"message": "Papá Noel"
+	},
+	"santasearch_hint": {
+		"message": "Pista"
+	},
+	"santasearch_level_beach": {
+		"message": "Na praia"
+	},
+	"santasearch_level_lab": {
+		"message": "No laboratorio"
+	},
+	"santasearch_level_mountains": {
+		"message": "Nas montañas"
+	},
+	"santasearch_level_museum": {
+		"message": "No museo"
+	},
+	"santasearch_level_select": {
+		"message": "Vamos aló!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Busca a Papá Noel!"
+	},
+	"santasvillage": {
+		"message": "Aldea de Papá Noel"
+	},
+	"santatracker": {
+		"message": "Sigue a Papá Noel"
+	},
+	"scene_airport": {
+		"message": "Aeroporto do Polo Norte"
+	},
+	"scene_app": {
+		"message": "Aplicación de Android"
+	},
+	"scene_blimp": {
+		"message": "Recarga de agasallos"
+	},
+	"scene_boatload": {
+		"message": "Tiracoios de agasallo"
+	},
+	"scene_briefing": {
+		"message": "Charla de Mamá Noel"
+	},
+	"scene_callfromsanta": {
+		"message": "Chamada de Papá Noel"
+	},
+	"scene_canvas": {
+		"message": "Pintura de Nadal"
+	},
+	"scene_citylights": {
+		"message": "Luces da cidade"
+	},
+	"scene_clausdraws": {
+		"message": "Deseños de Nadal"
+	},
+	"scene_codeboogie": {
+		"message": "Baile de código"
+	},
+	"scene_codelab": {
+		"message": "Laboratorio de codificación"
+	},
+	"scene_commandcentre": {
+		"message": "Control da misión"
+	},
+	"scene_dash": {
+		"message": "Pingüíns á busca de agasallos"
+	},
+	"scene_elfmaker": {
+		"message": "Crea un elfo"
+	},
+	"scene_elfski": {
+		"message": "Esquí élfico"
+	},
+	"scene_factory": {
+		"message": "Fábrica de caramelos"
+	},
+	"scene_giftmatch": {
+		"message": "Emparella os regalos"
+	},
+	"scene_glider": {
+		"message": "Elfo de altos vos"
+	},
+	"scene_gumball": {
+		"message": "Guía os caramelos"
+	},
+	"scene_icecave": {
+		"message": "Cova de xeo"
+	},
+	"scene_island": {
+		"message": "Illa"
+	},
+	"scene_jamband": {
+		"message": "A banda dos elfos"
+	},
+	"scene_jetpack": {
+		"message": "Elfo propulsado"
+	},
+	"scene_latlong": {
+		"message": "Entrega de agasallos"
+	},
+	"scene_matching": {
+		"message": "Atopa a parella"
+	},
+	"scene_mercator": {
+		"message": "Test de xeografía"
+	},
+	"scene_playground": {
+		"message": "O parque do Polo Norte"
+	},
+	"scene_poseboogie": {
+		"message": "Baile de posturas"
+	},
+	"scene_postcard": {
+		"message": "Postais de Papá Noel"
+	},
+	"scene_presentbounce": {
+		"message": "Que non caia o agasallo!"
+	},
+	"scene_presentdrop": {
+		"message": "Lanzamento de agasallos"
+	},
+	"scene_quickdraw": {
+		"message": "Quick, Draw!"
+	},
+	"scene_racer": {
+		"message": "Carreira de Rudolph"
+	},
+	"scene_rollercoaster": {
+		"message": "Montaña rusa élfica"
+	},
+	"scene_runner": {
+		"message": "Reno da carreira"
+	},
+	"scene_santasearch": {
+		"message": "Onde está Papá Noel?"
+	},
+	"scene_santaselfie": {
+		"message": "Autofoto de Papá Noel"
+	},
+	"scene_seasonofcaring": {
+		"message": "Tempos de solidariedade"
+	},
+	"scene_seasonofgiving": {
+		"message": "Tempo de agasallos"
+	},
+	"scene_snowball": {
+		"message": "Pelexa de bólas de neve"
+	},
+	"scene_snowflake": {
+		"message": "Crea unha folerpa con código"
+	},
+	"scene_speedsketch": {
+		"message": "Retrato rápido"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "Tradicións de Nadal"
+	},
+	"scene_translations": {
+		"message": "Traducións"
+	},
+	"scene_trivia": {
+		"message": "Preguntas e respostas"
+	},
+	"scene_undersea": {
+		"message": "Agasallos submarinos"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Coche dos elfos"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Sala de mando"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Elfos cantando e bailando"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Despegue de Papá Noel"
+	},
+	"scene_videoscene_museum": {
+		"message": "Un día no museo"
+	},
+	"scene_videoscene_office": {
+		"message": "Bromas na oficina"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Segue de vacacións"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Os renos están preocupados"
+	},
+	"scene_videoscene_reload": {
+		"message": "Recarga de agasallos"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Papá Noel está de volta"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satélite"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Autofotos de Papá Noel"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Facendo o vago"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Despegue"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Tentación"
+	},
+	"scene_videoscene_tired": {
+		"message": "Reno cansado"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Onde está Papá Noel?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Obradoiro de Papá Noel"
+	},
+	"scene_windtunnel": {
+		"message": "Túnel de vento"
+	},
+	"scene_wrap": {
+		"message": "Concurso de envoltorios"
+	},
+	"score": {
+		"message": "Puntuación"
+	},
+	"score_short": {
+		"message": "Puntuación"
+	},
+	"se_country_name": {
+		"message": "Suecia"
+	},
+	"seconds": {
+		"message": "Segundos"
+	},
+	"select-language": {
+		"message": "Seleccionar idioma"
+	},
+	"share-button": {
+		"message": "Comparte contido cos amigos en Google+"
+	},
+	"share-text": {
+		"message": "Creei esta postal para ti en Sigue a Papá Noel de Google. Boas festas!"
+	},
+	"share-this": {
+		"message": "Compartir"
 	},
 	"sidebar_code_emoji": {
 		"message": "Creados con Code: Emojis do Nadal"
@@ -77,14 +1577,1439 @@
 	"sidebar_trends": {
 		"message": "Tendencias de Google: Buscas relacionadas co Nadal"
 	},
+	"sk_country_name": {
+		"message": "Eslovaquia"
+	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-training": {
+		"message": "Saltar introdución"
+	},
+	"sl_country_name": {
+		"message": "Serra Leoa"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Déronche!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} de {{total}} elfos restantes"
+	},
+	"snowball_spectate": {
+		"message": "Observar"
+	},
+	"snowball_waiting": {
+		"message": "Agardando por máis elfos de Papá Noel"
+	},
+	"snowflake_choose_background": {
+		"message": "Selecciona un fondo de pantalla"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Utiliza as teclas das frechas para escoller unha postal"
+	},
+	"snowflake_code": {
+		"message": "Crea un copo de neve con código"
+	},
+	"snowflake_code_instructions": {
+		"message": "Encaixa os bloques para deseñar a túa propia folerpa"
+	},
+	"snowflake_create_message": {
+		"message": "Deseña a túa propia folerpa"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Agora repite!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Repetindo"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Xira e repite!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Xirando e repetindo"
+	},
+	"snowflake_make_your_own": {
+		"message": "Esta folerpa está feita con código. Anímate a crear unha!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Escolle unha postal e comparte a túa folerpa cos amigos"
+	},
+	"snowflake_shared_message": {
+		"message": "Alguén che enviou unha folerpa!"
+	},
+	"so_country_name": {
+		"message": "Somalia"
+	},
+	"speedsketch_item~London": {
+		"message": "Londres"
+	},
+	"speedsketch_item~New York": {
+		"message": "Nova York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "París"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Shanghai"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Suíza"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "A Torre Eiffel"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "A Gran Muralla Chinesa"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "A Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "arte abstracto"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "portaavións"
+	},
+	"speedsketch_item~airplane": {
+		"message": "avión"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "espertador"
+	},
+	"speedsketch_item~alien": {
+		"message": "extraterrestre"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "ambulancia"
+	},
+	"speedsketch_item~angel": {
+		"message": "anxo"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "migración de animais"
+	},
+	"speedsketch_item~ant": {
+		"message": "formiga"
+	},
+	"speedsketch_item~anvil": {
+		"message": "bigornia"
+	},
+	"speedsketch_item~apple": {
+		"message": "mazá"
+	},
+	"speedsketch_item~arm": {
+		"message": "brazo"
+	},
+	"speedsketch_item~arrow": {
+		"message": "frechas"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "espárrago"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronauta"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "casete"
+	},
+	"speedsketch_item~avocado": {
+		"message": "aguacate"
+	},
+	"speedsketch_item~axe": {
+		"message": "machado"
+	},
+	"speedsketch_item~baby": {
+		"message": "bebé"
+	},
+	"speedsketch_item~backpack": {
+		"message": "mochila"
+	},
+	"speedsketch_item~banana": {
+		"message": "plátano"
+	},
+	"speedsketch_item~bandage": {
+		"message": "venda"
+	},
+	"speedsketch_item~barn": {
+		"message": "celeiro"
+	},
+	"speedsketch_item~baseball": {
+		"message": "pelota de béisbol"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bate de béisbol"
+	},
+	"speedsketch_item~basket": {
+		"message": "canastra"
+	},
+	"speedsketch_item~basketball": {
+		"message": "pelota de baloncesto"
+	},
+	"speedsketch_item~bat": {
+		"message": "morcego"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "bañeira"
+	},
+	"speedsketch_item~beach": {
+		"message": "praia"
+	},
+	"speedsketch_item~bear": {
+		"message": "oso"
+	},
+	"speedsketch_item~beard": {
+		"message": "barba"
+	},
+	"speedsketch_item~bed": {
+		"message": "cama"
+	},
+	"speedsketch_item~bee": {
+		"message": "abella"
+	},
+	"speedsketch_item~belt": {
+		"message": "cinto"
+	},
+	"speedsketch_item~bench": {
+		"message": "banco"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicicleta"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "prismáticos"
+	},
+	"speedsketch_item~bird": {
+		"message": "paxaro"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "torta de aniversario"
+	},
+	"speedsketch_item~black": {
+		"message": "negro"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "amora"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "arando"
+	},
+	"speedsketch_item~book": {
+		"message": "libro"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "búmerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "bota"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "tapón de botella"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "gravata de lazo"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "pulseira"
+	},
+	"speedsketch_item~brain": {
+		"message": "cerebro"
+	},
+	"speedsketch_item~bread": {
+		"message": "pan"
+	},
+	"speedsketch_item~bridge": {
+		"message": "ponte"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brócoli"
+	},
+	"speedsketch_item~broom": {
+		"message": "vasoira"
+	},
+	"speedsketch_item~bucket": {
+		"message": "caldeiro"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "escavadora"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobús"
+	},
+	"speedsketch_item~bush": {
+		"message": "arbusto"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "bolboreta"
+	},
+	"speedsketch_item~cactus": {
+		"message": "cacto"
+	},
+	"speedsketch_item~cake": {
+		"message": "pastel"
+	},
+	"speedsketch_item~calculator": {
+		"message": "calculadora"
+	},
+	"speedsketch_item~calendar": {
+		"message": "calendario"
+	},
+	"speedsketch_item~camel": {
+		"message": "camelo"
+	},
+	"speedsketch_item~camera": {
+		"message": "cámara"
+	},
+	"speedsketch_item~campfire": {
+		"message": "fogueira"
+	},
+	"speedsketch_item~candle": {
+		"message": "candea"
+	},
+	"speedsketch_item~candy": {
+		"message": "caramelo"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "bastón de caramelo"
+	},
+	"speedsketch_item~canoe": {
+		"message": "piragua"
+	},
+	"speedsketch_item~car": {
+		"message": "coche"
+	},
+	"speedsketch_item~carrot": {
+		"message": "cenoria"
+	},
+	"speedsketch_item~castle": {
+		"message": "castelo"
+	},
+	"speedsketch_item~cat": {
+		"message": "gato"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "ventilador de teito"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "teléfono móbil"
+	},
+	"speedsketch_item~cello": {
+		"message": "violoncello"
+	},
+	"speedsketch_item~chair": {
+		"message": "cadeira"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "lámpada de araña"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "química"
+	},
+	"speedsketch_item~cherry": {
+		"message": "cereixa"
+	},
+	"speedsketch_item~child": {
+		"message": "neno"
+	},
+	"speedsketch_item~chimney": {
+		"message": "cheminea"
+	},
+	"speedsketch_item~church": {
+		"message": "igrexa"
+	},
+	"speedsketch_item~circle": {
+		"message": "círculo"
+	},
+	"speedsketch_item~city": {
+		"message": "cidade"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "clarinete"
+	},
+	"speedsketch_item~clock": {
+		"message": "reloxo"
+	},
+	"speedsketch_item~cloud": {
+		"message": "nube"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "mazaroca de millo"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "cunca de café"
+	},
+	"speedsketch_item~compass": {
+		"message": "compás"
+	},
+	"speedsketch_item~computer": {
+		"message": "ordenador"
+	},
+	"speedsketch_item~cookie": {
+		"message": "galleta"
+	},
+	"speedsketch_item~cooler": {
+		"message": "neveira"
+	},
+	"speedsketch_item~couch": {
+		"message": "sofá"
+	},
+	"speedsketch_item~cow": {
+		"message": "vaca"
+	},
+	"speedsketch_item~crab": {
+		"message": "cangrexo"
+	},
+	"speedsketch_item~crayon": {
+		"message": "lapis de cores"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "crocodilo"
+	},
+	"speedsketch_item~crow": {
+		"message": "corvo"
+	},
+	"speedsketch_item~crown": {
+		"message": "coroa"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "cruceiro"
+	},
+	"speedsketch_item~cube": {
+		"message": "cubo"
+	},
+	"speedsketch_item~cup": {
+		"message": "cunca"
+	},
+	"speedsketch_item~darts": {
+		"message": "dardos"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamante"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "anel de diamantes"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "lavalouza"
+	},
+	"speedsketch_item~diving board": {
+		"message": "trampolín"
+	},
+	"speedsketch_item~dog": {
+		"message": "can"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "golfiño"
+	},
+	"speedsketch_item~donut": {
+		"message": "donut"
+	},
+	"speedsketch_item~door": {
+		"message": "porta"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dragón"
+	},
+	"speedsketch_item~dresser": {
+		"message": "toucador"
+	},
+	"speedsketch_item~drill": {
+		"message": "trade"
+	},
+	"speedsketch_item~drums": {
+		"message": "batería"
+	},
+	"speedsketch_item~duck": {
+		"message": "parrulo"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "pesos"
+	},
+	"speedsketch_item~ear": {
+		"message": "orella"
+	},
+	"speedsketch_item~egg": {
+		"message": "ovo"
+	},
+	"speedsketch_item~elbow": {
+		"message": "cóbado"
+	},
+	"speedsketch_item~elephant": {
+		"message": "elefante"
+	},
+	"speedsketch_item~elf": {
+		"message": "elfo"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emojis"
+	},
+	"speedsketch_item~envelope": {
+		"message": "sobre"
+	},
+	"speedsketch_item~eraser": {
+		"message": "borrador"
+	},
+	"speedsketch_item~eye": {
+		"message": "ollo"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "lentes"
+	},
+	"speedsketch_item~face": {
+		"message": "cara"
+	},
+	"speedsketch_item~family": {
+		"message": "familia"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilador"
+	},
+	"speedsketch_item~feather": {
+		"message": "pluma"
+	},
+	"speedsketch_item~fence": {
+		"message": "cerca"
+	},
+	"speedsketch_item~finger": {
+		"message": "dedo"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "boca de incendios"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "cheminea"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "coche de bombeiros"
+	},
+	"speedsketch_item~fish": {
+		"message": "peixe"
+	},
+	"speedsketch_item~flag": {
+		"message": "marcar"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamengo"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "lanterna"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "chancletas"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "lámpada de pé"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "disquete"
+	},
+	"speedsketch_item~flower": {
+		"message": "flor"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "obxecto voante"
+	},
+	"speedsketch_item~fog": {
+		"message": "néboa"
+	},
+	"speedsketch_item~foot": {
+		"message": "pé"
+	},
+	"speedsketch_item~fork": {
+		"message": "garfo"
+	},
+	"speedsketch_item~french fries": {
+		"message": "patacas fritidas"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "ovo fritido"
+	},
+	"speedsketch_item~frog": {
+		"message": "ra"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "frixideira"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxia"
+	},
+	"speedsketch_item~garden": {
+		"message": "xardín"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "mangueira"
+	},
+	"speedsketch_item~ghost": {
+		"message": "pantasma"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "boneco de xenxibre"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "xirafa"
+	},
+	"speedsketch_item~goat": {
+		"message": "cabra"
+	},
+	"speedsketch_item~goatee": {
+		"message": "barba de chibo"
+	},
+	"speedsketch_item~golf club": {
+		"message": "pau de golf"
+	},
+	"speedsketch_item~grapes": {
+		"message": "uvas"
+	},
+	"speedsketch_item~grass": {
+		"message": "herba"
+	},
+	"speedsketch_item~group": {
+		"message": "grupo"
+	},
+	"speedsketch_item~guitar": {
+		"message": "guitarra"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburguesa"
+	},
+	"speedsketch_item~hammer": {
+		"message": "martelo"
+	},
+	"speedsketch_item~hand": {
+		"message": "man"
+	},
+	"speedsketch_item~happiness": {
+		"message": "felicidade"
+	},
+	"speedsketch_item~harp": {
+		"message": "arpa"
+	},
+	"speedsketch_item~hat": {
+		"message": "sombreiro"
+	},
+	"speedsketch_item~headphones": {
+		"message": "auriculares"
+	},
+	"speedsketch_item~heart": {
+		"message": "corazón"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ourizo"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helicóptero"
+	},
+	"speedsketch_item~helmet": {
+		"message": "casco"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "hexágono"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "disco de hóckey"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "pau de hóckey"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "luces de Nadal"
+	},
+	"speedsketch_item~horse": {
+		"message": "cabalo"
+	},
+	"speedsketch_item~hospital": {
+		"message": "hospital"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "globo aerostático"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "bocadillo de salchicha"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "bañeira de hidromasaxe"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "reloxo de area"
+	},
+	"speedsketch_item~house": {
+		"message": "casa"
+	},
+	"speedsketch_item~house plant": {
+		"message": "planta de interior"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "furacán"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "xeado"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "patinador sobre xeo"
+	},
+	"speedsketch_item~infinity": {
+		"message": "infinito"
+	},
+	"speedsketch_item~island": {
+		"message": "illa"
+	},
+	"speedsketch_item~jacket": {
+		"message": "chaqueta"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "elfo propulsado"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Cascabeis"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "canguro"
+	},
+	"speedsketch_item~key": {
+		"message": "chave"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "teclado"
+	},
+	"speedsketch_item~kite": {
+		"message": "papaventos"
+	},
+	"speedsketch_item~knee": {
+		"message": "xeonllo"
+	},
+	"speedsketch_item~knife": {
+		"message": "coitelo"
+	},
+	"speedsketch_item~knot": {
+		"message": "nó"
+	},
+	"speedsketch_item~koala": {
+		"message": "coala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "escaleira"
+	},
+	"speedsketch_item~landscape": {
+		"message": "paisaxe"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lanterna"
+	},
+	"speedsketch_item~laptop": {
+		"message": "ordenador portátil"
+	},
+	"speedsketch_item~leaf": {
+		"message": "folla"
+	},
+	"speedsketch_item~leg": {
+		"message": "perna"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "lámpada"
+	},
+	"speedsketch_item~lighter": {
+		"message": "chisqueiro"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "faro"
+	},
+	"speedsketch_item~lightning": {
+		"message": "lóstrego"
+	},
+	"speedsketch_item~line": {
+		"message": "liña"
+	},
+	"speedsketch_item~lion": {
+		"message": "león"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "barra de labios"
+	},
+	"speedsketch_item~lobster": {
+		"message": "lagosta"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "chupa-chupa"
+	},
+	"speedsketch_item~love": {
+		"message": "amor"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "caixa de correo"
+	},
+	"speedsketch_item~man": {
+		"message": "home"
+	},
+	"speedsketch_item~map": {
+		"message": "mapa"
+	},
+	"speedsketch_item~marker": {
+		"message": "marcador"
+	},
+	"speedsketch_item~matches": {
+		"message": "mistos"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matemáticas"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megáfono"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "serea"
+	},
+	"speedsketch_item~metal": {
+		"message": "metal"
+	},
+	"speedsketch_item~microphone": {
+		"message": "micrófono"
+	},
+	"speedsketch_item~microscope": {
+		"message": "microscopio"
+	},
+	"speedsketch_item~microwave": {
+		"message": "microondas"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "visgo"
+	},
+	"speedsketch_item~mittens": {
+		"message": "manoplas"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molécula"
+	},
+	"speedsketch_item~money": {
+		"message": "diñeiro"
+	},
+	"speedsketch_item~monkey": {
+		"message": "mono"
+	},
+	"speedsketch_item~moon": {
+		"message": "lúa"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "mosquito"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motocicleta"
+	},
+	"speedsketch_item~mountain": {
+		"message": "montaña"
+	},
+	"speedsketch_item~mouse": {
+		"message": "rato"
+	},
+	"speedsketch_item~moustache": {
+		"message": "bigote"
+	},
+	"speedsketch_item~mouth": {
+		"message": "boca"
+	},
+	"speedsketch_item~mug": {
+		"message": "xerra"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "cogomelo"
+	},
+	"speedsketch_item~music": {
+		"message": "música"
+	},
+	"speedsketch_item~nail": {
+		"message": "uña"
+	},
+	"speedsketch_item~nature": {
+		"message": "natureza"
+	},
+	"speedsketch_item~necklace": {
+		"message": "colar"
+	},
+	"speedsketch_item~news": {
+		"message": "noticias"
+	},
+	"speedsketch_item~nose": {
+		"message": "nariz"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "quebranoces"
+	},
+	"speedsketch_item~ocean": {
+		"message": "océano"
+	},
+	"speedsketch_item~octagon": {
+		"message": "octógono"
+	},
+	"speedsketch_item~octopus": {
+		"message": "polbo"
+	},
+	"speedsketch_item~onion": {
+		"message": "cebola"
+	},
+	"speedsketch_item~ornament": {
+		"message": "adorno"
+	},
+	"speedsketch_item~oven": {
+		"message": "forno"
+	},
+	"speedsketch_item~owl": {
+		"message": "moucho"
+	},
+	"speedsketch_item~paint can": {
+		"message": "bote de pintura"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pincel"
+	},
+	"speedsketch_item~painting": {
+		"message": "pintura"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palmeira"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "pantalóns"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "clip"
+	},
+	"speedsketch_item~parachute": {
+		"message": "paracaídas"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagaio"
+	},
+	"speedsketch_item~passport": {
+		"message": "pasaporte"
+	},
+	"speedsketch_item~peanut": {
+		"message": "cacahuete"
+	},
+	"speedsketch_item~pear": {
+		"message": "pera"
+	},
+	"speedsketch_item~peas": {
+		"message": "chícharos"
+	},
+	"speedsketch_item~pencil": {
+		"message": "lapis"
+	},
+	"speedsketch_item~penguin": {
+		"message": "pingüín"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "menta"
+	},
+	"speedsketch_item~piano": {
+		"message": "piano"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "furgoneta"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "marco de fotos"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "gráfico circular"
+	},
+	"speedsketch_item~pig": {
+		"message": "porco"
+	},
+	"speedsketch_item~pillow": {
+		"message": "almofada"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "piña"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "pimpón"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirata"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "tenaces"
+	},
+	"speedsketch_item~police car": {
+		"message": "coche de policía"
+	},
+	"speedsketch_item~politician": {
+		"message": "político"
+	},
+	"speedsketch_item~pond": {
+		"message": "estanque"
+	},
+	"speedsketch_item~pool": {
+		"message": "piscina"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "polo"
+	},
+	"speedsketch_item~portrait": {
+		"message": "retrato"
+	},
+	"speedsketch_item~postcard": {
+		"message": "postal"
+	},
+	"speedsketch_item~potato": {
+		"message": "pataca"
+	},
+	"speedsketch_item~present": {
+		"message": "agasallo"
+	},
+	"speedsketch_item~prison": {
+		"message": "cárcere"
+	},
+	"speedsketch_item~purse": {
+		"message": "carteira"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "coello"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "mapache"
+	},
+	"speedsketch_item~radio": {
+		"message": "radio"
+	},
+	"speedsketch_item~rain": {
+		"message": "chuvia"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "arco da vella"
+	},
+	"speedsketch_item~rake": {
+		"message": "angazo"
+	},
+	"speedsketch_item~raven": {
+		"message": "corvo"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "reno"
+	},
+	"speedsketch_item~remote control": {
+		"message": "mando a distancia"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "rinoceronte"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "cinta"
+	},
+	"speedsketch_item~river": {
+		"message": "río"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "montaña rusa"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "patíns"
+	},
+	"speedsketch_item~sadness": {
+		"message": "tristeza"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "bote de vela"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sándwich"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Papá Noel"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturno"
+	},
+	"speedsketch_item~sausage": {
+		"message": "salchicha"
+	},
+	"speedsketch_item~saw": {
+		"message": "serra"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofón"
+	},
+	"speedsketch_item~school bus": {
+		"message": "autobús escolar"
+	},
+	"speedsketch_item~scissors": {
+		"message": "tesoiras"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "escorpión"
+	},
+	"speedsketch_item~screw": {
+		"message": "parafuso"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "desaparafusador"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "escultura"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "tartaruga de mar"
+	},
+	"speedsketch_item~see saw": {
+		"message": "balancín"
+	},
+	"speedsketch_item~shark": {
+		"message": "tiburón"
+	},
+	"speedsketch_item~sheep": {
+		"message": "ovella"
+	},
+	"speedsketch_item~shoe": {
+		"message": "zapato"
+	},
+	"speedsketch_item~shorts": {
+		"message": "pantalóns curtos"
+	},
+	"speedsketch_item~shovel": {
+		"message": "pa"
+	},
+	"speedsketch_item~sink": {
+		"message": "lavabo"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "monopatín"
+	},
+	"speedsketch_item~ski": {
+		"message": "esquí"
+	},
+	"speedsketch_item~skier": {
+		"message": "esquiador"
+	},
+	"speedsketch_item~skirt": {
+		"message": "saia"
+	},
+	"speedsketch_item~skull": {
+		"message": "caveira"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "rañaceos"
+	},
+	"speedsketch_item~sled": {
+		"message": "zorra"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "saco de durmir"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "zorra"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "cara sorrinte"
+	},
+	"speedsketch_item~snail": {
+		"message": "caracol"
+	},
+	"speedsketch_item~snake": {
+		"message": "cobra"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "equipo de mergullo"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "folerpa"
+	},
+	"speedsketch_item~snowman": {
+		"message": "boneco de neve"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "balón de fútbol"
+	},
+	"speedsketch_item~sock": {
+		"message": "calcetín"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "lancha motora"
+	},
+	"speedsketch_item~sphere": {
+		"message": "esfera"
+	},
+	"speedsketch_item~spider": {
+		"message": "araña"
+	},
+	"speedsketch_item~spiral": {
+		"message": "espiral"
+	},
+	"speedsketch_item~spoon": {
+		"message": "culler"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "folla de cálculo"
+	},
+	"speedsketch_item~square": {
+		"message": "cadrado"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "esquío"
+	},
+	"speedsketch_item~stairs": {
+		"message": "escaleiras"
+	},
+	"speedsketch_item~star": {
+		"message": "estrela"
+	},
+	"speedsketch_item~steak": {
+		"message": "filete"
+	},
+	"speedsketch_item~stereo": {
+		"message": "equipo estéreo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "estetoscopio"
+	},
+	"speedsketch_item~still life": {
+		"message": "bodegón"
+	},
+	"speedsketch_item~stocking": {
+		"message": "calcetín de Nadal"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "sinal de stop"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "cronómetro"
+	},
+	"speedsketch_item~stove": {
+		"message": "fogón"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "amorodo"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "farol"
+	},
+	"speedsketch_item~string bean": {
+		"message": "feixón"
+	},
+	"speedsketch_item~submarine": {
+		"message": "submarino"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "maleta"
+	},
+	"speedsketch_item~sun": {
+		"message": "sol"
+	},
+	"speedsketch_item~sunset": {
+		"message": "solpor"
+	},
+	"speedsketch_item~swan": {
+		"message": "cisne"
+	},
+	"speedsketch_item~sweater": {
+		"message": "xersei"
+	},
+	"speedsketch_item~swing set": {
+		"message": "randeeira"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "camiseta"
+	},
+	"speedsketch_item~table": {
+		"message": "mesa"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teteira"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "oso de peluche"
+	},
+	"speedsketch_item~telephone": {
+		"message": "teléfono"
+	},
+	"speedsketch_item~television": {
+		"message": "televisión"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "raqueta de tenis"
+	},
+	"speedsketch_item~tent": {
+		"message": "tenda de campaña"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "tres en raia"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tigre"
+	},
+	"speedsketch_item~time": {
+		"message": "hora"
+	},
+	"speedsketch_item~toaster": {
+		"message": "torrador"
+	},
+	"speedsketch_item~toe": {
+		"message": "deda"
+	},
+	"speedsketch_item~toilet": {
+		"message": "retrete"
+	},
+	"speedsketch_item~tooth": {
+		"message": "dente"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "cepillo de dentes"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "pasta de dentes"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornado"
+	},
+	"speedsketch_item~tractor": {
+		"message": "tractor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "semáforo"
+	},
+	"speedsketch_item~train": {
+		"message": "tren"
+	},
+	"speedsketch_item~tree": {
+		"message": "árbore"
+	},
+	"speedsketch_item~triangle": {
+		"message": "triángulo"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "triciclo"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombón"
+	},
+	"speedsketch_item~trousers": {
+		"message": "pantalóns"
+	},
+	"speedsketch_item~truck": {
+		"message": "camión"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompeta"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "paraugas"
+	},
+	"speedsketch_item~underwear": {
+		"message": "roupa interior"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "unicornio"
+	},
+	"speedsketch_item~universe": {
+		"message": "universo"
+	},
+	"speedsketch_item~van": {
+		"message": "camioneta"
+	},
+	"speedsketch_item~vase": {
+		"message": "floreiro"
+	},
+	"speedsketch_item~violin": {
+		"message": "violín"
+	},
+	"speedsketch_item~walnut": {
+		"message": "noz"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "lavadora"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "sandía"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "tobogán acuático"
+	},
+	"speedsketch_item~wave": {
+		"message": "onda"
+	},
+	"speedsketch_item~whale": {
+		"message": "balea"
+	},
+	"speedsketch_item~windmill": {
+		"message": "muíño"
+	},
+	"speedsketch_item~woman": {
+		"message": "muller"
+	},
+	"speedsketch_item~world": {
+		"message": "mundo"
+	},
+	"speedsketch_item~wreath": {
+		"message": "grilanda"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "reloxo de pulso"
+	},
+	"speedsketch_item~yoga": {
+		"message": "ioga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "iogur"
+	},
+	"speedsketch_item~zebra": {
+		"message": "cebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "zigzag"
+	},
+	"speedsketch_item~zipper": {
+		"message": "cremalleira"
+	},
+	"sr_country_name": {
+		"message": "Suriname"
+	},
+	"sv_country_name": {
+		"message": "O Salvador"
 	},
 	"sv_language_name": {
 		"message": "Sueco"
 	},
+	"td_country_name": {
+		"message": "Chad"
+	},
+	"terms-and-privacy": {
+		"message": "Condicións e privacidade"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
 	"th_language_name": {
 		"message": "Tailandés"
+	},
+	"tilt": {
+		"message": "Inclina o dispositivo!"
+	},
+	"time": {
+		"message": "Tempo"
+	},
+	"tj_country_name": {
+		"message": "Taxiquistán"
+	},
+	"tm_country_name": {
+		"message": "Turkmenistán"
+	},
+	"tn_country_name": {
+		"message": "Tunisia"
+	},
+	"today_only": {
+		"message": "Só hoxe"
+	},
+	"tr_country_name": {
+		"message": "Turquía"
 	},
 	"tr_language_name": {
 		"message": "Turco"
@@ -92,20 +3017,3482 @@
 	"tracker_arrival": {
 		"message": "Chegada"
 	},
+	"tracker_arriving_in": {
+		"message": "Chegará en"
+	},
+	"tracker_current_stop": {
+		"message": "Parada actual"
+	},
+	"tracker_departing_in": {
+		"message": "Saída en"
+	},
+	"tracker_distance_away_km": {
+		"message": "Papá Noel está a {{distance_away}}km"
+	},
+	"tracker_distance_from_you": {
+		"message": "Distancia de ti"
+	},
+	"tracker_distance_travelled": {
+		"message": "Distancia percorrida"
+	},
+	"tracker_feed": {
+		"message": "Feed en directo"
+	},
+	"tracker_flight_nearby": {
+		"message": "Papá Noel está preto. Descubre onde se atopa!"
+	},
+	"tracker_flight_start": {
+		"message": "Papá Noel xa saíu do Polo Norte e podes seguir a súa viaxe!"
+	},
+	"tracker_from_google": {
+		"message": "De parte de todo o equipo de Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Agasallos entregados"
+	},
 	"tracker_intro_skip_intro": {
 		"message": "Saltar introdución"
+	},
+	"tracker_intro_user_location": {
+		"message": "Estás en:"
+	},
+	"tracker_just_in": {
+		"message": "Última hora"
+	},
+	"tracker_next_stop": {
+		"message": "Próxima parada"
+	},
+	"tracker_santa_update": {
+		"message": "INFORMACIÓN ACTUALIZADA SOBRE PAPÁ NOEL"
+	},
+	"tracker_santa_update_1": {
+		"message": "Noticias sobre Papá Noel"
+	},
+	"tracker_see_route": {
+		"message": "Ver a ruta"
+	},
+	"tracker_stats": {
+		"message": "Estatísticas de Papá Noel"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Papá Noel chegará nunhas {{hours}} horas"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Papá Noel chegará en breve"
+	},
+	"tracker_track": {
+		"message": "Realiza un seguimento de Papá Noel"
+	},
+	"tracker_travelogue": {
+		"message": "Caderno de viaxe"
 	},
 	"tracker_weather": {
 		"message": "O tempo"
 	},
+	"tracker_world_facts": {
+		"message": "SABÍAS QUE?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Datos sobre o mundo"
+	},
+	"tracker_your_location": {
+		"message": "A túa localización"
+	},
+	"traditions-next": {
+		"message": "Seguinte tradición"
+	},
+	"traditions-prev": {
+		"message": "Tradición anterior"
+	},
+	"traditions-world": {
+		"message": "Mundo"
+	},
+	"trivia_beginner_001": {
+		"message": "En que continente se atopan as Montañas dos Andes?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_002": {
+		"message": "Que estado de Estados Unidos está formado por oito illas principais?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawai"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Que estado dos Estados Unidos se atopa nas Grandes Chairas?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Que continente limita cos océanos Atlántico, Pacífico e Ártico?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_005": {
+		"message": "Que estado se atopa no fuso horario do Pacífico?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Xeorxia"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "En que continente están as montañas de Atlas e o deserto de Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_007": {
+		"message": "Que estado dos EUA limita cun dos Grandes Lagos?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Novo México"
+	},
+	"trivia_beginner_008": {
+		"message": "En que continente a maioría dos habitantes falan en portugués ou español?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_009": {
+		"message": "Que estado dos Estados Unidos ten unha forma que inclúe o mango dunha tixola?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "En que continente se pode atopar arredor do 90 por cento do xeo do mundo?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_011": {
+		"message": "En que continente se atopa a barreira de xeo Ronne?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_012": {
+		"message": "A Illa de Vancouver e a Illa de Kodiak atópanse fronte á costa oeste dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_013": {
+		"message": "Níxer é un país cunha das poboacións de crecemento máis rápido do mundo. Ao noroeste de que continente se atopa?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_014": {
+		"message": "Que continente ten menos plantas e árbores?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_015": {
+		"message": "Os demos de Tasmania son orixinarios dunha illa situada na costa sur dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_016": {
+		"message": "A torre inclinada de Pisa é unha atracción turística famosa dun país do Mediterráneo. De que país se trata?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Canadá"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca e Trípoli son as cidades históricas da costa norte dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_018": {
+		"message": "O cacto Saguaro atópase no deserto de Sonora. En que continente se atopa?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz e Acapulco son destinos vacacionais populares. En que país se atopan?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "México"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Arxentina"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "O fogar do 30 % dos pandas do mundo son os Santuarios do panda xigante de Sichuan. En que país se atopan?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "China"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiopía"
+	},
+	"trivia_beginner_021": {
+		"message": "En que continente se pode atopar arredor do 90 % do xeo do mundo?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "África"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_022": {
+		"message": "En que continente se atopa o Salto Anxo, a fervenza máis alta do mundo?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_023": {
+		"message": "Para visitar Jackson Hole e subir a Devils Tower, a que estado dos EUA hai que viaxar?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Dakota do Norte"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Para ver a recollida de zume do pradairo e ir esquiar ás Green Mountains, a que estado dos EUA hai que viaxar?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregón"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Que estado dos Estados Unidos hai que visitar para conducir a través da ponte da Baía de Chesapeake e camiñar polo paseo marítimo en Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Carolina do Norte"
+	},
+	"trivia_beginner_026": {
+		"message": "Para visitar a Cova do Mamut e ver unha carreira de cabalos en Churchill Downs, a que estado dos EUA hai que viaxar?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Virxinia Occidental"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Para ver sequoias xigantes e as Illas da Canle, a que estado dos EUA hai que viaxar?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "California"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "Nova Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virxinia"
+	},
+	"trivia_beginner_028": {
+		"message": "Que pantanos visitarías se estiveses no estado norteamericano de Florida?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Gran Pantano Dismal"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Pantano do Gran Ciprés"
+	},
+	"trivia_beginner_029": {
+		"message": "Para percorrer o canal de San Lourenzo e os Lagos Finger, a que estado dos EUA hai que viaxar?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "Nova York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "En que continente se atopa o Everest, a montaña máis alta do mundo?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_031": {
+		"message": "A rexión da Patagonia cobre gran parte da zona sur dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "África"
+	},
+	"trivia_beginner_032": {
+		"message": "En que continente se atopa o hábitat natural dos pingüíns emperador?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033": {
+		"message": "De que país son orixinarios os canguros e os koalas?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_034": {
+		"message": "A fauna e a flora atraen a moitos turistas ao Parque Nacional do Serengeti. En que continente se atopa?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035": {
+		"message": "Que continente ten a superficie de terra máis grande?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_036": {
+		"message": "A Ponte da Torre cruza o río Támese dunha cidade europea. De que cidade se trata?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londres"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "A Habana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Cidade do Cabo"
+	},
+	"trivia_beginner_037": {
+		"message": "A Catedral de San Basilio atópase na Praza Vermella xunto ao Kremlin. En que cidade se atopa?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moscova"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Bruxelas"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "O Coliseo construíuse no século I d.C. como un lugar para as loitas de gladiadores. En que cidade europea se atopa?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Roma"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Khartún"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "En que cidade australiana se atopan o teatro Opera House e a Ponte da Baía?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sidney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Iacarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praga"
+	},
+	"trivia_beginner_040": {
+		"message": "A Cúpula da Rocha e o Muro das Lamentacións son só dous dos moitos sitios sagrados que se encontran dentro das antigas murallas dunha cidade de Oriente Medio. De que cidade se trata?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Xerusalén"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alxer"
+	},
+	"trivia_beginner_041": {
+		"message": "O Partenón atópase no alto da Acrópole. En que cidade grega se encontra?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atenas"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kiev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "A Torre Eiffel encóntrase cerca do río Sena e no centro dunha cidade francesa. De que cidade se trata?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "París"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Nova Deli"
+	},
+	"trivia_beginner_043": {
+		"message": "A mesquita Al-Haram é o fogar da Kaaba, o lugar máis sagrado do islam, e está situada nunha cidade árabe. De que cidade se trata?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "A Meca"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Bos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapest"
+	},
+	"trivia_beginner_044": {
+		"message": "A Cidade Prohibida é un antigo pazo imperial situado no centro dunha cidade china. De que cidade se trata?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Beijing"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "A Agulla Espacial é unha torre de observación situada nunha cidade dos EUA no Estreito de Puget. De que cidade se trata?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "Nova Orleáns"
+	},
+	"trivia_beginner_046": {
+		"message": "John Hancock Tower é o edificio máis alto dunha cidade estadounidense situada na desembocadura do río Charles. De que cidade se trata?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "A Stratosphere Tower, situada ao norte dunha famosa avenida coñecida como The Strip, é o edificio máis alto dunha cidade estadounidense no deserto de Mojave. De que cidade se trata?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "A Estatua da Liberdade é unha gran escultura situada na Illa da Liberdade, no porto dunha cidade estadounidense. De que cidade se trata?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "Nova York, EUA"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Os Ánxeles"
+	},
+	"trivia_beginner_049": {
+		"message": "A ponte de Golden Gate conecta unha cidade de Estados Unidos coa Península de Marín. De que cidade se trata?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "O Arco Gateway, que simboliza a expansión cara ao oeste dos Estados Unidos en 1800, está situado ao longo do río Mississippi. En que cidade de Estados Unidos se atopa?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "San Luís"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianápolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "En que país africano se atopa a meseta de Guiza, o fogar da Gran Pirámide e da Esfinxe?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Exipto"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Alemaña"
+	},
+	"trivia_beginner_052": {
+		"message": "O Salón da Independencia, un importante sitio histórico asociado á Revolución Americana, está situado cerca do río Delaware nunha cidade dos Estados Unidos. De que cidade se trata?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Filadelfia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "As Montañas Rochosas cruzan Canadá e outro país. De que país se trata?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Estados Unidos"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_054": {
+		"message": "Con que país limitan Brasil e Uruguai?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_055": {
+		"message": "A Illa de Terranova atópase fronte á costa este de Canadá. En que océano se encontra?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_056": {
+		"message": "A illa de Madagascar atópase fronte á costa este de África. En que océano está?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_057": {
+		"message": "Que océano atravesa a maior parte da liña internacional de cambio de data?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_058": {
+		"message": "O ecuador pasa a través da cunca do Congo. En que continente se atopa?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059": {
+		"message": "Que continente limita co Golfo de México?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_060": {
+		"message": "Que río flúe a través de África e é o máis longo do mundo?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Río Nilo"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Río Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Río Orange"
+	},
+	"trivia_beginner_061": {
+		"message": "En que continente se atopan as antigas ruínas de Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_062": {
+		"message": "O río Amazonas, o cal leva máis auga que calquera outro río do mundo, flúe a través dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_063": {
+		"message": "En que continente se atopa o Mont Blanc, o punto máis alto dos Alpes?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_064": {
+		"message": "Con que continente conecta o istmo de Panamá a Centroamérica?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065": {
+		"message": "Os guepardos son os mamíferos terrestres máis rápidos da Terra e atópanse en Kenya e Tanzania. En que continente viven?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_066": {
+		"message": "O Cabo de Boa Esperanza atópase preto do extremo sur dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_067": {
+		"message": "As tartarugas xigantes viven nas illas Galápagos, que se atopan ao oeste de América do Sur. En que océano se encontran?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_068": {
+		"message": "O río Danubio flúe a través de Viena e doutras cidades. En que continente se encontra?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Europa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "África"
+	},
+	"trivia_beginner_069": {
+		"message": "Con que mar limitan as illas de Cuba e A Española?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Mar Caribe"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Mar de Bering"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Mar Báltico"
+	},
+	"trivia_beginner_070": {
+		"message": "Con que continente limita o Golfo de Guinea?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Australia"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_071": {
+		"message": "De que continente foi Ernest Shackleton un famoso explorador?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_072": {
+		"message": "De que océano forma parte o Mar de Labrador?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_073": {
+		"message": "En que continente se atopa o Sáhara, o deserto máis grande do mundo?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_074": {
+		"message": "En que continente se encontra a meseta do Tíbet?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_075": {
+		"message": "A paisaxe de Drake atópase ao sur dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Europa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076": {
+		"message": "A Gran Barreira de Coral atópase no Mar de Coral fronte á costa dun continente. De que continente se trata?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Australia"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_077": {
+		"message": "Para navegar polo Canal de Suez e visitar a Cidade dos Mortos do Cairo, a que país hai que viaxar?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Exipto"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_beginner_078": {
+		"message": "Para ver gauchos coidando do gando e bailaríns de tango na cidade de Bos Aires, a que país hai que viaxar?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Arxentina"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Níxer"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Para visitar a zona vella da cidade de Fez e practicar sendeirismo na Cordilleira do Atlas, a que país hai que viaxar?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marrocos"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Tailandia"
+	},
+	"trivia_beginner_080": {
+		"message": "Para visitar as antigas ruínas maias e nadar nas praias de Cancún, a que país debes viaxar?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "México"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Países Baixos"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turquía"
+	},
+	"trivia_beginner_081": {
+		"message": "Para visitar a Catedral de San Patricio de Dublín e gozar do Festival da Artes de Kilkenny, a que país hai que viaxar?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somalia"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_beginner_082": {
+		"message": "Para facer un percorrido pola selva tropical e bailar no carnaval de Río de Xaneiro, a que país debes viaxar?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Para visitar o Museo do Hermitage de San Petersburgo e viaxar no ferrocarril transiberiano, a que país hai que viaxar?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Para viaxar no tren de alta velocidade e pasar a noite nun hotel de Tokyo, a que país hai que viaxar?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Xapón"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_beginner_085": {
+		"message": "Para comer pesto en Xénova e desfrutar dunha ópera en Florencia, a que país hai que viaxar?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Italia"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguai"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Libia"
+	},
+	"trivia_beginner_086": {
+		"message": "Para ir de safari pola Reserva Natural de Masai Mara e ir de compras por Nairobi, a que país hai que viaxar?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenya"
+	},
 	"trivia_beginner_086_answer1": {
 		"message": "Corea do Sur"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Para ver o río Ganges e explorar as ateigadas rúas de Calcuta, a que país hai que viaxar?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Alemaña"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Xordania"
+	},
+	"trivia_beginner_088": {
+		"message": "O Polo Norte, o punto máis setentrional do planeta, atópase no medio dun océano. De que océano se trata?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Océano Ártico"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Océano Índico"
+	},
+	"trivia_beginner_089": {
+		"message": "Que país limita co Océano Atlántico?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Paquistán"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Xapón"
+	},
+	"trivia_beginner_090": {
+		"message": "Que estado dos EUA se coñece como o estado asollado polo seu clima cálido e as súas praias famosas?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "En que estado dos Estados Unidos se atopa o Gran Canón?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Virxinia Occidental"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Dakota do Sur"
+	},
+	"trivia_beginner_092": {
+		"message": "Que estado dos EUA, coñecido como o estado da estrela solitaria, ten unha soa estrela na bandeira e foi un país independente?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "En que continente se atopan os ríos Tigris e Éufrates?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Europa"
+	},
+	"trivia_beginner_094": {
+		"message": "En que continente se atopan o Lago Vitoria e as montañas Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "África"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asia"
+	},
+	"trivia_beginner_095": {
+		"message": "Que país é un país insular do Océano Pacífico?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nova Zelandia"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Sudáfrica"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_beginner_096": {
+		"message": "Que país se atopa na Península Escandinava?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Suecia"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Romanía"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Perú"
+	},
+	"trivia_beginner_097": {
+		"message": "Que país limita co Mar Mediterráneo?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Francia"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Que cidade estadounidense está máis preto da fronteira con Canadá?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Que cidade estadounidense é máis proclive a sufrir furacáns?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Os Ánxeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Cal destes lagos ten a maior superficie?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Lago Huron"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Lago Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Lago Erie"
+	},
+	"trivia_hard_004": {
+		"message": "Cal destas cidades de Estados Unidos é a máis poboada?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "San Luís"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianápolis"
+	},
+	"trivia_hard_005": {
+		"message": "Que país está máis cerca do Golfo Pérsico?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turquía"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bután"
+	},
+	"trivia_hard_006": {
+		"message": "Cal destes países ten máis superficie?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Casaquistán"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Romanía"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_hard_007": {
+		"message": "Cal destes países está máis poboado?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_008": {
+		"message": "Cal destes países ten maior número de falantes de alemán?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Iraq"
+	},
+	"trivia_hard_009": {
+		"message": "Cal destes países limita con máis países?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Arabia Saudita"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marrocos"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_010": {
+		"message": "Que país non limita co lago Tanganica?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benín"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Que país non está atravesado polo ecuador?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritania"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_hard_012": {
+		"message": "Que país non está situado na Península Balcánica?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "República Checa"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_hard_013": {
+		"message": "Que país non limita con Mar do Norte?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dinamarca"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Reino Unido"
+	},
+	"trivia_hard_014": {
+		"message": "Que  país non rodea o Mar Negro?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Acerbaixán"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ucraína"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turquía"
+	},
+	"trivia_hard_015": {
+		"message": "Que país non está rodeado de terra?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Croacia"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Belarús"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Hungría"
+	},
+	"trivia_hard_016": {
+		"message": "Que país non está situado no Sáhara?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Libia"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alxeria"
+	},
+	"trivia_hard_017": {
+		"message": "Que illa se atopa máis ao leste?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Xamaica"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_hard_018": {
+		"message": "Con que masa de auga limita o Cabo Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Mar Caribe"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_hard_019": {
+		"message": "Que cidade é un porto no Golfo de México?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Que país atravesa o Trópico de Cáncer?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Canadá"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_021": {
+		"message": "Cal destas illas ten maior superficie?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Illa de Baffin"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "A Española"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardeña"
+	},
+	"trivia_hard_022": {
+		"message": "O canal de Iucatán separa México dunha illa. De que illa se trata?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Cuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Porto Rico"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominica"
+	},
+	"trivia_hard_023": {
+		"message": "Que cidade canadense se atopa máis ao norte?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Que illa forma parte das Antillas Menores?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Illas Bermudas"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Escocia"
+	},
+	"trivia_hard_025": {
+		"message": "De que país é Porto Príncipe a cidade máis poboada?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haití"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_hard_026": {
+		"message": "Que país está no sistema montañoso dos Cárpatos?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Romanía"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albania"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkmenistán"
+	},
+	"trivia_hard_027": {
+		"message": "En que país é o francés un idioma oficial?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabón"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzania"
+	},
+	"trivia_hard_028": {
+		"message": "Cal destes países ten a área de terra máis grande?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Israel"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrain"
+	},
+	"trivia_hard_029": {
+		"message": "Que país abarca máis graos de lonxitude?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Casaquistán"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistán"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Siria"
+	},
+	"trivia_hard_030": {
+		"message": "Que país se compón de moitas illas?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipinas"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Camboxa"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Taxiquistán"
+	},
+	"trivia_hard_031": {
+		"message": "Cal destes países ten máis fusos horarios?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Que país se atopa máis ao norte?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Camerún"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambique"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Australia"
+	},
+	"trivia_hard_033": {
+		"message": "Que país está situado entre Francia e España?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxemburgo"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Cidade do Vaticano"
+	},
+	"trivia_hard_034": {
+		"message": "Con que país limita Dinamarca?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Alemaña"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavia"
+	},
+	"trivia_hard_035": {
+		"message": "A que país pertence a Illa de Sardeña?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turquía"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Reino Unido"
+	},
+	"trivia_hard_036": {
+		"message": "Que deserto cobre gran parte da área entre Beijing e Ulán Bátor?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Deserto de Thar"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Deserto de Libia"
+	},
+	"trivia_hard_037": {
+		"message": "De que océano forma parte a Corrente de Kamchatka?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_hard_038": {
+		"message": "O Golfo de Sidra atópase na parte sur dun mar. De que mar se trata?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Mar arábigo"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Mar Báltico"
+	},
+	"trivia_hard_039": {
+		"message": "As montañas de Tatra son as máis altas dun sistema montañoso europeo. De que sistema se trata?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Montes Cárpatos"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Cordilleira Cantábrica"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pireneos"
+	},
+	"trivia_hard_040": {
+		"message": "Que río flúe a través do Lago Kariba e forma a fronteira entre Zambia e Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Río Zambeze"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Río Nilo"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Río Congo"
+	},
+	"trivia_hard_041": {
+		"message": "En que mar desembocan os ríos Támese, Mosa e Escalda?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Mar do Norte"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Mar Negro"
+	},
+	"trivia_hard_042": {
+		"message": "O Estreito de Luzón separa as Filipinas dunha illa grande ao norte. De que illa se trata?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwán"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alxeria"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Que illas se atopan ao longo da Cordilleira do Atlántico?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azores"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "As Bahamas"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Illas Fixi"
+	},
+	"trivia_hard_044": {
+		"message": "Que río desemboca no Mar de Laptev?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Río Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Río Yangtsé"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Río Indo"
+	},
+	"trivia_hard_045": {
+		"message": "Que pico está más preto do ecuador?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Monte McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Que capital é a máis poboada?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moscova"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinqui"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alxer"
+	},
+	"trivia_hard_047": {
+		"message": "Que cidade, situada no río Liffey, é a máis grande da República de Irlanda?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublín"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Copenhague"
+	},
+	"trivia_hard_048": {
+		"message": "Que cidade, localizada nun val da rexión de Hindu Kush, é a máis grande de Afganistán?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Cabul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Saraxevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Que cidade, situada no río Chao Phraya, é a cidade máis grande de Tailandia?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Beijing"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amán"
+	},
+	"trivia_hard_050": {
+		"message": "Que cidade, situada no alto dun fiorde no Estreito de Skagerrak, é a máis grande de Noruega?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londres"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Bruxelas"
+	},
+	"trivia_hard_051": {
+		"message": "Que cidade, situada ao longo do este do Mar Mediterráneo, é a máis grande do Líbano?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirut"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadixo"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Riad"
+	},
+	"trivia_hard_052": {
+		"message": "Que cidade, situada na costa de Xava, é a máis grande de Indonesia?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Iacarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokyo"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Que cidade, localizada na rexión de Ática, é a máis grande de Grecia?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atenas"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Roma"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Que cidade, situada no estuario do Río da Prata, é a cidade máis grande de Uruguai?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Río de Xaneiro"
+	},
+	"trivia_hard_055": {
+		"message": "Que cidade, que formou parte da antiga provincia de Transvaal, é a cidade máis grande de Suráfrica?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Xohanesburgo"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Que cidade, que é un centro importante de comercio no Mar Caribe, é a cidade máis grande de Xamaica?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Bos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Que cidade, situada no Gran Val del Rift, é a máis grande de Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Que cidade, situada nas marxes do río Vístula, é a máis grande de Polonia?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varsovia"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kiev"
+	},
+	"trivia_hard_059": {
+		"message": "Que cidade, a cal é unha importante parada na Estrada Panamericana, é a cidade máis grande de Costa Rica?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San Xosé"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Que cidade, que é un importante centro de comercio agrícola no sur de África, é a máis grande de Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Que cidade, a cal foi ocupada polo réxime dos Khmers Vermellos, é a máis grande de Camboxa?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Que cidade, situada no Océano Atlántico no Cabo Mesurado, é a máis grande de Liberia?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Acra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaca"
+	},
+	"trivia_hard_063": {
+		"message": "Que cidade, situada nun altiplano dos Andes, é a máis grande de Colombia?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrei"
+	},
+	"trivia_hard_064": {
+		"message": "Que cidade, situada aos pés dos montes Elburz, é a máis grande de Irán?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teherán"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Tashkent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Que masa de auga atravesa o círculo polar ártico?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Mar de Noruega"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Lago Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Mar Caspio"
+	},
+	"trivia_hard_066": {
+		"message": "Que masa de auga se atopa no Gran Val del Rift?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Lago Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Mar de Tasmania"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Lago Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "A cidade portuaria rusa de Arkhangelsk atópase na beiramar dunha masa de auga. Cal é o seu nome?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Mar Branco"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Estreito de Bass"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Golfo de Biscaia"
+	},
+	"trivia_hard_068": {
+		"message": "Que país inclúe as provincias de Hunan e Shandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Tailandia"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Iemen"
+	},
+	"trivia_hard_069": {
+		"message": "En que país mediterráneo é o castelá a lingua oficial?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "España"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grecia"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Acerbaixán"
+	},
+	"trivia_hard_070": {
+		"message": "Que país centroamericano foi unha provincia de Colombia?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panamá"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "A cidade de Basilea, dividida polo río Rin, é un importante centro de transportes. En que país se atopa?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Suíza"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Bélxica"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusia"
+	},
+	"trivia_hard_072": {
+		"message": "Pintores como Cézanne inspiráronse na paisaxe da Provenza. En que país se atopa esta rexión?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Francia"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Países Baixos"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Romanía"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca é un punto importante de expedición na rexión de A Pampa. En que país se atopa?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Arxentina"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolivia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nicaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Que país está limitado polo Mar Mediterráneo, o Mar Negro e o Mar Exeo?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulgaria"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Libia"
+	},
+	"trivia_hard_075": {
+		"message": "Cada ano, os ñus emigran desde Tanzania a través do río Mara cara a un país veciño situado ao nordeste. De que país se trata?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenya"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Alepo, famosa pola Gran Mesquita, é a cidade máis grande dun país situado ao suroeste de Asia. De que país se trata?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Siria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omán"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_hard_077": {
+		"message": "Que país limita con Rusia e Xeorxia?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Acerbaixán"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbequistán"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Corea do Norte"
+	},
+	"trivia_hard_078": {
+		"message": "Que país limita con Panamá e Brasil?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Colombia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Perú"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Costa Rica"
+	},
+	"trivia_hard_079": {
+		"message": "Que país limita con Guatemala e Estados Unidos?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "O Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_hard_080": {
+		"message": "Que país limita con Iraq e Afganistán?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ucraína"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_hard_081": {
+		"message": "Que país limita con Lesoto e Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Sudáfrica"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Congo"
+	},
+	"trivia_hard_082": {
+		"message": "Amberes atópase na parte de fala flamenga dun país. De que país se trata?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Bélxica"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Países Baixos"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Islandia"
+	},
+	"trivia_hard_083": {
+		"message": "Gdansk é un porto importante situado preto da desembocadura do río Vístula. En que país europeo se atopa?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Polonia"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "España"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Croacia"
+	},
+	"trivia_hard_084": {
+		"message": "Os ríos Madeira e Purus son os principais afluentes dun río grande situado en América do Sur. De que río se trata?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Río Amazonas"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Río Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Río Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "O lago de Constanza limita con Suíza, Alemaña e outro país. De que país se trata?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austria"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finlandia"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, unha importante cidade portuaria con múltiples portos, é a cidade máis grande dun país. De que país se trata?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nova Zelandia"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Australia"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_087": {
+		"message": "Que país, situado ao oeste de Togo, é un importante produtor de cacao?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudán"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní é o nome dunha das linguas oficiais e tamén a moeda dun país de América do sur. De que país se trata?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguai"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ecuador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasil"
+	},
+	"trivia_hard_089": {
+		"message": "Que cordilleira se estende ao longo da fronteira entre Francia e España?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pireneos"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Montes Apeninos"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Montañas do Cáucaso"
+	},
+	"trivia_hard_090": {
+		"message": "O río Torrens desemboca no Golfo de San Vicente. En que país se atopa?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_hard_091": {
+		"message": "Que país africano limita co Mar Mediterráneo e é unha monarquía?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marrocos"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Exipto"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "República Centroafricana"
+	},
+	"trivia_hard_092": {
+		"message": "De que país é capital Tbilisi, situada nas marxes do río Kura?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Xeorxia"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Siria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Hungría"
+	},
+	"trivia_hard_093": {
+		"message": "Abruzzo é unha rexión montañosa situada no Mar Adriático. En que país se atopa?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Italia"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Francia"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxemburgo"
+	},
+	"trivia_hard_094": {
+		"message": "O Golfo de Riga limita con Letonia e con outro país. De que país se trata?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Belarús"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "España"
+	},
+	"trivia_hard_095": {
+		"message": "Con que mar conecta o Estreito de Xubal o Golfo de Suez?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Mar Vermello"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Mar Caribe"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Mar Caspio"
+	},
+	"trivia_hard_096": {
+		"message": "De que río son as augas que derivan principalmente no Mar de Galilea?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Río Xordán"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Daria"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Río Ganges"
+	},
+	"trivia_hard_097": {
+		"message": "Que gran baía separa Novo Brunswick de Nova Escocia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Baía de Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Baía de Hudson"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Golfo de Bengala"
+	},
+	"trivia_hard_098": {
+		"message": "A catedral de Colonia está na rexión de Renania. En que país se atopa?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Alemaña"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dinamarca"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Paquistán"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, sede de varias antigas ruínas maias, é o estado máis meridional dun país. De que país se trata?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "México"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Os Dardanelos é un estreito angosto que une o Mar de Mármara con outro mar. De que mar se trata?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Mar Exeo"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Mar de Barents"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Mar de Tasmania"
+	},
+	"trivia_hard_101": {
+		"message": "De que país do sueste asiático é o khmer o idioma oficial?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Camboxa"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "A cunca do Donets é unha zona industrial compartida por Rusia e por outro país. De que país se trata?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ucraína"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Líbano"
+	},
+	"trivia_hard_103": {
+		"message": "O Monte Kosciuszko, situado nas Snowy Mountains, é o pico máis alto dun continente. De que continente se trata?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Australia"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Europa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_hard_104": {
+		"message": "De que país forman parte as illas de Madura e Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Xapón"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Paquistán"
+	},
+	"trivia_hard_105": {
+		"message": "O deserto de Taklamakán está ao norte da cordilleira Kunlun. En que país asiático se atopa?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "China"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Arabia Saudita"
 	},
 	"trivia_hard_105_answer2": {
 		"message": "Corea do Sur"
 	},
+	"trivia_medium_001": {
+		"message": "Cal destas cidades dos Estados Unidos se atopa no delta dun río?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "Nova Orleáns"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat e Capadocia son sitios do Patrimonio Mundial da UNESCO. En que continente se atopan?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "África"
+	},
+	"trivia_medium_003": {
+		"message": "O kurdo e o persa son idiomas que se falan na parte suroeste dun continente. De que continente se trata?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_004": {
+		"message": "Teotihuacán foi o gran centro dunha civilización temperá. En que continente estaba?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "América do Norte"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_005": {
+		"message": "Con que continente limitan o Mar de Bellingshausen e o Mar de Ross?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antártida"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_006": {
+		"message": "As correntes de Mozambique e Benguela flúen ao longo da costa dun continente. De que continente se trata?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "África"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Europa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "América do Norte"
+	},
+	"trivia_medium_007": {
+		"message": "O arquipélago das Illas Malvinas, tamén chamadas Falkland Islands, atópase no bordo sueste dun continente. De que continente se trata?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_008": {
+		"message": "Cal destes países africanos ten máis superficie?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alxeria"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Que gran illa se atopa 320 quilómetros ao noroeste de Islandia?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Groenlandia"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nova Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_010": {
+		"message": "De que océano forman parte o Mar de Kara e o Mar de Siberia Oriental?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Océano Ártico"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Océano Índico"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_medium_011": {
+		"message": "Que país limita co Mar Báltico?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Letonia"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Eslovenia"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ucraína"
+	},
+	"trivia_medium_012": {
+		"message": "Cal destas grandes cidades é a máis poboada?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "São Paulo, Brasil"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Canadá"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Que país non ten costa no océano Atlántico?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malaisia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguai"
+	},
+	"trivia_medium_014": {
+		"message": "Cal destes países ten menos costa?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "O Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Perú"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Que deserto se atopa en Asia?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Cal destes países sofre máis a actividade volcánica?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Exipto"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Israel"
+	},
+	"trivia_medium_017": {
+		"message": "Cal destes países ten maior poboación?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Paquistán"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Cal destes países ten máis illas?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "As Bahamas"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Xamaica"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "O Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Que país se atopa máis preto do ecuador?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Ruanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Sudáfrica"
+	},
+	"trivia_medium_020": {
+		"message": "Que país se atopa máis ao norte?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estonia"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Libia"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Camboxa"
+	},
+	"trivia_medium_021": {
+		"message": "O barrio de Alfama atópase en Portugal, nas marxes do río Texo. En que capital se encontra?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisboa"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinqui"
+	},
+	"trivia_medium_022": {
+		"message": "Que capital, situada 40 quilómetros ao nordeste do Mar Morto, é a cidade máis poboada de Xordania?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amán"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seúl"
+	},
+	"trivia_medium_023": {
+		"message": "En que capital se atopa a praza Tahrir, punto central de varias das principais protestas en Exipto?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "O Cairo"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "Que capital, situada na Baía da Mesa, é a sede do parlamento nacional de Sudáfrica?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Cidade do Cabo"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaca"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Situada na ribeira do río Moldava, que capital é a cidade máis grande da República Checa?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praga"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublín"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofía"
+	},
+	"trivia_medium_026": {
+		"message": "Que capital, situada no Mar Mediterráneo, é un porto importante para Libia?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Trípoli"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadixo"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Que capital, que é un importante centro de comercio e transporte en Sudán, se atopa no cruce dos ríos Nilo Branco e Nilo Azul?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Khartún"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunes"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Xohanesburgo"
+	},
+	"trivia_medium_028": {
+		"message": "Que capital se atopa nas illas danesas de Zelandia e Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Copenhague"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Berna"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Que capital, situada na Illa de Nova Providencia, é a cidade máis grande das Bahamas?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopán"
+	},
+	"trivia_medium_030": {
+		"message": "Situada ao sur do Mar Negro, que capital é o centro do sistema de transportes de Turquía?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ancara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teherán"
+	},
+	"trivia_medium_031": {
+		"message": "Cal destes países está parcialmente situado no Corno de África?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Níxer"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Suazilandia"
+	},
+	"trivia_medium_032": {
+		"message": "O Estreito de Skagerrak separa Dinamarca doutro país. De que país se trata?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Noruega"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Sri Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Que país ten máis superficie cuberta por deserto?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Chad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Noruega"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Por que país flúe o río Éufrates?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Siria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Suíza"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_035": {
+		"message": "A cidade de Irkutsk está preto do lago Baikal. En que  continente se atopa?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_036": {
+		"message": "De que continente son os importantes ríos Dniéper e Rin?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Europa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antártida"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asia"
+	},
+	"trivia_medium_037": {
+		"message": "En que continente se atopan o Escudo guaianés e a rexión do Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "América do Norte"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_038": {
+		"message": "O Gran Deserto de Vitoria e a chaira de Nullarbor son accidentes xeográficos dun continente. De que continente se trata?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_039": {
+		"message": "De que país é Río Grande do Sur o estado máis meridional?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "México"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Alemaña"
+	},
+	"trivia_medium_040": {
+		"message": "A cidade de Novosibirsk está xunto ao río Obi. En que país se encontra?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "China"
+	},
+	"trivia_medium_041": {
+		"message": "Que país se atopa na costa do Pacífico e é máis proclive a experimentar terremotos?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Francia"
+	},
+	"trivia_medium_042": {
+		"message": "O lago de Maracaibo atópase ao longo da costa norte dun país. De que país se trata?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_043": {
+		"message": "Que país limita co Mar Arábigo?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Taxiquistán"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_044": {
+		"message": "Que país está situado na Península Ibérica?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Países Baixos"
+	},
+	"trivia_medium_045": {
+		"message": "Cal destes países ten máis costa?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Congo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Qatar"
+	},
+	"trivia_medium_046": {
+		"message": "Que estado de Estados Unidos se atopa ao oeste do Río Misisipi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "O bosques cobren aproximadamente o 60 % dun estado dos EUA. De que estado se trata?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virxinia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "En que estado dos EUA se atopa o Monte McKinley, o pico máis alto de América do Norte?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alasca"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Cal destes estados dos Estados Unidos ten máis superficie?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Carolina do Sur"
+	},
+	"trivia_medium_050": {
+		"message": "O monte Rushmore está preto de Rapid City. En que estado dos EUA se atopa?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Dakota do Sur"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregón"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Que estado dos EUA comparte fronteira con Canadá?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebrasca"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Os arrecifes de coral atópanse fronte ás costas dun estado dos EUA. De cal se trata?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawai"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "De que país é Hamburgo un importante porto?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Alemaña"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Croacia"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Bélxica"
+	},
+	"trivia_medium_054": {
+		"message": "Que país experimenta máis actividade volcánica?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Islandia"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Reino Unido"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Polonia"
+	},
+	"trivia_medium_055": {
+		"message": "Que país se encontra principalmente na península de Asia Menor?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Birmania"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estonia"
+	},
+	"trivia_medium_056": {
+		"message": "O Mar Morto forma parte da fronteira entre Israel e outro país. De que país se trata?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Xordania"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Xapón"
+	},
+	"trivia_medium_057": {
+		"message": "O Parque Nacional do Serengeti atópase ao este do Lago Vitoria. En que país se atopa?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzania"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Iemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nixeria"
+	},
+	"trivia_medium_058": {
+		"message": "Que país limita co Mar Caribe e é un importante exportador de petróleo?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguai"
+	},
+	"trivia_medium_059": {
+		"message": "Que país rodeado de terra se atopa xusto ao sur do ecuador?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djibuti"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisia"
+	},
+	"trivia_medium_060": {
+		"message": "Con que país mediterráneo limita o Mar Tirreno?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Italia"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Israel"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Ekaterimburgo está nas ladeiras orientais dos Montes Urais. En que país se atopa?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Lituania"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Bélxica"
+	},
+	"trivia_medium_062": {
+		"message": "Que país insular se atopa ao sueste de Australia e é un importante produtor de la?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nova Zelandia"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipinas"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "De que país é Mumbai unha importante cidade portuaria?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Suíza"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bután"
+	},
+	"trivia_medium_064": {
+		"message": "A cidade de Incheon está no Mar Amarelo. En que país se atopa?"
+	},
 	"trivia_medium_064_answer0": {
 		"message": "Corea do Sur"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Tailandia"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolia"
+	},
+	"trivia_medium_065": {
+		"message": "Que pequeno país se atopa na fronteira occidental de Austria?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Siria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavia"
+	},
+	"trivia_medium_066": {
+		"message": "Vitoria e Nova Gales do Sur son dous estados. En que país se atopan?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Estados Unidos"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_067": {
+		"message": "Que país da Illa de Borneo limita co pequeno país de Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malaisia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ucraína"
+	},
+	"trivia_medium_068": {
+		"message": "Os Alpes Xulianos atópanse na fronteira entre Italia e outro país. De que país se trata?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Eslovenia"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Taxiquistán"
+	},
+	"trivia_medium_069": {
+		"message": "Unha rexión antes coñecida como Manchuria atópase na parte nordeste dun país. De que país se trata?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "China"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Belarús"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistán"
+	},
+	"trivia_medium_070": {
+		"message": "Que país limita con O Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panamá"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "República Dominicana"
+	},
+	"trivia_medium_071": {
+		"message": "Que país se atopa nas Montañas do Cáucaso?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Xeorxia"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Hungría"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "O Estreito de Sunda separa dúas illas dun país asiático. De que país se trata?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonesia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nova Zelandia"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Preto da desembocadura do río Shannon, pódense ver vales de glaciares e acantilados espectaculares. En que país?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Irlanda"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Francia"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbequistán"
+	},
+	"trivia_medium_074": {
+		"message": "Por que país do Sur de Asia flúe o río Indo?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Paquistán"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Corea do Norte"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Acerbaixán"
+	},
+	"trivia_medium_075": {
+		"message": "Que país limita co Mar Vermello?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenya"
+	},
+	"trivia_medium_076": {
+		"message": "A que país pertencen os estados de Zacatecas e Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "México"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Arxentina"
+	},
+	"trivia_medium_077": {
+		"message": "En que país se atopa Riad, unha cidade con máis de 4 000 mesquitas?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Arabia Saudita"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albania"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Siria"
+	},
+	"trivia_medium_078": {
+		"message": "Que país africano está rodeado de terra?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritania"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Exipto"
+	},
+	"trivia_medium_079": {
+		"message": "En que país é o monte Fuji un lugar sagrado?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Xapón"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipinas"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladesh"
+	},
+	"trivia_medium_080": {
+		"message": "Que país das Grandes Antillas ten o inglés como lingua oficial?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Xamaica"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haití"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Cuba"
+	},
+	"trivia_medium_081": {
+		"message": "Cal é o idioma oficial de Siria, Kuwait e Alxeria?"
 	},
 	"trivia_medium_081_answer0": {
 		"message": "Árabe"
@@ -116,6 +6503,276 @@
 	"trivia_medium_081_answer2": {
 		"message": "Alemán"
 	},
+	"trivia_medium_082": {
+		"message": "As óperas de Mozart escenifícanse xeralmente durante o festival anual celebrado en Salsburgo. En que país europeo e montañoso se atopa esta cidade?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austria"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Hungría"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Romanía"
+	},
+	"trivia_medium_083": {
+		"message": "O Val das Baleas, un deserto cheo de restos fosilizados de baleas prehistóricas, atópase nun país do norte de Sudán. De que país se trata?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Exipto"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nixeria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "Róterdam está nun delta, preto do Mar do Norte. En que país europeo se atopa?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Países Baixos"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Suecia"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grecia"
+	},
+	"trivia_medium_085": {
+		"message": "O río Brahmaputra, que desemboca nun gran delta, preto da Baía de Bengala, ten a súa orixe nun gran sistema montañoso. Cal é o nome dese sistema?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalaia"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Montes Urais"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpes"
+	},
+	"trivia_medium_086": {
+		"message": "De que país islámico é o idioma oficial o farsi, tamén coñecido como persa?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Irán"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuwait"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Libia"
+	},
+	"trivia_medium_087": {
+		"message": "A xente ve os matadores nas corridas de touros de Sevilla, en que país europeo se atopa esta cidade?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "España"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Alemaña"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedonia"
+	},
+	"trivia_medium_088": {
+		"message": "En que país se atopa a cidade de Istanbul, considerada un lugar de encontro das culturas orientais e occidentais?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turquía"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Eslovaquia"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omán"
+	},
+	"trivia_medium_089": {
+		"message": "A cidade maia de Copán é unha atracción turística popular situada nun país que limita con O Salvador e Nicaragua. De que país se trata?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Canadá"
+	},
+	"trivia_medium_090": {
+		"message": "Tombouctou, un centro de comercio de caravanas durante case mil anos, atópase no norte do río Níxer. En que país rodeado de terra se encontra?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibia"
+	},
+	"trivia_medium_091": {
+		"message": "Que país sudamericano rodeado de terra limita con Chile e Brasil?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolivia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Colombia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Güiana"
+	},
+	"trivia_medium_092": {
+		"message": "A cidade de Belén atópase na desembocadura sur do Río Amazonas. En que país se atopa?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasil"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Costa Rica"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Suriname"
+	},
+	"trivia_medium_093": {
+		"message": "Que río forma unha gran parte da fronteira norte de Bulgaria?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Río Danubio"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Río Obi"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Río Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "As montañas de Sayan están situadas preto do Lago Baikal. En que país asiático se atopan?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusia"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirguizistán"
+	},
+	"trivia_medium_095": {
+		"message": "O lago Nipigon é o máis grande dunha provincia canadense. De que provincia se trata?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Columbia Británica"
+	},
+	"trivia_medium_096": {
+		"message": "De que mar maior forman parte o Mar Balear e o Mar Xónico?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Mar Mediterráneo"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Mar Báltico"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Mar Caribe"
+	},
+	"trivia_medium_097": {
+		"message": "En que continente se atopan os lagos Turkana e Natron, dous dos lagos situados no Vale do Rift?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "África"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Europa"
+	},
+	"trivia_medium_098": {
+		"message": "A fosa de Porto Rico é o punto máis profundo dun océano. De que océano se trata?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Océano Atlántico"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Océano Ártico"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Océano Pacífico"
+	},
+	"trivia_medium_099": {
+		"message": "Os paxaros cucaburras son orixinarios dos bosques de eucalipto na parte oriental dun continente. De que continente se trata?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Australia"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "África"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "América do Sur"
+	},
+	"trivia_medium_100": {
+		"message": "A Haia, sede da Corte Internacional de Xustiza, é unha cidade situada na costa oeste dun país europeo. De que país se trata?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Países Baixos"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finlandia"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulgaria"
+	},
+	"trivia_ngb_promo": {
+		"message": "Contido de National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwán"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzania"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Reino Unido"
+	},
+	"uk_tradition": {
+		"message": "No Reino Unido, festeiros de todas as idades desfrutan dos \"crackers\" no día de Nadal. Son tubos envoltos en papel de cores con pestanas en cada extremo. Cando tiran delas, estoupan cun forte estralo. Dentro deles hai sombreiros de papel, xoguetes, bromas e premios para gozar do Nadal."
+	},
+	"unmute": {
+		"message": "Activar o son"
+	},
+	"upgrade-warning": {
+		"message": "Vaia! Parece que o teu navegador non é compatible con Sigue a Papá Noel ou que tes JavaScript desactivado. Para acceder ao sitio web, descarga un navegador máis recente ou activa JavaScript.\nSe queres obter máis información, visita a ligazón \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Estados Unidos"
+	},
+	"us_tradition": {
+		"message": "Nos Estados Unidos, cólganse calcetíns en Noiteboa. A lenda di que San Nicolás escoitou que había unha familia necesitada. Para sorprendelos, baixou pola súa cheminea e colocou bolsas preciosas de ouro nos calcetíns que había colgados. Desde entón, coñécese como Papá Noel, o repartidor de agasallos."
+	},
+	"uy_country_name": {
+		"message": "Uruguai"
+	},
+	"uz_country_name": {
+		"message": "Uzbequistán"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
 	"village_assistant-call_santa": {
 		"message": "Asistente de Google: Chamar a Papá Noel"
 	},
@@ -124,5 +6781,83 @@
 	},
 	"village_assistant-wheres_santa": {
 		"message": "Asistente de Google: Onde está Papá Noel?"
+	},
+	"village_comeback": {
+		"message": "Volve en Noiteboa e axúdanos a seguir a Papá Noel toda a noite!"
+	},
+	"village_explore": {
+		"message": "Explora, xoga e aprende cos elfos de Papá Noel durante todo o mes de decembro"
+	},
+	"village_get_the_app": {
+		"message": "Descarga a aplicación para Android Sigue a Papá Noel"
+	},
+	"village_more": {
+		"message": "Máis formas de explorar"
+	},
+	"village_santa_a2hs": {
+		"message": "Engadir á pantalla de inicio"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Engadir ao estante"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Engadir ao escritorio"
+	},
+	"village_santa_cardboard": {
+		"message": "Papá Noel en Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Papá Noel en Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Engadir a extensión de Chrome de Papá Noel"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Test de Papá Noel sobre a Terra"
+	},
+	"village_santa_install": {
+		"message": "Instalar"
+	},
+	"village_takesoff": {
+		"message": "Papá Noel despega en"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Ver"
+	},
+	"wrapbattle_combo": {
+		"message": "Bo combo!"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Ben"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Fallaches"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "Aceptar"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfecto"
+	},
+	"ye_country_name": {
+		"message": "Iemen"
+	},
+	"yourbest": {
+		"message": "Mellor puntuación"
+	},
+	"zh-CN_language_name": {
+		"message": "Chinés (simplificado)"
+	},
+	"zh-TW_language_name": {
+		"message": "Chinés (tradicional)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

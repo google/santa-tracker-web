@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Изследване"
 	},
+	"explore-village": {
+		"message": "Разглеждане на селцето на Дядо Коледа"
+	},
 	"fi_country_name": {
 		"message": "Финландия"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "словашки"
+	},
+	"skip-intro": {
+		"message": "Пропускане на въведението"
 	},
 	"skip-training": {
 		"message": "Пропускане на обучението"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "турски"
+	},
+	"tracker-game_awesome": {
+		"message": "Играйте „Острова на съкровищата“"
 	},
 	"tracker_arrival": {
 		"message": "Пристигане"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Гледайте"
+	},
+	"watch-video": {
+		"message": "Гледайте видеоклип"
 	},
 	"wrapbattle_combo": {
 		"message": "Чудесна комбинация"

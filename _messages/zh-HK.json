@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探索"
 	},
+	"explore-village": {
+		"message": "探索聖誕老人村"
+	},
 	"fi_country_name": {
 		"message": "芬蘭"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克文"
+	},
+	"skip-intro": {
+		"message": "略過簡介"
 	},
 	"skip-training": {
 		"message": "略過教學"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "土耳其文"
+	},
+	"tracker-game_awesome": {
+		"message": "前往「寶藏之塔」"
 	},
 	"tracker_arrival": {
 		"message": "抵達"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "觀看"
+	},
+	"watch-video": {
+		"message": "觀看影片"
 	},
 	"wrapbattle_combo": {
 		"message": "眼明手快！"

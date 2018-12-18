@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Khám phá"
 	},
+	"explore-village": {
+		"message": "Khám phá ngôi làng của ông già Noel"
+	},
 	"fi_country_name": {
 		"message": "Phần Lan"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Tiếng Slovak"
+	},
+	"skip-intro": {
+		"message": "Bỏ qua đoạn giới thiệu"
 	},
 	"skip-training": {
 		"message": "Bỏ qua hướng dẫn chơi"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Tiếng Thổ Nhĩ Kỳ"
+	},
+	"tracker-game_awesome": {
+		"message": "Chơi trò Tháp châu báu"
 	},
 	"tracker_arrival": {
 		"message": "Điểm đến"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Xem"
+	},
+	"watch-video": {
+		"message": "Xem video"
 	},
 	"wrapbattle_combo": {
 		"message": "Bộ đôi ngọt ngào"

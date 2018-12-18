@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "สำรวจ"
 	},
+	"explore-village": {
+		"message": "สำรวจหมู่บ้านซานต้า"
+	},
 	"fi_country_name": {
 		"message": "ฟินแลนด์"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "ภาษาสโลวัก"
+	},
+	"skip-intro": {
+		"message": "ข้ามช่วงแนะนำ"
 	},
 	"skip-training": {
 		"message": "ข้ามการฝึก"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "ภาษาตุรกี"
+	},
+	"tracker-game_awesome": {
+		"message": "เล่น Tower of Treasure"
 	},
 	"tracker_arrival": {
 		"message": "เที่ยวบินขาเข้า"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "ดู"
+	},
+	"watch-video": {
+		"message": "ดูวิดีโอ"
 	},
 	"wrapbattle_combo": {
 		"message": "สวีทคอมโบ"

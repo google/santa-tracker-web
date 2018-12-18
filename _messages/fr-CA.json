@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorer"
 	},
+	"explore-village": {
+		"message": "Visiter le village du père Noël"
+	},
 	"fi_country_name": {
 		"message": "Finlande"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovaque"
+	},
+	"skip-intro": {
+		"message": "Passer l'intro"
 	},
 	"skip-training": {
 		"message": "Ignorer la formation"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turque"
+	},
+	"tracker-game_awesome": {
+		"message": "Jouer à La tour des trésors"
 	},
 	"tracker_arrival": {
 		"message": "Arrivée"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Regarder"
+	},
+	"watch-video": {
+		"message": "Regarder la vidéo"
 	},
 	"wrapbattle_combo": {
 		"message": "Joli combo"

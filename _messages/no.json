@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Utforsk"
 	},
+	"explore-village": {
+		"message": "Gjør deg kjent i julenissens landsby"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakisk"
+	},
+	"skip-intro": {
+		"message": "Hopp over introen"
 	},
 	"skip-training": {
 		"message": "Hopp over opplæringen"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Tyrkisk"
+	},
+	"tracker-game_awesome": {
+		"message": "Spill Skattetårnet"
 	},
 	"tracker_arrival": {
 		"message": "Ankomst"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Se"
+	},
+	"watch-video": {
+		"message": "Se videoen"
 	},
 	"wrapbattle_combo": {
 		"message": "Bra kombinasjon"

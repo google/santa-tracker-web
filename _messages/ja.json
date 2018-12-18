@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探す"
 	},
+	"explore-village": {
+		"message": "サンタ村を訪れる"
+	},
 	"fi_country_name": {
 		"message": "フィンランド"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "スロバキア語"
+	},
+	"skip-intro": {
+		"message": "イントロをスキップ"
 	},
 	"skip-training": {
 		"message": "トレーニングをスキップ"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "トルコ語"
+	},
+	"tracker-game_awesome": {
+		"message": "「Tower of Teasure」をプレイする"
 	},
 	"tracker_arrival": {
 		"message": "到着情報"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "見る"
+	},
+	"watch-video": {
+		"message": "動画を見る"
 	},
 	"wrapbattle_combo": {
 		"message": "スイートコンボ"

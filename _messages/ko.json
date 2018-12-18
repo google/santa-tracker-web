@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "탐색"
 	},
+	"explore-village": {
+		"message": "산타마을 살펴보기"
+	},
 	"fi_country_name": {
 		"message": "핀란드"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "슬로바키아어"
+	},
+	"skip-intro": {
+		"message": "소개 건너뛰기"
 	},
 	"skip-training": {
 		"message": "학습 건너뛰기"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "터키어"
+	},
+	"tracker-game_awesome": {
+		"message": "보물의 탑 플레이"
 	},
 	"tracker_arrival": {
 		"message": "도착"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "보기"
+	},
+	"watch-video": {
+		"message": "동영상 보기"
 	},
 	"wrapbattle_combo": {
 		"message": "콤보 완료"

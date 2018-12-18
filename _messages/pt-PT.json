@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorar"
 	},
+	"explore-village": {
+		"message": "Explorar Aldeia do Pai Natal"
+	},
 	"fi_country_name": {
 		"message": "Finlândia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-intro": {
+		"message": "Ignorar introdução"
 	},
 	"skip-training": {
 		"message": "Ignorar formação"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Jogar Torre do tesouro"
 	},
 	"tracker_arrival": {
 		"message": "Chegada"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Ver"
+	},
+	"watch-video": {
+		"message": "Ver vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "Excelente combinação"

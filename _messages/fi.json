@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Tutustu"
 	},
+	"explore-village": {
+		"message": "Tutustu Joulupukin kylään"
+	},
 	"fi_country_name": {
 		"message": "Suomi"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovakki"
+	},
+	"skip-intro": {
+		"message": "Ohita intro"
 	},
 	"skip-training": {
 		"message": "Ohita opastus"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "turkki"
+	},
+	"tracker-game_awesome": {
+		"message": "Pelaa Aarretornia"
 	},
 	"tracker_arrival": {
 		"message": "Saapuvat"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Katso"
+	},
+	"watch-video": {
+		"message": "Katso video"
 	},
 	"wrapbattle_combo": {
 		"message": "Mahtikombo"

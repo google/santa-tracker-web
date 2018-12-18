@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Izpētīt"
 	},
+	"explore-village": {
+		"message": "Izpētīt Ziemassvētku vecīša ciematu"
+	},
 	"fi_country_name": {
 		"message": "Somija"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovāku"
+	},
+	"skip-intro": {
+		"message": "Izlaist ievadu"
 	},
 	"skip-training": {
 		"message": "Izlaist apmācību"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turku"
+	},
+	"tracker-game_awesome": {
+		"message": "Spēlēt spēli “Dārgumu tornis”"
 	},
 	"tracker_arrival": {
 		"message": "Ielidošana"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Skatīties"
+	},
+	"watch-video": {
+		"message": "Skatīties videoklipu"
 	},
 	"wrapbattle_combo": {
 		"message": "Veiksmīga kombinācija"

@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Jelajahi"
 	},
+	"explore-village": {
+		"message": "Jelajahi Desa Sinterklas"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakia"
+	},
+	"skip-intro": {
+		"message": "Lewati intro"
 	},
 	"skip-training": {
 		"message": "Lewati Pelatihan"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turki"
+	},
+	"tracker-game_awesome": {
+		"message": "Mainkan game Menara Harta"
 	},
 	"tracker_arrival": {
 		"message": "Kedatangan"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Tonton"
+	},
+	"watch-video": {
+		"message": "Tonton Video"
 	},
 	"wrapbattle_combo": {
 		"message": "Kombo hebat"

@@ -1,39 +1,771 @@
 {
+	"about-content-one": {
+		"message": "Na Štedrý večer s hrdosťou predstavíme Santov hlavný panel, technológiu, ktorá poháňa jeho sane počas cesty okolo sveta. Túto špeciálnu ukážku sme dostali od jedného z mnohých Santových škriatkov vývojárov, ktorí na severnom póle ťažko pracujú, aby Santovi pomohli pripraviť sa na jeho veľký deň. Santov hlavný panel, ktorý zahŕňa najnovšiu a najlepšiu konštrukciu saní a technológiu v rámci Máp Google, vám umožní sledovať, ako vo svojej ceste okolo sveta postupuje, a môžete tiež získať nejaké informácie o miestach, kde sa po ceste zastavuje."
+	},
+	"about-content-three": {
+		"message": "Aplikáciu Kde je Santa v Mapách Google vytvorila a vyvinula spoločnosť Google s pomocou Santových škriatkov. Potrebujete pomoc alebo máte nejaké otázky? Navštívte naše \u003ca href=\"//support.google.com/santatracker\"\u003ecentrum pomoci\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Naši priateľskí škriatkovia vás tiež pozývajú preskúmať Santovu dedinu, kým sa Santa pripraví na cestu. Tak do toho, pri skúmaní dediny možno objavíte nejaké zábavné aktivity a stretnete zaujímavých škriatkov."
+	},
+	"about-santa": {
+		"message": "Informácie"
+	},
+	"about_title": {
+		"message": "Vitajte v aplikácii Kde je Santa v Mapách Google!"
+	},
+	"ae_country_name": {
+		"message": "Spojené arabské emiráty"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albánsko"
+	},
+	"ao_country_name": {
+		"message": "Angola"
+	},
+	"ar_country_name": {
+		"message": "Argentína"
+	},
 	"ar_language_name": {
 		"message": "Arabčina"
+	},
+	"ar_tradition": {
+		"message": "V Argentíne Vianoce začínajú presne o polnoci. Mnohé rodiny začínajú sviatky usporiadaním slávnostných osláv u seba doma, otváraním darčekov s najbližšími a zapaľovaním ohňostrojov v skorých ranných hodinách."
+	},
+	"at_country_name": {
+		"message": "Rakúsko"
+	},
+	"au_country_name": {
+		"message": "Austrália"
+	},
+	"au_tradition": {
+		"message": "Austrália sa nachádza na južnej hemisfére, čo znamená, že v decembri je tam leto. Namiesto saní so zvončekmi a čokolády chodia mnohí Austrálčania na pláž, aby si na sviatky na obed vychutnali krevety a niekoľko zápasov kriketu."
+	},
+	"ba_country_name": {
+		"message": "Bosna a Hercegovina"
+	},
+	"back_to_previous_page": {
+		"message": "Späť"
+	},
+	"back_to_tracker": {
+		"message": "Späť na aplikáciu Kde je Santa"
+	},
+	"bd_country_name": {
+		"message": "Bangladéš"
+	},
+	"be_country_name": {
+		"message": "Belgicko"
+	},
+	"bf_country_name": {
+		"message": "Burkina Faso"
+	},
+	"bg_country_name": {
+		"message": "Bulharsko"
+	},
+	"bj_country_name": {
+		"message": "Benin"
+	},
+	"bo_country_name": {
+		"message": "Bolívia"
+	},
+	"br_country_name": {
+		"message": "Brazília"
+	},
+	"br_tradition": {
+		"message": "Vianočné oslavy začínajú tesne pred polnocou zvyčajne veľkou rodinnou večerou, otváraním darčekov a polnočnou omšou v kostoloch. Napriek teplému tropickému letu nie sú výnimočné ani témy zimy a snehu."
+	},
+	"bt_country_name": {
+		"message": "Bhután"
+	},
+	"bw_country_name": {
+		"message": "Botswana"
+	},
+	"by_country_name": {
+		"message": "Bielorusko"
+	},
+	"bz_country_name": {
+		"message": "Belize"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Deti v Kanade zvyčajne oslavujú zasnežené, biele Vianoce. Zababušia sa do šálov a vlnených čiapok, tzv. „toque“, aby sa mohli hrať v snehu, korčuľovať na ľade a sánkovať sa. Na Štedrý deň nechávajú pre Santu pri kozube mlieko a sušienky (a niekedy aj mrkvu pre jeho soby)."
+	},
+	"calendar": {
+		"message": "Kalendár"
+	},
+	"category_all": {
+		"message": "Zobraziť všetko"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Kód"
+	},
+	"category_computer-science": {
+		"message": "Počítačová veda"
+	},
+	"category_draw": {
+		"message": "Kresliť"
+	},
+	"category_education": {
+		"message": "Zamerané na vzdelanie"
+	},
+	"category_geography": {
+		"message": "Geografia"
+	},
+	"category_language": {
+		"message": "Jazyk"
+	},
+	"category_listen": {
+		"message": "Počúvať"
+	},
+	"category_new-this-year": {
+		"message": "Tohtoročné novinky"
+	},
+	"category_send": {
+		"message": "Odoslať"
+	},
+	"category_social-studies": {
+		"message": "Náuka o spoločnosti"
+	},
+	"cd_country_name": {
+		"message": "Konžská demokratická republika"
+	},
+	"cf_country_name": {
+		"message": "Stredoafrická republika"
+	},
+	"cg_country_name": {
+		"message": "Konžská republika"
+	},
+	"ch_country_name": {
+		"message": "Švajčiarsko"
+	},
+	"ci_country_name": {
+		"message": "Pobrežie Slonoviny"
+	},
+	"citylights-contribute": {
+		"message": "Pridajte svoje vlastné fotky miesta {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York City, USA"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Puškinovo námestie"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Rusko"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Rathausplatz"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Viedeň, Rakúsko"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Od Champs-Elysees k Víťaznému oblúku"
+	},
+	"citylights-panorama-04-location": {
+		"message": "Paríž, Francúzsko"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Veľkolepá míľa"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, USA"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Vianočné trhy"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nuremberg, Nemecko"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Rieka Medellin"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellin, Kolumbia"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Dedina Santa Clausa"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Laponsko, Fínsko"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand-Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brusel, Belgicko"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar Square"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Londýn, Anglicko"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Španielsko"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi Hills"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tokio, Japonsko"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Záhrady Tivoli"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kodaň, Dánsko"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapur, Singapur"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Cesta svetla"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gothenburg, Švédsko"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Zimný festival svetiel"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagarské vodopády, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Zimný festival"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hongkong, Čína"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Jazero Rodrigo de Freitas"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brazília"
+	},
+	"cl_country_name": {
+		"message": "Čile"
+	},
+	"clear": {
+		"message": "Jasno"
+	},
+	"close": {
+		"message": "Zavrieť"
+	},
+	"cm_country_name": {
+		"message": "Kamerun"
+	},
+	"co_country_name": {
+		"message": "Kolumbia"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Späť na začiatok"
+	},
+	"codeboogie-block-clap": {
+		"message": "Tlesknutie"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Tlesknime."
+	},
+	"codeboogie-block-jump": {
+		"message": "Vyskočiť"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Vyskočme."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Ukázať vľavo"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Ukážme vľavo."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Krok vľavo"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Urobme krok vľavo."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Ukázať vpravo"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Ukážme vpravo."
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Krok vpravo"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Urobme krok vpravo."
+	},
+	"codeboogie-block-shake": {
+		"message": "Trasenie bokmi"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Zatrasme bokmi."
+	},
+	"codeboogie-block-split": {
+		"message": "Rozdeliť"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Spravme roznožku."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Vyberte herný mód"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Vyberte miesto"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Tancujte!"
+	},
+	"codeboogie-go": {
+		"message": "Prejsť"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Ďalej tancovať"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Poďme tancovať"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Tanečný kurz"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Pohybujte sa rovnako ako učiteľ"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Tanečný freestyle"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Postupujte ako len chcete a zdieľajte to s priateľmi"
+	},
+	"codeboogie-next-dance": {
+		"message": "Ďalší tanec"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Výborne!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Ak chcete presne okopírovať tanečné pohyby, skúste blok nižšie."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Vedeli ste, že môžete tanec dokončiť aj s iba {{ideal}} blokmi? Skúste použiť blok nižšie."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Výborne! Tanec ste dokončili perfektne."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Používate správne bloky, no skúste ich použiť viac, aby ste mohli dokončiť tanec."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Vedeli ste, že môžete tanec dokončiť aj s iba {{ideal}} blokmi?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Urobili ste príliš veľa krokov."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Zdá sa, že ste urobili zlý pohyb. Skúste radšej toto:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Zdieľajte pohyby a vyzvite svojich priateľov"
+	},
+	"codeboogie-success": {
+		"message": "Podarilo sa"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Pozorne sa pozerajte!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Ste na rade"
+	},
+	"codelab-block-jump-length": {
+		"message": "preskočiť"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Preskočte cez dlaždice."
+	},
+	"codelab-block-moveeast": {
+		"message": "východ"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Posuňme sa o jedno miesto na východ."
+	},
+	"codelab-block-movenorth": {
+		"message": "sever"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Posuňme sa o jedno miesto na sever."
+	},
+	"codelab-block-movesouth": {
+		"message": "juh"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Posuňme sa o jedno miesto smerom na juh."
+	},
+	"codelab-block-movewest": {
+		"message": "západ"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Posuňme sa o jedno miesto na západ."
+	},
+	"codelab-block-repeat": {
+		"message": "opakovať"
+	},
+	"codelab-block-repeat-times": {
+		"message": "krát"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Viackrát zopakovať niektoré vyhlásenia."
+	},
+	"codelab-block-whenrun": {
+		"message": "kedy spustiť"
+	},
+	"codelab-finish": {
+		"message": "Koniec"
+	},
+	"codelab-great": {
+		"message": "Vynikajúce"
+	},
+	"codelab-mwc-promo": {
+		"message": "Preskúmajte ďalšie kódovacie projekty Googlu na stránke \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Ďalšia výzva"
+	},
+	"codelab-oops": {
+		"message": "Ojoj!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "„Opakujúci sa“ blok musí mať vnútri ďalšie bloky, aby fungoval."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Niektoré bloky k sebe nie sú poriadne pripevnené."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Vyzerá to tak, že ste sa stratili!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Ak chcete vyriešiť túto skladačku, vyskúšajte jeden alebo viacero blokov nižšie."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Vedeli ste, že túto úroveň možno dokončiť už s {{ideal}} blokmi? Skúste použiť blok nižšie."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Gratulujeme! Skladačku ste dokončili dokonale."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Používate správne bloky, no skúste ich použiť viac, aby ste túto skladačku mohli dokončiť."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Vedeli ste, že túto úroveň možno dokončiť už s {{ideal}} blokmi?"
+	},
+	"codelab-try-again": {
+		"message": "Znova"
+	},
+	"copy-me": {
+		"message": "Správu môžete zdieľať skopírovaním tohto odkazu"
+	},
+	"copy-me-short": {
+		"message": "Kopírovať odkaz na zdieľanie"
+	},
+	"countdown_days": {
+		"message": "d."
+	},
+	"countdown_hours": {
+		"message": "Hod."
+	},
+	"countdown_minutes": {
+		"message": "Min"
+	},
+	"countdown_seconds": {
+		"message": "s"
+	},
+	"countdown_until": {
+		"message": "Santa vzlieta o"
+	},
+	"countdownlabel": {
+		"message": "Do Santovho odchodu"
+	},
+	"cr_country_name": {
+		"message": "Kostarika"
 	},
 	"cs_language_name": {
 		"message": "Čeština"
 	},
+	"cu_country_name": {
+		"message": "Kuba"
+	},
+	"cz_country_name": {
+		"message": "Česká republika"
+	},
 	"da_language_name": {
 		"message": "Dánčina"
+	},
+	"days": {
+		"message": "d."
+	},
+	"de_country_name": {
+		"message": "Nemecko"
 	},
 	"de_language_name": {
 		"message": "Nemčina"
 	},
+	"de_tradition": {
+		"message": "Takmer v každom nemeckom meste sa na námestiach konajú vianočné trhy. Ľudia z mesta sa zídu, aby si vypočuli dychový orchester a vychutnali si tradičné miestne pokrmy. Jedia perníkové srdiečka, sladké pečené mandle, sladkosti všetkých možných druhov a pijú varené víno (Glühwein) alebo jablčný mušt."
+	},
+	"dec24th": {
+		"message": "24. decembra"
+	},
+	"deck": {
+		"message": "Zdobenie"
+	},
+	"deckdescription": {
+		"message": "So Santovym rozšírením si môžete vyzdobiť prehliadač Chrome."
+	},
+	"detected": {
+		"message": "rozpoznané"
+	},
+	"difficulty": {
+		"message": "Obtiažnosť"
+	},
+	"dk_country_name": {
+		"message": "Dánsko"
+	},
+	"do_country_name": {
+		"message": "Dominikánska republika"
+	},
+	"donate_button": {
+		"message": "Prispieť"
+	},
+	"donate_text": {
+		"message": "Na webe DonorsChoose.org môžete pomôcť financovať projekt zameraný na špeciálne potreby. Tento december pomáhame zdvojnásobiť vplyv organizácie tým, že budeme prispievať sumou vo výške 50 % každého daru, až kým nesplníme svoj cieľ a nedarujeme 1 milión USD. Spolu môžeme dosiahnuť, aby boli triedy inkluzívnejšie #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Stiahnite, aby ste mohli hrať ešte viac hier"
+	},
+	"dz_country_name": {
+		"message": "Alžírsko"
+	},
+	"easy_difficulty": {
+		"message": "Jednoduché"
+	},
+	"ec_country_name": {
+		"message": "Ekvádor"
+	},
+	"educators": {
+		"message": "Kde je Santa pre vzdelávacie inštitúcie"
+	},
+	"educators-games": {
+		"message": "Hry do triedy"
+	},
+	"educators-learn": {
+		"message": "Učenie sa s aplikáciou Kde je Santa"
+	},
+	"ee_country_name": {
+		"message": "Estónsko"
+	},
 	"el_language_name": {
 		"message": "Gréčtina"
+	},
+	"elf_choose_body": {
+		"message": "Vyberte telo škriatka"
+	},
+	"elvish_language_name": {
+		"message": "Škriatkovčina"
 	},
 	"en_language_name": {
 		"message": "Angličtina"
 	},
+	"endofjourneymessage": {
+		"message": "Santa už svoju tohtoročnú cestu dokončil! Spolu so škriatkami sa na severnom póle ešte trochu pred svojou ročnou dovolenkou zabávajú."
+	},
+	"er_country_name": {
+		"message": "Eritrea"
+	},
+	"error": {
+		"message": "Vyskytol sa problém, no Santovi škriatkovia ho už riešia."
+	},
+	"error-internal": {
+		"message": "Ó nie, vyskytol sa problém! Informovali sme Santových škriatkov, no skúste sa vrátiť spať do \u003ca href=\"./\"\u003eSantovej dediny\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Zdá sa, že sme práve stratili spojenie so severným pólom. Santovi škriatkovia sa to usilovne snažia opraviť. Zostaňte na príjme!"
+	},
+	"error-not-found": {
+		"message": "Ale nie! Santovým škriatkom sa nepodarilo nájsť túto stránku. Možno budete mať viac šťastia, ak sa vrátite späť do \u003ca href=\"./\"\u003eSantovej dediny\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Skúsiť znova"
+	},
+	"error_try_again": {
+		"message": "Skúsiť znova"
+	},
 	"es_language_name": {
 		"message": "Španielčina"
+	},
+	"et_country_name": {
+		"message": "Etiópia"
+	},
+	"explore": {
+		"message": "Preskúmať"
+	},
+	"fi_country_name": {
+		"message": "Fínsko"
+	},
+	"fi_tradition": {
+		"message": "Ľudia vo Fínsku veria, že Otec Vianoc, „Joulupukki“, žije na severe krajiny – presnejšie na hore Korvatunturi. Ak tam pôjdete, možno objavíte jeho tajnú dielňu, kde ťažko pracujú piadimužíci. Alebo možno uvidíte soba, ako sa potuluje po borovicových lesoch."
+	},
+	"finished-text": {
+		"message": "Veselé sviatky! Santa dokončil svoju cestu okolo sveta a čaká ho zaslúžený oddych. Navštívte nás aj budúci rok!"
+	},
+	"fr_country_name": {
+		"message": "Francúzsko"
 	},
 	"fr_language_name": {
 		"message": "Francúzština"
 	},
+	"fr_tradition": {
+		"message": "Keď deti vo Francúzsku očakávajú príchod Otca Vianoc, topánky tradične vykladajú vedľa kozubu. Ak boli deti počas roka dobré, Otec Vianoc naplní topánky darčekmi."
+	},
+	"fullscreen": {
+		"message": "Celá obrazovka"
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
 	"gameover": {
 		"message": "Hra skončila!"
+	},
+	"gameover_level": {
+		"message": "Dosiahli ste úroveň:"
 	},
 	"gameover_score": {
 		"message": "Vaše skóre:"
 	},
+	"getgooglemaps": {
+		"message": "Získať Mapy Google"
+	},
+	"getready": {
+		"message": "Pripravte sa!"
+	},
+	"gh_country_name": {
+		"message": "Ghana"
+	},
+	"gh_tradition": {
+		"message": "Vianoce v Ghane zahŕňajú celú rodinu. Dospelí sa obliekajú do kostýmov a po susedstve rozdávajú sladkosti a cukríky. Deti zdobia domy papierovými ozdobami a kresbami, ktoré vytvárajú v škole."
+	},
+	"gl_country_name": {
+		"message": "Grónsko"
+	},
+	"gn_country_name": {
+		"message": "Guinea"
+	},
+	"gotovillage": {
+		"message": "Prejsť do dediny"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Grécko"
+	},
+	"gr_tradition": {
+		"message": "V Grécku žijú priateľské, no problémové tvory nazývané „kallikántzari“ väčšinu roka v strede Zeme. Na Vianoce sa však radi ukrývajú ľuďom v domoch, strašia ich, robia si z nich srandu alebo im jedia vianočné jedlá. Gréci vykonávajú určité rituály, aby si týchto škriatkov udržali čo najďalej od tela."
+	},
+	"gt_country_name": {
+		"message": "Guatemala"
+	},
+	"gt_tradition": {
+		"message": "Guatemalci oslavujú Vianoce zábavou a tancom. Nosia čiapky, ktoré sa nazývajú puritina, jedia tamales v guatemalskom štýle, o polnoci strieľajú petardy a viacerými tanečnými štýlmi pretancujú celú noc."
+	},
+	"gy_country_name": {
+		"message": "Guyana"
+	},
+	"hard_difficulty": {
+		"message": "Náročné"
+	},
+	"help": {
+		"message": "Pomoc"
+	},
 	"hi_language_name": {
 		"message": "Hindčina"
 	},
+	"hn_country_name": {
+		"message": "Honduras"
+	},
+	"holiday_message_0": {
+		"message": "Veselé sviatky!"
+	},
+	"holiday_message_1": {
+		"message": "Sviatočné priania!"
+	},
+	"holiday_message_2": {
+		"message": "Šťastné všetko!"
+	},
+	"holiday_message_3": {
+		"message": "Padá sniežik padá!"
+	},
+	"holiday_message_4": {
+		"message": "Šťastný nový rok!"
+	},
+	"holiday_message_5": {
+		"message": "Sezónne pohľadnice!"
+	},
+	"hours": {
+		"message": "hod."
+	},
+	"hr_country_name": {
+		"message": "Chorvátsko"
+	},
+	"ht_country_name": {
+		"message": "Haiti"
+	},
+	"hu_country_name": {
+		"message": "Maďarsko"
+	},
 	"hu_language_name": {
 		"message": "Maďarčina"
+	},
+	"id_country_name": {
+		"message": "Indonézia"
+	},
+	"ie_country_name": {
+		"message": "Írsko"
+	},
+	"improve_google_translate": {
+		"message": "Pomôžte vylepšiť Prekladač Google"
+	},
+	"iq_country_name": {
+		"message": "Irak"
+	},
+	"ir_country_name": {
+		"message": "Irán"
+	},
+	"is_country_name": {
+		"message": "Island"
+	},
+	"is_tradition": {
+		"message": "Na Vianoce obdarúvajú rodiny na Islande každého člena domácnosti teplým oblečením. Legenda hovorí o desivej vianočnej mačke, ktorá zhltne každého, kto nemá pripravené veci zimu a zimné počasie. Rodiny spolu pracujú na tom, aby sa nikto nedostal do pazúrov vianočnej mačky."
+	},
+	"it_country_name": {
+		"message": "Taliansko"
 	},
 	"it_language_name": {
 		"message": "Taliančina"
@@ -41,32 +773,797 @@
 	"ja_language_name": {
 		"message": "Japončina"
 	},
+	"jm_country_name": {
+		"message": "Jamajka"
+	},
+	"kg_country_name": {
+		"message": "Kirgizsko"
+	},
+	"kg_tradition": {
+		"message": "V Kirgizsku prichádza o polnoci na Silvestra Ayaz Ata (Dedo Mráz) a necháva darčeky pod novoročným stromčekom. Keď hodiny odbijú polnoc, rodiny v celej krajine zapaľujú ohňostroje na oslavu tejto nádhernej udalosti. V mestách je vtedy svetlo ako cez deň."
+	},
 	"ko_language_name": {
 		"message": "Kórejčina"
 	},
 	"kr_country_name": {
 		"message": "Južná Kórea"
 	},
+	"kr_tradition": {
+		"message": "V Južnej Kórey sú Vianoce štátnym sviatkom. Sú známe aj ako romantické sviatky. Veľa párov chodí na rande do mesta, ktorého ulice a obchody sú vyzdobené oslnivými svetlami."
+	},
+	"kz_country_name": {
+		"message": "Kazachstan"
+	},
+	"la_country_name": {
+		"message": "Laos"
+	},
+	"language": {
+		"message": "Jazyk"
+	},
+	"learn": {
+		"message": "Štud. materiály"
+	},
+	"learnmore": {
+		"message": "Ďalšie informácie"
+	},
+	"level": {
+		"message": "Úroveň"
+	},
+	"light": {
+		"message": "Rozsvietiť"
+	},
+	"lightdescription": {
+		"message": "Rozžiarte svoju televíziu s aplikáciou Santa Tracker pre Android a zariadením Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Srí Lanka"
+	},
+	"lock_orientation": {
+		"message": "Na dosiahnutie najlepšieho zážitku uzamknite otáčanie."
+	},
+	"lr_country_name": {
+		"message": "Libéria"
+	},
+	"lt_country_name": {
+		"message": "Litva"
+	},
+	"lt_tradition": {
+		"message": "V Litve sa tradičné vianočné ozdoby vyrábajú zo slamy alebo sena. Tkajú sa do geometrických tvarov, napr. hviezd, snehových vločiek alebo zvončekov. Veľa rodín používa slamu aj na ozdobenie jedálenského stola pripraveného na veľké jedlo, ktoré sa nazýva Kučios."
+	},
+	"lv_country_name": {
+		"message": "Lotyšsko"
+	},
+	"ly_country_name": {
+		"message": "Líbya"
+	},
+	"md_country_name": {
+		"message": "Moldavsko"
+	},
+	"medium_difficulty": {
+		"message": "Médium"
+	},
+	"meta_description": {
+		"message": "Pomocou aplikácie Kde je Santa v Mapách Google môžete sledovať Santa Clausa na ceste okolo sveta."
+	},
+	"meta_title": {
+		"message": "Kde je Santa od Googlu"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "min"
+	},
+	"ml_country_name": {
+		"message": "Mali"
+	},
+	"mm_country_name": {
+		"message": "Mjanmarsko"
+	},
+	"mr_country_name": {
+		"message": "Mauritánia"
+	},
+	"mute": {
+		"message": "Vypnúť zvuk"
+	},
+	"mw_country_name": {
+		"message": "Malawi"
+	},
+	"mx_country_name": {
+		"message": "Mexiko"
+	},
+	"mx_tradition": {
+		"message": "V Mexiku oslavujú Vianoce deti v každom veku rozbíjaním piňát. Dospelí aj deti sa zabávajú tak, že majú na očiach šatku, krútia sa dokola, mávajú palicou a snažia sa rozbiť visiace nádoby v tvare hviezdy. Keď sa piňata rozbije, vysypú sa z nej oriešky, ovocie a sladkosti, ktoré si môžu všetci vychutnať."
+	},
+	"my_country_name": {
+		"message": "Malajzia"
+	},
+	"mz_country_name": {
+		"message": "Mozambik"
+	},
+	"na_country_name": {
+		"message": "Namíbia"
+	},
+	"ne_country_name": {
+		"message": "Niger"
+	},
+	"new": {
+		"message": "Novinka"
+	},
+	"newtoday": {
+		"message": "Novinky"
+	},
+	"next": {
+		"message": "Ďalej"
+	},
+	"next_game": {
+		"message": "Ďalšia hra"
+	},
+	"ng_country_name": {
+		"message": "Nigéria"
+	},
+	"nl_country_name": {
+		"message": "Holandsko"
+	},
 	"nl_language_name": {
 		"message": "Holandčina"
+	},
+	"no_country_name": {
+		"message": "Nórsko"
 	},
 	"no_language_name": {
 		"message": "Nórčina"
 	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya prináša praktické vzdelávanie v oblasti vedy deťom vo vidieckych častiach Indie. V oboch vedeckých centrách a mobilných vedeckých dodávkach sa venujú všetkému od solárnych systémov až po to, ako funguje mozog. Organizácia pracovala už s viac než piatimi miliónmi detí a 200 000 učiteľmi naprieč 14 štátmi v Indii. Ide o jeden z najväčších vedeckých vzdelávacích programov v oblasti vedy na svete. Google.org s hrdosťou\u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003epodporuje\u003c/a\u003e organizáciu Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Učitelia a študenti"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® je nezisková organizácia, ktorá sa venuje rozširovaniu prístupu k počítačovej vede a zvyšovaniu účasti žien a nedostatočne zastúpených študentov s inou farbou pleti. Víziou organizácie Code.org® je, aby mal každý študent v každej škole príležitosť študovať počítačovú vedu."
+	},
+	"nonprofit-code-type": {
+		"message": "Počítačová veda"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "Organizácia DonorsChoose.org, ktorú založil v roku 2000 učiteľ dejepisu z Bronxu, už pre americké triedy vyzbierala viac než 480 miliónov USD. Učitelia prichádzajú do organizácie DonorsChoose.org, kde žiadajú o materiály a skúsenosti, ktoré pre svoje triedy potrebujú."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Triedy"
+	},
+	"nonprofit-enable-description": {
+		"message": "Podľa centra pre kontrolu a prevenciu chorôb má 7 z 1 000 ľudí amputovanú končatinu a protézy sú príliš drahé – stoja až 10 000 USD. Pre rastúce deti môže byť cena ešte vyššia. e-Nable je celosvetová komunita ľudí, ktorí spoločne na 3D tlačiarni vyrábajú ruky pre deti s amputovanými končatinami. Google.org pomáha organizácii Enable Community Foundation podporovať komunitu e-NABLE, aby mohla vyrábať viac rúk a aby tieto ruky mohlo dostať viac detí."
+	},
+	"nonprofit-enable-type": {
+		"message": "Protézy končatín"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Vyberte si ozdobu a začnite vyfarbovať."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Zdieľajte svoje umenie s rodinou a priateľmi, aby sa tiež niečo naučili."
+	},
+	"nonprofit-intro-type": {
+		"message": "Spojili sme sily s organizáciou Google.org, aby sme odprezentovali päť vzdelávacích neziskových organizácií, ktoré obdobie obdarovávania oslavujú celý rok. Posuňte sa nižšie a získajte ďalšie informácie o tom, čo robia jednotlivé organizácie s príspevkami. Ak chcete vyjadriť svoju podporu, stačí vyfarbiť kolekciu ozdôb a zavesiť si ich na stromček alebo ich darovať svojim najbližším."
+	},
+	"nonprofit-jane-description": {
+		"message": "Šimpanzy sú najbližšími príbuznými ľudí z ríše zvierat. Kvôli strate biotopu, chorobám a ilegálnemu obchodu na svete zostalo už len necelých 300 000 šimpanzov. Inštitút Jane Goodallovej (JGI) chráni šimpanzy tým, že pozoruje a snaží sa pochopiť ich správanie a tiež ich prirodzené prostredie. JGI tiež pracuje na vybudovaní komunity ľudí, ktorí chránia a starajú sa divokú zver a životné prostredie, ktoré zdieľame. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eŽivotné prostredie šimpanzov môžete skúmať\u003c/a\u003e v národnom parku Gombe v Tanzánii."
+	},
+	"nonprofit-jane-type": {
+		"message": "Šimpanz"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy je nezisková organizácia, ktorej cieľom je poskytovať bezplatné vzdelanie na svetovej úrovni všetkým ľuďom na celom svete. Khan Academy verí, že žiaci všetkých vekových kategórií by mali mať neobmedzený prístup k bezplatnému vzdelávaciemu obsahu, ktorý si môžu osvojiť vlastným tempom."
+	},
+	"nonprofit-khan-type": {
+		"message": "Vzdelávanie"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Knižnice bez hraníc je vedúca medzinárodná mimovládna organizácia v oblasti rozvoja kultúry založená v roku 2007 s hlavným sídlom v Paríži. Postavila už viac než 300 knižníc na celom svete."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Knižnice"
+	},
+	"nonprofit-more-information": {
+		"message": "Ďalšie informácie získate na"
+	},
+	"nonprofit-nature-description": {
+		"message": "Organizácia Nature Conservancy pracuje na ochrane a obnove lesov v Spojených štátoch a vo svete. Tieto ikonické lesy udržiavajú život na planéte. Filtrujú vodu, čistia vzduch, podporujú komunity ľudí a vytvárajú prirodzené prostredie pre dôležité druhy rastlín a živočíchov. Pri súčasnom tempe odlesňovania naše lesy do 100 rokov zmiznú. Cieľom programu „Zasaď miliardu stromov“ organizácie Nature Conservancy je vysadiť miliardu stromčekov do roku 2025 a obnoviť najdôležitejšie lesy sveta."
+	},
+	"nonprofit-nature-type": {
+		"message": "Lesy"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Takmer 40 % svetovej populácie nemá prístup k vzdelaniu v jazyku, ktorým hovorí alebo ktorému rozumie. StoryWeaver sa to snaží zmeniť. Pomáha pedagógom, spisovateľom a prekladateľom vytvárať veselé doplnkové zdroje na čítanie pre deti."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Čítanie"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Na svete existuje veľa ľudí, ktorí žijú so stratou zraku, no nie úplnou. Google.org pomáha organizácii RNIB vyvinúť „inteligentné okuliare“, ktoré by ľuďom so slabým zrakom pomáhali ľahšie vidieť tvary a obrysy. S inteligentnými okuliarmi môžu ľudia ľahšie vidieť svet, znova získať nezávislosť a sebaistotu."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Inteligentné okuliare"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 miliardy ľudí nemá prístup k elektrine a mnohí musia používať petrolejové lampy, ktoré spaľujú palivo a znečisťujú im domov. Solárne svetlá však počas dňa zachytávajú slnečnú energiu a večer poskytujú osvetlenie na celé hodiny bez spaľovania alebo znečisťovania. Môžete vďaka nim čítať, hrať sa a dostať sa v noci bezpečne domov. Spoločnosť SolarAid umožňuje prístup k solárnym svetlám mnohým ľuďom, ktorí to potrebujú. Google.org je hrdým \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003epodporovateľom\u003c/a\u003e spoločnosti SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Slnečný svit"
+	},
+	"nonprofit-water-description": {
+		"message": "Vodu používame na sprchovanie, kúpanie, varenie a samozrejme ju aj pijeme. Čistá voda je vzácny zdroj a mnohí ľudia sa spoliehajú na ručne vykopané studne, aby sa dostali k čistej vode, ktorá sa nachádza hlboko v zemi medzi vrstvami skál a pôdy. Organizácia charity: water spolupracuje s miestnymi partnermi na stavbe studní a na iných vodných projektoch tam, kde ich ľudia veľmi potrebujú. Google.org je hrdým \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003epodporovateľom\u003c/a\u003e organizácie charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Studňa"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Pre ľudí na invalidnom vozíku môže byť ťažké zistiť, ktoré miesta sú pre nich dostupné: kiná, reštaurácie a iné miesta, kam by mohli ísť. Na mape Wheelmap sa zobrazujú bezbariérové miesta, takže ľudia na vozíku môžu stráviť menej času plánovaním ciest a viac času skúmaním sveta."
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Mobilita"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Klimatické zmeny naďalej narúšajú rovnováhu mnohých ekosystémov v teplých aj chladných oblastiach na Zemi. V Arktíde strácajú medvede biele kvôli zvyšujúcim sa teplotám svoje prirodzené prostredie v podobe morského ľadu a ohrozujú ich aj ďalšie ľudské činnosti, ako napr. spracovávanie a preprava ropy a plynu. Svetový fond na ochranu prírody sa snaží zabezpečovať prežitie druhov vďaka vedeckým výskumom a spolupráci s pôvodnými spoločenstvami v Arktíde. Google.org s hrdosťou \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podporuje\u003c/a\u003e Svetový fond na ochranu prírody."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Medveď biely"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Podľa výskumu možno 95 % ľudí, ktorí trpia stratou sluchu, liečiť pomocou načúvacích prístrojov, no v krajinách s nízkymi a strednými príjmami ich dostane menej než 1 % tých, ktorí ich potrebujú. Organizácia World Wide Hearing (WWH) poskytuje deťom načúvacie prístroje a služby, aby sa mohli spojiť so svetom. WWH navrhuje cenovo dostupný nástroj na diagnózu straty sluchu pomocou tabletu, ktorý môžu používať rozvojové krajiny. Vďaka tomu môže načúvacie zariadenia dostať viac ľudí, ktorí ich potrebujú."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Sluch"
+	},
+	"notice_cookies": {
+		"message": "Google používa súbory cookie na analýzu návštevnosti tohto webu a optimalizáciu vášho prostredia. Na tento účel zdieľame s Googlom informácie o tom, ako používate náš web."
+	},
+	"notice_cookies_details": {
+		"message": "Zobraziť podrobnosti"
+	},
+	"notification": {
+		"message": "Upozornenia"
+	},
+	"notification_newtoday": {
+		"message": "Dnešné novinky v aplikácii Kde je Santa"
+	},
+	"notification_newtoday_stop": {
+		"message": "Už nezobrazovať"
+	},
+	"notification_notice": {
+		"message": "Santovi škriatkovia vás budú informovať o jeho harmonograme"
+	},
+	"notification_prompt": {
+		"message": "Dostávať aktuálne informácie o Santovi"
+	},
+	"np_country_name": {
+		"message": "Nepál"
+	},
+	"nz_country_name": {
+		"message": "Nový Zéland"
+	},
+	"nz_tradition": {
+		"message": "Keďže na Novom Zélande sú Vianoce v lete, priatelia a rodina sa stretávajú na grilovačke. Medzi typické vianočné jedlá patrí pečená jahňacina, ktorá sa niekedy varí v „hangi“ – v podzemnej šachte alebo zemnej rúre. Obľúbeným zákuskom je pavlova: koláč pokrytý čerstvým ovocím, napr. jahodami a kiwi."
+	},
+	"offline": {
+		"message": "Offline"
+	},
+	"offline_available_online": {
+		"message": "Len online"
+	},
+	"offline_notification": {
+		"message": "Santova dedina je teraz k dispozícii aj v režime offline! Škriatkovia vám môžu prinášať nový obsah v priebehu celého decembra."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nie, vďaka"
+	},
+	"offline_user_message": {
+		"message": "Ste offline"
+	},
+	"okay": {
+		"message": "OK"
+	},
+	"om_country_name": {
+		"message": "Omán"
+	},
+	"onthego": {
+		"message": "Santa na cestách"
+	},
+	"openingtomorrow": {
+		"message": "Veľké otvorenie už zajtra"
+	},
+	"ornament-print-instructions": {
+		"message": "Tu preložte a zlepte strany"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Pozastaviť"
+	},
+	"paused": {
+		"message": "Pozastavené"
+	},
+	"pe_country_name": {
+		"message": "Peru"
+	},
+	"pg_country_name": {
+		"message": "Papua-Nová Guinea"
+	},
+	"ph_country_name": {
+		"message": "Filipíny"
+	},
+	"ph_tradition": {
+		"message": "Filipíny sú známe tým, že tam vianočné obdobie trvá najdlhšie. Za vianočné mesiace sa považujú štyri mesiace: september, október, november, december. Vianočné koledy je často počuť už začiatkom septembra."
+	},
+	"pl_country_name": {
+		"message": "Poľsko"
+	},
 	"pl_language_name": {
 		"message": "Poľština"
+	},
+	"play": {
+		"message": "Hrať"
+	},
+	"playagain": {
+		"message": "Hrať znova"
+	},
+	"playdescription": {
+		"message": "Hrajte sa s priateľmi v aplikácii Kde je Santa pre Android."
+	},
+	"playextra": {
+		"message": "Hrajte ďalšie úrovne"
+	},
+	"pr_country_name": {
+		"message": "Portoriko"
+	},
+	"practice": {
+		"message": "Precvičiť"
+	},
+	"press": {
+		"message": "Tlač"
+	},
+	"press-about-tracker": {
+		"message": "Informácie o aplikácii Kde je Santa"
+	},
+	"press-about-tracker1": {
+		"message": "24. decembra spúšťame aplikáciu Kde je Santa – hlavný panel, pomocou ktorého môžu Santovi fanúšikovia sledovať, ako postupuje z mesta do mesta. Na Mapách Google si tiež môžete zobraziť jeho aktuálnu polohu a Asistenta Google sa môžete spýtať „Ok, Google, kde je Santa?“ aby ste mohli aj na cestách sledovať, kde sa Santa práve nachádza."
+	},
+	"press-about-village": {
+		"message": "Informácie o Santovej dedine"
+	},
+	"press-about-village1": {
+		"message": "Santova dedina oslavuje pätnásty rok zábavných, vzdelávacích a interaktívnych sviatočných aktivít. Pod odborným vedením pani Clausovej škriatkovia dedinu aktualizovali, aby jej vzhľad pôsobil prudko elegantne, a pribudol aj úplne nový obsah. A vďaka novému vykurovaciemu systému na báze horúcej čokolády už nebude trvať celý december, kým sa dedina roztopí, takže 24 aktivít bude k dispozícii už od 4. decembra. Teraz budú mať škriatkovia (aj vy) viac času na hranie a skúmanie Santovej dediny."
+	},
+	"press-about-village2": {
+		"message": "V dedine môžete trénovať základné kódovacie zručnosti, vytvárať originálne umelecké diela, uplatňovať zemepisné vedomosti a získať ďalšie informácie o dobročinných organizáciách, ako napr. \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Učitelia si dokonca môžu \u003ca href=\"./educators.html\"\u003estiahnuť plány hodín\u003c/a\u003e s videosprievodcami, a pomôcť tak študentom získať základné kódovacie zručnosti a vedomosti o sviatočných tradíciách v Anglicku, Španielsku, Francúzsku, Japonsku a Kórey."
+	},
+	"press-asset-animation": {
+		"message": "Animácia"
+	},
+	"press-asset-resources": {
+		"message": "Zdroje pre médiá"
+	},
+	"press-asset-screenshot": {
+		"message": "Snímka obrazovky"
+	},
+	"press-device-text": {
+		"message": "Sviatočný duch je všade vrátane vašich zariadení!"
+	},
+	"press-device-title": {
+		"message": "Kde je Santa vo vašom zariadení"
+	},
+	"press-edu": {
+		"message": "Vzdelávacie dobrodružstvá"
+	},
+	"press-edu1": {
+		"message": "Rozšírili sme \u003ca href=\"./educators.html\"\u003estránku zdrojov pre pedagógov\u003c/a\u003e, aby sme učiteľom poskytli videosprievodcov dostupných v piatich jazykoch, ktorých môžu zakomponovať do učebných plánov. Zostávajú všetky vaše obľúbené hry, v ktorých predstavíme základné koncepty kódovania na svetových sviatočných tradíciách. Aplikácia Kde je Santa od Googlu podporuje učenie sa o sviatkoch zábavným spôsobom. Ak chcete získať ďalšie informácie, pozrite si \u003ca href=\"./educators.html\"\u003enaše vzdelávacie hry\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Zábava a hry"
+	},
+	"press-need-text": {
+		"message": "Škriatkovia a zamestnanci Googlu sú tu, aby vám pomohli."
+	},
+	"press-need-title": {
+		"message": "Potrebujete ďalšie informácie?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Otvára sa 24. decembra"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Otvorené celý december"
+	},
+	"press-villagetracker-title": {
+		"message": "Santova dedina a Santa Tracker"
+	},
+	"press-whatsnew": {
+		"message": "Tohtoročné novinky"
+	},
+	"press-whatsnew1-text": {
+		"message": "Vytvorte si svojho vlastného škriatka od hlavy až po päty a snažte sa, aby na množstve sviatočných večierkov, ktoré sa na severnom póle budú konať, vyzeral škriatkasticky."
+	},
+	"press-whatsnew1-title": {
+		"message": "Vytvorenie škriatka:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ak je vaším celoživotným snom založiť si tanečný súbor so skupinou veľmi talentovaných tancujúcich škriatkov, teraz máte šancu. Takmer. Pomocou modelu strojového učenia nazvaného \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e môžete škriatka naučiť pohyby a vytiahnuť ho na tanečný parket."
+	},
+	"press-whatsnew2-title": {
+		"message": "Tancovanie so škriatkami:"
 	},
 	"press-whatsnew3-text": {
 		"message": "Budete si tiež môcť pozrieť Santovu aktuálnu polohu v Mapách Google – stačí klepnúť na tlačidlo ponuky ďalších možností a potom na položku Zdieľanie polohy a uvidíte, kde presne na svojej ceste sa Santa nachádza. Prípadne použite skratku – prejdite rovno na \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
 	},
+	"press-whatsnew3-title": {
+		"message": "Nový spôsob sledovania Santu:"
+	},
 	"press-whatsnew4-text": {
 		"message": "Ak túžite zažiť ešte veselšiu sviatočnú atmosféru, pozrite si nálepky na klávesnici Gboard, ktoré sú k dispozícii v \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroide\u003c/a\u003e a \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003esystéme iOS\u003c/a\u003e a tiež v našej aplikácii pre \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid\u003c/a\u003e. Potešte sa aj veselou odpoveďou Asistenta Google. Môžete ho poprosiť o sviatočný príbeh alebo sa ho spýtať, kde je Santa."
+	},
+	"press-whatsnew4-title": {
+		"message": "Viac sviatočnej zábavy:"
 	},
 	"pt_language_name": {
 		"message": "Portugalčina"
 	},
+	"py_country_name": {
+		"message": "Paraguaj"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ja viem, toto je {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "alebo"
+	},
+	"quickdraw-machine-see": {
+		"message": "Vidím"
+	},
+	"quickdraw-newround-button": {
+		"message": "Začať"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Neviem naisto, čo kreslíte."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Mrzí ma to"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Toto som neuhádol!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tenzor si tiež myslel, že vaša kresba vyzerala ako tieto:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Ako tensor vie, ako vyzerá predmet {{thing}}?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Naučil sa to prezeraním si týchto príkladov, ktoré nakreslili iní ľudia."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tenzor si myslel, že vaša kresba vyzerala skôr ako tieto:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Toto je Santova verzia predmetu {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Požiadali sme vás, aby ste nakreslili predmet {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Kresliť"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tenzor je Santov robot strojového učenia, ktorý mu pomáha rýchlo rozlúštiť listy, ktoré dostáva od detí z celého sveta. Aby si túto schopnosť mohol tenzor precvičovať, nakreslite obrázky jednotlivých sviatočných slov na obrazovke a on vám povie, čo vidí. Čím viac nakreslíte, tým bude tenzor šikovnejší. Poďme preto Santovi pomôcť, aby mohol tieto sviatky pracovať efektívnejšie ako kedykoľvek predtým!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomôžte tenzoru precvičiť si rozpoznávanie obrázkov."
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tenzor rozpoznal {{recognized}} z vašich kresieb."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tenzor rozpoznal jednu z vašich kresieb."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tenzor nerozpoznal žiadnu z vašich kresieb."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Dobrá práca!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Ojoj!"
+	},
+	"readyquestion": {
+		"message": "Môžeme?"
+	},
+	"ro_country_name": {
+		"message": "Rumunsko"
+	},
+	"ru_country_name": {
+		"message": "Rusko"
+	},
 	"ru_language_name": {
 		"message": "Ruština"
+	},
+	"ru_tradition": {
+		"message": "Deti v Rusku ozdobujú novoročný stromček, nie vianočný. Deti túžobne očakávajú Deda Mráza, ktorý spolu so svojou vnučkou Snehulienkou cestuje po celej krajine a nosí darčeky. Dedo mráz žije hlboko v lese v meste Velikij Usťug na severe Ruska."
+	},
+	"sa_country_name": {
+		"message": "Saudská Arábia"
+	},
+	"santa-app": {
+		"message": "Santa"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Perníček"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Pani Clausová"
+	},
+	"santasearch_character_pegman": {
+		"message": "Pegman"
+	},
+	"santasearch_character_penguin": {
+		"message": "Tučniak"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rudolf"
+	},
+	"santasearch_character_santa": {
+		"message": "Santa Claus"
+	},
+	"santasearch_hint": {
+		"message": "Tip"
+	},
+	"santasearch_level_beach": {
+		"message": "Na pláži"
+	},
+	"santasearch_level_lab": {
+		"message": "V laboratóriu"
+	},
+	"santasearch_level_mountains": {
+		"message": "V horách"
+	},
+	"santasearch_level_museum": {
+		"message": "V múzeu"
+	},
+	"santasearch_level_select": {
+		"message": "Prejsť"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Hľadajte Santu!"
+	},
+	"santasvillage": {
+		"message": "Dedina Santa Clausa"
+	},
+	"santatracker": {
+		"message": "Kde je Santa"
+	},
+	"scene_airport": {
+		"message": "Letisko na severnom póle"
+	},
+	"scene_app": {
+		"message": "Aplikácia pre Android"
+	},
+	"scene_blimp": {
+		"message": "Opätovné nakladanie darčekov"
+	},
+	"scene_boatload": {
+		"message": "Darček prak"
+	},
+	"scene_briefing": {
+		"message": "Inštruktáž pani Clausovej"
+	},
+	"scene_callfromsanta": {
+		"message": "Volá Santa"
+	},
+	"scene_canvas": {
+		"message": "Santove plátno"
+	},
+	"scene_citylights": {
+		"message": "Mestské svetlá"
+	},
+	"scene_clausdraws": {
+		"message": "Santa kreslí"
+	},
+	"scene_codeboogie": {
+		"message": "Kódový tanec"
+	},
+	"scene_codelab": {
+		"message": "Kódovacie laboratórium"
+	},
+	"scene_commandcentre": {
+		"message": "Misia: kontrola"
+	},
+	"scene_dash": {
+		"message": "Pomôžte tučniakovi"
+	},
+	"scene_elfmaker": {
+		"message": "Tvorca škriatkov"
+	},
+	"scene_elfski": {
+		"message": "Škriatok na lyžiach"
+	},
+	"scene_factory": {
+		"message": "Továreň na sladkosti"
+	},
+	"scene_giftmatch": {
+		"message": "Spájanie darčekov"
+	},
+	"scene_glider": {
+		"message": "Plachtiaci škriatok"
+	},
+	"scene_gumball": {
+		"message": "Gumená loptička sa nakláňa"
+	},
+	"scene_icecave": {
+		"message": "ľadová jaskyňa"
+	},
+	"scene_island": {
+		"message": "Ostrov"
+	},
+	"scene_jamband": {
+		"message": "Hudobná skupina škriatkov"
+	},
+	"scene_jetpack": {
+		"message": "Raketový bahot škriatka"
+	},
+	"scene_latlong": {
+		"message": "Doručovanie darčekov"
+	},
+	"scene_matching": {
+		"message": "Nájdené zhody v pamäti"
+	},
+	"scene_mercator": {
+		"message": "Kvíz s mapou"
+	},
+	"scene_playground": {
+		"message": "Ihrisko na severnom póle"
+	},
+	"scene_poseboogie": {
+		"message": "Tanečná póza"
+	},
+	"scene_postcard": {
+		"message": "Santove pohľadnice"
+	},
+	"scene_presentbounce": {
+		"message": "Hádzanie darčekov"
+	},
+	"scene_presentdrop": {
+		"message": "Zhodenie darčeka"
+	},
+	"scene_quickdraw": {
+		"message": "Rýchla kresba"
+	},
+	"scene_racer": {
+		"message": "Pretekár Rudolf"
+	},
+	"scene_rollercoaster": {
+		"message": "Horská dráha pre škriatkov"
+	},
+	"scene_runner": {
+		"message": "Jazda na sobovi"
+	},
+	"scene_santasearch": {
+		"message": "Hľadanie Santu"
+	},
+	"scene_santaselfie": {
+		"message": "Sefie Santu"
+	},
+	"scene_seasonofcaring": {
+		"message": "Obdobie starostlivosti o druhých"
+	},
+	"scene_seasonofgiving": {
+		"message": "Obdobie obdarovávania"
+	},
+	"scene_snowball": {
+		"message": "Guľovačka so škriatkami"
+	},
+	"scene_snowflake": {
+		"message": "Kódovanie snehovej vločky"
+	},
+	"scene_speedsketch": {
+		"message": "Rýchly náčrt"
+	},
+	"scene_streetview": {
+		"message": "Street View"
+	},
+	"scene_traditions": {
+		"message": "Sviatočné tradície"
+	},
+	"scene_translations": {
+		"message": "Preklady"
+	},
+	"scene_trivia": {
+		"message": "Kvízy"
+	},
+	"scene_undersea": {
+		"message": "Pod hladinou mora"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Škriatkovské auto"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Veliteľská miestnosť"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Zvoniaci škriatkovia"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Santa vzlieta"
+	},
+	"scene_videoscene_museum": {
+		"message": "Deň v múzeu"
+	},
+	"scene_videoscene_office": {
+		"message": "Žart v kancelárii"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Stále na dovolenke"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Sob má obavy"
+	},
+	"scene_videoscene_reload": {
+		"message": "Opätovné nakladanie darčekov"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Santa je späť"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Satelit"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Selfie fotky Santu"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Poľavenie"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Odlet"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Pokušenie"
+	},
+	"scene_videoscene_tired": {
+		"message": "Unavený sob"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Kde je Santa?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Santova dielňa"
+	},
+	"scene_windtunnel": {
+		"message": "Aerodynamický tunel"
+	},
+	"scene_wrap": {
+		"message": "Súboj v balení"
+	},
+	"score": {
+		"message": "Skóre"
+	},
+	"score_short": {
+		"message": "Skóre"
+	},
+	"se_country_name": {
+		"message": "Švédsko"
+	},
+	"seconds": {
+		"message": "s"
+	},
+	"select-language": {
+		"message": "Výber jazyka"
+	},
+	"share-button": {
+		"message": "Zdieľajte s priateľmi cez Google+"
+	},
+	"share-text": {
+		"message": "Túto pohľadnicu som pre teba vytvoril(a) v aplikácii Kde je Santa od Googlu. Veselé sviatky!"
+	},
+	"share-this": {
+		"message": "Zdieľať"
 	},
 	"sidebar_code_emoji": {
 		"message": "Made with Code: sviatočné ikony emodži"
@@ -80,20 +1577,1439 @@
 	"sidebar_trends": {
 		"message": "Trendy Google: vyhľadávania súvisiace so sviatkami"
 	},
+	"sk_country_name": {
+		"message": "Slovensko"
+	},
 	"sk_language_name": {
 		"message": "Slovenčina"
+	},
+	"skip-training": {
+		"message": "Preskočiť tréning"
+	},
+	"sl_country_name": {
+		"message": "Sierra Leone"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Zamrzli ste!"
+	},
+	"snowball_remaining": {
+		"message": "Zostáva {{remaining}} z {{total}} škriatkov"
+	},
+	"snowball_spectate": {
+		"message": "Sledovať"
+	},
+	"snowball_waiting": {
+		"message": "Čaká sa na ďalších Santových škriatkov"
+	},
+	"snowflake_choose_background": {
+		"message": "Vyberte pozadie"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Vyberte pohľadnicu pomocou šípok"
+	},
+	"snowflake_code": {
+		"message": "Vytvorte vločku pomocou kódu"
+	},
+	"snowflake_code_instructions": {
+		"message": "Pospájajte bloky a navrhnite si vlastnú snehovú vločku"
+	},
+	"snowflake_create_message": {
+		"message": "Navrhnite si svoju vlastnú vločku"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Zopakujte to!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Opakuje sa"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Točiť sa a opakovať!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Otáčanie a opakovanie"
+	},
+	"snowflake_make_your_own": {
+		"message": "Toto bolo vyrobené pomocou kódu. Vyskúšajte si to!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Vyberte pohľadnicu a zdieľajte svoju vločku s priateľmi"
+	},
+	"snowflake_shared_message": {
+		"message": "Niekto vám poslal snehovú vločku!"
+	},
+	"so_country_name": {
+		"message": "Somálsko"
+	},
+	"speedsketch_item~London": {
+		"message": "Londýn"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "Paríž"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Šanghaj"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Švajčiarsko"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eiffelova veža"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Veľký čínsky múr"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Líza"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "abstraktné umenie"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "lietadlová loď"
+	},
+	"speedsketch_item~airplane": {
+		"message": "lietadlo"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "budík"
+	},
+	"speedsketch_item~alien": {
+		"message": "mimozemšťan"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "sanitka"
+	},
+	"speedsketch_item~angel": {
+		"message": "anjel"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "migrácia zvierat"
+	},
+	"speedsketch_item~ant": {
+		"message": "mravec"
+	},
+	"speedsketch_item~anvil": {
+		"message": "nákova"
+	},
+	"speedsketch_item~apple": {
+		"message": "jablko"
+	},
+	"speedsketch_item~arm": {
+		"message": "ruka"
+	},
+	"speedsketch_item~arrow": {
+		"message": "šípka"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "špargľa"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "astronaut"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "audiokazeta"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avokádo"
+	},
+	"speedsketch_item~axe": {
+		"message": "sekera"
+	},
+	"speedsketch_item~baby": {
+		"message": "bábätko"
+	},
+	"speedsketch_item~backpack": {
+		"message": "ruksak"
+	},
+	"speedsketch_item~banana": {
+		"message": "banán"
+	},
+	"speedsketch_item~bandage": {
+		"message": "obväz"
+	},
+	"speedsketch_item~barn": {
+		"message": "stodola"
+	},
+	"speedsketch_item~baseball": {
+		"message": "bejzbalová lopta"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "bejzbalová pálka"
+	},
+	"speedsketch_item~basket": {
+		"message": "košík"
+	},
+	"speedsketch_item~basketball": {
+		"message": "basketbalová lopta"
+	},
+	"speedsketch_item~bat": {
+		"message": "netopier"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "vaňa"
+	},
+	"speedsketch_item~beach": {
+		"message": "pláž"
+	},
+	"speedsketch_item~bear": {
+		"message": "medveď"
+	},
+	"speedsketch_item~beard": {
+		"message": "brada"
+	},
+	"speedsketch_item~bed": {
+		"message": "posteľ"
+	},
+	"speedsketch_item~bee": {
+		"message": "včela"
+	},
+	"speedsketch_item~belt": {
+		"message": "opasok"
+	},
+	"speedsketch_item~bench": {
+		"message": "lavička"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "bicykel"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "ďalekohľad"
+	},
+	"speedsketch_item~bird": {
+		"message": "vták"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "narodeninová torta"
+	},
+	"speedsketch_item~black": {
+		"message": "čierna"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "černica"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "čučoriedka"
+	},
+	"speedsketch_item~book": {
+		"message": "kniha"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "bumerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "výcvik"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "vrchnák fľaše"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "pánsky motýlik"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "náramok"
+	},
+	"speedsketch_item~brain": {
+		"message": "mozog"
+	},
+	"speedsketch_item~bread": {
+		"message": "chlieb"
+	},
+	"speedsketch_item~bridge": {
+		"message": "most"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokolica"
+	},
+	"speedsketch_item~broom": {
+		"message": "metla"
+	},
+	"speedsketch_item~bucket": {
+		"message": "vedro"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "buldozér"
+	},
+	"speedsketch_item~bus": {
+		"message": "autobus"
+	},
+	"speedsketch_item~bush": {
+		"message": "ker"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "motýľ"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "torta"
+	},
+	"speedsketch_item~calculator": {
+		"message": "kalkulačka"
+	},
+	"speedsketch_item~calendar": {
+		"message": "kalendár"
+	},
+	"speedsketch_item~camel": {
+		"message": "ťava"
+	},
+	"speedsketch_item~camera": {
+		"message": "fotoaparát"
+	},
+	"speedsketch_item~campfire": {
+		"message": "táborový oheň"
+	},
+	"speedsketch_item~candle": {
+		"message": "sviečka"
+	},
+	"speedsketch_item~candy": {
+		"message": "cukrík"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "cukrová trstina"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanoe"
+	},
+	"speedsketch_item~car": {
+		"message": "auto"
+	},
+	"speedsketch_item~carrot": {
+		"message": "mrkva"
+	},
+	"speedsketch_item~castle": {
+		"message": "zámok"
+	},
+	"speedsketch_item~cat": {
+		"message": "mačka"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "stropný ventilátor"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "mobilný telefón"
+	},
+	"speedsketch_item~cello": {
+		"message": "violončelo"
+	},
+	"speedsketch_item~chair": {
+		"message": "stolička"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "luster"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "chémia"
+	},
+	"speedsketch_item~cherry": {
+		"message": "čerešňa"
+	},
+	"speedsketch_item~child": {
+		"message": "dieťa"
+	},
+	"speedsketch_item~chimney": {
+		"message": "komín"
+	},
+	"speedsketch_item~church": {
+		"message": "kostol"
+	},
+	"speedsketch_item~circle": {
+		"message": "kruh"
+	},
+	"speedsketch_item~city": {
+		"message": "mesto"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinet"
+	},
+	"speedsketch_item~clock": {
+		"message": "hodiny"
+	},
+	"speedsketch_item~cloud": {
+		"message": "oblak"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "kukuričný klas"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kávový hrnček"
+	},
+	"speedsketch_item~compass": {
+		"message": "kompas"
+	},
+	"speedsketch_item~computer": {
+		"message": "počítač"
+	},
+	"speedsketch_item~cookie": {
+		"message": "okrúhla sušienka"
+	},
+	"speedsketch_item~cooler": {
+		"message": "chladiaci box"
+	},
+	"speedsketch_item~couch": {
+		"message": "gauč"
+	},
+	"speedsketch_item~cow": {
+		"message": "krava"
+	},
+	"speedsketch_item~crab": {
+		"message": "krab"
+	},
+	"speedsketch_item~crayon": {
+		"message": "voskovka"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krokodíl"
+	},
+	"speedsketch_item~crow": {
+		"message": "vrana"
+	},
+	"speedsketch_item~crown": {
+		"message": "koruna"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "výletná loď"
+	},
+	"speedsketch_item~cube": {
+		"message": "kocka"
+	},
+	"speedsketch_item~cup": {
+		"message": "pohár"
+	},
+	"speedsketch_item~darts": {
+		"message": "šípky"
+	},
+	"speedsketch_item~diamond": {
+		"message": "diamant"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "diamantový prsteň"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "umývačka riadu"
+	},
+	"speedsketch_item~diving board": {
+		"message": "skokanský mostík do bazéna"
+	},
+	"speedsketch_item~dog": {
+		"message": "pes"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "delfín"
+	},
+	"speedsketch_item~donut": {
+		"message": "donut"
+	},
+	"speedsketch_item~door": {
+		"message": "dvere"
+	},
+	"speedsketch_item~dragon": {
+		"message": "drak"
+	},
+	"speedsketch_item~dresser": {
+		"message": "bielizník"
+	},
+	"speedsketch_item~drill": {
+		"message": "vŕtačka"
+	},
+	"speedsketch_item~drums": {
+		"message": "bicie"
+	},
+	"speedsketch_item~duck": {
+		"message": "kačka"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "činka"
+	},
+	"speedsketch_item~ear": {
+		"message": "ucho"
+	},
+	"speedsketch_item~egg": {
+		"message": "vajce"
+	},
+	"speedsketch_item~elbow": {
+		"message": "lakeť"
+	},
+	"speedsketch_item~elephant": {
+		"message": "slon"
+	},
+	"speedsketch_item~elf": {
+		"message": "škriatok"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emodži"
+	},
+	"speedsketch_item~envelope": {
+		"message": "obálka"
+	},
+	"speedsketch_item~eraser": {
+		"message": "guma"
+	},
+	"speedsketch_item~eye": {
+		"message": "oko"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "okuliare"
+	},
+	"speedsketch_item~face": {
+		"message": "tvár"
+	},
+	"speedsketch_item~family": {
+		"message": "rodina"
+	},
+	"speedsketch_item~fan": {
+		"message": "ventilátor"
+	},
+	"speedsketch_item~feather": {
+		"message": "pierko"
+	},
+	"speedsketch_item~fence": {
+		"message": "plot"
+	},
+	"speedsketch_item~finger": {
+		"message": "prst"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "požiarny hydrant"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "krb"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "hasičské auto"
+	},
+	"speedsketch_item~fish": {
+		"message": "ryba"
+	},
+	"speedsketch_item~flag": {
+		"message": "vlajka"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "plameniak"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "baterka"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "žabky na nohy"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "stojacia lampa"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "disketa"
+	},
+	"speedsketch_item~flower": {
+		"message": "kvet"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "lietajúci tanier (UFO)"
+	},
+	"speedsketch_item~fog": {
+		"message": "Hmla"
+	},
+	"speedsketch_item~foot": {
+		"message": "noha"
+	},
+	"speedsketch_item~fork": {
+		"message": "vidlička"
+	},
+	"speedsketch_item~french fries": {
+		"message": "hranolčeky"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "vyprážané vajce"
+	},
+	"speedsketch_item~frog": {
+		"message": "žaba"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "panvica"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "galaxia"
+	},
+	"speedsketch_item~garden": {
+		"message": "záhrada"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "záhradná hadica"
+	},
+	"speedsketch_item~ghost": {
+		"message": "duch"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "pán perníček"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "žirafa"
+	},
+	"speedsketch_item~goat": {
+		"message": "koza"
+	},
+	"speedsketch_item~goatee": {
+		"message": "briadka"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfová palica"
+	},
+	"speedsketch_item~grapes": {
+		"message": "hrozno"
+	},
+	"speedsketch_item~grass": {
+		"message": "tráva"
+	},
+	"speedsketch_item~group": {
+		"message": "skupina"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gitara"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamburger"
+	},
+	"speedsketch_item~hammer": {
+		"message": "kladivo"
+	},
+	"speedsketch_item~hand": {
+		"message": "ruka"
+	},
+	"speedsketch_item~happiness": {
+		"message": "šťastie"
+	},
+	"speedsketch_item~harp": {
+		"message": "harfa"
+	},
+	"speedsketch_item~hat": {
+		"message": "klobúk"
+	},
+	"speedsketch_item~headphones": {
+		"message": "slúchadlá"
+	},
+	"speedsketch_item~heart": {
+		"message": "srdiečko"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "ježko"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "helikoptéra"
+	},
+	"speedsketch_item~helmet": {
+		"message": "prilba"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "šesťuholník"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokejový puk"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokejka"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "sviatočné svetlá"
+	},
+	"speedsketch_item~horse": {
+		"message": "kôň"
+	},
+	"speedsketch_item~hospital": {
+		"message": "nemocnica"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "teplovzdušný balón"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "hotdog"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "vírivka"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "presýpacie hodiny"
+	},
+	"speedsketch_item~house": {
+		"message": "dom"
+	},
+	"speedsketch_item~house plant": {
+		"message": "izbová rastlina"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "hurikán"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "zmrzlina"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "korčuliar na ľade"
+	},
+	"speedsketch_item~infinity": {
+		"message": "nekonečno"
+	},
+	"speedsketch_item~island": {
+		"message": "ostrov"
+	},
+	"speedsketch_item~jacket": {
+		"message": "bunda"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "raketový batoh"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Rolničky"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kengura"
+	},
+	"speedsketch_item~key": {
+		"message": "kľúč"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "klávesnica"
+	},
+	"speedsketch_item~kite": {
+		"message": "šarkan"
+	},
+	"speedsketch_item~knee": {
+		"message": "koleno"
+	},
+	"speedsketch_item~knife": {
+		"message": "nôž"
+	},
+	"speedsketch_item~knot": {
+		"message": "uzol"
+	},
+	"speedsketch_item~koala": {
+		"message": "koala"
+	},
+	"speedsketch_item~ladder": {
+		"message": "rebrík"
+	},
+	"speedsketch_item~landscape": {
+		"message": "krajinka"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lampáš"
+	},
+	"speedsketch_item~laptop": {
+		"message": "prenosný počítač"
+	},
+	"speedsketch_item~leaf": {
+		"message": "list"
+	},
+	"speedsketch_item~leg": {
+		"message": "noha"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "žiarovka"
+	},
+	"speedsketch_item~lighter": {
+		"message": "zapaľovač"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "maják"
+	},
+	"speedsketch_item~lightning": {
+		"message": "blesk"
+	},
+	"speedsketch_item~line": {
+		"message": "čiara"
+	},
+	"speedsketch_item~lion": {
+		"message": "lev"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "rúž"
+	},
+	"speedsketch_item~lobster": {
+		"message": "homár"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "lízanka"
+	},
+	"speedsketch_item~love": {
+		"message": "láska"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "poštová schránka"
+	},
+	"speedsketch_item~man": {
+		"message": "muž"
+	},
+	"speedsketch_item~map": {
+		"message": "mapa"
+	},
+	"speedsketch_item~marker": {
+		"message": "fixka"
+	},
+	"speedsketch_item~matches": {
+		"message": "zhoduje sa"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "matematika"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "megafón"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "morská panna"
+	},
+	"speedsketch_item~metal": {
+		"message": "kov"
+	},
+	"speedsketch_item~microphone": {
+		"message": "mikrofón"
+	},
+	"speedsketch_item~microscope": {
+		"message": "mikroskop"
+	},
+	"speedsketch_item~microwave": {
+		"message": "mikrovlnná rúra"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "imelo"
+	},
+	"speedsketch_item~mittens": {
+		"message": "palčiaky"
+	},
+	"speedsketch_item~molecule": {
+		"message": "molekula"
+	},
+	"speedsketch_item~money": {
+		"message": "peniaze"
+	},
+	"speedsketch_item~monkey": {
+		"message": "opica"
+	},
+	"speedsketch_item~moon": {
+		"message": "mesiac"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "komár"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "motorka"
+	},
+	"speedsketch_item~mountain": {
+		"message": "hora"
+	},
+	"speedsketch_item~mouse": {
+		"message": "myš"
+	},
+	"speedsketch_item~moustache": {
+		"message": "fúzy"
+	},
+	"speedsketch_item~mouth": {
+		"message": "ústa"
+	},
+	"speedsketch_item~mug": {
+		"message": "hrnček"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "hríb"
+	},
+	"speedsketch_item~music": {
+		"message": "hudba"
+	},
+	"speedsketch_item~nail": {
+		"message": "klinec"
+	},
+	"speedsketch_item~nature": {
+		"message": "príroda"
+	},
+	"speedsketch_item~necklace": {
+		"message": "náhrdelník"
+	},
+	"speedsketch_item~news": {
+		"message": "správy"
+	},
+	"speedsketch_item~nose": {
+		"message": "nos"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "luskáčik"
+	},
+	"speedsketch_item~ocean": {
+		"message": "oceán"
+	},
+	"speedsketch_item~octagon": {
+		"message": "osemuholník"
+	},
+	"speedsketch_item~octopus": {
+		"message": "chobotnica"
+	},
+	"speedsketch_item~onion": {
+		"message": "cibuľa"
+	},
+	"speedsketch_item~ornament": {
+		"message": "ozdoba"
+	},
+	"speedsketch_item~oven": {
+		"message": "rúra na pečenie"
+	},
+	"speedsketch_item~owl": {
+		"message": "sova"
+	},
+	"speedsketch_item~paint can": {
+		"message": "plechovka farby"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "štetec"
+	},
+	"speedsketch_item~painting": {
+		"message": "maľovanie"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "palma"
+	},
+	"speedsketch_item~panda": {
+		"message": "panda"
+	},
+	"speedsketch_item~pants": {
+		"message": "nohavice"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "sponka na papier"
+	},
+	"speedsketch_item~parachute": {
+		"message": "padák"
+	},
+	"speedsketch_item~parrot": {
+		"message": "papagáj"
+	},
+	"speedsketch_item~passport": {
+		"message": "pas"
+	},
+	"speedsketch_item~peanut": {
+		"message": "arašid"
+	},
+	"speedsketch_item~pear": {
+		"message": "hruška"
+	},
+	"speedsketch_item~peas": {
+		"message": "hrášok"
+	},
+	"speedsketch_item~pencil": {
+		"message": "ceruzka"
+	},
+	"speedsketch_item~penguin": {
+		"message": "tučniak"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "mentolka"
+	},
+	"speedsketch_item~piano": {
+		"message": "klavír"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "nákladiak"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "rám na fotku"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "koláčový graf"
+	},
+	"speedsketch_item~pig": {
+		"message": "prasa"
+	},
+	"speedsketch_item~pillow": {
+		"message": "vankúš"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananás"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "ping pong"
+	},
+	"speedsketch_item~pirate": {
+		"message": "pirát"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pizza"
+	},
+	"speedsketch_item~pliers": {
+		"message": "kliešte"
+	},
+	"speedsketch_item~police car": {
+		"message": "policajné auto"
+	},
+	"speedsketch_item~politician": {
+		"message": "politik"
+	},
+	"speedsketch_item~pond": {
+		"message": "rybník"
+	},
+	"speedsketch_item~pool": {
+		"message": "bazén"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "nanuk"
+	},
+	"speedsketch_item~portrait": {
+		"message": "portrét"
+	},
+	"speedsketch_item~postcard": {
+		"message": "pohľadnica"
+	},
+	"speedsketch_item~potato": {
+		"message": "zemiak"
+	},
+	"speedsketch_item~present": {
+		"message": "darček"
+	},
+	"speedsketch_item~prison": {
+		"message": "väzenie"
+	},
+	"speedsketch_item~purse": {
+		"message": "kabelka"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "králik"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "medvedík čistotný"
+	},
+	"speedsketch_item~radio": {
+		"message": "rádio"
+	},
+	"speedsketch_item~rain": {
+		"message": "dážď"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "dúha"
+	},
+	"speedsketch_item~rake": {
+		"message": "hrable"
+	},
+	"speedsketch_item~raven": {
+		"message": "havran"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "sob"
+	},
+	"speedsketch_item~remote control": {
+		"message": "diaľkové ovládanie"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "nosorožec"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "stuha"
+	},
+	"speedsketch_item~river": {
+		"message": "rieka"
+	},
+	"speedsketch_item~robot": {
+		"message": "robot"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "horská dráha"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "kolieskové korčule"
+	},
+	"speedsketch_item~sadness": {
+		"message": "smútok"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "plachetnica"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "sendvič"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Santa Claus"
+	},
+	"speedsketch_item~saturn": {
+		"message": "saturn"
+	},
+	"speedsketch_item~sausage": {
+		"message": "párok"
+	},
+	"speedsketch_item~saw": {
+		"message": "pílka"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxofón"
+	},
+	"speedsketch_item~school bus": {
+		"message": "školský autobus"
+	},
+	"speedsketch_item~scissors": {
+		"message": "nožnice"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "škorpión"
+	},
+	"speedsketch_item~screw": {
+		"message": "skrutka"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "skrutkovač"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "sochárstvo"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "morská korytnačka"
+	},
+	"speedsketch_item~see saw": {
+		"message": "detská hojdačka pre dvoch"
+	},
+	"speedsketch_item~shark": {
+		"message": "žralok"
+	},
+	"speedsketch_item~sheep": {
+		"message": "ovca"
+	},
+	"speedsketch_item~shoe": {
+		"message": "topánka"
+	},
+	"speedsketch_item~shorts": {
+		"message": "šortky"
+	},
+	"speedsketch_item~shovel": {
+		"message": "lopata"
+	},
+	"speedsketch_item~sink": {
+		"message": "umývadlo"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "skejtbord"
+	},
+	"speedsketch_item~ski": {
+		"message": "lyža"
+	},
+	"speedsketch_item~skier": {
+		"message": "lyžiar"
+	},
+	"speedsketch_item~skirt": {
+		"message": "sukňa"
+	},
+	"speedsketch_item~skull": {
+		"message": "lebka"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "mrakodrap"
+	},
+	"speedsketch_item~sled": {
+		"message": "sane"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "spací vak"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sane"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "usmiata tvár"
+	},
+	"speedsketch_item~snail": {
+		"message": "slimák"
+	},
+	"speedsketch_item~snake": {
+		"message": "had"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "šnorchel"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snehová vločka"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snehuliak"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "futbalová lopta"
+	},
+	"speedsketch_item~sock": {
+		"message": "ponožka"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "motorový čln"
+	},
+	"speedsketch_item~sphere": {
+		"message": "guľa"
+	},
+	"speedsketch_item~spider": {
+		"message": "pavúk"
+	},
+	"speedsketch_item~spiral": {
+		"message": "špirála"
+	},
+	"speedsketch_item~spoon": {
+		"message": "lyžica"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "tabuľka"
+	},
+	"speedsketch_item~square": {
+		"message": "štvorec"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "veverička"
+	},
+	"speedsketch_item~stairs": {
+		"message": "schody"
+	},
+	"speedsketch_item~star": {
+		"message": "hviezdička"
+	},
+	"speedsketch_item~steak": {
+		"message": "steak"
+	},
+	"speedsketch_item~stereo": {
+		"message": "stereo"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "stetoskop"
+	},
+	"speedsketch_item~still life": {
+		"message": "zátišie"
+	},
+	"speedsketch_item~stocking": {
+		"message": "pančuchy"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "značka zastavenia"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "stopky"
+	},
+	"speedsketch_item~stove": {
+		"message": "sporák"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "jahoda"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "pouličná lampa"
+	},
+	"speedsketch_item~string bean": {
+		"message": "fazuľový struk"
+	},
+	"speedsketch_item~submarine": {
+		"message": "ponorka"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "kufor"
+	},
+	"speedsketch_item~sun": {
+		"message": "slnko"
+	},
+	"speedsketch_item~sunset": {
+		"message": "západ slnka"
+	},
+	"speedsketch_item~swan": {
+		"message": "labuť"
+	},
+	"speedsketch_item~sweater": {
+		"message": "sveter"
+	},
+	"speedsketch_item~swing set": {
+		"message": "detská závesná hojdačka"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "tričko"
+	},
+	"speedsketch_item~table": {
+		"message": "stôl"
+	},
+	"speedsketch_item~teapot": {
+		"message": "čajník"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "plyšový medvedík"
+	},
+	"speedsketch_item~telephone": {
+		"message": "telefón"
+	},
+	"speedsketch_item~television": {
+		"message": "televízor"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tenisová raketa"
+	},
+	"speedsketch_item~tent": {
+		"message": "stan"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "piškvorky"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tiger"
+	},
+	"speedsketch_item~time": {
+		"message": "čas"
+	},
+	"speedsketch_item~toaster": {
+		"message": "hriankovač"
+	},
+	"speedsketch_item~toe": {
+		"message": "prst na nohe"
+	},
+	"speedsketch_item~toilet": {
+		"message": "záchod"
+	},
+	"speedsketch_item~tooth": {
+		"message": "zub"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "zubná kefka"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "zubná pasta"
+	},
+	"speedsketch_item~tornado": {
+		"message": "tornádo"
+	},
+	"speedsketch_item~tractor": {
+		"message": "traktor"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "semafor"
+	},
+	"speedsketch_item~train": {
+		"message": "vlak"
+	},
+	"speedsketch_item~tree": {
+		"message": "strom"
+	},
+	"speedsketch_item~triangle": {
+		"message": "trojuholník"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "trojkolka"
+	},
+	"speedsketch_item~trombone": {
+		"message": "trombón"
+	},
+	"speedsketch_item~trousers": {
+		"message": "nohavice"
+	},
+	"speedsketch_item~truck": {
+		"message": "nákladné auto"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trúbka"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "dáždnik"
+	},
+	"speedsketch_item~underwear": {
+		"message": "spodná bielizeň"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "jednorožec"
+	},
+	"speedsketch_item~universe": {
+		"message": "vesmír"
+	},
+	"speedsketch_item~van": {
+		"message": "dodávka"
+	},
+	"speedsketch_item~vase": {
+		"message": "váza"
+	},
+	"speedsketch_item~violin": {
+		"message": "husle"
+	},
+	"speedsketch_item~walnut": {
+		"message": "orech"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "práčka"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "červený melón"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "tobogan"
+	},
+	"speedsketch_item~wave": {
+		"message": "vlna"
+	},
+	"speedsketch_item~whale": {
+		"message": "veľryba"
+	},
+	"speedsketch_item~windmill": {
+		"message": "veterný mlyn"
+	},
+	"speedsketch_item~woman": {
+		"message": "žena"
+	},
+	"speedsketch_item~world": {
+		"message": "svet"
+	},
+	"speedsketch_item~wreath": {
+		"message": "veniec"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "náramkové hodinky"
+	},
+	"speedsketch_item~yoga": {
+		"message": "joga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jogurt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "zebra"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "cikcakovitý vzor"
+	},
+	"speedsketch_item~zipper": {
+		"message": "zips"
+	},
+	"sr_country_name": {
+		"message": "Surinam"
+	},
+	"sv_country_name": {
+		"message": "Salvádor"
 	},
 	"sv_language_name": {
 		"message": "Švédčina"
 	},
+	"td_country_name": {
+		"message": "Čad"
+	},
+	"terms-and-privacy": {
+		"message": "Zmluvné podmienky a ochrana súkromia"
+	},
+	"tg_country_name": {
+		"message": "Togo"
+	},
 	"th_language_name": {
 		"message": "Thajčina"
+	},
+	"tilt": {
+		"message": "Nakloňte svoje zariadenie."
 	},
 	"time": {
 		"message": "Čas"
 	},
+	"tj_country_name": {
+		"message": "Tadžikistan"
+	},
+	"tm_country_name": {
+		"message": "Turkménsko"
+	},
+	"tn_country_name": {
+		"message": "Tunisko"
+	},
 	"today_only": {
 		"message": "Iba dnešný deň"
+	},
+	"tr_country_name": {
+		"message": "Turecko"
 	},
 	"tr_language_name": {
 		"message": "Turečtina"
@@ -101,20 +3017,3482 @@
 	"tracker_arrival": {
 		"message": "Prílet"
 	},
+	"tracker_arriving_in": {
+		"message": "Dorazí o"
+	},
+	"tracker_current_stop": {
+		"message": "Aktuálna zastávka"
+	},
+	"tracker_departing_in": {
+		"message": "Odchádza o"
+	},
+	"tracker_distance_away_km": {
+		"message": "Santa je {{distance_away}} km ďaleko"
+	},
+	"tracker_distance_from_you": {
+		"message": "Vzdialenosť od vás"
+	},
+	"tracker_distance_travelled": {
+		"message": "Precestovaná vzdialenosť"
+	},
+	"tracker_feed": {
+		"message": "Živý informačný kanál"
+	},
+	"tracker_flight_nearby": {
+		"message": "Santa je neďaleko, zistite kde"
+	},
+	"tracker_flight_start": {
+		"message": "Santa odišiel zo severného pólu a teraz môžete sledovať jeho cestu"
+	},
+	"tracker_from_google": {
+		"message": "Od nás všetkých z Googlu"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Počet doručených darčekov"
+	},
 	"tracker_intro_skip_intro": {
 		"message": "Preskočiť úvod"
+	},
+	"tracker_intro_user_location": {
+		"message": "Ste na mieste"
+	},
+	"tracker_just_in": {
+		"message": "Najaktuálnejšie správy"
+	},
+	"tracker_next_stop": {
+		"message": "Ďalšia zastávka"
+	},
+	"tracker_santa_update": {
+		"message": "NOVINKY O SANTOVI"
+	},
+	"tracker_santa_update_1": {
+		"message": "Aktualizácia Santu"
+	},
+	"tracker_see_route": {
+		"message": "Zobraziť trasu"
+	},
+	"tracker_stats": {
+		"message": "Santove štatistiky"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Santa príde približne o {{hours}} hod."
+	},
+	"tracker_time_from_you_one": {
+		"message": "Santa čoskoro príde"
+	},
+	"tracker_track": {
+		"message": "Sledovať Santu"
+	},
+	"tracker_travelogue": {
+		"message": "Cestopis"
 	},
 	"tracker_weather": {
 		"message": "Počasie"
 	},
+	"tracker_world_facts": {
+		"message": "VEDELI STE?"
+	},
+	"tracker_world_facts_1": {
+		"message": "Fakty o svete"
+	},
+	"tracker_your_location": {
+		"message": "Vaša poloha"
+	},
+	"traditions-next": {
+		"message": "Ďalšia tradícia"
+	},
+	"traditions-prev": {
+		"message": "Predchádzajúca tradícia"
+	},
+	"traditions-world": {
+		"message": "Svet"
+	},
+	"trivia_beginner_001": {
+		"message": "Na ktorom kontinente sa nachádza pohorie Andy?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_002": {
+		"message": "Ktorý štát USA tvorí osem hlavných ostrovov?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Havaj"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Ktorý štát v USA sa nachádza na Veľkých prériách?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Ktorý kontinent obmývajú Atlantický, Tichý aj Severný ľadový oceán?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_005": {
+		"message": "Ktorý štát sa nachádza v tichomorskom časovom pásme?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornia"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Gruzínsko"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Na ktorom kontinente sa nachádza pohorie Atlas a púšť Kalahari?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_007": {
+		"message": "Ktorý štát USA susedí s Veľkým jazerom?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Nové Mexiko"
+	},
+	"trivia_beginner_008": {
+		"message": "Na ktorom kontinente hovorí väčšina ľudí po portugalsky alebo po španielsky?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_009": {
+		"message": "Ktorý štát v USA má tvar ako rúčka panvice?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Antarktída a ktorý ďalší kontinent ležia celé na južnej pologuli?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_011": {
+		"message": "S ktorým kontinentom susedí Ronneovej šelfový ľadovec?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_012": {
+		"message": "Západne od pobrežia ktorého kontinentu sa nachádzajú ostrovy Vancouver a Kodiak?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_013": {
+		"message": "Na severozápade ktorého kontinentu sa nachádza Niger, krajina s najrýchlejšie rastúcou populáciou na svete?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_014": {
+		"message": "Na ktorom kontinente rastie najmenej bylín a stromov?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_015": {
+		"message": "Tasmánski diabli sú pôvodnými obyvateľmi ostrova ležiaceho pri južnom pobreží ktorého kontinentu?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_016": {
+		"message": "Šikmá veža v Pise je obľúbenou turistickou atrakciou ktorej stredozemnej krajiny?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Taliansko"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Ghana"
+	},
+	"trivia_beginner_017": {
+		"message": "Na severe ktorého kontinentu sa nachádzajú historické mestá Casablanca a Tripolis?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_018": {
+		"message": "Na ktorom kontinente možno nájsť kaktus saguaro na Sonorskej púšti?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_019": {
+		"message": "V ktorej krajine sa nachádzajú obľúbené dovolenkové destinácie Veracruz a Acapulco?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "India"
+	},
+	"trivia_beginner_020": {
+		"message": "V ktorej krajine sa nachádza Útočisko pandy veľkej v oblasti S’-čchuan, domov 30 % všetkých pánd na svete?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Čína"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Island"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Etiópia"
+	},
+	"trivia_beginner_021": {
+		"message": "Na ktorom kontinente môžeme nájsť približne 90 % všetkého ľadu na svete?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_022": {
+		"message": "Na ktorom kontinente sa nachádza Angelov vodopád, najvyšší vodopád na svete?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_023": {
+		"message": "Ak by ste chceli navštíviť stredisko Jackson Hole a vyliezť na Diablovu vežu, do ktorého štátu v USA by ste cestovali?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Severná Dakota"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Ak by ste chceli vidieť, ako sa zbiera javorový sirup, a ísť lyžovať do Zelených hôr, do ktorého štátu v USA by ste cestovali?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Ktorý štát v USA by ste museli navštíviť, aby ste mohli prejsť cez most Chesapeake Bay Bridge a prejsť sa po promenáde v meste Ocean City?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Severná Karolína"
+	},
+	"trivia_beginner_026": {
+		"message": "Do ktorého štátu v USA by ste cestovali, ak by ste chceli navštíviť mamutiu jaskyňu a pozrieť si dostihy na trati Churchill Downs?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Západná Virgínia"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Do ktorého štátu v USA by ste museli cestovať, aby ste uvideli obrovské sekvoje a ostrovy Channel Islands?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornia"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virgínia"
+	},
+	"trivia_beginner_028": {
+		"message": "Ktoré mokriny by ste navštívili, keby ste boli na Floride v USA?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Národný park Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismalské močiare"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Veľká cyperská bažina"
+	},
+	"trivia_beginner_029": {
+		"message": "Ak by ste chceli precestovať Záliv svätého Vavrinca a jazerá Finger Lakes, do ktorého štátu USA by ste cestovali?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Na ktorom kontinente sa nachádza najvyššia hora sveta Mount Everest?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_031": {
+		"message": "Juh ktorého kontinentu z veľkej časti zaberá oblasť Patagónia?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_032": {
+		"message": "Na ktorom kontinente žijú tučniaky obrovské vo svojom prirodzenom prostredí?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_033": {
+		"message": "V ktorej krajine pôvodne žili kengury a koaly?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_034": {
+		"message": "Na ktorom kontinente láka turistov divoká zver Národného parku Serengeti?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_035": {
+		"message": "Ktorý kontinent má najväčší výmer pôdy?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_036": {
+		"message": "V ktorom európskom meste križuje most Tower Bridge rieku Temža?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "Londýn"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Kapské Mesto"
+	},
+	"trivia_beginner_037": {
+		"message": "V ktorom ruskom meste stojí na Červenom námestí vedľa Kremľa Chrám Vasilija Blaženého?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brusel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "V ktorom európskom meste sa nachádza Koloseum postavené v prvom storočí nášho letopočtu ako miesto pre gladiátorské zápasy?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Rím"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Chartúm"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "V ktorom austrálskom meste sa nachádza Opera a Prístavný most?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Jakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Praha"
+	},
+	"trivia_beginner_040": {
+		"message": "V ktorom meste na Blízkom východe sa nachádza Skalný dóm a Múr nárekov, dve z mnohých posvätných miest nájdených medzi múrmi tohto starého mesta?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jeruzalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alžír"
+	},
+	"trivia_beginner_041": {
+		"message": "V ktorom gréckom meste stojí navrchu Akropoly Parthenón?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Atény"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kyjev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "V ktorom francúzskom meste stojí neďaleko rieky Seina Eiffelova veža s výhľadom na centrum mesta?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "Paríž"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Nové Dilí"
+	},
+	"trivia_beginner_043": {
+		"message": "V ktorom meste v Saudskej Arábii leží mešita al-Haram, v ktorej sa nachádza Kába, najposvätnejšie miesto islamu?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Budapešť"
+	},
+	"trivia_beginner_044": {
+		"message": "V centre ktorého čínskeho mesta sa nachádza Zakázané mesto, bývalý cisársky palác?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "V ktorom meste v USA v zátoke Puget Sound sa nachádza vyhliadková veža Vesmírna ihla?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "V ktorom meste v USA ležiacom na ústí rieky Charles sa nachádza najvyššia budova John Hancock Tower?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Najvyššou budovou ktorého mesta v USA je veža Stratosphere v Mohavskej púšti,\nktorá sa nachádza neďaleko na sever od bulváru známeho ako Strip?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "V prístave ktorého mesta v USA sa na ostrove Liberty Island nachádza Socha slobody?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Ktoré mesto v USA spája most Golden Gate Bridge s polostrovom Marin?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "V ktorom meste v USA sa pri rieke Mississippi nachádza oblúk Gateway Arch symbolizujúci americkú expanziu smerom na západ začiatkom 19. storočia?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "V ktorej africkej krajine sa nachádza Gízska plošina, domov Veľkej pyramídy a Sfingy?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brazília"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Nemecko"
+	},
+	"trivia_beginner_052": {
+		"message": "V ktorom meste neďaleko rieky Delaware sa nachádza Independence Hall, významené historické miesto súvisiace s Americkou revolúciou?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Philadelphia"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Skalnaté vrchy sa tiahnu cez Kanadu a ktorú ďalšiu krajinu?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "USA"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venezuela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rusko"
+	},
+	"trivia_beginner_054": {
+		"message": "S ktorým oceánom susedia Brazília a Uruguaj?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_beginner_055": {
+		"message": "V ktorom oceáne leží východne od pobrežia Kanady ostrov Newfoundland?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_056": {
+		"message": "V ktorom oceáne sa nachádza ostrov Madagaskar, ktorý leží východne od pobrežia Afriky?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_beginner_057": {
+		"message": "Stredom ktorého oceána sa tiahne väčšina medzinárodnej dátumovej hranice?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_beginner_058": {
+		"message": "Na ktorom kontinente rovník pretína Konžskú panvu?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_059": {
+		"message": "Ktorý kontinent susedí s Golfským zálivom?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_060": {
+		"message": "Ktorá rieka pretekajúca Afrikou je najdlhšou riekou sveta?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Rieka Níl"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Rieka Colorado"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Orange River"
+	},
+	"trivia_beginner_061": {
+		"message": "Na ktorom kontinente sa nachádzajú staroveké ruiny Machu Picchu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_062": {
+		"message": "Naprieč ktorým kontinentom tečie rieka Amazonka, ktorá obsahuje viac vody než akákoľvek iná rieka na svete?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_063": {
+		"message": "Na ktorom kontinente sa nachádza Mont Blanc, najvyšší bod Álp?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Európa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_064": {
+		"message": "S ktorým kontinentom spája Panamská šija Strednú Ameriku?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_065": {
+		"message": "Gepardy sú narýchlejšími pozemskými cicavcami na Zemi a nájdeme ich v Keni a Tanzánii na ktorom kontinente?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_066": {
+		"message": "Neďaleko južného cípu ktorého kontinentu sa nachádza Mys dobrej nádeje?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_067": {
+		"message": "V ktorom oceáne západne od pobrežia Južnej Ameriky sa nachádzajú ostrovy Galapágy, kde žijú korytnačky obrovské?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_068": {
+		"message": "Na ktorom kontinente preteká rieka Dunaj cez Viedeň a ďalšie mestá?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Európa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_069": {
+		"message": "Ktoré more obmýva ostrovy Kuba a Hispaniola?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karibské more"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringovo more"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Baltické more"
+	},
+	"trivia_beginner_070": {
+		"message": "Ktorý kontinent obmýva Guinejský záliv?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_071": {
+		"message": "Ktorý kontinent objavil slávny Ernest Shackleton?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_072": {
+		"message": "Labradorské more je ramenom ktorého oceána?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_073": {
+		"message": "Na ktorom kontinente sa nachádza Sahara, najväčšia púšť na svete?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_074": {
+		"message": "Na ktorom kontinente sa nachádza Tibetská náhorná plošina?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_075": {
+		"message": "Južne od ktorého kontinentu leží Drakov prieliv?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Európa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_076": {
+		"message": "Pri pobreží ktorého kontinentu sa v Koralovom mori nachádza Veľká koralová bariéra?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_077": {
+		"message": "Ak by ste sa chceli plaviť Suezským prieplavom a navštíviť Mesto mŕtvych v Káhire, do ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kolumbia"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Fínsko"
+	},
+	"trivia_beginner_078": {
+		"message": "Ak by ste chceli vidieť pastierov dobytka nazývaných gaucho a sledovať tanečníkov tanga v meste Buenos Aires, do ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Niger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepál"
+	},
+	"trivia_beginner_079": {
+		"message": "Ak by ste chceli navštíviť starú štvrť v meste Fez a ísť na túru v pohorí Atlas, do ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ekvádor"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Thajsko"
+	},
+	"trivia_beginner_080": {
+		"message": "Ak by ste chceli navštíviť staroveké mayské ruiny a zaplávať si pri plážach mesta Cancún,\ndo ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Holandsko"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Turecko"
+	},
+	"trivia_beginner_081": {
+		"message": "Ak by ste chceli navštíviť Katedrálu svätého Patrika v Dubline a vychutnať si festival umenia v meste Kilkenny,\ndo ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Írsko"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Somálsko"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Kostarika"
+	},
+	"trivia_beginner_082": {
+		"message": "Do ktorej krajiny by ste cestovali, aby ste mohli ísť na výlet do dažďového lesa a tancovať na karnevale v Riu de Janeiru?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Spojené kráľovstvo"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Ak by ste chceli ísť do múzea Ermitáž v Petrohrade a povoziť sa na Transsibírskej magistrále,\ndo ktorej krajiny by ste museli cestovať?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rusko"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indonézia"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belize"
+	},
+	"trivia_beginner_084": {
+		"message": "Do ktorej krajiny by ste museli cestovať, aby ste sa mohli povoziť na vysokorýchlostnom vlaku a stráviť noc v tokijskom hoteli?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japonsko"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_beginner_085": {
+		"message": "Ak by ste chceli jesť pesto v Janove a navštíviť operu vo Florencii, do ktorej krajiny by ste museli cestovať?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Taliansko"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paraguaj"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Líbya"
+	},
+	"trivia_beginner_086": {
+		"message": "Ak by ste chceli ísť na safari do národnej rezervácie Maasai Mara a na nákupy do mesta Nairobi,\ndo ktorej krajiny by ste cestovali?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Keňa"
+	},
 	"trivia_beginner_086_answer1": {
 		"message": "Južná Kórea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Čile"
+	},
+	"trivia_beginner_087": {
+		"message": "Ak by ste chceli vidieť rieku Ganga a preskúmať preplnené ulice Kalkaty, do ktorej krajiny by ste museli cestovať?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "India"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Nemecko"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jordánsko"
+	},
+	"trivia_beginner_088": {
+		"message": "Uprostred ktorého oceánu sa nachádza najsevernejší bod Zeme, severný pól?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Tichý oceán"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indický oceán"
+	},
+	"trivia_beginner_089": {
+		"message": "Ktorá krajina susedí s Atlantickým oceánom?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Island"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japonsko"
+	},
+	"trivia_beginner_090": {
+		"message": "Ktorý štát v USA je vďaka svojmu teplému podnebiu a slávnym plážam známy ako „Slnečný štát“?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Florida"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "V ktorom štáte v USA sa nachádza Grand Canyon?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Západná Virgínia"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Južná Dakota"
+	},
+	"trivia_beginner_092": {
+		"message": "Ktorý štát v USA známy aj ako „Štát osamelej hviezdy“ má na vlajke len jednu hviezdu a kedysi bol vyhlásený za samostatnú krajinu?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Na ktorom kontinente sa nachádzajú rieky Eufrat a Tigris?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Antarktída"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Európa"
+	},
+	"trivia_beginner_094": {
+		"message": "Na ktorom kontinente sa nachádza jazero Viktória a pohorie Virunga?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_beginner_095": {
+		"message": "Ktorá krajina je ostrovnou krajinou v Tichom oceáne?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nový Zéland"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Južná Afrika"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Island"
+	},
+	"trivia_beginner_096": {
+		"message": "Ktorá krajina sa nachádza na Škandinávskom polostrove?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Švédsko"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rumunsko"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Peru"
+	},
+	"trivia_beginner_097": {
+		"message": "Ktorá krajina susedí so Stredozemným morom?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Francúzsko"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladéš"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_001": {
+		"message": "Ktoré mesto v USA leží najbližšie pri hranici s Kanadou?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "V ktorom meste v USA sa s najväčšou pravdepodobnosťou môže vyskytnúť hurikán?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Ktoré z týchto jazier má najväčšiu rozlohu?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Hurónske jazero"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Jazero Mead"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Erijské jazero"
+	},
+	"trivia_hard_004": {
+		"message": "Ktoré z týchto miest v USA je najľudnatejšie?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Ktorá krajina sa nachádza najbližšie k Perzskému zálivu?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Turecko"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bhután"
+	},
+	"trivia_hard_006": {
+		"message": "Ktorá z týchto krajín má najväčšiu výmeru pôdy?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kazachstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rumunsko"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Poľsko"
+	},
+	"trivia_hard_007": {
+		"message": "Ktorá z týchto krajín je najhustejšie osídlená?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapur"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_008": {
+		"message": "V ktorej z týchto krajín žije najviac nemecky hovoriacich ľudí?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Rakúsko"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slovensko"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Irak"
+	},
+	"trivia_hard_009": {
+		"message": "Ktorá z týchto krajín susedí s najväčším počtom krajín?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Saudská Arábia"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Maroko"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongolsko"
+	},
+	"trivia_hard_010": {
+		"message": "Ktorá krajina nesusedí s jazerom Tanganika?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benin"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Burundi"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_hard_011": {
+		"message": "Ktorú krajinu nepretína rovník?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Mauritánia"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Keňa"
+	},
+	"trivia_hard_012": {
+		"message": "Ktorá krajina sa nenachádza na Balkánskom polostrove?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Česká republika"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Bulharsko"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Macedónsko"
+	},
+	"trivia_hard_013": {
+		"message": "Ktorá krajina nesusedí so Severným morom?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Fínsko"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Dánsko"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Spojené kráľovstvo"
+	},
+	"trivia_hard_014": {
+		"message": "Ktorá krajina nesusedí s Čiernym morom?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Turecko"
+	},
+	"trivia_hard_015": {
+		"message": "Ktorá krajina nie je vnútrozemská?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Chorvátsko"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Bielorusko"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Maďarsko"
+	},
+	"trivia_hard_016": {
+		"message": "Ktorá krajina sa nenachádza na Sahare?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angola"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Líbya"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alžírsko"
+	},
+	"trivia_hard_017": {
+		"message": "Ktorý ostrov leží najvýchodnejšie?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamajka"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_hard_018": {
+		"message": "S ktorou vodnou plochou susedí mys Cape Fear?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karibské more"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Tichý oceán"
+	},
+	"trivia_hard_019": {
+		"message": "Ktoré mesto v Mexickom zálive slúži ako prístav?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Cez ktorú krajinu prechádza obratník raka?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brazília"
+	},
+	"trivia_hard_021": {
+		"message": "Ktorý z týchto ostrovov má najväčšiu rozlohu?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffinov ostrov"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardínia"
+	},
+	"trivia_hard_022": {
+		"message": "Yucatánsky prieliv oddeľuje Mexiko a ktorý ostrov?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kuba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Portoriko"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dominika"
+	},
+	"trivia_hard_023": {
+		"message": "Ktoré kanadské mesto leží najsevernejšie?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Ktorý ostrov je súčasťou Malých Antíl?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "Sv. Krištof a Nevis"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermudy"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nové Škótsko"
+	},
+	"trivia_hard_025": {
+		"message": "Najľudnatejším mestom ktorej krajiny je mesto Port-au-Prince?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haiti"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_hard_026": {
+		"message": "Ktorá krajina leží v horskom systéme Karpaty?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rumunsko"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albánsko"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Turkménsko"
+	},
+	"trivia_hard_027": {
+		"message": "V ktorej krajine je úradným jazykom francúzština?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kuvajt"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tanzánia"
+	},
+	"trivia_hard_028": {
+		"message": "Ktorá z týchto krajín má najväčšiu výmeru pôdy?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Bahrajn"
+	},
+	"trivia_hard_029": {
+		"message": "Ktorá krajina sa rozprestiera naprieč najväčším počtom stupňov zemepisnej dĺžky?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kazachstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Sýria"
+	},
+	"trivia_hard_030": {
+		"message": "Ktorú krajinu tvorí množstvo ostrovov?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filipíny"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_hard_031": {
+		"message": "Ktorá z týchto krajín má najviac časových pásiem?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belize"
+	},
+	"trivia_hard_032": {
+		"message": "Ktorá krajina sa nachádza najsevernejšie?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerun"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mozambik"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Austrália"
+	},
+	"trivia_hard_033": {
+		"message": "Ktorá krajina sa nachádza medzi Francúzskom a Španielskom?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Luxembursko"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Vatikán"
+	},
+	"trivia_hard_034": {
+		"message": "S ktorou krajinou susedí Dánsko?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Nemecko"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Fínsko"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldavsko"
+	},
+	"trivia_hard_035": {
+		"message": "Ktorej krajine patrí ostrov Sardínia?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Taliansko"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Turecko"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Spojené kráľovstvo"
+	},
+	"trivia_hard_036": {
+		"message": "Ktorá púšť pokrýva veľkú časť územia medzi Pekingom a Ulanbátarom?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Veľká indická púšť"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Líbyjská púšť"
+	},
+	"trivia_hard_037": {
+		"message": "Súčasťou ktorého oceána je Kamčatský prúd?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Tichý oceán"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_hard_038": {
+		"message": "V južnej časti ktorého mora sa nachádza záliv Sidra?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Stredozemné more"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabské more"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Baltické more"
+	},
+	"trivia_hard_039": {
+		"message": "V ktorom európskom horskom systéme je pohorie Tatry najvyššie?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Pohorie Karpaty"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Kantaberské pohorie"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pyreneje"
+	},
+	"trivia_hard_040": {
+		"message": "Ktorá rieka preteká cez jazero Kariba a tvorí hranicu medzi Zambiou a Zimbabwe?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Rieka Zambezi"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Rieka Níl"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Rieka Kongo"
+	},
+	"trivia_hard_041": {
+		"message": "Do ktorého mora sa vlievajú rieky Temža, Mása a Šelda?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Severné more"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Stredozemné more"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Čierne more"
+	},
+	"trivia_hard_042": {
+		"message": "Severne od ktorého veľkého ostrova oddeľuje Luzonský prieliv Filipíny?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taiwan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alžírsko"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Ktoré ostrovy ležia pozdĺž Stredoatlantického chrbta?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azory"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamy"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Ostrovy Fidži"
+	},
+	"trivia_hard_044": {
+		"message": "Ktorá rieka sa vlieva do Mora Laptevovcov?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Rieka Lena"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Rieka Jang-ce-ťiang"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Rieka Indus"
+	},
+	"trivia_hard_045": {
+		"message": "Ktorý vrch sa nachádza najbližšie pri rovníku?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimandžáro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "Mount McKinley"
+	},
+	"trivia_hard_046": {
+		"message": "Ktoré hlavné mesto má najviac obyvateľov?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alžír"
+	},
+	"trivia_hard_047": {
+		"message": "Ktoré mesto ležiace pri rieke Liffey je najväčším mestom Írska?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dublin"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Oslo"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kodaň"
+	},
+	"trivia_hard_048": {
+		"message": "Ktoré mesto ležiace v údolí Hidukúš je najväčším mestom Afganistanu?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kábul"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevo"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Ktoré mesto ležiace na rieke Chao Phraya je najväčším mestom Thajska?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Ammán"
+	},
+	"trivia_hard_050": {
+		"message": "Ktoré mesto ležiace na začiatku fjordu pri prielive Skagerrak je najväčším mestom Nórska?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Oslo"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "Londýn"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brusel"
+	},
+	"trivia_hard_051": {
+		"message": "Ktoré mesto nachádzajúce sa pozdĺž východnej časti Stredozemného mora je najväčším mestom Libanonu?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Bejrút"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadišo"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Rijád"
+	},
+	"trivia_hard_052": {
+		"message": "Ktoré mesto na pobreží Jávy je najväčším mestom Indonézie?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Jakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tokio"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Ktoré mesto v kraji Atika je najväčším mestom Grécka?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Atény"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Rím"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barcelona"
+	},
+	"trivia_hard_054": {
+		"message": "Ktoré mesto nachádzajúce sa na ústí rieky Rio de la Plata je najväčším mestom Uruguaja?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Ktoré mesto, ktoré bolo kedysi súčasťou bývalej provincie Transvaal, je najväčším mestom Južnej Afriky?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Johannesburg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Ktoré mesto a zároveň významné prepravné centrum v Karibskom mori je najväčším mestom Jamajky?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Caracas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Ktoré mesto ležiace vo Veľke priekopovej prepadline je najväčším mestom štátu Eritrea?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Ktoré mesto ležiace na brehoch rieky Visla je najväčším mestom Poľska?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varšava"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kyjev"
+	},
+	"trivia_hard_059": {
+		"message": "Ktoré mesto, dôležitá zastávka na panamerickej diaľnici, je najväčším mestom Kostariky?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Ktoré mesto, významné centrum poľnohospodárskeho obchodu, v južnej Afrike je najväčším mestom Zimbabwe?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Ktoré mesto kedysi okupované režimom Červených Khmérov je najväčším mestom Kambodže?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnompenh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dháka"
+	},
+	"trivia_hard_062": {
+		"message": "Ktoré mesto ležiace na Myse Mesurado v Atlantickom oceáne je najväčším mestom Libérie?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monrovia"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Akkra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Ktoré mesto na náhornej plošine v Andách je najväčším mestom Kolumbie?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogota"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Ktoré mesto ležiace na úpätí pohoria Alborz je najväčším mestom Iránu?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teherán"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taškent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbul"
+	},
+	"trivia_hard_065": {
+		"message": "Ktorú vodnú plochu pretína polárny kruh?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Nórske more"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Jazero Volta"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspické more"
+	},
+	"trivia_hard_066": {
+		"message": "Ktorá vodná plocha sa nachádza vo Veľkej priekopovej prepadline?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Jazero Malawi"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanovo more"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Jazero Titicaca"
+	},
+	"trivia_hard_067": {
+		"message": "Na brehu ktorej vodnej plochy sa nachádza ruské prístavné mesto Archangeľsk?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Biele more"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bassova úžina"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biskajský záliv"
+	},
+	"trivia_hard_068": {
+		"message": "V ktorej krajine sa nachádzajú provincie Hunan a Šan-tung?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Čína"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Thajsko"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "Úradným jazykom ktorej stredozemskej krajiny je kastílčina?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Španielsko"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grécko"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_070": {
+		"message": "Ktorá krajina v Strednej Amerike bola kedysi provinciou, ktorá bola súčasťou Kolumbie?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Guatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Mesto Bazilej, ktoré rozdeľuje rieka Rýn, je dôležitým dopravným centrom ktorej krajiny?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Švajčiarsko"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgicko"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rusko"
+	},
+	"trivia_hard_072": {
+		"message": "V ktorej krajine sa nachádza Provensálsko, ktorého vzhľad inšpiroval maliarov, ako bol napr. Cézanne?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Francúzsko"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Holandsko"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rumunsko"
+	},
+	"trivia_hard_073": {
+		"message": "V ktorej krajine sa nachádza Bahía Blanca, významný prepravný bod regiónu Pampas?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bolívia"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Nikaragua"
+	},
+	"trivia_hard_074": {
+		"message": "Ktorú krajinu obmývajú Stredozemné, Čierne a Egejské more?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Turecko"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Bulharsko"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Líbya"
+	},
+	"trivia_hard_075": {
+		"message": "Do ktorej susednej krajiny na severovýchode migrujú každý rok pakone hrivnaté z Tanzánie cez rieku Mara?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Keňa"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Zambia"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Guinea"
+	},
+	"trivia_hard_076": {
+		"message": "Najväčším mestom ktorej juhozápadnej ázijskej krajiny je mesto Halab známe svojou Veľkou mešitou?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Sýria"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Omán"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladéš"
+	},
+	"trivia_hard_077": {
+		"message": "Ktorá krajina susedí s Ruskom a Gruzínskom?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Uzbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Severná Kórea"
+	},
+	"trivia_hard_078": {
+		"message": "Ktorá krajina susedí s Panamou a Brazíliou?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kolumbia"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Peru"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Kostarika"
+	},
+	"trivia_hard_079": {
+		"message": "Ktorá krajina susedí s Guatemalou a USA?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "Salvádor"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Ktorá krajina susedí s Irakom a Afganistanom?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Irán"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongolsko"
+	},
+	"trivia_hard_081": {
+		"message": "S ktorou krajinou susedia štáty Lesotho a Botswana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Južná Afrika"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Zimbabwe"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongo"
+	},
+	"trivia_hard_082": {
+		"message": "Antverpy ležia vo flámsky hovoriacej časti ktorej krajiny?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgicko"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Holandsko"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Island"
+	},
+	"trivia_hard_083": {
+		"message": "Mesto Gdansk, ktoré sa nachádza neďaleko ústia rieky Visla, je významným prístavom ktorej európskej krajiny?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Poľsko"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Španielsko"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Chorvátsko"
+	},
+	"trivia_hard_084": {
+		"message": "Hlavnými prítokmi ktorej veľkej rieky v Južnej Amerike sú rieky Madeira a Purus?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amazonka"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Rieka Orinoco"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Rieka Paraná"
+	},
+	"trivia_hard_085": {
+		"message": "Bodamské jazero susedí so Švajčiarskom, Nemeckom a ktorou ďalšou krajinou?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Rakúsko"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slovensko"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Fínsko"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland, významné prístavné mesto s viacerými prístavmi, je najväčším mestom ktorej krajiny?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nový Zéland"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Austrália"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_087": {
+		"message": "Ktorá krajina ležiaca hneď na západ od Toga je významným producentom kakaa?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Ghana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Sudán"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Tunisko"
+	},
+	"trivia_hard_088": {
+		"message": "Guarani je názov jedného z úradných jazykov a zároveň aj menou ktorej juhoamerickej krajiny?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paraguaj"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ekvádor"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brazília"
+	},
+	"trivia_hard_089": {
+		"message": "Ktoré pohorie sa tiahne pozdĺž hranice Francúzska a Španielska?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pyreneje"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apeniny"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kaukazské vrchy"
+	},
+	"trivia_hard_090": {
+		"message": "V ktorej krajine sa rieka Torrens vlieva do Zálivu sv. Vincenta?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Ktorá africká krajina susediaca so Stredozemným morom je monarchiou?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Maroko"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egypt"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Stredoafrická republika"
+	},
+	"trivia_hard_092": {
+		"message": "Hlavným mestom ktorej krajiny je mesto Tbilisi, ktoré leží na brehoch rieky Kura?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Gruzínsko"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Sýria"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Maďarsko"
+	},
+	"trivia_hard_093": {
+		"message": "V ktorej krajine sa nachádza horská oblasť Abruzzo pri Jadranskom mori?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Taliansko"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Francúzsko"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Luxembursko"
+	},
+	"trivia_hard_094": {
+		"message": "Rižský záliv susedí s Lotyšskom a ktorou ďalšou krajinou?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Estónsko"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Bielorusko"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Španielsko"
+	},
+	"trivia_hard_095": {
+		"message": "Gubalský prieliv spája Suezský prieliv a ktoré more?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Červené more"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karibské more"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspické more"
+	},
+	"trivia_hard_096": {
+		"message": "Z ktorej rieky priteká do Galilejského mora najväčší objem vody?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Rieka Jordán"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amudarja"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Rieka Ganga"
+	},
+	"trivia_hard_097": {
+		"message": "Ktorá veľká zátoka oddeľuje provinciu New Brunswick od Nového Škótska?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Záliv Fundy"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsonský záliv"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengálsky záliv"
+	},
+	"trivia_hard_098": {
+		"message": "V Porýní ktorej krajiny sa nachádza Kolínsky dóm?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Nemecko"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Dánsko"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Najjužnejším štátom ktorej krajiny je Chiapas, kde sa nachádza niekoľko starovekých mayských ruin?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Honduras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Čile"
+	},
+	"trivia_hard_100": {
+		"message": "Ktoré more spája s Marmarským morom úzky prieliv Dardanely?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Egejské more"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentsovo more"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanovo more"
+	},
+	"trivia_hard_101": {
+		"message": "Úradným jazykom ktorej ázijskej krajiny je khmerština?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambodža"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_hard_102": {
+		"message": "Donecká panva je priemyselná oblasť, ktorú zdieľa Rusko a ktorá ďalšia krajina?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Ukrajina"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slovensko"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Libanon"
+	},
+	"trivia_hard_103": {
+		"message": "Najvyšším vrchom ktorého kontinentu je Kościuszkov vrch v pohorí Snowy Mountains?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Európa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_hard_104": {
+		"message": "Súčasťou ktorej krajiny sú ostrvy Madura a Bali?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japonsko"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "V ktorej ázijskej krajine sa nachádza púšť Taklamakan severne od horského systému Kchun-lun?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Čína"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Saudská Arábia"
 	},
 	"trivia_hard_105_answer2": {
 		"message": "Južná Kórea"
 	},
+	"trivia_medium_001": {
+		"message": "Ktoré z týchto miest v USA leží na riečnej delte?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma City"
+	},
+	"trivia_medium_002": {
+		"message": "Na ktorom kontinente sa našli pamiatky svetového dedičstva UNESCO Angkor Wat a Cappadocia?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afrika"
+	},
+	"trivia_medium_003": {
+		"message": "V juhozápadnej časti ktorého kontinentu hovoria ľudia kurdštinou a perzštinou?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_004": {
+		"message": "Na ktorom kontinente sa nachádzalo veľké centrum ranej civilizácie Teotihuacán?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Severná Amerika"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_medium_005": {
+		"message": "Ktorý kontinent obmývajú Bellingshausenovo more a Rossovo more?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Antarktída"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_medium_006": {
+		"message": "Pozdĺž pobrežia ktorého kontinentu sa tiahnu Mozambický a Benguelský prúd?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Európa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Severná Amerika"
+	},
+	"trivia_medium_007": {
+		"message": "Juhovýchodne od ktorého kontinentu leží súostrovie Malvíny nazývané tiež Falklandské ostrovy?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_008": {
+		"message": "Ktorá z týchto afrických krajín má najväčšiu rozlohu?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alžírsko"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambia"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Burundi"
+	},
+	"trivia_medium_009": {
+		"message": "Ktorý veľký ostrov sa nachádza 322 km severozápadne od Islandu?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grónsko"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nová Guinea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Írsko"
+	},
+	"trivia_medium_010": {
+		"message": "Súčasťou ktorého oceánu sú Karské more a Východosibírske more?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indický oceán"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Tichý oceán"
+	},
+	"trivia_medium_011": {
+		"message": "Ktorá krajina susedí s Baltským morom?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Lotyšsko"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slovinsko"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Ukrajina"
+	},
+	"trivia_medium_012": {
+		"message": "Ktoré z týchto významných miest je najľudnatejšie?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "Sao Paulo, Brazília"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Vietnam"
+	},
+	"trivia_medium_013": {
+		"message": "Ktorá krajina neleží na brehu Atlantického oceána?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malajzia"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Uruguaj"
+	},
+	"trivia_medium_014": {
+		"message": "Ktorá z týchto krajín má najkratšie pobrežie?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "Salvádor"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Peru"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Čile"
+	},
+	"trivia_medium_015": {
+		"message": "Ktorá púšť sa nachádza v Ázii?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Gobi"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalahari"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Ktorá z týchto krajín zaznamenáva najviac sopečnej činnosti?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egypt"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Izrael"
+	},
+	"trivia_medium_017": {
+		"message": "Ktorá z tých krajín je najľudnatejšia?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_018": {
+		"message": "Ktorá z týchto krajín má najviac ostrovov?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamy"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamajka"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "Salvádor"
+	},
+	"trivia_medium_019": {
+		"message": "Ktorá krajina leží najbližšie pri rovníku?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rwanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Južná Afrika"
+	},
+	"trivia_medium_020": {
+		"message": "Ktorá krajina sa nachádza najsevernejšie?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Estónsko"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Líbya"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambodža"
+	},
+	"trivia_medium_021": {
+		"message": "V ktorom hlavnom meste sa na brehoch rieky Tajo v Portugalsku nachádza okres Alfama?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lisabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Ktoré hlavné mesto ležiace 40 km severovýchodne od Mŕtveho mora je najľudnatejším mestom Jordánska?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Ammán"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Soul"
+	},
+	"trivia_medium_023": {
+		"message": "V ktorom hlavnom meste sa nachádza Námestie oslobodenia, ústredný bod viacerých egyptských protestov?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Káhira"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Maskat"
+	},
+	"trivia_medium_024": {
+		"message": "Ktoré hlavné mesto pri zátoke Table Bay je sídlom parlamentu Juhoafrickej republiky?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Kapské Mesto"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinšasa"
+	},
+	"trivia_medium_025": {
+		"message": "Ktoré hlavné mesto ležiace na rieke Vltava je najväčším mestom Českej republiky?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Praha"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dublin"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofia"
+	},
+	"trivia_medium_026": {
+		"message": "Ktoré hlavné mesto nachádzajúce sa pri Stredozemnom mori je dôležitým prístavom Líbye?"
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Tripolis"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadišo"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monrovia"
+	},
+	"trivia_medium_027": {
+		"message": "Ktoré hlavné mesto a dôležité centrum obchodu a prepravy v Sudáne sa nachádza na mieste, kde sa križujú rieky Biely Níl a Modrý Níl?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Chartúm"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Tunisko"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Johannesburg"
+	},
+	"trivia_medium_028": {
+		"message": "Ktoré hlavné mesto sa nachádza na dánskych ostrovoch Zealand a Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kodaň"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Ktoré hlavné mesto ležiace na ostrove New Providence je najväčším mestom Bahám?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Ktoré hlavné mesto južne od Čierneho mora je centrom dopravného systému Turecka?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teherán"
+	},
+	"trivia_medium_031": {
+		"message": "Časť ktorej z týchto krajín leží na Africkom rohu?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Niger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Svazijsko"
+	},
+	"trivia_medium_032": {
+		"message": "Od ktorej krajiny oddeľuje Dánsko rovina Skagerrak?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Nórsko"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Spojené kráľovstvo"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Ktorá krajina má väčšiu časť územia pokrytú púšťou?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Čad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Nórsko"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_034": {
+		"message": "Cez ktorú krajinu preteká rieka Eufrat?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Sýria"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Švajčiarsko"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Thajsko"
+	},
+	"trivia_medium_035": {
+		"message": "Na ktorom kontinente sa nachádza mesto Irkutsk, ktoré leží neďaleko jazera Bajkal?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Ázia"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_036": {
+		"message": "Dneper a Rýn sú najvýznamnejšími riekami ktorého kontinentu?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Európa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Antarktída"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Ázia"
+	},
+	"trivia_medium_037": {
+		"message": "Na ktorom kontinente sa nachádza Guyanská vysočina a oblasť Pantanal?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Severná Amerika"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_038": {
+		"message": "Pre ktorý kontinent sú typické oblasti ako Veľká Viktóriina púšť a Nullarborská rovina?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Ázia"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul je najjužnejším štátom ktorej krajiny?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexiko"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Nemecko"
+	},
+	"trivia_medium_040": {
+		"message": "V ktorej krajine leží na rieke Ob mesto Novosibirsk?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rusko"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Čína"
+	},
+	"trivia_medium_041": {
+		"message": "Ktorá krajina sa nachádza na okraji Tichého oceána a existuje v nej vyššia pravdepodobnosť zemetrasenia?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Čile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angola"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Francúzsko"
+	},
+	"trivia_medium_042": {
+		"message": "Pozdĺž severného pobrežia ktorej krajiny sa rozprestiera jazero Maracaibo?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Guatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Ktorá krajina susedí s Arabským morom?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadžikistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grécko"
+	},
+	"trivia_medium_044": {
+		"message": "Ktorá krajina sa nachádza na Pyrenejskom polostrove?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portugalsko"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladéš"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Holandsko"
+	},
+	"trivia_medium_045": {
+		"message": "Ktorá z týchto krajín má najdlhšie pobrežie?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Thajsko"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongo"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Ktorý štát leží západne od rieky Mississippi?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Približne 60 % rozlohy ktorého štátu v USA pokrývajú lesy?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virgínia"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "V ktorom štáte USA sa nachádza Mount McKinley, najvyšší vrch Severnej Ameriky?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Aljaška"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Ktorý z týchto štátov v USA má najväčšiu rozlohu?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Južná Karolína"
+	},
+	"trivia_medium_050": {
+		"message": "V ktorom štáte v USA sa nachádza Mount Rushmore neďaleko mesta Rapid City?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Južná Dakota"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Florida"
+	},
+	"trivia_medium_051": {
+		"message": "Ktorý štát USA má spoločnú hranicu s Kanadou?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Pri pobreží ktorého štátu USA možno nájsť koralové útesy?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Havaj"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamburg je významným prístavom ktorej krajiny?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Nemecko"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Chorvátsko"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgicko"
+	},
+	"trivia_medium_054": {
+		"message": "Ktorá krajina zaznamenáva najviac sopečnej činnosti?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Island"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Spojené kráľovstvo"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Poľsko"
+	},
+	"trivia_medium_055": {
+		"message": "Ktorá krajina leží predovšetkým na polostrove Malá Ázia?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Turecko"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Mjanmarsko"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Estónsko"
+	},
+	"trivia_medium_056": {
+		"message": "Mŕtve more tvorí časť hranice medzi Izraelom a ktorou krajinou?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jordánsko"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japonsko"
+	},
+	"trivia_medium_057": {
+		"message": "V ktorej krajine sa nachádza Národný park Serengeti východne od Viktóriineho jazera?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tanzánia"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nigéria"
+	},
+	"trivia_medium_058": {
+		"message": "Ktorá krajina susedí s Karibským morom a je významným vývozcom oleja?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venezuela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Čile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paraguaj"
+	},
+	"trivia_medium_059": {
+		"message": "Ktorá vnútrozemská krajina leží neďaleko na juh od rovníka?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Burundi"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Džibutsko"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Tunisko"
+	},
+	"trivia_medium_060": {
+		"message": "S ktorou stredozemnou krajinou susedí Tyrrhenské more?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Taliansko"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Izrael"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "V ktorej krajine leží na východných svahoch pohoria Ural mesto Jekaterinburg?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rusko"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litva"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgicko"
+	},
+	"trivia_medium_062": {
+		"message": "Ktorá krajina leží juhovýchodne od Austrálie a je najväčším producentom vlny na svete?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nový Zéland"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filipíny"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Vietnam"
+	},
+	"trivia_medium_063": {
+		"message": "Bombaj je významným prístavným mestom ktorej krajiny?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "India"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Švajčiarsko"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bhután"
+	},
+	"trivia_medium_064": {
+		"message": "V ktorej krajine sa nachádza mesto Incheon pri Žltom mori?"
+	},
 	"trivia_medium_064_answer0": {
 		"message": "Južná Kórea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Thajsko"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongolsko"
+	},
+	"trivia_medium_065": {
+		"message": "Ktorá malá krajina sa nachádza na západnej hranici Rakúska?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Lichtenštajnsko"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Sýria"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldavsko"
+	},
+	"trivia_medium_066": {
+		"message": "V ktorej krajine sa nachádzajú štáty Viktória a Nový Južný Wales?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "USA"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "Ktorá krajina na ostrove Borneo susedí s malou krajinou Brunej?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malajzia"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Irán"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Ukrajina"
+	},
+	"trivia_medium_068": {
+		"message": "Júlske Alpy ležia na hranici Talianska a ktorej krajiny?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slovinsko"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepál"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadžikistan"
+	},
+	"trivia_medium_069": {
+		"message": "Na severovýchode ktorej krajiny sa nachádza región predtým známy ako Mandžusko?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Čína"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Bielorusko"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Ktorá krajina susedí so štátom El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dominikánska republika"
+	},
+	"trivia_medium_071": {
+		"message": "Ktorá krajina sa nachádza v pohorí Kaukaz?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Gruzínsko"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Maďarsko"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "V ktorej ázijskej krajine oddeľuje Sundský prieliv dva ostrovy?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indonézia"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nový Zéland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "V ktorej krajine možno vidieť ľadom pokryté údolia a veľkolepé útesy neďaleko ústia rieky Shannon?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Írsko"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Francúzsko"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Uzbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Cez ktorú krajinu na juhu Ázie preteká rieka Indus?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Severná Kórea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Azerbajdžan"
+	},
+	"trivia_medium_075": {
+		"message": "Ktorá krajina susedí s Červeným morom?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Eritrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Ghana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Keňa"
+	},
+	"trivia_medium_076": {
+		"message": "V ktorej krajine sa nachádzajú štáty Zacatecas a Tabasco?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexiko"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belize"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentína"
+	},
+	"trivia_medium_077": {
+		"message": "V ktorej krajine sa nachádza Rijád, mesto s viac než 4 000 mešitami?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Saudská Arábia"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albánsko"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Sýria"
+	},
+	"trivia_medium_078": {
+		"message": "Ktorá krajina v Afrike je vnútrozemská?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Mauritánia"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egypt"
+	},
+	"trivia_medium_079": {
+		"message": "Hora Fudži je posvätným miestom ktorej krajiny?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japonsko"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filipíny"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladéš"
+	},
+	"trivia_medium_080": {
+		"message": "Ktorá krajina Veľkých Antíl používa angličtinu ako úradný jazyk?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamajka"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haiti"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kuba"
+	},
+	"trivia_medium_081": {
+		"message": "Aký je úradný jazyk Sýrie, Kuvajtu a Alžírska?"
 	},
 	"trivia_medium_081_answer0": {
 		"message": "Arabčina"
@@ -125,6 +6503,276 @@
 	"trivia_medium_081_answer2": {
 		"message": "Nemčina"
 	},
+	"trivia_medium_082": {
+		"message": "V ktorom európskom meste sa počas každoročného Salzburského festivalu často hrajú Mozartove opery?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Rakúsko"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Maďarsko"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rumunsko"
+	},
+	"trivia_medium_083": {
+		"message": "V ktorej krajine severne od Sudánu sa nachádza Údolie veľrýb, púšť plná skamenelých pozostatkov pravekých veľrýb?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egypt"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nigéria"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Zambia"
+	},
+	"trivia_medium_084": {
+		"message": "V ktorej európskej krajine leží na delte neďaleko Severného mora mesto Rotterdam?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Holandsko"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Švédsko"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grécko"
+	},
+	"trivia_medium_085": {
+		"message": "V ktorom veľkom horskom systéme ústi rieka Brahmaputra, ktorá sa vlieva do veľkej delty neďaleko Bengálskeho zálivu?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himaláje"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Pohorie Ural"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alpy"
+	},
+	"trivia_medium_086": {
+		"message": "Úradným jazykom ktorej islamskej krajiny je jazyk farsi, známy tiež ako perzština?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Irán"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kuvajt"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Líbya"
+	},
+	"trivia_medium_087": {
+		"message": "V ktorej európskej krajina ľudia sledujú výkony matadorov na býčích zápasoch v Seville?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Španielsko"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Nemecko"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Macedónsko"
+	},
+	"trivia_medium_088": {
+		"message": "V ktorej krajine sa nachádza Istanbul, mesto považované za miesto stretu západnej a východnej kultúry?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Turecko"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slovensko"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Omán"
+	},
+	"trivia_medium_089": {
+		"message": "V ktorej krajine, ktorá susedí so štátmi El Salvator a Nikaragua, sa nachádza obľúbená turistická destinácia – mayské mesto Copán?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Honduras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Čile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "V ktorej vnútrozemskej krajine severne od rieky Niger sa nachádza mesto Timbuktu, ktoré je už takmer tisíc rokov centrom karavánového obchodu?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Mali"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Uganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namíbia"
+	},
+	"trivia_medium_091": {
+		"message": "Ktorá vnútrozemská krajina v Južnej Amerike susedí s Čile aj Brazíliou?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bolívia"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kolumbia"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Guyana"
+	},
+	"trivia_medium_092": {
+		"message": "V ktorej krajine sa nachádza Mesto Belém na južnom ústí rieky Amazonka?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brazília"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Kostarika"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Surinam"
+	},
+	"trivia_medium_093": {
+		"message": "Ktorá rieka tvorí veľkú časť severnej hranice Bulharska?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Rieka Dunaj"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Rieka Ob"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Rieka Mekong"
+	},
+	"trivia_medium_094": {
+		"message": "V ktorej ázijskej krajine sa nachádzajú Sajany neďaleko jazera Bajkal?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rusko"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "India"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgizsko"
+	},
+	"trivia_medium_095": {
+		"message": "Najväčším jazerom ktorej kanadskej provincie je jazero Nipigon?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontário"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Britská Kolumbia"
+	},
+	"trivia_medium_096": {
+		"message": "Súčasťou ktorého väčšieho mora sú Baleárske a Iónske more?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Stredozemné more"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Baltické more"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karibské more"
+	},
+	"trivia_medium_097": {
+		"message": "Na ktorom kontinente sú príklady jazier priekopovej prepadliny – jazerá Turkana a Natron?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afrika"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Európa"
+	},
+	"trivia_medium_098": {
+		"message": "Najhlbším miestom ktorého oceánu je Portorická priekopa?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantický oceán"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Severný ľadový oceán"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Tichý oceán"
+	},
+	"trivia_medium_099": {
+		"message": "Vo východnej časti ktorého kontinentu žije v eukalyptových lesoch chichotavý vták kookaburra?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Austrália"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afrika"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Južná Amerika"
+	},
+	"trivia_medium_100": {
+		"message": "Na západnom pobreží ktorej európskej krajiny sa nachádza mesto Haag, v ktorom sídli Medzinárodný súdny dvor?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Holandsko"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Fínsko"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Bulharsko"
+	},
+	"trivia_ngb_promo": {
+		"message": "Súťaž National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taiwan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tanzánia"
+	},
+	"ug_country_name": {
+		"message": "Uganda"
+	},
+	"uk_country_name": {
+		"message": "Spojené kráľovstvo"
+	},
+	"uk_tradition": {
+		"message": "V Spojenom kráľovstve sa pôžitkári všetkých vekových kategórií tešia z vianočných „crackerov“ na večernom stole. „Crackery“ sú trubičky zabalené vo farebnom papieri, ktoré majú na oboch koncoch časti na potiahnutie. Keď tieto časti potiahnete, trubička nahlas praskne. Vnútri sú papierové klobúky, hračky, vtipy a drobné darčeky, ktoré si potom ľudia vychutnávajú počas vianočného večera."
+	},
+	"unmute": {
+		"message": "Zapnúť zvuk"
+	},
+	"upgrade-warning": {
+		"message": "Ojoj! Váš prehliadač nepodporuje aplikáciu Kde je Santa alebo máte zakázaný jazyk JavaScript. Ak chcete získať prístup k aplikácii Kde je Santa, stiahnite si novší prehliadač alebo povoľte JavaScript.\nAk chcete získať ďalšie informácie, navštívte stránku \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "USA"
+	},
+	"us_tradition": {
+		"message": "V Spojených štátoch sa na Štedrý večer vešajú pančuchy. Legenda hovorí, že sv. Mikuláš počul o rodine v núdzi. Chcel ich prekvapiť, a tak zliezol dole komínom a do zavesených pančúch vložil cenné vrecúška plné zlata. Odvtedy sa sv. Mikuláš nazýva Santa Claus, ktorý nosí darčeky."
+	},
+	"uy_country_name": {
+		"message": "Uruguaj"
+	},
+	"uz_country_name": {
+		"message": "Uzbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venezuela"
+	},
 	"village_assistant-call_santa": {
 		"message": "Asistent Google: volania Santovi"
 	},
@@ -133,5 +6781,83 @@
 	},
 	"village_assistant-wheres_santa": {
 		"message": "Asistent Google: kde je Santa?"
+	},
+	"village_comeback": {
+		"message": "Vráťte sa 24. decembra a pomôžte nám celú noc sledovať Santu!"
+	},
+	"village_explore": {
+		"message": "Skúmajte, hrajte sa a učte sa celý december so Santovymi škriatkami"
+	},
+	"village_get_the_app": {
+		"message": "Získať aplikáciu Kde je Santa pre Android"
+	},
+	"village_more": {
+		"message": "Ďalšie spôsoby skúmania"
+	},
+	"village_santa_a2hs": {
+		"message": "Pridať na plochu"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Pridať na poličku"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Pridať na pracovnú plochu"
+	},
+	"village_santa_cardboard": {
+		"message": "Santa s okuliarmi Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Santa na platforme Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Pridať Santove rozšírenie prehliadača Chrome"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Santov kvíz o Zemi"
+	},
+	"village_santa_install": {
+		"message": "Inštalovať"
+	},
+	"village_takesoff": {
+		"message": "Santa štartuje o"
+	},
+	"vn_country_name": {
+		"message": "Vietnam"
+	},
+	"watch": {
+		"message": "Pozerať"
+	},
+	"wrapbattle_combo": {
+		"message": "Sladká kombinácia"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Dobre"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "Minuté"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "OK"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Perfektné"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Najvyššie skóre"
+	},
+	"zh-CN_language_name": {
+		"message": "čínština (zjednodušená)"
+	},
+	"zh-TW_language_name": {
+		"message": "čínština (tradičná)"
+	},
+	"zm_country_name": {
+		"message": "Zambia"
+	},
+	"zw_country_name": {
+		"message": "Zimbabwe"
 	}
 }

@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Mag-explore"
 	},
+	"explore-village": {
+		"message": "I-explore ang Village ni Santa"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-intro": {
+		"message": "Laktawan ang Intro"
 	},
 	"skip-training": {
 		"message": "Laktawan ang Pagsasanay"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turkish"
+	},
+	"tracker-game_awesome": {
+		"message": "Maglaro ng Tower of Teasure"
 	},
 	"tracker_arrival": {
 		"message": "Pagdating"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Panoorin"
+	},
+	"watch-video": {
+		"message": "Manood ng Video"
 	},
 	"wrapbattle_combo": {
 		"message": "Sweet Combo"

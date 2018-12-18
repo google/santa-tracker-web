@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Istraživanje"
 	},
+	"explore-village": {
+		"message": "Istraži selo Djeda Božićnjaka"
+	},
 	"fi_country_name": {
 		"message": "Finska"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovački"
+	},
+	"skip-intro": {
+		"message": "Preskoči uvod"
 	},
 	"skip-training": {
 		"message": "Preskoči obuku"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "turski"
+	},
+	"tracker-game_awesome": {
+		"message": "Zaigraj Toranj s blagom"
 	},
 	"tracker_arrival": {
 		"message": "Dolazak"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Pogledaj"
+	},
+	"watch-video": {
+		"message": "Pogledaj videozapis"
 	},
 	"wrapbattle_combo": {
 		"message": "Odlična kombinacija"
