@@ -55,7 +55,7 @@ Example
       <slot name="minutes"></slot>
     </div>
   </div>
-  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 1)]]">
+  <div class="counter-box" data-hide$="[[_calculateHide(_hideOffset, 1)]]" hidden$="[[_secondsHidden]]">
     <div class="holder active"></div>
     <div class="holder prev"></div>
     <div class="bottom">
@@ -86,6 +86,11 @@ Example
         },
 
         _minutesHidden: {
+          type: Boolean,
+          value: false,
+        },
+
+        _secondsHidden: {
           type: Boolean,
           value: false,
         },
@@ -178,7 +183,8 @@ Example
         ];
         this._daysHidden = (parts.days <= 0);
         this._hoursHidden = this._daysHidden && (parts.hours <= 0);
-        this._minutesHidden = this._hoursHidden && (parts.seconds <= 0);
+        this._minutesHidden = this._hoursHidden && (parts.minutes <= 0);
+        this._secondsHidden = this._minutesHidden && (parts.seconds <= 0);
 
         if (parts.days) {
           this._hideOffset = 0;

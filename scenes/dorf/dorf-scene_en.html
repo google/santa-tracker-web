@@ -42,20 +42,18 @@ Santa's Village.
 
   <village-header nobranding remaining-time="[[_remainingTime]]"
       class$="[[_computeHeaderClass(_countdownFinished, _duringTracker)]]">
-    <a class="button" href$="[[urlFor('tracker')]]">
-      <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
-    </a>
-    <p hidden$="[[!_playHidden]]" class="date">
-      <i18n-msg msgid="getready">PLACEHOLDER_i18n</i18n-msg>
-      <span>[[_dec4th]]</span>
-    </p>
-    <p hidden$="[[_playHidden]]">
+    <p>
       <i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg>
     </p>
 
-    <button id="play" hidden$="[[_playHidden]]" on-click="_onClickPlayRound">
-      <span><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></span>
-    </button>
+    <div class="options">
+      <button class="button" href$="[[urlFor('tracker')]]">
+        <i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg>
+      </a>
+      <button id="play" hidden$="[[_playHidden]]" on-click="_onClickPlayRound">
+        <span><i18n-msg msgid="play">PLACEHOLDER_i18n</i18n-msg></span>
+      </button>
+    </div>
 
     <div slot="effects" id="effect-sun"></div>
     <santa-weather slot="effects"></santa-weather>
@@ -63,11 +61,7 @@ Santa's Village.
   </village-header>
 
   <div id="mobiletext">
-    <p hidden$="[[!_playHidden]]" class="date">
-      <i18n-msg msgid="getready">PLACEHOLDER_i18n</i18n-msg>
-      <span>[[_dec4th]]</span>
-    </p>
-    <p hidden$="[[_playHidden]]">
+    <p>
       <i18n-msg msgid="village_explore">PLACEHOLDER_i18n</i18n-msg>
     </p>
   </div>

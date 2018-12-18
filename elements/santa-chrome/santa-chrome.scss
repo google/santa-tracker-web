@@ -123,7 +123,6 @@ app-drawer {
     $offset: (64px - $toolbar-height) / 2;
     margin-top: $offset;
     width: calc(100% - #{$offset * 2});
-    opacity: 0;
 
     &::before {
       box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);

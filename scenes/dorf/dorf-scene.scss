@@ -182,6 +182,13 @@ village-header {
     }
   }
 
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 320px;
+  }
+
   $extra-height: 132px;
   a.button {
     pointer-events: auto;
