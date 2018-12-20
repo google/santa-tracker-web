@@ -193,6 +193,7 @@ village-header {
   a#tracker {
     pointer-events: auto;
     margin-top: $extra-height;
+    margin-right: 32px;
     background: #83ce00;
     border-radius: 4px;
     color: #fff;
@@ -209,7 +210,6 @@ village-header {
     cursor: pointer;
     text-decoration: none;
     z-index: 10;  // nb. we need this to be clickable on mobile
-    margin: 0 8px;
 
     &:active {
       box-shadow: 0 1px 0 #659e00;
