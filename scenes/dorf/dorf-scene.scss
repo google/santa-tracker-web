@@ -185,7 +185,7 @@ village-header {
   .options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     min-width: 320px;
   }
 
@@ -209,6 +209,7 @@ village-header {
     cursor: pointer;
     text-decoration: none;
     z-index: 10;  // nb. we need this to be clickable on mobile
+    margin: 0 8px;
 
     &:active {
       box-shadow: 0 1px 0 #659e00;
@@ -363,7 +364,7 @@ footer {
     &::before, &::after {
       content: '';
       position: absolute;
-      top: -100px;
+      top: -120px;
       height: 120px;
       display: block;
       background: transparent bottom center no-repeat;
@@ -377,7 +378,7 @@ footer {
 
     &::after {
       right: 0;
-      width: 128px;
+      width: 140px;
       background-image: url(img/mobile-elf2.svg);
     }
   }
