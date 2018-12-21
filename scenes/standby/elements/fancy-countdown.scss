@@ -1,0 +1,91 @@
+.outer {
+  transition: opacity 0.125s;
+  opacity: 1;
+
+  &[hidden] {
+    display: block;
+    opacity: 0;
+  }
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+#effect {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2vmin;
+  border-left: 4vmin solid white;
+  border-right: 20vmin solid white;
+  transform: skew(-10deg);
+  transform-origin: top center;
+  opacity: 0.1;
+}
+
+#reveal {
+  $reveal-time: 0.5s;
+
+  position: fixed;
+  background: transparent;
+  border-top: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-left: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-right: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-bottom: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-radius: 20000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  visibility: visible;
+
+  #inner {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  &.out {
+    visibility: hidden;
+    transition: visibility $reveal-time step-end;
+
+    #inner {
+      // IE11 vmax support
+      width: calc(200 * (1vw + 1vh - 1vmin));
+      height: calc(200 * (1vw + 1vh - 1vmin));
+      transition: width $reveal-time ease-in, height $reveal-time ease-in;
+    }
+  }
+}
+
+#number {
+  color: white;
+  position: fixed;
+  font-family: 'Lobster';
+  font-size: 400px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  .num {
+    position: absolute;
+    will-change: transform;
+  }
+
+  @media (max-width: (768px - 1px)) {
+    font-size: 200px;
+  }
+}
+

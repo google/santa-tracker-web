@@ -17,6 +17,9 @@ specific language governing permissions and limitations under the License.
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/santa-strings.html">
 <link rel="import" href="../../elements/santa-state.html">
+
+<link rel="import" href="./elements/fancy-countdown.html">
+
 <link rel="import" href="standby-scene_module.html">
 
 <!--
@@ -68,6 +71,8 @@ Yule Log + standby scene.
     <div id="player"></div>
   </div>
   <div hidden$="[[!_videoPlaying]]" id="hider"><!-- prevents hover --></div>
+
+  <fancy-countdown id="countdown" on-done="_onCountdownDone"></fancy-countdown>
 
 </template>
 <script>
@@ -171,6 +176,11 @@ Polymer({
       window.clearInterval(this._tickInterval);
     }
 
+    const remainingSeconds = Math.ceil(remainingTime / 1000);
+    if (remainingSeconds <= 10 && !this.$.countdown._active) {
+      this._onStartCountdown(remainingSeconds);
+    }
+
     const parts = countdownSplit(remainingTime);
     this._internalHours = padDigits(parts.hours + parts.days * 24);
     this._internalMinutes = padDigits(parts.minutes);
@@ -227,19 +237,33 @@ Polymer({
       // cueup video again when it's done
       player.addEventListener('onStateChange', (ev) => {
         if (!ev.data) {
-          this._videoPlaying = false;
-
-          this.fire('sound-ambient', 'videoplayer_end');
-          this._startMusic();
-
-          player.cueVideoById(this.videoId);
+          this._internalStopVideo();
         }
       });
     });
   },
 
+  _internalStopVideo: function() {
+    if (this._videoPlaying) {
+      this._videoPlaying = false;
+
+      this.fire('sound-ambient', 'videoplayer_end');
+      this._startMusic();
+
+      this._player.cueVideoById(this.videoId);
+    }
+  },
+
+  _onStartCountdown: function(seconds) {
+    this._internalStopVideo();
+    this.$.countdown.start(seconds);
+  },
+
   _onWatchVideo: function() {
     // just to log user event
+    if (this.$.countdown._active) {
+      return;
+    }
     window.ga('send', 'event', 'video', 'play', 'standby');
     this._watchVideo();
   },
@@ -264,7 +288,13 @@ Polymer({
       return;
     }
 
-    // TODO(samthor): Show a sweet countdown, move to tracker.
+    if (!this.$.countdown._active) {
+      // Move to tracker if for some reason the countdown isn't doing it.
+      this.fire('nav', 'tracker');
+    }
+  },
+
+  _onCountdownDone: function() {
     this.fire('nav', 'tracker');
   },
 

@@ -1,0 +1,117 @@
+<!--
+Copyright 2018 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../../components/polymer/polymer.html">
+<link rel="import" href="fancy-countdown_module.html">
+
+<dom-module id="fancy-countdown">
+<template>
+  <style include="fancy-countdown_module"></style>
+
+  <div class="outer" hidden$="[[!_active]]">
+    <div id="bg">
+    </div>
+    <div id="reveal" on-transitionend="_onRevealEnd">
+      <div id="inner"></div>
+    </div>
+    <div id="effect"></div>
+    <div id="number">
+      <div class="num">[[_value]]</div>
+    </div>
+  </div>
+
+</template>
+<script>
+(function() {
+
+const lastColor = '#66a45f';
+const colors = [
+  '#ea3363',
+  '#832da4',
+  '#5cc987',
+  '#f2cf4c',
+];
+
+Polymer({
+  is: 'fancy-countdown',
+
+  properties: {
+    _value: {
+      type: Number,
+    },
+
+    _active: {
+      type: Boolean,
+      value: false,
+    },
+  },
+
+  start: function(from) {
+    window.ga('send', 'event', 'standby', 'countdown');
+
+    if (this._active) {
+      window.clearInterval(this._active);
+    }
+
+    this._value = ~~(from || 0);
+    if (this._value <= 0) {
+      return;
+    }
+
+    let previousColor = null;
+    const chooseColor = () => {
+      if (this._value <= 1) {
+        return lastColor;
+      }
+      for (var i = 0; i < 10; ++i) {
+        const choice = randomChoice(colors);
+        if (choice === previousColor) {
+          continue;
+        }
+        previousColor = choice;
+        return choice;
+      }
+    };
+
+    this._active = window.setInterval(() => {
+      if (this._value === 0) {
+        // waits 1s
+        window.clearInterval(this._active);
+        this.fire('done');
+        return;
+      }
+
+      // reveal to this new color
+      this.$.bg.style.backgroundColor = chooseColor();
+      this.$.reveal.classList.add('out');
+
+      --this._value;
+    }, 1000);
+
+  },
+
+  _onRevealEnd: function() {
+    if (this.$.reveal.classList.contains('out')) {
+      // set it on the actual bg now
+      this.$.reveal.style.color = this.$.bg.style.backgroundColor;
+      this.$.bg.style.backgroundColor = null;
+      this.$.reveal.classList.remove('out');
+    }
+  }
+
+});
+
+}());
+</script>
+</dom-module>
