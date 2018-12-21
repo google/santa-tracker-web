@@ -61,7 +61,7 @@ This stops reuse of images globally.
   <div id="holder">
     <div id="img" class="fit" on-error="_onError">
       <video id="video" autoplay muted loop hidden
-          on-play="_onPlayVideo"
+          on-loadeddata="_onPlayVideo"
           on-contextmenu="_onContextMenu"></video>
       <img id="preload" on-load="_onLoad" hidden />
     </div>
