@@ -28,6 +28,8 @@
   .spacer {
     height: 300px;
     max-height: 40vh;
+    display: flex;
+    align-items: center;
   }
 
   .actions {
@@ -37,7 +39,8 @@
   color: #ad00ad;
   font-weight: 500;
 
-  a {
+  a,
+  .Button {
     &[hidden] {
       display: none !important;
     }
@@ -61,6 +64,64 @@ $shared: '../shared/';
 @import "../shared/sass/_button.scss";
 
 
+.countdown {
+  display: flex;
+  color: white;
+
+  .counter-box {
+    margin: 0 4px;
+    width: 240px;
+    height: 240px;
+    padding: 32px;
+    box-sizing: border-box;
+    background: url(holder.svg) center/contain no-repeat;
+    filter: drop-shadow(12px 8px 0px rgba(0, 0, 0, 0.25));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main {
+      font-size: 92px;
+      font-weight: 700;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.125);
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 32px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 32px;
+      font-weight: 900;
+    }
+  }
+
+  @media (max-width: (768px - 1px)) {
+    .counter-box {
+      width: 104px;
+      height: 104px;
+      margin: 0 1px;
+      filter: drop-shadow(6px 4px 0px rgba(0, 0, 0, 0.25));
+
+      .main {
+        font-size: 44px;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.125);
+      }
+
+      .bottom {
+        line-height: 16px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        bottom: 12px;
+      }
+    }
+  }
+}
 
 
 #player {

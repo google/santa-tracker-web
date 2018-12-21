@@ -35,9 +35,19 @@ Yule Log + standby scene.
   <div id="standby">
 
     <div class="spacer">
-      <div hidden$="[[!_remainingTime]]">
-          <!-- TODO(samthor): Countdown -->
-          [[_remainingTime]]
+      <div hidden$="[[!_remainingTime]]" class="countdown">
+        <div class="counter-box">
+          <div class="main">[[_internalHours]]</div>
+          <div class="bottom"><i18n-msg msgid="countdown_hours">PLACEHOLDER_i18n</i18n-msg></div>
+        </div>
+        <div class="counter-box">
+          <div class="main">[[_internalMinutes]]</div>
+          <div class="bottom"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></div>
+        </div>
+        <div class="counter-box">
+          <div class="main">[[_internalSeconds]]</div>
+          <div class="bottom"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></div>
+        </div>
       </div>
     </div>
 
@@ -99,6 +109,11 @@ Polymer({
 
     _remainingTime: {
       type: Number,
+      observer: '_remainingTimeChanged',
+    },
+
+    _remainingTimeSetAt: {
+      type: Number,
     },
 
     _secretOpen: {
@@ -117,10 +132,49 @@ Polymer({
 
   },
 
+  observers: [
+    '_startInterval(isAttached, _remainingTime)',
+  ],
+
   created: function() {
     this._playerPromise = new Promise((resolve) => {
       this._playerResolve = resolve;
     });
+  },
+
+  attached: function() {
+    this._startInterval(true, this._remainingTime);
+  },
+
+  _remainingTimeChanged: function() {
+    this._remainingTimeSetAt = Date.now();
+  },
+
+  _startInterval: function(isAttached, remainingTime) {
+    window.clearInterval(this._tickInterval);
+    if (isAttached && remainingTime >= 0) {
+      this._tickTock();
+      this._tickInterval = window.setInterval(this._tickTock.bind(this), 1000);
+    }
+  },
+
+  /**
+   * Called every second while remainingTime is greater or equal to zero, active is true, and
+   * this element is attached. Calculates the current local remainingTime and stops the ticker
+   * if that is zero or below.
+   */
+  _tickTock: function() {
+    const delta = Date.now() - this._remainingTimeSetAt;
+    const remainingTime = Math.max(0, this._remainingTime - delta);
+
+    if (!remainingTime || !this.isAttached) {
+      window.clearInterval(this._tickInterval);
+    }
+
+    const parts = countdownSplit(remainingTime);
+    this._internalHours = padDigits(parts.hours + parts.days * 24);
+    this._internalMinutes = padDigits(parts.minutes);
+    this._internalSeconds = padDigits(parts.seconds);
   },
 
   onPreload: function() {
