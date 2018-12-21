@@ -263,15 +263,19 @@ module.exports = {
   liftoff: {msgid: 'scene_videoscene_liftoff'},
   museum: {msgid: 'scene_videoscene_museum'},
   office: {msgid: 'scene_videoscene_office'},
+  onvacation: {msgid: 'scene_videoscene_onvacation'},
+  reindeerworries: {msgid: 'scene_videoscene_reindeerworries'},
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
   satellite: {msgid: 'scene_videoscene_satellite'},
   selfies: {msgid: 'scene_videoscene_selfies'},
   slackingoff: {msgid: 'scene_videoscene_slackingoff'},
+  takeoff: {msgid: 'scene_videoscene_takeoff'},
   temptation: {msgid: 'scene_videoscene_temptation'},
   tired: {msgid: 'scene_videoscene_tired'},
   trailer: {msgid: 'scene_videoscene_trailer'},
   wheressanta: {msgid: 'scene_videoscene_wheressanta'},
+  workshop: {msgid: 'scene_videoscene_workshop'},
 
 // dummy: used for prod demos
 
