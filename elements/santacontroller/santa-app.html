@@ -1203,6 +1203,9 @@ Polymer({
       window.scrollTo(0, 0);
       action = true;
     }
+    if (this.selectedScene && this.selectedScene.onDefaultAction) {
+      action |= this.selectedScene.onDefaultAction();
+    }
 
     return !action;
   },

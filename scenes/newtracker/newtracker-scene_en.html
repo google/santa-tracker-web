@@ -654,6 +654,10 @@ Tracker scene.
       anim = document.timeline.play(effect);
     },
 
+    onDefaultAction: function() {
+      this._focusOnSanta = true;
+    },
+
     /**
      * Deduped scroll handler. Sets the current search based on the section visible in the center
      * of the page.
