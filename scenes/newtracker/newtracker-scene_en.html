@@ -37,6 +37,10 @@ Tracker scene.
 
   <santa-strings strings="{{_strings}}"></santa-strings>
 
+  <div id="reveal">
+    <div id="inner"></div>
+  </div>
+
   <div class="contain" id="sections">
     <section id="main">
       <santa-map id="map" focus-on-santa="{{_focusOnSanta}}"></santa-map>
@@ -381,6 +385,8 @@ Tracker scene.
      * short timeout.
      */
     _santaUpdate: function(data) {
+      this.$.reveal.classList.add('out');
+
       const p = this.$.map.santaLatLng;
       const move = !(p && p.lat === data.position.lat && p.lng === data.position.lng);
 

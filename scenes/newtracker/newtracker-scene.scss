@@ -20,6 +20,50 @@ a {
   }
 }
 
+#reveal {
+  $reveal-time: 1.5s;
+
+  position: fixed;
+  z-index: 1000;
+  background: transparent;
+  border-top: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-left: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-right: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-bottom: calc(200 * (1vw + 1vh - 1vmin)) solid currentColor;
+  border-radius: 20000px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #66a45f;
+  visibility: visible;
+
+  @media (min-height: 1024px) {
+    top: (768px / 2);
+  }
+
+  @media (max-height: 450px) {
+    left: 30%;
+  }
+
+  #inner {
+    width: 0;
+    height: 0;
+    transition: width $reveal-time ease-in, height $reveal-time ease-in;
+    visibility: hidden;
+  }
+
+  &.out {
+    visibility: hidden;
+    transition: visibility $reveal-time step-end;
+
+    #inner {
+      // IE11 vmax support
+      width: calc(200 * (1vw + 1vh - 1vmin));
+      height: calc(200 * (1vw + 1vh - 1vmin));
+    }
+  }
+}
+
 .contain {
   overflow: hidden;
 }
