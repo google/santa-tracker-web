@@ -1,0 +1,53 @@
+<!--
+Copyright 2018 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+-->
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/google-youtube/google-youtube.html">
+<link rel="import" href="../scene-behavior.html">
+<link rel="import" href="../../elements/santa-strings.html">
+<link rel="import" href="standby-scene_module.html">
+
+<!--
+Yule Log + standby scene.
+-->
+<dom-module id="standby-scene">
+<template>
+  <style include="standby-scene_module"></style>
+
+  <div id="yulelog">
+    <video autoplay loop muted src="[[importPath]]yulelog.mp4"></video>
+  </div>
+
+</template>
+<script>
+Polymer({
+  is: 'standby-scene',
+  behaviors: [window.SantaSceneBehavior],
+
+  onPreload: function() {
+    this.preloadSounds('undersea_load_sounds');
+    this.preloadSounds('fireplace_load_sounds');
+  },
+
+  onShow: function() {
+    this.fire('sound-ambient', 'music_start_scene');
+    this.fire('sound-ambient', 'fireplace_start');
+  },
+
+  onHide: function() {
+    this.fire('sound-ambient', 'fireplace_stop');
+  },
+});
+</script>
+</dom-module>

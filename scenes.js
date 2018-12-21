@@ -218,6 +218,9 @@ module.exports = {
     msgid: 'scene_postcard',
     entryPoint: 'app.Scene',
   },
+  standby: {
+    msgid: 'getready',
+  },
   streetview: {
     msgid: 'scene_streetview',
     typeSafe: false,

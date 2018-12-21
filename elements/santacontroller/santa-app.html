@@ -362,6 +362,10 @@ Santa Tracker app.
           loading-src="scenes/speedsketch/img/splashscreen-image.svg"
           logo="scenes/speedsketch/img/icon.svg"></speedsketch-scene>
 
+      <standby-scene route="standby" icon="1f30d"
+          path$="scenes/standby/standby-scene_[[language]].html"
+          header-color="#00cc81"></standby-scene>
+
       <streetview-scene route="streetview" icon="1f3a5"
           path$="scenes/streetview/streetview-scene_[[language]].html"
           loading-bg-color="rgb(129,208,0)"
@@ -939,9 +943,15 @@ Polymer({
   },
 
   _computeNextRandomForHint: function(nextRandom, route) {
-    if (route === 'village' || route === 'tracker' || !route || route === nextRandom) {
+    if (!route || route === nextRandom) {
       return null;
     }
+
+    const skipHintRoutes = ['village', 'tracker', 'standby'];
+    if (skipHintRoutes.indexOf(route) !== -1) {
+      return null;
+    }
+
     return nextRandom;
   },
 
@@ -1142,9 +1152,19 @@ Polymer({
         return false;  // no launch date, unlocked
       }
 
+      let checker;
+
+      if (typeof item.launchDate === 'number') {
+        checker = new Date(item.launchDate);
+      } else if (item.launchDate instanceof Date) {
+        checker = new Date(item.launchDate);
+        checker.setMinutes(checker.getMinutes() + offsetDelta);
+      } else {
+        console.warn('invalid date', item.launchDate);
+        return false;
+      }
+
       // locked if before check time
-      const checker = new Date(item.launchDate);
-      checker.setMinutes(checker.getMinutes() + offsetDelta);
       const left = checker - now;
       return left > 0;  // locked if we have >0 seconds left
     }).forEach((locked, i) => {
