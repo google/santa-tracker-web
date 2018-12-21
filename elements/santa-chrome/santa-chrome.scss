@@ -94,6 +94,56 @@ app-drawer {
     }
   }
 
+  button.trackerinfo {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    line-height: 14px;
+    max-width: 320px;
+    box-sizing: border-box;
+    text-align: right;
+    pointer-events: auto;
+    cursor: pointer;
+    align-self: stretch;
+    padding: 8px;
+    padding-right: 24px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: 100%;
+      background: blue;
+      width: 42px;
+      top: 0;
+      background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZWVmZGE1IiBkPSJNMTIgMkM4LjEzIDIgNSA1LjEzIDUgOWMwIDUuMjUgNyAxMyA3IDEzczctNy43NSA3LTEzYzAtMy44Ny0zLjEzLTctNy03em0wIDkuNWMtMS4zOCAwLTIuNS0xLjEyLTIuNS0yLjVzMS4xMi0yLjUgMi41LTIuNSAyLjUgMS4xMiAyLjUgMi41LTEuMTIgMi41LTIuNSAyLjV6Ii8+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==) center no-repeat;
+    }
+
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      font: inherit;
+      font-size: 10px;
+      color: #eefda5;
+      font-weight: 700;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    h3 {
+      margin: -8px 0;
+      padding: 8px 0;
+      font: inherit;
+      font-weight: 500;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
   #title {
     display: flex;
     align-items: center;

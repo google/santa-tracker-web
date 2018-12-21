@@ -41,7 +41,7 @@ specific language governing permissions and limitations under the License.
     }
   </style>
 
-  <santa-state remaining-time="{{_remainingTime}}"></santa-state>
+  <santa-state remaining-time="{{_remainingTime}}" during-tracker="{{_duringTracker}}"></santa-state>
 
   <app-drawer-layout fullbleed force-narrow>
     <app-drawer id="drawer" opened="{{drawerOpen}}" slot="drawer">
@@ -85,6 +85,11 @@ specific language governing permissions and limitations under the License.
             <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
             <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
           </countdown-timer>
+          <button class="trackerinfo" hidden="[[_computeTrackerInfoHidden(_duringTracker, _location)]]">
+            <h4 hidden="[[_locationIsNext]]"><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h4 hidden="[[!_locationIsNext]]"><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
+            <h3>[[_location.city]], [[_location.region]]</h3>
+          </button>
         </div>
       </div>
     </div>
@@ -104,6 +109,20 @@ specific language governing permissions and limitations under the License.
 
       _remainingTime: {
         type: Number,
+      },
+
+      _duringTracker: {
+        type: Boolean,
+      },
+
+      _location: {
+        type: Object,
+        value: null,
+      },
+
+      _locationIsNext: {
+        type: Boolean,
+        value: false,
       },
 
       /**
@@ -140,6 +159,60 @@ specific language governing permissions and limitations under the License.
         value: false,
       },
 
+      _pendingSync: {
+        type: Object,
+        value: Promise.resolve(),
+      },
+
+      _timeoutSync: {
+        type: Number,
+      },
+
+    },
+
+    created: function() {
+      this._santaSync = this._santaSync.bind(this);
+    },
+
+    attached: function() {
+      window.santaService.addListener('sync', this._santaSync);
+      this.async(() => this._santaSync());
+    },
+
+    detatched: function() {
+      window.santaService.removeListener('sync', this._santaSync);
+    },
+
+    _santaSync: function() {
+      this._pendingSync = this._pendingSync.then(() => {
+        return window.santaService.state();
+      }).then((state) => {
+        this._santaUpdate(state);
+      }).catch((err) => {
+        console.warn('bar got sync error', err);
+      });
+    },
+
+    _santaUpdate: function(data) {
+      this._locationIsNext = !data.stopover;
+      this._location = data.stopover || data.next || data.prev;
+
+      const now = window.santaService.now();
+      let ms = -1;
+      if (data.stopover) {
+        ms = data.stopover.departure - now;
+      } else if (data.next) {
+        ms = data.next.arrival - now;
+      } else {
+        return;
+      }
+      // force "sync" when Santa gets to the next stop
+      window.clearTimeout(this._timeoutSync);
+      this._timeoutSync = window.setTimeout(this._santaSync, ms);
+    },
+
+    _computeTrackerInfoHidden: function(duringTracker, location) {
+      return !duringTracker || !location;
     },
 
     _closeDrawer: function() {

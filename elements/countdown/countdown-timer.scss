@@ -9,6 +9,10 @@ $toolbar-transition: 0.25s ease-in-out;
   transform: translateZ(0);
 }
 
+:host([hidden]) {
+  display: none;
+}
+
 #counter {
   text-align: center;
   user-select: none;
