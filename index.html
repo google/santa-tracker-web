@@ -160,14 +160,8 @@ ga('set', 'transport', 'beacon');
 
     // Reload the page when a new SW takes over.
     navigator.serviceWorker.addEventListener('controllerchange', function() {
-      // this allows us to choose a new default page on SW change
-      var isVillage = window.location.pathname.indexOf('/village.html') !== -1;
-      if (isVillage) {
-        window.location.href = './';
-      } else {
-        // reload beats href change
-        window.location.reload();
-      }
+      console.debug('got controllerchange, reload');
+      window.location.reload();
     });
   }
 

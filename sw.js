@@ -286,6 +286,9 @@ function urlForProd(pathname, lang) {
     }
     // TODO(samthor): We could limit to actual fanned out routes here.
     switch (pathname) {
+    case '/village.html':
+      // Never actually serve /village.html, as / can handle it.
+      return Response.redirect('./', 302);
     case '/upgrade.html':
     case '/embed.html':
     case '/cast.html':
@@ -338,6 +341,11 @@ self.addEventListener('fetch', function(event) {
       }
     }
     const cacheUrl = urlForProd(url.pathname, hlLang);
+    if (cacheUrl instanceof Response) {
+      // not really a cacheUrl
+      event.respondWith(cacheUrl);
+      return;
+    }
     if (cacheUrl) {
       event.respondWith(loadFromCache(url.pathname, cacheUrl, true));
     }
