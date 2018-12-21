@@ -1122,6 +1122,9 @@ Polymer({
     if (!this.scheduleChecked) {
       return true;
     }
+    if (!this._housesLocked) {
+      return true;  // racey?
+    }
     return !this._housesLocked[sceneName];
   },
 

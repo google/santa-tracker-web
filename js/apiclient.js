@@ -292,7 +292,7 @@ SantaService.prototype.route = function() {
 
     return fetchJSON(url).then((routeData) => {
       if (this.route_ !== p) {
-        return this.route_;  // we got changed, return the replacement
+        return this.route();  // we got changed, return the replacement
       }
 
       // hard-coded removal of most of the JSON
