@@ -40,16 +40,17 @@ play our video in the main viewport.
   z-index: 100;
   top: 0;
   left: 0;
-  width: 50vw;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   pointer-events: auto;
 }
+
   </style>
   <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
-  <div id="holder">
+  <div id="holder" class="loading">
     <div id="player"></div>
   </div>
-  <div id="hider"><!-- prevents hover over top-left icon --></div>
+  <div id="hider"><!-- prevents hover --></div>
 </template>
 <script>
 (function() {
@@ -66,6 +67,7 @@ const playerVars = {
   rel: 0,
   autoplay: 0,
   origin: window.location.hostname,
+  wmode: 'transparent',
 };
 if (document.documentElement.lang) {
   playerVars.hl = document.documentElement.lang;
@@ -113,6 +115,7 @@ Polymer({
     const playerPromise = new Promise((resolve, reject) => {
       // create a Player and resolve with it when done
       const player = new this._api.Player(this.$.player, {
+        host: 'https://www.youtube-nocookie.com',
         videoId: this.videoId,
         playerVars,
         events: {
