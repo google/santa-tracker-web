@@ -10,6 +10,14 @@
   bottom: -40px;
 }
 
+// https://stackoverflow.com/questions/53849251/google-maps-api-showing-fullscreen-and-zoom-icons-3-times-in-each-button
+.gm-control-active > img {
+  display: none;
+}
+.gm-control-active > img:first-of-type {
+  display: inline-block;
+}
+
 #legalnotices {
   position: absolute;
   top: 0;
