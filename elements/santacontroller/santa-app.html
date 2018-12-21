@@ -73,6 +73,7 @@ Santa Tracker app.
   <!-- Global singleton state -->
   <santa-state during-tracker="{{duringTracker}}"
       current-time="{{currentTime}}"
+      secret-open="{{secretOpen}}"
       requested-reload="{{requestedReload}}"></santa-state>
 
   <!-- Keyboard handler -->
@@ -631,6 +632,10 @@ Polymer({
       type: Number,
     },
 
+    secretOpen: {
+      type: Boolean,
+    },
+
     /**
      * Whether a reload has been requested. Bound from `santa-state`.
      */
@@ -735,6 +740,9 @@ Polymer({
       // drop old query #foo?blah=1...
       const parts = window.location.hash.substr(1).split('?');
       route = parts[0] || route;
+    }
+    if (route === 'village' && this.secretOpen) {
+      route = 'standby';
     }
     this.route = route;
   },
@@ -935,7 +943,7 @@ Polymer({
   },
 
   onNav: function(ev) {
-    const route = ev.detaul || this.defaultRoute;
+    const route = ev.detail || this.defaultRoute;
     if (this.route === route) {
       this._defaultAction();
     }

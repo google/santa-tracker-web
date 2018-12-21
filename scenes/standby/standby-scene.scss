@@ -13,3 +13,71 @@
     height: 100%;
   }
 }
+
+#standby {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  .spacer {
+    height: 300px;
+    max-height: 40vh;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  color: #ad00ad;
+  font-weight: 500;
+
+  a {
+    &[hidden] {
+      display: none !important;
+    }
+  }
+
+  a:not(.Button) {
+    display: block;
+    margin: 12px;
+    color: inherit;
+    font-size: 18px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+
+    &:not(:hover) {
+      text-decoration: none;
+    }
+  }
+}
+
+$name: 'standby';
+$shared: '../shared/';
+@import "../shared/sass/_button.scss";
+
+
+
+
+#player {
+  display: block;
+  border: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  min-width: 200px;
+}
+#hider {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}

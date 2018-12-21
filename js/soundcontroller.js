@@ -81,6 +81,10 @@ SoundController.prototype.loadKlangConfig_ = function(baseUrl) {
         return;
       }
 
+      document.addEventListener('mousedown', function start() {
+        Klang.initIOS();
+        document.removeEventListener('mousedown', start);
+      })
       document.addEventListener('touchend', function startIOS() {
         Klang.initIOS();
         console.debug('initIOS');

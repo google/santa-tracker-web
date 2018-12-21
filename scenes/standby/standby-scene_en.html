@@ -13,9 +13,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 <link rel="import" href="../../components/polymer/polymer.html">
-<link rel="import" href="../../components/google-youtube/google-youtube.html">
+<link rel="import" href="../../components/google-apis/google-youtube-api.html">
 <link rel="import" href="../scene-behavior.html">
 <link rel="import" href="../../elements/santa-strings.html">
+<link rel="import" href="../../elements/santa-state.html">
 <link rel="import" href="standby-scene_module.html">
 
 <!--
@@ -25,29 +26,196 @@ Yule Log + standby scene.
 <template>
   <style include="standby-scene_module"></style>
 
+  <santa-state remaining-time="{{_remainingTime}}" during-tracker="{{_duringTracker}}" current-time="{{_currentTime}}" secret-open="{{_secretOpen}}"></santa-state>
+
   <div id="yulelog">
     <video autoplay loop muted src="[[importPath]]yulelog.mp4"></video>
   </div>
 
+  <div id="standby">
+
+    <div class="spacer">
+      <div hidden$="[[!_remainingTime]]">
+          <!-- TODO(samthor): Countdown -->
+          [[_remainingTime]]
+      </div>
+    </div>
+
+    <div hidden$="[[!_secretOpen]]">
+      <!-- nb. This is actually the string for "Play Tower of Treasure" -->
+      <a href="#"><i18n-msg msgid="tracker-game_awesome">PLACEHOLDER_i18n</i18n-msg></a>
+    </div>
+    <div>
+      <a hidden$="[[_duringTracker]]" href$="[[urlFor('village')]]" class="Button"><i18n-msg msgid="explore-village">PLACEHOLDER_i18n</i18n-msg></a>
+      <button hidden$="[[!_secretOpen]]" class="Button" on-click="_onWatchVideo"><i18n-msg msgid="watch-video">PLACEHOLDER_i18n</i18n-msg></button>
+      <a hidden$="[[!_duringTracker]]" href$="[[urlFor('tracker')]]" class="Button"><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></a>
+    </div>
+
+  </div>
+
+  <google-youtube-api on-api-load="_apiLoad"></google-youtube-api>
+  <div id="holder" hidden$="[[!_videoPlaying]]">
+    <div id="player"></div>
+  </div>
+  <div hidden$="[[!_videoPlaying]]" id="hider"><!-- prevents hover --></div>
+
 </template>
 <script>
+(function() {
+
+const playerVars = {
+  playsinline: 1,
+  cc_load_policy: 1,
+  disablekb: 1,
+  fs: 0,
+  controls: 0,
+  modestbranding: 1,
+  showinfo: 0,
+  iv_load_policy: 3,
+  rel: 0,
+  autoplay: 0,
+  origin: window.location.hostname,
+  wmode: 'transparent',
+};
+if (document.documentElement.lang) {
+  playerVars.hl = document.documentElement.lang;
+}
+Object.freeze(playerVars);
+
+
 Polymer({
   is: 'standby-scene',
   behaviors: [window.SantaSceneBehavior],
 
+  properties: {
+    videoId: {
+      type: String,
+      value: window.VIDEOS['carpool'],  // TODO: placeholder
+    },
+
+    _currentTime: {
+      type: Number,
+    },
+
+    _remainingTime: {
+      type: Number,
+    },
+
+    _secretOpen: {
+      type: Boolean,
+    },
+
+    _duringTracker: {
+      type: Boolean,
+      observer: '_duringTrackerChanged',
+    },
+
+    _videoPlaying: {
+      type: Boolean,
+      value: false,
+    },
+
+  },
+
+  created: function() {
+    this._playerPromise = new Promise((resolve) => {
+      this._playerResolve = resolve;
+    });
+  },
+
   onPreload: function() {
-    this.preloadSounds('undersea_load_sounds');
+    this.preloadSounds('undersea_load_sounds');  // minimal scene which preloads music_start_scene
     this.preloadSounds('fireplace_load_sounds');
   },
 
   onShow: function() {
+    this._startMusic();
+
+    // if we're post-promo but pre-tracker, show the video immediately
+    if (this._secretOpen && !this._duringTracker) {
+      this._watchVideo();
+    }
+  },
+
+  onHide: function() {
+    this._stopMusic();
+  },
+
+  _startMusic: function() {
     this.fire('sound-ambient', 'music_start_scene');
     this.fire('sound-ambient', 'fireplace_start');
   },
 
-  onHide: function() {
+  _stopMusic: function() {
     this.fire('sound-ambient', 'fireplace_stop');
   },
+
+  _apiLoad: function(ev) {
+    const api = ev.target.api;
+
+    const p = new Promise((resolve, reject) => {
+      // create a Player and resolve with it when done
+      const player = new api.Player(this.$.player, {
+        host: 'https://www.youtube-nocookie.com',
+        videoId: this.videoId,
+        playerVars,
+        events: {
+          onError: (ev) => reject(ev.data),
+          onReady: (ev) => resolve(player),
+        },
+      });
+      this._player = player;
+    });
+
+    this._playerResolve(p);
+
+    this._playerPromise.then((player) => {
+      // cueup video again when it's done
+      player.addEventListener('onStateChange', (ev) => {
+        if (!ev.data) {
+          this._videoPlaying = false;
+
+          this.fire('sound-ambient', 'videoplayer_end');
+          this._startMusic();
+
+          player.cueVideoById(this.videoId);
+        }
+      });
+    });
+  },
+
+  _onWatchVideo: function() {
+    // just to log user event
+    window.ga('send', 'event', 'video', 'play', 'standby');
+    this._watchVideo();
+  },
+
+  _watchVideo: function() {
+    this._playerPromise.then((player) => {
+      if (this._videoPlaying) {
+        return;  // do nothing?
+      }
+      this._stopMusic();
+      this.fire('sound-ambient', 'videoplayer_start');
+ 
+      this._videoPlaying = true;
+      player.seekTo(0);
+    });
+  },
+
+  _duringTrackerChanged: function(newValue, oldValue) {
+    if (newValue === true && oldValue === false) {
+      // ok 
+    } else {
+      return;
+    }
+
+    // TODO(samthor): Show a sweet countdown, move to tracker.
+    this.fire('nav', 'tracker');
+  },
+
 });
+
+}());
 </script>
 </dom-module>

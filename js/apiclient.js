@@ -309,7 +309,12 @@ SantaService.prototype.route = function() {
       return new Route(url, routeData);
     });
   }).then((route) => {
-      // calculate userDestination (works even if userLocation_ is null)
+    if (!route) {
+      console.warn('got null route', route);
+      return route;
+    }
+
+    // calculate userDestination (works even if userLocation_ is null)
     this.userDestination_ = route.nearestDestinationTo(this.userLocation_);
     console.debug('found nearest stop to user', this.userDestination_, this.userLocation_);
     return route;  // needed to continue Promise

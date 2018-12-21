@@ -26,6 +26,7 @@ const YEAR = 2018;
 const FLIGHT_HOURS = 25;
 const CALENDAR_OPEN = +Date.UTC(YEAR, 10, 30, 10, 0, 0);  // 30st Nov at 10:00 UTC
 const COUNTDOWN_END = +Date.UTC(YEAR, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
+const SECRET_TIME = +Date.UTC(YEAR, 11, 23, 8, 0, 0);     // 23rd Dec at 08:00 UTC
 const FLIGHT_FINISHED = COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000);
 
 const VERSION = document.body.getAttribute('data-version');
@@ -172,6 +173,15 @@ Polymer({
     },
 
     /**
+     * Whether the Yule Log is open.
+     */
+    secretOpen: {
+      type: Boolean,
+      computed: '_computeSecretOpen(currentTime, postFlight)',
+      notify: true,
+    },
+
+    /**
      * Whether or not the countdown is complete (including after Santa's flight).
      */
     countdownFinished: {
@@ -216,6 +226,9 @@ Polymer({
   },
   _computePostFlight: function(currentTime) {
     return currentTime >= FLIGHT_FINISHED;
+  },
+  _computeSecretOpen: function(currentTime, postFlight) {
+    return currentTime >= SECRET_TIME && !postFlight;
   },
 
   created: function() {

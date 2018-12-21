@@ -138,6 +138,6 @@ window.HOUSES = [{
   launchDate: new Date('Dec 4, 2018'),
 }, {
   module: 'standby',
-  launchDate: 1545552000000,  // Dec 23rd, 19:00 SYD
+  launchDate: new Date('Dec 23, 2018'),
   category: 'watch',
 }];
