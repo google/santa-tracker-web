@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Preskúmať"
 	},
+	"explore-village": {
+		"message": "Preskúmať Santovu dedinu"
+	},
 	"fi_country_name": {
 		"message": "Fínsko"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovenčina"
+	},
+	"skip-intro": {
+		"message": "Preskočiť úvod"
 	},
 	"skip-training": {
 		"message": "Preskočiť tréning"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turečtina"
+	},
+	"tracker-game_awesome": {
+		"message": "Hrať Tower of Teasure"
 	},
 	"tracker_arrival": {
 		"message": "Prílet"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Pozerať"
+	},
+	"watch-video": {
+		"message": "Prehrať video"
 	},
 	"wrapbattle_combo": {
 		"message": "Sladká kombinácia"

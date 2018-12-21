@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Tyrinėkite"
 	},
+	"explore-village": {
+		"message": "Naršyti po Kalėdų Senelio kaimą"
+	},
 	"fi_country_name": {
 		"message": "Suomija"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakų"
+	},
+	"skip-intro": {
+		"message": "Praleisti įžangą"
 	},
 	"skip-training": {
 		"message": "Praleisti mokymą"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turkų"
+	},
+	"tracker-game_awesome": {
+		"message": "Žaisti „Lobių bokštą“"
 	},
 	"tracker_arrival": {
 		"message": "Atvykimas"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Žiūrėkite"
+	},
+	"watch-video": {
+		"message": "Žiūrėti vaizdo įrašą"
 	},
 	"wrapbattle_combo": {
 		"message": "Tai bent derinys!"

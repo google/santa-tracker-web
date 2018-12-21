@@ -20,6 +20,9 @@
 	"es_language_name": {
 		"message": "spænska"
 	},
+	"explore-village": {
+		"message": "Skoða þorp jólasveinsins"
+	},
 	"fr_language_name": {
 		"message": "franska"
 	},
@@ -77,6 +80,9 @@
 	"sk_language_name": {
 		"message": "slóvakíska"
 	},
+	"skip-intro": {
+		"message": "Sleppa kynningu"
+	},
 	"sv_language_name": {
 		"message": "sænska"
 	},
@@ -88,6 +94,9 @@
 	},
 	"tr_language_name": {
 		"message": "tyrkneska"
+	},
+	"tracker-game_awesome": {
+		"message": "Spila Fjársjóðsturn"
 	},
 	"tracker_arrival": {
 		"message": "Koma"
@@ -124,5 +133,8 @@
 	},
 	"village_assistant-wheres_santa": {
 		"message": "Google hjálpari: Hvar er jólasveinninn"
+	},
+	"watch-video": {
+		"message": "Horfa á vídeó"
 	}
 }

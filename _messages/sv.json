@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Utforska"
 	},
+	"explore-village": {
+		"message": "Utforska tomtebyn"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovakiska"
+	},
+	"skip-intro": {
+		"message": "Hoppa över intro"
 	},
 	"skip-training": {
 		"message": "Hoppa över träning"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "turkiska"
+	},
+	"tracker-game_awesome": {
+		"message": "Spela Tower of Teasure"
 	},
 	"tracker_arrival": {
 		"message": "Ankomst"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Titta"
+	},
+	"watch-video": {
+		"message": "Titta på videon"
 	},
 	"wrapbattle_combo": {
 		"message": "Skön kombo"

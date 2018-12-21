@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Esplora"
 	},
+	"explore-village": {
+		"message": "Esplora il villaggio di Babbo Natale"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovacco"
+	},
+	"skip-intro": {
+		"message": "Salta introduzione"
 	},
 	"skip-training": {
 		"message": "Salta il training"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Gioca alla Torre del Tesoro"
 	},
 	"tracker_arrival": {
 		"message": "Arrivo"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Guarda"
+	},
+	"watch-video": {
+		"message": "Guarda il video"
 	},
 	"wrapbattle_combo": {
 		"message": "Ottima combo"

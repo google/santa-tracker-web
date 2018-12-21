@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorar"
 	},
+	"explore-village": {
+		"message": "Explorar aldea de Papá Noel"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-intro": {
+		"message": "Omitir introdución"
 	},
 	"skip-training": {
 		"message": "Saltar introdución"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Xogar a Tower of Treasure"
 	},
 	"tracker_arrival": {
 		"message": "Chegada"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Ver"
+	},
+	"watch-video": {
+		"message": "Ver vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "Bo combo!"

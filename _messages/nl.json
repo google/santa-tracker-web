@@ -1,12 +1,12 @@
 {
 	"about-content-one": {
-		"message": "Op kerstavond tonen we jullie vol trots het speciale dashboard van de Kerstman, mogelijk gemaakt door dezelfde technologie die hij op zijn wereldreis gebruikt voor zijn vliegende slee. Dit speciale voorproefje hebben we ontvangen van een van de ontwikkelingselfen, die samen met zijn team op de Noordpool hard werkt aan alle voorbereidingen voor de grote dag. Het dashboard van de Kerstman bevat de nieuwste en beste technologieën van Google Maps en uit de wereld van de sleetechniek. Zo kun jij de kerstman volgen op zijn reis rond de wereld en tegelijk wat meer leren over enkele van zijn tussenstops."
+		"message": "Op kerstavond tonen we jullie vol trots het speciale dashboard van de Kerstman, mogelijk gemaakt door dezelfde technologie die hij op zijn wereldreis gebruikt voor zijn vliegende slee. Dit speciale voorproefje hebben we ontvangen van een van de vele ontwikkelingselfen van de Kerstman, die samen met hem op de Noordpool hard werken aan alle voorbereidingen voor de grote dag. Het dashboard van de Kerstman bevat de nieuwste en beste technologieën van Google Maps en uit de wereld van de sleetechniek. Zo kun jij de Kerstman volgen op zijn reis rond de wereld en tegelijk wat meer leren over enkele van zijn tussenstops."
 	},
 	"about-content-three": {
 		"message": "De functie 'Kerstman vinden' in Google Maps is ontwikkeld door Google, met een beetje hulp van de elfen van de Kerstman. Heb je hulp nodig of wil je iets vragen? Bezoek dan ons \u003ca href=\"//support.google.com/santatracker\"\u003eHelpcentrum\u003c/a\u003e."
 	},
 	"about-content-two": {
-		"message": "Terwijl de Kerstman zich voorbereidt op zijn reis, hebben de vriendelijke elfen je uitgenodigd om hun dorp te ontdekken. Kijk dus vooral eens rond, wie weet ontdek je leuke activiteiten en maak je kennis met een paar interessante elfen."
+		"message": "Terwijl de Kerstman zich voorbereidt op zijn reis, hebben de vriendelijke elfen je uitgenodigd om zijn dorp te ontdekken. Kijk dus vooral eens rond, wie weet ontdek je leuke activiteiten en maak je kennis met een paar interessante elfen."
 	},
 	"about-santa": {
 		"message": "Over"
@@ -195,7 +195,7 @@
 		"message": "Medellin, Colombia"
 	},
 	"citylights-panorama-08-description": {
-		"message": "Santa Claus Village"
+		"message": "Dorp van de Kerstman"
 	},
 	"citylights-panorama-08-location": {
 		"message": "Lapland, Finland"
@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Ontdek"
 	},
+	"explore-village": {
+		"message": "Dorp van de Kerstman verkennen"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -810,7 +813,7 @@
 		"message": "Niveau"
 	},
 	"light": {
-		"message": "Laat ze branden"
+		"message": "Steek ze aan"
 	},
 	"lightdescription": {
 		"message": "Laat je tv stralen met de Android-app 'Waar is de Kerstman?' en je Chromecast."
@@ -840,7 +843,7 @@
 		"message": "Moldavië"
 	},
 	"medium_difficulty": {
-		"message": "Medium"
+		"message": "Gemiddeld"
 	},
 	"meta_description": {
 		"message": "Gebruik 'Kerstman vinden' van Google om de Kerstman op Google Maps te volgen tijdens zijn wereldreis."
@@ -945,7 +948,7 @@
 		"message": "Deel je kunstwerken met je familie en vrienden, zodat zij ook iets kunnen opsteken."
 	},
 	"nonprofit-intro-type": {
-		"message": "In samenwerking met Google.org willen we vijf non-profitorganisaties op het gebied van onderwijs extra aandacht geven. Deze organisaties geven niet alleen met de feestdagen, maar het hele jaar door. Scrol omlaag voor meer informatie over elke organisatie. Laat ook jouw steun blijken door deze versieringen in te kleuren en ze in je boom te hangen of cadeau te doen aan dierbaren."
+		"message": "In samenwerking met Google.org willen we vijf non-profitorganisaties op het gebied van onderwijs extra aandacht geven. Deze organisaties geven niet alleen met de feestdagen, maar het hele jaar door. Scroll omlaag voor meer informatie over elke organisatie. Laat ook jouw steun blijken door deze versieringen in te kleuren en ze in je boom te hangen of cadeau te doen aan dierbaren."
 	},
 	"nonprofit-jane-description": {
 		"message": "Van alle dieren in het dierenrijk zijn de chimpansees het meest verwant aan de mens. Wegens het verlies van hun leefgebied, ziektes en illegale handel zijn er tegenwoordig nog maar minder dan 300.000 chimpansees. Het Jane Goodall Institute (JGI) beschermt chimpansees door hun gedrag en leefgebied te observeren en analyseren. Verder streeft het JGI naar een samenleving die zich inzet om wilde dieren en de omgeving die wij met hen delen, te beschermen en behouden. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eOntdek het leefgebied van de chimpansees\u003c/a\u003e in Gombe, Tanzania."
@@ -993,7 +996,7 @@
 		"message": "Zonlicht"
 	},
 	"nonprofit-water-description": {
-		"message": "We gebruiken water onder de douche en in bad, tijdens het koken en natuurlijk om te drinken. Schoon water is een waardevolle grondstof. Veel mensen zijn ervoor afhankelijk van handmatig gegraven putten die hen toegang geven tot aquifers: schoon water diep onder de grond, ingesloten tussen lagen van rots en zand. charity: water werkt samen met lokale partners aan meer putten en andere waterprojecten op plaatsen waar deze hard nodig zijn. Google.org is een trotse \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esponsor\u003c/a\u003e van  charity: water."
+		"message": "We gebruiken water onder de douche en in bad, tijdens het koken en natuurlijk om te drinken. Schoon water is kostbaar. Veel mensen zijn ervoor afhankelijk van handmatig gegraven putten die hen toegang geven tot aquifers: schoon water diep onder de grond, ingesloten tussen lagen rots en zand. charity: water werkt samen met lokale partners aan meer putten en andere waterprojecten op plaatsen waar deze hard nodig zijn. Google.org is een trotse \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esponsor\u003c/a\u003e van  charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Bron"
@@ -1044,7 +1047,7 @@
 		"message": "Nieuw-Zeeland"
 	},
 	"nz_tradition": {
-		"message": "Omdat Kerst in Nieuw-Zeeland in de zomer valt, komen mensen er meestal samen rond de barbecue. Typische kerstgerechten zijn gebraden lam, soms bereid in een 'hangi' - een oven van hete stenen onder de grond. Een favoriet dessert is pavlova: een merengue bedekt met vers fruit zoals aardbeien en kiwi's."
+		"message": "Omdat Kerst in Nieuw-Zeeland in de zomer valt, komen mensen er meestal samen rond de barbecue. Een van de typische kerstgerechten is gebraden lamsvlees, soms bereid in een 'hangi' - een oven van hete stenen onder de grond. Een favoriet dessert is pavlova: een merengue bedekt met vers fruit zoals aardbeien en kiwi's."
 	},
 	"offline": {
 		"message": "Offline"
@@ -1128,13 +1131,13 @@
 		"message": "Over 'Kerstman vinden'"
 	},
 	"press-about-tracker1": {
-		"message": "Op 24 december lanceren we het Kerstman vinden-dashboard, waarmee fans van de Kerstman zijn voortgang kunnen volgen terwijl hij de ene na de andere stad aandoet. Je kunt ook zijn live locatie zien op Google Maps en de Google Assistent vragen waar hij is. Zo kun je dus precies in de gaten houden wat de Kerstman allemaal uitspookt, zelfs als je zelf onderweg bent."
+		"message": "Op 24 december lanceren we het 'Kerstman vinden'-dashboard, waarmee fans van de Kerstman zijn voortgang kunnen volgen terwijl hij de ene na de andere stad aandoet. Je kunt ook zijn live locatie zien op Google Maps en de Google Assistent vragen waar hij is. Zo kun je dus precies in de gaten houden wat de Kerstman allemaal aan het doen is, zelfs als je zelf onderweg bent."
 	},
 	"press-about-village": {
 		"message": "Over het dorp van de Kerstman"
 	},
 	"press-about-village1": {
-		"message": "Het dorp van de Kerstman staat voor het vijftiende jaar op rij in het teken van leuke, educatieve en interactieve kerstactiviteiten. Onder het wakende oog van de vrouw van de Kerstman hebben de elfen het dorp een hippe make-over gegeven. Verder hebben ze allerlei spiksplinternieuwe content toegevoegd. Dankzij een nieuw verwarmingssysteem dat draait op warme chocolademelk duurt het bovendien niet meer een hele maand voordat het dorp is ontdooid: alle 24 activiteiten zijn vanaf 4 december beschikbaar. De elfen (en jijzelf!) hebben nu dus nog meer tijd om het dorp van de Kerstman te verkennen en op te gaan in alle spelpret."
+		"message": "Het dorp van de Kerstman staat voor het vijftiende jaar op rij in het teken van leuke, educatieve en interactieve kerstactiviteiten. Onder het wakende oog van de vrouw van de Kerstman hebben de elfen het dorp een flitsende make-over gegeven. Verder hebben ze allerlei spiksplinternieuwe content toegevoegd. Dankzij een nieuw verwarmingssysteem dat draait op warme chocolademelk duurt het bovendien niet meer een hele maand voordat het dorp is ontdooid: alle 24 activiteiten zijn vanaf 4 december beschikbaar. De elfen (en jijzelf!) hebben nu dus nog meer tijd om het dorp van de Kerstman te verkennen en op te gaan in alle spelpret."
 	},
 	"press-about-village2": {
 		"message": "In het dorp kun je eenvoudige programmeervaardigheden oefenen, je eigen kunstwerken maken, je geografische kennis testen en meer te weten komen over goede doelen zoals \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e en \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Docenten kunnen zelfs een \u003ca href=\"./educators.html\"\u003elesplan\u003c/a\u003e met instructievideo's downloaden, zodat zij hun leerlingen kunnen helpen bij het aanleren van fundamentele programmeervaardigheden en het aanscherpen van hun kennis over kersttradities. De lesplannen zijn beschikbaar in het Engels, Spaans, Frans, Japans en Koreaans."
@@ -1347,7 +1350,7 @@
 		"message": "Android-app"
 	},
 	"scene_blimp": {
-		"message": "Cadeautjes bijvullen"
+		"message": "Cadeautjes aanvullen"
 	},
 	"scene_boatload": {
 		"message": "Cadeautjes schieten"
@@ -1506,7 +1509,7 @@
 		"message": "Bezorgde rendieren"
 	},
 	"scene_videoscene_reload": {
-		"message": "Cadeautjes bijvullen"
+		"message": "Cadeautjes aanvullen"
 	},
 	"scene_videoscene_santasback": {
 		"message": "De Kerstman is terug"
@@ -1527,7 +1530,7 @@
 		"message": "Verleiding"
 	},
 	"scene_videoscene_tired": {
-		"message": "Uitgeput rendier"
+		"message": "Vermoeid rendier"
 	},
 	"scene_videoscene_wheressanta": {
 		"message": "Waar hangt de Kerstman uit?"
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slowaaks"
+	},
+	"skip-intro": {
+		"message": "Introductie overslaan"
 	},
 	"skip-training": {
 		"message": "Training overslaan"
@@ -3014,6 +3020,9 @@
 	"tr_language_name": {
 		"message": "Turks"
 	},
+	"tracker-game_awesome": {
+		"message": "Schattentoren spelen"
+	},
 	"tracker_arrival": {
 		"message": "Aankomst"
 	},
@@ -3204,7 +3213,7 @@
 		"message": "Noord-Amerika"
 	},
 	"trivia_beginner_009": {
-		"message": "Welke Amerikaanse staat heeft onder andere de vorm van een pannensteel?"
+		"message": "Welke Amerikaanse staat heeft een vorm met een pannensteel?"
 	},
 	"trivia_beginner_009_answer0": {
 		"message": "Oklahoma"
@@ -3408,7 +3417,7 @@
 		"message": "North Carolina"
 	},
 	"trivia_beginner_026": {
-		"message": "Als je een bezoek wilt brengen aan Mammoth Cave en bij Churchill Downs een paardenrace wil bijwonen, naar welke Amerikaanse staat moet je dan reizen?"
+		"message": "Als je een bezoek wilt brengen aan Mammoth Cave en bij Churchill Downs een paardenrace wilt bijwonen, naar welke Amerikaanse staat moet je dan reizen?"
 	},
 	"trivia_beginner_026_answer0": {
 		"message": "Kentucky"
@@ -3432,7 +3441,7 @@
 		"message": "Virginia"
 	},
 	"trivia_beginner_028": {
-		"message": "Welk moeras bezoek je in de Amerikaanse staat Florida?"
+		"message": "Welk moerasland bezoek je in de Amerikaanse staat Florida?"
 	},
 	"trivia_beginner_028_answer0": {
 		"message": "Everglades"
@@ -3600,7 +3609,7 @@
 		"message": "Lima"
 	},
 	"trivia_beginner_042": {
-		"message": "De Eiffeltoren ligt aan de over van de Seine en kijkt uit over het centrum van welke Franse stad?"
+		"message": "De Eiffeltoren ligt aan de oever van de Seine en kijkt uit over het centrum van welke Franse stad?"
 	},
 	"trivia_beginner_042_answer0": {
 		"message": "Parijs"
@@ -3960,7 +3969,7 @@
 		"message": "Europa"
 	},
 	"trivia_beginner_072": {
-		"message": "Van welke oceaan is de Labradorzee een aftakking?"
+		"message": "Van welke oceaan maakt de Labradorzee deel uit?"
 	},
 	"trivia_beginner_072_answer0": {
 		"message": "Atlantische Oceaan"
@@ -4272,7 +4281,7 @@
 		"message": "Nicaragua"
 	},
 	"trivia_hard_001": {
-		"message": "Welke Amerikaans stad ligt het dichtst bij de Canadese grens?"
+		"message": "Welke Amerikaanse stad ligt het dichtst bij de Canadese grens?"
 	},
 	"trivia_hard_001_answer0": {
 		"message": "Seattle"
@@ -4308,7 +4317,7 @@
 		"message": "Eriemeer"
 	},
 	"trivia_hard_004": {
-		"message": "Welk van deze Amerikaanse steden is het dichtstbevolkt?"
+		"message": "Welke van deze Amerikaanse steden heeft de meeste inwoners?"
 	},
 	"trivia_hard_004_answer0": {
 		"message": "Chicago"
@@ -4560,7 +4569,7 @@
 		"message": "Nova Scotia"
 	},
 	"trivia_hard_025": {
-		"message": "Port-au-Prince is de dichtstbevolkte stad van welk land?"
+		"message": "Van welk land is Port-au-Prince de stad met de meeste inwoners?"
 	},
 	"trivia_hard_025_answer0": {
 		"message": "Haïti"
@@ -5172,7 +5181,7 @@
 		"message": "Guinee"
 	},
 	"trivia_hard_076": {
-		"message": "Aleppo, een plaats die bekend staat om de Grote Moskee, is de grootste stad van welk land in het zuidwesten van Azië?"
+		"message": "Aleppo, een plaats die bekendstaat om de Grote Moskee, is de grootste stad van welk land in het zuidwesten van Azië?"
 	},
 	"trivia_hard_076_answer0": {
 		"message": "Syrië"
@@ -5316,7 +5325,7 @@
 		"message": "Tunesië"
 	},
 	"trivia_hard_088": {
-		"message": "Guaraní is de naam van een van de officiële talen én van de munteenheid in welk Zuid-Amerikaans land?"
+		"message": "Guaraní is de naam van een van de officiële talen én van de munteenheid van welk Zuid-Amerikaans land?"
 	},
 	"trivia_hard_088_answer0": {
 		"message": "Paraguay"
@@ -5664,7 +5673,7 @@
 		"message": "Oekraïne"
 	},
 	"trivia_medium_012": {
-		"message": "Welke van deze grote steden is het dichtstbevolkt?"
+		"message": "Welke van deze grote steden heeft de meeste inwoners?"
 	},
 	"trivia_medium_012_answer0": {
 		"message": "São Paulo, Brazilië"
@@ -5784,7 +5793,7 @@
 		"message": "Helsinki"
 	},
 	"trivia_medium_022": {
-		"message": "Welke hoofdstad 40 kilometer ten noordoosten van de Dode Zee is de dichtstbevolkte stad van Jordanië?"
+		"message": "Welke hoofdstad 40 kilometer ten noordoosten van de Dode Zee is de stad met de meeste inwoners van Jordanië?"
 	},
 	"trivia_medium_022_answer0": {
 		"message": "Amman"
@@ -5952,7 +5961,7 @@
 		"message": "Zuid-Amerika"
 	},
 	"trivia_medium_036": {
-		"message": "Op welk continent zijn de Dnjeper en de Rijn twee belangrijke rivieren?"
+		"message": "Op welk continent zijn de Dnjepr en de Rijn twee belangrijke rivieren?"
 	},
 	"trivia_medium_036_answer0": {
 		"message": "Europa"
@@ -5976,7 +5985,7 @@
 		"message": "Europa"
 	},
 	"trivia_medium_038": {
-		"message": "De Grote Victoriawoestijn en de Nullarborvlakte zijn natuurlijke verschijnselen op welk continent?"
+		"message": "Op welk continent vind je de Grote Victoriawoestijn en de Nullarborvlakte?"
 	},
 	"trivia_medium_038_answer0": {
 		"message": "Australië"
@@ -6204,7 +6213,7 @@
 		"message": "Japan"
 	},
 	"trivia_medium_057": {
-		"message": "In welk land ligt Nationaal Park Serengeti ten oosten van het Victoriameer?"
+		"message": "Het Nationaal Park Serengeti ligt ten oosten van het Victoriameer. In welk land is dat?"
 	},
 	"trivia_medium_057_answer0": {
 		"message": "Tanzania"
@@ -6600,7 +6609,7 @@
 		"message": "Canada"
 	},
 	"trivia_medium_090": {
-		"message": "Timboektoe was duizenden jaren een belangrijke pleisterplaats voor handelskaravanen en ligt ten noorden van de rivier de Niger in welk land?"
+		"message": "Timboektoe was duizenden jaren een belangrijke pleisterplaats voor handelskaravanen en ligt ten noorden van de rivier de Niger. In welk land is dat?"
 	},
 	"trivia_medium_090_answer0": {
 		"message": "Mali"
@@ -6624,7 +6633,7 @@
 		"message": "Guyana"
 	},
 	"trivia_medium_092": {
-		"message": "In welk land ligt de stad Belém aan de zuidelijke monding van de Amazone?"
+		"message": "De stad Belém ligt aan de zuidelijke monding van de Amazone. In welk land is dat?"
 	},
 	"trivia_medium_092_answer0": {
 		"message": "Brazilië"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Kijken"
+	},
+	"watch-video": {
+		"message": "Video bekijken"
 	},
 	"wrapbattle_combo": {
 		"message": "Mooi werk"

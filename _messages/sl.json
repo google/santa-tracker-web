@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Raziščite"
 	},
+	"explore-village": {
+		"message": "Razišči Božičkovo vas"
+	},
 	"fi_country_name": {
 		"message": "Finska"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "slovaščina"
+	},
+	"skip-intro": {
+		"message": "Preskoči uvod"
 	},
 	"skip-training": {
 		"message": "Preskoči uvod"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "turščina"
+	},
+	"tracker-game_awesome": {
+		"message": "Igranje igre Stolp zakladov"
 	},
 	"tracker_arrival": {
 		"message": "Prihod"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Oglejte si"
+	},
+	"watch-video": {
+		"message": "Ogled videoposnetka"
 	},
 	"wrapbattle_combo": {
 		"message": "Odlična kombinacija"

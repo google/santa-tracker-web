@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "അടുത്തറിയുക"
 	},
+	"explore-village": {
+		"message": "സാന്തയുടെ ഗ്രാമത്തെ അടുത്തറിയുക"
+	},
 	"fi_country_name": {
 		"message": "ഫിന്‍‌ലാന്റ്"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "സ്ലൊവാക്"
+	},
+	"skip-intro": {
+		"message": "ആമുഖം ഒഴിവാക്കുക"
 	},
 	"skip-training": {
 		"message": "പരിശീലനം ഒഴിവാക്കുക"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "ടര്‍ക്കിഷ്"
+	},
+	"tracker-game_awesome": {
+		"message": "Tower of Treasure കളിക്കുക"
 	},
 	"tracker_arrival": {
 		"message": "എത്തിച്ചേരൽ"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "കാണുക"
+	},
+	"watch-video": {
+		"message": "വീഡിയോ കാണുക"
 	},
 	"wrapbattle_combo": {
 		"message": "സ്വീറ്റ് കോംബോ"

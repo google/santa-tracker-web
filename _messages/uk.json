@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Огляд"
 	},
+	"explore-village": {
+		"message": "У містечко Діда Мороза"
+	},
 	"fi_country_name": {
 		"message": "Фінляндія"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "словацька"
+	},
+	"skip-intro": {
+		"message": "Пропустити вступ"
 	},
 	"skip-training": {
 		"message": "Пропустити навчання"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "турецька"
+	},
+	"tracker-game_awesome": {
+		"message": "Зіграти в гру \"Вежа скарбів\""
 	},
 	"tracker_arrival": {
 		"message": "Прибуття"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Святкове відео"
+	},
+	"watch-video": {
+		"message": "Переглянути відео"
 	},
 	"wrapbattle_combo": {
 		"message": "Солодке комбо"

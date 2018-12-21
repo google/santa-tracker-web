@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Arakatu"
 	},
+	"explore-village": {
+		"message": "Ezagutu Bizarzuriren herria"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Eslovakiera"
+	},
+	"skip-intro": {
+		"message": "Saltatu sarrera"
 	},
 	"skip-training": {
 		"message": "Saltatu trebakuntza"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Turkiera"
+	},
+	"tracker-game_awesome": {
+		"message": "Aritu Tower of Teasure jokoan"
 	},
 	"tracker_arrival": {
 		"message": "Iritsiera"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Ikusi"
+	},
+	"watch-video": {
+		"message": "Ikusi bideoa"
 	},
 	"wrapbattle_combo": {
 		"message": "Konbinazio ederra"

@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Udforsk"
 	},
+	"explore-village": {
+		"message": "Udforsk julemandens landsby"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "Slovakisk"
+	},
+	"skip-intro": {
+		"message": "Spring intro over"
 	},
 	"skip-training": {
 		"message": "Spring intro over"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "Tyrkisk"
+	},
+	"tracker-game_awesome": {
+		"message": "Spil Tower of Treasure"
 	},
 	"tracker_arrival": {
 		"message": "Ankomst"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Se"
+	},
+	"watch-video": {
+		"message": "Se video"
 	},
 	"wrapbattle_combo": {
 		"message": "Lækker kombination"

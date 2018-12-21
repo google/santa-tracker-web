@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Odkrywaj"
 	},
+	"explore-village": {
+		"message": "Zobacz wioskę Świętego Mikołaja"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "słowacki"
+	},
+	"skip-intro": {
+		"message": "Pomiń wprowadzenie"
 	},
 	"skip-training": {
 		"message": "Pomiń instrukcję"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "turecki"
+	},
+	"tracker-game_awesome": {
+		"message": "Zagraj w Wieżę Skarbów"
 	},
 	"tracker_arrival": {
 		"message": "Przylot"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Filmy"
+	},
+	"watch-video": {
+		"message": "Obejrzyj film"
 	},
 	"wrapbattle_combo": {
 		"message": "Ale kombinacja!"

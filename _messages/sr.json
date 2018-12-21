@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Истражите"
 	},
+	"explore-village": {
+		"message": "Истражи Село Деда Мраза"
+	},
 	"fi_country_name": {
 		"message": "Финска"
 	},
@@ -1582,6 +1585,9 @@
 	},
 	"sk_language_name": {
 		"message": "словачки"
+	},
+	"skip-intro": {
+		"message": "Прескочи увод"
 	},
 	"skip-training": {
 		"message": "Прескочи обуку"
@@ -3013,6 +3019,9 @@
 	},
 	"tr_language_name": {
 		"message": "турски"
+	},
+	"tracker-game_awesome": {
+		"message": "Играј Торањ са благом"
 	},
 	"tracker_arrival": {
 		"message": "Долазак"
@@ -6826,6 +6835,9 @@
 	},
 	"watch": {
 		"message": "Гледај"
+	},
+	"watch-video": {
+		"message": "Гледај видео"
 	},
 	"wrapbattle_combo": {
 		"message": "Слатка комбинација"
