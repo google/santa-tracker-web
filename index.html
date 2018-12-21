@@ -158,9 +158,16 @@ ga('set', 'transport', 'beacon');
       navigator.serviceWorker.register('/sw-dummy.js');
     }
 
-    // Reload the page when a new SW takes over. This should only happen in staging.
+    // Reload the page when a new SW takes over.
     navigator.serviceWorker.addEventListener('controllerchange', function() {
-      window.location.reload();
+      // this allows us to choose a new default page on SW change
+      var isVillage = window.location.pathname.indexOf('/village.html') !== -1;
+      if (isVillage) {
+        window.location.href = './';
+      } else {
+        // reload beats href change
+        window.location.reload();
+      }
     });
   }
 
