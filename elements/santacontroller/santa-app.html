@@ -742,6 +742,7 @@ Polymer({
       route = parts[0] || route;
     }
     if (route === 'village' && this.secretOpen) {
+      // nb. This only happens in browsers without Service Workers.
       route = 'standby';
     }
     this.route = route;
