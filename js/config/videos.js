@@ -15,19 +15,22 @@
  */
 
 window.VIDEOS = {
-  'carpool': 'h83b1lWPuvQ',
-  'comroom': '_WdYujHlmHA',
-  'jingle': 'sQnKCU_A0Yc',
-  'liftoff': 'YNpwm08ZRD0',  // 2013: BfF7vfw6Zjw, 2014: oCAKV4Ikhec
-  'museum': 'fo25RcjXJI4',
-  'office': 'IXmDOu-eSx4',
-  'reload': 'vHMeXs36NTE',
-  'santasback': 'zE_D9Vd69aw',  // 2015: nXLNcfNsWAY
-  'satellite': 'ZJPL56IPTjw',
-  'selfies': 'JA8Jn5DGt64',
-  'slackingoff': 'uEl2WIZOVdQ',
-  'temptation': '2FtcJJ9vzVQ',
-  'tired': '2UGX3bT9u20',
-  'trailer': 'IdpQSy4IB_I',
-  'wheressanta': '0qrFL0mn3Uk',
+  carpool: 'h83b1lWPuvQ',
+  comroom: '_WdYujHlmHA',
+  jingle: 'sQnKCU_A0Yc',
+  liftoff: 'BfF7vfw6Zjw',  // 2013
+  museum: 'fo25RcjXJI4',
+  office: 'IXmDOu-eSx4',
+  onvacation: 'IdpQSy4IB_I',
+  reindeerworries: 'nXLNcfNsWAY',  // 2015
+  reload: 'vHMeXs36NTE',
+  santasback: 'zE_D9Vd69aw',
+  satellite: 'ZJPL56IPTjw',
+  selfies: 'JA8Jn5DGt64',
+  slackingoff: 'uEl2WIZOVdQ',
+  takeoff: 'YNpwm08ZRD0',  // 2015+, coding
+  temptation: '2FtcJJ9vzVQ',
+  tired: '2UGX3bT9u20',
+  wheressanta: '0qrFL0mn3Uk',  // 2013
+  workshop: 'oCAKV4Ikhec',  // 2014
 };
