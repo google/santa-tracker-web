@@ -181,6 +181,7 @@ specific language governing permissions and limitations under the License.
 
     detatched: function() {
       window.santaService.removeListener('sync', this._santaSync);
+      window.clearTimeout(this._timeoutSync);
     },
 
     _santaSync: function() {
@@ -189,7 +190,7 @@ specific language governing permissions and limitations under the License.
       }).then((state) => {
         this._santaUpdate(state);
       }).catch((err) => {
-        console.warn('bar got sync error', err);
+        console.warn('santa-chrome got sync error', err);
       });
     },
 

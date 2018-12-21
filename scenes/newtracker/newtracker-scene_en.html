@@ -228,10 +228,6 @@ Tracker scene.
     behaviors: [window.SantaSceneBehavior],
 
     properties: {
-      _updateSantaTimeout: {
-        type: Number,
-      },
-
       _listviewInterval: {
         type: Number,
       },
@@ -359,6 +355,15 @@ Tracker scene.
         value: false,
       },
 
+      _pendingSync: {
+        type: Object,
+        value: Promise.resolve(),
+      },
+
+      _timeoutSync: {
+        type: Number,
+      },
+
     },
 
     observers: [
@@ -366,17 +371,20 @@ Tracker scene.
     ],
 
     _santaSync: function() {
-      const wrapper = (state) => {
-        window.requestAnimationFrame(() => {
-          window.clearTimeout(this._updateSantaTimeout);
-          this._updateSantaTimeout = window.setTimeout(this._santaSync, UPDATE_MS);
-          this._santaUpdate(state);
-        });
-      };
-
-      // TODO: throw away dup requests
-      const p = window.santaService.state().then((state) => {
-        wrapper(state);
+      this._pendingSync = this._pendingSync.then(() => {
+        return window.santaService.state();
+      }).then((state) => {
+        this._santaUpdate(state);
+      }).catch((err) => {
+        console.warn('newtracker-scene got sync error', err);
+        return -1;
+      }).then((next) => {
+        if (next > 0) {
+          next = Math.min(UPDATE_MS, next);  // at least every 1s
+        } else {
+          next = UPDATE_MS;
+        }
+        this._timeoutSync = window.setTimeout(this._santaSync, next);
       });
     },
 
@@ -422,6 +430,7 @@ Tracker scene.
           this.$.map.trail = data.dests;
           this._limitDestinations = data.dests.slice(-TRAVELOGUE_COUNT).reverse();
         }
+        this._prev = data.prev;
       }
 
       this._setDistanceTravelled(data.distanceTravelled);
@@ -442,6 +451,7 @@ Tracker scene.
       this._setCountdown(Math.floor(ms / 1000));
 
       this._streamUpdate = data.stream;
+      return ms;
     },
 
     _onCurrentChanged: function(current) {
@@ -738,6 +748,7 @@ Tracker scene.
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
       window.clearInterval(this._listviewInterval);
+      window.clearTimeout(this._timeoutSync);
     },
 
   });
