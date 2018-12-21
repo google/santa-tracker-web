@@ -94,7 +94,7 @@ app-drawer {
     }
   }
 
-  button.trackerinfo {
+  a.trackerinfo {
     border: 0;
     padding: 0;
     background: transparent;
@@ -110,6 +110,7 @@ app-drawer {
     align-self: stretch;
     padding: 8px;
     padding-right: 24px;
+    text-decoration: none;
 
     &::after {
       content: '';

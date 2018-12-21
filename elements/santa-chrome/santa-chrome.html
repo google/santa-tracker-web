@@ -85,11 +85,11 @@ specific language governing permissions and limitations under the License.
             <h2 slot="minutes"><i18n-msg msgid="countdown_minutes">PLACEHOLDER_i18n</i18n-msg></h2>
             <h2 slot="seconds"><i18n-msg msgid="countdown_seconds">PLACEHOLDER_i18n</i18n-msg></h2>
           </countdown-timer>
-          <button class="trackerinfo" hidden="[[_computeTrackerInfoHidden(_duringTracker, _location)]]">
+          <a class="trackerinfo" href$="[[urlFor('tracker')]]" hidden="[[_computeTrackerInfoHidden(_duringTracker, _location)]]">
             <h4 hidden="[[_locationIsNext]]"><i18n-msg msgid="tracker_current_stop">PLACEHOLDER_i18n</i18n-msg></h4>
             <h4 hidden="[[!_locationIsNext]]"><i18n-msg msgid="tracker_next_stop">PLACEHOLDER_i18n</i18n-msg></h4>
             <h3>[[_location.city]], [[_location.region]]</h3>
-          </button>
+          </a>
         </div>
       </div>
     </div>

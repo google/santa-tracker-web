@@ -37,11 +37,6 @@ Tracker scene.
 
   <santa-strings strings="{{_strings}}"></santa-strings>
 
-  <paper-icon-button id="search" icon="santa:search"
-      data-title$="[[_computeSearchTitle(_strings)]]"
-      class$="[[_computeFocusButtonClass(_focusOnSanta, _scrollTop)]]"
-      on-click="_onFocusOnSantaClick"></paper-icon-button>
-
   <div class="contain" id="sections">
     <section id="main">
       <santa-map id="map" focus-on-santa="{{_focusOnSanta}}"></santa-map>
@@ -737,19 +732,6 @@ Tracker scene.
       window.removeEventListener('scroll', this._onScroll, {passive: true});
 
       window.clearInterval(this._listviewInterval);
-    },
-
-    _onFocusOnSantaClick: function() {
-      this._focusOnSanta = true;
-      this._scrollTo(0);
-    },
-
-    _computeSearchTitle: function(strings) {
-      return strings['santa'];
-    },
-
-    _computeFocusButtonClass: function(focusOnSanta, scrollTop) {
-      return focusOnSanta && (scrollTop < window.innerHeight / 2) ? 'hidden' : '';
     },
 
   });
