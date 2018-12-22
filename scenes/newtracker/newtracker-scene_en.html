@@ -25,7 +25,6 @@ specific language governing permissions and limitations under the License.
 
 <!-- nb: intentionally in subfolder, to deal with Vulcanize issue in same dir -->
 <link rel="import" href="./elements/tracker-location.html">
-<link rel="import" href="./elements/tracker-attribution.html">
 <link rel="import" href="./elements/tracker-listview.html">
 
 <!--
@@ -114,10 +113,9 @@ Tracker scene.
     </section>
     <section id="stats">
       <div class="location">
-        <tracker-location details="[[_details]]"></tracker-location>
+        <tracker-location details="[[_details]]" on-attribution="_onPhotoAttribution"></tracker-location>
       </div>
       <div class="stats">
-
         <div class="split top">
           <div class="data" hidden$="[[!_isBeforeArrival]]">
             <h4><i18n-msg msgid="tracker_arrival">PLACEHOLDER_i18n</i18n-msg></h4>
@@ -139,14 +137,10 @@ Tracker scene.
             <h3>[[_computeDistance(distanceTravelled)]]</h3>
           </div>
           <div class="data left">
-            <a href="https://weather.com" target="_blank" class="weather-attribution"></a>
+            <a href$="[[_computeWeatherAttribution(_details)]]" target="_blank" class="weather-attribution"></a>
             <h4><i18n-msg msgid="tracker_weather">PLACEHOLDER_i18n</i18n-msg></h4>
             <h3>[[_computeWeather(_details)]]</h3>
           </div>
-        </div>
-        <div class="divider"></div>
-        <div class="data">
-          <h4 class="wrap"><tracker-attribution details="[[_details]]"></tracker-attribution></h4>
         </div>
         <div class="divider"></div>
         <div class="data">
@@ -159,6 +153,15 @@ Tracker scene.
               </div>
             </template>
           </div>
+        </div>
+        <div class="divider"></div>
+        <div class="data">
+          <a class="Button" rel="noopener" target="_blank" href$="[[_computeMapsUrl(_details)]]"><i18n-msg msgid="learnmore">PLACEHOLDER_i18n</i18n-msg></a>
+            <template is="dom-repeat" items="[[_attributions]]">
+              <a class="Button attribution" rel="noopener" target="_blank" href$="[[_computeAttributionUrl(item)]]">
+                [[_computeAttributionName(item)]]
+              </a>
+            </template>
         </div>
       </div>
     </section>
@@ -264,6 +267,15 @@ Tracker scene.
        */
       _details: {
         type: Object,
+        value: null,
+        observer: '_onDetailsChanged',
+      },
+
+      /**
+       * Valid attributions that must be shown.
+       */
+      _attributions: {
+        type: Array,
         value: null,
       },
 
@@ -713,6 +725,10 @@ Tracker scene.
         'img/factoid/update.svg',
       ];
 
+      for (let i = 0; i < 17; ++i) {
+        images.push('img/overlay/overlay' + i + '.svg');
+      }
+
       this.preloadImages(images);
       this.preloadSounds('village_load_sounds');
       this.preloadPromise(window.santaService.route());  // wait for route data
@@ -751,6 +767,62 @@ Tracker scene.
 
       window.clearInterval(this._listviewInterval);
       window.clearTimeout(this._timeoutSync);
+    },
+
+    _computeMapsUrl: function(details) {
+      if (!details) {
+        return 'https://maps.google.com';
+      }
+      const query = details.stop.city + ', ' + details.stop.region;
+      return 'https://maps.google.com/?q=' + window.encodeURIComponent(query);
+    },
+
+    _onPhotoAttribution: function(ev) {
+      const attribution = ev.detail;
+      const attributions = (this._attributions || []).slice();
+
+      for (let i = 0; i < attributions.length; ++i) {
+        if (attributions[i].attributionHtml === attribution.attributionHtml) {
+          return;  // already attributed, same photo author
+        }
+      }
+
+      attributions.push(attribution);
+      this._attributions = attributions;
+    },
+
+    _onDetailsChanged: function() {
+      // clear, details changed
+      this._attributions = null;
+    },
+
+    _computeAttributionUrl: function(attribution) {
+      const node = document.createElement('div');
+      node.innerHTML = attribution.attributionHtml;
+      const link = node.querySelector('a');
+      let href = link && link.getAttribute('href') || null;
+      if (href) {
+        href = href.replace(/#_lg$/, '');
+      }
+      console.info('got attribution', attribution.attributionHtml, href);
+      return href;
+    },
+
+    _computeAttributionName: function(attribution) {
+      const node = document.createElement('div');
+      node.innerHTML = attribution.attributionHtml;
+      return node.textContent;
+    },
+
+    _computeWeatherAttribution: function(details) {
+      let url = details && details.weather && details.weather.url || null;
+      if (!url) {
+        return null;
+      }
+
+      // attempt to drop locale
+      url = url.replace('locale=en_US', 'locale=');
+      return url;
     },
 
   });

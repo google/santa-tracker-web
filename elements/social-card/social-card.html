@@ -45,9 +45,12 @@ This stops reuse of images globally.
       bottom: 0;
     }
     #img {
+      display: block;
       overflow: hidden;
       background: transparent center no-repeat;
       background-size: cover;
+      cursor: pointer;
+      transition: transform 0.125s;
     }
     video {
       width: auto;
@@ -59,12 +62,12 @@ This stops reuse of images globally.
     }
   </style>
   <div id="holder">
-    <div id="img" class="fit" on-error="_onError">
+    <a id="img" target="_blank" rel="nooopener" class="fit" on-error="_onError">
       <video id="video" autoplay muted loop hidden
           on-loadeddata="_onPlayVideo"
           on-contextmenu="_onContextMenu"></video>
       <img id="preload" on-load="_onLoad" hidden />
-    </div>
+    </a>
     <slot></slot>
   </div>
 </template>
@@ -281,6 +284,7 @@ This stops reuse of images globally.
       } else {
         this.$.preload.src = resolved;
       }
+      this.$.img.href = null;
     },
 
     /**
@@ -292,6 +296,7 @@ This stops reuse of images globally.
 
       const p = this.$.preload;
       this.$.img.style.backgroundImage = `url(${p.src})`;
+      this.$.img.href = p.src;
 
       const v = this.$.video;
       v.removeAttribute('src');
@@ -305,6 +310,7 @@ This stops reuse of images globally.
       this.fire('load');
 
       this.$.img.style.backgroundImage = null;
+      this.$.img.href = this.$.video.src;
       this.$.video.hidden = false;
 
       this._sizeVideo();

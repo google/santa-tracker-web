@@ -91,3 +91,43 @@
     }
   }
 }
+
+.Button {
+  display: inline-block;
+  background: #ff0060;
+  box-shadow: 0 3px 0 #e70058, 3px 5px 0 rgba(0, 0, 0, 0.125);
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+  line-height: 33px;
+  padding: 0 21px;
+  transform: translateY(-2px);
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  &:not([href]) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:active {
+    transform: translateY(0px);
+    box-shadow: 0 1px 0 #e70058;
+  }
+
+  &.attribution {
+    background: #ff9802;
+    box-shadow: 0 3px 0 #f57c00, 3px 5px 0 rgba(0, 0, 0, 0.125);
+
+    &:active {
+      box-shadow: 0 1px 0 #f57c00;
+    }
+  }
+}

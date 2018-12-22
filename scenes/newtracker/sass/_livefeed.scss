@@ -82,6 +82,17 @@ span.factoid {
 social-card:first-of-type {
   order: -10;
 }
+social-card {
+  border-radius: 2px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+  transform: scale(1);
+  transition: box-shadow 0.125s, transform 0.125s;
+}
+social-card:hover {
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transform: scale(1.1);
+}
 
 // explicitly use a span, so it is of a different type than images.
 span.title {

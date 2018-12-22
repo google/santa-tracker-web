@@ -62,13 +62,68 @@ $photo-maxwidth: 600px;
     transition: transform 0.25s;
     will-change: transform;
 
+    .attribution {
+      position: absolute;
+      bottom: 10px;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 500;
+      color: white;
+      text-shadow: 0 1px 3px rgba(66, 66, 66, 0.7);
+      z-index: 10;
+
+      &.local-guide {
+        &::before {
+          position: absolute;
+          top: -84px;
+          width: 480px;
+          height: 120px;
+          background: url('../img/local-guides.svg') center left/contain no-repeat;
+          content: '';
+          display: block;
+          filter: drop-shadow(0 2px 4px rgba(66, 66, 66, 0.9));
+        }
+      }
+
+      &.left {
+        left: 28px;
+        &.local-guide {
+          left: 48px;
+          &::before {
+            left: -72px;
+          }
+        }
+      }
+
+      &.right {
+        right: 28px;
+        &.local-guide {
+          &::before {
+            right: -40px;
+            background-position: center right;
+          }
+        }
+      }
+    }
+
     .overlay {
       position: absolute;
-      width: 50%;
-      height: 75%;
+      height: 33%;
+      left: 0;
+      right: 0;
       bottom: 0;
       background: transparent bottom left no-repeat;
       background-size: contain;
+
+      @for $i from 0 through 16 {
+        &.overlay#{$i} {
+          background-image: url(../img/overlay/overlay#{$i}.svg);
+        }
+      }
+
+      &.overlay10 {
+        background-position: bottom right;
+      }
     }
 
     &.easteregg {
@@ -103,18 +158,29 @@ $photo-maxwidth: 600px;
     }
 
     .move.move-photo0 {
-      transform: translate(-25%, +2%) rotate(-5deg);
+      transform: translate(0%, +48%) rotate(-8deg);
     }
     .move.move-photo1 {
-      transform: translate(+68%, -2%) rotate(+10deg);
+      transform: translate(+1%, -48%) rotate(+6deg);
+    }
+
+    @media (max-width: (1024px - 1px)) {
+      // move L-R when lots of space
+      .move.move-photo0 {
+        transform: translate(-30%, 0) rotate(-5deg);
+      }
+      .move.move-photo1 {
+        transform: translate(+30%, 0) rotate(+4deg);
+      }
     }
 
     @media (max-width: (768px - 1px)) {
+      // back to U-D
       .move.move-photo0 {
-        transform: translate(+2%, -40%) rotate(+2deg);
+        transform: translate(0%, +38%) rotate(-2deg);
       }
       .move.move-photo1 {
-        transform: translateY(+55%) rotate(-8deg);
+        transform: translate(+1%, -38%) rotate(+2deg);
       }
     }
   }

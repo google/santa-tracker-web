@@ -49,7 +49,7 @@ a.village-link {
   margin: 12px;
 
   background: #83CE00;
-  box-shadow: 0 3px 0 #659e00;
+  box-shadow: 0 3px 0 #659e00, 3px 5px 0 rgba(0, 0, 0, 0.125);
   text-decoration: none;
   color: #fff;
   font-weight: 600;
@@ -57,9 +57,10 @@ a.village-link {
   border-radius: 4px;
   line-height: 33px;
   padding: 0 21px;
+  transform: translateY(-2px);
 
   &:active {
-    transform: translateY(2px);
+    transform: translateY(0);
     box-shadow: 0 1px 0 #659e00;
   }
 }

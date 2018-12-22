@@ -28,16 +28,18 @@ Tracker location information, including photos.
         <div class="photo easteregg" style="transform: rotate(0deg) scale(0.97)"></div>
       </div>
       <div class="size">
-        <div class="move move-photo1 offscreen" id="move1">
+        <div class="move move-photo0 offscreen" id="move0">
           <div class="photo">
-            <div class="overlay" style$="[[_computeOverlayStyle(_overlays.0)]]"></div>
+            <div class="attribution left"></div>
+            <div class$="[[_computeOverlayClass(_overlays.1)]]"></div>
           </div>
         </div>
       </div>
       <div class="size">
-        <div class="move move-photo0 offscreen" id="move0">
+        <div class="move move-photo1 offscreen" id="move1">
           <div class="photo">
-            <div class="overlay" style$="[[_computeOverlayStyle(_overlays.1)]]"></div>
+            <div class="attribution right"></div>
+            <div class$="[[_computeOverlayClass(_overlays.0)]]"></div>
           </div>
         </div>
       </div>
@@ -107,9 +109,9 @@ Tracker location information, including photos.
 
       // Queue function for the below onload handler.
       let rotate = -((Math.random() * 2) + 3);
-      const queueImage = (src, count) => {
+      const queueImage = (choice, count) => {
         if (this.details !== details) {
-          return;  // abort, something changed
+          return;  // abort, something changed, don't show this photo
         }
 
         const div = move[count];
@@ -118,7 +120,19 @@ Tracker location information, including photos.
         const photo = div.querySelector('.photo');
         const scale = 100 - count * (Math.random() * 5);
         photo.style.transform = 'rotate(' + rotate + 'deg) scale(' + scale/100 + ')';
-        photo.style.backgroundImage = `url(${src})`;
+        photo.style.backgroundImage = `url(${choice.url})`;
+
+        const attribution = div.querySelector('.attribution');
+        const isLocalGuide = (choice.attributionHtml || '').indexOf('#_lg') !== -1;
+        if (isLocalGuide) {
+          attribution.classList.add('local-guide');
+        } else {
+          attribution.classList.remove('local-guide');
+        }
+        const node = document.createElement('div');
+        node.innerHTML = choice.attributionHtml || '';
+        attribution.textContent = node.textContent;
+
         rotate *= -0.90;
       }
 
@@ -127,18 +141,24 @@ Tracker location information, including photos.
       const photos = (this.details.photos || []).slice();
 
       // pick a random photo (or undefined) with higher odds 
-      const pickRandomPhoto = () => {
-        for (let i = 0; i < photos.length; ++i) {
-          const odds = (Math.random() * photos.length) - 1;
-          if (odds > i) {
-            return photos.splice(i, 1)[0];
+      const pickRandomPhoto = (first) => {
+        if (!first) {
+          // don't just pick first, choose random based on distribution
+          for (let i = 0; i < photos.length; ++i) {
+            const odds = (Math.random() * photos.length) - 1;
+            if (odds > i) {
+              return photos.splice(i, 1)[0];
+            }
           }
         }
-        return photos.pop() || null;  // fallback to pop or null
+        return photos.shift() || null;  // fallback to first or null
       };
 
-      const loadNextPhoto = () => {
-        const choice = pickRandomPhoto();
+      const loadNextPhoto = (first) => {
+        if (this.details !== details) {
+          return;  // abort, something changed, don't load a photo
+        }
+        const choice = pickRandomPhoto(first);
         if (!choice) {
           return;  // no more photos
         }
@@ -146,29 +166,33 @@ Tracker location information, including photos.
         const image = new Image();
         image.src = choice.url;
         image.onload = () => {
-          const call = queueImage.bind(this, image.src, loaded);
+          this.fire('attribution', choice);
+          const call = queueImage.bind(this, choice, loaded);
           this.async(call, loaded * 1000);
           ++loaded;
+          window.ga('send', 'event', 'tracker', 'photo-loaded', image.src);
         };
         image.onerror = () => {
           // try another one if this fails
           console.debug('failed to load', image.src);
-          loadNextPhoto();
+          loadNextPhoto(false);  // don't ask for first photo
           window.ga('send', 'event', 'tracker', 'photo-missing', image.src);
         };
       }
 
       // kickoff two loads
-      loadNextPhoto();
-      loadNextPhoto();
+      loadNextPhoto(true);   // always show 0th photo if possible
+      window.setTimeout(() => {
+        // give the high-quality photo a head-start
+        loadNextPhoto(false);
+      }, 1000);
     },
 
     /**
      * Specifies an overlay as a `background-image`.
      */
-    _computeOverlayStyle: function(index) {
-      const url = this.resolveUrl(`../img/overlay/overlay${index}.svg`);
-      return `background-image: url(${url})`;
+    _computeOverlayClass: function(index) {
+      return `overlay overlay${index}`;
     },
 
   });
