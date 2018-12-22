@@ -71,10 +71,9 @@ Polymer({
     node.innerHTML = parts.join(' &bull; ');
     Array.prototype.slice.call(node.querySelectorAll('a')).forEach((link) => {
       link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
       link.href = link.href.replace(/^http\b/, 'https');
-
-      // nb. Panoramio only has a valid cert for www., needed for 2017 and earlier.
-      link.href = link.href.replace(/\bpanoramio\.com\b/, 'www.panoramio.com');
+      link.href = link.href.replace(/#_lg$/, '');  // remove subtle local-guides hint
     });
 
     this.scopeSubtree(node);
