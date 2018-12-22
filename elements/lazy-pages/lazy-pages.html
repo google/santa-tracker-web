@@ -57,11 +57,6 @@ Lazy loads children "pages".
    */
   const draftMap = new WeakMap();
 
-  /**
-  * @type {!WeakMap<!HTMLElement, number>} weak map of drafts to scroll positions
-   */
-  const scrollFromTop = new WeakMap();
-
   Polymer({
     is: 'lazy-pages',
 
@@ -329,12 +324,6 @@ Lazy loads children "pages".
 
     _selectedItemChanged: function(newValue, oldValue) {
       if (oldValue) {
-        const scrollTop = window.scrollY;
-        if (scrollTop > 0) {
-          // Save the scroll position (midpoint of the page) if it was >0.
-          const draft = draftMap.get(oldValue);
-          scrollFromTop.set(draft, scrollTop + (window.innerHeight / 2));
-        }
         this.$.scene.removeChild(oldValue);
       }
 
@@ -344,17 +333,6 @@ Lazy loads children "pages".
         throw new Error('expected selectedItem to be parented at scene')
       }
       newValue.removeAttribute('preload');
-
-      const draft = draftMap.get(newValue);
-      const scrollTopMid = scrollFromTop.get(draft);
-      scrollFromTop.delete(draft);
-      if (scrollTopMid !== undefined) {
-        const scrollTop = scrollTopMid - (window.innerHeight / 2);
-        window.requestAnimationFrame(function() {
-          // this needs to happen in rAF, otherwise the browser might take over.
-          window.scrollTo(0, scrollTop);
-        });
-      }
     },
 
     /**
