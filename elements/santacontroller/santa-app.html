@@ -778,9 +778,13 @@ Polymer({
     if (!m) { return; }
 
     // Set the route. Hooray! \o/
-    const route = m[1] || this.defaultRoute;
+    let route = m[1] || this.defaultRoute;
     if (this.route === route) {
-      this._defaultAction();
+      if (route === 'tracker') {
+        route = 'village';
+      } else {
+        this._defaultAction();
+      }
     }
     this.$.lazypages.load(route);
     ev.preventDefault();
