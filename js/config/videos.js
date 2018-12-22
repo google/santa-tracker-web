@@ -22,6 +22,7 @@ window.VIDEOS = {
   museum: 'fo25RcjXJI4',
   office: 'IXmDOu-eSx4',
   onvacation: 'IdpQSy4IB_I',
+  penguinproof: 'QKm4q6kZK7E',
   reindeerworries: 'nXLNcfNsWAY',  // 2015
   reload: 'vHMeXs36NTE',
   santasback: 'zE_D9Vd69aw',

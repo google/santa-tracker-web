@@ -68,6 +68,10 @@ $shared: '../shared/';
   display: flex;
   color: white;
 
+  &[hidden] {
+    display: none;
+  }
+
   .counter-box {
     margin: 0 4px;
     width: 240px;

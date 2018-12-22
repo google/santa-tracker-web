@@ -28,8 +28,7 @@ const CALENDAR_OPEN = +Date.UTC(YEAR, 10, 30, 10, 0, 0);  // 30st Nov at 10:00 U
 const COUNTDOWN_END = +Date.UTC(YEAR, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
 const FLIGHT_FINISHED = COUNTDOWN_END + (FLIGHT_HOURS * 60 * 60 * 1000);
 
-// FIXME(samthor): We don't have the video ID yet. In case it doesn't arrive, don't play.
-const SECRET_TIME = +Date.UTC(YEAR, 11, 30, 8, 0, 0);     // 30th Dec at 08:00 UTC
+const SECRET_TIME = +Date.UTC(YEAR, 11, 23, 8, 0, 0);     // 23rd Dec at 08:00 UTC
 
 const VERSION = document.body.getAttribute('data-version');
 const LANGUAGE = document.documentElement.lang || 'en';

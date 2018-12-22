@@ -267,6 +267,7 @@ module.exports = {
   museum: {msgid: 'scene_videoscene_museum'},
   office: {msgid: 'scene_videoscene_office'},
   onvacation: {msgid: 'scene_videoscene_onvacation'},
+  penguinproof: {msgid: 'santasearch_character_penguin'},  // FIXME: placeholder
   reindeerworries: {msgid: 'scene_videoscene_reindeerworries'},
   reload: {msgid: 'scene_videoscene_reload'},
   santasback: {msgid: 'scene_videoscene_santasback'},
