@@ -667,9 +667,6 @@ Polymer({
     'game-resume': 'onResumeGame',
     'game-stop': 'onStopGame',
     'game-score': 'onScoreGame',
-    'video-load': 'onVideoLoad',
-    'video-play': 'onVideoPlay',
-    'video-done': 'onVideoDone',
     'close-drawer': 'onCloseDrawer',
     'houses-changed': 'onHousesChanged',
   },
@@ -797,29 +794,6 @@ Polymer({
       return source;
     }
     return null;
-  },
-
-  onVideoLoad: function(ev) {
-    const videoId = ev.detail;
-    const scene = this._sceneForEvent(ev);
-
-    const v = this.$.video;
-    if (v.videoId !== videoId) {
-      const p = v.cue(videoId);
-      scene && scene.preloadPromise(p);
-    }
-  },
-
-  onVideoPlay: function(ev) {
-    this.$.video.play(ev.detail);
-  },
-
-  onVideoDone: function(ev) {
-    this.$.video.reset();
-    const ok = this.selectedScene && this.selectedScene.localName === 'video-scene';
-    if (ok) {
-      this.userPause = true;
-    }
   },
 
   /**

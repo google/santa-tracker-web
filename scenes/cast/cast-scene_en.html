@@ -57,6 +57,8 @@ videos and other audio.
 </template>
 <script>
 (function() {
+  const LOCAL_VIDEOS = Object.values(window.VIDEOS);
+  LOCAL_VIDEOS.sort(() => Math.random() - 0.5);
 
   const AUDIO_TRACKS = [
     '7853_62276019f9c87f2dcfe08641ce912452_village_music_lounge.ogg',
@@ -186,9 +188,11 @@ videos and other audio.
       this.debounce('video', () => {
         // TODO(samthor): avoid previous selection.
         // TODO(samthor): Limit to unlocked videos.
-        const videoId = randomChoice(Object.values(VIDEOS));
+        const videoId = LOCAL_VIDEOS.shift();
+        LOCAL_VIDEOS.push(videoId);
+        console.info('trying to play video', videoId);
         this.$.video.play(videoId);
-      }, randomRange(30, 60) * 1000)
+      }, randomRange(120, 200) * 1000);
     },
 
     _computeVideoClass: function(videoActive) {

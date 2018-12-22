@@ -80,10 +80,11 @@ specific language governing permissions and limitations under the License.
 </template>
 <script>
 window.santaService.addListener('sync', function cb() {
+  const localStorage = window.localStorage || {};
   window.santaService.removeListener('sync', cb);
 
   const KEY = 'cookie-ok';
-  if (!window.santaService.getUserInEurope() || window.localStorage.getItem(KEY)) {
+  if (!window.santaService.getUserInEurope() || localStorage[KEY]) {
     return;  // never declare Polymer element
   }
 
@@ -98,7 +99,7 @@ window.santaService.addListener('sync', function cb() {
     },
 
     _close: function() {
-      window.localStorage.setItem(KEY, 'yes');
+      localStorage[KEY] = 'yes';
       this._hidden = true;
     },
   }); 
