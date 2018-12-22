@@ -227,11 +227,6 @@ Polymer({
 
   onShow: function() {
     this._startMusic();
-
-    // if we're post-promo but pre-tracker, show the video immediately
-    if (this._secretOpen && !this._duringTracker) {
-      this._watchVideo();
-    }
   },
 
   onHide: function() {
