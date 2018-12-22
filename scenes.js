@@ -29,9 +29,6 @@ module.exports = {
     typeSafe: false,
     entryPoint: 'app.Belt'
   },
-  blimp: {
-    msgid: 'scene_blimp',
-  },
   boatload: {
     msgid: 'scene_boatload',
     entryPoint: 'app.Game'
@@ -108,9 +105,6 @@ module.exports = {
     msgid: 'scene_gumball',
     typeSafe: false,
     entryPoint: 'app.Game'
-  },
-  icecave: {
-    msgid: 'scene_icecave',
   },
   island: {
     msgid: 'scene_island',

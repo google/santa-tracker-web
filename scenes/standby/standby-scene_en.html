@@ -60,7 +60,7 @@ Yule Log + standby scene.
     </div>
     <div>
       <a hidden$="[[_duringTracker]]" href$="[[urlFor('village')]]" class="Button"><i18n-msg msgid="explore-village">PLACEHOLDER_i18n</i18n-msg></a>
-      <button hidden$="[[!_secretOpen]]" class="Button" on-click="_onWatchVideo"><i18n-msg msgid="watch-video">PLACEHOLDER_i18n</i18n-msg></button>
+      <button hidden$="[[!_canPlayVideo]]" class="Button" on-click="_onWatchVideo"><i18n-msg msgid="watch-video">PLACEHOLDER_i18n</i18n-msg></button>
       <a hidden$="[[!_duringTracker]]" href$="[[urlFor('tracker')]]" class="Button"><i18n-msg msgid="tracker_track">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
 
@@ -151,6 +151,11 @@ Polymer({
 
     _secretOpen: {
       type: Boolean,
+    },
+
+    _canPlayVideo: {
+      type: Boolean,
+      computed: '_computeCanPlayVideo(_secretOpen, _remainingTime)',
     },
 
     _duringTracker: {
@@ -328,6 +333,10 @@ Polymer({
 
   _onGameLinkClick: function() {
     window.ga('send', 'event', 'nav', 'click', 'standby-game-link');
+  },
+
+  _computeCanPlayVideo: function(secretOpen, remainingTime) {
+    return secretOpen || !remainingTime;
   },
 
 });
