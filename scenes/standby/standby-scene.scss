@@ -150,3 +150,9 @@ $shared: '../shared/';
 fancy-countdown {
   pointer-events: none;
 }
+
+.game-link {
+  &:not([href]) {
+    display: none !important;
+  }
+}

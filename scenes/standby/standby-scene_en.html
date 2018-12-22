@@ -56,7 +56,7 @@ Yule Log + standby scene.
 
     <div hidden$="[[!_secretOpen]]">
       <!-- nb. This is actually the string for "Play Tower of Treasure" -->
-      <a href="#"><i18n-msg msgid="tracker-game_awesome">PLACEHOLDER_i18n</i18n-msg></a>
+      <a class="game-link" href$="[[_gameLink]]" rel="noopener" target="_blank" on-click="_onGameLinkClick"><i18n-msg msgid="tracker-game_awesome">PLACEHOLDER_i18n</i18n-msg></a>
     </div>
     <div>
       <a hidden$="[[_duringTracker]]" href$="[[urlFor('village')]]" class="Button"><i18n-msg msgid="explore-village">PLACEHOLDER_i18n</i18n-msg></a>
@@ -78,7 +78,6 @@ Yule Log + standby scene.
 <script>
 (function() {
 
-  // TODO(samthor): use these
 const towerOfTreasureLinks = {
   'en': 'https://beinternetawesome.withgoogle.com/en_us/interland/landing/tower-of-treasure',
   'en-GB': 'https://beinternetawesome.withgoogle.com/en_uk/interland/landing/tower-of-treasure',
@@ -87,6 +86,20 @@ const towerOfTreasureLinks = {
   'pt-BR': 'https://beinternetawesome.withgoogle.com/pt-br_br/interland/pagina-de-destino/torre-do-tesouro',
   'pl': 'https://beinternetawesome.withgoogle.com/pl_all/interland/wieza-skarbow',
 };
+
+function gameLinkFromLang() {
+  const lang = document.documentElement.lang || 'en';
+  if (lang in towerOfTreasureLinks) {
+    return towerOfTreasureLinks[lang];
+  }
+  if (lang.length === 2) {
+    return null;
+  }
+
+  // try e.g. "fr" from "fr-CA"
+  const code = lang.substr(0, 2);
+  return towerOfTreasureLinks[code] || null;
+}
 
 const playerVars = {
   playsinline: 1,
@@ -116,6 +129,11 @@ Polymer({
     videoId: {
       type: String,
       value: window.VIDEOS['penguinproof'],
+    },
+
+    _gameLink: {
+      type: String,
+      value: () => gameLinkFromLang(),
     },
 
     _currentTime: {
@@ -306,6 +324,10 @@ Polymer({
 
   _onCountdownDone: function() {
     this.fire('nav', 'tracker');
+  },
+
+  _onGameLinkClick: function() {
+    window.ga('send', 'event', 'nav', 'click', 'standby-game-link');
   },
 
 });
