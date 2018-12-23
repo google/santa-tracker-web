@@ -770,7 +770,8 @@ Polymer({
     // Set the route. Hooray! \o/
     let route = m[1] || this.defaultRoute;
     if (this.route === route) {
-      if (route === 'tracker') {
+      if (!m[1] && route === 'tracker') {
+        // cheat default
         route = 'village';
       } else {
         this._defaultAction();
@@ -1197,9 +1198,9 @@ Polymer({
     this.fire('houses-changed');
   },
 
-  _duringTrackerChanged: function() {
+  _duringTrackerChanged: function(newValue, oldValue) {
     // If the tracker was open, it's now locked: send the user back to the Village.
-    if (this.duringTracker === false && this.route === TRACKER_ROUTE) {
+    if (newValue === false && oldValue === true && this.route === TRACKER_ROUTE) {
       this.$.lazypages.load(this.defaultRoute);
     }
   },
