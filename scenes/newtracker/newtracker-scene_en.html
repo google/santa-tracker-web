@@ -769,8 +769,10 @@ Tracker scene.
     },
 
     _computeMapsUrl: function(details) {
-      if (!details) {
-        return 'https://maps.google.com';
+      if (!details || !details.stop) {
+        return null;
+      } else if (details.stop.id === 'takeoff' || details.stop.id === 'landing') {
+        return null;
       }
       const query = details.stop.city + ', ' + details.stop.region;
       return 'https://maps.google.com/?q=' + window.encodeURIComponent(query);
