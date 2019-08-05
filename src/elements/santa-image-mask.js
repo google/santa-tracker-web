@@ -78,7 +78,7 @@ svg {
 .focus {
   transform: translate(0, 0);
   transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
-  opacity: 1;
+  pointer-events: none;
 }
 .shadow {
   transform: translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
