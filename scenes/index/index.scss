@@ -298,18 +298,17 @@ body {
     }
   }
 
+  $forward-curve: cubic-bezier(0.47,2.02,0.31,-0.36);
+  $reverse-curve: cubic-bezier(1 - 0.31,1 - -0.36,1 - 0.47,1 - 2.02);
+
   a {
     display: inline-block;
+    --offset: 6px;
 
-    santa-image-mask {
-      will-change: transform;
-      transition: transform 0.25s;
-      transform: translateY(0);
-      transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
+    &:focus {
+      outline: 0;
+      --stroke-color: #eee9;
+      --stroke-width: 4px;
     }
-    &:hover santa-image-mask {
-      transform: translateY(-10px);
-      transition: transform 0.2s;
-    }  
   }
 }

@@ -54,7 +54,6 @@ class SantaImageMaskElement extends LitElement {
 
   render() {
     const size = this.size || 0;
-    const resolved = (new URL(this.src, window.location)).toString();
     const card = clips[(this.card || 0) % clips.length];
 
     const scaleX = (this.size || 0) / card.width;
@@ -62,24 +61,57 @@ class SantaImageMaskElement extends LitElement {
     const scale = Math.min(scaleX, scaleY);
 
     const height = even(scale * card.height);  // so that transformY(-50%) doesn't odd-pixel us
+    const squarePath = `M0 0 L${size} 0 L${size} ${height} L0 ${height} Z`;
 
     // https://github.com/Polymer/lit-html/issues/423
-    const xlinkHref = (href) => directive((part) => {
-      part.committer.element.setAttributeNS('http://www.w3.org/1999/xlink', 'href', href);
+    const namespaced = directive((value) => (part) => {
+      part.committer.element.setAttributeNS('http://www.w3.org/1999/xlink', part.committer.name, value);
     });
-    // TODO(samthor): IE11 doesn't support `filter`. We can probably use SVG shadow for this.
     return html`
 <style>
-:host {
-  display: inline-block;
-  filter: drop-shadow(5px 10px 0 rgba(0, 0, 0, 0.15));
+svg {
+  overflow: visible;
+  --o: var(--offset, 5px); /* create shorthand AND default */
+  perspective: 10000px;
+  will-change: transform;
+}
+.focus {
+  transform: translate(0, 0);
+  transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
+  opacity: 1;
+}
+.shadow {
+  transform: translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
+  opacity: 0.1;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+.target {
+  fill: transparent;
+}
+.target:hover ~ .focus {
+  transform: translate(0, calc(-2 * var(--o)));
+  transition: transform 0.2s;
+  animation: none;
+}
+.target:hover ~ .shadow {
+  transform: translate(var(--o, 5px), calc(var(--o, 5px) * 1.6));
+  opacity: 0.2;
+  transition: all 0.2s;
 }
 </style>
 <svg width="${size}" height="${height}">
 <clipPath id="${this._idPrefix}path" transform="scale(${scale} ${scale})">
 <path d="${card.src}" />
 </clipPath>
-<image xlink:href="${xlinkHref(this.src)}" clip-path="url(#${this._idPrefix}path)" preserveAspectRatio="xMaxYMax slice" width="${size}" height="${height}" />
+<rect class="target" width="${size}" height="${height}"></rect>
+<path class="shadow" d="${squarePath}" clip-path="url(#${this._idPrefix}path)"></path>
+<g class="focus">
+  <image xlink:href="${namespaced(this.src)}" clip-path="url(#${this._idPrefix}path)" preserveAspectRatio="xMaxYMax slice" width="${size}" height="${height}" />
+  <g clip-path="url(#${this._idPrefix}path)">
+    <path transform="scale(${scale} ${scale})" d="${card.src}" style="stroke: var(--stroke-color, transparent); stroke-width: calc(var(--stroke-width, 2) / ${scale/2}); fill: none" width="${size}" height="${height}" />
+  </g>
+</g>
 </svg>
     `;
   }
