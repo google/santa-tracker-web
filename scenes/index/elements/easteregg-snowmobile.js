@@ -6,7 +6,7 @@ const DRIVE_TIME = 11000;
 const RANDOM_EGG_WAIT_MIN = 5000;
 const RANDOM_EGG_WAIT_MAX = 30000;
 
-export class SnowMobileElement extends LitElement {
+export class EasterEggSnowMobileElement extends LitElement {
   static get properties() {
     return {
         driving: {type: Boolean},
@@ -61,7 +61,7 @@ export class SnowMobileElement extends LitElement {
 
   render() {
     return html`
-    <style>${_style`snowmobile`}</style>
+    <style>${_style`easteregg-snowmobile`}</style>
     <a href="#" @click="${(e) => this.drive(e)}" class="snowmobile ${this.driving ? 'drive' : ''} ${this.direction}">
       <span class="${this.color}"></span>
       </a>
@@ -69,4 +69,4 @@ export class SnowMobileElement extends LitElement {
   }
 }
 
-customElements.define('snow-mobile', SnowMobileElement);
+customElements.define('easteregg-snowmobile', EasterEggSnowMobileElement);

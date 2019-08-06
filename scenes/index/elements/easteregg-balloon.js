@@ -6,10 +6,10 @@ const FLIGHT_TIME = 30000;
 const RANDOM_EGG_WAIT_MIN = 5000;
 const RANDOM_EGG_WAIT_MAX = 30000;
 
-export class HotAirBalloonElement extends LitElement {
+export class EasterEggBalloonElement extends LitElement {
   static get properties() {
     return {
-        flying: {type: Boolean},
+      flying: {type: Boolean},
     };
   }
 
@@ -38,7 +38,6 @@ export class HotAirBalloonElement extends LitElement {
     }, timeout);
   }
 
-
   async fly(e) {
     e && e.preventDefault();
 
@@ -59,7 +58,7 @@ export class HotAirBalloonElement extends LitElement {
 
   render() {
     return html`
-    <style>${_style`hotair-balloon`}</style>
+    <style>${_style`easteregg-balloon`}</style>
     <div class="${this.flying ? 'flying' : ''}">
       <a href="#" @click="${(e) => this.fly(e)}" class="balloon"></a>
       <div class="balloon-ropes"></div>
@@ -69,4 +68,4 @@ export class HotAirBalloonElement extends LitElement {
   }
 }
 
-customElements.define('hotair-balloon', HotAirBalloonElement);
+customElements.define('easteregg-balloon', EasterEggBalloonElement);

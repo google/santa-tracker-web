@@ -2,10 +2,10 @@ import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
 import '../../src/elements/santa-image-mask.js';
 import './elements/village-countdown.js';
-import './elements/tictactoe.js';
-import './elements/hotair-balloon.js';
-import './elements/snowmobile.js';
-import './elements/wrangler.js';
+import './elements/easteregg-balloon.js';
+import './elements/easteregg-reindeer.js';
+import './elements/easteregg-snowmobile.js';
+import './elements/easteregg-tictactoe.js';
 
 
 const offset = {x: 0, y: 0};

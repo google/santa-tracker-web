@@ -1,9 +1,9 @@
 import {html, LitElement} from 'lit-element';
 
-export class ReindeerWranglerElement extends LitElement {
+export class EasterEggReindeerElement extends LitElement {
   render() {
     return html`
-    <style>${_style`wrangler`}</style>
+    <style>${_style`easteregg-reindeer`}</style>
     <div id="holder">
       <div id="wrangler">
         <div></div>
@@ -27,4 +27,4 @@ export class ReindeerWranglerElement extends LitElement {
   }
 }
 
-customElements.define('reindeer-wrangler', ReindeerWranglerElement);
+customElements.define('easteregg-reindeer', EasterEggReindeerElement);

@@ -7,7 +7,7 @@ const RESTART_GAME_TIME_MAX = 60 * 1000;
 
 const delay = (ms) => new Promise((r) => window.setTimeout(r, ms));
 
-export class TicTacToeElement extends LitElement {
+export class EasterEggTicTacToeElement extends LitElement {
   static get properties() {
     return {
       isPlaying: {type: Boolean},
@@ -168,7 +168,7 @@ export class TicTacToeElement extends LitElement {
   render() {
 
     return html`
-    <style>${_style`tictactoe`}</style>
+    <style>${_style`easteregg-tictactoe`}</style>
     <div>
       ${this.cellClasses.map(c => html`<div class="cell ${c}"></div>`)}
     </div>
@@ -179,4 +179,4 @@ export class TicTacToeElement extends LitElement {
   }
 }
 
-customElements.define('tic-tac-toe', TicTacToeElement);
+customElements.define('easteregg-tictactoe', EasterEggTicTacToeElement);
