@@ -587,13 +587,6 @@
   version "0.0.1"
   resolved "git+ssh://git@github.com:PolymerLabs/broadway.git#e0df3f9272655db79144c60e70fad5ede7df6517"
 
-"@polymer/lit-element@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@polymer/lit-element/-/lit-element-0.6.4.tgz#84806454a7f5e5280947d6ec84b613e09aa3d466"
-  integrity sha512-5EsrZJebIE1plULhMtC21zpryzJNFxM63/XY7G2BvzX/zd2rSPuNsqXiBK2x76TniLDaxuD4Tj6eb3WgR1OoCg==
-  dependencies:
-    lit-html "^0.14.0"
-
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -2576,10 +2569,17 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lit-html@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-0.14.0.tgz#d6830e8f55fb923b0f5824decf7da082a1d22997"
-  integrity sha512-+xqUPzzJGEDqb0F5DOnMXvL0jxpkKebAMlXycKZxFtzlmD+qePEmYrEUPF9XVXcc5eYBzYXTCOUcjSCod4YvgQ==
+lit-element@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.2.1.tgz#79c94d8cfdc2d73b245656e37991bd1e4811d96f"
+  integrity sha512-ipDcgQ1EpW6Va2Z6dWm79jYdimVepO5GL0eYkZrFvdr0OD/1N260Q9DH+K5HXHFrRoC7dOg+ZpED2XE0TgGdXw==
+  dependencies:
+    lit-html "^1.0.0"
+
+lit-html@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.1.1.tgz#186ed6abcc70c0d24e1132b37411c3b2645ed1aa"
+  integrity sha512-1WqhkPpj+CKwLRXCCbyRGnWkcFKE4ft2+j8C2zaXwFUK9I2vYDzTuDGPh0H9hZcDBEwoe6YpPC8AO5734EPORQ==
 
 locate-path@^3.0.0:
   version "3.0.0"

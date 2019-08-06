@@ -1,4 +1,4 @@
-import {html, LitElement} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 
 const delay = (ms) => new Promise((r) => window.setTimeout(r, ms));
 

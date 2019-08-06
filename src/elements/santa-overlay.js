@@ -1,5 +1,4 @@
-import {html, LitElement} from '@polymer/lit-element';
-import {until} from 'lit-html/directives/until'
+import {html, LitElement} from 'lit-element';
 
 
 const supportsShare = Boolean(navigator.share);

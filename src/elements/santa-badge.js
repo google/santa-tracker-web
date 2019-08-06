@@ -1,4 +1,4 @@
-import {LitElement, html} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
 

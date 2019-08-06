@@ -1,4 +1,4 @@
-import {html, LitElement} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 
 import {getLanguage, runtimeTranslate} from '../lib/runtime.js';

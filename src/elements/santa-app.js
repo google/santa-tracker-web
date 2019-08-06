@@ -1,5 +1,5 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
-import {html, LitElement} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';

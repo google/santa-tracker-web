@@ -1,4 +1,4 @@
-import {html, LitElement} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 import {directive} from 'lit-html';
 import * as prefix from '../lib/prefix.js';
 

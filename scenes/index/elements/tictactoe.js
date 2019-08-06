@@ -1,4 +1,4 @@
-import {html, LitElement} from '@polymer/lit-element';
+import {html, LitElement} from 'lit-element';
 
 const WINS = Object.freeze([7, 56, 448, 73, 146, 292, 273, 84]);
 const SHOW_LINE_TIME = 1000;

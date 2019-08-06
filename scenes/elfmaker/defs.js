@@ -1,4 +1,4 @@
-import {svg} from '@polymer/lit-element';
+import {svg} from 'lit-element';
 
 
 export const width = 320;
