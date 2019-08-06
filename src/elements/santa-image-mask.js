@@ -81,7 +81,8 @@ svg {
   pointer-events: none;
 }
 .shadow {
-  transform: translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
+  transform-origin: bottom center;
+  transform: skew(-4deg) translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
   opacity: 0.1;
   transition: all 0.5s;
   pointer-events: none;
@@ -95,17 +96,21 @@ svg {
   animation: none;
 }
 .target:hover ~ .shadow {
-  transform: translate(var(--o, 5px), calc(var(--o, 5px) * 1.6));
+  transform: skew(-5deg) translate(var(--o, 5px), calc(var(--o, 5px) * 1.6));
   opacity: 0.2;
   transition: all 0.2s;
 }
 </style>
 <svg width="${size}" height="${height}">
+<linearGradient id="${this._idPrefix}fade" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="black" stop-opacity="0.2"/>
+<stop offset="100%" stop-color="black"/>
+</linearGradient>
 <clipPath id="${this._idPrefix}path" transform="scale(${scale} ${scale})">
 <path d="${card.src}" />
 </clipPath>
 <rect class="target" width="${size}" height="${height}"></rect>
-<path class="shadow" d="${squarePath}" clip-path="url(#${this._idPrefix}path)"></path>
+<path class="shadow" d="${squarePath}" clip-path="url(#${this._idPrefix}path)" fill="url(#${this._idPrefix}fade)"></path>
 <g class="focus">
   <image xlink:href="${namespaced(this.src)}" clip-path="url(#${this._idPrefix}path)" preserveAspectRatio="xMaxYMax slice" width="${size}" height="${height}" />
   <g clip-path="url(#${this._idPrefix}path)">
