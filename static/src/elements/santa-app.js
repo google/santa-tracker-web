@@ -5,7 +5,7 @@ import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
 import * as prefix from '../lib/prefix.js';
 import * as route from '../route.js';
-import scenes from '../../scenes.json5.js';
+import scenes from './test.json5';
 
 
 export class SantaAppElement extends LitElement {

@@ -4,12 +4,20 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import {getLanguage, runtimeTranslate} from '../lib/runtime.js';
 import * as route from '../route.js';
 
+import styles from './santa-sidebar.scss';
+
 export class SantaSidebarElement extends LitElement {
   static get properties() {
     return {
       todayHouse: {type: String},
       trackerIsOpen: {type: Boolean},
     };
+  }
+
+  constructor() {
+    super();
+
+    this.adoptedStyleSheets = [styles];
   }
 
   _onLanguageChange(ev) {
@@ -28,8 +36,6 @@ export class SantaSidebarElement extends LitElement {
     ` : '');
 
     return html`
-<style>${_style`santa-sidebar`}</style>
-
 <slot></slot>
 
 <div class="cards">

@@ -79,6 +79,7 @@ async function prod(req, res, next) {
 }
 
 async function serve() {
+  const rollupLoader = require('./rollup-loader.js')();
   const loader = require('./loader.js')({
     compile: yargs.compile,
     messages,
@@ -93,7 +94,7 @@ async function serve() {
     listing: false,
   });
   const staticServer = polka();
-  staticServer.use(loaderTransform(loader));
+  staticServer.use(loaderTransform(rollupLoader));
   staticServer.use('static', staticHost);
 
   await listen(staticServer, yargs.port + 1000);
