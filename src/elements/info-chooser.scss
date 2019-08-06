@@ -43,7 +43,7 @@ label input:checked + div {
   }
 }
 label input:focus + div {
-  @extend .default-focus;
+  border-color: #3339;
 }
 
 .container {

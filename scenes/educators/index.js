@@ -35,7 +35,7 @@ async function setup() {
     const lesson = (name) => `https://storage.googleapis.com/santa/lessonplans/${lang}/${name}`;
     return html`
 <info-card src="img/lesson-plan-traditions.png">
-  <div slot="title">Christmas traditions around the world</div>
+  <h4>Christmas traditions around the world</h4>
   <p>
     Students will be able to compare, contrast, and reflect upon Christmas traditions in different countries.
   </p>
@@ -49,7 +49,7 @@ async function setup() {
 </info-card>
 
 <info-card src="img/lesson-plan-code.png">
-  <div slot="title">Practice coding with Santa's elves</div>
+  <h4>Practice coding with Santa's elves</h4>
   <p>
     Students will learn how to move elves and make snowflakes with code, experimenting with sequences and loops.
   </p>

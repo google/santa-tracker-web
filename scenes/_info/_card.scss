@@ -20,7 +20,6 @@ info-card {
 }
 
 .card-links {
-  // @extend .clearfix;
   line-height: normal;
 
   .card-title {
@@ -41,10 +40,6 @@ info-card {
     position: relative;
     transition: opacity .3s;
     width: 100%;
-
-    &:hover {
-      opacity: .7;
-    }
 
     span {
       color: #90a4ae;

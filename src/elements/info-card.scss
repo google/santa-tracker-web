@@ -48,3 +48,18 @@ a {
   position: relative;
   display: block;
 }
+
+a:focus {
+  outline: 0;
+
+  .background:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: 4px solid #3339;
+  }
+}

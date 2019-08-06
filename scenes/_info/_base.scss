@@ -118,10 +118,9 @@ a {
   color: #00ACC1;
   opacity: 1;
   text-decoration: none;
-  transition: opacity .3s;
 
   &:hover {
-    opacity: 0.75;
+    text-decoration: underline;
   }
 }
 
@@ -200,9 +199,16 @@ footer {
     text-decoration: none;
     transition: background .3s;
     width: 250px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
 
     &:hover {
-      background: #ffd54f;
+      text-decoration: none;
+    }
+
+    &:focus {
+      border-color: #3338;
+      outline: 0;
     }
   }
 }
