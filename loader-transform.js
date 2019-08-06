@@ -2,7 +2,6 @@ const fs = require('fs');
 const mimeTypes = require('mime-types');
 const path = require('path');
 
-
 const watchTimeout = 30 * 1000;
 
 
@@ -64,6 +63,7 @@ function watch(paths, done, timeout) {
     return false;
   });
   if (!valid.length) {
+    console.info('bailing, could not find any valid', paths);
     return null;
   }
 
@@ -76,6 +76,7 @@ function watch(paths, done, timeout) {
   // dependant files anyway. This will only cause problems for scenes, which build whole dirs, but
   // observing the directory reveals immediate subtree changes regardless.
   watchers = valid.map((cand) => fs.watch(cand, {recursive: true}, shutdown));
+  console.info('got valid files to watch', valid);
 
   return setTimeout(shutdown, timeout);
 }
@@ -117,15 +118,15 @@ async function load(loader, filename, cleanup) {
 
 
 /**
- * Builds a Koa transform which wraps the given Loader.
+ * Builds asynchronous HTTP middleware which wraps the given Loader.
  *
  * @param {function(string): ?Object} loader to load file from disk or build it
  */
 module.exports = function(loader) {
   const cached = {};
 
-  return async (ctx, next) => {
-    let filename = ctx.path.substr(1);
+  return async (req, res, next) => {
+    let filename = req.path.substr(1);
     if (filename.endsWith('/') || filename === '') {
       filename += 'index.html';
     }
@@ -138,12 +139,31 @@ module.exports = function(loader) {
       cached[filename] = p;
     }
 
-    const result = await p;
+    let result;
+    try {
+      result = await p;
+    }
+    catch (e) {
+      if (e.code === 'ENOENT') {
+        res.writeHead(404);
+      } else {
+        console.warn(filename, e);
+        res.writeHead(500);
+      }
+      return res.end();
+    }
+
     if (result === null) {
       return next();
     }
 
-    ctx.response.body = result;
-    ctx.response.type = mimeTypes.lookup(filename) || ctx.response.type;
+    const headers = {};
+    const mimeType = mimeTypes.lookup(filename);
+    if (mimeType) {
+      // TODO: utf-8?
+      headers['Content-Type'] = mimeType;
+    }
+    res.writeHead(200, headers);
+    res.end(result);
   };
 };

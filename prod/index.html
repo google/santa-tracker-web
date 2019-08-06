@@ -80,6 +80,8 @@ body:not(.loading) #loader {
 <noscript>
   <meta http-equiv="refresh" content="0;url=/upgrade.html" />
 </noscript>
+<script type="module" src="loader.js"></script>
+<script nomodule src="legacy.js"></script>
 <script>
 // nb. This code is intentionally ES5, as it runs minified (but not transpiled) on our minimum
 // browser target (currently IE11), including for feature detection.
