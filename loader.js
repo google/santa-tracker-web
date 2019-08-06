@@ -11,7 +11,7 @@ const rollupNodeResolve = require('rollup-plugin-node-resolve');
 const JSON5 = require('json5');
 
 
-const matchSceneRe = /(?:^|\/)scenes\/([a-z]+)(?:\/(.*)|)$/;
+const matchSceneRe = /(?:^|\/)static\/scenes\/([a-z]+)(?:\/(.*)|)$/;
 
 
 /**
@@ -130,6 +130,7 @@ module.exports = (options) => {
         return null;  // do nothing to .min.js unless it's a scene
       }
       const out = await compileScene({sceneName}, options.compile);
+      console.info('compiling scene', sceneName, out);
       ({js: body, map} = out);
     } else if (parsed.name.endsWith('.json') || parsed.name.endsWith('.json5')) {
       // convert JSON/JSON5 to an exportable module

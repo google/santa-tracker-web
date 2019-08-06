@@ -6,8 +6,8 @@ const tmp = require('tmp');
 
 const CLOSURE_LIBRARY_PATH = 'node_modules/google-closure-library/closure/goog';
 const EXTERNS = [
-  'third_party/lib/web-animations/externs/web-animations.js',
-  'third_party/lib/web-animations/externs/web-animations-next.js',
+  'static/third_party/lib/web-animations/externs/web-animations.js',
+  'static/third_party/lib/web-animations/externs/web-animations-next.js',
   'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
   'node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
 ];
@@ -113,7 +113,7 @@ function invokeCompiler(compiler) {
  * @return {!Array<string>}
  */
 async function resolveCodeLinks(sceneName) {
-  const root = `scenes/${sceneName}/js`;
+  const root = path.join('static/scenes', sceneName, 'js');
   const all = await fsp.readdir(root);
   const out = [];
 
@@ -147,8 +147,8 @@ async function resolveCodeLinks(sceneName) {
 module.exports = async function compile(config, compile=false) {
   const compilerSrc = [
     'build/transpile/export.js',
-    'scenes/_shared/js/**.js',
-    `scenes/${config.sceneName}/js/**.js`,
+    'static/scenes/_shared/js/**.js',
+    `static/scenes/${config.sceneName}/js/**.js`,
     '!**_test.js',
   ];
   compilerSrc.unshift(...(await resolveCodeLinks(config.sceneName)));
@@ -193,6 +193,7 @@ module.exports = async function compile(config, compile=false) {
     output_wrapper: outputWrapper,
     rewrite_polyfills: false,
   };
+  console.info('compiling', compilerFlags);
 
   const compiler = new closureCompiler.compiler(compilerFlags);
 
@@ -208,7 +209,7 @@ module.exports = async function compile(config, compile=false) {
   sourceMapTemp.removeCallback();
 
   // nb. used so that listening callers can watch the whole dir for changes.
-  map.sources.push(`scenes/${config.sceneName}/js`, `scenes/_shared/js`);
+  map.sources.push(`static/scenes/${config.sceneName}/js`, `static/scenes/_shared/js`);
   map.sourcesContent.push(null, null);
 
   return {compile, js, map};

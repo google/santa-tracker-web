@@ -86,9 +86,15 @@ async function serve() {
   });
   const loaderTransform = require('./loader-transform.js');
 
+  const staticHost = dhost({
+    path: 'static',
+    cors: true,
+    serveLink: true,
+    listing: false,
+  });
   const staticServer = polka();
   staticServer.use(loaderTransform(loader));
-  staticServer.use('static', dhost({path: 'static', cors: true, listing: true}));
+  staticServer.use('static', staticHost);
 
   await listen(staticServer, yargs.port + 1000);
   const staticURL = `http://127.0.0.1:${yargs.port + 1000}/static`;
