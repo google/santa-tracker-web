@@ -34,20 +34,23 @@ const rollupStyles = (compile=true) => {
   };
 
   return {
-    async load(id) {
-      if (valid(id)) {
-        const {css: raw, map} = await compileStyles(id, {compile});
-        const code = raw.toString('utf-8');
-        return {code, map, moduleSideEffects: false};
-      }
-    },
-
-    async transform(code, id) {
-      if (valid(id)) {
-        const update = `const sheet = new CSSStyleSheet();
-sheet.replaceSync(${JSON.stringify(code)});
+    async transform(raw, id) {
+      const ext = path.extname(id);
+      if (ext === '.scss' || ext === '.css') {
+        const {css: buffer, map} = await compileStyles(id, {compile});
+        const css = buffer.toString('utf-8');
+        const code = `const sheet = new CSSStyleSheet();
+sheet.replaceSync(${JSON.stringify(css)});
 export default sheet;`;
-        return {code: update, moduleSideEffects: false};
+
+        // FIXME: can we use this.emitFile here for our VFS case?
+        // FIXME: does the 'map' make sense here?
+
+        return {
+          code,
+          map,
+          moduleSideEffects: false,
+        };
       }
     },
   }
