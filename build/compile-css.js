@@ -63,8 +63,7 @@ module.exports = (filename, options) => {
       // relative to the current working dir.
       map.sources = map.sources.map((source) => {
         if (source.startsWith('file://')) {
-          source = source.substr(7);
-          return path.relative('.', source);
+          return source.substr(7);
         }
         return source;
       });

@@ -79,12 +79,13 @@ async function prod(req, res, next) {
 }
 
 async function serve() {
-  const rollupLoader = require('./rollup-loader.js')();
-  const loader = require('./loader.js')({
-    compile: yargs.compile,
-    messages,
-    root: '/',
-  });
+  const santaVfs = require('./santa-vfs.js')();
+  const rollupLoader = require('./rollup-loader.js')(santaVfs);
+  // const loader = require('./loader.js')({
+  //   compile: yargs.compile,
+  //   messages,
+  //   root: '/',
+  // });
   const loaderTransform = require('./loader-transform.js');
 
   const staticHost = dhost({

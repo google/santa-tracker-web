@@ -4,7 +4,7 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import {getLanguage, runtimeTranslate} from '../lib/runtime.js';
 import * as route from '../route.js';
 
-import styles from './santa-sidebar.scss';
+import styles from './santa-sidebar.css';
 
 export class SantaSidebarElement extends LitElement {
   static get properties() {
