@@ -92,7 +92,6 @@ async function serve() {
     path: 'static',
     cors: true,
     serveLink: true,
-    listing: false,
   });
   const staticServer = polka();
   staticServer.use(loaderTransform(rollupLoader));
