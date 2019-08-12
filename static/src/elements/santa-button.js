@@ -1,4 +1,5 @@
 import {html, LitElement} from 'lit-element';
+import styles from './santa-button.css';
 
 
 export class SantaButtonElement extends LitElement {
@@ -8,9 +9,13 @@ export class SantaButtonElement extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+  }
+
   render() {
     return html`
-<style>${_style`santa-button`}</style>
 <button class="${this.color || 'yellow'}"><slot></slot></button>
 `;
   }

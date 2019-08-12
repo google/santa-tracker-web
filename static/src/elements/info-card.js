@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
+import styles from './info-card.css';
 
 
 export class InfoCardElement extends LitElement {
@@ -11,9 +12,13 @@ export class InfoCardElement extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+  }
+
   render() {
     return html`
-<style>${_style`info-card`}</style>
 <div class="card">
   <a href=${ifDefined(this.href)}>
     <div class="background" style="background-image: url(${this.src})">

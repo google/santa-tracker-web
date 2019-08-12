@@ -1,5 +1,5 @@
 import {html, LitElement} from 'lit-element';
-
+import styles from './santa-overlay.css';
 
 const supportsShare = Boolean(navigator.share);
 
@@ -30,6 +30,11 @@ export class SantaOverlayElement extends LitElement {
       _longUrl: {type: String},
       _shortUrl: {type: String},
     };
+  }
+
+  constructor() {
+    super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
   _dispatchResume() {
@@ -137,7 +142,6 @@ export class SantaOverlayElement extends LitElement {
 //   <santa-button color="purple" @click="${this._dispatchResume}">play_arrow</santa-button>
 
     return html`
-<style>${_style`santa-overlay`}</style>
 <div class="wrap">
 <div class="hero ${heroClass}">
   <div class="score" ?hidden="${this.score < 0}">

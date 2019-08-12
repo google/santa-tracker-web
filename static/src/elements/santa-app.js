@@ -1,5 +1,6 @@
 import {Adapter} from '@polymer/broadway/lib/adapter';
 import {html, LitElement} from 'lit-element';
+import styles from './santa-app.css';
 
 import {SantaTrackerAction} from '../app/action.js';
 import {SANTA_TRACKER_CONTROLLER_URL} from '../app/common.js';
@@ -32,6 +33,8 @@ export class SantaAppElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+
     this._idPrefix = prefix.id();
     this._activeSceneInfo = {};
     this._score = {};

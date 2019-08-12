@@ -16,8 +16,7 @@ export class SantaSidebarElement extends LitElement {
 
   constructor() {
     super();
-
-    this.adoptedStyleSheets = [styles];
+    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
   _onLanguageChange(ev) {

@@ -1,4 +1,5 @@
 import {html, LitElement} from 'lit-element';
+import styles from './easteregg-balloon.css';
 
 const delay = (ms) => new Promise((r) => window.setTimeout(r, ms));
 
@@ -15,6 +16,7 @@ export class EasterEggBalloonElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
 
     this.flying = false;
   }
@@ -58,12 +60,11 @@ export class EasterEggBalloonElement extends LitElement {
 
   render() {
     return html`
-    <style>${_style`easteregg-balloon`}</style>
-    <div class="${this.flying ? 'flying' : ''}">
-      <a href="#" @click="${(e) => this.fly(e)}" class="balloon"></a>
-      <div class="balloon-ropes"></div>
-      <div class="balloon-flight"></div>
-    </div>
+<div class="${this.flying ? 'flying' : ''}">
+  <a href="#" @click="${(e) => this.fly(e)}" class="balloon"></a>
+  <div class="balloon-ropes"></div>
+  <div class="balloon-flight"></div>
+</div>
     `;
   }
 }

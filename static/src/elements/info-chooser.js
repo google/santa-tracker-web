@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {repeat} from 'lit-html/directives/repeat';
+import styles from './info-chooser.css';
 
 
 const spaceRe = /\s+/;
@@ -29,6 +30,11 @@ export class InfoChooserElement extends LitElement {
       value: {type: String},
       choices: {type: String},
     };
+  }
+
+  constructor() {
+    super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
   _choiceChange(ev) {
@@ -63,7 +69,6 @@ export class InfoChooserElement extends LitElement {
     });
 
     return html`
-<style>${_style`info-chooser`}</style>
 <div class="chooser" @change=${this._choiceChange}>
 ${repeat(choices, (c) => c, (choice) => html`
   <label>

@@ -1,6 +1,8 @@
 import {html, LitElement} from 'lit-element';
 import * as defs from '../defs.js';
 
+import styles from './maker-photo.css';
+
 
 export class MakerPhotoElement extends LitElement {
   static get properties() {
@@ -13,6 +15,8 @@ export class MakerPhotoElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+
     this._hidden = true;
     this._recentImageSrc = null;
   }
@@ -68,7 +72,6 @@ export class MakerPhotoElement extends LitElement {
 
   render() {
     return html`
-<style>${_style`maker-photo`}</style>
 <div class="flash" ?fill=${this._flashing} @transitionend=${this._flashTransitionend}></div>
 <div class="position">
   <div class="anim">

@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {repeat} from 'lit-html/directives/repeat';
+import styles from './maker-chooser.css';
 
 
 import * as prefix from '../../../src/lib/prefix.js';
@@ -30,6 +31,7 @@ export class MakerChooserElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
     this._idPrefix = prefix.id();
     this._options = [];
     this.mode = '';
@@ -75,7 +77,6 @@ export class MakerChooserElement extends LitElement {
     const buttonsHigh = repeat(this._options.slice(0, half), (r) => r, renderButton);
     const buttonsLow = repeat(this._options.slice(half), (r) => r, renderButton);
     return html`
-<style>${_style`maker-chooser`}</style>
 <main class="mode-${this.mode}" @change=${this._onChange}>
   <div class="row">${buttonsHigh}</div>
   <div class="row">${buttonsLow}</div>

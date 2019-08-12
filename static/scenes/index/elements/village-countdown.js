@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {countdownSplit} from '../../../src/lib/time.js';
+import styles from './village-countdown.css';
 
 
 function pad(x) {
@@ -21,6 +22,11 @@ export class VillageCountdownElement extends LitElement {
       _time: {type: Object},
       _prev: {type: Object},
     };
+  }
+
+  constructor() {
+    super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
   _tick() {
@@ -69,7 +75,6 @@ export class VillageCountdownElement extends LitElement {
     };
 
     return html`
-<style>${_style`village-countdown`}</style>
 <main>
   <h2>${_msg`countdown_until`}</h2>
   <div class="counter" @animationend=${this._animationEnd}>

@@ -1,4 +1,5 @@
 import {html, LitElement} from 'lit-element';
+import styles from './easteregg-snowmobile.css';
 
 const delay = (ms) => new Promise((r) => window.setTimeout(r, ms));
 
@@ -17,6 +18,7 @@ export class EasterEggSnowMobileElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
 
     this.driving = false;
   }
@@ -61,10 +63,9 @@ export class EasterEggSnowMobileElement extends LitElement {
 
   render() {
     return html`
-    <style>${_style`easteregg-snowmobile`}</style>
-    <a href="#" @click="${(e) => this.drive(e)}" class="snowmobile ${this.driving ? 'drive' : ''} ${this.direction}">
-      <span class="${this.color}"></span>
-      </a>
+<a href="#" @click="${(e) => this.drive(e)}" class="snowmobile ${this.driving ? 'drive' : ''} ${this.direction}">
+  <span class="${this.color}"></span>
+</a>
     `;
   }
 }

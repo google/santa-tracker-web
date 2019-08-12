@@ -1,4 +1,5 @@
 import {html, LitElement} from 'lit-element';
+import styles from './easteregg-tictactoe.css';
 
 const WINS = Object.freeze([7, 56, 448, 73, 146, 292, 273, 84]);
 const SHOW_LINE_TIME = 1000;
@@ -23,6 +24,7 @@ export class EasterEggTicTacToeElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
 
     this.cellsAvailable_ = [];
   }
@@ -166,15 +168,13 @@ export class EasterEggTicTacToeElement extends LitElement {
   }
 
   render() {
-
     return html`
-    <style>${_style`easteregg-tictactoe`}</style>
-    <div>
-      ${this.cellClasses.map(c => html`<div class="cell ${c}"></div>`)}
-    </div>
-    <div id="elves-red" class="elves ${this.redTeamClass}"></div>
-    <div id="elves-blue" class="elves ${this.blueTeamClass}"></div>
-    <div id="win" class="${this.winClass}"></div>
+<div>
+  ${this.cellClasses.map(c => html`<div class="cell ${c}"></div>`)}
+</div>
+<div id="elves-red" class="elves ${this.redTeamClass}"></div>
+<div id="elves-blue" class="elves ${this.blueTeamClass}"></div>
+<div id="win" class="${this.winClass}"></div>
     `;
   }
 }

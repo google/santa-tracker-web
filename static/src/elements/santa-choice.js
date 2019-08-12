@@ -1,3 +1,4 @@
+import styles from './santa-choice.css';
 
 const hasResizeObserver = Boolean(self.ResizeObserver);
 
@@ -9,7 +10,6 @@ export class SantaChoiceElement extends HTMLElement {
 
     const template = document.createElement('template');
     template.innerHTML = `
-<style>${_style`santa-choice`}</style>
 <div class="wrap">
   <button class="left"></button>
   <div class="scroller">
@@ -23,6 +23,10 @@ export class SantaChoiceElement extends HTMLElement {
     }
 
     this.attachShadow({mode: 'open'});
+
+    // TODO(samthor): Does this work without inheriting from LitElement?
+    this.shadowRoot.adoptedStyleSheets = [styles];
+
     this.shadowRoot.appendChild(document.importNode(template.content, true));
     this._wrapEl = this.shadowRoot.querySelector('.wrap');
     this._scrollerEl = this._wrapEl.querySelector('.scroller');

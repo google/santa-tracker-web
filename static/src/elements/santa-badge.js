@@ -1,5 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
+import styles from './santa-badge.css';
 
 
 const MAX_TIME = (10 * 60) - 1;  // max is 9:59
@@ -21,6 +22,8 @@ export class SantaBadgeElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+
     // TODO(samthor): Shown for a demo.
     this.level = 1;
     this.maxLevel = 3;
@@ -72,8 +75,6 @@ export class SantaBadgeElement extends LitElement {
     const {score, unit} = this._splitScore();
     const displayScore = this.score > 0;
     return html`
-<style>${_style`santa-badge`}</style>
-
 <div class="items ${this.level && (this._levelActive || !displayScore) ? 'level-active' : ''}">
   <div class="part-score">
     <div class="cell" .hidden=${!displayScore}>

@@ -6,6 +6,7 @@ import {repeat} from 'lit-html/directives/repeat';
 import * as prefix from '../../../src/lib/prefix.js';
 import * as defs from '../defs.js';
 
+import styles from './maker-control.css';
 
 let globalElfStyle;  // for ShadyCSS + lit-html
 
@@ -85,6 +86,8 @@ export class MakerControlElement extends LitElement {
 
   constructor() {
     super();
+    this.shadowRoot.adoptedStyleSheets = [styles];
+
     this._idPrefix = prefix.id();
 
     // Set defaults for Edge's benefit.
@@ -316,7 +319,6 @@ ${renderClass('accessories', 'fill', this.accessoriesColor)}
     const svgStyle = (self.ShadyCSS ? '' : this.svgStyle);
 
     return html`
-<style>${_style`maker-control`}</style>
 <style>${defs.baseSvgStyle}${svgStyle}</style>
 <main>
   ${this._chooser('category', 'category')}
