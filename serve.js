@@ -80,7 +80,7 @@ async function prod(req, res, next) {
 
 async function serve() {
   const santaVfs = require('./santa-vfs.js')();
-  const rollupLoader = require('./rollup-loader.js')(santaVfs);
+  const rollupLoader = require('./rollup-loader.js')('static', santaVfs);
   // const loader = require('./loader.js')({
   //   compile: yargs.compile,
   //   messages,
@@ -93,12 +93,12 @@ async function serve() {
     cors: true,
     serveLink: true,
   });
+  const staticPrefix = 'static-test-1234';
   const staticServer = polka();
-  staticServer.use(loaderTransform(rollupLoader));
-  staticServer.use('static', staticHost);
+  staticServer.use(staticPrefix, loaderTransform(rollupLoader), staticHost);
 
   await listen(staticServer, yargs.port + 1000);
-  const staticURL = `http://127.0.0.1:${yargs.port + 1000}/static`;
+  const staticURL = `http://127.0.0.1:${yargs.port + 1000}/${staticPrefix}`;
   log('Static', chalk.green(staticURL));
 
   const prodServer = polka();

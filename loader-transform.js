@@ -63,7 +63,7 @@ function watch(paths, done, timeout) {
     return false;
   });
   if (!valid.length) {
-    console.info('bailing, could not find any valid', paths);
+//    console.info('bailing, could not find any valid', paths);
     return null;
   }
 
@@ -129,6 +129,14 @@ module.exports = function(loader) {
     let filename = req.path.substr(1);
     if (filename.endsWith('/') || filename === '') {
       filename += 'index.html';
+    }
+
+    // If the request has an Origin header, this is a fetch for a module.
+    // FIXME: This is probably a disgusting check and might only work in Chrome.
+    const hasOrigin = req.headers['origin'];
+    if (!hasOrigin && path.extname(filename) === '.js') {
+      // skip
+//      return next();
     }
 
     let p = cached[filename];

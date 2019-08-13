@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
@@ -38,6 +39,9 @@ const rollupFutureModules = () => {
 
       switch (ext) {
         case '.css':
+          // This implements CSS Modules as described:
+          // https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/CSSModules/v1Explainer.md
+          // https://twitter.com/argyleink/status/1157402358394920960
           code = `const sheet = new CSSStyleSheet();
 sheet.replaceSync(${JSON.stringify(raw)});
 export default sheet;`;
@@ -62,7 +66,15 @@ export default sheet;`;
 };
 
 
-const extendSourceMap = (map, ...extras) => {
+/**
+ * Extends the given SourceMap by adding extra filenames. This is just a way to pass used files to
+ * callers of this file, even though no mappings will points towards these files.
+ *
+ * @param {?SourceMap} map to extend
+ * @param {...string} extras extra filenames to insert
+ * @return {!SourceMap}
+ */
+function extendSourceMap(map, ...extras) {
   if (!map) {
     map = {sources: [], sourcesContent: []};
   }
@@ -86,7 +98,7 @@ const extendSourceMap = (map, ...extras) => {
 
 
 /**
- * Is this resolved filename a valid entrypoint for browsers?
+ * Is this resolved filename a valid module?
  * 
  * Currently just returns true for JS. In the far distant future, when CSS/HTML/etc modules are
  * supported by development browsers, they can be allowed too.
@@ -94,7 +106,7 @@ const extendSourceMap = (map, ...extras) => {
  * @param {string} filename
  * @return {boolean}
  */
-function isValidEntry(filename) {
+function isValidModule(filename) {
   const ext = path.extname(filename);
   return ext === '.js';
 }
@@ -128,7 +140,7 @@ function processVfsLoad(filename, out) {
 /**
  * Uses Rollup to bundle entrypoint-like files.
  */
-module.exports = (vfsPlugin) => {
+module.exports = (p, vfsPlugin) => {
   async function load(filename) {
     const direct = await vfsPlugin.load(filename);
     if (direct) {
@@ -136,9 +148,12 @@ module.exports = (vfsPlugin) => {
       return processVfsLoad(filename, direct);
     }
 
-    if (!isValidEntry(filename)) {
+    const ext = path.extname(filename);
+    if (ext !== '.js') {
       return null;
     }
+
+    console.debug('load blah', filename);
 
     const bundle = await rollup.rollup({
       input: filename,
@@ -149,7 +164,7 @@ module.exports = (vfsPlugin) => {
       ],
       external(id, parentId, isResolved) {
         // TODO(samthor): should only happen in dev.
-        if (isResolved && isValidEntry(id)) {
+        if (isResolved && isValidModule(id)) {
           return true;
         }
       },
@@ -185,11 +200,13 @@ module.exports = (vfsPlugin) => {
   return async (filename) => {
     const start = process.hrtime();
 
-    const out = await load(filename);
+    const out = await load(path.join(p, filename));
 
-    const duration = process.hrtime(start);
-    const ms = ((duration[0] + (duration[1] / 1e9)) * 1e3).toFixed(3);
-    console.info('took', ms, 'ms');
+    if (out) {
+      const duration = process.hrtime(start);
+      const ms = ((duration[0] + (duration[1] / 1e9)) * 1e3).toFixed(3);
+      console.debug(chalk.blue(filename), 'took', ms, 'ms');
+    }
 
     return out;
   };

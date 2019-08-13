@@ -1,6 +1,7 @@
 import {html, LitElement} from 'lit-element';
 import {countdownSplit} from '../../../src/lib/time.js';
 import styles from './village-countdown.css';
+import {_msg} from '../../../src/magic.js';
 
 
 function pad(x) {
