@@ -85,7 +85,7 @@ main {
       $options: body suit hair ears glasses accessories hats backgrounds;
       @each $option in $options {
         .value-#{$option} {
-          background-image: _rel('img/btn_#{$option}.svg');
+          background-image: _rel('../img/btn_#{$option}.svg');
         }
       }
     }

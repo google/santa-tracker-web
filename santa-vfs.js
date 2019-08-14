@@ -67,9 +67,7 @@ function vfsLoader(...plugins) {
 /**
  * Builds a virtual filesystem for Santa Tracker in the form a Rollup plugin.
  */
-module.exports = (options) => {
-  options = Object.assign({compile: false}, options);
-
+module.exports = (staticScope) => {
   const stylesPlugin = {
     map(ext) {
       if (ext === '.css') {
@@ -77,8 +75,9 @@ module.exports = (options) => {
       }
     },
     load(id) {
-      console.info('load request for id', id);
-      return compileStyles(id);
+      // FIXME: When ".css" files are loaded directly by the browser, the second two arguments are
+      // actually irrelevant, since we can just use relative URLs. It saves us ~bytes.
+      return compileStyles(id, staticScope, 'static');
     },
   };
 

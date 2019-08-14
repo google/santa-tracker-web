@@ -90,9 +90,10 @@ $__filename:$__held_filename;`;  // must be on newline to prevent comments leaki
 
   map.sourcesContent = [];
   map.sources = map.sources.map((source) => {
-    // SASS always returns us absolute files that probably start with file://.
+    // SASS sometimes returns us absolute files that probably start with file://.
     if (source.startsWith('file://')) {
       source = source.substr(7);
+
       if (!path.isAbsolute(source)) {
         throw new Error(`had unexpected relative URL from sass: ${source}`);
       }

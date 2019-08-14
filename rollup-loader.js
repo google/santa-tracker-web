@@ -65,7 +65,7 @@ const rollupFutureModules = () => {
       switch (ext) {
         case '.css':
           // This implements CSS Modules as described:
-          // https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/master/CSSModules/v1Explainer.md
+          // https://github.com/w3c/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md
           // https://twitter.com/argyleink/status/1157402358394920960
           code = `const sheet = new CSSStyleSheet();
 sheet.replaceSync(${JSON.stringify(raw)});
