@@ -7,21 +7,46 @@ const rollupNodeResolve = require('rollup-plugin-node-resolve');
 // Works around a bug (?) in Rollup: resolved IDs that are returned as an object type aren't passed
 // to `config.external`, so our loader cannot mark them as external.
 // Revisit this in 2020+, as Rollup might have fixed the bug then.
-const externalCheckingRollupNodeResolve = () => {
-  const wrapped = rollupNodeResolve();
+const externalCheckingRollupNodeResolve = (basedir) => {
+  // FIXME: This attempts to restrict resolution to _just_ node_modules, but it doesn't seem to
+  // actually work. rollupNodeResolve plays loose and fast with our passed options.
+  const wrapped = rollupNodeResolve({
+    customResolveOptions: {
+      basedir: path.join(basedir, 'node_modules'),
+      preserveSymlinks: true,
+    },
+  });
+
+  const rewrite = (resolved) => {
+    if (!resolved) {
+      return resolved;
+    }
+    const parts = resolved.split(path.sep);
+    const nodeIndex = parts.indexOf('node_modules');
+    if (nodeIndex === -1) {
+      // FIXME: Throw error if we can fix the resolution bug above.
+      return resolved;
+    }
+    return path.join(basedir, ...parts.slice(nodeIndex));
+  };
 
   const actual = wrapped.resolveId;
   wrapped.resolveId = async (importee, importer) => {
-    const out = await actual.call(this, importee, importer);
+    let out = await actual.call(this, importee, importer);
 
     if (typeof out === 'string' || !out) {
-      return out;
+      // ok
     } else if (out && out.moduleSideEffects != null) {
-      // rollup-plugin-node-resolve only marks side effects via config, which is not set.
-      throw new Error('FIXME: This should never happen, not specified in config.');
+      // nb. This is possible and is set in `package.json`. However, it's currently impossible to
+      // return the value because of this bug.
+      out = out.id;
+    } else {
+      out = out.id;
     }
 
-    return out.id;
+    // The wrapped plugin doesn't respect our symlinks. Insist that the node_modules folder is a
+    // child of basedir.
+    return rewrite(out);
   };
 
   return wrapped;
@@ -44,6 +69,7 @@ const rollupFutureModules = () => {
           // https://twitter.com/argyleink/status/1157402358394920960
           code = `const sheet = new CSSStyleSheet();
 sheet.replaceSync(${JSON.stringify(raw)});
+sheet.styleSheet = sheet; // FIXME: hack to work around https://github.com/Polymer/lit-element/issues/774
 export default sheet;`;
           break;
 
@@ -140,7 +166,9 @@ function processVfsLoad(filename, out) {
 /**
  * Uses Rollup to bundle entrypoint-like files.
  */
-module.exports = (p, vfsPlugin) => {
+module.exports = (basedir, vfsPlugin) => {
+  basedir = path.resolve(basedir);
+
   async function load(filename) {
     const direct = await vfsPlugin.load(filename);
     if (direct) {
@@ -153,13 +181,11 @@ module.exports = (p, vfsPlugin) => {
       return null;
     }
 
-    console.debug('load blah', filename);
-
     const bundle = await rollup.rollup({
       input: filename,
       plugins: [
         vfsPlugin,
-        externalCheckingRollupNodeResolve(),
+        externalCheckingRollupNodeResolve(basedir),
         rollupFutureModules(),
       ],
       external(id, parentId, isResolved) {
@@ -200,7 +226,7 @@ module.exports = (p, vfsPlugin) => {
   return async (filename) => {
     const start = process.hrtime();
 
-    const out = await load(path.join(p, filename));
+    const out = await load(path.join(basedir, filename));
 
     if (out) {
       const duration = process.hrtime(start);

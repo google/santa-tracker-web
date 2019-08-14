@@ -44,7 +44,7 @@
     "rollup": "^1.19.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "sass": "^1.14.1",
+    "sass": "^1.22.9",
     "tensorflow-models": "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1",
     "terser": "^3.10.11",
     "tmp": "^0.0.33",

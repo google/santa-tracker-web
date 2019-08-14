@@ -21,6 +21,7 @@ export function _msg(id) {
 
 export function _root(path) {
   // TODO:
+  console.warn('got _root request for', path);
   return path;
 }
 

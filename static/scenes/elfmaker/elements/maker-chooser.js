@@ -29,9 +29,10 @@ export class MakerChooserElement extends LitElement {
     };
   }
 
+  static get styles() { return [styles]; };
+
   constructor() {
     super();
-    this.shadowRoot.adoptedStyleSheets = [styles];
     this._idPrefix = prefix.id();
     this._options = [];
     this.mode = '';

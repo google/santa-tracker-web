@@ -82,29 +82,11 @@ main {
         background-color: #f8ce3c;
       }
 
-      .value-body {
-        background-image: _root("scenes/elfmaker/img/btn_body.svg");
-      }
-      .value-suit {
-        background-image: _root("scenes/elfmaker/img/btn_suit.svg");
-      }
-      .value-hair {
-        background-image: _root("scenes/elfmaker/img/btn_hair.svg");
-      }
-      .value-ears {
-        background-image: _root("scenes/elfmaker/img/btn_ears.svg");
-      }
-      .value-glasses {
-        background-image: _root("scenes/elfmaker/img/btn_glasses.svg");
-      }
-      .value-accessories {
-        background-image: _root("scenes/elfmaker/img/btn_accessories.svg");
-      }
-      .value-hats {
-        background-image: _root("scenes/elfmaker/img/btn_hats.svg");
-      }
-      .value-backgrounds {
-        background-image: _root("scenes/elfmaker/img/btn_backgrounds.svg");
+      $options: body suit hair ears glasses accessories hats backgrounds;
+      @each $option in $options {
+        .value-#{$option} {
+          background-image: _rel('img/btn_#{$option}.svg');
+        }
       }
     }
   }

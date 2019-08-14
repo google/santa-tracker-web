@@ -1,6 +1,6 @@
 const fsp = require('./build/fsp.js');
 const path = require('path');
-const compileStyles = require('./build/compile-css.js');
+const compileStyles = require('./build/compile-santa-sass.js');
 const JSON5 = require('json5');
 
 
@@ -77,11 +77,8 @@ module.exports = (options) => {
       }
     },
     load(id) {
-      const out = compileStyles(id, {compile: options.compile});
-      return {
-        code: out.css.toString('utf-8'),
-        map: out.map,
-      };
+      console.info('load request for id', id);
+      return compileStyles(id);
     },
   };
 

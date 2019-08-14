@@ -1,5 +1,9 @@
-@import "blah";
+@import "sass/blah";
 
 body {
   background: red;
+  /** should be _rel of test.css */
+
+  background: _rel('test.png');
+  //  background: _rel('test.png');
 }
