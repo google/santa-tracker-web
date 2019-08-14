@@ -6,6 +6,12 @@ import messages from '../en_src_messages.json';
  * in production, are replaced with raw strings.
  */
 
+ /**
+  * Returns the English development string for Santa Tracker.
+  *
+  * @param {string} id of message
+  * @return {string|?} resulting text of message
+  */
 export function _msg(id) {
   const data = messages[id];
   if (!data) {
@@ -19,11 +25,35 @@ export function _msg(id) {
   return '?';
 }
 
-export function _root(path) {
-  // TODO:
-  console.warn('got _root request for', path);
-  return path;
+/**
+ * Returns the given path under Santa Tracker's static serving path.
+ *
+ * @param {string} path to join to static
+ * @return {string} resolved path
+ */
+export function _static(path) {
+  // FIXME: we're hoping that a compile can do something with `import.meta.url`.
+  return join(import.meta.url, '..', path);
 }
 
 // Closure-ified code can't import other module code. Put our magic helpers in the global scope.
-Object.assign(window, {_msg, _root});
+Object.assign(window, {_msg, _static});
+
+/**
+ * Joins the given URL and any following paths. This is magic in that with entirely static params
+ * (including import.meta.url) it could be compiled out.
+ *
+ * @param {string|!URL} url to start with
+ * @param  {...string} paths to append
+ */
+export function join(url, ...paths) {
+  let u = new URL(url);
+
+  while (paths.length) {
+    const next = paths.shift();
+    u = new URL(next, u);
+  }
+
+  // FIXME: It's not clear what domain this loads from, so just return the whole URL.
+  return u.toString();
+}

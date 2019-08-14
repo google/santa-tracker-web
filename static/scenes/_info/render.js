@@ -1,10 +1,11 @@
 import {html, render} from 'lit-html';
 import {repeat} from 'lit-html/directives/repeat';
 import {ifDefined} from 'lit-html/directives/if-defined';
+import {_root} from '../../src/magic.js';
 
 import * as route from '../../src/route.js';
 
-const root = _root`img/`;
+const root = _static`img/`;
 
 const renderModel = (model, showResources) => {
   let links = '';
