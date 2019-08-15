@@ -189,7 +189,7 @@ module.exports = async function compile(config, compile=false) {
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
     language_in: 'ECMASCRIPT_2017',
-    language_out: 'ECMASCRIPT5_STRICT',
+    language_out: 'ECMASCRIPT6_STRICT',  // nb. need 6+, for i18n template literals compiled later
     process_closure_primitives: true,
     jscomp_warning: config.typeSafe ? CLOSURE_TYPESAFE_WARNINGS : CLOSURE_WARNINGS,
     output_wrapper: outputWrapper,
