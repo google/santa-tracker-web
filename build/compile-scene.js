@@ -172,6 +172,10 @@ module.exports = async function compile(config, compile=false) {
     // declare globals suitable for execution in module scope.
     compilerSrc.unshift('build/transpile/base.js');
   }
+
+  // Import `_msg` and `_static` helpers from our magic script. This lets scenes interact with their
+  // environment.
+  // TODO(samthor): Add a scene path helper? `_scene` could be rooted here.
   const outputWrapper =
       'import {_msg, _static} from \'../../src/magic.js\';' +
       'var _globalExport;(function(){%output%}).call(self);export default _globalExport;';
