@@ -6,6 +6,7 @@ const tmp = require('tmp');
 
 const CLOSURE_LIBRARY_PATH = 'node_modules/google-closure-library/closure/goog';
 const EXTERNS = [
+  'build/transpile/magic-externs.js',
   'static/third_party/lib/web-animations/externs/web-animations.js',
   'static/third_party/lib/web-animations/externs/web-animations-next.js',
   'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
@@ -172,6 +173,7 @@ module.exports = async function compile(config, compile=false) {
     compilerSrc.unshift('build/transpile/base.js');
   }
   const outputWrapper =
+      'import {_msg, _static} from \'../../src/magic.js\';' +
       'var _globalExport;(function(){%output%}).call(self);export default _globalExport;';
 
   // Create a temporary place to store the source map. Closure can only write this to a real file.
@@ -193,24 +195,26 @@ module.exports = async function compile(config, compile=false) {
     output_wrapper: outputWrapper,
     rewrite_polyfills: false,
   };
-  console.info('compiling', compilerFlags);
 
-  const compiler = new closureCompiler.compiler(compilerFlags);
+  try {
+    const compiler = new closureCompiler.compiler(compilerFlags);
 
-  // Use any native image available, as this can be up to 10x (!) speed improvement on Java.
-  const nativeImage = closureCompilerUtils.getNativeImagePath();
-  if (nativeImage) {
-    compiler.JAR_PATH = undefined;
-    compiler.javaPath = nativeImage;
+    // Use any native image available, as this can be up to 10x (!) speed improvement on Java.
+    const nativeImage = closureCompilerUtils.getNativeImagePath();
+    if (nativeImage) {
+      compiler.JAR_PATH = undefined;
+      compiler.javaPath = nativeImage;
+    }
+
+    const js = await invokeCompiler(compiler);
+    const map = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
+
+    // nb. used so that listening callers can watch the whole dir for changes.
+    map.sources.push(`static/scenes/${config.sceneName}/js`, `static/scenes/_shared/js`);
+    map.sourcesContent.push(null, null);
+
+    return {compile, js, map};
+  } finally {
+    sourceMapTemp.removeCallback();
   }
-
-  const js = await invokeCompiler(compiler);
-  const map = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
-  sourceMapTemp.removeCallback();
-
-  // nb. used so that listening callers can watch the whole dir for changes.
-  map.sources.push(`static/scenes/${config.sceneName}/js`, `static/scenes/_shared/js`);
-  map.sourcesContent.push(null, null);
-
-  return {compile, js, map};
 };

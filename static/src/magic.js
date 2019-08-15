@@ -4,6 +4,8 @@ import messages from '../en_src_messages.json';
 /**
  * @fileoverview Magic helpers for development. These should only be used as tagged templates and,
  * in production, are replaced with raw strings.
+ *
+ * These have matching externs in build/transpile/externs.js, for our Closure code.
  */
 
  /**
@@ -17,6 +19,8 @@ export function _msg(id) {
   if (!data) {
     // do nothing
   } else if (data.raw) {
+    // FIXME(samthor): This means that Closure code might end up with Lit-annotated clases. There
+    // should probably be a lit-vs-normal mode for fetching strings.
     return unsafeHTML(data.raw);
   } else if (data.message) {
     return data.message;
