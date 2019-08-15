@@ -4,6 +4,7 @@ const path = require('path');
 
 const watchTimeout = 30 * 1000;
 
+// FIXME FIXME remove this and just steal the caching work
 
 /**
  * @param {string} filename of the target file

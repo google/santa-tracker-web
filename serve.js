@@ -5,6 +5,9 @@ const clipboardy = require('clipboardy');
 const compileHtml = require('./build/compile-html.js');
 const fsp = require('./build/fsp.js');
 const i18n = require('./build/i18n.js');
+const santaVfs = require('./santa-vfs.js');
+const modernLoader = require('./build/modern-loader.js');
+const mimeTypes = require('mime-types');
 
 const polka = require('polka');
 const dhost = require('dhost');
@@ -82,14 +85,63 @@ async function serve() {
   const staticPrefix = 'static-test-1234';  // nb. Polka doesn't support this having /'s.
   const staticScope = `http://127.0.0.1:${yargs.port + 1000}/${staticPrefix}/`;
 
-  const santaVfs = require('./santa-vfs.js')(staticScope);
-  const rollupLoader = require('./rollup-loader.js')('static', santaVfs);
-  // const loader = require('./loader.js')({
-  //   compile: yargs.compile,
-  //   messages,
-  //   root: '/',
-  // });
-  const loaderTransform = require('./loader-transform.js');
+  const vfs = santaVfs(staticScope, yargs.compile);
+  // const rollupLoader = require('./rollup-loader.js')('static', vfs);
+  // const loaderTransform = require('./loader-transform.js');
+
+  const santaMiddleware = async (req, res, next) => {
+    const headers = {
+      'Access-Control-Allow-Origin': '*',  // always CORS enabled
+      'Expires': '0',
+      'Cache-Control': 'no-store',
+    };
+
+    let filename = req.path.substr(1);
+    if (filename.endsWith('/') || filename === '') {
+      filename += 'index.html';
+    }
+
+    const id = path.join('./static', filename);
+    const isModuleMode = Boolean(req.headers['origin']);
+
+    // TODO: only read if valid entry point, otherwise defer to dhost
+    let content = null;
+    let virtual = false;
+    try {
+      content = await fsp.readFile(id, 'utf-8');
+    } catch (e) {
+      content = await vfs.load(id);  // try vfs
+      virtual = (content !== null);
+    }
+
+    if (!isModuleMode) {
+      if (!virtual) {
+        // FIXME: By this point, we've loaded the file: serve it?
+        return next();  // defer to dhost, this is just a real file
+      }
+
+      // If this was a regular fetch of a virtual file, just serve it (generated CSS/JS/etc).
+      // TODO: insert sourceMap
+      const raw = (typeof content === 'string') ? content : content.code;
+      const mimeType = mimeTypes.lookup(filename);
+      if (mimeType) {
+        headers['Content-Type'] = mimeType;
+      }
+      res.writeHead(200, headers);
+      return res.end(raw);
+    }
+
+    // Ask our loader to rewrite this single file (virtual or not is moot here).
+    const result = await modernLoader(id, content);
+    if (result === null) {
+      res.writeHead(500, headers);
+      return res.end();
+    }
+
+    headers['Content-Type'] = 'application/javascript';
+    res.writeHead(200, headers);
+    return res.end(result.code);
+  };
 
   const staticHost = dhost({
     path: 'static',
@@ -97,7 +149,7 @@ async function serve() {
     serveLink: true,
   });
   const staticServer = polka();
-  staticServer.use(staticPrefix, loaderTransform(rollupLoader), staticHost);
+  staticServer.use(staticPrefix, /*loaderTransform(rollupLoader)*/ santaMiddleware, staticHost);
 
   await listen(staticServer, yargs.port + 1000);
   log('Static', chalk.green(staticScope));

@@ -48,7 +48,7 @@ function vfsLoader(plugins) {
     async load(id) {
       const result = await findSource(id);
       if (!result) {
-        return undefined;
+        return null;
       }
 
       const {plugin, resolved} = result;
