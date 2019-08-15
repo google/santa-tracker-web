@@ -1,7 +1,7 @@
 import {html, render} from 'lit-html';
 import {repeat} from 'lit-html/directives/repeat';
 import {ifDefined} from 'lit-html/directives/if-defined';
-import {_root} from '../../src/magic.js';
+import {_static} from '../../src/magic.js';
 
 import * as route from '../../src/route.js';
 
