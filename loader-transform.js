@@ -88,11 +88,11 @@ function watch(paths, done, timeout) {
  * @param {function(): void} cleanup to be called once file is done or cannot be loaded
  * @return {?string}
  */
-async function load(loader, filename, cleanup) {
+async function load(loader, filename, isModuleImport, cleanup) {
   let watching = false;
 
   try {
-    const raw = await loader(filename);
+    const raw = await loader(filename, isModuleImport);
     if (!raw) {
       // nothing to do, defer to static handler
       return null;
@@ -126,24 +126,31 @@ module.exports = function(loader) {
   const cached = {};
 
   return async (req, res, next) => {
+    const headers = {
+      'Access-Control-Allow-Origin': '*',  // always CORS enabled
+    };
+
     let filename = req.path.substr(1);
     if (filename.endsWith('/') || filename === '') {
       filename += 'index.html';
     }
 
-    // If the request has an Origin header, this is a fetch for a module.
-    // FIXME: This is probably a disgusting check and might only work in Chrome.
-    const hasOrigin = req.headers['origin'];
-    if (!hasOrigin && path.extname(filename) === '.js') {
-      // skip
-//      return next();
-    }
+    // Santa Tracker can serve various different files during dev.
+    //   1. JS rewritten in module mode, to resolve Node imports
+    //   2. CSS/JSON/? rewritten to JS in module mode, to polyfill an "import" for that type
+    //   3. Files sourced from Santa's Virtual File System (e.g. .sass => .css)
+    //   4. Real, unmodified files
+    //
+    // If the request has an Origin header, this is a fetch for `type="module"`, aka module mode.
+    // This is a BIG LEAP and might not always be true, but it works for dev in modern evergreens.
+
+    const isModuleMode = Boolean(req.headers['origin']);
 
     let p = cached[filename];
     if (p === undefined) {
       // there was no cached result: fetch one, and delete it on cleanup (or if we can't retain
       // the result, e.g., nothing sane can be watched)
-      p = load(loader, filename, () => delete cached[filename]);
+      p = load(loader, filename, isModuleMode, () => delete cached[filename]);
       cached[filename] = p;
     }
 
@@ -165,12 +172,15 @@ module.exports = function(loader) {
       return next();
     }
 
-    const headers = {};
-    const mimeType = mimeTypes.lookup(filename);
-    if (mimeType) {
-      // TODO: utf-8?
-      headers['Content-Type'] = mimeType;
+    if (isModuleMode) {
+      headers['Content-Type'] = 'application/javascript';
+    } else {
+      const mimeType = mimeTypes.lookup(filename);
+      if (mimeType) {
+        headers['Content-Type'] = mimeType;
+      }
     }
+
     res.writeHead(200, headers);
     res.end(result);
   };

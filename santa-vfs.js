@@ -30,18 +30,6 @@ function vfsLoader(...plugins) {
   };
 
   return {
-    async resolveId(importee, importer) {
-      if (importer) {
-        // TODO: This is a super-simple relative path join. It should probably be more complex,
-        // but node-resolve barfs on files that don't actually exist.
-        const parent = path.dirname(importer);
-        const cand = path.join(parent, importee);
-        if (await findSource(cand)) {
-          return cand;
-        }
-      }
-    },
-
     async load(id) {
       const result = await findSource(id);
       if (!result) {

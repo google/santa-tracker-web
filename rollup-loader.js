@@ -2,15 +2,20 @@ const chalk = require('chalk');
 const path = require('path');
 const rollup = require('rollup');
 const rollupNodeResolve = require('rollup-plugin-node-resolve');
+const transformFutureModules = require('./build/transform-future-modules.js');
+const fs = require('fs');
 
 
-// Works around a bug (?) in Rollup: resolved IDs that are returned as an object type aren't passed
-// to `config.external`, so our loader cannot mark them as external.
+// This wraps rollupNodeResolve to work around several bugs.
+//  * Resolved IDs that are returned as an object type aren't passed to `config.external`, so our
+//    loader cannot mark them as external.
+//  * We can't restrict resolution to just dependencies inside node_modules, even though the
+//    `config.basedir` option implies that we can.
 // Revisit this in 2020+, as Rollup might have fixed the bug then.
 const externalCheckingRollupNodeResolve = (basedir) => {
-  // FIXME: This attempts to restrict resolution to _just_ node_modules, but it doesn't seem to
-  // actually work. rollupNodeResolve plays loose and fast with our passed options.
   const wrapped = rollupNodeResolve({
+    // FIXME: This attempts to restrict resolution to _just_ node_modules, but it doesn't seem to
+    // actually work. rollupNodeResolve plays loose and fast with our passed options.
     customResolveOptions: {
       basedir: path.join(basedir, 'node_modules'),
       preserveSymlinks: true,
@@ -25,7 +30,7 @@ const externalCheckingRollupNodeResolve = (basedir) => {
     const nodeIndex = parts.indexOf('node_modules');
     if (nodeIndex === -1) {
       // FIXME: Throw error if we can fix the resolution bug above.
-      return resolved;
+      return null;
     }
     return path.join(basedir, ...parts.slice(nodeIndex));
   };
@@ -38,14 +43,14 @@ const externalCheckingRollupNodeResolve = (basedir) => {
       // ok
     } else if (out && out.moduleSideEffects != null) {
       // nb. This is possible and is set in `package.json`. However, it's currently impossible to
-      // return the value because of this bug.
+      // return the value because of the bug.
       out = out.id;
     } else {
       out = out.id;
     }
 
     // The wrapped plugin doesn't respect our symlinks. Insist that the node_modules folder is a
-    // child of basedir.
+    // child of basedir, and clear resolutions outside node_modules completely.
     return rewrite(out);
   };
 
@@ -53,43 +58,51 @@ const externalCheckingRollupNodeResolve = (basedir) => {
 };
 
 
-/**
- * Builds a Rollup plugin for future module types, including CSS and JSON.
- */
-const rollupFutureModules = () => {
-  return {
-    transform(raw, id) {
-      const ext = path.extname(id);
-      let code = null;
+const rollupFutureModulesPlugin = {
+  transform(raw, id) {
+    const code = transformFutureModules(id, raw);
+    if (code === null) {
+      return;
+    }
 
-      switch (ext) {
-        case '.css':
-          // This implements CSS Modules as described:
-          // https://github.com/w3c/webcomponents/blob/gh-pages/proposals/css-modules-v1-explainer.md
-          // https://twitter.com/argyleink/status/1157402358394920960
-          code = `const sheet = new CSSStyleSheet();
-sheet.replaceSync(${JSON.stringify(raw)});
-sheet.styleSheet = sheet; // FIXME: hack to work around https://github.com/Polymer/lit-element/issues/774
-export default sheet;`;
-          break;
+    // TODO(samthor): Could include original source as 'sourceMap'.
 
-        case '.json':
-          // differs from dataToEsm; spec says there's just one export
-          code = `export default ${raw};`;
-          break;
+    const moduleSideEffects = ['.js', '.html'].includes(path.extname(id));
+    return {
+      code,
+      map: {mappings: ''},  // map doesn't make sense once stringified
+      moduleSideEffects,
+    };
+  },
+};
 
-        default:
-          return null;
+
+const allowedImportRe = /^\.{0,2}\//;  // either of: / ./ ../
+
+
+const allowMissingResolvePlugin = {
+  async resolveId(importee, importer) {
+    if (!importer || !allowedImportRe.exec(importer)) {
+      if (allowedImportRe.exec(importee)) {
+        // we're being asked to resolve an already resolved entrypoint. Just allow.
+        return importee;
       }
 
-      return {
-        code,
-        map: {mappings: ''},  // map doesn't make sense once stringified
-        moduleSideEffects: false,
-      };
-    },
-  }
-};
+      return null;
+    }
+
+    const joined = path.join(path.dirname(importer), importee);
+    try {
+      fs.statSync(joined);
+    } catch (e) {
+      // resolve only if the file _cannot_ be found
+      return {id: joined, external: true};
+    }
+
+    // FIXME: resolve always anyway?
+    return joined;
+  },
+}
 
 
 /**
@@ -125,16 +138,16 @@ function extendSourceMap(map, ...extras) {
 
 /**
  * Is this resolved filename a valid module?
- * 
- * Currently just returns true for JS. In the far distant future, when CSS/HTML/etc modules are
- * supported by development browsers, they can be allowed too.
+ *
+ * Returns true for '.js', but also future potential module types, as we can serve a transpiled
+ * version when correctly requested.
  *
  * @param {string} filename
  * @return {boolean}
  */
 function isValidModule(filename) {
   const ext = path.extname(filename);
-  return ext === '.js';
+  return ['.js', '.css', '.json'].includes(ext);
 }
 
 
@@ -169,15 +182,19 @@ function processVfsLoad(filename, out) {
 module.exports = (basedir, vfsPlugin) => {
   basedir = path.resolve(basedir);
 
-  async function load(filename) {
-    const direct = await vfsPlugin.load(filename);
-    if (direct) {
-      // FIXME: isn't adding sourceMap always
-      return processVfsLoad(filename, direct);
+  async function load(filename, isModuleImport) {
+    if (!isModuleImport) {
+      const direct = await vfsPlugin.load(filename);
+      console.info('NOT module import, found direct', direct, 'for', filename);
+      if (direct) {
+        // FIXME: isn't adding sourceMap always
+        return processVfsLoad(filename, direct);
+      }
+
+      return null;
     }
 
-    const ext = path.extname(filename);
-    if (ext !== '.js') {
+    if (!isValidModule(filename)) {
       return null;
     }
 
@@ -186,7 +203,8 @@ module.exports = (basedir, vfsPlugin) => {
       plugins: [
         vfsPlugin,
         externalCheckingRollupNodeResolve(basedir),
-        rollupFutureModules(),
+        rollupFutureModulesPlugin,
+        allowMissingResolvePlugin,
       ],
       external(id, parentId, isResolved) {
         // TODO(samthor): should only happen in dev.
@@ -223,10 +241,10 @@ module.exports = (basedir, vfsPlugin) => {
     };
   }
 
-  return async (filename) => {
+  return async (filename, isModuleImport=false) => {
     const start = process.hrtime();
 
-    const out = await load(path.join(basedir, filename));
+    const out = await load(path.join(basedir, filename), isModuleImport);
 
     if (out) {
       const duration = process.hrtime(start);

@@ -36,9 +36,6 @@ export function _static(path) {
   return join(import.meta.url, '..', path);
 }
 
-// Closure-ified code can't import other module code. Put our magic helpers in the global scope.
-Object.assign(window, {_msg, _static});
-
 /**
  * Joins the given URL and any following paths. This is magic in that with entirely static params
  * (including import.meta.url) it could be compiled out.
