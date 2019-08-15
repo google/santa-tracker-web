@@ -58,3 +58,31 @@ export function join(url, ...paths) {
   // FIXME: It's not clear what domain this loads from, so just return the whole URL.
   return u.toString();
 }
+
+
+/**
+ * Upgrades all elements with `msgid="..."` as a single startup task. This is compiled for release
+ * and we don't expect to see any inside Shadow DOM (should use `_msg`).
+ *
+ * This makes this file have side effects. This is probably fine.
+ */
+(function() {
+  function upgrade(el) {
+    if (el.localName === 'i18n-msg') {
+      if (el.textContent !== 'PLACEHOLDER_i18n') {
+        console.warn('i18n-msg with bad text', el.textContent)
+      }
+    } else if (el.childNodes) {
+      console.warn('[msgid] with childNodes', el);
+    }
+
+    if (document.head.contains(el)) {
+      // Don't do anything. It's not really worth testing anything here, just for release.
+      return;
+    }
+
+    el.innerHTML = _msg(el.getAttribute('msgid'));
+  }
+
+  Array.from(document.body.querySelectorAll('[msgid]')).map(upgrade);
+}());
