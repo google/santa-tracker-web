@@ -5,9 +5,6 @@ const compileScene = require('./build/compile-scene.js');
 const JSON5 = require('json5');
 
 
-const closureMagic = ':closure.js';
-
-
 function vfsLoader(plugins) {
   const findSource = async (id) => {
     if (await fsp.exists(id)) {
