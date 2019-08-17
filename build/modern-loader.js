@@ -6,6 +6,9 @@ const rollupNodeResolve = require('rollup-plugin-node-resolve');
 const transformFutureModules = require('./transform-future-modules.js');
 
 
+const relativeUrlMatch = /^\.{0,2}\//;
+
+
 /**
  * Finds the nearest "node_modules" folder, including one which is a symlink.
  *
@@ -42,7 +45,6 @@ const nearestNodeModules = (id) => {
 //  * We want to point to a symlink node_modules/, which Node attempts to skip past.
 // Revisit this in 2020+, as Rollup and the plugin might have changed by then.
 const loaderRollupNodeResolve = (id) => {
-  const alreadyResolved = /^\.{0,2}\//;  // either of: / ./ ../
   const actual = rollupNodeResolve();
 
   let nodeModulesPath;  // lazily-loaded below
@@ -73,8 +75,10 @@ const loaderRollupNodeResolve = (id) => {
       if (importer && importer !== id) {
         throw new Error(`expected only requests from source ID, was: ${importer}`);
       }
-      if (alreadyResolved.exec(importee)) {
-        return null;  // don't resolve anything that looks sane already
+      if (relativeUrlMatch.exec(importee)) {
+        // Don't resolve anything that looks sane already, although this branch should be caught by
+        // the virtualPlugin below.
+        return null;
       }
 
       let out = await actual.resolveId.call(this, importee, importer);
@@ -118,7 +122,7 @@ module.exports = async (id, content) => {
   const ext = path.extname(id);
   if (ext !== '.js') {
     if (!content) {
-      throw new Error('got no content for ' + id);
+      throw new Error(`got no content for: ${id}`);
     }
     const transformed = transformFutureModules(id, content.code || content);
     if (typeof transformed === 'string') {
@@ -128,11 +132,17 @@ module.exports = async (id, content) => {
   }
 
   const virtualPlugin = {
-    load(loadId) {
-      if (loadId !== id) { 
-        throw new Error(`got load request for non-main ID: ${loadId}`);
+    load(idToLoad) {
+      if (idToLoad !== id) {
+        throw new Error(`got load request for non-main ID: ${idToLoad}`);
       }
       return content;
+    },
+    resolveId(idToResolve) {
+      // Resolve ourselves, and anything that Rollup doesn't need to (./, ../, etc).
+      if (idToResolve === id || relativeUrlMatch.exec(idToResolve)) {
+        return idToResolve;
+      }
     },
   };
 
@@ -152,6 +162,13 @@ module.exports = async (id, content) => {
     // This is true for sanity as Rollup never even gets to load anything but the primary module,
     // so we should only end up with a single result (checked below).
     preserveModules: true,
+    onwarn(msg) {
+      if (msg.code === 'UNUSED_EXTERNAL_IMPORT') {
+        // We see this for force-imported _msg etc from `magic.js`.
+        // TODO(samthor): Pass warnings back to caller to filter.
+      }
+      console.warn(msg.message);
+    },
   });
 
   const out = await bundle.generate({
