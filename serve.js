@@ -83,7 +83,7 @@ async function prod(req, res, next) {
 
 async function serve() {
   const staticPrefix = 'static-test-1234';  // nb. Polka doesn't support this having /'s.
-  const staticScope = `http://127.0.0.1:${yargs.port + 1000}/${staticPrefix}/`;
+  const staticScope = `http://127.0.0.1:${yargs.port + 80}/${staticPrefix}/`;
 
   const vfs = santaVfs(staticScope, yargs.compile);
   // const rollupLoader = require('./rollup-loader.js')('static', vfs);
@@ -151,7 +151,7 @@ async function serve() {
   const staticServer = polka();
   staticServer.use(staticPrefix, /*loaderTransform(rollupLoader)*/ santaMiddleware, staticHost);
 
-  await listen(staticServer, yargs.port + 1000);
+  await listen(staticServer, yargs.port + 80);
   log('Static', chalk.green(staticScope));
 
   const prodServer = polka();
