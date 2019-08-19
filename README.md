@@ -5,15 +5,18 @@ It is a companion to the [Android](https://github.com/google/santa-tracker-andro
 
 # Supports
 
-Santa Tracker supports Chrome, Firefox, and Edge; it also supports IE11, Safari 10+ and Chromium-based browsers (Opera, Samsung etc) at m44 or above.
+Santa Tracker supports Chrome, Firefox and Safari.
+It also supports oter Chromium-based browsers (Edge, Opera etc).
+
+We present a "fallback mode" for older browsers, such as IE11.
+Many older scenes support these browsers just fine.
 
 # Run
 
 You'll need `yarn` or `npm`.
-On any platform but macOS or Linux, you'll also need Java.
+You may also need Java if you're building on Windows, as the binary version of Closure Compiler is unsupported.
 
-Clone the project, run `yarn` to install dependencies, then `yarn start` to bring up a development server.
-Compilation of scenes, CSS etc is done via middleware at serve time: if you're interested, see the `-transform.js` files in this directory.
+Clone and run `yarn` to install deps, and run `./serve.js` to run a development server.
 
 ## Build and Release
 
@@ -22,28 +25,43 @@ TODO(samthor): finish this part.
 
 # Development Guide
 
-Santa Tracker is usees a core 'App Shell' model, as well as individual scenes.
-These scenes can typically be run on their own, as well as part of the whole.
+Santa Tracker uses an App Shell model (provided under `prod/`), as well as individual scenes which run within an `iframe`.
+Each scene can also be run independently for testing.
 
 ## New Scene
 
 To add a new scene, you'll need to update some locations.
 
-1. The [`scenes.js`](scenes.js) file is the master definition for all scenes.
+1. The [`scenes.json5`](scenes.json5) file is the master definition for all scenes.
    It contains details about each scene's colors, rotation, category, strings etc.
 2. Every scene should have associated PNG assets.
-   * `images/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
-   * `images/scenes/sceneName_og.png` (1333x1000)
+   * `static/img/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
+   * `prod/images/og/sceneName.png` (1333x1000)
 
-## JavaScript
+## Environment
 
-Santa Tracker generates JavaScript that is modified from its original source.
+The build system provides a virtual file system that automatically compiles various source types useful for development.
+This includes:
 
-* There are some special template tags, which are compiled away.
-  1. ``_msg`msgid_here`​`` is replaced with the translated string contents
-  2. ``_style`style_name`​`` is replaced with the compiled style file from within `/styles`
+* `.css` files are generated for their corresponding `.scss`
+* `.json` is generated for their corresponding `.json5`
+* The `static/scenes/sceneNane./:closure.js` file can be read to compile an older scene's `js/` folder with Closure Compiler, providing a JS module with default export.
 
-* Non-relative ES module imports, those importing `node_modules`, are translated to their actual paths (e.g. `import '@polymer/...';`)
+Additionally, when writing SCSS, the helper `_rel(path.png)` generates a `url()` which points to a file _relative_ to the current `.scss` source file, regardless of how the CSS is eventually used.
+
+### JavaScript
+
+The source file `static/src/magic.js` provides various template tag helpers which, while real functions, are inlined at release time.
+These include:
+
+  * ``_msg`msgid_here`​`` generates the corresponding i18n string
+  * ``_static`path_name`​`` generates an absolute reference to a file within `static`
+
+Santa Tracker is built using JS modules and will rewrite non-relative imports for `node_modules` (e.g. `lit-element` => `../../node_modules/lit-element/index.js`).
+
+### Imports
+
+As well as JavaScript itself, Santa Tracker's development environment allows imports of future module types: CSS, JSON and HTML.
 
 ## Translations
 
