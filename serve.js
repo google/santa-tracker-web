@@ -82,7 +82,7 @@ async function prod(req, res, next) {
 }
 
 async function serve() {
-  const staticPrefix = 'static-test-1234';  // nb. Polka doesn't support this having /'s.
+  const staticPrefix = 'st';  // nb. Polka doesn't support this having /'s.
   const staticScope = `http://127.0.0.1:${yargs.port + 80}/${staticPrefix}/`;
 
   const vfs = santaVfs(staticScope, yargs.compile);
