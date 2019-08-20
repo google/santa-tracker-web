@@ -86,8 +86,6 @@ async function serve() {
   const staticScope = `http://127.0.0.1:${yargs.port + 80}/${staticPrefix}/`;
 
   const vfs = santaVfs(staticScope, yargs.compile);
-  // const rollupLoader = require('./rollup-loader.js')('static', vfs);
-  // const loaderTransform = require('./loader-transform.js');
 
   const santaMiddleware = async (req, res, next) => {
     const headers = {
@@ -110,7 +108,16 @@ async function serve() {
     try {
       content = await fsp.readFile(id, 'utf-8');
     } catch (e) {
-      content = await vfs.load(id);  // try vfs
+      // ignore
+    }
+    if (content === null) {
+      try {
+        content = await vfs.load(id);  // try vfs
+      } catch (e) {
+        console.warn('vfs', e);
+        res.writeHead(500, headers);
+        return res.end();
+      }
       virtual = (content !== null);
     }
 
@@ -132,9 +139,17 @@ async function serve() {
     }
 
     // Ask our loader to rewrite this single file (virtual or not is moot here).
-    const result = await modernLoader(id, content);
-    if (result === null) {
+    let result = null;
+    try {
+      result = await modernLoader(id, content);
+    } catch (e) {
+      console.warn('loader', e);
       res.writeHead(500, headers);
+      return res.end();
+    }
+    if (result === null) {
+      console.warn('could not rewrite', id);
+      res.writeHead(400, headers);
       return res.end();
     }
 
@@ -149,7 +164,7 @@ async function serve() {
     serveLink: true,
   });
   const staticServer = polka();
-  staticServer.use(staticPrefix, /*loaderTransform(rollupLoader)*/ santaMiddleware, staticHost);
+  staticServer.use(staticPrefix, santaMiddleware, staticHost);
 
   await listen(staticServer, yargs.port + 80);
   log('Static', chalk.green(staticScope));

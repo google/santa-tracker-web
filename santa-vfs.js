@@ -102,17 +102,29 @@ module.exports = (staticScope, compile=true) => {
 
   // TODO(samthor): Closure doesn't have to be tied to scenes. But, it's mostly for historic code,
   // so maybe it's not worth making it generic.
-  const closureSceneMatch = /^static\/scenes\/(\w+)\/:closure\.js$/;
+  const closureSceneMatch = /^static\/scenes\/(\w+)\/:closure(|-\w+)\.js$/;
   const closurePlugin = {
     match(id) {
       const rooted = path.relative(__dirname, id);
       const m = closureSceneMatch.exec(rooted);
       if (m) {
-        return m[1];
+        return rooted;
       }
     },
-    async load(sceneName) {
-      const {js, map} = await compileScene({sceneName, typeSafe: true}, compile);
+    async load(id) {
+      const m = closureSceneMatch.exec(id);
+      const config = {
+        sceneName: m[1],
+      };
+
+      const flags = m[2];
+      if (flags === '-typeSafe') {
+        config.typeSafe = true;
+      } else if (flags != '') {
+        throw new Error(`unsupported Closure flags: ${flags}`);
+      }
+
+      const {js, map} = await compileScene(config, compile);
       return {code: js, map};
     },
   };
