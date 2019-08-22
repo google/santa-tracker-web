@@ -49,12 +49,8 @@ const loaderRollupNodeResolve = (id) => {
 
   let nodeModulesPath;  // lazily-loaded below
 
-  // If this search is from inside node_modules, the crazy rewrite rules don't apply.
-  const parts = id.split(path.sep);
-  const withinNodeModules = parts.includes('node_modules');
-
   const rewrite = (resolved) => {
-    if (!resolved || withinNodeModules) {
+    if (!resolved) {
       return resolved;
     }
 

@@ -1,7 +1,9 @@
 import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
+import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 
-import {getLanguage, runtimeTranslate} from '../lib/runtime.js';
+import scenes from '../strings/scenes.js';
+import {_msg, _static} from '../magic.js';
 import * as route from '../route.js';
 
 import styles from './santa-sidebar.css';
@@ -27,9 +29,9 @@ export class SantaSidebarElement extends LitElement {
     const todayHouse =
         (this.todayHouse ? html`
 <a href=${route.scene(this.todayHouse)}>
-  <div class="menucard" style="background-image: url(${_root`img/scenes/`}${this.todayHouse}_2x.png)">
+  <div class="menucard" style="background-image: url(${_static`img/scenes/`}${this.todayHouse}_2x.png)">
     <h2>${_msg`newtoday`}</h2>
-    <h3>${runtimeTranslate(`scene/${this.todayHouse}`)}</h3>
+    <h3>${scenes[this.todayHouse] || ''}</h3>
   </div>
 </a>
     ` : '');
@@ -62,7 +64,7 @@ export class SantaSidebarElement extends LitElement {
 </div>
 
 <div class="lang">
-  <select id="language" .value=${getLanguage()} @change=${this._onLanguageChange}>
+  <select id="language" .value=${document.documentElement.lang} @change=${this._onLanguageChange}>
     <option value="af">Afrikaans</option>
     <option value="ca">Català</option>
     <option value="zh-CN">中文 (简体)</option>
@@ -106,7 +108,6 @@ export class SantaSidebarElement extends LitElement {
 <div class="links">
   <h2>${_msg`village_more`}</h2>
   <ul>
-    <!-- TODO(samthor): re-add A2HS code -->
     <li>
       <a target="_blank" rel="noopener" href=${route.localize('https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker')}>${_msg`village_get_the_app`}</a>
     </li>
@@ -114,10 +115,7 @@ export class SantaSidebarElement extends LitElement {
       <a target="_blank" rel="noopener" href=${route.localize('https://chrome.google.com/webstore/detail/santa-tracker/iodomglenhcehfbhbakhedmbobhbgjcb')}>${_msg`village_santa_crx`}</a>
     </li>
     <li>
-      <a target="_blank" rel="noopener" href=${route.localize('https://policies.google.com/')}>${_msg`terms-and-privacy`}</a>
-    </li>
-    <li>
-      <a target="_blank" rel="noopener" href=${route.localize('https://maps.google.com/maps/about/')}>${_msg`getgooglemaps`}</a>
+      <a target="_blank" rel="noopener" href=${route.localize('https://policies.google.com/')}>${unsafeHTML(_msg`terms-and-privacy`)}</a>
     </li>
   </ul>
 </div>

@@ -1,4 +1,3 @@
-import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 import messages from '../en_src_messages.json';
 
 /**
@@ -16,17 +15,7 @@ import messages from '../en_src_messages.json';
   */
 export function _msg(id) {
   const data = messages[id];
-  if (!data) {
-    // do nothing
-  } else if (data.raw) {
-    // FIXME(samthor): This means that Closure code might end up with Lit-annotated clases. There
-    // should probably be a lit-vs-normal mode for fetching strings.
-    return unsafeHTML(data.raw);
-  } else if (data.message) {
-    return data.message;
-  }
-
-  return '?';
+  return data && (data.raw || data.message) || '?';
 }
 
 /**

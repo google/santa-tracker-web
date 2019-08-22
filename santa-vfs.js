@@ -44,26 +44,24 @@ function vfsLoader(plugins) {
     return null;
   };
 
-  return {
-    async load(id) {
-      const result = await findSource(id);
-      if (!result) {
-        return null;
+  return async (id) => {
+    const result = await findSource(id);
+    if (!result) {
+      return null;
+    }
+
+    const {plugin, resolved} = result;
+    const out = await plugin.load(resolved);
+
+    if (out && out.map && this.addWatchFile) {
+      const sources = out.map.sources || [];
+      for (const source of sources) {
+        console.info('adding virtual watch', source);
+        this.addWatchFile(source);
       }
+    }
 
-      const {plugin, resolved} = result;
-      const out = await plugin.load(resolved);
-
-      if (out && out.map && this.addWatchFile) {
-        const sources = out.map.sources || [];
-        for (const source of sources) {
-          console.info('adding virtual watch', source);
-          this.addWatchFile(source);
-        }
-      }
-
-      return out;
-    },
+    return out;
   };
 }
 
