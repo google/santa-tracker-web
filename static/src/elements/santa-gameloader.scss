@@ -1,0 +1,44 @@
+:root {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 0;
+  transition: transform ease-out 1.5s;
+
+  // iframe has issues in Chrome being loaded full-size. Give it a fixed size
+  // which is removed later.
+  &.prep {
+    width: 100px;
+    height: 200px;
+    opacity: 0;
+  }
+
+  &.fade {
+    // transform: translateX(-100%);
+    pointer-events: none;  // TODO: handle focus in JS
+  }
+
+  &.loading {
+    // transform: translateX(100%);
+    pointer-events: none;
+  }
+}
+
+santa-interlude {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

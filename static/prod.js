@@ -1,5 +1,5 @@
 
-import './src/elements/santa-sidebar.js';
+import './src/elements/santa-gameloader.js';
 
-const sidebar = document.createElement('santa-sidebar');
-document.body.appendChild(sidebar);
+const loader = document.createElement('santa-gameloader');
+document.body.appendChild(loader);

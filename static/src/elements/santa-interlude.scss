@@ -1,0 +1,37 @@
+#container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  overflow: hidden;
+  pointer-events: none;
+
+  div {
+    background: blue;
+    flex-grow: 1;
+
+    transition: transform 1s ease-in-out;
+    transform: translate(100%);
+    margin: 0 -20px;
+    border-radius: 4px;
+
+    &:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.50s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.75s;
+    }
+    &:nth-child(5) {
+      transition-delay: 1.00s;
+    }
+  }
+}
+
+:host([active]) #container div {
+  transform: translate(0);
+}
