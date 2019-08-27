@@ -1,6 +1,6 @@
 const closureCompiler = require('google-closure-compiler');
 const closureCompilerUtils = require('google-closure-compiler/lib/utils.js');
-const fsp = require('./fsp.js');
+const fs = require('fs').promises;
 const path = require('path');
 const tmp = require('tmp');
 
@@ -82,7 +82,7 @@ async function processSourceMap(buf, root='../../') {
       continue;
     }
 
-    const buf = await fsp.readFile(source, 'utf8');
+    const buf = await fs.readFile(source, 'utf8');
     o.sourcesContent.push(buf);
   }
   return o;
@@ -115,20 +115,20 @@ function invokeCompiler(compiler) {
  */
 async function resolveCodeLinks(sceneName) {
   const root = path.join('static/scenes', sceneName, 'js');
-  const all = await fsp.readdir(root);
+  const all = await fs.readdir(root);
   const out = [];
 
   for (const cand of all) {
     const target = path.join(root, cand);
     let link;
     try {
-      link = await fsp.readlink(target);
+      link = await fs.readlink(target);
     } catch (e) {
       continue;  // not a link
     }
 
     const resolved = path.join(root, link);
-    const stat = await fsp.stat(resolved);
+    const stat = await fs.stat(resolved);
     if (stat.isDirectory()) {
       out.push(`${resolved}/**.js`);
     } else {
@@ -211,7 +211,7 @@ module.exports = async function compile(config, compile=false) {
     }
 
     const js = await invokeCompiler(compiler);
-    const map = await processSourceMap(await fsp.readFile(sourceMapTemp.name));
+    const map = await processSourceMap(await fs.readFile(sourceMapTemp.name));
 
     // nb. used so that listening callers can watch the whole dir for changes.
     map.sources.push(`static/scenes/${config.sceneName}/js`, `static/scenes/_shared/js`);

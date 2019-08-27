@@ -6,7 +6,7 @@ const compileHtml = require('./build/compile-html.js');
 const fsp = require('./build/fsp.js');
 const i18n = require('./build/i18n.js');
 const santaVfs = require('./santa-vfs.js');
-const vfsMiddleware = require('./vfs-middleware.js');
+const vfsMiddleware = require('./build/modern-vfs-middleware.js');
 
 
 const polka = require('polka');

@@ -1,103 +1,10 @@
-
-const fs = require('fs');  // just for node_modules path checks
 const path = require('path');
 const rollup = require('rollup');
-const rollupNodeResolve = require('rollup-plugin-node-resolve');
+const resolveNode = require('./resolve-node.js');
 const transformFutureModules = require('./transform-future-modules.js');
 
 
-const relativeUrlMatch = /^\.{0,2}\//;
-
-
-/**
- * Finds the nearest "node_modules" folder, including one which is a symlink.
- *
- * @param {string} id to search from
- * @return {string}
- */
-const nearestNodeModules = (id) => {
-  let prev = null;
-  for (let check = path.dirname(id); check != prev; check = path.dirname(check)) {
-    prev = check;
-
-    const cand = path.join(check, 'node_modules');
-    let stat;
-    try {
-      stat = fs.statSync(cand);
-    } catch (e) {
-      continue;
-    }
-
-    if (stat.isDirectory()) {
-      return check;
-    }
-  }
-
-  throw new Error(`no node_modules found for: ${id}`);
-};
-
-
-// This wraps rollupNodeResolve to work around several challenges/bugs.
-//  * Resolved IDs that are returned as an object type aren't passed to `config.external`, so our
-//    loader cannot mark them as external.
-//  * We can't restrict resolution to just dependencies inside node_modules, even though the
-//    `config.basedir` option implies that we can.
-//  * We want to point to a symlink node_modules/, which Node attempts to skip past.
-// Revisit this in 2020+, as Rollup and the plugin might have changed by then.
-const loaderRollupNodeResolve = (id) => {
-  const actual = rollupNodeResolve();
-
-  let nodeModulesPath;  // lazily-loaded below
-
-  const rewrite = (resolved) => {
-    if (!resolved) {
-      return resolved;
-    }
-
-    const parts = resolved.split(path.sep);
-    const nodeIndex = parts.indexOf('node_modules');
-    if (nodeIndex === -1) {
-      throw new Error(`got non-node_modules path from resolve: ${resolved}`);
-    }
-    if (!nodeModulesPath) {
-      // only compute this if needed
-      nodeModulesPath = nearestNodeModules(id);
-    }
-    return path.join(nodeModulesPath, ...parts.slice(nodeIndex));
-  };
-
-  return {
-    async resolveId(importee, importer) {
-      if (importer && importer !== id) {
-        throw new Error(`expected only requests from source ID, was: ${importer}`);
-      }
-      if (relativeUrlMatch.exec(importee)) {
-        // Don't resolve anything that looks sane already, although this branch should be caught by
-        // the virtualPlugin below.
-        return null;
-      }
-
-      let out = await actual.resolveId.call(this, importee, importer);
-      if (!out) {
-        return null;
-      }
-
-      // we actively retain the object here in case a package is marked in package.json as
-      // `moduleSideEffects: false`. This lets Rollup (for now) skip its import if unused.
-      if (typeof out === 'string') {
-        out = {
-          id: out,
-        };
-      }
-
-      // The wrapped plugin doesn't respect our symlinks. Insist that the node_modules folder is a
-      // child of basedir, and clear resolutions outside node_modules completely.
-      out.id = rewrite(out.id);
-      out.external = true;
-      return out;
-    },
-  };
-};
+const alreadyResolvedMatch = /^(\.{0,2}\/|[a-z]\w*\:)/;  // matches start of './' or 'https:' etc
 
 
 /**
@@ -110,8 +17,10 @@ const loaderRollupNodeResolve = (id) => {
  *
  * @param {string} id
  * @param {string|{code: string, map: Object}} content
+ * @param {?function(RollupWarning): void} onwarn
+ * @return {{code: string, map: SourceMap}|null}
  */
-module.exports = async (id, content) => {
+module.exports = async (id, content, onwarn=null) => {
   id = path.resolve(id);
 
   // If this is not a JS file, then skip Rollup and just rewrite it for the module case.
@@ -124,7 +33,7 @@ module.exports = async (id, content) => {
     if (typeof transformed === 'string') {
       return {code: transformed};
     }
-    return transformed;
+    return transformed;  // can be null
   }
 
   const virtualPlugin = {
@@ -134,11 +43,16 @@ module.exports = async (id, content) => {
       }
       return content;
     },
-    resolveId(idToResolve) {
+    async resolveId(importee, importer) {
       // Resolve ourselves, and anything that Rollup doesn't need to (./, ../, etc).
-      if (idToResolve === id || relativeUrlMatch.exec(idToResolve)) {
-        return idToResolve;
+      if (importee === id || alreadyResolvedMatch.exec(importee)) {
+        return importee;
       }
+      // Otherwise, use our custom Node resolver. This works around issues in the defacto standard
+      // module 'rollup-plugin-node-resolve', such as:
+      //  * lets us point to the nearest node_modules/ only (including a symlink)
+      //  * resolved IDs that return as an object aren't passed to .external (below)
+      return resolveNode(importee, importer);
     },
   };
 
@@ -146,10 +60,7 @@ module.exports = async (id, content) => {
   // literally only here to rewrite imports into node_modules. This can probably be done faster.
   const bundle = await rollup.rollup({
     input: id,
-    plugins: [
-      virtualPlugin,
-      loaderRollupNodeResolve(id),
-    ],
+    plugins: [virtualPlugin],
     external(id, parentId, isResolved) {
       if (isResolved) {
         return true;
@@ -158,13 +69,7 @@ module.exports = async (id, content) => {
     // This is true for sanity as Rollup never even gets to load anything but the primary module,
     // so we should only end up with a single result (checked below).
     preserveModules: true,
-    onwarn(msg) {
-      if (msg.code === 'UNUSED_EXTERNAL_IMPORT') {
-        // We see this for force-imported _msg etc from `magic.js`.
-        // TODO(samthor): Pass warnings back to caller to filter.
-      }
-      console.warn(msg.message);
-    },
+    onwarn,
   });
 
   const out = await bundle.generate({
