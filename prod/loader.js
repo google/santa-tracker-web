@@ -2,7 +2,7 @@ import config from './config.json';
 
 const entrypoint = document.createElement('script');
 entrypoint.type = 'module';
-entrypoint.src = config.staticScope + 'prod.js';
+entrypoint.src = config.staticScope + 'entrypoint.js';
 
 entrypoint.onload = () => {
   document.body.classList.remove('loading');

@@ -40,7 +40,10 @@ export function join(url, ...paths) {
   let u = new URL(url);
 
   while (paths.length) {
-    const next = paths.shift();
+    let next = paths.shift();
+    if (!next.endsWith('/') && paths.length) {
+      next += '/';
+    }
     u = new URL(next, u);
   }
 

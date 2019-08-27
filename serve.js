@@ -80,37 +80,41 @@ async function serve() {
       return JSON.stringify(config);
     }
   };
-  prodServer.use(
-    vfsMiddleware(prodVfs, 'prod'),
-    async (req, res, next) => {
-      let servePath = 'index.html';
-  
-      const simplePathMatch = /^\/(\w+)\.html$/.exec(req.path);
-      if (simplePathMatch) {
-        const cand = `${simplePathMatch[1]}.html`;
-        const exists = await fsp.exists(path.join('prod', cand));
-        if (exists) {
-          // load the top-level path if the file doesn't already exist (e.g. error/upgrade/cast)
-          servePath = cand;
-        }
-      } else if (res.path !== '/') {
-        return next();
+
+  const prodHtmlMiddleware = async (req, res, next) => {
+    let servePath = 'index.html';
+
+    const simplePathMatch = /^\/(\w+)\.html$/.exec(req.path);
+    if (simplePathMatch) {
+      const cand = `${simplePathMatch[1]}.html`;
+      const exists = await fsp.exists(path.join('prod', cand));
+      if (exists) {
+        // This is a real file (like error/upgrade/cast) so don't just serve "index.html".
+        servePath = cand;
       }
-  
-      // compile the HTML locally to include i18n and static URL
-      const filename = path.join('prod', servePath);
-      const options = {
-        compile: yargs.compile,
-        messages,
-      };
-  
-      res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-      res.end(await compileHtml(filename, options));
-    },
+    } else if (res.path !== '/') {
+      return next();
+    }
+
+    // Compile the HTML locally to include i18n.
+    // TODO(samthor): Pair this down so it's less magical.
+    const filename = path.join('prod', servePath);
+    const options = {
+      compile: yargs.compile,
+      messages,
+    };
+
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+    res.end(await compileHtml(filename, options));
+  };
+
+  prodServer.use(
+    prodHtmlMiddleware,
+    vfsMiddleware(prodVfs, 'prod'),
     dhost({path: 'prod', listing: false}),
   );
 
-  // listen, copy and announce prod URL
+  // Listen, copy and announce prod URL.
   await listen(prodServer, yargs.port);
   const prodURL = `http://localhost:${yargs.port}`;
   const clipboardError = clipboardCopy(prodURL);
