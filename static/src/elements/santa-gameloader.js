@@ -55,7 +55,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     const af = document.createElement('iframe');
     af.src = this._href || EMPTY_PAGE;
-    af.setAttribute('scrolling', 'no');  // for iOS
+//    af.setAttribute('scrolling', 'no');  // for iOS
     af.className = 'loading prep';
 
     this._wrapper.append(af);

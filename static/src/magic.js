@@ -14,7 +14,7 @@ import messages from '../en_src_messages.json';
   * @return {string|?} resulting text of message
   */
 export function _msg(id) {
-  const data = messages[id];
+  const data = messages[id.toString()];
   return data && (data.raw || data.message) || '?';
 }
 
@@ -26,7 +26,7 @@ export function _msg(id) {
  */
 export function _static(path) {
   // FIXME: we're hoping that a compile can do something with `import.meta.url`.
-  return join(import.meta.url, '..', path);
+  return join(import.meta.url, '..', path.toString());
 }
 
 /**
@@ -40,7 +40,7 @@ export function join(url, ...paths) {
   let u = new URL(url);
 
   while (paths.length) {
-    let next = paths.shift();
+    let next = String(paths.shift());
     if (!next.endsWith('/') && paths.length) {
       next += '/';
     }

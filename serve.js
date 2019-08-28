@@ -3,7 +3,7 @@
 const chalk = require('chalk');
 const clipboardy = require('clipboardy');
 const compileHtml = require('./build/compile-html.js');
-const fsp = require('./build/fsp.js');
+const fs = require('fs').promises;
 const i18n = require('./build/i18n.js');
 const santaVfs = require('./santa-vfs.js');
 const vfsMiddleware = require('./build/modern-vfs-middleware.js');
@@ -82,17 +82,28 @@ async function serve() {
   };
 
   const prodHtmlMiddleware = async (req, res, next) => {
-    let servePath = 'index.html';
+    // Match Google's serving infrastructure, and serve valid files under /intl/XX/.
+    const languageMatch = /^\/intl\/([-_\w]+)(\/|$)/.exec(req.path);
+    if (languageMatch) {
+      if (!languageMatch[2]) {
+        // fix "/intl/xx" => "/intl/xx/"
+        res.writeHead(301, {'Location': req.path + '/'});
+        return res.end();
+      }
+      req.path = '/' + req.path.substr(languageMatch[0].length);
+    }
 
+    let servePath = 'index.html';
     const simplePathMatch = /^\/(\w+)\.html$/.exec(req.path);
     if (simplePathMatch) {
       const cand = `${simplePathMatch[1]}.html`;
-      const exists = await fsp.exists(path.join('prod', cand));
-      if (exists) {
-        // This is a real file (like error/upgrade/cast) so don't just serve "index.html".
-        servePath = cand;
+      try {
+        await fs.stat(path.join('prod', cand));
+        servePath = cand;  // real file, serve instead of faux-"index.html"
+      } catch (e) {
+        // ignore, not a real file
       }
-    } else if (res.path !== '/') {
+    } else if (req.path !== '/') {
       return next();
     }
 
