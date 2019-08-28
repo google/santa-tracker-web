@@ -76,7 +76,8 @@ module.exports = (vfsLoad, prefix=null) => {
       return end(500);
     }
     if (result == null) {
-      return end(400);  // can't be rewritten to a module: wrong type
+      // TODO(samthor): We should decide on this earlier, before we read the file from disk.
+      return next();  // can't be rewritten to a module: wrong type, serve file as-is
     }
 
     headers['Content-Type'] = 'application/javascript';
