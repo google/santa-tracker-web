@@ -1,6 +1,7 @@
 import styles from './santa-gameloader.css';
 
 import './santa-interlude.js';
+import * as messageSource from '../lib/message-source.js';
 
 
 const EMPTY_PAGE = 'data:text/html;base64,';
@@ -61,11 +62,22 @@ class SantaGameLoaderElement extends HTMLElement {
     this._wrapper.append(af);
     this._activeFrame = af;
 
-    const readyPromise = new Promise((r) => {
+    // Resolves with null when the frame loads, indicating that the scene has failed to init.
+    const loadPromise = new Promise((resolve) => {
       af.addEventListener('load', () => {
-        r();
-        af.classList.remove('prep');
+        window.setTimeout(() => resolve(null), 0);
       }, {once: true});
+    });
+
+    // Resolves with a MessagePort from the frame.
+    const initPromise = new Promise((resolve, reject) => {
+      // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
+      messageSource.add(af.contentWindow, (ev) => {
+        if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
+          return reject(new Error(`unexpected from preload: ${ev.data}`));
+        }
+        resolve(ev.ports[0]);
+      });
     });
 
     const transitionPromise = new Promise((r) => {
@@ -73,7 +85,19 @@ class SantaGameLoaderElement extends HTMLElement {
       window.setTimeout(r, 5000);
     });
 
-    Promise.all([readyPromise, transitionPromise]).then(() => {
+    const readyPromise = Promise.race([loadPromise, initPromise]);
+    readyPromise.catch(() => null).then(() => messageSource.remove(af.contentWindow));
+
+    Promise.all([readyPromise, transitionPromise]).then(([port]) => {
+      // TODO: do something with port.
+      if (port === null) {
+        throw new Error('frame did not init');
+      }
+      console.info('got game port', port);
+      port.onmessage = (ev) => {
+        console.info('got message', ev.data);
+      };
+
       if (this._activeFrame === af) {
         af.className = '';
         af.style.left = null;
