@@ -3,8 +3,18 @@
  */
 
 import './src/elements/santa-gameloader.js';
+import * as sc from './src/soundcontroller.js';
+
 import * as params from './src/lib/params.js';
 import {join} from './src/magic.js';
+
+
+sc.fire('traditions_load_sounds');  // nb. this loads 'lounge' => 'music_start_scene'
+sc.fire('music_start_scene');
+
+// TODO(samthor): If this doesn't work, we need a foreground unmute button, as clicking on the
+// iframe probably won't trigger it.
+sc.installGestureResume(document.body);
 
 
 const invalidScenes = ['index', 'village'];

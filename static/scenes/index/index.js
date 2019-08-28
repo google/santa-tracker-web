@@ -6,7 +6,6 @@ import './elements/easteregg-balloon.js';
 import './elements/easteregg-reindeer.js';
 import './elements/easteregg-snowmobile.js';
 import './elements/easteregg-tictactoe.js';
-import './does-not-exist.js';
 
 
 const offset = {x: 0, y: 0};

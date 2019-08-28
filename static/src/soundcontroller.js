@@ -1,8 +1,11 @@
 
+import {_static} from './magic.js';
+
+
 /**
  * Klang path. This is normalized, but shouldn't really be loaded more than once anyway.
  */
-const klangPath = _root`third_party/lib/klang`;
+const klangPath = _static`third_party/lib/klang`;
 
 
 /**
@@ -21,7 +24,7 @@ let klangEngine;
 self.AudioContext = self.AudioContext || self.webkitAudioContext;
 
 const zeroAudioContext = new AudioContext();
-export const initialSuspend = zeroAudioContext.state === 'suspended';
+export const initialSuspend = zeroAudioContext.state === 'suspended';  // needs browser gesture
 
 
 
@@ -40,19 +43,20 @@ export function resume() {
  * @param {!Node=} target to add handlers on
  * @param {boolean=} force install of resume handler
  */
-export async function installGestureResume(target=document, force=false) {
+export function installGestureResume(target=document, force=false) {
   if (!force && zeroAudioContext.state !== 'suspended') {
     return;  // nothing to do
   }
 
+  // nb. Not all of these are user gestures, but try aggressively anyway.
   const events = ['mousedown', 'touchend', 'touchstart', 'scroll', 'wheel', 'keydown'];
   const options = {capture: true, passive: true};
 
   return new Promise((resolve) => {
     function handler(ev) {
       const resumed = resume();
-      console.info('handler for gesturePromise', ev.type, resumed);
       if (resumed) {
+        // great, we can remove everything!
         events.forEach((event) => target.removeEventListener(event, handler, options));
         resolve();
       }
@@ -74,8 +78,8 @@ export const klang = new Promise((resolve) => {
       await new Promise((r) => window.requestIdleCallback(r));
     }
 
-    // Insert the Klang script. We load this dynamically as it's quite large and can be deferred=
-    // until after the page is created.
+    // Insert the Klang script. We load this dynamically as it's quite large and can be deferred
+    // until after the page is created. It's traditional ES5 code.
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = `${klangPath}/klang.js`;
