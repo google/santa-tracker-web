@@ -17,7 +17,7 @@
       <canvas class="canvas foreground-canvas"></canvas>
       <canvas class="canvas power-bar"></canvas>
       <div class="combo-message">
-          <i18n-msg msgid="wrapbattle_combo">PLACEHOLDER_i18n</i18n-msg>
+        <i18n-msg msgid="wrapbattle_combo">PLACEHOLDER_i18n</i18n-msg>
       </div>
       <div><span class="points"></span></div>
       <div class="mobile-controls">
@@ -136,20 +136,28 @@
     <div class="levelup"></div>
     <div class="levelup--number"></div>
   </div>
-
-  <div style="display: none;">
-    <div id="WB_feedback_miss"><i18n-msg msgid="wrapbattle_feedback_miss">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="WB_feedback_okay"><i18n-msg msgid="wrapbattle_feedback_okay">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="WB_feedback_good"><i18n-msg msgid="wrapbattle_feedback_good">PLACEHOLDER_i18n</i18n-msg></div>
-    <div id="WB_feedback_perfect"><i18n-msg msgid="wrapbattle_feedback_perfect">PLACEHOLDER_i18n</i18n-msg></div>
-  </div>
 </div>
 
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
 import api from '../../src/scene/api.js';
-import Game from './wrapbattle-scene.min.js';
+import Game from './:closure.js';
+import {_static} from '../../src/magic.js';
+
+// FIXME: hack to get the game running
+const ctx = new AudioContext();
+window.Klang = {
+  Util: {
+    now() {
+      return ctx.currentTime;
+    },
+  },
+  $(id) {
+    return {_content: null, data: {metaData: {bpm: 0}}};
+  },
+  engineVersion: 'webaudio',
+},
 
 api.preload.sounds('wrapbattle_load_sounds', 40);
 api.preload.images(
@@ -202,13 +210,14 @@ api.preload.images(
   'img/toys/toys-08.svg',
 );
 
+// TODO: this value is incorrect during load?
 if (window.innerWidth <= 800) {
   // Only load a 3.2mb gif if we're on mobile.
   // TODO: Don't load a 3.2mb gif :|
-  this.preload.images('img/wrap-battle-mobile.gif');
+  api.preload.images('img/wrap-battle-mobile.gif');
 }
 
-const game = new Game(document.getElementById('module-wrapbattle', './'));
+const game = new Game(document.getElementById('module-wrapbattle'), _static`scenes/wrapbattle/`);
 
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());

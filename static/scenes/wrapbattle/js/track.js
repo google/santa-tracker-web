@@ -357,8 +357,8 @@ app.Track = class {
     this.game.powerUp += type.powerup;
     this.game.powerUp = Math.max(0, Math.min(1, this.game.powerUp));
 
-    if (type.textKey) {
-      this.messageText = app.I18n.getMsg(type.textKey);
+    if (type.text) {
+      this.messageText = type.text;
     }
   }
 

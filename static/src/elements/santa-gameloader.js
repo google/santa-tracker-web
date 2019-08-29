@@ -5,7 +5,7 @@ import * as messageSource from '../lib/message-source.js';
 
 
 const EMPTY_PAGE = 'data:text/html;base64,';
-const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation';
+const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
 
 
 /**
@@ -56,6 +56,8 @@ class SantaGameLoaderElement extends HTMLElement {
     this._interlude.setAttribute('active', '');
 
     const af = document.createElement('iframe');
+    af.width = window.innerWidth;
+    af.height = window.innerHeight;
     af.setAttribute('sandbox', SANDBOX);
     af.src = this._href || EMPTY_PAGE;
 //    af.setAttribute('scrolling', 'no');  // for iOS
@@ -102,7 +104,8 @@ class SantaGameLoaderElement extends HTMLElement {
 
       if (this._activeFrame === af) {
         af.className = '';
-        af.style.left = null;
+        af.removeAttribute('width');
+        af.removeAttribute('height');
         clearPrevious();
         this._interlude.removeAttribute('active');
       }

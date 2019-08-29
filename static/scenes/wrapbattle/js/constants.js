@@ -69,24 +69,24 @@ app.Constants = {
   HIT_SCORES: {
     MISS: {
       points: 0,
-      textKey: 'WB_feedback_miss',
+      text: _msg`wrapbattle_feedback_miss`,
       powerup: -.03
     },
     OK: {
       points: 10,
-      textKey: 'WB_feedback_okay',
+      text: _msg`wrapbattle_feedback_okay`,
       accuracy: Number.MAX_VALUE,
       powerup: 0
     },
     GOOD: {
       points: 50,
-      textKey: 'WB_feedback_good',
+      text: _msg`wrapbattle_feedback_good`,
       accuracy: 25,
       powerup: .03
     },
     PERFECT: {
       points: 100,
-      textKey: 'WB_feedback_perfect',
+      text: _msg`wrapbattle_feedback_perfect`,
       accuracy: 10,
       powerup: .1
     },
