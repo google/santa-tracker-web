@@ -5,6 +5,7 @@ import * as messageSource from '../lib/message-source.js';
 
 
 const EMPTY_PAGE = 'data:text/html;base64,';
+const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation';
 
 
 /**
@@ -55,6 +56,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._interlude.setAttribute('active', '');
 
     const af = document.createElement('iframe');
+    af.setAttribute('sandbox', SANDBOX);
     af.src = this._href || EMPTY_PAGE;
 //    af.setAttribute('scrolling', 'no');  // for iOS
     af.className = 'loading prep';
