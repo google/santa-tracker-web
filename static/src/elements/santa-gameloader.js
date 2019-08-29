@@ -86,7 +86,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     const transitionPromise = new Promise((r) => {
       // TODO: longer than fade time, remove old frame when gone
-      window.setTimeout(r, 100);
+      window.setTimeout(r, 500);
     });
 
     const readyPromise = Promise.race([loadPromise, initPromise]);

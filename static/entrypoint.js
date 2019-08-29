@@ -74,7 +74,11 @@ function resolveProdURL(location) {
 
   // Grab the final URL component. This intentionally only matches the last part, as Santa Tracker
   // is only served through the top-level and the /intl/.../ paths.
-  const matchScene = simplePathMatcher.exec(pathname);
+  let trailing = pathname;
+  if (matchLang) {
+    trailing = '/' + trailing.substr(matchLang[0].length);
+  }
+  const matchScene = simplePathMatcher.exec(trailing);
   let sceneName = (matchScene && matchScene[1]) || '';
   
   // Rewrite old non-scenes.

@@ -1,4 +1,4 @@
-import {html, render} from 'lit-html';
+import {html} from 'lit-html';
 import {repeat} from 'lit-html/directives/repeat';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import {_static} from '../../src/magic.js';
@@ -28,13 +28,13 @@ ${repeat(model.resources, (r) => r, (r) => {
   const imageSrc = root +
       (isAndroid ? `app/${sceneName.substr(1)}.png` : `scenes/${sceneName}_2x.png`);
 
-  const href = isAndroid ? undefined : `./${sceneName}.html`;
+  const href = isAndroid ? undefined : route.href(`./${sceneName}.html`);
 
   return html`
 <info-card
     filter="${model.filter || ''}"
     src=${imageSrc}
-    href=${ifDefined(route.href(href))}>
+    href=${ifDefined(href)}>
 <h4>${model.title}</h4>
 <h5>${model.type}</h5>
 <p>${model.description}</p>
