@@ -5,6 +5,7 @@
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-gameloader.js';
+import './src/elements/santa-countdown.js';
 
 import * as sc from './src/soundcontroller.js';
 

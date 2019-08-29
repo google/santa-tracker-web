@@ -41,7 +41,7 @@ const msPerDay = 24 * 60 * 60 * 1000;
  * Splits a countdown (in ms) into days, hours, minutes, and seconds. Does not return -ve numbers.
  *
  * @param {number} ms countdown in milliseconds
- * @return {{days: number, hours: number, minutes: number, seconds: number}}
+ * @return {{days: number, hours: number, minutes: number, seconds: number, count: number}}
  */
 export function countdownSplit(ms) {
   ms = Math.max(0, ms || 0);
@@ -58,5 +58,22 @@ export function countdownSplit(ms) {
   const secondsX = (minutesX - minutes) * 60;
   const seconds = Math.floor(secondsX);
 
-  return {'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds};
+  let count = 0;
+  if (days) {
+    count = 4;
+  } else if (hours) {
+    count = 3;
+  } else if (minutes) {
+    count = 2;
+  } else if (seconds) {
+    count = 1;
+  }
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+    count,
+  };
 }

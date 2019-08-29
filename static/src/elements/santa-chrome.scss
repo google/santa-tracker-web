@@ -20,6 +20,10 @@ $order-hider: 99;
   pointer-events: none;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 svg.icon {
   margin: auto;
   width: 24px;
@@ -116,15 +120,19 @@ header {
 
     .logo {
       width: 62px;
+      height: 38px;
       min-width: 62px;
-      background: _rel("../../img/google_logo.svg") center no-repeat;
       background-size: contain;
-      color: transparent;
-      font-size: 0;
-      line-height: inherit;
+      fill: white;
     }
 
     h1 {
+      .a11y {
+        opacity: 0;
+        font-size: 0;
+        position: absolute;
+      }
+
       margin: 0;
       margin-left: 0.4ch;
       font-family: 'Lobster', Sans-Serif;
