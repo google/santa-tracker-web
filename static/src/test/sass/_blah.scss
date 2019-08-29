@@ -1,8 +1,0 @@
-html {
-  font-family: 'Courier New', Courier, monospace;
-
-  /** should be _rel of _blah.css */
-  background-image: _rel('inside-sass-folder.png');
-}
-
-//@import 'other';
