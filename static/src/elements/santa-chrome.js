@@ -23,26 +23,25 @@ export class SantaChromeElement extends LitElement {
   constructor() {
     super();
     this._id = prefix.id();
-    this.scrollScene = true;
+    this.mini = false;
+    this.navOpen = false;
   }
 
   render() {
     const sidebarId = `${this._id}sidebar`;  // unique ID even in Shady DOM
     return html`
+<input type="checkbox" id=${sidebarId} @change=${this._onCheckboxChange} .checked=${this.navOpen} />
 <div class="sidebar">
-  <input type="checkbox" id=${sidebarId} @change=${this._onCheckboxChange} .checked=${this.navOpen} />
-  <santa-sidebar .todayHouse=${this.todayHouse} .trackerIsOpen=${this.trackerIsOpen}>
-    <div class="sidebar-focuser"></div>
-    <label for=${sidebarId} tabindex="0" class="closer">
-<svg class="icon"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
-<span>${_msg`close`}</span>
-    </label>
-  </santa-sidebar>
-  <label class="hider" for=${sidebarId}></label>
+  <div class="sidebar-focuser"></div>
+  <label for=${sidebarId} tabindex="0" class="closer">
+    <svg class="icon"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
+    <span>${_msg`close`}</span>
+  </label>
+  <slot name="sidebar"></slot>
 </div>
+<label class="hider" for=${sidebarId}></label>
 <main @focusin=${this._onMainFocus}>
   <header class=${this.mini ? '' : 'mini'}>
-
     <div class="blur"></div>
     <div class="bar">
       <div class="title">
@@ -59,7 +58,6 @@ export class SantaChromeElement extends LitElement {
         <a class="trackerinfo" href="tracker.html"><h4>Current stop</h4><h4 hidden="">Next stop</h4><h3>Santa's Village, North Pole</h3></a></div></div>
 -->
       </div>
-
   </header>
 </main>
     `;

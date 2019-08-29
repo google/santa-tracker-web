@@ -110,6 +110,12 @@ const chrome = document.createElement('santa-chrome');
 document.body.append(loader, chrome);
 
 
+const sidebar = document.createElement('santa-sidebar');
+sidebar.todayHouse = 'snowball';
+sidebar.setAttribute('slot', 'sidebar');
+chrome.append(sidebar);
+
+
 document.body.addEventListener('click', (ev) => {
   if (ev.ctrlKey || ev.metaKey || ev.which > 1) {
     return false;  // ignore event while buttons are pressed

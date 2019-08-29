@@ -174,20 +174,20 @@ main {
 }
 
 .sidebar {
-  santa-sidebar {
-    z-index: $order-sidebar;
-    position: fixed;
-    top: 0;
-    height: 100%;
-    visibility: hidden;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
-    width: 320px;
-    transform: translate(-100%);
-    transition: transform $duration-sidebar ease-out;
-    animation: santa-app__hide-nav $duration-sidebar step-end forwards;
-    pointer-events: none;
-    will-change: transform;
-  }
+  z-index: $order-sidebar;
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  height: 100%;
+  visibility: hidden;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
+  width: 320px;
+  transform: translate(-100%);
+  transition: transform $duration-sidebar ease-out;
+  animation: santa-app__hide-nav $duration-sidebar step-end forwards;
+  pointer-events: none;
+  will-change: transform;
+  background: white;
 
   .sidebar-focuser {
     position: absolute;
@@ -195,6 +195,12 @@ main {
 
   .closer {
     height: $bar-height + 40px;
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: inset 0 0 0 4px #0004;
+      outline: 0;
+    }
 
     @media (max-width: ($dim-small - 1px)) {
       height: $bar-height + 20px;
@@ -216,36 +222,36 @@ main {
       margin: 0;
     }
   }
+}
 
-  .hider {
-    pointer-events: none;
-    z-index: $order-hider;
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 198, 237, 0.6);
-    transition: opacity $duration-sidebar ease-in-out;
-    will-change: opacity;
-    opacity: 0;
+.hider {
+  pointer-events: none;
+  z-index: $order-hider;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 198, 237, 0.6);
+  transition: opacity $duration-sidebar ease-in-out;
+  will-change: opacity;
+  opacity: 0;
+}
+
+input {
+  display: none;
+
+  &:checked ~ .sidebar {
+    visibility: visible;
+    pointer-events: auto;
+    animation: none;
+    transform: translate(0);
   }
 
-  > input {
-    display: none;
-
-    &:checked ~ santa-sidebar {
-      visibility: visible;
-      pointer-events: auto;
-      animation: none;
-      transform: translate(0);
-    }
-
-    &:checked ~ .hider {
-      pointer-events: auto;
-      opacity: 1;
-    }
+  &:checked ~ .hider {
+    pointer-events: auto;
+    opacity: 1;
   }
 }
 
