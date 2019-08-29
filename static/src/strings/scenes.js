@@ -1,14 +1,37 @@
 
 import {_msg} from '../magic.js';
 
+// TODO: not the complete list. The rest are from santa-strings.
 export default {
   '': _msg`santasvillage`,
   'airport': _msg`scene_airport`,
   'boatload': _msg`scene_boatload`,
   'briefing': _msg`scene_briefing`,
+  'carpool': _msg`scene_videoscene_carpool`,
+  'clausdraws': _msg`scene_clausdraws`,
+  'codeboogie': _msg`scene_codeboogie`,
+  'codelab': _msg`scene_codelab`,
+  'comroom': _msg`scene_videoscene_comroom`,
   'educators': _msg`educators`,
   'elfmaker': _msg`scene_elfmaker`,
+  'elfski': _msg`scene_elfski`,
+  'glider': _msg`scene_glider`,
   'gumball': _msg`scene_gumball`,
+  'jamband': _msg`scene_jamband`,
+  'jetpack': _msg`scene_jetpack`,
+  'jingle': _msg`scene_videosceen_jingle`,
+  'latlong': _msg`scene_latlong`,
+  'liftoff': _msg`scene_videoscene_liftoff`,
+  'matching': _msg`scene_matching`,
+  'mercator': _msg`scene_mercator`,
+  'museum': _msg`scene_videoscene_museum`,
+  'office': _msg`scene_videoscene_office`,
+  'onvacation': _msg`scene_videoscene_onvacation`,
+  'penguindash': _msg`scene_dash`,
+  'poseboogie': _msg`scene_poseboogie`,
+  'presentbounce': _msg`scene_presentbounce`,
+  'presentdrop': _msg`scene_presentdrop`,
   'press': _msg`press`,
+  'speedsketch': _msg`scene_quickdraw`,
   'snowball': _msg`scene_snowball`,
 };

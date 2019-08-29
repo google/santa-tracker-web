@@ -3,14 +3,16 @@
  */
 
 import './src/elements/santa-chrome.js';
-import './src/elements/santa-sidebar.js';
-import './src/elements/santa-gameloader.js';
 import './src/elements/santa-countdown.js';
-
-import * as sc from './src/soundcontroller.js';
-
+import './src/elements/santa-gameloader.js';
+import './src/elements/santa-sidebar.js';
 import * as params from './src/lib/params.js';
-import {join} from './src/magic.js';
+import { join } from './src/magic.js';
+import * as sc from './src/soundcontroller.js';
+import scenes from './src/strings/scenes.js';
+import {_msg} from './src/magic.js';
+
+
 
 
 sc.fire('traditions_load_sounds');  // nb. this loads 'lounge' => 'music_start_scene'
@@ -140,12 +142,19 @@ document.body.addEventListener('click', (ev) => {
     return false;
   }
 
-  santaApp.route = matchScene[1];
+  santaApp.route = matchScene[1] || '';
   ev.preventDefault();
 });
 
 
 const loaderScene = (sceneName) => {
+  const title = scenes[sceneName] || '';
+  if (title) {
+    document.title = `${title} · ${_msg`santatracker`}`;
+  } else {
+    document.title = _msg`santatracker`;
+  }
+
   chrome.mini = !sceneName;
   loader.href = join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 };
