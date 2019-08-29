@@ -1,7 +1,6 @@
 import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
 import '../../src/elements/santa-image-mask.js';
-import './elements/village-countdown.js';
 import './elements/easteregg-balloon.js';
 import './elements/easteregg-reindeer.js';
 import './elements/easteregg-snowmobile.js';
