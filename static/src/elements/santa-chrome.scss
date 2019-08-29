@@ -1,0 +1,243 @@
+$duration-sidebar: 0.25s;
+$duration-toolbar: 0.3s;
+$transition-toolbar: $duration-toolbar ease-in-out;
+
+$color-bar: #ff0160;
+$dim-small: 768px;
+
+$bar-height: 44px;
+
+$order-sidebar: 100;
+$order-hider: 99;
+
+@keyframes santa-app__hide-nav {
+  from { visibility: visible; pointer-events: none; }
+    to { visibility: hidden; pointer-events: none; }
+}
+
+:host {
+  display: block;
+  pointer-events: none;
+}
+
+svg.icon {
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+header {
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: relative;
+  height: $bar-height;
+
+  @media (max-width: ($dim-small - 1px)) {
+    margin: 10px 10px 0;
+  }
+
+  .blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: $bar-height;
+    backdrop-filter: blur(4px);
+    transition: width $transition-toolbar;
+  }
+
+  .bar {
+    pointer-events: auto;
+    position: relative;
+    height: 100%;
+    color: #fff;
+    box-sizing: border-box;
+    padding-left: $bar-height;
+    padding-right: 10px;
+    transition: transform $transition-toolbar;
+    transform: translate(0);
+    opacity: 0.95;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      border-radius: $bar-height;
+      box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
+      background: $color-bar;
+      transition: box-shadow $transition-toolbar, width $transition-toolbar, opacity $transition-toolbar;
+      transform: translate(0);
+      opacity: 1;
+
+      @media (max-width: ($dim-small - 1px)) {
+        box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: width $transition-toolbar;
+    overflow: hidden;
+
+    .menu-label {
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $bar-height;
+      height: $bar-height;
+      padding: 2px;
+      box-sizing: border-box;
+      display: flex;
+    }
+  }
+
+  a.linkwrap {
+    pointer-events: auto;
+    text-decoration: none;
+    display: inline-flex;
+    max-width: 100%;
+    min-width: 1%;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    margin-left: 2px;
+    line-height: $bar-height;
+    overflow: hidden;
+
+    .logo {
+      width: 62px;
+      min-width: 62px;
+      background: _rel("../../img/google_logo.svg") center no-repeat;
+      background-size: contain;
+      color: transparent;
+      font-size: 0;
+      line-height: inherit;
+    }
+
+    h1 {
+      margin: 0;
+      margin-left: 0.4ch;
+      font-family: 'Lobster', Sans-Serif;
+      font-size: 19px;
+      line-height: inherit;
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+header.mini {
+  .title {
+    width: 0;
+  }
+
+  .blur {
+    width: $bar-height;
+  }
+  .bar {
+    &::before {
+      width: $bar-height;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
+    }
+  }
+}
+
+main {
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column;
+  pointer-events: none;
+}
+
+.sidebar {
+  santa-sidebar {
+    z-index: $order-sidebar;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    visibility: hidden;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
+    width: 320px;
+    transform: translate(-100%);
+    transition: transform $duration-sidebar ease-out;
+    animation: santa-app__hide-nav $duration-sidebar step-end forwards;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .sidebar-focuser {
+    position: absolute;
+  }
+
+  .closer {
+    height: $bar-height + 40px;
+
+    @media (max-width: ($dim-small - 1px)) {
+      height: $bar-height + 20px;
+    }
+
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    font-family: 'Lobster', Sans-Serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding: 0 20px;
+
+    svg.icon {
+      // TODO: icon-icon was 40px
+      width: 24px;
+      padding-left: 8px;
+      padding-right: 8px + 6px;
+      margin: 0;
+    }
+  }
+
+  .hider {
+    pointer-events: none;
+    z-index: $order-hider;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 198, 237, 0.6);
+    transition: opacity $duration-sidebar ease-in-out;
+    will-change: opacity;
+    opacity: 0;
+  }
+
+  > input {
+    display: none;
+
+    &:checked ~ santa-sidebar {
+      visibility: visible;
+      pointer-events: auto;
+      animation: none;
+      transform: translate(0);
+    }
+
+    &:checked ~ .hider {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+}
+

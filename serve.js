@@ -110,13 +110,10 @@ async function serve() {
     // Compile the HTML locally to include i18n.
     // TODO(samthor): Pair this down so it's less magical.
     const filename = path.join('prod', servePath);
-    const options = {
-      compile: yargs.compile,
-      messages,
-    };
+    const content = await fs.readFile(filename, 'utf-8');
 
     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-    res.end(await compileHtml(filename, options));
+    res.end(content);
   };
 
   prodServer.use(

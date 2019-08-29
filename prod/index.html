@@ -19,6 +19,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="manifest" crossorigin="use-credentials" href="./manifest.json" />
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,600|Lobster" rel="stylesheet" />
+
   <!-- Icons -->
   <link rel="apple-touch-icon" href="/images/icon-76.png" sizes="76x76" />
   <link rel="apple-touch-icon" href="/images/icon-120.png" sizes="120x120" />
@@ -54,9 +57,20 @@ html {
 }
 body {
   margin: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
 }
 body:not(.loading) #loader {
   display: none;  /* hides loader immediately */
+}
+santa-chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
   </style>
 </head>

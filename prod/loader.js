@@ -4,6 +4,8 @@ import config from './config.json';
 const documentLang = document.documentElement.lang || null;
 const isProd = (documentLang !== null);
 
+document.body.setAttribute('static', config.staticScope);
+
 const entrypoint = document.createElement('script');
 entrypoint.type = 'module';
 entrypoint.src = config.staticScope + (isProd ? `${actualLang}_` : '') + 'entrypoint.js';

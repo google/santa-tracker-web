@@ -7,18 +7,39 @@ $padding-right: 16px;
   overflow-y: auto;
 }
 
+main {
+  font-family: "Roboto","Arial",Sans-Serif;
+  font-size: 12px;
+}
+
 .cards {
   border-bottom: 4px solid #eee;
   a {
     display: block;
     position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 4px solid #0004;
+      opacity: 0;
+    }
+
     &:focus {
-      z-index: 100;  // bring focus to front
+      outline: none;
+
+      &::after {
+        opacity: 1;
+      }
     }
   }
 }
 .links {
-  padding: 12px $padding-right 4px $indent-left;
+  margin: 4px $padding-right 4px $indent-left;
 
   h2 {
     color: #7bc7e5;
@@ -31,12 +52,17 @@ $padding-right: 16px;
   }
 }
 .lang {
+  display: flex;
+  align-items: center;
   padding-left: $indent-left - 4px;
-  line-height: 32px;
-  select {
-    vertical-align: middle;
+  min-height: 32px;
+  margin: 0.4em 0;
+
+  .globe {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
   }
-  padding-bottom: 8px;
 }
 
 a {
@@ -62,16 +88,16 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background: _root("img/lock.svg") 90% 50% no-repeat;
+    background: _rel("../../img/lock.svg") 90% 50% no-repeat;
     background-color: rgba(87, 214, 147, 0.5);
     background-size: 42px 42px;
   }
 }
 .menucard-village {
-  background-image: _root("img/menu-village.png");
+  background-image: _rel("../../img/menu-village.png");
 }
 .menucard-tracker {
-  background-image: _root("img/menu-tracker.png");
+  background-image: _rel("../../img/menu-tracker.png");
 }
 
 h2 {
@@ -94,7 +120,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-top: 6px;
+  padding-top: 4px;
   line-height: 1.2em;
   font-size: 1.2em;
   font-weight: 500;

@@ -2,7 +2,10 @@
  * @fileoverview Main entrypoint for Santa Tracker. Runs in the prod domain.
  */
 
+import './src/elements/santa-chrome.js';
+import './src/elements/santa-sidebar.js';
 import './src/elements/santa-gameloader.js';
+
 import * as sc from './src/soundcontroller.js';
 
 import * as params from './src/lib/params.js';
@@ -15,6 +18,9 @@ sc.fire('music_start_scene');
 // TODO(samthor): If this doesn't work, we need a foreground unmute button, as clicking on the
 // iframe probably won't trigger it.
 sc.installGestureResume(document.body);
+
+
+const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
 
 
 const invalidScenes = ['index', 'village'];
@@ -65,7 +71,7 @@ function resolveProdURL(location) {
 
   // Grab the final URL component. This intentionally only matches the last part, as Santa Tracker
   // is only served through the top-level and the /intl/.../ paths.
-  const matchScene = pathname.match(/\/(?:(\w+)\.html|)$/);
+  const matchScene = simplePathMatcher.exec(pathname);
   let sceneName = (matchScene && matchScene[1]) || '';
   
   // Rewrite old non-scenes.
@@ -99,9 +105,41 @@ updateHistory(load.sceneName, load.data, true);
 
 
 const loader = document.createElement('santa-gameloader');
-document.body.appendChild(loader);
+const chrome = document.createElement('santa-chrome');
+document.body.append(loader, chrome);
+
+
+document.body.addEventListener('click', (ev) => {
+  if (ev.ctrlKey || ev.metaKey || ev.which > 1) {
+    return false;  // ignore event while buttons are pressed
+  }
+
+  let target;
+  const path = ev.composedPath();
+  path.reverse();
+  for (const cand of path) {
+    if (cand.localName === 'a' && cand.href) {
+      target = new URL(cand.href);
+      break;
+    }
+  }
+  if (!target || !target.toString().startsWith(load.scope)) {
+    return false;
+  }
+
+  const rest = '/' + target.toString().substr(load.scope.length);
+  const matchScene = simplePathMatcher.exec(rest);
+  if (!matchScene) {
+    return false;
+  }
+
+  santaApp.route = matchScene[1];
+  ev.preventDefault();
+});
+
 
 const loaderScene = (sceneName) => {
+  chrome.mini = !sceneName;
   loader.href = join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 };
 
@@ -117,3 +155,6 @@ window.santaApp = {
     loaderScene(sceneName);
   },
 };
+
+
+
