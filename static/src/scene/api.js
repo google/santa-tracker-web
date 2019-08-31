@@ -3,7 +3,6 @@ import * as channel from '../lib/channel.js';
 
 
 const params = new URLSearchParams(window.location.search);
-const isEmbed = params.has('_embed');
 export const isV1Embed = params.has('_v1-embed');
 
 
@@ -146,24 +145,6 @@ class SceneApi extends EventTarget {
     // after preload, do a bunch of setup work
     this._ready = (async() => {
 
-      // In embed, we need to load the soundcontroller directly and have it listen to events
-      // on the body. Otherwise it's incredibly tricky to get a user gesture to resume audio.
-      if (isEmbed) {
-        const script = document.createElement('script');
-        script.setAttribute('type', 'module');
-        script.src = _root`src/soundcontroller-embed.bundle.js`;
-        document.body.appendChild(script);
-        await new Promise((resolve, reject) => {
-          script.onload = resolve;
-          script.onerror = reject;
-        });
-
-        // start muted
-        document.body.dispatchEvent(new CustomEvent('_klang', {detail: ['global_sound_off']}));
-        const muteDelayPromise = new Promise((r) => window.setTimeout(r, 500));
-        this._preload.wait(muteDelayPromise);
-      }
-
       await this._preload.done;
       this._updateParent(null);  // preload is done
 
@@ -255,11 +236,7 @@ class SceneApi extends EventTarget {
   }
 
   _klang(...args) {
-    if (isEmbed) {
-      document.body.dispatchEvent(new CustomEvent('_klang', {detail: args}));
-    } else {
-      this._send('klang', args);
-    }
+    this._send('klang', args);
   }
 
   score(detail) {
