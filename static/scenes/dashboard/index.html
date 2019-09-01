@@ -6,6 +6,9 @@
 body {
   background: white;
 }
+a.video {
+  background: #eee;
+}
   </style>
 </head>
 <body>
@@ -14,6 +17,7 @@ body {
 
 <script type="module">
   import api from '../../src/scene/api.js';
+  import strings from '../../src/strings/scenes.js';
   import scenes from '../../scenes.json';
 
   api.ready(async () => {
@@ -32,13 +36,11 @@ body {
 
       // TODO(samthor): Doesn't account for global scope.
       a.href = sceneName ? `/${sceneName}.html` : '/';
-      a.textContent = (sceneName || 'index');
+      a.textContent = strings[sceneName] || (sceneName || 'index');
       a.addEventListener('click', handler.bind(null, sceneName));
 
-      if (data.video) {
-        li.appendChild(document.createTextNode('video '));
-      }
-      li.appendChild(a);
+      li.append(a);
+      a.classList.toggle('video', Boolean(data.video));
 
       listing.appendChild(li);
     });

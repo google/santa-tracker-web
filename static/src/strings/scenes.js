@@ -19,7 +19,7 @@ export default {
   'gumball': _msg`scene_gumball`,
   'jamband': _msg`scene_jamband`,
   'jetpack': _msg`scene_jetpack`,
-  'jingle': _msg`scene_videosceen_jingle`,
+  'jingle': _msg`scene_videoscene_jingle`,
   'latlong': _msg`scene_latlong`,
   'liftoff': _msg`scene_videoscene_liftoff`,
   'matching': _msg`scene_matching`,
