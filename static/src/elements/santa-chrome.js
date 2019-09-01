@@ -41,7 +41,7 @@ export class SantaChromeElement extends LitElement {
 </div>
 <label class="hider" for=${sidebarId}></label>
 <main @focusin=${this._onMainFocus}>
-  <header class=${this.mini ? '' : 'mini'}>
+  <header class=${this.mini ? 'mini' : ''}>
     <div class="blur"></div>
     <div class="bar">
       <div class="title">

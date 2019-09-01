@@ -159,7 +159,7 @@ const loaderScene = (sceneName) => {
     document.title = _msg`santatracker`;
   }
 
-  chrome.mini = !sceneName;
+  chrome.mini = Boolean(sceneName);
   loader.href = join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 };
 
