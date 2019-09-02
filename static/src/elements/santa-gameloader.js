@@ -3,7 +3,7 @@ import styles from './santa-gameloader.css';
 import './santa-interlude.js';
 import * as messageSource from '../lib/message-source.js';
 
-
+const LOAD_LEEWAY = 1000;
 const EMPTY_PAGE = 'data:text/html;base64,';
 const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
 
@@ -66,15 +66,10 @@ class SantaGameLoaderElement extends HTMLElement {
     this._wrapper.append(af);
     this._activeFrame = af;
 
-    // Resolves with null when the frame loads, indicating that the scene has failed to init.
-    const loadPromise = new Promise((resolve) => {
-      af.addEventListener('load', () => {
-        window.setTimeout(() => resolve(null), 0);
-      }, {once: true});
-    });
+    // Resolves with the iframe's provided MessagePort (or null, where the page failed to init).
+    const loadPromise = new Promise((resolve, reject) => {
 
-    // Resolves with a MessagePort from the frame.
-    const initPromise = new Promise((resolve, reject) => {
+      // Resolves with a MessagePort from the frame.
       // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
       messageSource.add(af.contentWindow, (ev) => {
         if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
@@ -82,17 +77,25 @@ class SantaGameLoaderElement extends HTMLElement {
         }
         resolve(ev.ports[0]);
       });
+
+      // Resolves with null when the frame loads, indicating that the scene has failed to init.
+      af.addEventListener('load', () => {
+        window.setTimeout(() => resolve(null), LOAD_LEEWAY);
+
+        af.addEventListener('load', (ev) => {
+          console.warn('got inner load, should kill frame')
+        });
+
+      }, {once: true});
+
     });
 
     const transitionPromise = new Promise((r) => {
       // TODO: longer than fade time, remove old frame when gone
-      window.setTimeout(r, 500);
+      window.setTimeout(r, 5000);
     });
 
-    const readyPromise = Promise.race([loadPromise, initPromise]);
-    readyPromise.catch(() => null).then(() => messageSource.remove(af.contentWindow));
-
-    Promise.all([readyPromise, transitionPromise]).then(([port]) => {
+    Promise.all([loadPromise, transitionPromise]).then(([port]) => {
       // TODO: do something with port.
       if (port === null) {
         throw new Error('frame did not init');

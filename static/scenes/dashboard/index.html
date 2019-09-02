@@ -16,6 +16,7 @@ a.video {
 <ul id="listing"></ul>
 
 <script type="module">
+  import * as route from '../../src/route.js';
   import api from '../../src/scene/api.js';
   import strings from '../../src/strings/scenes.js';
   import scenes from '../../scenes.json';
@@ -25,8 +26,8 @@ a.video {
     const keys = Object.keys(scenes).sort();
 
     const handler = (sceneName, ev) => {
-      ev.preventDefault();
-      api.go(sceneName);
+      // ev.preventDefault();
+      // api.go(sceneName);
     };
 
     keys.forEach((sceneName) => {
@@ -34,8 +35,7 @@ a.video {
       const li = document.createElement('li');
       const a = document.createElement('a');
 
-      // TODO(samthor): Doesn't account for global scope.
-      a.href = sceneName ? `/${sceneName}.html` : '/';
+      a.href = route.href(sceneName ? `${sceneName}.html` : './');
       a.textContent = strings[sceneName] || (sceneName || 'index');
       a.addEventListener('click', handler.bind(null, sceneName));
 
