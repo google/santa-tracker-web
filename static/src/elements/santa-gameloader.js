@@ -188,7 +188,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     if (port === null) {
       // TODO: remerge with below behavior?
-      this._container.classList.add('error');
+      this._container.classList.add('empty');
       this._container.classList.remove('loading');
       this._loading = false;
       this._activeFrame.src = EMPTY_PAGE;
@@ -237,8 +237,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._loading = false;
     this._activeFrame.classList.remove('pending');
-    this._container.classList.remove('error');
-    this._container.classList.remove('loading');
+    this._container.classList.remove('empty', 'loading');
 
     if (this._previousFrame) {
       this._previousFrame.remove();
