@@ -21,29 +21,35 @@ a.video {
   import strings from '../../src/strings/scenes.js';
   import scenes from '../../scenes.json';
 
+  const listing = document.getElementById('listing');
+  const keys = Object.keys(scenes).sort();
+
+  const handler = (sceneName, ev) => {
+    // ev.preventDefault();
+    // api.go(sceneName);
+  };
+
+  keys.forEach((sceneName) => {
+    const data = scenes[sceneName];
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    a.href = route.href(sceneName ? `${sceneName}.html` : './');
+    if (sceneName in strings) {
+      a.textContent = strings[sceneName];
+    } else {
+      a.textContent = '?' + (sceneName || 'index');
+    }
+    a.addEventListener('click', handler.bind(null, sceneName));
+
+    li.append(a);
+    a.classList.toggle('video', Boolean(data.video));
+
+    listing.appendChild(li);
+  });
+
   api.ready(async () => {
-    const listing = document.getElementById('listing');
-    const keys = Object.keys(scenes).sort();
-
-    const handler = (sceneName, ev) => {
-      // ev.preventDefault();
-      // api.go(sceneName);
-    };
-
-    keys.forEach((sceneName) => {
-      const data = scenes[sceneName];
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-
-      a.href = route.href(sceneName ? `${sceneName}.html` : './');
-      a.textContent = strings[sceneName] || (sceneName || 'index');
-      a.addEventListener('click', handler.bind(null, sceneName));
-
-      li.append(a);
-      a.classList.toggle('video', Boolean(data.video));
-
-      listing.appendChild(li);
-    });
+    // nothing specific to do here
   });
 
 </script>

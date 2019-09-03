@@ -31,7 +31,7 @@ export class SantaChromeElement extends LitElement {
     const sidebarId = `${this._id}sidebar`;  // unique ID even in Shady DOM
     return html`
 <input type="checkbox" id=${sidebarId} @change=${this._onCheckboxChange} .checked=${this.navOpen} />
-<div class="sidebar">
+<div class="sidebar" @click=${this._onSidebarClick}>
   <div class="sidebar-focuser"></div>
   <label for=${sidebarId} tabindex="0" class="closer">
     <svg class="icon"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
@@ -81,8 +81,18 @@ export class SantaChromeElement extends LitElement {
     this.navOpen = false;
   }
 
-  _onCheckboxChange(ev) {
-    this.navOpen = ev.target.checked;
+  _onSidebarClick(e) {
+    // The click event doesn't bubble, but we can check to see whether it was prevented by the next
+    // frame. If so, the entrypoint code caused the URL to change, so close the sidebar.
+    window.setTimeout(() => {
+      if (e.defaultPrevented) {
+        this.navOpen = false;
+      }
+    }, 0);
+  }
+
+  _onCheckboxChange(e) {
+    this.navOpen = e.target.checked;
   }
 }
 
