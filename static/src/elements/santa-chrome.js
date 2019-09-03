@@ -25,6 +25,18 @@ export class SantaChromeElement extends LitElement {
     this._id = prefix.id();
     this.mini = false;
     this.navOpen = false;
+
+    this._onWindowBlur = this._onWindowBlur.bind(this);
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('blur', this._onWindowBlur);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('blur', this._onWindowBlur);
   }
 
   render() {
@@ -67,9 +79,8 @@ export class SantaChromeElement extends LitElement {
     super.update(changedProperties);
 
     if (changedProperties.has('navOpen') && this.navOpen) {
-      // Focus an element at the start of the sidebar, but then immediately
-      // disallow focus. This places the browser's "cursor" here, so a keyboard
-      // tab will go to the next item.
+      // Focus an element at the start of the sidebar, but then immediately disallow focus. This
+      // places the browser's "cursor" here, so a keyboard tab will go to the next item.
       const node = this.renderRoot.querySelector('.sidebar-focuser');
       node.setAttribute('tabindex', '0')
       node.focus();
@@ -77,7 +88,17 @@ export class SantaChromeElement extends LitElement {
     }
   }
 
+  _onWindowBlur() {
+    // Handles blue of our window, which means an iframe scene is focused.
+    if (document.activeElement === document.body) {
+      // .. unless it was a user hiding and showing the tab, which also fires blur
+    } else {
+      this.navOpen = false;
+    }
+  }
+
   _onMainFocus() {
+    // Handles focus on other parts of the Chrome: the logo and tracker information.
     this.navOpen = false;
   }
 

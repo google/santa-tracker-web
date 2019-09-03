@@ -174,12 +174,6 @@ class SceneApi extends EventTarget {
       case 'restart':
         this.dispatchEvent(new Event(type));
         break;
-      case 'embed:unmute':
-        this._klang('fire', 'global_sound_on');
-        break;
-      case 'embed:mute':
-        this._klang('fire', 'global_sound_off');
-        break;
       default:
         console.debug('unhandled hostMessage', type);
     }

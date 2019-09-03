@@ -1,4 +1,4 @@
-import messages from '../en_src_messages.json';
+import messages from '../en.json';
 
 /**
  * @fileoverview Magic helpers for development. These should only be used as tagged templates and,

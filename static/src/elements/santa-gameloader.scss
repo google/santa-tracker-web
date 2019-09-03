@@ -4,41 +4,46 @@
   overflow: hidden;
 }
 
-#wrap {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
+main:not(.error) .slot-container {
+  display: none;
 }
 
-iframe {
+main.loading iframe {
+  pointer-events: none;
+}
+
+:host([disabled]) iframe {
+  pointer-events: none;
+}
+
+// TODO: remove for launch, just showcasing loading
+main.loading::before {
+  font-family: 'Lobster', Roboto, Arial, Sans-Serif;
+  content: 'Loading...';
+  position: fixed;
+  z-index: 100;
+  background: red;
+  border-bottom-right-radius: 8px;
+  padding: 4px;
+  color: white;
+  font-size: 10px;
+  top: 0;
+  left: 0;
+}
+
+iframe,
+.slot-container {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   border: 0;
-  transition: transform ease-out 1.5s;
-
-  // iframe has issues in Chrome being loaded full-size. Give it a fixed size
-  // which is removed later.
-  &.prep {
-    width: 100px;
-    height: 200px;
-    opacity: 0;
-  }
-
-  &.fade {
-    // transform: translateX(-100%);
-    pointer-events: none;  // TODO: handle focus in JS
-  }
-
-  &.loading {
-    // transform: translateX(100%);
-    pointer-events: none;
-  }
 }
 
-santa-interlude {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.slot-container {
+  z-index: 1;  // above iframes
+}
+
+iframe.pending {
+  opacity: 0;
+  z-index: -1;
 }

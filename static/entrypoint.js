@@ -6,6 +6,7 @@ import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
 import './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
+import './src/elements/santa-error.js';
 import * as params from './src/lib/params.js';
 import { join } from './src/magic.js';
 import * as sc from './src/soundcontroller.js';
@@ -113,7 +114,9 @@ updateHistory(load.sceneName, load.data, true);
 
 const loader = document.createElement('santa-gameloader');
 const chrome = document.createElement('santa-chrome');
-document.body.append(loader, chrome);
+document.body.append(chrome, loader);
+
+loader.append(document.createElement('santa-error'));
 
 
 const sidebar = document.createElement('santa-sidebar');
@@ -159,8 +162,14 @@ const loaderScene = (sceneName) => {
     document.title = _msg`santatracker`;
   }
 
-  chrome.mini = Boolean(sceneName);
-  loader.href = join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
+  chrome.mini = ['', 'press', 'educators', 'tracker'].indexOf(sceneName) === -1;
+
+  const locked = ['tracker'].indexOf(sceneName) !== -1;
+  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
+
+  loader.load(url).then((port) => {
+    console.info('loading done with port', port, 'for', url);
+  });
 };
 
 window.addEventListener('popstate', () => loaderScene(wh.state.sceneName));

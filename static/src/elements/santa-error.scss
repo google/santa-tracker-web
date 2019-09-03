@@ -1,0 +1,78 @@
+main {
+  background: _rel("../../img/error.svg") bottom center no-repeat;
+  background-size: cover;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  p {
+    font-family: 'Roboto', 'Arial', Sans-Serif;
+    color: white;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    margin: 2em auto;
+    max-width: 90%;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  santa-weather {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  .icon {
+    $size-icon: 250px;
+    $size-background: 214px;
+
+    position: relative;
+    width: $size-icon;
+    height: $size-icon;
+    border-radius: 10000px;
+    box-shadow: 4px 14px 0 rgba(0,0,0,.125);
+    background: #7ec6e5 _rel("../../img/snowman.png") center no-repeat;
+    // background is contained within border, so create one which limits us
+    // to the target $background-size
+    background-size: contain;
+    border: (($size-icon - $size-background) / 2) solid transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &:not([hidden]) ~ santa-loader {
+    // santa-loader should be hidden, but not `display: none` during loads
+    visibility: hidden;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
+
+  @media (max-height: 400px) {
+    flex-flow: row;
+
+    .icon {
+      $size-icon: 192px;
+      $size-background: 164px;
+  
+      width: $size-icon;
+      height: $size-icon;
+      min-width: $size-icon;  // otherwise we get squished
+      border: (($size-icon - $size-background) / 2) solid transparent;
+      margin: 0 1em;
+    }
+  }
+}
