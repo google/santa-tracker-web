@@ -25,8 +25,9 @@ a.video {
   const keys = Object.keys(scenes).sort();
 
   const handler = (sceneName, ev) => {
-    // ev.preventDefault();
-    // api.go(sceneName);
+    // TODO(samthor): We can install a global link handler for this.
+    ev.preventDefault();
+    api.go(sceneName);
   };
 
   keys.forEach((sceneName) => {

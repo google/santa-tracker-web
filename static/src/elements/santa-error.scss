@@ -62,16 +62,16 @@ a {
   color: inherit;
 }
 
-*[hidden] {
-  display: none;
-}
-
 .lock {
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   background: #0001;
+
+  &[hidden] {
+    display: none;
+  }
 
   svg {
     margin: auto;

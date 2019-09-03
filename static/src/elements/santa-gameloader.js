@@ -218,6 +218,15 @@ class SantaGameLoaderElement extends HTMLElement {
           }
 
           port.onmessage = (ev) => {
+            if (af !== this._activeFrame) {
+              port.close();  // TODO: store port and shutdown elsewhere?
+              return;  // TODO: discard
+            }
+            // TODO(samthor): Quick hack to showcase route changes.
+            if (ev.data.type === 'go') {
+              santaApp.route = ev.data.payload;
+            }
+
             // TODO: do something
             console.debug('got active message', ev.data);
           };
