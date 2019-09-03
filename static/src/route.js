@@ -40,17 +40,12 @@ export function localize(url) {
 }
 
 
-const resolveCache = {};
-
 /**
  * @param {string} htmlString raw HTML to resolve containing e.g. <a href="scene.html">
  * @return {!DocumentFragment}
  */
 export function resolve(htmlString) {
-  const previous = resolveCache[htmlString];
-  if (previous !== undefined) {
-    return previous;
-  }
+  // TODO: if scope is boring we can just return raw content
 
   const node = document.createElement('template');
   node.innerHTML = htmlString;
@@ -61,6 +56,5 @@ export function resolve(htmlString) {
     link.setAttribute('href', v);
   });
 
-  resolveCache[htmlString] = node.content;
   return node.content;
 }

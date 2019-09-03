@@ -3,12 +3,13 @@ import styles from './santa-gameloader.css';
 import * as messageSource from '../lib/message-source.js';
 
 const EMPTY_PAGE = 'data:text/html;base64,';
-const LOAD_LEEWAY = 1000;
+const LOAD_LEEWAY = 250;
 const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
 
 export const events = Object.freeze({
   'focus': '-loader-focus',
   'blur': '-loader-blur',
+  'ready': '-loader-ready',
   'progress': '-loader-progress',
 });
 const internalRemove = '-internal-remove';
@@ -24,7 +25,7 @@ const createFrame = (src) => {
 
 
 /**
- * Loads iframes. Uses a transition animation and interlude.
+ * Loads iframes.
  */
 class SantaGameLoaderElement extends HTMLElement {
   static get observedAttributes() { return ['disabled']; }
@@ -113,10 +114,23 @@ class SantaGameLoaderElement extends HTMLElement {
     }
   }
 
-  load(href, reload=false) {
-    if (!reload && this._href === href) {
-      return this._loadingPromise;
+  /**
+   * Optionally purge any `previousFrame` that is being held during a load. Called by transition
+   * code to clear content once we're done with it.
+   */
+  purge() {
+    if (this._previousFrame) {
+      this._previousFrame.remove();
+      // nb. does not null out the previousFrame, as we use it to indicate in-progress load
     }
+  }
+
+  /**
+   * Load a new scene.
+   *
+   * @param {?string} href 
+   */
+  load(href) {
     this._href = href;
 
     this._loading = true;
@@ -186,42 +200,48 @@ class SantaGameLoaderElement extends HTMLElement {
     const port = await p;
     validateFrame();
 
-    if (port === null) {
-      // TODO: remerge with below behavior?
-      this._container.classList.add('empty');
-      this._container.classList.remove('loading');
-      this._loading = false;
-      this._activeFrame.src = EMPTY_PAGE;
+    if (port) {
+      // If we have a valid port, wait for its loading dance.
+      await new Promise((resolve, reject) => {
+        port.onmessage = (ev) => {
+          if (af !== this._activeFrame) {
+            return reject(invalidFrame);
+          }
 
-      if (this._previousFrame) {
-        this._previousFrame.remove();
-        this._previousFrame = null;
-      }
+          const args = {detail: ev.data};
+          this.dispatchEvent(new CustomEvent(events.progress, args));
 
-      return null;
+          if (typeof ev.data === 'number') {
+            return;  // scenes send progress until null
+          } else if (ev.data !== null) {
+            console.warn('non-null from scene', this._href, 'data', ev.data);
+          }
+
+          port.onmessage = (ev) => {
+            // TODO: do something
+            console.debug('got active message', ev.data);
+          };
+          resolve();
+        };
+      });
+      validateFrame();
     }
 
-    await new Promise((resolve, reject) => {
-      port.onmessage = (ev) => {
-        if (af !== this._activeFrame) {
-          return reject(invalidFrame);
-        }
-
-        const args = {detail: ev.data};
-        this.dispatchEvent(new CustomEvent(events.progress, args));
-
-        if (typeof ev.data === 'number') {
-          return;  // scenes send progress until null
-        } else if (ev.data !== null) {
-          console.warn('non-null from scene', href, 'data', ev.data);
-        }
-
-        port.onmessage = (ev) => {
-          // TODO: do something
-          console.debug('got active message', ev.data);
-        };
+    // Inform the caller that we're ready, but happy to be modified further. This allows for
+    // transitions to finish or for an error state to be displayed.
+    await new Promise((resolve) => {
+      const ce = new CustomEvent(events.ready, {
+        cancelable: true,
+        detail: {
+          empty: !port,
+          href: this._href,
+          resolve,
+        },
+      });
+      this.dispatchEvent(ce);
+      if (!ce.defaultPrevented) {
         resolve();
-      };
+      }
     });
 
     // Give the game a rAF frame to come up-to-speed.
@@ -237,14 +257,20 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._loading = false;
     this._activeFrame.classList.remove('pending');
-    this._container.classList.remove('empty', 'loading');
+    this._container.classList.remove('loading');
+    this._container.classList.toggle('empty', !port);
 
     if (this._previousFrame) {
       this._previousFrame.remove();
       this._previousFrame = null;
     }
 
-    return 'ok';
+    if (port) {
+      return 'ok';
+    }
+
+    this._activeFrame.remove();
+    return null;
   }
 
   get href() {

@@ -4,14 +4,13 @@
 
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
-import './src/elements/santa-gameloader.js';
+import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import * as params from './src/lib/params.js';
-import { join } from './src/magic.js';
 import * as sc from './src/soundcontroller.js';
 import scenes from './src/strings/scenes.js';
-import {_msg} from './src/magic.js';
+import {_msg, join} from './src/magic.js';
 
 
 
@@ -116,7 +115,8 @@ const loader = document.createElement('santa-gameloader');
 const chrome = document.createElement('santa-chrome');
 document.body.append(chrome, loader);
 
-loader.append(document.createElement('santa-error'));
+const error = document.createElement('santa-error');
+loader.append(error);
 
 
 const sidebar = document.createElement('santa-sidebar');
@@ -154,6 +154,54 @@ document.body.addEventListener('click', (ev) => {
 });
 
 
+const sceneImage = (sceneName) => {
+  const img = document.createElement('img');
+
+  img.src = join(import.meta.url, 'img/scenes', sceneName + '_2x.png');
+  img.srcset = `${join(import.meta.url, 'img/scenes', sceneName + '_1x.png')}, ${img.src} 2x`;
+
+  return new Promise((resolve, reject) => {
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+  });
+};
+
+
+loader.addEventListener(gameloader.events.ready, (ev) => {
+  const {resolve, href, empty} = ev.detail;
+  ev.preventDefault();
+
+  // TODO(samthor): This method is a little awkward, but configures whether the error is displayed,
+  // and what it displays (e.g. a locked image).
+  // If `empty` is false, then it actually never shows at all, since the slot is `display: none`.
+
+  const handler = async () => {
+    const locked = (!href && santaApp.route);
+    error.textContent = '';
+
+    if (!locked) {
+      error.error = empty && Boolean(href);
+      error.lock = false;
+      return;
+    }
+
+    error.lock = true;
+    let img;
+    try {
+      img = await sceneImage(santaApp.route);
+    } catch (e) {
+      console.warn('err img', e);
+      return;  // ignore, bad image
+    }
+    img.setAttribute('slot', 'icon');
+    error.append(img);
+    error.lock = true;
+    error.error = false;
+  };
+  resolve(handler());
+});
+
+
 const loaderScene = (sceneName) => {
   const title = scenes[sceneName] || '';
   if (title) {
@@ -167,6 +215,9 @@ const loaderScene = (sceneName) => {
   const locked = ['tracker'].indexOf(sceneName) !== -1;
   const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 
+  if (loader.href === url) {
+    return false;
+  }
   loader.load(url).then((port) => {
     console.info('loading done with port', port, 'for', url);
   });
@@ -177,9 +228,13 @@ loaderScene(wh.state.sceneName);
 
 window.santaApp = {
   get route() {
-    return wh.state && wh.state.sceneName || null;
+    return wh.state && wh.state.sceneName;
   },
   set route(sceneName) {
+    sceneName = String(sceneName).toLowerCase().replace(/[^\w]/g, '');
+    if (sceneName === 'index') {
+      sceneName = '';
+    }
     updateHistory(sceneName);
     loaderScene(sceneName);
   },
