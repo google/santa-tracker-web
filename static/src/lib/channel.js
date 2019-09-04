@@ -1,4 +1,4 @@
-const withinFrame = window.parent && window.parent !== window;
+const withinFrame = window.parent && window.parent != window;
 
 /**
  * @param {string} init data to send to init communication
@@ -7,13 +7,13 @@ const withinFrame = window.parent && window.parent !== window;
  */
 export function parent(init, callback) {
   if (!withinFrame) {
-    return (data) => {};  // literally do nothing
+    return () => {};  // literally do nothing
   }
 
-  const mc = new MessageChannel();
-  window.parent.postMessage(init, '*', [mc.port2]);
+  const {port1, port2} = new MessageChannel();
+  window.parent.postMessage(init, '*', [port2]);
   if (callback) {
-    mc.port1.onmessage = (ev) => callback(ev.data);
+    port1.onmessage = (ev) => callback(ev.data);
   }
-  return (data) => mc.port1.postMessage(data);
+  return port1.postMessage.bind(port1);
 }

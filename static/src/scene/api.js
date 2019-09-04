@@ -2,43 +2,29 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 
 
-const params = new URLSearchParams(window.location.search);
-export const isV1Embed = params.has('_v1-embed');
-
-
-const pendingSoundPreload = [];
-
-
 class PreloadApi {
 
   /**
-   * @param {function(number): void} cb to be called with fraction complete
+   * @param {function(number): void} callback to be called with fraction complete
    */
-  constructor(cb) {
+  constructor(callback) {
+    this._refs = [];  // reference images being loaded, so they're not discarded
     this._total = 0;
     this._done = 0;
-    this._cb = cb;
+    this._callback = callback;
 
     this._donePromise = new Promise((resolve) => {
       this._doneResolve = resolve;
     });
     this._donePromise.then(() => {
-      this._cb(1);
-      this._cb = () => {};  // do nothing from here-on-in
+      callback(1);
+      this._callback = () => {};  // do nothing from here-on-in
     });
+    callback(0);
 
-    // If nothing was requested after a frame, then assume that nothing ever will be, and resolve
-    // the preloader Promise immediately. Note that this can't be a rAF, as the iframe is probably
-    // hidden.
-    Promise.resolve().then(() => {
-      if (this._total === 0) {
-        this._doneResolve();
-      }
-    });
-
-    // Keep a reference to the assets being loaded, otherwise browsers like to discard them almost
-    // immediately.
-    this._refs = [];
+    // Add a single task that resolves after setTimeout to ensure that the preloader fires at all.
+    const framePromise = new Promise((r) => window.setTimeout(r, 0));
+    this.wait(framePromise);
   }
 
   get done() {
@@ -49,19 +35,16 @@ class PreloadApi {
    * @param {!Promise<*>} p to wait for before resolving preload
    */
   wait(p) {
-    if (this._total === 0) {
-      this._cb(0);
-    }
     ++this._total;
 
-    p.catch((err) => console.warn('preload error', err, err.target)).then(() => {
+    p.catch((err) => console.warn('preload error', err)).then(() => {
       ++this._done;
 
       const ratio = this._done / this._total;
       if (ratio >= 1) {
         this._doneResolve();
       } else {
-        this._cb(ratio);
+        this._callback(ratio);
       }
     });
   }
@@ -71,40 +54,34 @@ class PreloadApi {
    */
   sounds(event) {
     // TODO(samthor): awkwardly pass to window.parent to load for us
-    pendingSoundPreload.push(event);
+
+    const {port1, port2} = new MessageChannel();
+    this._callback(event, [port1]);
+
+    this.wait(new Promise((resolve) => {
+      port2.onmessage = (status) => {
+        console.info('got status', status, 'for klang', event);
+        resolve();
+      };
+    }));
   }
 
   /**
    * @param {...string} all image URLs to preload
+   * @return {!Array<!Promise<!Image>>} resolved images
    */
   images(...all) {
-    for (const src of all) {
+    return all.map((src) => {
       const p = new Promise((resolve, reject) => {
         const image = new Image();
         this._refs.push(image);
         image.src = src;
-        image.onload = resolve;
+        image.onload = () => resolve(image);
         image.onerror = reject;
       });
       this.wait(p);
-    }
-  }
-
-  /**
-   * @param {...string} all URLs to preload via XHR
-   */
-  paths(...all) {
-    for (const src of all) {
-      const p = new Promise((resolve, reject) => {
-        const x = new XMLHttpRequest();
-        this._refs.push(x);
-        x.open('GET', src);
-        x.onload = resolve;
-        x.onerror = reject;
-        x.send(null);
-      });
-      this.wait(p);
-    }
+      return p;
+    });
   }
 }
 
@@ -126,6 +103,7 @@ class SceneApi extends EventTarget {
   constructor() {
     super();
     this._initialData = null;
+    this._config = null;
 
     // connect to parent frame: during preload, error on data
     this._updateFromHost = (data) => {
@@ -151,9 +129,6 @@ class SceneApi extends EventTarget {
       this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
       this._send = (type, payload) => this._updateParent({type, payload});
 
-      // FIXME: send awkward preload events
-      pendingSoundPreload.forEach((event) => this.fire(event));
-
       // send ready event
       // TODO: allow scenes to configure these options
       this._send('ready', {hasPauseScreen: true});
@@ -177,6 +152,14 @@ class SceneApi extends EventTarget {
       default:
         console.debug('unhandled hostMessage', type);
     }
+  }
+
+  config(arg) {
+    if (this._config) {
+      throw new Error('config should only be called once');
+    }
+    this._config = arg;
+    return this;
   }
 
   /**
@@ -264,7 +247,7 @@ function lazyFocusPage() {
 
 
 /**
- * Installs handlers for V1, including `santaApp` and global `ga`.
+ * Installs handlers for V1 games, including `santaApp` and global `ga`.
  */
 function installV1Handlers() {
   window.ga = sceneApi.ga.bind(sceneApi);

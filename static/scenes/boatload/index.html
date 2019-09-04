@@ -79,6 +79,11 @@
   api.addEventListener('resume', (ev) => game.resume());
   api.addEventListener('restart', (ev) => game.restart());
 
+  api.config({
+    pause: true,
+    orientation: 'landscape',
+  });
+
   api.ready(async () => {
     game.start();
   });

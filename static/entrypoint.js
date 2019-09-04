@@ -14,10 +14,6 @@ import {_msg, join} from './src/magic.js';
 
 
 
-
-sc.fire('traditions_load_sounds');  // nb. this loads 'lounge' => 'music_start_scene'
-sc.fire('music_start_scene');
-
 // TODO(samthor): If this doesn't work, we need a foreground unmute button, as clicking on the
 // iframe probably won't trigger it.
 sc.installGestureResume(document.body);
@@ -167,9 +163,60 @@ const sceneImage = (sceneName) => {
 };
 
 
+/**
+ * Handle preload, ostensibly for any data loaded by the parent frame, but really just for Klang.
+ */
+loader.addEventListener(gameloader.events.preload, (ev) => {
+  const {event, resolve} = ev.detail;
+  resolve(sc.preload(event, (complete, total) => {
+    console.info('loaded', complete, 'of', total);
+  }));
+});
+
+
+let activePort = null;
+
+
 loader.addEventListener(gameloader.events.ready, (ev) => {
-  const {resolve, href, empty} = ev.detail;
+  const {resolve, href, empty, port} = ev.detail;
   ev.preventDefault();
+
+  if (port) {
+    activePort = port;
+
+    port.onmessage = (ev) => {
+      if (activePort !== port) {
+        console.warn('got data on inactive port', ev.data);
+        return false;
+      }
+
+      const {type, payload} = ev.data;
+      switch (type) {
+        case 'go':
+          santaApp.route = payload;
+          break;
+
+        case 'klang':
+          const request = payload.shift();
+          switch (request) {
+            case 'play':
+              sc.fire(...payload);
+              break;
+
+            default:
+              console.warn('unhandled klang', request, payload);
+          }
+
+          break;
+
+        default:
+          console.warn('unhandled port message', type, payload);
+      }
+    };
+
+  } else {
+    activePort = null;  // invalidate previous port
+  }
 
   // TODO(samthor): This method is a little awkward, but configures whether the error is displayed,
   // and what it displays (e.g. a locked image).

@@ -109,6 +109,77 @@ let klangEventTask = klangIsLoaded;
 let klangAmbientTask = klangIsLoaded;
 
 
+let preloadTask = klangIsLoaded;
+
+
+/**
+ * Build helpers which estimate the total number of assets loadable by Klang.
+ *
+ * Klang only gives us % complete over time, not asset count. This takes a wild guess at the total
+ * number of parts to load.
+ */
+export function buildProgressReady(callback, resolve) {
+  if (callback) {
+    let totalParts = 0;
+    let lastValue = -1;
+    return {
+      progress(percent) {
+        if (!totalParts && percent) {
+          totalParts = Math.ceil(100.0 / percent);
+        }
+        if (totalParts) {
+          const value = Math.round(percent * totalParts / 100.0);
+          if (lastValue !== value && value < totalParts) {
+            lastValue = value;
+            callback(lastValue, totalParts);
+          }
+        }
+      },
+      ready() {
+        callback(totalParts, totalParts);
+        resolve(true);
+      },
+    };
+  }
+  return {
+    progress() {},
+    ready() {
+      resolve(true);
+    },
+  };
+}
+
+
+/**
+ * Preloads the given Klang collection.
+ *
+ * @param {string} event to preload
+ * @param {?function(number, number): void=} callback to indicate progress
+ * @return {!Promise<boolean>} whether this succeeded (true) or was superceded (false)
+ */
+export function preload(event, callback=null) {
+  const localPreloadTask = preloadTask.catch(() => null).then(() => {
+    if (preloadTask !== localPreloadTask) {
+      return false;  // nothing to do, we got superceded
+    }
+
+    // As of 2018, Klang stores _progressCallback on both Core and AudioTagHandler engines for
+    // preload events, which only work in serial (since they use global state). We set a known
+    // function, and if it isn't saved, this is actually an error case.
+    return new Promise((resolve, reject) => {
+      const {progress, ready} = buildProgressReady(callback, resolve);
+      localKlang.triggerEvent(event, ready, progress, reject);
+      if (klangEngine._progressCallback !== progress) {
+        throw new Error(`non-preload event requested by scene: ${event}`);
+      }
+    });
+  });
+
+  preloadTask = localPreloadTask;
+  return localPreloadTask;
+}
+
+
 /**
  * Internal call to trigger a waitable event on Klang. Assumes Klang is available in `localKlang`.
  * Klang is sometimes (?) unhappy when multiple waitable events are in-flight, so this is intended
@@ -121,10 +192,13 @@ function triggerEvent(event, arg) {
   return new Promise((resolve, reject) => {
     // If Klang retains the progress callback, then wait for the complete callback to resolve,
     // otherwise complete immediately (we don't know what callbacks are wired up in Klang).
+    // The callback is also not retained if the event is _invalid_.
     // TODO(samthor): Callbacks only seem to be used for `load` events, which _do_ need to happen
     // in-order. No other events seem to care?
 
-    const progress = () => {};  // used as nonce
+    const progress = (...args) => {
+      console.info('got progress for Klang event', event, arg, args);
+    };  // used as nonce
     localKlang.triggerEvent(event, resolve, progress, reject);
     if (!klangEngine || klangEngine._progressCallback !== progress) {
       resolve();  // there's no progress, resolve now

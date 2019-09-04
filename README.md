@@ -63,6 +63,28 @@ Santa Tracker is built using JS modules and will rewrite non-relative imports fo
 
 As well as JavaScript itself, Santa Tracker's development environment allows imports of future module types: CSS, JSON and HTML.
 
+## Sound
+
+Santa Tracker uses an audio library known as [Klang](https://jshakansson.se/portfolio/item/santatracker).
+It exists in the prod context only.
+
+It's somewhat of a black box but has a config file provided by an upstream vendor, and provides a variety of features.
+Internally, it plays single, or repeated music/audio tracks (e.g., one can trigger "holding down" a UI button, which plays indefinitely).
+These are played on various channels which can overwrite each other or run independently.
+
+In general, there are two "channels" that we care about:
+
+* Music channel (controlled largely by `music_start_ingame`, `music_start_scene` or `music_start_village`)
+* Game channel (controlled by `gameid_start` + `gameid_stop` or `_finish` etc)
+
+There's a few ways to perform global operations:
+
+* Sending `videoplayer_start` and `videoplayer_stop` mutes and unmutes sounds, respectively
+* Sending `global_sound_off` and `global_sound_on` independently mutes and unmutes all sound
+* Calling `Klang.stopAll()` kills all sounds, including music (but does not reset mute status)
+
+Additionally, Klang listens to global document visibility, and will mute while in the background.
+
 ## Translations
 
 Santa Tracker contains translations for a variety of different languages.

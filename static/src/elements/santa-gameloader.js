@@ -11,6 +11,7 @@ export const events = Object.freeze({
   'blur': '-loader-blur',
   'ready': '-loader-ready',
   'progress': '-loader-progress',
+  'preload': '-loader-preload',
 });
 const internalRemove = '-internal-remove';
 const invalidFrame = '-invalid-frame-error';
@@ -208,6 +209,24 @@ class SantaGameLoaderElement extends HTMLElement {
             return reject(invalidFrame);
           }
 
+          // Special-case string preload requests from the API. Expects a MessagePort to be
+          // included to mark completion.
+          if (typeof ev.data === 'string') {
+            const p = new Promise((resolve) => {
+              const args = {
+                detail: {
+                  event: ev.data,
+                  resolve,
+                },
+              };
+              this.dispatchEvent(new CustomEvent(events.preload, args));
+            });
+            const port = ev.ports[0];
+            p.catch(() => undefined).then((value) => port.postMessage(value));
+            return;
+          }
+
+          // Otherwise, just announce progress until done (including null).
           const args = {detail: ev.data};
           this.dispatchEvent(new CustomEvent(events.progress, args));
 
@@ -217,19 +236,24 @@ class SantaGameLoaderElement extends HTMLElement {
             console.warn('non-null from scene', this._href, 'data', ev.data);
           }
 
-          port.onmessage = (ev) => {
-            if (af !== this._activeFrame) {
-              port.close();  // TODO: store port and shutdown elsewhere?
-              return;  // TODO: discard
-            }
-            // TODO(samthor): Quick hack to showcase route changes.
-            if (ev.data.type === 'go') {
-              santaApp.route = ev.data.payload;
-            }
-
-            // TODO: do something
-            console.debug('got active message', ev.data);
+          port.onmessage = () => {
+            throw new Error('unimplemeted');
           };
+          // this.dispatchEvent(new CustomEvent(events.port, {detail: port}));
+
+          // port.onmessage = (ev) => {
+          //   if (af !== this._activeFrame) {
+          //     port.close();  // TODO: store port and shutdown elsewhere?
+          //     return;  // TODO: discard
+          //   }
+          //   // TODO(samthor): Quick hack to showcase route changes.
+          //   if (ev.data.type === 'go') {
+          //     santaApp.route = ev.data.payload;
+          //   }
+
+          //   // TODO: do something
+          //   console.debug('got active message', ev.data);
+          // };
           resolve();
         };
       });
@@ -242,6 +266,7 @@ class SantaGameLoaderElement extends HTMLElement {
       const ce = new CustomEvent(events.ready, {
         cancelable: true,
         detail: {
+          port,
           empty: !port,
           href: this._href,
           resolve,

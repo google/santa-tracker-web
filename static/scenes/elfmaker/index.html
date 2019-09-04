@@ -38,7 +38,6 @@
 <script type="module">
 
 import api from '../../src/scene/api.js';
-import {isV1Embed} from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
 import './elements/maker-control.js';
 import './elements/maker-elf.js';
@@ -115,24 +114,13 @@ photo.addEventListener('hide', (ev) => {
   download.removeAttribute('href');
 });
 
-if (isV1Embed) {
-  // in embed, make download act like share
-  download.addEventListener('click', (ev) => {
-    window.ga('send', 'event', 'game', 'download', 'elfmaker');
-    ev.preventDefault();
-    share.click();
+download.addEventListener('click', (ev) => {
+  window.ga('send', 'event', 'game', 'download', 'elfmaker');
+  window.setTimeout(() => {
+    // dismiss clears href, so delay it
     photo.dismiss();
-  });
-  share.hidden = true;
-} else {
-  download.addEventListener('click', (ev) => {
-    window.ga('send', 'event', 'game', 'download', 'elfmaker');
-    window.setTimeout(() => {
-      // dismiss clears href, so delay it
-      photo.dismiss();
-    }, 0);
-  });
-}
+  }, 0);
+});
 
 
 const defaultStep = {className: '', left: {target: 140, range: 5, rate: 1.25}, right: {target: 140, range: 5, rate: 1.5}};
