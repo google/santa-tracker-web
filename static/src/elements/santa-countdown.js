@@ -2,7 +2,7 @@ import {html, LitElement} from 'lit-element';
 import {countdownSplit} from '../lib/time.js';
 import styles from './santa-countdown.css';
 import {_msg} from '../magic.js';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import {ifDefined} from 'lit-html/directives/if-defined';
 
 
 function pad(x) {
@@ -88,13 +88,7 @@ export class SantaCountdownElement extends LitElement {
           return out;
         }
       }
-
       return ifDefined(undefined);
-      
-      if (value < 4 && isHuge) {
-        return 'hide';
-      }
-      return out > 4 ? 'hide' : out;
     };
 
     return html`
