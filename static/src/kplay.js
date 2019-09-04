@@ -36,6 +36,7 @@ export async function prepare() {
   // });
 
   const audio = {};
+  const preload = {};
 
   for (const key in config['audio']) {
     const def = config['audio'][key];
@@ -46,22 +47,42 @@ export async function prepare() {
 
     const {
       file_id: fileId,
-      retrig,
+      retrig,  // if true, can play many times (e.g. sound effect?)
       destination_name: dest,
       volume,
-      volume_start_range: volumeStartRange,
+      volume_start_range: volumeStartRange,  // random variance
       volume_end_range: volumeEndRange,
+      pitch_start_range: pitchStartRange,
+      pitch_end_range: pitchEndRange,
+      playback_rate: playbackRate,  // fixed rate to playback at
+      offset: offset,  // nb. literally used once
       loop,
       loop_start: loopStart,
       loop_end: loopEnd,
       metaData: metadata,
     } = def;
 
+    if (retrig && loop && !loopEnd) {
+      // ... this is probably an omission in the source data, since this would let you play this
+      // audio infinite times, without an end
+      // There's only three of these in the config.
+    }
+
+    // In rare occasions, the same audio definition can point to the same file (e.g., with a
+    // different playback rate).
     const file = rawFiles[fileId];
+    const loadGroup = file['load_group'];
+    let m = preload[loadGroup];
+    if (m === undefined) {
+      m = preload[loadGroup] = new Map();
+    }
+    m.set(key, file['url']);
 
-
-    console.info('got audio', key, 'maps to file', fileId);
+    audio[key] = {
+      fileId,
+    };
   }
+  console.debug('got', Object.keys(preload).length, 'preload groups');
 
   const masterBus = config['masterBus'];
   for (const bus in config['busses']) {
@@ -77,23 +98,55 @@ export async function prepare() {
   // just gives friendly names to processes (_maybe_ audio files?)
   const events = config['events'];
 
+  const nodes = {};
 
-  return (name) => {
-    const process = config['events'][name] || name;
-    const processDef = config['processes'][process];
-    if (def === undefined) {
-      console.warn('got bad name', name);
-      return false;
-    }
+  return {
+    async preload(group) {
+      console.warn('got preload', group, preload[group]);
 
-    const me = {};
-    processDef['vars'].forEach((key) => {
-      const audioDef = config['audio'];
+      preload[group].forEach((file, key) => {
+        // TODO: ogg vs mp3
+        const url = `${audioPath}/${file}.ogg`;
+        const audio = new Audio();
+        audio.src = url;
+        console.info('preloading', audio);
+        nodes[key] = audio;
+        // TODO: pull audio from Audio even if it's a file source
+      });
 
-      if (audioDef.type !== 'AudioSource') {
-        throw new Error('unhandled');
-      }
-    });
-  }
+    },
+    play(event) {
+      console.warn('got play', event);
+
+      // TODO: stuff
+    },
+  };
+
+
+  // return (name) => {
+  //   const process = config['events'][name] || name;
+  //   const processDef = config['processes'][process];
+  //   if (processDef === undefined) {
+  //     console.warn('got bad name', name);
+  //     return false;
+  //   }
+
+  //   const me = {};
+  //   processDef['vars'].forEach((key) => {
+  //     const audioDef = audio[key];
+  //     me[key] = {
+  //       play(when) {
+  //         const 
+  //       },
+  //     }
+
+  //     console.info('key', key);
+  //     const audioDef = config['audio'];
+
+  //     if (audioDef.type !== 'AudioSource') {
+  //       throw new Error('unhandled');
+  //     }
+  //   });
+  // }
 }
 

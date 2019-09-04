@@ -6,13 +6,23 @@
 
 import * as sc from './kplay.js';
 
-sc.prepare();
+const prep = sc.prepare();
+
+prep.then((controller) => {
+  return controller.preload('gumball');
+});
+
+document.getElementById('test').onclick = () => {
+  prep.then((controller) => {
+    controller.play('gb_ballfallout');
+  });
+};
 
   </script>
 </head>
 <body>
 
-
+  <button id="test">Play</button>
 
 </body>
 </html>
