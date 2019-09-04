@@ -5,6 +5,7 @@ import './elements/easteregg-balloon.js';
 import './elements/easteregg-reindeer.js';
 import './elements/easteregg-snowmobile.js';
 import './elements/easteregg-tictactoe.js';
+import '../../src/magic.js';
 
 
 const offset = {x: 0, y: 0};
@@ -59,26 +60,6 @@ scroll.addEventListener('pointermove', (ev) => {
 });
 
 window.addEventListener('resize', (ev) => updateOffset());
-
-import {Adapter} from '@polymer/broadway/lib/adapter';
-import {SANTA_TRACKER_CONTROLLER_URL} from '../../src/app/common.js';
-
-const countdown = document.getElementById('countdown');
-const adapter = new Adapter(SANTA_TRACKER_CONTROLLER_URL);
-
-const initialUpdatePromise = new Promise((resolve) => {
-  adapter.subscribe((state) => {
-    const {api} = state;
-    if (!api) {
-      return;
-    }
-    const now = api.now + (+new Date - api.at);
-    countdown.time = api.range.start - now;
-  });
-  resolve();
-});
-
-api.preload.wait(initialUpdatePromise);
 
 api.preload.images(
   'img/mountain.svg',

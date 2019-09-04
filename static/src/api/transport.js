@@ -1,21 +1,7 @@
 const MAX_RETRIES = 3;
 const TIMEOUT = 5000;
 
-
-/**
- * @param {?Object<string, (string|number)>} data
- * @return {string}
- */
-function buildQueryString(data) {
-  if (!data) {
-    return '';
-  }
-  const enc = self.encodeURIComponent;
-  const mapper = (key) => `${enc(key)}=${enc(data[key])}`;
-
-  const out = Object.keys(data).map(mapper).join('&');
-  return out ? `?${out}` : '';
-}
+import {build} from '../lib/params.js';
 
 
 /**
@@ -81,6 +67,6 @@ function xhrRequest(url, resolve, requestNo = 0) {
  * @return {!Promise<!Object<string, *>>}
  */
 export function request(url, data = null) {
-  const query = buildQueryString(data);
+  const query = build(data);
   return fetchJSON(url + query);
 }

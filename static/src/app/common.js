@@ -1,1 +1,0 @@
-export const SANTA_TRACKER_CONTROLLER_URL = _root`src/app/controller.bundle.js`;

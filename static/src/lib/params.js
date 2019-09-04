@@ -2,7 +2,7 @@
 /**
  * Reads search params from the given string.
  * 
- * @param {string} search 
+ * @param {string} search
  * @return {!Object<string, string>}
  */
 export function read(search) {
