@@ -12,14 +12,18 @@ const masterContext = new AudioContext();
 
 
 let activeController = null;
+let preloadGroupCallback = null;
 
 const Klang = {
   triggerEvent(name, ...args) {
-    if (!activeController) {
-      throw new Error('invalid use of Klang');
+    if (activeController) {
+      activeController.play(name, ...args);
     }
-    console.info('redirect fire', name, args);
-    activeController.play(name, ...args);
+  },
+  load(groups) {
+    if (preloadGroupCallback) {
+      groups.forEach((group) => preloadGroupCallback(group));
+    }
   },
 };
 window.Klang = Klang;
@@ -574,8 +578,9 @@ export async function prepare() {
   return {
     preload(...groups) {
       const promises = new Set();
+      const processes = [];
 
-      groups.forEach((group) => {
+      const work = (group) => {
         if (!(group in preload)) {
           return;  // bad group
         }
@@ -583,7 +588,23 @@ export async function prepare() {
           const p = loader.optionalPreload(key, file);
           p && promises.add(p);
         });
+      };
+
+      groups.forEach((group) => {
+        const key = config['events'][group];
+        const process = audioConfig[key];
+        if (process && process['type'] === 'SimpleProcess' && process['vars'].length == 0) {
+          processes.push(process['action']);
+        }
+        work();
       });
+
+      try {
+        preloadGroupCallback = work;
+        processes.forEach((f) => f(null, null, null, null, [], null));
+      } finally {
+        preloadGroupCallback = null;
+      }
 
       // TODO: callback or progress
 
