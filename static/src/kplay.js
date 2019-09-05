@@ -1,6 +1,7 @@
 
 import {_static} from './magic.js';
 import {AudioLoader} from './kplay-lib.js';
+import './polyfill/event-target.js';
 
 const configPath = _static`third_party/lib/klang/config.js`;
 const audioPath = _static`audio`;
@@ -107,8 +108,10 @@ const Util = {
 
 
 
-class SimpleProcess {
+class SimpleProcess extends EventTarget {
   constructor(config, nodes, globalVars) {
+    super();
+
     this._nodes = nodes;
     this._globalVars = globalVars;
     this._timeout = 0;
@@ -152,8 +155,11 @@ class SimpleProcess {
   }
 
   stop() {
-    window.clearTimeout(this._timeout);
-    this._timeout = 0;
+    if (this._timeout) {
+      window.clearTimeout(this._timeout);
+      this._timeout = 0;
+      this.dispatchEvent(new Event('ended'));
+    }
   }
 
   start(args) {
@@ -166,14 +172,22 @@ class SimpleProcess {
     const run = () => {
       this._fn(/** Core */ null, /** Model */ null, Util, this._nodes, args, this._globalVars);
 
-      if (delay && this._loop) {
-        this.start(args);  // start again if loop and a non-zero delay
+      if (this._timeout) {
+        this._timeout = 0;
+        if (this._loop) {
+          this.start(args);  // start again if loop and a non-zero delay
+        } else {
+          this.dispatchEvent(new Event('ended'));
+        }
+      }
+      if (this._timeout && this._loop) {
       }
     };
     if (delay > 0) {
-      console.info('delaying by', delay, 'seconds');
+      this.dispatchEvent(new Event('start'));
       this._timeout = window.setTimeout(run, delay * 1000);
     } else {
+      // Instant run dispatches no events. It's not started or ended.
       run();
     }
   }
@@ -216,7 +230,7 @@ class AudioBus {
 }
 
 
-class AudioGroup {
+class AudioGroup extends EventTarget {
   static get types() {
     return {
       CONCURRENT: 0,
@@ -227,6 +241,8 @@ class AudioGroup {
   }
 
   constructor(config, nodes) {
+    super();
+
     this._type = config['group_type'] || 2;
     this._active = null;
 
@@ -236,6 +252,14 @@ class AudioGroup {
 
     // _content is needed by config, incorrectly referenced vs 'content'
     this._content = config['content'].map((key) => nodes[key]);
+    this._activeContent = new Set();
+
+    this._onContentStarted = this._onContentStarted.bind(this);
+    this._onContentEnded = this._onContentEnded.bind(this);
+    this._content.forEach((c) => {
+      c.addEventListener('started', this._onContentStarted);
+      c.addEventListener('ended', this._onContentEnded);
+    });
 
     // SHUFFLE can be processed and converted to STEP.
     if (this._type === AudioGroup.types.SHUFFLE) {
@@ -244,8 +268,31 @@ class AudioGroup {
     }
   }
 
+  _onContentStarted(ev) {
+    if (this._activeContent.size === 0) {
+      this.dispatchEvent(new Event('started'));
+    }
+    this._activeContent.add(ev.target);
+  }
+
+  _onContentEnded(ev) {
+    const deleted = this._activeContent.delete(ev.target);
+    if (deleted && this._activeContent.size === 0) {
+      this.dispatchEvent(new Event('ended'));
+    }
+  }
+
   get content() {
     return this._content;
+  }
+
+  get active() {
+    if (this._active) {
+      return [this._active];
+    } else if (!this._type && this._content[0] && this._content[0].playing) {
+      return this._content.slice();
+    }
+    return [];
   }
 
   get playing() {
@@ -312,8 +359,10 @@ class AudioGroup {
 }
 
 
-class AudioSource {
+class AudioSource extends EventTarget {
   constructor(config, buffer) {
+    super();
+
     this._buffer = buffer;
     this._startTime = 0;  // startTime of last triggered sound
 
@@ -390,6 +439,9 @@ class AudioSource {
     const index = this._sources.lastIndexOf(source);
     if (index !== -1) {
       this._sources.splice(index, 1);
+      if (this._sources.length === 0) {
+        this.dispatchEvent(new Event('ended'));
+      }
     }
   }
 
@@ -402,15 +454,18 @@ class AudioSource {
   }
 
   _internalPlay(when) {
-    console.debug('internalPlay for', this._config, this._buffer);
-
     const lastSource = this._sources[0] || null;
     const anyPlaying = Boolean(lastSource);
 
     if (anyPlaying && (!this._retrig || this._loop)) {
       return false;  // nothing to do: was already playing
+    } else if (!this._loop && !this._buffer) {
+      return false;  // if there's no buffer, don't "play" once-off sounds
     }
 
+    if (!anyPlaying) {
+      this.dispatchEvent(new Event('started'));
+    }
     const source = this._createSource();
     source.start(when);
     this._startTime = Math.max(this._startTime, when);
@@ -433,6 +488,11 @@ class AudioSource {
   }
 
   set buffer(buffer) {
+    if (buffer === this._buffer) {
+      return;
+    }
+
+    this._startTime = masterContext.currentTime;  // reset as playing will reset
     this._buffer = buffer;
 
     this._sources.forEach((source) => {
@@ -452,7 +512,7 @@ class AudioSource {
   }
 
   get playing() {
-    // nb. This is less good than the previous version.
+    // nb.This is less good than the previous version.
     return Boolean(this._sources.length);
   }
 
@@ -495,6 +555,7 @@ class AudioSource {
       return false;
     }
     sourceToStop.stop();
+    this.dispatchEvent(new Event('ended'));
     // nb. 'when' wasn't used in the upstream code, and added tons of complexity.
   }
 
@@ -590,29 +651,63 @@ export async function prepare() {
     }
   };
   const loader = new AudioLoader(masterContext, audioPath, callback);
+  const activeNodes = new Set();
 
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
+    let node;
 
     switch (config['type']) {
       case 'AudioSource':
-        return new AudioSource(config, loader.get(key), destination);
+        node = new AudioSource(config, loader.get(key), destination);
+        break;
 
       case 'AudioGroup':
-        return new AudioGroup(config, nodes);
+        node = new AudioGroup(config, nodes);
+        break;
 
       case 'AdvancedProcess':
       case 'SimpleProcess':
-        return new SimpleProcess(config, nodes, globalVars);
+        node = new SimpleProcess(config, nodes, globalVars);
+        break;
 
       case 'Bus':
-        return new AudioBus(config, destination);
+        node = new AudioBus(config, destination);
+        break;
+
+      default:
+        throw new Error('unsupported: ' + config['type']);
     }
 
-    throw new Error('unsupported: ' + config['type']);
+    if (node instanceof EventTarget) {
+      node.addEventListener('started', (ev) => activeNodes.add(node));
+      node.addEventListener('ended', (ev) => activeNodes.delete(node));
+    }
+
+    return node;
   };
 
   return {
+    transitionTo(events, delay=0.5) {
+      // TODO: log what gets kicked off in events, stop all others
+
+      const work = new Set(activeNodes);
+
+      activeNodes.forEach((node) => {
+        if (node instanceof AudioGroup) {
+          node.active.forEach((sub) => work.delete(sub));
+        }
+      });
+
+      work.forEach((activeNode) => {
+        activeNode.fadeOutAndStop(delay);
+      });
+    },
+
+    active() {
+      return Array.from(activeNodes);
+    },
+
     preload(...groups) {
       const promises = new Set();
       const processes = [];
@@ -633,7 +728,7 @@ export async function prepare() {
         if (process && process['type'] === 'SimpleProcess' && process['vars'].length == 0) {
           processes.push(process['action']);
         }
-        work();
+        work(group);
       });
 
       try {
@@ -647,6 +742,7 @@ export async function prepare() {
 
       return Promise.all(Array.from(promises)).then(() => null);
     },
+
     play(event, ...args) {
       const process = config['events'][event] || event;  // get internal name from friendly
 
