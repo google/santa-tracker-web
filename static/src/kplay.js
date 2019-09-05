@@ -215,24 +215,33 @@ class AudioBus {
   }
 }
 
-/*
-CONCURRENT: 0,
-STEP: 1,
-RANDOM: 2,
-SHUFFLE: 3,
-BACKWARDS: 4,  // disused
-*/
 
 class AudioGroup {
+  static get types() {
+    return {
+      CONCURRENT: 0,
+      STEP: 1,
+      RANDOM: 2,
+      SHUFFLE: 3,
+    };
+  }
+
   constructor(config, nodes) {
     this._type = config['group_type'] || 2;
+    this._active = null;
 
     if (config['retrig']) {
-      throw new Error('retrig group?!');
+      throw new TypeError(`unsupported retrig AudioGroup`);
     }
 
     // _content is needed by config, incorrectly referenced vs 'content'
     this._content = config['content'].map((key) => nodes[key]);
+
+    // SHUFFLE can be processed and converted to STEP.
+    if (this._type === AudioGroup.types.SHUFFLE) {
+      this._content.sort(() => Math.random() - 0.5);
+      this._type = AudioGroup.types.STEP;
+    }
   }
 
   get content() {
@@ -240,7 +249,9 @@ class AudioGroup {
   }
 
   get playing() {
-    return this._content[0].playing;
+    // Check either the active node (for serial) or the first (for concurrent).
+    const check = this._active || this._content[0] || null;
+    return check ? check.playing : false;
   }
 
   set playbackRate(rate) {
@@ -257,20 +268,46 @@ class AudioGroup {
     this._content.forEach((content) => content.curvePlaybackRate(rate, duration, when));
   }
 
+  /**
+   * @param {function(AudioNode): void} callback
+   * @param {boolean} playLike whether this is a playing action and should advance
+   */
+  _each(callback, playLike=false) {
+    if (playLike && this.playing) {
+      return false;  // do nothing if still playing
+    }
+
+    if (this._type) {
+      if (playLike) {
+        // optionally advance the played audio
+        let index;
+        if (this._type == AudioGroup.types.RANDOM) {
+          index = ~~(Math.random() * this._content.length);
+        } else {
+          index = (this._content.indexOf(active) + 1) % this._content.length;
+        }
+        this._active = this._content[index] || null;
+      }
+      this._active && callback(this._active);
+    } else {
+      this._content.forEach(callback);
+    }
+  }
+
   play(when) {
-    this._content[0].play(when);
+    this._each((c) => c.play(when), true);
   }
 
   stop() {
-    this._content[0].stop();
+    this._each((c) => c.stop(), false);
   }
 
   fadeInAndPlay(duration, when) {
-    this._content[0].fadeInAndPlay(duration, when);
+    this._each((c) => c.fadeInAndPlay(duration, when), true);
   }
 
   fadeOutAndStop(duration, when) {
-    this._content[0].fadeOutAndStop(duration, when);
+    this._each((c) => c.fadeOutAndStop(duration, when), false);
   }
 }
 
