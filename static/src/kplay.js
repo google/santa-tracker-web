@@ -527,7 +527,6 @@ class AudioSource extends EventTarget {
           return prev;
         }
         const v = low + Math.random() * (high - low);
-        console.debug('pitch-shifting', v);
         shifts.set(source, v);
         return v;
       };
@@ -827,23 +826,30 @@ export async function prepare() {
     }
     m.set(key, file['url']);
   }
-  console.debug('got', Object.keys(preload).length, 'preload groups');
 
   Object.assign(audioConfig, config['busses'], config['sequencers'], config['processes']);
 
   const nodes = {};
-  const callback = (key, buffer) => {
+
+  const loaderCallback = (key, buffer) => {
     const existing = nodes[key];
     if (existing) {
       existing.buffer = buffer;
     }
   };
-  const loader = new AudioLoader(masterContext, audioPath, callback);
+  const loader = new AudioLoader(masterContext, audioPath, loaderCallback);
+
   const busNodes = new Set();
   const activeNodes = new Set();
   const dirtyNodes = new Set();
   let triggerNodes = null;
 
+  /**
+   * Build a K-node in the audio graph.
+   *
+   * @param {string} key
+   * @param {!Object<string, *>} config
+   */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
     let node;
@@ -882,21 +888,22 @@ export async function prepare() {
     return node;
   };
 
+  /**
+   * Ensures that the requested key has its and all required K-nodes in the audio graph.
+   *
+   * @param {string} key
+   * @return {!Object}
+   */
   const prepareKey = (key) => {
     if (key in nodes) {
-      return;  // nothing to do
+      return nodes[key];  // nothing to do
     }
 
     const pendingVars = new Set();
-    const work = new Set();
+    const work = new Set([key]);
 
     pendingVars.add(key);
     pendingVars.forEach((key) => {
-      if (key in nodes) {
-        return;  // already parsed
-      }
-      work.add(key);
-
       const c = audioConfig[key];
       if (c === undefined) {
         throw new Error(`invalid key: ${key}`);
@@ -909,7 +916,8 @@ export async function prepare() {
       ).filter((x) => !(x === '$OUT' || x in nodes));
 
       rest.forEach((dep) => {
-        // Make sure each dependency is _after_ the last time it was used.
+        // Make sure each dependency is _after_ the last time it was required, and move to the end
+        // of the work Set.
         work.delete(dep);
         work.add(dep);
         pendingVars.add(dep);
@@ -924,6 +932,8 @@ export async function prepare() {
         busNodes.add(node);
       }
     });
+
+    return nodes[key];
   };
 
   return {
@@ -990,13 +1000,11 @@ export async function prepare() {
 
     play(event, ...args) {
       const entrypoint = config['events'][event] || event;  // get internal name from friendly
-      prepareKey(entrypoint);
+      const e = prepareKey(entrypoint);
 
-      const e = nodes[entrypoint];
       if (e instanceof AudioSource) {
         return e.play();
       } else if (!(e instanceof SimpleProcess)) {
-        console.warn('got entrypoint', entrypoint, e);
         throw new Error('can only run SimpleProcess');
       }
 
