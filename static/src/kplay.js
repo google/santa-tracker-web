@@ -49,14 +49,17 @@ const Util = {
    * @param {number} duration
    * @param {number} when
    */
-  curveParamLin(p, value, duration, when, startAt) {
-    if (startAt) {
-      throw new Error('unhandled startAt: ' + startAt);
-    }
-    when = when || masterContext.currentTime;
+  curveParamLin(p, value, duration, when, startAt = p.value) {
+    const now = masterContext.currentTime;
+    when = when || now;
+
     p.cancelScheduledValues(0);
-    p.setValueAtTime(p.value, when);
-    p.linearRampToValueAtTime(value, when + duration);
+    if (when + duration <= now) {
+      p.value = value;
+    } else {
+      p.setValueAtTime(startAt, when);
+      p.linearRampToValueAtTime(value, when + duration);
+    }
   },
 
   /**
@@ -65,11 +68,17 @@ const Util = {
    * @param {number} duration
    * @param {number} when
    */
-  curveParamExp(p, value, duration, when) {
-    when = when || masterContext.currentTime;
+  curveParamExp(p, value, duration, when, startAt = p.value) {
+    const now = masterContext.currentTime;
+    when = when || now;
+
     p.cancelScheduledValues(0);
-    p.setValueAtTime(p.value, when);
-    p.exponentialRampToValueAtTime(value, when + duration);
+    if (when + duration <= now) {
+      p.value = value;
+    } else {
+      p.setValueAtTime(startAt, when);
+      p.exponentialRampToValueAtTime(value, when + duration);
+    }
   },
 
   transition(fromCandidates, to, bpm, sync, fadeOutTime, fadeInTime, useOffset, fadeOutImmediately, setOffset) {
@@ -232,10 +241,9 @@ class EffectBiquadFilter {
     this._filter.gain.value = this._originalGain;
   }
 
-  reset() {
+  reset(duration=0.0) {
     // nb. Q and gain aren't modified by anyone
-    this._filter.frequency.cancelScheduledValues(0);
-    this._filter.frequency.value = this._originalFrequency;
+    Util.curveParamLin(this._filter.frequency, this._originalFrequency, duration);
   }
 
   get node() {
@@ -261,9 +269,8 @@ class EffectSteroPanner {
     this.linPanTo = Util.curveParamLin.bind(null, this._panner.pan);
   }
 
-  reset() {
-    this._panner.pan.cancelScheduledValues(0);
-    this._panner.pan.value = this._originalPan;
+  reset(duration=0.0) {
+    this.linPanTo(this._originalPan, duration);
   }
 
   get node() {
@@ -321,12 +328,10 @@ class AudioBus {
   /**
    * Reset this AudioBus.
    */
-  reset() {
-    this._input.cancelScheduledValues(0);
-    this._input.gain.value = this._originalInputVolume;
-    this._output.cancelScheduledValues(0);
-    this._output.gain.value = this._originalOutputVolume;
-    this.effects.forEach((effect) => effect.reset());
+  reset(duration=0.0) {
+    Util.curveParamLin(this._input.gain, this._originalInputVolume, duration);
+    Util.curveParamLin(this._output.gain, this._originalOutputVolume, duration);
+    this.effects.forEach((effect) => effect.reset(duration));
   }
 
   get effects() {
@@ -635,7 +640,7 @@ class AudioSource extends EventTarget {
     return true;
   }
 
-  _internalSetPlaybackRate(playbackRate) {
+  _internalSetPlaybackRate(rate) {
     if (rate === this._playbackRate) {
       return false;
     } else if (rate !== this._originalPlaybackRate) {
@@ -693,7 +698,8 @@ class AudioSource extends EventTarget {
   set playbackRate(rate) {
     if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
       // only adjust on looping sounds, leave playing instant alone
-      const p = this._sources[0].playbackRate;
+      const source = this._sources[0];
+      const p = source.playbackRate;
       p.cancelScheduledValues(0);
       p.value = rate * this._shiftSource(source);
     }
@@ -706,10 +712,8 @@ class AudioSource extends EventTarget {
   curvePlaybackRate(rate, duration, when = masterContext.currentTime) {
     if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
       // only adjust on looping sounds, leave playing instant alone
-      const p = source.playbackRate;
-      p.cancelScheduledValues(when);
-      p.setValueAtTime(node.value, when);
-      p.exponentialRampToValueAtTime(rate * this._shiftSource(source), when + duration);
+      const source = this._sources[0];
+      Util.curveParamExp(source.playbackRate, rate * this._shiftSource(source), duration, when);
     }
   }
 
@@ -752,10 +756,7 @@ class AudioSource extends EventTarget {
       this._fadeOutTime = 0.0;
     }
 
-    g.cancelScheduledValues(0);
-    g.setValueAtTime(fadeFrom, when);
-    g.linearRampToValueAtTime(this._volume, when + duration);
-
+    Util.curveParamLin(g, this._volume, duration, when, fadeFrom);
     return this._internalPlay(when);
   }
 
@@ -771,10 +772,7 @@ class AudioSource extends EventTarget {
       return true;  // do nothing, already fading before request
     }
 
-    const g = this._output.gain;
-    g.cancelScheduledValues(0);
-    g.setValueAtTime(g.value, when);
-    g.linearRampToValueAtTime(0, when + duration);
+    Util.curveParamLin(this._output.gain, 0, duration, when);
 
     const after = (when + duration - now) * 1000;
     this._fadeOutTimeout = window.setTimeout(() => this.stop(), after);
@@ -783,6 +781,10 @@ class AudioSource extends EventTarget {
 
   get stopping() {
     return Boolean(this._fadeOutTimeout);
+  }
+
+  reset(duration=0.0) {
+    this.curvePlaybackRate(this._originalPlaybackRate, duration);
   }
 }
 
@@ -937,23 +939,25 @@ export async function prepare() {
   };
 
   return {
-    transitionTo(events, delay=0.5) {
+    transitionTo(events, duration=0.5) {
       // This records all played nodes caused as result of this event trigger.
       triggerNodes = new Set();
       events.forEach((event) => this.play(event));
 
       activeNodes.forEach((node) => {
         if (!node.stopping && !triggerNodes.has(node)) {
-          node.fadeOutAndStop(delay);
+          node.fadeOutAndStop(duration);
         }
       });
 
       triggerNodes = null;
     },
 
-    reset() {
-      dirtyNodes.forEach((node) => node.reset());
-      busNodes.forEach((node) => node.reset());  // not storing these but there's only O(1)
+    reset(duration=0.5) {
+      // If we pass a duration, dirtyNodes is actually cleared before these nodes are made entirely
+      // clean again, but there's an implicit promise that they will resolve.
+      dirtyNodes.forEach((node) => node.reset(duration));
+      busNodes.forEach((node) => node.reset(duration));  // not storing these but there's only O(1)
       dirtyNodes.clear();
     },
 
