@@ -193,7 +193,6 @@ class SimpleProcess extends EventTarget {
     }
 
     const delay = this.delay();
-    console.debug('delaying', delay);
     const run = () => {
       this._fn(/** Core */ null, /** Model */ null, Util, this._nodes, args, this._globalVars);
 
@@ -202,14 +201,13 @@ class SimpleProcess extends EventTarget {
         if (this._loop) {
           this.start(args);  // start again if loop and a non-zero delay
         } else {
+          // only 'started' if there was a timeout
           this.dispatchEvent(new Event('ended'));
         }
       }
-      if (this._timeout && this._loop) {
-      }
     };
     if (delay > 0) {
-      this.dispatchEvent(new Event('start'));
+      this.dispatchEvent(new Event('started'));
       this._timeout = window.setTimeout(run, delay * 1000);
     } else {
       // Instant run dispatches no events. It's not started or ended.
@@ -602,6 +600,16 @@ class AudioSource extends EventTarget {
     return true;
   }
 
+  _internalSetPlaybackRate(playbackRate) {
+    if (rate === this._playbackRate) {
+      return false;
+    } else if (rate !== this._originalPlaybackRate) {
+      this.dispatchEvent(new Event('dirty'));
+    }
+    this._playbackRate = rate;  // set for future sources
+    return true;
+  }
+
   get position() {
     const source = this._sources[0] || null;
     if (source === null || !this._buffer) {
@@ -647,13 +655,12 @@ class AudioSource extends EventTarget {
   }
 
   set playbackRate(rate) {
-    this._playbackRate = rate;  // set for future sources
-
-    this._sources.forEach((source) => {
-      const node = source.playbackRate;
-      node.cancelScheduledValues(0);
-      node.value = rate * this._shiftSource(source);
-    });
+    if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
+      // only adjust on looping sounds, leave playing instant alone
+      const p = this._sources[0].playbackRate;
+      p.cancelScheduledValues(0);
+      p.value = rate * this._shiftSource(source);
+    }
   }
 
   get playbackRate() {
@@ -661,14 +668,13 @@ class AudioSource extends EventTarget {
   }
 
   curvePlaybackRate(rate, duration, when = masterContext.currentTime) {
-    this._playbackRate = rate;  // set for future sources
-
-    this._sources.forEach((source) => {
-      const node = source.playbackRate;
-      node.cancelScheduledValues(when);
-      node.setValueAtTime(node.value, when);
-      node.exponentialRampToValueAtTime(rate * this._shiftSource(source), when + duration);
-    });
+    if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
+      // only adjust on looping sounds, leave playing instant alone
+      const p = source.playbackRate;
+      p.cancelScheduledValues(when);
+      p.setValueAtTime(node.value, when);
+      p.exponentialRampToValueAtTime(rate * this._shiftSource(source), when + duration);
+    }
   }
 
   play(when) {
@@ -782,6 +788,7 @@ export async function prepare() {
   };
   const loader = new AudioLoader(masterContext, audioPath, callback);
   const activeNodes = new Set();
+  const dirtyNodes = new Set();
 
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
@@ -790,6 +797,7 @@ export async function prepare() {
     switch (config['type']) {
       case 'AudioSource':
         node = new AudioSource(config, loader.get(key), destination);
+        node.addEventListener('dirty', (ev) => dirtyNodes.add(node));
         break;
 
       case 'AudioGroup':
