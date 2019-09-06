@@ -188,12 +188,21 @@ let soundcontroller = null;
 
 kplayReady.then((sc) => {
   soundcontroller = sc;
-  document.body.addEventListener('click', () => sc.resume(), {once: true});
+  if (sc.suspended) {
+    console.warn('Web Audio API is suspended, requires user interaction to start');
+    document.body.addEventListener('click', () => sc.resume(), {once: true});
+  }
 });
 
 
 loader.addEventListener(gameloader.events.ready, (ev) => {
   const {resolve, href, empty, port} = ev.detail;
+
+  let configResolve;
+  const configPromise = new Promise((resolve) => {
+    configResolve = resolve;
+  });
+
   ev.preventDefault();
 
   if (port) {
@@ -207,27 +216,17 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
 
       const {type, payload} = ev.data;
       switch (type) {
+        case 'ready':
+          configResolve(payload);
+          break;
+
         case 'go':
           santaApp.route = payload;
           break;
 
-        case 'klang':
-          const request = payload.shift();
-          switch (request) {
-            case 'ambient':
-              console.info('transition');
-              soundcontroller.transitionTo(payload[0]);
-              break;
-
-            case 'fire':
-            case 'play':
-              soundcontroller.play(...payload);
-              break;
-
-            default:
-              console.warn('unhandled klang', request, payload);
-          }
-
+        case 'play':
+          console.info('play', payload);
+          soundcontroller.play(...payload);
           break;
 
         default:
@@ -250,6 +249,13 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
     if (!locked) {
       error.error = empty && Boolean(href);
       error.lock = false;
+
+      if (!empty) {
+        // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
+        const config = await configPromise;
+        soundcontroller.transitionTo(config.sound || [], 1.0);
+      }
+
       return;
     }
 

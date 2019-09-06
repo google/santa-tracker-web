@@ -144,6 +144,8 @@ class SantaGameLoaderElement extends HTMLElement {
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
       this._activeFrame.remove();
     } else {
+      // TODO: this frame will never recover. Inform it of its demise so it can do cleanup work
+      // (Analytics?) and we can kill its active sounds (....).
       this._previousFrame = this._activeFrame;
       this._previousFrame.setAttribute('tabindex', -1);  // prevent tab during clear
       window.focus();  // move focus from previousFrame
@@ -240,21 +242,6 @@ class SantaGameLoaderElement extends HTMLElement {
           port.onmessage = () => {
             throw new Error('unimplemeted');
           };
-          // this.dispatchEvent(new CustomEvent(events.port, {detail: port}));
-
-          // port.onmessage = (ev) => {
-          //   if (af !== this._activeFrame) {
-          //     port.close();  // TODO: store port and shutdown elsewhere?
-          //     return;  // TODO: discard
-          //   }
-          //   // TODO(samthor): Quick hack to showcase route changes.
-          //   if (ev.data.type === 'go') {
-          //     santaApp.route = ev.data.payload;
-          //   }
-
-          //   // TODO: do something
-          //   console.debug('got active message', ev.data);
-          // };
           resolve();
         };
       });
