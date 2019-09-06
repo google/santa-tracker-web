@@ -102,6 +102,7 @@ const Util = {
     }
 
     if (from === to && !from.stopping) {
+      from.dispatchEvent(new Event('trigger'));  // mark for transitionTo
       return now;
     }
     if (!from) {
@@ -407,6 +408,11 @@ class AudioGroup extends EventTarget {
     return check ? check.playing : false;
   }
 
+  get stopping() {
+    const check = this._active || this._content[0] || null;
+    return check ? check.stopping : false;
+  }
+
   set playbackRate(rate) {
     this._content.forEach((content) => content.playbackRate = rate);
   }
@@ -469,6 +475,8 @@ class AudioGroup extends EventTarget {
 
   play(when) {
     this._each((c) => c.play(when), true);
+    this.active().forEach((c) => this.dispatchEvent(new Event('trigger')));
+    this.dispatchEvent(new Event('trigger'));
   }
 
   stop() {
@@ -477,6 +485,8 @@ class AudioGroup extends EventTarget {
 
   fadeInAndPlay(duration, when) {
     this._each((c) => c.fadeInAndPlay(duration, when), true);
+    this.active().forEach((c) => this.dispatchEvent(new Event('trigger')));
+    this.dispatchEvent(new Event('trigger'));
   }
 
   fadeOutAndStop(duration, when) {
@@ -498,6 +508,7 @@ class AudioSource extends EventTarget {
 
     // Any currently pending fade callback.
     this._fadeOutTimeout = 0;
+    this._fadeOutTime = 0.0;
 
     // If this is a retrig node, we could be playing it multiple times.
     this._sources = [];
@@ -601,6 +612,7 @@ class AudioSource extends EventTarget {
     g.setValueAtTime(this._volume, 0);
     window.clearTimeout(this._fadeOutTimeout);
     this._fadeOutTimeout = 0;
+    this._fadeOutTime = 0.0;
   }
 
   _internalPlay(when) {
@@ -608,11 +620,13 @@ class AudioSource extends EventTarget {
     const anyPlaying = Boolean(lastSource);
 
     if (anyPlaying && (!this._retrig || this._loop)) {
+      this.dispatchEvent(new Event('trigger'));
       return false;  // nothing to do: was already playing
     } else if (!this._loop && !this._buffer) {
       return false;  // if there's no buffer, don't "play" once-off sounds
     }
 
+    this.dispatchEvent(new Event('trigger'));
     if (!anyPlaying) {
       this.dispatchEvent(new Event('started'));
     }
@@ -736,6 +750,7 @@ class AudioSource extends EventTarget {
       fadeFrom = g.value;  // resume from where we were
       window.clearTimeout(this._fadeOutTimeout);
       this._fadeOutTimeout = 0;
+      this._fadeOutTime = 0.0;
     }
 
     g.cancelScheduledValues(0);
@@ -749,6 +764,14 @@ class AudioSource extends EventTarget {
     const now = masterContext.currentTime;
     when = when || now;
 
+    if (when <= now && duration <= 0.0) {
+      return this.stop();  // implicitly clears fade
+    }
+
+    if (this._fadeOutTime && this._fadeOutTime < when) {
+      return true;  // do nothing, already fading before request
+    }
+
     const g = this._output.gain;
     g.cancelScheduledValues(0);
     g.setValueAtTime(g.value, when);
@@ -756,6 +779,7 @@ class AudioSource extends EventTarget {
 
     const after = (when + duration - now) * 1000;
     this._fadeOutTimeout = window.setTimeout(() => this.stop(), after);
+    this._fadeOutTime = when;
   }
 
   get stopping() {
@@ -815,8 +839,10 @@ export async function prepare() {
     }
   };
   const loader = new AudioLoader(masterContext, audioPath, callback);
+  const busNodes = new Set();
   const activeNodes = new Set();
   const dirtyNodes = new Set();
+  let triggerNodes = null;
 
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
@@ -848,26 +874,77 @@ export async function prepare() {
     if (node instanceof EventTarget) {
       node.addEventListener('started', (ev) => activeNodes.add(node));
       node.addEventListener('ended', (ev) => activeNodes.delete(node));
+      node.addEventListener('trigger', (ev) => {
+        triggerNodes && triggerNodes.add(node);
+      });
     }
 
     return node;
   };
 
+  const prepareKey = (key) => {
+    if (key in nodes) {
+      return;  // nothing to do
+    }
+
+    const pendingVars = new Set();
+    const work = new Set();
+
+    pendingVars.add(key);
+    pendingVars.forEach((key) => {
+      if (key in nodes) {
+        return;  // already parsed
+      }
+      work.add(key);
+
+      const c = audioConfig[key];
+      if (c === undefined) {
+        throw new Error(`invalid key: ${key}`);
+      }
+
+      const rest = [].concat(
+          c['vars'] || [],
+          c['content'] || [],
+          c['destination_name'] || [],
+      ).filter((x) => !(x === '$OUT' || x in nodes));
+
+      rest.forEach((dep) => {
+        // Make sure each dependency is _after_ the last time it was used.
+        work.delete(dep);
+        work.add(dep);
+        pendingVars.add(dep);
+      });
+    });
+
+    Array.from(work).reverse().forEach((key) => {
+      const c = audioConfig[key];
+      const node = prepareKNode(key, c, nodes);
+      nodes[key] = node;
+      if (node instanceof AudioBus) {
+        busNodes.add(node);
+      }
+    });
+  };
+
   return {
     transitionTo(events, delay=0.5) {
-      // TODO: log what gets kicked off in events, stop all others
-
-      const work = new Set(activeNodes);
+      // This records all played nodes caused as result of this event trigger.
+      triggerNodes = new Set();
+      events.forEach((event) => this.play(event));
 
       activeNodes.forEach((node) => {
-        if (node instanceof AudioGroup) {
-          node.active.forEach((sub) => work.delete(sub));
+        if (!node.stopping && !triggerNodes.has(node)) {
+          node.fadeOutAndStop(delay);
         }
       });
 
-      work.forEach((activeNode) => {
-        activeNode.fadeOutAndStop(delay);
-      });
+      triggerNodes = null;
+    },
+
+    reset() {
+      dirtyNodes.forEach((node) => node.reset());
+      busNodes.forEach((node) => node.reset());  // not storing these but there's only O(1)
+      dirtyNodes.clear();
     },
 
     active() {
@@ -912,46 +989,20 @@ export async function prepare() {
     },
 
     play(event, ...args) {
-      const process = config['events'][event] || event;  // get internal name from friendly
+      const entrypoint = config['events'][event] || event;  // get internal name from friendly
+      prepareKey(entrypoint);
 
-      const initialize = [];
-      const pendingVars = new Set();
-
-      pendingVars.add(process);
-      pendingVars.forEach((key) => {
-        if (key in nodes || key === '$OUT') {
-          return;  // already parsed
-        }
-
-        const c = audioConfig[key];
-        if (c === undefined) {
-          throw new Error(`invalid key: ${key}`);
-        }
-        initialize.push({key, config: c});
-
-        const rest = [].concat(
-            c['vars'] || [],
-            c['destination_name'] || [],
-            c['content'] || [],
-        );
-        rest.forEach((dep) => pendingVars.add(dep));
-      });
-
-      initialize.reverse();
-      initialize.forEach(({key, config: c}) => {
-        nodes[key] = prepareKNode(key, c, nodes);
-      });
-
-      const entrypoint = nodes[process];
-      if (entrypoint instanceof AudioSource) {
-        return entrypoint.play();
-      } else if (!(entrypoint instanceof SimpleProcess)) {
+      const e = nodes[entrypoint];
+      if (e instanceof AudioSource) {
+        return e.play();
+      } else if (!(e instanceof SimpleProcess)) {
+        console.warn('got entrypoint', entrypoint, e);
         throw new Error('can only run SimpleProcess');
       }
 
       try {
         activeController = this;
-        entrypoint.start(args);
+        e.start(args);
       } finally {
         activeController = null;
       }

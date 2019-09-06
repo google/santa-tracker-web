@@ -9,8 +9,8 @@ import * as sc from './kplay.js';
 const prep = sc.prepare();
 
 prep.then((controller) => {
-  window._controller = controller;
-  return controller.preload('gumball');
+  window._controller = window._c = controller;
+  return controller.preload('village', 'lounge', 'music', 'jetpack')
 });
 
 document.getElementById('test').onclick = () => {
