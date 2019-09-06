@@ -49,7 +49,8 @@ const Util = {
    * @param {number} duration
    * @param {number} when
    */
-  curveParamLin(p, value, duration, when, startAt = p.value) {
+  curveParamLin(p, value, duration, when, startAt) {
+    // nb. startAt is totally ignored: we use the previous state only.
     const now = masterContext.currentTime;
     when = when || now;
 
@@ -57,7 +58,7 @@ const Util = {
     if (when + duration <= now) {
       p.value = value;
     } else {
-      p.setValueAtTime(startAt, when);
+      p.setValueAtTime(p.value, when);
       p.linearRampToValueAtTime(value, when + duration);
     }
   },
@@ -68,7 +69,8 @@ const Util = {
    * @param {number} duration
    * @param {number} when
    */
-  curveParamExp(p, value, duration, when, startAt = p.value) {
+  curveParamExp(p, value, duration, when, startAt) {
+    // nb. startAt is totally ignored: we use the previous state only.
     const now = masterContext.currentTime;
     when = when || now;
 
@@ -76,7 +78,7 @@ const Util = {
     if (when + duration <= now) {
       p.value = value;
     } else {
-      p.setValueAtTime(startAt, when);
+      p.setValueAtTime(p.value, when);
       p.exponentialRampToValueAtTime(value, when + duration);
     }
   },
@@ -475,13 +477,19 @@ class AudioGroup extends EventTarget {
       this._active = c[index] || null;
     }
 
-    this._active && callback(this._active);
+    if (this._active) {
+      callback(this._active);
+      return true;
+    }
+    return false;
   }
 
   play(when) {
-    this._each((c) => c.play(when), true);
-    this.active().forEach((c) => this.dispatchEvent(new Event('trigger')));
     this.dispatchEvent(new Event('trigger'));
+    const played = this._each((c) => c.play(when), true);
+    if (!played) {
+      this.active().forEach((c) => c.dispatchEvent(new Event('trigger')));
+    }
   }
 
   stop() {
@@ -489,9 +497,11 @@ class AudioGroup extends EventTarget {
   }
 
   fadeInAndPlay(duration, when) {
-    this._each((c) => c.fadeInAndPlay(duration, when), true);
-    this.active().forEach((c) => this.dispatchEvent(new Event('trigger')));
     this.dispatchEvent(new Event('trigger'));
+    const played = this._each((c) => c.fadeInAndPlay(duration, when), true);
+    if (!played) {
+      this.active().forEach((c) => c.dispatchEvent(new Event('trigger')));
+    }
   }
 
   fadeOutAndStop(duration, when) {
@@ -747,16 +757,16 @@ class AudioSource extends EventTarget {
     const g = this._output.gain;
 
     // Cancel any fadeOut and resume from where we were (or zero).
-    let fadeFrom = 0;
     const wasFading = (this._fadeOutTimeout !== 0);
     if (wasFading) {
-      fadeFrom = g.value;  // resume from where we were
       window.clearTimeout(this._fadeOutTimeout);
       this._fadeOutTimeout = 0;
       this._fadeOutTime = 0.0;
+    } else {
+      g.value = 0.0;  // fade from zero, unclear on node state
     }
 
-    Util.curveParamLin(g, this._volume, duration, when, fadeFrom);
+    Util.curveParamLin(g, this._volume, duration, when);
     return this._internalPlay(when);
   }
 
