@@ -72,10 +72,10 @@ api.preload.sounds('village_load_sounds');
 
 api.config({
   scroll: true,
+  sound: ['music_start_village', 'village_start'],
 });
 
 api.ready(async () => {
-  api.fire('music_start_village');
-  api.ambient('village_start', 'village_end');
+  // do nothing now?
 });
 
