@@ -74,13 +74,13 @@ class PreloadApi {
       const toResolve = [];
 
       const progressMessage = (ev) => {
-        if (ev.data === null) {
-          // sanity failure case
-          toResolve.forEach((r) => r());
-        } else {
-          // we technically get {done, total} here, but whatever
-          const next = toResolve.pop();
-          next && next();
+        let left = 0;
+        if (ev.data) {
+          const {done, total} = ev.data;
+          left = total - done;
+        }
+        while (toResolve.length > left) {
+          toResolve.pop()();
         }
       };
 
@@ -100,7 +100,7 @@ class PreloadApi {
         }
         port2.onmessage = progressMessage;
 
-        return resolve();  // resolve outer;
+        return resolve();  // resolve outer
       };
 
       port2.onmessage = initialMessage;
@@ -171,7 +171,7 @@ class SceneApi extends EventTarget {
     this._send = (type, payload) => sendQueue.push({type, payload});
 
     // after preload, do a bunch of setup work
-    this._ready = (async() => {
+    this._ready = (async () => {
 
       await this._preload.done;
       this._updateParent(null);  // preload is done
@@ -181,13 +181,10 @@ class SceneApi extends EventTarget {
 
       // send ready event
       // TODO: allow scenes to configure these options
-      this._send('ready', {hasPauseScreen: true});
+      this._send('ready', this._config || {});
 
       // clear backlog of events
       sendQueue.forEach(this._updateParent)
-
-      // focus ourselves (useful for embed and testing)
-      lazyFocusPage();
     })();
   }
 
@@ -244,26 +241,7 @@ class SceneApi extends EventTarget {
    * @param {*=} arg to pass
    */
   play(sound, arg=undefined) {
-    this._klang('play', sound, arg);
-  }
-
-  /**
-   * @param {string} sound to fire via Klang
-   */
-  fire(sound) {
-    this._klang('fire', sound);
-  }
-
-  /**
-   * @param {string} startEvent ambient sound event to play
-   * @param {?string=} endEvent ambient event to trigger on new ambient
-   */
-  ambient(startEvent, endEvent=null) {
-    this._klang('ambient', startEvent, endEvent);
-  }
-
-  _klang(...args) {
-    this._send('klang', args);
+    this._send('play', [sound, arg]);
   }
 
   score(detail) {
@@ -285,18 +263,6 @@ export default sceneApi;
 
 
 /**
- * Lazy focus on this page.
- */
-function lazyFocusPage() {
-  var x = document.createElement('button');
-  x.setAttribute('tabindex', 0);
-  document.body.appendChild(x);
-  x.focus();
-  document.body.removeChild(x);
-}
-
-
-/**
  * Installs handlers for V1 games, including `santaApp` and global `ga`.
  */
 function installV1Handlers() {
@@ -305,18 +271,13 @@ function installV1Handlers() {
   const fire = (eventName, ...args) => {
     switch (eventName) {
     case 'sound-fire':
-      sceneApi.fire(args[0]);
-      break;
     case 'sound-play':
-    case 'sound-trigger':  // old-style
-      sceneApi.play(args[0], args[1]);
+    case 'sound-trigger':
+    case 'sound-ambient':
+      sceneApi.play(...args);
       break;
     case 'sound-transition':
-      sceneApi._klang('transition', ...args);
-      break;
-    case 'sound-ambient':
-      sceneApi.ambient(args[0], args[1]);
-      break;
+      throw new TypeError('TODO: implement transition for rythym games');
     case 'game-data':
       sceneApi.data(args[0] || null);
       break;
@@ -327,7 +288,7 @@ function installV1Handlers() {
       sceneApi.gameover(args[0] || {});
       break;
     default:
-      console.debug('unhandled santaApi.fire', eventName)
+      console.debug('unhandled santaApi.fire', eventName);
     }
   }
 

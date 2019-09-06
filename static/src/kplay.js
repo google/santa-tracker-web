@@ -983,6 +983,10 @@ export async function prepare() {
       return Array.from(activeNodes);
     },
 
+    get suspended() {
+      return masterContext.state === 'suspended';
+    },
+
     resume() {
       return masterContext.resume();
     },
