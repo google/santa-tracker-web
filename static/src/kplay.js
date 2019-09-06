@@ -950,13 +950,21 @@ export async function prepare() {
 
   return {
     transitionTo(events, duration=0.5) {
+      if (typeof events === 'string') {
+        events = [events];
+      }
+
       // This records all played nodes caused as result of this event trigger.
       triggerNodes = new Set();
       events.forEach((event) => this.play(event));
 
       activeNodes.forEach((node) => {
         if (!node.stopping && !triggerNodes.has(node)) {
-          node.fadeOutAndStop(duration);
+          if (node instanceof SimpleProcess) {
+            node.stop();
+          } else {
+            node.fadeOutAndStop(duration);
+          }
         }
       });
 
@@ -975,9 +983,21 @@ export async function prepare() {
       return Array.from(activeNodes);
     },
 
-    preload(...groups) {
+    resume() {
+      return masterContext.resume();
+    },
+
+    preload(groups, callback) {
+      if (typeof groups === 'string') {
+        groups = [groups];
+      }
+
       const promises = new Set();
       const processes = [];
+
+      let done = 0;
+      let total = 0;
+      const invididualDone = callback ? () => callback(++done, total) : null;
 
       const work = (group) => {
         if (!(group in preload)) {
@@ -985,7 +1005,11 @@ export async function prepare() {
         }
         preload[group].forEach((file, key) => {
           const p = loader.optionalPreload(key, file);
-          p && promises.add(p);
+          if (p) {
+            ++total;
+            promises.add(p);
+            p.then(invididualDone);
+          }
         });
       };
 
@@ -1007,7 +1031,9 @@ export async function prepare() {
         preloadGroupCallback = null;
       }
 
-      // TODO: callback or progress
+      if (callback) {
+        callback(0, total);
+      }
 
       return Promise.all(Array.from(promises)).then(() => null);
     },

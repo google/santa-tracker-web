@@ -38,7 +38,7 @@ export class AudioLoader {
    * @return {?Promise<?AudioBuffer>}
    */
   optionalPreload(key, file) {
-    if (file in this._buffers) {
+    if (key in this._buffers) {
       return null;
     }
     return this.preload(key, file);
