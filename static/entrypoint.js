@@ -8,15 +8,17 @@ import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import * as params from './src/lib/params.js';
-import * as sc from './src/soundcontroller.js';
+import * as kplay from './src/kplay.js';
 import scenes from './src/strings/scenes.js';
 import {_msg, join} from './src/magic.js';
 
 
+const kplayReady = kplay.prepare();
+
 
 // TODO(samthor): If this doesn't work, we need a foreground unmute button, as clicking on the
 // iframe probably won't trigger it.
-sc.installGestureResume(document.body);
+//sc.installGestureResume(document.body);
 
 
 const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
@@ -167,14 +169,27 @@ const sceneImage = (sceneName) => {
  * Handle preload, ostensibly for any data loaded by the parent frame, but really just for Klang.
  */
 loader.addEventListener(gameloader.events.preload, (ev) => {
-  const {event, resolve} = ev.detail;
-  resolve(sc.preload(event, (complete, total) => {
-    console.info('loaded', complete, 'of', total);
-  }));
+  const {event, update, resolve} = ev.detail;
+  const work = async () => {
+    const parts = event.split(':');
+    if (parts[0] !== 'sounds') {
+      throw new TypeError(`expected preload for sounds, was: ${event}`);
+    }
+
+    const sc = await kplayReady;
+    await sc.preload(parts[1], (done, total) => update({done, total}));
+  };
+  resolve(work());
 });
 
 
 let activePort = null;
+let soundcontroller = null;
+
+kplayReady.then((sc) => {
+  soundcontroller = sc;
+  document.body.addEventListener('click', () => sc.resume(), {once: true});
+});
 
 
 loader.addEventListener(gameloader.events.ready, (ev) => {
@@ -199,8 +214,14 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
         case 'klang':
           const request = payload.shift();
           switch (request) {
+            case 'ambient':
+              console.info('transition');
+              soundcontroller.transitionTo(payload[0]);
+              break;
+
+            case 'fire':
             case 'play':
-              sc.fire(...payload);
+              soundcontroller.play(...payload);
               break;
 
             default:
