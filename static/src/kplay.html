@@ -10,7 +10,7 @@ const prep = sc.prepare();
 
 prep.then((controller) => {
   window._controller = window._c = controller;
-  return controller.preload('village', 'lounge', 'music', 'jetpack')
+  return controller.preload('village', 'lounge', 'music', 'jetpack', 'gumball');
 });
 
 document.getElementById('test').onclick = () => {
