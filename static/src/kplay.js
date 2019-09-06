@@ -403,7 +403,7 @@ class AudioGroup extends EventTarget {
 
   /**
    * @param {function(AudioNode): void} callback
-   * @param {boolean} playLike whether this is a playing action and should advance
+   * @param {boolean=} playLike whether this is a playing action and should advance
    */
   _each(callback, playLike=false) {
     if (playLike && this.playing) {
