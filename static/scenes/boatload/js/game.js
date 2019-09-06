@@ -138,7 +138,7 @@ Game.prototype.restart = function() {
 
   // Start game
   this.unfreezeGame();
-  window.santaApp.fire('sound-ambient', 'bl_game_start', 'bl_game_stop');
+  window.santaApp.fire('sound-ambient', 'bl_game_start');
   window.santaApp.fire('sound-fire', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'boatload'});
   this.gameStartTime = +new Date;
