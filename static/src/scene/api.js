@@ -2,6 +2,15 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 
 
+function resolvable() {
+  let resolve;
+  const promise = new Promise((r) => {
+    resolve = r;
+  });
+  return {promise, resolve};
+}
+
+
 class PreloadApi {
 
   /**
@@ -50,20 +59,61 @@ class PreloadApi {
   }
 
   /**
+   * @param {string} type of thing to preload from prod
+   * @param {string} event name of thing to preload from prod
+   */
+  prod(type, event) {
+    if (!channel.withinFrame) {
+      return false;  // nothing to do, not in a frame
+    }
+
+    const {port1, port2} = new MessageChannel();
+    this._callback(`${type}:${event}`, [port1]);
+
+    const p = new Promise((resolve) => {
+      const toResolve = [];
+
+      const progressMessage = (ev) => {
+        if (ev.data === null) {
+          // sanity failure case
+          toResolve.forEach((r) => r());
+        } else {
+          // we technically get {done, total} here, but whatever
+          const next = toResolve.pop();
+          next && next();
+        }
+      };
+
+      const initialMessage = (ev) => {
+        // We expect either null, for complete, or repeated calls with {done, total} which will
+        // tick upwards until all resources are complete.
+        if (ev.data === null) {
+          return resolve();
+        }
+        const {done, total} = ev.data;
+
+        // Create many resolvable entries that suggest progress.
+        for (let i = 0; i < total; ++i) {
+          const {promise, resolve} = resolvable();
+          toResolve.push(resolve);
+          this.wait(promise);
+        }
+        port2.onmessage = progressMessage;
+
+        return resolve();  // resolve outer;
+      };
+
+      port2.onmessage = initialMessage;
+    });
+
+    this.wait(p);
+  }
+
+  /**
    * @param {string} event to preload with Klang
    */
   sounds(event) {
-    // TODO(samthor): awkwardly pass to window.parent to load for us
-
-    const {port1, port2} = new MessageChannel();
-    this._callback(event, [port1]);
-
-    this.wait(new Promise((resolve) => {
-      port2.onmessage = (status) => {
-        console.info('got status', status, 'for klang', event);
-        resolve();
-      };
-    }));
+    this.prod('sounds', event);
   }
 
   /**

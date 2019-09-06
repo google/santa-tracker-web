@@ -212,17 +212,18 @@ class SantaGameLoaderElement extends HTMLElement {
           // Special-case string preload requests from the API. Expects a MessagePort to be
           // included to mark completion.
           if (typeof ev.data === 'string') {
+            const preloadPort = ev.ports[0];
             const p = new Promise((resolve) => {
               const args = {
                 detail: {
                   event: ev.data,
+                  update: (arg) => preloadPort.postMessage(arg),
                   resolve,
                 },
               };
               this.dispatchEvent(new CustomEvent(events.preload, args));
             });
-            const port = ev.ports[0];
-            p.catch(() => undefined).then((value) => port.postMessage(value));
+            p.catch(() => null).then(() => preloadPort.postMessage(null));
             return;
           }
 

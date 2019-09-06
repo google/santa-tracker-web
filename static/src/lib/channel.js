@@ -1,4 +1,4 @@
-const withinFrame = window.parent && window.parent != window;
+export const withinFrame = window.parent && window.parent != window;
 
 /**
  * @param {string} init data to send to init communication
