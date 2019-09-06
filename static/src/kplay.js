@@ -35,16 +35,41 @@ const Util = {
     return masterContext.currentTime;
   },
 
+  random(high, low = 1) {
+    return ~~(low + (1 + high - low) * Math.random());
+  },
+
+  randomFloat(high, low = 1) {
+    return low + (high - low) * Math.random();
+  },
+
   /**
-   * @param {!AudioParam} param 
-   * @param {number} value 
-   * @param {number} duration 
-   * @param {number} when 
+   * @param {!AudioParam} p
+   * @param {number} value
+   * @param {number} duration
+   * @param {number} when
    */
-  curveParamLin(param, value, duration, when) {
+  curveParamLin(p, value, duration, when, startAt) {
+    if (startAt) {
+      throw new Error('unhandled startAt: ' + startAt);
+    }
     when = when || masterContext.currentTime;
-    param.setValueAtTime(param.value, when);
-    param.linearRampToValueAtTime(value, when + duration);
+    p.cancelScheduledValues(0);
+    p.setValueAtTime(p.value, when);
+    p.linearRampToValueAtTime(value, when + duration);
+  },
+
+  /**
+   * @param {!AudioParam} p
+   * @param {number} value
+   * @param {number} duration
+   * @param {number} when
+   */
+  curveParamExp(p, value, duration, when) {
+    when = when || masterContext.currentTime;
+    p.cancelScheduledValues(0);
+    p.setValueAtTime(p.value, when);
+    p.exponentialRampToValueAtTime(value, when + duration);
   },
 
   transition(fromCandidates, to, bpm, sync, fadeOutTime, fadeInTime, useOffset, fadeOutImmediately, setOffset) {
@@ -123,14 +148,11 @@ class SimpleProcess extends EventTarget {
       };
       const [waitOp, execOp] = config['actions'];
 
-      const matchWait = waitOp['script'].match(/(\d+)\,\s*(\d+)/);
-      const low = +matchWait[2];
-      const high = +matchWait[1];
+      if (waitOp['operation'] !== 'wait' || execOp['operation'] !== 'exec') {
+        throw new TypeError('invalid op order for AdvancedProcess');
+      }
 
-      this.delay = () => {
-        return Math.floor(low + (1 + high - low) * Math.random());
-      };
-
+      this.delay = new Function('Util', waitOp['script']);
       this._fn = new Function('Core', 'Model', 'Util', 'me', 'args', 'vars', execOp['script']);
     } else {
       this._fn = config['action'];
@@ -139,6 +161,8 @@ class SimpleProcess extends EventTarget {
         throw new Error('cannot loop SimpleProcess, no delay');
       }
     }
+
+    this.delay = this.delay.bind(null, Util);
   }
 
   get _started() {
@@ -169,6 +193,7 @@ class SimpleProcess extends EventTarget {
     }
 
     const delay = this.delay();
+    console.debug('delaying', delay);
     const run = () => {
       this._fn(/** Core */ null, /** Model */ null, Util, this._nodes, args, this._globalVars);
 
@@ -194,18 +219,85 @@ class SimpleProcess extends EventTarget {
 }
 
 
+class EffectBiquadFilter {
+  constructor(config) {
+    this._filter = masterContext.createBiquadFilter();
+    this._filter.type = config['filter_type'] || 'lowpass';
+
+    this._originalFrequency = config['frequency'] || 1000;
+    this._originalQ = config['q'] || 1.0;
+    this._originalGain = config['gain'] || 0.0;
+
+    this._filter.frequency.value = this._originalFrequency;
+    this._filter.Q.value = this._originalQ;
+    this._filter.gain.value = this._originalGain;
+  }
+
+  get node() {
+    return this._filter;
+  }
+
+  get frequency() {
+    return this._filter.frequency;
+  }
+}
+
+
+class EffectSteroPanner {
+  // Note that EffectStereoPanner exposes pan as a number with linPanTo() helper, but
+  // EffectBiquadFilter exposes individial AudioParam instances.
+
+  constructor(config) {
+    this._panner = masterContext.createStereoPanner();
+
+    this._originalPan = config['pan'] || 0.0;
+    this._panner.pan.value = this._originalPan;  // mutable
+
+    this.linPanTo = Util.curveParamLin.bind(null, this._panner.pan);
+  }
+
+  get node() {
+    return this._panner;
+  }
+
+  get pan() {
+    return this._panner.pan.value;
+  }
+
+  set pan(value) {
+    this._panner.pan.value = value;
+  }
+}
+
+
 class AudioBus {
   constructor(config, destination) {
     this._input = masterContext.createGain();
     this._output = masterContext.createGain();
 
-    this._input.gain.value = config['input_vol'] || 1.0;
-    this._output.gain.value = config['output_vol'] || 1.0;
+    this._originalInputVolume = config['input_vol'] || 1.0;
+    this._originalOutputVolume = config['output_vol'] || 1.0;
 
-    this._effects = [];
+    // both mutable
+    this._input.gain.value = this._originalInputVolume;
+    this._output.gain.value = this._originalOutputVolume;
 
-    // TODO: insert any effects
-    this._input.connect(this._output);
+    this._effects = (config['effects'] || []).map((effect) => {
+      switch (effect['type']) {
+        case 'BiquadFilter':
+          return new EffectBiquadFilter(effect);
+        case 'StereoPanner':
+          return new EffectSteroPanner(effect);
+      }
+      throw new TypeError(`unsupported effect: ${effect['type']}`);
+    });
+
+    let current = this._input;
+    this._effects.forEach((effect) => {
+      current.connect(effect.node);
+      current = effect.node;
+    });
+    current.connect(this._output);
 
     if (destination === null) {
       this._output.connect(masterContext.destination);
@@ -260,12 +352,6 @@ class AudioGroup extends EventTarget {
       c.addEventListener('started', this._onContentStarted);
       c.addEventListener('ended', this._onContentEnded);
     });
-
-    // SHUFFLE can be processed and converted to STEP.
-    if (this._type === AudioGroup.types.SHUFFLE) {
-      this._content.sort(() => Math.random() - 0.5);
-      this._type = AudioGroup.types.STEP;
-    }
   }
 
   _onContentStarted(ev) {
@@ -323,22 +409,42 @@ class AudioGroup extends EventTarget {
     if (playLike && this.playing) {
       return false;  // do nothing if still playing
     }
+    const c = this._content;
 
-    if (this._type) {
-      if (playLike) {
-        // optionally advance the played audio
-        let index;
-        if (this._type == AudioGroup.types.RANDOM) {
-          index = ~~(Math.random() * this._content.length);
-        } else {
-          index = (this._content.indexOf(active) + 1) % this._content.length;
-        }
-        this._active = this._content[index] || null;
-      }
-      this._active && callback(this._active);
-    } else {
-      this._content.forEach(callback);
+    if (!this._type) {
+      c.forEach(callback);
+      return true;
     }
+
+    if (playLike) {
+      // Optionally advance the played audio.
+      let index;
+      do {
+        if (this._type == AudioGroup.types.RANDOM) {
+          // Choose a new random audio, even the same sample.
+          index = ~~(Math.random() * c.length);
+          break;
+        }
+
+        // Otherwise, move to the next index.
+        index = (c.indexOf(this._active) + 1) % c.length;
+        if (index || this._type !== AudioGroup.types.SHUFFLE) {
+          break;
+        }
+
+        // Unless this is the start of the SHUFFLE, in which case, reorder.
+        c.sort(() => Math.random() - 0.5);
+        if (this._active && c[0] === this._active) {
+          // ... and don't let the same audio play twice in a row
+          c.push(c.shift());
+        }
+
+      } while (false);
+
+      this._active = c[index] || null;
+    }
+
+    this._active && callback(this._active);
   }
 
   play(when) {
@@ -360,7 +466,7 @@ class AudioGroup extends EventTarget {
 
 
 class AudioSource extends EventTarget {
-  constructor(config, buffer) {
+  constructor(config, buffer, destination) {
     super();
 
     this._buffer = buffer;
@@ -368,7 +474,7 @@ class AudioSource extends EventTarget {
 
     // Every AudioSource has its own unique Gain, since we control its volume individually.
     this._output = masterContext.createGain();
-    this._output.connect(masterContext.destination);
+    this._output.connect(destination.input);
 
     // Any currently pending fade callback.
     this._fadeOutTimeout = 0;
@@ -377,7 +483,8 @@ class AudioSource extends EventTarget {
     this._sources = [];
 
     // Define _shiftSource, which returns a random value in the pitch-shift range on a per-source
-    // basis, or consistently 1.0 for none.
+    // basis, or consistently 1.0 for none. This doesn't predetermine it on created source nodes
+    // *because* other code can modify the overall speed of an AudioSource.
     if (config['pitch_start_range'] && config['pitch_end_range']) {
       const low = config['pitch_start_range'];
       const high = config['pitch_end_range'];
@@ -395,15 +502,37 @@ class AudioSource extends EventTarget {
       };
     }
 
+    // Create _volumeNode, which wraps a passed node in a preconfigured gain node, iff random volume
+    // config is specified.
+    if (config['volume_start_range'] && config['volume_end_range']) {
+      const low = config['volume_start_range'];
+      const high = config['volume_end_range'];
+
+      this._volumeNode = (node) => {
+        const gain = masterContext.createGain();
+        gain.gain.value = low + Math.random() * (high - low);
+        node.connect(gain);
+        return gain;
+      };
+    }
+
+    this._originalPlaybackRate = config['playback_rate'] || 1.0;
+    this._playbackRate = this._originalPlaybackRate;  // mutable
+
     this._config = config;
     this._volume = config['volume'] || 1.0;
     this._loop = Boolean(config['loop']);
-    this._playbackRate = config['playback_rate'] || 1.0;
+    this._loopStart = this._config['loop_start'] || undefined;
+    this._loopEnd = this._config['loop_end'] || undefined;
     this._retrig = config['retrig'] === undefined ? true : Boolean(config['retrig']);
 
     if (this._loop) {
       this._retrig = false;
     }
+  }
+
+  _volumeNode(node) {
+    return node;
   }
 
   _shiftSource() {
@@ -418,19 +547,20 @@ class AudioSource extends EventTarget {
     if (this._loop) {
       source.loop = true;
 
-      if ('loop_start' in this._config) {
-        source.loopStart = this._config['loop_start'];
+      if (this._loopStart !== undefined) {
+        source.loopStart = this._loopStart;
       }
-      if ('loop_end' in this._config) {
-        source.loopEnd = this._config['loop_end'];
+      if (this._loopEnd !== undefined) {
+        source.loopEnd = this._loopEnd;
       }
     }
 
-    source.connect(this._output);
+    // This optionally wraps our source in something which adjusts volume randomly for this play.
+    const actualNode = this._volumeNode(source);
+    actualNode.connect(this._output);
 
     this._sources.unshift(source);
     source.addEventListener('ended', this._cleanup.bind(this, source), {once: true});
-
     return source;
   }
 
@@ -512,7 +642,7 @@ class AudioSource extends EventTarget {
   }
 
   get playing() {
-    // nb.This is less good than the previous version.
+    // nb. This is less good than the previous version.
     return Boolean(this._sources.length);
   }
 
@@ -726,6 +856,8 @@ export async function prepare() {
         const key = config['events'][group];
         const process = audioConfig[key];
         if (process && process['type'] === 'SimpleProcess' && process['vars'].length == 0) {
+          // TODO: This is a bit ugly, but tries to steal processes that are probably triggering
+          // a preload (they might also do other things, which we should prevent).
           processes.push(process['action']);
         }
         work(group);
