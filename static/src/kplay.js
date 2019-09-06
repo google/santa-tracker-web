@@ -231,6 +231,12 @@ class EffectBiquadFilter {
     this._filter.gain.value = this._originalGain;
   }
 
+  reset() {
+    // nb. Q and gain aren't modified by anyone
+    this._filter.frequency.cancelScheduledValues(0);
+    this._filter.frequency.value = this._originalFrequency;
+  }
+
   get node() {
     return this._filter;
   }
@@ -252,6 +258,11 @@ class EffectSteroPanner {
     this._panner.pan.value = this._originalPan;  // mutable
 
     this.linPanTo = Util.curveParamLin.bind(null, this._panner.pan);
+  }
+
+  reset() {
+    this._panner.pan.cancelScheduledValues(0);
+    this._panner.pan.value = this._originalPan;
   }
 
   get node() {
@@ -304,6 +315,17 @@ class AudioBus {
     } else {
       throw new Error('unknown AudioBus destination');
     }
+  }
+
+  /**
+   * Reset this AudioBus.
+   */
+  reset() {
+    this._input.cancelScheduledValues(0);
+    this._input.gain.value = this._originalInputVolume;
+    this._output.cancelScheduledValues(0);
+    this._output.gain.value = this._originalOutputVolume;
+    this.effects.forEach((effect) => effect.reset());
   }
 
   get effects() {
@@ -646,6 +668,7 @@ class AudioSource extends EventTarget {
    * @return {!GainNode}
    */
   get output() {
+    throw new TypeError(`should not modify gain of AudioSource`);
     return this._output;
   }
 
@@ -701,15 +724,20 @@ class AudioSource extends EventTarget {
     // Just play the sound, we're already live. This could include joining an existing 'fade in'
     // session.
     if (this._sources.length && !this._fadeOutTimeout) {
-      return this.play(when);
+      return this._internalPlay(when);
     }
 
-    const wasFading = (this._fadeOutTimeout !== 0);
-    window.clearTimeout(this._fadeOutTimeout);
-    this._fadeOutTimeout = 0;
-
     const g = this._output.gain;
-    const fadeFrom = wasFading ? g.value : 0;  // either from where we were, or zero
+
+    // Cancel any fadeOut and resume from where we were (or zero).
+    let fadeFrom = 0;
+    const wasFading = (this._fadeOutTimeout !== 0);
+    if (wasFading) {
+      fadeFrom = g.value;  // resume from where we were
+      window.clearTimeout(this._fadeOutTimeout);
+      this._fadeOutTimeout = 0;
+    }
+
     g.cancelScheduledValues(0);
     g.setValueAtTime(fadeFrom, when);
     g.linearRampToValueAtTime(this._volume, when + duration);
