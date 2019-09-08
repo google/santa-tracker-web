@@ -153,10 +153,10 @@ document.body.addEventListener('click', (ev) => {
 
 
 const sceneImage = (sceneName) => {
+  const base = join(import.meta.url, 'img/scenes', sceneName);
   const img = document.createElement('img');
-
-  img.src = join(import.meta.url, 'img/scenes', sceneName + '_2x.png');
-  img.srcset = `${join(import.meta.url, 'img/scenes', sceneName + '_1x.png')}, ${img.src} 2x`;
+  img.src = base + (window.devicePixelRatio > 1 ? '_2x.png' : '_1x.png');
+  img.srcset = `${base}_1x.png, ${img.src}_2x.png 2x`;
 
   return new Promise((resolve, reject) => {
     img.onload = () => resolve(img);
@@ -253,6 +253,7 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
       if (!empty) {
         // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
         const config = await configPromise;
+        console.warn('got config', config);
         soundcontroller.transitionTo(config.sound || [], 1.0);
       }
 
