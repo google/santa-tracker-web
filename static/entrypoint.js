@@ -121,10 +121,13 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
       error.error = empty && Boolean(href);
       error.lock = false;
 
-      if (!empty) {
+      if (empty) {
+        chrome.mini = false;
+      } else {
         // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
         const config = await configPromise;
         console.warn('got config', config);
+        chrome.mini = !config.scroll;
         soundcontroller.transitionTo(config.sound || [], 1.0);
       }
 
@@ -143,6 +146,7 @@ loader.addEventListener(gameloader.events.ready, (ev) => {
     error.append(img);
     error.lock = true;
     error.error = false;
+    chrome.mini = false;
   };
   resolve(handler());
 });
@@ -155,8 +159,6 @@ const loaderScene = (sceneName, data) => {
   } else {
     document.title = _msg`santatracker`;
   }
-
-  chrome.mini = ['', 'press', 'educators', 'tracker'].indexOf(sceneName) === -1;
 
   const locked = ['tracker'].indexOf(sceneName) !== -1;
   const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
