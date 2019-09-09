@@ -57,7 +57,7 @@ export class SantaSidebarElement extends LitElement {
 
   <div class="links">
     <ul>
-      <li><a href="./press.html?test=123">${_msg`press`}</a></li>
+      <li><a href="./press.html">${_msg`press`}</a></li>
       <li><a href="./educators.html">${_msg`educators`}</a></li>
     </ul>
   </div>
