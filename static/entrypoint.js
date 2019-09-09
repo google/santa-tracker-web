@@ -36,27 +36,6 @@ sidebar.setAttribute('slot', 'sidebar');
 chrome.append(sidebar);
 
 
-/**
- * Handle preload, ostensibly for any data loaded by the parent frame, but really just for Klang.
- */
-loader.addEventListener(gameloader.events.preload, (ev) => {
-  const {event, update, resolve} = ev.detail;
-  const work = async () => {
-    const parts = event.split(':');
-    if (parts[0] !== 'sounds') {
-      throw new TypeError(`expected preload for sounds, was: ${event}`);
-    }
-
-    const sc = await kplayReady;
-    await sc.preload(parts[1], (done, total) => update({done, total}));
-  };
-  resolve(work());
-});
-
-
-let activePort = null;
-let soundcontroller = null;
-
 kplayReady.then((sc) => {
   soundcontroller = sc;
   if (sc.suspended) {
@@ -66,90 +45,215 @@ kplayReady.then((sc) => {
 });
 
 
-loader.addEventListener(gameloader.events.ready, (ev) => {
-  const {resolve, href, empty, port} = ev.detail;
-
-  let configResolve;
-  const configPromise = new Promise((resolve) => {
-    configResolve = resolve;
+async function preloadSounds(event, port) {
+  const sc = await kplayReady;
+  await sc.preload(event, (done, total) => {
+    port.postMessage({done, total});
   });
+  port.postMessage(null);
+}
 
-  ev.preventDefault();
 
-  if (port) {
-    activePort = port;
+async function preload(control, ready) {
+  const preloadWork = [];
 
-    port.onmessage = (ev) => {
-      if (activePort !== port) {
-        console.warn('got data on inactive port', ev.data);
-        return false;
-      }
+  for await (const data of control) {
+    if (data === null) {
+      await Promise.all(preloadWork);
+      ready();
+      continue;
+    }
 
-      const {type, payload} = ev.data;
-      switch (type) {
-        case 'ready':
-          configResolve(payload);
-          break;
+    const {type, payload} = data;
+    switch (type) {
+      case 'progress':
+        console.debug('got preload', (payload * 100).toFixed(2) + '%');
+        continue;
 
-        case 'go':
-          santaApp.route = payload;
-          break;
+      case 'preload':
+        const [preloadType, event, port] = payload;
+        if (preloadType !== 'sounds') {
+          throw new TypeError(`unsupported preload: ${payload[0]}`);
+        }
+        preloadWork.push(preloadSounds(event, port));
+        continue;
 
-        case 'play':
-          console.info('play', payload);
-          soundcontroller.play(...payload);
-          break;
+      case 'ready':
+        console.info('got config', payload);
+        continue;
+    }
 
-        default:
-          console.warn('unhandled port message', type, payload);
-      }
-    };
-
-  } else {
-    activePort = null;  // invalidate previous port
+    console.warn('got unhandled preload', data);
   }
+}
 
-  // TODO(samthor): This method is a little awkward, but configures whether the error is displayed,
-  // and what it displays (e.g. a locked image).
-  // If `empty` is false, then it actually never shows at all, since the slot is `display: none`.
 
-  const handler = async () => {
-    const locked = (!href && santaApp.route);
-    error.textContent = '';
-
-    if (!locked) {
-      error.error = empty && Boolean(href);
-      error.lock = false;
-
-      if (empty) {
-        chrome.mini = false;
-      } else {
-        // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
-        const config = await configPromise;
-        console.warn('got config', config);
-        chrome.mini = !config.scroll;
-        soundcontroller.transitionTo(config.sound || [], 1.0);
-      }
-
-      return;
-    }
-
-    error.lock = true;
-    let img;
-    try {
-      img = await sceneImage(santaApp.route);
-    } catch (e) {
-      console.warn('err img', e);
-      return;  // ignore, bad image
-    }
-    img.setAttribute('slot', 'icon');
-    error.append(img);
-    error.lock = true;
-    error.error = false;
-    chrome.mini = false;
-  };
-  resolve(handler());
+loader.addEventListener(gameloader.events.ready, (ev) => {
+  const {resolve, control, ready} = ev.detail;
+  resolve(preload(control, ready));
 });
+
+
+
+
+/**
+ * Handle preload, ostensibly for any data loaded by the parent frame, but really just for Klang.
+ */
+// loader.addEventListener(gameloader.events.preload, (ev) => {
+//   const {event, update, resolve} = ev.detail;
+//   const work = async () => {
+//     const parts = event.split(':');
+//     if (parts[0] !== 'sounds') {
+//       throw new TypeError(`expected preload for sounds, was: ${event}`);
+//     }
+
+//     const sc = await kplayReady;
+//     await sc.preload(parts[1], (done, total) => update({done, total}));
+//   };
+//   resolve(work());
+// });
+
+
+let activePort = null;
+let soundcontroller = null;
+
+
+// loader.addEventListener(gameloader.events.ready, (ev) => {
+//   const {resolve, href, empty, port} = ev.detail;
+
+//   let configResolve;
+//   const configPromise = new Promise((resolve) => {
+//     configResolve = resolve;
+//   });
+
+//   ev.preventDefault();
+
+//   if (port) {
+//     activePort = port;
+
+//     port.onmessage = (ev) => {
+//       if (activePort !== port) {
+//         console.warn('got data on inactive port', ev.data);
+//         return false;
+//       }
+
+//       const {type, payload} = ev.data;
+//       switch (type) {
+//         case 'ready':
+//           configResolve(payload);
+//           break;
+
+//         case 'go':
+//           santaApp.route = payload;
+//           break;
+
+//         case 'play':
+//           console.info('play', payload);
+//           soundcontroller.play(...payload);
+//           break;
+
+//         default:
+//           console.warn('unhandled port message', type, payload);
+//       }
+//     };
+
+//   } else {
+//     activePort = null;  // invalidate previous port
+//   }
+
+//   // TODO(samthor): This method is a little awkward, but configures whether the error is displayed,
+//   // and what it displays (e.g. a locked image).
+//   // If `empty` is false, then it actually never shows at all, since the slot is `display: none`.
+
+//   const handler = async () => {
+//     const locked = (!href && santaApp.route);
+//     error.textContent = '';
+
+//     if (!locked) {
+//       error.error = empty && Boolean(href);
+//       error.lock = false;
+
+//       if (empty) {
+//         chrome.mini = false;
+//       } else {
+//         // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
+//         const config = await configPromise;
+//         console.warn('got config', config);
+//         chrome.mini = !config.scroll;
+//         soundcontroller.transitionTo(config.sound || [], 1.0);
+//       }
+
+//       return;
+//     }
+
+//     error.lock = true;
+//     let img;
+//     try {
+//       img = await sceneImage(santaApp.route);
+//     } catch (e) {
+//       console.warn('err img', e);
+//       return;  // ignore, bad image
+//     }
+//     img.setAttribute('slot', 'icon');
+//     error.append(img);
+//     error.lock = true;
+//     error.error = false;
+//     chrome.mini = false;
+//   };
+//   resolve(handler());
+// });
+
+
+// async function shutdown(control) {
+//   for await (const op of control) {
+//     // ignore all, can't do anything after shutdown
+//     console.debug('ignoring post-shutdown op', op);
+//   }
+//   console.info('done', control);
+// }
+
+
+// async function runner(control) {
+//   for await (const op of control) {
+//     if (op === null) {
+//       return shutdown(control);
+//     }
+
+//     const {type, payload} = op;
+//     switch (type) {
+//       case 'go':
+//         santaApp.route = payload;
+//         break;
+
+//       case 'play':
+//         soundcontroller.play(...payload);
+//         break;
+
+//       case 'score':
+//         console.debug('got score', payload);
+//         break;
+
+//       default:
+//         console.warn('unhandled op', type);
+//     }
+//   }
+// }
+
+
+// async function *iterator() {
+//   let count = 0;
+//   for (let i = 0; i < 2; ++i) {
+//     await new Promise((r) => window.setTimeout(r, 1000));
+//     yield {type: 'score', payload: ++count};
+//   }
+//   yield null;
+//   yield 'whatever';
+// }
+
+// const it = iterator();
+// console.info(it);
+// runner(it);
+
 
 
 const loaderScene = (sceneName, data) => {

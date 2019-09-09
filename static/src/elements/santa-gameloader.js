@@ -1,6 +1,7 @@
 import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
+import {portIterator} from '../lib/generator.js';
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
@@ -174,7 +175,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // Resolves with null after load + delay, indicating that the scene has failed to init. The
       // loader should normally resolve with its MessagePort.
       af.addEventListener('load', () => {
-        window.setTimeout(() => resolve(null), LOAD_LEEWAY);
+        window.setTimeout(() => resolve(null), href ? LOAD_LEEWAY : 0);
 
         // TODO(samthor): If another load event arrives, this is because the internal <iframe>
         // loaded a new URL. We should kill it in this case.
@@ -193,58 +194,32 @@ class SantaGameLoaderElement extends HTMLElement {
     });
   }
 
-  async _prepareFrame(p, af) {
+  async _prepareFrame(portPromise, af) {
     const validateFrame = () => {
       if (af !== this._activeFrame) {
         throw invalidFrame;
       }
     };
 
-    const port = await p;
+    const port = await portPromise;
     validateFrame();
 
     if (port) {
-      // If we have a valid port, wait for its loading dance.
-      await new Promise((resolve, reject) => {
-        port.onmessage = (ev) => {
-          if (af !== this._activeFrame) {
-            return reject(invalidFrame);
-          }
+      const {iter, push, close} = portIterator(port);
 
-          // Special-case string preload requests from the API. Expects a MessagePort to be
-          // included to mark completion.
-          if (typeof ev.data === 'string') {
-            const preloadPort = ev.ports[0];
-            const p = new Promise((resolve) => {
-              const args = {
-                detail: {
-                  event: ev.data,
-                  update: (arg) => preloadPort.postMessage(arg),
-                  resolve,
-                },
-              };
-              this.dispatchEvent(new CustomEvent(events.preload, args));
-            });
-            p.catch(() => null).then(() => preloadPort.postMessage(null));
-            return;
-          }
-
-          // Otherwise, just announce progress until done (including null).
-          const args = {detail: ev.data};
-          this.dispatchEvent(new CustomEvent(events.progress, args));
-
-          if (typeof ev.data === 'number') {
-            return;  // scenes send progress until null
-          } else if (ev.data !== null) {
-            console.warn('non-null from scene', this._href, 'data', ev.data);
-          }
-
-          port.onmessage = () => {
-            throw new Error('unimplemeted');
+      let controlPromise;
+      const readyPromise = new Promise((readyResolve) => {
+        controlPromise = new Promise((controlResolve) => {
+          const detail = {
+            control: iter,
+            resolve: controlResolve,
+            ready: readyResolve,
           };
-          resolve();
-        };
+          this.dispatchEvent(new CustomEvent(events.ready, {detail}));
+        });
       });
+
+      await readyPromise;
       validateFrame();
     }
 

@@ -26,10 +26,10 @@ class PreloadApi {
       this._doneResolve = resolve;
     });
     this._donePromise.then(() => {
-      callback(1);
+      callback({type: 'progress', payload: 1});
       this._callback = () => {};  // do nothing from here-on-in
     });
-    callback(0);
+    callback({type: 'progress', payload: 0});
 
     // Add a single task that resolves after setTimeout to ensure that the preloader fires at all.
     const framePromise = new Promise((r) => window.setTimeout(r, 0));
@@ -53,7 +53,7 @@ class PreloadApi {
       if (ratio >= 1) {
         this._doneResolve();
       } else {
-        this._callback(ratio);
+        this._callback({type: 'progress', payload: ratio});
       }
     });
   }
@@ -68,7 +68,7 @@ class PreloadApi {
     }
 
     const {port1, port2} = new MessageChannel();
-    this._callback(`${type}:${event}`, [port1]);
+    this._callback({type: 'preload', payload: [type, event, port1]}, [port1]);
 
     const p = new Promise((resolve) => {
       const toResolve = [];
