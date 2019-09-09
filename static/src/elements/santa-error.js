@@ -1,7 +1,7 @@
 import {html, LitElement} from "lit-element";
 import styles from './santa-error.css';
-import {_msg, join} from '../magic.js';
-import {resolve} from '../route.js';
+import {_msg} from '../magic.js';
+import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 class SantaErrorElement extends LitElement {
   static get properties() {
@@ -22,7 +22,9 @@ class SantaErrorElement extends LitElement {
   }
 
   render() {
-    const text = this.error ? html`<p>${resolve(_msg`error-not-found`)}</p>`: '';
+    // nb. `error-not-found` includes relative <a> links. This should only be running in prod, so
+    // include it inline.
+    const text = this.error ? html`<p>${unsafeHTML(_msg`error-not-found`)}</p>`: '';
     return html`
 <main>
   <div class="icon">

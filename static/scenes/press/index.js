@@ -1,17 +1,18 @@
 import api from '../../src/scene/api.js';
 import '../../src/elements/info-card.js';
 import '../../src/elements/info-chooser.js';
+import * as route from '../../src/scene/route.js';
 
-import {html, render} from 'lit-html';
+import {render} from 'lit-html';
 
 import {modelsTemplate} from '../_info/render.js';
 import models from '../_info/models.js';
 
+route.rectify(document.body);  // fix href="..." to point to prod scope
 
 const chooser = document.getElementById('chooser');
 const template = modelsTemplate(models);
 render(template(), chooser);
-
 
 
 api.preload.images(

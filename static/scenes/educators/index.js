@@ -41,10 +41,10 @@ async function setup() {
   </p>
   <div class="card-links">
     <span class="card-title">Aligned with Common Core standards</span>
-    <a data-id="traditions_k-2" rel="noopener" href="${lesson('ST-Lesson Plan-Grades K-2.pdf')}" target="_blank">Grades K-2 <span>(PDF, ${text})</span></a>
-    <a data-id="traditions_3-5" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 3-5.pdf')}" target="_blank">Grades 3-5 <span>(PDF, ${text})</span></a>
-    <a data-id="traditions_6-8" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 6-8.pdf')}" target="_blank">Grades 6-8 <span>(PDF, ${text})</span></a>
-    <a data-id="traditions_9-10" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 9-10.pdf')}" target="_blank">Grades 9-10 <span>(PDF, ${text})</span></a>
+    <a data-id="traditions_k-2" target="_blank" rel="noopener" href="${lesson('ST-Lesson Plan-Grades K-2.pdf')}" target="_blank">Grades K-2 <span>(PDF, ${text})</span></a>
+    <a data-id="traditions_3-5" target="_blank" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 3-5.pdf')}" target="_blank">Grades 3-5 <span>(PDF, ${text})</span></a>
+    <a data-id="traditions_6-8" target="_blank" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 6-8.pdf')}" target="_blank">Grades 6-8 <span>(PDF, ${text})</span></a>
+    <a data-id="traditions_9-10" target="_blank" rel="noopener" href="${lesson('ST-Lesson Plan-Grades 9-10.pdf')}" target="_blank">Grades 9-10 <span>(PDF, ${text})</span></a>
   </div>
 </info-card>
 
@@ -55,18 +55,18 @@ async function setup() {
   </p>
   <div class="card-links">
     <span class="card-title">Aligned with ISTE standards</span>
-    <a class="card-play" data-id="coding_youtube_k-2" href="https://youtu.be/t_tuZl-CfFs" rel="noopener">
+    <a class="card-play" data-id="coding_youtube_k-2" href="https://youtu.be/t_tuZl-CfFs" target="_blank" rel="noopener">
       Grades K-2: Code Lab <span>(video tutorial)</span>
     </a>
-    <a data-id="coding_k-2" href="${lesson('ST-Lesson Plan-Code Lab-Grades K-2.pdf')}" rel="noopener">Grades K-2: Code Lab <span>(PDF, ${text})</span></a>
-    <a class="card-play" data-id="coding_youtube_3-5" href="https://youtu.be/BotTyMAw4ho" rel="noopener">
+    <a data-id="coding_k-2" href="${lesson('ST-Lesson Plan-Code Lab-Grades K-2.pdf')}" target="_blank" rel="noopener">Grades K-2: Code Lab <span>(PDF, ${text})</span></a>
+    <a class="card-play" data-id="coding_youtube_3-5" href="https://youtu.be/BotTyMAw4ho" target="_blank" rel="noopener">
       Grades 3-5: Code Boogie <span>(video tutorial)</span>
     </a>
-    <a data-id="coding_3-5" href="${lesson('ST-Lesson Plan-Code Boogie-Grades 3-5.pdf')}" rel="noopener">Grades 3-5: Code Boogie <span>(PDF, ${text})</span></a>
-    <a class="card-play" data-id="coding_youtube_6-8" href="https://youtu.be/zUEQzwd4MnE" rel="noopener">
+    <a data-id="coding_3-5" href="${lesson('ST-Lesson Plan-Code Boogie-Grades 3-5.pdf')}" target="_blank" rel="noopener">Grades 3-5: Code Boogie <span>(PDF, ${text})</span></a>
+    <a class="card-play" data-id="coding_youtube_6-8" href="https://youtu.be/zUEQzwd4MnE" target="_blank" rel="noopener">
       Grades 3-5: Code a Snowflake <span>(video tutorial)</span>
     </a>
-    <a data-id="coding_6-8" href="${lesson('ST-Lesson Plan-Code Snowflake-Grades 6-8.pdf')}" rel="noopener">Grades 6-8: Code a Snowflake <span>(PDF, ${text})</span></a>
+    <a data-id="coding_6-8" href="${lesson('ST-Lesson Plan-Code Snowflake-Grades 6-8.pdf')}" target="_blank" rel="noopener">Grades 6-8: Code a Snowflake <span>(PDF, ${text})</span></a>
   </div>
 </info-card>
     `;

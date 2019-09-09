@@ -18,9 +18,10 @@ export class InfoCardElement extends LitElement {
   }
 
   render() {
+    const href = (!this.locked && this.href) || undefined;
     return html`
 <div class="card">
-  <a href=${ifDefined(this.href)}>
+  <a href=${ifDefined(href)}>
     <div class="background" style="background-image: url(${this.src})">
       <div class="lock" ?hidden=${!this.locked}></div>
     </div>

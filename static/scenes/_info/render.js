@@ -3,7 +3,7 @@ import {repeat} from 'lit-html/directives/repeat';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import {_static} from '../../src/magic.js';
 
-import * as route from '../../src/route.js';
+import * as route from '../../src/scene/route.js';
 
 const root = _static`img/`;
 
@@ -18,7 +18,7 @@ ${repeat(model.resources, (r) => r, (r) => {
   const extMatch = /\.(\w+)$/.exec(r);
   const ext = extMatch && extMatch[1] || '';
   const title = ext === 'gif' ? 'Animation': 'Screenshot';
-  return html`<a class="card-dl" href="${r}" rel="noopener">${title} <span ?hidden=${!ext}>(${ext.toUpperCase()})</span></a>`;
+  return html`<a class="card-dl" href="${r}" target="_blank" rel="noopener">${title} <span ?hidden=${!ext}>(${ext.toUpperCase()})</span></a>`;
 })}
 </div>`;
   }

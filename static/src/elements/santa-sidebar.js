@@ -1,7 +1,6 @@
 import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
-import {localize} from '../route.js';
 
 import scenes from '../strings/scenes.js';
 import {_msg, _static} from '../magic.js';
@@ -58,7 +57,7 @@ export class SantaSidebarElement extends LitElement {
 
   <div class="links">
     <ul>
-      <li><a href="./press.html">${_msg`press`}</a></li>
+      <li><a href="./press.html?test=123">${_msg`press`}</a></li>
       <li><a href="./educators.html">${_msg`educators`}</a></li>
     </ul>
   </div>
@@ -112,7 +111,7 @@ export class SantaSidebarElement extends LitElement {
   <div class="links">
     <ul>
       <li>
-        <a target="_blank" rel="noopener" href="${localize('https://policies.google.com/')}">${unsafeHTML(_msg`terms-and-privacy`)}</a>
+        <a target="_blank" rel="noopener" href="https://policies.google.com/">${unsafeHTML(_msg`terms-and-privacy`)}</a>
       </li>
     </ul>
   </div>
