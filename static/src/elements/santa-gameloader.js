@@ -49,6 +49,7 @@ class SantaGameLoaderElement extends HTMLElement {
     // Use this container to manage focus on contained iframes, rather than setting classes or
     // attributes on the loader itself.
     this._container = document.createElement('main');
+    this._container.classList.add('empty');
     root.append(this._container);
 
     // Wrap `<slot>` in a container that can be toggled in an error state.
@@ -138,8 +139,8 @@ class SantaGameLoaderElement extends HTMLElement {
   /**
    * Load a new scene.
    *
-   * @param {?string} href 
-   * @param {?*} payloacontextd to pass via .load event
+   * @param {?string} href
+   * @param {?*} context to pass via .load event
    */
   load(href, context=null) {
     this._href = href || null;
@@ -161,7 +162,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // TODO: revisit if both frames are visible at the same time for a transition
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
       this._activeFrame.remove();
-      controlClose();  // frame gone, close channel immediately
+      controlClose && controlClose();  // frame gone, close channel immediately
     } else {
       // Whatever was active is now ultimately going to meet its demise.
       this._previousFrame = this._activeFrame;
@@ -233,14 +234,12 @@ class SantaGameLoaderElement extends HTMLElement {
 
     // If the scene runner causes an error while active, announce it. Its regular resolved value
     // isn't interesting to us, so don't watch it.
-    scenePromise.catch((err) => {
+    scenePromise.catch((error) => {
       if (af === this._activeFrame) {
-        if (!(err instanceof Error)) {
-          err = new Error(err);
-        }
-        this.dispatchEvent(new CustomEvent(events.error, {detail: err}));
+        const detail = {error, context};
+        this.dispatchEvent(new CustomEvent(events.error, {detail}));
       } else {
-        console.debug('error from closed scene', af.src, err)
+        console.debug('error from closed scene', af.src, error)
       }
     });
 

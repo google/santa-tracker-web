@@ -26,8 +26,8 @@ const loader = document.createElement('santa-gameloader');
 const chrome = document.createElement('santa-chrome');
 document.body.append(chrome, loader);
 
-const error = document.createElement('santa-error');
-loader.append(error);
+const errorElement = document.createElement('santa-error');
+loader.append(errorElement);
 
 
 const sidebar = document.createElement('santa-sidebar');
@@ -116,14 +116,15 @@ outer:
 }
 
 loader.addEventListener(gameloader.events.load, (ev) => {
-  // Load process is starting. This is only triggered once, even if multiple loads intercept each
-  // other. We should start the display of any interstitial here.
-  console.debug('1. LOAD; previous frame should be killed');
+  // Load process is started. This is triggered every time a new call to .load() is made, even if
+  // the previous load isn't finished yet. It's suitable for enabling or updating an interstitial.
 });
 
 
 loader.addEventListener(gameloader.events.error, (ev) => {
-  loader.load(null, ev.detail);
+  const {error, context} = ev.detail;
+  const {sceneName} = context;
+  loader.load(null, {error, sceneName});
 });
 
 
@@ -133,50 +134,51 @@ loader.addEventListener(gameloader.events.prepare, (ev) => {
   // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
 
   const {context, resolve, control, ready} = ev.detail;
-  const {data, sceneName} = context;
+  const {data, sceneName, error} = context;
 
   // Configure `santa-error`, if needed.
-  if (context instanceof Error) {
-    error.code = 'internal';
+  if (error) {
+    errorElement.code = 'internal';
   } else if (!control && sceneName) {
-    error.code = 'missing';
+    errorElement.code = 'missing';
   } else {
-    error.code = null;
+    errorElement.code = null;
   }
+  errorElement.textContent = '';  // clear previous image
+  errorElement.lock = false;
 
   if (control) {
     resolve(runner(control, ready, data));
   } else {
-    // this is an error or empty frame
-    ready();
-    resolve();
+    const emptyRunner = async () => {
+      if (sceneName && !error) {
+        let img;
+        try {
+          img = await sceneImage(santaApp.route);
+        } catch (e) {
+          img = null;
+        }
+        if (img) {
+          img.setAttribute('slot', 'icon');
+          errorElement.append(img);
+        }
+        errorElement.lock = true;
+      }
+      ready();
+    };
+    resolve(emptyRunner());
   }
 });
 
 
 
-// loader.addEventList
-//     error.lock = true;
-//     let img;
-//     try {
-//       img = await sceneImage(santaApp.route);
-//     } catch (e) {
-//       console.warn('err img', e);
-//       return;  // ignore, bad image
-//     }
-//     img.setAttribute('slot', 'icon');
-//     error.append(img);
-//     error.lock = true;
-//     error.error = false;
-//     chrome.mini = false;
-//   };
-//   resolve(handler());
-// });
-
-
-
+let loadedScene = undefined;
 
 const loaderScene = (sceneName, data) => {
+  if (sceneName === loadedScene) {
+    return false;
+  }
+
   const title = scenes[sceneName] || '';
   if (title) {
     document.title = `${title} · ${_msg`santatracker`}`;
@@ -187,16 +189,14 @@ const loaderScene = (sceneName, data) => {
   const locked = ['tracker'].indexOf(sceneName) !== -1;
   const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 
-  if (loader.href === url) {
-    return false;
-  }
+  loadedScene = sceneName;
 
   const context = {sceneName, data};
   loader.load(url, context).then((success) => {
     if (success) {
-      console.info('loading done', url);
+      console.info('loading done', sceneName, url);
     } else {
-      console.warn('loading superceded', url);
+      console.warn('loading superceded', sceneName);
     }
   });
 };
