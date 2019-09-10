@@ -8,7 +8,8 @@ main:not(.empty) .slot-container {
   display: none;
 }
 
-main.loading iframe {
+main.loading iframe,
+iframe[tabindex="-1"] {
   pointer-events: none;
 }
 

@@ -1,6 +1,6 @@
 
 
-const done = Symbol('done');
+const closedNonce = {__CLOSED: true};
 
 
 /**
@@ -10,8 +10,12 @@ const done = Symbol('done');
 export function portIterator(port) {
   const queue = [];
   const nextResolve = [];
+  let closed = false;
 
   const push = (data) => {
+    if (closed) {
+      throw new Error('port closed');
+    }
     if (nextResolve.length) {
       const r = nextResolve.shift();
       r(data);
@@ -28,13 +32,16 @@ export function portIterator(port) {
       let value;
       if (queue.length) {
         value = queue.shift();
+
+        if (value === closedNonce) {
+          return {done: true, value: null};
+        }
+      } else if (closed) {
+        return {done: true, value: null};
       } else {
         value = new Promise((resolve) => {
           nextResolve.push(resolve);
         });
-      }
-      if (value === done) {
-        return {done: true, value: null};
       }
       return {done: false, value};
     },
@@ -47,7 +54,8 @@ export function portIterator(port) {
     push,
     close() {
       port.close();
-      push(done);
+      push(closedNonce);
+      closed = true;
     },
   };
 }

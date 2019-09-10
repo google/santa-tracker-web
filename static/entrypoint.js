@@ -37,7 +37,6 @@ chrome.append(sidebar);
 
 
 kplayReady.then((sc) => {
-  soundcontroller = sc;
   if (sc.suspended) {
     console.warn('Web Audio API is suspended, requires user interaction to start');
     document.body.addEventListener('click', () => sc.resume(), {once: true});
@@ -45,8 +44,7 @@ kplayReady.then((sc) => {
 });
 
 
-async function preloadSounds(event, port) {
-  const sc = await kplayReady;
+async function preloadSounds(sc, event, port) {
   await sc.preload(event, (done, total) => {
     port.postMessage({done, total});
   });
@@ -54,18 +52,23 @@ async function preloadSounds(event, port) {
 }
 
 
-async function preload(control, ready) {
-  const preloadWork = [];
+async function runner(control, ready, initialData) {
+  const sc = await kplayReady;
 
+  const preloadWork = [];
+  const config = {};
+
+outer:
   for await (const data of control) {
     if (data === null) {
-      await Promise.all(preloadWork);
-      ready();
-      continue;
+      throw new Error('scene failed to load');
     }
 
     const {type, payload} = data;
     switch (type) {
+      case 'error':
+        return Promise.reject(payload);
+
       case 'progress':
         console.debug('got preload', (payload * 100).toFixed(2) + '%');
         continue;
@@ -75,117 +78,84 @@ async function preload(control, ready) {
         if (preloadType !== 'sounds') {
           throw new TypeError(`unsupported preload: ${payload[0]}`);
         }
-        preloadWork.push(preloadSounds(event, port));
+        // TODO: don't preload sounds if the AudioContext is suspended, queue for later.
+        preloadWork.push(preloadSounds(sc, event, port));
         continue;
 
       case 'ready':
-        console.info('got config', payload);
-        continue;
+        await Promise.all(preloadWork);
+        ready();
+        Object.assign(config, payload);
+
+        chrome.mini = !config.scroll;
+        sc.transitionTo(config.sound || [], 1.0);
+
+        break outer;
     }
 
     console.warn('got unhandled preload', data);
   }
+
+  for await (const data of control) {
+    if (data === null) {
+      break;
+    }
+
+    const {type, payload} = data;
+    switch (type) {
+      case 'error':
+        return Promise.reject(payload);
+    }
+
+    console.debug('got active data', data);
+  }
+
+  for await (const data of control) {
+    console.debug('got post-shutdown data', data);
+  }
 }
 
+loader.addEventListener(gameloader.events.load, (ev) => {
+  // Load process is starting. This is only triggered once, even if multiple loads intercept each
+  // other. We should start the display of any interstitial here.
+  console.debug('1. LOAD; previous frame should be killed');
+});
 
-loader.addEventListener(gameloader.events.ready, (ev) => {
-  const {resolve, control, ready} = ev.detail;
-  resolve(preload(control, ready));
+
+loader.addEventListener(gameloader.events.error, (ev) => {
+  loader.load(null, ev.detail);
+});
+
+
+loader.addEventListener(gameloader.events.prepare, (ev) => {
+  // A new frame is being loaded. It's not yet visible (although its onload event has fired by now),
+  // but the prior frame is now deprecated and is inevitably going to be removed.
+  // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
+
+  const {context, resolve, control, ready} = ev.detail;
+  const {data, sceneName} = context;
+
+  // Configure `santa-error`, if needed.
+  if (context instanceof Error) {
+    error.code = 'internal';
+  } else if (!control && sceneName) {
+    error.code = 'missing';
+  } else {
+    error.code = null;
+  }
+
+  if (control) {
+    resolve(runner(control, ready, data));
+  } else {
+    // this is an error or empty frame
+    ready();
+    resolve();
+  }
 });
 
 
 
-
-/**
- * Handle preload, ostensibly for any data loaded by the parent frame, but really just for Klang.
- */
-// loader.addEventListener(gameloader.events.preload, (ev) => {
-//   const {event, update, resolve} = ev.detail;
-//   const work = async () => {
-//     const parts = event.split(':');
-//     if (parts[0] !== 'sounds') {
-//       throw new TypeError(`expected preload for sounds, was: ${event}`);
-//     }
-
-//     const sc = await kplayReady;
-//     await sc.preload(parts[1], (done, total) => update({done, total}));
-//   };
-//   resolve(work());
-// });
-
-
-let activePort = null;
-let soundcontroller = null;
-
-
-// loader.addEventListener(gameloader.events.ready, (ev) => {
-//   const {resolve, href, empty, port} = ev.detail;
-
-//   let configResolve;
-//   const configPromise = new Promise((resolve) => {
-//     configResolve = resolve;
-//   });
-
-//   ev.preventDefault();
-
-//   if (port) {
-//     activePort = port;
-
-//     port.onmessage = (ev) => {
-//       if (activePort !== port) {
-//         console.warn('got data on inactive port', ev.data);
-//         return false;
-//       }
-
-//       const {type, payload} = ev.data;
-//       switch (type) {
-//         case 'ready':
-//           configResolve(payload);
-//           break;
-
-//         case 'go':
-//           santaApp.route = payload;
-//           break;
-
-//         case 'play':
-//           console.info('play', payload);
-//           soundcontroller.play(...payload);
-//           break;
-
-//         default:
-//           console.warn('unhandled port message', type, payload);
-//       }
-//     };
-
-//   } else {
-//     activePort = null;  // invalidate previous port
-//   }
-
-//   // TODO(samthor): This method is a little awkward, but configures whether the error is displayed,
-//   // and what it displays (e.g. a locked image).
-//   // If `empty` is false, then it actually never shows at all, since the slot is `display: none`.
-
-//   const handler = async () => {
-//     const locked = (!href && santaApp.route);
-//     error.textContent = '';
-
-//     if (!locked) {
-//       error.error = empty && Boolean(href);
-//       error.lock = false;
-
-//       if (empty) {
-//         chrome.mini = false;
-//       } else {
-//         // TODO: This is the startup path for valid scenes. It shouldn't be hidden away like this.
-//         const config = await configPromise;
-//         console.warn('got config', config);
-//         chrome.mini = !config.scroll;
-//         soundcontroller.transitionTo(config.sound || [], 1.0);
-//       }
-
-//       return;
-//     }
-
+// loader.addEventList
 //     error.lock = true;
 //     let img;
 //     try {
@@ -204,56 +174,6 @@ let soundcontroller = null;
 // });
 
 
-// async function shutdown(control) {
-//   for await (const op of control) {
-//     // ignore all, can't do anything after shutdown
-//     console.debug('ignoring post-shutdown op', op);
-//   }
-//   console.info('done', control);
-// }
-
-
-// async function runner(control) {
-//   for await (const op of control) {
-//     if (op === null) {
-//       return shutdown(control);
-//     }
-
-//     const {type, payload} = op;
-//     switch (type) {
-//       case 'go':
-//         santaApp.route = payload;
-//         break;
-
-//       case 'play':
-//         soundcontroller.play(...payload);
-//         break;
-
-//       case 'score':
-//         console.debug('got score', payload);
-//         break;
-
-//       default:
-//         console.warn('unhandled op', type);
-//     }
-//   }
-// }
-
-
-// async function *iterator() {
-//   let count = 0;
-//   for (let i = 0; i < 2; ++i) {
-//     await new Promise((r) => window.setTimeout(r, 1000));
-//     yield {type: 'score', payload: ++count};
-//   }
-//   yield null;
-//   yield 'whatever';
-// }
-
-// const it = iterator();
-// console.info(it);
-// runner(it);
-
 
 
 const loaderScene = (sceneName, data) => {
@@ -270,8 +190,14 @@ const loaderScene = (sceneName, data) => {
   if (loader.href === url) {
     return false;
   }
-  loader.load(url).then((port) => {
-    console.info('loading done with port', port, 'for', url);
+
+  const context = {sceneName, data};
+  loader.load(url, context).then((success) => {
+    if (success) {
+      console.info('loading done', url);
+    } else {
+      console.warn('loading superceded', url);
+    }
   });
 };
 

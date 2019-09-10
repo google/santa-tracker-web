@@ -6,7 +6,7 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 class SantaErrorElement extends LitElement {
   static get properties() {
     return {
-      error: {type: Boolean},
+      code: {type: String},
       lock: {type: Boolean},
     };
   }
@@ -17,14 +17,22 @@ class SantaErrorElement extends LitElement {
 
   constructor() {
     super();
-    this.error = false;
+    this.code = null;
     this.lock = false;
   }
 
   render() {
-    // nb. `error-not-found` includes relative <a> links. This should only be running in prod, so
-    // include it inline.
-    const text = this.error ? html`<p>${unsafeHTML(_msg`error-not-found`)}</p>`: '';
+    // nb. the following messages include relative <a> links. This should only be running in prod,
+    // so it's safe to inline.
+
+    let raw = null;
+    if (this.code === 'missing') {
+      raw = _msg`error-not-found`;
+    } else if (this.code) {
+      raw = _msg`error-internal`;
+    }
+
+    const text = raw ? html`<p>${unsafeHTML(raw)}</p>`: '';
     return html`
 <main>
   <div class="icon">

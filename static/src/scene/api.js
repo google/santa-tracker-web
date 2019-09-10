@@ -1,14 +1,6 @@
 import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
-
-
-function resolvable() {
-  let resolve;
-  const promise = new Promise((r) => {
-    resolve = r;
-  });
-  return {promise, resolve};
-}
+import {resolvable} from '../lib/promises.js';
 
 
 class PreloadApi {
@@ -172,9 +164,7 @@ class SceneApi extends EventTarget {
 
     // after preload, do a bunch of setup work
     this._ready = (async () => {
-
       await this._preload.done;
-      this._updateParent(null);  // preload is done
 
       this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
       this._send = (type, payload) => this._updateParent({type, payload});

@@ -2,20 +2,28 @@ import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
 import {portIterator} from '../lib/generator.js';
+import {resolvable} from '../lib/promises.js';
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
 const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
 
+
+const assert = (cond, message = 'assertion failed') => {
+  if (!cond) {
+    throw new Error(message);
+  }
+};
+
+
 export const events = Object.freeze({
   'focus': '-loader-focus',
   'blur': '-loader-blur',
-  'ready': '-loader-ready',
-  'progress': '-loader-progress',
-  'preload': '-loader-preload',
+  'load': '-loader-load',
+  'prepare': '-loader-prepare',
+  'error': '-loader-error',
 });
 const internalRemove = '-internal-remove';
-const invalidFrame = '-invalid-frame-error';
 
 
 const createFrame = (src) => {
@@ -55,10 +63,11 @@ class SantaGameLoaderElement extends HTMLElement {
     this._frameFocus = false;
 
     this._loading = false;
-    this._loadingPromise = Promise.resolve(null);
+    this._control = null;
 
-    this._href = '';
+    this._href = null;
     this._previousFrame = null;
+    this._previousFrameClose = null;  // called when _previousFrame is cleared
     this._activeFrame = createFrame();
     this._container.append(this._activeFrame);
   }
@@ -121,22 +130,30 @@ class SantaGameLoaderElement extends HTMLElement {
    * code to clear content once we're done with it.
    */
   purge() {
-    if (this._previousFrame) {
-      this._previousFrame.remove();
-      // nb. does not null out the previousFrame, as we use it to indicate in-progress load
-    }
+    // nb. does not null out the previousFrame, as we use it to indicate in-progress load
+    this._previousFrame && this._previousFrame.remove();
+    this._previousFrameClose && this._previousFrameClose();
   }
 
   /**
    * Load a new scene.
    *
    * @param {?string} href 
+   * @param {?*} payloacontextd to pass via .load event
    */
-  load(href) {
-    this._href = href;
+  load(href, context=null) {
+    this._href = href || null;
 
     this._loading = true;
     this._container.classList.add('loading');
+
+    // Inform any open control (for the activeFrame) that it is to be closed, by sending null.
+    let controlClose = null;
+    if (this._control) {
+      this._control.push(null);
+      controlClose = this._control.close.bind(this);
+    }
+    this._control = null;
 
     if (this._previousFrame) {
       // If there's still a previousFrame set, then the previous activeFrame never loaded. Clear it
@@ -144,107 +161,114 @@ class SantaGameLoaderElement extends HTMLElement {
       // TODO: revisit if both frames are visible at the same time for a transition
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
       this._activeFrame.remove();
+      controlClose();  // frame gone, close channel immediately
     } else {
-      // TODO: this frame will never recover. Inform it of its demise so it can do cleanup work
-      // (Analytics?) and we can kill its active sounds (....).
+      // Whatever was active is now ultimately going to meet its demise.
       this._previousFrame = this._activeFrame;
       this._previousFrame.setAttribute('tabindex', -1);  // prevent tab during clear
       window.focus();  // move focus from previousFrame
+
+      // Configure a final close helper for when the previousFrame is actually removed.
+      this._previousFrameClose = controlClose;
     }
 
-    const af = createFrame(href);
+    // Inform listeners that there's a new load occuring. This will likely start the display of a
+    // loading interstitial or similar (although can fire multiple times).
+    this.dispatchEvent(new CustomEvent(events.load, {detail: {context}}));
+
+    const af = createFrame(this._href);
     this._activeFrame = af;
     this._activeFrame.classList.add('pending');
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
     this._container.append(af);
 
-    const p = new Promise((resolve, reject) => {
+    let portPromise = Promise.resolve(null);
+    if (href) {
+      portPromise = new Promise((resolve, reject) => {
 
-      // Resolves with a MessagePort from the frame.
-      // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
-      messageSource.add(af.contentWindow, (ev) => {
-        if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
-          return reject(new Error(`unexpected from preload: ${ev.data}`));
-        }
-        resolve(ev.ports[0]);
-      });
-
-      // Handle being removed due to being replaced with some other frame.
-      af.addEventListener(internalRemove, () => resolve(null), {once: true});
-
-      // Resolves with null after load + delay, indicating that the scene has failed to init. The
-      // loader should normally resolve with its MessagePort.
-      af.addEventListener('load', () => {
-        window.setTimeout(() => resolve(null), href ? LOAD_LEEWAY : 0);
-
-        // TODO(samthor): If another load event arrives, this is because the internal <iframe>
-        // loaded a new URL. We should kill it in this case.
-        af.addEventListener('load', (ev) => {
-          console.warn('got inner load, should kill frame', af);
+        // Resolves with a MessagePort from the frame.
+        // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
+        messageSource.add(af.contentWindow, (ev) => {
+          if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
+            return reject(new Error(`unexpected from preload: ${ev.data}`));
+          }
+          resolve(ev.ports[0]);
         });
-      }, {once: true});
 
-    });
+        // Handle being removed due to being replaced with some other frame before being loaded.
+        af.addEventListener(internalRemove, () => resolve(null), {once: true});
 
-    return this._loadingPromise = this._prepareFrame(p, af).catch((err) => {
-      if (err !== invalidFrame) {
-        throw err;
-      }
-      return null;
-    });
-  }
+        // Resolves with null after load + delay, indicating that the scene has failed to init. The
+        // loader should normally resolve with its MessagePort.
+        af.addEventListener('load', () => {
+          window.setTimeout(() => resolve(null), href ? LOAD_LEEWAY : 0);
 
-  async _prepareFrame(portPromise, af) {
-    const validateFrame = () => {
-      if (af !== this._activeFrame) {
-        throw invalidFrame;
-      }
-    };
+          // TODO(samthor): If another load event arrives, this is because the internal <iframe>
+          // loaded a new URL. We should kill it in this case.
+          af.addEventListener('load', (ev) => {
+            console.warn('got inner load, should kill frame', af);
+          });
+        }, {once: true});
 
-    const port = await portPromise;
-    validateFrame();
-
-    if (port) {
-      const {iter, push, close} = portIterator(port);
-
-      let controlPromise;
-      const readyPromise = new Promise((readyResolve) => {
-        controlPromise = new Promise((controlResolve) => {
-          const detail = {
-            control: iter,
-            resolve: controlResolve,
-            ready: readyResolve,
-          };
-          this.dispatchEvent(new CustomEvent(events.ready, {detail}));
-        });
       });
-
-      await readyPromise;
-      validateFrame();
     }
 
-    // Inform the caller that we're ready, but happy to be modified further. This allows for
-    // transitions to finish or for an error state to be displayed.
-    await new Promise((resolve) => {
-      const ce = new CustomEvent(events.ready, {
-        cancelable: true,
-        detail: {
-          port,
-          empty: !port,
-          href: this._href,
-          resolve,
-        },
-      });
-      this.dispatchEvent(ce);
-      if (!ce.defaultPrevented) {
-        resolve();
+    // nb. This method should never fail for external reasons; failures here are an internal issue.
+    return this._prepareFrame(portPromise, af, context);
+  }
+
+  async _prepareFrame(portPromise, af, context) {
+    const port = await portPromise;
+    if (af !== this._activeFrame) {
+      return false;  // another frame was requested before initial init message
+    }
+
+    assert(this._control === null, '_control should be null at this point');
+    if (port) {
+      this._control = portIterator(port);
+    }
+
+    const {promise: readyPromise, resolve: readyResolve} = resolvable();
+    const {promise: scenePromise, resolve: sceneResolve} = resolvable();
+
+    // If the scene runner causes an error while active, announce it. Its regular resolved value
+    // isn't interesting to us, so don't watch it.
+    scenePromise.catch((err) => {
+      if (af === this._activeFrame) {
+        if (!(err instanceof Error)) {
+          err = new Error(err);
+        }
+        this.dispatchEvent(new CustomEvent(events.error, {detail: err}));
+      } else {
+        console.debug('error from closed scene', af.src, err)
       }
     });
 
-    // Give the game a rAF frame to come up-to-speed.
-    // TODO(samthor): Give it a few, to start animations and somesuch.
-    await new Promise((r) => window.requestAnimationFrame(r));
-    validateFrame();
+    // These look like separate events to the caller, but failure to 'ready' should also cause the
+    // scene broadly to fail.
+    readyPromise.catch(sceneResolve);
+
+    // Announce to the caller that it can now prepare a new frame, listening to control events and
+    // doing work. Control can also be null if the scene failed to load or is the blank page.
+    const detail = {
+      context,
+      control: this._control ? this._control.iter : null,
+      resolve: sceneResolve,
+      ready: readyResolve,  // this is advertised as just "call me when done", really a Promise
+      href: this._href,
+    };
+    this.dispatchEvent(new CustomEvent(events.prepare, {detail}));
+
+    // Wait for the scene to indicate that it's ready. Swallow errors here, because they're passed
+    // to sceneResolve above.
+    await readyPromise.catch(null);
+    if (af !== this._activeFrame) {
+      return false;  // another frame was requested during preload
+    }
+
+    // Success! readyPromise resolved without an error. The following code is non-async, and just
+    // restores this element back to a sane operating state, including nuking the previousFrame if
+    // it's still around.
 
     if (this.disabled) {
       // Retain `tabindex=-1`, which prevents use of the iframe.
@@ -255,19 +279,17 @@ class SantaGameLoaderElement extends HTMLElement {
     this._loading = false;
     this._activeFrame.classList.remove('pending');
     this._container.classList.remove('loading');
+
+    // If the frame didn't load, allow <slot> content and remove itself. This is still "success".
     this._container.classList.toggle('empty', !port);
-
-    if (this._previousFrame) {
-      this._previousFrame.remove();
-      this._previousFrame = null;
+    if (port === null) {
+      this._activeFrame.remove();
     }
 
-    if (port) {
-      return 'ok';
-    }
-
-    this._activeFrame.remove();
-    return null;
+    this.purge();
+    this._previousFrame = null;
+    this._previousFrameClose = null;
+    return true;
   }
 
   get href() {

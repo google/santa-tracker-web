@@ -14,6 +14,8 @@ a.video {
 <body>
 
 <ul id="listing"></ul>
+<button id="error">Cause Error</button>
+<button id="shutdown">Close Scene</button>
 
 <script type="module">
   import * as route from '../../src/scene/route.js';
@@ -47,6 +49,15 @@ a.video {
     a.classList.toggle('video', Boolean(data.video));
 
     listing.appendChild(li);
+  });
+
+  api.config({scroll: true});
+
+  error.addEventListener('click', (ev) => {
+    api._send('error', 'error from scene');
+  });
+  shutdown.addEventListener('click', (ev) => {
+    api._send('shutdown');
   });
 
   api.ready(async () => {
