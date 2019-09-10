@@ -13,6 +13,7 @@ import scenes from './src/strings/scenes.js';
 import {_msg, join} from './src/magic.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 import {sceneImage} from './src/core/assets.js';
+import {resolvable} from './src/lib/promises.js';
 
 
 const kplayReady = kplay.prepare();
@@ -24,12 +25,12 @@ const kplayReady = kplay.prepare();
 
 
 const loaderElement = document.createElement('santa-gameloader');
+const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
-document.body.append(chromeElement, loaderElement);
+document.body.append(chromeElement, loaderElement, interludeElement);
 
 const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
-
 
 const sidebar = document.createElement('santa-sidebar');
 sidebar.todayHouse = 'snowball';
@@ -116,9 +117,14 @@ outer:
   }
 }
 
+
+let interludePromise = Promise.resolve(null);
+
+
 loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
   // the previous load isn't finished yet. It's suitable for enabling or updating an interstitial.
+  interludePromise = interludeElement.animate();
 });
 
 
@@ -148,8 +154,20 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   errorElement.textContent = '';  // clear previous image
   errorElement.lock = false;
 
+  // FIXME: the error display has a higher z-index than the interstitial. Also, its elements can
+  // still be focused.
+
+  // TODO(samthor): This is a bit gross. But we basically give our `ready()` method the union of
+  // the runner ready callback and the interlude animation, so we only finish up when the interlude
+  // is done.
+  const {promise: fauxReadyPromise, resolve: fauxReadyResolve} = resolvable();
+  const union = Promise.all([fauxReadyPromise, interludePromise]).then(() => {
+    interludeElement.removeAttribute('active');
+  });
+  ready(union);
+
   if (control) {
-    resolve(runner(control, ready, data));
+    resolve(runner(control, fauxReadyResolve, data));
   } else {
     const emptyRunner = async () => {
       if (sceneName && !error) {
@@ -165,7 +183,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
         }
         errorElement.lock = true;
       }
-      ready();
+      fauxReadyResolve();
     };
     resolve(emptyRunner());
   }
