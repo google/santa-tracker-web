@@ -7,6 +7,7 @@ import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
+import './src/elements/santa-interlude.js';
 import * as kplay from './src/kplay.js';
 import scenes from './src/strings/scenes.js';
 import {_msg, join} from './src/magic.js';
@@ -22,18 +23,18 @@ const kplayReady = kplay.prepare();
 //sc.installGestureResume(document.body);
 
 
-const loader = document.createElement('santa-gameloader');
-const chrome = document.createElement('santa-chrome');
-document.body.append(chrome, loader);
+const loaderElement = document.createElement('santa-gameloader');
+const chromeElement = document.createElement('santa-chrome');
+document.body.append(chromeElement, loaderElement);
 
 const errorElement = document.createElement('santa-error');
-loader.append(errorElement);
+loaderElement.append(errorElement);
 
 
 const sidebar = document.createElement('santa-sidebar');
 sidebar.todayHouse = 'snowball';
 sidebar.setAttribute('slot', 'sidebar');
-chrome.append(sidebar);
+chromeElement.append(sidebar);
 
 
 kplayReady.then((sc) => {
@@ -87,7 +88,7 @@ outer:
         ready();
         Object.assign(config, payload);
 
-        chrome.mini = !config.scroll;
+        chromeElement.mini = !config.scroll;
         sc.transitionTo(config.sound || [], 1.0);
 
         break outer;
@@ -115,20 +116,20 @@ outer:
   }
 }
 
-loader.addEventListener(gameloader.events.load, (ev) => {
+loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
   // the previous load isn't finished yet. It's suitable for enabling or updating an interstitial.
 });
 
 
-loader.addEventListener(gameloader.events.error, (ev) => {
+loaderElement.addEventListener(gameloader.events.error, (ev) => {
   const {error, context} = ev.detail;
   const {sceneName} = context;
-  loader.load(null, {error, sceneName});
+  loaderElement.load(null, {error, sceneName});
 });
 
 
-loader.addEventListener(gameloader.events.prepare, (ev) => {
+loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   // A new frame is being loaded. It's not yet visible (although its onload event has fired by now),
   // but the prior frame is now deprecated and is inevitably going to be removed.
   // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
@@ -192,7 +193,7 @@ const loaderScene = (sceneName, data) => {
   loadedScene = sceneName;
 
   const context = {sceneName, data};
-  loader.load(url, context).then((success) => {
+  loaderElement.load(url, context).then((success) => {
     if (success) {
       console.info('loading done', sceneName, url);
     } else {
