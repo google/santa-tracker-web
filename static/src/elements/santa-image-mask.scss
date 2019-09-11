@@ -1,0 +1,36 @@
+svg {
+  overflow: visible;
+  --o: var(--offset, 5px); /* create shorthand AND default */
+  perspective: 10000px;
+  will-change: transform;
+}
+
+.focus {
+  transform: translate(0, 0);
+  transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
+  pointer-events: none;
+}
+
+.shadow {
+  transform-origin: bottom center;
+  transform: skew(-4deg) translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
+  opacity: 0.1;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+
+.target {
+  fill: transparent;
+
+  &:hover ~ .focus {
+    transform: translate(0, calc(-2 * var(--o)));
+    transition: transform 0.2s;
+    animation: none;
+  }
+
+  &:hover ~ .shadow {
+    transform: skew(-5deg) translate(var(--o, 5px), calc(var(--o, 5px) * 1.6));
+    opacity: 0.2;
+    transition: all 0.2s;
+  }
+}

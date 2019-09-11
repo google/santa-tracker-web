@@ -1,6 +1,7 @@
 import {html, LitElement} from 'lit-element';
 import {directive} from 'lit-html';
 import * as prefix from '../lib/prefix.js';
+import styles from './santa-image-mask.css';
 
 
 const clips = [
@@ -46,6 +47,10 @@ class SantaImageMaskElement extends LitElement {
     };
   }
 
+  static get styles() {
+    return [styles];
+  }
+
   constructor() {
     super();
     this._idPrefix = prefix.id();
@@ -68,39 +73,6 @@ class SantaImageMaskElement extends LitElement {
       part.committer.element.setAttributeNS('http://www.w3.org/1999/xlink', part.committer.name, value);
     });
     return html`
-<style>
-svg {
-  overflow: visible;
-  --o: var(--offset, 5px); /* create shorthand AND default */
-  perspective: 10000px;
-  will-change: transform;
-}
-.focus {
-  transform: translate(0, 0);
-  transition: transform 0.5s cubic-bezier(0.47,2.02,0.31,-0.36);
-  pointer-events: none;
-}
-.shadow {
-  transform-origin: bottom center;
-  transform: skew(-4deg) translate(calc(var(--o, 5px) * 0.8), calc(var(--o, 5px) * 1.28));
-  opacity: 0.1;
-  transition: all 0.5s;
-  pointer-events: none;
-}
-.target {
-  fill: transparent;
-}
-.target:hover ~ .focus {
-  transform: translate(0, calc(-2 * var(--o)));
-  transition: transform 0.2s;
-  animation: none;
-}
-.target:hover ~ .shadow {
-  transform: skew(-5deg) translate(var(--o, 5px), calc(var(--o, 5px) * 1.6));
-  opacity: 0.2;
-  transition: all 0.2s;
-}
-</style>
 <svg width="${size}" height="${height}">
 <linearGradient id="${this._idPrefix}fade" x1="0" x2="0" y1="0" y2="1">
 <stop offset="0%" stop-color="black" stop-opacity="0.2"/>
