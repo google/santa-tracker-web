@@ -54,10 +54,11 @@ global.subscribe((state) => {
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
-  loaderElement.disabled = orientationChangeNeeded;
 
+  loaderElement.disabled = orientationChangeNeeded;                // paused/disabled
+  loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
-  orientationOverlayElement.hidden = !orientationChangeNeeded;
+  orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
 
   const pause = orientationChangeNeeded || state.hidden;
   if (state.control) {
