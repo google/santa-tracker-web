@@ -35,6 +35,7 @@ export default {
   'office': _msg`scene_videoscene_office`,
   'onvacation': _msg`scene_videoscene_onvacation`,
   'penguindash': _msg`scene_dash`,
+  'playground': _msg`scene_playground`,
   'poseboogie': _msg`scene_poseboogie`,
   'postcard': _msg`scene_postcard`,
   'presentbounce': _msg`scene_presentbounce`,
