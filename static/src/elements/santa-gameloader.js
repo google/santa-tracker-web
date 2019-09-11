@@ -1,8 +1,90 @@
 import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
-import {portIterator} from '../lib/generator.js';
 import {resolvable} from '../lib/promises.js';
+
+
+
+class PortControl {
+  constructor() {
+    this._port = null;
+    this._done = false;
+    this._attached = false;
+    this._closed = false;
+
+    this._nextPromise = null;
+    this._nextResolve = null;
+    this._q = [];
+  }
+
+  attach(port) {
+    if (this._attached || this._done) {
+      throw new Error('cannot attach twice');
+    }
+    if (port) {
+      this._port = port;
+      port.onmessage = (ev) => this.push(ev.data);
+    }
+    this._attached = true;
+  }
+
+  get hasPort() {
+    return Boolean(this._port);
+  }
+
+  get isAttached() {
+    return this._attached;
+  }
+
+  shutdown() {
+    if (this._done) {
+      throw new Error('cannot shutdown twice');
+    }
+
+    this._done = true;
+    this._attached = false;
+    this.push(null);  // safe even if this goes to queue
+
+    return () => {
+      this._closed = true;
+      if (this._port) {
+        this._port.close();
+      }
+      this._port = null;
+    };
+  }
+
+  get done() {
+    return this._done;
+  }
+
+  push(arg) {
+    if (this._nextResolve) {
+      this._nextResolve(arg);
+      this._nextResolve = null;
+      this._nextPromise = null;
+    } else {
+      this._q.push(arg);
+    }
+  }
+
+  next() {
+    if (this._closed) {
+      return null;
+    } else if (this._q.length) {
+      return this._q.shift();
+    } else if (this._done) {
+      return null;
+    } else if (!this._nextPromise) {
+      this._nextPromise = new Promise((resolve) => {
+        this._nextResolve = resolve;
+      });
+    }
+    return this._nextPromise;
+  }
+}
+
+
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
@@ -64,7 +146,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._frameFocus = false;
 
     this._loading = false;
-    this._control = null;
+    this._control = new PortControl();
 
     this._href = null;
     this._previousFrame = null;
@@ -149,12 +231,8 @@ class SantaGameLoaderElement extends HTMLElement {
     this._container.classList.add('loading');
 
     // Inform any open control (for the activeFrame) that it is to be closed, by sending null.
-    let controlClose = null;
-    if (this._control) {
-      this._control.push(null);
-      controlClose = this._control.close.bind(this);
-    }
-    this._control = null;
+    const close = this._control.shutdown();
+    this._control = new PortControl();
 
     if (this._previousFrame) {
       // If there's still a previousFrame set, then the previous activeFrame never loaded. Clear it
@@ -162,7 +240,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // TODO: revisit if both frames are visible at the same time for a transition
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
       this._activeFrame.remove();
-      controlClose && controlClose();  // frame gone, close channel immediately
+      close();  // frame has gone immediately, close port now
     } else {
       // Whatever was active is now ultimately going to meet its demise.
       this._previousFrame = this._activeFrame;
@@ -170,7 +248,7 @@ class SantaGameLoaderElement extends HTMLElement {
       window.focus();  // move focus from previousFrame
 
       // Configure a final close helper for when the previousFrame is actually removed.
-      this._previousFrameClose = controlClose;
+      this._previousFrameClose = close;
     }
 
     // Inform listeners that there's a new load occuring. This will likely start the display of a
@@ -223,72 +301,71 @@ class SantaGameLoaderElement extends HTMLElement {
     if (af !== this._activeFrame) {
       return false;  // another frame was requested before initial init message
     }
+    this._control.attach(port);
 
-    assert(this._control === null, '_control should be null at this point');
-    if (port) {
-      this._control = portIterator(port);
-    }
+    let readyResolve;
+    const readyPromise = new Promise((resolve) => {
+      readyResolve = resolve;
+    });
+    const ready = () => {
+      if (af !== this._activeFrame) {
+        readyResolve(false);
+        return false;
+      } else if (!this._loading) {
+        return true;  // ready was called twice
+      }
 
-    const {promise: readyPromise, resolve: readyResolve} = resolvable();
+      // Success: the frame has reported ready. The following code is entirely non-async, and just
+      // cleans up state as the scene is now active and happy.
+
+      if (this.disabled) {
+        // Retain `tabindex=-1`, which prevents use of the iframe.
+      } else {
+        this._activeFrame.removeAttribute('tabindex');
+      }
+
+      this._loading = false;
+      this._activeFrame.classList.remove('pending');
+      this._container.classList.remove('loading');
+
+      // If nothing loaded, allow <slot> content and remove itself. This is still "success".
+      this._container.classList.toggle('empty', !port);
+      if (port === null) {
+        this._activeFrame.remove();
+      }
+
+      this.purge();
+      this._previousFrame = null;
+      this._previousFrameClose = null;
+
+      readyResolve(true);
+      return true;
+    };
+
     const {promise: scenePromise, resolve: sceneResolve} = resolvable();
 
-    // If the scene runner causes an error while active, announce it. Its regular resolved value
-    // isn't interesting to us, so don't watch it.
-    scenePromise.catch((error) => {
+    // Ensure that `ready` is always called. And, that if the scene runner has an uncaught error,
+    // it is announced.
+    scenePromise.then(ready, (error) => {
       if (af === this._activeFrame) {
         const detail = {error, context};
         this.dispatchEvent(new CustomEvent(events.error, {detail}));
       } else {
-        console.debug('error from closed scene', af.src, error)
+        console.warn('error from closed scene', af.src, error)
       }
     });
-
-    // These look like separate events to the caller, but failure to 'ready' should also cause the
-    // scene broadly to fail.
-    readyPromise.catch(sceneResolve);
 
     // Announce to the caller that it can now prepare a new frame, listening to control events and
     // doing work. Control can also be null if the scene failed to load or is the blank page.
     const detail = {
       context,
-      control: this._control ? this._control.iter : null,
+      control: this._control,
       resolve: sceneResolve,
-      ready: readyResolve,  // this is advertised as just "call me when done", really a Promise
+      ready,  // "call me when done"
       href: this._href,
     };
     this.dispatchEvent(new CustomEvent(events.prepare, {detail}));
-
-    // Wait for the scene to indicate that it's ready. Swallow errors here, because they're passed
-    // to sceneResolve above.
-    await readyPromise.catch(null);
-    if (af !== this._activeFrame) {
-      return false;  // another frame was requested during preload
-    }
-
-    // Success! readyPromise resolved without an error. The following code is non-async, and just
-    // restores this element back to a sane operating state, including nuking the previousFrame if
-    // it's still around.
-
-    if (this.disabled) {
-      // Retain `tabindex=-1`, which prevents use of the iframe.
-    } else {
-      this._activeFrame.removeAttribute('tabindex');
-    }
-
-    this._loading = false;
-    this._activeFrame.classList.remove('pending');
-    this._container.classList.remove('loading');
-
-    // If the frame didn't load, allow <slot> content and remove itself. This is still "success".
-    this._container.classList.toggle('empty', !port);
-    if (port === null) {
-      this._activeFrame.remove();
-    }
-
-    this.purge();
-    this._previousFrame = null;
-    this._previousFrameClose = null;
-    return true;
+    return readyPromise;
   }
 
   get href() {

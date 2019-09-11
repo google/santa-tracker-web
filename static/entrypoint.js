@@ -13,7 +13,7 @@ import scenes from './src/strings/scenes.js';
 import {_msg, join} from './src/magic.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 import {sceneImage} from './src/core/assets.js';
-import {resolvable} from './src/lib/promises.js';
+import * as promises from './src/lib/promises.js';
 
 
 const kplayReady = kplay.prepare();
@@ -54,19 +54,28 @@ async function preloadSounds(sc, event, port) {
 }
 
 
-async function runner(control, ready, initialData) {
-  const sc = await kplayReady;
+/**
+ * Handle preload events from the contained scene. Should not effect global state.
+ *
+ * @param {!PortControl} control
+ * @param {!Object<string, string>} data
+ */
+async function prepare(control, data) {
+  if (!control.hasPort) {
+    return {};
+  }
+  const timeout = promises.timeoutRace(10 * 1000);
 
-  const preloadWork = [];
+  const preloads = [];
   const config = {};
-
 outer:
-  for await (const data of control) {
-    if (data === null) {
-      throw new Error('scene failed to load');
+  for (;;) {
+    const op = await timeout(control.next());
+    if (op === null) {
+      break;  // closed or timeout, bail out
     }
 
-    const {type, payload} = data;
+    const {type, payload} = op;
     switch (type) {
       case 'error':
         return Promise.reject(payload);
@@ -81,55 +90,35 @@ outer:
           throw new TypeError(`unsupported preload: ${payload[0]}`);
         }
         // TODO: don't preload sounds if the AudioContext is suspended, queue for later.
-        preloadWork.push(preloadSounds(sc, event, port));
+        const sc = await kplayReady;
+        preloads.push(preloadSounds(sc, event, port));
         continue;
 
       case 'ready':
-        await Promise.all(preloadWork);
-        ready();
+        await timeout(Promise.all(preloads));
         Object.assign(config, payload);
-
-        chromeElement.mini = !config.scroll;
-        sc.transitionTo(config.sound || [], 1.0);
-
         break outer;
     }
 
-    console.warn('got unhandled preload', data);
+    console.warn('got unhandled preload', op);
   }
 
-  for await (const data of control) {
-    if (data === null) {
-      break;
-    }
-
-    const {type, payload} = data;
-    switch (type) {
-      case 'error':
-        return Promise.reject(payload);
-    }
-
-    console.debug('got active data', data);
-  }
-
-  for await (const data of control) {
-    console.debug('got post-shutdown data', data);
-  }
+  return config;
 }
-
-
-let interludePromise = Promise.resolve(null);
 
 
 loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
-  // the previous load isn't finished yet. It's suitable for enabling or updating an interstitial.
-  interludePromise = interludeElement.show();
+  // the previous load isn't finished yet. It's suitable for resetting global UI, although there
+  // won't be information about the next scene yet.
+  interludeElement.show();
   chromeElement.navOpen = false;
+  chromeElement.mini = true;
 });
 
 
 loaderElement.addEventListener(gameloader.events.error, (ev) => {
+  // TODO(samthor): Internal errors could cause an infinite loop here.
   const {error, context} = ev.detail;
   const {sceneName} = context;
   loaderElement.load(null, {error, sceneName});
@@ -142,52 +131,73 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
 
   const {context, resolve, control, ready} = ev.detail;
-  const {data, sceneName, error} = context;
 
-  // Configure `santa-error`, if needed.
-  if (error) {
-    errorElement.code = 'internal';
-  } else if (!control && sceneName) {
-    errorElement.code = 'missing';
-  } else {
+  const call = async () => {
+    const {data, sceneName, error, locked} = context;
+
+    // Kick off the preload for this scene and wait for the interlude to appear.
+    const configPromise = prepare(control, data);
+    await interludeElement.show();
+    if (!control.isAttached) {
+      return false;  // replaced during interlude
+    }
+
+    // The interlude is fully visible, so we can purge the old scene (although this is optional as
+    // `santa-gameloader` will always do this for us _anyway_).
+    loaderElement.purge();
+
+    // Configure optional error state of `santa-error` while the interlude is visible.
     errorElement.code = null;
-  }
-  errorElement.textContent = '';  // clear previous image
-  errorElement.lock = false;
+    if (error) {
+      errorElement.code = 'internal';
+    } else if (locked) {
+      // do nothing
+    } else if (!control.hasPort && sceneName) {
+      errorElement.code = 'missing';
+    }
+    errorElement.textContent = '';
+    errorElement.lock = locked;
+    const lockedImagePromise = locked ? sceneImage(sceneName) : Promise.resolve(null);
 
-  // FIXME: the error display has a higher z-index than the interstitial. Also, its elements can
-  // still be focused.
+    // Wait for preload (and other tasks) to complete. None of these have effect on global state so
+    // only check if we're still the active scene once done.
+    const config = await configPromise;
+    const lockedImage = await lockedImagePromise.catch(null);
+    const sc = await kplayReady;
 
-  // TODO(samthor): This is a bit gross. But we basically give our `ready()` method the union of
-  // the runner ready callback and the interlude animation, so we only finish up when the interlude
-  // is done.
-  const {promise: fauxReadyPromise, resolve: fauxReadyResolve} = resolvable();
-  const union = Promise.all([fauxReadyPromise, interludePromise]).then(() => {
+    // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we
+    // are still the active scene.
+    if (!ready()) {
+      return false;
+    }
+
+    // Run configuration tasks and remove the interlude.
+    if (lockedImage) {
+      lockedImage.setAttribute('slot', 'icon');
+      errorElement.append(lockedImage);
+    }
     interludeElement.removeAttribute('active');
-  });
-  ready(union);
+    chromeElement.mini = !config.scroll;
+    sc.transitionTo(config.sound || [], 1.0);
 
-  if (control) {
-    resolve(runner(control, fauxReadyResolve, data));
-  } else {
-    const emptyRunner = async () => {
-      if (sceneName && !error) {
-        let img;
-        try {
-          img = await sceneImage(santaApp.route);
-        } catch (e) {
-          img = null;
-        }
-        if (img) {
-          img.setAttribute('slot', 'icon');
-          errorElement.append(img);
-        }
-        errorElement.lock = true;
+    // Main game loop. If op is null, we've been shutdown.
+    for (;;) {
+      const op = await control.next();
+      if (op === null) {
+        console.warn('running scene got shutdown');
+        break;
       }
-      fauxReadyResolve();
-    };
-    resolve(emptyRunner());
-  }
+
+      if (op.type === 'error') {
+        throw new Error(data.payload);
+      }
+      console.debug('running scene got', op);
+    }
+
+    // TODO: might be trailing events
+  };
+
+  resolve(call());
 });
 
 
@@ -211,7 +221,7 @@ const loaderScene = (sceneName, data) => {
 
   loadedScene = sceneName;
 
-  const context = {sceneName, data};
+  const context = {sceneName, data, locked};
   loaderElement.load(url, context).then((success) => {
     if (success) {
       console.info('loading done', sceneName, url);
