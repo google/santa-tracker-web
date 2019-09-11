@@ -1,5 +1,6 @@
 
 import createStore from 'unistore';
+import {dedupFrame} from './src/lib/decorators.js';
 
 const g = createStore({
   mini: false,
@@ -35,8 +36,9 @@ startup((global) => {
     global.setState({orientation});
   };
 
-  portraitMedia.addEventListener('change', update);
-  landscapeMedia.addEventListener('change', update);
+  const d = dedupFrame(update);
+  portraitMedia.addEventListener('change', d);
+  landscapeMedia.addEventListener('change', d);
 
   return update;
 });

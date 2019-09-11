@@ -170,7 +170,6 @@ class SceneApi extends EventTarget {
       this._send = (type, payload) => this._updateParent({type, payload});
 
       // send ready event
-      // TODO: allow scenes to configure these options
       this._send('ready', this._config || {});
 
       // clear backlog of events
@@ -179,7 +178,6 @@ class SceneApi extends EventTarget {
   }
 
   _handleHostMessage(type, payload) {
-    console.info('hostMessage', type, payload);
     switch (type) {
       case 'pause':
       case 'resume':

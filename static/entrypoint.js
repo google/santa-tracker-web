@@ -51,10 +51,19 @@ kplayReady.then((sc) => {
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
 
-  const orientationChangeNeeded = Boolean(state.orientation && state.sceneOrientation !== state.orientation);
+  // Only if we have an explicit orientation, the scene has one, and they're different.
+  const orientationChangeNeeded =
+      state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
   loaderElement.disabled = orientationChangeNeeded;
 
+  orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;
+
+  const pause = orientationChangeNeeded;
+  if (state.control) {
+    const type = pause ? 'pause' : 'resume';
+    state.control.send({type});
+  }
 });
 
 
@@ -159,7 +168,10 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // won't be information about the next scene yet.
   interludeElement.show();
   chromeElement.navOpen = false;
-  global.setState({mini: true});
+  global.setState({
+    mini: true,
+    control: null,
+  });
 });
 
 
@@ -226,6 +238,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     global.setState({
       mini: !config.scroll,
       sceneOrientation: config.orientation || null,
+      control,
     });
     sc.transitionTo(config.sound || [], 1.0);
 

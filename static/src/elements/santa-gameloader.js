@@ -36,6 +36,10 @@ class PortControl {
     return this._attached;
   }
 
+  send(x) {
+    this._port.postMessage(x);
+  }
+
   shutdown() {
     if (this._done) {
       throw new Error('cannot shutdown twice');
