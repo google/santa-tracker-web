@@ -13,12 +13,12 @@ api.preload.images(
   'models/elf-tidy.png',
   'models/elf.png',
 );
-api.preload.paths(
-  'models/elf-animated.bin',
-  'models/elf-animated.gltf',
-  'models/elf.bin',
-  'models/elf.gltf',
-);
+// api.preload.paths(
+//   'models/elf-animated.bin',
+//   'models/elf-animated.gltf',
+//   'models/elf.bin',
+//   'models/elf.gltf',
+// );
 
 
 const awaitAnimation = (element) => new Promise((resolve) => {

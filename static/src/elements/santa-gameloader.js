@@ -37,7 +37,9 @@ class PortControl {
   }
 
   send(x) {
-    this._port.postMessage(x);
+    if (this._port) {
+      this._port.postMessage(x);
+    }
   }
 
   shutdown() {
