@@ -60,22 +60,25 @@ global.subscribe((state) => {
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
 
+  if (!state.control) {
+    chromeElement.action = null;
+    return false;
+  }
+
   const gameover = (state.status === 'gameover');
   let pause = false;
   if (!gameover) {
     // ... don't pause/resume the scene if it's told us it's over
     pause = pause || orientationChangeNeeded || state.hidden || state.status === 'paused';
-    if (state.control) {
-      const type = pause ? 'pause' : 'resume';
-      state.control.send({type});
-    }
+    const type = pause ? 'pause' : 'resume';
+    state.control.send({type});
   }
 
   let action = null;
   if (gameover) {
     action = 'restart';
   } else if (state.sceneHasPause) {
-    if (pause) {
+    if (state.status === 'paused') {
       action = 'play';
     } else {
       action = 'pause';

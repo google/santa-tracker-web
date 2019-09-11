@@ -22,7 +22,7 @@ goog.provide('Constants');
  */
 var Constants = {
   // Countdown, in seconds
-  INITIAL_COUNTDOWN: 4,
+  INITIAL_COUNTDOWN: 60,
   TIME_PER_BOAT: 2,
   TOTAL_LEVELS: 10,
 
