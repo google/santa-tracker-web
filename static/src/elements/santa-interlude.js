@@ -61,31 +61,20 @@ class SantaInterludeElement extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (attrName !== 'active') {
+    if (attrName !== 'active' || oldValue === newValue) {
+      // nb. oldValue === newValue still gets callbacks?
       return;
     }
 
-    const isActive = (newValue !== null);
-    if (isActive) {
-
+    if (this.active) {
       this._animatePromise = new Promise((resolve) => {
         this._animateResolve = resolve;
-
-        window.setTimeout(() => {
-          if (this._animateResolve === resolve) {
-            resolve(true);  // resolve if nothing changed
-          }
-        }, ANIMATION_DURATION);
+        window.setTimeout(() => resolve(true), ANIMATION_DURATION);
       });
-
-    } else {
-
-      if (this._animateResolve) {
-        this._animateResolve(false);
-        this._animateResolve = null;
-        this._animatePromise = null;
-      }
-
+    } else if (this._animateResolve) {
+      this._animateResolve(false);
+      this._animateResolve = null;
+      this._animatePromise = null;
     }
   }
 }
