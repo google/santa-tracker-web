@@ -60,11 +60,56 @@ global.subscribe((state) => {
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
 
-  const pause = orientationChangeNeeded || state.hidden;
-  if (state.control) {
-    const type = pause ? 'pause' : 'resume';
-    state.control.send({type});
+  const gameover = (state.status === 'gameover');
+  let pause = false;
+  if (!gameover) {
+    // ... don't pause/resume the scene if it's told us it's over
+    pause = pause || orientationChangeNeeded || state.hidden || state.status === 'paused';
+    if (state.control) {
+      const type = pause ? 'pause' : 'resume';
+      state.control.send({type});
+    }
   }
+
+  let action = null;
+  if (gameover) {
+    action = 'restart';
+  } else if (state.sceneHasPause) {
+    if (pause) {
+      action = 'play';
+    } else {
+      action = 'pause';
+    }
+  }
+  chromeElement.action = action;
+});
+
+
+chromeElement.addEventListener('action', (ev) => {
+  let status = '';
+
+  switch (ev.detail) {
+    case 'play':
+      break;
+
+    case 'pause':
+      status = 'paused';
+      break;
+
+    case 'restart':
+      // TODO(samthor): this is a bit ugly because we poke into state.
+      const state = global.getState();
+      if (state.control) {
+        const type = 'restart';
+        state.control.send({type});
+      }
+      break;
+
+    default:
+      return false;
+  }
+
+  global.setState({status});
 });
 
 
@@ -156,6 +201,11 @@ async function runner(control) {
       case 'ga':
         ga.apply(null, payload);
         continue;
+
+      case 'gameover':
+        // TODO: log score?
+        global.setState({status: 'gameover'});
+        continue;
     }
 
     console.debug('running scene got', op);
@@ -173,6 +223,7 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   global.setState({
     mini: true,
     control: null,
+    sceneHasPause: false,
   });
 });
 
@@ -245,7 +296,9 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     global.setState({
       mini: !config.scroll,
       sceneOrientation: config.orientation || null,
+      sceneHasPause: Boolean(config.pause),
       control,
+      status: '',
     });
     sc.transitionTo(config.sound || [], 1.0);
 

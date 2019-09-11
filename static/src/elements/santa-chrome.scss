@@ -101,15 +101,48 @@ header {
     overflow: hidden;
 
     .menu-label {
-      cursor: pointer;
       position: absolute;
       left: 0;
       top: 0;
+    }
+
+    .menu-label,
+    button {
+      cursor: pointer;
       width: $bar-height;
       height: $bar-height;
       padding: 2px;
       box-sizing: border-box;
       display: flex;
+    }
+
+    .buttons {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      z-index: -10;
+      position: absolute;
+      left: $bar-height + 8px;
+      top: 0;
+      will-change: transform;
+      transition: opacity $duration-toolbar, transform $duration-toolbar;
+      transition-timing-function: ease-in-out;
+      transition-delay: $duration-toolbar;
+
+      button {
+        background: $color-bar;
+        border-radius: $bar-height;
+        color: inherit;
+        fill: currentColor;
+        border: none;
+      }
+
+      &[disabled] {
+        transition-delay: 0s;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-100%);
+      }
     }
   }
 

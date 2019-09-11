@@ -6,9 +6,13 @@ const g = createStore({
   mini: false,
 
   orientation: null,
-  sceneOrientation: null,
 
   hidden: false,
+
+  status: '',  // '', paused, gameover
+
+  sceneOrientation: null,
+  sceneHasPause: false,
 });
 
 export default g;
