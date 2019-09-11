@@ -145,9 +145,9 @@ async function runner(control) {
     }
 
     const {type, payload} = op;
-    switch (op.type) {
+    switch (type) {
       case 'error':
-        throw new Error(data.payload);
+        throw new Error(payload);
 
       case 'play':
         sc.play(...payload);
@@ -169,6 +169,7 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // won't be information about the next scene yet.
   interludeElement.show();
   chromeElement.navOpen = false;
+
   global.setState({
     mini: true,
     control: null,
@@ -190,9 +191,11 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
 
   const {context, resolve, control, ready} = ev.detail;
-
   const call = async () => {
     const {data, sceneName, error, locked} = context;
+    if (error) {
+      console.error('error', error);
+    }
 
     // Kick off the preload for this scene and wait for the interlude to appear.
     const configPromise = prepare(control, data);
@@ -204,6 +207,9 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     // The interlude is fully visible, so we can purge the old scene (although this is optional as
     // `santa-gameloader` will always do this for us _anyway_).
     loaderElement.purge();
+    global.setState({
+      sceneOrientation: null,
+    });
 
     // Configure optional error state of `santa-error` while the interlude is visible.
     errorElement.code = null;
