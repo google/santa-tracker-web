@@ -33,7 +33,7 @@ const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
 
 const sidebar = document.createElement('santa-sidebar');
-sidebar.todayHouse = 'snowball';
+sidebar.todayHouse = 'boatload';
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
