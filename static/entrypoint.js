@@ -65,10 +65,15 @@ global.subscribe((state) => {
     return false;
   }
 
+  if (state.status === 'restart') {
+    state.status = '';  // nb. modifies state as side effect
+    state.control.send({type: 'restart'});
+  }
+
   const gameover = (state.status === 'gameover');
   let pause = false;
   if (!gameover) {
-    // ... don't pause/resume the scene if it's told us it's over
+    // ... don't pause/resume the scene if it's marked gameover
     pause = pause || orientationChangeNeeded || state.hidden || state.status === 'paused';
     const type = pause ? 'pause' : 'resume';
     state.control.send({type});
@@ -100,12 +105,7 @@ chromeElement.addEventListener('action', (ev) => {
       break;
 
     case 'restart':
-      // TODO(samthor): this is a bit ugly because we poke into state.
-      const state = global.getState();
-      if (state.control) {
-        const type = 'restart';
-        state.control.send({type});
-      }
+      status = 'restart';
       break;
 
     default:
