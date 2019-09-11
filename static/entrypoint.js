@@ -59,6 +59,7 @@ async function preloadSounds(sc, event, port) {
  *
  * @param {!PortControl} control
  * @param {!Object<string, string>} data
+ * @return {!Promise<Object<string, *>>}
  */
 async function prepare(control, data) {
   if (!control.hasPort) {
@@ -104,6 +105,39 @@ outer:
   }
 
   return config;
+}
+
+
+/**
+ * Run incoming messages from the contained scene.
+ *
+ * @param {!PortControl} control
+ */
+async function runner(control) {
+  const sc = await kplayReady;
+
+  for (;;) {
+    const op = await control.next();
+    if (op === null) {
+      break;
+    }
+
+    const {type, payload} = op;
+    switch (op.type) {
+      case 'error':
+        throw new Error(data.payload);
+
+      case 'play':
+        sc.play(...payload);
+        continue;
+
+      case 'ga':
+        ga.apply(null, payload);
+        continue;
+    }
+
+    console.debug('running scene got', op);
+  }
 }
 
 
@@ -180,19 +214,8 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     chromeElement.mini = !config.scroll;
     sc.transitionTo(config.sound || [], 1.0);
 
-    // Main game loop. If op is null, we've been shutdown.
-    for (;;) {
-      const op = await control.next();
-      if (op === null) {
-        console.warn('running scene got shutdown');
-        break;
-      }
-
-      if (op.type === 'error') {
-        throw new Error(data.payload);
-      }
-      console.debug('running scene got', op);
-    }
+    // Kick off runner.
+    await runner(control);
 
     // TODO: might be trailing events
   };
@@ -220,6 +243,9 @@ const loaderScene = (sceneName, data) => {
   const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
 
   loadedScene = sceneName;
+
+  ga('set', 'page', `/${sceneName}`);
+  ga('send', 'pageview');
 
   const context = {sceneName, data, locked};
   loaderElement.load(url, context).then((success) => {

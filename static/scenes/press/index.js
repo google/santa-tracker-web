@@ -35,3 +35,8 @@ api.preload.images(
 );
 
 api.preload.wait(customElements.whenDefined('info-chooser'));
+
+api.config({
+  scroll: true,
+  sound: ['music_start_village'],
+});

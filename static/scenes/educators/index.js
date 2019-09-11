@@ -98,3 +98,8 @@ api.preload.images(
   'img/title-bg-swirl_2x.png',
 );
 api.preload.wait(p);
+
+api.config({
+  scroll: true,
+  sound: ['music_start_village'],
+});
