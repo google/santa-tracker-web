@@ -352,3 +352,20 @@ const loaderScene = (sceneName, data) => {
 const {scope, go} = configureProdRouter(loaderScene);
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
+
+document.body.addEventListener('keydown', (ev) => {
+  // Steal gameplay key events from the host frame and focus on the loader, if possible. This isn't
+  // perfect since the _first_ event isn't dispatched (but this could be faked).
+  const key = ev.key.startsWith('Arrow') ? ev.key.substr(5) : ev.key;
+  switch (key) {
+    case 'Left':
+    case 'Right':
+    case 'Up':
+    case 'Down':
+    case ' ':
+      ev.preventDefault();
+      loaderElement.focus();
+      break;
+  }
+});
+

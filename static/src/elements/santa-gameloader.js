@@ -385,6 +385,14 @@ class SantaGameLoaderElement extends HTMLElement {
   set disabled(v) {
     this.toggleAttribute('disabled', v);
   }
+
+  focus() {
+    // TODO: should we overload focus?
+    if (!this._activeFrame.hasAttribute('tabindex')) {
+      this._activeFrame.focus();
+    }
+  }
 }
+
 
 customElements.define('santa-gameloader', SantaGameLoaderElement);
