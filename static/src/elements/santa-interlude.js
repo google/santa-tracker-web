@@ -20,8 +20,6 @@ class SantaInterludeElement extends HTMLElement {
     this._animatePromise = null;
     this._animateResolve = null;
 
-    this._activeEventTimeout = 0;
-
     this.shadowRoot.innerHTML = `
 <div id="container">
   <div></div>
