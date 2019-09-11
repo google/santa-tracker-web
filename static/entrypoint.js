@@ -59,7 +59,7 @@ global.subscribe((state) => {
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;
 
-  const pause = orientationChangeNeeded;
+  const pause = orientationChangeNeeded || state.hidden;
   if (state.control) {
     const type = pause ? 'pause' : 'resume';
     state.control.send({type});

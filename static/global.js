@@ -8,6 +8,7 @@ const g = createStore({
   orientation: null,
   sceneOrientation: null,
 
+  hidden: false,
 });
 
 export default g;
@@ -43,4 +44,13 @@ startup((global) => {
   return update;
 });
 
-
+/**
+ * Listen for global visibility changes.
+ */
+startup((global) => {
+  const handler = () => {
+    global.setState({hidden: document.hidden || false});
+  };
+  document.addEventListener('visibilitychange', handler);
+  return handler;
+});
