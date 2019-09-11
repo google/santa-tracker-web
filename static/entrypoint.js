@@ -7,6 +7,7 @@ import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
+import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
 import * as kplay from './src/kplay.js';
 import scenes from './src/strings/scenes.js';
@@ -14,6 +15,7 @@ import {_msg, join} from './src/magic.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
+import global from './global.js';
 
 
 const kplayReady = kplay.prepare();
@@ -27,7 +29,8 @@ const kplayReady = kplay.prepare();
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
-document.body.append(chromeElement, loaderElement, interludeElement);
+const orientationOverlayElement = document.createElement('santa-orientation');
+document.body.append(chromeElement, loaderElement, interludeElement, orientationOverlayElement);
 
 const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
@@ -43,6 +46,15 @@ kplayReady.then((sc) => {
     console.warn('Web Audio API is suspended, requires user interaction to start');
     document.body.addEventListener('click', () => sc.resume(), {once: true});
   }
+});
+
+global.subscribe((state) => {
+  chromeElement.mini = state.mini;
+
+  const orientationChangeNeeded = Boolean(state.orientation && state.sceneOrientation !== state.orientation);
+  loaderElement.disabled = orientationChangeNeeded;
+
+  orientationOverlayElement.hidden = !orientationChangeNeeded;
 });
 
 
@@ -147,7 +159,7 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // won't be information about the next scene yet.
   interludeElement.show();
   chromeElement.navOpen = false;
-  chromeElement.mini = true;
+  global.setState({mini: true});
 });
 
 
@@ -211,7 +223,10 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       errorElement.append(lockedImage);
     }
     interludeElement.removeAttribute('active');
-    chromeElement.mini = !config.scroll;
+    global.setState({
+      mini: !config.scroll,
+      sceneOrientation: config.orientation || null,
+    });
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.

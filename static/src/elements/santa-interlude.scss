@@ -1,3 +1,5 @@
+@import '../../styles/shared';
+
 :host {
   pointer-events: none;
   position: fixed;
@@ -5,6 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: $index-interlude;
 }
 
 #container {

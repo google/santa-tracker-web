@@ -42,6 +42,7 @@
     "tensorflow-models": "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1",
     "terser": "^3.10.11",
     "tmp": "^0.0.33",
+    "unistore": "^3.4.1",
     "web-animations-js": "^2.3.1",
     "yargs": "^12.0.2"
   }

@@ -1,0 +1,47 @@
+@import '../../styles/shared';
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $index-orientation;
+  pointer-events: none;
+}
+.fs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(2px);
+  background: #8fd7f7cc;
+  // nb. backdrop-filter doesn't stack, even in multiple divs
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+p {
+  font-family: 'Roboto', Arial, Sans-Serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
+svg {
+  height: 200px;
+  width: 200px;
+}
+
+:host([orientation="portrait"]) {
+  svg {
+    transform: rotate(90deg) scale(-1, 1);
+  }
+}
+
+:host([hidden]) .fs {
+  display: none !important;
+}

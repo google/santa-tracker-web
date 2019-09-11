@@ -1,3 +1,5 @@
+@import '../../styles/shared';
+
 :root {
   display: block;
   position: relative;
@@ -41,7 +43,7 @@ iframe,
 }
 
 .slot-container {
-  z-index: 1;  // above iframes
+  z-index: $index-game;
 }
 
 iframe.pending {

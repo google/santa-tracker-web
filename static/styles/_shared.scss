@@ -1,5 +1,10 @@
-.default-focus {
+@mixin default-focus {
   outline: #3ec4f0 auto 5px;
   outline: Highlight auto 5px;
   outline: -webkit-focus-ring-color auto 5px;
 }
+
+$index-chrome: 900;
+$index-interlude: 600;
+$index-orientation: 500;
+$index-game: 100;
