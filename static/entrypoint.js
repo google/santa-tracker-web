@@ -124,7 +124,8 @@ let interludePromise = Promise.resolve(null);
 loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
   // the previous load isn't finished yet. It's suitable for enabling or updating an interstitial.
-  interludePromise = interludeElement.animate();
+  interludePromise = interludeElement.show();
+  chromeElement.navOpen = false;
 });
 
 

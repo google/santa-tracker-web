@@ -1,6 +1,10 @@
 import styles from './santa-interlude.css';
 
 
+// TODO(samthor): This is very hard-coded vs CSS.
+const ANIMATION_DURATION = 1500;
+
+
 /**
  * Displays a random interlude.
  */
@@ -32,9 +36,30 @@ class SantaInterludeElement extends HTMLElement {
     }
   }
 
-  animate() {
+  /**
+   * Causes this interlude to take over the whole screen, returning a Promise when complete or
+   * cancelled.
+   *
+   * @return {!Promise<boolean>} true if complete, false if cancelled eearly
+   */
+  show() {
     this.setAttribute('active', '');
     return this._animatePromise;
+  }
+
+  /**
+   * Hides this interlude.
+   */
+  hide() {
+    this.removeAttribute('active');
+  }
+
+  set active(v) {
+    this.toggleAttribute('active', v);
+  }
+
+  get active() {
+    return this.hasAttribute('active');
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -50,15 +75,15 @@ class SantaInterludeElement extends HTMLElement {
 
         window.setTimeout(() => {
           if (this._animateResolve === resolve) {
-            resolve();  // resolve if nothing changed
+            resolve(true);  // resolve if nothing changed
           }
-        }, 1500);
+        }, ANIMATION_DURATION);
       });
 
     } else {
 
       if (this._animateResolve) {
-        this._animateResolve();
+        this._animateResolve(false);
         this._animateResolve = null;
         this._animatePromise = null;
       }
