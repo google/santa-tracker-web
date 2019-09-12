@@ -353,19 +353,115 @@ const {scope, go} = configureProdRouter(loaderScene);
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 
-document.body.addEventListener('keydown', (ev) => {
-  // Steal gameplay key events from the host frame and focus on the loader, if possible. This isn't
-  // perfect since the _first_ event isn't dispatched (but this could be faked).
-  const key = ev.key.startsWith('Arrow') ? ev.key.substr(5) : ev.key;
-  switch (key) {
-    case 'Left':
-    case 'Right':
-    case 'Up':
-    case 'Down':
-    case ' ':
-      ev.preventDefault();
-      loaderElement.focus();
-      break;
-  }
-});
+/**
+ * Configures key and gamepad handlers for the host frame.
+ */
+function configureCustomKeys() {
+  document.body.addEventListener('keydown', (ev) => {
+    // Steal gameplay key events from the host frame and focus on the loader. Dispatch a fake event
+    // to the scene so that the keyboard feels fluid.
+    const key = ev.key.startsWith('Arrow') ? ev.key.substr(5) : ev.key;
+    switch (key) {
+      case 'Left':
+      case 'Right':
+      case 'Up':
+      case 'Down':
+      case ' ':
+        const {control} = global.getState();
+        if (control) {
+          control.send({type: 'keydown', payload: {key, keyCode: ev.keyCode}});
+        }
+        ev.preventDefault();
+        loaderElement.focus();
+        break;
+    }
+  });
 
+  const keycodeMap = {
+    'ArrowDown': 40,
+    'ArrowUp': 38,
+    'ArrowRight': 39,
+    'ArrowLeft': 37,
+    ' ': 32,
+  };
+  const gamepads = {};
+  let previousButtonsDown = {};
+  let lastTimestamp = 0;
+
+  function gamepadLoop() {
+    const gamepads = navigator.getGamepads();
+    if (!gamepads.length) {
+      return;
+    }
+    window.requestAnimationFrame(gamepadLoop);
+
+    const gp = gamepads[0];
+    if (gp.timestamp === lastTimestamp) {
+      return;
+    }
+    lastTimestamp = gp.timestamp;
+
+    const buttonsDown = {};
+
+    const updown = gp.axes[1];
+    if (updown < -0.5) {
+      buttonsDown['ArrowUp'] = true;
+    } else if (updown > +0.5) {
+      buttonsDown['ArrowDown'] = true;
+    }
+    if (gp.buttons[0] && gp.buttons[0].pressed) {
+      buttonsDown[' '] = true;
+    }
+    // TODO(samthor): work around demo controller weirdness
+    if (gp.buttons[4] && gp.buttons[4].pressed) {
+      buttonsDown['ArrowLeft'] = true;
+    }
+    if (gp.buttons[5] && gp.buttons[5].pressed) {
+      buttonsDown['ArrowRight'] = true;
+    }
+
+    // Nothing to send keys to, so give up \shrug/
+    const {control} = global.getState();
+    if (!control) {
+      previousButtonsDown = buttonsDown;
+      return;
+    }
+
+    for (const key in buttonsDown) {
+      if (!(key in previousButtonsDown)) {
+        // Wasn't previously pressed, dispatch keydown.
+        const keyCode = keycodeMap[key] || 0;
+        control.send({type: 'keydown', payload: {key, keyCode}});
+      }
+    }
+    for (const key in previousButtonsDown) {
+      if (!(key in buttonsDown)) {
+        // Was previously pressed, dispatch keyup!
+        const keyCode = keycodeMap[key] || 0;
+        control.send({type: 'keyup', payload: {key, keyCode}});
+      }
+    }
+
+    previousButtonsDown = buttonsDown;
+  }
+
+  function gamepadHandler(event) {
+    const connecting = event.type === 'gamepadconnected';
+    const gamepad = event.gamepad;
+
+    const count = Object.keys(gamepads).length;
+    if (connecting) {
+      gamepads[gamepad.index] = gamepad;
+      if (count === 0) {
+        gamepadLoop();  // kick off listener if there are any gamepads
+      }
+    } else {
+      delete gamepads[gamepad.index];
+    }
+  }
+
+  window.addEventListener('gamepadconnected', gamepadHandler);
+  window.addEventListener('gamepaddisconnected', gamepadHandler);
+}
+
+configureCustomKeys();

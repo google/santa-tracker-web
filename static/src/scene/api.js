@@ -184,6 +184,18 @@ class SceneApi extends EventTarget {
       case 'restart':
         this.dispatchEvent(new Event(type));
         break;
+      case 'keydown': {
+        const event = new CustomEvent('keydown');
+        Object.assign(event, payload);
+        window.dispatchEvent(event, {bubbles: true});
+        break;
+      }
+      case 'keyup': {
+        const event = new CustomEvent('keyup');
+        Object.assign(event, payload);
+        window.dispatchEvent(event, {bubbles: true});
+        break;
+      }
       default:
         console.debug('unhandled hostMessage', type);
     }
