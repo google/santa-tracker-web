@@ -377,6 +377,11 @@ function configureCustomKeys() {
     }
   });
 
+  // These are vague estimates (in ms). We can't get the system's repeat rate config, short of
+  // stealing it when a user presses a key.
+  const initialRepeat = 400;
+  const followingRepeat = 50;
+
   const keycodeMap = {
     'ArrowDown': 40,
     'ArrowUp': 38,
@@ -385,8 +390,29 @@ function configureCustomKeys() {
     ' ': 32,
   };
   const gamepads = {};
-  let previousButtonsDown = {};
+  const buttonsActive = {};
   let lastTimestamp = 0;
+
+  /**
+   * Queued to trigger repeat keystrokes. Queues another stroke if the control is still active.
+   *
+   * @param {string} key to repeat send
+   */
+  function repeatKey(key) {
+    const {control, hidden} = global.getState();
+    if (!control || hidden) {
+      return false;
+    }
+
+    // TODO: could be combined with a rAF.
+    buttonsActive[key] = window.setTimeout(() => repeatKey(key), followingRepeat);
+    const payload = {
+      key,
+      keyCode: keycodeMap[key],
+      repeat: true,
+    };
+    control.send({type: 'keydown', payload});
+  }
 
   function gamepadLoop() {
     const gamepads = navigator.getGamepads();
@@ -403,46 +429,49 @@ function configureCustomKeys() {
 
     const buttonsDown = {};
 
-    const updown = gp.axes[1];
-    if (updown < -0.5) {
-      buttonsDown['ArrowUp'] = true;
-    } else if (updown > +0.5) {
-      buttonsDown['ArrowDown'] = true;
-    }
-    if (gp.buttons[0] && gp.buttons[0].pressed) {
-      buttonsDown[' '] = true;
-    }
-    // TODO(samthor): work around demo controller weirdness
-    if (gp.buttons[4] && gp.buttons[4].pressed) {
-      buttonsDown['ArrowLeft'] = true;
-    }
-    if (gp.buttons[5] && gp.buttons[5].pressed) {
-      buttonsDown['ArrowRight'] = true;
-    }
-
-    // Nothing to send keys to, so give up \shrug/
-    const {control} = global.getState();
-    if (!control) {
-      previousButtonsDown = buttonsDown;
-      return;
+    const {control, hidden} = global.getState();
+    if (control && !hidden) {
+      // ... only look for events if there's something to control and page is visible
+      const updown = gp.axes[1];
+      if (updown < -0.5) {
+        buttonsDown['ArrowUp'] = true;
+      } else if (updown > +0.5) {
+        buttonsDown['ArrowDown'] = true;
+      }
+      if (gp.buttons[0] && gp.buttons[0].pressed) {
+        buttonsDown[' '] = true;
+      }
+      // TODO(samthor): work around demo controller weirdness
+      if (gp.buttons[4] && gp.buttons[4].pressed) {
+        buttonsDown['ArrowLeft'] = true;
+      }
+      if (gp.buttons[5] && gp.buttons[5].pressed) {
+        buttonsDown['ArrowRight'] = true;
+      }
     }
 
     for (const key in buttonsDown) {
-      if (!(key in previousButtonsDown)) {
+      if (!(key in buttonsActive)) {
         // Wasn't previously pressed, dispatch keydown.
         const keyCode = keycodeMap[key] || 0;
-        control.send({type: 'keydown', payload: {key, keyCode}});
-      }
-    }
-    for (const key in previousButtonsDown) {
-      if (!(key in buttonsDown)) {
-        // Was previously pressed, dispatch keyup!
-        const keyCode = keycodeMap[key] || 0;
-        control.send({type: 'keyup', payload: {key, keyCode}});
-      }
-    }
+        control.send({type: 'keydown', payload: {key, keyCode, repeat: false}});
 
-    previousButtonsDown = buttonsDown;
+        // ... and enqueue repeat
+        buttonsActive[key] = window.setTimeout(() => repeatKey(key), initialRepeat);
+      }
+    }
+    for (const key in buttonsActive) {
+      if (key in buttonsDown) {
+        continue;
+      }
+      // Was previously pressed, dispatch keyup!
+      const keyCode = keycodeMap[key] || 0;
+      control.send({type: 'keyup', payload: {key, keyCode, repeat: true}});
+
+      // ... and clear repeat timer
+      window.clearTimeout(buttonsActive[key]);
+      delete buttonsActive[key];
+    }
   }
 
   function gamepadHandler(event) {
