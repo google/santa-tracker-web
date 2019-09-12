@@ -80,7 +80,9 @@ global.subscribe((state) => {
   }
 
   let action = null;
-  if (gameover) {
+  if (orientationChangeNeeded) {
+    // do nothing
+  } else if (gameover) {
     action = 'restart';
   } else if (state.sceneHasPause) {
     if (state.status === 'paused') {
