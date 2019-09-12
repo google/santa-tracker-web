@@ -4,11 +4,7 @@ $duration-sidebar: 0.25s;
 $duration-toolbar: 0.3s;
 $transition-toolbar: $duration-toolbar ease-in-out;
 
-$color-bar: #ff0160;
-$dim-small: 768px;
-
-$bar-height: 44px;
-
+// TODO(samthor): should be in shared?
 $order-sidebar: 100;
 $order-hider: 99;
 
@@ -44,7 +40,7 @@ header {
   margin-left: 5%;
   margin-right: 5%;
   position: relative;
-  height: $bar-height;
+  height: $dim-bar;
 
   @media (max-width: ($dim-small - 1px)) {
     margin: 10px 10px 0;
@@ -54,7 +50,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: $bar-height;
+    border-radius: $dim-bar;
     backdrop-filter: blur(4px);
     transition: width $transition-toolbar;
   }
@@ -65,7 +61,7 @@ header {
     height: 100%;
     color: #fff;
     box-sizing: border-box;
-    padding-left: $bar-height;
+    padding-left: $dim-bar;
     padding-right: 10px;
     transition: transform $transition-toolbar;
     transform: translate(0);
@@ -79,7 +75,7 @@ header {
       left: 0;
       width: 100%;
       bottom: 0;
-      border-radius: $bar-height;
+      border-radius: $dim-bar;
       box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
       background: $color-bar;
       transition: box-shadow $transition-toolbar, width $transition-toolbar, opacity $transition-toolbar;
@@ -109,29 +105,35 @@ header {
     .menu-label,
     button {
       cursor: pointer;
-      width: $bar-height;
-      height: $bar-height;
+      width: $dim-bar;
+      height: $dim-bar;
       padding: 2px;
       box-sizing: border-box;
       display: flex;
     }
 
-    .buttons {
+    fieldset.buttons {
       border: 0;
       margin: 0;
       padding: 0;
       z-index: -10;
       position: absolute;
-      left: $bar-height + 8px;
+      left: $dim-bar + 8px;
       top: 0;
+      right: 0;
       will-change: transform;
       transition: opacity $duration-toolbar, transform $duration-toolbar;
       transition-timing-function: ease-in-out;
       transition-delay: $duration-toolbar;
 
+      .buttons-inner {
+        display: flex;
+        align-items: center;
+      }
+
       button {
         background: $color-bar;
-        border-radius: $bar-height;
+        border-radius: $dim-bar;
         color: inherit;
         fill: currentColor;
         border: none;
@@ -156,7 +158,7 @@ header {
     text-decoration: none;
     color: inherit;
     margin-left: 2px;
-    line-height: $bar-height;
+    line-height: $dim-bar;
     overflow: hidden;
 
     .logo {
@@ -193,11 +195,11 @@ header.mini {
   }
 
   .blur {
-    width: $bar-height;
+    width: $dim-bar;
   }
   .bar {
     &::before {
-      width: $bar-height;
+      width: $dim-bar;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
     }
   }
@@ -235,7 +237,7 @@ main {
   }
 
   .closer {
-    height: $bar-height + 40px;
+    height: $dim-bar + 40px;
     cursor: pointer;
 
     &:focus {
@@ -244,7 +246,7 @@ main {
     }
 
     @media (max-width: ($dim-small - 1px)) {
-      height: $bar-height + 20px;
+      height: $dim-bar + 20px;
     }
 
     display: flex;

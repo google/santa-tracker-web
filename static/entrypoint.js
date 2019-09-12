@@ -7,6 +7,7 @@ import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
+import './src/elements/santa-badge.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
 import * as kplay from './src/kplay.js';
@@ -35,6 +36,10 @@ document.body.append(chromeElement, loaderElement, interludeElement, orientation
 const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
 
+const badgeElement = document.createElement('santa-badge');
+badgeElement.setAttribute('slot', 'game');
+chromeElement.append(badgeElement);
+
 const sidebar = document.createElement('santa-sidebar');
 sidebar.todayHouse = 'boatload';
 sidebar.setAttribute('slot', 'sidebar');
@@ -51,11 +56,14 @@ kplayReady.then((sc) => {
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
 
+  const gameover = (state.status === 'gameover');
+
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
+  const disabled = gameover || orientationChangeNeeded;
 
-  loaderElement.disabled = orientationChangeNeeded;                // paused/disabled
+  loaderElement.disabled = disabled                                // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
@@ -65,12 +73,13 @@ global.subscribe((state) => {
     return false;
   }
 
+  Object.assign(badgeElement, state.score);
+
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
     state.control.send({type: 'restart'});
   }
 
-  const gameover = (state.status === 'gameover');
   let pause = false;
   if (!gameover) {
     // ... don't pause/resume the scene if it's marked gameover
@@ -210,6 +219,10 @@ async function runner(control) {
       case 'gameover':
         // TODO: log score?
         global.setState({status: 'gameover'});
+        continue;
+
+      case 'score':
+        global.setState({score: payload});
         continue;
     }
 

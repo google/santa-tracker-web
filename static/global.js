@@ -13,6 +13,8 @@ const g = createStore({
 
   sceneOrientation: null,
   sceneHasPause: false,
+
+  score: {},
 });
 
 export default g;
