@@ -185,6 +185,8 @@ class SceneApi extends EventTarget {
         this.dispatchEvent(new Event(type));
         break;
       case 'keydown': {
+        // TODO(samthor): This also sends us 'repeat' events, and mixes badly (?) with keyboard
+        // inputs. It might be worth merging them, but only if a game isn't explicitly multiplayer.
         const event = new CustomEvent('keydown');
         Object.assign(event, payload);
         window.dispatchEvent(event, {bubbles: true});

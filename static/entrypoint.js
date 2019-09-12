@@ -357,38 +357,43 @@ document.body.addEventListener('click', globalClickHandler(scope, go));
  * Configures key and gamepad handlers for the host frame.
  */
 function configureCustomKeys() {
+  const keycodeMap = {
+    ' ': 32,
+    'PageUp': 33,
+    'PageDown': 34,
+    'End': 35,
+    'Home': 36,
+    'Left': 37,
+    'Up': 38,
+    'Right': 39,
+    'Down': 40,
+    'ArrowLeft': 37,
+    'ArrowUp': 38,
+    'ArrowRight': 39,
+    'ArrowDown': 40,
+  };
+
   document.body.addEventListener('keydown', (ev) => {
     // Steal gameplay key events from the host frame and focus on the loader. Dispatch a fake event
     // to the scene so that the keyboard feels fluid.
-    const key = ev.key.startsWith('Arrow') ? ev.key.substr(5) : ev.key;
-    switch (key) {
-      case 'Left':
-      case 'Right':
-      case 'Up':
-      case 'Down':
-      case ' ':
-        const {control} = global.getState();
-        if (control) {
-          control.send({type: 'keydown', payload: {key, keyCode: ev.keyCode}});
-        }
-        ev.preventDefault();
-        loaderElement.focus();
-        break;
+    const code = keycodeMap[ev.key];
+    if (!code) {
+      return false;  // not part of map, just ignore
     }
+
+    const {control} = global.getState();
+    if (control) {
+      control.send({type: 'keydown', payload: {key: ev.key, keyCode: code}});
+    }
+    ev.preventDefault();
+    loaderElement.focus();
   });
 
-  // These are vague estimates (in ms). We can't get the system's repeat rate config, short of
-  // stealing it when a user presses a key.
+  // These are vague estimates (in ms) for gamepad emulation. We can't get the system's repeat rate
+  // config, short of stealing it when a user presses a key.
   const initialRepeat = 400;
   const followingRepeat = 50;
 
-  const keycodeMap = {
-    'ArrowDown': 40,
-    'ArrowUp': 38,
-    'ArrowRight': 39,
-    'ArrowLeft': 37,
-    ' ': 32,
-  };
   const gamepads = {};
   const buttonsActive = {};
   let lastTimestamp = 0;
@@ -421,6 +426,7 @@ function configureCustomKeys() {
     }
     window.requestAnimationFrame(gamepadLoop);
 
+    // TODO(samthor): We only look at the 1st gamepad. What if we have multiplayer games?
     const gp = gamepads[0];
     if (gp.timestamp === lastTimestamp) {
       return;
