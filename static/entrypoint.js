@@ -462,7 +462,7 @@ function configureCustomKeys() {
       if (!(key in buttonsActive)) {
         // Wasn't previously pressed, dispatch keydown.
         const keyCode = keycodeMap[key] || 0;
-        control.send({type: 'keydown', payload: {key, keyCode, repeat: false}});
+        control && control.send({type: 'keydown', payload: {key, keyCode, repeat: false}});
 
         // ... and enqueue repeat
         buttonsActive[key] = window.setTimeout(() => repeatKey(key), initialRepeat);
@@ -474,7 +474,7 @@ function configureCustomKeys() {
       }
       // Was previously pressed, dispatch keyup!
       const keyCode = keycodeMap[key] || 0;
-      control.send({type: 'keyup', payload: {key, keyCode, repeat: true}});
+      control && control.send({type: 'keyup', payload: {key, keyCode, repeat: true}});
 
       // ... and clear repeat timer
       window.clearTimeout(buttonsActive[key]);

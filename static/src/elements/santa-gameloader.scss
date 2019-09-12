@@ -15,8 +15,27 @@ iframe[tabindex="-1"] {
   pointer-events: none;
 }
 
-:host([disabled]) iframe {
+main::after {
+  position: absolute;
+  z-index: $index-game;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.125s;
+}
+
+:host([disabled]) {
+  iframe {
+    pointer-events: none;
+  }
+  main::after {
+    opacity: 1;
+  }
 }
 
 // TODO: remove for launch, just showcasing loading

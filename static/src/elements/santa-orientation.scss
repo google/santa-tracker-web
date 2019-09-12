@@ -15,9 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(2px);
   background: #8fd7f7cc;
-  // nb. backdrop-filter doesn't stack, even in multiple divs
   display: flex;
   align-items: center;
   justify-content: center;
