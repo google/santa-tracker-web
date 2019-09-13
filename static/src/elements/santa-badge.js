@@ -28,19 +28,18 @@ export class SantaBadgeElement extends LitElement {
   constructor() {
     super();
 
-    // TODO(samthor): Shown for a demo.
-    this.level = 1;
-    this.maxLevel = 3;
-    this.score = 10e3;
-    this.time = 20;
+    this.level = 0;
+    this.maxLevel = 0;
+    this.score = 0;
+    this.time = 0;
 
     this._levelActiveTimeout = 0;
   }
 
-  shouldUpdate(changedProperties) {
-    const out = super.shouldUpdate(changedProperties);
+  updated(changedProperties) {
+    super.updated(changedProperties);
 
-    if (changedProperties.has('level')) {
+    if (changedProperties.has('level') && this.level) {
       this._levelActive = true;
 
       window.clearTimeout(this._levelActiveTimeout);
@@ -48,8 +47,6 @@ export class SantaBadgeElement extends LitElement {
         this._levelActive = false;
       }, LEVEL_ACTIVE_TIME);
     }
-
-    return out;
   }
 
   _splitScore() {
@@ -79,7 +76,28 @@ export class SantaBadgeElement extends LitElement {
     const {score, unit} = this._splitScore();
     const displayScore = this.score > 0;
     return html`
-<div class="items ${this.level && (this._levelActive || !displayScore) ? 'level-active' : ''}">
+<main>
+  <div class="item ${this.level && (this._levelActive || !displayScore) ? 'alt-active' : ''}">
+    <div class="data">
+      <span>${score}<small>${unit}</small></span>
+      <label>${_msg`score`}</label>
+    </div>
+    <div class="data alt" ?hidden=${!this.level}>
+      <span>${this.level}<span class="dim" ?hidden=${!this.maxLevel}><small>&middot;</small>${this.maxLevel}</span></span>
+      <label>${_msg`level`}</label>
+    </div>
+  </div>
+  <div class="item big">
+    <div class="data">
+      <span>
+        <span class=${ifDefined(minutes ? undefined : 'dim')}>${minutes}<small>:</small></span>${pad(seconds)}
+      </span>
+      <label>${_msg`time`}</label>
+    </div>
+  </div>
+</main>
+
+<div hidden class="items ${this.level && (this._levelActive || !displayScore) ? 'level-active' : ''}">
   <div class="part-score">
     <div class="cell" .hidden=${!displayScore}>
       <div class="value">${score}<small>${unit}</small></div>
