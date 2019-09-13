@@ -5,7 +5,7 @@ import {_msg} from '../magic.js';
 
 
 const MAX_TIME = (10 * 60) - 1;  // max is 9:59
-const LEVEL_ACTIVE_TIME = 1500;  // show score on small screens for this long
+const LEVEL_ACTIVE_TIME = 2000;  // show level change for this long
 const pad = (x) => x < 10 ? `0${x}` : x;
 
 
@@ -39,13 +39,15 @@ export class SantaBadgeElement extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    if (changedProperties.has('level') && this.level) {
-      this._levelActive = true;
-
+    if (changedProperties.has('level')) {
       window.clearTimeout(this._levelActiveTimeout);
-      this._levelActiveTimeout = window.setTimeout(() => {
-        this._levelActive = false;
-      }, LEVEL_ACTIVE_TIME);
+
+      if (this.level) {
+        this._levelActive = true;
+        this._levelActiveTimeout = window.setTimeout(() => {
+          this._levelActive = false;
+        }, LEVEL_ACTIVE_TIME);
+      }
     }
   }
 
@@ -96,32 +98,6 @@ export class SantaBadgeElement extends LitElement {
     </div>
   </div>
 </main>
-
-<div hidden class="items ${this.level && (this._levelActive || !displayScore) ? 'level-active' : ''}">
-  <div class="part-score">
-    <div class="cell" .hidden=${!displayScore}>
-      <div class="value">${score}<small>${unit}</small></div>
-      <div class="label">${_msg`score`}</div>
-    </div>
-  </div>
-  <div class="feature ${this.time ? '' : 'show-icon'}">
-    <div class="icon" style=${ifDefined(this.logo ? `background-image: url(${this.logo})` : undefined)}></div>
-    <div class="cell">
-      <div class="value">
-<span class=${ifDefined(minutes ? undefined : 'dim')}>${minutes}<small>:</small></span>${pad(seconds)}
-      </div>
-      <div class="label">${_msg`time`}</div>
-    </div>
-  </div>
-  <div class="part-level">
-    <div class="cell" .hidden=${!this.level}>
-      <div class="value">
-${this.level}<span class="dim" .hidden=${!this.maxLevel}><small>&middot;</small>${this.maxLevel}</span>
-      </div>
-      <div class="label">${_msg`level`}</div>
-    </div>
-  </div>
-</div>
     `;
   }
 }
