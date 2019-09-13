@@ -114,7 +114,7 @@ Present.prototype.onFrame = function(delta) {
   }
 
   // Move present to the end
-  this.x += this.velocity * delta;
+  this.x += this.velocity * delta / 3;
   if (this.x > Constants.PRESENT_END_X) {
     this.x = Constants.PRESENT_END_X;
   }

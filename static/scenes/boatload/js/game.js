@@ -138,8 +138,8 @@ Game.prototype.restart = function() {
 
   // Start game
   this.unfreezeGame();
-  window.santaApp.fire('sound-ambient', 'bl_game_start');
-  window.santaApp.fire('sound-fire', 'music_start_ingame');
+  window.santaApp.fire('sound-trigger', 'bl_game_start');
+  window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'boatload'});
   this.gameStartTime = +new Date;
 };
@@ -315,8 +315,13 @@ Game.prototype.updateLevel_ = function(delta) {
  * @param {Present} present The present to drop.
  */
 Game.prototype.dropPresent = function(present) {
+  if (this.player.distance !== 0) {
+    present.velocity = this.player.distance * 350;
+  } else {
+    present.velocity = Constants.PRESENT_INITIAL_VELOCITY;
+  }
   this.entities.push(present);
-  window.santaApp.fire('sound-play', 'bl_shoot');
+  window.santaApp.fire('sound-trigger', 'bl_shoot');
 };
 
 /**
@@ -344,7 +349,7 @@ Game.prototype.missedBoat = function(present, x, y) {
   this.animate_(this.splashElem, x, y);
   this.lastMissedPresent = present;
   present.missed();
-  window.santaApp.fire('sound-play', 'bl_hit_water');
+  window.santaApp.fire('sound-trigger', 'bl_hit_water');
   window.ga('send', 'event', 'game', 'miss', 'boatload');
 };
 
@@ -376,7 +381,7 @@ Game.prototype.animate_ = function(el, x, y) {
  */
 Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
-    this.elem.removeClass('frozen').trigger('focus');
+    this.elem.removeClass('frozen').focus();
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
@@ -390,8 +395,8 @@ Game.prototype.unfreezeGame = function() {
 Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverDialog.show();
-  window.santaApp.fire('sound-fire', 'bl_game_stop');
-  window.santaApp.fire('sound-fire', 'music_ingame_gameover');
+  window.santaApp.fire('sound-trigger', 'bl_game_stop');
+  window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
   window.santaApp.fire('analytics-track-game-over', {
     gameid: 'boatload',
     score: this.scoreboard.score,
@@ -427,7 +432,7 @@ Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     var width = window.innerWidth;
-    var height = window.innerHeight;
+    var height = window.innerHeight - window.santaApp.headerSize;
     var scale = width < 980 ? width / 980 : 1;
     scale = height < 600 ? Math.min(height / 600, scale) : scale;
 
