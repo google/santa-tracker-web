@@ -1,0 +1,154 @@
+.audience {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 340px;
+  width: 100%;
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+}
+
+.spectator {
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	transform-origin: 50% 100%;
+
+	$num-of-spectators: 11;
+	$spectator-width: 120px;
+	$spectator-gap: 40px;
+
+	@for $i from 1 through 11 {
+		&:nth-child(#{$i}) {
+			left: ($spectator-width * ($i - 1)) + $spectator-gap;
+		}
+	}
+}
+
+.z {
+	background: transparent url('img/sleepy-z-small-min.svg') no-repeat 0 0;
+	position: absolute;
+	top: -30px;
+	left: 50px;
+	opacity: 0;
+	width: 6px;
+	height: 17px;
+}
+
+.z--medium {
+	background: transparent url('img/sleepy-z-medium-min.svg') no-repeat 0 0;
+	top: -45px;
+	left: 45px;
+	width: 8px;
+	height: 17px;
+}
+
+.z--large {
+	background: transparent url('img/sleepy-z-large-min.svg') no-repeat 0 0;
+	top: -60px;
+	left: 30px;
+	width: 13px;
+	height: 19px;
+}
+
+.letters {
+	&.is-sleeping {
+		.z {
+			animation-timing-function: $easeOutQuad;
+		  animation-duration: 2.8s;
+		  animation-fill-mode: forwards;
+		  animation-iteration-count: infinite;
+		  animation-name: #{$name}-sleeping-z;
+	  }
+	  .z--medium {
+	    animation-delay: 0.5s;
+	  }
+	  .z--large {
+		  animation-delay: 1s;
+	  }
+	}
+}
+
+// chubby santa
+.spectator--santa {
+	margin-left: -12px;
+}
+
+.spectator__head {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: -80px;
+	margin-left: 23px;
+	transform-origin: center bottom;
+
+	&.is-bouncing {
+		animation-timing-function: $easeInOutQuad;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-sleeping-head;
+  }
+}
+
+.spectator__head--vertical {
+  visibility: hidden;
+	top: 28px;
+	&.is-bouncing {
+		animation-name: #{$name}-sleeping-head-vertical;
+	}
+	z-index: 30;
+}
+
+.spectator__head--vertical--2,
+.spectator__head--vertical--3 {
+  visibility: hidden;
+}
+
+.spectator__head--vertical--1 {
+	top: 16px;
+	z-index: 10;
+	width: 55px;
+}
+
+.spectator__head--vertical--2 {
+	width: 53px;
+	top: 40px;
+}
+
+.spectator__head--vertical--3 {
+	width: 53px;
+}
+
+.spectator__chair {
+	position: relative;
+	z-index: 20;
+}
+
+.spectator__chair--deer {
+	background: transparent url('img/deer-chair-min.svg') no-repeat 0 0;
+	width: 151px;
+	height: 319px;
+}
+
+.spectator__chair--elf {
+	background: transparent url('img/elf-chair-min.svg') no-repeat 0 0;
+	width: 151px;
+	height: 201px;
+}
+
+.spectator__shadow {
+	background: transparent url('img/shadow-min.svg') no-repeat 0 0;
+	margin-left: -25px;
+	margin-top: -15px;
+	height: 24px;
+	width: 176px;
+	z-index: 10;
+}

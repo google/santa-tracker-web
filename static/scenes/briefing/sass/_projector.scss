@@ -1,0 +1,174 @@
+$screen-height: 309px;
+
+.projector {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    margin-left: -70px;
+    margin-top: -550px;
+
+    width: 96px;
+    height: 212px;
+
+    perspective: 400px;
+}
+
+.projector-beam {
+    position: absolute;
+
+    top: -30px;
+    left: 50%;
+    margin-left: -222px;
+
+    width: 395px;
+    height: 67px;
+
+    animation: .2s #{$name}-beamFlicker infinite alternate ease-in-out;
+
+}
+
+.projector-beam__square {
+    margin-top: -4px;
+    margin-left: -1px;
+}
+
+.image {
+    position: absolute;
+
+    top: 37px;
+    left: 58px;
+
+    background-color: #fff;
+    width: 393px;
+    height: 230px;
+    overflow: hidden;
+
+}
+
+.js-screen-click-handler {
+    cursor: pointer;
+}
+
+.projection {
+    transition-duration: .5s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+}
+
+.screen__handle {
+    position: absolute;
+    top: 280px;
+    > svg {
+        overflow: visible;
+    }
+
+    // paint the other side of the handle square
+    // that gets hidden from the shadow that lays on top
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 1px;
+        width: 5px;
+        height: 11px;
+        background: #D6D8D8;
+        z-index: 10;
+    }
+}
+
+.screen__group {
+
+    &:before {
+        // paint an extra bit of shadow
+        // when moving the screen down
+        content: '';
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        height: 30px;
+        width: 10px;
+        background: #0073ac;
+    }
+
+    &:after {
+        // paints a solid shadow
+        // all the way down to meet the
+        // other horizontal shadow
+        content : '';
+        position: absolute;
+        right: 5px;
+        top: 20px;
+        width: 10px;
+        height: 284px;
+        background: #0073ac;
+    }
+
+    &:after {
+        // paints a solid shadow
+        // all the way down to meet the
+        // other horizontal shadow
+        content : '';
+        position: absolute;
+        right: 5px;
+        top: 20px;
+        width: 10px;
+        height: 284px;
+        background: #0073ac;
+    }
+}
+
+.screen__top {
+    position: absolute;
+    top: 0px;
+
+    // Mask the screen when it slides up
+    // with a big solid box
+    &:before {
+        content: '';
+        position: absolute;
+        height: 309px;
+        background: #0090d7;
+        top: -309px;
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.screen__top__shadow {
+
+    position: absolute;
+    right: 1px;
+    top: 10px;
+
+    background: #0073ac;
+    height: 21px;
+    width: 14px;
+
+    // Bit of solid color above the
+    // top shadow so when the screen slides up
+    // you can't see the masking effect
+    &:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 5px;
+        height: 10px;
+        width: 10px;
+        background: #0090d7;
+        z-index: 10;
+    }
+
+}
+
+.screen {
+    position: absolute;
+
+    top: 0;
+    left: 420px;
+
+    width: 520px;
+    height: $screen-height;
+
+}

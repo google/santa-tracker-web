@@ -1,0 +1,333 @@
+.elevator {
+  position: absolute;
+
+  top: 38px;
+  right: -30px;
+
+  width: 275px;
+  height: 345px;
+}
+
+.elevator__status {
+  position: absolute;
+
+  top: 0;
+  left: 64px;
+
+  width: 92px;
+  height: 52px;
+
+}
+
+.elevator__status__arrow {
+  position: absolute;
+
+  top: 0px;
+  left: 39px;
+
+  width: 11px;
+  height: 47px;
+
+  // initial position
+  transform: rotateZ(-80deg);
+  transform-origin: 6px 47px;
+}
+
+.elevator__frame {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 221px;
+  height: 287px;
+
+  background-color: #a7a9ac;
+
+}
+
+.elevator__frame__inner {
+  background-color: #d98f54;
+  width: 155px;
+  height: 270px;
+  margin-left: 18px;
+  margin-top: 17px;
+  border-left: 15px solid #B67845;
+  border-right: 15px solid #B67845;
+}
+
+.elevator__frame__door {
+  position: absolute;
+
+  top: 17px;
+  left: 17px;
+  bottom: 0;
+
+  width: 94px;
+
+  background: #d5d6d8;
+
+  transform: translateZ(0);
+
+}
+
+.elevator__frame__door--left {
+
+  box-shadow: inset 15px 8px rgba(127,127,127, 0.20);
+
+  &:after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    border-right: 3px solid #a3a5a8;
+  }
+
+}
+
+.elevator__frame__door--right {
+
+  box-shadow: inset 0px 8px rgba(127,127,127, 0.20);
+
+  left: auto;
+  right: 17px;
+
+  &:before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+
+    border-left: 3px solid #a3a5a8;
+  }
+}
+
+.elevator__panel {
+  position: absolute;
+
+  right: 0;
+  bottom: 90px;
+
+  width: 44px;
+  height: 89px;
+
+  background-color: #939598;
+  box-shadow: 5px 5px #007ab5;
+
+}
+
+.elevator__panel__button {
+  cursor: pointer;
+  position: absolute;
+
+  left: 10px;
+
+  width: 22px;
+  height: 21px;
+
+
+  polygon {
+    transition: fill 0.1s $easeOutQuad;
+    fill: #D5D6D8;
+  }
+
+}
+
+.elevator__panel__button--active {
+  polygon {
+    fill: #FFF799;
+  }
+}
+
+.elevator__panel__button--up {
+  bottom: 55px;
+}
+
+.elevator__panel__button--down {
+  bottom: 15px;
+}
+
+.elevator__character {
+  display: none;
+  position: absolute;
+
+  left: 50%;
+  bottom: 1px;
+}
+
+.elevator__character--active {
+  display: block;
+}
+
+.elevator__deer {
+
+  margin-left: -90px;
+  margin-bottom: -5px;
+
+
+}
+
+.elevator__deer__eyeblink {
+  position: absolute;
+  background: #D0A35F;
+  height: 9px;
+  width: 8px;
+  bottom: 155px;
+  z-index: 11;
+  transform: scaleY(0);
+  transform-origin: 50% 0%;
+}
+
+.elevator__deer__eyeblink--left {
+  left: 32px;
+}
+
+.elevator__deer__eyeblink--right {
+  left: 48px;
+}
+
+.elevator__penguin {
+
+  margin-left: (56/2) * -1px;
+
+  width: 56px;
+  height: 96px;
+
+  transform-origin: 50% 0%;
+
+}
+
+.elevator__snowman {
+  margin-left: -45px;
+  margin-bottom: -5px;
+}
+
+.elevator__snowman__eyebrow {
+  position: absolute;
+}
+
+.elevator__snowman__eyeblink {
+  position: absolute;
+  background: #fff;
+  height: 9px;
+  width: 8px;
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+}
+
+.elevator__snowman__eyeblink--left {
+  left: 35px;
+  bottom: 216px;
+}
+
+.elevator__snowman__eyeblink--right {
+  left: 47px;
+  bottom: 234px;
+}
+
+.elevator__snowman__eyebrow--left {
+  bottom: 212px;
+  margin-left: 29px;
+}
+
+.elevator__snowman__eyebrow--right {
+  bottom: 237px;
+  margin-left: 40px;
+}
+
+.elevator__penguin__eye {
+  position: absolute;
+
+  top: 8px;
+  left: 25px;
+
+  width: 8px;
+  height: 8px;
+
+}
+
+.elevator__penguin__eyeblink {
+  content: '';
+  display: block;
+  background: #000;
+  position: absolute;
+  left: 25px;
+  top: 11px;
+  height: 10px;
+  width: 10px;
+  transform: scaleY(0);
+}
+
+.elevator__penguin__eyebrow {
+  position: absolute;
+  top: 1px;
+  left: 19px;
+}
+
+
+//
+// Animation calls
+//
+.elevator--incoming {
+  $elevator-coming-duration: 1.5s;
+  $elevator-leaving-duration: $elevator-coming-duration;
+  $elevator-door-duration: 5s; // 1s to open + 3s staying open + 1s to close
+  $elevator-animation-duration: $elevator-coming-duration + $elevator-leaving-duration + $elevator-door-duration;
+
+  .elevator__status__arrow {
+    animation-duration: $elevator-animation-duration;
+    animation-name: #{$name}-liftStatusAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+  }
+
+  .elevator__frame__door {
+    animation-duration: $elevator-animation-duration;
+    animation-name: #{$name}-doorAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+  .elevator__panel__button {
+    animation-duration: $elevator-animation-duration;
+    animation-name: #{$name}-liftPanelAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: step-start;
+  }
+
+}
+
+.elevator--opened {
+
+  .elevator__penguin__eyeblink,
+  .elevator__deer__eyeblink {
+    animation-duration: 5s;
+    animation-name: #{$name}-characterBlinkY;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .elevator__snowman__eyeblink {
+    animation-duration: 5s;
+    animation-name: #{$name}-characterBlinkX;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .elevator__deer__eyeblink {
+    animation-delay: 400ms;
+  }
+
+  .elevator__snowman__eyeblink {
+    animation-delay: 200ms;
+  }
+
+}

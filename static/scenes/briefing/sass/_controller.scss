@@ -1,0 +1,41 @@
+.controller {
+  position: absolute;
+
+  top: 70px;
+  left: 950px;
+
+  width: 148px;
+  height: 30px;
+  background-color: #ffd200;
+  border: 8px solid #bcbdc0;
+  box-shadow: 15px 15px #007ab5;
+
+  .arrow {
+    border: 12px solid transparent;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 95px;
+    top: 5px;
+
+    &.right {
+      border-left: 12px solid #48ba81;
+      transition: border-left 0.1s $easeOutQuad;
+    }
+
+    &.right:hover {
+      border-left: 12px solid #318a5e;
+    }
+
+    &.left {
+      border-right: 12px solid #48ba81;
+      left: 30px;
+      transition: border-right 0.1s $easeOutQuad;
+    }
+
+    &.left:hover {
+      border-right: 12px solid #318a5e;
+    }
+  }
+}

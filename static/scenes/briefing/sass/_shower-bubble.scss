@@ -1,0 +1,60 @@
+.shower-deer__bubble {
+	position: absolute;
+	left: 50%;
+	top: 190px;
+	margin-left: 15px;
+
+	animation-iteration-count: infinite;
+	animation-timing-function: $easeOutQuad;
+}
+
+.shower-deer__bubble--1 {
+	width: 3px;
+}
+
+.shower-deer__bubble--2 {
+	width: 4px;
+	margin-top: -25px;
+	margin-left: 30px;
+}
+
+.shower-deer__bubble--3 {
+	width: 7px;
+	margin-top: -20px;
+	margin-left: 15px;
+}
+
+.shower-deer__bubble--4 {
+	width: 5px;
+	margin-left: 25px;
+	margin-top: -10px;
+}
+
+.shower-deer__bubble--5 {
+	width: 2px;
+	margin-left: 15px;
+	margin-top: -5px;
+}
+
+.is-showering {
+	.shower-deer__bubble--1 {
+		animation-name: #{$name}-showerDeerBubble--1;
+		animation-duration: 1.8s;
+	}
+	.shower-deer__bubble--2 {
+		animation-name: #{$name}-showerDeerBubble--2;
+		animation-duration: 2s;
+	}
+	.shower-deer__bubble--3 {
+		animation-name: #{$name}-showerDeerBubble--3;
+		animation-duration: 2.2s;
+	}
+	.shower-deer__bubble--4 {
+		animation-name: #{$name}-showerDeerBubble--4;
+		animation-duration: 2.2s;
+	}
+	.shower-deer__bubble--5 {
+		animation-name: #{$name}-showerDeerBubble--3;
+		animation-duration: 2s;
+	}
+}

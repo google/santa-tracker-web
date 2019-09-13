@@ -1,0 +1,38 @@
+.floor {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+  right: 0;
+
+  margin-top: 58px;
+
+  height: 208px;
+
+  background-color: #00aff2;
+
+  &:before {
+  	content: '';
+  	display: block;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	background-color: #0090d7;
+  	border-top: 8px solid #fff;
+  	height: 16px;
+  	width: 100%;
+
+  }
+
+  &:after {
+  	content: '';
+  	display: block;
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	background-color: #fff;
+  	height: 19px;
+  	width: 100%;
+  }
+
+}

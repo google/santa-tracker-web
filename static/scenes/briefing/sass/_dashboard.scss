@@ -1,0 +1,111 @@
+.dashboard {
+  position: absolute;
+
+  top: 50px;
+  left: 20px;
+
+  width: 363px;
+  height: 258px;
+
+}
+
+.dashboard__radar-pointer {
+  position: absolute;
+  bottom: 82px;
+  left: 50%;
+  margin-left: -98px;
+  transform-origin: 2px 39px;
+  animation: 5s #{$name}-clockPointerMovement infinite linear;
+}
+
+.clock {
+  background: transparent url('img/clock-min.svg') no-repeat 0 0;
+  cursor: pointer;
+  position: absolute;
+  top: 94px;
+  left: 198px;
+  width: 78px;
+  height: 80px;
+}
+
+.clock--1,
+.clock--2 {
+  top: 94px;
+}
+
+.clock--2,
+.clock--4 {
+  left: 286px;
+}
+
+.clock--3,
+.clock--4 {
+  top: 180px;
+}
+
+.clock-pointer {
+  position: absolute;
+
+  top: 29px;
+  left: 35px;
+
+  width: 3px;
+  height: 40px;
+
+  border-radius: 10px;
+  background: #d54432;
+  transform-origin: 50% 20%;
+}
+
+.clock-pointer--minutes {
+  background: #000;
+  height: 35px;
+}
+
+.clock-pointer--hour {
+  background: #000;
+  top: 31px;
+  height: 27px;
+}
+
+.clock-pointer--seconds {
+  width: 2px;
+  top: 28px;
+  left: 36px;
+}
+
+.clock-pointer--1 {
+  &.clock-pointer--hour {
+    transform: rotateZ(-30deg);
+  }
+  &.clock-pointer--minutes {
+    transform: rotateZ(-140deg);
+  }
+}
+
+.clock-pointer--2 {
+  &.clock-pointer--hour {
+    transform: rotateZ(140deg);
+  }
+  &.clock-pointer--minutes {
+    transform: rotateZ(-140deg);
+  }
+}
+
+.clock-pointer--3 {
+  &.clock-pointer--hour {
+    transform: rotateZ(0deg);
+  }
+  &.clock-pointer--minutes {
+    transform: rotateZ(-140deg);
+  }
+}
+
+.clock-pointer--4 {
+  &.clock-pointer--hour {
+    transform: rotateZ(-90deg);
+  }
+  &.clock-pointer--minutes {
+    transform: rotateZ(-140deg);
+  }
+}
