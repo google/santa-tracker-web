@@ -1,0 +1,94 @@
+##{$name} {
+  .cloud {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    .cloud__img {
+      background: url('img/cloud.min.svg') center center no-repeat;
+      width: 145px;
+      height: 87px;
+    }
+  }
+
+  .cloud1 {
+    top: 40%;
+    animation: 300s -15s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.5) translateY(-50%);
+    }
+  }
+
+  .cloud2 {
+    top: 30%;
+    animation: 350s -140s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.6) translateY(-50%);
+    }
+  }
+
+  .cloud3 {
+    top: 80%;
+    animation: 200s -20s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.8) translateY(-50%);
+    }
+  }
+
+  .cloud4 {
+    top: 70%;
+    animation: 150s -70s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(1) translateY(-50%);
+    }
+  }
+
+  .cloud5 {
+    top: 20%;
+    animation: 300s -110s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.25) translateY(-50%);
+    }
+  }
+
+  .cloud6 {
+    top: 35%;
+    animation: 300s -280s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.25) translateY(-50%);
+    }
+  }
+
+  .cloud7 {
+    top: 65%;
+    animation: 200s -74s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(.8) translateY(-50%);
+    }
+  }
+
+  .cloud8 {
+    top: 85%;
+    animation: 300s -203s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(1) translateY(-50%);
+    }
+  }
+
+  .cloud9 {
+    top: 55%;
+    animation: 300s -75s #{$name}-move-clouds linear infinite;
+    .cloud__img {
+      transform: scale(1) translateY(-50%);
+    }
+  }
+}
+
+@keyframes #{$name}-move-clouds {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-5000px, 0, 0);
+  }
+}

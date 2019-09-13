@@ -488,7 +488,7 @@ class AudioGroup extends EventTarget {
     this.dispatchEvent(new Event('trigger'));
     const played = this._each((c) => c.play(when), true);
     if (!played) {
-      this.active().forEach((c) => c.dispatchEvent(new Event('trigger')));
+      this.active.forEach((c) => c.dispatchEvent(new Event('trigger')));
     }
   }
 
@@ -500,7 +500,7 @@ class AudioGroup extends EventTarget {
     this.dispatchEvent(new Event('trigger'));
     const played = this._each((c) => c.fadeInAndPlay(duration, when), true);
     if (!played) {
-      this.active().forEach((c) => c.dispatchEvent(new Event('trigger')));
+      this.active.forEach((c) => c.dispatchEvent(new Event('trigger')));
     }
   }
 

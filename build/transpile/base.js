@@ -45,6 +45,9 @@ goog.provide = function(v) {
 
 goog.require = function() {};
 
+goog.scope = function(fn) {
+  fn();
+};
 
 
 /*
