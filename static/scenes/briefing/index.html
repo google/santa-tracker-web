@@ -284,11 +284,12 @@
 </div>
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../node_modules/web-animations-js/web-animations-next.min.js"></script>
 <script type="module">
   import api from '../../src/scene/api.js';
   import Game from './:closure.js';
 
-  // FIXME: Failures in the Web Animations API. Include polyfill?
+  // FIXME: Web Animations no longer crashes, but the sleeping animations are sometimes broken.
 
   api.preload.sounds('briefing_load_sounds');
   api.preload.images(
