@@ -340,6 +340,14 @@
         document.getElementById('showdeer').click();
         break;
 
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+        const el = document.querySelector('.clock--' + ev.key);
+        el && el.click();
+        break;
+
       case ' ':
         const spectators = document.querySelectorAll('#audience .spectator');
         ++currentAudienceMember;
