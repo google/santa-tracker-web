@@ -106,7 +106,7 @@ app.Sleepy.prototype.scheduleSleep_ = function() {
  * @private
  */
 app.Sleepy.prototype.tryToSleep_ = function() {
-  if (!this.sleepyController.canSleep() && !this.player_) {
+  if (!this.sleepyController.canSleep() || this.player_) {
     // try again
     this.scheduleSleep_();
     return;
@@ -201,32 +201,38 @@ app.Sleepy.prototype.stopSleepingKeyframes_ = function() {
  * @private
  */
 app.Sleepy.prototype.tweenRotateYHead_ = function() {
-  var duration = 200;
+  var duration = 250;
 
-  // TODO: this backwards is a bit janky.
-  var steps = [
-    new KeyframeEffect(this.$head[0], [
-      {visibility: 'visible'},
-      {visibility: 'hidden'}
-    ], {duration: duration, fill: 'forwards'}),
-    new KeyframeEffect(this.$headVerticalStep1[0], [
-      {visibility: 'visible'},
-      {visibility: 'visible'}
-    ], {duration: duration}),
-    new KeyframeEffect(this.$headVerticalStep2[0], [
-      {visibility: 'visible'},
-      {visibility: 'visible'}
-    ], {duration: duration}),
-    new KeyframeEffect(this.$headVerticalFinal[0], [
-      {visibility: 'hidden'},
-      {visibility: 'visible'}
-    ], {duration: duration, fill: 'forwards'}),
+  const elements = [
+    this.$head[0],
+    this.$headVerticalStep1[0],
+    this.$headVerticalStep2[0],
+    this.$headVerticalFinal[0],
   ];
+
+  const effect = new KeyframeEffect(document.body, [], duration * 4);
+  effect.onsample = (arg) => {
+    let choice;
+    if (arg === null && this.player_ && this.player_.currentTime) {
+      choice = 3;
+    } else {
+      choice = Math.min(elements.length - 1, Math.floor(arg / 0.25));
+    }
+
+    const visible = elements[choice];
+    elements.forEach((el) => {
+      if (el === visible) {
+        el.style.visibility = 'visible';
+      } else {
+        el.style.visibility = 'hidden';
+      }
+    });
+  };
 
   if (this.player_) {
     throw new Error('still has player');
   }
-  this.player_ = document.timeline.play(new SequenceEffect(steps, {fill: 'forwards'}));
+  this.player_ = document.timeline.play(effect);
 };
 
 /**
