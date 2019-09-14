@@ -42,8 +42,7 @@ app.Sleepy = function(context, sleepyController) {
   this.sleepingKeyframesTimer_ = -1;
   this.bouncingKeyframesTimer_ = -1;
   this.scheduleSleepingTimer_ = -1;
-  this.headRotateZPlayer = null;
-  this.headRotateYPlayer = null;
+  this.player_ = null;
   this.sleepingVertically = true;
   this.sleepyController = sleepyController;
 
@@ -70,8 +69,7 @@ app.Sleepy.prototype.destroy = function() {
   window.clearTimeout(this.scheduleSleepingTimer_);
   this.isSleeping = false;
 
-  this.headRotateYPlayer && this.headRotateYPlayer.cancel()
-  this.headRotateZPlayer && this.headRotateZPlayer.cancel()
+  this.player_ && this.player_.cancel();
 };
 
 /**
@@ -108,7 +106,7 @@ app.Sleepy.prototype.scheduleSleep_ = function() {
  * @private
  */
 app.Sleepy.prototype.tryToSleep_ = function() {
-  if (!this.sleepyController.canSleep()) {
+  if (!this.sleepyController.canSleep() && !this.player_) {
     // try again
     this.scheduleSleep_();
     return;
@@ -137,14 +135,15 @@ app.Sleepy.prototype.tryToSleep_ = function() {
 app.Sleepy.prototype.wakeUp_ = function() {
   this.stopSleepingKeyframes_();
 
-  var anim = this.headRotateYPlayer || this.headRotateZPlayer;
-  if (anim) {
-    anim.reverse();
-    anim.playbackRate *= 2;
-    app.shared.utils.onWebAnimationFinished(anim, () => anim.cancel());
+  if (this.player_) {
+    this.player_.playbackRate *= -2;
+    this.player_.play();
+
+    app.shared.utils.onWebAnimationFinished(this.player_, () => {
+      this.player_.cancel();
+      this.player_ = null;
+    });
   }
-  this.headRotateYPlayer = null;
-  this.headRotateZPlayer = null;
 
   window.santaApp.fire('sound-trigger', 'briefing_wakeup');
 
@@ -204,6 +203,7 @@ app.Sleepy.prototype.stopSleepingKeyframes_ = function() {
 app.Sleepy.prototype.tweenRotateYHead_ = function() {
   var duration = 200;
 
+  // TODO: this backwards is a bit janky.
   var steps = [
     new KeyframeEffect(this.$head[0], [
       {visibility: 'visible'},
@@ -223,7 +223,10 @@ app.Sleepy.prototype.tweenRotateYHead_ = function() {
     ], {duration: duration, fill: 'forwards'}),
   ];
 
-  this.headRotateYPlayer = document.timeline.play(new SequenceEffect(steps, {fill: 'forwards'}));
+  if (this.player_) {
+    throw new Error('still has player');
+  }
+  this.player_ = document.timeline.play(new SequenceEffect(steps, {fill: 'forwards'}));
 };
 
 /**
@@ -236,10 +239,13 @@ app.Sleepy.prototype.tweenRotateZHead_ = function() {
 
   var steps = [
     {transform: 'rotate(0deg)', easing: 'ease-out'},
-    {transform: 'rotate(70deg)'}
+    {transform: 'rotate(70deg)'},
   ];
 
-  this.headRotateZPlayer = el.animate(steps, { duration: 2000, fill: 'forwards' });
+  if (this.player_) {
+    throw new Error('still has player');
+  }
+  this.player_ = el.animate(steps, { duration: 2000, fill: 'forwards' });
 };
 
 /**

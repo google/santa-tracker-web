@@ -70,15 +70,14 @@ app.Clock.prototype.destroy = function() {
  * @private
  */
 app.Clock.prototype.spinPointers_ = function() {
+  const extraRotations = 1;
+  const target = (this.secondsPlayer_.currentTime + 1250) / (60 * 1000) * 360 + (360 * extraRotations);
+
   var secondsTransform = app.shared.utils.computedTransform(this.secondsPointer_);
   var secondsAnim = this.secondsPointer_.animate([
     {transform: 'rotate(' + secondsTransform.rotate + 'deg)'},
-    {transform: 'rotate(' + (secondsTransform.rotate + (360 * 2.5)) + 'deg)'}
+    {transform: `rotate(${target}deg)`},
   ], {duration: 1250, easing: 'ease-out'});
-
-  // Offset the background animation by the interactive animation's length: at
-  // 1.25 seconds back (animation time) plus 30 seconds (half offset).
-  this.secondsPlayer_.currentTime += (-1.25 + 30) * 1000;
 
   var sharedTiming = {duration: 500, easing: 'ease-out'};
 
@@ -86,17 +85,17 @@ app.Clock.prototype.spinPointers_ = function() {
   var hourFinal = 'rotate(' + (hourTransform.rotate + 30) + 'deg)';
   var hourAnim = this.hourPointer_.animate([
     {transform: 'rotate(' + hourTransform.rotate + 'deg)'},
-    {transform: hourFinal}
+    {transform: hourFinal},
   ], sharedTiming);
-  AnimationUtilApply(hourAnim.effect);
+  this.hourPointer_.style.transform = hourFinal;
 
   var minutesTransform = app.shared.utils.computedTransform(this.minutesPointer_);
   var minutesFinal = 'rotate(' + (minutesTransform.rotate + 390) + 'deg)';
   var minutesAnim = this.minutesPointer_.animate([
     {transform: 'rotate(' + minutesTransform.rotate + 'deg)'},
-    {transform: minutesFinal}
+    {transform: minutesFinal},
   ], sharedTiming);
-  AnimationUtilApply(minutesAnim.effect);
+  this.minutesPointer_.style.transform = minutesFinal;
 };
 
 /**
