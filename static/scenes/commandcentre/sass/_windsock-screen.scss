@@ -1,0 +1,102 @@
+##{$name} {
+
+  .windsock-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .windsock-screen__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    svg {
+      display: block;
+    }
+  }
+
+  .windsock-screen__cloud {
+    position: absolute;
+    top: 0;
+    bottom: 50%;
+    animation-direction: reverse;
+  }
+
+  .windsock-screen__sock {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  .windsock-screen__flagpole {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -80px;
+    svg {
+      display: block;
+    }
+  }
+
+  .windsock-screen__elf {
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    margin-left: -76px;
+    animation-duration: 2s;
+    animation-name: #{$name}-windsock-elf;
+    animation-timing-function: $easeInOutQuad;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform-origin: 10px 67px;
+  }
+
+  .windsock-screen__wind {
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    background: url('img/windsock-wind_33percent.min.svg') 0 center repeat-x;
+    background-size: 50%;
+    animation-duration: 1s;
+    animation-name: #{$name}-windsock-wind;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes #{$name}-windsock-wind {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-windsock-elf {
+  0% {
+    transform: rotate(-10deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+

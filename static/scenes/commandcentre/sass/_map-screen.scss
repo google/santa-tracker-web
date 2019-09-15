@@ -1,0 +1,94 @@
+##{$name} {
+
+  .map-screen__map {
+    position: absolute;
+    height: 100%;
+    width: #{$map-width*2};
+    background: url('img/map_33percent.min.svg') left -75px repeat-x;
+    animation-duration: #{$map-pan-duration/2};
+    animation-name: #{$name}-map-pan;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .map-screen__blimp {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    animation-duration: $blimp-duration;
+    animation-timing-function: linear;
+    animation-name: #{$name}-blimp;
+    animation-iteration-count: infinite;
+  }
+
+  .map-screen__line-dotted {
+    position: absolute;
+    height: 100%;
+    width: #{$line-dotted-width*3};
+    background: url('img/line-dotted_33percent.min.svg') left center repeat-x;
+    animation-duration: #{$line-dotted-pan-duration/2};
+    animation-timing-function: linear;
+    animation-name: #{$name}-map-line-dotted;
+    animation-iteration-count: infinite;
+  }
+
+  .map-screen__line-solid {
+    position: absolute;
+    height: 100%;
+    width: #{$line-solid-width*3};
+    background: url('img/line-solid_33percent.min.svg') left center repeat-x;
+    animation-duration: #{$line-solid-pan-duration/2};
+    animation-timing-function: linear;
+    animation-name: #{$name}-map-line-solid;
+    animation-iteration-count: infinite;
+  }
+
+  .map-screen__map-ui {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -425px;
+  }
+}
+
+@keyframes #{$name}-map-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-$map-width);
+  }
+}
+
+@keyframes #{$name}-map-line-solid {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-$line-solid-width);
+  }
+}
+
+@keyframes #{$name}-map-line-dotted {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-$line-dotted-width);
+  }
+}
+
+@keyframes #{$name}-blimp {
+  0% {
+    transform: translate3d(-150px, 50%, 0);
+  }
+  50% {
+    transform: translate3d(50%, -50%, 0);
+  }
+  70% {
+    transform: translate3d(75%, 50%, 0);
+  }
+  90%, 100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}

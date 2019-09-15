@@ -1,0 +1,191 @@
+##{$name} {
+
+  $sleepingFrames: 46;
+  $sleepingFrameWidth: 200px;
+
+  .santa-sleeping {
+    position: absolute;
+    left: 45px;
+    top: 50px;
+    width: $sleepingFrameWidth;
+    height: 262px;
+
+    overflow: hidden;
+
+    // falback image
+    background-image: url('img/santa_sleep_x2/santasleep_00045.png');
+    background-size: 100%;
+  }
+
+  .santa-sleeping__frames {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $sleepingFrames * $sleepingFrameWidth;
+
+    animation-duration: 5s;
+    animation-delay: 500ms;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-santa-sleeping;
+    animation-timing-function: steps($sleepingFrames, end);
+  }
+  .santa-sleeping__frame {
+    float: left;
+    height: 100%;
+    width: $sleepingFrameWidth;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .santa-sleeping__frame:nth-child(1) {
+    background-image: url('img/santa_sleep_x2/santasleep_00045.png');
+  }
+  .santa-sleeping__frame:nth-child(2) {
+    background-image: url('img/santa_sleep_x2/santasleep_00047.png');
+  }
+  .santa-sleeping__frame:nth-child(3) {
+    background-image: url('img/santa_sleep_x2/santasleep_00049.png');
+  }
+  .santa-sleeping__frame:nth-child(4) {
+    background-image: url('img/santa_sleep_x2/santasleep_00051.png');
+  }
+  .santa-sleeping__frame:nth-child(5) {
+    background-image: url('img/santa_sleep_x2/santasleep_00053.png');
+  }
+  .santa-sleeping__frame:nth-child(6) {
+    background-image: url('img/santa_sleep_x2/santasleep_00055.png');
+  }
+  .santa-sleeping__frame:nth-child(7) {
+    background-image: url('img/santa_sleep_x2/santasleep_00057.png');
+  }
+  .santa-sleeping__frame:nth-child(8) {
+    background-image: url('img/santa_sleep_x2/santasleep_00059.png');
+  }
+  .santa-sleeping__frame:nth-child(9) {
+    background-image: url('img/santa_sleep_x2/santasleep_00061.png');
+  }
+  .santa-sleeping__frame:nth-child(10) {
+    background-image: url('img/santa_sleep_x2/santasleep_00063.png');
+  }
+  .santa-sleeping__frame:nth-child(11) {
+    background-image: url('img/santa_sleep_x2/santasleep_00065.png');
+  }
+  .santa-sleeping__frame:nth-child(12) {
+    background-image: url('img/santa_sleep_x2/santasleep_00067.png');
+  }
+  .santa-sleeping__frame:nth-child(13) {
+    background-image: url('img/santa_sleep_x2/santasleep_00069.png');
+  }
+  .santa-sleeping__frame:nth-child(14) {
+    background-image: url('img/santa_sleep_x2/santasleep_00071.png');
+  }
+  .santa-sleeping__frame:nth-child(15) {
+    background-image: url('img/santa_sleep_x2/santasleep_00073.png');
+  }
+  .santa-sleeping__frame:nth-child(16) {
+    background-image: url('img/santa_sleep_x2/santasleep_00075.png');
+  }
+  .santa-sleeping__frame:nth-child(17) {
+    background-image: url('img/santa_sleep_x2/santasleep_00077.png');
+  }
+  .santa-sleeping__frame:nth-child(18) {
+    background-image: url('img/santa_sleep_x2/santasleep_00079.png');
+  }
+  .santa-sleeping__frame:nth-child(19) {
+    background-image: url('img/santa_sleep_x2/santasleep_00081.png');
+  }
+  .santa-sleeping__frame:nth-child(20) {
+    background-image: url('img/santa_sleep_x2/santasleep_00083.png');
+  }
+  .santa-sleeping__frame:nth-child(21) {
+    background-image: url('img/santa_sleep_x2/santasleep_00085.png');
+  }
+  .santa-sleeping__frame:nth-child(22) {
+    background-image: url('img/santa_sleep_x2/santasleep_00087.png');
+  }
+  .santa-sleeping__frame:nth-child(23) {
+    background-image: url('img/santa_sleep_x2/santasleep_00089.png');
+  }
+  .santa-sleeping__frame:nth-child(24) {
+    background-image: url('img/santa_sleep_x2/santasleep_00091.png');
+  }
+  .santa-sleeping__frame:nth-child(25) {
+    background-image: url('img/santa_sleep_x2/santasleep_00093.png');
+  }
+  .santa-sleeping__frame:nth-child(26) {
+    background-image: url('img/santa_sleep_x2/santasleep_00095.png');
+  }
+  .santa-sleeping__frame:nth-child(27) {
+    background-image: url('img/santa_sleep_x2/santasleep_00097.png');
+  }
+  .santa-sleeping__frame:nth-child(28) {
+    background-image: url('img/santa_sleep_x2/santasleep_00099.png');
+  }
+  .santa-sleeping__frame:nth-child(29) {
+    background-image: url('img/santa_sleep_x2/santasleep_00101.png');
+  }
+  .santa-sleeping__frame:nth-child(30) {
+    background-image: url('img/santa_sleep_x2/santasleep_00103.png');
+  }
+  .santa-sleeping__frame:nth-child(31) {
+    background-image: url('img/santa_sleep_x2/santasleep_00105.png');
+  }
+  .santa-sleeping__frame:nth-child(32) {
+    background-image: url('img/santa_sleep_x2/santasleep_00107.png');
+  }
+  .santa-sleeping__frame:nth-child(33) {
+    background-image: url('img/santa_sleep_x2/santasleep_00109.png');
+  }
+  .santa-sleeping__frame:nth-child(34) {
+    background-image: url('img/santa_sleep_x2/santasleep_00111.png');
+  }
+  .santa-sleeping__frame:nth-child(35) {
+    background-image: url('img/santa_sleep_x2/santasleep_00113.png');
+  }
+  .santa-sleeping__frame:nth-child(36) {
+    background-image: url('img/santa_sleep_x2/santasleep_00115.png');
+  }
+  .santa-sleeping__frame:nth-child(37) {
+    background-image: url('img/santa_sleep_x2/santasleep_00117.png');
+  }
+  .santa-sleeping__frame:nth-child(38) {
+    background-image: url('img/santa_sleep_x2/santasleep_00119.png');
+  }
+  .santa-sleeping__frame:nth-child(39) {
+    background-image: url('img/santa_sleep_x2/santasleep_00121.png');
+  }
+  .santa-sleeping__frame:nth-child(40) {
+    background-image: url('img/santa_sleep_x2/santasleep_00123.png');
+  }
+  .santa-sleeping__frame:nth-child(41) {
+    background-image: url('img/santa_sleep_x2/santasleep_00125.png');
+  }
+  .santa-sleeping__frame:nth-child(42) {
+    background-image: url('img/santa_sleep_x2/santasleep_00127.png');
+  }
+  .santa-sleeping__frame:nth-child(43) {
+    background-image: url('img/santa_sleep_x2/santasleep_00129.png');
+  }
+  .santa-sleeping__frame:nth-child(44) {
+    background-image: url('img/santa_sleep_x2/santasleep_00131.png');
+  }
+  .santa-sleeping__frame:nth-child(45) {
+    background-image: url('img/santa_sleep_x2/santasleep_00133.png');
+  }
+  .santa-sleeping__frame:nth-child(46) {
+    background-image: url('img/santa_sleep_x2/santasleep_00135.png');
+  }
+}
+
+
+@keyframes #{$name}-santa-sleeping {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

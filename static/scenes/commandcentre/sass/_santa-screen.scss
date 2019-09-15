@@ -1,0 +1,270 @@
+$commandCentre__totalHeartlineLength: 900;
+$commandCentre__visibleHeartlineLength: 450;
+$commandCentre__hiddenHeartlineLength: $commandCentre__totalHeartlineLength - $commandCentre__visibleHeartlineLength;
+
+##{$name} {
+
+  .santa-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .santa-screen__bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    svg {
+      display: block;
+    }
+  }
+
+  .santa-sleeping-live {
+    position: absolute;
+    top: 40px;
+    left: 205px;
+  }
+  .santa-sleeping-live__dot {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    margin-top: -4px;
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 100%;
+
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: #{$name}-santa-live;
+    animation-timing-function: step-end;
+  }
+
+  .santa-screen__barchart {
+    position: absolute;
+    bottom: 168px;
+    right: 46px;
+    height: 80px;
+    width: 126px;
+  }
+
+  .santa-screen__barchart__bar {
+    background: #0070aa;
+    display: inline-block;
+    width: 12px;
+    margin-left: 6px;
+    height: 100%;
+
+    transform: scaleY(0);
+    transform-origin: center bottom;
+
+    animation-name: #{$name}-santa-barchart;
+    animation-duration: 20s;
+    animation-timing-function: $easeInOutQuad;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    &:nth-child(1) {
+      animation-delay: -8s;
+    }
+    &:nth-child(2) {
+      animation-delay: -9s;
+    }
+    &:nth-child(3) {
+      animation-delay: 5s;
+    }
+    &:nth-child(4) {
+      animation-delay: 4s;
+    }
+    &:nth-child(5) {
+      animation-delay: 7s;
+    }
+    &:nth-child(6) {
+      animation-delay: -3s;
+    }
+    &:nth-child(7) {
+      animation-delay: -5s;
+    }
+  }
+
+  .santa-screen__piechart {
+    position: absolute;
+    bottom: 175px;
+    right: 193px;
+    height: 80px;
+
+    svg {
+      display: block;
+    }
+
+    svg * {
+      animation-name: #{$name}-santa-labels;
+      animation-duration: 7s;
+      animation-timing-function: $easeOutQuad;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+
+      &:nth-child(1) {
+        animation-delay: 0.5s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.7s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.9s;
+      }
+      &:nth-child(4) {
+        animation-delay: 1.1s;
+      }
+      &:nth-child(5) {
+        animation-delay: 1.3s;
+      }
+      &:nth-child(6) {
+        animation-delay: 1.5s;
+      }
+    }
+  }
+
+  .santa-screen__heartline {
+    position: absolute;
+    bottom: 270px;
+    right: 50px;
+    overflow: hidden;
+
+    svg {
+      display: block;
+    }
+
+    #heartline {
+      stroke-dasharray: $commandCentre__visibleHeartlineLength, $commandCentre__hiddenHeartlineLength;
+      stroke-dashoffset: $commandCentre__visibleHeartlineLength;
+      animation-name: #{$name}-santa-heartline;
+      animation-duration: 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-delay: .1s;
+    }
+
+    // #heart--left,
+    // #heart--right {
+    //   animation-name: #{$name}-santa-heartpule;
+    //   animation-duration: 2s;
+    //   animation-timing-function: linear;
+    //   animation-iteration-count: infinite;
+    //   animation-fill-mode: forwards;
+    //   transform-origin: 50% 50%;
+    // }
+    // #heart--left {
+    //   animation-delay: .3s;
+    // }
+    // #heart--right {
+    //   animation-delay: .6s;
+    // }
+  }
+  .santa-screen__heartline__mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    right: 0;
+    background: linear-gradient(to right,rgba(65,152,201, 1) 50%, rgba(65,152,201,0) 100%);
+    animation-name: #{$name}-santa-heartline-mask;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: -2.5s;
+  }
+  .santa-screen__heartline__hearts {
+    position: absolute;
+    top: 2px;
+    left: 0;
+  }
+}
+
+
+@keyframes #{$name}-santa-live {
+  0% {
+    background: #E53934;
+  }
+  50% {
+    background: #fff;
+  }
+}
+
+
+@keyframes #{$name}-santa-labels {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateZ(0);
+  }
+  1% {
+    opacity: 1;
+    transform: translateY(-50%) translateZ(0);
+  }
+  5%, 35% {
+    opacity: 1 !important; // prevent CSSO bug
+    transform: translateY(0) translateZ(0);
+  }
+  40%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) translateZ(0);
+  }
+}
+
+@keyframes #{$name}-santa-barchart {
+  0% {
+    transform: scaleY(0.2) translateZ(0);
+  }
+  20% {
+    transform: scaleY(0.6) translateZ(0);
+  }
+  40% {
+    transform: scaleY(0.3) translateZ(0);
+  }
+  60% {
+    transform: scaleY(0.4) translateZ(0);
+  }
+  80% {
+    transform: scaleY(0.9) translateZ(0);
+  }
+  100% {
+   transform: scaleY(0.8) translateZ(0);
+  }
+}
+
+@keyframes #{$name}-santa-heartline {
+  from {
+    stroke-dashoffset: $commandCentre__visibleHeartlineLength;
+    transform: translateX(-2%) translateZ(0);
+  }
+  to {
+   stroke-dashoffset: - ($commandCentre__totalHeartlineLength - $commandCentre__hiddenHeartlineLength);
+    transform: translateX(2%) translateZ(0);
+  }
+}
+
+@keyframes #{$name}-santa-heartline-mask {
+  from {
+    transform: translateX(-150%) translateZ(0);
+  }
+  to {
+    transform: translateX(50%) translateZ(0);
+  }
+}
+
+@keyframes #{$name}-santa-heartpule {
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  5% {
+    transform: scale(1.2) translateZ(0);
+  }
+  30% {
+    transform: scale(1) translateZ(0);
+  }
+}

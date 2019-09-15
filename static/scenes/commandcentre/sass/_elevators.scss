@@ -1,0 +1,182 @@
+##{$name} {
+  .penguin-eyebrow {
+    position: absolute;
+    left: 50%;
+    top: 84px;
+    margin-left: -6px;
+  }
+
+  .penguin-eyelid {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 96px;
+    margin-left: -5px;
+    background: #231f20;
+    display: block;
+    height: 8px;
+    width: 8px;
+    transform: scaleY(0);
+    transform-origin: center top;
+
+    @media (min-width: 1400px) {
+      display: block;
+      animation: #{$duration-door} $easeOutQuad #{$name}-penguin-blink infinite;
+      animation-delay: 15s;
+    }
+  }
+
+  .snowman-arm {
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 50px;
+    margin-left: -22px;
+    display: block;
+    transform-origin: 90% 10%;
+
+    @media (min-width: 1400px) {
+      animation: #{$duration-door} $easeOutQuad #{$name}-snowman-wave infinite;
+      animation-delay: ($duration-door/2) + 14s;
+    }
+  }
+  .snowman {
+    position: absolute;
+    top: 2px;
+    svg {
+      display: block;
+    }
+  }
+
+  .door {
+    position: relative;
+    svg {
+      display: block;
+    }
+    @media (min-width: 1400px) {
+      animation: #{$duration-door} $easeOutQuad #{$name}-door-slide infinite;
+    }
+  }
+
+  .door-mask {
+    display: block;
+    width: 65px;
+    height: 150px;
+    position: absolute;
+    top: 339px;
+    left: 50%;
+    overflow: hidden;
+  }
+  .door-mask--right {
+    margin-left: 664px;
+  }
+  .door-mask--left {
+    margin-left: -707px;
+    .door {
+      animation-delay: $duration-door/2;
+    }
+  }
+
+
+  #door-led-left,
+  #door-led-right {
+    @media (min-width: 1400px) {
+      animation: #{$duration-door} $easeOutQuad #{$name}-door-led infinite;
+    }
+  }
+  #door-led-left {
+    animation-delay: $duration-door/2;
+  }
+}
+
+@keyframes #{$name}-door-slide {
+  0%,
+  20%,
+  40% {
+    transform: translateX(0);
+  }
+
+  45%,
+  65% {
+    transform: translateX(78px);
+  }
+
+  70%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes #{$name}-door-led {
+  0%,
+  20%,
+  35% {
+    fill: #ED1C24;
+  }
+
+  38%,
+  60% {
+    fill: green;
+  }
+
+  65%,
+  100% {
+    fill: #ED1C24
+  }
+}
+
+@keyframes #{$name}-penguin-blink {
+  0%,
+  2% {
+    transform: scaleY(0);
+  }
+
+  3% {
+     transform: scaleY(1);
+  }
+
+  4% {
+    transform: scaleY(0);
+  }
+
+  5%{
+     transform: scaleY(1);
+  }
+
+  6% {
+    transform: scaleY(0);
+  }
+
+  7%,
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes #{$name}-snowman-wave {
+  0%,
+  2% {
+    transform: rotate(0);
+  }
+
+  3% {
+    transform: rotate(15deg);
+  }
+
+  4% {
+    transform: rotate(0);
+  }
+
+  5%{
+    transform: rotate(10deg);
+  }
+
+  7% {
+    transform: rotate(0);
+  }
+
+  7%,
+  100% {
+    transform: rotate(0);
+  }
+}
