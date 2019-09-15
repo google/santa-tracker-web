@@ -290,8 +290,6 @@
   import api from '../../src/scene/api.js';
   import Game from './:closure.js';
 
-  // FIXME: Web Animations no longer crashes, but the sleeping animations are sometimes broken.
-
   api.preload.sounds('briefing_load_sounds');
   api.preload.images(
     'img/logo.svg',
@@ -305,64 +303,61 @@
     'img/sleepy-z-large-min.svg',
   );
 
-  const game = new Game(document.getElementById('module-briefing'));
-
   api.config({
     sound: ['briefing_start', 'music_start_scene'],
   });
 
-  let currentAudienceMember = -1;
-
-  window.addEventListener('keydown', (ev) => {
-    switch (ev.key) {
-      case 'Left':
-      case 'ArrowLeft':
-        document.getElementById('leftarrow').click();
-        break;
-
-      case 'Right':
-      case 'ArrowRight':
-        document.getElementById('rightarrow').click();
-        break;
-
-      case 'Up':
-      case 'ArrowUp':
-        document.getElementById('up-elevator-arrow').click();
-        break;
-
-      case 'Down':
-      case 'ArrowDown':
-        document.getElementById('down-elevator-arrow').click();
-        break;
-
-      case 'Enter':
-        // TODO: "Enter" is not passed down by the host frame.
-        document.getElementById('showdeer').click();
-        break;
-
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-        const el = document.querySelector('.clock--' + ev.key);
-        el && el.click();
-        break;
-
-      case ' ':
-        const spectators = document.querySelectorAll('#audience .spectator');
-        ++currentAudienceMember;
-        spectators[currentAudienceMember % spectators.length].click();
-        break;
-
-      default:
-        return false;
-    }
-
-    ev.preventDefault();
-  });
-
   api.ready(async () => {
-    // nothing to do
+    const game = new Game(document.getElementById('module-briefing'));
+    let currentAudienceMember = -1;
+
+    window.addEventListener('keydown', (ev) => {
+      switch (ev.key) {
+        case 'Left':
+        case 'ArrowLeft':
+          document.getElementById('leftarrow').click();
+          break;
+
+        case 'Right':
+        case 'ArrowRight':
+          document.getElementById('rightarrow').click();
+          break;
+
+        case 'Up':
+        case 'ArrowUp':
+          document.getElementById('up-elevator-arrow').click();
+          break;
+
+        case 'Down':
+        case 'ArrowDown':
+          document.getElementById('down-elevator-arrow').click();
+          break;
+
+        case 'Enter':
+          // TODO: "Enter" is not passed down by the host frame.
+          document.getElementById('showdeer').click();
+          break;
+
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+          const el = document.querySelector('.clock--' + ev.key);
+          el && el.click();
+          break;
+
+        case ' ':
+          const spectators = document.querySelectorAll('#audience .spectator');
+          ++currentAudienceMember;
+          spectators[currentAudienceMember % spectators.length].click();
+          break;
+
+        default:
+          return false;
+      }
+
+      ev.preventDefault();
+    });
   });
 
 </script>
