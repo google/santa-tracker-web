@@ -1,0 +1,80 @@
+$duration-eyes-rolling: 20;
+$ease-eyes-rolling: $easeOutSine;
+
+.eye-cycle-1 {
+  @media (min-height: 650px) {
+    animation-timing-function: $ease-eyes-rolling;
+    animation-duration: #{$duration-eyes-rolling}s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.eye-cycle-2 {
+  @media (min-height: 650px) {
+    animation-timing-function: $ease-eyes-rolling;
+    animation-duration: #{$duration-eyes-rolling}s;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+  }
+}
+
+.eye-cycle-3 {
+  @media (min-height: 650px) {
+    animation-timing-function: $ease-eyes-rolling;
+    animation-duration: #{$duration-eyes-rolling}s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+  }
+}
+
+.eye-cycle-4 {
+  @media (min-height: 650px) {
+    animation-timing-function: $ease-eyes-rolling;
+    animation-duration: #{$duration-eyes-rolling}s;
+    animation-iteration-count: infinite;
+    animation-delay: 6s;
+  }
+}
+
+.eye-cycle-5 {
+  @media (min-height: 650px) {
+    animation-timing-function: $ease-eyes-rolling;
+    animation-duration: #{$duration-eyes-rolling}s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+  }
+}
+
+.pause-eyes-animating {
+  .eye-cycle-1,
+  .eye-cycle-2,
+  .eye-cycle-3,
+  .eye-cycle-4,
+  .eye-cycle-5 {
+    animation-play-state: paused;
+  }
+}
+
+.iris {
+  width: 17px;
+  height: 17px;
+  background: transparent url('img/eye-iris.svg') no-repeat 0 0;
+  position: absolute;
+  top: 37px;
+  transform-origin: 50% 50%;
+}
+
+.iris--left {
+  left: 31px;
+}
+
+.iris--right {
+  left: 119px;
+}
+
+.face--middle-left,
+.face--middle-right {
+  .iris {
+    margin-top: -4px;
+  }
+}

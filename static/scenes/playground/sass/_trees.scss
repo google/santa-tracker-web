@@ -1,0 +1,17 @@
+.trees {
+  position: absolute;
+}
+
+.trees--left {
+  top: -432px; // height of the svg
+  left: 50%;
+  // 254 is the width of this tree
+  margin-left: -1318px;
+}
+
+.trees--right {
+  top: -352px; // height of the svg
+  left: 50%;
+  // 134 is the width of this tree
+  margin-left: 900px;
+}

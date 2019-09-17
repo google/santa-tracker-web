@@ -1,0 +1,106 @@
+// some playground values for easier maintainability
+$playground-top-horizontal-line: -505;
+$playground-bottom-horizontal-line: -265;
+$playground-left-vertical-line:  -154;
+
+.face {
+  position: absolute;
+  left: 50%;
+  width: 167px;
+  height: 189px;
+  cursor: pointer;
+  user-select: none;
+
+  svg {
+    display: block;
+  }
+}
+
+// blue face
+.face--left {
+  top: #{$playground-bottom-horizontal-line}px;
+  left: 50%;
+  margin-left: -617px;
+}
+
+// yellow face
+.face--middle-top {
+  top: #{$playground-top-horizontal-line}px;
+  margin-left: #{$playground-left-vertical-line}px;
+}
+
+// green face
+.face--middle-left {
+  top: #{$playground-bottom-horizontal-line + 4}px;
+  margin-left: #{$playground-left-vertical-line}px;
+}
+
+// purple face
+.face--middle-right {
+  top: #{$playground-bottom-horizontal-line + 4}px;
+  margin-left: 116px;
+}
+
+// blue face
+.face--right {
+  top: #{$playground-top-horizontal-line}px;
+  margin-left: 511px;
+}
+
+.face__nose {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  margin-left: -43px;
+
+  svg {
+    display: block;
+  }
+}
+
+.face__nose--normal {
+  top: 67px;
+  margin-left: -31px;
+}
+
+.face__nose--star,
+.face__nose--diamond,
+.face__nose--triangle,
+.face__nose--square {
+  visibility: hidden;
+}
+
+.face__nose--purple * {
+  fill: darken(#924396, 5%);
+}
+
+.face__nose--red * {
+  fill: darken(#EA1C24, 5%);
+}
+
+.face__nose--yellow * {
+  fill: darken(#FFD700, 5%);
+}
+
+.face__nose--green * {
+  fill: darken(#50B848, 5%);
+}
+
+.face__mouth {
+  position: absolute;
+  bottom: 13px;
+  left: 40px;
+  right: 40px;
+  transform-origin: 15% 95%;
+  transform: translateZ(0);
+
+  svg {
+    height: 85px;
+    width: 100%;
+    display: block;
+
+    ellipse {
+      transform-origin: 10% 90%;
+    }
+  }
+}
