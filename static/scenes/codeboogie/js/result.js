@@ -38,9 +38,9 @@ app.Result = class {
     this.codeLinkEl = el.querySelector('.result__code-link');
     this.continueButtonEl = el.querySelector('.result__button--continue');
     this.continueText = this.continueButtonEl && this.continueButtonEl.textContent;
-    this.finishText = app.I18n.getMsg('CB_finish');
-    this.retryText = app.I18n.getMsg('CB_tryAgain');
-    this.keepDancingText = app.I18n.getMsg('CB_keepDancing');
+    this.finishText = _msg`codelab-finish`;
+    this.retryText = _msg`codelab-try-again`;
+    this.keepDancingText = _msg`codeboogie-keep-dancing`;
     this.shareUrl = null;
 
     // Strangely, Safari doesn't like getAttributeNS. Hopefully this un-namespaced get

@@ -23,6 +23,17 @@ goog.require('app.Level');
 goog.require('app.LevelResult');
 goog.require('app.Step');
 
+// TODO(samthor): duplicated from blocks.js, where we insert into Blockly.
+const stepNames = {
+  [app.Step.LEFT_ARM]: _msg`codeboogie-block-leftarm`,
+  [app.Step.RIGHT_ARM]: _msg`codeboogie-block-rightarm`,
+  [app.Step.LEFT_FOOT]: _msg`codeboogie-block-leftfoot`,
+  [app.Step.RIGHT_FOOT]: _msg`codeboogie-block-rightfoot`,
+  [app.Step.JUMP]: _msg`codeboogie-block-jump`,
+  [app.Step.SPLIT]: _msg`codeboogie-block-split`,
+  [app.Step.SHAKE]: _msg`codeboogie-block-shake`,
+};
+
 /**
  * Dance result constants.
  * @enum {string}
@@ -95,7 +106,7 @@ app.DanceLevel = class extends app.Level {
       animation.unshift({
         teacherStep: app.Step.IDLE,
         playerStep: app.Step.IDLE,
-        title: app.I18n.getMsg('CB_watchClosely'),
+        title: _msg`codeboogie-watch-closely`,
         isIntro: true
       });
     }
@@ -103,7 +114,7 @@ app.DanceLevel = class extends app.Level {
     return new app.DanceLevelResult(false, null, {
       animationQueue: animation,
       danceStatus: danceStatus,
-      endTitle: app.I18n.getMsg('CB_yourTurn')
+      endTitle: _msg`codeboogie-your-turn`
     });
   }
 
@@ -119,13 +130,13 @@ app.DanceLevel = class extends app.Level {
     if (blockly.hasEmptyContainerBlocks()) {
       // Block is assumed to be "if" or "repeat" if we reach here.
       return new app.DanceLevelResult(false,
-          app.I18n.getMsg('CB_resultEmptyBlockFail'),
+          _msg`codelab-result-empty-repeat-fail`,
           {skipAnimation: true});
     }
 
     if (blockly.hasExtraTopBlocks()) {
       return new app.DanceLevelResult(false,
-          app.I18n.getMsg('CB_resultExtraTopBlockFail'),
+          _msg`codelab-result-extra-top-block-fail`,
           {skipAnimation: true});
     }
 
@@ -134,7 +145,7 @@ app.DanceLevel = class extends app.Level {
     if (this.freestyle &&
         playerStepCount > app.DanceLevel.FREESTYLE_STEP_LIMIT) {
       return new app.DanceLevelResult(false,
-          app.I18n.getMsg('CB_resultTooManySteps'),
+          _msg`codeboogie-result-too-many-steps`,
           {skipAnimation: true});
     }
 
@@ -145,11 +156,16 @@ app.DanceLevel = class extends app.Level {
     var missingBlocks = blockly.getMissingBlocks(this.requiredBlocks);
     var numEnabledBlocks = blockly.getCountableBlocks().length;
 
-    var endTitleMsg = '';
+    var endTitle = '';
 
     if (!this.freestyle) {
-      endTitleMsg = danceStatus === app.DanceStatus.NO_STEPS ? 'CB_yourTurn' :
-          levelComplete ? 'CB_success' : 'CB_tryAgain';
+      if (danceStatus === app.DanceStatus.NO_STEPS) {
+        endTitle = _msg`codeboogie-your-turn`;
+      } else if (levelComplete) {
+        endTitle = _msg`codeboogie-success`;
+      } else {
+        endTitle = _msg`codelab-try-again`;
+      }
     }
 
     var allowRetry = true;
@@ -158,20 +174,20 @@ app.DanceLevel = class extends app.Level {
 
     if (missingBlocks.length) {
       message = levelComplete ?
-          app.I18n.getMsg('CB_resultMissingBlockSuccess') :
-          app.I18n.getMsg('CB_resultMissingBlockFail');
+          _msg`codeboogie-result-missing-block-success` :
+          _msg`codeboogie-result-missing-block-fail`;
     } else if (!levelComplete) {
       if (this.idealBlockCount !== Infinity &&
           numEnabledBlocks < this.idealBlockCount) {
-        message = app.I18n.getMsg('CB_resultTooFewBlocksFail');
+        message = _msg`codeboogie-result-too-few-blocks-fail`;
       } else {
-        message = app.I18n.getMsg('CB_resultGenericFail');
+        message = _msg`codelab-result-generic-fail`;
       }
     } else if (numEnabledBlocks > this.idealBlockCount) {
-      message = app.I18n.getMsg('CB_resultTooManyBlocksSuccess');
+      message = _msg`codeboogie-result-too-many-blocks-success`;
     } else if (this.freestyle) {
-      message = app.I18n.getMsg('CB_shareMoves');
-      endTitleMsg = 'CB_keepDancing';
+      message = _msg`codeboogie-share-moves`;
+      endTitle = _msg`codeboogie-keep-dancing`;
     } else {
       allowRetry = false;
     }
@@ -180,7 +196,7 @@ app.DanceLevel = class extends app.Level {
       allowRetry,
       animationQueue: animationQueue,
       code: code,
-      endTitle: app.I18n.getMsg(endTitleMsg),
+      endTitle: endTitle,
       danceStatus: danceStatus,
       idealBlockCount: this.idealBlockCount,
       missingBlocks: missingBlocks,
@@ -251,7 +267,7 @@ app.DanceLevel = class extends app.Level {
         playerStep: playerStep ? playerStep.step : 'watch',
         tile: step,
         blockId: playerStep && playerStep.blockId,
-        title: app.I18n.getMsg('CB_' + step)
+        title: stepNames[step] || '?',
       };
 
       queue.push(animation);
@@ -262,11 +278,11 @@ app.DanceLevel = class extends app.Level {
         queue.push({
           teacherStep: app.Step.WATCH,
           playerStep: app.Step.FAIL,
-          title: app.I18n.getMsg('CB_oops')
+          title: _msg`codelab-oops`
         });
       } else {
         queue[playerSteps.length].playerStep = app.Step.FAIL;
-        queue[playerSteps.length].title = app.I18n.getMsg('CB_oops');
+        queue[playerSteps.length].title = _msg`codelab-oops`;
       }
     }
 
@@ -276,12 +292,12 @@ app.DanceLevel = class extends app.Level {
         teacherStep: app.Step.WATCH,
         playerStep: extraBlock.step,
         blockId: extraBlock.blockId,
-        title: app.I18n.getMsg('CB_oops')
+        title: _msg`codelab-oops`
       });
       queue.push({
         teacherStep: app.Step.WATCH,
         playerStep: app.Step.FAIL,
-        title: app.I18n.getMsg('CB_oops')
+        title: _msg`codelab-oops`
       });
     }
 
@@ -291,7 +307,7 @@ app.DanceLevel = class extends app.Level {
       queue.push({
         teacherStep: specialMove,
         playerStep: specialMove,
-        title: app.I18n.getMsg('CB_success')
+        title: _msg`codeboogie-success`
       });
     }
 
@@ -299,9 +315,9 @@ app.DanceLevel = class extends app.Level {
       queue.unshift({
         teacherStep: app.Step.IDLE,
         playerStep: app.Step.IDLE,
-        title: app.I18n.getMsg(result === app.DanceStatus.NO_STEPS ?
-            'CB_watchClosely' :
-            'CB_letsDance'),
+        title: result === app.DanceStatus.NO_STEPS ?
+            _msg`codeboogie-watch-closely` :
+            _msg`codeboogie-lets-dance`,
         isCountdown: true,
         isIntro: true
       });

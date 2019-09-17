@@ -24,7 +24,6 @@ goog.require('app.AnimationData');
 goog.require('app.Character');
 goog.require('app.Constants');
 goog.require('app.DanceStatus');
-goog.require('app.I18n');
 goog.require('app.Lights');
 goog.require('app.MoveTiles');
 goog.require('app.Step');

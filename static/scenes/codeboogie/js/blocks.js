@@ -22,7 +22,6 @@ goog.require('Blockly.Blocks');
 goog.require('Blockly.FieldImage');
 goog.require('Blockly.FieldLabel');
 goog.require('Blockly.JavaScript');
-goog.require('app.I18n');
 goog.require('app.Patterns');
 goog.require('app.Step');
 
@@ -83,39 +82,39 @@ app.blocks.install = function() {
   (function() {
     var STEP_CONFIGS = {
       [app.Step.LEFT_ARM]: {
-        letter: app.I18n.getMsg('CB_pointLeft'),
+        letter: _msg`codeboogie-block-leftarm`,
         image: 'img/block-point-left.svg',
-        tooltip: app.I18n.getMsg('CB_pointLeftTooltip')
+        tooltip: _msg`codeboogie-block-leftarm-tooltip`
       },
       [app.Step.RIGHT_ARM]: {
-        letter: app.I18n.getMsg('CB_pointRight'),
+        letter: _msg`codeboogie-block-rightarm`,
         image: 'img/block-point-right.svg',
-        tooltip: app.I18n.getMsg('CB_pointRightTooltip')
+        tooltip: _msg`codeboogie-block-rightarm-tooltip`
       },
       [app.Step.LEFT_FOOT]: {
-        letter: app.I18n.getMsg('CB_stepLeft'),
+        letter: _msg`codeboogie-block-leftfoot`,
         image: 'img/block-step-left.svg',
-        tooltip: app.I18n.getMsg('CB_stepLeftTooltip')
+        tooltip: _msg`codeboogie-block-leftfoot-tooltip`
       },
       [app.Step.RIGHT_FOOT]: {
-        letter: app.I18n.getMsg('CB_stepRight'),
+        letter: _msg`codeboogie-block-rightfoot`,
         image: 'img/block-step-right.svg',
-        tooltip: app.I18n.getMsg('CB_stepRightTooltip')
+        tooltip: _msg`codeboogie-block-rightfoot-tooltip`
       },
       [app.Step.JUMP]: {
-        letter: app.I18n.getMsg('CB_jump'),
+        letter: _msg`codeboogie-block-jump`,
         image: 'img/block-jump.svg',
-        tooltip: app.I18n.getMsg('CB_jumpTooltip')
+        tooltip: _msg`codeboogie-block-jump-tooltip`
       },
       [app.Step.SPLIT]: {
-        letter: app.I18n.getMsg('CB_splits'),
+        letter: _msg`codeboogie-block-split`,
         image: 'img/block-splits.svg',
-        tooltip: app.I18n.getMsg('CB_splitsTooltip')
+        tooltip: _msg`codeboogie-block-split-tooltip`
       },
       [app.Step.SHAKE]: {
-        letter: app.I18n.getMsg('CB_hip'),
+        letter: _msg`codeboogie-block-shake`,
         image: 'img/block-hip-shake.svg',
-        tooltip: app.I18n.getMsg('CB_hipTooltip')
+        tooltip: _msg`codeboogie-block-shake-tooltip`
       }
     };
 
@@ -205,7 +204,7 @@ app.blocks.install = function() {
       this.contextMenu = false;
       this.setHSV(26, 0.77, 0.96);
       this.appendDummyInput()
-          .appendField(app.I18n.getMsg('CB_whenRun'));
+          .appendField(_msg`codelab-block-whenrun`);
       this.setNextStatement(true);
     }
   };
@@ -224,11 +223,11 @@ app.blocks.install = function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 28, 32))
           .appendField(new Blockly.FieldDropdown(optionNumberRange(2, 6)), 'TIMES')
-          .appendField(app.I18n.getMsg('CB_repeatTitleTimes'));
+          .appendField(_msg`codelab-block-repeat-times`);
       this.appendStatementInput('DO');
       this.setPreviousStatement(true);
       this.setNextStatement(true);
-      this.setTooltip(app.I18n.getMsg('CB_repeatTooltip'));
+      this.setTooltip(_msg`codelab-block-repeat-tooltip`);
     }
   };
 
@@ -242,7 +241,7 @@ app.blocks.install = function() {
       this.appendDummyInput()
           .appendField(new Blockly.FieldImage('img/block-repeat.svg', 23, 32));
       this.setMini(true);
-      this.setTooltip(app.I18n.getMsg('CB_repeatTooltip'));
+      this.setTooltip(_msg`codelab-block-repeat-tooltip`);
     }
   };
 
