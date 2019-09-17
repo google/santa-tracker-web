@@ -1,0 +1,41 @@
+##{$name} {
+  .present {
+    height: 2.5em;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2.5em;
+
+    &.present-1 {
+      background: url(img/present-01.svg) no-repeat;
+    }
+
+    &.present-2 {
+      background: url(img/present-02.svg) no-repeat;
+    }
+
+    &.present-3 {
+      background: url(img/present-03.svg) no-repeat;
+    }
+
+    &.present-4 {
+      background: url(img/present-04.svg) no-repeat;
+    }
+
+    &.present-5 {
+      background: url(img/present-05.svg) no-repeat;
+    }
+
+    &.present-6 {
+      background: url(img/present-06.svg) no-repeat;
+    }
+
+    &.present-7 {
+      background: url(img/present-07.svg) no-repeat;
+    }
+
+    &.present-8 {
+      background: url(img/present-08.svg) no-repeat;
+    }
+  }
+}

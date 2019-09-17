@@ -1,0 +1,94 @@
+##{$name} {
+  .item {
+    position: absolute;
+
+    .item-score {
+      animation: 1.5s 0.5s #{$name}-scorefadeout forwards;
+      background-image: none;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      margin-left: -75px;
+      margin-top: -25px;
+      text-align: center;
+      width: 150px;
+    }
+
+    .item-orb {
+      position: relative;
+    }
+
+      .item-back {
+        animation: 2s #{$name}-spin linear infinite;
+        height: 6em;
+        position: absolute;
+        width: 6em;
+      }
+
+      .item-front {
+        height: 6em;
+        position: absolute;
+        width: 6em;
+      }
+
+    &.santa {
+      .item-back {
+        background: url(img/orb-santa-back.svg) no-repeat;
+      }
+
+      .item-front {
+        background: url(img/orb-santa-front.svg) no-repeat;
+      }
+    }
+
+    &.snow {
+      .item-back {
+        background: url(img/orb-snow-back.svg) no-repeat;
+      }
+
+      .item-front {
+        background: url(img/orb-snow-front.svg) no-repeat;
+      }
+    }
+
+    &.time {
+      .item-back {
+        background: url(img/orb-time-back.svg) no-repeat;
+      }
+
+      .item-front {
+        background: url(img/orb-time-front.svg) no-repeat;
+      }
+    }
+
+    &.candy {
+      .item-back {
+        background: none;
+      }
+
+      .item-front {
+        animation: 4s #{$name}-spin linear infinite;
+        background: url(img/treat-candy.svg) no-repeat;
+      }
+    }
+  }
+}
+
+@keyframes #{$name}-spin {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes #{$name}-scorefadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
