@@ -5,6 +5,10 @@ $gameover-bg: #46e9ff;
 
 @import "sass/lockscreen";
 
+body {
+  overflow: hidden;
+}
+
 ##{$name} {
   background: $gameover-bg;
   height: 100%;
