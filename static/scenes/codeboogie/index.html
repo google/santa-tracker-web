@@ -342,10 +342,12 @@
 
       modeTeacherButton.addEventListener('click', (ev) => {
         start('teacher');
+        api.play('cb_ingame_win');
       });
       modeFreestyleButton.addEventListener('click', (ev) => {
         const choice = stages[~~(Math.random() * stages.length)];
         start('freestyle', choice);
+        api.play('cb_ingame_win');
       });
     }
   });

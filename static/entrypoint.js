@@ -148,6 +148,10 @@ async function prepare(control, data) {
   }
   const timeout = promises.timeoutRace(10 * 1000);
 
+  if (data) {
+    control.send({type: 'data', payload: data})
+  }
+
   const preloads = [];
   const config = {};
 outer:
@@ -223,6 +227,11 @@ async function runner(control) {
 
       case 'score':
         global.setState({score: payload});
+        continue;
+
+      case 'data':
+        // FIXME: This is out of order, writeData is defined below.
+        writeData(payload);
         continue;
     }
 
@@ -364,7 +373,7 @@ const loaderScene = (sceneName, data) => {
 };
 
 
-const {scope, go} = configureProdRouter(loaderScene);
+const {scope, go, write: writeData} = configureProdRouter(loaderScene);
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 

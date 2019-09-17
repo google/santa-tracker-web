@@ -151,6 +151,7 @@ export function configureProdRouter(callback) {
   return {
     scope: load.scope,
     go: santaApp.go,
+    write: (data) => updateHistory(wh.state.sceneName, data, true),
   };
 }
 

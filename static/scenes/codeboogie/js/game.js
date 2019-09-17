@@ -174,7 +174,12 @@ app.Game = class {
       }
     } else {
       this.levels = app.Levels.getDanceClasses();
-      this.levelNumber = (+param - 1 || 0) - 1;
+      this.levelNumber = ~~(+param - 1 || 0);
+
+      if (this.levelNumber < 0 || this.levelNumber >= this.levels.length) {
+        this.levelNumber = 0;
+      }
+      this.levelNumber--;  // because of bumpLevel
     }
 
     this.scene.reset();
