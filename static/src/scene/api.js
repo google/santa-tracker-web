@@ -173,7 +173,7 @@ class SceneApi extends EventTarget {
       this._send('ready', this._config || {});
 
       // clear backlog of events
-      sendQueue.forEach(this._updateParent)
+      sendQueue.forEach((message) => this._updateParent(message));
     })();
   }
 
