@@ -39,6 +39,7 @@ app.Constants = {
 
   ITEM_SPEED_NORMAL: 75,
   ITEM_SPEED_FAST: 150,
+  ITEM_SPEED_FASTER: 225,
   ITEM_SCORE_NORMAL: 50,
   ITEM_SCORE_FAST: 75,
   ITEM_TIME_NORMAL: 5.0,
@@ -51,7 +52,7 @@ app.Constants = {
   DANGER_SCORE_RETRACTION_FAST: -10,
   DANGER_SCORE_RETRACTION_SLOW: -5,
 
-  ITEM_MIN_DISTANCE: 60, // pixels from player center to be considered caught
+  ITEM_MIN_DISTANCE: 75, // pixels from player center to be considered caught
 
   COUNTDOWN_TRACK_LENGTH: 60, // in seconds
   COUNTDOWN_TRACK_MAX_X: 150, // pixels
@@ -131,8 +132,8 @@ app.Constants = {
    * @type {Array.<Constants.DangerType>}
    */
   DANGER_TYPES: [
-    {css: 'item-danger item-danger--1', weight: 1, fast: true},
-    {css: 'item-danger item-danger--2', weight: 2, fast: false},
+    {css: 'item-danger item-danger--1', weight: 1, faster: true},
+    {css: 'item-danger item-danger--2', weight: 2, fast: true},
     {css: 'item-danger item-danger--3', weight: 1.5, fast: false},
     {css: 'item-danger item-danger--4', weight: 1.5, fast: false}
   ]

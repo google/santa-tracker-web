@@ -78,7 +78,7 @@ app.Item.prototype.reset = function() {
   this.subElem.attr('class', this.type.css);
 
   // Figure out the speed
-  this.speed = (this.type.fast ? app.Constants.ITEM_SPEED_FAST : app.Constants.ITEM_SPEED_NORMAL);
+  this.speed = (this.type.faster ? app.Constants.ITEM_SPEED_FASTER : this.type.fast ? app.Constants.ITEM_SPEED_FAST : app.Constants.ITEM_SPEED_NORMAL);
   this.speed *= Math.pow(app.Constants.ITEM_SPEED_MULTIPLY_EACH_LEVEL, this.game.level);
 
   // Initial placement

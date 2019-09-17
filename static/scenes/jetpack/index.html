@@ -64,6 +64,11 @@
   api.addEventListener('resume', (ev) => game.resume());
   api.addEventListener('restart', (ev) => game.restart());
 
+  api.config({
+    pause: true,
+    sound: [],
+  });
+
   api.ready(async () => {
     game.start();
   });
