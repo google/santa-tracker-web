@@ -1,0 +1,173 @@
+##{$name} {
+  .door {
+    cursor: pointer;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 145px;
+    height: 209px;
+
+    $card-first-x-position: -538;
+    $card-first-y-position: -457;
+    $card-gap-x: 185;
+    $card-gap-y: 252;
+    $index: 1;
+
+    // Rows loop
+    @for $row from 0 through 1 {
+      // Columns loop
+      @for $col from 0 through 5 {
+        &:nth-child(#{$index}) {
+          margin-top: #{$card-first-y-position + ($card-gap-y * $row)}px;
+          margin-left: #{$card-first-x-position + ($card-gap-x * $col)}px;
+        }
+
+        $index: $index + 1;
+      }
+    }
+
+    &.door--enabled {
+      .door__handle--enabled {
+        display: block;
+      }
+
+      // NOTE: for debugging
+      // uncomment below
+      // .door__handle--left {
+      //   transform: translate(-10px);
+      // }
+
+      // .door__handle--right {
+      //   transform: translate(10px);
+      // }
+
+      .door__handle--disabled,
+      .door__nail,
+      .door__bar {
+        display: none;
+      }
+    }
+
+    &.door--open {
+      .door__handle--left {
+        transform: translate(-60px);
+      }
+
+      .door__handle--right {
+        transform: translate(60px);
+      }
+    }
+  }
+
+  .door-target {
+    @extend .door;
+  }
+
+  //
+  // Door handle
+  //
+  .door__handle {
+    background-color: transparent;
+    background-image: url(img/sprite-doors.svg);
+    background-repeat: no-repeat;
+    background-position: -925px -1px;
+    width: 55px;
+    height: 177px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    margin-top: 16px;
+    margin-left: -52px;
+    transition: transform 0.4s $easeOutExpo;
+  }
+
+  .door__handle--left {
+    margin-left: -54px;
+  }
+
+  .door__handle--right {
+    margin-left: 0px;
+  }
+
+  .door__handle--disabled {
+    background-color: #c2151c;
+  }
+
+  .door__handle--enabled {
+    background-color: #008b44;
+  }
+
+  .door__handle--disabled--left {
+    background-position: -913px -8px;
+  }
+
+  .door__handle--disabled--right {
+    background-position: -976px -8px;
+  }
+
+  .door__handle--enabled--left {
+    display: none;
+    background-position: -913px -248px;
+  }
+
+  .door__handle--enabled--right {
+    display: none;
+    background-position: -977px -248px;
+  }
+
+  //
+  // Door bar
+  //
+  .door__bar {
+    display: block;
+    background: #d29966;
+    width: 164px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    margin-left: -83px;
+    margin-top: 70px;
+    box-shadow: 0px 12px 0 0 rgba(0,0,0,0.1);
+  }
+
+  .door__bar--top {
+    margin-top: 70px;
+  }
+
+  .door__bar--bottom {
+    margin-top: 140px;
+  }
+
+  // We have nail as a separate elements
+  // for animation purposes
+  .door__nail {
+    background: #231f20;
+    display: block;
+    width: 6px;
+    height: 18px;
+    position: absolute;
+    top: 143px;
+    left: -5px;
+  }
+
+  .door__nail--top-left,
+  .door__nail--bottom-left {
+    left: -5px;
+  }
+
+  .door__nail--top-right,
+  .door__nail--bottom-right {
+    left: 143px;
+  }
+
+  .door__nail--top-left,
+  .door__nail--top-right {
+    top: 77px;
+  }
+
+  .door__nail--bottom-left,
+  .door__nail--bottom-right {
+    top: 147px;
+  }
+}

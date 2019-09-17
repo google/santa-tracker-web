@@ -1,0 +1,39 @@
+##{$name} {
+  .trees {
+    position: absolute;
+    top: 0%; // already taking 50% from the anchor
+    margin-top: -254px;
+    display: none;
+  }
+
+  .trees--left {
+    left: 0%;
+    width: 405px;
+    height: 268px;
+  }
+
+  .trees--right {
+    right: 0%;
+    width: 418px;
+    height: 267px;
+  }
+
+}
+
+// Only load trees if we have space for it
+// save bandwidth
+@media (min-width: 1000px) {
+  ##{$name} {
+    .trees {
+      display: block;
+    }
+
+    .trees--left {
+      background: transparent url(img/trees-left.png) left bottom no-repeat;
+    }
+
+    .trees--right {
+      background: transparent url(img/trees-right.png) left bottom no-repeat;
+    }
+  }
+}
