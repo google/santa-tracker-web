@@ -4,13 +4,13 @@ const fs = require('fs').promises;
 const path = require('path');
 const tmp = require('tmp');
 
-const CLOSURE_LIBRARY_PATH = 'node_modules/google-closure-library/closure/goog';
+const CLOSURE_LIBRARY_PATH = 'static/node_modules/google-closure-library/closure/goog/';
 const EXTERNS = [
   'build/transpile/magic-externs.js',
   'static/third_party/lib/web-animations/externs/web-animations.js',
   'static/third_party/lib/web-animations/externs/web-animations-next.js',
-  'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
-  'node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
+  'static/node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
+  'static/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
 ];
 
 
