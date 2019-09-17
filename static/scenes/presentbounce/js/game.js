@@ -106,7 +106,7 @@ app.Game.prototype.restart = function(level=1) {
   this.loadNextLevel_();
 
   // Start game
-  window.santaApp.fire('sound-trigger', 'pb_game_start');
+//  window.santaApp.fire('sound-trigger', 'pb_game_start');
   window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
   this.unfreezeGame();
@@ -126,7 +126,7 @@ app.Game.prototype.restartLevel = function() {
   this.loadLevel_();
 
   // Start game
-  window.santaApp.fire('sound-trigger', 'pb_game_start');
+//  window.santaApp.fire('sound-trigger', 'pb_game_start');
   window.santaApp.fire('sound-ambient', 'music_start_ingame');
   window.santaApp.fire('analytics-track-game-start', {gameid: 'presentbounce'});
   this.unfreezeGame();
@@ -262,7 +262,7 @@ app.Game.prototype.unfreezeGame = function() {
 app.Game.prototype.gameover = function() {
   this.freezeGame();
   this.gameoverView.show();
-  window.santaApp.fire('sound-trigger', 'pb_game_over');
+//  window.santaApp.fire('sound-trigger', 'pb_game_over');
   window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
 
   window.santaApp.fire('analytics-track-game-over', {

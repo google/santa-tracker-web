@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600" />
   <link rel="stylesheet" href="presentbounce-scene.css" />
 </head>
 <body>
@@ -43,26 +43,31 @@
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
-import api from '../../src/scene/api.js';
-import Game from './:closure.js';
+  import api from '../../src/scene/api.js';
+  import Game from './:closure.js';
 
-api.preload.sounds('pb_load_sounds', 40);
-api.preload.images(
-  'img/mouse.svg',
-  'img/pipe-part.svg',
-  'img/target-part.svg',
-);
+  api.preload.sounds('pb_load_sounds', 40);
+  api.preload.images(
+    'img/mouse.svg',
+    'img/pipe-part.svg',
+    'img/target-part.svg',
+  );
 
-const game = new Game(document.getElementById('module-presentbounce'));
+  const game = new Game(document.getElementById('module-presentbounce'));
 
-api.addEventListener('pause', (ev) => game.pause());
-api.addEventListener('resume', (ev) => game.resume());
-api.addEventListener('restart', (ev) => game.restart());
+  api.addEventListener('pause', (ev) => game.pause());
+  api.addEventListener('resume', (ev) => game.resume());
+  api.addEventListener('restart', (ev) => game.restart());
 
-api.ready(async (data) => {
-  game.start(data);
-  // this.fire('sound-ambient', 'pb_end_game');
-});
+  api.config({
+    pause: true,
+    sound: [],
+    orientation: 'landscape',
+  });
+
+  api.ready(async (data) => {
+    game.start(data);
+  });
 
 </script>
 
