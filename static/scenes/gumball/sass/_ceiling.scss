@@ -9,7 +9,18 @@
     bottom: 50%;
     top: 0;
     margin-bottom: 316px;
-    background-color: #939597;
+    background-color: #808080;
+
+    &::after {
+      border-style: solid;
+      border-width: 0 100vw 3vw 0;
+      border-color: transparent #230000 transparent transparent;
+      bottom: -3vw;
+      content: '';
+      opacity: .1;
+      position: absolute;
+      right: 0;
+    }
   }
 
   .ceiling-windows {
@@ -59,16 +70,16 @@
     bottom: 100px;
     left: 0;
     margin: 0 (127px - 103px) 0 58px;
-    background: #bcbec0;
+    background: url('img/toppipe-bg.svg') repeat-y;
   }
 
   .ceiling-pipe-hand {
     background: url('img/toppipe-hand.svg') no-repeat;
     position: absolute;
-    width: 27px;
-    height: 6px;
-    bottom: 54px;
-    left: 19px;
+    width: 34px;
+    height: 11px;
+    bottom: 51px;
+    left: 14px;
     transform: rotate(-18deg);
     transform-origin: 3px center;
   }
