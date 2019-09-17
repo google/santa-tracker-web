@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600" />
+  <link rel="stylesheet" href="penguindash-scene.css" />
+</head>
+<body>
+
+<div id="module-penguindash">
+  <div class="scene">
+    <div id="penguindash-game"></div>
+  </div>
+  <div class="gui">
+    <div class="levelup"></div>
+    <div class="levelup--number"></div>
+  </div>
+  <div class="lockscreen hidden" id="locked">
+    <div class="lockscreen-graphic"></div>
+    <div class="lockscreen-explanation">
+      <i18n-msg msgid="lock_orientation">PLACEHOLDER_i18n</i18n-msg>
+    </div>
+  </div>
+</div>
+
+<!-- TODO(samthor): this is 2.6mb (!), include minified version -->
+<script src="../../third_party/lib/phaser/phaser-arcade-physics.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module">
+  import api from '../../src/scene/api.js';
+  import Game from './:closure.js';
+
+  api.preload.sounds('pnd_load_sounds');
+  api.preload.images(
+    'img/element-celebrate.png',
+    'img/element-coal1.png',
+    'img/element-coal2.png',
+    'img/element-coal3.png',
+    'img/element-finish.png',
+    'img/element-ice1-fat-shadow.png',
+    'img/element-ice1-fat.png',
+    'img/element-ice1-shadow.png',
+    'img/element-ice1.png',
+    'img/element-ice2-shadow.png',
+    'img/element-ice2.png',
+    'img/element-ice3-shadow.png',
+    'img/element-ice3.png',
+    'img/element-ice4-shadow.png',
+    'img/element-ice4.png',
+    'img/element-ice5-shadow.png',
+    'img/element-ice5.png',
+    'img/element-pole.png',
+    'img/element-present1.png',
+    'img/element-present2.png',
+    'img/element-present3.png',
+    'img/element-present4.png',
+    'img/element-present5.png',
+    'img/element-present6.png',
+    'img/element-presentStacked.png',
+    'img/element-snow1-fat.png',
+    'img/element-snow1-shadow.png',
+    'img/element-snow1.png',
+    'img/element-snow2-shadow.png',
+    'img/element-snow2.png',
+    'img/element-snow3-shadow.png',
+    'img/element-snow3.png',
+    'img/element-snow4-shadow.png',
+    'img/element-snow4.png',
+    'img/element-snow5-shadow.png',
+    'img/element-snow5.png',
+    'img/element-start.png',
+    'img/element-tree1.png',
+    'img/element-tree2.png',
+    'img/penguin-shadow.png',
+    'img/sprite-angels.png',
+    'img/sprite-duck.png',
+    'img/sprite-dust.png',
+    'img/sprite-green_elf.png',
+    'img/sprite-iceberg.png',
+    'img/sprite-orange_elf.png',
+    'img/sprite-penguin.png',
+    'img/sprite-sm_iceberg.png',
+    'img/sprite-snowman.png',
+    'img/sprite-walrus.png',
+//    'img/wave-bg-slow-big-no-waves.mp4',
+  );
+
+  const game = new Game(document.getElementById('module-penguindash'), './');
+
+  api.preload.wait(game.startPromise);
+
+  api.addEventListener('pause', (ev) => game.pause());
+  api.addEventListener('resume', (ev) => game.resume());
+  api.addEventListener('restart', (ev) => game.restart());
+
+  api.config({
+    pause: true,
+    orientation: 'portrait',  // TODO(samthor): actually wants locked orientation
+    sound: [],
+  });
+
+  api.ready(async () => {
+    game.start();
+  });
+
+</script>
+</dom-module>
