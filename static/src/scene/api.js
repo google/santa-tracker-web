@@ -276,6 +276,13 @@ function installV1Handlers() {
     case 'sound-play':
     case 'sound-trigger':
     case 'sound-ambient':
+      if (args.length === 1) {
+        const first = args[0];
+        if (first.name && first.args && first.args.length) {
+          // fix "{name: 'foo', args: []}" case
+          args = [first.name, ...first.args];
+        }
+      }
       sceneApi.play(...args);
       break;
     case 'sound-transition':
