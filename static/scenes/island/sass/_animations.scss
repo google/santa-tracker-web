@@ -1,0 +1,259 @@
+@import "../../_shared/sass/_mixins.scss";
+
+@keyframes fly {
+  0% {
+    left: -10%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes fly2 {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 105%;
+  }
+}
+
+@keyframes fly3 {
+  0% {
+    left: -20%;
+    margin-top: -20px;
+  }
+  100% {
+    left: 120%;
+    margin-top: -20px;
+  }
+}
+
+@keyframes boatMovement {
+  0% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes objFloat {
+  0% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes birdSwim {
+  0% {
+    transform: translateX(0px)  rotateY(180deg);
+  }
+
+  49% {
+    transform: translateX(120px) rotateY(180deg);
+  }
+
+  50% {
+    transform: translateX(120px) rotateY(0deg);
+  }
+
+  99% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+
+  100% {
+    transform: translateX(0px)  rotateY(180deg);
+  }
+}
+
+@keyframes presentFly {
+  0% {
+    transform: translateY(35px) translateX(-15px) rotateZ(0deg);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateY(35px) translateX(-15px) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(0) translateX(0) rotateZ(0deg);
+  }
+
+  75% {
+    transform: translateY(20px) translateX(-20px) rotateZ(90deg);
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(90px) translateX(-50px) rotateZ(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes presentSpin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(720deg);
+  }
+}
+
+@keyframes presentGrab {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(30px) translateX(-10px) rotateZ(15deg);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes presentThrow {
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateZ(15deg);
+  }
+
+  50% {
+    transform: rotateZ(0deg);
+  }
+
+  55% {
+    transform: rotateZ(-25deg);
+  }
+}
+
+@keyframes lightsSwitch {
+  0% {
+    background-position: 0 0;
+  }
+
+  33% {
+    background-position: -188px 0;
+  }
+
+  66% {
+    background-position: -188px * 2 0;
+  }
+}
+
+@keyframes slider {
+  0% {
+    transform: translateX(12px) translateY(-15px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateX(280px) translateY(400px);
+  }
+
+  90% {
+    transform: translateX(280px) translateY(400px);
+    opacity: 0;
+  }
+
+  95% {
+    transform: translateX(0px) translateX(0px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px) translateX(0px);
+  }
+}
+
+@keyframes sliderSplash {
+  0% {
+    transform: translateY(35px);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(35px); 
+  }
+
+  55% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(2px);
+    opacity: 0;
+  }
+}
+
+@keyframes coconutFall {
+  0% {
+    transform: translateY(0px) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translateY(250px) rotateZ(75deg);
+  }
+}
+
+@keyframes zzzFloat {
+  0% {
+    background-position: 0 100%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    background-position: 0 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes flaskFloat {
+  0% {
+    background-position: -133px -282px;
+  }
+
+  33% {
+    background-position: -133px -282px + 7;
+  }
+
+  66% {
+    background-position: -133px -282px;
+  }
+
+  100% {
+    background-position: -133px -282px + 3;
+  }
+}
