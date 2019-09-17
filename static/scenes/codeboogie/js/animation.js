@@ -22,7 +22,7 @@ goog.require('app.Step');
 goog.require('app.AnimationData');
 
 const canvasWidth = 622;
-const canvasHeight = 494;
+const canvasHeight = 578;
 const fps = 24;
 const framesPerSprite = 24;
 const spriteScaleFactor = 0.6;
@@ -30,7 +30,7 @@ const originalWidth = 1920 * spriteScaleFactor;
 const originalHeight = 1080 * spriteScaleFactor;
 
 const frameCounts = {
-  [app.Step.IDLE]: 24,
+  [app.Step.IDLE]: 12,
   [app.Step.FAIL]: 48,
   [app.Step.WATCH]: 48,
   [app.Step.LEFT_ARM]: 48,
@@ -39,11 +39,11 @@ const frameCounts = {
   [app.Step.RIGHT_FOOT]: 48,
   [app.Step.JUMP]: 48,
   [app.Step.SHAKE]: 48,
-  [app.Step.SPLIT]: 48,
-  [app.Step.CARLTON]: 96,
-  [app.Step.SPONGEBOB]: 48,
-  [app.Step.ELVIS]: 48,
-  [app.Step.THRILLER]: 96
+  [app.Step.SPLIT]: 96,
+  [app.Step.FLOSS]: 96,
+  [app.Step.HIPHOP]: 96,
+  [app.Step.MCHAMMER]: 96,
+  [app.Step.PONY]: 104
 };
 
 app.Animation = class {

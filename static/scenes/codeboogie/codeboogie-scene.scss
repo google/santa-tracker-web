@@ -2,6 +2,7 @@ $name: 'module-codeboogie';
 @import "sass/choose-mode";
 @import "../_shared/sass/frame";
 @import "../_shared/sass/overlay";
+@import "../_shared/sass/button";
 @import "sass/bg";
 @import "sass/blockly";
 @import "sass/result";
@@ -12,6 +13,7 @@ body {
   overflow: hidden;
   background: #364189;
   font-family: 'Roboto', 'Arial', Sans-Serif;
+  font-size: 12px;
 }
 
 ##{$name} {

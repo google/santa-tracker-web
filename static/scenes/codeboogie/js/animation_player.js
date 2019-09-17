@@ -29,7 +29,32 @@ goog.require('app.Lights');
 goog.require('app.MoveTiles');
 goog.require('app.Step');
 goog.require('app.Title');
-goog.require('goog.events.EventTarget');
+
+/**
+ * Basic EventTarget polyfill, just to match goog.events.EventTarget.
+ */
+class EventTargetPonyfill {
+  constructor() {
+    this.handlers = new Map();
+  }
+
+  addEventListener(name, call) {
+    if (!this.handlers.has(name)) {
+      this.handlers.set(name, new Set());
+    }
+    this.handlers.get(name).add(call);
+  }
+
+  listen(name, call) {
+    return this.addEventListener(name, call);
+  }
+
+  dispatchEvent({type, data}) {
+    const e = {type, data};
+    const calls = this.handlers.get(type) || [];
+    calls.forEach((fn) => fn(e));
+  }
+}
 
 /**
  * @typedef {{
@@ -43,7 +68,7 @@ goog.require('goog.events.EventTarget');
  */
 app.AnimationItem;
 
-app.AnimationPlayer = class extends goog.events.EventTarget {
+app.AnimationPlayer = class extends EventTargetPonyfill {
   /**
    * Plays character animations
    *
@@ -55,7 +80,7 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
 
     this.el = el;
     this.player = new app.Character(
-        el.querySelector('.scene__character--player'), 'purple');
+        el.querySelector('.scene__character--player'), 'red');
     this.teacher = new app.Character(
         el.querySelector('.scene__character--teacher'), 'green');
     this.title = new app.Title(el.querySelector('.scene__word-title'));
@@ -201,6 +226,6 @@ app.AnimationPlayer = class extends goog.events.EventTarget {
   setLevel(level) {
     this.moveTiles.setLevel(level);
     this.lights.setLevel(level);
-    this.player.setColor(level.freestyle ? 'green' : 'purple');
+    this.player.setColor(level.freestyle ? 'green' : 'red');
   }
 };

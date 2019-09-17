@@ -22,6 +22,7 @@
     &.is-closed {
       animation: 500ms #{$name}-overlay-bg-out linear forwards;
       overflow: hidden;
+      pointer-events: none;
     }
 
     // Center the dialog

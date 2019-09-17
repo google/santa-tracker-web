@@ -9,6 +9,25 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
 }
 
 ##{$name} .choose-mode {
+  $fadeout-time: 0.3s;
+  opacity: 1;
+  display: block;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+
+  &.gone {
+    pointer-events: none;
+    transition: opacity $fadeout-time ease-in, transform $fadeout-time ease-in;
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
+  }
+
   &__image {
     background-repeat: no-repeat;
     background-size: contain;
@@ -21,6 +40,7 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
     position: absolute;
     top: 0;
     width: 100%;
+    pointer-events: none;
   }
 
   &__text {
@@ -52,14 +72,14 @@ $choose-mode-delta-width: $choose-mode-teacher-width - $choose-mode-freestyle-wi
     transition: opacity 200ms ease-in-out;
 
     &--teacher {
-      background-image: url(img/mode-class.svg);
+      background-image: url(img/choose-mode/mode-class.svg);
       margin-left: -(choose-mode-figure-width(50%) - 50%);
       padding-bottom: choose-mode-figure-width(50%);
       width: choose-mode-figure-width(50%);
     }
 
     &--freestyle {
-      background-image: url(img/mode-freestyle.svg);
+      background-image: url(img/choose-mode/mode-freestyle.svg);
     }
   }
 

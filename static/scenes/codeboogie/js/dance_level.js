@@ -286,7 +286,7 @@ app.DanceLevel = class extends app.Level {
     }
 
     if (result === app.DanceStatus.SUCCESS && !this.freestyle) {
-      let specialMove = this.specialMove || app.Step.CARLTON;
+      let specialMove = this.specialMove || app.Step.PONY;
 
       queue.push({
         teacherStep: specialMove,
@@ -372,15 +372,15 @@ app.DanceLevel = class extends app.Level {
    * @return {?string}
    */
   serialize(animationQueue) {
-    let level = goog.array.findIndex(app.DanceLevel.SERIALIZE_LEVELS,
-        l => l.stage === this.stage);
-    let steps = animationQueue.map(item => {
+    const level = app.DanceLevel.SERIALIZE_LEVELS.findIndex((l) => l.stage == this.stage);
+    const steps = animationQueue.map((item) => {
       return app.DanceLevel.SERIALIZE_STEPS.indexOf(item.teacherStep);
-    }).filter(i => i >= 0);
+    }).filter((i) => i >= 0);
 
     // Guards and validations.
-    if (!this.freestyle) { return null; }
-    if (steps.length === 0) { return null; }
+    if (!this.freestyle || steps.length === 0) {
+      return null;
+    }
 
     // Format url.
     return btoa(level + steps.join(''));
@@ -412,19 +412,19 @@ app.DanceLevel.SERIALIZE_LEVELS = [
     stage: 'stage1',
     bpm: 120,
     track: 0,
-    specialMove: app.Step.CARLTON
+    specialMove: app.Step.PONY
   },
   {
     stage: 'stage2',
     bpm: 130,
     track: 1,
-    specialMove: app.Step.ELVIS
+    specialMove: app.Step.HIPHOP
   },
   {
     stage: 'stage3',
     bpm: 140,
     track: 2,
-    specialMove: app.Step.SPONGEBOB
+    specialMove: app.Step.FLOSS
   }
 ];
 

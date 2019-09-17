@@ -279,7 +279,8 @@ function installV1Handlers() {
       sceneApi.play(...args);
       break;
     case 'sound-transition':
-      throw new TypeError('TODO: implement transition for rythym games');
+      console.warn('TODO: implement transition for rythym games');
+      break;
     case 'game-data':
       sceneApi.data(args[0] || null);
       break;

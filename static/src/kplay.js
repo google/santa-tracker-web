@@ -1020,9 +1020,10 @@ export async function prepare() {
       groups.forEach((group) => {
         const key = config['events'][group];
         const process = audioConfig[key];
-        if (process && process['type'] === 'SimpleProcess' && process['vars'].length == 0) {
+        if (process && process['type'] === 'SimpleProcess') {
           // TODO: This is a bit ugly, but tries to steal processes that are probably triggering
-          // a preload (they might also do other things, which we should prevent).
+          // a preload (they might also do other things, which we should prevent). Some require
+          // vars because some preloads have side-effects.
           processes.push(process['action']);
         }
         work(group);
@@ -1030,7 +1031,13 @@ export async function prepare() {
 
       try {
         preloadGroupCallback = work;
-        processes.forEach((f) => f(null, null, null, null, [], null));
+        processes.forEach((f) => {
+          try {
+            f(null, null, null, null, [], null);
+          } catch (e) {
+            // ignore, probably trying to call vars
+          }
+        });
       } finally {
         preloadGroupCallback = null;
       }

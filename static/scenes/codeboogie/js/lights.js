@@ -26,12 +26,9 @@ app.Lights = class {
     this.ceilingActive = false;
     this.floorActive = false;
 
-    this.whiteBeams = goog.array.toArray(
-      el.querySelectorAll('.ceilingLight__beam--white'));
-    this.redBeams = goog.array.toArray(
-      el.querySelectorAll('.ceilingLight__beam--red'));
-    this.greenBeams = goog.array.toArray(
-      el.querySelectorAll('.ceilingLight__beam--green'));
+    this.whiteBeams = Array.from(el.querySelectorAll('.ceilingLight__beam--white'));
+    this.redBeams = Array.from(el.querySelectorAll('.ceilingLight__beam--red'));
+    this.greenBeams = Array.from(el.querySelectorAll('.ceilingLight__beam--green'));
 
     this.tiles = [];
 
