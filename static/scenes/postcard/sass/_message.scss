@@ -1,0 +1,46 @@
+##{$name} {
+  .message {
+    left: 50%;
+    margin-left: -450px;
+    margin-top: -275px;
+    position: absolute;
+    top: 50%;
+
+    .frame {
+      background-color: #fff;
+      height: 550px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 900px;
+    }
+
+    .frame-inner {
+      width: 850px;
+      height: 500px;
+      overflow: hidden;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+    }
+
+    .shadow {
+      background-color: #000;
+      height: 550px;
+      left: 10px;
+      opacity: 0.15;
+      position: absolute;
+      top: 10px;
+      width: 900px;
+    }
+
+    .shadow-inner {
+      box-sizing: border-box;
+      width: 850px;
+      height: 500px;
+      position: absolute;
+      border: 10px solid black;
+      opacity: 0.1;
+    }
+  }
+}

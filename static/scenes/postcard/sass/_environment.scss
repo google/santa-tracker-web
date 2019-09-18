@@ -1,0 +1,291 @@
+##{$name} {
+  .environment {
+    .wall {
+      background: #b0d0e1;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      top: 50%;
+      margin-top: 440px;
+    }
+
+    .gear-yellow {
+      border: 11px solid #58585A;
+      border-left: 0;
+      border-radius: 0 58px 58px 0;
+      height: 55px;
+      left: 0;
+      margin-right: -655px;
+      margin-top: -420px;
+      position: absolute;
+      right: 50%;
+      top: 50%;
+
+      .wheel {
+        animation: 10s #{$name}-gear infinite linear;
+        background:  url(img/sprite.png) no-repeat -335px -2px;
+        height: 150px;
+        position: absolute;
+        right: -47px;
+        top: -47px;
+        width: 150px;
+      }
+    }
+
+    .gear-blue {
+      border: 5px solid #58585A;
+      border-top: 0;
+      border-radius: 0 0 58px 58px;
+      bottom: 50%;
+      left: 50%;
+      margin-bottom: 350px;
+      margin-left: 140px;
+      position: absolute;
+      top: -30%;
+      width: 28px;
+
+      .wheel {
+        animation: 10s #{$name}-gear infinite linear;
+        background: url(img/sprite.png) no-repeat -242px -16px;
+        height: 86px;
+        position: absolute;
+        right: -29px;
+        bottom: -28px;
+        width: 86px;
+      }
+    }
+
+    .gear-red {
+      border: 6px solid #58585A;
+      border-left: 0;
+      border-radius: 0 58px 58px 0;
+      height: 28px;
+      left: -300px;
+      right: 50%;
+      margin-top: 130px;
+      margin-right: 490px;
+      position: absolute;
+      top: 50%;
+
+      .wheel {
+        animation: 10s #{$name}-gear infinite linear;
+        background: url(img/sprite.png) no-repeat -249px -104px;
+        height: 86px;
+        position: absolute;
+        right: -29px;
+        top: -29px;
+        width: 86px;
+      }
+    }
+
+    .gear-green {
+      border: 10px solid #58585A;
+      border-bottom: 0;
+      border-radius: 58px 58px 0 0;
+      bottom: 0;
+      top: 50%;
+      margin-top: 260px;
+      left: 50%;
+      margin-left: 550px;
+      position: absolute;
+      width: 42px;
+
+      .wheel {
+        animation: 10s #{$name}-gear infinite linear;
+        background:  url(img/sprite.png) no-repeat  -493px -1px;
+        height: 114px;
+        position: absolute;
+        right: -36px;
+        top: -36px;
+        width: 114px;
+      }
+    }
+
+    .wire {
+      border-left: solid 6px #d0d0d3;
+      border-right: solid 6px #d0d0d3;
+      bottom: 0;
+      left: 50%;
+      margin-left: -400px;
+      position: absolute;
+      top: 0;
+      width: 800px;
+
+      .box {
+        background: #8e9192 url(img/sprite.png) no-repeat -190px -221px;
+        height: 50px;
+        position: absolute;
+        width: 63px;
+
+        &.top-right {
+          margin-right: -435px;
+          margin-top: -336px;
+          right: 50%;
+          top: 50%;
+        }
+
+        &.top-left {
+          left: 50%;
+          margin-left: -435px;
+          margin-top: -336px;
+          top: 50%;
+        }
+
+        &.bottom-left {
+          bottom: 50%;
+          left: 50%;
+          margin-bottom: -347px;
+          margin-left: -435px;
+        }
+
+        &.bottom-right {
+          bottom: 50%;
+          margin-bottom: -347px;
+          margin-right: -435px;
+          right: 50%;
+        }
+      }
+    }
+
+    .dots {
+      background: url(img/sprite.png) -225px 0;
+      height: 15px;
+      left: 50%;
+      margin-left: -350px;
+      margin-top: -300px;
+      position: absolute;
+      top: 50%;
+      width: 60px;
+    }
+
+    .wire-menu {
+      border-left: solid 6px #b0d0e1;
+      border-right: solid 6px #b0d0e1;
+      bottom: 0;
+      left: 50%;
+      margin-left: -610px;
+      position: absolute;
+      top: 0;
+      width: 30px;
+    }
+
+    .wire-gmailbox {
+      border-left: solid 6px #b0d0e1;
+      border-right: solid 6px #b0d0e1;
+      bottom: 0;
+      margin-right: -700px;
+      position: absolute;
+      right: 50%;
+      top: 0;
+      width: 30px;
+    }
+
+    .electricbox {
+      background: url(img/sprite.png) no-repeat -270px -212px;
+      height: 151px;
+      left: 50%;
+      margin-left: -250px;
+      position: absolute;
+      bottom: 0;
+      width: 391px;
+    }
+
+    .electriccable {
+      background: url(img/sprite.png) no-repeat 0 -223px;
+      height: 175px;
+      margin-right: -356px;
+      position: absolute;
+      right: 50%;
+      bottom: 0;
+      width: 151px;
+    }
+
+    .gmailbox {
+      background: url(img/sprite.png) no-repeat 0 -83px;
+      height: 138px;
+      margin-top: -264px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 245px;
+    }
+
+    .gray {
+      animation: 10s #{$name}-gear reverse infinite linear;
+      background: url(img/sprite.png) no-repeat -186px -21px;
+      height: 52px;
+      position: absolute;
+      width: 52px;
+
+      &.top {
+        left: 50%;
+        margin-left: 90px;
+        margin-top: -340px;
+        top: 50%;
+      }
+
+      &.left {
+        margin-right: 460px;
+        right: 50%;
+        top: 50%;
+        margin-top: 58px;
+      }
+    }
+
+    .gear-blue .wheel, .gray.top, .gear-yellow .wheel, .gear-red .wheel, .gray.left, .gear-green .wheel {
+      animation-play-state: paused;
+    }
+  }
+
+
+  .fgs-active .environment {
+    .gear-blue .wheel, .gray.top, .gear-yellow .wheel {
+      animation-play-state: running;
+    }
+  }
+
+  .bgs-active .environment {
+    .gear-red .wheel, .gray.left, .gear-green .wheel {
+      animation-play-state: running;
+    }
+  }
+
+  @media (min-width: 1200px) and (max-width: 1420px) {
+    .gmailbox {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1000px) and (max-width: 1120px) {
+    .gmailbox {
+      display: none;
+    }
+  }
+
+  @media (min-width: 800px) and (max-width: 980px) {
+    .gmailbox {
+      display: none;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 770px) {
+    .gmailbox {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .gmailbox {
+      display: none;
+    }
+  }
+}
+
+@keyframes #{$name}-gear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,101 @@
+##{$name} {
+  .fgs-belt {
+    .track {
+      background-color: #a7a9ac;
+      bottom: 0;
+      left: 50%;
+      margin-left: -82px;
+      position: absolute;
+      top: 0;
+      width: 174px;
+
+      &:after {
+        background-color: #fff;
+        bottom: 0;
+        content: "";
+        left: 50%;
+        margin-left: -67px;
+        position: absolute;
+        top: 0;
+        width: 134px;
+      }
+    }
+
+    .fgs-up {
+      background: url(img/fgs-small.png) 0 -118px;
+      height: 944px;
+      left: 50%;
+      margin-left: -100px;
+      margin-bottom: 275px;
+      position: absolute;
+      bottom: 50%;
+      transition: background-position 500ms ease;
+      width: 200px;
+    }
+
+    .fgs-down {
+      background: url(img/fgs-small.png) 0 -118px;
+      height: 942px;
+      left: 50%;
+      margin-left: -100px;
+      margin-top: 275px;
+      position: absolute;
+      top: 50%;
+      transition: background-position 500ms ease;
+      width: 200px;
+    }
+  }
+
+  .message {
+    .fgs div {
+      background: url(img/fgs.png);
+      height: 500px;
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 850px;
+    }
+
+    .fgs {
+      position: relative;
+      transition: all 500ms ease;
+
+      @mixin fg($number) {
+        background-position: 0 -500px * $number;
+        top: $number * 500px;
+      }
+
+      .fg1 {
+        @include fg(0);
+      }
+
+      .fg2 {
+        @include fg(1);
+      }
+
+      .fg3 {
+        @include fg(2);
+      }
+
+      .fg4 {
+        @include fg(3);
+      }
+
+      .fg5 {
+        @include fg(4);
+      }
+
+      .fg6 {
+        @include fg(5);
+      }
+
+      .fg7 {
+        @include fg(6);
+      }
+
+      .fg8 {
+        @include fg(7);
+      }
+    }
+  }
+}
