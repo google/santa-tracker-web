@@ -27,5 +27,6 @@
   .tray-bottom {
     background-image: url(img/tray_lg_bottom.svg);
     bottom: -($height / 2);
+    z-index: -1;
   }
 }
