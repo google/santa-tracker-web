@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600|Lobster" />
   <link rel="stylesheet" href="speedsketch-scene.css" />
 </head>
 <body>
@@ -549,7 +549,7 @@
           </div>
         </div>
         <div class="rounddetails-card covercard visible">
-          <button class="Button Button--round rounddetails-card__back-btn"></button>
+          <button class="Button Button--round Button--prev-arrow rounddetails-card__back-btn"></button>
           <div class="card-container scroll">
 
             <div class="card-row">
@@ -601,7 +601,7 @@
   import api from '../../src/scene/api.js';
   import Game from './:closure.js';
 
-  api.preload.sounds('qd_load_sounds', 30);
+  api.preload.sounds('qd_load_sounds');
   api.preload.images(
     'img/back-button-arrow.svg',
     'img/clear-btn.svg',
@@ -620,16 +620,16 @@
     'img/whiteboard.svg',
   );
 
-  const strings = {};
-  const game = new Game(document.getElementById('module-speedsketch'), './', strings);
+  const game = new Game(document.getElementById('module-speedsketch'), './');
 
-  api.addEventListener('pause', (ev) => game.pause());
-  api.addEventListener('resume', (ev) => game.resume());
-  api.addEventListener('restart', (ev) => game.restart());
+  // Speed Sketch has its own "restart"/"play again" button, so don't listen to host events.
+
+  api.config({
+    sound: ['qd_start', 'music_start_scene'],
+    orientation: 'portrait',
+  });
 
   api.ready(async () => {
-    api.ambient('qd_start', 'qd_end');
-    api.fire('music_start_scene');
     game.start();
   });
 </script>

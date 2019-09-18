@@ -28,11 +28,11 @@ goog.require('app.GameController');
  * @struct
  * @export
  */
-app.Game = function(elem, importPath, strings) {
+app.Game = function(elem, importPath) {
   this.elem = $(elem);
 
   this.splashView = new app.view.SplashView(this.elem);
-  this.gameController = new app.GameController(this.elem, importPath, strings);
+  this.gameController = new app.GameController(this.elem, importPath);
 };
 
 app.Game.prototype.start = function() {
