@@ -904,7 +904,7 @@ export async function prepare() {
    */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
-    if (destination === null && config['destination_name'] !== '$OUT') {
+    if ('destination_name' in config && destination === null && config['destination_name'] !== '$OUT') {
       throw new Error(`got unprepared destination node ${config['destination_name']} for ${key}`);
     }
     let node;
@@ -944,7 +944,8 @@ export async function prepare() {
   };
 
   /**
-   * Ensures that the requested key has its and all required K-nodes in the audio graph.
+   * Ensures that the requested key has its and all required K-nodes in the audio graph. This works
+   * recursively: there's probably a better way.
    *
    * @param {string} key
    * @return {!Object}
@@ -953,42 +954,23 @@ export async function prepare() {
     if (key in nodes) {
       return nodes[key];  // nothing to do
     }
+    nodes[key] = null;  // prevent circular refs
 
-    const pendingVars = new Set();
-    const work = new Set([key]);
+    const c = audioConfig[key];
 
-    pendingVars.add(key);
-    pendingVars.forEach((key) => {
-      const c = audioConfig[key];
-      if (c === undefined) {
-        throw new Error(`invalid key: ${key}`);
-      }
+    const deps = [].concat(
+      c['vars'] || [],
+      c['content'] || [],
+      c['destination_name'] || [],
+    ).filter((x) => !(x === '$OUT' || x in nodes));
+    deps.forEach(prepareKey);
 
-      const rest = [].concat(
-          c['vars'] || [],
-          c['content'] || [],
-          c['destination_name'] || [],
-      ).filter((x) => !(x === '$OUT' || x in nodes));
-
-      rest.forEach((dep) => {
-        // Make sure each dependency is _after_ the last time it was required, and move to the end
-        // of the work Set.
-        work.delete(dep);
-        work.add(dep);
-        pendingVars.add(dep);
-      });
-    });
-
-    Array.from(work).reverse().forEach((key) => {
-      const c = audioConfig[key];
-      const node = prepareKNode(key, c, nodes);
-      nodes[key] = node;
-      if (node instanceof AudioBus) {
-        busNodes.add(node);
-      }
-    });
-
-    return nodes[key];
+    const node = prepareKNode(key, c, nodes);
+    if (node instanceof AudioBus) {
+      busNodes.add(node);
+    }
+    nodes[key] = node;
+    return node;
   };
 
   // If the AudioContext starts 'suspended', ensure that looped audio is resumed at the correct

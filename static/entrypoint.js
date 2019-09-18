@@ -48,11 +48,14 @@ kplayReady.then((sc) => {
       muted = update;
 
       if (muted) {
-        this.play('global_sound_off');
+        sc.play('global_sound_off');
       } else {
-        this.play('global_sound_on');
+        sc.play('global_sound_on');
       }
     }
+
+    // TODO(samthor): This only shows when the scene is in mini mode.
+    chromeElement.unmute = state.audioSuspended;
   });
 
   if (sc.suspended) {
@@ -101,8 +104,6 @@ global.subscribe((state) => {
   }
   Object.assign(badgeElement, score);
   chromeElement.hasScore = hasScore;
-
-  chromeElement.unmute = state.audioSuspended;
 
   if (!state.control) {
     chromeElement.action = null;
