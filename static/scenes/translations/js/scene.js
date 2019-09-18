@@ -14,6 +14,7 @@
  * the License.
  */
 
+goog.provide('app.Scene');
 goog.provide('app.Game');
 
 goog.require('app.Constants');
@@ -27,7 +28,7 @@ goog.require('app.shared.utils');
  * @constructor
  * @export
  */
-app.Game = function(el) {
+app.Scene = function(el) {
   this.$el = $(el);
   this.$phraseContainerFrom = this.$el.find('.js-phrase-container-from');
   this.$phraseContainerTo = this.$el.find('.js-phrase-container-to');
@@ -53,6 +54,7 @@ app.Game = function(el) {
   this.fromLang = app.Constants.DEFAULT_LANGUAGE;
   this.toLang = app.Constants.DEFAULT_LANGUAGE;
 
+  this.onKeyDown_ = this.onKeyDown_.bind(this);
   this.onPlayPhrase_ = this.onPlayPhrase_.bind(this);
   this.onPrevPhrase_ = this.onPrevPhrase_.bind(this);
   this.onNextPhrase_ = this.onNextPhrase_.bind(this);
@@ -71,7 +73,7 @@ app.Game = function(el) {
  * @param {!jQuery} $targetContainer Dom element to append generated phrases elements to
  * @return {!jQuery} Selection of generated phrase elements
  */
-app.Game.prototype.buildPhrases_ = function($targetContainer) {
+app.Scene.prototype.buildPhrases_ = function($targetContainer) {
   var l = app.Constants.PHRASES.length,
       i;
 
@@ -104,9 +106,9 @@ app.Game.prototype.buildPhrases_ = function($targetContainer) {
  * Detects default fromLanguage from browser & randomizes a toLAnguage
  * @private
  */
-app.Game.prototype.setDefaultLanguages_ = function() {
+app.Scene.prototype.setDefaultLanguages_ = function() {
   // detect selected lang
-  this.fromLang = document.documentElement.lang || 'en';
+  this.fromLang = document.documentElement.lang || app.Constants.DEFAULT_LANGUAGE;
 
   if (!this.$languagesFrom.find('option[value=' + this.fromLang + ']')) {
     // detected language not found
@@ -129,21 +131,17 @@ app.Game.prototype.setDefaultLanguages_ = function() {
  * @param {string} lang ISO lang code to use for playback
  * @param {string} klangEvent to fire to Klang for Elvish
  */
-app.Game.prototype.playAudio_ = function(string, lang, klangEvent) {
+app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
   window.ga('send', 'event', 'game', 'listen', 'translations');
 
   if (this.toLang === 'elvish') {
     window.santaApp.fire('sound-trigger', klangEvent);
   } else {
-    lang = lang || 'en';
+    lang = lang || Constants.DEFAULT_LANGUAGE;
     var url = app.Constants.TTS_DOMAIN + app.Constants.TTS_QUERY;
     url = encodeURI(url.replace('{TL}', lang).replace('{Q}', string));
-
-    this.audio = new Audio(url);
-    this.audio.play();
+    window.santaApp.fire('sound-trigger', '@', url);
   }
-
-  window.santaApp.fire('sound-trigger', 'translations_gramophone');
 };
 
 /**
@@ -153,7 +151,7 @@ app.Game.prototype.playAudio_ = function(string, lang, klangEvent) {
  * @param {TranslationsSceneAnimationOptions} opts Animation options
  * @return {!SequenceEffect}
  */
-app.Game.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
+app.Scene.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
   var animateDown = new GroupEffect([
     new KeyframeEffect(topEl, [
       {transform: 'translateY(0px)'},
@@ -201,7 +199,7 @@ app.Game.prototype.getButtonAnimation_ = function(topEl, shadowEl, opts) {
  * @private
  * @param {number} newIndex Phrase index to transition to
  */
-app.Game.prototype.transitionToPhrase_ = function(newIndex) {
+app.Scene.prototype.transitionToPhrase_ = function(newIndex) {
   this.cancelAnimation_(this.paginationAnimation_);
 
   var direction = newIndex < this.phraseIndex ? -1 : 1;
@@ -247,7 +245,7 @@ app.Game.prototype.transitionToPhrase_ = function(newIndex) {
 /**
  * @private
  */
-app.Game.prototype.selectRandomToLanguage_ = function() {
+app.Scene.prototype.selectRandomToLanguage_ = function() {
   var $languageOptions = this.$languagesTo.find('option');
   var randomId = Math.floor(Math.random() * $languageOptions.length);
   var lang = '' + $languageOptions.eq(randomId).val();
@@ -263,7 +261,7 @@ app.Game.prototype.selectRandomToLanguage_ = function() {
 /**
  * @private
  */
-app.Game.prototype.selectRandomPhrase_ = function() {
+app.Scene.prototype.selectRandomPhrase_ = function() {
   var $phrases = this.$phrasesFrom;
   var randomId = Math.floor(Math.random() * this.$phrasesFrom.length);
 
@@ -276,7 +274,7 @@ app.Game.prototype.selectRandomPhrase_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onSelectFromLanguage_ = function() {
+app.Scene.prototype.onSelectFromLanguage_ = function() {
   this.fromLang = this.$languagesFrom.val();
   this.$phrasesFrom.find('span').hide();
   this.$phrasesFrom.find('span[data-lang="' + this.fromLang + '"]').css('display', 'table-cell');
@@ -285,7 +283,7 @@ app.Game.prototype.onSelectFromLanguage_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onSelectToLanguage_ = function() {
+app.Scene.prototype.onSelectToLanguage_ = function() {
   this.toLang = this.$languagesTo.val();
   this.$phrasesTo.find('span').hide();
   this.$phrasesTo.find('span[data-lang="' + this.toLang + '"]').css('display', 'table-cell');
@@ -294,7 +292,7 @@ app.Game.prototype.onSelectToLanguage_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onPrevPhrase_ = function() {
+app.Scene.prototype.onPrevPhrase_ = function() {
   if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
     return;
   }
@@ -312,7 +310,7 @@ app.Game.prototype.onPrevPhrase_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onNextPhrase_ = function() {
+app.Scene.prototype.onNextPhrase_ = function() {
   if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
     return;
   }
@@ -330,7 +328,7 @@ app.Game.prototype.onNextPhrase_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onShuffleLanguages_ = function() {
+app.Scene.prototype.onShuffleLanguages_ = function() {
   if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
     return;
   }
@@ -349,7 +347,32 @@ app.Game.prototype.onShuffleLanguages_ = function() {
 /**
  * @private
  */
-app.Game.prototype.onPlayPhrase_ = function() {
+app.Scene.prototype.onKeyDown_ = function(ev) {
+  console.info('got key', ev);
+
+  switch (ev.key) {
+    case 'Left':
+    case 'ArrowLeft':
+      this.onPrevPhrase_();
+      break;
+
+    case 'Right':
+    case 'ArrowRight':
+      this.onNextPhrase_();
+      break;
+
+    case ' ':
+      // TODO: This actually doesn't always work because the inner frame probably hasn't been
+      // tapped on yet. To fix, we'd have to make the parent frame play arbitrary web audio.
+      this.onPlayPhrase_();
+      break;
+  }
+};
+
+/**
+ * @private
+ */
+app.Scene.prototype.onPlayPhrase_ = function() {
   if (!app.shared.utils.playerFinished(this.playAnimation_)) {
     return;
   }
@@ -375,7 +398,8 @@ app.Game.prototype.onPlayPhrase_ = function() {
 /**
  * @private
  */
-app.Game.prototype.addEventHandlers_ = function() {
+app.Scene.prototype.addEventHandlers_ = function() {
+  window.addEventListener('keydown', this.onKeyDown_);
   this.$btnPlay.on(app.InputEvent.START, this.onPlayPhrase_);
   this.$btnPrev.on(app.InputEvent.START, this.onPrevPhrase_);
   this.$btnNext.on(app.InputEvent.START, this.onNextPhrase_);
@@ -387,7 +411,8 @@ app.Game.prototype.addEventHandlers_ = function() {
 /**
  * @private
  */
-app.Game.prototype.removeEventHandlers_ = function() {
+app.Scene.prototype.removeEventHandlers_ = function() {
+  window.removeEventListener('keydown', this.onKeyDown_);
   this.$btnPlay.off(app.InputEvent.START, this.onPlayPhrase_);
   this.$btnPrev.off(app.InputEvent.START, this.onPrevPhrase_);
   this.$btnNext.off(app.InputEvent.START, this.onNextPhrase_);
@@ -399,7 +424,7 @@ app.Game.prototype.removeEventHandlers_ = function() {
 /**
  * @private
  */
-app.Game.prototype.startTutorial_ = function() {
+app.Scene.prototype.startTutorial_ = function() {
   // Start tutorial
   var this_ = this;
   this.tutorial_.start();
@@ -414,7 +439,7 @@ app.Game.prototype.startTutorial_ = function() {
 /**
  * @private
  */
-app.Game.prototype.init_ = function() {
+app.Scene.prototype.init_ = function() {
   this.setDefaultLanguages_();
 
   this.$phrasesFrom = this.buildPhrases_(this.$phraseContainerFrom);
@@ -433,7 +458,7 @@ app.Game.prototype.init_ = function() {
  * @private
  * @param {Animation} animation
  */
-app.Game.prototype.cancelAnimation_ = function(animation) {
+app.Scene.prototype.cancelAnimation_ = function(animation) {
   if (animation) {
     animation.cancel();
   }
@@ -442,7 +467,7 @@ app.Game.prototype.cancelAnimation_ = function(animation) {
 /**
  * @export
  */
-app.Game.prototype.destroy = function() {
+app.Scene.prototype.destroy = function() {
   this.removeEventHandlers_();
   this.audio = null;
 
@@ -450,3 +475,5 @@ app.Game.prototype.destroy = function() {
   this.cancelAnimation_(this.changeTextAnimation_);
   this.cancelAnimation_(this.paginationAnimation_);
 };
+
+app.Game = app.Scene;

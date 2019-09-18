@@ -1,12 +1,13 @@
 $name: 'module-translations';
 
+@import "../_shared/sass/button";
 @import "../_shared/sass/penner-easing";
-@import "sass/record-player";
+@import "sass/google-home";
 @import "sass/elves";
 
 body {
-  margin: 0;
   overflow: hidden;
+  margin: 0;
 }
 
 ##{$name} {
@@ -18,7 +19,7 @@ body {
 
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 600;
 
   * {
     box-sizing: border-box;
@@ -86,9 +87,9 @@ body {
    */
   .elves {
     position: absolute;
-    top: -731px;
+    top: -826px;
     left: 50%;
-    margin-left: -350px;
+    margin-left: -365px;
   }
 
   .desk {
@@ -158,8 +159,10 @@ body {
     text-align: left;
 
     select {
-      color: #E43834;
+      color: #fff;
       font-size: 16px;
+      font-weight: 700;
+      -webkit-appearance: none;  // for testing
       appearance: none;
       background: none;
       border: none;
@@ -168,18 +171,17 @@ body {
 
       &:focus,
       &:active {
+        background-image: url(img/dropdown-arrow-active.svg);
         color: #D85F05;
       }
     }
   }
 
   .desk-content__selector__shuffle {
+    @include ButtonColor(orangered);
+    bottom: 20px;
     position: absolute;
-    bottom: 6px;
     right: 5px;
-    svg {
-      display: block;
-    }
   }
 
   .desk-content__arrows {
@@ -196,6 +198,14 @@ body {
     cursor: pointer;
     vertical-align: middle;
     margin: 0 1em;
+
+    &.Button--play {
+      @include ButtonColor(custom, #D81B60, #AD1457);
+
+      &:active {
+        box-shadow: none !important;
+      }
+    }
   }
   .desk-content__button #btn-play-shadow {
     transform-origin: 20% 50%;
@@ -216,6 +226,20 @@ body {
 }
 
 @import "../_shared/sass/responsive";
+
+@media (max-height: 600px) {
+  ##{$name} .scene {
+    .elves {
+      top: -800px;
+      transform: scale(.6);
+    }
+
+    .google-home {
+      top: -626px;
+      transform: scale(.6);
+    }
+  }
+}
 
 @media (max-width: 400px) {
   ##{$name} .scene {
@@ -239,8 +263,9 @@ body {
       margin-left: -1317px;
     }
     .elves {
-      top: 5px;
+      top: -75px;
       margin-left: -215px;
+      transform: scale(.8);
     }
     .desk-content {
       width: 100%;
@@ -267,7 +292,7 @@ body {
       font-size: 20px;
       font-weight: 600;
     }
-    .record-player {
+    .google-home {
       display: none;
     }
   }
@@ -290,7 +315,8 @@ body {
       top: 160px;
     }
     .elves {
-      top: -80px
+      top: -153px;
+      transform: scale(.5);
     }
     .desk-content {
       top: 185px;
@@ -307,7 +333,7 @@ body {
       top: 300px;
     }
     .elves {
-      top: 50px;
+      top: -30px;
     }
     .desk-content {
       top: 375px;

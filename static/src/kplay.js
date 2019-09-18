@@ -1108,6 +1108,15 @@ export async function prepare() {
     },
 
     play(event, ...args) {
+      if (event === '@') {
+        if (args.length !== 1) {
+          throw new Error('expected URL arg for @ command');
+        }
+        const audio = new Audio(args[0]);
+        audio.play();
+        return true;
+      }
+
       const entrypoint = config['events'][event];  // get internal name from friendly
       if (entrypoint === undefined) {
         if (typeof event === 'string') {
