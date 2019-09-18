@@ -1,5 +1,6 @@
 
 import api from '../../src/scene/api.js';
+import '../../src/elements/santa-weather.js';
 import './js/snowball-game.js';
 
 api.preload.sounds('snowball_load_sounds');
@@ -37,11 +38,12 @@ api.ready(async () => {
   jumpBtn.addEventListener('click', (ev) => {
     jumpBtn.hidden = true;
     document.body.classList.add('intro');
-  
+    api.play('generic_button_click');
+
     // this.$.tutorial.show = false;  // only show before game starts
-  
+
     awaitAnimation(dropCloud).then(() => startGame());
-  });  
+  });
 });
 
 api.addEventListener('restart', (ev) => {
@@ -50,6 +52,8 @@ api.addEventListener('restart', (ev) => {
 
 // TODO(cdata): Wire this up to an API event.
 function startGame() {
+  api.play('music_start_ingame');
+
   if (game !== null) {
     game.teardown();
     document.body.removeChild(game);
@@ -73,21 +77,4 @@ function startGame() {
       });
     }, 1000);
   });
-}
-
-// TODO(cdata): Wire this up to an API event.
-function onShow() {
-  if (splash.parentNode === null) {
-    jumpBtn.hidden = false;
-    document.body.appendChild(splash);
-  }
-}
-
-// TODO(cdata): Wire this up to an API event.
-function onHide() {
-  if (game !== null) {
-    game.teardown();
-    document.body.removeChild(game);
-    game = null;
-  }
 }

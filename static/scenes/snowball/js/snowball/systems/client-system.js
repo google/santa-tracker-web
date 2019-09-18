@@ -77,7 +77,8 @@ export class ClientSystem {
       if ((presence.gone || now - this.wasDeadAt > endGameAfter) && !this.announcedDeath) {
         console.info('now was', now, 'wasDeadAt', this.wasDeadAt);
         window.santaApp.fire('game-stop', {
-          score: this.lastValidScore,
+          level: this.lastValidScore,
+          maxLevel: -1,
         });
         this.announcedDeath = true;
       }
@@ -85,7 +86,8 @@ export class ClientSystem {
     }
 
     window.santaApp.fire('game-score', {
-      score: knockedOut,
+      level: knockedOut,
+      maxLevel: -1,
       time: (clockSystem.time / 1000),
     });
     this.lastValidScore = knockedOut;

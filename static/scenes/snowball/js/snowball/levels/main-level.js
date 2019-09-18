@@ -64,6 +64,7 @@ export class MainLevel extends Level {
 
     game.shadowRoot.insertBefore(this.populationUi,
         game.shadowRoot.firstElementChild);
+    this.populationUi.hidden = true;
   }
 
   measure(game) {
