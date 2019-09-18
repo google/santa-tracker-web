@@ -10,8 +10,6 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 const masterContext = new AudioContext();
 
-
-
 let activeController = null;
 let preloadGroupCallback = null;
 
@@ -515,7 +513,8 @@ class AudioSource extends EventTarget {
     super();
 
     this._buffer = buffer;
-    this._startTime = 0;  // startTime of last triggered sound
+    this._startTime = 0.0;         // startTime of last triggered sound
+    this._performanceStart = 0.0;  // used if context is suspended, to restore loops
 
     // Every AudioSource has its own unique Gain, since we control its volume individually.
     this._output = masterContext.createGain();
@@ -647,6 +646,13 @@ class AudioSource extends EventTarget {
     const source = this._createSource();
     source.start(when);
     this._startTime = Math.max(this._startTime, when);
+
+    // If this is looping audio but the context is suspended (due to lack of user gesture), record
+    // when it was really intended to be started.
+    if (this._loop && masterContext.state === 'suspended') {
+      this._performanceStart = performance.now() / 1000.0;  // in sec
+    }
+
     return true;
   }
 
@@ -670,9 +676,37 @@ class AudioSource extends EventTarget {
     let duration = this._buffer.duration;
     if (source.loop && (source.loopStart || source.loopEnd)) {
       // Optionally correct for loopStart/loopEnd.
+      // TODO(samthor): This isn't quite right. Audio plays from zero, to loopEnd, to loopStart, ...
       duration = (source.loopEnd || duration) - (source.loopStart || 0);
     }
     return (now - this._startTime) % duration;
+  }
+
+  get loop() {
+    return this._loop;
+  }
+
+  /**
+   * Invoked after AudioContext is resumed from a suspended state, i.e., because the user has
+   * unmuted the browser. Ensures loops are playing at their correct time.
+   *
+   * @param {number} now in seconds
+   */
+  resume(now) {
+    if (this._loop && this._sources.length && this._performanceStart) {
+      const delta = now - this._performanceStart;
+      this._performanceStart = 0.0;
+
+      // masterContext.currentTime was very recently stuck at zero because it was suspended. Set a
+      // fake startTime on this AudioSource so it is tricked into calculating the current intended
+      // position, then restart the underlying source.
+      this._startTime = masterContext.currentTime - delta;
+      const position = this.position;  // calculate trick position
+      this._sources.forEach((source) => source.stop());
+
+      const source = this._createSource();
+      source.start(masterContext.currentTime, position);
+    }
   }
 
   set buffer(buffer) {
@@ -680,6 +714,8 @@ class AudioSource extends EventTarget {
       return;
     }
 
+    // TODO(samthor): This probably doesn't reset the correct starting time on looped audio, e.g.,
+    // as it is done in resume() above.
     this._startTime = masterContext.currentTime;  // reset as playing will reset
     this._buffer = buffer;
 
@@ -734,6 +770,10 @@ class AudioSource extends EventTarget {
 
   stop() {
     this._resetFade();  // clear fade in/out
+    if (this._loop) {
+      this._startTime = 0.0;
+      this._performanceStart = 0.0;
+    }
 
     // In retrig, only stops last source (multiple calls will eventually stop all).
     const sourceToStop = this._sources.shift() || null;
@@ -947,6 +987,24 @@ export async function prepare() {
 
     return nodes[key];
   };
+
+  // If the AudioContext starts 'suspended', ensure that looped audio is resumed at the correct
+  // position when its state changes to 'running'.
+  if (masterContext.state === 'suspended') {
+    masterContext.onstatechange = (ev) => {
+      if (masterContext.state !== 'running') {
+        return;  // ignore
+      }
+      masterContext.onstatechange = null;  // clear for next
+
+      const now = performance.now() / 1000.0;
+      activeNodes.forEach((node) => {
+        if (node instanceof AudioSource) {
+          node.resume(now);
+        }
+      });
+    };
+  }
 
   return {
     transitionTo(events, duration=0.5) {

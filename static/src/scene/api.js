@@ -14,9 +14,10 @@ class PreloadApi {
     this._done = 0;
     this._callback = callback;
 
-    this._donePromise = new Promise((resolve) => {
-      this._doneResolve = resolve;
-    });
+    const r = resolvable();
+    this._donePromise = r.promise;
+    this._doneResolve = r.resolve;
+
     this._donePromise.then(() => {
       callback({type: 'progress', payload: 1});
       this._callback = () => {};  // do nothing from here-on-in
@@ -147,13 +148,29 @@ class SceneApi extends EventTarget {
     this._initialData = null;
     this._config = null;
 
+    // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
+    const r = resolvable();
+    this._readyPromise = r.promise;
+    this._readyResolve = r.resolve;
+
     // connect to parent frame: during preload, error on data
     this._updateFromHost = (data) => {
-      if (data.type === 'data') {
-        this._initialData = data.payload;
-        return;
+      const {type, payload} = data;
+
+      switch (type) {
+        case 'ready':
+          this._readyResolve();
+          break;
+
+        case 'data':
+          // TODO: we could announce this to the game before ready
+          this._initialData = payload || null;
+          break;
+
+        default:
+          throw new Error(`got unexpected early data from host: ${type}`);
       }
-      throw new Error('got unexpected early data from host');
+
     };
     this._updateParent = channel.parent('init', (data) => this._updateFromHost(data));
     this._preload = new PreloadApi(this._updateParent);
@@ -166,13 +183,15 @@ class SceneApi extends EventTarget {
     this._ready = (async () => {
       await this._preload.done;
 
-      this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
-      this._send = (type, payload) => this._updateParent({type, payload});
+      // send loaded event (this inaccurately also contains the scene config)
+      this._updateParent({type: 'loaded', payload: this._config || {}});
 
-      // send ready event
-      this._send('ready', this._config || {});
+      // wait for frame to tell us to go
+      await this._readyPromise;
+      this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
 
       // clear backlog of events
+      this._send = (type, payload) => this._updateParent({type, payload});
       sendQueue.forEach((message) => this._updateParent(message));
     })();
   }

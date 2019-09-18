@@ -148,9 +148,7 @@ async function prepare(control, data) {
   }
   const timeout = promises.timeoutRace(10 * 1000);
 
-  if (data) {
-    control.send({type: 'data', payload: data})
-  }
+  control.send({type: 'data', payload: data});
 
   const preloads = [];
   const config = {};
@@ -180,7 +178,7 @@ outer:
         preloads.push(preloadSounds(sc, event, port));
         continue;
 
-      case 'ready':
+      case 'loaded':
         await timeout(Promise.all(preloads));
         Object.assign(config, payload);
         break outer;
@@ -313,6 +311,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
+    control.send({type: 'ready'});
 
     // Run configuration tasks and remove the interlude.
     if (lockedImage) {
