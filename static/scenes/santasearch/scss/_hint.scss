@@ -1,0 +1,17 @@
+$hint-bg-color: #f6871e;
+$hint-shadow-color: #cd6a17;
+
+##{$name} {
+  .hint {
+    @include ButtonColor(orange);
+    pointer-events: auto;
+
+    &--mobile {
+      border-radius: 50%;
+      display: block;
+      font-size: 52em;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

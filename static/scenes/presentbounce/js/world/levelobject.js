@@ -92,9 +92,6 @@ app.world.LevelObject = class {
     el.className = 'object object--hidden ' + this.config_.style.className;
     el.innerHTML = this.config_.style.innerHTML || '';
 
-    // Fix local url(#ref) refs.
-    app.shared.utils.updateLocalSVGRef(el);
-
     this.setElementStyle_(el);
 
     $(this.level_.elem).append(el);

@@ -39,15 +39,6 @@ app.shared.utils = (function() {
     },
 
     /**
-     * Updates any SVG that has inline styles like "url(#blah)" to include the
-     * full local path. This is required in production as our base href there
-     * is actually maps.gstatic.com/...
-     */
-    updateLocalSVGRef: function(node) {
-      // Chrome handles this correctly, as does Firefox 51+. Just ignore it.
-    },
-
-    /**
      * Unwraps a jQuery object or confirms that an Element is non-null. Throws a
      * TypeError if there is no object available.
      * @param {Element|!jQuery} element source element or jQuery

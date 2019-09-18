@@ -149,9 +149,15 @@ class SceneApi extends EventTarget {
     this._config = null;
 
     // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
-    const r = resolvable();
-    this._readyPromise = r.promise;
-    this._readyResolve = r.resolve;
+    if (channel.withinFrame) {
+      const r = resolvable();
+      this._readyPromise = r.promise;
+      this._readyResolve = r.resolve;
+    } else {
+      // just pretend to be ready for dev
+      this._readyPromise = Promise.resolve();
+      this._readyResolve = () => {};
+    }
 
     // connect to parent frame: during preload, error on data
     this._updateFromHost = (data) => {
