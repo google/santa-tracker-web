@@ -4,6 +4,7 @@ import {dedupFrame} from './src/lib/decorators.js';
 
 const g = createStore({
   mini: false,
+  audioSuspended: false,
 
   orientation: null,
 

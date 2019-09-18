@@ -130,6 +130,12 @@ header {
         transition-timing-function: ease-in-out;
         transition-delay: $duration-toolbar;
       }
+      fieldset {
+        display: block;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
 
       &[disabled] .hideable,
       .hideable[disabled] {
@@ -145,6 +151,7 @@ header {
         color: inherit;
         fill: currentColor;
         border: none;
+        margin-right: 8px;
       }
     }
   }

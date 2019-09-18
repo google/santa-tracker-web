@@ -904,6 +904,9 @@ export async function prepare() {
    */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
+    if (destination === null && config['destination_name'] !== '$OUT') {
+      throw new Error(`got unprepared destination node ${config['destination_name']} for ${key}`);
+    }
     let node;
 
     switch (config['type']) {

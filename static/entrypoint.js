@@ -19,14 +19,6 @@ import * as promises from './src/lib/promises.js';
 import global from './global.js';
 
 
-const kplayReady = kplay.prepare();
-
-
-// TODO(samthor): If this doesn't work, we need a foreground unmute button, as clicking on the
-// iframe probably won't trigger it.
-//sc.installGestureResume(document.body);
-
-
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
@@ -46,12 +38,36 @@ sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
 
+const kplayReady = kplay.prepare();
 kplayReady.then((sc) => {
+  let muted = false;
+
+  global.subscribe((state) => {
+    const update = state.hidden;
+    if (muted !== update) {
+      muted = update;
+
+      if (muted) {
+        this.play('global_sound_off');
+      } else {
+        this.play('global_sound_on');
+      }
+    }
+  });
+
   if (sc.suspended) {
-    console.warn('Web Audio API is suspended, requires user interaction to start');
-    document.body.addEventListener('click', () => sc.resume(), {once: true});
+    global.setState({audioSuspended: true});
+    // Show the unmute button while we're suspended. The tab can be unsuspended for a bunch of
+    // really unknown reasons.
+    sc.resume().then(() => global.setState({audioSuspended: false}));
+    chromeElement.addEventListener('unmute', () => {
+      sc.resume();
+    });
+  } else {
+    global.setState({audioSuspended: false});
   }
 });
+
 
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
@@ -63,7 +79,7 @@ global.subscribe((state) => {
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
   const disabled = gameover || orientationChangeNeeded;
 
-  loaderElement.disabled = disabled                                // paused/disabled
+  loaderElement.disabled = disabled;                               // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
@@ -85,6 +101,8 @@ global.subscribe((state) => {
   }
   Object.assign(badgeElement, score);
   chromeElement.hasScore = hasScore;
+
+  chromeElement.unmute = state.audioSuspended;
 
   if (!state.control) {
     chromeElement.action = null;
