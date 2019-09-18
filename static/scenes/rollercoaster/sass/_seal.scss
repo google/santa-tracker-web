@@ -1,0 +1,162 @@
+$duration-ripples-walrus: 20;
+$delay-ripples-walrus: 3;
+$ease-ripples-walrus: $easeOutQuad;
+
+##{$name} {
+  .ripples {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    margin-left: -325px;
+    transform: translateZ(0);
+    z-index: 2; // we need z-index because of the water
+    margin-bottom: 50px;
+  }
+
+  .ripple {
+    border-radius: 50%;
+
+    display: none;
+    transform: scale(0);
+    opacity: 0;
+
+    transform: translateZ(0);
+
+    @media (min-height: 750px) {
+      display: block;
+      animation-name: #{$name}-ripple;
+      animation-delay: #{$delay-ripples-walrus}s;
+      animation-duration: #{$duration-ripples-walrus}s;
+      animation-timing-function: $ease-ripples-walrus;
+      animation-iteration-count: infinite;
+    }
+
+  }
+
+  .ripple--1 {
+    display: none;
+    background: #0094BF;
+    height: 20px;
+    position: absolute;
+    left: 127px;
+    top: 14px;
+    width: 254px;
+
+    @media (min-height: 750px) {
+      display: block;
+      animation-name: #{$name}-shadow;
+    }
+
+  }
+
+  .ripple--2 {
+    border: 6px solid #0094BF;
+
+    height: 26px;
+    left: 71px;
+    top: 5px;
+    position: absolute;
+    width: 358px;
+  }
+
+  .ripple--3 {
+    border: 4px solid #0094BF;
+    border-radius: 50%;
+    height: 43px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    width: 509px;
+  }
+
+  .walrus {
+    display: none;
+    margin-left: -140px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 50%;
+    overflow: hidden;
+    z-index: 3;
+    // initial state
+    height: 0px;
+    bottom: 2%;
+
+    @media (min-height: 750px) {
+      display: block;
+      animation-timing-function: $ease-ripples-walrus;
+      animation-name: #{$name}-walrus;
+      animation-delay: #{$delay-ripples-walrus}s;
+      animation-duration: #{$duration-ripples-walrus}s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes #{$name}-ripple {
+  0%,
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  60%,
+  82% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  82.1% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-shadow {
+  0%,
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  60%,
+  81% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+
+  81.1% {
+    // transform: scale(0);
+    opacity: 1;
+  }
+
+  86%,
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+
+@keyframes #{$name}-walrus {
+  0%,
+  50% {
+    height: 0px;
+    bottom: 3%;
+  }
+  54%,
+  80% {
+    height: 140px;
+    bottom: 2%;
+  }
+  84%,
+  100% {
+    height: 0px;
+    bottom: 3%;
+  }
+}

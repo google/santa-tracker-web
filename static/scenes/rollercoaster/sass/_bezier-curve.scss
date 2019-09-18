@@ -1,0 +1,180 @@
+/* Apply the animation to the target element.                     */
+/* Hardware acceleration requires a nested element for each axis. */
+#target {
+  animation: #{$name}-myPathX 8s infinite;
+}
+
+#target > * {
+  animation: #{$name}-myPathY 8s infinite;
+}
+
+#target > * > * {
+  animation: #{$name}-myPathR 8s infinite;
+}
+
+/* Define keyframes for each animation axis. */
+
+@keyframes #{$name}-myPathX {
+  0% {
+    transform: translateX(742.56px);
+    animation-timing-function: cubic-bezier(.333,.345,.667,.697);
+  }
+  30.2% {
+    transform: translateX(506.41px);
+    animation-timing-function: cubic-bezier(.33,.35,.67,.67);
+  }
+  40.3% {
+    transform: translateX(438.37px);
+    animation-timing-function: cubic-bezier(.33,.32,.67,.65);
+  }
+  50.4% {
+    transform: translateX(369.71px);
+    animation-timing-function: cubic-bezier(.33,.32,.67,.65);
+  }
+  56.5% {
+    transform: translateX(323.83px);
+    animation-timing-function: cubic-bezier(.33,.33,.67,.66);
+  }
+  59.4% {
+    transform: translateX(300.09px);
+    animation-timing-function: cubic-bezier(.33,.33,.67,.67);
+  }
+  60.9% {
+    transform: translateX(288.12px);
+    animation-timing-function: linear;
+  }
+  61.6% {
+    transform: translateX(282.13px);
+    animation-timing-function: linear;
+  }
+  62.4% {
+    transform: translateX(276.13px);
+    animation-timing-function: cubic-bezier(.33,.35,.67,.69);
+  }
+  74.4% {
+    transform: translateX(182.87px);
+    animation-timing-function: cubic-bezier(.333,.332,.667,.6);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes #{$name}-myPathY {
+  0% {
+    transform: translateY(172.72px);
+    animation-timing-function: cubic-bezier(.333,0,.667,.282);
+  }
+  30.2% {
+    transform: translateY(116.44px);
+    animation-timing-function: cubic-bezier(.33,.29,.67,.65);
+  }
+  40.3% {
+    transform: translateY(70.83px);
+    animation-timing-function: cubic-bezier(.33,.36,.67,.72);
+  }
+  50.4% {
+    transform: translateY(26.41px);
+    animation-timing-function: cubic-bezier(.33,.45,.67,.79);
+  }
+  56.5% {
+    transform: translateY(9.89px);
+    animation-timing-function: cubic-bezier(.33,.47,.67,.8);
+  }
+  59.4% {
+    transform: translateY(6.35px);
+    animation-timing-function: cubic-bezier(.33,.48,.67,.81);
+  }
+  60.9% {
+    transform: translateY(5.71px);
+    animation-timing-function: linear;
+  }
+  61.6% {
+    transform: translateY(5.66px);
+    animation-timing-function: linear;
+  }
+  62.4% {
+    transform: translateY(5.79px);
+    animation-timing-function: cubic-bezier(.33,.05,.67,.41);
+  }
+  74.4% {
+    transform: translateY(30.75px);
+    animation-timing-function: cubic-bezier(.333,.337,.667,.99);
+  }
+  100% {
+    transform: translateY(123.21px);
+  }
+}
+
+@keyframes #{$name}-myPathR {
+  0% {
+    transform: rotate(-179.31deg);
+    animation-timing-function: cubic-bezier(.333,.251,.667,.558);
+  }
+  30.2% {
+    transform: rotate(-151.2deg);
+  }
+  30.2001% {
+    transform: rotate(-149.81deg);
+    animation-timing-function: cubic-bezier(.33,.5,.67,1);
+  }
+  40.3% {
+    transform: rotate(-144.2deg);
+  }
+  40.3001% {
+    transform: rotate(-144.43deg);
+    animation-timing-function: cubic-bezier(.33,0,.67,.64);
+  }
+  50.4% {
+    transform: rotate(-151.57deg);
+  }
+  50.4001% {
+    transform: rotate(-153.49deg);
+    animation-timing-function: cubic-bezier(.33,.12,.67,.89);
+  }
+  56.5% {
+    transform: rotate(-166.92deg);
+  }
+  56.5001% {
+    transform: rotate(-168.78deg);
+    animation-timing-function: cubic-bezier(.33,.34,.67,.67);
+  }
+  59.4% {
+    transform: rotate(-174.26deg);
+  }
+  59.4001% {
+    transform: rotate(-176.04deg);
+    animation-timing-function: cubic-bezier(.33,0,.67,1);
+  }
+  60.9% {
+    transform: rotate(-177.8deg);
+  }
+  60.9001% {
+    transform: rotate(-179.55deg);
+    animation-timing-function: linear;
+  }
+  61.6% {
+    transform: rotate(-179.55deg);
+  }
+  61.6001% {
+    transform: rotate(178.73deg);
+    animation-timing-function: linear;
+  }
+  62.4% {
+    transform: rotate(178.73deg);
+  }
+  62.4001% {
+    transform: rotate(177.03deg);
+    animation-timing-function: cubic-bezier(.33,.36,.67,.69);
+  }
+  74.4% {
+    transform: rotate(153.68deg);
+  }
+  74.4001% {
+    transform: rotate(152.13deg);
+    animation-timing-function: cubic-bezier(.333,0,.667,0);
+  }
+  100% {
+    transform: rotate(178.46deg);
+  }
+}

@@ -1,0 +1,22 @@
+##{$name} {
+  .mountains {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+  }
+
+  .mountains--left {
+    left: 0px;
+    margin-left: -170px;
+    margin-top: -100px;
+    width: 1275px;
+  }
+
+  .mountains--right {
+    display: none;
+    right: 0px;
+    margin-top: -110px;
+    margin-left: -240px;
+    width: 1368px;
+  }
+}
