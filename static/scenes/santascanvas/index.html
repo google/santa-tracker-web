@@ -20,6 +20,7 @@
       </div>
 
       <div class="Tools Tools--primary">
+        <div class="tray tray--top"></div>
         <div class="Tools-mobile-settings">
           <div class="Tools-colorpicker Colorpicker" data-colorpicker>
             <div class="Colorpicker-circle" data-colorpicker-selector></div>
@@ -91,6 +92,7 @@
             </div>
           </div>
         </div>
+        <div class="tray tray--bottom"></div>
       </div>
 
       <div class="Tools Tools--secondary">
@@ -1188,10 +1190,13 @@ api.preload.images(
 
 const game = new Game(document.getElementById('module-santascanvas'), './');
 
+api.config({
+  orientation: 'portrait',
+  sounds: ['cd_start', 'music_start_scene'],
+});
+
 api.ready(async () => {
   game.start();
-  api.ambient('cd_start', 'cd_end');
-  api.fire('music_start_scene');
 });
 
 </script>

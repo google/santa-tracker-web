@@ -8,49 +8,25 @@
   }
 
   .Button {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    box-shadow: 2px 4px 0 #852C81, 5px 7px rgba(0,0,0,0.16);
+    @extend .Button--round;
     display: block;
-    font-size: 12px;
-    height: 55px;
     margin: 15px auto;
-    min-height: auto;
-    width: 55px;
   }
 
-  .Button--utility,
   .Button--nav,
-  .Button--rotate {
+  .Button--rotate,
+  .Button--utility {
+    @include ButtonColor(white);
+    @extend .Button--small;
     margin: 10px auto;
   }
 
-  .Button--nav,
-  .Button--rotate {
-    background-color: #EFEFEF;
+  .Button--nav {
     background-size: 25%;
-    box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
-    height: 40px;
-    width: 40px;
-  }
-
-  .Button--utility {
-    background-color: #fff;
-    background-size: 50%;
-    box-shadow: 2px 4px 0 #C1DBD9, 5px 7px rgba(0,0,0,0.04);
-    height: 50px;
-    width: 50px;
-
-    @media (max-width: $mobile-width) {
-      background-color: #EFEFEF;
-    }
   }
 
   .Button--primary {
-    background-color: #F7C243;
-    box-shadow: 2px 4px 0 #E59644, 5px 7px rgba(0,0,0,0.04);
+    @include ButtonColor(yellow);
   }
 
   .Button--trash {
@@ -64,6 +40,7 @@
   }
 
   .Button--snowglobe {
+    background-color: #b148b9;
     background-image: url(img/icons/snow.svg);
     background-size: 60%;
     height: 65px;
@@ -71,7 +48,7 @@
 
     &[data-snowglobe-snowing="true"] {
       box-shadow: none !important;
-      transform: translateY(7px) translateZ(0);
+      transform: translateZ(0);
       transition: transform 0.2s, box-shadow 0.2s;
     }
   }
@@ -86,32 +63,24 @@
 
   .Button--redo {
     background-image: url(img/icons/redo.svg);
-    height: 40px;
-    width: 40px;
   }
 
   .Button--undo {
     background-image: url(img/icons/undo.svg);
-    height: 40px;
-    width: 40px;
   }
 
   .Button--save {
-    background-color: #B457C1;
+    @include ButtonColor(purple);
     background-image: url(img/icons/save.svg);
-    box-shadow: 2px 4px 0 #AB44BB, 5px 7px rgba(0,0,0,0.04);
-    height: 40px;
     margin-top: 30px;
-    width: 40px;
   }
 
   .Button--rotate {
     background-image: url(img/icons/rotate_clock.svg);
-    background-size: 45%;
+    background-size: 40%;
   }
 
   .Button--rotate-counter {
     background-image: url(img/icons/rotate_counter_clock.svg);
-    background-size: 45%;
   }
 }

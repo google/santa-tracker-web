@@ -1,0 +1,22 @@
+##{$name} {
+  .tray {
+    height: 60px;
+    position: absolute;
+    width: 85px;
+    z-index: -999;
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+
+    &--top {
+      background: url(img/tools/tray_sm_top.svg) center/contain no-repeat;
+      top: -30px;
+    }
+
+    &--bottom {
+      background: url(img/tools/tray_sm_bottom.svg) center/contain no-repeat;
+      bottom: -30px;
+    }
+  }
+}

@@ -1108,7 +1108,16 @@ export async function prepare() {
     },
 
     play(event, ...args) {
-      const entrypoint = config['events'][event] || event;  // get internal name from friendly
+      const entrypoint = config['events'][event];  // get internal name from friendly
+      if (entrypoint === undefined) {
+        if (typeof event === 'string') {
+          console.debug('audio missing', event);
+          return false;
+        }
+        console.warn('got invalid arg for play()', event);
+        throw new Error(`invalid type for play()`);
+      }
+
       const e = prepareKey(entrypoint);
 
       if (e instanceof AudioSource) {

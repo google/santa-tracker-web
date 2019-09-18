@@ -297,7 +297,7 @@ function installV1Handlers() {
     case 'sound-ambient':
       if (args.length === 1) {
         const first = args[0];
-        if (first.name && first.args && first.args.length) {
+        if (first.name && first.args && first.args instanceof Array) {
           // fix "{name: 'foo', args: []}" case
           args = [first.name, ...first.args];
         }
