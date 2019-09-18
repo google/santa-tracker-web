@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600" />
   <link rel="stylesheet" href="santaselfie-scene.css" />
 </head>
 <body>
@@ -24,10 +24,8 @@
       </div>
       <div class="Background-chair"></div>
       <div class="Buttons">
-        <Button id="reset-button" class="Button Button--small Button--reset"></Button>
-        <Button id="share-button" class="Button">
-          <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
-        </Button>
+        <button id="reset-button" class="Button Button--round Button--refresh"></button>
+        <button id="share-button" class="Button Button--round Button--share"></button>
       </div>
       <div class="Santa">
         <div class="Body"></div>
@@ -45,6 +43,7 @@
       </div>
       <div class="Tools board">
         <div class="Tools--scrollable">
+          <div class="Tool Tool-ornament"></div>
           <div class="Tool-container Tool-shadow Tool-shadow--clipper Tool--mobile">
             <div class="Tool Tool-clipper">
               <div class="Tool-animation Tool-clipper--animate"></div>
@@ -99,12 +98,6 @@
           <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--holly">
             <div class="Tool Tool-decoration Tool-decoration--holly"></div>
           </div>
-          <div class="Tool-buttons">
-            <div id="reset-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Button--reset"></div>
-            <div id="share-button-toolbox" class="Tool-container Tool--mobile Tool--mobileOnly Tool-button">
-              <i18n-msg msgid="share-this">PLACEHOLDER_i18n</i18n-msg>
-            </div>
-          </div>
         </div>
       </div>
       <!-- These images are use by canvases-->
@@ -132,7 +125,7 @@
 import api from '../../src/scene/api.js';
 import Game from './:closure.js';
 
-api.preload.sounds('selfie_load_sounds', 30);
+api.preload.sounds('selfie_load_sounds');
 
 api.preload.images(
   'img/background/chair.svg',
@@ -191,15 +184,18 @@ api.preload.images(
   'img/tools/sprays/purple.png',
   'img/tools/sprays/red.png',
   'img/tools/sprays/yellow.png',
+  'img/tray_lg.svg',
+  'img/tray_ornament_lg.svg',
 );
 
-const callback = (data) => api.data(data);
-const game = new Game(document.getElementById('module-santaselfie'), callback);
+const game = new Game(document.getElementById('module-santaselfie'), (data) => api.data(data));
+
+api.config({
+  sound: ['music_start_ingame', 'selfie_start'],
+});
 
 api.ready(async (data) => {
   game.start(data);
-  api.fire('music_start_ingame');
-  api.ambient('selfie_start', 'selfie_end');
 });
 
 </script>

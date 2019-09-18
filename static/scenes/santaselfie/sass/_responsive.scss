@@ -1,6 +1,29 @@
+$ui-offset-mobile: 75px;
+
 // Mobile and tablet
 @media (max-width: 800px), (max-height: 690px) {
-  ##{$name} .Background-pole, ##{$name} .Buttons {
+  ##{$name} .Background-pole {
     display: none !important;
+  }
+}
+
+// Tools' styles on mobile and tablet
+@media (max-width: 800px), (max-height: 690px) {
+  ##{$name} {
+    .Buttons {
+      top: $ui-offset-mobile !important;
+    }
+
+    .Tool-ornament {
+      background-image: none !important;
+    }
+
+    .Tools--scrollable {
+      background-color: #B444BB  !important;
+      background-image: none !important;
+      width: 320px !important;
+      height: auto !important;
+      padding: 5px !important;
+    }
   }
 }
