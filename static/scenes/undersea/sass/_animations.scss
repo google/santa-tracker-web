@@ -1,0 +1,237 @@
+@keyframes #{$name}-boatFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes #{$name}-mermaidFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes #{$name}-fish1Swim {
+  0% {
+    background-position: 150% 0;
+  }
+
+  100% {
+    background-position: -50% 0;
+  }
+}
+
+
+@keyframes #{$name}-fish2Swim {
+  0% {
+    background-position: 150% -80px;
+  }
+
+  100% {
+    background-position: -50% -80px;
+  }
+}
+
+@keyframes #{$name}-fish3Swim {
+  0% {
+    background-position: 150% -80px * 2;
+  }
+
+  100% {
+    background-position: -50% -80px * 2;
+  }
+}
+
+@keyframes #{$name}-fish4Swim {
+  0% {
+    background-position: 150% -80px * 3;
+  }
+
+  100% {
+    background-position: -50% -80px * 3;
+  }
+}
+
+@keyframes #{$name}-fish5Swim {
+  0% {
+    background-position: 150% -80px * 4;
+  }
+
+  100% {
+    background-position: -50% -80px * 4;
+  }
+}
+
+@keyframes #{$name}-elfAnim {
+  0% {
+    top: 0%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes #{$name}-bubbleFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-bubbleSmallFloat {
+  0% {
+    transform: translateY(0px) scale(.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px) scale(.5);
+    opacity: 0;
+  }
+}
+
+@keyframes #{$name}-crabbyLeg {
+  0% {
+    transform: rotateZ(7deg);
+  }
+
+  100% {
+    transform: rotateZ(-7deg);
+  }
+}
+
+@keyframes #{$name}-crabbyLegRight {
+  0% {
+    transform: rotateZ(7deg) rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateZ(-7deg) rotateY(180deg);
+  }
+}
+
+@keyframes #{$name}-chestOpen {
+  0% {
+    background-position: 0 0;
+  }
+
+  40% {
+    background-position: 0 0;
+  }
+
+  41% {
+    background-position: -164px 0;
+  }
+
+  42% {
+    background-position: -328px 0;
+  }
+
+  90% {
+    background-position: -328px 0;
+  }
+
+  91% {
+    background-position: -164px 0;
+  }
+
+  92% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes #{$name}-megaBubbles {
+  0% {
+    background-position: 0 -50%;
+  }
+
+  100% {
+    background-position: 0 250%;
+  }
+}
+
+@keyframes #{$name}-crabbyRun {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+@keyframes #{$name}-crabbyWalk {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: 0%;
+  }
+}
+
+@keyframes #{$name}-crabbyHide {
+  0% {
+    top: 0%;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes #{$name}-crabEyes {
+  0% {
+    top: 200px;
+    height: 45px;
+  }
+
+  100% {
+    top: 200px + 20px;
+    height: 10px;
+  }
+}
+
+
+@keyframes #{$name}-crabbySteps {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -195px 0;
+  }
+}

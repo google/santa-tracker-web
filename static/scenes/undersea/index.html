@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="undersea-scene.css" />
+</head>
+<body>
+
+<div id="module-undersea">
+  <div class="scene">
+    <div class="santa">
+      <ul class="bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="elf-wrap">
+      <div class="elf-track">
+        <div class="elf">
+          <ul class="bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mermaids">
+      <div class="mermaid lady"></div>
+      <div class="mermaid boy"></div>
+      <div class="mermaid girl"></div>
+    </div>
+
+    <div class="boat"></div>
+
+    <div class="fish-wrap">
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+      <div class="fish"></div>
+    </div>
+
+    <div class="bottom">
+      <div class="view">
+        <div class="presents"></div>
+        <div class="chest"></div>
+        <div class="object tree-big"></div>
+        <div class="object tree-medium"></div>
+        <div class="object tree-small"></div>
+        <div class="object flask-big"></div>
+        <div class="object flask-medium"></div>
+        <div class="object flask-small"></div>
+      </div>
+
+      <div class="crabby-path">
+        <div class="crabby">
+          <div class="body">
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+          </div>
+          <div class="steps"></div>
+        </div>
+      </div>
+
+      <div class="sand"></div>
+      <div class="sand-away"></div>
+      <div class="reefs"></div>
+    </div>
+
+    <div class="mega-bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="crabby-large-path">
+      <div class="crabby">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import api from '../../src/scene/api.js';
+
+  api.preload.sounds('undersea_load_sounds');
+  api.preload.images(
+    'img/boat.png',
+    'img/bottom-sand.png',
+    'img/crabby-small.png',
+    'img/fish.png',
+    'img/santa.png',
+    'img/bottom-objects.png',
+    'img/chest.png',
+    'img/crabby-steps-fade.png',
+    'img/mega-bubble.png',
+    'img/bottom-reefs.png',
+    'img/crabby-large.png',
+    'img/crabby-steps.png',
+    'img/mermaids.png',
+    'img/bottom-sand-away.png',
+    'img/crabby-leg.png',
+    'img/elf.png',
+    'img/presents.png',
+  );
+
+  api.config({
+    sound: ['music_start_scene', 'undersea_start'],
+  });
+</script>
+
+</body>
+</html>
