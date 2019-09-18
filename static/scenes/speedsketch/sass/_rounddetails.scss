@@ -1,3 +1,6 @@
+$ui-offset: 105px;
+$ui-offset--mobile: 75px;
+
 ##{$name} {
   .rounddetails-card {
     color: white;
@@ -12,6 +15,7 @@
       @media (max-width: $mobile-breakpoint) {
         font-size: 35px;
         line-height: 1.2;
+        padding: 0 25px;
       }
     }
 
@@ -137,18 +141,15 @@
     }
 
     &__back-btn {
-      background-image: url('img/back-button-arrow.svg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 40%;
-      left: 30px;
+      left: 28px; // 25px to match header + 3px to account for btn translate
+      margin: 0;
       position: fixed;
-      top: 80px;
+      top: $ui-offset;
       z-index: 1;
 
       @media (max-width: $mobile-breakpoint) {
-        width: 50px;
-        height: 50px;
+        left: 19px; // 16px to match header + 3px to account for btn translate
+        top: $ui-offset--mobile;
       }
     }
   }

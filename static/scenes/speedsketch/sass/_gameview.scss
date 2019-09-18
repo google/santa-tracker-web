@@ -42,7 +42,7 @@
 
       @media (max-width: $mobile-breakpoint) {
         left: initial;
-        height: 70%;
+        height: calc(73% - 60px);
         padding-bottom: 0 !important;
         padding: 0;
         top: 0;
@@ -129,14 +129,14 @@
     }
 
     .machineview {
-      bottom: 5%;
+      bottom: 0;
       display: flex;
       flex-flow: column;
       height: 80%;
       justify-content: flex-end;
       position: absolute;
-      right: 2%;
-      width: 20%;
+      right: 4%;
+      width: 18%;
 
       @media (max-width: $mobile-breakpoint) {
         background-color: #009245;
@@ -235,7 +235,7 @@
       @media (max-width: $mobile-breakpoint) {
         background-color: #F9CE1D;
         bottom: initial;
-        height: 10%;
+        height: calc(7% + 60px);
         left: initial;
         position: relative;
         right: initial;
@@ -262,6 +262,7 @@
           display: flex;
           padding-left: 16px;
           position: relative;
+          top: 75%;
         }
       }
 
@@ -313,6 +314,7 @@
       background-position: center center;
       background-size: 45%;
       border-radius: 50%;
+      border: none;
       box-shadow: 0 4px 1px #C1DBD9, 3px 7px rgba(0, 0, 0, 0.04);
       height: 60px;
       outline: none;
