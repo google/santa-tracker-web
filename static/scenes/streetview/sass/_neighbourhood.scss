@@ -1,0 +1,54 @@
+##{$name} {
+  .neighbourhood {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    display: block;
+    margin-top: #{$horizon-y-offset}px;
+  }
+
+  .neighbourhood__container {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    transform: translateZ(0);
+    transition-property: transform;
+    transition-timing-function: $easeInOutCirc;
+    visibility: hidden;
+  }
+
+  .neighbourhood__block {
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .neighbourhood__block--left {
+    > svg {
+      float: right;
+      margin-top: 17px;
+    }
+  }
+
+  .neighbourhood__block--middle {
+    > svg {
+      display: block;
+      margin-top: -91px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .neighbourhood__block--right {
+    > svg {
+      float: left;
+      margin-top: -72px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+##{$name} {
+  .controls {
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    margin-left: -221px;
+    width: 443px;
+    height: 237px;
+    z-index: 999;
+  }
+
+  .control__button {
+    cursor: pointer;
+    transition: fill 0.2s ease-out;
+
+    &.control__button--disabled {
+      opacity: 0.25;
+      cursor: default;;
+    }
+  }
+
+  // Only if there is hover supported
+  // class added via JS
+  &.hover {
+    .control__button:hover:not(.control__button--disabled) {
+      fill: #ddd;
+    }
+  }
+}

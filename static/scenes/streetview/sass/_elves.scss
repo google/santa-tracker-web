@@ -1,0 +1,144 @@
+$s-duration-biking: 45s;
+$s-duration-driving: 2s;
+
+##{$name} {
+  .elf-left {
+    position: absolute;
+    left: 100%;
+  }
+
+  .elf-left--green {
+    margin-left: -760px;
+    margin-top: 450px;
+    z-index: 2;
+
+    transform: translateX(-6000px);
+    animation-name: #{$name}-elf-moving--inverted;
+    animation-duration: #{$s-duration-biking + 20s};
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 5s;
+
+  }
+
+  .elf-left--orange {
+    margin-left: -740px;
+    margin-top: 584px;
+    z-index: 2;
+  }
+
+  .elf-middle {
+    position: absolute;
+    left: 50%;
+  }
+
+  .elf-middle--red {
+    margin-top: 210px;
+    margin-left: -310px;
+
+    @media (min-device-height: 900px) {
+      animation-name: #{$name}-elf-balancing;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: $easeOutBack;
+    }
+
+    transform-origin: 69px 326px;
+  }
+
+  .elf__shadow {
+    position: absolute;
+    left: 50%;
+    margin-top: 574px;
+    margin-left: -300px;
+  }
+
+  .elf-middle--blue {
+    margin-top: 465px;
+    margin-left: 180px;
+    z-index: 2;
+  }
+
+  .elf-right {
+    position: absolute;
+    left: 0%;
+  }
+
+  .elf-right--purple {
+    margin-top: 570px;
+    margin-left: 549px;
+    z-index: 2;
+  }
+
+  // Animations
+  .elf-left--orange,
+  .elf-right--purple {
+    display: none;
+    transform: translateX(6000px);
+    animation-name: #{$name}-elf-moving;
+    animation-duration: #{$s-duration-biking};
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+}
+
+@media (min-height: 350px) {
+  ##{$name} {
+    .elf-left--orange,
+    .elf-right--purple {
+      display: block;
+    }
+  }
+}
+
+@keyframes #{$name}-elf-balancing {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+  25% {
+    transform: rotate(-5deg) translateX(-12px);
+  }
+
+  50% {
+    transform: rotate(5deg) translateX(12px);
+  }
+
+  75% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+@keyframes #{$name}-elf-monocycle {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: -10000px 0px;
+  }
+}
+
+@keyframes #{$name}-elf-moving {
+  0% {
+    transform: translateX(6000px);
+  }
+
+  40%,
+  100% {
+    transform: translateX(-6000px);
+  }
+}
+
+// can't use reverse because of an Android bug
+@keyframes #{$name}-elf-moving--inverted {
+  0% {
+    transform: translateX(-6000px);
+  }
+
+  40%,
+  100% {
+    transform: translateX(6000px);
+  }
+}

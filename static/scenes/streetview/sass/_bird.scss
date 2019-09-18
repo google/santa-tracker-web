@@ -1,0 +1,75 @@
+// Flying bird dimensions
+$bird-width: 106;
+$bird-height: 120;
+$sprite-steps: 5;
+
+// Keyframe duration
+$duration-bird-flapping: .44;
+$duration-bird-flying: 15;
+
+##{$name} {
+  .bird {
+    animation: linear #{$duration-bird-flying}s infinite #{$name}-bird--flying;
+    position: absolute;
+    left: 120%;
+
+    top: 200px;
+    width: 100%;
+    @media (min-width: 1200px) {
+      animation-duration: #{$duration-bird-flying*2}s;
+    }
+  }
+  .bird-sprite-clip {
+    display: block;
+    width: #{$bird-width}px;
+    height: #{$bird-height}px;
+    overflow: hidden;
+  }
+  .bird-sprite {
+    display: block;
+    background: transparent url(img/sprite-bird.png) no-repeat 0 center;
+    animation: #{$name}-bird--flapping #{$duration-bird-flapping}s step-end infinite;
+    width: 540px;
+    height: #{$bird-height}px;
+  }
+}
+
+
+@keyframes #{$name}-bird--flying {
+  0%,
+  40% {
+    transform: translateX(#{$bird-width * -1}px);
+  }
+  90%,
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+// Wings flap faster on way down than up
+@keyframes #{$name}-bird--flapping {
+  0% {
+    transform: translate3d(0%, 0%, 0);
+  }
+  15% {
+    transform: translate3d(-20%, 2%, 0);
+  }
+  30% {
+    transform: translate3d(-40%, 4%, 0);
+  }
+  45% {
+    transform: translate3d(-60%, 6%, 0);
+  }
+  60% {
+    transform: translate3d(-80%, 8%, 0);
+  }
+  80% {
+    transform: translate3d(-60%, 6%, 0);
+  }
+  85% {
+    transform: translate3d(-40%, 4%, 0);
+  }
+  90% {
+    transform: translate3d(-20%, 2%, 0);
+  }
+}
