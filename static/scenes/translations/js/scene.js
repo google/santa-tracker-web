@@ -348,7 +348,7 @@ app.Scene.prototype.onShuffleLanguages_ = function() {
  * @private
  */
 app.Scene.prototype.onKeyDown_ = function(ev) {
-  console.info('got key', ev);
+  const s = this.$languagesTo[0];
 
   switch (ev.key) {
     case 'Left':
@@ -361,9 +361,25 @@ app.Scene.prototype.onKeyDown_ = function(ev) {
       this.onNextPhrase_();
       break;
 
+    case 'Up':
+    case 'ArrowUp':
+      s.selectedIndex--;
+      if (s.selectedIndex < 0) {
+        s.selectedIndex = s.options.length - 1;
+      }
+      this.$languagesTo.trigger('change');
+      break;
+
+    case 'Down':
+    case 'ArrowDown':
+      s.selectedIndex++;
+      if (s.selectedIndex >= s.options.length) {
+        s.selectedIndex = 0;
+      }
+      this.$languagesTo.trigger('change');
+      break;
+
     case ' ':
-      // TODO: This actually doesn't always work because the inner frame probably hasn't been
-      // tapped on yet. To fix, we'd have to make the parent frame play arbitrary web audio.
       this.onPlayPhrase_();
       break;
   }
