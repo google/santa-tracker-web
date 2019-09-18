@@ -1,0 +1,31 @@
+##{$name} {
+  $height: 50px;
+
+  .tray {
+    background-repeat: no-repeat;
+    height: $height;
+    transform: scaleY(1);
+    transition: transform 0.5s $easeOutExpo;
+
+    &--hidden {
+      transform: scaleY(0);
+    }
+
+    position: absolute;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .tray-top {
+    background-image: url(img/tray_lg_top.svg);
+    top: -($height / 2);
+  }
+
+  .tray-bottom {
+    background-image: url(img/tray_lg_bottom.svg);
+    bottom: -($height / 2);
+  }
+}

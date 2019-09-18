@@ -11,6 +11,7 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: 'Roboto', 'Arial', Sans-Serif;
+  font-weight: 600;
 }
 
 @import "../_shared/sass/levelup";
@@ -30,6 +31,7 @@ body {
 @import "sass/dropper";
 @import "sass/target";
 @import "sass/present";
+@import "sass/tool-tray";
 
 
 ##{$name} {
