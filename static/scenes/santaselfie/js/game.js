@@ -20,7 +20,6 @@ goog.require('app.Face');
 goog.require('app.Cloth');
 goog.require('app.Mouse');
 goog.require('app.Tools');
-goog.require('app.shared.ShareOverlay');
 
 
 
@@ -45,8 +44,6 @@ app.Game = function(elem, callback) {
 
   // Construct app.Tools last, as it needs mouse/cloth/face.
   this.tools = new app.Tools(this, this.sceneElem);
-
-  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
   this.accumulator = 0;
@@ -132,9 +129,10 @@ app.Game.prototype.update = function(delta) {
  * Show share overlay.
  */
 app.Game.prototype.showShareOverlay = function() {
+  this.tools.deselect();
   window.clearTimeout(this.interactionDoneTimeout_);
   this.updateUrlState_();
-  this.shareOverlay.show(window.location.toString(), true);
+  window.santaApp.fire('game-stop', {share: true});
 };
 
 

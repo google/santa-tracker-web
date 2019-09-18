@@ -475,6 +475,17 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
 
 
 /**
+ * Deselect all tools.
+ */
+app.Tools.prototype.deselect = function() {
+  if (this.selectedTool) {
+    this.selectedTool.deselect();
+  }
+  this.selectedTool = null;
+};
+
+
+/**
  * Handle clicks on the toolbox to select a tool
  * @param {!Event} e DOM click event
  * @private
