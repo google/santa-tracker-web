@@ -112,7 +112,7 @@ header {
       display: flex;
     }
 
-    fieldset.buttons {
+    .buttons {
       border: 0;
       margin: 0;
       padding: 0;
@@ -121,14 +121,22 @@ header {
       left: $dim-bar + 8px;
       top: 0;
       right: 0;
-      will-change: transform;
-      transition: opacity $duration-toolbar, transform $duration-toolbar;
-      transition-timing-function: ease-in-out;
-      transition-delay: $duration-toolbar;
+      display: flex;
+      align-items: center;
 
-      .buttons-inner {
-        display: flex;
-        align-items: center;
+      .hideable {
+        will-change: transform;
+        transition: opacity $duration-toolbar, transform $duration-toolbar;
+        transition-timing-function: ease-in-out;
+        transition-delay: $duration-toolbar;
+      }
+
+      &[disabled] .hideable,
+      .hideable[disabled] {
+        transition-delay: 0s;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-100%);
       }
 
       button {
@@ -137,13 +145,6 @@ header {
         color: inherit;
         fill: currentColor;
         border: none;
-      }
-
-      &[disabled] {
-        transition-delay: 0s;
-        pointer-events: none;
-        opacity: 0;
-        transform: translateY(-100%);
       }
     }
   }

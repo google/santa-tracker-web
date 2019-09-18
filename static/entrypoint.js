@@ -68,12 +68,28 @@ global.subscribe((state) => {
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
 
+  let hasScore = false;
+  const score = {
+    level: 0,
+    maxLevel: 0,
+    score: 0,
+    time: 0,
+  };
+  if (state.control) {
+    for (const key in score) {
+      if (key in state.score) {
+        score[key] = state.score[key];
+        hasScore = true;
+      }
+    }
+  }
+  Object.assign(badgeElement, score);
+  chromeElement.hasScore = hasScore;
+
   if (!state.control) {
     chromeElement.action = null;
     return false;
   }
-
-  Object.assign(badgeElement, state.score);
 
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
@@ -249,6 +265,7 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
     mini: true,
     control: null,
     sceneHasPause: false,
+    score: {},
   });
 });
 

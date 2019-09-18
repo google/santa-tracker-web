@@ -77,6 +77,15 @@ export class SantaBadgeElement extends LitElement {
     const seconds = ~~(time % 60);
     const {score, unit} = this._splitScore();
     const displayScore = this.score > 0;
+
+    let levelText = _msg`level`;
+    let maxLevel = 0;
+    if (this.maxLevel > 0) {
+      maxLevel = this.maxLevel;
+    } else {
+      levelText = _msg`snowball_iced`;
+    }
+
     return html`
 <main>
   <div class="item ${this.level && (this._levelActive || !displayScore) ? 'alt-active' : ''}">
@@ -85,8 +94,8 @@ export class SantaBadgeElement extends LitElement {
       <label>${_msg`score`}</label>
     </div>
     <div class="data alt" ?hidden=${!this.level}>
-      <span>${this.level}<span class="dim" ?hidden=${!this.maxLevel}><small>&middot;</small>${this.maxLevel}</span></span>
-      <label>${_msg`level`}</label>
+      <span>${this.level}<span class="dim" ?hidden=${!maxLevel}><small>&middot;</small>${maxLevel}</span></span>
+      <label>${levelText}</label>
     </div>
   </div>
   <div class="item big">
