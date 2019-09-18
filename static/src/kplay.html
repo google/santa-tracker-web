@@ -2,28 +2,98 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <style>
+    input[type="text"] {
+      display: block;
+      width: 100%;
+    }
+  </style>
   <script type="module">
 
 import * as sc from './kplay.js';
 
 const prep = sc.prepare();
 
+const split = (v) => {
+  return v.split(/[\,\;\.\s]+/g).filter(Boolean);
+};
+
 prep.then((controller) => {
   window._controller = window._c = controller;
-  return controller.preload('village', 'lounge', 'music', 'jetpack', 'gumball');
-});
 
-document.getElementById('test').onclick = () => {
-  prep.then((controller) => {
-    controller.play('gb_ballfallout');
-  });
-};
+  // --- preload ----
+
+  let preloadPromise = Promise.resolve();
+
+  const preloadInput = document.getElementById('preloadInput');
+  const preloadStatus = document.getElementById('preloadStatus');
+  const updatePreloadStatus = (count, total) => {
+    preloadStatus.textContent = `${count}/${total} preloaded`;
+  };
+
+  document.getElementById('preload').onclick = (ev) => {
+    const toPreload = split(preloadInput.value);
+
+    preloadPromise = preloadPromise.then(() => {
+      return controller.preload(toPreload, updatePreloadStatus);
+    }).catch((err) => console.err('got err preloading', toPreload));
+  };
+
+  updatePreloadStatus(0, 0);
+
+  // --- play ----
+
+  const playInput = document.getElementById('playInput');
+  document.getElementById('play').onclick = (ev) => {
+    const toPlay = split(playInput.value);
+
+    toPlay.forEach((p) => {
+      controller.play(p);
+    });
+  };
+
+  // --- transition ----
+
+  const transitionInput = document.getElementById('transitionInput');
+  document.getElementById('transition').onclick = (ev) => {
+    const toPlay = split(transitionInput.value);
+    controller.transitionTo(toPlay);
+    controller.reset();
+  };
+});
 
   </script>
 </head>
 <body>
 
-  <button id="test">Play</button>
+  <fieldset>
+    <h2>Preload</h2>
+    <p>
+      Preloads groups or processes which have group side effects (but does not run other code inside those processes).
+    </p>
+    <input type="text" id="preloadInput" value="village, lounge, music, jetpack, gumball, command_start" />
+    <button id="preload">Preload</button>
+    <div id="preloadStatus"></div>
+  </fieldset>
+
+  <fieldset>
+    <h2>Play</h2>
+    <p>
+      Plays any trigger, including sounds, loops, groups, processes, etc.
+    </p>
+    <input type="text" id="playInput" value="gb_ballfallout" />
+    <button id="play">Play</button>
+  </fieldset>
+
+  <fieldset>
+    <h2>Transition</h2>
+    <p>
+      Plays the new sounds or processes, and stops any sounds that were not already playing.
+      Useful to transition between scenes without a 'stop' event.
+    </p>
+    <input type="text" id="transitionInput" value="music_start_scene, command_start" />
+    <button id="transition">Transition</button>
+  </fieldset>
 
 </body>
 </html>
