@@ -22,7 +22,6 @@ goog.require('app.Mouse');
 goog.require('app.Rotator');
 goog.require('app.Slider');
 goog.require('app.Tools');
-goog.require('app.shared.ShareOverlay');
 
 
 
@@ -47,8 +46,6 @@ app.Game = function(elem, importPath) {
   this.slider = new app.Slider(this.elem, this.mouse);
   this.colorpicker = new app.Colorpicker(this.elem);
   this.rotator = new app.Rotator(this.elem);
-
-  this.shareOverlay = new app.shared.ShareOverlay(this.elem.find('.shareOverlay'));
 
   this.onFrame_ = this.onFrame_.bind(this);
 
