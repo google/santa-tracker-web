@@ -1,0 +1,56 @@
+$name: 'module-runner';
+$gameover-bg: #BFC932;
+$rotate-bg: $gameover-bg;
+
+@import "sass/variables";
+@import "sass/animations";
+@import "sass/background";
+@import "sass/boosts";
+@import "sass/environment";
+@import "sass/obstacles";
+@import "sass/platforms";
+@import "sass/player";
+@import "sass/presents";
+@import "sass/responsive";
+@import "sass/scenery";
+@import "sass/stage";
+@import "sass/stage-machine";
+
+body {
+  overflow: hidden;
+}
+
+##{$name} {
+  .game {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &.frozen {
+      .reindeer__inner,
+      .present__inner,
+      .layer,
+      .boost__inner-bg,
+      .boost-text--collected,
+      .treadmill-gear,
+      .treadmill-belt,
+      .cog-big,
+      .cog-small,
+      .monitors-cog,
+      .foreground-gear-small,
+      .foreground-gear-big,
+      .speed:after,
+      .speed-up,
+      .stripe {
+        animation-play-state: paused !important;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+    animation-play-state: paused !important;
+  }
+}

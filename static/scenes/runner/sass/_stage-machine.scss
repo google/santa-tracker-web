@@ -1,0 +1,128 @@
+##{$name} {
+  .game {
+    .stage-machine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      .left-pillar {
+        position: absolute;
+        left: $pillar-side;
+        top: $pillar-top;
+        height: $pillar-height;
+        width: $pillar-width;
+        background: url(img/paper-stage-left.svg) no-repeat;
+      }
+
+      .right-pillar {
+        position: absolute;
+        right: $pillar-side;
+        top: $pillar-top;
+        height: $pillar-height;
+        width: $pillar-width;
+        background: url(img/paper-stage-right.svg) no-repeat;
+      }
+
+      .cog-big {
+        position: absolute;
+        width: $cog-big-size;
+        height: $cog-big-size;
+        background: url(img/paper-stage-gear-big.svg) no-repeat;
+
+        &:nth-of-type(1) {
+          top: 348px;
+          left: -88px;
+          animation: 3s/$level-0-speed #{$name}-spinCounterClockwise infinite linear;
+        }
+
+        &:nth-of-type(2) {
+          top: -9px;
+          right: -48px;
+          animation: 3s/$level-0-speed #{$name}-spinClockwise infinite linear;
+        }
+
+        &:nth-of-type(3) {
+          top: 337px;
+          right: -84px;
+          animation: 3s/$level-0-speed #{$name}-spinClockwise infinite linear;
+        }
+      }
+
+      .cog-small {
+        position: absolute;
+        width: $cog-small-size;
+        height: $cog-small-size;
+        top: -57px;
+        right: -17px;
+        background: url(img/paper-stage-gear-small.svg) no-repeat;
+        animation: 2s/$level-0-speed #{$name}-spinCounterClockwise infinite linear;
+      }
+    }
+
+    .foreground-gears {
+      position: absolute;
+      right: 500px;
+      bottom: 0;
+      width: 150px;
+      height: 100px;
+      overflow: hidden;
+      background: url(img/foreground-gear-base.svg) left bottom/115px auto no-repeat;
+    }
+
+    .foreground-gear-big {
+      position: absolute;
+      left: 45px;
+      bottom: -20px;
+      width: 86px;
+      height: 86px;
+      background: url(img/foreground-gear-big.svg) no-repeat;
+      animation: 4s/$level-0-speed #{$name}-spinClockwise infinite linear;
+    }
+
+    .foreground-gear-small {
+      position: absolute;
+      left: 17px;
+      bottom: 10px;
+      width: 52px;
+      height: 52px;
+      background: url(img/foreground-gear-small.svg) center no-repeat;
+      animation: 3s/$level-0-speed #{$name}-spinCounterClockwise infinite linear;
+    }
+
+    @mixin stage-machine-speed($speed) {
+      .stage-machine {
+        .cog-big {
+          &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+            animation-duration: 3s / $speed;
+          }
+        }
+
+        .cog-small {
+          animation-duration: 2s / $speed;
+        }
+      }
+
+      .foreground-gear-big {
+        animation-duration: 4s / $speed;
+      }
+
+      .foreground-gear-small {
+        animation-duration: 3s / $speed;
+      }
+    }
+
+    &.level-1 {
+      @include stage-machine-speed($level-1-speed);
+    }
+
+    &.level-2 {
+      @include stage-machine-speed($level-2-speed);
+    }
+    
+    &.level-3 {
+      @include stage-machine-speed($level-3-speed);
+    }
+  }
+}
