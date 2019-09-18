@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600|Lobster" />
+  <link rel="stylesheet" href="racer-scene.css" />
+</head>
+<body>
+
+<div id="module-racer">
+  <div class="view">
+    <canvas width="576" height="640" class="game"></canvas>
+  </div>
+  <div class="touchpad hidden">
+    <div class="touchpad-nub"></div>
+  </div>
+  <div class="gui">
+    <div class="levelup"></div>
+    <div class="levelup--number"></div>
+  </div>
+</div>
+
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module">
+  import api from '../../src/scene/api.js';
+  import Game from './:closure.js';
+
+  api.preload.sounds('rc_load_sounds');
+  api.preload.images(
+    'img/present.png',
+    'img/rock.png',
+    'img/rudolf.png',
+    'img/santa-sleigh.png',
+    'img/surround.png',
+    'img/tracks.png',
+    'img/tree.png',
+  );
+
+  const game = new Game(document.getElementById('module-racer'), './');
+
+  api.addEventListener('pause', (ev) => game.pause());
+  api.addEventListener('resume', (ev) => game.resume());
+  api.addEventListener('restart', (ev) => game.restart());
+
+  api.config({
+    pause: true,
+    sound: [],
+  });
+
+  api.ready(async () => {
+    // nb. Racer's Klang config sets actual values on a global, which is a bit odd. This marks
+    // the game as started (and is a "sleigh on snow" looping sound).
+    api.play('rc_landing_page');
+    game.start();
+
+    // TODO(samthor): we're _not_ calling 'rc_end_game', but in this case, maybe it makes sense.
+    // Alternatively, remove everything on "Util" on scene transition (as only rc_... uses it).
+  });
+
+</script>
+
+</body>
+</html>
