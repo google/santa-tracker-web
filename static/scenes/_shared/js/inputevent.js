@@ -17,40 +17,30 @@
 goog.provide('app.InputEvent');
 goog.require('app.shared.utils');
 
+/**
+ * @fileoverview Provides event names for jQuery-style event handlers.
+ */
+
 (function() {
-  let eventStart, eventMove, eventCancel, eventEnd;
+  let eventStart = 'mousedown';
+  let eventMove = 'mousemove';
+  let eventCancel = 'mouseup mouseout';
+  let eventEnd = 'mouseup';
 
-  (function() {
-    // Hooray, it's the future!
-    if (window.PointerEvent) {
-      eventStart = 'pointerdown';
-      eventMove = 'pointermove';
-      eventCancel = 'pointerup pointerout pointermove';
-      eventEnd = 'pointerup';
-      return;
-    }
-
-    eventStart = 'mousedown';
-    eventMove = 'mousemove';
-    eventCancel = 'mouseup mouseout';
-    eventEnd = 'mouseup';
-
+  // Hooray, it's the future!
+  if (window.PointerEvent) {
+    eventStart = 'pointerdown';
+    eventMove = 'pointermove';
+    eventCancel = 'pointerup pointerout';
+    eventEnd = 'pointerup';
+  } else if (app.shared.utils.touchEnabled) {
     // If touch is enabled, _add_ touch events. There might still be a mouse connected too.
     // TODO(samthor): Should we always also allow touch events?
-    if (app.shared.utils.touchEnabled) {
-      eventStart += ' touchstart';
-      eventMove += ' touchmove';
-      eventCancel += ' touchend touchleave touchcancel';
-      eventEnd += ' touchend';
-    }
-  })();
-
-  function getNormalizedEvent(e) {
-    // jquery / touch normalization
-    e = e.originalEvent ? e.originalEvent : e;
-    e = e.touches ? e.touches[0] : e;
-    return e;
-  }
+    eventStart += ' touchstart';
+    eventMove += ' touchmove';
+    eventCancel += ' touchend touchleave touchcancel';
+    eventEnd += ' touchend';
+  };
 
   /**
    * Input events name constants - depending on device support
@@ -61,6 +51,12 @@ goog.require('app.shared.utils');
     START: eventStart,
     MOVE: eventMove,
     END: eventEnd,
-    normalize: getNormalizedEvent
+
+    normalize(e) {
+      // jquery / touch normalization
+      e = e.originalEvent ? e.originalEvent : e;
+      e = e.touches ? e.touches[0] : e;
+      return e;
+    },
   };
 }());

@@ -22,7 +22,7 @@ goog.provide('app.shared.Coordinator');
  * @const
  */
 var Coordinator = {
-  waiting: []
+  waiting: [],
 };
 
 /**
@@ -40,7 +40,7 @@ Coordinator.reset = function() {
 Coordinator.after = function(sec, callback) {
   Coordinator.waiting.push({
     remaining: sec,
-    callback: callback
+    callback: callback,
   });
 };
 
@@ -54,8 +54,8 @@ Coordinator.step = function(sec, step, callback) {
   Coordinator.waiting.push({
     total: sec,
     remaining: sec,
-    callback: callback,
-    step: step
+    callback,
+    step,
   });
 };
 
@@ -70,9 +70,9 @@ Coordinator.stepReverse = function(sec, step, callback) {
   Coordinator.waiting.push({
     total: sec,
     remaining: sec,
-    callback: callback,
-    step: step,
-    reverse: true
+    callback,
+    step,
+    reverse: true,
   });
 };
 
@@ -81,7 +81,7 @@ Coordinator.stepReverse = function(sec, step, callback) {
  * @param {number} delta The time since last frame.
  */
 Coordinator.onFrame = function(delta) {
-  for (var i = 0, wait; wait = Coordinator.waiting[i]; i++) {
+  for (let i = 0, wait; wait = Coordinator.waiting[i]; i++) {
     wait.remaining -= delta;
     if (wait.remaining < 0) {
       wait.remaining = 0;
@@ -89,7 +89,7 @@ Coordinator.onFrame = function(delta) {
 
     // Report progress
     if (wait.step) {
-      var progress = wait.remaining / wait.total;
+      let progress = wait.remaining / wait.total;
       if (!wait.reverse) {
         progress = 1 - progress;
       }

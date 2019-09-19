@@ -17,39 +17,99 @@
 goog.provide('app.shared.utils');
 
 app.shared.utils = (function() {
-  var utils = {
+
+  /**
+   * Wraps a value and provides useful utility methods for it.
+   */
+  class SmartValue {
+
+    /**
+     * @param {*} value Any value.
+     */
+    constructor(value) {
+      this.value = value;
+    }
+
+    /**
+     * Updates the value and returns true if it is different. Useful for caching reasons to only
+     * apply some side effect when the value is actually different.
+     * @param {*} newValue A new value.
+     * @return {boolean} whether the underlying value changed
+     */
+    change(newValue) {
+      const isDifferent = (this.value !== newValue);
+      this.value = newValue;
+      return isDifferent;
+    }
+
+    /**
+     * Increments or decrements the value by amount to the target, not going over
+     * it. Assumes that the wrapped value is a number.
+     * @param {number} target Final value.
+     * @param {number} amount Amount to change in this frame.
+     * @return {!utils.SmartValue} the this object
+     */
+    moveToTarget(target, amount) {
+      let n = /** @type {number} */ (+this.value);
+      if (this.value !== n) {
+        throw new TypeError('SmartValue does not contain a number');
+      }
+      if (n < target) {
+        n = Math.min(target, n + amount);
+      } else if (n > target) {
+        n = Math.max(target, n - amount);
+      }
+      this.value = n;
+      return this;
+    }
+  }
+
+  return {
 
     /**
      * Assigns an animation class to the selected elements, removing it when
      * the animation finishes.
-     * @param {!Element|!jQuery} el The jQuery element.
+     * @param {!Element|!jQuery|!Array<!Element>} all Elements to apply to
      * @param {string} name Class name to add.
-     * @param {function(this:Element)=} opt_cb Callback function when animation finishes.
+     * @param {?function(): void=} cb Callback function when any animation finishes.
      */
-    animWithClass: function(el, name, opt_cb) {
-      var elem = $(el);
+    animWithClass: function(all, name, cb) {
+      if (!all.length) {
+        all = [all];
+      }
+      all = Array.prototype.slice.call(all);
 
-      elem.one('animationend transitionend', function(e) {
-        elem.removeClass(name);
-        if (opt_cb) {
-          opt_cb.apply(elem[0]);
-        }
+      all.forEach((el) => {
+        el.classList.add(name);
+
+        const handler = () => {
+          el.classList.remove(name);
+
+          el.removeEventListener('animationend', handler);
+          el.removeEventListener('transitionend', handler);
+
+          if (cb) {
+            cb();
+            cb = null;
+          }
+        };
+
+        el.addEventListener('animationend', handler);
+        el.addEventListener('transitionend', handler);
       });
-      elem.addClass(name);
     },
 
     /**
      * Unwraps a jQuery object or confirms that an Element is non-null. Throws a
      * TypeError if there is no object available.
-     * @param {Element|!jQuery} element source element or jQuery
-     * @return {!Element} result element, or first jQuery object
+     * @param {?Element|!jQuery|!Array<!Element>} element source element or jQuery
+     * @return {?Element} result element, or first jQuery object
      */
     unwrapElement: function(element) {
-      var out = $(element)[0];
-      if (!out) {
-        throw new TypeError('Couldn\'t unwrap element, nothing matched');
+      if (element instanceof Node) {
+        return element;
       }
-      return out;
+      return element[0] || null;
     },
 
     /**
@@ -59,12 +119,14 @@ app.shared.utils = (function() {
      * @return {{x: number, y: number, rotate: number}}
      */
     computedTransform: function(elem) {
-      var style = window.getComputedStyle(elem);
-      var transform;
+      const style = window.getComputedStyle(elem);
+      let transform;
 
-      ['', '-webkit-', '-moz-', '-ms-', '-o-'].some(function(prefix) {
-        var t = style.getPropertyValue(prefix + 'transform');
-        if (!t) { return false; }
+      ['', '-webkit-', '-moz-', '-ms-', '-o-'].some((prefix) => {
+        const t = style.getPropertyValue(prefix + 'transform');
+        if (!t) {
+          return false;
+        }
         transform = t;
         return true;
       });
@@ -73,23 +135,19 @@ app.shared.utils = (function() {
         return {x: 0, y: 0, rotate: 0};
       }
 
-      var values;
+      let values;
       try {
         // expected to be matrix(....)
-        values = transform.split('(')[1].split(')')[0].split(',');
-        values = values.map(function(x) { return +x; });
-      } catch(e) {
+        values = transform.split('(')[1].split(')')[0].split(',').map((x) => +x);
+      } catch (e) {
         throw new TypeError('Couldn\'t split transform, expected matrix(...)');
       }
-      var a = values[0];
-      var b = values[1];
-      var scale = Math.sqrt(a*a + b*b);
+      const a = values[0];
+      const b = values[1];
 
       // arc sin, convert from radians to degrees, round
-      var sin = b / scale;
-      var rotate = Math.atan2(b, a) * (180 / Math.PI);
-
-      return {x: values[4], y: values[5], rotate: rotate};
+      const rotate = Math.atan2(b, a) * (180 / Math.PI);
+      return {x: values[4], y: values[5], rotate};
     },
 
     /**
@@ -107,14 +165,11 @@ app.shared.utils = (function() {
     /**
      * Determine whether a Web Animations player is finished. A null player
      * is considered to be finished.
-     * @param {Animation} player
+     * @param {?Animation} player
      * @return {boolean}
      */
     playerFinished: function(player) {
-      if (!player) {
-        return true;
-      }
-      return player.playState === 'finished';
+      return !player || player.playState === 'finished';
     },
 
     /**
@@ -134,55 +189,10 @@ app.shared.utils = (function() {
       // Otherwise, fall-back to older style mechanisms.
       return ('ontouchstart' in window) ||
           window.DocumentTouch && document instanceof window.DocumentTouch;
-    }
+    },
 
+    SmartValue,
   };
-
-  /**
-   * Wraps a value and provides useful utility methods for it.
-   * @param {*} opt_initialValue Any value.
-   * @constructor
-   * @struct
-   */
-  utils.SmartValue = function(opt_initialValue) {
-    this.value = opt_initialValue;
-  };
-
-  /**
-   * Updates the value and returns true if it is different. Useful for caching reasons to only
-   * apply some side effect when the value is actually different.
-   * @param {*} newValue A new value.
-   * @return {boolean} whether the underlying value changed
-   */
-  utils.SmartValue.prototype.change = function(newValue) {
-    var isDifferent = this.value !== newValue;
-    this.value = newValue;
-    return isDifferent;
-  };
-
-  /**
-   * Increments or decrements the value by amount to the target, not going over
-   * it. Assumes that the wrapped value is a number.
-   * @param {number} target Final value.
-   * @param {number} amount Amount to change in this frame.
-   * @return {!utils.SmartValue} the this object
-   */
-  utils.SmartValue.prototype.moveToTarget = function(target, amount) {
-    var n = /** @type {number} */ (this.value);
-    n = +n;
-    if (this.value !== n) {
-      throw new TypeError('SmartValue does not contain a number');
-    }
-    if (n < target) {
-      n = Math.min(target, n + amount);
-    } else if (n > target) {
-      n = Math.max(target, n - amount);
-    }
-    this.value = n;
-    return this;
-  };
-
-  return utils;
 })();
 
 var utils = app.shared.utils;

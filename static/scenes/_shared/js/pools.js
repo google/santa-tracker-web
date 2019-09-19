@@ -17,7 +17,7 @@
 goog.provide('app.shared.pools');
 
 app.shared.pools = (function() {
-  var objects = [];
+  const objects = [];
   return {
 
     mixin: function(obj, options) {
@@ -34,7 +34,7 @@ app.shared.pools = (function() {
         ensurePooled_(owner);
 
         // Get instance from the pool and initialize it
-        var instance = obj.pool_.shift();
+        const instance = obj.pool_.shift();
         return initInstance_(instance, arguments);
       };
 
@@ -46,9 +46,9 @@ app.shared.pools = (function() {
       obj.popRandom = function(owner) {
         ensurePooled_(owner);
 
-        var randomIndex = Math.floor(Math.random() * obj.pool_.length);
-        var instance = obj.pool_[randomIndex];
-        var lastInstance = obj.pool_.pop();
+        const randomIndex = Math.floor(Math.random() * obj.pool_.length);
+        const instance = obj.pool_[randomIndex];
+        const lastInstance = obj.pool_.pop();
         if (lastInstance && instance !== lastInstance) {
           obj.pool_[randomIndex] = lastInstance;
         }
@@ -60,7 +60,7 @@ app.shared.pools = (function() {
        */
       obj.pool = function(owner) {
         // Create new instance
-        var instance = new obj(owner);
+        const instance = new obj(owner);
 
         // Add to pool
         obj.pool_.push(instance);
@@ -122,7 +122,7 @@ app.shared.pools = (function() {
       }
     },
     empty: function() {
-      for (var i = 0; i < objects.length; i++) {
+      for (let i = 0; i < objects.length; i++) {
         objects[i].pool_ = [];
       }
     }
@@ -137,5 +137,4 @@ app.shared.pools.PoolType.onInit = function(var_args) {};
 app.shared.pools.PoolType.onDispose = function(var_args) {};
 app.shared.pools.PoolType.remove = function() {};
 
-var pools = app.shared.pools;
-
+const pools = app.shared.pools;

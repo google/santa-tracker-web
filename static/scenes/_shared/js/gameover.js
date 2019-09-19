@@ -23,11 +23,10 @@ app.shared.Gameover = Gameover;
  * Gameover screen.
  *
  * @param {T} game The game object.
- * @param {*} elem The gameover element, ignored.
  * @template T
  * @constructor
  */
-function Gameover(game, elem) {
+function Gameover(game) {
   this.game = game;
   this._hasPlayExtra = game && 'playExtra' in this.game;
 }
