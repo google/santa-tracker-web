@@ -1,0 +1,73 @@
+$tutorial-width: 275px;
+$tutorial-height: 270px;
+$tutorial-step-time: 1s;
+
+:host {
+
+}
+
+// This is invisible, but is circular so as to provide a friendly dismiss target.
+button {
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+  border-radius: 100000px;
+}
+
+svg {
+  pointer-events: none;
+  opacity: 0.95;
+  transition: opacity 0.125s;
+  filter: drop-shadow(4px 12px 0 rgba(0, 0, 0, 0.15));
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus + svg {
+  opacity: 0.7;
+}
+
+g.main {
+  fill: white;
+}
+
+.size {
+  width: $tutorial-width;
+  height: $tutorial-height;
+}
+
+img {
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+  height: $tutorial-height;
+}
+
+video {
+  object-fit: cover;
+}
+
+// generate tutorial-steps-N, where it moves -275px each time
+@for $i from 2 through 6 {
+  @keyframes tutorial-steps-#{$i} {
+    $part: (100 / $i);
+
+    @for $j from 0 through ($i - 1) {
+      #{$j * $part}% {
+        transform: translateX(-($j * $tutorial-width));
+      }
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  img.steps-#{$i} {
+    animation-name: tutorial-steps-#{$i};
+    animation-duration: $i * $tutorial-step-time;
+    width: $tutorial-width * $i;
+  }
+}

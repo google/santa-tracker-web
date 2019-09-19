@@ -22,58 +22,60 @@ goog.require('app.shared.utils');
 app.shared.Tutorial = Tutorial;
 
 /**
- * Tutorial animation. Just creates `<santa-tutorial>` in the parent element.
- *
- * @constructor
- * @param {!Element|!jQuery} elem The module element.
- * @param {string} tutorials All tutorials.
+ * @param {!Array<string>|string}
+ * @return {!Array<string>}
  */
-function Tutorial(elem, tutorials) {
-  this.target_ = app.shared.utils.unwrapElement(elem);
-
-  this.elem_ = document.createElement('santa-tutorial');
-  this.elem_.tutorials = tutorials || '';
-
-  const prev = this.target_.querySelectorAll('santa-tutorial');
-  for (let i = 0; i < prev.length; ++i) {
-    console.warn('removing old santa-tutorial', prev[i]);
-    prev[i].remove();
+function splitAll(arg) {
+  if (typeof arg === 'string') {
+    arg = arg.split(/\s+/g);
   }
-
-  // TODO: walk up to top-level?
-  this.target_.appendChild(this.elem_);
+  return arg.filter(Boolean);
 }
 
 /**
- * Start the tutorial timer.
- * @param {string=} tutorials to replace the current set with
+ * @constructor
+ * @param {*} _ ignored
+ * @param {!Array<string>|string} tutorials All tutorials.
  */
-Tutorial.prototype.start = function(tutorials = undefined) {
+function Tutorial(_, tutorials) {
+  this._tutorials = splitAll(tutorials);
+  this._dismissed = new Set();
+};
+
+/**
+ * Start the tutorial timer.
+ * @param {*} tutorials to replace the current set with
+ */
+Tutorial.prototype.start = function(tutorials) {
   if (tutorials !== undefined) {
-    this.elem_.tutorials = tutorials;
+    throw new Error('disused arg to tutorials');
   }
-  this.elem_.show = true;
+  window.santaApp.fire('tutorial-queue', this._tutorials);
 };
 
 /**
  * Turn off a tutorial because user has already used the controls.
  *
- * @param {string} name The name of the tutorial.
+ * @param {!Array<string>|string} tutorials Tutorials to dismiss
+ * @param {!Array<string>} rest Rest of tutorials to dismiss
  */
-Tutorial.prototype.off = function(name) {
-  if (name == null) {
-    console.warn('got dismiss for null tutorial');
-    return;
-  }
+Tutorial.prototype.off = function(all, ...rest) {
+  all = splitAll(all).concat(rest).filter((cand) => {
+    if (this._dismissed.has(cand)) {
+      return false;
+    }
+    this._dismissed.add(cand);
+    return true;
+  });
 
-  // nb. This code doesn't know `santa-tutorial` is a Polymer element.
-  const dismissHelper = this.elem_['dismiss'];
-  dismissHelper && dismissHelper.call(this.elem_, name);
+  if (all.length) {
+    window.santaApp.fire('tutorial-dismiss', all);
+  }
 };
 
 /**
  * Cleanup.
  */
 Tutorial.prototype.dispose = function() {
-  this.elem_.remove();
+  // does nothing
 };

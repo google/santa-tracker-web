@@ -269,6 +269,14 @@ class SceneApi extends EventTarget {
     this._send('data', data);
   }
 
+  tutorialQueue(...arg) {
+    this._send('tutorial-queue', arg);
+  }
+
+  tutorialDismiss(...arg) {
+    this._send('tutorial-dismiss', arg);
+  }
+
   /**
    * @param {string} sound to play via Klang
    * @param {*=} arg to pass
@@ -301,35 +309,54 @@ export default sceneApi;
 function installV1Handlers() {
   window.ga = sceneApi.ga.bind(sceneApi);
 
+  const sanitizeSoundArgs = (args) => {
+    if (args.length !== 1) {
+      return args;
+    }
+    const first = args[0];
+    if (first.name && first.args && first.args instanceof Array) {
+      // fix "{name: 'foo', args: []}" case
+      args = [first.name, ...first.args];
+    }
+    return args;
+  };
+
   const fire = (eventName, ...args) => {
     switch (eventName) {
-    case 'sound-fire':
-    case 'sound-play':
-    case 'sound-trigger':
-    case 'sound-ambient':
-      if (args.length === 1) {
-        const first = args[0];
-        if (first.name && first.args && first.args instanceof Array) {
-          // fix "{name: 'foo', args: []}" case
-          args = [first.name, ...first.args];
-        }
-      }
-      sceneApi.play(...args);
-      break;
-    case 'sound-transition':
-      console.warn('TODO: implement transition for rythym games');
-      break;
-    case 'game-data':
-      sceneApi.data(args[0] || null);
-      break;
-    case 'game-score':
-      sceneApi.score(args[0] || {});
-      break;
-    case 'game-stop':
-      sceneApi.gameover(args[0] || {});
-      break;
-    default:
-      console.debug('unhandled santaApi.fire', eventName);
+      case 'sound-fire':
+      case 'sound-play':
+      case 'sound-trigger':
+      case 'sound-ambient':
+        args = sanitizeSoundArgs(args);
+        sceneApi.play(...args);
+        break;
+
+      case 'sound-transition':
+        console.warn('TODO: implement transition for rythym games');
+        break;
+
+      case 'game-data':
+        sceneApi.data(args[0] || null);
+        break;
+
+      case 'game-score':
+        sceneApi.score(args[0] || {});
+        break;
+
+      case 'game-stop':
+        sceneApi.gameover(args[0] || {});
+        break;
+
+      case 'tutorial-queue':
+        sceneApi.tutorialQueue(...(args[0] || []));
+        break;
+
+      case 'tutorial-dismiss':
+        sceneApi.tutorialDismiss(...(args[0] || []));
+        break;
+
+      default:
+        console.debug('unhandled santaApi.fire', eventName);
     }
   }
 
@@ -340,5 +367,4 @@ function installV1Handlers() {
 }
 
 installV1Handlers();
-
 

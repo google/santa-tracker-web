@@ -8,6 +8,7 @@ import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import './src/elements/santa-badge.js';
+import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
 import * as kplay from './src/kplay.js';
@@ -24,6 +25,9 @@ const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
 const orientationOverlayElement = document.createElement('santa-orientation');
 document.body.append(chromeElement, loaderElement, interludeElement, orientationOverlayElement);
+
+const tutorialElement = document.createElement('santa-tutorial');
+document.body.append(tutorialElement);
 
 const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
@@ -265,6 +269,15 @@ async function runner(control) {
       case 'data':
         // FIXME: This is out of order, writeData is defined below.
         writeData(payload);
+        continue;
+
+      case 'tutorial-queue':
+        console.info('[payload', payload);
+        tutorialElement.queue(...payload);
+        continue;
+
+      case 'tutorial-dismiss':
+        tutorialElement.dismiss(...payload);
         continue;
     }
 
