@@ -17,6 +17,7 @@ You'll need `yarn` or `npm`.
 You may also need Java if you're building on Windows, as the binary version of Closure Compiler is unsupported.
 
 Clone and run `yarn` to install deps, and run `./serve.js` to run a development server.
+This will copy the serving URL to your clipboard.
 
 ## Build and Release
 
@@ -25,12 +26,16 @@ TODO(samthor): finish this part.
 
 # Development Guide
 
-The serving script `./serve.js` will listen on [http://localhost:8000](localhost:8000) by default.
+The serving script `./serve.js` will listen on http://localhost:8000 by default.
 This serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames.
 
-Scenes are served from the static host, by default, hosted at [http://127.0.0.1:8080/st/](127.0.0.1:8080/st/).
+To load a specific scene, open e.g. http://localhost:8000/boatload.html, or whatever matches the scene's name.
+Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programatically.
+
+Scenes are served from the static host, by default, hosted at http://127.0.0.1:8080/st/.
 This is intentionally not equal to "localhost" so that prod and static run in isolated contexts.
-To load individual scenes without their host, find them under /st/static/scenes/.
+To load individual scenes without their host, find them under http://127.0.0.1/st/static/scenes/.
+
 Scores, audio, some UI, and gamepads will not function as they are provided by the prod "host".
 
 As of 2019, development requires Chrome or a Chrome-like browser.
@@ -54,7 +59,7 @@ To add a new scene, you'll need to:
   * `static/img/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
   * `prod/images/og/sceneName.png` (1333x1000)
   
-* Name the scene inside [strings](static/src/strings/scenes.json).
+* Name the scene inside [strings](static/src/strings/scenes.js).
 
 ## Environment
 
