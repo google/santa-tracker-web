@@ -20,18 +20,15 @@ goog.provide('app.Game');
 /**
  * @param {!Element} el
  * @param {!Object} mapstyles
- * @param {string} componentDir
  * @constructor
  * @export
  */
-app.Traditions = function(el, mapstyles, componentDir) {
+app.Traditions = function(el, mapstyles) {
   /**
    * @private {!Element}
    */
   this.el_ = el;
-  this.componentDir = componentDir;
-
-  this.mapstyles_ = mapstyles;
+  this.allTraditions_ = el.querySelector('#traditions-all');
 
   /**
    * @private {!Element}
@@ -49,6 +46,23 @@ app.Traditions = function(el, mapstyles, componentDir) {
   this.markers_ = {};
 
   this.setup();
+
+  this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
+    center: new google.maps.LatLng(0, 0),
+    zoom: 1,
+    disableDefaultUI: true,
+    scrollwheel: false,
+    draggable: false,
+    disableDoubleClickZoom: true,
+    backgroundColor: app.Traditions.WATER_COLOR_,
+    styles: mapstyles,  // use styles rather than staticmap
+    draggableCursor: 'default',
+  });
+
+  this.markerBounds_ = new google.maps.LatLngBounds()
+  this.addCountryMarkers_();
+
+  window.addEventListener('resize', this.handleResize_.bind(this));
 }
 
 /**
@@ -69,7 +83,7 @@ app.Traditions.prototype.setup = function() {
     anchor: new google.maps.Point(12, 12),
     scaledSize: new google.maps.Size(540, 53),
     size: new google.maps.Size(54, 53),
-    url: this.componentDir + 'img/pins_small_2x.png'
+    url: 'img/pins_small_2x.png',
   };
 
   /**
@@ -79,36 +93,13 @@ app.Traditions.prototype.setup = function() {
     anchor: new google.maps.Point(24, 24),
     scaledSize: new google.maps.Size(1080, 106),
     size: new google.maps.Size(108, 106),
-    url: this.componentDir + 'img/pins_large_2x.png'
+    url: 'img/pins_large_2x.png',
   };
 
   /**
    * @private {google.maps.LatLngBounds}
    */
   this.markerBounds_ = null;
-};
-
-/**
- * Show this scene. Must be paired with a later call to onHide.
- */
-app.Traditions.prototype.onShow = function() {
-  this.map_ = new google.maps.Map(this.el_.querySelector('#traditions-map'), {
-    center: new google.maps.LatLng(0, 0),
-    zoom: 1,
-    disableDefaultUI: true,
-    scrollwheel: false,
-    draggable: false,
-    disableDoubleClickZoom: true,
-    backgroundColor: app.Traditions.WATER_COLOR_,
-    // It's important that we have map styles -- this prevents a call to
-    // staticmap.
-    styles: this.mapstyles_,
-    draggableCursor: 'default',
-  });
-
-  this.markerBounds_ = new google.maps.LatLngBounds()
-  this.addCountryMarkers_();
-  $(window).on('resize.traditions', this.handleResize_.bind(this));
 };
 
 /**
@@ -134,20 +125,9 @@ app.Traditions.NUM_PINS_ = 10;
  */
 app.Traditions.prototype.prevCountry = function() {
   window.santaApp.fire('sound-trigger', 'generic_button_click');
-  var active = $('.tradition-active', this.el_);
-
-  /** @type {string} */
-  var id;
-  if (active.length) {
-    id = /** @type {string} */ (active.prev().data('id'));
-  }
-
-  if (!id) {
-    id = /** @type {string} */ ($('.traditions-tradition', this.el_).last().data('id'));
-  }
-
-  this.show(id);
-  return false;
+  const active = this.allTraditions_.querySelector('.tradition-active');
+  const choice = active && active.previousElementSibling || this.allTraditions_.lastElementChild;
+  this.show(choice.getAttribute('data-id'));
 };
 
 /**
@@ -155,20 +135,9 @@ app.Traditions.prototype.prevCountry = function() {
  */
 app.Traditions.prototype.nextCountry = function() {
   window.santaApp.fire('sound-trigger', 'generic_button_click');
-  var active = $('.tradition-active', this.el_);
-
-  /** @type {string} */
-  var id;
-  if (active.length) {
-    id = /** @type {string} */ (active.next().data('id'));
-  }
-
-  if (!id) {
-    id = /** @type {string} */ ($('.traditions-tradition', this.el_).first().data('id'));
-  }
-
-  this.show(id);
-  return false;
+  const active = this.allTraditions_.querySelector('.tradition-active');
+  const choice = active && active.nextElementSibling || this.allTraditions_.firstElementChild;
+  this.show(choice.getAttribute('data-id'));
 };
 
 /**
@@ -245,8 +214,11 @@ app.Traditions.prototype.handleResize_ = function() {
  * @private
  */
 app.Traditions.prototype.verticalAlignText_ = function() {
-  var text = $('.tradition-active', this.el_);
-  text.css('margin-top', -text.height() / 2);
+  const active = this.allTraditions_.querySelector('.tradition-active');
+  if (active) {
+    const bounds = active.getBoundingClientRect();
+    active.style.marginTop = `${-bounds.height / 2}px`;
+  }
 };
 
 /**
@@ -260,26 +232,14 @@ app.Traditions.prototype.showWorld = function() {
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
+    const el = this.getCountryEl_(this.currentId_);
+    if (el) {
+      el.classList.remove('tradition-active');
+    }
   }
 
   this.currentId_ = '';
   this.map_.fitBounds(this.markerBounds_);
-};
-
-/**
- * Hides this scene.
- */
-app.Traditions.prototype.onHide = function() {
-  if (this.currentId_) {
-    var marker = this.markers_[this.currentId_].marker;
-    marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
-  }
-
-  this.currentId_ = '';
-
-  $(window).off('resize.traditions');
 };
 
 /**
@@ -290,27 +250,30 @@ app.Traditions.prototype.show = function(id) {
   if (id === this.currentId_) {
     return;
   }
-  var countryEl = this.getCountryEl_(id);
+  const countryEl = this.getCountryEl_(id);
 
   if (this.currentId_) {
     var marker = this.markers_[this.currentId_].marker;
     marker.setIcon(this.markers_[this.currentId_].smallIcon);
-    this.getCountryEl_(this.currentId_).removeClass('tradition-active');
+    const el = this.getCountryEl_(this.currentId_);
+    if (el) {
+      el.classList.remove('tradition-active');
+    }
   }
 
-  if (!id || !countryEl.length) {
+  if (!id || !countryEl) {
     this.showWorld();
     return;
   }
 
   this.currentId_ = id;
-  countryEl.addClass('tradition-active');
+  countryEl.classList.add('tradition-active');
   this.verticalAlignText_();
 
   this.image_.classList.add('active');
-  this.image_.style.backgroundImage = `url(${this.componentDir}img/country/${id}.png)`;
+  this.image_.style.backgroundImage = `url(img/country/${id}.png)`;
 
-  var country = this.markers_[id];
+  const country = this.markers_[id];
   country.marker.setIcon(this.markers_[this.currentId_].bigIcon);
   this.handleResize_();
 };
@@ -335,10 +298,10 @@ app.Traditions.prototype.padBounds_ = function(bounds) {
 /**
  * @private
  * @param {string} id country to find
- * @return {!jQuery} jQuery object containing country element
+ * @return {?Element} country element
  */
 app.Traditions.prototype.getCountryEl_ = function(id) {
-  return $(this.el_).find('[data-id=' + id + ']');
+  return this.allTraditions_.querySelector(`[data-id=${id}]`);
 };
 
 /**

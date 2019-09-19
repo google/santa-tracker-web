@@ -19,9 +19,7 @@ const mapsApi = maps();
 api.preload.wait(mapsApi);
 
 const gamePromise = mapsApi.then(() => {
-  const game = new Game(document.getElementById('module-traditions'), mapstyles, './');
-  game.onShow();
-  return game;
+  return new Game(document.getElementById('module-traditions'), mapstyles);
 });
 
 api.config({
@@ -50,6 +48,11 @@ api.ready(async () => {
       case ' ':
         game.showWorld();
         break;
+
+      default:
+        return;
     }
+
+    ev.preventDefault();
   });
 });
