@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style type="text/css">
+
+:host {
+  -webkit-overflow-scrolling: auto;
+}
+
+#mountain {
+  background: #f5f2e2;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* TODO: we may want to allow users to drag the screen down */
+}
+#gl3d {
+  position: absolute;
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+
+<div id="mountain"
+    on-pointerdown="_onPointerDown"
+    on-pointermove="_onPointerMove"
+    on-pointerup="_onPointerUp">
+  <canvas id="gl3d"></canvas>
+</div>
+
+
+<script src="../../third_party/lib/three/build/three.js"></script>
+<script src="../../third_party/lib/three/examples/js/loaders/GLTFLoader.js"></script>
+<script src="../../third_party/lib/three/examples/js/Octree.js"></script>
+<script src="../../third_party/lib/three-meshline/THREE.MeshLine.js"></script>
+<script type="module">
+  import api from '../../src/scene/api.js';
+  import Game from './js/game-three.js';
+
+  api.config({
+    sound: [],
+    tutorial: ['elfski.mp4'],
+  });
+
+  api.preload.images(
+    'img/tiles.png',
+  );
+  api.preload.sounds('elfski_load_sounds');
+
+  api.ready(async () => {
+    const mountain = document.getElementById('mountain');
+    const tickInterval = (1000 / 60);
+
+    if ('onpointerdown' in document.body) {
+
+
+
+    } else {
+      // mouse handler for Safari
+      mountain.addEventListener('mousedown', (ev) => {
+        this._onPointerMove(ev, true);
+      });
+      mountain.addEventListener('mousemove', (ev) => {
+        if (ev.which) {
+          this._onPointerMove(ev);
+        }
+      });
+      mountain.addEventListener('mouseup', this._onPointerUp.bind(this));
+
+      // touch handler for iOS
+      const touchMove = (ev) => {
+        ev.preventDefault();
+        const t = ev.touches[0];
+        const fakeEvent = {
+          offsetX: t.clientX,
+          offsetY: t.clientY,
+          target: mountain,
+        }
+        this._onPointerMove(fakeEvent, true);
+      };
+      mountain.addEventListener('touchdown', touchMove);
+      mountain.addEventListener('touchmove', touchMove);
+      mountain.addEventListener('touchup', this._onPointerUp.bind(this));
+    }
+
+  });
+
+</script>
+
+</template>
+<script>
+(function() {
+
+const tickInterval = (1000 / 60);
+
+Polymer({
+  is: 'elfski-scene',
+  behaviors: [window.SantaSceneBehavior],
+
+  properties: {
+
+    /**
+     * Used to calculate frame delta.
+     */
+    _lastFrameAt: {
+      type: Number,
+    },
+
+    _gameStartAt: {
+      type: Number,
+      value: 0,
+    },
+
+    _gameEndAt: {
+      type: Number,
+      value: 0,
+    },
+
+    _playerCrashedAt: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
+     * The game object.
+     */
+    _game: {
+      type: Object,
+      value: null,
+    },
+
+    /**
+     * The setInterval timeout for the tick call.
+     */
+    _tickInterval: {
+      type: Number,
+      value: 0,
+    },
+
+    /**
+     * The current pointer position, or null.
+     */
+    _pointer: {
+      type: Object,
+      value: null,
+    },
+
+    _skiingNoises: {
+      type: Boolean,
+      value: false,
+      observer: '_skiingNoisesChanged',
+    },
+
+    _keyTarget: {
+      type: Object,
+      value: () => this,
+    },
+
+  },
+
+  created: function() {
+    this._draw = this._draw.bind(this);
+    this._tick = this._tick.bind(this);
+    this._onResize = this._onResize.bind(this);
+  },
+
+  ready: function() {
+    if (!('onpointerdown' in document.body)) {
+      // Add events for WebKit.
+
+      this.async(() => {
+        // mouse handler for Safari
+        this.$.mountain.addEventListener('mousedown', (ev) => {
+          this._onPointerMove(ev, true);
+        });
+        this.$.mountain.addEventListener('mousemove', (ev) => {
+          if (ev.which) {
+            this._onPointerMove(ev);
+          }
+        });
+        this.$.mountain.addEventListener('mouseup', this._onPointerUp.bind(this));
+
+        // touch handler for iOS
+        const touchMove = (ev) => {
+          ev.preventDefault();
+          const t = ev.touches[0];
+          const fakeEvent = {
+            offsetX: t.clientX,
+            offsetY: t.clientY,
+            target: this.$.mountain,
+          }
+          this._onPointerMove(fakeEvent, true);
+        };
+        this.$.mountain.addEventListener('touchdown', touchMove);
+        this.$.mountain.addEventListener('touchmove', touchMove);
+        this.$.mountain.addEventListener('touchup', this._onPointerUp.bind(this));
+      });
+    }
+  },
+
+  onPreload: function() {
+    this.preloadImages([
+      'img/tiles.png',
+    ]);
+   this.preloadSounds('elfski_load_sounds');
+  },
+
+  onShow: function() {
+    this._lastFrameAt = window.performance.now();
+    window.addEventListener('resize', this._onResize);
+
+    this._game = new scenes.elfski.Game(this.$.gl3d, this.resolveUrl('.'))
+    window.requestAnimationFrame(this._draw);
+    this._tickInterval = window.setInterval(this._tick, tickInterval);
+    this._onResize();
+    this.fire('sound-ambient', 'music_start_ingame');
+  },
+
+  onHide: function() {
+    this._game.dispose();
+
+    window.removeEventListener('resize', this._onResize);
+    window.clearInterval(this._tickInterval);
+
+    this._skiingNoises = false;
+  },
+
+  _skiingNoisesChanged: function(skiingNoises) {
+    if (skiingNoises) {
+      this.fire('sound-ambient', 'elfski_loop_start');
+    } else {
+      this.fire('sound-ambient', 'elfski_loop_stop');
+    }
+  },
+
+  /**
+   * The misnamed 'start' function is called by `santa-app` when the user wants to play again.
+   */
+  start: function() {
+    // TODO(samthor): This is a bit of a hodge-podge.
+    this._gameStartAt = 0;
+    this._gameEndAt = 0;
+    this._playerCrashedAt = 0;
+    this._lastValidScore = 0;
+
+    this._game && this._game.dispose();
+    this._game = new scenes.elfski.Game(this.$.gl3d, this.resolveUrl('.'))
+    this._onResize();
+
+    this.fire('game-score', {});
+  },
+
+  _onResize: function() {
+    const w = this.$.mountain.offsetWidth;
+    const h = this.$.mountain.offsetHeight;
+    this.$.gl3d.width = w;
+    this.$.gl3d.height = h;
+
+    this._game && this._game.measure();
+  },
+
+  /**
+   * Move the skiier in the direction of the click.
+   */
+  _onPointerDown: function(ev) {
+    if (this.$.mountain.setPointerCapture) {
+      this.$.mountain.setPointerCapture(ev.pointerId);
+    }
+    this._onPointerMove(ev, true);
+  },
+
+  _onPointerMove: function(ev, force) {
+    if (!force && ev.pressure !== undefined && ev.pressure < 0.5) {
+      return;
+    }
+    if (ev && 'buttons' in ev) {
+      if (!ev.buttons) {
+        return;
+      }
+    }
+    this._pointer = {
+      x: ev.offsetX - (ev.target.offsetWidth / 2),
+      y: ev.offsetY - (ev.target.offsetHeight / 3),
+    };
+    this._dismissTutorial();
+  },
+
+  _onPointerUp: function(ev) {
+    this._pointer = null;
+  },
+
+  _dismissTutorial: function() {
+    this.$.tutorial.dismiss('elfski.mp4');
+  },
+
+  _keysHandler: function(ev) {
+    let dir = 0;
+    const key = ev.detail.keyboardEvent.key;
+    if (key.indexOf('Left') !== -1) {
+      dir = -1;
+    } else if (key.indexOf('Right') !== -1) {
+      dir = +1;
+    } else {
+      return;
+    }
+
+    const angle = this._game.angle + dir * 2;
+    const pointer = {
+      x: Math.sin(angle) * 100,
+      y: Math.cos(angle) * 100,
+    };
+    this._pointer = pointer;
+
+    // TODO: this feels a little janky, fine for now
+    this.debounce('_keysHandler', () => {
+      if (this._pointer === pointer) {
+        this._pointer = null;
+      }
+    }, 17 * 3);  // hold for ~3 frames unless changed
+  },
+
+  _tick: function() {
+    const now = window.performance.now();
+    const delta = (now - this._lastFrameAt) / 1000;  // ratio of second
+    this._lastFrameAt = now;
+
+    if (!this._gameStartAt && this.score) {
+      this._gameStartAt = now;
+      this._dismissTutorial();
+    }
+
+    const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
+    this._skiingNoises = Boolean(this._game.speed) && !this._gameEndAt;
+    if (!crashed) {
+      if (this._gameStartAt && !this._gameEndAt) {
+        const detail = {
+          score: this.score,
+          time: (window.performance.now() - this._gameStartAt) / 1000,
+        };
+        this.fire('game-score', detail);
+        this._lastValidScore = this.score;
+      }
+      return;
+    }
+
+    if (!this._playerCrashedAt) {
+      this.fire('sound-trigger', 'elfski_crash');
+      
+      this._playerCrashedAt = now;
+    }
+
+    if (this._gameEndAt) {
+      return;
+    }
+    if (now - this._playerCrashedAt > 3 * 1000) {
+      // TODO: magic number, show 'game over' 3s later
+      this._gameEndAt = now;
+      this.fire('game-stop', {
+        score: this._lastValidScore,
+      });
+      this.fire('sound-trigger', 'music_ingame_gameover');
+    }
+  },
+
+  get score() {
+    return this._game ? this._game.score : 0;
+  },
+
+  _draw: function() {
+    if (!this.isAttached) {
+      return;
+    }
+    window.requestAnimationFrame(this._draw);
+    this._game.render();
+  },
+
+});
+
+}());
+</script>
+</dom-module>
