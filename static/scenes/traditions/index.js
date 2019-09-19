@@ -4,6 +4,7 @@ import maps from '../../src/deps/maps.js';
 import mapstyles from '../../src/deps/mapstyles.json';
 
 api.preload.sounds('traditions_load_sounds');
+api.preload.sounds('generic');  // for generic_button_click
 api.preload.images(
   'img/pins_small.png',
   'img/pins_small_2x.png',
