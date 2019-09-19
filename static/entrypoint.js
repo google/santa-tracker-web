@@ -494,25 +494,36 @@ function configureCustomKeys() {
 
     const buttonsDown = {};
 
+    const buttonPressed = (index) => (gp.buttons[index] && gp.buttons[index].pressed);
+    const enableIfPressed = (index, key) => {
+      if (buttonPressed(index)) {
+        buttonsDown[key] = true;
+      }
+    };
+
     const {control, hidden} = global.getState();
     if (control && !hidden) {
+      const threshold = 0.2;
+
       // ... only look for events if there's something to control and page is visible
-      const updown = gp.axes[1];
-      if (updown < -0.5) {
-        buttonsDown['ArrowUp'] = true;
-      } else if (updown > +0.5) {
-        buttonsDown['ArrowDown'] = true;
-      }
-      if (gp.buttons[0] && gp.buttons[0].pressed) {
-        buttonsDown[' '] = true;
-      }
-      // TODO(samthor): work around demo controller weirdness
-      if (gp.buttons[4] && gp.buttons[4].pressed) {
+      const leftright = gp.axes[0];
+      if (leftright < -threshold) {
         buttonsDown['ArrowLeft'] = true;
-      }
-      if (gp.buttons[5] && gp.buttons[5].pressed) {
+      } else if (leftright > +threshold) {
         buttonsDown['ArrowRight'] = true;
       }
+      const updown = gp.axes[1];
+      if (updown < -threshold) {
+        buttonsDown['ArrowUp'] = true;
+      } else if (updown > +threshold) {
+        buttonsDown['ArrowDown'] = true;
+      }
+
+      enableIfPressed(0, ' ');
+      enableIfPressed(12, 'ArrowUp');
+      enableIfPressed(13, 'ArrowDown');
+      enableIfPressed(14, 'ArrowLeft');
+      enableIfPressed(15, 'ArrowRight');
     }
 
     for (const key in buttonsDown) {
