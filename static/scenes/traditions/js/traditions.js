@@ -19,16 +19,19 @@ goog.provide('app.Game');
 
 /**
  * @param {!Element} el
+ * @param {!Object} mapstyles
  * @param {string} componentDir
  * @constructor
  * @export
  */
-app.Traditions = function(el, componentDir) {
+app.Traditions = function(el, mapstyles, componentDir) {
   /**
    * @private {!Element}
    */
   this.el_ = el;
   this.componentDir = componentDir;
+
+  this.mapstyles_ = mapstyles;
 
   /**
    * @private {!Element}
@@ -99,7 +102,7 @@ app.Traditions.prototype.onShow = function() {
     backgroundColor: app.Traditions.WATER_COLOR_,
     // It's important that we have map styles -- this prevents a call to
     // staticmap.
-    styles: mapstyles.styles,
+    styles: this.mapstyles_,
     draggableCursor: 'default',
   });
 
@@ -130,6 +133,7 @@ app.Traditions.NUM_PINS_ = 10;
  * Display the previous country.
  */
 app.Traditions.prototype.prevCountry = function() {
+  window.santaApp.fire('sound-trigger', 'generic_button_click');
   var active = $('.tradition-active', this.el_);
 
   /** @type {string} */
@@ -150,6 +154,7 @@ app.Traditions.prototype.prevCountry = function() {
  * Display the next country.
  */
 app.Traditions.prototype.nextCountry = function() {
+  window.santaApp.fire('sound-trigger', 'generic_button_click');
   var active = $('.tradition-active', this.el_);
 
   /** @type {string} */
@@ -248,6 +253,7 @@ app.Traditions.prototype.verticalAlignText_ = function() {
  * Show the entire Earth and all countries (the default).
  */
 app.Traditions.prototype.showWorld = function() {
+  window.santaApp.fire('sound-trigger', 'generic_button_click');
   this.image_.style.backgroundImage = '';
   this.image_.classList.remove('active');
 
