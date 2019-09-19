@@ -57,7 +57,7 @@
   .result__details {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 800;
     margin-bottom: 10px;
     max-width: 530px;
     opacity: 0;
@@ -100,29 +100,12 @@
   }
 
   .result__button {
-    background: #F68C38;
-    border: none;
-    border-radius: 10px;
-    box-sizing: border-box;
-    color: white;
-    font: 900 12px 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    margin: 0 5px;
     min-width: 140px;
-    padding: 10px;
-    text-transform: uppercase;
-
-    @media #{$result-large} {
-      font-size: 20px;
-      margin: 0 15px;
-      min-width: 250px;
-      padding: 15px;
-    }
   }
 
   .result__code-label {
     display: none;
-    font: 900 16px / 32px Roboto, sans-serif;
+    font: 800 16px / 32px Roboto, sans-serif;
     margin-bottom: 20px;
     max-width: 530px;
 

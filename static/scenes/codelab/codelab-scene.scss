@@ -1,5 +1,6 @@
 $name: 'module-codelab';
 @import "../_shared/sass/frame";
+@import "../_shared/sass/button";
 @import "sass/bg";
 @import "sass/blockly";
 @import "sass/player";
@@ -14,6 +15,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   margin: 0;
 }
 

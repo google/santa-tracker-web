@@ -8,36 +8,36 @@
 
   .player__elf {
     position: absolute;
-    height: 6.6em;
-    margin-left: -3.1em;
-    margin-top: -3.3em;
+    height: 6.975em;
+    margin-left: calc(-6.05em/2);
+    margin-top: calc(-6.975em/2);
     overflow: hidden;
-    width: 6.2em;
+    width: 6.05em;
 
     svg {
-      width: 6.2em;
-      height: 52.8em;
+      width: 6.05em;
+      height: 55.8em;
     }
   }
 
   .player__jump {
     position: absolute;
     top: 0;
-    height: 8.6em;
-    margin-left: -5.1em;
-    margin-top: -3.3em;
+    height: 8.9em;
+    margin-left: calc(-6.68em/2);
+    margin-top: calc(-8.9em/2);
     overflow: hidden;
-    width: 10.2em;
+    width: 6.68em;
   }
 
   .player__jump-sprite {
     background-image: url(img/jump.svg);
-    width: 7.4em;
+    width: 6.68em;
     height: 201.9em;
     position: absolute;
-    background-size: 7.4em auto;
-    left: 1.4em;
-    top: -0.1em;
+    background-size: 6.68em auto;
+    left: 0em;
+    top: 0.1em;
   }
 
   .player__victory {
