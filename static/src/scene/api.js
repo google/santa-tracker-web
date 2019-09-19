@@ -145,7 +145,7 @@ class PreloadApi {
 class SceneApi extends EventTarget {
   constructor() {
     super();
-    this._initialData = null;
+    this._initialData = {};
     this._config = null;
 
     // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
@@ -157,6 +157,12 @@ class SceneApi extends EventTarget {
       // just pretend to be ready for dev
       this._readyPromise = Promise.resolve();
       this._readyResolve = () => {};
+
+      // ... and insert data for testing
+      const p = new URLSearchParams(window.location.search);
+      p.forEach((value, key) => {
+        this._initialData[key] = value;
+      });
     }
 
     // connect to parent frame: during preload, error on data
@@ -170,7 +176,7 @@ class SceneApi extends EventTarget {
 
         case 'data':
           // TODO: we could announce this to the game before ready
-          this._initialData = payload || null;
+          this._initialData = payload || {};
           break;
 
         default:
