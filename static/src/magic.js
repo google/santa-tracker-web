@@ -64,7 +64,7 @@ export function join(url, ...paths) {
       if (el.textContent !== 'PLACEHOLDER_i18n') {
         console.warn('i18n-msg with bad text', el.textContent)
       }
-    } else if (el.childNodes) {
+    } else if (el.childNodes.length) {
       console.warn('[msgid] with childNodes', el);
     }
 
