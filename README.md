@@ -25,18 +25,36 @@ TODO(samthor): finish this part.
 
 # Development Guide
 
-Santa Tracker uses an App Shell model (provided under `prod/`), as well as individual scenes which run within an `iframe`.
-Each scene can also be run independently for testing.
+The serving script `./serve.js` will listen on [http://localhost:8000](localhost:8000) by default.
+This serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames.
+
+Scenes are served from the static host, by default, hosted at [http://127.0.0.1:8080/st/](127.0.0.1:8080/st/).
+This is intentionally not equal to "localhost" so that prod and static run in isolated contexts.
+To load individual scenes without their host, find them under /st/static/scenes/.
+Scores, audio, some UI, and gamepads will not function as they are provided by the prod "host".
+
+As of 2019, development requires Chrome or a Chrome-like browser.
 
 ## New Scene
 
-To add a new scene, you'll need to update some locations.
+Scenes are fundamentally just pages loaded in an `<iframe>`.
+You can write them in any way you like, but be sure to call out to the 'host API' to play audio, report scores, or request other things like the display of tutorials.
 
-1. The [`scenes.json5`](scenes.json5) file is the master definition for all scenes.
-   It contains details about each scene's colors, rotation, category, strings etc.
-2. Every scene should have associated PNG assets.
-   * `static/img/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
-   * `prod/images/og/sceneName.png` (1333x1000)
+To add a new scene, you'll need to:
+
+* Create the `static/scenes/sceneName` folder, adding `index.html`, which runs code in ES modules only:
+
+  1. Ensure you include `<script type="module">` that imports `src/scene/api.js`, which sets up the connection to the prod "host".
+  2. Optionally listen to events from the API, such as 'pause', 'resume', and 'restart'; and configure an `api.ready(() => { ... })` callback that is triggered when the scene is to be swapped in
+  3. Import `./:closure.js` if you're writing Closure-style code―this will compile everything under `js/`
+  4. For more information, see an existing scene like [boatload](static/scenes/boatload/index.html) or [santaselfie](static/scenes/santaselfie/index.html)
+
+* Add associated PNGs:
+
+  * `static/img/scenes/sceneName_2x.png` (950x564) and `sceneName_1x.png` (475x282)
+  * `prod/images/og/sceneName.png` (1333x1000)
+  
+* Name the scene inside [strings](static/src/strings/scenes.json).
 
 ## Environment
 
@@ -47,7 +65,14 @@ This includes:
 * `.json` is generated for their corresponding `.json5`
 * The `static/scenes/sceneNane./:closure.js` file can be read to compile an older scene's `js/` folder with Closure Compiler, providing a JS module with default export.
 
-Additionally, when writing SCSS, the helper `_rel(path.png)` generates a `url()` which points to a file _relative_ to the current `.scss` source file, regardless of how the CSS is eventually used.
+These files don't actually exist, but are automatically created on use.
+For example, if `foo.scss` exists, you can simply load `foo.css` to compile it automatically.
+
+### Sass helpers
+
+When writing SCSS, the helper `_rel(path.png)` generates a `url()` which points to a file _relative_ to the current `.scss` source file—even imports.
+
+This works regardless of how the SCSS is finally used, whether `<link href="..." />` or as part of a Web Component.
 
 ### JavaScript
 
@@ -57,7 +82,8 @@ These include:
   * ``_msg`msgid_here`​`` generates the corresponding i18n string
   * ``_static`path_name`​`` generates an absolute reference to a file within `static`
 
-Santa Tracker is built using JS modules and will rewrite non-relative imports for `node_modules` (e.g. `lit-element` => `../../node_modules/lit-element/index.js`).
+Also, Santa Tracker is built using JS modules and will rewrite non-relative imports for `node_modules`.
+For example, if you `import {LitElement} from 'lit-element';`, this will be rewritten to its full path for development or release.
 
 ### Imports
 
@@ -65,32 +91,18 @@ As well as JavaScript itself, Santa Tracker's development environment allows imp
 
 ## Sound
 
-Santa Tracker uses an audio library known as [Klang](https://jshakansson.se/portfolio/item/santatracker).
-It exists in the prod context only.
+Santa Tracker uses an audio library known as kplay, which is inspired by [Klang](https://jshakansson.se/portfolio/item/santatracker) and reads its config files.
+It exists in the prod "host" only, but can be triggered by API calls in scenes.
 
-It's somewhat of a black box but has a config file provided by an upstream vendor, and provides a variety of features.
-Internally, it plays single, or repeated music/audio tracks (e.g., one can trigger "holding down" a UI button, which plays indefinitely).
-These are played on various channels which can overwrite each other or run independently.
-
-In general, there are two "channels" that we care about:
-
-* Music channel (controlled largely by `music_start_ingame`, `music_start_scene` or `music_start_village`)
-* Game channel (controlled by `gameid_start` + `gameid_stop` or `_finish` etc)
-
-There's a few ways to perform global operations:
-
-* Sending `videoplayer_start` and `videoplayer_stop` mutes and unmutes sounds, respectively
-* Sending `global_sound_off` and `global_sound_on` independently mutes and unmutes all sound
-* Calling `Klang.stopAll()` kills all sounds, including music (but does not reset mute status)
-
-Additionally, Klang listens to global document visibility, and will mute while in the background.
+It plays audio triggers which play temporary sounds (e.g., a button click) or loops (audio tracks).
+Scenes can be configured with audio triggers to start with (via `api.config({sound: [...]})`) which will cause all previous audio to stop, good for shutting down previous games.
 
 ## Translations
 
 Santa Tracker contains translations for a variety of different languages.
 These translations are sourced from Google's internal translation tool.
 
-If you're adding a string for development, please modify `en_src_messages.json`.
+If you're adding a string for development, please modify `en_src_messages.json` and ask a Google employee to request a translation run.
 If you'd building Santa Tracker for production, you'll need the string to be translated and the final output contained within `lang/`.
 
 # License
