@@ -111,6 +111,7 @@ app.Player.prototype = {
       app.PlayerSound.walk(),
       new GroupEffect([
         new KeyframeEffect(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
+        new KeyframeEffect(this.jumpEl, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
         this.walkAnimation_(),
         new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(oldX, oldY)},
@@ -152,6 +153,9 @@ app.Player.prototype = {
         new KeyframeEffect(this.spriteEl, [
           {opacity: 1}, {opacity: 0}
         ], {fill: 'forwards'}),
+        new KeyframeEffect(this.jumpEl, [
+          {opacity: 0}, {opacity: 1}
+        ], {fill: 'forwards'}),
         this.jumpAnimation_(),
         new KeyframeEffect(this.el, [
           {transform: this.getTranslation_(oldX, oldY)},
@@ -170,7 +174,7 @@ app.Player.prototype = {
         {opacity: 1, transform: 'scale(1)', offset: 0.3},
         {opacity: 1, transform: 'scale(1)'}
       ], {duration: 800, fill: 'forwards'})
-    ], {fill: 'forwards'});
+    ]);
 
     if (direction != null) {
       var oldDirection = this.direction;
@@ -186,8 +190,8 @@ app.Player.prototype = {
           {transform: this.getTranslation_(newX, newY)},
           {transform: this.getTranslation_(this.x, this.y)}
         ], {duration: app.Player.MOVE_DURATION * 0.4}),
-        animation
-      ], {fill: 'forwards'});
+        animation,
+      ]);
       animation = this.maybeRotateAnimation_(animation, oldDirection);
     }
 
@@ -213,9 +217,9 @@ app.Player.prototype = {
           {transform: 'translateZ(0) rotate(' + oldDirection + 'deg)'},
           {transform: 'translateZ(0) rotate(' + this.direction + 'deg)'}
         ], {duration: app.Player.ROTATE_DURATION, fill: 'forwards'})
-      ], {fill: 'forwards'}),
-      animation
-    ], {fill: 'forwards'});
+      ]),
+      animation,
+    ]);
   },
 
   pickUp: function(present) {
@@ -224,14 +228,14 @@ app.Player.prototype = {
       new KeyframeEffect(present.el, [{opacity: 1}, {opacity: 0}], {fill: 'forwards'}),
       new KeyframeEffect(this.victoryEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'}),
       new KeyframeEffect(this.spriteEl, [{opacity: 0}, {opacity: 1}], {fill: 'forwards'})
-    ], {duration: 800, fill: 'forwards'});
+    ], {duration: 800});
   },
 
   walkAnimation_: function() {
     // Animates the sprite as if the elf is walking. Doesn't move the elf.
     return new KeyframeEffect(this.spriteEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -52.8em)'}
+      {transform: 'translateZ(0) translate(0, -55.8em)'}
     ], {duration: app.Player.MOVE_DURATION, easing: 'steps(8, end)'});
   },
 
@@ -239,7 +243,7 @@ app.Player.prototype = {
     // Animates the sprite as if the elf is jumping. Doesn't move the elf.
     return new KeyframeEffect(this.jumpEl, [
       {transform: 'translateZ(0) translate(0, 0em)'},
-      {transform: 'translateZ(0) translate(0, -130.4em)'}
+      {transform: 'translateZ(0) translate(0, -133.56em)'}
     ], {duration: app.Player.JUMP_DURATION, easing: 'steps(15, end)'});
   },
 

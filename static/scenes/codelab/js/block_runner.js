@@ -230,8 +230,8 @@ app.BlockRunner.prototype = {
   runAnimations_: function() {
     this.beforeAnimations_();
 
-    var fullAnimation = new SequenceEffect(this.animationQueue_);
-    this.player = document.timeline.play(fullAnimation);
+    var sequence = new SequenceEffect(this.animationQueue_);
+    this.player = document.timeline.play(sequence);
     app.shared.utils.onWebAnimationFinished(this.player, this.onFinishAnimations_.bind(this));
     this.player.currentTime = 0;
     this.player.playbackRate = this.levelResult.levelComplete ? 1 : 1 / 1.5;
