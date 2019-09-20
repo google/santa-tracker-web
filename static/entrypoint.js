@@ -78,6 +78,7 @@ kplayReady.then((sc) => {
 
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
+  tutorialElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
 

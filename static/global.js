@@ -61,3 +61,29 @@ startup((global) => {
   document.addEventListener('visibilitychange', handler);
   return handler;
 });
+
+/**
+ * Listen for touch or mouse events to determine the input mode.
+ */
+startup((global) => {
+  const pointerMedia = window.matchMedia('(any-pointer: fine)');  // mouse, but also stylus
+  const hoverMedia = window.matchMedia('(any-hover: hover)');     // mouse, but also devices with a virtual pointer
+
+  // TODO(samthor): If we see a gamepad, we should advertise it too, but this seems independent
+  // from touch vs. mouse.
+
+  const update = () => {
+    // If the media queries don't match but we don't have the Touch constructor either, then
+    // assume the user is using a mouse.
+    const hasMouse = (pointerMedia.matches && hoverMedia.matches) || !window.Touch;
+    global.setState({
+      inputMode: hasMouse ? 'mouse' : 'touch',
+    });
+  };
+
+  const d = dedupFrame(update);
+  pointerMedia.addEventListener('change', d);
+  hoverMedia.addEventListener('change', d);
+
+  return update;
+});
