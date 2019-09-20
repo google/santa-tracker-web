@@ -62,7 +62,7 @@ app.Scene = function(el) {
   this.onSelectFromLanguage_ = this.onSelectFromLanguage_.bind(this);
   this.onSelectToLanguage_ = this.onSelectToLanguage_.bind(this);
 
-  this.tutorial_ = new app.shared.Tutorial(this.$el, 'touch-translations mouse-translations');
+  this.tutorial_ = new app.shared.Tutorial('touch-translations mouse-translations');
 
   this.init_();
 };

@@ -46,7 +46,7 @@ app.Game = function(elem) {
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.tutorial = new Tutorial(this.elem, 'touch-mercator mouse-mercator');
+  this.tutorial = new app.shared.Tutorial('touch-mercator mouse-mercator');
 
   this.debug = !!location.search.match(/[?&]debug=true/);
   this.mapReady = false;

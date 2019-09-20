@@ -16,10 +16,7 @@
 
 
 goog.provide('app.shared.Tutorial');
-goog.require('app.shared.utils');
 
-// We are *leaking* the Tutorial global for backwards compatibility.
-app.shared.Tutorial = Tutorial;
 
 /**
  * @param {!Array<string>|string}
@@ -32,50 +29,43 @@ function splitAll(arg) {
   return arg.filter(Boolean);
 }
 
-/**
- * @constructor
- * @param {*} _ ignored
- * @param {!Array<string>|string} tutorials All tutorials.
- */
-function Tutorial(_, tutorials) {
-  this._tutorials = splitAll(tutorials);
-  this._dismissed = new Set();
-};
 
-/**
- * Start the tutorial timer.
- * @param {*} tutorials to replace the current set with
- */
-Tutorial.prototype.start = function(tutorials) {
-  if (tutorials !== undefined) {
-    throw new Error('disused arg to tutorials');
+app.shared.Tutorial = class Tutorial {
+
+  /**
+   * @constructor
+   * @param {!Array<string>|string} tutorials All tutorials.
+   */
+  constructor(tutorials) {
+    this._tutorials = splitAll(tutorials);
+    this._dismissed = new Set();
   }
-  window.santaApp.fire('tutorial-queue', this._tutorials);
-};
 
-/**
- * Turn off a tutorial because user has already used the controls.
- *
- * @param {!Array<string>|string} tutorials Tutorials to dismiss
- * @param {!Array<string>} rest Rest of tutorials to dismiss
- */
-Tutorial.prototype.off = function(all, ...rest) {
-  all = splitAll(all).concat(rest).filter((cand) => {
-    if (this._dismissed.has(cand)) {
-      return false;
+  /**
+   * Start tutorials.
+   */
+  start() {
+    window.santaApp.fire('tutorial-queue', this._tutorials);
+  }
+
+  /**
+   * Turn off a tutorial because user has already used the controls.
+   *
+   * @param {!Array<string>|string} tutorials Tutorials to dismiss
+   * @param {!Array<string>} rest Rest of tutorials to dismiss
+   */
+  off(all, ...rest) {
+    all = splitAll(all).concat(rest).filter((cand) => {
+      if (this._dismissed.has(cand)) {
+        return false;
+      }
+      this._dismissed.add(cand);
+      return true;
+    });
+    if (all.length) {
+      window.santaApp.fire('tutorial-dismiss', all);
     }
-    this._dismissed.add(cand);
-    return true;
-  });
-
-  if (all.length) {
-    window.santaApp.fire('tutorial-dismiss', all);
   }
-};
 
-/**
- * Cleanup.
- */
-Tutorial.prototype.dispose = function() {
-  // does nothing
-};
+  dispose() {}
+}

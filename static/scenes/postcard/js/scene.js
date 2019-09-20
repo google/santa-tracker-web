@@ -57,7 +57,7 @@ app.Scene = function(elem, params) {
   });
 
   this.picker = new app.Picker(this, params);
-  this.tutorial = new app.shared.Tutorial(this.elem, 'touch-updown touch-leftright keys-updown keys-leftright spacenav-updown spacenav-leftright');
+  this.tutorial = new app.shared.Tutorial('touch-updown touch-leftright keys-updown keys-leftright spacenav-updown spacenav-leftright');
   this.controls = new app.Controls(this);
   this.tutorial.start();
 };
