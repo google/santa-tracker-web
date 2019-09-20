@@ -41,10 +41,13 @@ function prepareTutorialAsset(name, callback) {
 
 
 function resetTutorialAsset(node) {
-  node.style.animation = '';
-  node.src = node.src;
-  node.offsetLeft;
-  node.style.animation = null;
+  if (node instanceof Image) {
+    node.style.animation = '';
+    node.offsetLeft;
+    node.style.animation = null;
+  } else {
+    node.currentTime = 0;
+  }
 }
 
 
