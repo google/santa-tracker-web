@@ -71,7 +71,7 @@ app.Game.prototype.dismissTutorial = function(name = undefined) {
   if (name === undefined) {
     name = this.tutorialForLevel_(this.levelNumber);
   }
-  santaApp.fire('dismiss-tutorial', name);
+  santaApp.fire('tutorial-dismiss', [name]);
 };
 
 /**
@@ -120,9 +120,11 @@ app.Game.prototype.bumpLevel = function() {
   // Show tutorial
   const tutorials = [this.tutorialForLevel_(this.levelNumber)];
   if (this.levelNumber === 2 && this.scene.getPortraitMode()) {
-    tutorials.unshift('codelab_tray.mp4');  // put first
+    // This isn't perfect because transitions back from mobile mode will retain the tray, but it's
+    // fine for now.
+    tutorials.unshift('codelab_tray.mp4');
   }
-  santaApp.fire('show-tutorial', tutorials.join(' '));
+  santaApp.fire('tutorial-queue', tutorials);
 };
 
 app.Game.prototype.onBlur = function() {

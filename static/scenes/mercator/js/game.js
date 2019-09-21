@@ -46,7 +46,7 @@ app.Game = function(elem) {
   this.gameoverView = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
-  this.tutorial = new app.shared.Tutorial('touch-mercator mouse-mercator');
+  this.tutorial = new app.shared.Tutorial('mercator.svg');
 
   this.debug = !!location.search.match(/[?&]debug=true/);
   this.mapReady = false;
@@ -72,11 +72,7 @@ app.Game = function(elem) {
  * @private
  */
 app.Game.prototype.disableTutorial_ = function(event) {
-  if (event && $(event.target).closest('.start').length) {
-    return;
-  }
-  this.tutorial.off('mouse-mercator');
-  this.tutorial.off('touch-mercator');
+  this.tutorial.off('mercator.svg');
 };
 
 /**
@@ -93,7 +89,6 @@ app.Game.prototype.start = function() {
 
   // Start tutorial
   this.tutorial.start();
-  this.elem.on('click touchend', this.disableTutorial_);
 };
 
 /**
@@ -223,12 +218,12 @@ app.Game.prototype.setupLevel_ = function() {
   this.geodesic = app.Constants.GEODESIC_LEVELS.indexOf(this.level + 1) !== -1;
   this.countries = [];
 
-  data.features.forEach(function(feature) {
-    var country = new app.Country(this.map, feature, this.geodesic);
+  data.features.forEach((feature) => {
+    const country = new app.Country(this.map, feature, this.geodesic);
     country.onMatched = this.countryMatched_;
     country.onDrag = this.disableTutorial_;
     this.countries.push(country);
-  }, this);
+  });
 
   this.mapBounds = new google.maps.LatLngBounds();
   this.mapBounds.extend(new google.maps.LatLng(data.bounds.s, data.bounds.w));
@@ -418,6 +413,7 @@ app.Game.prototype.initMap_ = function() {
     disableDefaultUI: true,
     draggable: false,
     styles: styles,
+    draggableCursor: 'default',
   });
 
   google.maps.event.addListenerOnce(this.map, 'idle', () => {

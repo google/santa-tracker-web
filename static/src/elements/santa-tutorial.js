@@ -6,7 +6,9 @@ import * as prefix from '../lib/prefix.js';
 import styles from './santa-tutorial.css';
 
 
-const tutorialTimeout = 1500;
+const tutorialDelay = 1500;
+const tutorialWidth = 275;
+const tutorialHeight = 270;
 
 
 /**
@@ -27,7 +29,8 @@ function prepareTutorialAsset(name, callback) {
   } else {
     node = document.createElement('img');
     node.addEventListener('load', () => {
-      const steps = Math.round(node.naturalWidth / 275);
+      const heightRatio = (node.naturalHeight / tutorialHeight);
+      const steps = Math.round(node.naturalWidth / heightRatio / tutorialWidth);
       node.classList.add('steps-' + steps);
       callback(true);
     });
@@ -148,7 +151,7 @@ export class SantaTutorialElement extends LitElement {
         }
       });
 
-      const timeout = new Promise((r) => window.setTimeout(r, tutorialTimeout));
+      const timeout = new Promise((r) => window.setTimeout(r, tutorialDelay));
       this._displayPromise = Promise.all([p, timeout]).then(([result]) => {
         resetTutorialAsset(node);  // reset to start of playtime
         return result;

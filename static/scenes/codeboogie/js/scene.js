@@ -217,6 +217,8 @@ app.Scene = class {
   showTutorials_() {
     const tutorials = ['codeboogie.gif'];
     if (this.portraitMode_) {
+      // This isn't perfect because transitions back from mobile mode will retain the tray, but it's
+      // fine for now.
       tutorials.unshift('codeboogie_tray.mp4');  // put before regular tutorial
     }
     this.game.showTutorial(tutorials);

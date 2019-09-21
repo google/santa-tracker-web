@@ -46,7 +46,7 @@ var Game = function(elem) {
   this.cards = new Cards();
   this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
-  this.tutorial = new app.shared.Tutorial('touch-matching mouse-matching');
+  this.tutorial = new app.shared.Tutorial('matching.svg');
 
   this.$doors = this.elem.find(Constants.SELECTOR_DOOR);
   this.$targets = this.elem.find(Constants.SELECTOR_DOOR_TARGET);
@@ -79,15 +79,6 @@ Game.prototype.start = function() {
 
   // Start tutorial
   this.tutorial.start();
-  this.elem.on('click.tutorial', function(event) {
-    if ($(event.target).closest('.start').length) {
-      return;
-    }
-    this.tutorial.off('mouse-matching');
-    this.elem.off('click.tutorial');
-  }.bind(this)).one('touchstart', function() {
-    this.tutorial.off('touch-matching');
-  }.bind(this));
 };
 
 /**
@@ -187,6 +178,9 @@ Game.prototype.onDoorClick_ = function(door) {
   if (door.isCompleted || this.paused) {
     return;
   }
+
+  this.tutorial.off('matching.svg');
+
   if (door.isOpened) {
     this.closeDoor_(door);
     return;

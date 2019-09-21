@@ -62,7 +62,7 @@ app.Scene = function(el) {
   this.onSelectFromLanguage_ = this.onSelectFromLanguage_.bind(this);
   this.onSelectToLanguage_ = this.onSelectToLanguage_.bind(this);
 
-  this.tutorial_ = new app.shared.Tutorial('touch-translations mouse-translations');
+  this.tutorial_ = new app.shared.Tutorial('translations.svg');
 
   this.init_();
 };
@@ -292,11 +292,19 @@ app.Scene.prototype.onSelectToLanguage_ = function() {
 /**
  * @private
  */
+app.Scene.prototype.disableTutorial_ = function() {
+  this.tutorial_.off('translations.svg');
+};
+
+/**
+ * @private
+ */
 app.Scene.prototype.onPrevPhrase_ = function() {
   if (!app.shared.utils.playerFinished(this.changeTextAnimation_)) {
     return;
   }
   this.cancelAnimation_(this.changeTextAnimation_);
+  this.disableTutorial_();
 
   var btnTopEl = this.$btnPrev.find('#btn-prev-top')[0];
   var btnShadowEl = this.$btnPrev.find('#btn-prev-shadow')[0];
@@ -315,6 +323,7 @@ app.Scene.prototype.onNextPhrase_ = function() {
     return;
   }
   this.cancelAnimation_(this.changeTextAnimation_);
+  this.disableTutorial_();
 
   var btnTopEl = this.$btnNext.find('#btn-next-top')[0];
   var btnShadowEl = this.$btnNext.find('#btn-next-shadow')[0];
@@ -333,6 +342,7 @@ app.Scene.prototype.onShuffleLanguages_ = function() {
     return;
   }
   this.cancelAnimation_(this.changeTextAnimation_);
+  this.disableTutorial_();
 
   var btnTopEl = this.$btnShuffle.find('#btn-shuffle-top')[0];
   var btnShadowEl = this.$btnShuffle.find('#btn-shuffle-shadow')[0];
@@ -393,6 +403,7 @@ app.Scene.prototype.onPlayPhrase_ = function() {
     return;
   }
   this.cancelAnimation_(this.playAnimation_);
+  this.disableTutorial_();
 
   var text = app.Constants.PHRASES[this.phraseIndex][this.toLang];
   var klangEvent = app.Constants.PHRASES[this.phraseIndex][app.Constants.KLANG_EVENT_KEY];
@@ -444,12 +455,6 @@ app.Scene.prototype.startTutorial_ = function() {
   // Start tutorial
   var this_ = this;
   this.tutorial_.start();
-  this.$el.on('click.tutorial', function(event) {
-    this_.tutorial_.off('mouse-translations');
-    this_.$el.off('click.tutorial');
-  }).one('touchstart', function() {
-    this_.tutorial_.off('touch-translations');
-  });
 };
 
 /**

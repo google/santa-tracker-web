@@ -116,14 +116,14 @@ app.Game = class {
   }
 
   /**
-   * @param {!Array<string>} showTutorial
+   * @param {!Array<string>} names
    */
   showTutorial(names = []) {
-    santaApp.fire('show-tutorial', names.join(' '));
+    santaApp.fire('tutorial-queue', names);
   }
 
   dismissTutorial(name) {
-    santaApp.fire('dismiss-tutorial', name);
+    santaApp.fire('tutorial-dismiss', [name]);
   }
 
   /**

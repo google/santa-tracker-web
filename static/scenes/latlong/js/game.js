@@ -41,7 +41,7 @@ app.Game = function(elem) {
   this.levelUp = new app.shared.LevelUp(this,
       this.elem.find('.levelup'), this.elem.find('.levelup--number'));
   this.pauseOverlay = this.elem.find('.pauseOverlay');
-  this.tutorial = new app.shared.Tutorial('latlong');
+  this.tutorial = new app.shared.Tutorial('latlong.mp4');
 
   this.isPlaying = false;
   this.paused = false;
@@ -139,7 +139,7 @@ app.Game.prototype.onFinishLevel_ = function() {
  */
 app.Game.prototype.onMissPresent_ = function() {
   this.scoreboard.addTime(Constants.MISS_TIME);
-  this.tutorial.off('latlong');
+  this.tutorial.off('latlong.mp4');
 };
 
 
@@ -149,7 +149,7 @@ app.Game.prototype.onMissPresent_ = function() {
  */
 app.Game.prototype.onMatchPresent_ = function() {
   this.scoreboard.addTime(Constants.MATCH_TIME);
-  this.tutorial.off('latlong');
+  this.tutorial.off('latlong.mp4');
 };
 
 
