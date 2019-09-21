@@ -17,7 +17,7 @@ iframe[tabindex="-1"] {
 
 main::after {
   position: absolute;
-  z-index: $index-game;
+  z-index: $index-gameloader;
   content: '';
   top: 0;
   left: 0;
@@ -74,10 +74,36 @@ iframe,
 }
 
 .slot-container {
-  z-index: $index-game;
+  z-index: $index-gameloader;
 }
 
 iframe.pending {
   opacity: 0;
   z-index: -1;
+}
+
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // duplicate .overlay so that content being adjusted by left/top is relative to center
+  .holder {
+    position: relative;
+    width: 0;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ::slotted(*) {
+      position: absolute !important;
+    }
+  }
 }

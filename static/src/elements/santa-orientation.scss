@@ -1,25 +1,24 @@
 @import '../../styles/shared';
 
 :host {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: $index-orientation;
-  pointer-events: none;
+  z-index: $index-orientation;  // places this element above the blur
 }
-.fs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #8fd7f7cc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column;
+
+main {
+  text-align: center;
+
+  // ... but still create a fullscreen overlay effect at this level
+  &::after {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #8fd7f7cc;
+    z-index: -1;
+  }
 }
 
 p {

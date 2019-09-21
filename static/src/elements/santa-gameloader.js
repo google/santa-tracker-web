@@ -140,7 +140,8 @@ class SantaGameLoaderElement extends HTMLElement {
     this._container.classList.add('empty');
     root.append(this._container);
 
-    // Wrap `<slot>` in a container that can be toggled in an error state.
+    // Wrap `<slot>` in a container that can be toggled in an error state. The naked slot contains
+    // content which will be displayed if a game fails to load, such as `<santa-error>`.
     const slotContainer = document.createElement('div');
     slotContainer.classList.add('slot-container');
     const slot = document.createElement('slot');
@@ -159,6 +160,24 @@ class SantaGameLoaderElement extends HTMLElement {
     this._previousFrameClose = null;  // called when _previousFrame is cleared
     this._activeFrame = createFrame();
     this._container.append(this._activeFrame);
+
+    // Create DOM that contains overlay elements.
+    // TODO(samthor): This isn't really to do with the gameloader, but serves as a convinent place
+    // to place elements which are intended to look like they're part of the game (tutorial,
+    // rotate, level up indicators).
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+
+    const holder = document.createElement('div');
+    holder.classList.add('holder');
+
+    const slotOverlay = document.createElement('slot');
+    slotOverlay.setAttribute('name', 'overlay');
+
+    root.append(overlay);
+    overlay.append(holder);
+    holder.append(slotOverlay);
   }
 
   get frameFocus() {

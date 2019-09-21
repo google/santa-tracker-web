@@ -23,11 +23,15 @@ import global from './global.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
-const orientationOverlayElement = document.createElement('santa-orientation');
-document.body.append(chromeElement, loaderElement, interludeElement, orientationOverlayElement);
+document.body.append(chromeElement, loaderElement, interludeElement);
 
-const tutorialElement = document.createElement('santa-tutorial');
-document.body.append(tutorialElement);
+const tutorialOverlayElement = document.createElement('santa-tutorial');
+tutorialOverlayElement.setAttribute('slot', 'overlay');
+loaderElement.append(tutorialOverlayElement);
+
+const orientationOverlayElement = document.createElement('santa-orientation');
+orientationOverlayElement.setAttribute('slot', 'overlay');
+loaderElement.append(orientationOverlayElement);
 
 const errorElement = document.createElement('santa-error');
 loaderElement.append(errorElement);
@@ -78,7 +82,7 @@ kplayReady.then((sc) => {
 
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
-  tutorialElement.filter = state.inputMode;
+  tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
 
@@ -91,6 +95,7 @@ global.subscribe((state) => {
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
+  tutorialOverlayElement.hidden = orientationChangeNeeded;         // hide tutorial w/rotate hint
 
   let hasScore = false;
   const score = {
@@ -274,11 +279,11 @@ async function runner(control) {
 
       case 'tutorial-queue':
         console.info('[payload', payload);
-        tutorialElement.queue(...payload);
+        tutorialOverlayElement.queue(...payload);
         continue;
 
       case 'tutorial-dismiss':
-        tutorialElement.dismiss(...payload);
+        tutorialOverlayElement.dismiss(...payload);
         continue;
     }
 
