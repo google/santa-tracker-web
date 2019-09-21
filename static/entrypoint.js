@@ -278,7 +278,6 @@ async function runner(control) {
         continue;
 
       case 'tutorial-queue':
-        console.info('[payload', payload);
         tutorialOverlayElement.queue(...payload);
         continue;
 
