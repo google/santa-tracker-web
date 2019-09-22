@@ -152,14 +152,19 @@ app.shared.utils = (function() {
 
     /**
      * Register listener for finish event on a Web Animation player.
-     * TODO(samthor): Fix Function type when this code is replaced.
+     *
      * @param {!Animation} player The animation player object which will finish
      * @param {!Function} fn A callback function to execute when player finishes
      */
     onWebAnimationFinished: function(player, fn) {
-      // TODO(samthor): player also exposes {!Promise<*>} under finished, not
-      // defined in externs yet
-      player.addEventListener('finish', fn, false);
+      // Animation optionally exposes 'finished' as a Promise for when the animation is done,
+      // although it's not in the externs yet.
+      const finishedPromise = /** @type {?Promise<void>} */ (player['finished']);
+      if (finishedPromise && finishedPromise.then) {
+        finishedPromise.then(fn);
+      } else {
+        player.addEventListener('finish', fn, false);
+      }
     },
 
     /**
@@ -194,5 +199,3 @@ app.shared.utils = (function() {
     SmartValue,
   };
 })();
-
-var utils = app.shared.utils;

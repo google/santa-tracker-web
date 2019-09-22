@@ -16,6 +16,8 @@
 
 goog.provide('app.Player');
 
+goog.require('app.shared.utils');
+
 /**
  * Movement and present drop for the player.
  * @constructor
@@ -152,7 +154,7 @@ app.Player.prototype.dropPresent = function() {
   this.game.createPresent(this.x);
   this.hasPresent = false;
 
-  utils.animWithClass(this.elem.find('.elf'), 'newpresent');
+  app.shared.utils.animWithClass(this.elem.find('.elf'), 'newpresent');
   window.santaApp.fire('sound-trigger', 'pd_item_drop');
 
   window.setTimeout(function() {

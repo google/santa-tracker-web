@@ -18,6 +18,7 @@ goog.provide('app.Player');
 
 goog.require('app.Constants');
 goog.require('app.DangerItem');
+goog.require('app.shared.utils');
 
 
 
@@ -28,16 +29,18 @@ goog.require('app.DangerItem');
  * @constructor
  */
 app.Player = function(game, elem) {
+  const SmartValue = app.shared.utils.SmartValue;
+
   this.game = game;
   this.elem = $(elem).css({ left: '0', top: '0' });
   this.fireElem = this.elem.find('.fire');
   this.inputVector = { x: 0, y: 0 };
-  this.velocity = { x: new utils.SmartValue(), y: new utils.SmartValue() };
+  this.velocity = { x: new SmartValue(), y: new SmartValue() };
 
   // Sound state
-  this.soundPosition = new utils.SmartValue();
-  this.soundVelocity = new utils.SmartValue();
-  this.soundOutOfScreen = new utils.SmartValue();
+  this.soundPosition = new SmartValue();
+  this.soundVelocity = new SmartValue();
+  this.soundOutOfScreen = new uts.SmartValue();
 
   this.reset();
 };

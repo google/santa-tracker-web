@@ -391,5 +391,5 @@ app.Drawer.prototype.updateCounterText = function(drawer) {
  * @param  {jQuery} $counter jQuery counter element to be animated.
  */
 app.Drawer.prototype.animateCounter = function($counter) {
-  utils.animWithClass($counter, this.CLASS_ANIMATE);
+  app.shared.utils.animWithClass($counter, this.CLASS_ANIMATE);
 };

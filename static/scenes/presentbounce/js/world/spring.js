@@ -57,7 +57,7 @@ app.world.Spring = class extends app.world.UserObject {
         contact.GetFixtureB().collisionID === app.world.PresentBall.COLLISION_ID   ||
         contact.GetFixtureB().collisionID === app.world.PresentSquare.COLLISION_ID )
     ) {
-      utils.animWithClass(this.$el_, 'animate');
+      app.shared.utils.animWithClass(this.$el_, 'animate');
       window.santaApp.fire('sound-trigger', 'pb_boing');
       window.ga('send', 'event', 'game', 'bounce', 'presentbounce')
     }

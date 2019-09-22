@@ -33,7 +33,7 @@ app.Player = function(game, elem) {
   this.game = game;
   this.elem = $(elem).css({ left: '0', top: '0' });
   this.inputVector = { x: 0, y: 0 };
-  this.velocity = { x: new utils.SmartValue(), y: new utils.SmartValue() };
+  this.velocity = { x: new app.shared.utils.SmartValue(), y: new app.shared.utils.SmartValue() };
   this.hasPresent = true;
   this.isHit = false;
 

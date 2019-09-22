@@ -18,6 +18,7 @@ goog.provide('Present');
 
 goog.require('Constants');
 goog.require('app.shared.pools');
+goog.require('app.shared.utils');
 
 /**
  * Drops a present.
@@ -82,15 +83,15 @@ Present.prototype.onDispose = function() {
  */
 Present.prototype.missed = function() {
   this.dead = true;
-  Coordinator.step(0.6, function(progress) {
+  Coordinator.step(0.6, (progress) => {
     this.addX = progress * 20;
     this.draw();
-  }.bind(this), function() {
+  }, () => {
     var pt = /** @type {app.shared.pools.PoolType} */ (this);
     pt.remove();
     this.game.lastMissedPresent = null;
-  }.bind(this));
-  utils.animWithClass(this.elem, 'present--missed');
+  });
+  app.shared.utils.animWithClass(this.elem, 'present--missed');
 };
 
 /**
