@@ -44,7 +44,7 @@ var Game = function(elem) {
   this.gameStartTime = +new Date;
 
   this.cards = new Cards();
-  this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
+  this.gameoverDialog = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
   this.tutorial = new app.shared.Tutorial('matching.svg');
 

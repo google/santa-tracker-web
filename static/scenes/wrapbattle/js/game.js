@@ -60,7 +60,7 @@ app.Game = class {
 
     this.scoreboard = new Scoreboard(this, this.elem.find('.board'),
         app.Levels.levels.length);
-    this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
+    this.gameoverDialog = new app.shared.Gameover(this, this.elem.find('.gameover'));
     this.levelUp = new LevelUp(this, this.elem.find('.levelup'),
         this.elem.find('.levelup--number'));
 

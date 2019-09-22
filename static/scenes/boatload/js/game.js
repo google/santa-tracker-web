@@ -61,7 +61,7 @@ Game = function(elem) {
 
   this.player = new Player(this, this.elem.find('.player'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
-  this.gameoverDialog = new Gameover(this, this.elem.find('.gameover'));
+  this.gameoverDialog = new app.shared.Gameover(this, this.elem.find('.gameover'));
   this.tutorial = new app.shared.Tutorial('touch-updown.svg keys-space.svg keys-updown.svg');
   this.controls = new Controls(this);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));

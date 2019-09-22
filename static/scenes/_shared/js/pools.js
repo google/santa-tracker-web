@@ -20,7 +20,7 @@ app.shared.pools = (function() {
   const objects = [];
   return {
 
-    mixin: function(obj, options) {
+    mixin(obj, options) {
       options = options || {};
       obj.pool_ = [];
       objects.push(obj);
@@ -121,7 +121,7 @@ app.shared.pools = (function() {
         return instance || null;
       }
     },
-    empty: function() {
+    empty() {
       for (let i = 0; i < objects.length; i++) {
         objects[i].pool_ = [];
       }
@@ -136,5 +136,3 @@ app.shared.pools.PoolType = function() {};
 app.shared.pools.PoolType.onInit = function(var_args) {};
 app.shared.pools.PoolType.onDispose = function(var_args) {};
 app.shared.pools.PoolType.remove = function() {};
-
-const pools = app.shared.pools;

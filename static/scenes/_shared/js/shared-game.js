@@ -16,7 +16,6 @@
 
 goog.provide('app.shared.SharedGame');
 
-goog.require('app.shared.SharedGameOver');
 goog.require('app.shared.Scoreboard');
 
 app.shared.SharedGame = SharedGame;
@@ -24,14 +23,17 @@ app.shared.SharedGame = SharedGame;
 /**
  * A game in Santa Tracker.
  * @interface
- * @extends {SharedGameOver}
  */
 function SharedGame() {
-  // TODO(samthor): It's not clear that with the current settings, Closure
-  // enforces that these properties exist.
+  // TODO(samthor): It's not clear that with the current settings, Closure enforces that these
+  // properties exist.
   /** @public {!Scoreboard} */ this.scoreboard;
   /** @public {number} */ this.level;
 };
+
+/**
+ */
+SharedGame.prototype.gameover = function() {};
 
 /**
  */
