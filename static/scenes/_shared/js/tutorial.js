@@ -33,7 +33,6 @@ function splitAll(arg) {
 app.shared.Tutorial = class Tutorial {
 
   /**
-   * @constructor
    * @param {!Array<string>|string} tutorials All tutorials.
    */
   constructor(tutorials) {
