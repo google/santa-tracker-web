@@ -6,6 +6,8 @@ const JSON5 = require('json5');
 
 
 function vfsLoader(plugins) {
+  plugins = plugins.filter(Boolean);  // remove null plugins
+
   const findSource = async (id) => {
     if (await fsp.exists(id)) {
       return null;
@@ -65,14 +67,53 @@ function vfsLoader(plugins) {
   };
 }
 
+
+function buildLangPlugin(id, lang) {
+  if (lang === null) {
+    return null;
+  }
+
+  const messages = require(`./_messages/${lang}.json`);
+  const fallback = require('./en_src_messages.json');
+
+  // Include untranslated strings from the English source.
+  for (const key in fallback) {
+    if (messages[key]) {
+      continue;
+    }
+    const untranslated = fallback[key];
+    messages[key] = {
+      message: untranslated['message'] || untranslated['raw'],
+      missing: true,
+    };
+  }
+
+  const raw = JSON.stringify(messages);
+
+  return  {
+    match(idToMatch) {
+      if (idToMatch === id) {
+        return id;
+      }
+    },
+    load() {
+      return raw;
+    },
+  };
+}
+
+
 /**
- * Builds a virtual filesystem for Santa Tracker in the form a Rollup-like plugin.
+ * Builds a virtual filesystem for Santa Tracker.
  *
  * @param {string} staticScope the URL prefix to static content
+ * @param {{compile: boolean, lang: string}=}
  * @param {boolean=} compile whether to compile Closure code
  * @return {{load: function(string): ?}}
  */
-module.exports = (staticScope, compile=true) => {
+module.exports = (staticScope, options) => {
+  options = Object.assign({compile: true, lang: null}, options);
+
   const stylesPlugin = {
     map(ext) {
       if (ext === '.css') {
@@ -82,9 +123,12 @@ module.exports = (staticScope, compile=true) => {
     load(id) {
       // FIXME: When ".css" files are loaded directly by the browser, the second two arguments are
       // actually irrelevant, since we can just use relative URLs. It saves us ~bytes.
+      // nb. However, if styles are _inlined_, we're not nessecarily fixing the scope here.
       return compileStyles(id, staticScope, 'static');
     },
   };
+
+  const languagesPlugin = buildLangPlugin('static/messages.json', options.lang);
 
   const jsonPlugin = {
     map(ext) {
@@ -122,10 +166,10 @@ module.exports = (staticScope, compile=true) => {
         throw new Error(`unsupported Closure flags: ${flags}`);
       }
 
-      const {js, map} = await compileScene(config, compile);
+      const {js, map} = await compileScene(config, options.compile);
       return {code: js, map};
     },
   };
 
-  return vfsLoader([stylesPlugin, jsonPlugin, closurePlugin]);
+  return vfsLoader([stylesPlugin, languagesPlugin, jsonPlugin, closurePlugin]);
 };

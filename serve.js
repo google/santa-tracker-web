@@ -2,7 +2,6 @@
 
 const chalk = require('chalk');
 const clipboardy = require('clipboardy');
-const compileHtml = require('./build/compile-html.js');
 const fs = require('fs').promises;
 const i18n = require('./build/i18n.js');
 const santaVfs = require('./santa-vfs.js');
@@ -23,6 +22,15 @@ const yargs = require('yargs')
       type: 'number',
       default: process.env.PORT || 8000,
       describe: 'Static port',
+    })
+    .options('prefix', {
+      type: 'string',
+      default: 'st',
+      describe: 'Static prefix',
+      coerce(v) {
+        return v.replace(/[^a-z0-9]/g, '') || 'st';  // ensure prefix is basic ascii only
+      },
+      requiresArg: true,
     })
     .option('lang', {
       type: 'string',
@@ -53,15 +61,17 @@ const messages = i18n(yargs.lang);
 log(messages('santatracker'));
 
 
-const staticPrefix = 'st';  // nb. Polka doesn't support this having /'s.
-const staticScope = `http://127.0.0.1:${yargs.port + 80}/${staticPrefix}/`;
+// nb. matches config in release.js
 const config = {
-  staticScope,
+  staticScope: `http://127.0.0.1:${yargs.port + 80}/${yargs.prefix}/`,
   version: `dev-${(new Date).toISOString().replace(/[^\d]/g, '')}`,
 };
 
 async function serve() {
-  const vfs = santaVfs(staticScope, yargs.compile);
+  const vfs = santaVfs(config.staticScope, {
+    compile: yargs.compile,
+    lang: yargs.lang,
+  });
 
   const staticHost = dhost({
     path: 'static',
@@ -69,10 +79,10 @@ async function serve() {
     serveLink: true,
   });
   const staticServer = polka();
-  staticServer.use(staticPrefix, vfsMiddleware(vfs, 'static'), staticHost);
+  staticServer.use(yargs.prefix, vfsMiddleware(vfs, 'static'), staticHost);
 
   await listen(staticServer, yargs.port + 80);
-  log('Static', chalk.green(staticScope));
+  log('Static', chalk.green(config.staticScope));
 
   const prodServer = polka();
   const prodVfs = (id) => {
