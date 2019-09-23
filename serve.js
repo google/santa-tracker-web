@@ -58,7 +58,7 @@ function clipboardCopy(v) {
 }
 
 const messages = i18n(yargs.lang);
-log(messages('santatracker'));
+log(chalk.red(messages('santatracker')), `[${yargs.lang}]`);
 
 
 // nb. matches config in release.js
