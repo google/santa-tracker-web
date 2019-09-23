@@ -4,20 +4,21 @@
  * @fileoverview Builds Santa Tracker for release to production.
  */
 
-const color = require('ansi-colors');
-const compileCss = require('./build/compile-css.js');
-const dom = require('./build/dom.js');
+const chalk = require('chalk');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
+const i18n = require('./build/i18n.js');
 const isUrl = require('./build/is-url.js');
-const releaseHtml = require('./build/release-html.js');
 const log = require('fancy-log');
 const path = require('path');
-const i18n = require('./build/i18n.js');
-require('json5/lib/register');
+const releaseHtml = require('./build/release-html.js');
+const santaVfs = require('./santa-vfs.js');
+const modernBuilder = require('./build/modern-builder.js');
+const {JSDOM} = require('jsdom');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
+const DEFAULT_LANG = 'en';  // write these files to top-level
 
 const yargs = require('yargs')
     .strict()
@@ -26,23 +27,18 @@ const yargs = require('yargs')
       alias: 'b',
       type: 'string',
       default: DEFAULT_STATIC_VERSION,
-      describe: 'production build tag',
-    })
-    .option('default-lang', {
-      type: 'string',
-      default: 'en',
-      describe: 'default top-level language',
+      describe: 'Production build tag',
     })
     .options('transpile', {
       type: 'boolean',
       default: true,
-      describe: 'transpile for ES5 browsers (slow)',
+      describe: 'Transpile for ES5 browsers (slow)',
     })
     .option('default-only', {
       alias: 'o',
       type: 'boolean',
       default: false,
-      describe: 'only generate default top-level language',
+      describe: 'Only generate top-level language',
     })
     .option('baseurl', {
       type: 'string',
@@ -50,19 +46,14 @@ const yargs = require('yargs')
       describe: 'URL to static content',
     })
     .option('prod', {
-      type: 'string',
-      default: 'https://santatracker.google.com/',
-      describe: 'base prod URL (disable for no prod)',
+      type: 'boolean',
+      default: true,
+      describe: 'Whether to build prod',
     })
     .option('scene', {
       type: 'array',
       default: [],
-      describe: 'if specified, only compile these scenes',
-    })
-    .options('index', {
-      type: 'boolean',
-      default: true,
-      describe: 'whether to build static index entrypoint',
+      describe: 'If specified, only compile these scenes',
     })
     .argv;
 
@@ -73,17 +64,19 @@ const staticAssets = [
   'scenes/**/models/**',
   'scenes/**/img/**',
 
-  // release WC bundles, as they're injected at runtime
+  // Explicitly include Web Components polyfill bundles, as they're injected at runtime rather than
+  // being directly referenced by a `<script>`.
   'node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
 ];
 
-const staticLoaderFiles = [
-  'src/app/controller.bundle.js',
-  'src/soundcontroller-embed.bundle.js',
-];
+// nb. matches config in serve.js
+const config = {
+  staticScope: `${yargs.baseurl}${yargs.build}/`,
+  version: yargs.build,
+};
 
-function pathForLang(lang) {
-  if (lang === yargs.defaultLang) {
+function prodPathForLang(lang) {
+  if (lang === DEFAULT_LANG) {
     return '.';
   }
   return `intl/${lang}_ALL`
@@ -105,42 +98,20 @@ async function write(target, content) {
   await fsp.writeFile(target, content);
 }
 
-/**
- * @param {string} id of the scene
- * @param {?Object} info from scenes.js
- * @return {string} msgid to use for naming the scene
- */
-function msgidForScene(id, info) {
-  if (!id || !info) {
-    return 'santatracker';
-  } else if ('msgid' in info) {
-    return info.msgid;
-  } else if (info.video) {
-    return `scene_videoscene_${id}`;
-  } else {
-    return `scene_${id}`;
-  }
-}
-
 async function release() {
-  log(`Building Santa Tracker ${color.red(yargs.build)}...`);
+  log(`Building Santa Tracker ${chalk.red(yargs.build)}...`);
+
+  const staticRoot = (new URL(config.staticScope)).pathname;
 
   const staticDir = path.join('dist/static', yargs.build);
   await fsp.mkdirp(staticDir);
   await fsp.mkdirp('dist/prod');
 
-  const staticAttr = `${yargs.baseurl}${yargs.build}/`;
-  const staticRoot = (new URL(staticAttr)).pathname;
-  const staticAttrForLang = (lang) => {
-    return lang ? `${staticAttr}${lang}.html` : staticAttr;
-  };
-
   // Display the static URL plus the root (in a different color).
-  if (!staticAttr.endsWith(staticRoot)) {
-    throw new TypeError(`invalid static resolution: ${staticAttr} vs ${staticRoot}`)
+  if (!config.staticScope.endsWith(staticRoot)) {
+    throw new TypeError(`invalid static resolution: ${config.staticScope} vs ${staticRoot}`)
   }
-  const leftPart = staticAttr.substr(0, staticAttr.length - staticRoot.length);
-  log(`Static at ${color.green(leftPart)}${color.greenBright(staticRoot)}`);
+  log(`Static at ${chalk.green(config.staticScope)}`);
 
   // Find the list of languages by reading `_messages`.
   const missingMessages = {};
@@ -150,89 +121,21 @@ async function release() {
     }
     missingMessages[msgid].add(lang);
   });
-  if (!(yargs.defaultLang in langs)) {
-    throw new Error(`default lang '${yargs.defaultLang}' not found in _messages`);
+  if (!(DEFAULT_LANG in langs)) {
+    throw new Error(`default lang '${DEFAULT_LANG}' not found in _messages`);
   }
   if (yargs.defaultOnly) {
     Object.keys(langs).forEach((otherLang) => {
-      if (otherLang !== yargs.defaultLang) {
+      if (otherLang !== DEFAULT_LANG) {
         delete langs[otherLang];
       }
     });
   }
-  log(`Found ${color.cyan(Object.keys(langs).length)} languages`);
+  log(`Building ${chalk.cyan(Object.keys(langs).length)} languages`);
 
-  // Fanout these scenes in prod.
-  const scenes = require('./scenes.json5');
-  log(`Found ${color.cyan(Object.keys(scenes).length)} scenes`);
-
-  // Release all non-HTML prod assets.
-  if (!yargs.prod) {
-    log(`${color.red('Skipping prod release')}`);
-  } else {
-    const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
-    await releaseAll(prodAll);
-
-    // Match non-index.html prod pages, like cast, error etc.
-    let prodHtmlCount = 0;
-    const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
-    for (const htmlFile of prodOtherHtml) {
-      const documentForLang = await releaseHtml.prod(htmlFile);
-
-      const tail = path.basename(htmlFile);
-      for (const lang in langs) {
-        const target = path.join('dist/prod', pathForLang(lang), tail);
-        const out = documentForLang(langs[lang], (document) => {
-          releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
-        });
-        await write(target, out);
-        ++prodHtmlCount;
-      }
-    }
-
-    // Fanout prod index.html to all scenes and langs.
-    for (const sceneName in scenes) {
-      const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
-        const head = document.head;
-        releaseHtml.applyAttribute(document.body, 'data-version', yargs.build);
-
-        const image = `prod/images/og/${sceneName}.png`;
-        if (await fsp.exists(image)) {
-          const url = `${yargs.prod}images/og/${sceneName}.png`;
-          const all = [
-            '[property="og:image"]',
-            '[name="twitter:image"]',
-          ];
-          releaseHtml.applyAttributeToAll(head, all, 'content', url);
-        }
-
-        const msgid = msgidForScene(sceneName, scenes[sceneName]);
-        const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
-        releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
-      });
-
-      for (const lang in langs) {
-        const filename = sceneName === '' ? 'index.html' : `${sceneName}.html`;
-        const target = path.join('dist/prod', pathForLang(lang), filename);
-        const out = documentForLang(langs[lang], (document) => {
-          releaseHtml.applyAttribute(document.body, 'data-static', staticAttrForLang(lang));
-        });
-        await write(target, out);
-        ++prodHtmlCount;
-      }
-    }
-
-    log(`Written ${color.cyan(prodHtmlCount)} prod HTML files`);
-
-    // Generate manifest.json for every language.
-    const manifest = require('./prod/manifest.json');
-    for (const lang in langs) {
-      const messages = langs[lang];
-      manifest['name'] = messages('santatracker');
-      manifest['short_name'] = messages('santa-app');
-      const target = path.join('dist/prod', pathForLang(lang), 'manifest.json');
-      await write(target, JSON.stringify(manifest));
-    }
+  // Release prod entrypoints.
+  if (yargs.prod) {
+    await releaseProd(langs);
   }
 
   // Shared resources needed by prod build.
@@ -243,19 +146,13 @@ async function release() {
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
   // or JS on its own, it must be included by one of our HTML entry points.
-  const loaderOptions = {compile: true, root: staticRoot};
-  const loader = require('./loader.js')(loaderOptions);
+  const vfs = santaVfs(config.staticScope, {config});
 
   const htmlFiles = [];
-  if (yargs.index) {
-    htmlFiles.push('index.html');
-  } else {
-    log(`${color.red('Skipping static index entrypoint')}`);
-  }
   if (yargs.scene.length) {
-    htmlFiles.push(...yargs.scene.map((scene) => path.join('scenes', scene, 'index.html')));
+    htmlFiles.push(...yargs.scene.map((scene) => path.join('static/scenes', scene, 'index.html')));
   } else {
-    htmlFiles.push('scenes/*/index.html');
+    htmlFiles.push(...globAll('static/scenes/*/index.html'));
   }
   if (!htmlFiles.length) {
     throw new Error('no entrypoints matched')
@@ -264,33 +161,31 @@ async function release() {
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
     const dir = path.dirname(htmlFile);
-    const document = await dom.read(htmlFile);
-    htmlDocuments.set(htmlFile, document);
+    const dom = new JSDOM(await fsp.readFile(htmlFile));
+    const document = dom.window.document;
+
+    htmlDocuments.set(htmlFile, dom);
     messagesForHtmlFile.set(htmlFile, new Set());
 
+    // Find assets that are going to be inlined.
     const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
     const allScripts = Array.from(document.querySelectorAll('script')).filter((scriptNode) => {
       return !(scriptNode.src && isUrl(scriptNode.src));
     });
 
-    // Add release/build notes to HTML.
-    document.body.setAttribute('data-version', yargs.build);
-    const devNode = document.getElementById('DEV');
-    devNode && devNode.remove();
-
-    // Inline all referenced styles which are available locally.
+    // Inline all local referenced styles.
     for (const styleLink of styleLinks) {
       if (isUrl(styleLink.href)) {
-        continue;
+        continue;  // TODO(samthor): mostly Google Fonts, but could be worth validating
       }
-      const out = await loader(path.join(dir, styleLink.href), {compile: true});
+      const out = await vfs(path.join(dir, styleLink.href));
       const inlineStyleTag = document.createElement('style');
-      inlineStyleTag.innerHTML = out.body;
-      styleLink.parentNode.replaceChild(inlineStyleTag, styleLink);
+      inlineStyleTag.innerHTML = out.code;
+      styleLink.replaceWith(inlineStyleTag);
     }
 
     // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
-    // catalogued and then included in the production output.
+    // catalogued and then included in the static output.
     allScripts
         .filter((s) => s.src && (!s.type || s.type === 'text/javascript'))
         .map((s) => path.join(dir, s.src))
@@ -303,21 +198,74 @@ async function release() {
 
       // If it's an external script, pretend that we have local code that imports it.
       if (scriptNode.src) {
+        if (code) {
+          throw new TypeError(`got invalid <script>: both code and src`);
+        }
         let src = scriptNode.src;
         if (!src.startsWith('./')) {
           src = `./${src}`;
         }
         code = `import '${src}';`
       }
-      const id = `e${entrypoints.size}.js`;
-      entrypoints.set(id, {scriptNode, dir, code, htmlFile});
+      const id = `${htmlFile}#${entrypoints.size}.js`;
+      entrypoints.set(id, {scriptNode, code, htmlFile});
 
       // Clear scriptNode.
       scriptNode.textContent = '';
       scriptNode.removeAttribute('src');
     }
   }
-  log(`Found ${color.cyan(entrypoints.size)} module entrypoints`);
+
+  // Optionally include prod-required scripts.
+  if (yargs.prod) {
+    // FIXME: can we compile prod/ together with static/ ?
+    const prodScripts = globAll('prod/*.js', 'static/entrypoint.js');
+    for (const id of prodScripts) {
+      entrypoints.set(id, {
+        scriptNode: null,
+        code: await fsp.readFile(id, 'utf8'),
+        htmlFile: null,
+      });
+    }
+  }
+
+  log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`)
+  log(`Found ${chalk.cyan(entrypoints.size)} entrypoints`);
+
+  const bundles = await modernBuilder(entrypoints, {
+    loader: vfs,
+    external(id) {
+      if (id === 'static/src/magic.js') {
+        return '__magic';
+      }
+    },
+  });
+  log(`Generated ${bundles.length} bundles`);
+
+  // FIXME: We can probably just awkwardly swap the import names for i18n files. So it might
+  // be possible to basically mark the leaves as "non-i18n" and leave them alone, BUT rewrite
+  // the graph (load it in memory) for lang use.
+  // OR just compile ~37 times. (gross)
+
+
+  const babel = require('@babel/core');
+
+  // FIXME: for now, do 2 passes. One for rewriting features if needed, one for i18n.
+
+  for (const {code, fileName} of bundles) {
+    // TODO: experiment with rewriting __magic.
+    const transformed = await babel.transformAsync(code);
+    console.info('transformed', fileName, transformed);
+  }
+  throw 'done';
+
+
+
+
+
+
+
+
 
   // Awkwardly insert rollup step in the middle of the release process.
   // TODO(samthor): refactor out?
@@ -349,7 +297,6 @@ async function release() {
     },
   };
   const bundle = await rollup.rollup({
-    experimentalCodeSplitting: true,
     input: Array.from(entrypoints.keys()),
     plugins: [rollupNodeResolve(), virtualLoader],
   });
@@ -358,10 +305,10 @@ async function release() {
     format: 'es',
     chunkFileNames: 'c[hash].js',
   });
-  log(`Generated ${color.cyan(Object.keys(generated.output).length)} total modules`);
+  log(`Generated ${chalk.cyan(Object.keys(generated.output).length)} total modules`);
 
-  const babel = require('@babel/core');
-  const buildTemplateTagReplacer = require('./build/babel/template-tag-replacer.js');
+  // const babel = require('@babel/core');
+  // const buildTemplateTagReplacer = require('./build/babel/template-tag-replacer.js');
 
   let totalSizeES = 0;
   for (const filename in generated.output) {
@@ -401,10 +348,10 @@ async function release() {
     await write(path.join(staticDir, 'src', filename), minifiedForES.code);
     totalSizeES += minifiedForES.code.length;
   }
-  log(`Written ${color.cyan(totalSizeES)} bytes of ES module code`);
+  log(`Written ${chalk.cyan(totalSizeES)} bytes of ES module code`);
 
   if (!yargs.transpile) {
-    log(`Transpilation ${color.red('disabled')}, only support ES module browsers`);
+    log(`Transpilation ${chalk.red('disabled')}, only support ES module browsers`);
   }
 
   // Generate ES5 versions of entrypoints.
@@ -420,7 +367,7 @@ async function release() {
 
     // Optionally skip transpilation.
     if (!yargs.transpile) {
-      log(`Analyzing ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
+      log(`Analyzing ${chalk.green(filename)} for ${chalk.green(data.htmlFile)}...`);
       await rollup.rollup({
         plugins: [
           babelPlugin({
@@ -435,7 +382,7 @@ async function release() {
       });
       continue;
     }
-    log(`Transpiling ${color.green(filename)} for ${color.green(data.htmlFile)}...`);
+    log(`Transpiling ${chalk.green(filename)} for ${chalk.green(data.htmlFile)}...`);
 
     // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
     // https://github.com/MatAtBread/fast-async#runtimepattern
@@ -505,30 +452,92 @@ async function release() {
     }
   }
 
-  // Special-case some loaded code.
-  for (const loaderFile of staticLoaderFiles) {
-    const out = await loader(loaderFile);
-    await write(path.join(staticDir, loaderFile), out.body);
-  }
-
   // Copy everything else.
   const staticAll = globAll(...staticAssets).concat(...requiredScriptSources);
-  log(`Copying ${color.cyan(staticAll.length)} static assets`);
+  log(`Copying ${chalk.cyan(staticAll.length)} static assets`);
   await releaseAll(staticAll, path.join('static', yargs.build));
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
   if (missingMessagesKeys.length) {
-    log(`Missing ${color.red(missingMessagesKeys.length)} messages:`);
+    log(`Missing ${chalk.red(missingMessagesKeys.length)} messages:`);
     missingMessagesKeys.forEach((msgid) => {
       const missingLangs = missingMessages[msgid];
       const ratio = (missingLangs.size / Object.keys(langs).length * 100).toFixed() + '%';
       const rest = (missingLangs.size <= 10) ? `[${[...missingLangs]}]` : '';
-      console.info(color.yellow(msgid), 'for', color.red(ratio), 'of langs', rest);
+      console.info(chalk.yellow(msgid), 'for', chalk.red(ratio), 'of langs', rest);
     });
   }
 
   log(`Done!`);
+}
+
+async function releaseProd(langs) {
+  // Fanout these scenes in prod.
+  // TODO(samthor): This list should be bigger.
+  const prodPages = (await fsp.readdir('./static/scenes')).filter((cand) => cand.match(/^[a-z  ]+/));
+  prodPages.push('');
+  log(`Found ${chalk.cyan(Object.keys(prodPages).length)} prod pages`);
+
+  const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
+  await releaseAll(prodAll);
+
+  // Match non-index.html prod pages, like cast, error etc.
+  let prodHtmlCount = 0;
+  const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
+  for (const htmlFile of prodOtherHtml) {
+    const documentForLang = await releaseHtml.prod(htmlFile);
+
+    const tail = path.basename(htmlFile);
+    for (const lang in langs) {
+      const target = path.join('dist/prod', prodPathForLang(lang), tail);
+      await write(target, documentForLang(langs[lang]));
+      ++prodHtmlCount;
+    }
+  }
+
+  // Fanout prod index.html to all scenes and langs.
+  for (const page of prodPages) {
+    const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
+      const head = document.head;
+
+      const image = `prod/images/og/${page}.png`;
+      if (await fsp.exists(image)) {
+        const url = `/images/og/${page}.png`;
+        const all = [
+          '[property="og:image"]',
+          '[name="twitter:image"]',
+        ];
+        releaseHtml.applyAttributeToAll(head, all, 'content', url);
+      }
+
+      // const msgid = msgidForScene(page, prodScenes[page]);
+      const msgid = 'santatracker';  // FIXME: no msgid
+      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
+      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+    });
+
+    for (const lang in langs) {
+      const filename = page ? `${page}.html` : 'index.html';
+      const target = path.join('dist/prod', prodPathForLang(lang), filename);
+      await write(target, documentForLang(langs[lang]));
+      ++prodHtmlCount;
+    }
+  }
+
+  log(`Written ${chalk.cyan(prodHtmlCount)} prod pages`);
+
+  // Generate manifest.json for every language.
+  const manifest = require('./prod/manifest.json');
+  for (const lang in langs) {
+    const messages = langs[lang];
+    manifest['name'] = messages('santatracker');
+    manifest['short_name'] = messages('santa-app');
+    const target = path.join('dist/prod', prodPathForLang(lang), 'manifest.json');
+    await write(target, JSON.stringify(manifest));
+  }
+
+  log(`Written ${chalk.cyan(Object.keys(langs).length)} manifest files`);
 }
 
 release().catch((err) => {

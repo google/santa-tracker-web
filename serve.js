@@ -71,6 +71,7 @@ async function serve() {
   const vfs = santaVfs(config.staticScope, {
     compile: yargs.compile,
     lang: yargs.lang,
+    config,
   });
 
   const staticHost = dhost({
@@ -85,11 +86,6 @@ async function serve() {
   log('Static', chalk.green(config.staticScope));
 
   const prodServer = polka();
-  const prodVfs = (id) => {
-    if (id === 'prod/config.json') {
-      return JSON.stringify(config);
-    }
-  };
 
   const prodHtmlMiddleware = async (req, res, next) => {
     // Match Google's serving infrastructure, and serve valid files under /intl/XX/.
@@ -128,7 +124,7 @@ async function serve() {
 
   prodServer.use(
     prodHtmlMiddleware,
-    vfsMiddleware(prodVfs, 'prod'),
+    vfsMiddleware(vfs, 'prod'),
     dhost({path: 'prod', listing: false}),
   );
 

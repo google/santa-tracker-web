@@ -8,8 +8,8 @@
     "test": "mocha-headless-server src/api/test.html"
   },
   "dependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.6",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "@tensorflow-models/posenet": "^0.2.3",
     "@tensorflow/tfjs": "^0.13.0",
     "@webcomponents/webcomponentsjs": "latest",

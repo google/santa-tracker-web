@@ -107,12 +107,12 @@ function buildLangPlugin(id, lang) {
  * Builds a virtual filesystem for Santa Tracker.
  *
  * @param {string} staticScope the URL prefix to static content
- * @param {{compile: boolean, lang: string}=}
+ * @param {{compile: boolean, lang: string, config: !Object<string, string>}=}
  * @param {boolean=} compile whether to compile Closure code
  * @return {{load: function(string): ?}}
  */
 module.exports = (staticScope, options) => {
-  options = Object.assign({compile: true, lang: null}, options);
+  options = Object.assign({compile: true, lang: null, config: {}}, options);
 
   const stylesPlugin = {
     map(ext) {
@@ -125,6 +125,17 @@ module.exports = (staticScope, options) => {
       // actually irrelevant, since we can just use relative URLs. It saves us ~bytes.
       // nb. However, if styles are _inlined_, we're not nessecarily fixing the scope here.
       return compileStyles(id, staticScope, 'static');
+    },
+  };
+
+  const configPlugin = {
+    match(id) {
+      if (id === 'prod/config.json') {
+        return id;
+      }
+    },
+    load() {
+      return JSON.stringify(options.config);
     },
   };
 
@@ -171,5 +182,12 @@ module.exports = (staticScope, options) => {
     },
   };
 
-  return vfsLoader([stylesPlugin, languagesPlugin, jsonPlugin, closurePlugin]);
+  const plugins = [
+    stylesPlugin,
+    configPlugin,
+    languagesPlugin,
+    jsonPlugin,
+    closurePlugin,
+  ];
+  return vfsLoader(plugins);
 };
