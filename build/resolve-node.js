@@ -4,6 +4,9 @@ const path = require('path');
 
 const statOrNull = async (p) => fs.stat(p).catch((err) => null);
 
+// TODO(samthor): Used in a few places.
+const alreadyResolvedMatch = /^(\.{0,2}\/|[a-z]\w*\:)/;  // matches start of './' or 'https:' etc
+
 
 /**
  * Finds the nearest named folder (including symlinks).
@@ -28,6 +31,10 @@ const nearestContainingDirectory = async (id, name='node_modules') => {
 
 
 module.exports = async (importee, importer) => {
+  if (!importer || alreadyResolvedMatch.exec(importee)) {
+    return null;  // not importable
+  }
+
   const resolved = path.resolve(importer);  // resolve import self
   const container = await nearestContainingDirectory(resolved);
   if (container === null) {
