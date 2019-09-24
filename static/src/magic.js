@@ -29,28 +29,6 @@ export function _static(path) {
   return join(import.meta.url, '..', path.toString());
 }
 
-/**
- * Joins the given URL and any following paths. This is magic in that with entirely static params
- * (including import.meta.url) it could be compiled out.
- *
- * @param {string|!URL} url to start with
- * @param  {...string} paths to append
- */
-export function join(url, ...paths) {
-  let u = new URL(url);
-
-  while (paths.length) {
-    let next = String(paths.shift());
-    if (!next.endsWith('/') && paths.length) {
-      next += '/';
-    }
-    u = new URL(next, u);
-  }
-
-  // FIXME: It's not clear what domain this loads from, so just return the whole URL.
-  return u.toString();
-}
-
 
 /**
  * Upgrades all elements with `msgid="..."` as a single startup task. This is compiled for release
