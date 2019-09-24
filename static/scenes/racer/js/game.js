@@ -30,7 +30,6 @@ goog.require('SB.Object.Text');
 goog.require('SB.Renderer');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
-goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
@@ -41,7 +40,6 @@ goog.require('app.shared.utils');
  * @param {!Element} elem
  * @param {string} componentDir The path to the Racer scene directory.
  * @constructor
- * @implements SharedGame
  * @struct
  */
 SB.Game = function(elem, componentDir) {

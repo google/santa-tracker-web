@@ -20,7 +20,6 @@ goog.provide('app.Game');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
-goog.require('app.shared.SharedGame');
 
 goog.require('app.AnimationPlayer');
 goog.require('app.Character');
@@ -35,7 +34,6 @@ goog.require('app.Sequencer');
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
  * @param {string} componentDir A path to the directory for the game.
- * @implements {SharedGame}
  * @constructor
  * @struct
  * @export

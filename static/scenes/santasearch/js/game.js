@@ -28,7 +28,6 @@ goog.require('app.shared.utils');
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
  * @param {string} componentDir A path to the directory for the game.
- * @implements {SharedGame}
  * @constructor
  * @struct
  * @export

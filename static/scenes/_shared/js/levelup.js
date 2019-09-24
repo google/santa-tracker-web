@@ -17,7 +17,6 @@
 
 goog.provide('app.shared.LevelUp');
 
-goog.require('app.shared.SharedGame');
 goog.require('app.shared.utils');
 
 // We are *leaking* the LevelUp global for backwards compatibility.
@@ -26,11 +25,11 @@ app.shared.LevelUp = LevelUp;
 /**
  * Animation for level up.
  * @constructor
- * @param {!SharedGame} game The current game object.
+ * @param {*} _ ignored
  * @param {!Element|!jQuery} bgElem The element for the background.
  * @param {!Element|!jQuery} numberElem The element for the level number.
  */
-function LevelUp(game, bgElem, numberElem) {
+function LevelUp(_, bgElem, numberElem) {
   this.bgElem = $(bgElem);
   this.numberElem = $(numberElem);
 

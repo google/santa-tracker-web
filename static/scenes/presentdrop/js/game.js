@@ -21,7 +21,6 @@ goog.require('app.shared.utils');
 goog.require('app.shared.pools');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
-goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.Chimney');
 goog.require('app.Controls');
@@ -32,7 +31,6 @@ goog.require('app.Present');
 /**
  * Main game class.
  * @param {!Element} elem A DOM element which wraps the game.
- * @implements {SharedGame}
  * @constructor
  * @struct
  * @export

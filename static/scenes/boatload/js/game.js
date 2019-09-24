@@ -28,7 +28,6 @@ goog.require('app.shared.Coordinator');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 goog.require('app.shared.Scoreboard');
-goog.require('app.shared.SharedGame');
 goog.require('app.shared.Tutorial');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
@@ -37,7 +36,6 @@ goog.require('app.shared.utils');
  * Main game class.
  * @param {!Element} elem The DOM element which wraps the game.
  * @constructor
- * @implements {SharedGame}
  */
 Game = function(elem) {
   this.elem = $(elem);
