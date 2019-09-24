@@ -166,18 +166,15 @@ module.exports = (staticScope, options) => {
     },
     async load(id) {
       const m = closureSceneMatch.exec(id);
-      const config = {
-        sceneName: m[1],
-      };
+      const sceneName = m[1];
 
       const flags = m[2];
-      if (flags === '-typeSafe') {
-        config.typeSafe = true;
-      } else if (flags != '') {
+      if (flags) {
+        // nb. This previously allowed e.g. ':closure-typeSafe.js', but now everthing is type-safe.
         throw new Error(`unsupported Closure flags: ${flags}`);
       }
 
-      const {js, map} = await compileScene(config, options.compile);
+      const {js, map} = await compileScene(sceneName, options.compile);
       return {code: js, map};
     },
   };

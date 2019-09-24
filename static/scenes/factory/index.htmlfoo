@@ -152,7 +152,7 @@
 <script src="../../node_modules/web-animations-js/web-animations-next.min.js"></script>
 <script type="module">
   import api from '../../src/scene/api.js';
-  import Game from './:closure.js';
+  import Game from './:closure-typeSafe.js';
 
   api.preload.sounds('factory_load_sounds');
   api.preload.images(

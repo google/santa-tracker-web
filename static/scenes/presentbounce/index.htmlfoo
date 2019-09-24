@@ -46,7 +46,7 @@
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
   import api from '../../src/scene/api.js';
-  import Game from './:closure.js';
+  import Game from './:closure-typeSafe.js';
 
   api.preload.sounds('pb_load_sounds', 40);
   api.preload.images(
