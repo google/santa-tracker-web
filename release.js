@@ -14,7 +14,9 @@ const path = require('path');
 const releaseHtml = require('./build/release-html.js');
 const santaVfs = require('./santa-vfs.js');
 const modernBuilder = require('./build/modern-builder.js');
+const sourceMagic = require('./build/source-magic.js');
 const {JSDOM} = require('jsdom');
+const babel = require('@babel/core');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -93,6 +95,14 @@ function releaseAll(all, prefix=null) {
   return Promise.all(copies);
 }
 
+function rewritePathForLang(id, lang) {
+  if (!lang) {
+    return id;
+  }
+  const p = path.parse(id);
+  return path.join(p.dir, `${p.name}_${lang}${p.ext}`);
+}
+
 async function write(target, content) {
   await fsp.mkdirp(path.dirname(target));
   await fsp.writeFile(target, content);
@@ -141,7 +151,6 @@ async function release() {
   // Shared resources needed by prod build.
   const entrypoints = new Map();
   const requiredScriptSources = new Set();
-  const messagesForHtmlFile = new Map();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
@@ -152,10 +161,10 @@ async function release() {
   if (yargs.scene.length) {
     htmlFiles.push(...yargs.scene.map((scene) => path.join('static/scenes', scene, 'index.html')));
   } else {
-    htmlFiles.push(...globAll('static/scenes/*/index.html'));
+    htmlFiles.push(...globAll('static/scenes/*/index.html', '!static/scenes/poseboogie/**/index.html'));
   }
   if (!htmlFiles.length) {
-    throw new Error('no entrypoints matched')
+    throw new Error('no entrypoints matched');
   }
 
   const htmlDocuments = new Map();
@@ -163,9 +172,6 @@ async function release() {
     const dir = path.dirname(htmlFile);
     const dom = new JSDOM(await fsp.readFile(htmlFile));
     const document = dom.window.document;
-
-    htmlDocuments.set(htmlFile, dom);
-    messagesForHtmlFile.set(htmlFile, new Set());
 
     // Find assets that are going to be inlined.
     const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
@@ -208,12 +214,14 @@ async function release() {
         code = `import '${src}';`
       }
       const id = `${htmlFile}#${entrypoints.size}.js`;
-      entrypoints.set(id, {scriptNode, code, htmlFile});
+      entrypoints.set(id, {scriptNode, code});
 
       // Clear scriptNode.
       scriptNode.textContent = '';
       scriptNode.removeAttribute('src');
     }
+
+    htmlDocuments.set(htmlFile, {dom, moduleScriptNodes});
   }
 
   // Optionally include prod-required scripts.
@@ -224,13 +232,12 @@ async function release() {
       entrypoints.set(id, {
         scriptNode: null,
         code: await fsp.readFile(id, 'utf8'),
-        htmlFile: null,
       });
     }
   }
 
-  log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`)
-  log(`Found ${chalk.cyan(entrypoints.size)} entrypoints`);
+  log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`);
+  log(`Found ${chalk.cyan(entrypoints.size)} entrypoints, merging...`);
 
   const bundles = await modernBuilder(entrypoints, {
     loader: vfs,
@@ -240,217 +247,126 @@ async function release() {
       }
     },
   });
-  log(`Generated ${bundles.length} bundles`);
+  log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
 
-  // FIXME: We can probably just awkwardly swap the import names for i18n files. So it might
-  // be possible to basically mark the leaves as "non-i18n" and leave them alone, BUT rewrite
-  // the graph (load it in memory) for lang use.
-  // OR just compile ~37 times. (gross)
+  const builder = sourceMagic({
+    magicImport(importName) {
+      return importName === '__magic';
+    },
+    taggedTemplate(lang, name, key) {
+      switch (name) {
+        case '_msg':
+          const messages = langs[lang];
+          return messages(key);
 
+        case '_static':
+          return config.staticScope + key;
 
-  const babel = require('@babel/core');
-
-  // FIXME: for now, do 2 passes. One for rewriting features if needed, one for i18n.
-
-  for (const {code, fileName} of bundles) {
-    // TODO: experiment with rewriting __magic.
-    const transformed = await babel.transformAsync(code);
-    console.info('transformed', fileName, transformed);
-  }
-  throw 'done';
-
-
-
-
-
-
-
-
-
-  // Awkwardly insert rollup step in the middle of the release process.
-  // TODO(samthor): refactor out?
-  const rollup = require('rollup');
-  const rollupNodeResolve = require('rollup-plugin-node-resolve');
-  const terser = require('terser');
-  const virtualCache = {};
-  const virtualLoader = {
-    name: 'rollup-virtual-loader-release',
-    async resolveId(id, importer) {
-      if (importer === undefined) {
-        const data = entrypoints.get(id);
-        virtualCache[id] = data.code;
-        return id;
-      }
-
-      const data = entrypoints.get(importer);
-      const resolved = path.resolve(data ? data.dir : path.dirname(importer), id);
-
-      // try the loader
-      const out = await loader(resolved, {compile: true});
-      if (out) {
-        virtualCache[resolved] = out.body.toString();
-        return resolved;
+        default:
+          throw new TypeError(`unsupported magic: ${name}`);
       }
     },
-    load(id) {
-      return virtualCache[id];
+    rewriteImport(lang, id) {
+
     },
-  };
-  const bundle = await rollup.rollup({
-    input: Array.from(entrypoints.keys()),
-    plugins: [rollupNodeResolve(), virtualLoader],
   });
 
-  const generated = await bundle.generate({
-    format: 'es',
-    chunkFileNames: 'c[hash].js',
-  });
-  log(`Generated ${chalk.cyan(Object.keys(generated.output).length)} total modules`);
-
-  // const babel = require('@babel/core');
-  // const buildTemplateTagReplacer = require('./build/babel/template-tag-replacer.js');
-
-  let totalSizeES = 0;
-  for (const filename in generated.output) {
-    const {isEntry, code} = generated.output[filename];
-
-    if (isEntry) {
-      // TODO(samthor): can we determine the tree here and add preloads?
-      const {scriptNode, dir} = entrypoints.get(filename);
-      scriptNode.setAttribute('src', path.relative(dir, `src/${filename}`));
+  // Prepare rewriters for all scripts, and determine whether they need i18n at all.
+  const annotatedBundles = {};
+  const scriptNodeToBundle = new Map();
+  for (const bundle of bundles) {
+    if (bundle.isDynamicEntry) {
+      throw new TypeError(`dynamic entry unsupported: ${bundle.fileName}`);
     }
 
-    const templateTagReplacer = (name, arg, dirname) => {
-      if (name === '_style') {
-        const {css} = compileCss(path.join(dirname, `/${arg}.scss`), loaderOptions);
-        return css;
-      } else if (name === '_root') {
-        return path.join(loaderOptions.root, arg);
-      }
+    const {seen, rewrite} = await builder(bundle.code);
+    const entrypoint = entrypoints.get(bundle.facadeModuleId);
+
+    annotatedBundles[bundle.fileName] = {
+      entrypoint: entrypoint || null,
+      inline: entrypoint && entrypoint.scriptNode || false,
+      i18n: seen.has('_msg'),
+      rewrite,
+      imports: bundle.imports.filter((x) => x !== '__magic'),
     };
 
-    // Transpile down for the ES module high-water mark. This is the `type="module"` import above.
-    const {code: transpiledForES} = await babel.transformAsync(code, {
-      filename,
-      presets: [
-        ['@babel/preset-env', {
-          targets: {esmodules: true},
-          modules: false,
-        }],
-      ],
-      plugins: [
-        // include _style replacements as a byproduct
-        buildTemplateTagReplacer(templateTagReplacer),
-      ],
-      sourceType: 'module',
-    });
-    const minifiedForES = terser.minify(transpiledForES);
-    await write(path.join(staticDir, 'src', filename), minifiedForES.code);
-    totalSizeES += minifiedForES.code.length;
-  }
-  log(`Written ${chalk.cyan(totalSizeES)} bytes of ES module code`);
-
-  if (!yargs.transpile) {
-    log(`Transpilation ${chalk.red('disabled')}, only support ES module browsers`);
-  }
-
-  // Generate ES5 versions of entrypoints.
-  const babelPlugin = require('rollup-plugin-babel');
-  for (const [filename, data] of entrypoints) {
-    // Piggyback on ES5 transpilation process to get messages required for this HTML entrypoint.
-    const messages = messagesForHtmlFile.get(data.htmlFile);
-    const messageTagObserver = (name, arg) => {
-      if (name === '_msg') {
-        messages.add(arg);
-      }
-    };
-
-    // Optionally skip transpilation.
-    if (!yargs.transpile) {
-      log(`Analyzing ${chalk.green(filename)} for ${chalk.green(data.htmlFile)}...`);
-      await rollup.rollup({
-        plugins: [
-          babelPlugin({
-            sourceMaps: false,
-            compact: true,
-            plugins: [
-              buildTemplateTagReplacer(messageTagObserver),
-            ],
-          }),
-        ],
-        input: path.join(staticDir, 'src', filename),
-      });
-      continue;
+    if (entrypoint && entrypoint.scriptNode) {
+      scriptNodeToBundle.set(entrypoint.scriptNode, annotatedBundles[bundle.fileName]);
     }
-    log(`Transpiling ${chalk.green(filename)} for ${chalk.green(data.htmlFile)}...`);
-
-    // TODO(samthor): fast-async adds boilerplate to all files, should be included with polyfills
-    // https://github.com/MatAtBread/fast-async#runtimepattern
-    const bundle = await rollup.rollup({
-      plugins: [
-        babelPlugin({
-          sourceMaps: false,  // babel barfs on some large entrypoints
-          compact: true,      // otherwise it prettyprints
-          plugins: [
-            buildTemplateTagReplacer(messageTagObserver),
-            'module:fast-async',  // use fast-async over transform-regenerator
-          ],
-          presets: [
-            ['@babel/preset-env', {
-              targets: {browsers: 'ie >= 11'},
-              exclude: ['transform-regenerator'],
-            }],
-          ],
-        }),
-      ],
-      input: path.join(staticDir, 'src', filename),
-    });
-    const generated = await bundle.generate({format: 'es'});
-    await write(path.join(staticDir, 'src', `_${filename}`), generated.code);
-
-    // Add a new scriptNode before the ES6 node.
-    const {scriptNode, dir} = data;
-    const transpiledScriptNode = scriptNode.ownerDocument.createElement('script');
-    transpiledScriptNode.toggleAttribute('nomodule', true);
-    transpiledScriptNode.src = path.relative(dir, `src/_${filename}`);
-    scriptNode.parentNode.insertBefore(transpiledScriptNode, scriptNode);
   }
 
-  // Render i18n versions of static pages.
-  for (const [htmlFile, document] of htmlDocuments) {
-    const documentForLang = await releaseHtml.static(document);
-    const dir = path.dirname(htmlFile);
-    const fanout = (path.basename(htmlFile) === 'index.html');
+  const filesToWrite = [];
 
-    // If there were any messages required for this file, add a script node.
-    const msgids = messagesForHtmlFile.get(htmlFile);
-    const scriptNode = document.createElement('script');
-    if (msgids.size) {
-      if (!fanout) {
-        throw new Error(`found msgid for non-index.html file: ${htmlFile}`)
+  // Determine the transitive properties of each bundle: their import tree (for preload) and if
+  // they must be re-compiled for i18n even _without_ messages.
+  let rewrittenSources = 0;
+  for (const fileName in annotatedBundles) {
+    const b = annotatedBundles[fileName];
+    log(`Processing bundle ${chalk.yellow(fileName)} (entrypoint=${Boolean(b.entrypoint)})...`);
+
+    const work = new Set(b.imports);
+    for (const dep in work) {
+      const o = annotatedBundles[dep];
+      if (o.i18n) {
+        b.i18n = true;
       }
-      document.head.insertBefore(scriptNode, document.head.firstChild);
-    } else if (!fanout) {
-      const target = path.join(staticDir, htmlFile);
-      await write(target, documentForLang());
+      o.imports.forEach((i) => work.add(i));
+    }
+    b.allImports = Array.from(work);
+
+    if (b.i18n) {
+      // Rewrite this module for each language.
+      b.code = {};
+      for (const lang in langs) {
+        b.code[lang] = b.rewrite(lang);
+        ++rewrittenSources;
+
+        if (b.inline) {
+          continue;
+        }
+
+        const target = path.join(staticDir, rewritePathForLang(fileName, lang));
+        filesToWrite.push(write(target, b.code[lang]));
+      }
+
       continue;
     }
 
+    // There's no i18n or transitive language content.
+    b.code = b.rewrite(null);
+    ++rewrittenSources;
+
+    if (!b.inline) {
+      const target = path.join(staticDir, fileName);
+      filesToWrite.push(write(target, b.code));
+    }
+  }
+
+  log(`Rewritten ${chalk.cyan(rewrittenSources)} source files (${chalk.cyan(filesToWrite.length)} source)`);
+
+  // Now, rewrite all static HTML files for every language.
+  for (const [fileName, {dom, moduleScriptNodes}] of htmlDocuments) {
     for (const lang in langs) {
-      const filename = `${lang}.html`;
-      const target = path.join(staticDir, dir, filename);
 
-      // Build the message lookup object. This won't be on the page if there's no messages.
-      const lookup = langs[lang];
-      const messages = {};
-      for (const msgid of msgids) {
-        messages[msgid] = lookup(msgid);
+      for (const scriptNode of moduleScriptNodes) {
+        const bundle = scriptNodeToBundle.get(scriptNode);
+        if (typeof bundle.code === 'string') {
+          scriptNode.textContent = bundle.code;
+        } else {
+          scriptNode.textContent = bundle.code[lang];
+        }
       }
-      scriptNode.textContent =
-          `var __msg=${JSON.stringify(messages)};function _msg(x){return __msg[x]}`;
-      await write(target, documentForLang(lookup));
+
+      const target = path.join(staticDir, rewritePathForLang(fileName, lang));
+
+      dom.window.document.documentElement.lang = lang;
+      // TODO: msgid stuff
+
+      filesToWrite.push(write(target, dom.serialize()));
     }
   }
+
+  await Promise.all(filesToWrite);
 
   // Copy everything else.
   const staticAll = globAll(...staticAssets).concat(...requiredScriptSources);
@@ -479,7 +395,7 @@ async function releaseProd(langs) {
   prodPages.push('');
   log(`Found ${chalk.cyan(Object.keys(prodPages).length)} prod pages`);
 
-  const prodAll = globAll('prod/**', '!prod/*.html', '!prod/manifest.json');
+  const prodAll = globAll('prod/**', '!prod/**/*.js', '!prod/*.html', '!prod/manifest.json');
   await releaseAll(prodAll);
 
   // Match non-index.html prod pages, like cast, error etc.

@@ -1,7 +1,7 @@
 const fsp = require('./fsp.js');
-const dom = require('./dom.js');
 const {minify} = require('html-minifier');
 const terser = require('terser');
+const {JSDOM} = require('jsdom');
 
 
 const emptyFunc = () => {};
@@ -89,15 +89,19 @@ function applyToNode(string, node) {
 /**
  * Builds a helper that applies the specified language to the passed document.
  *
- * @param {!Document} document 
+ * @param {!JSDOM} dom 
  * @return {function((function(string): string|null)): string}
  */
-function buildApplyLang(document) {
+function buildApplyLang(dom) {
+  const document = dom.window.document;
   const messagesNodeMap = new Map();
+
+  // Find and contain every [msgid] that needs replacing.
   document.querySelectorAll('[msgid]').forEach((node) => {
     messagesNodeMap.set(node, node.getAttribute('msgid'));
     node.removeAttribute('msgid');
   });
+
   const applyMessages = (messages, lang) => {
     // set <html lang="...">
     applyAttribute(document.documentElement, 'lang', lang);
@@ -106,13 +110,11 @@ function buildApplyLang(document) {
       applyToNode(string, node);
     });
   };
-  return (messages, rewriter=emptyFunc) => {
-    const lang = messages(null);
+
+  return (messages) => {
+    const lang = messages(null);  // null message returns lang
     applyMessages(messages, lang);
-    rewriter(document, lang);
-    const out = dom.serialize(document);
-    applyMessages();
-    return out;
+    return dom.serialize();
   };
 } 
 
@@ -136,11 +138,11 @@ module.exports = {
   async prod(filename, rewriter=emptyFunc) {
     const raw = await fsp.readFile(filename, 'utf8');
     const source = compileHtml(raw);
-    const document = dom.parse(source);
+    const doc = new JSDOM(source);
 
-    await rewriter(document);
+    await rewriter(doc.window.document);
 
-    return buildApplyLang(document);
+    return buildApplyLang(doc);
   },
 
 };
