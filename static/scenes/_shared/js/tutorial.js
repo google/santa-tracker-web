@@ -19,7 +19,7 @@ goog.provide('app.shared.Tutorial');
 
 
 /**
- * @param {!Array<string>|string}
+ * @param {!Array<string>|string} arg
  * @return {!Array<string>}
  */
 function splitAll(arg) {

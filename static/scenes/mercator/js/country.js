@@ -14,7 +14,6 @@
  * the License.
  */
 
-/*global google*/
 goog.provide('app.Country');
 
 goog.require('app.utils');
@@ -198,7 +197,7 @@ app.Country.prototype.buildHitbox_ = function(pixels = app.Constants.HITBOX_SIZE
   hitbox.extend(app.utils.pointToLatLng(this.map, ne));
   hitbox.extend(app.utils.pointToLatLng(this.map, sw));
   return hitbox;
-},
+};
 
 /**
  * Check if the country is in the correct position.

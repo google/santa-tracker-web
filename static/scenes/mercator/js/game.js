@@ -287,8 +287,6 @@ app.Game.prototype.showCountries_ = function() {
       (this.geodesic ?
           app.Constants.GEODESIC_VISIBLE_COUNTRIES :
           app.Constants.VISIBLE_COUNTRIES);
-  var total = this.level === 0 ? app.Constants.FIRST_LEVEL_VISIBLE_COUNTRIES :
-      app.Constants.VISIBLE_COUNTRIES;
   while (shown < total) {
     var index = Math.floor(Math.random() * this.countries.length);
     var country = this.countries[index];

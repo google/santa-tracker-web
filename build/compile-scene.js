@@ -161,21 +161,13 @@ module.exports = async function compile(config, compile=false) {
   const containsClosureLibrary =
       (compilerSrc.findIndex((cand) => cand.startsWith(CLOSURE_LIBRARY_PATH)) !== -1);
   compile = compile || containsClosureLibrary;
-  if (compile) {
-    // If the Closure library wasn't requested, the compile still needs `base.js` for basic goog
-    // methods like `goog.provide`.
-    if (!containsClosureLibrary) {
-      compilerSrc.unshift(`${CLOSURE_LIBRARY_PATH}/base.js`);
-    }
-  } else {
-    // Adds simple $jscomp and goog.provide/goog.require methods for fast transpilation mode, which
-    // declare globals suitable for execution in module scope.
+  if (!containsClosureLibrary) {
+    // Adds simple $jscomp and goog.provide/goog.require methods, rather than Closure's base.
     compilerSrc.unshift('build/transpile/base.js');
   }
 
   // Import `_msg` and `_static` helpers from our magic script. This lets scenes interact with their
-  // environment.
-  // TODO(samthor): Add a scene path helper? `_scene` could be rooted here.
+  // environment (although Rollup will complain that they're not used).
   const outputWrapper =
       'import {_msg, _static} from \'../../src/magic.js\';' +
       'var _globalExport;(function(){%output%}).call(self);export default _globalExport;';
@@ -190,7 +182,7 @@ module.exports = async function compile(config, compile=false) {
     assume_function_wrapper: true,
     dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
     entry_point: '_globalExportEntry',
-    compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
+    compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',  //FIXME FIXME
     warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT6_STRICT',  // nb. need 6+, for i18n template literals compiled later

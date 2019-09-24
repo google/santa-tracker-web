@@ -164,8 +164,7 @@ app.Game.prototype.bumpLevel_ = function() {
 
   // Send Klang event
   if (this.level > 0) {
-// TODO(samthor): Does not exist
-//    window.santaApp.fire('sound-trigger', 'latlong_level_up');
+    window.santaApp.fire('sound-trigger', 'latlong_level_up');
   }
 
   // Update time!

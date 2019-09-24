@@ -81,7 +81,7 @@ app.Scene.prototype = {
     // NOTE: This fires a single event for the 'map' scene, rather than
     // creating a whole Screen class.
     if (name === 'map') {
-      // window.santaApp.fire('sound-trigger', 'command_map');
+      window.santaApp.fire('sound-trigger', 'command_map');
     }
 
     window.ga('send', 'event', 'game', 'interact', 'commandcentre');

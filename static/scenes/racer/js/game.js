@@ -19,7 +19,6 @@ goog.provide('app.Game');
 
 goog.require('Constants');
 goog.require('Controls');
-goog.require('SB');
 goog.require('SB.Assets');
 goog.require('SB.Object.MarkerLine');
 goog.require('SB.Object.Renderable');

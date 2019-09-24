@@ -38,7 +38,7 @@ app.view.DrawingCanvas = function(container) {
   paper.install(this);
   paper.setup(this.canvas);
   this.tool_ = new paper.Tool();
-  this.path;
+  this.path = null;
 
   //sound
   this.lastMouseX = 0;

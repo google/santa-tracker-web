@@ -23,8 +23,8 @@ goog.provide('app.Timer');
  * @constructor
  */
 app.Timer = function(callback, delay) {
-  this.timerId;
-  this.start;
+  this.timerId = 0;
+  this.start = null;
   this.remaining = delay;
   this.alive = true;
   var timer = this;
