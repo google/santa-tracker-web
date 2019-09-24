@@ -20,6 +20,9 @@ goog.require('app.SpeechController');
 goog.require('app.Utils');
 
 
+/**
+ * @constructor
+ */
 app.view.MachineView = function(container) {
   this.container = container;
   this.elem = container.find('.machineview');

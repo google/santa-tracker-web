@@ -20,6 +20,9 @@ goog.require('app.Constants');
 goog.require('app.EventEmitter');
 
 
+/**
+ * @constructor
+ */
 app.Clock = function() {
   app.EventEmitter.call(this);
   this.reset();

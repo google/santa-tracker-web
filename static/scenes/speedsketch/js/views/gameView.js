@@ -20,6 +20,9 @@ goog.require('app.EventEmitter');
 goog.require('app.Utils');
 
 
+/**
+ * @constructor
+ */
 app.view.GameView = function(container) {
   app.EventEmitter.call(this);
   this.container = container;

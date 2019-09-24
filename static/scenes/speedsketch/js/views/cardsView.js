@@ -24,6 +24,9 @@ goog.require('app.Utils');
 goog.require('app.EventEmitter');
 
 
+/**
+ * @constructor
+ */
 app.view.CardsView = function(container, importPath) {
   app.EventEmitter.call(this);
 

@@ -31,6 +31,9 @@ goog.require('app.GameRound');
 goog.require('app.shared.Scoreboard');
 
 
+/**
+ * @constructor
+ */
 app.GameController = function(container, importPath) {
   app.EventEmitter.call(this);
   this.container = container;

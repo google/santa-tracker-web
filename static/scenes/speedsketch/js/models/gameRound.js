@@ -18,6 +18,9 @@
 goog.provide('app.GameRound');
 
 
+/**
+ * @constructor
+ */
 app.GameRound = function(data, level) {
   this.word = data.word;
   this.presentationWord = data.word;

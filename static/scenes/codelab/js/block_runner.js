@@ -81,7 +81,7 @@ app.BlockRunner.prototype = {
     this.isTerminated_ = false;
     this.executeResult = app.ResultType.UNSET;
     this.lastBlockId_ = null;
-    /* @type {app.LevelResult} */
+    /** @type {app.LevelResult} */
     this.levelResult = null;
     this.player.cancel();
     this.ticks = 100;

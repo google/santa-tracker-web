@@ -19,6 +19,9 @@ goog.provide('app.view.DrawingCanvas');
 goog.require('app.EventEmitter');
 goog.require('app.Utils');
 
+/**
+ * @constructor
+ */
 app.view.DrawingCanvas = function(container) {
   app.EventEmitter.call(this);
 

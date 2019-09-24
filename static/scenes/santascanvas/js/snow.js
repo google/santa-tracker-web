@@ -19,6 +19,9 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 
+/**
+ * @constructor
+ */
 app.Snow = function($elem, canvas, backupCanvas) {
   this.canvas = canvas;
   this.context = canvas.getContext('2d');

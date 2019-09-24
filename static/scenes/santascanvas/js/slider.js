@@ -18,6 +18,9 @@ goog.provide('app.Slider');
 goog.require('app.Constants');
 
 
+/**
+ * @constructor
+ */
 app.Slider = function($elem, mouse) {
   this.elem = $elem;
   this.container = this.elem.find('[data-slider]');

@@ -18,6 +18,9 @@
 goog.provide('app.SpeechController');
 goog.require('app.Utils');
 
+/**
+ * @constructor
+ */
 app.SpeechController = function() {
   this.supported = false;
   this.synth = window.speechSynthesis;

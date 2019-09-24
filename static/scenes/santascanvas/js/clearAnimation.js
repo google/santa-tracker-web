@@ -19,6 +19,9 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 
+/**
+ * @constructor
+ */
 app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
   this.canvas = canvas;
   this.context = canvas.getContext('2d');

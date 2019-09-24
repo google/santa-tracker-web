@@ -119,73 +119,73 @@
 <script src="../../node_modules/web-animations-js/web-animations-next.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
-import api from '../../src/scene/api.js';
-import Game from './:closure.js';
+  import api from '../../src/scene/api.js';
+  import Game from './:closure-typeSafe.js';
 
-api.preload.sounds('windtunnel_load_sounds', 10);
-api.preload.images(
-  'img/logo.svg',
-  'img/base-back.png',
-  'img/cog-big.png',
-  'img/cog-small.png',
-  'img/console-blibs.png',
-  'img/console-graph.png',
-  'img/console-lights.png',
-  'img/console-meters.png',
-  'img/console-tape.png',
-  'img/consoles.png',
-  'img/elfs.png',
-  'img/fan-base.png',
-  'img/fan-controller-shadow.png',
-  'img/fan-controller.png',
-  'img/fan-indicator.png',
-  'img/fan-lever-base.png',
-  'img/fan-lever-handle.png',
-  'img/fan-shadow.png',
-  'img/fan-threads-high.png',
-  'img/fan-threads-low.png',
-  'img/fan-threads-med.png',
-  'img/lift-shadow.png',
-  'img/lift.png',
-  'img/light.png',
-  'img/machine-base.png',
-  'img/parachute-shadow.png',
-  'img/parachute.png',
-  'img/rudolf-nose-light.png',
-  'img/rudolf-serious.png',
-  'img/rudolf-serious-shadow.png',
-  'img/rudolf-shadow.png',
-  'img/rudolf.png',
-  'img/screen.png',
-  'img/snow-layer1.png',
-  'img/snow-layer2.png',
-  'img/snow-layer3.png',
-  'img/snow-layer4.png',
-  'img/snowblower-switch.png',
-  'img/snowblower.png',
-  'img/wind-balloon.png',
-  'img/wires.png',
-);
+  api.preload.sounds('windtunnel_load_sounds', 10);
+  api.preload.images(
+    'img/logo.svg',
+    'img/base-back.png',
+    'img/cog-big.png',
+    'img/cog-small.png',
+    'img/console-blibs.png',
+    'img/console-graph.png',
+    'img/console-lights.png',
+    'img/console-meters.png',
+    'img/console-tape.png',
+    'img/consoles.png',
+    'img/elfs.png',
+    'img/fan-base.png',
+    'img/fan-controller-shadow.png',
+    'img/fan-controller.png',
+    'img/fan-indicator.png',
+    'img/fan-lever-base.png',
+    'img/fan-lever-handle.png',
+    'img/fan-shadow.png',
+    'img/fan-threads-high.png',
+    'img/fan-threads-low.png',
+    'img/fan-threads-med.png',
+    'img/lift-shadow.png',
+    'img/lift.png',
+    'img/light.png',
+    'img/machine-base.png',
+    'img/parachute-shadow.png',
+    'img/parachute.png',
+    'img/rudolf-nose-light.png',
+    'img/rudolf-serious.png',
+    'img/rudolf-serious-shadow.png',
+    'img/rudolf-shadow.png',
+    'img/rudolf.png',
+    'img/screen.png',
+    'img/snow-layer1.png',
+    'img/snow-layer2.png',
+    'img/snow-layer3.png',
+    'img/snow-layer4.png',
+    'img/snowblower-switch.png',
+    'img/snowblower.png',
+    'img/wind-balloon.png',
+    'img/wires.png',
+  );
 
-        // case 'left':
-        // case 'right':
-        //   this.$.leverwrap.click();
-        //   break;
-        // case 'down':
-        // case 'up':
-        //   this.$.snowblower.click();
-        //   break;
-        // case 'enter':
-        // case 'space':
-        //   this.$.rudolf.click();
-        //   break;
+          // case 'left':
+          // case 'right':
+          //   this.$.leverwrap.click();
+          //   break;
+          // case 'down':
+          // case 'up':
+          //   this.$.snowblower.click();
+          //   break;
+          // case 'enter':
+          // case 'space':
+          //   this.$.rudolf.click();
+          //   break;
 
-const game = new Game(document.getElementById('module-windtunnel'));
+  const game = new Game(document.getElementById('module-windtunnel'));
 
-api.ready(async () => {
-  api.ambient('windtunnel_start', 'windtunnel_end');
-  api.fire('music_start_scene');
-});
+  api.ready(async () => {
+    api.ambient('windtunnel_start', 'windtunnel_end');
+    api.fire('music_start_scene');
+  });
 
 </script>
 

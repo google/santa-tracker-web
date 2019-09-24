@@ -1,5 +1,5 @@
 import api from '../../src/scene/api.js';
-import Game from './:closure.js';
+import Game from './:closure-typeSafe.js';
 import maps from '../../src/deps/maps.js';
 import mapstyles from '../../src/deps/mapstyles.json';
 

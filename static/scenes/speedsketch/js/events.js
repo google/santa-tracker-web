@@ -19,6 +19,9 @@
 goog.provide('app.EventEmitter');
 
 // Object that can be exteded to handle event emitting
+/**
+ * @constructor
+ */
 app.EventEmitter = function() {
   this.listeners = {};
 };

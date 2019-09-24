@@ -19,6 +19,9 @@ goog.require('app.Constants');
 goog.require('app.utils');
 
 
+/**
+ * @constructor
+ */
 app.SVGImage = function() {
   this.cache = {};
   this.width = 100;

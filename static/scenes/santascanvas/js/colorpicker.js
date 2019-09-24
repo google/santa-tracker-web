@@ -18,6 +18,9 @@ goog.provide('app.Colorpicker');
 goog.require('app.Constants');
 
 
+/**
+ * @constructor
+ */
 app.Colorpicker = function($elem) {
   this.elem = $elem;
   this.container = this.elem.find('[data-colorpicker]');

@@ -19,6 +19,9 @@ goog.provide('app.view.SplashView');
 goog.require('app.EventEmitter');
 
 
+/**
+ * @constructor
+ */
 app.view.SplashView = function(container) {
   app.EventEmitter.call(this);
   this.elem = container.find('.splashview');

@@ -19,7 +19,9 @@ goog.require('app.Present');
 goog.require('app.shared.utils');
 
 
-
+/**
+ * @constructor
+ */
 app.Belt = function(elem, onLevelComplete, addScore, missedPresent, matchedPresent) {
   this.elem = elem.find('.Belt');
   this.grid = elem.find('.Grid');

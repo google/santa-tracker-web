@@ -122,81 +122,81 @@
 <script src="../../node_modules/web-animations-js/web-animations-next.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
-import api from '../../src/scene/api.js';
-import Game from './:closure.js';
+  import api from '../../src/scene/api.js';
+  import Game from './:closure-typeSafe.js';
 
-api.preload.sounds('selfie_load_sounds');
+  api.preload.sounds('selfie_load_sounds');
 
-api.preload.images(
-  'img/background/chair.svg',
-  'img/background/mirror.svg',
-  'img/background/photos.svg',
-  'img/background/pole--background.svg',
-  'img/background/pole--foreground.svg',
-  'img/background/pole--stripes.svg',
-  'img/face/eye--blink.svg',
-  'img/face/eye--closed.svg',
-  'img/face/eye.svg',
-  'img/face/mouth--breath.svg',
-  'img/face/mouth--smile.svg',
-  'img/face/nose.svg',
-  'img/icons/reset.svg',
-  'img/loading.svg',
-  'img/pole.svg',
-  'img/santa/body.svg',
-  'img/santa/face.svg',
-  'img/share.svg',
-  'img/sprites/clipper.png',
-  'img/sprites/hairclean.png',
-  'img/sprites/hairgrow.png',
-  'img/tools/clipper.svg',
-  'img/tools/decorations/bauble.svg',
-  'img/tools/decorations/bow.svg',
-  'img/tools/decorations/holly.svg',
-  'img/tools/decorations/snowman.svg',
-  'img/tools/hairclean.svg',
-  'img/tools/hairdryer--center.svg',
-  'img/tools/hairdryer--left.svg',
-  'img/tools/hairdryer--right.svg',
-  'img/tools/hairgrow.svg',
-  'img/tools/shadows/bauble.svg',
-  'img/tools/shadows/bow.svg',
-  'img/tools/shadows/clipper.svg',
-  'img/tools/shadows/hairclean.svg',
-  'img/tools/shadows/hairdryer.svg',
-  'img/tools/shadows/hairgrow.svg',
-  'img/tools/shadows/holly.svg',
-  'img/tools/shadows/snowman.svg',
-  'img/tools/shadows/spray.svg',
-  'img/tools/spray--blue.svg',
-  'img/tools/spray--cyan.svg',
-  'img/tools/spray--green.svg',
-  'img/tools/spray--orange.svg',
-  'img/tools/spray--pink.svg',
-  'img/tools/spray--purple.svg',
-  'img/tools/spray--red.svg',
-  'img/tools/spray--yellow.svg',
-  'img/tools/sprays/blue.png',
-  'img/tools/sprays/cyan.png',
-  'img/tools/sprays/green.png',
-  'img/tools/sprays/orange.png',
-  'img/tools/sprays/pink.png',
-  'img/tools/sprays/purple.png',
-  'img/tools/sprays/red.png',
-  'img/tools/sprays/yellow.png',
-  'img/tray_lg.svg',
-  'img/tray_ornament_lg.svg',
-);
+  api.preload.images(
+    'img/background/chair.svg',
+    'img/background/mirror.svg',
+    'img/background/photos.svg',
+    'img/background/pole--background.svg',
+    'img/background/pole--foreground.svg',
+    'img/background/pole--stripes.svg',
+    'img/face/eye--blink.svg',
+    'img/face/eye--closed.svg',
+    'img/face/eye.svg',
+    'img/face/mouth--breath.svg',
+    'img/face/mouth--smile.svg',
+    'img/face/nose.svg',
+    'img/icons/reset.svg',
+    'img/loading.svg',
+    'img/pole.svg',
+    'img/santa/body.svg',
+    'img/santa/face.svg',
+    'img/share.svg',
+    'img/sprites/clipper.png',
+    'img/sprites/hairclean.png',
+    'img/sprites/hairgrow.png',
+    'img/tools/clipper.svg',
+    'img/tools/decorations/bauble.svg',
+    'img/tools/decorations/bow.svg',
+    'img/tools/decorations/holly.svg',
+    'img/tools/decorations/snowman.svg',
+    'img/tools/hairclean.svg',
+    'img/tools/hairdryer--center.svg',
+    'img/tools/hairdryer--left.svg',
+    'img/tools/hairdryer--right.svg',
+    'img/tools/hairgrow.svg',
+    'img/tools/shadows/bauble.svg',
+    'img/tools/shadows/bow.svg',
+    'img/tools/shadows/clipper.svg',
+    'img/tools/shadows/hairclean.svg',
+    'img/tools/shadows/hairdryer.svg',
+    'img/tools/shadows/hairgrow.svg',
+    'img/tools/shadows/holly.svg',
+    'img/tools/shadows/snowman.svg',
+    'img/tools/shadows/spray.svg',
+    'img/tools/spray--blue.svg',
+    'img/tools/spray--cyan.svg',
+    'img/tools/spray--green.svg',
+    'img/tools/spray--orange.svg',
+    'img/tools/spray--pink.svg',
+    'img/tools/spray--purple.svg',
+    'img/tools/spray--red.svg',
+    'img/tools/spray--yellow.svg',
+    'img/tools/sprays/blue.png',
+    'img/tools/sprays/cyan.png',
+    'img/tools/sprays/green.png',
+    'img/tools/sprays/orange.png',
+    'img/tools/sprays/pink.png',
+    'img/tools/sprays/purple.png',
+    'img/tools/sprays/red.png',
+    'img/tools/sprays/yellow.png',
+    'img/tray_lg.svg',
+    'img/tray_ornament_lg.svg',
+  );
 
-const game = new Game(document.getElementById('module-santaselfie'), (data) => api.data(data));
+  const game = new Game(document.getElementById('module-santaselfie'), (data) => api.data(data));
 
-api.config({
-  sound: ['music_start_ingame', 'selfie_start'],
-});
+  api.config({
+    sound: ['music_start_ingame', 'selfie_start'],
+  });
 
-api.ready(async (data) => {
-  game.start(data);
-});
+  api.ready(async (data) => {
+    game.start(data);
+  });
 
 </script>
 

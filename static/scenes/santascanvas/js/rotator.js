@@ -18,6 +18,9 @@ goog.provide('app.Rotator');
 goog.require('app.Constants');
 
 
+/**
+ * @constructor
+ */
 app.Rotator = function($elem) {
   this.elem = $elem;
   this.subscribers = [];

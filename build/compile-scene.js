@@ -19,6 +19,7 @@ const CLOSURE_WARNINGS = [
   'accessControls',
   'checkDebuggerStatement',
   'checkRegExp',
+  'checkTypes',
   'checkVars',
   'closureDepMethodUsageChecks',
   'const',
@@ -36,24 +37,11 @@ const CLOSURE_WARNINGS = [
 //  'extraRequire',
 ];
 
-const CLOSURE_TYPESAFE_WARNINGS = CLOSURE_WARNINGS.concat([
-  'checkTypes',
-]);
-
 const syntheticSourceRe = /\[synthetic:(.*?)\]/;
 
 
 // nb. This assumes `compile-scene.js` is one level up from `node_modules`.
 const rootDir = path.join(__dirname, '..');
-
-
-/**
- * @typedef {{
- *   sceneName: string,
- *   typeSafe: (boolean|undefined),
- * }}
- */
-var CompileSceneOptions;
 
 
 /**
@@ -156,18 +144,18 @@ async function resolveCodeLinks(sceneName) {
 
 
 /**
- * @param {!CompileSceneOptions} config
+ * @param {string} sceneName
  * @param {boolean=} compile
  * @return {{compile: boolean, js: string, map: !Object}}
  */
-module.exports = async function compile(config, compile=false) {
+module.exports = async function compile(sceneName, compile=false) {
   const compilerSrc = [
     'build/transpile/export.js',
     'static/scenes/_shared/js/**.js',
-    `static/scenes/${config.sceneName}/js/**.js`,
+    `static/scenes/${sceneName}/js/**.js`,
     '!**_test.js',
   ];
-  compilerSrc.unshift(...(await resolveCodeLinks(config.sceneName)));
+  compilerSrc.unshift(...(await resolveCodeLinks(sceneName)));
 
   // Scenes are compiled with Closure and then re-exported as modules. An export helper requires
   // `app.Game` and re-exports this (via string) onto `_globalExport`, which is defined in the
@@ -202,11 +190,11 @@ module.exports = async function compile(config, compile=false) {
     dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
     entry_point: '_globalExportEntry',
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
-    warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
+    warning_level: 'VERBOSE',
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT6_STRICT',  // nb. need 6+, for i18n template literals compiled later
     process_closure_primitives: true,
-    jscomp_warning: config.typeSafe ? CLOSURE_TYPESAFE_WARNINGS : CLOSURE_WARNINGS,
+    jscomp_warning: CLOSURE_WARNINGS,
     output_wrapper: outputWrapper,
     rewrite_polyfills: false,
     inject_libraries: containsClosureLibrary,  // this injects "$jscomp" for base.js which needs it
@@ -223,15 +211,17 @@ module.exports = async function compile(config, compile=false) {
       compiler.javaPath = nativeImage;
     }
 
+    let errors = false;
     const js = await invokeCompiler(compiler, (stderr) => {
-      // TODO: log scene name or pass to caller.
-      console.warn(`# ${config.sceneName}`)
+      // TODO:pass to caller.
+      console.warn(`# ${sceneName}`)
       console.warn(stderr);
+      errors = true;
     });
     const map = await processSourceMap(await fs.readFile(sourceMapTemp.name));
 
     // nb. used so that listening callers can watch the whole dir for changes.
-    map.sources.push(`static/scenes/${config.sceneName}/js`, `static/scenes/_shared/js`);
+    map.sources.push(`static/scenes/${sceneName}/js`, `static/scenes/_shared/js`);
     map.sourcesContent.push(null, null);
 
     return {compile, js, map};

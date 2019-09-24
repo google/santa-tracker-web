@@ -24,7 +24,7 @@ goog.require('app.shared.utils');
 /**
  * @param {!Element} drawer element for the context
  * @param {!game} game the game instance
- * @construtor
+ * @constructor
  */
 app.Drawer = function(elem, game) {
   this.elem = elem;

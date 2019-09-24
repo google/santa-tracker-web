@@ -18,6 +18,9 @@
 goog.provide('app.Utils');
 
 
+/**
+ * @constructor
+ */
 var Utils = function() {
   this.lang = $('html').attr('lang') || 'en';
   this.isEnglish = (this.lang.split('-')[0] === 'en');;

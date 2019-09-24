@@ -44,6 +44,9 @@ function throttle(func, ms) {
 }
 
 
+/**
+ * @constructor
+ */
 app.DrawingRecognitionController = function() {
   app.EventEmitter.call(this);
   this.handwritingAPI = new app.HandwritingAPI();
