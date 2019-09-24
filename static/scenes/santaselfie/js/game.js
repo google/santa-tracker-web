@@ -55,7 +55,7 @@ app.Game = function(elem, callback) {
 
 /**
  * Start the game
- * @param {?{beard: string}}
+ * @param {?{beard: string}} data
  * @export
  */
 app.Game.prototype.start = function(data) {

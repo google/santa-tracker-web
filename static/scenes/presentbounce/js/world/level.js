@@ -36,7 +36,7 @@ app.world.Level = class {
    * @param {!game} game the game instance
    * @param {!jQuery} elem A DOM element which wraps the level.
    * @param {!Object.<string>=} levelData Level configuration
-   * @param {!Function(score) onCompleteCallback Callback function when level is completed
+   * @param {!function(number): void} onCompleteCallback Callback function when level is completed
    * @param {!app.shared.tutorial} tutorial the tutorial instance
    * @param {!app.Scoreboard} scoreboard the scoreboard instance
    * @param {!app.Drawer} drawer the drawer instance
@@ -336,10 +336,10 @@ app.world.Level = class {
    * Callback from the drawer to test dropping an object
    * Temporarily create object, test for overlap, and then destroy the object
    * @private
-   * @param {object} objectData Config data of this object.
+   * @param {!Object} objectData Config data of this object.
    * @param {string} objectType What type of user object this is.
-   * @param {object} position Current x and y positions of this object.
-   * @param {function} validCallback Callback function to be called if this is valid.
+   * @param {{x: number, y: number}} position Current x and y positions of this object.
+   * @param {function(boolean): void} validCallback Callback function to be called if this is valid.
    */
   onTestDropObject_(objectData, objectType, position, validCallback) {
     objectData.mouseX = position.x;

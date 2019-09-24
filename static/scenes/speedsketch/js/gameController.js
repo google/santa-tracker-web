@@ -171,7 +171,7 @@ app.GameController.prototype.fetchNewRound = function(alreadyPresentedWords, cal
 
 
 app.GameController.prototype.startNewGameWithChallenge = function(challenge, options) {
-  var options = options || {
+  options = options || {
     onCardDismiss: function() {}
   };
 
@@ -196,7 +196,7 @@ app.GameController.prototype.startNewGameWithChallenge = function(challenge, opt
 
 
 app.GameController.prototype.startNewRoundWithChallenge = function(challenge, options) {
-  var options = options || {
+  options = options || {
     onCardDismiss: function() {}
   };
 

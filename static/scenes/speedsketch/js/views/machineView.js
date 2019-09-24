@@ -41,9 +41,9 @@ app.view.MachineView.prototype.reset = function() {
 
 
 app.view.MachineView.prototype.setText = function(textA, textB, textC) {
-  var textA = textA || '';
-  var textB = textB || '';
-  var textC = textC || '';
+  textA = textA || '';
+  textB = textB || '';
+  textC = textC || '';
   this.elemA.text(textA);
   this.elemB.text(textB);
   this.elemC.text(textC);

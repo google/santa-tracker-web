@@ -53,7 +53,7 @@ app.HouseColorMediator.prototype.subscribe = function(key, house) {
  * @param {string} key Unique key name represending the "name" of this house.
  */
 app.HouseColorMediator.prototype.unsubscribe = function(key) {
-  if (this.houses.hasOwnProperty(hey)) {
+  if (this.houses.hasOwnProperty(key)) {
     delete this.houses[key];
   }
 };

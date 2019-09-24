@@ -32,6 +32,10 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
+/**
+ * Modified by Google, Inc. on 2019-09-24 to resolve Closure type issues.
+ */
+
 goog.provide('Box2D');
 
 var Box2D = {};  // work around Closure-inside-a-closure use in Santa Tracker
@@ -1780,7 +1784,7 @@ Box2D.postDefs = [];
       __this.m_tree.Query(QueryCallback, fatAABB);
     }
     __this.m_moveBuffer.length = 0;
-    for (var i = 0; i < __this.m_pairCount;) {
+    for (i = 0; i < __this.m_pairCount;) {
       var primaryPair = __this.m_pairBuffer[i];
       var userDataA = __this.m_tree.GetUserData(primaryPair.proxyA);
       var userDataB = __this.m_tree.GetUserData(primaryPair.proxyB);
@@ -4665,10 +4669,10 @@ Box2D.postDefs = [];
       f.m_next = this.m_fixtureList;
       this.m_fixtureList = f;
       this.m_fixtureCount++;
-      f.m_body = body2;
+      f.m_body = undefined;  // body2;
       f = next;
     }
-    body1.m_fixtureCount = 0;
+//    body1.m_fixtureCount = 0;
     var body1 = this;
     var body2 = other;
     var center1 = body1.GetWorldCenter();

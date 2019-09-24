@@ -41,8 +41,8 @@ Utils.prototype.getItemTranslation = function(container, item) {
 };
 
 Utils.prototype.getTranslation = function(container, key, variable, varValue) {
-  var variable = variable || null;
-  var varValue = varValue || null;
+  variable = variable || null;
+  varValue = varValue || null;
   var msg = this.getMsgOrNull(container, key, variable, varValue);
 
   return msg === null ? '[Unknown message: ' + key + ']' : msg;

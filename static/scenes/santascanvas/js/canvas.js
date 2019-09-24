@@ -264,9 +264,6 @@ app.Canvas.prototype.updateCanvas = function(actionFnContext, actionFn, isReset)
 };
 
 app.Canvas.prototype.calculateDrawingVolume = function() {
-  if (!window.Klang || !Klang.context) {
-    return;
-  }
   const now = performance.now();
 
   var xPos = Math.abs(this.mouse.x / this.canvasWidth - this.lastMouseX);

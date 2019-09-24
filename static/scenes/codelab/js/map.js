@@ -139,7 +139,7 @@ app.Map = function() {
  * rendering shadows on top of tiles to the right.
  * @param {number} fromY inclusive start row to iterate.
  * @param {number} toY exclusive end row to iterate.
- * @param {function} fn which receives each matched tile and its position.
+ * @param {function(string, number, number): void} fn which receives each matched tile and its position.
  */
 app.Map.prototype.iterateTiles = function(fromY, toY, fn) {
   fromY = Math.max(fromY, 0);

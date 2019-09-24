@@ -91,7 +91,7 @@ app.Game = class {
     this.level = this.levels[this.levelNumber];
     if (!this.level) {
       if (this.currentMode === app.GameMode.TEACHER) {
-        santaApp.fire('game-stop', {
+        window.santaApp.fire('game-stop', {
           level: this.levelNumber,
         });
       } else {
@@ -101,7 +101,7 @@ app.Game = class {
     }
 
     if (this.currentMode === app.GameMode.TEACHER) {
-      santaApp.fire('game-score', {
+      window.santaApp.fire('game-score', {
         level: this.levelNumber + 1,
         maxLevel: this.levels.length,
       });
@@ -119,11 +119,11 @@ app.Game = class {
    * @param {!Array<string>} names
    */
   showTutorial(names = []) {
-    santaApp.fire('tutorial-queue', names);
+    window.santaApp.fire('tutorial-queue', names);
   }
 
   dismissTutorial(name) {
-    santaApp.fire('tutorial-dismiss', [name]);
+    window.santaApp.fire('tutorial-dismiss', [name]);
   }
 
   /**
@@ -139,8 +139,8 @@ app.Game = class {
    * @param {string} query string to share.
    */
   share(query) {
-    santaApp.fire('game-data', {dance: query});
-    santaApp.fire('game-stop');
+    window.santaApp.fire('game-data', {dance: query});
+    window.santaApp.fire('game-stop');
   }
 
   /**

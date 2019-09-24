@@ -17,13 +17,27 @@ const EXTERNS = [
 // https://github.com/google/closure-compiler/wiki/Warnings
 const CLOSURE_WARNINGS = [
   'accessControls',
+  'checkDebuggerStatement',
+  'checkRegExp',
+  'checkVars',
+  'closureDepMethodUsageChecks',
   'const',
+  'deprecatedAnnotations',
+  'missingProperties',
+  'missingReturn',
+  'strictModuleDepCheck',
+  'typeInvalidation',
+  'undefinedNames',
+  'undefinedVars',
+  'useOfGoogBase',
   'visibility',
+
+// Lots of old Closure scenes include things for global, leaky, side-effects.
+//  'extraRequire',
 ];
 
 const CLOSURE_TYPESAFE_WARNINGS = CLOSURE_WARNINGS.concat([
   'checkTypes',
-  'checkVars',
 ]);
 
 const syntheticSourceRe = /\[synthetic:(.*?)\]/;
@@ -91,17 +105,18 @@ async function processSourceMap(buf, root='../../') {
 
 /**
  * @param {!closureCompiler.compiler} compiler
+ * @param {function(string): void} callback for stderr
  * @return {!Promise<string>}
  */
-function invokeCompiler(compiler) {
+function invokeCompiler(compiler, callback) {
   return new Promise((resolve, reject) => {
-    const callback = (status, stdout, stderr) => {
+    const compilerCallback = (status, stdout, stderr) => {
       if (stderr.trim().length !== 0) {
-        console.info(stderr);
+        callback(stderr);
       }
       status ? reject(status) : resolve(stdout);
     };
-    compiler.run(callback);
+    compiler.run(compilerCallback);
   });
 }
 
@@ -161,7 +176,11 @@ module.exports = async function compile(config, compile=false) {
   const containsClosureLibrary =
       (compilerSrc.findIndex((cand) => cand.startsWith(CLOSURE_LIBRARY_PATH)) !== -1);
   compile = compile || containsClosureLibrary;
-  if (!containsClosureLibrary) {
+  if (containsClosureLibrary) {
+    // Closure's library is quite large and includes bad behavior like eval() to check for Safari
+    // bugs and to load further module code (!?!). It would be properly treeshaken in
+    // ADVANCED_OPTIMIZATIONS mode but no scenes reliably work in this way.
+  } else {
     // Adds simple $jscomp and goog.provide/goog.require methods, rather than Closure's base.
     compilerSrc.unshift('build/transpile/base.js');
   }
@@ -182,7 +201,7 @@ module.exports = async function compile(config, compile=false) {
     assume_function_wrapper: true,
     dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
     entry_point: '_globalExportEntry',
-    compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',  //FIXME FIXME
+    compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: config.typeSafe ? 'VERBOSE' : 'DEFAULT',
     language_in: 'ECMASCRIPT_2017',
     language_out: 'ECMASCRIPT6_STRICT',  // nb. need 6+, for i18n template literals compiled later
@@ -190,6 +209,8 @@ module.exports = async function compile(config, compile=false) {
     jscomp_warning: config.typeSafe ? CLOSURE_TYPESAFE_WARNINGS : CLOSURE_WARNINGS,
     output_wrapper: outputWrapper,
     rewrite_polyfills: false,
+    inject_libraries: containsClosureLibrary,  // this injects "$jscomp" for base.js which needs it
+    use_types_for_optimization: true,
   };
 
   try {
@@ -202,7 +223,11 @@ module.exports = async function compile(config, compile=false) {
       compiler.javaPath = nativeImage;
     }
 
-    const js = await invokeCompiler(compiler);
+    const js = await invokeCompiler(compiler, (stderr) => {
+      // TODO: log scene name or pass to caller.
+      console.warn(`# ${config.sceneName}`)
+      console.warn(stderr);
+    });
     const map = await processSourceMap(await fs.readFile(sourceMapTemp.name));
 
     // nb. used so that listening callers can watch the whole dir for changes.

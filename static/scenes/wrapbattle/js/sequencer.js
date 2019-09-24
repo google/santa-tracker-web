@@ -182,10 +182,10 @@ app.Sequencer = class {
         }
         this.tracks = Klang.$(this._nextTrack)._content;
         nextBpm = Klang.$(this._nextTrack).data.metaData.bpm;
-        if (playingLoops && playingLoops.length) {
-          playTransition = true;
-
-        }
+        // TODO(samthor): playTransition was unused
+        // if (playingLoops && playingLoops.length) {
+        //   playTransition = true;
+        // }
       }
 
       let offset = 0;

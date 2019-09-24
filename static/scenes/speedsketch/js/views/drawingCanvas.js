@@ -171,18 +171,15 @@ app.view.DrawingCanvas.prototype.startListening = function() {
 
 };
 app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
-  if (!window.Klang || !window.Klang.context) {
-    return;
-  }
   var xPos = Math.abs(point.x / this.canvas.width - this.lastMouseX);
   var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
-  var speed = Math.abs(xPos+yPos) / (Klang.context.currentTime - this.lastTime);
+  var speed = Math.abs(xPos+yPos) / (performance.now() - this.lastTime);
 
   if (isFinite(speed)) {
     this.drawingVolume += speed / 2;
   }
 
-  this.lastTime = Klang.context.currentTime;
+  this.lastTime = performance.now();
   this.lastMouseX = point.x / this.canvas.width;
   this.lastMouseY = point.y / this.canvas.height;
 
@@ -192,7 +189,7 @@ app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
 app.view.DrawingCanvas.prototype.soundUpdate = function() {
   if (isFinite(this.drawingVolume)) {
     this.drawingVolume *= 0.6;
-    Klang.trigger("qd_draw_update", Math.min(1, this.drawingVolume));
+    window.santaApp.fire('sound-trigger', "qd_draw_update", Math.min(1, this.drawingVolume));
   }
 }
 app.view.DrawingCanvas.prototype.stopListening = function() {

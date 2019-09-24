@@ -316,19 +316,19 @@ Blockly.createDom_ = function(container) {
                 block.moveBy(0, overflow);
               }
               // Bump any block that's below the bottom back inside.
-              var overflow = metrics.viewTop + metrics.viewHeight - MARGIN -
+              overflow = metrics.viewTop + metrics.viewHeight - MARGIN -
                   blockXY.y;
               if (overflow < 0) {
                 block.moveBy(0, overflow);
               }
               // Bump any block that's off the left back inside.
-              var overflow = MARGIN + metrics.viewLeft - blockXY.x -
+              overflow = MARGIN + metrics.viewLeft - blockXY.x -
                   (Blockly.RTL ? 0 : blockHW.width);
               if (overflow > 0) {
                 block.moveBy(overflow, 0);
               }
               // Bump any block that's off the right back inside.
-              var overflow = metrics.viewLeft + metrics.viewWidth - MARGIN -
+              overflow = metrics.viewLeft + metrics.viewWidth - MARGIN -
                   blockXY.x + (Blockly.RTL ? blockHW.width : 0);
               if (overflow < 0) {
                 block.moveBy(overflow, 0);

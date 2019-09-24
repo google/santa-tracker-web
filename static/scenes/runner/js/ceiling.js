@@ -37,7 +37,7 @@ app.Ceiling = function(context) {
 app.Ceiling.prototype.resizeHandler_ = function () {
   var topOffset = 0;
   if ($(window).innerHeight() > this.wall.height() * 1.5) {
-    var topOffset = ($(window).innerHeight() - this.wall.height()) * 0.35;
+    topOffset = ($(window).innerHeight() - this.wall.height()) * 0.35;
   }
   this.ceiling.css('height', topOffset);
   this.game.css('top', topOffset);

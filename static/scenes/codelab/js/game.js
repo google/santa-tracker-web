@@ -44,7 +44,7 @@ app.Game = function(elem) {
   this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
 
   Klang.setEventListener((arg1, arg2) => {
-    santaApp.fire('sound-play', arg1, arg2)
+    window.santaApp.fire('sound-play', arg1, arg2)
   });
 
   this.dismissUnnamedTutorial = () => this.dismissTutorial();
@@ -71,7 +71,7 @@ app.Game.prototype.dismissTutorial = function(name = undefined) {
   if (name === undefined) {
     name = this.tutorialForLevel_(this.levelNumber);
   }
-  santaApp.fire('tutorial-dismiss', [name]);
+  window.santaApp.fire('tutorial-dismiss', [name]);
 };
 
 /**
@@ -96,13 +96,13 @@ app.Game.prototype.bumpLevel = function() {
 
   this.level = app.levels[this.levelNumber];
   if (!this.level) {
-    santaApp.fire('game-stop', {
+    window.santaApp.fire('game-stop', {
       level: this.levelNumber + 1,
     });
     return;
   }
 
-  santaApp.fire('game-score', {
+  window.santaApp.fire('game-score', {
     level: this.levelNumber + 1,
     maxLevel: app.levels.length,
   });
@@ -124,7 +124,7 @@ app.Game.prototype.bumpLevel = function() {
     // fine for now.
     tutorials.unshift('codelab_tray.mp4');
   }
-  santaApp.fire('tutorial-queue', tutorials);
+  window.santaApp.fire('tutorial-queue', tutorials);
 };
 
 app.Game.prototype.onBlur = function() {

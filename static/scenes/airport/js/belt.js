@@ -159,7 +159,7 @@ app.Belt.prototype = {
   },
 
   addItem: function(startTime) {
-    var startTime = startTime || this.timeline.currentTime / 1000;
+    startTime = startTime || this.timeline.currentTime / 1000;
 
     var item = this.getNextItem();
     if (item) {

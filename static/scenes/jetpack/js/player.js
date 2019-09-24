@@ -40,7 +40,7 @@ app.Player = function(game, elem) {
   // Sound state
   this.soundPosition = new SmartValue();
   this.soundVelocity = new SmartValue();
-  this.soundOutOfScreen = new uts.SmartValue();
+  this.soundOutOfScreen = new SmartValue();
 
   this.reset();
 };

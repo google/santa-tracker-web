@@ -39,3 +39,42 @@ window.santaApp.fire = function(name, data) {}
  * @return {?}
  */
 function ga(methodName, var_args) {}
+
+/**
+ * @constructor
+ */
+function AnimationUtilTimeline() {};
+
+/**
+ * @public {number}
+ */
+AnimationUtilTimeline.prototype.playbackRate;
+
+/**
+ * @public {number}
+ */
+AnimationUtilTimeline.prototype.currentTime;
+
+/**
+ * @param {number} when
+ * @param {!Element} el
+ * @param {!Array<*>} steps
+ * @param {number|!Object} timing
+ * @return {!Animation}
+ */
+AnimationUtilTimeline.prototype.schedule = function(when, el, steps, timing) {};
+
+/**
+ * @param {number} when
+ * @param {function(): void} fn
+ */
+AnimationUtilTimeline.prototype.call = function(when, fn) {};
+
+/**
+ * @param {!Animation} player
+ */
+AnimationUtilTimeline.prototype.remove = function(player) {};
+
+/**
+ */
+AnimationUtilTimeline.prototype.removeAll = function() {};

@@ -196,11 +196,11 @@ app.Traditions.prototype.handleResize_ = function() {
     var country = this.markers_[this.currentId_];
     var viewport = country.info.geometry.viewport;
 
-    var viewport = new google.maps.LatLngBounds(
+    var bounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(viewport.southwest.lat, viewport.southwest.lng),
       new google.maps.LatLng(viewport.northeast.lat, viewport.northeast.lng)
     );
-    this.map_.fitBounds(this.padBounds_(viewport));
+    this.map_.fitBounds(this.padBounds_(bounds));
 
     if (country.info.zoom_limit) {
       if (this.map_.getZoom() > country.info.zoom_limit) {

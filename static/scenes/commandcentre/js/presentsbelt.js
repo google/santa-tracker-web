@@ -145,7 +145,7 @@ app.PresentsBelt.prototype = {
    * @return {app.Present}
    */
   addItem_: function(startTime) {
-    var startTime = startTime || this.timeline.currentTime / 1000;
+    startTime = startTime || this.timeline.currentTime / 1000;
 
     var present = this.presentPool.getFreeItem();
     if (present) {

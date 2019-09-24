@@ -166,7 +166,7 @@ AnimationUtilTimeline.prototype = {
    * The call will be removed from this timeline once it has been invoked.
    *
    * @param {number} when to call
-   * @param {!Function} fn to invoke
+   * @param {function(): void} fn to invoke
    */
   call: function(when, fn) {
     var now = this.currentTime;

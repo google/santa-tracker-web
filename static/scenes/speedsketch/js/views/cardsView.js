@@ -222,7 +222,7 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
     })
     .done((data) => {
       if (data[0] == "SUCCESS") {
-        var data = this.handwritingAPI.parseResponse(data);
+        data = this.handwritingAPI.parseResponse(data);
         var neighbors = data.filter((d) => d.neighbor);
 
         neighbors = neighbors.filter((neighbor) => {

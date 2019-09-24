@@ -394,7 +394,7 @@ app.Tools.prototype.start = function() {
   this.selectTool_ = this.selectTool_.bind(this);
   this.elem.on('click touchend', this.selectTool_);
 
-  var hairdryerFaceInward = faceInward = function(mouse, mouseCoords) {
+  var hairdryerFaceInward = function(mouse, mouseCoords) {
     if (!this.isSelected) {
       return;
     }

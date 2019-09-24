@@ -364,7 +364,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
   this.svgGroup_.style.display = 'block';
 
   // Create the blocks to be shown in this flyout.
-  var blocks = [];
+  blocks = [];
   var gaps = [];
   if (xmlList == Blockly.Variables.NAME_TYPE) {
     // Special category for variables.

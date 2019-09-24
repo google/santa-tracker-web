@@ -139,7 +139,6 @@ app.Point.prototype.drawDecoration = function(ctx, scale) {
   if (this.decoration && this.draw) {
     var x = this.x - this.decoration.width / 2;
     var y = this.y - this.decoration.height / 2;
-    var scale = this.game_.mouse.scaleFactor;
 
     ctx.drawImage(this.decoration, x * scale, y * scale, this.decoration.width * scale,
                   this.decoration.height * scale);

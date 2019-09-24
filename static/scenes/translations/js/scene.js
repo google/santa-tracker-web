@@ -137,7 +137,7 @@ app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
   if (this.toLang === 'elvish') {
     window.santaApp.fire('sound-trigger', klangEvent);
   } else {
-    lang = lang || Constants.DEFAULT_LANGUAGE;
+    lang = lang || app.Constants.DEFAULT_LANGUAGE;
     var url = app.Constants.TTS_DOMAIN + app.Constants.TTS_QUERY;
     url = encodeURI(url.replace('{TL}', lang).replace('{Q}', string));
     window.santaApp.fire('sound-trigger', '@', url);

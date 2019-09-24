@@ -193,7 +193,7 @@ Blockly.JavaScript.scrub_ = function(block, code) {
       if (block.inputList[x].type == Blockly.INPUT_VALUE) {
         var childBlock = block.inputList[x].connection.targetBlock();
         if (childBlock) {
-          var comment = Blockly.JavaScript.allNestedComments(childBlock);
+          comment = Blockly.JavaScript.allNestedComments(childBlock);
           if (comment) {
             commentCode += Blockly.JavaScript.prefixLines(comment, '// ');
           }

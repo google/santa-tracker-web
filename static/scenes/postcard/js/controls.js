@@ -139,8 +139,8 @@ app.Controls.prototype.getChange_ = function(movement) {
  * Slide if touch passes the touch treshold.
  * @private
  */
-app.Controls.prototype.handleTouchEnd_ = function() {
-  var touch = event.changedTouches[0];
+app.Controls.prototype.handleTouchEnd_ = function(event) {
+  var touch = event.originalEvent.changedTouches[0];
   var x = this.getChange_(touch.pageX - this.start.x);
   var y = this.getChange_(touch.pageY - this.start.y);
   if (!this.leftRightSwiped && x !== 0) {

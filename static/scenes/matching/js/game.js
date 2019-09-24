@@ -238,7 +238,6 @@ Game.prototype.checkDoorMatch_ = function(door) {
  */
 Game.prototype.isDoorMatched_ = function(doorId) {
   var cardCount = 0;
-  var door;
   for (var i in this.doorsOpen) {
     var door = this.doorsOpen[i];
     if (!door.isMismatched && door.id === doorId) {

@@ -35,8 +35,8 @@ goog.provide('Box2D.generateCallback');
 /**
  * Creates a callback function
  * @param {!Object} context The context ('this' variable) of the callback function
- * @param {function(...[*])} fn The function to execute with the given context for the returned callback
- * @return {function()} The callback function
+ * @param {!Function} fn The function to execute with the given context for the returned callback
+ * @return {!Function} The callback function
  */
 Box2D.generateCallback = function(context, fn) {
     return function() {
