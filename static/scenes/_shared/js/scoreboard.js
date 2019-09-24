@@ -18,7 +18,6 @@ goog.provide('app.shared.Scoreboard');
 
 // Load the old Constants global for backwards compatibility
 goog.require('Constants');
-goog.require('app.shared.SharedGame');
 
 // We are *leaking* the Scoreboard global for backwards compatibility.
 app.shared.Scoreboard = Scoreboard;
@@ -37,7 +36,7 @@ function constantWithDefault(key, d) {
  * Manages the scoreboard and game countdown.
  * @constructor
  * @struct
- * @param {!SharedGame} game The object which can be made gameover.
+ * @param {{gameover: function(): void}} game The object which can be made gameover.
  * @param {*} elem Ignored scoreboard element.
  * @param {number=} opt_levels The total number of levels.
  */

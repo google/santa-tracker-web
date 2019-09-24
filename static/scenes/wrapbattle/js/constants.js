@@ -18,8 +18,6 @@
 goog.provide('Constants');
 goog.provide('app.Constants');
 
-goog.require('app.I18n');
-
 /**
  * These are gameplay and UI related constants used by the code.
  * Please tweak them to improve gameplay and game balance.
