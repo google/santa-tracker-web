@@ -1,10 +1,8 @@
+const importUtils = require('./import-utils.js');
 const path = require('path');
 const rollup = require('rollup');
 const resolveNode = require('./resolve-node.js');
 const transformFutureModules = require('./transform-future-modules.js');
-
-
-const alreadyResolvedMatch = /^(\.{0,2}\/|[a-z]\w*\:)/;  // matches start of './' or 'https:' etc
 
 
 /**
@@ -45,7 +43,7 @@ module.exports = async (id, content, onwarn=null) => {
     },
     async resolveId(importee, importer) {
       // Resolve ourselves, and anything that Rollup doesn't need to (./, ../, etc).
-      if (importee === id || alreadyResolvedMatch.exec(importee)) {
+      if (importee === id || importUtils.alreadyResolved(importee)) {
         return importee;
       }
       // Otherwise, use our custom Node resolver. This works around issues in the defacto standard

@@ -8,7 +8,7 @@ const chalk = require('chalk');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
 const i18n = require('./build/i18n.js');
-const isUrl = require('./build/is-url.js');
+const importUtils = require('./build/import-utils.js');
 const log = require('fancy-log');
 const path = require('path');
 const releaseHtml = require('./build/release-html.js');
@@ -176,12 +176,12 @@ async function release() {
     // Find assets that are going to be inlined.
     const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
     const allScripts = Array.from(document.querySelectorAll('script')).filter((scriptNode) => {
-      return !(scriptNode.src && isUrl(scriptNode.src));
+      return !(scriptNode.src && importUtils.isUrl(scriptNode.src));
     });
 
     // Inline all local referenced styles.
     for (const styleLink of styleLinks) {
-      if (isUrl(styleLink.href)) {
+      if (importUtils.isUrl(styleLink.href)) {
         continue;  // TODO(samthor): mostly Google Fonts, but could be worth validating
       }
       const out = await vfs(path.join(dir, styleLink.href));
@@ -207,31 +207,26 @@ async function release() {
         if (code) {
           throw new TypeError(`got invalid <script>: both code and src`);
         }
-        let src = scriptNode.src;
-        if (!src.startsWith('./')) {
-          src = `./${src}`;
-        }
-        code = `import '${src}';`
+        code = importUtils.staticImport(src);
       }
-      const id = `${htmlFile}#${entrypoints.size}.js`;
+      const id = `${htmlFile}#${entrypoints.size}`;
       entrypoints.set(id, {scriptNode, code});
 
       // Clear scriptNode.
-      scriptNode.textContent = '';
+      scriptNode.textContent = `/* ${id} */`;
       scriptNode.removeAttribute('src');
     }
 
     htmlDocuments.set(htmlFile, {dom, moduleScriptNodes});
   }
 
-  // Optionally include prod-required scripts.
+  // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
-    // FIXME: can we compile prod/ together with static/ ?
-    const prodScripts = globAll('prod/*.js', 'static/entrypoint.js');
+    const prodScripts = globAll('static/entrypoint.js');
     for (const id of prodScripts) {
-      entrypoints.set(id, {
+      entrypoints.set(`${id}#`, {
         scriptNode: null,
-        code: await fsp.readFile(id, 'utf8'),
+        code: importUtils.staticImport(path.basename(id)),
       });
     }
   }
