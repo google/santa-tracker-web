@@ -20,7 +20,7 @@ export class SantaSidebarElement extends LitElement {
   }
 
   _onLanguageChange(ev) {
-    window.location = `https://santatracker.google.com/intl/${ev.target.value}/`;
+    window.location = `/intl/${ev.target.value}/`;
   }
 
   render() {
