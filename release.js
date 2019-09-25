@@ -15,8 +15,6 @@ const releaseHtml = require('./build/release-html.js');
 const santaVfs = require('./santa-vfs.js');
 const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
-const {JSDOM} = require('jsdom');
-const babel = require('@babel/core');
 const {Writer} = require('./build/writer.js');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
@@ -63,7 +61,8 @@ const yargs = require('yargs')
 const assetsToCopy = [
   'static/audio/*',
   'static/img/**/*',
-  'static/third_party/**/LICENSE*',  // TODO: we might need assets from here
+  'static/third_party/**/LICENSE*',
+  'static/third_party/lib/klang/**',
   'static/scenes/**/models/**',
   'static/scenes/**/img/**',
 
@@ -154,7 +153,7 @@ async function release() {
   }
 
   // Shared resources needed by prod build.
-  const entrypoints = new Map();
+  const staticEntrypoints = {};
   const requiredScriptSources = new Set();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
@@ -206,6 +205,7 @@ async function release() {
         .forEach((src) => requiredScriptSources.add(src));
 
     // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
+    let count = 0;
     const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
     for (const scriptNode of moduleScriptNodes) {
       let code = scriptNode.textContent;
@@ -217,8 +217,8 @@ async function release() {
         }
         code = importUtils.staticImport(scriptNode.src);
       }
-      const id = `${htmlFile}#${entrypoints.size}`;
-      entrypoints.set(id, {scriptNode, code});
+      const id = `${htmlFile}#${count++}`;
+      staticEntrypoints[id] = {scriptNode, code};
 
       // Clear scriptNode.
       scriptNode.textContent = `/* ${id} */`;
@@ -232,17 +232,31 @@ async function release() {
   if (yargs.prod) {
     const prodScripts = globAll('static/entrypoint.js');
     for (const id of prodScripts) {
-      entrypoints.set(`${id}#`, {
+      staticEntrypoints[`${id}#`] = {
         scriptNode: null,
         code: importUtils.staticImport(path.basename(id)),
-      });
+      };
     }
+
+    // Special-case building the loader, which has no translations and magic.
+    const loaderEntrypoints = {
+      'prod/loader.js': {code: await fsp.readFile('prod/loader.js', 'utf-8')},
+    };
+    const bundles = await modernBuilder(loaderEntrypoints, {
+      loader: vfs,
+      workDir: 'prod',
+    });
+    if (bundles.length !== 1) {
+      throw new TypeError(`could not compile single loader bundle, got ${bundles.length}`);
+    }
+    releaseWriter.file('prod/loader.js', bundles[0].code);
+    log(`Built prod loader`);
   }
 
   log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`);
-  log(`Found ${chalk.cyan(entrypoints.size)} entrypoints, merging...`);
+  log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} entrypoints, merging...`);
 
-  const bundles = await modernBuilder(entrypoints, {
+  const bundles = await modernBuilder(staticEntrypoints, {
     loader: vfs,
     external(id) {
       if (id === 'static/src/magic.js') {
@@ -250,6 +264,7 @@ async function release() {
       }
     },
     workDir: 'static',
+    metaUrlScope: config.staticScope,
   });
   log(`Generated ${chalk.cyan(bundles.length)} static bundles via Rollup, rewriting...`);
 
@@ -294,7 +309,7 @@ async function release() {
     }
 
     const {seen, rewrite} = await builder(bundle.code, bundle.fileName);
-    const entrypoint = entrypoints.get(bundle.facadeModuleId);
+    const entrypoint = staticEntrypoints[bundle.facadeModuleId];
 
     annotatedBundles[bundle.fileName] = {
       entrypoint: entrypoint || null,

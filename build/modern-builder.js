@@ -12,6 +12,7 @@ module.exports = async (entrypoints, options) => {
     loader: () => {},
     external: () => {},
     workDir: null,
+    metaUrlScope: null,
   }, options);
 
   const resolveNodePlugin = {resolveId: resolveNode};
@@ -26,10 +27,9 @@ module.exports = async (entrypoints, options) => {
         throw new Error(`refusing to load module outside workDir: ${idToLoad}`);
       }
 
-      // TODO(samthor): we could just pass Object<string, string> here
-      const entrypoint = entrypoints.get(idToLoad);
+      const entrypoint = entrypoints[idToLoad];
       if (entrypoint) {
-        return entrypoint.code;
+        return entrypoint;
       }
 
       return options.loader(idToLoad);
@@ -62,14 +62,22 @@ module.exports = async (entrypoints, options) => {
       return id;
     },
     resolveImportMeta(prop, {moduleId}) {
-      // FIXME: do something sensible.
-      // nb. this is inlined as source.
-      return `'__import_meta_'`;
+      if (prop !== 'url') {
+        throw new TypeError(`got unsupported import.meta.${prop} request for: ${moduleId}`);
+      } else if (!options.metaUrlScope) {
+        throw new TypeError(`import.meta.url request without metaUrlScope: ${moduleId}`);
+      }
+
+      const rel = path.relative(options.workDir, moduleId);
+      const u = new URL(rel, options.metaUrlScope);
+
+      // TODO(samthor): escape
+      return `'${u.toString()}'`;
     },
   };
 
   const input = {};
-  entrypoints.forEach((_, id) => {
+  Object.keys(entrypoints).forEach((id) => {
     input[id] = id;
   });
 

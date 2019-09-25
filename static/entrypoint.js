@@ -408,8 +408,10 @@ const loaderScene = (sceneName, data) => {
     document.title = _msg`santatracker`;
   }
 
+  const optionalProdIndex = document.documentElement.lang ? `index_${document.documentElement.lang}.html` : '';
+
   const locked = ['tracker'].indexOf(sceneName) !== -1;
-  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/');
+  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/') + (optionalProdIndex);
 
   loadedScene = sceneName;
 

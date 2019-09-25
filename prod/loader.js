@@ -8,7 +8,7 @@ document.body.setAttribute('static', config.staticScope);
 
 const entrypoint = document.createElement('script');
 entrypoint.type = 'module';
-entrypoint.src = config.staticScope + (isProd ? `${actualLang}_` : '') + 'entrypoint.js';
+entrypoint.src = config.staticScope + 'entrypoint' + (isProd ? `_${documentLang}` : '') + '.js';
 
 entrypoint.onload = () => {
   document.body.classList.remove('loading');
