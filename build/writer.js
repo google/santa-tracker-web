@@ -79,7 +79,7 @@ class Writer {
    * Adds many files to the release queue.
    *
    * @param {!Array<string>|!Object<string, string|!Buffer>} all
-   * @return {!Promise<void>}
+   * @return {!number}
    */
   all(all) {
     const work = [];
@@ -95,7 +95,7 @@ class Writer {
       }
     }
   
-    return Promise.all(work).then(() => undefined);
+    return work.length;
   }
 
   /**

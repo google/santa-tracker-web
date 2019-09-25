@@ -51,7 +51,7 @@ const yargs = require('yargs')
     .option('prod', {
       type: 'boolean',
       default: true,
-      describe: 'Whether to build prod',
+      describe: 'Whether to build prod and related static entrypoint',
     })
     .option('scene', {
       type: 'array',
@@ -63,13 +63,18 @@ const yargs = require('yargs')
 const assetsToCopy = [
   'static/audio/*',
   'static/img/**/*',
-  'static/third_party/**',
+  'static/third_party/**/LICENSE*',  // TODO: we might need assets from here
   'static/scenes/**/models/**',
   'static/scenes/**/img/**',
 
   // Explicitly include Web Components polyfill bundles, as they're injected at runtime rather than
   // being directly referenced by a `<script>`.
   'static/node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
+
+  'prod/**',
+  '!prod/**/*.html',
+  '!prod/**/*.js',
+  '!prod/**/*.json',
 ];
 
 // nb. matches config in serve.js
@@ -348,8 +353,6 @@ async function release() {
         }
       }
 
-      const target = path.join('dist', );
-
       dom.window.document.documentElement.lang = lang;
       // TODO: msgid stuff
 
@@ -358,10 +361,11 @@ async function release() {
   }
 
 
-  // Copy everything else.
-  const staticAll = globAll(...assetsToCopy).concat(...requiredScriptSources);
-  log(`Copying ${chalk.cyan(staticAll.length)} static assets`);
-  releaseWriter.all(staticAll);
+  // Copy everything else (but filter prod assets if not requested).
+  const otherAssets = globAll(...assetsToCopy).concat(...requiredScriptSources)
+  const limitedOtherAssets = yargs.prod ? otherAssets : otherAssets.filter((f) => !f.startsWith('prod/'));
+  const otherAssetsCount = releaseWriter.all(limitedOtherAssets);
+  log(`Releasing ${chalk.cyan(otherAssetsCount)} static assets`);
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
@@ -374,6 +378,10 @@ async function release() {
       console.info(chalk.yellow(msgid), 'for', chalk.red(ratio), 'of langs', rest);
     });
   }
+
+  // Wait for writing to complete and announce success! \o/
+  const count = await releaseWriter.wait();
+  log(`Done! Written ${chalk.cyan(count)} files`);
 }
 
 async function releaseProd(langs) {
@@ -381,9 +389,6 @@ async function releaseProd(langs) {
   // TODO(samthor): This list should be bigger.
   const prodPages = (await fsp.readdir('./static/scenes')).filter((cand) => cand.match(/^[a-z  ]+/));
   log(`Found ${chalk.cyan(Object.keys(prodPages).length)} prod pages`);
-
-  const prodAll = globAll('prod/**', '!prod/**/*.js', '!prod/*.html', '!prod/manifest.json');
-  releaseWriter.all(prodAll);
 
   // Match non-index.html prod pages, like cast, error etc.
   let prodHtmlCount = 0;
@@ -443,10 +448,7 @@ async function releaseProd(langs) {
   log(`Generated ${chalk.cyan(Object.keys(langs).length)} manifest files`);
 }
 
-release().then(async () => {
-  const count = await releaseWriter.wait();
-  log(`Done! Written ${chalk.cyan(count)} files`);
-}).catch((err) => {
+release().catch((err) => {
   console.warn(err);
   process.exit(1);
 });
