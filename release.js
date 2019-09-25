@@ -55,7 +55,7 @@ const yargs = require('yargs')
     .option('scene', {
       type: 'array',
       default: [],
-      describe: 'If specified, only compile these scenes',
+      describe: 'Limit static build to selected scenes',
     })
     .argv;
 

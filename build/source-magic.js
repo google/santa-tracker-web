@@ -3,6 +3,47 @@ const t = babel.types;
 const traverse = require('@babel/traverse');
 const generator = require('@babel/generator');
 
+/*
+TODO(samthor): This is fine but can be done differently.
+
+Right now, this identifies certain named imports as magic. The AST parser below identifies their
+use before storing them and letting us replace them at a later point in time (for i18n). In this
+approach, we prevent use of imports in any way _but_ a TaggedTemplateExpression.
+
+The alternative is to provide a fake import (that gets rolled up by Rollup "properly") that ends
+up including real methods that we can resolve with Babel's evaluate helpers. This has a benefit in
+that we can 'follow' the helper around, e.g.:
+
+  const ast = await babel.parseAsync('const _msg=function __magic_msg(){}; var x = _msg; var q = x; q`foo`;');
+  traverse.default(ast, {
+    Identifier(nodePath) {
+      const name = nodePath.node.name;
+      if (nodePath.parentPath.node.type !== 'TaggedTemplateExpression') {
+        return;
+      }
+
+      const adjacent = nodePath.parentPath.insertBefore(babel.types.identifier(name))[0];
+      const evaluated = adjacent.evaluate();
+      if (evaluated.confident) {
+        throw new Error('babel should not evaluate this');
+      }
+      const node = evaluated.deopt.node;
+      if (node.type !== 'FunctionExpression') {
+        throw new Error('expected magic function, was: ' + node.type);
+      }
+
+      const id = node.id;
+      if (id) {
+        console.warn('name=', id.name);
+      } else {
+        console.warn('no name');
+      }
+
+      // console.info(evaluated.deopt.node);
+    },
+  });
+*/
+
 module.exports = (visitor) => {
 
   return async (code) => {
