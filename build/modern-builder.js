@@ -3,6 +3,7 @@ const rollup = require('rollup');
 const terser = require('terser');
 const transformFutureModules = require('./transform-future-modules.js');
 const path = require('path');
+const importUtils = require('./import-utils.js');
 
 
 
@@ -10,6 +11,7 @@ module.exports = async (entrypoints, options) => {
   options = Object.assign({
     loader: () => {},
     external: () => {},
+    workDir: null,
   }, options);
 
   const resolveNodePlugin = {resolveId: resolveNode};
@@ -18,6 +20,10 @@ module.exports = async (entrypoints, options) => {
     async load(idToLoad) {
       if (idToLoad.startsWith('/')) {
         idToLoad = path.relative(process.cwd(), idToLoad);
+      }
+
+      if (options.workDir && !idToLoad.startsWith(options.workDir + path.sep)) {
+        throw new Error(`refusing to load module outside workDir: ${idToLoad}`);
       }
 
       // TODO(samthor): we could just pass Object<string, string> here
@@ -74,7 +80,7 @@ module.exports = async (entrypoints, options) => {
 
   const generated = await bundle.generate({
     format: 'esm',
-    chunkFileNames: 'c[hash].js',
+    chunkFileNames: path.join(options.workDir || '', '_[hash].js'),
   });
 
   // console.info('got bundle of modules', Object.keys(generated.output).length);

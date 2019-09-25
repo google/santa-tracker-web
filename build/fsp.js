@@ -1,24 +1,22 @@
-const fs = require('fs');
-const util = require('util');
-const mkdirp = require('mkdirp');
+const fs = require('fs').promises;
+const rimraf = require('rimraf');
 
-const stat = util.promisify(fs.stat);
-const exists = async (path) => {
-  try {
-    await stat(path);
-  } catch (e) {
-    return false;
-  }
-  return true;
-};
-
-module.exports = {
-  copyFile: util.promisify(fs.copyFile),
-  exists,
-  readdir: util.promisify(fs.readdir),
-  readlink: util.promisify(fs.readlink),
-  readFile: util.promisify(fs.readFile),
-  stat,
-  writeFile: util.promisify(fs.writeFile),
-  mkdirp: util.promisify(mkdirp),
-};
+module.exports = Object.assign({}, fs, {
+  async statOrNull(f) {
+    return fs.stat(f).catch((err) => null);
+  },
+  async exists(f) {
+    return this.statOrNull(f).then((out) => out !== null);
+  },
+  mkdirp(f) {
+    return fs.mkdir(f, {recursive: true});
+  },
+  unlinkAll(f) {
+    // don't use util.promisify as we disable glob
+    return new Promise((resolve, reject) => {
+      rimraf(f, {glob: false}, (err) => {
+        err ? reject(err) : resolve();
+      });
+    });
+  },
+});
