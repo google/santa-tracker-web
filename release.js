@@ -17,6 +17,7 @@ const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
 const {JSDOM} = require('jsdom');
 const babel = require('@babel/core');
+const {Writer} = require('./build/writer.js');
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -77,52 +78,19 @@ const config = {
   version: yargs.build,
 };
 
+const vfs = santaVfs(config.staticScope, {config});
+
+const releaseWriter = new Writer({
+  loader: vfs,
+  allowed: ['static', 'prod'],
+  target: 'dist',
+});
+
 function prodPathForLang(lang) {
   if (lang === DEFAULT_LANG) {
     return 'prod';
   }
   return `prod/intl/${lang}_ALL`
-}
-
-const releaseAllWork = [];
-
-/**
- * @param {!Array<string>|!Object<string, string|!Buffer>} all
- * @return {!Promise<void>}
- */
-function releaseAll(all) {
-  prefix = path.join('dist');
-  const work = [];
-
-  const validateFile = (f) => {
-    if (f.startsWith('prod/') || f.startsWith('static/')) {
-      // ok
-    } else {
-      throw new Error(`invalid release target: ${f}`);
-    }
-  };
-
-  if (Array.isArray(all)) {
-    work.push(...all.map(async (f) => {
-      validateFile(f);
-      const target = path.join(prefix, f);
-      await fsp.mkdirp(path.dirname(target));
-      await fsp.copyFile(f, target);
-    }));
-  } else {
-    const write = async (f, content) => {
-      validateFile(f);
-      const target = path.join(prefix, f);
-      await fsp.mkdirp(path.dirname(target));
-      await fsp.writeFile(target, content);
-    };
-    for (const f in all) {
-      work.push(write(f, all[f]));
-    }
-  }
-
-  releaseAllWork.push(...work);
-  return Promise.all(work).then(() => undefined);
 }
 
 function rewritePathForLang(id, lang) {
@@ -187,7 +155,6 @@ async function release() {
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
   // or JS on its own, it must be included by one of our HTML entry points.
-  const vfs = santaVfs(config.staticScope, {config});
 
   const htmlFiles = [];
   if (yargs.scene.length) {
@@ -351,9 +318,7 @@ async function release() {
           continue;
         }
 
-        releaseAll({
-          [rewritePathForLang(fileName, lang)]: b.code[lang],
-        });
+        releaseWriter.file(rewritePathForLang(fileName, lang), b.code[lang]);
       }
 
       continue;
@@ -364,7 +329,7 @@ async function release() {
     ++rewrittenSources;
 
     if (!b.inline) {
-      releaseAll({[fileName]: b.code});
+      releaseWriter.file(fileName, b.code);
     }
   }
 
@@ -388,9 +353,7 @@ async function release() {
       dom.window.document.documentElement.lang = lang;
       // TODO: msgid stuff
 
-      releaseAll({
-        [rewritePathForLang(fileName, lang)]: dom.serialize(),
-      });
+      releaseWriter.file(rewritePathForLang(fileName, lang), dom.serialize());
     }
   }
 
@@ -398,7 +361,7 @@ async function release() {
   // Copy everything else.
   const staticAll = globAll(...assetsToCopy).concat(...requiredScriptSources);
   log(`Copying ${chalk.cyan(staticAll.length)} static assets`);
-  releaseAll(staticAll);
+  releaseWriter.all(staticAll);
 
   // Display information about missing messages.
   const missingMessagesKeys = Object.keys(missingMessages);
@@ -417,11 +380,10 @@ async function releaseProd(langs) {
   // Fanout these scenes in prod.
   // TODO(samthor): This list should be bigger.
   const prodPages = (await fsp.readdir('./static/scenes')).filter((cand) => cand.match(/^[a-z  ]+/));
-  prodPages.push('');
   log(`Found ${chalk.cyan(Object.keys(prodPages).length)} prod pages`);
 
   const prodAll = globAll('prod/**', '!prod/**/*.js', '!prod/*.html', '!prod/manifest.json');
-  releaseAll(prodAll);
+  releaseWriter.all(prodAll);
 
   // Match non-index.html prod pages, like cast, error etc.
   let prodHtmlCount = 0;
@@ -432,9 +394,7 @@ async function releaseProd(langs) {
     const tail = path.basename(htmlFile);
     for (const lang in langs) {
       const target = path.join(prodPathForLang(lang), tail);
-      releaseAll({
-        [target]: documentForLang(langs[lang]),
-      });
+      releaseWriter.file(target,  documentForLang(langs[lang]));
       ++prodHtmlCount;
     }
   }
@@ -463,9 +423,7 @@ async function releaseProd(langs) {
     for (const lang in langs) {
       const filename = page ? `${page}.html` : 'index.html';
       const target = path.join(prodPathForLang(lang), filename);
-      releaseAll({
-        [target]: documentForLang(langs[lang]),
-      });
+      releaseWriter.file(target, documentForLang(langs[lang]));
       ++prodHtmlCount;
     }
   }
@@ -479,17 +437,15 @@ async function releaseProd(langs) {
     manifest['name'] = messages('santatracker');
     manifest['short_name'] = messages('santa-app');
     const target = path.join(prodPathForLang(lang), 'manifest.json');
-    releaseAll({
-      [target]: JSON.stringify(manifest),
-    });
+    releaseWriter.file(target, JSON.stringify(manifest));
   }
 
   log(`Generated ${chalk.cyan(Object.keys(langs).length)} manifest files`);
 }
 
 release().then(async () => {
-  await Promise.all(releaseAllWork);
-  log(`Done! Written ${chalk.cyan(releaseAllWork.length)} files`);
+  const count = await releaseWriter.wait();
+  log(`Done! Written ${chalk.cyan(count)} files`);
 }).catch((err) => {
   console.warn(err);
   process.exit(1);
