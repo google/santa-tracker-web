@@ -42,6 +42,19 @@ module.exports = {
   },
 
   /**
+   * Ensure that the specified ID is suitable for import as an ES6 module path.
+   *
+   * @param {string|!URL} cand
+   * @return {string}
+   */
+  relativize(cand) {
+    if (this.alreadyResolved(cand)) {
+      return cand.toString();
+    }
+    return `./${cand}`;
+  },
+
+  /**
    * Builds an ES6 module which simply imports the given targets for their side-effects.
    *
    * @param {...string} resources 
@@ -49,11 +62,8 @@ module.exports = {
    */
   staticImport(...resources) {
     return resources.map((resource) => {
-      if (!this.alreadyResolved(resource)) {
-        resource = `./${resource}`;
-      }
       // TODO(samthor): escape resource.
-      return `import '${resource}';\n`;
+      return `import '${this.relativize(resource)}';\n`;
     }).join('');
   },
 

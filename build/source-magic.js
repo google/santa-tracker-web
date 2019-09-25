@@ -1,7 +1,9 @@
 const babel = require('@babel/core');
 const t = babel.types;
+const path = require('path');
 const traverse = require('@babel/traverse');
 const generator = require('@babel/generator');
+const importUtils = require('./import-utils.js');
 
 /*
 TODO(samthor): This is fine but can be done differently.
@@ -46,7 +48,7 @@ that we can 'follow' the helper around, e.g.:
 
 module.exports = (visitor) => {
 
-  return async (code) => {
+  return async (code, id) => {
     const ast = await babel.parseAsync(code);
     const importDeclarations = new Map();
     const tagged = new Map();
@@ -107,6 +109,8 @@ module.exports = (visitor) => {
       },
     });
 
+    const dir = path.dirname(id);
+
     return {
       seen: new Set(tagged.keys()),
       rewrite(lang) {
@@ -122,10 +126,13 @@ module.exports = (visitor) => {
         });
 
         importDeclarations.forEach((value, nodePath) => {
-          const update = visitor.rewriteImport(lang, value) || value;
-//          console.info(nodePath);
-// might work??
-          nodePath.node.source.value = update;
+          const resolved = path.join(dir, value);
+          const update = visitor.rewriteImport(lang, resolved);
+          if (update) {
+            const rel = importUtils.relativize(path.relative(dir, update));
+            const sourcePath = nodePath.get('source');
+            sourcePath.replaceWith(t.stringLiteral(rel));
+          }
         });
 
         const {code} = generator.default(ast, {comments: false});

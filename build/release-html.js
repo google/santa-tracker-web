@@ -23,6 +23,8 @@ function compileHtml(raw) {
       }
       return result.code;
     },
+    removeComments: true,
+    removeEmptyAttributes: true,
     removeRedundantAttributes: true,
     sortAttributes: true,
     sortClassName: true,
@@ -102,9 +104,7 @@ function buildApplyLang(dom) {
     node.removeAttribute('msgid');
   });
 
-  const applyMessages = (messages, lang) => {
-    // set <html lang="...">
-    applyAttribute(document.documentElement, 'lang', lang);
+  const applyMessages = (messages) => {
     messagesNodeMap.forEach((msgid, node) => {
       const string = (messages ? messages(msgid) : '');
       applyToNode(string, node);
@@ -112,8 +112,10 @@ function buildApplyLang(dom) {
   };
 
   return (messages) => {
+    // set <html lang="...">
     const lang = messages(null);  // null message returns lang
-    applyMessages(messages, lang);
+    applyAttribute(document.documentElement, 'lang', lang);
+    applyMessages(messages);
     return dom.serialize();
   };
 } 
@@ -122,27 +124,20 @@ function buildApplyLang(dom) {
 module.exports = {
   applyAttribute,
   applyAttributeToAll,
+  buildApplyLang,
 
-  async static(document) {
-    const applyLang = buildApplyLang(document);
-    return (messages) => {
-      if (!messages) {
-        // emit without any langs
-        return compileHtml(dom.serialize(document));
-      }
-      const out = applyLang(messages);
-      return compileHtml(out);
-    };
-  },
-
-  async prod(filename, rewriter=emptyFunc) {
+  async dom(filename) {
     const raw = await fsp.readFile(filename, 'utf8');
     const source = compileHtml(raw);
-    const doc = new JSDOM(source);
+    return new JSDOM(source);
+  },
 
-    await rewriter(doc.window.document);
+  async load(filename, rewriter=emptyFunc) {
+    const dom = await this.dom(filename);
 
-    return buildApplyLang(doc);
+    await rewriter(dom.window.document);
+
+    return buildApplyLang(dom);
   },
 
 };

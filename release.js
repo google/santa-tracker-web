@@ -171,11 +171,14 @@ async function release() {
     throw new Error('no entrypoints matched');
   }
 
+  log(`Processing ${chalk.cyan(htmlFiles.length)} entrypoint HTML files...`);
+
   const htmlDocuments = new Map();
   for (const htmlFile of htmlFiles) {
-    const dir = path.dirname(htmlFile);
-    const dom = new JSDOM(await fsp.readFile(htmlFile));
+    const dom = await releaseHtml.dom(htmlFile);
     const document = dom.window.document;
+
+    const dir = path.dirname(htmlFile);
 
     // Find assets that are going to be inlined.
     const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
@@ -188,9 +191,10 @@ async function release() {
       if (importUtils.isUrl(styleLink.href)) {
         continue;  // TODO(samthor): mostly Google Fonts, but could be worth validating
       }
-      const out = await vfs(path.join(dir, styleLink.href));
+      const target = path.join(dir, styleLink.href);
+      const out = await vfs(target) || await fsp.readFile(target, 'utf-8');
       const inlineStyleTag = document.createElement('style');
-      inlineStyleTag.innerHTML = out.code;
+      inlineStyleTag.innerHTML = 'code' in out ? out.code : out;
       styleLink.replaceWith(inlineStyleTag);
     }
 
@@ -249,6 +253,7 @@ async function release() {
   });
   log(`Generated ${chalk.cyan(bundles.length)} static bundles via Rollup, rewriting...`);
 
+  const annotatedBundles = {};
   const builder = sourceMagic({
     magicImport(importName) {
       return importName === '__magic';
@@ -267,19 +272,28 @@ async function release() {
       }
     },
     rewriteImport(lang, id) {
-
+      const bundle = annotatedBundles[id];
+      if (bundle && bundle.i18n) {
+        if (!lang) {
+          throw new TypeError(`Got bundle without lang request`);
+        }
+        return rewritePathForLang(id, lang);
+      }
     },
   });
 
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
-  const annotatedBundles = {};
   const scriptNodeToBundle = new Map();
   for (const bundle of bundles) {
     if (bundle.isDynamicEntry) {
+      // Santa Tracker doesn't handle these.
       throw new TypeError(`dynamic entry unsupported: ${bundle.fileName}`);
+    } else if (bundle.facadeModuleId && path.dirname(bundle.fileName) !== path.dirname(bundle.facadeModuleId)) {
+      // Sanity-check expectations.
+      throw new TypeError(`unexpected divergence of fileName ${bundle.fileName} vs facadeModuleId ${bundle.facadeModuleId}`);
     }
 
-    const {seen, rewrite} = await builder(bundle.code);
+    const {seen, rewrite} = await builder(bundle.code, bundle.fileName);
     const entrypoint = entrypoints.get(bundle.facadeModuleId);
 
     annotatedBundles[bundle.fileName] = {
@@ -300,10 +314,9 @@ async function release() {
   let rewrittenSources = 0;
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
-    log(`Processing bundle ${chalk.yellow(fileName)} (entrypoint=${Boolean(b.entrypoint)})...`);
 
     const work = new Set(b.imports);
-    for (const dep in work) {
+    for (const dep of work) {
       const o = annotatedBundles[dep];
       if (o.i18n) {
         b.i18n = true;
@@ -311,6 +324,14 @@ async function release() {
       o.imports.forEach((i) => work.add(i));
     }
     b.allImports = Array.from(work);
+
+    const attrs = [];
+    b.entrypoint && attrs.push('entrypoint');
+    b.i18n && attrs.push('i18n');
+    const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
+    log(`Rewriting bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
+
+    const sanitizedFile = fileName.split('#')[0];
 
     if (b.i18n) {
       // Rewrite this module for each language.
@@ -323,7 +344,7 @@ async function release() {
           continue;
         }
 
-        releaseWriter.file(rewritePathForLang(fileName, lang), b.code[lang]);
+        releaseWriter.file(rewritePathForLang(sanitizedFile, lang), b.code[lang]);
       }
 
       continue;
@@ -334,7 +355,7 @@ async function release() {
     ++rewrittenSources;
 
     if (!b.inline) {
-      releaseWriter.file(fileName, b.code);
+      releaseWriter.file(sanitizedFile, b.code);
     }
   }
 
@@ -342,9 +363,11 @@ async function release() {
 
   // Now, rewrite all static HTML files for every language.
   for (const [fileName, {dom, moduleScriptNodes}] of htmlDocuments) {
-    for (const lang in langs) {
+    const applyLang = releaseHtml.buildApplyLang(dom);
 
+    for (const lang in langs) {
       for (const scriptNode of moduleScriptNodes) {
+        // TODO(samthor): add `<link rel="modulepreload" href="..." />`, fix for i18n deps
         const bundle = scriptNodeToBundle.get(scriptNode);
         if (typeof bundle.code === 'string') {
           scriptNode.textContent = bundle.code;
@@ -353,13 +376,10 @@ async function release() {
         }
       }
 
-      dom.window.document.documentElement.lang = lang;
-      // TODO: msgid stuff
-
-      releaseWriter.file(rewritePathForLang(fileName, lang), dom.serialize());
+      const serialized = applyLang(langs[lang]);
+      releaseWriter.file(rewritePathForLang(fileName, lang), serialized);
     }
   }
-
 
   // Copy everything else (but filter prod assets if not requested).
   const otherAssets = globAll(...assetsToCopy).concat(...requiredScriptSources)
@@ -394,7 +414,7 @@ async function releaseProd(langs) {
   let prodHtmlCount = 0;
   const prodOtherHtml = globAll('prod/*.html', '!prod/index.html');
   for (const htmlFile of prodOtherHtml) {
-    const documentForLang = await releaseHtml.prod(htmlFile);
+    const documentForLang = await releaseHtml.load(htmlFile);
 
     const tail = path.basename(htmlFile);
     for (const lang in langs) {
@@ -406,7 +426,8 @@ async function releaseProd(langs) {
 
   // Fanout prod index.html to all scenes and langs.
   for (const page of prodPages) {
-    const documentForLang = await releaseHtml.prod('prod/index.html', async (document) => {
+    // TODO(samthor): This loads and minifies the prod HTML ~scenes times, but it is destructive.
+    const documentForLang = await releaseHtml.load('prod/index.html', async (document) => {
       const head = document.head;
 
       const image = `prod/images/og/${page}.png`;
