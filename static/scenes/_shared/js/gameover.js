@@ -23,12 +23,12 @@ app.shared.Gameover = class Gameover {
 
   /**
    * @param {T} game The game object.
-   * @param {boolean=} playExtra whether there's more levels to play
+   * @param {jQuery|!Element|boolean=} playExtra whether there's more levels to play
    * @template T
    */
   constructor(game, playExtra=false) {
     this.game = game;
-    this._hasPlayExtra = playExtra;
+    this._hasPlayExtra = typeof playExtra === 'boolean' && playExtra;
   }
 
   /**
