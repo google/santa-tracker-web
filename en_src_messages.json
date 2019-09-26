@@ -847,6 +847,10 @@
     "description": "Button text. 15char limit. A label on an activity that will let the user explore a scene.",
     "message": "Explore"
   },
+  "explore-village": {
+    "description": "Button text. Allows users to return to Santa's Village.",
+    "message": "Explore Santa's Village"
+  },
   "fi_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Finland"
@@ -1211,6 +1215,14 @@
     "description": "This is a short label on a button to go to the next game",
     "message": "Next Game"
   },
+  "nextdecember": {
+    "description": "Message encouraging the user to come back to Santa Tracker in December",
+    "message": "See you in December!"
+  },
+  "nextyear": {
+    "description": "Message encouraging the user to come back to Santa Tracker next year",
+    "message": "See you next year!"
+  },
   "ng_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Nigeria"
@@ -1537,7 +1549,7 @@
   },
   "press-edu1": {
     "description": "Long-form text about Santa Tracker",
-    "raw": "We've expanded our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>educator resource page<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to provide teachers with video guides to accompany lesson plans now available in four languages. All of your favorite games remain introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>our educational games<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to learn more."
+    "raw": "We've expanded our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>educator resource page<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to provide teachers with video guides to accompany lesson plans now available in five languages. All of your favorite games remain, introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./educators.html\"&gt;</ph>our educational games<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> to learn more."
   },
   "press-whatsnew": {
     "description": "Heading of the Press page",
@@ -1565,7 +1577,7 @@
   },
   "press-whatsnew3-text": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description: note that 'hamburger' refers to the three-line 'more' menu sometimes nicknamed the hamburger menu, and Location Sharing is a feature of Google Maps",
-    "message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+    "raw": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey. You can also go to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://g.co/findsanta\"&gt;</ph>https://g.co/findsanta<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> for an easy shortcut!"
   },
   "press-whatsnew4-title": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description",
@@ -1573,7 +1585,7 @@
   },
   "press-whatsnew4-text": {
     "description": "Title of a thing that is new, to be used as a prefix of a longer description",
-    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+    "raw": "If you're craving more holiday cheer, check out the Gboard holiday stickers available on <ph name=\"BEGIN_LINK1\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"&gt;</ph>Android<ph name=\"END_LINK1\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, <ph name=\"BEGIN_LINK2\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"&gt;</ph>iOS<ph name=\"END_LINK2\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>, and our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"&gt;</ph>Android app<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>. And, enjoy some literary fun by asking the Google Assistant to \"Tell me a holiday story\" and \"Where's Santa?\""
   },
   "press-villagetracker-title": {
     "description": "Heading of the Press page",
@@ -2031,6 +2043,10 @@
     "description": "Title of a video scene. Santa is on vacation in a city before his work in December.",
     "message": "Still on Vacation"
   },
+  "scene_videoscene_penguinproof": {
+    "description": "Title of a video scene. Penguins are trying to discover Santa's password, until he gets a better one.",
+    "message": "Penguin Proof"
+  },
   "scene_videoscene_reload": {
     "description": "Title of a video scene. Santa restocks presents mid-journey.",
     "message": "Present Reload"
@@ -2115,6 +2131,10 @@
     "description": "Button text. 15char limit. Shares an image on Google+ or Facebook.",
     "message": "Share"
   },
+  "skip-intro": {
+    "description": "Button text. 30char limit. Lets a user skip an introductary video that will be playing behind the button.",
+    "message": "Skip Intro"
+  },
   "skip-training": {
     "description": "Button text. 30char limit. Lets a user skip past an early training or introductory part of a game.",
     "message": "Skip Training"
@@ -2182,6 +2202,22 @@
   "snowflake_share_postcard_message": {
     "description": "Tell user to make a postcard and share it.",
     "message": "Choose a postcard and share your snowflake with friends"
+  },
+  "sidebar_earth_quiz": {
+    "description": "Link to a quiz hosted on Google Earth",
+    "message": "Google Earth: Holiday Traditions quiz"
+  },
+  "sidebar_trends": {
+    "description": "Link to information about holiday-themed searches",
+    "message": "Google Trends: Holiday searches"
+  },
+  "sidebar_code_emoji": {
+    "description": "Link to a tool on the 'Made with Code' site that helps you make a custom emoji",
+    "message": "Made with Code: Holiday Emoji"
+  },
+  "sidebar_santas_location": {
+    "description": "Link to information about seeing Santa in the Location Sharing feature inside Google Maps",
+    "message": "Google Maps: Santa's Location"
   },
   "sk_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -4030,6 +4066,14 @@
   "tr_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
     "message": "Turkish"
+  },
+  "tracker-game_be-internet-awesome": {
+    "description": "Link to a game which lets users learn about safety and privacy on the Internet",
+    "message": "Be Internet Awesome"
+  },
+  "tracker-game_awesome": {
+    "description": "Link to a game which lets users learn about safety and privacy on the Internet",
+    "message": "Play Tower of Treasure"
   },
   "tracker_arrival": {
     "message": "Arrival"
@@ -9001,6 +9045,10 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Uganda"
   },
+  "underconstruction": {
+    "description": "A label which indicates that Santa's Village is under construction. The site is available but many features are unavailable because it's not yet December.",
+    "message": "Under Construction"
+  },
   "unmute": {
     "description": "Button text. 15 char limit. Lets a user unmute sounds, to hear audio again.",
     "message": "Unmute"
@@ -9085,13 +9133,17 @@
     "description": "Menu item for playing a quiz with Santa",
     "message": "Santa Earth Quiz"
   },
-  "village_assistant-call_santa": {
+  "village_assistant-holiday_story": {
     "description": "Menu item linking to information about listening to a story with the Google Assistant",
-    "message": "Holiday Story with the Google Assistant"
+    "message": "Google Assistant: Holiday Story"
   },
   "village_assistant-call_santa": {
     "description": "Menu item linking to information about calling Santa with the Assistant",
-    "message": "Call Santa with the Google Assistant"
+    "message": "Google Assistant: Call Santa"
+  },
+  "village_assistant-wheres_santa": {
+    "description": "Menu item linking to information about finding out where Santa is with the Assistant",
+    "message": "Google Assistant: Where's Santa"
   },
   "village_takesoff": {
     "description": "Message describing when Santa Takes off, will be followed by a countdown",
@@ -9104,6 +9156,10 @@
   "watch": {
     "description": "Button text. 15char limit. A label on an activity that will show the user a video.",
     "message": "Watch"
+  },
+  "watch-video": {
+    "description": "Button text. 20char limit. Allows a user to watch a video.",
+    "message": "Watch Video"
   },
   "ye_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
