@@ -26,19 +26,23 @@ goog.require('app.Constants');
 app.Unit = class {
   /**
    * Convert Box2D world SI unit to pixels
+   * @param {number} m
+   * @return {number}
    */
   static fromWorld(m) {
     return m * app.Constants.PHYSICS_SCALE;
   }
   /**
    * Convert pixels to Box2D world SI unit
+   * @param {number} px
+   * @return {number}
    */
   static toWorld(px) {
     return px / app.Constants.PHYSICS_SCALE;
   }
   /**
    * Convert percentage of canvas to Box2D world SI units
-   * @return Object<x, y>
+   * @return {{x: number, y: number}}
    */
   static relativeWorld(percentageX, percentageY) {
      const x = app.Unit.toWorld(app.Constants.CANVAS_WIDTH * percentageX);

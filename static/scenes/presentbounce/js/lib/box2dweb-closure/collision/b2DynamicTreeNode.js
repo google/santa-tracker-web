@@ -106,7 +106,7 @@ Box2D.Collision.b2DynamicTreeNode.prototype.Destroy = function() {
 };
 
 /**
- * @return boolean
+ * @return {boolean}
  */
 Box2D.Collision.b2DynamicTreeNode.prototype.IsLeaf = function () {
     return this.child1 === null;
