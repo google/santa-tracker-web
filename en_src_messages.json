@@ -647,6 +647,22 @@
     "description": "Label. Users will see a URL that they can copy to share. Short, concise, ideally <25 chars.",
     "message": "Copy link to share"
   },
+  "controller_gamepad": {
+    "description": "A video game controller, also known as a 'game pad' or 'game controller'. The device you would use to play a game, normally on a gaming console.",
+    "message": "Controller"
+  },
+  "controller_keyboard": {
+    "description": "The name of your keyboard, the way that you can interact with a computer.",
+    "message": "Keyboard"
+  },
+  "controller_mouse": {
+    "description": "The name of your mouse, the way that you can interact with a computer.",
+    "message": "Mouse"
+  },
+  "controller_touch": {
+    "description": "The way you interact with a mobile phone, e.g., you touch with your finger. Noun.",
+    "message": "Touch"
+  },
   "countdown_days": {
     "description": "Label to be placed under days on a countdown clock. Shorten to 3-5 chars, fewer better. Plural preferred.",
     "message": "Days"
@@ -774,6 +790,10 @@
   "el_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
     "message": "Greek"
+  },
+  "elves": {
+    "description": "9 char limit. Short label that would appear under a count of Elves, the humanoids who live in Santa's village.",
+    "message": "Elves"
   },
   "elvish_language_name": {
     "description": "Localised name of a fake language. Appears in a translation drop down.",
@@ -1847,9 +1867,17 @@
     "description": "Title of a scene/game. Fly as an elf in a paraglider, dropping presents into chimneys.",
     "message": "Elf Glider"
   },
+  "scene_guides": {
+    "description": "Menu item/heading for a page containing resources for adults, who might be using Santa Tracker with younger people in their charge.",
+    "message": "Guides for Grownups"
+  },
   "scene_gumball": {
     "description": "Title of a scene/game. Drop gumballs (round lollies) through a scene, tilting to ensure they reach their destination.",
     "message": "Gumball Tilt"
+  },
+  "scene_havoc": {
+    "description": "Title of a scene/game. Work together in a frantic/busy/hectic factory environment to build presents.",
+    "message": "Present Havoc"
   },
   "scene_icecave": {
     "description": "Title of a scene/game. See Santa deliver presents to a giant snowman who lives in a cave.",
@@ -1939,6 +1967,10 @@
     "description": "Title of a scene/game. Throw snowballs at fellow elves until only one remains standing up.",
     "message": "Snowball Storm"
   },
+  "scene_snowbox": {
+    "description": "Title of a scene/game. Play with 3D blocks and shapes in a creative environment. This is a pun on 'Sandbox' in English.",
+    "message": "Snowbox"
+  },
   "scene_snowflake": {
     "description": "Title of a scene/game. Use coding to create postcards with snowflakes, and share them with your friends.",
     "message": "Code a Snowflake"
@@ -1950,6 +1982,10 @@
   "scene_streetview": {
     "description": "Title of a scene/game. View a \"street view\" style enviroment in the downtown North Pole.",
     "message": "Street View"
+  },
+  "scene_storybook": {
+    "description": "Title of a scene/game. Read a Santa-themed storybook that aligns with environmental sustainability.",
+    "message": "Sustainability Storybook"
   },
   "scene_traditions": {
     "description": "Title of a scene/game. Learn about different holiday traditions from around the world.",
