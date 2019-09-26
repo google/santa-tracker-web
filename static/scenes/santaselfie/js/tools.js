@@ -18,7 +18,11 @@ goog.provide('app.Tools');
 goog.require('app.shared.utils');
 goog.require('app.utils');
 
-
+const inherits = function(c, p) {
+  c.prototype = Object.create(p.prototype);
+  c.prototype.constructor = c;
+  Object.setPrototypeOf(c, p);
+};
 
 /**
  * Base tool item
@@ -182,7 +186,7 @@ app.Clipper = function($elem, cloth) {
   app.Tool.call(this, $elem, 'clipper', {x: 40, y: 0});
   this.cloth_ = cloth;
 };
-goog.inherits(app.Clipper, app.Tool);
+inherits(app.Clipper, app.Tool);
 
 
 /**
@@ -231,7 +235,7 @@ app.Clipper.prototype.deselect = function() {
 app.Hairgrow = function($elem) {
   app.Tool.call(this, $elem, 'hairgrow', {x: 110, y: 25});
 };
-goog.inherits(app.Hairgrow, app.Tool);
+inherits(app.Hairgrow, app.Tool);
 
 
 /**
@@ -261,7 +265,7 @@ app.Hairgrow.prototype.isLeftRightTool_ = function() {
 app.Hairclean = function($elem) {
   app.Tool.call(this, $elem, 'hairclean', {x: 120, y: 10});
 };
-goog.inherits(app.Hairclean, app.Tool);
+inherits(app.Hairclean, app.Tool);
 
 
 /**

@@ -92,7 +92,7 @@ app.Scene.prototype = {
    */
   onScreenLinkClick_: function(e) {
     var $link = $(e.currentTarget);
-    var screenName = $link.data('screen');
+    var screenName = /** @type {string} */ ($link.data('screen'));
     this.showScreen_(screenName);
   },
 

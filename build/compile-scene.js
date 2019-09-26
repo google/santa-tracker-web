@@ -1,105 +1,35 @@
 const closureCompiler = require('google-closure-compiler');
 const closureCompilerUtils = require('google-closure-compiler/lib/utils.js');
 const fs = require('fs').promises;
-const path = require('path');
 const tmp = require('tmp');
 
-const CLOSURE_LIBRARY_PATH = 'static/node_modules/google-closure-library/closure/goog/';
 const EXTERNS = [
   'build/transpile/magic-externs.js',
-  'static/third_party/lib/web-animations/externs/web-animations.js',
-  'static/third_party/lib/web-animations/externs/web-animations-next.js',
   'static/node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
   'static/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
 ];
 
-// This list is created from a combination of:
-//   * https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java
-//   * https://github.com/google/closure-compiler/wiki/Warnings
-//   * https://github.com/google/closure-compiler/wiki/Flags-and-Options
-const CLOSURE_WARNINGS = [
-  'accessControls',
-  'ambiguousFunctionDecl',
-  'checkDebuggerStatement',
-  'checkRegExp',
-  'checkTypes',
-  'checkVars',
-  'closureDepMethodUsageChecks',
-  'conformanceViolations',
-  'const',
-  'constantProperty',
-  'deprecated',
-  'deprecatedAnnotations',
-  'duplicateMessage',
-  'es3',
-  'es5Strict',
-  'externsValidation',
-  'fileoverviewTags',
-  'functionParams',
-  'globalThis',
-  'internetExplorerChecks',
-  'invalidCasts',
-  'misplacedTypeAnnotation',
-  'missingGetCssName',
-  'missingOverride',
-  'missingPolyfill',
-  'missingProperties',
-  'missingReturn',
-  'moduleLoad',
-  'msgDescriptions',
-  'newCheckTypes',
-  'nonStandardJsDocs',
-  'reportUnknownTypes',
-  'strictCheckTypes',
-  'strictMissingProperties',
-  'strictModuleDepCheck',
-  'strictPrimitiveOperators',
-  'suspiciousCode',
-  'typeInvalidation',
-  'undefinedNames',
-  'undefinedVars',
-  'unknownDefines',
-  'unusedPrivateMembers',
-  'uselessCode',
-  'useOfGoogBase',
-  'visibility',
+const CLOSURE_DISABLE_WARNINGS = [
+  // Causes complaints about misordered goog.require().
+  'underscore',
 
-// Not entirely sure what this means, but it causes complaints about misordered goog.require(),
-// which we don't care about.
-//  'underscore',
+  // Lots of library code generates unused vars.
+  'unusedLocalVariables',
 
-// Lots of code (especially libraries) have unused vars.
-// TODO(samthor): Disable this for broken files only?
-//  'unusedLocalVariables',
+  // This includes checks for: missing semicolons, missing ? or ! on object types, etc.
+  // This would be a lot of work to resolve.
+  'lintChecks',
 
-// Lots of old Closure scenes include things for global, leaky, side-effects.
-//   'missingSourcesWarnings',
-//   'extraRequire',
-//   'missingProvide',
-//   'missingRequire',
+  // These have to do with goog.require()/goog.provide() and how we "leak" some objects (such as
+  // Constants, LevelUp, etc). These could be fixed up.
+  'missingSourcesWarnings',
+  'extraRequire',
+  'missingProvide',
+  'strictMissingRequire',
+  'missingRequire',
 ];
 
 const syntheticSourceRe = /\[synthetic:(.*?)\]/;
-
-
-// nb. This assumes `compile-scene.js` is one level up from `node_modules`.
-const rootDir = path.join(__dirname, '..');
-
-
-/**
- * @param {!Array<string>} all Closure paths relative to the top-level of the project
- * @return {!Array<string>}
- */
-function relativeSrc(all) {
-  return all.map((p) => {
-    const negate = (p[0] === '!');
-    if (negate) {
-      p = p.substr(1);
-    }
-    p = path.relative(rootDir, p)
-    return (negate ? '!' : '') + p;
-  });
-}
 
 
 /**
@@ -135,16 +65,12 @@ async function processSourceMap(buf, root='../../') {
 
 /**
  * @param {!closureCompiler.compiler} compiler
- * @param {function(string): void} callback for stderr
  * @return {!Promise<string>}
  */
-function invokeCompiler(compiler, callback) {
-  return new Promise((resolve, reject) => {
+function invokeCompiler(compiler) {
+  return new Promise((resolve) => {
     const compilerCallback = (status, stdout, stderr) => {
-      if (stderr.trim().length !== 0) {
-        callback(stderr);
-      }
-      status ? reject(status) : resolve(stdout);
+      resolve({status, code: stdout, log: stderr});
     };
     compiler.run(compilerCallback);
   });
@@ -152,71 +78,30 @@ function invokeCompiler(compiler, callback) {
 
 
 /**
- * Closure won't resolve symlinks in its source arguments. Scenes can specify additional
- * dependencies via symlinks, so resolve them.
- *
- * @param {string} sceneName
- * @return {!Array<string>}
- */
-async function resolveCodeLinks(sceneName) {
-  const root = path.join('static/scenes', sceneName, 'js');
-  const all = await fs.readdir(root);
-  const out = [];
-
-  for (const cand of all) {
-    const target = path.join(root, cand);
-    let link;
-    try {
-      link = await fs.readlink(target);
-    } catch (e) {
-      continue;  // not a link
-    }
-
-    const resolved = path.join(root, link);
-    const stat = await fs.stat(resolved);
-    if (stat.isDirectory()) {
-      out.push(`${resolved}/**.js`);
-    } else {
-      out.push(resolved);
-    }
-  }
-
-  return out;
-}
-
-
-/**
  * @param {string} sceneName
  * @param {boolean=} compile
- * @return {{compile: boolean, js: string, map: !Object}}
+ * @return {{code: string, map: !Object}}
  */
-module.exports = async function compile(sceneName, compile=false) {
+module.exports = async function compile(sceneName, compile=true) {
   const compilerSrc = [
     'build/transpile/export.js',
-    'static/scenes/_shared/js/**.js',
-    `static/scenes/${sceneName}/js/**.js`,
+    'static/scenes/_shared/js',
+    `static/scenes/${sceneName}/js`,
     '!**_test.js',
   ];
-  compilerSrc.unshift(...(await resolveCodeLinks(sceneName)));
 
-  // Scenes are compiled with Closure and then re-exported as modules. An export helper requires
-  // `app.Game` and re-exports this (via string) onto `_globalExport`, which is defined in the
-  // `outputWrapper` below. In some cases (no Closure library, not forced compile), this uses
-  // 'WHITESPACE_ONLY' for much more rapid development.
-  const containsClosureLibrary =
-      (compilerSrc.findIndex((cand) => cand.startsWith(CLOSURE_LIBRARY_PATH)) !== -1);
-  compile = compile || containsClosureLibrary;
-  if (containsClosureLibrary) {
-    // Closure's library is quite large and includes bad behavior like eval() to check for Safari
-    // bugs and to load further module code (!?!). It would be properly treeshaken in
-    // ADVANCED_OPTIMIZATIONS mode but no scenes reliably work in this way.
-  } else {
-    // Adds simple $jscomp and goog.provide/goog.require methods, rather than Closure's base.
+  // Scenes that require the Closure Library need to be compiled (and will fail if compile is
+  // false). For others, we can provide a quick fake base.js that includes basic polyfills for
+  // goog.require()/goog.provide() and friends.
+  if (!compile) {
     compilerSrc.unshift('build/transpile/base.js');
   }
 
-  // Import `_msg` and `_static` helpers from our magic script. This lets scenes interact with their
-  // environment (although Rollup will complain that they're not used).
+  // This function works by compiling scenes with Closure and then re-exporting them as ES modules.
+  // We expect `app.Game` to be provided (see build/transpile.export.js), and place it on the var
+  // `_globalExport` (see below).
+  // Additionally, import `_msg` and `_static` from our magic script. This lets scenes interact
+  // with their environment (although Rollup will complain if they're not used).
   const outputWrapper =
       'import {_msg, _static} from \'../../src/magic.js\';' +
       'var _globalExport;(function(){%output%}).call(self);export default _globalExport;';
@@ -225,21 +110,21 @@ module.exports = async function compile(sceneName, compile=false) {
   const sourceMapTemp = tmp.fileSync();
 
   const compilerFlags = {
-    js: relativeSrc(compilerSrc),
-    externs: relativeSrc(EXTERNS),
+    js: compilerSrc,
+    externs: EXTERNS,
     create_source_map: sourceMapTemp.name,
     assume_function_wrapper: true,
     dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
     entry_point: '_globalExportEntry',
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: 'VERBOSE',
-    language_in: 'ECMASCRIPT_2017',
-    language_out: 'ECMASCRIPT6_STRICT',  // nb. need 6+, for i18n template literals compiled later
+    language_in: 'ECMASCRIPT_NEXT',
+    language_out: 'ECMASCRIPT_2019',
     process_closure_primitives: true,
-    jscomp_warning: CLOSURE_WARNINGS,
+    jscomp_off: CLOSURE_DISABLE_WARNINGS,
     output_wrapper: outputWrapper,
     rewrite_polyfills: false,
-    inject_libraries: containsClosureLibrary,  // this injects "$jscomp" for base.js which needs it
+    inject_libraries: true,  // injects $jscomp when using the Closure Library, harmless otherwise
     use_types_for_optimization: true,
   };
 
@@ -253,18 +138,21 @@ module.exports = async function compile(sceneName, compile=false) {
       compiler.javaPath = nativeImage;
     }
 
-    const js = await invokeCompiler(compiler, (stderr) => {
-      // TODO: pass to caller.
-      console.warn(`# ${sceneName}`)
-      console.warn(stderr);
-    });
+    const {status, code, log} = await invokeCompiler(compiler);
+    if (log.length) {
+      console.warn(`# ${sceneName}\n${log}`);
+    }
+    if (status) {
+      throw new Error(`failed to compile ${sceneName}: ${code}`);
+    }
+
     const map = await processSourceMap(await fs.readFile(sourceMapTemp.name));
 
     // nb. used so that listening callers can watch the whole dir for changes.
     map.sources.push(`static/scenes/${sceneName}/js`, `static/scenes/_shared/js`);
     map.sourcesContent.push(null, null);
 
-    return {compile, js, map};
+    return {code, map};
   } finally {
     sourceMapTemp.removeCallback();
   }

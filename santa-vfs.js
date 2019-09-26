@@ -107,12 +107,15 @@ function buildLangPlugin(id, lang) {
  * Builds a virtual filesystem for Santa Tracker.
  *
  * @param {string} staticScope the URL prefix to static content
- * @param {{compile: boolean, lang: string, config: !Object<string, string>}=}
- * @param {boolean=} compile whether to compile Closure code
+ * @param {{lang: string, compile: boolean, config: !Object<string, string>}=}
  * @return {{load: function(string): ?}}
  */
 module.exports = (staticScope, options) => {
-  options = Object.assign({compile: true, lang: null, config: {}}, options);
+  options = Object.assign({
+    lang: null,
+    compile: true,
+    config: {},
+  }, options);
 
   const stylesPlugin = {
     map(ext) {
@@ -170,12 +173,12 @@ module.exports = (staticScope, options) => {
 
       const flags = m[2];
       if (flags) {
-        // nb. This previously allowed e.g. ':closure-typeSafe.js', but now everthing is type-safe.
+        // nb. This previously allowed e.g., ':closure-typeSafe.js'.
         throw new Error(`unsupported Closure flags: ${flags}`);
       }
 
-      const {js, map} = await compileScene(sceneName, options.compile);
-      return {code: js, map};
+      const {code, map} = await compileScene(sceneName, options.compile);
+      return {code, map};
     },
   };
 

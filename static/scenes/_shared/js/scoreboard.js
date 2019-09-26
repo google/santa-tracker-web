@@ -43,7 +43,7 @@ function constantWithDefault(key, d) {
 function Scoreboard(game, elem, opt_levels) {
   this.game = game;
 
-  /** @private {number} */
+  /** @const @private {number} */
   this.initialCountdown_ = constantWithDefault('INITIAL_COUNTDOWN', 60);
 
   this.levels = opt_levels || 0;

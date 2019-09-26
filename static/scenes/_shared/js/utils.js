@@ -47,7 +47,7 @@ app.shared.utils = (function() {
      * it. Assumes that the wrapped value is a number.
      * @param {number} target Final value.
      * @param {number} amount Amount to change in this frame.
-     * @return {!utils.SmartValue} the this object
+     * @return {!SmartValue} the this object
      */
     moveToTarget(target, amount) {
       let n = /** @type {number} */ (+this.value);
@@ -77,6 +77,7 @@ app.shared.utils = (function() {
       if (!all.length) {
         all = [all];
       }
+      /** @suppress {checkTypes} */
       all = Array.prototype.slice.call(all);
 
       all.forEach((el) => {

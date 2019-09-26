@@ -24,7 +24,7 @@ goog.provide('app.PresentsBelt');
 /**
  * Class for belt with presents dropping of the edge
  * @param {!Element} domEl DOM element containing the belt
- * @param {object} options Configuration options for the belt
+ * @param {{timeOffset: number, direction: string}} options Configuration options for the belt
  * @constructor
  */
 app.PresentsBelt = function(domEl, options) {
@@ -38,6 +38,9 @@ app.PresentsBelt = function(domEl, options) {
   this.dx_ = app.Constants.PRESENTS_BELT_DURATION / this.distance_;
 
   this.presentPool = new app.PresentPool(this.$presentEls);
+
+  /** @type {?AnimationUtilTimeline} */
+  this.timeline = null;
 
   this.init_();
 };
@@ -60,7 +63,7 @@ app.PresentsBelt.prototype = {
   /**
    * Callback when present reaches end of timeline
    * @param {!app.Present} present to remove
-   * @param {!AnimationPlayer} player to remove from timeline
+   * @param {!Animation} player to remove from timeline
    * @private
    */
   onExitBelt_: function(present, player) {
@@ -141,19 +144,17 @@ app.PresentsBelt.prototype = {
 
   /**
    * Add a Present to animate across the belt
+   * @param {number=} startTime
    * @private
    * @return {app.Present}
    */
-  addItem_: function(startTime) {
-    startTime = startTime || this.timeline.currentTime / 1000;
-
+  addItem_: function(startTime = this.timeline.currentTime / 1000) {
     var present = this.presentPool.getFreeItem();
     if (present) {
       startTime += this.itemWidthAsSeconds_(present); // delay based on width of present
       this.scheduleItem_(present, startTime);
     } else {
       // pool size and margin between items must be set so we don't run out of items in the pool
-      console.log('NO FREE present IN POOL');
     }
 
     return present;

@@ -28,7 +28,11 @@ goog.provide('app.Present');
 app.Present = function(el) {
   this.$el = $(el);
   this.free = true;
-  this.width_ = undefined;
+
+  /** @type {number} */
+  this.width_ = 0;
+
+  /** @type {number} */
   this.margin_ = this.getRandomMargin_();
 };
 

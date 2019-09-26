@@ -40,9 +40,6 @@ goog.require('app.shared.utils');
 Game = function(elem) {
   this.elem = $(elem);
 
-  /** @private {number} */
-  this._anumber = 1;
-
   this.viewElem = this.elem.find('.view');
   this.boatsElem = this.elem.find('.boats');
   this.icebergsElem = this.elem.find('.icebergs');
@@ -62,7 +59,7 @@ Game = function(elem) {
 
   this.player = new Player(this, this.elem.find('.player'));
   this.scoreboard = new Scoreboard(this, this.elem.find('.board'), 10);
-  this.gameoverDialog = new app.shared.Gameover(this, this.elem.find('.gameover'));
+  this.gameoverDialog = new app.shared.Gameover(this);
   this.tutorial = new app.shared.Tutorial('touch-updown.svg keys-space.svg keys-updown.svg');
   this.controls = new Controls(this);
   this.levelUp = new LevelUp(this, this.elem.find('.levelup'), this.elem.find('.levelup--number'));
@@ -106,11 +103,6 @@ Game.prototype.preloadPools_ = function() {
 Game.prototype.start = function() {
   this.tutorial.start();
   this.restart();
-
-  this._anumber = "hello";
-  this._anumber = 12341.241;
-  this._anumber = new Object();
-  console.warn(this._anumber, 'is a number???');
 };
 
 /**
@@ -120,8 +112,6 @@ Game.prototype.restart = function() {
   // Cleanup last game
   this.entities.forEach(function(e) { e.remove(); });
   this.entities = [];
-
-  console.info(this._anumber);
 
   // Reset game state
   var match = location.search.match(/[?&]level=(\d+)/) || [];
@@ -389,7 +379,7 @@ Game.prototype.animate_ = function(el, x, y) {
  */
 Game.prototype.unfreezeGame = function() {
   if (!this.isPlaying) {
-    this.elem.removeClass('frozen').focus();
+    this.elem.removeClass('frozen');
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;

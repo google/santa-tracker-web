@@ -50,7 +50,7 @@ app.shared.Tutorial = class Tutorial {
   /**
    * Turn off a tutorial because user has already used the controls.
    *
-   * @param {!Array<string>|string} off Tutorials to dismiss
+   * @param {!Array<string>|string} all Tutorials to dismiss
    * @param {...string} rest Rest of tutorials to dismiss
    */
   off(all, ...rest) {

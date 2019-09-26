@@ -39,8 +39,8 @@ const yargs = require('yargs')
     })
     .option('compile', {
       type: 'boolean',
-      default: false,
-      describe: 'Compile complex dependencies',
+      default: true,
+      describe: 'Compile Closure scenes',
     })
     .argv;
 
