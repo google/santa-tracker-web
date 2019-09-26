@@ -138,6 +138,9 @@ app.GameController.prototype.onNewRecognitions = function(recognitions) {
 
       var guesses = recognitions.map(function(r) {
         return r.word;
+      }).filter((word) => {
+        // Filter out words that we just don't have translations to.
+        return app.Utils.hasItemTranslation(this.container, word);
       });
 
       var queueLength = this.machineView.setGuesses(guesses);

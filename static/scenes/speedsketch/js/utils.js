@@ -32,6 +32,12 @@ Utils.prototype.capitalize = function(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+Utils.prototype.hasItemTranslation = function(container, item) {
+  var key = 'speedsketch_item_' + item.replace(/\s+/g, '-');
+  var msg = this.getMsgOrNull(container, key);
+  return Boolean(msg);
+};
+
 Utils.prototype.getItemTranslation = function(container, item) {
   var key = 'speedsketch_item_' + item.replace(/\s+/g, '-');
   var msg = this.getMsgOrNull(container, key);
