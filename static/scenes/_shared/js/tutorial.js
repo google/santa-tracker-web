@@ -50,8 +50,8 @@ app.shared.Tutorial = class Tutorial {
   /**
    * Turn off a tutorial because user has already used the controls.
    *
-   * @param {!Array<string>|string} tutorials Tutorials to dismiss
-   * @param {!Array<string>} rest Rest of tutorials to dismiss
+   * @param {!Array<string>|string} off Tutorials to dismiss
+   * @param {...string} rest Rest of tutorials to dismiss
    */
   off(all, ...rest) {
     all = splitAll(all).concat(rest).filter((cand) => {
@@ -66,5 +66,7 @@ app.shared.Tutorial = class Tutorial {
     }
   }
 
+  /**
+   */
   dispose() {}
-}
+};

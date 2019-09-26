@@ -44,7 +44,7 @@ function LevelUp(_, bgElem, numberElem) {
  */
 LevelUp.prototype.dispose = function() {
   $(window).off('resize', this.onResizeBound_);
-}
+};
 
 /**
  * Recalculate sizes for background on window resize.

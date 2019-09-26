@@ -45,4 +45,4 @@ app.shared.Gameover = class Gameover {
     };
     window.santaApp.fire('game-stop', detail);
   }
-}
+};

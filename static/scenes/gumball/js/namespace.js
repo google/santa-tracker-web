@@ -14,9 +14,9 @@
  * the License.
  */
 
-goog.require('Box2D');
-
 goog.provide('b2');
+
+goog.require('Box2D');
 
 var b2 = {};  // work around Closure-inside-a-closure use in Santa Tracker
 

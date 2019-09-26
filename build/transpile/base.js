@@ -30,6 +30,9 @@ function _check(v) {
 
 var goog = goog || {};
 
+/**
+ * @param {string} v
+ */
 goog.provide = function(v) {
   var all = v.split('.');
   var run = '';
@@ -43,8 +46,14 @@ goog.provide = function(v) {
   self.eval(run);
 };
 
+/**
+ * @return {void}
+ */
 goog.require = function() {};
 
+/**
+ * @param {function(): void} fn
+ */
 goog.scope = function(fn) {
   fn();
 };
@@ -68,8 +77,13 @@ $jscomp.inherits = function(c, p) {
 
 goog.inherits = $jscomp.inherits;
 
+/**
+ * @template T
+ * @param {!IArrayLike<T>} array
+ * @return {function(): {done: boolean, value: T}}
+ */
 $jscomp.arrayIteratorImpl = function(array) {
-  var index = 0;
+  let index = 0;
   return function() {
     if (index < array.length) {
       return {
@@ -82,10 +96,20 @@ $jscomp.arrayIteratorImpl = function(array) {
   };
 };
 
+/**
+ * @template T
+ * @param {!IArrayLike<T>} array
+ * @return {!Iterator<T>}
+ */
 $jscomp.arrayIterator = function(array) {
   return /** @type {!Iterator<T>} */ ({next: $jscomp.arrayIteratorImpl(array)});
 };
 
+/**
+ * @template T
+ * @param {!IArrayLike<T>} iterable
+ * @return {!Iterator<T>}
+ */
 $jscomp.makeIterator = function(iterable) {
   // NOTE: Disabling typechecking because [] not allowed on @struct.
   var iteratorFunction = typeof Symbol != 'undefined' && Symbol.iterator &&

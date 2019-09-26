@@ -16,9 +16,9 @@
 
 goog.provide('app.Sphere');
 
-goog.require('b2');
 goog.require('app.Constants');
 goog.require('app.shared.pools');
+goog.require('b2');
 
 /**
  * A sphere.

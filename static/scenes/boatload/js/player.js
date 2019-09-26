@@ -36,7 +36,7 @@ Player = function(game, elem) {
   this.reset();
 
   this.animate = this.animate.bind(this);
-}
+};
 
 /**
  * Resets the player for a new game.
@@ -104,9 +104,6 @@ Player.prototype.onFrame = function(delta) {
   }
 
   // Update sound position max 10 times per second.
-  if (this.soundFrameCounter === 0) {
-    var position = (this.y - this.minY) / (this.maxY - this.minY);
-  }
   this.soundFrameCounter = (this.soundFrameCounter + 1) % 3;
 };
 

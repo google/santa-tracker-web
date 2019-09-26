@@ -159,4 +159,4 @@ Scoreboard.prototype.announce_ = function() {
     };
     window.santaApp.fire('game-score', detail);
   }, 1);
-}
+};

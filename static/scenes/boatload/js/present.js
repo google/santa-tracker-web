@@ -43,7 +43,7 @@ Present = function(game) {
   this.addX = 0;
   this.velocity = 0;
   this.scale = 1;
-}
+};
 
 /**
  * Create pool for presents.

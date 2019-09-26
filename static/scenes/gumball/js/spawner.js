@@ -14,8 +14,8 @@
  * the License.
  */
 
-goog.require('app.Constants');
 goog.provide('app.Spawner');
+goog.require('app.Constants');
 
 /**
  * Maintains the top pipe. It has a queue of balls to spawn and moves

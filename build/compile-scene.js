@@ -13,28 +13,70 @@ const EXTERNS = [
   'static/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
 ];
 
-
-// https://github.com/google/closure-compiler/wiki/Warnings
+// This list is created from a combination of:
+//   * https://github.com/google/closure-compiler/blob/master/src/com/google/javascript/jscomp/DiagnosticGroups.java
+//   * https://github.com/google/closure-compiler/wiki/Warnings
+//   * https://github.com/google/closure-compiler/wiki/Flags-and-Options
 const CLOSURE_WARNINGS = [
   'accessControls',
+  'ambiguousFunctionDecl',
   'checkDebuggerStatement',
   'checkRegExp',
   'checkTypes',
   'checkVars',
   'closureDepMethodUsageChecks',
+  'conformanceViolations',
   'const',
+  'constantProperty',
+  'deprecated',
   'deprecatedAnnotations',
+  'duplicateMessage',
+  'es3',
+  'es5Strict',
+  'externsValidation',
+  'fileoverviewTags',
+  'functionParams',
+  'globalThis',
+  'internetExplorerChecks',
+  'invalidCasts',
+  'misplacedTypeAnnotation',
+  'missingGetCssName',
+  'missingOverride',
+  'missingPolyfill',
   'missingProperties',
   'missingReturn',
+  'moduleLoad',
+  'msgDescriptions',
+  'newCheckTypes',
+  'nonStandardJsDocs',
+  'reportUnknownTypes',
+  'strictCheckTypes',
+  'strictMissingProperties',
   'strictModuleDepCheck',
+  'strictPrimitiveOperators',
+  'suspiciousCode',
   'typeInvalidation',
   'undefinedNames',
   'undefinedVars',
+  'unknownDefines',
+  'unusedPrivateMembers',
+  'uselessCode',
   'useOfGoogBase',
   'visibility',
 
+// Not entirely sure what this means, but it causes complaints about misordered goog.require(),
+// which we don't care about.
+//  'underscore',
+
+// Lots of code (especially libraries) have unused vars.
+// TODO(samthor): Disable this for broken files only?
+//  'unusedLocalVariables',
+
 // Lots of old Closure scenes include things for global, leaky, side-effects.
-//  'extraRequire',
+//   'missingSourcesWarnings',
+//   'extraRequire',
+//   'missingProvide',
+//   'missingRequire',
 ];
 
 const syntheticSourceRe = /\[synthetic:(.*?)\]/;
@@ -211,12 +253,10 @@ module.exports = async function compile(sceneName, compile=false) {
       compiler.javaPath = nativeImage;
     }
 
-    let errors = false;
     const js = await invokeCompiler(compiler, (stderr) => {
-      // TODO:pass to caller.
+      // TODO: pass to caller.
       console.warn(`# ${sceneName}`)
       console.warn(stderr);
-      errors = true;
     });
     const map = await processSourceMap(await fs.readFile(sourceMapTemp.name));
 
