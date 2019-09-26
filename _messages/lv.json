@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Izpētīt"
 	},
+	"explore-village": {
+		"message": "Izpētīt Ziemassvētku vecīša ciematu"
+	},
 	"fi_country_name": {
 		"message": "Somija"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Tālāk"
 	},
+	"next_game": {
+		"message": "Nākamā spēle"
+	},
+	"nextdecember": {
+		"message": "Tiksimies decembrī!"
+	},
+	"nextyear": {
+		"message": "Tiksimies nākamgad!"
+	},
 	"ng_country_name": {
 		"message": "Nigērija"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Prese"
+	},
+	"press-about-tracker": {
+		"message": "Par Ziemassvētku vecīša ceļojumu"
+	},
+	"press-about-tracker1": {
+		"message": "24. decembrī tiks uzsākts Ziemassvētku vecīša ceļojums, kas būs redzams informācijas panelī, kurā Ziemassvētku vecīša fani varēs sekot viņa ceļojumam no pilsētas uz pilsētu. Varēsit arī redzēt viņa reāllaika atrašanās vietu pakalpojumā Google Maps un uzdot Google asistentam jautājumu “OK Google, Where’s Santa?”, lai uzzinātu Ziemassvētku vecīša atrašanās vietu arī tad, ja pats atradīsities ceļā."
+	},
+	"press-about-village": {
+		"message": "Par Ziemassvētku vecīša ciematu"
+	},
+	"press-about-village1": {
+		"message": "Ziemassvētku vecīša ciemats svin 15. jubileju — jautras, izglītojošas un interaktīvas svētku aktivitātes. Ziemassvētku vecīša kundzes vadībā rūķīši ir atjauninājuši ciematu, piešķirot tam stilīgu izskatu un noskaņu, kā arī pievienojot jaunu saturu. Pateicoties jaunai apsildes sistēmai, kura darbojas ar karstu kakao, ciematā vairs nebūs jāpavada viss decembris, lai pamazām atkausētu visu saturu, jo visas 24 aktivitātes būs pieejamas jau no 4. decembra. Tagad rūķīšiem (un jums) būs vairāk laika, lai spēlētu un izpētītu Ziemassvētku vecīša ciematu."
+	},
+	"press-about-village2": {
+		"message": "Ciematā varat izmēģināt savas kodēšanas prasmes, radīt oriģinālus mākslas darbus, likt lietā zināšanas par ģeogrāfiju un uzzināt vairāk par labdarības organizācijām, piemēram, \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e un \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Skolotāji var arī \u003ca href=\"./educators.html\"\u003elejupielādēt nodarbību plānus\u003c/a\u003e ar video ceļvežiem, kas skolēniem palīdzēs iegūt pamatzināšanas par kodēšanu, kā arī svētku tradīcijām angļu, spāņu, franču, japāņu un korejiešu valodā."
+	},
+	"press-asset-animation": {
+		"message": "Animācija"
+	},
+	"press-asset-resources": {
+		"message": "Preses resursi"
+	},
+	"press-asset-screenshot": {
+		"message": "Ekrānuzņēmums"
+	},
+	"press-device-text": {
+		"message": "Svētku noskaņa ir visur — arī jūsu ierīcēs."
+	},
+	"press-device-title": {
+		"message": "Ziemassvētku vecīša ceļojums jūsu ierīcē"
+	},
+	"press-edu": {
+		"message": "Izglītojoši piedzīvojumi"
+	},
+	"press-edu1": {
+		"message": "Esam paplašinājuši \u003ca href=\"./educators.html\"\u003epedagogu resursu lapu\u003c/a\u003e, lai nodrošinātu skolotājiem video ceļvežus, kas varētu papildināt nodarbību plānus (tagad pieejami piecās valodās). Visas jūsu iecienītās spēles ir pieejamas, un tajās ir iekļauti kodēšanas pamatprincipi, izmantojot starptautiskas svētku tradīcijas. Google Ziemassvētku vecīša ceļojums rosina apgūt svētku pieredzi jautrā veidā. Lai uzzinātu vairāk, apskatiet \u003ca href=\"./educators.html\"\u003emūsu izglītojošās spēles\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Liela jautrība un spēles"
+	},
+	"press-need-text": {
+		"message": "Rūķīši un Google darbinieki var palīdzēt."
+	},
+	"press-need-title": {
+		"message": "Vai nepieciešama plašāka informācija?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Tiks atvērts 24. decembrī"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Pieejams visu decembri"
+	},
+	"press-villagetracker-title": {
+		"message": "Ziemassvētku vecīša ciemats un ceļojums"
+	},
+	"press-whatsnew": {
+		"message": "Šīgada jaunumi"
+	},
+	"press-whatsnew1-text": {
+		"message": "Izveidojiet pats savu rūķīti, kurš būs gatavs piedalīties lieliskos svētku pasākumos Ziemeļpolā."
+	},
+	"press-whatsnew1-title": {
+		"message": "Izveidojiet rūķīti"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ja jums vienmēr ir bijis sapnis izveidot deju trupu ar ļoti talantīgiem dejojošiem rūķīšiem, tagad jums ir iespēja to izdarīt. Jūsu sapnis ir gandrīz piepildījies. Izmantojot mašīnmācīšanās modeli \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, varat apmācīt rūķīti, lai viņš apgūst jūsu deju soļus un var tos atkārtot uz deju grīdas."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dejas ar rūķīšiem"
+	},
+	"press-whatsnew3-text": {
+		"message": "Varēsit arī redzēt Ziemassvētku vecīša reāllaika atrašanās vietu pakalpojumā Google Maps — vienkārši pieskarieties hamburgera pogai, pēc tam pieskarieties vienumam Atrašanās vietas kopīgošana, lai redzētu precīzu Ziemassvētku vecīša atrašanās vietu ceļojuma laikā. Lai ērtāk piekļūtu informācijai, varat arī apmeklēt vietni \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+	},
+	"press-whatsnew3-title": {
+		"message": "Jauns veids, kā sekot Ziemassvētku vecītim."
+	},
+	"press-whatsnew4-text": {
+		"message": "Ja vēlaties vairāk svētku jautrības, apskatiet Gboard svētku uzlīmes, kuras pieejamas \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e un \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e ierīcēs, kā arī mūsu \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid lietotnē\u003c/a\u003e. Noklausieties svētku stāstu, sakot Google asistentam šādas frāzes: “Tell me a holiday story” (Pastāstiet man svētku stāstu) un “Where's Santa?” (Kur ir Ziemassvētku vecītis?)."
+	},
+	"press-whatsnew4-title": {
+		"message": "Vairāk jautrības brīvdienām"
 	},
 	"pt_language_name": {
 		"message": "Portugāļu"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Joprojām atvaļinājumā"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Aizsardzība pret pingvīniem"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Ziemeļbriedis uztraucas"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Kopīgot"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code. Svētku emocijzīmes"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth. Svētku tradīciju viktorīna"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps. Ziemassvētku vecīša atrašanās vieta"
+	},
+	"sidebar_trends": {
+		"message": "Google tendences. Svētku meklēšanas vaicājumi"
+	},
 	"sk_country_name": {
 		"message": "Slovākija"
 	},
 	"sk_language_name": {
 		"message": "Slovāku"
+	},
+	"skip-intro": {
+		"message": "Izlaist ievadu"
 	},
 	"skip-training": {
 		"message": "Izlaist apmācību"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turku"
+	},
+	"tracker-game_awesome": {
+		"message": "Spēlēt spēli “Dārgumu tornis”"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Drošība internetā"
 	},
 	"tracker_arrival": {
 		"message": "Ielidošana"
@@ -6678,7 +6795,13 @@
 		"message": "Venecuēla"
 	},
 	"village_assistant-call_santa": {
-		"message": "Zvanīt Ziemassvētku vecītim, izmantojot Google asistentu"
+		"message": "Google asistents. Zvanīt Ziemassvētku vecītim"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google asistents. Svētku stāsts"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google asistents. Kur ir Ziemassvētku vecītis?"
 	},
 	"village_comeback": {
 		"message": "Atgriezieties 24. datumā un palīdziet mums sekot Ziemassvētku vecītim visu nakti!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Skatīties"
+	},
+	"watch-video": {
+		"message": "Skatīties videoklipu"
 	},
 	"wrapbattle_combo": {
 		"message": "Veiksmīga kombinācija"

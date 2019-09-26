@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Utforsk"
 	},
+	"explore-village": {
+		"message": "Gjør deg kjent i julenissens landsby"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Neste"
 	},
+	"next_game": {
+		"message": "Neste spill"
+	},
+	"nextdecember": {
+		"message": "Vi sees i desember!"
+	},
+	"nextyear": {
+		"message": "Vi sees neste år!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Presse"
+	},
+	"press-about-tracker": {
+		"message": "Om Følg julenissen"
+	},
+	"press-about-tracker1": {
+		"message": "24. desember lanserer vi Følg julenissen, der nissefans kan følge med mens han suser fra by til by. Du kan dessuten se nissens sanntidsposisjon på Google Maps og stille spørsmålet «OK Google, hvor er julenissen?» til Google-assistenten – slik at du kan følge julenissens reise uansett hvor du er."
+	},
+	"press-about-village": {
+		"message": "Om julenissens landsby"
+	},
+	"press-about-village1": {
+		"message": "Julenissens landsby feirer 15 år med morsomme, pedagogiske og interaktive juleaktiviteter. Under kyndig oppsyn av nissemor har alvene gitt landsbyen et nytt og snertent utseende og lagt til splitter nytt innhold. Og takket være et nytt kakaovarmeanlegg tiner ikke landsbyen først opp i slutten av desember – nå sparkes to dusin med aktiviteter i gang allerede 4. desember. Nå har alvene (og ikke minst du) enda mer tid til å leke i og utforske julenissens landsby."
+	},
+	"press-about-village2": {
+		"message": "I landsbyen kan du øve deg på grunnleggende koding, lage originale kunstverk, teste geografikunnskapene dine og finne ut mer om veldedige organisasjoner som \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e og \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Lærere kan også \u003ca href=\"./educators.html\"\u003elaste ned undervisningsplaner\u003c/a\u003e med videoveiledninger for å lære elevene sine om grunnleggende koding og juletradisjoner på engelsk, spansk, fransk, japansk og koreansk."
+	},
+	"press-asset-animation": {
+		"message": "Animasjon"
+	},
+	"press-asset-resources": {
+		"message": "Presseressurser"
+	},
+	"press-asset-screenshot": {
+		"message": "Skjermdump"
+	},
+	"press-device-text": {
+		"message": "Nå finner du julestemning overalt, også på alle enhetene dine!"
+	},
+	"press-device-title": {
+		"message": "Følg julenissen på enheten din"
+	},
+	"press-edu": {
+		"message": "Pedagogiske eventyr"
+	},
+	"press-edu1": {
+		"message": "Vi har utvidet \u003ca href=\"./educators.html\"\u003esiden med lærerressurser\u003c/a\u003e med videoveiledninger i tillegg til undervisningsplaner – nå tilgjengelig på fem språk. Favorittspillene dine er her fortsatt, og gjennom dem presenterer vi grunnleggende konsepter innen koding i julete omgivelser. I Google Følg julenissen legger vi til rette for morsomme læringsopplevelser – ta en titt på de \u003ca href=\"./educators.html\"\u003epedagogiske spillene våre\u003c/a\u003e for å finne ut mer."
+	},
+	"press-games-title": {
+		"message": "Alt av spill og moro"
+	},
+	"press-need-text": {
+		"message": "Både alver og Googlere står klare til å hjelpe deg."
+	},
+	"press-need-title": {
+		"message": "Er det noe vi kan hjelpe deg med?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Åpner 24. desember"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Tilgjengelig hele desember"
+	},
+	"press-villagetracker-title": {
+		"message": "Julenissens landsby og Følg julenissen"
+	},
+	"press-whatsnew": {
+		"message": "Nytt i år"
+	},
+	"press-whatsnew1-text": {
+		"message": "Bygg din egen alv fra topp til tå, og sørg for at den ser alvsindig bra ut, så den er klar for de mange juleselskapene på Nordpolen."
+	},
+	"press-whatsnew1-title": {
+		"message": "Bygg en alv:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Hvis barndomsdrømmen din er å starte en dansetrupp med en gjeng talentfulle alver, har du muligheten nå! Nesten, i hvert fall. Med maskinlæringsmodellen \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kan en alv lære seg trinnene dine og fremføre dem på dansegulvet."
+	},
+	"press-whatsnew2-title": {
+		"message": "Danser med alver:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Du kan dessuten se julenissens sanntidsposisjon på Google Maps: Det er bare å trykke på hamburgerknappen og deretter på «Posisjonsdeling», så får du se akkurat hvor i verden julenissen befinner seg. Du kan også bruke den hendige snarveien \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "En ny måte å følge julenissen på:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Hvis du vil ha mer juleglede, kan du ta en titt på Gboard-juleklistremerkene som er tilgjengelige på \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, på \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e og i \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-appen\u003c/a\u003e vår. Du kan også kose deg med noen fortellinger ved å si følgende til Google-assistenten: «Fortell meg et juleeventyr» og «Hvor er julenissen?»"
+	},
+	"press-whatsnew4-title": {
+		"message": "Enda mer julemoro:"
 	},
 	"pt_language_name": {
 		"message": "Portugisisk"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ferien fortsetter"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Pingvinbevis"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Reinsdyrene er bekymret"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Del"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Juleemoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz om juletradisjoner"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Julenissens posisjon"
+	},
+	"sidebar_trends": {
+		"message": "Google Søketrender: Julesøk"
+	},
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
 		"message": "Slovakisk"
+	},
+	"skip-intro": {
+		"message": "Hopp over introen"
 	},
 	"skip-training": {
 		"message": "Hopp over opplæringen"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Tyrkisk"
+	},
+	"tracker-game_awesome": {
+		"message": "Spill Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Ankomst"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Ring nissen med Google-assistenten"
+		"message": "Google Assistent: Ring julenissen"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: En julefortelling"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: Finn julenissen"
 	},
 	"village_comeback": {
 		"message": "Kom innom på julaften, og hjelp oss med å følge julenissen hele natten!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Se"
+	},
+	"watch-video": {
+		"message": "Se videoen"
 	},
 	"wrapbattle_combo": {
 		"message": "Bra kombinasjon"

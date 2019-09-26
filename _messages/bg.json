@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Изследване"
 	},
+	"explore-village": {
+		"message": "Разглеждане на селцето на Дядо Коледа"
+	},
 	"fi_country_name": {
 		"message": "Финландия"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Напред"
 	},
+	"next_game": {
+		"message": "Следваща игра"
+	},
+	"nextdecember": {
+		"message": "Ще се видим през декември!"
+	},
+	"nextyear": {
+		"message": "Ще се видим догодина!"
+	},
 	"ng_country_name": {
 		"message": "Нигерия"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Преса"
+	},
+	"press-about-tracker": {
+		"message": "Всичко за „Къде е Дядо Коледа“"
+	},
+	"press-about-tracker1": {
+		"message": "На 24 декември ще стартираме „Къде е Дядо Коледа“ – табло за управление, чрез което почитателите на Дядо Коледа могат да проследяват препускането му от град на град. Можете също да преглеждате местоположението му на живо в Google Карти и да попитате Google Асистент „OK Google, Where’s Santa?“ (Google, къде е Дядо Коледа?), за да проследявате какво се случва с него дори когато сте в движение."
+	},
+	"press-about-village": {
+		"message": "Всичко за селцето на Дядо Коледа"
+	},
+	"press-about-village1": {
+		"message": "Селцето на Дядо Коледа отбелязва петнадесетата години на забавление, обучение и интерактивни празнични дейности. Под зоркия поглед на Дядо Коледа джуджетата придават на селцето смайващ нов облик с изцяло ново съдържание. Благодарение на новата система за отопление, захранвана от горещ шоколад, вече няма да е необходим цял месец за затопляне на селцето. Всички двадесет и четири дейности ще са достъпни от 4 декември. Джуджетата (и вие!) вече имате повече време за игри и разходки из селцето на Дядо Коледа."
+	},
+	"press-about-village2": {
+		"message": "В селцето можете да практикувате основни умения по програмиране, да създадете оригинални творби, да тествате географските си познания и да научите повече за благотворителни организации, като \u003ca href=\"https://www.khanacademy.org/\"\u003eКан Академия\u003c/a\u003e и \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Преподавателите могат дори да \u003ca href=\"./educators.html\"\u003eизтеглят учебни планове\u003c/a\u003e с видеоръководства, чрез които учащите ще придобият основния умения по програмиране и знания за традиционни празници на английски, испански, корейски, френски и японски език."
+	},
+	"press-asset-animation": {
+		"message": "Анимация"
+	},
+	"press-asset-resources": {
+		"message": "Медийни ресурси"
+	},
+	"press-asset-screenshot": {
+		"message": "Екранна снимка"
+	},
+	"press-device-text": {
+		"message": "Празничното настроение е навсякъде, включително на всички ваши устройства!"
+	},
+	"press-device-title": {
+		"message": "„Къде е Дядо Коледа“ на устройството ви"
+	},
+	"press-edu": {
+		"message": "Образователни приключения"
+	},
+	"press-edu1": {
+		"message": "Разширихме \u003ca href=\"./educators.html\"\u003eстраницата с ресурси за преподаватели\u003c/a\u003e, за да им предоставим видеосправочници, които да добавят към учебните си планове (вече достъпни на пет езика). Все още имате достъп до всички свои любими игри, които въвеждат основни концепции за програмиране във връзка с празничните традиции по цял свят. Приложението на Google „Къде е Дядо Коледа“ насърчава ученето по време на празниците по забавен начин – прегледайте \u003ca href=\"./educators.html\"\u003eобразователните ни игри\u003c/a\u003e, за да научите повече."
+	},
+	"press-games-title": {
+		"message": "Всички игри и забавления"
+	},
+	"press-need-text": {
+		"message": "Джуджетата и служителите на Google са на ваше разположение."
+	},
+	"press-need-title": {
+		"message": "Нужна ли ви е още информация?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Стартира на 24 декември"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Налице през целия декември"
+	},
+	"press-villagetracker-title": {
+		"message": "Селцето на Дядо Коледа и „Къде е Дядо Коледа“"
+	},
+	"press-whatsnew": {
+		"message": "Новото през тази година"
+	},
+	"press-whatsnew1-text": {
+		"message": "Създайте свое изцяло персонализирано джудже и се уверете, че изглежда джуджестично за коледните празненства на Северния полюс."
+	},
+	"press-whatsnew1-title": {
+		"message": "Създаване на джудже:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ако от дете мечтаете да създадете танцова трупа от много талантливи джуджета, сега е моментът. С помощта на модел за машинно обучение, наречен \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, можете да обучите джудже на танцовите си стъпки и да завладеете дансинга."
+	},
+	"press-whatsnew2-title": {
+		"message": "Танци с джуджета:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Ще можете да преглеждате местоположението на Дядо Коледа в реално време в Google Карти. Трябва само да докоснете бутона под формата на хамбургер и след това „Споделяне на местоположението“, за да видите къде точно се намира Дядо Коледа. За бърз достъп можете също да отворите \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Нов начин за проследяване на Дядо Коледа:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ако искате да направите празника още по-забавен, прегледайте празничните стикери на Gboard, достъпни на \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e и в \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eприложението за Android\u003c/a\u003e. Насладете се също на истинско забавление, като попитате Google Асистент: \"Where's Santa?\" (Къде е Дядо Коледа?) и „Tell me a holiday story“ (Разкажи ми коледна история)."
+	},
+	"press-whatsnew4-title": {
+		"message": "Още празнично настроение:"
 	},
 	"pt_language_name": {
 		"message": "португалски"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Все още във ваканция"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Злонамерени пингвини"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Тревогите на елена"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Споделяне"
 	},
+	"sidebar_code_emoji": {
+		"message": "Създадено с код: Празнично емоджи"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Викторина за празничните традиции"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Карти: Местоположението на Дядо Коледа"
+	},
+	"sidebar_trends": {
+		"message": "Google Тенденции: Търсения на празнична тематика"
+	},
 	"sk_country_name": {
 		"message": "Словакия"
 	},
 	"sk_language_name": {
 		"message": "словашки"
+	},
+	"skip-intro": {
+		"message": "Пропускане на въведението"
 	},
 	"skip-training": {
 		"message": "Пропускане на обучението"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "турски"
+	},
+	"tracker-game_awesome": {
+		"message": "Към „Острова на съкровищата“"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Станете интернет експерт"
 	},
 	"tracker_arrival": {
 		"message": "Пристигане"
@@ -6678,7 +6795,13 @@
 		"message": "Венецуела"
 	},
 	"village_assistant-call_santa": {
-		"message": "Обадете се на Дядо Коледа чрез Google Асистент"
+		"message": "Google Асистент: Обаждане до Дядо Коледа"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Асистент: Празнична история"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Асистент: Къде е Дядо Коледа"
 	},
 	"village_comeback": {
 		"message": "Върнете се на 24 декември и ни помогнете да следим Дядо Коледа през цялата нощ!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Гледайте"
+	},
+	"watch-video": {
+		"message": "Гледайте видеоклип"
 	},
 	"wrapbattle_combo": {
 		"message": "Чудесна комбинация"

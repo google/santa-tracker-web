@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探す"
 	},
+	"explore-village": {
+		"message": "サンタ村を訪れる"
+	},
 	"fi_country_name": {
 		"message": "フィンランド"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "次へ"
 	},
+	"next_game": {
+		"message": "次のゲーム"
+	},
+	"nextdecember": {
+		"message": "また 12 月にお会いしましょう！"
+	},
+	"nextyear": {
+		"message": "また来年お会いしましょう！"
+	},
 	"ng_country_name": {
 		"message": "ナイジェリア"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "ニュース"
+	},
+	"press-about-tracker": {
+		"message": "サンタを追いかけようについて"
+	},
+	"press-about-tracker1": {
+		"message": "12 月 24 日には、サンタが町から町に飛び回る様子を追いかけることができるダッシュボード、「サンタを追いかけよう」をリリースいたします。また、Google マップでサンタの現在地を確認したり、Google アシスタントに「OK Google、サンタはどこ？」と尋ねたりできるので、外出中でもサンタの現在地を確認できます。"
+	},
+	"press-about-village": {
+		"message": "サンタ村について"
+	},
+	"press-about-village1": {
+		"message": "サンタ村の、楽しくてためになるインタラクティブなクリスマス アクティビティも今年で 15 年目。サンタ夫人による熟練の指導のもとで妖精たちが村をリフレッシュしたので、村はスタイリッシュなデザインと新しいコンテンツで生まれ変わりました。しかも、ホットココアの熱を利用する暖房装置を新しく導入したおかげで、12 月いっぱいかけなくても村の雪をとかせるようになりました。ですから、12 月 4 日から 24 個すべてのアクティビティで遊べます。妖精たちと一緒にサンタ村をじっくり探索して楽しみましょう。"
+	},
+	"press-about-village2": {
+		"message": "サンタ村では、基本的なコーディング スキルの練習やオリジナル アートワークの作成だけでなく、地理の知識を深めたり、\u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e や \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e といった公益財団について学習したりできます。教師の方々は、生徒に基礎的なコーディング スキルやクリスマスの伝統を教えるのに役立つ、英語、スペイン語、フランス語、日本語、韓国語の\u003ca href=\"./educators.html\"\u003e学習プラン（ガイド動画付き）をダウンロード\u003c/a\u003eできます。"
+	},
+	"press-asset-animation": {
+		"message": "アニメーション"
+	},
+	"press-asset-resources": {
+		"message": "プレスリソース"
+	},
+	"press-asset-screenshot": {
+		"message": "スクリーンショット"
+	},
+	"press-device-text": {
+		"message": "クリスマスの足音はあちこちから聞こえます。ほら、あなたのデバイスからも。"
+	},
+	"press-device-title": {
+		"message": "「サンタを追いかけよう」をお使いのデバイスで"
+	},
+	"press-edu": {
+		"message": "楽しい教材"
+	},
+	"press-edu1": {
+		"message": "今年は\u003ca href=\"./educators.html\"\u003e教育者向けのリソースページ\u003c/a\u003eがさらに充実しました。このページでは、クラスで利用できる学習プランと、そのガイド動画を提供しています（5 か国語に対応）。好評だったゲームはすべて今年も公開され、楽しみながらコーディングの基礎や世界のクリスマスの過ごし方を学べます。Google の「サンタを追いかけよう」で、冬休みの学習体験をもっと楽しいものにしましょう。詳しくは\u003ca href=\"./educators.html\"\u003e学習ゲーム\u003c/a\u003eをご覧ください。"
+	},
+	"press-games-title": {
+		"message": "お楽しみやゲームが盛りだくさん"
+	},
+	"press-need-text": {
+		"message": "妖精たちと Google 社員がお手伝いします。"
+	},
+	"press-need-title": {
+		"message": "もっと調べる？"
+	},
+	"press-villagetracker-open24th": {
+		"message": "12 月 24 日にリリース"
+	},
+	"press-villagetracker-opendec": {
+		"message": "12 月いっぱい利用可能"
+	},
+	"press-villagetracker-title": {
+		"message": "サンタ村と「サンタを追いかけよう」"
+	},
+	"press-whatsnew": {
+		"message": "今年の新コンテンツ"
+	},
+	"press-whatsnew1-text": {
+		"message": "頭の先からつま先まであなたオリジナルの妖精をデザインしましょう。北極のあちこちで開催されるクリスマス会にふさわしい、幻想的な姿にしてあげてください。"
+	},
+	"press-whatsnew1-title": {
+		"message": "妖精を作ってみよう:"
+	},
+	"press-whatsnew2-text": {
+		"message": "ダンスの上手な妖精とダンスグループを組んでみたいと思ったことはありませんか？あるなら今がチャンスです。機械学習モデルの「\u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e」を使って妖精に動きを教えて、ダンスフロアに送り出しましょう。"
+	},
+	"press-whatsnew2-title": {
+		"message": "妖精たちとダンス:"
+	},
+	"press-whatsnew3-text": {
+		"message": "サンタの現在地は Google マップでも見ることができます。[メニュー] ボタンをタップしてから [現在地の共有] をタップすれば、サンタがどこにいるのかを正確に確認できます。手早く見つけたい場合は \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e にアクセスしてみましょう。"
+	},
+	"press-whatsnew3-title": {
+		"message": "サンタを追いかける新しい方法:"
+	},
+	"press-whatsnew4-text": {
+		"message": "\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e、\u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e、\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid アプリ\u003c/a\u003eで利用できる Gboard のクリスマス ステッカーをチェックすれば、クリスマス気分が盛り上がります。また、Google アシスタントに「クリスマスの話を聞かせて」、「サンタさんは今どこ？」と話しかけて楽しい物語を聞くこともできます。"
+	},
+	"press-whatsnew4-title": {
+		"message": "クリスマスをもっと楽しみましょう:"
 	},
 	"pt_language_name": {
 		"message": "ポルトガル語"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "まだ休暇中"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "対ペンギン セキュリティ"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "トナカイの心配事"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "共有"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: クリスマスの絵文字"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: クリスマスの伝統クイズ"
+	},
+	"sidebar_santas_location": {
+		"message": "Google マップ: サンタの現在地"
+	},
+	"sidebar_trends": {
+		"message": "Google トレンド: クリスマスにまつわる検索"
+	},
 	"sk_country_name": {
 		"message": "スロバキア"
 	},
 	"sk_language_name": {
 		"message": "スロバキア語"
+	},
+	"skip-intro": {
+		"message": "イントロをスキップ"
 	},
 	"skip-training": {
 		"message": "トレーニングをスキップ"
@@ -2895,7 +3006,7 @@
 		"message": "タイ語"
 	},
 	"tilt": {
-		"message": "端末を傾けよう"
+		"message": "デバイスを傾けよう"
 	},
 	"time": {
 		"message": "タイム"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "トルコ語"
+	},
+	"tracker-game_awesome": {
+		"message": "「Tower of Treasure」をプレイする"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "到着情報"
@@ -6678,7 +6795,13 @@
 		"message": "ベネズエラ"
 	},
 	"village_assistant-call_santa": {
-		"message": "Google アシスタントでサンタに電話"
+		"message": "Google アシスタント: サンタさんに電話する"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google アシスタント: クリスマスにまつわるお話"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google アシスタント: サンタさんは今どこ"
 	},
 	"village_comeback": {
 		"message": "24 日になったら、一晩中サンタさんを追いかけるのを手伝ってください！"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "見る"
+	},
+	"watch-video": {
+		"message": "動画を見る"
 	},
 	"wrapbattle_combo": {
 		"message": "スイートコンボ"

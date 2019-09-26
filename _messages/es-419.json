@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorar"
 	},
+	"explore-village": {
+		"message": "Explorar la aldea de Santa"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Siguiente"
 	},
+	"next_game": {
+		"message": "Próximo juego"
+	},
+	"nextdecember": {
+		"message": "Nos vemos en diciembre."
+	},
+	"nextyear": {
+		"message": "Nos vemos el próximo año."
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Prensa"
+	},
+	"press-about-tracker": {
+		"message": "Acerca de Sigue a Santa"
+	},
+	"press-about-tracker1": {
+		"message": "El 24 de diciembre, lanzaremos Sigue a Santa, un panel que te permitirá seguir el recorrido de Santa por todo el mundo. Además, podrás ver su ubicación en vivo en Google Maps y preguntarle al Asistente de Google “Ok Google, ¿dónde está Santa?” para conocer la ubicación de su trineo estés donde estés."
+	},
+	"press-about-village": {
+		"message": "Acerca de la aldea de Santa"
+	},
+	"press-about-village1": {
+		"message": "La aldea de Santa celebra 15 años de actividades navideñas divertidas, interactivas y educativas. Con la orientación experta de la señora Claus, los duendes actualizaron el lugar con un aspecto sofisticado y contenido nuevo. Además, gracias a un nuevo sistema de calefacción con chocolate caliente, la aldea ya no tardará todo el mes en descongelarse, por lo que todas las actividades estarán disponibles a partir del 4 de diciembre. Ahora los duendes y tú tendrán más tiempo para jugar y aprender en la aldea de Santa."
+	},
+	"press-about-village2": {
+		"message": "En la aldea, puedes practicar habilidades de codificación básicas, crear obras de arte originales, poner a prueba tus conocimientos de geografía y obtener más información sobre organizaciones de caridad, como \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e y \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Además, los profesores pueden \u003ca href=\"./educators.html\"\u003edescargar planificaciones de clases\u003c/a\u003e con guías en video para enseñarles a sus estudiantes habilidades fundamentales de codificación y tradiciones navideñas en coreano, español, francés, inglés y japonés."
+	},
+	"press-asset-animation": {
+		"message": "Animación"
+	},
+	"press-asset-resources": {
+		"message": "Recursos de prensa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de pantalla"
+	},
+	"press-device-text": {
+		"message": "El espíritu navideño está en todas partes, incluso en tus dispositivos."
+	},
+	"press-device-title": {
+		"message": "Sigue a Santa en tu dispositivo"
+	},
+	"press-edu": {
+		"message": "Aventuras educativas"
+	},
+	"press-edu1": {
+		"message": "Expandimos nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e a fin de proporcionar a los profesores guías en video en cinco idiomas para complementar las planificaciones de clases. Todos tus juegos favoritos siguen igual y presentan los conceptos básicos de codificación en el contexto de las fiestas en todo el mundo. Además, Sigue a Santa de Google promueve experiencias de aprendizaje navideñas de manera divertida. Consulta \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e para obtener más información."
+	},
+	"press-games-title": {
+		"message": "Un mundo de juegos y diversión"
+	},
+	"press-need-text": {
+		"message": "Los duendes y empleados de Google están aquí para ayudarte."
+	},
+	"press-need-title": {
+		"message": "¿Necesitas algo?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponible el 24 de diciembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponible durante todo diciembre"
+	},
+	"press-villagetracker-title": {
+		"message": "Sigue a Santa y visita su aldea"
+	},
+	"press-whatsnew": {
+		"message": "Novedades de este año"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crea tu propio duende, de pies a cabeza, y asegúrate de que se vea fantástico para que asista a las veladas navideñas en el Polo Norte."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crea un duende:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Si siempre quisiste formar un grupo de baile con duendes talentosos, llegó el momento de hacer realidad tu sueño… Bueno, más o menos. Usa \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, un modelo de aprendizaje automático, para que los duendes aprendan tus pasos de baile y salgan a la pista."
+	},
+	"press-whatsnew2-title": {
+		"message": "Danza con duendes:"
+	},
+	"press-whatsnew3-text": {
+		"message": "En Google Maps, también podrás ver la ubicación de Santa en tiempo real. Para ello, presiona el botón de navegación y, luego, “Compartir ubicación” a fin de saber exactamente dónde está el trineo. Otra opción es visitar \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e para obtener esta información rápidamente."
+	},
+	"press-whatsnew3-title": {
+		"message": "Una nueva manera de seguir a Santa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Si quieres más alegría navideña, prueba las calcomanías de Gboard, disponibles en \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e y nuestra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp para Android\u003c/a\u003e. Además, dile al Asistente de Google “Cuéntame una historia navideña” para disfrutar de un momento literario, o bien pregúntale “¿Dónde está Santa?”."
+	},
+	"press-whatsnew4-title": {
+		"message": "Más diversión navideña:"
 	},
 	"pt_language_name": {
 		"message": "Portugués"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Todavía de vacaciones"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "A prueba de pingüinos"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Renos preocupados"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Compartir"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made With Code: Emoji navideño"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Cuestionario sobre tradiciones navideñas"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Ubicación de Santa"
+	},
+	"sidebar_trends": {
+		"message": "Tendencias de Google: Búsquedas navideñas"
+	},
 	"sk_country_name": {
 		"message": "Eslovaquia"
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-intro": {
+		"message": "Omitir introducción"
 	},
 	"skip-training": {
 		"message": "Omitir introducción"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Jugar Torre del tesoro"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Sé genial en Internet"
 	},
 	"tracker_arrival": {
 		"message": "Arribo"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Llama a Santa con el Asistente de Google"
+		"message": "Asistente de Google: Llamar a Santa"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistente de Google: Historia de Navidad"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistente de Google: ¿Dónde está Santa?"
 	},
 	"village_comeback": {
 		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Santa toda la noche!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Mirar"
+	},
+	"watch-video": {
+		"message": "Mirar video"
 	},
 	"wrapbattle_combo": {
 		"message": "Combo dulce"

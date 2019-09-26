@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探索"
 	},
+	"explore-village": {
+		"message": "探索聖誕老人村"
+	},
 	"fi_country_name": {
 		"message": "芬蘭"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "繼續"
 	},
+	"next_game": {
+		"message": "繼續遊戲"
+	},
+	"nextdecember": {
+		"message": "12 月再見！"
+	},
+	"nextyear": {
+		"message": "明年見！"
+	},
 	"ng_country_name": {
 		"message": "奈及利亞"
 	},
@@ -1121,6 +1133,87 @@
 	"press": {
 		"message": "新聞稿"
 	},
+	"press-about-tracker": {
+		"message": "關於聖誕老人追蹤器"
+	},
+	"press-about-tracker1": {
+		"message": "我們將於 12 月 24 日啟用「追蹤器」資訊主頁，讓聖誕老人的粉絲掌握他的行蹤，跟隨他的腳步穿梭在各大城市。你還可以在 Google 地圖上查看他的即時位置，並向 Google 助理詢問「Ok Google，聖誕老人在哪裡？」即使出門在外，你也可以隨時掌握聖誕老人的行蹤和動態。"
+	},
+	"press-about-village": {
+		"message": "關於聖誕老人村"
+	},
+	"press-about-village1": {
+		"message": "聖誕老人村正在歡慶連續舉辦 15 週年的佳節活動，不僅充滿趣味、富含教育意義，且互動性十足。在聖誕老婆婆的專業指導之下，精靈以嶄新的外觀和質感及幾項全新的內容，為聖誕老人村換上了全新的面貌。此外，由於採用了熱巧克力技術提供的新款供熱系統，解凍村莊不再需要花上整個 12 月的時間。從 12 月 4 日開始，總計 20 多項的活動都將陸續登場。現在精靈們 (還有你！) 有更多時間可以在聖誕老人村盡情玩耍和探索了。"
+	},
+	"press-about-village2": {
+		"message": "在村莊裡，您可以練習基本的程式碼編寫技巧、建立原創作品、學習地理知識，並進一步瞭解多家慈善機構的工作項目，例如 \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e 和 \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e。老師甚至可以透過影片指南\u003ca href=\"./educators.html\"\u003e下載教案\u003c/a\u003e，藉此使用英語、西班牙語、法語、日語和韓語教導學生基本的程式碼編寫技巧和佳節傳統習俗。"
+	},
+	"press-asset-animation": {
+		"message": "動畫"
+	},
+	"press-asset-resources": {
+		"message": "媒體報導資源"
+	},
+	"press-asset-screenshot": {
+		"message": "螢幕截圖"
+	},
+	"press-device-text": {
+		"message": "佳節氣氛無所不在，包括在你的所有裝置上！"
+	},
+	"press-device-title": {
+		"message": "你的裝置上的聖誕老人追蹤器"
+	},
+	"press-edu": {
+		"message": "教育冒險"
+	},
+	"press-edu1": {
+		"message": "我們在\u003ca href=\"./educators.html\"\u003e教育工作者資源頁面\u003c/a\u003e中加入了更多內容，為教師提供多種影片指南，可搭配目前共有五種語言版本的教案使用。所有你最喜愛的遊戲同樣會一邊介紹編寫程式碼的基本概念，一邊帶你探索世界各地的佳節傳統。另外，你也可以透過 Google 的聖誕老人追蹤器，以有趣的方式鼓勵學生在假期間持續學習新知。詳情請參閱\u003ca href=\"./educators.html\"\u003e我們的教育類遊戲\u003c/a\u003e。"
+	},
+	"press-games-title": {
+		"message": "各式各樣的遊戲，帶給你無窮樂趣"
+	},
+	"press-need-text": {
+		"message": "小精靈和 Google 員工很樂意為你提供協助。"
+	},
+	"press-need-title": {
+		"message": "需要更多資訊嗎？"
+	},
+	"press-villagetracker-open24th": {
+		"message": "12 月 24 日啟用"
+	},
+	"press-villagetracker-opendec": {
+		"message": "整個 12 月皆可使用"
+	},
+	"press-villagetracker-title": {
+		"message": "聖誕老人村和追蹤器"
+	},
+	"press-whatsnew": {
+		"message": "今年推出的新功能"
+	},
+	"press-whatsnew1-text": {
+		"message": "從頭到腳打造專屬於你的精靈，賦予它北極佳節晚會獨有的酷炫精靈風格。"
+	},
+	"press-whatsnew1-title": {
+		"message": "製作一名精靈："
+	},
+	"press-whatsnew2-text": {
+		"message": "如果你這輩子最大的夢想是與一群擁有舞蹈天分的精靈一起組成最強舞蹈團體，那麼現在就是你的大好機會 (可以這麼說啦)。只要使用 \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e 這款機器學習模型，你就可以訓練精靈學習你的舞步，帶領你的得意學徒舞力全開。"
+	},
+	"press-whatsnew2-title": {
+		"message": "與精靈共舞："
+	},
+	"press-whatsnew3-text": {
+		"message": "你也可以透過 Google 地圖即時掌握聖誕老人的所在位置。只要依序輕觸「三橫條」選單按鈕和 [位置資訊分享]，即可查看聖誕老人在整趟旅程中的確切位置。如想快速使用這項功能，你也可以前往 \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e！"
+	},
+	"press-whatsnew3-title": {
+		"message": "追蹤聖誕老人的新方式："
+	},
+	"press-whatsnew4-text": {
+		"message": "如想進一步散播佳節氣氛，不妨在 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e、\u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e 裝置和我們的 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid 應用程式\u003c/a\u003e中使用 Gboard 佳節貼圖。另外，你也可以對 Google 助理說「我要聽佳節故事」和「聖誕老人在哪裡？」，享受聽故事的樂趣。"
+	},
+	"press-whatsnew4-title": {
+		"message": "歡樂節慶樂趣多："
+	},
 	"pt_language_name": {
 		"message": "葡萄牙文"
 	},
@@ -1227,7 +1320,7 @@
 		"message": "紅鼻子馴鹿"
 	},
 	"santasearch_character_santa": {
-		"message": "聖誕老公公"
+		"message": "聖誕老人"
 	},
 	"santasearch_hint": {
 		"message": "提示"
@@ -1275,13 +1368,13 @@
 		"message": "聖誕老人來電"
 	},
 	"scene_canvas": {
-		"message": "聖誕老公公的畫布"
+		"message": "聖誕老人的畫布"
 	},
 	"scene_citylights": {
 		"message": "城市之光"
 	},
 	"scene_clausdraws": {
-		"message": "聖誕老公公繪畫比賽"
+		"message": "聖誕老人繪畫比賽"
 	},
 	"scene_codeboogie": {
 		"message": "程式碼之舞力全開"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "休假中"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "企鵝絕對猜不到的密碼"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "聖誕老人不見了"
 	},
@@ -1431,7 +1527,7 @@
 		"message": "衛星"
 	},
 	"scene_videoscene_selfies": {
-		"message": "聖誕老公公的自拍照"
+		"message": "聖誕老人的自拍照"
 	},
 	"scene_videoscene_slackingoff": {
 		"message": "偷懶"
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "分享"
 	},
+	"sidebar_code_emoji": {
+		"message": "用程式碼打造世界：佳節表情符號"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google 地球：佳節傳統大問哉"
+	},
+	"sidebar_santas_location": {
+		"message": "Google 地圖：聖誕老人的所在位置"
+	},
+	"sidebar_trends": {
+		"message": "Google 搜尋趨勢：佳節搜尋記錄"
+	},
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克文"
+	},
+	"skip-intro": {
+		"message": "略過簡介"
 	},
 	"skip-training": {
 		"message": "略過遊戲教學"
@@ -2529,7 +2640,7 @@
 		"message": "三明治"
 	},
 	"speedsketch_item~santa claus": {
-		"message": "聖誕老公公"
+		"message": "聖誕老人"
 	},
 	"speedsketch_item~saturn": {
 		"message": "土星"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "土耳其文"
+	},
+	"tracker-game_awesome": {
+		"message": "前往「寶藏之塔」"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "成為優質網路公民"
 	},
 	"tracker_arrival": {
 		"message": "抵達"
@@ -6678,7 +6795,13 @@
 		"message": "委內瑞拉"
 	},
 	"village_assistant-call_santa": {
-		"message": "透過 Google 助理打電話給聖誕老人"
+		"message": "Google 助理：呼叫聖誕老人"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google 助理：佳節故事"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google 助理：聖誕老人在哪裡"
 	},
 	"village_comeback": {
 		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "看影片"
+	},
+	"watch-video": {
+		"message": "觀看影片"
 	},
 	"wrapbattle_combo": {
 		"message": "強力連發"

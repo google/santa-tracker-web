@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "探索"
 	},
+	"explore-village": {
+		"message": "探索聖誕老人村"
+	},
 	"fi_country_name": {
 		"message": "芬蘭"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "繼續"
 	},
+	"next_game": {
+		"message": "下一個遊戲"
+	},
+	"nextdecember": {
+		"message": "12 月見！"
+	},
+	"nextyear": {
+		"message": "明年見！"
+	},
 	"ng_country_name": {
 		"message": "尼日利亞"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "新聞稿"
+	},
+	"press-about-tracker": {
+		"message": "關於聖誕老人追蹤器"
+	},
+	"press-about-tracker1": {
+		"message": "我們將於 12 月 24 日推出聖誕老人追蹤器，讓聖誕老人的支持者看到他在城市之間穿梭的情況。您亦可在「Google 地圖」上看到他的實時位置，或者向「Google 助理」發問：「OK Google，聖誕老人喺邊？」，便可隨時隨地掌握聖誕老人的行蹤。"
+	},
+	"press-about-village": {
+		"message": "關於聖誕老人村"
+	},
+	"press-about-village1": {
+		"message": "聖誕老人村正在慶祝第 15 年的聖誕節日活動，這裡充滿有趣、互動和富教育意義的節目。在聖誕老婆婆的專業指導下，小精靈們用全新的內容佈置村莊，令這裡煥然一新。全靠最新的熱朱古力暖氣系統，無需花上整個 12 月來慢慢解凍村莊了。由 12 月 4 日開始，村莊將一口氣舉辦二十多個活動！您和眾多小精靈現在有更多時間遊玩和探索聖誕老人村了！"
+	},
+	"press-about-village2": {
+		"message": "在村莊裡，您可以練習基本的編碼技巧、製作原創作品、學習地理知識，以及認識如 \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e 和 \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e 等慈善組織。教師甚至可以\u003ca href=\"./educators.html\"\u003e下載課程計劃\u003c/a\u003e和影片指南 (提供英文、西班牙文、法文、日文和韓文版本)，協助他們向學生教授基本編碼技巧和節日傳統。"
+	},
+	"press-asset-animation": {
+		"message": "動畫"
+	},
+	"press-asset-resources": {
+		"message": "媒體資源"
+	},
+	"press-asset-screenshot": {
+		"message": "螢幕擷圖"
+	},
+	"press-device-text": {
+		"message": "節日歡樂無處不在，你可以在所有裝置上感受氣氛了！"
+	},
+	"press-device-title": {
+		"message": "裝置上的聖誕老人追蹤器"
+	},
+	"press-edu": {
+		"message": "精彩教育之旅"
+	},
+	"press-edu1": {
+		"message": "我們擴充了\u003ca href=\"./educators.html\"\u003e教育資源網頁\u003c/a\u003e，為教師提供支援五種語言的影片指南，以配合課程計劃。而所有屢獲好評的遊戲亦會繼續透過全世界的節日傳統，介紹編碼的基本概念。Google 的聖誕老人追蹤器以有趣好玩的方式，傳揚節日學習的體驗。詳情請查看\u003ca href=\"./educators.html\"\u003e我們的教育遊戲\u003c/a\u003e。"
+	},
+	"press-games-title": {
+		"message": "遊戲多多，樂趣滿滿"
+	},
+	"press-need-text": {
+		"message": "小精靈和 Google 員工樂意為您提供協助。"
+	},
+	"press-need-title": {
+		"message": "有什麼需要嗎？"
+	},
+	"press-villagetracker-open24th": {
+		"message": "在 12 月 24 日開放使用"
+	},
+	"press-villagetracker-opendec": {
+		"message": "整個 12 月開放使用"
+	},
+	"press-villagetracker-title": {
+		"message": "聖誕老人村和聖誕老人追蹤器"
+	},
+	"press-whatsnew": {
+		"message": "今年新加功能"
+	},
+	"press-whatsnew1-text": {
+		"message": "從頭到腳製作屬於您的小精靈，以仙氣十足的「精靈」造型迎接北極的節日聚會。"
+	},
+	"press-whatsnew1-title": {
+		"message": "製作小精靈："
+	},
+	"press-whatsnew2-text": {
+		"message": "如果您一直以來的夢想是與一群才華橫溢的舞蹈小精靈組成一隊舞蹈團，現在就是大好機會。使用 \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e 這個機器學習模型，訓練小精靈學習舞步，讓它們登上舞池。"
+	},
+	"press-whatsnew2-title": {
+		"message": "與小精靈共舞："
+	},
+	"press-whatsnew3-text": {
+		"message": "您亦可在「Google 地圖」上查看聖誕老人的實時位置。只需輕按三間式按鈕，然後選擇 [位置分享]，即可看到聖誕老人當前的行蹤。如想快速使用此功能，您亦可前往 \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e！"
+	},
+	"press-whatsnew3-title": {
+		"message": "追蹤聖誕老人的新方法："
+	},
+	"press-whatsnew4-text": {
+		"message": "如果您想更投入節日氣氛，看看我們在 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e 及 \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e 裝置，和 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid 應用程式\u003c/a\u003e中推出的聖誕貼圖。您亦可以對「Google 助理」說「講一個節日故事」和「聖誕老人喺邊？」，享受文學的樂趣"
+	},
+	"press-whatsnew4-title": {
+		"message": "節日更添歡樂："
 	},
 	"pt_language_name": {
 		"message": "葡萄牙文"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "仍在度假"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "企鵝破解密碼"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "馴鹿慌失失"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "分享"
 	},
+	"sidebar_code_emoji": {
+		"message": "以程式碼打造：節日 Emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google 地球：節日傳統知多少"
+	},
+	"sidebar_santas_location": {
+		"message": "Google 地圖：聖誕老人的位置"
+	},
+	"sidebar_trends": {
+		"message": "Google 趨勢有關節日的搜尋"
+	},
 	"sk_country_name": {
 		"message": "斯洛伐克"
 	},
 	"sk_language_name": {
 		"message": "斯洛伐克文"
+	},
+	"skip-intro": {
+		"message": "略過簡介"
 	},
 	"skip-training": {
 		"message": "略過教學"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "土耳其文"
+	},
+	"tracker-game_awesome": {
+		"message": "立即玩「寶藏之塔」"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "成為精明的網絡達人"
 	},
 	"tracker_arrival": {
 		"message": "抵達"
@@ -6678,7 +6795,13 @@
 		"message": "委內瑞拉"
 	},
 	"village_assistant-call_santa": {
-		"message": "使用「Google 助理」致電聖誕老人"
+		"message": "Google 助理：打電話給聖誕老人"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google 助理：節日故事"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google 助理：聖誕老人在哪裡"
 	},
 	"village_comeback": {
 		"message": "我們邀請您在 24 日平安夜一起追縱聖誕老人！"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "觀看"
+	},
+	"watch-video": {
+		"message": "觀看影片"
 	},
 	"wrapbattle_combo": {
 		"message": "眼明手快！"

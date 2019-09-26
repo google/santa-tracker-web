@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Огляд"
 	},
+	"explore-village": {
+		"message": "У містечко Діда Мороза"
+	},
 	"fi_country_name": {
 		"message": "Фінляндія"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Далі"
 	},
+	"next_game": {
+		"message": "Наступна гра"
+	},
+	"nextdecember": {
+		"message": "Побачимось у грудні!"
+	},
+	"nextyear": {
+		"message": "Побачимося наступного року!"
+	},
 	"ng_country_name": {
 		"message": "Нігерія"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Преса"
+	},
+	"press-about-tracker": {
+		"message": "Про сервіс Де Дід Мороз"
+	},
+	"press-about-tracker1": {
+		"message": "Сервіс Де Дід Мороз стартує 24 грудня. За допомогою інформаційної панелі шанувальники Діда Мороза можуть стежити за його пересуванням різними містами та країнами. Також поточне місцезнаходження Діда Мороза можна бачити на Картах Google і запитувати в Google Асистента: \"OK Google! Де Дід Мороз?\". Тож навіть у дорозі ви завжди маєте змогу дізнаватися, де перебуває Дід Мороз."
+	},
+	"press-about-village": {
+		"message": "Про містечко Діда Мороза"
+	},
+	"press-about-village1": {
+		"message": "Містечко Діда Мороза святкує п’ятнадцятиріччя своєї святкової розважальної, навчальної й інтерактивної діяльності. Під мудрим керівництвом Діда Мороза ельфи надали містечку привабливого й оновленого вигляду та пропонують дещо новеньке. А завдяки новій системі опалення на основі гарячого какао містечко вже не витрачатиме весь грудень на зігрівання. З 4 грудня на вас чекають понад два десятки різних завдань, тож ельфи й ви матимете більше часу на ігри та різні справи в містечку Діда Мороза."
+	},
+	"press-about-village2": {
+		"message": "У містечку ви можете покращувати свої навички кодування, створювати оригінальні твори мистецтва, управлятися в знанні географії та дізнаватися більше про благодійні організації, як-от \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e і сайт \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Учителі навіть можуть \u003ca href=\"./educators.html\"\u003eзавантажувати плани уроків\u003c/a\u003e із відеопосібниками, що допоможуть учням навчитися основ кодування й довідатися про традиції святкування англійською, іспанською, французькою, японською та корейською мовами."
+	},
+	"press-asset-animation": {
+		"message": "Анімація"
+	},
+	"press-asset-resources": {
+		"message": "Ресурси для преси"
+	},
+	"press-asset-screenshot": {
+		"message": "Знімок екрана"
+	},
+	"press-device-text": {
+		"message": "Святковий настрій усюди, навіть на всіх ваших пристроях!"
+	},
+	"press-device-title": {
+		"message": "Де Дід Мороз на вашому пристрої"
+	},
+	"press-edu": {
+		"message": "Навчальні матеріали"
+	},
+	"press-edu1": {
+		"message": "На \u003ca href=\"./educators.html\"\u003eсторінку навчальних ресурсів\u003c/a\u003e ми додали відеопосібники (тепер доступні п’ятьма мовами), які допоможуть учителям розширити плани своїх уроків. Завдання всіх ваших улюблених ігор залишаються незмінними – від вивчення основних принципів кодування до знайомства з традиціями святкування в різних країнах. Додаток Google Де Дід Мороз заохочує навчатися весело й цікаво. Відвідайте нашу сторінку \u003ca href=\"./educators.html\"\u003eнавчальних ігор\u003c/a\u003e, щоб дізнатися більше."
+	},
+	"press-games-title": {
+		"message": "Усі розваги й ігри"
+	},
+	"press-need-text": {
+		"message": "Ельфи та працівники компанії Google завжди готові допомогти."
+	},
+	"press-need-title": {
+		"message": "Потрібна додаткова допомога?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Стартує 24 грудня"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Відкрито весь грудень"
+	},
+	"press-villagetracker-title": {
+		"message": "Містечко Діда Мороза та Де Дід Мороз"
+	},
+	"press-whatsnew": {
+		"message": "Цьогорічні новинки"
+	},
+	"press-whatsnew1-text": {
+		"message": "Створіть власного ельфа з голови до п’ят і переконайтеся, що він ельфастично виглядає на всіх заходах, які відбуваються на Північному полюсі."
+	},
+	"press-whatsnew1-title": {
+		"message": "Створення ельфа."
+	},
+	"press-whatsnew2-text": {
+		"message": "Якщо ви все життя мріяли створити танцювальний колектив із кількох дуже талановитих ельфів, тепер ви маєте таку нагоду. Майже… За допомогою моделі машинного навчання під назвою \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e навчіть ельфа вашим рухам, щоб він весело танцював на майданчику."
+	},
+	"press-whatsnew2-title": {
+		"message": "Танці з ельфами."
+	},
+	"press-whatsnew3-text": {
+		"message": "Ви також можете в реальному часі відстежувати місцезнаходження Діда Мороза на Картах Google – просто натисніть кнопку меню з трьома рисками, а потім опцію \"Передавання геоданих\", щоб побачити, де саме зараз перебуває Дід Мороз. Або скористайтеся посиланням \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e для швидкого переходу."
+	},
+	"press-whatsnew3-title": {
+		"message": "Новий спосіб відстежувати пересування Діда Мороза."
+	},
+	"press-whatsnew4-text": {
+		"message": "А щоб додати ще більше святкового настрою, перегляньте тематичні наклейки Gboard, доступні в нашому додатку для \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e та \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e.\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003e\u003c/a\u003e Або попросіть Google Асистента розповісти цікаву новорічну історію чи запитайте його, де Дід Мороз."
+	},
+	"press-whatsnew4-title": {
+		"message": "Більше святкових розваг."
 	},
 	"pt_language_name": {
 		"message": "португальська"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Ще у відпустці"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Пінгвіни-шпигуни"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Олень хвилюється"
 	},
@@ -1446,7 +1542,7 @@
 		"message": "Утомлений олень"
 	},
 	"scene_videoscene_wheressanta": {
-		"message": "Де Санта?"
+		"message": "Де Дід Мороз?"
 	},
 	"scene_videoscene_workshop": {
 		"message": "Майстерня Діда Мороза"
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Поділитися"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: новорічний смайл"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Планета Земля: вікторина \"Різдвяні традиції\""
+	},
+	"sidebar_santas_location": {
+		"message": "Карти Google: місцезнаходження Діда Мороза"
+	},
+	"sidebar_trends": {
+		"message": "Google Тренди: новорічні пошукові запити"
+	},
 	"sk_country_name": {
 		"message": "Словаччина"
 	},
 	"sk_language_name": {
 		"message": "словацька"
+	},
+	"skip-intro": {
+		"message": "Пропустити вступ"
 	},
 	"skip-training": {
 		"message": "Пропустити навчання"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "турецька"
+	},
+	"tracker-game_awesome": {
+		"message": "Зіграти в гру \"Вежа скарбів\""
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Мережевий етикет і безпека"
 	},
 	"tracker_arrival": {
 		"message": "Прибуття"
@@ -6678,7 +6795,13 @@
 		"message": "Венесуела"
 	},
 	"village_assistant-call_santa": {
-		"message": "Телефонувати Діду Морозу через Google Асистента"
+		"message": "Google Асистент: телефонувати Діду Морозу"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Асистент: новорічна історія"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Асистент: де Дід Мороз"
 	},
 	"village_comeback": {
 		"message": "Стежте за подорожжю Діда Мороза всю ніч із 24 на 25 грудня!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Святкове відео"
+	},
+	"watch-video": {
+		"message": "Переглянути відео"
 	},
 	"wrapbattle_combo": {
 		"message": "Солодке комбо"

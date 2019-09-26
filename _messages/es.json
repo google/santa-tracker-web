@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorar"
 	},
+	"explore-village": {
+		"message": "Explorar aldea de Papá Noel"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Siguiente"
 	},
+	"next_game": {
+		"message": "Próximo juego"
+	},
+	"nextdecember": {
+		"message": "¡Nos vemos en diciembre!"
+	},
+	"nextyear": {
+		"message": "¡Nos vemos el año que viene!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Prensa"
+	},
+	"press-about-tracker": {
+		"message": "Información sobre Sigue a Papá Noel"
+	},
+	"press-about-tracker1": {
+		"message": "El 24 de diciembre lanzaremos Sigue a Papá Noel, un panel en el que puedes seguir el recorrido de su trineo de ciudad en ciudad. También puedes consultar la ubicación en tiempo real a través de Google Maps e incluso utilizar el Asistente de Google para hacer un seguimiento de su paradero estés donde estés (para ello, solo tienes que decir \"OK Google, ¿dónde está Papá Noel?\")."
+	},
+	"press-about-village": {
+		"message": "Información sobre la aldea de Papá Noel"
+	},
+	"press-about-village1": {
+		"message": "En la aldea de Papá Noel están de aniversario: concretamente, se celebran quince años de actividades navideñas interactivas que combinan diversión y aprendizaje. Bajo la experta mirada de Mamá Noel, los elfos han dotado a la aldea de un diseño vistoso y un contenido totalmente nuevo. Además, gracias a su nuevo sistema térmico basado en la tecnología del chocolate caliente, la aldea ya no tardará todo el mes de diciembre en descongelarse: todas las actividades estarán disponibles a partir del día 4. Ahora, tanto los elfos como tú podréis pasar mucho más tiempo jugando y explorando la aldea de Papá Noel."
+	},
+	"press-about-village2": {
+		"message": "En la aldea, puedes practicar actividades básicas de programación, crear ilustraciones originales, poner en práctica tus conocimientos de geografía y obtener más información sobre organizaciones benéficas como \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e y \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Por su parte, los profesores pueden \u003ca href=\"./educators.html\"\u003edescargar unidades didácticas\u003c/a\u003e con guías de vídeo que les ayudarán a enseñar a sus estudiantes conceptos básicos sobre programación y tradiciones festivas en coreano, español, francés, inglés y japonés."
+	},
+	"press-asset-animation": {
+		"message": "Animación"
+	},
+	"press-asset-resources": {
+		"message": "Recursos de prensa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de pantalla"
+	},
+	"press-device-text": {
+		"message": "El espíritu navideño está presente en cada rincón, ¡incluso en todos tus dispositivos!"
+	},
+	"press-device-title": {
+		"message": "Sigue a Papá Noel en tu dispositivo"
+	},
+	"press-edu": {
+		"message": "Aventuras educativas"
+	},
+	"press-edu1": {
+		"message": "Hemos ampliado nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones navideñas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque navideño. Para obtener más información, echa un vistazo a \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Todos los juegos y actividades divertidas"
+	},
+	"press-need-text": {
+		"message": "Los elfos y los Googlers están encantados de echarte una mano."
+	},
+	"press-need-title": {
+		"message": "¿Necesitas algo?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Disponible el 24 de diciembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Disponible durante todo diciembre"
+	},
+	"press-villagetracker-title": {
+		"message": "La aldea de Papá Noel y Sigue a Papá Noel"
+	},
+	"press-whatsnew": {
+		"message": "Novedades de este año"
+	},
+	"press-whatsnew1-text": {
+		"message": "Crea tu propio elfo de pies a cabeza y déjalo hecho un pincel para las veladas navideñas que se celebran en el Polo Norte."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crea un elfo:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ha llegado la hora de cumplir uno de tus mayores sueños (y si no lo era, seguro que a partir de ahora lo es): ¡crear un grupo de baile formado por elfos rebosantes de talento! Para ello, hemos creado un modelo de aprendizaje automático, llamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, con el que puedes enseñar a los elfos los pasos de baile necesarios para darlo todo en la pista."
+	},
+	"press-whatsnew2-title": {
+		"message": "A bailar con los elfos:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Si quieres, puedes utilizar Google Maps para ver la ubicación de Papá Noel en tiempo real; basta con que toques el botón de tres puntos y, luego, la opción Compartir ubicación para ver en qué punto exacto del recorrido se encuentra. También puedes acceder directamente mediante el enlace \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+	},
+	"press-whatsnew3-title": {
+		"message": "Una nueva forma de seguir a Papá Noel:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Si tienes más ganas de zambullirte en el espíritu de las fiestas, echa un vistazo a las pegatinas navideñas de Gboard que están disponibles para \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e y \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, además de en nuestra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicación para Android\u003c/a\u003e. También puedes pedirle al Asistente de Google que te cuente una historia navideña o que te muestre dónde se encuentra Papá Noel."
+	},
+	"press-whatsnew4-title": {
+		"message": "Más diversión navideña:"
 	},
 	"pt_language_name": {
 		"message": "Portugués"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Aún está de vacaciones"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Contraseña a prueba de pingüinos"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Los renos están preocupados"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Compartir"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Emoji navideño"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Cuestionario sobre tradiciones navideñas"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Ubicación de Papá Noel"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Búsquedas navideñas"
+	},
 	"sk_country_name": {
 		"message": "Eslovaquia"
 	},
 	"sk_language_name": {
 		"message": "Eslovaco"
+	},
+	"skip-intro": {
+		"message": "Saltar introducción"
 	},
 	"skip-training": {
 		"message": "Saltar introducción"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Jugar a La torre del tesoro"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Academia de internautas ejemplares"
 	},
 	"tracker_arrival": {
 		"message": "Llegada"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Llamar a Papá Noel con el Asistente de Google"
+		"message": "Asistente de Google: Llamar a Papá Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asistente de Google: Cuento navideño"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asistente de Google: ¿Dónde está Papá Noel?"
 	},
 	"village_comeback": {
 		"message": "¡Vuelve en Nochebuena y ayúdanos a seguir a Papá Noel toda la noche!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Ver"
+	},
+	"watch-video": {
+		"message": "Ver vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "¡Buen combo!"

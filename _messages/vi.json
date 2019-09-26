@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Khám phá"
 	},
+	"explore-village": {
+		"message": "Khám phá ngôi làng của ông già Noel"
+	},
 	"fi_country_name": {
 		"message": "Phần Lan"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Tiếp"
 	},
+	"next_game": {
+		"message": "Trò chơi tiếp theo"
+	},
+	"nextdecember": {
+		"message": "Hẹn gặp bạn vào tháng 12!"
+	},
+	"nextyear": {
+		"message": "Hẹn gặp bạn vào năm tới!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Báo chí"
+	},
+	"press-about-tracker": {
+		"message": "Giới thiệu về trang Theo chân ông già Noel"
+	},
+	"press-about-tracker1": {
+		"message": "Vào ngày 24 tháng 12, chúng tôi sẽ ra mắt trang Theo chân ông già Noel, một trang tổng quan cho phép người hâm mộ ông già Noel theo dõi quá trình di chuyển bằng tuần lộc của ông già Noel từ thành phố này sang thành phố khác. Bạn cũng có thể xem vị trí trực tiếp của mình trên Google Maps và hỏi Trợ lý Google: \"OK Google, ông già Noel ở đâu?\"—để bạn có thể theo dõi vị trí của ông già Noel ngay cả khi bạn đang di chuyển."
+	},
+	"press-about-village": {
+		"message": "Giới thiệu về Ngôi làng của ông già Noel"
+	},
+	"press-about-village1": {
+		"message": "Ngôi làng của ông già Noel đang kỷ niệm 15 năm tổ chức các hoạt động vui chơi, giáo dục và tương tác trong mùa lễ hội. Dưới sự hướng dẫn chuyên môn của bà già Noel, các chú yêu tinh đã trang trí ngôi làng với vẻ ngoài hợp mốt cùng với một số nội dung hoàn toàn mới. Và nhờ vào hệ thống sưởi ấm mới chạy bằng cacao, ngôi làng sẽ không còn đóng cứng trông suốt tháng 12 nữa—cả hai tá hoạt động sẽ bắt đầu vào ngày 4 tháng 12. Giờ đây, các chú yêu tinh (và cả bạn!) sẽ có nhiều thời gian hơn để vui chơi và khám phá ở Ngôi làng của ông già Noel."
+	},
+	"press-about-village2": {
+		"message": "Trong làng, bạn có thể thực hành các kỹ năng lập trình cơ bản, tạo ra các tác phẩm nghệ thuật nguyên gốc, trổ tài hiểu biết địa lý và tìm hiểu thêm về các tổ chức từ thiện như \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e và \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Các giáo viên thậm chí có thể \u003ca href=\"./educators.html\"\u003etải giáo án xuống\u003c/a\u003e với video hướng dẫn để giúp dạy cho học viên kỹ năng lập trình cơ bản và truyền thống giáng sinh bằng tiếng Anh, tiếng Tây Ban Nha, tiếng Pháp, tiếng Nhật Bản và tiếng Hàn Quốc."
+	},
+	"press-asset-animation": {
+		"message": "Hoạt ảnh"
+	},
+	"press-asset-resources": {
+		"message": "Tài nguyên dành cho báo chí"
+	},
+	"press-asset-screenshot": {
+		"message": "Ảnh chụp màn hình"
+	},
+	"press-device-text": {
+		"message": "Tinh thần mùa lễ hội ở khắp mọi nơi, kể cả trên tất cả thiết bị của bạn!"
+	},
+	"press-device-title": {
+		"message": "Trang Theo chân ông già Noel trên thiết bị"
+	},
+	"press-edu": {
+		"message": "Cuộc phiêu lưu giáo dục"
+	},
+	"press-edu1": {
+		"message": "Chúng tôi đã mở rộng \u003ca href=\"./educators.html\"\u003etrang tài nguyên dành cho nhà giáo\u003c/a\u003e để cung cấp các video hướng dẫn hỗ trợ làm giáo án, hiện viết bằng 5 ngôn ngữ. Tất cả các trò chơi bạn yêu thích vẫn còn và sẽ giới thiệu các khái niệm cơ bản về lập trình trong không khí lễ hỗi truyền thống toàn cầu. Trang Theo chân ông già Noel của Google khuyến khích học tập trong kỳ nghỉ theo cách đầy thú vị—hãy xem \u003ca href=\"./educators.html\"\u003ecác trò chơi giáo dục của chúng tôi\u003c/a\u003e để tìm hiểu thêm."
+	},
+	"press-games-title": {
+		"message": "Tất cả những trò chơi thú vị"
+	},
+	"press-need-text": {
+		"message": "Các chú lùn yêu tinh và người của Google đều ở đây để giúp bạn."
+	},
+	"press-need-title": {
+		"message": "Bạn cần trợ giúp?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Hoạt động vào ngày 24 tháng 12"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Hoạt động trong suốt tháng 12"
+	},
+	"press-villagetracker-title": {
+		"message": "Ngôi làng của ông già Noel và trang Theo chân ông già Noel"
+	},
+	"press-whatsnew": {
+		"message": "Nội dung mới của năm nay"
+	},
+	"press-whatsnew1-text": {
+		"message": "Sáng tạo chú yêu tinh của riêng bạn từ đầu đến chân và chắc chắn rằng chú ta trông thật thu hút cho các buổi dạ tiệc giáng sinh ở Bắc Cực."
+	},
+	"press-whatsnew1-title": {
+		"message": "Sáng tạo yêu tinh:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Nếu ước mơ cả đời của bạn là lập một vũ đoàn với một nhóm yêu tinh nhảy múa tài năng, thì giờ là cơ hội của bạn. Sắp rồi! Bằng cách sử dụng mô hình máy học có tên là \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, bạn có thể huấn luyện một chú yêu tinh học theo bước nhảy của mình để đưa chú ta hiên ngang lên sàn nhảy."
+	},
+	"press-whatsnew2-title": {
+		"message": "Khiêu vũ với các chú yêu tinh:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Bạn cũng sẽ có thể xem vị trí theo thời gian thực của ông già Noel trên Google Maps—chỉ cần nhấn vào biểu tượng menu, sau đó nhấn vào \"Chia sẻ vị trí\" để xem chính xác vị trí của ông già Noel trong suốt hành trình của mình. Nếu muốn nhanh và thuận tiện, bạn cũng có thể truy cập vào \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Một cách mới để theo chân ông già Noel:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Nếu nóng lòng muốn có thêm những lời chúc rực rỡ cho mùa lễ hội, hãy dùng bộ hình dán Gboard dành cho giáng sinh, hiện có trên \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, và \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eứng dụng Android\u003c/a\u003e của chúng tôi. Ngoài ra, bạn còn có thể giải trí bằng cách yêu cầu Trợ lý Google \"Kể cho tôi một câu chuyện về giáng sinh\" và đặt câu hỏi \"Ông già Noel ở đâu?\""
+	},
+	"press-whatsnew4-title": {
+		"message": "Thêm niềm vui trong kỳ nghỉ:"
 	},
 	"pt_language_name": {
 		"message": "Tiếng Bồ Đào Nha"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Vẫn đi nghỉ"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Mật khẩu chống chim cánh cụt"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Tuần lộc lo lắng"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Chia sẻ"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Biểu tượng cảm xúc cho ngày giáng sinh"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Trắc nghiệm về truyền thống ngày giáng sinh"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Vị trí của ông già Noel"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Cụm từ tìm kiếm về ngày giáng sinh"
+	},
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
 		"message": "Tiếng Slovak"
+	},
+	"skip-intro": {
+		"message": "Bỏ qua đoạn giới thiệu"
 	},
 	"skip-training": {
 		"message": "Bỏ qua hướng dẫn chơi"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Tiếng Thổ Nhĩ Kỳ"
+	},
+	"tracker-game_awesome": {
+		"message": "Chơi trò Tháp châu báu"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Hiểu thật rõ về Internet"
 	},
 	"tracker_arrival": {
 		"message": "Điểm đến"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Gọi cho ông già Noel bằng Trợ lý Google"
+		"message": "Trợ lý Google: Gọi cho ông già Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Trợ lý Google: Cậu chuyện về giáng sinh"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Trợ lý Google: Ông già Noel ở đâu?"
 	},
 	"village_comeback": {
 		"message": "Hãy trở lại vào ngày 24 và giúp chúng tôi theo chân ông già Noel suốt cả đêm!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Xem"
+	},
+	"watch-video": {
+		"message": "Xem video"
 	},
 	"wrapbattle_combo": {
 		"message": "Bộ đôi ngọt ngào"

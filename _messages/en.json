@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explore"
 	},
+	"explore-village": {
+		"message": "Explore Santa's Village"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -899,6 +902,12 @@
 	"next_game": {
 		"message": "Next Game"
 	},
+	"nextdecember": {
+		"message": "See you in December!"
+	},
+	"nextyear": {
+		"message": "See you next year!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1158,7 +1167,7 @@
 		"message": "Educational adventures"
 	},
 	"press-edu1": {
-		"message": "We've expanded our \u003ca href=\"./educators.html\"\u003eeducator resource page\u003c/a\u003e to provide teachers with video guides to accompany lesson plans now available in four languages. All of your favorite games remain introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see \u003ca href=\"./educators.html\"\u003eour educational games\u003c/a\u003e to learn more."
+		"message": "We've expanded our \u003ca href=\"./educators.html\"\u003eeducator resource page\u003c/a\u003e to provide teachers with video guides to accompany lesson plans now available in five languages. All of your favorite games remain, introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see \u003ca href=\"./educators.html\"\u003eour educational games\u003c/a\u003e to learn more."
 	},
 	"press-games-title": {
 		"message": "All the fun and games"
@@ -1194,13 +1203,13 @@
 		"message": "Dance(s) with elves:"
 	},
 	"press-whatsnew3-text": {
-		"message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey."
+		"message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey. You can also go to \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e for an easy shortcut!"
 	},
 	"press-whatsnew3-title": {
 		"message": "A new way to track Santa:"
 	},
 	"press-whatsnew4-text": {
-		"message": "If you're craving more holiday cheer, check out the Gboard holiday stickers available exclusively on our \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e, and feast your eyes on trends such as the most uniquely searched cookie in each US state. Get in touch with the season's VIP by telling the Google Assistant to \"Call Santa\" and then wind down with \"Tell me a holiday story\" to enjoy some literary fun."
+		"message": "If you're craving more holiday cheer, check out the Gboard holiday stickers available on \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, and our \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e. And, enjoy some literary fun by asking the Google Assistant to \"Tell me a holiday story\" and \"Where's Santa?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "More holiday fun:"
@@ -1502,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Still on Vacation"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Penguin Proof"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Reindeer Worries"
 	},
@@ -1565,11 +1577,26 @@
 	"share-this": {
 		"message": "Share"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Holiday Emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Holiday Traditions quiz"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Santa's Location"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Holiday searches"
+	},
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-intro": {
+		"message": "Skip Intro"
 	},
 	"skip-training": {
 		"message": "Skip Training"
@@ -3001,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turkish"
+	},
+	"tracker-game_awesome": {
+		"message": "Play Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Arrival"
@@ -6762,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Call Santa with the Google Assistant"
+		"message": "Google Assistant: Call Santa"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Holiday Story"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Where's Santa"
 	},
 	"village_comeback": {
 		"message": "Come back on the 24th and help us track Santa all night!"
@@ -6808,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Watch"
+	},
+	"watch-video": {
+		"message": "Watch Video"
 	},
 	"wrapbattle_combo": {
 		"message": "Sweet Combo"

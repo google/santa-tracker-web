@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Mag-explore"
 	},
+	"explore-village": {
+		"message": "I-explore ang Village ni Santa"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Susunod"
 	},
+	"next_game": {
+		"message": "Susunod na Laro"
+	},
+	"nextdecember": {
+		"message": "Magkita tayo sa Disyembre!"
+	},
+	"nextyear": {
+		"message": "Magkita tayo sa susunod na taon!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "Tungkol sa Santa Tracker"
+	},
+	"press-about-tracker1": {
+		"message": "Sa ika-24 ng Disyembre 24, ilulunsad namin ang Tracker, isang dashboard na nagbibigay-kakayahan sa mga tagahanga ni Santa na sundan ang kanyang progreso habang nagpapalipat-lipat siya ng lungsod. Maaari mo ring makita ang kanyang live na lokasyon sa Google Maps at tanungin ang Google Assistant, \"OK Google, Where’s Santa?\" —para lagi mong napupulsuhan ang kinaroroonan ni Santa kahit na on the go ka."
+	},
+	"press-about-village": {
+		"message": "Tungkol sa Santa's Village"
+	},
+	"press-about-village1": {
+		"message": "Ipinagdiriwang ng Santa's Village ang ika-labinlimang taon nito ng kasiyahan, pang-edukasyon, at interactive na aktibidad sa kapaskuhan. Sa ilalim ng ekspertong gabay ni Mrs. Claus, na-update ng mga elf ang village sa isang mapormang hitsura at dating kasama ang ilang bagumbagong content. At, salamat sa isang bagong, heating system na pinagagana ng mainit na tsokolate, hindi na tatagal ng buong Disyembre para malusaw ang village—magiging available ang lahat ng dalawang dosenang aktibidad simula Disyembre 4. Ngayon ay mas marami nang oras para maglaro at mag-explore ang mga elf (pati ikaw!) sa Santa's Village."
+	},
+	"press-about-village2": {
+		"message": "Sa village, masasanay mo ang mga basic na kasanayan sa coding, makakagawa ng orihinal na artwork, masasanay ang kaalaman mo sa heograpiya, at malalaman ang iba pa tungkol sa mga organisasyong pangkawanggawa tulad ng \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e at \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Maaari ring \u003ca href=\"./educators.html\"\u003emag-download ng mga lesson plan\u003c/a\u003e ang mga guro na may mga gabay na video para makatulong sa pagtuturo sa kanilang mga mag-aaral ng mga pangunahing kasanayan sa coding at mga tradisyon sa kapaskuhan sa English, Spanish, French, Japanese, at Korean."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Mga resource para sa press"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Nasa buong paligid ang diwa ng kapaskuhan, pati na sa lahat ng device mo!"
+	},
+	"press-device-title": {
+		"message": "Santa Tracker sa iyong device"
+	},
+	"press-edu": {
+		"message": "Mga adventure na pang-edukasyon"
+	},
+	"press-edu1": {
+		"message": "Pinalawak namin ang aming \u003ca href=\"./educators.html\"\u003eresource page para sa tagapagturo\u003c/a\u003e para mabigyan ang mga guro ng mga gabay na video na maisasama sa mga lesson plan na available na ngayon sa limang wika. Lahat ng paborito mong laro ay nananatiling nagpapakilala ng mga basic na konsepto ng coding sa mga pandaigdigang tradisyon ng kapaskuhan. Isinusulong ng Santa Tracker ng Google ang mga karanasang matuto sa kapaskuhan sa masayang paraan—tingnan ang \u003ca href=\"./educators.html\"\u003eaming mga larong pang-edukasyon\u003c/a\u003e para malaman ang iba pa."
+	},
+	"press-games-title": {
+		"message": "Lahat ng kasiyahan at laro"
+	},
+	"press-need-text": {
+		"message": "Narito ang mga Elf at Googler para makatulong."
+	},
+	"press-need-title": {
+		"message": "May kailangan ka ba?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Magbubukas sa ika-24 ng Disyembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Bukas buong Disyembre"
+	},
+	"press-villagetracker-title": {
+		"message": "Santa's Village at Ang Tracker"
+	},
+	"press-whatsnew": {
+		"message": "Ano ang bago ngayong taon"
+	},
+	"press-whatsnew1-text": {
+		"message": "Bumuo ng sarili mong elf mula ulo hanggang paa at tiyaking elftastic ito para sa maraming party sa kapaskuhan na nangyayari sa North Pole."
+	},
+	"press-whatsnew1-title": {
+		"message": "Bumuo ng elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Kung ang pangarap mo sa buhay ay makapagsimula ng dance troupe ng isang grupo ng mahuhusay na talentadong nagsasayaw na elf, pagkakataon mo na ngayon. Halos. Gamit ang isang machine learning na modelo na tinatawag na \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, maaari mong sanayin ang isang elf na matutunan ang mga kilos mo para mapasayaw ang iyong elf sa dance floor."
+	},
+	"press-whatsnew2-title": {
+		"message": "Pagsasayaw kasama ang mga elf:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Makikita mo ang lokasyon ni Santa sa aktuwal na oras sa Google Maps—i-tap lang ang hamburger button at pagkatapos ay ang \"Pagbabahagi ng Lokasyon\" para makita kung nasaan mismo si Santa sa kanyang paglalakbay. Maaari ka ring pumunta sa \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e para sa madaling shortcut!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Bagong paraan para masubaybayan si Santa:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Kung naghahanap ka pa ng kasiyahan sa kapaskuhan, tingnan ang mga Gboard holiday sticker na available sa \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, at sa aming \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e. At, mag-enjoy ng kaunting kasiyahang pampanitikan sa paghiling sa Google Assistant na \"Tell me a holiday story\" at \"Where's Santa?\""
+	},
+	"press-whatsnew4-title": {
+		"message": "Higit pang kasiyahan sa kapaskuhan:"
 	},
 	"pt_language_name": {
 		"message": "Portuguese"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Still on Vacation"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Penguin Proof"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Mga Alalahanin ng Reindeer"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Ibahagi"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Holiday Emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz  ukol sa Mga Tradisyon sa Kapaskuhan"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Lokasyon ni Santa"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Mga paghahanap sa Kapaskuhan"
+	},
 	"sk_country_name": {
 		"message": "Slovakia"
 	},
 	"sk_language_name": {
 		"message": "Slovak"
+	},
+	"skip-intro": {
+		"message": "Laktawan ang Intro"
 	},
 	"skip-training": {
 		"message": "Laktawan ang Pagsasanay"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turkish"
+	},
+	"tracker-game_awesome": {
+		"message": "Maglaro ng Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Pagdating"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Tawagan si Santa gamit ang Google Assistant"
+		"message": "Google Assistant: Tawagan si Santa"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Kwentong Kapaskuhan"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Nasaan si Santa?"
 	},
 	"village_comeback": {
 		"message": "Bumalik sa ika-24 at tulungan kaming subaybayan si Santa buong gabi!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Panoorin"
+	},
+	"watch-video": {
+		"message": "Manood ng Video"
 	},
 	"wrapbattle_combo": {
 		"message": "Sweet Combo"

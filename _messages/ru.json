@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Заглянуть"
 	},
+	"explore-village": {
+		"message": "Посетить деревню Санта-Клауса"
+	},
 	"fi_country_name": {
 		"message": "Финляндия"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Далее"
 	},
+	"next_game": {
+		"message": "Следующая игра"
+	},
+	"nextdecember": {
+		"message": "Увидимся в декабре!"
+	},
+	"nextyear": {
+		"message": "До встречи в следующем году!"
+	},
 	"ng_country_name": {
 		"message": "Нигерия"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Пресса"
+	},
+	"press-about-tracker": {
+		"message": "Радар Санта-Клауса"
+	},
+	"press-about-tracker1": {
+		"message": "24 декабря мы запустим специальный радар, с помощью которого можно будет отслеживать путешествие Санты. Вы также сможете узнавать о его местоположении на Google Картах или спрашивать Google Ассистента: \"Окей, Google, где Санта?\". Так за его перемещениями можно будет наблюдать даже с мобильного устройства."
+	},
+	"press-about-village": {
+		"message": "Деревня Санта-Клауса"
+	},
+	"press-about-village1": {
+		"message": "Вот уже 15 лет в деревне Санта-Клауса можно найти разнообразные игры, а также многому научиться. Под руководством миссис Клаус эльфы обновили дизайн деревни и подготовили интересные занятия. А благодаря новой системе отопления на горячем какао вам не придется ждать весь месяц, пока деревня \"разморозится\" – более 20 видов развлечений станут доступны уже 4 декабря. Так вы успеете поучаствовать во всех наших забавах."
+	},
+	"press-about-village2": {
+		"message": "В нашей деревне можно изучить основы программирования, попробовать себя в роли художника, попрактиковаться в ориентировании на местности, а также узнать больше о таких некоммерческих образовательных организациях, как \u003ca href=\"https://www.khanacademy.org/\"\u003eАкадемия Хана\u003c/a\u003e и \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Для учителей мы добавили \u003ca href=\"./educators.html\"\u003eпланы занятий\u003c/a\u003e, к которым прилагаются видео с советами о том, как познакомить детей с информатикой и праздничными традициями. Пособия доступны на английском, испанском, корейском, французском и японском языках."
+	},
+	"press-asset-animation": {
+		"message": "Анимация"
+	},
+	"press-asset-resources": {
+		"message": "Информация для СМИ"
+	},
+	"press-asset-screenshot": {
+		"message": "Скриншот"
+	},
+	"press-device-text": {
+		"message": "Ощутить праздничную атмосферу смогут пользователи всех устройств."
+	},
+	"press-device-title": {
+		"message": "Радар Санта-Клауса на вашем устройстве"
+	},
+	"press-edu": {
+		"message": "Увлекательное обучение"
+	},
+	"press-edu1": {
+		"message": "Мы добавили новые \u003ca href=\"./educators.html\"\u003eобразовательные ресурсы\u003c/a\u003e. Чтобы помочь учителям сделать уроки веселее и интереснее, мы подготовили занятия на различные темы: от основ программирования до праздничных традиций. Материалы доступны на пяти языках. Посмотреть наши познавательные игры можно \u003ca href=\"./educators.html\"\u003eздесь\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Игры и развлечения"
+	},
+	"press-need-text": {
+		"message": "Обращайтесь за помощью к эльфам и сотрудникам Google."
+	},
+	"press-need-title": {
+		"message": "Хотите узнать больше?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Доступно 24 декабря"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Доступно весь декабрь"
+	},
+	"press-villagetracker-title": {
+		"message": "Деревня и радар Санта-Клауса"
+	},
+	"press-whatsnew": {
+		"message": "Что вас ждет в этом году"
+	},
+	"press-whatsnew1-text": {
+		"message": "Придумайте своего стильного эльфа для вечеринок на Северном полюсе."
+	},
+	"press-whatsnew1-title": {
+		"message": "Возможность создать эльфа."
+	},
+	"press-whatsnew2-text": {
+		"message": "Давно мечтаете устроить танцевальное представление с участием эльфов? Теперь у вас есть такая возможность! Научить их танцевать поможет модель машинного обучения \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e."
+	},
+	"press-whatsnew2-title": {
+		"message": "Танцы с эльфами."
+	},
+	"press-whatsnew3-text": {
+		"message": "Благодаря Google Картам вы будете точно знать, где сейчас находится Санта. Нужно только нажать на значок меню и выбрать \"Передача геоданных\". Есть и более быстрый способ – перейти по ссылке \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e"
+	},
+	"press-whatsnew3-title": {
+		"message": "Новый способ следить за путешествием Санты."
+	},
+	"press-whatsnew4-text": {
+		"message": "Праздничные стикеры для Gboard. Они уже доступны на устройствах \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e и \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, а также в нашем \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eприложении для Android\u003c/a\u003e. Вы также можете попросить Google Ассистента рассказать рождественскую историю или показать, где находится Санта."
+	},
+	"press-whatsnew4-title": {
+		"message": "Ещё больше праздничных развлечений."
 	},
 	"pt_language_name": {
 		"message": "Португальский"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Отпуск"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Пингвины не взломают"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Олени волнуются"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Поделиться"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code \u003e Праздничные эмодзи"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Планета Земля \u003e Викторина о праздничных традициях"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Карты \u003e Местоположение Санта-Клауса"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends \u003e Поисковые запросы, связанные с Новым годом"
+	},
 	"sk_country_name": {
 		"message": "Словакия"
 	},
 	"sk_language_name": {
 		"message": "Словацкий"
+	},
+	"skip-intro": {
+		"message": "Пропустить заставку"
 	},
 	"skip-training": {
 		"message": "Пропустить обучение"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Турецкий"
+	},
+	"tracker-game_awesome": {
+		"message": "Играть в Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Как вести себя в Интернете"
 	},
 	"tracker_arrival": {
 		"message": "Прибытие"
@@ -6678,7 +6795,13 @@
 		"message": "Венесуэла"
 	},
 	"village_assistant-call_santa": {
-		"message": "Позвоните Санте при помощи Google Ассистента"
+		"message": "Google Ассистент \u003e Позвонить Санте"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Ассистент \u003e Рождественская история"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Ассистент \u003e Где Санта?"
 	},
 	"village_comeback": {
 		"message": "Загляните сюда 24 декабря и следите за путешествиями Санты всю ночь."
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Смотреть"
+	},
+	"watch-video": {
+		"message": "Смотреть видео"
 	},
 	"wrapbattle_combo": {
 		"message": "Отличное сочетание!"

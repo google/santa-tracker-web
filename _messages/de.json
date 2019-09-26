@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Entdecken"
 	},
+	"explore-village": {
+		"message": "Dorf des Weihnachtsmanns erkunden"
+	},
 	"fi_country_name": {
 		"message": "Finnland"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Weiter"
 	},
+	"next_game": {
+		"message": "Nächstes Spiel"
+	},
+	"nextdecember": {
+		"message": "Bis zum nächsten Dezember!"
+	},
+	"nextyear": {
+		"message": "Bis zum nächsten Jahr!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -918,7 +930,7 @@
 		"message": "Lehrer \u0026amp; Schüler"
 	},
 	"nonprofit-code-description": {
-		"message": "Code.org® ist eine gemeinnützige Organisation, die sich dafür einsetzt, dass mehr Menschen Zugang zur Informatik erhalten. Dies gilt insbesondere für Frauen und Personen, die aufgrund ihrer Hautfarbe benachteiligt werden. Code.org® möchte, dass allen Schülern die Möglichkeit gegeben wird, Informatik zu lernen."
+		"message": "Code.org® ist eine Nonprofit-Organisation, die sich dafür einsetzt, dass mehr Menschen Zugang zur Informatik erhalten. Dies gilt insbesondere für Frauen und Personen, die aufgrund ihrer Hautfarbe benachteiligt werden. Code.org® möchte, dass allen Schülern die Möglichkeit gegeben wird, Informatik zu lernen."
 	},
 	"nonprofit-code-type": {
 		"message": "Informatik"
@@ -1059,7 +1071,7 @@
 		"message": "Du bist offline"
 	},
 	"okay": {
-		"message": "OK"
+		"message": "Ok"
 	},
 	"om_country_name": {
 		"message": "Oman"
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Presseinhalte"
+	},
+	"press-about-tracker": {
+		"message": "Über die App \"Auf den Spuren des Weihnachtsmanns\""
+	},
+	"press-about-tracker1": {
+		"message": "Ab dem 24. Dezember kannst du in unserem Dashboard die Reise des Weihnachtsmanns von Stadt zu Stadt nachverfolgen. Du kannst dir auch seinen aktuellen Standort in Google Maps anzeigen lassen. Oder du fragst einfach Google Assistant: \"Ok Google, wo ist der Weihnachtsmann?\". So weißt du immer, wo sich der Weihnachtsmann gerade befindet, auch wenn du selbst unterwegs bist."
+	},
+	"press-about-village": {
+		"message": "Infos über das Dorf des Weihnachtsmanns"
+	},
+	"press-about-village1": {
+		"message": "Das Dorf des Weihnachtsmanns feiert 15 Jahre Spiel- und Lernspaß mit interaktiven festlichen Aktivitäten. Unter der fachkundigen Leitung der Frau des Weihnachtsmanns haben die Wichtel das Dorf mit einer schicken neuen Optik und neuen Inhalten modernisiert. Dank eines neuen Heizsystems, das mit heißem Kakao betrieben wird, dauert es auch nicht mehr den ganzen Dezember, bis das Dorf vollständig abgetaut ist, sondern alle 24 Aktivitäten sind ab dem 4. Dezember verfügbar. Jetzt haben alle mehr Zeit, das Dorf des Weihnachtsmanns spielerisch zu entdecken."
+	},
+	"press-about-village2": {
+		"message": "Im Dorf des Weihnachtsmanns kannst du grundlegende Programmierkenntnisse lernen, tolle Kunstwerke erstellen, dein Geografiewissen austesten und mehr über Nonprofit-Organisationen wie \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e und \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e erfahren. Lehrer können auch \u003ca href=\"./educators.html\"\u003eUnterrichtspläne herunterladen\u003c/a\u003e, um ihren Schülern das wichtigste Programmierwissen und Infos zu Weihnachtstraditionen zu vermitteln. Die Pläne werden von Videoanleitungen ergänzt und sind in Englisch, Spanisch, Französisch, Japanisch und Koreanisch verfügbar."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Presseinformationen"
+	},
+	"press-asset-screenshot": {
+		"message": "Screenshot"
+	},
+	"press-device-text": {
+		"message": "Weihnachtsstimmung auf allen Geräten."
+	},
+	"press-device-title": {
+		"message": "Dem Weihnachtsmann auf deinem Gerät folgen"
+	},
+	"press-edu": {
+		"message": "Lehrreiche Abenteuer"
+	},
+	"press-edu1": {
+		"message": "Auf unserer \u003ca href=\"./educators.html\"\u003eRessourcenseite für Pädagogen\u003c/a\u003e sind jetzt auch begleitende Videoanleitungen für die Unterrichtspläne in fünf Sprachen verfügbar. Außerdem kannst du weiterhin durch unterhaltsame Spiele die grundlegenden Konzepte des Programmierens und Wissenswertes über Weihnachtstraditionen in der ganzen Welt lernen. \"Auf den Spuren des Weihnachtsmanns\" fördert spielerisches Lernen mit festlicher Thematik. In den \u003ca href=\"./educators.html\"\u003eLernspielen\u003c/a\u003e erfährst du mehr dazu."
+	},
+	"press-games-title": {
+		"message": "Alle Spiele und Aktivitäten"
+	},
+	"press-need-text": {
+		"message": "Die Wichtel und unsere Google-Mitarbeiter helfen dir gerne weiter."
+	},
+	"press-need-title": {
+		"message": "Brauchst du etwas?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Ab 24. Dezember verfügbar"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Den ganzen Dezember verfügbar"
+	},
+	"press-villagetracker-title": {
+		"message": "Das Dorf des Weihnachtsmanns und der \"Weihnachtsmann-Tracker\" von Google"
+	},
+	"press-whatsnew": {
+		"message": "Dieses Jahr neu"
+	},
+	"press-whatsnew1-text": {
+		"message": "Du kannst deinen eigenen Wichtel mit dem perfekten wichteligen Look für die Weihnachtspartys am Nordpol entwerfen."
+	},
+	"press-whatsnew1-title": {
+		"message": "Einen Wichtel entwerfen:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Du wolltest schon immer in einer Tanzgruppe mit hochtalentierten Wichteln gründen? Jetzt hast du die Chance dazu (zumindest virtuell). Dank \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, einem Modell für maschinelles Lernen, kannst du einem Wichtel deine Moves beibringen und mit ihm die Tanzfläche erobern."
+	},
+	"press-whatsnew2-title": {
+		"message": "Wichteltanz:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Du kannst den Standort des Weihnachtsmanns in Echtzeit auf Google Maps sehen. Klicke dazu einfach auf das Dreistrich-Menü und dann auf \"Standortfreigabe\", um zu sehen, wo der Weihnachtsmann gerade Geschenke verteilt. Alternativ kannst du auch einfach auf \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e verfolgen, wo er sich befindet."
+	},
+	"press-whatsnew3-title": {
+		"message": "Eine neue Möglichkeit, den Weihnachtsmann auf seiner Reise zu begleiten:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Unsere festlichen Gboard-Sticker sorgen auf \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e und unserer \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid App\u003c/a\u003e für noch mehr Weihnachtsstimmung. Über Google Assistant kannst du dir außerdem eine spannende Geschichte erzählen lassen. Sag dazu einfach \"Erzähl mir eine Weihnachtsgeschichte\" oder \"Wo ist der Weihnachtsmann?\"."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mehr Weihnachtsstimmung:"
 	},
 	"pt_language_name": {
 		"message": "Portugiesisch"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Noch im Urlaub"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Pinguin-Passwortschutz"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Die Sorgen der Rentiere"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Teilen"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Festliche Emojis"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz über Weihnachtstraditionen"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Aktueller Standort des Weihnachtsmanns"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Suchanfragen zum Thema Weihnachten"
+	},
 	"sk_country_name": {
 		"message": "Slowakei"
 	},
 	"sk_language_name": {
 		"message": "Slowakisch"
+	},
+	"skip-intro": {
+		"message": "Intro überspringen"
 	},
 	"skip-training": {
 		"message": "Einführung überspringen"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Türkisch"
+	},
+	"tracker-game_awesome": {
+		"message": "\"Tower of Treasure\" spielen"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Sicher durchs Internet"
 	},
 	"tracker_arrival": {
 		"message": "Ankunft"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Den Weihnachtsmann mit Google Assistant anrufen"
+		"message": "Google Assistant: Weihnachtsmann anrufen"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistant: Weihnachtsgeschichte"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistant: Wo ist der Weihnachtsmann"
 	},
 	"village_comeback": {
 		"message": "Komm am 24. wieder und verfolge gemeinsam mit uns die ganze Nacht die Spur des Weihnachtsmanns!"
@@ -6725,6 +6848,9 @@
 	"watch": {
 		"message": "Ansehen"
 	},
+	"watch-video": {
+		"message": "Video ansehen"
+	},
 	"wrapbattle_combo": {
 		"message": "Coole Kombi"
 	},
@@ -6735,7 +6861,7 @@
 		"message": "Daneben"
 	},
 	"wrapbattle_feedback_okay": {
-		"message": "OK"
+		"message": "Ok"
 	},
 	"wrapbattle_feedback_perfect": {
 		"message": "Perfekt"

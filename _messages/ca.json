@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explora"
 	},
+	"explore-village": {
+		"message": "Visita el llogaret del Pare Noel"
+	},
 	"fi_country_name": {
 		"message": "Finlàndia"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Següent"
 	},
+	"next_game": {
+		"message": "Joc següent"
+	},
+	"nextdecember": {
+		"message": "Ens veiem al desembre!"
+	},
+	"nextyear": {
+		"message": "Ens veiem l'any que ve!"
+	},
 	"ng_country_name": {
 		"message": "Nigèria"
 	},
@@ -1014,7 +1026,7 @@
 		"message": "Audició"
 	},
 	"notice_cookies": {
-		"message": "Google utilitza galetes per analitzar el trànsit en aquest lloc i per optimitzar la teva experiència. La informació sobre com utilitzes el lloc es comparteix amb Google amb aquesta finalitat."
+		"message": "Google utilitza galetes per analitzar el trànsit cap a aquest lloc web i per optimitzar la teva experiència. La informació sobre com utilitzes el nostre lloc web es comparteix amb Google amb aquesta finalitat."
 	},
 	"notice_cookies_details": {
 		"message": "Mostra els detalls"
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Premsa"
+	},
+	"press-about-tracker": {
+		"message": "Sobre Segueix el Pare Noel"
+	},
+	"press-about-tracker1": {
+		"message": "El 24 de desembre llançarem Segueix el Pare Noel, un tauler que permet als fans del Pare Noel seguir el seu recorregut per totes les ciutats. També pots veure la seva ubicació en directe a Google Maps i preguntar a l'Assistent de Google \"OK Google, on és el Pare Noel?\". D'aquesta manera, pots saber on és el Pare Noel en qualsevol moment, siguis on siguis."
+	},
+	"press-about-village": {
+		"message": "Sobre el llogaret del Pare Noel"
+	},
+	"press-about-village1": {
+		"message": "El llogaret del Pare Noel celebra el quinzè any d'activitats nadalenques divertides, educatives i interactives. Sota l'atenta supervisió de la Mare Noel, els elfs han redissenyat l'aldea amb un estil elegant i contingut nou. A més, gràcies a un nou sistema de calefacció que funciona amb xocolata calenta, no caldrà esperar tot el mes de desembre per poder gaudir de les més de 20 activitats: estaran disponibles a partir del dia 4. D'aquesta manera, tindràs més temps per jugar i explorar el llogaret del Pare Noel amb els elfs."
+	},
+	"press-about-village2": {
+		"message": "Al llogaret, pots fer activitats bàsiques de programació, crear il·lustracions originals, posar a prova els teus coneixements de geografia i obtenir més informació sobre organitzacions benèfiques, com ara \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Els professors fins i tot poden \u003ca href=\"./educators.html\"\u003ebaixar unitats didàctiques\u003c/a\u003e amb videoguies que permetran als estudiants aprendre conceptes bàsics de programació i tradicions nadalenques en anglès, espanyol, francès, japonès i coreà."
+	},
+	"press-asset-animation": {
+		"message": "Animació"
+	},
+	"press-asset-resources": {
+		"message": "Recursos de premsa"
+	},
+	"press-asset-screenshot": {
+		"message": "Captura de pantalla"
+	},
+	"press-device-text": {
+		"message": "L'esperit nadalenc és a tot arreu, també als teus dispositius!"
+	},
+	"press-device-title": {
+		"message": "Segueix el Pare Noel al teu dispositiu"
+	},
+	"press-edu": {
+		"message": "Aventures educatives"
+	},
+	"press-edu1": {
+		"message": "Hem ampliat la nostra \u003ca href=\"./educators.html\"\u003epàgina de recursos per a educadors\u003c/a\u003e amb videoguies que poden ajudar els professors a reforçar les seves classes, ara disponibles en cinc idiomes. Continuaràs trobant-hi els teus jocs preferits, que combinen conceptes bàsics sobre programació i tradicions nadalenques. Segueix el Pare Noel de Google fomenta l'aprenentatge de manera divertida durant les festes. Consulta els nostres \u003ca href=\"./educators.html\"\u003ejocs educatius\u003c/a\u003e per obtenir més informació."
+	},
+	"press-games-title": {
+		"message": "Tots els jocs i tota la diversió"
+	},
+	"press-need-text": {
+		"message": "Els elfs i els Googlers són aquí per ajudar-te."
+	},
+	"press-need-title": {
+		"message": "Necessites alguna cosa?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Obre el 24 de desembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Obert tot desembre"
+	},
+	"press-villagetracker-title": {
+		"message": "El llogaret del Pare Noel i Segueix el Pare Noel"
+	},
+	"press-whatsnew": {
+		"message": "Novetats d'aquest any"
+	},
+	"press-whatsnew1-text": {
+		"message": "Dissenya el teu propi elf de cap a peus i assegura't que quedi el(f)egant per a totes les festes nadalenques que se celebren al pol Nord."
+	},
+	"press-whatsnew1-title": {
+		"message": "Crea un elf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Si sempre has somiat crear una companyia de dansa amb un grup d'elfs ballarins de gran talent, ara tens l'oportunitat de fer-ho. Més o menys. Amb un model d'aprenentatge automàtic anomenat \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, pots entrenar un elf perquè aprengui els teus moviments i fer-lo sortir a ballar."
+	},
+	"press-whatsnew2-title": {
+		"message": "Balla amb els elfs:"
+	},
+	"press-whatsnew3-text": {
+		"message": "També podràs consultar la ubicació del Pare Noel en temps real a Google Maps. Només has de tocar el botó de tres punts i, a continuació, a Compartició d'ubicació per mirar on és exactament el Pare Noel durant el seu recorregut. També pots anar a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e per accedir-hi més ràpidament."
+	},
+	"press-whatsnew3-title": {
+		"message": "Una nova manera de seguir el Pare Noel:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Vols viure encara més l'esperit nadalenc? Dona una ullada als adhesius nadalencs de Gboard, disponibles per a \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e i la nostra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicació d'Android\u003c/a\u003e. També pots demanar-li a l'Assistent de Google \"On és el Pare Noel?\" i \"Llegeix-me un conte de Nadal\" per gaudir d'una experiència literària."
+	},
+	"press-whatsnew4-title": {
+		"message": "Més diversió nadalenca:"
 	},
 	"pt_language_name": {
 		"message": "Portuguès"
@@ -1260,7 +1353,7 @@
 		"message": "Aeroport del Pol Nord"
 	},
 	"scene_app": {
-		"message": "Aplicació per a Android"
+		"message": "Aplicació d'Android"
 	},
 	"scene_blimp": {
 		"message": "Recàrrega de regals"
@@ -1323,7 +1416,7 @@
 		"message": "La banda dels elfs"
 	},
 	"scene_jetpack": {
-		"message": "Elf Jetpack"
+		"message": "Elf amb motxilla propulsora"
 	},
 	"scene_latlong": {
 		"message": "Entrega de regals"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Encara de vacances"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "A prova de pingüins"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "La preocupació dels rens"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Comparteix"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code: Emojis de Nadal"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Joc de preguntes i respostes sobre les tradicions nadalenques"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Ubicació del Pare Noel"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Cerques nadalenques"
+	},
 	"sk_country_name": {
 		"message": "Eslovàquia"
 	},
 	"sk_language_name": {
 		"message": "Eslovac"
+	},
+	"skip-intro": {
+		"message": "Omet la presentació"
 	},
 	"skip-training": {
 		"message": "Omet la introducció"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turc"
+	},
+	"tracker-game_awesome": {
+		"message": "Juga a La torre del tresor"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Domina Internet"
 	},
 	"tracker_arrival": {
 		"message": "Arribada"
@@ -6678,10 +6795,16 @@
 		"message": "Veneçuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Truca al Pare Noel amb l'Assistent de Google"
+		"message": "Assistent de Google: Truca al Pare Noel"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Assistent de Google: Història de Nadal"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Assistent de Google: On és el Pare Noel?"
 	},
 	"village_comeback": {
-		"message": "Torna la nit de Nadal i ajuda'ns a seguir el Pare Noel tota la nit!"
+		"message": "Torna el dia 24 i ajuda'ns a seguir el Pare Noel tota la nit!"
 	},
 	"village_explore": {
 		"message": "Explora, juga i aprèn amb els elfs del Pare Noel durant tot el mes de desembre"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Vídeo"
+	},
+	"watch-video": {
+		"message": "Mira el vídeo"
 	},
 	"wrapbattle_combo": {
 		"message": "Bona combinació"

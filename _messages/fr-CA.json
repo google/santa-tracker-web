@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Explorer"
 	},
+	"explore-village": {
+		"message": "Visiter le village du père Noël"
+	},
 	"fi_country_name": {
 		"message": "Finlande"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Suivant"
 	},
+	"next_game": {
+		"message": "Jeu suivant"
+	},
+	"nextdecember": {
+		"message": "Rendez-vous en décembre!"
+	},
+	"nextyear": {
+		"message": "À l'an prochain!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Appuyer"
+	},
+	"press-about-tracker": {
+		"message": "À propos de l'application Sur les traces du père Noël"
+	},
+	"press-about-tracker1": {
+		"message": "Le 24 décembre, nous lancerons un tableau de bord qui permettra aux fans du père Noël de suivre sa progression durant ses déplacements de ville en ville. Vous pourrez également voir sa position en direct dans Google Maps et demander à l'Assistant Google « Ok Google, où est le père Noël? ». Vous pourrez demeurer au courant des allées et venues du père Noël, même si vous êtes en déplacement."
+	},
+	"press-about-village": {
+		"message": "À propos du village du père Noël"
+	},
+	"press-about-village1": {
+		"message": "Le village du père Noël célèbre sa quinzième année de plaisir, et d'activités des fêtes éducatives et interactives. Sous la direction experte de la mère Noël, les lutins ont rafraîchi le village et lui ont donné une apparence du tonnerre avec de tout nouveaux contenus. Et grâce à un nouveau système de chauffage alimenté au chocolat chaud, le village ne mettra pas tout le mois de décembre pour dégeler : l'ensemble des 12 activités seront disponibles à compter du 4 décembre. Les lutins (comme vous!) auront plus de temps pour jouer et découvrir le village du père Noël."
+	},
+	"press-about-village2": {
+		"message": "Au village, vous pouvez vous exercer à des habiletés de codage de base, créer des œuvres d'art originales, tester vos connaissances géographiques et voir de l'information sur des organismes de charité tels que \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e et \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Les enseignants peuvent même \u003ca href=\"./educators.html\"\u003etélécharger des plans de cours\u003c/a\u003e avec des guide vidéo qui les aideront à enseigner à leur élèves des habiletés de base du codage et des traditions des fêtes en anglais, espagnol, français, japonais et coréen."
+	},
+	"press-asset-animation": {
+		"message": "Animation"
+	},
+	"press-asset-resources": {
+		"message": "Ressources pour la presse"
+	},
+	"press-asset-screenshot": {
+		"message": "Capture d'écran"
+	},
+	"press-device-text": {
+		"message": "L'esprit des fêtes est partout, même sur tous vos appareils!"
+	},
+	"press-device-title": {
+		"message": "Sur les traces du père Noël sur votre appareil"
+	},
+	"press-edu": {
+		"message": "Aventures éducatives"
+	},
+	"press-edu1": {
+		"message": "Nous avons développé notre \u003ca href=\"./educators.html\"\u003epage de ressources pour les éducateurs\u003c/a\u003e afin d'offrir aux enseignants des guides vidéo pour accompagner les plans de cours maintenant offerts en cinq langues. Tous vos jeux favoris continuent à présenter des concepts de base du codage avec des traditions des fêtes de partout au monde. Le jeu Sur les traces du père Noël de Google encourage l'apprentissage durant les fêtes de façon amusante. Reportez-vous à \u003ca href=\"./educators.html\"\u003enos jeux éducatifs\u003c/a\u003e pour en savoir plus."
+	},
+	"press-games-title": {
+		"message": "Tout le plaisir et tous les jeux"
+	},
+	"press-need-text": {
+		"message": "Les lutins et les employés de Google sont là pour aider."
+	},
+	"press-need-title": {
+		"message": "Vous avez besoin de quelque chose?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Ouvre le 24 décembre"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Ouvert tout le mois de décembre"
+	},
+	"press-villagetracker-title": {
+		"message": "Le village du père Noël et le traceur"
+	},
+	"press-whatsnew": {
+		"message": "Quoi de neuf cette année"
+	},
+	"press-whatsnew1-text": {
+		"message": "Créez votre propre lutin des pieds à la tête et assurez-lui un look « farfastique » pour les nombreuses soirées des fêtes qui ont lieu au pôle Nord."
+	},
+	"press-whatsnew1-title": {
+		"message": "Créer un lutin :"
+	},
+	"press-whatsnew2-text": {
+		"message": "Si vous avez toujours rêvé de mettre sur pied une troupe de danse avec un groupe de lutins danseurs follement talentueux, en voici la chance. Presque. À l'aide d'un modèle d'apprentissage automatique appelé \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, vous pouvez enseigner vos mouvements à un lutin, qui les reproduira sur le plancher de danse."
+	},
+	"press-whatsnew2-title": {
+		"message": "Danse(s) avec les lutins :"
+	},
+	"press-whatsnew3-text": {
+		"message": "Vous pourrez également voir la position du père Noël en temps réel dans Google Maps – touchez simplement le bouton hamburger et sélectionnez « Partage de position » pour savoir exactement où se trouve le père Noël tout au long de son périple. Vous pouvez aussi y accéder rapidement en allant à \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Une nouvelle façon de suivre le père Noël :"
+	},
+	"press-whatsnew4-text": {
+		"message": "Si vous avez envie d'encore plus de joie durant cette saison, découvrez les autocollants des fêtes Gboard, offerts exclusivement sur \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, sur \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e et dans notre \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapplication Android\u003c/a\u003e. Profitez ensuite d'un peu de plaisir littéraire en demandant à l'Assistant Google « raconte-moi une histoire des fêtes » et « où est le père Noël? »"
+	},
+	"press-whatsnew4-title": {
+		"message": "Encore plus de joie des fêtes :"
 	},
 	"pt_language_name": {
 		"message": "Portugais"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Toujours en vacances"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Protection anti-pingouins"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Les rennes sont inquiets"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Partager"
 	},
+	"sidebar_code_emoji": {
+		"message": "Made with Code : Emoji des fêtes"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth : Jeu-questionnaire sur les traditions des fêtes"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps : Position du père Noël"
+	},
+	"sidebar_trends": {
+		"message": "Google Tendances : Recherches sur les fêtes"
+	},
 	"sk_country_name": {
 		"message": "Slovaquie"
 	},
 	"sk_language_name": {
 		"message": "Slovaque"
+	},
+	"skip-intro": {
+		"message": "Passer l'intro"
 	},
 	"skip-training": {
 		"message": "Ignorer la formation"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turque"
+	},
+	"tracker-game_awesome": {
+		"message": "Jouer à La tour des trésors"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Être au fait d'Internet"
 	},
 	"tracker_arrival": {
 		"message": "Arrivée"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Appeler le père Noël avec l'Assistant Google"
+		"message": "Assistant Google : Appeler le père Noël"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Assistant Google : Histoire des fêtes"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Assistant Google : Où est le père Noël?"
 	},
 	"village_comeback": {
 		"message": "Reviens le 24 et aide-nous à suivre le père Noël toute la nuit!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Regarder"
+	},
+	"watch-video": {
+		"message": "Regarder la vidéo"
 	},
 	"wrapbattle_combo": {
 		"message": "Joli combo"

@@ -1,0 +1,6872 @@
+{
+	"about-content-one": {
+		"message": "Á aðfangadagskvöld munum við kynna stjórnborð Sveinka með stolti, þar er öll umsjón með tækninni sem knýr sleðann hans á ferð um heiminn. Við fengum þennan forsmekk frá einum af þróunarálfum Sveinka. Þeir leggja nú hart að sér á Norðurpólnum við að undirbúa stóra daginn hjá Sveinka. Stjórnborð Sveinka hefur upp á að bjóða það nýjasta og besta í tækni og sleðatækni sem finna má i Google kortum og það gerir þér kleift að fylgjast með ferðum Sveinka um heim allan. Þú getur líka fengið smá upplýsingar um þá staði þar sem hann kemur við á ferð sinni kringum heiminn."
+	},
+	"about-content-three": {
+		"message": "Hvar er jólasveinninn í Google kortum er búið til og þróað af Google, með smá hjálp frá álfunum hans Sveinka. Þarftu á aðstoð að halda eða hefurðu aðra spurningu? Skoðaðu \u003ca href=\"//support.google.com/santatracker\"\u003ehjálparmiðstöðina\u003c/a\u003e."
+	},
+	"about-content-two": {
+		"message": "Vinalegu álfarnir okkar hafa boðið þér að skoða þorpið hans Sveinka á meðan Sveinki undirbýr sig fyrir ferðalagið. Gefðu þér tíma og skoðaðu þorpið. Þú getur séð eitthvað skemmtilegt að gera og hitt áhugaverða álfa."
+	},
+	"about-santa": {
+		"message": "Um"
+	},
+	"about_title": {
+		"message": "Velkomin(n) í Hvar er jólaveinninn í Google kortum!"
+	},
+	"ae_country_name": {
+		"message": "Sameinuðu arabísku furstadæmin"
+	},
+	"af_country_name": {
+		"message": "Afganistan"
+	},
+	"al_country_name": {
+		"message": "Albanía"
+	},
+	"ao_country_name": {
+		"message": "Angóla"
+	},
+	"ar_country_name": {
+		"message": "Argentína"
+	},
+	"ar_language_name": {
+		"message": "arabíska"
+	},
+	"ar_tradition": {
+		"message": "Í Argentínu byrja jólin stundvíslega á miðnætti. Margar fjölskyldur hefja hátíðina með skemmtunum á heimilum sínum þar sem gjafir eru teknar upp með ástvinum og flugeldum skotið upp snemma morguns."
+	},
+	"at_country_name": {
+		"message": "Austurríki"
+	},
+	"au_country_name": {
+		"message": "Ástralía"
+	},
+	"au_tradition": {
+		"message": "Ástralía er á suðurhveli jarðar. Það þýðir að þar er sumar í desember. Í stað þess að heyra bjöllur klingja og fá sér kakó fara margir Ástralir niður á strönd og fá sér rækjur í hádegismat og spila smá krikket."
+	},
+	"ba_country_name": {
+		"message": "Bosnía og Hersegóvína"
+	},
+	"back_to_previous_page": {
+		"message": "Til baka"
+	},
+	"back_to_tracker": {
+		"message": "Aftur í Hvar er jólasveinninn"
+	},
+	"bd_country_name": {
+		"message": "Bangladess"
+	},
+	"be_country_name": {
+		"message": "Belgía"
+	},
+	"bf_country_name": {
+		"message": "Burkína Fasó"
+	},
+	"bg_country_name": {
+		"message": "Búlgaría"
+	},
+	"bj_country_name": {
+		"message": "Benín"
+	},
+	"bo_country_name": {
+		"message": "Bólivía"
+	},
+	"br_country_name": {
+		"message": "Brasilía"
+	},
+	"br_tradition": {
+		"message": "Jólahátíðin hefst nálægt miðnætti, yfirleitt með miklum fjölskylduveislum, gjafir eru teknar upp og messa sem kallast „Missa do Galo“ er haldin í kirkjum. Þó að veðrið sé hlýtt er algengt að sjá þemu þar sem snjór sést og vetur er yfir."
+	},
+	"bt_country_name": {
+		"message": "Bútan"
+	},
+	"bw_country_name": {
+		"message": "Botsvana"
+	},
+	"by_country_name": {
+		"message": "Hvíta-Rússland"
+	},
+	"bz_country_name": {
+		"message": "Belís"
+	},
+	"ca_country_name": {
+		"message": "Kanada"
+	},
+	"ca_tradition": {
+		"message": "Kanadísk börn fá yfirleitt hvít jól með snjó. Þau klæða sig í trefla og ullarhúfur og leika sér í snjónum, fara á skauta og renna sér á þotu! Á aðfangadagsvköld skilja þau eftir mjólk og smákökur við eldstæðið fyrir Sveinka (og stundum gulrætur fyrir hreindýrin)."
+	},
+	"calendar": {
+		"message": "Dagatalið"
+	},
+	"category_all": {
+		"message": "Skoða allt"
+	},
+	"category_android": {
+		"message": "Android"
+	},
+	"category_code": {
+		"message": "Kóði"
+	},
+	"category_computer-science": {
+		"message": "Tölvunarfræði"
+	},
+	"category_draw": {
+		"message": "Teikna"
+	},
+	"category_education": {
+		"message": "Fræðslumiðaðir"
+	},
+	"category_geography": {
+		"message": "Landafræði"
+	},
+	"category_language": {
+		"message": "Tungumál"
+	},
+	"category_listen": {
+		"message": "Hlusta"
+	},
+	"category_new-this-year": {
+		"message": "Nýtt í ár"
+	},
+	"category_send": {
+		"message": "Senda"
+	},
+	"category_social-studies": {
+		"message": "Félagsfræði"
+	},
+	"cd_country_name": {
+		"message": "Austur-Kongó"
+	},
+	"cf_country_name": {
+		"message": "Mið-Afríkulýðveldið"
+	},
+	"cg_country_name": {
+		"message": "Lýðveldið Kongó"
+	},
+	"ch_country_name": {
+		"message": "Sviss"
+	},
+	"ci_country_name": {
+		"message": "Fílabeinsströndin"
+	},
+	"citylights-contribute": {
+		"message": "Bættu við þínum eigin myndum af: {{location}}"
+	},
+	"citylights-panorama-01-description": {
+		"message": "Rockefeller Plaza"
+	},
+	"citylights-panorama-01-location": {
+		"message": "New York borg, Bandaríkin"
+	},
+	"citylights-panorama-02-description": {
+		"message": "Púskintorg"
+	},
+	"citylights-panorama-02-location": {
+		"message": "Moskva, Rússland"
+	},
+	"citylights-panorama-03-description": {
+		"message": "Ráðhústorg"
+	},
+	"citylights-panorama-03-location": {
+		"message": "Vín, Austurríki"
+	},
+	"citylights-panorama-04-description": {
+		"message": "Ódáinsvellir að Sigurboganum"
+	},
+	"citylights-panorama-04-location": {
+		"message": "París, Frakkland"
+	},
+	"citylights-panorama-05-description": {
+		"message": "Magnificent Mile"
+	},
+	"citylights-panorama-05-location": {
+		"message": "Chicago, Bandaríkin"
+	},
+	"citylights-panorama-06-description": {
+		"message": "Jólamarkaður"
+	},
+	"citylights-panorama-06-location": {
+		"message": "Nürnberg, Þýskaland"
+	},
+	"citylights-panorama-07-description": {
+		"message": "Medellín-fljót"
+	},
+	"citylights-panorama-07-location": {
+		"message": "Medellín, Kólumbía"
+	},
+	"citylights-panorama-08-description": {
+		"message": "Þorp jólasveinsins"
+	},
+	"citylights-panorama-08-location": {
+		"message": "Lappland, Finnland"
+	},
+	"citylights-panorama-09-description": {
+		"message": "Grand Place"
+	},
+	"citylights-panorama-09-location": {
+		"message": "Brüssel, Belgía"
+	},
+	"citylights-panorama-10-description": {
+		"message": "Trafalgar-torg"
+	},
+	"citylights-panorama-10-location": {
+		"message": "Lundúnir, England"
+	},
+	"citylights-panorama-11-description": {
+		"message": "Plaza Mayor"
+	},
+	"citylights-panorama-11-location": {
+		"message": "Madrid, Spánn"
+	},
+	"citylights-panorama-12-description": {
+		"message": "Roppongi-hæðir"
+	},
+	"citylights-panorama-12-location": {
+		"message": "Tókýó, Japan"
+	},
+	"citylights-panorama-13-description": {
+		"message": "Tívólígarðar"
+	},
+	"citylights-panorama-13-location": {
+		"message": "Kaupmannahöfn, Danmörk"
+	},
+	"citylights-panorama-14-description": {
+		"message": "Orchard Road"
+	},
+	"citylights-panorama-14-location": {
+		"message": "Singapúr, Singapúr"
+	},
+	"citylights-panorama-15-description": {
+		"message": "Ljósarein"
+	},
+	"citylights-panorama-15-location": {
+		"message": "Gautaborg, Svíþjóð"
+	},
+	"citylights-panorama-16-description": {
+		"message": "Ljósahátíð um vetur"
+	},
+	"citylights-panorama-16-location": {
+		"message": "Niagara-fossar, Kanada"
+	},
+	"citylights-panorama-17-description": {
+		"message": "Vetrarhátíð"
+	},
+	"citylights-panorama-17-location": {
+		"message": "Hong Kong, Kína"
+	},
+	"citylights-panorama-18-description": {
+		"message": "Rodrigo de Freitas vatn"
+	},
+	"citylights-panorama-18-location": {
+		"message": "Rio de Janeiro, Brasilía"
+	},
+	"cl_country_name": {
+		"message": "Chile"
+	},
+	"clear": {
+		"message": "Hreinsa"
+	},
+	"close": {
+		"message": "Loka"
+	},
+	"cm_country_name": {
+		"message": "Kamerún"
+	},
+	"co_country_name": {
+		"message": "Kólumbía"
+	},
+	"codeboogie-back-to-start": {
+		"message": "Til baka á byrjun"
+	},
+	"codeboogie-block-clap": {
+		"message": "Klappa"
+	},
+	"codeboogie-block-clap-tooltip": {
+		"message": "Klappaðu."
+	},
+	"codeboogie-block-jump": {
+		"message": "Stökkva"
+	},
+	"codeboogie-block-jump-tooltip": {
+		"message": "Hoppaðu."
+	},
+	"codeboogie-block-leftarm": {
+		"message": "Til vinstri"
+	},
+	"codeboogie-block-leftarm-tooltip": {
+		"message": "Bentu til vinstri."
+	},
+	"codeboogie-block-leftfoot": {
+		"message": "Til vinstri"
+	},
+	"codeboogie-block-leftfoot-tooltip": {
+		"message": "Taktu skref til vinstri."
+	},
+	"codeboogie-block-rightarm": {
+		"message": "Benda til hægri"
+	},
+	"codeboogie-block-rightarm-tooltip": {
+		"message": "Til hægri"
+	},
+	"codeboogie-block-rightfoot": {
+		"message": "Skref til hægri"
+	},
+	"codeboogie-block-rightfoot-tooltip": {
+		"message": "Taktu skref til hægri."
+	},
+	"codeboogie-block-shake": {
+		"message": "Hristum mjaðmir"
+	},
+	"codeboogie-block-shake-tooltip": {
+		"message": "Hristu mjaðmirnar."
+	},
+	"codeboogie-block-split": {
+		"message": "Skipta"
+	},
+	"codeboogie-block-split-tooltip": {
+		"message": "Farðu í splitt."
+	},
+	"codeboogie-choose-game-mode": {
+		"message": "Veldu leikjastillingu"
+	},
+	"codeboogie-choose-stage": {
+		"message": "Veldu svið"
+	},
+	"codeboogie-get-dancing": {
+		"message": "Farðu að dansa!"
+	},
+	"codeboogie-go": {
+		"message": "Af stað!"
+	},
+	"codeboogie-keep-dancing": {
+		"message": "Haltu áfram að dansa"
+	},
+	"codeboogie-lets-dance": {
+		"message": "Dönsum"
+	},
+	"codeboogie-mode-dance-class": {
+		"message": "Danskennsla"
+	},
+	"codeboogie-mode-dance-class-description": {
+		"message": "Gerðu eins og kennarinn"
+	},
+	"codeboogie-mode-freestyle": {
+		"message": "Dans með frjálsri aðferð"
+	},
+	"codeboogie-mode-freestyle-description": {
+		"message": "Gerðu þínar eigin hreyfingar og deildu með vinum"
+	},
+	"codeboogie-next-dance": {
+		"message": "Næsti dans"
+	},
+	"codeboogie-nice-moves": {
+		"message": "Vel gert!"
+	},
+	"codeboogie-result-missing-block-fail": {
+		"message": "Prófaðu kubbinn hér að neðan og sjáðu hvort hann passar við dansinn."
+	},
+	"codeboogie-result-missing-block-success": {
+		"message": "Vissirðu að þú getur lokið við dansinn með bara {{best}} kubbum? Prófaðu að nota kubbinn hér að neðan."
+	},
+	"codeboogie-result-perfect-success": {
+		"message": "Vel gert! Þú kláraðir dansinn fullkomlega."
+	},
+	"codeboogie-result-too-few-blocks-fail": {
+		"message": "Þú ert að nota rétta kubba en prófaðu að nota fleiri til að klára dansinn."
+	},
+	"codeboogie-result-too-many-blocks-success": {
+		"message": "Vissirðu að þú getur lokið við dansinn með bara {{best}} kubbum?"
+	},
+	"codeboogie-result-too-many-steps": {
+		"message": "Þú tókst of mörg spor."
+	},
+	"codeboogie-result-wrong-move": {
+		"message": "Þú virðist hafa stigið rangt skref hér. Prófaðu þetta í staðinn:"
+	},
+	"codeboogie-share-moves": {
+		"message": "Deildu hreyfingum þínum og skoraðu á vini"
+	},
+	"codeboogie-success": {
+		"message": "Þetta tókst!"
+	},
+	"codeboogie-watch-closely": {
+		"message": "Fylgstu með!"
+	},
+	"codeboogie-your-turn": {
+		"message": "Komið að þér"
+	},
+	"codelab-block-jump-length": {
+		"message": "hoppa yfir"
+	},
+	"codelab-block-jump-tooltip": {
+		"message": "Hoppaðu yfir flísar."
+	},
+	"codelab-block-moveeast": {
+		"message": "austur"
+	},
+	"codelab-block-moveeast-tooltip": {
+		"message": "Færa mig austur um einn reit."
+	},
+	"codelab-block-movenorth": {
+		"message": "norður"
+	},
+	"codelab-block-movenorth-tooltip": {
+		"message": "Færa mig norður um einn reit."
+	},
+	"codelab-block-movesouth": {
+		"message": "suður"
+	},
+	"codelab-block-movesouth-tooltip": {
+		"message": "Færa mig suður um einn reit."
+	},
+	"codelab-block-movewest": {
+		"message": "vestur"
+	},
+	"codelab-block-movewest-tooltip": {
+		"message": "Færðu mig vestur um einn reit."
+	},
+	"codelab-block-repeat": {
+		"message": "endurtaka"
+	},
+	"codelab-block-repeat-times": {
+		"message": "sinnum"
+	},
+	"codelab-block-repeat-tooltip": {
+		"message": "Endurtaktu nokkrar staðhæfingar nokkrum sinnum."
+	},
+	"codelab-block-whenrun": {
+		"message": "við keyrslu"
+	},
+	"codelab-finish": {
+		"message": "Ljúka"
+	},
+	"codelab-great": {
+		"message": "Frábært"
+	},
+	"codelab-mwc-promo": {
+		"message": "Skoðaðu fleiri kóðunarverkefni hjá Google hér: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+	},
+	"codelab-next-challenge": {
+		"message": "Næsta áskorun"
+	},
+	"codelab-oops": {
+		"message": "Úbbs!"
+	},
+	"codelab-result-empty-repeat-fail": {
+		"message": "Kubburinn „Endurtaka“ þarf að hafa aðra kubba inni í sér til að virka."
+	},
+	"codelab-result-extra-top-block-fail": {
+		"message": "Sumir kubbarnir eru ekki festir nægilega vel saman."
+	},
+	"codelab-result-generic-fail": {
+		"message": "Það er eins og þú hafir týnst!"
+	},
+	"codelab-result-missing-block-fail": {
+		"message": "Prófaðu einn eða fleiri kubb hér að neðan til að klára þrautina."
+	},
+	"codelab-result-missing-block-success": {
+		"message": "Vissirðu að þú getur klárað þetta stig með einungis {{ideal}} kubbum? Prófaðu að nota kubbinn hér fyrir neðan."
+	},
+	"codelab-result-perfect-success": {
+		"message": "Til hamingju! Þú kláraðir þrautina villulaust."
+	},
+	"codelab-result-too-few-blocks-fail": {
+		"message": "Þú ert að nota rétta kubba en prófaðu að nota fleiri til að ljúka við þrautina."
+	},
+	"codelab-result-too-many-blocks-success": {
+		"message": "Vissirðu að þú getur lokið þessu borði með einungis {{ideal}} kubbum?"
+	},
+	"codelab-try-again": {
+		"message": "Reyna aftur"
+	},
+	"copy-me": {
+		"message": "Afritaðu tengilinn til að deila skilaboðunum"
+	},
+	"copy-me-short": {
+		"message": "Afrita tengil að deila"
+	},
+	"countdown_days": {
+		"message": "Dagar"
+	},
+	"countdown_hours": {
+		"message": "Klst."
+	},
+	"countdown_minutes": {
+		"message": "Lágm."
+	},
+	"countdown_seconds": {
+		"message": "Sek."
+	},
+	"countdown_until": {
+		"message": "Sveinki hefur för eftir"
+	},
+	"countdownlabel": {
+		"message": "Þar til Sveinki fer"
+	},
+	"cr_country_name": {
+		"message": "Kosta Ríka"
+	},
+	"cs_language_name": {
+		"message": "tékkneska"
+	},
+	"cu_country_name": {
+		"message": "Kúba"
+	},
+	"cz_country_name": {
+		"message": "Tékkland"
+	},
+	"da_language_name": {
+		"message": "danska"
+	},
+	"days": {
+		"message": "Dagar"
+	},
+	"de_country_name": {
+		"message": "Þýskaland"
+	},
+	"de_language_name": {
+		"message": "þýska"
+	},
+	"de_tradition": {
+		"message": "Í nærri öllum þýskum bæjum eru jólamarkaðir á bæjartorgum. Bæjarbúar koma saman, hlusta á lúðrasveitir og njóta þess að borða einkennismat héraðsins. Þeir borða piparkökuhjörtu, sykurristaðar möndlur, ýmiss konar sælgæti og drekka jólaglögg eða eplasíder."
+	},
+	"dec24th": {
+		"message": "24. desember"
+	},
+	"deck": {
+		"message": "Skreyttu í botn"
+	},
+	"deckdescription": {
+		"message": "Skreyttu vafrann þinn með Sveinkaviðbót i Chrome."
+	},
+	"detected": {
+		"message": "greint"
+	},
+	"difficulty": {
+		"message": "Erfiðleikastig"
+	},
+	"dk_country_name": {
+		"message": "Danmörk"
+	},
+	"do_country_name": {
+		"message": "Dóminíska lýðveldið"
+	},
+	"donate_button": {
+		"message": "Styrkja"
+	},
+	"donate_text": {
+		"message": "Hjálpaðu til við að fjármagna verkefni fyrir þá sem þurfa á hjálp að halda á DonorsChoose.org. Í desembermánuði erum við að hjálpa til við að tvöfalda slagkraftinn í fjárframlögum með því að setja inn sömu upphæð og gefin er uns markmiði okkar er náð en það er 1 milljón USD. Saman getum við gert kennslustofur betri fyrir alla #ForEveryKid"
+	},
+	"download-cta": {
+		"message": "Sæktu til að spila enn fleiri leiki"
+	},
+	"dz_country_name": {
+		"message": "Alsír"
+	},
+	"easy_difficulty": {
+		"message": "Auðvelt"
+	},
+	"ec_country_name": {
+		"message": "Ekvador"
+	},
+	"educators": {
+		"message": "Hvar er jólasveinninn fyrir kennara"
+	},
+	"educators-games": {
+		"message": "Leikir fyrir bekkinn"
+	},
+	"educators-learn": {
+		"message": "Fræðsla með Hvar er jólasveinninn"
+	},
+	"ee_country_name": {
+		"message": "Eistland"
+	},
+	"el_language_name": {
+		"message": "gríska"
+	},
+	"elf_choose_body": {
+		"message": "Veldu líkamsgerð álfs"
+	},
+	"elvish_language_name": {
+		"message": "Álfneska"
+	},
+	"en_language_name": {
+		"message": "enska"
+	},
+	"endofjourneymessage": {
+		"message": "Sveinki hefur lokið ferðum sínum þetta árið! Hann og álfarnir hans eru enn að skemmta sér á Norðurpólnum áður en þeir fara í fríið."
+	},
+	"er_country_name": {
+		"message": "Erítrea"
+	},
+	"error": {
+		"message": "Vandamál kom upp en álfarnir hans Sveinka eru að skoða málið."
+	},
+	"error-internal": {
+		"message": "Æ nei, skrambans vandræði! Við létum álfana hans Sveinka vita en við erum á leiðinni aftur í \u003ca href=\"./\"\u003ejólasveinaþorpið\u003c/a\u003e."
+	},
+	"error-lost-connection": {
+		"message": "Við virðumst hafa misst tenginguna við Norðurpólinn. Álfarnir hans Sveinka er í óða önn að laga þetta – fylgstu með!"
+	},
+	"error-not-found": {
+		"message": "Æ nei, álfarnir hans Sveinka finna ekki síðuna! Þér gæti verið betur ágengt ef þú ferð aftur í \u003ca href=\"./\"\u003ejólasveinaþorpið\u003c/a\u003e."
+	},
+	"error-try-again": {
+		"message": "Reyna aftur"
+	},
+	"error_try_again": {
+		"message": "Reyna aftur"
+	},
+	"es_language_name": {
+		"message": "spænska"
+	},
+	"et_country_name": {
+		"message": "Eþíópía"
+	},
+	"explore": {
+		"message": "Kanna"
+	},
+	"explore-village": {
+		"message": "Skoða þorp jólasveinsins"
+	},
+	"fi_country_name": {
+		"message": "Finnland"
+	},
+	"fi_tradition": {
+		"message": "Finnar trúa því að jólasveinninn, *Joulupukki*, búi í norðurhluta landsins – það er að segja Korvatunturi. Ef þú ferð þangað gætirðu fundið verkstæði Sveinka þar sem dvergar vinna hörðum höndum. Þú gætir líka fundið hreindýr á ferð í furuskógum."
+	},
+	"finished-text": {
+		"message": "Gleðilega hátíð! Sveinki er búinn að klára ferðalag sitt um heiminn allan og ætlar að taka sér langþráð frí. Heimsæktu okkur aftur á næsta ári!"
+	},
+	"fr_country_name": {
+		"message": "Frakkland"
+	},
+	"fr_language_name": {
+		"message": "franska"
+	},
+	"fr_tradition": {
+		"message": "Í Frakklandi setja börnin yfirleitt skóinn við hliðina á eldstæðinu og bíða þess að Père Noël's komi. Ef börnin hafa verið góð allt árið mun Père Noël fylla skóna með gjöfum."
+	},
+	"fullscreen": {
+		"message": "Allur skjárinn"
+	},
+	"ga_country_name": {
+		"message": "Gabon"
+	},
+	"gameover": {
+		"message": "Leik lokið!"
+	},
+	"gameover_level": {
+		"message": "Þú hefur náð borði:"
+	},
+	"gameover_score": {
+		"message": "Stigin þín:"
+	},
+	"getgooglemaps": {
+		"message": "Sækja Google kort"
+	},
+	"getready": {
+		"message": "Þetta er að gerast!"
+	},
+	"gh_country_name": {
+		"message": "Gana"
+	},
+	"gh_tradition": {
+		"message": "Jólin í Gana eru eitthvað fyrir alla fjölskylduna. Fullorðna fólkið klæðir sig í búninga og gefur sælgæti víðs vegar í hverfinu. Börnin skreyta heimilið með pappírsskrauti og teikningum sem þau vinna í skólanum."
+	},
+	"gl_country_name": {
+		"message": "Grænland"
+	},
+	"gn_country_name": {
+		"message": "Gínea"
+	},
+	"gotovillage": {
+		"message": "Fara í þorpið"
+	},
+	"gplus": {
+		"message": "Google+"
+	},
+	"gr_country_name": {
+		"message": "Grikkland"
+	},
+	"gr_tradition": {
+		"message": "Í Grikklandi eru vinalegar vandræðaverur sem kallast „kallikántzari“ en þær búa mestanpart ársins við miðju jarðar. En á jólunum vilja þær endilega fela sig í húsum fólks, hrekkja það, vera með ærsl eða gleypa í sig jólamatinn. Grikkir eru með ýmsa helgisiði til að halda verunum fjarri."
+	},
+	"gt_country_name": {
+		"message": "Gvatemala"
+	},
+	"gt_tradition": {
+		"message": "Gvatemalar fagna jólunum með gleði og dansi. Þeir hafa hatta á höfði sem kallast Puritina, borða tamale að gvatemölskum sið, kveikja á flugeldum á miðnætti og dansa frameftir nóttu eftir margvíslegri tónlist."
+	},
+	"gy_country_name": {
+		"message": "Gvæjana"
+	},
+	"hard_difficulty": {
+		"message": "Erfitt"
+	},
+	"help": {
+		"message": "Hjálp"
+	},
+	"hi_language_name": {
+		"message": "hindí"
+	},
+	"hn_country_name": {
+		"message": "Hondúras"
+	},
+	"holiday_message_0": {
+		"message": "Gleðilega hátíð!"
+	},
+	"holiday_message_1": {
+		"message": "Gleðilega hátíð!"
+	},
+	"holiday_message_2": {
+		"message": "Til hamingju með allt!"
+	},
+	"holiday_message_3": {
+		"message": "Snjókorn falla!"
+	},
+	"holiday_message_4": {
+		"message": "Gleðilegt nýtt ár!"
+	},
+	"holiday_message_5": {
+		"message": "Hátíðarkveðjur!"
+	},
+	"hours": {
+		"message": "Klukkustundir"
+	},
+	"hr_country_name": {
+		"message": "Króatía"
+	},
+	"ht_country_name": {
+		"message": "Haítí"
+	},
+	"hu_country_name": {
+		"message": "Ungverjaland"
+	},
+	"hu_language_name": {
+		"message": "ungverska"
+	},
+	"id_country_name": {
+		"message": "Indónesía"
+	},
+	"ie_country_name": {
+		"message": "Írland"
+	},
+	"improve_google_translate": {
+		"message": "Hjálpaðu okkur að gera Google Translate betra"
+	},
+	"iq_country_name": {
+		"message": "Írak"
+	},
+	"ir_country_name": {
+		"message": "Íran"
+	},
+	"is_country_name": {
+		"message": "Ísland"
+	},
+	"is_tradition": {
+		"message": "Á jólum á Íslandi gefa fjölskyldur hlýjan fatnað til hvers fjölskyldumeðlims. Þjóðsagan segir að jólakötturinn éti alla þá sem ekki hafa hlýjan og skjólgóðan fatnað. Fjölskyldur vinna saman að því að tryggja að enginn fari í jólaköttinn."
+	},
+	"it_country_name": {
+		"message": "Ítalía"
+	},
+	"it_language_name": {
+		"message": "ítalska"
+	},
+	"ja_language_name": {
+		"message": "japanska"
+	},
+	"jm_country_name": {
+		"message": "Jamaíka"
+	},
+	"kg_country_name": {
+		"message": "Kirgistan"
+	},
+	"kg_tradition": {
+		"message": "Í Kirgistan kemur Ayaz Ata (afi Frost) á miðnætti á nýárskvöldi og skilur gjafir eftir við nýárstréð. Þegar klukkan slær á miðnætti kveikja fjölskyldur um landið allt á flugeldum til að fagna þessum dásamlega viðburði. Borgir verða jafn bjartar og um hábjartan daginn."
+	},
+	"ko_language_name": {
+		"message": "kóreska"
+	},
+	"kr_country_name": {
+		"message": "Suður-Kórea"
+	},
+	"kr_tradition": {
+		"message": "Í Suður-Kóreu er frí yfir jólin. Þau eru líka rómantískur tími. Mörg pör fara saman inn í borg þar sem götur og verslanir eru skreytt með glitrandi ljósum."
+	},
+	"kz_country_name": {
+		"message": "Kasakstan"
+	},
+	"la_country_name": {
+		"message": "Laoska alþýðulýðveldið"
+	},
+	"language": {
+		"message": "Tungumál"
+	},
+	"learn": {
+		"message": "Fræðsla"
+	},
+	"learnmore": {
+		"message": "Frekari upplýsingar"
+	},
+	"level": {
+		"message": "Borð"
+	},
+	"light": {
+		"message": "Lýsa upp"
+	},
+	"lightdescription": {
+		"message": "Lýstu upp sjónvarpið með Android forritinu Hvar er jólasveinninn og Chromecast."
+	},
+	"lk_country_name": {
+		"message": "Srí Lanka"
+	},
+	"lock_orientation": {
+		"message": "Læstu snúningi til að upplifun verði sem best."
+	},
+	"lr_country_name": {
+		"message": "Líbería"
+	},
+	"lt_country_name": {
+		"message": "Litháen"
+	},
+	"lt_tradition": {
+		"message": "Í Litháen er hefðbundið jólaskraut gert úr stráum eða heyi. Skrautið er ofið í form eins og stjörnur, snjókorn eða bjöllur. Margar fjölskyldur nota strá til að skreyta kvöldverðarborðið í tengslum við máltíð sem kallast Kūčios."
+	},
+	"lv_country_name": {
+		"message": "Lettland"
+	},
+	"ly_country_name": {
+		"message": "Líbýa"
+	},
+	"md_country_name": {
+		"message": "Moldóva"
+	},
+	"medium_difficulty": {
+		"message": "Miðlungs"
+	},
+	"meta_description": {
+		"message": "Notaðu Hvar er jólasveinninn til að fylgjast með Sveinka í Google kortum þegar hann ferðast með himinköstum um heim allan."
+	},
+	"meta_title": {
+		"message": "Hvar er jólasveinninn – Google"
+	},
+	"mg_country_name": {
+		"message": "Madagaskar"
+	},
+	"minutes": {
+		"message": "Mínútur"
+	},
+	"ml_country_name": {
+		"message": "Malí"
+	},
+	"mm_country_name": {
+		"message": "Mjanmar"
+	},
+	"mr_country_name": {
+		"message": "Máritanía"
+	},
+	"mute": {
+		"message": "Þagga"
+	},
+	"mw_country_name": {
+		"message": "Malaví"
+	},
+	"mx_country_name": {
+		"message": "Mexíkó"
+	},
+	"mx_tradition": {
+		"message": "Í Mexíkó fagna börn á öllum aldri jólunum með því að brjóta leirkrukkur. Fullorðnir og börn gera sér leik að því að leika blindingja, snúast í hringi og sveifla kylfu til að reyna að brjóta stjörnulaga leirkrukkur sem hanga úr loftinu. Þegar leirkrukkurnar brotna falla hnetur, ávextir og sælgæti á gólfið sem allir geta notið."
+	},
+	"my_country_name": {
+		"message": "Malasía"
+	},
+	"mz_country_name": {
+		"message": "Mósambík"
+	},
+	"na_country_name": {
+		"message": "Namibía"
+	},
+	"ne_country_name": {
+		"message": "Níger"
+	},
+	"new": {
+		"message": "Nýtt"
+	},
+	"newtoday": {
+		"message": "Nýtt í dag"
+	},
+	"next": {
+		"message": "Áfram"
+	},
+	"next_game": {
+		"message": "Næsti leikur"
+	},
+	"ng_country_name": {
+		"message": "Nígería"
+	},
+	"nl_country_name": {
+		"message": "Holland"
+	},
+	"nl_language_name": {
+		"message": "hollenska"
+	},
+	"no_country_name": {
+		"message": "Noregur"
+	},
+	"no_language_name": {
+		"message": "norska"
+	},
+	"nonprofit-agastya-description": {
+		"message": "Agastya færir verklega vísindamenntun til barna um allt dreifbýli á Indlandi. Það er fjallað um allt frá sólkerfinu til þess hvernig heilinn virkar í vísindamiðstöðvum þeirra og vísindabílum þeirra sem ferðast um og fræða börn. Samtökin hafa náð til yfir 5 milljón barna og 200.000 kennara í 14 ríkjum á Indlandi. Þetta er eitt stærsta menntaverkefni í heiminum! Google.org er stolt af því að \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estyðja við\u003c/a\u003e Agastya."
+	},
+	"nonprofit-agastya-type": {
+		"message": "Kennarar og nemendur"
+	},
+	"nonprofit-code-description": {
+		"message": "Code.org® er góðgerðarsamtök sem helga sig því að auka aðgang að tölvunafræði og auka þátttöku kvenna og nemenda sem tilheyra hópum sem ekki eiga sinn skerf af fulltrúum í tölvunarfræði. Sýn Code.org® er sú að allir nemendur í öllum skólum hafi tækifæri til að læra tölvunarfræði."
+	},
+	"nonprofit-code-type": {
+		"message": "Tölvunarfræði"
+	},
+	"nonprofit-donorschoose-description": {
+		"message": "DonorsChoose.org var sett á laggirnar árið 2000 af sögukennara í Bronx-hverfi og hefur safnað meira en 480 milljónum Bandaríkjadala fyrir kennslustofur í landinu. Kennarar nota DonorsChoose.org til að biðja um efni og upplifanir sem þeir þurfa fyrir bekkina sína."
+	},
+	"nonprofit-donorschoose-type": {
+		"message": "Kennslustofur"
+	},
+	"nonprofit-enable-description": {
+		"message": "Samkvæmt CDC upplifir 7 af hverjum 1.000 útlimamismun og gervilimir eru dýrir – þeir kosta allt að 10.000 USD! Þegar um er ræða börn sem vaxa hratt getur kostnaðurinn skjótt farið úr böndum. e-Nable er alþjóðlegt samfélag fólks sem vinnur saman að því að búa til prentaðar hendur í þrívídd fyrir börn sem hafa útlimamismun. Google.org hjálpar Enable Community Foundation við að styðja e-NABLE samfélagið við að hanna fleiri hendur og fjölga þeim börnum sem geta fengið hendur."
+	},
+	"nonprofit-enable-type": {
+		"message": "Gervilimir"
+	},
+	"nonprofit-instruction-coloring": {
+		"message": "Veldu skraut og byrjaðu að lita."
+	},
+	"nonprofit-instruction-share": {
+		"message": "Deildu því sem þú hefur gert með fjölskyldu og vinum svo að þau geti líka lært."
+	},
+	"nonprofit-intro-type": {
+		"message": "Við höfum hafið samstarf við Google.org og kynnum fimm góðgerðasamtök á sviði menntamála sem eru í gjafahug allt árið um kring. Skrunaðu niður og fáðu frekari upplýsingar um hvernig hver samtök fyrir sig vinnur í þágu samfélagsins. Sýndu stuðning þinn með því að lita þetta samsafn af skrauti og hengja það síðan á tréð hjá þér eða gefa til þeirra sem þér þykir vænt um."
+	},
+	"nonprofit-jane-description": {
+		"message": "Simpansar eru það dýr í dýraríkinu sem skyldast er okkur! Nú eru færri en 300.000 simpansar eftir í heiminum vegna sjúkdóma, ólöglegrar verslunar með dýrin og ágangs manna gegn kjörlendi dýranna. The Jane Goodall Institute (JGI) verndar simpansa með því að rannsaka og leitast við að skilja atferli dýranna og kjörlendi þeirra. JGI reynir einnig að efla samfélag fólks sem leitast við að vernda dýralíf og umhverfið sem við deilum saman. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eSkoðaðu búsvæði simpansa\u003c/a\u003e í Gombe í Tansaníu."
+	},
+	"nonprofit-jane-type": {
+		"message": "Simpansi"
+	},
+	"nonprofit-khan-description": {
+		"message": "Khan Academy er góðgerðasamtök sem hafa helgað sig því að veita öllum, alls staðar ókeypis menntun á heimsmælikvarða. Fólkið á bak við Khan Academy telur að fróðleiksfúsir á öllum aldri eigi að hafa ótakmarkaðan aðgang að ókeypis kennsluefni sem fólk geti tileinkað sér á sínum hraða."
+	},
+	"nonprofit-khan-type": {
+		"message": "Menntun"
+	},
+	"nonprofit-lwb-description": {
+		"message": "Libraries Without Borders er alþjóðleg góðgerðasamtök, í fararbroddi á alþjóðavettvangi, sem helga sig menningarmiðaðri þróun. Samtökin voru stofnuð árið 2007 og hafa höfuðstöðvar í París. Samtökin hafa byggt yfir 300 bókasöfn víða um heim."
+	},
+	"nonprofit-lwb-type": {
+		"message": "Bókasöfn"
+	},
+	"nonprofit-more-information": {
+		"message": "Frekari upplýsingar eru á:"
+	},
+	"nonprofit-nature-description": {
+		"message": "Nature Conservancy helgar sig vernd og endurheimt skóga í Bandaríkjunum og um heim allan. Þessir mikilfenglegu skógar viðhalda lífi um heim allan. Þeir sía vatn, hreinsa loftið, styðja samfélög og veita mikilvægum plöntu- og dýrategundum skjól. Ef skógareyðing heldur áfram á sama hraða mun skógum verða eytt á 100 árum. Nature Convervancy ætlar að planta einum milljarði trjáa fyrir árið 2025 og endurheimta mikilvægustu skóga heimsins."
+	},
+	"nonprofit-nature-type": {
+		"message": "Skógar"
+	},
+	"nonprofit-pratham-description": {
+		"message": "Yfir 40% íbúa heimsins hafa ekki aðgang að menntun á tungumáli sem þeir tala eða skilja. StoryWeaver reynir að breyta því með því að hjálpa kennurum, höfundum og þýðendum að búa til skemmtilegt lesefni fyrir börn."
+	},
+	"nonprofit-pratham-type": {
+		"message": "Lestur"
+	},
+	"nonprofit-rnib-description": {
+		"message": "Margt fólk í heiminum glímir við sjónmissi en sumt er enn með einhverja sjón. Google.org hjálpar RNIB að þróa „snjallgleraugu“ sem hjálpa fólki með litla sjón að sjá lögun og útlínur á greinilegri hátt. Snjallgleraugu geta hjálpað til viða að gera heiminn sýnilegri, þau geta hjálpað fólki að öðlast sjálfstæði og sjálfstraust."
+	},
+	"nonprofit-rnib-type": {
+		"message": "Snjallgleraugu"
+	},
+	"nonprofit-solar-description": {
+		"message": "1,3 milljarður hefur ekki aðgang að rafmagni og margir þurfa að nota kerósenlamapa sem brenna eldsneyti og menga heimili. Ljós knúin sólarorku sækja hins vegar orku sína til sólarinnar á daginn og veita ljós á kvöldin án þess að brenna eldsneyti eða menga umhverfið. Slíkt hjálpar fólki að lesa, spila og komast heim örugglega á kvöldin. SolarAid veitir þeim aðgang að sólarorku sem þurfa á henni að halda. Google.org er stolt af því að \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estyðja við \u003c/a\u003e SolarAid."
+	},
+	"nonprofit-solar-type": {
+		"message": "Sólskin"
+	},
+	"nonprofit-water-description": {
+		"message": "Við notum vatn til að fara í sturtu og bað, til að elda og auðvitað til að drekka. Hreint vatn er mikilvæg auðlind og margt fólk reiðir sig á brunna sem fólk grefur til að ná í veitur þar sem er hreint vatn djúpt í jörðu milli jarðlaga. Góðgerðasamtökin charity: water starfa með landssamtökum við að grafa brunna og við önnur vatnstengd verkefni þar sem mikil þörf er á. Google.org er stolt af því að \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estyðja við\u003c/a\u003e charity: water."
+	},
+	"nonprofit-water-type": {
+		"message": "Jæja"
+	},
+	"nonprofit-wheelmap-description": {
+		"message": "Það getur verið erfitt fyrir þá sem nota hjólastól að átta sig á því hvaða staðir eru aðgengilegir: Kvikmyndahús, veitingastaðir eða aðrir staðir þar sem fólk í hjólastól vill fara. Wheelmap sýnir hvaða staðir eru með hjólastólaaðgengi til að notendur hjólastóla þurfi ekki að eyða miklum tíma í að velja leiðir og geti einbeitt sér að því að skoða heiminn!"
+	},
+	"nonprofit-wheelmap-type": {
+		"message": "Hreyfanleiki"
+	},
+	"nonprofit-wwf-description": {
+		"message": "Loftslagsbreytingar halda áfram að raska náttúrulegu jafnvægi margra vistkerfa í heiminum, bæði í hlýrri og kaldari heimshlutum. Á norðurhluta jarðarinnar hopar ísbreiðan sem ísbirnir reiða sig á eftir því sem hitastig jarðar eykst. Birnirnir eru líka í hættu vegna framkvæmda, til dæmis olíu- og gasvinnslu, sem og vegna skipaumferðar. World Wildlife Fund vinnur að því að tryggja tilveru tegundarinnar með vísindarannsóknum og samstarfi við samfélög fólks á norðurslóðum. Google.org er stolt að \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e styðja við\u003c/a\u003e World Wildlife Fund."
+	},
+	"nonprofit-wwf-type": {
+		"message": "Ísbjörn"
+	},
+	"nonprofit-wwh-description": {
+		"message": "Rannsóknir sýna að 95% þeirra sem glíma við heyrnartap geta fengið úrbót með heyrnartækjum en minna en 1% einstaklinga í löndum sem hafa lágar þjóðartekjur eða í meðallagi og þurfa heyrnartæki fá slík tæki. World Wide Hearing (WWH) tengir börn við umheiminn með því að gefa heyrnartæki og veita þjónustu. WWH er að hanna ódýrt greiningartól fyrir spjaldtölvur sem mælir heyrnartap og ætlað er til notkunar í þróunarlöndum. Fleiri sem þurfa heyrnartæki geta því fengið slík tæki."
+	},
+	"nonprofit-wwh-type": {
+		"message": "Heyrn"
+	},
+	"notice_cookies": {
+		"message": "Google notar fótspor til að greina umferð á vefsvæðið og fínstilla upplifun þína. Upplýsingum um notkun þína á svæðinu okkar er deilt með Google í því skyni."
+	},
+	"notice_cookies_details": {
+		"message": "Sjá nánar"
+	},
+	"notification": {
+		"message": "Tilkynningar"
+	},
+	"notification_newtoday": {
+		"message": "Nýtt í dag í Hvar er jólasveinninn"
+	},
+	"notification_newtoday_stop": {
+		"message": "Sleppa þessum"
+	},
+	"notification_notice": {
+		"message": "Álfarnir hans Sveinka munu láta þig vita um dagskrána hans Sveinka"
+	},
+	"notification_prompt": {
+		"message": "Leyfið mér að fylgjast með Sveinka"
+	},
+	"np_country_name": {
+		"message": "Nepal"
+	},
+	"nz_country_name": {
+		"message": "Nýja-Sjáland"
+	},
+	"nz_tradition": {
+		"message": "Jólin eru að sumri til á Nýja-Sjálandi og vinir og fjölskyldur koma þá saman og grilla. Hefðbundnar jólamáltíðir eru meðal annars grillað lamb, stundum eldað í „hangi“ sem er jarðofn neðanjarðar. Eftirlætis eftirréttur er pavlova: marengs með ferskum ávöxtum eins og jarðarberjum og kíví."
+	},
+	"offline": {
+		"message": "Ónettengt"
+	},
+	"offline_available_online": {
+		"message": "Aðeins á netinu"
+	},
+	"offline_notification": {
+		"message": "Nú geturðu skoðað jólasveinaþorpið án nettengingar! Álfarnir geta líka afhent þér nýtt efni út allan desember."
+	},
+	"offline_notification_nothanks": {
+		"message": "Nei, takk"
+	},
+	"offline_user_message": {
+		"message": "Þú ert ekki á netinu"
+	},
+	"okay": {
+		"message": "Í lagi"
+	},
+	"om_country_name": {
+		"message": "Óman"
+	},
+	"onthego": {
+		"message": "Sveinki á ferð og flugi"
+	},
+	"openingtomorrow": {
+		"message": "Opnun á morgun"
+	},
+	"ornament-print-instructions": {
+		"message": "Brjóttu saman hér og límdu hliðar saman"
+	},
+	"pa_country_name": {
+		"message": "Panama"
+	},
+	"pause": {
+		"message": "Hlé"
+	},
+	"paused": {
+		"message": "Hlé"
+	},
+	"pe_country_name": {
+		"message": "Perú"
+	},
+	"pg_country_name": {
+		"message": "Papúa Nýja-Gínea"
+	},
+	"ph_country_name": {
+		"message": "Filippseyjar"
+	},
+	"ph_tradition": {
+		"message": "Filippseyjar eru þekktar fyrir það að þar er lengsta jólahátíð í heimi. Fjórir mánuðir eru jólamánuðir: September, október, nóvember, desember. Fólk getur oft heyrt jólasöngva sungna frá og með byrjun september."
+	},
+	"pl_country_name": {
+		"message": "Pólland"
+	},
+	"pl_language_name": {
+		"message": "pólska"
+	},
+	"play": {
+		"message": "Spila"
+	},
+	"playagain": {
+		"message": "Spila aftur"
+	},
+	"playdescription": {
+		"message": "Spilaðu með vinum í Android forritinu Hvar er jólasveinninn."
+	},
+	"playextra": {
+		"message": "Spila aukaborð"
+	},
+	"pr_country_name": {
+		"message": "Púertó Ríkó"
+	},
+	"practice": {
+		"message": "Æfing"
+	},
+	"press": {
+		"message": "Fjölmiðlar"
+	},
+	"press-about-tracker": {
+		"message": "Um Hvar er jólasveinninn"
+	},
+	"press-about-tracker1": {
+		"message": "Þann 24. desember munum við ræsa Hvar er jólasveinninn, stjórnborð þar sem aðdáendur geta fylgst með ferðum hans þar sem hann hendist milli borga. Þú getur líka skoðað hvar hann er hverju sinni í Google kortum og spurt Google hjálparann, „Ok Google, hvar er jólasveinninn?“ en þannig geturðu fylgst með ferðum Sveinka hvar sem þú ert."
+	},
+	"press-about-village": {
+		"message": "Um jólasveinaþorpið"
+	},
+	"press-about-village1": {
+		"message": "Jólasveinaþorpið er nú á fimmtánda ári. Þar finnurðu skemmti- og fræðsluefni og gagnvirkt hátíðaefni. Sveinkafrú hefur allt á hreinu og undir hennar stjórn hafa álfarnir betrumbætt þorpið með glænýju efni og gert það enn skemmtilegra. Og þökk sé nýja hitunarkerfinu sem knúið er af heitu kakói mun það ekki lengur taka allan desember fyrir þorpið að þiðna. Allur sá fjöldi efnis sem í boði er verður aðgengilegur þann 4. desember. Nú hafa álfarnir (og þú!) meiri tíma til að leika sér og skoða sig um í jólasveinaþorpinu."
+	},
+	"press-about-village2": {
+		"message": "Í þorpinu geturðu æft undirstöðuatriðin í kóðun, búið til teikningar, þjálfað landafræðiþekkinguna og fengið frekari upplýsingar um góðgerðasamtök eins og \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e og \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Kennarar geta meira að segja \u003ca href=\"./educators.html\"\u003esótt kennsluskrár\u003c/a\u003e með vídeóleiðbeiningum þar sem nemendur geta lært undirstöðuatriðin í kóðun og fengið að vita um jólahald á ensku, spænsku, frönsku, japönsku og kóresku."
+	},
+	"press-asset-animation": {
+		"message": "Teiknimyndir"
+	},
+	"press-asset-resources": {
+		"message": "Fjölmiðlaefni"
+	},
+	"press-asset-screenshot": {
+		"message": "Skjámynd"
+	},
+	"press-device-text": {
+		"message": "Jólaandinn er alls staðar, meira að segja í tækjunum þínum!"
+	},
+	"press-device-title": {
+		"message": "Hvar er jólasveinninn - í þínu tæki"
+	},
+	"press-edu": {
+		"message": "Menntaskemmtun"
+	},
+	"press-edu1": {
+		"message": "Við höfum stækkað \u003ca href=\"./educators.html\"\u003esíðu með aðföng fyrir kennara\u003c/a\u003e til að kennarar geti notað vídeóleiðbeiningar með kennsluskrám sem eru nú tiltækar á fimm tungumálum Allir uppáhalds leikirnir eru enn til staðar, þar sem grunnatriði kóðunar eru tengd við hátíðahöld um heim allan. Hvar er jólasveinninn frá Google hvetur fólk til að læra um hátíðahöld á skemmtielgan hátt – skoðaðu \u003ca href=\"./educators.html\"\u003efræðsluleiki\u003c/a\u003e okkar til að fá frekari upplýsingar."
+	},
+	"press-games-title": {
+		"message": "Allt það skemmtilega"
+	},
+	"press-need-text": {
+		"message": "Álfar og starfsmenn Google eru hér til aðstoðar."
+	},
+	"press-need-title": {
+		"message": "Þarftu eitthvað?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Opnar 24. desember"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Opið allan desember"
+	},
+	"press-villagetracker-title": {
+		"message": "Jólasveinaþorpið og Hvar er jólasveinninn"
+	},
+	"press-whatsnew": {
+		"message": "Hvað er nýtt í ár"
+	},
+	"press-whatsnew1-text": {
+		"message": "Smíðaðu þinn eigin álf frá toppi til táar og passaðu að hann sé alveg álfslegur því að það eru margar skemmtanir í gangi um hátíðarnar á Norðurpólnum."
+	},
+	"press-whatsnew1-title": {
+		"message": "Smíða álf:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Ef þig hefur alltaf dreymt um að stofna dansflokk þar sem álfasnillingar dansa er þetta tækifærið. Næstum því. Með því að nota módel sem lærir vélrænt og kallast \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e geturðu þjálfað álf í að læra danshreyfingar þínar og fengið þinn innri álf út á dansgólfið."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dans með álfum:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Ný leið til að fylgjast með Sveinka:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Ef þú ert í stuði fyrir meira hátíðargaman skaltu skoða hátíðarlímmiða á Gboard sem fást fyrir \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e og \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid forritið okkar\u003c/a\u003e. Og njóttu þess líka að hlusta á sögu með því að spyrja Google hjálparann: „Segðu mér hátíðarsögu“ og „Hvar er jólasveinninn?“"
+	},
+	"press-whatsnew4-title": {
+		"message": "Meira hátíðafjör:"
+	},
+	"pt_language_name": {
+		"message": "portúgalska"
+	},
+	"py_country_name": {
+		"message": "Paragvæ"
+	},
+	"quickdraw-machine-know": {
+		"message": "Ég veit, þetta er {{thing}}!"
+	},
+	"quickdraw-machine-or": {
+		"message": "eða"
+	},
+	"quickdraw-machine-see": {
+		"message": "Þetta gæti verið"
+	},
+	"quickdraw-newround-button": {
+		"message": "Byrja"
+	},
+	"quickdraw-round-no-new-guess": {
+		"message": "Ég er ekki viss hvað þetta er."
+	},
+	"quickdraw-round-sorry": {
+		"message": "Því miður"
+	},
+	"quickdraw-round-timesup": {
+		"message": "Gat ekki áttað mig!"
+	},
+	"quickdraw-rounddetails-also-look": {
+		"message": "Tensor taldi líka að teikningin þín liti svona út:"
+	},
+	"quickdraw-rounddetails-how-know": {
+		"message": "Hvernig veit Tensor hvernig: {{thing}} lítur út?"
+	},
+	"quickdraw-rounddetails-it-learned": {
+		"message": "Það lærir með því að líta á þessi dæmi sem fólk hefur teiknað."
+	},
+	"quickdraw-rounddetails-look-more": {
+		"message": "Tensor fannst teikningin þín líkjast þessu:"
+	},
+	"quickdraw-rounddetails-santa-version": {
+		"message": "Þetta er útgáfa Sveinka á: {{thing}}."
+	},
+	"quickdraw-rounddetails-title": {
+		"message": "Beðið var um að þú teiknaðir: {{thing}}."
+	},
+	"quickdraw-slate": {
+		"message": "Teikna"
+	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er vélmenni jólaveinsins sem getur lært vélrænt þannig að hann getur með fljótum hætti þýtt öll bréf sem hann fær frá börnum um heim allan. Til að hjálpa Tensor að æfa sig skaltu teikna mynd af öllum jólaorðunum á skjánum og þá segir Tensor þér hvað það sér. Því fleira sem þú teiknar því snjallari verður Tensor. Hjálpum Sveinka að gera enn betur þessi jól!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjálpaðu Tensor að þjálfa myndakennsl sín!"
+	},
+	"quickdraw-timesup-subline-guess": {
+		"message": "Tensor þekkti {{recognized}} af teikningunum þínum."
+	},
+	"quickdraw-timesup-subline-guess-one": {
+		"message": "Tensor kannaðist við eina teikningu sem þú gerðir."
+	},
+	"quickdraw-timesup-subline-noguess": {
+		"message": "Tensor þekkti enga teikningu frá þér."
+	},
+	"quickdraw-timesup-title-guess": {
+		"message": "Vel gert!"
+	},
+	"quickdraw-timesup-title-noguess": {
+		"message": "Úbbs!"
+	},
+	"readyquestion": {
+		"message": "Allt tilbúið?"
+	},
+	"ro_country_name": {
+		"message": "Rúmenía"
+	},
+	"ru_country_name": {
+		"message": "Rússland"
+	},
+	"ru_language_name": {
+		"message": "rússneska"
+	},
+	"ru_tradition": {
+		"message": "Rússnesk börn skreyta nýárstré í stað jólatrés. Börn bíða óþreyjufull eftir Frosta afa sem ferðast með afabarninu sínu, henni Snjómey, og afhendir gjafir um landið allt. Frosti afi býr djúpt í skógunum í Veliky Ustyug í norðanverðu Rússlandi."
+	},
+	"sa_country_name": {
+		"message": "Sádi-Arabía"
+	},
+	"santa-app": {
+		"message": "Jólasveinn"
+	},
+	"santasearch_character_gingerbread_man": {
+		"message": "Piparkökudrengurinn"
+	},
+	"santasearch_character_mrs_claus": {
+		"message": "Sveinkafrú"
+	},
+	"santasearch_character_pegman": {
+		"message": "Guli karlinn"
+	},
+	"santasearch_character_penguin": {
+		"message": "Mörgæs"
+	},
+	"santasearch_character_rudolph": {
+		"message": "Rúdólf"
+	},
+	"santasearch_character_santa": {
+		"message": "Jólasveinninn"
+	},
+	"santasearch_hint": {
+		"message": "Vísbending"
+	},
+	"santasearch_level_beach": {
+		"message": "Á ströndinni"
+	},
+	"santasearch_level_lab": {
+		"message": "í tilraunastofunni"
+	},
+	"santasearch_level_mountains": {
+		"message": "Í fjöllunum"
+	},
+	"santasearch_level_museum": {
+		"message": "Á safninu"
+	},
+	"santasearch_level_select": {
+		"message": "Af stað!"
+	},
+	"santasearch_search_for_santa": {
+		"message": "Leitaðu að Sveinka!"
+	},
+	"santasvillage": {
+		"message": "Þorp jólasveinsins"
+	},
+	"santatracker": {
+		"message": "Hvar er jólasveinninn"
+	},
+	"scene_airport": {
+		"message": "Flugvöllurinn á Norðurpólnum"
+	},
+	"scene_app": {
+		"message": "Android forrit"
+	},
+	"scene_blimp": {
+		"message": "Endurhleðsla á gjöfum"
+	},
+	"scene_boatload": {
+		"message": "Gjafateygjubyssa"
+	},
+	"scene_briefing": {
+		"message": "Sveinkafrú veitir tilsögn"
+	},
+	"scene_callfromsanta": {
+		"message": "Símtal frá Sveinka"
+	},
+	"scene_canvas": {
+		"message": "Striginn hans Sveinka"
+	},
+	"scene_citylights": {
+		"message": "Ljósin í borginni"
+	},
+	"scene_clausdraws": {
+		"message": "Jólateikningar"
+	},
+	"scene_codeboogie": {
+		"message": "Kóðunarbúggí"
+	},
+	"scene_codelab": {
+		"message": "Kóðunarstofa"
+	},
+	"scene_commandcentre": {
+		"message": "Stjórnborð"
+	},
+	"scene_dash": {
+		"message": "Mörgæsasprettur"
+	},
+	"scene_elfmaker": {
+		"message": "Álfasmiður"
+	},
+	"scene_elfski": {
+		"message": "Álfaskíði"
+	},
+	"scene_factory": {
+		"message": "Sælgætisverksmiðja"
+	},
+	"scene_giftmatch": {
+		"message": "Gjafaval"
+	},
+	"scene_glider": {
+		"message": "Álfasvif"
+	},
+	"scene_gumball": {
+		"message": "Tyggjóleikur"
+	},
+	"scene_icecave": {
+		"message": "Íshellir"
+	},
+	"scene_island": {
+		"message": "Eyja"
+	},
+	"scene_jamband": {
+		"message": "Álfabandið"
+	},
+	"scene_jetpack": {
+		"message": "Álfur í þotugræju"
+	},
+	"scene_latlong": {
+		"message": "Gjafaafhending"
+	},
+	"scene_matching": {
+		"message": "Minnisspil"
+	},
+	"scene_mercator": {
+		"message": "Kortaþraut"
+	},
+	"scene_playground": {
+		"message": "Leiksvæði á Norðurpólnum"
+	},
+	"scene_poseboogie": {
+		"message": "Pósubúggí"
+	},
+	"scene_postcard": {
+		"message": "Póstkort frá Sveinka"
+	},
+	"scene_presentbounce": {
+		"message": "Gjafakast"
+	},
+	"scene_presentdrop": {
+		"message": "Gjafadropp"
+	},
+	"scene_quickdraw": {
+		"message": "Snöggteikning"
+	},
+	"scene_racer": {
+		"message": "Rúdólfhlaup"
+	},
+	"scene_rollercoaster": {
+		"message": "Álfarússíbani"
+	},
+	"scene_runner": {
+		"message": "Hreindýrahlaup"
+	},
+	"scene_santasearch": {
+		"message": "Sveinkaleit"
+	},
+	"scene_santaselfie": {
+		"message": "Sjálfsmyndir Sveinka"
+	},
+	"scene_seasonofcaring": {
+		"message": "Hátíð umhyggju"
+	},
+	"scene_seasonofgiving": {
+		"message": "Gjafahátíðin"
+	},
+	"scene_snowball": {
+		"message": "Snjóboltaslagur"
+	},
+	"scene_snowflake": {
+		"message": "Kóðaðu snjókorn"
+	},
+	"scene_speedsketch": {
+		"message": "Hraðteikning"
+	},
+	"scene_streetview": {
+		"message": "Strætissýn"
+	},
+	"scene_traditions": {
+		"message": "Jólahefðir"
+	},
+	"scene_translations": {
+		"message": "Þýðingar"
+	},
+	"scene_trivia": {
+		"message": "Spurningar"
+	},
+	"scene_undersea": {
+		"message": "Neðansjávar"
+	},
+	"scene_videoscene_carpool": {
+		"message": "Álfabíll"
+	},
+	"scene_videoscene_comroom": {
+		"message": "Stjórnherbergi"
+	},
+	"scene_videoscene_jingle": {
+		"message": "Álfadans"
+	},
+	"scene_videoscene_liftoff": {
+		"message": "Sveinki heldur af stað"
+	},
+	"scene_videoscene_museum": {
+		"message": "Dagur á safninu"
+	},
+	"scene_videoscene_office": {
+		"message": "Skrifstofuhrekkur"
+	},
+	"scene_videoscene_onvacation": {
+		"message": "Enn í fríi"
+	},
+	"scene_videoscene_reindeerworries": {
+		"message": "Hreindýraáhyggjur"
+	},
+	"scene_videoscene_reload": {
+		"message": "Endurhleðsla á gjöfum"
+	},
+	"scene_videoscene_santasback": {
+		"message": "Sveinki snýr aftur"
+	},
+	"scene_videoscene_satellite": {
+		"message": "Gervihnöttur"
+	},
+	"scene_videoscene_selfies": {
+		"message": "Sjálfsmyndir Sveinka"
+	},
+	"scene_videoscene_slackingoff": {
+		"message": "Bara að slappa af"
+	},
+	"scene_videoscene_takeoff": {
+		"message": "Flugtak"
+	},
+	"scene_videoscene_temptation": {
+		"message": "Freisting"
+	},
+	"scene_videoscene_tired": {
+		"message": "Þreytt hreindýr"
+	},
+	"scene_videoscene_wheressanta": {
+		"message": "Hvar er jólasveinninn?"
+	},
+	"scene_videoscene_workshop": {
+		"message": "Verkstæði Sveinka"
+	},
+	"scene_windtunnel": {
+		"message": "Vindgöng"
+	},
+	"scene_wrap": {
+		"message": "Pökkunarslagur"
+	},
+	"score": {
+		"message": "Stig"
+	},
+	"score_short": {
+		"message": "Stig"
+	},
+	"se_country_name": {
+		"message": "Svíþjóð"
+	},
+	"seconds": {
+		"message": "Sekúndur"
+	},
+	"select-language": {
+		"message": "Veldu tungumál"
+	},
+	"share-button": {
+		"message": "Deildu með vinum þínum á Google+"
+	},
+	"share-text": {
+		"message": "Ég bjó til þetta póstkort fyrir þig í Hvar er jólasveinninn frá Google. Gleðilega hátíð!"
+	},
+	"share-this": {
+		"message": "Deila"
+	},
+	"sidebar_code_emoji": {
+		"message": "Gert með Code: hátíðar emoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Jörð: Spurningakeppni um hátíðarhefðir"
+	},
+	"sidebar_santas_location": {
+		"message": "Google kort: Staðsetning jólasveinsins"
+	},
+	"sidebar_trends": {
+		"message": "Google Trends: Leitir um hátíðarnar"
+	},
+	"sk_country_name": {
+		"message": "Slóvakía"
+	},
+	"sk_language_name": {
+		"message": "slóvakíska"
+	},
+	"skip-intro": {
+		"message": "Sleppa kynningu"
+	},
+	"skip-training": {
+		"message": "Sleppa þjálfun"
+	},
+	"sl_country_name": {
+		"message": "Síerra Leóne"
+	},
+	"sn_country_name": {
+		"message": "Senegal"
+	},
+	"snowball_iced": {
+		"message": "Hélaður!"
+	},
+	"snowball_remaining": {
+		"message": "{{remaining}} af {{total}} álfum eftir"
+	},
+	"snowball_spectate": {
+		"message": "Horfa"
+	},
+	"snowball_waiting": {
+		"message": "Bíður eftir fleiri álfum Sveinka"
+	},
+	"snowflake_choose_background": {
+		"message": "Veldu bakgrunn"
+	},
+	"snowflake_choose_postcard": {
+		"message": "Notaðu örvalyklana til að velja póstkort"
+	},
+	"snowflake_code": {
+		"message": "Kóðaðu snjókorn"
+	},
+	"snowflake_code_instructions": {
+		"message": "Festu kubba saman og hannaðu þitt eigið snjókorn"
+	},
+	"snowflake_create_message": {
+		"message": "Hannaðu eigið snjókorn"
+	},
+	"snowflake_draw_now_repeat_message": {
+		"message": "Endurtaktu!"
+	},
+	"snowflake_draw_repeat_message": {
+		"message": "Endurtekur"
+	},
+	"snowflake_draw_rotate_and_repeat_message": {
+		"message": "Snúðu og endurtaktu!"
+	},
+	"snowflake_draw_rotating_and_repeating_message": {
+		"message": "Snýst og endurtekur"
+	},
+	"snowflake_make_your_own": {
+		"message": "Þetta var gert með kóða. Prófaðu!"
+	},
+	"snowflake_share_postcard_message": {
+		"message": "Veldu póstkort og deildu snjókorninu þínu með vinum"
+	},
+	"snowflake_shared_message": {
+		"message": "Einhver sendi þér snjókorn!"
+	},
+	"so_country_name": {
+		"message": "Sómalía"
+	},
+	"speedsketch_item~London": {
+		"message": "London"
+	},
+	"speedsketch_item~New York": {
+		"message": "New York"
+	},
+	"speedsketch_item~Paris": {
+		"message": "París"
+	},
+	"speedsketch_item~Shanghai": {
+		"message": "Sjanghæ"
+	},
+	"speedsketch_item~Switzerland": {
+		"message": "Sviss"
+	},
+	"speedsketch_item~The Eiffel Tower": {
+		"message": "Eiffelturninn"
+	},
+	"speedsketch_item~The Great Wall of China": {
+		"message": "Kínamúrinn"
+	},
+	"speedsketch_item~The Mona Lisa": {
+		"message": "Mona Lisa"
+	},
+	"speedsketch_item~abstract art": {
+		"message": "óhlutbundin list"
+	},
+	"speedsketch_item~aircraft carrier": {
+		"message": "flugvélamóðurskip"
+	},
+	"speedsketch_item~airplane": {
+		"message": "flugvél"
+	},
+	"speedsketch_item~alarm clock": {
+		"message": "vekjaraklukka"
+	},
+	"speedsketch_item~alien": {
+		"message": "geimvera"
+	},
+	"speedsketch_item~ambulance": {
+		"message": "sjúkrabíll"
+	},
+	"speedsketch_item~angel": {
+		"message": "engill"
+	},
+	"speedsketch_item~animal migration": {
+		"message": "dýr á ferð"
+	},
+	"speedsketch_item~ant": {
+		"message": "maur"
+	},
+	"speedsketch_item~anvil": {
+		"message": "steðji"
+	},
+	"speedsketch_item~apple": {
+		"message": "epli"
+	},
+	"speedsketch_item~arm": {
+		"message": "handleggur"
+	},
+	"speedsketch_item~arrow": {
+		"message": "ör"
+	},
+	"speedsketch_item~asparagus": {
+		"message": "aspars"
+	},
+	"speedsketch_item~astronaut": {
+		"message": "geimfari"
+	},
+	"speedsketch_item~audio cassette": {
+		"message": "hljóðsnælda"
+	},
+	"speedsketch_item~avocado": {
+		"message": "avókadó"
+	},
+	"speedsketch_item~axe": {
+		"message": "öxi"
+	},
+	"speedsketch_item~baby": {
+		"message": "barn"
+	},
+	"speedsketch_item~backpack": {
+		"message": "bakpoki"
+	},
+	"speedsketch_item~banana": {
+		"message": "banani"
+	},
+	"speedsketch_item~bandage": {
+		"message": "plástur"
+	},
+	"speedsketch_item~barn": {
+		"message": "hlaða"
+	},
+	"speedsketch_item~baseball": {
+		"message": "hafnabolti"
+	},
+	"speedsketch_item~baseball bat": {
+		"message": "hafnaboltakylfa"
+	},
+	"speedsketch_item~basket": {
+		"message": "karfa"
+	},
+	"speedsketch_item~basketball": {
+		"message": "körfubolti"
+	},
+	"speedsketch_item~bat": {
+		"message": "leðurblaka"
+	},
+	"speedsketch_item~bathtub": {
+		"message": "baðkar"
+	},
+	"speedsketch_item~beach": {
+		"message": "strönd"
+	},
+	"speedsketch_item~bear": {
+		"message": "björn"
+	},
+	"speedsketch_item~beard": {
+		"message": "skegg"
+	},
+	"speedsketch_item~bed": {
+		"message": "rúm"
+	},
+	"speedsketch_item~bee": {
+		"message": "býfluga"
+	},
+	"speedsketch_item~belt": {
+		"message": "belti"
+	},
+	"speedsketch_item~bench": {
+		"message": "bekkur"
+	},
+	"speedsketch_item~bicycle": {
+		"message": "reiðhjól"
+	},
+	"speedsketch_item~binoculars": {
+		"message": "kíkir"
+	},
+	"speedsketch_item~bird": {
+		"message": "fugl"
+	},
+	"speedsketch_item~birthday cake": {
+		"message": "afmæliskaka"
+	},
+	"speedsketch_item~black": {
+		"message": "svartur"
+	},
+	"speedsketch_item~blackberry": {
+		"message": "brómber"
+	},
+	"speedsketch_item~blueberry": {
+		"message": "bláber"
+	},
+	"speedsketch_item~book": {
+		"message": "bók"
+	},
+	"speedsketch_item~boomerang": {
+		"message": "búmerang"
+	},
+	"speedsketch_item~boot": {
+		"message": "stígvél"
+	},
+	"speedsketch_item~bottlecap": {
+		"message": "flöskutappi"
+	},
+	"speedsketch_item~bowtie": {
+		"message": "þverslaufa"
+	},
+	"speedsketch_item~bracelet": {
+		"message": "armband"
+	},
+	"speedsketch_item~brain": {
+		"message": "heili"
+	},
+	"speedsketch_item~bread": {
+		"message": "brauð"
+	},
+	"speedsketch_item~bridge": {
+		"message": "brú"
+	},
+	"speedsketch_item~broccoli": {
+		"message": "brokkólí"
+	},
+	"speedsketch_item~broom": {
+		"message": "kústur"
+	},
+	"speedsketch_item~bucket": {
+		"message": "fata"
+	},
+	"speedsketch_item~bulldozer": {
+		"message": "jarðýta"
+	},
+	"speedsketch_item~bus": {
+		"message": "rúta"
+	},
+	"speedsketch_item~bush": {
+		"message": "runni"
+	},
+	"speedsketch_item~butterfly": {
+		"message": "fiðrildi"
+	},
+	"speedsketch_item~cactus": {
+		"message": "kaktus"
+	},
+	"speedsketch_item~cake": {
+		"message": "kaka"
+	},
+	"speedsketch_item~calculator": {
+		"message": "reiknivél"
+	},
+	"speedsketch_item~calendar": {
+		"message": "dagatal"
+	},
+	"speedsketch_item~camel": {
+		"message": "kameldýr"
+	},
+	"speedsketch_item~camera": {
+		"message": "myndavél"
+	},
+	"speedsketch_item~campfire": {
+		"message": "varðeldur"
+	},
+	"speedsketch_item~candle": {
+		"message": "kerti"
+	},
+	"speedsketch_item~candy": {
+		"message": "sælgæti"
+	},
+	"speedsketch_item~candy cane": {
+		"message": "piparmyntustafur"
+	},
+	"speedsketch_item~canoe": {
+		"message": "kanó"
+	},
+	"speedsketch_item~car": {
+		"message": "bíll"
+	},
+	"speedsketch_item~carrot": {
+		"message": "gulrót"
+	},
+	"speedsketch_item~castle": {
+		"message": "kastali"
+	},
+	"speedsketch_item~cat": {
+		"message": "köttur"
+	},
+	"speedsketch_item~ceiling fan": {
+		"message": "loftvifta"
+	},
+	"speedsketch_item~cell phone": {
+		"message": "farsími"
+	},
+	"speedsketch_item~cello": {
+		"message": "selló"
+	},
+	"speedsketch_item~chair": {
+		"message": "stóll"
+	},
+	"speedsketch_item~chandelier": {
+		"message": "ljósakróna"
+	},
+	"speedsketch_item~chemistry": {
+		"message": "efnafræði"
+	},
+	"speedsketch_item~cherry": {
+		"message": "kirsuber"
+	},
+	"speedsketch_item~child": {
+		"message": "barn"
+	},
+	"speedsketch_item~chimney": {
+		"message": "strompur"
+	},
+	"speedsketch_item~church": {
+		"message": "kirkja"
+	},
+	"speedsketch_item~circle": {
+		"message": "hringur"
+	},
+	"speedsketch_item~city": {
+		"message": "borg"
+	},
+	"speedsketch_item~clarinet": {
+		"message": "klarinett"
+	},
+	"speedsketch_item~clock": {
+		"message": "klukka"
+	},
+	"speedsketch_item~cloud": {
+		"message": "ský"
+	},
+	"speedsketch_item~cob of corn": {
+		"message": "maísköngull"
+	},
+	"speedsketch_item~coffee cup": {
+		"message": "kaffibolli"
+	},
+	"speedsketch_item~compass": {
+		"message": "áttaviti"
+	},
+	"speedsketch_item~computer": {
+		"message": "tölva"
+	},
+	"speedsketch_item~cookie": {
+		"message": "smákaka"
+	},
+	"speedsketch_item~cooler": {
+		"message": "kælir"
+	},
+	"speedsketch_item~couch": {
+		"message": "sófi"
+	},
+	"speedsketch_item~cow": {
+		"message": "kýr"
+	},
+	"speedsketch_item~crab": {
+		"message": "krabbi"
+	},
+	"speedsketch_item~crayon": {
+		"message": "vaxlitur"
+	},
+	"speedsketch_item~crocodile": {
+		"message": "krókódíll"
+	},
+	"speedsketch_item~crow": {
+		"message": "kráka"
+	},
+	"speedsketch_item~crown": {
+		"message": "kóróna"
+	},
+	"speedsketch_item~cruise ship": {
+		"message": "skemmtiferðaskip"
+	},
+	"speedsketch_item~cube": {
+		"message": "teningur"
+	},
+	"speedsketch_item~cup": {
+		"message": "bolli"
+	},
+	"speedsketch_item~darts": {
+		"message": "pílukast"
+	},
+	"speedsketch_item~diamond": {
+		"message": "demantur"
+	},
+	"speedsketch_item~diamond ring": {
+		"message": "demantshringur"
+	},
+	"speedsketch_item~dishwasher": {
+		"message": "uppþvottavél"
+	},
+	"speedsketch_item~diving board": {
+		"message": "stökkbretti"
+	},
+	"speedsketch_item~dog": {
+		"message": "hundur"
+	},
+	"speedsketch_item~dolphin": {
+		"message": "höfrungur"
+	},
+	"speedsketch_item~donut": {
+		"message": "kleinuhringur"
+	},
+	"speedsketch_item~door": {
+		"message": "hurð"
+	},
+	"speedsketch_item~dragon": {
+		"message": "dreki"
+	},
+	"speedsketch_item~dresser": {
+		"message": "klæðnaður"
+	},
+	"speedsketch_item~drill": {
+		"message": "bor"
+	},
+	"speedsketch_item~drums": {
+		"message": "trommur"
+	},
+	"speedsketch_item~duck": {
+		"message": "önd"
+	},
+	"speedsketch_item~dumbbell": {
+		"message": "handlóð"
+	},
+	"speedsketch_item~ear": {
+		"message": "eyra"
+	},
+	"speedsketch_item~egg": {
+		"message": "Egg"
+	},
+	"speedsketch_item~elbow": {
+		"message": "olnbogi"
+	},
+	"speedsketch_item~elephant": {
+		"message": "fíll"
+	},
+	"speedsketch_item~elf": {
+		"message": "álfur"
+	},
+	"speedsketch_item~emoji": {
+		"message": "emoji-tákn"
+	},
+	"speedsketch_item~envelope": {
+		"message": "umslag"
+	},
+	"speedsketch_item~eraser": {
+		"message": "strokleður"
+	},
+	"speedsketch_item~eye": {
+		"message": "auga"
+	},
+	"speedsketch_item~eyeglasses": {
+		"message": "gleraugu"
+	},
+	"speedsketch_item~face": {
+		"message": "andlit"
+	},
+	"speedsketch_item~family": {
+		"message": "fjölskylda"
+	},
+	"speedsketch_item~fan": {
+		"message": "vifta"
+	},
+	"speedsketch_item~feather": {
+		"message": "fjöður"
+	},
+	"speedsketch_item~fence": {
+		"message": "girðing"
+	},
+	"speedsketch_item~finger": {
+		"message": "fingur"
+	},
+	"speedsketch_item~fire hydrant": {
+		"message": "brunahani"
+	},
+	"speedsketch_item~fireplace": {
+		"message": "arinn"
+	},
+	"speedsketch_item~firetruck": {
+		"message": "brunabíll"
+	},
+	"speedsketch_item~fish": {
+		"message": "fiskur"
+	},
+	"speedsketch_item~flag": {
+		"message": "flagg"
+	},
+	"speedsketch_item~flamingo": {
+		"message": "flamingói"
+	},
+	"speedsketch_item~flashlight": {
+		"message": "vasaljós"
+	},
+	"speedsketch_item~flip flops": {
+		"message": "sandalar"
+	},
+	"speedsketch_item~floor lamp": {
+		"message": "standlampi"
+	},
+	"speedsketch_item~floppy disk": {
+		"message": "disketta"
+	},
+	"speedsketch_item~flower": {
+		"message": "blóm"
+	},
+	"speedsketch_item~flying saucer": {
+		"message": "fljúgandi furðuhlutur"
+	},
+	"speedsketch_item~fog": {
+		"message": "þoka"
+	},
+	"speedsketch_item~foot": {
+		"message": "fótur"
+	},
+	"speedsketch_item~fork": {
+		"message": "gaffall"
+	},
+	"speedsketch_item~french fries": {
+		"message": "franskar kartöflur"
+	},
+	"speedsketch_item~fried egg": {
+		"message": "spælt egg"
+	},
+	"speedsketch_item~frog": {
+		"message": "froskur"
+	},
+	"speedsketch_item~frying pan": {
+		"message": "steikarpanna"
+	},
+	"speedsketch_item~galaxy": {
+		"message": "stjörnuþoka"
+	},
+	"speedsketch_item~garden": {
+		"message": "garður"
+	},
+	"speedsketch_item~garden hose": {
+		"message": "garðslanga"
+	},
+	"speedsketch_item~ghost": {
+		"message": "draugur"
+	},
+	"speedsketch_item~gingerbread man": {
+		"message": "piparkökudrengurinn"
+	},
+	"speedsketch_item~giraffe": {
+		"message": "gíraffi"
+	},
+	"speedsketch_item~goat": {
+		"message": "geit"
+	},
+	"speedsketch_item~goatee": {
+		"message": "hökutoppur"
+	},
+	"speedsketch_item~golf club": {
+		"message": "golfkylfa"
+	},
+	"speedsketch_item~grapes": {
+		"message": "vínber"
+	},
+	"speedsketch_item~grass": {
+		"message": "gras"
+	},
+	"speedsketch_item~group": {
+		"message": "hópur"
+	},
+	"speedsketch_item~guitar": {
+		"message": "gítar"
+	},
+	"speedsketch_item~hamburger": {
+		"message": "hamborgari"
+	},
+	"speedsketch_item~hammer": {
+		"message": "hamar"
+	},
+	"speedsketch_item~hand": {
+		"message": "hönd"
+	},
+	"speedsketch_item~happiness": {
+		"message": "hamingja"
+	},
+	"speedsketch_item~harp": {
+		"message": "harpa"
+	},
+	"speedsketch_item~hat": {
+		"message": "hattur"
+	},
+	"speedsketch_item~headphones": {
+		"message": "heyrnartól"
+	},
+	"speedsketch_item~heart": {
+		"message": "hjarta"
+	},
+	"speedsketch_item~hedgehog": {
+		"message": "broddgöltur"
+	},
+	"speedsketch_item~helicopter": {
+		"message": "þyrla"
+	},
+	"speedsketch_item~helmet": {
+		"message": "hjálmur"
+	},
+	"speedsketch_item~hexagon": {
+		"message": "sexhyrningur"
+	},
+	"speedsketch_item~hockey puck": {
+		"message": "hokkípökkur"
+	},
+	"speedsketch_item~hockey stick": {
+		"message": "hokkíkylfa"
+	},
+	"speedsketch_item~holiday lights": {
+		"message": "jólaljós"
+	},
+	"speedsketch_item~horse": {
+		"message": "hestur"
+	},
+	"speedsketch_item~hospital": {
+		"message": "sjúkrahús"
+	},
+	"speedsketch_item~hot air balloon": {
+		"message": "loftbelgur"
+	},
+	"speedsketch_item~hot dog": {
+		"message": "pylsa"
+	},
+	"speedsketch_item~hot tub": {
+		"message": "heitur pottur"
+	},
+	"speedsketch_item~hourglass": {
+		"message": "stundaglas"
+	},
+	"speedsketch_item~house": {
+		"message": "hús"
+	},
+	"speedsketch_item~house plant": {
+		"message": "pottaplanta"
+	},
+	"speedsketch_item~hurricane": {
+		"message": "fellibylur"
+	},
+	"speedsketch_item~ice cream": {
+		"message": "rjómaís"
+	},
+	"speedsketch_item~ice skater": {
+		"message": "skautahlaupari"
+	},
+	"speedsketch_item~infinity": {
+		"message": "Óendanlegt"
+	},
+	"speedsketch_item~island": {
+		"message": "Eyja"
+	},
+	"speedsketch_item~jacket": {
+		"message": "jakki"
+	},
+	"speedsketch_item~jetpack": {
+		"message": "þotugræja"
+	},
+	"speedsketch_item~jingle bells": {
+		"message": "Jólabjöllur"
+	},
+	"speedsketch_item~kangaroo": {
+		"message": "kengúra"
+	},
+	"speedsketch_item~key": {
+		"message": "lykill"
+	},
+	"speedsketch_item~keyboard": {
+		"message": "lyklaborð"
+	},
+	"speedsketch_item~kite": {
+		"message": "flugdreki"
+	},
+	"speedsketch_item~knee": {
+		"message": "hné"
+	},
+	"speedsketch_item~knife": {
+		"message": "hnífur"
+	},
+	"speedsketch_item~knot": {
+		"message": "hnútur"
+	},
+	"speedsketch_item~koala": {
+		"message": "kóalabjörn"
+	},
+	"speedsketch_item~ladder": {
+		"message": "stigi"
+	},
+	"speedsketch_item~landscape": {
+		"message": "landslag"
+	},
+	"speedsketch_item~lantern": {
+		"message": "lukt"
+	},
+	"speedsketch_item~laptop": {
+		"message": "fartölva"
+	},
+	"speedsketch_item~leaf": {
+		"message": "lauf"
+	},
+	"speedsketch_item~leg": {
+		"message": "fótleggur"
+	},
+	"speedsketch_item~light bulb": {
+		"message": "ljósapera"
+	},
+	"speedsketch_item~lighter": {
+		"message": "kveikjari"
+	},
+	"speedsketch_item~lighthouse": {
+		"message": "viti"
+	},
+	"speedsketch_item~lightning": {
+		"message": "elding"
+	},
+	"speedsketch_item~line": {
+		"message": "lína"
+	},
+	"speedsketch_item~lion": {
+		"message": "ljón"
+	},
+	"speedsketch_item~lipstick": {
+		"message": "varalitur"
+	},
+	"speedsketch_item~lobster": {
+		"message": "humar"
+	},
+	"speedsketch_item~lollipop": {
+		"message": "sleikipinni"
+	},
+	"speedsketch_item~love": {
+		"message": "ást"
+	},
+	"speedsketch_item~mailbox": {
+		"message": "póstkassi"
+	},
+	"speedsketch_item~man": {
+		"message": "karl"
+	},
+	"speedsketch_item~map": {
+		"message": "kort"
+	},
+	"speedsketch_item~marker": {
+		"message": "túss"
+	},
+	"speedsketch_item~matches": {
+		"message": "eldspýtur"
+	},
+	"speedsketch_item~mathematics": {
+		"message": "stærðfræði"
+	},
+	"speedsketch_item~megaphone": {
+		"message": "gjallarhorn"
+	},
+	"speedsketch_item~mermaid": {
+		"message": "hafmeyja"
+	},
+	"speedsketch_item~metal": {
+		"message": "málmur"
+	},
+	"speedsketch_item~microphone": {
+		"message": "hljóðnemi"
+	},
+	"speedsketch_item~microscope": {
+		"message": "smásjá"
+	},
+	"speedsketch_item~microwave": {
+		"message": "örbylgjuofn"
+	},
+	"speedsketch_item~mistletoe": {
+		"message": "mistilteinn"
+	},
+	"speedsketch_item~mittens": {
+		"message": "vettlingar"
+	},
+	"speedsketch_item~molecule": {
+		"message": "sameind"
+	},
+	"speedsketch_item~money": {
+		"message": "peningar"
+	},
+	"speedsketch_item~monkey": {
+		"message": "api"
+	},
+	"speedsketch_item~moon": {
+		"message": "tungl"
+	},
+	"speedsketch_item~mosquito": {
+		"message": "moskítófluga"
+	},
+	"speedsketch_item~motorbike": {
+		"message": "mótorhjól"
+	},
+	"speedsketch_item~mountain": {
+		"message": "fjall"
+	},
+	"speedsketch_item~mouse": {
+		"message": "mús"
+	},
+	"speedsketch_item~moustache": {
+		"message": "yfirvararskegg"
+	},
+	"speedsketch_item~mouth": {
+		"message": "munnur"
+	},
+	"speedsketch_item~mug": {
+		"message": "bolli"
+	},
+	"speedsketch_item~mushroom": {
+		"message": "sveppur"
+	},
+	"speedsketch_item~music": {
+		"message": "tónlist"
+	},
+	"speedsketch_item~nail": {
+		"message": "nagli"
+	},
+	"speedsketch_item~nature": {
+		"message": "náttúra"
+	},
+	"speedsketch_item~necklace": {
+		"message": "hálsmen"
+	},
+	"speedsketch_item~news": {
+		"message": "fréttir"
+	},
+	"speedsketch_item~nose": {
+		"message": "nef"
+	},
+	"speedsketch_item~nutcracker": {
+		"message": "hnotubrjótur"
+	},
+	"speedsketch_item~ocean": {
+		"message": "haf"
+	},
+	"speedsketch_item~octagon": {
+		"message": "átthyrningur"
+	},
+	"speedsketch_item~octopus": {
+		"message": "kolkrabbi"
+	},
+	"speedsketch_item~onion": {
+		"message": "laukur"
+	},
+	"speedsketch_item~ornament": {
+		"message": "skraut"
+	},
+	"speedsketch_item~oven": {
+		"message": "ofn"
+	},
+	"speedsketch_item~owl": {
+		"message": "ugla"
+	},
+	"speedsketch_item~paint can": {
+		"message": "málningardós"
+	},
+	"speedsketch_item~paintbrush": {
+		"message": "pensill"
+	},
+	"speedsketch_item~painting": {
+		"message": "málun"
+	},
+	"speedsketch_item~palm tree": {
+		"message": "pálmatré"
+	},
+	"speedsketch_item~panda": {
+		"message": "pandabjörn"
+	},
+	"speedsketch_item~pants": {
+		"message": "buxur"
+	},
+	"speedsketch_item~paper clip": {
+		"message": "bréfaklemma"
+	},
+	"speedsketch_item~parachute": {
+		"message": "fallhlíf"
+	},
+	"speedsketch_item~parrot": {
+		"message": "páfagaukur"
+	},
+	"speedsketch_item~passport": {
+		"message": "vegabréf"
+	},
+	"speedsketch_item~peanut": {
+		"message": "jarðhneta"
+	},
+	"speedsketch_item~pear": {
+		"message": "pera"
+	},
+	"speedsketch_item~peas": {
+		"message": "baunir"
+	},
+	"speedsketch_item~pencil": {
+		"message": "blýantur"
+	},
+	"speedsketch_item~penguin": {
+		"message": "mörgæs"
+	},
+	"speedsketch_item~peppermint": {
+		"message": "piparmynta"
+	},
+	"speedsketch_item~piano": {
+		"message": "píanó"
+	},
+	"speedsketch_item~pickup truck": {
+		"message": "pallbíll"
+	},
+	"speedsketch_item~picture frame": {
+		"message": "myndarammi"
+	},
+	"speedsketch_item~pie chart": {
+		"message": "skífurit"
+	},
+	"speedsketch_item~pig": {
+		"message": "svín"
+	},
+	"speedsketch_item~pillow": {
+		"message": "koddi"
+	},
+	"speedsketch_item~pineapple": {
+		"message": "ananas"
+	},
+	"speedsketch_item~ping pong": {
+		"message": "borðtennis"
+	},
+	"speedsketch_item~pirate": {
+		"message": "sjóræningi"
+	},
+	"speedsketch_item~pizza": {
+		"message": "pítsa"
+	},
+	"speedsketch_item~pliers": {
+		"message": "töng"
+	},
+	"speedsketch_item~police car": {
+		"message": "lögreglubíll"
+	},
+	"speedsketch_item~politician": {
+		"message": "stjórnmálamaður"
+	},
+	"speedsketch_item~pond": {
+		"message": "tjörn"
+	},
+	"speedsketch_item~pool": {
+		"message": "sundlaug"
+	},
+	"speedsketch_item~popsicle": {
+		"message": "íspinni"
+	},
+	"speedsketch_item~portrait": {
+		"message": "andlitsmynd"
+	},
+	"speedsketch_item~postcard": {
+		"message": "póstkort"
+	},
+	"speedsketch_item~potato": {
+		"message": "kartafla"
+	},
+	"speedsketch_item~present": {
+		"message": "gjöf"
+	},
+	"speedsketch_item~prison": {
+		"message": "fangelsi"
+	},
+	"speedsketch_item~purse": {
+		"message": "veski"
+	},
+	"speedsketch_item~rabbit": {
+		"message": "kanína"
+	},
+	"speedsketch_item~raccoon": {
+		"message": "þvottabjörn"
+	},
+	"speedsketch_item~radio": {
+		"message": "útvarp"
+	},
+	"speedsketch_item~rain": {
+		"message": "rigning"
+	},
+	"speedsketch_item~rainbow": {
+		"message": "regnbogi"
+	},
+	"speedsketch_item~rake": {
+		"message": "hrífa"
+	},
+	"speedsketch_item~raven": {
+		"message": "hrafn"
+	},
+	"speedsketch_item~reindeer": {
+		"message": "hreindýr"
+	},
+	"speedsketch_item~remote control": {
+		"message": "fjarstýring"
+	},
+	"speedsketch_item~rhinoceros": {
+		"message": "nashyrningur"
+	},
+	"speedsketch_item~ribbon": {
+		"message": "borði"
+	},
+	"speedsketch_item~river": {
+		"message": "á"
+	},
+	"speedsketch_item~robot": {
+		"message": "vélmenni"
+	},
+	"speedsketch_item~roller coaster": {
+		"message": "rússíbani"
+	},
+	"speedsketch_item~rollerskates": {
+		"message": "hjólaskautar"
+	},
+	"speedsketch_item~sadness": {
+		"message": "dapurleiki"
+	},
+	"speedsketch_item~sailboat": {
+		"message": "seglskúta"
+	},
+	"speedsketch_item~sandwich": {
+		"message": "samloka"
+	},
+	"speedsketch_item~santa claus": {
+		"message": "Jólasveinninn"
+	},
+	"speedsketch_item~saturn": {
+		"message": "satúrnus"
+	},
+	"speedsketch_item~sausage": {
+		"message": "pylsa"
+	},
+	"speedsketch_item~saw": {
+		"message": "sög"
+	},
+	"speedsketch_item~saxophone": {
+		"message": "saxófónn"
+	},
+	"speedsketch_item~school bus": {
+		"message": "skólabíll"
+	},
+	"speedsketch_item~scissors": {
+		"message": "skæri"
+	},
+	"speedsketch_item~scorpion": {
+		"message": "sporðdreki"
+	},
+	"speedsketch_item~screw": {
+		"message": "skrúfa"
+	},
+	"speedsketch_item~screwdriver": {
+		"message": "skrúfjárn"
+	},
+	"speedsketch_item~sculpture": {
+		"message": "höggmynd"
+	},
+	"speedsketch_item~sea turtle": {
+		"message": "sjóskjaldbaka"
+	},
+	"speedsketch_item~see saw": {
+		"message": "vegasalt"
+	},
+	"speedsketch_item~shark": {
+		"message": "hákarl"
+	},
+	"speedsketch_item~sheep": {
+		"message": "kind"
+	},
+	"speedsketch_item~shoe": {
+		"message": "skór"
+	},
+	"speedsketch_item~shorts": {
+		"message": "stuttbuxur"
+	},
+	"speedsketch_item~shovel": {
+		"message": "skófla"
+	},
+	"speedsketch_item~sink": {
+		"message": "vaskur"
+	},
+	"speedsketch_item~skateboard": {
+		"message": "hjólabretti"
+	},
+	"speedsketch_item~ski": {
+		"message": "skíði"
+	},
+	"speedsketch_item~skier": {
+		"message": "skíðamanneskja"
+	},
+	"speedsketch_item~skirt": {
+		"message": "pils"
+	},
+	"speedsketch_item~skull": {
+		"message": "hauskúpa"
+	},
+	"speedsketch_item~skyscraper": {
+		"message": "skýjakljúfur"
+	},
+	"speedsketch_item~sled": {
+		"message": "sleði"
+	},
+	"speedsketch_item~sleeping bag": {
+		"message": "svefnpoki"
+	},
+	"speedsketch_item~sleigh": {
+		"message": "sleði"
+	},
+	"speedsketch_item~smiley face": {
+		"message": "broskarl"
+	},
+	"speedsketch_item~snail": {
+		"message": "snigill"
+	},
+	"speedsketch_item~snake": {
+		"message": "snákur"
+	},
+	"speedsketch_item~snorkel": {
+		"message": "snorklgræjur"
+	},
+	"speedsketch_item~snowflake": {
+		"message": "snjókorn"
+	},
+	"speedsketch_item~snowman": {
+		"message": "snjókarl"
+	},
+	"speedsketch_item~soccer ball": {
+		"message": "fótbolti"
+	},
+	"speedsketch_item~sock": {
+		"message": "sokkur"
+	},
+	"speedsketch_item~speedboat": {
+		"message": "hraðbátur"
+	},
+	"speedsketch_item~sphere": {
+		"message": "kúla"
+	},
+	"speedsketch_item~spider": {
+		"message": "kónguló"
+	},
+	"speedsketch_item~spiral": {
+		"message": "spírall"
+	},
+	"speedsketch_item~spoon": {
+		"message": "skeið"
+	},
+	"speedsketch_item~spreadsheet": {
+		"message": "töflureiknir"
+	},
+	"speedsketch_item~square": {
+		"message": "ferningur"
+	},
+	"speedsketch_item~squirrel": {
+		"message": "íkorni"
+	},
+	"speedsketch_item~stairs": {
+		"message": "stigi"
+	},
+	"speedsketch_item~star": {
+		"message": "stjarna"
+	},
+	"speedsketch_item~steak": {
+		"message": "steik"
+	},
+	"speedsketch_item~stereo": {
+		"message": "hljómflutningstæki"
+	},
+	"speedsketch_item~stethoscope": {
+		"message": "hlustunarpípa"
+	},
+	"speedsketch_item~still life": {
+		"message": "kyrralíf"
+	},
+	"speedsketch_item~stocking": {
+		"message": "sokkar"
+	},
+	"speedsketch_item~stop sign": {
+		"message": "stöðvunarskilti"
+	},
+	"speedsketch_item~stopwatch": {
+		"message": "skeiðklukka"
+	},
+	"speedsketch_item~stove": {
+		"message": "eldavél"
+	},
+	"speedsketch_item~strawberry": {
+		"message": "jarðarber"
+	},
+	"speedsketch_item~streetlight": {
+		"message": "ljósastaur"
+	},
+	"speedsketch_item~string bean": {
+		"message": "strengjabaun"
+	},
+	"speedsketch_item~submarine": {
+		"message": "kafbátur"
+	},
+	"speedsketch_item~suitcase": {
+		"message": "ferðataska"
+	},
+	"speedsketch_item~sun": {
+		"message": "sól"
+	},
+	"speedsketch_item~sunset": {
+		"message": "sólarlag"
+	},
+	"speedsketch_item~swan": {
+		"message": "svanur"
+	},
+	"speedsketch_item~sweater": {
+		"message": "peysa"
+	},
+	"speedsketch_item~swing set": {
+		"message": "róla"
+	},
+	"speedsketch_item~t-shirt": {
+		"message": "stuttermabolur"
+	},
+	"speedsketch_item~table": {
+		"message": "borð"
+	},
+	"speedsketch_item~teapot": {
+		"message": "teketill"
+	},
+	"speedsketch_item~teddy-bear": {
+		"message": "bangsi"
+	},
+	"speedsketch_item~telephone": {
+		"message": "sími"
+	},
+	"speedsketch_item~television": {
+		"message": "sjónvarp"
+	},
+	"speedsketch_item~tennis racquet": {
+		"message": "tennisspaði"
+	},
+	"speedsketch_item~tent": {
+		"message": "tjald"
+	},
+	"speedsketch_item~tic tac toe game": {
+		"message": "mylla"
+	},
+	"speedsketch_item~tiger": {
+		"message": "tígrisdýr"
+	},
+	"speedsketch_item~time": {
+		"message": "tími"
+	},
+	"speedsketch_item~toaster": {
+		"message": "ristavél"
+	},
+	"speedsketch_item~toe": {
+		"message": "tá"
+	},
+	"speedsketch_item~toilet": {
+		"message": "klósett"
+	},
+	"speedsketch_item~tooth": {
+		"message": "tönn"
+	},
+	"speedsketch_item~toothbrush": {
+		"message": "tannbursti"
+	},
+	"speedsketch_item~toothpaste": {
+		"message": "tannkrem"
+	},
+	"speedsketch_item~tornado": {
+		"message": "hvirfilbylur"
+	},
+	"speedsketch_item~tractor": {
+		"message": "dráttarvél"
+	},
+	"speedsketch_item~traffic light": {
+		"message": "umferðarljós"
+	},
+	"speedsketch_item~train": {
+		"message": "lest"
+	},
+	"speedsketch_item~tree": {
+		"message": "tré"
+	},
+	"speedsketch_item~triangle": {
+		"message": "þríhyrningur"
+	},
+	"speedsketch_item~tricycle": {
+		"message": "þríhjól"
+	},
+	"speedsketch_item~trombone": {
+		"message": "básúna"
+	},
+	"speedsketch_item~trousers": {
+		"message": "buxur"
+	},
+	"speedsketch_item~truck": {
+		"message": "vörubíll"
+	},
+	"speedsketch_item~trumpet": {
+		"message": "trompet"
+	},
+	"speedsketch_item~umbrella": {
+		"message": "regnhlíf"
+	},
+	"speedsketch_item~underwear": {
+		"message": "nærföt"
+	},
+	"speedsketch_item~unicorn": {
+		"message": "einhyrningur"
+	},
+	"speedsketch_item~universe": {
+		"message": "alheimur"
+	},
+	"speedsketch_item~van": {
+		"message": "sendiferðabíll"
+	},
+	"speedsketch_item~vase": {
+		"message": "vasi"
+	},
+	"speedsketch_item~violin": {
+		"message": "fiðla"
+	},
+	"speedsketch_item~walnut": {
+		"message": "Valhneta"
+	},
+	"speedsketch_item~washing machine": {
+		"message": "þvottavél"
+	},
+	"speedsketch_item~watermelon": {
+		"message": "vatnsmelóna"
+	},
+	"speedsketch_item~waterslide": {
+		"message": "vatnsrennibraut"
+	},
+	"speedsketch_item~wave": {
+		"message": "alda"
+	},
+	"speedsketch_item~whale": {
+		"message": "hvalur"
+	},
+	"speedsketch_item~windmill": {
+		"message": "vindmylla"
+	},
+	"speedsketch_item~woman": {
+		"message": "kona"
+	},
+	"speedsketch_item~world": {
+		"message": "heimur"
+	},
+	"speedsketch_item~wreath": {
+		"message": "blómakrans"
+	},
+	"speedsketch_item~wristwatch": {
+		"message": "úr"
+	},
+	"speedsketch_item~yoga": {
+		"message": "jóga"
+	},
+	"speedsketch_item~yoghurt": {
+		"message": "jógúrt"
+	},
+	"speedsketch_item~zebra": {
+		"message": "sebrahestur"
+	},
+	"speedsketch_item~zigzag": {
+		"message": "sikk-sakk"
+	},
+	"speedsketch_item~zipper": {
+		"message": "rennilás"
+	},
+	"sr_country_name": {
+		"message": "Súrínam"
+	},
+	"sv_country_name": {
+		"message": "El Salvador"
+	},
+	"sv_language_name": {
+		"message": "sænska"
+	},
+	"td_country_name": {
+		"message": "Tsjad"
+	},
+	"terms-and-privacy": {
+		"message": "Skilmálar og persónuvernd"
+	},
+	"tg_country_name": {
+		"message": "Tógó"
+	},
+	"th_language_name": {
+		"message": "taílenska"
+	},
+	"tilt": {
+		"message": "Hallaðu tækinu!"
+	},
+	"time": {
+		"message": "Tími"
+	},
+	"tj_country_name": {
+		"message": "Tadjíkistan"
+	},
+	"tm_country_name": {
+		"message": "Túrkmenistan"
+	},
+	"tn_country_name": {
+		"message": "Túnis"
+	},
+	"today_only": {
+		"message": "Aðeins í dag"
+	},
+	"tr_country_name": {
+		"message": "Tyrkland"
+	},
+	"tr_language_name": {
+		"message": "tyrkneska"
+	},
+	"tracker_arrival": {
+		"message": "Koma"
+	},
+	"tracker_arriving_in": {
+		"message": "Kemur eftir"
+	},
+	"tracker_current_stop": {
+		"message": "Núverandi stopp"
+	},
+	"tracker_departing_in": {
+		"message": "Fer eftir"
+	},
+	"tracker_distance_away_km": {
+		"message": "Sveinki er {{distance_away}} km í burtu"
+	},
+	"tracker_distance_from_you": {
+		"message": "Fjarlægð frá þér"
+	},
+	"tracker_distance_travelled": {
+		"message": "Farin vegalengd"
+	},
+	"tracker_feed": {
+		"message": "Straumur í beinni"
+	},
+	"tracker_flight_nearby": {
+		"message": "Sveinki er í grenndinni, sjáðu hvar hann er"
+	},
+	"tracker_flight_start": {
+		"message": "Sveinki er farinn frá Norðurpólnum og þú getur nú fylgst með ferðum hans"
+	},
+	"tracker_from_google": {
+		"message": "Frá okkur öllum hjá Google"
+	},
+	"tracker_gifts_delivered": {
+		"message": "Afhentar gjafir"
+	},
+	"tracker_intro_skip_intro": {
+		"message": "Sleppa kynningu"
+	},
+	"tracker_intro_user_location": {
+		"message": "Þú ert hér:"
+	},
+	"tracker_just_in": {
+		"message": "Þetta var að berast"
+	},
+	"tracker_next_stop": {
+		"message": "Næsta stöð"
+	},
+	"tracker_santa_update": {
+		"message": "FRÉTTIR AF SVEINKA"
+	},
+	"tracker_santa_update_1": {
+		"message": "Fréttir af Sveinka"
+	},
+	"tracker_see_route": {
+		"message": "Sjáðu leiðina"
+	},
+	"tracker_stats": {
+		"message": "Sveinkatölfræði"
+	},
+	"tracker_time_from_you_many": {
+		"message": "Sveinki mun koma eftir um {{hours}} klukkustundir"
+	},
+	"tracker_time_from_you_one": {
+		"message": "Sveinki kemur brátt"
+	},
+	"tracker_track": {
+		"message": "Fylgjast með jólasveininum"
+	},
+	"tracker_travelogue": {
+		"message": "Ferðasaga"
+	},
+	"tracker_weather": {
+		"message": "Veður"
+	},
+	"tracker_world_facts": {
+		"message": "VISSIR ÞÚ"
+	},
+	"tracker_world_facts_1": {
+		"message": "Staðreyndir um heiminn"
+	},
+	"tracker_your_location": {
+		"message": "Staðsetningin þín"
+	},
+	"traditions-next": {
+		"message": "Næsta hefð"
+	},
+	"traditions-prev": {
+		"message": "Fyrri hefð"
+	},
+	"traditions-world": {
+		"message": "Heimur"
+	},
+	"trivia_beginner_001": {
+		"message": "Andesfjöllin eru í hvaða heimsálfu?"
+	},
+	"trivia_beginner_001_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_001_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_001_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_002": {
+		"message": "Hvaða ríki í Bandaríkjunum er samsett af átta megineyjum?"
+	},
+	"trivia_beginner_002_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_beginner_002_answer1": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_002_answer2": {
+		"message": "Arkansas"
+	},
+	"trivia_beginner_003": {
+		"message": "Hvaða ríki í Bandaríkjunum er á Sléttunum miklu?"
+	},
+	"trivia_beginner_003_answer0": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_003_answer1": {
+		"message": "Delaware"
+	},
+	"trivia_beginner_003_answer2": {
+		"message": "Idaho"
+	},
+	"trivia_beginner_004": {
+		"message": "Hvaða álfa liggur að Atlants-, Kyrra- og Norðuríshafinu?"
+	},
+	"trivia_beginner_004_answer0": {
+		"message": "Asía"
+	},
+	"trivia_beginner_004_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_004_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_005": {
+		"message": "Hvaða land er staðsett þar sem er Kyrrahafstími?"
+	},
+	"trivia_beginner_005_answer0": {
+		"message": "Kalifornía"
+	},
+	"trivia_beginner_005_answer1": {
+		"message": "Georgía"
+	},
+	"trivia_beginner_005_answer2": {
+		"message": "Indiana"
+	},
+	"trivia_beginner_006": {
+		"message": "Bæði Atlasfjöllin og Kalahari-eyðimörkin eru í hvaða álfu?"
+	},
+	"trivia_beginner_006_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_006_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_006_answer2": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_007": {
+		"message": "Hvaða ríki í Bandaríkjunum liggur að Vötnunum miklu?"
+	},
+	"trivia_beginner_007_answer0": {
+		"message": "Ohio"
+	},
+	"trivia_beginner_007_answer1": {
+		"message": "Montana"
+	},
+	"trivia_beginner_007_answer2": {
+		"message": "Nýja-Mexíkó"
+	},
+	"trivia_beginner_008": {
+		"message": "Flestir í hvaða heimsálfu tala annað hvort spænsku eða portúgölsku?"
+	},
+	"trivia_beginner_008_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_008_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_008_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_009": {
+		"message": "Hvaða ríki í Bandaríkjunum er að hluta í laginu eins og pönnuskaft?"
+	},
+	"trivia_beginner_009_answer0": {
+		"message": "Oklahoma"
+	},
+	"trivia_beginner_009_answer1": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_009_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_beginner_010": {
+		"message": "Suðurheimskautslandið og hvaða önnur heimsálfa eru algerlega á suðurhveli jarðar?"
+	},
+	"trivia_beginner_010_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_010_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_010_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_011": {
+		"message": "Ronnie ísbreiðan er í hvaða álfu?"
+	},
+	"trivia_beginner_011_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_011_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_011_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_012": {
+		"message": "Vancouver-eyja og Kodiak-eyja eru fyrir undan vesturströnd hvaða álfu?"
+	},
+	"trivia_beginner_012_answer0": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_012_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_012_answer2": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_013": {
+		"message": "Níger er land þar sem einna örust fólksfjölgun er í heiminum. Landið er staðsett í norðvesturhluta hvaða álfu?"
+	},
+	"trivia_beginner_013_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_013_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_013_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_014": {
+		"message": "Hvaða heimsálfa hefur fæstar plöntur og tré?"
+	},
+	"trivia_beginner_014_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_014_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_014_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_015": {
+		"message": "Tasmaníudjöflar eiga heimkynni sín á eyju undan suðurströnd hvaða heimsálfu?"
+	},
+	"trivia_beginner_015_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_015_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_015_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_016": {
+		"message": "Skakki turninn í Pisa er vinsæll ferðamannastaður í hvaða Miðjarðarhafslandi?"
+	},
+	"trivia_beginner_016_answer0": {
+		"message": "Ítalía"
+	},
+	"trivia_beginner_016_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_beginner_016_answer2": {
+		"message": "Gana"
+	},
+	"trivia_beginner_017": {
+		"message": "Casablanca og Trípólí eru sögufrægar borgir við norðurströnd hvaða álfu?"
+	},
+	"trivia_beginner_017_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_017_answer1": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_017_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_018": {
+		"message": "Saguaro kaktu má finna í Sonora-eyðimörkinni í hvaða heimsálfu?"
+	},
+	"trivia_beginner_018_answer0": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_018_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_018_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_019": {
+		"message": "Veracruz og Acapúlco eru vinsælir áfangastaðir í hvaða landi?"
+	},
+	"trivia_beginner_019_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_beginner_019_answer1": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_019_answer2": {
+		"message": "Indland"
+	},
+	"trivia_beginner_020": {
+		"message": "Verndarsvæði pandabjarna í Sichuan er heimkynni 30% af öllum pandabjörnum í heiminum. Í hvaða landi er verndarsvæðið?"
+	},
+	"trivia_beginner_020_answer0": {
+		"message": "Kína"
+	},
+	"trivia_beginner_020_answer1": {
+		"message": "Ísland"
+	},
+	"trivia_beginner_020_answer2": {
+		"message": "Eþíópía"
+	},
+	"trivia_beginner_021": {
+		"message": "Um 90 prósent allrar ísbreiðu heimsins má finna í hvaða heimsálfu?"
+	},
+	"trivia_beginner_021_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_021_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_021_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_022": {
+		"message": "Englafossar, hæstu fossar í heimi, eru í hvaða heimsálfu?"
+	},
+	"trivia_beginner_022_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_022_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_022_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_023": {
+		"message": "Ef þú vilt fara til Jackson Hole og fara upp Devils Tower þarftu að fara til hvaða ríkis í Bandaríkjunum?"
+	},
+	"trivia_beginner_023_answer0": {
+		"message": "Wyoming"
+	},
+	"trivia_beginner_023_answer1": {
+		"message": "Norður-Dakóta"
+	},
+	"trivia_beginner_023_answer2": {
+		"message": "Connecticut"
+	},
+	"trivia_beginner_024": {
+		"message": "Ef þú vilt sjá hlynsafa framleiddan og fara á skíði í Green Mountains þarftu að ferðast til hvaða ríkis í Bandaríkjunum?"
+	},
+	"trivia_beginner_024_answer0": {
+		"message": "Vermont"
+	},
+	"trivia_beginner_024_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_beginner_024_answer2": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_025": {
+		"message": "Hvaða ríki í Bandaríkjunum myndirðu heimsækja til að keyra gegnum Chesapeake Bay brúna og ganga á göngubryggjunni í Ocean-borg?"
+	},
+	"trivia_beginner_025_answer0": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_025_answer1": {
+		"message": "Kansas"
+	},
+	"trivia_beginner_025_answer2": {
+		"message": "Norður-Karólína"
+	},
+	"trivia_beginner_026": {
+		"message": "Ef þú vilt skoða Mammoth-helli og fylgjast með veðhlaupum við Churchill Downs þarftu að ferðast til hvaða ríkis í Bandaríkjunum?"
+	},
+	"trivia_beginner_026_answer0": {
+		"message": "Kentucky"
+	},
+	"trivia_beginner_026_answer1": {
+		"message": "Vestur-Virginía"
+	},
+	"trivia_beginner_026_answer2": {
+		"message": "Utah"
+	},
+	"trivia_beginner_027": {
+		"message": "Í hvaða ríki Bandaríkjann má finna bæði risa sequoia-tré og eyjarnar við sundið?"
+	},
+	"trivia_beginner_027_answer0": {
+		"message": "Kalifornía"
+	},
+	"trivia_beginner_027_answer1": {
+		"message": "New Jersey"
+	},
+	"trivia_beginner_027_answer2": {
+		"message": "Virginía"
+	},
+	"trivia_beginner_028": {
+		"message": "Hvaða votlendi myndir þú heimsækja ef þú værir í Florída-ríki í Bandaríkjunum?"
+	},
+	"trivia_beginner_028_answer0": {
+		"message": "Everglades"
+	},
+	"trivia_beginner_028_answer1": {
+		"message": "Dismal-fenið"
+	},
+	"trivia_beginner_028_answer2": {
+		"message": "Great Cypress fenið"
+	},
+	"trivia_beginner_029": {
+		"message": "Ef þú vilt skoða St. Lawrence Seaway og Finger-vötn þarftu að ferðast til hvaða ríkis í Bandaríkjunum?"
+	},
+	"trivia_beginner_029_answer0": {
+		"message": "New York"
+	},
+	"trivia_beginner_029_answer1": {
+		"message": "Michigan"
+	},
+	"trivia_beginner_029_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_beginner_030": {
+		"message": "Everestfjall er hæsta fjall heims og er í hvaða álfu?"
+	},
+	"trivia_beginner_030_answer0": {
+		"message": "Asía"
+	},
+	"trivia_beginner_030_answer1": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_030_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_031": {
+		"message": "Patagónía nær yfir mikið af suðurhluta hvaða álfu?"
+	},
+	"trivia_beginner_031_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_031_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_031_answer2": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_032": {
+		"message": "Keisaramörgæsir eru í sínum náttúrulegu heimkynnum í hvaða álfu?"
+	},
+	"trivia_beginner_032_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_032_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_032_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_033": {
+		"message": "Kengúrur og kóalabirnir eiga heimkynni í hvaða landi?"
+	},
+	"trivia_beginner_033_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_033_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_033_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_034": {
+		"message": "Dýralífið laðar ferðamenn að Serengeti þjóðgarðinum sem er í hvaða álfu?"
+	},
+	"trivia_beginner_034_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_034_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_034_answer2": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_035": {
+		"message": "Hvaða heimsálfa nær yfir stærsta landsvæðið?"
+	},
+	"trivia_beginner_035_answer0": {
+		"message": "Asía"
+	},
+	"trivia_beginner_035_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_035_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_036": {
+		"message": "Tower-brúin liggur yfir ána Thames í hvaða Evrópuborg?"
+	},
+	"trivia_beginner_036_answer0": {
+		"message": "London"
+	},
+	"trivia_beginner_036_answer1": {
+		"message": "Havana"
+	},
+	"trivia_beginner_036_answer2": {
+		"message": "Höfðaborg"
+	},
+	"trivia_beginner_037": {
+		"message": "Dómkirkja heilags Basil er á Rauða torginu við hliðina á Kreml í hvaða rússnesku borg?"
+	},
+	"trivia_beginner_037_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_beginner_037_answer1": {
+		"message": "Brüssel"
+	},
+	"trivia_beginner_037_answer2": {
+		"message": "Montevideo"
+	},
+	"trivia_beginner_038": {
+		"message": "Colosseum var byggt á fyrstu öld eftir Krist sem hringleikahús þar sem þrælar skylmdu. Í hvaða Evrópuborg er hringleikahúsið?"
+	},
+	"trivia_beginner_038_answer0": {
+		"message": "Róm"
+	},
+	"trivia_beginner_038_answer1": {
+		"message": "Kartúm"
+	},
+	"trivia_beginner_038_answer2": {
+		"message": "Manila"
+	},
+	"trivia_beginner_039": {
+		"message": "Óperuhúsið og Harbour-brúin eru í hvaða áströlsku borg?"
+	},
+	"trivia_beginner_039_answer0": {
+		"message": "Sydney"
+	},
+	"trivia_beginner_039_answer1": {
+		"message": "Djakarta"
+	},
+	"trivia_beginner_039_answer2": {
+		"message": "Prag"
+	},
+	"trivia_beginner_040": {
+		"message": "Moskan á Musterishæðinni og Grátveggurinn eru bara tveir helgistaðir af mörgum sem finna má innan gömlu borgarveggjanna í hvaða borg í Mið-Austurlöndum?"
+	},
+	"trivia_beginner_040_answer0": {
+		"message": "Jerúsalem"
+	},
+	"trivia_beginner_040_answer1": {
+		"message": "Tókýó"
+	},
+	"trivia_beginner_040_answer2": {
+		"message": "Alsír"
+	},
+	"trivia_beginner_041": {
+		"message": "Parþenonhofið er efst á Akrópólishæð í hvaða borg í Grikklandi?"
+	},
+	"trivia_beginner_041_answer0": {
+		"message": "Aþena"
+	},
+	"trivia_beginner_041_answer1": {
+		"message": "Kíev"
+	},
+	"trivia_beginner_041_answer2": {
+		"message": "Lima"
+	},
+	"trivia_beginner_042": {
+		"message": "Eiffelturninn er nærri ánni Signu og af turninum má horfa yfir miðborg hvaða borgar í Frakklandi?"
+	},
+	"trivia_beginner_042_answer0": {
+		"message": "París"
+	},
+	"trivia_beginner_042_answer1": {
+		"message": "Toronto"
+	},
+	"trivia_beginner_042_answer2": {
+		"message": "Nýja-Delí"
+	},
+	"trivia_beginner_043": {
+		"message": "Moskan al-Haram er þar sem Kaaba, helgasta stað múslima, má finna í hvaða borg í Sádi-Arabíu?"
+	},
+	"trivia_beginner_043_answer0": {
+		"message": "Mekka"
+	},
+	"trivia_beginner_043_answer1": {
+		"message": "Buenos Aires"
+	},
+	"trivia_beginner_043_answer2": {
+		"message": "Búdapest"
+	},
+	"trivia_beginner_044": {
+		"message": "Forboðna borgin var áður höll keisarans og er staðsett í miðri hvaða kínversku borg?"
+	},
+	"trivia_beginner_044_answer0": {
+		"message": "Peking"
+	},
+	"trivia_beginner_044_answer1": {
+		"message": "Santiago"
+	},
+	"trivia_beginner_044_answer2": {
+		"message": "Brisbane"
+	},
+	"trivia_beginner_045": {
+		"message": "Geimnálin er útsýnisturn í hvaða borg sem staðsett er við Pugetsund?"
+	},
+	"trivia_beginner_045_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_beginner_045_answer1": {
+		"message": "Wichita"
+	},
+	"trivia_beginner_045_answer2": {
+		"message": "New Orleans"
+	},
+	"trivia_beginner_046": {
+		"message": "John Hancock turninn er hæsta byggingin í hvaða bandarísku borg sem staðsett er við óseyra Charles-ár?"
+	},
+	"trivia_beginner_046_answer0": {
+		"message": "Boston"
+	},
+	"trivia_beginner_046_answer1": {
+		"message": "Pittsburgh"
+	},
+	"trivia_beginner_046_answer2": {
+		"message": "Memphis"
+	},
+	"trivia_beginner_047": {
+		"message": "Stratosphere-turn sem er rétt norðan við fræga breiðgötu sem kallast the Strip telst vera hæsta bygging í hvaða bandarísku borg í Mojave eyðimörkinni?"
+	},
+	"trivia_beginner_047_answer0": {
+		"message": "Las Vegas"
+	},
+	"trivia_beginner_047_answer1": {
+		"message": "Minneapolis"
+	},
+	"trivia_beginner_047_answer2": {
+		"message": "Denver"
+	},
+	"trivia_beginner_048": {
+		"message": "Frelsisstyttan er stór stytta á Frelsiseyju í höfn hvaða borgar í Bandaríkjunum?"
+	},
+	"trivia_beginner_048_answer0": {
+		"message": "New York borg"
+	},
+	"trivia_beginner_048_answer1": {
+		"message": "Atlanta"
+	},
+	"trivia_beginner_048_answer2": {
+		"message": "Los Angeles"
+	},
+	"trivia_beginner_049": {
+		"message": "Golden Gate brúin tengir hvaða borg í Bandaríkjunum við Marin-skaga?"
+	},
+	"trivia_beginner_049_answer0": {
+		"message": "San Francisco"
+	},
+	"trivia_beginner_049_answer1": {
+		"message": "Boise"
+	},
+	"trivia_beginner_049_answer2": {
+		"message": "Baltimore"
+	},
+	"trivia_beginner_050": {
+		"message": "Gateway-bogann sem er minnismerki um útþenslu Bandaríkjanna til vesturs á 19. öldinni má finna við Mississippifljót í hvaða borg?"
+	},
+	"trivia_beginner_050_answer0": {
+		"message": "St. Louis"
+	},
+	"trivia_beginner_050_answer1": {
+		"message": "Indianapolis"
+	},
+	"trivia_beginner_050_answer2": {
+		"message": "Miami"
+	},
+	"trivia_beginner_051": {
+		"message": "Gisa-hásléttan, þar sem finna má Píramídann mikla og sfinxinn, er í hvaða Afríkuríki?"
+	},
+	"trivia_beginner_051_answer0": {
+		"message": "Egyptaland"
+	},
+	"trivia_beginner_051_answer1": {
+		"message": "Brasilía"
+	},
+	"trivia_beginner_051_answer2": {
+		"message": "Þýskaland"
+	},
+	"trivia_beginner_052": {
+		"message": "Independence Hall er mikilvægt sögulegt minnismerki tengt bandarísku byltingunni. Minnismerkið er staðsett nærri Delawarefljóti í hvaða bandarísku borg?"
+	},
+	"trivia_beginner_052_answer0": {
+		"message": "Fíladelfía"
+	},
+	"trivia_beginner_052_answer1": {
+		"message": "San Antonio"
+	},
+	"trivia_beginner_052_answer2": {
+		"message": "Chicago"
+	},
+	"trivia_beginner_053": {
+		"message": "Klettafjöllin liggja gegnum Kanada og hvaða annað land?"
+	},
+	"trivia_beginner_053_answer0": {
+		"message": "Bandaríkin"
+	},
+	"trivia_beginner_053_answer1": {
+		"message": "Venesúela"
+	},
+	"trivia_beginner_053_answer2": {
+		"message": "Rússland"
+	},
+	"trivia_beginner_054": {
+		"message": "Brasilía og Úrúgvæ liggja að hvaða hafi?"
+	},
+	"trivia_beginner_054_answer0": {
+		"message": "Atlantshafið"
+	},
+	"trivia_beginner_054_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_054_answer2": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_beginner_055": {
+		"message": "Eyjan Nýfundnaland er við austurströnd Kanada en við hvaða haf?"
+	},
+	"trivia_beginner_055_answer0": {
+		"message": "Atlantshafið"
+	},
+	"trivia_beginner_055_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_055_answer2": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_056": {
+		"message": "Eyjan Madagaskar er austan við Afríku í hvaða hafi?"
+	},
+	"trivia_beginner_056_answer0": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_056_answer1": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_056_answer2": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_beginner_057": {
+		"message": "Mest af alþjóðlegu daglínunni liggur eftir miðju hvaða hafs?"
+	},
+	"trivia_beginner_057_answer0": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_057_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_057_answer2": {
+		"message": "Atlantshafið"
+	},
+	"trivia_beginner_058": {
+		"message": "Miðbaugurinn liggur gegnum vatnasvæði Kongó í hvaða álfu?"
+	},
+	"trivia_beginner_058_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_058_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_058_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_059": {
+		"message": "Hvaða álfa liggur að Mexíkóflóa?"
+	},
+	"trivia_beginner_059_answer0": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_059_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_059_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_060": {
+		"message": "Hvaða fljót rennur gegnum Afríku og er lengsta fljót í heimi?"
+	},
+	"trivia_beginner_060_answer0": {
+		"message": "Nílarfljót"
+	},
+	"trivia_beginner_060_answer1": {
+		"message": "Colorado-fljótið"
+	},
+	"trivia_beginner_060_answer2": {
+		"message": "Orange-fljót"
+	},
+	"trivia_beginner_061": {
+		"message": "Hinar fornu rústir Machu Picchu eru í hvaða álfu?"
+	},
+	"trivia_beginner_061_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_061_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_061_answer2": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_062": {
+		"message": "Amasónfljót ber með sér meira vatn en nokkuð annað fljót í heiminum og rennur gegnum hvaða heimsálfu?"
+	},
+	"trivia_beginner_062_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_062_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_062_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_063": {
+		"message": "Mont Blanc er hæsti punktur Alpanna og er í hvaða álfu?"
+	},
+	"trivia_beginner_063_answer0": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_063_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_063_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_064": {
+		"message": "Panamaeiðið tengir Mið-Ameríku við hvaða álfu?"
+	},
+	"trivia_beginner_064_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_064_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_064_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_065": {
+		"message": "Blettatígrar eru fótfráustu landspendýr jarðarinnar og þau má finna í Kenía og Tansaníu í hvaða álfu?"
+	},
+	"trivia_beginner_065_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_065_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_065_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_066": {
+		"message": "Góðravonahöfði er við suðurodda hvaða álfu?"
+	},
+	"trivia_beginner_066_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_066_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_066_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_067": {
+		"message": "Risaskjaldbökur lifa á Galápagoseyjum sem eru vestur af Suður-Ameríku. Í hvaða hafi?"
+	},
+	"trivia_beginner_067_answer0": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_067_answer1": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_beginner_067_answer2": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_068": {
+		"message": "Dóna rennur gegnum Vín og aðrar borgir í hvaða álfu?"
+	},
+	"trivia_beginner_068_answer0": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_068_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_068_answer2": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_069": {
+		"message": "Eyjarnar Kúba og Hispanola eru báðar í hvaða hafi?"
+	},
+	"trivia_beginner_069_answer0": {
+		"message": "Karabíska hafið"
+	},
+	"trivia_beginner_069_answer1": {
+		"message": "Beringhaf"
+	},
+	"trivia_beginner_069_answer2": {
+		"message": "Eystrasalt"
+	},
+	"trivia_beginner_070": {
+		"message": "Gvæjanaflói er við hvaða heimsálfu?"
+	},
+	"trivia_beginner_070_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_070_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_070_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_071": {
+		"message": "Ernest Shackleton var frægur landkönnuður sem kannaði hvaða álfu?"
+	},
+	"trivia_beginner_071_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_071_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_071_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_072": {
+		"message": "Labradorhaf er hluti af hvaða hafi?"
+	},
+	"trivia_beginner_072_answer0": {
+		"message": "Atlantshafið"
+	},
+	"trivia_beginner_072_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_072_answer2": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_073": {
+		"message": "Sahara-eyðimörkin er stærsta eyðimörk í heiminum. Hún er í hvaða álfu?"
+	},
+	"trivia_beginner_073_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_073_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_073_answer2": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_074": {
+		"message": "Tíbethásléttan er í hvaða álfu?"
+	},
+	"trivia_beginner_074_answer0": {
+		"message": "Asía"
+	},
+	"trivia_beginner_074_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_074_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_075": {
+		"message": "Drake-sundið liggur sunnan við hvaða álfu?"
+	},
+	"trivia_beginner_075_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_beginner_075_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_075_answer2": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_076": {
+		"message": "Kóralrifið mikla er í Kóralhafinu fyrir utan strendur hvaða álfu?"
+	},
+	"trivia_beginner_076_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_beginner_076_answer1": {
+		"message": "Asía"
+	},
+	"trivia_beginner_076_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_077": {
+		"message": "Til að fara gegnum Súesskurðinn og að Borg hinna dauðu í Kaíró þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_077_answer0": {
+		"message": "Egyptaland"
+	},
+	"trivia_beginner_077_answer1": {
+		"message": "Kólumbía"
+	},
+	"trivia_beginner_077_answer2": {
+		"message": "Finnland"
+	},
+	"trivia_beginner_078": {
+		"message": "Ef þú vilt sjá kúreka reka nautgripi og horfa á tangódansara í Buenos Aires borg þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_078_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_beginner_078_answer1": {
+		"message": "Níger"
+	},
+	"trivia_beginner_078_answer2": {
+		"message": "Nepal"
+	},
+	"trivia_beginner_079": {
+		"message": "Ef þú vilt skoða gamla hluta borgarinnar Fez og prófa fjallgöngur í Atlasfjöllum þarftu að fara til hvaða lands?"
+	},
+	"trivia_beginner_079_answer0": {
+		"message": "Marokkó"
+	},
+	"trivia_beginner_079_answer1": {
+		"message": "Ekvador"
+	},
+	"trivia_beginner_079_answer2": {
+		"message": "Taíland"
+	},
+	"trivia_beginner_080": {
+		"message": "Ef þú vilt skoða fornar Majarústir og synda við ströndina í Cancún þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_080_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_beginner_080_answer1": {
+		"message": "Holland"
+	},
+	"trivia_beginner_080_answer2": {
+		"message": "Tyrkland"
+	},
+	"trivia_beginner_081": {
+		"message": "Ef þú vilt skoða dómkirkju heilags Patreks í Dyflinni og upplifa listahátíðina í Kilkenny þarftu að fara til hvaða lands?"
+	},
+	"trivia_beginner_081_answer0": {
+		"message": "Írland"
+	},
+	"trivia_beginner_081_answer1": {
+		"message": "Sómalía"
+	},
+	"trivia_beginner_081_answer2": {
+		"message": "Kosta Ríka"
+	},
+	"trivia_beginner_082": {
+		"message": "Ef þú vilt taka gönguferð um regnskóginn eða dansa á kjötkveðjuhátíðinni í Rio de Janeiro þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_082_answer0": {
+		"message": "Brasilía"
+	},
+	"trivia_beginner_082_answer1": {
+		"message": "Bretland"
+	},
+	"trivia_beginner_082_answer2": {
+		"message": "Víetnam"
+	},
+	"trivia_beginner_083": {
+		"message": "Ef þú vilt heimsækja Hermitage-safnið í Sankti Pétursborg og fara með Síberíuhraðlestinni þarftu að fara til hvaða land?"
+	},
+	"trivia_beginner_083_answer0": {
+		"message": "Rússland"
+	},
+	"trivia_beginner_083_answer1": {
+		"message": "Indónesía"
+	},
+	"trivia_beginner_083_answer2": {
+		"message": "Belís"
+	},
+	"trivia_beginner_084": {
+		"message": "Til að fara um borð í háhraða lestina og dvelja nótt í Tókýó þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_084_answer0": {
+		"message": "Japan"
+	},
+	"trivia_beginner_084_answer1": {
+		"message": "Simbabve"
+	},
+	"trivia_beginner_084_answer2": {
+		"message": "Bólivía"
+	},
+	"trivia_beginner_085": {
+		"message": "Ef þú vilt borða pestó í Genúa og fara í óperuna í Flórens þarftu að fara til hvaða lands?"
+	},
+	"trivia_beginner_085_answer0": {
+		"message": "Ítalía"
+	},
+	"trivia_beginner_085_answer1": {
+		"message": "Paragvæ"
+	},
+	"trivia_beginner_085_answer2": {
+		"message": "Líbýa"
+	},
+	"trivia_beginner_086": {
+		"message": "Ef þú vilt fara í dýralífsskoðun á Maasai Mara verndarsvæðinu eða versla í Naíróbí þarftu að ferðast til hvaða lands?"
+	},
+	"trivia_beginner_086_answer0": {
+		"message": "Kenía"
+	},
+	"trivia_beginner_086_answer1": {
+		"message": "Suður-Kórea"
+	},
+	"trivia_beginner_086_answer2": {
+		"message": "Chile"
+	},
+	"trivia_beginner_087": {
+		"message": "Ef þú vildir skoða Ganges-fljót og labba um fjölmenn strætin í Kolkata þyrftir þú að fara til hvaða lands?"
+	},
+	"trivia_beginner_087_answer0": {
+		"message": "Indland"
+	},
+	"trivia_beginner_087_answer1": {
+		"message": "Þýskaland"
+	},
+	"trivia_beginner_087_answer2": {
+		"message": "Jórdanía"
+	},
+	"trivia_beginner_088": {
+		"message": "Norðurpóllinn er nyrsti hluti jarðarinnar og er staðsettur í miðju hvaða hafs?"
+	},
+	"trivia_beginner_088_answer0": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_beginner_088_answer1": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_beginner_088_answer2": {
+		"message": "Indlandshaf"
+	},
+	"trivia_beginner_089": {
+		"message": "Hvaða land liggur að Atlantshafi?"
+	},
+	"trivia_beginner_089_answer0": {
+		"message": "Ísland"
+	},
+	"trivia_beginner_089_answer1": {
+		"message": "Pakistan"
+	},
+	"trivia_beginner_089_answer2": {
+		"message": "Japan"
+	},
+	"trivia_beginner_090": {
+		"message": "Hvaða ríki í Bandaríkjunum er kallað Sólskinsríkið vegna veðursældar og vinsælla strandlengja?"
+	},
+	"trivia_beginner_090_answer0": {
+		"message": "Flórída"
+	},
+	"trivia_beginner_090_answer1": {
+		"message": "Maine"
+	},
+	"trivia_beginner_090_answer2": {
+		"message": "Washington"
+	},
+	"trivia_beginner_091": {
+		"message": "Miklagljúfur er í hvaða ríki í Bandaríkjunum?"
+	},
+	"trivia_beginner_091_answer0": {
+		"message": "Arizona"
+	},
+	"trivia_beginner_091_answer1": {
+		"message": "Vestur-Virginía"
+	},
+	"trivia_beginner_091_answer2": {
+		"message": "Suður-Dakóta"
+	},
+	"trivia_beginner_092": {
+		"message": "Hvaða ríki í Bandaríkjunum kallast Einnar stjörnu ríkið og hefur eina stjörnu í fána sínum og var eitt sinn sjálfstætt ríki?"
+	},
+	"trivia_beginner_092_answer0": {
+		"message": "Texas"
+	},
+	"trivia_beginner_092_answer1": {
+		"message": "Wisconsin"
+	},
+	"trivia_beginner_092_answer2": {
+		"message": "Maryland"
+	},
+	"trivia_beginner_093": {
+		"message": "Tígris- og Evfrat-fljót eru í hvaða heimsálfu?"
+	},
+	"trivia_beginner_093_answer0": {
+		"message": "Asía"
+	},
+	"trivia_beginner_093_answer1": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_beginner_093_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_beginner_094": {
+		"message": "Viktoríuvatn og Virungafjöll eru í hvaða álfu?"
+	},
+	"trivia_beginner_094_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_beginner_094_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_beginner_094_answer2": {
+		"message": "Asía"
+	},
+	"trivia_beginner_095": {
+		"message": "Hvaða land er eyríki í Kyrrahafi?"
+	},
+	"trivia_beginner_095_answer0": {
+		"message": "Nýja-Sjáland"
+	},
+	"trivia_beginner_095_answer1": {
+		"message": "Suður-Afríka"
+	},
+	"trivia_beginner_095_answer2": {
+		"message": "Ísland"
+	},
+	"trivia_beginner_096": {
+		"message": "Hvaða land er á Skandinavíuskaga?"
+	},
+	"trivia_beginner_096_answer0": {
+		"message": "Svíþjóð"
+	},
+	"trivia_beginner_096_answer1": {
+		"message": "Rúmenía"
+	},
+	"trivia_beginner_096_answer2": {
+		"message": "Perú"
+	},
+	"trivia_beginner_097": {
+		"message": "Hvaða land liggur að Miðjarðarhafi?"
+	},
+	"trivia_beginner_097_answer0": {
+		"message": "Frakkland"
+	},
+	"trivia_beginner_097_answer1": {
+		"message": "Bangladess"
+	},
+	"trivia_beginner_097_answer2": {
+		"message": "Níkaragva"
+	},
+	"trivia_hard_001": {
+		"message": "Hvaða borg í Bandaríkjunum er næst landamærunum að Kanada?"
+	},
+	"trivia_hard_001_answer0": {
+		"message": "Seattle"
+	},
+	"trivia_hard_001_answer1": {
+		"message": "Sacramento"
+	},
+	"trivia_hard_001_answer2": {
+		"message": "Omaha"
+	},
+	"trivia_hard_002": {
+		"message": "Hvaða borg er líklegust til að verða fyrir fellibyl?"
+	},
+	"trivia_hard_002_answer0": {
+		"message": "Miami"
+	},
+	"trivia_hard_002_answer1": {
+		"message": "Los Angeles"
+	},
+	"trivia_hard_002_answer2": {
+		"message": "Pittsburgh"
+	},
+	"trivia_hard_003": {
+		"message": "Hvert af þessum stöðuvötnum er með stærsta yfirborðsflöt?"
+	},
+	"trivia_hard_003_answer0": {
+		"message": "Huron-vatn"
+	},
+	"trivia_hard_003_answer1": {
+		"message": "Mead-vatn"
+	},
+	"trivia_hard_003_answer2": {
+		"message": "Erie-vatn"
+	},
+	"trivia_hard_004": {
+		"message": "Hver af eftirtöldum borgum í Bandaríkjunum er fjölmennust?"
+	},
+	"trivia_hard_004_answer0": {
+		"message": "Chicago"
+	},
+	"trivia_hard_004_answer1": {
+		"message": "St. Louis"
+	},
+	"trivia_hard_004_answer2": {
+		"message": "Indianapolis"
+	},
+	"trivia_hard_005": {
+		"message": "Hvaða land er næst Persaflóa?"
+	},
+	"trivia_hard_005_answer0": {
+		"message": "Íran"
+	},
+	"trivia_hard_005_answer1": {
+		"message": "Tyrkland"
+	},
+	"trivia_hard_005_answer2": {
+		"message": "Bútan"
+	},
+	"trivia_hard_006": {
+		"message": "Hvert af þessum löndum hefur mest landsvæði?"
+	},
+	"trivia_hard_006_answer0": {
+		"message": "Kasakstan"
+	},
+	"trivia_hard_006_answer1": {
+		"message": "Rúmenía"
+	},
+	"trivia_hard_006_answer2": {
+		"message": "Pólland"
+	},
+	"trivia_hard_007": {
+		"message": "Hvert af þessum löndum er þéttbyggðast?"
+	},
+	"trivia_hard_007_answer0": {
+		"message": "Singapúr"
+	},
+	"trivia_hard_007_answer1": {
+		"message": "Laos"
+	},
+	"trivia_hard_007_answer2": {
+		"message": "Bólivía"
+	},
+	"trivia_hard_008": {
+		"message": "Hvert af eftirtöldum löndum hefur flesta þýskumælandi íbúa?"
+	},
+	"trivia_hard_008_answer0": {
+		"message": "Austurríki"
+	},
+	"trivia_hard_008_answer1": {
+		"message": "Slóvakía"
+	},
+	"trivia_hard_008_answer2": {
+		"message": "Írak"
+	},
+	"trivia_hard_009": {
+		"message": "Hvert þessara landa á landamæri að flestum löndum?"
+	},
+	"trivia_hard_009_answer0": {
+		"message": "Sádi-Arabía"
+	},
+	"trivia_hard_009_answer1": {
+		"message": "Marokkó"
+	},
+	"trivia_hard_009_answer2": {
+		"message": "Mongólía"
+	},
+	"trivia_hard_010": {
+		"message": "Hvaða land liggur ekki að Tanganyika-vatni?"
+	},
+	"trivia_hard_010_answer0": {
+		"message": "Benín"
+	},
+	"trivia_hard_010_answer1": {
+		"message": "Búrúndí"
+	},
+	"trivia_hard_010_answer2": {
+		"message": "Sambía"
+	},
+	"trivia_hard_011": {
+		"message": "Hvaða land liggur miðbaugurinn ekki um?"
+	},
+	"trivia_hard_011_answer0": {
+		"message": "Máritanía"
+	},
+	"trivia_hard_011_answer1": {
+		"message": "Indónesía"
+	},
+	"trivia_hard_011_answer2": {
+		"message": "Kenía"
+	},
+	"trivia_hard_012": {
+		"message": "Hvaða land er ekki á Balkanskaga?"
+	},
+	"trivia_hard_012_answer0": {
+		"message": "Tékkland"
+	},
+	"trivia_hard_012_answer1": {
+		"message": "Búlgaría"
+	},
+	"trivia_hard_012_answer2": {
+		"message": "Makedónía"
+	},
+	"trivia_hard_013": {
+		"message": "Hvaða land liggur ekki að Norðursjó?"
+	},
+	"trivia_hard_013_answer0": {
+		"message": "Finnland"
+	},
+	"trivia_hard_013_answer1": {
+		"message": "Danmörk"
+	},
+	"trivia_hard_013_answer2": {
+		"message": "Bretland"
+	},
+	"trivia_hard_014": {
+		"message": "Hvaða land liggur ekki að Svartahafi?"
+	},
+	"trivia_hard_014_answer0": {
+		"message": "Aserbaíjan"
+	},
+	"trivia_hard_014_answer1": {
+		"message": "Úkraína"
+	},
+	"trivia_hard_014_answer2": {
+		"message": "Tyrkland"
+	},
+	"trivia_hard_015": {
+		"message": "Hvaða land er ekki landlukt?"
+	},
+	"trivia_hard_015_answer0": {
+		"message": "Króatía"
+	},
+	"trivia_hard_015_answer1": {
+		"message": "Hvíta-Rússland"
+	},
+	"trivia_hard_015_answer2": {
+		"message": "Ungverjaland"
+	},
+	"trivia_hard_016": {
+		"message": "Hvaða land er ekki staðsett í Sahara-eyðimörkinni?"
+	},
+	"trivia_hard_016_answer0": {
+		"message": "Angóla"
+	},
+	"trivia_hard_016_answer1": {
+		"message": "Líbýa"
+	},
+	"trivia_hard_016_answer2": {
+		"message": "Alsír"
+	},
+	"trivia_hard_017": {
+		"message": "Hvaða eyja er lengst til austurs?"
+	},
+	"trivia_hard_017_answer0": {
+		"message": "Trinidad"
+	},
+	"trivia_hard_017_answer1": {
+		"message": "Jamaíka"
+	},
+	"trivia_hard_017_answer2": {
+		"message": "Kúba"
+	},
+	"trivia_hard_018": {
+		"message": "Cape Fear liggur hvar að vatni?"
+	},
+	"trivia_hard_018_answer0": {
+		"message": "Atlantshafið"
+	},
+	"trivia_hard_018_answer1": {
+		"message": "Karabíska hafið"
+	},
+	"trivia_hard_018_answer2": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_hard_019": {
+		"message": "Hvaða borg er hafnarborg við Mexíkóflóa?"
+	},
+	"trivia_hard_019_answer0": {
+		"message": "Veracruz"
+	},
+	"trivia_hard_019_answer1": {
+		"message": "Tijuana"
+	},
+	"trivia_hard_019_answer2": {
+		"message": "Acapulco"
+	},
+	"trivia_hard_020": {
+		"message": "Nyrðri hvarfbaugurinn liggur yfir hvaða land?"
+	},
+	"trivia_hard_020_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_hard_020_answer1": {
+		"message": "Kanada"
+	},
+	"trivia_hard_020_answer2": {
+		"message": "Brasilía"
+	},
+	"trivia_hard_021": {
+		"message": "Hver af þessum eyjum nær yfir mest landsvæði?"
+	},
+	"trivia_hard_021_answer0": {
+		"message": "Baffineyja"
+	},
+	"trivia_hard_021_answer1": {
+		"message": "Hispaniola"
+	},
+	"trivia_hard_021_answer2": {
+		"message": "Sardinía"
+	},
+	"trivia_hard_022": {
+		"message": "Yucatán-sund aðskilur Mexíkó og hvaða eyju?"
+	},
+	"trivia_hard_022_answer0": {
+		"message": "Kúba"
+	},
+	"trivia_hard_022_answer1": {
+		"message": "Púertó Ríkó"
+	},
+	"trivia_hard_022_answer2": {
+		"message": "Dóminíka"
+	},
+	"trivia_hard_023": {
+		"message": "Hvaða kanadíska borg er nyrst í landinu?"
+	},
+	"trivia_hard_023_answer0": {
+		"message": "Yellowknife"
+	},
+	"trivia_hard_023_answer1": {
+		"message": "Ottawa"
+	},
+	"trivia_hard_023_answer2": {
+		"message": "Winnipeg"
+	},
+	"trivia_hard_024": {
+		"message": "Hvaða eyja er hluti af Minni Antillaeyjum?"
+	},
+	"trivia_hard_024_answer0": {
+		"message": "St. Kitts"
+	},
+	"trivia_hard_024_answer1": {
+		"message": "Bermúdaeyjar"
+	},
+	"trivia_hard_024_answer2": {
+		"message": "Nova Scotia"
+	},
+	"trivia_hard_025": {
+		"message": "Port-au-Prince er fjölmennasta borg í hvaða landi?"
+	},
+	"trivia_hard_025_answer0": {
+		"message": "Haítí"
+	},
+	"trivia_hard_025_answer1": {
+		"message": "Níkaragva"
+	},
+	"trivia_hard_025_answer2": {
+		"message": "Súrínam"
+	},
+	"trivia_hard_026": {
+		"message": "Hvaða land er í Karpatafjöllum?"
+	},
+	"trivia_hard_026_answer0": {
+		"message": "Rúmenía"
+	},
+	"trivia_hard_026_answer1": {
+		"message": "Albanía"
+	},
+	"trivia_hard_026_answer2": {
+		"message": "Túrkmenistan"
+	},
+	"trivia_hard_027": {
+		"message": "Franska er opinbert tungumál í hvaða landi?"
+	},
+	"trivia_hard_027_answer0": {
+		"message": "Gabon"
+	},
+	"trivia_hard_027_answer1": {
+		"message": "Kúveit"
+	},
+	"trivia_hard_027_answer2": {
+		"message": "Tansanía"
+	},
+	"trivia_hard_028": {
+		"message": "Hvert af þessum löndum hefur stærsta landsvæðið?"
+	},
+	"trivia_hard_028_answer0": {
+		"message": "Íran"
+	},
+	"trivia_hard_028_answer1": {
+		"message": "Ísrael"
+	},
+	"trivia_hard_028_answer2": {
+		"message": "Barein"
+	},
+	"trivia_hard_029": {
+		"message": "Hvaða land spannar flestar lengdargráður?"
+	},
+	"trivia_hard_029_answer0": {
+		"message": "Kasakstan"
+	},
+	"trivia_hard_029_answer1": {
+		"message": "Afganistan"
+	},
+	"trivia_hard_029_answer2": {
+		"message": "Sýrland"
+	},
+	"trivia_hard_030": {
+		"message": "Hvaða land samanstendur af mörgum eyjum?"
+	},
+	"trivia_hard_030_answer0": {
+		"message": "Filippseyjar"
+	},
+	"trivia_hard_030_answer1": {
+		"message": "Kambódía"
+	},
+	"trivia_hard_030_answer2": {
+		"message": "Tadjíkistan"
+	},
+	"trivia_hard_031": {
+		"message": "Hvert af eftirtöldum löndum liggur yfir flest tímabelti?"
+	},
+	"trivia_hard_031_answer0": {
+		"message": "Brasilía"
+	},
+	"trivia_hard_031_answer1": {
+		"message": "Gana"
+	},
+	"trivia_hard_031_answer2": {
+		"message": "Belís"
+	},
+	"trivia_hard_032": {
+		"message": "Hvaða land nær lengst í norður?"
+	},
+	"trivia_hard_032_answer0": {
+		"message": "Kamerún"
+	},
+	"trivia_hard_032_answer1": {
+		"message": "Mósambík"
+	},
+	"trivia_hard_032_answer2": {
+		"message": "Ástralía"
+	},
+	"trivia_hard_033": {
+		"message": "Hvaða land er milli Frakklands og Spánar?"
+	},
+	"trivia_hard_033_answer0": {
+		"message": "Andorra"
+	},
+	"trivia_hard_033_answer1": {
+		"message": "Lúxemborg"
+	},
+	"trivia_hard_033_answer2": {
+		"message": "Páfagarður"
+	},
+	"trivia_hard_034": {
+		"message": "Danmörk liggur að hvaða landi?"
+	},
+	"trivia_hard_034_answer0": {
+		"message": "Þýskaland"
+	},
+	"trivia_hard_034_answer1": {
+		"message": "Finnland"
+	},
+	"trivia_hard_034_answer2": {
+		"message": "Moldóva"
+	},
+	"trivia_hard_035": {
+		"message": "Eyjan Sardinía tilheyrir hvaða landi?"
+	},
+	"trivia_hard_035_answer0": {
+		"message": "Ítalía"
+	},
+	"trivia_hard_035_answer1": {
+		"message": "Tyrkland"
+	},
+	"trivia_hard_035_answer2": {
+		"message": "Bretland"
+	},
+	"trivia_hard_036": {
+		"message": "Hvaða eyðimörk nær yfir stærsta hluta landsvæðisins milli Peking og Ulaanbaatar?"
+	},
+	"trivia_hard_036_answer0": {
+		"message": "Góbí"
+	},
+	"trivia_hard_036_answer1": {
+		"message": "Stóra Indlandseyðimörkin"
+	},
+	"trivia_hard_036_answer2": {
+		"message": "Líbýueyðimörkin"
+	},
+	"trivia_hard_037": {
+		"message": "Kamsjatkastraumurinn er hluti af hvaða hafi?"
+	},
+	"trivia_hard_037_answer0": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_hard_037_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_hard_037_answer2": {
+		"message": "Atlantshafið"
+	},
+	"trivia_hard_038": {
+		"message": "Sidra-flói er sunnanvert við hvaða haf?"
+	},
+	"trivia_hard_038_answer0": {
+		"message": "Miðjarðarhaf"
+	},
+	"trivia_hard_038_answer1": {
+		"message": "Arabíuhaf"
+	},
+	"trivia_hard_038_answer2": {
+		"message": "Eystrasalt"
+	},
+	"trivia_hard_039": {
+		"message": "Tatrafjöll eru hæsti hluti hvaða evrópska fjallgarðs?"
+	},
+	"trivia_hard_039_answer0": {
+		"message": "Karpatafjöll"
+	},
+	"trivia_hard_039_answer1": {
+		"message": "Cantabrian-fjöll"
+	},
+	"trivia_hard_039_answer2": {
+		"message": "Pýreneafjöllin"
+	},
+	"trivia_hard_040": {
+		"message": "Hvaða á rennur gegnum Kariba-vatn og myndar landamæri milli Sambíu og Simbabve?"
+	},
+	"trivia_hard_040_answer0": {
+		"message": "Sambesí-fljót"
+	},
+	"trivia_hard_040_answer1": {
+		"message": "Nílarfljót"
+	},
+	"trivia_hard_040_answer2": {
+		"message": "Kongófljót"
+	},
+	"trivia_hard_041": {
+		"message": "Árnar Thames, Meuse og Schelde renna allar í hvaða sjó?"
+	},
+	"trivia_hard_041_answer0": {
+		"message": "Norðursjór"
+	},
+	"trivia_hard_041_answer1": {
+		"message": "Miðjarðarhaf"
+	},
+	"trivia_hard_041_answer2": {
+		"message": "Svartahafið"
+	},
+	"trivia_hard_042": {
+		"message": "Luzon-sundið aðskilur Filippseyjar og hvaða stóru eyju til norðurs?"
+	},
+	"trivia_hard_042_answer0": {
+		"message": "Taívan"
+	},
+	"trivia_hard_042_answer1": {
+		"message": "Alsír"
+	},
+	"trivia_hard_042_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_hard_043": {
+		"message": "Hvaða eyjar liggja á Atlantshafshryggnum?"
+	},
+	"trivia_hard_043_answer0": {
+		"message": "Azoreyjar"
+	},
+	"trivia_hard_043_answer1": {
+		"message": "Bahamaeyjar"
+	},
+	"trivia_hard_043_answer2": {
+		"message": "Fídjieyjar"
+	},
+	"trivia_hard_044": {
+		"message": "Hvaða fljót rennur í Laptevhaf?"
+	},
+	"trivia_hard_044_answer0": {
+		"message": "Lena-fljót"
+	},
+	"trivia_hard_044_answer1": {
+		"message": "Yangtze-fljót"
+	},
+	"trivia_hard_044_answer2": {
+		"message": "Indus-fljót"
+	},
+	"trivia_hard_045": {
+		"message": "Hvaða tindur er næstur miðbaugnum?"
+	},
+	"trivia_hard_045_answer0": {
+		"message": "Kilimanjaro"
+	},
+	"trivia_hard_045_answer1": {
+		"message": "Mont Blanc"
+	},
+	"trivia_hard_045_answer2": {
+		"message": "McKinley-fjall"
+	},
+	"trivia_hard_046": {
+		"message": "Hvaða höfuðborg er fjölmennust?"
+	},
+	"trivia_hard_046_answer0": {
+		"message": "Moskva"
+	},
+	"trivia_hard_046_answer1": {
+		"message": "Helsinki"
+	},
+	"trivia_hard_046_answer2": {
+		"message": "Alsír"
+	},
+	"trivia_hard_047": {
+		"message": "Hvaða borg er við ána Liffey og telst stærsta borg í Lýðveldinu Írlandi?"
+	},
+	"trivia_hard_047_answer0": {
+		"message": "Dyflinni"
+	},
+	"trivia_hard_047_answer1": {
+		"message": "Osló"
+	},
+	"trivia_hard_047_answer2": {
+		"message": "Kaupmannahöfn"
+	},
+	"trivia_hard_048": {
+		"message": "Hvaða borg er í Hindu Kush dalnum og er stærsta borg Afganistan?"
+	},
+	"trivia_hard_048_answer0": {
+		"message": "Kabúl"
+	},
+	"trivia_hard_048_answer1": {
+		"message": "Sarajevó"
+	},
+	"trivia_hard_048_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_049": {
+		"message": "Hvaða borg, við Chao Phraya ána, er stærsta borg í Taílandi?"
+	},
+	"trivia_hard_049_answer0": {
+		"message": "Bangkok"
+	},
+	"trivia_hard_049_answer1": {
+		"message": "Peking"
+	},
+	"trivia_hard_049_answer2": {
+		"message": "Amman"
+	},
+	"trivia_hard_050": {
+		"message": "Hvaða borg er við fjörð í Skagerrak-sundi og telst stærsta borg Noregs?"
+	},
+	"trivia_hard_050_answer0": {
+		"message": "Osló"
+	},
+	"trivia_hard_050_answer1": {
+		"message": "London"
+	},
+	"trivia_hard_050_answer2": {
+		"message": "Brüssel"
+	},
+	"trivia_hard_051": {
+		"message": "Hvaða borg er við austanvert Miðjarðarhafið og telst stærsta borg Líbanon?"
+	},
+	"trivia_hard_051_answer0": {
+		"message": "Beirút"
+	},
+	"trivia_hard_051_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_hard_051_answer2": {
+		"message": "Ríad"
+	},
+	"trivia_hard_052": {
+		"message": "Hvaða borg er við strönd Java og telst stærsta borg í Indónesíu?"
+	},
+	"trivia_hard_052_answer0": {
+		"message": "Djakarta"
+	},
+	"trivia_hard_052_answer1": {
+		"message": "Tókýó"
+	},
+	"trivia_hard_052_answer2": {
+		"message": "Nairobi"
+	},
+	"trivia_hard_053": {
+		"message": "Hvaða borg er staðsett í Attíku-héraði og er stærsta borg Grikklands?"
+	},
+	"trivia_hard_053_answer0": {
+		"message": "Aþena"
+	},
+	"trivia_hard_053_answer1": {
+		"message": "Róm"
+	},
+	"trivia_hard_053_answer2": {
+		"message": "Barselóna"
+	},
+	"trivia_hard_054": {
+		"message": "Hvaða borg er við ármynni Río de la Plata og telst stærsta borg Úrúgvæ?"
+	},
+	"trivia_hard_054_answer0": {
+		"message": "Montevideo"
+	},
+	"trivia_hard_054_answer1": {
+		"message": "Quito"
+	},
+	"trivia_hard_054_answer2": {
+		"message": "Rio de Janeiro"
+	},
+	"trivia_hard_055": {
+		"message": "Hvaða borg var eitt sinn hluti af héraðinu Transvaal og telst stærsta borg Suður-Afríku?"
+	},
+	"trivia_hard_055_answer0": {
+		"message": "Jóhannesarborg"
+	},
+	"trivia_hard_055_answer1": {
+		"message": "Abuja"
+	},
+	"trivia_hard_055_answer2": {
+		"message": "Maputo"
+	},
+	"trivia_hard_056": {
+		"message": "Hvaða borg er mikilvæg hafnarborg í Karabíska hafinu og telst stærsta borg Jamaíku?"
+	},
+	"trivia_hard_056_answer0": {
+		"message": "Kingston"
+	},
+	"trivia_hard_056_answer1": {
+		"message": "Karakas"
+	},
+	"trivia_hard_056_answer2": {
+		"message": "Buenos Aires"
+	},
+	"trivia_hard_057": {
+		"message": "Hvaða borg er í Sigdalnum mikla og telst stærsta borg í Erítreu?"
+	},
+	"trivia_hard_057_answer0": {
+		"message": "Asmara"
+	},
+	"trivia_hard_057_answer1": {
+		"message": "Bagdad"
+	},
+	"trivia_hard_057_answer2": {
+		"message": "Brazzaville"
+	},
+	"trivia_hard_058": {
+		"message": "Hvaða borg við bakka Vistula-fljóts er stærsta borg Póllands?"
+	},
+	"trivia_hard_058_answer0": {
+		"message": "Varsjá"
+	},
+	"trivia_hard_058_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_hard_058_answer2": {
+		"message": "Kíev"
+	},
+	"trivia_hard_059": {
+		"message": "Hvaða borg er mikilvægur áfangastaður á Ameríkuhraðbrautinni og telst stærsta borg í Kosta Ríka?"
+	},
+	"trivia_hard_059_answer0": {
+		"message": "San José"
+	},
+	"trivia_hard_059_answer1": {
+		"message": "Lima"
+	},
+	"trivia_hard_059_answer2": {
+		"message": "Sucre"
+	},
+	"trivia_hard_060": {
+		"message": "Hvaða borg er mikilvæg viðskiptamiðstöð fyrir landbúnaðarvörur í sunnanverðri Afríku og telst stærsta borg Simbabve?"
+	},
+	"trivia_hard_060_answer0": {
+		"message": "Harare"
+	},
+	"trivia_hard_060_answer1": {
+		"message": "Windhoek"
+	},
+	"trivia_hard_060_answer2": {
+		"message": "Kampala"
+	},
+	"trivia_hard_061": {
+		"message": "Hvaða borg var eitt sinn aðsetur Rauðu kmeranna og telst stærsta borg Kambódíu?"
+	},
+	"trivia_hard_061_answer0": {
+		"message": "Phnom Penh"
+	},
+	"trivia_hard_061_answer1": {
+		"message": "Kuala Lumpur"
+	},
+	"trivia_hard_061_answer2": {
+		"message": "Dhaka"
+	},
+	"trivia_hard_062": {
+		"message": "Hvaða borg sem er við Atlantshafið, við Mesuradohöfða, er stærsta borgin í Líberíu?"
+	},
+	"trivia_hard_062_answer0": {
+		"message": "Monróvía"
+	},
+	"trivia_hard_062_answer1": {
+		"message": "Accra"
+	},
+	"trivia_hard_062_answer2": {
+		"message": "Lusaka"
+	},
+	"trivia_hard_063": {
+		"message": "Hvaða land er á hásléttu í Andesfjöllum og er stærsta borg Kólumbíu?"
+	},
+	"trivia_hard_063_answer0": {
+		"message": "Bogotá"
+	},
+	"trivia_hard_063_answer1": {
+		"message": "Managua"
+	},
+	"trivia_hard_063_answer2": {
+		"message": "Monterrey"
+	},
+	"trivia_hard_064": {
+		"message": "Hvaða borg er við hlíðar Elbursfjalla og telst stærsta borg Íran?"
+	},
+	"trivia_hard_064_answer0": {
+		"message": "Teheran"
+	},
+	"trivia_hard_064_answer1": {
+		"message": "Taskent"
+	},
+	"trivia_hard_064_answer2": {
+		"message": "Istanbúl"
+	},
+	"trivia_hard_065": {
+		"message": "Hvaða haf liggur heimskautsbaugurinn um?"
+	},
+	"trivia_hard_065_answer0": {
+		"message": "Noregshaf"
+	},
+	"trivia_hard_065_answer1": {
+		"message": "Volta-vatn"
+	},
+	"trivia_hard_065_answer2": {
+		"message": "Kaspíahaf"
+	},
+	"trivia_hard_066": {
+		"message": "Hvaða stöðuvatn er í Sigdalnum mikla?"
+	},
+	"trivia_hard_066_answer0": {
+		"message": "Malavívatn"
+	},
+	"trivia_hard_066_answer1": {
+		"message": "Tasmanhaf"
+	},
+	"trivia_hard_066_answer2": {
+		"message": "Titicaca-vatn"
+	},
+	"trivia_hard_067": {
+		"message": "Rússneska hafnarborgin Arkhangelsk liggur við strönd hvaða hafs?"
+	},
+	"trivia_hard_067_answer0": {
+		"message": "Hvítahaf"
+	},
+	"trivia_hard_067_answer1": {
+		"message": "Bass-sund"
+	},
+	"trivia_hard_067_answer2": {
+		"message": "Biskajaflói"
+	},
+	"trivia_hard_068": {
+		"message": "Hvaða land er með héruðin Hunan og Sjandong?"
+	},
+	"trivia_hard_068_answer0": {
+		"message": "Kína"
+	},
+	"trivia_hard_068_answer1": {
+		"message": "Taíland"
+	},
+	"trivia_hard_068_answer2": {
+		"message": "Jemen"
+	},
+	"trivia_hard_069": {
+		"message": "Kastilíska er opinbert tungumál hvaða Miðjarðarhafslands?"
+	},
+	"trivia_hard_069_answer0": {
+		"message": "Spánn"
+	},
+	"trivia_hard_069_answer1": {
+		"message": "Grikkland"
+	},
+	"trivia_hard_069_answer2": {
+		"message": "Aserbaíjan"
+	},
+	"trivia_hard_070": {
+		"message": "Hvaða land í Mið-Ameríku var eitt sinn hérað í Kólumbíu?"
+	},
+	"trivia_hard_070_answer0": {
+		"message": "Panama"
+	},
+	"trivia_hard_070_answer1": {
+		"message": "Hondúras"
+	},
+	"trivia_hard_070_answer2": {
+		"message": "Gvatemala"
+	},
+	"trivia_hard_071": {
+		"message": "Borgin Basel liggur við báða bakka Rínarfljóts og er mikilvæg samgöngumiðstöð í hvaða landi?"
+	},
+	"trivia_hard_071_answer0": {
+		"message": "Sviss"
+	},
+	"trivia_hard_071_answer1": {
+		"message": "Belgía"
+	},
+	"trivia_hard_071_answer2": {
+		"message": "Rússland"
+	},
+	"trivia_hard_072": {
+		"message": "Mymdlistarmenn eins og Cézanne fengu innblástur í Provence, sem er hérað í hvaða landi?"
+	},
+	"trivia_hard_072_answer0": {
+		"message": "Frakkland"
+	},
+	"trivia_hard_072_answer1": {
+		"message": "Holland"
+	},
+	"trivia_hard_072_answer2": {
+		"message": "Rúmenía"
+	},
+	"trivia_hard_073": {
+		"message": "Bahía Blanca er mikilvæg höfn fyrir Pampas-hérað í hvaða landi?"
+	},
+	"trivia_hard_073_answer0": {
+		"message": "Argentína"
+	},
+	"trivia_hard_073_answer1": {
+		"message": "Bólivía"
+	},
+	"trivia_hard_073_answer2": {
+		"message": "Níkaragva"
+	},
+	"trivia_hard_074": {
+		"message": "Hvaða land liggur að Miðjarðarhafi, Svartahafi og Eyjahafi?"
+	},
+	"trivia_hard_074_answer0": {
+		"message": "Tyrkland"
+	},
+	"trivia_hard_074_answer1": {
+		"message": "Búlgaría"
+	},
+	"trivia_hard_074_answer2": {
+		"message": "Líbýa"
+	},
+	"trivia_hard_075": {
+		"message": "Á hverju ári ferðast gnýir frá Tansaníu yfir Mara-fljót inn í hvaða nærliggjandi land sem liggur í norðaustri?"
+	},
+	"trivia_hard_075_answer0": {
+		"message": "Kenía"
+	},
+	"trivia_hard_075_answer1": {
+		"message": "Sambía"
+	},
+	"trivia_hard_075_answer2": {
+		"message": "Gínea"
+	},
+	"trivia_hard_076": {
+		"message": "Aleppo er fræg fyrir moskuna stóru og er stærsta borg í hvaða landi í suðvestanverðri Asíu?"
+	},
+	"trivia_hard_076_answer0": {
+		"message": "Sýrland"
+	},
+	"trivia_hard_076_answer1": {
+		"message": "Óman"
+	},
+	"trivia_hard_076_answer2": {
+		"message": "Bangladess"
+	},
+	"trivia_hard_077": {
+		"message": "Hvaða land á landamæri að Rússlandi og Georgíu?"
+	},
+	"trivia_hard_077_answer0": {
+		"message": "Aserbaíjan"
+	},
+	"trivia_hard_077_answer1": {
+		"message": "Úsbekistan"
+	},
+	"trivia_hard_077_answer2": {
+		"message": "Norður-Kórea"
+	},
+	"trivia_hard_078": {
+		"message": "Hvaða land á landamæri að Panama og Brasilíu?"
+	},
+	"trivia_hard_078_answer0": {
+		"message": "Kólumbía"
+	},
+	"trivia_hard_078_answer1": {
+		"message": "Perú"
+	},
+	"trivia_hard_078_answer2": {
+		"message": "Kosta Ríka"
+	},
+	"trivia_hard_079": {
+		"message": "Hvaða land liggur að landamærum Gvatemala og Bandaríkjanna?"
+	},
+	"trivia_hard_079_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_hard_079_answer1": {
+		"message": "El Salvador"
+	},
+	"trivia_hard_079_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_080": {
+		"message": "Hvaða land á landamæri að Írak og Afganistan?"
+	},
+	"trivia_hard_080_answer0": {
+		"message": "Íran"
+	},
+	"trivia_hard_080_answer1": {
+		"message": "Úkraína"
+	},
+	"trivia_hard_080_answer2": {
+		"message": "Mongólía"
+	},
+	"trivia_hard_081": {
+		"message": "Hvaða land á landamæri að Lesótó og Botsvana?"
+	},
+	"trivia_hard_081_answer0": {
+		"message": "Suður-Afríka"
+	},
+	"trivia_hard_081_answer1": {
+		"message": "Simbabve"
+	},
+	"trivia_hard_081_answer2": {
+		"message": "Kongó"
+	},
+	"trivia_hard_082": {
+		"message": "Antwerpen er í flæmska hluta hvaða lands?"
+	},
+	"trivia_hard_082_answer0": {
+		"message": "Belgía"
+	},
+	"trivia_hard_082_answer1": {
+		"message": "Holland"
+	},
+	"trivia_hard_082_answer2": {
+		"message": "Ísland"
+	},
+	"trivia_hard_083": {
+		"message": "Gdańsk er við óseyrar Vistula-fljóts og telst mikilvæg hafnarborg í hvaða Evrópulandi?"
+	},
+	"trivia_hard_083_answer0": {
+		"message": "Pólland"
+	},
+	"trivia_hard_083_answer1": {
+		"message": "Spánn"
+	},
+	"trivia_hard_083_answer2": {
+		"message": "Króatía"
+	},
+	"trivia_hard_084": {
+		"message": "Árnar Madeira og Purus er stórar aðrennslisár hvaða stórfljóts í Suður-Ameríku?"
+	},
+	"trivia_hard_084_answer0": {
+		"message": "Amasónfljótið"
+	},
+	"trivia_hard_084_answer1": {
+		"message": "Orinoco-fljót"
+	},
+	"trivia_hard_084_answer2": {
+		"message": "Paraná-fljót"
+	},
+	"trivia_hard_085": {
+		"message": "Constance-vatn liggur að Sviss, Þýskalandi og hvaða öðru landi?"
+	},
+	"trivia_hard_085_answer0": {
+		"message": "Austurríki"
+	},
+	"trivia_hard_085_answer1": {
+		"message": "Slóvakía"
+	},
+	"trivia_hard_085_answer2": {
+		"message": "Finnland"
+	},
+	"trivia_hard_086": {
+		"message": "Auckland er mikil hafnarborg og þar eru nokkrar hafnir. Borgin er stærsta borg í hvaða landi?"
+	},
+	"trivia_hard_086_answer0": {
+		"message": "Nýja-Sjáland"
+	},
+	"trivia_hard_086_answer1": {
+		"message": "Ástralía"
+	},
+	"trivia_hard_086_answer2": {
+		"message": "Indónesía"
+	},
+	"trivia_hard_087": {
+		"message": "Hvaða land er beint vestur af Tógó og er eitt helsta rætunarland á kakóbaunum?"
+	},
+	"trivia_hard_087_answer0": {
+		"message": "Gana"
+	},
+	"trivia_hard_087_answer1": {
+		"message": "Súdan"
+	},
+	"trivia_hard_087_answer2": {
+		"message": "Túnis"
+	},
+	"trivia_hard_088": {
+		"message": "Guaraní er heitið á einu opinberu tungumáli og einnig gjaldmiðli hvaða lands í Suður-Ameríku?"
+	},
+	"trivia_hard_088_answer0": {
+		"message": "Paragvæ"
+	},
+	"trivia_hard_088_answer1": {
+		"message": "Ekvador"
+	},
+	"trivia_hard_088_answer2": {
+		"message": "Brasilía"
+	},
+	"trivia_hard_089": {
+		"message": "Hvaða fjallgarður liggur milli landamæra Frakklands og Spánar?"
+	},
+	"trivia_hard_089_answer0": {
+		"message": "Pýreneafjöllin"
+	},
+	"trivia_hard_089_answer1": {
+		"message": "Apennine-fjöll"
+	},
+	"trivia_hard_089_answer2": {
+		"message": "Kákasusfjöll"
+	},
+	"trivia_hard_090": {
+		"message": "Torrensfljót rennur í Saint Vincent flóa í hvaða landi?"
+	},
+	"trivia_hard_090_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_hard_090_answer1": {
+		"message": "Úganda"
+	},
+	"trivia_hard_090_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_hard_091": {
+		"message": "Hvaða Afríkuland sem liggur að Miðjarðarhafi er konungsríki?"
+	},
+	"trivia_hard_091_answer0": {
+		"message": "Marokkó"
+	},
+	"trivia_hard_091_answer1": {
+		"message": "Egyptaland"
+	},
+	"trivia_hard_091_answer2": {
+		"message": "Mið-Afríkulýðveldið"
+	},
+	"trivia_hard_092": {
+		"message": "Tbilisi er við bakka Kura-fljóts og er höfuðborg hvaða lands?"
+	},
+	"trivia_hard_092_answer0": {
+		"message": "Georgía"
+	},
+	"trivia_hard_092_answer1": {
+		"message": "Sýrland"
+	},
+	"trivia_hard_092_answer2": {
+		"message": "Ungverjaland"
+	},
+	"trivia_hard_093": {
+		"message": "Abruzzo er fjallahérað við Adríahaf í hvaða landi?"
+	},
+	"trivia_hard_093_answer0": {
+		"message": "Ítalía"
+	},
+	"trivia_hard_093_answer1": {
+		"message": "Frakkland"
+	},
+	"trivia_hard_093_answer2": {
+		"message": "Lúxemborg"
+	},
+	"trivia_hard_094": {
+		"message": "Rígaflói liggur við landamæri Lettlands og hvaða annars lands?"
+	},
+	"trivia_hard_094_answer0": {
+		"message": "Eistland"
+	},
+	"trivia_hard_094_answer1": {
+		"message": "Hvíta-Rússland"
+	},
+	"trivia_hard_094_answer2": {
+		"message": "Spánn"
+	},
+	"trivia_hard_095": {
+		"message": "Jubal-sund tengir Súesflóa við hvaða haf?"
+	},
+	"trivia_hard_095_answer0": {
+		"message": "Rauðahafið"
+	},
+	"trivia_hard_095_answer1": {
+		"message": "Karabíska hafið"
+	},
+	"trivia_hard_095_answer2": {
+		"message": "Kaspíahaf"
+	},
+	"trivia_hard_096": {
+		"message": "Galíleuhaf fær mest sitt vatn úr hvaða á?"
+	},
+	"trivia_hard_096_answer0": {
+		"message": "Jórdaná"
+	},
+	"trivia_hard_096_answer1": {
+		"message": "Amu Darya"
+	},
+	"trivia_hard_096_answer2": {
+		"message": "Ganges-fljót"
+	},
+	"trivia_hard_097": {
+		"message": "Hvaða stóri flói skilur að New Brunswick og Noca Scotia?"
+	},
+	"trivia_hard_097_answer0": {
+		"message": "Fundy-flói"
+	},
+	"trivia_hard_097_answer1": {
+		"message": "Hudsonflói"
+	},
+	"trivia_hard_097_answer2": {
+		"message": "Bengalflói"
+	},
+	"trivia_hard_098": {
+		"message": "Dómkirkjan í Köln er í Rínarhéraði í hvaða landi?"
+	},
+	"trivia_hard_098_answer0": {
+		"message": "Þýskaland"
+	},
+	"trivia_hard_098_answer1": {
+		"message": "Danmörk"
+	},
+	"trivia_hard_098_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_099": {
+		"message": "Chiapas, þar sem finna má ýmsar ævafornar rústir Maja, er sunnanverðasta fylkið í hvaða landi?"
+	},
+	"trivia_hard_099_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_hard_099_answer1": {
+		"message": "Hondúras"
+	},
+	"trivia_hard_099_answer2": {
+		"message": "Chile"
+	},
+	"trivia_hard_100": {
+		"message": "Dardanella-sund er þröngt sund sem tengir Marmarahafið við hvaða haf?"
+	},
+	"trivia_hard_100_answer0": {
+		"message": "Eyjahaf"
+	},
+	"trivia_hard_100_answer1": {
+		"message": "Barentshaf"
+	},
+	"trivia_hard_100_answer2": {
+		"message": "Tasmanhaf"
+	},
+	"trivia_hard_101": {
+		"message": "Kmer er opinbert tungumál hvaða lands í Suðaustur-Asíu?"
+	},
+	"trivia_hard_101_answer0": {
+		"message": "Kambódía"
+	},
+	"trivia_hard_101_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_hard_101_answer2": {
+		"message": "Víetnam"
+	},
+	"trivia_hard_102": {
+		"message": "Donetsdældin er iðnaðarsvæði í Rússlandi og hvaða öðru landi?"
+	},
+	"trivia_hard_102_answer0": {
+		"message": "Úkraína"
+	},
+	"trivia_hard_102_answer1": {
+		"message": "Slóvakía"
+	},
+	"trivia_hard_102_answer2": {
+		"message": "Líbanon"
+	},
+	"trivia_hard_103": {
+		"message": "Kosciuszko-fjall er í Snjófjöllum og þar er hæsti tindur í hvaða heimsálfu?"
+	},
+	"trivia_hard_103_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_hard_103_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_hard_103_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_hard_104": {
+		"message": "Eyjarnar Madura og Balí tilheyra hvaða landi?"
+	},
+	"trivia_hard_104_answer0": {
+		"message": "Indónesía"
+	},
+	"trivia_hard_104_answer1": {
+		"message": "Japan"
+	},
+	"trivia_hard_104_answer2": {
+		"message": "Pakistan"
+	},
+	"trivia_hard_105": {
+		"message": "Taklimakan eyðimörkin er fyrir norðan Kunlunfjöll í hvaða Asíulandi?"
+	},
+	"trivia_hard_105_answer0": {
+		"message": "Kína"
+	},
+	"trivia_hard_105_answer1": {
+		"message": "Sádi-Arabía"
+	},
+	"trivia_hard_105_answer2": {
+		"message": "Suður-Kórea"
+	},
+	"trivia_medium_001": {
+		"message": "Hver af þessum borgum í Bandaríkjunum er staðsett við óseyrar?"
+	},
+	"trivia_medium_001_answer0": {
+		"message": "New Orleans"
+	},
+	"trivia_medium_001_answer1": {
+		"message": "Austin"
+	},
+	"trivia_medium_001_answer2": {
+		"message": "Oklahoma-borg"
+	},
+	"trivia_medium_002": {
+		"message": "Angkor Wat og Cappadocia eru á heimsminjaskrá UNESCO í hvaða álfu?"
+	},
+	"trivia_medium_002_answer0": {
+		"message": "Asía"
+	},
+	"trivia_medium_002_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_002_answer2": {
+		"message": "Afríka"
+	},
+	"trivia_medium_003": {
+		"message": "Fólk í suðvestanverðri álfunni talar kúrdísku og persnesku. Hver er álfan?"
+	},
+	"trivia_medium_003_answer0": {
+		"message": "Asía"
+	},
+	"trivia_medium_003_answer1": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_003_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_004": {
+		"message": "Teotihuacán var mikil miðstöð gamallar siðmenningar í hvaða heimsálfu?"
+	},
+	"trivia_medium_004_answer0": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_medium_004_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_medium_004_answer2": {
+		"message": "Asía"
+	},
+	"trivia_medium_005": {
+		"message": "Bellingshausenhaf og Rosshaf eru í hvaða álfu?"
+	},
+	"trivia_medium_005_answer0": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_medium_005_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_005_answer2": {
+		"message": "Asía"
+	},
+	"trivia_medium_006": {
+		"message": "Mósambík- og Benguela-straumarnir fara meðfram strönd hvaða álfu?"
+	},
+	"trivia_medium_006_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_medium_006_answer1": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_006_answer2": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_medium_007": {
+		"message": "Malvinaseyjar, einnig kallaðar Falklandseyjar eru undan suðausturströnd hvaða álfu?"
+	},
+	"trivia_medium_007_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_007_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_medium_007_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_008": {
+		"message": "Hvert af þessum Afríkulöndum hefur mest landsvæði?"
+	},
+	"trivia_medium_008_answer0": {
+		"message": "Alsír"
+	},
+	"trivia_medium_008_answer1": {
+		"message": "Gambía"
+	},
+	"trivia_medium_008_answer2": {
+		"message": "Búrúndí"
+	},
+	"trivia_medium_009": {
+		"message": "Hvaða stóra eyja er rúmlega 300 km fyrir norðvestan Ísland?"
+	},
+	"trivia_medium_009_answer0": {
+		"message": "Grænland"
+	},
+	"trivia_medium_009_answer1": {
+		"message": "Nýja-Gínea"
+	},
+	"trivia_medium_009_answer2": {
+		"message": "Írland"
+	},
+	"trivia_medium_010": {
+		"message": "Bæði Karahaf og Austur-Síberíuhafið eru hluti af hvaða hafi?"
+	},
+	"trivia_medium_010_answer0": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_medium_010_answer1": {
+		"message": "Indlandshaf"
+	},
+	"trivia_medium_010_answer2": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_medium_011": {
+		"message": "Hvaða land liggur að Eystrasalti?"
+	},
+	"trivia_medium_011_answer0": {
+		"message": "Lettland"
+	},
+	"trivia_medium_011_answer1": {
+		"message": "Slóvenía"
+	},
+	"trivia_medium_011_answer2": {
+		"message": "Úkraína"
+	},
+	"trivia_medium_012": {
+		"message": "Hver af þessum stórborgum er fjölmennust?"
+	},
+	"trivia_medium_012_answer0": {
+		"message": "Sao Paulo, Brasilía"
+	},
+	"trivia_medium_012_answer1": {
+		"message": "Toronto, Kanada"
+	},
+	"trivia_medium_012_answer2": {
+		"message": "Hanoi, Víetnam"
+	},
+	"trivia_medium_013": {
+		"message": "Hvaða land á ekki strandlengju að Atlantshafi?"
+	},
+	"trivia_medium_013_answer0": {
+		"message": "Malasía"
+	},
+	"trivia_medium_013_answer1": {
+		"message": "Angóla"
+	},
+	"trivia_medium_013_answer2": {
+		"message": "Úrúgvæ"
+	},
+	"trivia_medium_014": {
+		"message": "Hvert af eftiröldum hefur stystu strandlengjuna?"
+	},
+	"trivia_medium_014_answer0": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_014_answer1": {
+		"message": "Perú"
+	},
+	"trivia_medium_014_answer2": {
+		"message": "Chile"
+	},
+	"trivia_medium_015": {
+		"message": "Hvaða eyðimörk er í Asíu?"
+	},
+	"trivia_medium_015_answer0": {
+		"message": "Góbí"
+	},
+	"trivia_medium_015_answer1": {
+		"message": "Kalaharí"
+	},
+	"trivia_medium_015_answer2": {
+		"message": "Atacama"
+	},
+	"trivia_medium_016": {
+		"message": "Í hverju af eftirfarandi löndum er mest eldfjallavirkni?"
+	},
+	"trivia_medium_016_answer0": {
+		"message": "Indónesía"
+	},
+	"trivia_medium_016_answer1": {
+		"message": "Egyptaland"
+	},
+	"trivia_medium_016_answer2": {
+		"message": "Ísrael"
+	},
+	"trivia_medium_017": {
+		"message": "Hvert af þessum löndum er fjölmennast?"
+	},
+	"trivia_medium_017_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_017_answer1": {
+		"message": "Haítí"
+	},
+	"trivia_medium_017_answer2": {
+		"message": "Venesúela"
+	},
+	"trivia_medium_018": {
+		"message": "Hvert af þessum löndum hefur flestar eyjar?"
+	},
+	"trivia_medium_018_answer0": {
+		"message": "Bahamaeyjar"
+	},
+	"trivia_medium_018_answer1": {
+		"message": "Jamaíka"
+	},
+	"trivia_medium_018_answer2": {
+		"message": "El Salvador"
+	},
+	"trivia_medium_019": {
+		"message": "Hvaða land liggur næst miðbaugnum?"
+	},
+	"trivia_medium_019_answer0": {
+		"message": "Rúanda"
+	},
+	"trivia_medium_019_answer1": {
+		"message": "Gvatemala"
+	},
+	"trivia_medium_019_answer2": {
+		"message": "Suður-Afríka"
+	},
+	"trivia_medium_020": {
+		"message": "Hvaða land nær lengst í norður?"
+	},
+	"trivia_medium_020_answer0": {
+		"message": "Eistland"
+	},
+	"trivia_medium_020_answer1": {
+		"message": "Líbýa"
+	},
+	"trivia_medium_020_answer2": {
+		"message": "Kambódía"
+	},
+	"trivia_medium_021": {
+		"message": "Alfama-hverfið er í Portúgal, við bakka Tagusfljóts, í hvaða höfuðborg?"
+	},
+	"trivia_medium_021_answer0": {
+		"message": "Lissabon"
+	},
+	"trivia_medium_021_answer1": {
+		"message": "Berlín"
+	},
+	"trivia_medium_021_answer2": {
+		"message": "Helsinki"
+	},
+	"trivia_medium_022": {
+		"message": "Hvaða höfuðborg er um 40 km norðaustan við Dauðahaf og telst fjölmennasta borg Jórdaníu?"
+	},
+	"trivia_medium_022_answer0": {
+		"message": "Amman"
+	},
+	"trivia_medium_022_answer1": {
+		"message": "Islamabad"
+	},
+	"trivia_medium_022_answer2": {
+		"message": "Seúl"
+	},
+	"trivia_medium_023": {
+		"message": "Tahrir-torg þar sem mörg mótmæli hafa verið haldin í Egyptalandi er staðsett í hvaða höfuðborg?"
+	},
+	"trivia_medium_023_answer0": {
+		"message": "Kaíró"
+	},
+	"trivia_medium_023_answer1": {
+		"message": "Nairobi"
+	},
+	"trivia_medium_023_answer2": {
+		"message": "Muscat"
+	},
+	"trivia_medium_024": {
+		"message": "Hvaða höfuðborg er við Table-flóa og er aðsetur þjóðþings Suður-Afríku?"
+	},
+	"trivia_medium_024_answer0": {
+		"message": "Höfðaborg"
+	},
+	"trivia_medium_024_answer1": {
+		"message": "Lusaka"
+	},
+	"trivia_medium_024_answer2": {
+		"message": "Kinshasa"
+	},
+	"trivia_medium_025": {
+		"message": "Hvaða höfuðborg er við ána Vltava og telst stærsta borg í Tékklandi?"
+	},
+	"trivia_medium_025_answer0": {
+		"message": "Prag"
+	},
+	"trivia_medium_025_answer1": {
+		"message": "Dyflinni"
+	},
+	"trivia_medium_025_answer2": {
+		"message": "Sofía"
+	},
+	"trivia_medium_026": {
+		"message": "Hvaða höfuðborg er við Miðjarðarhaf og telst mikilvæg hafnarborg í Líbýu."
+	},
+	"trivia_medium_026_answer0": {
+		"message": "Trípólí"
+	},
+	"trivia_medium_026_answer1": {
+		"message": "Mogadishu"
+	},
+	"trivia_medium_026_answer2": {
+		"message": "Monróvía"
+	},
+	"trivia_medium_027": {
+		"message": "Hvaða höfuðborg er mikilvæg verslunar- og samgöngumiðstöð í Súdan og staðsett við ármót Hvítu Nílar og Bláu Nílar?"
+	},
+	"trivia_medium_027_answer0": {
+		"message": "Kartúm"
+	},
+	"trivia_medium_027_answer1": {
+		"message": "Túnis"
+	},
+	"trivia_medium_027_answer2": {
+		"message": "Jóhannesarborg"
+	},
+	"trivia_medium_028": {
+		"message": "Hvaða höfuðborg er á dönsku eyjunum Sjálandi og Amager?"
+	},
+	"trivia_medium_028_answer0": {
+		"message": "Kaupmannahöfn"
+	},
+	"trivia_medium_028_answer1": {
+		"message": "Bern"
+	},
+	"trivia_medium_028_answer2": {
+		"message": "Bratislava"
+	},
+	"trivia_medium_029": {
+		"message": "Hvaða höfuðborg er staðsett á eyjunni New Providence og er stærsta borg Bahamaeyja?"
+	},
+	"trivia_medium_029_answer0": {
+		"message": "Nassau"
+	},
+	"trivia_medium_029_answer1": {
+		"message": "Santo Domingo"
+	},
+	"trivia_medium_029_answer2": {
+		"message": "Belmopan"
+	},
+	"trivia_medium_030": {
+		"message": "Hvaða höfuðborg er sunnan við Svartahafið og er miðstöð samgöngukerfis Tyrklands?"
+	},
+	"trivia_medium_030_answer0": {
+		"message": "Ankara"
+	},
+	"trivia_medium_030_answer1": {
+		"message": "Minsk"
+	},
+	"trivia_medium_030_answer2": {
+		"message": "Teheran"
+	},
+	"trivia_medium_031": {
+		"message": "Hvert af þessum löndum er að hluta staðsett við Horn Afríku?"
+	},
+	"trivia_medium_031_answer0": {
+		"message": "Erítrea"
+	},
+	"trivia_medium_031_answer1": {
+		"message": "Níger"
+	},
+	"trivia_medium_031_answer2": {
+		"message": "Svasíland"
+	},
+	"trivia_medium_032": {
+		"message": "Skagerrak er skagi sem skilur að Danmörku og hvaða land?"
+	},
+	"trivia_medium_032_answer0": {
+		"message": "Noregur"
+	},
+	"trivia_medium_032_answer1": {
+		"message": "Bretland"
+	},
+	"trivia_medium_032_answer2": {
+		"message": "Srí Lanka"
+	},
+	"trivia_medium_033": {
+		"message": "Hvaða land hefur meira landsvæði sem er eyðimörk?"
+	},
+	"trivia_medium_033_answer0": {
+		"message": "Tsjad"
+	},
+	"trivia_medium_033_answer1": {
+		"message": "Noregur"
+	},
+	"trivia_medium_033_answer2": {
+		"message": "Víetnam"
+	},
+	"trivia_medium_034": {
+		"message": "Evfratfljót rennur gegnum hvaða land?"
+	},
+	"trivia_medium_034_answer0": {
+		"message": "Sýrland"
+	},
+	"trivia_medium_034_answer1": {
+		"message": "Sviss"
+	},
+	"trivia_medium_034_answer2": {
+		"message": "Taíland"
+	},
+	"trivia_medium_035": {
+		"message": "Irkutsk-borg er nærri Baikalvatni í hvaða heimsálfu?"
+	},
+	"trivia_medium_035_answer0": {
+		"message": "Asía"
+	},
+	"trivia_medium_035_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_medium_035_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_036": {
+		"message": "Dnjepr og Rín eru stórfljót í hvaða álfu?"
+	},
+	"trivia_medium_036_answer0": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_036_answer1": {
+		"message": "Suðurheimskautslandið"
+	},
+	"trivia_medium_036_answer2": {
+		"message": "Asía"
+	},
+	"trivia_medium_037": {
+		"message": "Gvæjana hálöndin og Pantanal-svæðið eru í hvaða álfu?"
+	},
+	"trivia_medium_037_answer0": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_037_answer1": {
+		"message": "Norður-Ameríka"
+	},
+	"trivia_medium_037_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_038": {
+		"message": "Eyðimörkin mikla í Viktoríufylki og Nullarbor-sléttan eru landkenni í hvaða álfu?"
+	},
+	"trivia_medium_038_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_medium_038_answer1": {
+		"message": "Asía"
+	},
+	"trivia_medium_038_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_039": {
+		"message": "Rio Grande do Sul er syðsta fylkið í hvaða landi?"
+	},
+	"trivia_medium_039_answer0": {
+		"message": "Brasilía"
+	},
+	"trivia_medium_039_answer1": {
+		"message": "Mexíkó"
+	},
+	"trivia_medium_039_answer2": {
+		"message": "Þýskaland"
+	},
+	"trivia_medium_040": {
+		"message": "Borgin Novosibirsk er við Obfljót í hvaða landi?"
+	},
+	"trivia_medium_040_answer0": {
+		"message": "Rússland"
+	},
+	"trivia_medium_040_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_040_answer2": {
+		"message": "Kína"
+	},
+	"trivia_medium_041": {
+		"message": "Hvaða land er við Kyrrahafsflekann og er líklegt til að verða fyrir jarðskjálfta?"
+	},
+	"trivia_medium_041_answer0": {
+		"message": "Chile"
+	},
+	"trivia_medium_041_answer1": {
+		"message": "Angóla"
+	},
+	"trivia_medium_041_answer2": {
+		"message": "Frakkland"
+	},
+	"trivia_medium_042": {
+		"message": "Maracaibo-vatn er við norðurströnd hvaða lands?"
+	},
+	"trivia_medium_042_answer0": {
+		"message": "Venesúela"
+	},
+	"trivia_medium_042_answer1": {
+		"message": "Gvatemala"
+	},
+	"trivia_medium_042_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_043": {
+		"message": "Hvaða land liggur að Arabíuhafi?"
+	},
+	"trivia_medium_043_answer0": {
+		"message": "Indland"
+	},
+	"trivia_medium_043_answer1": {
+		"message": "Tadjíkistan"
+	},
+	"trivia_medium_043_answer2": {
+		"message": "Grikkland"
+	},
+	"trivia_medium_044": {
+		"message": "Hvaða land er á Íberíuskaganum?"
+	},
+	"trivia_medium_044_answer0": {
+		"message": "Portúgal"
+	},
+	"trivia_medium_044_answer1": {
+		"message": "Bangladess"
+	},
+	"trivia_medium_044_answer2": {
+		"message": "Holland"
+	},
+	"trivia_medium_045": {
+		"message": "Hvert af þessum löndum hefur lengstu strandlengjuna?"
+	},
+	"trivia_medium_045_answer0": {
+		"message": "Taíland"
+	},
+	"trivia_medium_045_answer1": {
+		"message": "Kongó"
+	},
+	"trivia_medium_045_answer2": {
+		"message": "Katar"
+	},
+	"trivia_medium_046": {
+		"message": "Hvaða ríki í Bandaríkjunum er fyrir vestan Mississippi-fljót?"
+	},
+	"trivia_medium_046_answer0": {
+		"message": "Colorado"
+	},
+	"trivia_medium_046_answer1": {
+		"message": "Maryland"
+	},
+	"trivia_medium_046_answer2": {
+		"message": "Michigan"
+	},
+	"trivia_medium_047": {
+		"message": "Skógar þekja um það bil 60% hvaða ríkis?"
+	},
+	"trivia_medium_047_answer0": {
+		"message": "Virginía"
+	},
+	"trivia_medium_047_answer1": {
+		"message": "Arizona"
+	},
+	"trivia_medium_047_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_048": {
+		"message": "McKinleyfjall er hæsta fjall Norður-Ameríku. Í hvaða ríki í Bandaríkjunum er fjallið?"
+	},
+	"trivia_medium_048_answer0": {
+		"message": "Alaska"
+	},
+	"trivia_medium_048_answer1": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_048_answer2": {
+		"message": "Colorado"
+	},
+	"trivia_medium_049": {
+		"message": "Hvert af þessum ríkjum Bandaríkjanna nær yfir stærsta landsvæðið?"
+	},
+	"trivia_medium_049_answer0": {
+		"message": "Montana"
+	},
+	"trivia_medium_049_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_049_answer2": {
+		"message": "Suður-Karólína"
+	},
+	"trivia_medium_050": {
+		"message": "Rushmore-fjall er nærri Rapid City í hvaða ríki í Bandaríkjunum?"
+	},
+	"trivia_medium_050_answer0": {
+		"message": "Suður-Dakóta"
+	},
+	"trivia_medium_050_answer1": {
+		"message": "Oregon"
+	},
+	"trivia_medium_050_answer2": {
+		"message": "Flórída"
+	},
+	"trivia_medium_051": {
+		"message": "Hvaða ríki í Bandaríkjunum á landamæri að Kanada?"
+	},
+	"trivia_medium_051_answer0": {
+		"message": "Minnesota"
+	},
+	"trivia_medium_051_answer1": {
+		"message": "Nebraska"
+	},
+	"trivia_medium_051_answer2": {
+		"message": "Kentucky"
+	},
+	"trivia_medium_052": {
+		"message": "Kóralrif má finna fyrir utan strönd hvaða ríkis í Bandaríkjunum?"
+	},
+	"trivia_medium_052_answer0": {
+		"message": "Hawaii"
+	},
+	"trivia_medium_052_answer1": {
+		"message": "Connecticut"
+	},
+	"trivia_medium_052_answer2": {
+		"message": "Nevada"
+	},
+	"trivia_medium_053": {
+		"message": "Hamborg er mikilvæg höfn í hvaða landi?"
+	},
+	"trivia_medium_053_answer0": {
+		"message": "Þýskaland"
+	},
+	"trivia_medium_053_answer1": {
+		"message": "Króatía"
+	},
+	"trivia_medium_053_answer2": {
+		"message": "Belgía"
+	},
+	"trivia_medium_054": {
+		"message": "Í hvaða landi eru flest eldgos?"
+	},
+	"trivia_medium_054_answer0": {
+		"message": "Ísland"
+	},
+	"trivia_medium_054_answer1": {
+		"message": "Bretland"
+	},
+	"trivia_medium_054_answer2": {
+		"message": "Pólland"
+	},
+	"trivia_medium_055": {
+		"message": "Hvaða land er aðallega í Litlu-Asíu?"
+	},
+	"trivia_medium_055_answer0": {
+		"message": "Tyrkland"
+	},
+	"trivia_medium_055_answer1": {
+		"message": "Mjanmar"
+	},
+	"trivia_medium_055_answer2": {
+		"message": "Eistland"
+	},
+	"trivia_medium_056": {
+		"message": "Dauðahafið myndar hluta af landamærum milli Ísrael og hvaða lands?"
+	},
+	"trivia_medium_056_answer0": {
+		"message": "Jórdanía"
+	},
+	"trivia_medium_056_answer1": {
+		"message": "Íran"
+	},
+	"trivia_medium_056_answer2": {
+		"message": "Japan"
+	},
+	"trivia_medium_057": {
+		"message": "Serengeti þjóðgarðurinn er fyrir austan Viktoríuvatn í hvaða landi?"
+	},
+	"trivia_medium_057_answer0": {
+		"message": "Tansanía"
+	},
+	"trivia_medium_057_answer1": {
+		"message": "Jemen"
+	},
+	"trivia_medium_057_answer2": {
+		"message": "Nígería"
+	},
+	"trivia_medium_058": {
+		"message": "Hvaða land liggur að Karabíska hafinu og er mikill útflytjandi á olíu?"
+	},
+	"trivia_medium_058_answer0": {
+		"message": "Venesúela"
+	},
+	"trivia_medium_058_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_058_answer2": {
+		"message": "Paragvæ"
+	},
+	"trivia_medium_059": {
+		"message": "Hvaða landlukta land liggur rétt sunnan við miðbaug?"
+	},
+	"trivia_medium_059_answer0": {
+		"message": "Búrúndí"
+	},
+	"trivia_medium_059_answer1": {
+		"message": "Djíbútí"
+	},
+	"trivia_medium_059_answer2": {
+		"message": "Túnis"
+	},
+	"trivia_medium_060": {
+		"message": "Tyrrenahaf liggur að hvaða Miðjarðarhafslandi?"
+	},
+	"trivia_medium_060_answer0": {
+		"message": "Ítalía"
+	},
+	"trivia_medium_060_answer1": {
+		"message": "Ísrael"
+	},
+	"trivia_medium_060_answer2": {
+		"message": "Senegal"
+	},
+	"trivia_medium_061": {
+		"message": "Jekaterinburg liggur við austurhlíðar Úralfjalla í hvaða landi?"
+	},
+	"trivia_medium_061_answer0": {
+		"message": "Rússland"
+	},
+	"trivia_medium_061_answer1": {
+		"message": "Litháen"
+	},
+	"trivia_medium_061_answer2": {
+		"message": "Belgía"
+	},
+	"trivia_medium_062": {
+		"message": "Hvaða land er eyja, liggur suðaustan við Ástralíu og framleiðir mikið af ull?"
+	},
+	"trivia_medium_062_answer0": {
+		"message": "Nýja-Sjáland"
+	},
+	"trivia_medium_062_answer1": {
+		"message": "Filippseyjar"
+	},
+	"trivia_medium_062_answer2": {
+		"message": "Víetnam"
+	},
+	"trivia_medium_063": {
+		"message": "Mumbai er mikil hafnarborg í hvaða landi?"
+	},
+	"trivia_medium_063_answer0": {
+		"message": "Indland"
+	},
+	"trivia_medium_063_answer1": {
+		"message": "Sviss"
+	},
+	"trivia_medium_063_answer2": {
+		"message": "Bútan"
+	},
+	"trivia_medium_064": {
+		"message": "Incheon-borg er við Gulahaf í hvaða landi?"
+	},
+	"trivia_medium_064_answer0": {
+		"message": "Suður-Kórea"
+	},
+	"trivia_medium_064_answer1": {
+		"message": "Taíland"
+	},
+	"trivia_medium_064_answer2": {
+		"message": "Mongólía"
+	},
+	"trivia_medium_065": {
+		"message": "Hvaða litla land er við vesturlandamæri Austurríki?"
+	},
+	"trivia_medium_065_answer0": {
+		"message": "Liechtenstein"
+	},
+	"trivia_medium_065_answer1": {
+		"message": "Sýrland"
+	},
+	"trivia_medium_065_answer2": {
+		"message": "Moldóva"
+	},
+	"trivia_medium_066": {
+		"message": "Viktoría og Nýja-Suður Wales eru tvö fylki í hvaða landi?"
+	},
+	"trivia_medium_066_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_medium_066_answer1": {
+		"message": "Bandaríkin"
+	},
+	"trivia_medium_066_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_067": {
+		"message": "Hvaða land á eyjunni Borneó á landamæri að hinu litla landi Brunei?"
+	},
+	"trivia_medium_067_answer0": {
+		"message": "Malasía"
+	},
+	"trivia_medium_067_answer1": {
+		"message": "Íran"
+	},
+	"trivia_medium_067_answer2": {
+		"message": "Úkraína"
+	},
+	"trivia_medium_068": {
+		"message": "Júlíusaralparnir liggja við landamæri Ítalíu og hvaða lands?"
+	},
+	"trivia_medium_068_answer0": {
+		"message": "Slóvenía"
+	},
+	"trivia_medium_068_answer1": {
+		"message": "Nepal"
+	},
+	"trivia_medium_068_answer2": {
+		"message": "Tadjíkistan"
+	},
+	"trivia_medium_069": {
+		"message": "Svæði sem áður hét Mansjúría er í norðausturhluta hvaða lands?"
+	},
+	"trivia_medium_069_answer0": {
+		"message": "Kína"
+	},
+	"trivia_medium_069_answer1": {
+		"message": "Hvíta-Rússland"
+	},
+	"trivia_medium_069_answer2": {
+		"message": "Afganistan"
+	},
+	"trivia_medium_070": {
+		"message": "Hvaða land á landamæri að El Salvador?"
+	},
+	"trivia_medium_070_answer0": {
+		"message": "Hondúras"
+	},
+	"trivia_medium_070_answer1": {
+		"message": "Panama"
+	},
+	"trivia_medium_070_answer2": {
+		"message": "Dóminíska lýðveldið"
+	},
+	"trivia_medium_071": {
+		"message": "Hvaða land er í Kákasusfjöllum?"
+	},
+	"trivia_medium_071_answer0": {
+		"message": "Georgía"
+	},
+	"trivia_medium_071_answer1": {
+		"message": "Ungverjaland"
+	},
+	"trivia_medium_071_answer2": {
+		"message": "Andorra"
+	},
+	"trivia_medium_072": {
+		"message": "Sundið Sunda aðskilur tvær eyjar í hvaða Asíulandi?"
+	},
+	"trivia_medium_072_answer0": {
+		"message": "Indónesía"
+	},
+	"trivia_medium_072_answer1": {
+		"message": "Nýja-Sjáland"
+	},
+	"trivia_medium_072_answer2": {
+		"message": "Laos"
+	},
+	"trivia_medium_073": {
+		"message": "Þú getur séð jökulsorfna dali og stórfenglega kletta nærri mynni árinnar Shannon í hvaða landi?"
+	},
+	"trivia_medium_073_answer0": {
+		"message": "Írland"
+	},
+	"trivia_medium_073_answer1": {
+		"message": "Frakkland"
+	},
+	"trivia_medium_073_answer2": {
+		"message": "Úsbekistan"
+	},
+	"trivia_medium_074": {
+		"message": "Indusfljót rennur gegnum hvaða Suður-Asíuland?"
+	},
+	"trivia_medium_074_answer0": {
+		"message": "Pakistan"
+	},
+	"trivia_medium_074_answer1": {
+		"message": "Norður-Kórea"
+	},
+	"trivia_medium_074_answer2": {
+		"message": "Aserbaíjan"
+	},
+	"trivia_medium_075": {
+		"message": "Hvaða land liggur að Rauðahafi?"
+	},
+	"trivia_medium_075_answer0": {
+		"message": "Erítrea"
+	},
+	"trivia_medium_075_answer1": {
+		"message": "Gana"
+	},
+	"trivia_medium_075_answer2": {
+		"message": "Kenía"
+	},
+	"trivia_medium_076": {
+		"message": "Zacatecas og Tabasco eru fylki í hvaða landi?"
+	},
+	"trivia_medium_076_answer0": {
+		"message": "Mexíkó"
+	},
+	"trivia_medium_076_answer1": {
+		"message": "Belís"
+	},
+	"trivia_medium_076_answer2": {
+		"message": "Argentína"
+	},
+	"trivia_medium_077": {
+		"message": "Ríad er borg með meira en 4.000 moskur. Hún er í hvaða landi?"
+	},
+	"trivia_medium_077_answer0": {
+		"message": "Sádi-Arabía"
+	},
+	"trivia_medium_077_answer1": {
+		"message": "Albanía"
+	},
+	"trivia_medium_077_answer2": {
+		"message": "Sýrland"
+	},
+	"trivia_medium_078": {
+		"message": "Hvaða Afríkuland er landlukt?"
+	},
+	"trivia_medium_078_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_078_answer1": {
+		"message": "Máritanía"
+	},
+	"trivia_medium_078_answer2": {
+		"message": "Egyptaland"
+	},
+	"trivia_medium_079": {
+		"message": "Fuji-fjall telst helgur staður í hvaða landi?"
+	},
+	"trivia_medium_079_answer0": {
+		"message": "Japan"
+	},
+	"trivia_medium_079_answer1": {
+		"message": "Filippseyjar"
+	},
+	"trivia_medium_079_answer2": {
+		"message": "Bangladess"
+	},
+	"trivia_medium_080": {
+		"message": "Hvaða land í Stóru Antillaeyjum hefur ensku sem opinbert tungumál?"
+	},
+	"trivia_medium_080_answer0": {
+		"message": "Jamaíka"
+	},
+	"trivia_medium_080_answer1": {
+		"message": "Haítí"
+	},
+	"trivia_medium_080_answer2": {
+		"message": "Kúba"
+	},
+	"trivia_medium_081": {
+		"message": "Hvert er opinbert tungumál Sýrlands, Kúveit og Alsír?"
+	},
+	"trivia_medium_081_answer0": {
+		"message": "arabíska"
+	},
+	"trivia_medium_081_answer1": {
+		"message": "armenska"
+	},
+	"trivia_medium_081_answer2": {
+		"message": "þýska"
+	},
+	"trivia_medium_082": {
+		"message": "Óperur Mozart eru oft fluttar á árlegu Salzburg-hátíðinni í hvaða fjalllenda ríki Evrópu?"
+	},
+	"trivia_medium_082_answer0": {
+		"message": "Austurríki"
+	},
+	"trivia_medium_082_answer1": {
+		"message": "Ungverjaland"
+	},
+	"trivia_medium_082_answer2": {
+		"message": "Rúmenía"
+	},
+	"trivia_medium_083": {
+		"message": "Hvaladalur er eyðimörk þar sem finna má mikið af steingerðum leifum ævafornra hvala. Hann er í hvaða landi sem er norðan við Súdan?"
+	},
+	"trivia_medium_083_answer0": {
+		"message": "Egyptaland"
+	},
+	"trivia_medium_083_answer1": {
+		"message": "Nígería"
+	},
+	"trivia_medium_083_answer2": {
+		"message": "Sambía"
+	},
+	"trivia_medium_084": {
+		"message": "Rotterdam er við óseyrar nærri Norðursjó í hvaða Evrópulandi?"
+	},
+	"trivia_medium_084_answer0": {
+		"message": "Holland"
+	},
+	"trivia_medium_084_answer1": {
+		"message": "Svíþjóð"
+	},
+	"trivia_medium_084_answer2": {
+		"message": "Grikkland"
+	},
+	"trivia_medium_085": {
+		"message": "Bramapútra-fljót rennur í mikla óseyri nærri Bengalflóa og á upptök sín í hvaða fjallgarði?"
+	},
+	"trivia_medium_085_answer0": {
+		"message": "Himalajafjöll"
+	},
+	"trivia_medium_085_answer1": {
+		"message": "Úral"
+	},
+	"trivia_medium_085_answer2": {
+		"message": "Alparnir"
+	},
+	"trivia_medium_086": {
+		"message": "Farsi, sem einnig kallast persneska, er opinbert tungumál hvaða íslamska lands?"
+	},
+	"trivia_medium_086_answer0": {
+		"message": "Íran"
+	},
+	"trivia_medium_086_answer1": {
+		"message": "Kúveit"
+	},
+	"trivia_medium_086_answer2": {
+		"message": "Líbýa"
+	},
+	"trivia_medium_087": {
+		"message": "Fólk horfir á nautabana á nautaati í Sevilla, sem er borg í hvaða Evrópulandi?"
+	},
+	"trivia_medium_087_answer0": {
+		"message": "Spánn"
+	},
+	"trivia_medium_087_answer1": {
+		"message": "Þýskaland"
+	},
+	"trivia_medium_087_answer2": {
+		"message": "Makedónía"
+	},
+	"trivia_medium_088": {
+		"message": "Borgin Istanbúl er suðupottur austrænnar og vestrænnar menningar. Hún er í hvaða landi?"
+	},
+	"trivia_medium_088_answer0": {
+		"message": "Tyrkland"
+	},
+	"trivia_medium_088_answer1": {
+		"message": "Slóvakía"
+	},
+	"trivia_medium_088_answer2": {
+		"message": "Óman"
+	},
+	"trivia_medium_089": {
+		"message": "Majaborgin Copán er vinsæll ferðamannastaður í hvaða landi sem liggur að El Salvador og Níkaragva?"
+	},
+	"trivia_medium_089_answer0": {
+		"message": "Hondúras"
+	},
+	"trivia_medium_089_answer1": {
+		"message": "Chile"
+	},
+	"trivia_medium_089_answer2": {
+		"message": "Kanada"
+	},
+	"trivia_medium_090": {
+		"message": "Timbúktú var áður miðstöð viðskipta í nærri þúsund ár. Borgin er fyrir norðan Nígerfljót í hvaða landlukta ríki?"
+	},
+	"trivia_medium_090_answer0": {
+		"message": "Malí"
+	},
+	"trivia_medium_090_answer1": {
+		"message": "Úganda"
+	},
+	"trivia_medium_090_answer2": {
+		"message": "Namibía"
+	},
+	"trivia_medium_091": {
+		"message": "Hvaða landlukta land í Suður-Ameríku liggur bæði að Brasilíu og Chile?"
+	},
+	"trivia_medium_091_answer0": {
+		"message": "Bólivía"
+	},
+	"trivia_medium_091_answer1": {
+		"message": "Kólumbía"
+	},
+	"trivia_medium_091_answer2": {
+		"message": "Gvæjana"
+	},
+	"trivia_medium_092": {
+		"message": "Borgin Bélem er við sunnanvert ármynni Amasónfljóts í hvaða landi?"
+	},
+	"trivia_medium_092_answer0": {
+		"message": "Brasilía"
+	},
+	"trivia_medium_092_answer1": {
+		"message": "Kosta Ríka"
+	},
+	"trivia_medium_092_answer2": {
+		"message": "Súrínam"
+	},
+	"trivia_medium_093": {
+		"message": "Hvaða á myndar mest af norðurlandamærum Búlgaríu?"
+	},
+	"trivia_medium_093_answer0": {
+		"message": "Dóna"
+	},
+	"trivia_medium_093_answer1": {
+		"message": "Ob-fljót"
+	},
+	"trivia_medium_093_answer2": {
+		"message": "Mekong-fljót"
+	},
+	"trivia_medium_094": {
+		"message": "Sayanfjöll eru nærri Baikalvatni í hvaða Asíulandi?"
+	},
+	"trivia_medium_094_answer0": {
+		"message": "Rússland"
+	},
+	"trivia_medium_094_answer1": {
+		"message": "Indland"
+	},
+	"trivia_medium_094_answer2": {
+		"message": "Kirgistan"
+	},
+	"trivia_medium_095": {
+		"message": "Nipigon-vatn er stærsta stöðuvatnið í hvaða héraði í Kanada?"
+	},
+	"trivia_medium_095_answer0": {
+		"message": "Ontario"
+	},
+	"trivia_medium_095_answer1": {
+		"message": "Alberta"
+	},
+	"trivia_medium_095_answer2": {
+		"message": "Breska Kólumbía"
+	},
+	"trivia_medium_096": {
+		"message": "Balearhaf og Jónahafið eru bæði hluti af hvaða stærra hafi?"
+	},
+	"trivia_medium_096_answer0": {
+		"message": "Miðjarðarhaf"
+	},
+	"trivia_medium_096_answer1": {
+		"message": "Eystrasalt"
+	},
+	"trivia_medium_096_answer2": {
+		"message": "Karabíska hafið"
+	},
+	"trivia_medium_097": {
+		"message": "Turkana-vatn og Natron-vatn eru dæmi um stöðuvötn í sigdölum í hvaða álfu?"
+	},
+	"trivia_medium_097_answer0": {
+		"message": "Afríka"
+	},
+	"trivia_medium_097_answer1": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_097_answer2": {
+		"message": "Evrópa"
+	},
+	"trivia_medium_098": {
+		"message": "Puerto Rico dýpið er dýpsti hluti hvaða hafs?"
+	},
+	"trivia_medium_098_answer0": {
+		"message": "Atlantshafið"
+	},
+	"trivia_medium_098_answer1": {
+		"message": "Norðuríshafið"
+	},
+	"trivia_medium_098_answer2": {
+		"message": "Kyrrahafið"
+	},
+	"trivia_medium_099": {
+		"message": "Kookaburra fuglinn hlæjandi á heimkynni sín í eucalyptus-skógum í austurhluta hvaða álfu?"
+	},
+	"trivia_medium_099_answer0": {
+		"message": "Ástralía"
+	},
+	"trivia_medium_099_answer1": {
+		"message": "Afríka"
+	},
+	"trivia_medium_099_answer2": {
+		"message": "Suður-Ameríka"
+	},
+	"trivia_medium_100": {
+		"message": "Í Haag er aðsetur alþjóðlega sakamáladómstólsins. Borgin er á vesturströnd hvaða Evrópulands?"
+	},
+	"trivia_medium_100_answer0": {
+		"message": "Holland"
+	},
+	"trivia_medium_100_answer1": {
+		"message": "Finnland"
+	},
+	"trivia_medium_100_answer2": {
+		"message": "Búlgaría"
+	},
+	"trivia_ngb_promo": {
+		"message": "Efni frá National Geographic Bee"
+	},
+	"tw_country_name": {
+		"message": "Taívan"
+	},
+	"twitter": {
+		"message": "Twitter"
+	},
+	"tz_country_name": {
+		"message": "Tansanía"
+	},
+	"ug_country_name": {
+		"message": "Úganda"
+	},
+	"uk_country_name": {
+		"message": "Bretland"
+	},
+	"uk_tradition": {
+		"message": "Í Bretlandi kemur kátt fólk á öllum aldri saman og nýtur þess að opna jólaknöll við kvöldverðarborðið. Knöll eru sívalningar sem vafið er í litríkan pappír og hægt er að opna. Þegar þú opnar springur sívalningurinn með háum hvelli! Inni eru pappírshattar, leikföng og annað fyrir jólakvöldið."
+	},
+	"unmute": {
+		"message": "Kveikja"
+	},
+	"upgrade-warning": {
+		"message": "Úbbs! Ekki er stutt við Hvar er jólasveinninn í vafranum þínum eða þú ert með slökkt á JavaScript. Ef þú vilt fá Hvar er jólasveinninn skaltu sækja nýjan vafra eða kveikja á JavaScript.\nTil að fá frekari upplýsingar skaltu fara á: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+	},
+	"us_country_name": {
+		"message": "Bandaríkin"
+	},
+	"us_tradition": {
+		"message": "Í Bandaríkjunum eru sokkar hengdir upp á aðfangadagskvöld. Þjóðsagan segir að heilagur Nikulás hafi heyrt um fjölskyldu í nauð. Hann vildi koma þeim á óvart og klifraði niður strompinn hjá þeim og setti poka með gulli hjá þeim í sokka sem héngu þar. Síðan þá hefur heilagur Nikulás verið þekktur sem jólasveinninn, sá sem gefur gjafir."
+	},
+	"uy_country_name": {
+		"message": "Úrúgvæ"
+	},
+	"uz_country_name": {
+		"message": "Úsbekistan"
+	},
+	"ve_country_name": {
+		"message": "Venesúela"
+	},
+	"village_assistant-call_santa": {
+		"message": "Google hjálpari: Hringdu í jólasveininn"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google hjálpari: Hátíðarsaga"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google hjálpari: Hvar er jólasveinninn"
+	},
+	"village_comeback": {
+		"message": "Komdu aftur þann 24. desember og hjálpaðu okkar að fylgjast með Sveinka alla nóttina!"
+	},
+	"village_explore": {
+		"message": "Kannaðu, leiktu þér og lærðu með álfum Sveinka allan desembermánuð"
+	},
+	"village_get_the_app": {
+		"message": "Fáðu forritið Hvar er jólasveinninn fyrir Android"
+	},
+	"village_more": {
+		"message": "Fleiri leiðir til að kanna"
+	},
+	"village_santa_a2hs": {
+		"message": "Bæta á heimaskjá"
+	},
+	"village_santa_a2hs_chromeos": {
+		"message": "Bæta við hillu"
+	},
+	"village_santa_a2hs_desktop": {
+		"message": "Bæta á skjáborð"
+	},
+	"village_santa_cardboard": {
+		"message": "Sveinki á Cardboard"
+	},
+	"village_santa_cast": {
+		"message": "Sveinki á Google Cast"
+	},
+	"village_santa_crx": {
+		"message": "Bættu Sveinka Chrome viðbótinni við"
+	},
+	"village_santa_earth_quiz": {
+		"message": "Jarðarþraut Sveinka"
+	},
+	"village_santa_install": {
+		"message": "Setja upp"
+	},
+	"village_takesoff": {
+		"message": "Sveinki hefur för sína eftir"
+	},
+	"vn_country_name": {
+		"message": "Víetnam"
+	},
+	"watch": {
+		"message": "Horfa"
+	},
+	"watch-video": {
+		"message": "Horfa á vídeó"
+	},
+	"wrapbattle_combo": {
+		"message": "Flott blanda"
+	},
+	"wrapbattle_feedback_good": {
+		"message": "Gott"
+	},
+	"wrapbattle_feedback_miss": {
+		"message": "misstir"
+	},
+	"wrapbattle_feedback_okay": {
+		"message": "Í lagi"
+	},
+	"wrapbattle_feedback_perfect": {
+		"message": "Fullkomið"
+	},
+	"ye_country_name": {
+		"message": "Jemen"
+	},
+	"yourbest": {
+		"message": "Flest stig"
+	},
+	"zh-CN_language_name": {
+		"message": "Kínverska (einfölduð)"
+	},
+	"zh-TW_language_name": {
+		"message": "Kínverska (hefðbundin)"
+	},
+	"zm_country_name": {
+		"message": "Sambía"
+	},
+	"zw_country_name": {
+		"message": "Simbabve"
+	}
+}

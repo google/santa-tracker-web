@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Utforska"
 	},
+	"explore-village": {
+		"message": "Utforska tomtebyn"
+	},
 	"fi_country_name": {
 		"message": "Finland"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Nästa"
 	},
+	"next_game": {
+		"message": "Nästa spel"
+	},
+	"nextdecember": {
+		"message": "Vi ses i december!"
+	},
+	"nextyear": {
+		"message": "Vi ses nästa år!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Press"
+	},
+	"press-about-tracker": {
+		"message": "Om Följ jultomten"
+	},
+	"press-about-tracker1": {
+		"message": "Den 24 december lanserar vi Följ jultomten, en översikt där du kan följa tomten när han reser från stad till stad i sin släde. Du kan även se var tomten befinner sig i Google Maps och fråga Google Assistent: ”Ok Google, var är jultomten?” för att kunna följa honom även när du själv är i farten."
+	},
+	"press-about-village": {
+		"message": "Om tomtebyn"
+	},
+	"press-about-village1": {
+		"message": "Tomtebyn firar femton år med roliga, lärorika och interaktiva julaktiviteter. Med tomtemors experthjälp har nissarna gett byn en sprillans ny look och känsla och försett den med nytt innehåll. Tack vare det nya effektiva värmesystemet som drivs av varm choklad tar det inte lika lång tid att få fram innehållet – alla aktiviteter blir tillgängliga 4 december. Så nu har tomtenissarna (och du!) mer tid på sig att utforska tomtebyn."
+	},
+	"press-about-village2": {
+		"message": "I tomtebyn kan du lära dig grundläggande kodning, skapa egna konstverk, träna på geografi och lära dig mer om välgörenhetsorganisationer som \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e och \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Lärare kan till och med \u003ca href=\"./educators.html\"\u003eladda ned läroplaner\u003c/a\u003e med videoguider som lär eleverna om grundläggande kodning och jultraditioner på engelska, spanska, franska, japanska och koreanska."
+	},
+	"press-asset-animation": {
+		"message": "Animering"
+	},
+	"press-asset-resources": {
+		"message": "För press"
+	},
+	"press-asset-screenshot": {
+		"message": "Skärmdump"
+	},
+	"press-device-text": {
+		"message": "Julstämningen är på topp i alla dina enheter!"
+	},
+	"press-device-title": {
+		"message": "Följ jultomten på din enhet"
+	},
+	"press-edu": {
+		"message": "Lärorika äventyr"
+	},
+	"press-edu1": {
+		"message": "Vi har utökat vår \u003ca href=\"./educators.html\"\u003eresurssida för utbildare\u003c/a\u003e med videoguider på fem olika språk som lärare kan använda i sina lektioner. Alla populära spel som introducerar grundläggande kodning och globala jultraditioner är kvar. Googles Följ jultomten är en väg till roligt lärande i juletid. Besök \u003ca href=\"./educators.html\"\u003evåra pedagogiska spel\u003c/a\u003e för att få mer information."
+	},
+	"press-games-title": {
+		"message": "Skoj och spel"
+	},
+	"press-need-text": {
+		"message": "Ta hjälp av tomtenissar och googlare."
+	},
+	"press-need-title": {
+		"message": "Behöver du något?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Tillgängligt 24 december"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Tillgängligt hela december"
+	},
+	"press-villagetracker-title": {
+		"message": "Tomtebyn och Följ jultomten"
+	},
+	"press-whatsnew": {
+		"message": "Nytt för i år"
+	},
+	"press-whatsnew1-text": {
+		"message": "Skapa en egen tomtenisse som är chic från topp till tå och redo för julfirandet i Nordpolen."
+	},
+	"press-whatsnew1-title": {
+		"message": "Skapa en tomtenisse:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Om du alltid har drömt om att starta en danstrupp men ett gäng begåvade tomtenissar har du chansen nu. Snart. Med hjälp av maskininlärningsmodellen \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kan du träna tomtenissarna att lära sig dina moves innan de intar dansgolvet."
+	},
+	"press-whatsnew2-title": {
+		"message": "Dansar med nissar:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Dessutom kan du se var jultomten befinner sig i Google Maps. Tryck bara på hamburgaren och sedan Platsdelning så kan du följa tomten på resan. Du kan även navigera till \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e för en enkel genväg!"
+	},
+	"press-whatsnew3-title": {
+		"message": "Ett nytt sätt att följa tomten:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Om du vill ha mer julstämning kan du kolla in Gboard-juldekalerna som finns på \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e och vår \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-app\u003c/a\u003e. Dessutom kan du få litterär underhållning genom att be Google Assistant att ”berätta en julsaga” eller fråga: ”Var är jultomten?”."
+	},
+	"press-whatsnew4-title": {
+		"message": "Mer skoj i jul:"
 	},
 	"pt_language_name": {
 		"message": "portugisiska"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Fortfarande på semester"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Pingvinsäkert"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Renarna är oroliga"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Dela"
 	},
+	"sidebar_code_emoji": {
+		"message": "Gjort med kod: Julemoji"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: Quiz om jultraditioner"
+	},
+	"sidebar_santas_location": {
+		"message": "Google Maps: Jultomtens plats"
+	},
+	"sidebar_trends": {
+		"message": "Google Trender: Julsökningar"
+	},
 	"sk_country_name": {
 		"message": "Slovakien"
 	},
 	"sk_language_name": {
 		"message": "slovakiska"
+	},
+	"skip-intro": {
+		"message": "Hoppa över intro"
 	},
 	"skip-training": {
 		"message": "Hoppa över träning"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "turkiska"
+	},
+	"tracker-game_awesome": {
+		"message": "Spela Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Ankomst"
@@ -6657,7 +6774,7 @@
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker, skämtgrejer och priser att njuta av under julkvällen."
 	},
 	"unmute": {
-		"message": "Visa"
+		"message": "Slå på ljudet"
 	},
 	"upgrade-warning": {
 		"message": "Hoppsan! Följ jultomten stöds inte i din webbläsare eller så är JavaScript inaktiverat. Hämta en modern webbläsare eller aktivera JavaScript för att använda Följ jultomten.\nMer information finns på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
@@ -6678,7 +6795,13 @@
 		"message": "Venezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Ring tomten med Google Assistant"
+		"message": "Google Assistent: Ring jultomten"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Google Assistent: Julsaga"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Google Assistent: Var är jultomten"
 	},
 	"village_comeback": {
 		"message": "Kom tillbaka den 24 december och hjälp oss spåra tomten hela natten."
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Titta"
+	},
+	"watch-video": {
+		"message": "Titta på videon"
 	},
 	"wrapbattle_combo": {
 		"message": "Skön kombo"

@@ -626,6 +626,9 @@
 	"explore": {
 		"message": "Odkrywaj"
 	},
+	"explore-village": {
+		"message": "Zobacz wioskę Świętego Mikołaja"
+	},
 	"fi_country_name": {
 		"message": "Finlandia"
 	},
@@ -896,6 +899,15 @@
 	"next": {
 		"message": "Dalej"
 	},
+	"next_game": {
+		"message": "Następna gra"
+	},
+	"nextdecember": {
+		"message": "Do zobaczenia w grudniu!"
+	},
+	"nextyear": {
+		"message": "Do zobaczenia za rok!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1120,6 +1132,87 @@
 	},
 	"press": {
 		"message": "Dla prasy"
+	},
+	"press-about-tracker": {
+		"message": "Trasa Świętego Mikołaja – informacje"
+	},
+	"press-about-tracker1": {
+		"message": "24 grudnia uruchomimy Trasę – panel, dzięki któremu fani mogą śledzić podróż Mikołaja od miasta do miasta. Można też na żywo obserwować jego położenie na Mapach Google i pytać Asystenta Google „OK Google, Where is Santa?”, by nawet podczas jazdy samochodem sprawdzać, gdzie w danym momencie Mikołaj się znajduje."
+	},
+	"press-about-village": {
+		"message": "Wioska Świętego Mikołaja – informacje"
+	},
+	"press-about-village1": {
+		"message": "w Wiosce Świętego Mikołaja już od piętnastu lat z okazji Świąt dzieje się wiele wesołych, interaktywnych i poszerzających wiedzę rzeczy. Pod czujnym okiem Pani Mikołajowej elfy nadały wiosce odświeżony, stylowy wygląd i dołożyły zupełnie nowe treści. A dzięki nowemu systemowi ogrzewania wykorzystującemu gorące kakao, wioska nie musi już rozmrażać się przez cały grudzień – wszystkie 24 ćwiczenia będą dostępne od 4 grudnia. Teraz elfy mają więcej czasu na zabawę w Wiosce i odkrywanie jej – a Ty razem z nimi!"
+	},
+	"press-about-village2": {
+		"message": "W wiosce możesz ćwiczyć podstawowe umiejętności związane z kodowaniem, tworzyć oryginalne dzieła sztuki, poszerzać wiedzę z zakresu geografii, a także dowiedzieć się więcej o organizacjach charytatywnych takich jak \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Nauczyciele mogą \u003ca href=\"./educators.html\"\u003epobrać plany lekcji\u003c/a\u003e, do których dołączono przewodniki wideo. Ułatwią one przekazanie uczniom podstawowych umiejętności z zakresu kodowania, połączonych z wiedzą o świątecznych tradycjach. Dostępne języki: angielski, hiszpański, francuski, japoński i koreański."
+	},
+	"press-asset-animation": {
+		"message": "Animacja"
+	},
+	"press-asset-resources": {
+		"message": "Materiały prasowe"
+	},
+	"press-asset-screenshot": {
+		"message": "Zrzut ekranu"
+	},
+	"press-device-text": {
+		"message": "Świąteczna atmosfera jest wszędzie – także na wszystkich Twoich urządzeniach!"
+	},
+	"press-device-title": {
+		"message": "Trasa Świętego Mikołaja na Twoim urządzeniu"
+	},
+	"press-edu": {
+		"message": "Przygody z edukacją"
+	},
+	"press-edu1": {
+		"message": "Poszerzyliśmy zawartość naszej \u003ca href=\"./educators.html\"\u003estrony z materiałami edukacyjnymi\u003c/a\u003e o przewodniki wideo dla nauczycieli. Są one uzupełnieniem planów lekcji dostępnych w pięciu językach. Wszystkie Twoje ulubione gry są na miejscu i nadal wprowadzają podstawowe założenia kodowania do globalnych tradycji związanych ze Świętami. Trasa Świętego Mikołaja w Google zachęca do nauki połączonej z zabawą podczas Świąt. Aby dowiedzieć się więcej, przejrzyj \u003ca href=\"./educators.html\"\u003enasze gry edukacyjne\u003c/a\u003e."
+	},
+	"press-games-title": {
+		"message": "Gry i zabawy"
+	},
+	"press-need-text": {
+		"message": "Elfy i Googlerzy chętnie Ci pomogą."
+	},
+	"press-need-title": {
+		"message": "W czym możemy Ci pomóc?"
+	},
+	"press-villagetracker-open24th": {
+		"message": "Dostępna 24 grudnia"
+	},
+	"press-villagetracker-opendec": {
+		"message": "Dostępna przez cały grudzień"
+	},
+	"press-villagetracker-title": {
+		"message": "Wioska i Trasa Świętego Mikołaja"
+	},
+	"press-whatsnew": {
+		"message": "Co nowego w tym roku"
+	},
+	"press-whatsnew1-text": {
+		"message": "stwórz własnego elfa od stóp do głów i zadbaj, by wyglądał elfiastycznie podczas wszystkich wieczorków towarzyskich organizowanych na biegunie."
+	},
+	"press-whatsnew1-title": {
+		"message": "Stwórz elfa:"
+	},
+	"press-whatsnew2-text": {
+		"message": "Jeśli od zawsze marzysz o założeniu zespołu tanecznego z grupą utalentowanych, roztańczonych elfów, to teraz masz okazję to zrobić. Dzięki modelowi systemów uczących się \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e możesz nauczyć elfa własnych ruchów, by pląsać z nim na parkiecie."
+	},
+	"press-whatsnew2-title": {
+		"message": "Tańczący z elfami:"
+	},
+	"press-whatsnew3-text": {
+		"message": "Będziesz mieć też możliwość obserwowania położenia Świętego Mikołaja na żywo w Mapach Google. Wystarczy, że klikniesz na menu z trzema kreskami i wybierzesz „Udostępnianie lokalizacji”, a dowiesz się, jak Mikołajowi idzie w danej chwili podróż. Jeśli chcesz dowiedzieć się tego szybciej, wejdź na stronę \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+	},
+	"press-whatsnew3-title": {
+		"message": "Nowy sposób śledzenia Świętego Mikołaja:"
+	},
+	"press-whatsnew4-text": {
+		"message": "Jeżeli potrzebujesz więcej świątecznych akcentów, użyj specjalnych naklejek Gboard, dostępnych na \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroida\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e i w naszej \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikacji na Androida\u003c/a\u003e. Zrelaksuj się też przy literaturze, wydając Asystentowi Google polecenie „Tell me a holiday story”, i dowiedz się, gdzie jest Mikołaj, zadając pytanie „Where's Santa?”."
+	},
+	"press-whatsnew4-title": {
+		"message": "Więcej radości na Święta:"
 	},
 	"pt_language_name": {
 		"message": "portugalski"
@@ -1418,6 +1511,9 @@
 	"scene_videoscene_onvacation": {
 		"message": "Wakacje w pełni"
 	},
+	"scene_videoscene_penguinproof": {
+		"message": "Pingwinoodporność"
+	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Zmartwione renifery"
 	},
@@ -1481,11 +1577,26 @@
 	"share-this": {
 		"message": "Udostępnij"
 	},
+	"sidebar_code_emoji": {
+		"message": "Strona Made with Code: świąteczny emotikon"
+	},
+	"sidebar_earth_quiz": {
+		"message": "Google Earth: quiz na temat tradycji świątecznych"
+	},
+	"sidebar_santas_location": {
+		"message": "Mapy Google: lokalizacja św. Mikołaja"
+	},
+	"sidebar_trends": {
+		"message": "Trendy Google: wyszukiwania związane ze Świętami"
+	},
 	"sk_country_name": {
 		"message": "Słowacja"
 	},
 	"sk_language_name": {
 		"message": "słowacki"
+	},
+	"skip-intro": {
+		"message": "Pomiń wprowadzenie"
 	},
 	"skip-training": {
 		"message": "Pomiń instrukcję"
@@ -2917,6 +3028,12 @@
 	},
 	"tr_language_name": {
 		"message": "turecki"
+	},
+	"tracker-game_awesome": {
+		"message": "Zagraj w Wieżę Skarbów"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Zostań praktykiem internetowym"
 	},
 	"tracker_arrival": {
 		"message": "Przylot"
@@ -6678,7 +6795,13 @@
 		"message": "Wenezuela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Przywołaj Mikołaja za pomocą Asystenta Google"
+		"message": "Asystent Google: zadzwoń do Mikołaja"
+	},
+	"village_assistant-holiday_story": {
+		"message": "Asystent Google: świąteczna historia"
+	},
+	"village_assistant-wheres_santa": {
+		"message": "Asystent Google: gdzie jest Mikołaj"
 	},
 	"village_comeback": {
 		"message": "Wróć 24 grudnia i razem z nami wypatruj Świętego Mikołaja przez całą noc!"
@@ -6724,6 +6847,9 @@
 	},
 	"watch": {
 		"message": "Filmy"
+	},
+	"watch-video": {
+		"message": "Obejrzyj film"
 	},
 	"wrapbattle_combo": {
 		"message": "Ale kombinacja!"
