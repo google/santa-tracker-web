@@ -601,6 +601,8 @@ app.Game = class {
     this.leftElf.onResize();
     this.rightElf.onResize();
 
+    this.track.renderTrack();
+
     this.render(0);
     this.leftElf.update(0);
     this.rightElf.update(0);
@@ -613,7 +615,6 @@ app.Game = class {
     this.freezeGame();
     this.gameoverDialog.show();
     this.sequencer.onGameOver();
-    this.track.cleanUp();
     this.leftElf.cleanUp();
     this.rightElf.cleanUp();
     this.animationPlayer.cleanUp();

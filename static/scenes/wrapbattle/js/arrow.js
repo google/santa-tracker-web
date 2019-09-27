@@ -47,25 +47,24 @@ app.Arrow = class {
     // TODO(leeee): Sometimes the canvas is not passed correctly, when restarting the game.
     if (!canvas || !canvas[0]) { return; }
 
-    let context = canvas[0].getContext('2d');
-    let width = canvas[0].width;
-    let arrowSize = app.Constants.ARROW_SIZE[responsiveKey];
-    let arrowMargin = app.Constants.ARROW_MARGIN;
-    let arrowsWidth = 4 * arrowSize + 3 * arrowMargin;
-    let screenLocation = this.location + trackPosition;
-    let canvasLocation = this.location - canvasOffset;
-    let arrowLength = arrowSize / 2 + this.length || 0;
-    let arrowSpaceCache = app.Constants.ARROW_SIZE.desktop +
+    const context = canvas[0].getContext('2d');
+    const width = canvas[0].width;
+    const arrowSize = app.Constants.ARROW_SIZE[responsiveKey];
+    const arrowMargin = app.Constants.ARROW_MARGIN;
+    const arrowsWidth = 4 * arrowSize + 3 * arrowMargin;
+    const screenLocation = this.location + trackPosition;
+    const canvasLocation = this.location - canvasOffset;
+    const arrowSpaceCache = app.Constants.ARROW_SIZE.desktop +
         app.Constants.ARROW_MARGIN;
-    let shadowArrowHeightCache = arrowSize +
+        const shadowArrowHeightCache = arrowSize +
         app.Constants.ARROW_MULTI_SHADOW_BLUR +
         app.Constants.ARROW_MULTI_SHADOW_OFFSET;
-    let arrowSizeCache = arrowSize + 5;
+        const arrowSizeCache = arrowSize + 5;
 
     context.save();
     context.translate(0, canvasLocation);
     for (let i = 0; i < this.directions.length; i++) {
-      let direction = this.directions[i];
+      const direction = this.directions[i];
       context.save();
       let xOffset = (width - arrowsWidth) / 2 + arrowSize / 2;
       let xOffsetCache;
