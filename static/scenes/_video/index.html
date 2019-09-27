@@ -27,6 +27,13 @@ body {
 
 import api from '../../src/scene/api.js';
 
+const embedConfig = {
+  relatedChannels: [],
+  disableRelatedVideos: true,
+  hideControlsOnStart: true,
+  hideInfoBar: true,
+};
+
 const playerVars = {
   playsinline: 1,
   cc_load_policy: 1,
@@ -38,6 +45,7 @@ const playerVars = {
   iv_load_policy: 3,
   rel: 0,
   autoplay: 0,
+  embed_config: JSON.stringify(embedConfig),
   origin: window.location.hostname,
 };
 if (document.documentElement.lang) {
@@ -65,6 +73,7 @@ const apiPromise = new Promise((resolve) => {
 const playerPromise = apiPromise.then((YT) => {
   return new Promise((resolve, reject) => {
     const player = new YT.Player('ytplayer', {
+      host: 'https://www.youtube-nocookie.com',
       videoId,
       playerVars,
       events: {
@@ -75,9 +84,13 @@ const playerPromise = apiPromise.then((YT) => {
   });
 });
 
+
 // 'seek to' zero, which starts the player, and wait for it to start.
 const startedPromise = playerPromise.then((player) => {
-  player.seekTo(0);
+//  player.seekTo(0);
+//  player.cueVideoById(videoO)
+
+  window._player = player;
 
   return new Promise((resolve) => {
     window.setTimeout(done, 5 * 1000);  // timeout after 5s
@@ -103,14 +116,17 @@ api.preload.wait(startedPromise);
 
 api.ready(async () => {
   const player = await playerPromise;
-  const element = document.getElementById('ytplayer');
 
   player.addEventListener('onStateChange', (ev) => {
+    const element = document.getElementById('ytplayer');
+
     if (ev.data) {
       // video is playing or has an error
+      element.style.opacity = null;
     } else {
       // video is finished, cue again: this mostly hides related videos
-      player.cueVideoById(videoId);
+      element.style.opacity = 0.5;
+//      player.cueVideoById(videoId);
     }
   });
 });
