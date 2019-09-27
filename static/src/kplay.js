@@ -662,6 +662,7 @@ class AudioSource extends EventTarget {
     if (!anyPlaying) {
       this.dispatchEvent(new Event('started'));
     }
+
     const source = this._createSource();
     source.start(when);
     this._startTime = Math.max(this._startTime, when);

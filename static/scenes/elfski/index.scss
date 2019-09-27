@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+}
+
+#mountain {
+  background: #f5f2e2;
+  position: fixed;
+
+  // TODO: This is a not-very-high-tech solution to fix clipping in the renderer. Just extend the
+  // canvas outside viewport.
+  $extra-viewport: 40px;
+  width: calc(100% + (#{$extra-viewport} * 2));
+  height: calc(100% + (#{$extra-viewport} * 2));
+  top: -$extra-viewport;
+  left: -$extra-viewport;
+
+  touch-action: none;
+}
+
+#gl3d {
+  position: absolute;
+  pointer-events: none;
+}

@@ -52,7 +52,7 @@ export default class GameThree {
       this._camera = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 2000);
     } else {
       // for experiments
-      this._camera = new THREE.PerspectiveCamera(45, 4 / 3, 1, 1000);
+      this._camera = new THREE.PerspectiveCamera(90, 4 / 3, 10, 10000);
     }
 
     /**
@@ -147,7 +147,7 @@ export default class GameThree {
    * @export
    */
   measure() {
-    // force proper reeval of size
+    // force proper reveal of size
     this._canvas.style.width = null;
     this._canvas.style.height = null;
     const w = this._canvas.offsetWidth;
@@ -180,6 +180,10 @@ export default class GameThree {
     this._camera.lookAt(y, 0, -x);
   }
 
+  get presentsFound() {
+    return this._presentsFound;
+  }
+
   /**
    * @export
    */
@@ -192,8 +196,8 @@ export default class GameThree {
       const viewport = {
         from: p.y - (this._height / 2) * 1,
         at: p.y + (this._height / 2) * 2.5,
-        l: p.x - (this._width / 2) * 1.5,
-        r: p.x + (this._width / 2) * 1.5,
+        l: p.x - (this._width / 2) * 2.5,
+        r: p.x + (this._width / 2) * 2.5,
       };
       this._decorator.update(viewport);
     }
@@ -279,7 +283,6 @@ export default class GameThree {
 
       if (pickups.length) {
         pickups.forEach((pickup) => pickup.pickup());
-        window.santaApp.fire('sound-trigger', 'generic_score');
         this._presentsFound += pickups.length;
       }
     }
@@ -403,7 +406,7 @@ class SceneDecorator {
     const wasDepth = this._depth;
     const high = Math.ceil(at / this._dim)
 
-    // push new depths (hurr hurr)
+    // push new depths
     for (; this._depth < high; ++this._depth) {
       this._ranges.push({l: 0, r: 0, alloc: []});
     }
