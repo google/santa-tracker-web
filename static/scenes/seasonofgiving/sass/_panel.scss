@@ -1,0 +1,66 @@
+##{$name} {
+  .panel {
+    background: url(img/panel-ornament.svg) center no-repeat;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    max-width: 170px;
+    padding: 36px;
+    position: relative;
+    text-align: center;
+
+    &--header {
+      left: 75%;
+      margin-bottom: -130px;
+      top: -40px;
+
+      &::after {
+        background: url(img/panel-arrow.svg) center / 100% no-repeat;
+        content: '';
+        display: block;
+        height: 100px;
+        left: -25px;
+        position: absolute;
+        top: 65px;
+        width: 100px;
+      }
+
+      @media (max-width: 1200px) {
+        left: 50%;
+        margin-bottom: 40px;
+        top: 40px;
+        transform: translateX(-50%);
+
+        &::after {
+          height: 65px;
+          left: 0;
+          top: 80px;
+          transform: scaleX(-1);
+          width: 65px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--footer {
+      bottom: -250px;
+      left: 20%;
+
+      @media (max-width: 520px) {
+        bottom: -125px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .panel-text {
+      background-color: #F5A816;
+      margin: 0;
+      padding: 0 10px;
+    }
+  }
+}

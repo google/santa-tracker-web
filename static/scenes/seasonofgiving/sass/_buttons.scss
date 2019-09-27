@@ -1,0 +1,200 @@
+##{$name} {
+  .Buttons {
+    display: flex;
+    margin-top: 15px;
+    transform: scale(0.8);
+    z-index: 2;
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      display: none;
+    }
+  }
+
+  .Button {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+
+    background-color: #B148B9;
+    height: 60px;
+    margin-right: 14px;
+
+    bottom: 0px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 8px 0 #852C81;
+    text-decoration: none;
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    transition: bottom 0.1s, box-shadow 0.1s;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .ornament-link.Button {
+    min-height: 54px !important;
+    height: 54px !important;
+  }
+
+  .Button--copy {
+    font-size: 24px;
+    padding: 12px 22px;
+  }
+
+  .Button:active {
+    box-shadow: none;
+    bottom: -8px;
+
+    transition: bottom 0.2s, box-shadow 0.2s;
+  }
+
+  .Button:after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 5px;
+    box-shadow: 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition: box-shadow 0.1s
+  }
+
+  .Button:active:after {
+    box-shadow: none;
+    transition: box-shadow 0.2s
+  }
+
+  .Button-print {
+    background-image: url(img/icons/print.svg);
+    background-size: 34px 34px;
+    width: 60px;
+  }
+
+  .Button-download {
+    background-image: url(img/icons/download.svg);
+    background-size: 33px 33px;
+    width: 60px;
+  }
+
+  .Button-reset {
+    background-image: url(img/icons/trash.svg);
+    background-size: 33px 33px;
+    width: 60px;
+  }
+
+  .Button-download--mobile {
+    background-image: url(img/icons/download.svg);
+    background-size: 33px 33px;
+    width: 97px;
+  }
+
+  .Button-reset--mobile {
+    background-image: url(img/icons/trash.svg);
+    background-size: 33px 33px;
+    width: 97px;
+  }
+
+  .Button-nav-ornament {
+    background: 50% 50% / contain no-repeat #8DC449;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #78A341;
+    cursor: pointer;
+    float: left;
+    height: 60px;
+    position: relative;
+    width: 60px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::after {
+      border-radius: 50%;
+      bottom: 0;
+      box-shadow: 6px 6px rgba(0, 0, 0, .1);
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: box-shadow 0.1s;
+      z-index: -1;
+    }
+  }
+
+  .Button-info {
+    background-image: url(img/icons/info.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    bottom: 260px;
+    cursor: pointer;
+    height: 54px;
+    opacity: 0;
+    position: absolute;
+    right: 20px;
+    visibility: hidden;
+    width: 40px;
+    z-index: 4;
+
+    &.active {
+      transition-delay: 0;
+      visibility: hidden;
+
+      @media (max-width: 1024px), (max-height: 600px) {
+        bottom: 94px;
+        opacity: 1;
+        visibility: visible;
+        transition: .6s opacity ease;
+        transition-delay: 1s;
+      }
+
+      @media (max-width: 520px) {
+        bottom: 166px;
+        opacity: 1;
+        visibility: visible;
+        transition: .6s opacity ease;
+        transition-delay: 1s;
+      }
+    }
+  }
+
+  .Button-prev-ornament {
+    background-image: url(img/icons/prev.svg);
+  }
+
+  .Button-next-ornament {
+    background-image: url(img/icons/next.svg);
+  }
+
+  .Button-show-all {
+    background-image: url(img/icons/show-all.svg);
+    background-size: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .Button-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    background-image: url(img/icons/close.svg);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+  }
+}

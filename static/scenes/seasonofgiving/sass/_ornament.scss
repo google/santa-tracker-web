@@ -1,0 +1,276 @@
+$santa-body-width: 797px;
+$santa-body-height: 809px;
+
+$santa-face-width: 421px;
+$santa-face-height: 375px;
+
+##{$name} {
+  .ornament {
+    float: left;
+    left: 50%;
+    max-width: 520px;
+    position: relative;
+    top: -230px;
+    transform: translate(-50%, 100%);
+    user-select: none;
+    width: 100%;
+    z-index: 2;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+    opacity: 0;
+
+    &.visible {
+      transition: opacity 0.5s, transform 0.25s;
+      opacity: 1;
+      transform: translate(-50%, 0);
+
+      @media (max-width: 1024px), (max-height: 600px) {
+        transform: translate3d(-50%, -100%, 0);
+      }
+    }
+
+    @media (max-width: 1276px) {
+      top: -200px;
+    }
+
+    @media (max-width: 1150px) {
+      top: -160px;
+    }
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      margin-left: 0;
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -100%);
+    }
+
+    @media (max-width: 400px) and (max-height: 600px) {
+      top: 40%;
+    }
+  }
+
+  .ornament-logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .ornament-copy-container {
+    background-color: transparent;
+    z-index: 4;
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      overflow: scroll;
+      position: fixed;
+      visibility: hidden;
+      width: 100%;
+      z-index: 20;
+
+      &.show {
+        visibility: visible;
+      }
+
+      &::before {
+        background: url(img/season-of-giving-bg.svg) no-repeat center / cover #388E3C;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: .9;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .ornament-copy {
+    color: #fff;
+    display: block;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(calc(-50% - 22px));
+    width: 275px;
+    z-index: 100;
+
+    opacity: 0.5;
+    &.visible {
+      transition: opacity 1s;
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 29px 0 5px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.7em;
+      margin: 0 0 10px;
+    }
+
+    .copy-link {
+      color: #f1ca3a;
+      text-decoration: none;
+
+       &:hover {
+        color: #f1ca3a;
+       }
+    }
+
+    .Button-close {
+      display: none;
+    }
+
+    @media (max-width: 1150px) {
+      width: 250px;
+    }
+
+    @media (min-width: 1024px) {
+      opacity: 0;
+    }
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      display: block;
+      float: none;
+      position: relative;
+      width: auto;
+      margin: 20px;
+      top: 0;
+      transform: none;
+
+      .Button-close {
+        display: block;
+      }
+    }
+  }
+
+  .ornament-link {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .ornament-hook {
+    background: url(img/ornament-hook.svg) no-repeat;
+    background-position: top center;
+    background-size: contain;
+    height: 50%;
+    max-height: 222px;
+    max-width: 138px;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    width: 23%;
+    transform: translate(-50%, 0);
+    z-index: 5;
+  }
+
+  .ornament-shadow {
+    background-color: rgba(0,0,0,.05);
+    border-radius: 50%;
+    height: 90%;
+    max-height: 520px;
+    max-width: 520px;
+    position: absolute;
+    right: -10%;
+    top: 55%;
+    width: 90%;
+    z-index: 1;
+  }
+
+  .color-guide {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    left: 0;
+    max-height: 520px;
+    max-width: 520px;
+    pointer-events: none;
+    position: absolute;
+    top: 36%;
+    width: 100%;
+    z-index: 4;
+  }
+
+  .scene-ornament {
+    flex: 0 1 auto;
+    min-height: 60%;
+    width: 100%;
+
+    @media (max-width: 1024px), (max-height: 600px) {
+      top: auto;
+      transform: none;
+    }
+  }
+
+  .scene-ornament-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    position: absolute;
+    visibility: hidden;
+    overflow: hidden;
+    top: 0;
+    z-index: 2;
+
+    &.active {
+      visibility: visible;
+      overflow: visible;
+    }
+
+    a:not(.Button) {
+      @extend .copy-link;
+    }
+  }
+
+  .icon {
+    background-repeat: no-repeat;
+  }
+
+  .ornament-stage-container {
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+  }
+
+  .canvas {
+    background-color: #fff;
+    border-radius: 50% 50%;
+    box-shadow: 0 0 0 18px #28b5f5;
+    overflow: hidden;
+    position: absolute;
+    top: 36%;
+  }
+
+  .temp-canvas {
+    background-color: transparent;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 3;
+  }
+
+  .temp-canvas--active {
+    visibility: visible;
+  }
+
+  #ornament-stage {
+    background: rgba(255, 255, 255, 0.2);
+    height: 100%;
+    max-height: 520px;
+    max-width: 520px;
+    width: 100%;
+  }
+}

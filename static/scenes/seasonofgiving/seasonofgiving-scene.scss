@@ -1,0 +1,60 @@
+$name: 'module-seasonofgiving';
+
+@import "sass/mixins";
+@import "sass/buttons";
+@import "sass/tools";
+@import "sass/ornament";
+@import "sass/ornament-gallery";
+@import "sass/print-ornament";
+@import "sass/responsive";
+@import "sass/intro";
+@import "sass/footer";
+@import "sass/panel";
+
+body {
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+##{$name} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .seasonofgiving::before {
+    background: url(img/season-of-giving-bg.svg) no-repeat center / cover;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .scene {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.external {
+  visibility: var(--link-visibility);
+}
