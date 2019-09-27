@@ -501,13 +501,13 @@ function configureCustomKeys() {
 
   function gamepadLoop() {
     const gamepads = navigator.getGamepads();
-    if (!gamepads.length) {
+    const gp = gamepads[0] || gamepads[1] || gamepads[2] || gamepads[3] || null;
+    if (!gp) {
       return;
     }
     window.requestAnimationFrame(gamepadLoop);
 
     // TODO(samthor): We only look at the 1st gamepad. What if we have multiplayer games?
-    const gp = gamepads[0];
     if (gp.timestamp === lastTimestamp) {
       return;
     }

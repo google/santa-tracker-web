@@ -79,6 +79,8 @@ app.Controls = class {
    * @param  {Event} e The event
    */
   onKeyDown(e) {
+    console.info('got keydown', e);
+
     if (e.keyCode && (e.keyCode < 37 || e.keyCode > 40)) {
       return;
     }

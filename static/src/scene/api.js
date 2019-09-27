@@ -220,13 +220,13 @@ class SceneApi extends EventTarget {
         // inputs. It might be worth merging them, but only if a game isn't explicitly multiplayer.
         const event = new CustomEvent('keydown');
         Object.assign(event, payload);
-        window.dispatchEvent(event, {bubbles: true});
+        document.dispatchEvent(event, {bubbles: true});
         break;
       }
       case 'keyup': {
         const event = new CustomEvent('keyup');
         Object.assign(event, payload);
-        window.dispatchEvent(event, {bubbles: true});
+        document.dispatchEvent(event, {bubbles: true});
         break;
       }
       default:

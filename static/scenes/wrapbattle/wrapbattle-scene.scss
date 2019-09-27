@@ -3,6 +3,8 @@ $name: 'module-wrapbattle';
 @import '../_shared/sass/board';
 @import '../_shared/sass/levelup';
 
+$mobile-size: 800px;
+
 @import 'sass/_game.scss';
 @import 'sass/_scene.scss';
 @import 'sass/_track.scss';

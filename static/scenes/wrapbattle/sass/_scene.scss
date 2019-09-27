@@ -95,7 +95,7 @@
     // transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     // width: 60%;
 
-    @media (min-width: 800px + 1px) {
+    @media screen and (min-width: ($mobile-size + 1px)) {
       width: 60%;
       left: auto;
     }
@@ -120,13 +120,15 @@
 
     .speaker-wall {
       font-size: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
 
       .side {
-        position: absolute;
-        top: -50px;
+        display: flex;
 
         &--left {
-          left: 20px;
+          margin-right: 20px;
 
           .speaker {
             background: url(img/scene/speaker-left-corner-foam.png) center/cover;
@@ -138,17 +140,14 @@
         }
 
         &--right {
-          right: 0;
+          margin-left: 40px;
+          margin-right: -20px;
 
           .speaker {
             background: url(img/scene/speaker-right-corner-foam.png) center/cover;
 
             &.animated {
               background: url(img/scene/speaker-right-corner.svg) center/cover;
-            }
-
-            .speaker-top, .speaker-bottom {
-              left: 35px;
             }
           }
 
@@ -170,7 +169,7 @@
         display: inline-block;
         position: relative;
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: $mobile-size) {
           display: none;
         }
       }
@@ -198,7 +197,7 @@
           position: absolute;
           width: 91px;
 
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: $mobile-size) {
             animation-play-state: paused;
           }
         }
@@ -220,8 +219,8 @@
       position: absolute;
       right: 0;
 
-      @media screen and (max-height: 800px) {
-        bottom: 0;
+      @media screen and (max-height: $mobile-size) {
+        bottom: 150px;
       }
     }
 
@@ -343,7 +342,7 @@
       right: 0;
       z-index: 2;
 
-      @media screen and (max-height: 800px) {
+      @media screen and (max-height: $mobile-size) {
         bottom: -150px;
       }
     }
@@ -394,11 +393,7 @@
       right: 0;
       z-index: 2;
 
-      @media screen and (max-width: 800px) {
-        display: none;
-      }
-
-      @media screen and (max-height: 800px) {
+      @media screen and (max-height: $mobile-size) {
         bottom: -300px;
       }
     }
@@ -431,11 +426,11 @@
       transform: scale(1.5);
       transform-origin: 50% 20%;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: $mobile-size) {
         transform: none;
       }
 
-      @media screen and (max-height: 800px) {
+      @media screen and (max-height: $mobile-size) {
         transform-origin: 50% 50%;
       }
     }
