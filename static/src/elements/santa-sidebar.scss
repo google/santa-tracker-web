@@ -83,12 +83,12 @@ a {
   position: relative;
 
   .lock {
+    cursor: not-allowed;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: _rel("../../img/lock.svg") 90% 50% no-repeat;
     background-color: rgba(87, 214, 147, 0.5);
     background-size: 42px 42px;
   }

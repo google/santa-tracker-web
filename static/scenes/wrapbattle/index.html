@@ -141,93 +141,87 @@
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="module">
-import api from '../../src/scene/api.js';
-import Game from './:closure.js';
-import {_static} from '../../src/magic.js';
+  import api from '../../src/scene/api.js';
+  import Game from './:closure.js';
 
-// FIXME: hack to get the game running
-const ctx = new AudioContext();
-window.Klang = {
-  Util: {
-    now() {
-      return ctx.currentTime;
+  window.Klang = {
+    Util: {
+      now() {
+        return performance.now();
+      },
     },
-  },
-  $(id) {
-    return {_content: null, data: {metaData: {bpm: 0}}};
-  },
-  engineVersion: 'webaudio',
-},
+    $(id) {
+      return {_content: null, data: {metaData: {bpm: 0}}};
+    },
+    engineVersion: 'webaudio',
+  };
 
-api.preload.sounds('wrapbattle_load_sounds', 40);
-api.preload.images(
-  'img/arrow-down.png',
-  'img/arrow-up.png',
-  'img/arrow-left.png',
-  'img/arrow-right.png',
-  'img/scene/crowd-background.png',
-  'img/scene/speaker-boom.svg',
-  'img/scene/speaker-left-corner.svg',
-  'img/scene/speaker-left-corner-foam.png',
-  'img/scene/speaker-right-corner.svg',
-  'img/scene/speaker-right-corner-foam.png',
-  'img/scene/table.svg',
-  'img/scene/turn-tables.svg',
-  'img/scene/wrap-center.png',
-  'img/scene/wrap-left.png',
-  'img/scene/wrap-right.png',
-  'img/steps/boy/fail_0.png',
-  'img/steps/boy/idle_1_0.png',
-  'img/steps/boy/idle_2_0.png',
-  'img/steps/boy/wrap_back_blue_0.png',
-  'img/steps/boy/wrap_back_green_0.png',
-  'img/steps/boy/wrap_back_red_0.png',
-  'img/steps/boy/wrap_front_blue_0.png',
-  'img/steps/boy/wrap_front_green_0.png',
-  'img/steps/boy/wrap_front_red_0.png',
-  'img/steps/girl/fail_0.png',
-  'img/steps/girl/idle_1_0.png',
-  'img/steps/girl/idle_2_0.png',
-  'img/steps/girl/wrap_back_blue_0.png',
-  'img/steps/girl/wrap_back_green_0.png',
-  'img/steps/girl/wrap_back_red_0.png',
-  'img/steps/girl/wrap_front_blue_0.png',
-  'img/steps/girl/wrap_front_green_0.png',
-  'img/steps/girl/wrap_front_red_0.png',
-  'img/presents/gift_blue_false.png',
-  'img/presents/gift_blue_true.png',
-  'img/presents/gift_green_false.png',
-  'img/presents/gift_green_true.png',
-  'img/presents/gift_red_false.png',
-  'img/presents/gift_red_true.png',
-  'img/toys/toys-01.svg',
-  'img/toys/toys-02.svg',
-  'img/toys/toys-03.svg',
-  'img/toys/toys-04.svg',
-  'img/toys/toys-05.svg',
-  'img/toys/toys-06.svg',
-  'img/toys/toys-07.svg',
-  'img/toys/toys-08.svg',
-);
+  api.preload.sounds('wrapbattle_load_sounds');
+  api.preload.images(
+    'img/arrow-down.png',
+    'img/arrow-up.png',
+    'img/arrow-left.png',
+    'img/arrow-right.png',
+    'img/scene/crowd-background.png',
+    'img/scene/speaker-boom.svg',
+    'img/scene/speaker-left-corner.svg',
+    'img/scene/speaker-left-corner-foam.png',
+    'img/scene/speaker-right-corner.svg',
+    'img/scene/speaker-right-corner-foam.png',
+    'img/scene/table.svg',
+    'img/scene/turn-tables.svg',
+    'img/scene/wrap-center.png',
+    'img/scene/wrap-left.png',
+    'img/scene/wrap-right.png',
+    'img/steps/boy/fail_0.png',
+    'img/steps/boy/idle_1_0.png',
+    'img/steps/boy/idle_2_0.png',
+    'img/steps/boy/wrap_back_blue_0.png',
+    'img/steps/boy/wrap_back_green_0.png',
+    'img/steps/boy/wrap_back_red_0.png',
+    'img/steps/boy/wrap_front_blue_0.png',
+    'img/steps/boy/wrap_front_green_0.png',
+    'img/steps/boy/wrap_front_red_0.png',
+    'img/steps/girl/fail_0.png',
+    'img/steps/girl/idle_1_0.png',
+    'img/steps/girl/idle_2_0.png',
+    'img/steps/girl/wrap_back_blue_0.png',
+    'img/steps/girl/wrap_back_green_0.png',
+    'img/steps/girl/wrap_back_red_0.png',
+    'img/steps/girl/wrap_front_blue_0.png',
+    'img/steps/girl/wrap_front_green_0.png',
+    'img/steps/girl/wrap_front_red_0.png',
+    'img/presents/gift_blue_false.png',
+    'img/presents/gift_blue_true.png',
+    'img/presents/gift_green_false.png',
+    'img/presents/gift_green_true.png',
+    'img/presents/gift_red_false.png',
+    'img/presents/gift_red_true.png',
+    'img/toys/toys-01.svg',
+    'img/toys/toys-02.svg',
+    'img/toys/toys-03.svg',
+    'img/toys/toys-04.svg',
+    'img/toys/toys-05.svg',
+    'img/toys/toys-06.svg',
+    'img/toys/toys-07.svg',
+    'img/toys/toys-08.svg',
+  );
 
-// TODO: this value is incorrect during load?
-if (window.innerWidth <= 800) {
-  // Only load a 3.2mb gif if we're on mobile.
-  // TODO: Don't load a 3.2mb gif :|
-  api.preload.images('img/wrap-battle-mobile.gif');
-}
+  const game = new Game(document.getElementById('module-wrapbattle'), './');
 
-const game = new Game(document.getElementById('module-wrapbattle'), _static`scenes/wrapbattle/`);
+  api.config({
+    sound: ['wrapbattle_start'],
+    orientation: 'portrait',
+    pause: true,
+  });
 
-api.addEventListener('pause', (ev) => game.pause());
-api.addEventListener('resume', (ev) => game.resume());
-api.addEventListener('restart', (ev) => game.restart());
+  api.addEventListener('pause', (ev) => game.pause());
+  api.addEventListener('resume', (ev) => game.resume());
+  api.addEventListener('restart', (ev) => game.restart());
 
-api.ready(async () => {
-  api.ambient('wrapbattle_start', 'wrapbattle_end');
-  game.start();
-});
-
+  api.ready(async () => {
+    game.start();
+  });
 </script>
 
 </body>

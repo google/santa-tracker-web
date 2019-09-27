@@ -6,30 +6,11 @@ import './polyfill/event-target.js';
 const configPath = _static`third_party/lib/klang/config.js`;
 const audioPath = _static`audio`;
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
-const masterContext = new AudioContext();
-
-let activeController = null;
-let preloadGroupCallback = null;
-
-const Klang = {
-  triggerEvent(name, ...args) {
-    if (activeController) {
-      activeController.play(name, ...args);
-    }
-  },
-  load(groups) {
-    if (preloadGroupCallback) {
-      groups.forEach((group) => preloadGroupCallback(group));
-    }
-  },
-};
-window.Klang = Klang;
-
+const masterContext = new (window.AudioContext || window.webkitAudioContext)();
 
 const Util = {
   now() {
+    // nb. might be zero if suspended
     return masterContext.currentTime;
   },
 
@@ -141,6 +122,24 @@ const Util = {
   },
 };
 
+
+let activeController = null;
+let preloadGroupCallback = null;
+
+const Klang = {
+  triggerEvent(name, ...args) {
+    if (activeController) {
+      activeController.play(name, ...args);
+    }
+  },
+  load(groups) {
+    if (preloadGroupCallback) {
+      groups.forEach((group) => preloadGroupCallback(group));
+    }
+  },
+  Util,
+};
+window.Klang = Klang;
 
 
 class SimpleProcess extends EventTarget {
@@ -732,7 +731,9 @@ class AudioSource extends EventTarget {
    * @return {!GainNode}
    */
   get output() {
-    throw new TypeError(`should not modify gain of AudioSource`);
+    // This is a bit gross, but the only reason config accesses the output node of an AudioSource
+    // is to tweak its gain. Ensure that it is reset next time.
+    this.dispatchEvent(new Event('dirty'));
     return this._output;
   }
 
@@ -834,6 +835,10 @@ class AudioSource extends EventTarget {
   }
 
   reset(duration=0.0) {
+    const wasFading = (this._fadeOutTimeout !== 0);
+    if (!wasFading) {
+      this._resetFade();  // the output's gain might be wrong, reset it
+    }
     this.curvePlaybackRate(this._originalPlaybackRate, duration);
   }
 }

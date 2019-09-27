@@ -86,22 +86,18 @@
 
 ##{$name} {
   .scene {
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
     overflow: hidden;
     position: absolute;
-    right: 0;
-    top: 0;
     // transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    width: 60%;
+    // width: 60%;
 
-    @media screen and (max-width: 800px) {
-      background: url(img/wrap-battle-mobile.gif) center/cover;
-      left: 0;
-      width: auto;
-
-      * {
-        display: none;
-      }
+    @media (min-width: 800px + 1px) {
+      width: 60%;
+      left: auto;
     }
 
     .background, .speaker-wall {
@@ -408,7 +404,7 @@
     }
 
     .audience-row {
-      height: 536px;
+      height: 603px;
       left: 50%;
       position: absolute;
       transform: translate(-50%, 0);

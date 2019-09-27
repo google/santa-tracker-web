@@ -52,7 +52,7 @@
       letter-spacing: 0.05em;
       position: absolute;
       text-shadow: 0 7px 0 rgba(255, 255, 255, 0.3);
-      top: 125px;
+      top: 140px;
       transform: translate(-50%, 0);
       transition: color 0.3s;
 
@@ -71,7 +71,7 @@
       opacity: 0;
       position: absolute;
       text-transform: uppercase;
-      top: 100px;
+      top: 60px;
       transform: translate(-50%, 0);
       transition: opacity 0.2s, color 0.3s;
 
@@ -107,7 +107,7 @@
         margin: 0 5px;
         width: 80px;
 
-        @media screen and (max-width: 350px) {
+        @media screen and (max-width: 600px) {
           margin: 0 10px;
           height: 50px;
           width: 50px;
@@ -137,10 +137,10 @@
   }
 
   .canvas, .arrow-track {
-    height: 100%;
+    height: calc(100% - 75px);
     left: 0;
     position: absolute;
-    top: 0;
+    top: 75px;
     width: 100%;
   }
 

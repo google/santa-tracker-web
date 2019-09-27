@@ -180,10 +180,8 @@ app.Game = class {
     this.render(delta);
     this.elem.find('.points').text(this.points);
 
-    if (this.responsiveKey === 'desktop') {
-      this.leftElf.update(delta);
-      this.rightElf.update(delta);
-    }
+    this.leftElf.update(delta);
+    this.rightElf.update(delta);
 
     this.powerUp = Math.max(0, Math.min(1, this.powerUp));
     if (this.powerUp == 1 && !this.powerUpActive) {
@@ -204,6 +202,8 @@ app.Game = class {
    * @param {number} delta Time elapsed since last update in milliseconds
    */
   render(delta) {
+    this.drawTrackLine();
+
     if (this.powerUpActive != this.powerUpActiveRendered) {
       this.drawTrackLine();
     }
@@ -237,7 +237,7 @@ app.Game = class {
     image.onload = () => {
       this.images[name] = image;
       this.imagesLoaded++;
-      if (this.imagesLoaded == 4) {
+      if (this.imagesLoaded >= this.imageNames.length) {
         this.setUpCacheCanvas();
       }
     };
@@ -359,6 +359,7 @@ app.Game = class {
         innerEndX, centerY);
     powerUpGradient.addColorStop(0, app.Constants.COLORS.GRADIENT_START);
     powerUpGradient.addColorStop(1, app.Constants.COLORS.GRADIENT_END);
+    console.info('linear gradient', powerUpGradient, innerStart, innerWidth, powerUpHeight);
     // powerup gradient bar
     this.fgContext.fillStyle = powerUpGradient;
     this.fgContext.fillRect(innerStart, innerStart, innerWidth,
@@ -596,12 +597,14 @@ app.Game = class {
       this.canvases[i][0].height = this.canvases[i].height();
     }
 
-    this.drawTrackLine();
-    this.drawPowerBarBg();
+    this.drawPowerBarBg();  // only done on resize, not in render()
 
     this.leftElf.onResize();
     this.rightElf.onResize();
-    this.track.renderTrack();
+
+    this.render(0);
+    this.leftElf.update(0);
+    this.rightElf.update(0);
   }
 
   /**
@@ -611,6 +614,7 @@ app.Game = class {
     this.freezeGame();
     this.gameoverDialog.show();
     this.sequencer.onGameOver();
+    this.track.cleanUp();
     this.leftElf.cleanUp();
     this.rightElf.cleanUp();
     this.animationPlayer.cleanUp();
