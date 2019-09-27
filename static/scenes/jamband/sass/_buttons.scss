@@ -1,0 +1,17 @@
+##{$name} {
+  .Buttons {
+    @extend .fill;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15em;
+  }
+
+  .Button {
+    @include ButtonColor(orangered);
+  }
+
+  .Button-share {
+    visibility: var(--link-visibility);
+  }
+}

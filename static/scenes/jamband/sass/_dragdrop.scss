@@ -1,0 +1,10 @@
+##{$name} {
+  .dragging {
+    z-index: 2;
+  }
+
+  .collapse {
+    max-width: 0 !important;
+    transition: max-width 0.3s;
+  }
+}

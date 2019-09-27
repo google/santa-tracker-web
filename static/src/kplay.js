@@ -286,6 +286,26 @@ class EffectSteroPanner {
 }
 
 
+class Sequencer {
+  constructor(config) {
+    this._bpm = config['bpm'];
+    this._started = false;  // must match this, Klang config asks for it directly
+  }
+
+  start() {
+    this._started = true;
+  }
+
+  stop() {
+    this._started = false;
+  }
+
+  get started() {
+    return this._started;
+  }
+}
+
+
 class AudioBus {
   constructor(config, destination) {
     this._input = masterContext.createGain();
@@ -931,6 +951,10 @@ export async function prepare() {
 
       case 'Bus':
         node = new AudioBus(config, destination);
+        break;
+
+      case 'Sequencer':
+        node = new Sequencer(config);
         break;
 
       default:

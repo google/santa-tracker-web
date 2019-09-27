@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="jamband-scene.css" />
+</head>
+<body>
+
+<div id="module-jamband">
+  <div class="jamband">
+    <div class="scene">
+      <div class="Background">
+        <div class="Background-mountains"></div>
+        <div class="Background-trees"></div>
+        <div class="Background-snow"></div>
+        <div class="Background-stageBackdrop">
+          <div class="Background-circle"></div>
+          <div class="Background-circle"></div>
+          <div class="Background-circle"></div>
+          <div class="Background-circle"></div>
+          <div class="Background-circle"></div>
+          <div class="Background-circle"></div>
+        </div>
+        <div class="Background-stage--top"></div>
+        <div class="Background-stage--front">
+          <div class="Background-stage"></div>
+        </div>
+      </div>
+      <div class="Lights">
+        <div class="Light-floor Light-colored Light-floor--farLeft"></div>
+        <div class="Light-floor Light-colored Light-floor--nearLeft"></div>
+        <div class="Light-floor Light-colored Light-floor--nearRight"></div>
+        <div class="Light-floor Light-colored Light-floor--farRight"></div>
+        <div class="Light-ceiling Light-ceiling--farLeft"></div>
+        <div class="Light-ceiling Light-ceiling--nearLeft"></div>
+        <div class="Light-ceiling Light-ceiling--nearRight"></div>
+        <div class="Light-ceiling Light-ceiling--farRight"></div>
+        <div class="Background-crowd Background-crowd1"></div>
+        <div class="Background-crowd Background-crowd2"></div>
+      </div>
+      <div data-pattern="0" data-volume="0.6" class="Stage Stage--farRight droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--green"></div>
+      </div>
+      <div data-pattern="1" data-volume="0.8" class="Stage Stage--nearRight droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--blue"></div>
+      </div>
+      <div data-pattern="0" data-volume="1" class="Stage Stage--center droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--green"></div>
+      </div>
+      <div data-pattern="1" data-volume="0.8" class="Stage Stage--nearLeft droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--blue"></div>
+      </div>
+      <div data-pattern="0" data-volume="0.6" class="Stage Stage--farLeft droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--green"></div>
+      </div>
+      <div data-pattern="1" data-volume="1" class="Stage Stage--special droppable">
+        <div class="Stage-arrow"></div>
+        <div class="Light-stage Light-stage--red"></div>
+      </div>
+    </div>
+    <div class="gui">
+      <div class="Drawer">
+        <div id="drawer-tab" class="Drawer-tab">
+          <div class="Drawer-icon"></div>
+        </div>
+        <div class="Drawer-container">
+          <div class="Drawer-arrow-wrapper Drawer-arrow-wrapper--prev">
+            <div id="drawer-arrow--left" class="Button Button--round Button--prev-dark Drawer-arrow"></div>
+          </div>
+          <div id="drawer-scrollable" class="Drawer-instruments">
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-rap Rap draggable">
+                <div class="Rap-arm--left"></div>
+                <div class="Rap-body"></div>
+                <div class="Rap-foot"></div>
+                <div class="Rap-head"></div>
+                <div class="Rap-arm--right"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-guitar Guitar draggable">
+                <div class="Guitar-arm--right"></div>
+                <div class="Guitar-body"></div>
+                <div class="Guitar-foot"></div>
+                <div class="Guitar-arm--left"></div>
+                <div class="Guitar-hand"></div>
+                <div class="Guitar-head"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-drums Drums draggable">
+                <div class="Drums-arm--left"></div>
+                <div class="Drums-arm--right"></div>
+                <div class="Drums-body"></div>
+                <div class="Drums-head"></div>
+                <div class="Drums-hihat"></div>
+                <div class="Drums-kick"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-bass Bass draggable">
+                <div class="Bass Bass-body"></div>
+                <div class="Bass Bass-foot"></div>
+                <div class="Bass Bass-guitar"></div>
+                <div class="Bass Bass-head"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-synth Synth draggable">
+                <div class="Synth-body"></div>
+                <div class="Synth-foot"></div>
+                <div class="Synth-keyboard"></div>
+                <div class="Synth-arm--left"></div>
+                <div class="Synth-arm--right"></div>
+                <div class="Synth-head"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-bell Bell draggable">
+                <div class="Bell-body"></div>
+                <div class="Bell-bell"></div>
+                <div class="Bell-arm--left"></div>
+                <div class="Bell-head"></div>
+                <div class="Bell-foot"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-sax Sax draggable">
+                <div class="Sax-base"></div>
+                <div class="Sax-body">
+                  <div class="Sax-hand">
+                    <div class="Sax-fingers"></div>
+                  </div>
+                  <div class="Sax-sax">
+                    <div class="Sax-sax-mouth"></div>
+                  </div>
+                </div>
+                <div class="Sax-foot"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-boombox Boombox draggable">
+                <div class="Boombox-arm--left"></div>
+                <div class="Boombox-body"></div>
+                <div class="Boombox-foot"></div>
+                <div class="Boombox-head"></div>
+                <div class="Boombox-arm--right"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-tamb Tamb draggable">
+                <div class="Tamb-arm"></div>
+                <div class="Tamb-body"></div>
+                <div class="Tamb-head"></div>
+                <div class="Tamb-foot"></div>
+              </div>
+            </div>
+            <div class="InstrumentContainer">
+              <div class="Instrument Instrument--small Instrument-xylo Xylo draggable">
+                <div class="Xylo-body"></div>
+                <div class="Xylo-board"></div>
+                <div class="Xylo-arm--left">
+                  <div class="Xylo-stick--left"></div>
+                </div>
+                <div class="Xylo-arm--right">
+                  <div class="Xylo-stick--right"></div>
+                </div>
+                <div class="Xylo-head"></div>
+                <div class="Xylo-foot"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Drawer-arrow-wrapper Drawer-arrow-wrapper--next">
+            <div id="drawer-arrow--right" class="Button Button--round Button--next-dark Drawer-arrow"></div>
+          </div>
+          <div id="drawer-button--random" class="Button Button--noText Button--round Button--shuffle"></div>
+          <div id="drawer-button--share" class="Button Button--round Button--share"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="module">
+  import api from '../../src/scene/api.js';
+  import Game from './:closure.js';
+
+  api.preload.sounds('jamband_load_sounds');
+  api.preload.images(
+    'img/background-mountains.svg',
+    'img/background-trees.svg',
+    'img/crowd1.svg',
+    'img/crowd2.svg',
+    'img/drawer-tab.svg',
+    'img/stage.svg',
+    'img/stage-arrow.svg',
+    'img/icons/arrow.svg',
+    'img/icons/close.svg',
+    'img/icons/open.svg',
+    'img/icons/random.svg',
+    'img/instruments/bass-body.svg',
+    'img/instruments/bass-foot.svg',
+    'img/instruments/bass-guitar.svg',
+    'img/instruments/bass-head.svg',
+    'img/instruments/bass.svg',
+    'img/instruments/bell-arm--left.svg',
+    'img/instruments/bell-bell.svg',
+    'img/instruments/bell-body.svg',
+    'img/instruments/bell-foot.svg',
+    'img/instruments/bell-head.svg',
+    'img/instruments/bell.svg',
+    'img/instruments/boombox-arm--left.svg',
+    'img/instruments/boombox-arm--right.svg',
+    'img/instruments/boombox-body.svg',
+    'img/instruments/boombox-foot.svg',
+    'img/instruments/boombox-head.svg',
+    'img/instruments/boombox.svg',
+    'img/instruments/drums-arm--left.svg',
+    'img/instruments/drums-arm--right.svg',
+    'img/instruments/drums-body.svg',
+    'img/instruments/drums-head.svg',
+    'img/instruments/drums-hihat.svg',
+    'img/instruments/drums-kick.svg',
+    'img/instruments/drums.svg',
+    'img/instruments/guitar-arm--left.svg',
+    'img/instruments/guitar-arm--right.svg',
+    'img/instruments/guitar-body.svg',
+    'img/instruments/guitar-foot.svg',
+    'img/instruments/guitar-hand.svg',
+    'img/instruments/guitar-head.svg',
+    'img/instruments/guitar.svg',
+    'img/instruments/rap-arm--left.svg',
+    'img/instruments/rap-arm--right.svg',
+    'img/instruments/rap-body.svg',
+    'img/instruments/rap-foot.svg',
+    'img/instruments/rap-head.svg',
+    'img/instruments/rap.svg',
+    'img/instruments/sax-base.svg',
+    'img/instruments/sax-body.svg',
+    'img/instruments/sax-foot.svg',
+    'img/instruments/sax-hand.svg',
+    'img/instruments/sax-sax-mouth.svg',
+    'img/instruments/sax-sax.svg',
+    'img/instruments/sax.svg',
+    'img/instruments/synth-arm--left.svg',
+    'img/instruments/synth-arm--right.svg',
+    'img/instruments/synth-body.svg',
+    'img/instruments/synth-foot.svg',
+    'img/instruments/synth-head.svg',
+    'img/instruments/synth-keyboard.svg',
+    'img/instruments/synth.svg',
+    'img/instruments/tamb-arm.svg',
+    'img/instruments/tamb-body.svg',
+    'img/instruments/tamb-foot.svg',
+    'img/instruments/tamb-head.svg',
+    'img/instruments/tamb.svg',
+    'img/instruments/xylo-arm--left.svg',
+    'img/instruments/xylo-arm--right.svg',
+    'img/instruments/xylo-board.svg',
+    'img/instruments/xylo-body.svg',
+    'img/instruments/xylo-foot.svg',
+    'img/instruments/xylo-head.svg',
+    'img/instruments/xylo-stick--left.svg',
+    'img/instruments/xylo-stick--right.svg',
+    'img/instruments/xylo.svg',
+    'img/lights/ceiling-light--green.svg',
+    'img/lights/ceiling-light--red.svg',
+    'img/lights/ceiling-light.svg',
+    'img/lights/ceiling.svg',
+    'img/lights/floor-light--green.svg',
+    'img/lights/floor-light--red.svg',
+    'img/lights/floor-light.svg',
+    'img/lights/floor.svg',
+    'img/lights/floorBracket.svg',
+    'img/lights/stage-blue--on.svg',
+    'img/lights/stage-blue.svg',
+    'img/lights/stage-green--on.svg',
+    'img/lights/stage-green.svg',
+    'img/lights/stage-red--on.svg',
+    'img/lights/stage-red.svg',
+  );
+
+  api.config({
+    sound: ['jamband_start'],
+    orientation: 'landscape',
+  });
+
+  const game = new Game(document.getElementById('module-jamband'));
+
+  api.ready(async (data) => {
+    game.start(data);
+  });
+
+</script>
+
+</body>
+</html>
