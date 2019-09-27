@@ -359,7 +359,6 @@ app.Game = class {
         innerEndX, centerY);
     powerUpGradient.addColorStop(0, app.Constants.COLORS.GRADIENT_START);
     powerUpGradient.addColorStop(1, app.Constants.COLORS.GRADIENT_END);
-    console.info('linear gradient', powerUpGradient, innerStart, innerWidth, powerUpHeight);
     // powerup gradient bar
     this.fgContext.fillStyle = powerUpGradient;
     this.fgContext.fillRect(innerStart, innerStart, innerWidth,
