@@ -150,7 +150,7 @@ class SceneManager {
     if (this.selectedSubject) {
       const pos = this.projectOntoPlane()
       this.terrain.movePositionMarker(Math.ceil(pos.x), Math.ceil(pos.z))
-      this.selectedSubject.moveTo(Math.ceil(pos.x), Math.ceil(pos.z))
+      this.selectedSubject.moveTo(Math.ceil(pos.x), false, Math.ceil(pos.z))
     }
     // // Move and project on the plane
     // if (this.gplane && this.mouseConstraint) {
@@ -234,7 +234,8 @@ class SceneManager {
     }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
-    this.terrain.addPositionMarker()
+    console.log(this.selectedSubject)
+    this.terrain.addPositionMarker(this.selectedSubject.body.position)
     // // Set marker on contact point
     // this.setClickMarker(pos)
     // // Set the movement plane
@@ -338,17 +339,19 @@ class SceneManager {
   }
 
   move(direction) {
-    if (this.gplane && this.mouseConstraint) {
-      this.offset = this.offset + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
+    if (this.selectedSubject) {
+      const y =
+        this.selectedSubject.body.position.y + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
+      this.selectedSubject.moveTo(false, y, false)
       this.onMouseMove()
     }
   }
 
   rotate(direction) {
     if (this.selectedSubject) {
-      const axis = new CANNON.Vec3(0, 1, 0)
       this.jointBodyRotation = this.jointBodyRotation + (direction === 'right' ? Math.PI / 20 : Math.PI / -20)
-      this.jointBody.quaternion.setFromAxisAngle(axis, this.jointBodyRotation)
+      const axis = new CANNON.Vec3(0, 1, 0)
+      this.selectedSubject.rotate(axis, this.jointBodyRotation)
     }
   }
 }

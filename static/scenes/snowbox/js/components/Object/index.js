@@ -45,11 +45,24 @@ class Object {
     }
   }
 
-  moveTo(x, z) {
-    const width = this.body.aabb.upperBound.x - this.body.aabb.lowerBound.x
-    const depth = this.body.aabb.upperBound.z - this.body.aabb.lowerBound.z
-    const { y } = this.body.position
-    this.body.position.set(x - width / 2, y, z - depth / 2)
+  moveTo(xNew, yNew, zNew) {
+    let { x, y, z } = this.body.position
+
+    if (xNew) {
+      x = xNew - (this.body.aabb.upperBound.x - this.body.aabb.lowerBound.x) / 2
+    }
+
+    if (yNew) {
+      y = yNew
+    }
+
+    if (zNew) {
+      z = zNew - (this.body.aabb.upperBound.z - this.body.aabb.lowerBound.z) / 2
+    }
+
+    console.log(y)
+
+    this.body.position.set(x, y, z)
   }
 }
 

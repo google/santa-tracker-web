@@ -30,7 +30,7 @@ class Pyramid extends Obj {
 
     const shape = new CANNON.ConvexPolyhedron(verts, faces)
     this.body = new CANNON.Body({ mass: CONFIG.MASS, shape })
-    this.body.position.set(0, 10, 0)
+    this.body.position.set(-0.5, 5, -0.5)
     world.add(this.body)
 
     // Graphics

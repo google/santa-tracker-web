@@ -144,8 +144,13 @@ class Terrain extends Obj {
     })
   }
 
-  addPositionMarker() {
-    this.selectedMesh.position.set(-0.5, 0.01, -0.5)
+  addPositionMarker(position) {
+    let { x, z } = position
+
+    x = Math.ceil(x) - 0.5
+    z = Math.ceil(z) - 0.5
+
+    this.selectedMesh.position.set(x, 0.01, z)
     this.selectedMesh.quaternion.copy(this.bodies[0].quaternion)
     this.scene.add(this.selectedMesh)
   }
