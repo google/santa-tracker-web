@@ -40,8 +40,8 @@ class Terrain extends Obj {
     this.meshes.push(mesh)
 
     // GRID HELPER
-    const gridHelper = new THREE.GridHelper(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH)
-    this.scene.add(gridHelper)
+    // const gridHelper = new THREE.GridHelper(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH)
+    // this.scene.add(gridHelper)
 
     const selectedGeometry = new THREE.PlaneGeometry(1, 1)
     const selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xba3346 })

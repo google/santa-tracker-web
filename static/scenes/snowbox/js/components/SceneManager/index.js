@@ -150,8 +150,8 @@ class SceneManager {
     }
     if (this.selectedSubject) {
       const pos = this.projectOntoPlane()
-      this.terrain.movePositionMarker(Math.ceil(pos.x), Math.ceil(pos.z))
-      this.selectedSubject.moveTo(Math.ceil(pos.x), null, Math.ceil(pos.z))
+      this.terrain.movePositionMarker(pos.x, pos.z)
+      this.selectedSubject.moveTo(pos.x, null, pos.z)
     }
   }
 
