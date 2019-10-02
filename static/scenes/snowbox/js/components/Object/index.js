@@ -48,19 +48,17 @@ class Object {
   moveTo(xNew, yNew, zNew) {
     let { x, y, z } = this.body.position
 
-    if (xNew) {
+    if (xNew != null) {
       x = xNew - (this.body.aabb.upperBound.x - this.body.aabb.lowerBound.x) / 2
     }
 
-    if (yNew) {
+    if (yNew != null) {
       y = yNew
     }
 
-    if (zNew) {
+    if (zNew != null) {
       z = zNew - (this.body.aabb.upperBound.z - this.body.aabb.lowerBound.z) / 2
     }
-
-    console.log(y)
 
     this.body.position.set(x, y, z)
   }

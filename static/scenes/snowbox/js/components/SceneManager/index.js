@@ -150,16 +150,8 @@ class SceneManager {
     if (this.selectedSubject) {
       const pos = this.projectOntoPlane()
       this.terrain.movePositionMarker(Math.ceil(pos.x), Math.ceil(pos.z))
-      this.selectedSubject.moveTo(Math.ceil(pos.x), false, Math.ceil(pos.z))
+      this.selectedSubject.moveTo(Math.ceil(pos.x), null, Math.ceil(pos.z))
     }
-    // // Move and project on the plane
-    // if (this.gplane && this.mouseConstraint) {
-    //   const pos = this.projectOntoPlane()
-    //   if (pos) {
-    //     this.setClickMarker(pos)
-    //     this.moveJointToPoint(pos)
-    //   }
-    // }
   }
 
   onMouseDown() {
@@ -220,9 +212,7 @@ class SceneManager {
     this.selectedSubject.unselect()
 
     this.terrain.removePositionMarker()
-    // this.removeClickMarker()
-    // // Send the remove mouse joint to server
-    // this.removeJointConstraint()
+
     this.offset = 0
     this.jointBodyRotation = 0
     this.selectedSubject = null
@@ -234,13 +224,7 @@ class SceneManager {
     }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
-    console.log(this.selectedSubject)
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
-    // // Set marker on contact point
-    // this.setClickMarker(pos)
-    // // Set the movement plane
-    // this.setScreenPerpCenter(pos)
-    // this.addMouseConstraint(pos, this.selectedSubject.body)
   }
 
   setClickMarker(pos) {
@@ -342,7 +326,7 @@ class SceneManager {
     if (this.selectedSubject) {
       const y =
         this.selectedSubject.body.position.y + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
-      this.selectedSubject.moveTo(false, y, false)
+      this.selectedSubject.moveTo(null, y, null)
       this.onMouseMove()
     }
   }
