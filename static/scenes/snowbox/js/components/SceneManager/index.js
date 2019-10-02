@@ -8,6 +8,9 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
+import snowBox1 from '../../../models/snow_box01.json'
+import model1 from '../../../models/model-222.json'
+
 class SceneManager {
   constructor(canvas) {
     this.canvas = canvas
@@ -35,6 +38,78 @@ class SceneManager {
 
     this.createSceneSubjects()
     this.createJointBody()
+
+    this.initCube()
+  }
+
+  initCube() {
+
+    // BEGIN Clara.io JSON loader code
+    var objectLoader = new THREE.ObjectLoader();
+    // objectLoader.load( "/st/scenes/snowbox/models/snow_box01.json", function ( obj ) {
+    //   // /st/scenes/snowbox/models/snow_box01.json
+    //   scene.add( obj );
+    //   console.log(obj)
+
+    // } );
+    // // END Clara.io JSON loader code
+    // var loader = new THREE.ObjectLoader();
+
+    // // loader.load(
+    // //   // resource URL
+    // //   "/st/scenes/snowbox/models/snow_box01.json",
+
+    // //   // onLoad callback
+    // //   // Here the loaded data is assumed to be an object
+    // //   function ( obj ) {
+    // //     // Add the loaded object to the scene
+    // //     console.log(obj)
+    // //     // scene.add( obj );
+    // //   },
+
+    // //   // onProgress callback
+    // //   function ( xhr ) {
+    // //     console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+    // //   },
+
+    // //   // onError callback
+    // //   function ( err ) {
+    // //     console.error( 'An error happened', err);
+    // //   }
+    // // );
+    // console.log(snowBox1)
+
+    var object = objectLoader.parse( model1 );
+    console.log(object)
+    this.scene.add( object );
+
+    // instantiate a loader
+    // console.log(THREE.OBJLoader)
+    // var loader = new THREE.OBJLoader2();
+
+    // // load a resource
+    // loader.load(
+    //   // resource URL
+    //   '/st/scenes/snowbox/models/snow_box01.obj',
+    //   // called when resource is loaded
+    //   function ( object ) {
+
+    //     // scene.add( object );
+
+    //   },
+    //   // called when loading is in progresses
+    //   function ( xhr ) {
+
+    //     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    //   },
+    //   // called when loading has errors
+    //   function ( error ) {
+
+    //     console.log( 'An error happened' );
+
+    //   }
+    // );
   }
 
   initCannon() {
