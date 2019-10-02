@@ -65,6 +65,7 @@ class SceneManager {
       displacementBias: -1.77,
       displacementScale: 1,
       normalMap: displacementMap,
+      // normalScale: new THREE.Vector2(3, 3),
       wireframe: false,
       side: THREE.DoubleSide,
        //  normalMap: normal
