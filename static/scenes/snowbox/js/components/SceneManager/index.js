@@ -3,6 +3,7 @@ import CONFIG from './config.js'
 
 // // SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
+import Glue from '../SceneSubjects/Glue/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
@@ -184,6 +185,9 @@ class SceneManager {
       case 'add-pyramid':
         this.addShape('pyramid')
         break
+      case 'add-glue':
+        this.addShape('glue')
+        break
       default:
         break
     }
@@ -314,6 +318,9 @@ class SceneManager {
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world)
         break
+      case 'glue':
+        subject = new Glue(this.scene, this.world)
+        break
       default:
         break
     }
@@ -325,7 +332,9 @@ class SceneManager {
   move(direction) {
     if (this.selectedSubject) {
       const y =
-        this.selectedSubject.body.position.y + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
+        this.selectedSubject.body.position.y +
+        (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE) +
+        0.01
       this.selectedSubject.moveTo(null, y, null)
       this.onMouseMove()
     }

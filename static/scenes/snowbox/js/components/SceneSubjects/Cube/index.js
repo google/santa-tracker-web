@@ -10,9 +10,10 @@ class Cube extends Obj {
     super()
 
     this.selectable = CONFIG.SELECTABLE
+    this.mass = CONFIG.MASS
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
-    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape })
+    this.body = new CANNON.Body({ mass: this.mass, shape })
     this.body.position.set(-0.5, 5, -0.5)
     world.add(this.body)
 

@@ -1,3 +1,5 @@
+import CONFIG from '../SceneManager/config.js'
+
 class Object {
   constructor() {
     this.selectable = false
@@ -20,8 +22,7 @@ class Object {
   unselect() {
     if (this.selectable && this.selected) {
       this.selected = false
-      this.body.mass = 1
-      console.log(this.body)
+      this.body.mass = this.mass
       this.body.updateMassProperties()
 
       if (this.mesh) {
@@ -49,7 +50,7 @@ class Object {
     let { x, y, z } = this.body.position
 
     if (xNew != null) {
-      x = xNew - (this.body.aabb.upperBound.x - this.body.aabb.lowerBound.x) / 2
+      x = xNew - CONFIG.CASE_SIZE / 2
     }
 
     if (yNew != null) {
@@ -57,7 +58,7 @@ class Object {
     }
 
     if (zNew != null) {
-      z = zNew - (this.body.aabb.upperBound.z - this.body.aabb.lowerBound.z) / 2
+      z = zNew - CONFIG.CASE_SIZE / 2
     }
 
     this.body.position.set(x, y, z)
