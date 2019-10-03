@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "app",
     "public": "dist/prod",
     "headers": [
       {
