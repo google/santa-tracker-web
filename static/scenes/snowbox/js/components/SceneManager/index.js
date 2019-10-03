@@ -15,6 +15,8 @@ class SceneManager {
   constructor(canvas) {
     this.canvas = canvas
 
+    this.handleGui = this.handleGui.bind(this)
+
     this.screenDimensions = {
       width: this.canvas.clientWidth,
       height: this.canvas.clientHeight
@@ -39,50 +41,70 @@ class SceneManager {
     this.createSceneSubjects()
     this.createJointBody()
 
+    this.initGui()
     this.initCube()
   }
 
   initCube() {
     var textureLoader = new THREE.TextureLoader();
-    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement01.jpg' );
+    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement03.jpg' );
     console.log(displacementMap)
 
-    var objectLoader = new THREE.ObjectLoader();
-    var cube = objectLoader.parse( snowBox2 );
-    // // var cube2 = objectLoader.parse( snowBox2 );
-
-    var geometry = cube.children[ 0 ].geometry;
-    geometry.attributes.uv2 = geometry.attributes.uv;
-    geometry.center();
-
-
-    geometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100 );
-    const material = new THREE.MeshPhongMaterial({
+    const material = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       // bumpMap: displacementMap,
       // bumpScale: 0.5,
       displacementMap: displacementMap,
-      displacementBias: -1.77,
-      displacementScale: 1,
+      displacementBias: this.guiController.displacementBias, // -1.77
+      displacementScale: this.guiController.displacementScale, // 1
       normalMap: displacementMap,
-      // normalScale: new THREE.Vector2(3, 3),
+      normalScale: new THREE.Vector2( 1, - 1 ),
       wireframe: false,
       side: THREE.DoubleSide,
        //  normalMap: normal
     });
 
-    const mesh = new THREE.Mesh(geometry, material);
-    // mesh.scale.multiplyScalar( 0.02 );
+    // with JSON
+    // var objectLoader = new THREE.ObjectLoader();
+    // var cube = objectLoader.parse( snowBox2 );
 
-    console.log(geometry)
+    // with OBJ
+    var loader = new THREE.OBJLoader();
+    loader.load( '/st/scenes/snowbox/models/snow_box03.obj', ( group ) => {
+      console.log(group)
+      var geometry = group.children[ 0 ].geometry;
+      geometry.attributes.uv2 = geometry.attributes.uv;
+      geometry.center();
 
-    // const mesh = new THREE.Mesh(geometry, material)
+      this.mesh = new THREE.Mesh( geometry, material);
+      this.mesh.scale.multiplyScalar( 0.02 );
+      this.scene.add( this.mesh );
+      this.mesh.position.y = 2
 
-    this.scene.add( mesh );
-    // this.scene.add( cube2 );
+    } );
 
-    // cube.position.y = 2
-    mesh.position.y = 2
+    // with Box
+    // const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100 );
+    // const mesh = new THREE.Mesh(geometry, material);
+    // this.scene.add( mesh );
+    // mesh.position.y = 2
+  }
+
+  initGui() {
+    const gui = new dat.GUI()
+
+    this.guiController = {
+      displacementScale: 370,
+      displacementBias: -50.77,
+    }
+
+    gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
+    gui.add(this.guiController, 'displacementBias', -1000, 1000).onChange(this.handleGui)
+  }
+
+  handleGui() {
+    this.mesh.material.displacementScale = this.guiController.displacementScale
+    this.mesh.material.displacementBias = this.guiController.displacementBias
   }
 
   initCannon() {
