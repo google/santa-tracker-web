@@ -6,7 +6,7 @@
  * @param  {...string} paths to append
  */
 export function join(url, ...paths) {
-  let u = new URL(url);
+  let u = new URL(url, window.location);  // 2nd arg only needed in single-domain serving
 
   while (paths.length) {
     let next = String(paths.shift());
@@ -16,6 +16,6 @@ export function join(url, ...paths) {
     u = new URL(next, u);
   }
 
-  // FIXME: It's not clear what domain this loads from, so just return the whole URL.
+  // It's not clear what domain this loads from, so just return the whole URL.
   return u.toString();
 }

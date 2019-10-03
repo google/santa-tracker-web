@@ -1,5 +1,10 @@
+const path = require('path');
 
 const alreadyResolvedMatch = /^(\.{0,2}\/|[a-z]\w*\:)/;  // matches start of './' or 'https:' etc
+
+if (path.sep !== '/') {
+  throw new Error(`importUtils is unsupported on Windows (path.sep=${path.sep})`);
+}
 
 module.exports = {
 
@@ -23,6 +28,53 @@ module.exports = {
       // ignore
     }
     return false;
+  },
+
+  /**
+   * Returns the pathname of this URL, or the string itself (if not a URL).
+   *
+   * @param {string|!URL} cand to check
+   * @param {string} root optional root if not a URL
+   * @return {string}
+   */
+  pathname(cand, root='/') {
+    if (this.isUrl(cand)) {
+      return new URL(cand).pathname;
+    } else if (path.isAbsolute(cand)) {
+      return cand;  // looks like "/foo"
+    } else {
+      return path.join(root, cand);
+    }
+  },
+
+  /**
+   * Join a URL path or other components.
+   *
+   * @param {string|!URL} cand
+   * @param {string} rest
+   * @return {string}
+   */
+  join(cand, rest) {
+    if (this.isUrl(cand)) {
+      const u = new URL(rest, cand);  // order is addition, then base
+      return u.toString();
+    }
+    return path.join(cand, rest);
+  },
+
+  /**
+   * Joins a URL path or other components, but ensures a trailing slash.
+   *
+   * @param {string|!URL} cand
+   * @param {string} rest
+   * @return {string}
+   */
+  joinDir(cand, rest) {
+    const out = rest ? this.join(cand, rest) : cand;
+    if (!out.endsWith('/')) {
+      return `${out}/`;
+    }
+    return out;
   },
 
   /**
