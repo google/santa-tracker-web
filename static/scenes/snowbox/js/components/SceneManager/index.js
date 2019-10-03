@@ -47,55 +47,65 @@ class SceneManager {
 
   initCube() {
     var textureLoader = new THREE.TextureLoader();
-    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement03.jpg' );
+    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement05.png' );
+    // displacementMap.anisotropy = 1
     console.log(displacementMap)
 
-    const material = new THREE.MeshStandardMaterial({
+    const material = new THREE.MeshPhongMaterial({
       color: 0xffffff,
-      // bumpMap: displacementMap,
-      // bumpScale: 0.5,
+      bumpMap: displacementMap,
+      bumpScale: 1,
       displacementMap: displacementMap,
       displacementBias: this.guiController.displacementBias, // -1.77
       displacementScale: this.guiController.displacementScale, // 1
-      normalMap: displacementMap,
-      normalScale: new THREE.Vector2( 1, - 1 ),
+      // normalMap: displacementMap,
+      // normalScale: new THREE.Vector2( 1, - 1 ),
       wireframe: false,
       side: THREE.DoubleSide,
+      flatshading: true,
        //  normalMap: normal
     });
+
+    // material.shading = THREE.SmoothShading;
+
+    material.needsUpdate = true
 
     // with JSON
     // var objectLoader = new THREE.ObjectLoader();
     // var cube = objectLoader.parse( snowBox2 );
 
     // with OBJ
-    var loader = new THREE.OBJLoader();
-    loader.load( '/st/scenes/snowbox/models/snow_box03.obj', ( group ) => {
-      console.log(group)
-      var geometry = group.children[ 0 ].geometry;
-      geometry.attributes.uv2 = geometry.attributes.uv;
-      geometry.center();
+    // var loader = new THREE.OBJLoader();
+    // loader.load( '/st/scenes/snowbox/models/snow_box03.obj', ( group ) => {
+    //   console.log(group)
+    //   var geometry = group.children[ 0 ].geometry;
+    //   geometry.attributes.uv2 = geometry.attributes.uv;
+    //   geometry.center();
+    //   // geometry.computeFaceNormals();
 
-      this.mesh = new THREE.Mesh( geometry, material);
-      this.mesh.scale.multiplyScalar( 0.02 );
-      this.scene.add( this.mesh );
-      this.mesh.position.y = 2
+    //   this.mesh = new THREE.Mesh( geometry, material);
+    //   this.mesh.scale.multiplyScalar( 0.02 );
+    //   this.scene.add( this.mesh );
+    //   this.mesh.position.y = 2
 
-    } );
+    // } );
 
     // with Box
     // const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100 );
-    // const mesh = new THREE.Mesh(geometry, material);
-    // this.scene.add( mesh );
-    // mesh.position.y = 2
+    const geometry = new THREE.SphereGeometry(1, 60, 60 );
+    this.mesh = new THREE.Mesh(geometry, material);
+    console.log(geometry)
+    this.mesh.scale.multiplyScalar( 0.02 );
+    this.scene.add( this.mesh );
+    this.mesh.position.y = 2
   }
 
   initGui() {
     const gui = new dat.GUI()
 
     this.guiController = {
-      displacementScale: 370,
-      displacementBias: -50.77,
+      displacementScale: 231,
+      displacementBias: 210,
     }
 
     gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
