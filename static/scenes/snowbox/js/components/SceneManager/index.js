@@ -47,14 +47,14 @@ class SceneManager {
 
   initCube() {
     var textureLoader = new THREE.TextureLoader();
-    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement05.png' );
+    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement05-edges.jpg' );
     // displacementMap.anisotropy = 1
     console.log(displacementMap)
 
     const material = new THREE.MeshPhongMaterial({
       color: 0xffffff,
-      bumpMap: displacementMap,
-      bumpScale: 1,
+      // bumpMap: displacementMap,
+      // bumpScale: 1,
       displacementMap: displacementMap,
       displacementBias: this.guiController.displacementBias, // -1.77
       displacementScale: this.guiController.displacementScale, // 1
@@ -62,7 +62,7 @@ class SceneManager {
       // normalScale: new THREE.Vector2( 1, - 1 ),
       wireframe: false,
       side: THREE.DoubleSide,
-      flatshading: true,
+      // flatshading: true,
        //  normalMap: normal
     });
 
