@@ -1,9 +1,8 @@
 const resolveNode = require('./resolve-node.js');
 const rollup = require('rollup');
-const terser = require('terser');
 const transformFutureModules = require('./transform-future-modules.js');
 const path = require('path');
-
+const importUtils = require('./import-utils.js');
 
 
 module.exports = async (entrypoints, options) => {
@@ -68,10 +67,10 @@ module.exports = async (entrypoints, options) => {
       }
 
       const rel = path.relative(options.workDir, moduleId);
-      const u = new URL(rel, options.metaUrlScope);
+      const output = importUtils.join(options.metaUrlScope, rel);
 
       // TODO(samthor): escape
-      return `'${u.toString()}'`;
+      return `'${output}'`;
     },
   };
 
