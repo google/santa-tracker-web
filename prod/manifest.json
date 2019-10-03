@@ -2,6 +2,7 @@
   "name": "Google Santa Tracker",
   "short_name": "Santa",
   "start_url": "./?utm_source=web_app_manifest&utm_medium=web_app_manifest",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "theme_color": "#00c6ed",
