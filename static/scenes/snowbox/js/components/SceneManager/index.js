@@ -104,7 +104,7 @@ class SceneManager {
     const gui = new dat.GUI()
 
     this.guiController = {
-      displacementScale: 231,
+      displacementScale: 36,
       displacementBias: 210,
     }
 
