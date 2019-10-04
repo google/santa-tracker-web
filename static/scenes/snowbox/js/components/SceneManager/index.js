@@ -44,95 +44,29 @@ class SceneManager {
     this.createJointBody()
 
     this.initGui()
-    this.initCube()
+    this.loadCube(() => {
+      // models loaded
+      console.log('model loaded')
+    })
   }
 
-  initCube() {
-    var textureLoader = new THREE.TextureLoader();
-    var displacementMap = textureLoader.load( '/st/scenes/snowbox/models/displacement05-edges.jpg' );
-    // displacementMap.anisotropy = 1
-    console.log(displacementMap)
-
-    // this.cubeMaterial = new THREE.MeshPhongMaterial({
-    //   color: 0xffffff,
-    //   // bumpMap: displacementMap,
-    //   // bumpScale: 1,
-    //   // displacementMap: displacementMap,
-    //   // displacementBias: this.guiController.displacementBias, // -1.77
-    //   // displacementScale: this.guiController.displacementScale, // 1
-    //   // normalMap: displacementMap,
-    //   // normalScale: new THREE.Vector2( 1, - 1 ),
-    //   wireframe: false,
-    //   // side: THREE.DoubleSide,
-    //   // flatshading: true,
-    //    //  normalMap: normal
-    // });
-
-    // material.shading = THREE.SmoothShading;
-
-    // material.needsUpdate = true
-
-    // with JSON
-    // var objectLoader = new THREE.ObjectLoader();
-    // var cube = objectLoader.parse( snowBox2 );
-
-    var manager = new THREE.LoadingManager();
-
-    new THREE.MTLLoader( manager )
+  loadCube(callback) {
+    new THREE.MTLLoader()
       .load( '/st/scenes/snowbox/models/snow_box01.mtl', ( materials ) => {
 
         materials.preload();
 
-
-
-        new THREE.OBJLoader( manager )
+        new THREE.OBJLoader()
           .setMaterials( materials )
           .load( '/st/scenes/snowbox/models/snow_box01.obj', ( object ) => {
 
             this.cubeGeo = object.children[ 0 ].geometry;
             this.cubeMaterial = object.children[ 0 ].material
-            // console.log(object)
-
-            // this.cubeMaterial
-
-            // object.position.y = 2;
-            // object.scale.multiplyScalar( 0.0055 );
-            // this.scene.add( object );
+            callback
 
           } );
 
       } );
-
-    // with OBJ
-    // var loader = new THREE.OBJLoader();
-    // loader.load( '/st/scenes/snowbox/models/snow_box01.obj', ( group ) => {
-    //   // console.log(group)
-    //   this.cubeGeo = group.children[ 0 ].geometry;
-    //   // this.cubeGeo.attributes.uv2 = this.cubeGeo.attributes.uv;
-    //   this.cubeGeo.computeBoundingBox()
-    //   this.cubeGeo.center();
-
-    //   // geometry.computeFaceNormals();
-
-    //   // for (let i = 0; i < 1000; i++) {
-    //   const mesh = new THREE.Mesh( this.cubeGeo, this.cubeMaterial);
-    //   mesh.scale.multiplyScalar( 0.0055 );
-    //   mesh.position.y = 2
-    //   this.scene.add( mesh );
-    //   // mesh.position.y = 2
-    //   //   mesh.position.x = randomIntFromInterval(-100, 100)
-    //   //   mesh.position.z = randomIntFromInterval(-100, 100)
-    //   // }
-    // } );
-
-    // with Box
-    // const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100 );
-    // const geometry = new THREE.SphereGeometry(1, 60, 60 );
-    // this.mesh = new THREE.Mesh(geometry, material);
-    // console.log(geometry)
-    // this.mesh.scale.multiplyScalar( 0.02 );
-    // this.scene.add( this.mesh );
-    //
   }
 
   initGui() {
