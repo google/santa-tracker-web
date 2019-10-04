@@ -88,7 +88,7 @@ This includes:
 
 * `.css` files are generated for their corresponding `.scss`
 * `.json` is generated for their corresponding `.json5`
-* The `static/scenes/sceneNane./:closure.js` file can be read to compile an older scene's `js/` folder with Closure Compiler, providing a JS module with default export.
+* The `static/scenes/sceneName/:closure.js` file can be read to compile an older scene's `js/` folder with Closure Compiler, providing a JS module with default export.
 
 These files don't actually exist, but are automatically created on use.
 For example, if `foo.scss` exists, you can simply load `foo.css` to compile it automatically.
