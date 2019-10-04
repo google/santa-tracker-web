@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "staging",
     "public": "dist/prod",
     "headers": [
       {
