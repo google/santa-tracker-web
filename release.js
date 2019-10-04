@@ -16,6 +16,10 @@ const santaVfs = require('./santa-vfs.js');
 const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
 const {Writer} = require('./build/writer.js');
+const JSON5 = require('json5');
+
+// Never generate code for these scenes.
+const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -119,6 +123,27 @@ function rewritePathForLang(id, lang) {
   return path.join(p.dir, `${p.name}_${lang}${p.ext}`);
 }
 
+/**
+ * @return {!Array<string>} all entrypoint HTML files to be built for this release
+ */
+async function findStaticHtml() {
+  let htmlFiles;
+
+  if (yargs.scene.length) {
+    const globArg = yargs.scene.map((scene) => path.join('static/scenes', scene, '**/index.html'));
+    htmlFiles = globAll(...globArg);
+  } else {
+    htmlFiles = globAll('static/**/index.html');
+  }
+
+  htmlFiles = htmlFiles.filter((raw) => {
+    const sceneMatch = raw.match(/^static\/scenes\/(.*?)\//);
+    return !(sceneMatch && DISABLED_SCENES.includes(sceneMatch[1]));
+  });
+
+  return htmlFiles;
+}
+
 async function release() {
   log(`Building Santa Tracker ${chalk.red(yargs.build)}...`);
 
@@ -182,15 +207,9 @@ async function release() {
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
   // or JS on its own, it must be included by one of our HTML entry points.
-
-  const htmlFiles = [];
-  if (yargs.scene.length) {
-    htmlFiles.push(...yargs.scene.map((scene) => path.join('static/scenes', scene, 'index.html')));
-  } else {
-    htmlFiles.push(...globAll('static/scenes/*/index.html', '!static/scenes/poseboogie/**/index.html'));
-  }
+  const htmlFiles = await findStaticHtml();
   if (!htmlFiles.length) {
-    throw new Error('no entrypoints matched');
+    throw new Error('No static entrypoints matched (bad --scene?)');
   }
 
   log(`Processing ${chalk.cyan(htmlFiles.length)} entrypoint HTML files...`);
@@ -442,10 +461,36 @@ async function release() {
   log(`Done! Written ${chalk.cyan(count)} files`);
 }
 
+/**
+ * @return {!Map<string, string>} entrypoints that should be generated for prod
+ */
+async function findProdPages() {
+  // This is a bit gross but relies on this file to have an expected format.
+  const raw = await fsp.readFile('./static/src/strings/scenes.js', 'utf-8');
+
+  // nb. [^] matches anything _including_ newlines
+  const dictMatch = raw.match(/^export default (\{[^]*\})/m);
+  if (!dictMatch) {
+    throw new TypeError(`expected ./static/src/strings/scenes.js to contain "export default { ... }`);
+  }
+
+  const validInput = dictMatch[1].replace(/_msg`(\w+)`/g, (_, arg) => `'${arg}'`);
+  const pages = JSON5.parse(validInput);
+  delete pages[''];  // don't explicitly generate blank top-level page
+
+  // Find any pages we might be missing.
+  const diskScenes = (await fsp.readdir('./static/scenes')).filter((cand) => cand.match(/^[a-z  ]+/));
+  for (const page of diskScenes) {
+    if (!(page in pages)) {
+      pages[page] = '';
+    }
+  }
+
+  return pages;
+}
+
 async function releaseProd(langs) {
-  // Fanout these scenes in prod.
-  // TODO(samthor): This list should be bigger.
-  const prodPages = (await fsp.readdir('./static/scenes')).filter((cand) => cand.match(/^[a-z  ]+/));
+  const prodPages = await findProdPages();
   log(`Found ${chalk.cyan(Object.keys(prodPages).length)} prod pages`);
 
   // Match non-index.html prod pages, like cast, error etc.
@@ -460,10 +505,15 @@ async function releaseProd(langs) {
       releaseWriter.file(target,  documentForLang(langs[lang]));
       ++prodHtmlCount;
     }
+
+    // Since this was a special entrypoint, remove it from normal generation of entrypoints, as it
+    // would just get clobbered anyway.
+    const page = path.basename(htmlFile, '.html');
+    delete prodPages[page];
   }
 
   // Fanout prod index.html to all scenes and langs.
-  for (const page of prodPages) {
+  for (const page in prodPages) {
     // TODO(samthor): This loads and minifies the prod HTML ~scenes times, but it is destructive.
     const documentForLang = await releaseHtml.load('prod/index.html', async (document) => {
       const head = document.head;
@@ -478,15 +528,15 @@ async function releaseProd(langs) {
         releaseHtml.applyAttributeToAll(head, all, 'content', url);
       }
 
-      // const msgid = msgidForScene(page, prodScenes[page]);
-      const msgid = 'santatracker';  // FIXME: no msgid
+      // nb. In 2019, titles are just e.g. "Santa's Canvas", not "Santa's Canvas - Google Santa
+      // Tracker".
+      const msgid = prodPages[page] || 'santatracker';
       const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
       releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
     });
 
     for (const lang in langs) {
-      const filename = page ? `${page}.html` : 'index.html';
-      const target = path.join(prodPathForLang(lang), filename);
+      const target = path.join(prodPathForLang(lang), `${page}.html`);
       releaseWriter.file(target, documentForLang(langs[lang]));
       ++prodHtmlCount;
     }
