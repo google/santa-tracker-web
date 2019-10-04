@@ -5,7 +5,7 @@ import Obj from '../../Object/index.js'
 import CONFIG from './config.js'
 
 class Cube extends Obj {
-  constructor(scene, world, cubeGeo, cubeMaterial) {
+  constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial) {
     // Physics
     super()
 
@@ -13,13 +13,13 @@ class Cube extends Obj {
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
+    this.originMaterial = cubeMaterial
+    this.selectedMaterial = selectedMaterial
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape })
     this.body.position.set(-0.5, 5, -0.5)
     world.add(this.body)
-
-    console.log(cubeGeo)
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)

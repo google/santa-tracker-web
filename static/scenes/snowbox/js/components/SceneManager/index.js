@@ -40,6 +40,8 @@ class SceneManager {
     this.jointBodyRotation = 0
     this.clock = new THREE.Clock()
 
+    this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
+
     this.createSceneSubjects()
     this.createJointBody()
 
@@ -62,6 +64,7 @@ class SceneManager {
 
             this.cubeGeo = object.children[ 0 ].geometry;
             this.cubeMaterial = object.children[ 0 ].material
+
             callback
 
           } );
@@ -362,7 +365,7 @@ class SceneManager {
     let subject
     switch (shape) {
       case 'cube':
-        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial)
+        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial, this.selectedMaterial)
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world)

@@ -13,8 +13,8 @@ class Object {
       this.body.mass = 0
       this.body.updateMassProperties()
 
-      if (this.mesh) {
-        this.mesh.material.color.set(0xff00ff)
+      if (this.mesh && this.selectedMaterial) {
+        this.mesh.material = this.selectedMaterial
       }
     }
   }
@@ -25,8 +25,8 @@ class Object {
       this.body.mass = this.mass
       this.body.updateMassProperties()
 
-      if (this.mesh) {
-        this.mesh.material.color.set(0x888888)
+      if (this.mesh && this.originMaterial) {
+        this.mesh.material = this.originMaterial
       }
     }
   }
