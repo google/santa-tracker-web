@@ -79,6 +79,8 @@ To add a new scene, you'll need to:
   
 * Name the scene inside [strings](static/src/strings/scenes.js).
 
+* If your scene should not be released to production, disable it inside [release.js](release.js).
+
 ## Environment
 
 The build system provides a virtual file system that automatically compiles various source types useful for development.
