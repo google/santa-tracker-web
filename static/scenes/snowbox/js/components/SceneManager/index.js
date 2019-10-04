@@ -9,7 +9,9 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import snowBox1 from '../../../models/snow_box01.json'
-import snowBox2 from '../../../models/snow_box02.json'
+// import snowBox2 from '../../../models/snow_box02.json'
+
+import { randomIntFromInterval } from '../../helpers.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -55,49 +57,51 @@ class SceneManager {
       color: 0xffffff,
       // bumpMap: displacementMap,
       // bumpScale: 1,
-      displacementMap: displacementMap,
-      displacementBias: this.guiController.displacementBias, // -1.77
-      displacementScale: this.guiController.displacementScale, // 1
+      // displacementMap: displacementMap,
+      // displacementBias: this.guiController.displacementBias, // -1.77
+      // displacementScale: this.guiController.displacementScale, // 1
       // normalMap: displacementMap,
       // normalScale: new THREE.Vector2( 1, - 1 ),
       wireframe: false,
-      side: THREE.DoubleSide,
+      // side: THREE.DoubleSide,
       // flatshading: true,
        //  normalMap: normal
     });
 
     // material.shading = THREE.SmoothShading;
 
-    material.needsUpdate = true
+    // material.needsUpdate = true
 
     // with JSON
     // var objectLoader = new THREE.ObjectLoader();
     // var cube = objectLoader.parse( snowBox2 );
 
     // with OBJ
-    // var loader = new THREE.OBJLoader();
-    // loader.load( '/st/scenes/snowbox/models/snow_box03.obj', ( group ) => {
-    //   console.log(group)
-    //   var geometry = group.children[ 0 ].geometry;
-    //   geometry.attributes.uv2 = geometry.attributes.uv;
-    //   geometry.center();
-    //   // geometry.computeFaceNormals();
+    var loader = new THREE.OBJLoader();
+    loader.load( '/st/scenes/snowbox/models/snow_box01.obj', ( group ) => {
+      console.log(group)
+      var geometry = group.children[ 0 ].geometry;
+      geometry.attributes.uv2 = geometry.attributes.uv;
+      geometry.center();
+      // geometry.computeFaceNormals();
 
-    //   this.mesh = new THREE.Mesh( geometry, material);
-    //   this.mesh.scale.multiplyScalar( 0.02 );
-    //   this.scene.add( this.mesh );
-    //   this.mesh.position.y = 2
-
-    // } );
+      for (let i = 0; i < 1000; i++) {
+        const mesh = new THREE.Mesh( geometry, material);
+        mesh.scale.multiplyScalar( 0.02 );
+        this.scene.add( mesh );
+        mesh.position.x = randomIntFromInterval(-100, 100)
+        mesh.position.z = randomIntFromInterval(-100, 100)
+      }
+    } );
 
     // with Box
     // const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 100, 100, 100 );
-    const geometry = new THREE.SphereGeometry(1, 60, 60 );
-    this.mesh = new THREE.Mesh(geometry, material);
-    console.log(geometry)
-    this.mesh.scale.multiplyScalar( 0.02 );
-    this.scene.add( this.mesh );
-    this.mesh.position.y = 2
+    // const geometry = new THREE.SphereGeometry(1, 60, 60 );
+    // this.mesh = new THREE.Mesh(geometry, material);
+    // console.log(geometry)
+    // this.mesh.scale.multiplyScalar( 0.02 );
+    // this.scene.add( this.mesh );
+    // this.mesh.position.y = 2
   }
 
   initGui() {
