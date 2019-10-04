@@ -53,7 +53,7 @@ class SceneManager {
     // displacementMap.anisotropy = 1
     console.log(displacementMap)
 
-    const material = new THREE.MeshPhongMaterial({
+    this.cubeMaterial = new THREE.MeshPhongMaterial({
       color: 0xffffff,
       // bumpMap: displacementMap,
       // bumpScale: 1,
@@ -79,19 +79,21 @@ class SceneManager {
     // with OBJ
     var loader = new THREE.OBJLoader();
     loader.load( '/st/scenes/snowbox/models/snow_box01.obj', ( group ) => {
-      console.log(group)
-      var geometry = group.children[ 0 ].geometry;
-      geometry.attributes.uv2 = geometry.attributes.uv;
-      geometry.center();
+      // console.log(group)
+      this.cubeGeo = group.children[ 0 ].geometry;
+      // this.cubeGeo.attributes.uv2 = this.cubeGeo.attributes.uv;
+      this.cubeGeo.computeBoundingBox()
+      this.cubeGeo.center();
+
       // geometry.computeFaceNormals();
 
-      for (let i = 0; i < 1000; i++) {
-        const mesh = new THREE.Mesh( geometry, material);
-        mesh.scale.multiplyScalar( 0.02 );
-        this.scene.add( mesh );
-        mesh.position.x = randomIntFromInterval(-100, 100)
-        mesh.position.z = randomIntFromInterval(-100, 100)
-      }
+      // for (let i = 0; i < 1000; i++) {
+      //   const mesh = new THREE.Mesh( geometry, material);
+      //   mesh.scale.multiplyScalar( 0.02 );
+      //   this.scene.add( mesh );
+      //   mesh.position.x = randomIntFromInterval(-100, 100)
+      //   mesh.position.z = randomIntFromInterval(-100, 100)
+      // }
     } );
 
     // with Box
@@ -397,7 +399,7 @@ class SceneManager {
     let subject
     switch (shape) {
       case 'cube':
-        subject = new Cube(this.scene, this.world)
+        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial)
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world)

@@ -5,9 +5,11 @@ import Obj from '../../Object/index.js'
 import CONFIG from './config.js'
 
 class Cube extends Obj {
-  constructor(scene, world) {
+  constructor(scene, world, cubeGeo, cubeMaterial) {
     // Physics
     super()
+
+    // console.log(cubeGeo)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
@@ -17,10 +19,11 @@ class Cube extends Obj {
     this.body.position.set(-0.5, 5, -0.5)
     world.add(this.body)
 
-    // Graphics
-    const cubeGeo = new THREE.BoxGeometry(CONFIG.SIZE, CONFIG.SIZE, CONFIG.SIZE, 2, 2)
-    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
+    console.log(cubeGeo)
+
+    // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+    this.mesh.scale.multiplyScalar( 0.0055 ); // related to the model
     scene.add(this.mesh)
 
     this.select()
