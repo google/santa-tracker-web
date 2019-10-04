@@ -6,7 +6,7 @@ It is a companion to the [Android](https://github.com/google/santa-tracker-andro
 # Supports
 
 Santa Tracker supports Chrome, Firefox and Safari.
-It also supports oter Chromium-based browsers (Edge, Opera etc).
+It also supports other Chromium-based browsers (Edge, Opera etc).
 
 We present a "fallback mode" for older browsers, such as IE11.
 Many older scenes support these browsers just fine.
