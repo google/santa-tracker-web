@@ -45,7 +45,7 @@ class SceneManager {
     this.createSceneSubjects()
     this.createJointBody()
 
-    this.initGui()
+    // this.initGui()
     this.loadCube(() => {
       // models loaded
       console.log('model loaded')
@@ -127,12 +127,14 @@ class SceneManager {
   }
 
   buildControls() {
-    this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement)
+    this.controls = new THREE.MapControls(this.camera, this.renderer.domElement)
     this.controls.minDistance = 10
     this.controls.maxDistance = 500
     this.controls.enableKeys = false
-    this.controls.enablePan = false
-    this.controls.enableRotate = true
+    this.controls.enablePan = true
+    this.controls.enableRotate = false
+    this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.07;
   }
 
   buildHelpers() {
@@ -171,7 +173,9 @@ class SceneManager {
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update(elapsedTime)
     }
+
     this.renderer.render(this.scene, this.camera)
+    this.controls.update() // for damping
   }
 
   // EVENTS

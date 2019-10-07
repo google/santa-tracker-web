@@ -4,7 +4,7 @@ class Lights {
   constructor(scene) {
     const light = new THREE.SpotLight(0xffffff, 2.0, 0, 100)
     light.castShadow = true
-    light.position.set(0, 200, 200)
+    light.position.set(300, 200, -300)
     scene.add(light)
     // if (CONFIG.SHOW_HELPERS) {
       const helper = new THREE.SpotLightHelper(light, 5)
