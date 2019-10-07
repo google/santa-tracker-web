@@ -45,6 +45,20 @@ const yargs = require('yargs')
       type: 'string',
       default: 'https://maps.gstatic.com/mapfiles/santatracker/',
       describe: 'URL to static content',
+      coerce: (raw) => {
+        // Ensures that the passed baseurl ends with '/', or if not passed an actual URL, that it
+        // starts with '/'.
+        if (!raw.endsWith('/')) {
+          raw = `${raw}/`;
+        }
+        try {
+          new URL(raw);
+          return raw;
+        } catch (e) {
+          // ignore
+        }
+        return importUtils.pathname(raw);  // ensures this has a leading '/'
+      },
     })
     .option('prod', {
       type: 'boolean',
@@ -78,7 +92,7 @@ const assetsToCopy = [
 
 // nb. matches config in serve.js
 const config = {
-  staticScope: `${yargs.baseurl}${yargs.build}/`,
+  staticScope: importUtils.joinDir(yargs.baseurl, yargs.build),
   version: yargs.build,
 };
 
@@ -113,19 +127,28 @@ async function release() {
     await fsp.unlinkAll('dist');
   }
 
-  // "_static" contains our actual static root. Create the "static" symlink so that we can reuse
-  // the top-level layout when we blit out generated files, so that static resources are correctly
-  // placed within the staticRoot.
-  const staticRoot = (new URL(config.staticScope)).pathname;
-  await fsp.mkdirp(path.join('dist/_static', staticRoot));
+  // Create both "static" and "prod" targets inside dist. This lets us build the site (which, at
+  // the top-level, is in "static" and "prod" dirs) and just deploy to those matching dirs.
+  const staticRoot = importUtils.pathname(config.staticScope);
+  if (importUtils.isUrl(config.staticScope)) {
+    // In normal operation (baseurl is on a unique domain), "_static" contains the actual static
+    // root with its entire path. Create a symlink for "static" which points there.
+    await fsp.mkdirp(path.join('dist/_static', staticRoot));
+    await fsp.symlink(path.join('_static', staticRoot), 'dist/static');
+  } else {
+    // If hosting on one domain, the "static" symlink points within "prod", as there's just one
+    // directory of content to serve.
+    await fsp.mkdirp(path.join('dist/prod', staticRoot));
+    await fsp.symlink(path.join('prod', staticRoot), 'dist/static');
+  }
   await fsp.mkdirp('dist/prod');
-  await fsp.symlink(path.join('_static', staticRoot), 'dist/static');
  
   // Display the static URL plus the root (in a different color).
   if (!config.staticScope.endsWith(staticRoot)) {
     throw new TypeError(`invalid static resolution: ${config.staticScope} vs ${staticRoot}`)
   }
-  log(`Static at ${chalk.green(config.staticScope)}`);
+  const domainNotice = importUtils.isUrl(config.staticScope) ? '' : '(local)';
+  log('Static at', chalk.green(config.staticScope), domainNotice);
 
   // Find the list of languages by reading `_messages`.
   const missingMessages = {};

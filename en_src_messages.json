@@ -1455,6 +1455,10 @@
     "description": "Each scene in Santa's village is available by clicking on a building. Buildings are frozen in ice until a specific date. This label indicates ice will melt, and the scene will be available tomorrow.",
     "message": "Grand opening tomorrow"
   },
+  "opens": {
+    "description": "Games in Santa's village are only available from a specific date in December. This short string will be placed above a localized day of the month (e.g. '2nd', '15th') showing when the scene will open.",
+    "message": "Opens"
+  },
   "ornament-print-instructions": {
     "description": "Instructions on how to assemble a printed ornament. This is printed on the same page and refers to a line just below, where the paper should be folded.",
     "message": "Fold here and glue sides together"
@@ -1870,6 +1874,10 @@
   "scene_factory": {
     "description": "Title of a scene/game. See how Santa makes candy in a factory.",
     "message": "Candy Factory"
+  },
+  "scene_family": {
+    "description": "Menu item/heading for a page containing resources for families using Santa Tracker, who might be using Santa Tracker with younger people in their charge.",
+    "message": "Family Guide"
   },
   "scene_giftmatch": {
     "description": "Title of a scene/game. Match presents in a gem-matcher style game.",
@@ -9061,9 +9069,13 @@
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
     "message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys, jokes and prizes to enjoy during Christmas night."
   },
+  "unlocks": {
+    "description": "Games in Santa's village are locked and made available on a specific date within December. This short string will be placed above a localized day of the month (e.g. '2nd', '15th') showing when the scene will be unlocked.",
+    "message": "Unlocks"
+  },
   "upgrade-warning": {
     "description": "An error message. Error appears as the sole text on an HTML page.",
-    "raw": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://whatbrowser.org\"&gt;</ph>whatbrowser.org<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+    "message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript."
   },
   "us_country_name": {
     "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
