@@ -36,7 +36,9 @@ class Glue extends Obj {
     if (!this.selected) {
       const collidedBody = e.body
       if (!this.constrainedBodies.includes(collidedBody)) {
-        const constraint = new CANNON.LockConstraint(this.body, collidedBody)
+        const constraint = new CANNON.LockConstraint(this.body, collidedBody, {
+          maxForce: 1e6
+        })
         this.world.addConstraint(constraint)
         this.constrainedBodies.push(collidedBody)
       }

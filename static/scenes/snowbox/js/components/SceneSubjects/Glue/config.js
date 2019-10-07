@@ -1,5 +1,5 @@
 export default {
-  MASS: 1,
+  MASS: 0.1,
   SELECTABLE: true,
-  SIZE: 1
+  SIZE: 0.8
 }

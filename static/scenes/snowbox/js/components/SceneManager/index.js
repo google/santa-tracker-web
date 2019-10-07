@@ -120,6 +120,10 @@ class SceneManager {
       this.sceneSubjects[i].update(elapsedTime)
     }
     this.renderer.render(this.scene, this.camera)
+
+    if (this.mergeInProgress) {
+      this.merge()
+    }
   }
 
   // EVENTS
@@ -231,21 +235,6 @@ class SceneManager {
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
   }
 
-  setClickMarker(pos) {
-    if (!this.clickMarker) {
-      const shape = new THREE.SphereGeometry(0.2, 8, 8)
-      this.clickMarker = new THREE.Mesh(
-        shape,
-        new THREE.MeshLambertMaterial({
-          color: 0xff0000
-        })
-      )
-      this.scene.add(this.clickMarker)
-    }
-    this.clickMarker.visible = true
-    this.clickMarker.position.set(pos.x, Math.max(1, pos.y + this.offset), pos.z)
-  }
-
   findNearestIntersectingObject(objects) {
     const hits = this.raycaster.intersectObjects(objects)
     const closest = hits.length > 0 ? hits[0] : false
@@ -325,6 +314,8 @@ class SceneManager {
         break
     }
 
+    subject.addListener('merge', this.initMerge.bind(this))
+
     this.sceneSubjects.push(subject)
     this.selectObject(false, subject)
   }
@@ -342,9 +333,59 @@ class SceneManager {
 
   rotate(direction) {
     if (this.selectedSubject) {
-      this.jointBodyRotation = this.jointBodyRotation + (direction === 'right' ? Math.PI / 20 : Math.PI / -20)
+      const angle = direction === 'right' ? Math.PI / 20 : -Math.PI / 20
       const axis = new CANNON.Vec3(0, 1, 0)
-      this.selectedSubject.rotate(axis, this.jointBodyRotation)
+      this.selectedSubject.rotate(axis, angle)
+    }
+  }
+
+  initMerge(bodyA, bodyB) {
+    // Step 1: Get two objects
+    const objectA = this.getObjectfromBody(bodyA)
+    const objectB = this.getObjectfromBody(bodyB)
+
+    // Step 2: Get height of object to be merged
+    const heightIncrease = (bodyA.aabb.upperBound.y - bodyB.aabb.lowerBound.y) / 2
+    this.mergeData = {
+      objectA,
+      objectB,
+      heightIncrease,
+      currentHeightIncrease: 0
+    }
+
+    // Step 3: Init Merging
+    this.mergeInProgress = true
+  }
+
+  getObjectfromBody(body) {
+    return this.sceneSubjects.find(subject => (subject.body ? subject.body.id === body.id : false))
+  }
+
+  merge() {
+    this.mergeData.currentHeightIncrease += 0.01
+
+    const { objectA, objectB, currentHeightIncrease, heightIncrease } = this.mergeData
+    const shapeB = objectB.body.shapes[0]
+    shapeB.halfExtents.y += 0.01
+    shapeB.updateBoundingSphereRadius()
+    shapeB.updateConvexPolyhedronRepresentation()
+    objectB.body.updateBoundingRadius()
+    objectB.body.updateMassProperties()
+    objectB.updateMeshFromBody()
+
+    const shapeA = objectA.body.shapes[0]
+    shapeA.halfExtents.y -= 0.01
+    shapeA.updateBoundingSphereRadius()
+    shapeA.updateConvexPolyhedronRepresentation()
+    objectA.body.updateBoundingRadius()
+    objectA.body.updateMassProperties()
+    objectA.updateMeshFromBody()
+
+    // Check if merge completed
+    if (this.mergeData.currentHeightIncrease >= this.mergeData.heightIncrease) {
+      this.mergeInProgress = false
+      objectA.delete()
+      this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== objectA)
     }
   }
 }
