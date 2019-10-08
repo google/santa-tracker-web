@@ -1,7 +1,9 @@
 import CONFIG from '../SceneManager/config.js'
+import { EventEmitter } from '../../event-emitter.js'
 
-class Object {
+class Object extends EventEmitter {
   constructor() {
+    super()
     this.selectable = false
     this.selected = false
     this.rotationY = 0
@@ -50,7 +52,7 @@ class Object {
     let { x, y, z } = this.body.position
 
     if (xNew != null) {
-      x = xNew - CONFIG.CASE_SIZE / 2
+      x = xNew
     }
 
     if (yNew != null) {
@@ -58,10 +60,33 @@ class Object {
     }
 
     if (zNew != null) {
-      z = zNew - CONFIG.CASE_SIZE / 2
+      z = zNew
     }
 
     this.body.position.set(x, y, z)
+  }
+
+  updateMeshFromBody() {}
+
+  delete() {
+    console.log('delete')
+    this.scene.remove(this.mesh)
+    this.mesh.geometry.dispose()
+    this.mesh.material.dispose()
+    this.mesh = undefined
+    this.world.remove(this.body)
+  }
+
+  highlight() {
+    if (this.mesh) {
+      this.mesh.material.color.set(0xc444c4)
+    }
+  }
+
+  unhighlight() {
+    if (this.mesh) {
+      this.mesh.material.color.set(0x888888)
+    }
   }
 }
 
