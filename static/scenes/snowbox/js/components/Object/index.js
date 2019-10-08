@@ -78,14 +78,14 @@ class Object extends EventEmitter {
   }
 
   highlight() {
-    if (this.mesh) {
-      this.mesh.material.color.set(0xc444c4)
+    if (this.mesh && this.highlightMaterial) {
+      this.mesh.material = this.highlightMaterial
     }
   }
 
   unhighlight() {
-    if (this.mesh) {
-      this.mesh.material.color.set(0x888888)
+    if (this.mesh && this.originMaterial) {
+      this.mesh.material = this.originMaterial
     }
   }
 }

@@ -35,6 +35,7 @@ class SceneManager {
     this.rotateSceneAngle = 45
 
     this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
+    this.highlightMaterial = new THREE.MeshLambertMaterial({ color: 0xc444c4 })
 
     this.initCannon()
     this.buildScene()
@@ -78,8 +79,7 @@ class SceneManager {
     // Debug
     // Camera helpers
     this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
-    this.scene.add(this.cameraHelper)
-
+    // this.scene.add(this.cameraHelper)
 
     for (let i = 0; i < 8; i++) {
       this.currentSceneYAngle += this.rotateSceneAngle
@@ -432,7 +432,7 @@ class SceneManager {
     let subject
     switch (shape) {
       case 'cube':
-        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial, this.selectedMaterial)
+        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial, this.selectedMaterial, this.highlightMaterial)
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world)

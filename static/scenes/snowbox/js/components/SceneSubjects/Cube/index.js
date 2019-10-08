@@ -5,7 +5,7 @@ import Obj from '../../Object/index.js'
 import CONFIG from './config.js'
 
 class Cube extends Obj {
-  constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial) {
+  constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial, highlightMaterial) {
     // Physics
     super()
 
@@ -16,6 +16,7 @@ class Cube extends Obj {
     this.mass = CONFIG.MASS
     this.originMaterial = cubeMaterial
     this.selectedMaterial = selectedMaterial
+    this.highlightMaterial = highlightMaterial
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
