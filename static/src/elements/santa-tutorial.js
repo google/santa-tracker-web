@@ -2,6 +2,7 @@ import {html, LitElement} from 'lit-element';
 import {until} from 'lit-html/directives/until.js';
 import {_static} from '../magic.js';
 import * as prefix from '../lib/prefix.js';
+import {prepareAsset} from '../lib/media.js';
 
 import styles from './santa-tutorial.css';
 
@@ -17,29 +18,20 @@ const tutorialHeight = 270;
  * @return {!Image|!HTMLVideoElement}
  */
 function prepareTutorialAsset(name, callback) {
-  const src = _static`img/tutorial/` + name;
-  let node;
+  const {promise, asset} = prepareAsset(_static`img/tutorial/` + name);
 
-  if (name.endsWith('.mp4')) {
-    node = document.createElement('video');
-    node.loop = true;
-    node.autoplay = true;
-    node.muted = true;
-    node.addEventListener('canplaythrough', () => callback(true));
-  } else {
-    node = document.createElement('img');
-    node.addEventListener('load', () => {
-      const heightRatio = (node.naturalHeight / tutorialHeight);
-      const steps = Math.round(node.naturalWidth / heightRatio / tutorialWidth);
-      node.classList.add('steps-' + steps);
-      callback(true);
-    });
-  }
+  promise.then(() => {
+    // If the asset was an image, step it over its width.
+    if (asset instanceof Image) {
+      const heightRatio = (asset.naturalHeight / tutorialHeight);
+      const steps = Math.round(asset.naturalWidth / heightRatio / tutorialWidth);
+      asset.classList.add('steps-' + steps);
+    }
+    callback(true);
+  }, () => callback(false));
 
-  node.addEventListener('error', () => callback(false));
-  node.classList.add('size');
-  node.src = src;
-  return node;
+  asset.classList.add('size');
+  return asset;
 }
 
 
