@@ -36,6 +36,7 @@ class Terrain extends Obj {
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true
+    mesh.position.set(0, 0, 0)
     this.scene.add(mesh)
     this.meshes.push(mesh)
 

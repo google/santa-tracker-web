@@ -5,3 +5,4 @@ export function randomIntFromInterval(min, max) {
 export function toRadian(degrees) {
   return degrees * Math.PI / 180
 }
+

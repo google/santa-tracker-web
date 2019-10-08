@@ -31,8 +31,8 @@ class SceneManager {
     this.jointBodyRotation = 0
     this.clock = new THREE.Clock()
     this.radiusCameraYRotate = 50
-    this.currentCameraYAngle = 0
-    this.rotateYAngle = 20
+    this.currentSceneYAngle = 0
+    this.rotateSceneAngle = 45
 
     this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
 
@@ -47,6 +47,7 @@ class SceneManager {
     }
 
     this.raycaster = new THREE.Raycaster()
+    this.raycasterCameraRotation = new THREE.Raycaster();
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -58,29 +59,36 @@ class SceneManager {
     this.createSceneSubjects()
     this.createJointBody()
 
-    // Camera helpers
-    this.cameraHelper = new THREE.Mesh(new THREE.SphereGeometry(1, 60, 60), new THREE.MeshBasicMaterial({color: 0x00ff00, visible: true}))
-
-    this.cameraHelper.position.x = this.camera.position.x
-    this.cameraHelper.position.y = this.camera.position.y
-    this.cameraHelper.position.z = this.camera.position.z
-    this.scene.add(this.cameraHelper)
-
-    this.cameraHelperBis = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
-    this.scene.add(this.cameraHelperBis)
-
-
-    // this.rotateScene('left')
-
-    this.camera.updateProjectionMatrix()
-
-    this.getPerpendicularXZAxis()
-
-    // this.initGui()
+    // Load models
     this.loadCube(() => {
       // models loaded
       console.log('model loaded')
+      // var point = this.camera.position
+      // var normal = new THREE.Vector3();
+      // this.camera.getWorldDirection(normal)
+      // var raycaster = new THREE.Raycaster(point, normal.clone().negate(), 0, this.camera.far);
+      // var hits = raycaster.intersectObject(this.terrain.meshes[0], true);
+      // console.log(raycaster, hits)
+      // var pointOnPlane = hits[0].point;
+
+
+      // console.log(pointOnPlane)
     })
+
+    // Debug
+    // Camera helpers
+    this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
+    this.scene.add(this.cameraHelper)
+
+
+    for (let i = 0; i < 8; i++) {
+      this.currentSceneYAngle += this.rotateSceneAngle
+      this.getPerpendicularXZAxisManually()
+    }
+    this.currentSceneYAngle = 0
+    this.rotateScene('left')
+
+    // this.initGui()
   }
 
   loadCube(callback) {
@@ -532,90 +540,113 @@ class SceneManager {
     this.controls.enabled = false;
     let axis
     let angle
+    let lookAt
 
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0,1,0)
-        angle = this.rotateYAngle
+        this.currentSceneYAngle += this.rotateSceneAngle
+        angle = this.rotateSceneAngle
         break
       case 'right':
         axis = new THREE.Vector3(0,1,0)
-        angle = -this.rotateYAngle
+        this.currentSceneYAngle -= this.rotateSceneAngle
+        angle = -this.rotateSceneAngle
         break
       case 'top':
-        axis = this.getPerpendicularXZAxis()
-        angle = this.rotateYAngle
+        axis = this.getPerpendicularXZAxisManually()
+        angle = -this.rotateSceneAngle
         break
       case 'bottom':
-        axis = this.getPerpendicularXZAxis()
-        angle = -this.rotateYAngle
+        axis = this.getPerpendicularXZAxisManually()
+        angle = this.rotateSceneAngle
         break
     }
 
-    this.rotateAboutPoint(this.cameraHelperBis, new THREE.Vector3(0,0,0), axis, toRadian(angle))
-    // this.camera.position.copy(this.cameraHelper.position)
-    // this.camera.lookAt(0, 0, 0)
+    const worldPos = new THREE.Vector3()
+    this.camera.getWorldPosition(worldPos)
+    const worldDir = new THREE.Vector3()
+    this.camera.getWorldDirection(worldDir)
+    this.raycasterCameraRotation.set( worldPos, worldDir );
+    const intersects = this.raycasterCameraRotation.intersectObjects( [this.terrain.meshes[0]] );
+
+    lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0,0,0)
+    lookAt.y = 0 // clean up decimals, this value should always be 0
+    // console.log(lookAt)
+
+    this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
+    this.camera.updateProjectionMatrix()
 
     this.controls.enabled = true;
   }
 
-  getPerpendicularXZAxis() {
-    const cameraVector = this.camera.getWorldDirection()
-    let finalAxis = this.camera.getWorldDirection()
-    const axisY = new THREE.Vector3( 0, 1, 0 )
-    const angleY = toRadian(180)
-    const angleCameraVector = toRadian(90)
+  getPerpendicularXZAxisManually() {
+    const finalAxis = new THREE.Vector3( 1, 0, 0 );
+    finalAxis.applyAxisAngle( new THREE.Vector3( 0, 1, 0 ), toRadian( this.currentSceneYAngle ))
 
-    cameraVector.negate()
-    finalAxis.negate()
+    this.arrowHelper(finalAxis)
 
-    cameraVector.normalize()
-    finalAxis.normalize()
+    return finalAxis
+  }
 
-
-    finalAxis.applyAxisAngle( axisY, angleY )
-    // finalAxis.normalize()
-    finalAxis.applyAxisAngle( cameraVector, angleCameraVector )
-    console.log(finalAxis)
-    // finalAxis.normalize()
-
-    // finalAxis.x = finalAxis.x.toFixed()
-    // finalAxis.y = finalAxis.y.toFixed()
-    // finalAxis.z = finalAxis.z.toFixed()
-
-    // finalAxis =  new THREE.Vector3( 1, 0, 0 )
-
+  arrowHelper(vector) {
     var origin = new THREE.Vector3( 0, 0, 0 );
     var length = 10;
 
-    var arrowHelper = new THREE.ArrowHelper( finalAxis, origin, length, 0x00ff00 );
+    var arrowHelper = new THREE.ArrowHelper( vector, origin, length, 0x00ff00 );
     this.scene.add( arrowHelper );
-
-    return finalAxis;
   }
 
   // obj - your object (THREE.Object3D or derived)
   // point - the point of rotation (THREE.Vector3)
   // axis - the axis of rotation (normalized THREE.Vector3)
   // theta - radian value of rotation
-  // pointIsWorld - boolean indicating the point is in world coordinates (default = false)
-  rotateAboutPoint(obj, point, axis, theta, pointIsWorld){
-    pointIsWorld = (pointIsWorld === undefined) ? false : pointIsWorld;
-
-    if(pointIsWorld){
-      obj.parent.localToWorld(obj.position); // compensate for world coordinate
-    }
-
+  rotateAboutPoint(obj, point, axis, theta){
     obj.position.sub(point); // remove the offset
     obj.position.applyAxisAngle(axis, theta); // rotate the POSITION
     obj.position.add(point); // re-add the offset
 
-    if(pointIsWorld){
-        obj.parent.worldToLocal(obj.position); // undo world coordinates compensation
-    }
-
     obj.rotateOnAxis(axis, theta); // rotate the OBJECT
   }
+
+
+  // getPerpendicularXZAxis() {
+  //   // get final value with a few wrong decimals...
+  //   const cameraVector = new THREE.Vector3();
+  //   const finalAxis = new THREE.Vector3();
+  //   this.camera.getWorldDirection(cameraVector)
+  //   this.camera.getWorldDirection(finalAxis)
+  //   const axisY = new THREE.Vector3( 0, 1, 0 )
+  //   const angleY = toRadian(180)
+  //   const angleCameraVector = toRadian(90)
+
+  //   cameraVector.negate()
+  //   // finalAxis.negate()
+
+  //   // cameraVector.normalize()
+  //   // finalAxis.normalize()
+
+  //   // var quaternion = new THREE.Quaternion();
+  //   // quaternion.setFromAxisAngle( axisY, angleY );
+
+  //   // finalAxis.applyQuaternion( quaternion );
+
+  //   // var quaternion2 = new THREE.Quaternion();
+  //   // quaternion2.setFromAxisAngle( cameraVector, angleCameraVector );
+
+  //   // finalAxis.applyQuaternion( quaternion2 );
+
+
+  //   finalAxis.applyAxisAngle( axisY, angleY )
+  //   // finalAxis.normalize()
+  //   finalAxis.applyAxisAngle( cameraVector, angleCameraVector )
+  //   console.log(finalAxis)
+  //   // finalAxis.normalize()
+
+  //   this.arrowHelper(finalAxis)
+
+  //   return finalAxis;
+  // }
 }
 
 export default SceneManager
