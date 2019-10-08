@@ -52,7 +52,7 @@ class Object extends EventEmitter {
     let { x, y, z } = this.body.position
 
     if (xNew != null) {
-      x = xNew - CONFIG.CASE_SIZE / 2
+      x = xNew
     }
 
     if (yNew != null) {
@@ -60,7 +60,7 @@ class Object extends EventEmitter {
     }
 
     if (zNew != null) {
-      z = zNew - CONFIG.CASE_SIZE / 2
+      z = zNew
     }
 
     this.body.position.set(x, y, z)
@@ -75,6 +75,18 @@ class Object extends EventEmitter {
     this.mesh.material.dispose()
     this.mesh = undefined
     this.world.remove(this.body)
+  }
+
+  highlight() {
+    if (this.mesh) {
+      this.mesh.material.color.set(0xc444c4)
+    }
+  }
+
+  unhighlight() {
+    if (this.mesh) {
+      this.mesh.material.color.set(0x888888)
+    }
   }
 }
 

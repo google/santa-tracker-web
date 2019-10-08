@@ -16,8 +16,8 @@ class Cube extends Obj {
     this.mass = CONFIG.MASS
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
-    this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: true })
-    this.body.position.set(-0.5, 5, -0.5)
+    this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
+    this.body.position.set(-CONFIG.SIZE / 2, 5, -CONFIG.SIZE / 2)
     world.add(this.body)
 
     // Graphics
@@ -27,7 +27,7 @@ class Cube extends Obj {
     scene.add(this.mesh)
 
     this.select()
-    this.body.addEventListener('collide', this.handleCollide.bind(this))
+    // this.body.addEventListener('collide', this.handleCollide.bind(this))
   }
 
   handleCollide(e) {

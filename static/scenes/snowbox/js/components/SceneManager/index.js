@@ -29,9 +29,12 @@ class SceneManager {
 
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
-    this.offset = 0
-    this.jointBodyRotation = 0
     this.clock = new THREE.Clock()
+    this.moveOffset = {
+      x: 0,
+      y: 0,
+      z: 0
+    }
 
     this.createSceneSubjects()
     this.createJointBody()
@@ -151,30 +154,39 @@ class SceneManager {
     if (event) {
       this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
       this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+
+      if (!this.selectedSubject) {
+        const hit = this.getNearestObject()
+        if (hit) {
+          const subject = this.getSubjectfromMesh(hit.object)
+          this.highlightSubject(subject)
+        } else {
+          this.highlightSubject(false)
+        }
+      }
     }
+
     if (this.selectedSubject) {
-      const pos = this.projectOntoPlane()
-      this.terrain.movePositionMarker(pos.x, pos.z)
-      this.selectedSubject.moveTo(pos.x, null, pos.z)
+      const pos = this.getCurrentPosOnPlane()
+      this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
+      this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
     }
   }
 
   onMouseDown() {
-    const objects = this.sceneSubjects
-      .filter(subject => subject.selectable)
-      .map(subject => subject.mesh)
-      .filter(object => object)
-    const entity = this.findNearestIntersectingObject(objects)
-    const pos = entity.point
-    if (pos && entity.object.geometry instanceof THREE.Geometry) {
+    const hit = this.getNearestObject()
+    if (
+      hit.point &&
+      (hit.object.geometry instanceof THREE.Geometry || hit.object.geometry instanceof THREE.BufferGeometry)
+    ) {
       // eslint-disable-next-line max-len
       const newSelectedSubject = this.sceneSubjects.find(subject =>
-        subject.mesh ? subject.mesh.uuid === entity.object.uuid : false
+        subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
       )
       if (this.selectedSubject) {
         this.unselectObject()
       } else {
-        this.selectObject(pos, newSelectedSubject)
+        this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
@@ -221,14 +233,20 @@ class SceneManager {
 
     this.terrain.removePositionMarker()
 
-    this.offset = 0
-    this.jointBodyRotation = 0
     this.selectedSubject = null
   }
 
   selectObject(pos, newSelectedSubject) {
     if (this.selectedSubject) {
       this.unselectObject()
+    }
+
+    const { x, z } = newSelectedSubject.body.position
+    if (pos) {
+      this.moveOffset = {
+        x: x - pos.x,
+        z: z - pos.z
+      }
     }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
@@ -265,7 +283,7 @@ class SceneManager {
     // The cannon body constrained by the mouse joint
     const { x, y, z } = pos
     // Move the cannon click marker particle to the click position
-    this.jointBody.position.set(x, Math.max(1, y + this.offset), z)
+    this.jointBody.position.set(x, Math.max(1, y), z)
     // Create a new constraint
     // The pivot for the jointBody is zero
     this.mouseConstraint = new CANNON.LockConstraint(constrainedBody, this.jointBody)
@@ -284,17 +302,24 @@ class SceneManager {
     this.mouseConstraint = false
   }
 
-  projectOntoPlane() {
-    // project mouse to that plane
-    // const hit = this.findNearestIntersectingObject([this.gplane])
+  getCurrentPosOnPlane() {
     const hit = this.findNearestIntersectingObject([this.terrain.meshes[0]])
     if (hit) return hit.point
     return false
   }
 
+  getNearestObject() {
+    const objects = this.sceneSubjects
+      .filter(subject => subject.selectable)
+      .map(subject => subject.mesh)
+      .filter(object => object)
+
+    return this.findNearestIntersectingObject(objects)
+  }
+
   moveJointToPoint(pos) {
     // Move the joint body to a new position
-    this.jointBody.position.set(pos.x, Math.max(1, pos.y + this.offset), pos.z)
+    this.jointBody.position.set(pos.x, Math.max(1, pos.y), pos.z)
     this.mouseConstraint.update()
   }
 
@@ -341,8 +366,8 @@ class SceneManager {
 
   initMerge(bodyA, bodyB) {
     // Step 1: Get two objects
-    const objectA = this.getObjectfromBody(bodyA)
-    const objectB = this.getObjectfromBody(bodyB)
+    const objectA = this.getSubjectfromBody(bodyA)
+    const objectB = this.getSubjectfromBody(bodyB)
 
     // Step 2: Get height of object to be merged
     const heightIncrease = (bodyA.aabb.upperBound.y - bodyB.aabb.lowerBound.y) / 2
@@ -357,8 +382,12 @@ class SceneManager {
     this.mergeInProgress = true
   }
 
-  getObjectfromBody(body) {
+  getSubjectfromBody(body) {
     return this.sceneSubjects.find(subject => (subject.body ? subject.body.id === body.id : false))
+  }
+
+  getSubjectfromMesh(mesh) {
+    return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
   }
 
   merge() {
@@ -386,6 +415,19 @@ class SceneManager {
       this.mergeInProgress = false
       objectA.delete()
       this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== objectA)
+    }
+  }
+
+  highlightSubject(subject) {
+    if (this.highlightedSubject) {
+      this.highlightedSubject.unhighlight()
+    }
+
+    if (subject) {
+      subject.highlight()
+      this.highlightedSubject = subject
+    } else {
+      this.highlightedSubject = null
     }
   }
 }
