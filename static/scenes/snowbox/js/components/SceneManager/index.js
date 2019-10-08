@@ -66,28 +66,35 @@ class SceneManager {
     this.camera.updateProjectionMatrix()
 
     var axesHelper = new THREE.AxesHelper( 5 );
-    this.scene.add( axesHelper );
+    // this.scene.add( axesHelper );
 
     setTimeout(() => {
-      var dir = this.camera.getWorldDirection();
+      var finalAxis
+      var cameraVector = this.camera.getWorldDirection();
+      var originCameraVector = this.camera.getWorldDirection();
+      var axisY = new THREE.Vector3( 0, 1, 0 );
+      var angleY = toRadian(180);
+      var angleCameraVector = toRadian(90);
 
-      var origin = new THREE.Vector3( 0, 5, 0 );
-      var length = 1;
+      cameraVector.applyAxisAngle( axisY, angleY );
+      cameraVector.applyAxisAngle( originCameraVector, angleCameraVector );
+      // cameraVector.y = 0
+      console.log(cameraVector)
+
+      var origin = new THREE.Vector3( 0, 0, 0 );
+      var length = 10;
       var hex = 0xffff00;
 
-      var arrowHelper = new THREE.ArrowHelper( dir, origin, length, hex );
+      var arrowHelper = new THREE.ArrowHelper( cameraVector, origin, length, 0x00ff00 );
       this.scene.add( arrowHelper );
 
-      console.log(dir.y)
-      dir.y = -dir.y
-      console.log(dir.y)
 
-      var arrowHelper = new THREE.ArrowHelper( dir, origin, length, 0x00ff00 );
-      this.scene.add( arrowHelper );
+      // this.rotateCameraBy(this.rotateYAngle, cameraVector)
+
+
+      // var arrowHelper = new THREE.ArrowHelper( cameraVector, origin, length, 0x00ff00 );
+      // this.scene.add( arrowHelper );
     }, 1000)
-
-
-
 
     // this.initGui()
     this.loadCube(() => {
@@ -474,7 +481,7 @@ class SceneManager {
 
     this.rotateAboutPoint(this.cameraHelper, new THREE.Vector3(0,0,0), axis, toRadian(angle))
     this.camera.position.copy(this.cameraHelper.position)
-    // this.camera.lookAt(0, 0, 0)
+    this.camera.lookAt(0, 0, 0)
   }
 
   rotateScene(direction) {
