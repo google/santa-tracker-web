@@ -32,7 +32,7 @@ class SceneManager {
     this.clock = new THREE.Clock()
     this.radiusCameraYRotate = 50
     this.currentCameraYAngle = 0
-    this.rotateYAngle = 45
+    this.rotateYAngle = 20
 
     this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
 
@@ -59,7 +59,7 @@ class SceneManager {
     this.createJointBody()
 
     // Camera helpers
-    this.cameraHelper = new THREE.Mesh(new THREE.SphereGeometry(1, 60, 60), new THREE.MeshBasicMaterial({color: 0x00ff00, visible: false}))
+    this.cameraHelper = new THREE.Mesh(new THREE.SphereGeometry(1, 60, 60), new THREE.MeshBasicMaterial({color: 0x00ff00, visible: true}))
 
     this.cameraHelper.position.x = this.camera.position.x
     this.cameraHelper.position.y = this.camera.position.y
@@ -70,40 +70,11 @@ class SceneManager {
     this.scene.add(this.cameraHelperBis)
 
 
-    this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,0))
+    // this.rotateScene('left')
 
     this.camera.updateProjectionMatrix()
 
-    var axesHelper = new THREE.AxesHelper( 5 );
-    // this.scene.add( axesHelper );
-
-    setTimeout(() => {
-      var finalAxis
-      var cameraVector = this.camera.getWorldDirection();
-      var originCameraVector = this.camera.getWorldDirection();
-      var axisY = new THREE.Vector3( 0, 1, 0 );
-      var angleY = toRadian(180);
-      var angleCameraVector = toRadian(90);
-
-      cameraVector.applyAxisAngle( axisY, angleY );
-      cameraVector.applyAxisAngle( originCameraVector, angleCameraVector );
-      // cameraVector.y = 0
-      console.log(cameraVector)
-
-      var origin = new THREE.Vector3( 0, 0, 0 );
-      var length = 10;
-      var hex = 0xffff00;
-
-      var arrowHelper = new THREE.ArrowHelper( cameraVector, origin, length, 0x00ff00 );
-      this.scene.add( arrowHelper );
-
-
-      // this.rotateCameraBy(this.rotateYAngle, cameraVector)
-
-
-      // var arrowHelper = new THREE.ArrowHelper( cameraVector, origin, length, 0x00ff00 );
-      // this.scene.add( arrowHelper );
-    }, 1000)
+    this.getPerpendicularXZAxis()
 
     // this.initGui()
     this.loadCube(() => {
@@ -557,44 +528,70 @@ class SceneManager {
     }
   }
 
-  rotateCameraBy(angle, axis) {
-    // this.currentCameraYAngle += angle
-    // var vector = this.camera.position.clone();
-    // console.log(this.camera.position)
-
-    // // cf trigonometry to simulate rotate scene on Y axis
-    // const x = this.radiusCameraYRotate * Math.cos(toRadian(this.currentCameraYAngle))
-    // const z = this.radiusCameraYRotate * Math.sin(toRadian(this.currentCameraYAngle))
-    // this.camera.position.set(x, 40, z)
-    console.log(axis)
-
-    this.rotateAboutPoint(this.cameraHelper, new THREE.Vector3(0,0,0), axis, toRadian(angle))
-    this.camera.position.copy(this.cameraHelper.position)
-    this.camera.lookAt(0, 0, 0)
-  }
-
   rotateScene(direction) {
-    console.log('rotate scene')
     this.controls.enabled = false;
-
-    console.log(this.camera.getWorldDirection())
+    let axis
+    let angle
 
     switch (direction) {
       case 'left':
-        this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,0))
+        axis = new THREE.Vector3(0,1,0)
+        angle = this.rotateYAngle
         break
       case 'right':
-        this.rotateCameraBy(-this.rotateYAngle, new THREE.Vector3(0,1,0))
+        axis = new THREE.Vector3(0,1,0)
+        angle = -this.rotateYAngle
         break
       case 'top':
-        this.rotateCameraBy(-this.rotateYAngle, new THREE.Vector3(0,1,1))
+        axis = this.getPerpendicularXZAxis()
+        angle = this.rotateYAngle
         break
       case 'bottom':
-        this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,1))
+        axis = this.getPerpendicularXZAxis()
+        angle = -this.rotateYAngle
         break
     }
 
+    this.rotateAboutPoint(this.cameraHelperBis, new THREE.Vector3(0,0,0), axis, toRadian(angle))
+    // this.camera.position.copy(this.cameraHelper.position)
+    // this.camera.lookAt(0, 0, 0)
+
     this.controls.enabled = true;
+  }
+
+  getPerpendicularXZAxis() {
+    const cameraVector = this.camera.getWorldDirection()
+    let finalAxis = this.camera.getWorldDirection()
+    const axisY = new THREE.Vector3( 0, 1, 0 )
+    const angleY = toRadian(180)
+    const angleCameraVector = toRadian(90)
+
+    cameraVector.negate()
+    finalAxis.negate()
+
+    cameraVector.normalize()
+    finalAxis.normalize()
+
+
+    finalAxis.applyAxisAngle( axisY, angleY )
+    // finalAxis.normalize()
+    finalAxis.applyAxisAngle( cameraVector, angleCameraVector )
+    console.log(finalAxis)
+    // finalAxis.normalize()
+
+    // finalAxis.x = finalAxis.x.toFixed()
+    // finalAxis.y = finalAxis.y.toFixed()
+    // finalAxis.z = finalAxis.z.toFixed()
+
+    // finalAxis =  new THREE.Vector3( 1, 0, 0 )
+
+    var origin = new THREE.Vector3( 0, 0, 0 );
+    var length = 10;
+
+    var arrowHelper = new THREE.ArrowHelper( finalAxis, origin, length, 0x00ff00 );
+    this.scene.add( arrowHelper );
+
+    return finalAxis;
   }
 
   // obj - your object (THREE.Object3D or derived)
@@ -606,7 +603,7 @@ class SceneManager {
     pointIsWorld = (pointIsWorld === undefined) ? false : pointIsWorld;
 
     if(pointIsWorld){
-        obj.parent.localToWorld(obj.position); // compensate for world coordinate
+      obj.parent.localToWorld(obj.position); // compensate for world coordinate
     }
 
     obj.position.sub(point); // remove the offset
