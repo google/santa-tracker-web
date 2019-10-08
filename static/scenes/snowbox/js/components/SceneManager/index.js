@@ -11,18 +11,30 @@ import Terrain from '../SceneSubjects/Terrain/index.js'
 import snowBox1 from '../../../models/snow_box01.json'
 // import snowBox2 from '../../../models/snow_box02.json'
 
-import { randomIntFromInterval } from '../../helpers.js'
+import { randomIntFromInterval, toRadian } from '../../helpers.js'
 
 class SceneManager {
   constructor(canvas) {
     this.canvas = canvas
 
     this.handleGui = this.handleGui.bind(this)
+    this.rotateScene = this.rotateScene.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
       height: this.canvas.clientHeight
     }
+
+    this.raycaster = new THREE.Raycaster()
+    this.mouse = new THREE.Vector2()
+    this.offset = 0
+    this.jointBodyRotation = 0
+    this.clock = new THREE.Clock()
+    this.radiusCameraYRotate = 50
+    this.currentCameraYAngle = 0
+    this.rotateYAngle = 45
+
+    this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
 
     this.initCannon()
     this.buildScene()
@@ -34,16 +46,48 @@ class SceneManager {
       this.buildHelpers()
     }
 
-    this.raycaster = new THREE.Raycaster()
-    this.mouse = new THREE.Vector2()
-    this.offset = 0
-    this.jointBodyRotation = 0
-    this.clock = new THREE.Clock()
-
-    this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
-
     this.createSceneSubjects()
     this.createJointBody()
+
+    // Camera helpers
+    this.cameraHelper = new THREE.Mesh(new THREE.SphereGeometry(1, 60, 60), new THREE.MeshBasicMaterial({color: 0x00ff00, visible: false}))
+
+    this.cameraHelper.position.x = this.camera.position.x
+    this.cameraHelper.position.y = this.camera.position.y
+    this.cameraHelper.position.z = this.camera.position.z
+    this.scene.add(this.cameraHelper)
+
+    this.cameraHelperBis = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
+    this.scene.add(this.cameraHelperBis)
+
+
+    this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,0))
+
+    this.camera.updateProjectionMatrix()
+
+    var axesHelper = new THREE.AxesHelper( 5 );
+    this.scene.add( axesHelper );
+
+    setTimeout(() => {
+      var dir = this.camera.getWorldDirection();
+
+      var origin = new THREE.Vector3( 0, 5, 0 );
+      var length = 1;
+      var hex = 0xffff00;
+
+      var arrowHelper = new THREE.ArrowHelper( dir, origin, length, hex );
+      this.scene.add( arrowHelper );
+
+      console.log(dir.y)
+      dir.y = -dir.y
+      console.log(dir.y)
+
+      var arrowHelper = new THREE.ArrowHelper( dir, origin, length, 0x00ff00 );
+      this.scene.add( arrowHelper );
+    }, 1000)
+
+
+
 
     // this.initGui()
     this.loadCube(() => {
@@ -65,7 +109,7 @@ class SceneManager {
             this.cubeGeo = object.children[ 0 ].geometry;
             this.cubeMaterial = object.children[ 0 ].material
 
-            callback
+            callback()
 
           } );
 
@@ -122,7 +166,7 @@ class SceneManager {
     const nearPlane = 1
     const farPlane = 1000
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
-    this.camera.position.set(0, 40, 50)
+    this.camera.position.set(0, 40, this.radiusCameraYRotate)
     this.camera.lookAt(0, 0, 0)
   }
 
@@ -134,6 +178,7 @@ class SceneManager {
     this.controls.enablePan = true
     this.controls.enableRotate = false
     this.controls.enableDamping = true;
+    this.controls.enabled = true;
     this.controls.dampingFactor = 0.07;
   }
 
@@ -167,6 +212,7 @@ class SceneManager {
   }
 
   update() {
+    if (this.controls && this.controls.enabled) this.controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, this.camera)
     const elapsedTime = this.clock.getElapsedTime()
     this.world.step(CONFIG.TIMESTEP)
@@ -175,7 +221,6 @@ class SceneManager {
     }
 
     this.renderer.render(this.scene, this.camera)
-    this.controls.update() // for damping
   }
 
   // EVENTS
@@ -243,6 +288,18 @@ class SceneManager {
         break
       case 'add-glue':
         this.addShape('glue')
+        break
+      case 'rotate-left':
+        this.rotateScene('left')
+        break
+      case 'rotate-right':
+        this.rotateScene('right')
+        break
+      case 'rotate-top':
+        this.rotateScene('top')
+        break
+      case 'rotate-bottom':
+        this.rotateScene('bottom')
         break
       default:
         break
@@ -402,6 +459,69 @@ class SceneManager {
       const axis = new CANNON.Vec3(0, 1, 0)
       this.selectedSubject.rotate(axis, this.jointBodyRotation)
     }
+  }
+
+  rotateCameraBy(angle, axis) {
+    // this.currentCameraYAngle += angle
+    // var vector = this.camera.position.clone();
+    // console.log(this.camera.position)
+
+    // // cf trigonometry to simulate rotate scene on Y axis
+    // const x = this.radiusCameraYRotate * Math.cos(toRadian(this.currentCameraYAngle))
+    // const z = this.radiusCameraYRotate * Math.sin(toRadian(this.currentCameraYAngle))
+    // this.camera.position.set(x, 40, z)
+    console.log(axis)
+
+    this.rotateAboutPoint(this.cameraHelper, new THREE.Vector3(0,0,0), axis, toRadian(angle))
+    this.camera.position.copy(this.cameraHelper.position)
+    // this.camera.lookAt(0, 0, 0)
+  }
+
+  rotateScene(direction) {
+    console.log('rotate scene')
+    this.controls.enabled = false;
+
+    console.log(this.camera.getWorldDirection())
+
+    switch (direction) {
+      case 'left':
+        this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,0))
+        break
+      case 'right':
+        this.rotateCameraBy(-this.rotateYAngle, new THREE.Vector3(0,1,0))
+        break
+      case 'top':
+        this.rotateCameraBy(-this.rotateYAngle, new THREE.Vector3(0,1,1))
+        break
+      case 'bottom':
+        this.rotateCameraBy(this.rotateYAngle, new THREE.Vector3(0,1,1))
+        break
+    }
+
+    this.controls.enabled = true;
+  }
+
+  // obj - your object (THREE.Object3D or derived)
+  // point - the point of rotation (THREE.Vector3)
+  // axis - the axis of rotation (normalized THREE.Vector3)
+  // theta - radian value of rotation
+  // pointIsWorld - boolean indicating the point is in world coordinates (default = false)
+  rotateAboutPoint(obj, point, axis, theta, pointIsWorld){
+    pointIsWorld = (pointIsWorld === undefined) ? false : pointIsWorld;
+
+    if(pointIsWorld){
+        obj.parent.localToWorld(obj.position); // compensate for world coordinate
+    }
+
+    obj.position.sub(point); // remove the offset
+    obj.position.applyAxisAngle(axis, theta); // rotate the POSITION
+    obj.position.add(point); // re-add the offset
+
+    if(pointIsWorld){
+        obj.parent.worldToLocal(obj.position); // undo world coordinates compensation
+    }
+
+    obj.rotateOnAxis(axis, theta); // rotate the OBJECT
   }
 }
 
