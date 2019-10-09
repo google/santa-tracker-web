@@ -34,12 +34,21 @@ class SnowglobeGame {
         },
         false
       )
+
+      canvas.addEventListener(
+        'click',
+        e => {
+          e.preventDefault()
+          sceneManager.onClick(e)
+          // sceneManager.onMouseDown(e)
+        },
+        false
+      )
+
       canvas.addEventListener(
         'mousedown',
         e => {
           canvas.classList.add('is-dragging')
-          e.preventDefault()
-          sceneManager.onMouseDown(e)
         },
         false
       )

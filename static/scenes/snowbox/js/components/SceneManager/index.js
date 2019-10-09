@@ -9,6 +9,8 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import { randomIntFromInterval, toRadian } from '../../utils/math.js'
+import { getNow } from '../../utils/time.js'
+import { outQuad } from '../../utils/ease.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -16,6 +18,7 @@ class SceneManager {
 
     this.handleGui = this.handleGui.bind(this)
     this.rotateScene = this.rotateScene.bind(this)
+    this.animateCameraTo = this.animateCameraTo.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -29,6 +32,7 @@ class SceneManager {
     this.currentSceneYAngle = 0
     this.rotateSceneYAngle = 45
     this.rotateSceneXZAngle = 22.5
+    this.animateCameraSpeed = 1000
 
     this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
     this.highlightMaterial = new THREE.MeshLambertMaterial({ color: 0xc444c4 })
@@ -248,8 +252,10 @@ class SceneManager {
         if (hit) {
           const subject = this.getSubjectfromMesh(hit.object)
           this.highlightSubject(subject)
+          this.canvas.classList.add('is-pointing')
         } else {
           this.highlightSubject(false)
+          this.canvas.classList.remove('is-pointing')
         }
       }
     }
@@ -261,7 +267,7 @@ class SceneManager {
     }
   }
 
-  onMouseDown() {
+  onClick() {
     const hit = this.getNearestObject()
     if (
       hit.point &&
@@ -275,12 +281,31 @@ class SceneManager {
         this.unselectObject()
       } else {
         this.centerCameraTo(newSelectedSubject.mesh)
-        // this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
     }
   }
+
+  // onMouseDown() {
+  //   const hit = this.getNearestObject()
+  //   if (
+  //     hit.point &&
+  //     (hit.object.geometry instanceof THREE.Geometry || hit.object.geometry instanceof THREE.BufferGeometry)
+  //   ) {
+  //     // eslint-disable-next-line max-len
+  //     const newSelectedSubject = this.sceneSubjects.find(subject =>
+  //       subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
+  //     )
+  //     if (this.selectedSubject) {
+  //       this.unselectObject()
+  //     } else {
+  //       this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
+  //     }
+  //   } else if (this.selectedSubject) {
+  //     this.unselectObject()
+  //   }
+  // }
 
   onButtonClick(id) {
     switch (id) {
@@ -583,11 +608,35 @@ class SceneManager {
     const newPos = new THREE.Vector3();
     newPos.addVectors ( startPos, worldDir.negate().multiplyScalar( distance ) );
 
-    this.camera.position.copy(newPos)
+    // animate camera position in RAF
+    this.animateCameraTarget = newPos
+    this.animateCameraOrigin = this.camera.position.clone()
+    this.animateCameraStart = getNow()
+    this.animateCameraTo(this.animateCameraStart) // start RAF Animation for this animation
 
-    this.controls.target.set(object.position.x, object.position.y, object.position.z)
+    this.controls.target.set(object.position.x, object.position.y, object.position.z) // final pos
+  }
 
-    this.controls.enabled = true
+  animateCameraTo(now) {
+    const start = this.animateCameraStart
+    const speed = this.animateCameraSpeed
+    const origin = this.animateCameraOrigin
+    const target = this.animateCameraTarget
+    const percent = (now - start) / speed
+
+    if (percent < 1) {
+      this.camera.position.x = origin.x + (target.x - origin.x) * outQuad(percent)
+      this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
+      this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
+
+      this.isAnimated = true
+      this.animateCameraToRAF = window.requestAnimationFrame(this.animateCameraTo)
+    } else {
+      // animation finished
+      this.isAnimated = false
+      window.cancelAnimationFrame(this.animateCameraToRAF)
+      this.controls.enabled = true
+    }
   }
 
   getCenterPointOnTerrain() {

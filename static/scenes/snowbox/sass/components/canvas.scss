@@ -6,4 +6,8 @@
   &.is-dragging {
     cursor: move;
   }
+
+  &.is-pointing {
+    cursor: pointer;
+  }
 }
