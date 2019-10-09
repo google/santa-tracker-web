@@ -24,6 +24,7 @@ class Cube extends Obj {
     const cubeGeo = new THREE.BoxGeometry(CONFIG.SIZE, CONFIG.SIZE, CONFIG.SIZE, 2, 2)
     const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+    this.mesh.position.copy(this.body.position)
     scene.add(this.mesh)
 
     this.select()

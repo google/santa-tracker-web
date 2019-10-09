@@ -37,7 +37,6 @@ class SceneManager {
     }
 
     this.createSceneSubjects()
-    this.createJointBody()
   }
 
   initCannon() {
@@ -103,16 +102,6 @@ class SceneManager {
     this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
     this.lights = this.sceneSubjects[0]
     this.terrain = this.sceneSubjects[1]
-  }
-
-  createJointBody() {
-    this.jointBody = new CANNON.Body({
-      mass: 0,
-      shape: new CANNON.Sphere(0.1)
-    })
-    this.jointBody.collisionFilterGroup = 1
-    this.jointBody.collisionFilterMask = 1
-    this.world.addBody(this.jointBody)
   }
 
   update() {
@@ -229,6 +218,7 @@ class SceneManager {
   }
 
   unselectObject() {
+    this.selectedSubject.moveToGhost()
     this.selectedSubject.unselect()
 
     this.terrain.removePositionMarker()
