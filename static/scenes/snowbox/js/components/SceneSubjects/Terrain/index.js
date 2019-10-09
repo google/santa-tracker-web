@@ -2,7 +2,7 @@ import Obj from '../../Object/index.js'
 
 // Config
 import CONFIG from './config.js'
-import { randomIntFromInterval } from '../../../helpers.js'
+import { randomIntFromInterval } from '../../../utils/math.js'
 
 class Terrain extends Obj {
   constructor(scene, world) {

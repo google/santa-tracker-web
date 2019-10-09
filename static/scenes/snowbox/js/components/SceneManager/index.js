@@ -8,10 +8,7 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
-import snowBox1 from '../../../models/snow_box01.json'
-// import snowBox2 from '../../../models/snow_box02.json'
-
-import { randomIntFromInterval, toRadian } from '../../helpers.js'
+import { randomIntFromInterval, toRadian } from '../../utils/math.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -214,6 +211,10 @@ class SceneManager {
     if (this.mergeInProgress) {
       this.merge()
     }
+
+    //
+    // percent = (time - startTime) / startTime
+    // target = camera.position.x - target * easeMachin(percent)
   }
 
   // EVENTS

@@ -37,8 +37,17 @@ class SnowglobeGame {
       canvas.addEventListener(
         'mousedown',
         e => {
+          canvas.classList.add('is-dragging')
           e.preventDefault()
           sceneManager.onMouseDown(e)
+        },
+        false
+      )
+
+      canvas.addEventListener(
+        'mouseup',
+        e => {
+          canvas.classList.remove('is-dragging')
         },
         false
       )
