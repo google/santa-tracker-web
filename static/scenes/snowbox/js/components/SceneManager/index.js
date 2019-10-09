@@ -25,14 +25,13 @@ class SceneManager {
       height: this.canvas.clientHeight
     }
 
-    this.raycaster = new THREE.Raycaster()
-    this.mouse = new THREE.Vector2()
+    this.debug = false
     this.offset = 0
     this.jointBodyRotation = 0
-    this.clock = new THREE.Clock()
     this.radiusCameraYRotate = 50
     this.currentSceneYAngle = 0
-    this.rotateSceneAngle = 45
+    this.rotateSceneYAngle = 45
+    this.rotateSceneXZAngle = 22.5
 
     this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
     this.highlightMaterial = new THREE.MeshLambertMaterial({ color: 0xc444c4 })
@@ -64,28 +63,21 @@ class SceneManager {
     this.loadCube(() => {
       // models loaded
       console.log('model loaded')
-      // var point = this.camera.position
-      // var normal = new THREE.Vector3();
-      // this.camera.getWorldDirection(normal)
-      // var raycaster = new THREE.Raycaster(point, normal.clone().negate(), 0, this.camera.far);
-      // var hits = raycaster.intersectObject(this.terrain.meshes[0], true);
-      // console.log(raycaster, hits)
-      // var pointOnPlane = hits[0].point;
-
-
-      // console.log(pointOnPlane)
     })
 
     // Debug
-    // Camera helpers
-    this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
-    // this.scene.add(this.cameraHelper)
+    if (this.debug) {
+      // Camera helpers
+      this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
+      // this.scene.add(this.cameraHelper)
 
-    for (let i = 0; i < 8; i++) {
-      this.currentSceneYAngle += this.rotateSceneAngle
-      this.getPerpendicularXZAxisManually()
+      for (let i = 0; i < 8; i++) {
+        this.currentSceneYAngle += this.rotateSceneYAngle
+        this.getPerpendicularXZAxisManually()
+      }
+      this.currentSceneYAngle = 0
     }
-    this.currentSceneYAngle = 0
+
     this.rotateScene('left')
 
     // this.initGui()
@@ -279,7 +271,8 @@ class SceneManager {
       if (this.selectedSubject) {
         this.unselectObject()
       } else {
-        this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
+        this.centerCameraTo(newSelectedSubject.mesh)
+        // this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
@@ -545,34 +538,28 @@ class SceneManager {
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0,1,0)
-        this.currentSceneYAngle += this.rotateSceneAngle
-        angle = this.rotateSceneAngle
+        this.currentSceneYAngle += this.rotateSceneYAngle
+        angle = this.rotateSceneYAngle
         break
       case 'right':
         axis = new THREE.Vector3(0,1,0)
-        this.currentSceneYAngle -= this.rotateSceneAngle
-        angle = -this.rotateSceneAngle
+        this.currentSceneYAngle -= this.rotateSceneYAngle
+        angle = -this.rotateSceneYAngle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
-        angle = -this.rotateSceneAngle
+        angle = -this.rotateSceneXZAngle
         break
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
-        angle = this.rotateSceneAngle
+        angle = this.rotateSceneXZAngle
         break
     }
 
-    const worldPos = new THREE.Vector3()
-    this.camera.getWorldPosition(worldPos)
-    const worldDir = new THREE.Vector3()
-    this.camera.getWorldDirection(worldDir)
-    this.raycasterCameraRotation.set( worldPos, worldDir );
-    const intersects = this.raycasterCameraRotation.intersectObjects( [this.terrain.meshes[0]] );
+    const intersects = this.getCenterPointOnTerrain()
 
     lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0,0,0)
     lookAt.y = 0 // clean up decimals, this value should always be 0
-    // console.log(lookAt)
 
     this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
     this.camera.updateProjectionMatrix()
@@ -580,11 +567,41 @@ class SceneManager {
     this.controls.enabled = true;
   }
 
+  centerCameraTo(object) {
+    this.controls.enabled = false
+
+    const intersects = this.getCenterPointOnTerrain()
+
+    const distance = intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
+    const startPos = object.position
+    startPos.y = 0 // do like the object position was on the ground
+    const worldDir = new THREE.Vector3()
+    this.camera.getWorldDirection(worldDir)
+    const newPos = new THREE.Vector3();
+    newPos.addVectors ( startPos, worldDir.negate().multiplyScalar( distance ) );
+
+    this.camera.position.copy(newPos)
+
+    this.controls.target.set(object.position.x, object.position.y, object.position.z)
+
+    this.controls.enabled = true
+  }
+
+  getCenterPointOnTerrain() {
+    const worldPos = new THREE.Vector3()
+    this.camera.getWorldPosition(worldPos)
+    const worldDir = new THREE.Vector3()
+    this.camera.getWorldDirection(worldDir)
+    this.raycasterCameraRotation.set( worldPos, worldDir );
+
+    return this.raycasterCameraRotation.intersectObjects( [this.terrain.meshes[0]] )
+  }
+
   getPerpendicularXZAxisManually() {
     const finalAxis = new THREE.Vector3( 1, 0, 0 );
     finalAxis.applyAxisAngle( new THREE.Vector3( 0, 1, 0 ), toRadian( this.currentSceneYAngle ))
 
-    this.arrowHelper(finalAxis)
+    if (this.debug) this.arrowHelper(finalAxis)
 
     return finalAxis
   }
@@ -608,7 +625,6 @@ class SceneManager {
 
     obj.rotateOnAxis(axis, theta); // rotate the OBJECT
   }
-
 
   // getPerpendicularXZAxis() {
   //   // get final value with a few wrong decimals...
