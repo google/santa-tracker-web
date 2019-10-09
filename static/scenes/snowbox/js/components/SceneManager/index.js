@@ -28,6 +28,7 @@ class SceneManager {
     }
 
     this.raycaster = new THREE.Raycaster()
+    this.raycaster2 = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -106,6 +107,7 @@ class SceneManager {
 
   update() {
     this.raycaster.setFromCamera(this.mouse, this.camera)
+    this.raycaster2.setFromCamera(this.mouse, this.camera)
     const elapsedTime = this.clock.getElapsedTime()
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
@@ -156,6 +158,7 @@ class SceneManager {
     }
 
     if (this.selectedSubject) {
+      this.checkCollision()
       const pos = this.getCurrentPosOnPlane()
       this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
       this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
@@ -299,10 +302,7 @@ class SceneManager {
   }
 
   getNearestObject() {
-    const objects = this.sceneSubjects
-      .filter(subject => subject.selectable)
-      .map(subject => subject.mesh)
-      .filter(object => object)
+    const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
   }
@@ -418,6 +418,23 @@ class SceneManager {
       this.highlightedSubject = subject
     } else {
       this.highlightedSubject = null
+    }
+  }
+
+  getObjectsList() {
+    return this.sceneSubjects
+      .filter(subject => subject.selectable)
+      .map(subject => subject.mesh)
+      .filter(object => object)
+  }
+
+  checkCollision() {
+    const { ghost, mesh } = this.selectedSubject
+    const objects = this.getObjectsList().filter(item => item.uuid !== mesh.uuid)
+
+    if (objects.length > 0) {
+      const intersects = ghost.raycast(this.raycaster2, objects)
+      console.log(intersects)
     }
   }
 }
