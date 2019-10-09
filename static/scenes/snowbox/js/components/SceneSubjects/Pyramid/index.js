@@ -7,9 +7,11 @@ import CONFIG from './config.js'
 class Pyramid extends Obj {
   constructor(scene, world) {
     // Physics
-    super()
+    super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
+    this.mass = CONFIG.MASS
+
     const verts = [
       new CANNON.Vec3(0, 0, 0),
       new CANNON.Vec3(0, CONFIG.SIZE, 0),
@@ -37,7 +39,10 @@ class Pyramid extends Obj {
     const pyramidGeo = this.getThreeGeo(shape)
     const pyramidMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
     this.mesh = new THREE.Mesh(pyramidGeo, pyramidMaterial)
+    this.mesh.position.copy(this.body.position)
     scene.add(this.mesh)
+
+    this.select()
   }
 
   getThreeGeo(shape) {
