@@ -400,13 +400,7 @@ const loaderScene = (sceneName, data) => {
   if (sceneName === loadedScene) {
     return false;
   }
-
-  const title = scenes[sceneName] || '';
-  if (title) {
-    document.title = `${title} · ${_msg`santatracker`}`;
-  } else {
-    document.title = _msg`santatracker`;
-  }
+  document.title = scenes[sceneName] || _msg`santatracker`;
 
   const optionalProdIndex = document.documentElement.lang ? `index_${document.documentElement.lang}.html` : '';
 

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "app",
+    "target": "staging",
     "public": "dist/prod",
     "headers": [
       {

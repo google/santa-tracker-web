@@ -22,13 +22,13 @@ textureLoader.crossOrigin = 'anonymous';
 
 export function gltf(path, base='.') {
   return new Promise((resolve, reject) => {
-    gltfLoader.load(`${base}/models/${path}.gltf`, resolve, () => {}, reject);
+    gltfLoader.load(`${base}models/${path}.gltf`, resolve, () => {}, reject);
   });
 }
 
 export function texture(path, base='.', cb=null) {
   return new Promise((resolve, reject) => {
-    const texture = textureLoader.load(`${base}/img/${path}.png`, resolve, () => {}, reject);
+    const texture = textureLoader.load(`${base}img/${path}.png`, resolve, () => {}, reject);
     cb && cb(texture);
   });
 }
