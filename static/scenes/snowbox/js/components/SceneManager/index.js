@@ -61,6 +61,7 @@ class SceneManager {
 
     // Load models
     this.loadCube(() => {
+      this.modelLoaded = true
       // models loaded
       console.log('model loaded')
     })
@@ -85,13 +86,13 @@ class SceneManager {
 
   loadCube(callback) {
     new THREE.MTLLoader()
-      .load( '/st/scenes/snowbox/models/snow_box01.mtl', ( materials ) => {
+      .load( './models/snow_box01.mtl', ( materials ) => {
 
         materials.preload();
 
         new THREE.OBJLoader()
           .setMaterials( materials )
-          .load( '/st/scenes/snowbox/models/snow_box01.obj', ( object ) => {
+          .load( './models/snow_box01.obj', ( object ) => {
 
             this.cubeGeo = object.children[ 0 ].geometry;
             this.cubeMaterial = object.children[ 0 ].material
@@ -199,6 +200,7 @@ class SceneManager {
   }
 
   update() {
+    if (!this.modelLoaded) return
     if (this.controls && this.controls.enabled) this.controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, this.camera)
     const elapsedTime = this.clock.getElapsedTime()
