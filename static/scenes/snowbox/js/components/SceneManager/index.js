@@ -224,11 +224,14 @@ class SceneManager {
   // EVENTS
 
   onWindowResize() {
-    const { width, height } = this.canvas
-    this.screenDimensions.width = width
-    this.screenDimensions.height = height
-    this.camera.aspect = width / height
-    this.camera.updateProjectionMatrix()
+    const width = window.innerWidth
+    const height = window.innerHeight
+
+    // Update camera
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
+
+    // Update canvas size
     this.renderer.setSize(width, height)
   }
 
