@@ -6,63 +6,10 @@
 @import 'sass/mixins';
 @import 'sass/variables';
 @import 'sass/globals';
-@import 'sass/dg';
 
-#canvas {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(17, 18, 23);
-}
-
-.toolbox {
-
-  align-items: center;
-  background-color: rgb(27, 30, 43);
-  bottom: 50px;
-  color: #fff;
-  display: flex;
-
-  justify-content: space-between;
-  left: 50%;
-  min-width: 400px;
-  padding: 50px;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 50vw;
-  pointer-events: auto;
-
-  button {
-    background-color: #fff;
-    border: none;
-    box-shadow: none;
-    color: #000;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 20px;
-  }
-}
-
-.paragraph {
-  text-align: right;
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
-.ui {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-
-  .rotate {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    cursor: pointer;
-    pointer-events: auto;
-  }
-}
+// components
+@import 'sass/components/canvas';
+@import 'sass/components/dg';
+@import 'sass/components/paragraph';
+@import 'sass/components/toolbox';
+@import 'sass/components/ui';
