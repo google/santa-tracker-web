@@ -2,8 +2,12 @@ import CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
 
 class Object extends EventEmitter {
-  constructor() {
+  constructor(scene, world) {
     super()
+
+    this.scene = scene
+    this.world = world
+
     this.selectable = false
     this.selected = false
     this.rotationY = 0
@@ -112,8 +116,7 @@ class Object extends EventEmitter {
 
   moveToGhost() {
     const { x, y, z } = this.ghost.position
-    console.log(this.body.position.set(x, y, z))
-    // this.body.position.set(this.ghost.position)
+    this.body.position.set(x, y, z)
   }
 }
 

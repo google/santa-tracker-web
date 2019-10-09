@@ -7,10 +7,7 @@ import CONFIG from './config.js'
 class Cube extends Obj {
   constructor(scene, world) {
     // Physics
-    super()
-
-    this.scene = scene
-    this.world = world
+    super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
