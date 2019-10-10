@@ -66,6 +66,7 @@ header {
     transition: transform $transition-toolbar;
     transform: translate(0);
     opacity: 0.95;
+    display: none;
 
     &::before {
       content: "";

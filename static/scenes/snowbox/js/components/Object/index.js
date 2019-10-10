@@ -19,8 +19,8 @@ class Object extends EventEmitter {
       this.body.mass = 0
       this.body.updateMassProperties()
 
-      if (this.mesh) {
-        this.mesh.material.color.set(0xff00ff)
+      if (this.mesh && this.selectedMaterial) {
+        this.mesh.material = this.selectedMaterial
       }
 
       this.createGhost()
@@ -33,8 +33,8 @@ class Object extends EventEmitter {
       this.body.mass = this.mass
       this.body.updateMassProperties()
 
-      if (this.mesh) {
-        this.mesh.material.color.set(0x888888)
+      if (this.mesh && this.originMaterial) {
+        this.mesh.material = this.originMaterial
       }
 
       this.deleteGhost()
@@ -85,14 +85,14 @@ class Object extends EventEmitter {
   }
 
   highlight() {
-    if (this.mesh) {
-      this.mesh.material.color.set(0xc444c4)
+    if (this.mesh && this.highlightMaterial) {
+      this.mesh.material = this.highlightMaterial
     }
   }
 
   unhighlight() {
-    if (this.mesh) {
-      this.mesh.material.color.set(0x888888)
+    if (this.mesh && this.originMaterial) {
+      this.mesh.material = this.originMaterial
     }
   }
 
