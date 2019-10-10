@@ -212,7 +212,6 @@ class SceneManager {
     if (!this.modelLoaded) return
     if (this.controls && this.controls.enabled) this.controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, this.camera)
-    this.raycaster2.setFromCamera(this.mouse, this.camera)
 
     const elapsedTime = this.clock.getElapsedTime()
     this.world.step(CONFIG.TIMESTEP)
@@ -290,7 +289,7 @@ class SceneManager {
         this.unselectObject()
       } else {
         this.centerCameraTo(newSelectedSubject.mesh)
-        // this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
+        // this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
@@ -310,7 +309,7 @@ class SceneManager {
   //     if (this.selectedSubject) {
   //       this.unselectObject()
   //     } else {
-  //       this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
+  //       this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
   //     }
   //   } else if (this.selectedSubject) {
   //     this.unselectObject()
@@ -379,19 +378,22 @@ class SceneManager {
     this.selectedSubject = null
   }
 
-  selectObject(pos, newSelectedSubject) {
+  selectObject(newSelectedSubject, offset) {
     if (this.selectedSubject) {
       this.unselectObject()
     }
 
     const { x, z } = newSelectedSubject.body.position
-    if (pos) {
+
+    if (offset) {
       this.moveOffset = {
-        x: x - pos.x,
-        z: z - pos.z
+        x: x - offset.x,
+        z: z - offset.z
       }
     }
+
     this.selectedSubject = newSelectedSubject
+
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
   }
@@ -400,49 +402,6 @@ class SceneManager {
     const hits = this.raycaster.intersectObjects(objects)
     const closest = hits.length > 0 ? hits[0] : false
     return closest
-  }
-
-  setScreenPerpCenter(point) {
-    // If it does not exist, create a new one
-    if (!this.gplane) {
-      const planeGeo = new THREE.PlaneGeometry(500, 500)
-      this.gplane = new THREE.Mesh(
-        planeGeo,
-        new THREE.MeshLambertMaterial({
-          color: 0x777777,
-          transparent: true,
-          opacity: 1
-        })
-      )
-      this.scene.add(this.gplane)
-    }
-    // Center at mouse position
-    this.gplane.position.copy(point)
-    // Make it face toward the camera
-    this.gplane.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-  }
-
-  addMouseConstraint(pos, constrainedBody) {
-    // The cannon body constrained by the mouse joint
-    const { x, y, z } = pos
-    // Move the cannon click marker particle to the click position
-    this.jointBody.position.set(x, Math.max(1, y), z)
-    // Create a new constraint
-    // The pivot for the jointBody is zero
-    this.mouseConstraint = new CANNON.LockConstraint(constrainedBody, this.jointBody)
-    // Add the constriant to world
-    this.world.addConstraint(this.mouseConstraint)
-  }
-
-  removeClickMarker() {
-    if (this.clickMarker) {
-      this.clickMarker.visible = false
-    }
-  }
-
-  removeJointConstraint() {
-    this.world.removeConstraint(this.mouseConstraint)
-    this.mouseConstraint = false
   }
 
   getCurrentPosOnPlane() {
@@ -455,12 +414,6 @@ class SceneManager {
     const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
-  }
-
-  moveJointToPoint(pos) {
-    // Move the joint body to a new position
-    this.jointBody.position.set(pos.x, Math.max(1, pos.y), pos.z)
-    this.mouseConstraint.update()
   }
 
   addShape(shape) {
@@ -480,19 +433,24 @@ class SceneManager {
     }
 
     subject.addListener('merge', this.initMerge.bind(this))
-
     this.sceneSubjects.push(subject)
-    this.selectObject(false, subject)
+    this.selectObject(subject)
+    const pos = this.getCurrentPosOnPlane()
+    subject.moveTo(pos.x, 1, pos.z)
+    subject.moveToGhost()
+    this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
-  move(direction) {
+  move(direction, noMouseMove) {
     if (this.selectedSubject) {
-      const y =
-        this.selectedSubject.body.position.y +
+      this.moveOffset.y =
+        this.selectedSubject.ghost.position.y +
         (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE) +
         0.01
-      this.selectedSubject.moveTo(null, y, null)
-      this.onMouseMove()
+      this.selectedSubject.moveTo(null, this.moveOffset.y, null)
+      if (!noMouseMove) {
+        this.onMouseMove()
+      }
     }
   }
 
@@ -728,13 +686,39 @@ class SceneManager {
       .filter(object => object)
   }
 
-  checkCollision() {
-    const { ghost, mesh } = this.selectedSubject
-    const objects = this.getObjectsList().filter(item => item.uuid !== mesh.uuid)
+  getObjectBoxesList(filter) {
+    return this.sceneSubjects
+      .filter(subject => subject.selectable)
+      .map(subject => subject.box)
+      .filter(box => box)
+  }
 
-    if (objects.length > 0) {
-      const intersects = ghost.raycast(this.raycaster2, objects)
-      console.log(intersects)
+  checkCollision() {
+    const { ghost, box, mesh } = this.selectedSubject
+    const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
+    const fakeBox = new THREE.Box3().copy(box)
+    fakeBox.max.y -= CONFIG.ELEVATE_SCALE
+    fakeBox.min.y -= CONFIG.ELEVATE_SCALE
+    let moveDown = true
+    let moveUp = false
+
+    if (boxes.length > 0) {
+      for (let index = 0; index < boxes.length; index++) {
+        const boxItem = boxes[index]
+
+        if (box.intersectsBox(boxItem)) {
+          moveUp = true
+          break
+        } else if (fakeBox.intersectsBox(boxItem)) {
+          moveDown = false
+        }
+      }
+    }
+
+    if (moveUp) {
+      this.move('up', true)
+    } else if (moveDown && fakeBox.min.y > 0) {
+      this.move('down', true)
     }
   }
 }
