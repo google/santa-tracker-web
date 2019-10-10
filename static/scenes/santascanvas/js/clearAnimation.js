@@ -27,41 +27,35 @@ app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
   this.context = canvas.getContext('2d');
   this.backup = backupCanvas;
   this.backupContext = backupCanvas.getContext('2d');
-  this.importPath = importPath;
   this.playing = false;
+  this.callback = null;
+  this.ready_ = false;
 
-  this.frames = [];
-  this.currentFrame = 0;
-  this.timeUntilNextFrame = 0;
+  this.media_ = document.createElement('video');
+  this.media_.loop = false;
+  this.media_.autoplay = false;
+  this.media_.muted = true;
+  this.media_.src = importPath + 'img/avalanche.mp4'
+  this.media_.crossOrigin = 'anonymous';
 
-  this.preloadFrames();
+  // Mark the animation as ready when the video is ready to play.
+  this.media_.addEventListener('canplaythrough', () => {
+    this.ready_ = true;
+  });
 };
 
 
-app.ClearAnimation.prototype.preloadFrames  = function() {
-  for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
-    var image = new Image();
-    image.setAttribute('crossOrigin', 'anonymous');
-    image.src = this.importPath + 'img/avalanche/avalanche_' + i + '.png';
-    this.frames.push(image);
-  }
-};
-
-
-app.ClearAnimation.prototype.beginAnimation  = function(callback) {
+app.ClearAnimation.prototype.beginAnimation = function(callback) {
   if (this.playing) {
     return;
   }
 
+  if (this.ready_) {
+    // Don't bother playing; the video wouldn't finish.
+    this.media_.play();
+  }
   this.callback = callback;
   this.playing = true;
-};
-
-
-app.ClearAnimation.prototype.reset  = function() {
-  this.playing = false;
-  this.currentFrame = 0;
-  this.timeUntilNextFrame = 0;
 };
 
 
@@ -70,26 +64,38 @@ app.ClearAnimation.prototype.update = function(delta) {
     return;
   }
 
-  if (this.currentFrame >= app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES) {
-    this.callback();
-    this.reset();
+  // Invoke the callback when the media ended (or if it wasn't ready at all).
+  // We need to do the not-ready-check in a rAF otherwise the main scene doesn't operate properly.
+  if (this.media_.ended || !this.ready_) {
+    this.callback && this.callback();
+    this.callback = null;
+    this.playing = false;
     return;
   }
 
-  if (this.timeUntilNextFrame > delta) {
-    this.timeUntilNextFrame -= delta;
-  } else {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
+  // transparent target green color in mp4 is r=42 g=255 b=59
 
-    // draw frame to backupContext
-    this.backupContext.drawImage(this.frames[this.currentFrame], 0, 0,
-        this.backup.width, this.backup.height);
+  this.context.drawImage(this.media_, 0, 0, this.canvas.width, this.canvas.height);
 
-    this.context.drawImage(this.backup, 0, 0, this.canvas.width,
-        this.canvas.height);
+  const frame = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height);
+  const length = frame.data.length;
 
-    this.timeUntilNextFrame = 33;
-    this.currentFrame++;
+  for (let i = 0; i < length; i += 4) {
+    const r = frame.data[i + 0];
+    const g = frame.data[i + 1];
+    const b = frame.data[i + 2];
+
+    // this is how close we are to the transparent green color
+    const delta = (g - (r+b)/2 - 50) * 2;  // from 0-255, more is more green
+
+    // the closer delta is to 255, the more we want to set r/b to be closer to g
+    const factor = g / ((r+b)/2);
+
+    frame.data[i + 0] *= factor;  // r
+    frame.data[i + 2] *= factor;  // b
+    frame.data[i + 3] = 255 - delta;  // alpha
   }
+  this.context.putImageData(frame, 0, 0);
+
+  this.backupContext.drawImage(this.canvas, 0, 0, this.backup.width, this.backup.height);
 };
