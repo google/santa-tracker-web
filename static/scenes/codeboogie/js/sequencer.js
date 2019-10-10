@@ -33,7 +33,7 @@ app.Sequencer = class {
   _play() {
     this._playScheduled = -1;
     this._playAt = performance.now();
-    window.santaApp.fire('sound-trigger', 'codeboogie_tracks', this._track * 2 + this._variant, 0.2);
+    window.santaApp.fire('sound-trigger', 'codeboogie_play_track', this._track * 2 + this._variant);
   }
 
   start() {

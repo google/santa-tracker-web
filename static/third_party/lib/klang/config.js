@@ -11375,16 +11375,6 @@ var KLANG_CONFIG = {
             },
             "folder": "citylights"
         },
-        "S_uM": {
-            "vars": [
-                "OWvC"
-            ],
-            "type": "SimpleProcess",
-            "action": function (Core, Model, Util, me, args, vars) {
-                me.OWvC.play(0);
-            },
-            "folder": "all"
-        },
         "AiBC": {
             "vars": [],
             "type": "SimpleProcess",
@@ -11409,16 +11399,6 @@ var KLANG_CONFIG = {
                 ]);
             },
             "folder": "Santatracker 2013"
-        },
-        "gOxX": {
-            "vars": [
-                "OWvC"
-            ],
-            "type": "SimpleProcess",
-            "action": function (Core, Model, Util, me, args, vars) {
-                me.OWvC.play(0);
-            },
-            "folder": "all"
         },
         "de47": {
             "vars": [
@@ -18035,6 +18015,21 @@ var KLANG_CONFIG = {
             "at_action": function (Util, me, args) {
                 me.XqYo.play(1);
             }
+        },
+        "__fake_codeboogie_play_track": {
+            "vars": [
+                "OWvC"
+            ],
+            "type": "SimpleProcess",
+            "action": function (Core, Model, Util, me, args, vars) {
+                // stop all sounds from this group, play new chosen sound from group
+                me.OWvC.fadeOutAndStop(0.2);
+                me.OWvC.play(0, args[0]);
+            },
+            "at_action": function (Util, me, args) {
+                me.OWvC.fadeOutAndStop(0.2);
+                me.OWvC.play(0, args[0]);
+            }
         }
     },
     "events": {
@@ -18193,9 +18188,7 @@ var KLANG_CONFIG = {
         "citylights_screenup": "hzo2",
         "citylights_slide": "vGnZ",
         "citylights_start": "gIDV",
-        "codeboogie_level_1": "S_uM",
         "codeboogie_load_sounds": "AiBC",
-        "codeboogie_start": "gOxX",
         "codeboogie_vinylspin": "de47",
         "command_conveyor_start": "W62g",
         "command_conveyor_stop": "gesL",
@@ -18613,7 +18606,8 @@ var KLANG_CONFIG = {
         "wrapbattle_start_game": "_6ma",
         "wrapbattle_stop_long": "JR9C",
         "wrapbattle_wrap_present": "UgNV",
-        "wrapbattle_wrap_present_fail": "Unyj"
+        "wrapbattle_wrap_present_fail": "Unyj",
+        "codeboogie_play_track": "__fake_codeboogie_play_track"
     },
     "debug": {
         "ignored_events": [],
