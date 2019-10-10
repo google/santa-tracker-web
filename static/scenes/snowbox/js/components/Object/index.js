@@ -37,6 +37,10 @@ class Object extends EventEmitter {
         this.mesh.material.color.set(0x888888)
       }
 
+      if (!this.mesh.visible) {
+        this.mesh.visible = true
+      }
+
       this.deleteGhost()
     }
   }
@@ -79,6 +83,8 @@ class Object extends EventEmitter {
       z = zNew
     }
 
+    console.log('move ghost', x, y, z)
+
     this.ghost.position.set(x, y, z)
 
     this.ghost.updateMatrixWorld(true)
@@ -120,6 +126,7 @@ class Object extends EventEmitter {
     this.ghost.quaternion.copy(quaternion)
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
+    console.log('create ghost')
   }
 
   deleteGhost() {
@@ -132,6 +139,7 @@ class Object extends EventEmitter {
   }
 
   moveToGhost() {
+    console.log('move to ghost')
     const { position, quaternion } = this.ghost
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)

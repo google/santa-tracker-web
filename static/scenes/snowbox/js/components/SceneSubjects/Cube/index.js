@@ -14,7 +14,7 @@ class Cube extends Obj {
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
-    this.body.position.set(-CONFIG.SIZE / 2, 5, -CONFIG.SIZE / 2)
+    this.body.position.set(-CONFIG.SIZE / 2, 100, -CONFIG.SIZE / 2)
     world.add(this.body)
 
     // Graphics
@@ -27,6 +27,7 @@ class Cube extends Obj {
     this.mesh.geometry.computeBoundingBox()
     this.box = this.mesh.geometry.boundingBox.clone()
 
+    this.mesh.visible = false
     this.select()
     // this.body.addEventListener('collide', this.handleCollide.bind(this))
   }

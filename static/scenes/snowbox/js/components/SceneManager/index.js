@@ -176,7 +176,7 @@ class SceneManager {
       if (this.selectedSubject) {
         this.unselectObject()
       } else {
-        this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
+        this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
@@ -227,19 +227,22 @@ class SceneManager {
     this.selectedSubject = null
   }
 
-  selectObject(pos, newSelectedSubject) {
+  selectObject(newSelectedSubject, offset) {
     if (this.selectedSubject) {
       this.unselectObject()
     }
 
     const { x, z } = newSelectedSubject.body.position
-    if (pos) {
+
+    if (offset) {
       this.moveOffset = {
-        x: x - pos.x,
-        z: z - pos.z
+        x: x - offset.x,
+        z: z - offset.z
       }
     }
+
     this.selectedSubject = newSelectedSubject
+
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
   }
@@ -279,9 +282,11 @@ class SceneManager {
     }
 
     subject.addListener('merge', this.initMerge.bind(this))
-
     this.sceneSubjects.push(subject)
-    this.selectObject(false, subject)
+    this.selectObject(subject)
+    const pos = this.getCurrentPosOnPlane()
+    subject.moveTo(pos.x, 1, pos.z)
+    subject.moveToGhost()
   }
 
   move(direction, noMouseMove) {
