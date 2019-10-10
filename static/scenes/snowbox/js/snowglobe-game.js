@@ -27,19 +27,9 @@ class SnowglobeGame {
       })
 
       canvas.addEventListener(
-        'mousemove',
-        e => {
-          e.preventDefault()
-          sceneManager.onMouseMove(e)
-        },
-        false
-      )
-
-      canvas.addEventListener(
         'click',
         e => {
-          // console.log('click')
-          if (canvas.classList.contains('is-dragging')) return false
+          if (sceneManager.state === 'is-dragging') return false
 
           e.preventDefault()
           sceneManager.onClick(e)
@@ -47,12 +37,24 @@ class SnowglobeGame {
         false
       )
 
+      //
+      canvas.addEventListener(
+        'mousemove',
+        e => {
+          e.preventDefault()
+          if (sceneManager.mouseState === 'down' && sceneManager.state !== 'add-shape' && sceneManager.state !== 'moving-to') {
+            canvas.classList.add('is-dragging')
+            sceneManager.state = 'is-dragging'
+          }
+          sceneManager.onMouseMove(e)
+        },
+        false
+      )
       canvas.addEventListener(
         'mousedown',
         e => {
           e.preventDefault()
-          // console.log('mousedown')
-          canvas.classList.add('is-dragging')
+          sceneManager.mouseState = 'down'
         },
         false
       )
@@ -61,8 +63,18 @@ class SnowglobeGame {
         'mouseup',
         e => {
           e.preventDefault()
-          // console.log('mouseup')
-          canvas.classList.remove('is-dragging')
+          sceneManager.mouseState = 'up'
+
+          if (sceneManager.state === 'is-dragging') {
+            // add delay to counter conflict with click event
+            setTimeout(() => {
+              canvas.classList.remove('is-dragging')
+              sceneManager.state = ''
+            }, 10)
+          } else {
+            canvas.classList.remove('is-dragging')
+            sceneManager.state = ''
+          }
         },
         false
       )
@@ -71,6 +83,7 @@ class SnowglobeGame {
         button.addEventListener('click', e => {
           e.preventDefault()
           sceneManager.onButtonClick(button.id)
+          sceneManager.state = 'add-shape'
         })
       })
     }

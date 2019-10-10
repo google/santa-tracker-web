@@ -168,7 +168,7 @@ class SceneManager {
     this.controls.enableRotate = false
     this.controls.enableDamping = true;
     this.controls.enabled = true;
-    this.controls.dampingFactor = 0.07;
+    this.controls.dampingFactor = 0.06;
   }
 
   buildHelpers() {
@@ -633,11 +633,11 @@ class SceneManager {
       this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
       this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
 
-      this.isAnimated = true
+      this.state = 'moving-to'
       this.animateCameraToRAF = window.requestAnimationFrame(this.animateCameraTo)
     } else {
       // animation finished
-      this.isAnimated = false
+      this.state = ''
       window.cancelAnimationFrame(this.animateCameraToRAF)
       this.controls.enabled = true
     }
