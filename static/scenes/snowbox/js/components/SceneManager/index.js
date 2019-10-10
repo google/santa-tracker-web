@@ -271,6 +271,7 @@ class SceneManager {
   }
 
   onClick() {
+    if (this.state === 'is-dragging') return false // if is dragging, return
     const hit = this.getNearestObject()
     if (
       hit.point &&

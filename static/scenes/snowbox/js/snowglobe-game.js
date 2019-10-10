@@ -38,9 +38,11 @@ class SnowglobeGame {
       canvas.addEventListener(
         'click',
         e => {
+          // console.log('click')
+          if (canvas.classList.contains('is-dragging')) return false
+
           e.preventDefault()
           sceneManager.onClick(e)
-          // sceneManager.onMouseDown(e)
         },
         false
       )
@@ -48,6 +50,8 @@ class SnowglobeGame {
       canvas.addEventListener(
         'mousedown',
         e => {
+          e.preventDefault()
+          // console.log('mousedown')
           canvas.classList.add('is-dragging')
         },
         false
@@ -56,6 +60,8 @@ class SnowglobeGame {
       canvas.addEventListener(
         'mouseup',
         e => {
+          e.preventDefault()
+          // console.log('mouseup')
           canvas.classList.remove('is-dragging')
         },
         false
