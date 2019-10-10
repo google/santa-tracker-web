@@ -45,6 +45,14 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+
+      if (this.ghost) {
+        this.ghost.updateMatrixWorld(true)
+        this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+      } else {
+        this.mesh.updateMatrixWorld(true)
+        this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+      }
     }
   }
 
@@ -72,6 +80,9 @@ class Object extends EventEmitter {
     }
 
     this.ghost.position.set(x, y, z)
+
+    this.ghost.updateMatrixWorld(true)
+    this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
   updateMeshFromBody() {}
@@ -98,12 +109,17 @@ class Object extends EventEmitter {
 
   createGhost() {
     const { geometry, position, quaternion } = this.mesh
-    const material = new THREE.MeshPhongMaterial({ color: 0x32cd32 })
+    const material = new THREE.MeshPhongMaterial({
+      color: 0xff00ff,
+      opacity: 0.3,
+      transparent: true
+    })
 
     this.ghost = new THREE.Mesh(geometry, material)
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.scene.add(this.ghost)
+    this.ghost.geometry.computeBoundingBox()
   }
 
   deleteGhost() {

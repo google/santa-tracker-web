@@ -24,6 +24,9 @@ class Cube extends Obj {
     this.mesh.position.copy(this.body.position)
     scene.add(this.mesh)
 
+    this.mesh.geometry.computeBoundingBox()
+    this.box = this.mesh.geometry.boundingBox.clone()
+
     this.select()
     // this.body.addEventListener('collide', this.handleCollide.bind(this))
   }
