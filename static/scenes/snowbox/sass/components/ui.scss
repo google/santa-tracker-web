@@ -13,4 +13,12 @@
     cursor: pointer;
     pointer-events: auto;
   }
+
+  .zoom {
+    position: absolute;
+    top: 150px;
+    right: 30px;
+    cursor: pointer;
+    pointer-events: auto;
+  }
 }

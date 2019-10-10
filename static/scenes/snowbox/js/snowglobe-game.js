@@ -42,7 +42,7 @@ class SnowglobeGame {
         'mousemove',
         e => {
           e.preventDefault()
-          if (sceneManager.mouseState === 'down' && sceneManager.state !== 'add-shape' && sceneManager.state !== 'moving-to') {
+          if (sceneManager.mouseState === 'down' && sceneManager.state !== 'ghost' && sceneManager.state !== 'moving-to') {
             canvas.classList.add('is-dragging')
             sceneManager.state = 'is-dragging'
           }
@@ -50,6 +50,7 @@ class SnowglobeGame {
         },
         false
       )
+
       canvas.addEventListener(
         'mousedown',
         e => {
@@ -83,7 +84,7 @@ class SnowglobeGame {
         button.addEventListener('click', e => {
           e.preventDefault()
           sceneManager.onButtonClick(button.id)
-          sceneManager.state = 'add-shape'
+          sceneManager.state = 'ghost'
         })
       })
     }
