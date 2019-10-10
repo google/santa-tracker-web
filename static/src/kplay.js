@@ -91,8 +91,6 @@ const Util = {
       }
     }
 
-    console.debug('transitioning to', to, 'from', from, 'same?', to === from);
-
     if (from === to && !from.stopping) {
       from.dispatchEvent(new Event('trigger'));  // mark for transitionTo
       return now;
@@ -115,7 +113,6 @@ const Util = {
     const toNextBarSec = from.playing ? toNextBar * beatsPerSecond : 0;
     const scheduleTime = now + toNextBarSec;
 
-    console.debug('spb', secondsPerBeat, 'beat1', beat1, 'based on from.position', from.position, 'sync is', sync, 'playing at', toNextBar, 'sec:', toNextBarSec);
     to.play(scheduleTime);
 
     const toStop = fromCandidates.filter((c) => !c.stopping && c !== to);

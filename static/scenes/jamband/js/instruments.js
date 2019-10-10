@@ -17,7 +17,6 @@
 goog.provide('app.Instruments');
 
 goog.require('app.Audio');
-goog.require('app.Fallback');
 
 /**
  * @typedef {{beat: number}}

@@ -24,13 +24,12 @@ goog.provide('app.Audio');
 app.Audio = function(name, beat) {
   this.name = name;
   this.beat = beat;
-  // this.audiosources = Klang.$(name);
+
+  const bpm = 120;  // from config
 
   this.beatSync16th = 4;
-  // this.beatduration = 60 / Klang.$('jamband_sequencer')._bpm;
-  // this.beatsPerSecond = 1 / this.beatduration;
-
-  this.currentAudiosource = null;
+  this.beatduration = 60 / bpm;
+  this.beatsPerSecond = 1 / this.beatduration;
 };
 
 /**
@@ -47,32 +46,21 @@ app.Audio.prototype.play = function(pattern, volume, callback) {
     pattern = 0;
   }
 
-  // var audiosource = this.audiosources.content[pattern];
-  // audiosource.loop = true;
-  // audiosource.output.gain.value = volume;
-
-  // if (this.currentAudiosource !== audiosource) {
-  //   this.playNext(audiosource, callback);
-
-  //   if (this.currentAudiosource) {
-  //     this.stopNext(this.currentAudiosource);
-  //   }
-
-  //   this.currentAudiosource = audiosource;
-  //   this.isPlaying = true;
-  // }
+  // TODO: play pattern as index within group (stopping other audio)
+  // Should happen on beat (old playNext_ and stopNext_ lines up audio beats)
 };
 
 /**
  * Stop the currently playing audio
  */
 app.Audio.prototype.stop = function() {
-  if (this.currentAudiosource) {
-    var when = 0;
-    this.currentAudiosource.fadeOutAndStop(0.5, when);
-    this.isPlaying = false;
-    this.currentAudiosource = null;
-  }
+  // TODO: play -1 index within group (stopping it)
+};
+
+app.Audio.prototype.getNextBeat_ = function() {
+  const beat = (performance.now() / 1000) / beatsPerSecond;
+
+  // TODO: was the old code returning times <0 anyway?
 };
 
 /**
@@ -81,7 +69,7 @@ app.Audio.prototype.stop = function() {
  * @param {!AudioSource} audiosource to play
  * @param {function()} callback to run then
  */
-app.Audio.prototype.playNext = function(audiosource, callback) {
+app.Audio.prototype.playNext_ = function(audiosource, callback) {
   // var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
   // var deltaWhen = when - Klang.context.currentTime;
   // var beat = Math.floor(Klang.$('jamband_sequencer').currentStep);
@@ -96,7 +84,7 @@ app.Audio.prototype.playNext = function(audiosource, callback) {
  * Stop the provided audiosource at the start of the next bar
  * @param {!AudioSource} audiosource to stop
  */
-app.Audio.prototype.stopNext = function(audiosource) {
+app.Audio.prototype.stopNext_ = function(audiosource) {
   // var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
   // audiosource.fadeOutAndStop(0.5, when);
 };
