@@ -2019,6 +2019,10 @@
     "description": "Title of a scene/game. Play a trivia game about geography.",
     "message": "Trivia"
   },
+  "scene_underconstruction": {
+    "description": "Title of a scene/game. Under construction page to be shown before the village opens.",
+    "message": "Under Construction"
+  },
   "scene_undersea": {
     "description": "Title of a scene/game. See Santa deliver presents underwater.",
     "message": "Undersea"

@@ -66,6 +66,7 @@ export default {
   'traditions': _msg`scene_traditions`,
   'translations': _msg`scene_translations`,
   'trivia': _msg`scene_trivia`,
+  'underconstruction': _msg`scene_underconstruction`,
   'undersea': _msg`scene_undersea`,
   'wheressanta': _msg`scene_videoscene_wheressanta`,  // 2013
   'windtunnel': _msg`scene_windtunnel`,
