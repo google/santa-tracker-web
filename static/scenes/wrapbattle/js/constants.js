@@ -28,6 +28,8 @@ app.Constants = {
 
   CANVAS_MAX_HEIGHT: 8000,
 
+  LEVELS: 4,
+
   TRACK_PIXELS_PER_BEAT: 150,
   ARROW_SIZE: {
     desktop: 80,
