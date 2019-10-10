@@ -62,7 +62,6 @@ class Object extends EventEmitter {
 
   rotate(axis, angle) {
     this.rotationY = this.rotationY + angle
-
     if (this.ghost) {
       this.ghost.quaternion.setFromAxisAngle(axis, this.rotationY)
       this.ghost.quaternion.normalize()
@@ -115,7 +114,7 @@ class Object extends EventEmitter {
   }
 
   createGhost() {
-    const { geometry, position, quaternion } = this.mesh
+    const { geometry, position, quaternion, scale } = this.mesh
     const material = new THREE.MeshPhongMaterial({
       color: 0xff00ff,
       opacity: 0.3,
@@ -125,6 +124,7 @@ class Object extends EventEmitter {
     this.ghost = new THREE.Mesh(geometry, material)
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
+    this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
     console.log('create ghost')

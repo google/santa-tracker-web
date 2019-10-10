@@ -275,7 +275,7 @@ class SceneManager {
     }
   }
 
-  onMouseDown() {
+  onClick() {
     const hit = this.getNearestObject()
     if (
       hit.point &&
@@ -288,7 +288,7 @@ class SceneManager {
       if (this.selectedSubject) {
         this.unselectObject()
       } else {
-        // this.centerCameraTo(newSelectedSubject.mesh)
+        this.centerCameraTo(newSelectedSubject.mesh)
         this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
     } else if (this.selectedSubject) {
