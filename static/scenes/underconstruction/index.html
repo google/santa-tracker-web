@@ -5,16 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster|Material+Icons" />
-  <!-- <link rel="stylesheet" href="underconstruction.css" /> -->
+  <link rel="stylesheet" href="underconstruction-scene.css" />
 
   <!-- Polyfills only needed for Firefox and Edge. -->
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script src="../../third_party/lib/lottie/lottie.js"></script>
 </head>
 <body>
 
-<main id="main">
-
-</main>
+<div id="module-underconstruction">
+  <main id="main">
+    <h2 class="title">See you in <span class="title__month">December</span></h2>
+  </main>
+</div>
 
 <script type="module">
 
@@ -28,10 +32,71 @@ import api from '../../src/scene/api.js';
 
 // api.preload.sounds('elfmaker_load_sounds', 40);
 
-// api.preload.images(
-// );
+api.preload.images(
+  'img/animations/backhoe.json',
+  'img/animations/crane.json',
+  'img/animations/drill.json',
+  'img/animations/snowman.json',
+  'img/animations/tower.json',
+  'img/background.jpg',
+);
 
 console.log('hello');
+
+lottie.loadAnimation({
+        container: document.querySelector('#main'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'img/animations/backhoe.json',
+        rendererSettings: {
+          className: 'animation--backhoe'
+        }
+      });
+
+lottie.loadAnimation({
+        container: document.querySelector('#main'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'img/animations/crane.json',
+        rendererSettings: {
+          className: 'animation--crane'
+        }
+      });
+
+lottie.loadAnimation({
+        container: document.querySelector('#main'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'img/animations/drill.json',
+        rendererSettings: {
+          className: 'animation--drill'
+        }
+      });
+
+lottie.loadAnimation({
+        container: document.querySelector('#main'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'img/animations/snowman.json',
+        rendererSettings: {
+          className: 'animation--snowman'
+        }
+      });
+
+lottie.loadAnimation({
+        container: document.querySelector('#main'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'img/animations/tower.json',
+        rendererSettings: {
+          className: 'animation--tower'
+        }
+      });
 
 </script>
 
