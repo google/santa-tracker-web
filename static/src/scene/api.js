@@ -213,7 +213,13 @@ class SceneApi extends EventTarget {
       case 'pause':
       case 'resume':
       case 'restart':
-        this.dispatchEvent(new Event(type));
+        const event = new Event(type);
+        this.dispatchEvent(event);
+
+        if (type === 'restart' && event.defaultPrevented) {
+          this._send('reload');
+        }
+
         break;
       case 'keydown': {
         // TODO(samthor): This also sends us 'repeat' events, and mixes badly (?) with keyboard
@@ -279,10 +285,21 @@ class SceneApi extends EventTarget {
 
   /**
    * @param {string} sound to play via Klang
-   * @param {*=} arg to pass
+   * @param {...*} args to pass
    */
-  play(sound, arg=undefined) {
-    this._send('play', [sound, arg]);
+  play(sound, ...args) {
+    this._send('play', [sound, ...args]);
+  }
+
+  /**
+   * @param {string} group name of exported AudioGroup to play from (will also transition from)
+   * @param {number} index within group of sound to play
+   * @param {number} bpm of audio
+   * @param {number} sync beat count??
+   * @param {number} fadeOutTime duration of which to fadeout previous sounds
+   */
+  playTransition(group, index, bpm, sync, fadeOutTime) {
+    this._send('playTransition', [group, index, bpm, sync, fadeOutTime]);
   }
 
   score(detail) {
@@ -323,16 +340,11 @@ function installV1Handlers() {
 
   const fire = (eventName, ...args) => {
     switch (eventName) {
-      case 'sound-fire':
       case 'sound-play':
       case 'sound-trigger':
       case 'sound-ambient':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
-        break;
-
-      case 'sound-transition':
-        console.warn('TODO: implement transition for rythym games');
         break;
 
       case 'game-data':

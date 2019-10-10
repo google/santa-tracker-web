@@ -199,7 +199,7 @@ app.AnimationPlayer = class extends EventTargetPonyfill {
   }
 
   onBeat(beat, bpm) {
-    let normalized = beat % 4 + 1;
+    const normalized = beat % 4 + 1;
     this.title.onBeat();
 
     if (normalized === 1) {
@@ -215,9 +215,9 @@ app.AnimationPlayer = class extends EventTargetPonyfill {
       Klang.triggerEvent(`cb_count_in_${normalized}`);
     }
 
-    let isPlaying = this.isPlaying &&
-                    this.currentAnimation &&
-                    !this.currentAnimation.isCountdown;
+    const isPlaying = this.isPlaying &&
+                      this.currentAnimation &&
+                      !this.currentAnimation.isCountdown;
 
     this.lights.onBeat(beat, bpm, isPlaying);
   }

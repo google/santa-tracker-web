@@ -17,16 +17,10 @@
 goog.provide('Klang');
 
 /**
- * A simple Klang stub which can be piped to the parent frame.
+ * A simple Klang stub.
  */
 Klang = {
-  handler_: function() {},
-
-  triggerEvent: function() {
-    Klang.handler_.apply(null, arguments);
+  triggerEvent: function(...args) {
+    window.santaApp.fire('sound-trigger', ...args);
   },
-
-  setEventListener: function(handler) {
-    Klang.handler_ = handler;
-  }
 };

@@ -91,6 +91,8 @@ const Util = {
       }
     }
 
+    console.debug('transitioning to', to, 'from', from, 'same?', to === from);
+
     if (from === to && !from.stopping) {
       from.dispatchEvent(new Event('trigger'));  // mark for transitionTo
       return now;
@@ -103,8 +105,8 @@ const Util = {
     const secondsPerBeat = bpm / 60;  // seconds per beat
     const p1 = (from ? from.position : 0) || 0;  // .position might be NaN or invalid
     const beat1 = p1 * secondsPerBeat;
-
     sync = sync || 4;
+
     let toNextBar = sync - beat1 % sync;
     if (toNextBar < 0.5) {
       toNextBar += sync;
@@ -113,7 +115,8 @@ const Util = {
     const toNextBarSec = from.playing ? toNextBar * beatsPerSecond : 0;
     const scheduleTime = now + toNextBarSec;
 
-    to.play(scheduleTime, setOffset || 0);
+    console.debug('spb', secondsPerBeat, 'beat1', beat1, 'based on from.position', from.position, 'sync is', sync, 'playing at', toNextBar, 'sec:', toNextBarSec);
+    to.play(scheduleTime);
 
     const toStop = fromCandidates.filter((c) => !c.stopping && c !== to);
     toStop.forEach((stop) => stop.fadeOutAndStop(fadeOutTime, scheduleTime));
@@ -418,7 +421,7 @@ class AudioGroup extends EventTarget {
   }
 
   get active() {
-    if (this._active) {
+    if (this._active && this._active.playing) {
       return [this._active];
     } else if (!this._type && this._content[0] && this._content[0].playing) {
       return this._content.slice();
@@ -454,22 +457,27 @@ class AudioGroup extends EventTarget {
   /**
    * @param {function(AudioNode): void} callback
    * @param {boolean=} playLike whether this is a playing action and should advance
+   * @param {number=} index an index to force
    */
-  _each(callback, playLike=false) {
-    if (playLike && this.playing) {
+  _each(callback, playLike=false, index=-1) {
+    if (playLike && this.playing && !this.stopping) {
       return false;  // do nothing if still playing
     }
     const c = this._content;
 
     if (!this._type) {
+      // This is concurrent. Enact on all.
       c.forEach(callback);
       return true;
     }
 
     if (playLike) {
       // Optionally advance the played audio.
-      let index;
       do {
+        if (index >= 0 && index < c.length) {
+          break;  // explicit index requested
+        }
+
         if (this._type == AudioGroup.types.RANDOM) {
           // Choose a new random audio, even the same sample.
           index = ~~(Math.random() * c.length);
@@ -501,16 +509,16 @@ class AudioGroup extends EventTarget {
     return false;
   }
 
-  play(when) {
+  play(when, index=-1) {
     this.dispatchEvent(new Event('trigger'));
-    const played = this._each((c) => c.play(when), true);
+    const played = this._each((c) => c.play(when), true, index);
     if (!played) {
       this.active.forEach((c) => c.dispatchEvent(new Event('trigger')));
     }
   }
 
   stop() {
-    this._each((c) => c.stop(), false);
+    this._each((c) => c.stop());
   }
 
   fadeInAndPlay(duration, when) {
@@ -980,7 +988,7 @@ export async function prepare() {
    * @param {string} key
    * @return {!Object}
    */
-  const prepareKey = (key) => {
+  const internalPrepareKey = (key) => {
     if (key in nodes) {
       return nodes[key];  // nothing to do
     }
@@ -993,7 +1001,7 @@ export async function prepare() {
       c['content'] || [],
       c['destination_name'] || [],
     ).filter((x) => !(x === '$OUT' || x in nodes));
-    deps.forEach(prepareKey);
+    deps.forEach(internalPrepareKey);
 
     const node = prepareKNode(key, c, nodes);
     if (node instanceof AudioBus) {
@@ -1001,6 +1009,20 @@ export async function prepare() {
     }
     nodes[key] = node;
     return node;
+  };
+
+  const prepareKey = (key) => {
+    // get internal name from friendly
+    const entrypoint = config['events'][key] || config['exportedSymbols'][key];
+    if (entrypoint === undefined) {
+      if (typeof key === 'string') {
+        console.debug('audio missing', key);
+        return false;
+      }
+      console.warn('got invalid arg for kplay lookup', key);
+      throw new Error(`invalid type for kplay`);
+    }
+    return internalPrepareKey(entrypoint);
   };
 
   // If the AudioContext starts 'suspended', ensure that looped audio is resumed at the correct
@@ -1132,31 +1154,34 @@ export async function prepare() {
         return true;
       }
 
-      const entrypoint = config['events'][event];  // get internal name from friendly
-      if (entrypoint === undefined) {
-        if (typeof event === 'string') {
-          console.debug('audio missing', event);
-          return false;
-        }
-        console.warn('got invalid arg for play()', event);
-        throw new Error(`invalid type for play()`);
-      }
-
-      const e = prepareKey(entrypoint);
+      const e = prepareKey(event);
 
       if (e instanceof AudioSource) {
+        // Just play the simple audio. This could be a loop.
         return e.play();
-      } else if (!(e instanceof SimpleProcess)) {
-        throw new Error('can only run SimpleProcess');
+      } else if (e instanceof AudioGroup) {
+        // Play can request a certain audio within a group to start.
+        // TODO(samthor): These args a bit awkward. This could really be a SimpleProcess.
+
+        const index = typeof args[0] === 'number' ? args[0] : -1;
+        const fadeOutTime = typeof args[1] === 'number' ? args[1] : 0.2;
+        e.fadeOutAndStop(fadeOutTime, 0);
+        return e.play(0, index);
+
+      } else if (e instanceof SimpleProcess) {
+        // Run the process.
+        try {
+          activeController = this;
+          return e.start(args);
+        } finally {
+          activeController = null;
+        }
       }
 
-      try {
-        activeController = this;
-        e.start(args);
-      } finally {
-        activeController = null;
-      }
+      console.warn('got unhandled event type', e, 'from request', event);
+      throw new Error(`unhandled event: ${event}`);
     },
+
   };
 }
 
