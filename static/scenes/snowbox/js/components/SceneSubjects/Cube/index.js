@@ -7,10 +7,7 @@ import CONFIG from './config.js'
 class Cube extends Obj {
   constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial, highlightMaterial) {
     // Physics
-    super()
-
-    this.scene = scene
-    this.world = world
+    super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
@@ -26,6 +23,8 @@ class Cube extends Obj {
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
     this.mesh.scale.multiplyScalar( 0.0055 ); // related to the model
+    this.mesh.position.copy(this.body.position)
+
     scene.add(this.mesh)
 
     this.select()

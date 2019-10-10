@@ -8,7 +8,7 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
-import { randomIntFromInterval, clamp, toRadian } from '../../utils/math.js'
+import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outQuad } from '../../utils/ease.js'
 
@@ -56,6 +56,7 @@ class SceneManager {
 
     this.raycaster = new THREE.Raycaster()
     this.raycasterCameraRotation = new THREE.Raycaster();
+    this.raycaster2 = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -211,12 +212,13 @@ class SceneManager {
     if (!this.modelLoaded) return
     if (this.controls && this.controls.enabled) this.controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, this.camera)
+    this.raycaster2.setFromCamera(this.mouse, this.camera)
+
     const elapsedTime = this.clock.getElapsedTime()
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update(elapsedTime)
     }
-
     this.renderer.render(this.scene, this.camera)
 
     if (this.mergeInProgress) {
@@ -267,6 +269,7 @@ class SceneManager {
     }
 
     if (this.selectedSubject) {
+      this.checkCollision()
       const pos = this.getCurrentPosOnPlane()
       this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
       this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
@@ -287,6 +290,7 @@ class SceneManager {
         this.unselectObject()
       } else {
         this.centerCameraTo(newSelectedSubject.mesh)
+        // this.selectObject(this.getCurrentPosOnPlane(), newSelectedSubject)
       }
     } else if (this.selectedSubject) {
       this.unselectObject()
@@ -367,6 +371,7 @@ class SceneManager {
   }
 
   unselectObject() {
+    this.selectedSubject.moveToGhost()
     this.selectedSubject.unselect()
 
     this.terrain.removePositionMarker()
@@ -447,10 +452,7 @@ class SceneManager {
   }
 
   getNearestObject() {
-    const objects = this.sceneSubjects
-      .filter(subject => subject.selectable)
-      .map(subject => subject.mesh)
-      .filter(object => object)
+    const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
   }
@@ -717,6 +719,23 @@ class SceneManager {
     obj.position.add(point); // re-add the offset
 
     obj.rotateOnAxis(axis, theta); // rotate the OBJECT
+  }
+
+  getObjectsList() {
+    return this.sceneSubjects
+      .filter(subject => subject.selectable)
+      .map(subject => subject.mesh)
+      .filter(object => object)
+  }
+
+  checkCollision() {
+    const { ghost, mesh } = this.selectedSubject
+    const objects = this.getObjectsList().filter(item => item.uuid !== mesh.uuid)
+
+    if (objects.length > 0) {
+      const intersects = ghost.raycast(this.raycaster2, objects)
+      console.log(intersects)
+    }
   }
 }
 

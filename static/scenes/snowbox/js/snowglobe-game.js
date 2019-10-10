@@ -55,6 +55,7 @@ class SnowglobeGame {
         'mousedown',
         e => {
           e.preventDefault()
+
           sceneManager.mouseState = 'down'
         },
         false
