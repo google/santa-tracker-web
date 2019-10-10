@@ -8272,7 +8272,7 @@ var KLANG_CONFIG = {
             "exportAsSymbol": true,
             "type": "AudioGroup",
             "editorName": "wrapbattle_track02",
-            "group_type": 2,
+            "group_type": 0,
             "metaData": {
                 "bpm": 87
             },
@@ -8329,7 +8329,7 @@ var KLANG_CONFIG = {
             "exportAsSymbol": true,
             "type": "AudioGroup",
             "editorName": "wrapbattle_track01",
-            "group_type": 2,
+            "group_type": 0,
             "metaData": {
                 "bpm": 80
             },
@@ -18030,6 +18030,72 @@ var KLANG_CONFIG = {
                 me.OWvC.fadeOutAndStop(0.2);
                 me.OWvC.play(0, args[0]);
             }
+        },
+        "__fake_wrapbattle_play_track": {
+            "vars": [
+                "w79W",
+                "NEe2",
+                "Kb1C",
+                "cAWv"
+            ],
+            "type": "SimpleProcess",
+            "action": function (Core, Model, Util, me, args, vars) {
+                var sounds = [me.w79W, me.NEe2, me.Kb1C, me.cAWv];
+
+                var num = args[0];
+                var target = sounds[num];
+
+                console.info('playing track', sounds.indexOf(target));
+                for (var i = 0; i < sounds.length; ++i) {
+                    if (sounds[i] === target) {
+                        target.play();
+                    } else {
+                        sounds[i].fadeOutAndStop(0.2);
+                    }
+                }
+            },
+            "at_action": function (Util, me, args) {
+                var sounds = [me.w79W, me.NEe2, me.Kb1C, me.cAWv];
+
+                var num = args[0];
+                var target = sounds[num];
+
+                console.info('playing track', sounds.indexOf(target));
+                for (var i = 0; i < sounds.length; ++i) {
+                    if (sounds[i] === target) {
+                        target.play();
+                    } else {
+                        sounds[i].fadeOutAndStop(0.2);
+                    }
+                }
+            }
+        },
+        "__fake_wrapbattle_set_playback_rate": {
+            "vars": [
+                "w79W",
+                "NEe2",
+                "Kb1C",
+                "cAWv"
+            ],
+            "type": "SimpleProcess",
+            "action": function (Core, Model, Util, me, args, vars) {
+                var sounds = [me.w79W, me.NEe2, me.Kb1C, me.cAWv];
+                var playbackRate = args[0];
+
+                console.info('setting wrapbattle playback rate', playbackRate);
+                for (var i = 0; i < sounds.length; ++i) {
+                    sounds[i].playbackRate = args[0];
+                }
+            },
+            "at_action": function (Util, me, args) {
+                var sounds = [me.w79W, me.NEe2, me.Kb1C, me.cAWv];
+                var playbackRate = args[0];
+
+                console.info('setting wrapbattle playback rate', playbackRate);
+                for (var i = 0; i < sounds.length; ++i) {
+                    sounds[i].playbackRate = playbackRate;
+                }
+            }
         }
     },
     "events": {
@@ -18607,7 +18673,9 @@ var KLANG_CONFIG = {
         "wrapbattle_stop_long": "JR9C",
         "wrapbattle_wrap_present": "UgNV",
         "wrapbattle_wrap_present_fail": "Unyj",
-        "codeboogie_play_track": "__fake_codeboogie_play_track"
+        "codeboogie_play_track": "__fake_codeboogie_play_track",
+        "wrapbattle_play_track": "__fake_wrapbattle_play_track",
+        "wrapbattle_set_playback_rate": "__fake_wrapbattle_set_playback_rate"
     },
     "debug": {
         "ignored_events": [],
