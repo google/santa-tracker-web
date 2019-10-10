@@ -383,7 +383,7 @@ class AudioGroup extends EventTarget {
   constructor(config, nodes) {
     super();
 
-    this._type = config['group_type'] || 2;
+    this._type = 'group_type' in config ? config['group_type'] : 2;
     this._active = null;
 
     if (config['retrig']) {
@@ -510,6 +510,9 @@ class AudioGroup extends EventTarget {
   }
 
   play(when, index=-1) {
+    if (typeof index !== 'number') {
+      throw new TypeError('can only force play a specific index');
+    }
     this.dispatchEvent(new Event('trigger'));
     const played = this._each((c) => c.play(when), true, index);
     if (!played) {
@@ -1156,18 +1159,9 @@ export async function prepare() {
 
       const e = prepareKey(event);
 
-      if (e instanceof AudioSource) {
+      if (e instanceof AudioSource || e instanceof AudioGroup) {
         // Just play the simple audio. This could be a loop.
         return e.play();
-      } else if (e instanceof AudioGroup) {
-        // Play can request a certain audio within a group to start.
-        // TODO(samthor): These args a bit awkward. This could really be a SimpleProcess.
-
-        const index = typeof args[0] === 'number' ? args[0] : -1;
-        const fadeOutTime = typeof args[1] === 'number' ? args[1] : 0.2;
-        e.fadeOutAndStop(fadeOutTime, 0);
-        return e.play(0, index);
-
       } else if (e instanceof SimpleProcess) {
         // Run the process.
         try {

@@ -480,7 +480,6 @@ app.Game = class {
     this.track.cleanUp();
 
     const moduloLevel = this.level % app.Constants.LEVELS;
-    console.info('starting level', moduloLevel);
     this.sequencer.playTrack(moduloLevel, () => {
       //callback when music starts
       this.animationPlayer.cleanUp();
