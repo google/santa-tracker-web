@@ -17,19 +17,13 @@
 <div id="module-underconstruction">
   <main id="main">
     <h2 class="title">See you in <span class="title__month">December</span></h2>
+    <div class="animation animation--backhoe"></div>
   </main>
 </div>
 
 <script type="module">
 
 import api from '../../src/scene/api.js';
-// import './elements/maker-chooser.js';
-// import './elements/maker-control.js';
-// import './elements/maker-elf.js';
-// import './elements/maker-photo.js';
-// import '../../src/elements/santa-button.js';
-// import * as defs from './defs.js';
-
 // api.preload.sounds('elfmaker_load_sounds', 40);
 
 api.preload.images(
@@ -44,14 +38,11 @@ api.preload.images(
 console.log('hello');
 
 lottie.loadAnimation({
-        container: document.querySelector('#main'),
+        container: document.querySelector('.animation--backhoe'),
         renderer: 'svg',
         loop: true,
         autoplay: true,
         path: 'img/animations/backhoe.json',
-        rendererSettings: {
-          className: 'animation--backhoe'
-        }
       });
 
 lottie.loadAnimation({
@@ -61,7 +52,7 @@ lottie.loadAnimation({
         autoplay: true,
         path: 'img/animations/crane.json',
         rendererSettings: {
-          className: 'animation--crane'
+          className: 'animation animation--crane'
         }
       });
 
@@ -72,7 +63,7 @@ lottie.loadAnimation({
         autoplay: true,
         path: 'img/animations/drill.json',
         rendererSettings: {
-          className: 'animation--drill'
+          className: 'animation animation--drill'
         }
       });
 
@@ -83,7 +74,7 @@ lottie.loadAnimation({
         autoplay: true,
         path: 'img/animations/snowman.json',
         rendererSettings: {
-          className: 'animation--snowman'
+          className: 'animation animation--snowman'
         }
       });
 
@@ -94,7 +85,7 @@ lottie.loadAnimation({
         autoplay: true,
         path: 'img/animations/tower.json',
         rendererSettings: {
-          className: 'animation--tower'
+          className: 'animation animation--tower'
         }
       });
 

@@ -1,15 +1,17 @@
 $name: 'module-underconstruction';
 
+body {
+  overflow: hidden;
+}
 
 ##{$name} {
-  body {
-    margin: 0;
-  }
-
   main {
     background: url(img/background.jpg) center/cover no-repeat;
-    height: 100vh;
-    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .title {
@@ -26,5 +28,16 @@ $name: 'module-underconstruction';
     display: block;
     font-size: 72px;
     line-height: .85;
+  }
+
+  .animation {
+    position: absolute;
+
+    &--backhoe {
+      right: -43%;
+      height: 200%;
+      width: 200%;
+      top: -57%;
+    }
   }
 }
