@@ -12,10 +12,6 @@ class SnowglobeGame {
     const actionBtns = [...element.querySelectorAll('.action-button')]
     const sceneManager = new SceneManager(canvas)
 
-    const stats = new self.Stats();
-    stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild( stats.dom );
-
     const bindEventListeners = () => {
       window.addEventListener('resize', () => {
         sceneManager.onWindowResize()
@@ -34,35 +30,11 @@ class SnowglobeGame {
         },
         false
       )
-
-      canvas.addEventListener(
-        'click',
-        e => {
-          // console.log('click')
-          if (canvas.classList.contains('is-dragging')) return false
-
-          e.preventDefault()
-          sceneManager.onClick(e)
-        },
-        false
-      )
-
       canvas.addEventListener(
         'mousedown',
         e => {
           e.preventDefault()
-          // console.log('mousedown')
-          canvas.classList.add('is-dragging')
-        },
-        false
-      )
-
-      canvas.addEventListener(
-        'mouseup',
-        e => {
-          e.preventDefault()
-          // console.log('mouseup')
-          canvas.classList.remove('is-dragging')
+          sceneManager.onMouseDown(e)
         },
         false
       )
@@ -74,13 +46,9 @@ class SnowglobeGame {
         })
       })
     }
-
     const render = () => {
-      stats.begin()
-      sceneManager.update()
-      stats.end()
-
       requestAnimationFrame(render)
+      sceneManager.update()
     }
 
     bindEventListeners()

@@ -5,25 +5,23 @@ import Obj from '../../Object/index.js'
 import CONFIG from './config.js'
 
 class Cube extends Obj {
-  constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial, highlightMaterial) {
+  constructor(scene, world) {
     // Physics
     super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.originMaterial = cubeMaterial
-    this.selectedMaterial = selectedMaterial
-    this.highlightMaterial = highlightMaterial
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
     this.body.position.set(-CONFIG.SIZE / 2, 5, -CONFIG.SIZE / 2)
     world.add(this.body)
 
-    // Mesh
+    // Graphics
+    const cubeGeo = new THREE.BoxGeometry(CONFIG.SIZE, CONFIG.SIZE, CONFIG.SIZE, 2, 2)
+    const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
     this.mesh.position.copy(this.body.position)
-    this.mesh.scale.multiplyScalar( 0.0055 ); // related to the model
     scene.add(this.mesh)
 
     this.select()
