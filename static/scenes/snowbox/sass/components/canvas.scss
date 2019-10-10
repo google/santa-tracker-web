@@ -1,0 +1,13 @@
+#canvas {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(17, 18, 23);
+
+  &.is-dragging {
+    cursor: move;
+  }
+
+  &.is-pointing {
+    cursor: pointer;
+  }
+}

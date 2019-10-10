@@ -1,0 +1,14 @@
+export default {
+  PLANE_WIDTH: 20,
+  PLANE_DEPTH: 20,
+  PLANE_HEIGHT: 1,
+  CURSOR_RADIUS: 5,
+  SELECTABLE: false,
+  LEVEL: {
+    HEIGHT: 1,
+    SEGMENTS: 20,
+    RADIUS: 0.6,
+  },
+  WALL_HEIGHT: 20,
+  WALL_THICKNESS: 0.2,
+}

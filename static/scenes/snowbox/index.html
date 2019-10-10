@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,600" />
+    <link rel="stylesheet" href="./index.css" />
+    <!-- Imports for Snowglobe -->
+    <script src="../../third_party/lib/three/build/three.js"></script>
+    <script src="../../third_party/lib/three-stats/index.js"></script>
+    <script src="../../third_party/lib/three/examples/js/controls/OrbitControls.js"></script>
+    <script src="../../third_party/lib/three/examples/js/loaders/OBJLoader.js"></script>
+    <script src="../../third_party/lib/three/examples/js/loaders/MTLLoader.js"></script>
+    <script src="../../third_party/lib/cannon/cannon.js"></script>
+    <script src="../../third_party/lib/dat-gui/dat.gui.min.js"></script>
+  </head>
+
+  <body>
+    <div id="module-snowglobe">
+      <canvas id="canvas"></canvas>
+      <div class="ui">
+        <div class="rotate">
+          <button id="rotate-right" class="action-button">Rotate Left</button>
+          <button id="rotate-left" class="action-button">Rotate Right</button>
+          <br>
+          <button id="rotate-top" class="action-button">Rotate Top</button>
+          <button id="rotate-bottom" class="action-button">Rotate Bottom</button>
+        </div>
+        <div class="toolbox">
+          <div>
+            <button id="add-cube" class="action-button">Add Cube</button>
+            <button id="add-pyramid" class="action-button">Add Pyramid</button>
+            <button id="add-glue" class="action-button">Add Glue</button>
+          </div>
+          <div>
+            <p class="paragraph">Elevate Cube with down/up arrows keys</p>
+            <p class="paragraph">Rotate Cube with left/right arrows keys</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
