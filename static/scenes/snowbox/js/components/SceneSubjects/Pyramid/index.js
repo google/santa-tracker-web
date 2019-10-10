@@ -42,6 +42,9 @@ class Pyramid extends Obj {
     this.mesh.position.copy(this.body.position)
     scene.add(this.mesh)
 
+    this.mesh.geometry.computeBoundingBox()
+    this.box = this.mesh.geometry.boundingBox.clone()
+
     this.select()
   }
 
