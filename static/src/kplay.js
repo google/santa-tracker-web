@@ -1011,20 +1011,6 @@ export async function prepare() {
     return node;
   };
 
-  const prepareKey = (key) => {
-    // get internal name from friendly
-    const entrypoint = config['events'][key] || config['exportedSymbols'][key];
-    if (entrypoint === undefined) {
-      if (typeof key === 'string') {
-        console.debug('audio missing', key);
-        return false;
-      }
-      console.warn('got invalid arg for kplay lookup', key);
-      throw new Error(`invalid type for kplay`);
-    }
-    return internalPrepareKey(entrypoint);
-  };
-
   // If the AudioContext starts 'suspended', ensure that looped audio is resumed at the correct
   // position when its state changes to 'running'.
   if (masterContext.state === 'suspended') {
@@ -1154,7 +1140,9 @@ export async function prepare() {
         return true;
       }
 
-      const e = prepareKey(event);
+      // get internal name from friendly
+      const entrypoint = config['events'][event] || config['exportedSymbols'][event];
+      const e = entrypoint ? internalPrepareKey(entrypoint) : null;
 
       if (e instanceof AudioSource || e instanceof AudioGroup) {
         // Just play the simple audio. This could be a loop.
@@ -1169,8 +1157,12 @@ export async function prepare() {
         }
       }
 
-      console.warn('got unhandled event type', e, 'from request', event);
-      throw new Error(`unhandled event: ${event}`);
+      if (typeof event === 'string') {
+        console.debug('audio missing', event);
+        return false;
+      }
+      console.warn('got invalid arg for kplay lookup', event);
+      throw new Error(`invalid type for kplay`);
     },
 
   };
