@@ -287,6 +287,7 @@ class SceneManager {
     const pos = this.getCurrentPosOnPlane()
     subject.moveTo(pos.x, 1, pos.z)
     subject.moveToGhost()
+    this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
   move(direction, noMouseMove) {
