@@ -17,14 +17,16 @@
 <div id="module-underconstruction">
   <main id="main">
     <div class="title">
+      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker">
       <h2 class="title__text">See you in <span class="title__month">December</span></h2>
+      <button class="Button Button--large title__button">Play</button>
     </div>
-    <button class="Button Button--large play-button">Play</button>
     <div class="animation animation--backhoe desktop-only"></div>
     <div class="animation animation--crane"></div>
     <div class="animation animation--drill desktop-only"></div>
     <div class="animation animation--snowman"></div>
     <div class="animation animation--tower"></div>
+    <img class="ropes" src="img/ropes.svg" alt="">
   </main>
 </div>
 
@@ -40,6 +42,8 @@ api.preload.images(
   'img/animations/snowman.json',
   'img/animations/tower.json',
   'img/background.jpg',
+  'img/ropes.svg',
+  'img/st-logo-horizontal.svg',
 );
 
 console.log('hello');
