@@ -18096,6 +18096,52 @@ var KLANG_CONFIG = {
                     sounds[i].playbackRate = playbackRate;
                 }
             }
+        },
+        "__fake_jamband_play_track": {
+            "vars": [
+                "EPDs",  // Bass
+                "QcJi",  // Drums
+                "Du2o",  // Bell
+                "OSie",  // Boombox
+                "Px11",  // Guitar
+                "QLAo",  // Rap
+                "LdQ0",  // Sax
+                "uARB",  // Synth
+                "Jdmw",  // Tamb
+                "SdSp",  // Xylo
+                "Pej8",  // Vox
+            ],
+            "type": "SimpleProcess",
+            "action": function (Core, Model, Util, me, args, vars) {
+                var sounds = [me.EPDs, me.QcJi, me.Du2o, me.OSie, me.Px11, me.QLAo, me.LdQ0, me.uARB, me.Jdmw, me.SdSp, me.Pej8];
+                var num = args[0];
+                var index = args[1];
+                var volume = args[2];
+
+                console.info('playing jamband track', num, index, volume, sounds[num]);
+                var instrument = sounds[num];
+                if (instrument.latestPlayed === instrument.content[index]) {
+                    return;
+                }
+                instrument.fadeOutAndStop(0.2);
+                if (index >= 0) {
+                    instrument.play(0, index);   // kplay ignores -1 but Klang will crash
+                    instrument.latestPlayed.output.gain.value = volume;
+                }
+            },
+            "at_action": function (Core, Model, Util, me, args, vars) {
+                var sounds = [me.EPDs, me.QcJi, me.Du2o, me.OSie, me.Px11, me.QLAo];
+                var num = args[0];
+                var index = args[1];
+                var volume = args[2];
+
+                console.info('playing jamband track', num, index, volume);
+                var instrument = sounds[num];
+                instrument.stop();
+                if (index >= 0) {
+                    instrument.play(0, index);   // kplay ignores -1 but Klang will crash
+                }
+            },
         }
     },
     "events": {
@@ -18675,7 +18721,8 @@ var KLANG_CONFIG = {
         "wrapbattle_wrap_present_fail": "Unyj",
         "codeboogie_play_track": "__fake_codeboogie_play_track",
         "wrapbattle_play_track": "__fake_wrapbattle_play_track",
-        "wrapbattle_set_playback_rate": "__fake_wrapbattle_set_playback_rate"
+        "wrapbattle_set_playback_rate": "__fake_wrapbattle_set_playback_rate",
+        "jamband_play_track": "__fake_jamband_play_track"
     },
     "debug": {
         "ignored_events": [],

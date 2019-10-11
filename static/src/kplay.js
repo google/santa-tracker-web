@@ -426,6 +426,13 @@ class AudioGroup extends EventTarget {
     return [];
   }
 
+  get latestPlayed() {
+    if (this._active && this._active.playing) {
+      return this._active;
+    }
+    return null;
+  }
+
   get playing() {
     // Check either the active node (for serial) or the first (for concurrent).
     const check = this._active || this._content[0] || null;
