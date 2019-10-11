@@ -18,23 +18,29 @@ goog.provide('app.Audio');
 
 /**
  * @constructor
+ * @param {number} index in Klang
  * @param {string} name of audio
  * @param {number} beat of audio
  */
-app.Audio = function(name, beat) {
+app.Audio = function(index, name, beat) {
+  this.index = index;
   this.name = name;
-  this.beat = beat;
+  this.beat = beat;  // TODO: not actually used anymore.
 
-  const bpm = 120;  // from config
+  this.timeout = 0;
 
-  this.beatSync16th = 4;
-  this.beatduration = 60 / bpm;
+  this._bpm = 120;  // all 120
+  this.beatSync16th = (beat / 16) * 4;
+  if (this.beatSync16th !== 4 && this.beatSync16th !== 8) {
+    throw new TypeError(`expected beat to be 16 or 32, was: ${beat} for ${name}`);
+  }
+
+  this.beatduration = 60 / this._bpm;
   this.beatsPerSecond = 1 / this.beatduration;
 };
 
 /**
- * Play the provided pattern. The callback is called when the pattern starts
- * playing.
+ * Play the provided pattern. The callback is called when the pattern starts playing.
  *
  * @param {number} pattern number, either 0 or 1
  * @param {number} volume gain, in range [0,1]
@@ -42,51 +48,32 @@ app.Audio = function(name, beat) {
  */
 app.Audio.prototype.play = function(pattern, volume, callback) {
   if (!(pattern === 0 || pattern === 1)) {
-    console.warn('There are only two patterns. You should pass 0 or 1');
-    pattern = 0;
+    throw new TypeError(`expected pattern 0 or 1`);
   }
 
-  // TODO: play pattern as index within group (stopping other audio)
-  // Should happen on beat (old playNext_ and stopNext_ lines up audio beats)
+  window.clearTimeout(this.timeout);
+
+  const currSeconds = performance.now() / 1000;
+
+  // Play on the next ~4th or ~8th beat.
+  const beat = Math.max(0, Math.floor(currSeconds / (60 / this._bpm)));
+  const targetBeat = (~~(beat / this.beatSync16th) + 1) * this.beatSync16th;
+
+  const targetSeconds = targetBeat * this.beatduration;
+
+  this.timeout = window.setTimeout(() => {
+    // yes, setTimeout is slightly variable, but it's pretty good: ~2-3ms past our target usually.
+    window.santaApp.fire('sound-trigger', 'jamband_play_track', this.index, pattern, volume);
+    callback && callback();
+  }, (targetSeconds - currSeconds) * 1000);
 };
 
 /**
- * Stop the currently playing audio
+ * Stop the currently playing audio immediately.
  */
 app.Audio.prototype.stop = function() {
-  // TODO: play -1 index within group (stopping it)
-};
-
-app.Audio.prototype.getNextBeat_ = function() {
-  const beat = (performance.now() / 1000) / beatsPerSecond;
-
-  // TODO: was the old code returning times <0 anyway?
-};
-
-/**
- * Start playing the provided audiosource at the start of the next bar
- *
- * @param {!AudioSource} audiosource to play
- * @param {function()} callback to run then
- */
-app.Audio.prototype.playNext_ = function(audiosource, callback) {
-  // var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
-  // var deltaWhen = when - Klang.context.currentTime;
-  // var beat = Math.floor(Klang.$('jamband_sequencer').currentStep);
-  // var scheduleBeat = (beat + Math.floor(deltaWhen * this.beatsPerSecond)) % this.beat;
-  // var offset = scheduleBeat * this.beatduration;
-
-  // audiosource.play(when, offset);
-  // Klang.schedule(when, callback);
-};
-
-/**
- * Stop the provided audiosource at the start of the next bar
- * @param {!AudioSource} audiosource to stop
- */
-app.Audio.prototype.stopNext_ = function(audiosource) {
-  // var when = Klang.$('jamband_sequencer').getBeatTime(this.beatSync16th);
-  // audiosource.fadeOutAndStop(0.5, when);
+  window.clearTimeout(this.timeout);
+  window.santaApp.fire('sound-trigger', 'jamband_play_track', this.index, -1, 1.0);
 };
 
 /**
