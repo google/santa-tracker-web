@@ -431,16 +431,12 @@ app.Canvas.prototype.saveToFile = function(e) {
 
 
 app.Canvas.prototype.onTrashClick = function(event) {
-  var button = $(event.target).closest('[data-tool-trash]');
   this.snow.reset();
 
   window.ga('send', 'event', 'game', 'trash', 'santascanvas');
 
-  if (button.attr('data-tool-trash') == 'desktop') {
-    this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
-  } else {
-    this.resetCanvas();
-  }
+  this.clearAnimation.beginAnimation(this.resetCanvas.bind(this));
+
   window.santaApp.fire('sound-trigger', 'cd_trash');
 };
 
