@@ -21,81 +21,72 @@ goog.require('app.utils');
 
 /**
  * @constructor
+ * @param {!HTMLCanvasElement} canvas
+ * @param {string} importPath
  */
-app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
+app.ClearAnimation = function(canvas) {
   this.canvas = canvas;
-  this.context = canvas.getContext('2d');
-  this.backup = backupCanvas;
-  this.backupContext = backupCanvas.getContext('2d');
-  this.playing = false;
+  this.context = /** @type {!CanvasRenderingContext2D} */ (canvas.getContext('2d'));
   this.callback = null;
-  this.ready_ = false;
-
-  this.media_ = document.createElement('video');
-  this.media_.loop = false;
-  this.media_.autoplay = false;
-  this.media_.muted = true;
-  this.media_.src = importPath + 'img/avalanche.mp4'
-  this.media_.crossOrigin = 'anonymous';
-
-  // Mark the animation as ready when the video is ready to play.
-  this.media_.addEventListener('canplaythrough', () => {
-    this.ready_ = true;
-  });
+  this.animationStart_ = 0;
 };
 
 
 app.ClearAnimation.prototype.beginAnimation = function(callback) {
-  if (this.playing) {
+  if (this.animationStart_) {
     return;
   }
 
-  if (this.ready_) {
-    // Don't bother playing; the video wouldn't finish.
-    this.media_.play();
-  }
   this.callback = callback;
-  this.playing = true;
+  this.animationStart_ = performance.now();
 };
 
 
-app.ClearAnimation.prototype.update = function(delta) {
-  if (!this.playing) {
+app.ClearAnimation.prototype.update = function() {
+  if (!this.animationStart_) {
     return;
   }
 
-  // Invoke the callback when the media ended (or if it wasn't ready at all).
-  // We need to do the not-ready-check in a rAF otherwise the main scene doesn't operate properly.
-  if (this.media_.ended || !this.ready_) {
+  const canvas = this.canvas;
+  const context = this.context;
+
+  const now = (performance.now() - this.animationStart_) / 1000;  // in seconds
+  if (now >= app.Constants.CLEAR_ANIMATION_SECONDS) {
+    this.animationStart_ = 0;
     this.callback && this.callback();
-    this.callback = null;
-    this.playing = false;
     return;
   }
 
-  // transparent target green color in mp4 is r=42 g=255 b=59
+  const snowflakes = 100;
+  const snowflakeRoot = ~~Math.sqrt(snowflakes);
+  const animationFrac = now / app.Constants.CLEAR_ANIMATION_SECONDS;
+  const adjusted = (-Math.cos(animationFrac * Math.PI) + 1) / 2;  // ease-in-out
 
-  this.context.drawImage(this.media_, 0, 0, this.canvas.width, this.canvas.height);
+  // mid color: #edf5f7, rgb(237, 245, 247)
+  const lerpAdjust = -Math.cos(animationFrac * Math.PI / 2) + 1;  // ease-in
+  const lerp = (a, b) => Math.round(a + (b - a) * lerpAdjust);
+  const snowflakeColor = `rgba(${lerp(237, 255)}, ${lerp(245, 255)}, ${lerp(247, 255)})`;
 
-  const frame = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height);
-  const length = frame.data.length;
+  canvas.width = canvas.width;  // cheap clear (allocates new memory)
+  context.save();
 
-  for (let i = 0; i < length; i += 4) {
-    const r = frame.data[i + 0];
-    const g = frame.data[i + 1];
-    const b = frame.data[i + 2];
+  for (let i = 0; i < snowflakes; ++i) {
+    const row = (i % snowflakeRoot) / snowflakeRoot;
+    const col = ~(i / snowflakeRoot) / snowflakeRoot;
 
-    // this is how close we are to the transparent green color
-    const delta = (g - (r+b)/2 - 50) * 2;  // from 0-255, more is more green
+    const x = row - 1.0 + adjusted + Math.cos(this.animationStart_ + i) / 4;
+    const y = Math.sin(animationFrac * Math.PI / 2) + col;
 
-    // the closer delta is to 255, the more we want to set r/b to be closer to g
-    const factor = g / ((r+b)/2);
+    const radius = animationFrac * (Math.max(canvas.width, canvas.height) / 10) * (Math.cos(i) + 2);  // in real units
+    const gradient = context.createRadialGradient(x * canvas.width, y * canvas.height, 0, x * canvas.width, y * canvas.height, radius);
+    gradient.addColorStop(animationFrac, snowflakeColor);
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
 
-    frame.data[i + 0] *= factor;  // r
-    frame.data[i + 2] *= factor;  // b
-    frame.data[i + 3] = 255 - delta;  // alpha
+    context.fillStyle = gradient;
+    context.beginPath();
+    context.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI);
+    context.fill();
   }
-  this.context.putImageData(frame, 0, 0);
 
-  this.backupContext.drawImage(this.canvas, 0, 0, this.backup.width, this.backup.height);
+  context.restore();
 };

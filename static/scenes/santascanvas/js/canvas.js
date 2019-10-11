@@ -116,10 +116,8 @@ app.Canvas.prototype.initCanvases = function($elem) {
       });
   }
 
-  this.snow = new app.Snow($elem, this.foregroundCanvas,
-      this.foregroundBackup);
-  this.clearAnimation = new app.ClearAnimation($elem, this.foregroundCanvas,
-      this.foregroundBackup, this.game_.importPath);
+  this.snow = new app.Snow($elem, this.foregroundCanvas, this.foregroundBackup);
+  this.clearAnimation = new app.ClearAnimation(this.foregroundCanvas);
 };
 
 
@@ -279,7 +277,7 @@ app.Canvas.prototype.calculateDrawingVolume = function() {
   this.lastMouseY = this.mouse.y / this.canvasHeight;
 
 }
-app.Canvas.prototype.soundUpdate = function(delta) {
+app.Canvas.prototype.soundUpdate = function() {
   if (isFinite(this.drawingVolume)) {
     this.drawingVolume *= 0.6;
     window.santaApp.fire('sound-trigger', 'cd_draw_update', Math.min(1, this.drawingVolume));

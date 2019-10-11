@@ -34,7 +34,6 @@ goog.require('app.Tools');
 app.Game = function(elem, importPath) {
   this.elem = $(elem);
   this.importPath = importPath;
-  this.gameStartTime = null;
   this.sceneElem = this.elem.find('.scene');
   this.rotateElem = this.elem.find('.force-rotate');
 
@@ -97,9 +96,6 @@ app.Game.prototype.restart = function() {
   this.paused = false;
   this.resetCanvas_();
   this.unfreezeGame();
-
-  window.santaApp.fire('analytics-track-game-start', {gameid: 'santascanvas'});
-  this.gameStartTime = +new Date;
 };
 
 
@@ -114,8 +110,8 @@ app.Game.prototype.update = function(delta) {
 
   this.mouse.update();
   this.canvas.snow.update(delta);
-  this.canvas.clearAnimation.update(delta);
-  this.canvas.soundUpdate(delta)
+  this.canvas.clearAnimation.update();
+  this.canvas.soundUpdate()
 };
 
 
@@ -138,7 +134,7 @@ app.Game.prototype.unfreezeGame = function() {
     this.elem.removeClass('frozen');
 
     this.isPlaying = true;
-    this.lastFrame = +new Date();
+    this.lastFrame = performance.now();
     this.requestId = window.requestAnimationFrame(this.onFrame_);
   }
 };
@@ -154,8 +150,8 @@ app.Game.prototype.onFrame_ = function() {
   }
 
   // Calculate delta since last frame.
-  var now = +new Date();
-  var delta = Math.min(1000, now - this.lastFrame);
+  const now = performance.now();
+  const delta = Math.min(1000, now - this.lastFrame);
   this.lastFrame = now;
 
   // Update game state with physics simulations.
@@ -189,14 +185,6 @@ app.Game.prototype.resume = function() {
  * @export
  */
 app.Game.prototype.dispose = function() {
-  if (this.isPlaying) {
-    var opts = {
-      gameid: 'santascanvas',
-      timePlayed: new Date - this.gameStartTime,
-      level: 1
-    };
-    window.santaApp.fire('analytics-track-game-quit', opts);
-  }
   this.freezeGame();
 
   window.cancelAnimationFrame(this.requestId);
