@@ -262,10 +262,10 @@ class SceneManager {
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') { // if not in drag or ghost mode
 
         const hit = this.getNearestObject()
-        if (hit && this.mode === '') { // if mode is neutral
+        if (hit) { // if mode is neutral
           const subject = this.getSubjectfromMesh(hit.object)
           this.highlightSubject(subject)
-        } else if (!hit && this.mode === 'highlight') {
+        } else {
           this.highlightSubject(false)
         }
       }
@@ -383,7 +383,7 @@ class SceneManager {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
-    this.centerCameraTo(newSelectedSubject.mesh)
+    if (offset) this.centerCameraTo(newSelectedSubject.mesh)
   }
 
   findNearestIntersectingObject(objects) {
