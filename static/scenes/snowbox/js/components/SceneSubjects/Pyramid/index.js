@@ -11,6 +11,7 @@ class Pyramid extends Obj {
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
+    this.defaultMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff })
 
     const verts = [
       new CANNON.Vec3(0, 0, 0),

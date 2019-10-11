@@ -11,9 +11,6 @@ import Terrain from '../SceneSubjects/Terrain/index.js'
 // Other
 import CameraController from '../CameraController/index.js'
 
-// Utils
-import { toRadian } from '../../utils/math.js'
-
 class SceneManager {
   constructor(canvas) {
     this.canvas = canvas
@@ -505,7 +502,7 @@ class SceneManager {
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'ghost':
-        controls.enabled = false // disable controls
+        controls.enabled = false // disable cameraCtrl.controls
         break
     }
 

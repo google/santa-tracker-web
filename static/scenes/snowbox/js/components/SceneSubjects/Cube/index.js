@@ -25,8 +25,6 @@ class Cube extends Obj {
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
     this.defaultMaterial = cubeMaterial
-    this.selectedMaterial = CONFIG.SELECTED_MATERIAL
-    this.highlightMaterial = CONFIG.HIGHLIGHT_MATERIAL
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })

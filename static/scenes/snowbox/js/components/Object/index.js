@@ -1,4 +1,4 @@
-import CONFIG from '../SceneManager/config.js'
+import CONFIG from './config.js'
 import { EventEmitter } from '../../event-emitter.js'
 
 class Object extends EventEmitter {
@@ -19,8 +19,8 @@ class Object extends EventEmitter {
       this.body.mass = 0
       this.body.updateMassProperties()
 
-      if (this.mesh && this.selectedMaterial) {
-        this.mesh.material = this.selectedMaterial
+      if (this.mesh) {
+        this.mesh.material = CONFIG.SELECTED_MATERIAL
       }
 
       this.createGhost()
@@ -102,8 +102,8 @@ class Object extends EventEmitter {
   }
 
   highlight() {
-    if (this.mesh && this.highlightMaterial) {
-      this.mesh.material = this.highlightMaterial
+    if (this.mesh) {
+      this.mesh.material = CONFIG.HIGHLIGHT_MATERIAL
     }
   }
 
@@ -115,13 +115,8 @@ class Object extends EventEmitter {
 
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
-    const material = new THREE.MeshPhongMaterial({
-      color: 0xff00ff,
-      opacity: 0.3,
-      transparent: true
-    })
 
-    this.ghost = new THREE.Mesh(geometry, material)
+    this.ghost = new THREE.Mesh(geometry, CONFIG.GHOST_MATERIAL)
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
