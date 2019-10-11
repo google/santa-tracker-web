@@ -19,8 +19,6 @@ class SceneManager {
     this.canvas = canvas
 
     this.handleGui = this.handleGui.bind(this)
-    this.rotateCamera = this.rotateCamera.bind(this)
-    this.centerCameraTo = this.centerCameraTo.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -40,7 +38,6 @@ class SceneManager {
     this.buildScene()
     this.buildRender()
     this.buildCamera()
-    this.buildControls()
 
     if (this.debug) {
       this.buildHelpers()
@@ -57,7 +54,7 @@ class SceneManager {
 
     this.createSceneSubjects()
 
-    this.rotateCamera('left')
+    this.cameraCtrl.rotate('left', this.terrain)
 
     // this.initGui()
   }
@@ -106,20 +103,7 @@ class SceneManager {
   }
 
   buildCamera() {
-    this.cameraCtrl = new CameraController(this.screenDimensions)
-  }
-
-  buildControls() {
-    const { camera } = this.cameraCtrl
-    this.controls = new THREE.MapControls(this.cameraCtrl.camera, this.renderer.domElement)
-    this.controls.minDistance = 10
-    this.controls.maxDistance = 500
-    this.controls.enableKeys = false
-    this.controls.enablePan = true
-    this.controls.enableRotate = false
-    this.controls.enableDamping = true
-    this.controls.enabled = true
-    this.controls.dampingFactor = 0.06
+    this.cameraCtrl = new CameraController(this.screenDimensions, this.renderer.domElement)
   }
 
   buildHelpers() {
@@ -143,22 +127,9 @@ class SceneManager {
     this.terrain = this.sceneSubjects[1]
   }
 
-  rotateCamera(direction) {
-    this.controls.enabled = false
-    this.cameraCtrl.rotate(direction, this.terrain)
-    this.controls.enabled = true
-  }
-
-  centerCameraTo(subject) {
-    this.controls.enabled = false
-    const position = this.cameraCtrl.centerTo(subject, this.terrain)
-    this.controls.target.set(position.x, position.y, position.z) // final pos
-    this.controls.enabled = true
-  }
-
   update() {
-    const { camera } = this.cameraCtrl
-    if (this.controls && this.controls.enabled) this.controls.update() // for damping
+    const { camera, controls } = this.cameraCtrl
+    if (controls && controls.enabled) controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, camera)
 
     const elapsedTime = this.clock.getElapsedTime()
@@ -256,16 +227,16 @@ class SceneManager {
         this.addShape('glue')
         break
       case 'rotate-left':
-        this.rotateCamera('left')
+        this.cameraCtrl.rotate('left', this.terrain)
         break
       case 'rotate-right':
-        this.rotateCamera('right')
+        this.cameraCtrl.rotate('right', this.terrain)
         break
       case 'rotate-top':
-        this.rotateCamera('top')
+        this.cameraCtrl.rotate('top', this.terrain)
         break
       case 'rotate-bottom':
-        this.rotateCamera('bottom')
+        this.cameraCtrl.rotate('bottom', this.terrain)
         break
       case 'zoom-in':
         this.cameraCtrl.zoom('in')
@@ -328,7 +299,7 @@ class SceneManager {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
-    if (offset) this.centerCameraTo(newSelectedSubject.mesh)
+    if (offset) this.cameraCtrl.centerTo(newSelectedSubject.mesh, this.terrain)
   }
 
   findNearestIntersectingObject(objects) {
@@ -518,22 +489,23 @@ class SceneManager {
   }
 
   setMode(mode = '') {
+    const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
 
     switch (mode) {
       default:
-        this.controls.enabled = true // reset controls
+        controls.enabled = true // reset cameraCtrl.controls
         break
       case 'drag':
         this.canvas.classList.add('is-dragging')
         break
       case 'highlight':
         this.canvas.classList.add('is-pointing')
-        this.controls.enabled = false // disable controls
+        controls.enabled = false // disable cameraCtrl.controls
         break
       case 'ghost':
-        this.controls.enabled = false // disable controls
+        controls.enabled = false // disable controls
         break
     }
 

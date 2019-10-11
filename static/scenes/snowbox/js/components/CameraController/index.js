@@ -6,11 +6,12 @@ import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outQuad } from '../../utils/ease.js'
 
-class Camera {
-  constructor(screenDimensions) {
+class CameraController {
+  constructor(screenDimensions, canvas) {
     this.cameraYAngle = 0
     this.cameraXZAngle = 0
-    this.raycasterCameraRotation = new THREE.Raycaster()
+    this.raycaster = new THREE.Raycaster()
+    this.canvas = canvas
 
     this.animateTo = this.animateTo.bind(this)
 
@@ -23,9 +24,25 @@ class Camera {
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
     this.camera.position.set(0, CONFIG.RADIUS_CAMERA_Y_ROTATE, CONFIG.RADIUS_CAMERA_Z_ROTATE)
     this.camera.lookAt(0, 0, 0)
+
+    this.buildControls()
+  }
+
+  buildControls() {
+    this.controls = new THREE.MapControls(this.camera, this.canvas)
+    this.controls.minDistance = 10
+    this.controls.maxDistance = 500
+    this.controls.enableKeys = false
+    this.controls.enablePan = true
+    this.controls.enableRotate = false
+    this.controls.enableDamping = true
+    this.controls.enabled = true
+    this.controls.dampingFactor = 0.06
   }
 
   rotate(direction, terrain) {
+    this.controls.enabled = false
+
     let axis
     let angle
     let lookAt
@@ -61,11 +78,13 @@ class Camera {
         break
     }
 
-    const intersects = this.getCenterPointOnTerrain(terrain)
+    const intersects = this.getLookAtPointOnTerrain(terrain)
 
     lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     lookAt.y = 0 // clean up decimals, this value should always be 0
     this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
+
+    this.controls.enabled = true
   }
 
   zoom(direction) {
@@ -87,8 +106,10 @@ class Camera {
     this.camera.updateProjectionMatrix()
   }
 
-  centerTo(object, terrain, controls) {
-    const intersects = this.getCenterPointOnTerrain(terrain)
+  centerTo(object, terrain) {
+    this.controls.enabled = false
+
+    const intersects = this.getLookAtPointOnTerrain(terrain)
 
     const distance =
       intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
@@ -105,7 +126,7 @@ class Camera {
     this.animateCameraStart = getNow()
     this.animateTo(this.animateCameraStart) // start RAF Animation for this animation
 
-    return object.position
+    this.controls.target.set(object.position.x, object.position.y, object.position.z) // final pos
   }
 
   animateTo(now) {
@@ -124,17 +145,18 @@ class Camera {
     } else {
       // animation finished
       window.cancelAnimationFrame(this.animateToRAF)
+      this.controls.enabled = true
     }
   }
 
-  getCenterPointOnTerrain(terrain) {
+  getLookAtPointOnTerrain(terrain) {
     const worldPos = new THREE.Vector3()
     this.camera.getWorldPosition(worldPos)
     const worldDir = new THREE.Vector3()
     this.camera.getWorldDirection(worldDir)
-    this.raycasterCameraRotation.set(worldPos, worldDir)
+    this.raycaster.set(worldPos, worldDir)
 
-    return this.raycasterCameraRotation.intersectObjects([terrain.meshes[0]])
+    return this.raycaster.intersectObjects([terrain.meshes[0]])
   }
 
   // obj - your object (THREE.Object3D or derived)
@@ -174,4 +196,4 @@ class Camera {
   }
 }
 
-export default Camera
+export default CameraController
