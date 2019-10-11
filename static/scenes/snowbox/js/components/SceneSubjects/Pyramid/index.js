@@ -34,18 +34,13 @@ class Pyramid extends Obj {
     const shape = new CANNON.ConvexPolyhedron(verts, faces)
     this.body = new CANNON.Body({ mass: CONFIG.MASS, shape })
     this.body.position.set(-0.5, 5, -0.5)
-    world.add(this.body)
 
     // Graphics
     const pyramidGeo = this.getThreeGeo(shape)
     const pyramidMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
     this.mesh = new THREE.Mesh(pyramidGeo, pyramidMaterial)
-    this.mesh.position.copy(this.body.position)
-    scene.add(this.mesh)
 
-    this.mesh.geometry.computeBoundingBox()
-    this.box = this.mesh.geometry.boundingBox.clone()
-
+    this.addToScene()
     this.select()
   }
 

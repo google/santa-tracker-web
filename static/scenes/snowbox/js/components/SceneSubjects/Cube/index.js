@@ -29,19 +29,12 @@ class Cube extends Obj {
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
     this.body.position.set(-CONFIG.SIZE / 2, 100, -CONFIG.SIZE / 2)
-    world.add(this.body)
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
     this.mesh.scale.multiplyScalar(0.0055) // related to the model
-    this.mesh.position.copy(this.body.position)
 
-    scene.add(this.mesh)
-
-    this.mesh.geometry.computeBoundingBox()
-    this.box = this.mesh.geometry.boundingBox.clone()
-
-    this.mesh.visible = false
+    this.addToScene()
     this.select()
     // this.body.addEventListener('collide', this.handleCollide.bind(this))
   }

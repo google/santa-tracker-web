@@ -13,6 +13,18 @@ class Object extends EventEmitter {
     this.rotationY = 0
   }
 
+  addToScene() {
+    this.world.add(this.body)
+
+    this.mesh.position.copy(this.body.position)
+    this.scene.add(this.mesh)
+
+    this.mesh.geometry.computeBoundingBox()
+    this.box = this.mesh.geometry.boundingBox.clone()
+
+    this.mesh.visible = false
+  }
+
   select() {
     if (this.selectable && !this.selected) {
       this.selected = true
