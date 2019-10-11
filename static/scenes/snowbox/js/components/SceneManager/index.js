@@ -1,16 +1,18 @@
 // Config
 import CONFIG from './config.js'
 
-// // SceneSubjects
+// SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
 import Glue from '../SceneSubjects/Glue/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
+// Other
+import CameraController from '../CameraController/index.js'
+
+// Utils
 import { toRadian } from '../../utils/math.js'
-import { getNow } from '../../utils/time.js'
-import { outQuad } from '../../utils/ease.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -18,8 +20,7 @@ class SceneManager {
 
     this.handleGui = this.handleGui.bind(this)
     this.rotateCamera = this.rotateCamera.bind(this)
-    this.zoom = this.zoom.bind(this)
-    this.animateCameraTo = this.animateCameraTo.bind(this)
+    this.centerCameraTo = this.centerCameraTo.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -32,10 +33,8 @@ class SceneManager {
     // 2: highlight === hover on an object: Can't go to drag mode
     // 3: ghost === moving/adding an object: Can't go to drag mode
 
-    this.debug = false
+    this.debug = CONFIG.DEBUG
     this.offset = 0
-    this.cameraYAngle = 0
-    this.cameraXZAngle = 0
 
     this.initCannon()
     this.buildScene()
@@ -43,12 +42,11 @@ class SceneManager {
     this.buildCamera()
     this.buildControls()
 
-    if (CONFIG.SHOW_HELPERS) {
+    if (this.debug) {
       this.buildHelpers()
     }
 
     this.raycaster = new THREE.Raycaster()
-    this.raycasterCameraRotation = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -58,23 +56,6 @@ class SceneManager {
     }
 
     this.createSceneSubjects()
-    this.createJointBody()
-
-    // Debug
-    if (this.debug) {
-      // Camera helpers
-      this.cameraHelper = new THREE.Mesh(
-        new THREE.BoxGeometry(1, 1, 1),
-        new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
-      )
-      this.scene.add(this.cameraHelper)
-
-      for (let i = 0; i < 8; i++) {
-        this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
-        this.getPerpendicularXZAxisManually()
-      }
-      this.cameraYAngle = 0
-    }
 
     this.rotateCamera('left')
 
@@ -125,18 +106,12 @@ class SceneManager {
   }
 
   buildCamera() {
-    const { width, height } = this.screenDimensions
-    const aspectRatio = width / height
-    const fieldOfView = 10
-    const nearPlane = 1
-    const farPlane = 1000
-    this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
-    this.camera.position.set(0, 40, CONFIG.RADIUS_CAMERA_Y_ROTATE)
-    this.camera.lookAt(0, 0, 0)
+    this.cameraCtrl = new CameraController(this.screenDimensions)
   }
 
   buildControls() {
-    this.controls = new THREE.MapControls(this.camera, this.renderer.domElement)
+    const { camera } = this.cameraCtrl
+    this.controls = new THREE.MapControls(this.cameraCtrl.camera, this.renderer.domElement)
     this.controls.minDistance = 10
     this.controls.maxDistance = 500
     this.controls.enableKeys = false
@@ -158,6 +133,19 @@ class SceneManager {
     this.scene.add(arrowHelper)
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
+
+    // Camera helpers
+    this.cameraHelper = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 1, 1),
+      new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
+    )
+    this.scene.add(this.cameraHelper)
+
+    for (let i = 0; i < 8; i++) {
+      this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
+      this.getPerpendicularXZAxisManually()
+    }
+    this.cameraYAngle = 0
   }
 
   createSceneSubjects() {
@@ -166,26 +154,30 @@ class SceneManager {
     this.terrain = this.sceneSubjects[1]
   }
 
-  createJointBody() {
-    this.jointBody = new CANNON.Body({
-      mass: 0,
-      shape: new CANNON.Sphere(0.1)
-    })
-    this.jointBody.collisionFilterGroup = 1
-    this.jointBody.collisionFilterMask = 1
-    this.world.addBody(this.jointBody)
+  rotateCamera(direction) {
+    this.controls.enabled = false
+    this.cameraCtrl.rotate(direction, this.terrain)
+    this.controls.enabled = true
+  }
+
+  centerCameraTo(subject) {
+    this.controls.enabled = false
+    const position = this.cameraCtrl.centerTo(subject, this.terrain)
+    this.controls.target.set(position.x, position.y, position.z) // final pos
+    this.controls.enabled = true
   }
 
   update() {
+    const { camera } = this.cameraCtrl
     if (this.controls && this.controls.enabled) this.controls.update() // for damping
-    this.raycaster.setFromCamera(this.mouse, this.camera)
+    this.raycaster.setFromCamera(this.mouse, camera)
 
     const elapsedTime = this.clock.getElapsedTime()
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update(elapsedTime)
     }
-    this.renderer.render(this.scene, this.camera)
+    this.renderer.render(this.scene, camera)
 
     if (this.mergeInProgress) {
       this.merge()
@@ -287,10 +279,10 @@ class SceneManager {
         this.rotateCamera('bottom')
         break
       case 'zoom-in':
-        this.zoom('in')
+        this.cameraCtrl.zoom('in')
         break
       case 'zoom-out':
-        this.zoom('out')
+        this.cameraCtrl.zoom('out')
         break
       default:
         break
@@ -485,154 +477,12 @@ class SceneManager {
     }
   }
 
-  rotateCamera(direction) {
-    this.controls.enabled = false
-    let axis
-    let angle
-    let lookAt
-
-    switch (direction) {
-      case 'left':
-        axis = new THREE.Vector3(0, 1, 0)
-        angle = CONFIG.ROTATION_Y_ANGLE
-        this.cameraYAngle += angle
-        break
-      case 'right':
-        axis = new THREE.Vector3(0, 1, 0)
-        angle = -CONFIG.ROTATION_Y_ANGLE
-        this.cameraYAngle += angle
-        break
-      case 'top':
-        axis = this.getPerpendicularXZAxisManually()
-        angle = -this.ROTATION_XZ_ANGLE
-        if (this.cameraXZAngle + angle <= CONFIG.ROTATION_XZ_ANGLE_MAX) {
-          // don't rotate if reach max
-          this.controls.enabled = true
-          return false
-        }
-        this.cameraXZAngle += angle
-        break
-      case 'bottom':
-        axis = this.getPerpendicularXZAxisManually()
-        angle = this.ROTATION_XZ_ANGLE
-        if (this.cameraXZAngle + angle >= CONFIG.ROTATION_XZ_ANGLE_MIN) {
-          // don't rotate if reach min
-          this.controls.enabled = true
-          return false
-        }
-        this.cameraXZAngle += angle
-        break
-    }
-
-    const intersects = this.getCenterPointOnTerrain()
-
-    lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
-    lookAt.y = 0 // clean up decimals, this value should always be 0
-
-    this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
-
-    this.controls.enabled = true
-  }
-
-  zoom(direction) {
-    switch (direction) {
-      case 'in':
-        if (this.camera.zoom + CONFIG.ZOOM_BY >= CONFIG.ZOOM_MAX) {
-          return false
-        }
-        this.camera.zoom += CONFIG.ZOOM_BY
-        break
-      case 'out':
-        if (this.camera.zoom - CONFIG.ZOOM_BY <= CONFIG.ZOOM_MIN) {
-          return false
-        }
-        this.camera.zoom -= CONFIG.ZOOM_BY
-        break
-    }
-
-    this.camera.updateProjectionMatrix()
-  }
-
-  centerCameraTo(object) {
-    this.controls.enabled = false
-
-    const intersects = this.getCenterPointOnTerrain()
-
-    const distance =
-      intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
-    const startPos = object.position
-    startPos.y = 0 // do like the object position was on the ground
-    const worldDir = new THREE.Vector3()
-    this.camera.getWorldDirection(worldDir)
-    const newPos = new THREE.Vector3()
-    newPos.addVectors(startPos, worldDir.negate().multiplyScalar(distance))
-
-    // animate camera position in RAF
-    this.animateCameraTarget = newPos
-    this.animateCameraOrigin = this.camera.position.clone()
-    this.animateCameraStart = getNow()
-    this.animateCameraTo(this.animateCameraStart) // start RAF Animation for this animation
-
-    this.controls.target.set(object.position.x, object.position.y, object.position.z) // final pos
-  }
-
-  animateCameraTo(now) {
-    const start = this.animateCameraStart
-    const speed = CONFIG.ANIMATE_CAMERA_SPEED
-    const origin = this.animateCameraOrigin
-    const target = this.animateCameraTarget
-    const percent = (now - start) / speed
-
-    if (percent < 1) {
-      this.camera.position.x = origin.x + (target.x - origin.x) * outQuad(percent)
-      this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
-      this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
-
-      this.animateCameraToRAF = window.requestAnimationFrame(this.animateCameraTo)
-    } else {
-      // animation finished
-      window.cancelAnimationFrame(this.animateCameraToRAF)
-      // this.controls.enabled = true
-    }
-  }
-
-  getCenterPointOnTerrain() {
-    const worldPos = new THREE.Vector3()
-    this.camera.getWorldPosition(worldPos)
-    const worldDir = new THREE.Vector3()
-    this.camera.getWorldDirection(worldDir)
-    this.raycasterCameraRotation.set(worldPos, worldDir)
-
-    return this.raycasterCameraRotation.intersectObjects([this.terrain.meshes[0]])
-  }
-
-  getPerpendicularXZAxisManually() {
-    const finalAxis = new THREE.Vector3(1, 0, 0)
-    finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.cameraYAngle))
-
-    if (this.debug) this.arrowHelper(finalAxis)
-
-    return finalAxis
-  }
-
   arrowHelper(vector) {
     var origin = new THREE.Vector3(0, 0, 0)
     var length = 10
 
     var arrowHelper = new THREE.ArrowHelper(vector, origin, length, 0x00ff00)
     this.scene.add(arrowHelper)
-  }
-
-  // obj - your object (THREE.Object3D or derived)
-  // point - the point of rotation (THREE.Vector3)
-  // axis - the axis of rotation (normalized THREE.Vector3)
-  // theta - radian value of rotation
-  rotateAboutPoint(obj, point, axis, theta) {
-    obj.position.sub(point) // remove the offset
-    obj.position.applyAxisAngle(axis, theta) // rotate the POSITION
-    obj.position.add(point) // re-add the offset
-
-    obj.rotateOnAxis(axis, theta) // rotate the OBJECT
   }
 
   getObjectsList() {
