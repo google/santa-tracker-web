@@ -34,18 +34,8 @@ class SceneManager {
 
     this.debug = false
     this.offset = 0
-    this.jointBodyRotation = 0
-    this.radiusCameraYRotate = 50
     this.cameraYAngle = 0
     this.cameraXZAngle = 0
-    this.rotationYAngle = 45
-    this.rotationXZAngle = 45 / 2
-    this.rotationXZAngleMin = 45
-    this.rotationXZAngleMax = -46
-    this.animateCameraSpeed = 1000
-    this.zoomBy = 0.5
-    this.zoomMax = 2.5
-    this.zoomMin = 0
 
     this.initCannon()
     this.buildScene()
@@ -80,7 +70,7 @@ class SceneManager {
       this.scene.add(this.cameraHelper)
 
       for (let i = 0; i < 8; i++) {
-        this.cameraYAngle += this.rotationYAngle
+        this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
         this.getPerpendicularXZAxisManually()
       }
       this.cameraYAngle = 0
@@ -141,7 +131,7 @@ class SceneManager {
     const nearPlane = 1
     const farPlane = 1000
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
-    this.camera.position.set(0, 40, this.radiusCameraYRotate)
+    this.camera.position.set(0, 40, CONFIG.RADIUS_CAMERA_Y_ROTATE)
     this.camera.lookAt(0, 0, 0)
   }
 
@@ -504,18 +494,18 @@ class SceneManager {
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = this.rotationYAngle
+        angle = CONFIG.ROTATION_Y_ANGLE
         this.cameraYAngle += angle
         break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = -this.rotationYAngle
+        angle = -CONFIG.ROTATION_Y_ANGLE
         this.cameraYAngle += angle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
-        angle = -this.rotationXZAngle
-        if (this.cameraXZAngle + angle <= this.rotationXZAngleMax) {
+        angle = -this.ROTATION_XZ_ANGLE
+        if (this.cameraXZAngle + angle <= CONFIG.ROTATION_XZ_ANGLE_MAX) {
           // don't rotate if reach max
           this.controls.enabled = true
           return false
@@ -524,8 +514,8 @@ class SceneManager {
         break
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
-        angle = this.rotationXZAngle
-        if (this.cameraXZAngle + angle >= this.rotationXZAngleMin) {
+        angle = this.ROTATION_XZ_ANGLE
+        if (this.cameraXZAngle + angle >= CONFIG.ROTATION_XZ_ANGLE_MIN) {
           // don't rotate if reach min
           this.controls.enabled = true
           return false
@@ -547,16 +537,16 @@ class SceneManager {
   zoom(direction) {
     switch (direction) {
       case 'in':
-        if (this.camera.zoom + this.zoomBy >= this.zoomMax) {
+        if (this.camera.zoom + CONFIG.ZOOM_BY >= CONFIG.ZOOM_MAX) {
           return false
         }
-        this.camera.zoom += this.zoomBy
+        this.camera.zoom += CONFIG.ZOOM_BY
         break
       case 'out':
-        if (this.camera.zoom - this.zoomBy <= this.zoomMin) {
+        if (this.camera.zoom - CONFIG.ZOOM_BY <= CONFIG.ZOOM_MIN) {
           return false
         }
-        this.camera.zoom -= this.zoomBy
+        this.camera.zoom -= CONFIG.ZOOM_BY
         break
     }
 
@@ -588,7 +578,7 @@ class SceneManager {
 
   animateCameraTo(now) {
     const start = this.animateCameraStart
-    const speed = this.animateCameraSpeed
+    const speed = CONFIG.ANIMATE_CAMERA_SPEED
     const origin = this.animateCameraOrigin
     const target = this.animateCameraTarget
     const percent = (now - start) / speed
