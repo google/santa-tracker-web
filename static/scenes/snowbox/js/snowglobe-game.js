@@ -27,24 +27,11 @@ class SnowglobeGame {
       })
 
       canvas.addEventListener(
-        'click',
-        e => {
-          e.preventDefault()
-          if (sceneManager.state !== 'is-dragging') {
-            sceneManager.onClick(e)
-          }
-        },
-        false
-      )
-
-      //
-      canvas.addEventListener(
         'mousemove',
         e => {
           e.preventDefault()
-          if (sceneManager.mouseState === 'down' && sceneManager.state !== 'ghost' && sceneManager.state !== 'moving-to') {
-            canvas.classList.add('is-dragging')
-            sceneManager.state = 'is-dragging'
+          if (sceneManager.mouseState === 'down' && sceneManager.mode !== 'ghost') {
+            sceneManager.setMode('drag')
           }
           sceneManager.onMouseMove(e)
         },
@@ -56,6 +43,7 @@ class SnowglobeGame {
         e => {
           e.preventDefault()
           sceneManager.mouseState = 'down'
+          sceneManager.onMouseDown(e)
         },
         false
       )
@@ -65,16 +53,8 @@ class SnowglobeGame {
         e => {
           e.preventDefault()
           sceneManager.mouseState = 'up'
-
-          if (sceneManager.state === 'is-dragging') {
-            // add delay to counter conflict with click event
-            setTimeout(() => {
-              canvas.classList.remove('is-dragging')
-              sceneManager.state = ''
-            }, 10)
-          } else {
-            canvas.classList.remove('is-dragging')
-            sceneManager.state = ''
+          if (sceneManager.mode !== 'ghost') {
+            sceneManager.setMode()
           }
         },
         false
@@ -84,7 +64,6 @@ class SnowglobeGame {
         button.addEventListener('click', e => {
           e.preventDefault()
           sceneManager.onButtonClick(button.id)
-          sceneManager.state = 'ghost'
         })
       })
     }
@@ -92,6 +71,7 @@ class SnowglobeGame {
     const render = () => {
       stats.begin()
       sceneManager.update()
+      // console.log(sceneManager.mode) // show current mode
       stats.end()
 
       requestAnimationFrame(render)

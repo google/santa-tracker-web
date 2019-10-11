@@ -26,6 +26,12 @@ class SceneManager {
       height: this.canvas.clientHeight
     }
 
+    this.mode = ''
+    // 0: default, can switch to any mode
+    // 1: drag === moving camera: Can't click on an object or place an object
+    // 2: highlight === hover on an object: Can't go to drag mode
+    // 3: ghost === moving/adding an object: Can't go to drag mode
+
     this.debug = false
     this.offset = 0
     this.jointBodyRotation = 0
@@ -56,7 +62,6 @@ class SceneManager {
 
     this.raycaster = new THREE.Raycaster()
     this.raycasterCameraRotation = new THREE.Raycaster();
-    this.raycaster2 = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -79,7 +84,7 @@ class SceneManager {
     if (this.debug) {
       // Camera helpers
       this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
-      // this.scene.add(this.cameraHelper)
+      this.scene.add(this.cameraHelper)
 
       for (let i = 0; i < 8; i++) {
         this.cameraYAngle += this.rotationYAngle
@@ -254,15 +259,14 @@ class SceneManager {
       this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
       this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
 
-      if (!this.selectedSubject) {
+      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') { // if not in drag or ghost mode
+
         const hit = this.getNearestObject()
-        if (hit) {
+        if (hit && this.mode === '') { // if mode is neutral
           const subject = this.getSubjectfromMesh(hit.object)
           this.highlightSubject(subject)
-          this.canvas.classList.add('is-pointing')
-        } else {
+        } else if (!hit && this.mode === 'highlight') {
           this.highlightSubject(false)
-          this.canvas.classList.remove('is-pointing')
         }
       }
     }
@@ -275,7 +279,7 @@ class SceneManager {
     }
   }
 
-  onClick() {
+  onMouseDown() {
     const hit = this.getNearestObject()
     if (
       hit.point &&
@@ -295,26 +299,6 @@ class SceneManager {
       this.unselectObject()
     }
   }
-
-  // onMouseDown() {
-  //   const hit = this.getNearestObject()
-  //   if (
-  //     hit.point &&
-  //     (hit.object.geometry instanceof THREE.Geometry || hit.object.geometry instanceof THREE.BufferGeometry)
-  //   ) {
-  //     // eslint-disable-next-line max-len
-  //     const newSelectedSubject = this.sceneSubjects.find(subject =>
-  //       subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
-  //     )
-  //     if (this.selectedSubject) {
-  //       this.unselectObject()
-  //     } else {
-  //       this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
-  //     }
-  //   } else if (this.selectedSubject) {
-  //     this.unselectObject()
-  //   }
-  // }
 
   onButtonClick(id) {
     switch (id) {
@@ -370,6 +354,8 @@ class SceneManager {
   }
 
   unselectObject() {
+    this.setMode()
+
     this.selectedSubject.moveToGhost()
     this.selectedSubject.unselect()
 
@@ -379,6 +365,8 @@ class SceneManager {
   }
 
   selectObject(newSelectedSubject, offset) {
+    this.setMode('ghost')
+
     if (this.selectedSubject) {
       this.unselectObject()
     }
@@ -417,6 +405,8 @@ class SceneManager {
   }
 
   addShape(shape) {
+    this.setMode('ghost')
+
     let subject
     switch (shape) {
       case 'cube':
@@ -524,8 +514,10 @@ class SceneManager {
     if (subject) {
       subject.highlight()
       this.highlightedSubject = subject
+      this.setMode('highlight')
     } else {
       this.highlightedSubject = null
+      this.setMode()
     }
   }
 
@@ -630,13 +622,11 @@ class SceneManager {
       this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
       this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
 
-      this.state = 'moving-to'
       this.animateCameraToRAF = window.requestAnimationFrame(this.animateCameraTo)
     } else {
       // animation finished
-      this.state = ''
       window.cancelAnimationFrame(this.animateCameraToRAF)
-      this.controls.enabled = true
+      // this.controls.enabled = true
     }
   }
 
@@ -720,6 +710,29 @@ class SceneManager {
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
+  }
+
+  setMode(mode = '') {
+    this.canvas.classList.remove('is-dragging')
+    this.canvas.classList.remove('is-pointing')
+
+    switch(mode) {
+      default:
+        this.controls.enabled = true // reset controls
+        break
+      case 'drag':
+        this.canvas.classList.add('is-dragging')
+        break
+      case 'highlight':
+        this.canvas.classList.add('is-pointing')
+        this.controls.enabled = false // disable controls
+        break
+      case 'ghost':
+        this.controls.enabled = false // disable controls
+        break
+    }
+
+    this.mode = mode
   }
 }
 

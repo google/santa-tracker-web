@@ -83,7 +83,7 @@ class Object extends EventEmitter {
       z = zNew
     }
 
-    console.log('move ghost', x, y, z)
+    // console.log('move ghost', x, y, z)
 
     this.ghost.position.set(x, y, z)
 
@@ -127,7 +127,6 @@ class Object extends EventEmitter {
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
-    console.log('create ghost')
   }
 
   deleteGhost() {
@@ -140,7 +139,6 @@ class Object extends EventEmitter {
   }
 
   moveToGhost() {
-    console.log('move to ghost')
     const { position, quaternion } = this.ghost
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
