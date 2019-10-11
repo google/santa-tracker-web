@@ -157,6 +157,21 @@ class Camera {
 
     return finalAxis
   }
+
+  showHelpers() {
+    // Camera helpers
+    this.cameraHelper = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 1, 1),
+      new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
+    )
+    this.scene.add(this.cameraHelper)
+
+    for (let i = 0; i < 8; i++) {
+      this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
+      this.getPerpendicularXZAxisManually()
+    }
+    this.cameraYAngle = 0
+  }
 }
 
 export default Camera

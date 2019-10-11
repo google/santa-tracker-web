@@ -134,18 +134,7 @@ class SceneManager {
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
 
-    // Camera helpers
-    this.cameraHelper = new THREE.Mesh(
-      new THREE.BoxGeometry(1, 1, 1),
-      new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
-    )
-    this.scene.add(this.cameraHelper)
-
-    for (let i = 0; i < 8; i++) {
-      this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
-      this.getPerpendicularXZAxisManually()
-    }
-    this.cameraYAngle = 0
+    this.cameraCtrl.showHelpers()
   }
 
   createSceneSubjects() {
@@ -191,8 +180,8 @@ class SceneManager {
     const height = window.innerHeight
 
     // Update camera
-    this.camera.aspect = width / height
-    this.camera.updateProjectionMatrix()
+    this.cameraCtrl.camera.aspect = width / height
+    this.cameraCtrl.camera.updateProjectionMatrix()
 
     // Update canvas size
     this.renderer.setSize(width, height)
