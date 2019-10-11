@@ -1,18 +1,30 @@
 export default {
-  ANIMATE_CAMERA_SPEED: 1000,
-  RADIUS_CAMERA_Y_ROTATE: 40,
-  RADIUS_CAMERA_Z_ROTATE: 50,
+  ANIMATE_SPEED: 1000,
+  POSITION_Y: 40,
+  POSITION_Z: 50,
   /*
    * ROTATION
    */
-  ROTATION_Y_ANGLE: 45,
-  ROTATION_XZ_ANGLE: 45 / 2,
-  ROTATION_XZ_ANGLE_MIN: 45,
-  ROTATION_XZ_ANGLE_MAX: -46,
+  ROTATION_Y: 45,
+  ROTATION_XZ: 45 / 2,
+  ROTATION_XZ_MIN: 45,
+  ROTATION_XZ_MAX: -46,
   /*
    * ZOOM
    */
   ZOOM_BY: 0.5,
   ZOOM_MAX: 2.5,
-  ZOOM_MIN: 0
+  ZOOM_MIN: 0,
+  /*
+   * CONTROLS
+   */
+  CONTROLS: {
+    MIN: 10,
+    MAX: 500,
+    KEYS: false,
+    PAN: true,
+    ROTATE: false,
+    DAMPING: true,
+    DAMPING_FACTOR: 0.06
+  }
 }

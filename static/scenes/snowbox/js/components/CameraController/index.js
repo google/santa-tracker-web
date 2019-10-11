@@ -8,8 +8,8 @@ import { outQuad } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
-    this.cameraYAngle = 0
-    this.cameraXZAngle = 0
+    this.rotationY = 0
+    this.rotationXZ = 0
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
 
@@ -22,7 +22,7 @@ class CameraController {
     const farPlane = 1000
 
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
-    this.camera.position.set(0, CONFIG.RADIUS_CAMERA_Y_ROTATE, CONFIG.RADIUS_CAMERA_Z_ROTATE)
+    this.camera.position.set(0, CONFIG.POSITION_Y, CONFIG.POSITION_Z)
     this.camera.lookAt(0, 0, 0)
 
     this.buildControls()
@@ -30,14 +30,13 @@ class CameraController {
 
   buildControls() {
     this.controls = new THREE.MapControls(this.camera, this.canvas)
-    this.controls.minDistance = 10
-    this.controls.maxDistance = 500
-    this.controls.enableKeys = false
-    this.controls.enablePan = true
-    this.controls.enableRotate = false
-    this.controls.enableDamping = true
-    this.controls.enabled = true
-    this.controls.dampingFactor = 0.06
+    this.controls.minDistance = CONFIG.CONTROLS.MIN
+    this.controls.maxDistance = CONFIG.CONTROLS.MAX
+    this.controls.enableKeys = CONFIG.CONTROLS.KEYS
+    this.controls.enablePan = CONFIG.CONTROLS.PAN
+    this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
+    this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
+    this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
   }
 
   rotate(direction, terrain) {
@@ -50,38 +49,38 @@ class CameraController {
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = CONFIG.ROTATION_Y_ANGLE
-        this.cameraYAngle += angle
+        angle = CONFIG.ROTATION_Y
+        this.rotationY += angle
         break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = -CONFIG.ROTATION_Y_ANGLE
-        this.cameraYAngle += angle
+        angle = -CONFIG.ROTATION_Y
+        this.rotationY += angle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
-        angle = -CONFIG.ROTATION_XZ_ANGLE
-        if (this.cameraXZAngle + angle <= CONFIG.ROTATION_XZ_ANGLE_MAX) {
+        angle = -CONFIG.ROTATION_XZ
+        if (this.rotationXZ + angle <= CONFIG.ROTATION_XZ_MAX) {
           // don't rotate if reach max
           return false
         }
-        this.cameraXZAngle += angle
+        this.rotationXZ += angle
         break
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
-        angle = CONFIG.ROTATION_XZ_ANGLE
-        if (this.cameraXZAngle + angle >= CONFIG.ROTATION_XZ_ANGLE_MIN) {
+        angle = CONFIG.ROTATION_XZ
+        if (this.rotationXZ + angle >= CONFIG.ROTATION_XZ_MIN) {
           // don't rotate if reach min
           return false
         }
-        this.cameraXZAngle += angle
+        this.rotationXZ += angle
         break
     }
 
     const intersects = this.getLookAtPointOnTerrain(terrain)
 
     lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
-    lookAt.y = 0 // clean up decimals, this value should always be 0
+    lookAt.y = 0 // cleaning up decimals, this value should always be 0
     this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
 
     this.controls.enabled = true
@@ -121,19 +120,19 @@ class CameraController {
     newPos.addVectors(startPos, worldDir.negate().multiplyScalar(distance))
 
     // animate camera position in RAF
-    this.animateCameraTarget = newPos
-    this.animateCameraOrigin = this.camera.position.clone()
-    this.animateCameraStart = getNow()
-    this.animateTo(this.animateCameraStart) // start RAF Animation for this animation
+    this.animateTarget = newPos
+    this.animateOrigin = this.camera.position.clone()
+    this.animateStart = getNow()
+    this.animateTo(this.animateStart) // start RAF Animation for this animation
 
     this.controls.target.set(object.position.x, object.position.y, object.position.z) // final pos
   }
 
   animateTo(now) {
-    const start = this.animateCameraStart
-    const speed = CONFIG.ANIMATE_CAMERA_SPEED
-    const origin = this.animateCameraOrigin
-    const target = this.animateCameraTarget
+    const start = this.animateStart
+    const speed = CONFIG.ANIMATE_SPEED
+    const origin = this.animateOrigin
+    const target = this.animateTarget
     const percent = (now - start) / speed
 
     if (percent < 1) {
@@ -173,7 +172,7 @@ class CameraController {
 
   getPerpendicularXZAxisManually() {
     const finalAxis = new THREE.Vector3(1, 0, 0)
-    finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.cameraYAngle))
+    finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.rotationY))
 
     if (this.debug) this.arrowHelper(finalAxis)
 
@@ -181,18 +180,18 @@ class CameraController {
   }
 
   showHelpers() {
-    // Camera helpers
-    this.cameraHelper = new THREE.Mesh(
+    // helpers
+    this.helper = new THREE.Mesh(
       new THREE.BoxGeometry(1, 1, 1),
       new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
     )
-    this.scene.add(this.cameraHelper)
+    this.scene.add(this.helper)
 
     for (let i = 0; i < 8; i++) {
-      this.cameraYAngle += CONFIG.ROTATION_Y_ANGLE
+      this.rotationY += CONFIG.ROTATION_Y
       this.getPerpendicularXZAxisManually()
     }
-    this.cameraYAngle = 0
+    this.rotationY = 0
   }
 }
 

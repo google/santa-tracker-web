@@ -30,7 +30,7 @@ class SnowglobeGame {
         'mousemove',
         e => {
           e.preventDefault()
-          if (sceneManager.mouseState === 'down' && sceneManager.mode !== 'ghost') {
+          if (sceneManager.mouseState === 'down' && sceneManager.mode === '') {
             sceneManager.setMode('drag')
           }
           sceneManager.onMouseMove(e)
