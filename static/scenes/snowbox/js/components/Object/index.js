@@ -33,8 +33,8 @@ class Object extends EventEmitter {
       this.body.mass = this.mass
       this.body.updateMassProperties()
 
-      if (this.mesh && this.originMaterial) {
-        this.mesh.material = this.originMaterial
+      if (this.mesh && this.defaultMaterial) {
+        this.mesh.material = this.defaultMaterial
       }
 
       if (!this.mesh.visible) {
@@ -108,8 +108,8 @@ class Object extends EventEmitter {
   }
 
   unhighlight() {
-    if (this.mesh && this.originMaterial) {
-      this.mesh.material = this.originMaterial
+    if (this.mesh && this.defaultMaterial) {
+      this.mesh.material = this.defaultMaterial
     }
   }
 

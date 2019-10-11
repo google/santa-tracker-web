@@ -47,9 +47,6 @@ class SceneManager {
     this.zoomMax = 2.5
     this.zoomMin = 0
 
-    this.selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xff00ff })
-    this.highlightMaterial = new THREE.MeshLambertMaterial({ color: 0xc444c4 })
-
     this.initCannon()
     this.buildScene()
     this.buildRender()
@@ -61,7 +58,7 @@ class SceneManager {
     }
 
     this.raycaster = new THREE.Raycaster()
-    this.raycasterCameraRotation = new THREE.Raycaster();
+    this.raycasterCameraRotation = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
     this.moveOffset = {
@@ -73,17 +70,13 @@ class SceneManager {
     this.createSceneSubjects()
     this.createJointBody()
 
-    // Load models
-    this.loadCube(() => {
-      this.modelLoaded = true
-      // models loaded
-      console.log('model loaded')
-    })
-
     // Debug
     if (this.debug) {
       // Camera helpers
-      this.cameraHelper = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshLambertMaterial({color: 0x00ff00, visible: true}))
+      this.cameraHelper = new THREE.Mesh(
+        new THREE.BoxGeometry(1, 1, 1),
+        new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
+      )
       this.scene.add(this.cameraHelper)
 
       for (let i = 0; i < 8; i++) {
@@ -98,32 +91,12 @@ class SceneManager {
     // this.initGui()
   }
 
-  loadCube(callback) {
-    new THREE.MTLLoader()
-      .load( './models/snow_box01.mtl', ( materials ) => {
-
-        materials.preload();
-
-        new THREE.OBJLoader()
-          .setMaterials( materials )
-          .load( './models/snow_box01.obj', ( object ) => {
-
-            this.cubeGeo = object.children[ 0 ].geometry;
-            this.cubeMaterial = object.children[ 0 ].material
-
-            callback()
-
-          } );
-
-      } );
-  }
-
   initGui() {
     const gui = new dat.GUI()
 
     this.guiController = {
       displacementScale: 36,
-      displacementBias: 210,
+      displacementBias: 210
     }
 
     gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
@@ -179,9 +152,9 @@ class SceneManager {
     this.controls.enableKeys = false
     this.controls.enablePan = true
     this.controls.enableRotate = false
-    this.controls.enableDamping = true;
-    this.controls.enabled = true;
-    this.controls.dampingFactor = 0.06;
+    this.controls.enableDamping = true
+    this.controls.enabled = true
+    this.controls.dampingFactor = 0.06
   }
 
   buildHelpers() {
@@ -214,7 +187,6 @@ class SceneManager {
   }
 
   update() {
-    if (!this.modelLoaded) return
     if (this.controls && this.controls.enabled) this.controls.update() // for damping
     this.raycaster.setFromCamera(this.mouse, this.camera)
 
@@ -237,8 +209,8 @@ class SceneManager {
     const height = window.innerHeight
 
     // Update camera
-    this.camera.aspect = width / height;
-    this.camera.updateProjectionMatrix();
+    this.camera.aspect = width / height
+    this.camera.updateProjectionMatrix()
 
     // Update canvas size
     this.renderer.setSize(width, height)
@@ -259,10 +231,12 @@ class SceneManager {
       this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
       this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
 
-      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') { // if not in drag or ghost mode
+      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') {
+        // if not in drag or ghost mode
 
         const hit = this.getNearestObject()
-        if (hit) { // if mode is neutral
+        if (hit) {
+          // if mode is neutral
           const subject = this.getSubjectfromMesh(hit.object)
           this.highlightSubject(subject)
         } else {
@@ -410,7 +384,7 @@ class SceneManager {
     let subject
     switch (shape) {
       case 'cube':
-        subject = new Cube(this.scene, this.world, this.cubeGeo, this.cubeMaterial, this.selectedMaterial, this.highlightMaterial)
+        subject = new Cube(this.scene, this.world)
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world)
@@ -522,26 +496,27 @@ class SceneManager {
   }
 
   rotateCamera(direction) {
-    this.controls.enabled = false;
+    this.controls.enabled = false
     let axis
     let angle
     let lookAt
 
     switch (direction) {
       case 'left':
-        axis = new THREE.Vector3(0,1,0)
+        axis = new THREE.Vector3(0, 1, 0)
         angle = this.rotationYAngle
         this.cameraYAngle += angle
         break
       case 'right':
-        axis = new THREE.Vector3(0,1,0)
+        axis = new THREE.Vector3(0, 1, 0)
         angle = -this.rotationYAngle
         this.cameraYAngle += angle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
         angle = -this.rotationXZAngle
-        if (this.cameraXZAngle + angle <= this.rotationXZAngleMax) { // don't rotate if reach max
+        if (this.cameraXZAngle + angle <= this.rotationXZAngleMax) {
+          // don't rotate if reach max
           this.controls.enabled = true
           return false
         }
@@ -550,7 +525,8 @@ class SceneManager {
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
         angle = this.rotationXZAngle
-        if (this.cameraXZAngle + angle >= this.rotationXZAngleMin) { // don't rotate if reach min
+        if (this.cameraXZAngle + angle >= this.rotationXZAngleMin) {
+          // don't rotate if reach min
           this.controls.enabled = true
           return false
         }
@@ -560,28 +536,27 @@ class SceneManager {
 
     const intersects = this.getCenterPointOnTerrain()
 
-    lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0,0,0)
+    lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     lookAt.y = 0 // clean up decimals, this value should always be 0
 
     this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
 
-    this.controls.enabled = true;
+    this.controls.enabled = true
   }
 
   zoom(direction) {
-
     switch (direction) {
       case 'in':
         if (this.camera.zoom + this.zoomBy >= this.zoomMax) {
           return false
         }
-        this.camera.zoom += this.zoomBy;
+        this.camera.zoom += this.zoomBy
         break
       case 'out':
         if (this.camera.zoom - this.zoomBy <= this.zoomMin) {
           return false
         }
-        this.camera.zoom -= this.zoomBy;
+        this.camera.zoom -= this.zoomBy
         break
     }
 
@@ -593,13 +568,14 @@ class SceneManager {
 
     const intersects = this.getCenterPointOnTerrain()
 
-    const distance = intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
+    const distance =
+      intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
     const startPos = object.position
     startPos.y = 0 // do like the object position was on the ground
     const worldDir = new THREE.Vector3()
     this.camera.getWorldDirection(worldDir)
-    const newPos = new THREE.Vector3();
-    newPos.addVectors ( startPos, worldDir.negate().multiplyScalar( distance ) );
+    const newPos = new THREE.Vector3()
+    newPos.addVectors(startPos, worldDir.negate().multiplyScalar(distance))
 
     // animate camera position in RAF
     this.animateCameraTarget = newPos
@@ -635,14 +611,14 @@ class SceneManager {
     this.camera.getWorldPosition(worldPos)
     const worldDir = new THREE.Vector3()
     this.camera.getWorldDirection(worldDir)
-    this.raycasterCameraRotation.set( worldPos, worldDir );
+    this.raycasterCameraRotation.set(worldPos, worldDir)
 
-    return this.raycasterCameraRotation.intersectObjects( [this.terrain.meshes[0]] )
+    return this.raycasterCameraRotation.intersectObjects([this.terrain.meshes[0]])
   }
 
   getPerpendicularXZAxisManually() {
-    const finalAxis = new THREE.Vector3( 1, 0, 0 );
-    finalAxis.applyAxisAngle( new THREE.Vector3( 0, 1, 0 ), toRadian( this.cameraYAngle ))
+    const finalAxis = new THREE.Vector3(1, 0, 0)
+    finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.cameraYAngle))
 
     if (this.debug) this.arrowHelper(finalAxis)
 
@@ -650,23 +626,23 @@ class SceneManager {
   }
 
   arrowHelper(vector) {
-    var origin = new THREE.Vector3( 0, 0, 0 );
-    var length = 10;
+    var origin = new THREE.Vector3(0, 0, 0)
+    var length = 10
 
-    var arrowHelper = new THREE.ArrowHelper( vector, origin, length, 0x00ff00 );
-    this.scene.add( arrowHelper );
+    var arrowHelper = new THREE.ArrowHelper(vector, origin, length, 0x00ff00)
+    this.scene.add(arrowHelper)
   }
 
   // obj - your object (THREE.Object3D or derived)
   // point - the point of rotation (THREE.Vector3)
   // axis - the axis of rotation (normalized THREE.Vector3)
   // theta - radian value of rotation
-  rotateAboutPoint(obj, point, axis, theta){
-    obj.position.sub(point); // remove the offset
-    obj.position.applyAxisAngle(axis, theta); // rotate the POSITION
-    obj.position.add(point); // re-add the offset
+  rotateAboutPoint(obj, point, axis, theta) {
+    obj.position.sub(point) // remove the offset
+    obj.position.applyAxisAngle(axis, theta) // rotate the POSITION
+    obj.position.add(point) // re-add the offset
 
-    obj.rotateOnAxis(axis, theta); // rotate the OBJECT
+    obj.rotateOnAxis(axis, theta) // rotate the OBJECT
   }
 
   getObjectsList() {
@@ -716,7 +692,7 @@ class SceneManager {
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
 
-    switch(mode) {
+    switch (mode) {
       default:
         this.controls.enabled = true // reset controls
         break

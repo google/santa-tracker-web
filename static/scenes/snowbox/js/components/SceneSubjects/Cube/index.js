@@ -4,16 +4,29 @@ import Obj from '../../Object/index.js'
 // import GLOBAL_CONFIG from '../../SceneManager/config'
 import CONFIG from './config.js'
 
+let cubeGeo, cubeMaterial
+function loadCube() {
+  new THREE.MTLLoader().load('./models/snow_box01.mtl', materials => {
+    materials.preload()
+
+    new THREE.OBJLoader().setMaterials(materials).load('./models/snow_box01.obj', object => {
+      cubeGeo = object.children[0].geometry
+      cubeMaterial = object.children[0].material
+    })
+  })
+}
+loadCube()
+
 class Cube extends Obj {
-  constructor(scene, world, cubeGeo, cubeMaterial, selectedMaterial, highlightMaterial) {
+  constructor(scene, world) {
     // Physics
     super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.originMaterial = cubeMaterial
-    this.selectedMaterial = selectedMaterial
-    this.highlightMaterial = highlightMaterial
+    this.defaultMaterial = cubeMaterial
+    this.selectedMaterial = CONFIG.SELECTED_MATERIAL
+    this.highlightMaterial = CONFIG.HIGHLIGHT_MATERIAL
 
     const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({ mass: this.mass, shape, fixedRotation: false })
@@ -22,7 +35,7 @@ class Cube extends Obj {
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
-    this.mesh.scale.multiplyScalar( 0.0055 ); // related to the model
+    this.mesh.scale.multiplyScalar(0.0055) // related to the model
     this.mesh.position.copy(this.body.position)
 
     scene.add(this.mesh)
