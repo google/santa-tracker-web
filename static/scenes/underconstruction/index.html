@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
+  <link rel="stylesheet" href="underconstruction-scene.css" />
+
+  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
+</head>
+<body>
+
+<div id="module-underconstruction">
+  <main id="main">
+    <div class="title">
+      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker">
+      <h2 class="title__text">See you in <span class="title__month">December</span></h2>
+    </div>
+    <div class="animation animation--backhoe desktop-only"></div>
+    <div class="animation animation--crane"></div>
+    <div class="animation animation--drill desktop-only"></div>
+    <div class="animation animation--snowman"></div>
+    <div class="animation animation--tower"></div>
+    <img class="ropes" src="img/ropes.svg" alt="">
+  </main>
+</div>
+
+<script type="module">
+
+import api from '../../src/scene/api.js';
+
+api.preload.images(
+  'img/background.jpg',
+  'img/ropes.svg',
+  'img/st-logo-horizontal.svg',
+);
+
+api.preload.sounds('village_load_sounds');
+
+const initAnimation = function(key, preserveAspectRatio) {
+  lottie.loadAnimation({
+      container: document.querySelector(`.animation--${key}`),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: `img/animations/${key}.json`,
+      rendererSettings: {
+        className: 'animation__svg',
+        preserveAspectRatio: preserveAspectRatio
+      }
+    });
+}
+
+initAnimation('backhoe', 'xMaxYMax meet');
+initAnimation('crane', 'xMaxYMid meet');
+initAnimation('drill', 'xMidYMin meet');
+initAnimation('snowman', 'xMinYMax meet');
+initAnimation('tower', 'xMidYMid meet');
+
+api.config({
+  sound: ['music_start_village', 'village_start'],
+});
+
+api.ready(async () => {
+  // do nothing
+});
+
+</script>
+
+</body>
+</html>
