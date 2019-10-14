@@ -10,7 +10,7 @@
   <!-- Polyfills only needed for Firefox and Edge. -->
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-  <script src="../../third_party/lib/lottie/lottie.js"></script>
+  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
 </head>
 <body>
 
@@ -32,80 +32,33 @@
 <script type="module">
 
 import api from '../../src/scene/api.js';
-// api.preload.sounds('elfmaker_load_sounds', 40);
 
 api.preload.images(
-  'img/animations/backhoe.json',
-  'img/animations/crane.json',
-  'img/animations/drill.json',
-  'img/animations/snowman.json',
-  'img/animations/tower.json',
   'img/background.jpg',
   'img/ropes.svg',
   'img/st-logo-horizontal.svg',
 );
 
-console.log('hello');
 
-lottie.loadAnimation({
-        container: document.querySelector('.animation--backhoe'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'img/animations/backhoe.json',
-        rendererSettings: {
-          className: 'animation__svg',
-          preserveAspectRatio: 'xMaxYMax meet'
-        }
-      });
+const initAnimation = function(key, preserveAspectRatio) {
+  lottie.loadAnimation({
+      container: document.querySelector(`.animation--${key}`),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: `img/animations/${key}.json`,
+      rendererSettings: {
+        className: 'animation__svg',
+        preserveAspectRatio: preserveAspectRatio
+      }
+    });
+}
 
-lottie.loadAnimation({
-        container: document.querySelector('.animation--crane'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'img/animations/crane.json',
-        rendererSettings: {
-          className: 'animation__svg',
-          preserveAspectRatio: 'xMaxYMid meet'
-        }
-      });
-
-lottie.loadAnimation({
-        container: document.querySelector('.animation--drill'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'img/animations/drill.json',
-        rendererSettings: {
-          className: 'animation__svg',
-          preserveAspectRatio: 'xMidYMin meet'
-        }
-      });
-
-lottie.loadAnimation({
-        container: document.querySelector('.animation--snowman'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'img/animations/snowman.json',
-        rendererSettings: {
-          className: 'animation__svg',
-          preserveAspectRatio: 'xMinYMax meet'
-        }
-      });
-
-lottie.loadAnimation({
-        container: document.querySelector('.animation--tower'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'img/animations/tower.json',
-        rendererSettings: {
-          className: 'animation__svg',
-          preserveAspectRatio: 'xMidYMid meet'
-        }
-      });
+initAnimation('backhoe', 'xMaxYMax meet');
+initAnimation('crane', 'xMaxYMid meet');
+initAnimation('drill', 'xMidYMin meet');
+initAnimation('snowman', 'xMinYMax meet');
+initAnimation('tower', 'xMidYMid meet');
 
 </script>
 
