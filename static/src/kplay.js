@@ -311,9 +311,8 @@ class AudioBus {
     this._input = masterContext.createGain();
     this._output = masterContext.createGain();
 
-    this._originalInputVolume = config['input_vol'] || 1.0;
-    this._originalOutputVolume = config['output_vol'] || 1.0;
-
+    this._originalInputVolume = config['input_vol'] !== undefined ? config['input_vol'] : 1.0;
+    this._originalOutputVolume = config['output_vol'] !== undefined ? config['output_vol'] : 1.0;
     // both mutable
     this._input.gain.value = this._originalInputVolume;
     this._output.gain.value = this._originalOutputVolume;
