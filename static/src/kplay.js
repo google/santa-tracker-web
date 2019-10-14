@@ -311,9 +311,8 @@ class AudioBus {
     this._input = masterContext.createGain();
     this._output = masterContext.createGain();
 
-    this._originalInputVolume = config['input_vol'] || 1.0;
-    this._originalOutputVolume = config['output_vol'] || 1.0;
-
+    this._originalInputVolume = config['input_vol'] !== undefined ? config['input_vol'] : 1.0;
+    this._originalOutputVolume = config['output_vol'] !== undefined ? config['output_vol'] : 1.0;
     // both mutable
     this._input.gain.value = this._originalInputVolume;
     this._output.gain.value = this._originalOutputVolume;
@@ -424,6 +423,13 @@ class AudioGroup extends EventTarget {
       return this._content.slice();
     }
     return [];
+  }
+
+  get latestPlayed() {
+    if (this._active && this._active.playing) {
+      return this._active;
+    }
+    return null;
   }
 
   get playing() {
@@ -1011,20 +1017,6 @@ export async function prepare() {
     return node;
   };
 
-  const prepareKey = (key) => {
-    // get internal name from friendly
-    const entrypoint = config['events'][key] || config['exportedSymbols'][key];
-    if (entrypoint === undefined) {
-      if (typeof key === 'string') {
-        console.debug('audio missing', key);
-        return false;
-      }
-      console.warn('got invalid arg for kplay lookup', key);
-      throw new Error(`invalid type for kplay`);
-    }
-    return internalPrepareKey(entrypoint);
-  };
-
   // If the AudioContext starts 'suspended', ensure that looped audio is resumed at the correct
   // position when its state changes to 'running'.
   if (masterContext.state === 'suspended') {
@@ -1154,7 +1146,9 @@ export async function prepare() {
         return true;
       }
 
-      const e = prepareKey(event);
+      // get internal name from friendly
+      const entrypoint = config['events'][event] || config['exportedSymbols'][event];
+      const e = entrypoint ? internalPrepareKey(entrypoint) : null;
 
       if (e instanceof AudioSource || e instanceof AudioGroup) {
         // Just play the simple audio. This could be a loop.
@@ -1169,8 +1163,12 @@ export async function prepare() {
         }
       }
 
-      console.warn('got unhandled event type', e, 'from request', event);
-      throw new Error(`unhandled event: ${event}`);
+      if (typeof event === 'string') {
+        console.debug('audio missing', event);
+        return false;
+      }
+      console.warn('got invalid arg for kplay lookup', event);
+      throw new Error(`invalid type for kplay`);
     },
 
   };
