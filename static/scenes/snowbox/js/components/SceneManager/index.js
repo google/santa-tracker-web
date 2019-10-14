@@ -10,6 +10,7 @@ import Terrain from '../SceneSubjects/Terrain/index.js'
 
 // Other
 import CameraController from '../CameraController/index.js'
+import { world } from './world.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -74,10 +75,7 @@ class SceneManager {
   }
 
   initCannon() {
-    this.world = new CANNON.World()
-    this.world.gravity.set(0, -10, 0)
-    this.world.broadphase = new CANNON.NaiveBroadphase()
-    this.world.solver.iterations = 10
+    this.world = world
   }
 
   buildScene() {
@@ -214,8 +212,11 @@ class SceneManager {
 
   onButtonClick(id) {
     switch (id) {
-      case 'add-cube':
-        this.addShape('cube')
+      case 'add-snow-cube':
+        this.addShape('cube', 'snow')
+        break
+      case 'add-ice-cube':
+        this.addShape('cube', 'ice')
         break
       case 'add-pyramid':
         this.addShape('pyramid')
@@ -322,16 +323,16 @@ class SceneManager {
     return this.findNearestIntersectingObject(objects)
   }
 
-  addShape(shape) {
+  addShape(shape, material = 'snow') {
     this.setMode('ghost')
 
     let subject
     switch (shape) {
       case 'cube':
-        subject = new Cube(this.scene, this.world)
+        subject = new Cube(this.scene, this.world, material)
         break
       case 'pyramid':
-        subject = new Pyramid(this.scene, this.world)
+        subject = new Pyramid(this.scene, this.world, material)
         break
       case 'glue':
         subject = new Glue(this.scene, this.world)

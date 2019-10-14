@@ -1,6 +1,7 @@
 import Obj from '../../Object/index.js'
 
 // Config
+import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 import { randomIntFromInterval } from '../../../utils/math.js'
 
@@ -24,7 +25,7 @@ class Terrain extends Obj {
   initGround() {
     // Physics
     const shape = new CANNON.Plane()
-    const body = new CANNON.Body({ mass: 0, shape })
+    const body = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
     body.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
     body.position.set(0, 0, 0)
     this.world.addBody(body)
