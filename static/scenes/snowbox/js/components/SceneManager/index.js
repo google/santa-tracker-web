@@ -260,15 +260,20 @@ class SceneManager {
       case 'ArrowLeft':
         this.rotate('left')
         break
+      case 'Escape':
+        this.bindEscape()
+        break
       default:
         break
     }
   }
 
-  unselectObject() {
+  unselectObject(unmove) {
     this.setMode()
 
-    this.selectedSubject.moveToGhost()
+    if (!unmove) {
+      this.selectedSubject.moveToGhost()
+    }
     this.selectedSubject.unselect()
 
     this.terrain.removePositionMarker()
@@ -507,6 +512,23 @@ class SceneManager {
     }
 
     this.mode = mode
+  }
+
+  bindEscape() {
+    if (this.mode === 'ghost' && this.selectedSubject) {
+      if (!this.selectedSubject.mesh.visible) {
+        this.deleteObject()
+        this.setMode()
+        this.terrain.removePositionMarker()
+        this.selectedSubject = null
+      } else {
+        this.unselectObject(true)
+      }
+    }
+  }
+
+  deleteObject() {
+    this.selectedSubject.delete()
   }
 }
 
