@@ -32,7 +32,7 @@ class Terrain extends Obj {
 
     // Graphics
     const geometry = new THREE.PlaneGeometry(CONFIG.PLANE_WIDTH, CONFIG.PLANE_DEPTH, 1, 1)
-    const material = new THREE.MeshLambertMaterial({ color: 0xe94057 })
+    const material = new THREE.MeshLambertMaterial({ color: 0xffffff })
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true
@@ -44,7 +44,7 @@ class Terrain extends Obj {
     // this.scene.add(gridHelper)
 
     const selectedGeometry = new THREE.PlaneGeometry(1, 1)
-    const selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xba3346 })
+    const selectedMaterial = new THREE.MeshLambertMaterial({ color: 0x8cf0ff })
     this.selectedMesh = new THREE.Mesh(selectedGeometry, selectedMaterial)
   }
 
