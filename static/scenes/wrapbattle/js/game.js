@@ -462,6 +462,7 @@ app.Game = class {
     } else {
       //delay level change animation to sync with music
       this.sequencer.onNextBar(() => {
+        this.sequencer.stop(); // stop current track for smoother level music transition
         this.levelUp.show(this.level + 2, this.startNextLevel.bind(this,
           this.level + 1))
       });
