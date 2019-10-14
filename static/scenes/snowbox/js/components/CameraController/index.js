@@ -13,8 +13,6 @@ class CameraController {
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
 
-    this.animateTo = this.animateTo.bind(this)
-
     const { width, height } = screenDimensions
     const aspectRatio = width / height
     const fieldOfView = 10
@@ -103,49 +101,6 @@ class CameraController {
     }
 
     this.camera.updateProjectionMatrix()
-  }
-
-  centerTo(object, terrain) {
-    this.controls.enabled = false
-
-    const intersects = this.getLookAtPointOnTerrain(terrain)
-
-    const distance =
-      intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
-    const startPos = object.position
-    startPos.y = 0 // do like the object position was on the ground
-    const worldDir = new THREE.Vector3()
-    this.camera.getWorldDirection(worldDir)
-    const newPos = new THREE.Vector3()
-    newPos.addVectors(startPos, worldDir.negate().multiplyScalar(distance))
-
-    // animate camera position in RAF
-    this.animateTarget = newPos
-    this.animateOrigin = this.camera.position.clone()
-    this.animateStart = getNow()
-    this.animateTo(this.animateStart) // start RAF Animation for this animation
-
-    this.controls.target.set(object.position.x, object.position.y, object.position.z) // final pos
-  }
-
-  animateTo(now) {
-    const start = this.animateStart
-    const speed = CONFIG.ANIMATE_SPEED
-    const origin = this.animateOrigin
-    const target = this.animateTarget
-    const percent = (now - start) / speed
-
-    if (percent < 1) {
-      this.camera.position.x = origin.x + (target.x - origin.x) * outQuad(percent)
-      this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
-      this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
-
-      this.animateToRAF = window.requestAnimationFrame(this.animateTo)
-    } else {
-      // animation finished
-      window.cancelAnimationFrame(this.animateToRAF)
-      this.controls.enabled = true
-    }
   }
 
   getLookAtPointOnTerrain(terrain) {

@@ -302,7 +302,6 @@ class SceneManager {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
-    if (offset) this.cameraCtrl.centerTo(newSelectedSubject.mesh, this.terrain)
   }
 
   findNearestIntersectingObject(objects) {
