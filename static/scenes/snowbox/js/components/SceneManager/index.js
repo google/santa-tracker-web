@@ -11,6 +11,8 @@ import Terrain from '../SceneSubjects/Terrain/index.js'
 // Other
 import CameraController from '../CameraController/index.js'
 
+import { toRadian } from '../../utils/math.js'
+
 class SceneManager {
   constructor(canvas) {
     this.canvas = canvas
@@ -171,6 +173,10 @@ class SceneManager {
 
     if (this.mergeInProgress) {
       this.merge()
+    }
+
+    if (this.mesh) {
+      this.mesh.rotation.y += toRadian(0.5)
     }
   }
 
