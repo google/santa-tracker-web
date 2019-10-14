@@ -111,6 +111,12 @@ class Object extends EventEmitter {
     this.mesh.material.dispose()
     this.mesh = undefined
     this.world.remove(this.body)
+
+    // remove ghost
+    this.scene.remove(this.ghost)
+    this.ghost.geometry.dispose()
+    this.ghost.material.dispose()
+    this.ghost = undefined
   }
 
   highlight() {

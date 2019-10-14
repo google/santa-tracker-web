@@ -1,6 +1,7 @@
 import Obj from '../../Object/index.js'
 
 // Config
+import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 import { randomIntFromInterval } from '../../../utils/math.js'
 
@@ -24,7 +25,7 @@ class Terrain extends Obj {
   initGround() {
     // Physics
     const shape = new CANNON.Plane()
-    const body = new CANNON.Body({ mass: 0, shape })
+    const body = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
     body.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
     body.position.set(0, 0, 0)
     this.world.addBody(body)
@@ -32,7 +33,7 @@ class Terrain extends Obj {
 
     // Graphics
     const geometry = new THREE.PlaneGeometry(CONFIG.PLANE_WIDTH, CONFIG.PLANE_DEPTH, 1, 1)
-    const material = new THREE.MeshLambertMaterial({ color: 0xe94057, visible: false })
+    const material = new THREE.MeshLambertMaterial({ color: 0xffffff, visible: false })
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true
@@ -44,7 +45,7 @@ class Terrain extends Obj {
     // this.scene.add(gridHelper)
 
     const selectedGeometry = new THREE.PlaneGeometry(1, 1)
-    const selectedMaterial = new THREE.MeshLambertMaterial({ color: 0xba3346 })
+    const selectedMaterial = new THREE.MeshLambertMaterial({ color: 0x8cf0ff })
     this.selectedMesh = new THREE.Mesh(selectedGeometry, selectedMaterial)
   }
 
