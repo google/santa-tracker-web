@@ -32,7 +32,7 @@ class Terrain extends Obj {
 
     // Graphics
     const geometry = new THREE.PlaneGeometry(CONFIG.PLANE_WIDTH, CONFIG.PLANE_DEPTH, 1, 1)
-    const material = new THREE.MeshLambertMaterial({ color: 0xe94057 })
+    const material = new THREE.MeshLambertMaterial({ color: 0xe94057, visible: false })
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true

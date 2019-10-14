@@ -53,7 +53,40 @@ class SceneManager {
 
     this.cameraCtrl.rotate('left', this.terrain)
 
-    // this.initGui()
+    this.initGui()
+
+    const textureLoader = new THREE.TextureLoader()
+
+    const displacementMap = textureLoader.load( './models/displacement03.jpg' )
+
+    new THREE.OBJLoader().load('./models/snow_box01.obj', object => {
+      const cubeGeo = object.children[0].geometry
+      const cubeMaterial = new THREE.MeshPhongMaterial( {
+        color: 0xffffff,
+        shininess: 35,
+        // metalness:
+        // roughness:
+        // map: displacementMap,
+        // normalMap: displacementMap,
+        // normalScale: new THREE.Vector2( 0.8, 0.8 ),
+        // bumpMap: displacementMap,
+        // bumpScale: 1,
+        // displacementMap: displacementMap,
+        // displacementScale: 40,
+        // displacementBias: -23,
+        // specular: 0x222222,
+        // specularMap: displacementMap,
+        flatshading: false,
+      } )
+
+      cubeMaterial.needsUpdate = true
+
+      this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+      this.mesh.scale.multiplyScalar(0.0155) // related to the model
+      this.scene.add(this.mesh)
+      console.log('add cube')
+
+    })
   }
 
   initGui() {
