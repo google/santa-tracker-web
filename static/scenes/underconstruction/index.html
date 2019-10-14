@@ -4,11 +4,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700,800|Lobster|Material+Icons" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
   <link rel="stylesheet" href="underconstruction-scene.css" />
-
-  <!-- Polyfills only needed for Firefox and Edge. -->
-  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
   <script src="../../third_party/lib/lottie/lottie.min.js"></script>
 </head>
@@ -39,6 +36,7 @@ api.preload.images(
   'img/st-logo-horizontal.svg',
 );
 
+api.preload.sounds('village_load_sounds');
 
 const initAnimation = function(key, preserveAspectRatio) {
   lottie.loadAnimation({
@@ -59,6 +57,14 @@ initAnimation('crane', 'xMaxYMid meet');
 initAnimation('drill', 'xMidYMin meet');
 initAnimation('snowman', 'xMinYMax meet');
 initAnimation('tower', 'xMidYMid meet');
+
+api.config({
+  sound: ['music_start_village', 'village_start'],
+});
+
+api.ready(async () => {
+  // do nothing
+});
 
 </script>
 
