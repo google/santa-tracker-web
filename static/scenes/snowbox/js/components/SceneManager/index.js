@@ -71,7 +71,7 @@ class SceneManager {
         // shininess: 35,
         // metalness:
         // roughness:
-        // map: texture,
+        map: texture,
         // normalMap: displacementMap,
         // normalScale: new THREE.Vector2( 0.8, 0.8 ),
         // bumpMap: displacementMap,
@@ -81,33 +81,67 @@ class SceneManager {
         // displacementBias: -23,
         // specular: 0x222222,
         // specularMap: displacementMap,
-        flatshading: false,
-        shading: THREE.SmoothShading
+        // flatshading: true,
+        // shading: THREE.SmoothShading
       } )
-
-      console.log(cubeGeo)
-
-
 
       // cubeMaterial.needsUpdate = true
 
       this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
       this.mesh.scale.multiplyScalar(0.0155) // related to the model
+
+      console.log(cubeGeo, cubeMaterial, this.mesh)
+
       this.scene.add(this.mesh)
-      console.log('add cube')
 
-      setSmoothGeometry(object)
+      // setSmoothGeometry(object)
 
-      function setSmoothGeometry(obj) {
-          obj.traverse(node => {
-              if ('geometry' in node) {
-                  const tempGeometry = new THREE.Geometry().fromBufferGeometry( node.geometry );
-                  tempGeometry.mergeVertices();
-                  tempGeometry.computeVertexNormals();
-                  node.geometry = new THREE.BufferGeometry().fromGeometry( tempGeometry );
-              }
-          })
-      }
+      // function setSmoothGeometry(obj) {
+      //     obj.traverse(node => {
+      //         if ('geometry' in node) {
+      //             const tempGeometry = new THREE.Geometry().fromBufferGeometry( node.geometry );
+      //             tempGeometry.mergeVertices();
+      //             tempGeometry.computeVertexNormals();
+      //             node.geometry = new THREE.BufferGeometry().fromGeometry( tempGeometry );
+      //         }
+      //     })
+      // }
+
+
+      // let cubeGeo, cubeMaterial
+      // function loadCube() {
+      //   new THREE.MTLLoader().load('./models/snow_box02.mtl', materials => {
+      //     materials.preload()
+
+      //     new THREE.OBJLoader().setMaterials(materials).load('./models/snow_box02.obj', object => {
+      //       cubeGeo = object.children[0].geometry
+      //       cubeMaterial = object.children[0].material
+      //     })
+      //   })
+      // }
+      // loadCube()
+
+      // var OBJFile = 'my/mesh.obj';
+      // var MTLFile = 'my/mesh.mtl';
+      // var JPGFile = 'my/texture.jpg';
+
+      // new THREE.MTLLoader()
+      // .load(MTLFile, function (materials) {
+      //     materials.preload();
+      //     new THREE.OBJLoader()
+      //         .setMaterials(materials)
+      //         .load(OBJFile, function (object) {
+      //             object.position.y = - 95;
+      //             var texture = new THREE.TextureLoader().load(JPGFile);
+
+      //             object.traverse(function (child) {   // aka setTexture
+      //                 if (child instanceof THREE.Mesh) {
+      //                     child.material.map = texture;
+      //                 }
+      //             });
+      //             scene.add(object);
+      //         });
+      // });
 
     })
   }
