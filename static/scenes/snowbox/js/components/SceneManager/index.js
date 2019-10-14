@@ -61,15 +61,17 @@ class SceneManager {
     const textureLoader = new THREE.TextureLoader()
 
     const displacementMap = textureLoader.load( './models/displacement03.jpg' )
+    const texture = textureLoader.load( './models/snow.jpg' )
 
     new THREE.OBJLoader().load('./models/snow_box01.obj', object => {
+      // const cubeGeo = new THREE.BoxGeometry(1, 1, 1)
       const cubeGeo = object.children[0].geometry
       const cubeMaterial = new THREE.MeshPhongMaterial( {
         color: 0xffffff,
-        shininess: 35,
+        // shininess: 35,
         // metalness:
         // roughness:
-        // map: displacementMap,
+        // map: texture,
         // normalMap: displacementMap,
         // normalScale: new THREE.Vector2( 0.8, 0.8 ),
         // bumpMap: displacementMap,
@@ -80,14 +82,32 @@ class SceneManager {
         // specular: 0x222222,
         // specularMap: displacementMap,
         flatshading: false,
+        shading: THREE.SmoothShading
       } )
 
-      cubeMaterial.needsUpdate = true
+      console.log(cubeGeo)
+
+
+
+      // cubeMaterial.needsUpdate = true
 
       this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
       this.mesh.scale.multiplyScalar(0.0155) // related to the model
       this.scene.add(this.mesh)
       console.log('add cube')
+
+      setSmoothGeometry(object)
+
+      function setSmoothGeometry(obj) {
+          obj.traverse(node => {
+              if ('geometry' in node) {
+                  const tempGeometry = new THREE.Geometry().fromBufferGeometry( node.geometry );
+                  tempGeometry.mergeVertices();
+                  tempGeometry.computeVertexNormals();
+                  node.geometry = new THREE.BufferGeometry().fromGeometry( tempGeometry );
+              }
+          })
+      }
 
     })
   }
