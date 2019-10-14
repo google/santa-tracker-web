@@ -3,8 +3,6 @@ import CONFIG from './config.js'
 
 // Utils
 import { toRadian } from '../../utils/math.js'
-import { getNow } from '../../utils/time.js'
-import { outQuad } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
