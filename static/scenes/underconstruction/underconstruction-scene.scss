@@ -2,9 +2,7 @@ $name: 'module-underconstruction';
 
 @import "../_shared/sass/button";
 
-$mobile-breakpoint: 768px;
-$animation-base-height: 1600px;
-$animation-base-width: 2354px;
+$mobile-breakpoint: 1100px;
 
 body {
   overflow: hidden;
@@ -28,22 +26,30 @@ body {
     top: 20%;
     width: 100%;
     z-index: 3;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      top: 30%;
+    }
   }
 
   .title__text {
     color: #fff;
     font-size: 48px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 36px;
+      margin: .25em 0 .75em;
+    }
   }
 
   .title__month {
     display: block;
     font-size: 88px;
     line-height: .85;
-  }
 
-  .title__button {
-    font-family: 'Lobster', sans-serif;
-    font-size: 40px;
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 64px;
+    }
   }
 
   .animation {
@@ -62,6 +68,12 @@ body {
       top: -5%;
       width: 40%;
       z-index: 1;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        right: -30%;
+        top: -5%;
+        width: 100%;
+      }
     }
 
     &--drill {
@@ -78,6 +90,12 @@ body {
       height: 80%;
       width: 60%;
       z-index: 2;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        bottom: -6%;
+        left: -21%;
+        width: 180%;
+      }
     }
 
     &--tower {
@@ -85,6 +103,14 @@ body {
       left: -3%;
       top: -28%;
       width: 45%;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        bottom: -80%;
+        height: auto;
+        left: -400px;
+        top: -70%;
+        width: auto;
+      }
     }
 
     &.desktop-only {
