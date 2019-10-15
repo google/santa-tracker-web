@@ -54,7 +54,7 @@ class SceneManager {
 
     this.createSceneSubjects()
 
-    // this.cameraCtrl.rotate('left', this.terrain)
+    this.cameraCtrl.rotate('left', this.terrain)
 
     // this.initGui()
   }
@@ -137,6 +137,7 @@ class SceneManager {
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'ghost' && this.mouseInEdge) {
+      this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
 
@@ -185,34 +186,13 @@ class SceneManager {
         } else {
           this.highlightSubject(false)
         }
-      }
 
-      if (this.mode === 'ghost') {
-        // detect if close to edges
-        const x = event.clientX
-        const y = event.clientY
-
-        if (x < this.edgesSize) {
-          this.mouseInEdge = 'left'
-        } else if (x > this.width - this.edgesSize) {
-          this.mouseInEdge = 'right'
-        } else if (y < this.edgesSize) {
-          this.mouseInEdge = 'top'
-        } else if (y > this.height - this.edgesSize) {
-          this.mouseInEdge = 'bottom'
-        } else {
-          this.mouseInEdge = null
-        }
-      } else {
         this.mouseInEdge = null
-      }
-    }
 
-    if (this.selectedSubject) {
-      this.checkCollision()
-      const pos = this.getCurrentPosOnPlane()
-      this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
-      this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
+      } else if (this.mode === 'ghost') {
+        this.moveSelectedSubject()
+        this.detectMouseInEdge(event)
+      }
     }
   }
 
@@ -486,6 +466,30 @@ class SceneManager {
       .filter(subject => subject.selectable)
       .map(subject => subject.box)
       .filter(box => box)
+  }
+
+  detectMouseInEdge(event) {
+    const x = event.clientX
+    const y = event.clientY
+
+    if (x < this.edgesSize) {
+      this.mouseInEdge = 'left'
+    } else if (x > this.width - this.edgesSize) {
+      this.mouseInEdge = 'right'
+    } else if (y < this.edgesSize) {
+      this.mouseInEdge = 'top'
+    } else if (y > this.height - this.edgesSize) {
+      this.mouseInEdge = 'bottom'
+    } else {
+      this.mouseInEdge = null
+    }
+  }
+
+  moveSelectedSubject() {
+    this.checkCollision()
+    const pos = this.getCurrentPosOnPlane()
+    this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
+    this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
   }
 
   checkCollision() {

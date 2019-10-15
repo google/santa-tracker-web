@@ -18,8 +18,10 @@ class CameraController {
     const farPlane = 1000
 
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
-    this.camera.position.set(0, CONFIG.POSITION_Y, CONFIG.POSITION_Z)
+    this.camera.position.set(0, CONFIG.POSITION.Y, CONFIG.POSITION.Z)
     this.camera.lookAt(0, 0, 0)
+    this.camera.zoom = CONFIG.ZOOM.START
+    this.camera.updateProjectionMatrix()
 
     this.buildControls()
   }
@@ -45,18 +47,18 @@ class CameraController {
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = CONFIG.ROTATION_Y
+        angle = CONFIG.ROTATION.Y
         this.rotationY += angle
         break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = -CONFIG.ROTATION_Y
+        angle = -CONFIG.ROTATION.Y
         this.rotationY += angle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
-        angle = -CONFIG.ROTATION_XZ
-        if (this.rotationXZ + angle <= CONFIG.ROTATION_XZ_MAX) {
+        angle = -CONFIG.ROTATION.XZ
+        if (this.rotationXZ + angle <= CONFIG.ROTATION.XZ_MAX) {
           // don't rotate if reach max
           return false
         }
@@ -64,8 +66,8 @@ class CameraController {
         break
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
-        angle = CONFIG.ROTATION_XZ
-        if (this.rotationXZ + angle >= CONFIG.ROTATION_XZ_MIN) {
+        angle = CONFIG.ROTATION.XZ
+        if (this.rotationXZ + angle >= CONFIG.ROTATION.XZ_MIN) {
           // don't rotate if reach min
           return false
         }
@@ -85,16 +87,16 @@ class CameraController {
   zoom(direction) {
     switch (direction) {
       case 'in':
-        if (this.camera.zoom + CONFIG.ZOOM_BY >= CONFIG.ZOOM_MAX) {
+        if (this.camera.zoom + CONFIG.ZOOM.BY >= CONFIG.ZOOM.MAX) {
           return false
         }
-        this.camera.zoom += CONFIG.ZOOM_BY
+        this.camera.zoom += CONFIG.ZOOM.BY
         break
       case 'out':
-        if (this.camera.zoom - CONFIG.ZOOM_BY <= CONFIG.ZOOM_MIN) {
+        if (this.camera.zoom - CONFIG.ZOOM.BY <= CONFIG.ZOOM.MIN) {
           return false
         }
-        this.camera.zoom -= CONFIG.ZOOM_BY
+        this.camera.zoom -= CONFIG.ZOOM.BY
         break
     }
 
@@ -102,7 +104,7 @@ class CameraController {
   }
 
   moveOnEdges(edge) {
-    const speed = CONFIG.SPEED
+    const speed = CONFIG.EDGES_SPEED
     let x
     let z
     const angle = toRadian(this.rotationY)
@@ -177,7 +179,7 @@ class CameraController {
     this.scene.add(this.helper)
 
     for (let i = 0; i < 8; i++) {
-      this.rotationY += CONFIG.ROTATION_Y
+      this.rotationY += CONFIG.ROTATION.Y
       this.getPerpendicularXZAxisManually()
     }
     this.rotationY = 0
