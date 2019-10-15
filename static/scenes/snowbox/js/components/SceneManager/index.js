@@ -203,6 +203,8 @@ class SceneManager {
         } else {
           this.mouseInEdge = null
         }
+      } else {
+        this.mouseInEdge = null
       }
     }
 

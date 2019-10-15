@@ -3,8 +3,6 @@ import CONFIG from './config.js'
 
 // Utils
 import { toRadian } from '../../utils/math.js'
-import { getNow } from '../../utils/time.js'
-import { outQuad } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -153,10 +151,6 @@ class CameraController {
     obj.position.add(point) // re-add the offset
 
     obj.rotateOnAxis(axis, theta) // rotate the OBJECT
-
-    console.log(this.rotationY)
-    console.log(Math.sin(toRadian(this.rotationY)))
-    console.log(Math.cos(toRadian(this.rotationY)))
   }
 
   getPerpendicularXZAxisManually() {
