@@ -113,7 +113,7 @@ class SceneManager {
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
 
-    this.cameraCtrl.showHelpers()
+    this.cameraCtrl.showHelpers(this.scene)
   }
 
   createSceneSubjects() {
@@ -344,17 +344,18 @@ class SceneManager {
     this.sceneSubjects.push(subject)
     this.selectObject(subject)
     const pos = this.getCurrentPosOnPlane()
-    subject.moveTo(pos.x, 1, pos.z)
-    subject.moveToGhost()
+    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    const y = 0.5 * (subject.box.max.y - subject.box.min.y)
+    subject.moveTo(pos.x, y, pos.z)
+
     this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
   move(direction, noMouseMove) {
     if (this.selectedSubject) {
+      console.log(this.selectedSubject.ghost.position.y)
       this.moveOffset.y =
-        this.selectedSubject.ghost.position.y +
-        (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE) +
-        0.01
+        this.selectedSubject.ghost.position.y + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
         this.onMouseMove()

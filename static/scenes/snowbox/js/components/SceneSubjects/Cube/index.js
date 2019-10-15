@@ -33,15 +33,14 @@ class Cube extends Obj {
       fixedRotation: false,
       material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
-    console.log(this.body)
     this.body.position.set(-CONFIG.SIZE / 2, 100, -CONFIG.SIZE / 2)
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
-    this.mesh.scale.multiplyScalar(0.0055) // related to the model
+    this.mesh.scale.multiplyScalar(0.005) // related to the model
+    this.mesh.updateMatrix()
 
     this.addToScene()
-    this.select()
     // this.body.addEventListener('collide', this.handleCollide.bind(this))
   }
 
