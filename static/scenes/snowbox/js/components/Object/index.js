@@ -58,18 +58,18 @@ class Object extends EventEmitter {
   }
 
   update() {
-    if (this.mesh) {
-      this.mesh.position.copy(this.body.position)
-      this.mesh.quaternion.copy(this.body.quaternion)
+    // if (this.mesh) {
+    //   this.mesh.position.copy(this.body.position)
+    //   this.mesh.quaternion.copy(this.body.quaternion)
 
-      if (this.ghost) {
-        this.ghost.updateMatrixWorld(true)
-        this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-      } else {
-        this.mesh.updateMatrixWorld(true)
-        this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
-      }
-    }
+    //   if (this.ghost) {
+    //     this.ghost.updateMatrixWorld(true)
+    //     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    //   } else {
+    //     this.mesh.updateMatrixWorld(true)
+    //     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+    //   }
+    // }
   }
 
   rotate(axis, angle) {
