@@ -272,7 +272,7 @@ async function release() {
 
   // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
-    const prodScripts = globAll('static/entrypoint.js');
+    const prodScripts = globAll('static/*.js');
     for (const id of prodScripts) {
       staticEntrypoints[`${id}#`] = {
         scriptNode: null,

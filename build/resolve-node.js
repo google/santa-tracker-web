@@ -35,7 +35,12 @@ module.exports = async (importee, importer) => {
     return null;  // not importable
   }
   if (importUtils.alreadyResolved(importee)) {
-    target = path.join(path.dirname(importer), importee);
+    // Check if we're importing in a relative fashion while already inside node_modules.
+    if (path.isAbsolute(importee)) {
+      target = importee;
+    } else {
+      target = path.join(path.dirname(importer), importee);
+    }
 
     const container = await nearestContainingDirectory(target);
     if (container === null || !target.startsWith(path.join(container, 'node_modules'))) {
@@ -52,7 +57,7 @@ module.exports = async (importee, importer) => {
   }
 
   const stat = await statOrNull(target);
-  if (stat === null && path.extname(target) === '') {
+  if (stat === null) {
     // Otherwise, try some possible extensions to see if they are real files.
     for (const ext of ['.js', '.json']) {
       const cand = target + ext;
@@ -60,7 +65,7 @@ module.exports = async (importee, importer) => {
         return cand;
       }
     }
-  } else if (stat && stat.isDirectory()) {
+  } else if (stat.isDirectory()) {
     const cand = path.join(target, 'package.json');
     const packageStat = await statOrNull(cand);
     if (packageStat) {
