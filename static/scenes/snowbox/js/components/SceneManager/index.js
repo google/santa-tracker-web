@@ -19,6 +19,8 @@ class SceneManager {
     this.canvas = canvas
 
     this.handleGui = this.handleGui.bind(this)
+    this.handleMaterialGui = this.handleMaterialGui.bind(this)
+    this.handlePresetsGui = this.handlePresetsGui.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -61,106 +63,136 @@ class SceneManager {
     const textureLoader = new THREE.TextureLoader()
 
     const displacementMap = textureLoader.load( './models/displacement03.jpg' )
+    this.normalMap = textureLoader.load( './models/form1_normal-v3.jpg' )
     const texture = textureLoader.load( './models/snow.jpg' )
 
-    new THREE.OBJLoader().load('./models/snow_box01.obj', object => {
-      // const cubeGeo = new THREE.BoxGeometry(1, 1, 1)
+    new THREE.OBJLoader().load('./models/forme01_quarter-circle_v01.obj', object => {
+
       const cubeGeo = object.children[0].geometry
+      cubeGeo.center()
+      cubeGeo.dynamic = true
       const cubeMaterial = new THREE.MeshPhongMaterial( {
         color: 0xffffff,
-        // shininess: 35,
-        // metalness:
-        // roughness:
-        map: texture,
-        // normalMap: displacementMap,
-        // normalScale: new THREE.Vector2( 0.8, 0.8 ),
-        // bumpMap: displacementMap,
-        // bumpScale: 1,
-        // displacementMap: displacementMap,
-        // displacementScale: 40,
-        // displacementBias: -23,
-        // specular: 0x222222,
-        // specularMap: displacementMap,
-        // flatshading: true,
-        // shading: THREE.SmoothShading
+        shininess: this.guiController.shininess,
+        roughness: this.guiController.roughness,
+        metalness: this.guiController.metalness,
+        normalMap: this.normalMap,
+        // specular: 0xffffff,
+        // specularMap: map,
+        // flatShading: false,
       } )
 
-      // cubeMaterial.needsUpdate = true
+      cubeMaterial.needsUpdate = true
 
       this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
       this.mesh.scale.multiplyScalar(0.0155) // related to the model
 
-      console.log(cubeGeo, cubeMaterial, this.mesh)
-
       this.scene.add(this.mesh)
-
-      // setSmoothGeometry(object)
-
-      // function setSmoothGeometry(obj) {
-      //     obj.traverse(node => {
-      //         if ('geometry' in node) {
-      //             const tempGeometry = new THREE.Geometry().fromBufferGeometry( node.geometry );
-      //             tempGeometry.mergeVertices();
-      //             tempGeometry.computeVertexNormals();
-      //             node.geometry = new THREE.BufferGeometry().fromGeometry( tempGeometry );
-      //         }
-      //     })
-      // }
-
-
-      // let cubeGeo, cubeMaterial
-      // function loadCube() {
-      //   new THREE.MTLLoader().load('./models/snow_box02.mtl', materials => {
-      //     materials.preload()
-
-      //     new THREE.OBJLoader().setMaterials(materials).load('./models/snow_box02.obj', object => {
-      //       cubeGeo = object.children[0].geometry
-      //       cubeMaterial = object.children[0].material
-      //     })
-      //   })
-      // }
-      // loadCube()
-
-      // var OBJFile = 'my/mesh.obj';
-      // var MTLFile = 'my/mesh.mtl';
-      // var JPGFile = 'my/texture.jpg';
-
-      // new THREE.MTLLoader()
-      // .load(MTLFile, function (materials) {
-      //     materials.preload();
-      //     new THREE.OBJLoader()
-      //         .setMaterials(materials)
-      //         .load(OBJFile, function (object) {
-      //             object.position.y = - 95;
-      //             var texture = new THREE.TextureLoader().load(JPGFile);
-
-      //             object.traverse(function (child) {   // aka setTexture
-      //                 if (child instanceof THREE.Mesh) {
-      //                     child.material.map = texture;
-      //                 }
-      //             });
-      //             scene.add(object);
-      //         });
-      // });
-
     })
   }
 
   initGui() {
-    const gui = new dat.GUI()
+    this.gui = new dat.GUI()
 
     this.guiController = {
-      displacementScale: 36,
-      displacementBias: 210
+      lightIntensity: 1,
+      material: 'phong',
+      shininess: 1,
+      roughness: 1,
+      metalness: 1,
+      presets: 1,
     }
 
-    gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
-    gui.add(this.guiController, 'displacementBias', -1000, 1000).onChange(this.handleGui)
+    this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.handleGui)
+    this.guiRoughness = this.gui.add(this.guiController, 'roughness', 0.0, 2.0).onChange(this.handleGui)
+    this.guiShininess = this.gui.add(this.guiController, 'shininess', 0, 100).onChange(this.handleGui)
+    this.gui.add(this.guiController, 'lightIntensity', 0.0, 2.5).onChange(this.handleGui)
+    this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.handleMaterialGui)
+    this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.handlePresetsGui)
+
+    this.guiRoughness.domElement.classList.add('disabled')
+    this.guiMetalness.domElement.classList.add('disabled')
   }
 
   handleGui() {
-    this.mesh.material.displacementScale = this.guiController.displacementScale
-    this.mesh.material.displacementBias = this.guiController.displacementBias
+    this.mesh.material.roughness = this.guiController.roughness
+    this.mesh.material.shininess = this.guiController.shininess
+    this.mesh.material.metalness = this.guiController.metalness
+    this.scene.spotLight.intensity = this.guiController.lightIntensity
+  }
+
+  handleMaterialGui() {
+    this.guiShininess.domElement.classList.remove('disabled')
+    this.guiRoughness.domElement.classList.remove('disabled')
+    this.guiMetalness.domElement.classList.remove('disabled')
+
+    switch(this.guiController.material) {
+      case 'phong':
+        this.mesh.material = new THREE.MeshPhongMaterial()
+        this.guiRoughness.domElement.classList.add('disabled')
+        this.guiMetalness.domElement.classList.add('disabled')
+        break
+      case 'standard':
+        this.mesh.material = new THREE.MeshStandardMaterial()
+        this.guiShininess.domElement.classList.add('disabled')
+        break
+      case 'toon':
+        this.mesh.material = new THREE.MeshToonMaterial()
+        this.guiRoughness.domElement.classList.add('disabled')
+        this.guiMetalness.domElement.classList.add('disabled')
+        break
+    }
+
+    this.updateMaterial()
+  }
+
+  handlePresetsGui() {
+    this.guiShininess.domElement.classList.remove('disabled')
+    this.guiRoughness.domElement.classList.remove('disabled')
+    this.guiMetalness.domElement.classList.remove('disabled')
+
+    switch(this.guiController.presets) {
+      case '1':
+        this.mesh.material = new THREE.MeshPhongMaterial()
+        this.guiRoughness.domElement.classList.add('disabled')
+        this.guiMetalness.domElement.classList.add('disabled')
+        this.guiController.shininess = 865
+        this.guiController.lightIntensity = 0.4
+        this.guiController.material = 'phong'
+        break
+      case '2':
+        this.mesh.material = new THREE.MeshStandardMaterial()
+        this.guiShininess.domElement.classList.add('disabled')
+        this.guiController.roughness = 0.3
+        this.guiController.metalness = 0.3
+        this.guiController.lightIntensity = 0.8
+        this.guiController.material = 'standard'
+        break
+      case '3':
+        this.mesh.material = new THREE.MeshToonMaterial()
+        this.guiRoughness.domElement.classList.add('disabled')
+        this.guiMetalness.domElement.classList.add('disabled')
+        this.guiController.shininess = 345
+        this.guiController.lightIntensity = 0.2
+        this.guiController.material = 'toon'
+        break
+    }
+
+    this.updateMaterial()
+
+    for (var i in this.gui.__controllers) {
+      this.gui.__controllers[i].updateDisplay();
+    }
+  }
+
+  updateMaterial() {
+    this.mesh.material.color = new THREE.Color( 0xffffff )
+    this.mesh.material.shininess = this.guiController.shininess
+    this.mesh.material.roughness = this.guiController.roughness
+    this.mesh.material.metalness = this.guiController.metalness
+    this.mesh.material.normalMap = this.normalMap
+    this.mesh.material.needsUpdate = true
+    this.scene.spotLight.intensity = this.guiController.lightIntensity
   }
 
   initCannon() {
@@ -228,7 +260,7 @@ class SceneManager {
     }
 
     if (this.mesh) {
-      this.mesh.rotation.y += toRadian(0.5)
+      this.mesh.rotation.y += toRadian(0.2)
     }
   }
 
