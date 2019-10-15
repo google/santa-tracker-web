@@ -1,4 +1,7 @@
 
+const oggSupport = (new Audio().canPlayType('audio/ogg'));
+const audioExt = oggSupport ? '.ogg' : '.mp3';
+
 export class AudioLoader {
   constructor(context, audioPath, callback=null) {
     this._context = context;
@@ -10,7 +13,7 @@ export class AudioLoader {
 
   async _internalLoad(file) {
     // TODO: .ogg vs .mp3
-    const url = `${this._audioPath}/${file}.ogg`;
+    const url = `${this._audioPath}/${file}${audioExt}`;
 
     const response = await window.fetch(url);
     if (!response.ok) {
