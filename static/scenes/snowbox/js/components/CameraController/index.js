@@ -25,14 +25,14 @@ class CameraController {
   }
 
   buildControls() {
-    this.controls = new THREE.OrbitControls(this.camera, this.canvas)
+    this.controls = new THREE.MapControls(this.camera, this.canvas)
     this.controls.minDistance = CONFIG.CONTROLS.MIN
     this.controls.maxDistance = CONFIG.CONTROLS.MAX
     this.controls.enableKeys = CONFIG.CONTROLS.KEYS
     this.controls.enablePan = CONFIG.CONTROLS.PAN
-    // this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
-    // this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
-    // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
+    this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
+    this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
+    this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
   }
 
   rotate(direction, terrain) {
