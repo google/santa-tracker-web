@@ -132,13 +132,13 @@ class CameraController {
     return finalAxis
   }
 
-  showHelpers() {
+  showHelpers(scene) {
     // helpers
     this.helper = new THREE.Mesh(
       new THREE.BoxGeometry(1, 1, 1),
       new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
     )
-    this.scene.add(this.helper)
+    scene.add(this.helper)
 
     for (let i = 0; i < 8; i++) {
       this.rotationY += CONFIG.ROTATION_Y
