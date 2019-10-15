@@ -20,7 +20,6 @@ body {
 
   .title {
     font-family: 'Lobster', sans-serif;
-    font-weight: normal;
     position: absolute;
     text-align: center;
     top: 20%;
@@ -32,23 +31,33 @@ body {
     }
   }
 
-  .title__text {
-    color: #fff;
-    font-size: 48px;
+  .title__logo {
+    width: 300px;
 
     @media screen and (max-width: $mobile-breakpoint) {
-      font-size: 36px;
+      width: 240px;
+    }
+  }
+
+  .title__text {
+    color: #fff;
+    font-size: 64px;
+    font-weight: normal;
+    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 56px;
       margin: .25em 0 .75em;
     }
   }
 
   .title__month {
     display: block;
-    font-size: 88px;
+    font-size: 126px;
     line-height: .85;
 
     @media screen and (max-width: $mobile-breakpoint) {
-      font-size: 64px;
+      font-size: 84px;
     }
   }
 
