@@ -16,6 +16,10 @@ export default {
   ZOOM_MAX: 2.5,
   ZOOM_MIN: 0,
   /*
+   * MOVE ON EDGES
+   */
+  SPEED: 0.15,
+  /*
    * CONTROLS
    */
   CONTROLS: {

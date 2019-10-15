@@ -23,8 +23,6 @@ class CameraController {
     this.camera.position.set(0, CONFIG.POSITION_Y, CONFIG.POSITION_Z)
     this.camera.lookAt(0, 0, 0)
 
-    this.animateTo = this.animateTo.bind(this)
-
     this.buildControls()
   }
 
@@ -105,72 +103,34 @@ class CameraController {
     this.camera.updateProjectionMatrix()
   }
 
-  moveTo(direction) {
+  moveOnEdges(edge) {
+    const speed = CONFIG.SPEED
+    let x
+    let z
+    const angle = toRadian(this.rotationY)
 
-    console.log(this.rotationY)
-
-    const coef = 0.1
-    // detect how to get xy position
-    switch(direction) {
-      case 'left':
-        this.camera.position.x -= coef
-        this.camera.position.z -= coef
+    // Get xz position based on current rotationY and edge
+    switch(edge) {
+      case 'top':
+        x = -speed * Math.sin(angle)
+        z = -speed * Math.cos(angle)
         break
       case 'right':
-        this.camera.position.x += coef
-        this.camera.position.z += coef
-        break
-      case 'top':
-        this.camera.position.z -= coef
+        x = speed * Math.cos(angle)
+        z = -speed * Math.sin(angle)
         break
       case 'bottom':
-        this.camera.position.z += coef
+        x = speed * Math.sin(angle)
+        z = speed * Math.cos(angle)
+        break
+      case 'left':
+        x = -speed * Math.cos(angle)
+        z = speed * Math.sin(angle)
         break
     }
-  }
 
-  moveToPointer(startPos, terrain) {
-    this.isOnEdges = true
-    startPos.y = 0 // clear decimals
-
-    const intersects = this.getLookAtPointOnTerrain(terrain)
-
-    const distance =
-      intersects.length > 0 ? intersects[0].distance : this.camera.position.distanceTo(new THREE.Vector3(0, 0, 0))
-
-    const worldDir = new THREE.Vector3()
-    this.camera.getWorldDirection(worldDir)
-    const newPos = new THREE.Vector3()
-    newPos.addVectors(startPos, worldDir.negate().multiplyScalar(distance))
-
-    // animate camera position in RAF
-    this.animateTarget = newPos
-    this.animateOrigin = this.camera.position.clone()
-    this.animateStart = getNow()
-    this.animateTo(this.animateStart) // start RAF Animation for this animation
-
-    this.controls.target.set(startPos.x, startPos.y, startPos.z) // final pos
-  }
-
-  animateTo(now) {
-    const start = this.animateStart
-    const speed = CONFIG.ANIMATE_SPEED
-    const origin = this.animateOrigin
-    const target = this.animateTarget
-    const percent = (now - start) / speed
-
-    if (percent < 1) {
-      this.camera.position.x = origin.x + (target.x - origin.x) * outQuad(percent)
-      this.camera.position.y = origin.y + (target.y - origin.y) * outQuad(percent)
-      this.camera.position.z = origin.z + (target.z - origin.z) * outQuad(percent)
-
-      this.animateToRAF = window.requestAnimationFrame(this.animateTo)
-      console.log('oui')
-    } else {
-      // animation finished
-      this.isOnEdges = false
-      window.cancelAnimationFrame(this.animateToRAF)
-    }
+    this.camera.position.x += x
+    this.camera.position.z += z
   }
 
   getLookAtPointOnTerrain(terrain) {

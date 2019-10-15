@@ -137,7 +137,7 @@ class SceneManager {
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'ghost' && this.mouseInEdge) {
-      this.cameraCtrl.moveTo(this.mouseInEdge)
+      this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
 
     this.renderer.render(this.scene, camera)
