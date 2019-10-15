@@ -133,10 +133,6 @@ class SceneManager {
       this.sceneSubjects[i].update(elapsedTime)
     }
     this.renderer.render(this.scene, camera)
-
-    if (this.mergeInProgress) {
-      this.merge()
-    }
   }
 
   // EVENTS
@@ -340,7 +336,6 @@ class SceneManager {
         break
     }
 
-    subject.addListener('merge', this.initMerge.bind(this))
     this.sceneSubjects.push(subject)
     this.selectObject(subject)
     const pos = this.getCurrentPosOnPlane()
@@ -371,58 +366,8 @@ class SceneManager {
     }
   }
 
-  initMerge(bodyA, bodyB) {
-    // Step 1: Get two objects
-    const objectA = this.getSubjectfromBody(bodyA)
-    const objectB = this.getSubjectfromBody(bodyB)
-
-    // Step 2: Get height of object to be merged
-    const heightIncrease = (bodyA.aabb.upperBound.y - bodyB.aabb.lowerBound.y) / 2
-    this.mergeData = {
-      objectA,
-      objectB,
-      heightIncrease,
-      currentHeightIncrease: 0
-    }
-
-    // Step 3: Init Merging
-    this.mergeInProgress = true
-  }
-
-  getSubjectfromBody(body) {
-    return this.sceneSubjects.find(subject => (subject.body ? subject.body.id === body.id : false))
-  }
-
   getSubjectfromMesh(mesh) {
     return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
-  }
-
-  merge() {
-    this.mergeData.currentHeightIncrease += 0.01
-
-    const { objectA, objectB, currentHeightIncrease, heightIncrease } = this.mergeData
-    const shapeB = objectB.body.shapes[0]
-    shapeB.halfExtents.y += 0.01
-    shapeB.updateBoundingSphereRadius()
-    shapeB.updateConvexPolyhedronRepresentation()
-    objectB.body.updateBoundingRadius()
-    objectB.body.updateMassProperties()
-    objectB.updateMeshFromBody()
-
-    const shapeA = objectA.body.shapes[0]
-    shapeA.halfExtents.y -= 0.01
-    shapeA.updateBoundingSphereRadius()
-    shapeA.updateConvexPolyhedronRepresentation()
-    objectA.body.updateBoundingRadius()
-    objectA.body.updateMassProperties()
-    objectA.updateMeshFromBody()
-
-    // Check if merge completed
-    if (this.mergeData.currentHeightIncrease >= this.mergeData.heightIncrease) {
-      this.mergeInProgress = false
-      objectA.delete()
-      this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== objectA)
-    }
   }
 
   highlightSubject(subject) {

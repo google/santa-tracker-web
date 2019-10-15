@@ -105,8 +105,6 @@ class Object extends EventEmitter {
     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
-  updateMeshFromBody() {}
-
   delete() {
     this.scene.remove(this.mesh)
     this.mesh.geometry.dispose()
