@@ -32,6 +32,8 @@ class SceneManager {
     this.debug = CONFIG.DEBUG
     this.offset = 0
 
+    this.setUnits()
+
     this.initCannon()
     this.buildScene()
     this.buildRender()
@@ -52,7 +54,7 @@ class SceneManager {
 
     this.createSceneSubjects()
 
-    this.cameraCtrl.rotate('left', this.terrain)
+    // this.cameraCtrl.rotate('left', this.terrain)
 
     // this.initGui()
   }
@@ -132,6 +134,12 @@ class SceneManager {
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update(elapsedTime)
     }
+
+    // if we're in ghost mode and the selected object is on edges
+    if (this.mode === 'ghost' && this.mouseInEdge) {
+      this.cameraCtrl.moveTo(this.mouseInEdge)
+    }
+
     this.renderer.render(this.scene, camera)
 
     if (this.mergeInProgress) {
@@ -142,15 +150,13 @@ class SceneManager {
   // EVENTS
 
   onWindowResize() {
-    const width = window.innerWidth
-    const height = window.innerHeight
-
+    this.setUnits()
     // Update camera
-    this.cameraCtrl.camera.aspect = width / height
+    this.cameraCtrl.camera.aspect = this.width / this.height
     this.cameraCtrl.camera.updateProjectionMatrix()
 
     // Update canvas size
-    this.renderer.setSize(width, height)
+    this.renderer.setSize(this.width, this.height)
   }
 
   onKeydown(event) {
@@ -165,8 +171,8 @@ class SceneManager {
 
   onMouseMove(event) {
     if (event) {
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+      this.mouse.x = (event.clientX / this.width) * 2 - 1
+      this.mouse.y = -(event.clientY / this.height) * 2 + 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') {
         // if not in drag or ghost mode
@@ -178,6 +184,24 @@ class SceneManager {
           this.highlightSubject(subject)
         } else {
           this.highlightSubject(false)
+        }
+      }
+
+      if (this.mode === 'ghost') {
+        // detect if close to edges
+        const x = event.clientX
+        const y = event.clientY
+
+        if (x < this.edgesSize) {
+          this.mouseInEdge = 'left'
+        } else if (x > this.width - this.edgesSize) {
+          this.mouseInEdge = 'right'
+        } else if (y < this.edgesSize) {
+          this.mouseInEdge = 'top'
+        } else if (y > this.height - this.edgesSize) {
+          this.mouseInEdge = 'bottom'
+        } else {
+          this.mouseInEdge = null
         }
       }
     }
@@ -270,6 +294,7 @@ class SceneManager {
   }
 
   unselectObject(unmove) {
+    this.cameraCtrl.resetControls(this.terrain)
     this.setMode()
 
     if (!unmove) {
@@ -529,6 +554,13 @@ class SceneManager {
 
   deleteObject() {
     this.selectedSubject.delete()
+  }
+
+  setUnits() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+
+    this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
   }
 }
 

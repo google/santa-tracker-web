@@ -1,5 +1,5 @@
 export default {
-  ANIMATE_SPEED: 1000,
+  ANIMATE_SPEED: 100,
   POSITION_Y: 40,
   POSITION_Z: 50,
   /*

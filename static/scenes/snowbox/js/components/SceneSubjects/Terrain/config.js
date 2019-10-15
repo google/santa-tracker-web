@@ -1,6 +1,6 @@
 export default {
-  PLANE_WIDTH: 100,
-  PLANE_DEPTH: 100,
+  PLANE_WIDTH: 50,
+  PLANE_DEPTH: 50,
   PLANE_HEIGHT: 1,
   CURSOR_RADIUS: 5,
   SELECTABLE: false,
