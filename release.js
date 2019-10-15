@@ -202,6 +202,7 @@ async function release() {
 
   // Shared resources needed by prod build.
   const staticEntrypoints = {};
+  const fallbackEntrypoints = {};
   const requiredScriptSources = new Set();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
@@ -262,6 +263,10 @@ async function release() {
       const id = `${htmlFile}#${count++}`;
       staticEntrypoints[id] = {scriptNode, code};
 
+      // TODO(samthor): Include this code for old browsers. Currently it's just a rolled up generated version.
+      const fallbackId = path.join(path.dirname(htmlFile), 'fallback');
+      fallbackEntrypoints[fallbackId] = {scriptNode: null, code};
+
       // Clear scriptNode.
       scriptNode.textContent = `/* ${id} */`;
       scriptNode.removeAttribute('src');
@@ -272,13 +277,17 @@ async function release() {
 
   // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
-    const prodScripts = globAll('static/*.js');
-    for (const id of prodScripts) {
-      staticEntrypoints[`${id}#`] = {
+    staticEntrypoints['static/entrypoint.js#'] = {
+      scriptNode: null,
+      code: importUtils.staticImport('entrypoint.js'),
+    };
+
+    ['static/fallback.js', 'static/support.js'].forEach((id) => {
+      fallbackEntrypoints[`${id}#`] = {
         scriptNode: null,
         code: importUtils.staticImport(path.basename(id)),
       };
-    }
+    });
 
     // Special-case building the loader, which has no translations and magic.
     const loaderEntrypoints = {
@@ -298,7 +307,7 @@ async function release() {
   log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`);
   log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} entrypoints, merging...`);
 
-  const bundles = await modernBuilder(staticEntrypoints, {
+  const builderOptions = {
     loader: vfs,
     external(id) {
       if (id === 'static/src/magic.js') {
@@ -307,7 +316,15 @@ async function release() {
     },
     workDir: 'static',
     metaUrlScope: config.staticScope,
-  });
+  };
+
+  const bundles = await modernBuilder(staticEntrypoints, builderOptions);
+  const fallbackBundles = await Promise.all(Object.keys(fallbackEntrypoints).map((fallbackKey) => {
+    const localConfig = {[fallbackKey]: fallbackEntrypoints[fallbackKey]};
+    return modernBuilder(localConfig, builderOptions);
+  }));
+  fallbackBundles.forEach((all) => bundles.push(...all));
+
   log(`Generated ${chalk.cyan(bundles.length)} static bundles via Rollup, rewriting...`);
 
   const annotatedBundles = {};
@@ -351,7 +368,7 @@ async function release() {
     }
 
     const {seen, rewrite} = await builder(bundle.code, bundle.fileName);
-    const entrypoint = staticEntrypoints[bundle.facadeModuleId];
+    const entrypoint = staticEntrypoints[bundle.facadeModuleId] || fallbackBundles[bundle.facadeModuleId];
 
     annotatedBundles[bundle.fileName] = {
       entrypoint: entrypoint || null,
