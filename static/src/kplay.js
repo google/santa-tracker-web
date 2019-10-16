@@ -260,12 +260,18 @@ class EffectSteroPanner {
   // EffectBiquadFilter exposes individial AudioParam instances.
 
   constructor(config) {
-    this._panner = masterContext.createStereoPanner();
+    // does not use createStereoPanner, Safari doesn't support it
+    this._panner = masterContext.createPanner();
+    this._panner.panningModel = 'equalpower';
 
     this._originalPan = config['pan'] || 0.0;
-    this._panner.pan.value = this._originalPan;  // mutable
+    this.pan = this._originalPan;
+  }
 
-    this.linPanTo = Util.curveParamLin.bind(null, this._panner.pan);
+  linPanTo(value, duration) {
+    // match 'set pan' but curve value
+    Util.curveParamLin(this._panner.orientationX, value, duration);
+    Util.curveParamLin(this._panner.orientationZ, 1 - Math.abs(value), duration);
   }
 
   reset(duration=0.0) {
@@ -277,11 +283,11 @@ class EffectSteroPanner {
   }
 
   get pan() {
-    return this._panner.pan.value;
+    return this._panner.orientationX.value;
   }
 
   set pan(value) {
-    this._panner.pan.value = value;
+    this._panner.setPosition(value, 0, 1 - Math.abs(value));
   }
 }
 
