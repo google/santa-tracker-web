@@ -9,6 +9,8 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
+import { toRadian } from '../../utils/math.js'
+
 // Other
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
@@ -65,11 +67,11 @@ class SceneManager {
     const textureLoader = new THREE.TextureLoader()
 
     this.shapes = [{
-      model: './models/forme01_quarter-circle_v03.obj',
-      normal: textureLoader.load( './models/forme01_normal-v3-v3.jpg' ),
+      model: './models/shape_02-cube.obj',
+      normal: textureLoader.load( './models/shape_02-cube-normal.jpg' ),
     }, {
-      model: './models/forme01_quarter-circle_v02.obj',
-      normal: textureLoader.load( './models/form1_normal-v3.jpg' ),
+      model: './models/shape_02-cube-deplie.obj',
+      normal: textureLoader.load( './models/shape_02-cube-deplie-normal.jpg' ),
     }]
     this.currentShape = 0
 
@@ -94,7 +96,7 @@ class SceneManager {
       this.mesh = new THREE.Mesh(this.shapes[0].geometry, cubeMaterial)
       this.mesh.scale.multiplyScalar(0.0155) // related to the model
 
-      this.scene.add(this.mesh)
+      // this.scene.add(this.mesh)
     })
 
     new THREE.OBJLoader().load(this.shapes[1].model, object => {
@@ -286,6 +288,10 @@ class SceneManager {
     if (this.mode === 'ghost' && this.mouseInEdge) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
+    }
+
+    if (this.mesh) {
+      this.mesh.rotation.y += toRadian(0.2)
     }
 
     this.renderer.render(this.scene, camera)
