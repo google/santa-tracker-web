@@ -162,6 +162,10 @@ class Object extends EventEmitter {
 
   moveToGhost() {
     const { position, quaternion } = this.ghost
+
+    this.body.velocity.setZero()
+    this.body.angularVelocity.setZero()
+
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
   }

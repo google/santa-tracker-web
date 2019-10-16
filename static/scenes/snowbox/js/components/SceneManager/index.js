@@ -1,5 +1,6 @@
 // Config
 import CONFIG from './config.js'
+import cubeConfig from '../SceneSubjects/Cube/config.js'
 
 // SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
@@ -54,24 +55,21 @@ class SceneManager {
 
     this.cameraCtrl.rotate('left', this.terrain)
 
-    // this.initGui()
+    this.initGui()
   }
 
   initGui() {
     const gui = new dat.GUI()
 
     this.guiController = {
-      displacementScale: 36,
-      displacementBias: 210
+      cubeMass: 20
     }
 
-    gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
-    gui.add(this.guiController, 'displacementBias', -1000, 1000).onChange(this.handleGui)
+    gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.handleGui)
   }
 
   handleGui() {
-    this.mesh.material.displacementScale = this.guiController.displacementScale
-    this.mesh.material.displacementBias = this.guiController.displacementBias
+    cubeConfig.MASS = this.guiController.cubeMass
   }
 
   initCannon() {
