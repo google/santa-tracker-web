@@ -63,80 +63,42 @@ class SceneManager {
 
     const textureLoader = new THREE.TextureLoader()
 
-    const model1 = './models/forme01_quarter-circle_v03.obj'
-    const model2 = './models/forme01_quarter-circle_v02.obj'
+    this.shapes = [{
+      model: './models/forme01_quarter-circle_v03.obj',
+      normal: textureLoader.load( './models/forme01_normal-v3-v3.jpg' ),
+    }, {
+      model: './models/forme01_quarter-circle_v02.obj',
+      normal: textureLoader.load( './models/form1_normal-v3.jpg' ),
+    }]
+    this.currentShape = 0
 
-    this.normalMap1 = textureLoader.load( './models/forme01_normal-v3-v3.jpg' )
-    this.normalMap2 = textureLoader.load( './models/form1_normal-v3.jpg' )
+    // preload objs
+    new THREE.OBJLoader().load(this.shapes[0].model, object => {
+      this.shapes[0].geometry = object.children[0].geometry
+      this.shapes[0].geometry.center()
+      // cubeGeo.dynamic = true
+      const cubeMaterial = new THREE.MeshPhongMaterial( {
+        color: 0xffffff,
+        shininess: this.guiController.shininess,
+        roughness: this.guiController.roughness,
+        metalness: this.guiController.metalness,
+        normalMap: this.shapes[0].normal,
+        // specular: 0xffffff,
+        // specularMap: map,
+        // flatShading: false,
+      } )
 
-    this.normalMap = this.normalMap1
+      cubeMaterial.needsUpdate = true
 
-    // new THREE.OBJLoader().load(model1, object => {
-    //   this.cubeGeo1 = object.children[0].geometry
-    //   this.cubeGeo1.center()
+      this.mesh = new THREE.Mesh(this.shapes[0].geometry, cubeMaterial)
+      this.mesh.scale.multiplyScalar(0.0155) // related to the model
 
-    //   this.cubeGeo = this.cubeGeo1
-    //   // cubeGeo.dynamic = true
-    //   const cubeMaterial = new THREE.MeshPhongMaterial( {
-    //     color: 0xffffff,
-    //     shininess: this.guiController.shininess,
-    //     roughness: this.guiController.roughness,
-    //     metalness: this.guiController.metalness,
-    //     normalMap: this.normalMap,
-    //     // specular: 0xffffff,
-    //     // specularMap: map,
-    //     // flatShading: false,
-    //   } )
+      this.scene.add(this.mesh)
+    })
 
-    //   cubeMaterial.needsUpdate = true
-
-    //   this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
-    //   this.mesh.scale.multiplyScalar(0.0155) // related to the model
-
-    //   this.scene.add(this.mesh)
-    // })
-
-    new THREE.GLTFLoader().load( './models/forme1_quarter-circle.glb', ( gltf ) => {
-
-      console.log(gltf)
-
-      gltf.scene.traverse( ( child ) => {
-
-        if ( child.isMesh ) {
-
-          console.log(child)
-
-          this.cubeGeo = child.geometry
-          this.cubeGeo.center()
-
-          const cubeMaterial = new THREE.MeshPhongMaterial( {
-            color: 0xffffff,
-            shininess: this.guiController.shininess,
-            roughness: this.guiController.roughness,
-            metalness: this.guiController.metalness,
-            normalMap: this.normalMap,
-            // specular: 0xffffff,
-            // specularMap: map,
-            // flatShading: false,
-          } )
-
-          cubeMaterial.needsUpdate = true
-
-          this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
-          this.mesh.scale.multiplyScalar(0.0155) // related to the model
-
-          this.scene.add(this.mesh)
-        }
-
-      } );
-
-
-
-    } );
-
-    new THREE.OBJLoader().load(model2, object => {
-      this.cubeGeo2 = object.children[0].geometry
-      this.cubeGeo2.center()
+    new THREE.OBJLoader().load(this.shapes[1].model, object => {
+      this.shapes[1].geometry = object.children[0].geometry
+      this.shapes[1].geometry.center()
     })
   }
 
@@ -237,18 +199,11 @@ class SceneManager {
   }
 
   handleShapesGui() {
-    switch (this.guiController.shapes) {
-      case '1':
-        this.mesh.geometry = this.cubeGeo1
-        this.normalMap = this.normalMap1
-        break
-      case '2':
-        this.mesh.geometry = this.cubeGeo2
-        this.normalMap = this.normalMap2
-        break
-    }
+    const index = parseInt(this.guiController.shapes) - 1
+    this.mesh.geometry = this.shapes[index].geometry
+    this.currentShape = index
 
-    this.mesh.material.normalMap = this.normalMap
+    this.updateMaterial()
   }
 
   updateMaterial() {
@@ -256,7 +211,7 @@ class SceneManager {
     this.mesh.material.shininess = this.guiController.shininess
     this.mesh.material.roughness = this.guiController.roughness
     this.mesh.material.metalness = this.guiController.metalness
-    this.mesh.material.normalMap = this.normalMap
+    this.mesh.material.normalMap = this.shapes[this.currentShape].normal
     this.mesh.material.needsUpdate = true
     this.scene.spotLight.intensity = this.guiController.lightIntensity
   }
