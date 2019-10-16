@@ -170,13 +170,13 @@ class CameraController {
     this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
   }
 
-  showHelpers() {
+  showHelpers(scene) {
     // helpers
     this.helper = new THREE.Mesh(
       new THREE.BoxGeometry(1, 1, 1),
       new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
     )
-    this.scene.add(this.helper)
+    scene.add(this.helper)
 
     for (let i = 0; i < 8; i++) {
       this.rotationY += CONFIG.ROTATION.Y

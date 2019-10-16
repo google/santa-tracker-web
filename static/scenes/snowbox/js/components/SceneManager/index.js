@@ -1,5 +1,6 @@
 // Config
 import CONFIG from './config.js'
+import cubeConfig from '../SceneSubjects/Cube/config.js'
 
 // SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
@@ -56,24 +57,21 @@ class SceneManager {
 
     this.cameraCtrl.rotate('left', this.terrain)
 
-    // this.initGui()
+    this.initGui()
   }
 
   initGui() {
     const gui = new dat.GUI()
 
     this.guiController = {
-      displacementScale: 36,
-      displacementBias: 210
+      cubeMass: 20
     }
 
-    gui.add(this.guiController, 'displacementScale', -1000, 1000).onChange(this.handleGui)
-    gui.add(this.guiController, 'displacementBias', -1000, 1000).onChange(this.handleGui)
+    gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.handleGui)
   }
 
   handleGui() {
-    this.mesh.material.displacementScale = this.guiController.displacementScale
-    this.mesh.material.displacementBias = this.guiController.displacementBias
+    cubeConfig.MASS = this.guiController.cubeMass
   }
 
   initCannon() {
@@ -115,7 +113,7 @@ class SceneManager {
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
 
-    this.cameraCtrl.showHelpers()
+    this.cameraCtrl.showHelpers(this.scene)
   }
 
   createSceneSubjects() {
@@ -142,10 +140,6 @@ class SceneManager {
     }
 
     this.renderer.render(this.scene, camera)
-
-    if (this.mergeInProgress) {
-      this.merge()
-    }
   }
 
   // EVENTS
@@ -347,21 +341,20 @@ class SceneManager {
         break
     }
 
-    subject.addListener('merge', this.initMerge.bind(this))
     this.sceneSubjects.push(subject)
     this.selectObject(subject)
     const pos = this.getCurrentPosOnPlane()
-    subject.moveTo(pos.x, 1, pos.z)
-    subject.moveToGhost()
+    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    const y = 0.5 * (subject.box.max.y - subject.box.min.y)
+    subject.moveTo(pos.x, y, pos.z)
+
     this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
-  move(direction, noMouseMove) {
+  move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
     if (this.selectedSubject) {
-      this.moveOffset.y =
-        this.selectedSubject.ghost.position.y +
-        (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE) +
-        0.01
+      console.log(this.selectedSubject.ghost.position.y)
+      this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
         this.onMouseMove()
@@ -377,58 +370,8 @@ class SceneManager {
     }
   }
 
-  initMerge(bodyA, bodyB) {
-    // Step 1: Get two objects
-    const objectA = this.getSubjectfromBody(bodyA)
-    const objectB = this.getSubjectfromBody(bodyB)
-
-    // Step 2: Get height of object to be merged
-    const heightIncrease = (bodyA.aabb.upperBound.y - bodyB.aabb.lowerBound.y) / 2
-    this.mergeData = {
-      objectA,
-      objectB,
-      heightIncrease,
-      currentHeightIncrease: 0
-    }
-
-    // Step 3: Init Merging
-    this.mergeInProgress = true
-  }
-
-  getSubjectfromBody(body) {
-    return this.sceneSubjects.find(subject => (subject.body ? subject.body.id === body.id : false))
-  }
-
   getSubjectfromMesh(mesh) {
     return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
-  }
-
-  merge() {
-    this.mergeData.currentHeightIncrease += 0.01
-
-    const { objectA, objectB, currentHeightIncrease, heightIncrease } = this.mergeData
-    const shapeB = objectB.body.shapes[0]
-    shapeB.halfExtents.y += 0.01
-    shapeB.updateBoundingSphereRadius()
-    shapeB.updateConvexPolyhedronRepresentation()
-    objectB.body.updateBoundingRadius()
-    objectB.body.updateMassProperties()
-    objectB.updateMeshFromBody()
-
-    const shapeA = objectA.body.shapes[0]
-    shapeA.halfExtents.y -= 0.01
-    shapeA.updateBoundingSphereRadius()
-    shapeA.updateConvexPolyhedronRepresentation()
-    objectA.body.updateBoundingRadius()
-    objectA.body.updateMassProperties()
-    objectA.updateMeshFromBody()
-
-    // Check if merge completed
-    if (this.mergeData.currentHeightIncrease >= this.mergeData.heightIncrease) {
-      this.mergeInProgress = false
-      objectA.delete()
-      this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== objectA)
-    }
   }
 
   highlightSubject(subject) {
@@ -500,6 +443,7 @@ class SceneManager {
     fakeBox.min.y -= CONFIG.ELEVATE_SCALE
     let moveDown = true
     let moveUp = false
+    let elevateScale
 
     if (boxes.length > 0) {
       for (let index = 0; index < boxes.length; index++) {
@@ -507,6 +451,7 @@ class SceneManager {
 
         if (box.intersectsBox(boxItem)) {
           moveUp = true
+          elevateScale = boxItem.max.y - box.min.y + 0.01
           break
         } else if (fakeBox.intersectsBox(boxItem)) {
           moveDown = false
@@ -515,7 +460,7 @@ class SceneManager {
     }
 
     if (moveUp) {
-      this.move('up', true)
+      this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
