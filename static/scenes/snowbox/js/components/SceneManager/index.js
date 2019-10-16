@@ -344,11 +344,10 @@ class SceneManager {
     this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
-  move(direction, noMouseMove) {
+  move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
     if (this.selectedSubject) {
       console.log(this.selectedSubject.ghost.position.y)
-      this.moveOffset.y =
-        this.selectedSubject.ghost.position.y + (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE)
+      this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
         this.onMouseMove()
@@ -413,6 +412,7 @@ class SceneManager {
     fakeBox.min.y -= CONFIG.ELEVATE_SCALE
     let moveDown = true
     let moveUp = false
+    let elevateScale
 
     if (boxes.length > 0) {
       for (let index = 0; index < boxes.length; index++) {
@@ -420,6 +420,7 @@ class SceneManager {
 
         if (box.intersectsBox(boxItem)) {
           moveUp = true
+          elevateScale = boxItem.max.y - box.min.y + 0.01
           break
         } else if (fakeBox.intersectsBox(boxItem)) {
           moveDown = false
@@ -428,7 +429,7 @@ class SceneManager {
     }
 
     if (moveUp) {
-      this.move('up', true)
+      this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
