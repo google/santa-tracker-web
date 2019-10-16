@@ -66,12 +66,12 @@ class Object extends EventEmitter {
       if (this.ghost) {
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-        if (GLOBAL_CONFIG.DEBUG) {
-          this.ghostHelper.update()
-        }
       } else {
         this.mesh.updateMatrixWorld(true)
         this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+      }
+      if (GLOBAL_CONFIG.DEBUG) {
+        this.ghostHelper.update()
       }
     }
   }
@@ -142,6 +142,8 @@ class Object extends EventEmitter {
     this.ghost.geometry.computeBoundingBox()
 
     if (GLOBAL_CONFIG.DEBUG) {
+      this.scene.remove(this.ghostHelper)
+      this.ghostHelper = undefined
       this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
       this.scene.add(this.ghostHelper)
     }
@@ -156,7 +158,10 @@ class Object extends EventEmitter {
     }
 
     if (GLOBAL_CONFIG.DEBUG) {
-      this.ghostHelper.update()
+      this.scene.remove(this.ghostHelper)
+      this.ghostHelper = undefined
+      this.ghostHelper = new THREE.BoxHelper(this.mesh, 0x00ff00)
+      this.scene.add(this.ghostHelper)
     }
   }
 
