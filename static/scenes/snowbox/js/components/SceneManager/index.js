@@ -71,30 +71,68 @@ class SceneManager {
 
     this.normalMap = this.normalMap1
 
-    new THREE.OBJLoader().load(model1, object => {
-      this.cubeGeo1 = object.children[0].geometry
-      this.cubeGeo1.center()
+    // new THREE.OBJLoader().load(model1, object => {
+    //   this.cubeGeo1 = object.children[0].geometry
+    //   this.cubeGeo1.center()
 
-      this.cubeGeo = this.cubeGeo1
-      // cubeGeo.dynamic = true
-      const cubeMaterial = new THREE.MeshPhongMaterial( {
-        color: 0xffffff,
-        shininess: this.guiController.shininess,
-        roughness: this.guiController.roughness,
-        metalness: this.guiController.metalness,
-        normalMap: this.normalMap,
-        // specular: 0xffffff,
-        // specularMap: map,
-        // flatShading: false,
-      } )
+    //   this.cubeGeo = this.cubeGeo1
+    //   // cubeGeo.dynamic = true
+    //   const cubeMaterial = new THREE.MeshPhongMaterial( {
+    //     color: 0xffffff,
+    //     shininess: this.guiController.shininess,
+    //     roughness: this.guiController.roughness,
+    //     metalness: this.guiController.metalness,
+    //     normalMap: this.normalMap,
+    //     // specular: 0xffffff,
+    //     // specularMap: map,
+    //     // flatShading: false,
+    //   } )
 
-      cubeMaterial.needsUpdate = true
+    //   cubeMaterial.needsUpdate = true
 
-      this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
-      this.mesh.scale.multiplyScalar(0.0155) // related to the model
+    //   this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
+    //   this.mesh.scale.multiplyScalar(0.0155) // related to the model
 
-      this.scene.add(this.mesh)
-    })
+    //   this.scene.add(this.mesh)
+    // })
+
+    new THREE.GLTFLoader().load( './models/forme1_quarter-circle.glb', ( gltf ) => {
+
+      console.log(gltf)
+
+      gltf.scene.traverse( ( child ) => {
+
+        if ( child.isMesh ) {
+
+          console.log(child)
+
+          this.cubeGeo = child.geometry
+          this.cubeGeo.center()
+
+          const cubeMaterial = new THREE.MeshPhongMaterial( {
+            color: 0xffffff,
+            shininess: this.guiController.shininess,
+            roughness: this.guiController.roughness,
+            metalness: this.guiController.metalness,
+            normalMap: this.normalMap,
+            // specular: 0xffffff,
+            // specularMap: map,
+            // flatShading: false,
+          } )
+
+          cubeMaterial.needsUpdate = true
+
+          this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
+          this.mesh.scale.multiplyScalar(0.0155) // related to the model
+
+          this.scene.add(this.mesh)
+        }
+
+      } );
+
+
+
+    } );
 
     new THREE.OBJLoader().load(model2, object => {
       this.cubeGeo2 = object.children[0].geometry
