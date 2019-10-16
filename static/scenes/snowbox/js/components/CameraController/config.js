@@ -12,6 +12,7 @@ export default {
     XZ: 45 / 2,
     XZ_MIN: 45,
     XZ_MAX: -46,
+    TIME: 30, // incrementing time based on RAF
   },
   /*
    * ZOOM

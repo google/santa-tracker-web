@@ -38,50 +38,67 @@ class CameraController {
   }
 
   rotate(direction, terrain) {
+    if (this.isRotating) return
     this.controls.enabled = false
 
     let axis
-    let angle
+    let targetAngle
     let lookAt
 
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = CONFIG.ROTATION.Y
-        this.rotationY += angle
+        targetAngle = CONFIG.ROTATION.Y
+        this.rotationY += targetAngle
         break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
-        angle = -CONFIG.ROTATION.Y
-        this.rotationY += angle
+        targetAngle = -CONFIG.ROTATION.Y
+        this.rotationY += targetAngle
         break
       case 'top':
         axis = this.getPerpendicularXZAxisManually()
-        angle = -CONFIG.ROTATION.XZ
-        if (this.rotationXZ + angle <= CONFIG.ROTATION.XZ_MAX) {
+        targetAngle = -CONFIG.ROTATION.XZ
+        if (this.rotationXZ + targetAngle <= CONFIG.ROTATION.XZ_MAX) {
           // don't rotate if reach max
           return false
         }
-        this.rotationXZ += angle
+        this.rotationXZ += targetAngle
         break
       case 'bottom':
         axis = this.getPerpendicularXZAxisManually()
-        angle = CONFIG.ROTATION.XZ
-        if (this.rotationXZ + angle >= CONFIG.ROTATION.XZ_MIN) {
+        targetAngle = CONFIG.ROTATION.XZ
+        if (this.rotationXZ + targetAngle >= CONFIG.ROTATION.XZ_MIN) {
           // don't rotate if reach min
           return false
         }
-        this.rotationXZ += angle
+        this.rotationXZ += targetAngle
         break
     }
 
+    // get look at point
     const intersects = this.getLookAtPointOnTerrain(terrain)
-
     lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     lookAt.y = 0 // cleaning up decimals, this value should always be 0
-    this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(angle))
 
-    this.controls.enabled = true
+    // increment value for animation
+    const incrAngle = targetAngle / CONFIG.ROTATION.TIME
+    const incrAngleRadian = toRadian(incrAngle)
+    let progressAngle = 0
+    this.isRotating = true
+
+    const animate = () => {
+      progressAngle += incrAngle
+      this.rotateAboutPoint(this.camera, lookAt, axis, incrAngleRadian)
+
+      if (progressAngle.toFixed(2) !== targetAngle.toFixed(2)) {
+        this.animateRotateRAF = window.requestAnimationFrame(animate)
+      } else {
+        this.isRotating = false
+        window.cancelAnimationFrame(this.animateRotateRAF)
+      }
+    }
+    animate()
   }
 
   zoom(direction) {
@@ -153,13 +170,14 @@ class CameraController {
     obj.position.add(point) // re-add the offset
 
     obj.rotateOnAxis(axis, theta) // rotate the OBJECT
+    obj.lookAt(point)
   }
 
   getPerpendicularXZAxisManually() {
     const finalAxis = new THREE.Vector3(1, 0, 0)
     finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.rotationY))
 
-    if (this.debug) this.arrowHelper(finalAxis)
+    // this.arrowHelper(finalAxis)
 
     return finalAxis
   }
@@ -172,17 +190,14 @@ class CameraController {
 
   showHelpers(scene) {
     // helpers
-    this.helper = new THREE.Mesh(
-      new THREE.BoxGeometry(1, 1, 1),
-      new THREE.MeshLambertMaterial({ color: 0x00ff00, visible: true })
-    )
-    scene.add(this.helper)
+  }
 
-    for (let i = 0; i < 8; i++) {
-      this.rotationY += CONFIG.ROTATION.Y
-      this.getPerpendicularXZAxisManually()
-    }
-    this.rotationY = 0
+  arrowHelper(vector) {
+    var origin = new THREE.Vector3(0, 0, 0)
+    var length = 10
+
+    var arrowHelper = new THREE.ArrowHelper(vector, origin, length, 0x00ff00)
+    this.scene.add(arrowHelper)
   }
 }
 

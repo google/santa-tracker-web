@@ -263,8 +263,6 @@ class SceneManager {
     this.scene.add(arrowHelper)
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
-
-    this.cameraCtrl.showHelpers(this.scene)
   }
 
   createSceneSubjects() {
@@ -540,16 +538,8 @@ class SceneManager {
       this.setMode('highlight')
     } else {
       this.highlightedSubject = null
-      this.setMode()
+      if (!this.cameraCtrl.isRotating) this.setMode()
     }
-  }
-
-  arrowHelper(vector) {
-    var origin = new THREE.Vector3(0, 0, 0)
-    var length = 10
-
-    var arrowHelper = new THREE.ArrowHelper(vector, origin, length, 0x00ff00)
-    this.scene.add(arrowHelper)
   }
 
   getObjectsList() {
