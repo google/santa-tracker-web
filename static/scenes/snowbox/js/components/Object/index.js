@@ -1,3 +1,4 @@
+import GLOBAL_CONFIG from '../SceneManager/config.js'
 import CONFIG from './config.js'
 import { EventEmitter } from '../../event-emitter.js'
 
@@ -20,8 +21,9 @@ class Object extends EventEmitter {
     this.scene.add(this.mesh)
 
     this.mesh.geometry.computeBoundingBox()
+    this.mesh.matrixWorldNeedsUpdate = true
     this.box = this.mesh.geometry.boundingBox.clone()
-
+    this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
     this.mesh.visible = false
   }
 
@@ -58,18 +60,20 @@ class Object extends EventEmitter {
   }
 
   update() {
-    // if (this.mesh) {
-    //   this.mesh.position.copy(this.body.position)
-    //   this.mesh.quaternion.copy(this.body.quaternion)
-
-    //   if (this.ghost) {
-    //     this.ghost.updateMatrixWorld(true)
-    //     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-    //   } else {
-    //     this.mesh.updateMatrixWorld(true)
-    //     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
-    //   }
-    // }
+    if (this.mesh) {
+      this.mesh.position.copy(this.body.position)
+      this.mesh.quaternion.copy(this.body.quaternion)
+      if (this.ghost) {
+        this.ghost.updateMatrixWorld(true)
+        this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+      } else {
+        this.mesh.updateMatrixWorld(true)
+        this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+      }
+      if (GLOBAL_CONFIG.DEBUG) {
+        this.ghostHelper.update()
+      }
+    }
   }
 
   rotate(axis, angle) {
@@ -95,15 +99,11 @@ class Object extends EventEmitter {
       z = zNew
     }
 
-    // console.log('move ghost', x, y, z)
-
     this.ghost.position.set(x, y, z)
 
     this.ghost.updateMatrixWorld(true)
     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
-
-  updateMeshFromBody() {}
 
   delete() {
     this.scene.remove(this.mesh)
@@ -140,6 +140,13 @@ class Object extends EventEmitter {
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
+
+    if (GLOBAL_CONFIG.DEBUG) {
+      this.scene.remove(this.ghostHelper)
+      this.ghostHelper = undefined
+      this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
+      this.scene.add(this.ghostHelper)
+    }
   }
 
   deleteGhost() {
@@ -149,10 +156,21 @@ class Object extends EventEmitter {
       this.ghost.material.dispose()
       this.ghost = undefined
     }
+
+    if (GLOBAL_CONFIG.DEBUG) {
+      this.scene.remove(this.ghostHelper)
+      this.ghostHelper = undefined
+      this.ghostHelper = new THREE.BoxHelper(this.mesh, 0x00ff00)
+      this.scene.add(this.ghostHelper)
+    }
   }
 
   moveToGhost() {
     const { position, quaternion } = this.ghost
+
+    this.body.velocity.setZero()
+    this.body.angularVelocity.setZero()
+
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
   }

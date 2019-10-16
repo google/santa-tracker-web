@@ -1,5 +1,6 @@
 // Config
 import CONFIG from './config.js'
+import cubeConfig from '../SceneSubjects/Cube/config.js'
 
 // SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
@@ -11,8 +12,6 @@ import Terrain from '../SceneSubjects/Terrain/index.js'
 // Other
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
-
-import { toRadian } from '../../utils/math.js'
 
 class SceneManager {
   constructor(canvas) {
@@ -36,6 +35,8 @@ class SceneManager {
 
     this.debug = CONFIG.DEBUG
     this.offset = 0
+
+    this.setUnits()
 
     this.initCannon()
     this.buildScene()
@@ -113,6 +114,7 @@ class SceneManager {
       metalness: 1,
       presets: 1,
       shapes: 1,
+      cubeMass: 20,
     }
 
     this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.handleGui)
@@ -122,12 +124,17 @@ class SceneManager {
     this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.handleMaterialGui)
     this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.handlePresetsGui)
     this.gui.add(this.guiController, 'shapes', [1, 2]).onChange(this.handleShapesGui)
+    this.gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.handleGui)
+
 
     this.guiRoughness.domElement.classList.add('disabled')
     this.guiMetalness.domElement.classList.add('disabled')
+
   }
 
+
   handleGui() {
+    cubeConfig.MASS = this.guiController.cubeMass
     this.mesh.material.roughness = this.guiController.roughness
     this.mesh.material.shininess = this.guiController.shininess
     this.mesh.material.metalness = this.guiController.metalness
@@ -255,7 +262,7 @@ class SceneManager {
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
 
-    this.cameraCtrl.showHelpers()
+    this.cameraCtrl.showHelpers(this.scene)
   }
 
   createSceneSubjects() {
@@ -274,29 +281,26 @@ class SceneManager {
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update(elapsedTime)
     }
+
+    // if we're in ghost mode and the selected object is on edges
+    if (this.mode === 'ghost' && this.mouseInEdge) {
+      this.moveSelectedSubject()
+      this.cameraCtrl.moveOnEdges(this.mouseInEdge)
+    }
+
     this.renderer.render(this.scene, camera)
-
-    if (this.mergeInProgress) {
-      this.merge()
-    }
-
-    if (this.mesh) {
-      this.mesh.rotation.y += toRadian(0.2)
-    }
   }
 
   // EVENTS
 
   onWindowResize() {
-    const width = window.innerWidth
-    const height = window.innerHeight
-
+    this.setUnits()
     // Update camera
-    this.cameraCtrl.camera.aspect = width / height
+    this.cameraCtrl.camera.aspect = this.width / this.height
     this.cameraCtrl.camera.updateProjectionMatrix()
 
     // Update canvas size
-    this.renderer.setSize(width, height)
+    this.renderer.setSize(this.width, this.height)
   }
 
   onKeydown(event) {
@@ -311,8 +315,8 @@ class SceneManager {
 
   onMouseMove(event) {
     if (event) {
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+      this.mouse.x = (event.clientX / this.width) * 2 - 1
+      this.mouse.y = -(event.clientY / this.height) * 2 + 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') {
         // if not in drag or ghost mode
@@ -325,14 +329,13 @@ class SceneManager {
         } else {
           this.highlightSubject(false)
         }
-      }
-    }
 
-    if (this.selectedSubject) {
-      this.checkCollision()
-      const pos = this.getCurrentPosOnPlane()
-      this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
-      this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
+        this.mouseInEdge = null
+
+      } else if (this.mode === 'ghost') {
+        this.moveSelectedSubject()
+        this.detectMouseInEdge(event)
+      }
     }
   }
 
@@ -416,6 +419,7 @@ class SceneManager {
   }
 
   unselectObject(unmove) {
+    this.cameraCtrl.resetControls(this.terrain)
     this.setMode()
 
     if (!unmove) {
@@ -448,7 +452,6 @@ class SceneManager {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
-    if (offset) this.cameraCtrl.centerTo(newSelectedSubject.mesh, this.terrain)
   }
 
   findNearestIntersectingObject(objects) {
@@ -487,21 +490,20 @@ class SceneManager {
         break
     }
 
-    subject.addListener('merge', this.initMerge.bind(this))
     this.sceneSubjects.push(subject)
     this.selectObject(subject)
     const pos = this.getCurrentPosOnPlane()
-    subject.moveTo(pos.x, 1, pos.z)
-    subject.moveToGhost()
+    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    const y = 0.5 * (subject.box.max.y - subject.box.min.y)
+    subject.moveTo(pos.x, y, pos.z)
+
     this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
-  move(direction, noMouseMove) {
+  move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
     if (this.selectedSubject) {
-      this.moveOffset.y =
-        this.selectedSubject.ghost.position.y +
-        (direction === 'up' ? CONFIG.ELEVATE_SCALE : -CONFIG.ELEVATE_SCALE) +
-        0.01
+      console.log(this.selectedSubject.ghost.position.y)
+      this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
         this.onMouseMove()
@@ -517,58 +519,8 @@ class SceneManager {
     }
   }
 
-  initMerge(bodyA, bodyB) {
-    // Step 1: Get two objects
-    const objectA = this.getSubjectfromBody(bodyA)
-    const objectB = this.getSubjectfromBody(bodyB)
-
-    // Step 2: Get height of object to be merged
-    const heightIncrease = (bodyA.aabb.upperBound.y - bodyB.aabb.lowerBound.y) / 2
-    this.mergeData = {
-      objectA,
-      objectB,
-      heightIncrease,
-      currentHeightIncrease: 0
-    }
-
-    // Step 3: Init Merging
-    this.mergeInProgress = true
-  }
-
-  getSubjectfromBody(body) {
-    return this.sceneSubjects.find(subject => (subject.body ? subject.body.id === body.id : false))
-  }
-
   getSubjectfromMesh(mesh) {
     return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
-  }
-
-  merge() {
-    this.mergeData.currentHeightIncrease += 0.01
-
-    const { objectA, objectB, currentHeightIncrease, heightIncrease } = this.mergeData
-    const shapeB = objectB.body.shapes[0]
-    shapeB.halfExtents.y += 0.01
-    shapeB.updateBoundingSphereRadius()
-    shapeB.updateConvexPolyhedronRepresentation()
-    objectB.body.updateBoundingRadius()
-    objectB.body.updateMassProperties()
-    objectB.updateMeshFromBody()
-
-    const shapeA = objectA.body.shapes[0]
-    shapeA.halfExtents.y -= 0.01
-    shapeA.updateBoundingSphereRadius()
-    shapeA.updateConvexPolyhedronRepresentation()
-    objectA.body.updateBoundingRadius()
-    objectA.body.updateMassProperties()
-    objectA.updateMeshFromBody()
-
-    // Check if merge completed
-    if (this.mergeData.currentHeightIncrease >= this.mergeData.heightIncrease) {
-      this.mergeInProgress = false
-      objectA.delete()
-      this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== objectA)
-    }
   }
 
   highlightSubject(subject) {
@@ -608,6 +560,30 @@ class SceneManager {
       .filter(box => box)
   }
 
+  detectMouseInEdge(event) {
+    const x = event.clientX
+    const y = event.clientY
+
+    if (x < this.edgesSize) {
+      this.mouseInEdge = 'left'
+    } else if (x > this.width - this.edgesSize) {
+      this.mouseInEdge = 'right'
+    } else if (y < this.edgesSize) {
+      this.mouseInEdge = 'top'
+    } else if (y > this.height - this.edgesSize) {
+      this.mouseInEdge = 'bottom'
+    } else {
+      this.mouseInEdge = null
+    }
+  }
+
+  moveSelectedSubject() {
+    this.checkCollision()
+    const pos = this.getCurrentPosOnPlane()
+    this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
+    this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
+  }
+
   checkCollision() {
     const { ghost, box, mesh } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
@@ -616,6 +592,7 @@ class SceneManager {
     fakeBox.min.y -= CONFIG.ELEVATE_SCALE
     let moveDown = true
     let moveUp = false
+    let elevateScale
 
     if (boxes.length > 0) {
       for (let index = 0; index < boxes.length; index++) {
@@ -623,6 +600,7 @@ class SceneManager {
 
         if (box.intersectsBox(boxItem)) {
           moveUp = true
+          elevateScale = boxItem.max.y - box.min.y + 0.01
           break
         } else if (fakeBox.intersectsBox(boxItem)) {
           moveDown = false
@@ -631,7 +609,7 @@ class SceneManager {
     }
 
     if (moveUp) {
-      this.move('up', true)
+      this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
@@ -676,6 +654,13 @@ class SceneManager {
 
   deleteObject() {
     this.selectedSubject.delete()
+  }
+
+  setUnits() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+
+    this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
   }
 }
 

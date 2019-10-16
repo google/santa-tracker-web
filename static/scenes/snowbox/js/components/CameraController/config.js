@@ -1,20 +1,31 @@
 export default {
-  ANIMATE_SPEED: 1000,
-  POSITION_Y: 40,
-  POSITION_Z: 50,
+  ANIMATE_SPEED: 100,
+  POSITION: {
+    Y: 40,
+    Z: 50,
+  },
   /*
    * ROTATION
    */
-  ROTATION_Y: 45,
-  ROTATION_XZ: 45 / 2,
-  ROTATION_XZ_MIN: 45,
-  ROTATION_XZ_MAX: -46,
+  ROTATION: {
+    Y: 45,
+    XZ: 45 / 2,
+    XZ_MIN: 45,
+    XZ_MAX: -46,
+  },
   /*
    * ZOOM
    */
-  ZOOM_BY: 0.5,
-  ZOOM_MAX: 2.5,
-  ZOOM_MIN: 0,
+  ZOOM: {
+    START: 0.8,
+    BY: 0.5,
+    MAX: 2.5,
+    MIN: 0,
+  },
+  /*
+   * MOVE ON EDGES
+   */
+  EDGES_SPEED: 0.15,
   /*
    * CONTROLS
    */
