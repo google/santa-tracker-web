@@ -21,6 +21,7 @@ class SceneManager {
     this.handleGui = this.handleGui.bind(this)
     this.handleMaterialGui = this.handleMaterialGui.bind(this)
     this.handlePresetsGui = this.handlePresetsGui.bind(this)
+    this.handleShapesGui = this.handleShapesGui.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -62,15 +63,20 @@ class SceneManager {
 
     const textureLoader = new THREE.TextureLoader()
 
-    const displacementMap = textureLoader.load( './models/displacement03.jpg' )
-    this.normalMap = textureLoader.load( './models/form1_normal-v3.jpg' )
-    const texture = textureLoader.load( './models/snow.jpg' )
+    const model1 = './models/forme01_quarter-circle_v03.obj'
+    const model2 = './models/forme01_quarter-circle_v02.obj'
 
-    new THREE.OBJLoader().load('./models/forme01_quarter-circle_v01.obj', object => {
+    this.normalMap1 = textureLoader.load( './models/forme01_normal-v3-v3.jpg' )
+    this.normalMap2 = textureLoader.load( './models/form1_normal-v3.jpg' )
 
-      const cubeGeo = object.children[0].geometry
-      cubeGeo.center()
-      cubeGeo.dynamic = true
+    this.normalMap = this.normalMap1
+
+    new THREE.OBJLoader().load(model1, object => {
+      this.cubeGeo1 = object.children[0].geometry
+      this.cubeGeo1.center()
+
+      this.cubeGeo = this.cubeGeo1
+      // cubeGeo.dynamic = true
       const cubeMaterial = new THREE.MeshPhongMaterial( {
         color: 0xffffff,
         shininess: this.guiController.shininess,
@@ -84,10 +90,15 @@ class SceneManager {
 
       cubeMaterial.needsUpdate = true
 
-      this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+      this.mesh = new THREE.Mesh(this.cubeGeo, cubeMaterial)
       this.mesh.scale.multiplyScalar(0.0155) // related to the model
 
       this.scene.add(this.mesh)
+    })
+
+    new THREE.OBJLoader().load(model2, object => {
+      this.cubeGeo2 = object.children[0].geometry
+      this.cubeGeo2.center()
     })
   }
 
@@ -101,6 +112,7 @@ class SceneManager {
       roughness: 1,
       metalness: 1,
       presets: 1,
+      shapes: 1,
     }
 
     this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.handleGui)
@@ -109,6 +121,7 @@ class SceneManager {
     this.gui.add(this.guiController, 'lightIntensity', 0.0, 2.5).onChange(this.handleGui)
     this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.handleMaterialGui)
     this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.handlePresetsGui)
+    this.gui.add(this.guiController, 'shapes', [1, 2]).onChange(this.handleShapesGui)
 
     this.guiRoughness.domElement.classList.add('disabled')
     this.guiMetalness.domElement.classList.add('disabled')
@@ -183,6 +196,21 @@ class SceneManager {
     for (var i in this.gui.__controllers) {
       this.gui.__controllers[i].updateDisplay();
     }
+  }
+
+  handleShapesGui() {
+    switch (this.guiController.shapes) {
+      case '1':
+        this.mesh.geometry = this.cubeGeo1
+        this.normalMap = this.normalMap1
+        break
+      case '2':
+        this.mesh.geometry = this.cubeGeo2
+        this.normalMap = this.normalMap2
+        break
+    }
+
+    this.mesh.material.normalMap = this.normalMap
   }
 
   updateMaterial() {
