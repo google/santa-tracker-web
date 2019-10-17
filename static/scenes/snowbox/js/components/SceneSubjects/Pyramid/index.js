@@ -17,10 +17,10 @@ class Pyramid extends Obj {
 
     const verts = [
       new CANNON.Vec3(0, 0, 0),
-      new CANNON.Vec3(0, CONFIG.SIZE, 0),
-      new CANNON.Vec3(CONFIG.SIZE, CONFIG.SIZE, 0),
       new CANNON.Vec3(CONFIG.SIZE, 0, 0),
-      new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE)
+      new CANNON.Vec3(CONFIG.SIZE, 0, CONFIG.SIZE),
+      new CANNON.Vec3(0, 0, CONFIG.SIZE),
+      new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE, CONFIG.SIZE / 2)
     ]
 
     const offset = -0.35
@@ -35,7 +35,7 @@ class Pyramid extends Obj {
     // needs normal, it will be imported with the model
 
     const shape = new CANNON.ConvexPolyhedron(verts, faces)
-    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape })
+    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape,  fixedRotation: true  })
     this.body.position.set(-0.5, 5, -0.5)
 
     // Graphics
