@@ -291,17 +291,6 @@ class SceneApi extends EventTarget {
     this._send('play', [sound, ...args]);
   }
 
-  /**
-   * @param {string} group name of exported AudioGroup to play from (will also transition from)
-   * @param {number} index within group of sound to play
-   * @param {number} bpm of audio
-   * @param {number} sync beat count??
-   * @param {number} fadeOutTime duration of which to fadeout previous sounds
-   */
-  playTransition(group, index, bpm, sync, fadeOutTime) {
-    this._send('playTransition', [group, index, bpm, sync, fadeOutTime]);
-  }
-
   score(detail) {
     this._send('score', detail);
   }
