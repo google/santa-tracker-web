@@ -535,6 +535,10 @@ async function releaseProd(langs) {
     const documentForLang = await releaseHtml.load('prod/index.html', async (document) => {
       const head = document.head;
 
+      // Load the entrypoint as a raw script, so it works everywhere, not just in module browsers.
+      const loaderNode = head.querySelector('script[type="module"]');
+      loaderNode.removeAttribute('type');
+
       const image = `prod/images/og/${page}.png`;
       if (await fsp.exists(image)) {
         const url = `/images/og/${page}.png`;
