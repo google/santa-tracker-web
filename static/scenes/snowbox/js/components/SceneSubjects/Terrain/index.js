@@ -33,12 +33,13 @@ class Terrain extends Obj {
 
     // Graphics
     const geometry = new THREE.PlaneGeometry(CONFIG.PLANE_WIDTH, CONFIG.PLANE_DEPTH, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: 0xC7E8F9, visible: true })
+    const material = new THREE.MeshBasicMaterial({ color: 0xffffff, visible: true })
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true
     this.scene.add(mesh)
     this.meshes.push(mesh)
+    this.mesh = mesh
 
     // GRID HELPER
     // const gridHelper = new THREE.GridHelper(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH)

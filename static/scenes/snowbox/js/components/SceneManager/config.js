@@ -4,8 +4,9 @@ export default {
   DEBUG: true,
   // Show Three.JS Helpers (grids, axis, arrows, etc.)
   COLORS: {
-    ICE: 0xdcf3ff
+    ICE: 0x64d5fa
   },
+  MODEL_UNIT: 200,
   SCENE_SIZE: 1000,
   TIMESTEP: 1 / 60,
   ELEVATE_SCALE: 1.001,

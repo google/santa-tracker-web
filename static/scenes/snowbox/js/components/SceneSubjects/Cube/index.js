@@ -5,43 +5,23 @@ import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
 let cubeGeo, cubeMaterial
-// function loadCube() {
-//   new THREE.MTLLoader().load('./models/snow_box02.mtl', materials => {
-//     materials.preload()
-
-//     new THREE.OBJLoader().setMaterials(materials).load('./models/snow_box02.obj', object => {
-//       cubeGeo = object.children[0].geometry
-//       cubeMaterial = object.children[0].material
-//     })
-//   })
-// }
-// loadCube()
 
 const textureLoader = new THREE.TextureLoader()
-
-const shapes = [{
-  model: './models/shape_02-cube.obj',
-  normal: textureLoader.load( './models/shape_02-cube-normal.jpg' ),
-}, {
-  model: './models/shape_02-cube-deplie.obj',
-  normal: textureLoader.load( './models/shape_02-cube-deplie-normal.jpg' ),
-}]
-const currentShape = 0
+const model = './models/shape_03-cube.obj'
+const normalMap = textureLoader.load( './models/shape_03-cube-normal.jpg' )
 
 // preload objs
-new THREE.OBJLoader().load(shapes[0].model, object => {
-  cubeGeo = object.children[0].geometry
-  cubeGeo.center()
-  // cubeGeo.dynamic = true
-  cubeMaterial = new THREE.MeshToonMaterial( {
-    color: 0xffffff,
-    shininess: 345,
-    // roughness: this.guiController.roughness,
-    // metalness: this.guiController.metalness,
-    normalMap: shapes[0].normal,
-  } )
+new THREE.OBJLoader()
+  .load(model, object => {
+    cubeGeo = object.children[0].geometry
+    cubeGeo.center()
+    cubeMaterial = new THREE.MeshToonMaterial( {
+      color: GLOBAL_CONFIG.COLORS.ICE,
+      shininess: 345,
+      normalMap,
+    } )
 
-  cubeMaterial.needsUpdate = true
+    cubeMaterial.needsUpdate = true
 })
 
 class Cube extends Obj {
@@ -64,7 +44,7 @@ class Cube extends Obj {
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
-    this.mesh.scale.multiplyScalar(1 / 200) // related to the model, our unit is 200
+    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
     this.addToScene()

@@ -1,8 +1,11 @@
 import Obj from '../../Object/index.js'
 
 // Config
-// import GLOBAL_CONFIG from '../../SceneManager/config'
+import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
+
+const textureLoader = new THREE.TextureLoader()
+const normalMap = textureLoader.load( './models/shape_03-cube-normal.jpg' )
 
 class Pyramid extends Obj {
   constructor(scene, world) {
@@ -11,14 +14,13 @@ class Pyramid extends Obj {
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.defaultMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff })
 
     const verts = [
       new CANNON.Vec3(0, 0, 0),
+      new CANNON.Vec3(0, CONFIG.SIZE, 0),
+      new CANNON.Vec3(CONFIG.SIZE, CONFIG.SIZE, 0),
       new CANNON.Vec3(CONFIG.SIZE, 0, 0),
-      new CANNON.Vec3(CONFIG.SIZE, 0, CONFIG.SIZE),
-      new CANNON.Vec3(0, 0, CONFIG.SIZE),
-      new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE, CONFIG.SIZE / 2)
+      new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE)
     ]
 
     const offset = -0.35
@@ -30,14 +32,22 @@ class Pyramid extends Obj {
     }
 
     const faces = [[0, 1, 2], [0, 2, 3], [1, 0, 4], [2, 1, 4], [3, 2, 4], [0, 3, 4]]
+    // needs normal, it will be imported with the model
 
     const shape = new CANNON.ConvexPolyhedron(verts, faces)
-    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape, fixedRotation: true })
+    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape })
     this.body.position.set(-0.5, 5, -0.5)
 
     // Graphics
     const pyramidGeo = this.getThreeGeo(shape)
-    const pyramidMaterial = new THREE.MeshPhongMaterial({ color: 0x888888 })
+    const pyramidMaterial = new THREE.MeshToonMaterial( {
+      color: GLOBAL_CONFIG.COLORS.ICE,
+      shininess: 345,
+      normalMap,
+    } )
+
+    pyramidMaterial.needsUpdate = true
+    this.defaultMaterial = pyramidMaterial
     this.mesh = new THREE.Mesh(pyramidGeo, pyramidMaterial)
 
     this.addToScene()

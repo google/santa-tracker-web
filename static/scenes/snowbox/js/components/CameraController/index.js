@@ -177,8 +177,6 @@ class CameraController {
     const finalAxis = new THREE.Vector3(1, 0, 0)
     finalAxis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(this.rotationY))
 
-    // this.arrowHelper(finalAxis)
-
     return finalAxis
   }
 
@@ -186,18 +184,6 @@ class CameraController {
     // reset controls where the camera is currently looking at
     const target = this.getLookAtPointOnTerrain(terrain)
     this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
-  }
-
-  showHelpers(scene) {
-    // helpers
-  }
-
-  arrowHelper(vector) {
-    var origin = new THREE.Vector3(0, 0, 0)
-    var length = 10
-
-    var arrowHelper = new THREE.ArrowHelper(vector, origin, length, 0x00ff00)
-    this.scene.add(arrowHelper)
   }
 }
 
