@@ -10,6 +10,7 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import { toRadian } from '../../utils/math.js'
+import { debounce } from '../../helpers.js'
 
 // Other
 import CameraController from '../CameraController/index.js'
@@ -59,7 +60,7 @@ class SceneManager {
 
     this.createSceneSubjects()
 
-    this.cameraCtrl.rotate('left', this.terrain)
+    this.cameraCtrl.rotate('left', this.terrain, false, true)
 
     this.initGui()
   }
@@ -203,7 +204,6 @@ class SceneManager {
         }
 
         this.mouseInEdge = null
-
       } else if (this.mode === 'ghost') {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
@@ -265,6 +265,14 @@ class SceneManager {
         break
       default:
         break
+    }
+  }
+
+  onWheel(event) {
+    if (event.deltaY < 0) {
+      this.cameraCtrl.rotate('left', this.terrain, true)
+    } else if (event.deltaY > 0) {
+      this.cameraCtrl.rotate('right', this.terrain, true)
     }
   }
 
@@ -535,7 +543,7 @@ class SceneManager {
 
     let material
     const list = this.getObjectsList()
-    list.forEach( mesh => {
+    list.forEach(mesh => {
       material = mesh.material
     })
 
@@ -551,7 +559,7 @@ class SceneManager {
 
     let material
 
-    switch(this.guiController.material) {
+    switch (this.guiController.material) {
       case 'phong':
         material = new THREE.MeshPhongMaterial()
         this.guiRoughness.domElement.classList.add('disabled')
@@ -578,7 +586,7 @@ class SceneManager {
 
     let material
 
-    switch(this.guiController.presets) {
+    switch (this.guiController.presets) {
       case '1':
         material = new THREE.MeshPhongMaterial()
         this.guiRoughness.domElement.classList.add('disabled')
@@ -608,7 +616,7 @@ class SceneManager {
     this.updateMaterial(material)
 
     for (var i in this.gui.__controllers) {
-      this.gui.__controllers[i].updateDisplay();
+      this.gui.__controllers[i].updateDisplay()
     }
   }
 
@@ -621,7 +629,7 @@ class SceneManager {
   }
 
   updateMaterial(material) {
-    material.color = new THREE.Color( this.guiController.ice_color )
+    material.color = new THREE.Color(this.guiController.ice_color)
     material.shininess = this.guiController.shininess
     material.roughness = this.guiController.roughness
     material.metalness = this.guiController.metalness
@@ -629,7 +637,7 @@ class SceneManager {
 
     const list = this.getObjectsList()
 
-    list.forEach( mesh => {
+    list.forEach(mesh => {
       mesh.material = material
     })
 

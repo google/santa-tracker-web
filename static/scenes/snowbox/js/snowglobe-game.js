@@ -60,6 +60,14 @@ class SnowglobeGame {
         false
       )
 
+      canvas.addEventListener(
+        'wheel',
+        e => {
+          e.preventDefault()
+          sceneManager.onWheel(e)
+        }
+      )
+
       actionBtns.forEach(button => {
         button.addEventListener('click', e => {
           e.preventDefault()

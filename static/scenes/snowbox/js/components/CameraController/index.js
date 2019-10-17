@@ -35,9 +35,10 @@ class CameraController {
     this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
     this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
     this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
+    this.controls.enableZoom = CONFIG.CONTROLS.ZOOM
   }
 
-  rotate(direction, terrain) {
+  rotate(direction, terrain, wheel, noAnimation) {
     if (this.isRotating) return
     this.controls.enabled = false
 
@@ -48,12 +49,12 @@ class CameraController {
     switch (direction) {
       case 'left':
         axis = new THREE.Vector3(0, 1, 0)
-        targetAngle = CONFIG.ROTATION.Y
+        targetAngle = wheel ? 2 : CONFIG.ROTATION.Y
         this.rotationY += targetAngle
         break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
-        targetAngle = -CONFIG.ROTATION.Y
+        targetAngle = wheel ? -2 : -CONFIG.ROTATION.Y
         this.rotationY += targetAngle
         break
       case 'top':
@@ -81,24 +82,28 @@ class CameraController {
     lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     lookAt.y = 0 // cleaning up decimals, this value should always be 0
 
-    // increment value for animation
-    const incrAngle = targetAngle / CONFIG.ROTATION.TIME
-    const incrAngleRadian = toRadian(incrAngle)
-    let progressAngle = 0
-    this.isRotating = true
+    if (wheel || noAnimation) {
+      this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(targetAngle))
+    } else {
+      // increment value for animation
+      const incrAngle = targetAngle / CONFIG.ROTATION.TIME
+      const incrAngleRadian = toRadian(incrAngle)
+      let progressAngle = 0
+      this.isRotating = true
 
-    const animate = () => {
-      progressAngle += incrAngle
-      this.rotateAboutPoint(this.camera, lookAt, axis, incrAngleRadian)
+      const animate = () => {
+        progressAngle += incrAngle
+        this.rotateAboutPoint(this.camera, lookAt, axis, incrAngleRadian)
 
-      if (progressAngle.toFixed(2) !== targetAngle.toFixed(2)) {
-        this.animateRotateRAF = window.requestAnimationFrame(animate)
-      } else {
-        this.isRotating = false
-        window.cancelAnimationFrame(this.animateRotateRAF)
+        if (progressAngle.toFixed(2) !== targetAngle.toFixed(2)) {
+          this.animateRotateRAF = window.requestAnimationFrame(animate)
+        } else {
+          this.isRotating = false
+          window.cancelAnimationFrame(this.animateRotateRAF)
+        }
       }
+      animate()
     }
-    animate()
   }
 
   zoom(direction) {
@@ -127,7 +132,7 @@ class CameraController {
     const angle = toRadian(this.rotationY)
 
     // Get xz position based on current rotationY and edge
-    switch(edge) {
+    switch (edge) {
       case 'top':
         x = -speed * Math.sin(angle)
         z = -speed * Math.cos(angle)

@@ -37,6 +37,7 @@ export default {
     PAN: true,
     ROTATE: false,
     DAMPING: true,
-    DAMPING_FACTOR: 0.06
+    DAMPING_FACTOR: 0.06,
+    ZOOM: false
   }
 }
