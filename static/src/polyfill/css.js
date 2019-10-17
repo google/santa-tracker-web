@@ -2,9 +2,6 @@
  * @fileoverview Polyfills Constructable Style Sheets for our purposes.
  */
 
-const attachedTo = Symbol('attachedTo');
-const styleNode = Symbol('styleNode');
-
 let nativeSupport = false;
 try {
   new CSSStyleSheet();
@@ -59,21 +56,19 @@ if (nativeSupport) {
     deleteRule() {
       throw new DOMException('NotSupportedError');
     }
-  }
+  };
 
-  const adopted = Symbol('adopted');            // CSSStyleSheet instances wanted
+  const adopted = Symbol('adopted');            // CSSStyleSheetConstructor instances adopted
   const instantiated = Symbol('instantiated');  // actually created <style> nodes
-  const owner = Symbol('owner');                // <style> node's CSSStyleSheet owner
 
   function rectifyAdoptedStyleSheets() {
-    const expected = this[adopted];
+    const expected = /** @type {!Array<HTMLStyleElement>} */ (this[instantiated] || []);
 
-    // Check that nodes [0,n] point back to the expected CSSStyleSheet.
+    // Check that nodes [0,n] are the expected HTMLStyleElement instances.
     // nb. this doesn't guard against users making local changes to textContent
     let ok = (this.childNodes.length >= expected.length);
     for (let i = 0; ok && i < expected.length; ++i) {
-      const check = this.childNodes[i];
-      if (check[owner] !== expected[i]) {
+      if (this.childNodes[i] !== expected[i]) {
         ok = false;
       }
     }
@@ -82,17 +77,15 @@ if (nativeSupport) {
     }
 
     // Nuke all previous instantiated sheets.
-    (this[instantiated] || []).forEach((node) => {
+    expected.forEach((node) => {
       node.parentNode && node.parentNode.removeChild(node);
     });
-    console.debug('rectifying root', this, 'with', expected);
 
-    // Prepare clones of target CSSStyleSheet instances.
+    // Prepare clones of target CSSStyleSheetConstructor instances.
     const targetBefore = this.firstChild;
-    const styleNodes = expected.map((sheet) => {
+    const styleNodes = this[adopted].map((c) => {
       const node = document.createElement('style');
-      node.textContent = sheet.cssText;
-      node[owner] = sheet;  // this is owned by CSSStyleSheetConstructor
+      node.textContent = c.cssText;
       this.insertBefore(node, targetBefore);
       return node;
     });
@@ -125,7 +118,6 @@ if (nativeSupport) {
       const o = new MutationObserver(rectifyAdoptedStyleSheets.bind(this));
       o.observe(this, {childList: true});
       rectifyAdoptedStyleSheets.call(this);
-
     }
   });
 }

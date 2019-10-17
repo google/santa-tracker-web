@@ -1,3 +1,4 @@
+import '../../src/polyfill/css.js';
 import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
 import '../../src/elements/santa-image-mask.js';
