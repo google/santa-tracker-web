@@ -192,20 +192,19 @@ class SceneApi extends EventTarget {
     this._send = (type, payload) => sendQueue.push({type, payload});
 
     // after preload, do a bunch of setup work
-    this._ready = (async () => {
-      await this._preload.done;
-
+    this._ready = this._preload.done.then(() => {
       // send loaded event (this inaccurately also contains the scene config)
       this._updateParent({type: 'loaded', payload: this._config || {}});
 
       // wait for frame to tell us to go
-      await this._readyPromise;
+      return this._readyPromise;
+    }).then(() => {
       this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
 
       // clear backlog of events
       this._send = (type, payload) => this._updateParent({type, payload});
       sendQueue.forEach((message) => this._updateParent(message));
-    })();
+    });
   }
 
   _handleHostMessage(type, payload) {
@@ -249,12 +248,11 @@ class SceneApi extends EventTarget {
   }
 
   /**
-   * @param {function(*): !Promise<undefined>} fn 
-   * @param {{hasPauseScreen: boolean}=}
+   * @param {function(!Object): *} fn
+   * @return {!Promise<void>}
    */
-  async ready(fn) {
-    await this._ready;
-    await fn(this._initialData);
+  ready(fn) {
+    return this._ready.then(() => fn(this._initialData)).then(() => undefined);
   }
 
   get preload() {

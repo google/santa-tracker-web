@@ -84,8 +84,9 @@ const assetsToCopy = [
   'static/scenes/**/models/**',
   'static/scenes/**/img/**',
 
-  // Explicitly include Web Components polyfill bundles, as they're injected at runtime rather than
-  // being directly referenced by a `<script>`.
+  // Explicitly include Web Components loader and polyfill bundles, as they're injected at runtime
+  // rather than being directly referenced by a `<script>`.
+  'static/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   'static/node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
 
   'prod/**',
