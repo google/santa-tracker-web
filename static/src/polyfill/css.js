@@ -13,7 +13,15 @@ try {
   // ignore
 }
 
-if (!nativeSupport) {
+if (nativeSupport) {
+  // FIXME: This pretends to be a "CSSResult" from `lit-element` and provide a "styleSheet" attr:
+  // https://github.com/Polymer/lit-element/issues/774
+  Object.defineProperty(CSSStyleSheet.prototype, 'styleSheet', {
+    get() {
+      return this;
+    },
+  });
+} else {
   // This polyfill works by creating a completely new class of CSSStyleSheetConstructor, which is
   // used by the CSS Module polyfill code in "build/transform-future-modules.js". However, it's
   // largely ignored by lit-element (and only used by 'vanilla' Web Components), _except_ that
@@ -28,7 +36,7 @@ if (!nativeSupport) {
     }
 
     get cssText() {
-      // FIXME: This pretends to be a "CSSResult" from `lit-element:
+      // FIXME: This pretends to be a "CSSResult" from `lit-element`:
       // https://github.com/Polymer/lit-element/issues/774
       return this._cssText;
     }
