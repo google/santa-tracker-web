@@ -4,7 +4,6 @@ import cubeConfig from '../SceneSubjects/Cube/config.js'
 
 // SceneSubjects
 import Cube from '../SceneSubjects/Cube/index.js'
-import Glue from '../SceneSubjects/Glue/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
@@ -242,9 +241,6 @@ class SceneManager {
       case 'add-pyramid':
         this.addShape('pyramid')
         break
-      case 'add-glue':
-        this.addShape('glue')
-        break
       case 'rotate-left':
         this.cameraCtrl.rotate('left', this.terrain)
         break
@@ -362,9 +358,6 @@ class SceneManager {
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world, material)
-        break
-      case 'glue':
-        subject = new Glue(this.scene, this.world)
         break
       default:
         break
