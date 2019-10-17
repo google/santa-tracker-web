@@ -27,11 +27,15 @@ module.exports = async (id, content, onwarn=null) => {
     if (!content) {
       throw new Error(`got no content for: ${id}`);
     }
-    const transformed = transformFutureModules(id, content.code || content);
-    if (typeof transformed === 'string') {
-      return {code: transformed};
+
+    const transformed = await transformFutureModules(id, content.code || content);
+    content = typeof transformed === 'string' ? {code: transformed} : transformed;
+
+    // HTML Modules can have further imports, so rewrite them too.
+    // TODO(samthor): can we return this from transformFutureModules?
+    if (ext !== '.html') {
+      return content;
     }
-    return transformed;  // can be null
   }
 
   const virtualPlugin = {

@@ -2,6 +2,8 @@
  * @fileoverview Main entrypoint for Santa Tracker. Runs in the prod domain.
  */
 
+import './src/polyfill/css.js';
+
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
