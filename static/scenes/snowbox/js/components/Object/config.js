@@ -7,5 +7,6 @@ export default {
     color: GLOBAL_CONFIG.COLORS.ICE,
     opacity: 0.3,
     transparent: true
-  })
+  }),
+  SCALE_FACTOR: 1.1
 }

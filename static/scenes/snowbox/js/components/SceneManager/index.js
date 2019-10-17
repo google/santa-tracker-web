@@ -275,10 +275,10 @@ class SceneManager {
   bindArrowClick(key) {
     switch (key) {
       case 'ArrowUp':
-        this.move('up')
+        this.scale('up')
         break
       case 'ArrowDown':
-        this.move('down')
+        this.scale('down')
         break
       case 'ArrowRight':
         this.rotate('right')
@@ -382,6 +382,10 @@ class SceneManager {
         this.onMouseMove()
       }
     }
+  }
+
+  scale(direction) {
+    this.selectedSubject.scale(direction)
   }
 
   rotate(direction) {

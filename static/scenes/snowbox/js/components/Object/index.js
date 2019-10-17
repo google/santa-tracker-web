@@ -105,6 +105,12 @@ class Object extends EventEmitter {
     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
+  scale(direction) {
+    const currentScale = this.ghost.scale
+    const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
+    this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
+  }
+
   delete() {
     this.scene.remove(this.mesh)
     this.mesh.geometry.dispose()
@@ -166,13 +172,14 @@ class Object extends EventEmitter {
   }
 
   moveToGhost() {
-    const { position, quaternion } = this.ghost
+    const { position, quaternion, scale } = this.ghost
 
     this.body.velocity.setZero()
     this.body.angularVelocity.setZero()
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
+    this.body.scale.set(scale.x, scale.y, scale.z)
   }
 }
 
