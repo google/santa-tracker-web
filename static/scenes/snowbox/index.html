@@ -21,24 +21,62 @@
     <div id="module-snowglobe">
       <canvas id="canvas"></canvas>
       <div class="ui">
-        <div class="rotate">
-          <button id="rotate-right" class="action-button">Rotate Left</button>
-          <button id="rotate-left" class="action-button">Rotate Right</button>
-          <br>
-          <button id="rotate-top" class="action-button">Rotate Top</button>
-          <button id="rotate-bottom" class="action-button">Rotate Bottom</button>
+        <div class="camera-controls">
+          <div class="globe">
+            <img class="globe__background" src="images/globe.svg" alt="">
+            <div class="globe__button globe__button--top">
+              <img src="" alt="" class="globe__icon">
+            </div>
+            <div class="globe__button globe__button--right">
+              <img src="" alt="" class="globe__icon">
+            </div>
+          </div>
+          <div class="zoom">
+            <div class="zoom__button zoom__button--in">
+              <img src="" alt="" class="zoom__icon">
+            </div>
+            <div class="zoom__button zoom__button--out">
+              <img src="" alt="" class="zoom__icon">
+            </div>
+          </div>
         </div>
-        <div class="zoom">
-          <button id="zoom-in" class="action-button">Zoom in</button>
-          <button id="zoom-out" class="action-button">Zoom out</button>
-        </div>
+<!--         <div class="rotate">
+            <button id="rotate-right" class="action-button">Rotate Left</button>
+            <button id="rotate-left" class="action-button">Rotate Right</button>
+            <br>
+            <button id="rotate-top" class="action-button">Rotate Top</button>
+            <button id="rotate-bottom" class="action-button">Rotate Bottom</button>
+          </div>
+          <div class="zoom">
+            <button id="zoom-in" class="action-button">Zoom in</button>
+            <button id="zoom-out" class="action-button">Zoom out</button>
+          </div> -->
         <div class="toolbox">
-          <div>
+          <div class="toolbox__arrow arrow--left">
+            <img class="arrow__icon" src="" alt="">
+          </div>
+          <div class="toolbox__container">
+            <div class="toolbox__item">
+              <img src="" alt="" class="toolbox__icon">
+            </div>
+            <div class="toolbox__item">
+              <img src="" alt="" class="toolbox__icon">
+            </div>
+            <div class="toolbox__item">
+              <img src="" alt="" class="toolbox__icon">
+            </div>
+            <div class="toolbox__item">
+              <img src="" alt="" class="toolbox__icon">
+            </div>
+          </div>
+          <div class="toolbox__arrow arrow--right">
+            <img class="arrow__icon" src="" alt="">
+          </div>
+<!--           <div>
             <button id="add-snow-cube" class="action-button">Add Snow Cube</button>
             <button id="add-ice-cube" class="action-button">Add Ice Cube</button>
             <button id="add-pyramid" class="action-button">Add Pyramid</button>
-            <!-- <button id="add-glue" class="action-button">Add Glue</button> -->
-          </div>
+          </div> -->
       </div>
     </div>
     <script src="index.js" type="module"></script>

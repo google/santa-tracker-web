@@ -11,5 +11,10 @@
 @import 'sass/components/canvas';
 @import 'sass/components/dg';
 @import 'sass/components/paragraph';
-@import 'sass/components/toolbox';
+
+// UI
 @import 'sass/components/ui';
+@import 'sass/components/camera-controls';
+@import 'sass/components/globe';
+@import 'sass/components/zoom';
+@import 'sass/components/toolbox';
