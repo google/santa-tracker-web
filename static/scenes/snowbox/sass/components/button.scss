@@ -1,3 +1,75 @@
 .button {
+  cursor: pointer;
+  width: $button-size;
+  height: $button-size;
+  position: relative;
 
+  &::before,
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 0;
+  }
+
+  &::before {
+    background-color: $color-orange;
+    top: 6%;
+    left: 5%;
+  }
+
+  &::after {
+    background-color: $color-yellow;
+  }
+
+  &--bottom {
+    &::before,
+    &::after {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+  }
+
+  &--left {
+    &::before,
+    &::after {
+      border-top-left-radius: 50%;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 0;
+    }
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &--right {
+    &::before,
+    &::after {
+      border-top-left-radius: 0;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 50%;
+    }
+
+    &::before {
+      left: 0%;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+  }
 }

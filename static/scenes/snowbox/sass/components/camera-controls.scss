@@ -1,5 +1,7 @@
 .camera-controls {
+  align-items: center;
+  display: inline-flex;
   height: 228px;
   width: auto;
-  transform: translateY(-50%);
+  padding-right: 40px;
 }

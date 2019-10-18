@@ -78,7 +78,7 @@ class SnowglobeGame {
 
     const render = () => {
       stats.begin()
-      sceneManager.update()
+      // sceneManager.update()
       // console.log(sceneManager.mode) // show current mode
       stats.end()
 

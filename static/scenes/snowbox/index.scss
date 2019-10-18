@@ -12,9 +12,16 @@
 @import 'sass/components/dg';
 @import 'sass/components/paragraph';
 
-// UI
+
+/// UI
+
+// shared
+@import 'sass/components/button';
+
+// components
 @import 'sass/components/ui';
 @import 'sass/components/camera-controls';
-@import 'sass/components/globe';
+@import 'sass/components/rotate';
 @import 'sass/components/zoom';
 @import 'sass/components/toolbox';
+

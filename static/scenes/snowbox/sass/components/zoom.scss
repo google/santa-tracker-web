@@ -1,0 +1,37 @@
+.zoom {
+  width: $button-size;
+  flex: 1;
+  margin-left: 40px;
+  margin-top: 1px;
+  position: relative;
+
+  &__button {
+    .button__icon {
+      width: 52%;
+    }
+
+    &--out {
+      .button__icon {
+        top: 43%;
+        left: 47%;
+      }
+    }
+
+    &--in {
+      .button__icon {
+        top: 57%;
+        left: 53%;
+      }
+    }
+  }
+
+  &__line {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 1px);
+    transform: translate(-50%, -50%);
+    height: 3px;
+    background-color: $color-orange;
+  }
+}

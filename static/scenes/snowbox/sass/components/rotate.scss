@@ -1,0 +1,37 @@
+.rotate {
+  &__row {
+    display: flex;
+    justify-content: center;
+
+    &:first-child {
+      overflow: hidden;
+    }
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $button-size;
+    height: $button-size;
+  }
+
+  &__image {
+    width: 75%;
+  }
+
+  .button {
+    .button__icon {
+      width: 29px;
+      height: 25px;
+    }
+
+    &--right,
+    &--bottom {
+      .button__icon {
+        transform: rotate(180deg) translate(-50%, -50%);
+        transform-origin: 0 0;
+      }
+    }
+  }
+}

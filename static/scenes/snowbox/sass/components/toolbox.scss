@@ -1,18 +1,8 @@
 .toolbox {
-  align-items: center;
-  background-color: rgb(27, 30, 43);
-  bottom: 50px;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  left: 50%;
-  min-width: 400px;
-  padding: 50px;
-  position: absolute;
-  transform: translateX(-50%);
-  width: 50vw;
-  pointer-events: auto;
-  display: none;
+  background-color: $color-deep-blue;
+  height: 150px;
+  position: relative;
+  padding: 0 45px;
 
   button {
     background-color: #fff;
