@@ -177,7 +177,7 @@ class SceneManager {
 
   onKeydown(event) {
     const elapsedTime = this.clock.getElapsedTime()
-    this.bindArrowClick(event.key)
+    this.bindArrowClick(event)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       if (typeof this.sceneSubjects[i].onKeydown === 'function') {
         this.sceneSubjects[i].onKeydown(event, elapsedTime, this.checkOverlap)
@@ -272,21 +272,26 @@ class SceneManager {
     }
   }
 
-  bindArrowClick(key) {
-    switch (key) {
+  bindArrowClick(event) {
+    switch (event.key) {
       case 'ArrowUp':
+        event.preventDefault()
         this.scale('up')
         break
       case 'ArrowDown':
+        event.preventDefault()
         this.scale('down')
         break
       case 'ArrowRight':
+        event.preventDefault()
         this.rotate('right')
         break
       case 'ArrowLeft':
+        event.preventDefault()
         this.rotate('left')
         break
       case 'Escape':
+        event.preventDefault()
         this.bindEscape()
         break
       default:
@@ -386,6 +391,7 @@ class SceneManager {
 
   scale(direction) {
     this.selectedSubject.scale(direction)
+    this.checkCollision()
   }
 
   rotate(direction) {
@@ -477,11 +483,18 @@ class SceneManager {
       }
     }
 
+    if (box.min.y < 0) {
+      moveUp = true
+      elevateScale = -box.min.y
+    }
+
     if (moveUp) {
       this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
+
+    console.log()
   }
 
   setMode(mode = '') {

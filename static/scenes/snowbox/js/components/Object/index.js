@@ -12,6 +12,7 @@ class Object extends EventEmitter {
     this.selectable = false
     this.selected = false
     this.rotationY = 0
+    this.scaleFactor = 1
   }
 
   addToScene() {
@@ -109,6 +110,7 @@ class Object extends EventEmitter {
     const currentScale = this.ghost.scale
     const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
     this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
+    this.scaleFactor *= scaleFactor
   }
 
   delete() {
@@ -179,11 +181,8 @@ class Object extends EventEmitter {
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-    this.shape.halfExtents.set(1, 2, 3)
-    this.shape.updateConvexPolyhedronRepresentation()
-    this.shape.computeBoundingSphereRadius()
-    this.body.computeAABB()
-    this.body.updateMassProperties()
+    this.mesh.scale.copy(scale)
+    this.scaleBody()
   }
 }
 

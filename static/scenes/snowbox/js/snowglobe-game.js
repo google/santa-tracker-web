@@ -22,7 +22,6 @@ class SnowglobeGame {
       })
 
       document.addEventListener('keydown', e => {
-        e.preventDefault()
         sceneManager.onKeydown(e)
       })
 
@@ -60,13 +59,10 @@ class SnowglobeGame {
         false
       )
 
-      canvas.addEventListener(
-        'wheel',
-        e => {
-          e.preventDefault()
-          sceneManager.onWheel(e)
-        }
-      )
+      canvas.addEventListener('wheel', e => {
+        e.preventDefault()
+        sceneManager.onWheel(e)
+      })
 
       actionBtns.forEach(button => {
         button.addEventListener('click', e => {
