@@ -179,7 +179,11 @@ class Object extends EventEmitter {
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-    this.body.scale.set(scale.x, scale.y, scale.z)
+    this.shape.halfExtents.set(1, 2, 3)
+    this.shape.updateConvexPolyhedronRepresentation()
+    this.shape.computeBoundingSphereRadius()
+    this.body.computeAABB()
+    this.body.updateMassProperties()
   }
 }
 
