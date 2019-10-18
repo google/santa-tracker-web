@@ -325,7 +325,6 @@ function installV1Handlers() {
 
   const fire = (eventName, ...args) => {
     switch (eventName) {
-      case 'sound-play':
       case 'sound-trigger':
       case 'sound-ambient':
         args = sanitizeSoundArgs(args);
