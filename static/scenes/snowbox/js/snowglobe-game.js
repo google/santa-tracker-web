@@ -72,6 +72,10 @@ class SnowglobeGame {
         button.addEventListener('click', e => {
           e.preventDefault()
           sceneManager.onButtonClick(button.dataset.button)
+          button.classList.add('is-clicked')
+          setTimeout(() => {
+            button.classList.remove('is-clicked')
+          }, 200)
         })
       })
     }

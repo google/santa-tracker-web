@@ -20,6 +20,7 @@
     margin: 0 20px;
     width: 100px;
     cursor: pointer;
+    transition: transform .6s $easeout-expo;
 
     &:hover {
       transform: scale(1.1);

@@ -4,10 +4,6 @@
   &__row {
     display: flex;
     justify-content: center;
-
-    &:first-child {
-      overflow: hidden;
-    }
   }
 
   &__center {
@@ -31,8 +27,20 @@
     &--right,
     &--bottom {
       .button__icon {
-        transform: rotate(180deg) translate(-50%, -50%);
-        transform-origin: 0 0;
+        transform: rotate(180deg);
+        transform-origin: 44% 44%;
+      }
+
+      &:hover {
+        .button__icon {
+          transform: rotate(180deg) translate(3px, 3px);
+        }
+      }
+
+      &.is-clicked {
+        .button__icon {
+          transform: rotate(180deg);
+        }
       }
     }
   }

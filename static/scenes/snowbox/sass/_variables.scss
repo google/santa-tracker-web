@@ -7,6 +7,21 @@ $color-orange: #FF8702;
 $color-yellow: #F8C328;
 $color-white: #fff;
 
+// z-index
 $z-index-ui: 100;
 
+// sizes
 $button-size: 57px;
+
+// shadows
+$button-shadow: #d8d8d8;
+
+// easings
+$ease: cubic-bezier(.25, .1, .25, 1);
+$easeout-expo: cubic-bezier(.19, 1, .22, 1);
+$easeout-quart: cubic-bezier(.165, .84, .44, 1);
+$easeout-quint: cubic-bezier(.23, 1, .32, 1);
+$ease-linear: linear;
+
+// transition
+$transition-button: .4s ease;
