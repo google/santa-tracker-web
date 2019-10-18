@@ -49,6 +49,32 @@ sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
 
+let loadedScene = undefined;
+
+const loaderScene = (sceneName, data) => {
+  if (sceneName === loadedScene) {
+    return false;
+  }
+  document.title = scenes[sceneName] || _msg`santatracker`;
+
+  const optionalProdIndex = document.documentElement.lang ? `index_${document.documentElement.lang}.html` : '';
+
+  const locked = ['tracker'].indexOf(sceneName) !== -1;
+  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/') + (optionalProdIndex);
+
+  loadedScene = sceneName;
+
+  ga('set', 'page', `/${sceneName}`);
+  ga('send', 'pageview');
+
+  loaderElement.load(url, {sceneName, data, locked});
+};
+
+
+const {scope, go, write: writeData} = configureProdRouter(loaderScene);
+document.body.addEventListener('click', globalClickHandler(scope, go));
+
+
 const kplayReady = kplay.prepare();
 kplayReady.then((sc) => {
   let muted = false;
@@ -266,6 +292,10 @@ async function runner(control) {
         ga.apply(null, payload);
         continue;
 
+      case 'go':
+        go(payload);
+        continue;
+
       case 'gameover':
         // TODO: log score?
         global.setState({status: 'gameover'});
@@ -396,37 +426,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
 
 
-let loadedScene = undefined;
 
-const loaderScene = (sceneName, data) => {
-  if (sceneName === loadedScene) {
-    return false;
-  }
-  document.title = scenes[sceneName] || _msg`santatracker`;
-
-  const optionalProdIndex = document.documentElement.lang ? `index_${document.documentElement.lang}.html` : '';
-
-  const locked = ['tracker'].indexOf(sceneName) !== -1;
-  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/') + (optionalProdIndex);
-
-  loadedScene = sceneName;
-
-  ga('set', 'page', `/${sceneName}`);
-  ga('send', 'pageview');
-
-  const context = {sceneName, data, locked};
-  loaderElement.load(url, context).then((success) => {
-    if (success) {
-      console.info('loading done', sceneName, url);
-    } else {
-      console.warn('loading superceded', sceneName);
-    }
-  });
-};
-
-
-const {scope, go, write: writeData} = configureProdRouter(loaderScene);
-document.body.addEventListener('click', globalClickHandler(scope, go));
 
 
 /**

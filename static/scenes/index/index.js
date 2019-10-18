@@ -7,6 +7,7 @@ import './elements/easteregg-reindeer.js';
 import './elements/easteregg-snowmobile.js';
 import './elements/easteregg-tictactoe.js';
 import '../../src/magic.js';
+import {rectify} from '../../src/scene/route.js';
 
 
 const offset = {x: 0, y: 0};
@@ -75,6 +76,8 @@ api.config({
   scroll: true,
   sound: ['music_start_village', 'village_start'],
 });
+
+rectify(document.querySelector('.quilt'));
 
 api.ready(async () => {
   // do nothing now?

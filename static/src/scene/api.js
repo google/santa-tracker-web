@@ -2,6 +2,8 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 import {resolvable} from '../lib/promises.js';
 
+import {globalClickHandler} from '../core/router.js';
+import {scope} from './route.js';
 
 class PreloadApi {
 
@@ -159,6 +161,7 @@ class SceneApi extends EventTarget {
       this._readyResolve = () => {};
 
       // ... and insert data for testing
+      // (this won't work in IE11 and friends, but we're not testing here anyway)
       const p = new URLSearchParams(window.location.search);
       p.forEach((value, key) => {
         this._initialData[key] = value;
@@ -362,3 +365,5 @@ function installV1Handlers() {
 
 installV1Handlers();
 
+const handler = globalClickHandler(scope, (sceneName) => sceneApi.go(sceneName));
+document.body.addEventListener('click', handler);

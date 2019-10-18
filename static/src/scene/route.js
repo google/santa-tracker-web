@@ -3,11 +3,15 @@
  * @fileoverview Route helpers designed for static scope only.
  */
 
-let scope = '';
-
-if (window.top != window) {
-  scope = document.referrer || 'https://santatracker.google.com/';
+function determineScope() {
+  if (window.top != window && document.referrer) {
+    const u = new URL('./', document.referrer);
+    return u.toString();
+  }
+  return '';
 }
+
+export const scope = determineScope();
 
 const emptyFunc = (a) => a;
 
