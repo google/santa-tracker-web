@@ -9,7 +9,7 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import { toRadian } from '../../utils/math.js'
-import { debounce } from '../../helpers.js'
+// import { debounce } from '../../helpers.js'
 
 // Other
 import CameraController from '../CameraController/index.js'
