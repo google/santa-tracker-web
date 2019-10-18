@@ -4,6 +4,7 @@
   margin-left: 40px;
   margin-top: 1px;
   position: relative;
+  pointer-events: auto;
 
   &__button {
     .button__icon {

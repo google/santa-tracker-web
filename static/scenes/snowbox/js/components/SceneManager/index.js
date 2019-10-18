@@ -76,7 +76,7 @@ class SceneManager {
       presets: 3,
       cubeMass: 20,
       ice_color: '#64d5fa',
-      terrain_color: '#ffffff'
+      terrain_color: '#d2d2d2'
     }
 
     this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.onGui)
@@ -540,7 +540,7 @@ class SceneManager {
       material = mesh.material
     })
 
-    this.updateMaterial(material)
+    if (material) this.updateMaterial(material)
 
     this.terrain.mesh.material.color = new THREE.Color(this.guiController.terrain_color)
   }

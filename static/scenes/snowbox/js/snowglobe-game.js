@@ -9,7 +9,7 @@ class SnowglobeGame {
 
   constructor(element) {
     const canvas = element.querySelector('#canvas')
-    const actionBtns = [...element.querySelectorAll('.action-button')]
+    const actionBtns = [...element.querySelectorAll('[data-button]')]
     const sceneManager = new SceneManager(canvas)
 
     const stats = new self.Stats()
@@ -71,15 +71,14 @@ class SnowglobeGame {
       actionBtns.forEach(button => {
         button.addEventListener('click', e => {
           e.preventDefault()
-          sceneManager.onButtonClick(button.id)
+          sceneManager.onButtonClick(button.dataset.button)
         })
       })
     }
 
     const render = () => {
       stats.begin()
-      // sceneManager.update()
-      // console.log(sceneManager.mode) // show current mode
+      sceneManager.update()
       stats.end()
 
       requestAnimationFrame(render)

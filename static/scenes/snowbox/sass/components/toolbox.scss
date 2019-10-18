@@ -1,17 +1,32 @@
 .toolbox {
-  background-color: $color-deep-blue;
+  display: flex;
+  background-color: $color-deep-blue-darken;
   height: 150px;
   position: relative;
-  padding: 0 45px;
+  padding: 0 25px;
+  pointer-events: auto;
 
-  button {
-    background-color: #fff;
-    border: none;
-    box-shadow: none;
-    color: #000;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 20px;
+  &__container {
+    padding: 0 40px;
+    background-color: $color-deep-blue;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__item {
+    margin: 0 20px;
+    width: 100px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    width: 100%;
   }
 }

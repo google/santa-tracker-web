@@ -2,7 +2,7 @@
 
 class Lights {
   constructor(scene) {
-    const light = new THREE.SpotLight(0xffffff, 0.5, 0, 100)
+    const light = new THREE.SpotLight(0xffffff, 0.6, 0, 100)
     light.castShadow = true
     light.position.set(300, 200, -300)
     scene.add(light)

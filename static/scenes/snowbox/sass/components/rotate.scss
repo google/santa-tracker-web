@@ -1,4 +1,6 @@
 .rotate {
+  pointer-events: auto;
+
   &__row {
     display: flex;
     justify-content: center;

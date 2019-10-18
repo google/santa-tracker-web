@@ -4,6 +4,12 @@
   height: $button-size;
   position: relative;
 
+  &:hover {
+    &::after {
+      background-color: $color-orange;
+    }
+  }
+
   &::before,
   &::after {
     content: '';
