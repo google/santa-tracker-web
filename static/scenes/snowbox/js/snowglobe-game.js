@@ -80,9 +80,9 @@ class SnowglobeGame {
       })
     }
 
-    const render = () => {
+    const render = now => {
       stats.begin()
-      sceneManager.update()
+      sceneManager.update(now)
       stats.end()
 
       requestAnimationFrame(render)

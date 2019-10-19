@@ -3,6 +3,8 @@ import CONFIG from './config.js'
 
 // Utils
 import { toRadian } from '../../utils/math.js'
+import { getNow } from '../../utils/time.js'
+import { outQuad } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -106,20 +108,39 @@ class CameraController {
     }
   }
 
-  zoom(direction) {
+  zoom(direction, renderer, scene) {
+    if (this.isZooming) return
+
+    let target
     switch (direction) {
       case 'in':
         if (this.camera.zoom + CONFIG.ZOOM.BY >= CONFIG.ZOOM.MAX) {
           return false
         }
-        this.camera.zoom += CONFIG.ZOOM.BY
+        this.zoomTarget = this.camera.zoom + CONFIG.ZOOM.BY
         break
       case 'out':
         if (this.camera.zoom - CONFIG.ZOOM.BY <= CONFIG.ZOOM.MIN) {
           return false
         }
-        this.camera.zoom -= CONFIG.ZOOM.BY
+        this.zoomTarget = this.camera.zoom - CONFIG.ZOOM.BY
         break
+    }
+
+    setTimeout(() => {
+      this.zoomOrigin = this.camera.zoom
+      this.zoomSpeed = CONFIG.ZOOM.SPEED
+      this.zoomStart = getNow()
+      this.isZooming = true
+    }, 0) // prevent camera jump? Needs to figure why
+  }
+
+  animateZoom(now) {
+    const percent = (now - this.zoomStart) / this.zoomSpeed
+    if (percent < 1) {
+      this.camera.zoom = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outQuad(percent)
+    } else {
+      this.isZooming = false
     }
 
     this.camera.updateProjectionMatrix()

@@ -9,6 +9,7 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import { toRadian } from '../../utils/math.js'
+import { outQuad } from '../../utils/ease.js'
 // import { debounce } from '../../helpers.js'
 
 // Other
@@ -139,15 +140,14 @@ class SceneManager {
     this.terrain = this.sceneSubjects[1]
   }
 
-  update() {
+  update(now) {
     const { camera, controls } = this.cameraCtrl
-    if (controls && controls.enabled) controls.update() // for damping
-    this.raycaster.setFromCamera(this.mouse, camera)
 
-    const elapsedTime = this.clock.getElapsedTime()
+    if (controls && controls.enabled) controls.update() // for damping
+
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update(elapsedTime)
+      this.sceneSubjects[i].update()
     }
 
     // if we're in ghost mode and the selected object is on edges
@@ -156,8 +156,9 @@ class SceneManager {
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
 
-    if (this.mesh) {
-      this.mesh.rotation.y += toRadian(0.2)
+    // on camera zooming
+    if (this.cameraCtrl.isZooming) {
+      this.cameraCtrl.animateZoom(now)
     }
 
     this.renderer.render(this.scene, camera)
@@ -208,6 +209,8 @@ class SceneManager {
         this.detectMouseInEdge(event)
       }
     }
+
+    if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
   }
 
   onMouseDown() {

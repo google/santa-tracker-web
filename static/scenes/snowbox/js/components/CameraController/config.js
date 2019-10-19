@@ -22,6 +22,7 @@ export default {
     BY: 0.5,
     MAX: 2.5,
     MIN: 0,
+    SPEED: 600,
   },
   /*
    * MOVE ON EDGES
