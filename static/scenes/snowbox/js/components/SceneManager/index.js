@@ -156,6 +156,11 @@ class SceneManager {
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
 
+    // on camera rotating
+    if (this.cameraCtrl.isRotating) {
+      this.cameraCtrl.animateRotate(now)
+    }
+
     // on camera zooming
     if (this.cameraCtrl.isZooming) {
       this.cameraCtrl.animateZoom(now)

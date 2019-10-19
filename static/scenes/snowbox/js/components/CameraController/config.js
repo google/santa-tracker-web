@@ -18,8 +18,8 @@ export default {
    * ZOOM
    */
   ZOOM: {
-    START: 0.8,
-    BY: 0.5,
+    START: 1,
+    STEPS: [1.2, 0.8, 0.6, 0.5, 0.4],
     MAX: 2.5,
     MIN: 0,
     SPEED: 600,

@@ -12,6 +12,7 @@ class CameraController {
     this.rotationXZ = 0
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
+    this.currentZoom = CONFIG.ZOOM.START
 
     const { width, height } = screenDimensions
     const aspectRatio = width / height
@@ -22,7 +23,7 @@ class CameraController {
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
     this.camera.position.set(0, CONFIG.POSITION.Y, CONFIG.POSITION.Z)
     this.camera.lookAt(0, 0, 0)
-    this.camera.zoom = CONFIG.ZOOM.START
+    this.camera.zoom = CONFIG.ZOOM.STEPS[this.currentZoom]
     this.camera.updateProjectionMatrix()
 
     this.buildControls()
@@ -44,88 +45,84 @@ class CameraController {
     if (this.isRotating) return
     this.controls.enabled = false
 
-    let axis
-    let targetAngle
-    let lookAt
-
     switch (direction) {
       case 'left':
-        axis = new THREE.Vector3(0, 1, 0)
-        targetAngle = wheel ? 2 : CONFIG.ROTATION.Y
-        this.rotationY += targetAngle
+        this.axis = new THREE.Vector3(0, 1, 0)
+        this.targetAngle = wheel ? 2 : CONFIG.ROTATION.Y
+        this.rotationY += this.targetAngle
         break
       case 'right':
-        axis = new THREE.Vector3(0, 1, 0)
-        targetAngle = wheel ? -2 : -CONFIG.ROTATION.Y
-        this.rotationY += targetAngle
+        this.axis = new THREE.Vector3(0, 1, 0)
+        this.targetAngle = wheel ? -2 : -CONFIG.ROTATION.Y
+        this.rotationY += this.targetAngle
         break
       case 'top':
-        axis = this.getPerpendicularXZAxisManually()
-        targetAngle = -CONFIG.ROTATION.XZ
-        if (this.rotationXZ + targetAngle <= CONFIG.ROTATION.XZ_MAX) {
+        this.axis = this.getPerpendicularXZAxisManually()
+        this.targetAngle = -CONFIG.ROTATION.XZ
+        if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATION.XZ_MAX) {
           // don't rotate if reach max
           return false
         }
-        this.rotationXZ += targetAngle
+        this.rotationXZ += this.targetAngle
         break
       case 'bottom':
-        axis = this.getPerpendicularXZAxisManually()
-        targetAngle = CONFIG.ROTATION.XZ
-        if (this.rotationXZ + targetAngle >= CONFIG.ROTATION.XZ_MIN) {
+        this.axis = this.getPerpendicularXZAxisManually()
+        this.targetAngle = CONFIG.ROTATION.XZ
+        if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATION.XZ_MIN) {
           // don't rotate if reach min
           return false
         }
-        this.rotationXZ += targetAngle
+        this.rotationXZ += this.targetAngle
         break
     }
 
     // get look at point
     const intersects = this.getLookAtPointOnTerrain(terrain)
-    lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
-    lookAt.y = 0 // cleaning up decimals, this value should always be 0
+    this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
+    this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
 
     if (wheel || noAnimation) {
-      this.rotateAboutPoint(this.camera, lookAt, axis, toRadian(targetAngle))
+      this.rotateAboutPoint(this.camera, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
       // increment value for animation
-      const incrAngle = targetAngle / CONFIG.ROTATION.TIME
-      const incrAngleRadian = toRadian(incrAngle)
-      let progressAngle = 0
+      this.incrAngle = this.targetAngle / CONFIG.ROTATION.TIME
+      this.incrAngleRadian = toRadian(this.incrAngle)
+      this.progressAngle = 0
       this.isRotating = true
+    }
+  }
 
-      const animate = () => {
-        progressAngle += incrAngle
-        this.rotateAboutPoint(this.camera, lookAt, axis, incrAngleRadian)
+  animateRotate(now) {
+    this.progressAngle += this.incrAngle
 
-        if (progressAngle.toFixed(2) !== targetAngle.toFixed(2)) {
-          this.animateRotateRAF = window.requestAnimationFrame(animate)
-        } else {
-          this.isRotating = false
-          window.cancelAnimationFrame(this.animateRotateRAF)
-        }
-      }
-      animate()
+    if (this.progressAngle.toFixed(2) !== this.targetAngle.toFixed(2)) {
+      this.rotateAboutPoint(this.camera, this.lookAt, this.axis, this.incrAngleRadian)
+    } else {
+      this.isRotating = false
     }
   }
 
   zoom(direction, renderer, scene) {
     if (this.isZooming) return
 
-    let target
     switch (direction) {
-      case 'in':
-        if (this.camera.zoom + CONFIG.ZOOM.BY >= CONFIG.ZOOM.MAX) {
-          return false
-        }
-        this.zoomTarget = this.camera.zoom + CONFIG.ZOOM.BY
-        break
       case 'out':
-        if (this.camera.zoom - CONFIG.ZOOM.BY <= CONFIG.ZOOM.MIN) {
+        if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS.length) {
           return false
         }
-        this.zoomTarget = this.camera.zoom - CONFIG.ZOOM.BY
+        this.currentZoom++
+        break
+      case 'in':
+        if (this.currentZoom <= 0) {
+          return false
+        }
+        this.currentZoom--
         break
     }
+
+    this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
+
+    console.log(this.zoomTarget)
 
     setTimeout(() => {
       this.zoomOrigin = this.camera.zoom
