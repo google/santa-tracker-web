@@ -57,7 +57,6 @@ class Cube extends Obj {
       (CONFIG.SIZE / 2) * this.scaleFactor
     )
     shape.updateConvexPolyhedronRepresentation()
-    console.log(CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3))
     this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
     this.body.computeAABB()
     this.body.updateMassProperties()
