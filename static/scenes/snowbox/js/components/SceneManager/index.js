@@ -183,7 +183,7 @@ class SceneManager {
 
   onKeydown(event) {
     const elapsedTime = this.clock.getElapsedTime()
-    this.bindArrowClick(event.key)
+    this.bindArrowClick(event)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       if (typeof this.sceneSubjects[i].onKeydown === 'function') {
         this.sceneSubjects[i].onKeydown(event, elapsedTime, this.checkOverlap)
@@ -280,21 +280,26 @@ class SceneManager {
     }
   }
 
-  bindArrowClick(key) {
-    switch (key) {
+  bindArrowClick(event) {
+    switch (event.key) {
       case 'ArrowUp':
-        this.move('up')
+        event.preventDefault()
+        this.scale('up')
         break
       case 'ArrowDown':
-        this.move('down')
+        event.preventDefault()
+        this.scale('down')
         break
       case 'ArrowRight':
+        event.preventDefault()
         this.rotate('right')
         break
       case 'ArrowLeft':
+        event.preventDefault()
         this.rotate('left')
         break
       case 'Escape':
+        event.preventDefault()
         this.bindEscape()
         break
       default:
@@ -383,12 +388,18 @@ class SceneManager {
 
   move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
     if (this.selectedSubject) {
-      console.log(this.selectedSubject.ghost.position.y)
       this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
         this.onMouseMove()
       }
+    }
+  }
+
+  scale(direction) {
+    if (this.selectedSubject) {
+      this.selectedSubject.scale(direction)
+      this.checkCollision()
     }
   }
 
@@ -481,11 +492,18 @@ class SceneManager {
       }
     }
 
+    if (box.min.y < 0) {
+      moveUp = true
+      elevateScale = -box.min.y
+    }
+
     if (moveUp) {
       this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
+
+    console.log()
   }
 
   setMode(mode = '') {

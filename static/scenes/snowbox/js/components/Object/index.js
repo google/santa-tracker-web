@@ -12,6 +12,7 @@ class Object extends EventEmitter {
     this.selectable = false
     this.selected = false
     this.rotationY = 0
+    this.scaleFactor = 1
   }
 
   addToScene() {
@@ -105,6 +106,16 @@ class Object extends EventEmitter {
     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
+  scale(direction) {
+    const currentScale = this.ghost.scale
+    const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
+
+    if (this.scaleFactor * scaleFactor < 1.9 && this.scaleFactor * scaleFactor > 0.5) {
+      this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
+      this.scaleFactor *= scaleFactor
+    }
+  }
+
   delete() {
     this.scene.remove(this.mesh)
     this.mesh.geometry.dispose()
@@ -166,13 +177,15 @@ class Object extends EventEmitter {
   }
 
   moveToGhost() {
-    const { position, quaternion } = this.ghost
+    const { position, quaternion, scale } = this.ghost
 
     this.body.velocity.setZero()
     this.body.angularVelocity.setZero()
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
+    this.mesh.scale.copy(scale)
+    this.scaleBody()
   }
 }
 

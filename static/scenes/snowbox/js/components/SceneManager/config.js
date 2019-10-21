@@ -7,7 +7,7 @@ export default {
     ICE: 0x56b8e1,
     TERRAIN: 0xd2d2d2,
   },
-  MODEL_UNIT: 200,
+  MODEL_UNIT: 198.8005,
   SCENE_SIZE: 1000,
   TIMESTEP: 1 / 60,
   ELEVATE_SCALE: 1.001,
@@ -15,5 +15,5 @@ export default {
   // CANNON.JS
   SLIPPERY_MATERIAL: new CANNON.Material('SLIPPERY_MATERIAL'),
   NORMAL_MATERIAL: new CANNON.Material('NORMAL_MATERIAL'),
-  EDGES_PERCENT_SIZE: 0.05, // 5% of screen
+  EDGES_PERCENT_SIZE: 0.05 // 5% of screen
 }
