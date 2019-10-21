@@ -67,6 +67,9 @@ class Object extends EventEmitter {
       if (this.ghost) {
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+        if (this.circle) {
+          this.circle.position.copy(this.ghost.position)
+        }
       } else {
         this.mesh.updateMatrixWorld(true)
         this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
@@ -158,12 +161,27 @@ class Object extends EventEmitter {
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
 
+    setTimeout(this.createRotateCircles.bind(this), 100) //trick to remove
+
     if (GLOBAL_CONFIG.DEBUG) {
       this.scene.remove(this.ghostHelper)
       this.ghostHelper = undefined
       this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
       this.scene.add(this.ghostHelper)
     }
+  }
+
+  createRotateCircles() {
+    const xRadius = this.box.max.x - this.box.min.x
+    const yRadius = this.box.max.y - this.box.min.y
+    var geometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+    var material = new THREE.MeshBasicMaterial({
+      color: 0xffe14d,
+      side: THREE.DoubleSide
+    })
+    this.circle = new THREE.Mesh(geometry, material)
+    this.scene.add(this.circle)
+    console.log('create rotate circles')
   }
 
   deleteGhost() {
