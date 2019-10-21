@@ -183,7 +183,7 @@ class SceneManager {
 
   onKeydown(event) {
     const elapsedTime = this.clock.getElapsedTime()
-    this.bindArrowClick(event)
+    this.bindKeyDown(event)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       if (typeof this.sceneSubjects[i].onKeydown === 'function') {
         this.sceneSubjects[i].onKeydown(event, elapsedTime, this.checkOverlap)
@@ -280,7 +280,8 @@ class SceneManager {
     }
   }
 
-  bindArrowClick(event) {
+  bindKeyDown(event) {
+    console.log(event.key)
     switch (event.key) {
       case 'ArrowUp':
         event.preventDefault()
@@ -302,6 +303,9 @@ class SceneManager {
         event.preventDefault()
         this.bindEscape()
         break
+      case 'Backspace':
+        event.preventDefault()
+        this.deleteSelected()
       default:
         break
     }
@@ -543,7 +547,17 @@ class SceneManager {
     }
   }
 
+  deleteSelected() {
+    if (this.mode === 'ghost' && this.selectedSubject) {
+      this.deleteObject()
+      this.setMode()
+      this.terrain.removePositionMarker()
+      this.selectedSubject = null
+    }
+  }
+
   deleteObject() {
+    this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
     this.selectedSubject.delete()
   }
 

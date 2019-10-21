@@ -128,6 +128,12 @@ class Object extends EventEmitter {
     this.ghost.geometry.dispose()
     this.ghost.material.dispose()
     this.ghost = undefined
+
+    //remove ghosthelper
+    if (this.ghostHelper) {
+      this.scene.remove(this.ghostHelper)
+      this.ghostHelper = undefined
+    }
   }
 
   highlight() {
