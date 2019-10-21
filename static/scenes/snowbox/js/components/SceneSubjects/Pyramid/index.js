@@ -38,13 +38,6 @@ class Pyramid extends Obj {
   getThreeGeo() {
     const geo = new THREE.Geometry()
     const vertices = this.getVertices()
-    // const offset = -0.35
-    // for (let i = 0; i < vertices.length; i++) {
-    //   const v = vertices[i]
-    //   v.x += offset
-    //   v.y += offset
-    //   v.z += offset
-    // }
     geo.vertices = vertices
     geo.faces = this.getFaces()
     geo.computeBoundingSphere()

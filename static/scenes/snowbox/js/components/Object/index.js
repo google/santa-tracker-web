@@ -109,8 +109,11 @@ class Object extends EventEmitter {
   scale(direction) {
     const currentScale = this.ghost.scale
     const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
-    this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
-    this.scaleFactor *= scaleFactor
+
+    if (this.scaleFactor * scaleFactor < 1.9 && this.scaleFactor * scaleFactor > 0.5) {
+      this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
+      this.scaleFactor *= scaleFactor
+    }
   }
 
   delete() {

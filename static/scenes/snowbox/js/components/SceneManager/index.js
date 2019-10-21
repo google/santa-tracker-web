@@ -380,7 +380,6 @@ class SceneManager {
 
   move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
     if (this.selectedSubject) {
-      console.log(this.selectedSubject.ghost.position.y)
       this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
       this.selectedSubject.moveTo(null, this.moveOffset.y, null)
       if (!noMouseMove) {
@@ -390,8 +389,10 @@ class SceneManager {
   }
 
   scale(direction) {
-    this.selectedSubject.scale(direction)
-    this.checkCollision()
+    if (this.selectedSubject) {
+      this.selectedSubject.scale(direction)
+      this.checkCollision()
+    }
   }
 
   rotate(direction) {
