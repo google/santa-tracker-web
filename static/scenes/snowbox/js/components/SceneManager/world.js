@@ -6,7 +6,7 @@ world.broadphase = new CANNON.NaiveBroadphase()
 world.solver.iterations = 10
 
 const NORMAL_NORMAL_CM = new CANNON.ContactMaterial(CONFIG.NORMAL_MATERIAL, CONFIG.NORMAL_MATERIAL, {
-  friction: 0.4,
+  friction: 100,
   restitution: 0.3,
   contactEquationStiffness: 1e8,
   contactEquationRelaxation: 3,
