@@ -281,7 +281,6 @@ class SceneManager {
   }
 
   bindKeyDown(event) {
-    console.log(event.key)
     switch (event.key) {
       case 'ArrowUp':
         event.preventDefault()
@@ -506,8 +505,6 @@ class SceneManager {
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
-
-    console.log()
   }
 
   setMode(mode = '') {
