@@ -94,14 +94,7 @@ class PortControl {
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
-const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
-
-
-const assert = (cond, message = 'assertion failed') => {
-  if (!cond) {
-    throw new Error(message);
-  }
-};
+const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-popups';
 
 
 export const events = Object.freeze({

@@ -58,7 +58,6 @@ if (nativeSupport) {
     }
   };
 
-  const adopted = Symbol('adopted');            // CSSStyleSheetConstructor instances adopted
   const instantiated = Symbol('instantiated');  // actually created <style> nodes
 
   function rectifyAdoptedStyleSheets() {
@@ -83,14 +82,10 @@ if (nativeSupport) {
 
     // Prepare clones of target CSSStyleSheetConstructor instances.
     const targetBefore = this.firstChild;
-    const styleNodes = this[adopted].map((c) => {
-      const node = document.createElement('style');
-      node.textContent = c.cssText;
-      this.insertBefore(node, targetBefore);
-      return node;
-    });
-    this[instantiated] = styleNodes;
+    this[instantiated].forEach((node) => this.insertBefore(node, targetBefore));
   }
+
+  const adopted = Symbol('adopted'); // CSSStyleSheetConstructor instances adopted
 
   Object.defineProperty(ShadowRoot.prototype, 'adoptedStyleSheets', {
     get() {
@@ -103,18 +98,18 @@ if (nativeSupport) {
       if (!v || !v.length) {
         return;  // nothing to do
       }
-
-      const cloned = [];
-      for (let i = 0; i < v.length; ++i) {
-        if (!(v[i] instanceof window.CSSStyleSheetConstructor)) {
-          throw new Error(`unsupported adopted type: ${v[i]}`);
-        } else if (v[i].cssText === null) {
+      this[adopted] = v;
+      this[instantiated] = v.map((instance) => {
+        if (!(instance instanceof window.CSSStyleSheetConstructor)) {
+          throw new Error(`unsupported adopted type: ${instance}`);
+        } else if (instance.cssText === null) {
           throw new Error(`cannot adopt uninstantiated CSSStyleSheet`);
         }
-        cloned.push(v[i]);
-      }
+        const node = document.createElement('style');
+        node.textContent = instance.cssText;
+        return node;
+      });
 
-      this[adopted] = cloned;
       const o = new MutationObserver(rectifyAdoptedStyleSheets.bind(this));
       o.observe(this, {childList: true});
       rectifyAdoptedStyleSheets.call(this);
