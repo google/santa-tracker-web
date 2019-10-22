@@ -9,18 +9,28 @@
 
   &:hover {
     .button__icon {
-      transform: translate(-5px, -5px);
+      transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
+
+      &--reverse {
+        transform: rotate(180deg) translate($button-3d-offset-hover, $button-3d-offset-hover);
+      }
     }
+
     &::before {
-      box-shadow: 5px 5px $color-orange, .01px 5px .01px $color-orange, 13px 5px $button-shadow;
-      transform: translate(-5px, -5px);
+      box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
+      transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
     }
   }
 
   &.is-clicked {
     .button__icon {
       transform: none;
+
+      &--reverse {
+        transform: rotate(180deg);
+      }
     }
+
     &::before {
       box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, 1px 1px $button-shadow;
       transform: none;
@@ -29,7 +39,7 @@
 
   &::before {
     background-color: $color-yellow;
-    box-shadow: 3px 3px .01px $color-orange, .01px 3px .01px $color-orange, 10px 3px $button-shadow;
+    box-shadow: $button-3d-offset  $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
     // .01px fix flicker box shadow animation for chrome https://stackoverflow.com/questions/46960449/how-to-avoid-flickering-on-box-shadow-transition
     content: '';
     width: 100%;
@@ -40,18 +50,13 @@
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     z-index: 0;
-    transform: translate(-3px, -3px);
+    transform: translate(-$button-3d-offset, -$button-3d-offset);
     transition: box-shadow $transition-button, transform $transition-button;
-  }
-
-  &::after {
-    background-color: $color-yellow;
-    display: none;
   }
 
   &--left {
     &::before {
-      box-shadow: 0px 3px .01px $color-orange, .01px 3px .01px $color-orange, .01px 10px $button-shadow;
+      box-shadow: 0px $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, .01px $button-shadow-offset $button-shadow;
       border-top-left-radius: 50%;
       border-top-right-radius: 0;
       border-bottom-left-radius: 50%;
@@ -60,7 +65,7 @@
 
     &:hover {
       &::before {
-        box-shadow: 2px 0px .01px $color-orange, 2px 5px .01px $color-orange, 2px 13px $button-shadow;
+        box-shadow: 2px 0px .01px $color-orange, 2px $button-3d-offset-hover .01px $color-orange, 2px $button-shadow-offset-hover $button-shadow;
       }
     }
 
@@ -73,7 +78,7 @@
 
   &--right {
     &::before {
-      box-shadow: 3px 3px .01px $color-orange, .01px 3px .01px $color-orange, 3px 10px $button-shadow;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-3d-offset  $button-shadow-offset $button-shadow;
       border-top-left-radius: 0;
       border-top-right-radius: 50%;
       border-bottom-left-radius: 0;
@@ -82,7 +87,7 @@
 
     &:hover {
       &::before {
-        box-shadow: 5px 5px $color-orange, .01px 5px .01px $color-orange, 5px 13px $button-shadow;
+        box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-3d-offset-hover $button-shadow-offset-hover $button-shadow;
       }
     }
 
@@ -95,7 +100,7 @@
 
   &--bottom {
     &::before {
-      box-shadow: 3px 1px .01px $color-orange, 1px 3px .01px $color-orange, 10px 3px $button-shadow;
+      box-shadow: $button-3d-offset  1px .01px $color-orange, 1px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-bottom-left-radius: 50%;
@@ -104,7 +109,7 @@
 
     &:hover {
       &::before {
-        box-shadow: 5px .01px .01px $color-orange, 2px 3px .01px $color-orange, 13px 5px $button-shadow;
+        box-shadow: $button-3d-offset-hover .01px .01px $color-orange, 2px $button-3d-offset  .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
       }
     }
 
@@ -115,9 +120,28 @@
     }
   }
 
+  &--round {
+    &::before {
+      background-color: $color-white;
+      box-shadow: $button-3d-offset  $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      &::before {
+        box-shadow: 4px 4px $color-gray, .01px 2px .01px $color-gray;
+      }
+    }
+  }
+
   &__icon {
-    transform: translate(-3px, -3px);
+    transform: translate(-$button-3d-offset, -$button-3d-offset);
     transition: transform $transition-button;
     z-index: 1;
+
+
+    &--reverse {
+      transform: translate(-$button-3d-offset, -$button-3d-offset) rotate(180deg);
+    }
   }
 }
