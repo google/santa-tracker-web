@@ -10,6 +10,7 @@ class SnowglobeGame {
   constructor(element) {
     const canvas = element.querySelector('#canvas')
     const actionBtns = [...element.querySelectorAll('[data-button]')]
+    const rotateBtn = element.querySelector('[data-rotate-button]')
     const objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
     const objectEditUi = element.querySelector('[object-edit-ui]')
     const objectScaleSlider = element.querySelector('[object-scale-slider]')
@@ -79,6 +80,24 @@ class SnowglobeGame {
             button.classList.remove('is-clicked')
           }, 200)
         })
+      })
+
+      let rotateInterval
+
+      rotateBtn.addEventListener('mousedown', e => {
+        e.preventDefault()
+        rotateInterval = setInterval(() => {
+          sceneManager.onButtonClick(rotateBtn.dataset.rotateButton)
+          rotateBtn.classList.add('is-clicked')
+        }, 100)
+      })
+
+      rotateBtn.addEventListener('mouseup', e => {
+        e.preventDefault()
+        clearInterval(rotateInterval)
+        setTimeout(() => {
+          rotateBtn.classList.remove('is-clicked')
+        }, 200)
       })
 
       objectScaleSlider.addEventListener('input', e => {
