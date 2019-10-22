@@ -6,6 +6,7 @@ import cubeConfig from '../SceneSubjects/Cube/config.js'
 import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
+import PineTree from '../SceneSubjects/PineTree/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
 import { toRadian } from '../../utils/math.js'
@@ -249,6 +250,9 @@ class SceneManager {
       case 'add-pyramid':
         this.addShape('pyramid')
         break
+      case 'add-pine-tree':
+        this.addShape('pine-tree')
+        break
       case 'rotate-left':
         this.cameraCtrl.rotate('left', this.terrain)
         break
@@ -375,6 +379,9 @@ class SceneManager {
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world, material)
+        break
+      case 'pine-tree':
+        subject = new PineTree(this.scene, this.world, material)
         break
       default:
         break
