@@ -1,0 +1,54 @@
+.object-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  user-select: none;
+
+  .button--round {
+      .button__icon {
+        transform: rotate(180deg);
+        transform-origin: 44% 44%;
+      }
+
+      &:hover {
+        .button__icon {
+          transform: rotate(180deg) translate(3px, 3px);
+        }
+      }
+
+      &.is-clicked {
+        .button__icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+}
+
+.edit-ui {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  padding: 15px 25px;
+
+  &__slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $color-gray;
+    height: 3px;
+    margin: 0 10px;
+    width: 155px;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: $color-orange;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+    }
+
+    &::-moz-range-thumb {
+    }
+  }
+}

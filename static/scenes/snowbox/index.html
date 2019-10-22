@@ -13,6 +13,7 @@
     <script src="../../third_party/lib/three/examples/js/loaders/OBJLoader.js"></script>
     <script src="../../third_party/lib/three/examples/js/loaders/MTLLoader.js"></script>
     <script src="../../third_party/lib/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="../../third_party/lib/three/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="../../third_party/lib/cannon/cannon.js"></script>
     <script src="../../third_party/lib/dat-gui/dat.gui.min.js"></script>
   </head>
@@ -20,6 +21,18 @@
   <body>
     <div id="module-snowglobe">
       <canvas id="canvas"></canvas>
+      <div class="object-ui" object-rotate-right-ui>
+        <div data-button="object-rotate-right" class="rotate__button button button--round">
+          <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon">
+        </div>
+      </div>
+      <div class="object-ui" object-edit-ui>
+        <div class="edit-ui">
+          <img src="./img/icons/scale-small.svg" alt="">
+          <input type="range" min="-6" max="6" value="0" class="edit-ui__slider" object-scale-slider>
+          <img src="./img/icons/scale-big.svg" alt="">
+        </div>
+      </div>
       <div class="ui">
         <div class="camera-controls">
           <div class="rotate">

@@ -49,6 +49,28 @@
     display: none;
   }
 
+  &--round {
+    &::before {
+      box-shadow: 0px 3px .01px $color-orange, .01px 3px .01px $color-orange ;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+    &:hover {
+      &::before {
+        box-shadow: 2px 0px .01px $color-orange, 2px 5px .01px $color-orange ;
+      }
+    }
+
+    &.is-clicked {
+      &::before {
+        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange;
+      }
+    }
+  }
+
   &--left {
     &::before {
       box-shadow: 0px 3px .01px $color-orange, .01px 3px .01px $color-orange, .01px 10px $button-shadow;

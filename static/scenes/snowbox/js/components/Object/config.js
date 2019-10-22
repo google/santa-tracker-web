@@ -8,5 +8,9 @@ export default {
     opacity: 0.3,
     transparent: true
   }),
-  SCALE_FACTOR: 1.1
+  SCALE_FACTOR: 1.1,
+  ROTATE_CIRCLE_MATERIAL: new THREE.MeshBasicMaterial({
+    color: 0xffe14d,
+    side: THREE.DoubleSide
+  })
 }

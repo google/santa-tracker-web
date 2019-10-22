@@ -10,7 +10,13 @@ class SnowglobeGame {
   constructor(element) {
     const canvas = element.querySelector('#canvas')
     const actionBtns = [...element.querySelectorAll('[data-button]')]
+    const objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
+    const objectEditUi = element.querySelector('[object-edit-ui]')
+    const objectScaleSlider = element.querySelector('[object-scale-slider]')
     const sceneManager = new SceneManager(canvas)
+
+    objectRotateRightUi.style.display = `none`
+    objectEditUi.style.display = `none`
 
     const stats = new self.Stats()
     stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -52,7 +58,7 @@ class SnowglobeGame {
         e => {
           e.preventDefault()
           sceneManager.mouseState = 'up'
-          if (sceneManager.mode !== 'ghost') {
+          if (sceneManager.mode !== 'move' && sceneManager.mode !== 'edit') {
             sceneManager.setMode()
           }
         },
@@ -73,6 +79,40 @@ class SnowglobeGame {
             button.classList.remove('is-clicked')
           }, 200)
         })
+      })
+
+      objectScaleSlider.addEventListener('input', e => {
+        sceneManager.onScaleInput(e)
+      })
+
+      sceneManager.addListener('enter_edit', () => {
+        if (sceneManager.selectedSubject && sceneManager.mode === 'edit') {
+          const { radius } = sceneManager.selectedSubject.xCircle.geometry.boundingSphere
+          let tempPos = new THREE.Vector3()
+          sceneManager.selectedSubject.ghost.getWorldPosition(tempPos)
+          tempPos.x += radius
+          tempPos.project(sceneManager.cameraCtrl.camera)
+          const x = (tempPos.x * 0.5 + 0.5) * canvas.clientWidth
+          const y = (tempPos.y * -0.5 + 0.5) * canvas.clientHeight
+          objectRotateRightUi.style.display = `block`
+          objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${x}px,${y}px)`
+
+          //
+          let ghostPos = new THREE.Vector3()
+          sceneManager.selectedSubject.ghost.getWorldPosition(ghostPos)
+          ghostPos.y -= (sceneManager.selectedSubject.box.max.y - sceneManager.selectedSubject.box.min.y) / 2
+          ghostPos.x += (sceneManager.selectedSubject.box.max.x - sceneManager.selectedSubject.box.min.x) / 2
+          ghostPos.z += (sceneManager.selectedSubject.box.max.z - sceneManager.selectedSubject.box.min.z) / 2
+          ghostPos.project(sceneManager.cameraCtrl.camera)
+          objectEditUi.style.display = `block`
+          objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
+            canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * canvas.clientHeight + 50}px)`
+        }
+      })
+
+      sceneManager.addListener('leave_edit', () => {
+        objectRotateRightUi.style.display = `none`
+        objectEditUi.style.display = `none`
       })
     }
 

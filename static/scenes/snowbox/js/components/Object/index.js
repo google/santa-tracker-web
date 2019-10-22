@@ -13,6 +13,7 @@ class Object extends EventEmitter {
     this.selected = false
     this.rotationY = 0
     this.scaleFactor = 1
+    this.scaleIndex = 0
   }
 
   addToScene() {
@@ -67,8 +68,8 @@ class Object extends EventEmitter {
       if (this.ghost) {
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-        if (this.circle) {
-          this.circle.position.copy(this.ghost.position)
+        if (this.xCircle) {
+          this.xCircle.position.copy(this.ghost.position)
         }
       } else {
         this.mesh.updateMatrixWorld(true)
@@ -112,6 +113,7 @@ class Object extends EventEmitter {
   scale(direction) {
     const currentScale = this.ghost.scale
     const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
+    this.scaleIndex = direction === 'up' ? this.scaleIndex + 1 : this.scaleIndex - 1
 
     if (this.scaleFactor * scaleFactor < 1.9 && this.scaleFactor * scaleFactor > 0.5) {
       this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
@@ -161,8 +163,6 @@ class Object extends EventEmitter {
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
 
-    setTimeout(this.createRotateCircles.bind(this), 100) //trick to remove
-
     if (GLOBAL_CONFIG.DEBUG) {
       this.scene.remove(this.ghostHelper)
       this.ghostHelper = undefined
@@ -171,17 +171,15 @@ class Object extends EventEmitter {
     }
   }
 
-  createRotateCircles() {
-    const xRadius = this.box.max.x - this.box.min.x
-    const yRadius = this.box.max.y - this.box.min.y
-    var geometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-    var material = new THREE.MeshBasicMaterial({
-      color: 0xffe14d,
-      side: THREE.DoubleSide
-    })
-    this.circle = new THREE.Mesh(geometry, material)
-    this.scene.add(this.circle)
-    console.log('create rotate circles')
+  createRotateCircle() {
+    // X Circle
+    const xRadius = (this.box.max.x - this.box.min.x) / 1.5
+    var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+    this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
+    this.xCircle.applyQuaternion(xQuaternion)
+    this.xCircle.geometry.computeBoundingSphere()
+    this.scene.add(this.xCircle)
   }
 
   deleteGhost() {
@@ -192,12 +190,20 @@ class Object extends EventEmitter {
       this.ghost = undefined
     }
 
+    this.deleteRotateCircle()
+
     if (GLOBAL_CONFIG.DEBUG) {
       this.scene.remove(this.ghostHelper)
       this.ghostHelper = undefined
       this.ghostHelper = new THREE.BoxHelper(this.mesh, 0x00ff00)
       this.scene.add(this.ghostHelper)
     }
+  }
+
+  deleteRotateCircle() {
+    this.scene.remove(this.xCircle)
+    this.xCircle.geometry.dispose()
+    this.xCircle = undefined
   }
 
   moveToGhost() {
@@ -210,6 +216,10 @@ class Object extends EventEmitter {
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
     this.mesh.scale.copy(scale)
     this.scaleBody()
+  }
+
+  setEditTools() {
+    this.createRotateCircle()
   }
 }
 
