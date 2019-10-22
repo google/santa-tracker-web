@@ -49,12 +49,12 @@
                 <img class="rotate__image" src="./img/icons/rotate.svg" alt="" class="button__icon">
               </div>
               <div data-button="rotate-left" class="rotate__button button button--right">
-                <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon">
+                <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon button__icon--reverse">
               </div>
             </div>
             <div class="rotate__row">
               <div data-button="rotate-top" class="rotate__button button button--bottom">
-                <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon">
+                <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon button__icon--reverse">
               </div>
             </div>
           </div>
@@ -68,24 +68,18 @@
           </div>
         </div>
         <div class="toolbox">
-          <div class="toolbox__arrow arrow--left">
-            <img class="arrow__icon" src="" alt="">
-          </div>
           <div class="toolbox__container">
+            <div class="toolbox__arrow button button--slider">
+              <img src="./img/icons/arrow.svg" alt="" class="button__icon">
+            </div>
             <div data-button="add-snow-cube" class="toolbox__item">
               <img src="./img/cube.png" alt="" class="toolbox__image">
             </div>
             <button data-button="add-ice-cube" class="action-button">Add Ice Cube</button>
             <button data-button="add-pyramid" class="action-button">Add Pyramid</button>
-          </div>
-          <div class="toolbox__arrow arrow--right">
-            <img class="arrow__icon" src="" alt="">
-          </div>
-<!--           <div>
-            <button id="add-snow-cube" class="action-button">Add Snow Cube</button>
-            <button id="add-ice-cube" class="action-button">Add Ice Cube</button>
-            <button id="add-pyramid" class="action-button">Add Pyramid</button>
-          </div> -->
+            <div class="toolbox__arrow button button--slider">
+              <img src="./img/icons/arrow.svg" alt="" class="button__icon button__icon--reverse">
+            </div>
       </div>
     </div>
     <script src="index.js" type="module"></script>
