@@ -568,6 +568,7 @@ class SceneManager extends EventEmitter {
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'move':
+        this.canvas.classList.add('is-dragging')
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'edit':
