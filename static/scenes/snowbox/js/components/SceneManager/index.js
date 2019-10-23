@@ -8,16 +8,15 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
-import { toRadian } from '../../utils/math.js'
-import { outQuad } from '../../utils/ease.js'
-// import { debounce } from '../../helpers.js'
+import { EventEmitter } from '../../event-emitter.js'
 
 // Other
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
-class SceneManager {
+class SceneManager extends EventEmitter {
   constructor(canvas) {
+    super()
     this.canvas = canvas
 
     this.onGui = this.onGui.bind(this)
@@ -34,7 +33,8 @@ class SceneManager {
     // 0: default, can switch to any mode
     // 1: drag === moving camera: Can't click on an object or place an object
     // 2: highlight === hover on an object: Can't go to drag mode
-    // 3: ghost === moving/adding an object: Can't go to drag mode
+    // 3: move === moving/adding an object: Can't go to drag mode
+    // 4: edit === scale/rotate an object: Can't go to drag mode
 
     this.debug = CONFIG.DEBUG
 
@@ -151,7 +151,7 @@ class SceneManager {
     }
 
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'ghost' && this.mouseInEdge) {
+    if (this.mode === 'move' && this.mouseInEdge) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
@@ -159,11 +159,13 @@ class SceneManager {
     // on camera rotating
     if (this.cameraCtrl.isRotating) {
       this.cameraCtrl.animateRotate(now)
+      this.emit('move_camera')
     }
 
     // on camera zooming
     if (this.cameraCtrl.isZooming) {
       this.cameraCtrl.animateZoom(now)
+      this.emit('move_camera')
     }
 
     this.renderer.render(this.scene, camera)
@@ -196,7 +198,7 @@ class SceneManager {
       this.mouse.x = (event.clientX / this.width) * 2 - 1
       this.mouse.y = -(event.clientY / this.height) * 2 + 1
 
-      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'ghost') {
+      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move') {
         // if not in drag or ghost mode
 
         const hit = this.getNearestObject()
@@ -209,7 +211,7 @@ class SceneManager {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'ghost') {
+      } else if (this.mode === 'move') {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -219,6 +221,8 @@ class SceneManager {
   }
 
   onMouseDown() {
+    this.mouseState = 'down'
+
     const hit = this.getNearestObject()
     if (
       hit.point &&
@@ -229,16 +233,35 @@ class SceneManager {
         subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
       )
       if (this.selectedSubject) {
-        this.unselectObject()
+        if (this.mode === 'move') {
+          this.setEditMode()
+        } else {
+          this.emit('leave_edit')
+          this.unselectObject()
+        }
       } else {
         this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
     } else if (this.selectedSubject) {
-      this.unselectObject()
+      if (this.mode === 'move') {
+        this.setEditMode()
+      } else {
+        this.unselectObject()
+        this.emit('leave_edit')
+      }
+    }
+  }
+
+  onMouseUp() {
+    this.mouseState = 'up'
+
+    if (this.selectedSubject && this.mode === 'move') {
+      this.setEditMode()
     }
   }
 
   onButtonClick(id) {
+    console.log(id)
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -267,6 +290,12 @@ class SceneManager {
       case 'zoom-out':
         this.cameraCtrl.zoom('out')
         break
+      case 'object-rotate-right':
+        this.rotate('right')
+        break
+      case 'object-rotate-down':
+        this.rotate('down')
+        break
       default:
         break
     }
@@ -280,8 +309,15 @@ class SceneManager {
     }
   }
 
+  onScaleInput(e) {
+    if (this.selectedSubject.scaleIndex < e.target.value) {
+      this.scale('up')
+    } else {
+      this.scale('down')
+    }
+  }
+
   bindKeyDown(event) {
-    console.log(event.key)
     switch (event.key) {
       case 'ArrowUp':
         event.preventDefault()
@@ -326,7 +362,7 @@ class SceneManager {
   }
 
   selectObject(newSelectedSubject, offset) {
-    this.setMode('ghost')
+    this.setMode('move')
 
     if (this.selectedSubject) {
       this.unselectObject()
@@ -366,7 +402,10 @@ class SceneManager {
   }
 
   addShape(shape, material = 'snow') {
-    this.setMode('ghost')
+    if (this.selectedSubject) {
+      this.unselectObject()
+    }
+    this.setMode('move')
 
     let subject
     switch (shape) {
@@ -408,10 +447,11 @@ class SceneManager {
   }
 
   rotate(direction) {
-    if (this.selectedSubject) {
-      const angle = direction === 'right' ? Math.PI / 20 : -Math.PI / 20
-      const axis = new CANNON.Vec3(0, 1, 0)
+    if (this.selectedSubject && this.mode === 'edit') {
+      const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
+      const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
       this.selectedSubject.rotate(axis, angle)
+      this.checkCollision()
     }
   }
 
@@ -506,8 +546,6 @@ class SceneManager {
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
     }
-
-    console.log()
   }
 
   setMode(mode = '') {
@@ -526,7 +564,11 @@ class SceneManager {
         this.canvas.classList.add('is-pointing')
         controls.enabled = false // disable cameraCtrl.controls
         break
-      case 'ghost':
+      case 'move':
+        this.canvas.classList.add('is-dragging')
+        controls.enabled = false // disable cameraCtrl.controls
+        break
+      case 'edit':
         controls.enabled = false // disable cameraCtrl.controls
         break
     }
@@ -535,7 +577,7 @@ class SceneManager {
   }
 
   bindEscape() {
-    if (this.mode === 'ghost' && this.selectedSubject) {
+    if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
       if (!this.selectedSubject.mesh.visible) {
         this.deleteObject()
         this.setMode()
@@ -548,7 +590,7 @@ class SceneManager {
   }
 
   deleteSelected() {
-    if (this.mode === 'ghost' && this.selectedSubject) {
+    if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
       this.deleteObject()
       this.setMode()
       this.terrain.removePositionMarker()
@@ -675,6 +717,12 @@ class SceneManager {
     })
 
     this.scene.spotLight.intensity = this.guiController.lightIntensity
+  }
+
+  setEditMode() {
+    this.selectedSubject.setEditTools()
+    this.setMode('edit')
+    this.emit('enter_edit')
   }
 }
 

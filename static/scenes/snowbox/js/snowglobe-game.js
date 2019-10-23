@@ -8,84 +8,195 @@ class SnowglobeGame {
   }
 
   constructor(element) {
-    const canvas = element.querySelector('#canvas')
-    const actionBtns = [...element.querySelectorAll('[data-button]')]
-    const sceneManager = new SceneManager(canvas)
+    this.canvas = element.querySelector('#canvas')
+    this.actionBtns = [...element.querySelectorAll('[data-button]')]
+    this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
+    this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
+    this.objectRotateDownUi = element.querySelector('[object-rotate-down-ui]')
+    this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
+    this.objectEditUi = element.querySelector('[object-edit-ui]')
+    this.objectScaleSlider = element.querySelector('[object-scale-slider]')
+    this.sceneManager = new SceneManager(this.canvas)
 
-    const stats = new self.Stats()
-    stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild(stats.dom)
+    this.objectRotateRightUi.style.display = `none`
+    this.objectRotateDownUi.style.display = 'none'
+    this.objectEditUi.style.display = `none`
 
-    const bindEventListeners = () => {
-      window.addEventListener('resize', () => {
-        sceneManager.onWindowResize()
-      })
+    this.stats = new self.Stats()
+    this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+    document.body.appendChild(this.stats.dom)
 
-      document.addEventListener('keydown', e => {
-        sceneManager.onKeydown(e)
-      })
+    const render = now => {}
 
-      canvas.addEventListener(
-        'mousemove',
-        e => {
-          e.preventDefault()
-          if (sceneManager.mouseState === 'down' && sceneManager.mode === '') {
-            sceneManager.setMode('drag')
-          }
-          sceneManager.onMouseMove(e)
-        },
-        false
-      )
+    this.bindEventListeners()
+    this.render()
+  }
 
-      canvas.addEventListener(
-        'mousedown',
-        e => {
-          e.preventDefault()
-          sceneManager.mouseState = 'down'
-          sceneManager.onMouseDown(e)
-        },
-        false
-      )
+  bindEventListeners() {
+    window.addEventListener('resize', () => {
+      this.sceneManager.onWindowResize()
+    })
 
-      canvas.addEventListener(
-        'mouseup',
-        e => {
-          e.preventDefault()
-          sceneManager.mouseState = 'up'
-          if (sceneManager.mode !== 'ghost') {
-            sceneManager.setMode()
-          }
-        },
-        false
-      )
+    document.addEventListener('keydown', e => {
+      this.sceneManager.onKeydown(e)
+    })
 
-      canvas.addEventListener('wheel', e => {
+    this.canvas.addEventListener(
+      'mousemove',
+      e => {
         e.preventDefault()
-        sceneManager.onWheel(e)
-      })
+        if (this.sceneManager.mouseState === 'down' && this.sceneManager.mode === '') {
+          this.sceneManager.setMode('drag')
+        }
+        this.sceneManager.onMouseMove(e)
+      },
+      false
+    )
 
-      actionBtns.forEach(button => {
-        button.addEventListener('click', e => {
+    this.canvas.addEventListener(
+      'mousedown',
+      e => {
+        e.preventDefault()
+        this.sceneManager.onMouseDown(e)
+      },
+      false
+    )
+
+    this.canvas.addEventListener(
+      'mouseup',
+      e => {
+        e.preventDefault()
+        this.sceneManager.onMouseUp()
+        if (this.sceneManager.mode !== 'move' && this.sceneManager.mode !== 'edit') {
+          this.sceneManager.setMode()
+        }
+      },
+      false
+    )
+
+    this.canvas.addEventListener('wheel', e => {
+      e.preventDefault()
+      this.sceneManager.onWheel(e)
+    })
+
+    this.actionBtns.forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault()
+        this.sceneManager.onButtonClick(button.dataset.button)
+        button.classList.add('is-clicked')
+        setTimeout(() => {
+          button.classList.remove('is-clicked')
+        }, 200)
+      })
+    })
+
+    this.actionDragBtns.forEach(button => {
+      button.addEventListener('mousedown', e => {
+        console.log('mousemove')
+        e.preventDefault()
+        this.sceneManager.onButtonClick(button.dataset.buttonDrag)
+        button.addEventListener('mousemove', e => {
           e.preventDefault()
-          sceneManager.onButtonClick(button.dataset.button)
-          button.classList.add('is-clicked')
-          setTimeout(() => {
-            button.classList.remove('is-clicked')
-          }, 200)
+          console.log('mousemove')
         })
+        button.classList.add('is-clicked')
+        setTimeout(() => {
+          button.classList.remove('is-clicked')
+        }, 200)
       })
+    })
+
+    let rotateInterval
+
+    this.rotateBtns.forEach(button => {
+      button.addEventListener('click', e => {
+        this.sceneManager.onButtonClick(button.dataset.rotateButton)
+        button.classList.add('is-clicked')
+      })
+
+      button.addEventListener('mousedown', e => {
+        e.preventDefault()
+        rotateInterval = setInterval(() => {
+          this.sceneManager.onButtonClick(button.dataset.rotateButton)
+          button.classList.add('is-clicked')
+        }, 200)
+      })
+
+      button.addEventListener('mouseup', e => {
+        e.preventDefault()
+        clearInterval(rotateInterval)
+        setTimeout(() => {
+          button.classList.remove('is-clicked')
+        }, 200)
+      })
+    })
+
+    this.objectScaleSlider.addEventListener('input', e => {
+      this.sceneManager.onScaleInput(e)
+    })
+
+    this.sceneManager.addListener('enter_edit', () => {
+      if (this.sceneManager.selectedSubject && this.sceneManager.mode === 'edit') {
+        this.objectRotateDownUi.style.display = `block`
+        this.objectEditUi.style.display = `block`
+        this.objectRotateRightUi.style.display = `block`
+
+        updateEditToolsPos()
+      }
+    })
+
+    this.sceneManager.addListener('move_camera', () => {
+      if (this.sceneManager.selectedSubject && this.sceneManager.mode === 'edit') {
+        updateEditToolsPos()
+      }
+    })
+
+    this.sceneManager.addListener('leave_edit', () => {
+      this.objectRotateRightUi.style.display = 'none'
+      this.objectRotateDownUi.style.display = 'none'
+      this.objectEditUi.style.display = 'none'
+    })
+
+    const updateEditToolsPos = () => {
+      const rightPosition = getPosition('x')
+      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+
+      const downPosition = getPosition('y')
+      this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
+
+      let ghostPos = new THREE.Vector3()
+      this.sceneManager.selectedSubject.ghost.getWorldPosition(ghostPos)
+      ghostPos.y -= (this.sceneManager.selectedSubject.box.max.y - this.sceneManager.selectedSubject.box.min.y) / 2
+      ghostPos.x += (this.sceneManager.selectedSubject.box.max.x - this.sceneManager.selectedSubject.box.min.x) / 2
+      ghostPos.z += (this.sceneManager.selectedSubject.box.max.z - this.sceneManager.selectedSubject.box.min.z) / 2
+      ghostPos.project(this.sceneManager.cameraCtrl.camera)
+      this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
+        this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 50}px)`
     }
 
-    const render = now => {
-      stats.begin()
-      sceneManager.update(now)
-      stats.end()
+    const getPosition = axis => {
+      const { radius } =
+        axis === 'x'
+          ? this.sceneManager.selectedSubject.xCircle.geometry.boundingSphere
+          : this.sceneManager.selectedSubject.yCircle.geometry.boundingSphere
 
-      requestAnimationFrame(render)
+      let tempPos = new THREE.Vector3()
+      this.sceneManager.selectedSubject.ghost.getWorldPosition(tempPos)
+      tempPos[axis] += radius
+      tempPos.project(this.sceneManager.cameraCtrl.camera)
+      const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
+      const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
+
+      return { x, y }
     }
+  }
 
-    bindEventListeners()
-    render()
+  render(now) {
+    this.stats.begin()
+    this.sceneManager.update(now)
+    this.stats.end()
+
+    requestAnimationFrame(this.render.bind(this))
   }
 
   setup() {}

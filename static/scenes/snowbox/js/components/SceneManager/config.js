@@ -1,11 +1,11 @@
 export default {
   BACKGROUND_COLOR: 0x2c96ff,
   // Scene background color
-  DEBUG: true,
+  DEBUG: false,
   // Show Three.JS Helpers (grids, axis, arrows, etc.)
   COLORS: {
     ICE: 0x56b8e1,
-    TERRAIN: 0xd2d2d2,
+    TERRAIN: 0xd2d2d2
   },
   MODEL_UNIT: 198.8005,
   SCENE_SIZE: 1000,

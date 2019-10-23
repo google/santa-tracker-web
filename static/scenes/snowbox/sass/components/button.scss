@@ -54,6 +54,33 @@
     transition: box-shadow $transition-button, transform $transition-button;
   }
 
+  &::after {
+    background-color: $color-yellow;
+    display: none;
+  }
+
+  &--round {
+    &::before {
+      box-shadow: 0px 3px .01px $color-orange, .01px 3px .01px $color-orange ;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+
+    &:hover {
+      &::before {
+        box-shadow: 2px 0px .01px $color-orange, 2px 5px .01px $color-orange ;
+      }
+    }
+
+    &.is-clicked {
+      &::before {
+        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange;
+      }
+    }
+  }
+
   &--left {
     &::before {
       box-shadow: 0px $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, .01px $button-shadow-offset $button-shadow;
@@ -120,7 +147,7 @@
     }
   }
 
-  &--round {
+  &--slider {
     &::before {
       background-color: $color-white;
       box-shadow: $button-3d-offset  $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;

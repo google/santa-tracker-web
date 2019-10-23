@@ -122,8 +122,6 @@ class CameraController {
 
     this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
 
-    console.log(this.zoomTarget)
-
     setTimeout(() => {
       this.zoomOrigin = this.camera.zoom
       this.zoomSpeed = CONFIG.ZOOM.SPEED
