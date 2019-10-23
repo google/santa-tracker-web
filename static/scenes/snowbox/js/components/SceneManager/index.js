@@ -8,9 +8,6 @@ import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 
-import { toRadian } from '../../utils/math.js'
-import { outQuad } from '../../utils/ease.js'
-// import { debounce } from '../../helpers.js'
 import { EventEmitter } from '../../event-emitter.js'
 
 // Other

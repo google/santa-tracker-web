@@ -1,4 +1,3 @@
-import GLOBAL_CONFIG from '../SceneManager/config.js'
 import CONFIG from './config.js'
 import { EventEmitter } from '../../event-emitter.js'
 
@@ -67,6 +66,7 @@ class Object extends EventEmitter {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
       if (this.ghost) {
+        // console.log('update ghost', this.ghost.position)
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
         if (this.xCircle) {
@@ -79,7 +79,7 @@ class Object extends EventEmitter {
         this.mesh.updateMatrixWorld(true)
         this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
       }
-      if (GLOBAL_CONFIG.DEBUG) {
+      if (CONFIG.DEBUG) {
         this.ghostHelper.update()
       }
     }
@@ -173,10 +173,13 @@ class Object extends EventEmitter {
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
     this.ghost.geometry.computeBoundingBox()
+    this.ghost.updateMatrixWorld()
 
-    if (GLOBAL_CONFIG.DEBUG) {
-      this.scene.remove(this.ghostHelper)
-      this.ghostHelper = undefined
+    if (CONFIG.DEBUG) {
+      if (this.ghostHelper) {
+        this.scene.remove(this.ghostHelper)
+        this.ghostHelper = undefined
+      }
       this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
       this.scene.add(this.ghostHelper)
     }
@@ -212,7 +215,7 @@ class Object extends EventEmitter {
 
     this.deleteRotateCircle()
 
-    if (GLOBAL_CONFIG.DEBUG) {
+    if (CONFIG.DEBUG) {
       this.scene.remove(this.ghostHelper)
       this.ghostHelper = undefined
       this.ghostHelper = new THREE.BoxHelper(this.mesh, 0x00ff00)
