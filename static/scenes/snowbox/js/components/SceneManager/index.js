@@ -3,6 +3,7 @@ import CONFIG from './config.js'
 import cubeConfig from '../SceneSubjects/Cube/config.js'
 
 // SceneSubjects
+import Arch from '../SceneSubjects/Arch/index.js'
 import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
@@ -272,6 +273,9 @@ class SceneManager extends EventEmitter {
       case 'add-pyramid':
         this.addShape('pyramid')
         break
+      case 'add-snow-arch':
+        this.addShape('arch', 'snow')
+        break
       case 'rotate-left':
         this.cameraCtrl.rotate('left', this.terrain)
         break
@@ -414,6 +418,9 @@ class SceneManager extends EventEmitter {
         break
       case 'pyramid':
         subject = new Pyramid(this.scene, this.world, material)
+        break
+      case 'arch':
+        subject = new Arch(this.scene, this.world, material)
         break
       default:
         break

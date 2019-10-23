@@ -5,7 +5,7 @@ import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
 const textureLoader = new THREE.TextureLoader()
-const normalMap = textureLoader.load('./models/shape_03-cube-normal.jpg')
+const normalMap = textureLoader.load('./models/1_cube.jpg')
 
 class Pyramid extends Obj {
   constructor(scene, world) {
