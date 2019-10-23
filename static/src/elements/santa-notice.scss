@@ -1,0 +1,53 @@
+:host {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  #holder {
+    box-sizing: border-box;
+    z-index: 9999;
+    background: rgba(51, 51, 51, 0.95);
+    color: white;
+    padding: 8px 12px;
+    padding-left: 20px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 92px;
+  }
+  #holder[hidden] {
+    // display: none !important;
+  }
+  p {
+    margin: 0;
+    flex-grow: 1;
+  }
+  .buttons {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+  }
+  .button {
+    text-decoration: none;
+    min-width: 72px;
+    display: inline-block;
+    margin: 8px;
+    padding: 6px 12px;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font: inherit;
+    cursor: pointer;
+  }
+  .button:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+  @media (min-width: 600px) {
+    .buttons {
+      white-space: nowrap;
+      font-size: 23px;
+    }
+  }
