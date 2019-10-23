@@ -1,6 +1,8 @@
 
 /**
  * @fileoverview Route helpers designed for static scope only.
+ *
+ * TODO: can also be used by prod.
  */
 
 function determineScope() {
@@ -41,9 +43,9 @@ export const rectify = scope ? (el) => {
  * @param {string} htmlString raw HTML to resolve containing e.g. <a href="scene.html">
  * @return {!DocumentFragment}
  */
-export const resolve = scope ? (htmlString) => {
+export const resolve = (htmlString) => {
   const node = document.createElement('template');
   node.innerHTML = htmlString;
-  rectify(node);
+  rectify(node);  // noop without scope
   return node.content;
-} : emptyFunc;
+};
