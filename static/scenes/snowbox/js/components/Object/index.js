@@ -12,6 +12,7 @@ class Object extends EventEmitter {
     this.selectable = false
     this.selected = false
     this.rotationY = 0
+    this.rotationX = 0
     this.scaleFactor = 1
     this.scaleIndex = 0
   }
@@ -82,10 +83,17 @@ class Object extends EventEmitter {
   }
 
   rotate(axis, angle) {
-    this.rotationY = this.rotationY + angle
+    const rotation = axis === new CANNON.Vec3(0, 1, 0) ? this.rotationY + angle : this.rotationX + angle
+
     if (this.ghost) {
-      this.ghost.quaternion.setFromAxisAngle(axis, this.rotationY)
+      this.ghost.quaternion.setFromAxisAngle(axis, rotation)
       this.ghost.quaternion.normalize()
+
+      if (axis === new CANNON.Vec3(0, 1, 0)) {
+        this.rotationY = rotation
+      } else {
+        this.rotationX = rotation
+      }
     }
   }
 

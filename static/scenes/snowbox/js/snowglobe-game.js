@@ -84,12 +84,17 @@ class SnowglobeGame {
 
       let rotateInterval
 
+      rotateBtn.addEventListener('click', e => {
+        sceneManager.onButtonClick(rotateBtn.dataset.rotateButton)
+        rotateBtn.classList.add('is-clicked')
+      })
+
       rotateBtn.addEventListener('mousedown', e => {
         e.preventDefault()
         rotateInterval = setInterval(() => {
           sceneManager.onButtonClick(rotateBtn.dataset.rotateButton)
           rotateBtn.classList.add('is-clicked')
-        }, 100)
+        }, 200)
       })
 
       rotateBtn.addEventListener('mouseup', e => {

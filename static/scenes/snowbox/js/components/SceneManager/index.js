@@ -433,9 +433,9 @@ class SceneManager extends EventEmitter {
   }
 
   rotate(direction) {
-    if (this.selectedSubject) {
-      const angle = direction === 'right' ? Math.PI / 20 : -Math.PI / 20
-      const axis = new CANNON.Vec3(0, 1, 0)
+    if (this.selectedSubject && this.mode === 'edit') {
+      const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
+      const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
       this.selectedSubject.rotate(axis, angle)
     }
   }
