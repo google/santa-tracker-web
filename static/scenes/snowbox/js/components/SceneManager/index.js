@@ -162,11 +162,13 @@ class SceneManager extends EventEmitter {
     // on camera rotating
     if (this.cameraCtrl.isRotating) {
       this.cameraCtrl.animateRotate(now)
+      this.emit('move_camera')
     }
 
     // on camera zooming
     if (this.cameraCtrl.isZooming) {
       this.cameraCtrl.animateZoom(now)
+      this.emit('move_camera')
     }
 
     this.renderer.render(this.scene, camera)

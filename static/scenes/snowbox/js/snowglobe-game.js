@@ -115,23 +115,17 @@ class SnowglobeGame {
 
       sceneManager.addListener('enter_edit', () => {
         if (sceneManager.selectedSubject && sceneManager.mode === 'edit') {
-          const rightPosition = getPosition('x')
-          objectRotateRightUi.style.display = `block`
-          objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
-
-          const downPosition = getPosition('y')
           objectRotateDownUi.style.display = `block`
-          objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
-
-          let ghostPos = new THREE.Vector3()
-          sceneManager.selectedSubject.ghost.getWorldPosition(ghostPos)
-          ghostPos.y -= (sceneManager.selectedSubject.box.max.y - sceneManager.selectedSubject.box.min.y) / 2
-          ghostPos.x += (sceneManager.selectedSubject.box.max.x - sceneManager.selectedSubject.box.min.x) / 2
-          ghostPos.z += (sceneManager.selectedSubject.box.max.z - sceneManager.selectedSubject.box.min.z) / 2
-          ghostPos.project(sceneManager.cameraCtrl.camera)
           objectEditUi.style.display = `block`
-          objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
-            canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * canvas.clientHeight + 50}px)`
+          objectRotateRightUi.style.display = `block`
+
+          updateEditToolsPos()
+        }
+      })
+
+      sceneManager.addListener('move_camera', () => {
+        if (sceneManager.selectedSubject && sceneManager.mode === 'edit') {
+          updateEditToolsPos()
         }
       })
 
@@ -140,6 +134,23 @@ class SnowglobeGame {
         objectRotateDownUi.style.display = 'none'
         objectEditUi.style.display = 'none'
       })
+
+      const updateEditToolsPos = () => {
+        const rightPosition = getPosition('x')
+        objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+
+        const downPosition = getPosition('y')
+        objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
+
+        let ghostPos = new THREE.Vector3()
+        sceneManager.selectedSubject.ghost.getWorldPosition(ghostPos)
+        ghostPos.y -= (sceneManager.selectedSubject.box.max.y - sceneManager.selectedSubject.box.min.y) / 2
+        ghostPos.x += (sceneManager.selectedSubject.box.max.x - sceneManager.selectedSubject.box.min.x) / 2
+        ghostPos.z += (sceneManager.selectedSubject.box.max.z - sceneManager.selectedSubject.box.min.z) / 2
+        ghostPos.project(sceneManager.cameraCtrl.camera)
+        objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
+          canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * canvas.clientHeight + 50}px)`
+      }
 
       const getPosition = axis => {
         const { radius } =
