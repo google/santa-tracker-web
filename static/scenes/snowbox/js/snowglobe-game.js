@@ -10,7 +10,7 @@ class SnowglobeGame {
   constructor(element) {
     const canvas = element.querySelector('#canvas')
     const actionBtns = [...element.querySelectorAll('[data-button]')]
-    const rotateBtn = element.querySelector('[data-rotate-button]')
+    const rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
     const objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
     const objectEditUi = element.querySelector('[object-edit-ui]')
     const objectScaleSlider = element.querySelector('[object-scale-slider]')
@@ -84,25 +84,27 @@ class SnowglobeGame {
 
       let rotateInterval
 
-      rotateBtn.addEventListener('click', e => {
-        sceneManager.onButtonClick(rotateBtn.dataset.rotateButton)
-        rotateBtn.classList.add('is-clicked')
-      })
+      rotateBtns.forEach(button => {
+        button.addEventListener('click', e => {
+          sceneManager.onButtonClick(button.dataset.rotateButton)
+          button.classList.add('is-clicked')
+        })
 
-      rotateBtn.addEventListener('mousedown', e => {
-        e.preventDefault()
-        rotateInterval = setInterval(() => {
-          sceneManager.onButtonClick(rotateBtn.dataset.rotateButton)
-          rotateBtn.classList.add('is-clicked')
-        }, 200)
-      })
+        button.addEventListener('mousedown', e => {
+          e.preventDefault()
+          rotateInterval = setInterval(() => {
+            sceneManager.onButtonClick(button.dataset.rotateButton)
+            button.classList.add('is-clicked')
+          }, 200)
+        })
 
-      rotateBtn.addEventListener('mouseup', e => {
-        e.preventDefault()
-        clearInterval(rotateInterval)
-        setTimeout(() => {
-          rotateBtn.classList.remove('is-clicked')
-        }, 200)
+        button.addEventListener('mouseup', e => {
+          e.preventDefault()
+          clearInterval(rotateInterval)
+          setTimeout(() => {
+            button.classList.remove('is-clicked')
+          }, 200)
+        })
       })
 
       objectScaleSlider.addEventListener('input', e => {

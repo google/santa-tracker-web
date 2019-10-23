@@ -252,6 +252,7 @@ class SceneManager extends EventEmitter {
   }
 
   onButtonClick(id) {
+    console.log(id)
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -282,6 +283,10 @@ class SceneManager extends EventEmitter {
         break
       case 'object-rotate-right':
         this.rotate('right')
+        break
+      case 'object-rotate-down':
+        this.rotate('down')
+        break
       default:
         break
     }
