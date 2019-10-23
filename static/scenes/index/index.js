@@ -1,6 +1,7 @@
 import '../../src/polyfill/css.js';
 import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
+import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-image-mask.js';
 import './elements/easteregg-balloon.js';
 import './elements/easteregg-reindeer.js';
