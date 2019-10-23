@@ -224,6 +224,8 @@ class SceneManager extends EventEmitter {
   }
 
   onMouseDown() {
+    this.mouseState = 'down'
+
     const hit = this.getNearestObject()
     if (
       hit.point &&
@@ -250,6 +252,14 @@ class SceneManager extends EventEmitter {
         this.unselectObject()
         this.emit('leave_edit')
       }
+    }
+  }
+
+  onMouseUp() {
+    this.mouseState = 'up'
+
+    if (this.selectedSubject && this.mode === 'move') {
+      this.setEditMode()
     }
   }
 

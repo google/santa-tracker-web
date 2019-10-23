@@ -10,6 +10,7 @@ class SnowglobeGame {
   constructor(element) {
     this.canvas = element.querySelector('#canvas')
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
+    this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
     this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
     this.objectRotateDownUi = element.querySelector('[object-rotate-down-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
@@ -56,7 +57,6 @@ class SnowglobeGame {
       'mousedown',
       e => {
         e.preventDefault()
-        this.sceneManager.mouseState = 'down'
         this.sceneManager.onMouseDown(e)
       },
       false
@@ -66,7 +66,7 @@ class SnowglobeGame {
       'mouseup',
       e => {
         e.preventDefault()
-        this.sceneManager.mouseState = 'up'
+        this.sceneManager.onMouseUp()
         if (this.sceneManager.mode !== 'move' && this.sceneManager.mode !== 'edit') {
           this.sceneManager.setMode()
         }
@@ -83,6 +83,22 @@ class SnowglobeGame {
       button.addEventListener('click', e => {
         e.preventDefault()
         this.sceneManager.onButtonClick(button.dataset.button)
+        button.classList.add('is-clicked')
+        setTimeout(() => {
+          button.classList.remove('is-clicked')
+        }, 200)
+      })
+    })
+
+    this.actionDragBtns.forEach(button => {
+      button.addEventListener('mousedown', e => {
+        console.log('mousemove')
+        e.preventDefault()
+        this.sceneManager.onButtonClick(button.dataset.buttonDrag)
+        button.addEventListener('mousemove', e => {
+          e.preventDefault()
+          console.log('mousemove')
+        })
         button.classList.add('is-clicked')
         setTimeout(() => {
           button.classList.remove('is-clicked')
