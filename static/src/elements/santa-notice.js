@@ -24,7 +24,7 @@ export class SantaNoticeElement extends LitElement {
 
   render() {
       return html`
-        <div id="holder" hidden="${this._hidden}">
+        <div id="holder" class=${this._hidden ? 'hidden' : ''}>
             <p>${_msg`notice_cookies`}</p>
             <div class="buttons">
             <button class="button" @click=${this._close}>${_msg`okay`}</button>

@@ -16,8 +16,8 @@
     align-items: center;
     min-height: 92px;
   }
-  #holder[hidden] {
-    // display: none !important;
+  #holder.hidden {
+    display: none !important;
   }
   p {
     margin: 0;
