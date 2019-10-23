@@ -8,6 +8,7 @@ import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
+import Tree from '../SceneSubjects/Tree/index.js'
 
 import { EventEmitter } from '../../event-emitter.js'
 
@@ -276,6 +277,9 @@ class SceneManager extends EventEmitter {
       case 'add-snow-arch':
         this.addShape('arch', 'snow')
         break
+      case 'add-tree':
+        this.addShape('tree')
+        break
       case 'rotate-left':
         this.cameraCtrl.rotate('left', this.terrain)
         break
@@ -421,6 +425,9 @@ class SceneManager extends EventEmitter {
         break
       case 'arch':
         subject = new Arch(this.scene, this.world, material)
+        break
+      case 'tree':
+        subject = new Tree(this.scene, this.world, material)
         break
       default:
         break
