@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Provides Firebase Remote config.
+ *
+ * This should only run on the prod domain.
+ */
 
 const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
@@ -88,6 +93,14 @@ export async function refresh(invalidateNow = false) {
  */
 export function values() {
   return remoteConfig.getAll();
+}
+
+
+/**
+ * @return {boolean} whether to switch off and load an error page.
+ */
+export function switchOff() {
+  return remoteConfig.getBoolean('switchOff');
 }
 
 

@@ -34,6 +34,6 @@ export function initialize() {
   return remoteConfig.fetchAndActivate().catch(function(err) {
     console.warn('could not fetch remoteConfig, using defaults', err);
   }).then(function() {
-    return remoteConfig.getAll();
+    return remoteConfig;
   });
 }

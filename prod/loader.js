@@ -66,15 +66,8 @@ function loadEntrypoint() {
 }
 
 // Wait for the first Firebase Remote config response and then load our entrypoint.
-initialize().then(function(payload) {
-  console.debug('got payload', payload, payload['switchOff'].asBoolean());
-
-  let switchOff = false;
-  try {
-    switchOff = payload['switchOff'].asBoolean();
-  } catch (e) {
-  }
-  if (switchOff) {
+initialize().then(function(remoteConfig) {
+  if (remoteConfig.getBoolean('switchOff')) {
     throw new Error('switchOff');
   }
 
