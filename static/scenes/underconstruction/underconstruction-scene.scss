@@ -41,23 +41,17 @@ body {
 
   .title__text {
     color: #fff;
-    font-size: 64px;
     font-weight: normal;
     text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    line-height: 0.85;
+    margin: 0.4em auto;
+
+    font-size: 96px;
 
     @media screen and (max-width: $mobile-breakpoint) {
-      font-size: 56px;
-      margin: .25em 0 .75em;
-    }
-  }
-
-  .title__month {
-    display: block;
-    font-size: 126px;
-    line-height: .85;
-
-    @media screen and (max-width: $mobile-breakpoint) {
-      font-size: 84px;
+      font-size: 72px;
+      margin: .25em auto .75em;
     }
   }
 
