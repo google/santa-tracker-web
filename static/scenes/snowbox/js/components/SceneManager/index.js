@@ -201,7 +201,7 @@ class SceneManager extends EventEmitter {
       this.mouse.x = (event.clientX / this.width) * 2 - 1
       this.mouse.y = -(event.clientY / this.height) * 2 + 1
 
-      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move') {
+      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
 
         const hit = this.getNearestObject()
@@ -239,26 +239,16 @@ class SceneManager extends EventEmitter {
       const newSelectedSubject = this.sceneSubjects.find(subject =>
         subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
       )
-      if (this.selectedSubject) {
-        // if (this.mode === 'move') {
-        //   this.setEditMode()
-        // } else {
-        //   this.emit('leave_edit')
-        //   this.unselectObject()
-        // }
-        this.unselectObject()
-      } else {
-        this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
-      }
-    } else if (this.selectedSubject) {
-      // if (this.mode === 'move') {
-      //   this.setEditMode()
-      // } else {
-      //   this.unselectObject()
-      //   this.emit('leave_edit')
-      // }
 
-      this.unselectObject()
+      if (this.selectedSubject) {
+        this.unselectSubject()
+      } else {
+        this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+      }
+    } else if (this.selectedSubject && this.mode === 'move') {
+      this.unselectSubject()
+    } else if (this.mode === 'edit') {
+      this.unsetEditMode()
     }
   }
 
@@ -266,8 +256,9 @@ class SceneManager extends EventEmitter {
     this.mouseState = 'up'
 
     if (this.selectedSubject && this.mode === 'move') {
-      this.unselectObject()
-      // this.setEditMode()
+      this.activeSubject = this.selectedSubject
+      this.unselectSubject()
+      this.setEditMode()
     }
   }
 
@@ -331,6 +322,11 @@ class SceneManager extends EventEmitter {
   }
 
   onScaleInput(e) {
+    if (this.activeSubject && !this.selectedSubject) {
+      this.selectedSubject = this.activeSubject
+      this.selectedSubject.select()
+    }
+
     if (this.selectedSubject.scaleIndex < e.target.value) {
       this.scale('up')
     } else {
@@ -368,7 +364,7 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  unselectObject(unmove) {
+  unselectSubject(unmove) {
     this.cameraCtrl.resetControls(this.terrain)
     this.setMode()
 
@@ -382,11 +378,14 @@ class SceneManager extends EventEmitter {
     this.selectedSubject = null
   }
 
-  selectObject(newSelectedSubject, offset) {
+  selectSubject(newSelectedSubject, offset) {
+    if (this.mode === 'edit') {
+      this.unsetEditMode()
+    }
     this.setMode('move')
 
     if (this.selectedSubject) {
-      this.unselectObject()
+      this.unselectSubject()
     }
 
     const { x, z } = newSelectedSubject.body.position
@@ -424,7 +423,7 @@ class SceneManager extends EventEmitter {
 
   addShape(shape, material = 'snow') {
     if (this.selectedSubject) {
-      this.unselectObject()
+      this.unselectSubject()
     }
     this.setMode('move')
 
@@ -450,7 +449,7 @@ class SceneManager extends EventEmitter {
     }
 
     this.sceneSubjects.push(subject)
-    this.selectObject(subject)
+    this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
     subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
     const y = 0.5 * (subject.box.max.y - subject.box.min.y)
@@ -470,6 +469,11 @@ class SceneManager extends EventEmitter {
   }
 
   scale(direction) {
+    if (this.activeSubject && !this.selectedSubject) {
+      this.selectedSubject = this.activeSubject
+      this.selectedSubject.select()
+    }
+
     if (this.selectedSubject) {
       this.selectedSubject.scale(direction)
       this.checkCollision()
@@ -477,6 +481,11 @@ class SceneManager extends EventEmitter {
   }
 
   rotate(direction) {
+    if (this.activeSubject && !this.selectedSubject) {
+      this.selectedSubject = this.activeSubject
+      this.selectedSubject.select()
+    }
+
     if (this.selectedSubject && this.mode === 'edit') {
       const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
       const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
@@ -489,7 +498,7 @@ class SceneManager extends EventEmitter {
     return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
   }
 
-  highlightSubject(subject) {
+  highlightSubject(subject, noDelay) {
     if (this.highlightedSubject) {
       this.highlightedSubject.unhighlight()
     }
@@ -614,7 +623,7 @@ class SceneManager extends EventEmitter {
         this.terrain.removePositionMarker()
         this.selectedSubject = null
       } else {
-        this.unselectObject(true)
+        this.unselectSubject(true)
       }
     }
   }
@@ -641,7 +650,6 @@ class SceneManager extends EventEmitter {
   }
 
   // GUI
-
   onGui() {
     cubeConfig.MASS = this.guiController.cubeMass
     this.scene.spotLight.intensity = this.guiController.lightIntensity
@@ -750,9 +758,25 @@ class SceneManager extends EventEmitter {
   }
 
   setEditMode() {
-    this.selectedSubject.setEditTools()
-    this.setMode('edit')
-    this.emit('enter_edit')
+    if (this.activeSubject) {
+      this.activeSubject.setEditTools()
+      this.setMode('edit')
+      setTimeout(() => {
+        this.emit('enter_edit')
+      }, 100)
+    }
+  }
+
+  unsetEditMode() {
+    if (this.selectedSubject) {
+      this.unselectSubject()
+    }
+
+    if (this.activeSubject) {
+      this.activeSubject.unsetEditTools()
+      this.setMode()
+      this.emit('leave_edit')
+    }
   }
 }
 

@@ -137,17 +137,16 @@ class SnowglobeGame {
     })
 
     this.sceneManager.addListener('enter_edit', () => {
-      if (this.sceneManager.selectedSubject && this.sceneManager.mode === 'edit') {
+      if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
         this.objectRotateDownUi.style.display = `block`
         this.objectEditUi.style.display = `block`
         this.objectRotateRightUi.style.display = `block`
-
         updateEditToolsPos()
       }
     })
 
     this.sceneManager.addListener('move_camera', () => {
-      if (this.sceneManager.selectedSubject && this.sceneManager.mode === 'edit') {
+      if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
         updateEditToolsPos()
       }
     })
@@ -166,10 +165,10 @@ class SnowglobeGame {
       this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
 
       let ghostPos = new THREE.Vector3()
-      this.sceneManager.selectedSubject.ghost.getWorldPosition(ghostPos)
-      ghostPos.y -= (this.sceneManager.selectedSubject.box.max.y - this.sceneManager.selectedSubject.box.min.y) / 2
-      ghostPos.x += (this.sceneManager.selectedSubject.box.max.x - this.sceneManager.selectedSubject.box.min.x) / 2
-      ghostPos.z += (this.sceneManager.selectedSubject.box.max.z - this.sceneManager.selectedSubject.box.min.z) / 2
+      this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
+      ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
+      ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
+      ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
       ghostPos.project(this.sceneManager.cameraCtrl.camera)
       this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
         this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 50}px)`
@@ -178,11 +177,11 @@ class SnowglobeGame {
     const getPosition = axis => {
       const { radius } =
         axis === 'x'
-          ? this.sceneManager.selectedSubject.xCircle.geometry.boundingSphere
-          : this.sceneManager.selectedSubject.yCircle.geometry.boundingSphere
+          ? this.sceneManager.activeSubject.xCircle.geometry.boundingSphere
+          : this.sceneManager.activeSubject.yCircle.geometry.boundingSphere
 
       let tempPos = new THREE.Vector3()
-      this.sceneManager.selectedSubject.ghost.getWorldPosition(tempPos)
+      this.sceneManager.activeSubject.mesh.getWorldPosition(tempPos)
       tempPos[axis] += radius
       tempPos.project(this.sceneManager.cameraCtrl.camera)
       const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth

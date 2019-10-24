@@ -65,16 +65,16 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+      if (this.xCircle) {
+        this.xCircle.position.copy(this.mesh.position)
+      }
+      if (this.yCircle) {
+        this.yCircle.position.copy(this.mesh.position)
+      }
       if (this.ghost) {
         // console.log('update ghost', this.ghost.position)
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-        if (this.xCircle) {
-          this.xCircle.position.copy(this.ghost.position)
-        }
-        if (this.yCircle) {
-          this.yCircle.position.copy(this.ghost.position)
-        }
       } else {
         this.mesh.updateMatrixWorld(true)
         this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
