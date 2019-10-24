@@ -4,7 +4,7 @@ import Obj from '../../Object/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-import modelJSON from '../../../../models/pine-tree_v01.json'
+import modelJSON from '../../../../models/pine-tree_v02.json'
 
 let geometry, material
 
@@ -33,36 +33,36 @@ class PineTree extends Obj {
 
     // CANNONJS PART
 
-    // const bunnyBody = new CANNON.Body({ mass: this.mass });
+    const bunnyBody = new CANNON.Body({ mass: this.mass });
 
-    // // console.log(geometry, modelJSON)
+    // console.log(geometry, modelJSON)
 
-    // var rawVerts = modelJSON.vertices;
-    // var rawFaces = modelJSON.faces;
-    // // var rawOffset = bunny[i].offset;
+    var rawVerts = modelJSON.vertices;
+    var rawFaces = modelJSON.faces;
+    // var rawOffset = bunny[i].offset;
 
-    // var verts=[], faces=[], offset;
+    var verts=[], faces=[], offset;
 
-    // // Get vertices
-    // for(var j=0; j< rawVerts.length; j+=3){
-    //     verts.push(new CANNON.Vec3( rawVerts[j]  ,
-    //                                 rawVerts[j+1],
-    //                                 rawVerts[j+2]));
-    // }
+    // Get vertices
+    for(var j=0; j< rawVerts.length; j+=3){
+        verts.push(new CANNON.Vec3( rawVerts[j]  ,
+                                    rawVerts[j+1],
+                                    rawVerts[j+2]));
+    }
 
-    // // Get faces
-    // for(var j=0; j<rawFaces.length; j+=3){
-    //     faces.push([rawFaces[j],rawFaces[j+1],rawFaces[j+2]]);
-    // }
+    // Get faces
+    for(var j=0; j<rawFaces.length; j+=3){
+        faces.push([rawFaces[j],rawFaces[j+1],rawFaces[j+2]]);
+    }
 
-    // // Get offset
-    // // offset = new CANNON.Vec3(rawOffset[0],rawOffset[1],rawOffset[2]);
+    // Get offset
+    // offset = new CANNON.Vec3(rawOffset[0],rawOffset[1],rawOffset[2]);
 
-    // // Construct polyhedron
-    // var bunnyPart = new CANNON.ConvexPolyhedron(verts, faces);
+    // Construct polyhedron
+    var bunnyPart = new CANNON.ConvexPolyhedron(verts, faces);
 
-    // // Add to compound
-    // bunnyBody.addShape(bunnyPart, offset);
+    // Add to compound
+    bunnyBody.addShape(bunnyPart, offset);
 
     // console.log(bunnyBody)
 
