@@ -86,17 +86,17 @@ class Object extends EventEmitter {
   }
 
   rotate(axis, angle) {
-    const rotation = axis === new CANNON.Vec3(0, 1, 0) ? this.rotationY + angle : this.rotationX + angle
+    const euler = new THREE.Euler().setFromQuaternion(this.ghost.quaternion)
+    this.rotationX = euler.x
+    this.rotationY = euler.y
+
+    const rotation = axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? this.rotationY + angle : this.rotationX + angle
 
     if (this.ghost) {
-      this.ghost.quaternion.setFromAxisAngle(axis, rotation)
+      this[axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? 'rotationY' : 'rotationX'] = rotation
+      const quaternion = new THREE.Quaternion().setFromEuler(new THREE.Euler(this.rotationX, this.rotationY, 0, 'XYZ'))
+      this.ghost.quaternion.copy(quaternion)
       this.ghost.quaternion.normalize()
-
-      if (axis === new CANNON.Vec3(0, 1, 0)) {
-        this.rotationY = rotation
-      } else {
-        this.rotationX = rotation
-      }
     }
   }
 
@@ -187,7 +187,8 @@ class Object extends EventEmitter {
 
   createRotateCircle() {
     // X Circle
-    const xRadius = (this.box.max.x - this.box.min.x) / 1.25
+    // const xRadius = (this.box.max.x - this.box.min.x) / 1.25
+    const xRadius = 1.5
     var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
     this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
@@ -196,7 +197,8 @@ class Object extends EventEmitter {
     this.scene.add(this.xCircle)
 
     // X Circle
-    const yRadius = (this.box.max.y - this.box.min.y) / 1.25
+    // const yRadius = (this.box.max.y - this.box.min.y) / 1.25
+    const yRadius = 1.5
     var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
     this.yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
