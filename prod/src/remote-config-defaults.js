@@ -7,6 +7,7 @@
  */
 
 var defaults = {
+  refreshEvery: 60,  // this is low, _because_ we're offline
   videos: [],
   sceneLock: {},
   routeUrl: 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_|LANG|.json?alt=media&2018b',

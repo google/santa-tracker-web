@@ -20,7 +20,8 @@ export var firebaseConfig = {
 export function initialize() {
   firebase.initializeApp(firebaseConfig);
 
-  // Fetch RC, with a fetch timeout of 30s and a key expiry of ~1 minute.
+  // Fetch RC, with a fetch timeout of 30s and a key expiry of ~1 minute. This is reset later via
+  // the config itself.
   const remoteConfig = firebase.remoteConfig();
   remoteConfig.settings = {
     fetchTimeoutMillis: 30 * 1000,
@@ -33,9 +34,6 @@ export function initialize() {
   return remoteConfig.fetchAndActivate().catch(function(err) {
     console.warn('could not fetch remoteConfig, using defaults', err);
   }).then(function() {
-    // After load, reset the expiry time to 5 minutes. This ensures that users
-    // who are frustrated can sort of get satisfaction by reloading.
-    remoteConfig.settings.minimumFetchIntervalMillis = 1000 * 60 * 5;
     return remoteConfig.getAll();
   });
 }
