@@ -15,7 +15,7 @@
   <main id="main">
     <div class="title">
       <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker">
-      <h2 class="title__text">See you in <span class="title__month">December</span></h2>
+      <h2 class="title__text" msgid="nextdecember"></h2>
     </div>
     <div class="animation animation--backhoe desktop-only"></div>
     <div class="animation animation--crane"></div>
@@ -27,7 +27,7 @@
 </div>
 
 <script type="module">
-
+import '../../src/magic.js';
 import api from '../../src/scene/api.js';
 
 api.preload.images(
