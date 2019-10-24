@@ -316,8 +316,10 @@ class SceneManager extends EventEmitter {
   onWheel(event) {
     if (event.deltaY < 0) {
       this.cameraCtrl.rotate('left', this.terrain, true)
+      this.emit('move_camera')
     } else if (event.deltaY > 0) {
       this.cameraCtrl.rotate('right', this.terrain, true)
+      this.emit('move_camera')
     }
   }
 
