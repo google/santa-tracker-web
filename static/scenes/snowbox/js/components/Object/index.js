@@ -185,7 +185,7 @@ class Object extends EventEmitter {
     }
   }
 
-  createRotateCircle() {
+  createRotateCircle(zoom) {
     // X Circle
     // const xRadius = (this.box.max.x - this.box.min.x) / 1.25
     const xRadius = 1.5
@@ -194,7 +194,6 @@ class Object extends EventEmitter {
     const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
     this.xCircle.applyQuaternion(xQuaternion)
     this.xCircle.geometry.computeBoundingSphere()
-    this.scene.add(this.xCircle)
 
     // X Circle
     // const yRadius = (this.box.max.y - this.box.min.y) / 1.25
@@ -204,7 +203,16 @@ class Object extends EventEmitter {
     const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
     this.yCircle.applyQuaternion(yQuaternion)
     this.yCircle.geometry.computeBoundingSphere()
+
+    this.updateRotatingCircle(zoom)
+
+    this.scene.add(this.xCircle)
     this.scene.add(this.yCircle)
+  }
+
+  updateRotatingCircle(zoom) {
+    this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
   }
 
   deleteGhost() {
@@ -249,8 +257,8 @@ class Object extends EventEmitter {
     this.scaleBody()
   }
 
-  setEditTools() {
-    this.createRotateCircle()
+  setEditTools(zoom) {
+    this.createRotateCircle(zoom)
   }
 
   unsetEditTools() {

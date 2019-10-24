@@ -162,13 +162,21 @@ class SceneManager extends EventEmitter {
     // on camera rotating
     if (this.cameraCtrl.isRotating) {
       this.cameraCtrl.animateRotate(now)
-      this.emit('move_camera')
+
+      if (this.mode === 'edit') {
+        this.emit('move_camera')
+        this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
+      }
     }
 
     // on camera zooming
     if (this.cameraCtrl.isZooming) {
       this.cameraCtrl.animateZoom(now)
-      this.emit('move_camera')
+
+      if (this.mode === 'edit') {
+        this.emit('move_camera')
+        this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
+      }
     }
 
     this.renderer.render(this.scene, camera)
@@ -241,7 +249,17 @@ class SceneManager extends EventEmitter {
       )
 
       if (this.selectedSubject) {
-        this.unselectSubject()
+        if (this.mode === 'edit') {
+          const oldSelectedObject = this.selectedSubject
+          this.unsetEditMode()
+          setTimeout(() => {
+            if (oldSelectedObject === newSelectedSubject) {
+              this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+            }
+          }, 10)
+        } else {
+          this.unselectSubject()
+        }
       } else {
         this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
@@ -422,7 +440,9 @@ class SceneManager extends EventEmitter {
   }
 
   addShape(shape, material = 'snow') {
-    if (this.selectedSubject) {
+    if (this.mode === 'edit') {
+      this.unsetEditMode()
+    } else if (this.selectedSubject) {
       this.unselectSubject()
     }
     this.setMode('move')
@@ -588,6 +608,7 @@ class SceneManager extends EventEmitter {
   }
 
   setMode(mode = '') {
+    console.log(mode || 'default')
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
@@ -759,7 +780,7 @@ class SceneManager extends EventEmitter {
 
   setEditMode() {
     if (this.activeSubject) {
-      this.activeSubject.setEditTools()
+      this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
       this.setMode('edit')
       setTimeout(() => {
         this.emit('enter_edit')
