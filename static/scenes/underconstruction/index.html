@@ -38,19 +38,19 @@ api.preload.images(
 
 api.preload.sounds('village_load_sounds');
 
-const initAnimation = function(key, preserveAspectRatio) {
+const initAnimation = (key, preserveAspectRatio) => {
   lottie.loadAnimation({
-      container: document.querySelector(`.animation--${key}`),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: `img/animations/${key}.json`,
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio: preserveAspectRatio
-      }
-    });
-}
+    container: document.querySelector(`.animation--${key}`),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: `img/animations/${key}.json`,
+    rendererSettings: {
+      className: 'animation__svg',
+      preserveAspectRatio,
+    },
+  });
+};
 
 initAnimation('backhoe', 'xMaxYMax meet');
 initAnimation('crane', 'xMaxYMid meet');
