@@ -15,9 +15,7 @@ import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
 import * as kplay from './src/kplay.js';
-import scenes from './src/strings/scenes.js';
-import {_msg} from './src/magic.js';
-import {join} from './src/lib/url.js';
+import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
@@ -50,29 +48,7 @@ sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
 
-let loadedScene = undefined;
-
-const loaderScene = (sceneName, data) => {
-  if (sceneName === loadedScene) {
-    return false;
-  }
-  document.title = scenes[sceneName] || _msg`santatracker`;
-
-  const optionalProdIndex = document.documentElement.lang ? `index_${document.documentElement.lang}.html` : '';
-
-  const locked = ['tracker'].indexOf(sceneName) !== -1;
-  const url = locked ? null : join(import.meta.url, 'scenes', (sceneName || 'index') + '/') + (optionalProdIndex);
-
-  loadedScene = sceneName;
-
-  ga('set', 'page', `/${sceneName}`);
-  ga('send', 'pageview');
-
-  loaderElement.load(url, {sceneName, data, locked});
-};
-
-
-const {scope, go, write: writeData} = configureProdRouter(loaderScene);
+const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 
@@ -344,8 +320,8 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
 loaderElement.addEventListener(gameloader.events.error, (ev) => {
   // TODO(samthor): Internal errors could cause an infinite loop here.
   const {error, context} = ev.detail;
-  const {sceneName} = context;
-  loaderElement.load(null, {error, sceneName});
+  const {route} = context;
+  loaderElement.load(null, {error, route});
 });
 
 
@@ -356,7 +332,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
   const {context, resolve, control, ready} = ev.detail;
   const call = async () => {
-    const {data, sceneName, error, locked} = context;
+    const {data, route, error, locked} = context;
     if (error) {
       console.error('error', error);
     }
@@ -381,12 +357,12 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       errorElement.code = 'internal';
     } else if (locked) {
       // do nothing
-    } else if (!control.hasPort && sceneName) {
+    } else if (!control.hasPort && route) {
       errorElement.code = 'missing';
     }
     errorElement.textContent = '';
     errorElement.lock = locked;
-    const lockedImagePromise = locked ? sceneImage(sceneName) : Promise.resolve(null);
+    const lockedImagePromise = locked ? sceneImage(route) : Promise.resolve(null);
 
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so
     // only check if we're still the active scene once done.

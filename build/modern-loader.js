@@ -23,7 +23,7 @@ module.exports = async (id, content, onwarn=null) => {
 
   // If this is not a JS file, then skip Rollup and just rewrite it for the module case.
   const ext = path.extname(id);
-  if (ext !== '.js') {
+  if (ext !== '.js' && ext !== '.mjs') {
     if (!content) {
       throw new Error(`got no content for: ${id}`);
     }
