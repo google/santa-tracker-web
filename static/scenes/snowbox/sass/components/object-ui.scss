@@ -6,23 +6,41 @@
   user-select: none;
 
   .button--round {
+    .button__icon {
+      transform: rotate(180deg);
+      transform-origin: 44% 44%;
+    }
+
+    &:hover {
       .button__icon {
-        transform: rotate(180deg);
-        transform-origin: 44% 44%;
-      }
-
-      &:hover {
-        .button__icon {
-          transform: rotate(180deg) translate(3px, 3px);
-        }
-      }
-
-      &.is-clicked {
-        .button__icon {
-          transform: rotate(180deg);
-        }
+        transform: rotate(180deg) translate(3px, 3px);
       }
     }
+
+    &.is-clicked {
+      .button__icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .button--inverted {
+    .button__icon {
+      transform: rotate(0deg) translate(-3px, -3px);
+    }
+
+    &:hover {
+      .button__icon {
+        transform: rotate(0deg) translate(-3px, -3px);
+      }
+    }
+
+    &.is-clicked {
+      .button__icon {
+        transform: rotate(0deg);
+      }
+    }
+  }
 }
 
 .edit-ui {
