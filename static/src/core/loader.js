@@ -1,6 +1,7 @@
 import * as config from './config.js';
 import {join} from '../lib/url.js';
 import scenes from '../strings/scenes.js';
+import {_msg} from '../magic.js';
 
 const lang = document.documentElement.lang;
 
