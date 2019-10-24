@@ -1,0 +1,6 @@
+html:not([lang|="en"]) .no-en {
+  visibility: hidden;
+}
+html:not([lang]) .no-en {
+  visibility: visible;  // ... display during dev
+}
