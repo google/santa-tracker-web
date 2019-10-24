@@ -213,8 +213,6 @@ class Object extends EventEmitter {
       this.ghost = undefined
     }
 
-    this.deleteRotateCircle()
-
     if (CONFIG.DEBUG) {
       this.scene.remove(this.ghostHelper)
       this.ghostHelper = undefined
@@ -224,13 +222,17 @@ class Object extends EventEmitter {
   }
 
   deleteRotateCircle() {
-    this.scene.remove(this.xCircle)
-    this.xCircle.geometry.dispose()
-    this.xCircle = undefined
+    if (this.xCircle) {
+      this.scene.remove(this.xCircle)
+      this.xCircle.geometry.dispose()
+      this.xCircle = undefined
+    }
 
-    this.scene.remove(this.yCircle)
-    this.yCircle.geometry.dispose()
-    this.yCircle = undefined
+    if (this.yCircle) {
+      this.scene.remove(this.yCircle)
+      this.yCircle.geometry.dispose()
+      this.yCircle = undefined
+    }
   }
 
   moveToGhost() {
@@ -247,6 +249,10 @@ class Object extends EventEmitter {
 
   setEditTools() {
     this.createRotateCircle()
+  }
+
+  unsetEditTools() {
+    this.deleteRotateCircle()
   }
 }
 

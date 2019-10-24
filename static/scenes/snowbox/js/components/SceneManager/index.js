@@ -208,9 +208,13 @@ class SceneManager extends EventEmitter {
         if (hit) {
           // if mode is neutral
           const subject = this.getSubjectfromMesh(hit.object)
-          this.highlightSubject(subject)
+          if (this.highlightedSubject !== subject) {
+            this.highlightSubject(subject)
+          }
         } else {
-          this.highlightSubject(false)
+          if (this.highlightedSubject) {
+            this.highlightSubject(false)
+          }
         }
 
         this.mouseInEdge = null
@@ -236,22 +240,25 @@ class SceneManager extends EventEmitter {
         subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
       )
       if (this.selectedSubject) {
-        if (this.mode === 'move') {
-          this.setEditMode()
-        } else {
-          this.emit('leave_edit')
-          this.unselectObject()
-        }
+        // if (this.mode === 'move') {
+        //   this.setEditMode()
+        // } else {
+        //   this.emit('leave_edit')
+        //   this.unselectObject()
+        // }
+        this.unselectObject()
       } else {
         this.selectObject(newSelectedSubject, this.getCurrentPosOnPlane())
       }
     } else if (this.selectedSubject) {
-      if (this.mode === 'move') {
-        this.setEditMode()
-      } else {
-        this.unselectObject()
-        this.emit('leave_edit')
-      }
+      // if (this.mode === 'move') {
+      //   this.setEditMode()
+      // } else {
+      //   this.unselectObject()
+      //   this.emit('leave_edit')
+      // }
+
+      this.unselectObject()
     }
   }
 
@@ -259,12 +266,12 @@ class SceneManager extends EventEmitter {
     this.mouseState = 'up'
 
     if (this.selectedSubject && this.mode === 'move') {
-      this.setEditMode()
+      this.unselectObject()
+      // this.setEditMode()
     }
   }
 
   onButtonClick(id) {
-    console.log(id)
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -491,7 +498,7 @@ class SceneManager extends EventEmitter {
       subject.highlight()
       this.highlightedSubject = subject
       this.setMode('highlight')
-    } else {
+    } else if (subject === false) {
       this.highlightedSubject = null
       if (!this.cameraCtrl.isRotating) this.setMode()
     }
