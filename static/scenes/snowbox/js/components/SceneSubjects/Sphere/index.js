@@ -4,35 +4,38 @@ import Obj from '../../Object/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-let cubeGeo, cubeMaterial
+let sphereGeo, sphereMaterial
 
 const textureLoader = new THREE.TextureLoader()
-const model = './models/1_cube.obj'
-const normalMap = textureLoader.load('./models/1_cube.jpg')
+const model = './models/4_sphere.obj'
+const material = './models/4_sphere.mtl'
 
 // preload objs
-new THREE.OBJLoader().load(model, object => {
-  cubeGeo = object.children[0].geometry
-  cubeGeo.center()
-  cubeMaterial = new THREE.MeshToonMaterial({
-    color: GLOBAL_CONFIG.COLORS.ICE,
-    shininess: 345,
-    normalMap
-  })
+new THREE.MTLLoader().load(material, materials => {
+  materials.preload()
+  sphereMaterial = materials.materials.Mat
+  sphereMaterial.color.set(GLOBAL_CONFIG.COLORS.ICE)
+  sphereMaterial.shininess = 345
+  sphereMaterial.needsUpdate = true
 
-  cubeMaterial.needsUpdate = true
+  const loader = new THREE.OBJLoader()
+  loader.setMaterials(materials)
+  loader.load(model, object => {
+    sphereGeo = object.children[0].geometry
+    sphereGeo.center()
+  })
 })
 
-class Cube extends Obj {
+class Sphere extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.defaultMaterial = cubeMaterial
+    this.defaultMaterial = sphereMaterial
 
-    const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
+    const shape = new CANNON.Sphere(CONFIG.SIZE / 2)
     this.body = new CANNON.Body({
       mass: this.mass,
       shape,
@@ -42,7 +45,7 @@ class Cube extends Obj {
     this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
 
     // Mesh
-    this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+    this.mesh = new THREE.Mesh(sphereGeo, sphereMaterial)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
@@ -51,16 +54,13 @@ class Cube extends Obj {
 
   scaleBody() {
     const shape = this.body.shapes[0]
-    shape.halfExtents.set(
-      (CONFIG.SIZE / 2) * this.scaleFactor,
-      (CONFIG.SIZE / 2) * this.scaleFactor,
-      (CONFIG.SIZE / 2) * this.scaleFactor
-    )
-    shape.updateConvexPolyhedronRepresentation()
+    shape.radius = (CONFIG.SIZE / 2) * this.scaleFactor
+
+    shape.updateBoundingSphereRadius()
     this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
     this.body.computeAABB()
     this.body.updateMassProperties()
   }
 }
 
-export default Cube
+export default Sphere
