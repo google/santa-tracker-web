@@ -91,14 +91,16 @@ class SnowglobeGame {
     })
 
     this.actionDragBtns.forEach(button => {
-      button.addEventListener('mousedown', e => {
-        console.log('mousemove')
+      const mouseleaveCallback = e => {
         e.preventDefault()
+        console.log('hey')
         this.sceneManager.onButtonClick(button.dataset.buttonDrag)
-        button.addEventListener('mousemove', e => {
-          e.preventDefault()
-          console.log('mousemove')
-        })
+        button.removeEventListener('mouseleave', mouseleaveCallback, false)
+      }
+
+      button.addEventListener('mousedown', e => {
+        e.preventDefault()
+        button.addEventListener('mouseleave', mouseleaveCallback)
         button.classList.add('is-clicked')
         setTimeout(() => {
           button.classList.remove('is-clicked')
