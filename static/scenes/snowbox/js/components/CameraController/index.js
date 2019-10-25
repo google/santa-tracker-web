@@ -4,7 +4,7 @@ import CONFIG from './config.js'
 // Utils
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
-import { outElastic } from '../../utils/ease.js'
+import { outElastic, outExpo } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -45,23 +45,21 @@ class CameraController {
     if (this.isRotating) return
     this.controls.enabled = false
 
-    this.rotateOrigin = this.rotationY
-
     switch (direction) {
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
-        this.targetAngle = wheel ? 2 : CONFIG.ROTATION.Y
+        this.targetAngle = wheel ? 2 : CONFIG.ROTATE.Y
         this.rotationY += this.targetAngle
         break
       case 'right':
         this.axis = new THREE.Vector3(0, 1, 0)
-        this.targetAngle = wheel ? -2 : -CONFIG.ROTATION.Y
+        this.targetAngle = wheel ? -2 : -CONFIG.ROTATE.Y
         this.rotationY += this.targetAngle
         break
       case 'top':
         this.axis = this.getPerpendicularXZAxisManually()
-        this.targetAngle = -CONFIG.ROTATION.XZ
-        if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATION.XZ_MAX) {
+        this.targetAngle = -CONFIG.ROTATE.XZ
+        if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATE.XZ_MAX) {
           // don't rotate if reach max
           return false
         }
@@ -69,8 +67,8 @@ class CameraController {
         break
       case 'bottom':
         this.axis = this.getPerpendicularXZAxisManually()
-        this.targetAngle = CONFIG.ROTATION.XZ
-        if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATION.XZ_MIN) {
+        this.targetAngle = CONFIG.ROTATE.XZ
+        if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATE.XZ_MIN) {
           // don't rotate if reach min
           return false
         }
@@ -82,35 +80,25 @@ class CameraController {
     const intersects = this.getLookAtPointOnTerrain(terrain)
     this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
+    this.cameraPositionOrigin = this.camera.position.clone()
 
     if (wheel || noAnimation) {
-      this.rotateAboutPoint(this.camera, this.lookAt, this.axis, toRadian(this.targetAngle))
+      this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
-      // increment value for animation
-      this.incrAngle = this.targetAngle / CONFIG.ROTATION.TIME
-      this.incrAngleRadian = toRadian(this.incrAngle)
-      this.progressAngle = 0
       this.isRotating = true
-
-      this.rotateTarget = this.rotationY
-      this.rotateSpeed = CONFIG.ZOOM.SPEED
+      this.rotateOrigin = 0
+      this.rotateTarget = this.targetAngle
+      this.rotateSpeed = CONFIG.ROTATE.SPEED
       this.rotateStart = getNow()
-      this.origin = new THREE.Object3D()
-      this.origin.position.copy(this.camera.position)
-      console.log(this.origin)
     }
   }
 
   animateRotate(now) {
     const percent = (now - this.rotateStart) / this.rotateSpeed
     if (percent < 1) {
-      const angle = this.rotateOrigin + (this.rotateTarget - this.rotateOrigin) * outElastic(percent)
-      const getPos = this.rotateAboutPoint(this.origin, this.lookAt, this.axis, toRadian(angle))
-      this.camera.position.copy(getPos)
-      this.camera.lookAt(this.lookAt)
-      this.camera.updateProjectionMatrix()
+      const angle = this.rotateOrigin + (this.rotateTarget - this.rotateOrigin) * outExpo(percent)
+      this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(angle))
     } else {
-      this.origin.remove()
       this.isRotating = false
     }
   }
@@ -198,19 +186,20 @@ class CameraController {
   // point - the point of rotation (THREE.Vector3)
   // axis - the axis of rotation (normalized THREE.Vector3)
   // theta - radian value of rotation
-  rotateAboutPoint(origin, point, axis, theta) {
-    const obj = new THREE.Object3D()
-    obj.position.copy(origin.position)
-    obj.position.sub(point) // remove the offset
-    obj.position.applyAxisAngle(axis, theta) // rotate the POSITION
-    obj.position.add(point) // re-add the offset
+  rotateAboutPoint(camera, origin, point, axis, theta) {
+    // apply transformation/calculation on a helper, then apply them to the camera
+    const helper = new THREE.Object3D()
+    helper.position.copy(origin)
+    helper.position.sub(point) // remove the offset
+    helper.position.applyAxisAngle(axis, theta) // rotate the POSITION
+    helper.position.add(point) // re-add the offset
 
-    obj.rotateOnAxis(axis, theta) // rotate the OBJECT
-    obj.lookAt(point)
+    helper.rotateOnAxis(axis, theta) // rotate the OBJECT
 
-    obj.remove()
+    camera.position.copy(helper.position)
+    camera.lookAt(point)
 
-    return obj.position
+    helper.remove() // clean helper
   }
 
   getPerpendicularXZAxisManually() {

@@ -5,14 +5,14 @@ export default {
     Z: 50
   },
   /*
-   * ROTATION
+   * ROTATE
    */
-  ROTATION: {
+  ROTATE: {
     Y: 45,
     XZ: 45 / 2,
     XZ_MIN: 45,
     XZ_MAX: -46,
-    TIME: 15 // incrementing time based on RAF
+    SPEED: 800
   },
   /*
    * ZOOM
