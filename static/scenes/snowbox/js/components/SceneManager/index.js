@@ -345,10 +345,9 @@ class SceneManager extends EventEmitter {
       this.selectedSubject.select()
     }
 
-    if (this.selectedSubject.scaleIndex < e.target.value) {
-      this.scale('up')
-    } else {
-      this.scale('down')
+    if (this.selectedSubject) {
+      this.selectedSubject.scale(e.target.value)
+      this.checkCollision()
     }
   }
 
@@ -489,15 +488,7 @@ class SceneManager extends EventEmitter {
   }
 
   scale(direction) {
-    if (this.activeSubject && !this.selectedSubject) {
-      this.selectedSubject = this.activeSubject
-      this.selectedSubject.select()
-    }
 
-    if (this.selectedSubject) {
-      this.selectedSubject.scale(direction)
-      this.checkCollision()
-    }
   }
 
   rotate(direction) {
