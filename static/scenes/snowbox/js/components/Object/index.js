@@ -173,20 +173,20 @@ class Object extends EventEmitter {
 
   highlight() {
     if (this.mesh) {
-      this.mesh.material = CONFIG.HIGHLIGHT_MATERIAL
+      this.mesh.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
     }
   }
 
   unhighlight() {
-    if (this.mesh && this.defaultMaterial) {
-      this.mesh.material = this.defaultMaterial
+    if (this.mesh) {
+      this.mesh.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
     }
   }
 
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
 
-    this.ghost = new THREE.Mesh(geometry, CONFIG.GHOST_MATERIAL)
+    this.ghost = new THREE.Mesh(geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
