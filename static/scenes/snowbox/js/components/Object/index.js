@@ -14,6 +14,7 @@ class Object extends EventEmitter {
     this.rotationX = 0
     this.scaleFactor = 1
     this.scaleIndex = 0
+    this.isMoving = false
   }
 
   addToScene() {
@@ -61,7 +62,7 @@ class Object extends EventEmitter {
       this.body.updateMassProperties()
 
       if (this.moveToGhost) {
-        if (!this.mesh.visible) {
+        if (this.mesh && !this.mesh.visible) {
           this.mesh.visible
         }
       }
@@ -78,19 +79,24 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+
+      this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1
+
       if (this.wireframe) {
         this.wireframe.position.copy(this.mesh.position)
         this.wireframe.quaternion.copy(this.mesh.quaternion)
         this.wireframe.scale.copy(this.mesh.scale)
       }
+
+      // Update torus
       if (this.xCircle) {
-        this.xCircle.position.copy(this.mesh.position)
+        this.xCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
       }
       if (this.yCircle) {
-        this.yCircle.position.copy(this.mesh.position)
+        this.yCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
       }
+
       if (this.ghost) {
-        // console.log(this.mesh, this.ghost)
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
       } else {
@@ -140,6 +146,7 @@ class Object extends EventEmitter {
   }
 
   scale(value) {
+    console.log('scale')
     const scaleFactor = parseInt(value) / 10
     this.ghost.scale.set(
       this.defaultMeshScale.x * scaleFactor,
@@ -147,6 +154,7 @@ class Object extends EventEmitter {
       this.defaultMeshScale.z * scaleFactor
     )
     this.scaleFactor = scaleFactor
+    this.updateRotatingCircle()
   }
 
   scaleBody() {
@@ -211,8 +219,7 @@ class Object extends EventEmitter {
 
   createRotateCircle(zoom) {
     // X Circle
-    // const xRadius = (this.box.max.x - this.box.min.x) / 1.25
-    const xRadius = 1.5
+    const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
     var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
     this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
@@ -220,8 +227,7 @@ class Object extends EventEmitter {
     this.xCircle.geometry.computeBoundingSphere()
 
     // X Circle
-    // const yRadius = (this.box.max.y - this.box.min.y) / 1.25
-    const yRadius = 1.5
+    const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
     var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
     this.yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
@@ -235,8 +241,22 @@ class Object extends EventEmitter {
   }
 
   updateRotatingCircle(zoom) {
-    this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    if (zoom) {
+      this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+      this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    } else {
+      const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
+      var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+      this.xCircle.geometry.dispose()
+      this.xCircle.geometry = xGeometry
+      this.xCircle.geometry.computeBoundingSphere()
+
+      const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
+      var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
+      this.yCircle.geometry.dispose()
+      this.yCircle.geometry = yGeometry
+      this.yCircle.geometry.computeBoundingSphere()
+    }
   }
 
   deleteGhost() {

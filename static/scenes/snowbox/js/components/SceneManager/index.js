@@ -184,6 +184,20 @@ class SceneManager extends EventEmitter {
       this.needsCollisionCheck = false
     }
 
+    if (this.emitCameraMove) {
+      this.emit('move_camera')
+      this.emitCameraMove = false
+    }
+
+    if (this.emitScaleObject) {
+      this.emit('scale_object')
+      this.emitScaleObject = false
+    }
+
+    if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
+      this.emit('move_camera')
+    }
+
     this.renderer.render(this.scene, camera)
   }
 
@@ -353,6 +367,7 @@ class SceneManager extends EventEmitter {
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
+      this.emitScaleObject = true
     }
   }
 
@@ -588,6 +603,7 @@ class SceneManager extends EventEmitter {
       this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
+      this.checkCollision()
     }
   }
 
@@ -621,7 +637,7 @@ class SceneManager extends EventEmitter {
 
   bindEscape() {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
-      if (!this.selectedSubject.mesh.visible) {
+      if (!this.selectedSubject.mesh.visible && !this.wireframe) {
         this.deleteObject()
         this.setMode()
         this.terrain.removePositionMarker()
@@ -644,6 +660,9 @@ class SceneManager extends EventEmitter {
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
     this.selectedSubject.delete()
+    if (this.mode === 'edit') {
+      this.unsetEditMode(true)
+    }
   }
 
   setUnits() {
@@ -771,15 +790,16 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  unsetEditMode() {
+  unsetEditMode(noMove) {
     if (this.selectedSubject) {
-      this.unselectSubject()
+      this.unselectSubject(noMove)
     }
 
     if (this.activeSubject) {
       this.activeSubject.unsetEditTools()
       this.setMode()
       this.emit('leave_edit')
+      this.activeSubject = null
     }
   }
 }
