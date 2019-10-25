@@ -7,7 +7,8 @@ export default {
     ICE: 0x56b8e1,
     TERRAIN: 0xd2d2d2,
     GHOST: 0xf0f0f0,
-    HIGHLIGHT: 0x239dc5
+    HIGHLIGHT: 0x239dc5,
+    WIREFRAME: 0xff8702
   },
   MODEL_UNIT: 198.8005,
   SCENE_SIZE: 1000,

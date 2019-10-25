@@ -41,7 +41,10 @@ class Object extends EventEmitter {
 
         if (this.mesh.visible) {
           const edges = new THREE.EdgesGeometry(this.mesh.geometry, 45)
-          this.wireframe = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xff8702, linewidth: 3 }))
+          this.wireframe = new THREE.LineSegments(
+            edges,
+            new THREE.LineBasicMaterial({ color: CONFIG.WIREFRAME_COLOR, linewidth: 3 })
+          )
           this.scene.add(this.wireframe)
         }
         this.mesh.visible = false

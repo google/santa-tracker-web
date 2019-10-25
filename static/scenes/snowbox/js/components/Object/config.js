@@ -11,6 +11,7 @@ export default {
   GHOST_MATERIAL: new THREE.MeshPhongMaterial({
     color: GLOBAL_CONFIG.COLORS.GHOST
   }),
+  WIREFRAME_COLOR: GLOBAL_CONFIG.COLORS.WIREFRAME,
   SCALE_FACTOR: 1.1,
   ROTATE_CIRCLE_MATERIAL: new THREE.MeshBasicMaterial({
     color: 0xffe14d,
