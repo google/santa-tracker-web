@@ -36,6 +36,7 @@ a {
 
   &::after {
     content: '';
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -47,6 +48,27 @@ a {
   }
   &:focus::after {
     opacity: 1;
+  }
+}
+
+.rear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  santa-card-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    svg {
+      pointer-events: none;;
+    }
   }
 }
 
