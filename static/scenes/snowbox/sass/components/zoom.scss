@@ -6,16 +6,6 @@
   position: relative;
   pointer-events: auto;
 
-  &::before {
-    content: '';
-    position: absolute;
-    background-color: $button-shadow;
-    top: calc(50% - 2px);
-    left: 6px;
-    width: 100%;
-    height: 4px;
-  }
-
   &__button {
     .button__icon {
       width: 52%;

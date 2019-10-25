@@ -32,12 +32,7 @@ class Arch extends Obj {
     this.mass = CONFIG.MASS
     this.defaultMaterial = archMaterial
 
-    // Mesh
-    this.mesh = new THREE.Mesh(archGeo, archMaterial)
-    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
-    this.mesh.updateMatrix()
-
-    const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
+    const shape = this.createShape()
     this.body = new CANNON.Body({
       mass: this.mass,
       shape,
@@ -46,21 +41,16 @@ class Arch extends Obj {
     })
     this.body.position.set(-CONFIG.SIZE, 0, -CONFIG.SIZE / 2)
 
+    // Mesh
+    this.mesh = new THREE.Mesh(archGeo, archMaterial)
+    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    this.mesh.updateMatrix()
+
     this.addToScene()
   }
 
-  scaleBody() {
-    console.log('scale Body')
-    const shape = this.body.shapes[0]
-    shape.halfExtents.set(
-      CONFIG.SIZE * this.scaleFactor,
-      (CONFIG.SIZE / 2) * this.scaleFactor,
-      (CONFIG.SIZE / 2) * this.scaleFactor
-    )
-    shape.updateConvexPolyhedronRepresentation()
-    this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
-    this.body.computeAABB()
-    this.body.updateMassProperties()
+  createShape(scale = 1) {
+    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE * scale, CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale))
   }
 }
 
