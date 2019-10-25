@@ -146,7 +146,6 @@ class Object extends EventEmitter {
   }
 
   scale(value) {
-    console.log('scale')
     const scaleFactor = parseInt(value) / 10
     this.ghost.scale.set(
       this.defaultMeshScale.x * scaleFactor,
