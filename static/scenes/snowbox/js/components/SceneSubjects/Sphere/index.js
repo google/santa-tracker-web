@@ -33,7 +33,8 @@ new THREE.MTLLoader().load(material, loadedMaterials => {
   }
 
   const loader = new THREE.OBJLoader()
-  loader.setMaterials(materials.default)
+
+  loader.setMaterials(loadedMaterials)
   loader.load(model, object => {
     sphereGeo = object.children[0].geometry
     sphereGeo.center()
