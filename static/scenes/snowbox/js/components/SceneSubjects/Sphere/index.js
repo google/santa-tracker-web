@@ -35,7 +35,7 @@ class Sphere extends Obj {
     this.mass = CONFIG.MASS
     this.defaultMaterial = sphereMaterial
 
-    const shape = new CANNON.Sphere(CONFIG.SIZE / 2)
+    const shape = this.createShape()
     this.body = new CANNON.Body({
       mass: this.mass,
       shape,
@@ -52,14 +52,8 @@ class Sphere extends Obj {
     this.addToScene()
   }
 
-  scaleBody() {
-    const shape = this.body.shapes[0]
-    shape.radius = (CONFIG.SIZE / 2) * this.scaleFactor
-
-    shape.updateBoundingSphereRadius()
-    this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
-    this.body.computeAABB()
-    this.body.updateMassProperties()
+  createShape(scale = 1) {
+    return new CANNON.Sphere(CONFIG.SIZE / 2 * scale)
   }
 }
 
