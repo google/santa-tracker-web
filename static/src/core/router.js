@@ -50,6 +50,7 @@ export function normalizeLang(lang) {
   return parts.join('-');
 }
 
+
 /**
  * Finds the canonical URL for sharing and URL changes. Look in /intl/.../ and ?hl=... for user
  * override lang. Send the browser to the correct /intl/ version via History API. e.g.,
@@ -64,13 +65,7 @@ export function normalizeLang(lang) {
  */
 export function resolveProdURL(location) {
   const data = params.read(location.search);
-  let pathname = location.pathname || '/';
-
-  // Strip secret development URLs.
-  const matchDev = pathname.match(/^\/\w+-\w{24,30}\//);
-  if (matchDev) {
-    pathname = pathname.substr(matchDev[0].length - 1);
-  }
+  const pathname = location.pathname || '/';
 
   // nb: ?hl=de_XXX is actually invalid/ignored (it's not used as a prefix)
   let queryLang = (data['hl'] || '');
@@ -85,10 +80,11 @@ export function resolveProdURL(location) {
 
   // Grab the final URL component. This intentionally only matches the last part, as Santa Tracker
   // is only served through the top-level and the /intl/.../ paths.
+  let trailing = pathname;
   if (matchLang) {
-    pathname = '/' + pathname.substr(matchLang[0].length);
+    trailing = '/' + trailing.substr(matchLang[0].length);
   }
-  const matchScene = simplePathMatcher.exec(pathname);
+  const matchScene = simplePathMatcher.exec(trailing);
   const sceneName = normalizeSceneName(matchScene && matchScene[1]);
 
   let scope = `${location.origin}/`;

@@ -7,21 +7,15 @@ import 'firebase/remote-config';
 import defaults from './remote-config-defaults.js';
 
 export var firebaseConfig = {
-  apiKey: 'AIzaSyBrNcGcna0TMn2uLRxhMBwxVwXUBjlZqzU',
-  authDomain: 'santa-api.firebaseapp.com',
-  databaseURL: 'https://santa-api.firebaseio.com',
-  projectId: 'santa-api',
-  storageBucket: 'santa-api.appspot.com',
-  messagingSenderId: '593146395815',
-  appId: '1:593146395815:web:d766962076fbbd13492f82',
-  measurementId: 'G-EWRYGZS6D3',
+  apiKey: 'AIzaSyDdDYk51KwSIJ-vyBI01V3h87DaGYJ9DxQ',
+  authDomain: 'santaweb-demo.firebaseapp.com',
+  databaseURL: 'https://santaweb-demo.firebaseio.com',
+  projectId: 'santaweb-demo',
+  storageBucket: 'santaweb-demo.appspot.com',
+  messagingSenderId: '405945309789',
+  appId: '1:405945309789:web:beebb797c697146e9c0bb4',
+  measurementId: 'G-4CXCGE4LE6',
 };
-
-// Swap for Dev environment.
-if (window.location.hostname !== 'santatracker.google.com') {
-  firebaseConfig.appId = '1:593146395815:web:54c339298196fd10492f82';
-  firebaseConfig.measurementId = 'G-GPEHME4LVG';
-}
 
 export function initialize() {
   firebase.initializeApp(firebaseConfig);
