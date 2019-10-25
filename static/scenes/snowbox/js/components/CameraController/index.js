@@ -45,6 +45,8 @@ class CameraController {
     if (this.isRotating) return
     this.controls.enabled = false
 
+    this.rotateOrigin = this.rotationY
+
     switch (direction) {
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
@@ -89,16 +91,26 @@ class CameraController {
       this.incrAngleRadian = toRadian(this.incrAngle)
       this.progressAngle = 0
       this.isRotating = true
+
+      this.rotateTarget = this.rotationY
+      this.rotateSpeed = CONFIG.ZOOM.SPEED
+      this.rotateStart = getNow()
+      this.origin = new THREE.Object3D()
+      this.origin.position.copy(this.camera.position)
+      console.log(this.origin)
     }
   }
 
   animateRotate(now) {
-
-    this.progressAngle += this.incrAngle
-
-    if (this.progressAngle.toFixed(2) !== this.targetAngle.toFixed(2)) {
-      this.rotateAboutPoint(this.camera, this.lookAt, this.axis, this.incrAngleRadian)
+    const percent = (now - this.rotateStart) / this.rotateSpeed
+    if (percent < 1) {
+      const angle = this.rotateOrigin + (this.rotateTarget - this.rotateOrigin) * outElastic(percent)
+      const getPos = this.rotateAboutPoint(this.origin, this.lookAt, this.axis, toRadian(angle))
+      this.camera.position.copy(getPos)
+      this.camera.lookAt(this.lookAt)
+      this.camera.updateProjectionMatrix()
     } else {
+      this.origin.remove()
       this.isRotating = false
     }
   }
@@ -186,13 +198,19 @@ class CameraController {
   // point - the point of rotation (THREE.Vector3)
   // axis - the axis of rotation (normalized THREE.Vector3)
   // theta - radian value of rotation
-  rotateAboutPoint(obj, point, axis, theta) {
+  rotateAboutPoint(origin, point, axis, theta) {
+    const obj = new THREE.Object3D()
+    obj.position.copy(origin.position)
     obj.position.sub(point) // remove the offset
     obj.position.applyAxisAngle(axis, theta) // rotate the POSITION
     obj.position.add(point) // re-add the offset
 
     obj.rotateOnAxis(axis, theta) // rotate the OBJECT
     obj.lookAt(point)
+
+    obj.remove()
+
+    return obj.position
   }
 
   getPerpendicularXZAxisManually() {
