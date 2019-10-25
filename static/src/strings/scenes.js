@@ -41,6 +41,7 @@ export default {
   'postcard': _msg`scene_postcard`,
   'presentbounce': _msg`scene_presentbounce`,
   'presentdrop': _msg`scene_presentdrop`,
+  'presenthavoc': _msg`scene_presenthavoc`,
   'press': _msg`press`,
   'racer': _msg`scene_racer`,
   'reindeerworries': _msg`scene_videoscene_reindeerworries`,  // 2015

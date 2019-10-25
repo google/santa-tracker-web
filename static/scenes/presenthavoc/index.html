@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
+  <link rel="stylesheet" href="presenthavoc-scene.css" />
+</head>
+<body>
+
+<div id="module-presenthavoc">
+  <main id="main">
+    <div class="level level--1">
+
+    </div>
+  </main>
+</div>
+
+<script type="module">
+import '../../src/magic.js';
+import api from '../../src/scene/api.js';
+
+api.preload.images(
+  'img/car-body.svg',
+  'img/car-wheel.svg',
+  'img/fence.svg',
+  'img/player-a.svg',
+  'img/player-b.svg',
+  'img/table-1.svg',
+  'img/table-2.svg',
+  'img/table-3.svg',
+  'img/tree.svg',
+);
+
+// api.preload.sounds('village_load_sounds');
+
+// api.config({
+//   sound: ['music_start_village', 'village_start'],
+// });
+
+// api.ready(async () => {
+//   // do nothing
+// });
+
+</script>
+
+</body>
+</html>

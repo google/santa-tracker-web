@@ -1947,6 +1947,10 @@
     "description": "Title of a scene/game. Practice dropping presents into practice chimneys.",
     "message": "Present Drop"
   },
+  "scene_presenthavoc": {
+    "description": "Title of a scene/game. You are an elf racing to assemble and wrap toys.",
+    "message": "Present Havoc"
+  },
   "scene_quickdraw": {
     "description": "Title of a scene/game. Draw shapes and try to have Santa's robot guess what you are drawing.",
     "message": "Quick Draw"

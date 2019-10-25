@@ -1,0 +1,43 @@
+$name: 'module-presenthavoc';
+
+@import "../_shared/sass/button";
+
+$mobile-breakpoint: 1100px;
+
+body {
+  overflow: hidden;
+}
+
+##{$name} {
+  main {
+    background: #ccc;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .level {
+    background: #e6ac28;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 800px;
+    width: 1400px;
+  }
+
+  // .title {
+  //   font-family: 'Lobster', sans-serif;
+  //   position: absolute;
+  //   text-align: center;
+  //   top: 20%;
+  //   width: 100%;
+  //   z-index: 3;
+
+  //   @media screen and (max-width: $mobile-breakpoint) {
+  //     top: 30%;
+  //   }
+  // }
+}
