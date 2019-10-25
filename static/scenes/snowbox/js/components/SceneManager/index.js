@@ -772,7 +772,6 @@ class SceneManager extends EventEmitter {
   setEditMode() {
     if (this.activeSubject) {
       this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
-      console.log(this.activeSubject)
       this.setMode('edit')
       setTimeout(() => {
         this.emit('enter_edit')
