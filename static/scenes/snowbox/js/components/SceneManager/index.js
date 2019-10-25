@@ -79,7 +79,7 @@ class SceneManager extends EventEmitter {
       metalness: 1,
       presets: 3,
       cubeMass: 20,
-      ice_color: '#64d5fa',
+      ice_color: '#56b8e1',
       terrain_color: '#d2d2d2'
     }
 
@@ -177,6 +177,11 @@ class SceneManager extends EventEmitter {
         this.emit('move_camera')
         this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
       }
+    }
+
+    if (this.needsCollisionCheck) {
+      this.checkCollision()
+      this.needsCollisionCheck = false
     }
 
     this.renderer.render(this.scene, camera)
@@ -347,7 +352,7 @@ class SceneManager extends EventEmitter {
 
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
-      this.checkCollision()
+      this.needsCollisionCheck = true
     }
   }
 
@@ -489,7 +494,7 @@ class SceneManager extends EventEmitter {
       const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
       const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
       this.selectedSubject.rotate(axis, angle)
-      this.checkCollision()
+      this.needsCollisionCheck = true
     }
   }
 
