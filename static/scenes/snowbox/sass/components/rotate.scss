@@ -23,12 +23,5 @@
       width: 29px;
       height: 25px;
     }
-
-    &--right,
-    &--bottom {
-      .button__icon {
-        transform-origin: 44% 44%;
-      }
-    }
   }
 }

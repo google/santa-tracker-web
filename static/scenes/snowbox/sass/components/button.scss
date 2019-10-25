@@ -61,16 +61,13 @@
 
   &--round {
     &::before {
-      box-shadow: 0px 3px .01px $color-orange, .01px 3px .01px $color-orange ;
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
-      border-bottom-left-radius: 50%;
-      border-bottom-right-radius: 50%;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px 1px .01px $color-orange;
+      border-radius: 50%;
     }
 
     &:hover {
       &::before {
-        box-shadow: 2px 0px .01px $color-orange, 2px 5px .01px $color-orange ;
+        box-shadow: 4px 4px $color-orange, .01px 1px .01px $color-orange;
       }
     }
 
@@ -150,13 +147,13 @@
   &--slider {
     &::before {
       background-color: $color-white;
-      box-shadow: $button-3d-offset  $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
+      box-shadow: $button-3d-offset $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
       border-radius: 50%;
     }
 
     &:hover {
       &::before {
-        box-shadow: 4px 4px $color-gray, .01px 2px .01px $color-gray;
+        box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray;
       }
     }
   }
