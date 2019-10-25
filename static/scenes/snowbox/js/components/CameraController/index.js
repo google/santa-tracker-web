@@ -4,7 +4,7 @@ import CONFIG from './config.js'
 // Utils
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
-import { outQuad } from '../../utils/ease.js'
+import { outElastic } from '../../utils/ease.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -93,6 +93,7 @@ class CameraController {
   }
 
   animateRotate(now) {
+
     this.progressAngle += this.incrAngle
 
     if (this.progressAngle.toFixed(2) !== this.targetAngle.toFixed(2)) {
@@ -133,7 +134,7 @@ class CameraController {
   animateZoom(now) {
     const percent = (now - this.zoomStart) / this.zoomSpeed
     if (percent < 1) {
-      this.camera.zoom = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outQuad(percent)
+      this.camera.zoom = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outElastic(percent)
     } else {
       this.isZooming = false
     }
