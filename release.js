@@ -93,6 +93,7 @@ const assetsToCopy = [
   '!prod/**/*.html',
   '!prod/**/*.js',
   '!prod/**/*.json',
+  'prod/.well-known/**',  // must be after deny *.json, includes its own JSON
 ];
 
 // nb. matches config in serve.js
