@@ -353,14 +353,6 @@ class SceneManager extends EventEmitter {
 
   bindKeyDown(event) {
     switch (event.key) {
-      case 'ArrowUp':
-        event.preventDefault()
-        this.scale('up')
-        break
-      case 'ArrowDown':
-        event.preventDefault()
-        this.scale('down')
-        break
       case 'ArrowRight':
         event.preventDefault()
         this.rotate('right')
@@ -487,10 +479,6 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  scale(direction) {
-
-  }
-
   rotate(direction) {
     if (this.activeSubject && !this.selectedSubject) {
       this.selectedSubject = this.activeSubject
@@ -599,7 +587,6 @@ class SceneManager extends EventEmitter {
   }
 
   setMode(mode = '') {
-    console.log(mode || 'default')
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')

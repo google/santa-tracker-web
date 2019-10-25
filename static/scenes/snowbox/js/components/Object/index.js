@@ -37,7 +37,12 @@ class Object extends EventEmitter {
       this.body.updateMassProperties()
 
       if (this.mesh) {
-        this.mesh.material = CONFIG.SELECTED_MATERIAL
+        if (this.mesh.visible) {
+          const edges = new THREE.EdgesGeometry(this.mesh.geometry, 45)
+          this.wireframe = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xff8702, linewidth: 3 }))
+          this.scene.add(this.wireframe)
+        }
+        this.mesh.visible = false
       }
 
       this.createGhost()
@@ -50,8 +55,10 @@ class Object extends EventEmitter {
       this.body.mass = this.mass
       this.body.updateMassProperties()
 
-      if (this.mesh && this.defaultMaterial) {
-        this.mesh.material = this.defaultMaterial
+      if (this.moveToGhost) {
+        if (!this.mesh.visible) {
+          this.mesh.visible
+        }
       }
 
       if (!this.mesh.visible) {
@@ -66,6 +73,11 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+      if (this.wireframe) {
+        this.wireframe.position.copy(this.mesh.position)
+        this.wireframe.quaternion.copy(this.mesh.quaternion)
+        this.wireframe.scale.copy(this.mesh.scale)
+      }
       if (this.xCircle) {
         this.xCircle.position.copy(this.mesh.position)
       }
@@ -73,7 +85,7 @@ class Object extends EventEmitter {
         this.yCircle.position.copy(this.mesh.position)
       }
       if (this.ghost) {
-        // console.log('update ghost', this.ghost.position)
+        // console.log(this.mesh, this.ghost)
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
       } else {
@@ -124,14 +136,18 @@ class Object extends EventEmitter {
 
   scale(value) {
     const scaleFactor = parseInt(value) / 10
-    this.ghost.scale.set(this.defaultMeshScale.x * scaleFactor, this.defaultMeshScale.y * scaleFactor, this.defaultMeshScale.z * scaleFactor)
+    this.ghost.scale.set(
+      this.defaultMeshScale.x * scaleFactor,
+      this.defaultMeshScale.y * scaleFactor,
+      this.defaultMeshScale.z * scaleFactor
+    )
     this.scaleFactor = scaleFactor
   }
 
   scaleBody() {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
-    this.body.addShape(shape);
+    this.body.addShape(shape)
     this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
@@ -224,6 +240,13 @@ class Object extends EventEmitter {
       this.ghost.geometry.dispose()
       this.ghost.material.dispose()
       this.ghost = undefined
+    }
+
+    if (this.wireframe) {
+      this.scene.remove(this.wireframe)
+      this.wireframe.geometry.dispose()
+      this.wireframe.material.dispose()
+      this.wireframe.undefined
     }
 
     if (CONFIG.DEBUG) {
