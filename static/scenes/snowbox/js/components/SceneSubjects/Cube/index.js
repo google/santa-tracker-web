@@ -30,10 +30,9 @@ class Cube extends Obj {
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.size = CONFIG.SIZE
     this.defaultMaterial = cubeMaterial
 
-    const shape = this.createShape()
+    const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     this.body = new CANNON.Body({
       mass: this.mass,
       shape,
@@ -50,8 +49,17 @@ class Cube extends Obj {
     this.addToScene()
   }
 
-  createShape(scale = 1) {
-    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale))
+  scaleBody() {
+    const shape = this.body.shapes[0]
+    shape.halfExtents.set(
+      (CONFIG.SIZE / 2) * this.scaleFactor,
+      (CONFIG.SIZE / 2) * this.scaleFactor,
+      (CONFIG.SIZE / 2) * this.scaleFactor
+    )
+    shape.updateConvexPolyhedronRepresentation()
+    this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
+    this.body.computeAABB()
+    this.body.updateMassProperties()
   }
 }
 

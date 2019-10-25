@@ -141,8 +141,6 @@ class SnowglobeGame {
         this.objectRotateDownUi.style.display = `block`
         this.objectEditUi.style.display = `block`
         this.objectRotateRightUi.style.display = `block`
-        const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
-        this.objectScaleSlider.value = scaleFactor * 10
         updateEditToolsPos()
       }
     })
