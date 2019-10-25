@@ -27,6 +27,7 @@ class Object extends EventEmitter {
     this.box = this.mesh.geometry.boundingBox.clone()
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
     this.mesh.visible = false
+    this.defaultMeshScale = this.mesh.scale.clone()
   }
 
   select() {
@@ -121,15 +122,17 @@ class Object extends EventEmitter {
     this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
-  scale(direction) {
-    const currentScale = this.ghost.scale
-    const scaleFactor = direction === 'up' ? CONFIG.SCALE_FACTOR : 1 / CONFIG.SCALE_FACTOR
-    this.scaleIndex = direction === 'up' ? this.scaleIndex + 1 : this.scaleIndex - 1
+  scale(value) {
+    const scaleFactor = parseInt(value) / 10
+    this.ghost.scale.set(this.defaultMeshScale.x * scaleFactor, this.defaultMeshScale.y * scaleFactor, this.defaultMeshScale.z * scaleFactor)
+    this.scaleFactor = scaleFactor
+  }
 
-    if (this.scaleFactor * scaleFactor < 1.9 && this.scaleFactor * scaleFactor > 0.5) {
-      this.ghost.scale.set(currentScale.x * scaleFactor, currentScale.y * scaleFactor, currentScale.z * scaleFactor)
-      this.scaleFactor *= scaleFactor
-    }
+  scaleBody() {
+    this.body.shapes = []
+    const shape = this.createShape(this.scaleFactor)
+    this.body.addShape(shape);
+    this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
   delete() {
