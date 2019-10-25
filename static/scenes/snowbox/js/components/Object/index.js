@@ -37,6 +37,8 @@ class Object extends EventEmitter {
       this.body.updateMassProperties()
 
       if (this.mesh) {
+        this.unhighlight()
+
         if (this.mesh.visible) {
           const edges = new THREE.EdgesGeometry(this.mesh.geometry, 45)
           this.wireframe = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xff8702, linewidth: 3 }))
