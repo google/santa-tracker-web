@@ -6,7 +6,8 @@ import scenes from '../strings/scenes.js';
 import {_static, _msg} from '../magic.js';
 import {prepareAsset} from '../lib/media.js';
 import {href} from '../scene/route.js';
-
+import loadLottie from '../deps/lottie.js';
+import './santa-card-player.js';
 
 // YouTube video assets for previews.
 export const videos = {
@@ -65,13 +66,20 @@ export class SantaCardElement extends LitElement {
     return {
       locked: {type: Number},
       scene: {type: String},
+      _active: {type: Boolean},
     };
   }
 
   constructor() {
     super();
-    this._previewAssetPromise = alreadyResolved;
     this._backgroundStylePromise = alreadyResolved;
+
+    this.addEventListener('mouseover', () => {
+      this._active = true;
+    });
+    this.addEventListener('mouseout', (ev) => {
+      this._active = false;
+    });
   }
 
   static get styles() {
@@ -84,15 +92,12 @@ export class SantaCardElement extends LitElement {
     }
 
     if (!this.scene) {
-      this._previewAssetPromise = alreadyResolved;
       this._backgroundStylePromise = alreadyResolved;
       return true;
     }
 
     // Check if this is secretly a video.
     if (this.scene in videos) {
-      this._previewAssetPromise = alreadyResolved;
-
       const videoId = videos[this.scene];
       const url = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
@@ -105,28 +110,33 @@ export class SantaCardElement extends LitElement {
       return true;
     }
 
-    // Otherwise, this is a regular scene.
-    const {promise} = prepareAsset(_static`img/card/` + this.scene + '.svg');
-    this._previewAssetPromise = promise;
-
-    if (this.scene in sceneColors) {
-      this._backgroundStylePromise = Promise.resolve(`background: ${sceneColors[this.scene]}`);
+    const color = sceneColors[this.scene];
+    if (color) {
+      this._backgroundStylePromise = Promise.resolve(`background: ${color}`);
     } else {
-      this._backgroundStylePromise = Promise.resolve('');
+      this._backgroundStylePromise = alreadyResolved;
     }
+
     return true;
 }
 
   render() {
-    const videoClass = this.scene in videos ? 'play' : '';
+    const lottiePath = _static`img/card-lottie/`;
+    let cardPlayer = '';
 
-    const url = href(this.locked || !this.scene ? undefined : `${this.scene}.html`);
+    if (!this.locked) {
+      cardPlayer = html`
+        <santa-card-player .active=${this._active} intro-src=${lottiePath + this.scene + '-intro.json'} loop-src=${lottiePath + this.scene + '-loop.json'}></santa-card-player>
+        <h1>${scenes[this.scene] || ''}</h1>
+      `;
+    }
+
+    const url = this.locked || !this.scene ? undefined : href(`${this.scene}.html`);
     const iceIndex = (this.locked || 0) % 3;  // css defines ice-[0-2]
     return html`
 <main>
-<a href=${ifDefined(url)} style=${until(this._backgroundStylePromise, '')}>
-  <div class="icon ${videoClass}">${until(this._previewAssetPromise)}</div>
-  <h1>${scenes[this.scene] || ''}</h1>
+<a href=${ifDefined(url)} style=${ifDefined(until(this._backgroundStylePromise, ''))}>
+  ${cardPlayer}
   <div class="ice ice-${iceIndex}" ?hidden=${!this.locked}>
     <svg width="14" height="20" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 1)" fill="none" fill-rule="evenodd"><rect fill="#FFF" fill-rule="nonzero" y="5" width="14" height="14" rx="2.8825"/><path d="M3 7V3.20903294C3 1.43673686 4.55703723 0 6.47774315 0h1.0444629C9.44287133 0 11 1.43672748 11 3.20903294V7" stroke="#FFF" stroke-width="2"/><circle fill="#C4C4C4" fill-rule="nonzero" cx="7" cy="11" r="1.5"/><path fill="#C4C4C4" fill-rule="nonzero" d="M7.83333333 11.5H6.16666667L5.5 14.5h3z"/></g></svg>
     <h3 data-text=${_msg`opens`}></h3>
