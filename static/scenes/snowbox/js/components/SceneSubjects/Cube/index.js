@@ -53,7 +53,6 @@ class Cube extends Obj {
       fixedRotation: false,
       material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
-    this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
 
     // Mesh
     this.mesh = new THREE.Mesh(cubeGeo, materials.default)

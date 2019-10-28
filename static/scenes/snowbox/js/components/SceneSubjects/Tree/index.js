@@ -40,13 +40,11 @@ class Tree extends Obj {
     const shape = this.createShape()
 
     this.body = new CANNON.Body({
-      mass: 1,
+      mass: this.mass,
       shape,
       fixedRotation: false,
       material: type === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
-    this.body.position.set(-CONFIG.SIZE / 2, 100, -CONFIG.SIZE / 2)
-
 
     // Mesh
     this.mesh = new THREE.Mesh(geometry, material)

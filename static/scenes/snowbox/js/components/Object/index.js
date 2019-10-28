@@ -29,6 +29,7 @@ class Object extends EventEmitter {
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
     this.mesh.visible = false
     this.defaultMeshScale = this.mesh.scale.clone()
+    this.body.position.y = -100 // position body out of scope
   }
 
   select() {

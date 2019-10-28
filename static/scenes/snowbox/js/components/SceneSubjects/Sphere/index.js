@@ -57,7 +57,7 @@ class Sphere extends Obj {
       fixedRotation: false,
       material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
-    this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
+
     // Mesh
     this.mesh = new THREE.Mesh(sphereGeo, materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
