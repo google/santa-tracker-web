@@ -2,9 +2,9 @@ export const generateThreeVertices = (rawVerts) => {
     let verts = [];
 
     for(let v = 0; v < rawVerts.length; v+=3){
-        const x = rawVerts[v]
-        const y = rawVerts[v+1]
-        const z = rawVerts[v+2]
+        const x = rawVerts[v] / 200
+        const y = rawVerts[v+1] / 200
+        const z = rawVerts[v+2] / 200
         const vec3 = new THREE.Vector3(x,y,z)
         verts.push(vec3);
     }
@@ -49,54 +49,42 @@ export const generateCannonFaces = (rawFaces) => {
     return faces;
 };
 
-export const generateBody = (groups, properties) => {
+export const generateBody = (group) => {
     const body = new CANNON.Body({
-        mass: properties.mass
+        mass: 1
     });
 
-    for (let g = 0; g < groups.length; g++) {
-        const group = groups[g];
+    const verts = generateThreeVertices(group.vertices);
+    const faces = generateThreeFaces(group.faces);
+    const geometry = new THREE.Geometry();
+    const material = new THREE.MeshBasicMaterial();
 
-        const verts = generateThreeVertices(group.vertices);
-        const faces = generateThreeFaces(group.faces);
-        const geometry = new THREE.Geometry();
-        const material = new THREE.MeshBasicMaterial();
+    geometry.vertices = verts;
+    geometry.faces = faces;
+    console.log(geometry)
 
-        geometry.vertices = verts;
-        geometry.faces = faces;
-        console.log(geometry)
+    geometry.verticesNeedUpdate = true
 
-        geometry.verticesNeedUpdate = true
+    const mesh = new THREE.Mesh(geometry, material);
 
-        const mesh = new THREE.Mesh(geometry, material);
+    // mesh.scale.copy(properties.scale);
 
-        mesh.scale.copy(properties.scale);
+    mesh.updateMatrix();
+    mesh.geometry.applyMatrix(mesh.matrix); // this line is creating 0,0,0 vertices
+    mesh.geometry.computeFaceNormals();
+    mesh.geometry.computeVertexNormals();
+    mesh.matrix.identity();
 
-        mesh.updateMatrix();
-        // mesh.geometry.applyMatrix(mesh.matrix); // this line is creating 0,0,0 vertices
-        mesh.geometry.computeFaceNormals();
-        mesh.geometry.computeVertexNormals();
-        mesh.matrix.identity();
+    console.log(verts, faces)
 
-        // console.log(verts, faces)
+    const updatedVerts = generateCannonVertices(verts);
+    const updatedFaces = generateCannonFaces(faces);
+    console.log(updatedVerts[0])
 
-        const updatedVerts = generateCannonVertices(verts);
-        const updatedFaces = generateCannonFaces(faces);
-        // console.log(updatedVerts[0])
+    const polyhedron = new CANNON.ConvexPolyhedron(updatedVerts,updatedFaces);
 
-        // const polyhedron = new CANNON.ConvexPolyhedron(updatedVerts,updatedFaces);
-        // const poule = new CANNON.Trimesh(verts, [0, 1, 2, 3])
-        // console.log(poule)
+    body.addShape(polyhedron);
 
-
-        // body.addShape(new CANNON.Trimesh(updatedVerts, updatedFaces));
-
-        // body.addShape(polyhedron);
-        body.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
-        var z180 = new CANNON.Quaternion();
-        z180.setFromAxisAngle(new CANNON.Vec3(0,0,1),Math.PI);
-        body.quaternion = z180.mult(body.quaternion);
-    }
 
     return body;
 };
