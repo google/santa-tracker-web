@@ -51,32 +51,21 @@ a {
   }
 }
 
-.rear {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+santa-card-player {
+  width: 85%;
+  height: 60%;
+  position: relative;
 
-  santa-card-player {
+  svg {
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 
-    svg {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      &[hidden] {
-        opacity: 0 !important;
-      }
+    &[hidden] {
+      opacity: 0 !important;
     }
   }
 }
@@ -165,7 +154,8 @@ a {
 h1 {
   font-family: 'Lobster';
   color: white;
-  font-size: 1em;
+
+  font-size: 1.2em;
   line-height: 1.5em;
   font-weight: 300;
   margin: 0;

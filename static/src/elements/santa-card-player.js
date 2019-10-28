@@ -53,16 +53,11 @@ export class SantaCardPlayerElement extends HTMLElement {
     this._looping = false;
     this._introAnimationStart = 0.0;
 
-    this.addEventListener('pointerenter', () => this._setActive(true), {
-      capture: true,
-    });
-    this.addEventListener('pointerleave', () => this._setActive(false));
-
-    this._pendingLoad = null;
-
-    this._pendingLoopAnim = null;
     this._pendingIntroAnim = null;
     this._introAnim = undefined;
+
+    this._pendingLoopAnim = null;
+    this._loopAnim = undefined;
 
     this._animate = this._animate.bind(this);
   }
@@ -126,7 +121,11 @@ export class SantaCardPlayerElement extends HTMLElement {
     }
   }
 
-  _setActive(active) {
+  get active() {
+    return this._active;
+  }
+
+  set active(active) {
     if (active === this._active) {
       return;
     }
@@ -214,11 +213,6 @@ export class SantaCardPlayerElement extends HTMLElement {
 
       if (!this._looping || this._loopAnim === null) {
         toggleLottieVisible(intro, true);
-      }
-
-      if (intro && this._active) {
-        this._active = undefined;
-        this._setActive(true);
       }
     });
   }
