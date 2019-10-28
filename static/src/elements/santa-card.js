@@ -114,7 +114,7 @@ export class SantaCardElement extends LitElement {
 <main>
 <a href=${ifDefined(url)} style=${until(this._backgroundStylePromise, '')}>
   <div class="rear">
-    <santa-card-player intro-src=${lottiePath + this.scene + '-intro.json'}></santa-card-player>
+    <santa-card-player intro-src=${lottiePath + this.scene + '-intro.json'} loop-src=${lottiePath + this.scene + '-loop.json'}></santa-card-player>
   </div>
   <h1>${scenes[this.scene] || ''}</h1>
   <div class="ice ice-${iceIndex}" ?hidden=${!this.locked}>

@@ -67,7 +67,16 @@ a {
     bottom: 0;
 
     svg {
-      pointer-events: none;;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      &[hidden] {
+        opacity: 0 !important;
+      }
     }
   }
 }
