@@ -4,7 +4,7 @@ import Obj from '../../Object/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-let cubeGeo, cubeMaterial
+let cubeGeo, materials
 
 const textureLoader = new THREE.TextureLoader()
 const model = './models/1_cube.obj'
@@ -14,13 +14,26 @@ const normalMap = textureLoader.load('./models/1_cube.jpg')
 new THREE.OBJLoader().load(model, object => {
   cubeGeo = object.children[0].geometry
   cubeGeo.center()
-  cubeMaterial = new THREE.MeshToonMaterial({
+  const defaultMaterial = new THREE.MeshToonMaterial({
     color: GLOBAL_CONFIG.COLORS.ICE,
     shininess: 345,
     normalMap
   })
+  defaultMaterial.needsUpdate = true
 
-  cubeMaterial.needsUpdate = true
+  const highlightMaterial = defaultMaterial.clone()
+  highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+  highlightMaterial.needsUpdate = true
+
+  const ghostMaterial = defaultMaterial.clone()
+  ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+  ghostMaterial.needsUpdate = true
+
+  materials = {
+    default: defaultMaterial,
+    highlight: highlightMaterial,
+    ghost: ghostMaterial
+  }
 })
 
 class Cube extends Obj {
@@ -31,7 +44,7 @@ class Cube extends Obj {
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
     this.size = CONFIG.SIZE
-    this.defaultMaterial = cubeMaterial
+    this.materials = materials
 
     const shape = this.createShape()
     this.body = new CANNON.Body({
@@ -43,7 +56,7 @@ class Cube extends Obj {
     this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
 
     // Mesh
-    this.mesh = new THREE.Mesh(cubeGeo, cubeMaterial)
+    this.mesh = new THREE.Mesh(cubeGeo, materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
@@ -51,7 +64,9 @@ class Cube extends Obj {
   }
 
   createShape(scale = 1) {
-    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale))
+    return new CANNON.Box(
+      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
+    )
   }
 }
 

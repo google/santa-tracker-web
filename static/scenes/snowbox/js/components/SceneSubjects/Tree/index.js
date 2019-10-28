@@ -55,7 +55,9 @@ class Cube extends Obj {
   }
 
   createShape(scale = 1) {
-    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2 * scale, this.shapeHeight / 2 * scale, CONFIG.SIZE / 2 * scale))
+    return new CANNON.Box(
+      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (this.shapeHeight / 2) * scale, (CONFIG.SIZE / 2) * scale)
+    )
   }
 }
 

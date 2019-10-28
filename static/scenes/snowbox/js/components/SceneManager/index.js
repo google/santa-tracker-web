@@ -79,7 +79,7 @@ class SceneManager extends EventEmitter {
       metalness: 1,
       presets: 3,
       cubeMass: 20,
-      ice_color: '#64d5fa',
+      ice_color: '#56b8e1',
       terrain_color: '#d2d2d2'
     }
 
@@ -177,6 +177,25 @@ class SceneManager extends EventEmitter {
         this.emit('move_camera')
         this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
       }
+    }
+
+    if (this.needsCollisionCheck) {
+      this.checkCollision()
+      this.needsCollisionCheck = false
+    }
+
+    if (this.emitCameraMove) {
+      this.emit('move_camera')
+      this.emitCameraMove = false
+    }
+
+    if (this.emitScaleObject) {
+      this.emit('scale_object')
+      this.emitScaleObject = false
+    }
+
+    if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
+      this.emit('move_camera')
     }
 
     this.renderer.render(this.scene, camera)
@@ -347,20 +366,13 @@ class SceneManager extends EventEmitter {
 
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
-      this.checkCollision()
+      this.needsCollisionCheck = true
+      this.emitScaleObject = true
     }
   }
 
   bindKeyDown(event) {
     switch (event.key) {
-      case 'ArrowUp':
-        event.preventDefault()
-        this.scale('up')
-        break
-      case 'ArrowDown':
-        event.preventDefault()
-        this.scale('down')
-        break
       case 'ArrowRight':
         event.preventDefault()
         this.rotate('right')
@@ -487,10 +499,6 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  scale(direction) {
-
-  }
-
   rotate(direction) {
     if (this.activeSubject && !this.selectedSubject) {
       this.selectedSubject = this.activeSubject
@@ -501,7 +509,7 @@ class SceneManager extends EventEmitter {
       const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
       const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
       this.selectedSubject.rotate(axis, angle)
-      this.checkCollision()
+      this.needsCollisionCheck = true
     }
   }
 
@@ -595,11 +603,11 @@ class SceneManager extends EventEmitter {
       this.move('up', true, elevateScale)
     } else if (moveDown && fakeBox.min.y > 0) {
       this.move('down', true)
+      this.checkCollision()
     }
   }
 
   setMode(mode = '') {
-    console.log(mode || 'default')
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
@@ -629,7 +637,7 @@ class SceneManager extends EventEmitter {
 
   bindEscape() {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
-      if (!this.selectedSubject.mesh.visible) {
+      if (!this.selectedSubject.mesh.visible && !this.wireframe) {
         this.deleteObject()
         this.setMode()
         this.terrain.removePositionMarker()
@@ -652,6 +660,9 @@ class SceneManager extends EventEmitter {
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
     this.selectedSubject.delete()
+    if (this.mode === 'edit') {
+      this.unsetEditMode(true)
+    }
   }
 
   setUnits() {
@@ -779,15 +790,16 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  unsetEditMode() {
+  unsetEditMode(noMove) {
     if (this.selectedSubject) {
-      this.unselectSubject()
+      this.unselectSubject(noMove)
     }
 
     if (this.activeSubject) {
       this.activeSubject.unsetEditTools()
       this.setMode()
       this.emit('leave_edit')
+      this.activeSubject = null
     }
   }
 }

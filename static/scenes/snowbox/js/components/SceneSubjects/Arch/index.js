@@ -4,7 +4,7 @@ import Obj from '../../Object/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-let archGeo, archMaterial
+let archGeo, materials
 
 const textureLoader = new THREE.TextureLoader()
 const model = './models/3_arch.obj'
@@ -14,13 +14,26 @@ const normalMap = textureLoader.load('./models/3_arch.jpg')
 new THREE.OBJLoader().load(model, object => {
   archGeo = object.children[0].geometry
   archGeo.center()
-  archMaterial = new THREE.MeshToonMaterial({
+  const defaultMaterial = new THREE.MeshToonMaterial({
     color: GLOBAL_CONFIG.COLORS.ICE,
     shininess: 345,
     normalMap
   })
 
-  archMaterial.needsUpdate = true
+  const highlightMaterial = defaultMaterial.clone()
+  highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+  highlightMaterial.needsUpdate = true
+
+  const ghostMaterial = defaultMaterial.clone()
+  ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+  ghostMaterial.needsUpdate = true
+
+  defaultMaterial.needsUpdate = true
+  materials = {
+    default: defaultMaterial,
+    highlight: highlightMaterial,
+    ghost: ghostMaterial
+  }
 })
 
 class Arch extends Obj {
@@ -30,7 +43,7 @@ class Arch extends Obj {
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.defaultMaterial = archMaterial
+    this.materials = materials
 
     const shape = this.createShape()
     this.body = new CANNON.Body({
@@ -42,7 +55,7 @@ class Arch extends Obj {
     this.body.position.set(-CONFIG.SIZE, 0, -CONFIG.SIZE / 2)
 
     // Mesh
-    this.mesh = new THREE.Mesh(archGeo, archMaterial)
+    this.mesh = new THREE.Mesh(archGeo, materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
@@ -50,7 +63,7 @@ class Arch extends Obj {
   }
 
   createShape(scale = 1) {
-    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE * scale, CONFIG.SIZE / 2 * scale, CONFIG.SIZE / 2 * scale))
+    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale))
   }
 }
 

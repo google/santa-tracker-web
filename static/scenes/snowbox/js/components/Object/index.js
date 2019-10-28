@@ -14,6 +14,7 @@ class Object extends EventEmitter {
     this.rotationX = 0
     this.scaleFactor = 1
     this.scaleIndex = 0
+    this.isMoving = false
   }
 
   addToScene() {
@@ -37,7 +38,17 @@ class Object extends EventEmitter {
       this.body.updateMassProperties()
 
       if (this.mesh) {
-        this.mesh.material = CONFIG.SELECTED_MATERIAL
+        this.unhighlight()
+
+        if (this.mesh.visible) {
+          const edges = new THREE.EdgesGeometry(this.mesh.geometry, 45)
+          this.wireframe = new THREE.LineSegments(
+            edges,
+            new THREE.LineBasicMaterial({ color: CONFIG.WIREFRAME_COLOR, linewidth: 3 })
+          )
+          this.scene.add(this.wireframe)
+        }
+        this.mesh.visible = false
       }
 
       this.createGhost()
@@ -50,8 +61,10 @@ class Object extends EventEmitter {
       this.body.mass = this.mass
       this.body.updateMassProperties()
 
-      if (this.mesh && this.defaultMaterial) {
-        this.mesh.material = this.defaultMaterial
+      if (this.moveToGhost) {
+        if (this.mesh && !this.mesh.visible) {
+          this.mesh.visible
+        }
       }
 
       if (!this.mesh.visible) {
@@ -66,14 +79,24 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+
+      this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1
+
+      if (this.wireframe) {
+        this.wireframe.position.copy(this.mesh.position)
+        this.wireframe.quaternion.copy(this.mesh.quaternion)
+        this.wireframe.scale.copy(this.mesh.scale)
+      }
+
+      // Update torus
       if (this.xCircle) {
-        this.xCircle.position.copy(this.mesh.position)
+        this.xCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
       }
       if (this.yCircle) {
-        this.yCircle.position.copy(this.mesh.position)
+        this.yCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
       }
+
       if (this.ghost) {
-        // console.log('update ghost', this.ghost.position)
         this.ghost.updateMatrixWorld(true)
         this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
       } else {
@@ -124,14 +147,19 @@ class Object extends EventEmitter {
 
   scale(value) {
     const scaleFactor = parseInt(value) / 10
-    this.ghost.scale.set(this.defaultMeshScale.x * scaleFactor, this.defaultMeshScale.y * scaleFactor, this.defaultMeshScale.z * scaleFactor)
+    this.ghost.scale.set(
+      this.defaultMeshScale.x * scaleFactor,
+      this.defaultMeshScale.y * scaleFactor,
+      this.defaultMeshScale.z * scaleFactor
+    )
     this.scaleFactor = scaleFactor
+    this.updateRotatingCircle()
   }
 
   scaleBody() {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
-    this.body.addShape(shape);
+    this.body.addShape(shape)
     this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
@@ -157,20 +185,20 @@ class Object extends EventEmitter {
 
   highlight() {
     if (this.mesh) {
-      this.mesh.material = CONFIG.HIGHLIGHT_MATERIAL
+      this.mesh.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
     }
   }
 
   unhighlight() {
-    if (this.mesh && this.defaultMaterial) {
-      this.mesh.material = this.defaultMaterial
+    if (this.mesh) {
+      this.mesh.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
     }
   }
 
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
 
-    this.ghost = new THREE.Mesh(geometry, CONFIG.GHOST_MATERIAL)
+    this.ghost = new THREE.Mesh(geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
@@ -190,8 +218,7 @@ class Object extends EventEmitter {
 
   createRotateCircle(zoom) {
     // X Circle
-    // const xRadius = (this.box.max.x - this.box.min.x) / 1.25
-    const xRadius = 1.5
+    const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
     var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
     this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
@@ -199,8 +226,7 @@ class Object extends EventEmitter {
     this.xCircle.geometry.computeBoundingSphere()
 
     // X Circle
-    // const yRadius = (this.box.max.y - this.box.min.y) / 1.25
-    const yRadius = 1.5
+    const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
     var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
     this.yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
@@ -214,8 +240,22 @@ class Object extends EventEmitter {
   }
 
   updateRotatingCircle(zoom) {
-    this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    if (zoom) {
+      this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+      this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    } else {
+      const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
+      var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+      this.xCircle.geometry.dispose()
+      this.xCircle.geometry = xGeometry
+      this.xCircle.geometry.computeBoundingSphere()
+
+      const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
+      var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
+      this.yCircle.geometry.dispose()
+      this.yCircle.geometry = yGeometry
+      this.yCircle.geometry.computeBoundingSphere()
+    }
   }
 
   deleteGhost() {
@@ -224,6 +264,13 @@ class Object extends EventEmitter {
       this.ghost.geometry.dispose()
       this.ghost.material.dispose()
       this.ghost = undefined
+    }
+
+    if (this.wireframe) {
+      this.scene.remove(this.wireframe)
+      this.wireframe.geometry.dispose()
+      this.wireframe.material.dispose()
+      this.wireframe.undefined
     }
 
     if (CONFIG.DEBUG) {

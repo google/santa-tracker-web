@@ -33,7 +33,35 @@ class Terrain extends Obj {
 
     // Graphics
     const geometry = new THREE.PlaneGeometry(CONFIG.PLANE_WIDTH, CONFIG.PLANE_DEPTH, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: GLOBAL_CONFIG.COLORS.TERRAIN, visible: true })
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        color1: {
+          value: new THREE.Color(0xffffff)
+        },
+        color2: {
+          value: new THREE.Color(0xc5c5c5)
+        }
+      },
+      vertexShader: `
+        varying vec2 vUv;
+
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 color1;
+        uniform vec3 color2;
+
+        varying vec2 vUv;
+
+        void main() {
+
+          gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+        }
+      `
+    })
     const mesh = new THREE.Mesh(geometry, material)
     mesh.castShadow = true
     mesh.receiveShadow = true
