@@ -78,15 +78,20 @@ export const generateBody = (groups, properties) => {
         mesh.geometry.computeVertexNormals();
         mesh.matrix.identity();
 
-        console.log(verts, faces)
+        // console.log(verts, faces)
 
         const updatedVerts = generateCannonVertices(verts);
         const updatedFaces = generateCannonFaces(faces);
-        console.log(updatedVerts[0])
+        // console.log(updatedVerts[0])
 
-        const polyhedron = new CANNON.ConvexPolyhedron(updatedVerts,updatedFaces);
+        // const polyhedron = new CANNON.ConvexPolyhedron(updatedVerts,updatedFaces);
+        // const poule = new CANNON.Trimesh(verts, [0, 1, 2, 3])
+        // console.log(poule)
 
-        body.addShape(polyhedron);
+
+        // body.addShape(new CANNON.Trimesh(updatedVerts, updatedFaces));
+
+        // body.addShape(polyhedron);
         body.quaternion.setFromAxisAngle(new CANNON.Vec3(1,0,0),-Math.PI/2);
         var z180 = new CANNON.Quaternion();
         z180.setFromAxisAngle(new CANNON.Vec3(0,0,1),Math.PI);

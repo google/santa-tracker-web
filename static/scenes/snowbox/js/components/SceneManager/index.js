@@ -64,6 +64,8 @@ class SceneManager {
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
     this.initGui()
+
+    this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
   }
 
   initGui() {
@@ -150,6 +152,8 @@ class SceneManager {
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update()
     }
+
+    this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'ghost' && this.mouseInEdge) {
