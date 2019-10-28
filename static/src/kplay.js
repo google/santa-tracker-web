@@ -632,6 +632,10 @@ class AudioSource extends EventTarget {
 
       if (this._loopStart !== undefined) {
         source.loopStart = this._loopStart;
+
+        if (this._loopEnd === undefined) {
+          source.loopEnd = source.buffer.duration;
+        }
       }
       if (this._loopEnd !== undefined) {
         source.loopEnd = this._loopEnd;
@@ -667,7 +671,7 @@ class AudioSource extends EventTarget {
     this._fadeOutTime = 0.0;
   }
 
-  _internalPlay(when) {
+  _internalPlay(when, offset=0) {
     const lastSource = this._sources[0] || null;
     const anyPlaying = Boolean(lastSource);
 
@@ -684,8 +688,9 @@ class AudioSource extends EventTarget {
     }
 
     const source = this._createSource();
-    source.start(when);
+    source.start(when, offset);
     this._startTime = Math.max(this._startTime, when);
+    this._startOffset = offset; //TODO: also count with the AudioSources initial offset
 
     // If this is looping audio but the context is suspended (due to lack of user gesture), record
     // when it was really intended to be started.
@@ -719,7 +724,7 @@ class AudioSource extends EventTarget {
       // TODO(samthor): This isn't quite right. Audio plays from zero, to loopEnd, to loopStart, ...
       duration = (source.loopEnd || duration) - (source.loopStart || 0);
     }
-    return (now - this._startTime) % duration;
+    return this._startOffset + (now - this._startTime) % duration;
   }
 
   get loop() {
@@ -805,9 +810,9 @@ class AudioSource extends EventTarget {
     }
   }
 
-  play(when) {
+  play(when, offset=0) {
     this._resetFade();  // clear fade in/out
-    this._internalPlay(when || masterContext.currentTime);
+    this._internalPlay(when || masterContext.currentTime, offset);
   }
 
   stop() {
@@ -827,13 +832,13 @@ class AudioSource extends EventTarget {
     // nb. 'when' wasn't used in the upstream code, and added tons of complexity.
   }
 
-  fadeInAndPlay(duration, when) {
+  fadeInAndPlay(duration, when, offset=0) {
     when = when || masterContext.currentTime;
 
     // Just play the sound, we're already live. This could include joining an existing 'fade in'
     // session.
     if (this._sources.length && !this._fadeOutTimeout) {
-      return this._internalPlay(when);
+      return this._internalPlay(when, offset);
     }
 
     const g = this._output.gain;
