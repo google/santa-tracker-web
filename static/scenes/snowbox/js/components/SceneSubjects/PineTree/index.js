@@ -6,7 +6,7 @@ import { generateBody } from '../../../utils/createCollisionBodies.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-import modelJSON from '../../../../models/pine-tree_v02.json'
+import modelJSON from '../../../../models/pine-tree_v01-2.json'
 
 let geometry, material, finalObject, body3
 
@@ -21,45 +21,55 @@ const wrl = './models/pine-tree_v01.wrl'
 //     console.log(finalObject)
 // })
 
+var loader = new THREE.ObjectLoader();
+
+var object = loader.parse( modelJSON );
+
+// console.log(object)
+
+// new THREE.ObjectLoader().load( './models/pine-tree_v01-2.json', function ( obj ) {
+//     console.log('hella', obj)
+// });
+
 new WRLLoader().load(wrl).then(object => {
     console.log(object)
-    finalObject = object
+    finalObject = object[0]
   //get vertices
-  var verticesArray = [];
-  var verticesTemporaryArray = [];
-  var Vec3Vertices;
-  for(var x=0;x<object.length;x++){
-      Vec3Vertices = object[x].vertices;
-      // console.log(Vec3Vertices)
-      for(var y =0;y<Vec3Vertices.length;y++){
-      verticesTemporaryArray.push(Vec3Vertices[y].x);
-      verticesTemporaryArray.push(Vec3Vertices[y].y);
-      verticesTemporaryArray.push(Vec3Vertices[y].z);
-      }
-      verticesArray.push(verticesTemporaryArray);
-      //console.log(verticesTemporaryArray); //moje obiekty
-      verticesTemporaryArray = [];
+//   var verticesArray = [];
+//   var verticesTemporaryArray = [];
+//   var Vec3Vertices;
+//   for(var x=0;x<object.length;x++){
+//       Vec3Vertices = object[x].vertices;
+//       // console.log(Vec3Vertices)
+//       for(var y =0;y<Vec3Vertices.length;y++){
+//       verticesTemporaryArray.push(Vec3Vertices[y].x);
+//       verticesTemporaryArray.push(Vec3Vertices[y].y);
+//       verticesTemporaryArray.push(Vec3Vertices[y].z);
+//       }
+//       verticesArray.push(verticesTemporaryArray);
+//       //console.log(verticesTemporaryArray); //moje obiekty
+//       verticesTemporaryArray = [];
 
-  }
-  // console.log(verticesArray);
+//   }
+//   // console.log(verticesArray);
 
 
-//get faces
-  var facesArray = [];
-  var facesTemporaryArray = [];
-  var Vec3faces;
-  for(var x=0;x<object.length;x++){
-      Vec3faces = object[x].faces;
-      for(var y =0;y<Vec3faces.length;y++){
-      facesTemporaryArray.push(Vec3faces[y].a);
-      facesTemporaryArray.push(Vec3faces[y].b);
-      facesTemporaryArray.push(Vec3faces[y].c);
-      }
-      facesArray.push(facesTemporaryArray);
-      //console.log(verticesTemporaryArray); //moje obiekty
-      facesTemporaryArray = [];
+// //get faces
+//   var facesArray = [];
+//   var facesTemporaryArray = [];
+//   var Vec3faces;
+//   for(var x=0;x<object.length;x++){
+//       Vec3faces = object[x].faces;
+//       for(var y =0;y<Vec3faces.length;y++){
+//       facesTemporaryArray.push(Vec3faces[y].a);
+//       facesTemporaryArray.push(Vec3faces[y].b);
+//       facesTemporaryArray.push(Vec3faces[y].c);
+//       }
+//       facesArray.push(facesTemporaryArray);
+//       //console.log(verticesTemporaryArray); //moje obiekty
+//       facesTemporaryArray = [];
 
-  }
+//   }
   // console.log(facesArray);
 
   //loop through groups of model
@@ -87,30 +97,29 @@ class PineTree extends Obj {
     // Physics
     super(scene, world)
 
+    console.log(finalObject)
+
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
     this.defaultMaterial = material
 
     const myVertices = []
 
-    for (let i = 0; i < finalObject[0].vertices.length; i++) {
+    for (let i = 0; i < finalObject.vertices.length; i++) {
 
       // if (i % 3 === 0) {
-      //   finalObject[0].vertices[i] = finalObject[0].vertices[i] + 100
+      //   finalObject.vertices[i] = finalObject.vertices[i] + 100
       //   console.log('oui')
       // }
-      myVertices.push(finalObject[0].vertices[i] / 200)
+      myVertices.push(finalObject.vertices[i] / 200)
     }
+
     console.log(myVertices)
 
     // CANNONJS PART
-    var modelGroupsArray = [];
-    for(var g=0;g<finalObject.length;g++){
-    modelGroupsArray.push(new CANNON.Trimesh(myVertices, finalObject[0].faces));
-    }
+    const shape = new CANNON.Trimesh(myVertices, finalObject.faces)
 
-    console.log(modelGroupsArray)
-    body3 = new CANNON.Body({
+    const body = new CANNON.Body({
       mass: 1,
       // shape,
       fixedRotation: false,
@@ -121,12 +130,9 @@ class PineTree extends Obj {
 
     // body3.position = new CANNON.Vec3(0,0,0);
     //add shape to body
-    for(var g=0;g<finalObject.length;g++){
-      body3.addShape(modelGroupsArray[g]);
-      console.log('oui')
-    }
+    body.addShape(shape)
 
-    this.body = body3
+    this.body = body
     // this.body = generateBody(finalObject, { mass: CONFIG.MASS, scale: 10 })
     // const shape = new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE / 2, CONFIG.SIZE / 2, CONFIG.SIZE / 2))
     // this.body = new CANNON.Body({
@@ -138,14 +144,17 @@ class PineTree extends Obj {
     console.log(this.body)
     // console.log(this.body2)
     this.body.position.set(-CONFIG.SIZE / 2, 100, -CONFIG.SIZE / 2)
+    this.body.computeAABB()
 
     // Mesh
     this.mesh = new THREE.Mesh(geometry, material)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
-    this.mesh.position.x = 10
+    // this.mesh.position.x = 10
     this.mesh.rotation.x = Math.PI;
+
+    console.log(this.mesh)
 
     this.addToScene()
   }
