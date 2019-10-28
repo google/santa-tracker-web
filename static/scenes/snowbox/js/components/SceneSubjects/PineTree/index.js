@@ -1,12 +1,9 @@
 import Obj from '../../Object/index.js'
-import WRLLoader from '../../../managers/WRLLoader.js'
-import { generateBody } from '../../../utils/createCollisionBodies.js'
+import WRLLoader from '../../../loaders/WRLLoader.js'
 
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
-
-import modelJSON from '../../../../models/pine-tree_v01-2.json'
 
 let geometry, material, vhacdModel
 

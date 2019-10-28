@@ -14,6 +14,7 @@ import { outQuad } from '../../utils/ease.js'
 // import { debounce } from '../../helpers.js'
 
 // Other
+import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 

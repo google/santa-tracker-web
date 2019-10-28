@@ -1,5 +1,3 @@
-import './managers/VRMLLoader.js'
-import './managers/CannonDebugRenderer.js'
 import SceneManager from './components/SceneManager/index.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
