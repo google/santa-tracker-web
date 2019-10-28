@@ -109,9 +109,8 @@ class PineTree extends Obj {
 
       // if (i % 3 === 0) {
       //   finalObject.vertices[i] = finalObject.vertices[i] + 100
-      //   console.log('oui')
       // }
-      myVertices.push(finalObject.vertices[i] / 200)
+      myVertices.push(finalObject.vertices[i] / GLOBAL_CONFIG.MODEL_UNIT)
     }
 
     console.log(myVertices)
@@ -120,7 +119,7 @@ class PineTree extends Obj {
     const shape = new CANNON.Trimesh(myVertices, finalObject.faces)
 
     const body = new CANNON.Body({
-      mass: 1,
+      mass: 0,
       // shape,
       fixedRotation: false,
       material: type === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
