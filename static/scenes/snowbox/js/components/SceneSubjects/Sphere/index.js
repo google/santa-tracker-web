@@ -4,21 +4,18 @@ import Obj from '../../Object/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-let cubeGeo, materials
+let sphereGeo, materials
 
 const textureLoader = new THREE.TextureLoader()
-const model = './models/1_cube.obj'
-const normalMap = textureLoader.load('./models/1_cube.jpg')
+const model = './models/4_sphere.obj'
+const material = './models/4_sphere.mtl'
 
 // preload objs
-new THREE.OBJLoader().load(model, object => {
-  cubeGeo = object.children[0].geometry
-  cubeGeo.center()
-  const defaultMaterial = new THREE.MeshToonMaterial({
-    color: GLOBAL_CONFIG.COLORS.ICE,
-    shininess: 345,
-    normalMap
-  })
+new THREE.MTLLoader().load(material, loadedMaterials => {
+  loadedMaterials.preload()
+  const defaultMaterial = loadedMaterials.materials.Mat
+  defaultMaterial.color.setHex(GLOBAL_CONFIG.COLORS.ICE)
+  defaultMaterial.shininess = 345
   defaultMaterial.needsUpdate = true
 
   const highlightMaterial = defaultMaterial.clone()
@@ -34,16 +31,23 @@ new THREE.OBJLoader().load(model, object => {
     highlight: highlightMaterial,
     ghost: ghostMaterial
   }
+
+  const loader = new THREE.OBJLoader()
+
+  loader.setMaterials(loadedMaterials)
+  loader.load(model, object => {
+    sphereGeo = object.children[0].geometry
+    sphereGeo.center()
+  })
 })
 
-class Cube extends Obj {
+class Sphere extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
 
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.size = CONFIG.SIZE
     this.materials = materials
 
     const shape = this.createShape()
@@ -54,9 +58,8 @@ class Cube extends Obj {
       material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
     this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
-
     // Mesh
-    this.mesh = new THREE.Mesh(cubeGeo, materials.default)
+    this.mesh = new THREE.Mesh(sphereGeo, materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
 
@@ -64,10 +67,8 @@ class Cube extends Obj {
   }
 
   createShape(scale = 1) {
-    return new CANNON.Box(
-      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
-    )
+    return new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
   }
 }
 
-export default Cube
+export default Sphere

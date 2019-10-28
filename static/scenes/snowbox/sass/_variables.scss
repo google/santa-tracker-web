@@ -6,15 +6,20 @@ $color-deep-blue-darken: #374287;
 $color-orange: #FF8702;
 $color-yellow: #F8C328;
 $color-white: #fff;
+$color-gray: #d8dde2;
 
 // z-index
 $z-index-ui: 100;
 
 // sizes
 $button-size: 57px;
+$button-3d-offset: 3px;
+$button-3d-offset-hover: 5px;
+$button-shadow-offset: 10px;
+$button-shadow-offset-hover: 13px;
 
 // shadows
-$button-shadow: #d8d8d8;
+$button-shadow: rgba(0,0,0,0.1);
 
 // easings
 $ease: cubic-bezier(.25, .1, .25, 1);
