@@ -1,5 +1,4 @@
 import loadLottie from '../deps/lottie.js';
-import { prepare } from '../kplay.js';
 
 export function outExpo(n) {
   return 1.0 === n ? n : 1.0 - Math.pow(2, -10 * n);
@@ -25,6 +24,10 @@ function toggleLottieVisible(lottie, visible) {
 async function prepareAnimation(path, container, options = {}) {
   const lottie = await loadLottie();
 
+  if (!path) {
+    return Promise.reject();
+  }
+
   const anim = lottie.loadAnimation(Object.assign({
     path,
     renderer: 'svg',
@@ -33,7 +36,7 @@ async function prepareAnimation(path, container, options = {}) {
   }, options));
 
   // Lottie creates its SVG immediately, but doesn't render until later, so it
-  // can be marked hidden.
+  // can be marked hidden right now.
   toggleLottieVisible(anim, false);
 
   return new Promise((resolve, reject) => {
@@ -47,10 +50,8 @@ export class SantaCardPlayerElement extends HTMLElement {
     super();
 
     this._active = false;
-
     this._looping = false;
     this._introAnimationStart = 0.0;
-    this._direction = 1;
 
     this.addEventListener('pointerenter', () => this._setActive(true), {
       capture: true,
@@ -66,12 +67,6 @@ export class SantaCardPlayerElement extends HTMLElement {
     this._animate = this._animate.bind(this);
   }
 
-  _startLoop(loop) {
-    toggleLottieVisible(this._introAnim, false);
-    toggleLottieVisible(loop, true);
-    loop.play();
-  }
-
   /**
    * Fires on every loop of the looping animation.
    */
@@ -80,19 +75,16 @@ export class SantaCardPlayerElement extends HTMLElement {
       return;
     }
 
-    this._pendingLoopAnim.then((loop) => {
-      loop.stop();
+    this._loopAnim.stop();
+    this._looping = false;
 
-      if (this._introAnim) {
-        toggleLottieVisible(loop, false);
+    if (this._introAnim) {
+      toggleLottieVisible(this._introAnim, true);
+      toggleLottieVisible(this._loopAnim, false);
+    }
 
-      } else {
-      }
-      if (this._introAnim && !this._active) {
-        // start animating
-      }
-      });
-
+    window.requestAnimationFrame(this._animate);
+    this._introAnimationStart = performance.now();
   }
 
   /**
@@ -101,29 +93,37 @@ export class SantaCardPlayerElement extends HTMLElement {
    * @param {!DOMHighResTimeStamp} now
    */
   _animate(now) {
-    const duration = this._introAnim.getDuration(false) * 1000;
-    let ratio = (now - this._introAnimationStart) / duration;
+    const duration = this._introAnim ? this._introAnim.getDuration(false) * 1000 : 0;
+    const ratio = (now - this._introAnimationStart) / duration;
 
     if (ratio >= 1.0) {
       this._introAnimationStart = 0;
-
-      if (this._direction > 0) {
-        this._pendingLoopAnim.then((loop) => {
-          if (this._direction === 1 && !this._introAnimationStart) {
-            this._startLoop(loop);
-          }
-        });
-      }
-
+      this._onAnimationComplete(this._active);
     } else {
       window.requestAnimationFrame(this._animate);
     }
 
-    const raw = outExpo(ratio);
-    const v = this._direction === -1 ? (1 - raw) : raw;
+    if (duration) {
+      const raw = outExpo(ratio);
+      const v = this._active ? raw : 1 - raw;
+      const frame = this._introAnim.getDuration(true) * v;
+      this._introAnim.goToAndStop(Math.max(0, frame), true);  
+    }
+  }
 
-    const frame = this._introAnim.getDuration(true) * v;
-    this._introAnim.goToAndStop(Math.max(0, frame), true);
+  _onAnimationComplete(active) {
+    if (!active) {
+      return;
+    }
+
+    this._looping = true;
+
+    if (this._loopAnim) {
+      toggleLottieVisible(this._loopAnim, true);
+      toggleLottieVisible(this._introAnim, false);
+      this._loopAnim.setSpeed(1);
+      this._loopAnim.play();
+    }
   }
 
   _setActive(active) {
@@ -132,31 +132,30 @@ export class SantaCardPlayerElement extends HTMLElement {
     }
     this._active = active;
 
-    if (active) {
-      this._ensureLoopAnim();  // load the loop animation during the intro
-      this._direction = +1;
-    } else {
-      this._direction = -1;
-
-      if (this._active) {
-        this._pendingLoopAnim.then((loop) => {
-          loop.setSpeed(8);
-        });
-        this._looping = false;
+    if (this._looping) {
+      if (active) {
+        // We were made active => inactive => active while still looping.
+        this._loopAnim.setSpeed(1);
+        return;
+      } else if (this._loopAnim) {
+        // Currently playing. Speed up and mark as done.
+        this._loopAnim.setSpeed(8);
         return;
       }
-    }
-
-    if (this._introAnim === undefined) {
-      return;  // nothing to do
+      // There's no animation, stop immediately.
     }
 
     toggleLottieVisible(this._introAnim, true);
 
+    this._looping = false;
+    if (this._active) {
+      this._ensureLoopAnim();
+    }
+
     if (!this._introAnimationStart) {
       window.requestAnimationFrame(this._animate);
       this._introAnimationStart = performance.now();
-    } else {
+    } else if (this._introAnim) {
       const now = performance.now();
       const durationPassed = now - this._introAnimationStart;
       const duration = this._introAnim.getDuration(false) * 1000;
@@ -178,9 +177,22 @@ export class SantaCardPlayerElement extends HTMLElement {
       this._pendingLoopAnim = prepareAnimation(loopSrc, this, {loop: true}).catch((err) => {
         return null;
       }).then((loop) => {
-        if (loop) {
-          loop.addEventListener('loopComplete', this._onLoopComplete.bind(this));
+        this._loopAnim = loop;
+        if (!loop) {
+          return;
         }
+
+        loop.addEventListener('loopComplete', this._onLoopComplete.bind(this));
+
+        if (this._active && this._looping) {
+          toggleLottieVisible(this._introAnim, false);
+          toggleLottieVisible(loop, true);
+
+          loop.play();
+        } else if (this._introAnim === null) {
+          toggleLottieVisible(loop, true);
+        }
+
       });
     }
     return this._pendingLoopAnim;
@@ -197,11 +209,14 @@ export class SantaCardPlayerElement extends HTMLElement {
       // The intro animation failed, so swap to the loop animation.
       this._ensureLoopAnim();
       return null;
-    }).then((anim) => {
-      this._introAnim = anim;
-      console.info('got intro anim', anim, 'active?', this._active);
+    }).then((intro) => {
+      this._introAnim = intro;
 
-      if (anim && this._active) {
+      if (!this._looping || this._loopAnim === null) {
+        toggleLottieVisible(intro, true);
+      }
+
+      if (intro && this._active) {
         this._active = undefined;
         this._setActive(true);
       }
