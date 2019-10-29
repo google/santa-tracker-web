@@ -251,7 +251,6 @@ class SceneManager extends EventEmitter {
 
         this.mouseInEdge = null
       } else if (this.mode === 'move') {
-        console.log('move object')
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -260,11 +259,16 @@ class SceneManager extends EventEmitter {
     if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
   }
 
-  onMouseDown() {
+  onMouseDown(event) {
+    if (event.type === 'touchstart') {
+      this.mouse.x = (event.targetTouches[0].clientX / this.width) * 2 - 1
+      this.mouse.y = -(event.targetTouches[0].clientY / this.height) * 2 + 1
+      if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+    }
+
     this.mouseState = 'down'
 
     const hit = this.getNearestObject()
-    console.log(hit)
     if (
       hit.point &&
       (hit.object.geometry instanceof THREE.Geometry || hit.object.geometry instanceof THREE.BufferGeometry)
@@ -297,8 +301,6 @@ class SceneManager extends EventEmitter {
   }
 
   onMouseUp() {
-    console.log('mouse up')
-
     this.mouseState = 'up'
 
     if (this.selectedSubject && this.mode === 'move') {
@@ -442,7 +444,6 @@ class SceneManager extends EventEmitter {
   }
 
   findNearestIntersectingObject(objects) {
-    console.log(this.mouse)
     const hits = this.raycaster.intersectObjects(objects)
     const closest = hits.length > 0 ? hits[0] : false
     return closest

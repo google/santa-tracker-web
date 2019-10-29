@@ -4,4 +4,8 @@
   height: 228px;
   width: auto;
   padding-right: 40px;
+
+  @include respond-to(smartphone) {
+    display: none;
+  }
 }

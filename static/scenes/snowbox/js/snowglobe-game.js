@@ -42,12 +42,14 @@ class SnowglobeGame {
     })
 
     this.canvas.addEventListener('mousemove', this.onCanvasMouseMove.bind(this))
-    this.canvas.addEventListener('touchmove', this.onCanvasMouseMove.bind(this))
+    // this.canvas.addEventListener('touchmove', this.onCanvasMouseMove.bind(this))
     this.canvas.addEventListener('mousedown', this.onCanvasMouseDown.bind(this))
     this.canvas.addEventListener('touchstart', this.onCanvasMouseDown.bind(this))
     this.canvas.addEventListener('mouseup', this.onCanvasMouseUp.bind(this))
-    this.canvas.addEventListener('touchend', this.onCanvasMouseUp.bind(this))
     this.canvas.addEventListener('wheel', this.onCanvasWheel.bind(this))
+
+    document.body.addEventListener('touchmove', this.onBodyTouchMove.bind(this))
+    document.body.addEventListener('touchend', this.onCanvasMouseUp.bind(this))
 
     this.actionBtns.forEach(button => {
       button.addEventListener('click', e => {
@@ -117,7 +119,9 @@ class SnowglobeGame {
   }
 
   onCanvasMouseUp(e) {
-    e.preventDefault()
+    if (e.type !== 'touchend') {
+      e.preventDefault()
+    }
     this.sceneManager.onMouseUp()
     if (this.sceneManager.mode !== 'move' && this.sceneManager.mode !== 'edit') {
       this.sceneManager.setMode()
@@ -137,6 +141,26 @@ class SnowglobeGame {
     this.sceneManager.onWheel(e)
   }
 
+  onBodyTouchMove(e) {
+    e.preventDefault()
+
+    const currentTargetedElement = document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY)
+    if (
+      this.addingShape &&
+      this.addingShape !== currentTargetedElement &&
+      currentTargetedElement.parentElement != this.addingShape
+    ) {
+      this.sceneManager.onButtonClick(this.addingShape.dataset.buttonDrag)
+      this.addingShape = false
+    }
+
+    if (this.sceneManager.mouseState === 'down' && this.sceneManager.mode === '') {
+      this.sceneManager.setMode('drag')
+    }
+
+    this.sceneManager.onMouseMove(e)
+  }
+
   onButtonClick(e, button) {
     e.preventDefault()
     this.sceneManager.onButtonClick(button.dataset.button)
@@ -151,12 +175,16 @@ class SnowglobeGame {
       e.preventDefault()
       this.sceneManager.onButtonClick(button.dataset.buttonDrag)
       button.removeEventListener('mouseleave', mouseLeaveListener)
-      button.removeEventListener('touchend', mouseLeaveListener)
     }
 
     e.preventDefault()
-    button.addEventListener('mouseleave', mouseLeaveListener)
-    button.addEventListener('touchend', mouseLeaveListener)
+
+    if (e.type === 'touchstart') {
+      this.addingShape = button
+    } else {
+      button.addEventListener('mouseleave', mouseLeaveListener)
+    }
+
     button.classList.add('is-clicked')
     setTimeout(() => {
       button.classList.remove('is-clicked')
