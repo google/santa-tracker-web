@@ -8,8 +8,8 @@ import CONFIG from './config.js'
 let geometry, material, vhacdModel
 
 const textureLoader = new THREE.TextureLoader()
-const model = './models/pine-tree_v03.obj'
-const wrl = './models/pine-tree_v03.wrl'
+const model = './models/pine-tree_v01.obj'
+const wrl = './models/pine-tree_v01.wrl'
 // const normalMap = textureLoader.load('./models/shape_03--normal.jpg')
 
 new WRLLoader().load(wrl).then(object => {
@@ -37,11 +37,10 @@ class Tree extends Obj {
     this.defaultMaterial = material
 
     // CANNONJS PART
-    const shape = this.createShape()
 
     this.body = new CANNON.Body({
       mass: this.mass,
-      shape,
+      // shape,
       fixedRotation: false,
       material: type === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
@@ -52,7 +51,7 @@ class Tree extends Obj {
     this.mesh.updateMatrix()
 
     // this.mesh.position.x = 10
-    this.mesh.rotation.x = Math.PI;
+    // this.mesh.rotation.x = Math.PI;
 
     console.log(this.mesh)
 
@@ -76,6 +75,7 @@ class Tree extends Obj {
     }
 
     const shape = new CANNON.ConvexPolyhedron(vertices, faces)
+
     return shape
   }
 }
