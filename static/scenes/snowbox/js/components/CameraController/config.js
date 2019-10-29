@@ -40,5 +40,9 @@ export default {
     DAMPING: true,
     DAMPING_FACTOR: 0.06,
     ZOOM: false
+  },
+  MOBILE_CONTROLS: {
+    ROTATE: true,
+    ZOOM: true
   }
 }

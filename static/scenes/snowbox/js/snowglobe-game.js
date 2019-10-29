@@ -1,4 +1,5 @@
 import SceneManager from './components/SceneManager/index.js'
+import { isTouchDevice } from './helpers.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
 
@@ -17,6 +18,8 @@ class SnowglobeGame {
     this.objectEditUi = element.querySelector('[object-edit-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
+
+    this.isTouchDevice = isTouchDevice()
 
     this.objectRotateRightUi.style.display = `none`
     this.objectRotateDownUi.style.display = 'none'
@@ -46,7 +49,9 @@ class SnowglobeGame {
     this.canvas.addEventListener('mousedown', this.onCanvasMouseDown.bind(this))
     this.canvas.addEventListener('touchstart', this.onCanvasMouseDown.bind(this))
     this.canvas.addEventListener('mouseup', this.onCanvasMouseUp.bind(this))
-    this.canvas.addEventListener('wheel', this.onCanvasWheel.bind(this))
+    if (!this.isTouchDevice) {
+      this.canvas.addEventListener('wheel', this.onCanvasWheel.bind(this))
+    }
 
     document.body.addEventListener('touchmove', this.onBodyTouchMove.bind(this))
     document.body.addEventListener('touchend', this.onCanvasMouseUp.bind(this))
