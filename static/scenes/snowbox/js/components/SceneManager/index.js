@@ -1,17 +1,19 @@
+import { EventEmitter } from '../../event-emitter.js'
+
 // Config
 import CONFIG from './config.js'
-import cubeConfig from '../SceneSubjects/Cube/config.js'
+import cubeConfig from '../Shapes/Cube/config.js'
 
 // SceneSubjects
-import Arch from '../SceneSubjects/Arch/index.js'
-import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
-import Pyramid from '../SceneSubjects/Pyramid/index.js'
-import Sphere from '../SceneSubjects/Sphere/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
-import Tree from '../SceneSubjects/Tree/index.js'
 
-import { EventEmitter } from '../../event-emitter.js'
+// Shapes
+import Cube from '../Shapes/Cube/index.js'
+import Arch from '../Shapes/Arch/index.js'
+import Tree from '../Shapes/Tree/index.js'
+import Sphere from '../Shapes/Sphere/index.js'
+import Pyramid from '../Shapes/Pyramid/index.js'
 
 // Other
 import CameraController from '../CameraController/index.js'

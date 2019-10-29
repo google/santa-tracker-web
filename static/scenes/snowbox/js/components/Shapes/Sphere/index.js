@@ -34,20 +34,7 @@ class Sphere extends Obj {
     })
     defaultMaterial.needsUpdate = true
 
-    const highlightMaterial = defaultMaterial.clone()
-    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
-    highlightMaterial.needsUpdate = true
-
-    const ghostMaterial = defaultMaterial.clone()
-    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
-    ghostMaterial.needsUpdate = true
-    this.materials = {
-      default: defaultMaterial,
-      highlight: highlightMaterial,
-      ghost: ghostMaterial
-    }
-
-    this.addToScene()
+    this.setShape(defaultMaterial)
   }
 
   createShape(scale = 1) {

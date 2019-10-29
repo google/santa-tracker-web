@@ -5,7 +5,7 @@ import LoaderManager from '../../../managers/LoaderManager/index.js'
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 
-class Cube extends Obj {
+class Arch extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
@@ -35,27 +35,12 @@ class Cube extends Obj {
     })
     defaultMaterial.needsUpdate = true
 
-    const highlightMaterial = defaultMaterial.clone()
-    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
-    highlightMaterial.needsUpdate = true
-
-    const ghostMaterial = defaultMaterial.clone()
-    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
-    ghostMaterial.needsUpdate = true
-    this.materials = {
-      default: defaultMaterial,
-      highlight: highlightMaterial,
-      ghost: ghostMaterial
-    }
-
-    this.addToScene()
+    this.setShape(defaultMaterial)
   }
 
   createShape(scale = 1) {
-    return new CANNON.Box(
-      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
-    )
+    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale))
   }
 }
 
-export default Cube
+export default Arch

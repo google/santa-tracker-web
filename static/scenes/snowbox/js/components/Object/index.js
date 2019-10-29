@@ -29,7 +29,21 @@ class Object extends EventEmitter {
     LoaderManager.load({name, normalMap, obj}, this.init)
   }
 
-  addToScene() {
+  setShape(defaultMaterial) {
+    // Secondary materials
+    const highlightMaterial = defaultMaterial.clone()
+    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+    highlightMaterial.needsUpdate = true
+
+    const ghostMaterial = defaultMaterial.clone()
+    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+    ghostMaterial.needsUpdate = true
+    this.materials = {
+      default: defaultMaterial,
+      highlight: highlightMaterial,
+      ghost: ghostMaterial
+    }
+
     // CANNON JS
     const shape = this.createShape()
     this.body = new CANNON.Body({
