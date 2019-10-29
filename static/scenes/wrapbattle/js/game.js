@@ -91,12 +91,8 @@ app.Game = class {
 
     this.onFrame_ = this.onFrame_.bind(this);
 
-    this.audioTracks = ['wrapbattle_track01', 'wrapbattle_track02',
-        'wrapbattle_track03', 'wrapbattle_track04'];
     this.sequencer = new app.Sequencer();
-    this.animationPlayer = new app.AnimationPlayer(this.leftElf, this.rightElf,
-        this.sequencer);
-    // this.sequencer.onBeat = (beat, bpm) => console.log('beat',bpm);
+    this.animationPlayer = new app.AnimationPlayer(this.leftElf, this.rightElf, this.sequencer);
     this.bpmBasedElements = this.elem.find('.audience-row, .speaker-top, .speaker-bottom');
   }
 
@@ -152,8 +148,7 @@ app.Game = class {
     this.deactivatePowerup();
     this.track.cleanUp();
 
-    this.sequencer.setTrack( this.audioTracks[0] );
-    this.sequencer.play(()=> {
+    this.sequencer.playTrack(this.level, ()=> {
       //callback when music starts
       this.paused = false;
       this.gameStartTime = +new Date;
@@ -466,7 +461,8 @@ app.Game = class {
       this.gameover();
     } else {
       //delay level change animation to sync with music
-      this.sequencer.onNextBar(()=> {
+      this.sequencer.onNextBar(() => {
+        this.sequencer.stop(); // stop current track for smoother level music transition
         this.levelUp.show(this.level + 2, this.startNextLevel.bind(this,
           this.level + 1))
       });
@@ -484,8 +480,8 @@ app.Game = class {
     this.scoreboard.setLevel(this.level);
     this.track.cleanUp();
 
-    this.sequencer.setTrack( this.audioTracks[this.level % this.audioTracks.length] );
-    this.sequencer.play(()=> {
+    const moduloLevel = this.level % app.Constants.LEVELS;
+    this.sequencer.playTrack(moduloLevel, () => {
       //callback when music starts
       this.animationPlayer.cleanUp();
       this.leftElf.cleanUp();
@@ -540,8 +536,6 @@ app.Game = class {
     // Update game state
     this.update(delta);
     this.animationPlayer.update(now / 1000);
-
-    this.sequencer.update();
 
     // Request next frame
     this.requestId = window.requestAnimationFrame(this.onFrame_);
@@ -614,7 +608,7 @@ app.Game = class {
   gameover() {
     this.freezeGame();
     this.gameoverDialog.show();
-    this.sequencer.onGameOver();
+    this.sequencer.stop();
     this.leftElf.cleanUp();
     this.rightElf.cleanUp();
     this.animationPlayer.cleanUp();

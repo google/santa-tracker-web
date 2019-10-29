@@ -20,8 +20,7 @@
  */
 
 /**
- * SantaApp is actually the Polymer <santa-app>. It's used to dispatch global
- * events.
+ * SantaApp is a generic way to fire miscellaneous events that matches the pre-2019 Polymer code.
  *
  * @const
  */
@@ -29,9 +28,9 @@ window.santaApp;
 
 /**
  * @param {string} name event name
- * @param {*=} data event data
+ * @param {...*} data event data
  */
-window.santaApp.fire = function(name, data) {}
+window.santaApp.fire = function(name, ...data) {}
 
 /**
  * @param {string} methodName

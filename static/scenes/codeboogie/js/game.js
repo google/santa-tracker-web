@@ -60,10 +60,6 @@ app.Game = class {
 
     this.sequencer = new app.Sequencer((beat, bpm) => this.scene.player.onBeat(beat, bpm));
 
-    Klang.setEventListener((arg1, arg2) => {
-      window.santaApp.fire('sound-play', arg1, arg2)
-    });
-
     this.scene.player.listen('start', () => this.sequencer.setVariant(1));
     this.scene.player.listen('finish', () => this.sequencer.setVariant(0));
 

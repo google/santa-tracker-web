@@ -2,6 +2,8 @@ import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 import {resolvable} from '../lib/promises.js';
 
+import {globalClickHandler} from '../core/router.js';
+import {scope} from './route.js';
 
 class PreloadApi {
 
@@ -159,6 +161,7 @@ class SceneApi extends EventTarget {
       this._readyResolve = () => {};
 
       // ... and insert data for testing
+      // (this won't work in IE11 and friends, but we're not testing here anyway)
       const p = new URLSearchParams(window.location.search);
       p.forEach((value, key) => {
         this._initialData[key] = value;
@@ -192,20 +195,19 @@ class SceneApi extends EventTarget {
     this._send = (type, payload) => sendQueue.push({type, payload});
 
     // after preload, do a bunch of setup work
-    this._ready = (async () => {
-      await this._preload.done;
-
+    this._ready = this._preload.done.then(() => {
       // send loaded event (this inaccurately also contains the scene config)
       this._updateParent({type: 'loaded', payload: this._config || {}});
 
       // wait for frame to tell us to go
-      await this._readyPromise;
+      return this._readyPromise;
+    }).then(() => {
       this._updateFromHost = ({type, payload}) => this._handleHostMessage(type, payload);
 
       // clear backlog of events
       this._send = (type, payload) => this._updateParent({type, payload});
       sendQueue.forEach((message) => this._updateParent(message));
-    })();
+    });
   }
 
   _handleHostMessage(type, payload) {
@@ -213,20 +215,21 @@ class SceneApi extends EventTarget {
       case 'pause':
       case 'resume':
       case 'restart':
-        this.dispatchEvent(new Event(type));
+        const event = new Event(type);
+        this.dispatchEvent(event);
+
+        if (type === 'restart' && event.defaultPrevented) {
+          this._send('reload');
+        }
+
         break;
+      case 'keyup':
       case 'keydown': {
         // TODO(samthor): This also sends us 'repeat' events, and mixes badly (?) with keyboard
         // inputs. It might be worth merging them, but only if a game isn't explicitly multiplayer.
-        const event = new CustomEvent('keydown');
+        const event = new CustomEvent(type, {bubbles: true});
         Object.assign(event, payload);
-        document.dispatchEvent(event, {bubbles: true});
-        break;
-      }
-      case 'keyup': {
-        const event = new CustomEvent('keyup');
-        Object.assign(event, payload);
-        document.dispatchEvent(event, {bubbles: true});
+        document.dispatchEvent(event);
         break;
       }
       default:
@@ -243,12 +246,11 @@ class SceneApi extends EventTarget {
   }
 
   /**
-   * @param {function(*): !Promise<undefined>} fn 
-   * @param {{hasPauseScreen: boolean}=}
+   * @param {function(!Object): *} fn
+   * @return {!Promise<void>}
    */
-  async ready(fn) {
-    await this._ready;
-    await fn(this._initialData);
+  ready(fn) {
+    return this._ready.then(() => fn(this._initialData)).then(() => undefined);
   }
 
   get preload() {
@@ -279,10 +281,10 @@ class SceneApi extends EventTarget {
 
   /**
    * @param {string} sound to play via Klang
-   * @param {*=} arg to pass
+   * @param {...*} args to pass
    */
-  play(sound, arg=undefined) {
-    this._send('play', [sound, arg]);
+  play(sound, ...args) {
+    this._send('play', [sound, ...args]);
   }
 
   score(detail) {
@@ -323,16 +325,10 @@ function installV1Handlers() {
 
   const fire = (eventName, ...args) => {
     switch (eventName) {
-      case 'sound-fire':
-      case 'sound-play':
       case 'sound-trigger':
       case 'sound-ambient':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
-        break;
-
-      case 'sound-transition':
-        console.warn('TODO: implement transition for rythym games');
         break;
 
       case 'game-data':
@@ -368,3 +364,5 @@ function installV1Handlers() {
 
 installV1Handlers();
 
+const handler = globalClickHandler(scope, (sceneName) => sceneApi.go(sceneName));
+document.body.addEventListener('click', handler);

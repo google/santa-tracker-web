@@ -5,6 +5,8 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 import scenes from '../strings/scenes.js';
 import {_msg, _static} from '../magic.js';
 
+import './santa-card.js';
+
 import styles from './santa-sidebar.css';
 
 export class SantaSidebarElement extends LitElement {
@@ -54,6 +56,8 @@ export class SantaSidebarElement extends LitElement {
       </div>
     </a>
   </div>
+
+  <santa-card scene="boatload"></santa-card>
 
   <div class="links">
     <ul>

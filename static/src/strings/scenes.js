@@ -35,6 +35,7 @@ export default {
   'office': _msg`scene_videoscene_office`,
   'onvacation': _msg`scene_videoscene_onvacation`,
   'penguindash': _msg`scene_dash`,
+  'penguinproof': _msg`scene_videoscene_penguinproof`,
   'playground': _msg`scene_playground`,
   'poseboogie': _msg`scene_poseboogie`,
   'postcard': _msg`scene_postcard`,
@@ -66,6 +67,7 @@ export default {
   'traditions': _msg`scene_traditions`,
   'translations': _msg`scene_translations`,
   'trivia': _msg`scene_trivia`,
+  'underconstruction': _msg`scene_underconstruction`,
   'undersea': _msg`scene_undersea`,
   'wheressanta': _msg`scene_videoscene_wheressanta`,  // 2013
   'windtunnel': _msg`scene_windtunnel`,

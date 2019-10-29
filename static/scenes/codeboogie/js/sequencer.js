@@ -2,62 +2,70 @@ goog.provide('app.Sequencer');
 
 app.Sequencer = class {
   constructor(callback) {
-    this._variant = 0;
     this._active = false;
+    this._variant = 0;
     this._bpm = 0;
-    this._playScheduled = false;
+    this._playScheduled = -1;
     this._callback = callback;
 
+    this._playAt = 0.0;
+
     this._beat = -1;
+
+    this._update = this._update.bind(this);
   }
 
   setTrack(track, bpm) {
     this._track = track;
     this._bpm = bpm;
-    this._playScheduled = true;
+    this._variant = 0;
+    this._play();
   }
 
   setVariant(variant) {
+    // setVariant is called the frame _before_ the sound should play, so we can always just play at
+    // the 0-th index of the next frame. This is really a proxy for "play another track".
     this._variant = variant;
-    this._playScheduled = true;
+    const frame = Math.floor(this._beat / 4);
+    this._playScheduled = (frame + 1) * 4;  // next frame
+  }
+
+  _play() {
+    this._playScheduled = -1;
+    this._playAt = performance.now();
+    window.santaApp.fire('sound-trigger', 'codeboogie_play_track', this._track * 2 + this._variant);
   }
 
   start() {
-    this._active = true;
-    this._update();
-    this.play();
-  }
-
-  play() {
-    if (!this._playScheduled) {
+    if (this._active) {
       return;
     }
-
-    window.santaApp.fire('sound-trigger', 'cb_fallback_start');  // nb. fires in Audio-tag, IE11 mode
-    window.santaApp.fire('sound-transition', 'codeboogie_tracks', this._track * 2 + this._variant, this._bpm, 0, 0.2);
-
-    this._playScheduled = false;
+    this._active = true;  // prevent double rAF
+    this._update();
   }
 
   _update() {
-    if (!this._active) {
-      return;
-    }
+    window.requestAnimationFrame(this._update);
 
-    const currPos = performance.now() / 1000;
-    let beat = Math.floor(currPos / (60 / this._bpm));
+    // This used to be run by "sequencer" code inside Klang, but it's been moved to exist entirely
+    // within this frame. The main goal is to keep track of beats and only trigger animations or
+    // actions on the right beat. We just record `_playAt` and determine the beat from that.
+
+    const currPos = (performance.now() - this._playAt) / 1000;
+    let beat = Math.max(0, Math.floor(currPos / (60 / this._bpm)));
     if (isNaN(beat)) {
       beat = -1;
     }
 
-    if (this._beat !== beat) {
-      this._beat = beat;
-      this._callback(this._beat, this._bpm);
-
-      this.play();
+    if (this._playScheduled >= 0 && this._playScheduled <= beat) {
+      this._play();
+      beat = 0;  // must reset beat to zero, we just started playing
+    } else if (this._beat === beat) {
+      return;  // not playing, and no beat change, abandon
     }
 
-    window.requestAnimationFrame(() => this._update());
+    this._beat = beat;
+    this._callback(this._beat, this._bpm);
   }
 
 }
