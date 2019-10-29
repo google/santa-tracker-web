@@ -43,10 +43,6 @@ app.Game = function(elem) {
   this.failureResult = new app.Result(elem.querySelector('.result--failure'), this);
   this.scene = new app.Scene(elem.querySelector('.scene'), this, this.blockly);
 
-  Klang.setEventListener((arg1, arg2) => {
-    window.santaApp.fire('sound-play', arg1, arg2)
-  });
-
   this.dismissUnnamedTutorial = () => this.dismissTutorial();
   document.body.addEventListener('blocklyDragBlock', this.dismissUnnamedTutorial, false);
 

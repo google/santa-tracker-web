@@ -23,7 +23,7 @@ module.exports = (vfsLoad, prefix=null) => {
     };
 
     const id = path.join(prefix || '.', req.path.substr(1));
-    const isModuleMode = Boolean(req.headers['origin']);
+    const isModuleMode = Boolean(req.headers['origin'] && req.headers['referer']);
 
     const stat = await statOrNull(id);
     if (stat && !stat.isFile()) {

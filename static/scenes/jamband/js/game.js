@@ -18,7 +18,6 @@ goog.provide('app.Game');
 
 goog.require('app.DragDrop');
 goog.require('app.Drawer');
-goog.require('app.Fallback');
 goog.require('app.Instruments');
 goog.require('app.Lights');
 goog.require('app.shared.ShareOverlay');
@@ -98,7 +97,6 @@ app.Game.prototype.dispose = function() {
     gameid: 'jamband', timePlayed: new Date - this.gameStartTime, level: 1
   });
 
-  app.Fallback.stop();
   $(window).off('.jamband');
   $(document).off('.jamband');
 };

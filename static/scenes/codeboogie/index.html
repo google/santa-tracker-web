@@ -251,19 +251,23 @@
   const gui = document.getElementById('gui');
   const rest = document.getElementById('actual-scene');
 
+  gui.addEventListener('animationend', () => {
+    if (gui.hasAttribute('is-closed')) {
+      gui.setAttribute('hidden', '');
+    }
+  });
+
   const game = new Game(gameModule);
   const start = (mode, param, removeGuiNow) => {
     if (rest.hasAttribute('hidden')) {
       rest.removeAttribute('hidden');  // used as marker to say we're ready
 
-      if (removeGuiNow || !gui.parentNode) {
-        gui.remove();
+      if (removeGuiNow || gui.hasAttribute('hidden')) {
+        gui.setAttribute('hidden', '');
       } else {
-        gui.classList.remove('is-open');
+        gui.classList.remove('is-open')
         gui.classList.add('is-closed');
-        gui.addEventListener('animationend', () => {
-          gui.remove();
-        }, {once: true});
+        // triggers animation
       }
 
       game.start();
@@ -271,7 +275,11 @@
     game.restart(mode, param);
   };
 
-  api.addEventListener('restart', (ev) => start());
+  api.addEventListener('restart', (ev) => {
+    ev.preventDefault();
+    console.info('got restart');
+
+  });
 
   api.config({
     sound: ['cb_start'],

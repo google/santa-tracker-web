@@ -1,13 +1,19 @@
 
 /**
  * @fileoverview Route helpers designed for static scope only.
+ *
+ * TODO: can also be used by prod.
  */
 
-let scope = '';
-
-if (window.top != window) {
-  scope = document.referrer || 'https://santatracker.google.com/';
+function determineScope() {
+  if (window.top != window && document.referrer) {
+    const u = new URL('./', document.referrer);
+    return u.toString();
+  }
+  return '';
 }
+
+export const scope = determineScope();
 
 const emptyFunc = (a) => a;
 
@@ -37,9 +43,9 @@ export const rectify = scope ? (el) => {
  * @param {string} htmlString raw HTML to resolve containing e.g. <a href="scene.html">
  * @return {!DocumentFragment}
  */
-export const resolve = scope ? (htmlString) => {
+export const resolve = (htmlString) => {
   const node = document.createElement('template');
   node.innerHTML = htmlString;
-  rectify(node);
+  rectify(node);  // noop without scope
   return node.content;
-} : emptyFunc;
+};

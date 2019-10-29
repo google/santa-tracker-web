@@ -45,8 +45,8 @@ startup((global) => {
   };
 
   const d = dedupFrame(update);
-  portraitMedia.addEventListener('change', d);
-  landscapeMedia.addEventListener('change', d);
+  portraitMedia.addListener(d);
+  landscapeMedia.addListener(d);
 
   return update;
 });
@@ -82,8 +82,8 @@ startup((global) => {
   };
 
   const d = dedupFrame(update);
-  pointerMedia.addEventListener('change', d);
-  hoverMedia.addEventListener('change', d);
+  pointerMedia.addListener(d);
+  hoverMedia.addListener(d);
 
   return update;
 });
