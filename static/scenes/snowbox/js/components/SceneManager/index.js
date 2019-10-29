@@ -1,17 +1,19 @@
+import { EventEmitter } from '../../event-emitter.js'
+
 // Config
 import CONFIG from './config.js'
-import cubeConfig from '../SceneSubjects/Cube/config.js'
+import cubeConfig from '../Shapes/Cube/config.js'
 
 // SceneSubjects
-import Arch from '../SceneSubjects/Arch/index.js'
-import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
-import Pyramid from '../SceneSubjects/Pyramid/index.js'
-import Sphere from '../SceneSubjects/Sphere/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
-import Tree from '../SceneSubjects/Tree/index.js'
 
-import { EventEmitter } from '../../event-emitter.js'
+// Shapes
+import Cube from '../Shapes/Cube/index.js'
+import Arch from '../Shapes/Arch/index.js'
+import Tree from '../Shapes/Tree/index.js'
+import Sphere from '../Shapes/Sphere/index.js'
+import Pyramid from '../Shapes/Pyramid/index.js'
 
 // Other
 import CameraController from '../CameraController/index.js'
@@ -26,6 +28,8 @@ class SceneManager extends EventEmitter {
     this.onMaterialGui = this.onMaterialGui.bind(this)
     this.onPresetsGui = this.onPresetsGui.bind(this)
     this.onShapesGui = this.onShapesGui.bind(this)
+
+    this.shapeLoaded = this.shapeLoaded.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -154,7 +158,7 @@ class SceneManager extends EventEmitter {
     }
 
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'move' && this.mouseInEdge) {
+    if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
@@ -179,7 +183,7 @@ class SceneManager extends EventEmitter {
       }
     }
 
-    if (this.needsCollisionCheck) {
+    if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
     }
@@ -245,7 +249,7 @@ class SceneManager extends EventEmitter {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'move') {
+      } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -479,6 +483,10 @@ class SceneManager extends EventEmitter {
         break
     }
 
+    subject.load(this.shapeLoaded)
+  }
+
+  shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
