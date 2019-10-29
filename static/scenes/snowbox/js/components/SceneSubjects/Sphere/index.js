@@ -1,67 +1,51 @@
 import Obj from '../../Object/index.js'
+import LoaderManager from '../../../managers/LoaderManager/index.js'
 
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
-
-let sphereGeo, materials
-
-const textureLoader = new THREE.TextureLoader()
-const model = './models/4_sphere.obj'
-const material = './models/4_sphere.mtl'
-
-// preload objs
-new THREE.MTLLoader().load(material, loadedMaterials => {
-  loadedMaterials.preload()
-  const defaultMaterial = loadedMaterials.materials.Mat
-  defaultMaterial.color.setHex(GLOBAL_CONFIG.COLORS.ICE)
-  defaultMaterial.shininess = 345
-  defaultMaterial.needsUpdate = true
-
-  const highlightMaterial = defaultMaterial.clone()
-  highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
-  highlightMaterial.needsUpdate = true
-
-  const ghostMaterial = defaultMaterial.clone()
-  ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
-  ghostMaterial.needsUpdate = true
-
-  materials = {
-    default: defaultMaterial,
-    highlight: highlightMaterial,
-    ghost: ghostMaterial
-  }
-
-  const loader = new THREE.OBJLoader()
-
-  loader.setMaterials(loadedMaterials)
-  loader.load(model, object => {
-    sphereGeo = object.children[0].geometry
-    sphereGeo.center()
-  })
-})
 
 class Sphere extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
 
+    // Props
+    this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.materials = materials
+    this.size = CONFIG.SIZE
+    this.name = CONFIG.NAME
+    this.normalMap = CONFIG.NORMAL_MAP
+    this.obj = CONFIG.OBJ
+  }
 
-    const shape = this.createShape()
-    this.body = new CANNON.Body({
-      mass: this.mass,
-      shape,
-      fixedRotation: false,
-      material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+  init() {
+    const { obj } = LoaderManager.subjects[this.name]
+
+    // Geometry
+    this.geometry = obj.children[0].geometry
+    this.geometry.center()
+
+    // Materials
+    const defaultMaterial = new THREE.MeshToonMaterial({
+      color: GLOBAL_CONFIG.COLORS.ICE,
+      shininess: 345,
     })
-    this.body.position.set(-CONFIG.SIZE / 2, 0, -CONFIG.SIZE / 2)
-    // Mesh
-    this.mesh = new THREE.Mesh(sphereGeo, materials.default)
-    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
-    this.mesh.updateMatrix()
+    defaultMaterial.needsUpdate = true
+
+    const highlightMaterial = defaultMaterial.clone()
+    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+    highlightMaterial.needsUpdate = true
+
+    const ghostMaterial = defaultMaterial.clone()
+    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+    ghostMaterial.needsUpdate = true
+    this.materials = {
+      default: defaultMaterial,
+      highlight: highlightMaterial,
+      ghost: ghostMaterial
+    }
 
     this.addToScene()
   }
