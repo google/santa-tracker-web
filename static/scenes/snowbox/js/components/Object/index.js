@@ -1,5 +1,8 @@
 import CONFIG from './config.js'
+import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
+import LoaderManager from '../../managers/LoaderManager/index.js'
+
 
 class Object extends EventEmitter {
   constructor(scene, world) {
@@ -15,20 +18,48 @@ class Object extends EventEmitter {
     this.scaleFactor = 1
     this.scaleIndex = 0
     this.isMoving = false
+
+    this.init = this.init.bind(this)
+    this.load = this.load.bind(this)
+  }
+
+  load(callback) {
+    this.callback = callback
+    const { name, normalMap, obj } = this
+    LoaderManager.load({name, normalMap, obj}, this.init)
   }
 
   addToScene() {
+    // CANNON JS
+    const shape = this.createShape()
+    this.body = new CANNON.Body({
+      mass: this.mass,
+      shape,
+      fixedRotation: false,
+      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+    })
+    this.body.position.set(-this.size / 2, -100, -this.size / 2) // y: -100 to prevent the body to interact with anything in the scene
     this.world.add(this.body)
 
+    // Mesh
+    this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
+    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    this.mesh.updateMatrix()
     this.mesh.position.copy(this.body.position)
-    this.scene.add(this.mesh)
-
     this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
+    this.mesh.visible = false
+    this.scene.add(this.mesh)
+
+    // box
     this.box = this.mesh.geometry.boundingBox.clone()
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
-    this.mesh.visible = false
+
     this.defaultMeshScale = this.mesh.scale.clone()
+
+    if (this.callback) {
+      this.callback(this)
+    }
   }
 
   select() {

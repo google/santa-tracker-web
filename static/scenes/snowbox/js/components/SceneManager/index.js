@@ -485,7 +485,6 @@ class SceneManager extends EventEmitter {
   }
 
   shapeLoaded(subject) {
-    console.log(subject)
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()

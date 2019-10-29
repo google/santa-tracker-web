@@ -1,63 +1,53 @@
 import Obj from '../../Object/index.js'
+import LoaderManager from '../../../managers/LoaderManager/index.js'
 
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
-
-let archGeo, materials
-
-const textureLoader = new THREE.TextureLoader()
-const model = './models/3_arch.obj'
-const normalMap = textureLoader.load('./models/3_arch.jpg')
-
-// preload objs
-new THREE.OBJLoader().load(model, object => {
-  archGeo = object.children[0].geometry
-  archGeo.center()
-  const defaultMaterial = new THREE.MeshToonMaterial({
-    color: GLOBAL_CONFIG.COLORS.ICE,
-    shininess: 345,
-    normalMap
-  })
-
-  const highlightMaterial = defaultMaterial.clone()
-  highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
-  highlightMaterial.needsUpdate = true
-
-  const ghostMaterial = defaultMaterial.clone()
-  ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
-  ghostMaterial.needsUpdate = true
-
-  defaultMaterial.needsUpdate = true
-  materials = {
-    default: defaultMaterial,
-    highlight: highlightMaterial,
-    ghost: ghostMaterial
-  }
-})
 
 class Arch extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
 
+    // Props
+    this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.materials = materials
+    this.size = CONFIG.SIZE
+    this.name = CONFIG.NAME
+    this.normalMap = CONFIG.NORMAL_MAP
+    this.obj = CONFIG.OBJ
+  }
 
-    const shape = this.createShape()
-    this.body = new CANNON.Body({
-      mass: this.mass,
-      shape,
-      fixedRotation: false,
-      material: material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+  init() {
+    const { obj, normalMap } = LoaderManager.subjects[this.name]
+
+    // Geometry
+    this.geometry = obj.children[0].geometry
+    this.geometry.center()
+
+    // Materials
+    const defaultMaterial = new THREE.MeshToonMaterial({
+      color: GLOBAL_CONFIG.COLORS.ICE,
+      shininess: 345,
+      normalMap
     })
-    this.body.position.set(-CONFIG.SIZE, 0, -CONFIG.SIZE / 2)
 
-    // Mesh
-    this.mesh = new THREE.Mesh(archGeo, materials.default)
-    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
-    this.mesh.updateMatrix()
+    const highlightMaterial = defaultMaterial.clone()
+    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+    highlightMaterial.needsUpdate = true
+
+    const ghostMaterial = defaultMaterial.clone()
+    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+    ghostMaterial.needsUpdate = true
+
+    defaultMaterial.needsUpdate = true
+    this.materials = {
+      default: defaultMaterial,
+      highlight: highlightMaterial,
+      ghost: ghostMaterial
+    }
 
     this.addToScene()
   }
