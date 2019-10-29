@@ -10,6 +10,7 @@ import Pyramid from '../SceneSubjects/Pyramid/index.js'
 import Sphere from '../SceneSubjects/Sphere/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 import Tree from '../SceneSubjects/Tree/index.js'
+import Sky from '../SceneSubjects/Sky/index.js'
 
 import { EventEmitter } from '../../event-emitter.js'
 
@@ -47,6 +48,7 @@ class SceneManager extends EventEmitter {
     this.buildScene()
     this.buildRender()
     this.buildCamera()
+    this.buildSky()
 
     if (this.debug) {
       this.buildHelpers()
@@ -122,6 +124,10 @@ class SceneManager extends EventEmitter {
 
   buildCamera() {
     this.cameraCtrl = new CameraController(this.screenDimensions, this.renderer.domElement)
+  }
+
+  buildSky() {
+    this.sky = new Sky(this.scene, this.cameraCtrl.camera)
   }
 
   buildHelpers() {
