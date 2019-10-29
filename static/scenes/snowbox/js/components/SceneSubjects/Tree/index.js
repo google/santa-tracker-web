@@ -8,8 +8,8 @@ import CONFIG from './config.js'
 let geometry, material, vhacdModel
 
 const textureLoader = new THREE.TextureLoader()
-const model = './models/pine-tree_v01.obj'
-const wrl = './models/pine-tree_v01.wrl'
+const model = './models/pine-tree_v03.obj'
+const wrl = './models/pine-tree_v03.wrl'
 // const normalMap = textureLoader.load('./models/shape_03--normal.jpg')
 
 new WRLLoader().load(wrl).then(object => {
