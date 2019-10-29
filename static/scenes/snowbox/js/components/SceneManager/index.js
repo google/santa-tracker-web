@@ -27,6 +27,8 @@ class SceneManager extends EventEmitter {
     this.onPresetsGui = this.onPresetsGui.bind(this)
     this.onShapesGui = this.onShapesGui.bind(this)
 
+    this.shapeLoaded = this.shapeLoaded.bind(this)
+
     this.screenDimensions = {
       width: this.canvas.clientWidth,
       height: this.canvas.clientHeight
@@ -154,7 +156,7 @@ class SceneManager extends EventEmitter {
     }
 
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'move' && this.mouseInEdge) {
+    if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
@@ -179,7 +181,7 @@ class SceneManager extends EventEmitter {
       }
     }
 
-    if (this.needsCollisionCheck) {
+    if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
     }
@@ -245,7 +247,7 @@ class SceneManager extends EventEmitter {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'move') {
+      } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -479,6 +481,11 @@ class SceneManager extends EventEmitter {
         break
     }
 
+    subject.load(this.shapeLoaded)
+  }
+
+  shapeLoaded(subject) {
+    console.log(subject)
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
