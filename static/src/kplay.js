@@ -773,6 +773,10 @@ class AudioSource extends EventTarget {
     return this._buffer;
   }
 
+  get duration () {
+    return this._buffer ? this._buffer.duration : 0;
+  }
+
   /**
    * @return {!GainNode}
    */
