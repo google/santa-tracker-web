@@ -16,6 +16,7 @@ import Sphere from '../Shapes/Sphere/index.js'
 import Pyramid from '../Shapes/Pyramid/index.js'
 
 // Other
+import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
@@ -70,6 +71,10 @@ class SceneManager extends EventEmitter {
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
     this.initGui()
+
+    if (this.debug) {
+      this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+    }
   }
 
   initGui() {
@@ -156,6 +161,8 @@ class SceneManager extends EventEmitter {
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       this.sceneSubjects[i].update()
     }
+
+    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
