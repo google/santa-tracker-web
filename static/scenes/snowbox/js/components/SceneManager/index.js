@@ -1,4 +1,5 @@
 import { EventEmitter } from '../../event-emitter.js'
+import { toRadian } from '../../utils/math.js'
 
 // Config
 import CONFIG from './config.js'
@@ -351,8 +352,8 @@ class SceneManager extends EventEmitter {
       case 'object-rotate-right':
         this.rotate('right')
         break
-      case 'object-rotate-down':
-        this.rotate('down')
+      case 'object-rotate-bottom':
+        this.rotate('bottom')
         break
       default:
         break
@@ -521,9 +522,8 @@ class SceneManager extends EventEmitter {
     }
 
     if (this.selectedSubject && this.mode === 'edit') {
-      const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
-      const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
-      this.selectedSubject.rotate(axis, angle)
+      const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
+      this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
       this.needsCollisionCheck = true
     }
   }

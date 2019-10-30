@@ -160,19 +160,20 @@ class Object extends EventEmitter {
     }
   }
 
-  rotate(axis, angle) {
-    const euler = new THREE.Euler().setFromQuaternion(this.ghost.quaternion)
-    this.rotationX = euler.x
-    this.rotationY = euler.y
-
-    const rotation = axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? this.rotationY + angle : this.rotationX + angle
-
-    if (this.ghost) {
-      this[axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? 'rotationY' : 'rotationX'] = rotation
-      const quaternion = new THREE.Quaternion().setFromEuler(new THREE.Euler(this.rotationX, this.rotationY, 0, 'XYZ'))
-      this.ghost.quaternion.copy(quaternion)
-      this.ghost.quaternion.normalize()
+  rotate(direction, angle, currentCameraYRotation) {
+    let axis
+    switch (direction) {
+      case 'right':
+        axis = new THREE.Vector3(0, 1, 0)
+        break
+      case 'bottom':
+        // getPerpendicularXZAxisManually
+        axis = new THREE.Vector3(1, 0, 0)
+        axis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(currentCameraYRotation - 45)) // -45 is the offset of the rotate edit tool compare to the camera
+        break
     }
+
+    this.ghost.rotateOnWorldAxis(axis, angle)
   }
 
   moveTo(xNew, yNew, zNew) {

@@ -12,14 +12,14 @@ class SnowglobeGame {
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
     this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
     this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
-    this.objectRotateDownUi = element.querySelector('[object-rotate-down-ui]')
+    this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
     this.objectEditUi = element.querySelector('[object-edit-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
     this.objectRotateRightUi.style.display = `none`
-    this.objectRotateDownUi.style.display = 'none'
+    this.objectRotateBottomUi.style.display = 'none'
     this.objectEditUi.style.display = `none`
 
     this.stats = new self.Stats()
@@ -138,7 +138,7 @@ class SnowglobeGame {
 
     this.sceneManager.addListener('enter_edit', () => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        this.objectRotateDownUi.style.display = `block`
+        this.objectRotateBottomUi.style.display = `block`
         this.objectEditUi.style.display = `block`
         this.objectRotateRightUi.style.display = `block`
         const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
@@ -161,7 +161,7 @@ class SnowglobeGame {
 
     this.sceneManager.addListener('leave_edit', () => {
       this.objectRotateRightUi.style.display = 'none'
-      this.objectRotateDownUi.style.display = 'none'
+      this.objectRotateBottomUi.style.display = 'none'
       this.objectEditUi.style.display = 'none'
     })
 
@@ -172,7 +172,7 @@ class SnowglobeGame {
 
       const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
       const yArrowHelperPos = getScreenPosition(yArrowHelper)
-      this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+      this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
       if (!noScaleInput) {
         const ghostPos = new THREE.Vector3()
