@@ -82,7 +82,7 @@ class SnowglobeGame {
     this.actionBtns.forEach(button => {
       button.addEventListener('click', e => {
         e.preventDefault()
-        this.sceneManager.onButtonClick(button.dataset.button)
+        this.sceneManager.onButtonClick(button.dataset.button, e.currentTarget)
         button.classList.add('is-clicked')
         setTimeout(() => {
           button.classList.remove('is-clicked')

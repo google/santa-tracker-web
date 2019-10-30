@@ -1,5 +1,6 @@
 import { EventEmitter } from '../../event-emitter.js'
 import { toRadian } from '../../utils/math.js'
+import { darken } from '../../utils/colors.js'
 
 // Config
 import CONFIG from './config.js'
@@ -325,7 +326,7 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  onButtonClick(id) {
+  onButtonClick(id, el) {
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -368,6 +369,18 @@ class SceneManager extends EventEmitter {
         break
       case 'object-rotate-bottom':
         this.rotate('bottom')
+        break
+      case 'open-colors-range':
+        el.classList.add('is-open')
+        break
+      case 'pick-color':
+        if (this.activeSubject) {
+          this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.color)
+          this.activeSubject.mesh.material.needsUpdate = true
+
+          this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.color, 15))
+          this.activeSubject.materials.highlight.needsUpdate = true
+        }
         break
       default:
         break
@@ -641,6 +654,7 @@ class SceneManager extends EventEmitter {
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
+    document.querySelector('.colors-ui').classList.remove('is-open')
 
     switch (mode) {
       default:
