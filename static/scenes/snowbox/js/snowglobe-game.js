@@ -10,8 +10,10 @@ class SnowglobeGame {
   constructor(element) {
     this.canvas = element.querySelector('#canvas')
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
-    this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
-    this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
+    this.addShapeBtns = [...element.querySelectorAll('[data-add-shape]')]
+    this.rotateObjectBtns = [...element.querySelectorAll('[data-rotate-button]')]
+    this.rotateCameraBtns = [...element.querySelectorAll('[data-rotate-camera]')]
+    this.zoomBtns = [...element.querySelectorAll('[data-zoom]')]
     this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
     this.objectToolbarUi = element.querySelector('[object-toolbar-ui]')
@@ -26,90 +28,26 @@ class SnowglobeGame {
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
-    const render = now => {}
-
-    this.bindEventListeners()
+    this.events()
     this.render()
   }
 
-  bindEventListeners() {
-    window.addEventListener('resize', () => {
-      this.sceneManager.onWindowResize()
+  events() {
+    this.rotateCameraBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.rotateCamera)
     })
 
-    document.addEventListener('keydown', e => {
-      this.sceneManager.onKeydown(e)
+    this.zoomBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.zoom)
     })
 
-    this.canvas.addEventListener(
-      'mousemove',
-      e => {
-        e.preventDefault()
-        if (this.sceneManager.mouseState === 'down' && this.sceneManager.mode === '') {
-          this.sceneManager.setMode('drag')
-        }
-        this.sceneManager.onMouseMove(e)
-      },
-      false
-    )
-
-    this.canvas.addEventListener(
-      'mousedown',
-      e => {
-        e.preventDefault()
-        this.sceneManager.onMouseDown(e)
-      },
-      false
-    )
-
-    this.canvas.addEventListener(
-      'mouseup',
-      e => {
-        e.preventDefault()
-        this.sceneManager.onMouseUp()
-        if (this.sceneManager.mode !== 'move' && this.sceneManager.mode !== 'edit') {
-          this.sceneManager.setMode()
-        }
-      },
-      false
-    )
-
-    this.canvas.addEventListener('wheel', e => {
-      e.preventDefault()
-      this.sceneManager.onWheel(e)
-    })
-
-    this.actionBtns.forEach(button => {
-      button.addEventListener('click', e => {
-        e.preventDefault()
-        this.sceneManager.onButtonClick(button.dataset.button, e.currentTarget)
-        button.classList.add('is-clicked')
-        setTimeout(() => {
-          button.classList.remove('is-clicked')
-        }, 200)
-      })
-    })
-
-    this.actionDragBtns.forEach(button => {
-      const mouseleaveCallback = e => {
-        e.preventDefault()
-        this.sceneManager.onButtonClick(button.dataset.buttonDrag)
-        button.removeEventListener('mouseleave', mouseleaveCallback, false)
-      }
-
-      button.addEventListener('mousedown', e => {
-        e.preventDefault()
-        button.addEventListener('mouseleave', mouseleaveCallback)
-        button.classList.add('is-clicked')
-        setTimeout(() => {
-          button.classList.remove('is-clicked')
-        }, 200)
-      })
+    this.addShapeBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.onClickShape)
     })
 
     let rotateInterval
 
-    this.rotateBtns.forEach(button => {
+    this.rotateObjectBtns.forEach(button => {
       button.addEventListener('click', e => {
         this.sceneManager.onButtonClick(button.dataset.rotateButton)
         button.classList.add('is-clicked')

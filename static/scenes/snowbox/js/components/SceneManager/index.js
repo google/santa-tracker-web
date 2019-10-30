@@ -33,12 +33,21 @@ class SceneManager extends EventEmitter {
     super()
     this.canvas = canvas
 
+    this.onWindowResize = this.onWindowResize.bind(this)
+    this.onKeydown = this.onKeydown.bind(this)
+    this.onMouseMove = this.onMouseMove.bind(this)
+    this.onMouseDown = this.onMouseDown.bind(this)
+    this.onMouseUp = this.onMouseUp.bind(this)
+    this.onWheel = this.onWheel.bind(this)
+    this.shapeLoaded = this.shapeLoaded.bind(this)
+    this.rotateCamera = this.rotateCamera.bind(this)
+    this.zoom = this.zoom.bind(this)
+    this.onClickShape = this.onClickShape.bind(this)
+
     this.onGui = this.onGui.bind(this)
     this.onMaterialGui = this.onMaterialGui.bind(this)
     this.onPresetsGui = this.onPresetsGui.bind(this)
     this.onShapesGui = this.onShapesGui.bind(this)
-
-    this.shapeLoaded = this.shapeLoaded.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -61,10 +70,7 @@ class SceneManager extends EventEmitter {
     this.buildScene()
     this.buildRender()
     this.buildCamera()
-
-    if (this.debug) {
-      this.buildHelpers()
-    }
+    this.buildSceneSubjects()
 
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
@@ -75,15 +81,15 @@ class SceneManager extends EventEmitter {
       z: 0
     }
 
-    this.createSceneSubjects()
-
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
-    // this.initGui()
-
     if (this.debug) {
+      this.initGui()
+      this.buildHelpers()
       this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
     }
+
+    this.events()
   }
 
   preloadShapes() {
@@ -93,33 +99,13 @@ class SceneManager extends EventEmitter {
     LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
   }
 
-  initGui() {
-    this.gui = new dat.GUI()
-
-    this.guiController = {
-      lightIntensity: 0.5,
-      material: 'toon',
-      shininess: 1,
-      roughness: 1,
-      metalness: 1,
-      presets: 3,
-      cubeMass: 20,
-      ice_color: '#56b8e1',
-      terrain_color: '#d2d2d2'
-    }
-
-    this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.onGui)
-    this.guiRoughness = this.gui.add(this.guiController, 'roughness', 0.0, 2.0).onChange(this.onGui)
-    this.guiShininess = this.gui.add(this.guiController, 'shininess', 0, 100).onChange(this.onGui)
-    this.gui.add(this.guiController, 'lightIntensity', 0.0, 2.5).onChange(this.onGui)
-    this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.onMaterialGui)
-    this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.onPresetsGui)
-    this.gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.onGui)
-    this.gui.addColor(this.guiController, 'ice_color').onChange(this.onGui)
-    this.gui.addColor(this.guiController, 'terrain_color').onChange(this.onGui)
-
-    this.guiRoughness.domElement.classList.add('disabled')
-    this.guiMetalness.domElement.classList.add('disabled')
+  events() {
+    window.addEventListener('resize', this.onWindowResize, { passive: true })
+    document.addEventListener('keydown', this.onKeydown)
+    this.canvas.addEventListener('mousemove', this.onMouseMove)
+    this.canvas.addEventListener('mousedown', this.onMouseDown)
+    this.canvas.addEventListener('mouseup', this.onMouseUp)
+    this.canvas.addEventListener('wheel', this.onWheel)
   }
 
   initCannon() {
@@ -162,7 +148,7 @@ class SceneManager extends EventEmitter {
     this.scene.add(gridHelper)
   }
 
-  createSceneSubjects() {
+  buildSceneSubjects() {
     this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
     this.lights = this.sceneSubjects[0]
     this.terrain = this.sceneSubjects[1]
@@ -241,8 +227,26 @@ class SceneManager extends EventEmitter {
   }
 
   onKeydown(event) {
+    event.preventDefault()
+
     const elapsedTime = this.clock.getElapsedTime()
-    this.bindKeyDown(event)
+
+    switch (event.key) {
+      case 'ArrowRight':
+        this.rotate('right')
+        break
+      case 'ArrowLeft':
+        this.rotate('left')
+        break
+      case 'Escape':
+        this.bindEscape()
+        break
+      case 'Backspace':
+        this.deleteSelected()
+      default:
+        break
+    }
+
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       if (typeof this.sceneSubjects[i].onKeydown === 'function') {
         this.sceneSubjects[i].onKeydown(event, elapsedTime, this.checkOverlap)
@@ -251,6 +255,12 @@ class SceneManager extends EventEmitter {
   }
 
   onMouseMove(event) {
+    event.preventDefault()
+
+    if (this.mouseState === 'down' && this.mode === '') {
+      this.setMode('drag')
+    }
+
     if (event) {
       this.mouse.x = (event.clientX / this.width) * 2 - 1
       this.mouse.y = -(event.clientY / this.height) * 2 + 1
@@ -281,7 +291,9 @@ class SceneManager extends EventEmitter {
     if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
   }
 
-  onMouseDown() {
+  onMouseDown(event) {
+    event.preventDefault()
+
     this.mouseState = 'down'
 
     const hit = this.getNearestObject()
@@ -316,7 +328,12 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  onMouseUp() {
+  onMouseUp(event) {
+    event.preventDefault()
+    if (this.mode !== 'move' && this.mode !== 'edit') {
+      this.setMode()
+    }
+
     this.mouseState = 'up'
 
     if (this.selectedSubject && this.mode === 'move') {
@@ -326,44 +343,27 @@ class SceneManager extends EventEmitter {
     }
   }
 
+  rotateCamera(event) {
+    const el = event.currentTarget
+    this.cameraCtrl.rotate(el.dataset.rotateCamera, this.terrain)
+    this.pushButton(el)
+  }
+
+  zoom(event) {
+    const el = event.currentTarget
+    this.cameraCtrl.zoom(el.dataset.zoom)
+    this.pushButton(el)
+  }
+
+  pushButton(el) {
+    el.classList.add('is-clicked')
+    setTimeout(() => {
+      el.classList.remove('is-clicked')
+    }, 200)
+  }
+
   onButtonClick(id, el) {
     switch (id) {
-      case 'add-snow-cube':
-        this.addShape('cube', 'snow')
-        break
-      case 'add-ice-cube':
-        this.addShape('cube', 'ice')
-        break
-      case 'add-pyramid':
-        this.addShape('pyramid')
-        break
-      case 'add-snow-arch':
-        this.addShape('arch', 'snow')
-        break
-      case 'add-tree':
-        this.addShape('tree')
-        break
-      case 'add-sphere':
-        this.addShape('sphere')
-        break
-      case 'rotate-left':
-        this.cameraCtrl.rotate('left', this.terrain)
-        break
-      case 'rotate-right':
-        this.cameraCtrl.rotate('right', this.terrain)
-        break
-      case 'rotate-top':
-        this.cameraCtrl.rotate('top', this.terrain)
-        break
-      case 'rotate-bottom':
-        this.cameraCtrl.rotate('bottom', this.terrain)
-        break
-      case 'zoom-in':
-        this.cameraCtrl.zoom('in')
-        break
-      case 'zoom-out':
-        this.cameraCtrl.zoom('out')
-        break
       case 'object-rotate-right':
         this.rotate('right')
         break
@@ -407,28 +407,6 @@ class SceneManager extends EventEmitter {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
       this.emitScaleObject = true
-    }
-  }
-
-  bindKeyDown(event) {
-    switch (event.key) {
-      case 'ArrowRight':
-        event.preventDefault()
-        this.rotate('right')
-        break
-      case 'ArrowLeft':
-        event.preventDefault()
-        this.rotate('left')
-        break
-      case 'Escape':
-        event.preventDefault()
-        this.bindEscape()
-        break
-      case 'Backspace':
-        event.preventDefault()
-        this.deleteSelected()
-      default:
-        break
     }
   }
 
@@ -487,6 +465,22 @@ class SceneManager extends EventEmitter {
     const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
+  }
+
+  onClickShape(event) {
+    const button = event.currentTarget
+    const mouseleaveCallback = e => {
+      e.preventDefault()
+      const { addShape, shapeMaterial } = button.dataset
+      this.addShape(addShape, shapeMaterial)
+      button.removeEventListener('mouseleave', mouseleaveCallback, false)
+    }
+
+    button.addEventListener('mousedown', e => {
+      e.preventDefault()
+      button.addEventListener('mouseleave', mouseleaveCallback)
+      this.pushButton(button)
+    })
   }
 
   addShape(shape, material = 'snow') {
@@ -717,6 +711,35 @@ class SceneManager extends EventEmitter {
   }
 
   // GUI
+  initGui() {
+    this.gui = new dat.GUI()
+
+    this.guiController = {
+      lightIntensity: 0.5,
+      material: 'toon',
+      shininess: 1,
+      roughness: 1,
+      metalness: 1,
+      presets: 3,
+      cubeMass: 20,
+      ice_color: '#56b8e1',
+      terrain_color: '#d2d2d2'
+    }
+
+    this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.onGui)
+    this.guiRoughness = this.gui.add(this.guiController, 'roughness', 0.0, 2.0).onChange(this.onGui)
+    this.guiShininess = this.gui.add(this.guiController, 'shininess', 0, 100).onChange(this.onGui)
+    this.gui.add(this.guiController, 'lightIntensity', 0.0, 2.5).onChange(this.onGui)
+    this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.onMaterialGui)
+    this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.onPresetsGui)
+    this.gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.onGui)
+    this.gui.addColor(this.guiController, 'ice_color').onChange(this.onGui)
+    this.gui.addColor(this.guiController, 'terrain_color').onChange(this.onGui)
+
+    this.guiRoughness.domElement.classList.add('disabled')
+    this.guiMetalness.domElement.classList.add('disabled')
+  }
+
   onGui() {
     cubeConfig.MASS = this.guiController.cubeMass
     this.scene.spotLight.intensity = this.guiController.lightIntensity
