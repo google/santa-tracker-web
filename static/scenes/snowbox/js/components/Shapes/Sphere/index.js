@@ -21,7 +21,7 @@ class Sphere extends Obj {
   }
 
   init() {
-    const { obj } = LoaderManager.subjects[this.name]
+    const { obj, normalMap } = LoaderManager.subjects[this.name]
 
     // Geometry
     this.geometry = obj.children[0].geometry
@@ -31,6 +31,7 @@ class Sphere extends Obj {
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: 345,
+      normalMap
     })
     defaultMaterial.needsUpdate = true
 
