@@ -10,23 +10,34 @@
   align-items: center;
   background-color: #fff;
   display: flex;
-  padding: 15px 25px;
+  padding: 12px 20px;
+
+  &__image {
+    overflow: auto;
+
+    &--small {
+      width: 40%;
+    }
+    &--big {
+      width: 70%;
+    }
+  }
 
   &__slider {
     -webkit-appearance: none;
     appearance: none;
     background-color: $color-gray;
-    height: 3px;
-    margin: 0 10px;
-    width: 155px;
+    height: 2.4px;
+    margin: 0 8px;
+    width: 122px;
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
       background-color: $color-orange;
       border-radius: 50%;
-      width: 26px;
-      height: 26px;
+      width: 21px;
+      height: 21px;
     }
 
     &::-moz-range-thumb {
