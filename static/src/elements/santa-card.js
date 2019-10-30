@@ -6,7 +6,6 @@ import scenes from '../strings/scenes.js';
 import {_static, _msg} from '../magic.js';
 import {prepareAsset} from '../lib/media.js';
 import {href} from '../scene/route.js';
-import loadLottie from '../deps/lottie.js';
 import './santa-card-player.js';
 
 // YouTube video assets for previews.
