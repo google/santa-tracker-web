@@ -7,8 +7,13 @@
 }
 
 .toolbar-ui {
+  display: flex;
+}
+
+.scale-ui {
   align-items: center;
-  background-color: #fff;
+  background-color: $color-white;
+  border-radius: 10px;
   display: flex;
   padding: 12px 20px;
 
@@ -44,3 +49,50 @@
     }
   }
 }
+
+.colors-ui {
+  align-items: center;
+  background-color: $color-white;
+  justify-content: center;
+  display: flex;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &.is-open {
+    .colors-ui__range {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    width: 55%;
+  }
+
+  &__range {
+    position: absolute;
+    top: -20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $color-white;
+    border-radius: 10px;
+    width: 130px;
+  }
+
+  &__item {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: purple;
+    margin: 14px;
+  }
+}
+
+

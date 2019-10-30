@@ -325,7 +325,7 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  onButtonClick(id) {
+  onButtonClick(id, el) {
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -368,6 +368,17 @@ class SceneManager extends EventEmitter {
         break
       case 'object-rotate-bottom':
         this.rotate('bottom')
+        break
+      case 'open-colors-range':
+        el.classList.add('is-open')
+        break
+      case 'pick-color':
+        // console.log(parseInt(el.dataset.color, 16))
+        // console.log(this.selectedSubject, this.activeSubject)
+        if (this.activeSubject) {
+          this.activeSubject.mesh.material.color = new THREE.Color('#d2d2d2')
+          this.activeSubject.mesh.material.needsUpdate = true
+        }
         break
       default:
         break
