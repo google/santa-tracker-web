@@ -169,24 +169,7 @@ class Object extends EventEmitter {
       this.body.addShape(shapes)
     }
 
-    // console.log(shapes.calculateLocalInertia())
-
-    const sphereShape = new CANNON.Sphere(0.1)
-    sphereShape.boundingSphereRadius = 1
-    sphereShape.updateBoundingSphereRadius()
-
-    this.body.addShape(sphereShape, new CANNON.Vec3(0,0,0))
-
-
-    this.body.angularVelocity.set(0,0,0);
-    this.body.velocity.set(0,0,0);
-
-    this.body.inertia.set(0,0,0)
-    this.body.invInertia.set(0,0,0)
-
     this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
-
-    this.body.updateInertiaWorld()
   }
 
   delete() {

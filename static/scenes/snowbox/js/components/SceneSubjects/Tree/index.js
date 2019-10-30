@@ -8,8 +8,8 @@ import CONFIG from './config.js'
 let geometry, material, vhacdModel
 
 const textureLoader = new THREE.TextureLoader()
-const model = './models/pine-tree_v01.obj'
-const wrl = './models/pine-tree_v01.wrl'
+const model = './models/pine-tree_v06.obj'
+const wrl = './models/pine-tree_v06.wrl'
 // const normalMap = textureLoader.load('./models/shape_03--normal.jpg')
 
 new WRLLoader().load(wrl).then(object => {
@@ -51,7 +51,7 @@ class Tree extends Obj {
     this.mesh.updateMatrix()
 
     // this.mesh.position.x = 10
-    // this.mesh.rotation.x = Math.PI;
+    this.mesh.rotation.x = Math.PI;
 
     console.log(this.mesh)
 
