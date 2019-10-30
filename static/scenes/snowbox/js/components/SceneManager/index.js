@@ -42,7 +42,8 @@ class SceneManager extends EventEmitter {
     this.shapeLoaded = this.shapeLoaded.bind(this)
     this.rotateCamera = this.rotateCamera.bind(this)
     this.zoom = this.zoom.bind(this)
-    this.onClickShape = this.onClickShape.bind(this)
+    this.addShape = this.addShape.bind(this)
+    this.onScaleInput = this.onScaleInput.bind(this)
 
     this.onGui = this.onGui.bind(this)
     this.onMaterialGui = this.onMaterialGui.bind(this)
@@ -364,12 +365,6 @@ class SceneManager extends EventEmitter {
 
   onButtonClick(id, el) {
     switch (id) {
-      case 'object-rotate-right':
-        this.rotate('right')
-        break
-      case 'object-rotate-bottom':
-        this.rotate('bottom')
-        break
       case 'open-colors-range':
         el.classList.add('is-open')
         break
@@ -467,22 +462,6 @@ class SceneManager extends EventEmitter {
     return this.findNearestIntersectingObject(objects)
   }
 
-  onClickShape(event) {
-    const button = event.currentTarget
-    const mouseleaveCallback = e => {
-      e.preventDefault()
-      const { addShape, shapeMaterial } = button.dataset
-      this.addShape(addShape, shapeMaterial)
-      button.removeEventListener('mouseleave', mouseleaveCallback, false)
-    }
-
-    button.addEventListener('mousedown', e => {
-      e.preventDefault()
-      button.addEventListener('mouseleave', mouseleaveCallback)
-      this.pushButton(button)
-    })
-  }
-
   addShape(shape, material = 'snow') {
     if (this.mode === 'edit') {
       this.unsetEditMode()
@@ -536,7 +515,8 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  rotate(direction) {
+  rotateObject(el) {
+    const direction = el.dataset.rotateObject
     if (this.activeSubject && !this.selectedSubject) {
       this.selectedSubject = this.activeSubject
       this.selectedSubject.select()
@@ -597,6 +577,25 @@ class SceneManager extends EventEmitter {
     } else {
       this.mouseInEdge = null
     }
+  }
+
+  getScreenPosition(obj) {
+    const vector = new THREE.Vector3()
+
+    const widthHalf = 0.5 * this.width
+    const heightHalf = 0.5 * this.height
+
+    obj.updateMatrixWorld()
+    vector.setFromMatrixPosition(obj.matrixWorld)
+    vector.project(this.cameraCtrl.camera)
+
+    vector.x = ( vector.x * widthHalf ) + widthHalf
+    vector.y = - ( vector.y * heightHalf ) + heightHalf
+
+    return {
+        x: vector.x,
+        y: vector.y
+    };
   }
 
   moveSelectedSubject() {

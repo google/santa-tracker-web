@@ -11,7 +11,7 @@ class SnowglobeGame {
     this.canvas = element.querySelector('#canvas')
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
     this.addShapeBtns = [...element.querySelectorAll('[data-add-shape]')]
-    this.rotateObjectBtns = [...element.querySelectorAll('[data-rotate-button]')]
+    this.rotateObjectBtns = [...element.querySelectorAll('[data-rotate-object]')]
     this.rotateCameraBtns = [...element.querySelectorAll('[data-rotate-camera]')]
     this.zoomBtns = [...element.querySelectorAll('[data-zoom]')]
     this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
@@ -23,6 +23,8 @@ class SnowglobeGame {
     this.objectRotateRightUi.style.display = `none`
     this.objectRotateBottomUi.style.display = 'none'
     this.objectToolbarUi.style.display = `none`
+
+    this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -42,37 +44,48 @@ class SnowglobeGame {
     })
 
     this.addShapeBtns.forEach(button => {
-      button.addEventListener('click', this.sceneManager.onClickShape)
+      const mouseleaveCallback = e => {
+        e.preventDefault()
+        const { addShape, shapeMaterial } = button.dataset
+        this.sceneManager.addShape(addShape, shapeMaterial)
+        button.removeEventListener('mouseleave', mouseleaveCallback, false)
+      }
+
+      button.addEventListener('mousedown', e => {
+        e.preventDefault()
+        button.addEventListener('mouseleave', mouseleaveCallback)
+        this.sceneManager.pushButton(button)
+      })
     })
 
-    let rotateInterval
+    let rotateObjectInterval
 
     this.rotateObjectBtns.forEach(button => {
       button.addEventListener('click', e => {
-        this.sceneManager.onButtonClick(button.dataset.rotateButton)
+        const el = e.currentTarget
+        this.sceneManager.rotateObject(el)
         button.classList.add('is-clicked')
       })
 
       button.addEventListener('mousedown', e => {
         e.preventDefault()
-        rotateInterval = setInterval(() => {
-          this.sceneManager.onButtonClick(button.dataset.rotateButton)
+        const el = e.currentTarget
+        rotateObjectInterval = setInterval(() => {
+          this.sceneManager.rotateObject(el)
           button.classList.add('is-clicked')
         }, 200)
       })
 
       button.addEventListener('mouseup', e => {
         e.preventDefault()
-        clearInterval(rotateInterval)
+        clearInterval(rotateObjectInterval)
         setTimeout(() => {
           button.classList.remove('is-clicked')
         }, 200)
       })
     })
 
-    this.objectScaleSlider.addEventListener('input', e => {
-      this.sceneManager.onScaleInput(e)
-    })
+    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
 
     this.sceneManager.addListener('enter_edit', () => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
@@ -81,19 +94,19 @@ class SnowglobeGame {
         this.objectRotateRightUi.style.display = `block`
         const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
         this.objectScaleSlider.value = scaleFactor * 10
-        updateEditToolsPos()
+        this.updateEditToolsPos()
       }
     })
 
     this.sceneManager.addListener('move_camera', e => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        updateEditToolsPos()
+        this.updateEditToolsPos()
       }
     })
 
     this.sceneManager.addListener('scale_object', e => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        updateEditToolsPos(true)
+        this.updateEditToolsPos(true)
       }
     })
 
@@ -102,40 +115,20 @@ class SnowglobeGame {
       this.objectRotateBottomUi.style.display = 'none'
       this.objectToolbarUi.style.display = 'none'
     })
+  }
 
-    const updateEditToolsPos = noScaleInput => {
-      const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
-      const xArrowHelperPos = getScreenPosition(xArrowHelper)
-      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
+  updateEditToolsPos(noScaleInput) {
+    const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+    const xArrowHelperPos = this.sceneManager.getScreenPosition(xArrowHelper)
+    this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-      const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
-      const yArrowHelperPos = getScreenPosition(yArrowHelper)
-      this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+    const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
+    const yArrowHelperPos = this.sceneManager.getScreenPosition(yArrowHelper)
+    this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
-      const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
-      const toolbarHelperPos = getScreenPosition(toolbarHelper)
-      this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
-    }
-
-    const getScreenPosition = obj => {
-      const { width, height, cameraCtrl: { camera } } = this.sceneManager
-      const vector = new THREE.Vector3()
-
-      const widthHalf = 0.5 * width
-      const heightHalf = 0.5 * height
-
-      obj.updateMatrixWorld()
-      vector.setFromMatrixPosition(obj.matrixWorld)
-      vector.project(camera)
-
-      vector.x = ( vector.x * widthHalf ) + widthHalf
-      vector.y = - ( vector.y * heightHalf ) + heightHalf
-
-      return {
-          x: vector.x,
-          y: vector.y
-      };
-    };
+    const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
+    const toolbarHelperPos = this.sceneManager.getScreenPosition(toolbarHelper)
+    this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
   }
 
   render(now) {
