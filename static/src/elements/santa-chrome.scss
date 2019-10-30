@@ -208,9 +208,15 @@ header.mini {
     width: $dim-bar;
   }
   .bar {
+    pointer-events: none;
     &::before {
       width: $dim-bar;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
+    }
+
+    label,
+    button:not(:disabled) {
+      pointer-events: auto;
     }
   }
 }

@@ -59,11 +59,16 @@ body[data-mode="android"] {
   background-size: 340px;
   background-repeat: no-repeat;
 }
-body, html {
-  background: transparent;
+html {
+  overflow: hidden;
+  height: 100vh;
 }
 body {
   margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
   user-select: none;
