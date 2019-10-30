@@ -22,34 +22,12 @@ class Object extends EventEmitter {
 
     this.init = this.init.bind(this)
     this.load = this.load.bind(this)
-    this.onGui = this.onGui.bind(this)
-
-    this.gui = new dat.GUI()
-
-    this.guiController = {
-      x: 125,
-      y: 0,
-      x2: 30,
-      y2: 55,
-    }
-
-    this.gui.add(this.guiController, 'x', 0, 360).onChange(this.onGui)
-    this.gui.add(this.guiController, 'y', 0, 360).onChange(this.onGui)
-    this.gui.add(this.guiController, 'x2', 0, 360).onChange(this.onGui)
-    this.gui.add(this.guiController, 'y2', 0, 360).onChange(this.onGui)
   }
 
   load(callback) {
     this.callback = callback
     const { name, normalMap, obj } = this
     LoaderManager.load({name, normalMap, obj}, this.init)
-  }
-
-  onGui() {
-    this.circles.children[0].rotation.x = toRadian(this.guiController.x)
-    this.circles.children[0].rotation.y = toRadian(this.guiController.y)
-    this.circles.children[1].rotation.x = toRadian(this.guiController.x2)
-    this.circles.children[1].rotation.y = toRadian(this.guiController.y2)
   }
 
   setShape(defaultMaterial) {
@@ -293,7 +271,7 @@ class Object extends EventEmitter {
     const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
     const xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
     const xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
-    xCircle.rotation.x = toRadian(125)
+    xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
 
     // Y Circle
     const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
@@ -302,36 +280,21 @@ class Object extends EventEmitter {
     yCircle.rotation.x = toRadian(30)
     yCircle.rotation.y = toRadian(55)
 
-    // this.updateRotatingCircle(zoom)
-
-
     this.circles = new THREE.Object3D()
     this.circles.add( xCircle )
     this.circles.add( yCircle )
 
     this.circles.position.copy(this.mesh.position)
-    this.circles.rotation.x = toRadian(90)
+
+    this.updateRotatingCircle(zoom)
 
     this.scene.add(this.circles)
   }
 
   updateRotatingCircle(zoom) {
-    // if (zoom) {
-    //   this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    //   this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    // } else {
-    //   const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-    //   var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-    //   this.xCircle.geometry.dispose()
-    //   this.xCircle.geometry = xGeometry
-    //   this.xCircle.geometry.computeBoundingSphere()
-
-    //   const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-    //   var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-    //   this.yCircle.geometry.dispose()
-    //   this.yCircle.geometry = yGeometry
-    //   this.yCircle.geometry.computeBoundingSphere()
-    // }
+    for (let i = 0; i < this.circles.children.length; i++) {
+      this.circles.children[i].scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    }
   }
 
   deleteGhost() {
