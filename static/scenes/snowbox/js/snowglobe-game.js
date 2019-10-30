@@ -173,6 +173,17 @@ class SnowglobeGame {
       const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
       const yArrowHelperPos = getScreenPosition(yArrowHelper)
       this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+
+      if (!noScaleInput) {
+        const ghostPos = new THREE.Vector3()
+        this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
+        ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
+        ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
+        ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
+        ghostPos.project(this.sceneManager.cameraCtrl.camera)
+        this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
+          this.sceneManager.width}px,${(ghostPos.y * -0.5 + 0.5) * this.sceneManager.height + 100}px)`
+      }
     }
 
     const getScreenPosition = obj => {
