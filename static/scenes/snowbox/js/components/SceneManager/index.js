@@ -33,6 +33,7 @@ class SceneManager extends EventEmitter {
     super()
     this.canvas = canvas
 
+    // bind
     this.onWindowResize = this.onWindowResize.bind(this)
     this.onKeydown = this.onKeydown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
@@ -177,7 +178,7 @@ class SceneManager extends EventEmitter {
     if (this.cameraCtrl.isRotating) {
       this.cameraCtrl.animateRotate(now)
 
-      if (this.mode === 'edit') {
+      if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
         this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
       }
@@ -187,7 +188,7 @@ class SceneManager extends EventEmitter {
     if (this.cameraCtrl.isZooming) {
       this.cameraCtrl.animateZoom(now)
 
-      if (this.mode === 'edit') {
+      if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
         this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
       }
@@ -196,11 +197,6 @@ class SceneManager extends EventEmitter {
     if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
-    }
-
-    if (this.emitCameraMove) {
-      this.emit('move_camera')
-      this.emitCameraMove = false
     }
 
     if (this.emitScaleObject) {
@@ -310,7 +306,7 @@ class SceneManager extends EventEmitter {
       if (this.selectedSubject) {
         if (this.mode === 'edit') {
           const oldSelectedObject = this.selectedSubject
-          this.unsetEditMode()
+          this.setMode()
           setTimeout(() => {
             if (oldSelectedObject === newSelectedSubject) {
               this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
@@ -325,7 +321,7 @@ class SceneManager extends EventEmitter {
     } else if (this.selectedSubject && this.mode === 'move') {
       this.unselectSubject()
     } else if (this.mode === 'edit') {
-      this.unsetEditMode()
+      this.setMode()
     }
   }
 
@@ -339,8 +335,7 @@ class SceneManager extends EventEmitter {
 
     if (this.selectedSubject && this.mode === 'move') {
       this.activeSubject = this.selectedSubject
-      this.unselectSubject()
-      this.setEditMode()
+      this.setMode('edit')
     }
   }
 
@@ -385,9 +380,11 @@ class SceneManager extends EventEmitter {
   onWheel(event) {
     if (event.deltaY < 0) {
       this.cameraCtrl.rotate('left', this.terrain, true)
-      this.emit('move_camera')
     } else if (event.deltaY > 0) {
       this.cameraCtrl.rotate('right', this.terrain, true)
+    }
+
+    if (this.mode === 'edit' && this.activeSubject) {
       this.emit('move_camera')
     }
   }
@@ -407,7 +404,6 @@ class SceneManager extends EventEmitter {
 
   unselectSubject(unmove) {
     this.cameraCtrl.resetControls(this.terrain)
-    this.setMode()
 
     if (!unmove) {
       this.selectedSubject.moveToGhost()
@@ -420,14 +416,7 @@ class SceneManager extends EventEmitter {
   }
 
   selectSubject(newSelectedSubject, offset) {
-    if (this.mode === 'edit') {
-      this.unsetEditMode()
-    }
     this.setMode('move')
-
-    if (this.selectedSubject) {
-      this.unselectSubject()
-    }
 
     const { x, z } = newSelectedSubject.body.position
 
@@ -463,11 +452,6 @@ class SceneManager extends EventEmitter {
   }
 
   addShape(shape, material = 'snow') {
-    if (this.mode === 'edit') {
-      this.unsetEditMode()
-    } else if (this.selectedSubject) {
-      this.unselectSubject()
-    }
     this.setMode('move')
 
     let subject
@@ -649,6 +633,20 @@ class SceneManager extends EventEmitter {
     this.canvas.classList.remove('is-pointing')
     document.querySelector('.colors-ui').classList.remove('is-open')
 
+    // unselect any object when changing mode
+    if (this.selectedSubject) {
+      this.unselectSubject()
+    }
+
+    if (this.mode === 'edit') {
+      // if previous mode was edit, clear edit tool
+      if (this.activeSubject) {
+        this.activeSubject.unsetEditTools()
+        this.emit('leave_edit')
+        this.activeSubject = null
+      }
+    }
+
     switch (mode) {
       default:
         controls.enabled = true // reset cameraCtrl.controls
@@ -665,6 +663,12 @@ class SceneManager extends EventEmitter {
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'edit':
+        if (this.activeSubject) {
+          this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
+          setTimeout(() => {
+            this.emit('enter_edit')
+          }, 100)
+        }
         controls.enabled = false // disable cameraCtrl.controls
         break
     }
@@ -676,9 +680,6 @@ class SceneManager extends EventEmitter {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
       if (!this.selectedSubject.mesh.visible && !this.wireframe) {
         this.deleteObject()
-        this.setMode()
-        this.terrain.removePositionMarker()
-        this.selectedSubject = null
       } else {
         this.unselectSubject(true)
       }
@@ -688,18 +689,15 @@ class SceneManager extends EventEmitter {
   deleteSelected() {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
       this.deleteObject()
-      this.setMode()
-      this.terrain.removePositionMarker()
-      this.selectedSubject = null
     }
   }
 
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
     this.selectedSubject.delete()
-    if (this.mode === 'edit') {
-      this.unsetEditMode(true)
-    }
+    this.setMode()
+    this.terrain.removePositionMarker()
+    this.selectedSubject = null
   }
 
   setUnits() {
@@ -844,29 +842,6 @@ class SceneManager extends EventEmitter {
     })
 
     this.scene.spotLight.intensity = this.guiController.lightIntensity
-  }
-
-  setEditMode() {
-    if (this.activeSubject) {
-      this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
-      this.setMode('edit')
-      setTimeout(() => {
-        this.emit('enter_edit')
-      }, 100)
-    }
-  }
-
-  unsetEditMode(noMove) {
-    if (this.selectedSubject) {
-      this.unselectSubject(noMove)
-    }
-
-    if (this.activeSubject) {
-      this.activeSubject.unsetEditTools()
-      this.setMode()
-      this.emit('leave_edit')
-      this.activeSubject = null
-    }
   }
 }
 
