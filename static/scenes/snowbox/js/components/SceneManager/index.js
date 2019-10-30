@@ -586,6 +586,7 @@ class SceneManager extends EventEmitter {
   }
 
   checkCollision() {
+    if (this.mode === 'edit') return; // stop on edit
     const { ghost, box, mesh } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
     const fakeBox = new THREE.Box3().copy(box)
