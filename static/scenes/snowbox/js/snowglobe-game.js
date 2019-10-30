@@ -166,6 +166,7 @@ class SnowglobeGame {
     })
 
     const updateEditToolsPos = noScaleInput => {
+      return
       const rightPosition = getPosition('x')
       this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
 

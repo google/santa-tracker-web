@@ -70,7 +70,7 @@ class SceneManager extends EventEmitter {
 
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
-    this.initGui()
+    // this.initGui()
 
     if (this.debug) {
       this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
@@ -159,7 +159,7 @@ class SceneManager extends EventEmitter {
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update()
+      this.sceneSubjects[i].update(this.cameraCtrl.camera.position)
     }
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()

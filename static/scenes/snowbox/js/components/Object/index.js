@@ -2,6 +2,7 @@ import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
 import LoaderManager from '../../managers/LoaderManager/index.js'
+import { toRadian } from '../../utils/math.js'
 
 
 class Object extends EventEmitter {
@@ -21,12 +22,34 @@ class Object extends EventEmitter {
 
     this.init = this.init.bind(this)
     this.load = this.load.bind(this)
+    this.onGui = this.onGui.bind(this)
+
+    this.gui = new dat.GUI()
+
+    this.guiController = {
+      x: 125,
+      y: 0,
+      x2: 30,
+      y2: 55,
+    }
+
+    this.gui.add(this.guiController, 'x', 0, 360).onChange(this.onGui)
+    this.gui.add(this.guiController, 'y', 0, 360).onChange(this.onGui)
+    this.gui.add(this.guiController, 'x2', 0, 360).onChange(this.onGui)
+    this.gui.add(this.guiController, 'y2', 0, 360).onChange(this.onGui)
   }
 
   load(callback) {
     this.callback = callback
     const { name, normalMap, obj } = this
     LoaderManager.load({name, normalMap, obj}, this.init)
+  }
+
+  onGui() {
+    this.circles.children[0].rotation.x = toRadian(this.guiController.x)
+    this.circles.children[0].rotation.y = toRadian(this.guiController.y)
+    this.circles.children[1].rotation.x = toRadian(this.guiController.x2)
+    this.circles.children[1].rotation.y = toRadian(this.guiController.y2)
   }
 
   setShape(defaultMaterial) {
@@ -120,7 +143,7 @@ class Object extends EventEmitter {
     }
   }
 
-  update() {
+  update(cameraPosition) {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
@@ -150,6 +173,10 @@ class Object extends EventEmitter {
       }
       if (CONFIG.DEBUG) {
         this.ghostHelper.update()
+      }
+
+      if (this.circles) {
+        this.circles.lookAt(cameraPosition)
       }
     }
   }
@@ -264,43 +291,47 @@ class Object extends EventEmitter {
   createRotateCircle(zoom) {
     // X Circle
     const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-    var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-    this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
-    const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
-    this.xCircle.applyQuaternion(xQuaternion)
-    this.xCircle.geometry.computeBoundingSphere()
+    const xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+    const xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    xCircle.rotation.x = toRadian(125)
 
-    // X Circle
+    // Y Circle
     const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-    var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-    this.yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
-    const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
-    this.yCircle.applyQuaternion(yQuaternion)
-    this.yCircle.geometry.computeBoundingSphere()
+    const yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
+    const yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    yCircle.rotation.x = toRadian(30)
+    yCircle.rotation.y = toRadian(55)
 
-    this.updateRotatingCircle(zoom)
+    // this.updateRotatingCircle(zoom)
 
-    this.scene.add(this.xCircle)
-    this.scene.add(this.yCircle)
+
+    this.circles = new THREE.Object3D()
+    this.circles.add( xCircle )
+    this.circles.add( yCircle )
+
+    this.circles.position.copy(this.mesh.position)
+    this.circles.rotation.x = toRadian(90)
+
+    this.scene.add(this.circles)
   }
 
   updateRotatingCircle(zoom) {
-    if (zoom) {
-      this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-      this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    } else {
-      const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-      var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-      this.xCircle.geometry.dispose()
-      this.xCircle.geometry = xGeometry
-      this.xCircle.geometry.computeBoundingSphere()
+    // if (zoom) {
+    //   this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    //   this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+    // } else {
+    //   const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
+    //   var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
+    //   this.xCircle.geometry.dispose()
+    //   this.xCircle.geometry = xGeometry
+    //   this.xCircle.geometry.computeBoundingSphere()
 
-      const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-      var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-      this.yCircle.geometry.dispose()
-      this.yCircle.geometry = yGeometry
-      this.yCircle.geometry.computeBoundingSphere()
-    }
+    //   const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
+    //   var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
+    //   this.yCircle.geometry.dispose()
+    //   this.yCircle.geometry = yGeometry
+    //   this.yCircle.geometry.computeBoundingSphere()
+    // }
   }
 
   deleteGhost() {
