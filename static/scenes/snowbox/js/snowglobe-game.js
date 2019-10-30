@@ -14,13 +14,13 @@ class SnowglobeGame {
     this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
     this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
-    this.objectEditUi = element.querySelector('[object-edit-ui]')
+    this.objectToolbarUi = element.querySelector('[object-toolbar-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
     this.objectRotateRightUi.style.display = `none`
     this.objectRotateBottomUi.style.display = 'none'
-    this.objectEditUi.style.display = `none`
+    this.objectToolbarUi.style.display = `none`
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -139,7 +139,7 @@ class SnowglobeGame {
     this.sceneManager.addListener('enter_edit', () => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
         this.objectRotateBottomUi.style.display = `block`
-        this.objectEditUi.style.display = `block`
+        this.objectToolbarUi.style.display = `block`
         this.objectRotateRightUi.style.display = `block`
         const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
         this.objectScaleSlider.value = scaleFactor * 10
@@ -162,7 +162,7 @@ class SnowglobeGame {
     this.sceneManager.addListener('leave_edit', () => {
       this.objectRotateRightUi.style.display = 'none'
       this.objectRotateBottomUi.style.display = 'none'
-      this.objectEditUi.style.display = 'none'
+      this.objectToolbarUi.style.display = 'none'
     })
 
     const updateEditToolsPos = noScaleInput => {
@@ -174,16 +174,9 @@ class SnowglobeGame {
       const yArrowHelperPos = getScreenPosition(yArrowHelper)
       this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
-      if (!noScaleInput) {
-        const ghostPos = new THREE.Vector3()
-        this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
-        ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
-        ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
-        ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
-        ghostPos.project(this.sceneManager.cameraCtrl.camera)
-        this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
-          this.sceneManager.width}px,${(ghostPos.y * -0.5 + 0.5) * this.sceneManager.height + 100}px)`
-      }
+      const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
+      const toolbarHelperPos = getScreenPosition(toolbarHelper)
+      this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
     }
 
     const getScreenPosition = obj => {

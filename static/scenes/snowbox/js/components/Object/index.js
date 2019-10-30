@@ -2,7 +2,7 @@ import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
 import LoaderManager from '../../managers/LoaderManager/index.js'
-import { toRadian } from '../../utils/math.js'
+import { toRadian, clamp } from '../../utils/math.js'
 
 
 class Object extends EventEmitter {
@@ -271,17 +271,18 @@ class Object extends EventEmitter {
   createRotateCircle(zoom) {
     // Calculate radius
     let maxRadius = Math.max((this.box.max.x - this.box.min.x) / 1.25, (this.box.max.y - this.box.min.y) / 1.25)
-    maxRadius = Math.max(1, maxRadius)
+    maxRadius = clamp(maxRadius, 1, 4.2)
     const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
-    const arrowHelperGeometry = new THREE.Geometry()
-    arrowHelperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
-    const arrowHelperMaterial = new THREE.PointsMaterial({ visible: false })
+    const helperGeometry = new THREE.Geometry()
+    helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
+    const helperMaterial = new THREE.PointsMaterial({ visible: false })
 
     // X Circle
     const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
     xCircle.rotation.z = toRadian(50)
-    const xArrowHelper = new THREE.Points(arrowHelperGeometry, arrowHelperMaterial)
+    // Arrow rotation X helper
+    const xArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
     xArrowHelper.position.x = maxRadius
     xArrowHelper.name = 'arrow-helper-x'
     xCircle.add(xArrowHelper)
@@ -291,10 +292,16 @@ class Object extends EventEmitter {
     yCircle.rotation.x = toRadian(30)
     yCircle.rotation.y = toRadian(55)
     yCircle.rotation.z = toRadian(10)
-    const yArrowHelper = new THREE.Points(arrowHelperGeometry, arrowHelperMaterial)
+    // Arrow rotation Y helper
+    const yArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
     yArrowHelper.position.y = maxRadius
     yArrowHelper.name = 'arrow-helper-y'
     yCircle.add(yArrowHelper)
+    // Toolbar helper
+    const toolbarHelper = new THREE.Points(helperGeometry, helperMaterial)
+    toolbarHelper.position.y = -(maxRadius + 1)
+    toolbarHelper.name = 'toolbar-helper'
+    yCircle.add(toolbarHelper)
 
     this.circles = new THREE.Object3D()
     this.circles.add( xCircle )
