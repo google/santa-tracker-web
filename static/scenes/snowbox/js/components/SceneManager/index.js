@@ -4,6 +4,12 @@ import { toRadian } from '../../utils/math.js'
 // Config
 import CONFIG from './config.js'
 import cubeConfig from '../Shapes/Cube/config.js'
+import archConfig from '../Shapes/Arch/config.js'
+import sphereConfig from '../Shapes/Sphere/config.js'
+import treeConfig from '../Shapes/Tree/config.js'
+
+// Managers
+import LoaderManager from '../../managers/LoaderManager/index.js'
 
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
@@ -47,6 +53,7 @@ class SceneManager extends EventEmitter {
 
     this.debug = CONFIG.DEBUG
 
+    this.preloadShapes()
     this.setUnits()
 
     this.initCannon()
@@ -76,6 +83,13 @@ class SceneManager extends EventEmitter {
     if (this.debug) {
       this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
     }
+  }
+
+  preloadShapes() {
+    LoaderManager.load({name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ})
+    LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
+    LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
+    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
   }
 
   initGui() {
