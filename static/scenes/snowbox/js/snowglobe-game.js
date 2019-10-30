@@ -166,14 +166,13 @@ class SnowglobeGame {
     })
 
     const updateEditToolsPos = noScaleInput => {
-      return
       const rightPosition = getPosition('x')
       this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
 
       const downPosition = getPosition('y')
       this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
 
-      const scale = this.sceneManager.activeSubject.xCircle.scale.x
+      const scale = 1
 
       if (!noScaleInput) {
         let ghostPos = new THREE.Vector3()
@@ -188,11 +187,8 @@ class SnowglobeGame {
     }
 
     const getPosition = axis => {
-      const scale = this.sceneManager.activeSubject.xCircle.scale.x
-      const { radius } =
-        axis === 'x'
-          ? this.sceneManager.activeSubject.xCircle.geometry.boundingSphere
-          : this.sceneManager.activeSubject.yCircle.geometry.boundingSphere
+      const scale = 1
+      const { radius } = this.sceneManager.activeSubject.circles.children[0].geometry.boundingSphere
       let tempPos = new THREE.Vector3()
       if (this.sceneManager.activeSubject.ghost) {
         this.sceneManager.activeSubject.ghost.getWorldPosition(tempPos)
@@ -201,6 +197,7 @@ class SnowglobeGame {
       }
       tempPos[axis] += radius * scale
       tempPos.project(this.sceneManager.cameraCtrl.camera)
+      // trigo?
       const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
       const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
 

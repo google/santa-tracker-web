@@ -154,6 +154,7 @@ class Object extends EventEmitter {
       }
 
       if (this.circles) {
+        this.circles.position.copy(this.mesh.position)
         this.circles.lookAt(cameraPosition)
       }
     }
@@ -267,24 +268,24 @@ class Object extends EventEmitter {
   }
 
   createRotateCircle(zoom) {
+    // Calculate radius
+    let maxRadius = Math.max((this.box.max.x - this.box.min.x) / 1.25, (this.box.max.y - this.box.min.y) / 1.25)
+    maxRadius = Math.max(1, maxRadius)
+    const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
+
     // X Circle
-    const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-    const xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-    const xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
 
     // Y Circle
     const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-    const yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-    const yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    const yCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     yCircle.rotation.x = toRadian(30)
     yCircle.rotation.y = toRadian(55)
 
     this.circles = new THREE.Object3D()
     this.circles.add( xCircle )
     this.circles.add( yCircle )
-
-    this.circles.position.copy(this.mesh.position)
 
     this.updateRotatingCircle(zoom)
 
@@ -321,17 +322,10 @@ class Object extends EventEmitter {
   }
 
   deleteRotateCircle() {
-    if (this.xCircle) {
-      this.scene.remove(this.xCircle)
-      this.xCircle.geometry.dispose()
-      this.xCircle = undefined
+    if (this.circles) {
+      this.scene.remove(this.circles)
     }
-
-    if (this.yCircle) {
-      this.scene.remove(this.yCircle)
-      this.yCircle.geometry.dispose()
-      this.yCircle = undefined
-    }
+    console.log(this.scene)
   }
 
   moveToGhost() {
