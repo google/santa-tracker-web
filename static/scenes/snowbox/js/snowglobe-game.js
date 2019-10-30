@@ -1,4 +1,5 @@
 import SceneManager from './components/SceneManager/index.js'
+import { EventEmitter } from './event-emitter.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
 
@@ -25,6 +26,8 @@ class SnowglobeGame {
     this.objectToolbarUi.style.display = `none`
 
     this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
+    this.enterEdit = this.enterEdit.bind(this)
+    this.leaveEdit = this.leaveEdit.bind(this)
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -87,37 +90,30 @@ class SnowglobeGame {
 
     this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
 
-    this.sceneManager.addListener('enter_edit', () => {
-      if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        this.objectRotateBottomUi.style.display = `block`
-        this.objectToolbarUi.style.display = `block`
-        this.objectRotateRightUi.style.display = `block`
-        const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
-        this.objectScaleSlider.value = scaleFactor * 10
-        this.updateEditToolsPos()
-      }
-    })
-
-    this.sceneManager.addListener('move_camera', e => {
-      if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        this.updateEditToolsPos()
-      }
-    })
-
-    this.sceneManager.addListener('scale_object', e => {
-      if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        this.updateEditToolsPos(true)
-      }
-    })
-
-    this.sceneManager.addListener('leave_edit', () => {
-      this.objectRotateRightUi.style.display = 'none'
-      this.objectRotateBottomUi.style.display = 'none'
-      this.objectToolbarUi.style.display = 'none'
-    })
+    this.sceneManager.addListener('enter_edit', this.enterEdit)
+    this.sceneManager.addListener('leave_edit', this.leaveEdit)
+    this.sceneManager.addListener('move_camera', this.updateEditToolsPos)
+    this.sceneManager.addListener('scale_object', this.updateEditToolsPos)
   }
 
-  updateEditToolsPos(noScaleInput) {
+  enterEdit() {
+    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
+      this.objectRotateBottomUi.style.display = `block`
+      this.objectToolbarUi.style.display = `block`
+      this.objectRotateRightUi.style.display = `block`
+      const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
+      this.objectScaleSlider.value = scaleFactor * 10
+      this.updateEditToolsPos()
+    }
+  }
+
+  leaveEdit() {
+    this.objectRotateRightUi.style.display = 'none'
+    this.objectRotateBottomUi.style.display = 'none'
+    this.objectToolbarUi.style.display = 'none'
+  }
+
+  updateEditToolsPos() {
     const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
     const xArrowHelperPos = this.sceneManager.getScreenPosition(xArrowHelper)
     this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
