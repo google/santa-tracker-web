@@ -166,43 +166,34 @@ class SnowglobeGame {
     })
 
     const updateEditToolsPos = noScaleInput => {
-      const rightPosition = getPosition('x')
-      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+      const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+      const xArrowHelperPos = getScreenPosition(xArrowHelper)
+      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-      const downPosition = getPosition('y')
-      this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
-
-      const scale = 1
-
-      if (!noScaleInput) {
-        let ghostPos = new THREE.Vector3()
-        this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
-        ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
-        ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
-        ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
-        ghostPos.project(this.sceneManager.cameraCtrl.camera)
-        this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
-          this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 100}px)`
-      }
+      const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
+      const yArrowHelperPos = getScreenPosition(yArrowHelper)
+      this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
     }
 
-    const getPosition = axis => {
-      const scale = 1
-      const { radius } = this.sceneManager.activeSubject.circles.children[0].geometry.boundingSphere
-      let tempPos = new THREE.Vector3()
-      if (this.sceneManager.activeSubject.ghost) {
-        this.sceneManager.activeSubject.ghost.getWorldPosition(tempPos)
-      } else {
-        this.sceneManager.activeSubject.mesh.getWorldPosition(tempPos)
-      }
-      tempPos[axis] += radius * scale
-      tempPos.project(this.sceneManager.cameraCtrl.camera)
-      // trigo?
-      const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
-      const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
+    const getScreenPosition = obj => {
+      const { width, height, cameraCtrl: { camera } } = this.sceneManager
+      const vector = new THREE.Vector3()
 
-      return { x, y }
-    }
+      const widthHalf = 0.5 * width
+      const heightHalf = 0.5 * height
+
+      obj.updateMatrixWorld()
+      vector.setFromMatrixPosition(obj.matrixWorld)
+      vector.project(camera)
+
+      vector.x = ( vector.x * widthHalf ) + widthHalf
+      vector.y = - ( vector.y * heightHalf ) + heightHalf
+
+      return {
+          x: vector.x,
+          y: vector.y
+      };
+    };
   }
 
   render(now) {

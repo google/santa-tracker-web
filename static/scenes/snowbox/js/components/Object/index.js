@@ -272,16 +272,28 @@ class Object extends EventEmitter {
     let maxRadius = Math.max((this.box.max.x - this.box.min.x) / 1.25, (this.box.max.y - this.box.min.y) / 1.25)
     maxRadius = Math.max(1, maxRadius)
     const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
+    const arrowHelperGeometry = new THREE.Geometry()
+    arrowHelperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
+    const arrowHelperMaterial = new THREE.PointsMaterial({ visible: false })
 
     // X Circle
     const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
+    xCircle.rotation.z = toRadian(50)
+    const xArrowHelper = new THREE.Points(arrowHelperGeometry, arrowHelperMaterial)
+    xArrowHelper.position.x = maxRadius
+    xArrowHelper.name = 'arrow-helper-x'
+    xCircle.add(xArrowHelper)
 
     // Y Circle
-    const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
     const yCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     yCircle.rotation.x = toRadian(30)
     yCircle.rotation.y = toRadian(55)
+    yCircle.rotation.z = toRadian(10)
+    const yArrowHelper = new THREE.Points(arrowHelperGeometry, arrowHelperMaterial)
+    yArrowHelper.position.y = maxRadius
+    yArrowHelper.name = 'arrow-helper-y'
+    yCircle.add(yArrowHelper)
 
     this.circles = new THREE.Object3D()
     this.circles.add( xCircle )
@@ -325,7 +337,6 @@ class Object extends EventEmitter {
     if (this.circles) {
       this.scene.remove(this.circles)
     }
-    console.log(this.scene)
   }
 
   moveToGhost() {
