@@ -1,17 +1,20 @@
+import { EventEmitter } from '../../event-emitter.js'
+import { toRadian } from '../../utils/math.js'
+
 // Config
 import CONFIG from './config.js'
-import cubeConfig from '../SceneSubjects/Cube/config.js'
+import cubeConfig from '../Shapes/Cube/config.js'
 
 // SceneSubjects
-import Arch from '../SceneSubjects/Arch/index.js'
-import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
-import Pyramid from '../SceneSubjects/Pyramid/index.js'
-import Sphere from '../SceneSubjects/Sphere/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
-import Tree from '../SceneSubjects/Tree/index.js'
 
-import { EventEmitter } from '../../event-emitter.js'
+// Shapes
+import Cube from '../Shapes/Cube/index.js'
+import Arch from '../Shapes/Arch/index.js'
+import Tree from '../Shapes/Tree/index.js'
+import Sphere from '../Shapes/Sphere/index.js'
+import Pyramid from '../Shapes/Pyramid/index.js'
 
 // Other
 import '../CannonDebugRenderer/index.js'
@@ -27,6 +30,8 @@ class SceneManager extends EventEmitter {
     this.onMaterialGui = this.onMaterialGui.bind(this)
     this.onPresetsGui = this.onPresetsGui.bind(this)
     this.onShapesGui = this.onShapesGui.bind(this)
+
+    this.shapeLoaded = this.shapeLoaded.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -66,9 +71,11 @@ class SceneManager extends EventEmitter {
 
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
-    this.initGui()
+    // this.initGui()
 
-    this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+    if (this.debug) {
+      this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+    }
   }
 
   initGui() {
@@ -153,13 +160,13 @@ class SceneManager extends EventEmitter {
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update()
+      this.sceneSubjects[i].update(this.cameraCtrl.camera.position)
     }
 
-    this.cannonDebugRenderer.update()
+    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'move' && this.mouseInEdge) {
+    if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
@@ -184,7 +191,7 @@ class SceneManager extends EventEmitter {
       }
     }
 
-    if (this.needsCollisionCheck) {
+    if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
     }
@@ -250,7 +257,7 @@ class SceneManager extends EventEmitter {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'move') {
+      } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -345,8 +352,8 @@ class SceneManager extends EventEmitter {
       case 'object-rotate-right':
         this.rotate('right')
         break
-      case 'object-rotate-down':
-        this.rotate('down')
+      case 'object-rotate-bottom':
+        this.rotate('bottom')
         break
       default:
         break
@@ -484,6 +491,10 @@ class SceneManager extends EventEmitter {
         break
     }
 
+    subject.load(this.shapeLoaded)
+  }
+
+  shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
@@ -511,9 +522,8 @@ class SceneManager extends EventEmitter {
     }
 
     if (this.selectedSubject && this.mode === 'edit') {
-      const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
-      const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
-      this.selectedSubject.rotate(axis, angle)
+      const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
+      this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
       this.needsCollisionCheck = true
     }
   }
@@ -576,6 +586,7 @@ class SceneManager extends EventEmitter {
   }
 
   checkCollision() {
+    // if (this.mode === 'edit') return; // stop on edit
     const { ghost, box, mesh } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
     const fakeBox = new THREE.Box3().copy(box)

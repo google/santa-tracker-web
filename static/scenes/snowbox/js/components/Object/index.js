@@ -1,5 +1,9 @@
 import CONFIG from './config.js'
+import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
+import LoaderManager from '../../managers/LoaderManager/index.js'
+import { toRadian, clamp } from '../../utils/math.js'
+
 
 class Object extends EventEmitter {
   constructor(scene, world) {
@@ -15,21 +19,64 @@ class Object extends EventEmitter {
     this.scaleFactor = 1
     this.scaleIndex = 0
     this.isMoving = false
+
+    if (this.init) {
+      this.init = this.init.bind(this)
+    }
+    this.load = this.load.bind(this)
   }
 
-  addToScene() {
+  load(callback) {
+    this.callback = callback
+    const { name, normalMap, obj, wrl } = this
+    LoaderManager.load({name, normalMap, obj, wrl}, this.init)
+  }
+
+  setShape(defaultMaterial) {
+    // Secondary materials
+    const highlightMaterial = defaultMaterial.clone()
+    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+    highlightMaterial.needsUpdate = true
+
+    const ghostMaterial = defaultMaterial.clone()
+    ghostMaterial.color.setHex(GLOBAL_CONFIG.COLORS.GHOST)
+    ghostMaterial.needsUpdate = true
+    this.materials = {
+      default: defaultMaterial,
+      highlight: highlightMaterial,
+      ghost: ghostMaterial
+    }
+
+    // CANNON JS
+    const shape = this.createShape()
+    this.body = new CANNON.Body({
+      mass: this.mass,
+      shape,
+      fixedRotation: false,
+      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+    })
+    this.body.position.set(-this.size / 2, -100, -this.size / 2) // y: -100 to prevent the body to interact with anything in the scene
     this.world.add(this.body)
 
+    // Mesh
+    this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
+    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    this.mesh.updateMatrix()
     this.mesh.position.copy(this.body.position)
-    this.scene.add(this.mesh)
-
     this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
+    this.mesh.visible = false
+    this.scene.add(this.mesh)
+
+    // box
     this.box = this.mesh.geometry.boundingBox.clone()
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
-    this.mesh.visible = false
+
     this.defaultMeshScale = this.mesh.scale.clone()
-    this.body.position.y = -100 // position body out of scope
+
+    if (this.callback) {
+      this.callback(this)
+    }
   }
 
   select() {
@@ -76,7 +123,7 @@ class Object extends EventEmitter {
     }
   }
 
-  update() {
+  update(cameraPosition) {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
@@ -107,22 +154,28 @@ class Object extends EventEmitter {
       if (CONFIG.DEBUG) {
         this.ghostHelper.update()
       }
+
+      if (this.circles) {
+        this.circles.position.copy(this.mesh.position)
+        this.circles.lookAt(cameraPosition)
+      }
     }
   }
 
-  rotate(axis, angle) {
-    const euler = new THREE.Euler().setFromQuaternion(this.ghost.quaternion)
-    this.rotationX = euler.x
-    this.rotationY = euler.y
-
-    const rotation = axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? this.rotationY + angle : this.rotationX + angle
-
-    if (this.ghost) {
-      this[axis.almostEquals(new CANNON.Vec3(0, 1, 0), 0) ? 'rotationY' : 'rotationX'] = rotation
-      const quaternion = new THREE.Quaternion().setFromEuler(new THREE.Euler(this.rotationX, this.rotationY, 0, 'XYZ'))
-      this.ghost.quaternion.copy(quaternion)
-      this.ghost.quaternion.normalize()
+  rotate(direction, angle, currentCameraYRotation) {
+    let axis
+    switch (direction) {
+      case 'right':
+        axis = new THREE.Vector3(0, 1, 0)
+        break
+      case 'bottom':
+        // getPerpendicularXZAxisManually
+        axis = new THREE.Vector3(1, 0, 0)
+        axis.applyAxisAngle(new THREE.Vector3(0, 1, 0), toRadian(currentCameraYRotation - 45)) // -45 is the offset of the rotate edit tool compare to the camera
+        break
     }
+
+    this.ghost.rotateOnWorldAxis(axis, angle)
   }
 
   moveTo(xNew, yNew, zNew) {
@@ -159,16 +212,8 @@ class Object extends EventEmitter {
 
   scaleBody() {
     this.body.shapes = []
-    const shapes = this.createShape(this.scaleFactor)
-
-    if (Array.isArray(shapes)) {
-      shapes.forEach(shape => {
-        this.body.addShape(shape)
-      })
-    } else {
-      this.body.addShape(shapes)
-    }
-
+    const shape = this.createShape(this.scaleFactor)
+    this.body.addShape(shape)
     this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
@@ -226,44 +271,52 @@ class Object extends EventEmitter {
   }
 
   createRotateCircle(zoom) {
-    // X Circle
-    const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-    var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-    this.xCircle = new THREE.Mesh(xGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
-    const xQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI / 2)
-    this.xCircle.applyQuaternion(xQuaternion)
-    this.xCircle.geometry.computeBoundingSphere()
+    // Calculate radius
+    let maxRadius = Math.max((this.box.max.x - this.box.min.x) / 1.25, (this.box.max.y - this.box.min.y) / 1.25)
+    maxRadius = clamp(maxRadius, 1, 4.2)
+    const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
+    const helperGeometry = new THREE.Geometry()
+    helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
+    const helperMaterial = new THREE.PointsMaterial({ visible: false })
 
     // X Circle
-    const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-    var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-    this.yCircle = new THREE.Mesh(yGeometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
-    const yQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2)
-    this.yCircle.applyQuaternion(yQuaternion)
-    this.yCircle.geometry.computeBoundingSphere()
+    const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
+    xCircle.rotation.z = toRadian(50)
+    // Arrow rotation X helper
+    const xArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
+    xArrowHelper.position.x = maxRadius
+    xArrowHelper.name = 'arrow-helper-x'
+    xCircle.add(xArrowHelper)
+
+    // Y Circle
+    const yCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
+    yCircle.rotation.x = toRadian(30)
+    yCircle.rotation.y = toRadian(55)
+    yCircle.rotation.z = toRadian(10)
+    // Arrow rotation Y helper
+    const yArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
+    yArrowHelper.position.y = maxRadius
+    yArrowHelper.name = 'arrow-helper-y'
+    yCircle.add(yArrowHelper)
+    // Toolbar helper
+    const toolbarHelper = new THREE.Points(helperGeometry, helperMaterial)
+    toolbarHelper.position.y = -(maxRadius + 1)
+    toolbarHelper.name = 'toolbar-helper'
+    yCircle.add(toolbarHelper)
+
+    this.circles = new THREE.Object3D()
+    this.circles.add( xCircle )
+    this.circles.add( yCircle )
 
     this.updateRotatingCircle(zoom)
 
-    this.scene.add(this.xCircle)
-    this.scene.add(this.yCircle)
+    this.scene.add(this.circles)
   }
 
   updateRotatingCircle(zoom) {
-    if (zoom) {
-      this.xCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-      this.yCircle.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    } else {
-      const xRadius = Math.max(1, (this.box.max.x - this.box.min.x) / 1.25)
-      var xGeometry = new THREE.TorusBufferGeometry(xRadius, 0.02, 32, 32)
-      this.xCircle.geometry.dispose()
-      this.xCircle.geometry = xGeometry
-      this.xCircle.geometry.computeBoundingSphere()
-
-      const yRadius = Math.max(1, (this.box.max.y - this.box.min.y) / 1.25)
-      var yGeometry = new THREE.TorusBufferGeometry(yRadius, 0.02, 32, 32)
-      this.yCircle.geometry.dispose()
-      this.yCircle.geometry = yGeometry
-      this.yCircle.geometry.computeBoundingSphere()
+    for (let i = 0; i < this.circles.children.length; i++) {
+      this.circles.children[i].scale.set(1 / zoom, 1 / zoom, 1 / zoom)
     }
   }
 
@@ -291,16 +344,8 @@ class Object extends EventEmitter {
   }
 
   deleteRotateCircle() {
-    if (this.xCircle) {
-      this.scene.remove(this.xCircle)
-      this.xCircle.geometry.dispose()
-      this.xCircle = undefined
-    }
-
-    if (this.yCircle) {
-      this.scene.remove(this.yCircle)
-      this.yCircle.geometry.dispose()
-      this.yCircle = undefined
+    if (this.circles) {
+      this.scene.remove(this.circles)
     }
   }
 

@@ -17,7 +17,6 @@
 goog.provide('app.Instruments');
 
 goog.require('app.Audio');
-goog.require('app.Fallback');
 
 /**
  * @typedef {{beat: number}}
@@ -25,16 +24,17 @@ goog.require('app.Fallback');
 app.InstrumentOptions;
 
 /**
+ * @param {number} index in Klang
  * @param {string} name of instrument
  * @param {!app.InstrumentOptions} options of instrument
  * @constructor
  */
-app.Instrument = function(name, options) {
+app.Instrument = function(index, name, options) {
   this.name = name;
   this.el = this.elem.find('.Instrument-' + name.toLowerCase());
   this.container = this.el.closest('.InstrumentContainer');
 
-  this.audio = new app.Audio(name, options.beat);
+  this.audio = new app.Audio(index, name, options.beat);
 
   this.el.on('dropped', (e, data) => {
     this.drop(data);
@@ -146,28 +146,30 @@ app.Instruments = function(elem) {
   app.Instrument.prototype.elem = elem;
   this.stages = elem.find('.Stage');
 
-  this.bass = new app.Instrument('Bass', { beat: 32 });
-  this.drums = new app.Instrument('Drums', { beat: 16 });
-  this.bell = new app.Instrument('Bell', { beat: 16 });
-  this.boombox = new app.Instrument('Boombox', { beat: 32 });
-  this.guitar = new app.Instrument('Guitar', { beat: 32 });
-  this.rap = new app.Instrument('Rap', { beat: 32 });
-  this.sax = new app.Instrument('Sax', { beat: 32 });
-  this.synth = new app.Instrument('Synth', { beat: 32 });
-  this.tamb = new app.Instrument('Tamb', { beat: 16 });
-  this.xylo = new app.Instrument('Xylo', { beat: 32 });
-
+/*
+        "Bass": "EPDs",
+        "Drums": "QcJi",
+        "Bell": "Du2o",
+        "Boombox": "OSie",
+        "Guitar": "Px11",
+        "Rap": "QLAo",
+        "Sax": "LdQ0",
+        "Synth": "uARB",
+        "Tamb": "Jdmw",
+        "Xylo": "SdSp",
+        "Vox": "Pej8",
+*/
   this.instruments = [
-    this.bass,
-    this.drums,
-    this.bell,
-    this.boombox,
-    this.guitar,
-    this.rap,
-    this.sax,
-    this.synth,
-    this.tamb,
-    this.xylo
+    new app.Instrument(0, 'Bass', { beat: 32 }),
+    new app.Instrument(1, 'Drums', { beat: 16 }),
+    new app.Instrument(2, 'Bell', { beat: 16 }),
+    new app.Instrument(3, 'Boombox', { beat: 32 }),
+    new app.Instrument(4, 'Guitar', { beat: 32 }),
+    new app.Instrument(5, 'Rap', { beat: 32 }),
+    new app.Instrument(6, 'Sax', { beat: 32 }),
+    new app.Instrument(7, 'Synth', { beat: 32 }),
+    new app.Instrument(8, 'Tamb', { beat: 16 }),
+    new app.Instrument(9, 'Xylo', { beat: 32 }),
   ];
 
   this.elem.on('dropped returned randomize reset restore', this.checkIfAllEmpty.bind(this));

@@ -1,0 +1,132 @@
+$name: 'module-underconstruction';
+
+@import "../_shared/sass/button";
+
+$mobile-breakpoint: 1100px;
+
+body {
+  overflow: hidden;
+}
+
+##{$name} {
+  main {
+    background: url(img/background.jpg) center/cover no-repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .title {
+    font-family: 'Lobster', sans-serif;
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    width: 100%;
+    z-index: 3;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      top: 30%;
+    }
+  }
+
+  .title__logo {
+    width: 300px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      width: 240px;
+    }
+  }
+
+  .title__text {
+    color: #fff;
+    font-weight: normal;
+    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    line-height: 0.85;
+    margin: 0.4em auto;
+
+    font-size: 96px;
+
+    @media screen and (max-width: $mobile-breakpoint) {
+      font-size: 72px;
+      margin: .25em auto .75em;
+    }
+  }
+
+  .animation {
+    position: absolute;
+
+    &--backhoe {
+      bottom: -4%;
+      height: 75%;
+      right: -11%;
+      width: 50%;
+    }
+
+    &--crane {
+      height: 100%;
+      right: 0;
+      top: -5%;
+      width: 40%;
+      z-index: 1;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        right: -30%;
+        top: -5%;
+        width: 100%;
+      }
+    }
+
+    &--drill {
+      height: 60%;
+      left: 25%;
+      top: 0;
+      width: 30%;
+      z-index: 1;
+    }
+
+    &--snowman {
+      bottom: -12%;
+      left: -7%;
+      height: 80%;
+      width: 60%;
+      z-index: 2;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        bottom: -6%;
+        left: -21%;
+        width: 180%;
+      }
+    }
+
+    &--tower {
+      height: 130%;
+      left: -3%;
+      top: -28%;
+      width: 45%;
+
+      @media screen and (max-width: $mobile-breakpoint) {
+        bottom: -80%;
+        height: auto;
+        left: -400px;
+        top: -70%;
+        width: auto;
+      }
+    }
+
+    &.desktop-only {
+      @media screen and (max-width: $mobile-breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  .ropes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+  }
+}

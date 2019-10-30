@@ -12,15 +12,15 @@ class SnowglobeGame {
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
     this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
     this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
-    this.objectRotateDownUi = element.querySelector('[object-rotate-down-ui]')
+    this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
-    this.objectEditUi = element.querySelector('[object-edit-ui]')
+    this.objectToolbarUi = element.querySelector('[object-toolbar-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
     this.objectRotateRightUi.style.display = `none`
-    this.objectRotateDownUi.style.display = 'none'
-    this.objectEditUi.style.display = `none`
+    this.objectRotateBottomUi.style.display = 'none'
+    this.objectToolbarUi.style.display = `none`
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -138,8 +138,8 @@ class SnowglobeGame {
 
     this.sceneManager.addListener('enter_edit', () => {
       if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-        this.objectRotateDownUi.style.display = `block`
-        this.objectEditUi.style.display = `block`
+        this.objectRotateBottomUi.style.display = `block`
+        this.objectToolbarUi.style.display = `block`
         this.objectRotateRightUi.style.display = `block`
         const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
         this.objectScaleSlider.value = scaleFactor * 10
@@ -161,50 +161,43 @@ class SnowglobeGame {
 
     this.sceneManager.addListener('leave_edit', () => {
       this.objectRotateRightUi.style.display = 'none'
-      this.objectRotateDownUi.style.display = 'none'
-      this.objectEditUi.style.display = 'none'
+      this.objectRotateBottomUi.style.display = 'none'
+      this.objectToolbarUi.style.display = 'none'
     })
 
     const updateEditToolsPos = noScaleInput => {
-      const rightPosition = getPosition('x')
-      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+      const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+      const xArrowHelperPos = getScreenPosition(xArrowHelper)
+      this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-      const downPosition = getPosition('y')
-      this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
+      const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
+      const yArrowHelperPos = getScreenPosition(yArrowHelper)
+      this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
-      const scale = this.sceneManager.activeSubject.xCircle.scale.x
-
-      if (!noScaleInput) {
-        let ghostPos = new THREE.Vector3()
-        this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
-        ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
-        ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
-        ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
-        ghostPos.project(this.sceneManager.cameraCtrl.camera)
-        this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
-          this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 100}px)`
-      }
+      const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
+      const toolbarHelperPos = getScreenPosition(toolbarHelper)
+      this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
     }
 
-    const getPosition = axis => {
-      const scale = this.sceneManager.activeSubject.xCircle.scale.x
-      const { radius } =
-        axis === 'x'
-          ? this.sceneManager.activeSubject.xCircle.geometry.boundingSphere
-          : this.sceneManager.activeSubject.yCircle.geometry.boundingSphere
-      let tempPos = new THREE.Vector3()
-      if (this.sceneManager.activeSubject.ghost) {
-        this.sceneManager.activeSubject.ghost.getWorldPosition(tempPos)
-      } else {
-        this.sceneManager.activeSubject.mesh.getWorldPosition(tempPos)
-      }
-      tempPos[axis] += radius * scale
-      tempPos.project(this.sceneManager.cameraCtrl.camera)
-      const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
-      const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
+    const getScreenPosition = obj => {
+      const { width, height, cameraCtrl: { camera } } = this.sceneManager
+      const vector = new THREE.Vector3()
 
-      return { x, y }
-    }
+      const widthHalf = 0.5 * width
+      const heightHalf = 0.5 * height
+
+      obj.updateMatrixWorld()
+      vector.setFromMatrixPosition(obj.matrixWorld)
+      vector.project(camera)
+
+      vector.x = ( vector.x * widthHalf ) + widthHalf
+      vector.y = - ( vector.y * heightHalf ) + heightHalf
+
+      return {
+          x: vector.x,
+          y: vector.y
+      };
+    };
   }
 
   render(now) {

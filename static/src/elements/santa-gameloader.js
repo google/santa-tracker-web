@@ -94,14 +94,9 @@ class PortControl {
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
-const SANDBOX = 'allow-forms allow-pointer-lock allow-scripts allow-downloads-without-user-activation allow-popups';
-
-
-const assert = (cond, message = 'assertion failed') => {
-  if (!cond) {
-    throw new Error(message);
-  }
-};
+// nb. allow-same-origin is fine, because we're serving on another domain
+// TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
+const SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups';
 
 
 export const events = Object.freeze({
@@ -118,6 +113,7 @@ const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
   iframe.setAttribute('sandbox', SANDBOX);
+  iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
   return iframe;
 };
 

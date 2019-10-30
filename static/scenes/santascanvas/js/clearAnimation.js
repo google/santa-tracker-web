@@ -21,75 +21,72 @@ goog.require('app.utils');
 
 /**
  * @constructor
+ * @param {!HTMLCanvasElement} canvas
+ * @param {string} importPath
  */
-app.ClearAnimation = function($elem, canvas, backupCanvas, importPath) {
+app.ClearAnimation = function(canvas) {
   this.canvas = canvas;
-  this.context = canvas.getContext('2d');
-  this.backup = backupCanvas;
-  this.backupContext = backupCanvas.getContext('2d');
-  this.importPath = importPath;
-  this.playing = false;
-
-  this.frames = [];
-  this.currentFrame = 0;
-  this.timeUntilNextFrame = 0;
-
-  this.preloadFrames();
+  this.context = /** @type {!CanvasRenderingContext2D} */ (canvas.getContext('2d'));
+  this.callback = null;
+  this.animationStart_ = 0;
 };
 
 
-app.ClearAnimation.prototype.preloadFrames  = function() {
-  for (var i = 0; i < app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES; i++) {
-    var image = new Image();
-    image.setAttribute('crossOrigin', 'anonymous');
-    image.src = this.importPath + 'img/avalanche/avalanche_' + i + '.png';
-    this.frames.push(image);
-  }
-};
-
-
-app.ClearAnimation.prototype.beginAnimation  = function(callback) {
-  if (this.playing) {
+app.ClearAnimation.prototype.beginAnimation = function(callback) {
+  if (this.animationStart_) {
     return;
   }
 
   this.callback = callback;
-  this.playing = true;
+  this.animationStart_ = performance.now();
 };
 
 
-app.ClearAnimation.prototype.reset  = function() {
-  this.playing = false;
-  this.currentFrame = 0;
-  this.timeUntilNextFrame = 0;
-};
-
-
-app.ClearAnimation.prototype.update = function(delta) {
-  if (!this.playing) {
+app.ClearAnimation.prototype.update = function() {
+  if (!this.animationStart_) {
     return;
   }
 
-  if (this.currentFrame >= app.Constants.CLEAR_ANIMATION_TOTAL_FRAMES) {
-    this.callback();
-    this.reset();
+  const canvas = this.canvas;
+  const context = this.context;
+
+  const now = (performance.now() - this.animationStart_) / 1000;  // in seconds
+  if (now >= app.Constants.CLEAR_ANIMATION_SECONDS) {
+    this.animationStart_ = 0;
+    this.callback && this.callback();
     return;
   }
 
-  if (this.timeUntilNextFrame > delta) {
-    this.timeUntilNextFrame -= delta;
-  } else {
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.backupContext.clearRect(0, 0, this.backup.width, this.backup.height);
+  const snowflakes = 100;
+  const snowflakeRoot = ~~Math.sqrt(snowflakes);
+  const animationFrac = now / app.Constants.CLEAR_ANIMATION_SECONDS;
+  const adjusted = (-Math.cos(animationFrac * Math.PI) + 1) / 2;  // ease-in-out
 
-    // draw frame to backupContext
-    this.backupContext.drawImage(this.frames[this.currentFrame], 0, 0,
-        this.backup.width, this.backup.height);
+  // mid color: #edf5f7, rgb(237, 245, 247)
+  const lerpAdjust = -Math.cos(animationFrac * Math.PI / 2) + 1;  // ease-in
+  const lerp = (a, b) => Math.round(a + (b - a) * lerpAdjust);
+  const snowflakeColor = `rgba(${lerp(237, 255)}, ${lerp(245, 255)}, ${lerp(247, 255)})`;
 
-    this.context.drawImage(this.backup, 0, 0, this.canvas.width,
-        this.canvas.height);
+  canvas.width = canvas.width;  // cheap clear (allocates new memory)
+  context.save();
 
-    this.timeUntilNextFrame = 33;
-    this.currentFrame++;
+  for (let i = 0; i < snowflakes; ++i) {
+    const row = (i % snowflakeRoot) / snowflakeRoot;
+    const col = ~(i / snowflakeRoot) / snowflakeRoot;
+
+    const x = row - 1.0 + adjusted + Math.cos(this.animationStart_ + i) / 4;
+    const y = Math.sin(animationFrac * Math.PI / 2) + col;
+
+    const radius = animationFrac * (Math.max(canvas.width, canvas.height) / 10) * (Math.cos(i) + 2);  // in real units
+    const gradient = context.createRadialGradient(x * canvas.width, y * canvas.height, 0, x * canvas.width, y * canvas.height, radius);
+    gradient.addColorStop(animationFrac, snowflakeColor);
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
+
+    context.fillStyle = gradient;
+    context.beginPath();
+    context.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI);
+    context.fill();
   }
+
+  context.restore();
 };

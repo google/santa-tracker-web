@@ -103,8 +103,8 @@ const Util = {
     const secondsPerBeat = bpm / 60;  // seconds per beat
     const p1 = (from ? from.position : 0) || 0;  // .position might be NaN or invalid
     const beat1 = p1 * secondsPerBeat;
-
     sync = sync || 4;
+
     let toNextBar = sync - beat1 % sync;
     if (toNextBar < 0.5) {
       toNextBar += sync;
@@ -113,7 +113,7 @@ const Util = {
     const toNextBarSec = from.playing ? toNextBar * beatsPerSecond : 0;
     const scheduleTime = now + toNextBarSec;
 
-    to.play(scheduleTime, setOffset || 0);
+    to.play(scheduleTime);
 
     const toStop = fromCandidates.filter((c) => !c.stopping && c !== to);
     toStop.forEach((stop) => stop.fadeOutAndStop(fadeOutTime, scheduleTime));
@@ -260,12 +260,18 @@ class EffectSteroPanner {
   // EffectBiquadFilter exposes individial AudioParam instances.
 
   constructor(config) {
-    this._panner = masterContext.createStereoPanner();
+    // does not use createStereoPanner, Safari doesn't support it
+    this._panner = masterContext.createPanner();
+    this._panner.panningModel = 'equalpower';
 
     this._originalPan = config['pan'] || 0.0;
-    this._panner.pan.value = this._originalPan;  // mutable
+    this.pan = this._originalPan;
+  }
 
-    this.linPanTo = Util.curveParamLin.bind(null, this._panner.pan);
+  linPanTo(value, duration) {
+    // match 'set pan' but curve value
+    Util.curveParamLin(this._panner.orientationX, value, duration);
+    Util.curveParamLin(this._panner.orientationZ, 1 - Math.abs(value), duration);
   }
 
   reset(duration=0.0) {
@@ -277,11 +283,11 @@ class EffectSteroPanner {
   }
 
   get pan() {
-    return this._panner.pan.value;
+    return this._panner.orientationX.value;
   }
 
   set pan(value) {
-    this._panner.pan.value = value;
+    this._panner.setPosition(value, 0, 1 - Math.abs(value));
   }
 }
 
@@ -311,9 +317,8 @@ class AudioBus {
     this._input = masterContext.createGain();
     this._output = masterContext.createGain();
 
-    this._originalInputVolume = config['input_vol'] || 1.0;
-    this._originalOutputVolume = config['output_vol'] || 1.0;
-
+    this._originalInputVolume = config['input_vol'] !== undefined ? config['input_vol'] : 1.0;
+    this._originalOutputVolume = config['output_vol'] !== undefined ? config['output_vol'] : 1.0;
     // both mutable
     this._input.gain.value = this._originalInputVolume;
     this._output.gain.value = this._originalOutputVolume;
@@ -380,7 +385,7 @@ class AudioGroup extends EventTarget {
   constructor(config, nodes) {
     super();
 
-    this._type = config['group_type'] || 2;
+    this._type = 'group_type' in config ? config['group_type'] : 2;
     this._active = null;
 
     if (config['retrig']) {
@@ -418,12 +423,19 @@ class AudioGroup extends EventTarget {
   }
 
   get active() {
-    if (this._active) {
+    if (this._active && this._active.playing) {
       return [this._active];
     } else if (!this._type && this._content[0] && this._content[0].playing) {
       return this._content.slice();
     }
     return [];
+  }
+
+  get latestPlayed() {
+    if (this._active && this._active.playing) {
+      return this._active;
+    }
+    return null;
   }
 
   get playing() {
@@ -454,22 +466,27 @@ class AudioGroup extends EventTarget {
   /**
    * @param {function(AudioNode): void} callback
    * @param {boolean=} playLike whether this is a playing action and should advance
+   * @param {number=} index an index to force
    */
-  _each(callback, playLike=false) {
-    if (playLike && this.playing) {
+  _each(callback, playLike=false, index=-1) {
+    if (playLike && this.playing && !this.stopping) {
       return false;  // do nothing if still playing
     }
     const c = this._content;
 
     if (!this._type) {
+      // This is concurrent. Enact on all.
       c.forEach(callback);
       return true;
     }
 
     if (playLike) {
       // Optionally advance the played audio.
-      let index;
       do {
+        if (index >= 0 && index < c.length) {
+          break;  // explicit index requested
+        }
+
         if (this._type == AudioGroup.types.RANDOM) {
           // Choose a new random audio, even the same sample.
           index = ~~(Math.random() * c.length);
@@ -501,16 +518,19 @@ class AudioGroup extends EventTarget {
     return false;
   }
 
-  play(when) {
+  play(when, index=-1) {
+    if (typeof index !== 'number') {
+      throw new TypeError('can only force play a specific index');
+    }
     this.dispatchEvent(new Event('trigger'));
-    const played = this._each((c) => c.play(when), true);
+    const played = this._each((c) => c.play(when), true, index);
     if (!played) {
       this.active.forEach((c) => c.dispatchEvent(new Event('trigger')));
     }
   }
 
   stop() {
-    this._each((c) => c.stop(), false);
+    this._each((c) => c.stop());
   }
 
   fadeInAndPlay(duration, when) {
@@ -980,7 +1000,7 @@ export async function prepare() {
    * @param {string} key
    * @return {!Object}
    */
-  const prepareKey = (key) => {
+  const internalPrepareKey = (key) => {
     if (key in nodes) {
       return nodes[key];  // nothing to do
     }
@@ -993,7 +1013,7 @@ export async function prepare() {
       c['content'] || [],
       c['destination_name'] || [],
     ).filter((x) => !(x === '$OUT' || x in nodes));
-    deps.forEach(prepareKey);
+    deps.forEach(internalPrepareKey);
 
     const node = prepareKNode(key, c, nodes);
     if (node instanceof AudioBus) {
@@ -1132,31 +1152,31 @@ export async function prepare() {
         return true;
       }
 
-      const entrypoint = config['events'][event];  // get internal name from friendly
-      if (entrypoint === undefined) {
-        if (typeof event === 'string') {
-          console.debug('audio missing', event);
-          return false;
-        }
-        console.warn('got invalid arg for play()', event);
-        throw new Error(`invalid type for play()`);
-      }
+      // get internal name from friendly
+      const entrypoint = config['events'][event] || config['exportedSymbols'][event];
+      const e = entrypoint ? internalPrepareKey(entrypoint) : null;
 
-      const e = prepareKey(entrypoint);
-
-      if (e instanceof AudioSource) {
+      if (e instanceof AudioSource || e instanceof AudioGroup) {
+        // Just play the simple audio. This could be a loop.
         return e.play();
-      } else if (!(e instanceof SimpleProcess)) {
-        throw new Error('can only run SimpleProcess');
+      } else if (e instanceof SimpleProcess) {
+        // Run the process.
+        try {
+          activeController = this;
+          return e.start(args);
+        } finally {
+          activeController = null;
+        }
       }
 
-      try {
-        activeController = this;
-        e.start(args);
-      } finally {
-        activeController = null;
+      if (typeof event === 'string') {
+        console.debug('audio missing', event);
+        return false;
       }
+      console.warn('got invalid arg for kplay lookup', event);
+      throw new Error(`invalid type for kplay`);
     },
+
   };
 }
 
