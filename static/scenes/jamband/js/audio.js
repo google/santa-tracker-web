@@ -30,10 +30,7 @@ app.Audio = function(index, name, beat) {
   this.timeout = 0;
 
   this._bpm = 120;  // all 120
-  this.beatSync16th = (beat / 16) * 4;
-  if (this.beatSync16th !== 4 && this.beatSync16th !== 8) {
-    throw new TypeError(`expected beat to be 16 or 32, was: ${beat} for ${name}`);
-  }
+  this.beatSync16th = 4; //start on next bar
 
   this.beatduration = 60 / this._bpm;
   this.beatsPerSecond = 1 / this.beatduration;
