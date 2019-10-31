@@ -45,6 +45,7 @@ class SceneManager extends EventEmitter {
     this.zoom = this.zoom.bind(this)
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
+    this.colorObject = this.colorObject.bind(this)
 
     this.onGui = this.onGui.bind(this)
     this.onMaterialGui = this.onMaterialGui.bind(this)
@@ -223,12 +224,12 @@ class SceneManager extends EventEmitter {
     this.renderer.setSize(this.width, this.height)
   }
 
-  onKeydown(event) {
-    event.preventDefault()
+  onKeydown(e) {
+    e.preventDefault()
 
     const elapsedTime = this.clock.getElapsedTime()
 
-    switch (event.key) {
+    switch (e.key) {
       case 'ArrowRight':
         this.rotate('right')
         break
@@ -246,21 +247,21 @@ class SceneManager extends EventEmitter {
 
     for (let i = 0; i < this.sceneSubjects.length; i++) {
       if (typeof this.sceneSubjects[i].onKeydown === 'function') {
-        this.sceneSubjects[i].onKeydown(event, elapsedTime, this.checkOverlap)
+        this.sceneSubjects[i].onKeydown(e, elapsedTime, this.checkOverlap)
       }
     }
   }
 
-  onMouseMove(event) {
-    event.preventDefault()
+  onMouseMove(e) {
+    e.preventDefault()
 
     if (this.mouseState === 'down' && this.mode === '') {
       this.setMode('drag')
     }
 
-    if (event) {
-      this.mouse.x = (event.clientX / this.width) * 2 - 1
-      this.mouse.y = -(event.clientY / this.height) * 2 + 1
+    if (e) {
+      this.mouse.x = (e.clientX / this.width) * 2 - 1
+      this.mouse.y = -(e.clientY / this.height) * 2 + 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
@@ -281,15 +282,15 @@ class SceneManager extends EventEmitter {
         this.mouseInEdge = null
       } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
-        this.detectMouseInEdge(event)
+        this.detectMouseInEdge(e)
       }
     }
 
     if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
   }
 
-  onMouseDown(event) {
-    event.preventDefault()
+  onMouseDown(e) {
+    e.preventDefault()
 
     this.mouseState = 'down'
 
@@ -325,8 +326,8 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  onMouseUp(event) {
-    event.preventDefault()
+  onMouseUp(e) {
+    e.preventDefault()
     if (this.selectedSubject && this.mode === 'move') {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
@@ -337,14 +338,14 @@ class SceneManager extends EventEmitter {
     this.mouseState = 'up'
   }
 
-  rotateCamera(event) {
-    const el = event.currentTarget
+  rotateCamera(e) {
+    const el = e.currentTarget
     this.cameraCtrl.rotate(el.dataset.rotateCamera, this.terrain)
     this.pushButton(el)
   }
 
-  zoom(event) {
-    const el = event.currentTarget
+  zoom(e) {
+    const el = e.currentTarget
     this.cameraCtrl.zoom(el.dataset.zoom)
     this.pushButton(el)
   }
@@ -356,29 +357,21 @@ class SceneManager extends EventEmitter {
     }, 200)
   }
 
-  onButtonClick(id, el) {
-    switch (id) {
-      case 'open-colors-range':
-        el.classList.add('is-open')
-        break
-      case 'pick-color':
-        if (this.activeSubject) {
-          this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.color)
-          this.activeSubject.mesh.material.needsUpdate = true
+  colorObject(e) {
+    const el = e.currentTarget
+    if (this.activeSubject) {
+      this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.colorObject)
+      this.activeSubject.mesh.material.needsUpdate = true
 
-          this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.color, 15))
-          this.activeSubject.materials.highlight.needsUpdate = true
-        }
-        break
-      default:
-        break
+      this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
+      this.activeSubject.materials.highlight.needsUpdate = true
     }
   }
 
-  onWheel(event) {
-    if (event.deltaY < 0) {
+  onWheel(e) {
+    if (e.deltaY < 0) {
       this.cameraCtrl.rotate('left', this.terrain, true)
-    } else if (event.deltaY > 0) {
+    } else if (e.deltaY > 0) {
       this.cameraCtrl.rotate('right', this.terrain, true)
     }
 
@@ -542,9 +535,9 @@ class SceneManager extends EventEmitter {
       .filter(box => box)
   }
 
-  detectMouseInEdge(event) {
-    const x = event.clientX
-    const y = event.clientY
+  detectMouseInEdge(e) {
+    const x = e.clientX
+    const y = e.clientY
 
     if (x < this.edgesSize) {
       this.mouseInEdge = 'left'
