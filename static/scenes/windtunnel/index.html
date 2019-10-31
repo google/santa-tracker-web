@@ -182,10 +182,10 @@
 
   const game = new Game(document.getElementById('module-windtunnel'));
 
-  api.ready(async () => {
-    api.ambient('windtunnel_start', 'windtunnel_end');
-    api.fire('music_start_scene');
+  api.config({
+    sound: ['windtunnel_start', 'music_start_scene'],
   });
+
 
 </script>
 
