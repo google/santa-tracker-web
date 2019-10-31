@@ -1,6 +1,7 @@
 import { EventEmitter } from '../../event-emitter.js'
 import { toRadian } from '../../utils/math.js'
 import { darken } from '../../utils/colors.js'
+import { isTouchDevice } from '../../helpers.js'
 
 // Config
 import CONFIG from './config.js'
@@ -32,6 +33,8 @@ class SceneManager extends EventEmitter {
   constructor(canvas) {
     super()
     this.canvas = canvas
+
+    this.isTouchDevice = isTouchDevice()
 
     // bind
     this.onWindowResize = this.onWindowResize.bind(this)
@@ -105,10 +108,16 @@ class SceneManager extends EventEmitter {
   events() {
     window.addEventListener('resize', this.onWindowResize, { passive: true })
     document.addEventListener('keydown', this.onKeydown)
-    this.canvas.addEventListener('mousemove', this.onMouseMove)
-    this.canvas.addEventListener('mousedown', this.onMouseDown)
-    this.canvas.addEventListener('mouseup', this.onMouseUp)
-    this.canvas.addEventListener('wheel', this.onWheel)
+
+    if (this.isTouchDevice) {
+      this.canvas.addEventListener('touchstart', this.onMouseDown)
+      document.body.addEventListener('touchend', this.onMouseUp)
+    } else {
+      this.canvas.addEventListener('mousemove', this.onMouseMove)
+      this.canvas.addEventListener('mousedown', this.onMouseDown)
+      this.canvas.addEventListener('mouseup', this.onMouseUp)
+      this.canvas.addEventListener('wheel', this.onWheel)
+    }
   }
 
   initCannon() {
@@ -329,7 +338,10 @@ class SceneManager extends EventEmitter {
   }
 
   onMouseUp(e) {
-    e.preventDefault()
+    if (e.type !== 'touchend') {
+      e.preventDefault()
+    }
+
     if (this.selectedSubject && this.mode === 'move') {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
