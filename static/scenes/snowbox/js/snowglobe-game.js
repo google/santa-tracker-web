@@ -10,59 +10,45 @@ class SnowglobeGame {
 
   constructor(element) {
     this.canvas = element.querySelector('#canvas')
-    this.actionBtns = [...element.querySelectorAll('[data-button]')]
-    this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
-    this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
+    this.openColorsBtn = element.querySelector('[data-open-colors]')
+    this.colorObjectBtns = [...element.querySelectorAll('[data-color-object]')]
+    this.addShapeBtns = [...element.querySelectorAll('[data-add-shape]')]
+    this.rotateObjectBtns = [...element.querySelectorAll('[data-rotate-object]')]
+    this.rotateCameraBtns = [...element.querySelectorAll('[data-rotate-camera]')]
+    this.zoomBtns = [...element.querySelectorAll('[data-zoom]')]
     this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
     this.objectToolbarUi = element.querySelector('[object-toolbar-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
-    this.isTouchDevice = isTouchDevice()
 
-    this.objectRotateRightUi.style.display = `none`
-    this.objectRotateBottomUi.style.display = 'none'
-    this.objectToolbarUi.style.display = `none`
+    this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
+    this.enterEditMode = this.enterEditMode.bind(this)
+    this.hideEditTools = this.hideEditTools.bind(this)
+
+    this.isTouchDevice = isTouchDevice()
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
-    const render = now => {}
-
-    this.bindEventListeners()
+    this.hideEditTools()
+    this.events()
     this.render()
   }
 
-  bindEventListeners() {
-    window.addEventListener('resize', () => {
-      this.sceneManager.onWindowResize()
+  events() {
+    // global UI
+    this.zoomBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.zoom)
     })
 
-    document.addEventListener('keydown', e => {
-      this.sceneManager.onKeydown(e)
+    this.rotateCameraBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.rotateCamera)
     })
 
-    this.canvas.addEventListener('mousemove', this.onCanvasMouseMove.bind(this))
-    // this.canvas.addEventListener('touchmove', this.onCanvasMouseMove.bind(this))
-    this.canvas.addEventListener('mousedown', this.onCanvasMouseDown.bind(this))
-    this.canvas.addEventListener('touchstart', this.onCanvasMouseDown.bind(this))
-    this.canvas.addEventListener('mouseup', this.onCanvasMouseUp.bind(this))
-    if (!this.isTouchDevice) {
-      this.canvas.addEventListener('wheel', this.onCanvasWheel.bind(this))
-    }
-
-    document.body.addEventListener('touchmove', this.onBodyTouchMove.bind(this))
-    document.body.addEventListener('touchend', this.onCanvasMouseUp.bind(this))
-
-    this.actionBtns.forEach(button => {
-      button.addEventListener('click', e => {
-        this.onButtonClick(e, button)
-      })
-    })
-
-    this.actionDragBtns.forEach(button => {
+    this.addShapeBtns.forEach(button => {
       button.addEventListener('mousedown', e => {
         this.onButtonMouseDown(e, button)
       })
@@ -72,78 +58,72 @@ class SnowglobeGame {
       })
     })
 
-    let rotateInterval
+    /////// Merge from mobile after refacto
 
-    this.rotateBtns.forEach(button => {
+    if (this.isTouchDevice) {
+      document.body.addEventListener('touchmove', this.onBodyTouchMove.bind(this))
+    }
+
+    ///////
+
+    // object UI
+    this.openColorsBtn.addEventListener('click', this.openColors)
+    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
+
+    this.colorObjectBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.colorObject)
+    })
+
+    let rotateObjectInterval
+
+    this.rotateObjectBtns.forEach(button => {
       button.addEventListener('click', e => {
-        this.sceneManager.onButtonClick(button.dataset.rotateButton)
+        const el = e.currentTarget
+        this.sceneManager.rotateObject(el)
         button.classList.add('is-clicked')
       })
 
       button.addEventListener('mousedown', e => {
         e.preventDefault()
-        rotateInterval = setInterval(() => {
-          this.sceneManager.onButtonClick(button.dataset.rotateButton)
+        const el = e.currentTarget
+        rotateObjectInterval = setInterval(() => {
+          this.sceneManager.rotateObject(el)
           button.classList.add('is-clicked')
         }, 200)
       })
 
       button.addEventListener('mouseup', e => {
         e.preventDefault()
-        clearInterval(rotateInterval)
+        clearInterval(rotateObjectInterval)
         setTimeout(() => {
           button.classList.remove('is-clicked')
         }, 200)
       })
     })
 
-    this.objectScaleSlider.addEventListener('input', e => {
-      this.sceneManager.onScaleInput(e)
-    })
-
-    this.sceneManager.addListener('enter_edit', this.onEnterEdit.bind(this))
-
-    this.sceneManager.addListener('move_camera', this.onMoveCamera.bind(this))
-
-    this.sceneManager.addListener('scale_object', this.onScaleObject.bind(this))
-
-    this.sceneManager.addListener('leave_edit', this.onLeaveEdit.bind(this))
+    // custom events
+    this.sceneManager.addListener('enter_edit', this.enterEditMode)
+    this.sceneManager.addListener('leave_edit', this.hideEditTools)
+    this.sceneManager.addListener('move_camera', this.updateEditToolsPos)
+    this.sceneManager.addListener('scale_object', this.updateEditToolsPos)
   }
 
-  render(now) {
-    this.stats.begin()
-    this.sceneManager.update(now)
-    this.stats.end()
+  /////// Merge from mobile after refacto
 
-    requestAnimationFrame(this.render.bind(this))
-  }
-
-  onCanvasMouseDown(e) {
-    e.preventDefault()
-    this.sceneManager.onMouseDown(e)
-  }
-
-  onCanvasMouseUp(e) {
-    if (e.type !== 'touchend') {
+  onButtonMouseDown(e, button) {
+    const mouseLeaveListener = () => {
       e.preventDefault()
+      const { addShape, shapeMaterial } = button.dataset
+      this.sceneManager.addShape(addShape, shapeMaterial)
+      button.removeEventListener('mouseleave', mouseLeaveListener)
     }
-    this.sceneManager.onMouseUp()
-    if (this.sceneManager.mode !== 'move' && this.sceneManager.mode !== 'edit') {
-      this.sceneManager.setMode()
-    }
-  }
-
-  onCanvasMouseMove(e) {
     e.preventDefault()
-    if (this.sceneManager.mouseState === 'down' && this.sceneManager.mode === '') {
-      this.sceneManager.setMode('drag')
-    }
-    this.sceneManager.onMouseMove(e)
-  }
 
-  onCanvasWheel(e) {
-    e.preventDefault()
-    this.sceneManager.onWheel(e)
+    if (e.type === 'touchstart') {
+      this.addingShape = button
+    } else {
+      button.addEventListener('mouseleave', mouseLeaveListener)
+    }
   }
 
   onBodyTouchMove(e) {
@@ -155,7 +135,8 @@ class SnowglobeGame {
       this.addingShape !== currentTargetedElement &&
       currentTargetedElement.parentElement != this.addingShape
     ) {
-      this.sceneManager.onButtonClick(this.addingShape.dataset.buttonDrag)
+      const { addShape, shapeMaterial } = this.addingShape.dataset
+      this.sceneManager.addShape(addShape, shapeMaterial)
       this.addingShape = false
     }
 
@@ -166,104 +147,52 @@ class SnowglobeGame {
     this.sceneManager.onMouseMove(e)
   }
 
-  onButtonClick(e, button) {
-    e.preventDefault()
-    this.sceneManager.onButtonClick(button.dataset.button)
-    button.classList.add('is-clicked')
-    setTimeout(() => {
-      button.classList.remove('is-clicked')
-    }, 200)
+  ///////
+
+  enterEditMode() {
+    this.showEditTools()
+    const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
+    this.objectScaleSlider.value = scaleFactor * 10
+    this.updateEditToolsPos()
   }
 
-  onButtonMouseDown(e, button) {
-    const mouseLeaveListener = () => {
-      e.preventDefault()
-      this.sceneManager.onButtonClick(button.dataset.buttonDrag)
-      button.removeEventListener('mouseleave', mouseLeaveListener)
-    }
-
-    e.preventDefault()
-
-    if (e.type === 'touchstart') {
-      this.addingShape = button
-    } else {
-      button.addEventListener('mouseleave', mouseLeaveListener)
-    }
-
-    button.classList.add('is-clicked')
-    setTimeout(() => {
-      button.classList.remove('is-clicked')
-    }, 200)
+  showEditTools() {
+    this.objectRotateRightUi.style.display = 'block'
+    this.objectRotateBottomUi.style.display = 'block'
+    this.objectToolbarUi.style.display = 'block'
   }
 
-  onEnterEdit() {
-    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-      this.objectRotateDownUi.style.display = `block`
-      this.objectEditUi.style.display = `block`
-      this.objectRotateRightUi.style.display = `block`
-      const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
-      this.objectScaleSlider.value = scaleFactor * 10
-      this.updateEditToolsPos()
-    }
-  }
-
-  onMoveCamera() {
-    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-      this.updateEditToolsPos()
-    }
-  }
-
-  onScaleObject() {
-    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-      this.updateEditToolsPos(true)
-    }
-  }
-
-  onLeaveEdit() {
+  hideEditTools() {
     this.objectRotateRightUi.style.display = 'none'
-    this.objectRotateDownUi.style.display = 'none'
-    this.objectEditUi.style.display = 'none'
+    this.objectRotateBottomUi.style.display = 'none'
+    this.objectToolbarUi.style.display = 'none'
   }
 
-  updateEditToolsPos(noScaleInput) {
-    const rightPosition = this.getPosition('x')
-    this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+  updateEditToolsPos() {
+    const xArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+    const xArrowHelperPos = this.sceneManager.getScreenPosition(xArrowHelper)
+    this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-    const downPosition = this.getPosition('y')
-    this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
+    const yArrowHelper = this.sceneManager.scene.getObjectByName( 'arrow-helper-y' )
+    const yArrowHelperPos = this.sceneManager.getScreenPosition(yArrowHelper)
+    this.objectRotateBottomUi.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
-    const scale = this.sceneManager.activeSubject.xCircle.scale.x
-
-    if (!noScaleInput) {
-      let ghostPos = new THREE.Vector3()
-      this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
-      ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
-      ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
-      ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
-      ghostPos.project(this.sceneManager.cameraCtrl.camera)
-      this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
-        this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 100}px)`
-    }
+    const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
+    const toolbarHelperPos = this.sceneManager.getScreenPosition(toolbarHelper)
+    this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
   }
 
-  getPosition(axis) {
-    const scale = this.sceneManager.activeSubject.xCircle.scale.x
-    const { radius } =
-      axis === 'x'
-        ? this.sceneManager.activeSubject.xCircle.geometry.boundingSphere
-        : this.sceneManager.activeSubject.yCircle.geometry.boundingSphere
-    let tempPos = new THREE.Vector3()
-    if (this.sceneManager.activeSubject.ghost) {
-      this.sceneManager.activeSubject.ghost.getWorldPosition(tempPos)
-    } else {
-      this.sceneManager.activeSubject.mesh.getWorldPosition(tempPos)
-    }
-    tempPos[axis] += radius * scale
-    tempPos.project(this.sceneManager.cameraCtrl.camera)
-    const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
-    const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
+  openColors(e) {
+    const el = e.currentTarget
+    el.classList.toggle('is-open')
+  }
 
-    return { x, y }
+  render(now) {
+    this.stats.begin()
+    this.sceneManager.update(now)
+    this.stats.end()
+
+    requestAnimationFrame(this.render.bind(this))
   }
 
   setup() {}
