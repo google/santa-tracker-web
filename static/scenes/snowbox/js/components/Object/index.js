@@ -207,7 +207,6 @@ class Object extends EventEmitter {
       this.defaultMeshScale.z * scaleFactor
     )
     this.scaleFactor = scaleFactor
-    this.updateRotatingCircle()
   }
 
   scaleBody() {
