@@ -101,11 +101,11 @@ export class Points extends THREE.Object3D {
     // as the whole Geometry is at a specific position, must specify point location
     this._offsets = new THREE.BufferAttribute(new Float32Array(points * 3), 3);
     this._sprites = new THREE.BufferAttribute(new Float32Array(points), 1);
-    this._offsets.dynamic = true;
-    this._sprites.dynamic = true;
+    this._offsets.setUsage(THREE.DynamicDrawUsage);
+    this._sprites.setUsage(THREE.DynamicDrawUsage);
 
-    geometry.addAttribute('position', this._offsets);
-    geometry.addAttribute('spriteIndex', this._sprites);
+    geometry.setAttribute('position', this._offsets);
+    geometry.setAttribute('spriteIndex', this._sprites);
 
     for (let i = 0; i < points; ++i) {
       this._offsets.setXYZ(i, 0, 0, 0);
