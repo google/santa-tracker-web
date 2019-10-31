@@ -67,7 +67,7 @@ class SceneManager extends EventEmitter {
 
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
-    this.initGui()
+    // this.initGui()
   }
 
   initGui() {

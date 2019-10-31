@@ -4,7 +4,7 @@
 import { toRadian } from '../../../utils/math.js'
 
 const textureLoader = new THREE.TextureLoader()
-const imagePrefix = './img/skybox-example/';
+const imagePrefix = './img/skybox/';
 var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
 var imageSuffix = ".png";
 const materialArray = []
@@ -25,10 +25,12 @@ class Sky {
 
   init() {
 
-    var skyGeometry = new THREE.CubeGeometry( 200, 200, 200 );
+    var skyGeometry = new THREE.CubeGeometry( 50, 50, 50 );
 
     var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
     var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
+    skyBox.position.y = -15
+    skyBox.rotation.y = Math.PI / 2
     this.scene.add( skyBox );
   }
 }
