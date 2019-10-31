@@ -62,6 +62,7 @@
   &.is-open {
     .colors-ui__range {
       opacity: 1;
+      pointer-events: auto;
     }
   }
 
@@ -75,6 +76,7 @@
     transform: translateY(-100%);
     opacity: 0;
     transition: opacity .3s ease;
+    pointer-events: none;
   }
 
   &__list {

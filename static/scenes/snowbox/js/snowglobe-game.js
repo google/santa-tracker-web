@@ -21,10 +21,6 @@ class SnowglobeGame {
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
-    this.objectRotateRightUi.style.display = `none`
-    this.objectRotateBottomUi.style.display = 'none'
-    this.objectToolbarUi.style.display = `none`
-
     this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
     this.enterEdit = this.enterEdit.bind(this)
     this.leaveEdit = this.leaveEdit.bind(this)
@@ -33,6 +29,7 @@ class SnowglobeGame {
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
+    this.leaveEdit()
     this.events()
     this.render()
   }
