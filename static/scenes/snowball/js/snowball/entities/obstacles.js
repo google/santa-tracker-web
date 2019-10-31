@@ -1,7 +1,7 @@
-import { Entity } from '../../engine/core/entity.js';
-import { Rectangle, Circle } from '../../engine/utils/collision-2d.js';
-import { tiles } from '../textures.js';
-import { constants, fade, shake, sink } from '../shader-partials.js';
+import {Entity} from '../../engine/core/entity.js';
+import {Circle, Rectangle} from '../../engine/utils/collision-2d.js';
+import {constants, fade, shake, sink} from '../shader-partials.js';
+import {tiles} from '../textures.js';
 
 const {
   Mesh,
@@ -112,33 +112,21 @@ const EntityObject3D = Entity(Object3D);
 
 export class Obstacles extends EntityObject3D {
   setup(game) {
-    const { mapSystem } = game;
-    const { grid } = mapSystem;
+    const {mapSystem} = game;
+    const {grid} = mapSystem;
 
     const uniforms = {
-      time: {
-        value: 0
-      },
-      map: {
-        value: tiles(game.assetBaseUrl)
-      },
-      tileScale: {
-        value: grid.cellSize
-      },
-      tileHeight: {
-        value: grid.cellHeight
-      }
+      time: {value: 0},
+      map: {value: tiles(game.assetBaseUrl)},
+      tileScale: {value: grid.cellSize},
+      tileHeight: {value: grid.cellHeight}
     };
 
     const planeGeometry = new PlaneBufferGeometry(2.0, 2.0);
 
     const geometry = new InstancedBufferGeometry();
-    const material = new RawShaderMaterial({
-      vertexShader,
-      fragmentShader,
-      uniforms,
-      transparent: true
-    });
+    const material =
+        new RawShaderMaterial({vertexShader, fragmentShader, uniforms, transparent: true});
 
     planeGeometry.applyMatrix(orientationMesh.matrix);
 
@@ -172,9 +160,9 @@ export class Obstacles extends EntityObject3D {
 
     const geometry = this.geometry;
     if (map) {
-      geometry.addAttribute('tileOffset', map.tileOffsets);
-      geometry.addAttribute('tileState', map.tileStates);
-      geometry.addAttribute('tileObstacle', map.tileObstacles);
+      geometry.setAttribute('tileOffset', map.tileOffsets);
+      geometry.setAttribute('tileState', map.tileStates);
+      geometry.setAttribute('tileObstacle', map.tileObstacles);
     } else {
       geometry.removeAttribute('tileOffset');
       geometry.removeAttribute('tileState');

@@ -1,12 +1,9 @@
-import { HexCoord } from '../../engine/utils/hex-coord.js';
-import { SeedRandom } from '../utils/seed-random.js';
+import {HexCoord} from '../../engine/utils/hex-coord.js';
+import {SeedRandom} from '../utils/seed-random.js';
 
 const treeTypes = 4;
 
-const {
-  BufferAttribute,
-  InstancedBufferAttribute
-} = self.THREE;
+const {BufferAttribute, InstancedBufferAttribute} = self.THREE;
 
 /**
  * Tile state reference:
@@ -26,14 +23,11 @@ export class GameMap {
 
     const tileCount = grid.width * grid.height;
 
-    const tileStates = new InstancedBufferAttribute(
-        new Float32Array(tileCount * 2), 2, 1);
+    const tileStates = new InstancedBufferAttribute(new Float32Array(tileCount * 2), 2, false, 1);
 
-    const tileOffsets = new InstancedBufferAttribute(
-        new Float32Array(tileCount * 3), 3, 1);
+    const tileOffsets = new InstancedBufferAttribute(new Float32Array(tileCount * 3), 3, false, 1);
 
-    const tileObstacles = new InstancedBufferAttribute(
-        new Float32Array(tileCount), 1, 1);
+    const tileObstacles = new InstancedBufferAttribute(new Float32Array(tileCount), 1, false, 1);
 
     const oddq = new HexCoord();
     const halfSize = new HexCoord(grid.width / 2.0, grid.height / 2.0, 0);
@@ -60,16 +54,10 @@ export class GameMap {
 
         // Decide the initial state of the tile (either hidden or shown):
         const erosionChance = 0.5 + magDelta / erosionMag;
-        const state = mag > erosionMag
-            ? seedRandom.random() < erosionChance
-                ? 0.0
-                : 1.0
-            : 1.0;
+        const state = mag > erosionMag ? seedRandom.random() < erosionChance ? 0.0 : 1.0 : 1.0;
 
         // 15% chance to be a random tree for now:
-        const obstacle = seedRandom.random() > 0.85
-            ? seedRandom.randRange(treeTypes)
-            : -1.0;
+        const obstacle = seedRandom.random() > 0.85 ? seedRandom.randRange(treeTypes) : -1.0;
 
         if (state > 0.0) {
           // Build up an array of map "rings" for eroding tiles later:
@@ -130,9 +118,8 @@ export class GameMap {
         const state = this.getTileState(currentIndex);
         const obstacle = this.getTileObstacle(currentIndex);
 
-        if (seedRandom.random() > 0.5 && !visited.has(currentIndex) &&
-            obstacle === -1 && state === 1.0) {
-
+        if (seedRandom.random() > 0.5 && !visited.has(currentIndex) && obstacle === -1 &&
+            state === 1.0) {
           this.setTileState(currentIndex, 5.0);
           visited.add(currentIndex);
           size++;
@@ -195,8 +182,7 @@ export class GameMap {
 
       const tileState = this.getTileState(tileIndex);
 
-      if (this.getTileState(index) === 1.0 &&
-        this.getTileObstacle(index) === -1.0) {
+      if (this.getTileState(index) === 1.0 && this.getTileObstacle(index) === -1.0) {
         return tileIndex;
       }
 
@@ -220,8 +206,7 @@ export class GameMap {
       const tileIndex = random.randRange(ring.length);
       const index = ring[tileIndex];
 
-      if (this.getTileState(index) === 1.0 &&
-          this.getTileObstacle(index) === -1.0) {
+      if (this.getTileState(index) === 1.0 && this.getTileObstacle(index) === -1.0) {
         return index;
       }
     }
