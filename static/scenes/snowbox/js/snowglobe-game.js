@@ -1,5 +1,4 @@
 import SceneManager from './components/SceneManager/index.js'
-import { EventEmitter } from './event-emitter.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
 
