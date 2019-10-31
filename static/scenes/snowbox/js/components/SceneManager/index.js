@@ -181,7 +181,6 @@ class SceneManager extends EventEmitter {
 
       if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
-        this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
       }
     }
 
@@ -198,11 +197,6 @@ class SceneManager extends EventEmitter {
     if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
-    }
-
-    if (this.emitScaleObject) {
-      this.emit('scale_object')
-      this.emitScaleObject = false
     }
 
     if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
@@ -389,9 +383,11 @@ class SceneManager extends EventEmitter {
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
-      this.emitScaleObject = true
+      this.emit('scale_object')
     }
   }
+
+  // others
 
   unselectSubject(unmove) {
     this.cameraCtrl.resetControls(this.terrain)

@@ -60,12 +60,12 @@ class SnowglobeGame {
     })
 
     // object UI
+    this.openColorsBtn.addEventListener('click', this.openColors)
+    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
+
     this.colorObjectBtns.forEach(button => {
       button.addEventListener('click', this.sceneManager.colorObject)
     })
-
-    this.openColorsBtn.addEventListener('click', this.openColors)
-    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
 
     let rotateObjectInterval
 

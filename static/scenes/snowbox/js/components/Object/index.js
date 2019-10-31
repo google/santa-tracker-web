@@ -315,9 +315,7 @@ class Object extends EventEmitter {
   }
 
   updateRotatingCircle(zoom) {
-    for (let i = 0; i < this.circles.children.length; i++) {
-      this.circles.children[i].scale.set(1 / zoom, 1 / zoom, 1 / zoom)
-    }
+    this.circles.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
   }
 
   deleteGhost() {
