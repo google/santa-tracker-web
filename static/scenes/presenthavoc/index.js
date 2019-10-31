@@ -1,7 +1,7 @@
 import '../../src/magic.js';
 import api from '../../src/scene/api.js';
 
-import Game from './js/game.js'
+import Game from './:closure.js';
 
 api.preload.images(
   'img/car-body.svg',
@@ -16,6 +16,8 @@ api.preload.images(
 );
 
 api.preload.sounds('village_load_sounds');
+
+const game = new Game(document.getElementById('module-presenthavoc'));
 
 api.config({
   sound: ['music_start_village', 'village_start'],
