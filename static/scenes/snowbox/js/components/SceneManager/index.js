@@ -254,8 +254,11 @@ class SceneManager extends EventEmitter {
     }
 
     if (e) {
-      this.mouse.x = (e.clientX / this.width) * 2 - 1
-      this.mouse.y = -(e.clientY / this.height) * 2 + 1
+      const x = e.clientX || e.touches && e.touches[0].clientX
+      const y = e.clientY || e.touches && e.touches[0].clientY
+
+      this.mouse.x = (x / this.width) * 2 - 1
+      this.mouse.y = -(y / this.height) * 2 + 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
@@ -285,6 +288,11 @@ class SceneManager extends EventEmitter {
 
   onMouseDown(e) {
     e.preventDefault()
+    if (e.type === 'touchstart') {
+      this.mouse.x = (e.targetTouches[0].clientX / this.width) * 2 - 1
+      this.mouse.y = -(e.targetTouches[0].clientY / this.height) * 2 + 1
+      if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+    }
 
     this.mouseState = 'down'
 

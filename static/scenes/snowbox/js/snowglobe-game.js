@@ -1,4 +1,5 @@
 import SceneManager from './components/SceneManager/index.js'
+import { isTouchDevice } from './helpers.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
 
@@ -21,9 +22,12 @@ class SnowglobeGame {
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
+
     this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
     this.enterEditMode = this.enterEditMode.bind(this)
     this.hideEditTools = this.hideEditTools.bind(this)
+
+    this.isTouchDevice = isTouchDevice()
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -92,7 +96,6 @@ class SnowglobeGame {
         }, 200)
       })
     })
-
     // custom events
     this.sceneManager.addListener('enter_edit', this.enterEditMode)
     this.sceneManager.addListener('leave_edit', this.hideEditTools)
@@ -138,12 +141,74 @@ class SnowglobeGame {
     el.classList.toggle('is-open')
   }
 
-  render(now) {
-    this.stats.begin()
-    this.sceneManager.update(now)
-    this.stats.end()
+  onEnterEdit() {
+    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
+      this.objectRotateDownUi.style.display = `block`
+      this.objectEditUi.style.display = `block`
+      this.objectRotateRightUi.style.display = `block`
+      const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
+      this.objectScaleSlider.value = scaleFactor * 10
+      this.updateEditToolsPos()
+    }
+  }
 
-    requestAnimationFrame(this.render.bind(this))
+  onMoveCamera() {
+    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
+      this.updateEditToolsPos()
+    }
+  }
+
+  onScaleObject() {
+    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
+      this.updateEditToolsPos(true)
+    }
+  }
+
+  onLeaveEdit() {
+    this.objectRotateRightUi.style.display = 'none'
+    this.objectRotateDownUi.style.display = 'none'
+    this.objectEditUi.style.display = 'none'
+  }
+
+  updateEditToolsPos(noScaleInput) {
+    const rightPosition = this.getPosition('x')
+    this.objectRotateRightUi.style.transform = `translate(-50%, -50%) translate(${rightPosition.x}px,${rightPosition.y}px)`
+
+    const downPosition = this.getPosition('y')
+    this.objectRotateDownUi.style.transform = `translate(-50%, -50%) translate(${downPosition.x}px,${downPosition.y}px)`
+
+    const scale = this.sceneManager.activeSubject.xCircle.scale.x
+
+    if (!noScaleInput) {
+      let ghostPos = new THREE.Vector3()
+      this.sceneManager.activeSubject.mesh.getWorldPosition(ghostPos)
+      ghostPos.y -= (this.sceneManager.activeSubject.box.max.y - this.sceneManager.activeSubject.box.min.y) / 2
+      ghostPos.x += (this.sceneManager.activeSubject.box.max.x - this.sceneManager.activeSubject.box.min.x) / 2
+      ghostPos.z += (this.sceneManager.activeSubject.box.max.z - this.sceneManager.activeSubject.box.min.z) / 2
+      ghostPos.project(this.sceneManager.cameraCtrl.camera)
+      this.objectEditUi.style.transform = `translate(-50%, -50%) translate(${(ghostPos.x * 0.5 + 0.5) *
+        this.canvas.clientWidth}px,${(ghostPos.y * -0.5 + 0.5) * this.canvas.clientHeight + 100}px)`
+    }
+  }
+
+  getPosition(axis) {
+    const scale = this.sceneManager.activeSubject.xCircle.scale.x
+    const { radius } =
+      axis === 'x'
+        ? this.sceneManager.activeSubject.xCircle.geometry.boundingSphere
+        : this.sceneManager.activeSubject.yCircle.geometry.boundingSphere
+    let tempPos = new THREE.Vector3()
+    if (this.sceneManager.activeSubject.ghost) {
+      this.sceneManager.activeSubject.ghost.getWorldPosition(tempPos)
+    } else {
+      this.sceneManager.activeSubject.mesh.getWorldPosition(tempPos)
+    }
+    tempPos[axis] += radius * scale
+    tempPos.project(this.sceneManager.cameraCtrl.camera)
+    const x = (tempPos.x * 0.5 + 0.5) * this.canvas.clientWidth
+    const y = (tempPos.y * -0.5 + 0.5) * this.canvas.clientHeight
+
+    return { x, y }
   }
 
   setup() {}
