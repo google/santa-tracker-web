@@ -13,17 +13,17 @@ class SnowglobeGame {
     this.actionBtns = [...element.querySelectorAll('[data-button]')]
     this.actionDragBtns = [...element.querySelectorAll('[data-button-drag]')]
     this.rotateBtns = [...element.querySelectorAll('[data-rotate-button]')]
-    this.objectRotateDownUi = element.querySelector('[object-rotate-down-ui]')
+    this.objectRotateBottomUi = element.querySelector('[object-rotate-bottom-ui]')
     this.objectRotateRightUi = element.querySelector('[object-rotate-right-ui]')
-    this.objectEditUi = element.querySelector('[object-edit-ui]')
+    this.objectToolbarUi = element.querySelector('[object-toolbar-ui]')
     this.objectScaleSlider = element.querySelector('[object-scale-slider]')
     this.sceneManager = new SceneManager(this.canvas)
 
     this.isTouchDevice = isTouchDevice()
 
     this.objectRotateRightUi.style.display = `none`
-    this.objectRotateDownUi.style.display = 'none'
-    this.objectEditUi.style.display = `none`
+    this.objectRotateBottomUi.style.display = 'none'
+    this.objectToolbarUi.style.display = `none`
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom

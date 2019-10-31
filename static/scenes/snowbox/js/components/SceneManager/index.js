@@ -1,19 +1,30 @@
+import { EventEmitter } from '../../event-emitter.js'
+import { toRadian } from '../../utils/math.js'
+import { darken } from '../../utils/colors.js'
+
 // Config
 import CONFIG from './config.js'
-import cubeConfig from '../SceneSubjects/Cube/config.js'
+import cubeConfig from '../Shapes/Cube/config.js'
+import archConfig from '../Shapes/Arch/config.js'
+import sphereConfig from '../Shapes/Sphere/config.js'
+import treeConfig from '../Shapes/Tree/config.js'
+
+// Managers
+import LoaderManager from '../../managers/LoaderManager/index.js'
 
 // SceneSubjects
-import Arch from '../SceneSubjects/Arch/index.js'
-import Cube from '../SceneSubjects/Cube/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
-import Pyramid from '../SceneSubjects/Pyramid/index.js'
-import Sphere from '../SceneSubjects/Sphere/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
-import Tree from '../SceneSubjects/Tree/index.js'
 
-import { EventEmitter } from '../../event-emitter.js'
+// Shapes
+import Cube from '../Shapes/Cube/index.js'
+import Arch from '../Shapes/Arch/index.js'
+import Tree from '../Shapes/Tree/index.js'
+import Sphere from '../Shapes/Sphere/index.js'
+import Pyramid from '../Shapes/Pyramid/index.js'
 
 // Other
+import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
@@ -26,6 +37,8 @@ class SceneManager extends EventEmitter {
     this.onMaterialGui = this.onMaterialGui.bind(this)
     this.onPresetsGui = this.onPresetsGui.bind(this)
     this.onShapesGui = this.onShapesGui.bind(this)
+
+    this.shapeLoaded = this.shapeLoaded.bind(this)
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
@@ -41,6 +54,7 @@ class SceneManager extends EventEmitter {
 
     this.debug = CONFIG.DEBUG
 
+    this.preloadShapes()
     this.setUnits()
 
     this.initCannon()
@@ -65,7 +79,18 @@ class SceneManager extends EventEmitter {
 
     this.cameraCtrl.rotate('left', this.terrain, false, true)
 
-    this.initGui()
+    // this.initGui()
+
+    if (this.debug) {
+      this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+    }
+  }
+
+  preloadShapes() {
+    LoaderManager.load({name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ})
+    LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
+    LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
+    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
   }
 
   initGui() {
@@ -150,11 +175,13 @@ class SceneManager extends EventEmitter {
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update()
+      this.sceneSubjects[i].update(this.cameraCtrl.camera.position)
     }
 
+    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
+
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'move' && this.mouseInEdge) {
+    if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
       this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
@@ -179,7 +206,7 @@ class SceneManager extends EventEmitter {
       }
     }
 
-    if (this.needsCollisionCheck) {
+    if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision()
       this.needsCollisionCheck = false
     }
@@ -250,7 +277,7 @@ class SceneManager extends EventEmitter {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'move') {
+      } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
         this.detectMouseInEdge(event)
       }
@@ -310,7 +337,7 @@ class SceneManager extends EventEmitter {
     }
   }
 
-  onButtonClick(id) {
+  onButtonClick(id, el) {
     switch (id) {
       case 'add-snow-cube':
         this.addShape('cube', 'snow')
@@ -351,8 +378,20 @@ class SceneManager extends EventEmitter {
       case 'object-rotate-right':
         this.rotate('right')
         break
-      case 'object-rotate-down':
-        this.rotate('down')
+      case 'object-rotate-bottom':
+        this.rotate('bottom')
+        break
+      case 'open-colors-range':
+        el.classList.add('is-open')
+        break
+      case 'pick-color':
+        if (this.activeSubject) {
+          this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.color)
+          this.activeSubject.mesh.material.needsUpdate = true
+
+          this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.color, 15))
+          this.activeSubject.materials.highlight.needsUpdate = true
+        }
         break
       default:
         break
@@ -490,6 +529,10 @@ class SceneManager extends EventEmitter {
         break
     }
 
+    subject.load(this.shapeLoaded)
+  }
+
+  shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
@@ -517,9 +560,8 @@ class SceneManager extends EventEmitter {
     }
 
     if (this.selectedSubject && this.mode === 'edit') {
-      const angle = direction === 'right' || direction === 'bottom' ? Math.PI / 4 : -Math.PI / 4
-      const axis = direction === 'right' || direction === 'left' ? new CANNON.Vec3(0, 1, 0) : new CANNON.Vec3(1, 0, 0)
-      this.selectedSubject.rotate(axis, angle)
+      const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
+      this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
       this.needsCollisionCheck = true
     }
   }
@@ -582,6 +624,7 @@ class SceneManager extends EventEmitter {
   }
 
   checkCollision() {
+    // if (this.mode === 'edit') return; // stop on edit
     const { ghost, box, mesh } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
     const fakeBox = new THREE.Box3().copy(box)
@@ -622,6 +665,7 @@ class SceneManager extends EventEmitter {
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
+    document.querySelector('.colors-ui').classList.remove('is-open')
 
     switch (mode) {
       default:
