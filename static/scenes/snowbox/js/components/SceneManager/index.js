@@ -252,13 +252,11 @@ class SceneManager extends EventEmitter {
 
   onMouseMove(event) {
     if (event) {
-      if (event.type === 'touchmove') {
-        this.mouse.x = (event.targetTouches[0].clientX / this.width) * 2 - 1
-        this.mouse.y = -(event.targetTouches[0].clientY / this.height) * 2 + 1
-      } else {
-        this.mouse.x = (event.clientX / this.width) * 2 - 1
-        this.mouse.y = -(event.clientY / this.height) * 2 + 1
-      }
+      const x = event.clientX || event.touches && event.touches[0].clientX
+      const y = event.clientY || event.touches && event.touches[0].clientY
+
+      this.mouse.x = (x / this.width) * 2 - 1
+      this.mouse.y = -(y / this.height) * 2 + 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
