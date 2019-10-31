@@ -33,15 +33,16 @@ class CameraController {
 
   buildControls() {
     this.controls = new THREE.MapControls(this.camera, this.canvas)
-    this.controls.minDistance = CONFIG.CONTROLS.MIN
-    this.controls.maxDistance = CONFIG.CONTROLS.MAX
+    this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
+    this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
+    this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
+    this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
     this.controls.enableKeys = CONFIG.CONTROLS.KEYS
     this.controls.enablePan = CONFIG.CONTROLS.PAN
     this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
     this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
     this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
     this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
-    console.log(this.controls)
   }
 
   rotate(direction, terrain, wheel, noAnimation) {

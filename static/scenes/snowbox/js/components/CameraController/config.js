@@ -34,6 +34,8 @@ export default {
   CONTROLS: {
     MIN: 10,
     MAX: 500,
+    MIN_ANGLE: 0,
+    MAX_ANGLE: Math.PI,
     KEYS: false,
     PAN: true,
     ROTATE: false,
@@ -42,6 +44,10 @@ export default {
     ZOOM: false
   },
   MOBILE_CONTROLS: {
+    MIN: 20,
+    MAX: 100,
+    MIN_ANGLE: 0,
+    MAX_ANGLE: Math.PI / 2 - 0.1,
     ROTATE: true,
     ZOOM: true
   }
