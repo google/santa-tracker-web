@@ -2,6 +2,7 @@
 import CONFIG from './config.js'
 
 // Utils
+import { isTouchDevice } from '../../helpers.js'
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
@@ -13,6 +14,7 @@ class CameraController {
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
     this.currentZoom = CONFIG.ZOOM.START
+    this.isTouchDevice = isTouchDevice()
 
     const { width, height } = screenDimensions
     const aspectRatio = width / height
@@ -31,14 +33,16 @@ class CameraController {
 
   buildControls() {
     this.controls = new THREE.MapControls(this.camera, this.canvas)
-    this.controls.minDistance = CONFIG.CONTROLS.MIN
-    this.controls.maxDistance = CONFIG.CONTROLS.MAX
+    this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
+    this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
+    this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
+    this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
     this.controls.enableKeys = CONFIG.CONTROLS.KEYS
     this.controls.enablePan = CONFIG.CONTROLS.PAN
-    this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
+    this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
     this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
     this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
-    this.controls.enableZoom = CONFIG.CONTROLS.ZOOM
+    this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
   }
 
   rotate(direction, terrain, wheel, noAnimation) {
