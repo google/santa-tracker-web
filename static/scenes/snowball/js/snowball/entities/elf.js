@@ -1,28 +1,26 @@
-import { Entity } from '../../engine/core/entity.js';
-import { Allocatable } from '../../engine/utils/allocatable.js';
-import { Rectangle } from '../../engine/utils/collision-2d.js';
-import { createElf } from '../models.js';
-import { lod } from '../systems/lod-system.js';
-import { Health } from '../components/health.js';
-import { Path } from '../components/path.js';
-import { Arrival } from '../components/arrival.js';
-import { Presence } from '../components/presence.js';
-import { Powerups } from '../components/powerup.js';
-import { Visibility } from '../components/visibility.js';
-import { Speed } from '../components/speed.js';
-import { PlayerMarker } from './player-marker.js';
-import { Snowball } from './snowball.js';
-import { combine, randomElement } from '../../engine/utils/function.js';
+import {Entity} from '../../engine/core/entity.js';
+import {Allocatable} from '../../engine/utils/allocatable.js';
+import {Rectangle} from '../../engine/utils/collision-2d.js';
+import {combine, randomElement} from '../../engine/utils/function.js';
+import {Arrival} from '../components/arrival.js';
+import {Health} from '../components/health.js';
+import {Path} from '../components/path.js';
+import {Powerups} from '../components/powerup.js';
+import {Presence} from '../components/presence.js';
+import {Speed} from '../components/speed.js';
+import {Visibility} from '../components/visibility.js';
+import {createElf} from '../models.js';
+import {lod} from '../systems/lod-system.js';
+
+import {PlayerMarker} from './player-marker.js';
+import {Snowball} from './snowball.js';
 
 const {
   Mesh,
   MeshBasicMaterial,
   PlaneBufferGeometry,
   Object3D,
-  GLTFLoader,
-  AnimationMixer,
   Vector2,
-  Texture
 } = self.THREE;
 
 const intermediateVector2 = new Vector2();
@@ -38,19 +36,9 @@ const majorColors = [
   '#BC3EB4',
 ];
 
-const minorColors = [
-  '#E7C241',
-  '#936644',
-  '#B8906D',
-  '#DBBC99'
-];
+const minorColors = ['#E7C241', '#936644', '#B8906D', '#DBBC99'];
 
-const hairColors = [
-  '#2F3030',
-  '#7C4149',
-  '#AB2923',
-  '#EA9639'
-];
+const hairColors = ['#2F3030', '#7C4149', '#AB2923', '#EA9639'];
 
 const generateElfTexture = (() => {
   const canvas = document.createElement('canvas');
@@ -155,8 +143,7 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   clone() {
-    return Elf.allocate(
-        this.playerId, this.majorColor, this.minorColor, this.gender);
+    return Elf.allocate(this.playerId, this.majorColor, this.minorColor, this.gender);
   }
 
   constructor() {
@@ -166,16 +153,14 @@ export class Elf extends AllocatableEntityObject3D {
 
     // The hit target is the object in the scene graph that will be used
     // to detect input events.
-    const hitTarget = new Mesh(
-      new PlaneBufferGeometry(100, 100),
-      new MeshBasicMaterial({
-        color: 0xff0000,
-        opacity: 0.5,
-        visible: false,
-        side: 2,
-        transparent: true,
-        wireframe: false
-      }));
+    const hitTarget = new Mesh(new PlaneBufferGeometry(100, 100), new MeshBasicMaterial({
+                                 color: 0xff0000,
+                                 opacity: 0.5,
+                                 visible: false,
+                                 side: 2,
+                                 transparent: true,
+                                 wireframe: false
+                               }));
 
     this.add(hitTarget);
     this.hitTarget = hitTarget;
@@ -190,11 +175,9 @@ export class Elf extends AllocatableEntityObject3D {
     this.collider = Rectangle.allocate(15, 45, this.position);
   }
 
-  onAllocated(playerId,
-      startingTileIndex,
-      majorColor = randomElement(majorColors),
-      minorColor = randomElement(minorColors),
-      hairColor = randomElement(hairColors),
+  onAllocated(
+      playerId, startingTileIndex, majorColor = randomElement(majorColors),
+      minorColor = randomElement(minorColors), hairColor = randomElement(hairColors),
       ponytail = !!Math.round(Math.random())) {
     this.playerId = playerId;
 
@@ -225,8 +208,8 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   setup(game) {
-    const { lodSystem, clientSystem, collisionSystem } = game;
-    const { player: clientPlayer } = clientSystem;
+    const {lodSystem, clientSystem, collisionSystem} = game;
+    const {player: clientPlayer} = clientSystem;
 
     lodSystem.addEntity(this);
     collisionSystem.addCollidable(this);
@@ -240,7 +223,7 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   teardown(game) {
-    const { collisionSystem, lodSystem } = game;
+    const {collisionSystem, lodSystem} = game;
 
     lodSystem.removeEntity(this);
     collisionSystem.removeCollidable(this);
@@ -252,16 +235,10 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   update(game) {
-    const {
-      clientSystem,
-      mapSystem,
-      inputSystem,
-      collisionSystem,
-      entityRemovalSystem
-    } = game;
-    const { player: clientPlayer } = clientSystem;
-    const { grid } = mapSystem;
-    const { arrival, path, health } = this;
+    const {clientSystem, mapSystem, inputSystem, collisionSystem, entityRemovalSystem} = game;
+    const {player: clientPlayer} = clientSystem;
+    const {grid} = mapSystem;
+    const {arrival, path, health} = this;
     const isClientPlayer = this === clientPlayer;
 
     if (isClientPlayer) {
@@ -276,25 +253,23 @@ export class Elf extends AllocatableEntityObject3D {
       this.hitTarget.position.z = grid.cellSize / 4.0 + 2.0;
       // NOTE(cdata): Pick listening is deferred because reparenting
       // the player apparently messes up the octree hierarchy.
-      this.unsubscribe = combine(
-          inputSystem.on('pick', event => {
-            if (!isClientPlayer) {
-              clientSystem.assignTarget(this);
-              return false;
-            }
-          }, this.hitTarget),
-          collisionSystem.handleCollisions(this, (self, other) => {
-            if (other instanceof Snowball && other.thrower !== this) {
-              const { direction } = other.trajectory;
+      this.unsubscribe = combine(inputSystem.on('pick', event => {
+        if (!isClientPlayer) {
+          clientSystem.assignTarget(this);
+          return false;
+        }
+      }, this.hitTarget), collisionSystem.handleCollisions(this, (self, other) => {
+        if (other instanceof Snowball && other.thrower !== this) {
+          const {direction} = other.trajectory;
 
-              this.face(Math.atan2(direction.y, direction.x) - PI_OVER_TWO);
-              // TODO(cdata): This probably should be handled in the player
-              // based on some state that says "this deadly thing collided
-              // with me."
-              this.die();
-              entityRemovalSystem.teleportEntity(this);
-            }
-          }));
+          this.face(Math.atan2(direction.y, direction.x) - PI_OVER_TWO);
+          // TODO(cdata): This probably should be handled in the player
+          // based on some state that says "this deadly thing collided
+          // with me."
+          this.die();
+          entityRemovalSystem.teleportEntity(this);
+        }
+      }));
     }
 
     if (this.lodNeedsUpdate) {
@@ -310,7 +285,7 @@ export class Elf extends AllocatableEntityObject3D {
 
     if (health.alive) {
       if (!path.destinationReached) {
-        const { speed } = this;
+        const {speed} = this;
         const nextWaypoint = path.nextWaypoint;
         const delta = intermediateVector2;
         delta.subVectors(nextWaypoint, this.position);
@@ -340,7 +315,7 @@ export class Elf extends AllocatableEntityObject3D {
         this.hasAssignedTarget = false;
       }
     } else {
-      const { presence, visibility } = this;
+      const {presence, visibility} = this;
 
       if (presence.exiting) {
         if (clientPlayerMarker.parent === this.dolly) {
@@ -378,7 +353,7 @@ export class Elf extends AllocatableEntityObject3D {
 
       createElf(assetBaseUrl).then(model => {
         const elf = model.object.children[0];
-        const material = elf.children[0].material.clone();
+        const material = elf.children[1].material.clone();
         const map = material.map.clone();
 
         elf.children[0].material = material;

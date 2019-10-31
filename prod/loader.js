@@ -30,7 +30,7 @@ window.onunhandledrejection = (event) => {
     console.warn('rejection (loaded=' + loaded + ')', event.reason);
     window.location.href = 'error.html';
   }
-}
+};
 
 // Synchonously block to load support code for fallback browsers like IE11 and friends. This is
 // needed before Firestore as it uses Promise and fetch.
@@ -39,19 +39,33 @@ if (fallback && isProd) {
   support.src = config.staticScope + 'support.js';
   document.write(support.outerHTML);
 }
+var startParams = new URLSearchParams(window.location.search);
+
+// Safeguard sessionStorage in case a browser's Private mode prevents use.
+const sessionStorage = window.sessionStorage || {};
+
+// Detect if we are inside of the TWA
+// NOTE: This detection may fail when the user swipes down and refreshes the page, so we
+//  should persist the state somehow, e.g. local storage or URL modification. See:
+//  https://stackoverflow.com/q/54580414
+if (sessionStorage['android-twa'] ||
+    document.referrer.startsWith('android-app://com.google.android.apps.santatracker') ||
+    startParams.get('android')) {
+  sessionStorage['android-twa'] = true;
+  document.body.setAttribute('data-mode', 'android');
+}
 
 function loadEntrypoint() {
   // Allow optional ?static=... for testing new releases.
-  var p = new URLSearchParams(window.location.search);
-  if (p.has('static')) {
-    var staticScopeUrl = new URL(p.get('static'), window.location);
+  if (startParams.has('static')) {
+    var staticScopeUrl = new URL(startParams.get('static'), window.location);
     if (!staticScopeUrl.pathname.match(/\/$/)) {
       staticScopeUrl.pathname += '/';
     }
     config.staticScope = staticScopeUrl.toString();
   }
   // Force fallback for modern browsers.
-  if (p.has('fallback')) {
+  if (startParams.has('fallback')) {
     fallback = true;
   }
   document.body.setAttribute('static', config.staticScope);

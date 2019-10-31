@@ -1,20 +1,14 @@
-import { Entity } from '../../engine/core/entity.js';
-import { Allocatable } from '../../engine/utils/allocatable.js';
-import { randomValue } from '../../engine/utils/function.js';
-import { Contents } from '../components/contents.js';
-import { Arrival } from '../components/arrival.js';
-import { Presence } from '../components/presence.js';
-import { Circle } from '../../engine/utils/collision-2d.js';
-import { Elf } from './elf.js';
+import {Entity} from '../../engine/core/entity.js';
+import {Allocatable} from '../../engine/utils/allocatable.js';
+import {Circle} from '../../engine/utils/collision-2d.js';
+import {randomValue} from '../../engine/utils/function.js';
+import {Arrival} from '../components/arrival.js';
+import {Contents} from '../components/contents.js';
+import {Presence} from '../components/presence.js';
 
-const {
-  Object3D,
-  Mesh,
-  Texture,
-  BufferGeometry,
-  MeshBasicMaterial,
-  BufferAttribute
-} = self.THREE;
+import {Elf} from './elf.js';
+
+const {Object3D, Mesh, Texture, BufferGeometry, MeshBasicMaterial, BufferAttribute} = self.THREE;
 
 
 const geometry = new BufferGeometry();
@@ -22,25 +16,43 @@ const geometry = new BufferGeometry();
 // NOTE(cdata): Copied these out of Blender because I was struggling to do the
 // UV mapping by hand. Should be doable though Maybe try again eventually, or
 // never.
-const normals = new BufferAttribute(new Float32Array([
-  -1,0,-0,-1,0,-0,-1,0,-0,0,-0.0,-1,0,-0.0,-1,0,-0.0,-1,1,-0,0,1,-0,0,1,-0,0,0,0.0,1,0,0.0,1,0,0.0,1,0,-1,0.0,0,-1,0.0,0,-1,0.0,0,1,-0.0,0,1,-0.0,0,1,-0.0,-1,0,0,-0,-0.0,-1,1,0,0,-0,0.0,1,0,-1,0.0,0,1,-0.0
-]), 3);
+const normals = new BufferAttribute(
+    new Float32Array([
+      -1, 0,  -0,  -1, 0,    -0,  -1, 0,  -0,  0,  -0.0, -1,   0, -0.0, -1,   0, -0.0, -1,
+      1,  -0, 0,   1,  -0,   0,   1,  -0, 0,   0,  0.0,  1,    0, 0.0,  1,    0, 0.0,  1,
+      0,  -1, 0.0, 0,  -1,   0.0, 0,  -1, 0.0, 0,  1,    -0.0, 0, 1,    -0.0, 0, 1,    -0.0,
+      -1, 0,  0,   -0, -0.0, -1,  1,  0,  0,   -0, 0.0,  1,    0, -1,   0.0,  0, 1,    -0.0
+    ]),
+    3);
 
-const uvs = new BufferAttribute(new Float32Array([
-  0.0,0.0,0.5,0.5,0.0,0.5,0,0,0.5,0.5,0,0.5,0.5,0.5,0,0,0.5,0,0.5,0.5,0,0,0.5,0,0,1,0.5,0.5,0.5,1,0,1,0.5,0.5,0.5,1,0.5,0.0,0.5,0,0,0.5,0,0.5,0,0.5,0,0.5
-]), 2);
+const uvs = new BufferAttribute(
+    new Float32Array([
+      0.0, 0.0, 0.5, 0.5, 0.0, 0.5, 0,   0, 0.5, 0.5, 0,   0.5, 0.5, 0.5, 0, 0,
+      0.5, 0,   0.5, 0.5, 0,   0,   0.5, 0, 0,   1,   0.5, 0.5, 0.5, 1,   0, 1,
+      0.5, 0.5, 0.5, 1,   0.5, 0.0, 0.5, 0, 0,   0.5, 0,   0.5, 0,   0.5, 0, 0.5
+    ]),
+    2);
 
-const positions = new BufferAttribute(new Float32Array([
-  -0.5,0.5,0.5,-0.5,-0.5,-0.5,-0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,-0.5,-0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,-0.5,0.5,0.5,-0.5,-0.5,0.5,0.5,0.5,-0.5,-0.5,0.5,0.5,-0.5,0.5,0.5,-0.5,-0.5,-0.5,-0.5,0.5,-0.5,-0.5,-0.5,-0.5,0.5,-0.5,0.5,0.5,0.5,0.5,0.5,-0.5,-0.5,0.5,-0.5,0.5,0.5,-0.5,0.5,0.5,0.5,-0.5,0.5,0.5,0.5,-0.5,0.5,-0.5,0.5,0.5
-]), 3);
+const positions = new BufferAttribute(
+    new Float32Array([
+      -0.5, 0.5,  0.5,  -0.5, -0.5, -0.5, -0.5, -0.5, 0.5,  -0.5, 0.5,  -0.5, 0.5,  -0.5, -0.5,
+      -0.5, -0.5, -0.5, 0.5,  0.5,  -0.5, 0.5,  -0.5, 0.5,  0.5,  -0.5, -0.5, 0.5,  0.5,  0.5,
+      -0.5, -0.5, 0.5,  0.5,  -0.5, 0.5,  0.5,  -0.5, -0.5, -0.5, -0.5, 0.5,  -0.5, -0.5, -0.5,
+      -0.5, 0.5,  -0.5, 0.5,  0.5,  0.5,  0.5,  0.5,  -0.5, -0.5, 0.5,  -0.5, 0.5,  0.5,  -0.5,
+      0.5,  0.5,  0.5,  -0.5, 0.5,  0.5,  0.5,  -0.5, 0.5,  -0.5, 0.5,  0.5
+    ]),
+    3);
 
-const indices = new BufferAttribute(new Uint16Array([
-  0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,0,18,1,3,19,4,6,20,7,9,21,10,12,22,13,15,23,16
-]), 1);
+const indices = new BufferAttribute(
+    new Uint16Array([
+      0, 1,  2, 3, 4,  5, 6, 7,  8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+      0, 18, 1, 3, 19, 4, 6, 20, 7, 9, 21, 10, 12, 22, 13, 15, 23, 16
+    ]),
+    1);
 
-geometry.addAttribute('position', positions);
-geometry.addAttribute('uv', uvs);
-geometry.addAttribute('normal', normals);
+geometry.setAttribute('position', positions);
+geometry.setAttribute('uv', uvs);
+geometry.setAttribute('normal', normals);
 geometry.setIndex(indices);
 
 export const colorCombos = {
@@ -98,8 +110,8 @@ const AllocatableEntityObject3D = Allocatable(EntityObject3D);
 export class Drop extends AllocatableEntityObject3D {
   constructor() {
     super();
-    const model = new Mesh(
-        geometry, new MeshBasicMaterial({ map: new Texture(), transparent: true }));
+    const model =
+        new Mesh(geometry, new MeshBasicMaterial({map: new Texture(), transparent: true}));
 
     this.add(model);
     this.model = model;
@@ -107,10 +119,7 @@ export class Drop extends AllocatableEntityObject3D {
   }
 
   onAllocated(colorCombo = randomValue(colorCombos)) {
-    this.model.scale.set(
-        Math.random() * 7 + 12,
-        Math.random() * 7 + 12,
-        Math.random() * 5 + 10);
+    this.model.scale.set(Math.random() * 7 + 12, Math.random() * 7 + 12, Math.random() * 5 + 10);
 
     this.model.material.map.image = generateDropTexture(...colorCombo);
     this.model.material.map.needsUpdate = true;
@@ -122,17 +131,15 @@ export class Drop extends AllocatableEntityObject3D {
   }
 
   setup(game) {
-    const { mapSystem, collisionSystem } = game;
-    const { grid } = mapSystem;
+    const {mapSystem, collisionSystem} = game;
+    const {grid} = mapSystem;
 
     this.collidingPlayer = null;
     this.model.rotation.set(Math.PI / 2.5, 0, 0);
     this.model.position.z = grid.cellSize / 2.0;
     this.model.material.opacity = 1.0;
     this.unsubscribe = collisionSystem.handleCollisions(this, (drop, other) => {
-      if (this.collidingPlayer == null &&
-          !this.presence.exiting &&
-          other instanceof Elf) {
+      if (this.collidingPlayer == null && !this.presence.exiting && other instanceof Elf) {
         this.collidingPlayer = other;
       }
     });
@@ -148,9 +155,9 @@ export class Drop extends AllocatableEntityObject3D {
   }
 
   update(game) {
-    const { mapSystem } = game;
-    const { grid } = mapSystem;
-    const { presence } = this;
+    const {mapSystem} = game;
+    const {grid} = mapSystem;
+    const {presence} = this;
 
     if (!presence.exiting) {
       this.model.rotation.y += 0.01;
@@ -159,8 +166,7 @@ export class Drop extends AllocatableEntityObject3D {
         const duration = 300;
         const elapsed = performance.now() - this.spinTime;
         const timeScale = Math.min(elapsed / duration, 1.0);
-        const spinDelta = -1 *
-            (Math.pow(timeScale - 1.0, 4) + Math.pow(timeScale - 1.0, 3));
+        const spinDelta = -1 * (Math.pow(timeScale - 1.0, 4) + Math.pow(timeScale - 1.0, 3));
 
         this.model.rotation.y += spinDelta * 2.0 * Math.PI;
         this.model.position.z += spinDelta * (grid.cellSize);
