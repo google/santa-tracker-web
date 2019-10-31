@@ -176,13 +176,13 @@ app.view.DrawingCanvas.prototype.startListening = function() {
 app.view.DrawingCanvas.prototype.calculateDrawingVolume = function(point) {
   var xPos = Math.abs(point.x / this.canvas.width - this.lastMouseX);
   var yPos = Math.abs(point.y / this.canvas.height - this.lastMouseY);
-  var speed = Math.abs(xPos+yPos) / (performance.now() - this.lastTime);
+  var speed = Math.abs(xPos+yPos) / ( (performance.now() / 1000 ) - this.lastTime);
 
   if (isFinite(speed)) {
     this.drawingVolume += speed / 2;
   }
 
-  this.lastTime = performance.now();
+  this.lastTime = performance.now() / 1000;
   this.lastMouseX = point.x / this.canvas.width;
   this.lastMouseY = point.y / this.canvas.height;
 

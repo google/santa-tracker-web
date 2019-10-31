@@ -1,0 +1,113 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Arial', 'Sans-Serif';
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+santa-card {
+  width: 200px;
+  height: 150px;
+  --radius: 20px;
+}
+
+#top {
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: pink;
+  color: white;
+  flex-flow: column;
+
+  h1 {
+    font-family: 'Lobster';
+    font-size: 96px;
+    text-shadow: 0 2px 0 #0003;
+    margin: 0;
+  }
+
+  span {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.module {
+  position: relative;
+  height: 650px;
+
+  box-shadow: inset 0 4px 0 #0003;
+
+  img {
+    position: absolute;
+    z-index: -2;
+  }
+  svg {
+    position: absolute;
+    z-index: -1;
+  }
+
+  // TODO(samthor): We should load or unload these animations based on the screen size, rather
+  // than just hiding them (!).
+  @media (max-width: 768px - 1px) {
+    svg {
+      display: none;
+    }
+  }
+
+  .cards {
+    position: absolute;
+    top: 0;
+    left: 50%;
+  }
+
+  santa-card {
+    $w: 240px;
+    $h: 180px;
+    position: absolute;
+    width: $w;
+    height: $h;
+    margin-left: -($w / 2);
+    margin-top: -($h / 2);
+  }
+}
+
+#module--sciencelab {
+  santa-card {
+    &:nth-child(1) {
+      left: 240px;
+      top: 180px;
+    }
+    &:nth-child(2) {
+      left: 150px;
+      top: 500px;
+    }
+    &:nth-child(3) {
+      left: -240px;
+      top: 120px;
+    }
+  }
+}
+
+#module--transport {
+  santa-card {
+    &:nth-child(1) {
+      left: -200px;
+      top: 180px;
+    }
+    &:nth-child(2) {
+      left: -300px;
+      top: 500px;
+    }
+    &:nth-child(3) {
+      left: 320px;
+      top: 500px;
+    }
+  }
+}

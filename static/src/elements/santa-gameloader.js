@@ -95,8 +95,9 @@ class PortControl {
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
 // nb. allow-same-origin is fine, because we're serving on another domain
+// allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
-const SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups';
+const SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
 
 
 export const events = Object.freeze({

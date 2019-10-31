@@ -45,9 +45,9 @@ const indices = new THREE.BufferAttribute(new Uint16Array([
   0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,0,18,1,3,19,4,6,20,7,9,21,10,12,22,13,15,23,16
 ]), 1);
 
-geometry.addAttribute('position', positions);
-geometry.addAttribute('uv', uvs);
-geometry.addAttribute('normal', normals);
+geometry.setAttribute('position', positions);
+geometry.setAttribute('uv', uvs);
+geometry.setAttribute('normal', normals);
 geometry.setIndex(indices);
 
 export const colorCombos = {
