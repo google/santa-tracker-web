@@ -10,7 +10,8 @@ class SnowglobeGame {
 
   constructor(element) {
     this.canvas = element.querySelector('#canvas')
-    this.actionBtns = [...element.querySelectorAll('[data-button]')]
+    this.openColorsBtn = element.querySelector('[data-open-colors]')
+    this.colorObjectBtns = [...element.querySelectorAll('[data-color-object]')]
     this.addShapeBtns = [...element.querySelectorAll('[data-add-shape]')]
     this.rotateObjectBtns = [...element.querySelectorAll('[data-rotate-object]')]
     this.rotateCameraBtns = [...element.querySelectorAll('[data-rotate-camera]')]
@@ -22,25 +23,26 @@ class SnowglobeGame {
     this.sceneManager = new SceneManager(this.canvas)
 
     this.updateEditToolsPos = this.updateEditToolsPos.bind(this)
-    this.enterEdit = this.enterEdit.bind(this)
-    this.leaveEdit = this.leaveEdit.bind(this)
+    this.enterEditMode = this.enterEditMode.bind(this)
+    this.hideEditTools = this.hideEditTools.bind(this)
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
-    this.leaveEdit()
+    this.hideEditTools()
     this.events()
     this.render()
   }
 
   events() {
-    this.rotateCameraBtns.forEach(button => {
-      button.addEventListener('click', this.sceneManager.rotateCamera)
-    })
-
+    // global UI
     this.zoomBtns.forEach(button => {
       button.addEventListener('click', this.sceneManager.zoom)
+    })
+
+    this.rotateCameraBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.rotateCamera)
     })
 
     this.addShapeBtns.forEach(button => {
@@ -56,6 +58,14 @@ class SnowglobeGame {
         button.addEventListener('mouseleave', mouseleaveCallback)
       })
     })
+
+    // object UI
+    this.colorObjectBtns.forEach(button => {
+      button.addEventListener('click', this.sceneManager.colorObject)
+    })
+
+    this.openColorsBtn.addEventListener('click', this.openColors)
+    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
 
     let rotateObjectInterval
 
@@ -84,26 +94,27 @@ class SnowglobeGame {
       })
     })
 
-    this.objectScaleSlider.addEventListener('input', this.sceneManager.onScaleInput)
-
-    this.sceneManager.addListener('enter_edit', this.enterEdit)
-    this.sceneManager.addListener('leave_edit', this.leaveEdit)
+    // custom events
+    this.sceneManager.addListener('enter_edit', this.enterEditMode)
+    this.sceneManager.addListener('leave_edit', this.hideEditTools)
     this.sceneManager.addListener('move_camera', this.updateEditToolsPos)
     this.sceneManager.addListener('scale_object', this.updateEditToolsPos)
   }
 
-  enterEdit() {
-    if (this.sceneManager.activeSubject && this.sceneManager.mode === 'edit') {
-      this.objectRotateBottomUi.style.display = `block`
-      this.objectToolbarUi.style.display = `block`
-      this.objectRotateRightUi.style.display = `block`
-      const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
-      this.objectScaleSlider.value = scaleFactor * 10
-      this.updateEditToolsPos()
-    }
+  enterEditMode() {
+    this.showEditTools()
+    const { scaleFactor } = this.sceneManager.activeSubject // get current scale of object
+    this.objectScaleSlider.value = scaleFactor * 10
+    this.updateEditToolsPos()
   }
 
-  leaveEdit() {
+  showEditTools() {
+    this.objectRotateRightUi.style.display = 'block'
+    this.objectRotateBottomUi.style.display = 'block'
+    this.objectToolbarUi.style.display = 'block'
+  }
+
+  hideEditTools() {
     this.objectRotateRightUi.style.display = 'none'
     this.objectRotateBottomUi.style.display = 'none'
     this.objectToolbarUi.style.display = 'none'
@@ -121,6 +132,11 @@ class SnowglobeGame {
     const toolbarHelper = this.sceneManager.scene.getObjectByName( 'toolbar-helper' )
     const toolbarHelperPos = this.sceneManager.getScreenPosition(toolbarHelper)
     this.objectToolbarUi.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
+  }
+
+  openColors(e) {
+    const el = e.currentTarget
+    el.classList.toggle('is-open')
   }
 
   render(now) {
