@@ -327,16 +327,14 @@ class SceneManager extends EventEmitter {
 
   onMouseUp(event) {
     event.preventDefault()
-    if (this.mode !== 'move' && this.mode !== 'edit') {
+    if (this.selectedSubject && this.mode === 'move') {
+      this.activeSubject = this.selectedSubject
+      this.setMode('edit')
+    } else {
       this.setMode()
     }
 
     this.mouseState = 'up'
-
-    if (this.selectedSubject && this.mode === 'move') {
-      this.activeSubject = this.selectedSubject
-      this.setMode('edit')
-    }
   }
 
   rotateCamera(event) {
@@ -452,8 +450,6 @@ class SceneManager extends EventEmitter {
   }
 
   addShape(shape, material = 'snow') {
-    this.setMode('move')
-
     let subject
     switch (shape) {
       case 'cube':
@@ -632,6 +628,7 @@ class SceneManager extends EventEmitter {
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
     document.querySelector('.colors-ui').classList.remove('is-open')
+    console.log('mode', mode)
 
     // unselect any object when changing mode
     if (this.selectedSubject) {

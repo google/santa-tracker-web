@@ -54,7 +54,6 @@ class SnowglobeGame {
       button.addEventListener('mousedown', e => {
         e.preventDefault()
         button.addEventListener('mouseleave', mouseleaveCallback)
-        this.sceneManager.pushButton(button)
       })
     })
 
