@@ -11,7 +11,7 @@ import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
 
 // Managers
-import LoaderManager from '../../managers/LoaderManager/index.js'
+import LoaderManager from '../../managers/LoaderManager.js'
 
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
@@ -637,7 +637,7 @@ class SceneManager extends EventEmitter {
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
     document.querySelector('.colors-ui').classList.remove('is-open')
-    console.log('mode', mode)
+    // console.log('mode', mode)
 
     // unselect any object when changing mode
     if (this.selectedSubject) {

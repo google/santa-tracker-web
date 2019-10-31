@@ -1,9 +1,10 @@
 import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
-import LoaderManager from '../../managers/LoaderManager/index.js'
+import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
-
+import { throttle } from '../../utils/time.js'
+import createCustomEvent from '../../utils/createCustomEvent.js'
 
 class Object extends EventEmitter {
   constructor(scene, world) {
@@ -24,6 +25,7 @@ class Object extends EventEmitter {
       this.init = this.init.bind(this)
     }
     this.load = this.load.bind(this)
+    this.onCollide = this.onCollide.bind(this)
   }
 
   load(callback) {
@@ -76,6 +78,17 @@ class Object extends EventEmitter {
 
     if (this.callback) {
       this.callback(this)
+    }
+
+    // listen collision of shape
+    this.collide = throttle(this.handleResize, 200)
+    this.body.addEventListener('collide', this.onCollide)
+  }
+
+  onCollide(e) {
+    const relativeVelocity = e.contact.getImpactVelocityAlongNormal()
+    if (Math.abs(relativeVelocity) > 2) {
+      window.dispatchEvent(createCustomEvent('shape_collide', { force: relativeVelocity }))
     }
   }
 

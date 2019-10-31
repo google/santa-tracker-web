@@ -1,5 +1,5 @@
 import Obj from '../../Object/index.js'
-import LoaderManager from '../../../managers/LoaderManager/index.js'
+import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'

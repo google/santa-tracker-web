@@ -1,3 +1,4 @@
+import './managers/SoundManager.js'
 import SceneManager from './components/SceneManager/index.js'
 import { isTouchDevice } from './helpers.js'
 

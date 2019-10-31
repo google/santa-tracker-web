@@ -1,4 +1,4 @@
-import WRLLoader from '../../components/WRLLoader/index.js'
+import WRLLoader from '../components/WRLLoader/index.js'
 
 class LoaderManager {
   constructor() {
