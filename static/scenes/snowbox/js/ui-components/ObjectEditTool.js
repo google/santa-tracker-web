@@ -76,6 +76,7 @@ export default class ObjectEditTool {
   }
 
   hide() {
+    this.ui.toggleColorButton.classList.remove('is-open')
     this.el.style.display = 'none'
   }
 

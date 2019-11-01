@@ -50,11 +50,6 @@ class SceneManager extends EventEmitter {
     this.colorObject = this.colorObject.bind(this)
     this.onBodyTouchMove = this.onBodyTouchMove.bind(this)
 
-    this.onGui = this.onGui.bind(this)
-    this.onMaterialGui = this.onMaterialGui.bind(this)
-    this.onPresetsGui = this.onPresetsGui.bind(this)
-    this.onShapesGui = this.onShapesGui.bind(this)
-
     this.mode = ''
     // 0: default, can switch to any mode
     // 1: drag === moving camera: Can't click on an object or place an object
@@ -171,6 +166,7 @@ class SceneManager extends EventEmitter {
     this.terrain = this.sceneSubjects[1]
   }
 
+  // RAF
   update(now) {
     const { camera, controls } = this.cameraCtrl
 
@@ -664,7 +660,6 @@ class SceneManager extends EventEmitter {
     const { controls } = this.cameraCtrl
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
-    document.querySelector('.colors-ui').classList.remove('is-open')
     // console.log('mode', mode)
 
     // unselect any object when changing mode
@@ -739,143 +734,6 @@ class SceneManager extends EventEmitter {
     this.height = window.innerHeight
 
     this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
-  }
-
-  // GUI
-  initGui() {
-    this.gui = new dat.GUI()
-
-    this.guiController = {
-      lightIntensity: 0.5,
-      material: 'toon',
-      shininess: 1,
-      roughness: 1,
-      metalness: 1,
-      presets: 3,
-      cubeMass: 20,
-      ice_color: '#56b8e1',
-      terrain_color: '#d2d2d2'
-    }
-
-    this.guiMetalness = this.gui.add(this.guiController, 'metalness', 0.0, 2.0).onChange(this.onGui)
-    this.guiRoughness = this.gui.add(this.guiController, 'roughness', 0.0, 2.0).onChange(this.onGui)
-    this.guiShininess = this.gui.add(this.guiController, 'shininess', 0, 100).onChange(this.onGui)
-    this.gui.add(this.guiController, 'lightIntensity', 0.0, 2.5).onChange(this.onGui)
-    this.gui.add(this.guiController, 'material', ['phong', 'standard', 'toon']).onChange(this.onMaterialGui)
-    this.gui.add(this.guiController, 'presets', [1, 2, 3]).onChange(this.onPresetsGui)
-    this.gui.add(this.guiController, 'cubeMass', 0, 50).onChange(this.onGui)
-    this.gui.addColor(this.guiController, 'ice_color').onChange(this.onGui)
-    this.gui.addColor(this.guiController, 'terrain_color').onChange(this.onGui)
-
-    this.guiRoughness.domElement.classList.add('disabled')
-    this.guiMetalness.domElement.classList.add('disabled')
-  }
-
-  onGui() {
-    cubeConfig.MASS = this.guiController.cubeMass
-    this.scene.spotLight.intensity = this.guiController.lightIntensity
-
-    let material
-    const list = this.getObjectsList()
-    list.forEach(mesh => {
-      material = mesh.material
-    })
-
-    if (material) this.updateMaterial(material)
-
-    this.terrain.mesh.material.color = new THREE.Color(this.guiController.terrain_color)
-  }
-
-  onMaterialGui() {
-    this.guiShininess.domElement.classList.remove('disabled')
-    this.guiRoughness.domElement.classList.remove('disabled')
-    this.guiMetalness.domElement.classList.remove('disabled')
-
-    let material
-
-    switch (this.guiController.material) {
-      case 'phong':
-        material = new THREE.MeshPhongMaterial()
-        this.guiRoughness.domElement.classList.add('disabled')
-        this.guiMetalness.domElement.classList.add('disabled')
-        break
-      case 'standard':
-        material = new THREE.MeshStandardMaterial()
-        this.guiShininess.domElement.classList.add('disabled')
-        break
-      case 'toon':
-        material = new THREE.MeshToonMaterial()
-        this.guiRoughness.domElement.classList.add('disabled')
-        this.guiMetalness.domElement.classList.add('disabled')
-        break
-    }
-
-    this.updateMaterial(material)
-  }
-
-  onPresetsGui() {
-    this.guiShininess.domElement.classList.remove('disabled')
-    this.guiRoughness.domElement.classList.remove('disabled')
-    this.guiMetalness.domElement.classList.remove('disabled')
-
-    let material
-
-    switch (this.guiController.presets) {
-      case '1':
-        material = new THREE.MeshPhongMaterial()
-        this.guiRoughness.domElement.classList.add('disabled')
-        this.guiMetalness.domElement.classList.add('disabled')
-        this.guiController.shininess = 865
-        this.guiController.lightIntensity = 0.4
-        this.guiController.material = 'phong'
-        break
-      case '2':
-        material = new THREE.MeshStandardMaterial()
-        this.guiShininess.domElement.classList.add('disabled')
-        this.guiController.roughness = 0.3
-        this.guiController.metalness = 0.3
-        this.guiController.lightIntensity = 0.8
-        this.guiController.material = 'standard'
-        break
-      case '3':
-        material = new THREE.MeshToonMaterial()
-        this.guiRoughness.domElement.classList.add('disabled')
-        this.guiMetalness.domElement.classList.add('disabled')
-        this.guiController.shininess = 345
-        this.guiController.lightIntensity = 0.2
-        this.guiController.material = 'toon'
-        break
-    }
-
-    this.updateMaterial(material)
-
-    for (var i in this.gui.__controllers) {
-      this.gui.__controllers[i].updateDisplay()
-    }
-  }
-
-  onShapesGui() {
-    const index = parseInt(this.guiController.shapes) - 1
-    this.mesh.geometry = this.shapes[index].geometry
-    this.currentShape = index
-
-    this.updateMaterial()
-  }
-
-  updateMaterial(material) {
-    material.color = new THREE.Color(this.guiController.ice_color)
-    material.shininess = this.guiController.shininess
-    material.roughness = this.guiController.roughness
-    material.metalness = this.guiController.metalness
-    material.needsUpdate = true
-
-    const list = this.getObjectsList()
-
-    list.forEach(mesh => {
-      mesh.material = material
-    })
-
-    this.scene.spotLight.intensity = this.guiController.lightIntensity
   }
 }
 
