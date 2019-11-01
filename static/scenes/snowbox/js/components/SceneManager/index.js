@@ -399,7 +399,7 @@ class SceneManager extends EventEmitter {
       this.selectedSubject = this.activeSubject
       this.selectedSubject.select()
     }
-
+    window.santaApp.fire('sound-trigger', 'snowbox_scale', parseInt(e.target.value));
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
@@ -410,6 +410,7 @@ class SceneManager extends EventEmitter {
   // others
 
   unselectSubject(unmove) {
+    window.santaApp.fire('sound-trigger', 'snowbox_unselect_subject');
     this.cameraCtrl.resetControls(this.terrain)
 
     if (!unmove) {
@@ -423,6 +424,7 @@ class SceneManager extends EventEmitter {
   }
 
   selectSubject(newSelectedSubject, offset) {
+    window.santaApp.fire('sound-trigger', 'snowbox_select_subject');
     this.setMode('move')
 
     const { x, z } = newSelectedSubject.body.position

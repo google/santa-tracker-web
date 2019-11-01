@@ -57,6 +57,13 @@ class SnowglobeGame {
       button.addEventListener('touchstart', e => {
         this.onButtonMouseDown(e, button)
       })
+      button.addEventListener('mouseover', e => {
+        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseover');
+      });
+      button.addEventListener('mouseout', e => {
+        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseout');
+      });
+
     })
 
     /////// Merge from mobile after refacto
@@ -82,6 +89,7 @@ class SnowglobeGame {
         const el = e.currentTarget
         this.sceneManager.rotateObject(el)
         button.classList.add('is-clicked')
+        window.santaApp.fire('sound-trigger', 'snowbox_rotate');
       })
 
       button.addEventListener('mousedown', e => {
@@ -119,7 +127,7 @@ class SnowglobeGame {
       button.removeEventListener('mouseleave', mouseLeaveListener)
     }
     e.preventDefault()
-
+    window.santaApp.fire('sound-trigger', 'snowbox_' + button.dataset.button.replace(/-/g, '_'));
     if (e.type === 'touchstart') {
       this.addingShape = button
     } else {
