@@ -4,5 +4,5 @@ export default {
   OBJ: './models/1_cube.obj',
   MASS: 20,
   SELECTABLE: true,
-  SIZE: 1,
+  SIZE: 0.95,
 }
