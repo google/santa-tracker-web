@@ -33,9 +33,19 @@ class SceneManager extends EventEmitter {
   constructor(canvas) {
     super()
 
+    this.debug = CONFIG.DEBUG
     this.isTouchDevice = isTouchDevice()
+    this.mode = ''
+    // 0: default, can switch to any mode
+    // 1: drag === moving camera: Can't click on an object or place an object
+    // 2: highlight === hover on an object: Can't go to drag mode
+    // 3: move === moving/adding an object: Can't go to drag mode
+    // 4: edit === scale/rotate an object: Can't go to drag mode
 
-    // bind
+    this.bind()
+  }
+
+  bind() {
     this.onWindowResize = this.onWindowResize.bind(this)
     this.onKeydown = this.onKeydown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
@@ -47,15 +57,6 @@ class SceneManager extends EventEmitter {
     this.onScaleInput = this.onScaleInput.bind(this)
     this.colorObject = this.colorObject.bind(this)
     this.onBodyTouchMove = this.onBodyTouchMove.bind(this)
-
-    this.mode = ''
-    // 0: default, can switch to any mode
-    // 1: drag === moving camera: Can't click on an object or place an object
-    // 2: highlight === hover on an object: Can't go to drag mode
-    // 3: move === moving/adding an object: Can't go to drag mode
-    // 4: edit === scale/rotate an object: Can't go to drag mode
-
-    this.debug = CONFIG.DEBUG
   }
 
   init(canvas) {
@@ -87,7 +88,6 @@ class SceneManager extends EventEmitter {
     this.cameraCtrl.rotate('left', false, true)
 
     if (this.debug) {
-      this.initGui()
       this.buildHelpers()
       this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
     }
@@ -100,22 +100,6 @@ class SceneManager extends EventEmitter {
     LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
     LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
     LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
-  }
-
-  events() {
-    window.addEventListener('resize', this.onWindowResize, { passive: true })
-    document.addEventListener('keydown', this.onKeydown)
-
-    if (this.isTouchDevice) {
-      this.canvas.addEventListener('touchstart', this.onMouseDown)
-      document.body.addEventListener('touchend', this.onMouseUp)
-      document.body.addEventListener('touchmove', this.onBodyTouchMove)
-    } else {
-      this.canvas.addEventListener('mousemove', this.onMouseMove)
-      this.canvas.addEventListener('mousedown', this.onMouseDown)
-      this.canvas.addEventListener('mouseup', this.onMouseUp)
-      this.canvas.addEventListener('wheel', this.onWheel)
-    }
   }
 
   initCannon() {
@@ -162,6 +146,22 @@ class SceneManager extends EventEmitter {
     this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
     this.lights = this.sceneSubjects[0]
     this.terrain = this.sceneSubjects[1]
+  }
+
+  events() {
+    window.addEventListener('resize', this.onWindowResize, { passive: true })
+    document.addEventListener('keydown', this.onKeydown)
+
+    if (this.isTouchDevice) {
+      this.canvas.addEventListener('touchstart', this.onMouseDown)
+      document.body.addEventListener('touchend', this.onMouseUp)
+      document.body.addEventListener('touchmove', this.onBodyTouchMove)
+    } else {
+      this.canvas.addEventListener('mousemove', this.onMouseMove)
+      this.canvas.addEventListener('mousedown', this.onMouseDown)
+      this.canvas.addEventListener('mouseup', this.onMouseUp)
+      this.canvas.addEventListener('wheel', this.onWheel)
+    }
   }
 
   // RAF
