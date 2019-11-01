@@ -33,15 +33,22 @@ body {
     position: absolute;
     top: 0;
     width: 50px;
+    z-index: 10
   }
 
   #player-1 {
-    background: blue;
+    background: url(img/player-a.svg) center/contain no-repeat;
   }
 
   #player-2 {
-    background: green;
+    background: url(img/player-b.svg) center/contain no-repeat;
   }
+
+  .pit {
+    background: grey;
+    position: absolute;
+  }
+
   // .title {
   //   font-family: 'Lobster', sans-serif;
   //   position: absolute;

@@ -1,6 +1,7 @@
 goog.provide('app.Game')
 
 goog.require('app.Controls')
+goog.require('app.Pit')
 goog.require('app.Player')
 goog.require('Constants')
 
@@ -22,6 +23,13 @@ app.Game = class Game {
           y: 0
         }
       })
+
+    this.pit = new app.Pit({
+      top: 50,
+      height: 250,
+      left: 100,
+      width: 300
+    })
 
     this.isPlaying = true
     this.lastFrame = +new Date() / 1000

@@ -1,6 +1,6 @@
-goog.provide('app.Player');
+goog.provide('app.Player')
 
-goog.require('Constants');
+goog.require('Constants')
 
 app.Player = class Player {
   constructor(game, context, config) {
@@ -20,7 +20,9 @@ app.Player = class Player {
   }
 
   onFrame(delta) {
-    console.log('player frame')
+    if (this.game.pit.intersects(this)) {
+      this.context.style.display = 'none'
+    }
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
       this.position.x -= Constants.PLAYER_STEP_SIZE
@@ -42,6 +44,7 @@ app.Player = class Player {
   }
 
   render() {
+    // TODO: move this to a common util class
     this.context.style.transform =
       `translate3d(${this.position.x}px, ${this.position.y}px, 0) rotateZ(${this.position.angle}deg)`
   }
