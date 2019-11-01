@@ -12,6 +12,7 @@ import treeConfig from '../Shapes/Tree/config.js'
 
 // Managers
 import LoaderManager from '../../managers/LoaderManager.js'
+import SoundManager from '../../managers/SoundManager.js'
 
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
@@ -356,12 +357,15 @@ class SceneManager extends EventEmitter {
     const el = e.currentTarget
     this.cameraCtrl.rotate(el.dataset.rotateCamera, this.terrain)
     this.pushButton(el)
+    SoundManager.play("snowbox_zoom_rotate_camera")
   }
 
   zoom(e) {
+    
     const el = e.currentTarget
     this.cameraCtrl.zoom(el.dataset.zoom)
     this.pushButton(el)
+    SoundManager.play("snowbox_zoom_" + el.dataset.zoom)
   }
 
   pushButton(el) {
@@ -379,6 +383,7 @@ class SceneManager extends EventEmitter {
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true
+      SoundManager.play("snowbox_pick_color")
     }
   }
 
@@ -399,18 +404,17 @@ class SceneManager extends EventEmitter {
       this.selectedSubject = this.activeSubject
       this.selectedSubject.select()
     }
-    window.santaApp.fire('sound-trigger', 'snowbox_scale', parseInt(e.target.value));
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
       this.emit('scale_object')
     }
+    SoundManager.play('snowbox_scale', parseInt(e.target.value));
   }
 
   // others
 
   unselectSubject(unmove) {
-    window.santaApp.fire('sound-trigger', 'snowbox_unselect_subject');
     this.cameraCtrl.resetControls(this.terrain)
 
     if (!unmove) {
@@ -421,10 +425,11 @@ class SceneManager extends EventEmitter {
     this.terrain.removePositionMarker()
 
     this.selectedSubject = null
+
+    SoundManager.play('snowbox_unselect_subject');
   }
 
   selectSubject(newSelectedSubject, offset) {
-    window.santaApp.fire('sound-trigger', 'snowbox_select_subject');
     this.setMode('move')
 
     const { x, z } = newSelectedSubject.body.position
@@ -440,6 +445,8 @@ class SceneManager extends EventEmitter {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
+
+    SoundManager.play('snowbox_select_subject');
   }
 
   findNearestIntersectingObject(objects) {

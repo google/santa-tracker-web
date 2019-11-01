@@ -1,4 +1,4 @@
-import './managers/SoundManager.js'
+import SoundManager from './managers/SoundManager.js'
 import SceneManager from './components/SceneManager/index.js'
 import { isTouchDevice } from './helpers.js'
 
@@ -58,10 +58,10 @@ class SnowglobeGame {
         this.onButtonMouseDown(e, button)
       })
       button.addEventListener('mouseover', e => {
-        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseover');
+        SoundManager.play('snowbox_shape_mouseover');
       });
       button.addEventListener('mouseout', e => {
-        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseout');
+        SoundManager.play('snowbox_shape_mouseout');
       });
 
     })
@@ -89,7 +89,7 @@ class SnowglobeGame {
         const el = e.currentTarget
         this.sceneManager.rotateObject(el)
         button.classList.add('is-clicked')
-        window.santaApp.fire('sound-trigger', 'snowbox_rotate');
+        SoundManager.play('snowbox_rotate');
       })
 
       button.addEventListener('mousedown', e => {
@@ -127,7 +127,7 @@ class SnowglobeGame {
       button.removeEventListener('mouseleave', mouseLeaveListener)
     }
     e.preventDefault()
-    window.santaApp.fire('sound-trigger', 'snowbox_' + button.dataset.button.replace(/-/g, '_'));
+    SoundManager.play('snowbox_' + button.dataset.addShape);
     if (e.type === 'touchstart') {
       this.addingShape = button
     } else {
