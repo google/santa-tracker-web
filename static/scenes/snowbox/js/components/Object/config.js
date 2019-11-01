@@ -19,5 +19,6 @@ export default {
     depthTest: false,
     transparent: true,
     opacity: 0.4,
-  })
+  }),
+  HELPER_MATERIAL: new THREE.PointsMaterial({ visible: false })
 }
