@@ -28,6 +28,20 @@ body {
     width: 1400px;
   }
 
+  .player {
+    height: 50px;
+    position: absolute;
+    top: 0;
+    width: 50px;
+  }
+
+  #player-1 {
+    background: blue;
+  }
+
+  #player-2 {
+    background: green;
+  }
   // .title {
   //   font-family: 'Lobster', sans-serif;
   //   position: absolute;

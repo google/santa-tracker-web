@@ -8,79 +8,52 @@ goog.provide('app.Controls')
  *
  * @constructor
  */
-app.Controls = function(game) {
-  this.game_ = game
-  this.players_ = game.players
-  console.log('hello from controls', this.game_)
-  // this.tutorial_ = game.tutorial
+app.Controls = class Controls {
+  constructor(game) {
+    this.game_ = game
+    this.players_ = game.players
+    // this.tutorial_ = game.tutorial
 
-  // this.currentTouchId = null
-  // this.currentTouchStartY = null
+    // this.currentTouchId = null
+    // this.currentTouchStartY = null
 
-  var handler = this.handle.bind(this)
-  this.game_.context.addEventListener(
-      'touchstart',
-      handler)
-  this.game_.context.addEventListener(
-      'touchmove',
-      handler)
-  this.game_.context.addEventListener(
-      'touchend',
-      handler)
-  window.addEventListener('keydown', handler)
-  window.addEventListener('keyup', handler)
-}
+    this.trackedKeys = {}
 
-/**
- * Handle keyboard and touch events.
- * @param  {Event} e The event data.
- */
-app.Controls.prototype.handle = function(e) {
-  // if (!this.game_.isPlaying) {
-  //   return
-  // }
-
-  let methodName = 'on' + e.type[0].toUpperCase() + e.type.slice(1)
-  this[methodName](e)
-}
-
-/**
- * Handles the key down event. Called dynamically.
- * @param  {Event} e The event object.
- */
-app.Controls.prototype['onKeydown'] = function(e) {
-  if (e.key === 'ArrowLeft') {
-      console.log('left pressed')
-  } else if (e.key === 'ArrowRight') {
-      console.log('right pressed')
-  } else if (e.key === 'ArrowUp') {
-      console.log('up pressed')
-  } else if (e.key === 'ArrowDown') {
-      console.log('down pressed')
+    // this.game_.context.addEventListener(
+    //     'touchstart',
+    //     handler)
+    // this.game_.context.addEventListener(
+    //     'touchmove',
+    //     handler)
+    // this.game_.context.addEventListener(
+    //     'touchend',
+    //     handler)
+    window.addEventListener('keydown', this.onKeyDown.bind(this))
+    window.addEventListener('keyup', this.onKeyUp.bind(this))
   }
 
-  // if (!this.arrowPressed && (e.keyCode === 38 || e.keyCode === 40)) {
-  //   // Let tutorial know if arrow has been pressed
-  //   // and hide tutorial when user presses the button
-  //   this.tutorial_.off('keys-updown')
-  //   this.arrowPressed = true
-  // }
-}
+  /**
+   * Handles the key down event. Called dynamically.
+   * @param  {Event} e The event object.
+   */
+  onKeyDown(e) {
+    this.trackedKeys[e.key] = true
 
-/**
- * Handles the key up event. Called dynamically.
- * @param  {Event} e The event object.
- * @this {Controls} The Controls object.
- */
-app.Controls.prototype['onKeyup'] = function(e) {
-  if (e.key === 'ArrowLeft') {
-      console.log('left released')
-  } else if (e.key === 'ArrowRight') {
-      console.log('right released')
-  } else if (e.key === 'ArrowUp') {
-      console.log('up released')
-  } else if (e.key === 'ArrowDown') {
-      console.log('down released')
+    // if (!this.arrowPressed && (e.keyCode === 38 || e.keyCode === 40)) {
+    //   // Let tutorial know if arrow has been pressed
+    //   // and hide tutorial when user presses the button
+    //   this.tutorial_.off('keys-updown')
+    //   this.arrowPressed = true
+    // }
+  }
+
+  /**
+   * Handles the key up event. Called dynamically.
+   * @param  {Event} e The event object.
+   * @this {Controls} The Controls object.
+   */
+  onKeyUp(e) {
+    this.trackedKeys[e.key] = false
   }
 }
 
