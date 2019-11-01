@@ -107,7 +107,9 @@ class Object extends EventEmitter {
     if (this.selectable && this.selected) {
       this.selected = false
       this.body.mass = this.mass
-      this.body.updateMassProperties()
+      if (this.body.sleepState > 0) {
+        this.body.wakeUp()
+      }
 
       if (this.moveToGhost) {
         if (this.mesh && !this.mesh.visible) {
