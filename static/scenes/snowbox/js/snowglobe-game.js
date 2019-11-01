@@ -83,6 +83,9 @@ class SnowglobeGame {
       button.addEventListener('click', e => {
         e.preventDefault()
         this.sceneManager.onButtonClick(button.dataset.button, e.currentTarget)
+
+        window.santaApp.fire('sound-trigger', 'snowbox_' + button.dataset.button.replace(/-/g, '_'));
+
         button.classList.add('is-clicked')
         setTimeout(() => {
           button.classList.remove('is-clicked')
@@ -98,6 +101,7 @@ class SnowglobeGame {
       }
 
       button.addEventListener('mousedown', e => {
+        window.santaApp.fire('sound-trigger', 'snowbox_shape_mousedown');
         e.preventDefault()
         button.addEventListener('mouseleave', mouseleaveCallback)
         button.classList.add('is-clicked')
@@ -105,6 +109,12 @@ class SnowglobeGame {
           button.classList.remove('is-clicked')
         }, 200)
       })
+      button.addEventListener('mouseover', e => {
+        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseover');
+      });
+      button.addEventListener('mouseout', e => {
+        window.santaApp.fire('sound-trigger', 'snowbox_shape_mouseout');
+      });
     })
 
     let rotateInterval
@@ -113,6 +123,7 @@ class SnowglobeGame {
       button.addEventListener('click', e => {
         this.sceneManager.onButtonClick(button.dataset.rotateButton)
         button.classList.add('is-clicked')
+        window.santaApp.fire('sound-trigger', 'snowbox_rotate');
       })
 
       button.addEventListener('mousedown', e => {
@@ -134,6 +145,7 @@ class SnowglobeGame {
 
     this.objectScaleSlider.addEventListener('input', e => {
       this.sceneManager.onScaleInput(e)
+      window.santaApp.fire('sound-trigger', 'snowbox_scale', parseInt(e.target.value));
     })
 
     this.sceneManager.addListener('enter_edit', () => {

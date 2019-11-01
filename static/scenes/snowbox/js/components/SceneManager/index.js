@@ -447,6 +447,7 @@ class SceneManager extends EventEmitter {
   }
 
   unselectSubject(unmove) {
+    window.santaApp.fire('sound-trigger', 'snowbox_unselect_subject');
     this.cameraCtrl.resetControls(this.terrain)
     this.setMode()
 
@@ -461,6 +462,7 @@ class SceneManager extends EventEmitter {
   }
 
   selectSubject(newSelectedSubject, offset) {
+    window.santaApp.fire('sound-trigger', 'snowbox_select_subject');
     if (this.mode === 'edit') {
       this.unsetEditMode()
     }
