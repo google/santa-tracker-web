@@ -291,7 +291,9 @@ class SceneManager extends EventEmitter {
         this.mouseInEdge = null
       } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
-        this.detectMouseInEdge(e)
+        if (this.canDetectMouseInEdge) {
+          this.detectMouseInEdge(e)
+        }
       }
     }
 
@@ -450,6 +452,13 @@ class SceneManager extends EventEmitter {
     }
 
     subject.load(this.shapeLoaded)
+
+    // prevent moving camera just after adding a shape
+    this.canDetectMouseInEdge = false
+    clearTimeout(this.canDetectMouseInEdgeTimeout)
+    this.canDetectMouseInEdgeTimeout = setTimeout(() => {
+      this.canDetectMouseInEdge = true
+    }, 2000)
   }
 
   // others
