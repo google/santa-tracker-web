@@ -34,6 +34,8 @@ Constants = {
       left: 'a',
       right: 'd'
     }
-  }
+  },
+
+  PLAYER_STEP_SIZE: 2
 
 }

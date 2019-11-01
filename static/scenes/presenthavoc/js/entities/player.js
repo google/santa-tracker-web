@@ -23,19 +23,19 @@ app.Player = class Player {
     console.log('player frame')
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      this.position.x -= 1
+      this.position.x -= Constants.PLAYER_STEP_SIZE
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      this.position.x += 1
+      this.position.x += Constants.PLAYER_STEP_SIZE
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      this.position.y -= 1
+      this.position.y -= Constants.PLAYER_STEP_SIZE
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      this.position.y += 1
+      this.position.y += Constants.PLAYER_STEP_SIZE
     }
 
     this.render()
