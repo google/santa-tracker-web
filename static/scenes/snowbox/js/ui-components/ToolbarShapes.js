@@ -6,10 +6,12 @@ export default class ToolbarShapes {
 
     this.ui = {
       buttons: [...this.el.querySelectorAll('[data-add-shape]')],
-      screenshot: this.el.querySelector('[data-share]')
+      shareButton: this.el.querySelector('[data-share]'),
+      screenshotImage: document.body.querySelector('[screenshot-image]')
     }
 
     this.onButtonMouseDown = this.onButtonMouseDown.bind(this)
+    this.takeScreenshot = this.takeScreenshot.bind(this)
 
     this.events()
   }
@@ -21,7 +23,7 @@ export default class ToolbarShapes {
       button.addEventListener('touchstart', this.onButtonMouseDown)
     })
 
-    this.ui.screenshot.addEventListener('click', this.takeScreenshot)
+    this.ui.shareButton.addEventListener('click', this.takeScreenshot)
   }
 
   onButtonMouseDown(e) {
@@ -47,10 +49,12 @@ export default class ToolbarShapes {
     // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
     SceneManager.renderer.render(SceneManager.scene, SceneManager.cameraCtrl.camera)
     const base64 = SceneManager.renderer.domElement.toDataURL()
-    const img = new Image()
-    img.src = base64
+    this.ui.screenshotImage.parentNode.classList.add('is-open')
+    this.ui.screenshotImage.src = base64
 
-    document.body.appendChild(img)
+    setTimeout(() => {
+      this.ui.screenshotImage.parentNode.classList.remove('is-open')
+    }, 2000)
   }
 }
 

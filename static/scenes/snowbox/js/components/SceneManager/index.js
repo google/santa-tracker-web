@@ -121,6 +121,7 @@ class SceneManager extends EventEmitter {
       antialias: true,
       alpha: true
     })
+    this.renderer.setClearColor (0x000000, 1);
     const DPR = window.devicePixelRatio ? window.devicePixelRatio : 1
     this.renderer.setPixelRatio(DPR)
     this.renderer.setSize(width, height)
