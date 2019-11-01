@@ -22,7 +22,7 @@
       <!-- scene -->
       <canvas id="canvas"></canvas>
       <!-- edit tool -->
-      <div object-edit-tool>
+      <section object-edit-tool>
         <div class="object-ui" object-rotate-right-ui>
           <div data-rotate-object="right" class="rotate__button rotate__button--object button button--round ">
             <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon button__icon--reverse">
@@ -59,9 +59,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- global ui -->
-      <div class="ui">
+      <section class="ui">
         <!-- camera controls -->
         <div class="camera-controls" camera-controls>
           <div class="rotate">
@@ -97,27 +97,30 @@
           </div>
         </div>
         <!-- toolbar shapes -->
-        <div class="toolbox" toolbar-shapes>
-          <div class="toolbox__container">
-            <div class="toolbox__arrow button button--slider">
+        <div class="toolbar-shapes" toolbar-shapes>
+          <div class="toolbar-shapes__container">
+            <div class="toolbar-shapes__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon">
             </div>
-            <div data-add-shape="cube" data-shape-material="snow" class="toolbox__item">
-              <img src="./img/cube.png" alt="" class="toolbox__image">
+            <div data-add-shape="cube" data-shape-material="snow" class="toolbar-shapes__item">
+              <img src="./img/cube.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="arch" data-shape-material="snow" class="toolbox__item">
-              <img src="./img/arch.png" alt="" class="toolbox__image">
+            <div data-add-shape="arch" data-shape-material="snow" class="toolbar-shapes__item">
+              <img src="./img/arch.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="tree" class="toolbox__item">
-              <img src="./img/tree.png" alt="" class="toolbox__image">
+            <div data-add-shape="tree" class="toolbar-shapes__item">
+              <img src="./img/tree.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="sphere" class="toolbox__item">
-              <img src="./img/sphere.png" alt="" class="toolbox__image">
+            <div data-add-shape="sphere" class="toolbar-shapes__item">
+              <img src="./img/sphere.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div class="toolbox__arrow button button--slider">
+            <div class="toolbar-shapes__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon button__icon--reverse">
             </div>
-      </div>
+          </div>
+          <button class="share" data-share>Take a screenshot</button>
+        </div>
+      </section>
     </div>
     <script src="index.js" type="module"></script>
   </body>

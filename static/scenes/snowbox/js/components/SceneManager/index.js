@@ -67,6 +67,10 @@ class SceneManager extends EventEmitter {
       height: this.canvas.clientHeight
     }
 
+    this.ui = {
+      toolbarShapes: document.body.querySelector('[toolbar-shapes]')
+    }
+
     this.preloadShapes()
     this.setUnits()
 
@@ -709,7 +713,7 @@ class SceneManager extends EventEmitter {
 
   setUnits() {
     this.width = window.innerWidth
-    this.height = window.innerHeight
+    this.height = window.innerHeight - this.ui.toolbarShapes.offsetHeight
 
     this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
   }
