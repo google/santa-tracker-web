@@ -9,17 +9,39 @@ export default class CameraControls {
       rotateButtons: [...this.el.querySelectorAll('[data-rotate-camera]')]
     }
 
+    this.zoom = this.zoom.bind(this)
+    this.rotateCamera = this.rotateCamera.bind(this)
+
     this.events()
   }
 
   events() {
     this.ui.zoomButtons.forEach(button => {
-      button.addEventListener('click', SceneManager.zoom)
+      button.addEventListener('click', this.zoom)
     })
 
     this.ui.rotateButtons.forEach(button => {
-      button.addEventListener('click', SceneManager.rotateCamera)
+      button.addEventListener('click', this.rotateCamera)
     })
+  }
+
+  zoom(e) {
+    const el = e.currentTarget
+    SceneManager.cameraCtrl.zoom(el.dataset.zoom)
+    this.pushButton(el)
+  }
+
+  rotateCamera(e) {
+    const el = e.currentTarget
+    SceneManager.cameraCtrl.rotate(el.dataset.rotateCamera)
+    this.pushButton(el)
+  }
+
+  pushButton(el) {
+    el.classList.add('is-clicked')
+    setTimeout(() => {
+      el.classList.remove('is-clicked')
+    }, 200)
   }
 }
 

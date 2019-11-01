@@ -43,8 +43,6 @@ class SceneManager extends EventEmitter {
     this.onMouseUp = this.onMouseUp.bind(this)
     this.onWheel = this.onWheel.bind(this)
     this.shapeLoaded = this.shapeLoaded.bind(this)
-    this.rotateCamera = this.rotateCamera.bind(this)
-    this.zoom = this.zoom.bind(this)
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
     this.colorObject = this.colorObject.bind(this)
@@ -86,7 +84,7 @@ class SceneManager extends EventEmitter {
       z: 0
     }
 
-    this.cameraCtrl.rotate('left', this.terrain, false, true)
+    this.cameraCtrl.rotate('left', false, true)
 
     if (this.debug) {
       this.initGui()
@@ -376,9 +374,9 @@ class SceneManager extends EventEmitter {
 
   onWheel(e) {
     if (e.deltaY < 0) {
-      this.cameraCtrl.rotate('left', this.terrain, true)
+      this.cameraCtrl.rotate('left', true)
     } else if (e.deltaY > 0) {
-      this.cameraCtrl.rotate('right', this.terrain, true)
+      this.cameraCtrl.rotate('right', true)
     }
 
     if (this.mode === 'edit' && this.activeSubject) {
@@ -387,19 +385,6 @@ class SceneManager extends EventEmitter {
   }
 
   // Events from UI
-
-  rotateCamera(e) {
-    const el = e.currentTarget
-    this.cameraCtrl.rotate(el.dataset.rotateCamera, this.terrain)
-    this.pushButton(el)
-  }
-
-  zoom(e) {
-    const el = e.currentTarget
-    this.cameraCtrl.zoom(el.dataset.zoom)
-    this.pushButton(el)
-  }
-
   colorObject(e) {
     const el = e.currentTarget
     if (this.activeSubject) {
@@ -466,7 +451,7 @@ class SceneManager extends EventEmitter {
   // others
 
   unselectSubject(unmove) {
-    this.cameraCtrl.resetControls(this.terrain)
+    this.cameraCtrl.resetControls()
 
     if (!unmove) {
       this.selectedSubject.moveToGhost()
@@ -609,13 +594,6 @@ class SceneManager extends EventEmitter {
     const pos = this.getCurrentPosOnPlane()
     this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
     this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
-  }
-
-  pushButton(el) {
-    el.classList.add('is-clicked')
-    setTimeout(() => {
-      el.classList.remove('is-clicked')
-    }, 200)
   }
 
   checkCollision() {
