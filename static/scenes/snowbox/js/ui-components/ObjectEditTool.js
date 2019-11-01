@@ -17,6 +17,7 @@ export default class ObjectEditTool {
     this.updatePosition = this.updatePosition.bind(this)
     this.enterEditMode = this.enterEditMode.bind(this)
     this.hide = this.hide.bind(this)
+    this.resetRotateButtons = this.resetRotateButtons.bind(this)
 
     this.hide()
     this.events()
@@ -30,8 +31,6 @@ export default class ObjectEditTool {
       button.addEventListener('click', SceneManager.colorObject)
     })
 
-    let rotateObjectInterval
-
     this.ui.rotateButtons.forEach(button => {
       button.addEventListener('click', e => {
         const el = e.currentTarget
@@ -42,19 +41,13 @@ export default class ObjectEditTool {
       button.addEventListener('mousedown', e => {
         e.preventDefault()
         const el = e.currentTarget
-        rotateObjectInterval = setInterval(() => {
+        this.rotateObjectInterval = setInterval(() => {
           SceneManager.rotateObject(el)
           button.classList.add('is-clicked')
         }, 200)
       })
 
-      button.addEventListener('mouseup', e => {
-        e.preventDefault()
-        clearInterval(rotateObjectInterval)
-        setTimeout(() => {
-          button.classList.remove('is-clicked')
-        }, 200)
-      })
+      button.addEventListener('mouseup', this.resetRotateButtons)
     })
 
     // custom events
@@ -76,6 +69,7 @@ export default class ObjectEditTool {
   }
 
   hide() {
+    this.resetRotateButtons()
     this.ui.toggleColorButton.classList.remove('is-open')
     this.el.style.display = 'none'
   }
@@ -97,6 +91,16 @@ export default class ObjectEditTool {
   toggleColorsMenu(e) {
     const el = e.currentTarget
     el.classList.toggle('is-open')
+  }
+
+  resetRotateButtons() {
+    clearInterval(this.rotateObjectInterval)
+
+    this.ui.rotateButtons.forEach(button => {
+      setTimeout(() => {
+        button.classList.remove('is-clicked')
+      }, 200)
+    })
   }
 
 }
