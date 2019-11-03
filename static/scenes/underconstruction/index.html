@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
   <link rel="stylesheet" href="underconstruction-scene.css" />
 
-  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
+  <script src="../../node_modules/lottie-web/build/player/lottie_light.min.js"></script>
 </head>
 <body>
 
 <div id="module-underconstruction">
   <main id="main">
     <div class="title">
-      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker">
+      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker" />
       <h2 class="title__text" msgid="nextdecember"></h2>
     </div>
     <div class="animation animation--backhoe desktop-only"></div>
@@ -51,8 +51,19 @@ const initAnimation = (key, preserveAspectRatio) => {
         preserveAspectRatio,
       },
     });
-    anim.addEventListener('DOMLoaded', resolve);
+    anim.addEventListener('data_failed', reject);
+    anim.addEventListener('DOMLoaded', () => resolve(anim));
   });
+
+  // TODO(samthor): These animations create numerous clip-paths with the same size as the element
+  // and make them basically unplayable on anything but Chrome.
+  // Sometimes these paths add value for Lottie, but not here.
+  p.then((anim) => {
+    const el = anim.renderer.svgElement;
+    const defs = el.querySelector('defs');
+    defs && defs.parentNode.removeChild(defs);
+  });
+
   api.preload.wait(p);
 };
 

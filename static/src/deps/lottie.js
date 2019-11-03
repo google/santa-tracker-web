@@ -12,7 +12,7 @@ export default function load() {
 
   cachedLoad = new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = join(import.meta.url, '../../third_party/lib/lottie/lottie.min.js');
+    script.src = join(import.meta.url, '../../node_modules/lottie-web/build/player/lottie_light.min.js');
     script.onload = () => resolve(window.lottie);
     script.onerror = reject;
     document.head.appendChild(script);
