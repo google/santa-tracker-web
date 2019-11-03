@@ -85,7 +85,8 @@ function notifyListeners() {
   let previousDate = (new Date()).toDateString();
 
   function checkDate() {
-    const next = 5 * 60 * 1000 * expontentialDelay(0.2);
+    // check every ~minute on rAF
+    const next = 60 * 1000 * expontentialDelay(0.2);
     window.setTimeout(() => window.requestAnimationFrame(checkDate), next);
 
     const currentDate = (new Date()).toDateString();
@@ -93,7 +94,6 @@ function notifyListeners() {
       previousDate = currentDate;
       notifyListeners();
     }
-    console.info('dates', currentDate, previousDate);
   }
 
   checkDate();

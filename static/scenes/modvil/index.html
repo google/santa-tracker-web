@@ -28,7 +28,7 @@ api.config({
 
 async function prepare() {
   const modules = ['transport', 'sciencelab'];
-  const scenes = ['elfmaker', 'penguindash', 'comroom', 'santaselfie', 'snowball', 'boatload'];
+  const scenes = ['elfmaker', 'penguindash', 'museum', 'santaselfie', 'snowball', 'boatload'];
   const main = document.querySelector('main');
 
   const all = modules.map(async (name) => {
@@ -51,7 +51,7 @@ async function prepare() {
       card.setAttribute('scene', next);
       cardsEl.append(card);
 
-      if (Math.random() < 0.5) {
+      if (Math.random() < 0.2) {
         card.setAttribute('locked', ~~(Math.random() * 23) + 1);
       }
     }

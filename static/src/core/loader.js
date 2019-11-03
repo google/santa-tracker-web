@@ -12,7 +12,7 @@ function urlFor(sceneName, route) {
   }
   const params = new URLSearchParams();
   params.set('route', route);
-  const p = `?${params.toString}`;
+  const p = `?${params.toString()}`;
   return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p;
 }
 

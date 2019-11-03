@@ -6,30 +6,8 @@ import scenes from '../strings/scenes.js';
 import {_static, _msg} from '../magic.js';
 import {prepareAsset} from '../lib/media.js';
 import {href} from '../scene/route.js';
+import {join} from '../lib/url.js';
 import './santa-card-player.js';
-
-// YouTube video assets for previews.
-export const videos = {
-  carpool: 'h83b1lWPuvQ',
-  comroom: '_WdYujHlmHA',
-  jingle: 'sQnKCU_A0Yc',
-  liftoff: 'BfF7vfw6Zjw',  // 2013
-  museum: 'fo25RcjXJI4',
-  office: 'IXmDOu-eSx4',
-  onvacation: 'IdpQSy4IB_I',
-  penguinproof: 'QKm4q6kZK7E',
-  reindeerworries: 'nXLNcfNsWAY',  // 2015
-  reload: 'vHMeXs36NTE',
-  santasback: 'zE_D9Vd69aw',
-  satellite: 'ZJPL56IPTjw',
-  selfies: 'JA8Jn5DGt64',
-  slackingoff: 'uEl2WIZOVdQ',
-  takeoff: 'YNpwm08ZRD0',  // 2015+, coding
-  temptation: '2FtcJJ9vzVQ',
-  tired: '2UGX3bT9u20',
-  wheressanta: '0qrFL0mn3Uk',  // 2013
-  workshop: 'oCAKV4Ikhec',  // 2014
-};
 
 
 const sceneDefs = {
@@ -57,7 +35,7 @@ const sceneDefs = {
     color: '#93dae4',
     mode: 'lottie',
   },
-  comroom: {
+  museum: {
     mode: 'video',
   },
 };
@@ -149,9 +127,7 @@ export class SantaCardElement extends LitElement {
     if (def.color) {
       return Promise.resolve(`background: ${def.color}`);
     } else if (def.mode === 'video') {
-      const videoId = videos[scene];  // FIXME: drop YouTube
-      const url = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
+      const url = join(import.meta.url, '../../img/scenes/' + scene + '_1x.png');
       const {promise} = prepareAsset(url);
 
       return promise.then(() => {
@@ -165,7 +141,7 @@ export class SantaCardElement extends LitElement {
     let cardPlayer = '';
 
     if (!this.locked) {
-      let inner = '';
+      let inner = html`<img />`;
       const def = sceneDefs[this.scene];
       if (def && (def.mode === 'lottie' || def.mode === 'lottie-both')) {
         inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '-intro.json'} loop-src=${cardPath + this.scene + '-loop.json'}></santa-card-player>`;

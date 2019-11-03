@@ -72,6 +72,9 @@ img {
 img {
   object-fit: contain;
 }
+img:not([src]) {
+  visibility: hidden;
+}
 santa-card-player {
   position: relative;
 
