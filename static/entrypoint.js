@@ -35,15 +35,11 @@ const orientationOverlayElement = document.createElement('santa-orientation');
 orientationOverlayElement.setAttribute('slot', 'overlay');
 loaderElement.append(orientationOverlayElement);
 
-const errorElement = document.createElement('santa-error');
-loaderElement.append(errorElement);
-
 const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
 chromeElement.append(badgeElement);
 
 const sidebar = document.createElement('santa-sidebar');
-sidebar.todayHouse = 'boatload';
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
@@ -343,6 +339,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!control.isAttached) {
       return false;  // replaced during interlude
     }
+    loaderElement.textContent = '';  // clear any previous contents of loader
 
     // The interlude is fully visible, so we can purge the old scene (although this is optional as
     // `santa-gameloader` will always do this for us _anyway_).
@@ -351,23 +348,10 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       sceneOrientation: null,
     });
 
-    // Configure optional error state of `santa-error` while the interlude is visible.
-    errorElement.code = null;
-    if (error) {
-      errorElement.code = 'internal';
-    } else if (locked) {
-      // do nothing
-    } else if (!control.hasPort && route) {
-      errorElement.code = 'missing';
-    }
-    errorElement.textContent = '';
-    errorElement.lock = locked;
-    const lockedImagePromise = locked ? sceneImage(route) : Promise.resolve(null);
-
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so
     // only check if we're still the active scene once done.
     const config = await configPromise;
-    const lockedImage = await lockedImagePromise.catch(null);
+    const lockedImage = await locked ? sceneImage(route).catch(null) : null;
     const sc = await kplayReady;
 
     // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we
@@ -377,11 +361,27 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     }
     control.send({type: 'ready'});
 
-    // Run configuration tasks and remove the interlude.
-    if (lockedImage) {
-      lockedImage.setAttribute('slot', 'icon');
-      errorElement.append(lockedImage);
+    // Configure the optional error display.
+    let errorCode = null;
+    if (error) {
+      errorCode = 'internal';
+    } else if (locked) {
+      // do nothing
+    } else if (!control.hasPort && route) {
+      errorCode = 'missing';
     }
+    if (errorCode || locked) {
+      const errorElement = document.createElement('santa-error');
+      errorElement.code = errorCode;
+      errorElement.locked = locked;
+      if (lockedImage) {
+        lockedImage.setAttribute('slot', 'icon');
+        errorElement.append(lockedImage);
+      }
+      loaderElement.append(errorElement);
+    }
+
+    // Run configuration tasks and remove the interlude.
     interludeElement.removeAttribute('active');
     global.setState({
       mini: !config.scroll,
