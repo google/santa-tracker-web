@@ -11,6 +11,7 @@ import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import './src/elements/santa-badge.js';
 import './src/elements/santa-notice.js';
+import './src/elements/santa-overlay.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
@@ -81,12 +82,36 @@ kplayReady.then((sc) => {
   }
 });
 
+const showOverlay = (state={}) => {
+  let overlay = document.querySelector('santa-overlay');
+  if (!overlay) {
+    const endSceneOverlayElement = document.createElement('santa-overlay');
+    endSceneOverlayElement.setAttribute('slot', 'overlay');
+    document.body.append(endSceneOverlayElement);
+    overlay = endSceneOverlayElement;
+  }
+  overlay.state = state;
+  overlay.style.display = 'block';
+};
+
+const hideOverlay = () => {
+  const overlay = document.querySelector('santa-overlay');
+  overlay.style.display = 'none';
+};
+
+window.addEventListener('game-restart', (e) => {
+  hideOverlay(state);
+  global.setState({status: 'restart'})
+}, true);
 
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
+  if (gameover) {
+    showOverlay(state);
+  }
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =

@@ -1,5 +1,7 @@
 import {html, LitElement} from 'lit-element';
 import styles from './santa-overlay.css';
+import {_msg} from '../magic.js';
+import './santa-button.js';
 
 const supportsShare = Boolean(navigator.share);
 
@@ -26,6 +28,7 @@ export class SantaOverlayElement extends LitElement {
       shareUrl: {type: String},
       scene: {type: String},
       data: {type: Object},
+      state: {type: Object},
 
       _longUrl: {type: String},
       _shortUrl: {type: String},
@@ -37,19 +40,30 @@ export class SantaOverlayElement extends LitElement {
     this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
+  _dispatchRestart(e) {
+    const detail = {type: 'restart'};
+    // TODO(sambecker) Scope this event propagation to something smaller than 'window'
+    window.dispatchEvent(new CustomEvent('game-restart'), {
+      detail,
+      bubbles: true,
+      composed: true,
+    });
+  }
+
   _dispatchResume() {
     this.dispatchEvent(new Event('resume'));
   }
 
-  _dispatchRestart() {
-    this.dispatchEvent(new Event('restart'));
-  }
-
   _dispatchHome() {
+    window.location = './';
     this.dispatchEvent(new Event('home'));
   }
 
   update(changedProperties) {
+    if (changedProperties.has('state')) {
+      this.score = this.state.score.score;
+    }
+
     if (changedProperties.has('data')) {
       let longUrl = 'https://santatracker.google.com';
       if (this.scene) {
@@ -99,6 +113,10 @@ export class SantaOverlayElement extends LitElement {
     }, 1000);
   }
 
+  _getScene() {
+    return window.location.pathname.split('.')[0].slice(1);
+  }
+
   _shareTitle() {
     if (this.scene) {
       // FIXME(samthor): get name of scene
@@ -142,6 +160,7 @@ export class SantaOverlayElement extends LitElement {
 //   <santa-button color="purple" @click="${this._dispatchResume}">play_arrow</santa-button>
 
     return html`
+<div class="shim"></div>
 <div class="wrap">
 <div class="hero ${heroClass}">
   <div class="score" ?hidden="${this.score < 0}">
@@ -156,7 +175,7 @@ export class SantaOverlayElement extends LitElement {
   <div class="buttons">
     <santa-button color="purple" @click="${this._dispatchRestart}">refresh</santa-button>
     <santa-button color="purple" @click="${this._dispatchHome}" data-action="home">home</santa-button>
-    <santa-button data-share="share" ?hidden=${!supportsShare} @click=${this._shareWebShare}>share</santa-button>
+    <santa-button data-share="share" ?hidden=${!supportsShare} @click=${this._shareWebShare}>${_msg`share-this`}</santa-button>
     <santa-button data-share="facebook" ?hidden=${supportsShare} @click=${this._shareFacebook}>
       <svg viewBox="-0.5 0 11 20"><path d="M2.9 19.7v-8.8H0V7.4h3V4.9C3 2 4.8.4 7.4.4c1.3 0 2.3.1 2.7.1v3.1H8.3c-1.4 0-1.7.7-1.7 1.7v2.2H10l-.4 3.4h-3v8.8H2.9z"></path></svg>
     </santa-button>
