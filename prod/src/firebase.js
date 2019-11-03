@@ -6,7 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/remote-config';
 import defaults from './remote-config-defaults.js';
 
-export var firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyBrNcGcna0TMn2uLRxhMBwxVwXUBjlZqzU',
   authDomain: 'santa-api.firebaseapp.com',
   databaseURL: 'https://santa-api.firebaseio.com',
@@ -37,9 +37,9 @@ export function initialize() {
   remoteConfig.defaultConfig = defaults;
   window.firebase = firebase;  // side-effect
 
-  return remoteConfig.fetchAndActivate().catch(function(err) {
+  return remoteConfig.fetchAndActivate().catch((err) => {
     console.warn('could not fetch remoteConfig, using defaults', err);
-  }).then(function() {
+  }).then(() => {
     return remoteConfig;
   });
 }

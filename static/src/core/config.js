@@ -1,7 +1,8 @@
 /**
  * @fileoverview Provides Firebase Remote config.
  *
- * This should only run on the prod domain.
+ * This should only run on the prod domain. This assumes that "firebase" is a global already
+ * available in the global scope.
  */
 
 const firebase = window.firebase;
@@ -112,6 +113,10 @@ export async function refresh(invalidateNow = false) {
   }
 
   await remoteConfig.fetchAndActivate();
+
+  // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
+  notifyListeners();
+
   return values();
 }
 

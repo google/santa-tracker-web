@@ -20,6 +20,17 @@ export function script(src, type=null) {
 }
 
 /**
+ * Blocks loading the passed script. Probably only works in non-module mode.
+ *
+ * @param {string} src to block load
+ */
+export function syncScript(src) {
+  const script = document.createElement('script');
+  script.src = src;
+  document.write(script.outerHTML);
+}
+
+/**
  * @param {string} src to load as global CSS
  * @return {!Promise<void>}
  */

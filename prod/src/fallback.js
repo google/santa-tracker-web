@@ -1,13 +1,19 @@
 
 /**
- * Determines load type. Santa Tracker supports modern browsers like Edge (non-Edgium), Chrome,
- * Firefox and Safari. We load a fallback environment (and polyfills) if the browser does not hit
- * minimum standards.
+ * Determines load type. Santa Tracker supports modern browsers like Chrome (and Chromium-based
+ * browsers), Firefox and Safari. We load a fallback environment (and polyfills) if the browser
+ * does not hit minimum standards.
  *
  * @return {boolean} whether to load fallback environment
  */
 export default function() {
   try {
+    if (!('ShadowRoot' in window)) {
+      throw 'Shadow DOM';
+    }
+    if (!('customElements' in window)) {
+      throw 'Custom Elements';
+    }
     if (!CSS.supports("(--foo: red)")) {
       // need CSS variable support for most modern scenes and the modern entrypoint
       throw 'CSS Variables';
@@ -31,13 +37,6 @@ export default function() {
     if (!('append' in document.body)) {
       // friendly node helpers
       throw 'append';
-    }
-    try {
-      const e = window.eval;
-      e('async () => { await Promise.resolve(1); }');
-    } catch (e) {
-      // need to rewrite this sort of code for older browsers
-      throw 'async/await';
     }
   } catch (e) {
     console.warn('loading fallback, failure:', e);

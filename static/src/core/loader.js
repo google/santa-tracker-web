@@ -3,6 +3,7 @@ import {join} from '../lib/url.js';
 import scenes from '../strings/scenes.js';
 import {_msg} from '../magic.js';
 
+// TODO(samthor): Load support HTML if required.
 const lang = document.documentElement.lang;
 const trailingIndex = `index${lang ? `_${lang}` : ''}.html`;
 
@@ -17,8 +18,6 @@ function urlFor(sceneName, route) {
 }
 
 export function buildLoader(loaderElement) {
-  // TODO(samthor): Load support HTML.
-
   let activeRoute = undefined;
   let activeSceneName = undefined;
 
@@ -46,7 +45,8 @@ export function buildLoader(loaderElement) {
     });
   };
 
-  // If we see a config update, always try to reload the current scene (in case locked changes).
+  // If we see a config update, always try to reload the current scene (in case it locks or unlocks
+  // or the server redirects it to another scene).
   config.listen(() => load(activeRoute));
 
   return load;
