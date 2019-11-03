@@ -1,5 +1,6 @@
 goog.provide('app.Game')
 
+goog.require('app.Board')
 goog.require('app.Controls')
 goog.require('app.Pit')
 goog.require('app.Player')
@@ -8,6 +9,7 @@ goog.require('Constants')
 app.Game = class Game {
   constructor(context) {
     this.context = context
+    this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
     this.player1 = new app.Player(this, document.getElementById('player-1'), {
         controls: Constants.PLAYER_CONTROLS.ARROWS,

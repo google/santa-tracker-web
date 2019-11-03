@@ -35,7 +35,12 @@ Constants = {
       right: 'd'
     }
   },
+  PLAYER_STEP_SIZE: 2,
 
-  PLAYER_STEP_SIZE: 2
+  GRID_DIMENSIONS: {
+    HEIGHT: 16, // height in grid units
+    WIDTH: 28, // width in grid units
+    UNIT_SIZE: 50 // height and width of one grid unit
+  }
 
 }
