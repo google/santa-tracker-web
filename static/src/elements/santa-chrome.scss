@@ -78,6 +78,7 @@ header {
       border-radius: $dim-bar;
       box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
       background: $color-bar;
+      background: var(--color-bar, $color-bar);
       transition: box-shadow $transition-toolbar, width $transition-toolbar, opacity $transition-toolbar;
       transform: translate(0);
       opacity: 1;
@@ -147,6 +148,7 @@ header {
 
       button {
         background: $color-bar;
+        background: var(--color-bar, $color-bar);
         border-radius: $dim-bar;
         color: inherit;
         fill: currentColor;
@@ -206,9 +208,15 @@ header.mini {
     width: $dim-bar;
   }
   .bar {
+    pointer-events: none;
     &::before {
       width: $dim-bar;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
+    }
+
+    label,
+    button:not(:disabled) {
+      pointer-events: auto;
     }
   }
 }

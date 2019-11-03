@@ -39,17 +39,21 @@ api.preload.images(
 api.preload.sounds('village_load_sounds');
 
 const initAnimation = (key, preserveAspectRatio) => {
-  lottie.loadAnimation({
-    container: document.querySelector(`.animation--${key}`),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: `img/animations/${key}.json`,
-    rendererSettings: {
-      className: 'animation__svg',
-      preserveAspectRatio,
-    },
+  const p = new Promise((resolve, reject) => {
+    const anim = lottie.loadAnimation({
+      container: document.querySelector(`.animation--${key}`),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: `img/animations/${key}.json`,
+      rendererSettings: {
+        className: 'animation__svg',
+        preserveAspectRatio,
+      },
+    });
+    anim.addEventListener('DOMLoaded', resolve);
   });
+  api.preload.wait(p);
 };
 
 initAnimation('backhoe', 'xMaxYMax meet');

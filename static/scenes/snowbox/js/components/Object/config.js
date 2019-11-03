@@ -15,6 +15,10 @@ export default {
   SCALE_FACTOR: 1.1,
   ROTATE_CIRCLE_MATERIAL: new THREE.MeshBasicMaterial({
     color: 0xffe14d,
-    side: THREE.DoubleSide
-  })
+    side: THREE.DoubleSide,
+    depthTest: false,
+    transparent: true,
+    opacity: 0.4,
+  }),
+  HELPER_MATERIAL: new THREE.PointsMaterial({ visible: false })
 }

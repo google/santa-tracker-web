@@ -6,6 +6,7 @@ import { isTouchDevice } from '../../helpers.js'
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
+import SceneManager from '../SceneManager/index.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -45,7 +46,7 @@ class CameraController {
     this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
   }
 
-  rotate(direction, terrain, wheel, noAnimation) {
+  rotate(direction, wheel, noAnimation) {
     if (this.isRotating) return
     this.controls.enabled = false
 
@@ -81,7 +82,7 @@ class CameraController {
     }
 
     // get look at point
-    const intersects = this.getLookAtPointOnTerrain(terrain)
+    const intersects = this.getLookAtPointOnTerrain()
     this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
     this.cameraPositionOrigin = this.camera.position.clone()
@@ -176,14 +177,14 @@ class CameraController {
     this.camera.position.z += z
   }
 
-  getLookAtPointOnTerrain(terrain) {
+  getLookAtPointOnTerrain() {
     const worldPos = new THREE.Vector3()
     this.camera.getWorldPosition(worldPos)
     const worldDir = new THREE.Vector3()
     this.camera.getWorldDirection(worldDir)
     this.raycaster.set(worldPos, worldDir)
 
-    return this.raycaster.intersectObjects([terrain.meshes[0]])
+    return this.raycaster.intersectObjects([SceneManager.terrain.meshes[0]])
   }
 
   // obj - your object (THREE.Object3D or derived)
@@ -213,9 +214,9 @@ class CameraController {
     return finalAxis
   }
 
-  resetControls(terrain) {
+  resetControls() {
     // reset controls where the camera is currently looking at
-    const target = this.getLookAtPointOnTerrain(terrain)
+    const target = this.getLookAtPointOnTerrain()
     this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
   }
 }

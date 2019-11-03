@@ -1,60 +1,18 @@
 const {
   GLTFLoader,
-  MeshBasicMaterial,
   AnimationMixer,
   AnimationClip,
   Skeleton,
-  LoopOnce
+  LoopOnce,
+  SkeletonUtils,
 } = self.THREE;
 
 const loader = new GLTFLoader();
 
 const cloneGltf = (gltf) => {
-  const clone = {
-    animations: gltf.animations,
-    scene: gltf.scene.clone(true)
-  };
-
-  const skinnedMeshes = {};
-
-  gltf.scene.traverse(node => {
-    if (node.isSkinnedMesh) {
-      skinnedMeshes[node.name] = node;
-    }
-  });
-
-  const cloneBones = {};
-  const cloneSkinnedMeshes = {};
-
-  clone.scene.traverse(node => {
-    if (node.isBone) {
-      cloneBones[node.name] = node;
-    }
-
-    if (node.isSkinnedMesh) {
-      cloneSkinnedMeshes[node.name] = node;
-    }
-  });
-
-  for (let name in skinnedMeshes) {
-    const skinnedMesh = skinnedMeshes[name];
-    const skeleton = skinnedMesh.skeleton;
-    const cloneSkinnedMesh = cloneSkinnedMeshes[name];
-
-    const orderedCloneBones = [];
-
-    for (let i = 0; i < skeleton.bones.length; ++i) {
-      const cloneBone = cloneBones[skeleton.bones[i].name];
-      orderedCloneBones.push(cloneBone);
-    }
-
-    cloneSkinnedMesh.bind(
-        new Skeleton(orderedCloneBones, skeleton.boneInverses),
-        cloneSkinnedMesh.matrixWorld);
-  }
-
-  return clone;
-}
+  const clonedScene = SkeletonUtils.clone(gltf.scene);
+  return {...gltf, scene: clonedScene};
+};
 
 class Model {
   constructor(gltf) {
@@ -152,8 +110,7 @@ class Model {
         this.animationMixer.removeEventListener('finished', onFinished);
         action.fadeOut(0.25);
         currentAction.setEffectiveWeight(1.0).fadeIn(0.25)
-        if (currentAction !== this.currentAction &&
-            this.currentAction.weight < 1.0) {
+        if (currentAction !== this.currentAction && this.currentAction.weight < 1.0) {
           this.currentAction.setEffectiveWeight(1.0).fadeIn(0.25).play();
         }
       }
@@ -179,8 +136,7 @@ export const createElf = (() => {
     return assetBaseUrl => {
       if (gltfLoads == null) {
         gltfLoads = new Promise(resolve => {
-          loader.load(`${assetBaseUrl}models/elf-animated.gltf`,
-              gltf => resolve(gltf));
+          loader.load(`${assetBaseUrl}models/elf-animated.gltf`, gltf => resolve(gltf));
         });
       }
 
@@ -192,5 +148,3 @@ export const createElf = (() => {
     return loadGltf(assetBaseUrl).then(gltf => new Model(cloneGltf(gltf)));
   };
 })();
-
-

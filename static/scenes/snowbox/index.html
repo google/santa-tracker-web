@@ -19,45 +19,51 @@
 
   <body>
     <div id="module-snowglobe">
+      <!-- scene -->
       <canvas id="canvas"></canvas>
-      <div class="object-ui" object-rotate-right-ui>
-        <div data-rotate-object="right" class="rotate__button rotate__button--object button button--round ">
-          <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon button__icon--reverse">
+      <!-- edit tool -->
+      <section object-edit-tool>
+        <div class="object-ui" object-rotate-right-ui>
+          <div data-rotate-object="right" class="rotate__button rotate__button--object button button--round ">
+            <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon button__icon--reverse">
+          </div>
         </div>
-      </div>
-      <div class="object-ui" object-rotate-bottom-ui>
-        <div data-rotate-object="bottom" class="rotate__button rotate__button--object button button--round ">
-          <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon ">
+        <div class="object-ui" object-rotate-bottom-ui>
+          <div data-rotate-object="bottom" class="rotate__button rotate__button--object button button--round ">
+            <img src="./img/icons/rotate-arrow.svg" alt="" class="button__icon ">
+          </div>
         </div>
-      </div>
-      <div class="object-ui" object-toolbar-ui>
-        <div class="toolbar-ui">
-          <div data-open-colors class="colors-ui">
-            <div class="colors-ui__range">
-              <ul class="colors-ui__list">
-                <li class="colors-ui__item" data-color-object="#ffffff" style="background-color: #ffffff; border: solid 1px #000000;"></li>
-                <li class="colors-ui__item" data-color-object="#00C1F2" style="background-color: #00C1F2;"></li>
-                <li class="colors-ui__item" data-color-object="#FFE14D" style="background-color: #FFE14D;"></li>
-                <li class="colors-ui__item" data-color-object="#FF7733" style="background-color: #FF7733;"></li>
-                <li class="colors-ui__item" data-color-object="#FF3333" style="background-color: #FF3333;"></li>
-                <li class="colors-ui__item" data-color-object="#AD00AD" style="background-color: #AD00AD;"></li>
-                <li class="colors-ui__item" data-color-object="#6F00FF" style="background-color: #6F00FF;"></li>
-                <li class="colors-ui__item" data-color-object="#3399FF" style="background-color: #3399FF;"></li>
-                <li class="colors-ui__item" data-color-object="#03B4CA" style="background-color: #03B4CA;"></li>
-                <li class="colors-ui__item" data-color-object="#32A658" style="background-color: #32A658;"></li>
-              </ul>
+        <div class="object-ui" object-toolbar-ui>
+          <div class="toolbar-ui">
+            <div data-open-colors class="colors-ui">
+              <div class="colors-ui__range">
+                <ul class="colors-ui__list">
+                  <li class="colors-ui__item" data-color-object="#ffffff" style="background-color: #ffffff; border: solid 1px #000000;"></li>
+                  <li class="colors-ui__item" data-color-object="#00C1F2" style="background-color: #00C1F2;"></li>
+                  <li class="colors-ui__item" data-color-object="#FFE14D" style="background-color: #FFE14D;"></li>
+                  <li class="colors-ui__item" data-color-object="#FF7733" style="background-color: #FF7733;"></li>
+                  <li class="colors-ui__item" data-color-object="#FF3333" style="background-color: #FF3333;"></li>
+                  <li class="colors-ui__item" data-color-object="#AD00AD" style="background-color: #AD00AD;"></li>
+                  <li class="colors-ui__item" data-color-object="#6F00FF" style="background-color: #6F00FF;"></li>
+                  <li class="colors-ui__item" data-color-object="#3399FF" style="background-color: #3399FF;"></li>
+                  <li class="colors-ui__item" data-color-object="#03B4CA" style="background-color: #03B4CA;"></li>
+                  <li class="colors-ui__item" data-color-object="#32A658" style="background-color: #32A658;"></li>
+                </ul>
+              </div>
+              <img class="colors-ui__image" src="./img/icons/colors.png" alt="">
             </div>
-            <img class="colors-ui__image" src="./img/icons/colors.png" alt="">
-          </div>
-          <div class="scale-ui">
-            <img class="scale-ui__image scale-ui__image--small" src="./img/icons/scale-small.svg" alt="">
-            <input type="range" min="5" max="40" value="10" class="scale-ui__slider" object-scale-slider>
-            <img class="scale-ui__image scale-ui__image--big" src="./img/icons/scale-big.svg" alt="">
+            <div class="scale-ui">
+              <img class="scale-ui__image scale-ui__image--small" src="./img/icons/scale-small.svg" alt="">
+              <input type="range" min="5" max="40" value="10" class="scale-ui__slider" object-scale-slider>
+              <img class="scale-ui__image scale-ui__image--big" src="./img/icons/scale-big.svg" alt="">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui">
-        <div class="camera-controls">
+      </section>
+      <!-- global ui -->
+      <section class="ui">
+        <!-- camera controls -->
+        <div class="camera-controls" camera-controls>
           <div class="rotate">
             <div class="rotate__row">
               <div data-rotate-camera="bottom" class="rotate__button button">
@@ -90,26 +96,34 @@
             </div>
           </div>
         </div>
-        <div class="toolbox">
-          <div class="toolbox__container">
-            <div class="toolbox__arrow button button--slider">
+        <!-- toolbar shapes -->
+        <div class="toolbar-shapes" toolbar-shapes>
+          <div class="toolbar-shapes__container">
+            <div class="toolbar-shapes__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon">
             </div>
-            <div data-add-shape="cube" data-shape-material="snow" class="toolbox__item">
-              <img src="./img/cube.png" alt="" class="toolbox__image">
+            <div data-add-shape="cube" data-shape-material="snow" class="toolbar-shapes__item">
+              <img src="./img/cube.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="arch" data-shape-material="snow" class="toolbox__item">
-              <img src="./img/arch.png" alt="" class="toolbox__image">
+            <div data-add-shape="arch" data-shape-material="snow" class="toolbar-shapes__item">
+              <img src="./img/arch.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="tree" class="toolbox__item">
-              <img src="./img/tree.png" alt="" class="toolbox__image">
+            <div data-add-shape="tree" class="toolbar-shapes__item">
+              <img src="./img/tree.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div data-add-shape="sphere" class="toolbox__item">
-              <img src="./img/sphere.png" alt="" class="toolbox__image">
+            <div data-add-shape="sphere" class="toolbar-shapes__item">
+              <img src="./img/sphere.png" alt="" class="toolbar-shapes__image">
             </div>
-            <div class="toolbox__arrow button button--slider">
+            <div class="toolbar-shapes__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon button__icon--reverse">
             </div>
+          </div>
+          <button class="share" data-share>Take a screenshot</button>
+        </div>
+      </section>
+      <!-- screen to share -->
+      <div class="screenshot">
+        <img screenshot-image class="screenshot__image" src="" alt="">
       </div>
     </div>
     <script src="index.js" type="module"></script>

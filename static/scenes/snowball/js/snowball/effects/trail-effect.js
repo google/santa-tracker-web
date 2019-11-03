@@ -1,12 +1,12 @@
-import { Entity } from '../../engine/core/entity.js';
+import {Entity} from '../../engine/core/entity.js';
 
 const {
   BufferGeometry,
   BufferAttribute,
   Points,
   RawShaderMaterial,
-  Object3D,
-  Color
+  Color,
+  DynamicDrawUsage,
 } = self.THREE;
 
 const vertexShader = `
@@ -90,36 +90,26 @@ export class TrailEffect extends EntityClass {
     this.nextAvailableParticle = 0;
     this.maxParticles = 500;
 
-    const positions = new BufferAttribute(
-        new Float32Array(this.maxParticles * 3), 3).setDynamic(true);
-    const colors = new BufferAttribute(
-        new Float32Array(this.maxParticles * 3), 3).setDynamic(true);
-    const displayTimes = new BufferAttribute(
-        new Float32Array(this.maxParticles), 1).setDynamic(true);
-    const sizes = new BufferAttribute(
-        new Float32Array(this.maxParticles), 1).setDynamic(true);
+    const positions =
+        new BufferAttribute(new Float32Array(this.maxParticles * 3), 3).setUsage(DynamicDrawUsage);
+    const colors =
+        new BufferAttribute(new Float32Array(this.maxParticles * 3), 3).setUsage(DynamicDrawUsage);
+    const displayTimes =
+        new BufferAttribute(new Float32Array(this.maxParticles), 1).setUsage(DynamicDrawUsage);
+    const sizes =
+        new BufferAttribute(new Float32Array(this.maxParticles), 1).setUsage(DynamicDrawUsage);
 
-    const uniforms = {
-      time: {
-        value: 0
-      }
-    };
+    const uniforms = {time: {value: 0}};
 
     const geometry = new BufferGeometry();
 
-    geometry.addAttribute('position', positions);
-    geometry.addAttribute('color', colors);
-    geometry.addAttribute('displayTime', displayTimes);
-    geometry.addAttribute('size', sizes);
+    geometry.setAttribute('position', positions);
+    geometry.setAttribute('color', colors);
+    geometry.setAttribute('displayTime', displayTimes);
+    geometry.setAttribute('size', sizes);
 
-    const material = new RawShaderMaterial({
-      vertexShader,
-      fragmentShader,
-      uniforms,
-      transparent: true,
-      side: 2,
-      depthTest: false
-    });
+    const material = new RawShaderMaterial(
+        {vertexShader, fragmentShader, uniforms, transparent: true, side: 2, depthTest: false});
 
     this.trailedObjects = [];
     this.uniforms = uniforms;
@@ -132,8 +122,7 @@ export class TrailEffect extends EntityClass {
   }
 
   remove(object) {
-    this.trailedObjects.splice(
-        this.trailedObjects.indexOf(object), 1);
+    this.trailedObjects.splice(this.trailedObjects.indexOf(object), 1);
   }
 
   update(game) {
@@ -141,29 +130,26 @@ export class TrailEffect extends EntityClass {
 
     for (let i = 0; i < this.trailedObjects.length; ++i) {
       const object = this.trailedObjects[i];
-      const { trail } = object;
+      const {trail} = object;
 
       if (trail && trail.showTest(game)) {
         const particleIndex = this.nextAvailableParticle;
-        const { attributes } = this.layer.geometry;
-        const { position, color, displayTime, size } = attributes;
+        const {attributes} = this.layer.geometry;
+        const {position, color, displayTime, size} = attributes;
 
-        position.setXYZ(particleIndex,
-            object.position.x, object.position.y, object.position.z + 1.0);
+        position.setXYZ(
+            particleIndex, object.position.x, object.position.y, object.position.z + 1.0);
 
         intermediateColor.setHex(trail.color);
 
-        color.setXYZ(particleIndex,
-            intermediateColor.r, intermediateColor.g, intermediateColor.b);
+        color.setXYZ(particleIndex, intermediateColor.r, intermediateColor.g, intermediateColor.b);
 
         size.setX(particleIndex, trail.size);
 
         displayTime.setX(particleIndex, game.clockSystem.time);
 
-        position.needsUpdate =
-            color.needsUpdate =
-            size.needsUpdate =
-            displayTime.needsUpdate = true;
+        position.needsUpdate = color.needsUpdate = size.needsUpdate = displayTime.needsUpdate =
+            true;
 
         this.nextAvailableParticle = (particleIndex + 1) % this.maxParticles;
       }

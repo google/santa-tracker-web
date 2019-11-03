@@ -96,8 +96,7 @@ class Object extends EventEmitter {
   select() {
     if (this.selectable && !this.selected) {
       this.selected = true
-      this.body.mass = 0
-      this.body.updateMassProperties()
+      this.body.sleep()
 
       if (this.mesh) {
         this.unhighlight()
@@ -121,7 +120,9 @@ class Object extends EventEmitter {
     if (this.selectable && this.selected) {
       this.selected = false
       this.body.mass = this.mass
-      this.body.updateMassProperties()
+      if (this.body.sleepState > 0) {
+        this.body.wakeUp()
+      }
 
       if (this.moveToGhost) {
         if (this.mesh && !this.mesh.visible) {
@@ -221,7 +222,6 @@ class Object extends EventEmitter {
       this.defaultMeshScale.z * scaleFactor
     )
     this.scaleFactor = scaleFactor
-    this.updateRotatingCircle()
   }
 
   scaleBody() {
@@ -291,14 +291,13 @@ class Object extends EventEmitter {
     const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
     const helperGeometry = new THREE.Geometry()
     helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
-    const helperMaterial = new THREE.PointsMaterial({ visible: false })
 
     // X Circle
     const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
     xCircle.rotation.z = toRadian(50)
     // Arrow rotation X helper
-    const xArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
+    const xArrowHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     xArrowHelper.position.x = maxRadius
     xArrowHelper.name = 'arrow-helper-x'
     xCircle.add(xArrowHelper)
@@ -309,12 +308,13 @@ class Object extends EventEmitter {
     yCircle.rotation.y = toRadian(55)
     yCircle.rotation.z = toRadian(10)
     // Arrow rotation Y helper
-    const yArrowHelper = new THREE.Points(helperGeometry, helperMaterial)
+    const yArrowHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     yArrowHelper.position.y = maxRadius
     yArrowHelper.name = 'arrow-helper-y'
     yCircle.add(yArrowHelper)
+
     // Toolbar helper
-    const toolbarHelper = new THREE.Points(helperGeometry, helperMaterial)
+    const toolbarHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     toolbarHelper.position.y = -(maxRadius + 1)
     toolbarHelper.name = 'toolbar-helper'
     yCircle.add(toolbarHelper)

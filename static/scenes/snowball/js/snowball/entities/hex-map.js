@@ -1,7 +1,7 @@
-import { Entity } from '../../engine/core/entity.js';
-import { HexCoord } from '../../engine/utils/hex-coord.js';
-import { MagicHexGrid } from '../utils/magic-hex-grid.js';
-import { constants, rotate2d, fade, shake, sink } from '../shader-partials.js';
+import {Entity} from '../../engine/core/entity.js';
+import {HexCoord} from '../../engine/utils/hex-coord.js';
+import {constants, fade, rotate2d, shake, sink} from '../shader-partials.js';
+import {MagicHexGrid} from '../utils/magic-hex-grid.js';
 
 const {
   Vector2,
@@ -135,25 +135,14 @@ export class HexMap extends EntityObject3D {
   }
 
   setup(game) {
-    const { mapSystem, inputSystem } = game;
-    const { grid } = mapSystem;
+    const {mapSystem, inputSystem} = game;
+    const {grid} = mapSystem;
 
-    const uniforms = {
-      tileScale: {
-        value: grid.cellSize
-      },
-      time: {
-        value: 0
-      }
-    };
+    const uniforms = {tileScale: {value: grid.cellSize}, time: {value: 0}};
 
     const geometry = new InstancedBufferGeometry();
-    const material = new RawShaderMaterial({
-      vertexShader,
-      fragmentShader,
-      uniforms,
-      transparent: true
-    });
+    const material =
+        new RawShaderMaterial({vertexShader, fragmentShader, uniforms, transparent: true});
 
     const hexGeometry = new CylinderBufferGeometry(1, 1, 1, 6);
     const tileCount = grid.width * grid.height;
@@ -173,11 +162,7 @@ export class HexMap extends EntityObject3D {
 
     const inputSurface = new Mesh(
         new PlaneBufferGeometry(grid.pixelWidth, grid.pixelHeight),
-        new MeshBasicMaterial({
-          transparent: true,
-          visible: false,
-          wireframe: false
-        }));
+        new MeshBasicMaterial({transparent: true, visible: false, wireframe: false}));
 
     this.inputSurface = inputSurface;
     this.inputSurface.position.z = 8;
@@ -189,10 +174,8 @@ export class HexMap extends EntityObject3D {
 
     this.pickHandlers = [];
 
-    this.unsubscribe = inputSystem.on('pick',
-          event => this.pickHandlers.forEach(
-              handler => handler(event)), this.inputSurface);
-
+    this.unsubscribe = inputSystem.on(
+        'pick', event => this.pickHandlers.forEach(handler => handler(event)), this.inputSurface);
   }
 
   get map() {
@@ -204,8 +187,8 @@ export class HexMap extends EntityObject3D {
 
     const geometry = this.geometry;
     if (map) {
-      geometry.addAttribute('tileOffset', map.tileOffsets);
-      geometry.addAttribute('tileState', map.tileStates);
+      geometry.setAttribute('tileOffset', map.tileOffsets);
+      geometry.setAttribute('tileState', map.tileStates);
     } else {
       geometry.removeAttribute('tileOffset');
       geometry.removeAttribute('tileState');
