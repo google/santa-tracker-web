@@ -16,6 +16,7 @@
 import api from '../../src/scene/api.js';
 import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
 import '../../src/elements/santa-card.js';
+import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 
 
@@ -116,6 +117,7 @@ api.ready(async () => {
 </script>
 
 <div id="top">
+  <santa-weather></santa-weather>
   <header>
     <div id="ornament"></div>
     <h1>Santa Tracker</h1>

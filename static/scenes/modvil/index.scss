@@ -32,6 +32,14 @@ santa-card {
   z-index: 10;
   position: relative;
 
+  santa-weather {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   #newtoday {
     position: absolute;
     bottom: 240px;
