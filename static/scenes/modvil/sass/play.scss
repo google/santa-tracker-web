@@ -1,0 +1,104 @@
+#play {
+  background-color: transparent;
+  border: none;
+  pointer-events: auto;
+  border-radius: 10000px;
+  width: 120px;
+  height: 120px;
+  color: #fff;
+  font-weight: 400;
+  font-family: 'Lobster';
+  margin-top: 30px;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 32px;
+  transform: translateZ(0);
+  word-wrap: break-word;
+  letter-spacing: -1px;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  outline: none;
+
+  span {
+    display: inline-block;
+    transform: rotate(-5deg) translate(-5px, -5px);
+    transition: transform 0.25s ease-in-out;
+    white-space: nowrap;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10000px;
+  }
+
+  &::before {
+    background: #ff0160;
+    box-shadow:
+        inset 0 0 #e70058,
+        3px 3px 0 1px #e70058,
+        5px 5px #e70058,
+        13px 13px rgba(0, 0, 0, 0.1);
+    transform: translate(-5px, -5px);
+    z-index: -1;
+    transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+  }
+
+  &::after {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: white;
+    box-shadow:
+        0 0 0 11px rgba(0, 0, 0, .05),
+        0 0 0 1px rgba(0, 0, 0, .05);
+    transition: box-shadow 0s ease-out;
+    z-index: -2;
+  }
+
+  &:hover {
+    &::before {
+      box-shadow:
+          inset 0 0 #e70058,
+          3px 3px 0 1px #e70058,
+          7px 7px #e70058,
+          18px 18px rgba(0, 0, 0, 0.1);
+      transform: translate(-7px, -7px);
+    }
+
+    span {
+      transform: rotate(-5deg) translate(-7px, -7px);
+    }
+  }
+
+  &:active,
+  &.active {
+    &::before {
+      box-shadow:
+          inset 0 0 0 2px #e70058,
+          0 0 #e70058,
+          0 0 #e70058,
+          0 0 rgba(0, 0, 0, 0.1);
+      transform: translate(0, 0);
+      transition-duration: 0.15s;
+    }
+
+    span {
+      transform: rotate(-5deg);
+      transition-duration: 0.15s;
+    }
+
+    &::after {
+      box-shadow:
+          0 0 0 11px rgba(0, 0, 0, .05),
+          0 0 0 25px rgba(0, 0, 0, 0);
+      transition-duration: 0.3s;
+    }
+  }
+}

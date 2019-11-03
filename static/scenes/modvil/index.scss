@@ -1,12 +1,17 @@
+@import "sass/play";
+@import "sass/header";
+
 html {
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto', 'Arial', 'Sans-Serif';
+  font-family: 'Google Sans', 'Arial', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 santa-card {
@@ -19,23 +24,40 @@ santa-card {
   height: 800px;
   display: flex;
   align-items: center;
-  justify-content: center;
   background: url(img/top.png) center no-repeat;
-  background-size: contain;
+  background-size: 1152px 800px;  // actually 1440x1000
   color: white;
   flex-flow: column;
+  box-shadow: 0 4px 0 #0003;
+  z-index: 10;
+  position: relative;
 
-  h1 {
-    font-family: 'Lobster';
-    font-size: 96px;
-    text-shadow: 0 2px 0 #0003;
-    margin: 0;
-  }
+  #newtoday {
+    position: absolute;
+    bottom: 240px;
+    left: calc(50% + 300px);
 
-  span {
-    color: black;
-    text-transform: uppercase;
-    font-weight: bold;
+    span {
+      text-transform: uppercase;
+      background: #f9c329;
+      line-height: 2em;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      border-radius: 4px;
+      padding: 0 10px;
+      position: absolute;
+      top: -1em;
+      left: 16px;
+      font-size: 12px;
+      font-weight: bold;
+      z-index: 100;
+      box-shadow: 0 2px 0 #e7ad04;
+    }
+
+    santa-card {
+      margin-left: 0;
+      margin-top: 0;
+    }
   }
 }
 
@@ -63,13 +85,12 @@ santa-card {
     min-width: 320px;
     max-width: 1400px;
     width: 100%;
-    box-shadow: 0 0 0 4px #0003;
-    z-index: 2;
   }
 }
 
 .module {
   position: relative;
+  box-shadow: inset 0 4px 0 #0003;
 
   &::after {
     display: block;

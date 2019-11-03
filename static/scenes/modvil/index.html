@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
 
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -20,6 +20,7 @@ import * as helpers from './helpers.js';
 
 
 api.preload.sounds('village_load_sounds');
+api.preload.sounds('elfmaker_load_sounds');  // TODO: for generic_button_click
 api.config({
   sound: ['music_start_village', 'village_start'],
 });
@@ -78,6 +79,10 @@ async function prepare() {
   // each animation. This obviously needs fixing.
 
   helpers.installAdjustHandler(() => {
+    if (window.innerWidth < 768) {
+      return;
+    }
+
     const se = document.scrollingElement;
     const delta = (se.scrollHeight - window.innerHeight);
     const ratio = delta > 0 ? se.scrollTop / delta : 0;
@@ -89,11 +94,37 @@ async function prepare() {
 
 api.preload.wait(prepare());
 
+const playButton = document.getElementById('play');
+
+playButton.addEventListener('click', (ev) => {
+  playButton.classList.add('active');
+  api.go('codelab');
+});
+playButton.addEventListener('mousedown', () => {
+  api.play('generic_button_click');
+});
+playButton.addEventListener('touchdown', () => {
+  api.play('generic_button_click');
+});
+
+
+
+api.ready(async () => {
+
+});
+
 </script>
 
 <div id="top">
-  <h1>Santa Tracker</h1>
-  <span>Placeholder</span>
+  <header>
+    <div id="ornament"></div>
+    <h1>Santa Tracker</h1>
+    <button id="play"><span msgid="play"></span></button>
+  </header>
+  <div id="newtoday">
+    <span msgid="newtoday"></span>
+    <santa-card scene="elfmaker"></santa-card>
+  </div>
 </div>
 
 <div id="modules">
