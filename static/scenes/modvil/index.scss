@@ -20,7 +20,8 @@ santa-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: pink;
+  background: url(img/top.png) center no-repeat;
+  background-size: contain;
   color: white;
   flex-flow: column;
 
@@ -38,19 +39,53 @@ santa-card {
   }
 }
 
+#modules {
+  display: flex;
+  overflow: hidden;
+
+  .sidebar,
+  main {
+    flex-grow: 1;
+  }
+
+  .sidebar {
+    background: url(img/sidebar.svg);
+
+    &.left {
+      background-position: top right;
+    }
+    &.right {
+      background-position: top left;
+    }
+  }
+
+  main {
+    min-width: 320px;
+    max-width: 1400px;
+    width: 100%;
+    box-shadow: 0 0 0 4px #0003;
+    z-index: 2;
+  }
+}
+
 .module {
   position: relative;
-  height: 650px;
 
-  box-shadow: inset 0 4px 0 #0003;
-
-  img {
-    position: absolute;
-    z-index: -2;
+  &::after {
+    display: block;
+    content: '';
+    padding-bottom: 90%;
   }
+
+  background: transparent center no-repeat;
+  background-size: contain;
+
   svg {
     position: absolute;
-    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   // TODO(samthor): We should load or unload these animations based on the screen size, rather
@@ -60,54 +95,73 @@ santa-card {
       display: none;
     }
   }
+}
 
+.cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+santa-card {
+  width: 100%;
+  max-width: 240px;
+  height: 120px;
+}
+
+@media (max-width: 768px - 1px) {
   .cards {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
   }
+}
 
+@media (min-width: 768px) {
   santa-card {
+    position: absolute;
     $w: 240px;
     $h: 180px;
-    position: absolute;
     width: $w;
     height: $h;
     margin-left: -($w / 2);
     margin-top: -($h / 2);
   }
-}
 
-#module--sciencelab {
-  santa-card {
-    &:nth-child(1) {
-      left: 240px;
-      top: 180px;
-    }
-    &:nth-child(2) {
-      left: 150px;
-      top: 500px;
-    }
-    &:nth-child(3) {
-      left: -240px;
-      top: 120px;
+  #module--sciencelab {
+    santa-card {
+      &:nth-child(1) {
+        left: 15%;
+        top: 15%;
+      }
+      &:nth-child(2) {
+        left: 85%;
+        top: 25%;
+      }
+      &:nth-child(3) {
+        left: 70%;
+        top: 70%;
+      }
     }
   }
-}
 
-#module--transport {
-  santa-card {
-    &:nth-child(1) {
-      left: -200px;
-      top: 180px;
-    }
-    &:nth-child(2) {
-      left: -300px;
-      top: 500px;
-    }
-    &:nth-child(3) {
-      left: 320px;
-      top: 500px;
+  #module--transport {
+    santa-card {
+      &:nth-child(1) {
+        left: 20%;
+        top: 45%;
+      }
+      &:nth-child(2) {
+        left: 80%;
+        top: 60%;
+      }
+      &:nth-child(3) {
+        left: 30%;
+        top: 20%;
+      }
     }
   }
 }

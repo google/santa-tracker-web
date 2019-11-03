@@ -1,4 +1,4 @@
-import loadLottie from '../deps/lottie.js';
+import {prepareAnimation} from '../deps/lottie.js';
 
 export function outExpo(n) {
   return 1.0 === n ? n : 1.0 - Math.pow(2, -10 * n);
@@ -9,40 +9,16 @@ export function invertOutExpo(v) {
   return Math.log2(v) / -10;
 }
 
-function toggleLottieVisible(lottie, visible) {
-  if (!lottie) {
+function toggleLottieVisible(anim, visible) {
+  if (!anim) {
     return;
   }
-  const el = lottie.renderer.svgElement;
+  const el = anim.renderer.svgElement;
   if (visible) {
     el.removeAttribute('hidden');
   } else {
     el.setAttribute('hidden', '');
   }
-}
-
-async function prepareAnimation(path, container, options = {}) {
-  const lottie = await loadLottie();
-
-  if (!path) {
-    return Promise.reject();
-  }
-
-  const anim = lottie.loadAnimation(Object.assign({
-    path,
-    renderer: 'svg',
-    container,
-    autoplay: false,
-  }, options));
-
-  // Lottie creates its SVG immediately, but doesn't render until later, so it
-  // can be marked hidden right now.
-  toggleLottieVisible(anim, false);
-
-  return new Promise((resolve, reject) => {
-    anim.addEventListener('DOMLoaded', () => resolve(anim));
-    anim.addEventListener('data_failed', reject);
-  });
 }
 
 export class SantaCardPlayerElement extends HTMLElement {
@@ -170,30 +146,32 @@ export class SantaCardPlayerElement extends HTMLElement {
   }
 
   _ensureLoopAnim() {
-    if (!this._pendingLoopAnim) {
-      const loopSrc = this.getAttribute('loop-src');
-
-      this._pendingLoopAnim = prepareAnimation(loopSrc, this, {loop: true}).catch((err) => {
-        return null;
-      }).then((loop) => {
-        this._loopAnim = loop;
-        if (!loop) {
-          return;
-        }
-
-        loop.addEventListener('loopComplete', this._onLoopComplete.bind(this));
-
-        if (this._active && this._looping) {
-          toggleLottieVisible(this._introAnim, false);
-          toggleLottieVisible(loop, true);
-
-          loop.play();
-        } else if (this._introAnim === null) {
-          toggleLottieVisible(loop, true);
-        }
-
-      });
+    if (this._pendingLoopAnim) {
+      return this._pendingLoopAnim;
     }
+
+    const loopSrc = this.getAttribute('loop-src');
+
+    this._pendingLoopAnim = prepareAnimation(loopSrc, {loop: true}).catch((err) => {
+      return null;
+    }).then((loop) => {
+      this._loopAnim = loop;
+      if (!loop) {
+        return;
+      }
+
+      console.info('configuring loop', this.getAttribute('loop-src'));
+      this.appendChild(loop.renderer.svgElement);
+      loop.addEventListener('loopComplete', this._onLoopComplete.bind(this));
+
+      if (this._active && this._looping) {
+        toggleLottieVisible(this._introAnim, false);
+        loop.play();
+      } else if (this._introAnim !== null) {
+        toggleLottieVisible(loop, false);
+      }
+    });
+
     return this._pendingLoopAnim;
   }
 
@@ -204,15 +182,16 @@ export class SantaCardPlayerElement extends HTMLElement {
 
     const introSrc = this.getAttribute('intro-src');
 
-    this._pendingIntroAnim = prepareAnimation(introSrc, this).catch((err) => {
+    this._pendingIntroAnim = prepareAnimation(introSrc).catch((err) => {
       // The intro animation failed, so swap to the loop animation.
       this._ensureLoopAnim();
       return null;
     }).then((intro) => {
+      intro && this.appendChild(intro.renderer.svgElement);
       this._introAnim = intro;
 
-      if (!this._looping || this._loopAnim === null) {
-        toggleLottieVisible(intro, true);
+      if (this._looping && this._loopAnim !== null) {
+        toggleLottieVisible(intro, false);
       }
     });
   }

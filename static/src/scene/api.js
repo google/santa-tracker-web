@@ -362,6 +362,8 @@ function installV1Handlers() {
   };
 }
 
+window.addEventListener('sound-trigger', (ev) => sceneApi.play(ev.detail));
+
 installV1Handlers();
 
 const handler = globalClickHandler(scope, (sceneName) => sceneApi.go(sceneName));

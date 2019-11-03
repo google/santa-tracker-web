@@ -32,6 +32,37 @@ export const videos = {
 };
 
 
+const sceneDefs = {
+  boatload: {
+    color: '#57c4e9',
+    mode: 'static',
+  },
+  elfmaker: {
+    color: '#3399ff',
+    mode: 'lottie-both',
+  },
+  penguindash: {
+    color: '#93dae4',
+    mode: 'lottie',
+  },
+  santasearch: {
+    color: '#ff3475',
+    mode: 'lottie',
+  },
+  santaselfie: {
+    color: '#6bb4fd',
+    mode: 'lottie',
+  },
+  snowball: {
+    color: '#93dae4',
+    mode: 'lottie',
+  },
+  comroom: {
+    mode: 'video',
+  },
+};
+
+
 const sceneColors = {
   boatload: '#57c4e9',
   codeboogie: '#f8c328',
@@ -73,13 +104,32 @@ export class SantaCardElement extends LitElement {
     super();
     this._backgroundStylePromise = alreadyResolved;
 
-    this.addEventListener('mouseover', () => {
-      this._active = true;
-    });
-    this.addEventListener('mouseout', (ev) => {
-      this._active = false;
-    });
+    this._maybeDismiss = this._maybeDismiss.bind(this);
+    this._maybeMakeActive = this._maybeMakeActive.bind(this);
+
+    this.addEventListener('focus', this._maybeMakeActive);
+    this.addEventListener('blur', this._maybeDismiss);
+    this.addEventListener('mouseover', this._maybeMakeActive);
+    this.addEventListener('mouseout', this._maybeDismiss);
   }
+
+  _maybeMakeActive() {
+    if (this.locked && this._active) {
+      return;
+    }
+    const detail = 'village_bubble_appear';
+    window.dispatchEvent(new CustomEvent('sound-trigger', {detail}));
+    this._active = true;
+  }
+
+  _maybeDismiss() {
+    if (!this._active) {
+      return;
+    }
+    const detail = 'village_bubble_disappear';
+    window.dispatchEvent(new CustomEvent('sound-trigger', {detail}));
+    this._active = false;
+}
 
   static get styles() {
     return [styles];
@@ -90,50 +140,50 @@ export class SantaCardElement extends LitElement {
       return true;
     }
 
-    if (!this.scene) {
-      this._backgroundStylePromise = alreadyResolved;
-      return true;
-    }
+    const def = sceneDefs[this.scene];
+    this._backgroundStylePromise = def && this._prepareBackground(def, this.scene) || alreadyResolved;
+    return true;
+  }
 
-    // Check if this is secretly a video.
-    if (this.scene in videos) {
-      const videoId = videos[this.scene];
+  _prepareBackground(def, scene) {
+    if (def.color) {
+      return Promise.resolve(`background: ${def.color}`);
+    } else if (def.mode === 'video') {
+      const videoId = videos[scene];  // FIXME: drop YouTube
       const url = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
       const {promise} = prepareAsset(url);
 
-      this._backgroundStylePromise = promise.then(() => {
+      return promise.then(() => {
         return `background-image: url(${url})`;
       });
-
-      return true;
     }
-
-    const color = sceneColors[this.scene];
-    if (color) {
-      this._backgroundStylePromise = Promise.resolve(`background: ${color}`);
-    } else {
-      this._backgroundStylePromise = alreadyResolved;
-    }
-
-    return true;
-}
+  }
 
   render() {
-    const lottiePath = _static`img/card-lottie/`;
+    const cardPath = _static`img/card/`;
     let cardPlayer = '';
 
     if (!this.locked) {
+      let inner = '';
+      const def = sceneDefs[this.scene];
+      if (def && (def.mode === 'lottie' || def.mode === 'lottie-both')) {
+        inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '-intro.json'} loop-src=${cardPath + this.scene + '-loop.json'}></santa-card-player>`;
+      } else if (def && def.mode === 'static') {
+        inner = html`<img src=${cardPath + this.scene + '.svg'} />`;
+      }
+
       cardPlayer = html`
-        <santa-card-player .active=${this._active} intro-src=${lottiePath + this.scene + '-intro.json'} loop-src=${lottiePath + this.scene + '-loop.json'}></santa-card-player>
+        ${inner}
         <h1>${scenes[this.scene] || ''}</h1>
       `;
     }
 
+    // TODO: we need an <div class="inner"> to do safe transforms
     const url = this.locked || !this.scene ? undefined : href(`${this.scene}.html`);
     const iceIndex = (this.locked || 0) % 3;  // css defines ice-[0-2]
     return html`
-<main>
+<main class=${this._active ? 'active' : ''}>
 <a href=${ifDefined(url)} style=${ifDefined(until(this._backgroundStylePromise, ''))}>
   ${cardPlayer}
   <div class="ice ice-${iceIndex}" ?hidden=${!this.locked}>

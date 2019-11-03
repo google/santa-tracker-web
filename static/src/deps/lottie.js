@@ -20,3 +20,29 @@ export default function load() {
 
   return cachedLoad;
 }
+
+/**
+ * @param {string} path to load
+ * @param {!Object<string, string>} options to append to lottie load
+ * @return {!Promise<*>}
+ */
+export function prepareAnimation(path, options) {
+  return Promise.resolve(load()).then(() => {
+    if (!path) {
+      return Promise.reject();
+    }
+
+    const container = document.createElement('div');
+    const anim = lottie.loadAnimation(Object.assign({
+      path,
+      renderer: 'svg',
+      container,
+      autoplay: false,
+    }, options));
+
+    return new Promise((resolve, reject) => {
+      anim.addEventListener('DOMLoaded', () => resolve(anim));
+      anim.addEventListener('data_failed', reject);
+    });
+  });
+}
