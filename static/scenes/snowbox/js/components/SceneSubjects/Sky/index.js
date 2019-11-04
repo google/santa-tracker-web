@@ -29,13 +29,13 @@ class Sky {
 
   init() {
     const geometry = new THREE.CubeGeometry( 62, 62, 62 )
-    const { images } = LoaderManager.subjects[CONFIG.NAME]
+    const { textures } = LoaderManager.subjects[CONFIG.NAME]
 
     const material = []
-    images.sort((a, b) => (a.order > b.order) ? 1 : -1) // sort images by order
-    images.forEach(image => {
+    textures.sort((a, b) => (a.order > b.order) ? 1 : -1) // sort textures by order
+    textures.forEach(texture => {
       material.push( new THREE.MeshBasicMaterial({
-        map: image,
+        map: texture,
         side: THREE.BackSide
       }));
     })
