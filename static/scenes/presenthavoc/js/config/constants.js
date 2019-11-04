@@ -21,6 +21,18 @@ Constants = {
   },
   PLAYER_STEP_SIZE: .04,
 
+  // Actions as a result of hitting other entities on the board
+  PLAYER_ACTIONS: {
+    RESTART: 'restart',
+    STICK: 'stick',
+    BOUNCE: 'bounce',
+    BLOCK: 'block',
+    DROP_ITEM: 'drop',
+    ADD_TOY_PART: 'addtoy',
+    ACCEPT_TOY: 'accept',
+    SLIDE: 'slide'
+  },
+
   GRID_DIMENSIONS: {
     HEIGHT: 16.0, // height in grid units
     WIDTH: 28.0, // width in grid units

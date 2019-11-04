@@ -26,16 +26,21 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    const prevPosition = Object.assign({}, this.position)
-    this.position = {
-      x: this.config.startPos.x,
-      y: this.config.startPos.y,
-      angle: 0
-    }
+    this.context.classList.add('is-hidden')
+    window.setTimeout(() => {
+      const prevPosition = Object.assign({}, this.position)
+      this.position = {
+        x: this.config.startPos.x,
+        y: this.config.startPos.y,
+        angle: 0
+      }
 
-    this.game.board.updateEntityPosition(this,
-        Math.round(prevPosition.x), Math.round(prevPosition.y),
-        Math.round(this.position.x), Math.round(this.position.y))
+      this.game.board.updateEntityPosition(this,
+          Math.round(prevPosition.x), Math.round(prevPosition.y),
+          Math.round(this.position.x), Math.round(this.position.y))
+
+      this.context.classList.remove('is-hidden')
+    }, 1000)
   }
 
   onFrame(delta) {
@@ -68,18 +73,31 @@ app.Player = class Player {
     }
 
     const colocatedEntities = this.game.board.getEntitiesAtPosition(Math.round(this.position.x), Math.round(this.position.y))
+    const resultingActions = {}
     if (colocatedEntities.length > 1) {
       for (const entity of colocatedEntities) {
         if (entity != this) {
-          entity.onContact(this)
+          const action = entity.onContact(this)
+          resultingActions[action] = entity
         }
       }
     }
+
+    this.processActions(resultingActions)
+
+    // restart, stick to, bounce, stop, drop item,
+    // add toy part, accept toy, slide
 
     this.render()
   }
 
   render() {
     Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
+  }
+
+  processActions(resultingActions) {
+    if (resultingActions[Constants.PLAYER_ACTIONS.RESTART]) {
+      this.restart()
+    }
   }
 }

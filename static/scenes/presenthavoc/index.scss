@@ -34,7 +34,11 @@ body {
   .player {
     height: 50px;
     width: 50px;
-    z-index: 10
+    z-index: 10;
+
+    &.is-hidden {
+      opacity: 0;
+    }
   }
 
   #player-1 {

@@ -33,6 +33,6 @@ app.Pit = class Pit extends app.Entity {
 
   onContact(player) {
     super.onContact(player)
-    player.restart() // temporary
+    return Constants.PLAYER_ACTIONS.RESTART
   }
 }
