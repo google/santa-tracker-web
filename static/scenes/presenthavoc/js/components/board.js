@@ -4,9 +4,6 @@ goog.require('Constants')
 
 app.Board = class Board {
   constructor(context) {
-    // set size with config values in Constants
-    // keep track of items in each grid position
-    // scale to stay contained in viewport
     this.context = context
     this.height = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT
     this.width = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH

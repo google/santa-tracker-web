@@ -1,43 +1,47 @@
 goog.provide('app.Game')
 
+goog.require('Constants')
+goog.require('Levels')
+
 goog.require('app.Board')
 goog.require('app.Controls')
 goog.require('app.Entity')
 goog.require('app.Pit')
 goog.require('app.Player')
-goog.require('Constants')
 
 app.Game = class Game {
   constructor(context) {
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
-    this.player1 = new app.Player(this, document.getElementById('player-1'), {
-        controls: Constants.PLAYER_CONTROLS.ARROWS,
-        startPos: {
-          x: 1350,
-          y: 0
-        }
-      })
-    this.player2 = new app.Player(this, document.getElementById('player-2'), {
-        controls: Constants.PLAYER_CONTROLS.WASD,
-        startPos: {
-          x: 0,
-          y: 0
-        }
-      })
+    this.entities = []
+    this.players = []
 
-    this.pit = new app.Pit({
-      top: 50,
-      height: 250,
-      left: 100,
-      width: 300
-    })
+    this.players[0] = new app.Player(this, document.getElementById('player-1'),
+        Constants.PLAYER_CONTROLS.ARROWS)
+    this.players[1] = new app.Player(this, document.getElementById('player-2'),
+        Constants.PLAYER_CONTROLS.WASD)
+
+    this.initLevel(0)
 
     this.isPlaying = true
     this.lastFrame = +new Date() / 1000
 
     this.onFrame()
+  }
+
+  initLevel(level) {
+    let levelConfig = Levels[level]
+    this.players[0].init(levelConfig.players[0])
+    this.players[1].init(levelConfig.players[1])
+
+    for (const entity of levelConfig.entities) {
+      switch(entity.type) {
+        case 'pit':
+          this.entities.push(new app.Pit(entity.position))
+          break;
+      }
+    }
   }
 
   onFrame() {
@@ -50,8 +54,14 @@ app.Game = class Game {
       delta = now - this.lastFrame
     this.lastFrame = now
     // this.timePassed += delta
-    this.player1.onFrame(delta)
-    this.player2.onFrame(delta)
+
+    for (const player of this.players) {
+      player.onFrame(delta)
+    }
+
+    for (const entity of this.entities) {
+      entity.onFrame(delta)
+    }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
   }

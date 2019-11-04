@@ -1,28 +1,28 @@
 goog.provide('app.Player')
 
 goog.require('Constants')
+goog.require('Utils')
 
 app.Player = class Player {
-  constructor(game, context, config) {
+  constructor(game, context, controls) {
     this.game = game
     this.gameControls = game.controls
     this.context = context
-    this.controls = config.controls
+    this.controls = controls
+  }
 
+  init(config) {
     this.position = {
-      x: config.startPos.x,
-      y: config.startPos.y,
+      x: Utils.gridToPixelValue(config.startPos.x),
+      y: Utils.gridToPixelValue(config.startPos.y),
       angle: 0
     }
   }
 
-  reset() {
-  }
-
   onFrame(delta) {
-    if (this.game.pit.intersects(this)) {
-      this.context.style.display = 'none'
-    }
+    // if (this.game.pit.intersects(this)) {
+    //   this.context.style.display = 'none'
+    // }
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
       this.position.x -= Constants.PLAYER_STEP_SIZE
