@@ -38,14 +38,24 @@ Levels = [
       {
         type: 'penguin',
         config: {
+          isVertical: false,
           startPos: {
             x: 5,
             y: 7
           },
-          endPos: {
-            x: 25,
-            y: 3
+          movementLength: 10,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 4
           },
+          movementLength: 5,
           stepSize: .05
         }
       },

@@ -23,19 +23,9 @@ app.Penguin = class Penguin extends app.Entity {
       y: this.config.startPos.y,
     }
 
-    const xLength = this.config.endPos.x - this.config.startPos.x
-    const yLength = this.config.endPos.y - this.config.startPos.y
-    const travelLength = Math.hypot(xLength, yLength)
-
-    const stepSize = this.config.stepSize
-    const travelXAngle = Math.asin(xLength / travelLength)
-    const travelYAngle = Math.asin(yLength / travelLength)
-    const stepX = Math.sin(travelXAngle) * stepSize
-    const stepY = Math.sin(travelYAngle) * stepSize
-
-    this.step = {
-      x: stepX,
-      y: stepY
+    this.endPos = {
+      x: this.config.isVertical ? this.config.startPos.x : this.config.startPos.x + this.config.movementLength,
+      y: this.config.isVertical ? this.config.startPos.y + this.config.movementLength : this.config.startPos.y
     }
 
     this.reversing = false
@@ -51,32 +41,32 @@ app.Penguin = class Penguin extends app.Entity {
     const prevPosition = Object.assign({}, this.position)
 
     if (!this.reversing) {
-      const newX = this.position.x + this.step.x
-      const newY = this.position.y + this.step.y
-
-      if ((this.step.x > 0 && newX >= this.config.endPos.x) ||
-          (this.step.x <= 0 && newX <= this.config.endPos.x)) {
-        // time to turn around
-        this.reversing = true
-        this.position.x = this.config.endPos.x
-        this.position.y = this.config.endPos.y
+      if (this.config.isVertical) {
+        this.position.y = this.position.y + this.config.stepSize
+        if (this.position.y >= this.endPos.y) {
+          this.reversing = true
+          this.position.y = this.endPos.y
+        }
       } else {
-        this.position.x = newX
-        this.position.y = newY
+        this.position.x = this.position.x + this.config.stepSize
+        if (this.position.x >= this.endPos.x) {
+          this.reversing = true
+          this.position.x = this.endPos.x
+        }
       }
     } else {
-      const newX = this.position.x - this.step.x
-      const newY = this.position.y - this.step.y
-
-      if ((this.step.x > 0 && newX <= this.config.startPos.x) ||
-          (this.step.x <= 0 && newX >= this.config.startPos.x)) {
-        // time to turn around
-        this.reversing = false
-        this.position.x = this.config.startPos.x
-        this.position.y = this.config.startPos.y
+      if (this.config.isVertical) {
+        this.position.y = this.position.y - this.config.stepSize
+        if (this.position.y <= this.config.startPos.y) {
+          this.reversing = false
+          this.position.y = this.config.startPos.y
+        }
       } else {
-        this.position.x = newX
-        this.position.y = newY
+        this.position.x = this.position.x - this.config.stepSize
+        if (this.position.x <= this.config.startPos.x) {
+          this.reversing = false
+          this.position.x = this.config.startPos.x
+        }
       }
     }
 
