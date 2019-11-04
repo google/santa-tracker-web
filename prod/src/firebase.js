@@ -5,6 +5,7 @@
 import firebase from 'firebase/app';
 import 'firebase/remote-config';
 import defaults from './remote-config-defaults.js';
+import isAndroidTWA from './android-twa.js';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBrNcGcna0TMn2uLRxhMBwxVwXUBjlZqzU',
@@ -19,8 +20,13 @@ export const firebaseConfig = {
 
 // Swap for Dev environment.
 if (window.location.hostname !== 'santatracker.google.com') {
+  // Swap for "anywhere but prod"
   firebaseConfig.appId = '1:593146395815:web:54c339298196fd10492f82';
   firebaseConfig.measurementId = 'G-GPEHME4LVG';
+} else if (isAndroidTWA()) {
+  // Swap for Android TWA (notably, this only fires in Prod)
+  firebaseConfig.appId = '1:593146395815:web:aefb4c5b5e01137f492f82';
+  firebaseConfig.measurementId = 'G-0X2VE68GZD';
 }
 
 export function initialize() {

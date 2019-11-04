@@ -9,6 +9,7 @@ import config from './config.json';
 import checkFallback from './src/fallback.js';
 import * as load from './src/load.js';
 import {initialize} from './src/firebase.js';
+import isAndroidTWA from './src/android-twa.js';
 
 // In prod, the documentElement has `lang="en"` or similar.
 const documentLang = document.documentElement.lang || null;
@@ -40,19 +41,8 @@ if (fallback && isProd) {
 }
 const startParams = new URLSearchParams(window.location.search);
 
-// Safeguard sessionStorage in case a browser's Private mode prevents use.
-const sessionStorage = window.sessionStorage || {};
-
-// Detect if we are inside of the TWA
-// NOTE: This detection may fail when the user swipes down and refreshes the page, so we
-//  should persist the state somehow, e.g. local storage or URL modification. See:
-//  https://stackoverflow.com/q/54580414
-if (sessionStorage['android-twa'] ||
-    document.referrer.startsWith('android-app://com.google.android.apps.santatracker') ||
-    startParams.get('android')) {
-  sessionStorage['android-twa'] = true;
-  document.body.setAttribute('data-mode', 'android');
-}
+// Check Android TWA, but force it if the "?android=1" param is set.
+isAndroidTWA(startParams.has('android'));
 
 // Wait for the first Firebase Remote config response and then load our entrypoint.
 initialize().then((remoteConfig) => {
