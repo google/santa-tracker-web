@@ -1,4 +1,6 @@
 
+import {dedupFrame} from '../../src/lib/dedup.js';
+
 /**
  * @param {!HTMLElement} container
  * @param {string} key
@@ -28,19 +30,8 @@ export function initAnimation(container, key, preserveAspectRatio = undefined) {
  * @param {function(): void} handler to run on a rAF after scroll or resize
  */
 export function installAdjustHandler(handler) {
-  let rAF = 0;
-  const internalHandler = () => {
-    rAF = 0;
-    handler();
-  };
-  rAF = window.requestAnimationFrame(internalHandler);
-
-  const eventHandler = () => {
-    if (rAF === 0) {
-      rAF = window.requestAnimationFrame(internalHandler);
-    }
-  };
+  const deduped = dedupFrame(handler);
   ['scroll', 'resize'].forEach((eventType) => {
-    window.addEventListener(eventType, eventHandler, {passive: true});
+    window.addEventListener(eventType, deduped, {passive: true});
   });
 }
