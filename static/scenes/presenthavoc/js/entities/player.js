@@ -13,16 +13,19 @@ app.Player = class Player {
 
   init(config) {
     this.position = {
-      x: Utils.gridToPixelValue(config.startPos.x),
-      y: Utils.gridToPixelValue(config.startPos.y),
+      x: config.startPos.x,
+      y: config.startPos.y,
       angle: 0
     }
+
+    this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
   onFrame(delta) {
-    // if (this.game.pit.intersects(this)) {
-    //   this.context.style.display = 'none'
-    // }
+    // check what else is on this grid spot
+    // report position to board
+
+    const prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
       this.position.x -= Constants.PLAYER_STEP_SIZE
@@ -40,12 +43,17 @@ app.Player = class Player {
       this.position.y += Constants.PLAYER_STEP_SIZE
     }
 
+    if (Math.round(prevPosition.x) != Math.round(this.position.x) ||
+        Math.round(prevPosition.y) != Math.round(this.position.y)) {
+      this.game.board.updateEntityPosition(this,
+          Math.round(prevPosition.x), Math.round(prevPosition.y),
+          Math.round(this.position.x), Math.round(this.position.y))
+    }
+
     this.render()
   }
 
   render() {
-    // TODO: move this to a common util class
-    this.context.style.transform =
-      `translate3d(${this.position.x}px, ${this.position.y}px, 0) rotateZ(${this.position.angle}deg)`
+    Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
   }
 }

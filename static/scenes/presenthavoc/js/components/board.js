@@ -36,27 +36,25 @@ app.Board = class Board {
     }
   }
 
-  updateEntityPosition(entity, oldX, oldY, newX, newY, width, height) {
+  updateEntityPosition(entity, oldX, oldY, newX, newY, width = 1, height = 1) {
     // TODO: calculate difference? instead of adding/removing entire area
     this.removeEntityFromBoard(entity, oldX, oldY, width, height)
     this.addEntityToBoard(entity, newX, newY, width, height)
 
-    // Return the top left point
-    return {
-      x: newX * Constants.GRID_DIMENSIONS.UNIT_SIZE,
-      y: newY * Constants.GRID_DIMENSIONS.UNIT_SIZE
-    }
+    // console.log(this.cells)
   }
 
-  addEntityToBoard(entity, x, y, width, height) {
+  addEntityToBoard(entity, x, y, width = 1, height = 1) {
     for (let i = x; i < x + width; i++) {
       for (let j=y; j < y + height; j++) {
         this.cells[i][j].push(entity)
       }
     }
+
+    // console.log(this.cells)
   }
 
-  removeEntityFromBoard(entity, x, y, width, height) {
+  removeEntityFromBoard(entity, x, y, width = 1, height = 1) {
     for (let i = x; i < x + width; i++) {
       for (let j=y; j < y + height; j++) {
         let index = this.cells[i][j].indexOf(entity)
@@ -65,6 +63,8 @@ app.Board = class Board {
         }
       }
     }
+
+    // console.log(this.cells)
   }
 
   getEntitiesAtPosition(x, y) {

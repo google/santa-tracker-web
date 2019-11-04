@@ -2,8 +2,8 @@ goog.provide('app.Entity')
 
 
 app.Entity = class Entity {
-  constructor() {
-    console.log('new entity')
+  constructor(game) {
+    this.game = game
   }
 
   reset() {

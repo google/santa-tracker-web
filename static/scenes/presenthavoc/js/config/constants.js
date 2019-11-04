@@ -19,7 +19,7 @@ Constants = {
       right: 'd'
     }
   },
-  PLAYER_STEP_SIZE: 2,
+  PLAYER_STEP_SIZE: .04,
 
   GRID_DIMENSIONS: {
     HEIGHT: 16.0, // height in grid units

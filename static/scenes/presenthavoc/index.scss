@@ -24,10 +24,15 @@ body {
     transform-origin: top left;
   }
 
+  .pit,
   .player {
-    height: 50px;
+    left: 0;
     position: absolute;
     top: 0;
+  }
+
+  .player {
+    height: 50px;
     width: 50px;
     z-index: 10
   }
@@ -42,7 +47,6 @@ body {
 
   .pit {
     background: grey;
-    position: absolute;
   }
 
   // .title {

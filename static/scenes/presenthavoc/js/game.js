@@ -38,7 +38,7 @@ app.Game = class Game {
     for (const entity of levelConfig.entities) {
       switch(entity.type) {
         case 'pit':
-          this.entities.push(new app.Pit(entity.position))
+          this.entities.push(new app.Pit(this, entity.position))
           break;
       }
     }
