@@ -50,19 +50,19 @@ app.Player = class Player {
     const prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      this.position.x -= Constants.PLAYER_STEP_SIZE
+      this.position.x = Math.max(0, this.position.x - Constants.PLAYER_STEP_SIZE)
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      this.position.x += Constants.PLAYER_STEP_SIZE
+      this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1, this.position.x + Constants.PLAYER_STEP_SIZE)
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      this.position.y -= Constants.PLAYER_STEP_SIZE
+      this.position.y = Math.max(0, this.position.y - Constants.PLAYER_STEP_SIZE)
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      this.position.y += Constants.PLAYER_STEP_SIZE
+      this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
     }
 
     if (Math.round(prevPosition.x) != Math.round(this.position.x) ||
