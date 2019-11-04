@@ -1,4 +1,5 @@
 import SceneManager from '../components/SceneManager/index.js'
+import SoundManager from '../managers/SoundManager.js'
 
 export default class CameraControls {
   constructor(el) {
@@ -34,6 +35,7 @@ export default class CameraControls {
   rotateCamera(e) {
     const el = e.currentTarget
     SceneManager.cameraCtrl.rotate(el.dataset.rotateCamera)
+    SoundManager.play('snowbox_rotate_camera');
     this.pushButton(el)
   }
 

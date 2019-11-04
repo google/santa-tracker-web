@@ -7,6 +7,7 @@ import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
 import SceneManager from '../SceneManager/index.js'
+import SoundManager from '../../managers/SoundManager.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -114,14 +115,18 @@ class CameraController {
     switch (direction) {
       case 'out':
         if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS.length) {
+          SoundManager.play("snowbox_fail")
           return false
         }
+        SoundManager.play("snowbox_zoom_out")
         this.currentZoom++
         break
       case 'in':
         if (this.currentZoom <= 0) {
+          SoundManager.play("snowbox_fail")
           return false
         }
+        SoundManager.play("snowbox_zoom_in")
         this.currentZoom--
         break
     }

@@ -416,6 +416,7 @@ class SceneManager extends EventEmitter {
       this.needsCollisionCheck = true
       this.emit('scale_object')
     }
+    SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
 
   rotateObject(el) {
@@ -430,7 +431,7 @@ class SceneManager extends EventEmitter {
       this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
       this.needsCollisionCheck = true
     }
-    SoundManager.play('snowbox_scale', parseInt(e.target.value));
+    SoundManager.play('snowbox_rotate');
   }
 
   addShape(shape, material = 'snow') {
@@ -485,6 +486,11 @@ class SceneManager extends EventEmitter {
   selectSubject(newSelectedSubject, offset) {
     this.setMode('move')
 
+    // don't play sound if dragging from toolbar
+    if (offset !== undefined) {
+      SoundManager.play('snowbox_select_subject');
+    }
+
     const { x, z } = newSelectedSubject.body.position
 
     if (offset) {
@@ -499,7 +505,7 @@ class SceneManager extends EventEmitter {
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
 
-    SoundManager.play('snowbox_select_subject');
+    
   }
 
   findNearestIntersectingObject(objects) {
