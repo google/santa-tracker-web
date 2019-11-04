@@ -40,6 +40,9 @@ const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
 chromeElement.append(badgeElement);
 
+// nb. This is added only when needed.
+const errorElement = document.createElement('santa-error');
+
 const sidebar = document.createElement('santa-cardnav');
 sidebar.hidden = true;
 sidebar.setAttribute('slot', 'sidebar');
@@ -372,7 +375,10 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!control.isAttached) {
       return false;  // replaced during interlude
     }
-    loaderElement.textContent = '';  // clear any previous contents of loader
+
+    // Clear any previous errors.
+    errorElement.remove();
+    errorElement.textContent = '';
 
     // The interlude is fully visible, so we can purge the old scene (although this is optional as
     // `santa-gameloader` will always do this for us _anyway_).
@@ -404,7 +410,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       errorCode = 'missing';
     }
     if (errorCode || locked) {
-      const errorElement = document.createElement('santa-error');
       errorElement.code = errorCode;
       errorElement.locked = locked;
       if (lockedImage) {
