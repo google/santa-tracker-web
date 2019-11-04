@@ -45,9 +45,6 @@
   <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <style type="text/css">
-html {
-  background: black;
-}
 body[data-mode="android"] {
   --color-bar: rgb(76, 175, 80);
 }
@@ -63,6 +60,7 @@ body[data-mode="android"] {
   background-repeat: no-repeat;
 }
 html {
+  background: black;
   overflow: hidden;
   height: 100vh;
 }
@@ -71,6 +69,8 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow: auto;
+  touch-action: manipulation;
+  touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
