@@ -8,13 +8,35 @@ app.Board = class Board {
     // keep track of items in each grid position
     // scale to stay contained in viewport
     this.context = context
-    this.context.style.height = `${Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT}px`
-    this.context.style.width = `${Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH}px`
+    this.height = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT
+    this.width = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH
+    this.ratio = Constants.GRID_DIMENSIONS.WIDTH / Constants.GRID_DIMENSIONS.HEIGHT
+    this.context.style.height = `${this.height}px`
+    this.context.style.width = `${this.width}px`
     this.cells = [...Array(Constants.GRID_DIMENSIONS.WIDTH)].map(
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
             el => []))
 
-    console.log(this.cells)
+    this.onResize()
+    window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  onResize() {
+    let container = document.getElementById('main')
+    if (container) {
+      let containerRatio = container.offsetWidth / container.offsetHeight
+      if (containerRatio < this.ratio) {
+        // top bottom letterboxing
+        this.context.style.left = '0'
+        this.context.style.top = '50%'
+        this.context.style.transform = `scale(${container.offsetWidth / this.width}) translateY(-50%)`
+      } else {
+        // left right letterboxing
+        this.context.style.left = '50%'
+        this.context.style.top = '0'
+        this.context.style.transform = `scale(${container.offsetHeight / this.height}) translateX(-50%)`
+      }
+    }
   }
 
   updateEntityPosition(entity, oldX, oldY, newX, newY, width, height) {
