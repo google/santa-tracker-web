@@ -93,7 +93,10 @@ class SceneManager extends EventEmitter {
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
+
     this.moveOffsetY = 0
+    this.startMovePositionX = 0
+    this.startMovePositionZ = 0
 
     this.cameraCtrl.rotate('left', false, true)
 
@@ -281,7 +284,6 @@ class SceneManager extends EventEmitter {
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
-
         const hit = this.getNearestObject()
         if (hit) {
           // if mode is neutral
@@ -334,14 +336,14 @@ class SceneManager extends EventEmitter {
           this.setMode()
           setTimeout(() => {
             if (oldSelectedObject === newSelectedSubject) {
-              this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+              this.selectSubject(newSelectedSubject, true)
             }
           }, 10)
         } else {
           this.unselectSubject()
         }
       } else {
-        this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+        this.selectSubject(newSelectedSubject, true)
       }
     } else if (this.selectedSubject && this.mode === 'move') {
       this.unselectSubject()
@@ -470,6 +472,14 @@ class SceneManager extends EventEmitter {
   }
 
   // others
+  shapeLoaded(subject) {
+    this.sceneSubjects.push(subject)
+    this.selectSubject(subject)
+    const pos = this.getCurrentPosOnPlane()
+    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    const y = 0.5 * (subject.box.max.y - subject.box.min.y) // add half of object size in Y
+    this.planePositioner.position.y = y
+  }
 
   unselectSubject(unmove) {
     this.cameraCtrl.resetControls()
@@ -484,7 +494,7 @@ class SceneManager extends EventEmitter {
     this.selectedSubject = null
   }
 
-  selectSubject(newSelectedSubject, offset) {
+  selectSubject(newSelectedSubject, hasOffset = false) {
     this.setMode('move')
 
     const { x, z } = newSelectedSubject.body.position
@@ -493,6 +503,34 @@ class SceneManager extends EventEmitter {
 
     this.selectedSubject.select()
     this.terrain.addPositionMarker(this.selectedSubject.body.position)
+
+    if (hasOffset) {
+      const { position } = this.selectedSubject.body
+      this.startMovePositionX = position.x
+      this.startMovePositionZ = position.z
+    } else {
+      this.startMovePositionX = 0
+      this.startMovePositionZ = 0
+    }
+
+    this.subjectHasOffset = hasOffset
+  }
+
+  moveSelectedSubject() {
+    const intersects = []
+
+    this.planePositioner.raycast( this.raycaster, intersects )
+    if( intersects.length > 0 ) {
+      const { point } = intersects[0]
+      const x = this.subjectHasOffset ? point.x + (point.x - this.startMovePositionX) : point.x
+      const z = this.subjectHasOffset ? point.z + (point.z - this.startMovePositionZ) : point.z
+      const y = this.planePositioner.position.y + this.moveOffsetY
+      console.log(this.startMovePositionX, point.x, x)
+      this.selectedSubject.moveTo(x, y, z)
+    }
+
+    const pos = this.getCurrentPosOnPlane()
+    this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
   findNearestIntersectingObject(objects) {
@@ -511,28 +549,6 @@ class SceneManager extends EventEmitter {
     const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
-  }
-
-  shapeLoaded(subject) {
-    this.sceneSubjects.push(subject)
-    this.selectSubject(subject)
-    const pos = this.getCurrentPosOnPlane()
-    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
-    const y = 0.5 * (subject.box.max.y - subject.box.min.y) // add half of object size in Y
-    this.planePositioner.position.y = y
-  }
-
-  moveSelectedSubject() {
-    const intersects = []
-
-    this.planePositioner.raycast( this.raycaster, intersects )
-    if( intersects.length > 0 ) {
-      const { point } = intersects[0]
-      this.selectedSubject.moveTo(point.x, this.planePositioner.position.y + this.moveOffsetY, point.z)
-    }
-
-    const pos = this.getCurrentPosOnPlane()
-    this.terrain.movePositionMarker(pos.x, pos.z)
   }
 
   getSubjectfromMesh(mesh) {
