@@ -89,12 +89,12 @@ santa-card {
   }
 
   .sidebar {
-    background: url(img/sidebar.svg);
-
     &.left {
+      background: url(img/margin-left.svg);
       background-position: top right;
     }
     &.right {
+      background: url(img/margin-right.svg);
       background-position: top left;
     }
   }
