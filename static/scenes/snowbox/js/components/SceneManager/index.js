@@ -80,6 +80,16 @@ class SceneManager extends EventEmitter {
     this.buildCamera()
     this.buildSceneSubjects()
 
+    // Help moving object with the mouse always in the center of the object
+    const material = new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0.2 })
+    const geometry = new THREE.PlaneGeometry(50, 50, 1, 1)
+
+    this.planePositioner = new THREE.Mesh(geometry, material)
+    this.planePositioner.position.y = 1;
+    this.planePositioner.rotation.x = -Math.PI / 2
+
+    this.scene.add(this.planePositioner)
+
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
@@ -184,7 +194,6 @@ class SceneManager extends EventEmitter {
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
-      this.moveSelectedSubject()
       this.cameraCtrl.moveOnEdges(this.mouseInEdge)
     }
 
@@ -215,6 +224,7 @@ class SceneManager extends EventEmitter {
     if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
       this.emit('move_camera')
     }
+
 
     this.renderer.render(this.scene, camera)
   }
@@ -292,6 +302,7 @@ class SceneManager extends EventEmitter {
         this.mouseInEdge = null
       } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
+        this.checkCollision()
         if (this.canDetectMouseInEdge) {
           this.detectMouseInEdge(e)
         }
@@ -518,20 +529,23 @@ class SceneManager extends EventEmitter {
     this.selectSubject(subject)
     const pos = this.getCurrentPosOnPlane()
     subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
-    const y = 0.5 * (subject.box.max.y - subject.box.min.y)
-    subject.moveTo(pos.x, y, pos.z)
-
-    this.terrain.movePositionMarker(pos.x, pos.z)
+    const y = 0.5 * (subject.box.max.y - subject.box.min.y) // add half of object size in Y
+    this.planePositioner.position.y = y
+    this.selectedSubject.moveTo(-1000, y, -1000)
   }
 
-  move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
-    if (this.selectedSubject) {
-      this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
-      this.selectedSubject.moveTo(null, this.moveOffset.y, null)
-      if (!noMouseMove) {
-        this.onMouseMove()
-      }
+  moveSelectedSubject() {
+    const intersects = []
+
+    this.planePositioner.raycast( this.raycaster, intersects )
+    if( intersects.length > 0 ) {
+      const { point } = intersects[0]
+      this.selectedSubject.moveTo(point.x, this.planePositioner.position.y + this.moveOffset.y, point.z)
     }
+
+    const pos = this.getCurrentPosOnPlane()
+    this.terrain.movePositionMarker(pos.x, pos.z)
+    // this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
   }
 
   getSubjectfromMesh(mesh) {
@@ -603,13 +617,6 @@ class SceneManager extends EventEmitter {
     };
   }
 
-  moveSelectedSubject() {
-    this.checkCollision()
-    const pos = this.getCurrentPosOnPlane()
-    this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
-    this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
-  }
-
   checkCollision() {
     // if (this.mode === 'edit') return; // stop on edit
     const { ghost, box, mesh } = this.selectedSubject
@@ -619,7 +626,7 @@ class SceneManager extends EventEmitter {
     fakeBox.min.y -= CONFIG.ELEVATE_SCALE
     let moveDown = true
     let moveUp = false
-    let elevateScale
+    let elevateScale = 0
 
     if (boxes.length > 0) {
       for (let index = 0; index < boxes.length; index++) {
@@ -627,10 +634,11 @@ class SceneManager extends EventEmitter {
 
         if (box.intersectsBox(boxItem)) {
           moveUp = true
-          elevateScale = boxItem.max.y - box.min.y + 0.01
+          elevateScale = (boxItem.max.y - box.min.y + 0.02)
           break
         } else if (fakeBox.intersectsBox(boxItem)) {
           moveDown = false
+          this.moveOffset.y = 0
         }
       }
     }
@@ -639,12 +647,14 @@ class SceneManager extends EventEmitter {
       moveUp = true
       elevateScale = -box.min.y
     }
+    console.log(elevateScale)
 
-    if (moveUp) {
-      this.move('up', true, elevateScale)
+    if (moveUp && elevateScale > 0.03) {
+      console.log('move up')
+      this.moveOffset.y = elevateScale
     } else if (moveDown && fakeBox.min.y > 0) {
-      this.move('down', true)
-      this.checkCollision()
+      console.log('move down')
+      // this.moveOffset.y = 0
     }
   }
 
