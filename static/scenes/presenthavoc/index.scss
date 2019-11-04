@@ -4,6 +4,8 @@ $name: 'module-presenthavoc';
 
 $mobile-breakpoint: 1100px;
 
+$grid-unit-size: 50px;
+
 body {
   overflow: hidden;
 }
@@ -26,15 +28,16 @@ body {
 
   .penguin,
   .pit,
-  .player {
+  .player,
+  .wall {
     left: 0;
     position: absolute;
     top: 0;
   }
 
   .player {
-    height: 50px;
-    width: 50px;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
     z-index: 10;
 
     &.is-hidden {
@@ -52,12 +55,16 @@ body {
 
   .penguin {
     background: url(img/penguin.svg) center/contain no-repeat;
-    height: 50px;
-    width: 50px;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
   }
 
   .pit {
     background: #332f2e;
+  }
+
+  .wall {
+    background: #9b643d;
   }
 
   // .title {

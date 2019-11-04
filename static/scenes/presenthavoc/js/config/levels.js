@@ -19,7 +19,7 @@ Levels = [
     entities: [
       {
         type: 'pit',
-        position: {
+        config: {
           height: 5,
           width: 6,
           x: 2,
@@ -28,7 +28,7 @@ Levels = [
       },
       {
         type: 'pit',
-        position: {
+        config: {
           height: 5,
           width: 12,
           x: 5,
@@ -57,6 +57,15 @@ Levels = [
           },
           movementLength: 5,
           stepSize: .05
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 5,
+          width: 2,
+          x: 10,
+          y: 1,
         }
       },
     ]

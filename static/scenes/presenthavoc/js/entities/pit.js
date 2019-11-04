@@ -6,9 +6,9 @@ goog.require('app.Entity')
 goog.require('Utils')
 
 app.Pit = class Pit extends app.Entity {
-  constructor(game, position) {
+  constructor(game, config) {
     super(game)
-    this.position = position
+    this.config = config
 
     this.elem = document.createElement('div')
     document.getElementById('pits').append(this.elem)
@@ -16,10 +16,10 @@ app.Pit = class Pit extends app.Entity {
 
     this.game.board.addEntityToBoard(
         this,
-        this.position.x,
-        this.position.y,
-        this.position.width,
-        this.position.height)
+        this.config.x,
+        this.config.y,
+        this.config.width,
+        this.config.height)
     this.render()
   }
 
@@ -29,9 +29,9 @@ app.Pit = class Pit extends app.Entity {
 
   render() {
     super.render()
-    this.elem.style.height = `${Utils.gridToPixelValue(this.position.height)}px`
-    this.elem.style.width = `${Utils.gridToPixelValue(this.position.width)}px`
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+    this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
+    this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`
+    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
   }
 
   onContact(player) {

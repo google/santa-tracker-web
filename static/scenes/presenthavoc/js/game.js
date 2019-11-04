@@ -9,6 +9,7 @@ goog.require('app.Entity')
 goog.require('app.Penguin')
 goog.require('app.Pit')
 goog.require('app.Player')
+goog.require('app.Wall')
 
 app.Game = class Game {
   constructor(context) {
@@ -39,10 +40,13 @@ app.Game = class Game {
     for (const entity of levelConfig.entities) {
       switch(entity.type) {
         case 'pit':
-          this.entities.push(new app.Pit(this, entity.position))
+          this.entities.push(new app.Pit(this, entity.config))
           break;
         case 'penguin':
           this.entities.push(new app.Penguin(this, entity.config))
+          break;
+        case 'wall':
+          this.entities.push(new app.Wall(this, entity.config))
           break;
       }
     }

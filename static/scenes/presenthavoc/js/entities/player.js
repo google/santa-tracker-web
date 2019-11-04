@@ -28,7 +28,7 @@ app.Player = class Player {
   restart() {
     this.context.classList.add('is-hidden')
     window.setTimeout(() => {
-      const prevPosition = Object.assign({}, this.position)
+      this.prevPosition = Object.assign({}, this.position)
       this.position = {
         x: this.config.startPos.x,
         y: this.config.startPos.y,
@@ -36,7 +36,7 @@ app.Player = class Player {
       }
 
       this.game.board.updateEntityPosition(this,
-          prevPosition.x, prevPosition.y,
+          this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
 
       this.context.classList.remove('is-hidden')
@@ -47,7 +47,7 @@ app.Player = class Player {
     // check what else is on this grid spot
     // report position to board
 
-    const prevPosition = Object.assign({}, this.position)
+    this.prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
       this.position.x = Math.max(0, this.position.x - Constants.PLAYER_STEP_SIZE)
@@ -65,13 +65,9 @@ app.Player = class Player {
       this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
     }
 
-  this.game.board.updateEntityPosition(this,
-      prevPosition.x, prevPosition.y,
-      this.position.x, this.position.y)
-
     const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
     const resultingActions = {}
-    if (colocatedEntities.length > 1) {
+    if (colocatedEntities.length) {
       for (const entity of colocatedEntities) {
         if (entity != this) {
           const action = entity.onContact(this)
@@ -92,9 +88,22 @@ app.Player = class Player {
     Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
   }
 
+  /**
+   * Processes all actions that resulted from contact with another entity on the board.
+   * Updates position and state of player based on these actions.
+   */
   processActions(resultingActions) {
     if (resultingActions[Constants.PLAYER_ACTIONS.RESTART]) {
       this.restart()
+      return // ignore all other actions
+    }
+
+    if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK]) {
+      this.position = this.prevPosition
+    } else {
+      this.game.board.updateEntityPosition(this,
+          this.prevPosition.x, this.prevPosition.y,
+          this.position.x, this.position.y)
     }
   }
 }
