@@ -37,13 +37,13 @@ class LoaderManager {
     }
 
     if (skybox) {
-      const { prefix, directions, suffix } = skybox
       if (!this.subjects[name].textures) {
         this.subjects[name].textures = []
       }
 
+      const { prefix, directions, suffix } = skybox
       for (let i = 0; i < 6; i++) {
-        promises.push(this.loadArrayOfTextures(prefix + directions[i] + suffix, name, i))
+        promises.push(this.loadTexture(prefix + directions[i] + suffix, name, 'skybox', i))
       }
     }
 
@@ -68,20 +68,16 @@ class LoaderManager {
     })
   }
 
-  loadTexture(url, name, type) {
+  loadTexture(url, name, type, order = null) {
     return new Promise(resolve => {
       this.textureLoader.load(url, result => {
-        this.subjects[name][type] = result
-        resolve(result)
-      })
-    })
-  }
-
-  loadArrayOfTextures(url, name, order) {
-    return new Promise(resolve => {
-      this.textureLoader.load(url, result => {
-        result.order = order
-        this.subjects[name].textures.push(result)
+        if (type === 'skybox') {
+          // push texture in a array
+          result.order = order
+          this.subjects[name].textures.push(result)
+        } else {
+          this.subjects[name][type] = result
+        }
         resolve(result)
       })
     })
