@@ -288,6 +288,15 @@ body {
     align-items: center;
     justify-content: space-around;
 
+    video {
+      // 854 x 480
+      // 1920 x 1080
+      width: 427px;
+      height: 240px;
+      margin: 48px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
     santa-card {
       margin: 48px;
       width: 200px;

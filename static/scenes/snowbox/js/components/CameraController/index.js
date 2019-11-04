@@ -2,9 +2,11 @@
 import CONFIG from './config.js'
 
 // Utils
+import { isTouchDevice } from '../../helpers.js'
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
+import SceneManager from '../SceneManager/index.js'
 
 class CameraController {
   constructor(screenDimensions, canvas) {
@@ -13,6 +15,7 @@ class CameraController {
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
     this.currentZoom = CONFIG.ZOOM.START
+    this.isTouchDevice = isTouchDevice()
 
     const { width, height } = screenDimensions
     const aspectRatio = width / height
@@ -30,18 +33,21 @@ class CameraController {
   }
 
   buildControls() {
-    this.controls = new THREE.OrbitControls(this.camera, this.canvas)
-    this.controls.minDistance = CONFIG.CONTROLS.MIN
-    this.controls.maxDistance = CONFIG.CONTROLS.MAX
+    this.controls = new THREE.MapControls(this.camera, this.canvas)
+    // console.log('FIAUEGHOIJPOFK')
+    this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
+    this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
+    this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
+    this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
     this.controls.enableKeys = CONFIG.CONTROLS.KEYS
-    // this.controls.enablePan = CONFIG.CONTROLS.PAN
-    // this.controls.enableRotate = CONFIG.CONTROLS.ROTATE
-    // this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
-    // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
-    this.controls.enableZoom = CONFIG.CONTROLS.ZOOM
+    this.controls.enablePan = CONFIG.CONTROLS.PAN
+    this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
+    this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
+    this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
+    this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
   }
 
-  rotate(direction, terrain, wheel, noAnimation) {
+  rotate(direction, wheel, noAnimation) {
     if (this.isRotating) return
     this.controls.enabled = false
 
@@ -77,7 +83,7 @@ class CameraController {
     }
 
     // get look at point
-    const intersects = this.getLookAtPointOnTerrain(terrain)
+    const intersects = this.getLookAtPointOnTerrain()
     this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
     this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
     this.cameraPositionOrigin = this.camera.position.clone()
@@ -172,14 +178,14 @@ class CameraController {
     this.camera.position.z += z
   }
 
-  getLookAtPointOnTerrain(terrain) {
+  getLookAtPointOnTerrain() {
     const worldPos = new THREE.Vector3()
     this.camera.getWorldPosition(worldPos)
     const worldDir = new THREE.Vector3()
     this.camera.getWorldDirection(worldDir)
     this.raycaster.set(worldPos, worldDir)
 
-    return this.raycaster.intersectObjects([terrain.meshes[0]])
+    return this.raycaster.intersectObjects([SceneManager.terrain.meshes[0]])
   }
 
   // obj - your object (THREE.Object3D or derived)
@@ -209,9 +215,9 @@ class CameraController {
     return finalAxis
   }
 
-  resetControls(terrain) {
+  resetControls() {
     // reset controls where the camera is currently looking at
-    const target = this.getLookAtPointOnTerrain(terrain)
+    const target = this.getLookAtPointOnTerrain()
     this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
   }
 }
