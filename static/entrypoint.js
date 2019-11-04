@@ -97,21 +97,21 @@ const showOverlay = (state={}) => {
   let overlay = document.querySelector('santa-overlay');
   if (!overlay) {
     const endSceneOverlayElement = document.createElement('santa-overlay');
-    endSceneOverlayElement.setAttribute('slot', 'overlay');
     document.body.append(endSceneOverlayElement);
     overlay = endSceneOverlayElement;
   }
   overlay.state = state;
-  overlay.style.display = 'block';
+  overlay.hidden = false;
 };
 
 const hideOverlay = () => {
   const overlay = document.querySelector('santa-overlay');
-  overlay.style.display = 'none';
+  if (overlay) {
+    overlay.hidden = true;
+  }
 };
 
 window.addEventListener('game-restart', (e) => {
-  hideOverlay(state);
   global.setState({status: 'restart'})
 }, true);
 
@@ -120,8 +120,11 @@ global.subscribe((state) => {
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
+  console.debug('gameover', gameover);
   if (gameover) {
     showOverlay(state);
+  } else {
+    hideOverlay();
   }
 
   // Only if we have an explicit orientation, the scene has one, and they're different.

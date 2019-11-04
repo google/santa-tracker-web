@@ -11,6 +11,10 @@
   justify-content: center;
 }
 
+:host([hidden]) {
+  display: none !important;
+}
+
 :host {
   santa-button {
     width: 55px;
