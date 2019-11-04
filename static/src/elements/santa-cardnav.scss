@@ -1,0 +1,88 @@
+
+$transition-duration: 0.2s;
+
+.reveal {
+  background: #4803b8;
+  width: 300vmax;
+  height: 300vmax;  // FIXME: not supported in IE11 (if we care)
+  margin-left: -150vmax;
+  margin-top: -150vmax;
+  top: 45px;
+  left: 75px;
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(.4, 0, 1, 1);
+  transform: scale(1);
+  border-radius: 300vmax;
+  position: fixed;
+}
+
+main {
+  padding-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+:host([hidden]) {
+  display: block !important;
+
+  .reveal {
+    transition: none;
+    transform: scale(0);
+  }
+
+  santa-card {
+    transition: none;
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+.placeholder {
+  width: 200px;
+  margin: 0 10px;
+  order: 10000;
+}
+
+santa-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $transition-duration ease-out, transform $transition-duration ease-out;
+
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  font-size: 20px;
+
+  --radius: 30px;
+  --icon-size: 60%;
+
+  &.wide {
+    width: 420px;
+  }
+}
+
+@media (max-width: 768px - 1px) {
+  .placeholder {
+    width: 130px;
+  }
+
+  santa-card {
+    width: 130px;
+    height: 130px;
+    font-size: 14px;
+
+    --radius: 20px;
+    --icon-size: 50%;
+
+    &.wide {
+      width: 280px;
+    }
+  }
+}
+
+footer {
+  background: #3a068d;
+  min-height: 200px;
+}

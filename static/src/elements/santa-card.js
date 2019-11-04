@@ -10,7 +10,7 @@ import {join} from '../lib/url.js';
 import './santa-card-player.js';
 
 
-const sceneDefs = {
+export const sceneDefs = {
   boatload: {
     color: '#57c4e9',
     mode: 'static',
@@ -145,7 +145,7 @@ export class SantaCardElement extends LitElement {
       const def = sceneDefs[this.scene];
       if (def && (def.mode === 'lottie' || def.mode === 'lottie-both')) {
         inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '-intro.json'} loop-src=${cardPath + this.scene + '-loop.json'}></santa-card-player>`;
-      } else if (def && def.mode === 'static') {
+      } else if (!def || (def && def.mode === 'static')) {
         inner = html`<img src=${cardPath + this.scene + '.svg'} />`;
       }
 

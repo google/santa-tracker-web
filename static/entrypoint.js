@@ -7,11 +7,11 @@ import './src/polyfill/css.js';
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
-import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import './src/elements/santa-badge.js';
 import './src/elements/santa-notice.js';
 import './src/elements/santa-overlay.js';
+import './src/elements/santa-cardnav.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
@@ -40,7 +40,8 @@ const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
 chromeElement.append(badgeElement);
 
-const sidebar = document.createElement('santa-sidebar');
+const sidebar = document.createElement('santa-cardnav');
+sidebar.hidden = true;
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
@@ -48,6 +49,13 @@ chromeElement.append(sidebar);
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
+chromeElement.addEventListener('nav-open', (ev) => {
+  sidebar.hidden = false;
+});
+
+chromeElement.addEventListener('nav-close', (ev) => {
+  sidebar.hidden = true;
+});
 
 const kplayReady = kplay.prepare();
 kplayReady.then((sc) => {
@@ -376,7 +384,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so
     // only check if we're still the active scene once done.
     const config = await configPromise;
-    const lockedImage = await locked ? sceneImage(route).catch(null) : null;
+    const lockedImage = await (locked ? sceneImage(route).catch(null) : null);
     const sc = await kplayReady;
 
     // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we

@@ -108,13 +108,21 @@ export class SantaChromeElement extends LitElement {
   update(changedProperties) {
     super.update(changedProperties);
 
-    if (changedProperties.has('navOpen') && this.navOpen) {
-      // Focus an element at the start of the sidebar, but then immediately disallow focus. This
-      // places the browser's "cursor" here, so a keyboard tab will go to the next item.
-      const node = this.renderRoot.querySelector('.sidebar-focuser');
-      node.setAttribute('tabindex', '0')
-      node.focus();
-      node.removeAttribute('tabindex');
+    if (changedProperties.has('navOpen')) {
+      let eventName = 'nav-close';
+
+      if (this.navOpen) {
+        eventName = 'nav-open';
+
+        // Focus an element at the start of the sidebar, but then immediately disallow focus. This
+        // places the browser's "cursor" here, so a keyboard tab will go to the next item.
+        const node = this.renderRoot.querySelector('.sidebar-focuser');
+        node.setAttribute('tabindex', '0')
+        node.focus();
+        node.removeAttribute('tabindex');
+      }
+
+      this.dispatchEvent(new CustomEvent(eventName));
     }
 
     if (changedProperties.has('action') && this.action) {
