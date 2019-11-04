@@ -15,12 +15,42 @@ export const sceneDefs = {
     color: '#57c4e9',
     mode: 'static',
   },
+  codelab: {
+    mode: 'lottie',
+  },
   elfmaker: {
     color: '#3399ff',
     mode: 'lottie-both',
   },
+  elfski: {
+    mode: 'lottie',
+  },
+  glider: {
+    mode: 'lottie',
+  },
+  gumball: {
+    mode: 'lottie',
+  },
+  jamband: {
+    mode: 'lottie',
+  },
+  jetpack: {
+    mode: 'lottie',
+  },
   penguindash: {
     color: '#93dae4',
+    mode: 'lottie',
+  },
+  presentbounce: {
+    mode: 'lottie',
+  },
+  presentdrop: {
+    mode: 'lottie',
+  },
+  runner: {
+    mode: 'lottie',
+  },
+  santascanvas: {
     mode: 'lottie',
   },
   santasearch: {
@@ -144,7 +174,10 @@ export class SantaCardElement extends LitElement {
       let inner = html`<img />`;
       const def = sceneDefs[this.scene];
       if (def && (def.mode === 'lottie' || def.mode === 'lottie-both')) {
-        inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '-intro.json'} loop-src=${cardPath + this.scene + '-loop.json'}></santa-card-player>`;
+
+        const loopSrc = (def.mode === 'lottie-both' ? cardPath + this.scene + '-loop.json' : undefined);
+
+        inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '.json'} loop-src=${ifDefined(loopSrc)}></santa-card-player>`;
       } else if (!def || (def && def.mode === 'static')) {
         inner = html`<img src=${cardPath + this.scene + '.svg'} />`;
       }

@@ -41,7 +41,14 @@ export function prepareAnimation(path, options) {
     }, options));
 
     return new Promise((resolve, reject) => {
-      anim.addEventListener('DOMLoaded', () => resolve(anim));
+      anim.addEventListener('DOMLoaded', () => {
+        if (options.clearDefs) {
+          const svg = anim.renderer.svgElement;
+          const defs = svg.querySelector('defs');
+          defs && defs.parentNode.removeChild(defs);
+        }
+        resolve(anim);
+      });
       anim.addEventListener('data_failed', reject);
     });
   });

@@ -152,7 +152,7 @@ export class SantaCardPlayerElement extends HTMLElement {
 
     const loopSrc = this.getAttribute('loop-src');
 
-    this._pendingLoopAnim = prepareAnimation(loopSrc, {loop: true}).catch((err) => {
+    this._pendingLoopAnim = prepareAnimation(loopSrc, {loop: true, clearDefs: true}).catch((err) => {
       return null;
     }).then((loop) => {
       this._loopAnim = loop;
@@ -160,7 +160,6 @@ export class SantaCardPlayerElement extends HTMLElement {
         return;
       }
 
-      console.info('configuring loop', this.getAttribute('loop-src'));
       this.appendChild(loop.renderer.svgElement);
       loop.addEventListener('loopComplete', this._onLoopComplete.bind(this));
 
@@ -182,7 +181,7 @@ export class SantaCardPlayerElement extends HTMLElement {
 
     const introSrc = this.getAttribute('intro-src');
 
-    this._pendingIntroAnim = prepareAnimation(introSrc).catch((err) => {
+    this._pendingIntroAnim = prepareAnimation(introSrc, {clearDefs: true}).catch((err) => {
       // The intro animation failed, so swap to the loop animation.
       this._ensureLoopAnim();
       return null;
