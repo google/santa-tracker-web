@@ -67,10 +67,29 @@ async function prepare() {
 
     const anim = await animationPromise;
     const frames = anim.getDuration(true);
-    console.info(name, 'got frames', frames);
 
-    return (ratio) => {
-      const frame = Math.max(0.0, frames * ratio);
+    return () => {
+      const se = document.scrollingElement;
+      const topScroll = se.scrollTop;
+
+      // The start of this element is effectively min window height (can't scroll above this point).
+      const effectiveStart = Math.max(0, d.offsetTop - window.innerHeight);
+      const effectiveEnd = Math.min(se.offsetHeight - window.innerHeight, d.offsetTop + d.offsetHeight);
+
+      const ratio = (topScroll - effectiveStart) / (effectiveEnd - effectiveStart);
+      let outputRatio;
+
+      if (ratio <= 0.0) {
+        outputRatio = 0.0;
+      } else if (ratio >= 1.0) {
+        outputRatio = 1.0;
+      } else {
+        // This creates more of a cubic-bezier style transform (although it's quite subtle).
+        outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+        console.info(name, ratio, outputRatio);
+      }
+
+      const frame = Math.min(frames, Math.max(0.0, frames * outputRatio));
       anim.goToAndStop(frame, true);
     };
   });
@@ -83,13 +102,7 @@ async function prepare() {
     if (window.innerWidth < 768) {
       return;
     }
-
-    const se = document.scrollingElement;
-    const delta = (se.scrollHeight - window.innerHeight);
-    const ratio = delta > 0 ? se.scrollTop / delta : 0;
-    console.info('ratio', ratio);
-
-    done.forEach((fn) => fn(ratio));
+    done.forEach((fn) => fn());
   });
 }
 
