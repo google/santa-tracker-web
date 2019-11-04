@@ -93,11 +93,7 @@ class SceneManager extends EventEmitter {
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
-    this.moveOffset = {
-      x: 0,
-      y: 0,
-      z: 0
-    }
+    this.moveOffsetY = 0
 
     this.cameraCtrl.rotate('left', false, true)
 
@@ -217,7 +213,7 @@ class SceneManager extends EventEmitter {
     }
 
     if (this.needsCollisionCheck && this.selectedSubject) {
-      this.checkCollision()
+      this.checkCollision(true)
       this.needsCollisionCheck = false
     }
 
@@ -493,13 +489,6 @@ class SceneManager extends EventEmitter {
 
     const { x, z } = newSelectedSubject.body.position
 
-    if (offset) {
-      this.moveOffset = {
-        x: x - offset.x,
-        z: z - offset.z
-      }
-    }
-
     this.selectedSubject = newSelectedSubject
 
     this.selectedSubject.select()
@@ -531,7 +520,6 @@ class SceneManager extends EventEmitter {
     subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
     const y = 0.5 * (subject.box.max.y - subject.box.min.y) // add half of object size in Y
     this.planePositioner.position.y = y
-    this.selectedSubject.moveTo(-1000, y, -1000)
   }
 
   moveSelectedSubject() {
@@ -540,12 +528,11 @@ class SceneManager extends EventEmitter {
     this.planePositioner.raycast( this.raycaster, intersects )
     if( intersects.length > 0 ) {
       const { point } = intersects[0]
-      this.selectedSubject.moveTo(point.x, this.planePositioner.position.y + this.moveOffset.y, point.z)
+      this.selectedSubject.moveTo(point.x, this.planePositioner.position.y + this.moveOffsetY, point.z)
     }
 
     const pos = this.getCurrentPosOnPlane()
     this.terrain.movePositionMarker(pos.x, pos.z)
-    // this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
   }
 
   getSubjectfromMesh(mesh) {
@@ -617,44 +604,33 @@ class SceneManager extends EventEmitter {
     };
   }
 
-  checkCollision() {
+  checkCollision(isRotating = false) {
     // if (this.mode === 'edit') return; // stop on edit
     const { ghost, box, mesh } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    const fakeBox = new THREE.Box3().copy(box)
-    fakeBox.max.y -= CONFIG.ELEVATE_SCALE
-    fakeBox.min.y -= CONFIG.ELEVATE_SCALE
-    let moveDown = true
-    let moveUp = false
+    const boxHelper = new THREE.Box3().copy(box)
+    // go back to the original Y position of the current box
+    boxHelper.max.y -= this.moveOffsetY
+    boxHelper.min.y -= this.moveOffsetY
+
     let elevateScale = 0
+    let isInCollision = false
 
-    if (boxes.length > 0) {
-      for (let index = 0; index < boxes.length; index++) {
-        const boxItem = boxes[index]
+    for (let index = 0; index < boxes.length; index++) {
+      const boxItem = boxes[index]
 
-        if (box.intersectsBox(boxItem)) {
-          moveUp = true
-          elevateScale = (boxItem.max.y - box.min.y + 0.02)
-          break
-        } else if (fakeBox.intersectsBox(boxItem)) {
-          moveDown = false
-          this.moveOffset.y = 0
-        }
+      if (boxHelper.intersectsBox(boxItem)) {
+        const nextLevateScale = (boxItem.max.y - boxHelper.min.y + 0.01)
+        elevateScale = Math.max(elevateScale, nextLevateScale)
+        isInCollision = true
       }
     }
 
-    if (box.min.y < 0) {
-      moveUp = true
-      elevateScale = -box.min.y
-    }
-    console.log(elevateScale)
+    this.moveOffsetY = isInCollision ? elevateScale : 0
 
-    if (moveUp && elevateScale > 0.03) {
-      console.log('move up')
-      this.moveOffset.y = elevateScale
-    } else if (moveDown && fakeBox.min.y > 0) {
-      console.log('move down')
-      // this.moveOffset.y = 0
+    if (isRotating && this.selectedSubject) {
+      // update position
+      this.selectedSubject.moveTo(null, this.planePositioner.position.y + this.moveOffsetY, null)
     }
   }
 
