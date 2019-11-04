@@ -6,6 +6,7 @@ goog.require('Levels')
 goog.require('app.Board')
 goog.require('app.Controls')
 goog.require('app.Entity')
+goog.require('app.Penguin')
 goog.require('app.Pit')
 goog.require('app.Player')
 
@@ -39,6 +40,9 @@ app.Game = class Game {
       switch(entity.type) {
         case 'pit':
           this.entities.push(new app.Pit(this, entity.position))
+          break;
+        case 'penguin':
+          this.entities.push(new app.Penguin(this, entity.config))
           break;
       }
     }

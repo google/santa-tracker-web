@@ -35,6 +35,20 @@ Levels = [
           y: 10,
         }
       },
+      {
+        type: 'penguin',
+        config: {
+          startPos: {
+            x: 5,
+            y: 7
+          },
+          endPos: {
+            x: 25,
+            y: 3
+          },
+          stepSize: .05
+        }
+      },
     ]
   },
 ]

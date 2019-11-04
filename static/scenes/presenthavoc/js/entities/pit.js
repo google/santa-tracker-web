@@ -9,10 +9,9 @@ app.Pit = class Pit extends app.Entity {
   constructor(game, position) {
     super(game)
     this.position = position
+
     this.elem = document.createElement('div')
-
     document.getElementById('pits').append(this.elem)
-
     this.elem.setAttribute('class', 'pit')
 
     this.game.board.addEntityToBoard(
@@ -22,6 +21,10 @@ app.Pit = class Pit extends app.Entity {
         this.position.width,
         this.position.height)
     this.render()
+  }
+
+  reset() {
+
   }
 
   render() {

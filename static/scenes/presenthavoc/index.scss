@@ -24,6 +24,7 @@ body {
     transform-origin: top left;
   }
 
+  .penguin,
   .pit,
   .player {
     left: 0;
@@ -47,6 +48,12 @@ body {
 
   #player-2 {
     background: url(img/player-b.svg) center/contain no-repeat;
+  }
+
+  .penguin {
+    background: url(img/penguin.svg) center/contain no-repeat;
+    height: 50px;
+    width: 50px;
   }
 
   .pit {

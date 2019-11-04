@@ -36,8 +36,8 @@ app.Player = class Player {
       }
 
       this.game.board.updateEntityPosition(this,
-          Math.round(prevPosition.x), Math.round(prevPosition.y),
-          Math.round(this.position.x), Math.round(this.position.y))
+          prevPosition.x, prevPosition.y,
+          this.position.x, this.position.y)
 
       this.context.classList.remove('is-hidden')
     }, 1000)
@@ -65,14 +65,11 @@ app.Player = class Player {
       this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
     }
 
-    if (Math.round(prevPosition.x) != Math.round(this.position.x) ||
-        Math.round(prevPosition.y) != Math.round(this.position.y)) {
-      this.game.board.updateEntityPosition(this,
-          Math.round(prevPosition.x), Math.round(prevPosition.y),
-          Math.round(this.position.x), Math.round(this.position.y))
-    }
+  this.game.board.updateEntityPosition(this,
+      prevPosition.x, prevPosition.y,
+      this.position.x, this.position.y)
 
-    const colocatedEntities = this.game.board.getEntitiesAtPosition(Math.round(this.position.x), Math.round(this.position.y))
+    const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
     const resultingActions = {}
     if (colocatedEntities.length > 1) {
       for (const entity of colocatedEntities) {

@@ -37,16 +37,18 @@ app.Board = class Board {
   }
 
   updateEntityPosition(entity, oldX, oldY, newX, newY, width = 1, height = 1) {
-    // TODO: calculate difference? instead of adding/removing entire area
-    this.removeEntityFromBoard(entity, oldX, oldY, width, height)
-    this.addEntityToBoard(entity, newX, newY, width, height)
-
-    // console.log(this.cells)
+    if (Math.round(oldX) != Math.round(newX) ||
+        Math.round(oldY) != Math.round(newY)) {
+      this.removeEntityFromBoard(entity, oldX, oldY, width, height)
+      this.addEntityToBoard(entity, newX, newY, width, height)
+    }
   }
 
   addEntityToBoard(entity, x, y, width = 1, height = 1) {
-    for (let i = x; i < x + width; i++) {
-      for (let j=y; j < y + height; j++) {
+    const roundedX = Math.round(x)
+    const roundedY = Math.round(y)
+    for (let i = roundedX; i < roundedX + width; i++) {
+      for (let j = roundedY; j < roundedY + height; j++) {
         this.cells[i][j].push(entity)
       }
     }
@@ -55,8 +57,10 @@ app.Board = class Board {
   }
 
   removeEntityFromBoard(entity, x, y, width = 1, height = 1) {
-    for (let i = x; i < x + width; i++) {
-      for (let j=y; j < y + height; j++) {
+    const roundedX = Math.round(x)
+    const roundedY = Math.round(y)
+    for (let i = roundedX; i < roundedX + width; i++) {
+      for (let j = roundedY; j < roundedY + height; j++) {
         let index = this.cells[i][j].indexOf(entity)
         if (index > -1) {
           this.cells[i][j].splice(index, 1)
@@ -68,6 +72,8 @@ app.Board = class Board {
   }
 
   getEntitiesAtPosition(x, y) {
-    return this.cells[x][y]
+    const roundedX = Math.round(x)
+    const roundedY = Math.round(y)
+    return this.cells[roundedX][roundedY]
   }
 }
