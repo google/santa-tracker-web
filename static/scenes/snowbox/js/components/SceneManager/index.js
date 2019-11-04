@@ -96,6 +96,7 @@ class SceneManager extends EventEmitter {
     }
 
     this.cameraCtrl.rotate('left', false, true)
+    this.events()
   }
 
   preloadShapes() {

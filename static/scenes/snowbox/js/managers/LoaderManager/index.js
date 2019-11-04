@@ -44,6 +44,16 @@ class LoaderManager {
     })
   }
 
+  loadTextureInArray(url, name, order) {
+    return new Promise(resolve => {
+      this.textureLoader.load(url, result => {
+        result.order = order
+        this.subjects[name].images.push(result)
+        resolve(result)
+      })
+    })
+  }
+
   load(object, callback) {
     // if element already loaded, callback directly
     if (this.subjects[object.name]) {
@@ -66,6 +76,17 @@ class LoaderManager {
 
     if (object.wrl){
       promises.push(this.loadWRL(object))
+    }
+
+    if (object.skybox) {
+      const { prefix, directions, suffix } = object.skybox
+      if (!this.subjects[object.name].images) {
+        this.subjects[object.name].images = []
+      }
+
+      for (let i = 0; i < 6; i++) {
+        promises.push(this.loadTextureInArray(prefix + directions[i] + suffix, object.name, i))
+      }
     }
 
     Promise.all(promises).then(callback)
