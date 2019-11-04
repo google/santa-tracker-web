@@ -41,7 +41,7 @@ app.Board = class Board {
     this.removeEntityFromBoard(entity, oldX, oldY, width, height)
     this.addEntityToBoard(entity, newX, newY, width, height)
 
-    console.log(this.cells)
+    // console.log(this.cells)
   }
 
   addEntityToBoard(entity, x, y, width = 1, height = 1) {

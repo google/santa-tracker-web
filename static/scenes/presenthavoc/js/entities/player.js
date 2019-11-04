@@ -71,9 +71,7 @@ app.Player = class Player {
     if (colocatedEntities.length > 1) {
       for (const entity of colocatedEntities) {
         if (entity != this) {
-          if (entity.onContact(this)) {
-            break;
-          }
+          entity.onContact(this)
         }
       }
     }

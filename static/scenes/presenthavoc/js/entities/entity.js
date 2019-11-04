@@ -18,10 +18,6 @@ app.Entity = class Entity {
 
   }
 
-  /**
-   * @return {boolean} true if player should ignore any other entity's effects
-   *                        e.g. in the case of a restart
-   */
   onContact(player) {
     return false
   }
