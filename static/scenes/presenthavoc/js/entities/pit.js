@@ -1,9 +1,11 @@
 goog.provide('app.Pit')
 
+goog.require('app.Entity')
 goog.require('Constants')
 
-app.Pit = class Pit {
+app.Pit = class Pit extends app.Entity {
   constructor(position) {
+    super()
     this.position = position
     this.elem = document.createElement('div')
 

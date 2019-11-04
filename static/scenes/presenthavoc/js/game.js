@@ -2,6 +2,7 @@ goog.provide('app.Game')
 
 goog.require('app.Board')
 goog.require('app.Controls')
+goog.require('app.Entity')
 goog.require('app.Pit')
 goog.require('app.Player')
 goog.require('Constants')
