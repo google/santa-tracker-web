@@ -5,10 +5,11 @@ class SoundManager {
   }
 
   playCollisionSound(e) {
-    const { force, type } = e.detail
+    const { force, type, mass, scale } = e.detail
 
     let now = performance.now();
     if (now - this.lastCollisionTime > 200) {
+      console.log(force, type, mass, scale)
       this.play("snowbox_collision", Math.max(0, Math.min(1, (force-0.5)/3)), Math.random(0.5) + 0.75);
       this.lastCollisionTime = now;
     }

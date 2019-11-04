@@ -57,6 +57,7 @@ class Object extends EventEmitter {
       fixedRotation: false,
       material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
+    this.currentMass = this.mass
     this.body.position.set(-this.size / 2, -100, -this.size / 2) // y: -100 to prevent the body to interact with anything in the scene
     this.world.add(this.body)
 
@@ -81,15 +82,19 @@ class Object extends EventEmitter {
     }
 
     // listen collision of shape
-    this.collide = throttle(this.handleResize, 200)
-    this.body.addEventListener('collide', this.onCollide)
+    this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
+    this.body.addEventListener('collide', this.collide)
   }
 
   onCollide(e) {
     const relativeVelocity = e.contact.getImpactVelocityAlongNormal()
     if (Math.abs(relativeVelocity) > 0.5) {
-      let type = e.body.shapes.length ? e.body.shapes[0].constructor.name : '';
-      window.dispatchEvent(createCustomEvent('shape_collide', { force: relativeVelocity, type: type }))
+      window.dispatchEvent(createCustomEvent('shape_collide', {
+        force: relativeVelocity,
+        type: this.name,
+        mass: this.currentMass,
+        scale: this.scaleFactor,
+      }))
     }
   }
 
@@ -228,7 +233,9 @@ class Object extends EventEmitter {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
     this.body.addShape(shape)
-    this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
+    this.body.mass = this.mass * this.scaleFactor
+    this.currentMass = this.body.mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
+    this.body.updateMassProperties()
   }
 
   delete() {
