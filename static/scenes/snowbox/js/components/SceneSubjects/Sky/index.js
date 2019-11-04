@@ -40,10 +40,10 @@ class Sky {
       }));
     })
 
-    this.skyBox = new THREE.Mesh( geometry, material );
+    this.skyBox = new THREE.Mesh( geometry, material )
     this.skyBox.position.y = this.guiController.cube_y_pos
-    this.skyBox.rotation.y = Math.PI / 2
-    this.scene.add( this.skyBox );
+    this.skyBox.rotation.y = -Math.PI / 2
+    this.scene.add( this.skyBox )
   }
 
   onGui() {
