@@ -18,18 +18,17 @@ export const firebaseConfig = {
   measurementId: 'G-EWRYGZS6D3',
 };
 
-// Swap for Dev environment.
-if (window.location.hostname !== 'santatracker.google.com') {
-  // Swap for "anywhere but prod"
-  firebaseConfig.appId = '1:593146395815:web:54c339298196fd10492f82';
-  firebaseConfig.measurementId = 'G-GPEHME4LVG';
-} else if (isAndroidTWA()) {
-  // Swap for Android TWA (notably, this only fires in Prod)
-  firebaseConfig.appId = '1:593146395815:web:aefb4c5b5e01137f492f82';
-  firebaseConfig.measurementId = 'G-0X2VE68GZD';
-}
-
 export function initialize() {
+  if (isAndroidTWA()) {
+    // Swap for TWA (dev and prod)
+    firebaseConfig.appId = '1:593146395815:web:aefb4c5b5e01137f492f82';
+    firebaseConfig.measurementId = 'G-0X2VE68GZD';
+  } else if (window.location.hostname !== 'santatracker.google.com') {
+    // Swap for dev
+    firebaseConfig.appId = '1:593146395815:web:54c339298196fd10492f82';
+    firebaseConfig.measurementId = 'G-GPEHME4LVG';
+  }
+
   firebase.initializeApp(firebaseConfig);
 
   // Fetch RC, with a fetch timeout of 30s and a key expiry of ~1 minute. This is reset later via
