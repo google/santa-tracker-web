@@ -16,6 +16,7 @@ import LoaderManager from '../../managers/LoaderManager/index.js'
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
+import PlaneHelper from '../SceneSubjects/PlaneHelper/index.js'
 
 // Shapes
 import Cube from '../Shapes/Cube/index.js'
@@ -79,17 +80,7 @@ class SceneManager extends EventEmitter {
     this.buildRender()
     this.buildCamera()
     this.buildSceneSubjects()
-    // this.buildPlaneHelper()
-
-    // Help moving object with the mouse always in the center of the object
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0.2, visible: !this.debug })
-    const geometry = new THREE.PlaneGeometry(50, 50, 1, 1)
-
-    this.planeHelper = new THREE.Mesh(geometry, material)
-    this.planeHelper.position.y = 1;
-    this.planeHelper.rotation.x = -Math.PI / 2
-
-    this.scene.add(this.planeHelper)
+    this.buildPlaneHelper()
 
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
@@ -157,6 +148,10 @@ class SceneManager extends EventEmitter {
     this.scene.add(arrowHelper)
     const gridHelper = new THREE.GridHelper(CONFIG.SCENE_SIZE, CONFIG.SCENE_SIZE / 10)
     this.scene.add(gridHelper)
+  }
+
+  buildPlaneHelper() {
+    this.planeHelper = new PlaneHelper(this.scene).mesh
   }
 
   buildSceneSubjects() {
@@ -519,9 +514,9 @@ class SceneManager extends EventEmitter {
       this.moveOffset.x = 0
       this.moveOffset.z = 0
       this.terrain.addPositionMarker({
-        x: 0,
-        y: -1000, // hide it
-        z: 0,
+        x: -1000, // hide it
+        y: -1000,
+        z: -1000,
       })
     }
   }
