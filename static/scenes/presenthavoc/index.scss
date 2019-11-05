@@ -5,6 +5,7 @@ $name: 'module-presenthavoc';
 $mobile-breakpoint: 1100px;
 
 $grid-unit-size: 50px;
+$fence-border: 9px solid #9B643D;
 
 body {
   overflow: hidden;
@@ -26,6 +27,7 @@ body {
     transform-origin: top left;
   }
 
+  .fence,
   .penguin,
   .pit,
   .player,
@@ -65,6 +67,27 @@ body {
 
   .wall {
     background: #9b643d;
+  }
+
+  .fence {
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+
+    &--left {
+      border-left: $fence-border;
+    }
+
+    &--right {
+      border-right: $fence-border;
+    }
+
+    &--top {
+      border-top: $fence-border;
+    }
+
+    &--bottom {
+      border-bottom: $fence-border;
+    }
   }
 
   // .title {

@@ -68,6 +68,19 @@ Levels = [
           y: 1,
         }
       },
+      {
+        type: 'fence',
+        config: {
+          x: 25,
+          y: 14,
+          sides: {
+            left: false,
+            right: true,
+            top: true,
+            bottom: false
+          }
+        }
+      },
     ]
   },
 ]

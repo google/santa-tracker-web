@@ -78,9 +78,6 @@ app.Player = class Player {
 
     this.processActions(resultingActions)
 
-    // restart, stick to, bounce, stop, drop item,
-    // add toy part, accept toy, slide
-
     this.render()
   }
 
@@ -105,5 +102,9 @@ app.Player = class Player {
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
     }
+  }
+
+  onContact(player) {
+    return Constants.PLAYER_ACTIONS.BLOCK
   }
 }
