@@ -108,18 +108,20 @@ class CameraController {
     }
   }
 
-  zoom(direction, renderer, scene) {
+  zoom(direction, el) {
     if (this.isZooming) return
 
     switch (direction) {
       case 'out':
         if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS.length) {
+          // el.classList.add('is-disabled')
           return false
         }
         this.currentZoom++
         break
       case 'in':
         if (this.currentZoom <= 0) {
+          // el.classList.add('is-disabled')
           return false
         }
         this.currentZoom--
@@ -127,13 +129,10 @@ class CameraController {
     }
 
     this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
-
-    setTimeout(() => {
-      this.zoomOrigin = this.camera.zoom
-      this.zoomSpeed = CONFIG.ZOOM.SPEED
-      this.zoomStart = getNow()
-      this.isZooming = true
-    }, 0) // prevent camera jump? Needs to figure why
+    this.zoomOrigin = this.camera.zoom
+    this.zoomSpeed = CONFIG.ZOOM.SPEED
+    this.zoomStart = getNow()
+    this.isZooming = true
   }
 
   animateZoom(now) {

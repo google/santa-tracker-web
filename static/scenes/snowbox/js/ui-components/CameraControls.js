@@ -27,7 +27,10 @@ export default class CameraControls {
 
   zoom(e) {
     const el = e.currentTarget
-    SceneManager.cameraCtrl.zoom(el.dataset.zoom)
+    this.ui.zoomButtons.forEach(button => {
+      button.classList.remove('is-disabled')
+    })
+    SceneManager.cameraCtrl.zoom(el.dataset.zoom, el)
     this.pushButton(el)
   }
 
