@@ -642,14 +642,14 @@ class SceneManager extends EventEmitter {
       const boxItem = boxes[index]
 
       if (boxHelper.intersectsBox(boxItem)) {
-        const nextLevateScale = (boxItem.max.y - boxHelper.min.y + 0.01)
-        elevateScale = Math.max(elevateScale, nextLevateScale)
+        const nextElevateScale = (boxItem.max.y - boxHelper.min.y + 0.01)
+        elevateScale = Math.max(elevateScale, nextElevateScale)
         isInCollision = true
       }
     }
 
     // check ground collision
-    if (boxHelper.min.y < 0) {
+    if (isEditing && !isInCollision && boxHelper.min.y < 0) {
       isInCollision = true
       elevateScale = -boxHelper.min.y
     }
