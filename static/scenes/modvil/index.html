@@ -18,6 +18,7 @@ import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
 import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
+import {prepareAnimation} from '../../src/deps/lottie.js';
 
 
 api.preload.sounds('village_load_sounds');
@@ -56,12 +57,14 @@ async function prepare() {
       }
     }
 
-    const animationPromise = helpers.initAnimation(d, name, 'xMaxYMax meet').then((anim) => {
-      const svg = anim.renderer.svgElement;
-
-      // clips are added by the Lottie file author. Remove.
-      const defs = svg.querySelector('defs');
-      defs && defs.remove();
+    const animationPromise = prepareAnimation(`img/modules/${name}.json`, {
+      rendererSettings: {
+        className: 'animation__svg',
+        preserveAspectRatio: 'xMaxYMax meet',
+      },
+      clearDefs: true,
+    }).then((anim) => {
+      d.appendChild(anim.renderer.svgElement);
       return anim;
     });
 

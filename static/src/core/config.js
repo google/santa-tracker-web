@@ -1,9 +1,11 @@
 /**
- * @fileoverview Provides Firebase Remote config.
+ * @fileoverview Provides Firebase Remote config. This has side-effects.
  *
  * This should only run on the prod domain. This assumes that "firebase" is a global already
  * available in the global scope.
  */
+
+import {frame} from '../lib/promises.js';
 
 const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
@@ -88,7 +90,7 @@ function notifyListeners() {
   function checkDate() {
     // check every ~minute on rAF
     const next = 60 * 1000 * expontentialDelay(0.2);
-    window.setTimeout(() => window.requestAnimationFrame(checkDate), next);
+    frame(next).then(checkDate);
 
     const currentDate = (new Date()).toDateString();
     if (currentDate !== previousDate) {

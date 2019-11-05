@@ -29,6 +29,7 @@
 <script type="module">
 import '../../src/magic.js';
 import api from '../../src/scene/api.js';
+import {prepareAnimation} from '../../src/deps/lottie.js';
 
 api.preload.images(
   'img/background.jpg',
@@ -39,33 +40,23 @@ api.preload.images(
 api.preload.sounds('village_load_sounds');
 
 const initAnimation = (key, preserveAspectRatio) => {
-  const p = new Promise((resolve, reject) => {
-    const anim = lottie.loadAnimation({
-      container: document.querySelector(`.animation--${key}`),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: `img/animations/${key}.json`,
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio,
-      },
-    });
-    anim.addEventListener('data_failed', reject);
-    anim.addEventListener('DOMLoaded', () => resolve(anim));
-  });
-
-  // TODO(samthor): These animations create numerous clip-paths with the same size as the element
-  // and make them basically unplayable on anything but Chrome.
-  // Sometimes these paths add value for Lottie, but not here.
-  p.then((anim) => {
-    const el = anim.renderer.svgElement;
-    const defs = el.querySelector('defs');
-    defs && defs.parentNode.removeChild(defs);
+  const p = prepareAnimation(`img/animations/${key}.json`, {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      className: 'animation__svg',
+      preserveAspectRatio,
+    },
+    clearDefs: true,
+  }).then((anim) => {
+    const svg = anim.renderer.svgElement;
+    const container = document.querySelector(`.animation--${key}`);
+    container.appendChild(svg);
   });
 
   api.preload.wait(p);
 };
+
 
 initAnimation('backhoe', 'xMaxYMax meet');
 initAnimation('crane', 'xMaxYMid meet');

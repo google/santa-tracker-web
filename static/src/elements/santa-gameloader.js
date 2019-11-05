@@ -1,8 +1,7 @@
 import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
-import {resolvable} from '../lib/promises.js';
-import {dedupFrame} from '../lib/dedup.js';
+import {resolvable, dedup} from '../lib/promises.js';
 
 
 
@@ -160,7 +159,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._onWindowBlur = this._onWindowBlur.bind(this);
     this._onWindowFocus = this._onWindowFocus.bind(this);
-    this._onWindowResize = dedupFrame(this._onWindowResize.bind(this));
+    this._onWindowResize = dedup(this._onWindowResize.bind(this));
     this._frameFocus = false;
 
     this._loading = false;

@@ -113,8 +113,7 @@ async function serve() {
       return next();
     }
 
-    // Compile the HTML locally to include i18n.
-    // TODO(samthor): Pair this down so it's less magical.
+    // Serve the raw HTML.
     const filename = path.join('prod', servePath);
     const content = await fs.readFile(filename, 'utf-8');
 
