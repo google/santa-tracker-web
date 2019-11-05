@@ -15,6 +15,9 @@ class CameraController {
     this.raycaster = new THREE.Raycaster()
     this.canvas = canvas
     this.currentZoom = CONFIG.ZOOM.START
+    this.zoomSteps = CONFIG.ZOOM.STEPS
+    this.rotateXZMin = CONFIG.ROTATE.XZ_MIN
+    this.rotateXZMax = CONFIG.ROTATE.XZ_MAX
     this.isTouchDevice = isTouchDevice()
 
     const { width, height } = screenDimensions
@@ -108,20 +111,18 @@ class CameraController {
     }
   }
 
-  zoom(direction, el) {
+  zoom(direction) {
     if (this.isZooming) return
 
     switch (direction) {
       case 'out':
         if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS.length) {
-          // el.classList.add('is-disabled')
           return false
         }
         this.currentZoom++
         break
       case 'in':
         if (this.currentZoom <= 0) {
-          // el.classList.add('is-disabled')
           return false
         }
         this.currentZoom--

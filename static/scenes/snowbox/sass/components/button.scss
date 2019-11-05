@@ -7,39 +7,42 @@
   justify-content: center;
   align-items: center;
 
-  &:not(.is-disabled):hover {
-    .button__icon {
-      transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
+  &:not(.is-disabled) {
+    &:hover {
+      .button__icon {
+        transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
 
-      &--reverse {
-        transform: rotate(180deg) translate($button-3d-offset-hover, $button-3d-offset-hover);
+        &--reverse {
+          transform: rotate(180deg) translate($button-3d-offset-hover, $button-3d-offset-hover);
+        }
+      }
+
+      &::before {
+        box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
+        transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
       }
     }
 
-    &::before {
-      box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
-      transform: translate(-$button-3d-offset-hover, -$button-3d-offset-hover);
-    }
-  }
+    &.is-clicked {
+      .button__icon {
+        transform: none;
 
-  &.is-clicked {
-    .button__icon {
-      transform: none;
-
-      &--reverse {
-        transform: rotate(180deg);
+        &--reverse {
+          transform: rotate(180deg);
+        }
       }
-    }
 
-    &::before {
-      box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, 1px 1px $button-shadow;
-      transform: none;
+      &::before {
+        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, 1px 1px $button-shadow;
+        transform: none;
+      }
     }
   }
 
   &.is-disabled {
     &::before {
       background-color: $color-gray-button;
+      box-shadow: $button-3d-offset  $button-3d-offset .01px $color-gray-button-shadow, .01px $button-3d-offset  .01px $color-gray-button-shadow, $button-shadow-offset $button-3d-offset  $button-shadow;
     }
   }
 
@@ -57,7 +60,7 @@
     border-top-right-radius: 50%;
     z-index: 0;
     transform: translate(-$button-3d-offset, -$button-3d-offset);
-    transition: box-shadow $transition-button, transform $transition-button;
+    transition: box-shadow $transition-button, transform $transition-button, background $transition-button;
   }
 
   &::after {
@@ -71,15 +74,17 @@
       border-radius: 50%;
     }
 
-    &:not(.is-disabled):hover {
-      &::before {
-        box-shadow: 4px 4px $color-orange, .01px 1px .01px $color-orange;
+    &:not(.is-disabled) {
+      &:hover {
+        &::before {
+          box-shadow: 4px 4px $color-orange, .01px 1px .01px $color-orange;
+        }
       }
-    }
 
-    &.is-clicked {
-      &::before {
-        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange;
+      &.is-clicked {
+        &::before {
+          box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange;
+        }
       }
     }
   }
@@ -93,15 +98,17 @@
       border-bottom-right-radius: 0;
     }
 
-    &:not(.is-disabled):hover {
-      &::before {
-        box-shadow: 2px 0px .01px $color-orange, 2px $button-3d-offset-hover .01px $color-orange, 2px $button-shadow-offset-hover $button-shadow;
+    &:not(.is-disabled) {
+      &:hover {
+        &::before {
+          box-shadow: 2px 0px .01px $color-orange, 2px $button-3d-offset-hover .01px $color-orange, 2px $button-shadow-offset-hover $button-shadow;
+        }
       }
-    }
 
-    &.is-clicked {
-      &::before {
-        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, .01px 1px $button-shadow;
+      &.is-clicked {
+        &::before {
+          box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, .01px 1px $button-shadow;
+        }
       }
     }
   }
@@ -115,15 +122,17 @@
       border-bottom-right-radius: 50%;
     }
 
-    &:not(.is-disabled):hover {
-      &::before {
-        box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-3d-offset-hover $button-shadow-offset-hover $button-shadow;
+    &:not(.is-disabled) {
+      &:hover {
+        &::before {
+          box-shadow: $button-3d-offset-hover $button-3d-offset-hover $color-orange, .01px $button-3d-offset-hover .01px $color-orange, $button-3d-offset-hover $button-shadow-offset-hover $button-shadow;
+        }
       }
-    }
 
-    &.is-clicked {
-      &::before {
-        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, 0.01px 1px $button-shadow;
+      &.is-clicked {
+        &::before {
+          box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, 0.01px 1px $button-shadow;
+        }
       }
     }
   }
@@ -137,15 +146,17 @@
       border-bottom-right-radius: 50%;
     }
 
-    &:not(.is-disabled):hover {
-      &::before {
-        box-shadow: $button-3d-offset-hover .01px .01px $color-orange, 2px $button-3d-offset  .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
+    &:not(.is-disabled) {
+      &:hover {
+        &::before {
+          box-shadow: $button-3d-offset-hover .01px .01px $color-orange, 2px $button-3d-offset  .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
+        }
       }
-    }
 
-    &.is-clicked {
-      &::before {
-        box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, .01px 1px $button-shadow;
+      &.is-clicked {
+        &::before {
+          box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange, .01px 1px $button-shadow;
+        }
       }
     }
 
@@ -163,9 +174,11 @@
       border-radius: 50%;
     }
 
-    &:not(.is-disabled):hover {
-      &::before {
-        box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray;
+    &:not(.is-disabled) {
+      &:hover {
+        &::before {
+          box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray;
+        }
       }
     }
   }
