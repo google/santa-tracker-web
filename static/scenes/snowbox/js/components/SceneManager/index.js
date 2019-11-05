@@ -92,7 +92,7 @@ class SceneManager extends EventEmitter {
       z: 0,
     }
 
-    this.cameraCtrl.rotate('left', false, true)
+    CameraController.rotate('left', false, true)
 
     if (this.debug) {
       this.buildHelpers()
@@ -134,7 +134,7 @@ class SceneManager extends EventEmitter {
   }
 
   buildCamera() {
-    this.cameraCtrl = new CameraController(this.screenDimensions, this.renderer.domElement)
+    CameraController.init(this.screenDimensions, this.renderer.domElement)
   }
 
   buildHelpers() {
@@ -158,6 +158,7 @@ class SceneManager extends EventEmitter {
     this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
     this.lights = this.sceneSubjects[0]
     this.terrain = this.sceneSubjects[1]
+    CameraController.terrain = this.terrain
   }
 
   events() {
@@ -178,25 +179,25 @@ class SceneManager extends EventEmitter {
 
   // RAF
   update(now) {
-    const { camera, controls } = this.cameraCtrl
+    const { camera, controls } = CameraController
 
     if (controls && controls.enabled) controls.update() // for damping
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update(this.cameraCtrl.camera.position)
+      this.sceneSubjects[i].update(CameraController.camera.position)
     }
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
-      this.cameraCtrl.moveOnEdges(this.mouseInEdge)
+      CameraController.moveOnEdges(this.mouseInEdge)
     }
 
     // on camera rotating
-    if (this.cameraCtrl.isRotating) {
-      this.cameraCtrl.animateRotate(now)
+    if (CameraController.isRotating) {
+      CameraController.animateRotate(now)
 
       if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
@@ -204,12 +205,12 @@ class SceneManager extends EventEmitter {
     }
 
     // on camera zooming
-    if (this.cameraCtrl.isZooming) {
-      this.cameraCtrl.animateZoom(now)
+    if (CameraController.isZooming) {
+      CameraController.animateZoom(now)
 
       if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
-        this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
+        this.activeSubject.updateRotatingCircle(CameraController.camera.zoom)
       }
     }
 
@@ -231,8 +232,8 @@ class SceneManager extends EventEmitter {
   onWindowResize() {
     this.setUnits()
     // Update camera
-    this.cameraCtrl.camera.aspect = this.width / this.height
-    this.cameraCtrl.camera.updateProjectionMatrix()
+    CameraController.camera.aspect = this.width / this.height
+    CameraController.camera.updateProjectionMatrix()
 
     // Update canvas size
     this.renderer.setSize(this.width, this.height)
@@ -305,7 +306,7 @@ class SceneManager extends EventEmitter {
       }
     }
 
-    if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+    if (CameraController.camera) this.raycaster.setFromCamera(this.mouse, CameraController.camera)
   }
 
   onMouseDown(e) {
@@ -313,7 +314,7 @@ class SceneManager extends EventEmitter {
     if (e.type === 'touchstart') {
       this.mouse.x = (e.targetTouches[0].clientX / this.width) * 2 - 1
       this.mouse.y = -(e.targetTouches[0].clientY / this.height) * 2 + 1
-      if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+      if (CameraController.camera) this.raycaster.setFromCamera(this.mouse, CameraController.camera)
     }
 
     this.mouseState = 'down'
@@ -387,9 +388,9 @@ class SceneManager extends EventEmitter {
 
   onWheel(e) {
     if (e.deltaY < 0) {
-      this.cameraCtrl.rotate('left', true)
+      CameraController.rotate('left', true)
     } else if (e.deltaY > 0) {
-      this.cameraCtrl.rotate('right', true)
+      CameraController.rotate('right', true)
     }
 
     if (this.mode === 'edit' && this.activeSubject) {
@@ -431,7 +432,7 @@ class SceneManager extends EventEmitter {
 
     if (this.selectedSubject && this.mode === 'edit') {
       const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
-      this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
+      this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
       this.needsCollisionCheck = true
     }
   }
@@ -477,7 +478,7 @@ class SceneManager extends EventEmitter {
   }
 
   unselectSubject(unmove) {
-    this.cameraCtrl.resetControls()
+    CameraController.resetControls()
 
     if (!unmove) {
       this.selectedSubject.moveToGhost()
@@ -501,7 +502,7 @@ class SceneManager extends EventEmitter {
     if (needsOffset) {
       // update planeHelper Y
       this.planeHelper.position.y = position.y
-      this.renderer.render(this.scene, this.cameraCtrl.camera) // check if we really need that
+      this.renderer.render(this.scene, CameraController.camera) // check if we really need that
       const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
       this.moveOffset.x = -(posPlaneHelper.x - position.x)
       this.moveOffset.z = -(posPlaneHelper.z - position.z)
@@ -572,7 +573,7 @@ class SceneManager extends EventEmitter {
       this.setMode('highlight')
     } else if (subject === false) {
       this.highlightedSubject = null
-      if (!this.cameraCtrl.isRotating) this.setMode()
+      if (!CameraController.isRotating) this.setMode()
     }
   }
 
@@ -615,7 +616,7 @@ class SceneManager extends EventEmitter {
 
     obj.updateMatrixWorld()
     vector.setFromMatrixPosition(obj.matrixWorld)
-    vector.project(this.cameraCtrl.camera)
+    vector.project(CameraController.camera)
 
     vector.x = ( vector.x * widthHalf ) + widthHalf
     vector.y = - ( vector.y * heightHalf ) + heightHalf
@@ -663,7 +664,7 @@ class SceneManager extends EventEmitter {
   }
 
   setMode(mode = '') {
-    const { controls } = this.cameraCtrl
+    const { controls } = CameraController
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
     // console.log('mode', mode)
@@ -699,7 +700,7 @@ class SceneManager extends EventEmitter {
         break
       case 'edit':
         if (this.activeSubject) {
-          this.activeSubject.createRotateCircle(this.cameraCtrl.camera.zoom)
+          this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           setTimeout(() => {
             this.emit('enter_edit')
           }, 100)

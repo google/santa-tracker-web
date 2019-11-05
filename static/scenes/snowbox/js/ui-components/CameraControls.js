@@ -1,4 +1,4 @@
-import SceneManager from '../components/SceneManager/index.js'
+import CameraController from '../components/CameraController/index.js'
 
 export default class CameraControls {
   constructor(el) {
@@ -27,13 +27,13 @@ export default class CameraControls {
 
   zoom(e) {
     const el = e.currentTarget
-    SceneManager.cameraCtrl.zoom(el.dataset.zoom, el)
+    CameraController.zoom(el.dataset.zoom, el)
 
     // edit btn class
     this.ui.zoomButtons.forEach(button => {
       if (button.classList.contains('is-disabled') && button !== el) button.classList.remove('is-disabled')
     })
-    const { currentZoom, zoomSteps } = SceneManager.cameraCtrl
+    const { currentZoom, zoomSteps } = CameraController
     const disable = currentZoom <= 0 || currentZoom + 1 >= zoomSteps.length
     // if last zoom, disable
     this.pushButton(el, disable)
@@ -42,14 +42,14 @@ export default class CameraControls {
   rotateCamera(e) {
     const el = e.currentTarget
     const { rotateCamera } = el.dataset
-    SceneManager.cameraCtrl.rotate(rotateCamera)
+    CameraController.rotate(rotateCamera)
     // edit btn class
     let disable = false
     if (rotateCamera === 'top' || rotateCamera === 'bottom') {
       this.ui.rotateButtons.forEach(button => {
         if (button.classList.contains('is-disabled') && button !== el) button.classList.remove('is-disabled')
       })
-      const { rotationXZ, targetAngle, rotateXZMin, rotateXZMax } = SceneManager.cameraCtrl
+      const { rotationXZ, targetAngle, rotateXZMin, rotateXZMax } = CameraController
       disable = rotationXZ + targetAngle >= rotateXZMin || rotationXZ + targetAngle <= rotateXZMax
     }
 
