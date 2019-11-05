@@ -626,12 +626,12 @@ class SceneManager extends EventEmitter {
     };
   }
 
-  checkCollision(isRotating = false) {
+  checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
-    const { ghost, box, mesh } = this.selectedSubject
+    const { box } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    const boxHelper = new THREE.Box3().copy(box)
     // go back to the original Y position of the current box
+    const boxHelper = new THREE.Box3().copy(box)
     boxHelper.max.y -= this.moveOffset.y
     boxHelper.min.y -= this.moveOffset.y
 
@@ -648,9 +648,15 @@ class SceneManager extends EventEmitter {
       }
     }
 
+    // check ground collision
+    if (boxHelper.min.y < 0) {
+      isInCollision = true
+      elevateScale = -boxHelper.min.y
+    }
+
     this.moveOffset.y = isInCollision ? elevateScale : 0
 
-    if (isRotating && this.selectedSubject) {
+    if (isEditing && this.selectedSubject) {
       // update position
       this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
     }
