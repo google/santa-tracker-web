@@ -676,7 +676,7 @@ class SceneManager extends EventEmitter {
     if (this.mode === 'edit') {
       // if previous mode was edit, clear edit tool
       if (this.activeSubject) {
-        this.activeSubject.unsetEditTools()
+        this.activeSubject.deleteRotateCircle()
         this.emit('leave_edit')
         this.activeSubject = null
       }
@@ -699,7 +699,7 @@ class SceneManager extends EventEmitter {
         break
       case 'edit':
         if (this.activeSubject) {
-          this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
+          this.activeSubject.createRotateCircle(this.cameraCtrl.camera.zoom)
           setTimeout(() => {
             this.emit('enter_edit')
           }, 100)
@@ -729,10 +729,12 @@ class SceneManager extends EventEmitter {
 
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
-    this.selectedSubject.delete()
+    if (this.selectedSubject) this.selectedSubject.delete()
+    if (this.activeSubject) this.activeSubject.delete()
+    this.selectedSubject = null
+    this.activeSubject = null
     this.setMode()
     this.terrain.removePositionMarker()
-    this.selectedSubject = null
   }
 
   setUnits() {

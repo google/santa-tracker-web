@@ -217,26 +217,6 @@ class Object extends EventEmitter {
     this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
-  delete() {
-    this.scene.remove(this.mesh)
-    this.mesh.geometry.dispose()
-    this.mesh.material.dispose()
-    this.mesh = undefined
-    this.world.remove(this.body)
-
-    // remove ghost
-    this.scene.remove(this.ghost)
-    this.ghost.geometry.dispose()
-    this.ghost.material.dispose()
-    this.ghost = undefined
-
-    //remove ghosthelper
-    if (this.ghostHelper) {
-      this.scene.remove(this.ghostHelper)
-      this.ghostHelper = undefined
-    }
-  }
-
   highlight() {
     if (this.mesh) {
       this.mesh.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
@@ -299,6 +279,12 @@ class Object extends EventEmitter {
     yArrowHelper.name = 'arrow-helper-y'
     yCircle.add(yArrowHelper)
 
+    // Trash helper
+    const trashHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
+    trashHelper.position.x = maxRadius * 1
+    trashHelper.position.y = maxRadius * 0.775
+    trashHelper.name = 'trash-helper'
+
     // Toolbar helper
     const toolbarHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     toolbarHelper.position.y = -(maxRadius + 1)
@@ -308,6 +294,7 @@ class Object extends EventEmitter {
     this.circles = new THREE.Object3D()
     this.circles.add( xCircle )
     this.circles.add( yCircle )
+    this.circles.add( trashHelper )
 
     this.updateRotatingCircle(zoom)
 
@@ -316,6 +303,19 @@ class Object extends EventEmitter {
 
   updateRotatingCircle(zoom) {
     this.circles.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+  }
+
+  delete() {
+    this.scene.remove(this.mesh)
+    this.mesh.geometry.dispose()
+    this.mesh.material.dispose()
+    this.mesh = undefined
+    this.world.remove(this.body)
+
+    this.box = undefined
+
+    this.deleteGhost()
+    this.deleteRotateCircle()
   }
 
   deleteGhost() {
@@ -357,14 +357,6 @@ class Object extends EventEmitter {
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
     this.mesh.scale.copy(scale)
     this.scaleBody()
-  }
-
-  setEditTools(zoom) {
-    this.createRotateCircle(zoom)
-  }
-
-  unsetEditTools() {
-    this.deleteRotateCircle()
   }
 }
 

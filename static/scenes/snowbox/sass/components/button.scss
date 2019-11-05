@@ -188,7 +188,6 @@
     transition: transform $transition-button;
     z-index: 1;
 
-
     &--reverse {
       transform: translate(-$button-3d-offset, -$button-3d-offset) rotate(180deg);
     }
