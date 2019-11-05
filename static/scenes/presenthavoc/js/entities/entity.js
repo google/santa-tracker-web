@@ -19,7 +19,7 @@ app.Entity = class Entity {
   }
 
   /**
-   * returns the action that results from the player colliding with this entity,
+   * returns the action(s) that result from the player colliding with this entity,
    * or null if no effect.
    */
   onContact(player) {

@@ -13,6 +13,9 @@ app.Player = class Player {
 
   init(config) {
     this.config = config
+
+    this.toyParts = []
+
     this.position = {
       x: this.config.startPos.x,
       y: this.config.startPos.y,
@@ -34,6 +37,8 @@ app.Player = class Player {
         y: this.config.startPos.y,
         angle: 0
       }
+
+      this.toyParts = []
 
       this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
@@ -70,8 +75,10 @@ app.Player = class Player {
     if (colocatedEntities.length) {
       for (const entity of colocatedEntities) {
         if (entity != this) {
-          const action = entity.onContact(this)
-          resultingActions[action] = entity
+          const actions = entity.onContact(this)
+          for (const action of actions) {
+            resultingActions[action] = entity
+          }
         }
       }
     }
@@ -83,6 +90,7 @@ app.Player = class Player {
 
   render() {
     Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
+    this.context.setAttribute('data-toy-parts', this.toyParts)
   }
 
   /**
@@ -102,9 +110,16 @@ app.Player = class Player {
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
     }
+
+    const toyEntity = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
+    if (toyEntity) {
+      if (this.toyParts.indexOf(toyEntity.config.partType) == -1) {
+        this.toyParts.push(toyEntity.config.partType)
+      }
+    }
   }
 
   onContact(player) {
-    return Constants.PLAYER_ACTIONS.BLOCK
+    return [Constants.PLAYER_ACTIONS.BOUNCE]
   }
 }

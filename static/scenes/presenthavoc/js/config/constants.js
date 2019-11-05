@@ -41,4 +41,7 @@ Constants = {
 
   FENCE_THICKNESS: 9,
 
+  TABLE_HEIGHT: 2,
+  TABLE_WIDTH: 3,
+
 }

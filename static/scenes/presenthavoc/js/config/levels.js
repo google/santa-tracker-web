@@ -107,6 +107,22 @@ Levels = [
           }
         }
       },
+      {
+        type: 'table',
+        config: {
+          x: 1,
+          y: 12,
+          partType: 'wheels'
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 15,
+          y: 1,
+          partType: 'car-body'
+        }
+      },
     ]
   },
 ]

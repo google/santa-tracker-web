@@ -6,6 +6,8 @@ $mobile-breakpoint: 1100px;
 
 $grid-unit-size: 50px;
 $fence-border: 9px solid #9B643D;
+$table-width: 3;
+$table-height: 2;
 
 html {
   box-sizing: border-box;
@@ -39,6 +41,7 @@ body {
   .penguin,
   .pit,
   .player,
+  .table,
   .wall {
     left: 0;
     position: absolute;
@@ -52,6 +55,17 @@ body {
 
     &.is-hidden {
       opacity: 0;
+    }
+
+    &[data-toy-parts]:not([data-toy-parts='']) {
+      &::after {
+        background: red;
+        bottom: -20px;
+        height: 15px;
+        content: '';
+        position: absolute;
+        width: 15px;
+      }
     }
   }
 
@@ -96,6 +110,12 @@ body {
     &--bottom {
       border-bottom: $fence-border;
     }
+  }
+
+  .table {
+    background: url(img/table-3.svg) center/contain no-repeat;
+    height: $grid-unit-size * $table-height;
+    width: $grid-unit-size * $table-width;
   }
 
   // .title {

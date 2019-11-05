@@ -10,6 +10,7 @@ goog.require('app.Fence')
 goog.require('app.Penguin')
 goog.require('app.Pit')
 goog.require('app.Player')
+goog.require('app.Table')
 goog.require('app.Wall')
 
 app.Game = class Game {
@@ -51,6 +52,9 @@ app.Game = class Game {
           break;
         case 'fence':
           this.entities.push(new app.Fence(this, entity.config))
+          break;
+        case 'table':
+          this.entities.push(new app.Table(this, entity.config))
           break;
       }
     }

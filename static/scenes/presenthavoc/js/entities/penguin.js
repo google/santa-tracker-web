@@ -82,6 +82,6 @@ app.Penguin = class Penguin extends app.Entity {
 
   onContact(player) {
     super.onContact(player)
-    return Constants.PLAYER_ACTIONS.RESTART
+    return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }

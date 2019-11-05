@@ -35,7 +35,7 @@ app.Wall = class Wall extends app.Entity {
 
   onContact(player) {
     super.onContact(player)
-    return Constants.PLAYER_ACTIONS.BLOCK
+    return [Constants.PLAYER_ACTIONS.BLOCK]
   }
 
 }
