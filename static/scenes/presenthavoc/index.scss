@@ -7,6 +7,14 @@ $mobile-breakpoint: 1100px;
 $grid-unit-size: 50px;
 $fence-border: 9px solid #9B643D;
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   overflow: hidden;
 }

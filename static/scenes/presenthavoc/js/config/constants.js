@@ -37,6 +37,8 @@ Constants = {
     HEIGHT: 16.0, // height in grid units
     WIDTH: 28.0, // width in grid units
     UNIT_SIZE: 50 // height and width of one grid unit
-  }
+  },
+
+  FENCE_THICKNESS: 9,
 
 }
