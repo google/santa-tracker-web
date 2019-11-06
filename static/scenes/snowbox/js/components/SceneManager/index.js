@@ -17,6 +17,7 @@ import LoaderManager from '../../managers/LoaderManager/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 import Sky from '../SceneSubjects/Sky/index.js'
+import PlaneHelper from '../SceneSubjects/PlaneHelper/index.js'
 
 // Shapes
 import Cube from '../Shapes/Cube/index.js'
@@ -81,6 +82,7 @@ class SceneManager extends EventEmitter {
     this.buildCamera()
     this.buildSky()
     this.buildSceneSubjects()
+    this.buildPlaneHelper()
 
     if (this.debug) {
       this.buildHelpers()
@@ -89,13 +91,20 @@ class SceneManager extends EventEmitter {
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
+
     this.moveOffset = {
       x: 0,
       y: 0,
-      z: 0
+      z: 0,
     }
 
-    this.cameraCtrl.rotate('left', false, true)
+    CameraController.rotate('left', false, true)
+
+    if (this.debug) {
+      this.buildHelpers()
+      this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+    }
+
     this.events()
   }
 
@@ -131,7 +140,7 @@ class SceneManager extends EventEmitter {
   }
 
   buildCamera() {
-    this.cameraCtrl = new CameraController(this.screenDimensions, this.renderer.domElement)
+    CameraController.init(this.screenDimensions, this.renderer.domElement)
   }
 
   buildSky() {
@@ -151,10 +160,15 @@ class SceneManager extends EventEmitter {
     this.scene.add(gridHelper)
   }
 
+  buildPlaneHelper() {
+    this.planeHelper = new PlaneHelper(this.scene).mesh
+  }
+
   buildSceneSubjects() {
     this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
     this.lights = this.sceneSubjects[0]
     this.terrain = this.sceneSubjects[1]
+    CameraController.terrain = this.terrain
   }
 
   events() {
@@ -175,26 +189,25 @@ class SceneManager extends EventEmitter {
 
   // RAF
   update(now) {
-    const { camera, controls } = this.cameraCtrl
+    const { camera, controls } = CameraController
 
     if (controls && controls.enabled) controls.update() // for damping
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update(this.cameraCtrl.camera.position)
+      this.sceneSubjects[i].update(CameraController.camera.position)
     }
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
-      this.moveSelectedSubject()
-      this.cameraCtrl.moveOnEdges(this.mouseInEdge)
+      CameraController.moveOnEdges(this.mouseInEdge)
     }
 
     // on camera rotating
-    if (this.cameraCtrl.isRotating) {
-      this.cameraCtrl.animateRotate(now)
+    if (CameraController.isRotating) {
+      CameraController.animateRotate(now)
 
       if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
@@ -202,23 +215,24 @@ class SceneManager extends EventEmitter {
     }
 
     // on camera zooming
-    if (this.cameraCtrl.isZooming) {
-      this.cameraCtrl.animateZoom(now)
+    if (CameraController.isZooming) {
+      CameraController.animateZoom(now)
 
       if (this.mode === 'edit' && this.activeSubject) {
         this.emit('move_camera')
-        this.activeSubject.updateRotatingCircle(this.cameraCtrl.camera.zoom)
+        this.activeSubject.updateRotatingCircle(CameraController.camera.zoom)
       }
     }
 
     if (this.needsCollisionCheck && this.selectedSubject) {
-      this.checkCollision()
+      this.checkCollision(true)
       this.needsCollisionCheck = false
     }
 
     if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
       this.emit('move_camera')
     }
+
 
     this.renderer.render(this.scene, camera)
   }
@@ -228,8 +242,8 @@ class SceneManager extends EventEmitter {
   onWindowResize() {
     this.setUnits()
     // Update camera
-    this.cameraCtrl.camera.aspect = this.width / this.height
-    this.cameraCtrl.camera.updateProjectionMatrix()
+    CameraController.camera.aspect = this.width / this.height
+    CameraController.camera.updateProjectionMatrix()
 
     // Update canvas size
     this.renderer.setSize(this.width, this.height)
@@ -279,7 +293,6 @@ class SceneManager extends EventEmitter {
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
-
         const hit = this.getNearestObject()
         if (hit) {
           // if mode is neutral
@@ -296,13 +309,14 @@ class SceneManager extends EventEmitter {
         this.mouseInEdge = null
       } else if (this.mode === 'move' && this.selectedSubject) {
         this.moveSelectedSubject()
+        this.checkCollision()
         if (this.canDetectMouseInEdge) {
           this.detectMouseInEdge(e)
         }
       }
     }
 
-    if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+    if (CameraController.camera) this.raycaster.setFromCamera(this.mouse, CameraController.camera)
   }
 
   onMouseDown(e) {
@@ -310,7 +324,7 @@ class SceneManager extends EventEmitter {
     if (e.type === 'touchstart') {
       this.mouse.x = (e.targetTouches[0].clientX / this.width) * 2 - 1
       this.mouse.y = -(e.targetTouches[0].clientY / this.height) * 2 + 1
-      if (this.cameraCtrl.camera) this.raycaster.setFromCamera(this.mouse, this.cameraCtrl.camera)
+      if (CameraController.camera) this.raycaster.setFromCamera(this.mouse, CameraController.camera)
     }
 
     this.mouseState = 'down'
@@ -328,17 +342,16 @@ class SceneManager extends EventEmitter {
       if (this.selectedSubject) {
         if (this.mode === 'edit') {
           const oldSelectedObject = this.selectedSubject
-          this.setMode()
           setTimeout(() => {
             if (oldSelectedObject === newSelectedSubject) {
-              this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+              this.selectSubject(newSelectedSubject, true)
             }
           }, 10)
         } else {
           this.unselectSubject()
         }
       } else {
-        this.selectSubject(newSelectedSubject, this.getCurrentPosOnPlane())
+        this.selectSubject(newSelectedSubject, true)
       }
     } else if (this.selectedSubject && this.mode === 'move') {
       this.unselectSubject()
@@ -385,9 +398,9 @@ class SceneManager extends EventEmitter {
 
   onWheel(e) {
     if (e.deltaY < 0) {
-      this.cameraCtrl.rotate('left', true)
+      CameraController.rotate('left', true)
     } else if (e.deltaY > 0) {
-      this.cameraCtrl.rotate('right', true)
+      CameraController.rotate('right', true)
     }
 
     if (this.mode === 'edit' && this.activeSubject) {
@@ -429,7 +442,7 @@ class SceneManager extends EventEmitter {
 
     if (this.selectedSubject && this.mode === 'edit') {
       const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
-      this.selectedSubject.rotate(direction, angle, this.cameraCtrl.rotationY)
+      this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
       this.needsCollisionCheck = true
     }
   }
@@ -467,9 +480,15 @@ class SceneManager extends EventEmitter {
   }
 
   // others
+  shapeLoaded(subject) {
+    this.sceneSubjects.push(subject)
+    this.selectSubject(subject)
+    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    this.planeHelper.position.y = subject.size / 2 * (subject.box.max.y - subject.box.min.y) // add half Y +
+  }
 
   unselectSubject(unmove) {
-    this.cameraCtrl.resetControls()
+    CameraController.resetControls()
 
     if (!unmove) {
       this.selectedSubject.moveToGhost()
@@ -481,22 +500,49 @@ class SceneManager extends EventEmitter {
     this.selectedSubject = null
   }
 
-  selectSubject(newSelectedSubject, offset) {
+  selectSubject(newSelectedSubject, needsOffset = false) {
     this.setMode('move')
 
-    const { x, z } = newSelectedSubject.body.position
-
-    if (offset) {
-      this.moveOffset = {
-        x: x - offset.x,
-        z: z - offset.z
-      }
-    }
-
     this.selectedSubject = newSelectedSubject
-
     this.selectedSubject.select()
-    this.terrain.addPositionMarker(this.selectedSubject.body.position)
+    const { position } = this.selectedSubject.body
+
+    this.moveOffset.y = 0 // reset y
+
+    if (needsOffset) {
+      // update planeHelper Y
+      this.planeHelper.position.y = position.y
+      this.renderer.render(this.scene, CameraController.camera) // check if we really need that
+      const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
+      this.moveOffset.x = -(posPlaneHelper.x - position.x)
+      this.moveOffset.z = -(posPlaneHelper.z - position.z)
+      this.terrain.addPositionMarker({
+        x: posPlaneHelper.x + this.moveOffset.x,
+        y: this.planeHelper.position.y + this.moveOffset.y,
+        z: posPlaneHelper.z + this.moveOffset.z,
+      })
+    } else {
+      this.moveOffset.x = 0
+      this.moveOffset.z = 0
+      this.terrain.addPositionMarker({
+        x: -1000, // hide it
+        y: -1000,
+        z: -1000,
+      })
+    }
+  }
+
+  moveSelectedSubject() {
+    const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
+
+    if (posPlaneHelper) {
+      const x = posPlaneHelper.x + this.moveOffset.x
+      const z = posPlaneHelper.z + this.moveOffset.z
+      const y = this.planeHelper.position.y + this.moveOffset.y
+      this.selectedSubject.moveTo(x, y, z)
+
+      this.terrain.movePositionMarker(x, z)
+    }
   }
 
   findNearestIntersectingObject(objects) {
@@ -505,9 +551,14 @@ class SceneManager extends EventEmitter {
     return closest
   }
 
-  getCurrentPosOnPlane() {
-    const hit = this.findNearestIntersectingObject([this.terrain.meshes[0]])
-    if (hit) return hit.point
+  getCurrentPosOnPlaneHelper() {
+    const intersects = []
+    this.planeHelper.raycast( this.raycaster, intersects )
+    if( intersects.length > 0 ) {
+      const { point } = intersects[0]
+
+      return point
+    }
     return false
   }
 
@@ -515,27 +566,6 @@ class SceneManager extends EventEmitter {
     const objects = this.getObjectsList()
 
     return this.findNearestIntersectingObject(objects)
-  }
-
-  shapeLoaded(subject) {
-    this.sceneSubjects.push(subject)
-    this.selectSubject(subject)
-    const pos = this.getCurrentPosOnPlane()
-    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
-    const y = 0.5 * (subject.box.max.y - subject.box.min.y)
-    subject.moveTo(pos.x, y, pos.z)
-
-    this.terrain.movePositionMarker(pos.x, pos.z)
-  }
-
-  move(direction, noMouseMove, elevateScale = CONFIG.ELEVATE_SCALE) {
-    if (this.selectedSubject) {
-      this.moveOffset.y = this.selectedSubject.ghost.position.y + (direction === 'up' ? elevateScale : -elevateScale)
-      this.selectedSubject.moveTo(null, this.moveOffset.y, null)
-      if (!noMouseMove) {
-        this.onMouseMove()
-      }
-    }
   }
 
   getSubjectfromMesh(mesh) {
@@ -553,7 +583,7 @@ class SceneManager extends EventEmitter {
       this.setMode('highlight')
     } else if (subject === false) {
       this.highlightedSubject = null
-      if (!this.cameraCtrl.isRotating) this.setMode()
+      if (!CameraController.isRotating) this.setMode()
     }
   }
 
@@ -596,7 +626,7 @@ class SceneManager extends EventEmitter {
 
     obj.updateMatrixWorld()
     vector.setFromMatrixPosition(obj.matrixWorld)
-    vector.project(this.cameraCtrl.camera)
+    vector.project(CameraController.camera)
 
     vector.x = ( vector.x * widthHalf ) + widthHalf
     vector.y = - ( vector.y * heightHalf ) + heightHalf
@@ -607,53 +637,58 @@ class SceneManager extends EventEmitter {
     };
   }
 
-  moveSelectedSubject() {
-    this.checkCollision()
-    const pos = this.getCurrentPosOnPlane()
-    this.terrain.movePositionMarker(pos.x + this.moveOffset.x, pos.z + this.moveOffset.z)
-    this.selectedSubject.moveTo(pos.x + this.moveOffset.x, null, pos.z + this.moveOffset.z)
-  }
-
-  checkCollision() {
+  checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
-    const { ghost, box, mesh } = this.selectedSubject
+    const { box } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    const fakeBox = new THREE.Box3().copy(box)
-    fakeBox.max.y -= CONFIG.ELEVATE_SCALE
-    fakeBox.min.y -= CONFIG.ELEVATE_SCALE
-    let moveDown = true
-    let moveUp = false
-    let elevateScale
+    const sizeY = box.max.y - box.min.y // get size of current object in Y
+    // go boxHelper is equal to the ground position of the current box
+    const boxHelper = new THREE.Box3().copy(box)
+    boxHelper.max.y = sizeY
+    boxHelper.min.y = 0
 
-    if (boxes.length > 0) {
+    let elevate = 0
+    const offsetDetectionY = 0.01
+
+    const detectCollision = () => {
+      let collision = false
+
       for (let index = 0; index < boxes.length; index++) {
         const boxItem = boxes[index]
 
-        if (box.intersectsBox(boxItem)) {
-          moveUp = true
-          elevateScale = boxItem.max.y - box.min.y + 0.01
-          break
-        } else if (fakeBox.intersectsBox(boxItem)) {
-          moveDown = false
+        if (boxHelper.intersectsBox(boxItem)) {
+          // get hightest Ypos of collision objects
+          elevate = Math.max(elevate, boxItem.max.y)
+          collision = true
+        }
+      }
+
+      if (collision) {
+        // move boxHelper up and do the test again
+        boxHelper.max.y = elevate + sizeY
+        boxHelper.min.y = elevate + offsetDetectionY // need that to stop detecting collision when movnig up
+        detectCollision()
+      } else {
+        // if no more collision, move up the object (update moveOffset)
+        this.moveOffset.y = boxHelper.min.y // can't go under the ground
+
+        if (isEditing && this.selectedSubject) {
+          // update position
+          this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+          // check ground collision after update position
+          if (box.min.y < 0) {
+            this.moveOffset.y += -(box.min.y)
+            this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+          }
         }
       }
     }
 
-    if (box.min.y < 0) {
-      moveUp = true
-      elevateScale = -box.min.y
-    }
-
-    if (moveUp) {
-      this.move('up', true, elevateScale)
-    } else if (moveDown && fakeBox.min.y > 0) {
-      this.move('down', true)
-      this.checkCollision()
-    }
+    detectCollision()
   }
 
   setMode(mode = '') {
-    const { controls } = this.cameraCtrl
+    const { controls } = CameraController
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
     // console.log('mode', mode)
@@ -666,7 +701,7 @@ class SceneManager extends EventEmitter {
     if (this.mode === 'edit') {
       // if previous mode was edit, clear edit tool
       if (this.activeSubject) {
-        this.activeSubject.unsetEditTools()
+        this.activeSubject.deleteRotateCircle()
         this.emit('leave_edit')
         this.activeSubject = null
       }
@@ -689,7 +724,7 @@ class SceneManager extends EventEmitter {
         break
       case 'edit':
         if (this.activeSubject) {
-          this.activeSubject.setEditTools(this.cameraCtrl.camera.zoom)
+          this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           setTimeout(() => {
             this.emit('enter_edit')
           }, 100)
@@ -719,10 +754,12 @@ class SceneManager extends EventEmitter {
 
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
-    this.selectedSubject.delete()
+    if (this.selectedSubject) this.selectedSubject.delete()
+    if (this.activeSubject) this.activeSubject.delete()
+    this.selectedSubject = null
+    this.activeSubject = null
     this.setMode()
     this.terrain.removePositionMarker()
-    this.selectedSubject = null
   }
 
   setUnits() {

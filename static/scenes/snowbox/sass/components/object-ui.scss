@@ -5,14 +5,22 @@
   z-index: $z-index-objects;
   user-select: none;
 
- &[object-edit-ui] {
+  .button {
+    transform: scale(0.8);
+  }
+
+  .trash__button img {
+    width: 42%;
+  }
+
+  &[object-edit-ui] {
     @include respond-to(smartphone) {
       bottom: 150px;
       top: initial;
       transform: none !important;
       width: 100%;
     }
- }
+  }
 }
 
 .toolbar-ui {
