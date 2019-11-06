@@ -5,9 +5,8 @@ import { toRadian } from '../../../utils/math.js'
 import LoaderManager from '../../../managers/LoaderManager/index.js'
 
 class Sky {
-  constructor(scene, camera) {
+  constructor(scene) {
     this.scene = scene
-    this.camera = camera
 
     this.onGui = this.onGui.bind(this)
     this.init = this.init.bind(this)

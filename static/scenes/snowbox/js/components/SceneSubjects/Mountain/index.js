@@ -1,30 +1,63 @@
-import Obj from '../../Object/index.js'
-
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
-// import CONFIG from './config.js'
-import { randomIntFromInterval } from '../../../utils/math.js'
+import CONFIG from './config.js'
 
-class Moutain extends Obj {
-  constructor(scene, world) {
-    super()
+import LoaderManager from '../../../managers/LoaderManager/index.js'
+
+class Moutain {
+  constructor(scene) {
     this.scene = scene
-    this.world = world
     this.selectable = false
-    this.bodies = []
-    this.meshes = []
-    this.init()
+
+    this.init = this.init.bind(this)
+
+    LoaderManager.load({name: CONFIG.NAME, obj: CONFIG.OBJ, map: CONFIG.MAP}, this.init)
   }
 
   init() {
+    const { obj, map } = LoaderManager.subjects[CONFIG.NAME]
+    console.log(LoaderManager.subjects[CONFIG.NAME])
 
-  }
+    // Geometry
+    this.object = new THREE.Object3D()
 
-  update() {
-    this.meshes.forEach((mesh, index) => {
-      mesh.position.copy(this.bodies[index].position)
-      mesh.quaternion.copy(this.bodies[index].quaternion)
+    // Materials
+    const defaultMaterial = new THREE.MeshToonMaterial({
+      color: GLOBAL_CONFIG.COLORS.GHOST,
+      shininess: 345,
     })
+
+    console.log(map)
+
+    const cylinderMaterial = new THREE.MeshPhongMaterial({
+      map,
+      color: GLOBAL_CONFIG.COLORS.GHOST,
+      shininess: 345,
+    })
+
+    let cylinderBox
+
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      let material = defaultMaterial
+      if (i === obj.children.length - 1) {
+        // cylinder geometry
+        geometry.computeBoundingBox()
+        cylinderBox = geometry.boundingBox
+        // add texture
+        material = cylinderMaterial
+      }
+      const mesh = new THREE.Mesh(geometry, material)
+      this.object.add(mesh)
+    }
+
+    this.object.scale.multiplyScalar(1 / 30)
+    // const box = new THREE.Box3().setFromObject( this.object );
+    this.object.position.y = -(cylinderBox.max.y - cylinderBox.min.y) / 30 / 2
+    console.log(this.object.position.y)
+
+    this.scene.add(this.object)
+
   }
 }
 

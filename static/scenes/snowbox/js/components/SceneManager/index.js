@@ -17,6 +17,7 @@ import LoaderManager from '../../managers/LoaderManager/index.js'
 import Lights from '../SceneSubjects/Lights/index.js'
 import Terrain from '../SceneSubjects/Terrain/index.js'
 import Sky from '../SceneSubjects/Sky/index.js'
+import Mountain from '../SceneSubjects/Mountain/index.js'
 import PlaneHelper from '../SceneSubjects/PlaneHelper/index.js'
 
 // Shapes
@@ -144,7 +145,8 @@ class SceneManager extends EventEmitter {
   }
 
   buildSky() {
-    this.sky = new Sky(this.scene, CameraController.camera)
+    this.sky = new Sky(this.scene)
+    this.mountain = new Mountain(this.scene)
   }
 
   buildHelpers() {

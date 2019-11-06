@@ -19,13 +19,18 @@ class LoaderManager {
     }
 
     // else, wait for all objects of the element to be loaded
-    const { name, normalMap, obj, wrl, skybox } = object
+    const { name, normalMap, map, obj, wrl, skybox } = object
     const promises = []
 
     this.subjects[name] = {}
 
     if (normalMap) {
       promises.push(this.loadTexture(normalMap, name, 'normalMap'))
+    }
+
+    if (map) {
+      console.log('oui')
+      promises.push(this.loadTexture(map, name, 'map'))
     }
 
     if (obj) {
@@ -43,7 +48,7 @@ class LoaderManager {
 
       const { prefix, directions, suffix } = skybox
       for (let i = 0; i < 6; i++) {
-        promises.push(this.loadTexture(prefix + directions[i] + suffix, name, 'skybox', i))
+        promises.push(this.loadTexture(prefix + directions[i] + suffix, name, 'multiple', i))
       }
     }
 
@@ -71,7 +76,7 @@ class LoaderManager {
   loadTexture(url, name, type, order = null) {
     return new Promise(resolve => {
       this.textureLoader.load(url, result => {
-        if (type === 'skybox') {
+        if (type === 'multiple') {
           // push texture in a array
           result.order = order
           this.subjects[name].textures.push(result)

@@ -214,7 +214,7 @@ class Object extends EventEmitter {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
     this.body.addShape(shape)
-    this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
+    // this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
   }
 
   highlight() {
