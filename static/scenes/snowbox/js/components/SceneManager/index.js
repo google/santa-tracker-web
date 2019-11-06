@@ -666,53 +666,45 @@ class SceneManager extends EventEmitter {
     // if (this.mode === 'edit') return; // stop on edit
     const { box } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    // go back to the original Y position of the current box
+    const sizeY = box.max.y - box.min.y // get size of current object in Y
+    // go boxHelper is equal to the ground position of the current box
     const boxHelper = new THREE.Box3().copy(box)
-    boxHelper.max.y = box.max.y - box.min.y
+    boxHelper.max.y = sizeY
     boxHelper.min.y = 0
 
-    // boxHelper.max.y -= 0.1
-    // boxHelper.min.y += 0.1
-
     let elevate = 0
-    let storeElevate = 0
-    let lastHelperMinY = 0
+    const offsetDetectionY = 0.01
 
     const detectCollision = () => {
       let collision = false
-      elevate = 0
-      // const storeMinY = boxHelper.min.y
 
       for (let index = 0; index < boxes.length; index++) {
         const boxItem = boxes[index]
 
         if (boxHelper.intersectsBox(boxItem)) {
-          const nextElevate = boxItem.max.y // + 0.01
-          // console.log(storeMinY)
-          // console.log(boxHelper.min.y -  box.min.y)
-          // const nextElevate = (box.max.y - box.max.y - 0.1)
-          console.log('INDEX', index, nextElevate)
-          elevate = Math.max(elevate, nextElevate)
+          // get hightest Ypos of collision objects
+          elevate = Math.max(elevate, boxItem.max.y)
           collision = true
-          // if box intersect --> move up
-          // if boxHelper not intersecting anymore, moveDown --> overrite
         }
       }
 
       if (collision) {
-        console.log('collision', elevate)
         // move boxHelper up and do the test again
-        boxHelper.max.y = elevate + box.max.y - box.min.y
-        boxHelper.min.y = elevate + 0.1
-        storeElevate = elevate + 0.1
-        this.renderer.render(this.scene, CameraController.camera)
+        boxHelper.max.y = elevate + sizeY
+        boxHelper.min.y = elevate + offsetDetectionY // need that to stop detecting collision when movnig up
         detectCollision()
       } else {
-        console.log('no more collision', storeElevate)
-        this.moveOffset.y = storeElevate
+        // if no more collision, move up the object (update moveOffset)
+        this.moveOffset.y = boxHelper.min.y // can't go under the ground
+
         if (isEditing && this.selectedSubject) {
           // update position
           this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+          // check ground collision after update position
+          if (box.min.y < 0) {
+            this.moveOffset.y += -(box.min.y)
+            this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+          }
         }
       }
     }
