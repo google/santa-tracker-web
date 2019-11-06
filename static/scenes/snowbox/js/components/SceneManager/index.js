@@ -633,34 +633,52 @@ class SceneManager extends EventEmitter {
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
     // go back to the original Y position of the current box
     const boxHelper = new THREE.Box3().copy(box)
-    boxHelper.max.y -= this.moveOffset.y
-    boxHelper.min.y -= this.moveOffset.y
+    boxHelper.max.y -= (this.moveOffset.y)
+    boxHelper.min.y -= (this.moveOffset.y)
+
+    boxHelper.max.y -= 0.1
+    boxHelper.min.y += 0.1
 
     let elevateScale = 0
-    let isInCollision = false
 
-    for (let index = 0; index < boxes.length; index++) {
-      const boxItem = boxes[index]
+    const detectCollision = () => {
+      let collision = false
 
-      if (boxHelper.intersectsBox(boxItem)) {
-        const nextElevateScale = (boxItem.max.y - boxHelper.min.y + 0.01)
-        elevateScale = Math.max(elevateScale, nextElevateScale)
-        isInCollision = true
+      for (let index = 0; index < boxes.length; index++) {
+        const boxItem = boxes[index]
+
+        if (boxHelper.intersectsBox(boxItem)) {
+          const nextElevateScale = boxItem.max.y // + 0.01
+          // const nextElevateScale = (box.max.y - box.max.y - 0.1)
+          console.log('INDEX', index, nextElevateScale)
+          elevateScale = Math.max(elevateScale, nextElevateScale)
+          collision = true
+          // if box intersect --> move up
+          // if boxHelper not intersecting anymore, moveDown --> overrite
+        }
+      }
+
+      if (collision) {
+        console.log('collision', elevateScale)
+        // move boxHelper up and do the test again
+        boxHelper.max.y += elevateScale
+        boxHelper.min.y += elevateScale
+        // this.renderer.render(this.scene, CameraController.camera)
+        // elevateScale++
+        detectCollision()
+
+        // this.selectedSubject.moveTo(null, this.planeHelper.position.y + elevateScale, null)
+      } else {
+        console.log('no more collision', elevateScale)
+        this.moveOffset.y = elevateScale
+        if (isEditing && this.selectedSubject) {
+          // update position
+          this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+        }
       }
     }
 
-    // check ground collision
-    if (isEditing && !isInCollision && boxHelper.min.y < 0) {
-      isInCollision = true
-      elevateScale = -boxHelper.min.y
-    }
-
-    this.moveOffset.y = isInCollision ? elevateScale : 0
-
-    if (isEditing && this.selectedSubject) {
-      // update position
-      this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
-    }
+    detectCollision()
   }
 
   setMode(mode = '') {
