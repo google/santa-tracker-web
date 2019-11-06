@@ -1736,10 +1736,10 @@ detect-libc@^1.0.2:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-dhost@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/dhost/-/dhost-0.1.7.tgz#4c32a793ead607aab4fcce2c360c632ff00e9a23"
-  integrity sha512-HbCekJx30Hvuay7SojZ2Be/arMge+WSIuzpJSlqjqS6JRQvL7S2tGIwQzgGinPkXumvng/tenr0X26Qq0ZXH7g==
+dhost@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/dhost/-/dhost-0.1.8.tgz#80baf4ce5930678e712e9e99ce3feefe048a1a0f"
+  integrity sha512-g8O2PFaB+iys5TyMov/ubnsXaXK8ILqX9yjpY3GD1dYBCB90R5ekJaceRZQONeZO6HohKENik7qNa3HmEK9x6Q==
   dependencies:
     bytes "^3.1.0"
     chalk "^2.4.2"
