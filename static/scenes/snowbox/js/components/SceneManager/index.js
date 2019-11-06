@@ -627,31 +627,72 @@ class SceneManager extends EventEmitter {
     };
   }
 
+    // const { ghost, box, mesh } = this.selectedSubject
+    // const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
+    // const fakeBox = new THREE.Box3().copy(box)
+    // fakeBox.max.y -= CONFIG.ELEVATE_SCALE
+    // fakeBox.min.y -= CONFIG.ELEVATE_SCALE
+    // let moveDown = true
+    // let moveUp = false
+    // let elevateScale
+
+    // if (boxes.length > 0) {
+    //   for (let index = 0; index < boxes.length; index++) {
+    //     const boxItem = boxes[index]
+
+    //     if (box.intersectsBox(boxItem)) {
+    //       moveUp = true
+    //       elevateScale = boxItem.max.y - box.min.y + 0.01
+    //       break
+    //     } else if (fakeBox.intersectsBox(boxItem)) {
+    //       moveDown = false
+    //     }
+    //   }
+    // }
+
+    // if (box.min.y < 0) {
+    //   moveUp = true
+    //   elevateScale = -box.min.y
+    // }
+
+    // if (moveUp) {
+    //   this.move('up', true, elevateScale)
+    // } else if (moveDown && fakeBox.min.y > 0) {
+    //   this.move('down', true)
+    //   this.checkCollision()
+    // }
+
   checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
     const { box } = this.selectedSubject
     const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
     // go back to the original Y position of the current box
     const boxHelper = new THREE.Box3().copy(box)
-    boxHelper.max.y -= (this.moveOffset.y)
-    boxHelper.min.y -= (this.moveOffset.y)
+    boxHelper.max.y = box.max.y - box.min.y
+    boxHelper.min.y = 0
 
-    boxHelper.max.y -= 0.1
-    boxHelper.min.y += 0.1
+    // boxHelper.max.y -= 0.1
+    // boxHelper.min.y += 0.1
 
-    let elevateScale = 0
+    let elevate = 0
+    let storeElevate = 0
+    let lastHelperMinY = 0
 
     const detectCollision = () => {
       let collision = false
+      elevate = 0
+      // const storeMinY = boxHelper.min.y
 
       for (let index = 0; index < boxes.length; index++) {
         const boxItem = boxes[index]
 
         if (boxHelper.intersectsBox(boxItem)) {
-          const nextElevateScale = boxItem.max.y // + 0.01
-          // const nextElevateScale = (box.max.y - box.max.y - 0.1)
-          console.log('INDEX', index, nextElevateScale)
-          elevateScale = Math.max(elevateScale, nextElevateScale)
+          const nextElevate = boxItem.max.y // + 0.01
+          // console.log(storeMinY)
+          // console.log(boxHelper.min.y -  box.min.y)
+          // const nextElevate = (box.max.y - box.max.y - 0.1)
+          console.log('INDEX', index, nextElevate)
+          elevate = Math.max(elevate, nextElevate)
           collision = true
           // if box intersect --> move up
           // if boxHelper not intersecting anymore, moveDown --> overrite
@@ -659,18 +700,16 @@ class SceneManager extends EventEmitter {
       }
 
       if (collision) {
-        console.log('collision', elevateScale)
+        console.log('collision', elevate)
         // move boxHelper up and do the test again
-        boxHelper.max.y += elevateScale
-        boxHelper.min.y += elevateScale
-        // this.renderer.render(this.scene, CameraController.camera)
-        // elevateScale++
+        boxHelper.max.y = elevate + box.max.y - box.min.y
+        boxHelper.min.y = elevate + 0.1
+        storeElevate = elevate + 0.1
+        this.renderer.render(this.scene, CameraController.camera)
         detectCollision()
-
-        // this.selectedSubject.moveTo(null, this.planeHelper.position.y + elevateScale, null)
       } else {
-        console.log('no more collision', elevateScale)
-        this.moveOffset.y = elevateScale
+        console.log('no more collision', storeElevate)
+        this.moveOffset.y = storeElevate
         if (isEditing && this.selectedSubject) {
           // update position
           this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
