@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Опитайте отново"
 	},
+	"controller_gamepad": {
+		"message": "Контролер"
+	},
+	"controller_keyboard": {
+		"message": "Клавиатура"
+	},
+	"controller_mouse": {
+		"message": "Мишка"
+	},
+	"controller_touch": {
+		"message": "Докосване"
+	},
 	"copy-me": {
 		"message": "Копирайте тази връзка, за да споделите съобщението си"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Изберете тяло на джудже"
 	},
+	"elves": {
+		"message": "Джуджета"
+	},
 	"elvish_language_name": {
 		"message": "елфски"
 	},
@@ -612,9 +627,6 @@
 		"message": "Ами сега! Джуджетата на Дядо Коледа не могат да намерят тази страница! Може да имате повече късмет, ако се върнете в \u003ca href=\"./\"\u003eселцето на Дядо Коледа\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Опитайте отново"
-	},
-	"error_try_again": {
 		"message": "Опитайте отново"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Тържественото откриване е утре"
 	},
+	"opens": {
+		"message": "Стартира на"
+	},
 	"ornament-print-instructions": {
 		"message": "Сгънете тук и залепете страните една за друга"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Летище на Северния полюс"
 	},
+	"scene_android_cityquiz": {
+		"message": "Географска викторина"
+	},
+	"scene_android_dancer": {
+		"message": "Танцуващият елен"
+	},
+	"scene_android_penguinswim": {
+		"message": "Плуващият пингвин"
+	},
+	"scene_android_presenttoss": {
+		"message": "Хвърляне на подаръци"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Реактивна шейна"
+	},
+	"scene_android_snowballrun": {
+		"message": "Замерване със снежни топки"
+	},
 	"scene_app": {
 		"message": "Приложение за Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Фабрика за бонбони"
 	},
+	"scene_family": {
+		"message": "Справочник за семейства"
+	},
 	"scene_giftmatch": {
 		"message": "Съчетаване на подаръци"
 	},
 	"scene_glider": {
 		"message": "Джудже с парапланер"
 	},
+	"scene_guides": {
+		"message": "Насоки за възрастни"
+	},
 	"scene_gumball": {
 		"message": "Балансиране на топчета от дъвка"
+	},
+	"scene_havoc": {
+		"message": "Хаос от подаръци"
 	},
 	"scene_icecave": {
 		"message": "Ледена пещера"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Бой със снежни топки"
 	},
+	"scene_snowbox": {
+		"message": "Снежна среда"
+	},
 	"scene_snowflake": {
 		"message": "Кодиране на снежинка"
 	},
 	"scene_speedsketch": {
 		"message": "Рисуване върху заскрежено стъкло"
+	},
+	"scene_storybook": {
+		"message": "Разкази за екологичната устойчивост"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "В Обединеното кралство по време на вечеря деца и възрастни се забавляват с „коледни бонбони“. Това са картонени цилиндри, увити с цветна хартия. При издърпване на двата края в противоположна посока бонбонът се отваря с пукане. В него има играчки, шеги и награди за забавление през коледната нощ."
 	},
+	"underconstruction": {
+		"message": "В процес на разработване"
+	},
+	"unlocks": {
+		"message": "Достъпно на"
+	},
 	"unmute": {
 		"message": "Със звук"
 	},
 	"upgrade-warning": {
-		"message": "Ами сега! Къде е Дядо Коледа не се поддържа в браузъра ви или JavaScript е деактивиран. За достъп до Къде е Дядо Коледа изтеглете съвременен браузър или активирайте JavaScript. За още информация отворете: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ами сега! „Къде е Дядо Коледа“ не се поддържа за браузъра ви или сте деактивирали JavaScript. За достъп до „Къде е Дядо Коледа“ изтеглете съвременен браузър или активирайте JavaScript."
 	},
 	"us_country_name": {
 		"message": "Съединени щати"

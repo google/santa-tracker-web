@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Mēģināt vēlreiz"
 	},
+	"controller_gamepad": {
+		"message": "Vadāmierīce"
+	},
+	"controller_keyboard": {
+		"message": "Tastatūra"
+	},
+	"controller_mouse": {
+		"message": "Pele"
+	},
+	"controller_touch": {
+		"message": "Pieskāriens"
+	},
 	"copy-me": {
 		"message": "Kopējiet šo saiti, lai kopīgotu savu ziņojumu"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Izvēlieties rūķīša ķermeni"
 	},
+	"elves": {
+		"message": "Rūķīši"
+	},
 	"elvish_language_name": {
 		"message": "Rūķīšu"
 	},
@@ -612,9 +627,6 @@
 		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Mēģiniet vēlreiz"
-	},
-	"error_try_again": {
 		"message": "Mēģiniet vēlreiz"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Lielā atklāšana būs rīt!"
 	},
+	"opens": {
+		"message": "Tiks atvērts"
+	},
 	"ornament-print-instructions": {
 		"message": "Nolokiet pa šo līniju un salīmējiet abas puses"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Ziemeļpola lidosta"
 	},
+	"scene_android_cityquiz": {
+		"message": "Pilsētu viktorīnas spēle"
+	},
+	"scene_android_dancer": {
+		"message": "Ziemeļbriedis Dašers dejo"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingvīna peldēšana"
+	},
+	"scene_android_presenttoss": {
+		"message": "Dāvanu mešana"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Reaktīvās kamanas"
+	},
+	"scene_android_snowballrun": {
+		"message": "Bēgšana no sniega pikām"
+	},
 	"scene_app": {
 		"message": "Android lietotne"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Saldumu rūpnīca"
 	},
+	"scene_family": {
+		"message": "Ģimenes ceļvedis"
+	},
 	"scene_giftmatch": {
 		"message": "Dāvanu atbilstību meklētājs"
 	},
 	"scene_glider": {
 		"message": "Rūķīša planieris"
 	},
+	"scene_guides": {
+		"message": "Padomi pieaugušajiem"
+	},
 	"scene_gumball": {
 		"message": "Spēle Gumball Tilt"
+	},
+	"scene_havoc": {
+		"message": "Dāvanu haoss"
 	},
 	"scene_icecave": {
 		"message": "Ledus ala"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Sniega piku kauja"
 	},
+	"scene_snowbox": {
+		"message": "Sniegakaste"
+	},
 	"scene_snowflake": {
 		"message": "Sniegpārsliņas izveide ar kodu"
 	},
 	"scene_speedsketch": {
 		"message": "Zīmēšana uz ātrumu"
+	},
+	"scene_storybook": {
+		"message": "Stāsti par ilgtspējību"
 	},
 	"scene_streetview": {
 		"message": "Ielas attēls"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "Lielbritānijā svētku dalībnieki neatkarīgi no vecuma pie vakariņu galda šauj plaukšķenes. Tās ir krāsainā papīrā ietītas caurules ar aukliņām abos galos. Paraujot aukliņas, caurule ar skaļu blīkšķi pārplīst. Tajā ir papīra cepures, rotaļlietas, joki un balvas, kas sniedz prieku Ziemassvētku vakarā."
 	},
+	"underconstruction": {
+		"message": "Notiek remontdarbi"
+	},
+	"unlocks": {
+		"message": "Būs pieejams"
+	},
 	"unmute": {
 		"message": "Ieslēgt skaņu"
 	},
 	"upgrade-warning": {
-		"message": "Hmm... Ziemassvētku vecīša ceļojums netiek atbalstīts jūsu pārlūkprogrammā, vai arī jums ir atspējots JavaScript. Lai piekļūtu Ziemassvētku vecīša ceļojumam, lejupielādējiet jaunāku pārlūkprogrammu vai iespējojiet JavaScript.\nPlašāka informācija: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hmm… Ziemassvētku vecīša ceļojums netiek atbalstīts jūsu pārlūkprogrammā, vai arī jums ir atspējots JavaScript. Lai piekļūtu Ziemassvētku vecīša ceļojumam, lejupielādējiet jaunāku pārlūkprogrammu vai iespējojiet JavaScript."
 	},
 	"us_country_name": {
 		"message": "Amerikas Savienotās Valstis"

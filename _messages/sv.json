@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Försök igen"
 	},
+	"controller_gamepad": {
+		"message": "Spelkontroll"
+	},
+	"controller_keyboard": {
+		"message": "Tangentbord"
+	},
+	"controller_mouse": {
+		"message": "Mus"
+	},
+	"controller_touch": {
+		"message": "Pekskärm"
+	},
 	"copy-me": {
 		"message": "Kopiera den här länken för att dela ditt meddelande"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Välj kropp"
 	},
+	"elves": {
+		"message": "Tomtenissar"
+	},
 	"elvish_language_name": {
 		"message": "alviska"
 	},
@@ -612,9 +627,6 @@
 		"message": "Åh nej! Jultomtens nissar kan inte hitta sidan! Du kanske lyckas bättre om du går tillbaka till \u003ca href=\"./\"\u003eTomtebyn\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Försök igen"
-	},
-	"error_try_again": {
 		"message": "Försök igen"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Stor premiär i morgon"
 	},
+	"opens": {
+		"message": "Öppnar"
+	},
 	"ornament-print-instructions": {
 		"message": "Vik här och limma ihop sidorna"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Nordpolens flygplats"
 	},
+	"scene_android_cityquiz": {
+		"message": "Stadsfrågor"
+	},
+	"scene_android_dancer": {
+		"message": "Rendans"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingvinsimning"
+	},
+	"scene_android_presenttoss": {
+		"message": "Presentkast"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketsläde"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snöbollslopp"
+	},
 	"scene_app": {
 		"message": "Android-app"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Godisfabriken"
 	},
+	"scene_family": {
+		"message": "Familjeguide"
+	},
 	"scene_giftmatch": {
 		"message": "Matcha presenter"
 	},
 	"scene_glider": {
 		"message": "Flygande fläng"
 	},
+	"scene_guides": {
+		"message": "Anvisningar för vuxna"
+	},
 	"scene_gumball": {
 		"message": "Godisspel"
+	},
+	"scene_havoc": {
+		"message": "Klappkaos"
 	},
 	"scene_icecave": {
 		"message": "Isgrotta"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Snöbollsstorm"
 	},
+	"scene_snowbox": {
+		"message": "Snölåda"
+	},
 	"scene_snowflake": {
 		"message": "Koda en snöflinga"
 	},
 	"scene_speedsketch": {
 		"message": "Snabbskissa"
+	},
+	"scene_storybook": {
+		"message": "Sagobok om hållbarhet"
 	},
 	"scene_streetview": {
 		"message": "Gatuvy"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker, skämtgrejer och priser att njuta av under julkvällen."
 	},
+	"underconstruction": {
+		"message": "Under uppbyggnad"
+	},
+	"unlocks": {
+		"message": "Upplåsningar"
+	},
 	"unmute": {
 		"message": "Slå på ljudet"
 	},
 	"upgrade-warning": {
-		"message": "Hoppsan! Följ jultomten stöds inte i din webbläsare eller så är JavaScript inaktiverat. Hämta en modern webbläsare eller aktivera JavaScript för att använda Följ jultomten.\nMer information finns på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e"
+		"message": "Hoppsan! Följ jultomten stöds inte i din webbläsare eller så är JavaScript inaktiverat. Hämta en modern webbläsare eller aktivera JavaScript för att använda Följ jultomten."
 	},
 	"us_country_name": {
 		"message": "USA"

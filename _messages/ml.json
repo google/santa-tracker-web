@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "വീണ്ടും ശ്രമിക്കുക"
 	},
+	"controller_gamepad": {
+		"message": "കൺട്രോളർ"
+	},
+	"controller_keyboard": {
+		"message": "കീബോർഡ്"
+	},
+	"controller_mouse": {
+		"message": "മൗസ്"
+	},
+	"controller_touch": {
+		"message": "സ്‌പർശം"
+	},
 	"copy-me": {
 		"message": "നിങ്ങളുടെ സന്ദേശം പങ്കിടാൻ ഈ ലിങ്ക് പകർത്തുക"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "ഒരു കുട്ടിച്ചാത്തന്റെ ശരീരം തിരഞ്ഞെടുക്കുക"
 	},
+	"elves": {
+		"message": "എൽവ്സ്"
+	},
 	"elvish_language_name": {
 		"message": "എൽവിഷ്"
 	},
@@ -612,9 +627,6 @@
 		"message": "ക്ഷമിക്കണം, സാന്തയുടെ എൽവ്‌സിന് ഈ പേജ് കണ്ടെത്താനായില്ല! \u003ca href=\"./\"\u003eസാന്തയുടെ ഗ്രാമത്തിലേക്ക്\u003c/a\u003e തിരികെ പോയാൽ നിങ്ങൾക്ക് ഭാഗ്യമുണ്ടായേക്കാം."
 	},
 	"error-try-again": {
-		"message": "വീണ്ടും ശ്രമിക്കൂ"
-	},
-	"error_try_again": {
 		"message": "വീണ്ടും ശ്രമിക്കൂ"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "നാളെ മഹത്തായ ഉദ്‌ഘാടനം"
 	},
+	"opens": {
+		"message": "തുറക്കുന്നു"
+	},
 	"ornament-print-instructions": {
 		"message": "ഇവിടെ മടക്കുക, പശയുള്ള ഭാഗങ്ങൾ ഒരുമിച്ച് ചേർക്കുക"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "ഉത്തരധ്രുവ എയർപോർട്ട്"
 	},
+	"scene_android_cityquiz": {
+		"message": "സിറ്റി ക്വിസ്"
+	},
+	"scene_android_dancer": {
+		"message": "ഡാഷർ ഡാൻസർ"
+	},
+	"scene_android_penguinswim": {
+		"message": "പെൻഗ്വിൻ സ്വിം"
+	},
+	"scene_android_presenttoss": {
+		"message": "പ്രെസന്റ് ടോസ്"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "റോക്കറ്റ് സ്ലെയ്"
+	},
+	"scene_android_snowballrun": {
+		"message": "സ്നോബോൾ റൺ"
+	},
 	"scene_app": {
 		"message": "Android ആപ്പ്"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "കാൻഡി ഫാക്ടറി"
 	},
+	"scene_family": {
+		"message": "കുടുംബ ഗൈഡ്"
+	},
 	"scene_giftmatch": {
 		"message": "ഗിഫ്റ്റ് മാച്ചർ"
 	},
 	"scene_glider": {
 		"message": "എൽഫ് ഗ്ലൈഡർ"
 	},
+	"scene_guides": {
+		"message": "മുതിർന്നവർക്കുള്ള ഗൈഡുകൾ"
+	},
 	"scene_gumball": {
 		"message": "ഗംബോൾ ടിൽറ്റ്"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "മഞ്ഞ് ഗുഹ"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "സ്‌നോബോൾ സ്‌റ്റോം"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
 	},
 	"scene_speedsketch": {
 		"message": "സ്‌പീഡ് സ്‌കെച്ച്"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "തെരുവ് കാഴ്‌ച"
@@ -1581,7 +1629,7 @@
 		"message": "Made with Code: അവധിക്കാല ഇമോജി"
 	},
 	"sidebar_earth_quiz": {
-		"message": "Google എർത്ത്: അവധിക്കാല പരമ്പരാഗത ക്വിസ്"
+		"message": "Google Earth: അവധിക്കാല ക്വിസ്"
 	},
 	"sidebar_santas_location": {
 		"message": "Google മാപ്‌സ്: സാന്തായുടെ ലൊക്കേഷൻ"
@@ -3897,7 +3945,7 @@
 		"message": "യൂറോപ്പ്"
 	},
 	"trivia_beginner_065": {
-		"message": "കെനിയയിലും താൻസാനിയയിലുമാണ് ലോകത്തിലെ ഏറ്റവും വേഗത കൂടിയ സസ്തനികളായ ചീറ്റകൾ കാണപ്പെടുന്നത്. ഏത് ഭൂഖണ്ഡത്തിലാണ് ഈ രാജ്യങ്ങൾ ഉള്ളത്?"
+		"message": "കെനിയയിലും ടാൻസാനിയയിലുമാണ് കരയിലെ ഏറ്റവും വേഗത കൂടിയ സസ്തനികളായ ചീറ്റകൾ കാണപ്പെടുന്നത്. ഏത് ഭൂഖണ്ഡത്തിലാണ് ഈ രാജ്യങ്ങൾ?"
 	},
 	"trivia_beginner_065_answer0": {
 		"message": "ആഫ്രിക്ക"
@@ -4173,7 +4221,7 @@
 		"message": "ജോർദ്ദാൻ"
 	},
 	"trivia_beginner_088": {
-		"message": "ഭൂമിയുടെ ഏറ്റവും തെക്കുള്ള ബിന്ദുവായ ഉത്തരധ്രുവം സ്ഥിതിചെയ്യുന്നത് ഏത് സമുദ്രത്തിന്റെ നടുക്കാണ്?"
+		"message": "ഭൂമിയുടെ ഏറ്റവും വടക്കുവശത്തുള്ള ബിന്ദുവായ ഉത്തരധ്രുവം ഏത് സമുദ്രത്തിന്റെ നടുക്കാണ് സ്ഥിതിചെയ്യുന്നത്?"
 	},
 	"trivia_beginner_088_answer0": {
 		"message": "ആർട്ടിക്ക് സമുദ്രം"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "യുണൈറ്റഡ് കിംഗ്‌ഡത്തിൽ തീൻ മേശയിൽ ക്രിസ്‌മസ് പടക്കങ്ങൾ പൊട്ടിച്ചുകൊണ്ടാണ് ഈ സവിശേഷ മുഹൂർത്തം കൊണ്ടാടുന്നത്. നിറമുള്ള പേപ്പറിൽ പൊതിഞ്ഞ ട്യൂബുകളാണ് ഈ പടക്കങ്ങൾ. ഇതിന്‍റെ ഒരറ്റത്ത് വലിക്കാവുന്ന നാടയുണ്ട്. നാട വലിച്ചാൽ വലിയ ശബ്ദത്തോടെ ട്യൂബ് പൊട്ടിച്ചിതറുന്നു. അതിനുള്ളിൽ നിന്ന് പേപ്പർ തൊപ്പികളും തമാശയുണർത്തുന്ന സാധനങ്ങളും കളിക്കോപ്പുകളും സമ്മാനങ്ങളും പുറത്തേക്ക് ചാടും. ക്രിസ്‌മസ് രാത്രിയിലാണ് ഈ ചടങ്ങ് നടക്കുന്നത്."
 	},
+	"underconstruction": {
+		"message": "നിർമ്മാണത്തിലാണ്"
+	},
+	"unlocks": {
+		"message": "അൺലോക്ക് ചെയ്യുന്നു"
+	},
 	"unmute": {
 		"message": "ശബ്‌ദമുള്ളതാക്കുക"
 	},
 	"upgrade-warning": {
-		"message": "ക്ഷമിക്കണം! സാന്താ ട്രാക്കർ നിങ്ങളുടെ ബ്രൗസറിന് അനുയോജ്യമല്ല അല്ലെങ്കിൽ നിങ്ങളുടെ JavaScript പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. സാന്താ ട്രാക്കർ ആക്‌സസ് ചെയ്യാൻ, ഒരു ആധുനിക ബ്രൗസർ ഡൗൺലോഡ് ചെയ്യുക അല്ലെങ്കിൽ JavaScript പ്രവർത്തനക്ഷമമാക്കുക. കൂടുതൽ വിവരങ്ങൾക്ക്: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e സന്ദർശിക്കുക."
+		"message": "ക്ഷമിക്കണം! സാന്താ ട്രാക്കർ നിങ്ങളുടെ ബ്രൗസറിൽ പിന്തുണയ്‌ക്കുന്നില്ല, അല്ലെങ്കിൽ നിങ്ങളുടെ JavaScript പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. സാന്താ ട്രാക്കർ ആക്‌സസ് ചെയ്യാൻ, ഒരു ആധുനിക ബ്രൗസർ ഡൗൺലോഡ് ചെയ്യുകയോ JavaScript പ്രവർത്തനക്ഷമമാക്കുകയോ ചെയ്യുക."
 	},
 	"us_country_name": {
 		"message": "യുണൈറ്റഡ് സ്റ്റേറ്റ്സ്"

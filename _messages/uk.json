@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Повторити"
 	},
+	"controller_gamepad": {
+		"message": "Джойстик"
+	},
+	"controller_keyboard": {
+		"message": "Клавіатура"
+	},
+	"controller_mouse": {
+		"message": "Миша"
+	},
+	"controller_touch": {
+		"message": "Торкання"
+	},
 	"copy-me": {
 		"message": "Посилання на листівку"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Виберіть тип тіла ельфа"
 	},
+	"elves": {
+		"message": "Помічники"
+	},
 	"elvish_language_name": {
 		"message": "ельфійська"
 	},
@@ -612,9 +627,6 @@
 		"message": "На жаль, помічникам Діда Мороза не вдалося знайти цю сторінку. Мабуть, краще повернутись у \u003ca href=\"./\"\u003eмістечко Діда Мороза\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Спробуйте знову"
-	},
-	"error_try_again": {
 		"message": "Спробуйте знову"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Урочисте відкриття вже завтра"
 	},
+	"opens": {
+		"message": "Відкривається"
+	},
 	"ornament-print-instructions": {
 		"message": "Загніть тут і склейте сторони"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Аеропорт Північного полюса"
 	},
+	"scene_android_cityquiz": {
+		"message": "Угадай місто"
+	},
+	"scene_android_dancer": {
+		"message": "Олень-танцівник"
+	},
+	"scene_android_penguinswim": {
+		"message": "Заплив пінгвіна"
+	},
+	"scene_android_presenttoss": {
+		"message": "Подарунковий бум"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Реактивні санчата"
+	},
+	"scene_android_snowballrun": {
+		"message": "Утікай від сніжки"
+	},
 	"scene_app": {
 		"message": "Додаток Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Цукеркова фабрика"
 	},
+	"scene_family": {
+		"message": "Посібник для сім'ї"
+	},
 	"scene_giftmatch": {
 		"message": "Підбір подарунків"
 	},
 	"scene_glider": {
 		"message": "Ельф-планерист"
 	},
+	"scene_guides": {
+		"message": "Рекомендації для дорослих"
+	},
 	"scene_gumball": {
 		"message": "Перекоти кульку"
+	},
+	"scene_havoc": {
+		"message": "Подарунковий хаос"
 	},
 	"scene_icecave": {
 		"message": "Крижана печера"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Бій сніжками"
 	},
+	"scene_snowbox": {
+		"message": "Сніжна скарбничка"
+	},
 	"scene_snowflake": {
 		"message": "Створи сніжинку"
 	},
 	"scene_speedsketch": {
 		"message": "Швидка замальовка"
+	},
+	"scene_storybook": {
+		"message": "Казки про екологію"
 	},
 	"scene_streetview": {
 		"message": "Перегляд вулиць"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "У Великій Британії дорослі й діти обожнюють святкові хлопавки – традиційні забавки в яскравих обгортках. Якщо потягнути за кінці обгортки, пролунає гучний постріл, а з хлопавки посиплються подарунки, жарти, іграшки та паперові капелюхи."
 	},
+	"underconstruction": {
+		"message": "У стані будівництва"
+	},
+	"unlocks": {
+		"message": "Розблоковується"
+	},
 	"unmute": {
 		"message": "Увімкнути звук"
 	},
 	"upgrade-warning": {
-		"message": "На жаль, сервіс Де Дід Мороз не підтримується в цьому веб-переглядачі або ви вимкнули JavaScript. Щоб відстежувати, де Дід Мороз, завантажте найновішу версію веб-переглядача або ввімкніть JavaScript. Дізнатися поточну версію можна на сайті \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "На жаль, сервіс Де Дід Мороз не підтримується в цьому веб-переглядачі або ви вимкнули JavaScript. Щоб відстежувати, де Дід Мороз, завантажте найновішу версію веб-переглядача або ввімкніть JavaScript."
 	},
 	"us_country_name": {
 		"message": "США"

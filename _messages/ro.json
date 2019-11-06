@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Încearcă din nou"
 	},
+	"controller_gamepad": {
+		"message": "Controler"
+	},
+	"controller_keyboard": {
+		"message": "Tastatură"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Atingere"
+	},
 	"copy-me": {
 		"message": "Copiază acest link pentru a trimite mesajul"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Alege un tip de elf"
 	},
+	"elves": {
+		"message": "Elfi"
+	},
 	"elvish_language_name": {
 		"message": "Elfă"
 	},
@@ -612,9 +627,6 @@
 		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Încearcă din nou"
-	},
-	"error_try_again": {
 		"message": "Încearcă din nou"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Marea deschidere de mâine"
 	},
+	"opens": {
+		"message": "Se deschide pe"
+	},
 	"ornament-print-instructions": {
 		"message": "Îndoaie aici și lipește părțile una de alta"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Aeroportul de la Polul Nord"
 	},
+	"scene_android_cityquiz": {
+		"message": "Găsește orașul"
+	},
+	"scene_android_dancer": {
+		"message": "Dansează cu Dasher"
+	},
+	"scene_android_penguinswim": {
+		"message": "Înotul pinguinului"
+	},
+	"scene_android_presenttoss": {
+		"message": "Aruncarea cadourilor"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Sania-rachetă"
+	},
+	"scene_android_snowballrun": {
+		"message": "Fugi de bulgăre"
+	},
 	"scene_app": {
 		"message": "Aplicație Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Fabrica de bomboane"
 	},
+	"scene_family": {
+		"message": "Ghid pentru familii"
+	},
 	"scene_giftmatch": {
 		"message": "Cadourile perfecte"
 	},
 	"scene_glider": {
 		"message": "Elf zburător"
 	},
+	"scene_guides": {
+		"message": "Ghiduri pentru adulți"
+	},
 	"scene_gumball": {
 		"message": "Direct la țintă"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "Peșteră înghețată"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Furtună cu bulgări de zăpadă"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Scrie codul unui fulg de zăpadă"
 	},
 	"scene_speedsketch": {
 		"message": "Ghicitori desenate"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "Vedere din stradă"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării, glume și premii pentru noaptea de Crăciun."
 	},
+	"underconstruction": {
+		"message": "În construcție"
+	},
+	"unlocks": {
+		"message": "Se deblochează pe"
+	},
 	"unmute": {
 		"message": "Activează"
 	},
 	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în browserul tău sau ai dezactivat JavaScript. Pentru a accesa aplicația, descarcă un browser nou sau activează JavaScript.\nPentru mai multe informații, accesează: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în browserul dvs. sau ați dezactivat JavaScript. Pentru a accesa aplicația, descarcați un browser nou sau activați JavaScript."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "ลองอีกครั้ง"
 	},
+	"controller_gamepad": {
+		"message": "ตัวควบคุม"
+	},
+	"controller_keyboard": {
+		"message": "แป้นพิมพ์"
+	},
+	"controller_mouse": {
+		"message": "เมาส์"
+	},
+	"controller_touch": {
+		"message": "แตะ"
+	},
 	"copy-me": {
 		"message": "คัดลอกลิงก์นี้เพื่อแชร์ข้อความของคุณ"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "เลือกร่างเอลฟ์"
 	},
+	"elves": {
+		"message": "เอลฟ์"
+	},
 	"elvish_language_name": {
 		"message": "ภาษาเอลฟ์"
 	},
@@ -612,9 +627,6 @@
 		"message": "ขออภัย เหล่าเอลฟ์ของซานต้าไม่พบหน้านี้ ลองกลับไปค้นหาที่\u003ca href=\"./\"\u003eหมู่บ้านของซานต้า\u003c/a\u003e"
 	},
 	"error-try-again": {
-		"message": "ลองอีกครั้ง"
-	},
-	"error_try_again": {
 		"message": "ลองอีกครั้ง"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "เปิดตัวครั้งยิ่งใหญ่วันพรุ่งนี้"
 	},
+	"opens": {
+		"message": "เปิด"
+	},
 	"ornament-print-instructions": {
 		"message": "พับที่นี่ และติดกาวแต่ละด้านเข้าด้วยกัน"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "สนามบินขั้วโลกเหนือ"
 	},
+	"scene_android_cityquiz": {
+		"message": "ทายชื่อเมือง"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher ขาแดนซ์"
+	},
+	"scene_android_penguinswim": {
+		"message": "เพนกวินว่ายน้ำ"
+	},
+	"scene_android_presenttoss": {
+		"message": "โยนของขวัญ"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "คุมซานตาคลอสขับจรวด"
+	},
+	"scene_android_snowballrun": {
+		"message": "วิ่งหนีบอลหิมะ"
+	},
 	"scene_app": {
 		"message": "แอป Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "โรงงานลูกอม"
 	},
+	"scene_family": {
+		"message": "คำแนะนำสำหรับครอบครัว"
+	},
 	"scene_giftmatch": {
 		"message": "จับคู่ของขวัญ"
 	},
 	"scene_glider": {
 		"message": "เอลฟ์บนร่มบิน"
 	},
+	"scene_guides": {
+		"message": "คำแนะนำสำหรับผู้ใหญ่"
+	},
 	"scene_gumball": {
 		"message": "เอียง Gumball"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "ถ้ำน้ำแข็ง"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "ศึกปาลูกบอลหิมะ"
 	},
+	"scene_snowbox": {
+		"message": "กล่องของขวัญ"
+	},
 	"scene_snowflake": {
 		"message": "สร้างเกล็ดหิมะ"
 	},
 	"scene_speedsketch": {
 		"message": "สเก็ตช์ภาพอย่างเร็ว"
+	},
+	"scene_storybook": {
+		"message": "นิทานเกี่ยวกับความยั่งยืน"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "ในสหราชอาณาจักร ผู้เฉลิมฉลองทุกเพศทุกวัยจะสนุกกับประทัดคริสต์มาสบนโต๊ะอาหารในมื้อเย็น ประทัดนี้มีลักษณะเป็นท่อห่อด้วยกระดาษสีสันสดใสโดยมีแถบสำหรับดึงติดอยู่ทั้งสองด้าน เมื่อดึงแถบ ประทัดจะระเบิดพร้อมเสียงดัง ข้างในประทัดจะมีหมวกกระดาษ ของเล่น เรื่องตลก และรางวัลให้ได้สนุกกันในคืนคริสต์มาส"
 	},
+	"underconstruction": {
+		"message": "อยู่ระหว่างการก่อสร้าง"
+	},
+	"unlocks": {
+		"message": "ปลดล็อก"
+	},
 	"unmute": {
 		"message": "เปิดเสียง"
 	},
 	"upgrade-warning": {
-		"message": "อ๊ะ เบราว์เซอร์ของคุณไม่รองรับ \"ติดตามซานตาคลอส\" หรือคุณปิดใช้ JavaScript อยู่ หากต้องการเข้าถึงติดตามซานตาคลอส ลองดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่หรือเปิดใช้ JavaScript\nไปที่ \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e เพื่อดูข้อมูลเพิ่มเติม"
+		"message": "อ๊ะ เบราว์เซอร์ของคุณไม่รองรับ \"ติดตามซานตาคลอส\" หรือคุณปิดใช้ JavaScript อยู่ หากต้องการเข้าถึงติดตามซานตาคลอส ลองดาวน์โหลดเบราว์เซอร์เวอร์ชันใหม่หรือเปิดใช้ JavaScript"
 	},
 	"us_country_name": {
 		"message": "สหรัฐอเมริกา"
