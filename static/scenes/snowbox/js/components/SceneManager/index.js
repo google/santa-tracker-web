@@ -627,41 +627,6 @@ class SceneManager extends EventEmitter {
     };
   }
 
-    // const { ghost, box, mesh } = this.selectedSubject
-    // const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    // const fakeBox = new THREE.Box3().copy(box)
-    // fakeBox.max.y -= CONFIG.ELEVATE_SCALE
-    // fakeBox.min.y -= CONFIG.ELEVATE_SCALE
-    // let moveDown = true
-    // let moveUp = false
-    // let elevateScale
-
-    // if (boxes.length > 0) {
-    //   for (let index = 0; index < boxes.length; index++) {
-    //     const boxItem = boxes[index]
-
-    //     if (box.intersectsBox(boxItem)) {
-    //       moveUp = true
-    //       elevateScale = boxItem.max.y - box.min.y + 0.01
-    //       break
-    //     } else if (fakeBox.intersectsBox(boxItem)) {
-    //       moveDown = false
-    //     }
-    //   }
-    // }
-
-    // if (box.min.y < 0) {
-    //   moveUp = true
-    //   elevateScale = -box.min.y
-    // }
-
-    // if (moveUp) {
-    //   this.move('up', true, elevateScale)
-    // } else if (moveDown && fakeBox.min.y > 0) {
-    //   this.move('down', true)
-    //   this.checkCollision()
-    // }
-
   checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
     const { box } = this.selectedSubject
