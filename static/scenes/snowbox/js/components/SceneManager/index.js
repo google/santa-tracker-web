@@ -144,7 +144,7 @@ class SceneManager extends EventEmitter {
   }
 
   buildSky() {
-    this.sky = new Sky(this.scene, this.cameraCtrl.camera)
+    this.sky = new Sky(this.scene, CameraController.camera)
   }
 
   buildHelpers() {
