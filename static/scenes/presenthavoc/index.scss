@@ -78,6 +78,7 @@ body {
         height: 15px;
         left: 18px;
         position: absolute;
+        top: auto;
         width: 15px;
       }
     }
@@ -90,6 +91,7 @@ body {
         height: 15px;
         left: 18px;
         position: absolute;
+        top: auto;
         width: 15px;
       }
     }
@@ -102,6 +104,7 @@ body {
         height: 15px;
         left: 18px;
         position: absolute;
+        top: auto;
         width: 15px;
       }
     }
@@ -160,6 +163,12 @@ body {
     background: url(img/present.svg) center/contain no-repeat;
     height: $grid-unit-size * $present-height;
     width: $grid-unit-size * $present-width;
+  }
+
+  .platform {
+    background: #30a658;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
   }
 
   // .title {

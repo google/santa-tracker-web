@@ -134,6 +134,18 @@ Levels = [
           ]
         }
       },
+      {
+        type: 'platform',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 23,
+            y: 4
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
     ]
   },
 ]
