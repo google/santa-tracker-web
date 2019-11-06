@@ -17,6 +17,6 @@ app.Platform = class Platform extends app.Slider {
 
   onContact(player) {
     super.onContact(player)
-    return [Constants.PLAYER_ACTIONS.STICK]
+    return [Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
   }
 }

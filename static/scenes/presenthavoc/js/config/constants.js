@@ -24,7 +24,7 @@ Constants = {
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
     RESTART: 'restart',
-    STICK: 'stick',
+    STICK_TO_PLATFORM: 'stick',
     BOUNCE: 'bounce',
     BLOCK: 'block',
     DROP_ITEM: 'drop',

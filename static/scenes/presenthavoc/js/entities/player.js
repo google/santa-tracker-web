@@ -16,6 +16,8 @@ app.Player = class Player {
 
     this.toyParts = []
 
+    this.platform = null
+
     this.position = {
       x: this.config.startPos.x,
       y: this.config.startPos.y,
@@ -49,25 +51,44 @@ app.Player = class Player {
   }
 
   onFrame(delta) {
-    // check what else is on this grid spot
-    // report position to board
-
     this.prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      this.position.x = Math.max(0, this.position.x - Constants.PLAYER_STEP_SIZE)
+      if (this.platform) {
+        this.platformOffset.x -= Constants.PLAYER_STEP_SIZE
+      } else {
+        this.position.x = Math.max(0, this.position.x - Constants.PLAYER_STEP_SIZE)
+      }
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1, this.position.x + Constants.PLAYER_STEP_SIZE)
+      if (this.platform) {
+        this.platformOffset.x += Constants.PLAYER_STEP_SIZE
+      } else {
+        this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1, this.position.x + Constants.PLAYER_STEP_SIZE)
+      }
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      this.position.y = Math.max(0, this.position.y - Constants.PLAYER_STEP_SIZE)
+      if (this.platform) {
+        this.platformOffset.y -= Constants.PLAYER_STEP_SIZE
+      } else {
+        this.position.y = Math.max(0, this.position.y - Constants.PLAYER_STEP_SIZE)
+      }
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
+      if (this.platform) {
+        this.platformOffset.y += Constants.PLAYER_STEP_SIZE
+      } else {
+        this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
+      }
+    }
+
+    // check if you left the platform
+    if (this.platform) {
+      this.position.x = this.platform.position.x + this.platformOffset.x
+      this.position.y = this.platform.position.y + this.platformOffset.y
     }
 
     const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
@@ -120,6 +141,15 @@ app.Player = class Player {
 
       // temporary
       this.context.classList.add('is-winner')
+    }
+
+    const platform = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
+    if (platform) {
+      this.platform = platform
+      this.platformOffset = {
+        x: this.position.x - platform.position.x,
+        y: this.position.y - platform.position.y
+      }
     }
   }
 

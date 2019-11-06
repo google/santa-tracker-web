@@ -79,12 +79,12 @@ app.Game = class Game {
     this.lastFrame = now
     // this.timePassed += delta
 
-    for (const player of this.players) {
-      player.onFrame(delta)
-    }
-
     for (const entity of this.entities) {
       entity.onFrame(delta)
+    }
+
+    for (const player of this.players) {
+      player.onFrame(delta)
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))

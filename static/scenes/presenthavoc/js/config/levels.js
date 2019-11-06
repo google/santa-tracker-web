@@ -143,7 +143,7 @@ Levels = [
             y: 4
           },
           movementLength: 5,
-          stepSize: .05
+          stepSize: .07
         }
       },
     ]
