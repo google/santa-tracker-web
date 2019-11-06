@@ -38,7 +38,7 @@ app.Player = class Player {
         angle: 0
       }
 
-      this.toyParts = []
+      this.clearToyParts()
 
       this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
@@ -90,7 +90,6 @@ app.Player = class Player {
 
   render() {
     Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
-    this.context.setAttribute('data-toy-parts', this.toyParts)
   }
 
   /**
@@ -113,13 +112,33 @@ app.Player = class Player {
 
     const toyEntity = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
     if (toyEntity) {
-      if (this.toyParts.indexOf(toyEntity.config.partType) == -1) {
-        this.toyParts.push(toyEntity.config.partType)
-      }
+      this.addToyPart(toyEntity.config.partType)
+    }
+
+    if (resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]) {
+      this.clearToyParts()
+
+      // temporary
+      this.context.classList.add('is-winner')
     }
   }
 
   onContact(player) {
     return [Constants.PLAYER_ACTIONS.BOUNCE]
+  }
+
+  addToyPart(toyPart) {
+    if (this.toyParts.indexOf(toyPart) == -1) {
+      this.toyParts.push(toyPart)
+      this.context.classList.add(`toypart--${toyPart}`)
+    }
+  }
+
+  clearToyParts() {
+    for (const toyPart of this.toyParts) {
+      this.context.classList.remove(`toypart--${toyPart}`)
+    }
+
+    this.toyParts = []
   }
 }

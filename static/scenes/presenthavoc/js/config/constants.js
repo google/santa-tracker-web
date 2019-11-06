@@ -19,7 +19,7 @@ Constants = {
       right: 'd'
     }
   },
-  PLAYER_STEP_SIZE: .04,
+  PLAYER_STEP_SIZE: .1,
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
@@ -43,5 +43,8 @@ Constants = {
 
   TABLE_HEIGHT: 2,
   TABLE_WIDTH: 3,
+
+  PRESENT_HEIGHT: 2,
+  PRESENT_WIDTH: 2,
 
 }

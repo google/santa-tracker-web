@@ -6,6 +6,8 @@ $mobile-breakpoint: 1100px;
 
 $grid-unit-size: 50px;
 $fence-border: 9px solid #9B643D;
+$present-width: 2;
+$present-height: 2;
 $table-width: 3;
 $table-height: 2;
 
@@ -41,6 +43,7 @@ body {
   .penguin,
   .pit,
   .player,
+  .present-box,
   .table,
   .wall {
     left: 0;
@@ -57,12 +60,47 @@ body {
       opacity: 0;
     }
 
-    &[data-toy-parts]:not([data-toy-parts='']) {
+    &.is-winner {
+      &::after {
+        font-size: 30px;
+        left: 11px;
+        top: -13px;
+        content: '👑';
+        position: absolute;
+      }
+    }
+
+    &.toypart--wheels {
       &::after {
         background: red;
         bottom: -20px;
-        height: 15px;
         content: '';
+        height: 15px;
+        left: 18px;
+        position: absolute;
+        width: 15px;
+      }
+    }
+
+    &.toypart--car-body {
+      &::after {
+        background: blue;
+        bottom: -20px;
+        content: '';
+        height: 15px;
+        left: 18px;
+        position: absolute;
+        width: 15px;
+      }
+    }
+
+    &.toypart--car-body.toypart--wheels {
+      &::after {
+        background: purple;
+        bottom: -20px;
+        content: '';
+        height: 15px;
+        left: 18px;
         position: absolute;
         width: 15px;
       }
@@ -116,6 +154,12 @@ body {
     background: url(img/table-3.svg) center/contain no-repeat;
     height: $grid-unit-size * $table-height;
     width: $grid-unit-size * $table-width;
+  }
+
+  .present-box {
+    background: url(img/present.svg) center/contain no-repeat;
+    height: $grid-unit-size * $present-height;
+    width: $grid-unit-size * $present-width;
   }
 
   // .title {
