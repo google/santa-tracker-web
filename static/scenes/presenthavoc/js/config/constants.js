@@ -4,6 +4,8 @@ goog.provide('Constants');
  * Constants for present havoc game.
  */
 Constants = {
+  DEBUG: true,
+
   // Configs for keyboard controls
   PLAYER_CONTROLS: {
     ARROWS: {

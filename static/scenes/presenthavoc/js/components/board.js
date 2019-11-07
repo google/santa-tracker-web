@@ -14,6 +14,10 @@ app.Board = class Board {
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
             el => []))
 
+    if (Constants.DEBUG) {
+      this.initDebugView()
+    }
+
     this.onResize()
     window.addEventListener('resize', this.onResize.bind(this))
   }
@@ -36,6 +40,31 @@ app.Board = class Board {
     }
   }
 
+  initDebugView() {
+    for (let i = 0; i < this.cells.length; i++) {
+      for (let j = 0; j < this.cells[i].length; j++) {
+        let debugCell = document.createElement('div')
+        debugCell.setAttribute('class', 'debug-cell')
+        debugCell.style.transform = `translate(${i * Constants.GRID_DIMENSIONS.UNIT_SIZE}px, ${j * Constants.GRID_DIMENSIONS.UNIT_SIZE}px)`
+        this.context.append(debugCell)
+      }
+    }
+  }
+
+  updateDebugCell(x, y) {
+    if (!Constants.DEBUG) {
+      return
+    }
+
+    const index = x * Constants.GRID_DIMENSIONS.HEIGHT + y
+    const debugCell = this.context.getElementsByClassName('debug-cell')[index]
+    let names = ''
+    for (const entity of this.cells[x][y]) {
+      names += ' ' + entity.elem.classList
+    }
+    debugCell.textContent = names
+  }
+
   updateEntityPosition(entity, oldX, oldY, newX, newY, width = 1, height = 1) {
     if (Math.round(oldX) != Math.round(newX) ||
         Math.round(oldY) != Math.round(newY)) {
@@ -50,6 +79,7 @@ app.Board = class Board {
     for (let i = roundedX; i < roundedX + width; i++) {
       for (let j = roundedY; j < roundedY + height; j++) {
         this.cells[i][j].push(entity)
+        this.updateDebugCell(i, j)
       }
     }
 
@@ -64,6 +94,7 @@ app.Board = class Board {
         let index = this.cells[i][j].indexOf(entity)
         if (index > -1) {
           this.cells[i][j].splice(index, 1)
+          this.updateDebugCell(i, j)
         }
       }
     }

@@ -7,7 +7,7 @@ app.Player = class Player {
   constructor(game, context, controls) {
     this.game = game
     this.gameControls = game.controls
-    this.context = context
+    this.elem = context
     this.controls = controls
   }
 
@@ -31,7 +31,7 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    this.context.classList.add('is-hidden')
+    this.elem.classList.add('is-hidden')
     window.setTimeout(() => {
       this.prevPosition = Object.assign({}, this.position)
       this.position = {
@@ -46,7 +46,7 @@ app.Player = class Player {
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
 
-      this.context.classList.remove('is-hidden')
+      this.elem.classList.remove('is-hidden')
     }, 1000)
   }
 
@@ -117,7 +117,7 @@ app.Player = class Player {
   }
 
   render() {
-    Utils.renderAtGridLocation(this.context, this.position.x, this.position.y)
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
   /**
@@ -147,7 +147,7 @@ app.Player = class Player {
       this.clearToyParts()
 
       // temporary
-      this.context.classList.add('is-winner')
+      this.elem.classList.add('is-winner')
     }
 
     const platform = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
@@ -167,13 +167,13 @@ app.Player = class Player {
   addToyPart(toyPart) {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
-      this.context.classList.add(`toypart--${toyPart}`)
+      this.elem.classList.add(`toypart--${toyPart}`)
     }
   }
 
   clearToyParts() {
     for (const toyPart of this.toyParts) {
-      this.context.classList.remove(`toypart--${toyPart}`)
+      this.elem.classList.remove(`toypart--${toyPart}`)
     }
 
     this.toyParts = []

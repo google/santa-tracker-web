@@ -47,6 +47,21 @@ body {
   .present-box,
   .table,
   .wall {
+
+    .debug & {
+      border: 2px solid purple;
+    }
+
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  .debug-cell {
+    border: 2px solid pink;
+    font-size: 10px;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
     left: 0;
     position: absolute;
     top: 0;
@@ -64,7 +79,7 @@ body {
     &.is-winner {
       &::after {
         font-size: 30px;
-        left: 11px;
+        left: 9px;
         top: -13px;
         content: '👑';
         position: absolute;

@@ -18,6 +18,10 @@ goog.require('app.Wall')
 
 app.Game = class Game {
   constructor(context) {
+    if (Constants.DEBUG) {
+      document.getElementsByTagName('body')[0].classList.add('debug')
+    }
+
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
