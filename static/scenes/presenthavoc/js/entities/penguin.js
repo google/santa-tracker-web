@@ -17,6 +17,6 @@ app.Penguin = class Penguin extends app.Slider {
 
   onContact(player) {
     super.onContact(player)
-    return [Constants.PLAYER_ACTIONS.STICK]
+    return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }

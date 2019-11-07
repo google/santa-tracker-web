@@ -5,7 +5,7 @@ $name: 'module-presenthavoc';
 $mobile-breakpoint: 1100px;
 
 $grid-unit-size: 50px;
-$fence-border: 9px solid #9B643D;
+$fence-border: 2px solid #9B643D;
 $present-width: 2;
 $present-height: 2;
 $table-width: 3;
@@ -40,6 +40,7 @@ body {
   }
 
   .fence,
+  .ice,
   .penguin,
   .pit,
   .player,
@@ -169,6 +170,10 @@ body {
     background: #30a658;
     height: $grid-unit-size;
     width: $grid-unit-size;
+  }
+
+  .ice {
+    background: #31b1f9;
   }
 
   // .title {

@@ -68,45 +68,45 @@ Levels = [
           y: 1,
         }
       },
-      // {
-      //   type: 'fence',
-      //   config: {
-      //     x: 25,
-      //     y: 14,
-      //     sides: {
-      //       left: false,
-      //       right: true,
-      //       top: true,
-      //       bottom: true
-      //     }
-      //   }
-      // },
-      // {
-      //   type: 'fence',
-      //   config: {
-      //     x: 24,
-      //     y: 14,
-      //     sides: {
-      //       left: false,
-      //       right: false,
-      //       top: true,
-      //       bottom: true
-      //     }
-      //   }
-      // },
-      // {
-      //   type: 'fence',
-      //   config: {
-      //     x: 26,
-      //     y: 14,
-      //     sides: {
-      //       left: false,
-      //       right: false,
-      //       top: true,
-      //       bottom: false
-      //     }
-      //   }
-      // },
+      {
+        type: 'fence',
+        config: {
+          x: 25,
+          y: 14,
+          sides: {
+            left: false,
+            right: true,
+            top: true,
+            bottom: true
+          }
+        }
+      },
+      {
+        type: 'fence',
+        config: {
+          x: 24,
+          y: 14,
+          sides: {
+            left: false,
+            right: false,
+            top: true,
+            bottom: true
+          }
+        }
+      },
+      {
+        type: 'fence',
+        config: {
+          x: 26,
+          y: 14,
+          sides: {
+            left: false,
+            right: false,
+            top: true,
+            bottom: false
+          }
+        }
+      },
       {
         type: 'table',
         config: {
@@ -144,6 +144,15 @@ Levels = [
           },
           movementLength: 5,
           stepSize: .07
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 4,
+          width: 7,
+          x: 14,
+          y: 5,
         }
       },
     ]

@@ -39,7 +39,7 @@ Constants = {
     UNIT_SIZE: 50 // height and width of one grid unit
   },
 
-  FENCE_THICKNESS: 9,
+  FENCE_THICKNESS: 2,
 
   TABLE_HEIGHT: 2,
   TABLE_WIDTH: 3,
