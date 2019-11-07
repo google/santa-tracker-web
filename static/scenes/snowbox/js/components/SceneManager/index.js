@@ -500,7 +500,7 @@ class SceneManager extends EventEmitter {
     this.setMode('move')
 
     // don't play sound if dragging from toolbar
-    if (offset !== undefined) {
+    if (needsOffset) {
       SoundManager.play('snowbox_select_subject');
     }
     this.selectedSubject = newSelectedSubject

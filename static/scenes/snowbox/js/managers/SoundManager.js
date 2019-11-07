@@ -9,8 +9,7 @@ class SoundManager {
 
     let now = performance.now();
     if (now - this.lastCollisionTime > 200) {
-      console.log(force, type, mass, scale)
-      this.play("snowbox_collision", Math.max(0, Math.min(1, (force-0.5)/3)), Math.random(0.5) + 0.75);
+      this.play("snowbox_collision", Math.max(0, Math.min(1, (force-0.5)/3)), (Math.abs(1 - (mass / 80)) * 2) + 0.75);
       this.lastCollisionTime = now;
     }
   }
