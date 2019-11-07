@@ -30,6 +30,7 @@ class Tree extends Obj {
     // Geometry
     this.geometry = obj.children[0].geometry
     // this.geometry.center()
+    console.log(this.geometry.vertices, this.collisionModel.vertices)
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
