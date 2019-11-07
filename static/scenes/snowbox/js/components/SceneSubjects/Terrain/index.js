@@ -22,10 +22,10 @@ class Terrain extends Obj {
 
   initGround() {
     // Physics
-    const shape = new CANNON.Cylinder(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH, 0.01, 30)
+    const shape = new CANNON.Cylinder(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH * 1.3, 30, 30)
     const body = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
     body.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-    body.position.set(0, 0, 0)
+    body.position.set(0, -15, 0)
     this.world.addBody(body)
     this.bodies.push(body)
 

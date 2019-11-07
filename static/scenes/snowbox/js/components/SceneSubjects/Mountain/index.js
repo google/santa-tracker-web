@@ -27,8 +27,6 @@ class Moutain {
       shininess: 345,
     })
 
-    console.log(map)
-
     const cylinderMaterial = new THREE.MeshPhongMaterial({
       map,
       color: GLOBAL_CONFIG.COLORS.GHOST,

@@ -3,7 +3,7 @@ import GLOBAL_CONFIG from '../../SceneManager/config.js'
 export default class PlaneHelper {
   constructor(scene) {
     // Help moving object with the mouse always in the center of the object
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: true, opacity: 0.2, visible: GLOBAL_CONFIG.DEBUG })
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0.2, visible: GLOBAL_CONFIG.DEBUG })
     const geometry = new THREE.PlaneGeometry(50, 50, 1, 1)
 
     this.mesh = new THREE.Mesh(geometry, material)
