@@ -13,12 +13,15 @@ export default class ObjectEditTool {
       toolbar: this.el.querySelector('[object-toolbar-ui]'),
       rotateRight: this.el.querySelector('[object-rotate-right-ui]'),
       rotateBottom: this.el.querySelector('[object-rotate-bottom-ui]'),
+      trash: this.el.querySelector('[object-trash-ui]'),
+      trashButton: this.el.querySelector('[data-trash-object]'),
     }
 
     this.updatePosition = this.updatePosition.bind(this)
     this.enterEditMode = this.enterEditMode.bind(this)
     this.hide = this.hide.bind(this)
     this.resetRotateButtons = this.resetRotateButtons.bind(this)
+    this.deleteObject = this.deleteObject.bind(this)
 
     this.hide()
     this.events()
@@ -27,6 +30,7 @@ export default class ObjectEditTool {
   events() {
     this.ui.toggleColorButton.addEventListener('click', this.toggleColorsMenu)
     this.ui.scaleButton.addEventListener('input', SceneManager.onScaleInput)
+    this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
 
     this.ui.colorButtons.forEach(button => {
       button.addEventListener('click', SceneManager.colorObject)
@@ -84,6 +88,10 @@ export default class ObjectEditTool {
     const yArrowHelperPos = SceneManager.getScreenPosition(yArrowHelper)
     this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
+    const trashHelper = SceneManager.scene.getObjectByName( 'trash-helper' )
+    const trashHelperPos = SceneManager.getScreenPosition(trashHelper)
+    this.ui.trash.style.transform = `translate(-50%, -50%) translate(${trashHelperPos.x}px,${trashHelperPos.y}px)`
+
     const toolbarHelper = SceneManager.scene.getObjectByName( 'toolbar-helper' )
     const toolbarHelperPos = SceneManager.getScreenPosition(toolbarHelper)
     this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
@@ -107,5 +115,14 @@ export default class ObjectEditTool {
     })
   }
 
+  deleteObject(e) {
+    const el = e.currentTarget
+    el.classList.add('is-clicked')
+    setTimeout(() => {
+      SceneManager.deleteObject()
+      this.hide()
+      el.classList.remove('is-clicked')
+    }, 200)
+  }
 }
 

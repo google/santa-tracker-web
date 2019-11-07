@@ -6,23 +6,27 @@ import { isTouchDevice } from '../../helpers.js'
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
-import SceneManager from '../SceneManager/index.js'
 import SoundManager from '../../managers/SoundManager.js'
 
 class CameraController {
-  constructor(screenDimensions, canvas) {
+  constructor() {
     this.rotationY = 0
     this.rotationXZ = 0
     this.raycaster = new THREE.Raycaster()
-    this.canvas = canvas
     this.currentZoom = CONFIG.ZOOM.START
+    this.zoomSteps = CONFIG.ZOOM.STEPS
+    this.rotateXZMin = CONFIG.ROTATE.XZ_MIN
+    this.rotateXZMax = CONFIG.ROTATE.XZ_MAX
     this.isTouchDevice = isTouchDevice()
+  }
 
+  init(screenDimensions, canvas) {
     const { width, height } = screenDimensions
     const aspectRatio = width / height
     const fieldOfView = 10
     const nearPlane = 1
     const farPlane = 1000
+    this.canvas = canvas
 
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
     this.camera.position.set(0, CONFIG.POSITION.Y, CONFIG.POSITION.Z)
@@ -109,7 +113,7 @@ class CameraController {
     }
   }
 
-  zoom(direction, renderer, scene) {
+  zoom(direction) {
     if (this.isZooming) return
 
     switch (direction) {
@@ -132,13 +136,10 @@ class CameraController {
     }
 
     this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
-
-    setTimeout(() => {
-      this.zoomOrigin = this.camera.zoom
-      this.zoomSpeed = CONFIG.ZOOM.SPEED
-      this.zoomStart = getNow()
-      this.isZooming = true
-    }, 0) // prevent camera jump? Needs to figure why
+    this.zoomOrigin = this.camera.zoom
+    this.zoomSpeed = CONFIG.ZOOM.SPEED
+    this.zoomStart = getNow()
+    this.isZooming = true
   }
 
   animateZoom(now) {
@@ -189,7 +190,7 @@ class CameraController {
     this.camera.getWorldDirection(worldDir)
     this.raycaster.set(worldPos, worldDir)
 
-    return this.raycaster.intersectObjects([SceneManager.terrain.meshes[0]])
+    return this.raycaster.intersectObjects([this.terrain.meshes[0]])
   }
 
   // obj - your object (THREE.Object3D or derived)
@@ -226,4 +227,4 @@ class CameraController {
   }
 }
 
-export default CameraController
+export default new CameraController()

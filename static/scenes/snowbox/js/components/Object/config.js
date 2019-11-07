@@ -20,5 +20,5 @@ export default {
     transparent: true,
     opacity: 0.4,
   }),
-  HELPER_MATERIAL: new THREE.PointsMaterial({ visible: false })
+  HELPER_MATERIAL: new THREE.PointsMaterial({ visible: GLOBAL_CONFIG.DEBUG, color: 0xff000 })
 }

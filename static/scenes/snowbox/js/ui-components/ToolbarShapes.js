@@ -1,5 +1,6 @@
 import SceneManager from '../components/SceneManager/index.js'
 import SoundManager from '../managers/SoundManager.js'
+import CameraController from '../components/CameraController/index.js'
 
 export default class ToolbarShapes {
   constructor(el) {
@@ -57,7 +58,7 @@ export default class ToolbarShapes {
   takeScreenshot() {
     SoundManager.play('snowbox_photo');
     // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
-    SceneManager.renderer.render(SceneManager.scene, SceneManager.cameraCtrl.camera)
+    SceneManager.renderer.render(SceneManager.scene, CameraController.camera)
     const base64 = SceneManager.renderer.domElement.toDataURL()
     this.ui.screenshotImage.parentNode.classList.add('is-open')
     this.ui.screenshotImage.src = base64
