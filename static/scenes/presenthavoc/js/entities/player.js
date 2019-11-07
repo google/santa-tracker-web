@@ -87,8 +87,17 @@ app.Player = class Player {
 
     // check if you left the platform
     if (this.platform) {
+      console.log(this.platformOffset)
+
       this.position.x = this.platform.position.x + this.platformOffset.x
       this.position.y = this.platform.position.y + this.platformOffset.y
+
+      if (this.platformOffset.x > 1 ||
+          this.platformOffset.x < -1 ||
+          this.platformOffset.y > 1 ||
+          this.platformOffset.y < -1) {
+        this.platform = null
+      }
     }
 
     const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
