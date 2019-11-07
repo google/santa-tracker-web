@@ -88,7 +88,7 @@ class Object extends EventEmitter {
 
   onCollide(e) {
     const relativeVelocity = e.contact.getImpactVelocityAlongNormal()
-    if (Math.abs(relativeVelocity) > 0.5) {
+    if (Math.abs(relativeVelocity) > 0.25) {
       window.dispatchEvent(createCustomEvent('shape_collide', {
         force: relativeVelocity,
         type: this.name,

@@ -118,7 +118,9 @@ export default class ObjectEditTool {
   deleteObject(e) {
     const el = e.currentTarget
     el.classList.add('is-clicked')
+    
     setTimeout(() => {
+      SoundManager.play('snowbox_shape_delete')
       SceneManager.deleteObject()
       this.hide()
       el.classList.remove('is-clicked')
