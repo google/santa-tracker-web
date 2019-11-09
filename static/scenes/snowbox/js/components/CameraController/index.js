@@ -34,6 +34,7 @@ class CameraController {
     this.camera.updateProjectionMatrix()
 
     this.buildControls()
+    this.buildFakeGround()
   }
 
   buildControls() {
@@ -48,6 +49,13 @@ class CameraController {
     // this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
     // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
     // this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
+  }
+
+  buildFakeGround() {
+    // invisible plane to help camera rotation
+    const fakeGroundGeometry = new THREE.PlaneGeometry(50, 50)
+    const fakeGroundMaterial = new THREE.MeshBasicMaterial({ visible: false })
+    this.fakeGround = new THREE.Mesh(fakeGroundGeometry, fakeGroundMaterial)
   }
 
   rotate(direction, wheel, noAnimation) {
@@ -185,7 +193,7 @@ class CameraController {
     this.camera.getWorldDirection(worldDir)
     this.raycaster.set(worldPos, worldDir)
 
-    return this.raycaster.intersectObjects([this.terrain.meshes[0]])
+    return this.raycaster.intersectObjects([this.fakeGround])
   }
 
   // obj - your object (THREE.Object3D or derived)

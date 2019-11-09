@@ -15,7 +15,6 @@ import LoaderManager from '../../managers/LoaderManager/index.js'
 
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
-import Terrain from '../SceneSubjects/Terrain/index.js'
 import Sky from '../SceneSubjects/Sky/index.js'
 import Mountain from '../SceneSubjects/Mountain/index.js'
 import PlaneHelper from '../SceneSubjects/PlaneHelper/index.js'
@@ -38,6 +37,7 @@ class SceneManager extends EventEmitter {
 
     this.debug = CONFIG.DEBUG
     this.isTouchDevice = isTouchDevice()
+    this.sceneSubjects = []
     this.mode = ''
     // 0: default, can switch to any mode
     // 1: drag === moving camera: Can't click on an object or place an object
@@ -99,6 +99,7 @@ class SceneManager extends EventEmitter {
       z: 0,
     }
 
+    this.scene.add(CameraController.fakeGround)
     CameraController.rotate('left', false, true)
 
     if (this.debug) {
@@ -146,7 +147,6 @@ class SceneManager extends EventEmitter {
 
   buildSky() {
     this.sky = new Sky(this.scene)
-    this.mountain = new Mountain(this.scene)
   }
 
   buildHelpers() {
@@ -167,10 +167,8 @@ class SceneManager extends EventEmitter {
   }
 
   buildSceneSubjects() {
-    this.sceneSubjects = [new Lights(this.scene, this.world), new Terrain(this.scene, this.world)]
-    this.lights = this.sceneSubjects[0]
-    this.terrain = this.sceneSubjects[1]
-    CameraController.terrain = this.terrain
+    this.lights = new Lights(this.scene)
+    this.mountain = new Mountain(this.scene, this.world)
   }
 
   events() {
@@ -497,7 +495,7 @@ class SceneManager extends EventEmitter {
     }
     this.selectedSubject.unselect()
 
-    this.terrain.removePositionMarker()
+    this.mountain.removePositionMarker()
 
     this.selectedSubject = null
   }
@@ -518,7 +516,7 @@ class SceneManager extends EventEmitter {
       const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
       this.moveOffset.x = -(posPlaneHelper.x - position.x)
       this.moveOffset.z = -(posPlaneHelper.z - position.z)
-      this.terrain.addPositionMarker({
+      this.mountain.addPositionMarker({
         x: posPlaneHelper.x + this.moveOffset.x,
         y: this.planeHelper.position.y + this.moveOffset.y,
         z: posPlaneHelper.z + this.moveOffset.z,
@@ -526,7 +524,7 @@ class SceneManager extends EventEmitter {
     } else {
       this.moveOffset.x = 0
       this.moveOffset.z = 0
-      this.terrain.addPositionMarker({
+      this.mountain.addPositionMarker({
         x: -1000, // hide it
         y: -1000,
         z: -1000,
@@ -543,7 +541,7 @@ class SceneManager extends EventEmitter {
       const y = this.planeHelper.position.y + this.moveOffset.y
       this.selectedSubject.moveTo(x, y, z)
 
-      this.terrain.movePositionMarker(x, z)
+      this.mountain.movePositionMarker(x, z)
     }
   }
 
@@ -761,7 +759,7 @@ class SceneManager extends EventEmitter {
     this.selectedSubject = null
     this.activeSubject = null
     this.setMode()
-    this.terrain.removePositionMarker()
+    this.mountain.removePositionMarker()
   }
 
   setUnits() {

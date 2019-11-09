@@ -29,7 +29,6 @@ class LoaderManager {
     }
 
     if (map) {
-      console.log('oui')
       promises.push(this.loadTexture(map, name, 'map'))
     }
 
