@@ -226,7 +226,9 @@ class CameraController {
   resetControls() {
     // reset controls where the camera is currently looking at
     const target = this.getLookAtPointOnTerrain()
-    this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
+    if (target[0]) {
+      this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
+    }
   }
 }
 

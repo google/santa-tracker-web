@@ -525,9 +525,9 @@ class SceneManager extends EventEmitter {
       this.moveOffset.x = 0
       this.moveOffset.z = 0
       this.mountain.addPositionMarker({
-        x: -1000, // hide it
-        y: -1000,
-        z: -1000,
+        x: 1000, // hide it
+        y: 1000,
+        z: 1000,
       })
     }
   }

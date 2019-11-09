@@ -55,7 +55,7 @@ class Object extends EventEmitter {
       fixedRotation: false,
       material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
-    this.body.position.set(-this.size / 2, -100, -this.size / 2) // y: -100 to prevent the body to interact with anything in the scene
+    this.body.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     this.world.add(this.body)
 
     // Mesh
@@ -128,6 +128,11 @@ class Object extends EventEmitter {
     if (this.mesh) {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
+
+      if (this.mesh.position.y < -5) {
+        this.delete()
+        return
+      }
 
       this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1
 
