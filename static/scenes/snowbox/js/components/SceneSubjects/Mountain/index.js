@@ -1,5 +1,3 @@
-import Obj from '../../Object/index.js'
-
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'

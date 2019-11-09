@@ -1,4 +1,4 @@
-import Obj from '../../Object/index.js'
+import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
