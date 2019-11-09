@@ -1,3 +1,4 @@
+import SoundManager from './managers/SoundManager.js'
 import SceneManager from './components/SceneManager/index.js'
 
 // ui components

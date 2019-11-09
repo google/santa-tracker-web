@@ -1,9 +1,11 @@
 import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../SceneManager/config.js'
 import { EventEmitter } from '../../event-emitter.js'
-import LoaderManager from '../../managers/LoaderManager/index.js'
+import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
-
+import { throttle } from '../../utils/time.js'
+import createCustomEvent from '../../utils/createCustomEvent.js'
+import SceneManager from '../SceneManager/index.js'
 
 class Object extends EventEmitter {
   constructor(scene, world) {
@@ -24,6 +26,7 @@ class Object extends EventEmitter {
       this.init = this.init.bind(this)
     }
     this.load = this.load.bind(this)
+    this.onCollide = this.onCollide.bind(this)
   }
 
   load(callback) {
@@ -55,6 +58,7 @@ class Object extends EventEmitter {
       fixedRotation: false,
       material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
     })
+    this.currentMass = this.mass
     this.body.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     this.world.add(this.body)
 
@@ -76,6 +80,22 @@ class Object extends EventEmitter {
 
     if (this.callback) {
       this.callback(this)
+    }
+
+    // listen collision of shape
+    this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
+    this.body.addEventListener('collide', this.collide)
+  }
+
+  onCollide(e) {
+    const relativeVelocity = e.contact.getImpactVelocityAlongNormal()
+    if (Math.abs(relativeVelocity) > 0.25) {
+      window.dispatchEvent(createCustomEvent('shape_collide', {
+        force: relativeVelocity,
+        type: this.name,
+        mass: this.currentMass,
+        scale: this.scaleFactor,
+      }))
     }
   }
 
@@ -130,6 +150,7 @@ class Object extends EventEmitter {
       this.mesh.quaternion.copy(this.body.quaternion)
 
       if (this.mesh.position.y < -5) {
+        SceneManager.emit('leave_edit')
         this.delete()
         return
       }
@@ -219,7 +240,9 @@ class Object extends EventEmitter {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
     this.body.addShape(shape)
-    // this.body.mass = this.mass * Math.pow(this.size * this.scaleFactor, 3)
+    this.body.mass = this.mass * this.scaleFactor
+    this.currentMass = this.body.mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
+    this.body.updateMassProperties()
   }
 
   highlight() {

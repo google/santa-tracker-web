@@ -11,7 +11,8 @@ import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
 
 // Managers
-import LoaderManager from '../../managers/LoaderManager/index.js'
+import LoaderManager from '../../managers/LoaderManager.js'
+import SoundManager from '../../managers/SoundManager.js'
 
 // SceneSubjects
 import Lights from '../SceneSubjects/Lights/index.js'
@@ -417,6 +418,7 @@ class SceneManager extends EventEmitter {
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true
+      SoundManager.play("snowbox_pick_color")
     }
   }
 
@@ -431,6 +433,7 @@ class SceneManager extends EventEmitter {
       this.needsCollisionCheck = true
       this.emit('scale_object')
     }
+    SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
 
   rotateObject(el) {
@@ -445,6 +448,7 @@ class SceneManager extends EventEmitter {
       this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
       this.needsCollisionCheck = true
     }
+    SoundManager.play('snowbox_rotate');
   }
 
   addShape(shape, material = 'snow') {
@@ -498,11 +502,17 @@ class SceneManager extends EventEmitter {
     this.mountain.removePositionMarker()
 
     this.selectedSubject = null
+
+    SoundManager.play('snowbox_unselect_subject');
   }
 
   selectSubject(newSelectedSubject, needsOffset = false) {
     this.setMode('move')
 
+    // don't play sound if dragging from toolbar
+    if (needsOffset) {
+      SoundManager.play('snowbox_select_subject');
+    }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
     const { position } = this.selectedSubject.body

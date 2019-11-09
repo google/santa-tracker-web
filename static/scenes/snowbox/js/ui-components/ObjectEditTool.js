@@ -1,4 +1,5 @@
 import SceneManager from '../components/SceneManager/index.js'
+import SoundManager from '../managers/SoundManager.js'
 
 export default class ObjectEditTool {
   constructor(el) {
@@ -99,6 +100,9 @@ export default class ObjectEditTool {
   toggleColorsMenu(e) {
     const el = e.currentTarget
     el.classList.toggle('is-open')
+    if (el.classList.contains('is-open')) {
+      SoundManager.play('snowbox_open_colors')
+    }
   }
 
   resetRotateButtons() {
@@ -114,7 +118,9 @@ export default class ObjectEditTool {
   deleteObject(e) {
     const el = e.currentTarget
     el.classList.add('is-clicked')
+    
     setTimeout(() => {
+      SoundManager.play('snowbox_shape_delete')
       SceneManager.deleteObject()
       this.hide()
       el.classList.remove('is-clicked')

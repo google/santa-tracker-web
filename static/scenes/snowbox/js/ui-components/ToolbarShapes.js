@@ -1,4 +1,5 @@
 import SceneManager from '../components/SceneManager/index.js'
+import SoundManager from '../managers/SoundManager.js'
 import CameraController from '../components/CameraController/index.js'
 
 export default class ToolbarShapes {
@@ -22,15 +23,23 @@ export default class ToolbarShapes {
       button.addEventListener('mousedown', this.onButtonMouseDown)
 
       button.addEventListener('touchstart', this.onButtonMouseDown)
+      button.addEventListener('mouseover', this.onButtonMouseOver)
+      button.addEventListener('mouseout', this.onButtonMouseOut)
     })
 
     this.ui.shareButton.addEventListener('click', this.takeScreenshot)
   }
-
+  onButtonMouseOver(e) {
+    SoundManager.play('snowbox_shape_mouseover');
+  }
+  onButtonMouseOut(e) {
+    SoundManager.play('snowbox_shape_mouseout');
+  }
   onButtonMouseDown(e) {
     e.preventDefault()
 
     const button = e.currentTarget
+    SoundManager.play('snowbox_toolbox_select');
 
     const mouseLeaveListener = () => {
       e.preventDefault()
@@ -47,6 +56,7 @@ export default class ToolbarShapes {
   }
 
   takeScreenshot() {
+    SoundManager.play('snowbox_photo');
     // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
     SceneManager.renderer.render(SceneManager.scene, CameraController.camera)
     const base64 = SceneManager.renderer.domElement.toDataURL()

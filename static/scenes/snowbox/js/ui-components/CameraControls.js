@@ -1,3 +1,4 @@
+import SoundManager from '../managers/SoundManager.js'
 import CameraController from '../components/CameraController/index.js'
 
 export default class CameraControls {
@@ -41,6 +42,9 @@ export default class CameraControls {
 
   rotateCamera(e) {
     const el = e.currentTarget
+
+    SoundManager.play('snowbox_rotate_camera');
+
     const { rotateCamera } = el.dataset
     CameraController.rotate(rotateCamera)
     // edit btn class
