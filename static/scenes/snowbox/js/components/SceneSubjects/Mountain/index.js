@@ -3,7 +3,7 @@ import Obj from '../../Object/index.js'
 // Config
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
-import LoaderManager from '../../../managers/LoaderManager/index.js'
+import LoaderManager from '../../../managers/LoaderManager.js'
 
 class Mountain {
   constructor(scene, world) {

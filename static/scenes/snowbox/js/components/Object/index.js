@@ -149,7 +149,7 @@ class Object extends EventEmitter {
       this.mesh.position.copy(this.body.position)
       this.mesh.quaternion.copy(this.body.quaternion)
 
-      if (this.mesh.position.y < -5) {
+      if (this.mesh.position.y < CONFIG.Y_POS_LIMIT) {
         SceneManager.emit('leave_edit')
         this.delete()
         return

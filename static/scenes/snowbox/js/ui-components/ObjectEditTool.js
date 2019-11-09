@@ -71,15 +71,18 @@ export default class ObjectEditTool {
 
   show() {
     this.el.style.display = 'block'
+    this.state = 'is-showed'
   }
 
   hide() {
     this.resetRotateButtons()
     this.ui.toggleColorButton.classList.remove('is-open')
     this.el.style.display = 'none'
+    this.state = 'is-hidden'
   }
 
   updatePosition() {
+    if (this.state === 'is-hidden') return
     const xArrowHelper = SceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
     const xArrowHelperPos = SceneManager.getScreenPosition(xArrowHelper)
     this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
