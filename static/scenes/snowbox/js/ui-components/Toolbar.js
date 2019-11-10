@@ -34,13 +34,20 @@ export default class Toolbar {
     })
 
     this.ui.shareButton.addEventListener('click', this.generateGIF)
+    this.ui.gif.addEventListener('click', e => {
+      console.log('yes')
+      e.stopPropagation()
+    })
   }
+
   onButtonMouseOver(e) {
     SoundManager.play('snowbox_shape_mouseover');
   }
+
   onButtonMouseOut(e) {
     SoundManager.play('snowbox_shape_mouseout');
   }
+  
   onButtonMouseDown(e) {
     e.preventDefault()
 
@@ -99,6 +106,7 @@ export default class Toolbar {
       this.ui.gif.classList.remove('is-loading')
       this.ui.gif.classList.add('is-open')
       this.ui.gifImage.src = URL.createObjectURL(blob)
+      this.ui.gifImage.parentNode.href = URL.createObjectURL(blob)
     });
 
     gif.render()

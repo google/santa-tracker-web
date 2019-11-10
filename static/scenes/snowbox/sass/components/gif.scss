@@ -21,20 +21,35 @@
   }
 
   &.is-open {
+    pointer-events: all;
     opacity: 1;
 
-    .gif__image {
+    .gif__wrapper {
       opacity: 1;
       transform: none;
     }
   }
 
-  &__image {
+  &__wrapper {
     opacity: 0;
-    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
-    width: 100%;
     transform: translateY(50px);
     transition: opacity .5s ease, transform 1s $easeout-expo;
+    position: relative;
+  }
+
+  &__image {
+    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
+    width: 100%;
+  }
+
+  &__download {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    font-size: 12px;
+    transform: translate(-50%, 0); 
+    width: 100%;
+    text-align: center;
   }
 
   &__loading {
