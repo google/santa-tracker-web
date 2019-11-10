@@ -15,6 +15,7 @@
     <script src="../../third_party/lib/three/examples/js/loaders/GLTFLoader.js"></script>
     <script src="../../third_party/lib/cannon/cannon.js"></script>
     <script src="../../third_party/lib/dat-gui/dat.gui.min.js"></script>
+    <script src="../../third_party/lib/gif/gif.js"></script>
   </head>
 
   <body>
@@ -101,34 +102,35 @@
             </div>
           </div>
         </div>
-        <!-- toolbar shapes -->
-        <div class="toolbar-shapes" toolbar-shapes>
-          <div class="toolbar-shapes__container">
-            <div class="toolbar-shapes__arrow button button--slider">
+        <!-- toolbar -->
+        <div class="toolbar" toolbar>
+          <div class="toolbar__container">
+            <div class="toolbar__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon">
             </div>
-            <div data-add-shape="cube" data-shape-material="snow" class="toolbar-shapes__item">
-              <img src="./img/cube.png" alt="" class="toolbar-shapes__image">
+            <div data-add-shape="cube" data-shape-material="snow" class="toolbar__item">
+              <img src="./img/cube.png" alt="" class="toolbar__image">
             </div>
-            <div data-add-shape="arch" data-shape-material="snow" class="toolbar-shapes__item">
-              <img src="./img/arch.png" alt="" class="toolbar-shapes__image">
+            <div data-add-shape="arch" data-shape-material="snow" class="toolbar__item">
+              <img src="./img/arch.png" alt="" class="toolbar__image">
             </div>
-            <div data-add-shape="tree" class="toolbar-shapes__item">
-              <img src="./img/tree.png" alt="" class="toolbar-shapes__image">
+            <div data-add-shape="tree" class="toolbar__item">
+              <img src="./img/tree.png" alt="" class="toolbar__image">
             </div>
-            <div data-add-shape="sphere" class="toolbar-shapes__item">
-              <img src="./img/sphere.png" alt="" class="toolbar-shapes__image">
+            <div data-add-shape="sphere" class="toolbar__item">
+              <img src="./img/sphere.png" alt="" class="toolbar__image">
             </div>
-            <div class="toolbar-shapes__arrow button button--slider">
+            <div class="toolbar__arrow button button--slider">
               <img src="./img/icons/arrow.svg" alt="" class="button__icon button__icon--reverse">
             </div>
           </div>
-          <button class="share" data-share>Take a screenshot</button>
+          <button class="share" data-share>Take a gif</button>
         </div>
       </section>
-      <!-- screen to share -->
-      <div class="screenshot">
-        <img screenshot-image class="screenshot__image" src="" alt="">
+      <!-- gif to share -->
+      <div gif class="gif">
+        <p class="gif__loading">Generating GIF...</p>
+        <img gif-image class="gif__image" src="" alt="">
       </div>
     </div>
     <script src="index.js" type="module"></script>

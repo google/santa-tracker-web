@@ -1,0 +1,53 @@
+.gif {
+  position: absolute;
+  top:  calc(50% - 150px / 2);
+  left: 50%;
+  height: calc(100vh - 150px);
+  transform: translate(-50%, -50%);
+  width: 70%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease;
+  z-index: $z-index-gif;
+  display: flex;
+  align-items: center;
+
+  &.is-loading {
+    opacity: 1;
+
+    .gif__loading {
+      opacity: 1;
+    }
+  }
+
+  &.is-open {
+    opacity: 1;
+
+    .gif__image {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &__image {
+    opacity: 0;
+    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
+    width: 100%;
+    transform: translateY(50px);
+    transition: opacity .5s ease, transform 1s $easeout-expo;
+  }
+
+  &__loading {
+    color: black;
+    font-size: 48px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $z-index-gif;
+    opacity: 0;
+    width: 100%;
+    transition: opacity .5s ease;
+  }
+}

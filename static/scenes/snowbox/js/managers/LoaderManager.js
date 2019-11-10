@@ -12,6 +12,7 @@ class LoaderManager {
     this.loadNormal = this.loadNormal.bind(this)
     this.loadOBJ = this.loadOBJ.bind(this)
     this.loadWRL = this.loadWRL.bind(this)
+    this.loadGIF = this.loadGIF.bind(this)
   }
 
   loadNormal(object) {
@@ -44,6 +45,17 @@ class LoaderManager {
     })
   }
 
+  loadGIF(name, source) {
+    return new Promise(resolve => {
+      const image = new Image()
+      image.src = source
+      image.onload = () => {
+        this.subjects[name].sources.push(image)
+        resolve(image)
+      }
+    })
+  }
+
   load(object, callback) {
     // if element already loaded, callback directly
     if (this.subjects[object.name]) {
@@ -66,6 +78,13 @@ class LoaderManager {
 
     if (object.wrl){
       promises.push(this.loadWRL(object))
+    }
+
+    if (object.gif){
+      this.subjects[object.name].sources = []
+      object.gif.forEach(source => {
+        promises.push(this.loadGIF(object.name, source))
+      })
     }
 
     Promise.all(promises).then(callback)

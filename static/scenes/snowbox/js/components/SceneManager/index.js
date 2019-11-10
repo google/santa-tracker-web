@@ -70,7 +70,7 @@ class SceneManager extends EventEmitter {
     }
 
     this.ui = {
-      toolbarShapes: document.body.querySelector('[toolbar-shapes]')
+      toolbar: document.body.querySelector('[toolbar]')
     }
 
     this.preloadShapes()
@@ -132,6 +132,8 @@ class SceneManager extends EventEmitter {
     this.renderer.gammaInput = true
     this.renderer.gammaOutput = true
     this.renderer.gammaFactor = 2.2
+
+    console.log(this.renderer)
   }
 
   buildCamera() {
@@ -764,7 +766,7 @@ class SceneManager extends EventEmitter {
 
   setUnits() {
     this.width = window.innerWidth
-    this.height = window.innerHeight - this.ui.toolbarShapes.offsetHeight
+    this.height = window.innerHeight - this.ui.toolbar.offsetHeight
 
     this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
   }
