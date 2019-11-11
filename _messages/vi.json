@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Thử lại"
 	},
+	"controller_gamepad": {
+		"message": "Bộ điều khiển"
+	},
+	"controller_keyboard": {
+		"message": "Bàn phím"
+	},
+	"controller_mouse": {
+		"message": "Chuột"
+	},
+	"controller_touch": {
+		"message": "Cảm ứng"
+	},
 	"copy-me": {
 		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Chọn vóc dáng cho chú lùn"
 	},
+	"elves": {
+		"message": "Chú lùn"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -612,9 +627,6 @@
 		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
 	},
 	"error-try-again": {
-		"message": "Thử lại"
-	},
-	"error_try_again": {
 		"message": "Thử lại"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Mở chính thức vào ngày mai"
 	},
+	"opens": {
+		"message": "Mở"
+	},
 	"ornament-print-instructions": {
 		"message": "Gấp lại tại đây và dán các cạnh lại"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Sân bay Bắc Cực"
 	},
+	"scene_android_cityquiz": {
+		"message": "Đoán tên thành phố"
+	},
+	"scene_android_dancer": {
+		"message": "Chú tuần lộc Dasher nhảy múa"
+	},
+	"scene_android_penguinswim": {
+		"message": "Chim cánh cụt bơi lội"
+	},
+	"scene_android_presenttoss": {
+		"message": "Tung quà"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Xe trượt tuyết tên lửa"
+	},
+	"scene_android_snowballrun": {
+		"message": "Chạy khỏi bóng tuyết"
+	},
 	"scene_app": {
 		"message": "Ứng dụng Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Nhà máy kẹo"
 	},
+	"scene_family": {
+		"message": "Hướng dẫn dành cho gia đình"
+	},
 	"scene_giftmatch": {
 		"message": "Trò chơi khớp quà"
 	},
 	"scene_glider": {
 		"message": "Tàu lượn chú lùn"
 	},
+	"scene_guides": {
+		"message": "Hướng dẫn cho người lớn"
+	},
 	"scene_gumball": {
 		"message": "Độ nghiêng Gumball"
+	},
+	"scene_havoc": {
+		"message": "Biến cố ở nhà máy đồ chơi"
 	},
 	"scene_icecave": {
 		"message": "Động băng"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Bão bóng tuyết"
 	},
+	"scene_snowbox": {
+		"message": "Hộp tuyết"
+	},
 	"scene_snowflake": {
 		"message": "Viết mã cho bông tuyết"
 	},
 	"scene_speedsketch": {
 		"message": "Ký họa nhanh"
+	},
+	"scene_storybook": {
+		"message": "Chuyện kể về môi trường"
 	},
 	"scene_streetview": {
 		"message": "Chế độ xem phố"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "Ở Vương quốc Anh, người dự lễ Giáng sinh ở mọi lứa tuổi đều thích chơi pháo giật tại bàn ăn tối. Pháo giật là ống bọc bằng giấy nhiều màu có 2 đầu kéo. Khi kéo 2 đầu, ống sẽ vỡ tung kèm theo tiếng động lớn! Bên trong là mũ giấy, đồ chơi, chuyện đùa và phần thưởng để đêm Giáng sinh thêm vui vẻ."
 	},
+	"underconstruction": {
+		"message": "Đang xây dựng"
+	},
+	"unlocks": {
+		"message": "Mở khóa"
+	},
 	"unmute": {
 		"message": "Bật tiếng"
 	},
 	"upgrade-warning": {
-		"message": "Rất tiếc! Trò chơi Theo chân ông già Noel không được hỗ trợ trên trình duyệt của bạn hoặc bạn đã tắt JavaScript. Để theo chân ông già Noel, hãy tải xuống trình duyệt mới hoặc bật JavaScript.\nĐể biết thêm thông tin, hãy truy cập vào: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Rất tiếc! Trình duyệt bạn đang dùng không hỗ trợ trò chơi Theo chân ông già Noel hoặc bạn đã tắt JavaScript. Để theo chân ông già Noel, hãy tải một trình duyệt mới hoặc bật JavaScript."
 	},
 	"us_country_name": {
 		"message": "Hoa Kỳ"

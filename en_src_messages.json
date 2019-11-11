@@ -827,13 +827,17 @@
     "description": "Paragraph text that appears on an error page if the site encountered an error, with a link back to Santa's Village. Text should be non-specific and light hearted.",
     "raw": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"./\"&gt;</ph>Santa's Village<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
+  "error-out-of-date": {
+    "description": "A short error message saying that Santa Tracker is out of date and that the user should reload.",
+    "message": "This is an outdated version of Santa's Village! Try opening Santa Tracker again to see the latest version."
+  },
   "error-try-again": {
     "description": "Link text. Please keep this short. Link appears on an error page. Clicking the link will reload the application.",
     "message": "Try again"
   },
-  "error_try_again": {
-    "description": "Button text. Shown on the error page (if anything went wron)",
-    "message": "Try again"
+  "error-unsupported": {
+    "description": "Paragraph informing user that they're using a fallback version of Santa Tracker, and that they'd have a better time with a different browser. This fallback version has a limited number of games but doesn't support tracking Santa on the 24th of December (on a map)",
+    "message": "Santa Tracker doesn't support your browser. To play more games and to track Santa on the 24th of December, try your phone or a different browser."
   },
   "es_language_name": {
     "description": "Localised name of a language. Appears in a translation drop down.",
@@ -1819,6 +1823,30 @@
     "description": "Title of a scene/game. Elves are arriving at the \"North Pole Airport\".",
     "message": "North Pole Airport"
   },
+  "scene_android_cityquiz": {
+    "description": "Name of a game. Player is shown pictures of cities and asked to select the correct location on a map.",
+    "message": "City Quiz"
+  },
+  "scene_android_dancer": {
+    "description": "Name of a game. Dasher is the name of Santa's reindeer. Player can make him dance. The name benefits from rhyming.",
+    "message": "Dasher Dancer"
+  },
+  "scene_android_penguinswim": {
+    "description": "Name of a penguin swimming game",
+    "message": "Penguin Swim"
+  },
+  "scene_android_presenttoss": {
+    "description": "Name of a game. Player throws presents into a large sack by swiping on the screen.",
+    "message": "Present Toss"
+  },
+  "scene_android_rocketsleigh": {
+    "description": "Name of a game. Player is an elf riding a rocket-powered sleigh.",
+    "message": "Rocket Sleigh"
+  },
+  "scene_android_snowballrun": {
+    "description": "Name of a running game where an elf runs from a snowball",
+    "message": "Snowball Run"
+  },
   "scene_app": {
     "description": "Title of a scene/game. This takes the user to the Santa Android App available on Google Play..",
     "message": "Android App"
@@ -1834,6 +1862,10 @@
   "scene_briefing": {
     "description": "Title of a scene/game. Mrs. Claus' is giving a briefing on how to deliver presents.",
     "message": "Mrs. Claus' Briefing"
+  },
+  "scene_build": {
+    "description": "Title of a scene/game. Work together as elves by moving around in a factory to build presents. 'Bolt' means the verb speedy, or fast.",
+    "message": "Build & Bolt"
   },
   "scene_callfromsanta": {
     "description": "Title of a scene/game. This lets Santa call your phone number and give a greeting.",
@@ -2022,10 +2054,6 @@
   "scene_trivia": {
     "description": "Title of a scene/game. Play a trivia game about geography.",
     "message": "Trivia"
-  },
-  "scene_underconstruction": {
-    "description": "Title of a scene/game. Under construction page to be shown before the village opens.",
-    "message": "Under Construction"
   },
   "scene_undersea": {
     "description": "Title of a scene/game. See Santa deliver presents underwater.",
@@ -9125,6 +9153,10 @@
     "description": "Menu item that allows users to install Santa Tracker. Short and does not imply platform (web/Android etc).",
     "message": "Install"
   },
+  "village_santa_intall_ios": {
+    "description": "Action that a user can take on iOS to install Santa Tracker to their device. If possible, the translation of 'Add to Home Screen' should match the option available under the 'Share' button (which is an icon) within Safari on an iOS device. Also please do not translate <span></span> - it is replaced with the 'Share' button that a user must tap.",
+    "raw": "Just tap &lt;span&gt;&lt;/span&gt; then 'Add to Home Screen'"
+  },
   "village_santa_a2hs": {
     "description": "Menu item that allows users to add the Santa Tracker site as an app icon to the home screen of a mobile device.",
     "message": "Add to Home Screen"
@@ -9232,5 +9264,9 @@
   "dec24th": {
     "description": "The date of December 24 (please do not use -th suffixes etc). Used as a subtitle indicating that you can track Santa from this date.",
     "message": "December 24"
+  },
+  "decmonth": {
+    "description": "A short version of 'December', the month. Ideally three characters, but could be 4-5 if need be. Placed before a number indicating the date within December something opens.",
+    "message": "Dec"
   }
 }

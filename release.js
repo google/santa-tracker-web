@@ -495,6 +495,9 @@ async function findProdPages() {
 
   const validInput = dictMatch[1].replace(/_msg`(\w+)`/g, (_, arg) => `'${arg}'`);
   const pages = JSON5.parse(validInput);
+  if (!('index' in pages)) {
+    pages['index'] = pages[''] || '';
+  }
   delete pages[''];  // don't explicitly generate blank top-level page
 
   // Find any pages we might be missing.

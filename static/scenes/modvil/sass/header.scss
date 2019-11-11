@@ -1,0 +1,30 @@
+header {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 86px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+
+  h1 {
+    margin: 6px 12px;
+    font-family: 'Lobster', sans-serif;
+    font-size: 72px;
+    line-height: 54px;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0,0,0,.25);
+    transform: rotateZ(-3deg) skew(-4deg);
+  }
+
+  #ornament {
+    background: url(img/ornament.svg) 50% 20% no-repeat;
+    background-size: contain;
+    width: 450px;
+    height: 250px;
+    margin-top: -20px;
+    position: absolute;
+    z-index: -1;
+  }
+}

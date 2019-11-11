@@ -1,6 +1,7 @@
 import '../polyfill/event-target.js';
 import * as channel from '../lib/channel.js';
 import {resolvable} from '../lib/promises.js';
+import {read} from '../lib/params.js';
 
 import {globalClickHandler} from '../core/router.js';
 import {scope} from './route.js';
@@ -149,6 +150,7 @@ class SceneApi extends EventTarget {
     super();
     this._initialData = {};
     this._config = null;
+    this._params = read(window.location.search);
 
     // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
     if (channel.withinFrame) {
@@ -208,6 +210,10 @@ class SceneApi extends EventTarget {
       this._send = (type, payload) => this._updateParent({type, payload});
       sendQueue.forEach((message) => this._updateParent(message));
     });
+  }
+
+  param(id) {
+    return this._params[id] || '';
   }
 
   _handleHostMessage(type, payload) {
@@ -361,6 +367,8 @@ function installV1Handlers() {
     headerSize: 0,
   };
 }
+
+window.addEventListener('sound-trigger', (ev) => sceneApi.play(ev.detail));
 
 installV1Handlers();
 

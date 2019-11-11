@@ -1,5 +1,37 @@
 :host {
-  position: relative;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  z-index: 999;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host([hidden]) {
+  display: none !important;
+}
+
+:host {
+  santa-button {
+    width: 55px;
+    height: 55px;
+    font-size: 18px;
+  }
+}
+
+.shim {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  position: absolute;
+  background-color: #000;
+  opacity: .6;
 }
 
 .wrap {
@@ -7,7 +39,9 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
+  z-index: 11;
+  position: relative;
 }
 
 nav {
@@ -71,7 +105,7 @@ nav {
 
     santa-button {
       margin-left: 20px;
-  
+
       svg {
         width: 1em;
         height: 1em;
@@ -82,17 +116,15 @@ nav {
 
 .hero {
   flex-grow: 1;
-  align-self: stretch;
-
-  background: transparent center bottom no-repeat;
-  background-size: contain;
   &.gameover {
     max-height: 285px;
-    background-image: _root("img/overlay/gameover.png");
+    width: 250px;
+    height: 300px;
+    background: _rel("../../img/overlay/gameover.png") bottom center / contain no-repeat;
   }
   &.pause {
     max-height: 343px;
-    background-image: _root("img/overlay/pause.png");
+    background: _rel("../../img/overlay/pause.png") bottom center / contain no-repeat;
   }
 }
 

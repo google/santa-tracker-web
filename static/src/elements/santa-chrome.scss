@@ -240,19 +240,20 @@ main {
   height: 100%;
   visibility: hidden;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
-  width: 320px;
-  transform: translate(-100%);
-  transition: transform $duration-sidebar ease-out;
-  animation: santa-app__hide-nav $duration-sidebar step-end forwards;
+  width: 100vw;
+  // transform: translate(-100%);
+  // transition: transform $duration-sidebar ease-out;
+  // animation: santa-app__hide-nav $duration-sidebar step-end forwards;
   pointer-events: none;
   will-change: transform;
-  background: white;
+  // background: white;
 
   .sidebar-focuser {
     position: absolute;
   }
 
   .closer {
+    position: absolute;
     height: $dim-bar + 40px;
     cursor: pointer;
 

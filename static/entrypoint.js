@@ -7,10 +7,11 @@ import './src/polyfill/css.js';
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
-import './src/elements/santa-sidebar.js';
 import './src/elements/santa-error.js';
 import './src/elements/santa-badge.js';
 import './src/elements/santa-notice.js';
+import './src/elements/santa-overlay.js';
+import './src/elements/santa-cardnav.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
@@ -20,6 +21,7 @@ import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
 import global from './global.js';
+import configureCustomKeys from './src/core/keys.js';
 
 
 const loaderElement = document.createElement('santa-gameloader');
@@ -35,15 +37,15 @@ const orientationOverlayElement = document.createElement('santa-orientation');
 orientationOverlayElement.setAttribute('slot', 'overlay');
 loaderElement.append(orientationOverlayElement);
 
-const errorElement = document.createElement('santa-error');
-loaderElement.append(errorElement);
-
 const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
 chromeElement.append(badgeElement);
 
-const sidebar = document.createElement('santa-sidebar');
-sidebar.todayHouse = 'boatload';
+// nb. This is added only when needed.
+const errorElement = document.createElement('santa-error');
+
+const sidebar = document.createElement('santa-cardnav');
+sidebar.hidden = true;
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
 
@@ -51,6 +53,13 @@ chromeElement.append(sidebar);
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
+chromeElement.addEventListener('nav-open', (ev) => {
+  sidebar.hidden = false;
+});
+
+chromeElement.addEventListener('nav-close', (ev) => {
+  sidebar.hidden = true;
+});
 
 const kplayReady = kplay.prepare();
 kplayReady.then((sc) => {
@@ -85,12 +94,38 @@ kplayReady.then((sc) => {
   }
 });
 
+const showOverlay = (state={}) => {
+  let overlay = document.querySelector('santa-overlay');
+  if (!overlay) {
+    const endSceneOverlayElement = document.createElement('santa-overlay');
+    document.body.append(endSceneOverlayElement);
+    overlay = endSceneOverlayElement;
+  }
+  overlay.state = state;
+  overlay.hidden = false;
+};
+
+const hideOverlay = () => {
+  const overlay = document.querySelector('santa-overlay');
+  if (overlay) {
+    overlay.hidden = true;
+  }
+};
+
+window.addEventListener('game-restart', (e) => {
+  global.setState({status: 'restart'})
+}, true);
 
 global.subscribe((state) => {
   chromeElement.mini = state.mini;
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
+  if (gameover) {
+    showOverlay(state);
+  } else {
+    hideOverlay();
+  }
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
@@ -344,6 +379,10 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       return false;  // replaced during interlude
     }
 
+    // Clear any previous errors.
+    errorElement.remove();
+    errorElement.textContent = '';
+
     // The interlude is fully visible, so we can purge the old scene (although this is optional as
     // `santa-gameloader` will always do this for us _anyway_).
     loaderElement.purge();
@@ -351,23 +390,10 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       sceneOrientation: null,
     });
 
-    // Configure optional error state of `santa-error` while the interlude is visible.
-    errorElement.code = null;
-    if (error) {
-      errorElement.code = 'internal';
-    } else if (locked) {
-      // do nothing
-    } else if (!control.hasPort && route) {
-      errorElement.code = 'missing';
-    }
-    errorElement.textContent = '';
-    errorElement.lock = locked;
-    const lockedImagePromise = locked ? sceneImage(route) : Promise.resolve(null);
-
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so
     // only check if we're still the active scene once done.
     const config = await configPromise;
-    const lockedImage = await lockedImagePromise.catch(null);
+    const lockedImage = await (locked ? sceneImage(route).catch(null) : null);
     const sc = await kplayReady;
 
     // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we
@@ -377,11 +403,26 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     }
     control.send({type: 'ready'});
 
-    // Run configuration tasks and remove the interlude.
-    if (lockedImage) {
-      lockedImage.setAttribute('slot', 'icon');
-      errorElement.append(lockedImage);
+    // Configure the optional error display.
+    let errorCode = null;
+    if (error) {
+      errorCode = 'internal';
+    } else if (locked) {
+      // do nothing
+    } else if (!control.hasPort && route) {
+      errorCode = 'missing';
     }
+    if (errorCode || locked) {
+      errorElement.code = errorCode;
+      errorElement.locked = locked;
+      if (lockedImage) {
+        lockedImage.setAttribute('slot', 'icon');
+        errorElement.append(lockedImage);
+      }
+      loaderElement.append(errorElement);
+    }
+
+    // Run configuration tasks and remove the interlude.
     interludeElement.removeAttribute('active');
     global.setState({
       mini: !config.scroll,
@@ -401,166 +442,5 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   resolve(call());
 });
 
-
-
-
-
-
-/**
- * Configures key and gamepad handlers for the host frame.
- */
-function configureCustomKeys() {
-  const keycodeMap = {
-    ' ': 32,
-    'PageUp': 33,
-    'PageDown': 34,
-    'End': 35,
-    'Home': 36,
-    'Left': 37,
-    'Up': 38,
-    'Right': 39,
-    'Down': 40,
-    'ArrowLeft': 37,
-    'ArrowUp': 38,
-    'ArrowRight': 39,
-    'ArrowDown': 40,
-  };
-
-  document.body.addEventListener('keydown', (ev) => {
-    // Steal gameplay key events from the host frame and focus on the loader. Dispatch a fake event
-    // to the scene so that the keyboard feels fluid.
-    const code = keycodeMap[ev.key];
-    if (!code) {
-      return false;  // not part of map, just ignore
-    }
-
-    const {control} = global.getState();
-    if (control) {
-      control.send({type: 'keydown', payload: {key: ev.key, keyCode: code}});
-    }
-    ev.preventDefault();
-    loaderElement.focus();
-  });
-
-  // These are vague estimates (in ms) for gamepad emulation. We can't get the system's repeat rate
-  // config, short of stealing it when a user presses a key.
-  const initialRepeat = 400;
-  const followingRepeat = 50;
-
-  const gamepads = {};
-  const buttonsActive = {};
-  let lastTimestamp = 0;
-
-  /**
-   * Queued to trigger repeat keystrokes. Queues another stroke if the control is still active.
-   *
-   * @param {string} key to repeat send
-   */
-  function repeatKey(key) {
-    const {control, hidden} = global.getState();
-    if (!control || hidden) {
-      return false;
-    }
-
-    // TODO: could be combined with a rAF.
-    buttonsActive[key] = window.setTimeout(() => repeatKey(key), followingRepeat);
-    const payload = {
-      key,
-      keyCode: keycodeMap[key],
-      repeat: true,
-    };
-    control.send({type: 'keydown', payload});
-  }
-
-  function gamepadLoop() {
-    const gamepads = navigator.getGamepads();
-    const gp = gamepads[0] || gamepads[1] || gamepads[2] || gamepads[3] || null;
-    if (!gp) {
-      return;
-    }
-    window.requestAnimationFrame(gamepadLoop);
-
-    // TODO(samthor): We only look at the 1st gamepad. What if we have multiplayer games?
-    if (gp.timestamp === lastTimestamp) {
-      return;
-    }
-    lastTimestamp = gp.timestamp;
-
-    const buttonsDown = {};
-
-    const buttonPressed = (index) => (gp.buttons[index] && gp.buttons[index].pressed);
-    const enableIfPressed = (index, key) => {
-      if (buttonPressed(index)) {
-        buttonsDown[key] = true;
-      }
-    };
-
-    const {control, hidden} = global.getState();
-    if (control && !hidden) {
-      const threshold = 0.2;
-
-      // ... only look for events if there's something to control and page is visible
-      const leftright = gp.axes[0];
-      if (leftright < -threshold) {
-        buttonsDown['ArrowLeft'] = true;
-      } else if (leftright > +threshold) {
-        buttonsDown['ArrowRight'] = true;
-      }
-      const updown = gp.axes[1];
-      if (updown < -threshold) {
-        buttonsDown['ArrowUp'] = true;
-      } else if (updown > +threshold) {
-        buttonsDown['ArrowDown'] = true;
-      }
-
-      enableIfPressed(0, ' ');
-      enableIfPressed(12, 'ArrowUp');
-      enableIfPressed(13, 'ArrowDown');
-      enableIfPressed(14, 'ArrowLeft');
-      enableIfPressed(15, 'ArrowRight');
-    }
-
-    for (const key in buttonsDown) {
-      if (!(key in buttonsActive)) {
-        // Wasn't previously pressed, dispatch keydown.
-        const keyCode = keycodeMap[key] || 0;
-        control && control.send({type: 'keydown', payload: {key, keyCode, repeat: false}});
-
-        // ... and enqueue repeat
-        buttonsActive[key] = window.setTimeout(() => repeatKey(key), initialRepeat);
-      }
-    }
-    for (const key in buttonsActive) {
-      if (key in buttonsDown) {
-        continue;
-      }
-      // Was previously pressed, dispatch keyup!
-      const keyCode = keycodeMap[key] || 0;
-      control && control.send({type: 'keyup', payload: {key, keyCode, repeat: true}});
-
-      // ... and clear repeat timer
-      window.clearTimeout(buttonsActive[key]);
-      delete buttonsActive[key];
-    }
-  }
-
-  function gamepadHandler(event) {
-    const connecting = event.type === 'gamepadconnected';
-    const gamepad = event.gamepad;
-
-    const count = Object.keys(gamepads).length;
-    if (connecting) {
-      gamepads[gamepad.index] = gamepad;
-      if (count === 0) {
-        gamepadLoop();  // kick off listener if there are any gamepads
-      }
-    } else {
-      delete gamepads[gamepad.index];
-    }
-  }
-
-  window.addEventListener('gamepadconnected', gamepadHandler);
-  window.addEventListener('gamepaddisconnected', gamepadHandler);
-}
 
 configureCustomKeys();

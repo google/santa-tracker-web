@@ -1,14 +1,17 @@
 /**
- * @fileoverview Provides Firebase Remote config.
+ * @fileoverview Provides Firebase Remote config. This has side-effects.
  *
- * This should only run on the prod domain.
+ * This should only run on the prod domain. This assumes that "firebase" is a global already
+ * available in the global scope.
  */
+
+import {frame} from '../lib/promises.js';
 
 const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
 const listeners = new Set();
 
-function expontentialDelay(range, failures) {
+function expontentialDelay(range, failures = 0) {
   return Math.pow(1.0 + (range * Math.random()), failures + 1) - (range / 2);
 }
 
@@ -69,6 +72,37 @@ export function listen(callback) {
 
 
 /**
+ * Notify all listeners that something has changed.
+ */
+function notifyListeners() {
+  listeners.forEach((listener) => {
+    Promise.resolve().then(() => listener());
+  });
+}
+
+
+/**
+ * Notifies all listeners on local device date change. Useful for locking or unlocking scenes.
+ */
+(function() {
+  let previousDate = (new Date()).toDateString();
+
+  function checkDate() {
+    // check every ~minute on rAF
+    const next = 60 * 1000 * expontentialDelay(0.2);
+    frame(next).then(checkDate);
+
+    const currentDate = (new Date()).toDateString();
+    if (currentDate !== previousDate) {
+      previousDate = currentDate;
+      notifyListeners();
+    }
+  }
+
+  checkDate();
+})();
+
+/**
  * Performs a refresh of Remote Config. This might be a no-op if the values are yet to be marked
  * invalid.
  *
@@ -81,9 +115,10 @@ export async function refresh(invalidateNow = false) {
   }
 
   await remoteConfig.fetchAndActivate();
-  Promise.resolve().then(() => {
-    listeners.forEach((listener) => listener());
-  });
+
+  // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
+  notifyListeners();
+
   return values();
 }
 
@@ -101,6 +136,38 @@ export function values() {
  */
 export function switchOff() {
   return remoteConfig.getBoolean('switchOff');
+}
+
+
+/**
+ * @param {?string} route to check
+ * @return {?string} route to serve
+ */
+export function sceneForRoute(route) {
+  if (!route || route === 'index') {
+    return indexScene();
+  } else if (isLocked(route)) {
+    return null;
+  }
+  const v = videos();
+  if (v.indexOf(route) !== -1) {
+    return 'video';
+  }
+  return route;
+}
+
+
+/**
+ * @return {!Array<string>} video IDs
+ */
+export function videos() {
+  let videos = [];
+  try {
+    videos = JSON.parse(remoteConfig.getString('videos'))
+  } catch (e) {
+    // ignore
+  }
+  return videos;
 }
 
 
@@ -137,5 +204,5 @@ export function isLocked(route) {
  * @return {string} the scene to show for "/" or "index"
  */
 export function indexScene() {
-  return remoteConfig.getString('indexScene');
+  return remoteConfig.getString('indexScene') || 'index';
 }

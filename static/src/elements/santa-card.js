@@ -6,29 +6,68 @@ import scenes from '../strings/scenes.js';
 import {_static, _msg} from '../magic.js';
 import {prepareAsset} from '../lib/media.js';
 import {href} from '../scene/route.js';
+import {join} from '../lib/url.js';
 import './santa-card-player.js';
 
-// YouTube video assets for previews.
-export const videos = {
-  carpool: 'h83b1lWPuvQ',
-  comroom: '_WdYujHlmHA',
-  jingle: 'sQnKCU_A0Yc',
-  liftoff: 'BfF7vfw6Zjw',  // 2013
-  museum: 'fo25RcjXJI4',
-  office: 'IXmDOu-eSx4',
-  onvacation: 'IdpQSy4IB_I',
-  penguinproof: 'QKm4q6kZK7E',
-  reindeerworries: 'nXLNcfNsWAY',  // 2015
-  reload: 'vHMeXs36NTE',
-  santasback: 'zE_D9Vd69aw',
-  satellite: 'ZJPL56IPTjw',
-  selfies: 'JA8Jn5DGt64',
-  slackingoff: 'uEl2WIZOVdQ',
-  takeoff: 'YNpwm08ZRD0',  // 2015+, coding
-  temptation: '2FtcJJ9vzVQ',
-  tired: '2UGX3bT9u20',
-  wheressanta: '0qrFL0mn3Uk',  // 2013
-  workshop: 'oCAKV4Ikhec',  // 2014
+
+export const sceneDefs = {
+  boatload: {
+    color: '#57c4e9',
+    mode: 'static',
+  },
+  codelab: {
+    mode: 'lottie',
+  },
+  elfmaker: {
+    color: '#3399ff',
+    mode: 'lottie-both',
+  },
+  elfski: {
+    mode: 'lottie',
+  },
+  glider: {
+    mode: 'lottie',
+  },
+  gumball: {
+    mode: 'lottie',
+  },
+  jamband: {
+    mode: 'lottie',
+  },
+  jetpack: {
+    mode: 'lottie',
+  },
+  penguindash: {
+    color: '#93dae4',
+    mode: 'lottie',
+  },
+  presentbounce: {
+    mode: 'lottie',
+  },
+  presentdrop: {
+    mode: 'lottie',
+  },
+  runner: {
+    mode: 'lottie',
+  },
+  santascanvas: {
+    mode: 'lottie',
+  },
+  santasearch: {
+    color: '#ff3475',
+    mode: 'lottie',
+  },
+  santaselfie: {
+    color: '#6bb4fd',
+    mode: 'lottie',
+  },
+  snowball: {
+    color: '#93dae4',
+    mode: 'lottie',
+  },
+  museum: {
+    mode: 'video',
+  },
 };
 
 
@@ -73,13 +112,32 @@ export class SantaCardElement extends LitElement {
     super();
     this._backgroundStylePromise = alreadyResolved;
 
-    this.addEventListener('mouseover', () => {
-      this._active = true;
-    });
-    this.addEventListener('mouseout', (ev) => {
-      this._active = false;
-    });
+    this._maybeDismiss = this._maybeDismiss.bind(this);
+    this._maybeMakeActive = this._maybeMakeActive.bind(this);
+
+    this.addEventListener('focus', this._maybeMakeActive);
+    this.addEventListener('blur', this._maybeDismiss);
+    this.addEventListener('mouseover', this._maybeMakeActive);
+    this.addEventListener('mouseout', this._maybeDismiss);
   }
+
+  _maybeMakeActive() {
+    if (this.locked && this._active) {
+      return;
+    }
+    const detail = 'village_bubble_appear';
+    window.dispatchEvent(new CustomEvent('sound-trigger', {detail}));
+    this._active = true;
+  }
+
+  _maybeDismiss() {
+    if (!this._active) {
+      return;
+    }
+    const detail = 'village_bubble_disappear';
+    window.dispatchEvent(new CustomEvent('sound-trigger', {detail}));
+    this._active = false;
+}
 
   static get styles() {
     return [styles];
@@ -90,50 +148,51 @@ export class SantaCardElement extends LitElement {
       return true;
     }
 
-    if (!this.scene) {
-      this._backgroundStylePromise = alreadyResolved;
-      return true;
-    }
+    const def = sceneDefs[this.scene];
+    this._backgroundStylePromise = def && this._prepareBackground(def, this.scene) || alreadyResolved;
+    return true;
+  }
 
-    // Check if this is secretly a video.
-    if (this.scene in videos) {
-      const videoId = videos[this.scene];
-      const url = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
+  _prepareBackground(def, scene) {
+    if (def.color) {
+      return Promise.resolve(`background: ${def.color}`);
+    } else if (def.mode === 'video') {
+      const url = join(import.meta.url, '../../img/scenes/' + scene + '_1x.png');
       const {promise} = prepareAsset(url);
 
-      this._backgroundStylePromise = promise.then(() => {
+      return promise.then(() => {
         return `background-image: url(${url})`;
       });
-
-      return true;
     }
-
-    const color = sceneColors[this.scene];
-    if (color) {
-      this._backgroundStylePromise = Promise.resolve(`background: ${color}`);
-    } else {
-      this._backgroundStylePromise = alreadyResolved;
-    }
-
-    return true;
-}
+  }
 
   render() {
-    const lottiePath = _static`img/card-lottie/`;
+    const cardPath = _static`img/card/`;
     let cardPlayer = '';
 
     if (!this.locked) {
+      let inner = html`<img />`;
+      const def = sceneDefs[this.scene];
+      if (def && (def.mode === 'lottie' || def.mode === 'lottie-both')) {
+
+        const loopSrc = (def.mode === 'lottie-both' ? cardPath + this.scene + '-loop.json' : undefined);
+
+        inner = html`<santa-card-player .active=${this._active} intro-src=${cardPath + this.scene + '.json'} loop-src=${ifDefined(loopSrc)}></santa-card-player>`;
+      } else if (!def || (def && def.mode === 'static')) {
+        inner = html`<img src=${cardPath + this.scene + '.svg'} />`;
+      }
+
       cardPlayer = html`
-        <santa-card-player .active=${this._active} intro-src=${lottiePath + this.scene + '-intro.json'} loop-src=${lottiePath + this.scene + '-loop.json'}></santa-card-player>
+        ${inner}
         <h1>${scenes[this.scene] || ''}</h1>
       `;
     }
 
+    // TODO: we need an <div class="inner"> to do safe transforms
     const url = this.locked || !this.scene ? undefined : href(`${this.scene}.html`);
     const iceIndex = (this.locked || 0) % 3;  // css defines ice-[0-2]
     return html`
-<main>
+<main class=${this._active ? 'active' : ''}>
 <a href=${ifDefined(url)} style=${ifDefined(until(this._backgroundStylePromise, ''))}>
   ${cardPlayer}
   <div class="ice ice-${iceIndex}" ?hidden=${!this.locked}>

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Subukang Muli"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Keyboard"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Pindutin"
+	},
 	"copy-me": {
 		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Pumili ng katawan ng elf"
 	},
+	"elves": {
+		"message": "Mga Elf"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -612,9 +627,6 @@
 		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Subukang muli"
-	},
-	"error_try_again": {
 		"message": "Subukang muli"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Bukas ang grand opening"
 	},
+	"opens": {
+		"message": "Magbubukas sa"
+	},
 	"ornament-print-instructions": {
 		"message": "Tupiin dito at pagdikitin ang dalawang gilid"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "North Pole Airport"
 	},
+	"scene_android_cityquiz": {
+		"message": "City Quiz"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher Dancer"
+	},
+	"scene_android_penguinswim": {
+		"message": "Penguin Swim"
+	},
+	"scene_android_presenttoss": {
+		"message": "Present Toss"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Rocket Sleigh"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snowball Run"
+	},
 	"scene_app": {
 		"message": "Android App"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
+	"scene_family": {
+		"message": "Gabay sa Pamilya"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
 	},
 	"scene_glider": {
 		"message": "Elf Glider"
 	},
+	"scene_guides": {
+		"message": "Mga Gabay para sa Mga Adult"
+	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "Ice Cave"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Snowball Storm"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "Sa United Kingdom, ang mga nagdiriwang sa kahit anong edad ay nag-e-enjoy ng mga Christmas cracker sa hapag-kainan sa hapunan. Ang cracker ay mga tube na binalutan ng makukulay na papel, na may de-hatak na tab sa magkabilang dulo. Kapag hinatak mo ang mga tab, sasabog ang tube na may malakas na tunog! May laman itong mga paper hat, laruan, joke at mga premyo na mae-enjoy sa gabi ng Pasko."
 	},
+	"underconstruction": {
+		"message": "Ginagawa Pa"
+	},
+	"unlocks": {
+		"message": "Mga Pag-unlock"
+	},
 	"unmute": {
 		"message": "I-unmute"
 	},
 	"upgrade-warning": {
-		"message": "Oops! Hindi suportado ang Santa Tracker sa iyong browser o naka-disable ang JavaScript mo. Para ma-access ang Santa Tracker, mag-download ng modernong browser o i-enable ang JavaScript.\nPara sa karagdagang impormasyon, bisitahin ang: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Hindi suportado ang Santa Tracker sa iyong browser o naka-disable ang JavaScript mo. Para ma-access ang Santa Tracker, mag-download ng modernong browser o i-enable ang JavaScript."
 	},
 	"us_country_name": {
 		"message": "United States"

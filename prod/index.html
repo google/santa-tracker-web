@@ -16,7 +16,7 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <link rel="manifest" crossorigin="use-credentials" href="./manifest.json" />
   <link href="https://maps.gstatic.com" rel="preconnect" crossorigin />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
@@ -60,6 +60,7 @@ body[data-mode="android"] {
   background-repeat: no-repeat;
 }
 html {
+  background: black;
   overflow: hidden;
   height: 100vh;
 }
@@ -68,6 +69,8 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow: auto;
+  touch-action: manipulation;
+  touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;

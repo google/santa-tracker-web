@@ -1,5 +1,10 @@
 [{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "com.google.android.apps.santatracker.debug",
-               "sha256_cert_fingerprints": ["89:53:FE:3E:7D:97:CF:46:7B:B1:70:C7:77:12:54:FB:59:D8:D0:9F:20:A8:32:4A:3A:9F:B0:0F:2A:7A:83:8E"] }
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.google.android.apps.santatracker.dogfood",
+                 "sha256_cert_fingerprints": ["F4:CB:0B:81:9F:14:B7:FB:BE:3E:61:3E:AF:86:01:10:B5:18:62:76:65:40:27:CD:52:5B:27:DC:23:2E:9C:8E"] }
+},
+{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { "namespace": "android_app", "package_name": "com.google.android.apps.santatracker.debug",
+                 "sha256_cert_fingerprints": ["89:53:FE:3E:7D:97:CF:46:7B:B1:70:C7:77:12:54:FB:59:D8:D0:9F:20:A8:32:4A:3A:9F:B0:0F:2A:7A:83:8E"] }
 }]

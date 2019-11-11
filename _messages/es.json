@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Reintentar"
 	},
+	"controller_gamepad": {
+		"message": "Mando"
+	},
+	"controller_keyboard": {
+		"message": "Teclado"
+	},
+	"controller_mouse": {
+		"message": "Ratón"
+	},
+	"controller_touch": {
+		"message": "Toque"
+	},
 	"copy-me": {
 		"message": "Copia este enlace y comparte tu mensaje"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "Elige un cuerpo para tu elfo"
 	},
+	"elves": {
+		"message": "Elfos"
+	},
 	"elvish_language_name": {
 		"message": "Élfico"
 	},
@@ -612,9 +627,6 @@
 		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
 	},
 	"error-try-again": {
-		"message": "Inténtalo de nuevo"
-	},
-	"error_try_again": {
 		"message": "Inténtalo de nuevo"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "Mañana gran inauguración"
 	},
+	"opens": {
+		"message": "Fecha en que estará disponible"
+	},
 	"ornament-print-instructions": {
 		"message": "Dobla aquí y pega los lados juntos."
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "Aeropuerto del Polo Norte"
 	},
+	"scene_android_cityquiz": {
+		"message": "Juego de las ciudades"
+	},
+	"scene_android_dancer": {
+		"message": "Renos bailarines"
+	},
+	"scene_android_penguinswim": {
+		"message": "¡Al agua, pingüinos!"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lanzamiento de regalos"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Trineo motorizado"
+	},
+	"scene_android_snowballrun": {
+		"message": "¡A escapar de la bola de nieve!"
+	},
 	"scene_app": {
 		"message": "Aplicación para Android"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "Fábrica de caramelos"
 	},
+	"scene_family": {
+		"message": "Guía para familias"
+	},
 	"scene_giftmatch": {
 		"message": "Empareja los regalos"
 	},
 	"scene_glider": {
 		"message": "Elfo de altos vuelos"
 	},
+	"scene_guides": {
+		"message": "Guías para adultos"
+	},
 	"scene_gumball": {
 		"message": "Guía la bola"
+	},
+	"scene_havoc": {
+		"message": "Lío de regalos"
 	},
 	"scene_icecave": {
 		"message": "Cueva de hielo"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "Pelea de bolas de nieve"
 	},
+	"scene_snowbox": {
+		"message": "Zona nevada de pruebas"
+	},
 	"scene_snowflake": {
 		"message": "Crea un copo de nieve con código"
 	},
 	"scene_speedsketch": {
 		"message": "Retratos contrarreloj"
+	},
+	"scene_storybook": {
+		"message": "Cuento sobre sostenibilidad"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "En Reino Unido, juerguistas de todas las edades disfrutan de los \"crackers\" en el día de Navidad. Son tubos envueltos en papel de colores con lengüetas en cada extremo. Cuando se tira de ellas, estallan con un fuerte chasquido y se revelan los sombreros de papel, juguetes y premios que contienen."
 	},
+	"underconstruction": {
+		"message": "En construcción"
+	},
+	"unlocks": {
+		"message": "Fecha en que se desbloquea"
+	},
 	"unmute": {
 		"message": "Activar sonido"
 	},
 	"upgrade-warning": {
-		"message": "¡Vaya! Parece que tu navegador no es compatible con Sigue a Papá Noel o que tienes JavaScript inhabilitado. Para acceder al sitio web, descarga un navegador más reciente o habilita JavaScript.\nObtén más información a través del enlace \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "¡Vaya! Parece que tu navegador no es compatible con Sigue a Papá Noel o que tienes JavaScript inhabilitado. Para acceder al sitio web, descarga un navegador más reciente o habilita JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

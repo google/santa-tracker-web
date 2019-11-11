@@ -2,6 +2,7 @@ import '../../src/polyfill/css.js';
 import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
 import '../../src/elements/santa-card.js';
+import '../../src/elements/santa-tutorial.js';
 import '../../src/elements/santa-image-mask.js';
 import './elements/easteregg-balloon.js';
 import './elements/easteregg-reindeer.js';
@@ -9,6 +10,10 @@ import './elements/easteregg-snowmobile.js';
 import './elements/easteregg-tictactoe.js';
 import '../../src/magic.js';
 import {rectify} from '../../src/scene/route.js';
+
+
+const tutorial = document.querySelector('santa-tutorial');
+tutorial.queue('elfski.mp4', 'matching.svg', 'codeboogie.gif');
 
 
 const offset = {x: 0, y: 0};

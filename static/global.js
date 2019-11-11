@@ -1,10 +1,10 @@
 
 import createStore from 'unistore';
-import {dedupFrame} from './src/lib/decorators.js';
+import {dedup} from './src/lib/promises.js';
 
 const g = createStore({
   mini: false,
-  audioSuspended: false,
+  audioSuspended: undefined,  // undefined until we observe it
 
   orientation: null,
 
@@ -44,7 +44,7 @@ startup((global) => {
     global.setState({orientation});
   };
 
-  const d = dedupFrame(update);
+  const d = dedup(update);
   portraitMedia.addListener(d);
   landscapeMedia.addListener(d);
 
@@ -81,7 +81,7 @@ startup((global) => {
     });
   };
 
-  const d = dedupFrame(update);
+  const d = dedup(update);
   pointerMedia.addListener(d);
   hoverMedia.addListener(d);
 

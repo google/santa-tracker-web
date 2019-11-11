@@ -1,0 +1,155 @@
+
+$transition-duration: 0.2s;
+
+.reveal {
+  background: #4803b8;
+  width: 300vmax;
+  height: 300vmax;  // FIXME: not supported in IE11 (if we care)
+  margin-left: -150vmax;
+  margin-top: -150vmax;
+  top: 45px;
+  left: 75px;
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(.4, 0, 1, 1);
+  transform: scale(1);
+  border-radius: 300vmax;
+  position: fixed;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+:host([hidden]) {
+  display: block !important;
+
+  .reveal {
+    transition: none;
+    transform: scale(0);
+  }
+
+  santa-card {
+    transition: none;
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+.placeholder {
+  width: 200px;
+  margin: 0 10px;
+  order: 10000;
+}
+
+santa-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $transition-duration ease-out, transform $transition-duration ease-out;
+
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  font-size: 20px;
+
+  --radius: 30px;
+  --icon-size: 60%;
+
+  &.wide {
+    width: 420px;
+  }
+}
+
+@media (max-width: 768px - 1px) {
+  .placeholder {
+    width: 130px;
+  }
+
+  santa-card {
+    width: 130px;
+    height: 130px;
+    font-size: 14px;
+
+    --radius: 20px;
+    --icon-size: 50%;
+
+    &.wide {
+      width: 280px;
+    }
+  }
+}
+
+footer {
+  background: #3a068d;
+  min-height: 200px;
+}
+
+header {
+  display: flex;
+  min-height: 200px;
+  align-items: center;
+  justify-content: center;
+}
+
+a.linkwrap {
+  pointer-events: auto;
+  text-decoration: none;
+  display: inline-flex;
+  max-width: 100%;
+  min-width: 1%;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  margin-left: 40px;
+  line-height: 44px;  // FIXME: was $dim-bar
+  overflow: hidden;
+
+  border-radius: 100px;
+  padding: 0 16px;
+  padding-right: 36px;
+
+  transition: background 0.25s ease-in-out;
+
+  .home {
+    opacity: 0;
+    margin-right: 12px;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  &:hover {
+    background: #3a068d;
+
+    .home {
+      opacity: 1;
+    }
+  }
+
+  .logo {
+    width: 62px;
+    height: 38px;
+    min-width: 62px;
+    background-size: contain;
+    fill: white;
+  }
+
+  h1 {
+    .a11y {
+      opacity: 0;
+      font-size: 0;
+      position: absolute;
+    }
+
+    color: white;
+    margin: 0;
+    margin-left: 0.4ch;
+    font-family: 'Lobster', Sans-Serif;
+    font-size: 19px;
+    line-height: inherit;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

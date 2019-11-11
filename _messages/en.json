@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Try Again"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Keyboard"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Touch"
+	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
@@ -539,6 +551,9 @@
 	"deckdescription": {
 		"message": "Deck out your browser with a Santa Chrome extension."
 	},
+	"decmonth": {
+		"message": "Dec"
+	},
 	"detected": {
 		"message": "detected"
 	},
@@ -587,6 +602,9 @@
 	"elf_choose_body": {
 		"message": "Choose an elf body"
 	},
+	"elves": {
+		"message": "Elves"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -611,11 +629,14 @@
 	"error-not-found": {
 		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "This is an outdated version of Santa's Village! Try opening Santa Tracker again to see the latest version."
+	},
 	"error-try-again": {
 		"message": "Try again"
 	},
-	"error_try_again": {
-		"message": "Try again"
+	"error-unsupported": {
+		"message": "Santa Tracker doesn't support your browser. To play more games and to track Santa on the 24th of December, try your phone or a different browser."
 	},
 	"es_language_name": {
 		"message": "Spanish"
@@ -1082,6 +1103,9 @@
 	"openingtomorrow": {
 		"message": "Grand opening tomorrow"
 	},
+	"opens": {
+		"message": "Opens"
+	},
 	"ornament-print-instructions": {
 		"message": "Fold here and glue sides together"
 	},
@@ -1352,6 +1376,24 @@
 	"scene_airport": {
 		"message": "North Pole Airport"
 	},
+	"scene_android_cityquiz": {
+		"message": "City Quiz"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher Dancer"
+	},
+	"scene_android_penguinswim": {
+		"message": "Penguin Swim"
+	},
+	"scene_android_presenttoss": {
+		"message": "Present Toss"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Rocket Sleigh"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snowball Run"
+	},
 	"scene_app": {
 		"message": "Android App"
 	},
@@ -1363,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_build": {
+		"message": "Build \u0026 Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Call from Santa"
@@ -1397,14 +1442,23 @@
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
+	"scene_family": {
+		"message": "Family Guide"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
 	},
 	"scene_glider": {
 		"message": "Elf Glider"
 	},
+	"scene_guides": {
+		"message": "Guides for Grownups"
+	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "Ice Cave"
@@ -1469,11 +1523,17 @@
 	"scene_snowball": {
 		"message": "Snowball Storm"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6833,17 @@
 	"uk_tradition": {
 		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys, jokes and prizes to enjoy during Christmas night."
 	},
+	"underconstruction": {
+		"message": "Under Construction"
+	},
+	"unlocks": {
+		"message": "Unlocks"
+	},
 	"unmute": {
 		"message": "Unmute"
 	},
 	"upgrade-warning": {
-		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -6838,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Install"
+	},
+	"village_santa_intall_ios": {
+		"message": "Just tap \u003cspan\u003e\u003c/span\u003e then 'Add to Home Screen'"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

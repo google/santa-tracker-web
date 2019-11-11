@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
   <link rel="stylesheet" href="underconstruction-scene.css" />
 
-  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
+  <script src="../../node_modules/lottie-web/build/player/lottie_light.min.js"></script>
 </head>
 <body>
 
 <div id="module-underconstruction">
   <main id="main">
     <div class="title">
-      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker">
+      <img class="title__logo" src="img/st-logo-horizontal.svg" alt="Google Santa Tracker" />
       <h2 class="title__text" msgid="nextdecember"></h2>
     </div>
     <div class="animation animation--backhoe desktop-only"></div>
@@ -29,6 +29,7 @@
 <script type="module">
 import '../../src/magic.js';
 import api from '../../src/scene/api.js';
+import {prepareAnimation} from '../../src/deps/lottie.js';
 
 api.preload.images(
   'img/background.jpg',
@@ -39,22 +40,23 @@ api.preload.images(
 api.preload.sounds('village_load_sounds');
 
 const initAnimation = (key, preserveAspectRatio) => {
-  const p = new Promise((resolve, reject) => {
-    const anim = lottie.loadAnimation({
-      container: document.querySelector(`.animation--${key}`),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: `img/animations/${key}.json`,
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio,
-      },
-    });
-    anim.addEventListener('DOMLoaded', resolve);
+  const p = prepareAnimation(`img/animations/${key}.json`, {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      className: 'animation__svg',
+      preserveAspectRatio,
+    },
+    clearDefs: true,
+  }).then((anim) => {
+    const svg = anim.renderer.svgElement;
+    const container = document.querySelector(`.animation--${key}`);
+    container.appendChild(svg);
   });
+
   api.preload.wait(p);
 };
+
 
 initAnimation('backhoe', 'xMaxYMax meet');
 initAnimation('crane', 'xMaxYMid meet');

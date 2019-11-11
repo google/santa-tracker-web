@@ -34,6 +34,19 @@ a {
   background: #2a57ad center no-repeat;  // matches codelab, runner, wrapbattle
   background-size: cover;
 
+  &.video {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: grayscale(20%);
+      z-index: -1;
+    }
+  }
   &::after {
     content: '';
     pointer-events: none;
@@ -51,9 +64,18 @@ a {
   }
 }
 
-santa-card-player {
+santa-card-player,
+img {
   width: 85%;
   height: 60%;
+}
+img {
+  object-fit: contain;
+}
+img:not([src]) {
+  visibility: hidden;
+}
+santa-card-player {
   position: relative;
 
   svg {

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "மீண்டும் முயற்சிக்கவும்"
 	},
+	"controller_gamepad": {
+		"message": "கண்ட்ரோலர்"
+	},
+	"controller_keyboard": {
+		"message": "கீபோர்டு"
+	},
+	"controller_mouse": {
+		"message": "மவுஸ்"
+	},
+	"controller_touch": {
+		"message": "தொடுதல்"
+	},
 	"copy-me": {
 		"message": "உங்கள் செய்தியைப் பகிர்ந்து கொள்ள, இந்த இணைப்பை நகலெடுக்கவும்"
 	},
@@ -587,6 +599,9 @@
 	"elf_choose_body": {
 		"message": "எல்ஃப் உடலைத் தேர்ந்தெடுக்கவும்"
 	},
+	"elves": {
+		"message": "எல்வ்ஸ்"
+	},
 	"elvish_language_name": {
 		"message": "எல்விஷ்"
 	},
@@ -612,9 +627,6 @@
 		"message": "அச்சச்சோ, சான்டாவின் குட்டித் தேவதைகளால் இந்தப் பக்கத்தைக் கண்டறிய முடியவில்லை! \u003ca href=\"./\"\u003eசான்டாவின் கிராமத்திற்குச்\u003c/a\u003e சென்றால், உங்களுக்கு அதிர்ஷ்டம் உண்டாகலாம்."
 	},
 	"error-try-again": {
-		"message": "மீண்டும் முயற்சிக்கவும்"
-	},
-	"error_try_again": {
 		"message": "மீண்டும் முயற்சிக்கவும்"
 	},
 	"es_language_name": {
@@ -1082,6 +1094,9 @@
 	"openingtomorrow": {
 		"message": "பிரமாண்டமான நாளைய காட்சி"
 	},
+	"opens": {
+		"message": "கிடைக்கும் தேதி:"
+	},
 	"ornament-print-instructions": {
 		"message": "இங்கு மடித்து, பக்கவாட்டுகளை ஒன்றாக ஒட்டவும்"
 	},
@@ -1352,6 +1367,24 @@
 	"scene_airport": {
 		"message": "வட துருவ விமான நிலையம்"
 	},
+	"scene_android_cityquiz": {
+		"message": "சிட்டி குவிஸ்"
+	},
+	"scene_android_dancer": {
+		"message": "டேஷர் டான்சர்"
+	},
+	"scene_android_penguinswim": {
+		"message": "பென்குயின் ஸ்விம்"
+	},
+	"scene_android_presenttoss": {
+		"message": "பிரசென்ட் டாஸ்"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "ராக்கெட் ஸ்லெய்"
+	},
+	"scene_android_snowballrun": {
+		"message": "ஸ்னோபால் ரன்"
+	},
 	"scene_app": {
 		"message": "Android ஆப்ஸ்"
 	},
@@ -1397,14 +1430,23 @@
 	"scene_factory": {
 		"message": "மிட்டாய் ஆலை"
 	},
+	"scene_family": {
+		"message": "குடும்ப வழிகாட்டி"
+	},
 	"scene_giftmatch": {
 		"message": "கிஃப்ட் மேட்சர்"
 	},
 	"scene_glider": {
 		"message": "எல்ஃப் கிளைடர்"
 	},
+	"scene_guides": {
+		"message": "பெரியவர்களுக்கான வழிகாட்டல்கள்"
+	},
 	"scene_gumball": {
 		"message": "கம்பால் டில்ட்"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "பனிக் குகை"
@@ -1469,11 +1511,17 @@
 	"scene_snowball": {
 		"message": "ஸ்னோபால் ஸ்டோர்ம்"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "ஸ்னோஃப்ளேக் கோடிங்"
 	},
 	"scene_speedsketch": {
 		"message": "ஸ்பீடு ஸ்கெட்ச்"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "வீதிக் காட்சி"
@@ -3897,7 +3945,7 @@
 		"message": "ஐரோப்பா"
 	},
 	"trivia_beginner_065": {
-		"message": "சிறுத்தை இனமே பூமியில் வேகமாகச் செல்லக்கூடிய பாலூட்டும் உயிரினம் ஆகும். கென்யா மற்றும் தான்சானியா நாடுகளில் காணப்படும் இவை எந்தக் கண்டத்தில் உள்ளன?"
+		"message": "சிறுத்தைகளே பூமியில் வாழும் பாலூட்டிகளில் வேகமாகச் செல்லக்கூடியவை. கென்யா மற்றும் தான்சானியா நாடுகளில் காணப்படும் இவை எந்தக் கண்டத்தில் உள்ளன?"
 	},
 	"trivia_beginner_065_answer0": {
 		"message": "ஆப்பிரிக்கா"
@@ -4173,7 +4221,7 @@
 		"message": "ஜோர்டான்"
 	},
 	"trivia_beginner_088": {
-		"message": "பூமியின் வடகோடியில் உள்ள வட துருவம், எந்தப் பெருங்கடலின் நடுவே அமைந்துள்ளது?"
+		"message": "பூமியின் வடகோடியில் உள்ள வட துருவம் எந்தப் பெருங்கடலின் நடுவே அமைந்துள்ளது?"
 	},
 	"trivia_beginner_088_answer0": {
 		"message": "ஆர்டிக் பெருங்கடல்"
@@ -6773,11 +6821,17 @@
 	"uk_tradition": {
 		"message": "யுனைடெட் கிங்டமில், இரவு உணவின்போது அனைத்து வயதினரும் பட்டாசுக வெடித்து குதூகலமாக கொண்டாடுவார்கள். கிறிஸ்துமஸ் இரவை கொண்டாட, வண்ண காகிதத்தில் சுற்றப்பட்டு உருளை வடிவத்தில் உள்ள இந்த பட்டாசுகள் பயங்கர சத்தத்துடன் வெடிக்கும்போது, பேப்பர் தொப்பிகள், பொம்மைகள், ஜோக்ஸ், பரிசுகள் என பல பொருட்கள் சிதறும்."
 	},
+	"underconstruction": {
+		"message": "பணி நடைபெறுகிறது"
+	},
+	"unlocks": {
+		"message": "கிடைக்கும் தேதி:"
+	},
 	"unmute": {
 		"message": "ஒலி இயக்கு"
 	},
 	"upgrade-warning": {
-		"message": "அச்சச்சோ! சான்டா டிராக்கர் உங்கள் உலாவியில் ஆதரிக்கப்படவில்லை அல்லது நீங்கள் JavaScriptஐ முடக்கியுள்ளீர்கள். சான்டா டிராக்கரை அணுக, நவீன உலாவியைப் பதிவிறக்கவும் அல்லது JavaScriptஐ இயக்கவும்.\nமேலும் தகவலுக்கு \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e என்ற வலைத்தளத்தைப் பார்வையிடவும்."
+		"message": "அச்சச்சோ! Santa Tracker உங்கள் உலாவியில் ஆதரிக்கப்படவில்லை அல்லது நீங்கள் JavaScriptடை முடக்கியுள்ளீர்கள். Santa Trackerரை அணுக நவீன உலாவியைப் பதிவிறக்கவும் அல்லது JavaScriptடை இயக்கவும்."
 	},
 	"us_country_name": {
 		"message": "யுனைடெட் ஸ்டேட்ஸ்"
@@ -6834,7 +6888,7 @@
 		"message": "சான்டா Chrome நீட்டிப்பைச் சேர்"
 	},
 	"village_santa_earth_quiz": {
-		"message": "சான்டா எர்த் க்விஸ்"
+		"message": "பூமி பற்றிய சான்டா க்விஸ்"
 	},
 	"village_santa_install": {
 		"message": "நிறுவு"

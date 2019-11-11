@@ -1,7 +1,7 @@
 import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
-import {resolvable} from '../lib/promises.js';
+import {resolvable, dedup} from '../lib/promises.js';
 
 
 
@@ -97,7 +97,8 @@ const LOAD_LEEWAY = 250;
 // nb. allow-same-origin is fine, because we're serving on another domain
 // allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
-const SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
+const IFRAME_SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
+const IFRAME_ALLOW = 'autoplay';
 
 
 export const events = Object.freeze({
@@ -110,10 +111,21 @@ export const events = Object.freeze({
 const internalRemove = '-internal-remove';
 
 
+const rectifyFrame = (iframe) => {
+  if (!iframe) {
+    // do nothing
+  } else if (iframe.offsetHeight !== window.innerHeight || iframe.offsetWidth !== window.innerWidth) {
+    iframe.style.width = `${window.innerWidth}px`;
+    iframe.style.height = `${window.innerHeight}px`;
+  }
+};
+
+
 const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
-  iframe.setAttribute('sandbox', SANDBOX);
+  iframe.setAttribute('sandbox', IFRAME_SANDBOX);
+  iframe.setAttribute('allow', IFRAME_ALLOW);
   iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
   return iframe;
 };
@@ -147,6 +159,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._onWindowBlur = this._onWindowBlur.bind(this);
     this._onWindowFocus = this._onWindowFocus.bind(this);
+    this._onWindowResize = dedup(this._onWindowResize.bind(this));
     this._frameFocus = false;
 
     this._loading = false;
@@ -181,6 +194,13 @@ class SantaGameLoaderElement extends HTMLElement {
     return this._frameFocus;
   }
 
+  _onWindowResize() {
+    // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
+    // then force it via changing CSS properties.
+    rectifyFrame(this._activeFrame);
+    rectifyFrame(this._previousFrame);
+  }
+
   _onWindowBlur(e) {
     // Check various types of focus. Since the only focusable thing here is our iframes, be a bit
     // aggressive for the polyfill case.
@@ -212,11 +232,13 @@ class SantaGameLoaderElement extends HTMLElement {
   connectedCallback() {
     window.addEventListener('blur', this._onWindowBlur);
     window.addEventListener('focus', this._onWindowFocus);
+    window.addEventListener('resize', this._onWindowResize);
   }
 
   disconnectedCallback() {
     window.removeEventListener('blur', this._onWindowBlur);
     window.removeEventListener('focus', this._onWindowFocus);
+    window.addEventListener('resize', this._onWindowResize);
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -336,6 +358,13 @@ class SantaGameLoaderElement extends HTMLElement {
       } else if (!this._loading) {
         return true;  // ready was called twice
       }
+
+      // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
+      // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
+      af.style.maxHeight = 'calc(100vh - 1px)';
+      window.requestAnimationFrame(() => {
+        af.style.maxHeight = null;
+      });
 
       // Success: the frame has reported ready. The following code is entirely non-async, and just
       // cleans up state as the scene is now active and happy.

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+body {
+  margin: 0;
+  background: black;
+}
+#player {
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 200px;
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+<video id="player" playsinline></video>
+
+<script type="module">
+  import api from '../../src/scene/api.js';
+
+  const player = document.getElementById('player');
+
+  const quality = '1080p';
+  const videoId = api.param('route') || 'comroom';
+  player.src = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/videos%2F${videoId}_${quality}.mp4?alt=media`;
+
+  api.preload.wait(new Promise((resolve) => {
+    player.addEventListener('canplay', () => resolve());
+  }));
+
+  api.preload.wait(new Promise((resolve, reject) => {
+    player.addEventListener('canplaythrough', () => resolve());
+    player.addEventListener('error', reject);
+  }));
+
+  api.addEventListener('pause', (ev) => player.pause());
+  api.addEventListener('resume', (ev) => player.play());
+  api.addEventListener('restart', (ev) => player.play());
+
+  api.config({
+    pause: true,
+    orientation: 'landscape',
+    sound: [],
+  });
+
+  player.addEventListener('ended', () => {
+    api.gameover();
+  });
+
+  api.ready(() => {
+    // FIXME: this won't play if there was no previous interaction. Need a giant play button.
+    player.play();
+  });
+
+</script>
+
+</body>
+</html>

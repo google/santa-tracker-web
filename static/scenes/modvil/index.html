@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
 
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
+  <script src="../../node_modules/lottie-web/build/player/lottie_light.min.js"></script>
 </head>
 <body>
 
@@ -16,99 +16,28 @@
 import api from '../../src/scene/api.js';
 import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
 import '../../src/elements/santa-card.js';
+import '../../src/elements/santa-weather.js';
+import * as helpers from './helpers.js';
+import {prepareAnimation} from '../../src/deps/lottie.js';
 
-const growSvgBy = 5000;
-const moduleHeight = 650;
 
-const loadHtmlLike = async (src) => {
-  const resp = await window.fetch(src);
-  const raw = await resp.text();
-
-  const holder = document.createElement('div');
-  holder.innerHTML = raw;
-
-  return holder.children[0];
-};
-
-function parseViewBox(svg) {
-  const viewBox = svg.getAttribute('viewBox');
-  const parts = viewBox.split(/\s+/g);
-  const x = +parts[0] || 0;
-  const y = +parts[1] || 0;
-  const w = +parts[2] || 0;
-  const h = +parts[3] || 0;
-  return {x, y, w, h};
-}
-
-function adjustSvgSize(svg) {
-  const v = parseViewBox(svg);
-  const heightRatio = v.h / moduleHeight;
-
-  v.x -= growSvgBy;
-  v.w += growSvgBy * 2;
-  svg.setAttribute('viewBox', `${v.x} ${v.y} ${v.w} ${v.h}`);
-  svg.style.height = `${moduleHeight}px`;
-  svg.style.top = '0px';
-  svg.style.left = `calc(-${v.w / 2 / heightRatio}px + 50vw)`;
-
-  // Lottie-imported elements set these, remove.
-  svg.style.width = 'auto';
-  svg.removeAttribute('width');
-  svg.removeAttribute('height');
-}
-
-const initAnimation = (container, key, preserveAspectRatio) => {
-  const p = new Promise((resolve, reject) => {
-    const anim = lottie.loadAnimation({
-      container,
-      autoplay: false,
-      renderer: 'svg',
-      path: `img/modules/${key}.json`,
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio,
-      },
-    });
-    anim.addEventListener('DOMLoaded', () => {
-      resolve({
-        svg: anim.renderer.svgElement,
-        anim,
-      });
-    });
-    anim.addEventListener('data_failed', reject);
-  });
-  api.preload.wait(p);
-  return p;
-};
-
-function installAdjustHandler(handler) {
-  let rAF = 0;
-  const internalHandler = () => {
-    rAF = 0;
-    handler();
-  };
-  rAF = window.requestAnimationFrame(internalHandler);
-
-  const eventHandler = () => {
-    if (rAF === 0) {
-      rAF = window.requestAnimationFrame(internalHandler);
-    }
-  };
-  ['scroll', 'resize'].forEach((eventType) => {
-    window.addEventListener(eventType, eventHandler, {passive: true});
-  });
-}
-
+api.preload.sounds('village_load_sounds');
+api.preload.sounds('elfmaker_load_sounds');  // TODO: for generic_button_click
+api.config({
+  sound: ['music_start_village', 'village_start'],
+});
 
 async function prepare() {
-  const modules = ['sciencelab', 'transport'];
-  const scenes = ['elfmaker', 'penguindash', 'santasearch', 'santaselfie', 'snowball', 'boatload'];
+  const modules = ['transport', 'sciencelab'];
+  const scenes = ['elfmaker', 'penguindash', 'museum', 'santaselfie', 'snowball', 'boatload'];
+  const main = document.querySelector('main');
 
   const all = modules.map(async (name) => {
     const d = document.createElement('div');
     d.className = 'module';
     d.setAttribute('id', `module--${name}`);
-    document.body.append(d);
+    main.append(d);
+    d.style.backgroundImage = `url(img/modules/${name}.svg)`;
 
     const cardsEl = document.createElement('div');
     cardsEl.className = 'cards';
@@ -123,40 +52,47 @@ async function prepare() {
       card.setAttribute('scene', next);
       cardsEl.append(card);
 
-      if (Math.random() < 0.5) {
+      if (Math.random() < 0.2) {
         card.setAttribute('locked', ~~(Math.random() * 23) + 1);
       }
     }
 
-    const backgroundPromise = loadHtmlLike(`img/modules/${name}.svg`).then((svg) => {
-      adjustSvgSize(svg);
-
-      const img = document.createElement('img');
-      img.src = `data:image/svg+xml;base64,${btoa(svg.outerHTML)}`;
-
-      img.style.left = svg.style.left;
-      img.style.height = svg.style.height;
-      img.style.width = svg.style.width;
-
-      d.append(img);
-    });
-
-    const animationPromise = initAnimation(d, name, 'xMaxYMax meet').then(({svg, anim}) => {
-      adjustSvgSize(svg);
-
-      // clips are added by the Lottie file author. Remove.
-      const defs = svg.querySelector('defs');
-      defs.remove();
+    const animationPromise = prepareAnimation(`img/modules/${name}.json`, {
+      rendererSettings: {
+        className: 'animation__svg',
+        preserveAspectRatio: 'xMaxYMax meet',
+      },
+      clearDefs: true,
+    }).then((anim) => {
+      d.appendChild(anim.renderer.svgElement);
       return anim;
     });
 
-    await backgroundPromise;
     const anim = await animationPromise;
     const frames = anim.getDuration(true);
-    console.info('got frames', frames);
 
-    return (ratio) => {
-      const frame = Math.max(0.0, frames * ratio);
+    return () => {
+      const se = document.scrollingElement;
+      const topScroll = se.scrollTop;
+
+      // The start of this element is effectively min window height (can't scroll above this point).
+      const effectiveStart = Math.max(0, d.offsetTop - window.innerHeight);
+      const effectiveEnd = Math.min(se.offsetHeight - window.innerHeight, d.offsetTop + d.offsetHeight);
+
+      const ratio = (topScroll - effectiveStart) / (effectiveEnd - effectiveStart);
+      let outputRatio;
+
+      if (ratio <= 0.0) {
+        outputRatio = 0.0;
+      } else if (ratio >= 1.0) {
+        outputRatio = 1.0;
+      } else {
+        // This creates more of a cubic-bezier style transform (although it's quite subtle).
+        outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+        console.info(name, ratio, outputRatio);
+      }
+
+      const frame = Math.min(frames, Math.max(0.0, frames * outputRatio));
       anim.goToAndStop(frame, true);
     };
   });
@@ -165,23 +101,56 @@ async function prepare() {
   // TODO(samthor): This sets the position based on the overall page ratio, not the ratio within
   // each animation. This obviously needs fixing.
 
-  installAdjustHandler(() => {
-    const se = document.scrollingElement;
-    const delta = (se.scrollHeight - window.innerHeight);
-    const ratio = delta > 0 ? se.scrollTop / delta : 0;
-    console.info('ratio', ratio);
-
-    done.forEach((fn) => fn(ratio));
+  helpers.installAdjustHandler(() => {
+    if (window.innerWidth < 768) {
+      return;
+    }
+    done.forEach((fn) => fn());
   });
 }
 
 api.preload.wait(prepare());
 
+const playButton = document.getElementById('play');
+
+playButton.addEventListener('click', (ev) => {
+  playButton.classList.add('active');
+  api.go('codelab');
+});
+playButton.addEventListener('mousedown', () => {
+  api.play('generic_button_click');
+});
+playButton.addEventListener('touchdown', () => {
+  api.play('generic_button_click');
+});
+
+
+
+api.ready(async () => {
+
+});
+
 </script>
 
 <div id="top">
-  <h1>Santa Tracker</h1>
-  <span>Placeholder</span>
+  <santa-weather></santa-weather>
+  <header>
+    <div id="ornament"></div>
+    <h1>Santa Tracker</h1>
+    <button id="play"><span msgid="play"></span></button>
+  </header>
+  <div id="newtoday">
+    <span msgid="newtoday"></span>
+    <santa-card scene="elfmaker"></santa-card>
+  </div>
+</div>
+
+<div id="modules">
+  <div class="sidebar left"></div>
+  <main></main>
+  <div class="sidebar right"></div>
+</div>
+
 </div>
 
 </body>

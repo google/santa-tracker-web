@@ -1,12 +1,17 @@
+@import "sass/play";
+@import "sass/header";
+
 html {
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto', 'Arial', 'Sans-Serif';
+  font-family: 'Google Sans', 'Arial', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 santa-card {
@@ -19,38 +24,107 @@ santa-card {
   height: 800px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: pink;
+  background: url(img/top.png) center no-repeat;
+  background-size: 1152px 800px;  // actually 1440x1000
   color: white;
   flex-flow: column;
+  box-shadow: 0 4px 0 #0003;
+  z-index: 10;
+  position: relative;
+  max-width: 100vw;
+  width: 1152px;
+  margin: 0 auto;
 
-  h1 {
-    font-family: 'Lobster';
-    font-size: 96px;
-    text-shadow: 0 2px 0 #0003;
-    margin: 0;
+  santa-weather {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
-  span {
-    color: black;
-    text-transform: uppercase;
-    font-weight: bold;
+  #newtoday {
+    position: absolute;
+    bottom: 40px;
+    right: 5%;
+    display: flex;
+    width: 0;
+    height: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-flow: column;
+
+    span {
+      text-transform: uppercase;
+      background: #f9c329;
+      line-height: 2em;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      border-radius: 4px;
+      padding: 0 10px;
+      position: relative;
+      top: 1em;
+      right: 16px;
+      font-size: 12px;
+      font-weight: bold;
+      z-index: 100;
+      box-shadow: 0 2px 0 #e7ad04;
+      pointer-events: none;
+    }
+
+    santa-card {
+      position: static;
+      margin: 0 !important;
+    }
+  }
+}
+
+#modules {
+  display: flex;
+  overflow: hidden;
+
+  .sidebar,
+  main {
+    flex-grow: 1;
+  }
+
+  .sidebar {
+    &.left {
+      background: url(img/margin-left.svg);
+      background-position: top right;
+    }
+    &.right {
+      background: url(img/margin-right.svg);
+      background-position: top left;
+    }
+  }
+
+  main {
+    min-width: 320px;
+    max-width: 1400px;
+    width: 100%;
   }
 }
 
 .module {
   position: relative;
-  height: 650px;
-
   box-shadow: inset 0 4px 0 #0003;
 
-  img {
-    position: absolute;
-    z-index: -2;
+  &::after {
+    display: block;
+    content: '';
+    padding-bottom: 90%;
   }
+
+  background: transparent center no-repeat;
+  background-size: contain;
+
   svg {
     position: absolute;
-    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   // TODO(samthor): We should load or unload these animations based on the screen size, rather
@@ -60,54 +134,90 @@ santa-card {
       display: none;
     }
   }
+}
 
+.cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+santa-card {
+  width: 100%;
+  height: 120px;
+  min-height: 120px;
+}
+
+@media (max-width: 768px - 1px) {
   .cards {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
   }
-
   santa-card {
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 768px) {
+  santa-card {
+    position: absolute;
     $w: 240px;
     $h: 180px;
-    position: absolute;
     width: $w;
     height: $h;
+    min-height: $h;
     margin-left: -($w / 2);
     margin-top: -($h / 2);
   }
-}
 
-#module--sciencelab {
-  santa-card {
-    &:nth-child(1) {
-      left: 240px;
-      top: 180px;
-    }
-    &:nth-child(2) {
-      left: 150px;
-      top: 500px;
-    }
-    &:nth-child(3) {
-      left: -240px;
-      top: 120px;
+  @media (min-width: 1024px) {
+    santa-card {
+      $w: 320px;
+      $h: 240px;
+      width: $w;
+      height: $h;
+      min-height: $h;
+      margin-left: -($w / 2);
+      margin-top: -($h / 2);
+      font-size: 1.5em;
     }
   }
-}
 
-#module--transport {
-  santa-card {
-    &:nth-child(1) {
-      left: -200px;
-      top: 180px;
+  #module--sciencelab {
+    santa-card {
+      &:nth-child(1) {
+        left: 20%;
+        top: 20%;
+      }
+      &:nth-child(2) {
+        left: 80%;
+        top: 15%;
+      }
+      &:nth-child(3) {
+        left: 70%;
+        top: 40%;
+      }
     }
-    &:nth-child(2) {
-      left: -300px;
-      top: 500px;
-    }
-    &:nth-child(3) {
-      left: 320px;
-      top: 500px;
+  }
+
+  #module--transport {
+    santa-card {
+      &:nth-child(1) {
+        left: 20%;
+        top: 40%;
+      }
+      &:nth-child(2) {
+        left: 50%;
+        top: 30%;
+      }
+      &:nth-child(3) {
+        left: 80%;
+        top: 20%;
+      }
     }
   }
 }

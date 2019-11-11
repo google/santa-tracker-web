@@ -528,7 +528,7 @@
 		"message": "Alemana"
 	},
 	"de_tradition": {
-		"message": "Alemaniako herri gehienetan, Gabonetako azokak irekitzen dituzte herriko plazan. Bertan, herritarrek txarangen musika entzuten dute eta eskualdeko produktu tradizionalez gozatzen dute, hala nola jengibrezko bihotzez, almendra azukregorrituez, orotariko goxokiez, ardo beroaz (Glühwein) eta sagardoaz."
+		"message": "Alemaniako herri gehienetan, Gabonetako azokak irekitzen dituzte herriko plazan. Bertan, herritarrek txarangen musika entzuten dute eta lurraldeko produktu tradizionalez gozatzen dute, hala nola jengibrezko bihotzez, almendra azukregorrituez, orotariko goxokiez, ardo beroaz (Glühwein) eta sagardoaz."
 	},
 	"dec24th": {
 		"message": "Abenduak 24"
@@ -612,9 +612,6 @@
 		"message": "Ai ene, Bizarzuriren iratxoek ezin dute orrialde hau aurkitu. \u003ca href=\"./\"\u003eBizarzuriren herrixkara\u003c/a\u003e bazoaz, hurrengoan hobeto atera daiteke."
 	},
 	"error-try-again": {
-		"message": "Saiatu berriro"
-	},
-	"error_try_again": {
 		"message": "Saiatu berriro"
 	},
 	"es_language_name": {
@@ -5142,7 +5139,7 @@
 		"message": "Errumania"
 	},
 	"trivia_hard_073": {
-		"message": "Zein herrialdetan dago Bahía Blanca, Panpa eskualdeko portu garrantzitsua?"
+		"message": "Zein herrialdetan dago Bahía Blanca, Panpa lurraldeko portu garrantzitsua?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
@@ -5442,7 +5439,7 @@
 		"message": "Bengalako golkoa"
 	},
 	"trivia_hard_098": {
-		"message": "Zein herrialdetako Renania eskualdean dago Koloniako katedrala?"
+		"message": "Zein herrialdetako Renania lurraldean dago Koloniako katedrala?"
 	},
 	"trivia_hard_098_answer0": {
 		"message": "Alemania"
@@ -6354,7 +6351,7 @@
 		"message": "Tajikistan"
 	},
 	"trivia_medium_069": {
-		"message": "Zein herrialdetako ipar-ekialdean dago lehen Mantxuria zeritzon eskualdea?"
+		"message": "Zein herrialdetako ipar-ekialdean dago lehen Mantxuria zeritzon lurraldea?"
 	},
 	"trivia_medium_069_answer0": {
 		"message": "Txina"
@@ -6760,9 +6757,6 @@
 	},
 	"unmute": {
 		"message": "Aktibatu audioa"
-	},
-	"upgrade-warning": {
-		"message": "Ai ene! Bizarzuriren lorratzak ez dira zure arakatzailean onartzen edo JavaScript desgaituta dago. Bizarzuriren lorratzak ikusteko, deskargatu arakatzaile modernoago bat edo gaitu JavaScript.\nInformazio gehiago lortzeko, joan \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e webgunera."
 	},
 	"us_country_name": {
 		"message": "AEB"
