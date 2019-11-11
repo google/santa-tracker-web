@@ -32,8 +32,10 @@ app.Player = class Player {
    */
   restart() {
     this.elem.classList.add('is-hidden')
+    this.dead = true
+
     window.setTimeout(() => {
-      this.prevPosition = Object.assign({}, this.position)
+      this.dead = false
       this.position = {
         x: this.config.startPos.x,
         y: this.config.startPos.y,
@@ -51,6 +53,10 @@ app.Player = class Player {
   }
 
   onFrame(delta) {
+    if (this.dead) {
+      return
+    }
+
     this.prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
