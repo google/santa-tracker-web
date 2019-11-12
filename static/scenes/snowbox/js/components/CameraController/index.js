@@ -7,6 +7,7 @@ import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
 import SoundManager from '../../managers/SoundManager.js'
+import RAFManager from '../../managers/RAFManager.js'
 
 class CameraController {
   constructor() {
@@ -99,7 +100,7 @@ class CameraController {
       this.rotateOrigin = 0
       this.rotateTarget = this.targetAngle
       this.rotateSpeed = CONFIG.ROTATE.SPEED
-      this.rotateStart = getNow()
+      this.rotateStart = RAFManager.now
     }
   }
 
@@ -138,7 +139,7 @@ class CameraController {
     this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
     this.zoomOrigin = this.camera.zoom
     this.zoomSpeed = CONFIG.ZOOM.SPEED
-    this.zoomStart = getNow()
+    this.zoomStart = RAFManager.now
     this.isZooming = true
   }
 

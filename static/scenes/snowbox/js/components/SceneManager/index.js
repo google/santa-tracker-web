@@ -180,16 +180,10 @@ class SceneManager extends EventEmitter {
 
   // RAF
   update(now) {
+    // Camera
     const { camera, controls } = CameraController
 
     if (controls && controls.enabled) controls.update() // for damping
-
-    this.world.step(CONFIG.TIMESTEP)
-    for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update(CameraController.camera.position)
-    }
-
-    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
@@ -215,6 +209,15 @@ class SceneManager extends EventEmitter {
       }
     }
 
+    // World
+    this.world.step(CONFIG.TIMESTEP)
+
+    for (let i = 0; i < this.sceneSubjects.length; i++) {
+      this.sceneSubjects[i].update(CameraController.camera.position)
+    }
+
+    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
+
     if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision(true)
       this.needsCollisionCheck = false
@@ -224,8 +227,10 @@ class SceneManager extends EventEmitter {
       this.emit('move_camera')
     }
 
-
+    // Render
     this.renderer.render(this.scene, camera)
+    // get current time
+    this.now = now
   }
 
   // EVENTS

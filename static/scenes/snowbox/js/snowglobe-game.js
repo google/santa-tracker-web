@@ -1,4 +1,5 @@
 import SoundManager from './managers/SoundManager.js'
+import RAFManager from './managers/RAFManager.js'
 import SceneManager from './components/SceneManager/index.js'
 
 // ui components
@@ -24,10 +25,13 @@ class SnowglobeGame {
       download: el.querySelector('[data-download]')
     }
 
+    this.render = this.render.bind(this)
+
     this.isTouchDevice = isTouchDevice()
 
     // init scene
     SceneManager.init(this.ui.canvas)
+    RAFManager.init()
 
     // init ui components
     new Toolbar(this.ui.toolbar)
@@ -35,19 +39,20 @@ class SnowglobeGame {
     new ObjectEditTool(this.ui.objectEditTool)
     new Download(this.ui.download)
 
+    // stats
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
-    this.render()
+    // listen raf
+    window.addEventListener('RAF', this.render)
   }
 
-  render(now) {
+  render(e) {
+    const { now } = e.detail
     this.stats.begin()
     SceneManager.update(now)
     this.stats.end()
-
-    requestAnimationFrame(this.render.bind(this))
   }
 
   setup() {}
