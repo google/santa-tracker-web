@@ -15,15 +15,20 @@ export default class Download {
       canvas: document.body.querySelector('#canvas'),
     }
 
+    this.maxGIFWidth = 1200
+
+    this.bind()
+    this.events()
+    this.updateAspectRatio()
+  }
+
+  bind() {
     this.pushButton = this.pushButton.bind(this)
     this.generateGIF = this.generateGIF.bind(this)
     this.renderFrames = this.renderFrames.bind(this)
     this.onClickOutside = this.onClickOutside.bind(this)
     this.open = this.open.bind(this)
     this.exit = this.exit.bind(this)
-
-    this.updateAspectRatio()
-    this.events()
   }
 
   events() {
@@ -52,21 +57,16 @@ export default class Download {
     console.log('start render frames')
     SoundManager.play('snowbox_photo');
 
-    const minSize = 1200
-
-    // clean mode
+    // clear mode
     SceneManager.setMode()
     // Reduce quality of canvas to avoid 12MB gifs
 
-    // get ratio
-    // if width > minWidth, keep minWidth
-    // use ratio to get height
-    // re-add OG width and height
     const originWidth = this.ui.canvas.offsetWidth
     const originHeight = this.ui.canvas.offsetHeight
     // Reisze canvas in smaller size for performance
-    const width = originWidth / 2
-    const height = originHeight / 2
+    const width = Math.min(this.maxGIFWidth / window.devicePixelRatio, originWidth / window.devicePixelRatio)
+    console.log(width)
+    const height = width * originHeight / originWidth
     SceneManager.renderer.setSize(width, height, false);
     CameraController.camera.aspect = width / height
     CameraController.camera.updateProjectionMatrix()
