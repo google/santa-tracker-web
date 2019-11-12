@@ -12,13 +12,15 @@ Constants = {
       up: 'ArrowUp',
       down: 'ArrowDown',
       left: 'ArrowLeft',
-      right: 'ArrowRight'
+      right: 'ArrowRight',
+      action: 'ShiftRight'
     },
     WASD: {
-      up: 'w',
-      down: 's',
-      left: 'a',
-      right: 'd'
+      up: 'KeyW',
+      down: 'KeyS',
+      left: 'KeyA',
+      right: 'KeyD',
+      action: 'ShiftLeft'
     }
   },
   PLAYER_STEP_SIZE: .1,

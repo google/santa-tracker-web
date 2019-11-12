@@ -144,11 +144,13 @@ app.Player = class Player {
           this.position.x, this.position.y)
     }
 
+    // pick up a toy part
     const toyEntity = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
     if (toyEntity) {
       this.addToyPart(toyEntity.config.partType)
     }
 
+    // drop off toy
     if (resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]) {
       this.clearToyParts()
 

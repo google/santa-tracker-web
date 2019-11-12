@@ -9,6 +9,7 @@ app.Table = class Table extends app.Entity {
   constructor(game, config) {
     super(game)
     this.config = config
+    this.gameControls = game.controls
 
     this.elem = document.createElement('div')
     document.getElementById('tables').append(this.elem)
@@ -27,7 +28,10 @@ app.Table = class Table extends app.Entity {
   }
 
   onContact(player) {
-    // TODO: add shift click detection
-    return [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
+    if (this.gameControls.trackedKeys[player.controls.action]) {
+     return [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
+    } else {
+      return [Constants.PLAYER_ACTIONS.BLOCK]
+    }
   }
 }

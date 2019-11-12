@@ -9,6 +9,7 @@ app.PresentBox = class PresentBox extends app.Entity {
   constructor(game, config) {
     super(game)
     this.config = config
+    this.gameControls = game.controls
 
     this.elem = document.createElement('div')
     document.getElementById('present-boxes').append(this.elem)
@@ -27,7 +28,10 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   onContact(player) {
-    // TODO: add shift click detection
+    if (!this.gameControls.trackedKeys[player.controls.action]) {
+      return [Constants.PLAYER_ACTIONS.BLOCK]
+    }
+
     for (const part of this.config.parts) {
       if (player.toyParts.indexOf(part) == -1) {
         return [Constants.PLAYER_ACTIONS.BLOCK]

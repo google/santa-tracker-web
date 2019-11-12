@@ -37,7 +37,7 @@ app.Controls = class Controls {
    * @param  {Event} e The event object.
    */
   onKeyDown(e) {
-    this.trackedKeys[e.key] = true
+    this.trackedKeys[e.code] = true
 
     // if (!this.arrowPressed && (e.keyCode === 38 || e.keyCode === 40)) {
     //   // Let tutorial know if arrow has been pressed
@@ -53,7 +53,7 @@ app.Controls = class Controls {
    * @this {Controls} The Controls object.
    */
   onKeyUp(e) {
-    this.trackedKeys[e.key] = false
+    this.trackedKeys[e.code] = false
   }
 }
 
