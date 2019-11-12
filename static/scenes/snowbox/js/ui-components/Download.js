@@ -54,22 +54,17 @@ export default class Download {
   }
 
   renderFrames() {
-    console.log('start render frames')
     SoundManager.play('snowbox_photo');
 
     // clear mode
     SceneManager.setMode()
-    // Reduce quality of canvas to avoid 12MB gifs
 
-    const originWidth = this.ui.canvas.offsetWidth
-    const originHeight = this.ui.canvas.offsetHeight
-    // Reisze canvas in smaller size for performance
-    const width = Math.min(this.maxGIFWidth / window.devicePixelRatio, originWidth / window.devicePixelRatio)
-    console.log(width)
+    const originWidth = this.ui.canvas.width
+    const originHeight = this.ui.canvas.height
+    // Reisze canvas size to avoid 12MB gifs
+    const width = Math.min(this.maxGIFWidth, originWidth)
     const height = width * originHeight / originWidth
-    SceneManager.renderer.setSize(width, height, false);
-    CameraController.camera.aspect = width / height
-    CameraController.camera.updateProjectionMatrix()
+    this.resizeScene(width, height)
 
     const sources = []
 
@@ -82,26 +77,26 @@ export default class Download {
     }
 
     // reset canvas size
-    SceneManager.renderer.setSize(originWidth, originHeight, false);
-    CameraController.camera.aspect = originWidth / originHeight
-    CameraController.camera.updateProjectionMatrix()
+    this.resizeScene(originWidth, originHeight)
 
     // wait for every images to load
-    console.log('frames rendered')
     LoaderManager.subjects['gif'] = null // clean previous loader
     LoaderManager.load({name: 'gif', gif: sources}, this.generateGIF)
   }
 
+  resizeScene(width, height) {
+    SceneManager.renderer.setSize(width / window.devicePixelRatio, height / window.devicePixelRatio, false);
+    CameraController.camera.aspect = width / height
+    CameraController.camera.updateProjectionMatrix()
+  }
+
   generateGIF() {
-    console.log('load')
     const { sources } = LoaderManager.subjects['gif']
 
     const gif = new GIF({
       workers: 4,
       workerScript: '../../third_party/lib/gif/gif.worker.js',
       quality: 30,
-      // width: this.ui.canvas.offsetWidth / 2,
-      // height: this.ui.canvas.offsetHeight / 2,
     })
 
     sources.forEach(source => {
@@ -109,7 +104,6 @@ export default class Download {
     })
 
     gif.on('finished', blob => {
-      console.log('gif finished')
       this.ui.popin.classList.remove('is-loading')
       this.ui.gif.src = URL.createObjectURL(blob)
       this.ui.link.href = URL.createObjectURL(blob)
