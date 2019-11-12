@@ -1,4 +1,4 @@
-import GLOBAL_CONFIG from '../../SceneManager/config.js'
+import GLOBAL_CONFIG from '../../Scene/config.js'
 
 export default class PlaneHelper {
   constructor(scene) {

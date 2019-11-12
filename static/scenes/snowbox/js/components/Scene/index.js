@@ -1,7 +1,7 @@
-import { EventEmitter } from '../../event-emitter.js'
+import { EventEmitter } from '../../utils/event-emitter.js'
 import { toRadian } from '../../utils/math.js'
 import { darken } from '../../utils/colors.js'
-import { isTouchDevice } from '../../helpers.js'
+import isTouchDevice from '../../utils/isTouchDevice.js'
 
 // Config
 import CONFIG from './config.js'
@@ -32,7 +32,7 @@ import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
-class SceneManager extends EventEmitter {
+class Scene extends EventEmitter {
   constructor(canvas) {
     super()
 
@@ -182,18 +182,10 @@ class SceneManager extends EventEmitter {
 
   // RAF
   update(now) {
+    // Camera
     const { camera, controls } = CameraController
 
     if (controls && controls.enabled) controls.update() // for damping
-
-    this.world.step(CONFIG.TIMESTEP)
-    for (let i = 0; i < this.sceneSubjects.length; i++) {
-      if (this.sceneSubjects[i].update) {
-        this.sceneSubjects[i].update(CameraController.camera.position)
-      }
-    }
-
-    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
@@ -219,6 +211,17 @@ class SceneManager extends EventEmitter {
       }
     }
 
+    // World
+    this.world.step(CONFIG.TIMESTEP)
+
+    for (let i = 0; i < this.sceneSubjects.length; i++) {
+      if (this.sceneSubjects[i].update) {
+        this.sceneSubjects[i].update(CameraController.camera.position)
+      }
+    }
+
+    if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
+
     if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision(true)
       this.needsCollisionCheck = false
@@ -228,8 +231,10 @@ class SceneManager extends EventEmitter {
       this.emit('move_camera')
     }
 
-
+    // Render
     this.renderer.render(this.scene, camera)
+    // get current time
+    this.now = now
   }
 
   // EVENTS
@@ -777,4 +782,4 @@ class SceneManager extends EventEmitter {
   }
 }
 
-export default new SceneManager()
+export default new Scene()

@@ -1,14 +1,15 @@
 import SoundManager from './managers/SoundManager.js'
-import SceneManager from './components/SceneManager/index.js'
+import RAFManager from './managers/RAFManager.js'
+import Scene from './components/Scene/index.js'
 
 // ui components
 import Toolbar from './ui-components/Toolbar.js'
 import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
-import { isTouchDevice } from './helpers.js'
+import isTouchDevice from './utils/isTouchDevice.js'
 
-const { Scene, PerspectiveCamera } = self.THREE
+// const { Scene, PerspectiveCamera } = self.THREE
 
 class SnowglobeGame {
   static get is() {
@@ -25,10 +26,13 @@ class SnowglobeGame {
       download: el.querySelector('[data-download]')
     }
 
+    this.render = this.render.bind(this)
+
     this.isTouchDevice = isTouchDevice()
 
     // init scene
-    SceneManager.init(this.ui.canvas)
+    Scene.init(this.ui.canvas)
+    RAFManager.init()
 
     // init ui components
     new Toolbar(this.ui.toolbar)
@@ -36,19 +40,20 @@ class SnowglobeGame {
     new ObjectEditTool(this.ui.objectEditTool)
     new Download(this.ui.download)
 
+    // stats
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
-    this.render()
+    // listen raf
+    window.addEventListener('RAF', this.render)
   }
 
-  render(now) {
+  render(e) {
+    const { now } = e.detail
     this.stats.begin()
-    SceneManager.update(now)
+    Scene.update(now)
     this.stats.end()
-
-    requestAnimationFrame(this.render.bind(this))
   }
 
   setup() {}

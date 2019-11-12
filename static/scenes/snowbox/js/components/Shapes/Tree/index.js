@@ -2,7 +2,7 @@ import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
-import GLOBAL_CONFIG from '../../SceneManager/config.js'
+import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
 class Tree extends Obj {

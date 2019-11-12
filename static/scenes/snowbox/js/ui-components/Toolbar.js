@@ -1,4 +1,4 @@
-import SceneManager from '../components/SceneManager/index.js'
+import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 
 export default class Toolbar {
@@ -39,12 +39,12 @@ export default class Toolbar {
     const mouseLeaveListener = () => {
       e.preventDefault()
       const { addShape, shapeMaterial } = button.dataset
-      SceneManager.addShape(addShape, shapeMaterial)
+      Scene.addShape(addShape, shapeMaterial)
       button.removeEventListener('mouseleave', mouseLeaveListener)
     }
 
     if (e.type === 'touchstart') {
-      SceneManager.addingShape = button
+      Scene.addingShape = button
     } else {
       button.addEventListener('mouseleave', mouseLeaveListener)
     }

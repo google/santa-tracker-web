@@ -28,7 +28,7 @@ export default class CameraControls {
 
   onClickZoom(e) {
     const el = e.currentTarget
-    CameraController.zoom(el.dataset.zoom, el)
+    CameraController.zoom(el.dataset.zoom)
 
     // edit btn class
     this.ui.zoomButtons.forEach(button => {
