@@ -16,6 +16,7 @@ class SnowglobeGame {
   }
 
   constructor(el) {
+    // window.devicePixelRatio = 1.5
     this.ui = {
       canvas: el.querySelector('#canvas'),
       toolbar: el.querySelector('[toolbar]'),

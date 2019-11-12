@@ -91,7 +91,7 @@ class Mountain {
     // Materials
     const material = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.GHOST,
-      shininess: 1,
+      shininess: 100,
     })
     const geometries = [obj1.children[0].geometry, obj2.children[0].geometry]
 
