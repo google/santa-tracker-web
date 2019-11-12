@@ -57,6 +57,11 @@ export default class Download {
     // clean mode
     SceneManager.setMode()
     // Reduce quality of canvas to avoid 12MB gifs
+
+    // get ratio
+    // if width > minWidth, keep minWidth
+    // use ratio to get height
+    // re-add OG width and height
     const originWidth = this.ui.canvas.offsetWidth
     const originHeight = this.ui.canvas.offsetHeight
     // Reisze canvas in smaller size for performance
