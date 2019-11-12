@@ -5,7 +5,7 @@ import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
-import SceneManager from '../SceneManager/index.js'
+import Scene from '../Scene/index.js'
 
 class Object extends EventEmitter {
   constructor(scene, world) {
@@ -150,7 +150,7 @@ class Object extends EventEmitter {
       this.mesh.quaternion.copy(this.body.quaternion)
 
       if (this.mesh.position.y < CONFIG.Y_POS_LIMIT) {
-        SceneManager.emit('leave_edit')
+        Scene.emit('leave_edit')
         this.delete()
         return
       }

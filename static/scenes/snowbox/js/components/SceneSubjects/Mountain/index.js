@@ -1,8 +1,8 @@
 // Config
-import GLOBAL_CONFIG from '../../SceneManager/config.js'
+import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
-import SceneManager from '../../SceneManager/index.js'
+import Scene from '../../Scene/index.js'
 import { toRadian, randomInt, randomFloat } from '../../../utils/math.js'
 
 class Mountain {
@@ -124,7 +124,7 @@ class Mountain {
 
       const subject = { body, mesh, box, selectable: true, }
 
-      // SceneManager.sceneSubjects.push(subject)
+      // Scene.sceneSubjects.push(subject)
     }
   }
 

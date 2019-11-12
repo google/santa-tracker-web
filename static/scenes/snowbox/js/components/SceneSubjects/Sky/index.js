@@ -1,5 +1,5 @@
 // Config
-// import GLOBAL_CONFIG from '../../SceneManager/config.js'
+// import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 import { toRadian } from '../../../utils/math.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
