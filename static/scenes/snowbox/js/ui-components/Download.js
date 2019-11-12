@@ -11,12 +11,16 @@ export default class Download {
       popin: document.body.querySelector('[download-popin]'),
       gif: document.body.querySelector('[gif]'),
       link: document.body.querySelector('[download-link]'),
+      exit: document.body.querySelector('[download-exit]'),
       canvas: document.body.querySelector('#canvas'),
     }
 
     this.pushButton = this.pushButton.bind(this)
     this.generateGIF = this.generateGIF.bind(this)
+    this.renderFrames = this.renderFrames.bind(this)
     this.onClickOutside = this.onClickOutside.bind(this)
+    this.open = this.open.bind(this)
+    this.exit = this.exit.bind(this)
 
     this.updateAspectRatio()
     this.events()
@@ -25,23 +29,27 @@ export default class Download {
   events() {
     document.body.addEventListener('click', this.onClickOutside)
 
-    this.el.addEventListener('mousedown', this.pushButton)
+    this.el.addEventListener('mousedown', this.open)
     this.ui.popin.addEventListener('click', e => e.stopPropagation)
     this.ui.link.addEventListener('click', e => e.stopPropagation)
+    this.ui.exit.addEventListener('mousedown', this.exit)
   }
 
-  pushButton() {
-    this.el.classList.add('is-clicked')
+  open() {
+    this.pushButton(this.el, this.renderFrames)
     this.updateAspectRatio()
     this.ui.popin.classList.add('is-open')
     this.ui.popin.classList.add('is-loading')
-    setTimeout(() => {
-      this.renderFrames()
-      this.el.classList.remove('is-clicked')
-    }, 200)
+  }
+
+  exit() {
+    this.pushButton(this.ui.exit)
+    this.ui.popin.classList.remove('is-open')
+    this.ui.popin.classList.remove('is-loading')
   }
 
   renderFrames() {
+    console.log('start render frames')
     SoundManager.play('snowbox_photo');
 
     // clean mode
@@ -56,18 +64,19 @@ export default class Download {
       const base64 = SceneManager.renderer.domElement.toDataURL()
       sources.push(base64)
     }
-
+    console.log('frames render frames')
     LoaderManager.subjects['gif'] = null // clean previous loader
     LoaderManager.load({name: 'gif', gif: sources}, this.generateGIF)
   }
 
   generateGIF() {
+    console.log('load')
     const { sources } = LoaderManager.subjects['gif']
 
     const gif = new GIF({
       workers: 4,
       workerScript: '../../third_party/lib/gif/gif.worker.js',
-      quality: 20,
+      quality: 30,
       // width: this.ui.canvas.offsetWidth / 2,
       // height: this.ui.canvas.offsetHeight / 2,
     })
@@ -77,6 +86,7 @@ export default class Download {
     })
 
     gif.on('finished', blob => {
+      console.log('gif finished')
       this.ui.popin.classList.remove('is-loading')
       this.ui.gif.src = URL.createObjectURL(blob)
       this.ui.link.href = URL.createObjectURL(blob)
@@ -89,6 +99,16 @@ export default class Download {
     // update image ratio
     const ratio = this.ui.canvas.offsetHeight / this.ui.canvas.offsetWidth * 100
     this.ui.gif.parentNode.style.paddingBottom = `${ratio}%`
+  }
+
+  pushButton(el, callback) {
+    el.classList.add('is-clicked')
+    setTimeout(() => {
+      el.classList.remove('is-clicked')
+      if (callback) {
+        callback()
+      }
+    }, 200)
   }
 
   onClickOutside() {

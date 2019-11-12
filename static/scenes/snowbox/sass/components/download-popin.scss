@@ -25,11 +25,11 @@ $aspect-ratio: calc(100vw / 100vh);
   }
 
   &.is-open {
-    pointer-events: auto;
     opacity: 1;
 
     .download-popin__wrapper {
       transform: none;
+      pointer-events: auto;
     }
   }
 
@@ -78,5 +78,12 @@ $aspect-ratio: calc(100vw / 100vh);
     opacity: 0;
     width: 100%;
     transition: opacity .5s ease;
+  }
+
+  &__exit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%) scale(0.8);
   }
 }
