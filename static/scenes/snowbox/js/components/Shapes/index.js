@@ -155,7 +155,7 @@ class Object extends EventEmitter {
         return
       }
 
-      this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1
+      this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1 // do we still need this?
 
       if (this.wireframe) {
         this.wireframe.position.copy(this.mesh.position)

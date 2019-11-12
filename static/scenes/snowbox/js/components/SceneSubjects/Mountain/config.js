@@ -2,6 +2,8 @@ export default {
   SELECTABLE: false,
   SIZE: 18,
   MODEL_UNIT: 30,
+  NUMBER_TREES: 10,
+  NUMBER_ROCKS: 5,
   MOUNT: {
     NAME: 'mount',
     OBJ: './models/mountain/mount.obj',
@@ -18,7 +20,6 @@ export default {
     NAME: 'tree',
     OBJ: './models/mountain/tree.obj',
     COLOR: 0x03B4CA,
-    NUMBER: 10,
   },
   ROCK_01: {
     NAME: 'rock_01',

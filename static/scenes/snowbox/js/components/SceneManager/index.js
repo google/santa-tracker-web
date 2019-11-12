@@ -188,7 +188,9 @@ class SceneManager extends EventEmitter {
 
     this.world.step(CONFIG.TIMESTEP)
     for (let i = 0; i < this.sceneSubjects.length; i++) {
-      this.sceneSubjects[i].update(CameraController.camera.position)
+      if (this.sceneSubjects[i].update) {
+        this.sceneSubjects[i].update(CameraController.camera.position)
+      }
     }
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
