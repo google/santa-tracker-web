@@ -10,23 +10,23 @@ export default class CameraControls {
       rotateButtons: [...this.el.querySelectorAll('[data-rotate-camera]')]
     }
 
-    this.zoom = this.zoom.bind(this)
-    this.rotateCamera = this.rotateCamera.bind(this)
+    this.onClickZoom = this.onClickZoom.bind(this)
+    this.onClickRotate = this.onClickRotate.bind(this)
 
     this.events()
   }
 
   events() {
     this.ui.zoomButtons.forEach(button => {
-      button.addEventListener('click', this.zoom)
+      button.addEventListener('click', this.onClickZoom)
     })
 
     this.ui.rotateButtons.forEach(button => {
-      button.addEventListener('click', this.rotateCamera)
+      button.addEventListener('click', this.onClickRotate)
     })
   }
 
-  zoom(e) {
+  onClickZoom(e) {
     const el = e.currentTarget
     CameraController.zoom(el.dataset.zoom, el)
 
@@ -40,7 +40,7 @@ export default class CameraControls {
     this.pushButton(el, disable)
   }
 
-  rotateCamera(e) {
+  onClickRotate(e) {
     const el = e.currentTarget
 
     SoundManager.play('snowbox_rotate_camera');
