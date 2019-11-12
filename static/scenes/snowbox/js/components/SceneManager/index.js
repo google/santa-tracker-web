@@ -51,7 +51,7 @@ class SceneManager extends EventEmitter {
 
   bind() {
     this.onWindowResize = this.onWindowResize.bind(this)
-    this.onKeydown = this.onKeydown.bind(this)
+    // this.onKeydown = this.onKeydown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseDown = this.onMouseDown.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
@@ -174,7 +174,7 @@ class SceneManager extends EventEmitter {
 
   events() {
     window.addEventListener('resize', this.onWindowResize, { passive: true })
-    document.addEventListener('keydown', this.onKeydown)
+    // document.addEventListener('keydown', this.onKeydown)
 
     if (this.isTouchDevice) {
       this.canvas.addEventListener('touchstart', this.onMouseDown)
@@ -250,33 +250,33 @@ class SceneManager extends EventEmitter {
     this.renderer.setSize(this.width, this.height)
   }
 
-  onKeydown(e) {
-    e.preventDefault()
+  // onKeydown(e) {
+  //   e.preventDefault()
 
-    const elapsedTime = this.clock.getElapsedTime()
+  //   const elapsedTime = this.clock.getElapsedTime()
 
-    switch (e.key) {
-      case 'ArrowRight':
-        this.rotate('right')
-        break
-      case 'ArrowLeft':
-        this.rotate('left')
-        break
-      case 'Escape':
-        this.bindEscape()
-        break
-      case 'Backspace':
-        this.deleteSelected()
-      default:
-        break
-    }
+  //   switch (e.key) {
+  //     case 'ArrowRight':
+  //       this.rotate('right')
+  //       break
+  //     case 'ArrowLeft':
+  //       this.rotate('left')
+  //       break
+  //     case 'Escape':
+  //       this.bindEscape()
+  //       break
+  //     case 'Backspace':
+  //       this.deleteSelected()
+  //     default:
+  //       break
+  //   }
 
-    for (let i = 0; i < this.sceneSubjects.length; i++) {
-      if (typeof this.sceneSubjects[i].onKeydown === 'function') {
-        this.sceneSubjects[i].onKeydown(e, elapsedTime, this.checkOverlap)
-      }
-    }
-  }
+  //   for (let i = 0; i < this.sceneSubjects.length; i++) {
+  //     if (typeof this.sceneSubjects[i].onKeydown === 'function') {
+  //       this.sceneSubjects[i].onKeydown(e, elapsedTime, this.checkOverlap)
+  //     }
+  //   }
+  // }
 
   onMouseMove(e) {
     e.preventDefault()
@@ -764,8 +764,11 @@ class SceneManager extends EventEmitter {
 
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
-    if (this.selectedSubject) this.selectedSubject.delete()
-    if (this.activeSubject) this.activeSubject.delete()
+    if (this.selectedSubject) {
+      this.selectedSubject.delete()
+    } else if (this.activeSubject) {
+      this.activeSubject.delete()
+    }
     this.selectedSubject = null
     this.activeSubject = null
     this.setMode()
