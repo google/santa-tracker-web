@@ -39,24 +39,25 @@ class CameraController {
   }
 
   buildControls() {
-    this.controls = new THREE.OrbitControls(this.camera, this.canvas)
+    this.controls = new THREE.MapControls(this.camera, this.canvas)
     this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
     this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
     this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
     this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
-    // this.controls.enableKeys = CONFIG.CONTROLS.KEYS
-    // this.controls.enablePan = CONFIG.CONTROLS.PAN
-    // this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
-    // this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
-    // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
-    // this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
+    this.controls.enableKeys = CONFIG.CONTROLS.KEYS
+    this.controls.enablePan = CONFIG.CONTROLS.PAN
+    this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
+    this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
+    this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
+    this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
   }
 
   buildFakeGround() {
     // invisible plane to help camera rotation
-    const fakeGroundGeometry = new THREE.PlaneGeometry(50, 50)
-    const fakeGroundMaterial = new THREE.MeshBasicMaterial({ visible: false })
-    this.fakeGround = new THREE.Mesh(fakeGroundGeometry, fakeGroundMaterial)
+    const geometry = new THREE.PlaneGeometry(50, 50)
+    const material = new THREE.MeshBasicMaterial({ visible: false, color: 0xff0000 })
+    this.fakeGround = new THREE.Mesh(geometry, material)
+    this.fakeGround.rotation.x = toRadian(-90)
   }
 
   rotate(direction, wheel, noAnimation, coef = 1) {
@@ -103,11 +104,14 @@ class CameraController {
     if (wheel || noAnimation) {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
-      this.isRotating = true
-      this.rotateOrigin = 0
-      this.rotateTarget = this.targetAngle
-      this.rotateSpeed = CONFIG.ROTATE.SPEED
-      this.rotateStart = getNow()
+
+      setTimeout(() => {
+        this.isRotating = true
+        this.rotateOrigin = 0
+        this.rotateTarget = this.targetAngle
+        this.rotateSpeed = CONFIG.ROTATE.SPEED
+        this.rotateStart = getNow()
+      }, 10)
     }
   }
 
