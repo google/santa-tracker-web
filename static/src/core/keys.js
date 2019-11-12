@@ -1,8 +1,9 @@
+import global from '../../global.js';
 
 /**
  * Configures key and gamepad handlers for the host frame.
  */
-export default function configureCustomKeys() {
+export default function configureCustomKeys(loaderElement) {
   const keycodeMap = {
     ' ': 32,
     'PageUp': 33,

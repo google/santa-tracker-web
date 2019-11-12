@@ -449,4 +449,4 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 });
 
 
-configureCustomKeys();
+configureCustomKeys(loaderElement);
