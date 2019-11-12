@@ -2,9 +2,10 @@ import SoundManager from './managers/SoundManager.js'
 import SceneManager from './components/SceneManager/index.js'
 
 // ui components
-import ToolbarShapes from './ui-components/ToolbarShapes.js'
+import Toolbar from './ui-components/Toolbar.js'
 import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
+import Download from './ui-components/Download.js'
 import { isTouchDevice } from './helpers.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
@@ -17,9 +18,10 @@ class SnowglobeGame {
   constructor(el) {
     this.ui = {
       canvas: el.querySelector('#canvas'),
-      toolbarShapes: el.querySelector('[toolbar-shapes]'),
+      toolbar: el.querySelector('[toolbar]'),
       cameraControls: el.querySelector('[camera-controls]'),
-      objectEditTool: el.querySelector('[object-edit-tool]')
+      objectEditTool: el.querySelector('[object-edit-tool]'),
+      download: el.querySelector('[data-download]')
     }
 
     this.isTouchDevice = isTouchDevice()
@@ -28,9 +30,10 @@ class SnowglobeGame {
     SceneManager.init(this.ui.canvas)
 
     // init ui components
-    new ToolbarShapes(this.ui.toolbarShapes)
+    new Toolbar(this.ui.toolbar)
     new CameraControls(this.ui.cameraControls)
     new ObjectEditTool(this.ui.objectEditTool)
+    new Download(this.ui.download)
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom

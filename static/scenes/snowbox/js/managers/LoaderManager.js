@@ -51,6 +51,13 @@ class LoaderManager {
       }
     }
 
+    if (object.gif){
+      this.subjects[object.name].sources = []
+      object.gif.forEach(source => {
+        promises.push(this.loadGIF(object.name, source))
+      })
+    }
+
     Promise.all(promises).then(callback)
   }
 
@@ -84,6 +91,17 @@ class LoaderManager {
         }
         resolve(result)
       })
+    })
+  }
+
+  loadGIF(name, source) {
+    return new Promise(resolve => {
+      const image = new Image()
+      image.src = source
+      image.onload = () => {
+        this.subjects[name].sources.push(image)
+        resolve(image)
+      }
     })
   }
 }

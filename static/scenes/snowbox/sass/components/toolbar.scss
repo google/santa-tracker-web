@@ -1,11 +1,11 @@
-.toolbar-shapes {
+.toolbar {
   display: flex;
   background-color: $color-deep-blue-darken;
   height: 150px;
   overflow: hidden;
   position: relative;
-  padding: 0 25px;
   pointer-events: auto;
+  width: 100%;
 
   &__container {
     padding: 0 40px;

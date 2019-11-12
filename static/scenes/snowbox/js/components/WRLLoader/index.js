@@ -12,7 +12,7 @@ class WRLLoader {
         return new Promise((resolve, reject) => {
             xhr.open('GET', path);
             xhr.addEventListener('readystatechange', () => {
-                console.log('xhr')
+                // console.log('xhr')
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                     this.parse(xhr.responseText, resolve, reject);
                 }
