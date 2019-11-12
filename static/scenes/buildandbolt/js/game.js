@@ -15,6 +15,8 @@ goog.require('app.Player')
 goog.require('app.PresentBox')
 goog.require('app.Table')
 goog.require('app.Wall')
+goog.require('app.shared.LevelUp');
+
 
 app.Game = class Game {
   constructor(context) {
@@ -33,10 +35,16 @@ app.Game = class Game {
     this.players[1] = new app.Player(this, document.getElementById('player-2'),
         Constants.PLAYER_CONTROLS.WASD)
 
-    this.initLevel(0)
 
-    this.isPlaying = true
+    this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
+        document.getElementsByClassName('levelup--number')[0]);
+    this.level = 0;
+
+    this.isPlaying = false
     this.lastFrame = +new Date() / 1000
+
+    this.initLevel(this.level)
+    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
     this.onFrame()
   }
@@ -76,8 +84,13 @@ app.Game = class Game {
     }
   }
 
+  startLevel() {
+    this.isPlaying = true
+  }
+
   onFrame() {
     if (!this.isPlaying) {
+      this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
       return
     }
 

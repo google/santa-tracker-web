@@ -1,6 +1,7 @@
 $name: 'module-buildandbolt';
 
 @import "../_shared/sass/button";
+@import "../_shared/sass/levelup";
 
 $mobile-breakpoint: 1100px;
 
@@ -203,4 +204,18 @@ body {
   //     top: 30%;
   //   }
   // }
+
+  .levelup, .levelup--number {
+    z-index: 150;
+  }
+
+  .gui {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
