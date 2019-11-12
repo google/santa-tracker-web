@@ -1,4 +1,4 @@
-// import CONFIG from '../../SceneManager/config'
+// import CONFIG from '../../Scene/config'
 
 class Lights {
   constructor(scene) {

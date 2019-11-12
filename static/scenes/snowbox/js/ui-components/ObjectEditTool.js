@@ -1,4 +1,4 @@
-import SceneManager from '../components/SceneManager/index.js'
+import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 
 export default class ObjectEditTool {
@@ -33,11 +33,11 @@ export default class ObjectEditTool {
 
   events() {
     this.ui.colorIconButton.addEventListener('click', this.onClickColorIcon)
-    this.ui.scaleButton.addEventListener('input', SceneManager.onScaleInput)
+    this.ui.scaleButton.addEventListener('input', Scene.onScaleInput)
     this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
 
     this.ui.colorButtons.forEach(button => {
-      button.addEventListener('click', SceneManager.colorObject)
+      button.addEventListener('click', Scene.colorObject)
     })
 
     this.ui.rotateButtons.forEach(button => {
@@ -46,15 +46,15 @@ export default class ObjectEditTool {
     })
 
     // custom events
-    SceneManager.addListener('enter_edit', this.enterEditMode)
-    SceneManager.addListener('leave_edit', this.hide)
-    SceneManager.addListener('move_camera', this.updatePosition)
-    SceneManager.addListener('scale_object', this.updatePosition)
+    Scene.addListener('enter_edit', this.enterEditMode)
+    Scene.addListener('leave_edit', this.hide)
+    Scene.addListener('move_camera', this.updatePosition)
+    Scene.addListener('scale_object', this.updatePosition)
   }
 
   enterEditMode() {
     this.show()
-    const { scaleFactor } = SceneManager.activeSubject // get current scale of object
+    const { scaleFactor } = Scene.activeSubject // get current scale of object
     this.ui.scaleButton.value = scaleFactor * 10
     this.updatePosition()
   }
@@ -70,20 +70,20 @@ export default class ObjectEditTool {
   }
 
   updatePosition() {
-    const xArrowHelper = SceneManager.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
-    const xArrowHelperPos = SceneManager.getScreenPosition(xArrowHelper)
+    const xArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+    const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
     this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-    const yArrowHelper = SceneManager.scene.getObjectByName( 'arrow-helper-y' )
-    const yArrowHelperPos = SceneManager.getScreenPosition(yArrowHelper)
+    const yArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-y' )
+    const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
     this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
 
-    const trashHelper = SceneManager.scene.getObjectByName( 'trash-helper' )
-    const trashHelperPos = SceneManager.getScreenPosition(trashHelper)
+    const trashHelper = Scene.scene.getObjectByName( 'trash-helper' )
+    const trashHelperPos = Scene.getScreenPosition(trashHelper)
     this.ui.trash.style.transform = `translate(-50%, -50%) translate(${trashHelperPos.x}px,${trashHelperPos.y}px)`
 
-    const toolbarHelper = SceneManager.scene.getObjectByName( 'toolbar-helper' )
-    const toolbarHelperPos = SceneManager.getScreenPosition(toolbarHelper)
+    const toolbarHelper = Scene.scene.getObjectByName( 'toolbar-helper' )
+    const toolbarHelperPos = Scene.getScreenPosition(toolbarHelper)
     this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
   }
 
@@ -99,12 +99,12 @@ export default class ObjectEditTool {
     clearInterval(this.resetRotateInterval)
 
     const el = e.currentTarget
-    SceneManager.rotateObject(el)
+    Scene.rotateObject(el)
 
     el.classList.add('is-clicked')
 
     this.rotateInterval = setInterval(() => {
-      SceneManager.rotateObject(el)
+      Scene.rotateObject(el)
     }, 200)
   }
 
@@ -124,7 +124,7 @@ export default class ObjectEditTool {
 
     setTimeout(() => {
       SoundManager.play('snowbox_shape_delete')
-      SceneManager.deleteObject()
+      Scene.deleteObject()
       this.hide()
       el.classList.remove('is-clicked')
     }, 200)

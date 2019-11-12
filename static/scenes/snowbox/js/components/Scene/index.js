@@ -31,7 +31,7 @@ import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
-class SceneManager extends EventEmitter {
+class Scene extends EventEmitter {
   constructor(canvas) {
     super()
 
@@ -778,4 +778,4 @@ class SceneManager extends EventEmitter {
   }
 }
 
-export default new SceneManager()
+export default new Scene()

@@ -1,4 +1,4 @@
-import SceneManager from '../components/SceneManager/index.js'
+import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import LoaderManager from '../managers/LoaderManager.js'
 import CameraController from '../components/CameraController/index.js'
@@ -53,15 +53,15 @@ export default class Download {
     SoundManager.play('snowbox_photo');
 
     // clean mode
-    SceneManager.setMode()
+    Scene.setMode()
 
     const sources = []
 
     for (let i = 0; i < 16; i++) {
       CameraController.rotate('right', false, true, 0.5)
       // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
-      SceneManager.renderer.render(SceneManager.scene, CameraController.camera)
-      const base64 = SceneManager.renderer.domElement.toDataURL()
+      Scene.renderer.render(Scene.scene, CameraController.camera)
+      const base64 = Scene.renderer.domElement.toDataURL()
       sources.push(base64)
     }
     console.log('frames render frames')

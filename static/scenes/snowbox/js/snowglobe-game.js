@@ -1,6 +1,6 @@
 import SoundManager from './managers/SoundManager.js'
 import RAFManager from './managers/RAFManager.js'
-import SceneManager from './components/SceneManager/index.js'
+import Scene from './components/Scene/index.js'
 
 // ui components
 import Toolbar from './ui-components/Toolbar.js'
@@ -9,7 +9,7 @@ import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
 import isTouchDevice from './utils/isTouchDevice.js'
 
-const { Scene, PerspectiveCamera } = self.THREE
+// const { Scene, PerspectiveCamera } = self.THREE
 
 class SnowglobeGame {
   static get is() {
@@ -30,7 +30,7 @@ class SnowglobeGame {
     this.isTouchDevice = isTouchDevice()
 
     // init scene
-    SceneManager.init(this.ui.canvas)
+    Scene.init(this.ui.canvas)
     RAFManager.init()
 
     // init ui components
@@ -51,7 +51,7 @@ class SnowglobeGame {
   render(e) {
     const { now } = e.detail
     this.stats.begin()
-    SceneManager.update(now)
+    Scene.update(now)
     this.stats.end()
   }
 

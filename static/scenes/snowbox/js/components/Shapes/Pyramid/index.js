@@ -1,7 +1,7 @@
 import Obj from '../../Object/index.js'
 
 // Config
-import GLOBAL_CONFIG from '../../SceneManager/config.js'
+import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
 const textureLoader = new THREE.TextureLoader()
