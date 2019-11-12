@@ -754,8 +754,11 @@ class SceneManager extends EventEmitter {
 
   deleteObject() {
     this.sceneSubjects = this.sceneSubjects.filter(subject => subject !== this.selectedSubject)
-    if (this.selectedSubject) this.selectedSubject.delete()
-    if (this.activeSubject) this.activeSubject.delete()
+    if (this.selectedSubject) {
+      this.selectedSubject.delete()
+    } else if (this.activeSubject) {
+      this.activeSubject.delete()
+    }
     this.selectedSubject = null
     this.activeSubject = null
     this.setMode()
