@@ -17,7 +17,7 @@ api.preload.images(
 
 api.preload.sounds('village_load_sounds');
 
-const game = new Game(document.getElementById('module-presenthavoc'));
+const game = new Game(document.getElementById('module-buildandbolt'));
 
 api.config({
   sound: ['music_start_village', 'village_start'],
