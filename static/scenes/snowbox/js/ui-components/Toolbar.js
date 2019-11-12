@@ -9,30 +9,28 @@ export default class Toolbar {
       buttons: [...this.el.querySelectorAll('[data-add-shape]')],
     }
 
-    this.onButtonMouseDown = this.onButtonMouseDown.bind(this)
-
     this.events()
   }
 
   events() {
     this.ui.buttons.forEach(button => {
-      button.addEventListener('mousedown', this.onButtonMouseDown)
+      button.addEventListener('mousedown', this.onMouseDown)
 
-      button.addEventListener('touchstart', this.onButtonMouseDown)
-      button.addEventListener('mouseover', this.onButtonMouseOver)
-      button.addEventListener('mouseout', this.onButtonMouseOut)
+      button.addEventListener('touchstart', this.onMouseDown)
+      button.addEventListener('mouseover', this.onMouseOver)
+      button.addEventListener('mouseout', this.onMouseOut)
     })
   }
 
-  onButtonMouseOver(e) {
+  onMouseOver(e) {
     SoundManager.play('snowbox_shape_mouseover');
   }
 
-  onButtonMouseOut(e) {
+  onMouseOut(e) {
     SoundManager.play('snowbox_shape_mouseout');
   }
 
-  onButtonMouseDown(e) {
+  onMouseDown(e) {
     e.preventDefault()
 
     const button = e.currentTarget
