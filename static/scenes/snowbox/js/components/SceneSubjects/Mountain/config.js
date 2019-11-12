@@ -1,6 +1,4 @@
 export default {
-  PLANE_WIDTH: 12.15,
-  PLANE_DEPTH: 12.15,
   SELECTABLE: false,
   SIZE: 18,
   MODEL_UNIT: 30,
@@ -8,6 +6,8 @@ export default {
     NAME: 'mount',
     OBJ: './models/mountain/mount.obj',
     MAP: './models/mountain/mount.jpg',
+    TOP_RADIUS: 12.15,
+    BOTTOM_RADIUS: 12.15 * 1.65,
   },
   BOARD: {
     NAME: 'board',
@@ -17,6 +17,8 @@ export default {
   TREE: {
     NAME: 'tree',
     OBJ: './models/mountain/tree.obj',
+    COLOR: 0x03B4CA,
+    NUMBER: 10,
   },
   ROCK_01: {
     NAME: 'rock_01',

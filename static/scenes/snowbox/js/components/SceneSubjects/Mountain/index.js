@@ -2,6 +2,7 @@
 import GLOBAL_CONFIG from '../../SceneManager/config.js'
 import CONFIG from './config.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
+import { toRadian, randomInt } from '../../../utils/math.js'
 
 class Mountain {
   constructor(scene, world) {
@@ -9,7 +10,7 @@ class Mountain {
     this.world = world
     this.selectable = CONFIG.SELECTABLE
 
-    this.init = this.init.bind(this)
+    this.initTrees = this.initTrees.bind(this)
     this.initMount = this.initMount.bind(this)
 
     this.object = new THREE.Object3D()
@@ -24,7 +25,8 @@ class Mountain {
 
     const geometry = obj.children[0].geometry
     geometry.computeBoundingBox()
-    const box = geometry.boundingBox
+    this.mountBox = geometry.boundingBox
+
     const material = new THREE.MeshPhongMaterial({
       map,
       color: GLOBAL_CONFIG.COLORS.GHOST,
@@ -32,56 +34,43 @@ class Mountain {
     })
 
     const mesh = new THREE.Mesh(geometry, material)
-
-
     mesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT)
-    mesh.position.y = -(box.max.y - box.min.y) / CONFIG.MODEL_UNIT / 2
-
+    mesh.position.y = -(this.mountBox.max.y - this.mountBox.min.y) / CONFIG.MODEL_UNIT / 2
     this.object.add(mesh)
 
     // Physics
-    const shape = new CANNON.Cylinder(CONFIG.PLANE_WIDTH, CONFIG.PLANE_WIDTH * 1.65, CONFIG.SIZE, 30)
-    this.mountainBody = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
-    this.mountainBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-    this.mountainBody.position.set(0, -(CONFIG.SIZE / 2) - 0.1, 0)
-    this.world.addBody(this.mountainBody)
+    const shape = new CANNON.Cylinder(CONFIG.MOUNT.TOP_RADIUS, CONFIG.MOUNT.BOTTOM_RADIUS, CONFIG.SIZE, 30)
+    this.mountBody = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
+    this.mountBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
+    this.mountBody.position.set(0, -(CONFIG.SIZE / 2) - 0.1, 0)
+    this.world.addBody(this.mountBody)
+
+    LoaderManager.load({name: CONFIG.TREE.NAME, obj: CONFIG.TREE.OBJ}, this.initTrees)
   }
 
-  init() {
-    const { obj, map } = LoaderManager.subjects[CONFIG.NAME]
-
-    // Geometry
-    this.object = new THREE.Object3D()
+  initTrees() {
+    const { obj } = LoaderManager.subjects[CONFIG.TREE.NAME]
 
     // Materials
-    const defaultMaterial = new THREE.MeshToonMaterial({
-      color: GLOBAL_CONFIG.COLORS.GHOST,
+    const material = new THREE.MeshToonMaterial({
+      color: CONFIG.TREE.COLOR,
       shininess: 345,
     })
+    const geometry = obj.children[0].geometry
 
-
-
-    let cylinderBox
-
-    for (let i = 0; i < obj.children.length; i++) {
-      const geometry = obj.children[i].geometry
-      let material = defaultMaterial
-      if (i === obj.children.length - 1) {
-        // cylinder geometry
-        geometry.computeBoundingBox()
-        cylinderBox = geometry.boundingBox
-        // add texture
-        material = cylinderMaterial
-      }
+    for (let i = 0; i < CONFIG.TREE.NUMBER; i++) {
       const mesh = new THREE.Mesh(geometry, material)
+      const angle = toRadian(randomInt(0, 360))
+      const offset = randomInt(-2, 2)
+      const scale = randomInt(1, 1.2)
+
+      mesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * scale)
+      mesh.position.y = -(this.mountBox.max.y - this.mountBox.min.y) / CONFIG.MODEL_UNIT
+      mesh.position.x = Math.cos(angle) * (CONFIG.MOUNT.BOTTOM_RADIUS + offset)
+      mesh.position.z = -Math.sin(angle) * (CONFIG.MOUNT.BOTTOM_RADIUS + offset)
+
       this.object.add(mesh)
     }
-
-    this.object.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT)
-    // const box = new THREE.Box3().setFromObject( this.object );
-    this.object.position.y = -(cylinderBox.max.y - cylinderBox.min.y) / CONFIG.MODEL_UNIT / 2
-
-    this.scene.add(this.object)
   }
 
   initMarker() {
@@ -95,7 +84,7 @@ class Mountain {
     let { x, z } = position
 
     this.markerMesh.position.set(x, 0.01, z)
-    this.markerMesh.quaternion.copy(this.mountainBody.quaternion)
+    this.markerMesh.quaternion.copy(this.mountBody.quaternion)
     this.scene.add(this.markerMesh)
   }
 
