@@ -52,8 +52,19 @@ export default class Download {
     console.log('start render frames')
     SoundManager.play('snowbox_photo');
 
+    const minSize = 1200
+
     // clean mode
     SceneManager.setMode()
+    // Reduce quality of canvas to avoid 12MB gifs
+    const originWidth = this.ui.canvas.offsetWidth
+    const originHeight = this.ui.canvas.offsetHeight
+    // Reisze canvas in smaller size for performance
+    const width = originWidth / 2
+    const height = originHeight / 2
+    SceneManager.renderer.setSize(width, height, false);
+    CameraController.camera.aspect = width / height
+    CameraController.camera.updateProjectionMatrix()
 
     const sources = []
 
@@ -64,7 +75,14 @@ export default class Download {
       const base64 = SceneManager.renderer.domElement.toDataURL()
       sources.push(base64)
     }
-    console.log('frames render frames')
+
+    // reset canvas size
+    SceneManager.renderer.setSize(originWidth, originHeight, false);
+    CameraController.camera.aspect = originWidth / originHeight
+    CameraController.camera.updateProjectionMatrix()
+
+    // wait for every images to load
+    console.log('frames rendered')
     LoaderManager.subjects['gif'] = null // clean previous loader
     LoaderManager.load({name: 'gif', gif: sources}, this.generateGIF)
   }
