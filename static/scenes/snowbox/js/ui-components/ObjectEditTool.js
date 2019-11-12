@@ -9,7 +9,7 @@ export default class ObjectEditTool {
       rotateButtons: [...this.el.querySelectorAll('[data-rotate-object]')],
       colorButtons: [...this.el.querySelectorAll('[data-color-object]')],
       scaleButton: this.el.querySelector('[object-scale-slider]'),
-      toggleColorButton: this.el.querySelector('[data-open-colors]'),
+      colorIconButton: this.el.querySelector('[data-open-colors]'),
       toolbar: this.el.querySelector('[object-toolbar-ui]'),
       rotateRight: this.el.querySelector('[object-rotate-right-ui]'),
       rotateBottom: this.el.querySelector('[object-rotate-bottom-ui]'),
@@ -17,18 +17,22 @@ export default class ObjectEditTool {
       trashButton: this.el.querySelector('[data-trash-object]'),
     }
 
-    this.updatePosition = this.updatePosition.bind(this)
-    this.enterEditMode = this.enterEditMode.bind(this)
-    this.hide = this.hide.bind(this)
-    this.resetRotateButtons = this.resetRotateButtons.bind(this)
-    this.deleteObject = this.deleteObject.bind(this)
-
+    this.bind()
     this.hide()
     this.events()
   }
 
+  bind() {
+    this.updatePosition = this.updatePosition.bind(this)
+    this.enterEditMode = this.enterEditMode.bind(this)
+    this.hide = this.hide.bind(this)
+    this.resetRotateButtons = this.resetRotateButtons.bind(this)
+    this.onMouseDownRotate = this.onMouseDownRotate.bind(this)
+    this.deleteObject = this.deleteObject.bind(this)
+  }
+
   events() {
-    this.ui.toggleColorButton.addEventListener('click', this.toggleColorsMenu)
+    this.ui.colorIconButton.addEventListener('click', this.onClickColorIcon)
     this.ui.scaleButton.addEventListener('input', SceneManager.onScaleInput)
     this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
 
@@ -37,21 +41,7 @@ export default class ObjectEditTool {
     })
 
     this.ui.rotateButtons.forEach(button => {
-      button.addEventListener('click', e => {
-        const el = e.currentTarget
-        SceneManager.rotateObject(el)
-        button.classList.add('is-clicked')
-      })
-
-      button.addEventListener('mousedown', e => {
-        e.preventDefault()
-        const el = e.currentTarget
-        this.rotateObjectInterval = setInterval(() => {
-          SceneManager.rotateObject(el)
-          button.classList.add('is-clicked')
-        }, 200)
-      })
-
+      button.addEventListener('mousedown', this.onMouseDownRotate)
       button.addEventListener('mouseup', this.resetRotateButtons)
     })
 
@@ -75,7 +65,7 @@ export default class ObjectEditTool {
 
   hide() {
     this.resetRotateButtons()
-    this.ui.toggleColorButton.classList.remove('is-open')
+    this.ui.colorIconButton.classList.remove('is-open')
     this.el.style.display = 'none'
   }
 
@@ -97,7 +87,7 @@ export default class ObjectEditTool {
     this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
   }
 
-  toggleColorsMenu(e) {
+  onClickColorIcon(e) {
     const el = e.currentTarget
     el.classList.toggle('is-open')
     if (el.classList.contains('is-open')) {
@@ -105,11 +95,24 @@ export default class ObjectEditTool {
     }
   }
 
+  onMouseDownRotate(e) {
+    clearInterval(this.resetRotateInterval)
+
+    const el = e.currentTarget
+    SceneManager.rotateObject(el)
+
+    el.classList.add('is-clicked')
+
+    this.rotateInterval = setInterval(() => {
+      SceneManager.rotateObject(el)
+    }, 200)
+  }
+
   resetRotateButtons() {
-    clearInterval(this.rotateObjectInterval)
+    clearInterval(this.rotateInterval)
 
     this.ui.rotateButtons.forEach(button => {
-      setTimeout(() => {
+      this.resetRotateInterval = setTimeout(() => {
         button.classList.remove('is-clicked')
       }, 200)
     })
@@ -118,7 +121,7 @@ export default class ObjectEditTool {
   deleteObject(e) {
     const el = e.currentTarget
     el.classList.add('is-clicked')
-    
+
     setTimeout(() => {
       SoundManager.play('snowbox_shape_delete')
       SceneManager.deleteObject()
