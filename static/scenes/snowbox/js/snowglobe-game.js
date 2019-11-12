@@ -5,6 +5,7 @@ import SceneManager from './components/SceneManager/index.js'
 import Toolbar from './ui-components/Toolbar.js'
 import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
+import Download from './ui-components/Download.js'
 import { isTouchDevice } from './helpers.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
@@ -19,7 +20,8 @@ class SnowglobeGame {
       canvas: el.querySelector('#canvas'),
       toolbar: el.querySelector('[toolbar]'),
       cameraControls: el.querySelector('[camera-controls]'),
-      objectEditTool: el.querySelector('[object-edit-tool]')
+      objectEditTool: el.querySelector('[object-edit-tool]'),
+      download: el.querySelector('[data-download]')
     }
 
     this.isTouchDevice = isTouchDevice()
@@ -31,6 +33,7 @@ class SnowglobeGame {
     new Toolbar(this.ui.toolbar)
     new CameraControls(this.ui.cameraControls)
     new ObjectEditTool(this.ui.objectEditTool)
+    new Download(this.ui.download)
 
     this.stats = new self.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom

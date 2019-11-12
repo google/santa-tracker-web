@@ -132,8 +132,6 @@ class SceneManager extends EventEmitter {
     this.renderer.gammaInput = true
     this.renderer.gammaOutput = true
     this.renderer.gammaFactor = 2.2
-
-    console.log(this.renderer)
   }
 
   buildCamera() {

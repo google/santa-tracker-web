@@ -63,11 +63,6 @@
     transition: box-shadow $transition-button, transform $transition-button, background $transition-button;
   }
 
-  &::after {
-    background-color: $color-yellow;
-    display: none;
-  }
-
   &--round {
     &::before {
       box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px 1px .01px $color-orange;
@@ -84,6 +79,29 @@
       &.is-clicked {
         &::before {
           box-shadow: 0px 0px .01px $color-orange, 0px 0px .01px $color-orange;
+        }
+      }
+    }
+
+    &-purple {
+
+      &::before {
+        background-color: $color-purple;
+        box-shadow: $button-3d-offset $button-3d-offset .01px $color-dark-purple, .01px 1px .01px $color-dark-purple;
+        border-radius: 50%;
+      }
+
+      &:not(.is-disabled) {
+        &:hover {
+          &::before {
+            box-shadow: 4px 4px $color-dark-purple, .01px 1px .01px $color-dark-purple;
+          }
+        }
+
+        &.is-clicked {
+          &::before {
+            box-shadow: 0px 0px .01px $color-dark-purple, 0px 0px .01px $color-dark-purple;
+          }
         }
       }
     }

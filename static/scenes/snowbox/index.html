@@ -68,6 +68,10 @@
       </section>
       <!-- global ui -->
       <section class="ui">
+        <!-- download -->
+        <div data-download class="download button button--round-purple">
+          <img src="./img/icons/download.svg" alt="" class="button__icon">
+        </div>
         <!-- camera controls -->
         <div class="camera-controls" camera-controls>
           <div class="rotate">
@@ -124,15 +128,18 @@
               <img src="./img/icons/arrow.svg" alt="" class="button__icon button__icon--reverse">
             </div>
           </div>
-          <button class="share" data-share>Take a gif</button>
         </div>
       </section>
       <!-- gif to share -->
-      <div gif class="gif">
-        <p class="gif__loading">Generating GIF...</p>
-        <div class="gif__wrapper">
-          <img gif-image class="gif__image" src="" alt="">
-          <a gif-download class="gif__download" href="" download="santa-snowbox.gif">download</a>
+      <div download-popin class="download-popin">
+        <div class="download-popin__wrapper">
+          <p class="download-popin__loading">Generating GIF...</p>
+          <div class="download-popin__image-wrapper">
+            <img gif class="download-popin__image" src="" alt="">
+          </div>
+          <a download-link class="download-popin__link button button--round-purple" href="" download="santa-snowbox.gif">
+            <img src="./img/icons/download.svg" alt="" class="button__icon">
+          </a>
         </div>
       </div>
     </div>

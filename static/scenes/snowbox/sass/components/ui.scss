@@ -5,4 +5,9 @@
   width: 100%;
   text-align: right;
   pointer-events: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
