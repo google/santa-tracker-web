@@ -82,9 +82,7 @@ class SceneManager extends EventEmitter {
     this.buildScene()
     this.buildRender()
     this.buildCamera()
-    this.buildSky()
     this.buildSceneSubjects()
-    this.buildPlaneHelper()
 
     if (this.debug) {
       this.buildHelpers()
@@ -146,10 +144,6 @@ class SceneManager extends EventEmitter {
     CameraController.init(this.screenDimensions, this.renderer.domElement)
   }
 
-  buildSky() {
-    this.sky = new Sky(this.scene)
-  }
-
   buildHelpers() {
     const dir = new THREE.Vector3(0, 1, 0)
     // normalize the direction vector (convert to vector of length 1)
@@ -163,13 +157,11 @@ class SceneManager extends EventEmitter {
     this.scene.add(gridHelper)
   }
 
-  buildPlaneHelper() {
-    this.planeHelper = new PlaneHelper(this.scene).mesh
-  }
-
   buildSceneSubjects() {
     this.lights = new Lights(this.scene)
+    this.sky = new Sky(this.scene)
     this.mountain = new Mountain(this.scene, this.world)
+    this.planeHelper = new PlaneHelper(this.scene).mesh
   }
 
   events() {
