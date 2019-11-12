@@ -4,6 +4,8 @@
   outline: -webkit-focus-ring-color auto 5px;
 }
 
+$index-interlude-preload: 1000;  // hides side before load
+
 $index-chrome: 900;
 $index-interlude: 600;
 $index-orientation: 500;

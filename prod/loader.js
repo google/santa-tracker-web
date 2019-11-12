@@ -68,6 +68,5 @@ initialize().then((remoteConfig) => {
   const entrypoint = config.staticScope + (fallback ? 'fallback' : 'entrypoint') + (isProd ? '_' + documentLang : '') + '.js';
   return load.script(entrypoint, fallback && isProd ? '' : 'module').then(() => {
     loaded = true;
-    document.body.classList.remove('loading');
   });
 });

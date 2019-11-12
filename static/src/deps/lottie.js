@@ -69,7 +69,7 @@ export function prepareAnimation(path, options) {
       return Promise.reject();
     }
 
-    const container = document.createElement('div');
+    const container = options.container || document.createElement('div');
     const anim = lottie.loadAnimation(Object.assign({
       path: path + '?#',  // in dev, this ensures JSON is returned raw
       renderer: 'svg',

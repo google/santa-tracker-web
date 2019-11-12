@@ -29,6 +29,10 @@ const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
 document.body.append(chromeElement, loaderElement, interludeElement);
 
+window.setTimeout(() => {
+  interludeElement.show();  // show on load, cleared by scene arriving
+});
+
 const tutorialOverlayElement = document.createElement('santa-tutorial');
 tutorialOverlayElement.setAttribute('slot', 'overlay');
 loaderElement.append(tutorialOverlayElement);
@@ -424,6 +428,8 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Run configuration tasks and remove the interlude.
     interludeElement.removeAttribute('active');
+    document.body.classList.remove('loading');  // shows site on first load
+
     global.setState({
       mini: !config.scroll,
       sceneOrientation: config.orientation || null,
