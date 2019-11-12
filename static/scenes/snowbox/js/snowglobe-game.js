@@ -7,7 +7,7 @@ import Toolbar from './ui-components/Toolbar.js'
 import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
-import { isTouchDevice } from './helpers.js'
+import isTouchDevice from './utils/isTouchDevice.js'
 
 const { Scene, PerspectiveCamera } = self.THREE
 

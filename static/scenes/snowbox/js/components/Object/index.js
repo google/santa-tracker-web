@@ -1,6 +1,6 @@
 import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../SceneManager/config.js'
-import { EventEmitter } from '../../event-emitter.js'
+import { EventEmitter } from '../../utils/event-emitter.js'
 import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'

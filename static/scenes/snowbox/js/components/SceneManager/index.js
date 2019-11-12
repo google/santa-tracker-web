@@ -1,7 +1,7 @@
-import { EventEmitter } from '../../event-emitter.js'
+import { EventEmitter } from '../../utils/event-emitter.js'
 import { toRadian } from '../../utils/math.js'
 import { darken } from '../../utils/colors.js'
-import { isTouchDevice } from '../../helpers.js'
+import isTouchDevice from '../../utils/isTouchDevice.js'
 
 // Config
 import CONFIG from './config.js'

@@ -2,7 +2,7 @@
 import CONFIG from './config.js'
 
 // Utils
-import { isTouchDevice } from '../../helpers.js'
+import isTouchDevice from '../../utils/isTouchDevice.js'
 import { toRadian } from '../../utils/math.js'
 import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
