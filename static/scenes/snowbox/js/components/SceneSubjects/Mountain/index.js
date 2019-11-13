@@ -2,13 +2,13 @@
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
-// import Scene from '../../Scene/index.js'
 import { toRadian, randomInt, randomFloat } from '../../../utils/math.js'
 
 class Mountain {
-  constructor(scene, world) {
+  constructor(scene, world, sceneSubjects) {
     this.scene = scene
     this.world = world
+    this.sceneSubjects = sceneSubjects
     this.selectable = CONFIG.SELECTABLE
 
     this.bind()
@@ -116,20 +116,19 @@ class Mountain {
     const board = new THREE.Object3D()
 
     const { obj, map } = LoaderManager.subjects[CONFIG.BOARD.NAME]
+    const angle = toRadian(-135)
+    const distance = CONFIG.MOUNT.TOP_RADIUS * 0.8
+    const scale = 0.8
 
     const geometry = obj.children[0].geometry
+    geometry.scale(1 / CONFIG.MODEL_UNIT * scale, 1 / CONFIG.MODEL_UNIT * scale, 1 / CONFIG.MODEL_UNIT * scale)
     const material = new THREE.MeshPhongMaterial({
       map,
       color: GLOBAL_CONFIG.COLORS.GHOST,
       shininess: 345,
     })
 
-    const angle = toRadian(-135)
-    const distance = CONFIG.MOUNT.TOP_RADIUS * 0.8
-    const scale = 0.8
-
     const mesh = new THREE.Mesh(geometry, material)
-    mesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * scale)
     mesh.position.y = 2
     mesh.position.x = Math.cos(angle) * distance
     mesh.position.z = -Math.sin(angle) * distance
@@ -175,9 +174,22 @@ class Mountain {
     rockMesh3.rotation.y = toRadian(45)
     board.add(rockMesh3)
 
-    // Physics
-
     this.object.add(board)
+
+    // box
+    const box = new THREE.Box3().setFromObject(board)
+
+    // Physics
+    const shape = new CANNON.Box(new CANNON.Vec3((box.max.x - box.min.x) / 2 * 0.1, (box.max.y - box.min.y) / 2, (box.max.z - box.min.z) / 2 * 0.7))
+    const body = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
+    body.position.x = mesh.position.x
+    body.position.y = mesh.position.y - 0.3
+    body.position.z = mesh.position.z
+    this.world.addBody(body)
+
+    const subject = { body, mesh, box, selectable: false, collidable: true }
+
+    this.sceneSubjects.push(subject)
   }
 
   initMarker() {

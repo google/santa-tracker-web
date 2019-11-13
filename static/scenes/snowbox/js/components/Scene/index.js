@@ -160,7 +160,7 @@ class Scene extends EventEmitter {
   buildSceneSubjects() {
     this.lights = new Lights(this.scene)
     this.sky = new Sky(this.scene)
-    this.mountain = new Mountain(this.scene, this.world)
+    this.mountain = new Mountain(this.scene, this.world, this.sceneSubjects)
     this.planeHelper = new PlaneHelper(this.scene).mesh
   }
 
@@ -621,7 +621,7 @@ class Scene extends EventEmitter {
 
   getObjectBoxesList(filter) {
     return this.sceneSubjects
-      .filter(subject => subject.selectable)
+      .filter(subject => subject.selectable || subject.collidable)
       .map(subject => subject.box)
       .filter(box => box)
   }
@@ -682,6 +682,7 @@ class Scene extends EventEmitter {
         const boxItem = boxes[index]
 
         if (boxHelper.intersectsBox(boxItem)) {
+          console.log('collide')
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
