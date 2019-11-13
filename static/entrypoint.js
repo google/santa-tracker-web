@@ -27,9 +27,8 @@ import configureCustomKeys from './src/core/keys.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
+interludeElement.active = true;  // must show before appending
 document.body.append(chromeElement, loaderElement, interludeElement);
-
-interludeElement.show();  // show on load, cleared by scene arriving
 
 const tutorialOverlayElement = document.createElement('santa-tutorial');
 tutorialOverlayElement.setAttribute('slot', 'overlay');
@@ -426,7 +425,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Run configuration tasks and remove the interlude.
     interludeElement.removeAttribute('active');
-    document.body.classList.remove('loading');  // shows site on first load
 
     global.setState({
       mini: !config.scroll,

@@ -46,10 +46,6 @@ class SantaInterludeElement extends HTMLElement {
       }
     });
 
-    if (this.hasAttribute('active')) {
-      this.attributeChangedCallback('active', undefined, this.getAttribute('active'));
-    }
-
     this._interludeAnimation = null;  // TODO: having a virtual future player would be nice
     animationPromise.then((anim) => {
       const svg = anim.renderer.svgElement;
@@ -65,6 +61,8 @@ class SantaInterludeElement extends HTMLElement {
   }
 
   connectedCallback() {
+    this._updateAnimation();
+
     Promise.resolve().then(() => {
       // As the animation was triggered before a rAF, it'll be complete immediately. Resolve now.
       if (this.isConnected && this.active) {
@@ -134,12 +132,18 @@ class SantaInterludeElement extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (attrName !== 'active' || oldValue === newValue) {
-      // nb. oldValue === newValue still gets callbacks?
+    this._updateAnimation();
+  }
+
+  _updateAnimation() {
+    const active = this.active;
+    const wasActive = Boolean(this._animatePromise);
+    if (active === wasActive) {
       return;
     }
+    document.body.classList.toggle('loading', active);
 
-    if (this.active) {
+    if (active) {
       // now active
       this._animatePromise = new Promise((resolve) => {
         this._animateResolve = resolve;
