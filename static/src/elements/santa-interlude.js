@@ -31,6 +31,7 @@ class SantaInterludeElement extends HTMLElement {
       this._hostElement.append(layer);
     }
     const lastLayer = this._hostElement.lastElementChild;
+    lastLayer.classList.add('load');
 
     this._loadingElement = Object.assign(document.createElement('div'), {className: 'progress'});
     lastLayer.append(this._loadingElement);
@@ -53,10 +54,23 @@ class SantaInterludeElement extends HTMLElement {
     animationPromise.then((anim) => {
       const svg = anim.renderer.svgElement;
       lastLayer.append(svg);
+
+      // Fade the SVG in.
+      window.requestAnimationFrame(() => lastLayer.classList.remove('load'));
+
       this._interludeAnimation = anim;
     });
 
     this.shadowRoot.append(this._hostElement);
+  }
+
+  connectedCallback() {
+    Promise.resolve().then(() => {
+      // As the animation was triggered before a rAF, it'll be complete immediately. Resolve now.
+      if (this.isConnected && this.active) {
+        this._animateResolve(true);
+      }
+    });
   }
 
   _onStart() {
@@ -109,6 +123,14 @@ class SantaInterludeElement extends HTMLElement {
 
   get active() {
     return this.hasAttribute('active');
+  }
+
+  set progress(v) {
+    this._progress = v;
+  }
+
+  get progress() {
+    return this._progress;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {

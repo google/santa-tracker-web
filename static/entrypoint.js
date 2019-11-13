@@ -29,9 +29,7 @@ const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
 document.body.append(chromeElement, loaderElement, interludeElement);
 
-window.setTimeout(() => {
-  interludeElement.show();  // show on load, cleared by scene arriving
-});
+interludeElement.show();  // show on load, cleared by scene arriving
 
 const tutorialOverlayElement = document.createElement('santa-tutorial');
 tutorialOverlayElement.setAttribute('slot', 'overlay');
@@ -255,7 +253,7 @@ outer:
         return Promise.reject(payload);
 
       case 'progress':
-        console.debug('got preload', (payload * 100).toFixed(2) + '%');
+        interludeElement.progress = payload;
         continue;
 
       case 'preload':

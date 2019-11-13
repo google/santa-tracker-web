@@ -14,8 +14,9 @@
   z-index: $index-interlude;
 }
 
-$duration: 1.5s;
-$delay: 0.66s;
+$animation-fade-duration: 0.5s;
+$duration: 0.75s;
+$delay: 0.5s;
 $progress-after: 3.5s;
 
 .layer {
@@ -25,7 +26,7 @@ $progress-after: 3.5s;
   top: 0;
   left: 0;
 
-  transition: transform $duration ease-in-out;
+  transition: transform $duration ease-in-out, opacity $animation-fade-duration ease-in;
   transform: translateY(100%);
   transition-timing-function: cubic-bezier(0.645, 0.000, 0.785, 0.390);
 
@@ -44,6 +45,10 @@ $progress-after: 3.5s;
   &.layer-3 {
     // holds svg, no background
     transition-delay: (1 - (3/3)) * $delay;
+  }
+
+  &.load {
+    opacity: 0;
   }
 }
 
@@ -68,29 +73,5 @@ $progress-after: 3.5s;
     &.layer-3 {
       transition-delay: (3/3) * $delay;
     }
-  }
-}
-
-.progress {
-  border: 0;
-  width: 40%;
-  min-width: 200px;
-  height: 20px;
-  border-radius: 50px;
-  background: white;
-  box-shadow: 0 4px 16px #3335;
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-:host([active]) {
-  .progress {
-    transition-delay: $progress-after;
-    opacity: 1;
   }
 }
