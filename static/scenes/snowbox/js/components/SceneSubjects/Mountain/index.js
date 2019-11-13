@@ -99,7 +99,7 @@ class Mountain {
       const mesh = new THREE.Mesh(geometries[randomInt(0, 1)], material)
       const angle = toRadian(randomInt(0, 360))
       const offset = randomInt(-CONFIG.MOUNT.TOP_RADIUS, -1)
-      const scale = randomFloat(0.1, 0.3)
+      const scale = randomFloat(0.07, 0.2)
       const rotation = toRadian(randomInt(0, 360))
 
       mesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * scale)
@@ -178,7 +178,6 @@ class Mountain {
     // Physics
 
     this.object.add(board)
-
   }
 
   initMarker() {

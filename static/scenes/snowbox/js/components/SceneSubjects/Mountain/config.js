@@ -2,7 +2,7 @@ export default {
   SELECTABLE: false,
   MODEL_UNIT: 20,
   NUMBER_TREES: 10,
-  NUMBER_ROCKS: 40,
+  NUMBER_ROCKS: 60,
   MOUNT: {
     NAME: 'mount',
     OBJ: './models/mountain/mount.obj',
