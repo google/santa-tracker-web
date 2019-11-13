@@ -114,6 +114,7 @@ class CameraController {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
       this.isRotating = true
+      this.isMoving = true
       this.rotateOrigin = 0
       this.rotateTarget = this.targetAngle
       this.rotateSpeed = CONFIG.ROTATE.SPEED
@@ -128,6 +129,7 @@ class CameraController {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(angle))
     } else {
       this.isRotating = false
+      this.isMoving = false
     }
   }
 
@@ -158,6 +160,7 @@ class CameraController {
     this.zoomSpeed = CONFIG.ZOOM.SPEED
     this.zoomStart = RAFManager.now
     this.isZooming = true
+    this.isMoving = true
   }
 
   animateZoom(now) {
@@ -166,6 +169,7 @@ class CameraController {
       this.camera.zoom = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outElastic(percent)
     } else {
       this.isZooming = false
+      this.isMoving = false
     }
 
     this.camera.updateProjectionMatrix()

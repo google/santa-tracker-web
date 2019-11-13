@@ -188,28 +188,9 @@ class Scene extends EventEmitter {
     if (controls && controls.enabled && controls.target) controls.update() // for damping
 
     // if we're in ghost mode and the selected object is on edges
-    if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
-      CameraController.moveOnEdges(this.mouseInEdge)
-    }
-
-    // on camera rotating
-    if (CameraController.isRotating) {
-      CameraController.animateRotate(now)
-
-      if (this.mode === 'edit' && this.activeSubject) {
-        this.emit('move_camera')
-      }
-    }
-
-    // on camera zooming
-    if (CameraController.isZooming) {
-      CameraController.animateZoom(now)
-
-      if (this.mode === 'edit' && this.activeSubject) {
-        this.emit('move_camera')
-        this.activeSubject.updateRotatingCircle(CameraController.camera.zoom)
-      }
-    }
+    // if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
+    //   CameraController.moveOnEdges(this.mouseInEdge)
+    // }
 
     // limit camera position
     // if (CameraController.camera.position.x > CameraController.box.max.x){
@@ -228,6 +209,26 @@ class Scene extends EventEmitter {
     //   CameraController.camera.position.z = CameraController.box.max.z
     // }
 
+    // on camera rotating
+    if (CameraController.isRotating) {
+      CameraController.animateRotate(now)
+    }
+
+    // on camera zooming
+    if (CameraController.isZooming) {
+      CameraController.animateZoom(now)
+    }
+
+    if (this.mode === 'edit' && this.activeSubject) {
+      if (CameraController.isMoving || this.activeSubject.isMoving) {
+        this.emit('move_camera')
+      }
+
+      if (CameraController.isZooming) {
+        this.activeSubject.updateRotatingCircle(CameraController.camera.zoom)
+      }
+    }
+
     // World
     this.world.step(CONFIG.TIMESTEP)
 
@@ -242,10 +243,6 @@ class Scene extends EventEmitter {
     if (this.needsCollisionCheck && this.selectedSubject) {
       this.checkCollision(true)
       this.needsCollisionCheck = false
-    }
-
-    if (this.mode === 'edit' && this.activeSubject && this.activeSubject.isMoving) {
-      this.emit('move_camera')
     }
 
     // Render
@@ -414,15 +411,18 @@ class Scene extends EventEmitter {
   }
 
   onWheel(e) {
+    CameraController.isMoving = true
+
     if (e.deltaY < 0) {
       CameraController.rotate('left', true)
     } else if (e.deltaY > 0) {
       CameraController.rotate('right', true)
     }
 
-    if (this.mode === 'edit' && this.activeSubject) {
-      this.emit('move_camera')
-    }
+    clearTimeout(this.onWheelTimeout)
+    this.onWheelTimeout = setTimeout(() => {
+      CameraController.isMoving = false
+    }, 1000)
   }
 
   // Events from UI
@@ -447,7 +447,6 @@ class Scene extends EventEmitter {
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.needsCollisionCheck = true
-      this.emit('scale_object')
     }
     SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
