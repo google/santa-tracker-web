@@ -764,7 +764,7 @@ class Scene extends EventEmitter {
 
   bindEscape() {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
-      if (!this.selectedSubject.mesh.visible && !this.wireframe) {
+      if (!this.selectedSubject.mesh.visible) {
         this.deleteObject()
       } else {
         this.unselectSubject(true)

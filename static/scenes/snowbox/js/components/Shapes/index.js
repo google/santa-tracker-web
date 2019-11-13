@@ -106,15 +106,6 @@ class Object extends EventEmitter {
 
       if (this.mesh) {
         this.unhighlight()
-
-        if (this.mesh.visible) {
-          const edges = new THREE.EdgesGeometry(this.mesh.geometry, 45)
-          this.wireframe = new THREE.LineSegments(
-            edges,
-            new THREE.LineBasicMaterial({ color: CONFIG.WIREFRAME_COLOR, linewidth: 3 })
-          )
-          this.scene.add(this.wireframe)
-        }
         this.mesh.visible = false
       }
 
@@ -156,12 +147,6 @@ class Object extends EventEmitter {
 
       this.isMoving = this.body.velocity.norm2() + this.body.angularVelocity.norm2() > 1 // do we still need this?
 
-      if (this.wireframe) {
-        this.wireframe.position.copy(this.mesh.position)
-        this.wireframe.quaternion.copy(this.mesh.quaternion)
-        this.wireframe.scale.copy(this.mesh.scale)
-      }
-
       // Update torus
       if (this.xCircle) {
         this.xCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
@@ -177,6 +162,7 @@ class Object extends EventEmitter {
         this.mesh.updateMatrixWorld(true)
         this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
       }
+
       if (CONFIG.DEBUG) {
         this.ghostHelper.update()
       }
