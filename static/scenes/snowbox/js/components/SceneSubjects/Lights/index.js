@@ -20,10 +20,6 @@ class Lights {
     // directionalLight.castShadow = true
     // scene.add(directionalLight)
   }
-
-  update() {
-    // update
-  }
 }
 
 export default Lights

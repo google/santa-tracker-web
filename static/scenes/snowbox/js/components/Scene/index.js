@@ -185,7 +185,7 @@ class Scene extends EventEmitter {
     // Camera
     const { camera, controls } = CameraController
 
-    if (controls && controls.enabled) controls.update() // for damping
+    if (controls && controls.enabled && controls.target) controls.update() // for damping
 
     // if we're in ghost mode and the selected object is on edges
     if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
@@ -210,6 +210,23 @@ class Scene extends EventEmitter {
         this.activeSubject.updateRotatingCircle(CameraController.camera.zoom)
       }
     }
+
+    // limit camera position
+    // if (CameraController.camera.position.x > CameraController.box.max.x){
+    //   CameraController.camera.position.x = CameraController.box.max.x
+    // }
+
+    // if (CameraController.camera.position.x < CameraController.box.min.x){
+    //   CameraController.camera.position.x = CameraController.box.max.x
+    // }
+
+    // if (CameraController.camera.position.z > CameraController.box.max.z){
+    //   CameraController.camera.position.z = CameraController.box.max.z
+    // }
+
+    // if (CameraController.camera.position.z < CameraController.box.min.z){
+    //   CameraController.camera.position.z = CameraController.box.max.z
+    // }
 
     // World
     this.world.step(CONFIG.TIMESTEP)

@@ -36,21 +36,30 @@ class CameraController {
     this.camera.updateProjectionMatrix()
 
     this.buildControls()
+    this.buildBox()
     this.buildFakeGround()
   }
 
   buildControls() {
-    this.controls = new THREE.MapControls(this.camera, this.canvas)
-    this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
-    this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
-    this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
-    this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
-    this.controls.enableKeys = CONFIG.CONTROLS.KEYS
-    this.controls.enablePan = CONFIG.CONTROLS.PAN
-    this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
-    this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
-    this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
-    this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
+    // this.controls = new THREE.MapControls(this.camera, this.canvas)
+    // this.controls.minDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN : CONFIG.CONTROLS.MIN
+    // this.controls.maxDistance = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX : CONFIG.CONTROLS.MAX
+    // this.controls.minPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MIN_ANGLE : CONFIG.CONTROLS.MIN_ANGLE
+    // this.controls.maxPolarAngle = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.MAX_ANGLE : CONFIG.CONTROLS.MAX_ANGLE
+    // this.controls.enableKeys = CONFIG.CONTROLS.KEYS
+    // this.controls.enablePan = CONFIG.CONTROLS.PAN
+    // this.controls.enableRotate = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ROTATE : CONFIG.CONTROLS.ROTATE
+    // this.controls.enableDamping = CONFIG.CONTROLS.DAMPING
+    // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
+    // this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
+
+    // temporary disable controls
+    this.controls = { enabled: false}
+  }
+
+  buildBox() {
+    // create box to limit camera position
+    this.box = new THREE.Box3( new THREE.Vector3(-CONFIG.BOX, -CONFIG.BOX, -CONFIG.BOX), new THREE.Vector3(CONFIG.BOX, CONFIG.BOX, CONFIG.BOX) )
   }
 
   buildFakeGround() {
@@ -233,7 +242,7 @@ class CameraController {
   resetControls() {
     // reset controls where the camera is currently looking at
     const target = this.getLookAtPointOnTerrain()
-    if (target[0]) {
+    if (target[0] && this.controls.target) {
       this.controls.target.set(target[0].point.x, target[0].point.y, target[0].point.z) // final pos
     }
   }

@@ -1,5 +1,6 @@
 export default {
   ANIMATE_SPEED: 100,
+  BOX: 125,
   POSITION: {
     Y: 50,
     Z: 100

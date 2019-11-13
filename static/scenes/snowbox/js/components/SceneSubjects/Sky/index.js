@@ -11,13 +11,13 @@ class Sky {
     this.onGui = this.onGui.bind(this)
     this.init = this.init.bind(this)
 
-    this.gui = new dat.GUI()
-    this.guiController = {
-      cube_scale: CONFIG.SCALE,
-      cube_y_pos: CONFIG.Y_POS,
-    }
-    this.gui.add(this.guiController, 'cube_scale', 0.0, 5.0).onChange(this.onGui)
-    this.gui.add(this.guiController, 'cube_y_pos', -100, 100).onChange(this.onGui)
+    // this.gui = new dat.GUI()
+    // this.guiController = {
+    //   cube_scale: CONFIG.SCALE,
+    //   cube_y_pos: CONFIG.Y_POS,
+    // }
+    // this.gui.add(this.guiController, 'cube_scale', 0.0, 5.0).onChange(this.onGui)
+    // this.gui.add(this.guiController, 'cube_y_pos', -100, 100).onChange(this.onGui)
 
     LoaderManager.load({name: CONFIG.NAME, skybox: {
       prefix: CONFIG.PREFIX,
