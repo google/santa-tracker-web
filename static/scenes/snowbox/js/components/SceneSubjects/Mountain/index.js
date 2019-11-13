@@ -129,6 +129,8 @@ class Mountain {
   }
 
   initBoard() {
+    const board = new THREE.Object3D()
+
     const { obj, map } = LoaderManager.subjects[CONFIG.BOARD.NAME]
 
     const geometry = obj.children[0].geometry
@@ -148,9 +150,51 @@ class Mountain {
     mesh.position.x = Math.cos(angle) * distance
     mesh.position.z = -Math.sin(angle) * distance
     mesh.rotation.y = toRadian(90)
-    this.object.add(mesh)
+
+    board.add(mesh)
+
+
+    // add rocks
+    const { obj: rockObj1 } = LoaderManager.subjects[CONFIG.ROCK_01.NAME]
+    const rockMaterial = new THREE.MeshToonMaterial({
+      color: GLOBAL_CONFIG.COLORS.GHOST,
+      shininess: 100,
+    })
+
+    const rockGeometry = rockObj1.children[0].geometry
+
+    // 1
+    const rockMesh = new THREE.Mesh(rockGeometry, rockMaterial)
+    rockMesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * 0.5)
+    rockMesh.position.copy(mesh.position)
+    rockMesh.position.y = 0
+    rockMesh.position.x += 1
+    board.add(rockMesh)
+
+    // 2
+    const rockMesh2 = new THREE.Mesh(rockGeometry, rockMaterial)
+    rockMesh2.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * 0.4)
+    rockMesh2.position.copy(mesh.position)
+    rockMesh2.position.y = 0
+    rockMesh2.position.x -= 1
+    rockMesh2.position.z += 1
+    rockMesh2.rotation.y = toRadian(120)
+    board.add(rockMesh2)
+
+    // 3
+    const rockMesh3 = new THREE.Mesh(rockGeometry, rockMaterial)
+    rockMesh3.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * 1)
+    rockMesh3.position.copy(mesh.position)
+    rockMesh3.position.y = 0
+    rockMesh3.position.z -= 1.5
+    rockMesh3.position.x -= 1.5
+    rockMesh3.rotation.y = toRadian(45)
+    board.add(rockMesh3)
 
     // Physics
+
+    this.object.add(board)
+
   }
 
   initMarker() {

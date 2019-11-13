@@ -12,7 +12,7 @@ class Lights {
       // const helper = new THREE.SpotLightHelper(light, 5)
       // scene.add(helper)
     // }
-    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 0.8)
+    const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 0.85)
     // hemisphereLight.castShadow = true
     scene.add(hemisphereLight)
     // const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
