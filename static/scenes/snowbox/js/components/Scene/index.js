@@ -682,7 +682,6 @@ class Scene extends EventEmitter {
         const boxItem = boxes[index]
 
         if (boxHelper.intersectsBox(boxItem)) {
-          console.log('collide')
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
