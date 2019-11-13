@@ -31,7 +31,7 @@ class CameraController {
     this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
     this.camera.position.set(0, CONFIG.POSITION.Y, CONFIG.POSITION.Z)
     this.camera.lookAt(0, 0, 0)
-    this.camera.zoom = CONFIG.ZOOM.STEPS[this.currentZoom]
+    this.camera.zoom = CONFIG.ZOOM.FOV
     this.camera.updateProjectionMatrix()
 
     this.buildControls()
@@ -136,9 +136,14 @@ class CameraController {
   zoom(direction) {
     if (this.isZooming) return
 
+    this.cameraPositionOrigin = this.camera.position.clone()
+    this.lookAtVector = new THREE.Vector3()
+    this.camera.getWorldDirection(this.lookAtVector)
+
     switch (direction) {
       case 'out':
-        if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS.length) {
+        this.lookAtVector.negate()
+        if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS) {
           SoundManager.play("snowbox_fail")
           return false
         }
@@ -155,8 +160,8 @@ class CameraController {
         break
     }
 
-    this.zoomTarget = CONFIG.ZOOM.STEPS[this.currentZoom]
-    this.zoomOrigin = this.camera.zoom
+    this.zoomTarget = CONFIG.ZOOM.FORCE
+    this.zoomOrigin = 0
     this.zoomSpeed = CONFIG.ZOOM.SPEED
     this.zoomStart = RAFManager.now
     this.isZooming = true
@@ -166,7 +171,8 @@ class CameraController {
   animateZoom(now) {
     const percent = (now - this.zoomStart) / this.zoomSpeed
     if (percent < 1) {
-      this.camera.zoom = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outElastic(percent)
+      const translation = this.zoomOrigin + (this.zoomTarget - this.zoomOrigin) * outElastic(percent)
+      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, translation)
     } else {
       this.isZooming = false
       this.isMoving = false
@@ -231,6 +237,21 @@ class CameraController {
 
     camera.position.copy(helper.position)
     camera.lookAt(point)
+
+    helper.remove() // clean helper
+  }
+
+  translateFromVector(camera, origin, vector, translate) {
+    const helper = new THREE.Object3D()
+    helper.position.copy(origin)
+
+    const vectorHelper = new THREE.Vector3()
+    vectorHelper.copy(vector)
+    vectorHelper.multiplyScalar(translate)
+
+    helper.position.add(vectorHelper)
+
+    camera.position.copy(helper.position)
 
     helper.remove() // clean helper
   }

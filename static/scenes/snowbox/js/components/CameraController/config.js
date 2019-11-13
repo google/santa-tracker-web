@@ -19,11 +19,13 @@ export default {
    * ZOOM
    */
   ZOOM: {
+    FOV: 0.8,
     START: 2,
-    STEPS: [1.2, 0.8, 0.6, 0.5, 0.4],
+    STEPS: 5,
     MAX: 2.5,
     MIN: 0,
-    SPEED: 800
+    SPEED: 800,
+    FORCE: 30,
   },
   /*
    * MOVE ON EDGES
