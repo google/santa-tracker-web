@@ -53,6 +53,7 @@ export default class ObjectEditTool {
   }
 
   enterEditMode() {
+    if (!Scene.activeSubject) return false
     this.show()
     const { scaleFactor } = Scene.activeSubject // get current scale of object
     this.ui.scaleButton.value = scaleFactor * 10

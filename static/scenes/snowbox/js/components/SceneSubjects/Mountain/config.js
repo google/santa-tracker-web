@@ -8,7 +8,7 @@ export default {
     OBJ: './models/mountain/mount.obj',
     MAP: './models/mountain/mount.jpg',
     TOP_RADIUS: 18.225,
-    BOTTOM_RADIUS: 18.225 * 1.65,
+    BOTTOM_RADIUS: 18.225 * 1.45,
     HEIGHT: 18,
   },
   BOARD: {

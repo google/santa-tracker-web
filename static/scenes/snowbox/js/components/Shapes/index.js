@@ -125,7 +125,6 @@ class Object extends EventEmitter {
   unselect() {
     if (this.selectable && this.selected) {
       this.selected = false
-      this.body.mass = this.mass
       if (this.body.sleepState > 0) {
         this.body.wakeUp()
       }
@@ -240,9 +239,11 @@ class Object extends EventEmitter {
     this.body.shapes = []
     const shape = this.createShape(this.scaleFactor)
     this.body.addShape(shape)
-    this.body.mass = this.mass * this.scaleFactor
-    this.currentMass = this.body.mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
+    const mass = 10 * shape.volume()
+    this.body.invMass = mass
+    this.currentMass = mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
     this.body.updateMassProperties()
+    // console.log(mass)
   }
 
   highlight() {
