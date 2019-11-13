@@ -1,19 +1,23 @@
 $name: 'module-buildandbolt';
 
-@import "../_shared/sass/button";
-@import "../_shared/sass/levelup";
+@import '../_shared/sass/button';
+@import '../_shared/sass/levelup';
 
-$mobile-breakpoint: 1100px;
+@import 'sass/_meyer-reset';
+@import 'sass/_mixins';
+@import 'sass/_variables';
 
-$grid-unit-size: 50px;
-$fence-border: 2px solid #9B643D;
-$present-width: 2;
-$present-height: 2;
-$table-width: 3;
-$table-height: 2;
-
-$gui-z-index: 100;
-$player-z-index: 10;
+@import 'sass/components/_fence';
+@import 'sass/components/_gui';
+@import 'sass/components/_ice';
+@import 'sass/components/_penguin';
+@import 'sass/components/_pit';
+@import 'sass/components/_platform';
+@import 'sass/components/_player-selection';
+@import 'sass/components/_player';
+@import 'sass/components/_presentbox';
+@import 'sass/components/_table';
+@import 'sass/components/_wall';
 
 html {
   box-sizing: border-box;
@@ -69,220 +73,5 @@ body {
     left: 0;
     position: absolute;
     top: 0;
-  }
-
-  .player {
-    height: $grid-unit-size;
-    width: $grid-unit-size;
-    z-index: $player-z-index;
-
-    &.is-hidden {
-      opacity: 0;
-    }
-
-    &.is-winner {
-      &::after {
-        font-size: 30px;
-        left: 9px;
-        top: -13px;
-        content: '👑';
-        position: absolute;
-      }
-    }
-
-    &.toypart--wheels {
-      &::after {
-        background: red;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
-
-    &.toypart--car-body {
-      &::after {
-        background: blue;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
-
-    &.toypart--car-body.toypart--wheels {
-      &::after {
-        background: purple;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
-  }
-
-  #player-1 {
-    background: url(img/player-a.svg) center/contain no-repeat;
-  }
-
-  #player-2 {
-    background: url(img/player-b.svg) center/contain no-repeat;
-  }
-
-  .penguin {
-    background: url(img/penguin.svg) center/contain no-repeat;
-    height: $grid-unit-size;
-    width: $grid-unit-size;
-  }
-
-  .pit {
-    background: #332f2e;
-  }
-
-  .wall {
-    background: #9b643d;
-  }
-
-  .fence {
-    height: $grid-unit-size;
-    width: $grid-unit-size;
-
-    &--left {
-      border-left: $fence-border;
-    }
-
-    &--right {
-      border-right: $fence-border;
-    }
-
-    &--top {
-      border-top: $fence-border;
-    }
-
-    &--bottom {
-      border-bottom: $fence-border;
-    }
-  }
-
-  .table {
-    background: url(img/table-3.svg) center/contain no-repeat;
-    height: $grid-unit-size * $table-height;
-    width: $grid-unit-size * $table-width;
-  }
-
-  .present-box {
-    background: url(img/present.svg) center/contain no-repeat;
-    height: $grid-unit-size * $present-height;
-    width: $grid-unit-size * $present-width;
-  }
-
-  .platform {
-    background: #30a658;
-    height: $grid-unit-size;
-    width: $grid-unit-size;
-  }
-
-  .ice {
-    background: #31b1f9;
-  }
-
-  .gui {
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: $gui-z-index;
-  }
-
-  .gui__title {
-    color: #1a844b;
-    font-family: 'Lobster', sans-serif;
-    font-size: 74px;
-    line-height: 92px;
-    margin: 0 auto;
-    text-align: center;
-
-    // @media screen and (max-width: $mobile-breakpoint) {
-    //   top: 30%;
-    // }
-  }
-
-  .player-selection {
-    align-items: center;
-    background: #f9d231;
-    bottom: 0;
-    display: flex;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    &.is-hidden {
-      display: none;
-    }
-  }
-
-  .player-selection__inner {
-    width: 100%;
-  }
-
-  .player-options {
-    align-items: center;
-    display: flex;
-    margin: 50px auto;
-    max-width: 1000px;
-    width: 80%;
-  }
-
-  .player-option {
-    cursor: pointer;
-    flex: 1 1 360px;
-    margin: 0 30px;
-    position: relative;
-
-    &--1 {
-      .player-option__image {
-        background: url(img/player-selection-one.svg) center/contain no-repeat;
-      }
-    }
-
-    &--2 {
-      .player-option__image {
-        background: url(img/player-selection-two.svg) center/contain no-repeat;
-      }
-    }
-  }
-
-  .player-option__image {
-    padding-top: 100%;
-    width: 100%;
-  }
-
-  .player-option__go {
-    position: absolute;
-    text-align: center;
-    top: 5%;
-    width: 100%;
-  }
-
-  .player-option__label {
-    color: #1a844b;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 52px;
-    font-weight: bold;
-    line-height: 66px;
-    text-align: center;
   }
 }

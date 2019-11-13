@@ -1,0 +1,21 @@
+.fence {
+  height: $grid-unit-size;
+  width: $grid-unit-size;
+
+  &--left {
+    border-left: $fence-border;
+  }
+
+  &--right {
+    border-right: $fence-border;
+  }
+
+  &--top {
+    border-top: $fence-border;
+  }
+
+  &--bottom {
+    border-bottom: $fence-border;
+  }
+}
+
