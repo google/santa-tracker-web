@@ -14,7 +14,7 @@ export default {
   WIREFRAME_COLOR: GLOBAL_CONFIG.COLORS.WIREFRAME,
   SCALE_FACTOR: 1.1,
   ROTATE_CIRCLE_MATERIAL: new THREE.MeshBasicMaterial({
-    color: 0xffe14d,
+    color: 0xFFCF51,
     side: THREE.DoubleSide,
     depthTest: false,
     transparent: true,

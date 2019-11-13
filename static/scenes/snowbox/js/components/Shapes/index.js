@@ -280,9 +280,9 @@ class Object extends EventEmitter {
 
   createRotateCircle(zoom) {
     // Calculate radius
-    let maxRadius = Math.max((this.box.max.x - this.box.min.x) / 1.25, (this.box.max.y - this.box.min.y) / 1.25)
+    let maxRadius = Math.max((this.box.max.x - this.box.min.x) * 1.25, (this.box.max.y - this.box.min.y) * 1.25)
     maxRadius = clamp(maxRadius, 1, 4.2)
-    const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.02, 32, 32)
+    const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.04, 32, 32)
     const helperGeometry = new THREE.Geometry()
     helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
 
