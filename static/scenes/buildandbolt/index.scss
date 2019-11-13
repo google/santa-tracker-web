@@ -196,7 +196,6 @@ body {
   }
 
   .gui {
-    background: #f9d231;
     bottom: 0;
     left: 0;
     overflow: hidden;
@@ -221,6 +220,7 @@ body {
 
   .player-selection {
     align-items: center;
+    background: #f9d231;
     bottom: 0;
     display: flex;
     left: 0;
@@ -228,6 +228,10 @@ body {
     position: absolute;
     right: 0;
     top: 0;
+
+    &.is-hidden {
+      display: none;
+    }
   }
 
   .player-selection__inner {

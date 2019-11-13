@@ -17,7 +17,15 @@ api.preload.images(
 
 api.preload.sounds('village_load_sounds');
 
-const game = new Game(document.getElementById('module-buildandbolt'));
+const playerSelectionScreen = document.querySelector('[data-player-selection]')
+const playerSelectionOptions = document.querySelectorAll('[data-player-option]')
+
+playerSelectionOptions.forEach((element) => {
+  element.addEventListener('click', (e) => {
+    const game = new Game(document.getElementById('module-buildandbolt'), element.getAttribute('data-player-option'))
+    playerSelectionScreen.classList.add('is-hidden')
+  })
+})
 
 api.config({
   sound: ['music_start_village', 'village_start'],

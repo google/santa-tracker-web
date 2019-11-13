@@ -6,6 +6,11 @@ goog.provide('Constants');
 Constants = {
   DEBUG: true,
 
+  PLAYER_OPTIONS: {
+    SINGLE: 'single',
+    MULTIPLAYER: 'multiplayer'
+  },
+
   // Configs for keyboard controls
   PLAYER_CONTROLS: {
     ARROWS: {

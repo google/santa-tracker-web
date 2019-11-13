@@ -19,7 +19,7 @@ goog.require('app.shared.LevelUp');
 
 
 app.Game = class Game {
-  constructor(context) {
+  constructor(context, playerOption) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
@@ -30,14 +30,19 @@ app.Game = class Game {
     this.entities = []
     this.players = []
 
-    this.players[0] = new app.Player(this, document.getElementById('player-1'),
-        Constants.PLAYER_CONTROLS.ARROWS)
-    this.players[1] = new app.Player(this, document.getElementById('player-2'),
-        Constants.PLAYER_CONTROLS.WASD)
-
+    if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
+      // Todo: create special single player controls
+      this.players[0] = new app.Player(this, document.getElementById('player-1'),
+          Constants.PLAYER_CONTROLS.ARROWS)
+    } else {
+      this.players[0] = new app.Player(this, document.getElementById('player-1'),
+          Constants.PLAYER_CONTROLS.ARROWS)
+      this.players[1] = new app.Player(this, document.getElementById('player-2'),
+          Constants.PLAYER_CONTROLS.WASD)
+    }
 
     this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
-        document.getElementsByClassName('levelup--number')[0]);
+        document.querySelector('.levelup--number'));
     this.level = 0;
 
     this.isPlaying = false
@@ -51,8 +56,10 @@ app.Game = class Game {
 
   initLevel(level) {
     let levelConfig = Levels[level]
-    this.players[0].init(levelConfig.players[0])
-    this.players[1].init(levelConfig.players[1])
+
+    for (let i = 0; i < this.players.length; i++) {
+      this.players[i].init(levelConfig.players[i])
+    }
 
     for (const entity of levelConfig.entities) {
       switch(entity.type) {
