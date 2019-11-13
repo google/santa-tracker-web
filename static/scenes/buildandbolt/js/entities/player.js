@@ -4,11 +4,15 @@ goog.require('Constants')
 goog.require('Utils')
 
 app.Player = class Player {
-  constructor(game, context, controls) {
+  constructor(game, controls, id) {
     this.game = game
     this.gameControls = game.controls
-    this.elem = context
     this.controls = controls
+
+    this.elem = document.createElement('div')
+    document.getElementById('players').append(this.elem)
+    this.elem.setAttribute('class', 'player')
+    this.elem.setAttribute('id', id)
   }
 
   init(config) {

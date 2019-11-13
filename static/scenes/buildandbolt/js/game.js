@@ -32,13 +32,13 @@ app.Game = class Game {
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
       // Todo: create special single player controls
-      this.players[0] = new app.Player(this, document.getElementById('player-1'),
-          Constants.PLAYER_CONTROLS.ARROWS)
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
+          'player-1')
     } else {
-      this.players[0] = new app.Player(this, document.getElementById('player-1'),
-          Constants.PLAYER_CONTROLS.ARROWS)
-      this.players[1] = new app.Player(this, document.getElementById('player-2'),
-          Constants.PLAYER_CONTROLS.WASD)
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
+          'player-1')
+      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD,
+          'player-2')
     }
 
     this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
