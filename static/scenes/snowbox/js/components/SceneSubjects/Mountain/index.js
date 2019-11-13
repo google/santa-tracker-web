@@ -99,32 +99,16 @@ class Mountain {
       const mesh = new THREE.Mesh(geometries[randomInt(0, 1)], material)
       const angle = toRadian(randomInt(0, 360))
       const offset = randomInt(-CONFIG.MOUNT.TOP_RADIUS, -1)
-      const scale = randomFloat(0.3, 0.5)
+      const scale = randomFloat(0.1, 0.3)
+      const rotation = toRadian(randomInt(0, 360))
 
       mesh.scale.multiplyScalar(1 / CONFIG.MODEL_UNIT * scale)
       mesh.position.y = 0
       mesh.position.x = Math.cos(angle) * (CONFIG.MOUNT.TOP_RADIUS + offset)
       mesh.position.z = -Math.sin(angle) * (CONFIG.MOUNT.TOP_RADIUS + offset)
+      mesh.rotation.y = rotation
 
       this.object.add(mesh)
-
-      // Physics
-      const shape = new CANNON.Box(new CANNON.Vec3(scale / 2, scale / 2, scale / 2))
-      const body = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
-      body.position.x = mesh.position.x
-      body.position.y = mesh.position.y
-      body.position.z = mesh.position.z
-      // this.world.addBody(body)
-
-
-      // box
-      mesh.geometry.computeBoundingBox()
-      const box = mesh.geometry.boundingBox.clone()
-      box.copy(mesh.geometry.boundingBox).applyMatrix4(mesh.matrixWorld)
-
-      const subject = { body, mesh, box, selectable: true, }
-
-      // Scene.sceneSubjects.push(subject)
     }
   }
 
