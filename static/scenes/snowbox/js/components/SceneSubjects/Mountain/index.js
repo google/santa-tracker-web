@@ -2,7 +2,7 @@
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
-import Scene from '../../Scene/index.js'
+// import Scene from '../../Scene/index.js'
 import { toRadian, randomInt, randomFloat } from '../../../utils/math.js'
 
 class Mountain {

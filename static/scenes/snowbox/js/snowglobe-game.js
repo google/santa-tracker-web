@@ -1,4 +1,4 @@
-import SoundManager from './managers/SoundManager.js'
+// import SoundManager from './managers/SoundManager.js'
 import RAFManager from './managers/RAFManager.js'
 import Scene from './components/Scene/index.js'
 

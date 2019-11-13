@@ -85,7 +85,7 @@ export default class Download {
   }
 
   resizeScene(width, height) {
-    SceneManager.renderer.setSize(width / window.devicePixelRatio, height / window.devicePixelRatio, false);
+    Scene.renderer.setSize(width / window.devicePixelRatio, height / window.devicePixelRatio, false);
     CameraController.camera.aspect = width / height
     CameraController.camera.updateProjectionMatrix()
   }
