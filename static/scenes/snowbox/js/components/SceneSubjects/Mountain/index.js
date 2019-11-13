@@ -37,7 +37,7 @@ class Mountain {
     const material = new THREE.MeshPhongMaterial({
       map,
       color: GLOBAL_CONFIG.COLORS.GHOST,
-      shininess: 345,
+      shininess: 150,
     })
 
     const mesh = new THREE.Mesh(geometry, material)
@@ -46,10 +46,10 @@ class Mountain {
     this.object.add(mesh)
 
     // Physics
-    const shape = new CANNON.Cylinder(CONFIG.MOUNT.TOP_RADIUS, CONFIG.MOUNT.BOTTOM_RADIUS, CONFIG.SIZE, 30)
+    const shape = new CANNON.Cylinder(CONFIG.MOUNT.TOP_RADIUS, CONFIG.MOUNT.BOTTOM_RADIUS, CONFIG.MOUNT.HEIGHT, 30)
     this.mountBody = new CANNON.Body({ mass: 0, shape, material: GLOBAL_CONFIG.NORMAL_MATERIAL })
     this.mountBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-    this.mountBody.position.set(0, -(CONFIG.SIZE / 2) - 0.1, 0)
+    this.mountBody.position.set(0, -(CONFIG.MOUNT.HEIGHT / 2) - 0.1, 0)
     this.world.addBody(this.mountBody)
 
     LoaderManager.load({name: CONFIG.TREE.NAME, obj: CONFIG.TREE.OBJ}, this.initTrees)

@@ -1,8 +1,8 @@
 export default {
   ANIMATE_SPEED: 100,
   POSITION: {
-    Y: 40,
-    Z: 50
+    Y: 50,
+    Z: 100
   },
   /*
    * ROTATE

@@ -10,6 +10,7 @@ export default {
     HIGHLIGHT: 0x239dc5,
     WIREFRAME: 0xff8702
   },
+  SHININESS: 330,
   MODEL_UNIT: 198.8005,
   SCENE_SIZE: 1000,
   TIMESTEP: 1 / 60,

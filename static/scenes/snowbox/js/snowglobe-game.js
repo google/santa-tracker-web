@@ -9,8 +9,6 @@ import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
 import isTouchDevice from './utils/isTouchDevice.js'
 
-// const { Scene, PerspectiveCamera } = self.THREE
-
 class SnowglobeGame {
   static get is() {
     return 'snowglobe-game'

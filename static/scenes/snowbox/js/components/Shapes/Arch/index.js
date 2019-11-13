@@ -30,7 +30,7 @@ class Arch extends Obj {
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
-      shininess: 345,
+      shininess: GLOBAL_CONFIG.SHININESS,
       normalMap
     })
     defaultMaterial.needsUpdate = true

@@ -13,8 +13,8 @@ class Sky {
 
     this.gui = new dat.GUI()
     this.guiController = {
-      cube_scale: 1,
-      cube_y_pos: -20,
+      cube_scale: CONFIG.SCALE,
+      cube_y_pos: CONFIG.Y_POS,
     }
     this.gui.add(this.guiController, 'cube_scale', 0.0, 5.0).onChange(this.onGui)
     this.gui.add(this.guiController, 'cube_y_pos', -100, 100).onChange(this.onGui)
@@ -40,8 +40,9 @@ class Sky {
     })
 
     this.skyBox = new THREE.Mesh( geometry, material )
-    this.skyBox.position.y = this.guiController.cube_y_pos
-    this.skyBox.rotation.y = -Math.PI / 2
+    this.skyBox.position.y = CONFIG.Y_POS
+    this.skyBox.rotation.y = toRadian(CONFIG.Y_ROTATION)
+    this.skyBox.scale.set(CONFIG.SCALE, CONFIG.SCALE, CONFIG.SCALE)
     this.scene.add( this.skyBox )
   }
 

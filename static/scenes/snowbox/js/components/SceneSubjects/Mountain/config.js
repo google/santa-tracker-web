@@ -1,15 +1,15 @@
 export default {
   SELECTABLE: false,
-  SIZE: 18,
-  MODEL_UNIT: 30,
+  MODEL_UNIT: 20,
   NUMBER_TREES: 10,
   NUMBER_ROCKS: 5,
   MOUNT: {
     NAME: 'mount',
     OBJ: './models/mountain/mount.obj',
     MAP: './models/mountain/mount.jpg',
-    TOP_RADIUS: 12.15,
-    BOTTOM_RADIUS: 12.15 * 1.65,
+    TOP_RADIUS: 18.225,
+    BOTTOM_RADIUS: 18.225 * 1.65,
+    HEIGHT: 18,
   },
   BOARD: {
     NAME: 'board',
