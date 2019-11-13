@@ -4,7 +4,6 @@ import CONFIG from './config.js'
 // Utils
 import isTouchDevice from '../../utils/isTouchDevice.js'
 import { toRadian } from '../../utils/math.js'
-import { getNow } from '../../utils/time.js'
 import { outElastic, outExpo } from '../../utils/ease.js'
 import SoundManager from '../../managers/SoundManager.js'
 import RAFManager from '../../managers/RAFManager.js'
