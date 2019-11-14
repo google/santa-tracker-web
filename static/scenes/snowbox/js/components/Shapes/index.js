@@ -52,7 +52,7 @@ class Object extends EventEmitter {
 
     // Mesh
     this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
-    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    // this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
     this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     this.mesh.geometry.computeBoundingBox()
@@ -241,7 +241,6 @@ class Object extends EventEmitter {
   }
 
   scaleBody() {
-    this.body.shapes = []
     this.createShapes(this.scaleFactor)
     let shapeVolume = 0
     for (let i = 0; i < this.body.shapes.length; i++) {
