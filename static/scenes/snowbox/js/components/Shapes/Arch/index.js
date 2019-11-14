@@ -21,15 +21,11 @@ class Arch extends Obj {
   }
 
   init() {
-    const { obj, wrl, normalMap } = LoaderManager.subjects[this.name]
-
-    // Collision model
-    this.collisionModel = wrl
-    console.log(obj, wrl)
+    const { obj, normalMap } = LoaderManager.subjects[this.name]
 
     // Geometry
     this.geometry = obj.children[0].geometry
-    this.geometry.scale(1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT)
+    // this.geometry.scale(1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.geometry.center()
 
     // Materials
@@ -52,7 +48,7 @@ class Arch extends Obj {
     const bottomBoxVector = new CANNON.Vec3(s * 0.33, s * 0.25, s * 0.5)
     const bottomShape = new CANNON.Box(bottomBoxVector)
 
-    const offset1 = new CANNON.Vec3( 0, 0.25 * s, 0)
+    const offset1 = new CANNON.Vec3( 0, s * 0.25, 0)
     const offset2 = new CANNON.Vec3( -s * 0.66, -s * 0.25, 0)
     const offset3 = new CANNON.Vec3( s * 0.66, -s * 0.25, 0)
 

@@ -41,7 +41,6 @@ class Sphere extends Obj {
   createShapes(scale = 1) {
     const shape = new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
     this.body.addShape(shape)
-    console.log(this.body)
   }
 }
 

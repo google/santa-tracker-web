@@ -43,7 +43,7 @@ class Tree extends Obj {
   }
 
   createShapes(scale = 1) {
-    this.createShapeFromWRL(this.collisionModel, scale)
+    this.createShapesFromWRL(this.collisionModel, scale)
   }
 }
 

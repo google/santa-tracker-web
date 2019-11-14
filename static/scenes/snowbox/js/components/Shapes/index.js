@@ -52,7 +52,7 @@ class Object extends EventEmitter {
 
     // Mesh
     this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
-    // this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
     this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     this.mesh.geometry.computeBoundingBox()
@@ -150,7 +150,7 @@ class Object extends EventEmitter {
 
       if (this.moveToGhost) {
         if (this.mesh && !this.mesh.visible) {
-          this.mesh.visible
+          this.mesh.visible = true
         }
       }
 
@@ -247,9 +247,10 @@ class Object extends EventEmitter {
       this.defaultMeshScale.z * scaleFactor
     )
     this.scaleFactor = scaleFactor
+    this.mesh.scale.copy(this.ghost.scale)
   }
 
-  scaleBody() {
+  updateBody() {
     this.createBody()
     let shapeVolume = 0
     for (let i = 0; i < this.body.shapes.length; i++) {
@@ -396,13 +397,15 @@ class Object extends EventEmitter {
   moveToGhost() {
     const { position, quaternion, scale } = this.ghost
 
+    // this.mesh.scale.copy(scale)
+
+    this.updateBody()
+
     this.body.velocity.setZero()
     this.body.angularVelocity.setZero()
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-    this.mesh.scale.copy(scale)
-    this.scaleBody()
   }
 }
 

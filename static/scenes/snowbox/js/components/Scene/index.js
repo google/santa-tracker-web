@@ -241,6 +241,7 @@ class Scene extends EventEmitter {
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     if (this.needsCollisionCheck && this.selectedSubject) {
+      console.log('check colli')
       this.checkCollision(true)
       this.needsCollisionCheck = false
     }
@@ -524,10 +525,6 @@ class Scene extends EventEmitter {
   selectSubject(newSelectedSubject, needsOffset = false) {
     this.setMode('move')
 
-    // don't play sound if dragging from toolbar
-    if (needsOffset) {
-      SoundManager.play('snowbox_select_subject');
-    }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
     const { position } = this.selectedSubject.body
@@ -535,6 +532,8 @@ class Scene extends EventEmitter {
     this.moveOffset.y = 0 // reset y
 
     if (needsOffset) {
+      // don't play sound if dragging from toolbar
+      SoundManager.play('snowbox_select_subject');
       // update planeHelper Y
       this.planeHelper.position.y = position.y
       this.renderer.render(this.scene, CameraController.camera) // check if we really need that
