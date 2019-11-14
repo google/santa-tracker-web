@@ -21,10 +21,6 @@ app.Fence = class Fence extends app.Entity {
     this.game.board.addEntityToBoard(this, this.config.x, this.config.y)
   }
 
-  reset() {
-
-  }
-
   render() {
     Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
   }

@@ -6,10 +6,6 @@ app.Entity = class Entity {
     this.game = game
   }
 
-  reset() {
-
-  }
-
   onFrame() {
 
   }

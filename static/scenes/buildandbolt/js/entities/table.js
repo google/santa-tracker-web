@@ -19,10 +19,6 @@ app.Table = class Table extends app.Entity {
     this.game.board.addEntityToBoard(this, this.config.x, this.config.y, Constants.TABLE_WIDTH, Constants.TABLE_HEIGHT)
   }
 
-  reset() {
-
-  }
-
   render() {
     Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
   }

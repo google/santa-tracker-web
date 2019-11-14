@@ -29,10 +29,6 @@ app.Slider = class Slider extends app.Entity {
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
-  reset() {
-
-  }
-
   onFrame() {
     const prevPosition = Object.assign({}, this.position)
 

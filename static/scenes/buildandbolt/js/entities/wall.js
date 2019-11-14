@@ -20,14 +20,6 @@ app.Wall = class Wall extends app.Entity {
     //     this.config.width, this.config.height)
   }
 
-  reset() {
-
-  }
-
-  onFrame() {
-
-  }
-
   render() {
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
     this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`
@@ -43,6 +35,7 @@ app.Wall = class Wall extends app.Entity {
     console.log('oninit', config)
     this.config = config
     this.render()
+    this.elem.classList.remove('hidden')
     this.game.board.addEntityToBoard(this,
         this.config.x, this.config.y,
         this.config.width, this.config.height)

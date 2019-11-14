@@ -19,10 +19,6 @@ app.PresentBox = class PresentBox extends app.Entity {
     this.game.board.addEntityToBoard(this, this.config.x, this.config.y, Constants.PRESENT_WIDTH, Constants.PRESENT_HEIGHT)
   }
 
-  reset() {
-
-  }
-
   render() {
     Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
   }

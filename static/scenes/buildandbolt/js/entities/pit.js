@@ -23,10 +23,6 @@ app.Pit = class Pit extends app.Entity {
     this.render()
   }
 
-  reset() {
-
-  }
-
   render() {
     super.render()
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`

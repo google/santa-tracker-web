@@ -159,7 +159,6 @@ app.Player = class Player {
       this.clearToyParts()
 
       // temporary
-      this.elem.classList.add('is-winner')
       this.game.registerToyCompletion(this)
     }
 

@@ -7,15 +7,15 @@
     opacity: 0;
   }
 
-  &.is-winner {
-    &::after {
-      font-size: 30px;
-      left: 9px;
-      top: -13px;
-      content: '👑';
-      position: absolute;
-    }
-  }
+  // &.is-winner {
+  //   &::after {
+  //     font-size: 30px;
+  //     left: 9px;
+  //     top: -13px;
+  //     content: '👑';
+  //     position: absolute;
+  //   }
+  // }
 
   &.toypart--wheels {
     &::after {
