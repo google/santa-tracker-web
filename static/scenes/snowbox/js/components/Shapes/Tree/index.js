@@ -13,6 +13,7 @@ class Tree extends Obj {
     // Props
     this.material = material
     this.selectable = CONFIG.SELECTABLE
+    this.collidable = CONFIG.COLLIDABLE
     this.mass = CONFIG.MASS
     this.size = CONFIG.SIZE
     this.name = CONFIG.NAME
