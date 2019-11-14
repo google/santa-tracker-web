@@ -55,6 +55,9 @@ class Object extends EventEmitter {
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
     this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
+    if (this.rotationY) {
+      this.mesh.rotation.y = this.rotationY
+    }
     this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
@@ -89,6 +92,7 @@ class Object extends EventEmitter {
     this.createShapes(this.scaleFactor)
     this.currentMass = this.mass
     this.body.position.copy(this.mesh.position)
+    this.body.quaternion.copy(this.mesh.quaternion)
     this.world.add(this.body)
 
     // listen collision of shape

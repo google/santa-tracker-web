@@ -9,6 +9,7 @@ import cubeConfig from '../Shapes/Cube/config.js'
 import archConfig from '../Shapes/Arch/config.js'
 import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
+import quarterCircleConfig from '../Shapes/QuarterCircle/config.js'
 
 // Managers
 import LoaderManager from '../../managers/LoaderManager.js'
@@ -26,6 +27,7 @@ import Arch from '../Shapes/Arch/index.js'
 import Tree from '../Shapes/Tree/index.js'
 import Sphere from '../Shapes/Sphere/index.js'
 import Pyramid from '../Shapes/Pyramid/index.js'
+import QuarterCircle from '../Shapes/QuarterCircle/index.js'
 
 // Other
 import '../CannonDebugRenderer/index.js'
@@ -114,6 +116,7 @@ class Scene extends EventEmitter {
     LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ, wrl: archConfig.WRL})
     LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
     LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
+    LoaderManager.load({name: quarterCircleConfig.NAME, normalMap: quarterCircleConfig.NORMAL_MAP, obj: quarterCircleConfig.OBJ, wrl: quarterCircleConfig.WRL})
   }
 
   initCannon() {
@@ -241,7 +244,6 @@ class Scene extends EventEmitter {
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
     if (this.needsCollisionCheck && this.selectedSubject) {
-      console.log('check colli')
       this.checkCollision(true)
       this.needsCollisionCheck = false
     }
@@ -484,6 +486,9 @@ class Scene extends EventEmitter {
         break
       case 'sphere':
         subject = new Sphere(this.scene, this.world, material)
+        break
+      case 'quarter-circle':
+        subject = new QuarterCircle(this.scene, this.world, material)
         break
       default:
         break

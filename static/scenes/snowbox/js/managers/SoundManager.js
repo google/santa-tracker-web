@@ -8,7 +8,7 @@ class SoundManager {
     const { force, type, mass, scale } = e.detail
 
     let now = performance.now();
-    if (now - this.lastCollisionTime > 50) {
+    if (now - this.lastCollisionTime > 50) { // needs to be removed and replace with throttle in higher function
       let pitch = Math.abs(1 - (mass / 80)) + 0.5 + Math.random() * 0.2;
       let volume = Math.max(0, Math.min(1, (force - 0.5 ) / 3 ));
       this.play("snowbox_collision", volume, pitch, mass > 40);
