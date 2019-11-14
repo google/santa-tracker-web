@@ -44,21 +44,6 @@ class Arch extends Obj {
   }
 
   createShapes(scale = 1) {
-    this.body.shapes = []
-    this.body.updateMassProperties()
-    // this.mesh.geometry.computeBoundingBox()
-    // const box = this.mesh.geometry.boundingBox.clone()
-
-    // maybe we need to remove the all body
-    // this.world.remove(this.body)
-    // console.log(this.size)
-    // box
-    const offset1 = new CANNON.Vec3( 0, 0.25 * scale, 0)
-
-    // height
-    const height = Math.round(this.box.max.y - this.box.min.y)
-
-    // setTimeout(() => {
     // Compound boxes
     let s = this.size * scale
     const topBoxVector = new CANNON.Vec3(s, s * 0.25, s * 0.5)
@@ -67,32 +52,13 @@ class Arch extends Obj {
     const bottomBoxVector = new CANNON.Vec3(s * 0.33, s * 0.25, s * 0.5)
     const bottomShape = new CANNON.Box(bottomBoxVector)
 
+    const offset1 = new CANNON.Vec3( 0, 0.25 * s, 0)
+    const offset2 = new CANNON.Vec3( -s * 0.66, -s * 0.25, 0)
+    const offset3 = new CANNON.Vec3( s * 0.66, -s * 0.25, 0)
+
     this.body.addShape(topShape, offset1)
-    // this.body.addShape(bottomShape)
-    // this.body.addShape(bottomShape)
-
-
-    this.body.shapes = []
-    this.body.updateMassProperties()
-
-    // console.log(height, topShape.halfExtents.y )
-    const ok = height / 2 - topBoxVector.y
-    // console.log(height, topBoxVector.y, ok)
-    console.log(scale)
-
-    // const offset1 = new CANNON.Vec3( 0, 0.25 * scale, 0)
-    console.log(offset1)
-    const offset2 = new CANNON.Vec3( -bottomShape.halfExtents.x * 2, -bottomShape.halfExtents.y, 0)
-    const offset3 = new CANNON.Vec3( bottomShape.halfExtents.x * 2, -bottomShape.halfExtents.y, 0)
-    // console.log(topShape.halfExtents)
-    // console.log(offset1)
-    this.body.addShape(topShape, offset1)
-    // this.body.addShape(bottomShape, offset2)
-    // this.body.addShape(bottomShape, offset3)
-
-    // }, 200)
-    // this.body.updateMassProperties()
-
+    this.body.addShape(bottomShape, offset2)
+    this.body.addShape(bottomShape, offset3)
   }
 }
 

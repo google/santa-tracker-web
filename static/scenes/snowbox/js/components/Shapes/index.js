@@ -58,6 +58,7 @@ class Object extends EventEmitter {
     this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
+    this.defaultMeshScale = this.mesh.scale.clone()
     this.scene.add(this.mesh)
 
     // box
@@ -65,29 +66,37 @@ class Object extends EventEmitter {
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
 
     // CANNON JS
-    this.body = new CANNON.Body({
-      mass: this.mass,
-      // shape,
-      fixedRotation: false,
-      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
-    })
-    this.createShapes()
-    this.currentMass = this.mass
-    this.body.position.copy(this.mesh.position)
-    this.world.add(this.body)
-
-    this.defaultMeshScale = this.mesh.scale.clone()
+    this.createBody()
 
     if (this.callback) {
       this.callback(this)
     }
+  }
+
+  createBody() {
+    if (this.body) { // reset body
+      this.body.removeEventListener('collide', this.collide)
+      this.body.shapes = []
+      this.world.remove(this.body)
+    }
+
+    this.body = new CANNON.Body({
+      mass: this.mass,
+      fixedRotation: false,
+      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+    })
+
+    this.createShapes(this.scaleFactor)
+    this.currentMass = this.mass
+    this.body.position.copy(this.mesh.position)
+    this.world.add(this.body)
 
     // listen collision of shape
     this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
   }
 
-  createShapeFromWRL(models, scale) {
+  createShapesFromWRL(models, scale) {
     for (let i = 0; i < models.length; i++) {
       const model = models[i]
       const vertices = []
@@ -241,7 +250,7 @@ class Object extends EventEmitter {
   }
 
   scaleBody() {
-    this.createShapes(this.scaleFactor)
+    this.createBody()
     let shapeVolume = 0
     for (let i = 0; i < this.body.shapes.length; i++) {
       shapeVolume += this.body.shapes[i].volume()
