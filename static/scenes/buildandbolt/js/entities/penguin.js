@@ -3,6 +3,7 @@ goog.provide('app.Penguin')
 goog.require('Constants')
 
 goog.require('app.Slider')
+goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Penguin = class Penguin extends app.Slider {

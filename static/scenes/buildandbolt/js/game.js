@@ -71,7 +71,8 @@ app.Game = class Game {
           this.entities.push(new app.Penguin(this, entity.config))
           break;
         case 'wall':
-          this.entities.push(new app.Wall(this, entity.config))
+          // this.entities.push(new app.Wall(this, entity.config))
+          this.entities.push(app.Wall.pop(this, entity.config))
           break;
         case 'fence':
           this.entities.push(new app.Fence(this, entity.config))
@@ -142,6 +143,12 @@ app.Game = class Game {
 
   reset() {
     this.board.reset()
+    for (const entity of this.entities) {
+      if (entity instanceof app.Wall) {
+        app.Wall.push(entity)
+      }
+    }
+
     this.entities = []
 
     // add more cleanup. remove old dom elements. use pools?

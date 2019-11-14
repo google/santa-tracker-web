@@ -55,14 +55,17 @@ body {
   .present-box,
   .table,
   .wall {
+    left: 0;
+    position: absolute;
+    top: 0;
 
     .debug & {
       border: 2px solid purple;
     }
 
-    left: 0;
-    position: absolute;
-    top: 0;
+    &.hidden {
+      display: none;
+    }
   }
 
   .debug-cell {
