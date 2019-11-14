@@ -50,23 +50,11 @@ class Object extends EventEmitter {
       ghost: ghostMaterial
     }
 
-    // CANNON JS
-    const shape = this.createShape()
-    this.body = new CANNON.Body({
-      mass: this.mass,
-      shape,
-      fixedRotation: false,
-      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
-    })
-    this.currentMass = this.mass
-    this.body.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
-    this.world.add(this.body)
-
     // Mesh
     this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
-    this.mesh.position.copy(this.body.position)
+    this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
@@ -75,6 +63,18 @@ class Object extends EventEmitter {
     // box
     this.box = this.mesh.geometry.boundingBox.clone()
     this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+
+    // CANNON JS
+    this.body = new CANNON.Body({
+      mass: this.mass,
+      // shape,
+      fixedRotation: false,
+      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+    })
+    this.createShapes()
+    this.currentMass = this.mass
+    this.body.position.copy(this.mesh.position)
+    this.world.add(this.body)
 
     this.defaultMeshScale = this.mesh.scale.clone()
 
@@ -85,6 +85,25 @@ class Object extends EventEmitter {
     // listen collision of shape
     this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
+  }
+
+  createShapeFromWRL(models, scale) {
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i]
+      const vertices = []
+      const faces = []
+
+      for (let i = 0; i < model.vertices.length; i += 3) {
+        vertices.push( new CANNON.Vec3(model.vertices[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
+      }
+
+      for (let i = 0; i < model.faces.length; i += 3) {
+        faces.push([model.faces[i], model.faces[i + 1], model.faces[i + 2]])
+      }
+
+      const shape = new CANNON.ConvexPolyhedron(vertices, faces)
+      this.body.addShape(shape)
+    }
   }
 
   onCollide(e) {
@@ -223,13 +242,17 @@ class Object extends EventEmitter {
 
   scaleBody() {
     this.body.shapes = []
-    const shape = this.createShape(this.scaleFactor)
-    this.body.addShape(shape)
-    const mass = 10 * shape.volume()
+    this.createShapes(this.scaleFactor)
+    let shapeVolume = 0
+    for (let i = 0; i < this.body.shapes.length; i++) {
+      shapeVolume += this.body.shapes[i].volume()
+    }
+    // console.log(shapeVolume)
+
+    const mass = 10 * shapeVolume
     this.body.invMass = mass
     this.currentMass = mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
     this.body.updateMassProperties()
-    // console.log(mass)
   }
 
   highlight() {

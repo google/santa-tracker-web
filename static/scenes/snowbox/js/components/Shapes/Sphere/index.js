@@ -38,8 +38,10 @@ class Sphere extends Obj {
     this.setShape(defaultMaterial)
   }
 
-  createShape(scale = 1) {
-    return new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
+  createShapes(scale = 1) {
+    const shape = new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
+    this.body.addShape(shape)
+    console.log(this.body)
   }
 }
 

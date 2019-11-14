@@ -38,10 +38,12 @@ class Cube extends Obj {
     this.setShape(defaultMaterial)
   }
 
-  createShape(scale = 1) {
-    return new CANNON.Box(
+  createShapes(scale = 1) {
+    const shape = new CANNON.Box(
       new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
     )
+
+    this.body.addShape(shape)
   }
 }
 
