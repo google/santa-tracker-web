@@ -157,4 +157,70 @@ Levels = [
       },
     ]
   },
+  {
+    players: [
+      {
+        startPos: {
+          x: 27,
+          y: 10
+        }
+      },
+      {
+        startPos: {
+          x: 0,
+          y: 0
+        }
+      }
+    ],
+    entities: [
+      {
+        type: 'pit',
+        config: {
+          height: 5,
+          width: 6,
+          x: 2,
+          y: 1,
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 4
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 1,
+          y: 12,
+          partType: 'wheels'
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 15,
+          y: 1,
+          partType: 'car-body'
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 22,
+          y: 12,
+          parts: [
+            'car-body',
+            'wheels'
+          ]
+        }
+      },
+    ]
+  },
 ]

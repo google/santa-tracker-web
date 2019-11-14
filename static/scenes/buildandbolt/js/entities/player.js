@@ -160,6 +160,7 @@ app.Player = class Player {
 
       // temporary
       this.elem.classList.add('is-winner')
+      this.game.registerToyCompletion(this)
     }
 
     const platform = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]

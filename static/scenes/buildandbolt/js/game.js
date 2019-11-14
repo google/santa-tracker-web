@@ -56,6 +56,7 @@ app.Game = class Game {
 
   initLevel(level) {
     let levelConfig = Levels[level]
+    this.levelWinner = null
 
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].init(levelConfig.players[i])
@@ -116,5 +117,33 @@ app.Game = class Game {
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
+  }
+
+  registerToyCompletion(player) {
+    if (!this.levelWinner) {
+      this.levelWinner = player
+      this.isPlaying = false
+
+      // Display winner screen
+
+      this.reset()
+
+      this.level++
+      if (this.level < Levels.length) {
+        this.initLevel(this.level)
+        this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+      } else {
+        // endgame
+      }
+    }
+
+    // Display winner, end level, cleanup, and load new level
+  }
+
+  reset() {
+    this.board.reset()
+    this.entities = []
+
+    // add more cleanup. remove old dom elements. use pools?
   }
 }
