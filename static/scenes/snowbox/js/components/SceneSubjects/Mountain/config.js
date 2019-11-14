@@ -17,7 +17,7 @@ export default {
     MAP: './models/mountain/board.jpg',
   },
   TREE: {
-    NAME: 'tree',
+    NAME: 'mountain-tree',
     OBJ: './models/mountain/tree.obj',
     COLOR: 0x03B4CA,
   },

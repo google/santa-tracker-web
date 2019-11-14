@@ -1,6 +1,6 @@
 export default {
   NAME: 'quarter-circle',
-  MASS: 1000,
+  MASS: 20,
   SELECTABLE: true,
   SIZE: 1,
   OBJ: './models/quarter-circle.obj',
