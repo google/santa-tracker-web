@@ -41,8 +41,8 @@ class Snowman extends Obj {
   }
 
   createShapes(scale = 1) {
-    // Compound boxes
-    let s = this.size * scale
+    // Compound
+    const s = this.size * scale
 
     const sphere = new CANNON.Sphere(0.5 * s)
     const cone = new CANNON.Cylinder(0, 0.1 * s, 0.45 * s, 10 * s)

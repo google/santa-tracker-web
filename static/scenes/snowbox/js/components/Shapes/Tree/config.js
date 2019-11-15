@@ -1,6 +1,6 @@
 export default {
   NAME: 'tree',
-  MASS: 1000,
+  MASS: 10,
   SELECTABLE: true,
   COLLIDABLE: true,
   SIZE: 1,
