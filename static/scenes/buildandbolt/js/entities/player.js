@@ -29,6 +29,17 @@ app.Player = class Player {
       angle: 0
     }
 
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.acceleration = {
+      x: 0,
+      y: 0
+    }
+
+
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
@@ -45,6 +56,16 @@ app.Player = class Player {
         x: this.config.startPos.x,
         y: this.config.startPos.y,
         angle: 0
+      }
+
+      this.velocity = {
+        x: 0,
+        y: 0
+      }
+
+      this.acceleration = {
+        x: 0,
+        y: 0
       }
 
       this.clearToyParts()
@@ -65,35 +86,42 @@ app.Player = class Player {
     this.prevPosition = Object.assign({}, this.position)
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      if (this.platform) {
-        this.platformOffset.x -= Constants.PLAYER_STEP_SIZE
-      } else {
-        this.position.x = Math.max(0, this.position.x - Constants.PLAYER_STEP_SIZE)
-      }
+      this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY,
+          this.velocity.x - Constants.PLAYER_ACCELERATION_STEP)
+    } else if (this.velocity.x < 0) {
+      this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP)
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      if (this.platform) {
-        this.platformOffset.x += Constants.PLAYER_STEP_SIZE
-      } else {
-        this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1, this.position.x + Constants.PLAYER_STEP_SIZE)
-      }
+      this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY,
+          this.velocity.x + Constants.PLAYER_ACCELERATION_STEP)
+    } else if (this.velocity.x > 0) {
+      this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP)
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      if (this.platform) {
-        this.platformOffset.y -= Constants.PLAYER_STEP_SIZE
-      } else {
-        this.position.y = Math.max(0, this.position.y - Constants.PLAYER_STEP_SIZE)
-      }
+      this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY,
+          this.velocity.y - Constants.PLAYER_ACCELERATION_STEP)
+    } else if (this.velocity.y < 0) {
+      this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP)
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      if (this.platform) {
-        this.platformOffset.y += Constants.PLAYER_STEP_SIZE
-      } else {
-        this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1, this.position.y + Constants.PLAYER_STEP_SIZE)
-      }
+      this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY,
+          this.velocity.y + Constants.PLAYER_ACCELERATION_STEP)
+    } else if (this.velocity.y > 0) {
+      this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP)
+    }
+
+    if (this.platform) {
+      this.platformOffset.x += this.velocity.x
+      this.platformOffset.y += this.velocity.y
+    } else {
+      this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
+          Math.max(0, this.position.x + this.velocity.x))
+
+      this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
+          Math.max(0, this.position.y + this.velocity.y))
     }
 
     // check if you left the platform

@@ -29,6 +29,8 @@ Constants = {
     }
   },
   PLAYER_STEP_SIZE: .1,
+  PLAYER_ACCELERATION_STEP: .01,
+  PLAYER_MAX_VELOCITY: .2,
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
