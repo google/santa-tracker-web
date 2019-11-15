@@ -39,6 +39,7 @@ app.Player = class Player {
       y: 0
     }
 
+    this.onIce = false
 
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
@@ -68,6 +69,8 @@ app.Player = class Player {
         y: 0
       }
 
+      this.onIce = false
+
       this.clearToyParts()
 
       this.game.board.updateEntityPosition(this,
@@ -85,32 +88,40 @@ app.Player = class Player {
 
     this.prevPosition = Object.assign({}, this.position)
 
+    let accelerationFactor = 1
+    let decelerationFactor = 1
+    if (this.onIce) {
+      accelerationFactor = 2
+      decelerationFactor = .5
+      this.onIce = false // only leave it on for one step
+    }
+
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY,
-          this.velocity.x - Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x < 0) {
-      this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY,
-          this.velocity.x + Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x > 0) {
-      this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY,
-          this.velocity.y - Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y < 0) {
-      this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY,
-          this.velocity.y + Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y > 0) {
-      this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP)
+      this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.platform) {
@@ -198,6 +209,10 @@ app.Player = class Player {
         x: this.position.x - platform.position.x,
         y: this.position.y - platform.position.y
       }
+    }
+
+    if (resultingActions[Constants.PLAYER_ACTIONS.ICE]) {
+      this.onIce = true
     }
   }
 
