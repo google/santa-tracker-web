@@ -26,7 +26,7 @@ class Tetra extends Obj {
     // Geometry
     this.geometry = obj.children[0].geometry
     // this.geometry.scale(1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT)
-    this.geometry.center()
+    // this.geometry.center()
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
@@ -59,10 +59,10 @@ class Tetra extends Obj {
       [3,4,5], // -1/2face front
       [1,5,4], // -1/2face right
     ]
-    const offset = new CANNON.Vec3( -0.5, -0.5, 0.5)
+    const offset = new CANNON.Vec3( 0.07, 0.2, -0.2)
 
     const polyhedronShape = new CANNON.ConvexPolyhedron(verts, faces);
-    this.body.addShape(polyhedronShape, null)
+    this.body.addShape(polyhedronShape, offset)
   }
 
   // The winding of the faces needs to be counter clockwise around the normal.
