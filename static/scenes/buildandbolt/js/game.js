@@ -15,6 +15,7 @@ goog.require('app.Player')
 goog.require('app.PresentBox')
 goog.require('app.Table')
 goog.require('app.Wall')
+goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 
 
@@ -44,6 +45,8 @@ app.Game = class Game {
     this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'));
     this.level = 0;
+
+    this.gameoverDialog = new app.shared.Gameover(this);
 
     this.isPlaying = false
     this.lastFrame = +new Date() / 1000
@@ -134,6 +137,7 @@ app.Game = class Game {
         this.levelUp.show(this.level + 1, this.startLevel.bind(this))
       } else {
         // endgame
+        this.gameoverDialog.show()
       }
     }
 
