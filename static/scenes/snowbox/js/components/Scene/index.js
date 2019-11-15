@@ -11,8 +11,10 @@ import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
 import quarterCircleConfig from '../Shapes/QuarterCircle/config.js'
 import tetraConfig from '../Shapes/Tetra/config.js'
+import cannonTetraConfig from '../Shapes/CannonTetra/config.js'
 import giftConfig from '../Shapes/Gift/config.js'
 import snowmanConfig from '../Shapes/Snowman/config.js'
+import pyramidConfig from '../Shapes/Pyramid/config.js'
 
 // Managers
 import LoaderManager from '../../managers/LoaderManager.js'
@@ -32,6 +34,7 @@ import Sphere from '../Shapes/Sphere/index.js'
 import Pyramid from '../Shapes/Pyramid/index.js'
 import QuarterCircle from '../Shapes/QuarterCircle/index.js'
 import Tetra from '../Shapes/Tetra/index.js'
+import CannonTetra from '../Shapes/CannonTetra/index.js'
 import Gift from '../Shapes/Gift/index.js'
 import Snowman from '../Shapes/Snowman/index.js'
 
@@ -122,8 +125,10 @@ class Scene extends EventEmitter {
     LoaderManager.load({name: giftConfig.NAME, obj: giftConfig.OBJ})
     LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
     LoaderManager.load({name: tetraConfig.NAME, normalMap: tetraConfig.NORMAL_MAP, obj: tetraConfig.OBJ})
+    LoaderManager.load({name: cannonTetraConfig.NAME, normalMap: cannonTetraConfig.NORMAL_MAP, obj: cannonTetraConfig.OBJ})
     LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
-    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
+    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ})
+    LoaderManager.load({name: pyramidConfig.NAME, normalMap: pyramidConfig.NORMAL_MAP, obj: pyramidConfig.OBJ, wrl: pyramidConfig.WRL})
     LoaderManager.load({name: quarterCircleConfig.NAME, normalMap: quarterCircleConfig.NORMAL_MAP, obj: quarterCircleConfig.OBJ, wrl: quarterCircleConfig.WRL})
     LoaderManager.load({name: snowmanConfig.NAME, normalMap: snowmanConfig.NORMAL_MAP, map: snowmanConfig.MAP, obj: snowmanConfig.OBJ, wrl: snowmanConfig.WRL})
   }
@@ -501,6 +506,9 @@ class Scene extends EventEmitter {
         break
       case 'tetra':
         subject = new Tetra(this.scene, this.world, material)
+        break
+      case 'cannon-tetra':
+        subject = new CannonTetra(this.scene, this.world, material)
         break
       case 'gift':
         subject = new Gift(this.scene, this.world, material)

@@ -5,7 +5,7 @@ import LoaderManager from '../../../managers/LoaderManager.js'
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
-class Tetra extends Obj {
+class CannonTetra extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
@@ -42,27 +42,21 @@ class Tetra extends Obj {
   createShapes(scale = 1) {
     const s = this.size * scale
     const verts = [
-      new CANNON.Vec3(-0.5 * s, -0.5 * s, 0.5 * s), // 0: left 0
-      new CANNON.Vec3(0.5 * s, -0.5 * s, 0.5 * s), // 1: right 0
-      new CANNON.Vec3(-0.5 * s, 0.5 * s, 0.5 * s), // 2: left y1
-      new CANNON.Vec3(-0.5 * s, -0.5 * s, -0.5 * s), // 3: left z1
-      new CANNON.Vec3(0.5 * s, 0.5 * s, 0.5 * s), // 4: right y1
-      new CANNON.Vec3(0.5 * s, -0.5 * s, -0.5 * s), // 5: right z1
+      new CANNON.Vec3(0,0,0),
+       new CANNON.Vec3(1,0,0),
+       new CANNON.Vec3(0,2,0),
+       new CANNON.Vec3(0,0,1)
     ]
     const faces = [
-      [0,2,3], // first face left
-      [0,3,1], // 1/2face bottom
-      [1,3,5], // -1/2face bottom
-      [0,1,2], // 1/2face back
-      [2,1,4], // -1/2face back
-      [2,4,3], // 1/2face front
-      [3,4,5], // -1/2face front
-      [1,5,4], // -1/2face right
+      [0,3,2], // -x
+      [0,1,3], // -y
+      [0,2,1], // -z
+      [1,2,3], // +xyz
     ]
     const offset = new CANNON.Vec3( 0.035, 0.15, -0.2)
 
     const polyhedronShape = new CANNON.ConvexPolyhedron(verts, faces);
-    this.body.addShape(polyhedronShape, offset)
+    this.body.addShape(polyhedronShape, null)
   }
 
   // The winding of the faces needs to be counter clockwise around the normal.
@@ -70,16 +64,18 @@ class Tetra extends Obj {
   // The number of faces should be few to get performance. In box2d you can add max 8 vertices in a convex shape.
   // In 3D there would be more, but if you compare to the Box, you have 6 faces (8 verts).
 
-    // [new CANNON.Vec3(0,0,0),
+    // [
+    //     new CANNON.Vec3(0,0,0),
     //    new CANNON.Vec3(1,0,0),
     //    new CANNON.Vec3(0,1,0),
-    //    new CANNON.Vec3(0,0,1)];
+    //    new CANNON.Vec3(0,0,1)
+    //    ];
     // [
     //     [0,3,2], // -x
     //     [0,1,3], // -y
     //     [0,2,1], // -z
     //     [1,2,3], // +xyz
-    // ]
+    // // ]
 }
 
-export default Tetra
+export default CannonTetra

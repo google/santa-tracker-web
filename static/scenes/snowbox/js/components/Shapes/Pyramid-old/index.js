@@ -1,53 +1,38 @@
 import Obj from '../index.js'
-import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
+const textureLoader = new THREE.TextureLoader()
+const normalMap = textureLoader.load('./models/1_cube.jpg')
+
 class Pyramid extends Obj {
-  constructor(scene, world, material) {
+  constructor(scene, world) {
     // Physics
     super(scene, world)
 
-    // Props
-    this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
-    this.rotationY = CONFIG.ROTATION_Y
-    this.size = CONFIG.SIZE
-    this.name = CONFIG.NAME
-    // this.normalMap = CONFIG.NORMAL_MAP
-    this.obj = CONFIG.OBJ
-    this.wrl = CONFIG.WRL
-    this.scaleFactor = 1
-  }
 
-  init() {
-    const { obj, normalMap } = LoaderManager.subjects[this.name]
-
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    // this.geometry.center()
-
-    // Materials
-    const defaultMaterial = new THREE.MeshToonMaterial({
+    // Graphics
+    const pyramidGeo = this.getThreeGeo()
+    const pyramidMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: 345,
-      normalMap,
+      normalMap
     })
-    defaultMaterial.needsUpdate = true
 
-    this.setShape(defaultMaterial)
-  }
+    pyramidMaterial.needsUpdate = true
+    this.defaultMaterial = pyramidMaterial
+    this.mesh = new THREE.Mesh(pyramidGeo, pyramidMaterial)
 
-  createShapes(scale = 1) {
-
-    const pyramidGeo = this.getThreeGeo()
     const shape = this.getCannonShape(pyramidGeo)
+    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape, fixedRotation: true })
+    this.body.position.set(-0.5, 5, -0.5)
 
-    const offset = new CANNON.Vec3(-0.5, -0.5, -0.5)
-    this.body.addShape(shape, offset)
+    this.addToScene()
+    this.select()
   }
 
   getThreeGeo() {
@@ -100,6 +85,17 @@ class Pyramid extends Obj {
     }
 
     return new CANNON.ConvexPolyhedron(vertices, faces)
+  }
+
+  scaleBody() {
+    const shape = this.body.shapes[0]
+    for (let i = 0; i < shape.vertices.length; i++) {
+      const v = shape.vertices[i]
+      v.scale(this.scaleFactor)
+    }
+    this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
+    this.body.computeAABB()
+    this.body.updateMassProperties()
   }
 }
 
