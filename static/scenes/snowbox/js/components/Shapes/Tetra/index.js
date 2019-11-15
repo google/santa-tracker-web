@@ -51,8 +51,8 @@ class Tetra extends Obj {
     ]
     const faces = [
       [0,2,3], // first face left
-      [0,3,1], // 1/2face bottom
-      [1,3,5], // -1/2face bottom
+      [0,5,1], // 1/2face bottom
+      [0,3,5], // -1/2face bottom
       [0,1,2], // 1/2face back
       [2,1,4], // -1/2face back
       [2,4,3], // 1/2face front
