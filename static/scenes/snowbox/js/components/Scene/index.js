@@ -313,6 +313,7 @@ class Scene extends EventEmitter {
           const subject = this.getSubjectfromMesh(hit.object)
           if (this.highlightedSubject !== subject) {
             this.highlightSubject(subject)
+            SoundManager.highlightShape(subject);
           }
         } else {
           if (this.highlightedSubject) {

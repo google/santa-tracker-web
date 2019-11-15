@@ -36,7 +36,10 @@ export default class Download {
 
     this.el.addEventListener('mousedown', this.open)
     this.ui.popin.addEventListener('click', e => e.stopPropagation)
-    this.ui.link.addEventListener('click', e => e.stopPropagation)
+    this.ui.link.addEventListener('click', (e) => {
+      SoundManager.play("generic_button_click");
+      e.stopPropagation
+    })
     this.ui.exit.addEventListener('mousedown', this.exit)
   }
 
@@ -51,10 +54,11 @@ export default class Download {
     this.pushButton(this.ui.exit)
     this.ui.popin.classList.remove('is-open')
     this.ui.popin.classList.remove('is-loading')
+    SoundManager.play("snowbox_generate_gif_end");
   }
 
   renderFrames() {
-    SoundManager.play('snowbox_photo');
+    SoundManager.play("snowbox_generate_gif_start");
 
     // clean mode
     Scene.setMode()
@@ -92,7 +96,7 @@ export default class Download {
 
   generateGIF() {
     const { sources } = LoaderManager.subjects['gif']
-
+    
     const gif = new GIF({
       workers: 4,
       workerScript: '../../third_party/lib/gif/gif.worker.js',
@@ -104,9 +108,14 @@ export default class Download {
     })
 
     gif.on('finished', blob => {
+      if (this.ui.popin.classList.contains('is-loading')) {
+        SoundManager.play("snowbox_generate_gif_complete");
+      }
       this.ui.popin.classList.remove('is-loading')
       this.ui.gif.src = URL.createObjectURL(blob)
       this.ui.link.href = URL.createObjectURL(blob)
+      SoundManager.play("snowbox_generate_gif_end");
+      
     });
 
     gif.render()
@@ -120,6 +129,7 @@ export default class Download {
 
   pushButton(el, callback) {
     el.classList.add('is-clicked')
+    SoundManager.play("generic_button_click");
     setTimeout(() => {
       el.classList.remove('is-clicked')
       if (callback) {
@@ -133,6 +143,7 @@ export default class Download {
     if (el.classList.contains('is-open') && !el.classList.contains('is-loading')) {
       el.classList.remove('is-open')
     }
+    
   }
 }
 

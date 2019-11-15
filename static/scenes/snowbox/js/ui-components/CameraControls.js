@@ -43,7 +43,11 @@ export default class CameraControls {
   onClickRotate(e) {
     const el = e.currentTarget
 
-    SoundManager.play('snowbox_rotate_camera');
+    if (el.classList.contains('is-disabled')) {
+      SoundManager.play('snowbox_fail');
+    }else {
+      SoundManager.play('snowbox_rotate_camera');
+    }
 
     const { rotateCamera } = el.dataset
     CameraController.rotate(rotateCamera)
