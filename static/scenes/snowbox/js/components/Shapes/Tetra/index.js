@@ -42,19 +42,19 @@ class Tetra extends Obj {
   createShapes(scale = 1) {
     const s = this.size * scale
     const verts = [
-      new CANNON.Vec3(0,0,0), // 0: left 0
-      new CANNON.Vec3(1,0,0), // 1: right 0
-      new CANNON.Vec3(0,1,0), // 2: left y1
-      new CANNON.Vec3(0,0,-1), // 3: left z1
-      new CANNON.Vec3(1,1,0), // 4: right y1
-      new CANNON.Vec3(1,0,-1), // 5: right z1
+      new CANNON.Vec3(-0.5 * s, -0.5 * s, 0.5 * s), // 0: left 0
+      new CANNON.Vec3(0.5 * s, -0.5 * s, 0.5 * s), // 1: right 0
+      new CANNON.Vec3(-0.5 * s, 0.5 * s, 0.5 * s), // 2: left y1
+      new CANNON.Vec3(-0.5 * s, -0.5 * s, -0.5 * s), // 3: left z1
+      new CANNON.Vec3(0.5 * s, 0.5 * s, 0.5 * s), // 4: right y1
+      new CANNON.Vec3(0.5 * s, -0.5 * s, -0.5 * s), // 5: right z1
     ]
     const faces = [
       [0,2,3], // first face left
-      [0,1,2], // 1/2face back
-      [2,1,4], // -1/2face back
       [0,3,1], // 1/2face bottom
       [1,3,5], // -1/2face bottom
+      [0,1,2], // 1/2face back
+      [2,1,4], // -1/2face back
       [2,4,3], // 1/2face front
       [3,4,5], // -1/2face front
       [1,5,4], // -1/2face right
@@ -63,22 +63,6 @@ class Tetra extends Obj {
 
     const polyhedronShape = new CANNON.ConvexPolyhedron(verts, faces);
     this.body.addShape(polyhedronShape, null)
-
-    // Compound boxes
-
-    // const topBoxVector = new CANNON.Vec3(s, s * 0.25, s * 0.5)
-    // const topShape = new CANNON.Box(topBoxVector)
-
-    // const bottomBoxVector = new CANNON.Vec3(s * 0.33, s * 0.25, s * 0.5)
-    // const bottomShape = new CANNON.Box(bottomBoxVector)
-
-    // const offset1 = new CANNON.Vec3( 0, s * 0.25, 0)
-    // const offset2 = new CANNON.Vec3( -s * 0.66, -s * 0.25, 0)
-    // const offset3 = new CANNON.Vec3( s * 0.66, -s * 0.25, 0)
-
-    // this.body.addShape(topShape, offset1)
-    // this.body.addShape(bottomShape, offset2)
-    // this.body.addShape(bottomShape, offset3)
   }
 
   // The winding of the faces needs to be counter clockwise around the normal.
