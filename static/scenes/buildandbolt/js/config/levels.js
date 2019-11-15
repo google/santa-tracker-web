@@ -195,15 +195,6 @@ Levels = [
         }
       },
       {
-        type: 'wall',
-        config: {
-          height: 5,
-          width: 2,
-          x: 10,
-          y: 3,
-        }
-      },
-      {
         type: 'table',
         config: {
           x: 22,

@@ -53,7 +53,6 @@ app.Game = class Game {
     this.isPlaying = false
     this.lastFrame = +new Date() / 1000
 
-    this.initLevel(this.level)
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
     this.onFrame()
@@ -98,6 +97,7 @@ app.Game = class Game {
   }
 
   startLevel() {
+    this.initLevel(this.level)
     this.isPlaying = true
   }
 
@@ -136,7 +136,6 @@ app.Game = class Game {
 
       this.level++
       if (this.level < Levels.length) {
-        this.initLevel(this.level)
         this.levelUp.show(this.level + 1, this.startLevel.bind(this))
       } else {
         // end game. display game winner.
