@@ -8,6 +8,7 @@ app.Player = class Player {
     this.game = game
     this.gameControls = game.controls
     this.controls = controls
+    this.score = 0
 
     this.elem = document.createElement('div')
     document.getElementById('players').append(this.elem)
@@ -189,5 +190,9 @@ app.Player = class Player {
     }
 
     this.toyParts = []
+  }
+
+  registerWin() {
+    this.score++
   }
 }

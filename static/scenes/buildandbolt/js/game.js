@@ -35,11 +35,13 @@ app.Game = class Game {
       // Todo: create special single player controls
       this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
           'player-1')
+      this.multiplayer = false
     } else {
       this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
           'player-1')
       this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD,
           'player-2')
+      this.multiplayer = true
     }
 
     this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
@@ -125,9 +127,10 @@ app.Game = class Game {
   registerToyCompletion(player) {
     if (!this.levelWinner) {
       this.levelWinner = player
+      player.registerWin()
       this.isPlaying = false
 
-      // Display winner screen
+      // Display level winner screen
 
       this.reset()
 
@@ -136,12 +139,19 @@ app.Game = class Game {
         this.initLevel(this.level)
         this.levelUp.show(this.level + 1, this.startLevel.bind(this))
       } else {
-        // endgame
+        // end game. display game winner.
         this.gameoverDialog.show()
+        if (this.multiplayer) {
+          if (this.players[0].score > this.players[1].score) {
+            console.log('player 1 won')
+          } else if (this.players[0].score < this.players[1].score) {
+            console.log('player 2 won')
+          } else {
+            console.log('tie')
+          }
+        }
       }
     }
-
-    // Display winner, end level, cleanup, and load new level
   }
 
   reset() {
