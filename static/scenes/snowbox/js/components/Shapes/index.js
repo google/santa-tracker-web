@@ -119,6 +119,73 @@ class Object extends EventEmitter {
     }
   }
 
+  createShapesFromOBJ(obj, scale) {
+    const model = obj.attributes
+    const vertices = []
+    const faces = []
+
+    for (let i = 0; i < model.position.array.length; i += 3) {
+      vertices.push( new CANNON.Vec3(model.position.array[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
+    }
+
+    for (let i = 0; i < model.normal.array.length; i += 3) {
+      faces.push([model.normal.array[i], model.normal.array[i + 1], model.normal.array[i + 2]])
+    }
+
+    // getVertices() {
+    //   const s = this.size * this.scaleFactor
+    //   return [
+    //     new THREE.Vector3(0, 0, 0), // left 0
+    //     new THREE.Vector3(s, 0, 0), // right 0
+    //     new THREE.Vector3(s, 0, s), // right z1
+    //     new THREE.Vector3(0, 0, s), // left z1
+    //     new THREE.Vector3(s * 0.5, s, s * 0.5) // sommet
+    //   ]
+    // }
+
+    // getFaces() {
+    //   return [
+    //     new THREE.Face3(0, 1, 3),
+    //     new THREE.Face3(3, 1, 2),
+    //     new THREE.Face3(1, 0, 4),
+    //     new THREE.Face3(2, 1, 4),
+    //     new THREE.Face3(3, 2, 4),
+    //     new THREE.Face3(0, 3, 4)
+    //   ]
+    // }
+
+    // getCannonShape(geometry) {
+    //   const vertices = []
+    //   const faces = []
+
+    //   for (let i = 0; i < geometry.vertices.length; i++) {
+    //     const v = geometry.vertices[i]
+    //     vertices.push(new CANNON.Vec3(v.x, v.y, v.z))
+    //   }
+
+    //   for (let i = 0; i < geometry.faces.length; i++) {
+    //     const f = geometry.faces[i]
+    //     faces.push([f.a, f.b, f.c])
+    //   }
+
+    //   return new CANNON.ConvexPolyhedron(vertices, faces)
+    // }
+
+    // getThreeGeo() {
+    //   const geo = new THREE.Geometry()
+    //   const vertices = this.getVertices()
+    //   geo.vertices = vertices
+    //   geo.faces = this.getFaces()
+    //   geo.computeBoundingSphere()
+    //   geo.computeFaceNormals()
+    //   return geo
+    // }
+
+    console.log(vertices, faces)
+    const shape = new CANNON.ConvexPolyhedron(vertices, faces)
+    this.body.addShape(shape)
+  }
+
   onCollide(e) {
     const relativeVelocity = e.contact.getImpactVelocityAlongNormal()
     if (Math.abs(relativeVelocity) > 0.25) {
@@ -411,6 +478,8 @@ class Object extends EventEmitter {
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
   }
+
+
 }
 
 export default Object

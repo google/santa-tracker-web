@@ -46,7 +46,7 @@ class Tree extends Obj {
     const cone = new CANNON.Cylinder(0, 0.4 * s, 1.5 * s, 10 * s)
     const coneOffset = new CANNON.Vec3( 0, 1.3 * s, 0)
 
-    const cylinder = new CANNON.Cylinder(0.08 * s, 0.08 * s, 0.6 * s, 10 * s)
+    const cylinder = new CANNON.Cylinder(0.08 * s, 0.08 * s, 0.6 * s, 10)
     const cylinderOffset = new CANNON.Vec3( 0, 0.3 * s, 0)
 
     const coneQuaternion = new THREE.Quaternion()

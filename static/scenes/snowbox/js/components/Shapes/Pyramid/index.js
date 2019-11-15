@@ -42,64 +42,51 @@ class Pyramid extends Obj {
   }
 
   createShapes(scale = 1) {
+    // compound
+    const s = this.size * scale
+    const offset = new CANNON.Vec3(0, -0.5 * s, 0)
+    const axisRotation = new THREE.Vector3( 0, 1, 0 )
+    const tetras = [{
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI * 3 / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI * 3 / 4 ),
+    }]
 
-    const pyramidGeo = this.getThreeGeo()
-    const shape = this.getCannonShape(pyramidGeo)
-
-    const offset = new CANNON.Vec3(-0.5, -0.5, -0.5)
-    this.body.addShape(shape, offset)
+    tetras.forEach(tetra => {
+      const { shape, offset, quaternion } = tetra
+      this.body.addShape(shape, offset, quaternion)
+    })
   }
 
-  getThreeGeo() {
-    const geo = new THREE.Geometry()
-    const vertices = this.getVertices()
-    geo.vertices = vertices
-    geo.faces = this.getFaces()
-    geo.computeBoundingSphere()
-    geo.computeFaceNormals()
-    return geo
-  }
-
-  getVertices() {
-    return [
-      new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(CONFIG.SIZE * this.scaleFactor, 0, 0),
-      new THREE.Vector3(CONFIG.SIZE * this.scaleFactor, 0, CONFIG.SIZE * this.scaleFactor),
-      new THREE.Vector3(0, 0, CONFIG.SIZE * this.scaleFactor),
-      new THREE.Vector3(
-        (CONFIG.SIZE / 2) * this.scaleFactor,
-        CONFIG.SIZE * this.scaleFactor,
-        (CONFIG.SIZE / 2) * this.scaleFactor
-      )
+  createTetraShape(s) {
+    const verts = [
+      new CANNON.Vec3(0, 0, 0),
+      new CANNON.Vec3(0.73 * s, 0, 0),
+      new CANNON.Vec3(0, 1 * s, 0),
+      new CANNON.Vec3(0, 0, 0.73 * s)
     ]
-  }
 
-  getFaces() {
-    return [
-      new THREE.Face3(0, 1, 2),
-      new THREE.Face3(0, 2, 3),
-      new THREE.Face3(1, 0, 4),
-      new THREE.Face3(2, 1, 4),
-      new THREE.Face3(3, 2, 4),
-      new THREE.Face3(0, 3, 4)
+    const faces = [
+      [0,3,2], // -x
+      [0,1,3], // -y
+      [0,2,1], // -z
+      [1,2,3], // +xyz
     ]
-  }
 
-  getCannonShape(geometry) {
-    const vertices = []
-    const faces = []
-
-    for (let i = 0; i < geometry.vertices.length; i++) {
-      const v = geometry.vertices[i]
-      vertices.push(new CANNON.Vec3(v.x, v.y, v.z))
-    }
-
-    for (let i = 0; i < geometry.faces.length; i++) {
-      const f = geometry.faces[i]
-      faces.push([f.a, f.b, f.c])
-    }
-
-    return new CANNON.ConvexPolyhedron(vertices, faces)
+    const tetra = new CANNON.ConvexPolyhedron(verts, faces);
+    return tetra
   }
 }
 

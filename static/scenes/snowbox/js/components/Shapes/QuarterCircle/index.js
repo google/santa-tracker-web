@@ -31,6 +31,8 @@ class QuarterCircle extends Obj {
 
     // Geometry
     this.geometry = obj.children[0].geometry
+
+    console.log(this.geometry)
     // this.geometry.center()
 
     // Materials
@@ -46,6 +48,7 @@ class QuarterCircle extends Obj {
 
   createShapes(scale = 1) {
     this.createShapesFromWRL(this.collisionModel, scale)
+    // this.createShapesFromOBJ(this.geometry, scale)
   }
 }
 

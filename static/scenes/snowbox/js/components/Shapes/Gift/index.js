@@ -23,6 +23,8 @@ class Gift extends Obj {
   init() {
     const { obj } = LoaderManager.subjects[this.name]
 
+    console.log(obj)
+
     // Geometry
     this.geometry = obj.children[0].geometry
     this.geometry.center()
