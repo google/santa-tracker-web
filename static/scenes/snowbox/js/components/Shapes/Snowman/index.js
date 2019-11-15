@@ -19,15 +19,10 @@ class Snowman extends Obj {
     this.name = CONFIG.NAME
     // this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
-    this.wrl = CONFIG.WRL
   }
 
   init() {
-    const { obj, wrl, normalMap, map } = LoaderManager.subjects[this.name]
-
-    // Collision model
-    this.collisionModel = wrl
-    console.log(obj, wrl)
+    const { obj, normalMap, map } = LoaderManager.subjects[this.name]
 
     // Geometry
     this.geometry = obj.children[0].geometry
@@ -46,7 +41,18 @@ class Snowman extends Obj {
   }
 
   createShapes(scale = 1) {
-    this.createShapesFromWRL(this.collisionModel, scale)
+    // Compound boxes
+    let s = this.size * scale
+
+    const sphere = new CANNON.Sphere(0.5 * s)
+    const cone = new CANNON.Cylinder(0, 0.1 * s, 0.45 * s, 10 * s)
+
+    const coneOffset = new CANNON.Vec3( 0.7 * s, 0, 0)
+    const coneQuaternion = new THREE.Quaternion()
+    coneQuaternion.setFromAxisAngle( new THREE.Vector3( 0, 1, 0 ), Math.PI / 2 )
+
+    this.body.addShape(sphere)
+    this.body.addShape(cone, coneOffset, coneQuaternion)
   }
 }
 
