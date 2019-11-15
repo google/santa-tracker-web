@@ -6,6 +6,21 @@ app.Entity = class Entity {
     this.game = game
   }
 
+  // for app.shared.pools
+  onInit(config) {
+    this.config = config
+    this.elem.classList.remove('hidden')
+    this.render()
+    this.game.board.addEntityToBoard(this,
+        this.config.x, this.config.y,
+        this.config.width, this.config.height)
+  }
+
+  // for app.shared.pools
+  onDispose() {
+    this.elem.classList.add('hidden')
+  }
+
   onFrame() {
 
   }
@@ -15,7 +30,7 @@ app.Entity = class Entity {
   }
 
   /**
-   * returns the action(s) that result from the player colliding with this entity,
+   * Returns the action(s) that result from the player colliding with this entity,
    * or null if no effect.
    */
   onContact(player) {

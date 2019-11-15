@@ -13,7 +13,10 @@ app.Slider = class Slider extends app.Entity {
     this.elem = document.createElement('div')
   }
 
-  init() {
+  onInit(config) {
+    this.config = config
+    this.elem.classList.remove('hidden')
+
     this.position = {
       x: this.config.startPos.x,
       y: this.config.startPos.y,

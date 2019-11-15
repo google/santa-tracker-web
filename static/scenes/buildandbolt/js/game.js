@@ -65,29 +65,28 @@ app.Game = class Game {
     for (const entity of levelConfig.entities) {
       switch(entity.type) {
         case 'pit':
-          this.entities.push(new app.Pit(this, entity.config))
+          this.entities.push(app.Pit.pop(this, entity.config))
           break;
         case 'penguin':
-          this.entities.push(new app.Penguin(this, entity.config))
+          this.entities.push(app.Penguin.pop(this, entity.config))
           break;
         case 'wall':
-          // this.entities.push(new app.Wall(this, entity.config))
           this.entities.push(app.Wall.pop(this, entity.config))
           break;
         case 'fence':
-          this.entities.push(new app.Fence(this, entity.config))
+          this.entities.push(app.Fence.pop(this, entity.config))
           break;
         case 'table':
-          this.entities.push(new app.Table(this, entity.config))
+          this.entities.push(app.Table.pop(this, entity.config))
           break;
         case 'present-box':
-          this.entities.push(new app.PresentBox(this, entity.config))
+          this.entities.push(app.PresentBox.pop(this, entity.config))
           break;
         case 'platform':
-          this.entities.push(new app.Platform(this, entity.config))
+          this.entities.push(app.Platform.pop(this, entity.config))
           break;
         case 'ice':
-          this.entities.push(new app.Ice(this, entity.config))
+          this.entities.push(app.Ice.pop(this, entity.config))
           break;
       }
     }
@@ -146,11 +145,23 @@ app.Game = class Game {
     for (const entity of this.entities) {
       if (entity instanceof app.Wall) {
         app.Wall.push(entity)
+      } else if (entity instanceof app.Fence) {
+        app.Fence.push(entity)
+      } else if (entity instanceof app.Ice) {
+        app.Ice.push(entity)
+      } else if (entity instanceof app.Penguin) {
+        app.Penguin.push(entity)
+      } else if (entity instanceof app.Platform) {
+        app.Platform.push(entity)
+      } else if (entity instanceof app.Pit) {
+        app.Pit.push(entity)
+      } else if (entity instanceof app.PresentBox) {
+        app.PresentBox.push(entity)
+      } else if (entity instanceof app.Table) {
+        app.Table.push(entity)
       }
     }
 
     this.entities = []
-
-    // add more cleanup. remove old dom elements. use pools?
   }
 }

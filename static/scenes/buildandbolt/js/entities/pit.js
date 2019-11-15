@@ -3,6 +3,7 @@ goog.provide('app.Pit')
 goog.require('Constants')
 
 goog.require('app.Entity')
+goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Pit = class Pit extends app.Entity {
@@ -13,14 +14,6 @@ app.Pit = class Pit extends app.Entity {
     this.elem = document.createElement('div')
     document.getElementById('pits').append(this.elem)
     this.elem.setAttribute('class', 'pit')
-
-    this.game.board.addEntityToBoard(
-        this,
-        this.config.x,
-        this.config.y,
-        this.config.width,
-        this.config.height)
-    this.render()
   }
 
   render() {
@@ -35,3 +28,5 @@ app.Pit = class Pit extends app.Entity {
     return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }
+
+app.shared.pools.mixin(app.Pit)

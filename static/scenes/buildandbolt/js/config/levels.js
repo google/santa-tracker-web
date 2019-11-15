@@ -206,7 +206,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 1,
+          x: 22,
           y: 12,
           partType: 'wheels'
         }
@@ -214,7 +214,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 15,
+          x: 10,
           y: 1,
           partType: 'car-body'
         }
@@ -222,7 +222,7 @@ Levels = [
       {
         type: 'present-box',
         config: {
-          x: 22,
+          x: 15,
           y: 12,
           parts: [
             'car-body',

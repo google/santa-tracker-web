@@ -3,6 +3,7 @@ goog.provide('app.Platform')
 goog.require('Constants')
 
 goog.require('app.Slider')
+goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Platform = class Platform extends app.Slider {
@@ -11,8 +12,6 @@ app.Platform = class Platform extends app.Slider {
 
     document.getElementById('platforms').append(this.elem)
     this.elem.setAttribute('class', 'platform')
-
-    this.init()
   }
 
   onContact(player) {
@@ -20,3 +19,5 @@ app.Platform = class Platform extends app.Slider {
     return [Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
   }
 }
+
+app.shared.pools.mixin(app.Platform)

@@ -3,6 +3,7 @@ goog.provide('app.Fence')
 goog.require('Constants')
 
 goog.require('app.Entity')
+goog.require('app.shared.pools')
 goog.require('Utils')
 
 app.Fence = class Fence extends app.Entity {
@@ -12,13 +13,12 @@ app.Fence = class Fence extends app.Entity {
 
     this.elem = document.createElement('div')
     document.getElementById('fences').append(this.elem)
+  }
 
-    const classes = `fence${this.config.sides.left ? ' fence--left' : ''}${this.config.sides.right ? ' fence--right' : ''}${this.config.sides.top ? ' fence--top' : ''}${this.config.sides.bottom ? ' fence--bottom' : ''}`
-
+  onInit(config) {
+    const classes = `fence${config.sides.left ? ' fence--left' : ''}${config.sides.right ? ' fence--right' : ''}${config.sides.top ? ' fence--top' : ''}${config.sides.bottom ? ' fence--bottom' : ''}`
     this.elem.setAttribute('class', classes)
-
-    this.render()
-    this.game.board.addEntityToBoard(this, this.config.x, this.config.y)
+    super.onInit(config)
   }
 
   render() {
@@ -36,3 +36,5 @@ app.Fence = class Fence extends app.Entity {
     return []
   }
 }
+
+app.shared.pools.mixin(app.Fence)

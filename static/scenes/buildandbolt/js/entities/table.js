@@ -3,6 +3,7 @@ goog.provide('app.Table')
 goog.require('Constants')
 
 goog.require('app.Entity')
+goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Table = class Table extends app.Entity {
@@ -14,9 +15,13 @@ app.Table = class Table extends app.Entity {
     this.elem = document.createElement('div')
     document.getElementById('tables').append(this.elem)
     this.elem.setAttribute('class', 'table')
+  }
 
-    this.render()
-    this.game.board.addEntityToBoard(this, this.config.x, this.config.y, Constants.TABLE_WIDTH, Constants.TABLE_HEIGHT)
+  onInit(config) {
+    config.width = Constants.TABLE_WIDTH
+    config.height = Constants.TABLE_HEIGHT
+
+    super.onInit(config)
   }
 
   render() {
@@ -31,3 +36,5 @@ app.Table = class Table extends app.Entity {
     }
   }
 }
+
+app.shared.pools.mixin(app.Table)

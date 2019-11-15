@@ -12,8 +12,6 @@ app.Penguin = class Penguin extends app.Slider {
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
-
-    this.init()
   }
 
   onContact(player) {
@@ -21,3 +19,5 @@ app.Penguin = class Penguin extends app.Slider {
     return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }
+
+app.shared.pools.mixin(app.Penguin)
