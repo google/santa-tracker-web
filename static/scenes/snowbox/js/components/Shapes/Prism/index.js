@@ -23,18 +23,21 @@ class Tetra extends Obj {
   init() {
     const { obj, normalMap } = LoaderManager.subjects[this.name]
 
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    // this.geometry.scale(1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT, 1 / GLOBAL_CONFIG.MODEL_UNIT)
-    // this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: GLOBAL_CONFIG.SHININESS,
-      normalMap,
+      normalMap
     })
     defaultMaterial.needsUpdate = true
+
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      this.geoMats.push({
+        geometry,
+        material: defaultMaterial
+      })
+    }
 
     this.setShape(defaultMaterial)
   }

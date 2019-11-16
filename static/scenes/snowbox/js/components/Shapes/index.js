@@ -21,6 +21,7 @@ class Object extends EventEmitter {
     this.scaleFactor = 1
     this.scaleIndex = 0
     this.isMoving = false
+    this.geoMats = []
 
     if (this.init) {
       this.init = this.init.bind(this)

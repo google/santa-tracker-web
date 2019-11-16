@@ -26,17 +26,21 @@ class Pyramid extends Obj {
   init() {
     const { obj, normalMap } = LoaderManager.subjects[this.name]
 
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    // this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
-      shininess: 345,
-      normalMap,
+      shininess: GLOBAL_CONFIG.SHININESS,
+      normalMap
     })
     defaultMaterial.needsUpdate = true
+
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      this.geoMats.push({
+        geometry,
+        material: defaultMaterial
+      })
+    }
 
     this.setShape(defaultMaterial)
   }

@@ -36,8 +36,6 @@ class Gift extends Obj {
       shininess: GLOBAL_CONFIG.SHININESS,
     })
 
-    this.geoMats = []
-
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
 
