@@ -23,6 +23,8 @@
     height: 100px;
     cursor: pointer;
     transition: transform .6s $easeout-expo;
+    display: flex;
+    align-items: center;
 
     &:hover {
       transform: scale(1.1);
