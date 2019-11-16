@@ -51,22 +51,27 @@ class Object extends EventEmitter {
     }
 
     // Mesh
-    this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
+    this.mesh = new THREE.Object3D()
+    for (let i = 0; i < this.geometry.length; i++) {
+      const mesh = new THREE.Mesh(this.geometry[i], this.materials.default)
+      this.mesh.add(mesh)
+      console.log('create mesh')
+    }
+    // this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
     this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
     if (this.rotationY) {
       this.mesh.rotation.y = this.rotationY
     }
-    this.mesh.geometry.computeBoundingBox()
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
     this.defaultMeshScale = this.mesh.scale.clone()
     this.scene.add(this.mesh)
 
     // box
-    this.box = this.mesh.geometry.boundingBox.clone()
-    this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+    this.box = new THREE.Box3().setFromObject(this.mesh).clone()
+    // this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
 
     // CANNON JS
     this.createBody()
@@ -256,10 +261,10 @@ class Object extends EventEmitter {
 
       if (this.ghost) {
         this.ghost.updateMatrixWorld(true)
-        this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+        // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
       } else {
         this.mesh.updateMatrixWorld(true)
-        this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+        // this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
       }
 
       if (CONFIG.DEBUG) {
@@ -307,7 +312,7 @@ class Object extends EventEmitter {
     this.ghost.position.set(x, y, z)
 
     this.ghost.updateMatrixWorld(true)
-    this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
   scale(value) {
@@ -319,7 +324,7 @@ class Object extends EventEmitter {
     )
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
-    this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
   }
 
   updateBody() {
@@ -351,12 +356,20 @@ class Object extends EventEmitter {
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
 
-    this.ghost = new THREE.Mesh(geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+
+    this.ghost = new THREE.Object3D()
+
+    for (let i = 0; i < this.geometry.length; i++) {
+      const mesh = new THREE.Mesh(this.geometry[i], this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+      this.ghost.add(mesh)
+      this.geometry[i].geometry.computeBoundingBox()
+    }
+
+
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
-    this.ghost.geometry.computeBoundingBox()
     this.ghost.updateMatrixWorld()
 
     if (CONFIG.DEBUG) {

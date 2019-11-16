@@ -528,7 +528,7 @@ class Scene extends EventEmitter {
   shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
-    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
     this.planeHelper.position.y = subject.size / 2 * (subject.box.max.y - subject.box.min.y) // add half Y +
   }
 

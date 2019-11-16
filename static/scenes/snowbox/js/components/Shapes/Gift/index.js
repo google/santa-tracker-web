@@ -26,8 +26,8 @@ class Gift extends Obj {
     console.log(obj)
 
     // Geometry
-    this.geometry = obj.children[0].geometry
-    this.geometry.center()
+    this.geometry = obj.children
+    // this.geometry.center()
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
