@@ -443,8 +443,11 @@ class Scene extends EventEmitter {
   colorObject(e) {
     const el = e.currentTarget
     if (this.activeSubject) {
-      this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.colorObject)
-      this.activeSubject.mesh.material.needsUpdate = true
+      for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
+        const child = this.activeSubject.mesh.children[i]
+        child.material.color = new THREE.Color(el.dataset.colorObject)
+        child.material.needsUpdate = true
+      }
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true

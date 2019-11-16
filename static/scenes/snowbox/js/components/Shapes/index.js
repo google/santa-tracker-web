@@ -343,14 +343,20 @@ class Object extends EventEmitter {
   }
 
   highlight() {
-    if (this.mesh) {
-      this.mesh.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+    if (this.mesh && !this.mulipleMaterials) {
+      for (let i = 0; i < this.mesh.children.length; i++) {
+        const child = this.mesh.children[i]
+        child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+      }
     }
   }
 
   unhighlight() {
-    if (this.mesh) {
-      this.mesh.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+    if (this.mesh && !this.mulipleMaterials) {
+      for (let i = 0; i < this.mesh.children.length; i++) {
+        const child = this.mesh.children[i]
+        child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+      }
     }
   }
 

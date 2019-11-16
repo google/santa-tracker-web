@@ -18,6 +18,7 @@ class Gift extends Obj {
     this.name = CONFIG.NAME
     this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
+    this.mulipleMaterials = true
   }
 
   init() {
