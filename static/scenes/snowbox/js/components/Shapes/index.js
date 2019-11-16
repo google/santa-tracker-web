@@ -71,7 +71,7 @@ class Object extends EventEmitter {
     this.scene.add(this.mesh)
 
     // box
-    this.box = new THREE.Box3().setFromObject(this.mesh).clone()
+    this.box = new THREE.Box3().setFromObject(this.mesh)
     // this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
 
     // CANNON JS
@@ -262,10 +262,10 @@ class Object extends EventEmitter {
 
       if (this.ghost) {
         this.ghost.updateMatrixWorld(true)
-        // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+        this.box = new THREE.Box3().setFromObject(this.ghost)
       } else {
         this.mesh.updateMatrixWorld(true)
-        // this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
+        this.box = new THREE.Box3().setFromObject(this.mesh)
       }
 
       if (CONFIG.DEBUG) {
@@ -313,7 +313,7 @@ class Object extends EventEmitter {
     this.ghost.position.set(x, y, z)
 
     this.ghost.updateMatrixWorld(true)
-    // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
   scale(value) {
@@ -325,7 +325,7 @@ class Object extends EventEmitter {
     )
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
-    // this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
   updateBody() {

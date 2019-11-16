@@ -696,6 +696,8 @@ class Scene extends EventEmitter {
     boxHelper.max.y = sizeY
     boxHelper.min.y = 0
 
+    console.log(box, boxes)
+
     let elevate = 0
     const offsetDetectionY = 0.01
 
