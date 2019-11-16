@@ -51,11 +51,12 @@ class Object extends EventEmitter {
     }
 
     // Mesh
+    // Create mesh from obj
     this.mesh = new THREE.Object3D()
-    for (let i = 0; i < this.geometry.length; i++) {
-      const mesh = new THREE.Mesh(this.geometry[i], this.materials.default)
+    for (let i = 0; i < this.geoMats.length; i++) {
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.geoMats[i].material)
+      // mesh.userData.parent = this.mesh // add parent ref for raycast
       this.mesh.add(mesh)
-      console.log('create mesh')
     }
     // this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
@@ -356,30 +357,19 @@ class Object extends EventEmitter {
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
 
-
     this.ghost = new THREE.Object3D()
 
-    for (let i = 0; i < this.geometry.length; i++) {
-      const mesh = new THREE.Mesh(this.geometry[i], this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+    for (let i = 0; i < this.geoMats.length; i++) {
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
       this.ghost.add(mesh)
-      this.geometry[i].geometry.computeBoundingBox()
+      this.geoMats[i].geometry.computeBoundingBox()
     }
-
 
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
     this.ghost.updateMatrixWorld()
-
-    if (CONFIG.DEBUG) {
-      if (this.ghostHelper) {
-        this.scene.remove(this.ghostHelper)
-        this.ghostHelper = undefined
-      }
-      this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
-      this.scene.add(this.ghostHelper)
-    }
   }
 
   createRotateCircle(zoom) {
@@ -439,8 +429,8 @@ class Object extends EventEmitter {
 
   delete() {
     this.scene.remove(this.mesh)
-    this.mesh.geometry.dispose()
-    this.mesh.material.dispose()
+    // this.mesh.geometry.dispose()
+    // this.mesh.material.dispose()
     this.mesh = undefined
     this.world.remove(this.body)
 
@@ -453,16 +443,9 @@ class Object extends EventEmitter {
   deleteGhost() {
     if (this.ghost) {
       this.scene.remove(this.ghost)
-      this.ghost.geometry.dispose()
-      this.ghost.material.dispose()
+      // this.ghost.geometry.dispose()
+      // this.ghost.material.dispose()
       this.ghost = undefined
-    }
-
-    if (this.wireframe) {
-      this.scene.remove(this.wireframe)
-      this.wireframe.geometry.dispose()
-      this.wireframe.material.dispose()
-      this.wireframe.undefined
     }
 
     if (CONFIG.DEBUG) {

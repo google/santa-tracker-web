@@ -4,5 +4,6 @@ export default {
   OBJ: './models/gift.obj',
   MASS: 20,
   SELECTABLE: true,
-  SIZE: 0.93,
+  SIZE: 1.05,
+  COLORS: [0xF9D231, 0x009BFF]
 }

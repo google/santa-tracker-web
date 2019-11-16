@@ -23,18 +23,35 @@ class Gift extends Obj {
   init() {
     const { obj } = LoaderManager.subjects[this.name]
 
-    console.log(obj)
-
-    // Geometry
-    this.geometry = obj.children
-    // this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
-      color: GLOBAL_CONFIG.COLORS.ICE,
+      color: CONFIG.COLORS[0],
       shininess: GLOBAL_CONFIG.SHININESS,
     })
     defaultMaterial.needsUpdate = true
+
+    const secondMaterial = new THREE.MeshToonMaterial({
+      color: CONFIG.COLORS[1],
+      shininess: GLOBAL_CONFIG.SHININESS,
+    })
+
+    this.geoMats = []
+
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+
+      let material
+      if (i !== 4 ) {
+        material = defaultMaterial
+      } else {
+        material = secondMaterial
+      }
+
+      this.geoMats.push({
+        geometry,
+        material
+      })
+    }
 
     this.setShape(defaultMaterial)
   }
@@ -44,7 +61,9 @@ class Gift extends Obj {
       new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
     )
 
-    this.body.addShape(shape)
+    const offset = new CANNON.Vec3(-0.09 * scale, -0.015 * scale, 0.05 * scale)
+
+    this.body.addShape(shape, offset)
   }
 }
 

@@ -324,7 +324,7 @@ class Scene extends EventEmitter {
         const hit = this.getNearestObject()
         if (hit) {
           // if mode is neutral
-          const subject = this.getSubjectfromMesh(hit.object)
+          const subject = this.getSubjectfromMesh(hit.object.parent)
           if (this.highlightedSubject !== subject) {
             this.highlightSubject(subject)
           }
@@ -364,7 +364,7 @@ class Scene extends EventEmitter {
     ) {
       // eslint-disable-next-line max-len
       const newSelectedSubject = this.sceneSubjects.find(subject =>
-        subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
+        subject.mesh ? subject.mesh.uuid === hit.object.parent.uuid : false
       )
 
       if (this.selectedSubject) {
@@ -595,7 +595,7 @@ class Scene extends EventEmitter {
   }
 
   findNearestIntersectingObject(objects) {
-    const hits = this.raycaster.intersectObjects(objects)
+    const hits = this.raycaster.intersectObjects(objects, true)
     const closest = hits.length > 0 ? hits[0] : false
     return closest
   }
