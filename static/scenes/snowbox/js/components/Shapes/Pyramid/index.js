@@ -85,8 +85,7 @@ class Pyramid extends Obj {
       [1,2,3], // +xyz
     ]
 
-    const tetra = new CANNON.ConvexPolyhedron(verts, faces);
-    return tetra
+    return new CANNON.ConvexPolyhedron(verts, faces)
   }
 }
 

@@ -10,8 +10,7 @@ import archConfig from '../Shapes/Arch/config.js'
 import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
 import quarterCircleConfig from '../Shapes/QuarterCircle/config.js'
-import tetraConfig from '../Shapes/Tetra/config.js'
-import cannonTetraConfig from '../Shapes/CannonTetra/config.js'
+import prismConfig from '../Shapes/Prism/config.js'
 import giftConfig from '../Shapes/Gift/config.js'
 import snowmanConfig from '../Shapes/Snowman/config.js'
 import pyramidConfig from '../Shapes/Pyramid/config.js'
@@ -33,8 +32,7 @@ import Tree from '../Shapes/Tree/index.js'
 import Sphere from '../Shapes/Sphere/index.js'
 import Pyramid from '../Shapes/Pyramid/index.js'
 import QuarterCircle from '../Shapes/QuarterCircle/index.js'
-import Tetra from '../Shapes/Tetra/index.js'
-import CannonTetra from '../Shapes/CannonTetra/index.js'
+import Prism from '../Shapes/Prism/index.js'
 import Gift from '../Shapes/Gift/index.js'
 import Snowman from '../Shapes/Snowman/index.js'
 
@@ -124,8 +122,7 @@ class Scene extends EventEmitter {
     LoaderManager.load({name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ})
     LoaderManager.load({name: giftConfig.NAME, obj: giftConfig.OBJ})
     LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
-    LoaderManager.load({name: tetraConfig.NAME, normalMap: tetraConfig.NORMAL_MAP, obj: tetraConfig.OBJ})
-    LoaderManager.load({name: cannonTetraConfig.NAME, normalMap: cannonTetraConfig.NORMAL_MAP, obj: cannonTetraConfig.OBJ})
+    LoaderManager.load({name: prismConfig.NAME, normalMap: prismConfig.NORMAL_MAP, obj: prismConfig.OBJ})
     LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
     LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ})
     LoaderManager.load({name: pyramidConfig.NAME, normalMap: pyramidConfig.NORMAL_MAP, obj: pyramidConfig.OBJ, wrl: pyramidConfig.WRL})
@@ -504,11 +501,8 @@ class Scene extends EventEmitter {
       case 'quarter-circle':
         subject = new QuarterCircle(this.scene, this.world, material)
         break
-      case 'tetra':
-        subject = new Tetra(this.scene, this.world, material)
-        break
-      case 'cannon-tetra':
-        subject = new CannonTetra(this.scene, this.world, material)
+      case 'prism':
+        subject = new Prism(this.scene, this.world, material)
         break
       case 'gift':
         subject = new Gift(this.scene, this.world, material)
