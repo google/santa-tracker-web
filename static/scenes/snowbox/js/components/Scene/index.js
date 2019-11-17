@@ -464,7 +464,7 @@ class Scene extends EventEmitter {
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.checkCollision(true)
-      // this.needsCollisionCheck = true
+      this.needsCollisionCheck = true
     }
     SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }

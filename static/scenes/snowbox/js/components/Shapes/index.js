@@ -310,6 +310,10 @@ class Object extends EventEmitter {
     )
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
+    for (let i = 0; i < this.ghost.children.length; i++) {
+      this.ghost.children[i].geometry.computeBoundingBox()
+    }
+    this.ghost.updateMatrixWorld()
     // this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
