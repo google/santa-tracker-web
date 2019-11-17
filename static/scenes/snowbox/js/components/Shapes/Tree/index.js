@@ -21,6 +21,7 @@ class Tree extends Obj {
     this.obj = CONFIG.OBJ
     this.wrl = CONFIG.WRL
     this.mulipleMaterials = true
+    this.centerOffsetY = -1.5
   }
 
   init() {
@@ -40,6 +41,8 @@ class Tree extends Obj {
 
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
+      // geometry.translate( 0, -200, 0 )
+      // geometry.center()
 
       let material
       if (i === 0) {
@@ -62,10 +65,10 @@ class Tree extends Obj {
     const s = this.size * scale
 
     const cone = new CANNON.Cylinder(0, 0.4 * s, 1.5 * s, 10 * s)
-    const coneOffset = new CANNON.Vec3( 0, 1.3 * s, 0)
+    const coneOffset = new CANNON.Vec3( 0, 1.8 * s, 0)
 
     const cylinder = new CANNON.Cylinder(0.08 * s, 0.08 * s, 0.6 * s, 10)
-    const cylinderOffset = new CANNON.Vec3( 0, 0.3 * s, 0)
+    const cylinderOffset = new CANNON.Vec3( 0, 0.8 * s, 0)
 
     const coneQuaternion = new THREE.Quaternion()
     coneQuaternion.setFromAxisAngle( new THREE.Vector3( 1, 0, 0 ), -Math.PI / 2 )

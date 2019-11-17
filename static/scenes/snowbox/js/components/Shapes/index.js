@@ -22,6 +22,7 @@ class Object extends EventEmitter {
     this.scaleIndex = 0
     this.isMoving = false
     this.geoMats = []
+    this.centerOffsetY = 0
 
     if (this.init) {
       this.init = this.init.bind(this)
@@ -298,7 +299,7 @@ class Object extends EventEmitter {
       z = zNew
     }
 
-    this.ghost.position.set(x, y, z)
+    this.ghost.position.set(x, y + this.centerOffsetY * this.scaleFactor, z) // offset center of rotation for trees
   }
 
   scale(value) {
@@ -310,11 +311,6 @@ class Object extends EventEmitter {
     )
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
-    for (let i = 0; i < this.ghost.children.length; i++) {
-      this.ghost.children[i].geometry.computeBoundingBox()
-    }
-    this.ghost.updateMatrixWorld()
-    // this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
   updateBody() {
