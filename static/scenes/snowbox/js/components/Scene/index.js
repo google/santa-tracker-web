@@ -254,11 +254,6 @@ class Scene extends EventEmitter {
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
-    if (this.needsCollisionCheck && this.selectedSubject) {
-      this.checkCollision(true)
-      this.needsCollisionCheck = false
-    }
-
     // Render
     this.renderer.render(this.scene, camera)
     // get current time
@@ -464,7 +459,6 @@ class Scene extends EventEmitter {
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
       this.checkCollision(true)
-      this.needsCollisionCheck = true
     }
     SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
@@ -479,7 +473,7 @@ class Scene extends EventEmitter {
     if (this.selectedSubject && this.mode === 'edit') {
       const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
       this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
-      this.needsCollisionCheck = true
+      this.checkCollision(true)
     }
     SoundManager.play('snowbox_rotate');
   }
@@ -564,8 +558,9 @@ class Scene extends EventEmitter {
     if (needsOffset) {
       // don't play sound if dragging from toolbar
       SoundManager.play('snowbox_select_subject');
+      const box = new THREE.Box3().setFromObject(this.selectedSubject.mesh)
       // update planeHelper Y
-      this.planeHelper.position.y = position.y
+      this.planeHelper.position.y = (box.max.y - box.min.y) / 2 // or position.y
       this.renderer.render(this.scene, CameraController.camera) // check if we really need that
       const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
       this.moveOffset.x = -(posPlaneHelper.x - position.x)
@@ -694,34 +689,25 @@ class Scene extends EventEmitter {
   checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
     // const { box } = this.selectedSubject
-    let box
-    if (isEditing) {
-      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
-    } else {
-      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
-    }
-    const objects = this.getObjectsList().filter(subject => subject !== this.selectedSubject)
-    let sizeY = box.max.y - box.min.y // get size of current object in Y
+    let box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+    const objects = this.getObjectsList().filter(subject => subject !== this.selectedSubject.mesh)
+    const sizeY = box.max.y - box.min.y // get size of current object in Y
     // go boxHelper is equal to the ground position of the current box
     const boxHelper = new THREE.Box3().copy(box)
     boxHelper.max.y = sizeY
     boxHelper.min.y = 0
-
-    console.log(box.max.y, objects)
 
     let elevate = 0
     const offsetDetectionY = 0.01
 
     const detectCollision = () => {
       let collision = false
-      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
-      sizeY = box.max.y - box.min.y
 
       for (let index = 0; index < objects.length; index++) {
         const boxItem = new THREE.Box3().setFromObject(objects[index])
 
         if (boxHelper.intersectsBox(boxItem)) {
-          console.log('collision', boxItem, boxItem.max.y)
+          // console.log('collision', boxItem.max.y)
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
@@ -734,18 +720,17 @@ class Scene extends EventEmitter {
         boxHelper.min.y = elevate + offsetDetectionY // need that to stop detecting collision when movnig up
         detectCollision()
       } else {
-        if (!isEditing && this.selectedSubject) {
-          // if no more collision, move up the object (update moveOffset)
-          this.moveOffset.y = boxHelper.min.y
-        } else {
-          // this.moveOffset.y = boxHelper.min.y
-          // update position
-          this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
-          let box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+        // if no more collision, move up the object (update moveOffset)
+        this.moveOffset.y = boxHelper.min.y
+        if (isEditing) {
+          
+          // move ghost
+          this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
+          box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
           // check ground collision after update position
           if (box.min.y < 0) {
             this.moveOffset.y += -(box.min.y)
-            this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+            this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
           }
         }
       }

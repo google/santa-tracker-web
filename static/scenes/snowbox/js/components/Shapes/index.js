@@ -465,7 +465,7 @@ class Object extends EventEmitter {
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-    console.log('move to ghost')
+
     this.mesh.position.copy(position)
     this.mesh.quaternion.copy(quaternion)
     this.mesh.updateMatrixWorld(true)
