@@ -20,21 +20,39 @@ class Tree extends Obj {
     // this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
     this.wrl = CONFIG.WRL
+    this.mulipleMaterials = true
   }
 
   init() {
     const { obj } = LoaderManager.subjects[this.name]
 
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    // this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
-      color: GLOBAL_CONFIG.COLORS.ICE,
+      color: CONFIG.COLORS[0],
       shininess: 345,
     })
     defaultMaterial.needsUpdate = true
+
+    const secondMaterial = new THREE.MeshToonMaterial({
+      color: CONFIG.COLORS[1],
+      shininess: 10,
+    })
+
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+
+      let material
+      if (i === 0) {
+        material = defaultMaterial
+      } else {
+        material = secondMaterial
+      }
+
+      this.geoMats.push({
+        geometry,
+        material
+      })
+    }
 
     this.setShape(defaultMaterial)
   }
