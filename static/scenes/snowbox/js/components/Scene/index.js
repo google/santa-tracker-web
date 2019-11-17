@@ -463,7 +463,8 @@ class Scene extends EventEmitter {
 
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
-      this.needsCollisionCheck = true
+      this.checkCollision(true)
+      // this.needsCollisionCheck = true
     }
     SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
@@ -532,7 +533,8 @@ class Scene extends EventEmitter {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
     // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
-    this.planeHelper.position.y = subject.size / 2 * (subject.box.max.y - subject.box.min.y) // add half Y +
+    const box = new THREE.Box3().setFromObject(subject.ghost)
+    this.planeHelper.position.y = subject.size / 2 * (box.max.y - box.min.y) // add half Y +
   }
 
   unselectSubject(unmove) {
@@ -648,7 +650,7 @@ class Scene extends EventEmitter {
 
   getObjectBoxesList(filter) {
     return this.sceneSubjects
-      .filter(subject => subject.selectable || subject.collidable)
+      .filter(subject => subject !== this.selectedSubject && subject.selectable)
       .map(subject => subject.box)
       .filter(box => box)
   }
@@ -691,26 +693,35 @@ class Scene extends EventEmitter {
 
   checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
-    const { box } = this.selectedSubject
-    const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
-    const sizeY = box.max.y - box.min.y // get size of current object in Y
+    // const { box } = this.selectedSubject
+    let box
+    if (isEditing) {
+      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+    } else {
+      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+    }
+    const objects = this.getObjectsList().filter(subject => subject !== this.selectedSubject)
+    let sizeY = box.max.y - box.min.y // get size of current object in Y
     // go boxHelper is equal to the ground position of the current box
     const boxHelper = new THREE.Box3().copy(box)
     boxHelper.max.y = sizeY
     boxHelper.min.y = 0
 
-    console.log(box, boxes)
+    console.log(box.max.y, objects)
 
     let elevate = 0
     const offsetDetectionY = 0.01
 
     const detectCollision = () => {
       let collision = false
+      box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+      sizeY = box.max.y - box.min.y
 
-      for (let index = 0; index < boxes.length; index++) {
-        const boxItem = boxes[index]
+      for (let index = 0; index < objects.length; index++) {
+        const boxItem = new THREE.Box3().setFromObject(objects[index])
 
         if (boxHelper.intersectsBox(boxItem)) {
+          console.log('collision', boxItem, boxItem.max.y)
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
@@ -723,12 +734,14 @@ class Scene extends EventEmitter {
         boxHelper.min.y = elevate + offsetDetectionY // need that to stop detecting collision when movnig up
         detectCollision()
       } else {
-        // if no more collision, move up the object (update moveOffset)
-        this.moveOffset.y = boxHelper.min.y // can't go under the ground
-
-        if (isEditing && this.selectedSubject) {
+        if (!isEditing && this.selectedSubject) {
+          // if no more collision, move up the object (update moveOffset)
+          this.moveOffset.y = boxHelper.min.y
+        } else {
+          // this.moveOffset.y = boxHelper.min.y
           // update position
           this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+          let box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
           // check ground collision after update position
           if (box.min.y < 0) {
             this.moveOffset.y += -(box.min.y)

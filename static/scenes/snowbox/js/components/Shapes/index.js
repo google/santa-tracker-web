@@ -56,13 +56,12 @@ class Object extends EventEmitter {
     this.mesh = new THREE.Object3D()
     for (let i = 0; i < this.geoMats.length; i++) {
       const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.geoMats[i].material)
-      // mesh.userData.parent = this.mesh // add parent ref for raycast
+      this.geoMats[i].geometry.computeBoundingBox()
       this.mesh.add(mesh)
     }
-    // this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
-    this.mesh.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
+    this.mesh.position.set(0, 100, 0) // y: 100 to prevent the body to interact with anything in the scene
     if (this.rotationY) {
       this.mesh.rotation.y = this.rotationY
     }
@@ -70,10 +69,6 @@ class Object extends EventEmitter {
     this.mesh.visible = false
     this.defaultMeshScale = this.mesh.scale.clone()
     this.scene.add(this.mesh)
-
-    // box
-    this.box = new THREE.Box3().setFromObject(this.mesh)
-    // this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
 
     // CANNON JS
     this.createBody()
@@ -261,14 +256,6 @@ class Object extends EventEmitter {
         this.yCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
       }
 
-      if (this.ghost) {
-        this.ghost.updateMatrixWorld(true)
-        this.box = new THREE.Box3().setFromObject(this.ghost)
-      } else {
-        this.mesh.updateMatrixWorld(true)
-        this.box = new THREE.Box3().setFromObject(this.mesh)
-      }
-
       if (CONFIG.DEBUG) {
         this.ghostHelper.update()
       }
@@ -312,9 +299,6 @@ class Object extends EventEmitter {
     }
 
     this.ghost.position.set(x, y, z)
-
-    this.ghost.updateMatrixWorld(true)
-    this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
   scale(value) {
@@ -326,7 +310,7 @@ class Object extends EventEmitter {
     )
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
-    this.box = new THREE.Box3().setFromObject(this.ghost)
+    // this.box = new THREE.Box3().setFromObject(this.ghost)
   }
 
   updateBody() {
@@ -335,7 +319,6 @@ class Object extends EventEmitter {
     for (let i = 0; i < this.body.shapes.length; i++) {
       shapeVolume += this.body.shapes[i].volume()
     }
-    // console.log(shapeVolume)
 
     const mass = 8 * shapeVolume
     this.body.invMass = mass
@@ -369,7 +352,6 @@ class Object extends EventEmitter {
     for (let i = 0; i < this.geoMats.length; i++) {
       const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
       this.ghost.add(mesh)
-      this.geoMats[i].geometry.computeBoundingBox()
     }
 
     this.ghost.position.copy(position)
@@ -381,7 +363,8 @@ class Object extends EventEmitter {
 
   createRotateCircle(zoom) {
     // Calculate radius
-    let maxRadius = Math.max((this.box.max.x - this.box.min.x) * 1.25, (this.box.max.y - this.box.min.y) * 1.25)
+    const box = new THREE.Box3().setFromObject(this.mesh)
+    let maxRadius = Math.max((box.max.x - box.min.x) * 1.25, (box.max.y - box.min.y) * 1.25)
     maxRadius = clamp(maxRadius, 1, 4.2)
     const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.04, 32, 32)
     const helperGeometry = new THREE.Geometry()
@@ -471,9 +454,6 @@ class Object extends EventEmitter {
 
   moveToGhost() {
     const { position, quaternion, scale } = this.ghost
-
-    // this.mesh.scale.copy(scale)
-
     this.updateBody()
 
     this.body.velocity.setZero()
@@ -481,9 +461,11 @@ class Object extends EventEmitter {
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
+    console.log('move to ghost')
+    this.mesh.position.copy(position)
+    this.mesh.quaternion.copy(quaternion)
+    this.mesh.updateMatrixWorld(true)
   }
-
-
 }
 
 export default Object
