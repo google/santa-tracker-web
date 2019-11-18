@@ -113,14 +113,34 @@
       background-color: $color-white;
       border-radius: 10px;
       width: 130px;
+
+      @include respond-to(smartphone) {
+        width: 76px;
+      }
     }
 
     &__item {
       width: 26px;
       height: 26px;
+      padding: 26px;
+      position: relative;
+
+      @include respond-to(smartphone) {
+        width: 15px;
+        height: 15px;
+        padding: 15px;
+      }
+    }
+
+    &__circle {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 50%;
+      transform: translate(-50%, -50%);
       border-radius: 50%;
-      background-color: purple;
-      margin: 14px;
     }
   }
 }
