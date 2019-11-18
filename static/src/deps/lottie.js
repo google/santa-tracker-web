@@ -5,9 +5,13 @@ import '../../node_modules/lottie-web/build/player/lottie_light.min.js';
  *
  * This speeds up Firefox and Safari because these paths are basically redundant.
  *
- * @param {!SVGElement} svg
+ * @param {?SVGElement} svg
  */
-function cleanupLottie(svg) {
+export function simplifyClip(svg) {
+  if (!svg) {
+    return;
+  }
+
   const paths = Array.from(svg.querySelectorAll('clipPath'));
   const width = svg.getAttribute('width');
   const height = svg.getAttribute('height');
@@ -39,12 +43,21 @@ function cleanupLottie(svg) {
 
 export function loadAnimation(path, options) {
   const container = options.container || document.createElement('div');
-  return lottie.loadAnimation(Object.assign({
+  const anim = lottie.loadAnimation(Object.assign({
     path: path + '?#',  // in dev, this ensures JSON is returned raw
     renderer: 'svg',
     container,
     autoplay: false,
   }, options));
+  anim.addEventListener('DOMLoaded', () => simplifyClip(anim.renderer.svgElement));
+  return anim;
+}
+
+export function promisify(anim) {
+  return new Promise((resolve, reject) => {
+    anim.addEventListener('DOMLoaded', () => resolve(anim));
+    anim.addEventListener('data_failed', reject);
+  });
 }
 
 /**
@@ -53,15 +66,5 @@ export function loadAnimation(path, options) {
  * @return {!Promise<*>}
  */
 export function prepareAnimation(path, options) {
-  return new Promise((resolve, reject) => {
-    const anim = loadAnimation(path, options);
-    anim.addEventListener('DOMLoaded', () => {
-      if (options && options.clearDefs) {
-        const svg = anim.renderer.svgElement;
-        cleanupLottie(svg);
-      }
-      resolve(anim);
-    });
-    anim.addEventListener('data_failed', reject);
-  });
+  return promisify(loadAnimation(path, options));
 }

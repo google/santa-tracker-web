@@ -333,6 +333,7 @@ function installV1Handlers() {
     switch (eventName) {
       case 'sound-trigger':
       case 'sound-ambient':
+      case 'santa-play':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
         break;

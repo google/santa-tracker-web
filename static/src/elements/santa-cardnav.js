@@ -2,11 +2,11 @@ import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import styles from './santa-cardnav.css';
 import {_static, _msg} from '../magic.js';
+import './santa-card.js';
 
-import {sceneDefs} from './santa-card.js';  // and for side-effects
 
-
-const cards = 'jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner'.split(/\s+/g);
+// TODO(samthor): pull from Remote Config
+const cards = 'codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox'.split(/\s+/g);
 
 
 export class SantaCardNavElement extends LitElement {
@@ -52,9 +52,7 @@ export class SantaCardNavElement extends LitElement {
     const cardHtml = cards.map((sceneName, i) => {
       let locked = undefined;
 
-      const def = sceneDefs[sceneName];
-
-      const wide = Boolean(def && def.mode === 'video');
+      const wide = false;  // TODO: videos are wide
       const clazz = wide ? 'wide' : '';
 
       if (Math.random() < 0.125) {

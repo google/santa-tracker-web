@@ -3,11 +3,6 @@
  * @fileoverview Removes notes from Lottie files.
  */
 
-const fs = require('fs');
-const raw = fs.readFileSync(0, 'utf-8');
-
-const j = JSON.parse(raw);
-
 function cleanupNotes(o) {
   if (typeof o !== 'object') {
     return;
@@ -31,6 +26,29 @@ function cleanupNotes(o) {
   }
 }
 
-cleanupNotes(j);
+const files = process.argv.slice(2);
+if (!files.length) {
+  files.push(0);  // read stdin if no files passed
+}
 
-console.info(JSON.stringify(j));
+const fs = require('fs');
+let inputBytes = 0;
+let outputBytes = 0;
+
+files.forEach((file) => {
+  const raw = fs.readFileSync(file, 'utf-8');
+  inputBytes += raw.length;
+
+  const j = JSON.parse(raw);
+  cleanupNotes(j);
+  const out = JSON.stringify(j);
+  outputBytes += out.length;
+
+  if (file === 0) {
+    console.info(out);
+  } else {
+    fs.writeFileSync(file, out);
+  }
+});
+
+process.stderr.write(`Output ${(outputBytes / inputBytes * 100).toFixed(2)}% of input\n`);
