@@ -35,12 +35,16 @@ export default class Download {
     document.body.addEventListener('click', this.onClickOutside)
 
     this.el.addEventListener('mousedown', this.open)
+    this.el.addEventListener('mouseenter', this.playHoverSound)
     this.ui.popin.addEventListener('click', e => e.stopPropagation)
     this.ui.link.addEventListener('click', (e) => {
       SoundManager.play("generic_button_click");
       e.stopPropagation
     })
     this.ui.exit.addEventListener('mousedown', this.exit)
+    this.ui.exit.addEventListener('mouseenter', this.playHoverSound)
+    this.ui.popin.addEventListener('mouseenter', this.playHoverSound)
+    this.ui.link.addEventListener('mouseenter', this.playHoverSound)
   }
 
   open() {
@@ -120,7 +124,9 @@ export default class Download {
 
     gif.render()
   }
-
+  playHoverSound() {
+    SoundManager.play('snowbox_generic_hover');
+  }
   updateAspectRatio() {
     // update image ratio
     const ratio = this.ui.canvas.offsetHeight / this.ui.canvas.offsetWidth * 100

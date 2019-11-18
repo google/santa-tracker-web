@@ -19,10 +19,12 @@ export default class CameraControls {
   events() {
     this.ui.zoomButtons.forEach(button => {
       button.addEventListener('click', this.onClickZoom)
+      button.addEventListener('mouseenter', this.playHoverSound)
     })
 
     this.ui.rotateButtons.forEach(button => {
       button.addEventListener('click', this.onClickRotate)
+      button.addEventListener('mouseenter', this.playHoverSound)
     })
   }
 
@@ -63,7 +65,9 @@ export default class CameraControls {
 
     this.pushButton(el, disable)
   }
-
+  playHoverSound() {
+    SoundManager.play('snowbox_generic_hover');
+  }
   pushButton(el, disable = false) {
     el.classList.add('is-clicked')
     setTimeout(() => {

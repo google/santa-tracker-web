@@ -4,26 +4,23 @@ class SoundManager {
     this.lastCollisionTime = 0;
 
     this.maxMassForShape = {
-      arch: 1280,
-      sphere:83.77,
-      tree:205,
-      cube: 514.78
+      arch: 850,
+      sphere:67,
+      tree:486,
+      cube: 411,
+      gift: 592,
+      pyramid: 536,
+      prism: 555,
+      snowman: 100,
+
     }
   }
 
   playCollisionSound(e) {
     const { force, type, mass, scale } = e.detail
-
-    
-    
-    
-    // let now = performance.now();
-    // if (now - this.lastCollisionTime > 50) { // needs to be removed and replace with throttle in higher function
-      let pitch = this.getPitch(type, mass);
-      let volume = Math.max(0, Math.min(1, (force - 0.5 ) / 3 ));
-      this.play("snowbox_collision", volume, pitch, mass > 40);
-      // this.lastCollisionTime = now;
-    // }
+    let pitch = this.getPitch(type, mass);
+    let volume = Math.max(0, Math.min(1, (force - 0.5 ) / 3 ));
+    this.play("snowbox_collision", volume, pitch, mass > 40);
   }
   getPitch(type, mass) {
     let maxMass = this.maxMassForShape[type] || 100;

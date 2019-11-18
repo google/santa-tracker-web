@@ -35,6 +35,7 @@ export default class ObjectEditTool {
     this.ui.colorIconButton.addEventListener('click', this.onClickColorIcon)
     this.ui.scaleButton.addEventListener('input', Scene.onScaleInput)
     this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
+    this.ui.trashButton.addEventListener('mouseenter', this.playHoverSound)
 
     this.ui.colorButtons.forEach(button => {
       button.addEventListener('click', Scene.colorObject)
@@ -43,6 +44,7 @@ export default class ObjectEditTool {
     this.ui.rotateButtons.forEach(button => {
       button.addEventListener('mousedown', this.onMouseDownRotate)
       button.addEventListener('mouseup', this.resetRotateButtons)
+      button.addEventListener('mouseenter', this.playHoverSound)
     })
 
     // custom events
@@ -105,7 +107,9 @@ export default class ObjectEditTool {
       SoundManager.play('snowbox_open_colors')
     }
   }
-
+  playHoverSound() {
+    SoundManager.play('snowbox_generic_hover');
+  }
   onMouseDownRotate(e) {
     clearInterval(this.resetRotateInterval)
 

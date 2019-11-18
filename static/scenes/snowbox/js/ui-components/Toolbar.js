@@ -21,13 +21,14 @@ export default class Toolbar {
   events() {
     this.ui.arrows.forEach(arrow => {
       arrow.addEventListener('mousedown', this.onArrowDown)
+      arrow.addEventListener('mouseenter', this.onArrowOver)
     })
 
     this.ui.items.forEach(item => {
       item.addEventListener('mousedown', this.onMouseDown)
 
       item.addEventListener('touchstart', this.onMouseDown)
-      item.addEventListener('mouseover', this.onMouseOver)
+      item.addEventListener('mouseenter', this.onMouseOver)
       item.addEventListener('mouseout', this.onMouseOut)
     })
   }
@@ -59,7 +60,9 @@ export default class Toolbar {
       button.addEventListener('mouseleave', mouseLeaveListener)
     }
   }
-
+  onArrowOver(e) {
+    SoundManager.play('snowbox_generic_hover');
+  }
   onArrowDown(e) {
     const el = e.currentTarget
     this.pushButton(el)
@@ -81,6 +84,8 @@ export default class Toolbar {
     this.ui.items.forEach(item => {
       item.style.transform = `translateX(${this.x}px)`
     })
+
+    SoundManager.play('generic_button_click');
   }
 
   pushButton(el, disable = false) {
