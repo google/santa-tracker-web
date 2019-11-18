@@ -1,19 +1,21 @@
 import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
+import * as config from '../core/config.js';
 import styles from './santa-cardnav.css';
 import {_static, _msg} from '../magic.js';
-import './santa-card.js';
+import {videos} from './santa-card.js';  // nb. and for element side-effect
 
 
 // TODO(samthor): pull from Remote Config
-const cards = 'codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox'.split(/\s+/g);
+const cards = 'selfies codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox'.split(/\s+/g);
 
 
 export class SantaCardNavElement extends LitElement {
   static get properties() {
     return {
       _cols: {type: Number},
+      _configNonce: {type: Object},
     };
   }
 
@@ -25,6 +27,7 @@ export class SantaCardNavElement extends LitElement {
     super();
 
     this._onWindowResize = this._onWindowResize.bind(this);
+    this._onConfigUpdate = this._onConfigUpdate.bind(this);
   }
 
   _onWindowResize() {
@@ -33,9 +36,14 @@ export class SantaCardNavElement extends LitElement {
     this._cols = Math.max(2, Math.min(6, Math.floor(width / itemSize)));  // put between 2-6 inclusive
   }
 
+  _onConfigUpdate(nonce) {
+    this._configNonce = nonce;
+  }
+
   connectedCallback() {
     super.connectedCallback();
 
+    config.listen(this._onConfigUpdate);
     window.addEventListener('resize', this._onWindowResize);
     this._onWindowResize();
   }
@@ -43,22 +51,20 @@ export class SantaCardNavElement extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback();
 
+    config.remove(this._onConfigUpdate);
     window.removeEventListener('resize', this._onWindowResize);
   }
 
   render() {
     let currentOrder = 0;
     const available = [];
+    const videos = config.videos();
 
     const cardHtml = cards.map((sceneName, i) => {
-      let locked = undefined;
+      const locked = config.lockedTo(sceneName);
 
-      const wide = false;  // TODO: videos are wide
+      const wide = videos.indexOf(sceneName) !== -1;
       const clazz = wide ? 'wide' : '';
-
-      if (Math.random() < 0.125) {
-        locked = ~~(Math.random() * 23) + 1;
-      }
 
       let order = currentOrder;
       if (wide) {
@@ -151,10 +157,13 @@ export class SantaCardNavElement extends LitElement {
 <div class="links">
 <ul>
   <li>
-    <a href="notices.html">Third-Party Notices</a>
+    <a href="familyguide.html">${_msg`scene_family`}</a>
   </li>
   <li>
     <a target="_blank" rel="noopener" href="https://policies.google.com/">${unsafeHTML(_msg`terms-and-privacy`)}</a>
+  </li>
+  <li>
+    <a href="notices.html">Third-Party Notices</a>
   </li>
 </ul>
 </div>

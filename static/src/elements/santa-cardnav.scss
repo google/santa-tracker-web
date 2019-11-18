@@ -21,6 +21,11 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
+  max-width: 1400px;
+  padding: 0 16px 32px;
+  margin: 0 auto;
+  // nb. this contains several "placeholder" elements so that the cards always
+  // left-align.
 }
 
 :host([hidden]) {

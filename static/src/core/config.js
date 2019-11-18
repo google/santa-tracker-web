@@ -11,6 +11,24 @@ const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
 const listeners = new Set();
 
+const memoized = {
+  'videos': null,
+  'sceneLock': null,
+};
+
+function refreshMemoized() {
+  for (const key in memoized) {
+    let cand;
+    try {
+      cand = JSON.parse(remoteConfig.getString(key));
+    } catch (e) {
+      continue;  // do nothing
+    }
+    memoized[key] = Object.freeze(cand);
+  }
+}
+refreshMemoized();
+
 function expontentialDelay(range, failures = 0) {
   return Math.pow(1.0 + (range * Math.random()), failures + 1) - (range / 2);
 }
@@ -64,7 +82,7 @@ function expontentialDelay(range, failures = 0) {
 /**
  * Adds a listener to the config.
  *
- * @param {function(): void} callback
+ * @param {function(!Object): void} callback
  */
 export function listen(callback) {
   listeners.add(callback);
@@ -72,11 +90,22 @@ export function listen(callback) {
 
 
 /**
+ * Removes a listener from the config.
+ *
+ * @param {function(!Object): void)} callback
+ */
+export function remove(callback) {
+  listeners.delete(callback);
+}
+
+
+/**
  * Notify all listeners that something has changed.
  */
 function notifyListeners() {
+  const nonce = new Object();
   listeners.forEach((listener) => {
-    Promise.resolve().then(() => listener());
+    Promise.resolve().then(() => listener(nonce));
   });
 }
 
@@ -115,6 +144,7 @@ export async function refresh(invalidateNow = false) {
   }
 
   await remoteConfig.fetchAndActivate();
+  refreshMemoized();
 
   // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
   notifyListeners();
@@ -161,13 +191,7 @@ export function sceneForRoute(route) {
  * @return {!Array<string>} video IDs
  */
 export function videos() {
-  let videos = [];
-  try {
-    videos = JSON.parse(remoteConfig.getString('videos'))
-  } catch (e) {
-    // ignore
-  }
-  return videos;
+  return memoized.videos;
 }
 
 
@@ -176,12 +200,8 @@ export function videos() {
  * @return {boolean} if locked
  */
 export function isLocked(route) {
-  let sceneLock = {};
-  try {
-    sceneLock = JSON.parse(remoteConfig.getString('sceneLock'))
-  } catch (e) {
-    // ignore
-  }
+  const {sceneLock} = memoized;
+
   if (!(route in sceneLock)) {
     return false;
   }
@@ -197,6 +217,19 @@ export function isLocked(route) {
     return false;  // nothing locked outside Nov-Dec
   }
   return value > today.getDate();
+}
+
+/**
+ * @param {string} route to return date locked until
+ * @return {number|undefined} date within Dec locked until (0 for always)
+ */
+export function lockedTo(route) {
+  if (!isLocked(route)) {
+    return undefined;
+  }
+
+  const {sceneLock} = memoized;
+  return sceneLock[route];
 }
 
 
