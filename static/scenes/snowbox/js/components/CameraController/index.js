@@ -88,7 +88,7 @@ class CameraController {
         if (type === 'on-touch') {
           this.targetAngle -= CONFIG.ROTATE.FORCE_ON_TOUCH
         } else {
-          this.targetAngle = type === 'wheel' ? -CONFIG.ROTATE.FORCE_ON_WHEEL : CONFIG.ROTATE.Y * coef
+          this.targetAngle = type === 'wheel' ? -CONFIG.ROTATE.FORCE_ON_WHEEL : -CONFIG.ROTATE.Y * coef
         }
         this.rotationY += this.targetAngle
         break
