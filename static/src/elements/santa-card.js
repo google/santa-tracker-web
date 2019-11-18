@@ -2,7 +2,6 @@ import {html, LitElement} from 'lit-element';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import styles from './santa-card.css';
 import scenes from '../strings/scenes.js';
-import * as config from '../core/config.js';
 import {_static, _msg} from '../magic.js';
 import {href} from '../scene/route.js';
 import './santa-card-player.js';
@@ -88,8 +87,8 @@ export class SantaCardElement extends LitElement {
     if (!isLocked) {
       let inner = html`<img />`;
 
-      // TODO(samthor): This isn't updated if changed remotely.
-      const videos = config.videos();
+      // FIXME: config.videos() is only available in prod frame.
+      const videos = [];
       if (videos.indexOf(this.scene) !== -1) {
         backgroundStyle += `; background-image: url(${assetRoot}/${this.scene}_2x.png)`;
       } else {

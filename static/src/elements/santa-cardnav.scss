@@ -213,6 +213,9 @@ footer {
     opacity: 0;
     cursor: pointer;
     z-index: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   select:hover + h3 span,

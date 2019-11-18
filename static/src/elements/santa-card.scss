@@ -121,11 +121,6 @@ santa-card-player {
   justify-content: center;
   flex-flow: column;
 
-  svg {
-    margin: 10px;
-    margin-top: -10px;
-  }
-
   h3 {
     font-family: 'Google Sans', 'Arial', sans-serif;
     font-size: 0.5em;
@@ -134,6 +129,7 @@ santa-card-player {
     text-transform: uppercase;
     color: #e53a35;
     margin: 0;
+    margin-top: 10px;
     font-weight: 500;
     letter-spacing: 0.165em;
 
