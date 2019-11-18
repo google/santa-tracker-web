@@ -76,26 +76,30 @@ class CameraController {
     switch (direction) {
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
-        if (type === 'on-touch') {
-          this.targetAngle += CONFIG.ROTATE.FORCE_ON_TOUCH
+        if (type === 'wheel') {
+          this.targetAngle = CONFIG.ROTATE.FORCE_ON_WHEEL
+        } else if (type === 'on-touch') {
+          this.targetAngle = CONFIG.ROTATE.FORCE_ON_TOUCH
         } else {
-          this.targetAngle = type === 'wheel' ? CONFIG.ROTATE.FORCE_ON_WHEEL : CONFIG.ROTATE.Y * coef
+          this.targetAngle = CONFIG.ROTATE.Y * coef
         }
         this.rotationY += this.targetAngle
         break
       case 'right':
         this.axis = new THREE.Vector3(0, 1, 0)
-        if (type === 'on-touch') {
-          this.targetAngle -= CONFIG.ROTATE.FORCE_ON_TOUCH
+        if (type === 'wheel') {
+          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_WHEEL
+        } else if (type === 'on-touch') {
+          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_TOUCH
         } else {
-          this.targetAngle = type === 'wheel' ? -CONFIG.ROTATE.FORCE_ON_WHEEL : -CONFIG.ROTATE.Y * coef
+          this.targetAngle = -CONFIG.ROTATE.Y * coef
         }
         this.rotationY += this.targetAngle
         break
       case 'top':
         this.axis = this.getPerpendicularXZAxisManually()
         if (type === 'on-touch') {
-          this.targetAngle -= CONFIG.ROTATE.FORCE_ON_TOUCH
+          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_TOUCH * coef
         } else {
           this.targetAngle = -CONFIG.ROTATE.XZ * coef
         }
@@ -108,7 +112,7 @@ class CameraController {
       case 'bottom':
         this.axis = this.getPerpendicularXZAxisManually()
         if (type === 'on-touch') {
-          this.targetAngle += CONFIG.ROTATE.FORCE_ON_TOUCH
+          this.targetAngle = CONFIG.ROTATE.FORCE_ON_TOUCH * coef
         } else {
           this.targetAngle = CONFIG.ROTATE.XZ * coef
         }
@@ -120,13 +124,11 @@ class CameraController {
         break
     }
 
-    if (type === 'wheel' || type === null) {
-      // get look at point
-      const intersects = this.getLookAtPointOnTerrain()
-      this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
-      this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
-      this.cameraPositionOrigin = this.camera.position.clone()
-    }
+    // get look at point
+    const intersects = this.getLookAtPointOnTerrain()
+    this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
+    this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
+    this.cameraPositionOrigin = this.camera.position.clone()
 
     if (type === 'wheel' || type === 'on-touch' || noAnimation) {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
