@@ -14,6 +14,7 @@ class Tree extends Obj {
     this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.collidable = CONFIG.COLLIDABLE
+    this.editable = false
     this.mass = CONFIG.MASS
     this.size = CONFIG.SIZE
     this.name = CONFIG.NAME

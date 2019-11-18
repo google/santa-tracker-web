@@ -15,6 +15,7 @@ class Object extends EventEmitter {
     this.world = world
 
     this.selectable = false
+    this.editable = true
     this.selected = false
     this.rotationY = 0
     this.rotationX = 0
@@ -327,19 +328,29 @@ class Object extends EventEmitter {
   }
 
   highlight() {
-    if (this.mesh && !this.mulipleMaterials) {
+    if (this.mesh) {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
-        child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+        if (this.mulipleMaterials) {
+          child.material.transparent = true
+          child.material.opacity = 0.8
+        } else {
+          child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+        }
       }
     }
   }
 
   unhighlight() {
-    if (this.mesh && !this.mulipleMaterials) {
+    if (this.mesh) {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
-        child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+        if (this.mulipleMaterials) {
+          child.material.transparent = false
+          child.material.opacity = 1
+        } else {
+          child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+        }
       }
     }
   }
@@ -370,6 +381,8 @@ class Object extends EventEmitter {
     const helperGeometry = new THREE.Geometry()
     helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
 
+    this.circles = new THREE.Object3D()
+
     // X Circle
     const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
     xCircle.rotation.x = toRadian(125) // rotations to make it looks like the mockup, for any updates use snowbox-gui-circles to help you
@@ -394,21 +407,24 @@ class Object extends EventEmitter {
     // Trash helper
     const trashHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     trashHelper.position.x = maxRadius * 1
-    trashHelper.position.y = maxRadius * 0.775
+    trashHelper.position.y = maxRadius * 0.775 - this.centerOffsetY * this.scaleFactor
     trashHelper.name = 'trash-helper'
 
     // Toolbar helper
     const toolbarHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
-    toolbarHelper.position.y = -(maxRadius + 1)
+    toolbarHelper.position.y = -(maxRadius * 1.85) - this.centerOffsetY * this.scaleFactor
     toolbarHelper.name = 'toolbar-helper'
     yCircle.add(toolbarHelper)
 
-    this.circles = new THREE.Object3D()
-    this.circles.add( xCircle )
-    this.circles.add( yCircle )
     this.circles.add( trashHelper )
 
-    this.updateRotatingCircle(zoom)
+    if (this.editable) {
+      this.circles.add( xCircle )
+      this.circles.add( yCircle )  
+      this.updateRotatingCircle(zoom)
+    } else {
+      this.circles.add(toolbarHelper)
+    }
 
     this.scene.add(this.circles)
   }
