@@ -4,24 +4,13 @@ $duration-sidebar: 0.25s;
 $duration-toolbar: 0.3s;
 $transition-toolbar: $duration-toolbar ease-in-out;
 
-// TODO(samthor): should be in shared?
-$order-sidebar: 100;
-$order-hider: 99;
-
 @keyframes santa-app__hide-nav {
   from { visibility: visible; pointer-events: none; }
     to { visibility: hidden; pointer-events: none; }
 }
 
 :host {
-  display: block;
   pointer-events: none;
-  z-index: $index-chrome;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .grow {
@@ -222,8 +211,9 @@ header.mini {
 }
 
 main {
+  z-index: $index-chrome;
   min-height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -233,20 +223,18 @@ main {
 }
 
 .sidebar {
-  z-index: $order-sidebar;
+  z-index: $index-sidebar;
   position: fixed;
   top: 0;
   overflow-y: auto;
   height: 100%;
   visibility: hidden;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);  // safari doesn't display outline
   width: 100vw;
-  // transform: translate(-100%);
-  // transition: transform $duration-sidebar ease-out;
-  // animation: santa-app__hide-nav $duration-sidebar step-end forwards;
+  transform: translateY(-100%);
+  transition: transform $duration-sidebar cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  animation: santa-app__hide-nav $duration-sidebar step-end forwards;
   pointer-events: none;
   will-change: transform;
-  // background: white;
 
   .sidebar-focuser {
     position: absolute;
@@ -285,8 +273,8 @@ main {
 }
 
 .hider {
+/*
   pointer-events: none;
-  z-index: $order-hider;
   display: block;
   position: fixed;
   top: 0;
@@ -296,7 +284,8 @@ main {
   background: rgba(0, 198, 237, 0.6);
   transition: opacity $duration-sidebar ease-in-out;
   will-change: opacity;
-  opacity: 0;
+  opacity: 0;*/
+  display: none !important;  // we're now fullscreen
 }
 
 input {

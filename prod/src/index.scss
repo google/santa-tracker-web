@@ -1,3 +1,4 @@
+@import '../../static/styles/shared';
 
 #loader {
   position: fixed;
@@ -49,7 +50,8 @@ $opacity-duration: 0.5s;
   justify-content: center;
   will-change: transform;
   transition: transform $transform-duration ease-in-out, opacity $opacity-duration $loader-appear-delay ease-in-out;
-  z-index: 100000;
+  z-index: ($index-interlude + 1);
+  pointer-events: none;
 
   u {
     transform: translateY(0);
@@ -77,6 +79,9 @@ $opacity-duration: 0.5s;
       background: #a8e9a2;
     }
   }
+}
+body:not(.loaded) .loader {
+  z-index: ($index-interlude-preload + 1);
 }
 body:not(.loading) .loader {
   transform: translateY(-100vh);

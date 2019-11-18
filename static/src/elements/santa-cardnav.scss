@@ -1,19 +1,8 @@
 
 $transition-duration: 0.2s;
 
-.reveal {
-  background: #4803b8;
-  width: 300vmax;
-  height: 300vmax;  // FIXME: not supported in IE11 (if we care)
-  margin-left: -150vmax;
-  margin-top: -150vmax;
-  top: 45px;
-  left: 75px;
-  z-index: -1;
-  transition: transform 0.4s cubic-bezier(.4, 0, 1, 1);
-  transform: scale(1);
-  border-radius: 300vmax;
-  position: fixed;
+#wrap {
+  background: rgba(72, 3, 184, 0.95);
 }
 
 main {
@@ -22,7 +11,7 @@ main {
   justify-content: center;
   align-content: flex-start;
   max-width: 1400px;
-  padding: 0 16px 32px;
+  padding: 0 0 32px;
   margin: 0 auto;
   // nb. this contains several "placeholder" elements so that the cards always
   // left-align.
