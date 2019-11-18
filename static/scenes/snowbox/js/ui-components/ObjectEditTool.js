@@ -36,6 +36,7 @@ export default class ObjectEditTool {
     this.ui.scaleButton.addEventListener('input', Scene.onScaleInput)
     this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
     this.ui.trashButton.addEventListener('mouseenter', this.playHoverSound)
+    window.addEventListener('resize', this.updatePosition)
 
     this.ui.colorButtons.forEach(button => {
       button.addEventListener('click', Scene.colorObject)

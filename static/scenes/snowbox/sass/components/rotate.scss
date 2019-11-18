@@ -12,6 +12,12 @@
     justify-content: center;
     width: $button-size;
     height: $button-size;
+    transform: translate(-3px, 0px);
+
+    @include respond-to(tablet) {
+      width: $button-size-tablet;
+      height: $button-size-tablet;
+    }
   }
 
   &__image {
@@ -20,8 +26,8 @@
 
   &__button {
     .button__icon {
-      width: 29px;
-      height: 25px;
+      width: 51%;
+      height: 44%;
     }
   }
 }

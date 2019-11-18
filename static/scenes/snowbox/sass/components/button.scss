@@ -7,6 +7,11 @@
   justify-content: center;
   align-items: center;
 
+  @include respond-to(tablet) {
+    width: $button-size-tablet;
+    height: $button-size-tablet;
+  }
+
   &:not(.is-disabled) {
     &:hover {
       .button__icon {
