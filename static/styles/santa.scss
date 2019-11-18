@@ -1,22 +1,57 @@
+@import 'shared';
+
 html {
-  background: #3ec4f0;
+  background: black;
+  overflow: hidden;
+  height: 100vh;
 }
 
 body {
-  min-width: 320px;
-  position: relative;
-  overflow-x: hidden;
-  font-family: 'Roboto', 'Arial', Sans-Serif;
-  font-size: 12px;
   margin: 0;
-  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow: auto;
+  touch-action: manipulation;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
   user-select: none;
+  -webkit-user-select: none;
+  background: #1a844b;
+
+  &[data-mode="android"] {
+    --color-bar: rgb(76, 175, 80);
+  }
 }
 
-santa-app {
-  min-height: 100vh;
-  width: 100vw;
+$loader-appear-delay: 3.5s;  // appear when loading 2nd time
+$transform-duration: 1.0s;   // should be < $loader-appear-delay
+$opacity-duration: 0.5s;
+
+.loader {
+  // nb. loader is mostly defined inline in prod/index.html
+  will-change: transform;
+  transition: transform $transform-duration ease-in-out, opacity $opacity-duration $loader-appear-delay ease-in-out;
+  z-index: ($index-interlude + 1);
+  pointer-events: none;
+}
+body:not(.loaded) .loader {
+  z-index: ($index-interlude-preload + 1);
+}
+body:not(.loading) .loader {
+  transform: translateY(-100vh);
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+
+santa-interlude {
+  z-index: $index-interlude;
+}
+
+body:not(.loaded) {
+  santa-interlude {
+    z-index: $index-interlude-preload;
+  }
 }

@@ -7,11 +7,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: $index-interlude-preload;
-}
-
-:host([data-loaded]) {
-  z-index: $index-interlude;
 }
 
 $animation-fade-duration: 0.5s;

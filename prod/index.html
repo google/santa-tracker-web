@@ -45,7 +45,47 @@
   <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="src/index.css" />
+  <style>
+@keyframes loader-move {
+  50% { transform: translateY(-100%); }
+}
+body {
+  background: #1a844b;
+  margin: 0;
+}
+.loader {
+  position: fixed;
+  top: 80%;
+  left: calc(50% - 160px);
+  width: 320px;
+  display: flex;
+  justify-content: center;
+}
+.loader u {
+  transform: translateY(0);
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  margin: 5px;
+  animation: loader-move 1.6s cubic-bezier(0.50, 0.1, 0.50, 1) infinite;
+}
+.loader u:nth-child(1) {
+  background: #9fceff;
+  animation-delay: -0.80s;
+}
+.loader u:nth-child(2) {
+  background: #ffb1b1;
+  animation-delay: -0.60s;
+}
+.loader u:nth-child(3) {
+  background: #fff173;
+  animation-delay: -0.40s;
+}
+.loader u:nth-child(4) {
+  animation-delay: -0.20s;
+  background: #a8e9a2;
+}
+  </style>
 
   <script async type="module" src="/loader.js"></script>
 </head>
