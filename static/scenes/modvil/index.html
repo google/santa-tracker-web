@@ -22,7 +22,7 @@ import {prepareAnimation} from '../../src/deps/lottie.js';
 
 
 api.preload.sounds('village_load_sounds');
-api.preload.sounds('elfmaker_load_sounds');  // TODO: for generic_button_click
+api.preload.sounds('generic_load_sounds');
 api.config({
   scroll: true,
   sound: ['music_start_village', 'village_start'],
@@ -92,9 +92,12 @@ async function prepare() {
         outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
         console.info(name, ratio, outputRatio);
       }
-
+      
       const frame = Math.min(frames, Math.max(0.0, frames * outputRatio));
       anim.goToAndStop(frame, true);
+
+      api.play('village_scroll', name, outputRatio);
+
     };
   });
   const done = await Promise.all(all);
