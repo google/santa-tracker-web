@@ -100,7 +100,7 @@ class Object extends EventEmitter {
     this.world.add(this.body)
 
     // listen collision of shape
-    this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
+    this.collide = throttle(this.onCollide, 100) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
   }
 
