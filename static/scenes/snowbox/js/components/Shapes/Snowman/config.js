@@ -7,5 +7,6 @@ export default {
   OBJ: './models/snowman.obj',
   WRL: './models/snowman.wrl',
   MAP: './models/snowman.jpg',
-  NORMAL_MAP: './models/snowman_normal.jpg'
+  NORMAL_MAP: './models/snowman_normal.jpg',
+  COLOR: 0xffffff,
 }

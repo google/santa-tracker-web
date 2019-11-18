@@ -26,7 +26,7 @@ class Snowman extends Obj {
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
-      color: GLOBAL_CONFIG.COLORS.ICE,
+      color: CONFIG.COLOR,
       shininess: GLOBAL_CONFIG.SHININESS,
       map,
       normalMap
