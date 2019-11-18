@@ -408,8 +408,8 @@ class Scene extends EventEmitter {
       this.addingShape !== currentTargetedElement &&
       currentTargetedElement.parentElement != this.addingShape
     ) {
-      const { addShape, shapeMaterial } = this.addingShape.dataset
-      this.addShape(addShape, shapeMaterial)
+      const { toolbarShape, shapeMaterial } = this.addingShape.dataset
+      this.addShape(toolbarShape, shapeMaterial)
       this.addingShape = false
     }
 
@@ -441,7 +441,7 @@ class Scene extends EventEmitter {
     if (this.activeSubject) {
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
-        if (this.activeSubject.name === 'gift') { 
+        if (this.activeSubject.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
             child.material.color = new THREE.Color(el.dataset.colorObject)
@@ -643,9 +643,15 @@ class Scene extends EventEmitter {
     }
   }
 
-  getObjectsList() {
+  getObjectsList(collidable = false) {
     return this.sceneSubjects
-      .filter(subject => subject.selectable)
+      .filter(subject => {
+        if (collidable) {
+          return subject.selectable || subject.collidable
+        } else {
+          return subject.selectable
+        }
+      })
       .map(subject => subject.mesh)
       .filter(object => object)
   }
@@ -697,7 +703,7 @@ class Scene extends EventEmitter {
     // if (this.mode === 'edit') return; // stop on edit
     // const { box } = this.selectedSubject
     let box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
-    const objects = this.getObjectsList().filter(subject => subject !== this.selectedSubject.mesh)
+    const objects = this.getObjectsList(true).filter(subject => subject !== this.selectedSubject.mesh)
     const sizeY = box.max.y - box.min.y // get size of current object in Y
     // go boxHelper is equal to the ground position of the current box
     const boxHelper = new THREE.Box3().copy(box)
@@ -730,7 +736,7 @@ class Scene extends EventEmitter {
         // if no more collision, move up the object (update moveOffset)
         this.moveOffset.y = boxHelper.min.y
         if (isEditing) {
-          
+
           // move ghost
           this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
           box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)

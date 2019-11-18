@@ -187,7 +187,7 @@ class Mountain {
     body.position.z = mesh.position.z
     this.world.addBody(body)
 
-    const subject = { body, mesh, box, selectable: false, collidable: true }
+    const subject = { body, mesh: board, selectable: false, collidable: true }
 
     this.sceneSubjects.push(subject)
   }
