@@ -65,7 +65,7 @@ class Tree extends Obj {
     // Compound
     const s = this.size * scale
 
-    const cone = new CANNON.Cylinder(0, 0.4 * s, 1.5 * s, 10 * s)
+    const cone = new CANNON.Cylinder(0, 0.4 * s, 1.5 * s, 13)
     const coneOffset = new CANNON.Vec3( 0, 1.8 * s, 0)
 
     const cylinder = new CANNON.Cylinder(0.08 * s, 0.08 * s, 0.6 * s, 10)

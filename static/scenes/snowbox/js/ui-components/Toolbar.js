@@ -6,19 +6,29 @@ export default class Toolbar {
     this.el = el
 
     this.ui = {
-      buttons: [...this.el.querySelectorAll('[data-add-shape]')],
+      items: [...this.el.querySelectorAll('[data-toolbar-shape]')],
+      arrows: [...this.el.querySelectorAll('[data-toolbar-arrow]')],
     }
+
+    this.currentIndex = 0
+    this.x = 0
+
+    this.onArrowDown = this.onArrowDown.bind(this)
 
     this.events()
   }
 
   events() {
-    this.ui.buttons.forEach(button => {
-      button.addEventListener('mousedown', this.onMouseDown)
+    this.ui.arrows.forEach(arrow => {
+      arrow.addEventListener('mousedown', this.onArrowDown)
+    })
 
-      button.addEventListener('touchstart', this.onMouseDown)
-      button.addEventListener('mouseover', this.onMouseOver)
-      button.addEventListener('mouseout', this.onMouseOut)
+    this.ui.items.forEach(item => {
+      item.addEventListener('mousedown', this.onMouseDown)
+
+      item.addEventListener('touchstart', this.onMouseDown)
+      item.addEventListener('mouseover', this.onMouseOver)
+      item.addEventListener('mouseout', this.onMouseOut)
     })
   }
 
@@ -38,8 +48,8 @@ export default class Toolbar {
 
     const mouseLeaveListener = () => {
       e.preventDefault()
-      const { addShape, shapeMaterial } = button.dataset
-      Scene.addShape(addShape, shapeMaterial)
+      const { toolbarShape, shapeMaterial } = button.dataset
+      Scene.addShape(toolbarShape, shapeMaterial)
       button.removeEventListener('mouseleave', mouseLeaveListener)
     }
 
@@ -48,6 +58,39 @@ export default class Toolbar {
     } else {
       button.addEventListener('mouseleave', mouseLeaveListener)
     }
+  }
+
+  onArrowDown(e) {
+    const el = e.currentTarget
+    this.pushButton(el)
+    const { toolbarArrow } = el.dataset
+    let index = this.currentIndex
+    let direction = 1
+
+    if (toolbarArrow === 'left') {
+      direction = -1
+      index -= 1
+    }
+
+    if (index < 0 || index === this.ui.items.length - 1 ) return
+
+    this.x += this.ui.items[index].offsetWidth * -direction
+
+    this.currentIndex += direction
+
+    this.ui.items.forEach(item => {
+      item.style.transform = `translateX(${this.x}px)`
+    })
+  }
+
+  pushButton(el, disable = false) {
+    el.classList.add('is-clicked')
+    setTimeout(() => {
+      el.classList.remove('is-clicked')
+      if (disable) {
+        el.classList.add('is-disabled')
+      }
+    }, 200)
   }
 }
 

@@ -198,6 +198,12 @@
           box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray;
         }
       }
+
+      &.is-clicked {
+        &::before {
+          box-shadow: 0px 0px .01px $color-gray, 0px 0px .01px $color-gray;
+        }
+      }
     }
   }
 
