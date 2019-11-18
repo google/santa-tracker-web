@@ -27,7 +27,7 @@ button {
   padding: 0;
   border-radius: 20000px;
   position: relative;
-  border: 0;
+  border: 2px solid transparent;
   cursor: pointer;
   color: white;
   &[hidden] {
@@ -48,9 +48,18 @@ button {
 
   fill: white;  // for svg
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &:active {
     transition-duration: $duration-in;
     transform: translate(0, 0);
+  }
+
+  &:focus {
+    border-color: rgba(0, 0, 0, 0.33);
+    outline: none;
   }
 
   &.yellow {

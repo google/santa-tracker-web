@@ -126,7 +126,6 @@ window.addEventListener('game-restart', (e) => {
 }, true);
 
 global.subscribe((state) => {
-  chromeElement.mini = state.mini;
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
@@ -361,7 +360,6 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   chromeElement.navOpen = false;
 
   global.setState({
-    mini: true,
     control: null,
     sceneHasPause: false,
     score: {},
@@ -450,7 +448,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     interludeElement.removeAttribute('active');
 
     global.setState({
-      mini: !config.scroll,
       sceneOrientation: config.orientation || null,
       sceneHasPause: Boolean(config.pause),
       control,
