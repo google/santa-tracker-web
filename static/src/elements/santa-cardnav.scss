@@ -81,11 +81,6 @@ santa-card {
   }
 }
 
-footer {
-  background: #3a068d;
-  min-height: 200px;
-}
-
 header {
   display: flex;
   min-height: 200px;
@@ -151,5 +146,97 @@ a.linkwrap {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+/** footer and links */
+
+footer {
+  background: #3a068d;
+  color: white;
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  font-size: 24px;
+  padding: 48px 64px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px - 1px) {
+    padding: 24px 32px;
+    font-size: 16px;
+  }
+
+  .grow {
+    flex-grow: 1;
+  }
+
+  h3 {
+    letter-spacing: 0.165em;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    line-height: 1.28em;
+    color: rgba(255, 255, 255, 0.7);
+
+    span {
+      color: white;
+      min-width: 14ch;
+    }
+  }
+
+  svg {
+    float: right;
+    height: 120px;
+
+    @media (max-width: 768px - 1px) {
+      height: 80px;
+    }
+  }
+}
+
+.lang {
+  position: relative;
+  display: inline-block;
+
+  select {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  select:hover + h3 span,
+  select:focus + h3 span {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+
+  li {
+    margin: 0;
+    padding: 0;
+    margin: 0.5em 0;
+
+    a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        text-decoration: underline;
+      }
+    }
   }
 }
