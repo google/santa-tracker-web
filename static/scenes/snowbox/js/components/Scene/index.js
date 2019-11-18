@@ -392,8 +392,6 @@ class Scene extends EventEmitter {
     if (this.selectedSubject && this.mode === 'move') {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
-    } else {
-      this.setMode()
     }
 
     this.mouseState = 'up'

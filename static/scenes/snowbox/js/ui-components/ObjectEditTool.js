@@ -1,5 +1,6 @@
 import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
+import isTouchDevice from '../utils/isTouchDevice.js'
 
 export default class ObjectEditTool {
   constructor(el) {
@@ -17,6 +18,11 @@ export default class ObjectEditTool {
       trashButton: this.el.querySelector('[data-trash-object]'),
     }
 
+    this.resetRotateTimeout = {}
+    this.rotateIntervals = {}
+
+    this.isTouchDevice = isTouchDevice()
+
     this.bind()
     this.hide()
     this.events()
@@ -32,20 +38,36 @@ export default class ObjectEditTool {
   }
 
   events() {
-    this.ui.colorIconButton.addEventListener('click', this.onClickColorIcon)
+    if (this.isTouchDevice) {
+      this.ui.colorIconButton.addEventListener('touchstart', this.onClickColorIcon)
+      this.ui.trashButton.addEventListener('touchstart', this.deleteObject)
+    } else {
+      this.ui.colorIconButton.addEventListener('click', this.onClickColorIcon)
+      this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
+      this.ui.trashButton.addEventListener('mouseenter', this.playHoverSound)
+    }
+
     this.ui.scaleButton.addEventListener('input', Scene.onScaleInput)
-    this.ui.trashButton.addEventListener('mousedown', this.deleteObject)
-    this.ui.trashButton.addEventListener('mouseenter', this.playHoverSound)
+
     window.addEventListener('resize', this.updatePosition)
 
     this.ui.colorButtons.forEach(button => {
-      button.addEventListener('click', Scene.colorObject)
+      if (this.isTouchDevice) {
+        button.addEventListener('touchstart', Scene.colorObject)
+      } else {
+        button.addEventListener('click', Scene.colorObject)
+      }
     })
 
     this.ui.rotateButtons.forEach(button => {
-      button.addEventListener('mousedown', this.onMouseDownRotate)
-      button.addEventListener('mouseup', this.resetRotateButtons)
-      button.addEventListener('mouseenter', this.playHoverSound)
+      if (this.isTouchDevice) {
+        button.addEventListener('touchstart', this.onMouseDownRotate)
+        button.addEventListener('touchend', this.resetRotateButtons)
+      } else {
+        button.addEventListener('mousedown', this.onMouseDownRotate)
+        button.addEventListener('mouseup', this.resetRotateButtons)
+        button.addEventListener('mouseenter', this.playHoverSound)
+      }
     })
 
     // custom events
@@ -112,23 +134,25 @@ export default class ObjectEditTool {
     SoundManager.play('snowbox_generic_hover');
   }
   onMouseDownRotate(e) {
-    clearInterval(this.resetRotateInterval)
+    this.ui.rotateButtons.forEach(button => {
+      clearInterval(this.rotateIntervals[button])
+      clearTimeout(this.resetRotateTimeout[button])
+    })
 
     const el = e.currentTarget
     Scene.rotateObject(el)
 
     el.classList.add('is-clicked')
 
-    this.rotateInterval = setInterval(() => {
+    this.rotateIntervals[el] = setInterval(() => {
       Scene.rotateObject(el)
     }, 200)
   }
 
   resetRotateButtons() {
-    clearInterval(this.rotateInterval)
-
     this.ui.rotateButtons.forEach(button => {
-      this.resetRotateInterval = setTimeout(() => {
+      clearInterval(this.rotateIntervals[button])
+      this.resetRotateTimeout[button] = setTimeout(() => {
         button.classList.remove('is-clicked')
       }, 200)
     })
