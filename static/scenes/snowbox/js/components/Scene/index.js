@@ -440,8 +440,14 @@ class Scene extends EventEmitter {
     if (this.activeSubject) {
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
-        child.material.color = new THREE.Color(el.dataset.colorObject)
-        child.material.needsUpdate = true
+        if (this.activeSubject.name === 'gift') { 
+          // only change the last material color for gifts
+          if (i === 4) {
+            child.material.color = new THREE.Color(el.dataset.colorObject)
+          }
+        } else {
+          child.material.color = new THREE.Color(el.dataset.colorObject)
+        }
       }
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
