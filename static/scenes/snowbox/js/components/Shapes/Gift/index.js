@@ -5,7 +5,7 @@ import LoaderManager from '../../../managers/LoaderManager.js'
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
-class Cube extends Obj {
+class Gift extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
@@ -18,25 +18,37 @@ class Cube extends Obj {
     this.name = CONFIG.NAME
     this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
+    this.mulipleMaterials = true
   }
 
   init() {
-    const { obj, normalMap } = LoaderManager.subjects[this.name]
+    const { obj } = LoaderManager.subjects[this.name]
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
-      color: GLOBAL_CONFIG.COLORS.ICE,
+      color: CONFIG.COLORS[0],
       shininess: GLOBAL_CONFIG.SHININESS,
-      normalMap
     })
     defaultMaterial.needsUpdate = true
 
+    const secondMaterial = new THREE.MeshToonMaterial({
+      color: CONFIG.COLORS[1],
+      shininess: GLOBAL_CONFIG.SHININESS,
+    })
+
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
-      geometry.center()
+
+      let material
+      if (i !== 4 ) {
+        material = defaultMaterial
+      } else {
+        material = secondMaterial
+      }
+
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material
       })
     }
 
@@ -48,8 +60,10 @@ class Cube extends Obj {
       new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
     )
 
-    this.body.addShape(shape)
+    const offset = new CANNON.Vec3(-0.09 * scale, -0.015 * scale, 0.05 * scale)
+
+    this.body.addShape(shape, offset)
   }
 }
 
-export default Cube
+export default Gift

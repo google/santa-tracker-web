@@ -1,101 +1,95 @@
 import Obj from '../index.js'
+import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
-const textureLoader = new THREE.TextureLoader()
-const normalMap = textureLoader.load('./models/1_cube.jpg')
-
 class Pyramid extends Obj {
-  constructor(scene, world) {
+  constructor(scene, world, material) {
     // Physics
     super(scene, world)
 
+    // Props
+    this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
+    this.rotationY = CONFIG.ROTATION_Y
+    this.size = CONFIG.SIZE
+    this.name = CONFIG.NAME
+    // this.normalMap = CONFIG.NORMAL_MAP
+    this.obj = CONFIG.OBJ
+    this.wrl = CONFIG.WRL
+    this.scaleFactor = 1
+  }
 
-    // Graphics
-    const pyramidGeo = this.getThreeGeo()
-    const pyramidMaterial = new THREE.MeshToonMaterial({
+  init() {
+    const { obj, normalMap } = LoaderManager.subjects[this.name]
+
+    // Materials
+    const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
-      shininess: 345,
+      shininess: GLOBAL_CONFIG.SHININESS,
       normalMap
     })
+    defaultMaterial.needsUpdate = true
 
-    pyramidMaterial.needsUpdate = true
-    this.defaultMaterial = pyramidMaterial
-    this.mesh = new THREE.Mesh(pyramidGeo, pyramidMaterial)
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      this.geoMats.push({
+        geometry,
+        material: defaultMaterial
+      })
+    }
 
-    const shape = this.getCannonShape(pyramidGeo)
-    this.body = new CANNON.Body({ mass: CONFIG.MASS, shape, fixedRotation: true })
-    this.body.position.set(-0.5, 5, -0.5)
-
-    this.addToScene()
-    this.select()
+    this.setShape(defaultMaterial)
   }
 
-  getThreeGeo() {
-    const geo = new THREE.Geometry()
-    const vertices = this.getVertices()
-    geo.vertices = vertices
-    geo.faces = this.getFaces()
-    geo.computeBoundingSphere()
-    geo.computeFaceNormals()
-    return geo
+  createShapes(scale = 1) {
+    // compound
+    const s = this.size * scale
+    const offset = new CANNON.Vec3(0, -0.5 * s, 0)
+    const axisRotation = new THREE.Vector3( 0, 1, 0 )
+    const tetras = [{
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI * 3 / 4 ),
+    }, {
+      shape: this.createTetraShape(s),
+      offset,
+      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI * 3 / 4 ),
+    }]
+
+    tetras.forEach(tetra => {
+      const { shape, offset, quaternion } = tetra
+      this.body.addShape(shape, offset, quaternion)
+    })
   }
 
-  getVertices() {
-    return [
-      new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(CONFIG.SIZE * this.scaleFactor, 0, 0),
-      new THREE.Vector3(CONFIG.SIZE * this.scaleFactor, 0, CONFIG.SIZE * this.scaleFactor),
-      new THREE.Vector3(0, 0, CONFIG.SIZE * this.scaleFactor),
-      new THREE.Vector3(
-        (CONFIG.SIZE / 2) * this.scaleFactor,
-        CONFIG.SIZE * this.scaleFactor,
-        (CONFIG.SIZE / 2) * this.scaleFactor
-      )
+  createTetraShape(s) {
+    const verts = [
+      new CANNON.Vec3(0, 0, 0),
+      new CANNON.Vec3(0.73 * s, 0, 0),
+      new CANNON.Vec3(0, 1 * s, 0),
+      new CANNON.Vec3(0, 0, 0.73 * s)
     ]
-  }
 
-  getFaces() {
-    return [
-      new THREE.Face3(0, 1, 2),
-      new THREE.Face3(0, 2, 3),
-      new THREE.Face3(1, 0, 4),
-      new THREE.Face3(2, 1, 4),
-      new THREE.Face3(3, 2, 4),
-      new THREE.Face3(0, 3, 4)
+    const faces = [
+      [0,3,2], // -x
+      [0,1,3], // -y
+      [0,2,1], // -z
+      [1,2,3], // +xyz
     ]
-  }
 
-  getCannonShape(geometry) {
-    const vertices = []
-    const faces = []
-
-    for (let i = 0; i < geometry.vertices.length; i++) {
-      const v = geometry.vertices[i]
-      vertices.push(new CANNON.Vec3(v.x, v.y, v.z))
-    }
-
-    for (let i = 0; i < geometry.faces.length; i++) {
-      const f = geometry.faces[i]
-      faces.push([f.a, f.b, f.c])
-    }
-
-    return new CANNON.ConvexPolyhedron(vertices, faces)
-  }
-
-  scaleBody() {
-    const shape = this.body.shapes[0]
-    for (let i = 0; i < shape.vertices.length; i++) {
-      const v = shape.vertices[i]
-      v.scale(this.scaleFactor)
-    }
-    this.body.mass = CONFIG.MASS * Math.pow(CONFIG.SIZE * this.scaleFactor, 3)
-    this.body.computeAABB()
-    this.body.updateMassProperties()
+    return new CANNON.ConvexPolyhedron(verts, faces)
   }
 }
 

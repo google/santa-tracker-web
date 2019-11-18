@@ -5,7 +5,7 @@ import LoaderManager from '../../../managers/LoaderManager.js'
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
-class Cube extends Obj {
+class Snowman extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
@@ -13,27 +13,28 @@ class Cube extends Obj {
     // Props
     this.material = material
     this.selectable = CONFIG.SELECTABLE
+    this.collidable = CONFIG.COLLIDABLE
     this.mass = CONFIG.MASS
     this.size = CONFIG.SIZE
     this.name = CONFIG.NAME
-    this.normalMap = CONFIG.NORMAL_MAP
+    // this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
   }
 
   init() {
-    const { obj, normalMap } = LoaderManager.subjects[this.name]
+    const { obj, normalMap, map } = LoaderManager.subjects[this.name]
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: GLOBAL_CONFIG.SHININESS,
+      map,
       normalMap
     })
     defaultMaterial.needsUpdate = true
 
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
-      geometry.center()
       this.geoMats.push({
         geometry,
         material: defaultMaterial
@@ -44,12 +45,19 @@ class Cube extends Obj {
   }
 
   createShapes(scale = 1) {
-    const shape = new CANNON.Box(
-      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
-    )
+    // Compound
+    const s = this.size * scale
 
-    this.body.addShape(shape)
+    const sphere = new CANNON.Sphere(0.5 * s)
+    const cone = new CANNON.Cylinder(0, 0.1 * s, 0.45 * s, 10 * s)
+
+    const coneOffset = new CANNON.Vec3( 0.7 * s, 0, 0)
+    const coneQuaternion = new THREE.Quaternion()
+    coneQuaternion.setFromAxisAngle( new THREE.Vector3( 0, 1, 0 ), Math.PI / 2 )
+
+    this.body.addShape(sphere)
+    this.body.addShape(cone, coneOffset, coneQuaternion)
   }
 }
 
-export default Cube
+export default Snowman

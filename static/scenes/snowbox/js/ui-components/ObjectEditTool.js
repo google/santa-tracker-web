@@ -63,6 +63,9 @@ export default class ObjectEditTool {
   show() {
     this.el.style.display = 'block'
     this.state = 'is-showed'
+    if (!Scene.activeSubject.editable) {
+      this.el.classList.add('not-editable')
+    }
   }
 
   hide() {
@@ -70,17 +73,21 @@ export default class ObjectEditTool {
     this.ui.colorIconButton.classList.remove('is-open')
     this.el.style.display = 'none'
     this.state = 'is-hidden'
+    this.el.classList.remove('not-editable')
   }
 
   updatePosition() {
     if (this.state === 'is-hidden') return
-    const xArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
-    const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
-    this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-    const yArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-y' )
-    const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
-    this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+    if (Scene.activeSubject.editable) {
+      const xArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+      const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
+      this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
+
+      const yArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-y' )
+      const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
+      this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+    }
 
     const trashHelper = Scene.scene.getObjectByName( 'trash-helper' )
     const trashHelperPos = Scene.getScreenPosition(trashHelper)

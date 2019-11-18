@@ -5,7 +5,7 @@ import LoaderManager from '../../../managers/LoaderManager.js'
 import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
-class Cube extends Obj {
+class QuarterCircle extends Obj {
   constructor(scene, world, material) {
     // Physics
     super(scene, world)
@@ -14,14 +14,20 @@ class Cube extends Obj {
     this.material = material
     this.selectable = CONFIG.SELECTABLE
     this.mass = CONFIG.MASS
+    this.rotationY = CONFIG.ROTATION_Y
     this.size = CONFIG.SIZE
     this.name = CONFIG.NAME
-    this.normalMap = CONFIG.NORMAL_MAP
+    // this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
+    this.wrl = CONFIG.WRL
   }
 
   init() {
-    const { obj, normalMap } = LoaderManager.subjects[this.name]
+    const { obj, wrl, normalMap } = LoaderManager.subjects[this.name]
+
+    // Collision model
+    this.collisionModel = wrl
+    console.log(obj, wrl)
 
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
@@ -33,7 +39,6 @@ class Cube extends Obj {
 
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
-      geometry.center()
       this.geoMats.push({
         geometry,
         material: defaultMaterial
@@ -44,12 +49,9 @@ class Cube extends Obj {
   }
 
   createShapes(scale = 1) {
-    const shape = new CANNON.Box(
-      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
-    )
-
-    this.body.addShape(shape)
+    this.createShapesFromWRL(this.collisionModel, scale)
+    // this.createShapesFromOBJ(this.geometry, scale)
   }
 }
 
-export default Cube
+export default QuarterCircle

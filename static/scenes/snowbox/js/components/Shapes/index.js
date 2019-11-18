@@ -15,12 +15,15 @@ class Object extends EventEmitter {
     this.world = world
 
     this.selectable = false
+    this.editable = true
     this.selected = false
     this.rotationY = 0
     this.rotationX = 0
     this.scaleFactor = 1
     this.scaleIndex = 0
     this.isMoving = false
+    this.geoMats = []
+    this.centerOffsetY = 0
 
     if (this.init) {
       this.init = this.init.bind(this)
@@ -50,41 +53,141 @@ class Object extends EventEmitter {
       ghost: ghostMaterial
     }
 
-    // CANNON JS
-    const shape = this.createShape()
-    this.body = new CANNON.Body({
-      mass: this.mass,
-      shape,
-      fixedRotation: false,
-      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
-    })
-    this.currentMass = this.mass
-    this.body.position.set(-this.size / 2, 100, -this.size / 2) // y: 100 to prevent the body to interact with anything in the scene
-    this.world.add(this.body)
-
     // Mesh
-    this.mesh = new THREE.Mesh(this.geometry, this.materials.default)
+    // Create mesh from obj
+    this.mesh = new THREE.Object3D()
+    for (let i = 0; i < this.geoMats.length; i++) {
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.geoMats[i].material)
+      this.geoMats[i].geometry.computeBoundingBox()
+      this.mesh.add(mesh)
+    }
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
     this.mesh.updateMatrix()
-    this.mesh.position.copy(this.body.position)
-    this.mesh.geometry.computeBoundingBox()
+    this.mesh.position.set(0, 100, 0) // y: 100 to prevent the body to interact with anything in the scene
+    if (this.rotationY) {
+      this.mesh.rotation.y = this.rotationY
+    }
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
+    this.defaultMeshScale = this.mesh.scale.clone()
     this.scene.add(this.mesh)
 
-    // box
-    this.box = this.mesh.geometry.boundingBox.clone()
-    this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
-
-    this.defaultMeshScale = this.mesh.scale.clone()
+    // CANNON JS
+    this.createBody()
 
     if (this.callback) {
       this.callback(this)
     }
+  }
+
+  createBody() {
+    if (this.body) { // reset body
+      this.body.removeEventListener('collide', this.collide)
+      this.body.shapes = []
+      this.world.remove(this.body)
+    }
+
+    this.body = new CANNON.Body({
+      mass: this.mass,
+      fixedRotation: false,
+      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+    })
+
+    this.createShapes(this.scaleFactor)
+    this.currentMass = this.mass
+    this.body.position.copy(this.mesh.position)
+    this.body.quaternion.copy(this.mesh.quaternion)
+    this.world.add(this.body)
 
     // listen collision of shape
     this.collide = throttle(this.onCollide, 0) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
+  }
+
+  createShapesFromWRL(models, scale) {
+    for (let i = 0; i < models.length; i++) {
+      const model = models[i]
+      const vertices = []
+      const faces = []
+
+      for (let i = 0; i < model.vertices.length; i += 3) {
+        vertices.push( new CANNON.Vec3(model.vertices[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
+      }
+
+      for (let i = 0; i < model.faces.length; i += 3) {
+        faces.push([model.faces[i], model.faces[i + 1], model.faces[i + 2]])
+      }
+
+      const shape = new CANNON.ConvexPolyhedron(vertices, faces)
+      this.body.addShape(shape)
+    }
+  }
+
+  createShapesFromOBJ(obj, scale) {
+    const model = obj.attributes
+    const vertices = []
+    const faces = []
+
+    for (let i = 0; i < model.position.array.length; i += 3) {
+      vertices.push( new CANNON.Vec3(model.position.array[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
+    }
+
+    for (let i = 0; i < model.normal.array.length; i += 3) {
+      faces.push([model.normal.array[i], model.normal.array[i + 1], model.normal.array[i + 2]])
+    }
+
+    // getVertices() {
+    //   const s = this.size * this.scaleFactor
+    //   return [
+    //     new THREE.Vector3(0, 0, 0), // left 0
+    //     new THREE.Vector3(s, 0, 0), // right 0
+    //     new THREE.Vector3(s, 0, s), // right z1
+    //     new THREE.Vector3(0, 0, s), // left z1
+    //     new THREE.Vector3(s * 0.5, s, s * 0.5) // sommet
+    //   ]
+    // }
+
+    // getFaces() {
+    //   return [
+    //     new THREE.Face3(0, 1, 3),
+    //     new THREE.Face3(3, 1, 2),
+    //     new THREE.Face3(1, 0, 4),
+    //     new THREE.Face3(2, 1, 4),
+    //     new THREE.Face3(3, 2, 4),
+    //     new THREE.Face3(0, 3, 4)
+    //   ]
+    // }
+
+    // getCannonShape(geometry) {
+    //   const vertices = []
+    //   const faces = []
+
+    //   for (let i = 0; i < geometry.vertices.length; i++) {
+    //     const v = geometry.vertices[i]
+    //     vertices.push(new CANNON.Vec3(v.x, v.y, v.z))
+    //   }
+
+    //   for (let i = 0; i < geometry.faces.length; i++) {
+    //     const f = geometry.faces[i]
+    //     faces.push([f.a, f.b, f.c])
+    //   }
+
+    //   return new CANNON.ConvexPolyhedron(vertices, faces)
+    // }
+
+    // getThreeGeo() {
+    //   const geo = new THREE.Geometry()
+    //   const vertices = this.getVertices()
+    //   geo.vertices = vertices
+    //   geo.faces = this.getFaces()
+    //   geo.computeBoundingSphere()
+    //   geo.computeFaceNormals()
+    //   return geo
+    // }
+
+    console.log(vertices, faces)
+    const shape = new CANNON.ConvexPolyhedron(vertices, faces)
+    this.body.addShape(shape)
   }
 
   onCollide(e) {
@@ -122,7 +225,7 @@ class Object extends EventEmitter {
 
       if (this.moveToGhost) {
         if (this.mesh && !this.mesh.visible) {
-          this.mesh.visible
+          this.mesh.visible = true
         }
       }
 
@@ -153,14 +256,6 @@ class Object extends EventEmitter {
       }
       if (this.yCircle) {
         this.yCircle.position.copy(this.ghost ? this.ghost.position : this.mesh.position)
-      }
-
-      if (this.ghost) {
-        this.ghost.updateMatrixWorld(true)
-        this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
-      } else {
-        this.mesh.updateMatrixWorld(true)
-        this.box.copy(this.mesh.geometry.boundingBox).applyMatrix4(this.mesh.matrixWorld)
       }
 
       if (CONFIG.DEBUG) {
@@ -205,10 +300,7 @@ class Object extends EventEmitter {
       z = zNew
     }
 
-    this.ghost.position.set(x, y, z)
-
-    this.ghost.updateMatrixWorld(true)
-    this.box.copy(this.ghost.geometry.boundingBox).applyMatrix4(this.ghost.matrixWorld)
+    this.ghost.position.set(x, y + this.centerOffsetY * this.scaleFactor, z) // offset center of rotation for trees
   }
 
   scale(value) {
@@ -219,59 +311,77 @@ class Object extends EventEmitter {
       this.defaultMeshScale.z * scaleFactor
     )
     this.scaleFactor = scaleFactor
+    this.mesh.scale.copy(this.ghost.scale)
   }
 
-  scaleBody() {
-    this.body.shapes = []
-    const shape = this.createShape(this.scaleFactor)
-    this.body.addShape(shape)
-    const mass = 10 * shape.volume()
+  updateBody() {
+    this.createBody()
+    let shapeVolume = 0
+    for (let i = 0; i < this.body.shapes.length; i++) {
+      shapeVolume += this.body.shapes[i].volume()
+    }
+
+    const mass = 8 * shapeVolume
     this.body.invMass = mass
     this.currentMass = mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
     this.body.updateMassProperties()
-    // console.log(mass)
   }
 
   highlight() {
     if (this.mesh) {
-      this.mesh.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+      for (let i = 0; i < this.mesh.children.length; i++) {
+        const child = this.mesh.children[i]
+        if (this.mulipleMaterials) {
+          child.material.transparent = true
+          child.material.opacity = 0.8
+        } else {
+          child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+        }
+      }
     }
   }
 
   unhighlight() {
     if (this.mesh) {
-      this.mesh.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+      for (let i = 0; i < this.mesh.children.length; i++) {
+        const child = this.mesh.children[i]
+        if (this.mulipleMaterials) {
+          child.material.transparent = false
+          child.material.opacity = 1
+        } else {
+          child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+        }
+      }
     }
   }
 
   createGhost() {
     const { geometry, position, quaternion, scale } = this.mesh
 
-    this.ghost = new THREE.Mesh(geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+    this.ghost = new THREE.Object3D()
+
+    for (let i = 0; i < this.geoMats.length; i++) {
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+      this.ghost.add(mesh)
+    }
+
     this.ghost.position.copy(position)
     this.ghost.quaternion.copy(quaternion)
     this.ghost.scale.copy(scale)
     this.scene.add(this.ghost)
-    this.ghost.geometry.computeBoundingBox()
     this.ghost.updateMatrixWorld()
-
-    if (CONFIG.DEBUG) {
-      if (this.ghostHelper) {
-        this.scene.remove(this.ghostHelper)
-        this.ghostHelper = undefined
-      }
-      this.ghostHelper = new THREE.BoxHelper(this.ghost, 0x00ff00)
-      this.scene.add(this.ghostHelper)
-    }
   }
 
   createRotateCircle(zoom) {
     // Calculate radius
-    let maxRadius = Math.max((this.box.max.x - this.box.min.x) * 1.25, (this.box.max.y - this.box.min.y) * 1.25)
-    maxRadius = clamp(maxRadius, 1, 4.2)
+    const box = new THREE.Box3().setFromObject(this.mesh)
+    let maxRadius = Math.max((box.max.x - box.min.x) * 0.8, (box.max.y - box.min.y) * 0.8)
+    maxRadius = clamp(maxRadius, 2.5, 4)
     const geometry = new THREE.TorusBufferGeometry(maxRadius, 0.04, 32, 32)
     const helperGeometry = new THREE.Geometry()
     helperGeometry.vertices.push(new THREE.Vector3(0, 0, 0))
+
+    this.circles = new THREE.Object3D()
 
     // X Circle
     const xCircle = new THREE.Mesh(geometry, CONFIG.ROTATE_CIRCLE_MATERIAL)
@@ -297,21 +407,24 @@ class Object extends EventEmitter {
     // Trash helper
     const trashHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
     trashHelper.position.x = maxRadius * 1
-    trashHelper.position.y = maxRadius * 0.775
+    trashHelper.position.y = maxRadius * 0.775 - this.centerOffsetY * this.scaleFactor
     trashHelper.name = 'trash-helper'
 
     // Toolbar helper
     const toolbarHelper = new THREE.Points(helperGeometry, CONFIG.HELPER_MATERIAL)
-    toolbarHelper.position.y = -(maxRadius + 1)
+    toolbarHelper.position.y = -(maxRadius * 1.85) - this.centerOffsetY * this.scaleFactor
     toolbarHelper.name = 'toolbar-helper'
     yCircle.add(toolbarHelper)
 
-    this.circles = new THREE.Object3D()
-    this.circles.add( xCircle )
-    this.circles.add( yCircle )
     this.circles.add( trashHelper )
 
-    this.updateRotatingCircle(zoom)
+    if (this.editable) {
+      this.circles.add( xCircle )
+      this.circles.add( yCircle )  
+      this.updateRotatingCircle(zoom)
+    } else {
+      this.circles.add(toolbarHelper)
+    }
 
     this.scene.add(this.circles)
   }
@@ -322,8 +435,8 @@ class Object extends EventEmitter {
 
   delete() {
     this.scene.remove(this.mesh)
-    this.mesh.geometry.dispose()
-    this.mesh.material.dispose()
+    // this.mesh.geometry.dispose()
+    // this.mesh.material.dispose()
     this.mesh = undefined
     this.world.remove(this.body)
 
@@ -336,16 +449,9 @@ class Object extends EventEmitter {
   deleteGhost() {
     if (this.ghost) {
       this.scene.remove(this.ghost)
-      this.ghost.geometry.dispose()
-      this.ghost.material.dispose()
+      // this.ghost.geometry.dispose()
+      // this.ghost.material.dispose()
       this.ghost = undefined
-    }
-
-    if (this.wireframe) {
-      this.scene.remove(this.wireframe)
-      this.wireframe.geometry.dispose()
-      this.wireframe.material.dispose()
-      this.wireframe.undefined
     }
 
     if (CONFIG.DEBUG) {
@@ -364,14 +470,17 @@ class Object extends EventEmitter {
 
   moveToGhost() {
     const { position, quaternion, scale } = this.ghost
+    this.updateBody()
 
     this.body.velocity.setZero()
     this.body.angularVelocity.setZero()
 
     this.body.position.set(position.x, position.y, position.z)
     this.body.quaternion.set(quaternion.x, quaternion.y, quaternion.z, quaternion.w)
-    this.mesh.scale.copy(scale)
-    this.scaleBody()
+
+    this.mesh.position.copy(position)
+    this.mesh.quaternion.copy(quaternion)
+    this.mesh.updateMatrixWorld(true)
   }
 }
 

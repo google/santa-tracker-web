@@ -23,10 +23,6 @@ class Arch extends Obj {
   init() {
     const { obj, normalMap } = LoaderManager.subjects[this.name]
 
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
@@ -35,11 +31,34 @@ class Arch extends Obj {
     })
     defaultMaterial.needsUpdate = true
 
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      geometry.center()
+      this.geoMats.push({
+        geometry,
+        material: defaultMaterial
+      })
+    }
+
     this.setShape(defaultMaterial)
   }
 
-  createShape(scale = 1) {
-    return new CANNON.Box(new CANNON.Vec3(CONFIG.SIZE * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale))
+  createShapes(scale = 1) {
+    // Compound boxes
+    let s = this.size * scale
+    const topBoxVector = new CANNON.Vec3(s, s * 0.25, s * 0.5)
+    const topShape = new CANNON.Box(topBoxVector)
+
+    const bottomBoxVector = new CANNON.Vec3(s * 0.33, s * 0.25, s * 0.5)
+    const bottomShape = new CANNON.Box(bottomBoxVector)
+
+    const offset1 = new CANNON.Vec3( 0, s * 0.25, 0)
+    const offset2 = new CANNON.Vec3( -s * 0.66, -s * 0.25, 0)
+    const offset3 = new CANNON.Vec3( s * 0.66, -s * 0.25, 0)
+
+    this.body.addShape(topShape, offset1)
+    this.body.addShape(bottomShape, offset2)
+    this.body.addShape(bottomShape, offset3)
   }
 }
 

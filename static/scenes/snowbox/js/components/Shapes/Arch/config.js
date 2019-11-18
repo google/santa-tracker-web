@@ -1,7 +1,8 @@
 export default {
   NAME: 'arch',
-  NORMAL_MAP: './models/3_arch.jpg',
-  OBJ: './models/3_arch.obj',
+  NORMAL_MAP: './models/arch.jpg',
+  OBJ: './models/arch.obj',
+  // WRL: './models/arch.wrl',
   MASS: 20,
   SELECTABLE: true,
   SIZE: 1,

@@ -23,10 +23,6 @@ class Sphere extends Obj {
   init() {
     const { obj, normalMap } = LoaderManager.subjects[this.name]
 
-    // Geometry
-    this.geometry = obj.children[0].geometry
-    this.geometry.center()
-
     // Materials
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
@@ -35,11 +31,21 @@ class Sphere extends Obj {
     })
     defaultMaterial.needsUpdate = true
 
+    for (let i = 0; i < obj.children.length; i++) {
+      const geometry = obj.children[i].geometry
+      geometry.center()
+      this.geoMats.push({
+        geometry,
+        material: defaultMaterial
+      })
+    }
+
     this.setShape(defaultMaterial)
   }
 
-  createShape(scale = 1) {
-    return new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
+  createShapes(scale = 1) {
+    const shape = new CANNON.Sphere((CONFIG.SIZE / 2) * scale)
+    this.body.addShape(shape)
   }
 }
 

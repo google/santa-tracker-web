@@ -9,6 +9,11 @@ import cubeConfig from '../Shapes/Cube/config.js'
 import archConfig from '../Shapes/Arch/config.js'
 import sphereConfig from '../Shapes/Sphere/config.js'
 import treeConfig from '../Shapes/Tree/config.js'
+import quarterCircleConfig from '../Shapes/QuarterCircle/config.js'
+import prismConfig from '../Shapes/Prism/config.js'
+import giftConfig from '../Shapes/Gift/config.js'
+import snowmanConfig from '../Shapes/Snowman/config.js'
+import pyramidConfig from '../Shapes/Pyramid/config.js'
 
 // Managers
 import LoaderManager from '../../managers/LoaderManager.js'
@@ -26,6 +31,10 @@ import Arch from '../Shapes/Arch/index.js'
 import Tree from '../Shapes/Tree/index.js'
 import Sphere from '../Shapes/Sphere/index.js'
 import Pyramid from '../Shapes/Pyramid/index.js'
+import QuarterCircle from '../Shapes/QuarterCircle/index.js'
+import Prism from '../Shapes/Prism/index.js'
+import Gift from '../Shapes/Gift/index.js'
+import Snowman from '../Shapes/Snowman/index.js'
 
 // Other
 import '../CannonDebugRenderer/index.js'
@@ -111,9 +120,14 @@ class Scene extends EventEmitter {
 
   preloadShapes() {
     LoaderManager.load({name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ})
+    LoaderManager.load({name: giftConfig.NAME, obj: giftConfig.OBJ})
     LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
+    LoaderManager.load({name: prismConfig.NAME, normalMap: prismConfig.NORMAL_MAP, obj: prismConfig.OBJ})
     LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
-    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ, wrl: treeConfig.WRL})
+    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ})
+    LoaderManager.load({name: pyramidConfig.NAME, normalMap: pyramidConfig.NORMAL_MAP, obj: pyramidConfig.OBJ, wrl: pyramidConfig.WRL})
+    LoaderManager.load({name: quarterCircleConfig.NAME, normalMap: quarterCircleConfig.NORMAL_MAP, obj: quarterCircleConfig.OBJ, wrl: quarterCircleConfig.WRL})
+    LoaderManager.load({name: snowmanConfig.NAME, normalMap: snowmanConfig.NORMAL_MAP, map: snowmanConfig.MAP, obj: snowmanConfig.OBJ, wrl: snowmanConfig.WRL})
   }
 
   initCannon() {
@@ -240,11 +254,6 @@ class Scene extends EventEmitter {
 
     if (this.cannonDebugRenderer) this.cannonDebugRenderer.update()
 
-    if (this.needsCollisionCheck && this.selectedSubject) {
-      this.checkCollision(true)
-      this.needsCollisionCheck = false
-    }
-
     // Render
     this.renderer.render(this.scene, camera)
     // get current time
@@ -310,7 +319,7 @@ class Scene extends EventEmitter {
         const hit = this.getNearestObject()
         if (hit) {
           // if mode is neutral
-          const subject = this.getSubjectfromMesh(hit.object)
+          const subject = this.getSubjectfromMesh(hit.object.parent)
           if (this.highlightedSubject !== subject) {
             this.highlightSubject(subject)
             SoundManager.highlightShape(subject);
@@ -351,7 +360,7 @@ class Scene extends EventEmitter {
     ) {
       // eslint-disable-next-line max-len
       const newSelectedSubject = this.sceneSubjects.find(subject =>
-        subject.mesh ? subject.mesh.uuid === hit.object.uuid : false
+        subject.mesh ? subject.mesh.uuid === hit.object.parent.uuid : false
       )
 
       if (this.selectedSubject) {
@@ -430,8 +439,17 @@ class Scene extends EventEmitter {
   colorObject(e) {
     const el = e.currentTarget
     if (this.activeSubject) {
-      this.activeSubject.mesh.material.color = new THREE.Color(el.dataset.colorObject)
-      this.activeSubject.mesh.material.needsUpdate = true
+      for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
+        const child = this.activeSubject.mesh.children[i]
+        if (this.activeSubject.name === 'gift') { 
+          // only change the last material color for gifts
+          if (i === 4) {
+            child.material.color = new THREE.Color(el.dataset.colorObject)
+          }
+        } else {
+          child.material.color = new THREE.Color(el.dataset.colorObject)
+        }
+      }
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true
@@ -447,7 +465,7 @@ class Scene extends EventEmitter {
 
     if (this.selectedSubject) {
       this.selectedSubject.scale(e.target.value)
-      this.needsCollisionCheck = true
+      this.checkCollision(true)
     }
     SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
   }
@@ -462,7 +480,7 @@ class Scene extends EventEmitter {
     if (this.selectedSubject && this.mode === 'edit') {
       const angle = direction === 'right' || direction === 'bottom' ? toRadian(45) : toRadian(-45)
       this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
-      this.needsCollisionCheck = true
+      this.checkCollision(true)
     }
     SoundManager.play('snowbox_rotate');
   }
@@ -485,6 +503,18 @@ class Scene extends EventEmitter {
       case 'sphere':
         subject = new Sphere(this.scene, this.world, material)
         break
+      case 'quarter-circle':
+        subject = new QuarterCircle(this.scene, this.world, material)
+        break
+      case 'prism':
+        subject = new Prism(this.scene, this.world, material)
+        break
+      case 'gift':
+        subject = new Gift(this.scene, this.world, material)
+        break
+      case 'snowman':
+        subject = new Snowman(this.scene, this.world, material)
+        break
       default:
         break
     }
@@ -503,8 +533,9 @@ class Scene extends EventEmitter {
   shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
     this.selectSubject(subject)
-    subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
-    this.planeHelper.position.y = subject.size / 2 * (subject.box.max.y - subject.box.min.y) // add half Y +
+    // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
+    const box = new THREE.Box3().setFromObject(subject.ghost)
+    this.planeHelper.position.y = subject.size / 2 * (box.max.y - box.min.y) // add half Y +
   }
 
   unselectSubject(unmove) {
@@ -525,10 +556,6 @@ class Scene extends EventEmitter {
   selectSubject(newSelectedSubject, needsOffset = false) {
     this.setMode('move')
 
-    // don't play sound if dragging from toolbar
-    if (needsOffset) {
-      SoundManager.play('snowbox_select_subject');
-    }
     this.selectedSubject = newSelectedSubject
     this.selectedSubject.select()
     const { position } = this.selectedSubject.body
@@ -536,8 +563,11 @@ class Scene extends EventEmitter {
     this.moveOffset.y = 0 // reset y
 
     if (needsOffset) {
+      // don't play sound if dragging from toolbar
+      SoundManager.play('snowbox_select_subject');
+      const box = new THREE.Box3().setFromObject(this.selectedSubject.mesh)
       // update planeHelper Y
-      this.planeHelper.position.y = position.y
+      this.planeHelper.position.y = (box.max.y - box.min.y) / 2 // or position.y
       this.renderer.render(this.scene, CameraController.camera) // check if we really need that
       const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
       this.moveOffset.x = -(posPlaneHelper.x - position.x)
@@ -572,7 +602,7 @@ class Scene extends EventEmitter {
   }
 
   findNearestIntersectingObject(objects) {
-    const hits = this.raycaster.intersectObjects(objects)
+    const hits = this.raycaster.intersectObjects(objects, true)
     const closest = hits.length > 0 ? hits[0] : false
     return closest
   }
@@ -622,7 +652,7 @@ class Scene extends EventEmitter {
 
   getObjectBoxesList(filter) {
     return this.sceneSubjects
-      .filter(subject => subject.selectable || subject.collidable)
+      .filter(subject => subject !== this.selectedSubject && subject.selectable)
       .map(subject => subject.box)
       .filter(box => box)
   }
@@ -665,8 +695,9 @@ class Scene extends EventEmitter {
 
   checkCollision(isEditing = false) {
     // if (this.mode === 'edit') return; // stop on edit
-    const { box } = this.selectedSubject
-    const boxes = this.getObjectBoxesList().filter(boxItem => box !== boxItem)
+    // const { box } = this.selectedSubject
+    let box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
+    const objects = this.getObjectsList().filter(subject => subject !== this.selectedSubject.mesh)
     const sizeY = box.max.y - box.min.y // get size of current object in Y
     // go boxHelper is equal to the ground position of the current box
     const boxHelper = new THREE.Box3().copy(box)
@@ -679,10 +710,11 @@ class Scene extends EventEmitter {
     const detectCollision = () => {
       let collision = false
 
-      for (let index = 0; index < boxes.length; index++) {
-        const boxItem = boxes[index]
+      for (let index = 0; index < objects.length; index++) {
+        const boxItem = new THREE.Box3().setFromObject(objects[index])
 
         if (boxHelper.intersectsBox(boxItem)) {
+          // console.log('collision', boxItem.max.y)
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
@@ -696,15 +728,16 @@ class Scene extends EventEmitter {
         detectCollision()
       } else {
         // if no more collision, move up the object (update moveOffset)
-        this.moveOffset.y = boxHelper.min.y // can't go under the ground
-
-        if (isEditing && this.selectedSubject) {
-          // update position
-          this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+        this.moveOffset.y = boxHelper.min.y
+        if (isEditing) {
+          
+          // move ghost
+          this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
+          box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
           // check ground collision after update position
           if (box.min.y < 0) {
             this.moveOffset.y += -(box.min.y)
-            this.selectedSubject.moveTo(null, this.planeHelper.position.y + this.moveOffset.y, null)
+            this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
           }
         }
       }
