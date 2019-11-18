@@ -3,15 +3,14 @@ import styles from './santa-button.css';
 
 
 export class SantaButtonElement extends LitElement {
+  static get styles() {
+    return [styles];
+  }
+
   static get properties() {
     return {
       color: {type: String},
     };
-  }
-
-  constructor() {
-    super();
-    this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
   render() {
