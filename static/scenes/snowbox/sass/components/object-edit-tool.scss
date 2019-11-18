@@ -34,6 +34,13 @@
 
   .toolbar-ui {
     display: flex;
+    width: 340px;
+    height: 75px;
+
+    @include respond-to(tablet) {
+      width: 240px;
+      height: 48px;
+    }
   }
 
   .scale-ui {
@@ -61,7 +68,7 @@
       background-color: $color-gray;
       height: 2.4px;
       margin: 0 8px;
-      width: 122px;
+      width: 171%;
 
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -70,6 +77,11 @@
         border-radius: 50%;
         width: 21px;
         height: 21px;
+
+        @include respond-to(tablet) {
+          width: 15px;
+          height: 15px;
+        }
       }
 
       &::-moz-range-thumb {
