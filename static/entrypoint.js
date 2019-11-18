@@ -413,6 +413,11 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     }
     control.send({type: 'ready'});
 
+    // Go into fullscreen mode on Android.
+    if (typeof Android !== 'undefined' && Android.fullscreen) {
+      Android.fullscreen(!config.scroll);
+    }
+
     // Configure the optional error display.
     let errorCode = null;
     if (error) {
