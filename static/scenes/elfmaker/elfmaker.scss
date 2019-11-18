@@ -128,20 +128,12 @@ santa-button {
   }
 }
 
-#download {
+santa-button#downloadButton {
   transform: translate(0);
   transition: transform 0.25s;
-  margin: 12px;
-  width: 55px;
-  height: 55px;
 
-  santa-button {
-    margin: 0;
-  }
-
-  &:not([href]) {
-    pointer-events: none;
-    transform: translate(180px);
+  &[disabled] {
+    transform: translate(120px);
   }
 }
 

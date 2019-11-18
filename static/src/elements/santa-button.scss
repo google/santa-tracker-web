@@ -14,7 +14,7 @@ button {
 
   line-height: 100%;
 
-  @mixin pop($dark) {  
+  @mixin pop($dark) {
     box-shadow: $offset-x $offset-y 0 $dark,
         ($offset-x + $shadow-x) ($offset-y + $shadow-y) 0 2px rgba(0, 0, 0, 0.24);
     &:active {
@@ -81,5 +81,10 @@ button {
   &.orange {
     background: #ff9802;
     @include pop(#f57c00);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    cursor: default;
   }
 }
