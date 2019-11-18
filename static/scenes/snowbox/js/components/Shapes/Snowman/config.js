@@ -1,6 +1,6 @@
 export default {
   NAME: 'snowman',
-  MASS: 20,
+  MASS: 8,
   SELECTABLE: true,
   COLLIDABLE: true,
   SIZE: 1,

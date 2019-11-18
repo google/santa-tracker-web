@@ -321,7 +321,7 @@ class Object extends EventEmitter {
       shapeVolume += this.body.shapes[i].volume()
     }
 
-    const mass = 8 * shapeVolume
+    const mass = this.mass * shapeVolume
     this.body.invMass = mass
     this.currentMass = mass // the body.mass value is not updated in the collide event for some reason, storing the value here for now
     this.body.updateMassProperties()

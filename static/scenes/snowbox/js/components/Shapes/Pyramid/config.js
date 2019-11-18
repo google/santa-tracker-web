@@ -1,6 +1,6 @@
 export default {
   NAME: 'pyramid',
-  MASS: 20,
+  MASS: 8,
   SELECTABLE: true,
   SIZE: 1,
   OBJ: './models/pyramid.obj',
