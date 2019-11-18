@@ -13,7 +13,9 @@ export default {
     XZ: 45 / 2,
     XZ_MIN: 45,
     XZ_MAX: -46,
-    SPEED: 800
+    SPEED: 800,
+    FORCE_ON_WHEEL: 2,
+    FORCE_ON_TOUCH: 3,
   },
   /*
    * ZOOM

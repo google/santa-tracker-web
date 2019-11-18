@@ -108,7 +108,7 @@ class Scene extends EventEmitter {
     }
 
     this.scene.add(CameraController.fakeGround)
-    CameraController.rotate('left', false, true)
+    CameraController.rotate('left', null, true)
 
     if (this.debug) {
       this.buildHelpers()
@@ -116,6 +116,68 @@ class Scene extends EventEmitter {
     }
 
     this.events()
+
+    if (this.isTouchDevice) {
+      var xDown = null;
+      var yDown = null;
+
+      const handleTouchStart = (evt) => {
+        if (this.mode === 'edit' || this.mode === 'move') return
+        // reset target angle
+        CameraController.targetAngle = 0
+        // get look at point
+        const intersects = CameraController.getLookAtPointOnTerrain()
+        this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
+        this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
+        CameraController.cameraPositionOrigin = CameraController.camera.position.clone()
+
+        const firstTouch = evt.touches[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+      };
+
+      const handleTouchMove = (evt) => {
+        if (this.mode === 'edit' || this.mode === 'move') return
+        // if ( ! xDown || ! yDown ) {
+        //     return;
+        // }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+          if ( xDiff > 0 ) {
+            console.log('left', xDiff)
+            CameraController.rotate('left', 'on-touch')
+            /* left swipe */
+          } else {
+            console.log('right', xDiff)
+            CameraController.rotate('right', 'on-touch')
+            /* right swipe */
+          }
+        } else {
+          if ( yDiff > 0 ) {
+            console.log('up', yDiff)
+            // CameraController.rotate('top', 'on-touch')
+            /* up swipe */
+          } else {
+            console.log('down', yDiff)
+            // CameraController.rotate('bottom', 'on-touch')
+            /* down swipe */
+          }
+        }
+
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+      };
+
+      // only on canvas, not document, and if not edit mode
+      this.canvas.addEventListener('touchstart', handleTouchStart, false);
+      this.canvas.addEventListener('touchmove', handleTouchMove, false);
+    }
   }
 
   preloadShapes() {
@@ -392,6 +454,8 @@ class Scene extends EventEmitter {
     if (this.selectedSubject && this.mode === 'move') {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
+    } else if (!this.isTouchDevice) {
+      this.setMode()
     }
 
     this.mouseState = 'up'
@@ -422,9 +486,9 @@ class Scene extends EventEmitter {
     CameraController.isMoving = true
 
     if (e.deltaY < 0) {
-      CameraController.rotate('left', true)
+      CameraController.rotate('left', 'wheel')
     } else if (e.deltaY > 0) {
-      CameraController.rotate('right', true)
+      CameraController.rotate('right', 'wheel')
     }
 
     clearTimeout(this.onWheelTimeout)

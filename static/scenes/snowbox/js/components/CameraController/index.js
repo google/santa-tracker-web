@@ -69,24 +69,36 @@ class CameraController {
     this.fakeGround.rotation.x = toRadian(-90)
   }
 
-  rotate(direction, wheel, noAnimation, coef = 1) {
+  rotate(direction, type = null, noAnimation = false, coef = 1) {
     if (this.isRotating) return
     this.controls.enabled = false
 
     switch (direction) {
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
-        this.targetAngle = wheel ? 2 : CONFIG.ROTATE.Y * coef
+        if (type === 'on-touch') {
+          this.targetAngle += CONFIG.ROTATE.FORCE_ON_TOUCH
+        } else {
+          this.targetAngle = type === 'wheel' ? CONFIG.ROTATE.FORCE_ON_WHEEL : CONFIG.ROTATE.Y * coef
+        }
         this.rotationY += this.targetAngle
         break
       case 'right':
         this.axis = new THREE.Vector3(0, 1, 0)
-        this.targetAngle = wheel ? -2 : -CONFIG.ROTATE.Y * coef
+        if (type === 'on-touch') {
+          this.targetAngle -= CONFIG.ROTATE.FORCE_ON_TOUCH
+        } else {
+          this.targetAngle = type === 'wheel' ? -CONFIG.ROTATE.FORCE_ON_WHEEL : CONFIG.ROTATE.Y * coef
+        }
         this.rotationY += this.targetAngle
         break
       case 'top':
         this.axis = this.getPerpendicularXZAxisManually()
-        this.targetAngle = -CONFIG.ROTATE.XZ * coef
+        if (type === 'on-touch') {
+          this.targetAngle -= CONFIG.ROTATE.FORCE_ON_TOUCH
+        } else {
+          this.targetAngle = -CONFIG.ROTATE.XZ * coef
+        }
         if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATE.XZ_MAX) {
           // don't rotate if reach max
           return false
@@ -95,7 +107,11 @@ class CameraController {
         break
       case 'bottom':
         this.axis = this.getPerpendicularXZAxisManually()
-        this.targetAngle = CONFIG.ROTATE.XZ * coef
+        if (type === 'on-touch') {
+          this.targetAngle += CONFIG.ROTATE.FORCE_ON_TOUCH
+        } else {
+          this.targetAngle = CONFIG.ROTATE.XZ * coef
+        }
         if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATE.XZ_MIN) {
           // don't rotate if reach min
           return false
@@ -104,13 +120,15 @@ class CameraController {
         break
     }
 
-    // get look at point
-    const intersects = this.getLookAtPointOnTerrain()
-    this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
-    this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
-    this.cameraPositionOrigin = this.camera.position.clone()
+    if (type === 'wheel' || type === null) {
+      // get look at point
+      const intersects = this.getLookAtPointOnTerrain()
+      this.lookAt = intersects.length > 0 ? intersects[0].point : new THREE.Vector3(0, 0, 0)
+      this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
+      this.cameraPositionOrigin = this.camera.position.clone()
+    }
 
-    if (wheel || noAnimation) {
+    if (type === 'wheel' || type === 'on-touch' || noAnimation) {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
       this.isRotating = true

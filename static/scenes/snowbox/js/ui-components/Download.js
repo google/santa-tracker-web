@@ -77,7 +77,7 @@ export default class Download {
     const sources = []
 
     for (let i = 0; i < 16; i++) {
-      CameraController.rotate('right', false, true, 0.5)
+      CameraController.rotate('right', null, true, 0.5)
       // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
       Scene.renderer.render(Scene.scene, CameraController.camera)
       const base64 = Scene.renderer.domElement.toDataURL()
@@ -100,7 +100,7 @@ export default class Download {
 
   generateGIF() {
     const { sources } = LoaderManager.subjects['gif']
-    
+
     const gif = new GIF({
       workers: 4,
       workerScript: '../../third_party/lib/gif/gif.worker.js',
@@ -119,7 +119,7 @@ export default class Download {
       this.ui.gif.src = URL.createObjectURL(blob)
       this.ui.link.href = URL.createObjectURL(blob)
       SoundManager.play("snowbox_generate_gif_end");
-      
+
     });
 
     gif.render()
@@ -149,7 +149,7 @@ export default class Download {
     if (el.classList.contains('is-open') && !el.classList.contains('is-loading')) {
       el.classList.remove('is-open')
     }
-    
+
   }
 }
 
