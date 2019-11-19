@@ -23,7 +23,7 @@ const sceneColors = {
   havoc: '#587e9c',
   jamband: '#6bb4fd',
   jetpack: '#9d87f5',
-  mercator: '#e0bb95',
+  mercator: '#bf8f68',
   penguindash: '#93dae4',
   presentbounce: '#29b6f6',
   presentdrop: '#2c84db',

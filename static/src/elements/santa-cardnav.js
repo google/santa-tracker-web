@@ -8,7 +8,7 @@ import './santa-card.js';
 
 
 // TODO(samthor): pull from Remote Config
-const cards = '_generic _frozen snowflake mercator build selfies codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox'.split(/\s+/g);
+const cards = 'selfies codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox snowflake mercator build'.split(/\s+/g);
 
 
 export class SantaCardNavElement extends LitElement {
