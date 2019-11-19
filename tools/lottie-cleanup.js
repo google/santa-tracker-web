@@ -39,7 +39,13 @@ files.forEach((file) => {
   const raw = fs.readFileSync(file, 'utf-8');
   inputBytes += raw.length;
 
-  const j = JSON.parse(raw);
+  let j;
+  try {
+    j = JSON.parse(raw);
+  } catch (e) {
+    process.stderr.write(`Skipping ${file}, can't parse JSON\n`);
+    return;
+  }
   cleanupNotes(j);
   const out = JSON.stringify(j);
   outputBytes += out.length;
