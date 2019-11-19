@@ -15,6 +15,10 @@ $aspect-ratio: calc(100vw / 100vh);
   width: 100%;
   z-index: $z-index-download;
 
+  @include respond-to(smartphone) {
+    padding: 80px 40px calc(80px + 150px) 40px;
+  }
+
   &.is-loading {
     .download-popin__loading {
       opacity: 1;
@@ -43,6 +47,10 @@ $aspect-ratio: calc(100vw / 100vh);
     max-height: 100%;
     width: auto;
     transform: translateY(50px);
+
+    @include respond-to(smartphone) {
+      padding: 30px 30px 20px 30px;
+    }
   }
 
   &__image-wrapper {
@@ -64,6 +72,14 @@ $aspect-ratio: calc(100vw / 100vh);
   &__link {
     margin: 30px auto 0;
     transform: translate(3px, 0);
+
+    @include respond-to(smartphone) {
+      margin: 20px auto 0;
+    }
+
+    .button__icon {
+      width: 45%;
+    }
   }
 
   &__loading {
@@ -78,6 +94,11 @@ $aspect-ratio: calc(100vw / 100vh);
     opacity: 0;
     width: 100%;
     transition: opacity .5s ease;
+
+    @include respond-to(smartphone) {
+      padding: 10px;
+      font-size: 28px;
+    }
   }
 
   &__exit {
@@ -85,5 +106,9 @@ $aspect-ratio: calc(100vw / 100vh);
     right: 0;
     top: 0;
     transform: translate(50%, -50%) scale(0.8);
+
+    .button__icon {
+      width: 40%;
+    }
   }
 }

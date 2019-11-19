@@ -4,6 +4,10 @@
   right: 40px;
   pointer-events: auto;
 
+  @include respond-to(smartphone) {
+    top: 70px;
+  }
+
   .button__icon {
     width: 45%;
   }
