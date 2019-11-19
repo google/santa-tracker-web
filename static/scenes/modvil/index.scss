@@ -88,9 +88,12 @@ santa-card {
   }
 }
 
+/** village modules **/
+
 #modules {
   display: flex;
   overflow: hidden;
+  justify-content: center;  // places <main> in middle even if it's too large
 
   .sidebar,
   main {
@@ -109,8 +112,8 @@ santa-card {
   }
 
   main {
-    min-width: 320px;
-    max-width: 1400px;
+    min-width: 414px;
+    max-width: 1440px;
     width: 100%;
   }
 }
@@ -118,22 +121,23 @@ santa-card {
 .module {
   position: relative;
   box-shadow: inset 0 4px 0 #0003;
+  overflow: hidden;
 
   &::after {
     display: block;
     content: '';
-    padding-bottom: 90%;
+    padding-bottom: 90%;  // this is 1296 and we want 1300; this is probably fine
   }
 
   background: transparent center no-repeat;
   background-size: contain;
 
-  svg {
+  svg, img {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    z-index: -1;
   }
 
   // TODO(samthor): We should load or unload these animations based on the screen size, rather

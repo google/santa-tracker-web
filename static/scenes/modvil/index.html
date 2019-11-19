@@ -17,7 +17,7 @@ import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
 import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
-import {prepareAnimation} from '../../src/deps/lottie.js';
+import {loadAnimation} from '../../src/deps/lottie.js';
 
 
 api.preload.sounds('village_load_sounds');
@@ -27,89 +27,128 @@ api.config({
   sound: ['music_start_village', 'village_start'],
 });
 
-async function prepare() {
-  const modules = ['transport', 'sciencelab'];
-  const scenes = ['elfmaker', 'penguindash', 'museum', 'santaselfie', 'snowball', 'boatload'];
+
+/**
+ * Describes each village module and its static/animated parts.
+ */
+const moduleDefs = [
+  {
+    id: 'transithub',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'sciencelab',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'kitchen',
+    parts: ['static', 'loop', 'static', 'scroll'],
+  },
+  {
+    id: 'greenhouse',
+    parts: ['static', 'loop', 'scroll', 'static'],
+  },
+  {
+    id: 'nursery',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'toymaking',
+    parts: ['static', 'static', 'scroll', 'static'],
+  },
+  {
+    id: 'wrapping',
+    parts: ['static', 'loop', 'scroll', 'static'],
+  },
+  {
+    id: 'android',
+    parts: ['static', 'loop'],
+  }
+];
+
+/**
+ * Finds the ratio of scrolling that this element should display at.
+ */
+function ratioForModule(el) {
+  const se = document.scrollingElement;
+  const topScroll = se.scrollTop;
+
+  // The start of this element is effectively min window height (can't scroll above this point).
+  const effectiveStart = Math.max(0, el.offsetTop - window.innerHeight);
+  const effectiveEnd = Math.min(se.offsetHeight - window.innerHeight, el.offsetTop + el.offsetHeight);
+
+  const ratio = (topScroll - effectiveStart) / (effectiveEnd - effectiveStart);
+
+  if (ratio <= 0.0) {
+    return 0.0;
+  } else if (ratio >= 1.0) {
+    return 1.0;
+  }
+
+  // This creates more of a cubic-bezier style transform (although it's quite subtle).
+  return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+}
+
+async function prepareModules() {
   const main = document.querySelector('main');
+  const scrollables = new Map();
 
-  const all = modules.map(async (name) => {
-    const d = document.createElement('div');
-    d.className = 'module';
-    d.setAttribute('id', `module--${name}`);
-    main.append(d);
-    d.style.backgroundImage = `url(img/modules/${name}.svg)`;
+  for (const {id, parts} of moduleDefs) {
+    const container = document.createElement('div');
+    container.className = 'module';
+    container.setAttribute('id', `module--${id}`);
+    main.append(container);
 
-    const cardsEl = document.createElement('div');
-    cardsEl.className = 'cards';
-    d.append(cardsEl);
+    const scrollAnim = [];
+    parts.forEach((type, index) => {
+      const base = `img/modules/${id}/${index}`;
+      const zIndex = -(100 - index);
 
-    for (let i = 0; i < 3; ++i) {
-      const next = scenes.pop();
-      if (!next) {
-        continue;
+      if (type === 'static') {
+        const img = document.createElement('img');
+        img.src = `${base}.svg`;
+        container.append(img);
+        img.style.zIndex = zIndex;
+        // TODO: preload
+        return;
       }
-      const card = document.createElement('santa-card');
-      card.setAttribute('scene', next);
-      cardsEl.append(card);
 
-      if (Math.random() < 0.2) {
-        card.setAttribute('locked', ~~(Math.random() * 23) + 1);
+      const options = {container};
+      if (type === 'loop') {
+        // TODO: only play when in frame
+        options.autoplay = true;
+        options.loop = true;
       }
-    }
+      const anim = loadAnimation(`${base}.json`, options);
+      anim.renderer.svgElement.style.zIndex = zIndex;
 
-    const animationPromise = prepareAnimation(`img/modules/${name}.json`, {
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio: 'xMaxYMax meet',
-      },
-      clearDefs: true,
-    }).then((anim) => {
-      d.appendChild(anim.renderer.svgElement);
-      return anim;
+      if (type === 'scroll') {
+        scrollAnim.push(anim);
+      }
+
+      // TODO: preload
     });
 
-    const anim = await animationPromise;
-    const frames = anim.getDuration(true);
+    if (!scrollAnim.length) {
+      continue;  // no animations to scroll for this module
+    }
 
-    return () => {
-      const se = document.scrollingElement;
-      const topScroll = se.scrollTop;
-
-      // The start of this element is effectively min window height (can't scroll above this point).
-      const effectiveStart = Math.max(0, d.offsetTop - window.innerHeight);
-      const effectiveEnd = Math.min(se.offsetHeight - window.innerHeight, d.offsetTop + d.offsetHeight);
-
-      const ratio = (topScroll - effectiveStart) / (effectiveEnd - effectiveStart);
-      let outputRatio;
-
-      if (ratio <= 0.0) {
-        outputRatio = 0.0;
-      } else if (ratio >= 1.0) {
-        outputRatio = 1.0;
-      } else {
-        // This creates more of a cubic-bezier style transform (although it's quite subtle).
-        outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
-        console.info(name, ratio, outputRatio);
-      }
-
-      const frame = Math.min(frames, Math.max(0.0, frames * outputRatio));
-      anim.goToAndStop(frame, true);
-    };
-  });
-  const done = await Promise.all(all);
-
-  // TODO(samthor): This sets the position based on the overall page ratio, not the ratio within
-  // each animation. This obviously needs fixing.
+    scrollables.set(container, scrollAnim);
+  }
 
   helpers.installAdjustHandler(() => {
-    if (window.innerWidth < 768) {
-      return;
-    }
-    done.forEach((fn) => fn());
+    scrollables.forEach((scrollAnim, container) => {
+      const ratio = ratioForModule(container);
+      scrollAnim.forEach((anim) => {
+        const frames = anim.getDuration(true);
+        const frame = Math.min(frames, Math.max(0.0, frames * ratio));
+        anim.goToAndStop(frame, true);
+      });
+    });
   });
 }
 
-api.preload.wait(prepare());
+api.preload.wait(prepareModules());
 
 const playButton = document.getElementById('play');
 
