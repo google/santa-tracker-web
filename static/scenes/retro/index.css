@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background: white;
+  color: #333;
+  font-family: 'Lobster';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

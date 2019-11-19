@@ -171,11 +171,12 @@ export function switchOff() {
 
 /**
  * @param {?string} route to check
+ * @param {boolean} fallback whether we are fallback mode
  * @return {?string} route to serve
  */
-export function sceneForRoute(route) {
+export function sceneForRoute(route, fallback) {
   if (!route || route === 'index') {
-    return indexScene();
+    return indexScene(fallback);
   } else if (isLocked(route)) {
     return null;
   }
@@ -234,8 +235,9 @@ export function lockedTo(route) {
 
 
 /**
+ * @param {boolean} fallback whether to show old codebase
  * @return {string} the scene to show for "/" or "index"
  */
-export function indexScene() {
-  return remoteConfig.getString('indexScene') || 'index';
+export function indexScene(fallback) {
+  return remoteConfig.getString(fallback ? 'fallbackIndexScene' : 'indexScene') || 'index';
 }

@@ -65,5 +65,5 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   resolve(call());
 });
 
-const {scope, go} = configureProdRouter(buildLoader(loaderElement));
+const {scope, go} = configureProdRouter(buildLoader(loaderElement, true));
 document.body.addEventListener('click', globalClickHandler(scope, go));
