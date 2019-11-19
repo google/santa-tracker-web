@@ -22,7 +22,7 @@
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
-    height: 100%;
+    height: 150px;
     padding: 30px 40px;
   }
 
@@ -43,6 +43,7 @@
   }
 
   &__image {
+    display: block;
     height: 100%;
     transition: transform .6s $easeout-expo;
   }
