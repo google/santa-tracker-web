@@ -5,13 +5,7 @@
 import './src/polyfill/css.js';
 import styles from './styles/santa.css';
 
-if (styles instanceof CSSStyleSheet) {
-  document.adoptedStyleSheets = [styles];
-} else {
-  const s = document.createElement('style');
-  s.textContent = styles.cssText;
-  document.head.appendChild(s);
-}
+document.adoptedStyleSheets = [styles];
 
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';

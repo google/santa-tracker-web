@@ -60,14 +60,14 @@ if (nativeSupport) {
 
   const instantiated = Symbol('instantiated');  // actually created <style> nodes
 
-  function rectifyAdoptedStyleSheets() {
+  function rectifyAdoptedStyleSheets(holder) {
     const expected = /** @type {!Array<HTMLStyleElement>} */ (this[instantiated] || []);
 
     // Check that nodes [0,n] are the expected HTMLStyleElement instances.
     // nb. this doesn't guard against users making local changes to textContent
-    let ok = (this.childNodes.length >= expected.length);
+    let ok = (holder.childNodes.length >= expected.length);
     for (let i = 0; ok && i < expected.length; ++i) {
-      if (this.childNodes[i] !== expected[i]) {
+      if (holder.childNodes[i] !== expected[i]) {
         ok = false;
       }
     }
@@ -81,13 +81,12 @@ if (nativeSupport) {
     });
 
     // Prepare clones of target CSSStyleSheetConstructor instances.
-    const targetBefore = this.firstChild;
-    this[instantiated].forEach((node) => this.insertBefore(node, targetBefore));
+    const targetBefore = holder.firstChild;
+    this[instantiated].forEach((node) => holder.insertBefore(node, targetBefore));
   }
 
   const adopted = Symbol('adopted'); // CSSStyleSheetConstructor instances adopted
-
-  Object.defineProperty(ShadowRoot.prototype, 'adoptedStyleSheets', {
+  const def = {
     get() {
       return this[adopted] || [];
     },
@@ -110,9 +109,15 @@ if (nativeSupport) {
         return node;
       });
 
-      const o = new MutationObserver(rectifyAdoptedStyleSheets.bind(this));
+      const node = (this === document ? document.head : this);
+      const call = rectifyAdoptedStyleSheets.bind(this, node);
+
+      const o = new MutationObserver(call);
       o.observe(this, {childList: true});
-      rectifyAdoptedStyleSheets.call(this);
+      call();
     }
-  });
+  };
+
+  Object.defineProperty(ShadowRoot.prototype, 'adoptedStyleSheets', def);
+  Object.defineProperty(HTMLDocument.prototype, 'adoptedStyleSheets', def);
 }
