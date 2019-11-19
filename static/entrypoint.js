@@ -3,6 +3,9 @@
  */
 
 import './src/polyfill/css.js';
+import styles from './styles/santa.css';
+
+document.adoptedStyleSheets = [styles];
 
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
@@ -27,6 +30,7 @@ import configureCustomKeys from './src/core/keys.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
+interludeElement.active = true;  // must show before appending
 document.body.append(chromeElement, loaderElement, interludeElement);
 
 const tutorialOverlayElement = document.createElement('santa-tutorial');
@@ -229,9 +233,6 @@ async function preloadSounds(sc, event, port) {
  * @return {!Promise<Object<string, *>>}
  */
 async function prepare(control, data) {
-  if (!control.hasPort) {
-    return {};
-  }
   const timeout = promises.timeoutRace(10 * 1000);
 
   control.send({type: 'data', payload: data});
@@ -251,7 +252,7 @@ outer:
         return Promise.reject(payload);
 
       case 'progress':
-        console.debug('got preload', (payload * 100).toFixed(2) + '%');
+        interludeElement.progress = payload;
         continue;
 
       case 'preload':
@@ -374,6 +375,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Kick off the preload for this scene and wait for the interlude to appear.
     const configPromise = prepare(control, data);
+    document.body.classList.add('loading');  // show dots after a time
     await interludeElement.show();
     if (!control.isAttached) {
       return false;  // replaced during interlude
@@ -401,7 +403,14 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
+    document.body.classList.add('loaded');      // first game has loaded, clear
+    document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
+
+    // Go into fullscreen mode on Android.
+    if (typeof Android !== 'undefined' && Android.fullscreen) {
+      Android.fullscreen(!config.scroll);
+    }
 
     // Configure the optional error display.
     let errorCode = null;
@@ -424,6 +433,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Run configuration tasks and remove the interlude.
     interludeElement.removeAttribute('active');
+
     global.setState({
       mini: !config.scroll,
       sceneOrientation: config.orientation || null,
@@ -443,4 +453,4 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 });
 
 
-configureCustomKeys();
+configureCustomKeys(loaderElement);

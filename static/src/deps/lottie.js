@@ -1,34 +1,17 @@
-import {join} from '../lib/url.js';
-
-let cachedLoad;
-
-export default function load() {
-  // If we're already loaded for some reason (<script> on page) then go ahead.
-  if (window.lottie) {
-    return window.lottie;
-  } else if (cachedLoad) {
-    return cachedLoad;
-  }
-
-  cachedLoad = new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = join(import.meta.url, '../../node_modules/lottie-web/build/player/lottie_light.min.js');
-    script.onload = () => resolve(window.lottie);
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-
-  return cachedLoad;
-}
+import '../../node_modules/lottie-web/build/player/lottie_light.min.js';
 
 /**
  * Remove redundant clip-paths from the instantiated Lottie element.
  *
  * This speeds up Firefox and Safari because these paths are basically redundant.
  *
- * @param {!SVGElement} svg
+ * @param {?SVGElement} svg
  */
-function cleanupLottie(svg) {
+export function simplifyClip(svg) {
+  if (!svg) {
+    return;
+  }
+
   const paths = Array.from(svg.querySelectorAll('clipPath'));
   const width = svg.getAttribute('width');
   const height = svg.getAttribute('height');
@@ -58,34 +41,30 @@ function cleanupLottie(svg) {
   });
 }
 
+export function loadAnimation(path, options) {
+  const container = options.container || document.createElement('div');
+  const anim = lottie.loadAnimation(Object.assign({
+    path: path + '?#',  // in dev, this ensures JSON is returned raw
+    renderer: 'svg',
+    container,
+    autoplay: false,
+  }, options));
+  anim.addEventListener('DOMLoaded', () => simplifyClip(anim.renderer.svgElement));
+  return anim;
+}
+
+export function promisify(anim) {
+  return new Promise((resolve, reject) => {
+    anim.addEventListener('DOMLoaded', () => resolve(anim));
+    anim.addEventListener('data_failed', reject);
+  });
+}
+
 /**
  * @param {string} path to load
  * @param {!Object<string, string>} options to append to lottie load
  * @return {!Promise<*>}
  */
 export function prepareAnimation(path, options) {
-  return Promise.resolve(load()).then(() => {
-    if (!path) {
-      return Promise.reject();
-    }
-
-    const container = document.createElement('div');
-    const anim = lottie.loadAnimation(Object.assign({
-      path: path + '?#',  // in dev, this ensures JSON is returned raw
-      renderer: 'svg',
-      container,
-      autoplay: false,
-    }, options));
-
-    return new Promise((resolve, reject) => {
-      anim.addEventListener('DOMLoaded', () => {
-        if (options && options.clearDefs) {
-          const svg = anim.renderer.svgElement;
-          cleanupLottie(svg);
-        }
-        resolve(anim);
-      });
-      anim.addEventListener('data_failed', reject);
-    });
-  });
+  return promisify(loadAnimation(path, options));
 }

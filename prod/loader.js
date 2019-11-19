@@ -58,7 +58,7 @@ initialize().then((remoteConfig) => {
     }
     config.staticScope = staticScopeUrl.toString();
   }
-  // Force fallback for modern browsers.
+  // Force fallback for modern browsers, for testing.
   if (startParams.has('fallback')) {
     fallback = true;
   }
@@ -68,6 +68,5 @@ initialize().then((remoteConfig) => {
   const entrypoint = config.staticScope + (fallback ? 'fallback' : 'entrypoint') + (isProd ? '_' + documentLang : '') + '.js';
   return load.script(entrypoint, fallback && isProd ? '' : 'module').then(() => {
     loaded = true;
-    document.body.classList.remove('loading');
   });
 });

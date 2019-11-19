@@ -9268,5 +9268,9 @@
   "decmonth": {
     "description": "A short version of 'December', the month. Ideally three characters, but could be 4-5 if need be. Placed before a number indicating the date within December something opens.",
     "message": "Dec"
+  },
+  "decmonth_long": {
+    "description": "'December', the month. Any length is fine. Placed before a number indicating the date within December something opens.",
+    "message": "December"
   }
 }

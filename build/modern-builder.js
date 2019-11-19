@@ -1,6 +1,5 @@
 const resolveNode = require('./resolve-node.js');
 const rollup = require('rollup');
-const rollupPluginCJS = require('rollup-plugin-commonjs');
 const transformFutureModules = require('./transform-future-modules.js');
 const path = require('path');
 const importUtils = require('./import-utils.js');
@@ -86,7 +85,7 @@ module.exports = async (entrypoints, options) => {
 
   const bundle = await rollup.rollup({
     input,
-    plugins: [resolveNodePlugin, rollupPluginCJS(), virtualPlugin],
+    plugins: [resolveNodePlugin, virtualPlugin],
   });
 
   const generated = await bundle.generate({

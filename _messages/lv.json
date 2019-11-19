@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Izrotājiet savu pārlūkprogrammu, izmantojot Ziemassvētku vecīša Chrome paplašinājumu."
 	},
+	"decmonth": {
+		"message": "Dec"
+	},
 	"detected": {
 		"message": "noteikta"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Šī ir novecojusi Ziemassvētku vecīša ciemata versija. Mēģiniet vēlreiz atvērt Ziemassvētku vecīša ceļojumu, lai skatītu jaunāko versiju."
+	},
 	"error-try-again": {
 		"message": "Mēģiniet vēlreiz"
+	},
+	"error-unsupported": {
+		"message": "Ziemassvētku vecīša ceļojums neatbalsta jūsu pārlūkprogrammu. Lai spēlētu vairāk spēļu un sekotu Ziemassvētku vecītim 24. decembrī, izmēģiniet tālruni vai citu pārlūkprogrammu."
 	},
 	"es_language_name": {
 		"message": "Spāņu"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Ziemassvētku vecīša kundzes instruktāža"
+	},
+	"scene_build": {
+		"message": "Ātra dāvanu izveide"
 	},
 	"scene_callfromsanta": {
 		"message": "Zvans no Ziemassvētku vecīša"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalēt"
+	},
+	"village_santa_intall_ios": {
+		"message": "Vienkārši pieskarieties vienumam \u003cspan\u003e\u003c/span\u003e, pēc tam pieskarieties vienumam “Pievienot sākuma ekrānam”"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"

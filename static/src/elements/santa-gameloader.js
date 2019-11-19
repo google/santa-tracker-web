@@ -24,6 +24,8 @@ class PortControl {
     if (port) {
       this._port = port;
       port.onmessage = (ev) => this.push(ev.data);
+    } else {
+      this._closed = true;
     }
     this._attached = true;
   }

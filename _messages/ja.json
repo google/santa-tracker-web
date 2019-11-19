@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Chrome 拡張機能「サンタを追いかけよう」で、ブラウザを楽しく飾ろう。"
 	},
+	"decmonth": {
+		"message": "12 月"
+	},
 	"detected": {
 		"message": "検出済み"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "ページが見つかりません。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
 	},
+	"error-out-of-date": {
+		"message": "これは古いバージョンのサンタ村です。最新バージョンを表示するには、「サンタを追いかけよう」をもう一度開いてみてください。"
+	},
 	"error-try-again": {
 		"message": "もう一度やり直してください"
+	},
+	"error-unsupported": {
+		"message": "「サンタを追いかけよう」はこのブラウザに対応していません。ゲームで遊んだり、12 月 24 日にサンタを追いかけたりするには、スマートフォンや他のブラウザを使ってみてください。"
 	},
 	"es_language_name": {
 		"message": "スペイン語"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "サンタさんの奥さんから一言"
+	},
+	"scene_build": {
+		"message": "すばやく組み立てよう"
 	},
 	"scene_callfromsanta": {
 		"message": "サンタさんからの電話"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "インストール"
+	},
+	"village_santa_intall_ios": {
+		"message": "\u003cspan\u003e\u003c/span\u003e、[ホーム画面に追加] の順にタップします。"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"

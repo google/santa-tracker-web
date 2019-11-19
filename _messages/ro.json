@@ -551,6 +551,12 @@
 	"deckdescription": {
 		"message": "Împodobește-ți browserul cu o extensie Chrome cu Moș Crăciun."
 	},
+	"decmonth": {
+		"message": "Dec."
+	},
+	"decmonth_long": {
+		"message": "decembrie"
+	},
 	"detected": {
 		"message": "detectată"
 	},
@@ -626,8 +632,14 @@
 	"error-not-found": {
 		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Aceasta este o versiune învechită a Satului lui Moș Crăciun! Deschideți Pe urmele lui Moș Crăciun din nou pentru a beneficia de ultima versiune."
+	},
 	"error-try-again": {
 		"message": "Încearcă din nou"
+	},
+	"error-unsupported": {
+		"message": "Pe urmele lui Moș Crăciun nu este acceptat în browserul dvs. Pentru a vă juca mai multe și pentru a-l urmări pe Moș Crăciun pe 24 decembrie, încercați pe telefon sau într-un alt browser."
 	},
 	"es_language_name": {
 		"message": "Spaniolă"
@@ -1396,6 +1408,9 @@
 	},
 	"scene_briefing": {
 		"message": "Lecția dnei Crăciun"
+	},
+	"scene_build": {
+		"message": "Construiți rapid"
 	},
 	"scene_callfromsanta": {
 		"message": "Apel de la Moș Crăciun"
@@ -6892,6 +6907,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalează"
+	},
+	"village_santa_intall_ios": {
+		"message": "Atingeți \u003cspan\u003e\u003c/span\u003e, apoi „Adăugați pe Ecranul de pornire”"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

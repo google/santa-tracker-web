@@ -6,6 +6,8 @@ import {read} from '../lib/params.js';
 import {globalClickHandler} from '../core/router.js';
 import {scope} from './route.js';
 
+const WAIT_TIMEOUT = 20 * 1000;
+
 class PreloadApi {
 
   /**
@@ -66,40 +68,15 @@ class PreloadApi {
     const {port1, port2} = new MessageChannel();
     this._callback({type: 'preload', payload: [type, event, port1]}, [port1]);
 
-    const p = new Promise((resolve) => {
-      const toResolve = [];
-
-      const progressMessage = (ev) => {
-        let left = 0;
-        if (ev.data) {
-          const {done, total} = ev.data;
-          left = total - done;
-        }
-        while (toResolve.length > left) {
-          toResolve.pop()();
-        }
-      };
-
-      const initialMessage = (ev) => {
-        // We expect either null, for complete, or repeated calls with {done, total} which will
-        // tick upwards until all resources are complete.
+    // nb. This used to be more complex when we showed a loading indicator; however, it's been
+    // streamlined so we just wait for a null "done" message.
+    const p = new Promise((resolve, reject) => {
+      port2.onmessage = (ev) => {
         if (ev.data === null) {
-          return resolve();
+          resolve();
         }
-        const {done, total} = ev.data;
-
-        // Create many resolvable entries that suggest progress.
-        for (let i = 0; i < total; ++i) {
-          const {promise, resolve} = resolvable();
-          toResolve.push(resolve);
-          this.wait(promise);
-        }
-        port2.onmessage = progressMessage;
-
-        return resolve();  // resolve outer
       };
-
-      port2.onmessage = initialMessage;
+      window.setTimeout(reject, WAIT_TIMEOUT);
     });
 
     this.wait(p);
@@ -333,6 +310,7 @@ function installV1Handlers() {
     switch (eventName) {
       case 'sound-trigger':
       case 'sound-ambient':
+      case 'santa-play':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
         break;

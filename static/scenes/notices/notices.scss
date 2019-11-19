@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: 'Google Sans', 'Arial', Sans-Serif;
+  font-size: 16px;
+  overflow-x: hidden;
+  background: #F7FCFB;
+  -webkit-font-smoothing: antialiased;
+
+  @media (max-width: 768px - 1px) {
+    font-size: 12px;
+  }
+}
+
+#hero {
+  // this is inline as it's expected to be used by press/edu scenes only
+  background: url(img/bg-hero.png) center bottom/cover no-repeat;
+  height: 500px;
+  padding: 20px 0 0 0;
+  border-bottom: 2px solid #ccc;
+
+  .header {
+    background: url(img/title-bg-swirl_2x.png) center/contain no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 340px;
+    margin-top: -60px;
+    margin-bottom: -120px;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: rgba(38, 50, 56, 0.8);
+      font-weight: 300;
+    }
+  }
+
+  .left {
+    min-width: 180px;
+    height: 180px;
+    background: transparent center/contain no-repeat;
+    background-image: url(img/illust-reporter_2x.png);
+    margin: 0 1em;
+
+    @media (max-width: 768px - 1px) {
+      min-width: 120px;
+    }
+  }
+
+  .right {
+    margin-right: 1em;
+    flex-grow: 1;
+    max-width: 600px;
+  }
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  h2 {
+    margin-top: 2em;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+}

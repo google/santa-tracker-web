@@ -22,9 +22,8 @@
     </div>
     <div class="buttons right">
       <santa-button id="share" color="green">share</santa-button>
-      <a id="download" target="_blank" download="elfmaker.png">
-        <santa-button color="red">save</santa-button>
-      </a>
+      <santa-button color="red" id="downloadButton" disabled>save</santa-button>
+      <a download="elfmaker.png" id="download" target="_blank" href="#" hidden></a>
     </div>
   </div>
 </main>
@@ -102,17 +101,23 @@ random.addEventListener('click', (ev) => {
   window.ga('send', 'event', 'game', 'random', 'elfmaker');
 });
 
+downloadButton.addEventListener('click', (ev) => {
+  download.click();
+});
+
 camera.addEventListener('click', (ev) => {
   const image = elf.draw();
   photo.capture(image);
   image.then((src) => {
     download.setAttribute('href', src);
+    downloadButton.disabled = false;
   });
   window.ga('send', 'event', 'game', 'photo', 'elfmaker');
 });
 
 photo.addEventListener('hide', (ev) => {
   download.removeAttribute('href');
+  downloadButton.disabled = true;
 });
 
 download.addEventListener('click', (ev) => {

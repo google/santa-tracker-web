@@ -120,6 +120,9 @@ export class SantaChromeElement extends LitElement {
         node.setAttribute('tabindex', '0')
         node.focus();
         node.removeAttribute('tabindex');
+
+        const sidebar = node.parentNode;
+        sidebar.scrollTop = 0;
       }
 
       this.dispatchEvent(new CustomEvent(eventName));

@@ -15,21 +15,6 @@ iframe[tabindex="-1"] {
   pointer-events: none;
 }
 
-// TODO: remove for launch, just showcasing loading
-main.loading::before {
-  font-family: 'Lobster', Roboto, Arial, Sans-Serif;
-  content: 'Loading...';
-  position: fixed;
-  z-index: 100;
-  background: red;
-  border-bottom-right-radius: 8px;
-  padding: 4px;
-  color: white;
-  font-size: 10px;
-  top: 0;
-  left: 0;
-}
-
 iframe {
   transition: filter 0.125s;
 }

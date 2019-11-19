@@ -41,7 +41,6 @@
     "pretty-ms": "^4.0.0",
     "regenerator-runtime": "^0.13.3",
     "rollup": "^1.19.4",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "sass": "^1.22.9",
     "tensorflow-models": "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1",
