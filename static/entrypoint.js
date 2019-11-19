@@ -287,13 +287,19 @@ outer:
  * Run incoming messages from the contained scene.
  *
  * @param {!PortControl} control
+ * @param {string} route active
  */
-async function runner(control) {
+async function runner(control, route) {
   const sc = await kplayReady;
+
+  // TODO: this should be on global state as the player might restart multiple times
+  // const start = performance.now();
+  // ga('send', 'event', 'game', 'start', route);
 
   for (;;) {
     const op = await control.next();
     if (op === null) {
+      // TODO(samthor): Can't log score here, state is already reset.
       break;
     }
 
@@ -317,6 +323,12 @@ async function runner(control) {
       case 'gameover':
         // TODO: log score?
         global.setState({status: 'gameover'});
+        const {score} = global.getState();
+
+        ga('send', 'event', 'game', 'end', route);
+        score.score && ga('send', 'event', 'game', 'score', route, score.score);
+        score.level && ga('send', 'event', 'game', 'level', route, score.level);
+
         continue;
 
       case 'score':
@@ -324,7 +336,6 @@ async function runner(control) {
         continue;
 
       case 'data':
-        // FIXME: This is out of order, writeData is defined below.
         writeData(payload);
         continue;
 
@@ -448,7 +459,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.
-    await runner(control);
+    await runner(control, route);
 
     // TODO: might be trailing events
   };
