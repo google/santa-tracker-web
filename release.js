@@ -238,7 +238,7 @@ async function release() {
       const target = path.join(dir, styleLink.href);
       const out = await vfs(target) || await fsp.readFile(target, 'utf-8');
       const inlineStyleTag = document.createElement('style');
-      inlineStyleTag.innerHTML = 'code' in out ? out.code : out;
+      inlineStyleTag.innerHTML = typeof out === 'string' ? out : ('code' in out ? out.code : out);
       styleLink.replaceWith(inlineStyleTag);
     }
 

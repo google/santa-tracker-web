@@ -17,13 +17,13 @@ function urlFor(sceneName, route) {
   return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p;
 }
 
-export function buildLoader(loaderElement) {
+export function buildLoader(loaderElement, fallback=false) {
   let activeRoute = undefined;
   let activeSceneName = undefined;
 
   const load = (route, data) => {
     activeRoute = route;  // this is the chosen open route
-    const sceneName = config.sceneForRoute(route);
+    const sceneName = config.sceneForRoute(route, fallback);
 
     if (activeSceneName === sceneName) {
       return;  // loaded (locked or valid), do nothing

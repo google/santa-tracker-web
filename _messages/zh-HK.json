@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "利用「聖誕老人 Chrome 擴充功能」裝飾您的瀏覽器。"
 	},
+	"decmonth": {
+		"message": "12 月"
+	},
 	"detected": {
 		"message": "已偵測"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "糟糕，聖誕老人的小精靈無法找到此網頁！您可返回\u003ca href=\"./\"\u003e聖誕老人村\u003c/a\u003e再碰碰運氣。"
 	},
+	"error-out-of-date": {
+		"message": "此聖誕老人村版本經已過期！請嘗試再次開啟聖誕老人追蹤器以查看最新版本。"
+	},
 	"error-try-again": {
 		"message": "再試一次"
+	},
+	"error-unsupported": {
+		"message": "您的瀏覽器並不支援聖誕老人村。如要玩更多遊戲並在 12 月 24 日追蹤聖誕老人，請嘗試使用手機或其他瀏覽器。"
 	},
 	"es_language_name": {
 		"message": "西班牙文"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "聖誕老婆婆的任務簡報"
+	},
+	"scene_build": {
+		"message": "禮物速製"
 	},
 	"scene_callfromsanta": {
 		"message": "聖誕老人來電"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "安裝"
+	},
+	"village_santa_intall_ios": {
+		"message": "只需輕按 [\u003cspan\u003e\u003c/span\u003e] '然後 [新增至主畫面] 即可"
 	},
 	"village_takesoff": {
 		"message": "聖誕老人出發倒數"

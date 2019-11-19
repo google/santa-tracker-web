@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Décorez votre navigateur avec une extension Google Chrome spécial Noël."
 	},
+	"decmonth": {
+		"message": "déc."
+	},
 	"detected": {
 		"message": "détecté"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Ceci est une version obsolète du village du père Noël! Essayez d'ouvrir de nouveau Sur les traces du père Noël pour voir la plus récente version."
+	},
 	"error-try-again": {
 		"message": "Réessayer"
+	},
+	"error-unsupported": {
+		"message": "Sur les traces du père Noël n'est pas compatible avec votre navigateur. Pour jouer à plus de jeux et suivre le père Noël le 24 décembre, essayez avec votre téléphone ou un autre navigateur."
 	},
 	"es_language_name": {
 		"message": "Espagnol"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instructions de mère Noël"
+	},
+	"scene_build": {
+		"message": "Fabriquer et foncer"
 	},
 	"scene_callfromsanta": {
 		"message": "Appel du père Noël"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installer"
+	},
+	"village_santa_intall_ios": {
+		"message": "Touchez simplement \u003cspan\u003e\u003c/span\u003e, puis « Ajouter à l'écran d'accueil »"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

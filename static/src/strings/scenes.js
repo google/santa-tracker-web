@@ -8,6 +8,7 @@ export default {
   'blimp': _msg`scene_blimp`,
   'boatload': _msg`scene_boatload`,
   'briefing': _msg`scene_briefing`,
+  'build': _msg`scene_build`,
   'callfromsanta': _msg`scene_callfromsanta`,
   'carpool': _msg`scene_videoscene_carpool`,
   'citylights': _msg`scene_citylights`,

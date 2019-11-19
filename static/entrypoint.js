@@ -5,13 +5,7 @@
 import './src/polyfill/css.js';
 import styles from './styles/santa.css';
 
-if (styles instanceof CSSStyleSheet) {
-  document.adoptedStyleSheets = [styles];
-} else {
-  const s = document.createElement('style');
-  s.textContent = styles.cssText;
-  document.head.appendChild(s);
-}
+document.adoptedStyleSheets = [styles];
 
 import './src/elements/santa-chrome.js';
 import './src/elements/santa-countdown.js';
@@ -239,9 +233,6 @@ async function preloadSounds(sc, event, port) {
  * @return {!Promise<Object<string, *>>}
  */
 async function prepare(control, data) {
-  if (!control.hasPort) {
-    return {};
-  }
   const timeout = promises.timeoutRace(10 * 1000);
 
   control.send({type: 'data', payload: data});
@@ -384,6 +375,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Kick off the preload for this scene and wait for the interlude to appear.
     const configPromise = prepare(control, data);
+    document.body.classList.add('loading');  // show dots after a time
     await interludeElement.show();
     if (!control.isAttached) {
       return false;  // replaced during interlude
@@ -411,6 +403,8 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
+    document.body.classList.add('loaded');      // first game has loaded, clear
+    document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
 
     // Go into fullscreen mode on Android.
