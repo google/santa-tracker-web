@@ -32,7 +32,6 @@ app.Game = class Game {
     this.players = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      // Todo: create special single player controls
       this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE,
           'player-1')
       this.multiplayer = false

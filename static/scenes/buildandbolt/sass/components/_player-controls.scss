@@ -1,0 +1,15 @@
+.player-controls {
+  align-items: center;
+  background: #f9d231;
+  bottom: 0;
+  display: flex;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &.is-hidden {
+    display: none;
+  }
+}

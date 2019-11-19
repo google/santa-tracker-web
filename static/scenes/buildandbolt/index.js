@@ -19,12 +19,22 @@ api.preload.sounds('village_load_sounds');
 
 const playerSelectionScreen = document.querySelector('[data-player-selection]')
 const playerSelectionOptions = document.querySelectorAll('[data-player-option]')
+const controlsScreen = document.querySelector('[data-player-controls]')
+const controlsButton = document.querySelector('[data-player-controls-skip]')
+
+let playerOption
 
 playerSelectionOptions.forEach((element) => {
   element.addEventListener('click', (e) => {
-    const game = new Game(document.getElementById('module-buildandbolt'), element.getAttribute('data-player-option'))
     playerSelectionScreen.classList.add('is-hidden')
+    controlsScreen.classList.remove('is-hidden')
+    playerOption = element.getAttribute('data-player-option')
   })
+})
+
+controlsButton.addEventListener('click', (e) => {
+  const game = new Game(document.getElementById('module-buildandbolt'), playerOption)
+  controlsScreen.classList.add('is-hidden')
 })
 
 api.config({
