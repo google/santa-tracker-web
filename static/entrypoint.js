@@ -30,7 +30,12 @@ import configureCustomKeys from './src/core/keys.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
+
 interludeElement.active = true;  // must show before appending
+interludeElement.addEventListener('gone', () => {
+  document.body.classList.add('loaded');  // first game has loaded, clear
+}, {once: true});
+
 document.body.append(chromeElement, loaderElement, interludeElement);
 
 const tutorialOverlayElement = document.createElement('santa-tutorial');
@@ -403,7 +408,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
-    document.body.classList.add('loaded');      // first game has loaded, clear
     document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
 

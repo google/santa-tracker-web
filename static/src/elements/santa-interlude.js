@@ -94,6 +94,9 @@ class SantaInterludeElement extends HTMLElement {
     this._hostElement.remove();
     this._hostElement.classList.remove('direction');
     this.shadowRoot.append(this._hostElement);
+
+    // Announce that we're gone (useful for first-time cleanups).
+    this.dispatchEvent(new CustomEvent('gone'));
   }
 
   /**
