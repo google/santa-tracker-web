@@ -77,7 +77,7 @@ export default class Download {
     const sources = []
 
     for (let i = 0; i < 16; i++) {
-      CameraController.rotate('right', true, 22.75)
+      CameraController.rotate('right', true, 22.5)
       // https://stackoverflow.com/questions/9491417/when-webgl-decide-to-update-the-display
       Scene.renderer.render(Scene.scene, CameraController.camera)
       const base64 = Scene.renderer.domElement.toDataURL()
