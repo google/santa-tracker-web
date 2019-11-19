@@ -23,13 +23,13 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   const {context, resolve, control, ready} = ev.detail;
 
   const prepare = async (control, data) => {
-    if (!control.hasPort) {
-      return {};
-    }
     control.send({type: 'data', payload: data});
 
     for (;;) {
       const op = await control.next();
+      if (op === null) {
+        break;
+      }
       const {type, payload} = op;
 
       switch (type) {
@@ -61,6 +61,33 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (locked) {
       // TODO(samthor): Do something.
     }
+    if (!control.hasPort) {
+      return;
+    }
+    
+    for (;;) {
+      const op = await control.next();
+      if (op === null) {
+        break;
+      }
+      const {type, payload} = op;
+
+      switch (type) {
+        case 'ga':
+          ga.apply(null, payload);
+          continue;
+
+        case 'gameover':
+          // TODO: show gameover screen
+          console.info('got gameover from game');
+          continue;
+
+        case 'go':
+          go(payload);
+          continue;
+      }
+    }
+
   };
   resolve(call());
 });

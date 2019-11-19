@@ -233,9 +233,6 @@ async function preloadSounds(sc, event, port) {
  * @return {!Promise<Object<string, *>>}
  */
 async function prepare(control, data) {
-  if (!control.hasPort) {
-    return {};
-  }
   const timeout = promises.timeoutRace(10 * 1000);
 
   control.send({type: 'data', payload: data});

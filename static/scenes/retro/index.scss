@@ -6,5 +6,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
   min-height: 100vh;
 }
