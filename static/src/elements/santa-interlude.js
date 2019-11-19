@@ -84,11 +84,6 @@ class SantaInterludeElement extends HTMLElement {
   }
 
   _onGone() {
-    // TODO(samthor): This awkwardly marks the page as loaded in two places. Ideally data-loaded
-    // would be removed in favor of global z-index controls.
-    this.setAttribute('data-loaded', '');
-    document.body.classList.add('loaded');
-
     this._anyVisible = false;
 
     if (this._interludeAnimation) {
@@ -145,7 +140,6 @@ class SantaInterludeElement extends HTMLElement {
     if (active === wasActive) {
       return;
     }
-    document.body.classList.toggle('loading', active);
 
     if (active) {
       // now active

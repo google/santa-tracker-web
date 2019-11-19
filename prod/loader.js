@@ -58,7 +58,7 @@ initialize().then((remoteConfig) => {
     }
     config.staticScope = staticScopeUrl.toString();
   }
-  // Force fallback for modern browsers.
+  // Force fallback for modern browsers, for testing.
   if (startParams.has('fallback')) {
     fallback = true;
   }

@@ -378,6 +378,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Kick off the preload for this scene and wait for the interlude to appear.
     const configPromise = prepare(control, data);
+    document.body.classList.add('loading');  // show dots after a time
     await interludeElement.show();
     if (!control.isAttached) {
       return false;  // replaced during interlude
@@ -405,6 +406,8 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
+    document.body.classList.add('loaded');      // first game has loaded, clear
+    document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
 
     // Go into fullscreen mode on Android.
