@@ -9,4 +9,5 @@ export default {
   MAP: './models/snowman.jpg',
   NORMAL_MAP: './models/snowman_normal.jpg',
   COLOR: 0xffffff,
+  HIGHLIGHT_COLOR: 0xf0f0f0,
 }

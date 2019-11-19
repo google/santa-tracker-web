@@ -21,6 +21,7 @@ class Shape {
     this.isMoving = false
     this.geoMats = []
     this.centerOffsetY = 0
+    this.highlightColor = GLOBAL_CONFIG.COLORS.HIGHLIGHT
 
     if (this.init) {
       this.init = this.init.bind(this)
@@ -38,7 +39,7 @@ class Shape {
   setShape(defaultMaterial) {
     // Secondary materials
     const highlightMaterial = defaultMaterial.clone()
-    highlightMaterial.color.setHex(GLOBAL_CONFIG.COLORS.HIGHLIGHT)
+    highlightMaterial.color.setHex(this.highlightColor)
     highlightMaterial.needsUpdate = true
 
     const ghostMaterial = defaultMaterial.clone()

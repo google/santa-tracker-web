@@ -33,6 +33,8 @@ class Snowman extends Obj {
     })
     defaultMaterial.needsUpdate = true
 
+    this.highlightColor = CONFIG.HIGHLIGHT_COLOR
+
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
       this.geoMats.push({
