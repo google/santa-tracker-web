@@ -153,7 +153,7 @@ class CameraController {
     }
   }
 
-  zoom(direction) {
+  zoom(direction, noAnimation = false) {
     if (this.isZooming) return
 
     this.cameraPositionOrigin = this.camera.position.clone()
@@ -180,12 +180,16 @@ class CameraController {
         break
     }
 
-    this.zoomTarget = CONFIG.ZOOM.FORCE
-    this.zoomOrigin = 0
-    this.zoomSpeed = CONFIG.ZOOM.SPEED
-    this.zoomStart = RAFManager.now
-    this.isZooming = true
-    this.isMoving = true
+    if (noAnimation) {
+      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, 1)
+    } else {
+      this.zoomTarget = CONFIG.ZOOM.FORCE
+      this.zoomOrigin = 0
+      this.zoomSpeed = CONFIG.ZOOM.SPEED
+      this.zoomStart = RAFManager.now
+      this.isZooming = true
+      this.isMoving = true
+    }
   }
 
   animateZoom(now) {
