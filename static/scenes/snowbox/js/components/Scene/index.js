@@ -456,8 +456,8 @@ class Scene extends EventEmitter {
       return
     }
 
-    this.xTouchStart = e.touches[0].clientX;
-    this.yTouchStart = e.touches[0].clientY;
+    this.xTouchStart = e.touches[0].clientX
+    this.yTouchStart = e.touches[0].clientY
   }
 
   onCanvasTouchMove(e) {
@@ -468,21 +468,21 @@ class Scene extends EventEmitter {
 
       if (distancePinch > this.lastDistancePinch) {
         // zoom in
-        CameraController.zoom('in', true)
+        CameraController.zoom('in', true, 2)
       } else {
         // zoom out
-        CameraController.zoom('out', true)
+        CameraController.zoom('out', true, 2)
       }
 
       this.lastDistancePinch = distancePinch
       return
     }
 
-    const xUp = e.touches[0].clientX;
-    const yUp = e.touches[0].clientY;
+    const xUp = e.touches[0].clientX
+    const yUp = e.touches[0].clientY
 
-    const xDiff = this.xTouchStart - xUp;
-    const yDiff = this.yTouchStart - yUp;
+    const xDiff = this.xTouchStart - xUp
+    const yDiff = this.yTouchStart - yUp
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
       if ( xDiff > 0 ) {
@@ -498,8 +498,8 @@ class Scene extends EventEmitter {
       }
     }
 
-    this.xTouchStart = e.touches[0].clientX;
-    this.yTouchStart = e.touches[0].clientY;
+    this.xTouchStart = e.touches[0].clientX
+    this.yTouchStart = e.touches[0].clientY
   }
 
   // Events from UI

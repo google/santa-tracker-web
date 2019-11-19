@@ -36,8 +36,8 @@ export default class CameraControls {
     this.ui.zoomButtons.forEach(button => {
       if (button.classList.contains('is-disabled') && button !== el) button.classList.remove('is-disabled')
     })
-    const { currentZoom, zoomSteps } = CameraController
-    const disable = currentZoom <= 0 || currentZoom + 1 >= zoomSteps
+    const { currentZoom, zoomMin, zoomMax } = CameraController
+    const disable = currentZoom === zoomMin || currentZoom === zoomMax
     // if last zoom, disable
     this.pushButton(el, disable)
   }

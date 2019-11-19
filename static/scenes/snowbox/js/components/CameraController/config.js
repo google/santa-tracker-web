@@ -22,10 +22,8 @@ export default {
    */
   ZOOM: {
     FOV: 0.6, // 0.6
-    START: 2,
-    STEPS: 4,
-    MAX: 2.5,
-    MIN: 0,
+    MAX: -60,
+    MIN: 30,
     SPEED: 800,
     FORCE: 30,
   },

@@ -13,8 +13,9 @@ class CameraController {
     this.rotationY = 0
     this.rotationXZ = 0
     this.raycaster = new THREE.Raycaster()
-    this.currentZoom = CONFIG.ZOOM.START
-    this.zoomSteps = CONFIG.ZOOM.STEPS
+    this.currentZoom = 0
+    this.zoomMin = CONFIG.ZOOM.MIN
+    this.zoomMax = CONFIG.ZOOM.MAX
     this.rotationXZMin = CONFIG.ROTATE.XZ_MIN
     this.rotationXZMax = CONFIG.ROTATE.XZ_MAX
     this.isTouchDevice = isTouchDevice()
@@ -149,7 +150,7 @@ class CameraController {
     }
   }
 
-  zoom(direction, noAnimation = false) {
+  zoom(direction, noAnimation = false, force = CONFIG.ZOOM.FORCE) {
     if (this.isZooming) return
 
     this.cameraPositionOrigin = this.camera.position.clone()
@@ -159,28 +160,30 @@ class CameraController {
     switch (direction) {
       case 'out':
         this.lookAtVector.negate()
-        if (this.currentZoom + 1 >= CONFIG.ZOOM.STEPS) {
+        this.zoomTarget = force
+        if (this.currentZoom === CONFIG.ZOOM.MIN) {
           SoundManager.play("snowbox_fail")
+          // don't rotate if reach min
           return false
         }
         SoundManager.play("snowbox_zoom_out")
-        this.currentZoom++
+        this.currentZoom = Math.min(this.currentZoom + this.zoomTarget, CONFIG.ZOOM.MIN)
         break
       case 'in':
-        if (this.currentZoom <= 0) {
+        this.zoomTarget = force
+        if (this.currentZoom === CONFIG.ZOOM.MAX) {
           SoundManager.play("snowbox_fail")
+          // don't rotate if reach min
           return false
         }
         SoundManager.play("snowbox_zoom_in")
-        this.currentZoom--
+        this.currentZoom = Math.max(this.currentZoom - this.zoomTarget, CONFIG.ZOOM.MAX)
         break
     }
 
     if (noAnimation) {
-      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, 10)
-      this.camera.updateProjectionMatrix()
+      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, this.zoomTarget)
     } else {
-      this.zoomTarget = CONFIG.ZOOM.FORCE
       this.zoomOrigin = 0
       this.zoomSpeed = CONFIG.ZOOM.SPEED
       this.zoomStart = RAFManager.now
@@ -198,8 +201,6 @@ class CameraController {
       this.isZooming = false
       this.isMoving = false
     }
-
-    this.camera.updateProjectionMatrix()
   }
 
   moveOnEdges(edge) {
