@@ -69,39 +69,35 @@ class CameraController {
     this.fakeGround.rotation.x = toRadian(-90)
   }
 
-  rotate(direction, type = null, noAnimation = false, coef = 1) {
+  rotate(direction, noAnimation = false, angle = 1) {
     if (this.isRotating) return
     this.controls.enabled = false
 
     switch (direction) {
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
-        if (type === 'wheel') {
-          this.targetAngle = CONFIG.ROTATE.FORCE_ON_WHEEL
-        } else if (type === 'on-touch') {
-          this.targetAngle = CONFIG.ROTATE.FORCE_ON_TOUCH
+        if (noAnimation) {
+          this.targetAngle = angle
         } else {
-          this.targetAngle = CONFIG.ROTATE.Y * coef
+          this.targetAngle = CONFIG.ROTATE.Y
         }
         this.rotationY += this.targetAngle
         break
       case 'right':
         this.axis = new THREE.Vector3(0, 1, 0)
-        if (type === 'wheel') {
-          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_WHEEL
-        } else if (type === 'on-touch') {
-          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_TOUCH
+        if (noAnimation) {
+          this.targetAngle = -angle
         } else {
-          this.targetAngle = -CONFIG.ROTATE.Y * coef
+          this.targetAngle = -CONFIG.ROTATE.Y
         }
         this.rotationY += this.targetAngle
         break
       case 'top':
         this.axis = this.getPerpendicularXZAxisManually()
-        if (type === 'on-touch') {
-          this.targetAngle = -CONFIG.ROTATE.FORCE_ON_TOUCH * coef
+        if (noAnimation) {
+          this.targetAngle = -angle
         } else {
-          this.targetAngle = -CONFIG.ROTATE.XZ * coef
+          this.targetAngle = -CONFIG.ROTATE.XZ
         }
         if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATE.XZ_MAX) {
           // don't rotate if reach max
@@ -111,10 +107,10 @@ class CameraController {
         break
       case 'bottom':
         this.axis = this.getPerpendicularXZAxisManually()
-        if (type === 'on-touch') {
-          this.targetAngle = CONFIG.ROTATE.FORCE_ON_TOUCH * coef
+        if (noAnimation) {
+          this.targetAngle = angle
         } else {
-          this.targetAngle = CONFIG.ROTATE.XZ * coef
+          this.targetAngle = CONFIG.ROTATE.XZ
         }
         if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATE.XZ_MIN) {
           // don't rotate if reach min
@@ -130,7 +126,7 @@ class CameraController {
     this.lookAt.y = 0 // cleaning up decimals, this value should always be 0
     this.cameraPositionOrigin = this.camera.position.clone()
 
-    if (type === 'wheel' || type === 'on-touch' || noAnimation) {
+    if (noAnimation) {
       this.rotateAboutPoint(this.camera, this.cameraPositionOrigin, this.lookAt, this.axis, toRadian(this.targetAngle))
     } else {
       this.isRotating = true
@@ -181,7 +177,8 @@ class CameraController {
     }
 
     if (noAnimation) {
-      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, 1)
+      this.translateFromVector(this.camera, this.cameraPositionOrigin, this.lookAtVector, 10)
+      this.camera.updateProjectionMatrix()
     } else {
       this.zoomTarget = CONFIG.ZOOM.FORCE
       this.zoomOrigin = 0

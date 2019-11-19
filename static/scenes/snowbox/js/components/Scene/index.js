@@ -54,6 +54,7 @@ class Scene extends EventEmitter {
     // 2: highlight === hover on an object: Can't go to drag mode
     // 3: move === moving/adding an object: Can't go to drag mode
     // 4: edit === scale/rotate an object: Can't go to drag mode
+    this.isPinchZooming = false
 
     this.bind()
   }
@@ -110,7 +111,7 @@ class Scene extends EventEmitter {
     }
 
     this.scene.add(CameraController.fakeGround)
-    CameraController.rotate('left', null, true)
+    CameraController.rotate('left', true, 45)
 
     if (this.debug) {
       this.buildHelpers()
@@ -118,114 +119,6 @@ class Scene extends EventEmitter {
     }
 
     this.events()
-
-    // Log events flag
-    var logEvents = false;
-
-    // Touch Point cache
-    var tpCache = new Array();
-
-    init()
-
-    function set_handlers(name) {
-     // Install event handlers for the given element
-     canvas.ontouchstart = start_handler;
-     canvas.ontouchmove = move_handler;
-     // Use same handler for touchcancel and touchend
-     canvas.ontouchcancel = end_handler;
-     canvas.ontouchend = end_handler;
-    }
-
-    function init() {
-     set_handlers("target1");
-     set_handlers("target2");
-     set_handlers("target3");
-     set_handlers("target4");
-    }
-
-    // This is a very basic 2-touch move/pinch/zoom handler that does not include
-    // error handling, only handles horizontal moves, etc.
-    function handle_pinch_zoom(ev) {
-      console.log('test')
-
-     if (ev.targetTouches.length == 2 && ev.changedTouches.length == 2) {
-       // Check if the two target touches are the same ones that started
-       // the 2-touch
-       var point1=-1, point2=-1;
-       for (var i=0; i < tpCache.length; i++) {
-         if (tpCache[i].identifier == ev.targetTouches[0].identifier) point1 = i;
-         if (tpCache[i].identifier == ev.targetTouches[1].identifier) point2 = i;
-       }
-       if (point1 >=0 && point2 >= 0) {
-         // Calculate the difference between the start and move coordinates
-         var diff1 = Math.abs(tpCache[point1].clientX - ev.targetTouches[0].clientX);
-         var diff2 = Math.abs(tpCache[point2].clientX - ev.targetTouches[1].clientX);
-
-         // This threshold is device dependent as well as application specific
-         var PINCH_THRESHHOLD = ev.target.clientWidth / 10;
-         if (diff1 >= PINCH_THRESHHOLD && diff2 >= PINCH_THRESHHOLD) {
-          window.alert('zoom in')
-         } else {
-          window.alert('zoom out')
-         }
-        ev.target.style.background = "green";
-       }
-       else {
-         // empty tpCache
-         tpCache = new Array();
-       }
-     }
-    }
-
-    function start_handler(ev) {
-     // If the user makes simultaneous touches, the browser will fire a
-     // separate touchstart event for each touch point. Thus if there are
-     // three simultaneous touches, the first touchstart event will have
-     // targetTouches length of one, the second event will have a length
-     // of two, and so on.
-     ev.preventDefault();
-     // Cache the touch points for later processing of 2-touch pinch/zoom
-     if (ev.targetTouches.length == 2) {
-       for (var i=0; i < ev.targetTouches.length; i++) {
-         tpCache.push(ev.targetTouches[i]);
-       }
-     }
-     if (logEvents) log("touchStart", ev, true);
-      console.log('oooo')
-    }
-
-    function move_handler(ev) {
-     // Note: if the user makes more than one "simultaneous" touches, most browsers
-     // fire at least one touchmove event and some will fire several touchmoves.
-     // Consequently, an application might want to "ignore" some touchmoves.
-     //
-     // This function sets the target element's border to "dashed" to visually
-     // indicate the target received a move event.
-     //
-     ev.preventDefault();
-     if (logEvents) log("touchMove", ev, false);
-     // To avoid too much color flashing many touchmove events are started,
-     // don't update the background if two touch points are active
-     if (!(ev.touches.length == 2 && ev.targetTouches.length == 2))
-      console.log('oooo')
-
-     // Set the target element's border to dashed to give a clear visual
-     // indication the element received a move event.
-     ev.target.style.border = "dashed";
-
-     // Check this event for 2-touch Move/Pinch/Zoom gesture
-     handle_pinch_zoom(ev);
-    }
-
-    function end_handler(ev) {
-      ev.preventDefault();
-      if (logEvents) log(ev.type, ev, false);
-      if (ev.targetTouches.length == 0) {
-        // Restore background and border to original values
-        ev.target.style.background = "white";
-        ev.target.style.border = "1px solid black";
-      }
-    }
   }
 
   preloadShapes() {
@@ -295,6 +188,7 @@ class Scene extends EventEmitter {
     if (this.isTouchDevice) {
       this.canvas.addEventListener('touchstart', this.onMouseDown)
       document.body.addEventListener('touchend', this.onMouseUp)
+      document.body.addEventListener('touchcancel', this.onMouseUp)
       document.body.addEventListener('touchmove', this.onBodyTouchMove)
       // only on canvas, not document, and if not edit mode
       this.canvas.addEventListener('touchstart', this.onCanvasTouchStart, false)
@@ -512,6 +406,10 @@ class Scene extends EventEmitter {
     }
 
     this.mouseState = 'up'
+
+    if (this.isPinchZooming) {
+      this.isPinchZooming = false
+    }
   }
 
   onBodyTouchMove(e) {
@@ -539,9 +437,9 @@ class Scene extends EventEmitter {
     CameraController.isMoving = true
 
     if (e.deltaY < 0) {
-      CameraController.rotate('left', 'wheel')
+      CameraController.rotate('left', true, 2)
     } else if (e.deltaY > 0) {
-      CameraController.rotate('right', 'wheel')
+      CameraController.rotate('right', true, 2)
     }
 
     clearTimeout(this.onWheelTimeout)
@@ -552,13 +450,34 @@ class Scene extends EventEmitter {
 
   onCanvasTouchStart(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
-    const firstTouch = e.touches[0];
+
+    if (e.touches.length === 2) { // if 2 fingers
+      this.isPinchZooming = true
+      return
+    }
+
     this.xTouchStart = e.touches[0].clientX;
     this.yTouchStart = e.touches[0].clientY;
   }
 
   onCanvasTouchMove(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
+
+    if (this.isPinchZooming) { // if 2 fingers
+      const distancePinch = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY)
+
+      if (distancePinch > this.lastDistancePinch) {
+        // zoom in
+        CameraController.zoom('in', true)
+      } else {
+        // zoom out
+        CameraController.zoom('out', true)
+      }
+
+      this.lastDistancePinch = distancePinch
+      return
+    }
+
     const xUp = e.touches[0].clientX;
     const yUp = e.touches[0].clientY;
 
@@ -567,15 +486,15 @@ class Scene extends EventEmitter {
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
       if ( xDiff > 0 ) {
-        CameraController.rotate('left', 'on-touch')
+        CameraController.rotate('left', true, 2.2)
       } else {
-        CameraController.rotate('right', 'on-touch')
+        CameraController.rotate('right', true, 2.2)
       }
     } else {
       if ( yDiff > 0 ) {
-        CameraController.rotate('bottom', 'on-touch', false, 0.4)
+        CameraController.rotate('bottom', true, 0.88)
       } else {
-        CameraController.rotate('top', 'on-touch', false, 0.4)
+        CameraController.rotate('top', true, 0.88)
       }
     }
 
