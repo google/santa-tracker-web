@@ -40,6 +40,7 @@ import Snowman from '../Shapes/Snowman/index.js'
 import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
+import { SHAPE_COLORS } from  '../../constants/index.js'
 
 class Scene {
   constructor(canvas) {
@@ -505,22 +506,26 @@ class Scene {
   // Events from UI
   colorObject(e) {
     const el = e.currentTarget
+    const { colorObject } = el.dataset
     if (this.activeSubject) {
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
         if (this.activeSubject.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
-            child.material.color = new THREE.Color(el.dataset.colorObject)
+            child.material.color = new THREE.Color(colorObject)
           }
         } else {
-          child.material.color = new THREE.Color(el.dataset.colorObject)
+          child.material.color = new THREE.Color(colorObject)
         }
       }
 
-      this.activeSubject.materials.highlight.color = new THREE.Color(darken(el.dataset.colorObject, 15))
+      this.activeSubject.materials.highlight.color = new THREE.Color(darken(colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true
       SoundManager.play("snowbox_pick_color")
+
+      SHAPE_COLORS[this.activeSubject.name].default = colorObject
+      SHAPE_COLORS[this.activeSubject.name].highlight = new THREE.Color(darken(colorObject, 15))
     }
   }
 

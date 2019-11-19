@@ -5,6 +5,7 @@ import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
 import Scene from '../Scene/index.js'
+import { SHAPE_COLORS } from  '../../constants/index.js'
 
 class Shape {
   constructor(scene, world) {
@@ -68,6 +69,9 @@ class Shape {
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
     this.defaultMeshScale = this.mesh.scale.clone()
+
+    this.updateDefaultColors()
+
     this.scene.add(this.mesh)
 
     // CANNON JS
@@ -429,6 +433,29 @@ class Shape {
 
   updateRotatingCircle(zoom) {
     this.circles.scale.set(1 / zoom, 1 / zoom, 1 / zoom)
+  }
+
+  updateDefaultColors() {
+    // update colors
+    if (!SHAPE_COLORS[this.name]) { // if shape not stored yet, store it
+      SHAPE_COLORS[this.name] = {}
+    }
+
+    if (SHAPE_COLORS[this.name].default) { // if color already set, re-use the last one
+      for (let i = 0; i < this.mesh.children.length; i++) {
+        const child = this.mesh.children[i]
+        if (this.name === 'gift') {
+          // only change the last material color for gifts
+          if (i === 4) {
+            child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+          }
+        } else {
+          child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+        }
+      }
+
+      this.materials.highlight = new THREE.Color(SHAPE_COLORS[this.name].highlight)
+    }
   }
 
   delete() {

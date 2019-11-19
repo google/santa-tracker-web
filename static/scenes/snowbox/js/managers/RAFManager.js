@@ -22,7 +22,4 @@ class RAFManager {
   }
 }
 
-// To do: cancel when no element that needs RAF is in the viewport
-// and restart when at least one of these elements are in it
-
 export default new RAFManager()
