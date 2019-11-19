@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Snygga till din webbläsare med Chrome-tillägget Följ jultomten."
 	},
+	"decmonth": {
+		"message": "Dec"
+	},
 	"detected": {
 		"message": "identifierat"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "Åh nej! Jultomtens nissar kan inte hitta sidan! Du kanske lyckas bättre om du går tillbaka till \u003ca href=\"./\"\u003eTomtebyn\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Det här är en gammal version av tomtebyn! Testa att öppna Följ jultomten igen för att se den senaste versionen."
+	},
 	"error-try-again": {
 		"message": "Försök igen"
+	},
+	"error-unsupported": {
+		"message": "Följ jultomten stöder inte din webbläsare. Testa med din telefon eller en annan webbläsare för att spela fler spel och följa tomten den 24 december."
 	},
 	"es_language_name": {
 		"message": "spanska"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Tomtemors genomgång"
+	},
+	"scene_build": {
+		"message": "Snabbygge"
 	},
 	"scene_callfromsanta": {
 		"message": "Samtal från jultomten"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installera"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tryck på \u003cspan\u003e\u003c/span\u003e och sedan Lägg till på startsidan"
 	},
 	"village_takesoff": {
 		"message": "Tomten lyfter om"

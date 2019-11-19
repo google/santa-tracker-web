@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Decora tu navegador con una extensión de Sigue a Papá Noel"
 	},
+	"decmonth": {
+		"message": "Dic"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Esta es una versión obsoleta de la aldea de Papá Noel. Prueba a volver a abrir Sigue a Papá Noel para ver la versión más actualizada."
+	},
 	"error-try-again": {
 		"message": "Inténtalo de nuevo"
+	},
+	"error-unsupported": {
+		"message": "Sigue a Papá Noel no es compatible con tu navegador. Si quieres probar más juegos y seguir a Papá Noel el 24 de diciembre, usa un teléfono o un navegador diferente."
 	},
 	"es_language_name": {
 		"message": "Español"
@@ -1020,7 +1029,7 @@
 		"message": "Pozo"
 	},
 	"nonprofit-wheelmap-description": {
-		"message": "A los usuarios que utilizan silla de ruedas puede resultarles difícil averiguar quésitiosson accesibles, como cines, restaurantes o cualquier destino de viaje. Wheelmap les muestra aquellos que ofrecen accesibilidad para sillas de ruedas, de forma que tarden menos en planificar la ruta y puedan dedicar más tiempo a explorar el mundo que les rodea."
+		"message": "A los usuarios que utilizan silla de ruedas puede resultarles difícil averiguar qué sitios son accesibles, como cines, restaurantes o cualquier destino de viaje. Wheelmap les muestra aquellos que ofrecen accesibilidad para sillas de ruedas, de forma que tarden menos en planificar la ruta y puedan dedicar más tiempo a explorar el mundo que les rodea."
 	},
 	"nonprofit-wheelmap-type": {
 		"message": "Movilidad"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Charla de Mamá Noel"
+	},
+	"scene_build": {
+		"message": "Presentes y prisas"
 	},
 	"scene_callfromsanta": {
 		"message": "Llamada de Papá Noel"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalar"
+	},
+	"village_santa_intall_ios": {
+		"message": "Solo tienes que tocar \u003cspan\u003e\u003c/span\u003e y, a continuación, \"Añadir a pantalla de inicio\""
 	},
 	"village_takesoff": {
 		"message": "Papá Noel despegará en"

@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Koristele selaimesi joulupukin Chrome-laajennuksella."
 	},
+	"decmonth": {
+		"message": "joulu"
+	},
 	"detected": {
 		"message": "tunnistettu"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa \u003ca href=\"./\"\u003eKorvatunturille\u003c/a\u003e ja yritä uudelleen."
 	},
+	"error-out-of-date": {
+		"message": "Tämä on vanha versio Pukin kylästä! Avaa Joulupukin jäljitin uudelleen, niin näet uusimman version."
+	},
 	"error-try-again": {
 		"message": "Yritä uudelleen"
+	},
+	"error-unsupported": {
+		"message": "Joulupukin jäljitin ei toimi selaimellasi. Voit pelata muita pelejä ja jäljittää pukin liikkeitä jouluaattona käyttämällä puhelinta tai toista selainta."
 	},
 	"es_language_name": {
 		"message": "espanja"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Pukin muorin ohjeet"
+	},
+	"scene_build": {
+		"message": "Lahjakiireitä"
 	},
 	"scene_callfromsanta": {
 		"message": "Puhelu pukilta"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Asenna"
+	},
+	"village_santa_intall_ios": {
+		"message": "Napauta \u003cspan\u003e\u003c/span\u003e ja Lisää aloitusnäytölle"
 	},
 	"village_takesoff": {
 		"message": "Aikaa joulupukin lähtöön:"

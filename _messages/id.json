@@ -551,6 +551,9 @@
 	"deckdescription": {
 		"message": "Hias browser dengan ekstensi Sinterklas untuk Chrome."
 	},
+	"decmonth": {
+		"message": "Des"
+	},
 	"detected": {
 		"message": "terdeteksi"
 	},
@@ -626,8 +629,14 @@
 	"error-not-found": {
 		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Cobalah kembali ke \u003ca href=\"./\"\u003eDesa Sinterklas\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Ini adalah versi Desa Sinterklas yang sudah usang. Coba buka lagi Pelacak Sinterklas untuk melihat versi terbaru."
+	},
 	"error-try-again": {
 		"message": "Coba lagi"
+	},
+	"error-unsupported": {
+		"message": "Pelacak Sinterklas tidak mendukung browser Anda. Untuk memainkan lebih banyak game dan melacak Sinterklas pada tanggal 24 Desember, cobalah di ponsel Anda atau di browser lain."
 	},
 	"es_language_name": {
 		"message": "Spanyol"
@@ -1396,6 +1405,9 @@
 	},
 	"scene_briefing": {
 		"message": "Arahan Singkat dari Bu Sinterklas"
+	},
+	"scene_build": {
+		"message": "Build \u0026 Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Telepon dari Sinterklas"
@@ -6892,6 +6904,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instal"
+	},
+	"village_santa_intall_ios": {
+		"message": "Cukup ketuk \u003cspan\u003e\u003c/span\u003e lalu 'Tambahkan ke Layar Utama'"
 	},
 	"village_takesoff": {
 		"message": "Sinterklas berangkat dalam"
