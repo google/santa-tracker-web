@@ -14,18 +14,25 @@ Constants = {
   // Configs for keyboard controls
   PLAYER_CONTROLS: {
     ARROWS: {
-      up: 'ArrowUp',
-      down: 'ArrowDown',
-      left: 'ArrowLeft',
-      right: 'ArrowRight',
-      action: 'ShiftRight'
+      up: ['ArrowUp'],
+      down: ['ArrowDown'],
+      left: ['ArrowLeft'],
+      right: ['ArrowRight'],
+      action: ['ShiftRight']
     },
     WASD: {
-      up: 'KeyW',
-      down: 'KeyS',
-      left: 'KeyA',
-      right: 'KeyD',
-      action: 'ShiftLeft'
+      up: ['KeyW'],
+      down: ['KeyS'],
+      left: ['KeyA'],
+      right: ['KeyD'],
+      action: ['ShiftLeft']
+    },
+    SINGLE: {
+      up: ['ArrowUp', 'KeyW'],
+      down: ['ArrowDown', 'KeyS'],
+      left: ['ArrowLeft', 'KeyA'],
+      right: ['ArrowRight', 'KeyD'],
+      action: ['ShiftRight', 'ShiftLeft']
     }
   },
   PLAYER_STEP_SIZE: .1,

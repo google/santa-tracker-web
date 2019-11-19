@@ -29,7 +29,7 @@ app.Table = class Table extends app.Entity {
   }
 
   onContact(player) {
-    if (this.gameControls.trackedKeys[player.controls.action]) {
+    if (this.gameControls.isKeyControlActive(player.controls.action)) {
      return [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
     } else {
       return [Constants.PLAYER_ACTIONS.BLOCK]

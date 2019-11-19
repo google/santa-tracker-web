@@ -96,28 +96,28 @@ app.Player = class Player {
       this.onIce = false // only leave it on for one step
     }
 
-    if (this.gameControls.trackedKeys[this.controls.left]) {
+    if (this.gameControls.isKeyControlActive(this.controls.left)) {
       this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
-    if (this.gameControls.trackedKeys[this.controls.right]) {
+    if (this.gameControls.isKeyControlActive(this.controls.right)) {
       this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
-    if (this.gameControls.trackedKeys[this.controls.up]) {
+    if (this.gameControls.isKeyControlActive(this.controls.up)) {
       this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
-    if (this.gameControls.trackedKeys[this.controls.down]) {
+    if (this.gameControls.isKeyControlActive(this.controls.down)) {
       this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y > 0) {

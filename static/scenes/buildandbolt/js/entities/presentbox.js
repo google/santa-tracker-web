@@ -29,7 +29,7 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   onContact(player) {
-    if (!this.gameControls.trackedKeys[player.controls.action]) {
+    if (!this.gameControls.isKeyControlActive(player.controls.action)) {
       return [Constants.PLAYER_ACTIONS.BLOCK]
     }
 

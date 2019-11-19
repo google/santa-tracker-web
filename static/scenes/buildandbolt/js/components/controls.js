@@ -55,6 +55,20 @@ app.Controls = class Controls {
   onKeyUp(e) {
     this.trackedKeys[e.code] = false
   }
+
+  /**
+   * @param  {[type]}  keys List of keys to check for
+   * @return {Boolean} true if any of the given keys are pressed
+   */
+  isKeyControlActive(keys) {
+    for (const key of keys) {
+      if (this.trackedKeys[key]) {
+        return true
+      }
+    }
+
+    return false
+  }
 }
 
 // /**
