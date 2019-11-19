@@ -97,17 +97,19 @@ function moduleIsVisible(el) {
   if (el.offsetTop + window.innerHeight >= top) {
     return el.offsetTop < bottom;
   }
+  return false;
 }
 
 async function prepareModules() {
   const main = document.querySelector('main');
   const scrollables = new Map();
+  const last = main.lastElementChild;
 
   for (const {id, parts} of moduleDefs) {
     const container = document.createElement('div');
     container.className = 'module';
     container.setAttribute('id', `module--${id}`);
-    main.append(container);
+    main.insertBefore(container, last);
 
     const animations = parts.map((type, index) => {
       const base = `img/modules/${id}/${index}`;
@@ -145,9 +147,8 @@ async function prepareModules() {
         if (anim.loop) {
           // This should loop, but only if visible.
           if (visible === anim.isPaused) {
-            return;  // nothing to do
+            visible ? anim.play() : anim.pause();
           }
-          visible ? anim.play() : anim.pause();
           return;
         }
 
@@ -202,11 +203,16 @@ api.ready(async () => {
 
 <div id="modules">
   <div class="sidebar left"></div>
-  <main></main>
+  <main>
+    <div class="module" id="module--footer">
+      <img src="img/footer.svg" />
+    </div>
+  </main>
   <div class="sidebar right"></div>
 </div>
 
-</div>
+<footer>
+</footer>
 
 </body>
 </html>

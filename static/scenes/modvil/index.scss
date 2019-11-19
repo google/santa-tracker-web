@@ -138,6 +138,7 @@ santa-card {
     left: 0;
     right: 0;
     z-index: -1;
+    width: 100%;
   }
 
   // TODO(samthor): We should load or unload these animations based on the screen size, rather
@@ -146,6 +147,12 @@ santa-card {
     svg {
       display: none;
     }
+  }
+}
+
+.module#module--footer {
+  &::after {
+    padding-bottom: 69.4%;  // ~999.36, we want 1000px
   }
 }
 
