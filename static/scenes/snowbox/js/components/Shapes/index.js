@@ -1,16 +1,13 @@
 import CONFIG from './config.js'
 import GLOBAL_CONFIG from '../Scene/config.js'
-import { EventEmitter } from '../../utils/event-emitter.js'
 import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
 import Scene from '../Scene/index.js'
 
-class Object extends EventEmitter {
+class Shape {
   constructor(scene, world) {
-    super()
-
     this.scene = scene
     this.world = world
 
@@ -243,7 +240,7 @@ class Object extends EventEmitter {
       this.mesh.quaternion.copy(this.body.quaternion)
 
       if (this.mesh.position.y < CONFIG.Y_POS_LIMIT) {
-        Scene.emit('leave_edit')
+        window.dispatchEvent(createCustomEvent('LEAVE_EDIT'))
         this.delete()
         return
       }
@@ -420,7 +417,7 @@ class Object extends EventEmitter {
 
     if (this.editable) {
       this.circles.add( xCircle )
-      this.circles.add( yCircle )  
+      this.circles.add( yCircle )
       this.updateRotatingCircle(zoom)
     } else {
       this.circles.add(toolbarHelper)
@@ -484,4 +481,4 @@ class Object extends EventEmitter {
   }
 }
 
-export default Object
+export default Shape

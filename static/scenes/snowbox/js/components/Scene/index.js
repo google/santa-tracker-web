@@ -1,7 +1,7 @@
-import { EventEmitter } from '../../utils/event-emitter.js'
 import { toRadian } from '../../utils/math.js'
 import { darken } from '../../utils/colors.js'
 import isTouchDevice from '../../utils/isTouchDevice.js'
+import createCustomEvent from '../../utils/createCustomEvent.js'
 
 // Config
 import CONFIG from './config.js'
@@ -41,10 +41,8 @@ import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
 
-class Scene extends EventEmitter {
+class Scene {
   constructor(canvas) {
-    super()
-
     this.debug = CONFIG.DEBUG
     this.isTouchDevice = isTouchDevice()
     this.sceneSubjects = []
@@ -244,7 +242,7 @@ class Scene extends EventEmitter {
 
     if (this.mode === 'edit' && this.activeSubject) {
       if (CameraController.isMoving || this.activeSubject.isMoving) {
-        this.emit('move_camera')
+        window.dispatchEvent(createCustomEvent('UPDATE_EDIT'))
       }
 
       if (CameraController.isZooming) {
@@ -836,7 +834,7 @@ class Scene extends EventEmitter {
       // if previous mode was edit, clear edit tool
       if (this.activeSubject) {
         this.activeSubject.deleteRotateCircle()
-        this.emit('leave_edit')
+        window.dispatchEvent(createCustomEvent('LEAVE_EDIT'))
         this.activeSubject = null
       }
     }
@@ -860,7 +858,7 @@ class Scene extends EventEmitter {
         if (this.activeSubject) {
           this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           setTimeout(() => {
-            this.emit('enter_edit')
+            window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
           }, 100)
         }
         controls.enabled = false // disable cameraCtrl.controls

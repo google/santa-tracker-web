@@ -71,10 +71,9 @@ export default class ObjectEditTool {
     })
 
     // custom events
-    Scene.addListener('enter_edit', this.enterEditMode)
-    Scene.addListener('leave_edit', this.hide)
-    Scene.addListener('move_camera', this.updatePosition)
-    Scene.addListener('scale_object', this.updatePosition)
+    window.addEventListener('ENTER_EDIT', this.enterEditMode)
+    window.addEventListener('LEAVE_EDIT', this.hide)
+    window.addEventListener('UPDATE_EDIT', this.updatePosition)
   }
 
   enterEditMode() {
