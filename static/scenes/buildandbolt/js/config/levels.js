@@ -6,16 +6,14 @@ Levels = [
       {
         startPos: {
           x: 27,
-          y: 0,
-        },
-        startAngle: .5 * Math.PI
+          y: 0
+        }
       },
       {
         startPos: {
           x: 0,
-          y: 0,
-        },
-        startAngle: .5 * Math.PI
+          y: 0
+        }
       }
     ],
     entities: [

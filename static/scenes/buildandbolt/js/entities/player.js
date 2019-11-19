@@ -25,11 +25,20 @@ app.Player = class Player {
 
     this.position = {
       x: this.config.startPos.x,
-      y: this.config.startPos.y
+      y: this.config.startPos.y,
+      angle: 0
     }
-    this.angle = this.config.startAngle
-    this.velocity = 0
-    this.acceleration = 0
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.acceleration = {
+      x: 0,
+      y: 0
+    }
+
     this.onIce = false
 
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
@@ -46,11 +55,20 @@ app.Player = class Player {
       this.dead = false
       this.position = {
         x: this.config.startPos.x,
-        y: this.config.startPos.y
+        y: this.config.startPos.y,
+        angle: 0
       }
-      this.angle = this.config.startAngle
-      this.velocity = 0
-      this.acceleration = 0
+
+      this.velocity = {
+        x: 0,
+        y: 0
+      }
+
+      this.acceleration = {
+        x: 0,
+        y: 0
+      }
+
       this.onIce = false
 
       this.clearToyParts()
@@ -70,46 +88,51 @@ app.Player = class Player {
 
     this.prevPosition = Object.assign({}, this.position)
 
-    let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
-    let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
-    let angleStepSize = Constants.PLAYER_ANGLE_STEP_SIZE
+    let accelerationFactor = 1
+    let decelerationFactor = 1
     if (this.onIce) {
-      accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR_ICE
-      decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR_ICE
-      angleStepSize = Constants.PLAYER_ANGLE_STEP_SIZE_ICE
+      accelerationFactor = 2
+      decelerationFactor = .5
       this.onIce = false // only leave it on for one step
     }
 
     if (this.gameControls.trackedKeys[this.controls.left]) {
-      this.angle -= angleStepSize
+      this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+    } else if (this.velocity.x < 0) {
+      this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.right]) {
-      this.angle += angleStepSize
+      this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+    } else if (this.velocity.x > 0) {
+      this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.up]) {
-      this.velocity = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
-    } else if (this.velocity > 0) {
-      this.velocity = Math.max(0, this.velocity - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+    } else if (this.velocity.y < 0) {
+      this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
     if (this.gameControls.trackedKeys[this.controls.down]) {
-      this.velocity = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
-    } else if (this.velocity < 0) {
-      this.velocity = Math.min(0, this.velocity + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+    } else if (this.velocity.y > 0) {
+      this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
     }
 
-    // calculate new position based on angle and velocity
-
     if (this.platform) {
-      this.platformOffset = this.getNextPosition(this.platformOffset,
-          this.velocity, this.angle)
+      this.platformOffset.x += this.velocity.x
+      this.platformOffset.y += this.velocity.y
     } else {
-      this.position = this.getNextPosition(this.position, this.velocity,
-          this.angle, true)
+      this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
+          Math.max(0, this.position.x + this.velocity.x))
+
+      this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
+          Math.max(0, this.position.y + this.velocity.y))
     }
 
     // check if you left the platform
@@ -143,28 +166,8 @@ app.Player = class Player {
     this.render()
   }
 
-  getNextPosition(startPosition, velocity, angle, checkBounds = false) {
-    let nextPosition = {}
-
-    // calculate using trig
-    nextPosition.x = startPosition.x + velocity * Math.cos(angle)
-    nextPosition.y = startPosition.y + velocity * Math.sin(angle)
-
-    if (checkBounds) {
-      nextPosition.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
-          Math.max(0, nextPosition.x))
-
-      nextPosition.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
-          Math.max(0, nextPosition.y))
-    }
-
-    return nextPosition
-  }
-
   render() {
-    // temp
-    let rotationOffset = .5 * Math.PI
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y, this.angle - rotationOffset)
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
   /**
