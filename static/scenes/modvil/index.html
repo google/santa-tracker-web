@@ -89,6 +89,16 @@ function ratioForModule(el) {
   return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
 }
 
+function moduleIsVisible(el) {
+  const se = document.scrollingElement;
+  const top = se.scrollTop;
+  const bottom = se.scrollTop + window.innerHeight;
+
+  if (el.offsetTop + window.innerHeight >= top) {
+    return el.offsetTop < bottom;
+  }
+}
+
 async function prepareModules() {
   const main = document.querySelector('main');
   const scrollables = new Map();
@@ -99,8 +109,7 @@ async function prepareModules() {
     container.setAttribute('id', `module--${id}`);
     main.append(container);
 
-    const scrollAnim = [];
-    parts.forEach((type, index) => {
+    const animations = parts.map((type, index) => {
       const base = `img/modules/${id}/${index}`;
       const zIndex = -(100 - index);
 
@@ -110,36 +119,43 @@ async function prepareModules() {
         container.append(img);
         img.style.zIndex = zIndex;
         // TODO: preload
-        return;
+        return null;
       }
 
-      const options = {container};
-      if (type === 'loop') {
-        // TODO: only play when in frame
-        options.autoplay = true;
-        options.loop = true;
-      }
+      const options = {
+        container,
+        loop: (type === 'loop'),
+      };
       const anim = loadAnimation(`${base}.json`, options);
       anim.renderer.svgElement.style.zIndex = zIndex;
 
-      if (type === 'scroll') {
-        scrollAnim.push(anim);
-      }
-
       // TODO: preload
-    });
+      return anim;
+    }).filter(Boolean);
 
-    if (!scrollAnim.length) {
-      continue;  // no animations to scroll for this module
-    }
-
-    scrollables.set(container, scrollAnim);
+    scrollables.set(container, animations);
   }
 
   helpers.installAdjustHandler(() => {
-    scrollables.forEach((scrollAnim, container) => {
-      const ratio = ratioForModule(container);
-      scrollAnim.forEach((anim) => {
+    scrollables.forEach((animations, container) => {
+      const visible = moduleIsVisible(container);
+      const ratio = visible ? ratioForModule(container) : -1.0;
+
+      animations.forEach((anim) => {
+        if (anim.loop) {
+          // This should loop, but only if visible.
+          if (visible === anim.isPaused) {
+            return;  // nothing to do
+          }
+          visible ? anim.play() : anim.pause();
+          return;
+        }
+
+        if (!visible) {
+          return;
+        }
+
+        // Otherwise, this is a scroll target.
         const frames = anim.getDuration(true);
         const frame = Math.min(frames, Math.max(0.0, frames * ratio));
         anim.goToAndStop(frame, true);
