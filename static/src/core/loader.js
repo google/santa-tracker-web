@@ -22,11 +22,17 @@ export function buildLoader(loaderElement, fallback=false) {
   let activeSceneName = undefined;
 
   const load = (route, data) => {
+    // Optionally redirect; used to hide press/educators page
+    const redirectRoute = config.redirectRoute(route);
+    if (redirectRoute !== undefined) {
+      route = redirectRoute;
+    }
+
     activeRoute = route;  // this is the chosen open route
     const sceneName = config.sceneForRoute(route, fallback);
 
     if (activeSceneName === sceneName) {
-      return;  // loaded (locked or valid), do nothing
+      return redirectRoute;  // loaded (locked or valid), do nothing
     }
 
     // Load the scene HTML but include the ID of the route. Useful for videos.
@@ -37,12 +43,13 @@ export function buildLoader(loaderElement, fallback=false) {
     ga('send', 'pageview');
 
     const locked = (activeSceneName === null);
-
     loaderElement.load(url, {route, data, locked}).then((success) => {
       if (success) {
         document.title = scenes[route] || _msg`santatracker`;
       }
     });
+
+    return redirectRoute;
   };
 
   // If we see a config update, always try to reload the current scene (in case it locks or unlocks
