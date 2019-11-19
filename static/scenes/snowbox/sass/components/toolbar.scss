@@ -7,6 +7,14 @@
   pointer-events: auto;
   width: 100%;
 
+  // @include respond-to(iphone8-more) {
+  //   height: 180px;
+  // }
+
+  @include respond-to(iphoneX-more) {
+    height: 210px;
+  }
+
   &__container {
     background-color: $color-deep-blue;
     width: 70%;
@@ -15,6 +23,18 @@
     justify-content: flex-start;
     align-items: center;
     position: relative;
+
+    @include respond-to(smartphone) {
+      width: 80%;
+    }
+
+    // @include respond-to(iphone8-more) {
+    //   align-items: flex-start;
+    // }
+
+    @include respond-to(iphoneX-more) {
+      align-items: flex-start;
+    }
   }
 
   &__slider {
@@ -24,6 +44,11 @@
     white-space: nowrap;
     height: 150px;
     padding: 30px 40px;
+
+    @include respond-to(smartphone) {
+      height: 110px;
+      padding: 20px 30px;
+    }
   }
 
   &__item {
@@ -54,6 +79,14 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: $z-index-ui;
+
+    // @include respond-to(iphone8-more) {
+    //   top: calc(50% - 40px);
+    // }
+
+    @include respond-to(iphoneX-more) {
+      top: calc(50% - 55px);
+    }
 
     &::after {
       content: '';

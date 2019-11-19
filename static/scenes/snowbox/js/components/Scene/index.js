@@ -84,7 +84,9 @@ class Scene extends EventEmitter {
     }
 
     this.ui = {
-      toolbar: document.body.querySelector('[toolbar]')
+      module: document.body.querySelector('#module-snowglobe'),
+      toolbar: document.body.querySelector('[toolbar]'),
+      UI: document.body.querySelector('.ui'),
     }
 
     this.preloadShapes()
@@ -898,8 +900,11 @@ class Scene extends EventEmitter {
   }
 
   setUnits() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight - this.ui.toolbar.offsetHeight
+    this.ui.UI.style.height = `${window.innerHeight}px`
+    this.ui.module.style.height = `${window.innerHeight}px`
+
+    this.width = this.ui.module.offsetWidth // get iOS toolbar size
+    this.height = this.ui.module.offsetHeight - this.ui.toolbar.offsetHeight
 
     this.edgesSize = CONFIG.EDGES_PERCENT_SIZE * this.width // based on screen size
   }
