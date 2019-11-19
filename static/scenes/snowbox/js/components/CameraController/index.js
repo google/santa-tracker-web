@@ -15,8 +15,8 @@ class CameraController {
     this.raycaster = new THREE.Raycaster()
     this.currentZoom = CONFIG.ZOOM.START
     this.zoomSteps = CONFIG.ZOOM.STEPS
-    this.rotateXZMin = CONFIG.ROTATE.XZ_MIN
-    this.rotateXZMax = CONFIG.ROTATE.XZ_MAX
+    this.rotationXZMin = CONFIG.ROTATE.XZ_MIN
+    this.rotationXZMax = CONFIG.ROTATE.XZ_MAX
     this.isTouchDevice = isTouchDevice()
   }
 
@@ -99,11 +99,11 @@ class CameraController {
         } else {
           this.targetAngle = -CONFIG.ROTATE.XZ
         }
-        if (this.rotationXZ + this.targetAngle <= CONFIG.ROTATE.XZ_MAX) {
-          // don't rotate if reach max
+        if (this.rotationXZ === CONFIG.ROTATE.XZ_MAX) {
+          // don't rotate if reach min
           return false
         }
-        this.rotationXZ += this.targetAngle
+        this.rotationXZ = Math.max(this.rotationXZ + this.targetAngle, CONFIG.ROTATE.XZ_MAX)
         break
       case 'bottom':
         this.axis = this.getPerpendicularXZAxisManually()
@@ -112,11 +112,11 @@ class CameraController {
         } else {
           this.targetAngle = CONFIG.ROTATE.XZ
         }
-        if (this.rotationXZ + this.targetAngle >= CONFIG.ROTATE.XZ_MIN) {
+        if (this.rotationXZ === CONFIG.ROTATE.XZ_MIN) {
           // don't rotate if reach min
           return false
         }
-        this.rotationXZ += this.targetAngle
+        this.rotationXZ = Math.min(this.rotationXZ + this.targetAngle, CONFIG.ROTATE.XZ_MIN)
         break
     }
 

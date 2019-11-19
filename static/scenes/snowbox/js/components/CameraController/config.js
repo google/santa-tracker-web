@@ -11,8 +11,8 @@ export default {
   ROTATE: {
     Y: 45,
     XZ: 45 / 2,
-    XZ_MIN: 25,
-    XZ_MAX: -46,
+    XZ_MIN: 22.5,
+    XZ_MAX: -45,
     SPEED: 800,
     FORCE_ON_WHEEL: 2,
     FORCE_ON_TOUCH: 2.2,

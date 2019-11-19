@@ -59,15 +59,17 @@ export default class CameraControls {
       this.ui.rotateButtons.forEach(button => {
         if (button.classList.contains('is-disabled') && button !== el) button.classList.remove('is-disabled')
       })
-      const { rotationXZ, targetAngle, rotateXZMin, rotateXZMax } = CameraController
-      disable = rotationXZ + targetAngle >= rotateXZMin || rotationXZ + targetAngle <= rotateXZMax
+      const { rotationXZ, rotationXZMin, rotationXZMax } = CameraController
+      disable = rotationXZ === rotationXZMin || rotationXZ === rotationXZMax
     }
 
     this.pushButton(el, disable)
   }
+
   playHoverSound() {
     SoundManager.play('snowbox_generic_hover');
   }
+
   pushButton(el, disable = false) {
     el.classList.add('is-clicked')
     setTimeout(() => {
