@@ -291,9 +291,9 @@ class Scene {
       } else if (this.mode === 'move' && this.selectedSubject && this.isInCanvas) {
         this.moveSelectedSubject()
         this.checkCollision()
-        if (this.canDetectMouseInEdge) {
-          this.detectMouseInEdge(e)
-        }
+        // if (this.canDetectMouseInEdge) {
+        //   this.detectMouseInEdge(e)
+        // }
       }
     }
 
@@ -524,11 +524,11 @@ class Scene {
     subject.load(this.shapeLoaded)
 
     // prevent moving camera just after adding a shape
-    this.canDetectMouseInEdge = false
-    clearTimeout(this.canDetectMouseInEdgeTimeout)
-    this.canDetectMouseInEdgeTimeout = setTimeout(() => {
-      this.canDetectMouseInEdge = true
-    }, 2000)
+    // this.canDetectMouseInEdge = false
+    // clearTimeout(this.canDetectMouseInEdgeTimeout)
+    // this.canDetectMouseInEdgeTimeout = setTimeout(() => {
+    //   this.canDetectMouseInEdge = true
+    // }, 2000)
   }
 
   // others
