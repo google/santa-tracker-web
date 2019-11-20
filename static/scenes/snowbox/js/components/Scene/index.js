@@ -750,7 +750,7 @@ class Scene {
       this.unselectSubject()
     }
 
-    if (this.mode === 'edit') {
+    if (this.mode === 'edit' && mode !== 'edit') {
       // if previous mode was edit, clear edit tool
       if (this.activeSubject) {
         this.activeSubject.deleteRotateCircle()
