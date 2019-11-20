@@ -1,5 +1,4 @@
 // Config
-// import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 import { toRadian } from '../../../utils/math.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
@@ -19,15 +18,17 @@ class Sky {
     // this.gui.add(this.guiController, 'cube_scale', 0.0, 5.0).onChange(this.onGui)
     // this.gui.add(this.guiController, 'cube_y_pos', -100, 100).onChange(this.onGui)
 
-    LoaderManager.load({name: CONFIG.NAME, skybox: {
-      prefix: CONFIG.PREFIX,
-      directions: CONFIG.DIRECTIONS,
-      suffix: CONFIG.SUFFIX,
-    }}, this.init)
+    LoaderManager.load({ name: CONFIG.NAME,
+      skybox: {
+        prefix: CONFIG.PREFIX,
+        directions: CONFIG.DIRECTIONS,
+        suffix: CONFIG.SUFFIX,
+      },
+    }, this.init)
   }
 
   init() {
-    const geometry = new THREE.CubeGeometry( 62, 62, 62 )
+    const geometry = new THREE.CubeGeometry(62, 62, 62)
     const { textures } = LoaderManager.subjects[CONFIG.NAME]
 
     const material = []
@@ -35,15 +36,15 @@ class Sky {
     textures.forEach(texture => {
       material.push( new THREE.MeshBasicMaterial({
         map: texture,
-        side: THREE.BackSide
-      }));
+        side: THREE.BackSide,
+      }))
     })
 
-    this.skyBox = new THREE.Mesh( geometry, material )
+    this.skyBox = new THREE.Mesh(geometry, material)
     this.skyBox.position.y = CONFIG.Y_POS
     this.skyBox.rotation.y = toRadian(CONFIG.Y_ROTATION)
     this.skyBox.scale.set(CONFIG.SCALE, CONFIG.SCALE, CONFIG.SCALE)
-    this.scene.add( this.skyBox )
+    this.scene.add(this.skyBox)
   }
 
   // onGui() {

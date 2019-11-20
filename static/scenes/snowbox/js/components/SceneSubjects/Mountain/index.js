@@ -217,4 +217,3 @@ class Mountain {
 }
 
 export default Mountain
-

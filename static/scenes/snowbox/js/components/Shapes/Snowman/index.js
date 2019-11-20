@@ -39,7 +39,7 @@ class Snowman extends Obj {
       const geometry = obj.children[i].geometry
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material: defaultMaterial,
       })
     }
 
@@ -53,9 +53,9 @@ class Snowman extends Obj {
     const sphere = new CANNON.Sphere(0.5 * s)
     const cone = new CANNON.Cylinder(0, 0.1 * s, 0.45 * s, 10 * s)
 
-    const coneOffset = new CANNON.Vec3( 0.7 * s, 0, 0)
+    const coneOffset = new CANNON.Vec3(0.7 * s, 0, 0)
     const coneQuaternion = new THREE.Quaternion()
-    coneQuaternion.setFromAxisAngle( new THREE.Vector3( 0, 1, 0 ), Math.PI / 2 )
+    coneQuaternion.setFromAxisAngle( new THREE.Vector3(0, 1, 0), Math.PI / 2)
 
     this.body.addShape(sphere)
     this.body.addShape(cone, coneOffset, coneQuaternion)

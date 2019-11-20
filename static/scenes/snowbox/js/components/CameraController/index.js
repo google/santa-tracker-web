@@ -54,12 +54,12 @@ class CameraController {
     // this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
 
     // temporary disable controls
-    this.controls = { enabled: false}
+    this.controls = { enabled: false }
   }
 
   buildBox() {
     // create box to limit camera position
-    this.box = new THREE.Box3( new THREE.Vector3(-CONFIG.BOX, -CONFIG.BOX, -CONFIG.BOX), new THREE.Vector3(CONFIG.BOX, CONFIG.BOX, CONFIG.BOX) )
+    this.box = new THREE.Box3(new THREE.Vector3(-CONFIG.BOX, -CONFIG.BOX, -CONFIG.BOX), new THREE.Vector3(CONFIG.BOX, CONFIG.BOX, CONFIG.BOX))
   }
 
   buildFakeGround() {
@@ -75,6 +75,8 @@ class CameraController {
     this.controls.enabled = false
 
     switch (direction) {
+      default:
+        break
       case 'left':
         this.axis = new THREE.Vector3(0, 1, 0)
         if (noAnimation) {
@@ -158,25 +160,27 @@ class CameraController {
     this.camera.getWorldDirection(this.lookAtVector)
 
     switch (direction) {
+      default:
+        break
       case 'out':
         this.lookAtVector.negate()
         this.zoomTarget = force
         if (this.currentZoom === CONFIG.ZOOM.MIN) {
-          SoundManager.play("snowbox_fail")
+          SoundManager.play('snowbox_fail')
           // don't rotate if reach min
           return false
         }
-        SoundManager.play("snowbox_zoom_out")
+        SoundManager.play('snowbox_zoom_out')
         this.currentZoom = Math.min(this.currentZoom + this.zoomTarget, CONFIG.ZOOM.MIN)
         break
       case 'in':
         this.zoomTarget = force
         if (this.currentZoom === CONFIG.ZOOM.MAX) {
-          SoundManager.play("snowbox_fail")
+          SoundManager.play('snowbox_fail')
           // don't rotate if reach min
           return false
         }
-        SoundManager.play("snowbox_zoom_in")
+        SoundManager.play('snowbox_zoom_in')
         this.currentZoom = Math.max(this.currentZoom - this.zoomTarget, CONFIG.ZOOM.MAX)
         break
     }
@@ -211,6 +215,8 @@ class CameraController {
 
     // Get xz position based on current rotationY and edge
     switch (edge) {
+      default:
+        break
       case 'top':
         x = -speed * Math.sin(angle)
         z = -speed * Math.cos(angle)

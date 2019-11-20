@@ -36,7 +36,7 @@ class Sphere extends Obj {
       geometry.center()
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material: defaultMaterial,
       })
     }
 

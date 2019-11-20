@@ -21,7 +21,7 @@ class SnowglobeGame {
       toolbar: el.querySelector('[toolbar]'),
       cameraControls: el.querySelector('[camera-controls]'),
       objectEditTool: el.querySelector('[object-edit-tool]'),
-      download: el.querySelector('[data-download]')
+      download: el.querySelector('[data-download]'),
     }
 
     this.render = this.render.bind(this)
@@ -39,7 +39,7 @@ class SnowglobeGame {
     new Download(this.ui.download)
 
     // stats
-    this.stats = new self.Stats()
+    this.stats = new window.Stats()
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
 
@@ -61,6 +61,9 @@ class SnowglobeGame {
   teardown() {}
 
   start() {}
+
+  pause() {}
+
   resume() {}
 }
 

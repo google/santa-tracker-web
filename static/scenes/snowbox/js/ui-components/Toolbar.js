@@ -9,7 +9,7 @@ export default class Toolbar {
     this.ui = {
       items: [...this.el.querySelectorAll('[data-toolbar-shape]')],
       arrows: [...this.el.querySelectorAll('[data-toolbar-arrow]')],
-      slider: this.el.querySelector('.toolbar__slider')
+      slider: this.el.querySelector('.toolbar__slider'),
     }
 
     this.isTouchDevice = isTouchDevice()
@@ -44,12 +44,12 @@ export default class Toolbar {
     })
   }
 
-  onMouseOver(e) {
-    SoundManager.play('snowbox_shape_mouseover');
+  onMouseOver() {
+    SoundManager.play('snowbox_shape_mouseover')
   }
 
-  onMouseOut(e) {
-    SoundManager.play('snowbox_shape_mouseout');
+  onMouseOut() {
+    SoundManager.play('snowbox_shape_mouseout')
   }
 
   onClickShape(e) {
@@ -59,11 +59,11 @@ export default class Toolbar {
     const { toolbarShape, shapeMaterial } = button.dataset
     Scene.addShape(toolbarShape, shapeMaterial)
 
-    SoundManager.play('snowbox_toolbox_select');
+    SoundManager.play('snowbox_toolbox_select')
   }
 
-  onArrowOver(e) {
-    SoundManager.play('snowbox_generic_hover');
+  onArrowOver() {
+    SoundManager.play('snowbox_generic_hover')
   }
 
   onArrowDown(e) {
@@ -93,7 +93,7 @@ export default class Toolbar {
       item.style.transform = `translateX(${this.x}px)`
     })
 
-    SoundManager.play('generic_button_click');
+    SoundManager.play('generic_button_click')
   }
 
   pushButton(el, disable = false) {
@@ -126,4 +126,3 @@ export default class Toolbar {
     }
   }
 }
-

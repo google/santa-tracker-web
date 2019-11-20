@@ -7,7 +7,7 @@ export default class PlaneHelper {
     const geometry = new THREE.PlaneGeometry(50, 50, 1, 1)
 
     this.mesh = new THREE.Mesh(geometry, material)
-    this.mesh.position.y = 1;
+    this.mesh.position.y = 1
     this.mesh.rotation.x = -Math.PI / 2
 
     scene.add(this.mesh)

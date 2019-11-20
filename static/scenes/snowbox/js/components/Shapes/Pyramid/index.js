@@ -30,7 +30,7 @@ class Pyramid extends Obj {
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: GLOBAL_CONFIG.SHININESS,
-      normalMap
+      normalMap,
     })
     defaultMaterial.needsUpdate = true
 
@@ -38,7 +38,7 @@ class Pyramid extends Obj {
       const geometry = obj.children[i].geometry
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material: defaultMaterial,
       })
     }
 
@@ -49,27 +49,27 @@ class Pyramid extends Obj {
     // compound
     const s = this.size * scale
     const offset = new CANNON.Vec3(0, -0.5 * s, 0)
-    const axisRotation = new THREE.Vector3( 0, 1, 0 )
+    const axisRotation = new THREE.Vector3(0, 1, 0)
     const tetras = [{
       shape: this.createTetraShape(s),
       offset,
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI / 4 ),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, Math.PI / 4),
     }, {
       shape: this.createTetraShape(s),
       offset,
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI / 4 ),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, -Math.PI / 4),
     }, {
       shape: this.createTetraShape(s),
       offset,
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI * 3 / 4 ),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, Math.PI * 3 / 4),
     }, {
       shape: this.createTetraShape(s),
       offset,
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, -Math.PI * 3 / 4 ),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, -Math.PI * 3 / 4),
     }]
 
     tetras.forEach(tetra => {
-      const { shape, offset, quaternion } = tetra
+      const { shape, quaternion } = tetra
       this.body.addShape(shape, offset, quaternion)
     })
   }

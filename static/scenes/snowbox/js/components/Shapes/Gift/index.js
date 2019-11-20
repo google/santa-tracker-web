@@ -40,7 +40,7 @@ class Gift extends Obj {
       const geometry = obj.children[i].geometry
 
       let material
-      if (i !== 4 ) {
+      if (i !== 4) {
         material = defaultMaterial
       } else {
         material = secondMaterial
@@ -48,7 +48,7 @@ class Gift extends Obj {
 
       this.geoMats.push({
         geometry,
-        material
+        material,
       })
     }
 

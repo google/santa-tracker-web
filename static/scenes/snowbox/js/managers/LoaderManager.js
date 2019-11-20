@@ -51,7 +51,7 @@ class LoaderManager {
       }
     }
 
-    if (object.gif){
+    if (object.gif) {
       this.subjects[object.name].sources = []
       object.gif.forEach(source => {
         promises.push(this.loadGIF(object.name, source))
@@ -105,6 +105,5 @@ class LoaderManager {
     })
   }
 }
-
 
 export default new LoaderManager()

@@ -2,7 +2,6 @@ import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
 
 // Config
-import GLOBAL_CONFIG from '../../Scene/config.js'
 import CONFIG from './config.js'
 
 class Tree extends Obj {
@@ -54,7 +53,7 @@ class Tree extends Obj {
 
       this.geoMats.push({
         geometry,
-        material
+        material,
       })
     }
 
@@ -66,13 +65,13 @@ class Tree extends Obj {
     const s = this.size * scale
 
     const cone = new CANNON.Cylinder(0, 0.4 * s, 1.5 * s, 13)
-    const coneOffset = new CANNON.Vec3( 0, 1.8 * s, 0)
+    const coneOffset = new CANNON.Vec3(0, 1.8 * s, 0)
 
     const cylinder = new CANNON.Cylinder(0.08 * s, 0.08 * s, 0.6 * s, 10)
-    const cylinderOffset = new CANNON.Vec3( 0, 0.8 * s, 0)
+    const cylinderOffset = new CANNON.Vec3(0, 0.8 * s, 0)
 
     const coneQuaternion = new THREE.Quaternion()
-    coneQuaternion.setFromAxisAngle( new THREE.Vector3( 1, 0, 0 ), -Math.PI / 2 )
+    coneQuaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2)
 
     this.body.addShape(cone, coneOffset, coneQuaternion)
     this.body.addShape(cylinder, cylinderOffset, coneQuaternion)

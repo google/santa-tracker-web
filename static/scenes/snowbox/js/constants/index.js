@@ -1,1 +1,1 @@
-export const SHAPE_COLORS = {};
+export const SHAPE_COLORS = {}

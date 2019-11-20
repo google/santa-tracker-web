@@ -33,7 +33,7 @@ class Shape {
   load(callback) {
     this.callback = callback
     const { name, normalMap, obj, wrl } = this
-    LoaderManager.load({name, normalMap, obj, wrl}, this.init)
+    LoaderManager.load({ name, normalMap, obj, wrl }, this.init)
   }
 
   setShape(defaultMaterial) {
@@ -48,7 +48,7 @@ class Shape {
     this.materials = {
       default: defaultMaterial,
       highlight: highlightMaterial,
-      ghost: ghostMaterial
+      ghost: ghostMaterial,
     }
 
     // Mesh
@@ -64,7 +64,7 @@ class Shape {
     this.mesh.scale.set(
       this.defaultMeshScale.x * this.scaleFactor,
       this.defaultMeshScale.y * this.scaleFactor,
-      this.defaultMeshScale.z * this.scaleFactor
+      this.defaultMeshScale.z * this.scaleFactor,
     )
     this.mesh.updateMatrix()
     this.mesh.position.set(0, 100, 0) // y: 100 to prevent the body to interact with anything in the scene
@@ -118,7 +118,7 @@ class Shape {
       const faces = []
 
       for (let i = 0; i < model.vertices.length; i += 3) {
-        vertices.push( new CANNON.Vec3(model.vertices[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
+        vertices.push(new CANNON.Vec3(model.vertices[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.vertices[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
       }
 
       for (let i = 0; i < model.faces.length; i += 3) {
@@ -128,73 +128,6 @@ class Shape {
       const shape = new CANNON.ConvexPolyhedron(vertices, faces)
       this.body.addShape(shape)
     }
-  }
-
-  createShapesFromOBJ(obj, scale) {
-    const model = obj.attributes
-    const vertices = []
-    const faces = []
-
-    for (let i = 0; i < model.position.array.length; i += 3) {
-      vertices.push( new CANNON.Vec3(model.position.array[i] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 1] / GLOBAL_CONFIG.MODEL_UNIT * scale, model.position.array[i + 2] / GLOBAL_CONFIG.MODEL_UNIT * scale))
-    }
-
-    for (let i = 0; i < model.normal.array.length; i += 3) {
-      faces.push([model.normal.array[i], model.normal.array[i + 1], model.normal.array[i + 2]])
-    }
-
-    // getVertices() {
-    //   const s = this.size * this.scaleFactor
-    //   return [
-    //     new THREE.Vector3(0, 0, 0), // left 0
-    //     new THREE.Vector3(s, 0, 0), // right 0
-    //     new THREE.Vector3(s, 0, s), // right z1
-    //     new THREE.Vector3(0, 0, s), // left z1
-    //     new THREE.Vector3(s * 0.5, s, s * 0.5) // sommet
-    //   ]
-    // }
-
-    // getFaces() {
-    //   return [
-    //     new THREE.Face3(0, 1, 3),
-    //     new THREE.Face3(3, 1, 2),
-    //     new THREE.Face3(1, 0, 4),
-    //     new THREE.Face3(2, 1, 4),
-    //     new THREE.Face3(3, 2, 4),
-    //     new THREE.Face3(0, 3, 4)
-    //   ]
-    // }
-
-    // getCannonShape(geometry) {
-    //   const vertices = []
-    //   const faces = []
-
-    //   for (let i = 0; i < geometry.vertices.length; i++) {
-    //     const v = geometry.vertices[i]
-    //     vertices.push(new CANNON.Vec3(v.x, v.y, v.z))
-    //   }
-
-    //   for (let i = 0; i < geometry.faces.length; i++) {
-    //     const f = geometry.faces[i]
-    //     faces.push([f.a, f.b, f.c])
-    //   }
-
-    //   return new CANNON.ConvexPolyhedron(vertices, faces)
-    // }
-
-    // getThreeGeo() {
-    //   const geo = new THREE.Geometry()
-    //   const vertices = this.getVertices()
-    //   geo.vertices = vertices
-    //   geo.faces = this.getFaces()
-    //   geo.computeBoundingSphere()
-    //   geo.computeFaceNormals()
-    //   return geo
-    // }
-
-    console.log(vertices, faces)
-    const shape = new CANNON.ConvexPolyhedron(vertices, faces)
-    this.body.addShape(shape)
   }
 
   onCollide(e) {
@@ -279,6 +212,8 @@ class Shape {
   rotate(direction, angle, currentCameraYRotation) {
     let axis
     switch (direction) {
+      default:
+        break
       case 'right':
         axis = new THREE.Vector3(0, 1, 0)
         break
@@ -364,7 +299,7 @@ class Shape {
   }
 
   createGhost() {
-    const { geometry, position, quaternion, scale } = this.mesh
+    const { position, quaternion, scale } = this.mesh
 
     this.ghost = new THREE.Object3D()
 
@@ -424,11 +359,11 @@ class Shape {
     toolbarHelper.name = 'toolbar-helper'
     yCircle.add(toolbarHelper)
 
-    this.circles.add( trashHelper )
+    this.circles.add(trashHelper)
 
     if (this.editable) {
-      this.circles.add( xCircle )
-      this.circles.add( yCircle )
+      this.circles.add(xCircle)
+      this.circles.add(yCircle)
       this.updateRotatingCircle(zoom)
     } else {
       this.circles.add(toolbarHelper)
@@ -500,7 +435,7 @@ class Shape {
   }
 
   moveToGhost() {
-    const { position, quaternion, scale } = this.ghost
+    const { position, quaternion } = this.ghost
     this.updateBody()
 
     this.body.velocity.setZero()

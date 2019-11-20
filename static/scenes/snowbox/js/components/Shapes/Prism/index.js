@@ -27,7 +27,7 @@ class Tetra extends Obj {
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: GLOBAL_CONFIG.SHININESS,
-      normalMap
+      normalMap,
     })
     defaultMaterial.needsUpdate = true
 
@@ -35,7 +35,7 @@ class Tetra extends Obj {
       const geometry = obj.children[i].geometry
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material: defaultMaterial,
       })
     }
 
@@ -45,7 +45,7 @@ class Tetra extends Obj {
   createShapes(scale = 1) {
     // compound
     const s = this.size * scale
-    const axisRotation = new THREE.Vector3( 0, 1, 0 )
+    const axisRotation = new THREE.Vector3(0, 1, 0)
 
     const tetras = [{
       shape: this.createTetraShape([
@@ -54,8 +54,8 @@ class Tetra extends Obj {
         new CANNON.Vec3(0, 1 * s, 0),
         new CANNON.Vec3(0, 0, 1 * s)
       ]),
-      offset: new CANNON.Vec3( -0.5 * s, -0.35 * s, 0.27 * s),
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI / 2 ),
+      offset: new CANNON.Vec3(-0.5 * s, -0.35 * s, 0.27 * s),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, Math.PI / 2),
     },
     {
       shape: this.createTetraShape([
@@ -65,16 +65,16 @@ class Tetra extends Obj {
         new CANNON.Vec3(0, 0, 1 * s)
       ]),
       offset: new CANNON.Vec3( 0.5 * s, -0.35 * s, 0.27 * s),
-      quaternion: new THREE.Quaternion().setFromAxisAngle( axisRotation, Math.PI ),
+      quaternion: new THREE.Quaternion().setFromAxisAngle(axisRotation, Math.PI),
     },
     {
       shape: this.createTetraShape([
         new CANNON.Vec3(0, 0, 0),
         new CANNON.Vec3(1 * s, 1 * s, 1 * s),
         new CANNON.Vec3(0, 1 * s, 1 * s),
-        new CANNON.Vec3(1 * s, 0, 1 * s)
+        new CANNON.Vec3(1 * s, 0, 1 * s),
       ]),
-      offset: new CANNON.Vec3( -0.5 * s, -0.35 * s, -0.7 * s),
+      offset: new CANNON.Vec3(-0.5 * s, -0.35 * s, -0.7 * s),
       quaternion: null,
     }
     ]
@@ -121,7 +121,6 @@ class Tetra extends Obj {
   //   const polyhedronShape = new CANNON.ConvexPolyhedron(verts, faces);
   //   this.body.addShape(polyhedronShape, offset)
   // }
-
 }
 
 export default Tetra

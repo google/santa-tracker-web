@@ -46,9 +46,9 @@ export default class CameraControls {
     const el = e.currentTarget
 
     if (el.classList.contains('is-disabled')) {
-      SoundManager.play('snowbox_fail');
-    }else {
-      SoundManager.play('snowbox_rotate_camera');
+      SoundManager.play('snowbox_fail')
+    } else {
+      SoundManager.play('snowbox_rotate_camera')
     }
 
     const { rotateCamera } = el.dataset
@@ -67,7 +67,7 @@ export default class CameraControls {
   }
 
   playHoverSound() {
-    SoundManager.play('snowbox_generic_hover');
+    SoundManager.play('snowbox_generic_hover')
   }
 
   pushButton(el, disable = false) {
@@ -80,4 +80,3 @@ export default class CameraControls {
     }, 200)
   }
 }
-

@@ -77,7 +77,7 @@ export default class ObjectEditTool {
   }
 
   enterEditMode() {
-    if (!Scene.activeSubject) return false
+    if (!Scene.activeSubject) return
     this.show()
     const { scaleFactor } = Scene.activeSubject // get current scale of object
     this.ui.scaleButton.value = scaleFactor * 10
@@ -104,20 +104,20 @@ export default class ObjectEditTool {
     if (this.state === 'is-hidden') return
 
     if (Scene.activeSubject.editable) {
-      const xArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-x' ) // would be nice if we can store this value somewhere
+      const xArrowHelper = Scene.scene.getObjectByName('arrow-helper-x') // would be nice if we can store this value somewhere
       const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
       this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
 
-      const yArrowHelper = Scene.scene.getObjectByName( 'arrow-helper-y' )
+      const yArrowHelper = Scene.scene.getObjectByName('arrow-helper-y')
       const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
       this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
     }
 
-    const trashHelper = Scene.scene.getObjectByName( 'trash-helper' )
+    const trashHelper = Scene.scene.getObjectByName('trash-helper')
     const trashHelperPos = Scene.getScreenPosition(trashHelper)
     this.ui.trash.style.transform = `translate(-50%, -50%) translate(${trashHelperPos.x}px,${trashHelperPos.y}px)`
 
-    const toolbarHelper = Scene.scene.getObjectByName( 'toolbar-helper' )
+    const toolbarHelper = Scene.scene.getObjectByName('toolbar-helper')
     const toolbarHelperPos = Scene.getScreenPosition(toolbarHelper)
     this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
   }
@@ -131,7 +131,7 @@ export default class ObjectEditTool {
   }
 
   playHoverSound() {
-    SoundManager.play('snowbox_generic_hover');
+    SoundManager.play('snowbox_generic_hover')
   }
 
   onMouseDownRotate(e) {
@@ -171,5 +171,3 @@ export default class ObjectEditTool {
     }, 200)
   }
 }
-
-

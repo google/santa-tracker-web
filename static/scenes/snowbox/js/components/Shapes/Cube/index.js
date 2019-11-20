@@ -27,7 +27,7 @@ class Cube extends Obj {
     const defaultMaterial = new THREE.MeshToonMaterial({
       color: GLOBAL_CONFIG.COLORS.ICE,
       shininess: GLOBAL_CONFIG.SHININESS,
-      normalMap
+      normalMap,
     })
     defaultMaterial.needsUpdate = true
 
@@ -36,7 +36,7 @@ class Cube extends Obj {
       geometry.center()
       this.geoMats.push({
         geometry,
-        material: defaultMaterial
+        material: defaultMaterial,
       })
     }
 
@@ -45,7 +45,7 @@ class Cube extends Obj {
 
   createShapes(scale = 1) {
     const shape = new CANNON.Box(
-      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale)
+      new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale),
     )
 
     this.body.addShape(shape)

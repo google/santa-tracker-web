@@ -43,7 +43,7 @@ import { world } from './world.js'
 import { SHAPE_COLORS } from  '../../constants/index.js'
 
 class Scene {
-  constructor(canvas) {
+  constructor() {
     this.debug = CONFIG.DEBUG
     this.isTouchDevice = isTouchDevice()
     this.sceneSubjects = []
@@ -78,7 +78,7 @@ class Scene {
 
     this.screenDimensions = {
       width: this.canvas.clientWidth,
-      height: this.canvas.clientHeight
+      height: this.canvas.clientHeight,
     }
 
     this.ui = {
@@ -115,22 +115,22 @@ class Scene {
 
     if (this.debug) {
       this.buildHelpers()
-      this.cannonDebugRenderer = new THREE.CannonDebugRenderer( this.scene, this.world )
+      this.cannonDebugRenderer = new THREE.CannonDebugRenderer(this.scene, this.world)
     }
 
     this.events()
   }
 
   preloadShapes() {
-    LoaderManager.load({name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ})
-    LoaderManager.load({name: giftConfig.NAME, obj: giftConfig.OBJ})
-    LoaderManager.load({name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ})
-    LoaderManager.load({name: prismConfig.NAME, normalMap: prismConfig.NORMAL_MAP, obj: prismConfig.OBJ})
-    LoaderManager.load({name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ})
-    LoaderManager.load({name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ})
-    LoaderManager.load({name: pyramidConfig.NAME, normalMap: pyramidConfig.NORMAL_MAP, obj: pyramidConfig.OBJ, wrl: pyramidConfig.WRL})
-    LoaderManager.load({name: quarterCircleConfig.NAME, normalMap: quarterCircleConfig.NORMAL_MAP, obj: quarterCircleConfig.OBJ, wrl: quarterCircleConfig.WRL})
-    LoaderManager.load({name: snowmanConfig.NAME, normalMap: snowmanConfig.NORMAL_MAP, map: snowmanConfig.MAP, obj: snowmanConfig.OBJ, wrl: snowmanConfig.WRL})
+    LoaderManager.load({ name: cubeConfig.NAME, normalMap: cubeConfig.NORMAL_MAP, obj: cubeConfig.OBJ })
+    LoaderManager.load({ name: giftConfig.NAME, obj: giftConfig.OBJ })
+    LoaderManager.load({ name: archConfig.NAME, normalMap: archConfig.NORMAL_MAP, obj: archConfig.OBJ })
+    LoaderManager.load({ name: prismConfig.NAME, normalMap: prismConfig.NORMAL_MAP, obj: prismConfig.OBJ })
+    LoaderManager.load({ name: sphereConfig.NAME, normalMap: sphereConfig.NORMAL_MAP, obj: sphereConfig.OBJ })
+    LoaderManager.load({ name: treeConfig.NAME, normalMap: treeConfig.NORMAL_MAP, obj: treeConfig.OBJ })
+    LoaderManager.load({ name: pyramidConfig.NAME, normalMap: pyramidConfig.NORMAL_MAP, obj: pyramidConfig.OBJ })
+    LoaderManager.load({ name: quarterCircleConfig.NAME, normalMap: quarterCircleConfig.NORMAL_MAP, obj: quarterCircleConfig.OBJ, wrl: quarterCircleConfig.WRL })
+    LoaderManager.load({ name: snowmanConfig.NAME, normalMap: snowmanConfig.NORMAL_MAP, map: snowmanConfig.MAP, obj: snowmanConfig.OBJ })
   }
 
   initCannon() {
@@ -146,9 +146,9 @@ class Scene {
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true,
-      alpha: true
+      alpha: true,
     })
-    this.renderer.setClearColor (0x000000, 1);
+    this.renderer.setClearColor(0x000000, 1)
     const DPR = window.devicePixelRatio ? window.devicePixelRatio : 1
     this.renderer.setPixelRatio(DPR)
     this.renderer.setSize(width, height)
@@ -286,12 +286,10 @@ class Scene {
           const subject = this.getSubjectfromMesh(hit.object.parent)
           if (this.highlightedSubject !== subject) {
             this.highlightSubject(subject)
-            SoundManager.highlightShape(subject);
+            SoundManager.highlightShape(subject)
           }
-        } else {
-          if (this.highlightedSubject) {
-            this.highlightSubject(false)
-          }
+        } else if (this.highlightedSubject) {
+          this.highlightSubject(false)
         }
 
         this.mouseInEdge = null
@@ -422,14 +420,14 @@ class Scene {
     const xDiff = this.xTouchStart - xUp
     const yDiff = this.yTouchStart - yUp
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-      if ( xDiff > 0 ) {
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      if (xDiff > 0) {
         CameraController.rotate('left', true, 2.2)
       } else {
         CameraController.rotate('right', true, 2.2)
       }
     } else {
-      if ( yDiff > 0 ) {
+      if (yDiff > 0) {
         CameraController.rotate('bottom', true, 0.88)
       } else {
         CameraController.rotate('top', true, 0.88)
@@ -459,7 +457,7 @@ class Scene {
 
       this.activeSubject.materials.highlight.color = new THREE.Color(darken(colorObject, 15))
       this.activeSubject.materials.highlight.needsUpdate = true
-      SoundManager.play("snowbox_pick_color")
+      SoundManager.play('snowbox_pick_color')
 
       SHAPE_COLORS[this.activeSubject.name].default = colorObject
       SHAPE_COLORS[this.activeSubject.name].highlight = new THREE.Color(darken(colorObject, 15))
@@ -476,7 +474,7 @@ class Scene {
       this.selectedSubject.scale(e.target.value)
       this.checkCollision(true)
     }
-    SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35));
+    SoundManager.play('snowbox_scale', parseFloat((e.target.value - 5)/35))
   }
 
   rotateObject(el) {
@@ -491,7 +489,7 @@ class Scene {
       this.selectedSubject.rotate(direction, angle, CameraController.rotationY)
       this.checkCollision(true)
     }
-    SoundManager.play('snowbox_rotate');
+    SoundManager.play('snowbox_rotate')
   }
 
   addShape(shape, material = 'snow') {
@@ -559,7 +557,7 @@ class Scene {
 
     this.selectedSubject = null
 
-    SoundManager.play('snowbox_unselect_subject');
+    SoundManager.play('snowbox_unselect_subject')
   }
 
   selectSubject(newSelectedSubject, needsOffset = false) {
@@ -573,7 +571,7 @@ class Scene {
 
     if (needsOffset) {
       // don't play sound if dragging from toolbar
-      SoundManager.play('snowbox_select_subject');
+      SoundManager.play('snowbox_select_subject')
       const box = new THREE.Box3().setFromObject(this.selectedSubject.mesh)
       // update planeHelper Y
       this.planeHelper.position.y = (box.max.y - box.min.y) / 2 // or position.y
@@ -619,8 +617,8 @@ class Scene {
 
   getCurrentPosOnPlaneHelper() {
     const intersects = []
-    this.planeHelper.raycast( this.raycaster, intersects )
-    if( intersects.length > 0 ) {
+    this.planeHelper.raycast(this.raycaster, intersects)
+    if (intersects.length > 0) {
       const { point } = intersects[0]
 
       return point
@@ -638,7 +636,7 @@ class Scene {
     return this.sceneSubjects.find(subject => (subject.mesh ? subject.mesh.uuid === mesh.uuid : false))
   }
 
-  highlightSubject(subject, noDelay) {
+  highlightSubject(subject) {
     if (this.highlightedSubject) {
       this.highlightedSubject.unhighlight()
     }
@@ -700,13 +698,13 @@ class Scene {
     vector.setFromMatrixPosition(obj.matrixWorld)
     vector.project(CameraController.camera)
 
-    vector.x = ( vector.x * widthHalf ) + widthHalf
-    vector.y = - ( vector.y * heightHalf ) + heightHalf
+    vector.x = (vector.x * widthHalf) + widthHalf
+    vector.y = -(vector.y * heightHalf) + heightHalf
 
     return {
-        x: vector.x,
-        y: vector.y
-    };
+      x: vector.x,
+      y: vector.y,
+    }
   }
 
   checkCollision(isEditing = false) {
