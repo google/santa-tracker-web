@@ -15,6 +15,12 @@
     height: 210px;
   }
 
+  &.no-arrow {
+    .toolbar__arrow {
+      display: none;
+    }
+  }
+
   &__container {
     background-color: $color-deep-blue;
     width: 70%;
@@ -52,13 +58,16 @@
   }
 
   &__item {
-    padding: 0 20px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     vertical-align: bottom;
     height: 100%;
     transition: transform .7s $easeout-expo;
+
+    &.no-transition {
+      transition: none;
+    }
 
     &:hover {
       .toolbar__image {
@@ -68,6 +77,7 @@
   }
 
   &__image {
+    padding: 0 20px;
     display: block;
     height: 100%;
     transition: transform .6s $easeout-expo;

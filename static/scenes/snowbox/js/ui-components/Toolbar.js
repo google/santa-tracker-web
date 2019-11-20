@@ -8,17 +8,22 @@ export default class Toolbar {
     this.ui = {
       items: [...this.el.querySelectorAll('[data-toolbar-shape]')],
       arrows: [...this.el.querySelectorAll('[data-toolbar-arrow]')],
+      slider: this.el.querySelector('.toolbar__slider')
     }
 
     this.currentIndex = 0
     this.x = 0
 
     this.onArrowDown = this.onArrowDown.bind(this)
+    this.setUnits = this.setUnits.bind(this)
+    this.setUnits()
 
     this.events()
   }
 
   events() {
+    window.addEventListener('resize', this.setUnits)
+
     this.ui.arrows.forEach(arrow => {
       arrow.addEventListener('mousedown', this.onArrowDown)
       arrow.addEventListener('mouseenter', this.onArrowOver)
@@ -60,10 +65,14 @@ export default class Toolbar {
       button.addEventListener('mouseleave', mouseLeaveListener)
     }
   }
+
   onArrowOver(e) {
     SoundManager.play('snowbox_generic_hover');
   }
+
   onArrowDown(e) {
+    if (this.offsetXSlider > 0) return
+
     const el = e.currentTarget
     this.pushButton(el)
     const { toolbarArrow } = el.dataset
@@ -75,13 +84,16 @@ export default class Toolbar {
       index -= 1
     }
 
-    if (index < 0 || index === this.ui.items.length - 1 ) return
+    if (index < 0 || index === this.ui.items.length - 1 || this.x < this.offsetXSlider - this.ui.items[this.ui.items.length - 1].offsetWidth && direction === 1) return
 
     this.x += this.ui.items[index].offsetWidth * -direction
 
     this.currentIndex += direction
 
     this.ui.items.forEach(item => {
+      if (item.classList.contains('no-transition')) {
+        item.classList.remove('no-transition')
+      }
       item.style.transform = `translateX(${this.x}px)`
     })
 
@@ -96,6 +108,25 @@ export default class Toolbar {
         el.classList.add('is-disabled')
       }
     }, 200)
+  }
+
+  setUnits() {
+    this.x = 0
+    this.currentIndex = 0
+    this.totalItemsWidth = 0
+    for (let i = 0; i < this.ui.items.length; i++) {
+      this.totalItemsWidth += this.ui.items[i].offsetWidth
+      this.ui.items[i].classList.add('no-transition')
+      this.ui.items[i].style.transform = 'none'
+    }
+
+    this.sliderWidth = this.ui.slider.offsetWidth
+    this.offsetXSlider = this.sliderWidth - this.totalItemsWidth
+    if (this.offsetXSlider > 0) {
+      this.el.classList.add('no-arrow')
+    } else {
+      this.el.classList.remove('no-arrow')
+    }
   }
 }
 
