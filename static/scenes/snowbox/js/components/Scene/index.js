@@ -49,9 +49,8 @@ class Scene {
     this.mode = ''
     // 0: default, can switch to any mode
     // 1: drag === moving camera: Can't click on an object or place an object
-    // 2: highlight === hover on an object: Can't go to drag mode
-    // 3: move === moving/adding an object: Can't go to drag mode
-    // 4: edit === scale/rotate an object: Can't go to drag mode
+    // 2: move === moving/adding an object: Can't go to drag mode
+    // 3: edit === scale/rotate an object: Can't go to drag mode
     this.isPinchZooming = false
 
     this.bind()
@@ -273,17 +272,16 @@ class Scene {
 
       this.isInCanvas = this.mouse.y > -1 && this.mouse.y < 1
 
-      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
+      if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move') {
         // if not in drag or ghost mode
         const hit = this.getNearestObject()
         if (hit) {
-          // if mode is neutral
           const subject = this.getSubjectfromMesh(hit.object.parent)
-          if (this.highlightedSubject !== subject) {
+          if (subject !== this.activeSubject) {
             this.highlightSubject(subject)
             SoundManager.highlightShape(subject)
           }
-        } else if (this.highlightedSubject) {
+        } else {
           this.highlightSubject(false)
         }
 
@@ -321,23 +319,9 @@ class Scene {
         subject.mesh ? subject.mesh.uuid === hit.object.parent.uuid : false
       )
 
-      if (this.selectedSubject) {
-        if (this.mode === 'edit') {
-          const oldSelectedObject = this.selectedSubject
-          setTimeout(() => {
-            if (oldSelectedObject === newSelectedSubject) {
-              this.selectSubject(newSelectedSubject, true)
-            }
-          }, 10)
-        } else {
-          this.unselectSubject()
-        }
-      } else {
-        this.selectSubject(newSelectedSubject, true)
-      }
-    } else if (this.selectedSubject && this.mode === 'move') {
-      this.unselectSubject()
-    } else if (this.mode === 'edit') {
+      this.selectSubject(newSelectedSubject, true)
+
+    } else {
       this.setMode()
     }
   }
@@ -637,12 +621,12 @@ class Scene {
     }
 
     if (subject) {
+      this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
-      this.setMode('highlight')
     } else if (subject === false) {
+      this.canvas.classList.remove('is-pointing')
       this.highlightedSubject = null
-      if (!CameraController.isRotating) this.setMode()
     }
   }
 
@@ -780,10 +764,6 @@ class Scene {
         break
       case 'drag':
         this.canvas.classList.add('is-dragging')
-        break
-      case 'highlight':
-        this.canvas.classList.add('is-pointing')
-        controls.enabled = false // disable cameraCtrl.controls
         break
       case 'move':
         this.canvas.classList.add('is-dragging')
