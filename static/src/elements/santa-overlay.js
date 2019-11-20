@@ -136,26 +136,31 @@ export class SantaOverlayElement extends LitElement {
     const hasData = this.data && Object.keys(this.data).length;
 
     return html`
-<div class="shim"></div>
-<div class="wrap">
-<div class="hero ${heroClass}">
-  <div class="score" ?hidden="${this.score < 0}">
-    <h1>${_msg`gameover_score`}</h1>
-    <h2>${this.score}</h2>
-  </div>
-</div>
-<nav>
-  <div class="url" ?hidden=${!hasData}>
-    <input type="text" value=${this._shareUrl()} readonly @click=${this._copyUrl} />
-  </div>
-  <div class="buttons">
-    <santa-button color="purple" @click="${this._dispatchRestart}">
-    </santa-button>
-    <santa-button color="purple" @click="${this._dispatchHome}" data-action="home">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-    </santa-button>
-  </div>
-</nav>
+<div class="backdrop">
+  <main>
+    <div class="hero ${heroClass}">
+      <div class="score" ?hidden="${this.score < 0}">
+        <h1>${_msg`gameover_score`}</h1>
+        <h2>${this.score}</h2>
+      </div>
+    </div>
+    <nav>
+      <div class="url" ?hidden=${!hasData}>
+        <input type="text" value=${this._shareUrl()} readonly @click=${this._copyUrl} />
+      </div>
+      <div class="buttons">
+        <santa-button color="purple" @click="${this._dispatchPlay}">
+          <svg class="icon"><path d="M8 5v14l11-7z"/></svg>
+        </santa-button>
+        <santa-button color="purple" @click="${this._dispatchRestart}">
+          <svg class="icon"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </santa-button>
+        <santa-button color="theme" @click="${this._dispatchHome}" data-action="home">
+          <svg class="icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </santa-button>
+      </div>
+    </nav>
+  </main>
 </div>
 `;
   }

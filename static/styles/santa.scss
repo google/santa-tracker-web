@@ -21,7 +21,8 @@ body {
   background: #1a844b;
 
   &[data-mode="android"] {
-    --color-bar: rgb(76, 175, 80);
+    --color-bar: #32a658;
+    --color-bar-dark: #2a8c4a;
   }
 }
 

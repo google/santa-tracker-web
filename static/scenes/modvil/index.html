@@ -33,6 +33,10 @@ api.config({
  */
 const moduleDefs = [
   {
+    id: 'android',
+    parts: ['static', 'loop', 'image', 'loop'],
+  },
+  {
     id: 'transithub',
     parts: ['static', 'loop', 'scroll'],
   },
@@ -41,29 +45,25 @@ const moduleDefs = [
     parts: ['static', 'loop', 'scroll'],
   },
   {
-    id: 'kitchen',
-    parts: ['static', 'loop', 'static', 'scroll'],
+    id: 'toymaking',
+    parts: ['static', 'static', 'scroll', 'static'],
   },
   {
-    id: 'greenhouse',
-    parts: ['static', 'loop', 'scroll', 'static'],
+    id: 'kitchen',
+    parts: ['static', 'loop', 'static', 'scroll'],
   },
   {
     id: 'nursery',
     parts: ['static', 'loop', 'scroll'],
   },
   {
-    id: 'toymaking',
-    parts: ['static', 'static', 'scroll', 'static'],
+    id: 'greenhouse',
+    parts: ['static', 'loop', 'scroll', 'static'],
   },
   {
     id: 'wrapping',
     parts: ['static', 'loop', 'scroll', 'static'],
   },
-  {
-    id: 'android',
-    parts: ['static', 'loop'],
-  }
 ];
 
 /**
@@ -115,9 +115,9 @@ async function prepareModules() {
       const base = `img/modules/${id}/${index}`;
       const zIndex = -(100 - index);
 
-      if (type === 'static') {
+      if (type === 'static' || type === 'image') {
         const img = document.createElement('img');
-        img.src = `${base}.svg`;
+        img.src = `${base}.` + (type === 'static' ? 'svg' : 'png');
         container.append(img);
         img.style.zIndex = zIndex;
         // TODO: preload
@@ -190,9 +190,16 @@ api.ready(async () => {
 
 <div id="top">
   <santa-weather></santa-weather>
+  <div class="village">
+    <div class="layer1"></div>
+    <div class="layer2"></div>
+    <div class="layer3"></div>
+    <div class="layer4"></div>
+  </div>
   <header>
     <div id="ornament"></div>
     <h1 msgid="santatracker"></h1>
+    <p msgid="village_explore"></p>
     <button id="play"><span msgid="play"></span></button>
   </header>
   <div id="newtoday">

@@ -15,13 +15,60 @@ body {
 }
 
 santa-card {
-  width: 200px;
+  width: 240px;
   height: 150px;
   --radius: 20px;
 }
 
+/** village styles */
+
+.village {
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent center bottom no-repeat;
+    background-size: 2040px;
+  }
+
+  .layer1 {
+    background-image: url(img/village/1.svg);
+  }
+  .layer2 {
+    background-image: url(img/village/2.svg);
+  }
+  .layer3 {
+    background-image: url(img/village/3.svg);
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Below 1024, shrink the SVG to 0.6 size.
+  @media (max-width: 1024px) {
+    transform: scale(0.6);
+    height: 1200px;
+    width: (1024px / 0.6);
+    left: calc(50vw - 512px);
+    transform-origin: top left;
+  }
+}
+
+/** top and UI, contains village */
+
 #top {
-  height: 800px;
+  height: 1050px;
+
+  // Shrink by 0.6.
+  @media (max-width: 1024px) {
+    height: 720px;
+  }
+
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, #00C1F2 0%, #B4E5E6 17.71%, #FFF8BD 41.67%);
@@ -32,17 +79,6 @@ santa-card {
   position: relative;
   max-width: 100vw;
   margin: 0 auto;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background: url(img/rear.svg) bottom center repeat-x;
-  }
 
   santa-weather {
     position: absolute;
@@ -88,7 +124,7 @@ santa-card {
   }
 }
 
-/** village modules **/
+/** modules **/
 
 #modules {
   display: flex;
@@ -134,7 +170,7 @@ santa-card {
 
   svg, img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: -1;
@@ -165,18 +201,12 @@ santa-card {
 }
 
 santa-card {
-  width: 100%;
+  width: 240px;
   height: 120px;
   min-height: 120px;
 }
 
 @media (max-width: 768px - 1px) {
-  .cards {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: space-around;
-  }
   santa-card {
     max-width: 240px;
   }
@@ -184,14 +214,11 @@ santa-card {
 
 @media (min-width: 768px) {
   santa-card {
-    position: absolute;
     $w: 240px;
     $h: 180px;
     width: $w;
     height: $h;
     min-height: $h;
-    margin-left: -($w / 2);
-    margin-top: -($h / 2);
   }
 
   @media (min-width: 1024px) {
@@ -201,43 +228,13 @@ santa-card {
       width: $w;
       height: $h;
       min-height: $h;
-      margin-left: -($w / 2);
-      margin-top: -($h / 2);
       font-size: 1.5em;
     }
   }
+}
 
-  #module--sciencelab {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 20%;
-      }
-      &:nth-child(2) {
-        left: 80%;
-        top: 15%;
-      }
-      &:nth-child(3) {
-        left: 70%;
-        top: 40%;
-      }
-    }
-  }
-
-  #module--transport {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 40%;
-      }
-      &:nth-child(2) {
-        left: 50%;
-        top: 30%;
-      }
-      &:nth-child(3) {
-        left: 80%;
-        top: 20%;
-      }
-    }
+.module {
+  santa-card {
+    transform: translate(-50%, -50%);
   }
 }

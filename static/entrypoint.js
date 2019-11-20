@@ -30,7 +30,14 @@ import configureCustomKeys from './src/core/keys.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
+const scoreOverlayElement = document.createElement('santa-overlay');
+scoreOverlayElement.setAttribute('slot', 'overlay');
+
 interludeElement.active = true;  // must show before appending
+interludeElement.addEventListener('gone', () => {
+  document.body.classList.add('loaded');  // first game has loaded, clear
+}, {once: true});
+
 document.body.append(chromeElement, loaderElement, interludeElement);
 
 const tutorialOverlayElement = document.createElement('santa-tutorial');
@@ -39,7 +46,7 @@ loaderElement.append(tutorialOverlayElement);
 
 const orientationOverlayElement = document.createElement('santa-orientation');
 orientationOverlayElement.setAttribute('slot', 'overlay');
-loaderElement.append(orientationOverlayElement);
+loaderElement.append(orientationOverlayElement, scoreOverlayElement);
 
 const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
@@ -98,43 +105,21 @@ kplayReady.then((sc) => {
   }
 });
 
-const showOverlay = (state={}) => {
-  let overlay = document.querySelector('santa-overlay');
-  if (!overlay) {
-    const endSceneOverlayElement = document.createElement('santa-overlay');
-    document.body.append(endSceneOverlayElement);
-    overlay = endSceneOverlayElement;
-  }
-  overlay.state = state;
-  overlay.hidden = false;
-};
-
-const hideOverlay = () => {
-  const overlay = document.querySelector('santa-overlay');
-  if (overlay) {
-    overlay.hidden = true;
-  }
-};
 
 window.addEventListener('game-restart', (e) => {
   global.setState({status: 'restart'})
 }, true);
 
 global.subscribe((state) => {
-  chromeElement.mini = state.mini;
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
-  if (gameover) {
-    showOverlay(state);
-  } else {
-    hideOverlay();
-  }
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
   const disabled = gameover || orientationChangeNeeded;
+  scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
 
   loaderElement.disabled = disabled;                               // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
@@ -282,13 +267,19 @@ outer:
  * Run incoming messages from the contained scene.
  *
  * @param {!PortControl} control
+ * @param {string} route active
  */
-async function runner(control) {
+async function runner(control, route) {
   const sc = await kplayReady;
+
+  // TODO: this should be on global state as the player might restart multiple times
+  // const start = performance.now();
+  // ga('send', 'event', 'game', 'start', route);
 
   for (;;) {
     const op = await control.next();
     if (op === null) {
+      // TODO(samthor): Can't log score here, state is already reset.
       break;
     }
 
@@ -312,6 +303,12 @@ async function runner(control) {
       case 'gameover':
         // TODO: log score?
         global.setState({status: 'gameover'});
+        const {score} = global.getState();
+
+        ga('send', 'event', 'game', 'end', route);
+        score.score && ga('send', 'event', 'game', 'score', route, score.score);
+        score.level && ga('send', 'event', 'game', 'level', route, score.level);
+
         continue;
 
       case 'score':
@@ -319,7 +316,6 @@ async function runner(control) {
         continue;
 
       case 'data':
-        // FIXME: This is out of order, writeData is defined below.
         writeData(payload);
         continue;
 
@@ -345,7 +341,6 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   chromeElement.navOpen = false;
 
   global.setState({
-    mini: true,
     control: null,
     sceneHasPause: false,
     score: {},
@@ -403,7 +398,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     if (!ready()) {
       return false;
     }
-    document.body.classList.add('loaded');      // first game has loaded, clear
     document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
 
@@ -435,7 +429,6 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     interludeElement.removeAttribute('active');
 
     global.setState({
-      mini: !config.scroll,
       sceneOrientation: config.orientation || null,
       sceneHasPause: Boolean(config.pause),
       control,
@@ -444,7 +437,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.
-    await runner(control);
+    await runner(control, route);
 
     // TODO: might be trailing events
   };

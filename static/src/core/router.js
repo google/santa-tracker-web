@@ -18,20 +18,13 @@ const deepClone = (raw) => JSON.parse(JSON.stringify(raw));
 
 
 /**
- * Normalize the passed scene name.
+ * Normalize the passed route.
  *
- * @param {string} sceneName to normalize
+ * @param {string} route to normalize
  * @return {string} normalized name, possibly the blank string
  */
-export function normalizeSceneName(sceneName) {
-  sceneName = String(sceneName || '').toLowerCase().replace(/[^\w]/g, '');
-
-  // These should always map to "".
-  if (sceneName === 'index' || sceneName === 'village') {
-    sceneName = '';
-  }
-
-  return sceneName;
+export function normalizeRoute(route) {
+  return String(route || '').toLowerCase().replace(/[^\w]/g, '');
 }
 
 
@@ -50,6 +43,7 @@ export function normalizeLang(lang) {
   return parts.join('-');
 }
 
+
 /**
  * Finds the canonical URL for sharing and URL changes. Look in /intl/.../ and ?hl=... for user
  * override lang. Send the browser to the correct /intl/ version via History API. e.g.,
@@ -60,7 +54,7 @@ export function normalizeLang(lang) {
  * However, respect the user's wishes, as the code has been served under that path anyway.
  *
  * @param {!Location} location
- * @return {{scope: string, sceneName: string, data: !Object<string, string>}}
+ * @return {{scope: string, route: string, data: !Object<string, string>}}
  */
 export function resolveProdURL(location) {
   const data = params.read(location.search);
@@ -89,13 +83,13 @@ export function resolveProdURL(location) {
     pathname = '/' + pathname.substr(matchLang[0].length);
   }
   const matchScene = simplePathMatcher.exec(pathname);
-  const sceneName = normalizeSceneName(matchScene && matchScene[1]);
+  const route = normalizeRoute(matchScene && matchScene[1]);
 
   let scope = `${location.origin}/`;
   if (requestLang) {
     scope += `intl/${normalizeLang(requestLang)}/`;
   }
-  return {scope, sceneName, data};
+  return {scope, route, data};
 }
 
 
@@ -105,7 +99,7 @@ export function resolveProdURL(location) {
  *
  * Returns site scope and routing helper.
  *
- * @param {function(string, !Object<string, string>): void} callback to load page
+ * @param {function(string, !Object<string, string>): string} callback to load page
  * @return {{scope: string, go: function(string, !Object<string, string>): void}}
  */
 export function configureProdRouter(callback) {
@@ -116,46 +110,44 @@ export function configureProdRouter(callback) {
   const load = resolveProdURL(window.location);
   const wh = window.history;
 
-  const updateHistory = (sceneName, data, replace=false) => {
-    const url = load.scope + (sceneName ? sceneName + '.html' : '') + params.build(data);
-    const state = {sceneName, data};  // nb. window.history deep-copies data
-    if (!replace && (!wh.state || wh.state.sceneName !== sceneName)) {
+  // Install `popstate` handler and trigger immediately to configure initial state.
+  const internalRoute = (route, data, navigation=false) => {
+    data = deepClone(data);
+    const updatedRoute = callback(route, data);
+    if (updatedRoute !== undefined) {
+      route = updatedRoute;
+    }
+
+    // Now, update history...
+    const url = load.scope + (route ? route + '.html' : '') + params.build(data);
+    const state = {route, data};  // nb. window.history deep-copies data
+    if (navigation && (!wh.state || wh.state.route !== route)) {
       wh.pushState(state, null, url);
     } else if (url !== window.location.href) {
-      replace = true;
+      navigation = false;
     }
-    replace && wh.replaceState(state, null, url);
+    navigation || wh.replaceState(state, null, url);
   };
-
-  updateHistory(load.sceneName, load.data, true);
-
-  // Install `popstate` handler and trigger immediately to configure initial state.
-  const refresh = () => {
-    const data = deepClone(wh.state.data);
-    callback(wh.state.sceneName, data);
-  };
-  window.addEventListener('popstate', refresh);
-  refresh();
+  window.addEventListener('popstate', () => internalRoute(wh.state.route, wh.state.data));
+  internalRoute(load.route, load.data);
 
   // Provide expected `santaApp` helper.
   window.santaApp = {
     get route() {
-      return wh.state && wh.state.sceneName;
+      return wh.state && wh.state.route;
     },
-    set route(sceneName) {
-      this.go(sceneName);
+    set route(route) {
+      this.go(route);
     },
-    go(sceneName, data={}) {
-      sceneName = normalizeSceneName(sceneName);
-      updateHistory(sceneName, data);
-      refresh();
+    go(route, data={}) {
+      internalRoute(normalizeRoute(route), data, true);
     },
   };
 
   return {
     scope: load.scope,
     go: santaApp.go,
-    write: (data) => updateHistory(wh.state.sceneName, data, true),
+    write: (data) => internalRoute(wh.state.route, data, false),
   };
 }
 

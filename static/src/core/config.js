@@ -14,6 +14,7 @@ const listeners = new Set();
 const memoized = {
   'videos': null,
   'sceneLock': null,
+  'sceneRedirect': null,
 };
 
 function refreshMemoized() {
@@ -185,6 +186,17 @@ export function sceneForRoute(route, fallback) {
     return 'video';
   }
   return route;
+}
+
+
+/**
+ * @param {string} route to redirect
+ * @return {string|undefined} optional updated route
+ */
+export function redirectRoute(route) {
+  if (route in memoized.sceneRedirect) {
+    return memoized.sceneRedirect[route];
+  }
 }
 
 

@@ -10,7 +10,7 @@ $transition-toolbar: $duration-toolbar ease-in-out;
 }
 
 :host {
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .grow {
@@ -25,201 +25,59 @@ svg.icon {
 }
 
 header {
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
-  position: relative;
-  height: $dim-bar;
-
-  @media (max-width: ($dim-small - 1px)) {
-    margin: 10px 10px 0;
-  }
-
-  .blur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: $dim-bar;
-    backdrop-filter: blur(4px);
-    transition: width $transition-toolbar;
-  }
-
-  .bar {
-    pointer-events: auto;
-    position: relative;
-    height: 100%;
-    color: #fff;
-    box-sizing: border-box;
-    padding-left: $dim-bar;
-    padding-right: 10px;
-    transition: transform $transition-toolbar;
-    transform: translate(0);
-    opacity: 0.95;
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      bottom: 0;
-      border-radius: $dim-bar;
-      box-shadow: 4px 16px 0 rgba(0, 0, 0, 0.125);
-      background: $color-bar;
-      background: var(--color-bar, $color-bar);
-      transition: box-shadow $transition-toolbar, width $transition-toolbar, opacity $transition-toolbar;
-      transform: translate(0);
-      opacity: 1;
-
-      @media (max-width: ($dim-small - 1px)) {
-        box-shadow: 2px 8px 0 rgba(0, 0, 0, 0.125);
-      }
-    }
-  }
-
-  .title {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    transition: width $transition-toolbar;
-    overflow: hidden;
-
-    .menu-label {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .menu-label,
-    button {
-      cursor: pointer;
-      width: $dim-bar;
-      height: $dim-bar;
-      padding: 2px;
-      box-sizing: border-box;
-      display: flex;
-    }
-
-    .buttons {
-      border: 0;
-      margin: 0;
-      padding: 0;
-      z-index: -10;
-      position: absolute;
-      left: $dim-bar + 8px;
-      top: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-
-      .hideable {
-        will-change: transform;
-        transition: opacity $duration-toolbar, transform $duration-toolbar;
-        transition-timing-function: ease-in-out;
-        transition-delay: $duration-toolbar;
-      }
-      fieldset {
-        display: block;
-        border: 0;
-        padding: 0;
-        margin: 0;
-      }
-
-      &[disabled] .hideable,
-      .hideable[disabled] {
-        transition-delay: 0s;
-        pointer-events: none;
-        opacity: 0;
-        transform: translateY(-100%);
-      }
-
-      button {
-        background: $color-bar;
-        background: var(--color-bar, $color-bar);
-        border-radius: $dim-bar;
-        color: inherit;
-        fill: currentColor;
-        border: none;
-        margin-right: 8px;
-      }
-    }
-  }
-
-  a.linkwrap {
-    pointer-events: auto;
-    text-decoration: none;
-    display: inline-flex;
-    max-width: 100%;
-    min-width: 1%;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    margin-left: 2px;
-    line-height: $dim-bar;
-    overflow: hidden;
-
-    .logo {
-      width: 62px;
-      height: 38px;
-      min-width: 62px;
-      background-size: contain;
-      fill: white;
-    }
-
-    h1 {
-      .a11y {
-        opacity: 0;
-        font-size: 0;
-        position: absolute;
-      }
-
-      margin: 0;
-      margin-left: 0.4ch;
-      font-family: 'Lobster', Sans-Serif;
-      font-size: 19px;
-      line-height: inherit;
-      font-weight: 400;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-}
-
-header.mini {
-  .title {
-    width: 0;
-  }
-
-  .blur {
-    width: $dim-bar;
-  }
-  .bar {
-    pointer-events: none;
-    &::before {
-      width: $dim-bar;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0.125);
-    }
-
-    label,
-    button:not(:disabled) {
-      pointer-events: auto;
-    }
-  }
-}
-
-main {
   z-index: $index-chrome;
-  min-height: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  flex-flow: column;
-  pointer-events: none;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: $dim-bar;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+
+  @media (max-width: ($dim-small - 1px)) {
+    padding: 10px 10px 0;
+  }
+
+  santa-button {
+    pointer-events: auto;
+    width: $dim-bar;
+    height: $dim-bar;
+    padding: 2px;
+    transition: 0.25s ease-in-out;
+    margin-right: 8px;
+
+    svg {
+      position: absolute;
+      margin: auto;
+      transition: opacity 0.25s ease-in-out;
+
+      &.fade {
+        opacity: 0;
+      }
+    }
+
+    // nb. This works around a focus issue in Chrome. ":active" isn't cleared after use unless
+    // there is a surface to lift up off.
+    &:active::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &[disabled] {
+      transform: translateY(-100px);
+    }
+  }
 }
 
 .sidebar {
