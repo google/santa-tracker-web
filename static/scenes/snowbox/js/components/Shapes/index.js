@@ -16,7 +16,7 @@ class Shape {
     this.selected = false
     this.rotationY = 0
     this.rotationX = 0
-    this.scaleFactor = 1
+    this.scaleFactor = 1.5
     this.scaleIndex = 0
     this.isMoving = false
     this.geoMats = []
@@ -60,6 +60,12 @@ class Shape {
       this.mesh.add(mesh)
     }
     this.mesh.scale.multiplyScalar(1 / GLOBAL_CONFIG.MODEL_UNIT)
+    this.defaultMeshScale = this.mesh.scale.clone()
+    this.mesh.scale.set(
+      this.defaultMeshScale.x * this.scaleFactor,
+      this.defaultMeshScale.y * this.scaleFactor,
+      this.defaultMeshScale.z * this.scaleFactor
+    )
     this.mesh.updateMatrix()
     this.mesh.position.set(0, 100, 0) // y: 100 to prevent the body to interact with anything in the scene
     if (this.rotationY) {
@@ -67,7 +73,7 @@ class Shape {
     }
     this.mesh.matrixWorldNeedsUpdate = true
     this.mesh.visible = false
-    this.defaultMeshScale = this.mesh.scale.clone()
+
 
     this.updateDefaultColors()
 
@@ -311,6 +317,7 @@ class Shape {
       this.defaultMeshScale.y * scaleFactor,
       this.defaultMeshScale.z * scaleFactor
     )
+
     this.scaleFactor = scaleFactor
     this.mesh.scale.copy(this.ghost.scale)
   }
