@@ -88,7 +88,7 @@ export default class ObjectEditTool {
   }
 
   show() {
-    this.el.style.display = 'block'
+    this.el.classList.add('is-showed')
     this.state = 'is-showed'
     if (!Scene.activeSubject.editable) {
       this.el.classList.add('not-editable')
@@ -98,7 +98,7 @@ export default class ObjectEditTool {
   hide() {
     this.resetRotateButtons()
     this.ui.colorIconButton.classList.remove('is-open')
-    this.el.style.display = 'none'
+    this.el.classList.remove('is-showed')
     this.state = 'is-hidden'
     this.el.classList.remove('not-editable')
   }

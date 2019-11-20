@@ -1,4 +1,13 @@
 .object-edit-tool {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+
+  &.is-showed {
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+  }
 
   &.not-editable {
     .arrow-ui,
