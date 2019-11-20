@@ -264,8 +264,6 @@ class Scene {
 
     // Render
     this.renderer.render(this.scene, camera)
-    // get current time
-    this.now = now
   }
 
   // EVENTS
@@ -397,9 +395,13 @@ class Scene {
   onMouseUp(e) {
     if (e.type !== 'touchend') {
       e.preventDefault()
+    } else {
+      if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit') {
+        this.unselectSubject()
+      }
     }
 
-    if (this.selectedSubject && this.mode === 'move') {
+    if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down') {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
     } else if (!this.isTouchDevice) {
@@ -425,10 +427,6 @@ class Scene {
       const { toolbarShape, shapeMaterial } = this.addingShape.dataset
       this.addShape(toolbarShape, shapeMaterial)
       this.addingShape = false
-    }
-
-    if (this.mouseState === 'down' && this.mode === '') {
-      this.setMode('drag')
     }
 
     this.onMouseMove(e)

@@ -1,5 +1,6 @@
 import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
+import isTouchDevice from '../utils/isTouchDevice.js'
 
 export default class Toolbar {
   constructor(el) {
@@ -11,11 +12,14 @@ export default class Toolbar {
       slider: this.el.querySelector('.toolbar__slider')
     }
 
+    this.isTouchDevice = isTouchDevice()
+
     this.currentIndex = 0
     this.x = 0
 
     this.onArrowDown = this.onArrowDown.bind(this)
     this.setUnits = this.setUnits.bind(this)
+
     this.setUnits()
 
     this.events()
@@ -30,11 +34,13 @@ export default class Toolbar {
     })
 
     this.ui.items.forEach(item => {
-      item.addEventListener('mousedown', this.onMouseDown)
-
-      item.addEventListener('touchstart', this.onMouseDown)
-      item.addEventListener('mouseenter', this.onMouseOver)
-      item.addEventListener('mouseout', this.onMouseOut)
+      if (this.isTouchDevice) {
+        item.addEventListener('touchstart', this.onClickShape)
+      } else {
+        item.addEventListener('mousedown', this.onClickShape)
+        item.addEventListener('mouseenter', this.onMouseOver)
+        item.addEventListener('mouseout', this.onMouseOut)
+      }
     })
   }
 
@@ -46,23 +52,18 @@ export default class Toolbar {
     SoundManager.play('snowbox_shape_mouseout');
   }
 
-  onMouseDown(e) {
+  onClickShape(e) {
     e.preventDefault()
 
     const button = e.currentTarget
     SoundManager.play('snowbox_toolbox_select');
 
-    const mouseLeaveListener = () => {
-      e.preventDefault()
-      const { toolbarShape, shapeMaterial } = button.dataset
-      Scene.addShape(toolbarShape, shapeMaterial)
-      button.removeEventListener('mouseleave', mouseLeaveListener)
-    }
+    const { toolbarShape, shapeMaterial } = button.dataset
 
     if (e.type === 'touchstart') {
       Scene.addingShape = button
     } else {
-      button.addEventListener('mouseleave', mouseLeaveListener)
+      Scene.addShape(toolbarShape, shapeMaterial)
     }
   }
 
@@ -114,11 +115,12 @@ export default class Toolbar {
     this.x = 0
     this.currentIndex = 0
     this.totalItemsWidth = 0
-    for (let i = 0; i < this.ui.items.length; i++) {
-      this.totalItemsWidth += this.ui.items[i].offsetWidth
-      this.ui.items[i].classList.add('no-transition')
-      this.ui.items[i].style.transform = 'none'
-    }
+
+    this.ui.items.forEach(item => {
+      this.totalItemsWidth += item.offsetWidth
+      item.classList.add('no-transition')
+      item.style.transform = 'none'
+    })
 
     this.sliderWidth = this.ui.slider.offsetWidth
     this.offsetXSlider = this.sliderWidth - this.totalItemsWidth
