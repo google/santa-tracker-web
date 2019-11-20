@@ -792,9 +792,7 @@ class Scene {
       case 'edit':
         if (this.activeSubject) {
           this.activeSubject.createRotateCircle(CameraController.camera.zoom)
-          setTimeout(() => {
-            window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
-          }, 100)
+          window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
         }
         controls.enabled = false // disable cameraCtrl.controls
         break

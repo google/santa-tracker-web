@@ -79,10 +79,12 @@ export default class ObjectEditTool {
 
   enterEditMode() {
     if (!Scene.activeSubject) return
-    this.show()
     const { scaleFactor } = Scene.activeSubject // get current scale of object
     this.ui.scaleButton.value = scaleFactor * 10
-    this.updatePosition()
+    setTimeout(() => { // temporary workaround, need to understand why we need that
+      this.show()
+      this.updatePosition()
+    }, 100)
   }
 
   show() {
