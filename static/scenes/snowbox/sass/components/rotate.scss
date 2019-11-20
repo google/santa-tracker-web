@@ -7,16 +7,16 @@
   }
 
   &__center {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: $button-size;
+    display: flex;
     height: $button-size;
+    justify-content: center;
     transform: translate(-3px, 0px);
+    width: $button-size;
 
     @include respond-to(tablet) {
-      width: $button-size-tablet;
       height: $button-size-tablet;
+      width: $button-size-tablet;
     }
   }
 
@@ -26,8 +26,8 @@
 
   &__button {
     .button__icon {
-      width: 51%;
       height: 44%;
+      width: 51%;
     }
   }
 }

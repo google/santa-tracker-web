@@ -4,14 +4,14 @@ $aspect-ratio: calc(100vw / 100vh);
   align-items: center;
   display: flex;
   height: 100%;
+  justify-content: center;
   left: 0;
-  top: 0;
   opacity: 0;
   padding: 80px 80px calc(80px + 150px) 80px;
   pointer-events: none;
   position: absolute;
+  top: 0;
   transition: opacity .5s ease;
-  justify-content: center;
   width: 100%;
   z-index: $z-index-download;
 
@@ -32,21 +32,21 @@ $aspect-ratio: calc(100vw / 100vh);
     opacity: 1;
 
     .download-popin__wrapper {
-      transform: none;
       pointer-events: auto;
+      transform: none;
     }
   }
 
   &__wrapper {
-    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
     background-color: $color-white;
-    padding: 40px 40px 30px 40px;
-    transition: transform 1s $easeout-expo;
-    position: relative;
+    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
     height: auto;
     max-height: 100%;
-    width: auto;
+    padding: 40px 40px 30px 40px;
+    position: relative;
     transform: translateY(50px);
+    transition: transform 1s $easeout-expo;
+    width: auto;
 
     @include respond-to(smartphone) {
       padding: 30px 30px 20px 30px;
@@ -54,19 +54,19 @@ $aspect-ratio: calc(100vw / 100vh);
   }
 
   &__image-wrapper {
-    position: relative;
-    height: 0;
     // padding-bottom: calc(100vh / 100vw * 1%);
-    width: 45vw;
+    height: 0;
     opacity: 1;
+    position: relative;
     transition: opacity .5s ease;
+    width: 45vw;
   }
 
   &__image {
-    position: absolute;
     height: 100%;
-    top: 0;
     left: 0;
+    position: absolute;
+    top: 0;
   }
 
   &__link {
@@ -83,21 +83,21 @@ $aspect-ratio: calc(100vw / 100vh);
   }
 
   &__loading {
-    color: black;
+    color: $color-purple;
     font-size: 48px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: $z-index-download;
     opacity: 0;
-    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: opacity .5s ease;
+    width: 100%;
+    z-index: $z-index-download;
 
     @include respond-to(smartphone) {
-      padding: 10px;
       font-size: 28px;
+      padding: 10px;
     }
   }
 

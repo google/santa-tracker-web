@@ -1,10 +1,10 @@
 .zoom {
-  width: $button-size;
   flex: 1;
   margin-left: 40px;
   margin-top: 1px;
-  position: relative;
   pointer-events: auto;
+  position: relative;
+  width: $button-size;
 
   &__button {
     .button__icon {
@@ -15,15 +15,15 @@
       margin-bottom: 1px;
 
       .button__icon {
-        top: 57%;
         left: 53%;
+        top: 57%;
       }
     }
 
     &--out {
       .button__icon {
-        top: 43%;
         left: 47%;
+        top: 43%;
       }
     }
   }

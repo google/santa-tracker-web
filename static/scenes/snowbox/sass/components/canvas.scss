@@ -1,10 +1,10 @@
 #canvas {
-  height: calc(100% - 150px);
-  width: 100vw;
   background-color: rgb(17, 18, 23);
+  height: calc(100% - 150px);
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
+  width: 100vw;
 
   &.is-pointing {
     cursor: pointer;

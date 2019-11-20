@@ -8,11 +8,11 @@
   }
 
   .object-ui {
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    z-index: $z-index-objects;
     user-select: none;
+    z-index: $z-index-objects;
 
     .button {
       transform: scale(0.8);
@@ -34,12 +34,12 @@
 
   .toolbar-ui {
     display: flex;
-    width: 340px;
     height: 75px;
+    width: 340px;
 
     @include respond-to(tablet) {
-      width: 240px;
       height: 48px;
+      width: 240px;
     }
   }
 
@@ -75,12 +75,12 @@
         appearance: none;
         background-color: $color-orange;
         border-radius: 50%;
-        width: 21px;
         height: 21px;
+        width: 21px;
 
         @include respond-to(tablet) {
-          width: 15px;
           height: 15px;
+          width: 15px;
         }
       }
 
@@ -92,11 +92,11 @@
   .colors-ui {
     align-items: center;
     background-color: $color-white;
-    justify-content: center;
-    display: flex;
     border-radius: 10px;
-    margin-right: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
 
     &.is-open {
       .colors-ui__range {
@@ -110,20 +110,20 @@
     }
 
     &__range {
+      opacity: 0;
+      pointer-events: none;
       position: absolute;
       top: -20px;
       transform: translateY(-100%);
-      opacity: 0;
       transition: opacity .3s ease;
-      pointer-events: none;
     }
 
     &__list {
+      background-color: $color-white;
+      border-radius: 10px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      background-color: $color-white;
-      border-radius: 10px;
       width: 130px;
 
       @include respond-to(smartphone) {
@@ -132,27 +132,27 @@
     }
 
     &__item {
-      width: 26px;
       height: 26px;
       padding: 26px;
       position: relative;
+      width: 26px;
 
       @include respond-to(smartphone) {
-        width: 15px;
         height: 15px;
         padding: 15px;
+        width: 15px;
       }
     }
 
     &__circle {
+      border-radius: 50%;
       content: '';
+      height: 50%;
+      left: 50%;
       position: absolute;
       top: 50%;
-      left: 50%;
-      width: 50%;
-      height: 50%;
       transform: translate(-50%, -50%);
-      border-radius: 50%;
+      width: 50%;
     }
   }
 }

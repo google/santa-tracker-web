@@ -1,8 +1,8 @@
 .download {
-  position: absolute;
-  top: 100px;
-  right: 40px;
   pointer-events: auto;
+  position: absolute;
+  right: 40px;
+  top: 100px;
 
   @include respond-to(smartphone) {
     top: 80px;

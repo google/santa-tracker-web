@@ -1,15 +1,15 @@
 .button {
-  cursor: pointer;
-  width: $button-size;
-  height: $button-size;
-  position: relative;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: $button-size;
+  justify-content: center;
+  position: relative;
+  width: $button-size;
 
   @include respond-to(tablet) {
-    width: $button-size-tablet;
     height: $button-size-tablet;
+    width: $button-size-tablet;
   }
 
   &:not(.is-disabled) {
@@ -52,26 +52,26 @@
   }
 
   &::before {
-    background-color: $color-yellow;
-    box-shadow: $button-3d-offset  $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
     // .01px fix flicker box shadow animation for chrome https://stackoverflow.com/questions/46960449/how-to-avoid-flickering-on-box-shadow-transition
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
+    background-color: $color-yellow;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    z-index: 0;
+    box-shadow: $button-3d-offset  $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
     transform: translate(-$button-3d-offset, -$button-3d-offset);
     transition: box-shadow $transition-button, transform $transition-button, background $transition-button;
+    width: 100%;
+    z-index: 0;
   }
 
   &--round {
     &::before {
-      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px 1px .01px $color-orange;
       border-radius: 50%;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px 1px .01px $color-orange;
     }
 
     &:not(.is-disabled) {
@@ -92,8 +92,8 @@
 
       &::before {
         background-color: $color-purple;
-        box-shadow: $button-3d-offset $button-3d-offset .01px $color-dark-purple, .01px 1px .01px $color-dark-purple;
         border-radius: 50%;
+        box-shadow: $button-3d-offset $button-3d-offset .01px $color-dark-purple, .01px 1px .01px $color-dark-purple;
       }
 
       &:not(.is-disabled) {
@@ -114,11 +114,11 @@
 
   &--left {
     &::before {
-      box-shadow: 0px $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, .01px $button-shadow-offset $button-shadow;
-      border-top-left-radius: 50%;
-      border-top-right-radius: 0;
       border-bottom-left-radius: 50%;
       border-bottom-right-radius: 0;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 0;
+      box-shadow: 0px $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, .01px $button-shadow-offset $button-shadow;
     }
 
     &:not(.is-disabled) {
@@ -138,11 +138,11 @@
 
   &--right {
     &::before {
-      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-3d-offset  $button-shadow-offset $button-shadow;
-      border-top-left-radius: 0;
-      border-top-right-radius: 50%;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 50%;
+      border-top-left-radius: 0;
+      border-top-right-radius: 50%;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-3d-offset  $button-shadow-offset $button-shadow;
     }
 
     &:not(.is-disabled) {
@@ -162,11 +162,11 @@
 
   &--bottom {
     &::before {
-      box-shadow: $button-3d-offset  1px .01px $color-orange, 1px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
       border-bottom-left-radius: 50%;
       border-bottom-right-radius: 50%;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      box-shadow: $button-3d-offset  1px .01px $color-orange, 1px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
     }
 
     &:not(.is-disabled) {
@@ -193,8 +193,8 @@
   &--slider {
     &::before {
       background-color: $color-white;
-      box-shadow: $button-3d-offset $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
       border-radius: 50%;
+      box-shadow: $button-3d-offset $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
     }
 
     &:not(.is-disabled) {

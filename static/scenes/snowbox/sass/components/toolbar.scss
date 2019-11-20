@@ -1,10 +1,10 @@
 .toolbar {
-  display: flex;
   background-color: $color-deep-blue-darken;
+  display: flex;
   height: 150px;
   overflow: hidden;
-  position: relative;
   pointer-events: auto;
+  position: relative;
   width: 100%;
 
   // @include respond-to(iphone8-more) {
@@ -22,13 +22,13 @@
   }
 
   &__container {
+    align-items: center;
     background-color: $color-deep-blue;
-    width: 70%;
-    margin: 0 auto;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    margin: 0 auto;
     position: relative;
+    width: 70%;
 
     @include respond-to(smartphone) {
       width: 80%;
@@ -44,12 +44,12 @@
   }
 
   &__slider {
-    position: relative;
-    overflow: hidden;
     display: inline-block;
-    white-space: nowrap;
     height: 150px;
+    overflow: hidden;
     padding: 30px 40px;
+    position: relative;
+    white-space: nowrap;
 
     @include respond-to(smartphone) {
       height: 110px;
@@ -58,12 +58,12 @@
   }
 
   &__item {
+    align-items: center;
     cursor: pointer;
     display: inline-flex;
-    align-items: center;
-    vertical-align: bottom;
     height: 100%;
     transition: transform .7s $easeout-expo;
+    vertical-align: bottom;
 
     &.no-transition {
       transition: none;
@@ -77,15 +77,15 @@
   }
 
   &__image {
-    padding: 0 20px;
     display: block;
     height: 100%;
+    padding: 0 20px;
     transition: transform .6s $easeout-expo;
   }
 
   &__arrow {
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: $z-index-ui;
@@ -99,16 +99,16 @@
     // }
 
     &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
       background-color: $color-deep-blue-darken;
       border-radius: 50%;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
       transform: scale(1.4);
+      width: 100%;
+      z-index: -1;
     }
 
     &:last-child {
