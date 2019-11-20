@@ -4,7 +4,6 @@ import LoaderManager from '../../managers/LoaderManager.js'
 import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
-import Scene from '../Scene/index.js'
 import { SHAPE_COLORS } from  '../../constants/index.js'
 
 class Shape {
