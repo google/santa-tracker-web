@@ -67,8 +67,8 @@ class Scene {
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
     this.colorObject = this.colorObject.bind(this)
-    this.onCanvasTouchStart = this.onCanvasTouchStart.bind(this)
-    this.onCanvasTouchMove = this.onCanvasTouchMove.bind(this)
+    this.detectTouches = this.detectTouches.bind(this)
+    this.onTouchMove = this.onTouchMove.bind(this)
   }
 
   init(canvas) {
@@ -185,8 +185,8 @@ class Scene {
       document.body.addEventListener('touchcancel', this.onMouseUp)
       document.body.addEventListener('touchmove', this.onMouseMove)
       // only on canvas, not document, and if not edit mode
-      this.canvas.addEventListener('touchstart', this.onCanvasTouchStart, false)
-      this.canvas.addEventListener('touchmove', this.onCanvasTouchMove, false)
+      this.canvas.addEventListener('touchstart', this.detectTouches, false)
+      this.canvas.addEventListener('touchmove', this.onTouchMove, false)
     } else {
       this.canvas.addEventListener('mousemove', this.onMouseMove)
       this.canvas.addEventListener('mousedown', this.onMouseDown)
@@ -363,7 +363,7 @@ class Scene {
   }
 
   // used for camera control on touch device
-  onCanvasTouchStart(e) {
+  detectTouches(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
 
     if (e.touches.length === 2) { // if 2 fingers
@@ -375,7 +375,7 @@ class Scene {
     this.yTouchStart = e.touches[0].clientY
   }
 
-  onCanvasTouchMove(e) {
+  onTouchMove(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
 
     if (this.isPinchZooming) { // if 2 fingers
