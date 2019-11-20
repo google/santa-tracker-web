@@ -53,7 +53,10 @@ class CameraController {
     // this.controls.dampingFactor = CONFIG.CONTROLS.DAMPING_FACTOR
     // this.controls.enableZoom = this.isTouchDevice ? CONFIG.MOBILE_CONTROLS.ZOOM : CONFIG.CONTROLS.ZOOM
 
-    // temporary disable controls
+    // temporary disable controls because we need to set a limit of camera movement
+    // to avoid the user to go outside the moutain/sky
+    // To Do: enable the controls when camera is zoomed in and set a limit of movement based on the
+    // camera position
     this.controls = { enabled: false }
   }
 
