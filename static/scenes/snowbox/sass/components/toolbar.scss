@@ -11,9 +11,9 @@
   //   height: 180px;
   // }
 
-  @include respond-to(iphoneX-more) {
-    height: 210px;
-  }
+  // @include respond-to(iphoneX-more) {
+  //   height: 210px;
+  // }
 
   &.no-arrow {
     .toolbar__arrow {
@@ -38,9 +38,9 @@
     //   align-items: flex-start;
     // }
 
-    @include respond-to(iphoneX-more) {
-      align-items: flex-start;
-    }
+    // @include respond-to(iphoneX-more) {
+    //   align-items: flex-start;
+    // }
   }
 
   &__slider {
@@ -94,9 +94,9 @@
     //   top: calc(50% - 40px);
     // }
 
-    @include respond-to(iphoneX-more) {
-      top: calc(50% - 55px);
-    }
+    // @include respond-to(iphoneX-more) {
+    //   top: calc(50% - 55px);
+    // }
 
     &::after {
       content: '';
