@@ -15,10 +15,12 @@ body {
 }
 
 santa-card {
-  width: 200px;
+  width: 240px;
   height: 150px;
   --radius: 20px;
 }
+
+/** village styles */
 
 .village {
   > div {
@@ -56,6 +58,8 @@ santa-card {
     transform-origin: top left;
   }
 }
+
+/** top and UI, contains village */
 
 #top {
   height: 1050px;
@@ -120,7 +124,7 @@ santa-card {
   }
 }
 
-/** village modules **/
+/** modules **/
 
 #modules {
   display: flex;
@@ -166,7 +170,7 @@ santa-card {
 
   svg, img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: -1;
@@ -197,18 +201,12 @@ santa-card {
 }
 
 santa-card {
-  width: 100%;
+  width: 240px;
   height: 120px;
   min-height: 120px;
 }
 
 @media (max-width: 768px - 1px) {
-  .cards {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: space-around;
-  }
   santa-card {
     max-width: 240px;
   }
@@ -216,14 +214,11 @@ santa-card {
 
 @media (min-width: 768px) {
   santa-card {
-    position: absolute;
     $w: 240px;
     $h: 180px;
     width: $w;
     height: $h;
     min-height: $h;
-    margin-left: -($w / 2);
-    margin-top: -($h / 2);
   }
 
   @media (min-width: 1024px) {
@@ -233,43 +228,13 @@ santa-card {
       width: $w;
       height: $h;
       min-height: $h;
-      margin-left: -($w / 2);
-      margin-top: -($h / 2);
       font-size: 1.5em;
     }
   }
+}
 
-  #module--sciencelab {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 20%;
-      }
-      &:nth-child(2) {
-        left: 80%;
-        top: 15%;
-      }
-      &:nth-child(3) {
-        left: 70%;
-        top: 40%;
-      }
-    }
-  }
-
-  #module--transport {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 40%;
-      }
-      &:nth-child(2) {
-        left: 50%;
-        top: 30%;
-      }
-      &:nth-child(3) {
-        left: 80%;
-        top: 20%;
-      }
-    }
+.module {
+  santa-card {
+    transform: translate(-50%, -50%);
   }
 }
