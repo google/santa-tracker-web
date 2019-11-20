@@ -1,5 +1,7 @@
-.present-box {
-  background: url(img/present.svg) center/contain no-repeat;
-  height: $grid-unit-size * $present-height;
-  width: $grid-unit-size * $present-width;
+##{$name} {
+  .present-box {
+    background: url(img/present.svg) center/contain no-repeat;
+    height: $grid-unit-size * $present-height;
+    width: $grid-unit-size * $present-width;
+  }
 }

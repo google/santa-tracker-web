@@ -1,15 +1,135 @@
-.player-controls {
-  align-items: center;
-  background: #f9d231;
-  bottom: 0;
-  display: flex;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
+##{$name} {
+  .player-controls {
+    background: $color-yellow;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
 
-  &.is-hidden {
-    display: none;
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  .player-controls__heading {
+    margin: 50px 0 30px;
+    text-align: center;
+  }
+
+  .player-controls__label {
+    font-family: 'Google Sans', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 29px;
+  }
+
+  .player-controls__sides {
+    display: flex;
+    justify-content: center;
+  }
+
+  .player-controls__side {
+    text-align: center;
+  }
+
+  .player-controls__elf {
+    margin: 30px 0;
+  }
+
+  .player-controls__keyboard {
+    position: relative;
+
+    .player-controls__label {
+      position: absolute;
+      text-align: center;
+
+      &::after {
+        background: $color-green;
+        content: '';
+        height: 2px;
+        position: absolute;
+        width: 2px;
+      }
+
+      &--action {
+        width: 150px;
+      }
+    }
+
+    &--left {
+      .player-controls__label--action {
+        left: -40%;
+        top: 75%;
+
+        &::after {
+          right: -45px;
+          width: 55px;
+        }
+      }
+
+      .player-controls__label--move {
+        bottom: -24%;
+        left: 42.5%;
+
+        &::after {
+          height: 110px;
+          left: 50%;
+          top: -110px;
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    &--right {
+      .player-controls__label--action {
+        right: -40%;
+        top: 48%;
+
+        &::after {
+          left: -45px;
+          width: 55px;
+        }
+
+      }
+
+      .player-controls__label--move {
+        bottom: -24%;
+        left: 73.25%;
+
+        &::after {
+          height: 45px;
+          left: 50%;
+          top: -47px;
+          transform: translateX(-50%);
+        }
+
+      }
+    }
+  }
+
+  .player-controls__divider {
+    background: $color-green;
+    margin: 0 100px;
+    position: relative;
+    width: 2px;
+
+    img {
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      top: 10%;
+    }
+  }
+
+  .player-controls__button {
+    bottom: 25px;
+    position: absolute;
+    right: 25px;
+
+    .Button {
+      @include ButtonColor(green);
+    }
   }
 }

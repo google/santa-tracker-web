@@ -1,66 +1,68 @@
-.player {
-  height: $grid-unit-size;
-  width: $grid-unit-size;
-  z-index: $player-z-index;
+##{$name} {
+  .player {
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+    z-index: $player-z-index;
 
-  &.is-hidden {
-    opacity: 0;
-  }
+    &.is-hidden {
+      opacity: 0;
+    }
 
-  // &.is-winner {
-  //   &::after {
-  //     font-size: 30px;
-  //     left: 9px;
-  //     top: -13px;
-  //     content: '👑';
-  //     position: absolute;
-  //   }
-  // }
+    // &.is-winner {
+    //   &::after {
+    //     font-size: 30px;
+    //     left: 9px;
+    //     top: -13px;
+    //     content: '👑';
+    //     position: absolute;
+    //   }
+    // }
 
-  &.toypart--wheels {
-    &::after {
-      background: red;
-      bottom: -20px;
-      content: '';
-      height: 15px;
-      left: 18px;
-      position: absolute;
-      top: auto;
-      width: 15px;
+    &.toypart--wheels {
+      &::after {
+        background: red;
+        bottom: -20px;
+        content: '';
+        height: 15px;
+        left: 18px;
+        position: absolute;
+        top: auto;
+        width: 15px;
+      }
+    }
+
+    &.toypart--car-body {
+      &::after {
+        background: blue;
+        bottom: -20px;
+        content: '';
+        height: 15px;
+        left: 18px;
+        position: absolute;
+        top: auto;
+        width: 15px;
+      }
+    }
+
+    &.toypart--car-body.toypart--wheels {
+      &::after {
+        background: purple;
+        bottom: -20px;
+        content: '';
+        height: 15px;
+        left: 18px;
+        position: absolute;
+        top: auto;
+        width: 15px;
+      }
     }
   }
 
-  &.toypart--car-body {
-    &::after {
-      background: blue;
-      bottom: -20px;
-      content: '';
-      height: 15px;
-      left: 18px;
-      position: absolute;
-      top: auto;
-      width: 15px;
-    }
+  #player-1 {
+    background: url(img/players/player-a.svg) center/contain no-repeat;
   }
 
-  &.toypart--car-body.toypart--wheels {
-    &::after {
-      background: purple;
-      bottom: -20px;
-      content: '';
-      height: 15px;
-      left: 18px;
-      position: absolute;
-      top: auto;
-      width: 15px;
-    }
+  #player-2 {
+    background: url(img/players/player-b.svg) center/contain no-repeat;
   }
-}
-
-#player-1 {
-  background: url(img/players/player-a.svg) center/contain no-repeat;
-}
-
-#player-2 {
-  background: url(img/players/player-b.svg) center/contain no-repeat;
 }

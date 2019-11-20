@@ -1,18 +1,20 @@
-.gui {
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: $gui-z-index;
-}
+##{$name} {
+  .gui {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $gui-z-index;
+  }
 
-.gui__title {
-  color: #1a844b;
-  font-family: 'Lobster', sans-serif;
-  font-size: 74px;
-  line-height: 92px;
-  margin: 0 auto;
-  text-align: center;
+  .gui__title {
+    color: $color-green;
+    font-family: 'Lobster', sans-serif;
+    font-size: 74px;
+    line-height: 92px;
+    margin: 0 auto;
+    text-align: center;
+  }
 }

@@ -1,5 +1,7 @@
-.platform {
-  background: #30a658;
-  height: $grid-unit-size;
-  width: $grid-unit-size;
+##{$name} {
+  .platform {
+    background: #30a658;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+  }
 }

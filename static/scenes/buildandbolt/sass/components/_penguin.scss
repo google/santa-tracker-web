@@ -1,6 +1,7 @@
-.penguin {
-  background: url(img/penguin.svg) center/contain no-repeat;
-  height: $grid-unit-size;
-  width: $grid-unit-size;
+##{$name} {
+  .penguin {
+    background: url(img/penguin.svg) center/contain no-repeat;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+  }
 }
-
