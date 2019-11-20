@@ -10,7 +10,7 @@ $transition-toolbar: $duration-toolbar ease-in-out;
 }
 
 :host {
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .grow {
@@ -35,13 +35,14 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  margin-top: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
+  padding-top: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
   height: $dim-bar;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
 
   @media (max-width: ($dim-small - 1px)) {
-    margin: 10px 10px 0;
+    padding: 10px 10px 0;
   }
 
   santa-button {
@@ -49,49 +50,32 @@ header {
     width: $dim-bar;
     height: $dim-bar;
     padding: 2px;
-  }
+    transition: 0.25s ease-in-out;
+    margin-right: 8px;
 
-  .buttons {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    z-index: -10;
-    position: absolute;
-    left: $dim-bar + 8px;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
+    svg {
+      position: absolute;
+      margin: auto;
+      transition: opacity 0.25s ease-in-out;
 
-    .hideable {
-      will-change: transform;
-      transition: opacity $duration-toolbar, transform $duration-toolbar;
-      transition-timing-function: ease-in-out;
-      transition-delay: $duration-toolbar;
-    }
-    fieldset {
-      display: block;
-      border: 0;
-      padding: 0;
-      margin: 0;
+      &.fade {
+        opacity: 0;
+      }
     }
 
-    &[disabled] .hideable,
-    .hideable[disabled] {
-      transition-delay: 0s;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(-100%);
+    // nb. This works around a focus issue in Chrome. ":active" isn't cleared after use unless
+    // there is a surface to lift up off.
+    &:active::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
 
-    button {
-      background: $color-bar;
-      background: var(--color-bar, $color-bar);
-      border-radius: $dim-bar;
-      color: inherit;
-      fill: currentColor;
-      border: none;
-      margin-right: 8px;
+    &[disabled] {
+      transform: translateY(-100px);
     }
   }
 }

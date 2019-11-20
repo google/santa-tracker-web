@@ -92,27 +92,39 @@ export class SantaCountdownElement extends LitElement {
     };
 
     return html`
-<main @animationend=${this._animationEnd}>
-  <div class="counter-box ${classFor('days')} ${split.days >= 100 ? 'large' : ''}" data-key="days" data-order=${hide(4)}>
-    <div class="holder active">${pad(split.days)}</div>
-    <div class="holder prev">${pad(prev.days)}</div>
-    <h2>${_msg`countdown_days`}</h2>
+<main @animationend=${this._animationEnd} class=${split.count ? '' : 'done'}>
+  <svg viewBox="0 0 11 44" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11,0 C9.18902037,0.133131303 7.51223617,0.599091955 6.23781871,1.99697318 C3.68903501,4.19364368 4.09147493,7.85478539 4.42683908,10.7836552 C4.56098328,12.2481264 4.6951348,13.779115 4.62805904,15.4432835 C4.56098328,19.3706399 2.81707942,21.5007204 0,22.033295 C2.81707942,22.565797 4.56098328,24.6958775 4.62805904,28.6233065 C4.6951348,30.2874024 4.56098328,31.8184636 4.42683908,33.2163448 C4.09147493,36.1452146 3.75610345,39.8063563 6.23781871,42.0030268 C7.51223617,43.400908 9.18902037,43.93341 11,44 L11,0 Z"/>
+  </svg>
+
+  <div class="inner">
+    <div class="counter-box ${classFor('days')} ${split.days >= 100 ? 'large' : ''}" data-key="days" data-order=${hide(4)}>
+      <div class="holder active">${pad(split.days)}</div>
+      <div class="holder prev">${pad(prev.days)}</div>
+      <h2>${_msg`countdown_days`}</h2>
+    </div>
+    <div class="counter-box ${classFor('hours')}" data-key="hours" data-order=${hide(3)}>
+      <div class="holder active">${pad(split.hours)}</div>
+      <div class="holder prev">${pad(prev.hours)}</div>
+      <h2>${_msg`countdown_hours`}</h2>
+    </div>
+    <div class="counter-box ${classFor('minutes')}" data-key="minutes" data-order=${hide(2)}>
+      <div class="holder active">${pad(split.minutes)}</div>
+      <div class="holder prev">${pad(prev.minutes)}</div>
+      <h2>${_msg`countdown_minutes`}</h2>
+    </div>
+    <div class="counter-box ${classFor('seconds')}" data-key="seconds" data-order=${hide(1)}>
+      <div class="holder active">${pad(split.seconds)}</div>
+      <div class="holder prev">${pad(prev.seconds)}</div>
+      <h2>${_msg`countdown_seconds`}</h2>
+    </div>
   </div>
-  <div class="counter-box ${classFor('hours')}" data-key="hours" data-order=${hide(3)}>
-    <div class="holder active">${pad(split.hours)}</div>
-    <div class="holder prev">${pad(prev.hours)}</div>
-    <h2>${_msg`countdown_hours`}</h2>
-  </div>
-  <div class="counter-box ${classFor('minutes')}" data-key="minutes" data-order=${hide(2)}>
-    <div class="holder active">${pad(split.minutes)}</div>
-    <div class="holder prev">${pad(prev.minutes)}</div>
-    <h2>${_msg`countdown_minutes`}</h2>
-  </div>
-  <div class="counter-box ${classFor('seconds')}" data-key="seconds" data-order=${hide(1)}>
-    <div class="holder active">${pad(split.seconds)}</div>
-    <div class="holder prev">${pad(prev.seconds)}</div>
-    <h2>${_msg`countdown_seconds`}</h2>
-  </div>
+
+  <svg viewBox="0 0 11 44" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(5.5, 22) scale(-1, 1) translate(-5.5, -22)">
+      <path d="M11,0 C9.18902037,0.133131303 7.51223617,0.599091955 6.23781871,1.99697318 C3.68903501,4.19364368 4.09147493,7.85478539 4.42683908,10.7836552 C4.56098328,12.2481264 4.6951348,13.779115 4.62805904,15.4432835 C4.56098328,19.3706399 2.81707942,21.5007204 0,22.033295 C2.81707942,22.565797 4.56098328,24.6958775 4.62805904,28.6233065 C4.6951348,30.2874024 4.56098328,31.8184636 4.42683908,33.2163448 C4.09147493,36.1452146 3.75610345,39.8063563 6.23781871,42.0030268 C7.51223617,43.400908 9.18902037,43.93341 11,44 L11,0 Z"/>
+    </g>
+  </svg>
 </div>
     `;
   }

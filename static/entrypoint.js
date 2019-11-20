@@ -30,6 +30,8 @@ import configureCustomKeys from './src/core/keys.js';
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
 const chromeElement = document.createElement('santa-chrome');
+const scoreOverlayElement = document.createElement('santa-overlay');
+scoreOverlayElement.setAttribute('slot', 'overlay');
 
 interludeElement.active = true;  // must show before appending
 interludeElement.addEventListener('gone', () => {
@@ -44,7 +46,7 @@ loaderElement.append(tutorialOverlayElement);
 
 const orientationOverlayElement = document.createElement('santa-orientation');
 orientationOverlayElement.setAttribute('slot', 'overlay');
-loaderElement.append(orientationOverlayElement);
+loaderElement.append(orientationOverlayElement, scoreOverlayElement);
 
 const badgeElement = document.createElement('santa-badge');
 badgeElement.setAttribute('slot', 'game');
@@ -103,23 +105,6 @@ kplayReady.then((sc) => {
   }
 });
 
-const showOverlay = (state={}) => {
-  let overlay = document.querySelector('santa-overlay');
-  if (!overlay) {
-    const endSceneOverlayElement = document.createElement('santa-overlay');
-    document.body.append(endSceneOverlayElement);
-    overlay = endSceneOverlayElement;
-  }
-  overlay.state = state;
-  overlay.hidden = false;
-};
-
-const hideOverlay = () => {
-  const overlay = document.querySelector('santa-overlay');
-  if (overlay) {
-    overlay.hidden = true;
-  }
-};
 
 window.addEventListener('game-restart', (e) => {
   global.setState({status: 'restart'})
@@ -129,16 +114,12 @@ global.subscribe((state) => {
   tutorialOverlayElement.filter = state.inputMode;
 
   const gameover = (state.status === 'gameover');
-  if (gameover) {
-    showOverlay(state);
-  } else {
-    hideOverlay();
-  }
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
   const disabled = gameover || orientationChangeNeeded;
+  scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
 
   loaderElement.disabled = disabled;                               // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
