@@ -8,6 +8,7 @@ import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
 import isTouchDevice from './utils/isTouchDevice.js'
+import { DEBUG_MODE } from  './constants/index.js'
 
 class SnowglobeGame {
   static get is() {
@@ -15,6 +16,7 @@ class SnowglobeGame {
   }
 
   constructor(el) {
+
     // window.devicePixelRatio = 1.5
     this.ui = {
       canvas: el.querySelector('#canvas'),
@@ -39,9 +41,11 @@ class SnowglobeGame {
     new Download(this.ui.download)
 
     // stats
-    this.stats = new window.Stats()
-    this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild(this.stats.dom)
+    if (DEBUG_MODE) {
+      this.stats = new window.Stats()
+      this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+      document.body.appendChild(this.stats.dom)
+    }
 
     // listen raf
     window.addEventListener('RAF', this.render)
@@ -49,9 +53,9 @@ class SnowglobeGame {
 
   render(e) {
     const { now } = e.detail
-    this.stats.begin()
+    if (DEBUG_MODE) this.stats.begin()
     Scene.update(now)
-    this.stats.end()
+    if (DEBUG_MODE) this.stats.end()
   }
 
   setup() {}

@@ -40,11 +40,10 @@ import Snowman from '../Shapes/Snowman/index.js'
 import '../CannonDebugRenderer/index.js'
 import CameraController from '../CameraController/index.js'
 import { world } from './world.js'
-import { SHAPE_COLORS } from  '../../constants/index.js'
+import { SHAPE_COLORS, DEBUG_MODE } from  '../../constants/index.js'
 
 class Scene {
   constructor() {
-    this.debug = CONFIG.DEBUG
     this.isTouchDevice = isTouchDevice()
     this.sceneSubjects = []
     this.mode = ''
@@ -96,10 +95,6 @@ class Scene {
     this.buildCamera()
     this.buildSceneSubjects()
 
-    if (this.debug) {
-      this.buildHelpers()
-    }
-
     this.raycaster = new THREE.Raycaster()
     this.mouse = new THREE.Vector2()
     this.clock = new THREE.Clock()
@@ -113,7 +108,7 @@ class Scene {
     this.scene.add(CameraController.fakeGround)
     CameraController.rotate('left', true, 45)
 
-    if (this.debug) {
+    if (DEBUG_MODE) {
       this.buildHelpers()
       this.cannonDebugRenderer = new THREE.CannonDebugRenderer(this.scene, this.world)
     }
