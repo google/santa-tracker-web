@@ -801,16 +801,6 @@ class Scene {
     this.mode = mode
   }
 
-  bindEscape() {
-    if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
-      if (!this.selectedSubject.mesh.visible) {
-        this.deleteObject()
-      } else {
-        this.unselectSubject(true)
-      }
-    }
-  }
-
   deleteSelected() {
     if ((this.mode === 'move' && this.selectedSubject) || (this.mode === 'edit' && this.selectedSubject)) {
       this.deleteObject()
