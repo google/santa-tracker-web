@@ -8,7 +8,7 @@ class Sky {
   constructor(scene) {
     this.scene = scene
 
-    this.onGui = this.onGui.bind(this)
+    // this.onGui = this.onGui.bind(this)
     this.init = this.init.bind(this)
 
     // this.gui = new dat.GUI()
@@ -46,10 +46,10 @@ class Sky {
     this.scene.add( this.skyBox )
   }
 
-  onGui() {
-    this.skyBox.position.y = this.guiController.cube_y_pos
-    this.skyBox.scale.set(this.guiController.cube_scale, this.guiController.cube_scale, this.guiController.cube_scale)
-  }
+  // onGui() {
+  //   this.skyBox.position.y = this.guiController.cube_y_pos
+  //   this.skyBox.scale.set(this.guiController.cube_scale, this.guiController.cube_scale, this.guiController.cube_scale)
+  // }
 }
 
 export default Sky

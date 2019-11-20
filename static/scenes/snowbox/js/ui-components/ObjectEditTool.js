@@ -129,9 +129,11 @@ export default class ObjectEditTool {
       SoundManager.play('snowbox_open_colors')
     }
   }
+
   playHoverSound() {
     SoundManager.play('snowbox_generic_hover');
   }
+
   onMouseDownRotate(e) {
     this.ui.rotateButtons.forEach(button => {
       clearInterval(this.rotateIntervals[button])
@@ -169,4 +171,5 @@ export default class ObjectEditTool {
     }, 200)
   }
 }
+
 
