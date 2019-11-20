@@ -133,7 +133,7 @@
       justify-content: center;
       width: 130px;
 
-      @include respond-to(smartphone) {
+      @include respond-to(tablet) {
         width: 76px;
       }
     }
@@ -144,7 +144,7 @@
       position: relative;
       width: 26px;
 
-      @include respond-to(smartphone) {
+      @include respond-to(tablet) {
         height: 15px;
         padding: 15px;
         width: 15px;
