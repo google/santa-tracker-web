@@ -56,15 +56,10 @@ export default class Toolbar {
     e.preventDefault()
 
     const button = e.currentTarget
-    SoundManager.play('snowbox_toolbox_select');
-
     const { toolbarShape, shapeMaterial } = button.dataset
+    Scene.addShape(toolbarShape, shapeMaterial)
 
-    if (e.type === 'touchstart') {
-      Scene.addingShape = button
-    } else {
-      Scene.addShape(toolbarShape, shapeMaterial)
-    }
+    SoundManager.play('snowbox_toolbox_select');
   }
 
   onArrowOver(e) {

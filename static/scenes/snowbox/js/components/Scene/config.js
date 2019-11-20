@@ -1,7 +1,7 @@
 export default {
   BACKGROUND_COLOR: 0x2c96ff,
   // Scene background color
-  DEBUG: false,
+  DEBUG: true,
   // Show Three.JS Helpers (grids, axis, arrows, etc.)
   COLORS: {
     ICE: 0x56b8e1,

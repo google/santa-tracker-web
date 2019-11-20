@@ -69,7 +69,6 @@ class Scene {
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
     this.colorObject = this.colorObject.bind(this)
-    this.onBodyTouchMove = this.onBodyTouchMove.bind(this)
     this.onCanvasTouchStart = this.onCanvasTouchStart.bind(this)
     this.onCanvasTouchMove = this.onCanvasTouchMove.bind(this)
   }
@@ -190,7 +189,7 @@ class Scene {
       this.canvas.addEventListener('touchstart', this.onMouseDown)
       document.body.addEventListener('touchend', this.onMouseUp)
       document.body.addEventListener('touchcancel', this.onMouseUp)
-      document.body.addEventListener('touchmove', this.onBodyTouchMove)
+      document.body.addEventListener('touchmove', this.onMouseMove)
       // only on canvas, not document, and if not edit mode
       this.canvas.addEventListener('touchstart', this.onCanvasTouchStart, false)
       this.canvas.addEventListener('touchmove', this.onCanvasTouchMove, false)
@@ -212,23 +211,6 @@ class Scene {
     // if we're in ghost mode and the selected object is on edges
     // if (this.mode === 'move' && this.mouseInEdge && this.selectedSubject) {
     //   CameraController.moveOnEdges(this.mouseInEdge)
-    // }
-
-    // limit camera position
-    // if (CameraController.camera.position.x > CameraController.box.max.x){
-    //   CameraController.camera.position.x = CameraController.box.max.x
-    // }
-
-    // if (CameraController.camera.position.x < CameraController.box.min.x){
-    //   CameraController.camera.position.x = CameraController.box.max.x
-    // }
-
-    // if (CameraController.camera.position.z > CameraController.box.max.z){
-    //   CameraController.camera.position.z = CameraController.box.max.z
-    // }
-
-    // if (CameraController.camera.position.z < CameraController.box.min.z){
-    //   CameraController.camera.position.z = CameraController.box.max.z
     // }
 
     // on camera rotating
@@ -278,34 +260,6 @@ class Scene {
     this.renderer.setSize(this.width, this.height)
   }
 
-  // onKeydown(e) {
-  //   e.preventDefault()
-
-  //   const elapsedTime = this.clock.getElapsedTime()
-
-  //   switch (e.key) {
-  //     case 'ArrowRight':
-  //       this.rotate('right')
-  //       break
-  //     case 'ArrowLeft':
-  //       this.rotate('left')
-  //       break
-  //     case 'Escape':
-  //       this.bindEscape()
-  //       break
-  //     case 'Backspace':
-  //       this.deleteSelected()
-  //     default:
-  //       break
-  //   }
-
-  //   for (let i = 0; i < this.sceneSubjects.length; i++) {
-  //     if (typeof this.sceneSubjects[i].onKeydown === 'function') {
-  //       this.sceneSubjects[i].onKeydown(e, elapsedTime, this.checkOverlap)
-  //     }
-  //   }
-  // }
-
   onMouseMove(e) {
     if (e.type !== 'touchmove') {
       e.preventDefault()
@@ -321,6 +275,8 @@ class Scene {
 
       this.mouse.x = (x / this.width) * 2 - 1
       this.mouse.y = -(y / this.height) * 2 + 1
+
+      this.isInCanvas = this.mouse.y > -1 && this.mouse.y < 1
 
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move' && this.mode !== 'edit') {
         // if not in drag or ghost mode
@@ -339,7 +295,7 @@ class Scene {
         }
 
         this.mouseInEdge = null
-      } else if (this.mode === 'move' && this.selectedSubject) {
+      } else if (this.mode === 'move' && this.selectedSubject && this.isInCanvas) {
         this.moveSelectedSubject()
         this.checkCollision()
         if (this.canDetectMouseInEdge) {
@@ -353,6 +309,7 @@ class Scene {
 
   onMouseDown(e) {
     e.preventDefault()
+
     if (e.type === 'touchstart') {
       this.mouse.x = (e.targetTouches[0].clientX / this.width) * 2 - 1
       this.mouse.y = -(e.targetTouches[0].clientY / this.height) * 2 + 1
@@ -395,10 +352,8 @@ class Scene {
   onMouseUp(e) {
     if (e.type !== 'touchend') {
       e.preventDefault()
-    } else {
-      if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit') {
-        this.unselectSubject()
-      }
+    } else if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit') {
+      this.unselectSubject()
     }
 
     if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down') {
@@ -413,23 +368,6 @@ class Scene {
     if (this.isPinchZooming) {
       this.isPinchZooming = false
     }
-  }
-
-  onBodyTouchMove(e) {
-    // e.preventDefault()
-
-    const currentTargetedElement = document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY)
-    if (
-      this.addingShape &&
-      this.addingShape !== currentTargetedElement &&
-      currentTargetedElement.parentElement != this.addingShape
-    ) {
-      const { toolbarShape, shapeMaterial } = this.addingShape.dataset
-      this.addShape(toolbarShape, shapeMaterial)
-      this.addingShape = false
-    }
-
-    this.onMouseMove(e)
   }
 
   onWheel(e) {
@@ -447,6 +385,7 @@ class Scene {
     }, 1000)
   }
 
+  // used for camera control on touch device
   onCanvasTouchStart(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
 
@@ -651,9 +590,9 @@ class Scene {
       this.moveOffset.x = 0
       this.moveOffset.z = 0
       this.mountain.addPositionMarker({
-        x: 1000, // hide it
-        y: 1000,
-        z: 1000,
+        x: 100, // hide it
+        y: 100,
+        z: 100,
       })
     }
   }
@@ -662,6 +601,7 @@ class Scene {
     const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
 
     if (posPlaneHelper) {
+      this.selectedSubject.ghost.visible = true
       const x = posPlaneHelper.x + this.moveOffset.x
       const z = posPlaneHelper.z + this.moveOffset.z
       const y = this.planeHelper.position.y + this.moveOffset.y
@@ -806,7 +746,6 @@ class Scene {
         // if no more collision, move up the object (update moveOffset)
         this.moveOffset.y = boxHelper.min.y
         if (isEditing) {
-
           // move ghost
           this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
           box = new THREE.Box3().setFromObject(this.selectedSubject.ghost)
