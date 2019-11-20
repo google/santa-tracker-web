@@ -196,7 +196,13 @@ class SceneApi extends EventTarget {
   _handleHostMessage(type, payload) {
     switch (type) {
       case 'pause':
+        this.dispatchEvent(new Event(type));
+        sceneApi.play("global_pause");
+        break;
       case 'resume':
+        this.dispatchEvent(new Event(type));
+        sceneApi.play("global_unpause");
+        break;
       case 'restart':
         const event = new Event(type);
         this.dispatchEvent(event);
