@@ -20,8 +20,51 @@ santa-card {
   --radius: 20px;
 }
 
+.village {
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent center bottom no-repeat;
+    background-size: 2040px;
+  }
+
+  .layer1 {
+    background-image: url(img/village/1.svg);
+  }
+  .layer2 {
+    background-image: url(img/village/2.svg);
+  }
+  .layer3 {
+    background-image: url(img/village/3.svg);
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Below 1024, shrink the SVG to 0.6 size.
+  @media (max-width: 1024px) {
+    transform: scale(0.6);
+    height: 1200px;
+    width: (1024px / 0.6);
+    left: calc(50vw - 512px);
+    transform-origin: top left;
+  }
+}
+
 #top {
-  height: 800px;
+  height: 1050px;
+
+  // Shrink by 0.6.
+  @media (max-width: 1024px) {
+    height: 720px;
+  }
+
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, #00C1F2 0%, #B4E5E6 17.71%, #FFF8BD 41.67%);
@@ -32,17 +75,6 @@ santa-card {
   position: relative;
   max-width: 100vw;
   margin: 0 auto;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background: url(img/rear.svg) bottom center repeat-x;
-  }
 
   santa-weather {
     position: absolute;
