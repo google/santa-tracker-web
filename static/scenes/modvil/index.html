@@ -18,10 +18,11 @@ import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
+import {animationSoundTriggers} from './animationSoundTriggers.js'
 
 
 api.preload.sounds('village_load_sounds');
-api.preload.sounds('elfmaker_load_sounds');  // TODO: for generic_button_click
+api.preload.sounds('generic_load_sounds');  // TODO: for generic_button_click
 api.config({
   scroll: true,
   sound: ['music_start_village', 'village_start'],
@@ -84,9 +85,13 @@ function ratioForModule(el) {
   } else if (ratio >= 1.0) {
     return 1.0;
   }
-
   // This creates more of a cubic-bezier style transform (although it's quite subtle).
-  return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+  let outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+  //send scroll ratio to kplay to update volume of scene audio
+  let name = el.id.split('module--')[1];
+  api.play('village_scroll', name, outputRatio);
+  
+  return outputRatio;
 }
 
 function moduleIsVisible(el) {
@@ -130,6 +135,7 @@ async function prepareModules() {
       };
       const anim = loadAnimation(`${base}.json`, options);
       anim.renderer.svgElement.style.zIndex = zIndex;
+      handleAnimationAudio(anim);
 
       // TODO: preload
       return anim;
@@ -141,6 +147,12 @@ async function prepareModules() {
   helpers.installAdjustHandler(() => {
     scrollables.forEach((animations, container) => {
       const visible = moduleIsVisible(container);
+      // Fade out all scene audio that is not visible (when scrolling fast)
+      if (!visible) {
+        let scene = container.id.split('module--')[1];
+        api.play('village_scroll', scene, 0);
+      }
+      
       const ratio = visible ? ratioForModule(container) : -1.0;
 
       animations.forEach((anim) => {
@@ -160,11 +172,35 @@ async function prepareModules() {
         const frames = anim.getDuration(true);
         const frame = Math.min(frames, Math.max(0.0, frames * ratio));
         anim.goToAndStop(frame, true);
+
+        let scene = anim.path.split('img/modules/')[1].slice(0, -1);
+        let id = anim.fileName;
+        checkAndPlaySound(id, scene, frame);
       });
     });
   });
 }
 
+function handleAnimationAudio(anim) {
+  anim.onEnterFrame = (e)=> {
+    let scene = anim.path.split('img/modules/')[1].slice(0, -1);
+    let id = anim.fileName;
+
+    checkAndPlaySound(id, scene, e.currentTime);
+  }
+}
+function checkAndPlaySound(id, scene, time) {
+  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
+      let sounds = animationSoundTriggers[scene][id];
+      //console.log(time);
+      for (let i = 0; i < sounds.length; i++) {
+        if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
+          api.play(sounds[i].sound, time);
+          sounds[i].played = performance.now();
+        }
+      }
+    }
+}
 api.preload.wait(prepareModules());
 
 const playButton = document.getElementById('play');
@@ -175,6 +211,9 @@ playButton.addEventListener('click', (ev) => {
 });
 playButton.addEventListener('mousedown', () => {
   api.play('generic_button_click');
+});
+playButton.addEventListener('mouseenter', () => {
+  api.play('generic_button_over');
 });
 playButton.addEventListener('touchdown', () => {
   api.play('generic_button_click');

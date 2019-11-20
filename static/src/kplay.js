@@ -806,6 +806,10 @@ class AudioSource extends EventTarget {
     return this._playbackRate;
   }
 
+  get playbackRateNode() {
+    return this._sources[0] ? this._sources[0].playbackRate : null;
+  }
+
   curvePlaybackRate(rate, duration, when = masterContext.currentTime) {
     if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
       // only adjust on looping sounds, leave playing instant alone
