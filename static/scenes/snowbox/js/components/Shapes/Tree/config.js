@@ -4,7 +4,7 @@ export default {
   SELECTABLE: true,
   COLLIDABLE: true,
   SIZE: 1,
-  OBJ: './models/pine-tree_v10.obj',
+  OBJ: './models/pine-tree.obj',
   WRL: './models/pine-tree.wrl',
   COLORS: [0x03B4CA, 0x5B4438]
 }
