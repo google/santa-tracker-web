@@ -2,6 +2,7 @@ import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import LoaderManager from '../managers/LoaderManager.js'
 import CameraController from '../components/CameraController/index.js'
+import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 
 export default class Download {
   constructor(el) {
@@ -142,7 +143,7 @@ export default class Download {
       if (callback) {
         callback()
       }
-    }, 200)
+    }, RELEASE_BUTTON_TIME)
   }
 
   onClickOutside() {

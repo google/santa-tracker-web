@@ -1,6 +1,7 @@
 import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import isTouchDevice from '../utils/isTouchDevice.js'
+import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 
 export default class ObjectEditTool {
   constructor(el) {
@@ -147,7 +148,7 @@ export default class ObjectEditTool {
 
     this.rotateIntervals[el] = setInterval(() => {
       Scene.rotateObject(el)
-    }, 200)
+    }, RELEASE_BUTTON_TIME)
   }
 
   resetRotateButtons() {
@@ -155,7 +156,7 @@ export default class ObjectEditTool {
       clearInterval(this.rotateIntervals[button])
       this.resetRotateTimeout[button] = setTimeout(() => {
         button.classList.remove('is-clicked')
-      }, 200)
+      }, RELEASE_BUTTON_TIME)
     })
   }
 
@@ -168,6 +169,6 @@ export default class ObjectEditTool {
       Scene.deleteObject()
       this.hide()
       el.classList.remove('is-clicked')
-    }, 200)
+    }, RELEASE_BUTTON_TIME)
   }
 }

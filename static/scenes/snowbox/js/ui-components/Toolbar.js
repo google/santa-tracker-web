@@ -1,6 +1,7 @@
 import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import isTouchDevice from '../utils/isTouchDevice.js'
+import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 
 export default class Toolbar {
   constructor(el) {
@@ -103,7 +104,7 @@ export default class Toolbar {
       if (disable) {
         el.classList.add('is-disabled')
       }
-    }, 200)
+    }, RELEASE_BUTTON_TIME)
   }
 
   setUnits() {

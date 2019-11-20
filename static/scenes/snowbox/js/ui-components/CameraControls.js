@@ -1,5 +1,6 @@
 import SoundManager from '../managers/SoundManager.js'
 import CameraController from '../components/CameraController/index.js'
+import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 
 export default class CameraControls {
   constructor(el) {
@@ -77,6 +78,6 @@ export default class CameraControls {
       if (disable) {
         el.classList.add('is-disabled')
       }
-    }, 200)
+    }, RELEASE_BUTTON_TIME)
   }
 }
