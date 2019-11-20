@@ -1,14 +1,15 @@
-.download {
+.sound-button {
   pointer-events: auto;
   position: absolute;
   right: 40px;
-  top: 100px;
+  top: 50px;
 
   @include respond-to(smartphone) {
-    top: 80px;
+    top: 40px;
+    right: 20px;
   }
 
   .button__icon {
-    width: 45%;
+    width: 37%;
   }
 }
