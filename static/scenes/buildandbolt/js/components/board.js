@@ -127,7 +127,7 @@ app.Board = class Board {
     const leftX = Math.max(Math.round(x - offsetTrigger), 0)
 
     // Get blocking entities around
-    // Only one entity can stop you right? So we can take the first item of the entities array [0]
+    // There can't be 2 blocking entities on the same cell right? So we can take the first item of the entities array [0]
     const topEntity = this.cells[roundedX][topY].filter(item => item.config.triggerAction === 'on-border')[0]
     const rightEntity = this.cells[rightX][roundedY].filter(item => item.config.triggerAction === 'on-border')[0]
     const bottomEntity = this.cells[roundedX][bottomY].filter(item => item.config.triggerAction === 'on-border')[0]
