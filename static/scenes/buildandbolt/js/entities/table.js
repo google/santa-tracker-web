@@ -30,11 +30,22 @@ app.Table = class Table extends app.Entity {
   }
 
   onContact(player) {
-    if (this.gameControls.isKeyControlActive(player.controls.action)) {
-     return [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
-    } else {
-      return [Constants.PLAYER_ACTIONS.BLOCK]
+    let actions = []
+
+    if (Utils.isInBorder(this.config, player.position)) {
+      actions = [Constants.PLAYER_ACTIONS.BLOCK]
+      if (Constants.DEBUG) {
+        this.elem.style.opacity = 0.5
+      }
+
+      if (this.gameControls.isKeyControlActive(player.controls.action)) {
+        actions = [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
+      }
+    } else if (Constants.DEBUG) {
+      this.elem.style.opacity = 1
     }
+
+    return actions
   }
 }
 

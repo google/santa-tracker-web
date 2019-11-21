@@ -115,58 +115,38 @@ app.Board = class Board {
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
 
+    const playerCell = this.cells[roundedX][roundedY]
+
     // colocated entities
-    const colocatedEntities = this.cells[roundedX][roundedY].filter(item => item !== entity)
+    // extract only the entities that trigger an action on the player cell
+    const colocatedEntities = playerCell.filter(item => item !== entity && item.config.triggerAction === 'on-cell')
 
-    // around entities
-    const offsetTrigger = 0.49
+    // surrounding cells
+    const surroundingCells = []
 
-    const topY = Math.max(Math.round(y - offsetTrigger), 0)
-    const rightX = Math.min(Math.round(x + offsetTrigger), Constants.GRID_DIMENSIONS.WIDTH - 1)
-    const bottomY = Math.min(Math.round(y + offsetTrigger), Constants.GRID_DIMENSIONS.HEIGHT - 1)
-    const leftX = Math.max(Math.round(x - offsetTrigger), 0)
-
-    // Get blocking entities around
-    // There can't be 2 blocking entities on the same cell right? So we can take the first item of the entities array [0]
-    const topEntity = this.cells[roundedX][topY].filter(item => item.config.triggerAction === 'on-border')[0]
-    const rightEntity = this.cells[rightX][roundedY].filter(item => item.config.triggerAction === 'on-border')[0]
-    const bottomEntity = this.cells[roundedX][bottomY].filter(item => item.config.triggerAction === 'on-border')[0]
-    const leftEntity = this.cells[leftX][roundedY].filter(item => item.config.triggerAction === 'on-border')[0]
-
-    if (Constants.DEBUG) {
-      if (this.lastCellInContact) {
-        this.lastCellInContact.elem.style.opacity = 1
+    for (let i = roundedX - 1; i <= roundedX + 1; i++) {
+      for (let j = roundedY - 1; j <= roundedY + 1; j++) {
+        if (this.cells[i] && this.cells[i][j] && this.cells[i][j] !== playerCell) {
+          surroundingCells.push(this.cells[i][j])
+        }
       }
+    }
 
-      if (topEntity) {
-        this.lastCellInContact = topEntity
-      }
+    // surrounding entities
+    const surroundingEntities = []
 
-      if (rightEntity) {
-        this.lastCellInContact = rightEntity
-      }
-
-      if (bottomEntity) {
-        this.lastCellInContact = bottomEntity
-      }
-
-      if (leftEntity) {
-        this.lastCellInContact = leftEntity
-      }
-
-      if (topEntity || rightEntity || bottomEntity || leftEntity) {
-        this.lastCellInContact.elem.style.opacity = 0.5
+    for (let i = 0; i < surroundingCells.length; i++) {
+      // extract only the entities that trigger an action around the player cell
+      // There can't be 2 blocking entities on the same cell so we can assume to take the first item of the array --> [0]
+      const surroundingEntity = surroundingCells[i].filter(item => item.config.triggerAction === 'on-border')[0]
+      if (surroundingEntity) {
+        surroundingEntities.push(surroundingEntity)
       }
     }
 
     return {
       colocatedEntities,
-      blockingEntities: {
-        topEntity,
-        rightEntity,
-        bottomEntity,
-        leftEntity,
-      }
+      surroundingEntities,
     }
   }
 }

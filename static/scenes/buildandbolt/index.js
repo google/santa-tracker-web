@@ -38,9 +38,9 @@ controlsButton.addEventListener('click', (e) => {
 })
 
 // Debug mode
-// const game = new Game(document.getElementById('module-buildandbolt'), 'single')
-// controlsScreen.classList.add('is-hidden')
-// playerSelectionScreen.classList.add('is-hidden')
+const game = new Game(document.getElementById('module-buildandbolt'), 'single')
+controlsScreen.classList.add('is-hidden')
+playerSelectionScreen.classList.add('is-hidden')
 // end debug mode
 
 api.config({

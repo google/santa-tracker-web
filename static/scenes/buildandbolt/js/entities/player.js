@@ -117,34 +117,23 @@ app.Player = class Player {
       }
     }
 
-    const { colocatedEntities, blockingEntities: { topEntity, rightEntity, bottomEntity, leftEntity } } = this.game.board.getEntitiesAroundPosition(this)
+    const { colocatedEntities, surroundingEntities } = this.game.board.getEntitiesAroundPosition(this)
+
+    const resultingActions = {}
 
     if (colocatedEntities.length) {
       for (const entity of colocatedEntities) {
-        this.checkActions(entity)
+        this.checkActions(entity, resultingActions)
       }
     }
 
-    // Blocking entities around
-    if (topEntity) {
-      this.checkActions(topEntity)
-      console.log('top')
+    if (surroundingEntities.length) {
+      for (const entity of surroundingEntities) {
+        this.checkActions(entity, resultingActions)
+      }
     }
 
-    if (rightEntity) {
-      this.checkActions(rightEntity)
-      console.log('right')
-    }
-
-    if (bottomEntity) {
-      this.checkActions(bottomEntity)
-      console.log('bottom')
-    }
-
-    if (leftEntity) {
-      this.checkActions(leftEntity)
-      console.log('left')
-    }
+    this.processActions(resultingActions)
 
     this.render()
   }
@@ -153,14 +142,11 @@ app.Player = class Player {
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
-  checkActions(entity) {
-    const resultingActions = {}
+  checkActions(entity, resultingActions) {
     const actions = entity.onContact(this)
     for (const action of actions) {
       resultingActions[action] = entity
     }
-
-    this.processActions(resultingActions)
   }
 
   /**
@@ -175,6 +161,8 @@ app.Player = class Player {
 
     if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK]) {
       this.position = this.prevPosition
+      this.velocity.x = 0
+      this.velocity.y = 0
     } else {
       this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
