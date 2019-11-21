@@ -117,29 +117,50 @@ app.Player = class Player {
       }
     }
 
-    const colocatedEntities = this.game.board.getEntitiesAtPosition(this, this.position.x, this.position.y)
-    if (colocatedEntities.length) {
-      const resultingActions = {}
-      console.log(colocatedEntities)
-      for (const entity of colocatedEntities) {
-        if (entity != this) {
-          const actions = entity.onContact(this)
-          for (const action of actions) {
-            resultingActions[action] = entity
-          }
-        }
-      }
+    const { colocatedEntities, blockingEntities: { topEntity, rightEntity, bottomEntity, leftEntity } } = this.game.board.getEntitiesAroundPosition(this)
 
-      this.processActions(resultingActions)
+    if (colocatedEntities.length) {
+      for (const entity of colocatedEntities) {
+        this.checkActions(entity)
+      }
     }
 
-    // getEntitiesAtPositionAround
+    // Blocking entities around
+    if (topEntity) {
+      this.checkActions(topEntity)
+      console.log('top')
+    }
+
+    if (rightEntity) {
+      this.checkActions(rightEntity)
+      console.log('right')
+    }
+
+    if (bottomEntity) {
+      this.checkActions(bottomEntity)
+      console.log('bottom')
+    }
+
+    if (leftEntity) {
+      this.checkActions(leftEntity)
+      console.log('left')
+    }
 
     this.render()
   }
 
   render() {
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+  }
+
+  checkActions(entity) {
+    const resultingActions = {}
+    const actions = entity.onContact(this)
+    for (const action of actions) {
+      resultingActions[action] = entity
+    }
+
+    this.processActions(resultingActions)
   }
 
   /**

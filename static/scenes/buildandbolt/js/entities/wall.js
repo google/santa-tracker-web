@@ -16,6 +16,11 @@ app.Wall = class Wall extends app.Entity {
     this.elem.setAttribute('class', 'wall')
   }
 
+  onInit(config) {
+    super.onInit(config)
+    this.config.triggerAction = 'on-border'
+  }
+
   render() {
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
     this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`

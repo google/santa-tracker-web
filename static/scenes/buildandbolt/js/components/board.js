@@ -110,13 +110,63 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  getEntitiesAtPosition(entity, x, y) {
+  getEntitiesAroundPosition(entity) {
+    const { x, y } = entity.position
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
-    return this.cells[roundedX][roundedY].filter(item => item !== entity)
-  }
 
-  getEntitiesAtPositionAround(x, y) {
+    // colocated entities
+    const colocatedEntities = this.cells[roundedX][roundedY].filter(item => item !== entity)
 
+    // around entities
+    const offsetTrigger = 0.49
+
+    const topY = Math.max(Math.round(y - offsetTrigger), 0)
+    const rightX = Math.min(Math.round(x + offsetTrigger), Constants.GRID_DIMENSIONS.WIDTH - 1)
+    const bottomY = Math.min(Math.round(y + offsetTrigger), Constants.GRID_DIMENSIONS.HEIGHT - 1)
+    const leftX = Math.max(Math.round(x - offsetTrigger), 0)
+
+    // Get blocking entities around
+    // Only one entity can stop you right? So we can take the first item of the entities array [0]
+    const topEntity = this.cells[roundedX][topY].filter(item => item.config.triggerAction === 'on-border')[0]
+    const rightEntity = this.cells[rightX][roundedY].filter(item => item.config.triggerAction === 'on-border')[0]
+    const bottomEntity = this.cells[roundedX][bottomY].filter(item => item.config.triggerAction === 'on-border')[0]
+    const leftEntity = this.cells[leftX][roundedY].filter(item => item.config.triggerAction === 'on-border')[0]
+
+    if (Constants.DEBUG) {
+      if (this.lastCellInContact) {
+        this.lastCellInContact.elem.style.opacity = 1
+      }
+
+      if (topEntity) {
+        this.lastCellInContact = topEntity
+      }
+
+      if (rightEntity) {
+        this.lastCellInContact = rightEntity
+      }
+
+      if (bottomEntity) {
+        this.lastCellInContact = bottomEntity
+      }
+
+      if (leftEntity) {
+        this.lastCellInContact = leftEntity
+      }
+
+      if (topEntity || rightEntity || bottomEntity || leftEntity) {
+        this.lastCellInContact.elem.style.opacity = 0.5
+      }
+    }
+
+    return {
+      colocatedEntities,
+      blockingEntities: {
+        topEntity,
+        rightEntity,
+        bottomEntity,
+        leftEntity,
+      }
+    }
   }
 }
