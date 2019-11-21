@@ -14,6 +14,13 @@ app.Penguin = class Penguin extends app.Slider {
     this.elem.setAttribute('class', 'penguin')
   }
 
+  onInit(config) {
+    config.height = Constants.PENGUIN_HEIGHT
+    config.width = Constants.PENGUIN_WIDTH
+
+    super.onInit(config)
+  }
+
   onContact(player) {
     super.onContact(player)
     return [Constants.PLAYER_ACTIONS.RESTART]

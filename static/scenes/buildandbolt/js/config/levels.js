@@ -139,9 +139,11 @@ Levels = [
         config: {
           isVertical: true,
           startPos: {
-            x: 23,
+            x: 22,
             y: 4
           },
+          height: 2,
+          width: 3,
           movementLength: 5,
           stepSize: .07
         }
