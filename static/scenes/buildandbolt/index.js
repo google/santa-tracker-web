@@ -37,6 +37,12 @@ controlsButton.addEventListener('click', (e) => {
   controlsScreen.classList.add('is-hidden')
 })
 
+// Debug mode
+// const game = new Game(document.getElementById('module-buildandbolt'), 'single')
+// controlsScreen.classList.add('is-hidden')
+// playerSelectionScreen.classList.add('is-hidden')
+// end debug mode
+
 api.config({
   sound: ['music_start_village', 'village_start'],
 });

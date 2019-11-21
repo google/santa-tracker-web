@@ -4,7 +4,7 @@ goog.provide('Constants');
  * Constants for present havoc game.
  */
 Constants = {
-  DEBUG: false,
+  DEBUG: true,
 
   PLAYER_OPTIONS: {
     SINGLE: 'single',
