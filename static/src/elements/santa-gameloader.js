@@ -113,12 +113,33 @@ export const events = Object.freeze({
 const internalRemove = '-internal-remove';
 
 
-const rectifyFrame = (iframe) => {
+/**
+ * Set the explicit w/h of the target iframe. Used to work around Safari issues.
+ *
+ * @param {?HTMLIFrameElement} iframe to rectify
+ * @param {boolean} tilt whether the screen is rotated
+ */
+const rectifyFrame = (iframe, tilt) => {
   if (!iframe) {
-    // do nothing
-  } else if (iframe.offsetHeight !== window.innerHeight || iframe.offsetWidth !== window.innerWidth) {
-    iframe.style.width = `${window.innerWidth}px`;
-    iframe.style.height = `${window.innerHeight}px`;
+    return;
+  }
+
+  let targetWidth = window.innerWidth;
+  let targetHeight = window.innerHeight;
+
+  if (tilt) {
+    let temp = targetWidth;
+    targetWidth = targetHeight;
+    targetHeight = temp;
+  }
+
+  delete iframe.style.width;
+  delete iframe.style.height;
+  iframe.offfsetLeft;
+
+  if (iframe.offsetHeight !== targetHeight || iframe.offsetWidth !== targetWidth) {
+    iframe.style.width = `${targetWidth}px`;
+    iframe.style.height = `${targetHeight}px`;
   }
 };
 
@@ -137,7 +158,7 @@ const createFrame = (src) => {
  * Loads iframes.
  */
 class SantaGameLoaderElement extends HTMLElement {
-  static get observedAttributes() { return ['disabled']; }
+  static get observedAttributes() { return ['disabled', 'tilt']; }
 
   constructor() {
     super();
@@ -199,8 +220,9 @@ class SantaGameLoaderElement extends HTMLElement {
   _onWindowResize() {
     // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
     // then force it via changing CSS properties.
-    rectifyFrame(this._activeFrame);
-    rectifyFrame(this._previousFrame);
+    const tilt = this.hasAttribute('tilt');
+    rectifyFrame(this._activeFrame, tilt);
+    rectifyFrame(this._previousFrame, tilt);
   }
 
   _onWindowBlur(e) {
@@ -244,13 +266,19 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (attrName === 'disabled') {
-      if (newValue !== null) {
-        window.focus();  // move focus from activeFrame
-        this._activeFrame.setAttribute('tabindex', -1);
-      } else if (!this._loading) {
-        this._activeFrame.removeAttribute('tabindex');
-      }
+    switch (attrName) {
+      case 'disabled':
+        if (newValue !== null) {
+          window.focus();  // move focus from activeFrame
+          this._activeFrame.setAttribute('tabindex', -1);
+        } else if (!this._loading) {
+          this._activeFrame.removeAttribute('tabindex');
+        }
+        break;
+
+      case 'tilt':
+        this._onWindowResize();
+        break;
     }
   }
 

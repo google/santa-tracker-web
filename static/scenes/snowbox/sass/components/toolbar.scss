@@ -1,0 +1,120 @@
+.toolbar {
+  background-color: $color-deep-blue-darken;
+  display: flex;
+  height: 150px;
+  overflow: hidden;
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+
+  // @include respond-to(iphone8-more) {
+  //   height: 180px;
+  // }
+
+  // @include respond-to(iphoneX-more) {
+  //   height: 210px;
+  // }
+
+  &.no-arrow {
+    .toolbar__arrow {
+      display: none;
+    }
+  }
+
+  &__container {
+    align-items: center;
+    background-color: $color-deep-blue;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+
+    @include respond-to(smartphone) {
+      width: 80%;
+    }
+
+    // @include respond-to(iphone8-more) {
+    //   align-items: flex-start;
+    // }
+
+    // @include respond-to(iphoneX-more) {
+    //   align-items: flex-start;
+    // }
+  }
+
+  &__slider {
+    display: inline-block;
+    height: 150px;
+    overflow: hidden;
+    padding: 30px 40px;
+    position: relative;
+    white-space: nowrap;
+
+    @include respond-to(smartphone) {
+      height: 110px;
+      padding: 20px 30px;
+    }
+  }
+
+  &__item {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    height: 100%;
+    transition: transform .7s $easeout-expo;
+    vertical-align: bottom;
+
+    &.no-transition {
+      transition: none;
+    }
+
+    &:hover {
+      .toolbar__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    padding: 0 20px;
+    transition: transform .6s $easeout-expo;
+  }
+
+  &__arrow {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $z-index-ui;
+
+    // @include respond-to(iphone8-more) {
+    //   top: calc(50% - 40px);
+    // }
+
+    // @include respond-to(iphoneX-more) {
+    //   top: calc(50% - 55px);
+    // }
+
+    &::after {
+      background-color: $color-deep-blue-darken;
+      border-radius: 50%;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: scale(1.4);
+      width: 100%;
+      z-index: -1;
+    }
+
+    &:last-child {
+      left: auto;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+}
