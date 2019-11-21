@@ -469,9 +469,11 @@ class AudioGroup extends EventTarget {
    * @param {number=} index an index to force
    */
   _each(callback, playLike=false, index=-1) {
-    if (playLike && this.playing && !this.stopping) {
-      return false;  // do nothing if still playing
-    }
+    //the lines below makes audiogroup not play multiple overlapping sounds, which are used in many games. /Andreas
+
+    // if (playLike && this.playing && !this.stopping) {
+    //   return false;  // do nothing if still playing
+    // }
     const c = this._content;
 
     if (!this._type) {
