@@ -100,15 +100,14 @@ app.Game = class Game {
     this.isPlaying = true
   }
 
-  onFrame() {
+  onFrame(now) {
     if (!this.isPlaying) {
       this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
       return
     }
 
     // Calculate delta
-    var now = +new Date() / 1000,
-      delta = now - this.lastFrame
+    var delta = now - this.lastFrame
     this.lastFrame = now
     // this.timePassed += delta
 
