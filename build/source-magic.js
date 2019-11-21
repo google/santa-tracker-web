@@ -2,7 +2,6 @@ const babel = require('@babel/core');
 const t = babel.types;
 const path = require('path');
 const traverse = require('@babel/traverse');
-const generator = require('@babel/generator');
 const importUtils = require('./import-utils.js');
 
 /*
@@ -135,8 +134,7 @@ module.exports = (visitor) => {
           }
         });
 
-        const {code} = generator.default(ast, {comments: false});
-        return code;
+        return ast;
       },
     };
   };

@@ -20,14 +20,34 @@ export function script(src, type=null) {
 }
 
 /**
- * Blocks loading the passed script. Probably only works in non-module mode.
+ * Loads a number of passed scripts, without Promise.
  *
- * @param {string} src to block load
+ * @param {!Array<string>} scripts to load
+ * @param {function(): void} callback to call when done
  */
-export function syncScript(src) {
-  const script = document.createElement('script');
-  script.src = src;
-  document.write(script.outerHTML);
+export function supportScripts(scripts, callback) {
+  let count = 0;
+  const done = () => {
+    if (++count >= scripts.length) {
+      callback();
+    }
+  };
+
+  scripts.forEach((src) => {
+    const script = document.createElement('script');
+    script.src = src;
+
+    script.onload = done;
+    script.onerror = () => {
+      console.warn(`cannot load ${src}`);
+      done();
+    };
+    document.head.appendChild(script);
+  });
+
+  if (!scripts.length) {
+    callback();
+  }
 }
 
 /**

@@ -1,16 +1,18 @@
 const resolveNode = require('./resolve-node.js');
 const rollup = require('rollup');
 const transformFutureModules = require('./transform-future-modules.js');
+const rollupPluginCJS = require('rollup-plugin-commonjs');
 const path = require('path');
 const importUtils = require('./import-utils.js');
 
 
-module.exports = async (entrypoints, options) => {
+module.exports = async (entrypoints, options, format='esm') => {
   options = Object.assign({
     loader: () => {},
     external: () => {},
-    workDir: null,
     metaUrlScope: null,
+    commonJS: false,
+    workDir: null,
   }, options);
 
   const resolveNodePlugin = {resolveId: resolveNode};
@@ -23,10 +25,6 @@ module.exports = async (entrypoints, options) => {
 
       if (idToLoad.startsWith('/')) {
         idToLoad = path.relative(process.cwd(), idToLoad);
-      }
-
-      if (options.workDir && !idToLoad.startsWith(options.workDir + path.sep)) {
-        throw new Error(`refusing to load module outside workDir: ${idToLoad}`);
       }
 
       const entrypoint = entrypoints[idToLoad];
@@ -83,13 +81,16 @@ module.exports = async (entrypoints, options) => {
     input[id] = id;
   });
 
-  const bundle = await rollup.rollup({
-    input,
-    plugins: [resolveNodePlugin, virtualPlugin],
-  });
+  const plugins = [resolveNodePlugin, virtualPlugin];
+  if (options.commonJS) {
+    plugins.push(rollupPluginCJS());
+  }
+
+  const bundle = await rollup.rollup({input, plugins});
 
   const generated = await bundle.generate({
-    format: 'esm',
+    format,
+    entryFileNames: '[name]',  // we expect .js to be provided
     chunkFileNames: path.join(options.workDir || '', '_[hash].js'),
   });
 

@@ -14,7 +14,7 @@ import isAndroidTWA from './src/android-twa.js';
 // In prod, the documentElement has `lang="en"` or similar.
 const documentLang = document.documentElement.lang || null;
 const isProd = (documentLang !== null);
-let fallback = checkFallback();
+const fallback = checkFallback() || (location.search || '').match(/\bfallback=.*?\b/);
 console.info('Santa Tracker', config.version, documentLang, fallback ? '(fallback)' : '');
 
 // Global error handler. Redirect if we fail to load the entrypoint.
@@ -32,41 +32,43 @@ window.onunhandledrejection = (event) => {
   }
 };
 
-// Synchonously block to load support code for fallback browsers like IE11, non-Chromium Edge, and
-// friends. This is needed before using Firebase, as it requires Promise and fetch.
+// Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
+// needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
-  // TODO: can we load these in parallel?
-  load.syncScript(config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js');
-  load.syncScript(config.staticScope + 'support.js');
+  load.supportScripts([
+    config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
+    config.staticScope + 'support.js',
+  ], startup);
+} else {
+  startup();  // or just continue immediately
 }
-const startParams = new URLSearchParams(window.location.search);
 
-// Check Android TWA, but force it if the "?android=1" param is set.
-isAndroidTWA(startParams.has('android'));
+function startup() {
+  const startParams = new URLSearchParams(window.location.search);
 
-// Wait for the first Firebase Remote config response and then load our entrypoint.
-initialize().then((remoteConfig) => {
-  if (remoteConfig.getBoolean('switchOff')) {
-    throw new Error('switchOff');
-  }
+  // Check Android TWA, but force it if the "?android=1" param is set.
+  isAndroidTWA(startParams.has('android'));
 
-  // Allow optional ?static=... for testing new releases.
-  if (startParams.has('static')) {
-    const staticScopeUrl = new URL(startParams.get('static'), window.location);
-    if (!staticScopeUrl.pathname.match(/\/$/)) {
-      staticScopeUrl.pathname += '/';
+  // Wait for the first Firebase Remote config response and then load our entrypoint.
+  initialize().then((remoteConfig) => {
+    if (remoteConfig.getBoolean('switchOff')) {
+      throw new Error('switchOff');
     }
-    config.staticScope = staticScopeUrl.toString();
-  }
-  // Force fallback for modern browsers, for testing.
-  if (startParams.has('fallback')) {
-    fallback = true;
-  }
-  document.body.setAttribute('static', config.staticScope);
 
-  // Load entrypoint.
-  const entrypoint = config.staticScope + (fallback ? 'fallback' : 'entrypoint') + (isProd ? '_' + documentLang : '') + '.js';
-  return load.script(entrypoint, fallback && isProd ? '' : 'module').then(() => {
-    loaded = true;
+    // Allow optional ?static=... for testing new releases.
+    if (startParams.has('static')) {
+      const staticScopeUrl = new URL(startParams.get('static'), window.location);
+      if (!staticScopeUrl.pathname.match(/\/$/)) {
+        staticScopeUrl.pathname += '/';
+      }
+      config.staticScope = staticScopeUrl.toString();
+    }
+    document.body.setAttribute('static', config.staticScope);
+
+    // Load entrypoint.
+    const entrypoint = config.staticScope + (fallback ? 'fallback' : 'entrypoint') + (isProd ? '_' + documentLang : '') + '.js';
+    return load.script(entrypoint, fallback && isProd ? '' : 'module').then(() => {
+      loaded = true;
+    });
   });
-});
+}

@@ -4,6 +4,8 @@
  * @fileoverview Builds Santa Tracker for release to production.
  */
 
+const babel = require('@babel/core');
+const generator = require('@babel/generator');
 const chalk = require('chalk');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
@@ -17,6 +19,8 @@ const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
 const {Writer} = require('./build/writer.js');
 const JSON5 = require('json5');
+const rollup = require('rollup');
+const Terser = require('terser');
 
 // Never generate code for these scenes.
 const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
@@ -38,6 +42,11 @@ const yargs = require('yargs')
       type: 'boolean',
       default: true,
       describe: 'Transpile for ES5 browsers (slow)',
+    })
+    .options('minify', {
+      type: 'boolean',
+      default: true,
+      describe: 'Minify JavaScript output',
     })
     .option('default-only', {
       alias: 'o',
@@ -204,7 +213,7 @@ async function release() {
   // Shared resources needed by prod build.
   const staticEntrypoints = {};
   const fallbackEntrypoints = {};
-  const requiredScriptSources = new Set();
+  const requiredExternalSources = new Set();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
@@ -243,70 +252,56 @@ async function release() {
 
     // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
     // catalogued and then included in the static output.
-    allScripts
-        .filter((s) => s.src && (!s.type || s.type === 'text/javascript'))
-        .map((s) => path.join(dir, s.src))
-        .forEach((src) => requiredScriptSources.add(src));
+    const external = allScripts
+        .filter((s) => s.src && (!s.type || s.type === 'text/javascript')).map((s) => s.src);
+    external.push(...[...document.querySelectorAll('link[rel="preload"]')].map((s) => s.href));
+    external.forEach((src) => {
+      // ... only add if they're local
+      if (!importUtils.isUrl(src)) {
+        requiredExternalSources.add(path.join(dir, src));
+      }
+    });
 
-    // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
-    let count = 0;
+    // Create knowledge of all imports for this HTML file. Remove all module scripts.
+    let imports = 0;
     const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
     for (const scriptNode of moduleScriptNodes) {
       let code = scriptNode.textContent;
-
-      // If it's an external script, pretend that we have local code that imports it.
       if (scriptNode.src) {
         if (code) {
           throw new TypeError(`got invalid <script>: both code and src`);
         }
         code = importUtils.staticImport(scriptNode.src);
       }
-      const id = `${htmlFile}#${count++}`;
-      staticEntrypoints[id] = {scriptNode, code};
+      scriptNode.remove();
 
-      // TODO(samthor): Include this code for old browsers. Currently it's just a rolled up generated version.
-      const fallbackId = path.join(path.dirname(htmlFile), 'fallback');
-      fallbackEntrypoints[fallbackId] = {scriptNode: null, code};
-
-      // Clear scriptNode.
-      scriptNode.textContent = `/* ${id} */`;
-      scriptNode.removeAttribute('src');
+      // Either way, this creates a virtual import: if the <script> contained code, it's just that;
+      // otherwise, it imports the external file.
+      staticEntrypoints[`${dir}/${imports}.js`] = code;
+      if (yargs.transpile) {
+        fallbackEntrypoints[`${dir}/fallback-${imports}.js`] = code;
+      }
+      ++imports;
     }
 
-    htmlDocuments.set(htmlFile, {dom, moduleScriptNodes});
+    htmlDocuments.set(htmlFile, {dom, imports, dir});
   }
 
   // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
-    staticEntrypoints['static/entrypoint.js#'] = {
-      scriptNode: null,
-      code: importUtils.staticImport('entrypoint.js'),
-    };
+    staticEntrypoints['static/entrypoint.js'] = undefined;
 
-    ['static/fallback.js', 'static/support.js'].forEach((id) => {
-      fallbackEntrypoints[`${id}#`] = {
-        scriptNode: null,
-        code: importUtils.staticImport(path.basename(id)),
-      };
-    });
-
-    // Special-case building the loader, which has no translations and magic.
-    const loaderEntrypoints = {
-      'prod/loader.js': {code: await fsp.readFile('prod/loader.js', 'utf-8')},
-    };
-    const bundles = await modernBuilder(loaderEntrypoints, {
-      loader: vfs,
-      workDir: 'prod',
-    });
-    if (bundles.length !== 1) {
-      throw new TypeError(`could not compile single loader bundle, got ${bundles.length}`);
+    if (yargs.transpile) {
+      fallbackEntrypoints['static/fallback.js'] = undefined;
+      fallbackEntrypoints['static/support.js'] = undefined;
     }
-    releaseWriter.file('prod/loader.js', bundles[0].code);
-    log(`Built prod loader`);
+
+    // This isn't guarded by a transpile check, because we want always want to transpile it anyway.
+    fallbackEntrypoints['prod/loader.js'] = undefined;
   }
 
-  log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`);
-  log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} entrypoints, merging...`);
+  log(`Found ${chalk.cyan(requiredExternalSources.size)} required external sources`);
+  log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} modern entrypoints (${chalk.cyan(Object.keys(fallbackEntrypoints).length)} support/loader), merging...`);
 
   const builderOptions = {
     loader: vfs,
@@ -315,21 +310,23 @@ async function release() {
         return '__magic';
       }
     },
-    workDir: 'static',
+    workDir: 'static',  // TODO: invalid for prod, but we don't use import.meta there
     metaUrlScope: config.staticScope,
   };
 
   const bundles = await modernBuilder(staticEntrypoints, builderOptions);
+
   const fallbackBundles = await Promise.all(Object.keys(fallbackEntrypoints).map((fallbackKey) => {
     const localConfig = {[fallbackKey]: fallbackEntrypoints[fallbackKey]};
-    return modernBuilder(localConfig, builderOptions);
+    const options = Object.assign({commonJS: true}, builderOptions);
+    return modernBuilder(localConfig, options);
   }));
   fallbackBundles.forEach((all) => bundles.push(...all));
 
-  log(`Generated ${chalk.cyan(bundles.length)} static bundles via Rollup, rewriting...`);
+  log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
 
   const annotatedBundles = {};
-  const builder = sourceMagic({
+  const sourceMagicBuilder = sourceMagic({
     magicImport(importName) {
       return importName === '__magic';
     },
@@ -358,38 +355,45 @@ async function release() {
   });
 
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
-  const scriptNodeToBundle = new Map();
-  for (const bundle of bundles) {
+  const bundleTasks = bundles.map(async (bundle) => {
     if (bundle.isDynamicEntry) {
       // Santa Tracker doesn't handle these.
       throw new TypeError(`dynamic entry unsupported: ${bundle.fileName}`);
     } else if (bundle.facadeModuleId && path.dirname(bundle.fileName) !== path.dirname(bundle.facadeModuleId)) {
       // Sanity-check expectations.
       throw new TypeError(`unexpected divergence of fileName ${bundle.fileName} vs facadeModuleId ${bundle.facadeModuleId}`);
+    } else if (bundle.fileName in annotatedBundles) {
+      // We already have this for some reason (duplicate bundle).
+      throw new TypeError(`Already got output file: ${bundle.fileName}`);
     }
 
-    const {seen, rewrite} = await builder(bundle.code, bundle.fileName);
-    const entrypoint = staticEntrypoints[bundle.facadeModuleId] || fallbackBundles[bundle.facadeModuleId];
+    const {seen, rewrite} = await sourceMagicBuilder(bundle.code, bundle.fileName);
+    const entrypoint = bundle.facadeModuleId in staticEntrypoints || bundle.facadeModuleId in fallbackEntrypoints || false;
 
     annotatedBundles[bundle.fileName] = {
-      entrypoint: entrypoint || null,
-      inline: entrypoint && entrypoint.scriptNode || false,
+      transpile: bundle.facadeModuleId in fallbackEntrypoints,
+      entrypoint,
       i18n: seen.has('_msg'),
       rewrite,
       imports: bundle.imports.filter((x) => x !== '__magic'),
     };
-
-    if (entrypoint && entrypoint.scriptNode) {
-      scriptNodeToBundle.set(entrypoint.scriptNode, annotatedBundles[bundle.fileName]);
-    }
-  }
+  });
+  await Promise.all(bundleTasks);
 
   // Determine the transitive properties of each bundle: their import tree (for preload) and if
   // they must be re-compiled for i18n even _without_ messages.
   let rewrittenSources = 0;
+  const rewriteTasks = [];
+
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
 
+    // Sanity-check that we don't have a transpiled chunk?!
+    if (!b.entrypoint && b.transpile) {
+      throw new TypeError(`got bad bundle with (!entrypoint && transpile): ${fileName}`);
+    }
+
+    // Mark all dependencies as _also_ needing i18n versions.
     const work = new Set(b.imports);
     for (const dep of work) {
       const o = annotatedBundles[dep];
@@ -403,61 +407,114 @@ async function release() {
     const attrs = [];
     b.entrypoint && attrs.push('entrypoint');
     b.i18n && attrs.push('i18n');
+    b.transpile && attrs.push('transpile');
+
     const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
     log(`Rewriting bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
 
-    const sanitizedFile = fileName.split('#')[0];
-
-    if (b.i18n) {
+    const derivedFiles = [];
+    if (!b.i18n) {
+      // There's no i18n or transitive language content.
+      derivedFiles.push({rewrite: () => b.rewrite(null), fileName});
+    } else {
       // Rewrite this module for each language.
-      b.code = {};
       for (const lang in langs) {
-        b.code[lang] = b.rewrite(lang);
-        ++rewrittenSources;
+        const langFileName = rewritePathForLang(fileName, lang);
+        derivedFiles.push({rewrite: () => b.rewrite(lang), fileName: langFileName});
+      }
+    }
 
-        if (b.inline) {
-          continue;
+    // Now, optionally transpile.
+    const bundleRewriteTasks = derivedFiles.map(async ({fileName, rewrite}) => {
+      const ast = rewrite();
+      const release = (code) => {
+        if (yargs.minify) {
+          // Optionally minify with Terser.
+          const result = Terser.minify(code);
+          if (result.error) {
+            throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
+          }
+          code = result.code;
         }
+        releaseWriter.file(fileName, code);
+        ++rewrittenSources;
+      };
 
-        releaseWriter.file(rewritePathForLang(sanitizedFile, lang), b.code[lang]);
+      // Don't transform, just use the generator to output directly.
+      // (We could probably call transformFromAst with no arguments?)
+      if (!b.transpile) {
+        const {code} = generator.default(ast, {comments: false});
+        release(code);
+        return null;
       }
 
-      continue;
-    }
+      log(`Transpiling ${chalk.yellow(fileName)}...`);
+      const {code} = await babel.transformFromAst(ast, null, {
+        presets: [
+          ['@babel/preset-env', {
+            targets: {
+              browsers: ['ie >= 11'],
+            },
+          }],
+        ],
+        plugins: ['@babel/plugin-transform-destructuring'],
+      });
 
-    // There's no i18n or transitive language content.
-    b.code = b.rewrite(null);
-    ++rewrittenSources;
+      // Finally, rewrite it _again_ as an IIFE. We expect a single output.
+      const results = await modernBuilder({'x.js': code}, null, 'iife');
+      const wrapped = results[0].code;
+      release(wrapped);
+    });
 
-    if (!b.inline) {
-      releaseWriter.file(sanitizedFile, b.code);
-    }
+    rewriteTasks.push(...bundleRewriteTasks);
   }
 
+  await Promise.all(rewriteTasks);
   log(`Rewrote ${chalk.cyan(rewrittenSources)} source files`);
+  log(`Transpiled ${chalk.cyan(rewriteTasks.length)} source files`);
 
   // Now, rewrite all static HTML files for every language.
-  for (const [fileName, {dom, moduleScriptNodes}] of htmlDocuments) {
+  for (const [fileName, {dom, imports, dir}] of htmlDocuments) {
+    const importIsTranslated = [];
+    for (let i = 0; i < imports; ++i) {
+      // nb. This doesn't check support code, but it should be the same.
+      const i18n = annotatedBundles[`${dir}/${i}.js`].i18n;
+      importIsTranslated.push(i18n);
+    }
+
+    // Insert a fixed preamble that loads the correct JS.
+    if (imports) {
+      const pathToSupport = path.relative(path.dirname(fileName), 'static/support.js');
+      const document = dom.window.document;
+      const preamble = `
+function createScript(src, type) {
+  var node = document.createElement('script');
+  node.src = src;
+  type && node.setAttribute('type', type);
+  document.head.appendChild(node);
+}
+(function() {
+  var fallback = (location.search || '').match(/\\bfallback=1\\b/);
+  fallback && createScript(${JSON.stringify(pathToSupport)});
+  ${JSON.stringify(importIsTranslated)}.forEach(function(i18n, i) {
+    var src = (fallback ? 'fallback-' : '') + i + (i18n ? '_' + document.documentElement.lang : '') + '.js';
+    createScript(src, fallback ? null : 'module');
+  });
+})();`
+      const scriptNode = document.createElement('script');
+      scriptNode.textContent = preamble;
+      document.body.append(scriptNode);
+    }
+
     const applyLang = releaseHtml.buildApplyLang(dom);
-
     for (const lang in langs) {
-      for (const scriptNode of moduleScriptNodes) {
-        // TODO(samthor): add `<link rel="modulepreload" href="..." />`, fix for i18n deps
-        const bundle = scriptNodeToBundle.get(scriptNode);
-        if (typeof bundle.code === 'string') {
-          scriptNode.textContent = bundle.code;
-        } else {
-          scriptNode.textContent = bundle.code[lang];
-        }
-      }
-
       const serialized = applyLang(langs[lang]);
       releaseWriter.file(rewritePathForLang(fileName, lang), serialized);
     }
   }
 
   // Copy everything else (but filter prod assets if not requested).
-  const otherAssets = globAll(...assetsToCopy).concat(...requiredScriptSources)
+  const otherAssets = globAll(...assetsToCopy).concat(...requiredExternalSources)
   const limitedOtherAssets = yargs.prod ? otherAssets : otherAssets.filter((f) => !f.startsWith('prod/'));
   const otherAssetsCount = releaseWriter.all(limitedOtherAssets);
   log(`Releasing ${chalk.cyan(otherAssetsCount)} static assets`);
