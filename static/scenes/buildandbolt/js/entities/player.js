@@ -23,23 +23,7 @@ app.Player = class Player {
 
     this.platform = null
 
-    this.position = {
-      x: this.config.startPos.x,
-      y: this.config.startPos.y,
-      angle: 0
-    }
-
-    this.velocity = {
-      x: 0,
-      y: 0
-    }
-
-    this.acceleration = {
-      x: 0,
-      y: 0
-    }
-
-    this.onIce = false
+    this.resetPosition()
 
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
@@ -53,23 +37,8 @@ app.Player = class Player {
 
     window.setTimeout(() => {
       this.dead = false
-      this.position = {
-        x: this.config.startPos.x,
-        y: this.config.startPos.y,
-        angle: 0
-      }
 
-      this.velocity = {
-        x: 0,
-        y: 0
-      }
-
-      this.acceleration = {
-        x: 0,
-        y: 0
-      }
-
-      this.onIce = false
+      this.resetPosition()
 
       this.clearToyParts()
 
@@ -148,9 +117,10 @@ app.Player = class Player {
       }
     }
 
-    const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
-    const resultingActions = {}
+    const colocatedEntities = this.game.board.getEntitiesAtPosition(this, this.position.x, this.position.y)
     if (colocatedEntities.length) {
+      const resultingActions = {}
+      console.log(colocatedEntities)
       for (const entity of colocatedEntities) {
         if (entity != this) {
           const actions = entity.onContact(this)
@@ -159,9 +129,11 @@ app.Player = class Player {
           }
         }
       }
+
+      this.processActions(resultingActions)
     }
 
-    this.processActions(resultingActions)
+    // getEntitiesAtPositionAround
 
     this.render()
   }
@@ -237,5 +209,25 @@ app.Player = class Player {
 
   registerWin() {
     this.score++
+  }
+
+  resetPosition() {
+    this.position = {
+      x: this.config.startPos.x,
+      y: this.config.startPos.y,
+      angle: 0
+    }
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.acceleration = {
+      x: 0,
+      y: 0
+    }
+
+    this.onIce = false
   }
 }

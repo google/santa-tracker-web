@@ -110,9 +110,13 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  getEntitiesAtPosition(x, y) {
+  getEntitiesAtPosition(entity, x, y) {
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
-    return this.cells[roundedX][roundedY]
+    return this.cells[roundedX][roundedY].filter(item => item !== entity)
+  }
+
+  getEntitiesAtPositionAround(x, y) {
+
   }
 }

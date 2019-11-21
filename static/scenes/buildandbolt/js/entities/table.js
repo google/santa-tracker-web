@@ -22,6 +22,7 @@ app.Table = class Table extends app.Entity {
     config.height = Constants.TABLE_HEIGHT
 
     super.onInit(config)
+    this.config.triggerAction = 'on-border'
   }
 
   render() {

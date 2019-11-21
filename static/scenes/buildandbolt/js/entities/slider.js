@@ -30,6 +30,7 @@ app.Slider = class Slider extends app.Entity {
     this.reversing = false
 
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
+    super.onInit(config)
   }
 
   onFrame() {

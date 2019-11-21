@@ -22,6 +22,7 @@ app.PresentBox = class PresentBox extends app.Entity {
     config.height = Constants.PRESENT_HEIGHT
 
     super.onInit(config)
+    this.config.triggerAction = 'on-border'
   }
 
   render() {
