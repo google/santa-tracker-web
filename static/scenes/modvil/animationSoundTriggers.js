@@ -104,6 +104,29 @@ export const animationSoundTriggers = {
       }
     ]
   },
+  greenhouse: {
+    2: [
+      {
+        sound: "village_greenhouse_swing",
+        time: 25,
+        played: 0
+      }
+    ]
+  },
+  toymaking: {
+    2: [
+      {
+        sound: "village_toy_making_snowman",
+        time: 38,
+        played: 0
+      },
+      {
+        sound: "village_toy_making_jump",
+        time: 74,
+        played: 0
+      }
+    ]
+  },
   sciencelab: {
     1: [
       {
