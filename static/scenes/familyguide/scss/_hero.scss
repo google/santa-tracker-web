@@ -1,0 +1,50 @@
+.hero {
+  background: url(img/hero_bg.svg) center center/cover no-repeat;
+  height: 800px;
+
+  &__logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+
+    &-google {
+      background-size: contain;
+      fill: white;
+      height: 38px;
+      min-width: 62px;
+      width: 62px;
+    }
+
+    &-santa {
+      color: white;
+      font-family: 'Lobster';
+      font-size: 19px;
+      font-weight: 400;
+      line-height: inherit;
+      margin: 0px 0px 0px 0.4ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__title {
+    color: #587E9C;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 600px;
+    padding-top: 25px;
+    text-align: center;
+  }
+
+  &__body {
+    color: #7099BA;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 25px auto 0;
+    max-width: 430px;
+    text-align: center;
+  }
+}
