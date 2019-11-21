@@ -1,0 +1,11 @@
+.camera-controls {
+  align-items: center;
+  display: inline-flex;
+  height: 228px;
+  padding-right: 40px;
+  width: auto;
+
+  @include respond-to(smartphone) {
+    display: none;
+  }
+}
