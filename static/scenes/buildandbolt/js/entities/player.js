@@ -55,6 +55,7 @@ app.Player = class Player {
       return
     }
 
+    this.blockPlayer = false
     this.prevPosition = Object.assign({}, this.position)
 
     let accelerationFactor = 1
@@ -117,19 +118,34 @@ app.Player = class Player {
       }
     }
 
+    this.blockingPosition = {
+      x: this.position.x,
+      y: this.position.y,
+    }
+
     const surroundingEntities = this.game.board.getSurroundingEntities(this)
 
-    const entitiesInAction = []
+    const resultingActions = {}
 
     if (surroundingEntities.length) {
       for (const entity of surroundingEntities) {
-        this.checkActions(entity, entitiesInAction)
+        this.checkActions(entity, resultingActions)
       }
     }
 
-    this.processActions(entitiesInAction)
+    this.processActions(resultingActions)
 
-    // block player
+    this.movePlayer()
+
+    this.render()
+  }
+
+  render() {
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+  }
+
+  movePlayer() {
+    // if block player is blocked
     if (this.blockPlayer) {
       this.position.x = this.blockingPosition.x
       this.position.y = this.blockingPosition.y
@@ -141,78 +157,76 @@ app.Player = class Player {
             this.prevPosition.x, this.prevPosition.y,
             this.position.x, this.position.y)
     }
-
-
-
-    this.render()
   }
 
-  render() {
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
-  }
-
-  checkActions(entity, entitiesInAction) {
+  checkActions(entity, resultingActions) {
     const actions = entity.onContact(this)
-    entity.actions = {}
+
     for (const action of actions) {
-      entity.actions[action] = true
+      if (!resultingActions[action]) { // if this action is not referred yet, create it
+        resultingActions[action] = []
+      }
+      resultingActions[action].push(entity)
     }
-    entitiesInAction.push(entity)
   }
 
-  /**
-   * Processes all actions that resulted from contact with another entity on the board.
-   * Updates position and state of player based on these actions.
-   */
-  processActions(entitiesInAction) {
-    this.blockPlayer = false
-    this.blockingPosition = {
-      x: this.position.x,
-      y: this.position.y,
+  processActions(resultingActions) {
+    const restartEntities = resultingActions[Constants.PLAYER_ACTIONS.RESTART]
+    if (restartEntities && restartEntities.length) {
+      this.restart()
+      return // ignore all other actions
     }
 
-    for (let i = 0; i < entitiesInAction.length; i++) {
-      const entity = entitiesInAction[i]
-      if (entity.actions[Constants.PLAYER_ACTIONS.RESTART]) {
-        this.restart()
-        return // ignore all other actions
-      }
-
-      // block player
-      if (entity.actions[Constants.PLAYER_ACTIONS.BLOCK] && entity.blockingPosition) {
-        this.blockPlayer = true
-        if (entity.blockingPosition.x !== this.position.x) {
-          this.blockingPosition.x = entity.blockingPosition.x
-        }
-        if (entity.blockingPosition.y !== this.position.y) {
-          this.blockingPosition.y = entity.blockingPosition.y
+    // block player
+    const blockEntities = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
+    if (blockEntities && blockEntities.length) {
+      for (const entity of blockEntities) {
+        // block player
+        if (entity.blockingPosition) {
+          this.blockPlayer = true
+          if (entity.blockingPosition.x !== this.position.x) {
+            this.blockingPosition.x = entity.blockingPosition.x
+          }
+          if (entity.blockingPosition.y !== this.position.y) {
+            this.blockingPosition.y = entity.blockingPosition.y
+          }
         }
       }
+    }
 
-      // pick up a toy part
-      const toyEntity = entity.actions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
-      if (toyEntity) {
+    // pick up a toy part
+    const toyEntities = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
+    if (toyEntities && toyEntities.length) {
+      for (const entity of toyEntities) {
         this.addToyPart(entity.config.partType)
       }
+    }
 
-      // drop off toy
-      if (entity.actions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]) {
+    // drop off toy
+    const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+    if (acceptToyEntities && acceptToyEntities.length) {
+      for (const entity of acceptToyEntities) {
         this.clearToyParts()
 
         // temporary
         this.game.registerToyCompletion(this)
       }
+    }
 
-      const platform = entity.actions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
-      if (platform) {
+    const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
+    if (platforms && platforms.length) {
+      for (const entity of platforms) {
         this.platform = entity
         this.platformOffset = {
-          x: this.position.x - this.platform.position.x,
-          y: this.position.y - this.platform.position.y
+          x: this.position.x - entity.position.x,
+          y: this.position.y - entity.position.y
         }
       }
+    }
 
-      if (entity.actions[Constants.PLAYER_ACTIONS.ICE]) {
+    const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]
+    if (ices && ices.length) {
+      for (const entity of ices) {
         this.onIce = true
       }
     }
