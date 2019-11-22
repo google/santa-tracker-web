@@ -2,7 +2,7 @@ goog.provide('Levels')
 
 
 /**
- * Some limitations for each type of entity:
+ * Some documentation for each type of entity:
  *
  * PITS
  * Minimum dimensions -  3 x 3
@@ -10,6 +10,9 @@ goog.provide('Levels')
  * WALLS
  * Minimum dimensions - 2 x 4
  * Width must be even
+ *
+ * TABLES
+ * tableType can be 1, 2, or 3
  */
 
 Levels = [
@@ -124,6 +127,8 @@ Levels = [
         config: {
           x: 1,
           y: 12,
+          tableType: 1,
+          isSideView: false,
           partType: 'wheels'
         }
       },
@@ -132,6 +137,8 @@ Levels = [
         config: {
           x: 15,
           y: 1,
+          tableType: 2,
+          isSideView: true,
           partType: 'car-body'
         }
       },
@@ -222,6 +229,8 @@ Levels = [
         config: {
           x: 22,
           y: 12,
+          tableType: 3,
+          isSideView: true,
           partType: 'wheels'
         }
       },
@@ -230,6 +239,8 @@ Levels = [
         config: {
           x: 10,
           y: 1,
+          tableType: 1,
+          isSideView: false,
           partType: 'car-body'
         }
       },
