@@ -6,6 +6,10 @@ goog.provide('Levels')
  *
  * PITS
  * Minimum dimensions -  3 x 3
+ *
+ * WALLS
+ * Minimum dimensions - 4 x 4
+ * Width must be even
  */
 
 Levels = [
