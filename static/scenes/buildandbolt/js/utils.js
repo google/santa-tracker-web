@@ -23,3 +23,17 @@ Utils.isInBorder = function(entity, playerPosition) {
 
   return collide
 }
+
+Utils.isTouchingBorder = function(entity, playerPosition) {
+  let touch = false
+  const offset = 0.1
+
+  if (entity.x + entity.width > playerPosition.x - offset &&
+    entity.x - 1 < playerPosition.x + offset &&
+    entity.y + entity.height > playerPosition.y - offset &&
+    entity.y - 1 < playerPosition.y + offset) {
+    touch = true
+  }
+
+  return touch
+}

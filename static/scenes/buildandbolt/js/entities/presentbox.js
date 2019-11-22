@@ -30,6 +30,24 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   onContact(player) {
+
+    // // if player is close to border, it can take a toy
+    // if (Utils.isTouchingBorder(this.config, player.position)) {
+    //   if (this.gameControls.isKeyControlActive(player.controls.action)) {
+    //     actions = [Constants.PLAYER_ACTIONS.ADD_TOY_PART]
+    //   }
+    //   if (Constants.DEBUG) {
+    //     this.elem.style.opacity = 0.5
+    //   }
+    // } else if (Constants.DEBUG) {
+    //   this.elem.style.opacity = 1
+    // }
+
+    // // if player is in the border, he is blocked
+    // if (Utils.isInBorder(this.config, player.position)) {
+    //   actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+    // }
+
     if (!this.gameControls.isKeyControlActive(player.controls.action)) {
       return [Constants.PLAYER_ACTIONS.BLOCK]
     }

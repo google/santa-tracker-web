@@ -28,8 +28,14 @@ app.Wall = class Wall extends app.Entity {
   }
 
   onContact(player) {
-    super.onContact(player)
-    return [Constants.PLAYER_ACTIONS.BLOCK]
+    let actions = []
+
+    // if player is in the border, he is blocked
+    if (Utils.isInBorder(this.config, player.position)) {
+      actions = [Constants.PLAYER_ACTIONS.BLOCK]
+    }
+
+    return actions
   }
 }
 
