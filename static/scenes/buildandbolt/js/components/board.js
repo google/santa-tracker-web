@@ -127,20 +127,20 @@ app.Board = class Board {
           const cell = this.cells[i][j]
           if (cell === playerCell) {
             // if in same cell as player
-            for (let k = 0; k < entities.length; k++) {
-              const entity = entities[k]
+            for (let k = 0; k < cell.length; k++) {
+              const entity = cell[k]
               // get only entities that trigger an action on the player cell
               if (entity.config.triggerAction === 'on-cell' && entity !== player) {
-                surroundingEntities.push(entities[k])
+                surroundingEntities.push(entity)
               }
             }
           } else {
             // if around player cell
-            for (let k = 0; k < entities.length; k++) {
-              const entity = entities[k]
+            for (let k = 0; k < cell.length; k++) {
+              const entity = cell[k]
               // get only entities that trigger an action around the player cell
               if (entity.config.triggerAction === 'on-border') {
-                surroundingEntities.push(entities[k])
+                surroundingEntities.push(entity)
               }
             }
           }
