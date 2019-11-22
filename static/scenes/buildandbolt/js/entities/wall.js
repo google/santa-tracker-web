@@ -16,6 +16,11 @@ app.Wall = class Wall extends app.Entity {
     this.elem.setAttribute('class', 'wall')
   }
 
+  onInit(config) {
+    super.onInit(config)
+    this.config.triggerAction = 'on-border'
+  }
+
   render() {
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
     this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`
@@ -23,8 +28,14 @@ app.Wall = class Wall extends app.Entity {
   }
 
   onContact(player) {
-    super.onContact(player)
-    return [Constants.PLAYER_ACTIONS.BLOCK]
+    let actions = []
+
+    // if player is in the border, he is blocked
+    if (Utils.isInBorder(this.config, player.position)) {
+      actions = [Constants.PLAYER_ACTIONS.BLOCK]
+    }
+
+    return actions
   }
 }
 

@@ -14,7 +14,7 @@ app.Slider = class Slider extends app.Entity {
   }
 
   onInit(config) {
-    this.config = config
+    this.config = { ...config, triggerAction: 'on-cell' }
     this.elem.classList.remove('hidden')
 
     this.position = {

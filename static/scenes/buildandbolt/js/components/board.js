@@ -110,9 +110,44 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  getEntitiesAtPosition(x, y) {
+  getSurroundingEntities(player) {
+    const { x, y } = player.position
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
-    return this.cells[roundedX][roundedY]
+
+    const playerCell = this.cells[roundedX][roundedY]
+
+    // surrounding cells
+    const surroundingEntities = []
+
+    for (let i = roundedX - 1; i <= roundedX + 1; i++) {
+      for (let j = roundedY - 1; j <= roundedY + 1; j++) {
+        // get available cells only
+        if (this.cells[i] && this.cells[i][j]) {
+          const cell = this.cells[i][j]
+          if (cell === playerCell) {
+            // if in same cell as player
+            for (let k = 0; k < cell.length; k++) {
+              const entity = cell[k]
+              // get only entities that trigger an action on the player cell
+              if (entity.config.triggerAction === 'on-cell' && entity !== player) {
+                surroundingEntities.push(entity)
+              }
+            }
+          } else {
+            // if around player cell
+            for (let k = 0; k < cell.length; k++) {
+              const entity = cell[k]
+              // get only entities that trigger an action around the player cell
+              if (entity.config.triggerAction === 'on-border') {
+                surroundingEntities.push(entity)
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return surroundingEntities
   }
 }

@@ -22,6 +22,7 @@ app.PresentBox = class PresentBox extends app.Entity {
     config.height = Constants.PRESENT_HEIGHT
 
     super.onInit(config)
+    this.config.triggerAction = 'on-border'
   }
 
   render() {
@@ -29,17 +30,33 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   onContact(player) {
-    if (!this.gameControls.isKeyControlActive(player.controls.action)) {
-      return [Constants.PLAYER_ACTIONS.BLOCK]
-    }
-
+    let actions = []
+    let toyCompleted = true
+    // check if all parts are here
     for (const part of this.config.parts) {
       if (player.toyParts.indexOf(part) == -1) {
-        return [Constants.PLAYER_ACTIONS.BLOCK]
+        toyCompleted = false
       }
     }
 
-    return [Constants.PLAYER_ACTIONS.ACCEPT_TOY, Constants.PLAYER_ACTIONS.BLOCK]
+    // if player is close to border, it can do an action
+    if (toyCompleted && Utils.isTouchingBorder(this.config, player.position)) {
+      if (this.gameControls.isKeyControlActive(player.controls.action)) {
+        actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+      }
+      if (Constants.DEBUG) {
+        this.elem.style.opacity = 0.5
+      }
+    } else if (Constants.DEBUG) {
+      this.elem.style.opacity = 1
+    }
+
+    // if player is in the border, he is blocked
+    if (Utils.isInBorder(this.config, player.position)) {
+      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+    }
+
+    return actions
   }
 }
 
