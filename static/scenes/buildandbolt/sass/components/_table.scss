@@ -1,3 +1,5 @@
+$toy-types: 'car_wheels', 'robot_arms', 'robot_body', 'robot_heads';
+
 ##{$name} {
   .table {
     height: $grid-unit-size * $table-height;
@@ -5,6 +7,16 @@
     width: $grid-unit-size * $table-width;
 
     &::before {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: scale(2);
+    }
+
+    &::after {
       bottom: 0;
       content: '';
       left: 0;
@@ -26,6 +38,12 @@
       background: url(img/tables/table03_front.svg) center/contain no-repeat;
     }
 
+    @each $type in $toy-types {
+      &--#{$type}::after {
+        background: url(img/tables/toys/front_#{$type}.svg) center/contain no-repeat;
+      }
+    }
+
     &--side {
       height: $grid-unit-size * $table-width;
       width: $grid-unit-size * $table-height;
@@ -40,6 +58,12 @@
 
       &.table--3::before {
         background: url(img/tables/table03_side.svg) center/contain no-repeat;
+      }
+
+      @each $type in $toy-types {
+        &.table--#{$type}::after {
+          background: url(img/tables/toys/side_#{$type}.svg) center/contain no-repeat;
+        }
       }
     }
   }

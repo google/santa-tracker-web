@@ -129,7 +129,7 @@ Levels = [
           y: 12,
           tableType: 1,
           isSideView: false,
-          partType: 'wheels'
+          partType: 'car_wheels'
         }
       },
       {
@@ -139,7 +139,7 @@ Levels = [
           y: 1,
           tableType: 2,
           isSideView: true,
-          partType: 'car-body'
+          partType: 'robot_body'
         }
       },
       {
@@ -148,8 +148,8 @@ Levels = [
           x: 22,
           y: 12,
           parts: [
-            'car-body',
-            'wheels'
+            'robot_body',
+            'car_wheels'
           ]
         }
       },
@@ -231,7 +231,7 @@ Levels = [
           y: 12,
           tableType: 3,
           isSideView: true,
-          partType: 'wheels'
+          partType: 'robot_heads'
         }
       },
       {
@@ -241,7 +241,7 @@ Levels = [
           y: 1,
           tableType: 1,
           isSideView: false,
-          partType: 'car-body'
+          partType: 'robot_arms'
         }
       },
       {
@@ -250,8 +250,8 @@ Levels = [
           x: 15,
           y: 12,
           parts: [
-            'car-body',
-            'wheels'
+            'robot_heads',
+            'robot_arms'
           ]
         }
       },
