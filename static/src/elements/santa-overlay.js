@@ -57,7 +57,7 @@ export class SantaOverlayElement extends LitElement {
   }
 
   _dispatchHome() {
-    this.dispatchEvent(new CustomEvent('home'));
+    window.dispatchEvent(new CustomEvent('go'));  // home
   }
 
   update(changedProperties) {

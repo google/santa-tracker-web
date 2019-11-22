@@ -64,7 +64,6 @@ export class SantaChromeElement extends LitElement {
   </label>
   <slot name="sidebar"></slot>
 </div>
-<label class="hider" for=${sidebarId}></label>
 <header @focusin=${this._onMainFocus}>
   <santa-button color="theme" @click=${this._onMenuClick}>
     <svg class="icon ${this.showHome ? 'fade' : ''}"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
@@ -87,11 +86,7 @@ export class SantaChromeElement extends LitElement {
     super.update(changedProperties);
 
     if (changedProperties.has('navOpen')) {
-      let eventName = 'nav-close';
-
       if (this.navOpen) {
-        eventName = 'nav-open';
-
         // Focus an element at the start of the sidebar, but then immediately disallow focus. This
         // places the browser's "cursor" here, so a keyboard tab will go to the next item.
         const node = this.renderRoot.querySelector('.sidebar-focuser');
@@ -102,8 +97,6 @@ export class SantaChromeElement extends LitElement {
         const sidebar = node.parentNode;
         sidebar.scrollTop = 0;
       }
-
-      this.dispatchEvent(new CustomEvent(eventName));
     }
 
     if (changedProperties.has('action') && this.action) {
@@ -126,7 +119,11 @@ export class SantaChromeElement extends LitElement {
   }
 
   _onMenuClick() {
-    this.navOpen = true;
+    if (this.showHome) {
+      window.dispatchEvent(new CustomEvent('go'));  // home
+    } else {
+      this.navOpen = true;
+    }
   }
 
   _onMainFocus() {

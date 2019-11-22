@@ -30,6 +30,9 @@ export function buildLoader(loaderElement, fallback=false) {
     if (redirectRoute !== undefined) {
       route = redirectRoute;
     }
+    if (route === 'index') {
+      route = '';
+    }
 
     activeRoute = route;  // this is the chosen open route
     const sceneName = config.sceneForRoute(route, fallback);
@@ -41,6 +44,8 @@ export function buildLoader(loaderElement, fallback=false) {
     // Load the scene HTML but include the ID of the route. Useful for videos.
     const url = urlFor(sceneName, fallback, route);
     activeSceneName = sceneName;
+
+    window.dispatchEvent(new CustomEvent('loader-route', {detail: route}));
 
     ga('set', 'page', `/${route}`);
     ga('send', 'pageview');

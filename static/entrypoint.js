@@ -56,21 +56,19 @@ chromeElement.append(badgeElement);
 const errorElement = document.createElement('santa-error');
 
 const sidebar = document.createElement('santa-cardnav');
-sidebar.hidden = true;
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
+
+
+window.addEventListener('loader-route', (ev) => {
+  const route = ev.detail;
+  global.setState({route});
+});
 
 
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
-chromeElement.addEventListener('nav-open', (ev) => {
-  sidebar.hidden = false;
-});
-
-chromeElement.addEventListener('nav-close', (ev) => {
-  sidebar.hidden = true;
-});
 
 const kplayReady = kplay.prepare();
 kplayReady.then((sc) => {
@@ -119,6 +117,9 @@ global.subscribe((state) => {
   }
 
   tutorialOverlayElement.filter = state.inputMode;
+
+  // Configure whether the menubar opens nav, or goes home.
+  chromeElement.showHome = (state.route !== '');
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
@@ -352,6 +353,7 @@ loaderElement.addEventListener(gameloader.events.load, (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
   // the previous load isn't finished yet. It's suitable for resetting global UI, although there
   // won't be information about the next scene yet.
+  // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
   chromeElement.navOpen = false;
 

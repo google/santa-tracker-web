@@ -10,6 +10,8 @@ const g = createStore({
 
   hidden: false,
 
+  route: null,
+
   status: '',  // '', paused, gameover
 
   sceneOrientation: null,
