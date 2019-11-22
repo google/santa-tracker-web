@@ -14,6 +14,7 @@
     "@tensorflow/tfjs": "^0.13.0",
     "@webcomponents/webcomponentsjs": "latest",
     "autoprefixer": "^9.3.0",
+    "babel-plugin-func-wrap": "^1.1.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "clipboardy": "^2.1.0",

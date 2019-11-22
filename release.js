@@ -19,10 +19,9 @@ const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
 const {Writer} = require('./build/writer.js');
 const JSON5 = require('json5');
-const rollup = require('rollup');
-const Terser = require('terser');
+const {Worker} = require('worker_threads');
+const WorkGroup = require('./build/group.js');
 
-// Never generate code for these scenes.
 const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
@@ -325,36 +324,8 @@ async function release() {
 
   log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
 
-  const annotatedBundles = {};
-  const sourceMagicBuilder = sourceMagic({
-    magicImport(importName) {
-      return importName === '__magic';
-    },
-    taggedTemplate(lang, name, key) {
-      switch (name) {
-        case '_msg':
-          const messages = langs[lang];
-          return messages(key);
-
-        case '_static':
-          return config.staticScope + key;
-
-        default:
-          throw new TypeError(`unsupported magic: ${name}`);
-      }
-    },
-    rewriteImport(lang, id) {
-      const bundle = annotatedBundles[id];
-      if (bundle && bundle.i18n) {
-        if (!lang) {
-          throw new TypeError(`Got bundle without lang request`);
-        }
-        return rewritePathForLang(id, lang);
-      }
-    },
-  });
-
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
+  const annotatedBundles = {};
   const bundleTasks = bundles.map(async (bundle) => {
     if (bundle.isDynamicEntry) {
       // Santa Tracker doesn't handle these.
@@ -367,14 +338,39 @@ async function release() {
       throw new TypeError(`Already got output file: ${bundle.fileName}`);
     }
 
-    const {seen, rewrite} = await sourceMagicBuilder(bundle.code, bundle.fileName);
-    const entrypoint = bundle.facadeModuleId in staticEntrypoints || bundle.facadeModuleId in fallbackEntrypoints || false;
+    const magic = sourceMagic.prepare();
+    const presets = [];
+    const plugins = [magic.plugin];
+
+    const transpile = (bundle.facadeModuleId in fallbackEntrypoints);
+    if (transpile) {
+      log(`Early transpiling ${chalk.yellow(bundle.fileName)}...`);
+      presets.push(
+        ['@babel/preset-env', {
+          targets: {
+            browsers: ['ie >= 11'],
+          },
+          exclude: [
+            // Exclude these, otherwise the "__magic" import gets rewritten to require()
+            '@babel/plugin-transform-modules-commonjs',
+            '@babel/plugin-proposal-dynamic-import',
+          ],
+        }],
+      );
+      plugins.push('@babel/plugin-transform-destructuring');
+    } else {
+      log(`Preparing ${chalk.yellow(bundle.fileName)}...`);
+    }
+
+    const transformOptions = {code: false, ast: true, presets, plugins};
+    const transformResult = await babel.transform(bundle.code, transformOptions);
 
     annotatedBundles[bundle.fileName] = {
-      transpile: bundle.facadeModuleId in fallbackEntrypoints,
-      entrypoint,
-      i18n: seen.has('_msg'),
-      rewrite,
+      ast: transformResult.ast,
+      transpile,
+      entrypoint: (bundle.facadeModuleId in staticEntrypoints || bundle.facadeModuleId in fallbackEntrypoints),
+      i18n: magic.seen('_msg'),
+      visit: magic.visit,
       imports: bundle.imports.filter((x) => x !== '__magic'),
     };
   });
@@ -383,8 +379,37 @@ async function release() {
   // Determine the transitive properties of each bundle: their import tree (for preload) and if
   // they must be re-compiled for i18n even _without_ messages.
   let rewrittenSources = 0;
-  const rewriteTasks = [];
+  const buildAstVisitor = (lang) => {
+    return {
+      taggedTemplate(name, key) {
+        switch (name) {
+          case '_static':
+            return config.staticScope + key;
 
+          case '_msg':
+            if (lang !== null) {
+              const messages = langs[lang];
+              return messages(key);
+            }
+
+          default:
+            throw new TypeError(`unsupported magic: ${name}`);
+        }
+      },
+      rewriteImport(id) {
+        const bundle = annotatedBundles[id];
+        if (bundle && bundle.i18n) {
+          if (!lang) {
+            throw new TypeError(`Got bundle without lang request`);
+          }
+          return rewritePathForLang(id, lang);
+        }
+      },
+    };
+  };
+
+  const workGroup = WorkGroup();
+  const workerTasks = [];
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
 
@@ -412,66 +437,41 @@ async function release() {
     const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
     log(`Rewriting bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
 
-    const derivedFiles = [];
-    if (!b.i18n) {
-      // There's no i18n or transitive language content.
-      derivedFiles.push({rewrite: () => b.rewrite(null), fileName});
-    } else {
-      // Rewrite this module for each language.
-      for (const lang in langs) {
-        const langFileName = rewritePathForLang(fileName, lang);
-        derivedFiles.push({rewrite: () => b.rewrite(lang), fileName: langFileName});
-      }
-    }
+    const langKeys = b.i18n ? Object.keys(langs) : [null];
+    workerTasks.push(...langKeys.map(async (lang) => {
+      const langFileName = rewritePathForLang(fileName, lang);
 
-    // Now, optionally transpile.
-    const bundleRewriteTasks = derivedFiles.map(async ({fileName, rewrite}) => {
-      const ast = rewrite();
-      const release = (code) => {
-        if (yargs.minify) {
-          // Optionally minify with Terser.
-          const result = Terser.minify(code);
+      b.visit(buildAstVisitor(lang));
+
+      let {code} = generator.default(b.ast, {comments: false});
+      if (b.transpile) {
+        code = `;(function(){${code}\n/**/})();`;  // gross
+      }
+      if (yargs.minify) {
+        // Optionally minify with Terser, but use a background worker.
+        await workGroup(async () => {
+          const result = await new Promise((resolve, reject) => {
+            const w = new Worker(__dirname + '/build/terser-worker.js', {
+              workerData: code,
+            });
+            w.on('message', resolve);
+            w.on('error', reject);
+            w.on('exit', reject);
+          });
           if (result.error) {
             throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
           }
           code = result.code;
-        }
-        releaseWriter.file(fileName, code);
-        ++rewrittenSources;
-      };
-
-      // Don't transform, just use the generator to output directly.
-      // (We could probably call transformFromAst with no arguments?)
-      if (!b.transpile) {
-        const {code} = generator.default(ast, {comments: false});
-        release(code);
-        return null;
+        });
       }
-
-      log(`Transpiling ${chalk.yellow(fileName)}...`);
-      const {code} = await babel.transformFromAst(ast, null, {
-        presets: [
-          ['@babel/preset-env', {
-            targets: {
-              browsers: ['ie >= 11'],
-            },
-          }],
-        ],
-        plugins: ['@babel/plugin-transform-destructuring'],
-      });
-
-      // Finally, rewrite it _again_ as an IIFE. We expect a single output.
-      const results = await modernBuilder({'x.js': code}, null, 'iife');
-      const wrapped = results[0].code;
-      release(wrapped);
-    });
-
-    rewriteTasks.push(...bundleRewriteTasks);
+      releaseWriter.file(langFileName, code);
+      ++rewrittenSources;
+    }));
   }
 
-  await Promise.all(rewriteTasks);
+  log(`Operating on ${workerTasks.length} worker tasks...`);
+  await Promise.all(workerTasks);
   log(`Rewrote ${chalk.cyan(rewrittenSources)} source files`);
-  log(`Transpiled ${chalk.cyan(rewriteTasks.length)} source files`);
 
   // Now, rewrite all static HTML files for every language.
   for (const [fileName, {dom, imports, dir}] of htmlDocuments) {

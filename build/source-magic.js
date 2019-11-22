@@ -47,11 +47,16 @@ that we can 'follow' the helper around, e.g.:
 
 module.exports = (visitor) => {
 
-  return async (code, id) => {
-    const ast = await babel.parseAsync(code);
+  return async (ast, id) => {
     const importDeclarations = new Map();
     const tagged = new Map();
 
+    /**
+     * Ensure that the given name exists inside the tagged map.
+     *
+     * @param {string}
+     * @return {!Array<*>}
+     */
     const getTagged = (name) => {
       const prev = tagged.get(name);
       if (prev !== undefined) {
@@ -137,5 +142,118 @@ module.exports = (visitor) => {
         return ast;
       },
     };
+  };
+};
+
+
+module.exports.prepare = () => {
+  const magicImportNodes = new Set();
+  const importDeclarations = new Map();
+  const tagged = {};
+
+  const matchesImportNode = (taggedTemplateNodePath) => {
+    const tagNodePath = taggedTemplateNodePath.get('tag');
+
+    for (const importNodePath of magicImportNodes) {
+      const v = importNodePath.node.source.value;
+      const r = tagNodePath.referencesImport(v, tagNodePath.node.name);
+      if (r) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  /**
+   * Ensure that the given name exists inside the tagged map.
+   *
+   * @param {string}
+   * @return {!Map<*, *>}
+   */
+  const getTagged = (name) => {
+    const prev = tagged[name];
+    if (prev !== undefined) {
+      return prev;
+    }
+    const update = new Map();
+    tagged[name] = update;
+    return update;
+  };
+
+  const plugin = {
+    pre(state) {
+      if (this.run) {
+        throw new Error(`can only run magic plugin once`);
+      }
+      this.run = true;
+    },
+    post(state) {
+      // If this crashes, it's probably because another plugin removed the `import` declaration.
+      magicImportNodes.forEach((nodePath) => nodePath.remove());
+    },
+    visitor: {
+      ImportDeclaration(nodePath) {
+        const {node} = nodePath;
+        if (node.source.value === '__magic') {
+          magicImportNodes.add(nodePath);
+        } else {
+          importDeclarations.set(nodePath, node.source.value);
+        }
+      },
+
+      TaggedTemplateExpression(nodePath) {
+        if (!matchesImportNode(nodePath)) {
+          return;
+        }
+
+        const taggedNode = nodePath.node;
+        const name = taggedNode.tag.name;
+        const {quasi} = taggedNode;
+
+        // Confirm that we look like "_foo`bar`" without ${}'s
+        const qnode = quasi.quasis[0];
+        if (quasi.quasis.length !== 1 || qnode.type !== 'TemplateElement') {
+          throw new TypeError(`got non-static magic import replacer`);
+        }
+        const key = qnode.value.raw;
+
+        // Just replace with something that we'll notice if we miss.
+        nodePath.replaceWith(t.nullLiteral());
+
+        const all = getTagged(name);
+        all.set(nodePath, key);
+      },
+    },
+  };
+
+  return {
+    plugin,
+
+    seen(name) {
+      return name in tagged;
+    },
+
+    visit(visitor) {
+      for (const name in tagged) {
+        const all = tagged[name];
+        all.forEach((key, nodePath) => {
+          const update = visitor.taggedTemplate(name, key);
+          if (typeof update !== 'string') {
+            throw new Error(`expected taggedTemplate string update, got ${update}`);
+          }
+          nodePath.replaceWith(t.stringLiteral(update));
+        });
+      };
+
+      importDeclarations.forEach((value, nodePath) => {
+        const resolved = path.join(dir, value);
+        const update = visitor.rewriteImport(resolved);
+        if (update) {
+          const rel = importUtils.relativize(path.relative(dir, update));
+          const sourcePath = nodePath.get('source');
+          sourcePath.replaceWith(t.stringLiteral(rel));
+        }
+      });
+    },
   };
 };

@@ -1235,6 +1235,11 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-func-wrap@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-func-wrap/-/babel-plugin-func-wrap-1.1.0.tgz#302e479eb9cc15ddb3db2c65f4b48a748b6e69a1"
+  integrity sha512-C6e8mUVg3c/o9LwGk3tYvRq8MlyZdqimtQHzcZdsb2nEywlOkmp3zlCllo8QAmcsnwSB30iEcZ6rr2AhhTwO3w==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
