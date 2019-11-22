@@ -30,11 +30,11 @@
   }
 
   &__info {
-    flex-basis: 27%;
+    flex-basis: 28%;
 
     &-title {
       color: #587E9C;
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 500;
       margin: 0;
       padding: 10px 20px 16px 0;
@@ -43,15 +43,15 @@
     }
 
     &-body {
-      color: #8AB8D4;
-      line-height: 22px;
+      color: #7099BA;
+      line-height: 24px;
       max-height: 300px;
     }
   }
 
   &__cards {
     display: flex;
-    flex-basis: 62%;
+    flex-basis: 61%;
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -59,10 +59,16 @@
   &__card {
     background: white;
     border-radius: 37px;
+    box-shadow: 0;
     cursor: pointer;
     flex-basis: calc(50% - 10px);
     margin: 0 0 30px;
     overflow: hidden;
+    transition: box-shadow .25s cubic-bezier(.02, .01, .47, 1);
+
+    &:hover {
+      box-shadow: 0 20px 20px rgba(0,0,0,.08);
+    }
 
     a {
       text-decoration: none;
@@ -78,7 +84,7 @@
     .card__text {
       display: flex;
       flex-direction: column;
-      height: 240px;
+      height: 215px;
       padding: 28px 28px 38px;
     }
 
@@ -97,14 +103,14 @@
     }
 
     .card__desc {
-      color: #8AB8D4;
+      color: #7099BA;
       flex-grow: 1;
-      font-size: 15px;
+      font-size: 14px;
       padding-top: 26px;
     }
 
     .card__cta {
-      color: #8AB8D4;
+      color: #7099BA;
       font-size: 17px;
       font-weight: 500;
       position: relative;

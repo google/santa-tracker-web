@@ -10,16 +10,16 @@
   }
 
   &__title {
-    color: #32a658;
+    color: #587E9C;
     font-size: 46px;
     margin: 0 auto 25px;
     text-align: center;
   }
 
   &__body {
-    color: #8AB8D4;
+    color: #587E9C;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 450px;
     text-align: center;
   }
 
@@ -47,6 +47,7 @@
     &-body {
       color: #8AB8D4;
       font-size: 14px;
+      line-height: 20px;
       margin: 0 auto;
       max-width: 320px;
       padding-top: 20px;

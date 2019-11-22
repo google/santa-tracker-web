@@ -1,6 +1,7 @@
 .hero {
   background: url(img/hero_bg.svg) center center/cover no-repeat;
   height: 800px;
+  padding-top: 40px;
 
   &__logo {
     align-items: center;
@@ -9,8 +10,10 @@
     padding-top: 40px;
 
     &-google {
+      -webkit-filter: drop-shadow(1px 2px 4px rgba(84, 84, 84, 0.15));
       background-size: contain;
       fill: white;
+      filter: drop-shadow(1px 2px 4px rgba(84, 84, 84, 0.15));
       height: 38px;
       min-width: 62px;
       width: 62px;
@@ -25,6 +28,7 @@
       margin: 0px 0px 0px 0.4ch;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-shadow: 1px 2px 4px rgba(84, 84, 84, 0.15);
       white-space: nowrap;
     }
   }

@@ -25,7 +25,7 @@ class Accordion {
       <div class="accordion__cards">
       ${models[i].cards.map(item => `
         <div class="accordion__card">
-          <a href="https://www.google.com/" target="_blank">
+          <a href="${item.href}" ${item.external ? `target="_blank"` : ''}>
             <div class="card__upper">
               <img src="${item.image}" loading="lazy">
             </div>
