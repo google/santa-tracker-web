@@ -89,11 +89,7 @@ function ratioForModule(el) {
     return 1.0;
   }
   // This creates more of a cubic-bezier style transform (although it's quite subtle).
-  let outputRatio = (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
-  //send scroll ratio to kplay to update volume of scene audio
-  updateSound(el, outputRatio);
-  
-  return outputRatio;
+  return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
 }
 function updateSound(el, ratio) {
   let name = el.id.indexOf('module') > -1 ?  el.id.split('module--')[1] : el.id;
@@ -140,7 +136,8 @@ async function prepareModules() {
       };
       const anim = loadAnimation(`${base}.json`, options);
       anim.renderer.svgElement.style.zIndex = zIndex;
-      handleAnimationAudio(anim);
+
+      handleAnimationAudio(anim, id);
 
       // TODO: preload
       return anim;
@@ -154,12 +151,11 @@ async function prepareModules() {
   helpers.installAdjustHandler(() => {
     scrollables.forEach((animations, container) => {
       const visible = moduleIsVisible(container);
-      // Fade out all scene audio that is not visible (when scrolling fast)
-      if (!visible) {
-        updateSound(container, 0)
-      }
       
       const ratio = visible ? ratioForModule(container) : -1.0;
+
+      //send scroll ratio to kplay to update volume of scene audio
+      updateSound(container, visible ? ratio : 0)
 
       animations.forEach((anim) => {
         if (anim.loop) {
@@ -189,11 +185,9 @@ async function prepareModules() {
   });
 }
 
-function handleAnimationAudio(anim) {
+function handleAnimationAudio(anim, scene) {
   anim.onEnterFrame = (e)=> {
-    let scene = anim.path.split('img/modules/')[1].slice(0, -1);
     let id = anim.fileName;
-
     checkAndPlaySound(id, scene, e.currentTime);
   }
 }
