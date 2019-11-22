@@ -132,6 +132,15 @@ scoreOverlayElement.addEventListener('resume', () => global.setState({status: ''
 scoreOverlayElement.addEventListener('home', () => go(''));
 
 
+// FIXME(samthor): Demo of "advertising cards" at the end of a game. Choose actual games.
+const cards = ['snowball', 'codeboogie'];
+cards.forEach((scene) => {
+  const card = document.createElement('santa-card');
+  card.scene = scene;
+  scoreOverlayElement.append(card);
+});
+
+
 global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
@@ -141,8 +150,9 @@ global.subscribe((state) => {
 
   tutorialOverlayElement.filter = state.inputMode;
 
-  // Configure whether the menubar opens nav, or goes home.
-  chromeElement.showHome = (state.route !== '');
+  // Configure whether the menubar opens nav, or goes home. Display if we're on the top-level route
+  // and the control channel is available (scene ready).
+  chromeElement.showHome = (state.route !== '' || !state.control);
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =

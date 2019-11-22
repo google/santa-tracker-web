@@ -107,6 +107,9 @@ export class SantaOverlayElement extends LitElement {
       </div>
     </nav>
   </main>
+  <div class="below">
+    <slot></slot>
+  </div>
 </div>
 `;
   }

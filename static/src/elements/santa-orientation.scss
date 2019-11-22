@@ -6,19 +6,6 @@
 
 main {
   text-align: center;
-
-  // ... but still create a fullscreen overlay effect at this level
-  &::after {
-    content: '';
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #8fd7f7cc;
-    z-index: -1;
-  }
 }
 
 p {
@@ -37,8 +24,4 @@ svg {
   svg {
     transform: rotate(90deg) scale(-1, 1);
   }
-}
-
-:host([hidden]) .fs {
-  display: none !important;
 }

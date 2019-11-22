@@ -19,12 +19,10 @@ svg.icon {
 }
 
 .backdrop {
-  background: rgba(0, 0, 0, 0.33);
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
   z-index: 11;
   transition: opacity $duration ease-in-out;
 }
@@ -32,7 +30,7 @@ svg.icon {
 main {
   display: flex;
   flex-flow: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
 
   position: relative;
@@ -59,6 +57,11 @@ main {
   transition-timing-function: cubic-bezier(.83,.02,1,.01);
 }
 
+nav,
+.hero {
+  min-width: 240px;
+}
+
 nav {
   pointer-events: auto;
   background: rgba(255,255,255,.25);
@@ -69,7 +72,6 @@ nav {
   box-sizing: border-box;
   padding: 12px;
   position: relative;
-  min-width: 240px;
 
   h4 {
     color: #fff;
@@ -151,5 +153,51 @@ nav {
 
   &:not(.gameover) h1 {
     display: none;
+  }
+}
+
+.below {
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+  margin: 1em;
+  transition: opacity $duration, transform $duration;
+
+  ::slotted(santa-card) {
+    pointer-events: auto;
+    margin: 8px;
+    width: 200px;
+    height: 120px;
+    --radius: 12px;
+
+    @media (max-width: 400px), (max-height: 400px) {
+      font-size: 0.8em;
+      width: 160px;
+      height: 100px;
+      --radius: 10px;
+      margin: 4px;
+    }
+  }
+}
+:host([hidden]) .below {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+@media (max-width: 500px) {
+  .below {
+    flex-flow: column;
+  }
+}
+
+@media (max-height: 500px) and (min-width: 500px + 1px) {
+  .backdrop {
+    flex-flow: row;
+  }
+  .below {
+    flex-flow: column;
+  }
+  :host([hidden]) .below {
+    transform: translate(50%);
   }
 }

@@ -1,7 +1,6 @@
 $tick-time: 0.6s;  // time for number to tick over
 $bar-color: #ff0160;
 $mobile-width: 768px;
-$toolbar-transition: 0.25s ease-in-out;
 $height: 60px;
 $mobile-height: 52px;
 $flourish-indent: 6px;
@@ -87,7 +86,6 @@ svg {
 .counter-box {
   width: 40px;
   position: relative;
-  transition: height $toolbar-transition, width $toolbar-transition;
 
   &.large {
     width: 48px;

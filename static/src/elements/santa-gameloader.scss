@@ -26,9 +26,9 @@ iframe {
 :host([disabled]) {
   iframe {
     pointer-events: none;
-    filter: grayscale(20%) blur(4px);
+    filter: grayscale(70%) brightness(0.5) blur(4px);
     transform: scale(1.05);
-    transition-duration: 0.5s;
+    transition-duration: 0.75s;
   }
 }
 

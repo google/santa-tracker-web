@@ -20,9 +20,9 @@ body {
   -webkit-user-select: none;
   background: #1a844b;
 
+  --color-bar: #ff3333;
   &[data-mode="android"] {
     --color-bar: #32a658;
-    --color-bar-dark: #2a8c4a;
   }
 }
 

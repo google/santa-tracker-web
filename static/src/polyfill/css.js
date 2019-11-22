@@ -114,7 +114,7 @@ if (nativeSupport) {
 
       const o = new MutationObserver(call);
 
-      if (this instanceof DocumentFragment) {
+      if (!(this instanceof ShadowRoot)) {
         console.warn('Shadow DOM polyfill + adoptedStyleSheets polyfill, no MutationObserver');
       } else {
         o.observe(this, {childList: true});

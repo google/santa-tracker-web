@@ -205,6 +205,10 @@ const applyMove = (name) => {
   return localMoveTask;
 };
 
+api.config({
+  orientation: 'portrait',
+});
+
 api.ready(async (data) => {
   applyStep(defaultStep);
 

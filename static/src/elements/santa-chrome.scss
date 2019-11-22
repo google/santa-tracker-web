@@ -17,13 +17,6 @@ $transition-toolbar: $duration-toolbar ease-in-out;
   flex-grow: 1;
 }
 
-svg.icon {
-  margin: auto;
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
 header {
   z-index: $index-chrome;
   position: fixed;
@@ -54,30 +47,25 @@ header {
     transition: 0.25s ease-in-out;
     margin-right: 8px;
 
-    svg {
-      position: absolute;
-      margin: auto;
-      transition: opacity 0.25s ease-in-out;
-
-      &.fade {
-        opacity: 0;
-      }
-    }
-
-    // nb. This works around a focus issue in Chrome. ":active" isn't cleared after use unless
-    // there is a surface to lift up off.
-    &:active::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
     &[disabled] {
       transform: translateY(-100px);
     }
+  }
+
+  // This exists to work around a Chrome bug with ::active, which isn't cleared unless the user
+  // raises their mouse on `santa-button`. We give it another thing to un-active on.
+  #active-fixer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  santa-button:active:focus ~ #active-fixer {
+    pointer-events: auto;
   }
 }
 
