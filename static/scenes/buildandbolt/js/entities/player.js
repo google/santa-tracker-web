@@ -119,15 +119,15 @@ app.Player = class Player {
 
     const surroundingEntities = this.game.board.getSurroundingEntities(this)
 
-    const entitiesInAction = []
+    const resultingActions = {}
 
     if (surroundingEntities.length) {
       for (const entity of surroundingEntities) {
-        this.checkActions(entity, entitiesInAction)
+        this.checkActions(entity, resultingActions)
       }
     }
 
-    this.processActions(entitiesInAction)
+    this.processActions(resultingActions)
 
     // block player
     if (this.blockPlayer) {
@@ -142,8 +142,6 @@ app.Player = class Player {
             this.position.x, this.position.y)
     }
 
-
-
     this.render()
   }
 
@@ -151,25 +149,35 @@ app.Player = class Player {
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
-  checkActions(entity, entitiesInAction) {
+  checkActions(entity, resultingActions) {
     const actions = entity.onContact(this)
-    entity.actions = {}
+
     for (const action of actions) {
-      entity.actions[action] = true
+      if (!resultingActions[action]) { // if this action is not referred yet, create it
+        resultingActions[action] = []
+      }
+      resultingActions[action].push(entity)
     }
-    entitiesInAction.push(entity)
   }
 
   /**
    * Processes all actions that resulted from contact with another entity on the board.
    * Updates position and state of player based on these actions.
    */
-  processActions(entitiesInAction) {
+  processActions(resultingActions) {
     this.blockPlayer = false
     this.blockingPosition = {
       x: this.position.x,
       y: this.position.y,
     }
+
+processActions(actions) {
+  if (actions[blockActionName]) {
+    for (entities) {
+       ...do action
+    }
+  }
+}
 
     for (let i = 0; i < entitiesInAction.length; i++) {
       const entity = entitiesInAction[i]
