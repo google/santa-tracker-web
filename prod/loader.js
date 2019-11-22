@@ -38,7 +38,9 @@ if (fallback && isProd) {
   load.supportScripts([
     config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
     config.staticScope + 'support.js',
-  ], startup);
+  ], () => {
+    WebComponents.waitFor(startup);
+  });
 } else {
   startup();  // or just continue immediately
 }
