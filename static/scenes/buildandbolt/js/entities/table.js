@@ -44,8 +44,10 @@ app.Table = class Table extends app.Entity {
       this.elem.style.opacity = 1
     }
 
+    this.blockingPosition = Utils.isInBorder(this.config, player.position, player.prevPosition)
+
     // if player is in the border, he is blocked
-    if (Utils.isInBorder(this.config, player.position)) {
+    if (this.blockingPosition) {
       actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
     }
 

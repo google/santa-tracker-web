@@ -153,8 +153,12 @@ app.Player = class Player {
       return // ignore all other actions
     }
 
-    if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK]) {
-      this.position = this.prevPosition
+    // block player
+    if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK] &&
+      resultingActions[Constants.PLAYER_ACTIONS.BLOCK].blockingPosition) {
+      const { blockingPosition } = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
+      this.position.x = blockingPosition.x
+      this.position.y = blockingPosition.y
       this.velocity.x = 0
       this.velocity.y = 0
     } else {
