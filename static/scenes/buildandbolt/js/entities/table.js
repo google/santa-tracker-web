@@ -18,11 +18,19 @@ app.Table = class Table extends app.Entity {
   }
 
   onInit(config) {
-    config.width = Constants.TABLE_WIDTH
-    config.height = Constants.TABLE_HEIGHT
+    if (config.isSideView) {
+      config.width = Constants.TABLE_HEIGHT
+      config.height = Constants.TABLE_WIDTH
+    } else {
+      config.width = Constants.TABLE_WIDTH
+      config.height = Constants.TABLE_HEIGHT
+    }
 
     super.onInit(config)
     this.config.triggerAction = 'on-border'
+
+    let classes = `table table--${this.config.tableType}${config.isSideView ? ' table--side' : ''}`
+    this.elem.setAttribute('class', classes)
   }
 
   render() {
