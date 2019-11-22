@@ -1,7 +1,5 @@
 ##{$name} {
   .platform {
-    background: #30a658;
-    height: $grid-unit-size;
-    width: $grid-unit-size;
+    border-image: url(img/platform/platform_whole.svg) 33% fill / 25px round;
   }
 }

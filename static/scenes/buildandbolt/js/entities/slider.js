@@ -27,10 +27,12 @@ app.Slider = class Slider extends app.Entity {
       y: this.config.isVertical ? this.config.startPos.y + this.config.movementLength : this.config.startPos.y
     }
 
+    this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
+    this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`
+
     this.reversing = false
 
-    this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
-    super.onInit(config)
+    this.game.board.addEntityToBoard(this, this.position.x, this.position.y, this.config.width, this.config.height)
   }
 
   onFrame() {
@@ -69,7 +71,8 @@ app.Slider = class Slider extends app.Entity {
     this.render()
     this.game.board.updateEntityPosition(this,
         prevPosition.x, prevPosition.y,
-        this.position.x, this.position.y)
+        this.position.x, this.position.y,
+        this.config.width, this.config.height)
   }
 
   render() {

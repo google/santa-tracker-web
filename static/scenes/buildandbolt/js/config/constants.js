@@ -65,4 +65,7 @@ Constants = {
   PRESENT_HEIGHT: 2,
   PRESENT_WIDTH: 2,
 
+  PENGUIN_HEIGHT: 1,
+  PENGUIN_WIDTH: 1,
+
 }

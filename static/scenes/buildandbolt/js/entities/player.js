@@ -109,9 +109,9 @@ app.Player = class Player {
       this.position.x = this.platform.position.x + this.platformOffset.x
       this.position.y = this.platform.position.y + this.platformOffset.y
 
-      if (this.platformOffset.x > 1 ||
+      if (this.platformOffset.x > this.platform.config.width ||
           this.platformOffset.x < -1 ||
-          this.platformOffset.y > 1 ||
+          this.platformOffset.y > this.platform.config.height ||
           this.platformOffset.y < -1) {
         this.platform = null
       }
@@ -226,11 +226,7 @@ app.Player = class Player {
       y: 0
     }
 
-    this.acceleration = {
-      x: 0,
-      y: 0
-    }
-
     this.onIce = false
+    this.platform = null
   }
 }
