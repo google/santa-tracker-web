@@ -73,38 +73,22 @@ Levels = [
         config: {
           x: 25,
           y: 14,
-          sides: {
-            left: false,
-            right: true,
-            top: true,
-            bottom: true
-          }
-        }
-      },
-      {
-        type: 'fence',
-        config: {
-          x: 24,
-          y: 14,
-          sides: {
-            left: false,
-            right: false,
-            top: true,
-            bottom: true
-          }
-        }
-      },
-      {
-        type: 'fence',
-        config: {
-          x: 26,
-          y: 14,
-          sides: {
-            left: false,
-            right: false,
-            top: true,
-            bottom: false
-          }
+          cells: [
+            // first line
+            [{
+              right: true,
+            }, {
+              right: true,
+              top: true,
+            }],
+            // second line
+            [{
+              left: true,
+            }, {
+              left: true,
+              top: true,
+            }]
+          ],
         }
       },
       {
