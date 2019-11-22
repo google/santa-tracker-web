@@ -69,62 +69,62 @@ window.addEventListener('loader-route', (ev) => {
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
-const kplayReady = kplay.prepare();
+const kplayInstance = kplay.prepare();
 
 chromeElement.addEventListener('nav-open', (ev) => {
   sidebar.hidden = false;
-  kplayReady.then((sc) => {
-    sc.play('nav_open');
-  });
+
+  kplayInstance.play('nav_open');
+
 });
 
 chromeElement.addEventListener('nav-close', (ev) => {
   sidebar.hidden = true;
-  kplayReady.then((sc) => {
-    sc.play('nav_close');
-  });
+
+  kplayInstance.play('nav_close');
+
 });
 
 
-kplayReady.then((sc) => {
-  let muted = false;
 
-  global.subscribe((state) => {
-    const update = state.hidden;
-    if (muted !== update) {
-      muted = update;
+let muted = false;
 
-      if (muted) {
-        sc.play('global_sound_off');
-      } else {
-        sc.play('global_sound_on');
-      }
+global.subscribe((state) => {
+  const update = state.hidden;
+  if (muted !== update) {
+    muted = update;
+
+    if (muted) {
+      kplayInstance.play('global_sound_off');
+    } else {
+      kplayInstance.play('global_sound_on');
     }
-
-    // TODO(samthor): This only shows when the scene is in mini mode.
-    chromeElement.unmute = state.audioSuspended;
-  });
-
-  if (sc.suspended) {
-    global.setState({audioSuspended: true});
-    // Show the unmute button while we're suspended. The tab can be unsuspended for a bunch of
-    // really unknown reasons.
-    sc.resume().then(() => global.setState({audioSuspended: false}));
-    chromeElement.addEventListener('unmute', () => {
-      sc.resume();
-    });
-  } else {
-    global.setState({audioSuspended: false});
   }
 
-  interludeElement.addEventListener('transition_in', () => {
-    sc.play('menu_transition_game_in');
-  });
-  interludeElement.addEventListener('transition_out', () => {
-    sc.play('menu_transition_game_out');
-  });
-  
+  // TODO(samthor): This only shows when the scene is in mini mode.
+  chromeElement.unmute = state.audioSuspended;
 });
+
+if (kplayInstance.suspended) {
+  global.setState({audioSuspended: true});
+  // Show the unmute button while we're suspended. The tab can be unsuspended for a bunch of
+  // really unknown reasons.
+  kplayInstance.resume().then(() => global.setState({audioSuspended: false}));
+  chromeElement.addEventListener('unmute', () => {
+    kplayInstance.resume();
+  });
+} else {
+  global.setState({audioSuspended: false});
+}
+
+interludeElement.addEventListener('transition_in', () => {
+  kplayInstance.play('menu_transition_game_in');
+});
+interludeElement.addEventListener('transition_out', () => {
+  kplayInstance.play('menu_transition_game_out');
+});
+  
+
 
 
 scoreOverlayElement.addEventListener('restart', () => global.setState({status: 'restart'}));
@@ -286,8 +286,7 @@ outer:
           throw new TypeError(`unsupported preload: ${payload[0]}`);
         }
         // TODO: don't preload sounds if the AudioContext is suspended, queue for later.
-        const sc = await kplayReady;
-        preloads.push(preloadSounds(sc, event, port));
+        preloads.push(preloadSounds(kplayInstance, event, port));
         continue;
 
       case 'loaded':
@@ -310,7 +309,7 @@ outer:
  * @param {string} route active
  */
 async function runner(control, route) {
-  const sc = await kplayReady;
+  const sc = kplayInstance;
 
   // TODO: this should be on global state as the player might restart multiple times
   // const start = performance.now();
@@ -388,7 +387,7 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
   // won't be information about the next scene yet.
 
   // fade out previous scene audio here
-  const sc = await kplayReady;
+  const sc = kplayInstance;
   sc.transitionTo([], 0.2);
 
   // TODO(samthor): This isn't triggered on initial load.
@@ -450,7 +449,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     // only check if we're still the active scene once done.
     const config = await configPromise;
     const lockedImage = await (locked ? sceneImage(route).catch(null) : null);
-    const sc = await kplayReady;
+    const sc = kplayInstance;
 
     // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we
     // are still the active scene.

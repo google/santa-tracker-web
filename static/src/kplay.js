@@ -2,8 +2,8 @@
 import {_static} from './magic.js';
 import {AudioLoader} from './kplay-lib.js';
 import './polyfill/event-target.js';
+import '../third_party/lib/klang/config.js';
 
-const configPath = _static`third_party/lib/klang/config.js`;
 const audioPath = _static`audio`;
 
 const masterContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -897,18 +897,9 @@ class AudioSource extends EventTarget {
 
 
 
-export async function prepare() {
-  // Load the config into the page (dynamically), as it's ~300kb and doesn't need to be loaded
-  // unless the user is actually playing audio. It just creates the `KLANG_CONFIG` global.
+export function prepare() {
 
-  const config = await new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = configPath;
-    script.onload = () => resolve(window['KLANG_CONFIG']);
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-
+  const config = window['KLANG_CONFIG'];
   const globalVars = config['vars'];
 
   // Audio files aren't keyed, they just have an ID field.
