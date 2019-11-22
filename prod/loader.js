@@ -36,7 +36,7 @@ window.onunhandledrejection = (event) => {
 // needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
   load.supportScripts([
-    config.staticScope + 'custom-elements-es5-adapter.js',
+    config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     config.staticScope + 'support.js',
     config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   ], () => {
