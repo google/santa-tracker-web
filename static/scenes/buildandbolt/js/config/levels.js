@@ -8,7 +8,7 @@ goog.provide('Levels')
  * Minimum dimensions -  3 x 3
  *
  * WALLS
- * Minimum dimensions - 4 x 4
+ * Minimum dimensions - 2 x 4
  * Width must be even
  */
 
@@ -194,6 +194,15 @@ Levels = [
           width: 6,
           x: 2,
           y: 1,
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 6,
+          width: 10,
+          x: 2,
+          y: 8,
         }
       },
       {
