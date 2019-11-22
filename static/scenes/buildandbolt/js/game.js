@@ -85,12 +85,8 @@ app.Game = class Game {
             for (let j = 0; j < row.length; j++) {
               const config = {
                 ...row[j],
-                x: entity.config.x,
-                y: entity.config.y,
-                offset: {
-                  x: j,
-                  y: i,
-                }
+                x: entity.config.x + j, // j and i are the offset lines/columns that needs to be added from the leftTop pos
+                y: entity.config.y + i,
               }
               this.entities.push(app.Fence.pop(this, config))
             }

@@ -102,7 +102,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 12,
+          x: 15,
           y: 1,
           partType: 'car-body'
         }

@@ -67,17 +67,18 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 }
 
 Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
-  const rightSide = entity.position.x
-  const leftSide = entity.position.x - 1
-  const bottomSide = entity.position.y
-  const topSide = entity.position.y - 1
-  console.log('fence')
+  const rightSide = entity.x + 1
+  const leftSide = entity.x - 1
+  const bottomSide = entity.y + 1
+  const topSide = entity.y - 1
+
+  console.log(leftSide, rightSide)
 
   if (rightSide > playerPosition.x &&
     leftSide < playerPosition.x &&
     bottomSide > playerPosition.y &&
     topSide < playerPosition.y) {
-    console.log('oui?')
+    console.log('blockkkk')
 
     const blockingPosition = {
       x: playerPosition.x,

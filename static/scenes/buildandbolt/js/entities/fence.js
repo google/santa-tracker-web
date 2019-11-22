@@ -16,12 +16,7 @@ app.Fence = class Fence extends app.Entity {
   }
 
   onInit(config) {
-    console.log(config)
-    const {x, y, offset, top, right, bottom, left } = config
-    this.position = {
-      x: x + offset.x,
-      y: y + offset.y,
-    }
+    const { top, right, bottom, left } = config
 
     let classes = 'fence'
 
@@ -48,18 +43,18 @@ app.Fence = class Fence extends app.Entity {
   }
 
   render() {
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
   }
 
   onContact(player) {
     let actions = []
 
     // if player is in the border, he is blocked
-    this.blockingPosition = Utils.isInFence(this, player.position, player.prevPosition)
+    this.blockingPosition = Utils.isInFence(this.config, player.position, player.prevPosition)
 
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
-      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+      actions = [Constants.PLAYER_ACTIONS.BLOCK]
     }
 
     return actions
