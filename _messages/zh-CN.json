@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "12 月"
 	},
+	"decmonth_long": {
+		"message": "12 月"
+	},
 	"detected": {
 		"message": "自动检测"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "探索圣诞老人小镇"
+	},
+	"familyguide_card_11_body": {
+		"message": "从头至脚制作您自己的精灵，让它在北极举办的诸多节日晚会上光彩照人，尽显精灵气质。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "合理使用网络"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 应用"
 	},
 	"fi_country_name": {
 		"message": "芬兰"

@@ -7,11 +7,14 @@ import {_msg} from '../magic.js';
 const lang = document.documentElement.lang;
 const trailingIndex = `index${lang ? `_${lang}` : ''}.html`;
 
-function urlFor(sceneName, route) {
+function urlFor(sceneName, fallback, route) {
   if (!sceneName) {
     return null;
   }
   const params = new URLSearchParams();
+  if (fallback) {
+    params.set('fallback', '1');
+  }
   params.set('route', route);
   const p = `?${params.toString()}`;
   return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p;
@@ -27,6 +30,9 @@ export function buildLoader(loaderElement, fallback=false) {
     if (redirectRoute !== undefined) {
       route = redirectRoute;
     }
+    if (route === 'index') {
+      route = '';
+    }
 
     activeRoute = route;  // this is the chosen open route
     const sceneName = config.sceneForRoute(route, fallback);
@@ -36,8 +42,10 @@ export function buildLoader(loaderElement, fallback=false) {
     }
 
     // Load the scene HTML but include the ID of the route. Useful for videos.
-    const url = urlFor(sceneName, route);
+    const url = urlFor(sceneName, fallback, route);
     activeSceneName = sceneName;
+
+    window.dispatchEvent(new CustomEvent('loader-route', {detail: route}));
 
     ga('set', 'page', `/${route}`);
     ga('send', 'pageview');

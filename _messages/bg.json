@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "дек"
 	},
+	"decmonth_long": {
+		"message": "декември"
+	},
 	"detected": {
 		"message": "разпознат"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Разглеждане на селцето на Дядо Коледа"
+	},
+	"familyguide_card_11_body": {
+		"message": "Създайте свое изцяло персонализирано джудже и се уверете, че изглежда джуджестично за коледните празненства на Северния полюс."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Станете интернет експерт"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Приложение за Android"
 	},
 	"fi_country_name": {
 		"message": "Финландия"

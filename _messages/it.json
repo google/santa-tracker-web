@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dic"
 	},
+	"decmonth_long": {
+		"message": "dicembre"
+	},
 	"detected": {
 		"message": "rilevata"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Esplora il villaggio di Babbo Natale"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea il tuo folletto personalizzato dalla testa ai piedi, con un look el(f)egante per le serate di gala natalizie al Polo Nord."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Vivi Internet, al sicuro"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"

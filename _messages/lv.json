@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dec"
 	},
+	"decmonth_long": {
+		"message": "Decembris"
+	},
 	"detected": {
 		"message": "noteikta"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Izpētīt Ziemassvētku vecīša ciematu"
+	},
+	"familyguide_card_11_body": {
+		"message": "Izveidojiet pats savu rūķīti, kurš būs gatavs piedalīties lieliskos svētku pasākumos Ziemeļpolā."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Drošība internetā"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android lietotne"
 	},
 	"fi_country_name": {
 		"message": "Somija"

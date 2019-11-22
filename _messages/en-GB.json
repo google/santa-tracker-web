@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dec"
 	},
+	"decmonth_long": {
+		"message": "December"
+	},
 	"detected": {
 		"message": "detected"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explore Santa's Village"
+	},
+	"familyguide_card_11_body": {
+		"message": "Build your own elf from head to toe and make sure that it looks elf-tastic for the many festive soirées happening on the North Pole."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet-awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android App"
 	},
 	"fi_country_name": {
 		"message": "Finland"

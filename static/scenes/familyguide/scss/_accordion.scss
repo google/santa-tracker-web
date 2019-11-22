@@ -1,0 +1,119 @@
+.accordion {
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 40px;
+
+  &-inner {
+    background: rgba(#9FCEFF, .2);
+    border-radius: 72px;
+    padding: 80px 0 0;
+  }
+
+  &__content {
+    &-block {
+      display: flex;
+      justify-content: space-between;
+      padding: 100px 100px 70px;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px #CFDEEB solid;
+      }
+    }
+  }
+
+  &__title {
+    color: #587E9C;
+    font-size: 46px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__info {
+    flex-basis: 27%;
+
+    &-title {
+      color: #587E9C;
+      font-size: 26px;
+      font-weight: 500;
+      margin: 0;
+      padding: 10px 20px 16px 0;
+      pointer-events: none;
+      text-align: left;
+    }
+
+    &-body {
+      color: #8AB8D4;
+      line-height: 22px;
+      max-height: 300px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-basis: 62%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 37px;
+    cursor: pointer;
+    flex-basis: calc(50% - 10px);
+    margin: 0 0 30px;
+    overflow: hidden;
+
+    a {
+      text-decoration: none;
+    }
+
+    .card__upper {
+      img {
+        width: 100%;
+        vertical-align: top;
+      }
+    }
+
+    .card__text {
+      display: flex;
+      flex-direction: column;
+      height: 240px;
+      padding: 28px 28px 38px;
+    }
+
+    .card__title {
+      color: #587E9C;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .card__age {
+      color: #6BC86E;
+      font-size: 12px;
+      padding-top: 8px;
+      text-transform: uppercase;
+    }
+
+    .card__desc {
+      color: #8AB8D4;
+      flex-grow: 1;
+      font-size: 15px;
+      padding-top: 26px;
+    }
+
+    .card__cta {
+      color: #8AB8D4;
+      font-size: 17px;
+      font-weight: 500;
+      position: relative;
+
+      &::after {
+        content: '→';
+        margin-left: 5px;
+        position: absolute;
+      }
+    }
+  }
+}

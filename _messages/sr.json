@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "дец"
 	},
+	"decmonth_long": {
+		"message": "децембар"
+	},
 	"detected": {
 		"message": "откривен је"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Истражи Село Деда Мраза"
+	},
+	"familyguide_card_11_body": {
+		"message": "Направите свог вилењака од главе до пете. Нека изгледа бајковито на свим вечерњим пријемима за празнике на Северном полу."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Скапирај интернет"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android апликација"
 	},
 	"fi_country_name": {
 		"message": "Финска"

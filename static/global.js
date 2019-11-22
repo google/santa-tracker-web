@@ -10,12 +10,16 @@ const g = createStore({
 
   hidden: false,
 
+  route: null,
+
   status: '',  // '', paused, gameover
 
   sceneOrientation: null,
   sceneHasPause: false,
 
   score: {},
+
+  shareUrl: null,
 });
 
 export default g;

@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Gru"
 	},
+	"decmonth_long": {
+		"message": "grudnia"
+	},
 	"detected": {
 		"message": "wykryty"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Zobacz wioskę Świętego Mikołaja"
+	},
+	"familyguide_card_11_body": {
+		"message": "stwórz własnego elfa od stóp do głów i zadbaj, by wyglądał elfiastycznie podczas wszystkich wieczorków towarzyskich organizowanych na biegunie."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Zostań praktykiem internetowym"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikacja na Androida"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"

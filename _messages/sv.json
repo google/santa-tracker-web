@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dec"
 	},
+	"decmonth_long": {
+		"message": "December"
+	},
 	"detected": {
 		"message": "identifierat"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Utforska tomtebyn"
+	},
+	"familyguide_card_11_body": {
+		"message": "Skapa en egen tomtenisse som är chic från topp till tå och redo för julfirandet i Nordpolen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-app"
 	},
 	"fi_country_name": {
 		"message": "Finland"

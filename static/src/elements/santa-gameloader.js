@@ -168,9 +168,9 @@ class SantaGameLoaderElement extends HTMLElement {
 
     // Use this container to manage focus on contained iframes, rather than setting classes or
     // attributes on the loader itself.
-    this._container = document.createElement('main');
-    this._container.classList.add('empty');
-    root.append(this._container);
+    this._main = document.createElement('main');
+    this._main.classList.add('empty');
+    root.append(this._main);
 
     // Wrap `<slot>` in a container that can be toggled in an error state. The naked slot contains
     // content which will be displayed if a game fails to load, such as `<santa-error>`.
@@ -178,7 +178,12 @@ class SantaGameLoaderElement extends HTMLElement {
     slotContainer.classList.add('slot-container');
     const slot = document.createElement('slot');
     slotContainer.append(slot);
-    this._container.append(slotContainer);
+
+    // Create `.iframe-container` for rotate/etc effects.
+    this._container = document.createElement('div');
+    this._container.className = 'iframe-container';
+
+    this._main.append(slotContainer, this._container);
 
     this._onWindowBlur = this._onWindowBlur.bind(this);
     this._onWindowFocus = this._onWindowFocus.bind(this);
@@ -302,7 +307,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._href = href || null;
 
     this._loading = true;
-    this._container.classList.add('loading');
+    this._main.classList.add('loading');
 
     // Inform any open control (for the activeFrame) that it is to be closed, by sending null.
     const close = this._control.shutdown();
@@ -407,10 +412,10 @@ class SantaGameLoaderElement extends HTMLElement {
 
       this._loading = false;
       this._activeFrame.classList.remove('pending');
-      this._container.classList.remove('loading');
+      this._main.classList.remove('loading');
 
       // If nothing loaded, allow <slot> content and remove itself. This is still "success".
-      this._container.classList.toggle('empty', !port);
+      this._main.classList.toggle('empty', !port);
       if (port === null) {
         this._activeFrame.remove();
       }

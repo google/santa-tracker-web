@@ -34,6 +34,7 @@ header {
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
+  pointer-events: none;
 
   padding-top: 20px;
   padding-left: 5%;
@@ -130,22 +131,6 @@ header {
   }
 }
 
-.hider {
-/*
-  pointer-events: none;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 198, 237, 0.6);
-  transition: opacity $duration-sidebar ease-in-out;
-  will-change: opacity;
-  opacity: 0;*/
-  display: none !important;  // we're now fullscreen
-}
-
 input {
   display: none;
 
@@ -154,11 +139,6 @@ input {
     pointer-events: auto;
     animation: none;
     transform: translate(0);
-  }
-
-  &:checked ~ .hider {
-    pointer-events: auto;
-    opacity: 1;
   }
 }
 

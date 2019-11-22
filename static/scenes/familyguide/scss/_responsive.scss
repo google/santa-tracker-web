@@ -1,0 +1,167 @@
+$tabletBreakpoint: 1024px;
+$mobileBreakpoint: 668px;
+$mobilePortraitBreakpoint: 400px;
+
+@media (max-width: 1200px) {
+  .accordion__content-block {
+    padding: 100px 30px 70px;
+  }
+}
+
+@media (max-width: $tabletBreakpoint) {
+  .secondary {
+    padding: 80px 80px;
+
+    &-inner {
+      display: block;
+    }
+
+    &__image {
+      margin-top: 50px;
+    }
+  }
+
+  .accordion {
+    &__info {
+      flex-basis: 30%;
+    }
+
+    &__cards {
+      flex-basis: 58%;
+    }
+
+    &__card {
+      flex-basis: 100%;
+    }
+  }
+
+  .tips {
+    &__tip {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+
+  .doublecard {
+    &__content {
+      padding: 0 40px;
+    }
+  }
+}
+
+@media (max-width: $mobileBreakpoint) {
+  .hero {
+    background: url(img/hero_bg--mobile.svg) center bottom/cover no-repeat;
+    padding-bottom: 120px;
+
+    &__title {
+      font-size: 32px;
+      max-width: 300px;
+    }
+
+    &__body {
+      font-size: 16px;
+      max-width: 90%;
+    }
+  }
+
+  .secondary {
+    padding: 80px 20px;
+
+    &__text-title {
+      font-size: 32px;
+    }
+
+    &__text-body {
+      max-width: 90%;
+    }
+
+    &__image {
+      height: 280px;
+    }
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .accordion {
+    padding: 0 20px;
+
+    &-inner {
+      padding: 80px 25px 10px;
+    }
+
+    &__title {
+      font-size: 32px;
+      margin-bottom: 0;
+      padding: 0 10px;
+    }
+
+    &__info {
+      margin-bottom: 50px;
+
+      &-title {
+        padding-top: 0;
+      }
+    }
+
+    &__content {
+      display: block;
+
+      &-block {
+        display: block;
+        padding: 70px 10px 40px;
+      }
+    }
+
+    &__card {
+      flex-basis: 100%;
+    }
+  }
+
+  .tips {
+    padding: 0 20px;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__tip {
+      flex-basis: calc(100% - 20px);
+      margin: 80px auto 0;
+
+      &-body {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .doublecard {
+    padding: 0 20px;
+
+    &-inner {
+      padding: 60px 30px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__content {
+      display: block;
+      padding: 0;
+    }
+
+    &__card {
+      width: 100%;
+
+      &:not(:first-of-type) {
+        margin-top: 50px;
+      }
+
+      &-body {
+        max-width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.doublecard {
+  margin: 80px auto;
+  max-width: 1400px;
+  padding: 0 40px;
+
+  &-inner {
+    background: rgba(#9FCEFF, .2);
+    border-radius: 72px;
+    padding: 80px 0;
+  }
+
+  &__title {
+    color: #32a658;
+    font-size: 46px;
+    margin: 0 auto 25px;
+    text-align: center;
+  }
+
+  &__body {
+    color: #8ab8d4;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding: 0 80px;
+  }
+
+  &__card {
+    width: calc(50% - 10px);
+
+    &-title {
+      color: #587E9C;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    &-body {
+      color: #8AB8D4;
+      margin: 0 auto;
+      max-width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    border-radius: 40px;
+    width: 100%;
+  }
+}

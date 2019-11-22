@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Tháng 12"
 	},
+	"decmonth_long": {
+		"message": "Tháng 12"
+	},
 	"detected": {
 		"message": "được phát hiện"
 	},
@@ -630,7 +633,7 @@
 		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
 	},
 	"error-out-of-date": {
-		"message": "Đây là phiên bản đã lỗi thời. Hiện đã có phiên bản mới là Ngôi làng của Ông già Noel! Hãy thử mở lại trang Theo chân ông già Noel để xem phiên bản mới nhất."
+		"message": "Phiên bản Ngôi làng của Ông già Noel này đã lỗi thời! Hãy thử mở lại trang Theo chân ông già Noel để xem phiên bản mới nhất."
 	},
 	"error-try-again": {
 		"message": "Thử lại"
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Khám phá ngôi làng của ông già Noel"
+	},
+	"familyguide_card_11_body": {
+		"message": "Sáng tạo chú yêu tinh của riêng bạn từ đầu đến chân và chắc chắn rằng chú ta trông thật thu hút cho các buổi dạ tiệc giáng sinh ở Bắc Cực."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Hiểu thật rõ về Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Ứng dụng Android"
 	},
 	"fi_country_name": {
 		"message": "Phần Lan"

@@ -56,9 +56,14 @@ chromeElement.append(badgeElement);
 const errorElement = document.createElement('santa-error');
 
 const sidebar = document.createElement('santa-cardnav');
-sidebar.hidden = true;
 sidebar.setAttribute('slot', 'sidebar');
 chromeElement.append(sidebar);
+
+
+window.addEventListener('loader-route', (ev) => {
+  const route = ev.detail;
+  global.setState({route});
+});
 
 
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
@@ -122,22 +127,36 @@ kplayReady.then((sc) => {
 });
 
 
-window.addEventListener('game-restart', (e) => {
-  global.setState({status: 'restart'})
-}, true);
+scoreOverlayElement.addEventListener('restart', () => global.setState({status: 'restart'}));
+scoreOverlayElement.addEventListener('resume', () => global.setState({status: ''}));
+scoreOverlayElement.addEventListener('home', () => go(''));
+
 
 global.subscribe((state) => {
+  // This happens first, as we modify state as a side-effect.
+  if (state.status === 'restart') {
+    state.status = '';  // nb. modifies state as side effect
+    state.control.send({type: 'restart'});
+  }
+
   tutorialOverlayElement.filter = state.inputMode;
 
-  const gameover = (state.status === 'gameover');
+  // Configure whether the menubar opens nav, or goes home.
+  chromeElement.showHome = (state.route !== '');
 
   // Only if we have an explicit orientation, the scene has one, and they're different.
   const orientationChangeNeeded =
       state.sceneOrientation && state.orientation && state.sceneOrientation !== state.orientation;
-  const disabled = gameover || orientationChangeNeeded;
-  scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
 
-  loaderElement.disabled = disabled;                               // paused/disabled
+  const gameover = (state.status === 'gameover');
+  const playing = (state.status === '' && !orientationChangeNeeded);
+
+  // Configure whether the overlay is hidden.
+  scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
+  scoreOverlayElement.isPaused = (!gameover && state.sceneHasPause);
+  scoreOverlayElement.shareUrl = state.shareUrl;
+
+  loaderElement.disabled = !playing;                               // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
@@ -164,11 +183,6 @@ global.subscribe((state) => {
   if (!state.control) {
     chromeElement.action = null;
     return false;
-  }
-
-  if (state.status === 'restart') {
-    state.status = '';  // nb. modifies state as side effect
-    state.control.send({type: 'restart'});
   }
 
   let pause = false;
@@ -317,8 +331,17 @@ async function runner(control, route) {
         continue;
 
       case 'gameover':
+        console.info('got gameover call');
+        if (payload.share) {
+          const shareUrl = window.location.pathname + window.location.search;
+          global.setState({shareUrl})
+        }
+
         // TODO: log score?
-        global.setState({status: 'gameover'});
+
+        global.setState({
+          status: 'gameover',
+        });
         const {score} = global.getState();
 
         ga('send', 'event', 'game', 'end', route);
@@ -358,6 +381,7 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
   const sc = await kplayReady;
   sc.transitionTo([], 0.2);
 
+  // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
   chromeElement.navOpen = false;
 
@@ -405,8 +429,11 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     // The interlude is fully visible, so we can purge the old scene (although this is optional as
     // `santa-gameloader` will always do this for us _anyway_).
     loaderElement.purge();
+
+    // Write some more global state that's nice to clear mid-interlude.
     global.setState({
       sceneOrientation: null,
+      shareUrl: null,
     });
 
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so

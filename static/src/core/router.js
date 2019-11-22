@@ -144,6 +144,11 @@ export function configureProdRouter(callback) {
     },
   };
 
+  // Add global 'go' event listener.
+  window.addEventListener('go', (ev) => {
+    window.santaApp.go(ev.detail || '');
+  });
+
   return {
     scope: load.scope,
     go: santaApp.go,

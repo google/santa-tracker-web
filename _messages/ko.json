@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "12월"
 	},
+	"decmonth_long": {
+		"message": "12월"
+	},
 	"detected": {
 		"message": "감지된 언어"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "산타마을 살펴보기"
+	},
+	"familyguide_card_11_body": {
+		"message": "머리에서부터 발끝까지 나만의 엘프를 만들고 북극의 연말 파티 분위기에 맞게 꾸며 보세요."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "올바른 인터넷 사용"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 앱"
 	},
 	"fi_country_name": {
 		"message": "핀란드"

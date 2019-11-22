@@ -45,8 +45,6 @@ class Writer {
       throw new Error(`Already written: ${name}`);
     }
 
-    let localResolve;
-
     const target = path.join(this._target, name);
     const dir = path.dirname(target);
 

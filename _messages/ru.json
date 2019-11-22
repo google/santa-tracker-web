@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Дек."
 	},
+	"decmonth_long": {
+		"message": "Декабрь"
+	},
 	"detected": {
 		"message": "распознан"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Посетить деревню Санта-Клауса"
+	},
+	"familyguide_card_11_body": {
+		"message": "Придумайте своего стильного эльфа для вечеринок на Северном полюсе."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Как вести себя в Интернете"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Приложение для Android"
 	},
 	"fi_country_name": {
 		"message": "Финляндия"

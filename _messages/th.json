@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "ธ.ค."
 	},
+	"decmonth_long": {
+		"message": "ธันวาคม"
+	},
 	"detected": {
 		"message": "ตรวจพบ"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "สำรวจหมู่บ้านซานต้า"
+	},
+	"familyguide_card_11_body": {
+		"message": "สร้างเอลฟ์ของตนเองตั้งแต่หัวจรดเท้าเพื่อให้ดูมหัศจรรย์เหมาะกับงานเทศกาลรื่นเริงที่ขั้วโลกเหนือ"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "เป็นคนที่เจ๋งสุดในอินเทอร์เน็ต"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "แอป Android"
 	},
 	"fi_country_name": {
 		"message": "ฟินแลนด์"

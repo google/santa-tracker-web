@@ -113,7 +113,13 @@ if (nativeSupport) {
       const call = rectifyAdoptedStyleSheets.bind(this, node);
 
       const o = new MutationObserver(call);
-      o.observe(this, {childList: true});
+
+      if (this instanceof DocumentFragment) {
+        console.warn('Shadow DOM polyfill + adoptedStyleSheets polyfill, no MutationObserver');
+      } else {
+        o.observe(this, {childList: true});
+      }
+
       call();
     }
   };

@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Δεκ."
 	},
+	"decmonth_long": {
+		"message": "Δεκεμβρίου"
+	},
 	"detected": {
 		"message": "εντοπίστηκε"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Εξερευνήστε το χωριό του Άη Βασίλη"
+	},
+	"familyguide_card_11_body": {
+		"message": "Δημιουργήστε το δικό σας ξωτικό από την κορυφή έως τα νύχια και βεβαιωθείτε ότι έχει τη χαρακτηριστική όψη του ξωτικού για τα πολλά εορταστικά βράδια στον Βόρειο Πόλο."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Γίνετε εξπέρ στο διαδίκτυο"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Εφαρμογή Android"
 	},
 	"fi_country_name": {
 		"message": "Φινλανδία"
