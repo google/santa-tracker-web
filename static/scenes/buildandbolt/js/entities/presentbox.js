@@ -52,7 +52,10 @@ app.PresentBox = class PresentBox extends app.Entity {
     }
 
     // if player is in the border, he is blocked
-    if (Utils.isInBorder(this.config, player.position)) {
+    this.blockingPosition = Utils.isInBorder(this.config, player.position, player.prevPosition)
+
+    // if player is in the border, he is blocked
+    if (this.blockingPosition) {
       actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
     }
 
