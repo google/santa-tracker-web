@@ -110,8 +110,8 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  getSurroundingEntities(entity) {
-    const { x, y } = entity.position
+  getSurroundingEntities(player) {
+    const { x, y } = player.position
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
 
@@ -127,18 +127,21 @@ app.Board = class Board {
           const cell = this.cells[i][j]
           if (cell === playerCell) {
             // if in same cell as player
-            // get only entities that trigger an action on the player cell
-            const entities = cell.filter(item => item !== entity && item.config.triggerAction === 'on-cell')
             for (let k = 0; k < entities.length; k++) {
-              surroundingEntities.push(entities[k])
+              const entity = entities[k]
+              // get only entities that trigger an action on the player cell
+              if (entity.config.triggerAction === 'on-cell' && entity !== player) {
+                surroundingEntities.push(entities[k])
+              }
             }
           } else {
             // if around player cell
-            // get only entities that trigger an action around the player cell
-            // There can't be 2 blocking entities on the same cell so we can assume to take the first item of the array --> [0]
-            const entity = cell.filter(item => item.config.triggerAction === 'on-border')[0]
-            if (entity) {
-              surroundingEntities.push(entity)
+            for (let k = 0; k < entities.length; k++) {
+              const entity = entities[k]
+              // get only entities that trigger an action around the player cell
+              if (entity.config.triggerAction === 'on-border') {
+                surroundingEntities.push(entities[k])
+              }
             }
           }
         }
