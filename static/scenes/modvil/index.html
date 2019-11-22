@@ -194,7 +194,7 @@ function handleAnimationAudio(anim, scene) {
 function checkAndPlaySound(id, scene, time) {
   if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
       let sounds = animationSoundTriggers[scene][id];
-      //console.log(time);
+
       for (let i = 0; i < sounds.length; i++) {
         if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
           api.play(sounds[i].sound, time);
