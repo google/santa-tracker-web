@@ -227,6 +227,5 @@ app.Player = class Player {
     }
 
     this.onIce = false
-    this.platform = null
   }
 }
