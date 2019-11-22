@@ -119,15 +119,30 @@ app.Player = class Player {
 
     const surroundingEntities = this.game.board.getSurroundingEntities(this)
 
-    const resultingActions = {}
+    const entitiesInAction = []
 
     if (surroundingEntities.length) {
       for (const entity of surroundingEntities) {
-        this.checkActions(entity, resultingActions)
+        this.checkActions(entity, entitiesInAction)
       }
     }
 
-    this.processActions(resultingActions)
+    this.processActions(entitiesInAction)
+
+    // block player
+    if (this.blockPlayer) {
+      this.position.x = this.blockingPosition.x
+      this.position.y = this.blockingPosition.y
+      this.velocity.x = 0
+      this.velocity.y = 0
+    } else {
+      // move player
+      this.game.board.updateEntityPosition(this,
+            this.prevPosition.x, this.prevPosition.y,
+            this.position.x, this.position.y)
+    }
+
+
 
     this.render()
   }
@@ -136,62 +151,70 @@ app.Player = class Player {
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
-  checkActions(entity, resultingActions) {
+  checkActions(entity, entitiesInAction) {
     const actions = entity.onContact(this)
+    entity.actions = {}
     for (const action of actions) {
-      resultingActions[action] = entity
+      entity.actions[action] = true
     }
+    entitiesInAction.push(entity)
   }
 
   /**
    * Processes all actions that resulted from contact with another entity on the board.
    * Updates position and state of player based on these actions.
    */
-  processActions(resultingActions) {
-    if (resultingActions[Constants.PLAYER_ACTIONS.RESTART]) {
-      this.restart()
-      return // ignore all other actions
+  processActions(entitiesInAction) {
+    this.blockPlayer = false
+    this.blockingPosition = {
+      x: this.position.x,
+      y: this.position.y,
     }
 
-    // block player
-    if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK] &&
-      resultingActions[Constants.PLAYER_ACTIONS.BLOCK].blockingPosition) {
-      const { blockingPosition } = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
-      this.position.x = blockingPosition.x
-      this.position.y = blockingPosition.y
-      this.velocity.x = 0
-      this.velocity.y = 0
-    } else {
-      this.game.board.updateEntityPosition(this,
-          this.prevPosition.x, this.prevPosition.y,
-          this.position.x, this.position.y)
-    }
-
-    // pick up a toy part
-    const toyEntity = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
-    if (toyEntity) {
-      this.addToyPart(toyEntity.config.partType)
-    }
-
-    // drop off toy
-    if (resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]) {
-      this.clearToyParts()
-
-      // temporary
-      this.game.registerToyCompletion(this)
-    }
-
-    const platform = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
-    if (platform) {
-      this.platform = platform
-      this.platformOffset = {
-        x: this.position.x - platform.position.x,
-        y: this.position.y - platform.position.y
+    for (let i = 0; i < entitiesInAction.length; i++) {
+      const entity = entitiesInAction[i]
+      if (entity.actions[Constants.PLAYER_ACTIONS.RESTART]) {
+        this.restart()
+        return // ignore all other actions
       }
-    }
 
-    if (resultingActions[Constants.PLAYER_ACTIONS.ICE]) {
-      this.onIce = true
+      // block player
+      if (entity.actions[Constants.PLAYER_ACTIONS.BLOCK] && entity.blockingPosition) {
+        this.blockPlayer = true
+        if (entity.blockingPosition.x !== this.position.x) {
+          this.blockingPosition.x = entity.blockingPosition.x
+        }
+        if (entity.blockingPosition.y !== this.position.y) {
+          this.blockingPosition.y = entity.blockingPosition.y
+        }
+      }
+
+      // pick up a toy part
+      const toyEntity = entity.actions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
+      if (toyEntity) {
+        this.addToyPart(entity.config.partType)
+      }
+
+      // drop off toy
+      if (entity.actions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]) {
+        this.clearToyParts()
+
+        // temporary
+        this.game.registerToyCompletion(this)
+      }
+
+      const platform = entity.actions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
+      if (platform) {
+        this.platform = entity
+        this.platformOffset = {
+          x: this.position.x - this.platform.position.x,
+          y: this.position.y - this.platform.position.y
+        }
+      }
+
+      if (entity.actions[Constants.PLAYER_ACTIONS.ICE]) {
+        this.onIce = true
+      }
     }
   }
 

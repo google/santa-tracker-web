@@ -64,7 +64,7 @@ Levels = [
         config: {
           height: 5,
           width: 2,
-          x: 10,
+          x: 13,
           y: 1,
         }
       },
