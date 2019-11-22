@@ -22,6 +22,7 @@ app.Table = class Table extends app.Entity {
     config.height = Constants.TABLE_HEIGHT
 
     super.onInit(config)
+    this.config.triggerAction = 'on-border'
   }
 
   render() {
@@ -29,11 +30,26 @@ app.Table = class Table extends app.Entity {
   }
 
   onContact(player) {
-    if (this.gameControls.isKeyControlActive(player.controls.action)) {
-     return [Constants.PLAYER_ACTIONS.ADD_TOY_PART, Constants.PLAYER_ACTIONS.BLOCK]
-    } else {
-      return [Constants.PLAYER_ACTIONS.BLOCK]
+    let actions = []
+
+    // if player is close to border, it can do an action
+    if (Utils.isTouchingBorder(this.config, player.position)) {
+      if (this.gameControls.isKeyControlActive(player.controls.action)) {
+        actions = [Constants.PLAYER_ACTIONS.ADD_TOY_PART]
+      }
+      if (Constants.DEBUG) {
+        this.elem.style.opacity = 0.5
+      }
+    } else if (Constants.DEBUG) {
+      this.elem.style.opacity = 1
     }
+
+    // if player is in the border, he is blocked
+    if (Utils.isInBorder(this.config, player.position)) {
+      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+    }
+
+    return actions
   }
 }
 

@@ -8,7 +8,9 @@ app.Entity = class Entity {
 
   // for app.shared.pools
   onInit(config) {
-    this.config = config
+    // all entities trigger action on cell by default
+    this.config = { ...config, triggerAction: 'on-cell' }
+
     this.elem.classList.remove('hidden')
     this.render()
     this.game.board.addEntityToBoard(this,

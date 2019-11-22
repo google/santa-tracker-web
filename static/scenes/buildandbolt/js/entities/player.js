@@ -23,23 +23,7 @@ app.Player = class Player {
 
     this.platform = null
 
-    this.position = {
-      x: this.config.startPos.x,
-      y: this.config.startPos.y,
-      angle: 0
-    }
-
-    this.velocity = {
-      x: 0,
-      y: 0
-    }
-
-    this.acceleration = {
-      x: 0,
-      y: 0
-    }
-
-    this.onIce = false
+    this.resetPosition()
 
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
@@ -53,24 +37,8 @@ app.Player = class Player {
 
     window.setTimeout(() => {
       this.dead = false
-      this.position = {
-        x: this.config.startPos.x,
-        y: this.config.startPos.y,
-        angle: 0
-      }
 
-      this.velocity = {
-        x: 0,
-        y: 0
-      }
-
-      this.acceleration = {
-        x: 0,
-        y: 0
-      }
-
-      this.onIce = false
-      this.platform = null
+      this.resetPosition()
 
       this.clearToyParts()
 
@@ -149,16 +117,13 @@ app.Player = class Player {
       }
     }
 
-    const colocatedEntities = this.game.board.getEntitiesAtPosition(this.position.x, this.position.y)
+    const surroundingEntities = this.game.board.getSurroundingEntities(this)
+
     const resultingActions = {}
-    if (colocatedEntities.length) {
-      for (const entity of colocatedEntities) {
-        if (entity != this) {
-          const actions = entity.onContact(this)
-          for (const action of actions) {
-            resultingActions[action] = entity
-          }
-        }
+
+    if (surroundingEntities.length) {
+      for (const entity of surroundingEntities) {
+        this.checkActions(entity, resultingActions)
       }
     }
 
@@ -169,6 +134,13 @@ app.Player = class Player {
 
   render() {
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+  }
+
+  checkActions(entity, resultingActions) {
+    const actions = entity.onContact(this)
+    for (const action of actions) {
+      resultingActions[action] = entity
+    }
   }
 
   /**
@@ -183,6 +155,8 @@ app.Player = class Player {
 
     if (resultingActions[Constants.PLAYER_ACTIONS.BLOCK]) {
       this.position = this.prevPosition
+      this.velocity.x = 0
+      this.velocity.y = 0
     } else {
       this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
@@ -238,5 +212,20 @@ app.Player = class Player {
 
   registerWin() {
     this.score++
+  }
+
+  resetPosition() {
+    this.position = {
+      x: this.config.startPos.x,
+      y: this.config.startPos.y,
+      angle: 0
+    }
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.onIce = false
   }
 }

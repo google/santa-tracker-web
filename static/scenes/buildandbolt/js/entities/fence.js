@@ -19,6 +19,8 @@ app.Fence = class Fence extends app.Entity {
     const classes = `fence${config.sides.left ? ' fence--left' : ''}${config.sides.right ? ' fence--right' : ''}${config.sides.top ? ' fence--top' : ''}${config.sides.bottom ? ' fence--bottom' : ''}`
     this.elem.setAttribute('class', classes)
     super.onInit(config)
+
+    this.config.triggerAction = 'on-border'
   }
 
   render() {
