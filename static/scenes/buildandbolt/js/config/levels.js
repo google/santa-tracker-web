@@ -1,5 +1,13 @@
 goog.provide('Levels')
 
+
+/**
+ * Some limitations for each type of entity:
+ *
+ * PITS
+ * Minimum dimensions -  3 x 3
+ */
+
 Levels = [
   {
     players: [
