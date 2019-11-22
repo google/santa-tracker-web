@@ -36,6 +36,21 @@ class SantaInterludeElement extends HTMLElement {
     this._loadingElement = Object.assign(document.createElement('div'), {className: 'progress'});
     lastLayer.append(this._loadingElement);
 
+    this._playingTransitionSound = false;
+    this._hostElement.addEventListener('transitionstart', (ev) => {
+      if (!this.active) {
+        if (!this._playingTransitionSound) {
+          this._playingTransitionSound = true;
+          this.dispatchEvent(new CustomEvent('transition_out'));
+        }
+        
+        if (ev.target === this._hostElement.firstElementChild) {
+          this._playingTransitionSound = false;
+        }
+
+
+      }
+    });
     this._hostElement.addEventListener('transitionend', (ev) => {
       if (this.active) {
         if (ev.target === lastLayer) {
@@ -75,6 +90,7 @@ class SantaInterludeElement extends HTMLElement {
     this._anyVisible = true;
     if (this._interludeAnimation) {
       this._interludeAnimation.play();
+      this.dispatchEvent(new CustomEvent('transition_in'));
     }
   }
 

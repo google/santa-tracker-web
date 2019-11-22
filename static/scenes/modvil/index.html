@@ -18,13 +18,14 @@ import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
+import {animationSoundTriggers} from './animationSoundTriggers.js'
 import {_msg} from '../../src/magic.js';
 
 console.info(_msg`santatracker`);
 
 
 api.preload.sounds('village_load_sounds');
-api.preload.sounds('elfmaker_load_sounds');  // TODO: for generic_button_click
+api.preload.sounds('generic_load_sounds');
 api.config({
   scroll: true,
   sound: ['music_start_village', 'village_start'],
@@ -87,11 +88,13 @@ function ratioForModule(el) {
   } else if (ratio >= 1.0) {
     return 1.0;
   }
-
   // This creates more of a cubic-bezier style transform (although it's quite subtle).
   return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
 }
-
+function updateSound(el, ratio) {
+  let name = el.id.indexOf('module') > -1 ?  el.id.split('module--')[1] : el.id;
+  api.play('village_scroll', name, ratio);
+}
 function moduleIsVisible(el) {
   const se = document.scrollingElement;
   const top = se.scrollTop;
@@ -134,6 +137,8 @@ async function prepareModules() {
       const anim = loadAnimation(`${base}.json`, options);
       anim.renderer.svgElement.style.zIndex = zIndex;
 
+      handleAnimationAudio(anim, id);
+
       // TODO: preload
       return anim;
     }).filter(Boolean);
@@ -141,10 +146,16 @@ async function prepareModules() {
     scrollables.set(container, animations);
   }
 
+  scrollables.set(document.getElementById('top'), []);
+
   helpers.installAdjustHandler(() => {
     scrollables.forEach((animations, container) => {
       const visible = moduleIsVisible(container);
+      
       const ratio = visible ? ratioForModule(container) : -1.0;
+
+      //send scroll ratio to kplay to update volume of scene audio
+      updateSound(container, visible ? ratio : 0)
 
       animations.forEach((anim) => {
         if (anim.loop) {
@@ -162,12 +173,36 @@ async function prepareModules() {
         // Otherwise, this is a scroll target.
         const frames = anim.getDuration(true);
         const frame = Math.min(frames, Math.max(0.0, frames * ratio));
+        
         anim.goToAndStop(frame, true);
+
+        //play sound on specific frames
+        let scene = anim.path.split('img/modules/')[1].slice(0, -1);
+        let id = anim.fileName;
+        checkAndPlaySound(id, scene, frame);
       });
     });
   });
 }
 
+function handleAnimationAudio(anim, scene) {
+  anim.onEnterFrame = (e)=> {
+    let id = anim.fileName;
+    checkAndPlaySound(id, scene, e.currentTime);
+  }
+}
+function checkAndPlaySound(id, scene, time) {
+  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
+      let sounds = animationSoundTriggers[scene][id];
+
+      for (let i = 0; i < sounds.length; i++) {
+        if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
+          api.play(sounds[i].sound, time);
+          sounds[i].played = performance.now();
+        }
+      }
+    }
+}
 api.preload.wait(prepareModules());
 
 const playButton = document.getElementById('play');
@@ -178,6 +213,9 @@ playButton.addEventListener('click', (ev) => {
 });
 playButton.addEventListener('mousedown', () => {
   api.play('generic_button_click');
+});
+playButton.addEventListener('mouseenter', () => {
+  api.play('generic_button_over');
 });
 playButton.addEventListener('touchdown', () => {
   api.play('generic_button_click');

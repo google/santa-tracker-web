@@ -69,8 +69,23 @@ window.addEventListener('loader-route', (ev) => {
 const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
-
 const kplayReady = kplay.prepare();
+
+chromeElement.addEventListener('nav-open', (ev) => {
+  sidebar.hidden = false;
+  kplayReady.then((sc) => {
+    sc.play('nav_open');
+  });
+});
+
+chromeElement.addEventListener('nav-close', (ev) => {
+  sidebar.hidden = true;
+  kplayReady.then((sc) => {
+    sc.play('nav_close');
+  });
+});
+
+
 kplayReady.then((sc) => {
   let muted = false;
 
@@ -101,6 +116,14 @@ kplayReady.then((sc) => {
   } else {
     global.setState({audioSuspended: false});
   }
+
+  interludeElement.addEventListener('transition_in', () => {
+    sc.play('menu_transition_game_in');
+  });
+  interludeElement.addEventListener('transition_out', () => {
+    sc.play('menu_transition_game_out');
+  });
+  
 });
 
 
@@ -349,10 +372,15 @@ async function runner(control, route) {
 }
 
 
-loaderElement.addEventListener(gameloader.events.load, (ev) => {
+loaderElement.addEventListener(gameloader.events.load, async (ev) => {
   // Load process is started. This is triggered every time a new call to .load() is made, even if
   // the previous load isn't finished yet. It's suitable for resetting global UI, although there
   // won't be information about the next scene yet.
+
+  // fade out previous scene audio here
+  const sc = await kplayReady;
+  sc.transitionTo([], 0.2);
+
   // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
   chromeElement.navOpen = false;
@@ -389,6 +417,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     const configPromise = prepare(control, data);
     document.body.classList.add('loading');  // show dots after a time
     await interludeElement.show();
+
     if (!control.isAttached) {
       return false;  // replaced during interlude
     }
