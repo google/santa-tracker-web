@@ -71,8 +71,8 @@ Levels = [
       {
         type: 'fence',
         config: {
-          x: 25,
-          y: 14,
+          x: 20,
+          y: 2,
           cells: [
             // first line
             [{
@@ -102,7 +102,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 15,
+          x: 12,
           y: 1,
           partType: 'car-body'
         }

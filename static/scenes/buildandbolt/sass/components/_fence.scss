@@ -3,20 +3,22 @@
     height: $grid-unit-size;
     width: $grid-unit-size;
 
+    // background: url(img/fence_side_bottom.svg) center/contain no-repeat;
+
     &--left {
-      border-left: $fence-border;
+      border-left: $fence-border !important;
     }
 
     &--right {
-      border-right: $fence-border;
+      border-right: $fence-border !important;
     }
 
     &--top {
-      border-top: $fence-border;
+      border-top: $fence-border !important;
     }
 
     &--bottom {
-      border-bottom: $fence-border;
+      border-bottom: $fence-border !important;
     }
   }
 }

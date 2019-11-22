@@ -16,7 +16,31 @@ app.Fence = class Fence extends app.Entity {
   }
 
   onInit(config) {
-    const classes = `fence${config.sides.left ? ' fence--left' : ''}${config.sides.right ? ' fence--right' : ''}${config.sides.top ? ' fence--top' : ''}${config.sides.bottom ? ' fence--bottom' : ''}`
+    console.log(config)
+    const {x, y, offset, top, right, bottom, left } = config
+    this.position = {
+      x: x + offset.x,
+      y: y + offset.y,
+    }
+
+    let classes = 'fence'
+
+    if (top) {
+      classes += ' fence--top'
+    }
+
+    if (right) {
+      classes += ' fence--right'
+    }
+
+    if (bottom) {
+      classes += ' fence--bottom'
+    }
+
+    if (left) {
+      classes += ' fence--left'
+    }
+
     this.elem.setAttribute('class', classes)
     super.onInit(config)
 
@@ -24,18 +48,21 @@ app.Fence = class Fence extends app.Entity {
   }
 
   render() {
-    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
   onContact(player) {
-    if (this.config.sides.top) {
-      if (player.prevPosition.y <= this.config.y &&
-          player.position.y >= this.config.y) {
-        return [Constants.PLAYER_ACTIONS.BLOCK]
-      }
+    let actions = []
+
+    // if player is in the border, he is blocked
+    this.blockingPosition = Utils.isInFence(this, player.position, player.prevPosition)
+
+    // if player is in the border, he is blocked
+    if (this.blockingPosition) {
+      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
     }
 
-    return []
+    return actions
   }
 }
 
