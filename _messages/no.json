@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Des"
 	},
+	"decmonth_long": {
+		"message": "desember"
+	},
 	"detected": {
 		"message": "registrert"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Gjør deg kjent i julenissens landsby"
+	},
+	"familyguide_card_11_body": {
+		"message": "Bygg din egen alv fra topp til tå, og sørg for at den ser alvsindig bra ut, så den er klar for de mange juleselskapene på Nordpolen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-app"
 	},
 	"fi_country_name": {
 		"message": "Finland"

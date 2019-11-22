@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dez."
 	},
+	"decmonth_long": {
+		"message": "Dezember"
+	},
 	"detected": {
 		"message": "erkannt"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Dorf des Weihnachtsmanns erkunden"
+	},
+	"familyguide_card_11_body": {
+		"message": "Du kannst deinen eigenen Wichtel mit dem perfekten wichteligen Look für die Weihnachtspartys am Nordpol entwerfen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Sicher durchs Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-App"
 	},
 	"fi_country_name": {
 		"message": "Finnland"

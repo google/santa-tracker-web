@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "joulu"
 	},
+	"decmonth_long": {
+		"message": "Joulukuun"
+	},
 	"detected": {
 		"message": "tunnistettu"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Tutustu Joulupukin kylään"
+	},
+	"familyguide_card_11_body": {
+		"message": "Tee päästä varpaisiin oma tonttu, joka on tonttumaisen tyylikkäänä valmis kaikkiin Korvatunturin jouluiltamiin."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-sovellus"
 	},
 	"fi_country_name": {
 		"message": "Suomi"

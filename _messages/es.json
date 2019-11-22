@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dic"
 	},
+	"decmonth_long": {
+		"message": "Diciembre"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explorar aldea de Papá Noel"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea tu propio elfo de pies a cabeza y déjalo hecho un pincel para las veladas navideñas que se celebran en el Polo Norte."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Academia de internautas ejemplares"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicación para Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"

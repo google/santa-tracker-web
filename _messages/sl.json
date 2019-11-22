@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "dec."
 	},
+	"decmonth_long": {
+		"message": "december"
+	},
 	"detected": {
 		"message": "zaznano"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Razišči Božičkovo vas"
+	},
+	"familyguide_card_11_body": {
+		"message": "Ustvarite povsem svojega palčka in poskrbite za njegov palčkastičen videz na vseh prazničnih dogodkih, ki se bodo odvijali na Severnem tečaju."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Zažigaj v spletu"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikacija za Android"
 	},
 	"fi_country_name": {
 		"message": "Finska"

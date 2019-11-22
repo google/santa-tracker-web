@@ -554,6 +554,9 @@
 	"decmonth": {
 		"message": "Dic."
 	},
+	"decmonth_long": {
+		"message": "Diciembre"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -649,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explorar la aldea de Santa"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea tu propio duende, de pies a cabeza, y asegúrate de que se vea fantástico para que asista a las veladas navideñas en el Polo Norte."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Sé genial en Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App para Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
