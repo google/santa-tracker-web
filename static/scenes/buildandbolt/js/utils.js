@@ -55,10 +55,9 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 
 Utils.isTouchingBorder = function(entity, playerPosition) {
   const offset = 0.1
-  const x = playerPosition.x
 
-  if (entity.x + entity.width > x - offset &&
-    entity.x - 1 < x + offset &&
+  if (entity.x + entity.width > playerPosition.x - offset &&
+    entity.x - 1 < playerPosition.x + offset &&
     entity.y + entity.height > playerPosition.y - offset &&
     entity.y - 1 < playerPosition.y + offset) {
     return true
