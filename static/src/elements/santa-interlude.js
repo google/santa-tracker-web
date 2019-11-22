@@ -36,16 +36,16 @@ class SantaInterludeElement extends HTMLElement {
     this._loadingElement = Object.assign(document.createElement('div'), {className: 'progress'});
     lastLayer.append(this._loadingElement);
 
-    this.playingTransitionSound = false;
-    this._hostElement.addEventListener('transitionstart', async (ev) => {
+    this._playingTransitionSound = false;
+    this._hostElement.addEventListener('transitionstart', (ev) => {
       if (!this.active) {
-        if (!this.playingTransitionSound) {
-          this.playingTransitionSound = true;
+        if (!this._playingTransitionSound) {
+          this._playingTransitionSound = true;
           this.dispatchEvent(new CustomEvent('transition_out'));
         }
         
         if (ev.target === this._hostElement.firstElementChild) {
-          this.playingTransitionSound = false;
+          this._playingTransitionSound = false;
         }
 
 
