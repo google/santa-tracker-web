@@ -2,12 +2,16 @@
  * @fileoverview Polyfills required for legacy browsers.
  */
 
-// nb. webcomponents-loader polyfills:
+// nb. webcomponents-loader seemingly polyfills (but in practice does not):
 //   * Array.from
 //   * Object.assign
 //   * Promise
 //   * Symbol
 
+import 'core-js/modules/es.object.assign';
+import 'core-js/modules/es.promise';
+import 'core-js/modules/es.symbol';
+import 'core-js/modules/es.array.from';
 import 'core-js/modules/es.array.includes';
 import 'core-js/modules/es.string.starts-with';
 import 'core-js/modules/es.string.ends-with';

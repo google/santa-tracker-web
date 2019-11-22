@@ -20,34 +20,31 @@ export function script(src, type=null) {
 }
 
 /**
- * Loads a number of passed scripts, without Promise.
+ * Loads a number of passed scripts, without Promise. These unfortunately load in-order.
  *
  * @param {!Array<string>} scripts to load
  * @param {function(): void} callback to call when done
  */
 export function supportScripts(scripts, callback) {
-  let count = 0;
-  const done = () => {
-    if (++count >= scripts.length) {
+  const next = () => {
+    const src = scripts.shift();
+    if (src === undefined) {
       callback();
+      return;
     }
-  };
 
-  scripts.forEach((src) => {
     const script = document.createElement('script');
     script.src = src;
 
-    script.onload = done;
+    script.onload = next;
     script.onerror = () => {
-      console.warn(`cannot load ${src}`);
-      done();
+      console.warn('cannot load', src);
+      next();
     };
     document.head.appendChild(script);
-  });
+  };
 
-  if (!scripts.length) {
-    callback();
-  }
+  next();
 }
 
 /**
