@@ -110,43 +110,41 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  getEntitiesAroundPosition(entity) {
+  getSurroundingEntities(entity) {
     const { x, y } = entity.position
     const roundedX = Math.round(x)
     const roundedY = Math.round(y)
 
     const playerCell = this.cells[roundedX][roundedY]
 
-    // colocated entities
-    // extract only the entities that trigger an action on the player cell
-    const colocatedEntities = playerCell.filter(item => item !== entity && item.config.triggerAction === 'on-cell')
-
     // surrounding cells
-    const surroundingCells = []
+    const surroundingEntities = []
 
     for (let i = roundedX - 1; i <= roundedX + 1; i++) {
       for (let j = roundedY - 1; j <= roundedY + 1; j++) {
-        if (this.cells[i] && this.cells[i][j] && this.cells[i][j] !== playerCell) {
-          surroundingCells.push(this.cells[i][j])
+        // get available cells only
+        if (this.cells[i] && this.cells[i][j]) {
+          const cell = this.cells[i][j]
+          if (cell === playerCell) {
+            // if in same cell as player
+            // get only entities that trigger an action on the player cell
+            const entities = cell.filter(item => item !== entity && item.config.triggerAction === 'on-cell')
+            for (let k = 0; k < entities.length; k++) {
+              surroundingEntities.push(entities[k])
+            }
+          } else {
+            // if around player cell
+            // get only entities that trigger an action around the player cell
+            // There can't be 2 blocking entities on the same cell so we can assume to take the first item of the array --> [0]
+            const entity = cell.filter(item => item.config.triggerAction === 'on-border')[0]
+            if (entity) {
+              surroundingEntities.push(entity)
+            }
+          }
         }
       }
     }
 
-    // surrounding entities
-    const surroundingEntities = []
-
-    for (let i = 0; i < surroundingCells.length; i++) {
-      // extract only the entities that trigger an action around the player cell
-      // There can't be 2 blocking entities on the same cell so we can assume to take the first item of the array --> [0]
-      const surroundingEntity = surroundingCells[i].filter(item => item.config.triggerAction === 'on-border')[0]
-      if (surroundingEntity) {
-        surroundingEntities.push(surroundingEntity)
-      }
-    }
-
-    return {
-      colocatedEntities,
-      surroundingEntities,
-    }
+    return surroundingEntities
   }
 }

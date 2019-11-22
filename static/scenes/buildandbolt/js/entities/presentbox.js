@@ -30,7 +30,6 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   onContact(player) {
-
     // // if player is close to border, it can take a toy
     // if (Utils.isTouchingBorder(this.config, player.position)) {
     //   if (this.gameControls.isKeyControlActive(player.controls.action)) {

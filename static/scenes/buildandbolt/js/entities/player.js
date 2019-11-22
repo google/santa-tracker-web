@@ -117,15 +117,10 @@ app.Player = class Player {
       }
     }
 
-    const { colocatedEntities, surroundingEntities } = this.game.board.getEntitiesAroundPosition(this)
+    const surroundingEntities = this.game.board.getSurroundingEntities(this)
 
     const resultingActions = {}
-
-    if (colocatedEntities.length) {
-      for (const entity of colocatedEntities) {
-        this.checkActions(entity, resultingActions)
-      }
-    }
+    console.log(surroundingEntities)
 
     if (surroundingEntities.length) {
       for (const entity of surroundingEntities) {
