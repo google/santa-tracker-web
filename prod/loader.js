@@ -21,13 +21,13 @@ console.info('Santa Tracker', config.version, documentLang, fallback ? '(fallbac
 let loaded = false;
 window.onerror = (msg, file, line, col, error) => {
   console.error('error (loaded=' + loaded + ')', msg, file, line, col, error);
-  if (isProd && !loaded) {
+  if (location.hostname === 'santatracker.google.com' && !loaded) {
     window.location.href = 'error.html';
   }
 };
 window.onunhandledrejection = (event) => {
-  if (isProd && !loaded) {
-    console.warn('rejection (loaded=' + loaded + ')', event.reason);
+  console.warn('rejection (loaded=' + loaded + ')', event.reason);
+  if (location.hostname === 'santatracker.google.com' && !loaded) {
     window.location.href = 'error.html';
   }
 };
