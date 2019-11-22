@@ -32,7 +32,7 @@ app.Table = class Table extends app.Entity {
   onContact(player) {
     let actions = []
 
-    // if player is close to border, it can take a toy
+    // if player is close to border, it can do an action
     if (Utils.isTouchingBorder(this.config, player.position)) {
       if (this.gameControls.isKeyControlActive(player.controls.action)) {
         actions = [Constants.PLAYER_ACTIONS.ADD_TOY_PART]

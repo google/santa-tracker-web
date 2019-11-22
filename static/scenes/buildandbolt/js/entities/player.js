@@ -120,7 +120,6 @@ app.Player = class Player {
     const surroundingEntities = this.game.board.getSurroundingEntities(this)
 
     const resultingActions = {}
-    console.log(surroundingEntities)
 
     if (surroundingEntities.length) {
       for (const entity of surroundingEntities) {
