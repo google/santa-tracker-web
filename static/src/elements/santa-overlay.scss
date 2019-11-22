@@ -32,13 +32,15 @@ svg.icon {
 main {
   display: flex;
   flex-flow: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 
   position: relative;
 
   transform: translate(0);
   transition: transform $duration cubic-bezier(0,1.52,.295,.86);
+
+  font-family: 'Google Sans', 'Arial', Sans-Serif;
 }
 
 :host([hidden]) {
@@ -67,35 +69,20 @@ nav {
   box-sizing: border-box;
   padding: 12px;
   position: relative;
+  min-width: 240px;
+
+  h4 {
+    color: #fff;
+    font-size: .6em;
+    line-height: 2em;
+    font-weight: 800;
+    margin: 0;
+    margin-top: -8px;
+    text-transform: uppercase;
+  }
 
   .url {
-    margin-top: -10px;
-    margin-left: 10px;
-    margin-right: -10px;
-    margin-bottom: 20px;
     position: relative;
-
-    &::after {
-      pointer-events: none;
-      content: 'file_copy';
-      position: absolute;
-      top: 0;
-      right: 2px;
-      line-height: 29px;
-      font-size: 24px;
-      font-family: 'Material Icons';
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'liga'
-    }
-
-    &.copy {
-      &::after {
-        content: 'done';
-      }
-    }
 
     input {
       cursor: copy;
@@ -103,26 +90,26 @@ nav {
       border: 0;
       border-radius: 4px;
       font: inherit;
-      font-size: 18px;
+      font-size: 12px;
       text-align: center;
       font-weight: 400;
       letter-spacing: -0.5px;
       padding: 4px;
-      padding-right: calc(4px + 3ch);
       box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.125);
       box-sizing: border-box;
+      margin-bottom: 8px;
     }
   }
 
   .buttons {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-right: 8px;
+    justify-content: center;
+    margin: 0 4px;
 
     santa-button {
       padding: 2px;
-      margin-left: 8px;
+      margin: 0 4px;
       width: 44px;
       height: 44px;
 
@@ -136,37 +123,33 @@ nav {
 
 .hero {
   flex-grow: 1;
-  &.gameover {
-    max-height: 285px;
-    width: 250px;
-    height: 300px;
-    background: _rel("../../img/overlay/gameover.png") bottom center / contain no-repeat;
+  min-height: 136px;
+  background: _rel("../../img/overlay/gameover.svg") bottom center / contain no-repeat;
+
+  @media (min-height: 500px) {
+    min-height: 218px;
+  }
+
+  &.share {
+    background-image: _rel("../../img/overlay/share.svg");
   }
   &.pause {
-    max-height: 343px;
-    background: _rel("../../img/overlay/pause.png") bottom center / contain no-repeat;
+    background-image: _rel("../../img/overlay/pause.svg");
   }
-}
 
-.score {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.16);
-  text-align: center;
-  color: white;
   h1 {
-    font-family: 'Lobster';
-    font-size: 12px;
-    line-height: 12px;
-    margin-top: -8px;
-    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    line-height: 42px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
     margin: 0;
+    text-shadow: 1px 2px 0 rgba(0,0,0,.13);
+    font-family: Lobster;
   }
-  h2 {
-    font-family: 'Google Sans', 'Arial', Sans-Serif;
-    color: #fff;
-    line-height: 64px;
-    font-size: 64px;
-    font-weight: 900;
-    margin: 0;
-    text-shadow: 2px 4px 0 rgba(0,0,0,0.34);
+
+  &:not(.gameover) h1 {
+    display: none;
   }
 }

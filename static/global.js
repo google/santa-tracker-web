@@ -16,6 +16,8 @@ const g = createStore({
   sceneHasPause: false,
 
   score: {},
+
+  shareUrl: null,
 });
 
 export default g;

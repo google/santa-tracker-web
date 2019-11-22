@@ -77,6 +77,7 @@ export class SantaChromeElement extends LitElement {
   <div class="hideable" ?disabled=${!this.hasScore}>
     <slot name="game"></slot>
   </div>
+  <div class="grow"></div>
   <santa-countdown .until=${countdownTo}></santa-countdown>
 </header>
     `;

@@ -16,17 +16,21 @@ iframe[tabindex="-1"] {
 }
 
 iframe {
-  transition: filter 0.125s;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.33s, transform 0.33s;
 }
 
 :host([disabled]) {
   iframe {
     pointer-events: none;
-    filter: blur(2px);
+    filter: grayscale(20%) blur(4px);
+    transform: scale(1.05);
+    transition-duration: 0.5s;
   }
 }
 
-iframe,
+.iframe-container,
 .slot-container {
   width: 100vw;
   height: 100vh;
@@ -35,7 +39,7 @@ iframe,
 }
 
 :host([tilt]) {
-  iframe,
+  .iframe-container,
   .slot-container {
     width: 100vh;
     height: 100vw;

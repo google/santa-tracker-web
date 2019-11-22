@@ -34,6 +34,7 @@ header {
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
+  pointer-events: none;
 
   padding-top: 20px;
   padding-left: 5%;

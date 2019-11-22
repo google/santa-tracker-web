@@ -90,7 +90,7 @@ share.addEventListener('click', (ev) => {
   // if there's a selfie image hovering, share that instead (which should always be true in embed)
   const recentImage = photo.recentImage;
   (recentImage || elf.draw()).then((result) => {
-    api.gameover({image: result});
+    api.gameover({share: true, image: result});
   });
   window.santaApp.fire('sound-trigger', 'generic_button_click');
 });
