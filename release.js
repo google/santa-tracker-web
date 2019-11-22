@@ -94,8 +94,9 @@ const assetsToCopy = [
 
   // Explicitly include Web Components loader and polyfill bundles, as they're injected at runtime
   // rather than being directly referenced by a `<script>`.
-  'static/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   'static/node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
+  'static/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
+  'static/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
 
   'prod/**',
   '!prod/**/*.html',

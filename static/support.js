@@ -20,3 +20,4 @@ import './src/polyfill/classlist--toggle.js';
 import './src/polyfill/element--closest.js';
 import './src/polyfill/node.js';
 
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js';
