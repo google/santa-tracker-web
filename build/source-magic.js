@@ -1,7 +1,6 @@
 const babel = require('@babel/core');
 const t = babel.types;
 const path = require('path');
-const traverse = require('@babel/traverse');
 const importUtils = require('./import-utils.js');
 
 /*
@@ -45,108 +44,7 @@ that we can 'follow' the helper around, e.g.:
   });
 */
 
-module.exports = (visitor) => {
-
-  return async (ast, id) => {
-    const importDeclarations = new Map();
-    const tagged = new Map();
-
-    /**
-     * Ensure that the given name exists inside the tagged map.
-     *
-     * @param {string}
-     * @return {!Array<*>}
-     */
-    const getTagged = (name) => {
-      const prev = tagged.get(name);
-      if (prev !== undefined) {
-        return prev;
-      }
-      const update = [];
-      tagged.set(name, update);
-      return update;
-    };
-
-    // Record all locations within the AST that can potentially be replaced.
-    traverse.default(ast, {
-      ImportDeclaration(nodePath) {
-        const {node} = nodePath;
-        if (!visitor.magicImport(node.source.value)) {
-          importDeclarations.set(nodePath, node.source.value);
-          return;  // just store for later
-        }
-
-        // ... walk and find all template tagged use of this import
-        nodePath.parentPath.traverse({
-          Identifier(nodePath) {
-            const name = nodePath.node.name;
-            const r = nodePath.referencesImport(node.source.value, name);
-            if (!r) {
-              return;
-            }
-
-            if (nodePath.parentPath.node.type !== 'TaggedTemplateExpression') {
-              throw new TypeError(`imports from magic can only be TaggedTemplateExpression: ${name} was ${nodePath.parentPath.node.type}`);
-            }
-
-            const taggedNodePath = nodePath.parentPath;
-            const taggedNode = taggedNodePath.node;
-            const {quasi} = taggedNode;
-
-            // Confirm that we look like "_foo`bar`" without ${}'s
-            const qnode = quasi.quasis[0];
-            if (quasi.quasis.length !== 1 || qnode.type !== 'TemplateElement') {
-              throw new TypeError(`got non-static magic import replacer`);
-            }
-            const key = qnode.value.raw;
-
-            // Just replace with something that we'll notice if we miss.
-            taggedNodePath.replaceWith(t.nullLiteral());
-
-            const all = getTagged(name);
-            all.push({key, nodePath: taggedNodePath});
-          },
-        });
-
-        // remove now unneeded magic import
-        nodePath.remove();
-      },
-    });
-
-    const dir = path.dirname(id);
-
-    return {
-      seen: new Set(tagged.keys()),
-      rewrite(lang) {
-        tagged.forEach((all, name) => {
-          all.forEach(({key, nodePath}) => {
-            const update = visitor.taggedTemplate(lang, name, key);
-            if (typeof update !== 'string') {
-              nodePath.replaceWith(t.nullLiteral());
-            } else {
-              nodePath.replaceWith(t.stringLiteral(update));
-            }
-          });
-        });
-
-        importDeclarations.forEach((value, nodePath) => {
-          const resolved = path.join(dir, value);
-          const update = visitor.rewriteImport(lang, resolved);
-          if (update) {
-            const rel = importUtils.relativize(path.relative(dir, update));
-            const sourcePath = nodePath.get('source');
-            sourcePath.replaceWith(t.stringLiteral(rel));
-          }
-        });
-
-        return ast;
-      },
-    };
-  };
-};
-
-
-module.exports.prepare = () => {
+module.exports = () => {
   const magicImportNodes = new Set();
   const importDeclarations = new Map();
   const tagged = {};
@@ -233,7 +131,9 @@ module.exports.prepare = () => {
       return name in tagged;
     },
 
-    visit(visitor) {
+    visit(id, visitor) {
+      const dir = path.dirname(id);
+
       for (const name in tagged) {
         const all = tagged[name];
         all.forEach((key, nodePath) => {

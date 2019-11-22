@@ -338,7 +338,7 @@ async function release() {
       throw new TypeError(`Already got output file: ${bundle.fileName}`);
     }
 
-    const magic = sourceMagic.prepare();
+    const magic = sourceMagic();
     const presets = [];
     const plugins = [magic.plugin];
 
@@ -429,19 +429,11 @@ async function release() {
     }
     b.allImports = Array.from(work);
 
-    const attrs = [];
-    b.entrypoint && attrs.push('entrypoint');
-    b.i18n && attrs.push('i18n');
-    b.transpile && attrs.push('transpile');
-
-    const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
-    log(`Rewriting bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
-
     const langKeys = b.i18n ? Object.keys(langs) : [null];
     workerTasks.push(...langKeys.map(async (lang) => {
       const langFileName = rewritePathForLang(fileName, lang);
 
-      b.visit(buildAstVisitor(lang));
+      b.visit(fileName, buildAstVisitor(lang));
 
       let {code} = generator.default(b.ast, {comments: false});
       if (b.transpile) {
@@ -467,9 +459,17 @@ async function release() {
       releaseWriter.file(langFileName, code);
       ++rewrittenSources;
     }));
+
+    const attrs = [];
+    b.entrypoint && attrs.push('entrypoint');
+    b.i18n && attrs.push('i18n');
+    b.transpile && attrs.push('transpile');
+
+    const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
+    log(`Rewritten bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
   }
 
-  log(`Operating on ${workerTasks.length} worker tasks...`);
+  log(`Waiting on ${chalk.cyan(workerTasks.length)} worker tasks...`);
   await Promise.all(workerTasks);
   log(`Rewrote ${chalk.cyan(rewrittenSources)} source files`);
 
