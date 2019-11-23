@@ -470,6 +470,7 @@ class Scene {
   }
 
   addShape(shape, material = 'snow') {
+    if (this.mode !== '') return
     let subject
     switch (shape) {
       case 'cube':
