@@ -188,6 +188,12 @@ santa-card {
   }
 }
 
+.module#module--movies {
+  &::after {
+    padding-bottom: 55.555555%;  // ~799.99999..., target is 800px
+  }
+}
+
 .module#module--footer {
   &::after {
     padding-bottom: 69.4%;  // ~999.36, we want 1000px

@@ -68,6 +68,14 @@ const moduleDefs = [
     id: 'wrapping',
     parts: ['static', 'loop', 'scroll', 'static'],
   },
+  {
+    id: 'movies',
+    parts: ['image', 'loop'],
+  },
+  {
+    id: 'footer',
+    parts: ['static'],
+  }
 ];
 
 /**
@@ -109,13 +117,12 @@ function moduleIsVisible(el) {
 async function prepareModules() {
   const main = document.querySelector('main');
   const scrollables = new Map();
-  const last = main.lastElementChild;
 
   for (const {id, parts} of moduleDefs) {
     const container = document.createElement('div');
     container.className = 'module';
     container.setAttribute('id', `module--${id}`);
-    main.insertBefore(container, last);
+    main.append(container);
 
     const animations = parts.map((type, index) => {
       const base = `img/modules/${id}/${index}`;
@@ -251,11 +258,7 @@ api.ready(async () => {
 
 <div id="modules">
   <div class="sidebar left"></div>
-  <main>
-    <div class="module" id="module--footer">
-      <img src="img/footer.svg" />
-    </div>
-  </main>
+  <main></main>
   <div class="sidebar right"></div>
 </div>
 
