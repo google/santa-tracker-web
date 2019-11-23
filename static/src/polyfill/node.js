@@ -13,7 +13,7 @@ function createFragmentOrNode(nodes) {
   });
 
   if (nodes.length === 1) {
-    return node;
+    return nodes[0];
   }
 
   var frag = document.createDocumentFragment();
@@ -24,7 +24,7 @@ function createFragmentOrNode(nodes) {
 }
 
 if (!('append' in document.body)) {
-  Object.defineProperty(Element, 'append', {
+  Object.defineProperty(Element.prototype, 'append', {
     configurable: true,
     enumerable: true,
     writable: true,
@@ -36,7 +36,7 @@ if (!('append' in document.body)) {
 }
 
 if (!('prepend' in document.body)) {
-  Object.defineProperty(Element, 'prepend', {
+  Object.defineProperty(Element.prototype, 'prepend', {
     configurable: true,
     enumerable: true,
     writable: true,
@@ -48,7 +48,7 @@ if (!('prepend' in document.body)) {
 }
 
 if (!('remove' in document.body)) {
-  Object.defineProperty(Element, 'remove', {
+  Object.defineProperty(Element.prototype, 'remove', {
     configurable: true,
     enumerable: true,
     writable: true,
