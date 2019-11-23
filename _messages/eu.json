@@ -327,7 +327,7 @@
 		"message": "Egin espagat-mugimendua."
 	},
 	"codeboogie-choose-game-mode": {
-		"message": "Aukeratu jokoaren modua"
+		"message": "Aukeratu jokatzeko modua"
 	},
 	"codeboogie-choose-stage": {
 		"message": "Aukeratu kokapena"
@@ -528,7 +528,7 @@
 		"message": "Alemana"
 	},
 	"de_tradition": {
-		"message": "Alemaniako herri gehienetan, Gabonetako azokak irekitzen dituzte herriko plazan. Bertan, herritarrek txarangen musika entzuten dute eta eskualdeko produktu tradizionalez gozatzen dute, hala nola jengibrezko bihotzez, almendra azukregorrituez, orotariko goxokiez, ardo beroaz (Glühwein) eta sagardoaz."
+		"message": "Alemaniako herri gehienetan, Gabonetako azokak irekitzen dituzte herriko plazan. Bertan, herritarrek txarangen musika entzuten dute eta lurraldeko produktu tradizionalez gozatzen dute, hala nola jengibrezko bihotzez, almendra azukregorrituez, orotariko goxokiez, ardo beroaz (Glühwein) eta sagardoaz."
 	},
 	"dec24th": {
 		"message": "Abenduak 24"
@@ -614,9 +614,6 @@
 	"error-try-again": {
 		"message": "Saiatu berriro"
 	},
-	"error_try_again": {
-		"message": "Saiatu berriro"
-	},
 	"es_language_name": {
 		"message": "Espainiera"
 	},
@@ -628,6 +625,12 @@
 	},
 	"explore-village": {
 		"message": "Ezagutu Bizarzuriren herria"
+	},
+	"familyguide_card_11_body": {
+		"message": "Sortu iratxo bat oso-osorik eta ziurtatu dotore-dotore dagoela Ipar Poloan ospatzen ari diren gau-ekitaldi guztietarako."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-erako aplikazioa"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -5142,7 +5145,7 @@
 		"message": "Errumania"
 	},
 	"trivia_hard_073": {
-		"message": "Zein herrialdetan dago Bahía Blanca, Panpa eskualdeko portu garrantzitsua?"
+		"message": "Zein herrialdetan dago Bahía Blanca, Panpa lurraldeko portu garrantzitsua?"
 	},
 	"trivia_hard_073_answer0": {
 		"message": "Argentina"
@@ -5442,7 +5445,7 @@
 		"message": "Bengalako golkoa"
 	},
 	"trivia_hard_098": {
-		"message": "Zein herrialdetako Renania eskualdean dago Koloniako katedrala?"
+		"message": "Zein herrialdetako Renania lurraldean dago Koloniako katedrala?"
 	},
 	"trivia_hard_098_answer0": {
 		"message": "Alemania"
@@ -6354,7 +6357,7 @@
 		"message": "Tajikistan"
 	},
 	"trivia_medium_069": {
-		"message": "Zein herrialdetako ipar-ekialdean dago lehen Mantxuria zeritzon eskualdea?"
+		"message": "Zein herrialdetako ipar-ekialdean dago lehen Mantxuria zeritzon lurraldea?"
 	},
 	"trivia_medium_069_answer0": {
 		"message": "Txina"
@@ -6760,9 +6763,6 @@
 	},
 	"unmute": {
 		"message": "Aktibatu audioa"
-	},
-	"upgrade-warning": {
-		"message": "Ai ene! Bizarzuriren lorratzak ez dira zure arakatzailean onartzen edo JavaScript desgaituta dago. Bizarzuriren lorratzak ikusteko, deskargatu arakatzaile modernoago bat edo gaitu JavaScript.\nInformazio gehiago lortzeko, joan \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e webgunera."
 	},
 	"us_country_name": {
 		"message": "AEB"

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Voltar a tentar"
 	},
+	"controller_gamepad": {
+		"message": "Comando"
+	},
+	"controller_keyboard": {
+		"message": "Teclado"
+	},
+	"controller_mouse": {
+		"message": "Rato"
+	},
+	"controller_touch": {
+		"message": "Toque"
+	},
 	"copy-me": {
 		"message": "Copie este link para partilhar a sua mensagem"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Otimize o seu navegador com uma extensão para o Chrome."
 	},
+	"decmonth": {
+		"message": "Dez"
+	},
+	"decmonth_long": {
+		"message": "Dezembro"
+	},
 	"detected": {
 		"message": "detetado"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Escolher um corpo de elfo"
 	},
+	"elves": {
+		"message": "Duendes"
+	},
 	"elvish_language_name": {
 		"message": "Elvigês"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Oh, não! Os Elfos do Pai Natal não conseguem encontrar esta página! Talvez tenha mais sorte se regressar à \u003ca href=\"./\"\u003eAldeia do Pai Natal\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Esta versão da Aldeia do Pai Natal está desatualizada. Experimente abrir novamente A viagem do Pai Natal para ver a versão mais recente."
+	},
 	"error-try-again": {
 		"message": "Tente novamente"
 	},
-	"error_try_again": {
-		"message": "Tente novamente"
+	"error-unsupported": {
+		"message": "A viagem do Pai Natal não suporta o seu navegador. Para jogar mais jogos e acompanhar o Pai Natal Santa no dia 24 de dezembro, experimente abrir no seu telemóvel ou noutro navegador."
 	},
 	"es_language_name": {
 		"message": "Espanhol"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explorar Aldeia do Pai Natal"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crie o seu próprio elfo da cabeça aos pés e certifique-se de que está vestido a rigor para as muitas celebrações natalícias a decorrer no Polo Norte."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Utilizar a Internet de forma fantástica com o Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicação para Android"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Grande abertura amanhã"
 	},
+	"opens": {
+		"message": "Disponível a"
+	},
 	"ornament-print-instructions": {
 		"message": "Dobrar aqui e colar as margens"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aeroporto do Polo Norte"
 	},
+	"scene_android_cityquiz": {
+		"message": "Questionário de cidades"
+	},
+	"scene_android_dancer": {
+		"message": "Dançarino veloz"
+	},
+	"scene_android_penguinswim": {
+		"message": "Natação do pinguim"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lançamento de presentes"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Trenó-foguete"
+	},
+	"scene_android_snowballrun": {
+		"message": "Fuga da bola de neve"
+	},
 	"scene_app": {
 		"message": "Aplicação para Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instruções da Mãe Natal"
+	},
+	"scene_build": {
+		"message": "Construir com rapidez"
 	},
 	"scene_callfromsanta": {
 		"message": "Chamada do Pai Natal"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Fábrica de doces"
 	},
+	"scene_family": {
+		"message": "Guia familiar"
+	},
 	"scene_giftmatch": {
 		"message": "Correspondência de Presentes"
 	},
 	"scene_glider": {
 		"message": "Duende em parapente"
 	},
+	"scene_guides": {
+		"message": "Guias para adultos"
+	},
 	"scene_gumball": {
 		"message": "Flipper dos rebuçados"
+	},
+	"scene_havoc": {
+		"message": "Caos de presentes"
 	},
 	"scene_icecave": {
 		"message": "Gruta de Gelo"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Tempestade de bolas de neve"
 	},
+	"scene_snowbox": {
+		"message": "Caixa de neve"
+	},
 	"scene_snowflake": {
 		"message": "Codifique um floco de neve"
 	},
 	"scene_speedsketch": {
 		"message": "Esboços rápidos"
+	},
+	"scene_storybook": {
+		"message": "Histórias de sustentabilidade"
 	},
 	"scene_streetview": {
 		"message": "Vista de rua"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "No Reino Unido, foliões de todas as idades desfrutam de bombons explosivos de Natal à mesa de jantar. Os bombons explosivos são tubos enrolados em papel colorido, com abas para se puxar em cada extremidade. Quando puxa as abas, o tubo rebenta com um estouro e de lá de dentro saltam chapéus de papel, brinquedos, anedotas e prémios para desfrutar na noite de Natal."
 	},
+	"underconstruction": {
+		"message": "Em construção"
+	},
+	"unlocks": {
+		"message": "Desbloqueia a"
+	},
 	"unmute": {
 		"message": "Ativar som"
 	},
 	"upgrade-warning": {
-		"message": "Ups! A viagem do Pai Natal não é suportada no seu navegador ou tem o JavaScript desativado. Para aceder a este produto, transfira um navegador mais atual ou ative o JavaScript.\nPara mais informações, visite: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! A viagem do Pai Natal não é suportada no seu navegador ou tem o JavaScript desativado. Para aceder a este produto, transfira um navegador mais atual ou ative o JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalar"
+	},
+	"village_santa_intall_ios": {
+		"message": "Basta tocar em \u003cspan\u003e\u003c/span\u003e e, de seguida, em \"Adicionar ao ecrã principal\"."
 	},
 	"village_takesoff": {
 		"message": "O Pai Natal levanta voo daqui a"

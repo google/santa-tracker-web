@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Încearcă din nou"
 	},
+	"controller_gamepad": {
+		"message": "Controler"
+	},
+	"controller_keyboard": {
+		"message": "Tastatură"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Atingere"
+	},
 	"copy-me": {
 		"message": "Copiază acest link pentru a trimite mesajul"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Împodobește-ți browserul cu o extensie Chrome cu Moș Crăciun."
 	},
+	"decmonth": {
+		"message": "Dec."
+	},
+	"decmonth_long": {
+		"message": "decembrie"
+	},
 	"detected": {
 		"message": "detectată"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Alege un tip de elf"
 	},
+	"elves": {
+		"message": "Elfi"
+	},
 	"elvish_language_name": {
 		"message": "Elfă"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Aceasta este o versiune învechită a Satului lui Moș Crăciun! Deschideți Pe urmele lui Moș Crăciun din nou pentru a beneficia de ultima versiune."
+	},
 	"error-try-again": {
 		"message": "Încearcă din nou"
 	},
-	"error_try_again": {
-		"message": "Încearcă din nou"
+	"error-unsupported": {
+		"message": "Pe urmele lui Moș Crăciun nu este acceptat în browserul dvs. Pentru a vă juca mai multe și pentru a-l urmări pe Moș Crăciun pe 24 decembrie, încercați pe telefon sau într-un alt browser."
 	},
 	"es_language_name": {
 		"message": "Spaniolă"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explorează satul lui Moș Craciun"
+	},
+	"familyguide_card_11_body": {
+		"message": "Creează-ți propriul elf, din cap până în picioare, și asigură-te că arată spectaculos pentru petrecerile de sărbători de la Polul Nord."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicație Android"
 	},
 	"fi_country_name": {
 		"message": "Finlanda"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Marea deschidere de mâine"
 	},
+	"opens": {
+		"message": "Se deschide pe"
+	},
 	"ornament-print-instructions": {
 		"message": "Îndoaie aici și lipește părțile una de alta"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aeroportul de la Polul Nord"
 	},
+	"scene_android_cityquiz": {
+		"message": "Găsește orașul"
+	},
+	"scene_android_dancer": {
+		"message": "Dansează cu Dasher"
+	},
+	"scene_android_penguinswim": {
+		"message": "Înotul pinguinului"
+	},
+	"scene_android_presenttoss": {
+		"message": "Aruncarea cadourilor"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Sania-rachetă"
+	},
+	"scene_android_snowballrun": {
+		"message": "Fugi de bulgăre"
+	},
 	"scene_app": {
 		"message": "Aplicație Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Lecția dnei Crăciun"
+	},
+	"scene_build": {
+		"message": "Construiți rapid"
 	},
 	"scene_callfromsanta": {
 		"message": "Apel de la Moș Crăciun"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Fabrica de bomboane"
 	},
+	"scene_family": {
+		"message": "Ghid pentru familii"
+	},
 	"scene_giftmatch": {
 		"message": "Cadourile perfecte"
 	},
 	"scene_glider": {
 		"message": "Elf zburător"
 	},
+	"scene_guides": {
+		"message": "Ghiduri pentru adulți"
+	},
 	"scene_gumball": {
 		"message": "Direct la țintă"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "Peșteră înghețată"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Furtună cu bulgări de zăpadă"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Scrie codul unui fulg de zăpadă"
 	},
 	"scene_speedsketch": {
 		"message": "Ghicitori desenate"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "Vedere din stradă"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "În Regatul Unit, toți se amuză cu pocnitorile de Crăciun, puse pe masă la cină. Pocnitorile sunt tuburi înfășurate în hârtie colorată. Când se trage de capetele tubului, acesta se desface cu o pocnitură puternică! Înăuntru sunt coifuri de hârtie, jucării, glume și premii pentru noaptea de Crăciun."
 	},
+	"underconstruction": {
+		"message": "În construcție"
+	},
+	"unlocks": {
+		"message": "Se deblochează pe"
+	},
 	"unmute": {
 		"message": "Activează"
 	},
 	"upgrade-warning": {
-		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în browserul tău sau ai dezactivat JavaScript. Pentru a accesa aplicația, descarcă un browser nou sau activează JavaScript.\nPentru mai multe informații, accesează: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hopa! Aplicația Pe urmele lui Moș Crăciun nu este acceptată în browserul dvs. sau ați dezactivat JavaScript. Pentru a accesa aplicația, descarcați un browser nou sau activați JavaScript."
 	},
 	"us_country_name": {
 		"message": "Statele Unite ale Americii"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalează"
+	},
+	"village_santa_intall_ios": {
+		"message": "Atingeți \u003cspan\u003e\u003c/span\u003e, apoi „Adăugați pe Ecranul de pornire”"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"

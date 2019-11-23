@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Играть снова"
 	},
+	"controller_gamepad": {
+		"message": "Контроллер"
+	},
+	"controller_keyboard": {
+		"message": "Клавиатура"
+	},
+	"controller_mouse": {
+		"message": "Мышь"
+	},
+	"controller_touch": {
+		"message": "Нажатие"
+	},
 	"copy-me": {
 		"message": "Чтобы поделиться сообщением с друзьями, отправьте им эту ссылку"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Расширение Santa Tracker придаст вашему браузеру Chrome праздничный вид."
 	},
+	"decmonth": {
+		"message": "Дек."
+	},
+	"decmonth_long": {
+		"message": "Декабрь"
+	},
 	"detected": {
 		"message": "распознан"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Выберите, как будет выглядеть ваш эльф"
 	},
+	"elves": {
+		"message": "Эльфы"
+	},
 	"elvish_language_name": {
 		"message": "эльфийский"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Страница не найдена. \u003ca href=\"./\"\u003eВернуться в деревню Санты\u003c/a\u003e"
 	},
+	"error-out-of-date": {
+		"message": "Санта-Клаус и его помощники переехали в новую деревню. Чтобы попасть в нее, обновите страницу."
+	},
 	"error-try-again": {
 		"message": "Повторить попытку"
 	},
-	"error_try_again": {
-		"message": "Повторить попытку"
+	"error-unsupported": {
+		"message": "Радар Санта-Клауса не поддерживается в вашем браузере. Чтобы играть в остальные игры и следить за путешествиями Санты 24 декабря, откройте страницу на смартфоне или в другом браузере на компьютере."
 	},
 	"es_language_name": {
 		"message": "Испанский"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Посетить деревню Санта-Клауса"
+	},
+	"familyguide_card_11_body": {
+		"message": "Придумайте своего стильного эльфа для вечеринок на Северном полюсе."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Как вести себя в Интернете"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Приложение для Android"
 	},
 	"fi_country_name": {
 		"message": "Финляндия"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Завтра открытие"
 	},
+	"opens": {
+		"message": "Игры станут доступны"
+	},
 	"ornament-print-instructions": {
 		"message": "Согните узор по этой линии и склейте края"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Аэропорт Северного полюса"
 	},
+	"scene_android_cityquiz": {
+		"message": "Угадай город"
+	},
+	"scene_android_dancer": {
+		"message": "Лучший танцор"
+	},
+	"scene_android_penguinswim": {
+		"message": "Заплыв пингвинов"
+	},
+	"scene_android_presenttoss": {
+		"message": "Метание подарков"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Реактивные сани"
+	},
+	"scene_android_snowballrun": {
+		"message": "Убеги от снежка"
+	},
 	"scene_app": {
 		"message": "Приложение для Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Советы миссис Клаус"
+	},
+	"scene_build": {
+		"message": "Быстрая работа"
 	},
 	"scene_callfromsanta": {
 		"message": "Звонок от Санты"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Кондитерская фабрика"
 	},
+	"scene_family": {
+		"message": "Руководство для всей семьи"
+	},
 	"scene_giftmatch": {
 		"message": "Собери подарки в ряд"
 	},
 	"scene_glider": {
 		"message": "Эльф на параплане"
 	},
+	"scene_guides": {
+		"message": "Информация для родителей"
+	},
 	"scene_gumball": {
 		"message": "Леденцы"
+	},
+	"scene_havoc": {
+		"message": "Готовим подарки"
 	},
 	"scene_icecave": {
 		"message": "Ледяная пещера"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Снежная перестрелка"
 	},
+	"scene_snowbox": {
+		"message": "Лепим из снега"
+	},
 	"scene_snowflake": {
 		"message": "Создай снежинку из кода"
 	},
 	"scene_speedsketch": {
 		"message": "Узоры на окне"
+	},
+	"scene_storybook": {
+		"message": "Читаем об окружающей среде"
 	},
 	"scene_streetview": {
 		"message": "Просмотр улиц"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "В Великобритании празднование Рождества не обходится без хлопушек с сюрпризами – картонных трубок в яркой праздничной бумаге. По обоим краям хлопушки есть петельки. Если за них потянуть, раздастся хлопок и раскроется содержимое – бумажные колпаки, игрушки, записки с шутками и другие приятные мелочи."
 	},
+	"underconstruction": {
+		"message": "Ведутся работы"
+	},
+	"unlocks": {
+		"message": "Игры станут доступны"
+	},
 	"unmute": {
 		"message": "Включить звук"
 	},
 	"upgrade-warning": {
-		"message": "Радар Санта-Клауса не будет работать в этом браузере. Перейдите на страницу \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e и скачайте новый."
+		"message": "Радар Санта-Клауса недоступен. Установите более позднюю версию браузера или включите JavaScript."
 	},
 	"us_country_name": {
 		"message": "США"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Установить"
+	},
+	"village_santa_intall_ios": {
+		"message": "Нажмите \u003cspan\u003e\u003c/span\u003e, затем – \"Добавить на главный экран\"."
 	},
 	"village_takesoff": {
 		"message": "Санта отправится в путь через"

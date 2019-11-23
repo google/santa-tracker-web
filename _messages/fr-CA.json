@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Réessayer"
 	},
+	"controller_gamepad": {
+		"message": "Manette"
+	},
+	"controller_keyboard": {
+		"message": "Clavier"
+	},
+	"controller_mouse": {
+		"message": "Souris"
+	},
+	"controller_touch": {
+		"message": "Toucher"
+	},
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Décorez votre navigateur avec une extension Google Chrome spécial Noël."
 	},
+	"decmonth": {
+		"message": "déc."
+	},
+	"decmonth_long": {
+		"message": "Décembre"
+	},
 	"detected": {
 		"message": "détecté"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Choisis un corps pour le lutin"
 	},
+	"elves": {
+		"message": "Lutins"
+	},
 	"elvish_language_name": {
 		"message": "Dialecte des lutins"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Oh non, les lutins du père Noël ne peuvent trouver cette page! Tu auras peut-être plus de chance si tu retournes au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Ceci est une version obsolète du village du père Noël! Essayez d'ouvrir de nouveau Sur les traces du père Noël pour voir la plus récente version."
+	},
 	"error-try-again": {
 		"message": "Réessayer"
 	},
-	"error_try_again": {
-		"message": "Réessayer"
+	"error-unsupported": {
+		"message": "Sur les traces du père Noël n'est pas compatible avec votre navigateur. Pour jouer à plus de jeux et suivre le père Noël le 24 décembre, essayez avec votre téléphone ou un autre navigateur."
 	},
 	"es_language_name": {
 		"message": "Espagnol"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Visiter le village du père Noël"
+	},
+	"familyguide_card_11_body": {
+		"message": "Créez votre propre lutin des pieds à la tête et assurez-lui un look « farfastique » pour les nombreuses soirées des fêtes qui ont lieu au pôle Nord."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Être au fait d'Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Application pour Android"
 	},
 	"fi_country_name": {
 		"message": "Finlande"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Ouverture officielle demain"
 	},
+	"opens": {
+		"message": "Ouverture"
+	},
 	"ornament-print-instructions": {
 		"message": "Plier ici et coller les deux faces"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aéroport du pôle Nord"
 	},
+	"scene_android_cityquiz": {
+		"message": "Quiz urbain"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher Dancer"
+	},
+	"scene_android_penguinswim": {
+		"message": "Nage du pingouin"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lancer de cadeaux"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Rocket Sleigh"
+	},
+	"scene_android_snowballrun": {
+		"message": "Évitement de la boule de neige"
+	},
 	"scene_app": {
 		"message": "Application pour Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instructions de mère Noël"
+	},
+	"scene_build": {
+		"message": "Fabriquer et foncer"
 	},
 	"scene_callfromsanta": {
 		"message": "Appel du père Noël"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "La fabrique de bonbons"
 	},
+	"scene_family": {
+		"message": "Guide familial"
+	},
 	"scene_giftmatch": {
 		"message": "Cadeaux assortis"
 	},
 	"scene_glider": {
 		"message": "Le lutin volant"
 	},
+	"scene_guides": {
+		"message": "Guides pour les adultes"
+	},
 	"scene_gumball": {
 		"message": "Boule de gomme en mouvement"
+	},
+	"scene_havoc": {
+		"message": "La frénésie des cadeaux"
 	},
 	"scene_icecave": {
 		"message": "Caverne de glace"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Tempête de boules de neige"
 	},
+	"scene_snowbox": {
+		"message": "Bac à neige"
+	},
 	"scene_snowflake": {
 		"message": "Coder un flocon de neige"
 	},
 	"scene_speedsketch": {
 		"message": "Croquis rapide"
+	},
+	"scene_storybook": {
+		"message": "Le livre de contes du développement durable"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "Au Royaume-Uni, les gens de tous âges s'amusent avec des pétards de Noël durant le souper. Les pétards sont des tubes emballés de papier de couleurs vives : lorsque les bouts sont tirés, le tube s'ouvre dans un grand bruit! On trouve à l'intérieur des chapeaux en papier, des jouets et des prix."
 	},
+	"underconstruction": {
+		"message": "En construction"
+	},
+	"unlocks": {
+		"message": "Déverrouillage"
+	},
 	"unmute": {
 		"message": "Réactiver le son"
 	},
 	"upgrade-warning": {
-		"message": "Oh non! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur ou JavaScript a été désactivé. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente ou activez JavaScript. Pour en savoir plus, consultez la page \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oups! L'application Sur les traces du père Noël n'est pas prise en charge par cette version de votre navigateur ou JavaScript a été désactivé. Pour utiliser Sur les traces du père Noël, téléchargez une version plus récente ou activez JavaScript."
 	},
 	"us_country_name": {
 		"message": "États-Unis"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installer"
+	},
+	"village_santa_intall_ios": {
+		"message": "Touchez simplement \u003cspan\u003e\u003c/span\u003e, puis « Ajouter à l'écran d'accueil »"
 	},
 	"village_takesoff": {
 		"message": "Le père Noël commence sa tournée dans"

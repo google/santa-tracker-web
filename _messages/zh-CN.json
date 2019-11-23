@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "重试"
 	},
+	"controller_gamepad": {
+		"message": "控制器"
+	},
+	"controller_keyboard": {
+		"message": "键盘"
+	},
+	"controller_mouse": {
+		"message": "鼠标"
+	},
+	"controller_touch": {
+		"message": "触摸"
+	},
 	"copy-me": {
 		"message": "复制该链接即可分享您的消息"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
 	},
+	"decmonth": {
+		"message": "12 月"
+	},
+	"decmonth_long": {
+		"message": "12 月"
+	},
 	"detected": {
 		"message": "自动检测"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "选择小精灵的体型"
 	},
+	"elves": {
+		"message": "精灵"
+	},
 	"elvish_language_name": {
 		"message": "精灵语"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
 	},
+	"error-out-of-date": {
+		"message": "此版本的“圣诞老人小镇”已过时！请尝试再次打开“追踪圣诞老人”，查看最新版本。"
+	},
 	"error-try-again": {
 		"message": "请重试"
 	},
-	"error_try_again": {
-		"message": "请重试"
+	"error-unsupported": {
+		"message": "“追踪圣诞老人”不支持您的浏览器。要玩更多游戏并在 12 月 24 日追踪圣诞老人，请尝试使用手机或其他浏览器。"
 	},
 	"es_language_name": {
 		"message": "西班牙语"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "探索圣诞老人小镇"
+	},
+	"familyguide_card_11_body": {
+		"message": "从头至脚制作您自己的精灵，让它在北极举办的诸多节日晚会上光彩照人，尽显精灵气质。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "合理使用网络"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 应用"
 	},
 	"fi_country_name": {
 		"message": "芬兰"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "明日开放"
 	},
+	"opens": {
+		"message": "开放"
+	},
 	"ornament-print-instructions": {
 		"message": "由此处对折并将两边粘在一起"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "北极机场"
 	},
+	"scene_android_cityquiz": {
+		"message": "城市知多少"
+	},
+	"scene_android_dancer": {
+		"message": "猛卫之舞"
+	},
+	"scene_android_penguinswim": {
+		"message": "企鹅爱游泳"
+	},
+	"scene_android_presenttoss": {
+		"message": "礼物投掷比赛"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "火箭雪橇"
+	},
+	"scene_android_snowballrun": {
+		"message": "雪球追击"
+	},
 	"scene_app": {
 		"message": "Android 应用"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "圣诞太太作简报"
+	},
+	"scene_build": {
+		"message": "制作并加速"
 	},
 	"scene_callfromsanta": {
 		"message": "圣诞老人来电"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "糖果工厂"
 	},
+	"scene_family": {
+		"message": "家庭指南"
+	},
 	"scene_giftmatch": {
 		"message": "礼物对对碰"
 	},
 	"scene_glider": {
 		"message": "精灵快递员"
 	},
+	"scene_guides": {
+		"message": "成人指南"
+	},
 	"scene_gumball": {
 		"message": "彩球滑落"
+	},
+	"scene_havoc": {
+		"message": "礼物嗨翻天"
 	},
 	"scene_icecave": {
 		"message": "冰洞"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "雪球风暴"
 	},
+	"scene_snowbox": {
+		"message": "雪盒"
+	},
 	"scene_snowflake": {
 		"message": "使用编码设计雪花"
 	},
 	"scene_speedsketch": {
 		"message": "快手画图"
+	},
+	"scene_storybook": {
+		"message": "可持续发展故事书"
 	},
 	"scene_streetview": {
 		"message": "街景"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "在英国，男女老少围坐在餐桌旁，一起玩圣诞拉炮的游戏。拉炮是一种用彩纸包裹的圆筒，筒的两端系有拉环。拉动拉环时，圆筒会“啪”地一声炸开，爆出里面的纸帽、玩具、写有笑话的纸条和奖品，为圣诞夜带来欢乐。"
 	},
+	"underconstruction": {
+		"message": "在建"
+	},
+	"unlocks": {
+		"message": "解锁"
+	},
 	"unmute": {
 		"message": "取消静音"
 	},
 	"upgrade-warning": {
-		"message": "很抱歉，您的浏览器不支持“追踪圣诞老人”，或者您已停用 JavaScript。要访问“追踪圣诞老人”，请下载新版浏览器或启用 JavaScript。如需更多详情，请访问 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+		"message": "糟糕！您的浏览器不支持“追踪圣诞老人”，或者您已停用 JavaScript。要访问“追踪圣诞老人”，请下载新版浏览器或启用 JavaScript。"
 	},
 	"us_country_name": {
 		"message": "美国"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "安装"
+	},
+	"village_santa_intall_ios": {
+		"message": "只需依次轻点 \u003cspan\u003e\u003c/span\u003e 和“添加到主屏幕”"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"

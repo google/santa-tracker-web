@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Повторити"
 	},
+	"controller_gamepad": {
+		"message": "Джойстик"
+	},
+	"controller_keyboard": {
+		"message": "Клавіатура"
+	},
+	"controller_mouse": {
+		"message": "Миша"
+	},
+	"controller_touch": {
+		"message": "Торкання"
+	},
 	"copy-me": {
 		"message": "Посилання на листівку"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Прикрасьте свій веб-переглядач із допомогою святкового розширення для Chrome."
 	},
+	"decmonth": {
+		"message": "Груд."
+	},
+	"decmonth_long": {
+		"message": "Грудень"
+	},
 	"detected": {
 		"message": "визначено автоматично"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Виберіть тип тіла ельфа"
 	},
+	"elves": {
+		"message": "Помічники"
+	},
 	"elvish_language_name": {
 		"message": "ельфійська"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "На жаль, помічникам Діда Мороза не вдалося знайти цю сторінку. Мабуть, краще повернутись у \u003ca href=\"./\"\u003eмістечко Діда Мороза\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Це застаріла версія містечка Діда Мороза. Відкрийте сайт Де Дід Мороз ще раз, щоб побачити останню версію."
+	},
 	"error-try-again": {
 		"message": "Спробуйте знову"
 	},
-	"error_try_again": {
-		"message": "Спробуйте знову"
+	"error-unsupported": {
+		"message": "Сайт Де Дід Мороз не підтримується в цьому веб-переглядачі. Щоб мати більше ігор і 24 грудня стежити за Дідом Морозом, спробуйте відкрити сайт на телефоні або в іншому веб-переглядачі."
 	},
 	"es_language_name": {
 		"message": "іспанська"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "У містечко Діда Мороза"
+	},
+	"familyguide_card_11_body": {
+		"message": "Створіть власного ельфа з голови до п’ят і переконайтеся, що він ельфастично виглядає на всіх заходах, які відбуваються на Північному полюсі."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Мережевий етикет і безпека"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Додаток Android"
 	},
 	"fi_country_name": {
 		"message": "Фінляндія"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Урочисте відкриття вже завтра"
 	},
+	"opens": {
+		"message": "Відкривається"
+	},
 	"ornament-print-instructions": {
 		"message": "Загніть тут і склейте сторони"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Аеропорт Північного полюса"
 	},
+	"scene_android_cityquiz": {
+		"message": "Угадай місто"
+	},
+	"scene_android_dancer": {
+		"message": "Олень-танцівник"
+	},
+	"scene_android_penguinswim": {
+		"message": "Заплив пінгвіна"
+	},
+	"scene_android_presenttoss": {
+		"message": "Подарунковий бум"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Реактивні санчата"
+	},
+	"scene_android_snowballrun": {
+		"message": "Утікай від сніжки"
+	},
 	"scene_app": {
 		"message": "Додаток Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Брифінг Снігуроньки"
+	},
+	"scene_build": {
+		"message": "Збери подарунок"
 	},
 	"scene_callfromsanta": {
 		"message": "Дзвінок від Діда Мороза"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Цукеркова фабрика"
 	},
+	"scene_family": {
+		"message": "Посібник для сім'ї"
+	},
 	"scene_giftmatch": {
 		"message": "Підбір подарунків"
 	},
 	"scene_glider": {
 		"message": "Ельф-планерист"
 	},
+	"scene_guides": {
+		"message": "Рекомендації для дорослих"
+	},
 	"scene_gumball": {
 		"message": "Перекоти кульку"
+	},
+	"scene_havoc": {
+		"message": "Подарунковий хаос"
 	},
 	"scene_icecave": {
 		"message": "Крижана печера"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Бій сніжками"
 	},
+	"scene_snowbox": {
+		"message": "Сніжна скарбничка"
+	},
 	"scene_snowflake": {
 		"message": "Створи сніжинку"
 	},
 	"scene_speedsketch": {
 		"message": "Швидка замальовка"
+	},
+	"scene_storybook": {
+		"message": "Казки про екологію"
 	},
 	"scene_streetview": {
 		"message": "Перегляд вулиць"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "У Великій Британії дорослі й діти обожнюють святкові хлопавки – традиційні забавки в яскравих обгортках. Якщо потягнути за кінці обгортки, пролунає гучний постріл, а з хлопавки посиплються подарунки, жарти, іграшки та паперові капелюхи."
 	},
+	"underconstruction": {
+		"message": "У стані будівництва"
+	},
+	"unlocks": {
+		"message": "Розблоковується"
+	},
 	"unmute": {
 		"message": "Увімкнути звук"
 	},
 	"upgrade-warning": {
-		"message": "На жаль, сервіс Де Дід Мороз не підтримується в цьому веб-переглядачі або ви вимкнули JavaScript. Щоб відстежувати, де Дід Мороз, завантажте найновішу версію веб-переглядача або ввімкніть JavaScript. Дізнатися поточну версію можна на сайті \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "На жаль, сервіс Де Дід Мороз не підтримується в цьому веб-переглядачі або ви вимкнули JavaScript. Щоб відстежувати, де Дід Мороз, завантажте найновішу версію веб-переглядача або ввімкніть JavaScript."
 	},
 	"us_country_name": {
 		"message": "США"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Установити"
+	},
+	"village_santa_intall_ios": {
+		"message": "Просто натисніть \u003cspan\u003e\u003c/span\u003e, а потім – \"Додати на Початковий екран\""
 	},
 	"village_takesoff": {
 		"message": "Дід Мороз злітає за"

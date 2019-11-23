@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Bandyti dar kartą"
 	},
+	"controller_gamepad": {
+		"message": "Žaidimų valdiklis"
+	},
+	"controller_keyboard": {
+		"message": "Klaviatūra"
+	},
+	"controller_mouse": {
+		"message": "Pelė"
+	},
+	"controller_touch": {
+		"message": "Palietimas"
+	},
 	"copy-me": {
 		"message": "Kopijuokite šią nuorodą, jei norite bendrinti savo pranešimą"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Papuoškite savo naršyklę kalėdiniu „Chrome“ plėtiniu."
 	},
+	"decmonth": {
+		"message": "Grd"
+	},
+	"decmonth_long": {
+		"message": "Gruodis"
+	},
 	"detected": {
 		"message": "aptikta"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Pasirinkite elfo kūną"
 	},
+	"elves": {
+		"message": "Elfai"
+	},
 	"elvish_language_name": {
 		"message": "Elfų"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Apgailestaujame, Kalėdų Senelio elfams nepavyko rasti šio puslapio. Galbūt labiau pasisektų, jei grįžtumėte į \u003ca href=\"./\"\u003eKalėdų Senelio kaimą\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Rodomi pasenusi Kalėdų Senelio kaimo versija! Bandykite atidaryti Kalėdų Senelio kelionę iš naujo, kad būtų pateikta naujausia versija."
+	},
 	"error-try-again": {
 		"message": "Bandykite dar kartą"
 	},
-	"error_try_again": {
-		"message": "Bandykite dar kartą"
+	"error-unsupported": {
+		"message": "Kalėdų Senelio kelionė nepalaiko jūsų naršyklės. Jei norite žaisti daugiau žaidimų ir stebėti Kalėdų Senelį gruodžio 24 d., bandykite naudoti telefoną arba kitą naršyklę."
 	},
 	"es_language_name": {
 		"message": "Ispanų"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Naršyti po Kalėdų Senelio kaimą"
+	},
+	"familyguide_card_11_body": {
+		"message": "Sukurkite savo elfą nuo galvos iki kojų ir užtikrinkite, kad jis atrodytų elfiškai fantastiškai, kai dalyvaus daugybėje Šiaurės ašigalyje vykstančių šventinių pobūvių."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "„Android“ programa"
 	},
 	"fi_country_name": {
 		"message": "Suomija"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Didysis atidarymas rytoj"
 	},
+	"opens": {
+		"message": "Atsidaro"
+	},
 	"ornament-print-instructions": {
 		"message": "Lenkite čia ir suklijuokite kraštus"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Šiaurės ašigalio oro uostas"
 	},
+	"scene_android_cityquiz": {
+		"message": "Miestų viktorina"
+	},
+	"scene_android_dancer": {
+		"message": "Dryželis šokėjėlis"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingvinų maudynės"
+	},
+	"scene_android_presenttoss": {
+		"message": "Dovanų mėtymas"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketinės rogės"
+	},
+	"scene_android_snowballrun": {
+		"message": "Bėgimas nuo sniego kamuolio"
+	},
 	"scene_app": {
 		"message": "„Android“ programa"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Kalėdų Senelės pranešimas"
+	},
+	"scene_build": {
+		"message": "Sparti dovanų gamyba"
 	},
 	"scene_callfromsanta": {
 		"message": "Kalėdų Senelio skambutis"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Saldainių fabrikas"
 	},
+	"scene_family": {
+		"message": "Šeimos gidas"
+	},
 	"scene_giftmatch": {
 		"message": "Dovanų atitikimas"
 	},
 	"scene_glider": {
 		"message": "Elfas sklandytojas"
 	},
+	"scene_guides": {
+		"message": "Gairės suaugusiems"
+	},
 	"scene_gumball": {
 		"message": "Gumos kamuoliukų svyriai"
+	},
+	"scene_havoc": {
+		"message": "Dovanų sumaištis"
 	},
 	"scene_icecave": {
 		"message": "Ledo urvas"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Gniūžčių lietus"
 	},
+	"scene_snowbox": {
+		"message": "Sniego dėžė"
+	},
 	"scene_snowflake": {
 		"message": "Sugeneruokite snaigės kodą"
 	},
 	"scene_speedsketch": {
 		"message": "Greitas eskizas"
+	},
+	"scene_storybook": {
+		"message": "Tvarumo pasakų knyga"
 	},
 	"scene_streetview": {
 		"message": "Gatvės vaizdas"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "JK švenčiantieji mėgaujasi kalėdinėmis papliauškomis ant pietų stalo. Papliauškos – tai į spalvingą popierių įvynioti vamzdeliai su ištraukiamomis ąselėmis galuose. Ištraukus ąseles vamzdelis garsiai sprogsta! Viduje – popierinės kepurės, žaislai, pokštai ir prizai, kad Kalėdų naktį būtų linksma."
 	},
+	"underconstruction": {
+		"message": "Vykdomi darbai"
+	},
+	"unlocks": {
+		"message": "Atrakinimai"
+	},
 	"unmute": {
 		"message": "Garsas"
 	},
 	"upgrade-warning": {
-		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šioje naršyklėje arba esate išjungę „JavaScript“. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę arba įgalinkite „JavaScript“. Jei reikia daugiau informacijos, apsilankykite adresu \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oi! Kalėdų Senelio kelionė nepalaikoma šioje naršyklėje arba esate išjungę „JavaScript“. Kad pasiektumėte Kalėdų Senelio kelionę, atsisiųskite modernią naršyklę arba įgalinkite „JavaScript“."
 	},
 	"us_country_name": {
 		"message": "Jungtinės Amerikos Valstijos"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Įdiegti"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tiesiog palieskite \u003cspan\u003e\u003c/span\u003e, o tada – „Pridėti prie pagrindinio ekrano“"
 	},
 	"village_takesoff": {
 		"message": "Kalėdų Senelis išvyksta už"

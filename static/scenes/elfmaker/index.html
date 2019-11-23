@@ -22,9 +22,8 @@
     </div>
     <div class="buttons right">
       <santa-button id="share" color="green">share</santa-button>
-      <a id="download" target="_blank" download="elfmaker.png">
-        <santa-button color="red">save</santa-button>
-      </a>
+      <santa-button color="red" id="downloadButton" disabled>save</santa-button>
+      <a download="elfmaker.png" id="download" target="_blank" href="#" hidden></a>
     </div>
   </div>
 </main>
@@ -36,6 +35,7 @@
 <maker-photo id="photo"></maker-photo>
 
 <script type="module">
+import '../../src/polyfill/css.js';
 
 import api from '../../src/scene/api.js';
 import './elements/maker-chooser.js';
@@ -90,7 +90,7 @@ share.addEventListener('click', (ev) => {
   // if there's a selfie image hovering, share that instead (which should always be true in embed)
   const recentImage = photo.recentImage;
   (recentImage || elf.draw()).then((result) => {
-    api.gameover({image: result});
+    api.gameover({share: true, image: result});
   });
   window.santaApp.fire('sound-trigger', 'generic_button_click');
 });
@@ -101,17 +101,23 @@ random.addEventListener('click', (ev) => {
   window.ga('send', 'event', 'game', 'random', 'elfmaker');
 });
 
+downloadButton.addEventListener('click', (ev) => {
+  download.click();
+});
+
 camera.addEventListener('click', (ev) => {
   const image = elf.draw();
   photo.capture(image);
   image.then((src) => {
     download.setAttribute('href', src);
+    downloadButton.disabled = false;
   });
   window.ga('send', 'event', 'game', 'photo', 'elfmaker');
 });
 
 photo.addEventListener('hide', (ev) => {
   download.removeAttribute('href');
+  downloadButton.disabled = true;
 });
 
 download.addEventListener('click', (ev) => {
@@ -198,6 +204,10 @@ const applyMove = (name) => {
   moveTask = localMoveTask;
   return localMoveTask;
 };
+
+api.config({
+  orientation: 'portrait',
+});
 
 api.ready(async (data) => {
   applyStep(defaultStep);

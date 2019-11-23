@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Riprova"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Tastiera"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Tocco"
+	},
 	"copy-me": {
 		"message": "Copia questo link per condividere con chi vuoi"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Decora il tuo browser con un'estensione di Babbo Natale per Chrome."
 	},
+	"decmonth": {
+		"message": "Dic"
+	},
+	"decmonth_long": {
+		"message": "dicembre"
+	},
 	"detected": {
 		"message": "rilevata"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Scegli un corpo da elfo"
 	},
+	"elves": {
+		"message": "Elfi"
+	},
 	"elvish_language_name": {
 		"message": "Lingua degli elfi"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Questa è una versione precedente del villaggio di Babbo Natale! Prova ad aprire di nuovo Segui Babbo Natale per visualizzare la versione più aggiornata."
+	},
 	"error-try-again": {
 		"message": "Riprova"
 	},
-	"error_try_again": {
-		"message": "Riprova"
+	"error-unsupported": {
+		"message": "Segui Babbo Natale non è compatibile con il tuo browser. Per giocare ad altri giochi e per seguire Babbo Natale il 24 dicembre, prova con il tuo telefono o con un altro browser."
 	},
 	"es_language_name": {
 		"message": "Spagnolo"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Esplora il villaggio di Babbo Natale"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea il tuo folletto personalizzato dalla testa ai piedi, con un look el(f)egante per le serate di gala natalizie al Polo Nord."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Vivi Internet, al sicuro"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Grande inaugurazione domani"
 	},
+	"opens": {
+		"message": "Aprirà il giorno"
+	},
 	"ornament-print-instructions": {
 		"message": "Piega qui e incolla insieme i lati"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aeroporto del Polo Nord"
 	},
+	"scene_android_cityquiz": {
+		"message": "Indovina la città"
+	},
+	"scene_android_dancer": {
+		"message": "La ballerenna"
+	},
+	"scene_android_penguinswim": {
+		"message": "Stile pinguino"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lancia il regalo"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Razzo di natale"
+	},
+	"scene_android_snowballrun": {
+		"message": "Corri elfo, corri"
+	},
 	"scene_app": {
 		"message": "App Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Le istruzioni della moglie di Babbo Natale"
+	},
+	"scene_build": {
+		"message": "La fabbrica superveloce"
 	},
 	"scene_callfromsanta": {
 		"message": "Chiamata da Babbo Natale"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "La fabbrica delle caramelle"
 	},
+	"scene_family": {
+		"message": "Guida per le famiglie"
+	},
 	"scene_giftmatch": {
 		"message": "Abbina i regali"
 	},
 	"scene_glider": {
 		"message": "L'elfo volante"
 	},
+	"scene_guides": {
+		"message": "Guida per gli adulti"
+	},
 	"scene_gumball": {
 		"message": "Palline di zucchero"
+	},
+	"scene_havoc": {
+		"message": "La frenetica fabbrica dei regali"
 	},
 	"scene_icecave": {
 		"message": "Cava di ghiaccio"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Battaglia di palle di neve"
 	},
+	"scene_snowbox": {
+		"message": "Giochiamo con la neve"
+	},
 	"scene_snowflake": {
 		"message": "Disegna con il codice"
 	},
 	"scene_speedsketch": {
 		"message": "Indovina il disegno"
+	},
+	"scene_storybook": {
+		"message": "Il libro delle fiabe ecologiche"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "Nel Regno Unito, la cena di Natale si festeggia con i \"Christmas Crackers\", cilindri avvolti in carta colorata dotati di due linguette, tirando le quali esplodono con un rumore scoppiettante. All'interno vi sono cappelli di carta, giocattoli, barzellette e premi per allietare la notte di Natale."
 	},
+	"underconstruction": {
+		"message": "Lavori in corso"
+	},
+	"unlocks": {
+		"message": "Si sbloccherà il giorno"
+	},
 	"unmute": {
 		"message": "Riattiva audio"
 	},
 	"upgrade-warning": {
-		"message": "Spiacenti. Segui Babbo Natale non è supportato nel tuo browser oppure hai disattivato JavaScript. Per accedere a Segui Babbo Natale, scarica un browser più recente o attiva JavaScript.\nPer ulteriori informazioni visita: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ops! La funzionalità Segui Babbo Natale non è supportata nel tuo browser oppure JavaScript è disabilitato. Per accedere a Segui Babbo Natale, scarica un browser aggiornato o abilita JavaScript."
 	},
 	"us_country_name": {
 		"message": "Stati Uniti"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installa"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tocca \u003cspan\u003e\u003c/span\u003e e \"Aggiungi a schermata Home\""
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"

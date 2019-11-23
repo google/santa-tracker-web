@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Volver a intentarlo"
 	},
+	"controller_gamepad": {
+		"message": "Control"
+	},
+	"controller_keyboard": {
+		"message": "Teclado"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Pantalla táctil"
+	},
 	"copy-me": {
 		"message": "Copiar este vínculo para compartir tu mensaje"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Adorna el navegador con una extensión de Santa para Chrome."
 	},
+	"decmonth": {
+		"message": "Dic."
+	},
+	"decmonth_long": {
+		"message": "Diciembre"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Elige un cuerpo de duende"
 	},
+	"elves": {
+		"message": "Duendes"
+	},
 	"elvish_language_name": {
 		"message": "Elfo"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Los duendes de Santa no pudieron encontrar la página. Vuelve a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para buscarla."
 	},
+	"error-out-of-date": {
+		"message": "Esta es una versión desactualizada de la aldea de Santa. Vuelve a abrir Sigue a Santa para ver la versión más reciente."
+	},
 	"error-try-again": {
 		"message": "Volver a intentarlo"
 	},
-	"error_try_again": {
-		"message": "Volver a intentarlo"
+	"error-unsupported": {
+		"message": "Sigue a Santa no es compatible con este navegador. Pruébalo en un teléfono o en un navegador diferente para disfrutar de más juegos y seguir a Santa el 24 de diciembre."
 	},
 	"es_language_name": {
 		"message": "Español"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Explorar la aldea de Santa"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea tu propio duende, de pies a cabeza, y asegúrate de que se vea fantástico para que asista a las veladas navideñas en el Polo Norte."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Sé genial en Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App para Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Gran inauguración mañana"
 	},
+	"opens": {
+		"message": "Se abrirá el"
+	},
 	"ornament-print-instructions": {
 		"message": "Plegar el papel aquí y unir los lados con pegamento"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aeropuerto del Polo Norte"
 	},
+	"scene_android_cityquiz": {
+		"message": "Cuestionario sobre ciudades"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher Dancer"
+	},
+	"scene_android_penguinswim": {
+		"message": "Nada con los pingüinos"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lanzamiento de regalos"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Trineo con cohetes"
+	},
+	"scene_android_snowballrun": {
+		"message": "Carrera de bolas de nieve"
+	},
 	"scene_app": {
 		"message": "App para Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instrucciones de la señora Claus"
+	},
+	"scene_build": {
+		"message": "Construye y trabaja con agilidad"
 	},
 	"scene_callfromsanta": {
 		"message": "Llamada de Santa"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Fábrica de dulces"
 	},
+	"scene_family": {
+		"message": "Guía familiar"
+	},
 	"scene_giftmatch": {
 		"message": "Coincidencias de regalos"
 	},
 	"scene_glider": {
 		"message": "Duende volador"
 	},
+	"scene_guides": {
+		"message": "Guías para adultos"
+	},
 	"scene_gumball": {
 		"message": "Inclinación de Gumball"
+	},
+	"scene_havoc": {
+		"message": "Fábrica de regalos"
 	},
 	"scene_icecave": {
 		"message": "Cueva de hielo"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Tormenta de bolas de nieve"
 	},
+	"scene_snowbox": {
+		"message": "Zona de pruebas en la nieve"
+	},
 	"scene_snowflake": {
 		"message": "Codifica un copo de nieve"
 	},
 	"scene_speedsketch": {
 		"message": "Bosquejos rápidos"
+	},
+	"scene_storybook": {
+		"message": "Cuento sobre la sustentabilidad"
 	},
 	"scene_streetview": {
 		"message": "Vista a pie de calle"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "En el Reino Unido, entusiastas de todas las edades se divierten con un artículo típico llamado “Christmas cracker”, que consiste en un tubo envuelto en papel de colores, con tiras en cada extremo. Cuando se jalan, el tubo estalla con un fuerte sonido y salen sombreros de papel, juguetes, bromas y premios."
 	},
+	"underconstruction": {
+		"message": "En construcción"
+	},
+	"unlocks": {
+		"message": "Se desbloqueará el"
+	},
 	"unmute": {
 		"message": "Activar sonido"
 	},
 	"upgrade-warning": {
-		"message": "Sigue a Santa no es compatible con este navegador o tienes inhabilitado JavaScript. Para acceder a Sigue a Santa, descarga un navegador más reciente o habilita JavaScript.\nObtén más información en \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Parece que Sigue a Santa no es compatible con este navegador o tienes inhabilitado JavaScript. Para acceder a Sigue a Santa, descarga un navegador más reciente o habilita JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalar"
+	},
+	"village_santa_intall_ios": {
+		"message": "Presiona \u003cspan\u003e\u003c/span\u003e y luego “Agregar a la pantalla principal”."
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"

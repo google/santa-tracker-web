@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Пробај поново"
 	},
+	"controller_gamepad": {
+		"message": "Контролер"
+	},
+	"controller_keyboard": {
+		"message": "Тастатура"
+	},
+	"controller_mouse": {
+		"message": "Миш"
+	},
+	"controller_touch": {
+		"message": "Додирните"
+	},
 	"copy-me": {
 		"message": "Копирајте овај линк да бисте делили поруку"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Украсите прегледач уз Деда Мраз додатак за Chrome."
 	},
+	"decmonth": {
+		"message": "дец"
+	},
+	"decmonth_long": {
+		"message": "децембар"
+	},
 	"detected": {
 		"message": "откривен је"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Изабери тело вилењака"
 	},
+	"elves": {
+		"message": "Вилењаци"
+	},
 	"elvish_language_name": {
 		"message": "Вилењачки"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Имамо проблем – Деда Мразови вилењаци не могу да нађу ову страницу. Боље се врати у \u003ca href=\"./\"\u003eДеда Мразово село\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Ово је застарела верзија Деда Мразовог села! Поново отвори Локатор Деда Мраза да би видео најновију верзију."
+	},
 	"error-try-again": {
 		"message": "Пробај поново"
 	},
-	"error_try_again": {
-		"message": "Пробај поново"
+	"error-unsupported": {
+		"message": "Локатор Деда Мраза не подржава овај прегледач. Да би играо више игара и пратио Деда Мраза 24. децембра, користи телефон или други прегледач."
 	},
 	"es_language_name": {
 		"message": "шпански"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Истражи Село Деда Мраза"
+	},
+	"familyguide_card_11_body": {
+		"message": "Направите свог вилењака од главе до пете. Нека изгледа бајковито на свим вечерњим пријемима за празнике на Северном полу."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Скапирај интернет"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android апликација"
 	},
 	"fi_country_name": {
 		"message": "Финска"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Сутра је велико отварање"
 	},
+	"opens": {
+		"message": "Датум отварања"
+	},
 	"ornament-print-instructions": {
 		"message": "Савијте овде и залепите странице"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Аеродром Северни пол"
 	},
+	"scene_android_cityquiz": {
+		"message": "Квиз о градовима"
+	},
+	"scene_android_dancer": {
+		"message": "Расплесани ирвас"
+	},
+	"scene_android_penguinswim": {
+		"message": "Пливање пингвин стилом"
+	},
+	"scene_android_presenttoss": {
+		"message": "Добацивање поклона"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Ракетне санке"
+	},
+	"scene_android_snowballrun": {
+		"message": "Бежање од грудви"
+	},
 	"scene_app": {
 		"message": "Android апликација"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Састанак код Бабе Мраз"
+	},
+	"scene_build": {
+		"message": "Build \u0026 Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Позив од Деда Мраза"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Фабрика слаткиша"
 	},
+	"scene_family": {
+		"message": "Породични водич"
+	},
 	"scene_giftmatch": {
 		"message": "Поклон за поклон"
 	},
 	"scene_glider": {
 		"message": "Вилинглајдер"
 	},
+	"scene_guides": {
+		"message": "Водичи за одрасле"
+	},
 	"scene_gumball": {
 		"message": "Нагињање жвакица"
+	},
+	"scene_havoc": {
+		"message": "Хаос са поклонима"
 	},
 	"scene_icecave": {
 		"message": "Ледена пећина"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Олуја грудви"
 	},
+	"scene_snowbox": {
+		"message": "Снегоград"
+	},
 	"scene_snowflake": {
 		"message": "Направи пахуљицу"
 	},
 	"scene_speedsketch": {
 		"message": "Брзо цртање"
+	},
+	"scene_storybook": {
+		"message": "Приче о одрживости"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "У Уједињеном Краљевству, весељаци свих узраста уз вечеру уживају у божићним пуцкалицама. Пуцкалице су картонске цеви умотане у шарени папир, са језичцима за натезање са обе стране. Кад се двоје натеже, један од језичака пукне уз прасак – победнику остаје језичак са цеви, у којој су шешири, награде, играчке и друге награде за уживање у божићној ноћи."
 	},
+	"underconstruction": {
+		"message": "У изградњи"
+	},
+	"unlocks": {
+		"message": "Откључавања"
+	},
 	"unmute": {
 		"message": "Укључи звук"
 	},
 	"upgrade-warning": {
-		"message": "Упс! Твој прегледач не подржава Локатор Деда Мраза или је JavaScript онемогућен. За Локатор Деда Мраза треба да преузмеш модерни прегледач или да омогућиш JavaScript.\nЗа више информација посети \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Упс! Праћење Деда Мраза није подржано у твом прегледачу или је JavaScript онемогућен. За Праћење Деда Мраза треба да преузмеш модеран прегледач или да омогућиш JavaScript."
 	},
 	"us_country_name": {
 		"message": "САД"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Инсталирај"
+	},
+	"village_santa_intall_ios": {
+		"message": "Само додирни \u003cspan\u003e\u003c/span\u003e, па „Додај на почетни екран“"
 	},
 	"village_takesoff": {
 		"message": "Деда Мраз полеће за"

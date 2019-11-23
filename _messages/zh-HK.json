@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "再試一次"
 	},
+	"controller_gamepad": {
+		"message": "控制器"
+	},
+	"controller_keyboard": {
+		"message": "鍵盤"
+	},
+	"controller_mouse": {
+		"message": "滑鼠"
+	},
+	"controller_touch": {
+		"message": "輕觸"
+	},
 	"copy-me": {
 		"message": "複製此連結即可分享您的訊息"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "利用「聖誕老人 Chrome 擴充功能」裝飾您的瀏覽器。"
 	},
+	"decmonth": {
+		"message": "12 月"
+	},
+	"decmonth_long": {
+		"message": "12 月"
+	},
 	"detected": {
 		"message": "已偵測"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "選擇小精靈的體型"
 	},
+	"elves": {
+		"message": "小精靈"
+	},
 	"elvish_language_name": {
 		"message": "精靈文"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "糟糕，聖誕老人的小精靈無法找到此網頁！您可返回\u003ca href=\"./\"\u003e聖誕老人村\u003c/a\u003e再碰碰運氣。"
 	},
+	"error-out-of-date": {
+		"message": "此聖誕老人村版本經已過期！請嘗試再次開啟聖誕老人追蹤器以查看最新版本。"
+	},
 	"error-try-again": {
 		"message": "再試一次"
 	},
-	"error_try_again": {
-		"message": "再試一次"
+	"error-unsupported": {
+		"message": "您的瀏覽器並不支援聖誕老人村。如要玩更多遊戲並在 12 月 24 日追蹤聖誕老人，請嘗試使用手機或其他瀏覽器。"
 	},
 	"es_language_name": {
 		"message": "西班牙文"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "探索聖誕老人村"
+	},
+	"familyguide_card_11_body": {
+		"message": "從頭到腳製作屬於您的小精靈，以仙氣十足的「精靈」造型迎接北極的節日聚會。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "成為精明的網絡達人"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 應用程式"
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "明日盛大開幕"
 	},
+	"opens": {
+		"message": "開放日期"
+	},
 	"ornament-print-instructions": {
 		"message": "在這裡摺疊並用膠水將邊緣黏合"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "北極機場"
 	},
+	"scene_android_cityquiz": {
+		"message": "城市問答"
+	},
+	"scene_android_dancer": {
+		"message": "猛衝‧跳舞"
+	},
+	"scene_android_penguinswim": {
+		"message": "企鵝暢泳"
+	},
+	"scene_android_presenttoss": {
+		"message": "禮物拋拋樂"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "火箭雪橇"
+	},
+	"scene_android_snowballrun": {
+		"message": "雪球大暴走"
+	},
 	"scene_app": {
 		"message": "Android 應用程式"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "聖誕老婆婆的任務簡報"
+	},
+	"scene_build": {
+		"message": "禮物速製"
 	},
 	"scene_callfromsanta": {
 		"message": "聖誕老人來電"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "糖果工房"
 	},
+	"scene_family": {
+		"message": "家庭指南"
+	},
 	"scene_giftmatch": {
 		"message": "禮物對對碰"
 	},
 	"scene_glider": {
 		"message": "小精靈滑翔送禮"
 	},
+	"scene_guides": {
+		"message": "大人指南"
+	},
 	"scene_gumball": {
 		"message": "口香糖遊戲機"
+	},
+	"scene_havoc": {
+		"message": "禮物密密製"
 	},
 	"scene_icecave": {
 		"message": "冰洞"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "雪球大戰"
 	},
+	"scene_snowbox": {
+		"message": "雪箱"
+	},
 	"scene_snowflake": {
 		"message": "使用程式碼製作雪花"
 	},
 	"scene_speedsketch": {
 		"message": "極速繪畫"
+	},
+	"scene_storybook": {
+		"message": "可持續發展故事書"
 	},
 	"scene_streetview": {
 		"message": "街道景觀"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "在英國，不同年齡的慶祝人士都會在晚餐時在餐桌玩聖誕拉炮。拉炮是一種以彩紙包裹的紙筒，可以從兩端拉開。拉開兩端時，紙筒便會大聲爆開！大家會在聖誕夜享受裡面的紙帽、玩具、惡作劇和獎品。"
 	},
+	"underconstruction": {
+		"message": "施工中"
+	},
+	"unlocks": {
+		"message": "解鎖日期"
+	},
 	"unmute": {
 		"message": "取消靜音"
 	},
 	"upgrade-warning": {
-		"message": "很抱歉，您的瀏覽器版本並不支援「聖誕老人追蹤器」，又或者您停用了 JavaScript。若要使用「聖誕老人追蹤器」，請下載最新版本的瀏覽器或啟用 JavaScript。詳情請瀏覽 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e。"
+		"message": "抱歉！您的瀏覽器版本並不支援「聖誕老人追蹤器」，又或者您停用了 JavaScript。若要使用「聖誕老人追蹤器」，請下載最新版本的瀏覽器或啟用 JavaScript。"
 	},
 	"us_country_name": {
 		"message": "美國"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "安裝"
+	},
+	"village_santa_intall_ios": {
+		"message": "只需輕按 [\u003cspan\u003e\u003c/span\u003e] '然後 [新增至主畫面] 即可"
 	},
 	"village_takesoff": {
 		"message": "聖誕老人出發倒數"

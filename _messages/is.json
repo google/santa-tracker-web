@@ -614,9 +614,6 @@
 	"error-try-again": {
 		"message": "Reyna aftur"
 	},
-	"error_try_again": {
-		"message": "Reyna aftur"
-	},
 	"es_language_name": {
 		"message": "spænska"
 	},
@@ -628,6 +625,12 @@
 	},
 	"explore-village": {
 		"message": "Skoða þorp jólasveinsins"
+	},
+	"familyguide_card_11_body": {
+		"message": "Smíðaðu þinn eigin álf frá toppi til táar og passaðu að hann sé alveg álfslegur því að það eru margar skemmtanir í gangi um hátíðarnar á Norðurpólnum."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android forrit"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -6760,9 +6763,6 @@
 	},
 	"unmute": {
 		"message": "Kveikja"
-	},
-	"upgrade-warning": {
-		"message": "Úbbs! Ekki er stutt við Hvar er jólasveinninn í vafranum þínum eða þú ert með slökkt á JavaScript. Ef þú vilt fá Hvar er jólasveinninn skaltu sækja nýjan vafra eða kveikja á JavaScript.\nTil að fá frekari upplýsingar skaltu fara á: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Bandaríkin"

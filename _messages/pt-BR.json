@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Tentar de novo"
 	},
+	"controller_gamepad": {
+		"message": "Controlador"
+	},
+	"controller_keyboard": {
+		"message": "Teclado"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Toque"
+	},
 	"copy-me": {
 		"message": "Copie este link para compartilhar sua mensagem"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Decore seu navegador com uma extensão \"Santa Chrome\"."
 	},
+	"decmonth": {
+		"message": "Dez"
+	},
+	"decmonth_long": {
+		"message": "Dezembro"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Escolha o corpo do duende"
 	},
+	"elves": {
+		"message": "Elfos"
+	},
 	"elvish_language_name": {
 		"message": "Élfico"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Ah não, os duendes não encontraram esta página! Tente voltar para a \u003ca href=\"./\"\u003eVila do Papai Noel\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Esta é uma versão desatualizada da Vila do Papai Noel. Abra o Siga o Papai Noel novamente para visualizar a versão mais recente."
+	},
 	"error-try-again": {
 		"message": "Tente novamente"
 	},
-	"error_try_again": {
-		"message": "Tente novamente"
+	"error-unsupported": {
+		"message": "O Siga o Papai Noel não é compatível com seu navegador. Para mais jogos e acompanhar o Papai Noel no dia 24 de dezembro, use seu smartphone ou um navegador diferente."
 	},
 	"es_language_name": {
 		"message": "Espanhol"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Descubra a Aldeia do Papai Noel"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crie seu próprio duende da cabeça aos pés. Não se esqueça de deixá-lo duentástico para que ele arrase nas festas natalinas que acontecem no Polo Norte."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Seja Incrível na Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App para Android"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Grande inauguração amanhã"
 	},
+	"opens": {
+		"message": "Disponível a partir de"
+	},
 	"ornament-print-instructions": {
 		"message": "Dobre aqui e cole as laterais"
 	},
@@ -1119,7 +1155,7 @@
 		"message": "Jogar novamente"
 	},
 	"playdescription": {
-		"message": "Jogue o \"Siga o Papai Noel\" com seus amigos no aplicativo para Android."
+		"message": "Jogue o \"Siga o Papai Noel\" com seus amigos no app para Android."
 	},
 	"playextra": {
 		"message": "Jogar níveis extras"
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Aeroporto do Polo Norte"
 	},
+	"scene_android_cityquiz": {
+		"message": "Adivinhe a cidade"
+	},
+	"scene_android_dancer": {
+		"message": "Dança das renas"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pinguim nadador"
+	},
+	"scene_android_presenttoss": {
+		"message": "Jogue o presente"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Trenó-foguete"
+	},
+	"scene_android_snowballrun": {
+		"message": "Corrida da bola de neve"
+	},
 	"scene_app": {
 		"message": "App para Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instruções da Mamãe Noel"
+	},
+	"scene_build": {
+		"message": "Fábrica super-rápida"
 	},
 	"scene_callfromsanta": {
 		"message": "Ligação do Papai Noel"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Fábrica de doces"
 	},
+	"scene_family": {
+		"message": "Guia para a família"
+	},
 	"scene_giftmatch": {
 		"message": "Combine presentes"
 	},
 	"scene_glider": {
 		"message": "Duende paraquedista"
 	},
+	"scene_guides": {
+		"message": "Guias para adultos"
+	},
 	"scene_gumball": {
 		"message": "Ladeira dos chicletes"
+	},
+	"scene_havoc": {
+		"message": "Fábrica de presentes maluca"
 	},
 	"scene_icecave": {
 		"message": "Caverna de gelo"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Batalha de bolas de neve"
 	},
+	"scene_snowbox": {
+		"message": "Caixa de neve"
+	},
 	"scene_snowflake": {
 		"message": "Crie um floco de neve"
 	},
 	"scene_speedsketch": {
 		"message": "Desenho rápido"
+	},
+	"scene_storybook": {
+		"message": "Histórias sobre sustentabilidade"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "No Reino Unido, pessoas de todas as idades se divertem com as bombinhas de Natal, que são tubos envoltos em papel colorido com abas nas pontas. Ao puxá-las, o tubo estoura com um alto estampido. Ele libera chapéus de papel, brinquedos e piadas escritas que garantem a diversão na noite de Natal."
 	},
+	"underconstruction": {
+		"message": "Em obras"
+	},
+	"unlocks": {
+		"message": "Jogos desbloqueados"
+	},
 	"unmute": {
 		"message": "Ativar som"
 	},
 	"upgrade-warning": {
-		"message": "Ops! O Siga o Papai Noel não é compatível com seu navegador ou você desativou o JavaScript. Para acessar o jogo, faça o download de um navegador atualizado ou ative o JavaScript.\nPara mais informações, visite: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ops! O Siga o Papai Noel não é compatível com seu navegador ou o JavaScript está desativado. Para acessar o Siga o Papai Noel, faça o download de um navegador atualizado ou ative o JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalar"
+	},
+	"village_santa_intall_ios": {
+		"message": "Basta tocar em \u003cspan\u003e\u003c/span\u003e e selecionar \"Adicionar à tela inicial\""
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"

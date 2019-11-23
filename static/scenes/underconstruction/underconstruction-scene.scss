@@ -33,6 +33,7 @@ body {
 
   .title__logo {
     width: 300px;
+    filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, 0.2));
 
     @media screen and (max-width: $mobile-breakpoint) {
       width: 240px;
@@ -42,7 +43,7 @@ body {
   .title__text {
     color: #fff;
     font-weight: normal;
-    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.2);
     max-width: 500px;
     line-height: 0.85;
     margin: 0.4em auto;

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "다시 시도"
 	},
+	"controller_gamepad": {
+		"message": "컨트롤러"
+	},
+	"controller_keyboard": {
+		"message": "키보드"
+	},
+	"controller_mouse": {
+		"message": "마우스"
+	},
+	"controller_touch": {
+		"message": "터치"
+	},
 	"copy-me": {
 		"message": "링크를 복사하여 메시지 공유"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Chrome 산타 확장 프로그램으로 브라우저를 꾸며 보세요."
 	},
+	"decmonth": {
+		"message": "12월"
+	},
+	"decmonth_long": {
+		"message": "12월"
+	},
 	"detected": {
 		"message": "감지된 언어"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "엘프 모양 선택"
 	},
+	"elves": {
+		"message": "엘프"
+	},
 	"elvish_language_name": {
 		"message": "엘프어"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "산타의 엘프 친구들이 페이지를 찾을 수 없습니다. \u003ca href=\"./\"\u003e산타마을\u003c/a\u003e로 돌아가세요."
 	},
+	"error-out-of-date": {
+		"message": "오래된 버전의 산타 마을입니다. 산타 추적기를 다시 열어 최신 버전을 확인하세요."
+	},
 	"error-try-again": {
 		"message": "다시 시도"
 	},
-	"error_try_again": {
-		"message": "다시 시도"
+	"error-unsupported": {
+		"message": "산타 추적기가 이 브라우저를 지원하지 않습니다. 게임을 더 즐기고 12월 24일 산타를 추적하려면 휴대전화 또는 다른 브라우저를 사용해 보세요."
 	},
 	"es_language_name": {
 		"message": "스페인어"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "산타마을 살펴보기"
+	},
+	"familyguide_card_11_body": {
+		"message": "머리에서부터 발끝까지 나만의 엘프를 만들고 북극의 연말 파티 분위기에 맞게 꾸며 보세요."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "올바른 인터넷 사용"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 앱"
 	},
 	"fi_country_name": {
 		"message": "핀란드"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "내일 성대히 공개됩니다."
 	},
+	"opens": {
+		"message": "이용 가능 날짜"
+	},
 	"ornament-print-instructions": {
 		"message": "여기를 접어 양쪽 면을 풀로 붙이세요."
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "북극 공항"
 	},
+	"scene_android_cityquiz": {
+		"message": "도시 퀴즈"
+	},
+	"scene_android_dancer": {
+		"message": "대셔 댄서"
+	},
+	"scene_android_penguinswim": {
+		"message": "펭귄 수영"
+	},
+	"scene_android_presenttoss": {
+		"message": "선물 던지기"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "로켓 썰매"
+	},
+	"scene_android_snowballrun": {
+		"message": "눈덩이 피해 달리기"
+	},
 	"scene_app": {
 		"message": "Android 앱"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "산타 부인의 전달사항"
+	},
+	"scene_build": {
+		"message": "빠르게 선물 만들기"
 	},
 	"scene_callfromsanta": {
 		"message": "산타의 전화"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "사탕 공장"
 	},
+	"scene_family": {
+		"message": "가족 사용자 가이드"
+	},
 	"scene_giftmatch": {
 		"message": "선물 맞추기"
 	},
 	"scene_glider": {
 		"message": "엘프 활공"
 	},
+	"scene_guides": {
+		"message": "보호자용 가이드"
+	},
 	"scene_gumball": {
 		"message": "풍선껌 기울이기"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
 	},
 	"scene_icecave": {
 		"message": "얼음 동굴"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "맹공의 눈싸움"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "눈송이 코드"
 	},
 	"scene_speedsketch": {
 		"message": "빨리 그리기"
+	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
 	},
 	"scene_streetview": {
 		"message": "스트리트 뷰"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "영국에서는 남녀노소 모두 저녁 식사 자리에서 크리스마스 크래커를 즐깁니다. 크래커는 형형색색의 포장지로 꾸민 사탕 모양의 원통형 장식입니다. 양쪽 끝을 잡아당기면 '뻥'하는 소리와 함께 열립니다. 크래커 안에 있는 종이 왕관, 장난감, 종이에 적힌 크리스마스 조크, 선물 등으로 즐거운 크리스마스 저녁 시간을 보낼 수 있습니다."
 	},
+	"underconstruction": {
+		"message": "준비 중"
+	},
+	"unlocks": {
+		"message": "잠금 해제"
+	},
 	"unmute": {
 		"message": "음소거 해제"
 	},
 	"upgrade-warning": {
-		"message": "산타 추적기가 지원되지 않는 브라우저이거나 자바스크립트가 사용 중지되어 있습니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하거나 자바스크립트를 사용 설정하세요. 자세한 내용은 \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e를 방문하세요."
+		"message": "문제가 발생했습니다. 산타 추적기가 지원되지 않는 브라우저이거나 자바스크립트가 사용 중지되어 있습니다. 산타 추적기를 이용하려면 최신 브라우저를 다운로드하거나 자바스크립트를 사용 설정하세요."
 	},
 	"us_country_name": {
 		"message": "미국"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "설치"
+	},
+	"village_santa_intall_ios": {
+		"message": "\u003cspan\u003e\u003c/span\u003e를 탭한 후 '홈 화면에 추가'를 탭하세요."
 	},
 	"village_takesoff": {
 		"message": "산타 출발까지 남은 시간"

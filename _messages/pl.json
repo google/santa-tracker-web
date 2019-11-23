@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Spróbuj ponownie"
 	},
+	"controller_gamepad": {
+		"message": "Kontroler"
+	},
+	"controller_keyboard": {
+		"message": "Klawiatura"
+	},
+	"controller_mouse": {
+		"message": "Mysz"
+	},
+	"controller_touch": {
+		"message": "Dotyk"
+	},
 	"copy-me": {
 		"message": "Skopiuj ten link, aby udostępnić wiadomość"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Pobierz rozszerzenie Trasa Świętego Mikołaja w Chrome i przystrój swoją przeglądarkę na święta."
 	},
+	"decmonth": {
+		"message": "Gru"
+	},
+	"decmonth_long": {
+		"message": "grudnia"
+	},
 	"detected": {
 		"message": "wykryty"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Wybierz typ ciała elfa"
 	},
+	"elves": {
+		"message": "Elfy"
+	},
 	"elvish_language_name": {
 		"message": "elficki"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do \u003ca href=\"./\"\u003ewioski Mikołaja\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "To nieaktualna wersja Wioski Świętego Mikołaja. Otwórz Trasę Świętego Mikołaja jeszcze raz, aby zobaczyć najnowszą wersję."
+	},
 	"error-try-again": {
 		"message": "Spróbuj jeszcze raz"
 	},
-	"error_try_again": {
-		"message": "Spróbuj jeszcze raz"
+	"error-unsupported": {
+		"message": "Twoja przeglądarka nie obsługuje Trasy Świętego Mikołaja. Aby grać w gry i obserwować trasę Mikołaja 24 grudnia, użyj telefonu lub innej przeglądarki."
 	},
 	"es_language_name": {
 		"message": "hiszpański"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Zobacz wioskę Świętego Mikołaja"
+	},
+	"familyguide_card_11_body": {
+		"message": "stwórz własnego elfa od stóp do głów i zadbaj, by wyglądał elfiastycznie podczas wszystkich wieczorków towarzyskich organizowanych na biegunie."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Zostań praktykiem internetowym"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikacja na Androida"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Wielkie otwarcie już jutro"
 	},
+	"opens": {
+		"message": "Otwarcie"
+	},
 	"ornament-print-instructions": {
 		"message": "Zegnij tutaj i sklej obie strony"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Lotnisko na Biegunie Północnym"
 	},
+	"scene_android_cityquiz": {
+		"message": "Miejski quiz"
+	},
+	"scene_android_dancer": {
+		"message": "Fircyk i Tancerz"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pływające pingwiny"
+	},
+	"scene_android_presenttoss": {
+		"message": "Rzut prezentem"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Sanie rakietowe"
+	},
+	"scene_android_snowballrun": {
+		"message": "Ucieczka przed śnieżką"
+	},
 	"scene_app": {
 		"message": "Aplikacja na Androida"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Instruktaż od Pani Mikołajowej"
+	},
+	"scene_build": {
+		"message": "Szybkie budowanie"
 	},
 	"scene_callfromsanta": {
 		"message": "Telefon od Świętego Mikołaja"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Fabryka słodyczy"
 	},
+	"scene_family": {
+		"message": "Przewodnik dla rodzin"
+	},
 	"scene_giftmatch": {
 		"message": "Dobieracz prezentów"
 	},
 	"scene_glider": {
 		"message": "Elfi paralotniarz"
 	},
+	"scene_guides": {
+		"message": "Przewodniki dla dorosłych"
+	},
 	"scene_gumball": {
 		"message": "Spadające kulki"
+	},
+	"scene_havoc": {
+		"message": "Prezentowy zawrót głowy"
 	},
 	"scene_icecave": {
 		"message": "Jaskinia lodowa"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Atak śnieżkami"
 	},
+	"scene_snowbox": {
+		"message": "Śnieżne bloki"
+	},
 	"scene_snowflake": {
 		"message": "Zakoduj śnieżynkę"
 	},
 	"scene_speedsketch": {
 		"message": "Rysowanie na czas"
+	},
+	"scene_storybook": {
+		"message": "Opowieść o zrównoważonym rozwoju"
 	},
 	"scene_streetview": {
 		"message": "Widok ulicy"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "W Wielkiej Brytanii w Boże Narodzenie podczas kolacji świętujący bawią się „crackerami”. Są to tubki owinięte sreberkiem, ze wstążkami na końcach. Wystarczy za nie pociągnąć, by tubka wystrzeliła z hukiem! Wewnątrz znajdują się papierowe czapeczki, zabawki, żarty i upominki, które umilają wigilijną noc."
 	},
+	"underconstruction": {
+		"message": "W budowie"
+	},
+	"unlocks": {
+		"message": "Gra dostępna"
+	},
 	"unmute": {
 		"message": "Wyłącz wyciszenie"
 	},
 	"upgrade-warning": {
-		"message": "Twoja przeglądarka nie obsługuje Trasy Świętego Mikołaja lub masz wyłączoną obsługę języka JavaScript. Pobierz nowszą przeglądarkę lub włącz JavaScript.\nWięcej informacji na stronie \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Twoja przeglądarka nie obsługuje Trasy Świętego Mikołaja lub masz wyłączoną obsługę języka JavaScript. Pobierz nowszą przeglądarkę lub włącz JavaScript."
 	},
 	"us_country_name": {
 		"message": "Stany Zjednoczone"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Zainstaluj"
+	},
+	"village_santa_intall_ios": {
+		"message": "Dotknij \u003cspan\u003e\u003c/span\u003e, a potem dotknij „Dodaj do ekranu głównego”"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"

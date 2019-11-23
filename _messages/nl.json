@@ -614,9 +614,6 @@
 	"error-try-again": {
 		"message": "Opnieuw"
 	},
-	"error_try_again": {
-		"message": "Opnieuw"
-	},
 	"es_language_name": {
 		"message": "Spaans"
 	},
@@ -628,6 +625,12 @@
 	},
 	"explore-village": {
 		"message": "Dorp van de Kerstman verkennen"
+	},
+	"familyguide_card_11_body": {
+		"message": "Maak je eigen elf die de show steelt tijdens de vele feestjes die tijdens de feestdagen op de Noordpool worden gehouden."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-app"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -6760,9 +6763,6 @@
 	},
 	"unmute": {
 		"message": "Dempen opheffen"
-	},
-	"upgrade-warning": {
-		"message": "Oeps! 'Kerstman vinden' wordt niet ondersteund door je browser of JavaScript is niet ingeschakeld. Download een nieuwere browserversie of schakel JavaScript in.\nGa naar \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e voor meer informatie."
 	},
 	"us_country_name": {
 		"message": "United States"

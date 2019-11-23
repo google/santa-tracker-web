@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Prøv på nytt"
 	},
+	"controller_gamepad": {
+		"message": "Kontroller"
+	},
+	"controller_keyboard": {
+		"message": "Tastatur"
+	},
+	"controller_mouse": {
+		"message": "Mus"
+	},
+	"controller_touch": {
+		"message": "Berøring"
+	},
 	"copy-me": {
 		"message": "Kopiér denne linken for å dele meldingen din"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Kle opp nettleseren din med julenisseutvidelsen til Chrome."
 	},
+	"decmonth": {
+		"message": "Des"
+	},
+	"decmonth_long": {
+		"message": "desember"
+	},
 	"detected": {
 		"message": "registrert"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Velg en alvekropp"
 	},
+	"elves": {
+		"message": "Alver"
+	},
 	"elvish_language_name": {
 		"message": "Alvisk"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Å nei! Julenissens hjelpere finner ikke denne siden. Kanskje hellet snur hvis du går tilbake til \u003ca href=\"./\"\u003eJulenissens landsby\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Dette er en utdatert versjon av Julenissens landsby! Prøv å åpne Følg julenissen på nytt for å se den nyeste versjonen."
+	},
 	"error-try-again": {
 		"message": "Prøv igjen"
 	},
-	"error_try_again": {
-		"message": "Prøv igjen"
+	"error-unsupported": {
+		"message": "Følg julenissen støttes ikke av nettleseren din. Hvis du vil spille flere spill og følge julenissen 24. desember, kan du prøve å bruke telefonen din eller en annen nettleser."
 	},
 	"es_language_name": {
 		"message": "Spansk"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Gjør deg kjent i julenissens landsby"
+	},
+	"familyguide_card_11_body": {
+		"message": "Bygg din egen alv fra topp til tå, og sørg for at den ser alvsindig bra ut, så den er klar for de mange juleselskapene på Nordpolen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-app"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Stor åpning i morgen"
 	},
+	"opens": {
+		"message": "Åpnes"
+	},
 	"ornament-print-instructions": {
 		"message": "Brett her, og lim sammen sidene"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Nordpolen flyplass"
 	},
+	"scene_android_cityquiz": {
+		"message": "Byquiz"
+	},
+	"scene_android_dancer": {
+		"message": "Danser med reinsdyr"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingvinsvømming"
+	},
+	"scene_android_presenttoss": {
+		"message": "Gavekast"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Rakettsleden"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snøballflukten"
+	},
 	"scene_app": {
 		"message": "Android-app"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Oppdrag fra julenissens kone"
+	},
+	"scene_build": {
+		"message": "Hurtigbygg"
 	},
 	"scene_callfromsanta": {
 		"message": "Telefon fra julenissen"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Godterifabrikken"
 	},
+	"scene_family": {
+		"message": "Veiledning for familier"
+	},
 	"scene_giftmatch": {
 		"message": "Gave-matcher"
 	},
 	"scene_glider": {
 		"message": "Alveglider"
 	},
+	"scene_guides": {
+		"message": "Voksenveiledninger"
+	},
 	"scene_gumball": {
 		"message": "Rulledrops"
+	},
+	"scene_havoc": {
+		"message": "Gavekaos"
 	},
 	"scene_icecave": {
 		"message": "Ishulelevering"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Snøballstorm"
 	},
+	"scene_snowbox": {
+		"message": "Snøkasse"
+	},
 	"scene_snowflake": {
 		"message": "Koding av et snøfnugg"
 	},
 	"scene_speedsketch": {
 		"message": "Hurtigtegning"
+	},
+	"scene_storybook": {
+		"message": "Eventyrbok om bærekraft"
 	},
 	"scene_streetview": {
 		"message": "«Street View»"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "I Storbritannia morer feststemte mennesker i alle aldre seg med smellbongbonger ved middagsbordet. Dette er små rør innpakket i fargerikt papir, med papirremser i hver ende som kan trekkes ut slik at røret sprekker med et stort smell. Inni finnes det papirhatter, leker og godteri, noe som gjør julekvelden ekstra morsom."
 	},
+	"underconstruction": {
+		"message": "Under bygging"
+	},
+	"unlocks": {
+		"message": "Låses opp"
+	},
 	"unmute": {
 		"message": "Slå på lyden"
 	},
 	"upgrade-warning": {
-		"message": "Oi sann! Følg julenissen er ikke støttet i nettleseren din, eller du har slått av JavaScript. Last ned en nyere nettleser eller slå på JavaScript for å få tilgang til Følg julenissen.\nDu finner mer informasjon på \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oi, da! Følg julenissen støttes ikke i nettleseren din, eller du har slått av JavaScript. Last ned en nyere nettleser eller slå på JavaScript for å bruke Følg julenissen."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installer"
+	},
+	"village_santa_intall_ios": {
+		"message": "Bare trykk på \u003cspan\u003e\u003c/span\u003e og deretter på «Legg til på startsiden»"
 	},
 	"village_takesoff": {
 		"message": "Julenissen tar av om"

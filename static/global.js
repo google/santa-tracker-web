@@ -1,14 +1,16 @@
 
 import createStore from 'unistore';
-import {dedupFrame} from './src/lib/decorators.js';
+import {dedup} from './src/lib/promises.js';
 
 const g = createStore({
   mini: false,
-  audioSuspended: false,
+  audioSuspended: undefined,  // undefined until we observe it
 
   orientation: null,
 
   hidden: false,
+
+  route: null,
 
   status: '',  // '', paused, gameover
 
@@ -16,6 +18,8 @@ const g = createStore({
   sceneHasPause: false,
 
   score: {},
+
+  shareUrl: null,
 });
 
 export default g;
@@ -44,7 +48,7 @@ startup((global) => {
     global.setState({orientation});
   };
 
-  const d = dedupFrame(update);
+  const d = dedup(update);
   portraitMedia.addListener(d);
   landscapeMedia.addListener(d);
 
@@ -77,11 +81,11 @@ startup((global) => {
     // assume the user is using a mouse.
     const hasMouse = (pointerMedia.matches && hoverMedia.matches) || !window.Touch;
     global.setState({
-      inputMode: hasMouse ? 'mouse' : 'touch',
+      inputMode: hasMouse ? 'keys' : 'touch',
     });
   };
 
-  const d = dedupFrame(update);
+  const d = dedup(update);
   pointerMedia.addListener(d);
   hoverMedia.addListener(d);
 

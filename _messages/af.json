@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Probeer weer"
 	},
+	"controller_gamepad": {
+		"message": "Beheerder"
+	},
+	"controller_keyboard": {
+		"message": "Sleutelbord"
+	},
+	"controller_mouse": {
+		"message": "Muis"
+	},
+	"controller_touch": {
+		"message": "Raak"
+	},
 	"copy-me": {
 		"message": "Kopieer hierdie skakel om jou boodskap te deel"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Versier jou blaaier met 'n Chrome-uitbreiding van Kersvader."
 	},
+	"decmonth": {
+		"message": "Des."
+	},
+	"decmonth_long": {
+		"message": "Desember"
+	},
 	"detected": {
 		"message": "bespeur"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Kies 'n elflyf"
 	},
+	"elves": {
+		"message": "Elwe"
+	},
 	"elvish_language_name": {
 		"message": "Elwetaal"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Agge nee, Kersvader se elwe kan nie hierdie bladsy vind nie! Dit sal dalk beter wees as jy teruggaan na \u003ca href=\"./\"\u003eKersvader se dorpie\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Dit is 'n verouderde weergawe van Kersvader se dorpie! Probeer om Waar is Kersvarder weer oop te maak, om die nuutste weergawe te sien."
+	},
 	"error-try-again": {
 		"message": "Probeer weer"
 	},
-	"error_try_again": {
-		"message": "Probeer weer"
+	"error-unsupported": {
+		"message": "Waar is Kersvader steun nie jou blaaier nie. Om nog speletjies te speel en Kersvader op 24 Desember te volg, kan jy jou foon of 'n ander blaaier probeer."
 	},
 	"es_language_name": {
 		"message": "Spaans"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Verken Kersvader se dorpie"
+	},
+	"familyguide_card_11_body": {
+		"message": "Bou jou eie elf van kop tot tone en maak seker dit lyk elftasties vir die vele feestydpartytjies wat in die Noordpool gaan plaasvind."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Wees internetfantasties"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-program"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Reuse openingdag môre"
 	},
+	"opens": {
+		"message": "Maak oop"
+	},
 	"ornament-print-instructions": {
 		"message": "Vou hier en plak kante vas"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Noordpool-lughawe"
 	},
+	"scene_android_cityquiz": {
+		"message": "Stadvasvra"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher-danser"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pikkewynswem"
+	},
+	"scene_android_presenttoss": {
+		"message": "Presentgooi"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Vuurpylslee"
+	},
+	"scene_android_snowballrun": {
+		"message": "Sneeubal-hardloop"
+	},
 	"scene_app": {
 		"message": "Android-program"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Mev. Kersvader se instruksies"
+	},
+	"scene_build": {
+		"message": "Bou en laat spaander"
 	},
 	"scene_callfromsanta": {
 		"message": "Oproep van Kersvader"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Lekkergoedfabriek"
 	},
+	"scene_family": {
+		"message": "Gesinsgids"
+	},
 	"scene_giftmatch": {
 		"message": "Geskenkpasser"
 	},
 	"scene_glider": {
 		"message": "Elf-sweeftuig"
 	},
+	"scene_guides": {
+		"message": "Gidse vir volwassenes"
+	},
 	"scene_gumball": {
 		"message": "Gumball-kantel"
+	},
+	"scene_havoc": {
+		"message": "Geskenkchaos"
 	},
 	"scene_icecave": {
 		"message": "Ysgrot"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Sneeubalstorm"
 	},
+	"scene_snowbox": {
+		"message": "Sneeuboks"
+	},
 	"scene_snowflake": {
 		"message": "Kodeer 'n sneeuvlokkie"
 	},
 	"scene_speedsketch": {
 		"message": "Spoedskets"
+	},
+	"scene_storybook": {
+		"message": "Volhoubaarheidstorieboek"
 	},
 	"scene_streetview": {
 		"message": "Straataansig"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "In die VK geniet pretmakers van alle ouderdomme Kersklappers met aandete. Klappers is buise in kleurryke papier met 'n treklus aan elke punt. Wanneer jy die lusse trek, bars die buis met 'n harde klapgeluid oop! Binne-in is papierhoede, speelgoed, grappies en pryse om op Kersaand te geniet."
 	},
+	"underconstruction": {
+		"message": "In aanbou"
+	},
+	"unlocks": {
+		"message": "Ontsluit"
+	},
 	"unmute": {
 		"message": "Ontdemp"
 	},
 	"upgrade-warning": {
-		"message": "Oeps! Waar Is Kersvader word nie deur jou blaaier gesteun nie of jou JavaScript is gedeaktiveer. Laai 'n moderne blaaier af of aktiveer JavaScript om toegang tot Waar Is Kersvader te kry.\nVir verdere inligting, besoek: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oeps! Waar Is Kersvader word nie deur jou blaaier gesteun nie of jou JavaScript is gedeaktiveer. Laai 'n moderne blaaier af of aktiveer JavaScript om toegang tot Waar Is Kersvader te kry."
 	},
 	"us_country_name": {
 		"message": "Verenigde State"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installeer"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tik net \u003cspan\u003e\u003c/span\u003e en dan \"Voeg by tuisskerm\""
 	},
 	"village_takesoff": {
 		"message": "Kersvader vertrek oor"

@@ -614,9 +614,6 @@
 	"error-try-again": {
 		"message": "Tentar de novo"
 	},
-	"error_try_again": {
-		"message": "Tentar de novo"
-	},
 	"es_language_name": {
 		"message": "Español"
 	},
@@ -628,6 +625,12 @@
 	},
 	"explore-village": {
 		"message": "Explorar aldea de Papá Noel"
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea o teu propio elfo dos pés á cabeza e déixao feito un pincel para as festas do Nadal que se celebran no Polo Norte."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicación de Android"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -6760,9 +6763,6 @@
 	},
 	"unmute": {
 		"message": "Activar o son"
-	},
-	"upgrade-warning": {
-		"message": "Vaia! Parece que o teu navegador non é compatible con Sigue a Papá Noel ou que tes JavaScript desactivado. Para acceder ao sitio web, descarga un navegador máis recente ou activa JavaScript.\nSe queres obter máis información, visita a ligazón \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"

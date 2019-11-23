@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Δοκιμάστε ξανά"
 	},
+	"controller_gamepad": {
+		"message": "Χειριστήριο"
+	},
+	"controller_keyboard": {
+		"message": "Πληκτρολόγιο"
+	},
+	"controller_mouse": {
+		"message": "Ποντίκι"
+	},
+	"controller_touch": {
+		"message": "Άγγιγμα"
+	},
 	"copy-me": {
 		"message": "Αντιγράψτε αυτόν το σύνδεσμο για να μοιραστείτε το μήνυμά σας"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Διακοσμήστε το πρόγραμμα περιήγησής σας με μια επέκταση του Chrome για τον Άγιο Βασίλη."
 	},
+	"decmonth": {
+		"message": "Δεκ."
+	},
+	"decmonth_long": {
+		"message": "Δεκεμβρίου"
+	},
 	"detected": {
 		"message": "εντοπίστηκε"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Επιλέξτε σώμα ξωτικού"
 	},
+	"elves": {
+		"message": "Ξωτικά"
+	},
 	"elvish_language_name": {
 		"message": "Γλώσσα των ξωτικών"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Ωχ όχι! Τα ξωτικά του Άη Βασίλη δεν μπορούν να βρουν αυτήν τη σελίδα! Ίσως έχετε καλύτερη τύχη, αν επιστρέψετε στο \u003ca href=\"./\"\u003eΧωριό του Άη Βασίλη\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Αυτή είναι μια παλιά έκδοση του χωριού του Άγιου Βασίλη! Δοκιμάστε να ανοίξετε ξανά το Santa Tracker για να δείτε την τελευταία έκδοση."
+	},
 	"error-try-again": {
 		"message": "Επανάληψη"
 	},
-	"error_try_again": {
-		"message": "Επανάληψη"
+	"error-unsupported": {
+		"message": "Το Santa Tracker δεν υποστηρίζει το πρόγραμμα περιήγησής σας. Για να παίξετε περισσότερα παιχνίδια και για να παρακολουθήσετε τον Άγιο Βασίλη στις 24 Δεκεμβρίου, δοκιμάστε το τηλέφωνό σας ή ένα άλλο πρόγραμμα περιήγησης."
 	},
 	"es_language_name": {
 		"message": "Ισπανικά"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Εξερευνήστε το χωριό του Άη Βασίλη"
+	},
+	"familyguide_card_11_body": {
+		"message": "Δημιουργήστε το δικό σας ξωτικό από την κορυφή έως τα νύχια και βεβαιωθείτε ότι έχει τη χαρακτηριστική όψη του ξωτικού για τα πολλά εορταστικά βράδια στον Βόρειο Πόλο."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Γίνετε εξπέρ στο διαδίκτυο"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Εφαρμογή Android"
 	},
 	"fi_country_name": {
 		"message": "Φινλανδία"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Μεγάλα εγκαίνια αύριο"
 	},
+	"opens": {
+		"message": "Ανοίγει"
+	},
 	"ornament-print-instructions": {
 		"message": "Διπλώστε εδώ και κολλήστε τα πλαϊνά μαζί"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Αεροδρόμιο Βόρειου Πόλου"
 	},
+	"scene_android_cityquiz": {
+		"message": "Κουίζ πόλεων"
+	},
+	"scene_android_dancer": {
+		"message": "Χορευτής Dasher"
+	},
+	"scene_android_penguinswim": {
+		"message": "Κολύμπι πιγκουίνου"
+	},
+	"scene_android_presenttoss": {
+		"message": "Εκτόξευση δώρων"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Αεριωθούμενο έλκηθρο"
+	},
+	"scene_android_snowballrun": {
+		"message": "Αποφυγή χιονόμπαλας"
+	},
 	"scene_app": {
 		"message": "Εφαρμογή Android"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Ενημέρωση από την Κυρία Κλάους"
+	},
+	"scene_build": {
+		"message": "Γρήγορη κατασκευή δώρων"
 	},
 	"scene_callfromsanta": {
 		"message": "Κλήση από τον Άγιο Βασίλη"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Εργοστάσιο ζαχαρωτών"
 	},
+	"scene_family": {
+		"message": "Οδηγός για οικογένειες"
+	},
 	"scene_giftmatch": {
 		"message": "Αντιστοίχιση δώρων"
 	},
 	"scene_glider": {
 		"message": "Ανεμόπτερο ξωτικών"
 	},
+	"scene_guides": {
+		"message": "Οδηγοί για ενήλικες"
+	},
 	"scene_gumball": {
 		"message": "Κυλίστε τις καραμέλες"
+	},
+	"scene_havoc": {
+		"message": "Το χάος των δώρων"
 	},
 	"scene_icecave": {
 		"message": "Παγοσπηλιά"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Χιονοθύελλα"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Κωδικοποίηση χιονονιφάδας"
 	},
 	"scene_speedsketch": {
 		"message": "Σχέδιο ταχύτητας"
+	},
+	"scene_storybook": {
+		"message": "Η ιστορία της βιωσιμότητας"
 	},
 	"scene_streetview": {
 		"message": "Street View"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "Στο ΗΒ, οι γλεντζέδες κάθε ηλικίας απολαμβάνουν τα χριστουγεννιάτικα κράκερ στο δείπνο. Τα κράκερ είναι σωλήνες τυλιγμένοι με πολύχρωμο χαρτί, όπου τραβάς τις δύο άκρες. Όταν τραβάς τις άκρες, ο σωλήνας σκάει με θόρυβο! Μέσα υπάρχουν χάρτινα καπέλα, παιχνίδια, ανέκδοτα και βραβεία."
 	},
+	"underconstruction": {
+		"message": "Υπό κατασκευή"
+	},
+	"unlocks": {
+		"message": "Ξεκλειδώνει"
+	},
 	"unmute": {
 		"message": "Κατάργ. σίγασης"
 	},
 	"upgrade-warning": {
-		"message": "Ωχ! Το Santa Tracker δεν υποστηρίζεται στο πρόγραμμα περιήγησής σας ή έχετε απενεργοποιήσει το JavaScript. Για να έχετε πρόσβαση στο Santa Tracker, κατεβάστε μια νεότερη έκδοση του προγράμματος περιήγησης ή ενεργοποιήστε το JavaScript.\nΓια περισσότερες πληροφορίες, επισκεφτείτε το \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ωχ! Το Santa Tracker δεν υποστηρίζεται στο πρόγραμμα περιήγησης που χρησιμοποιείτε ή έχετε απενεργοποιήσει τη JavaScript. Για πρόσβαση στο Santa Tracker, κατεβάστε ένα σύγχρονο πρόγραμμα περιήγησης ή ενεργοποιήστε τη JavaScript."
 	},
 	"us_country_name": {
 		"message": "Ηνωμένες Πολιτείες"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Εγκατάσταση"
+	},
+	"village_santa_intall_ios": {
+		"message": "Απλώς πατήστε \u003cspan\u003e\u003c/span\u003e και μετά \"Προσθήκη στην αρχική οθόνη\""
 	},
 	"village_takesoff": {
 		"message": "Ο Άγιος Βασίλης απογειώνεται σε"

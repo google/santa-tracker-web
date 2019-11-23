@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Prøv igen"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Tastatur"
+	},
+	"controller_mouse": {
+		"message": "Mus"
+	},
+	"controller_touch": {
+		"message": "Tryk"
+	},
 	"copy-me": {
 		"message": "Kopiér dette link for at dele din besked"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Pynt op i din browser med en Chrome-udvidelse"
 	},
+	"decmonth": {
+		"message": "Dec."
+	},
+	"decmonth_long": {
+		"message": "December"
+	},
 	"detected": {
 		"message": "registreret"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Vælg en nissekrop"
 	},
+	"elves": {
+		"message": "Nisser"
+	},
 	"elvish_language_name": {
 		"message": "Nissesprog"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Åh nej, julemandens hjælpere kan ikke finde denne side! Du har måske mere held, hvis du går tilbage til \u003ca href=\"./\"\u003eJulemandens landsby\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Denne version af Julemandens landsby er forældet. Prøv at åbne Følg julemanden igen for at se den seneste version."
+	},
 	"error-try-again": {
 		"message": "Prøv igen"
 	},
-	"error_try_again": {
-		"message": "Prøv igen"
+	"error-unsupported": {
+		"message": "Følg julemanden understøtter ikke din browser. Hvis du vil spille flere spil eller følge julemanden rundt i verden den 24. december, kan du prøve at bruge din telefon eller en anden browser."
 	},
 	"es_language_name": {
 		"message": "Spansk"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Udforsk julemandens landsby"
+	},
+	"familyguide_card_11_body": {
+		"message": "Byg din egen nisse fra top til tå, og sørg for, at den ser fantastisk ud til de mange julefester på Nordpolen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Bliv en internetekspert"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-app"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Åbner i morgen"
 	},
+	"opens": {
+		"message": "Åbner"
+	},
 	"ornament-print-instructions": {
 		"message": "Fold her, og lim siderne sammen"
 	},
@@ -1137,7 +1173,7 @@
 		"message": "Om Følg julemanden"
 	},
 	"press-about-tracker1": {
-		"message": "Den 24. december lancerer vi Følg julemanden, et betjeningspanel, som giver julemandens største fans mulighed for at følge hans kanetur fra by til by. Du kan også se hans aktuelle placering i Google Maps og spørge Google Assistent \"Ok Google, hvor er julemanden?\"– så du hele tiden ved, hvor julemanden er."
+		"message": "Den 24. december lancerer vi Følg julemanden, et kontrolpanel, som giver julemandens største fans mulighed for at følge hans kanetur fra by til by. Du kan også se hans aktuelle placering i Google Maps og spørge Google Assistent \"Ok Google, hvor er julemanden?\"– så du hele tiden ved, hvor julemanden er."
 	},
 	"press-about-village": {
 		"message": "Om Julemandens landsby"
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Nordpolens lufthavn"
 	},
+	"scene_android_cityquiz": {
+		"message": "Kortquiz"
+	},
+	"scene_android_dancer": {
+		"message": "Julemandens rensdyr"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingvin på svømmetur"
+	},
+	"scene_android_presenttoss": {
+		"message": "Gavekast"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketslædespil"
+	},
+	"scene_android_snowballrun": {
+		"message": "Løb fra snebolden"
+	},
 	"scene_app": {
 		"message": "Android-app"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Ordrer fra julemandens kone"
+	},
+	"scene_build": {
+		"message": "Julemandens værksted"
 	},
 	"scene_callfromsanta": {
 		"message": "Opkald fra julemanden"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Slikfabrikken"
 	},
+	"scene_family": {
+		"message": "Familieguide"
+	},
 	"scene_giftmatch": {
 		"message": "Gavematcher"
 	},
 	"scene_glider": {
 		"message": "Paraglidernissen"
 	},
+	"scene_guides": {
+		"message": "Vejledning for voksne"
+	},
 	"scene_gumball": {
 		"message": "Rullende tyggegummikugler"
+	},
+	"scene_havoc": {
+		"message": "Gaveræs"
 	},
 	"scene_icecave": {
 		"message": "Ishule"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Sneboldkrig"
 	},
+	"scene_snowbox": {
+		"message": "Snekasse"
+	},
 	"scene_snowflake": {
 		"message": "Lav et snefnug med kode"
 	},
 	"scene_speedsketch": {
 		"message": "Hurtigtegner"
+	},
+	"scene_storybook": {
+		"message": "Klima-eventyr"
 	},
 	"scene_streetview": {
 		"message": "Gadevisning"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "I Storbritannien er knallerter et stort hit ved middagsbordet for både store og små. Det er små rør, der er pakket ind i farvet papir, og med to ender, man kan trække i. Så springer røret med et højt knald! Og inden i er der papirhatte, legetøj, vittigheder og små gaver til juleaften."
 	},
+	"underconstruction": {
+		"message": "Under opbygning"
+	},
+	"unlocks": {
+		"message": "Låses op"
+	},
 	"unmute": {
 		"message": "Lyd til"
 	},
 	"upgrade-warning": {
-		"message": "Ups! Følg julemanden understøttes ikke af din browser, eller JavaScript er deaktiveret. Du kan få adgang til Følg julemanden ved at downloade en moderne browser eller aktivere JavaScript.\nDu kan få flere oplysninger på: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Ups! Følg julemanden understøttes ikke i din browser, eller JavaScript er deaktiveret. Du kan få adgang til Følg julemanden ved at downloade en moderne browser eller aktivere JavaScript."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installer"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tryk på \u003cspan\u003e\u003c/span\u003e og derefter på \"Føj til hjemmeskærm\""
 	},
 	"village_takesoff": {
 		"message": "Julemanden tager afsted om"

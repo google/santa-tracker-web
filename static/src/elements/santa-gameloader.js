@@ -1,7 +1,7 @@
 import styles from './santa-gameloader.css';
 
 import * as messageSource from '../lib/message-source.js';
-import {resolvable} from '../lib/promises.js';
+import {resolvable, dedup} from '../lib/promises.js';
 
 
 
@@ -24,6 +24,8 @@ class PortControl {
     if (port) {
       this._port = port;
       port.onmessage = (ev) => this.push(ev.data);
+    } else {
+      this._closed = true;
     }
     this._attached = true;
   }
@@ -97,7 +99,8 @@ const LOAD_LEEWAY = 250;
 // nb. allow-same-origin is fine, because we're serving on another domain
 // allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
-const SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
+const IFRAME_SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
+const IFRAME_ALLOW = 'autoplay';
 
 
 export const events = Object.freeze({
@@ -110,10 +113,49 @@ export const events = Object.freeze({
 const internalRemove = '-internal-remove';
 
 
+const removeNode = (el) => {
+  if (el && el.parentNode) {
+    el.parentNode.removeChild(el);
+  }
+};
+
+
+/**
+ * Set the explicit w/h of the target iframe. Used to work around Safari issues.
+ *
+ * @param {?HTMLIFrameElement} iframe to rectify
+ * @param {boolean} tilt whether the screen is rotated
+ */
+const rectifyFrame = (iframe, tilt) => {
+  if (!iframe) {
+    return;
+  }
+
+  let targetWidth = window.innerWidth;
+  let targetHeight = window.innerHeight;
+
+  if (tilt) {
+    let temp = targetWidth;
+    targetWidth = targetHeight;
+    targetHeight = temp;
+  }
+
+  delete iframe.style.width;
+  delete iframe.style.height;
+  iframe.offfsetLeft;
+
+  if (iframe.offsetHeight !== targetHeight || iframe.offsetWidth !== targetWidth) {
+    iframe.style.width = `${targetWidth}px`;
+    iframe.style.height = `${targetHeight}px`;
+  }
+};
+
+
 const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
-  iframe.setAttribute('sandbox', SANDBOX);
+  iframe.setAttribute('sandbox', IFRAME_SANDBOX);
+  iframe.setAttribute('allow', IFRAME_ALLOW);
   iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
   return iframe;
 };
@@ -123,7 +165,7 @@ const createFrame = (src) => {
  * Loads iframes.
  */
 class SantaGameLoaderElement extends HTMLElement {
-  static get observedAttributes() { return ['disabled']; }
+  static get observedAttributes() { return ['disabled', 'tilt']; }
 
   constructor() {
     super();
@@ -133,20 +175,27 @@ class SantaGameLoaderElement extends HTMLElement {
 
     // Use this container to manage focus on contained iframes, rather than setting classes or
     // attributes on the loader itself.
-    this._container = document.createElement('main');
-    this._container.classList.add('empty');
-    root.append(this._container);
+    this._main = document.createElement('main');
+    this._main.classList.add('empty');
+    root.appendChild(this._main);
 
     // Wrap `<slot>` in a container that can be toggled in an error state. The naked slot contains
     // content which will be displayed if a game fails to load, such as `<santa-error>`.
     const slotContainer = document.createElement('div');
     slotContainer.classList.add('slot-container');
     const slot = document.createElement('slot');
-    slotContainer.append(slot);
-    this._container.append(slotContainer);
+    slotContainer.appendChild(slot);
+
+    // Create `.iframe-container` for rotate/etc effects.
+    this._container = document.createElement('div');
+    this._container.className = 'iframe-container';
+
+    this._main.appendChild(slotContainer);
+    this._main.appendChild(this._container);
 
     this._onWindowBlur = this._onWindowBlur.bind(this);
     this._onWindowFocus = this._onWindowFocus.bind(this);
+    this._onWindowResize = dedup(this._onWindowResize.bind(this));
     this._frameFocus = false;
 
     this._loading = false;
@@ -156,7 +205,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._previousFrame = null;
     this._previousFrameClose = null;  // called when _previousFrame is cleared
     this._activeFrame = createFrame();
-    this._container.append(this._activeFrame);
+    this._container.appendChild(this._activeFrame);
 
     // Create DOM that contains overlay elements.
     // TODO(samthor): This isn't really to do with the gameloader, but serves as a convinent place
@@ -172,13 +221,21 @@ class SantaGameLoaderElement extends HTMLElement {
     const slotOverlay = document.createElement('slot');
     slotOverlay.setAttribute('name', 'overlay');
 
-    root.append(overlay);
-    overlay.append(holder);
-    holder.append(slotOverlay);
+    root.appendChild(overlay);
+    overlay.appendChild(holder);
+    holder.appendChild(slotOverlay);
   }
 
   get frameFocus() {
     return this._frameFocus;
+  }
+
+  _onWindowResize() {
+    // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
+    // then force it via changing CSS properties.
+    const tilt = this.hasAttribute('tilt');
+    rectifyFrame(this._activeFrame, tilt);
+    rectifyFrame(this._previousFrame, tilt);
   }
 
   _onWindowBlur(e) {
@@ -212,21 +269,29 @@ class SantaGameLoaderElement extends HTMLElement {
   connectedCallback() {
     window.addEventListener('blur', this._onWindowBlur);
     window.addEventListener('focus', this._onWindowFocus);
+    window.addEventListener('resize', this._onWindowResize);
   }
 
   disconnectedCallback() {
     window.removeEventListener('blur', this._onWindowBlur);
     window.removeEventListener('focus', this._onWindowFocus);
+    window.addEventListener('resize', this._onWindowResize);
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (attrName === 'disabled') {
-      if (newValue !== null) {
-        window.focus();  // move focus from activeFrame
-        this._activeFrame.setAttribute('tabindex', -1);
-      } else if (!this._loading) {
-        this._activeFrame.removeAttribute('tabindex');
-      }
+    switch (attrName) {
+      case 'disabled':
+        if (newValue !== null) {
+          window.focus();  // move focus from activeFrame
+          this._activeFrame.setAttribute('tabindex', -1);
+        } else if (!this._loading) {
+          this._activeFrame.removeAttribute('tabindex');
+        }
+        break;
+
+      case 'tilt':
+        this._onWindowResize();
+        break;
     }
   }
 
@@ -236,7 +301,7 @@ class SantaGameLoaderElement extends HTMLElement {
    */
   purge() {
     // nb. does not null out the previousFrame, as we use it to indicate in-progress load
-    this._previousFrame && this._previousFrame.remove();
+    removeNode(this._previousFrame);
     this._previousFrameClose && this._previousFrameClose();
   }
 
@@ -250,7 +315,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._href = href || null;
 
     this._loading = true;
-    this._container.classList.add('loading');
+    this._main.classList.add('loading');
 
     // Inform any open control (for the activeFrame) that it is to be closed, by sending null.
     const close = this._control.shutdown();
@@ -261,7 +326,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // and dispatch an internal message: it was never made visible to end-users.
       // TODO: revisit if both frames are visible at the same time for a transition
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
-      this._activeFrame.remove();
+      removeNode(this._activeFrame);
       close();  // frame has gone immediately, close port now
     } else {
       // Whatever was active is now ultimately going to meet its demise.
@@ -281,7 +346,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._activeFrame = af;
     this._activeFrame.classList.add('pending');
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
-    this._container.append(af);
+    this._container.appendChild(af);
 
     let portPromise = Promise.resolve(null);
     if (href) {
@@ -337,6 +402,13 @@ class SantaGameLoaderElement extends HTMLElement {
         return true;  // ready was called twice
       }
 
+      // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
+      // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
+      af.style.maxHeight = 'calc(100vh - 1px)';
+      window.requestAnimationFrame(() => {
+        af.style.maxHeight = null;
+      });
+
       // Success: the frame has reported ready. The following code is entirely non-async, and just
       // cleans up state as the scene is now active and happy.
 
@@ -348,12 +420,12 @@ class SantaGameLoaderElement extends HTMLElement {
 
       this._loading = false;
       this._activeFrame.classList.remove('pending');
-      this._container.classList.remove('loading');
+      this._main.classList.remove('loading');
 
       // If nothing loaded, allow <slot> content and remove itself. This is still "success".
-      this._container.classList.toggle('empty', !port);
+      this._main.classList.toggle('empty', !port);
       if (port === null) {
-        this._activeFrame.remove();
+        removeNode(this._activeFrame);
       }
 
       this.purge();

@@ -1,11 +1,13 @@
 /**
  * @fileoverview Polyfill for the 2nd arg to `ClassList.toggle`.
+ *
+ * Run in support mode. Use only ES5.
  */
 
-const testEl = document.createElement('div');
+var testEl = document.createElement('div');
 testEl.classList.toggle('testClass', false);
 if (testEl.classList.contains('testClass')) {
-  const original = DOMTokenList.prototype.toggle;
+  var original = DOMTokenList.prototype.toggle;
   DOMTokenList.prototype.toggle = function(name, force) {
     if (force === undefined) {
       return original.call(this, name);

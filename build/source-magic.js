@@ -1,8 +1,6 @@
 const babel = require('@babel/core');
 const t = babel.types;
 const path = require('path');
-const traverse = require('@babel/traverse');
-const generator = require('@babel/generator');
 const importUtils = require('./import-utils.js');
 
 /*
@@ -46,98 +44,116 @@ that we can 'follow' the helper around, e.g.:
   });
 */
 
-module.exports = (visitor) => {
+module.exports = () => {
+  const magicImportNodes = new Set();
+  const importDeclarations = new Map();
+  const tagged = {};
 
-  return async (code, id) => {
-    const ast = await babel.parseAsync(code);
-    const importDeclarations = new Map();
-    const tagged = new Map();
+  const matchesImportNode = (taggedTemplateNodePath) => {
+    const tagNodePath = taggedTemplateNodePath.get('tag');
 
-    const getTagged = (name) => {
-      const prev = tagged.get(name);
-      if (prev !== undefined) {
-        return prev;
+    for (const importNodePath of magicImportNodes) {
+      const v = importNodePath.node.source.value;
+      const r = tagNodePath.referencesImport(v, tagNodePath.node.name);
+      if (r) {
+        return true;
       }
-      const update = [];
-      tagged.set(name, update);
-      return update;
-    };
+    }
+    return false;
+  };
 
-    // Record all locations within the AST that can potentially be replaced.
-    traverse.default(ast, {
+  /**
+   * Ensure that the given name exists inside the tagged map.
+   *
+   * @param {string}
+   * @return {!Map<*, *>}
+   */
+  const getTagged = (name) => {
+    const prev = tagged[name];
+    if (prev !== undefined) {
+      return prev;
+    }
+    const update = new Map();
+    tagged[name] = update;
+    return update;
+  };
+
+  const plugin = {
+    pre(state) {
+      if (this.run) {
+        throw new Error(`can only run magic plugin once`);
+      }
+      this.run = true;
+    },
+    post(state) {
+      // If this crashes, it's probably because another plugin removed the `import` declaration.
+      magicImportNodes.forEach((nodePath) => nodePath.remove());
+    },
+    visitor: {
       ImportDeclaration(nodePath) {
         const {node} = nodePath;
-        if (!visitor.magicImport(node.source.value)) {
+        if (node.source.value === '__magic') {
+          magicImportNodes.add(nodePath);
+        } else {
           importDeclarations.set(nodePath, node.source.value);
-          return;  // just store for later
+        }
+      },
+
+      TaggedTemplateExpression(nodePath) {
+        if (!matchesImportNode(nodePath)) {
+          return;
         }
 
-        // ... walk and find all template tagged use of this import
-        nodePath.parentPath.traverse({
-          Identifier(nodePath) {
-            const name = nodePath.node.name;
-            const r = nodePath.referencesImport(node.source.value, name);
-            if (!r) {
-              return;
-            }
+        const taggedNode = nodePath.node;
+        const name = taggedNode.tag.name;
+        const {quasi} = taggedNode;
 
-            if (nodePath.parentPath.node.type !== 'TaggedTemplateExpression') {
-              throw new TypeError(`imports from magic can only be TaggedTemplateExpression: ${name} was ${nodePath.parentPath.node.type}`);
-            }
+        // Confirm that we look like "_foo`bar`" without ${}'s
+        const qnode = quasi.quasis[0];
+        if (quasi.quasis.length !== 1 || qnode.type !== 'TemplateElement') {
+          throw new TypeError(`got non-static magic import replacer`);
+        }
+        const key = qnode.value.raw;
 
-            const taggedNodePath = nodePath.parentPath;
-            const taggedNode = taggedNodePath.node;
-            const {quasi} = taggedNode;
+        // Just replace with something that we'll notice if we miss.
+        nodePath.replaceWith(t.nullLiteral());
 
-            // Confirm that we look like "_foo`bar`" without ${}'s
-            const qnode = quasi.quasis[0];
-            if (quasi.quasis.length !== 1 || qnode.type !== 'TemplateElement') {
-              throw new TypeError(`got non-static magic import replacer`);
-            }
-            const key = qnode.value.raw;
-
-            // Just replace with something that we'll notice if we miss.
-            taggedNodePath.replaceWith(t.nullLiteral());
-
-            const all = getTagged(name);
-            all.push({key, nodePath: taggedNodePath});
-          },
-        });
-
-        // remove now unneeded magic import
-        nodePath.remove();
+        const all = getTagged(name);
+        all.set(nodePath, key);
       },
-    });
+    },
+  };
 
-    const dir = path.dirname(id);
+  return {
+    plugin,
 
-    return {
-      seen: new Set(tagged.keys()),
-      rewrite(lang) {
-        tagged.forEach((all, name) => {
-          all.forEach(({key, nodePath}) => {
-            const update = visitor.taggedTemplate(lang, name, key);
-            if (typeof update !== 'string') {
-              nodePath.replaceWith(t.nullLiteral());
-            } else {
-              nodePath.replaceWith(t.stringLiteral(update));
-            }
-          });
-        });
+    seen(name) {
+      return name in tagged;
+    },
 
-        importDeclarations.forEach((value, nodePath) => {
-          const resolved = path.join(dir, value);
-          const update = visitor.rewriteImport(lang, resolved);
-          if (update) {
-            const rel = importUtils.relativize(path.relative(dir, update));
-            const sourcePath = nodePath.get('source');
-            sourcePath.replaceWith(t.stringLiteral(rel));
+    visit(id, visitor) {
+      const dir = path.dirname(id);
+
+      for (const name in tagged) {
+        const all = tagged[name];
+        all.forEach((key, nodePath) => {
+          const update = visitor.taggedTemplate(name, key);
+          if (typeof update !== 'string') {
+            throw new Error(`expected taggedTemplate string update, got ${update}`);
           }
+          nodePath.replaceWith(t.stringLiteral(update));
         });
+      };
 
-        const {code} = generator.default(ast, {comments: false});
-        return code;
-      },
-    };
+      importDeclarations.forEach((value, nodePath) => {
+        const resolved = path.join(dir, value);
+        const update = visitor.rewriteImport(resolved);
+        if (update) {
+          const rel = importUtils.relativize(path.relative(dir, update));
+          const sourcePath = nodePath.get('source');
+          sourcePath.replaceWith(t.stringLiteral(rel));
+        }
+      });
+    },
   };
 };

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "やり直し"
 	},
+	"controller_gamepad": {
+		"message": "コントローラ"
+	},
+	"controller_keyboard": {
+		"message": "キーボード"
+	},
+	"controller_mouse": {
+		"message": "マウス"
+	},
+	"controller_touch": {
+		"message": "タップ"
+	},
 	"copy-me": {
 		"message": "メッセージを共有するにはこのリンクをコピーしてください"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Chrome 拡張機能「サンタを追いかけよう」で、ブラウザを楽しく飾ろう。"
 	},
+	"decmonth": {
+		"message": "12 月"
+	},
+	"decmonth_long": {
+		"message": "12月"
+	},
 	"detected": {
 		"message": "検出済み"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "妖精の体を選ぼう"
 	},
+	"elves": {
+		"message": "エルフ"
+	},
 	"elvish_language_name": {
 		"message": "妖精語"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "ページが見つかりません。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
 	},
+	"error-out-of-date": {
+		"message": "これは古いバージョンのサンタ村です。最新バージョンを表示するには、「サンタを追いかけよう」をもう一度開いてみてください。"
+	},
 	"error-try-again": {
 		"message": "もう一度やり直してください"
 	},
-	"error_try_again": {
-		"message": "もう一度やり直してください"
+	"error-unsupported": {
+		"message": "「サンタを追いかけよう」はこのブラウザに対応していません。ゲームで遊んだり、12 月 24 日にサンタを追いかけたりするには、スマートフォンや他のブラウザを使ってみてください。"
 	},
 	"es_language_name": {
 		"message": "スペイン語"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "サンタ村を訪れる"
+	},
+	"familyguide_card_11_body": {
+		"message": "頭の先からつま先まであなたオリジナルの妖精をデザインしましょう。北極のあちこちで開催されるクリスマス会にふさわしい、幻想的な姿にしてあげてください。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android アプリ"
 	},
 	"fi_country_name": {
 		"message": "フィンランド"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "明日公開"
 	},
+	"opens": {
+		"message": "公開日"
+	},
 	"ornament-print-instructions": {
 		"message": "ここで折り曲げて両端をのりづけ"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "北極空港"
 	},
+	"scene_android_cityquiz": {
+		"message": "都市クイズ"
+	},
+	"scene_android_dancer": {
+		"message": "ダッシャー ダンサー"
+	},
+	"scene_android_penguinswim": {
+		"message": "ペンギン スイミング"
+	},
+	"scene_android_presenttoss": {
+		"message": "プレゼントトス"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "ロケットそり"
+	},
+	"scene_android_snowballrun": {
+		"message": "雪玉ダッシュ"
+	},
 	"scene_app": {
 		"message": "Android アプリ"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "サンタさんの奥さんから一言"
+	},
+	"scene_build": {
+		"message": "すばやく組み立てよう"
 	},
 	"scene_callfromsanta": {
 		"message": "サンタさんからの電話"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "キャンディ工場"
 	},
+	"scene_family": {
+		"message": "ファミリー ガイド"
+	},
 	"scene_giftmatch": {
 		"message": "ギフトマッチ"
 	},
 	"scene_glider": {
 		"message": "妖精のグライダー"
 	},
+	"scene_guides": {
+		"message": "保護者向けガイド"
+	},
 	"scene_gumball": {
 		"message": "ガムボール ティルト"
+	},
+	"scene_havoc": {
+		"message": "プレゼントの準備は大混乱"
 	},
 	"scene_icecave": {
 		"message": "氷の洞窟"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "雪玉の嵐"
 	},
+	"scene_snowbox": {
+		"message": "雪遊び"
+	},
 	"scene_snowflake": {
 		"message": "雪の結晶を描こう"
 	},
 	"scene_speedsketch": {
 		"message": "スピード スケッチ"
+	},
+	"scene_storybook": {
+		"message": "持続可能性の絵本"
 	},
 	"scene_streetview": {
 		"message": "ストリートビュー"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "英国では、世代を超えてディナーの余興としてクリスマス クラッカーを鳴らします。クラッカーは色とりどりの紙に包まれた円筒状になっており、両端を引っ張ると大きな音とともに筒が弾け、中から紙の帽子やおもちゃ、なぞなぞ問題、賞品などが出てくるという趣向です。こうしてクリスマスの夜を楽しみます。"
 	},
+	"underconstruction": {
+		"message": "準備中"
+	},
+	"unlocks": {
+		"message": "解禁日"
+	},
 	"unmute": {
 		"message": "ミュート解除"
 	},
 	"upgrade-warning": {
-		"message": "アプリ「サンタを追いかけよう」がお使いのブラウザに対応していないか、JavaScript が無効になっています。このアプリをご利用になるには、最新のブラウザをダウンロードするか、JavaScript を有効にしてください。詳しくは \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e をご覧ください。"
+		"message": "エラー: アプリ「サンタを追いかけよう」がお使いのブラウザに対応していないか、JavaScript が無効になっています。このアプリをご利用になるには、最新のブラウザをダウンロードするか、JavaScript を有効にしてください。"
 	},
 	"us_country_name": {
 		"message": "アメリカ"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "インストール"
+	},
+	"village_santa_intall_ios": {
+		"message": "\u003cspan\u003e\u003c/span\u003e、[ホーム画面に追加] の順にタップします。"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"

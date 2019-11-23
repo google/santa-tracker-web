@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
 
   <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../../third_party/lib/lottie/lottie.min.js"></script>
 </head>
 <body>
 
@@ -16,173 +15,256 @@
 import api from '../../src/scene/api.js';
 import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
 import '../../src/elements/santa-card.js';
+import '../../src/elements/santa-weather.js';
+import * as helpers from './helpers.js';
+import {loadAnimation} from '../../src/deps/lottie.js';
+import {animationSoundTriggers} from './animationSoundTriggers.js'
+import {_msg} from '../../src/magic.js';
 
-const growSvgBy = 5000;
-const moduleHeight = 650;
+console.info(_msg`santatracker`);
 
-const loadHtmlLike = async (src) => {
-  const resp = await window.fetch(src);
-  const raw = await resp.text();
 
-  const holder = document.createElement('div');
-  holder.innerHTML = raw;
+api.preload.sounds('village_load_sounds');
+api.preload.sounds('generic_load_sounds');
+api.config({
+  scroll: true,
+  sound: ['music_start_village', 'village_start'],
+});
 
-  return holder.children[0];
-};
 
-function parseViewBox(svg) {
-  const viewBox = svg.getAttribute('viewBox');
-  const parts = viewBox.split(/\s+/g);
-  const x = +parts[0] || 0;
-  const y = +parts[1] || 0;
-  const w = +parts[2] || 0;
-  const h = +parts[3] || 0;
-  return {x, y, w, h};
+/**
+ * Describes each village module and its static/animated parts.
+ */
+const moduleDefs = [
+  {
+    id: 'android',
+    parts: ['static', 'loop', 'image', 'loop'],
+  },
+  {
+    id: 'transithub',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'sciencelab',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'toymaking',
+    parts: ['static', 'static', 'scroll', 'static'],
+  },
+  {
+    id: 'kitchen',
+    parts: ['static', 'loop', 'static', 'scroll'],
+  },
+  {
+    id: 'nursery',
+    parts: ['static', 'loop', 'scroll'],
+  },
+  {
+    id: 'greenhouse',
+    parts: ['static', 'loop', 'scroll', 'static'],
+  },
+  {
+    id: 'wrapping',
+    parts: ['static', 'loop', 'scroll', 'static'],
+  },
+  {
+    id: 'movies',
+    parts: ['image', 'loop'],
+  },
+  {
+    id: 'footer',
+    parts: ['static'],
+  }
+];
+
+/**
+ * Finds the ratio of scrolling that this element should display at.
+ */
+function ratioForModule(el) {
+  const se = document.scrollingElement;
+  const topScroll = se.scrollTop;
+
+  // The start of this element is effectively min window height (can't scroll above this point).
+  const effectiveStart = Math.max(0, el.offsetTop - window.innerHeight);
+  const effectiveEnd = Math.min(se.offsetHeight - window.innerHeight, el.offsetTop + el.offsetHeight);
+
+  const ratio = (topScroll - effectiveStart) / (effectiveEnd - effectiveStart);
+
+  if (ratio <= 0.0) {
+    return 0.0;
+  } else if (ratio >= 1.0) {
+    return 1.0;
+  }
+  // This creates more of a cubic-bezier style transform (although it's quite subtle).
+  return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
+}
+function updateSound(el, ratio) {
+  let name = el.id.indexOf('module') > -1 ?  el.id.split('module--')[1] : el.id;
+  api.play('village_scroll', name, ratio);
+}
+function moduleIsVisible(el) {
+  const se = document.scrollingElement;
+  const top = se.scrollTop;
+  const bottom = se.scrollTop + window.innerHeight;
+
+  if (el.offsetTop + window.innerHeight >= top) {
+    return el.offsetTop < bottom;
+  }
+  return false;
 }
 
-function adjustSvgSize(svg) {
-  const v = parseViewBox(svg);
-  const heightRatio = v.h / moduleHeight;
+async function prepareModules() {
+  const main = document.querySelector('main');
+  const scrollables = new Map();
 
-  v.x -= growSvgBy;
-  v.w += growSvgBy * 2;
-  svg.setAttribute('viewBox', `${v.x} ${v.y} ${v.w} ${v.h}`);
-  svg.style.height = `${moduleHeight}px`;
-  svg.style.top = '0px';
-  svg.style.left = `calc(-${v.w / 2 / heightRatio}px + 50vw)`;
+  for (const {id, parts} of moduleDefs) {
+    const container = document.createElement('div');
+    container.className = 'module';
+    container.setAttribute('id', `module--${id}`);
+    main.append(container);
 
-  // Lottie-imported elements set these, remove.
-  svg.style.width = 'auto';
-  svg.removeAttribute('width');
-  svg.removeAttribute('height');
-}
+    const animations = parts.map((type, index) => {
+      const base = `img/modules/${id}/${index}`;
+      const zIndex = -(100 - index);
 
-const initAnimation = (container, key, preserveAspectRatio) => {
-  const p = new Promise((resolve, reject) => {
-    const anim = lottie.loadAnimation({
-      container,
-      autoplay: false,
-      renderer: 'svg',
-      path: `img/modules/${key}.json`,
-      rendererSettings: {
-        className: 'animation__svg',
-        preserveAspectRatio,
-      },
-    });
-    anim.addEventListener('DOMLoaded', () => {
-      resolve({
-        svg: anim.renderer.svgElement,
-        anim,
+      if (type === 'static' || type === 'image') {
+        const img = document.createElement('img');
+        img.src = `${base}.` + (type === 'static' ? 'svg' : 'png');
+        container.append(img);
+        img.style.zIndex = zIndex;
+        // TODO: preload
+        return null;
+      }
+
+      const options = {
+        container,
+        loop: (type === 'loop'),
+      };
+      const anim = loadAnimation(`${base}.json`, options);
+      anim.renderer.svgElement.style.zIndex = zIndex;
+
+      handleAnimationAudio(anim, id);
+
+      // TODO: preload
+      return anim;
+    }).filter(Boolean);
+
+    scrollables.set(container, animations);
+  }
+
+  scrollables.set(document.getElementById('top'), []);
+
+  helpers.installAdjustHandler(() => {
+    scrollables.forEach((animations, container) => {
+      const visible = moduleIsVisible(container);
+      
+      const ratio = visible ? ratioForModule(container) : -1.0;
+
+      //send scroll ratio to kplay to update volume of scene audio
+      updateSound(container, visible ? ratio : 0)
+
+      animations.forEach((anim) => {
+        if (anim.loop) {
+          // This should loop, but only if visible.
+          if (visible === anim.isPaused) {
+            visible ? anim.play() : anim.pause();
+          }
+          return;
+        }
+
+        if (!visible) {
+          return;
+        }
+
+        // Otherwise, this is a scroll target.
+        const frames = anim.getDuration(true);
+        const frame = Math.min(frames, Math.max(0.0, frames * ratio));
+        
+        anim.goToAndStop(frame, true);
+
+        //play sound on specific frames
+        let scene = anim.path.split('img/modules/')[1].slice(0, -1);
+        let id = anim.fileName;
+        checkAndPlaySound(id, scene, frame);
       });
     });
-    anim.addEventListener('data_failed', reject);
-  });
-  api.preload.wait(p);
-  return p;
-};
-
-function installAdjustHandler(handler) {
-  let rAF = 0;
-  const internalHandler = () => {
-    rAF = 0;
-    handler();
-  };
-  rAF = window.requestAnimationFrame(internalHandler);
-
-  const eventHandler = () => {
-    if (rAF === 0) {
-      rAF = window.requestAnimationFrame(internalHandler);
-    }
-  };
-  ['scroll', 'resize'].forEach((eventType) => {
-    window.addEventListener(eventType, eventHandler, {passive: true});
   });
 }
 
+function handleAnimationAudio(anim, scene) {
+  anim.onEnterFrame = (e)=> {
+    let id = anim.fileName;
+    checkAndPlaySound(id, scene, e.currentTime);
+  }
+}
+function checkAndPlaySound(id, scene, time) {
+  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
+      let sounds = animationSoundTriggers[scene][id];
 
-async function prepare() {
-  const modules = ['sciencelab', 'transport'];
-  const scenes = ['elfmaker', 'penguindash', 'santasearch', 'santaselfie', 'snowball', 'boatload'];
-
-  const all = modules.map(async (name) => {
-    const d = document.createElement('div');
-    d.className = 'module';
-    d.setAttribute('id', `module--${name}`);
-    document.body.append(d);
-
-    const cardsEl = document.createElement('div');
-    cardsEl.className = 'cards';
-    d.append(cardsEl);
-
-    for (let i = 0; i < 3; ++i) {
-      const next = scenes.pop();
-      if (!next) {
-        continue;
-      }
-      const card = document.createElement('santa-card');
-      card.setAttribute('scene', next);
-      cardsEl.append(card);
-
-      if (Math.random() < 0.5) {
-        card.setAttribute('locked', ~~(Math.random() * 23) + 1);
+      for (let i = 0; i < sounds.length; i++) {
+        if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
+          api.play(sounds[i].sound, time);
+          sounds[i].played = performance.now();
+        }
       }
     }
-
-    const backgroundPromise = loadHtmlLike(`img/modules/${name}.svg`).then((svg) => {
-      adjustSvgSize(svg);
-
-      const img = document.createElement('img');
-      img.src = `data:image/svg+xml;base64,${btoa(svg.outerHTML)}`;
-
-      img.style.left = svg.style.left;
-      img.style.height = svg.style.height;
-      img.style.width = svg.style.width;
-
-      d.append(img);
-    });
-
-    const animationPromise = initAnimation(d, name, 'xMaxYMax meet').then(({svg, anim}) => {
-      adjustSvgSize(svg);
-
-      // clips are added by the Lottie file author. Remove.
-      const defs = svg.querySelector('defs');
-      defs.remove();
-      return anim;
-    });
-
-    await backgroundPromise;
-    const anim = await animationPromise;
-    const frames = anim.getDuration(true);
-    console.info('got frames', frames);
-
-    return (ratio) => {
-      const frame = Math.max(0.0, frames * ratio);
-      anim.goToAndStop(frame, true);
-    };
-  });
-  const done = await Promise.all(all);
-
-  // TODO(samthor): This sets the position based on the overall page ratio, not the ratio within
-  // each animation. This obviously needs fixing.
-
-  installAdjustHandler(() => {
-    const se = document.scrollingElement;
-    const delta = (se.scrollHeight - window.innerHeight);
-    const ratio = delta > 0 ? se.scrollTop / delta : 0;
-    console.info('ratio', ratio);
-
-    done.forEach((fn) => fn(ratio));
-  });
 }
+api.preload.wait(prepareModules());
 
-api.preload.wait(prepare());
+const playButton = document.getElementById('play');
+
+playButton.addEventListener('click', (ev) => {
+  playButton.classList.add('active');
+  api.go('codelab');
+});
+playButton.addEventListener('mousedown', () => {
+  api.play('generic_button_click');
+});
+playButton.addEventListener('mouseenter', () => {
+  api.play('generic_button_over');
+});
+playButton.addEventListener('touchdown', () => {
+  api.play('generic_button_click');
+});
+
+
+
+api.ready(async () => {
+
+});
 
 </script>
 
 <div id="top">
-  <h1>Santa Tracker</h1>
-  <span>Placeholder</span>
+  <santa-weather></santa-weather>
+  <div class="village">
+    <div class="layer1"></div>
+    <div class="layer2"></div>
+    <div class="layer3"></div>
+    <div class="layer4"></div>
+  </div>
+  <header>
+    <div class="ornament"></div>
+    <svg class="google"><path d="M7.74363885 18.01859504v2.03305785h4.98714095c-.1526676 1.14049591-.5428181 1.97520661-1.1365254 2.56198351-.7294117.7107438-1.86593703 1.4876033-3.85061555 1.4876033-3.07031464 0-5.47058823-2.4132232-5.47058823-5.40495871 0-2.99173554 2.40027359-5.40495868 5.47058823-5.40495868 1.65389877 0 2.86675785.63636364 3.75731875 1.45454546l1.4673051-1.42975207C11.729959 12.14256198 10.0675787 11.25 7.74363885 11.25 3.53679891 11.25 0 14.58884298 0 18.68801653c0 4.09917357 3.53679891 7.43801657 7.74363885 7.43801657 2.27305065 0 3.98632015-.7272728 5.32640215-2.0826447 1.3740082-1.3388429 1.8065664-3.2314049 1.8065664-4.75206609 0-.47107438-.0339261-.90909091-.1102599-1.27272727H7.74363885zm13.36689465-1.65289256c-2.7225718 0-4.9447332 2.01652892-4.9447332 4.80165292 0 2.7603306 2.2221614 4.8016529 4.9447332 4.8016529s4.9447333-2.0330579 4.9447333-4.8016529c0-2.785124-2.2221615-4.80165292-4.9447333-4.80165292zm0 7.71074382c-1.4927496 0-2.7819425-1.1983471-2.7819425-2.9090909 0-1.72727276 1.2891929-2.90909094 2.7819425-2.90909094 1.4927497 0 2.7819426 1.18181818 2.7819426 2.90909094 0 1.7107438-1.2891929 2.9090909-2.7819426 2.9090909zm24.2402189-6.63636366h-.0763338c-.4834473-.56198347-1.4164159-1.07438016-2.5953488-1.07438016-2.4596444 0-4.605472 2.09090909-4.605472 4.80165292 0 2.6942148 2.1458276 4.8016529 4.605472 4.8016529 1.1789329 0 2.1119015-.5123967 2.5953488-1.0909091h.0763338v.6694215c0 1.8347107-1.0093023 2.8181818-2.629275 2.8181818-1.323119 0-2.1458276-.9256199-2.4850889-1.7107438l-1.8829001.7603306c.542818 1.2727272 1.976197 2.8347107 4.367989 2.8347107 2.5359781 0 4.6818058-1.4545455 4.6818058-5v-8.63636364h-2.0525308v.82644628zm-2.4850889 6.63636366c-1.4927497 0-2.629275-1.2396694-2.629275-2.9090909 0-1.6942149 1.1365253-2.90909094 2.629275-2.90909094 1.4757866 0 2.6292749 1.23966942 2.6292749 2.92561984.0084816 1.6776859-1.1534883 2.892562-2.6292749 2.892562zm-10.7291382-7.71074382c-2.7225718 0-4.9447332 2.01652892-4.9447332 4.80165292 0 2.7603306 2.2221614 4.8016529 4.9447332 4.8016529s4.9447332-2.0330579 4.9447332-4.8016529c0-2.785124-2.2221614-4.80165292-4.9447332-4.80165292zm0 7.71074382c-1.4927497 0-2.7819425-1.1983471-2.7819425-2.9090909 0-1.72727276 1.2891928-2.90909094 2.7819425-2.90909094s2.7819426 1.18181818 2.7819426 2.90909094c0 1.7107438-1.2891929 2.9090909-2.7819426 2.9090909zm16.9630643-12.6280992h2.1288646v14.5206612h-2.1288646V11.4483471zm8.702052 12.6280992c-1.1025992 0-1.8829001-.4876033-2.3917921-1.4545455L62 19.96900826l-.2205198-.54545454c-.4071136-1.07438017-1.6623803-3.05785124-4.2153215-3.05785124-2.5359781 0-4.6478796 1.94214876-4.6478796 4.80165292 0 2.6942148 2.0864569 4.8016529 4.8853625 4.8016529 2.2560875 0 3.5622435-1.3471075 4.1050615-2.123967l-1.6793433-1.0909091c-.5597811.7933885-1.323119 1.3223141-2.4257182 1.3223141zm-.1526676-5.90909093c.8735978 0 1.6199726.43801653 1.8659371 1.05785124L55.0621067 21.018595c0-2.01652888 1.4673051-2.85123963 2.5868673-2.85123963z"/></svg>
+    <h1 msgid="santatracker"></h1>
+    <p msgid="village_explore"></p>
+    <button id="play"><span msgid="play"></span></button>
+  </header>
+  <div id="newtoday">
+    <span msgid="newtoday"></span>
+    <santa-card scene="elfmaker"></santa-card>
+  </div>
 </div>
+
+<div id="modules">
+  <div class="sidebar left"></div>
+  <main></main>
+  <div class="sidebar right"></div>
+</div>
+
+<footer>
+</footer>
 
 </body>
 </html>

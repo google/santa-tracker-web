@@ -1,0 +1,56 @@
+.tips {
+  margin: 80px auto 0;
+  max-width: 1400px;
+  padding: 0 40px;
+
+  &-inner {
+    background: rgba(#9FCEFF, .2);
+    border-radius: 72px;
+    padding: 80px 30px;
+  }
+
+  &__title {
+    color: #587E9C;
+    font-size: 46px;
+    margin: 0 auto 25px;
+    text-align: center;
+  }
+
+  &__body {
+    color: #587E9C;
+    margin: 0 auto;
+    max-width: 450px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tip {
+    flex-basis: calc(33% - 20px);
+    margin: 80px 10px 0;
+    text-align: center;
+
+    &-icon img {
+      border-radius: 50%;
+      width: 115px;
+    }
+
+    &-title {
+      color: #587E9C;
+      font-weight: 500;
+      padding-top: 25px;
+    }
+
+    &-body {
+      color: #8AB8D4;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0 auto;
+      max-width: 320px;
+      padding-top: 20px;
+    }
+  }
+}

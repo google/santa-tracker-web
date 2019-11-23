@@ -1,0 +1,54 @@
+header {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 60px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+
+  font-size: 72px;
+  line-height: 0.75em;
+
+  @media (max-width: 768px - 1px) {
+    font-size: 44px;
+  }
+
+  svg.google {
+    fill: #fff;
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
+    height: 38px;
+    min-width: 62px;
+    width: 62px;
+  }
+
+  h1 {
+    font-size: inherit;
+    margin: 6px 12px;
+    font-family: 'Lobster', sans-serif;
+    color: #fff;
+    text-shadow: 0 2px 0 rgba(0,0,0,.25);
+    transform: rotateZ(-3deg) skew(-4deg);
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 0.3em;
+    line-height: 1em;
+    text-shadow: 0 1px 0 rgba(0,0,0,.125), 0 1px 3px rgba(0, 0, 0, 0.125);
+    font-family: 'Google Sans', Arial, sans-serif;
+    max-width: 400px;
+    padding: 0 4em;
+  }
+
+  .ornament {
+    background: url(img/ornament.svg) 50% 20% no-repeat;
+    background-size: contain;
+    width: 450px;
+    height: 250px;
+    margin-top: -60px;
+    position: absolute;
+    z-index: -1;
+  }
+}

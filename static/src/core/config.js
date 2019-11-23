@@ -1,14 +1,36 @@
 /**
- * @fileoverview Provides Firebase Remote config.
+ * @fileoverview Provides Firebase Remote config. This has side-effects.
  *
- * This should only run on the prod domain.
+ * This should only run on the prod domain. This assumes that "firebase" is a global already
+ * available in the global scope.
  */
+
+import {frame} from '../lib/promises.js';
 
 const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
 const listeners = new Set();
 
-function expontentialDelay(range, failures) {
+const memoized = {
+  'videos': null,
+  'sceneLock': null,
+  'sceneRedirect': null,
+};
+
+function refreshMemoized() {
+  for (const key in memoized) {
+    let cand;
+    try {
+      cand = JSON.parse(remoteConfig.getString(key));
+    } catch (e) {
+      continue;  // do nothing
+    }
+    memoized[key] = Object.freeze(cand);
+  }
+}
+refreshMemoized();
+
+function expontentialDelay(range, failures = 0) {
   return Math.pow(1.0 + (range * Math.random()), failures + 1) - (range / 2);
 }
 
@@ -61,12 +83,54 @@ function expontentialDelay(range, failures) {
 /**
  * Adds a listener to the config.
  *
- * @param {function(): void} callback
+ * @param {function(!Object): void} callback
  */
 export function listen(callback) {
   listeners.add(callback);
 }
 
+
+/**
+ * Removes a listener from the config.
+ *
+ * @param {function(!Object): void)} callback
+ */
+export function remove(callback) {
+  listeners.delete(callback);
+}
+
+
+/**
+ * Notify all listeners that something has changed.
+ */
+function notifyListeners() {
+  const nonce = new Object();
+  listeners.forEach((listener) => {
+    Promise.resolve().then(() => listener(nonce));
+  });
+}
+
+
+/**
+ * Notifies all listeners on local device date change. Useful for locking or unlocking scenes.
+ */
+(function() {
+  let previousDate = (new Date()).toDateString();
+
+  function checkDate() {
+    // check every ~minute on rAF
+    const next = 60 * 1000 * expontentialDelay(0.2);
+    frame(next).then(checkDate);
+
+    const currentDate = (new Date()).toDateString();
+    if (currentDate !== previousDate) {
+      previousDate = currentDate;
+      notifyListeners();
+    }
+  }
+
+  checkDate();
+})();
 
 /**
  * Performs a refresh of Remote Config. This might be a no-op if the values are yet to be marked
@@ -81,9 +145,11 @@ export async function refresh(invalidateNow = false) {
   }
 
   await remoteConfig.fetchAndActivate();
-  Promise.resolve().then(() => {
-    listeners.forEach((listener) => listener());
-  });
+  refreshMemoized();
+
+  // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
+  notifyListeners();
+
   return values();
 }
 
@@ -105,16 +171,50 @@ export function switchOff() {
 
 
 /**
+ * @param {?string} route to check
+ * @param {boolean} fallback whether we are fallback mode
+ * @return {?string} route to serve
+ */
+export function sceneForRoute(route, fallback) {
+  if (!route || route === 'index') {
+    return indexScene(fallback);
+  } else if (isLocked(route)) {
+    return null;
+  }
+  const v = videos();
+  if (v.indexOf(route) !== -1) {
+    return 'video';
+  }
+  return route;
+}
+
+
+/**
+ * @param {string} route to redirect
+ * @return {string|undefined} optional updated route
+ */
+export function redirectRoute(route) {
+  if (route in memoized.sceneRedirect) {
+    return memoized.sceneRedirect[route];
+  }
+}
+
+
+/**
+ * @return {!Array<string>} video IDs
+ */
+export function videos() {
+  return memoized.videos;
+}
+
+
+/**
  * @param {string} route to check if locked
  * @return {boolean} if locked
  */
 export function isLocked(route) {
-  let sceneLock = {};
-  try {
-    sceneLock = JSON.parse(remoteConfig.getString('sceneLock'))
-  } catch (e) {
-    // ignore
-  }
+  const {sceneLock} = memoized;
+
   if (!(route in sceneLock)) {
     return false;
   }
@@ -132,10 +232,24 @@ export function isLocked(route) {
   return value > today.getDate();
 }
 
+/**
+ * @param {string} route to return date locked until
+ * @return {number|undefined} date within Dec locked until (0 for always)
+ */
+export function lockedTo(route) {
+  if (!isLocked(route)) {
+    return undefined;
+  }
+
+  const {sceneLock} = memoized;
+  return sceneLock[route];
+}
+
 
 /**
+ * @param {boolean} fallback whether to show old codebase
  * @return {string} the scene to show for "/" or "index"
  */
-export function indexScene() {
-  return remoteConfig.getString('indexScene');
+export function indexScene(fallback) {
+  return remoteConfig.getString(fallback ? 'fallbackIndexScene' : 'indexScene') || 'index';
 }

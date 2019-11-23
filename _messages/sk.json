@@ -614,9 +614,6 @@
 	"error-try-again": {
 		"message": "Skúsiť znova"
 	},
-	"error_try_again": {
-		"message": "Skúsiť znova"
-	},
 	"es_language_name": {
 		"message": "Španielčina"
 	},
@@ -628,6 +625,12 @@
 	},
 	"explore-village": {
 		"message": "Preskúmať Santovu dedinu"
+	},
+	"familyguide_card_11_body": {
+		"message": "Vytvorte si svojho vlastného škriatka od hlavy až po päty a snažte sa, aby na množstve sviatočných večierkov, ktoré sa na severnom póle budú konať, vyzeral škriatkasticky."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikácia pre Android"
 	},
 	"fi_country_name": {
 		"message": "Fínsko"
@@ -1134,7 +1137,7 @@
 		"message": "24. decembra spúšťame aplikáciu Kde je Santa – hlavný panel, pomocou ktorého môžu Santovi fanúšikovia sledovať, ako postupuje z mesta do mesta. Na Mapách Google si tiež môžete zobraziť jeho aktuálnu polohu a Asistenta Google sa môžete spýtať „Ok, Google, kde je Santa?“ aby ste mohli aj na cestách sledovať, kde sa Santa práve nachádza."
 	},
 	"press-about-village": {
-		"message": "Informácie o Santovej dedine"
+		"message": "Santova dedina"
 	},
 	"press-about-village1": {
 		"message": "Santova dedina oslavuje pätnásty rok zábavných, vzdelávacích a interaktívnych sviatočných aktivít. Pod odborným vedením pani Clausovej škriatkovia dedinu aktualizovali, aby jej vzhľad pôsobil prudko elegantne, a pribudol aj úplne nový obsah. A vďaka novému vykurovaciemu systému na báze horúcej čokolády už nebude trvať celý december, kým sa dedina roztopí, takže všetkých 24 aktivít bude k dispozícii už od 4. decembra. Teraz budú mať škriatkovia (aj vy) viac času na hranie a skúmanie Santovej dediny."
@@ -1338,7 +1341,7 @@
 		"message": "Hľadajte Santu!"
 	},
 	"santasvillage": {
-		"message": "Dedina Santa Clausa"
+		"message": "Santova dedina"
 	},
 	"santatracker": {
 		"message": "Kde je Santa"
@@ -6760,9 +6763,6 @@
 	},
 	"unmute": {
 		"message": "Zapnúť zvuk"
-	},
-	"upgrade-warning": {
-		"message": "Ojoj! Váš prehliadač nepodporuje aplikáciu Kde je Santa alebo máte zakázaný jazyk JavaScript. Ak chcete získať prístup k aplikácii Kde je Santa, stiahnite si novší prehliadač alebo povoľte JavaScript.\nAk chcete získať ďalšie informácie, navštívte stránku \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
 	},
 	"us_country_name": {
 		"message": "USA"

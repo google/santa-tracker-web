@@ -1,34 +1,45 @@
 import {html, LitElement} from 'lit-element';
+import {until} from 'lit-html/directives/until.js';
 import styles from './santa-overlay.css';
+import {_msg} from '../magic.js';
+import './santa-button.js';
 
-const supportsShare = Boolean(navigator.share);
 
+async function shortenUrl(raw) {
+  // Firebase is only configured to serve links under `https://santatracker.google.com`.
+  const key = 'AIzaSyBrNcGcna0TMn2uLRxhMBwxVwXUBjlZqzU';
+  const domain = 'https://santatracker.google.com';
 
-function shortenUrl(url) {
-  const key = 'AIzaSyA4LaOn5d1YRsJIOTlhrm7ONbuJ4fn7AuE';
+  if (!raw) {
+    return '';
+  }
 
-  return new Promise((resolve, reject) => {
-    const x = new XMLHttpRequest();
-    x.open('POST', 'https://www.googleapis.com/urlshortener/v1/url?key=' + key);
-    x.responseType = 'json';
-    x.onload = () => resolve(x.response['id'] || url);
-    x.onerror = () => reject(x.responseText);
-    x.setRequestHeader('Content-Type', 'application/json');
-    x.send(JSON.stringify({longUrl: url}));
+  const ensureDomainURL = new URL(raw, domain);
+  const url = new URL(ensureDomainURL.pathname + ensureDomainURL.search, domain);
+
+  const response = await window.fetch(`https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${key}`, {
+    method: 'POST',
+    body: JSON.stringify({dynamicLinkInfo: {
+      domainUriPrefix: 'https://santatracker.page.link',
+      link: url.toString(),
+    }}),
   });
+
+  const body = await response.json();
+  console.info(url.toString(), '=>', body);
+  if ('shortLink' in body) {
+    return body['shortLink'];
+  }
+  throw new Error(`shortLink invalid data: ${JSON.stringify(body)}`);
 }
 
 
 export class SantaOverlayElement extends LitElement {
   static get properties() {
     return {
-      score: {type: Number},
+      isPaused: {type: Boolean},
       shareUrl: {type: String},
-      scene: {type: String},
-      data: {type: Object},
-
-      _longUrl: {type: String},
-      _shortUrl: {type: String},
+      _shortUrl: {type: Promise},
     };
   }
 
@@ -37,53 +48,22 @@ export class SantaOverlayElement extends LitElement {
     this.shadowRoot.adoptedStyleSheets = [styles];
   }
 
-  _dispatchResume() {
-    this.dispatchEvent(new Event('resume'));
+  _dispatchRestart(e) {
+    this.dispatchEvent(new CustomEvent('restart'));
   }
 
-  _dispatchRestart() {
-    this.dispatchEvent(new Event('restart'));
+  _dispatchResume() {
+    this.dispatchEvent(new CustomEvent('resume'));
   }
 
   _dispatchHome() {
-    this.dispatchEvent(new Event('home'));
+    window.dispatchEvent(new CustomEvent('go'));  // home
   }
 
   update(changedProperties) {
-    if (changedProperties.has('data')) {
-      let longUrl = 'https://santatracker.google.com';
-      if (this.scene) {
-        longUrl += `/${this.scene}.html`;
-      }
-
-      const u = new URL(longUrl);
-      let hasData = false;
-      if (this.data) {
-        for (const k in this.data) {
-          hasData = true;
-          u.searchParams.set(k, this.data[k]);
-        }
-        longUrl = u.toString();
-      }
-      const change = (this._longUrl !== longUrl);
-
-      if (change) {
-        this._longUrl = longUrl;
-        this._shortUrl = longUrl;
-
-        if (hasData) {
-          const p = shortenUrl(longUrl).catch((err) => {
-            console.warn('err shortening URL', err);
-            return longUrl;
-          }).then((url) => {
-            if (this._longUrl === longUrl) {
-              this._shortUrl = url;
-            }
-          });
-        }
-      }
+    if (changedProperties.has('shareUrl')) {
+      this._shortUrl = shortenUrl(this.shareUrl);
     }
-
     return super.update(changedProperties);
   }
 
@@ -99,72 +79,37 @@ export class SantaOverlayElement extends LitElement {
     }, 1000);
   }
 
-  _shareTitle() {
-    if (this.scene) {
-      // FIXME(samthor): get name of scene
-      return `${this.scene} — ${_msg`santatracker`}`;
-    }
-    return _msg`santatracker`;
-  }
-
-  _shareUrl() {
-    return this._shortUrl || this._longUrl;
-  }
-
-  _shareWebShare() {
-    navigator.share({
-      title: this._shareTitle(),
-      url: this._shareUrl(),
-    });
-  }
-
-  _shareFacebook() {
-    const enc = window.encodeURIComponent(this._shareUrl());
-    this._open(`https://facebook.com/sharer.php?p[url]=${enc}`);
-  }
-
-  _shareTwitter() {
-    const enc = window.encodeURIComponent(this._shareUrl());
-    const title = this._shareTitle();
-    this._open(`https://twitter.com/intent/tweet?hashtags=santatracker&text=${window.encodeURIComponent(title)}&url=${enc}`);
-  }
-
-  _open(url) {
-    const opts = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=800,height=600';
-    window.open(url, '', opts);
-  }
-
   render() {
-    const heroClass = 'gameover';
-    const hasData = this.data && Object.keys(this.data).length;
-
-    const url = this._url || 'https://santatracker.google.com';
-//   <santa-button color="purple" @click="${this._dispatchResume}">play_arrow</santa-button>
+    const hasUrl = Boolean(this.shareUrl);
+    const heroClass = hasUrl ? 'share' : (this.isPaused ? 'pause' : 'gameover');
 
     return html`
-<div class="wrap">
-<div class="hero ${heroClass}">
-  <div class="score" ?hidden="${this.score < 0}">
-    <h1>${_msg`gameover_score`}</h1>
-    <h2>${this.score}</h2>
+<div class="backdrop">
+  <main>
+    <div class="hero ${heroClass}">
+      <h1>${_msg`gameover`}</h1>
+    </div>
+    <nav>
+      <div class="url" ?hidden=${!hasUrl}>
+        <h4>${_msg`copy-me-short`}</h4>
+        <input type="text" value=${until(this._shortUrl, this.shareUrl)} readonly @click=${this._copyUrl} />
+      </div>
+      <div class="buttons">
+        <santa-button color="purple" @click="${this._dispatchResume}" ?hidden=${!this.isPaused}>
+          <svg class="icon"><path d="M8 5v14l11-7z"/></svg>
+        </santa-button>
+        <santa-button color="purple" @click="${this._dispatchRestart}">
+          <svg class="icon"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </santa-button>
+        <santa-button color="theme" @click="${this._dispatchHome}" data-action="home">
+          <svg class="icon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </santa-button>
+      </div>
+    </nav>
+  </main>
+  <div class="below">
+    <slot></slot>
   </div>
-</div>
-<nav>
-  <div class="url" ?hidden=${!hasData}>
-    <input type="text" value=${this._shareUrl()} readonly @click=${this._copyUrl} />
-  </div>
-  <div class="buttons">
-    <santa-button color="purple" @click="${this._dispatchRestart}">refresh</santa-button>
-    <santa-button color="purple" @click="${this._dispatchHome}" data-action="home">home</santa-button>
-    <santa-button data-share="share" ?hidden=${!supportsShare} @click=${this._shareWebShare}>share</santa-button>
-    <santa-button data-share="facebook" ?hidden=${supportsShare} @click=${this._shareFacebook}>
-      <svg viewBox="-0.5 0 11 20"><path d="M2.9 19.7v-8.8H0V7.4h3V4.9C3 2 4.8.4 7.4.4c1.3 0 2.3.1 2.7.1v3.1H8.3c-1.4 0-1.7.7-1.7 1.7v2.2H10l-.4 3.4h-3v8.8H2.9z"></path></svg>
-    </santa-button>
-    <santa-button data-share="twitter" ?hidden=${supportsShare} @click=${this._shareTwitter}>
-      <svg viewBox="-1 -0.5 22 18"><path d="M21.8 2.3c-.8.4-1.7.6-2.6.7.9-.5 1.6-1.4 1.9-2.4-.9.5-1.8.9-2.8 1.1-.8-.9-2-1.4-3.2-1.4-2.4 0-4.4 2-4.4 4.4 0 .3 0 .7.1 1-3.6-.2-6.9-2-9.1-4.7-.4.7-.6 1.5-.6 2.3 0 1.5.8 2.9 2 3.7-.7 0-1.4-.2-2-.6v.1c0 2.1 1.5 3.9 3.6 4.3-.4.1-.8.2-1.2.2-.3 0-.6 0-.8-.1.6 1.8 2.2 3 4.1 3.1-1.5 1.2-3.4 1.9-5.5 1.9-.4 0-.7 0-1.1-.1 2 1.3 4.3 2 6.8 2 8.1 0 12.6-6.7 12.6-12.6v-.6c.8-.6 1.6-1.4 2.2-2.3z"></path></svg>
-    </santa-button>
-  </div>
-</nav>
 </div>
 `;
   }

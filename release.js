@@ -4,6 +4,9 @@
  * @fileoverview Builds Santa Tracker for release to production.
  */
 
+const babel = require('@babel/core');
+const generator = require('@babel/generator');
+const traverse = require('@babel/traverse');
 const chalk = require('chalk');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
@@ -17,8 +20,9 @@ const modernBuilder = require('./build/modern-builder.js');
 const sourceMagic = require('./build/source-magic.js');
 const {Writer} = require('./build/writer.js');
 const JSON5 = require('json5');
+const {Worker} = require('worker_threads');
+const WorkGroup = require('./build/group.js');
 
-// Never generate code for these scenes.
 const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
@@ -38,6 +42,11 @@ const yargs = require('yargs')
       type: 'boolean',
       default: true,
       describe: 'Transpile for ES5 browsers (slow)',
+    })
+    .options('minify', {
+      type: 'boolean',
+      default: true,
+      describe: 'Minify JavaScript output',
     })
     .option('default-only', {
       alias: 'o',
@@ -86,8 +95,9 @@ const assetsToCopy = [
 
   // Explicitly include Web Components loader and polyfill bundles, as they're injected at runtime
   // rather than being directly referenced by a `<script>`.
-  'static/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   'static/node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
+  'static/node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
+  'static/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
 
   'prod/**',
   '!prod/**/*.html',
@@ -108,6 +118,28 @@ const releaseWriter = new Writer({
   allowed: ['static', 'prod'],
   target: 'dist',
 });
+
+const workGroup = WorkGroup();
+async function optionalMinify(code) {
+  if (!yargs.minify) {
+    return code;
+  }
+  await workGroup(async () => {
+    const result = await new Promise((resolve, reject) => {
+      const w = new Worker(__dirname + '/build/terser-worker.js', {
+        workerData: code,
+      });
+      w.on('message', resolve);
+      w.on('error', reject);
+      w.on('exit', reject);
+    });
+    if (result.error) {
+      throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
+    }
+    code = result.code;
+  });
+  return code;
+}
 
 function prodPathForLang(lang) {
   if (lang === DEFAULT_LANG) {
@@ -204,7 +236,7 @@ async function release() {
   // Shared resources needed by prod build.
   const staticEntrypoints = {};
   const fallbackEntrypoints = {};
-  const requiredScriptSources = new Set();
+  const requiredExternalSources = new Set();
 
   // Santa Tracker builds static by finding HTML entry points and parsing/rewriting each file,
   // including traversing their dependencies like CSS and JS. It doesn't specifically compile CSS 
@@ -237,76 +269,61 @@ async function release() {
       const target = path.join(dir, styleLink.href);
       const out = await vfs(target) || await fsp.readFile(target, 'utf-8');
       const inlineStyleTag = document.createElement('style');
-      inlineStyleTag.innerHTML = 'code' in out ? out.code : out;
+      inlineStyleTag.innerHTML = typeof out === 'string' ? out : ('code' in out ? out.code : out);
       styleLink.replaceWith(inlineStyleTag);
     }
 
     // Find non-module scripts, as they contain dependencies like jQuery, THREE.js etc. These are
     // catalogued and then included in the static output.
-    allScripts
-        .filter((s) => s.src && (!s.type || s.type === 'text/javascript'))
-        .map((s) => path.join(dir, s.src))
-        .forEach((src) => requiredScriptSources.add(src));
+    const external = allScripts
+        .filter((s) => s.src && (!s.type || s.type === 'text/javascript')).map((s) => s.src);
+    external.push(...[...document.querySelectorAll('link[rel="preload"]')].map((s) => s.href));
+    external.forEach((src) => {
+      // ... only add if they're local
+      if (!importUtils.isUrl(src)) {
+        requiredExternalSources.add(path.join(dir, src));
+      }
+    });
 
-    // Find all module scripts, so that all JS entrypoints can be catalogued and built together.
-    let count = 0;
+    // Create knowledge of all imports for this HTML file. Remove all module scripts.
+    let imports = 0;
     const moduleScriptNodes = allScripts.filter((s) => s.type === 'module');
     for (const scriptNode of moduleScriptNodes) {
       let code = scriptNode.textContent;
-
-      // If it's an external script, pretend that we have local code that imports it.
       if (scriptNode.src) {
         if (code) {
           throw new TypeError(`got invalid <script>: both code and src`);
         }
         code = importUtils.staticImport(scriptNode.src);
       }
-      const id = `${htmlFile}#${count++}`;
-      staticEntrypoints[id] = {scriptNode, code};
+      scriptNode.remove();
 
-      // TODO(samthor): Include this code for old browsers. Currently it's just a rolled up generated version.
-      const fallbackId = path.join(path.dirname(htmlFile), 'fallback');
-      fallbackEntrypoints[fallbackId] = {scriptNode: null, code};
-
-      // Clear scriptNode.
-      scriptNode.textContent = `/* ${id} */`;
-      scriptNode.removeAttribute('src');
+      // Either way, this creates a virtual import: if the <script> contained code, it's just that;
+      // otherwise, it imports the external file.
+      staticEntrypoints[`${dir}/${imports}.js`] = code;
+      if (yargs.transpile) {
+        fallbackEntrypoints[`${dir}/fallback-${imports}.js`] = code;
+      }
+      ++imports;
     }
 
-    htmlDocuments.set(htmlFile, {dom, moduleScriptNodes});
+    htmlDocuments.set(htmlFile, {dom, imports, dir});
   }
 
   // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
-    staticEntrypoints['static/entrypoint.js#'] = {
-      scriptNode: null,
-      code: importUtils.staticImport('entrypoint.js'),
-    };
+    staticEntrypoints['static/entrypoint.js'] = undefined;
 
-    ['static/fallback.js', 'static/support.js'].forEach((id) => {
-      fallbackEntrypoints[`${id}#`] = {
-        scriptNode: null,
-        code: importUtils.staticImport(path.basename(id)),
-      };
-    });
-
-    // Special-case building the loader, which has no translations and magic.
-    const loaderEntrypoints = {
-      'prod/loader.js': {code: await fsp.readFile('prod/loader.js', 'utf-8')},
-    };
-    const bundles = await modernBuilder(loaderEntrypoints, {
-      loader: vfs,
-      workDir: 'prod',
-    });
-    if (bundles.length !== 1) {
-      throw new TypeError(`could not compile single loader bundle, got ${bundles.length}`);
+    if (yargs.transpile) {
+      fallbackEntrypoints['static/fallback.js'] = undefined;
     }
-    releaseWriter.file('prod/loader.js', bundles[0].code);
-    log(`Built prod loader`);
+
+    // This isn't guarded by a transpile check, because we want always want to transpile it anyway.
+    fallbackEntrypoints['prod/loader.js'] = undefined;
   }
 
-  log(`Found ${chalk.cyan(requiredScriptSources.size)} required script sources`);
-  log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} entrypoints, merging...`);
+  log(`Found ${chalk.cyan(requiredExternalSources.size)} required external sources`);
+  log(`Found ${chalk.cyan(Object.keys(staticEntrypoints).length)} modern entrypoints (${chalk.cyan(Object.keys(fallbackEntrypoints).length)} support/loader), merging...`);
 
   const builderOptions = {
     loader: vfs,
@@ -315,81 +332,146 @@ async function release() {
         return '__magic';
       }
     },
-    workDir: 'static',
+    workDir: 'static',  // TODO: invalid for prod, but we don't use import.meta there
     metaUrlScope: config.staticScope,
   };
 
   const bundles = await modernBuilder(staticEntrypoints, builderOptions);
   const fallbackBundles = await Promise.all(Object.keys(fallbackEntrypoints).map((fallbackKey) => {
     const localConfig = {[fallbackKey]: fallbackEntrypoints[fallbackKey]};
-    return modernBuilder(localConfig, builderOptions);
+    const options = Object.assign({commonJS: true}, builderOptions);
+    return modernBuilder(localConfig, options);
   }));
   fallbackBundles.forEach((all) => bundles.push(...all));
 
-  log(`Generated ${chalk.cyan(bundles.length)} static bundles via Rollup, rewriting...`);
-
-  const annotatedBundles = {};
-  const builder = sourceMagic({
-    magicImport(importName) {
-      return importName === '__magic';
-    },
-    taggedTemplate(lang, name, key) {
-      switch (name) {
-        case '_msg':
-          const messages = langs[lang];
-          return messages(key);
-
-        case '_static':
-          return config.staticScope + key;
-
-        default:
-          throw new TypeError(`unsupported magic: ${name}`);
-      }
-    },
-    rewriteImport(lang, id) {
-      const bundle = annotatedBundles[id];
-      if (bundle && bundle.i18n) {
-        if (!lang) {
-          throw new TypeError(`Got bundle without lang request`);
-        }
-        return rewritePathForLang(id, lang);
-      }
-    },
-  });
+  log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
+  const transpileDeps = new Set([
+    'custom-event-polyfill',
+    'whatwg-fetch',
+    './src/polyfill/classlist--toggle.js',
+    './src/polyfill/element--closest.js',
+    './src/polyfill/node.js',
+  ]);
 
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
-  const scriptNodeToBundle = new Map();
-  for (const bundle of bundles) {
+  const annotatedBundles = {};
+  const bundleTasks = bundles.map(async (bundle) => {
     if (bundle.isDynamicEntry) {
       // Santa Tracker doesn't handle these.
       throw new TypeError(`dynamic entry unsupported: ${bundle.fileName}`);
     } else if (bundle.facadeModuleId && path.dirname(bundle.fileName) !== path.dirname(bundle.facadeModuleId)) {
       // Sanity-check expectations.
       throw new TypeError(`unexpected divergence of fileName ${bundle.fileName} vs facadeModuleId ${bundle.facadeModuleId}`);
+    } else if (bundle.fileName in annotatedBundles) {
+      // We already have this for some reason (duplicate bundle).
+      throw new TypeError(`Already got output file: ${bundle.fileName}`);
     }
 
-    const {seen, rewrite} = await builder(bundle.code, bundle.fileName);
-    const entrypoint = staticEntrypoints[bundle.facadeModuleId] || fallbackBundles[bundle.facadeModuleId];
+    const magic = sourceMagic();
+    const presets = [];
+    const plugins = [magic.plugin];
+
+    const transpile = (bundle.facadeModuleId in fallbackEntrypoints);
+    if (transpile) {
+      log(`Early transpiling ${chalk.yellow(bundle.fileName)}...`);
+      presets.push(
+        ['@babel/preset-env', {
+          useBuiltIns: 'usage',
+          corejs: 3,
+          targets: {
+            browsers: ['ie >= 11'],
+          },
+          exclude: [
+            // Exclude these, otherwise the "__magic" import gets rewritten to require()
+            '@babel/plugin-transform-modules-commonjs',
+            '@babel/plugin-proposal-dynamic-import',
+          ],
+          loose: true,
+        }],
+      );
+      plugins.push('@babel/plugin-transform-destructuring');
+    } else {
+      log(`Preparing ${chalk.yellow(bundle.fileName)}...`);
+    }
+
+    const transformOptions = {code: false, ast: true, presets, plugins};
+    const transformResult = await babel.transform(bundle.code, transformOptions);
+
+    if (transpile) {
+      // core-js gets included but not bundled: use this to find all deps
+      traverse.default(transformResult.ast, {
+        ImportDeclaration(nodePath) {
+          const path = nodePath.node.source.value;
+          if (importUtils.alreadyResolved(path)) {
+            throw new TypeError(`should only find unresolved additions by core-js, was: ${path}`);
+          }
+          transpileDeps.add(path);
+          nodePath.remove();
+        },
+      });
+    }
 
     annotatedBundles[bundle.fileName] = {
-      entrypoint: entrypoint || null,
-      inline: entrypoint && entrypoint.scriptNode || false,
-      i18n: seen.has('_msg'),
-      rewrite,
+      ast: transformResult.ast,
+      transpile,
+      entrypoint: (bundle.facadeModuleId in staticEntrypoints || bundle.facadeModuleId in fallbackEntrypoints),
+      i18n: magic.seen('_msg'),
+      visit: magic.visit,
       imports: bundle.imports.filter((x) => x !== '__magic'),
     };
+  });
+  await Promise.all(bundleTasks);
 
-    if (entrypoint && entrypoint.scriptNode) {
-      scriptNodeToBundle.set(entrypoint.scriptNode, annotatedBundles[bundle.fileName]);
-    }
-  }
+  // Special-case building support.js for static, based on all the core-js deps. We need to build
+  // it as an 'iife' here as we don't wrap it below.
+  const supportCode = Array.from(transpileDeps).map((dep) => `import '${dep}';\n`).join('');
+  const supportOutput = await modernBuilder(
+      {'static/support.js': supportCode}, {commonJS: true, workDir: 'static', format: 'iife'});
+  releaseWriter.file('static/support.js', await optionalMinify(supportOutput[0].code));
+  log(`Released support JS with ${chalk.yellow(transpileDeps.size)} deps...`);
 
   // Determine the transitive properties of each bundle: their import tree (for preload) and if
   // they must be re-compiled for i18n even _without_ messages.
   let rewrittenSources = 0;
+  const buildAstVisitor = (lang) => {
+    return {
+      taggedTemplate(name, key) {
+        switch (name) {
+          case '_static':
+            return config.staticScope + key;
+
+          case '_msg':
+            if (lang !== null) {
+              const messages = langs[lang];
+              return messages(key);
+            }
+
+          default:
+            throw new TypeError(`unsupported magic: ${name}`);
+        }
+      },
+      rewriteImport(id) {
+        const bundle = annotatedBundles[id];
+        if (bundle && bundle.i18n) {
+          if (!lang) {
+            throw new TypeError(`Got bundle without lang request`);
+          }
+          return rewritePathForLang(id, lang);
+        }
+      },
+    };
+  };
+
+  const workerTasks = [];
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
 
+    // Sanity-check that we don't have a transpiled chunk?!
+    if (!b.entrypoint && b.transpile) {
+      throw new TypeError(`got bad bundle with (!entrypoint && transpile): ${fileName}`);
+    }
+
+    // Mark all dependencies as _also_ needing i18n versions.
     const work = new Set(b.imports);
     for (const dep of work) {
       const o = annotatedBundles[dep];
@@ -400,64 +482,76 @@ async function release() {
     }
     b.allImports = Array.from(work);
 
+    const langKeys = b.i18n ? Object.keys(langs) : [null];
+    workerTasks.push(...langKeys.map(async (lang) => {
+      const langFileName = rewritePathForLang(fileName, lang);
+
+      b.visit(fileName, buildAstVisitor(lang));
+
+      let {code} = generator.default(b.ast, {comments: false});
+      if (b.transpile) {
+        code = `;(function(){${code}\n/**/})();`;  // gross
+      }
+      code = await optionalMinify(code);
+      releaseWriter.file(langFileName, code);
+      ++rewrittenSources;
+    }));
+
     const attrs = [];
     b.entrypoint && attrs.push('entrypoint');
     b.i18n && attrs.push('i18n');
+    b.transpile && attrs.push('transpile');
+
     const prettyAttrs = attrs.map((attr) => chalk.magenta(attr)).join(',');
-    log(`Rewriting bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
-
-    const sanitizedFile = fileName.split('#')[0];
-
-    if (b.i18n) {
-      // Rewrite this module for each language.
-      b.code = {};
-      for (const lang in langs) {
-        b.code[lang] = b.rewrite(lang);
-        ++rewrittenSources;
-
-        if (b.inline) {
-          continue;
-        }
-
-        releaseWriter.file(rewritePathForLang(sanitizedFile, lang), b.code[lang]);
-      }
-
-      continue;
-    }
-
-    // There's no i18n or transitive language content.
-    b.code = b.rewrite(null);
-    ++rewrittenSources;
-
-    if (!b.inline) {
-      releaseWriter.file(sanitizedFile, b.code);
-    }
+    log(`Rewritten bundle ${chalk.yellow(fileName)} [${prettyAttrs}]...`);
   }
 
+  log(`Waiting on ${chalk.cyan(workerTasks.length)} worker tasks...`);
+  await Promise.all(workerTasks);
   log(`Rewrote ${chalk.cyan(rewrittenSources)} source files`);
 
   // Now, rewrite all static HTML files for every language.
-  for (const [fileName, {dom, moduleScriptNodes}] of htmlDocuments) {
+  for (const [fileName, {dom, imports, dir}] of htmlDocuments) {
+    const importIsTranslated = [];
+    for (let i = 0; i < imports; ++i) {
+      // nb. This doesn't check support code, but it should be the same.
+      const i18n = annotatedBundles[`${dir}/${i}.js`].i18n;
+      importIsTranslated.push(i18n);
+    }
+
+    // Insert a fixed preamble that loads the correct JS.
+    if (imports) {
+      const pathToSupport = path.relative(path.dirname(fileName), 'static/support.js');
+      const document = dom.window.document;
+      const preamble = `
+function createScript(src, type) {
+  var node = document.createElement('script');
+  node.src = src;
+  type && node.setAttribute('type', type);
+  document.head.appendChild(node);
+}
+(function() {
+  var fallback = (location.search || '').match(/\\bfallback=1\\b/);
+  fallback && createScript(${JSON.stringify(pathToSupport)});
+  ${JSON.stringify(importIsTranslated)}.forEach(function(i18n, i) {
+    var src = (fallback ? 'fallback-' : '') + i + (i18n ? '_' + document.documentElement.lang : '') + '.js';
+    createScript(src, fallback ? null : 'module');
+  });
+})();`
+      const scriptNode = document.createElement('script');
+      scriptNode.textContent = preamble;
+      document.body.append(scriptNode);
+    }
+
     const applyLang = releaseHtml.buildApplyLang(dom);
-
     for (const lang in langs) {
-      for (const scriptNode of moduleScriptNodes) {
-        // TODO(samthor): add `<link rel="modulepreload" href="..." />`, fix for i18n deps
-        const bundle = scriptNodeToBundle.get(scriptNode);
-        if (typeof bundle.code === 'string') {
-          scriptNode.textContent = bundle.code;
-        } else {
-          scriptNode.textContent = bundle.code[lang];
-        }
-      }
-
       const serialized = applyLang(langs[lang]);
       releaseWriter.file(rewritePathForLang(fileName, lang), serialized);
     }
   }
 
   // Copy everything else (but filter prod assets if not requested).
-  const otherAssets = globAll(...assetsToCopy).concat(...requiredScriptSources)
+  const otherAssets = globAll(...assetsToCopy).concat(...requiredExternalSources)
   const limitedOtherAssets = yargs.prod ? otherAssets : otherAssets.filter((f) => !f.startsWith('prod/'));
   const otherAssetsCount = releaseWriter.all(limitedOtherAssets);
   log(`Releasing ${chalk.cyan(otherAssetsCount)} static assets`);
@@ -494,6 +588,9 @@ async function findProdPages() {
 
   const validInput = dictMatch[1].replace(/_msg`(\w+)`/g, (_, arg) => `'${arg}'`);
   const pages = JSON5.parse(validInput);
+  if (!('index' in pages)) {
+    pages['index'] = pages[''] || '';
+  }
   delete pages[''];  // don't explicitly generate blank top-level page
 
   // Find any pages we might be missing.

@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Wiederholen"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Tastatur"
+	},
+	"controller_mouse": {
+		"message": "Maus"
+	},
+	"controller_touch": {
+		"message": "Berühren"
+	},
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Schmücke deinen Browser mit einer weihnachtlichen Chrome-Erweiterung."
 	},
+	"decmonth": {
+		"message": "Dez."
+	},
+	"decmonth_long": {
+		"message": "Dezember"
+	},
 	"detected": {
 		"message": "erkannt"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Figurtyp wählen"
 	},
+	"elves": {
+		"message": "Wichtel"
+	},
 	"elvish_language_name": {
 		"message": "Elfisch"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Santas Wichtel können diese Seite leider nicht finden. Vielleicht hast du mehr Glück, wenn du zurück zum \u003ca href=\"./\"\u003eDorf des Weihnachtsmanns\u003c/a\u003e gehst."
 	},
+	"error-out-of-date": {
+		"message": "Hoppla, das ist nicht das aktuelle Dorf des Weihnachtsmanns. Lade die Seite bitte neu, um die neueste Version anzuzeigen."
+	},
 	"error-try-again": {
 		"message": "Erneut versuchen"
 	},
-	"error_try_again": {
-		"message": "Erneut versuchen"
+	"error-unsupported": {
+		"message": "\"Auf den Spuren des Weihnachtsmanns\" wird von deinem Browser leider nicht unterstützt. Wenn du weitere Spiele spielen und dem Weihnachtsmann am 24. Dezember auf seiner Reise um die Welt folgen möchtest, ruf die Seite bitte auf deinem Smartphone auf oder verwende einen anderen Browser."
 	},
 	"es_language_name": {
 		"message": "Spanisch"
@@ -628,6 +652,15 @@
 	},
 	"explore-village": {
 		"message": "Dorf des Weihnachtsmanns erkunden"
+	},
+	"familyguide_card_11_body": {
+		"message": "Du kannst deinen eigenen Wichtel mit dem perfekten wichteligen Look für die Weihnachtspartys am Nordpol entwerfen."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Sicher durchs Internet"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-App"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -1082,6 +1115,9 @@
 	"openingtomorrow": {
 		"message": "Morgen große Eröffnung"
 	},
+	"opens": {
+		"message": "Öffnet um"
+	},
 	"ornament-print-instructions": {
 		"message": "Hier falten und Seiten zusammenkleben"
 	},
@@ -1352,6 +1388,24 @@
 	"scene_airport": {
 		"message": "Flughafen Nordpol"
 	},
+	"scene_android_cityquiz": {
+		"message": "Städte-Quiz"
+	},
+	"scene_android_dancer": {
+		"message": "Weihnachts-Disco"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pinguinschwimmen"
+	},
+	"scene_android_presenttoss": {
+		"message": "Geschenkewerfen"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketenflug"
+	},
+	"scene_android_snowballrun": {
+		"message": "Schneeballrennen"
+	},
 	"scene_app": {
 		"message": "Android-App"
 	},
@@ -1363,6 +1417,9 @@
 	},
 	"scene_briefing": {
 		"message": "Vortrag der Weihnachtsfrau"
+	},
+	"scene_build": {
+		"message": "In der Weihnachtswerkstatt"
 	},
 	"scene_callfromsanta": {
 		"message": "Anruf vom Weihnachtsmann"
@@ -1397,14 +1454,23 @@
 	"scene_factory": {
 		"message": "Süßigkeitenfabrik"
 	},
+	"scene_family": {
+		"message": "Leitfaden für Familien"
+	},
 	"scene_giftmatch": {
 		"message": "Geschenkpaare"
 	},
 	"scene_glider": {
 		"message": "Schwebender Wichtel"
 	},
+	"scene_guides": {
+		"message": "Anleitungen für Erwachsene"
+	},
 	"scene_gumball": {
 		"message": "Lolli-Flipper"
+	},
+	"scene_havoc": {
+		"message": "Geschenkeschmiede"
 	},
 	"scene_icecave": {
 		"message": "Eishöhle"
@@ -1469,11 +1535,17 @@
 	"scene_snowball": {
 		"message": "Schneeballsturm"
 	},
+	"scene_snowbox": {
+		"message": "Schneebox"
+	},
 	"scene_snowflake": {
 		"message": "Schneeflockencode"
 	},
 	"scene_speedsketch": {
 		"message": "Frostmaler"
+	},
+	"scene_storybook": {
+		"message": "Geschichtenbuch zur Nachhaltigkeit"
 	},
 	"scene_streetview": {
 		"message": "Straßenperspektive"
@@ -6773,11 +6845,17 @@
 	"uk_tradition": {
 		"message": "In Großbritannien öffnen alle Familienmitglieder beim Abendessen Knallbonbons. Diese in buntes Papier gewickelten Röhren haben an beiden Enden Aufreißbänder. Beim Öffnen platzen sie mit einem lauten Knall auf und spucken Papierhüte, Spielzeug, Scherzartikel und Preise für den Weihnachtsabend aus."
 	},
+	"underconstruction": {
+		"message": "Im Aufbau"
+	},
+	"unlocks": {
+		"message": "Entsperrungen"
+	},
 	"unmute": {
 		"message": "Mikrofon ein"
 	},
 	"upgrade-warning": {
-		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt oder du hast JavaScript deaktiviert. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen oder JavaScript aktivieren. Weitere Informationen findest du unter \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Hoppla! Die von dir verwendete Browserversion wird nicht unterstützt oder du hast JavaScript deaktiviert. Um dich auf die Spuren des Weihnachtsmanns zu begeben, musst du einen modernen Browser herunterladen oder JavaScript aktivieren."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6838,6 +6916,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installieren"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tippe einfach auf \u003cspan\u003e\u003c/span\u003e und dann auf \"Zum Startbildschirm hinzufügen\""
 	},
 	"village_takesoff": {
 		"message": "Der Weihnachtsmann startet in"

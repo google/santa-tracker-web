@@ -479,6 +479,18 @@
 	"codelab-try-again": {
 		"message": "Try Again"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Keyboard"
+	},
+	"controller_mouse": {
+		"message": "Mouse"
+	},
+	"controller_touch": {
+		"message": "Touch"
+	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
@@ -539,6 +551,12 @@
 	"deckdescription": {
 		"message": "Deck out your browser with a Santa Chrome extension."
 	},
+	"decmonth": {
+		"message": "Dec"
+	},
+	"decmonth_long": {
+		"message": "December"
+	},
 	"detected": {
 		"message": "detected"
 	},
@@ -587,6 +605,9 @@
 	"elf_choose_body": {
 		"message": "Choose an elf body"
 	},
+	"elves": {
+		"message": "Elves"
+	},
 	"elvish_language_name": {
 		"message": "Elvish"
 	},
@@ -611,11 +632,14 @@
 	"error-not-found": {
 		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "This is an outdated version of Santa's Village! Try opening Santa Tracker again to see the latest version."
+	},
 	"error-try-again": {
 		"message": "Try again"
 	},
-	"error_try_again": {
-		"message": "Try again"
+	"error-unsupported": {
+		"message": "Santa Tracker doesn't support your browser. To play more games and to track Santa on the 24th of December, try your phone or a different browser."
 	},
 	"es_language_name": {
 		"message": "Spanish"
@@ -628,6 +652,177 @@
 	},
 	"explore-village": {
 		"message": "Explore Santa's Village"
+	},
+	"familyguide_accordion_title": {
+		"message": "Celebrate all month long"
+	},
+	"familyguide_body": {
+		"message": "Santa’s Village is the perfect place for families to celebrate the season. You’ll find all your favorite characters together with fun, educational and interactive activities for every age."
+	},
+	"familyguide_card_01_body": {
+		"message": "Use coding fundamentals to navigate the elf through the forest to find dropped presents."
+	},
+	"familyguide_card_02_body": {
+		"message": "Create your own holiday card by programming your own snowflake—just select one of many backgrounds, and share it with your friends."
+	},
+	"familyguide_card_03_body": {
+		"message": "The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves' dances - but watch out, as you get better, the dances get harder!"
+	},
+	"familyguide_card_04_body": {
+		"message": "From wearing a toque in Canada to sporting swim trunks in Australia, click the map pins to learn about holiday traditions around the globe."
+	},
+	"familyguide_card_05_body": {
+		"message": "From Happy New Year in Elvish to Дед Мороз, learn the seasonal lingo from around the world."
+	},
+	"familyguide_card_06_body": {
+		"message": "Santa's got a lot of places to go. Match the outline of a country to the map in this geography game."
+	},
+	"familyguide_card_07_body": {
+		"message": "Do you know your holiday history? Show your stuff in a nine question quiz that’s sure to test your trivia skills."
+	},
+	"familyguide_card_07_title": {
+		"message": "Holiday Traditions Quiz"
+	},
+	"familyguide_card_08_body": {
+		"message": "Hungry? Discover delicacies from around the world and explore food from countries near and far."
+	},
+	"familyguide_card_09_body": {
+		"message": "Tap into Santa's very own creative suite. Each tool, brush, and sticker has a custom sound, making this an audio and visual experience."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experiment and play in your own wintery sandbox. Use 3D materials to build anything: houses, toys, snowpeople, forests, or anything else you can dream up."
+	},
+	"familyguide_card_11_body": {
+		"message": "Build your own elf from head to toe and make sure it looks elftastic for the many holiday soirées happening on the North Pole."
+	},
+	"familyguide_card_12_body": {
+		"message": "Santa is in the barbershop and he needs help getting a whole new ‘do. Color his beard, blow dry his hair, add some decorations or shave it all off with the clippers."
+	},
+	"familyguide_card_13_body": {
+		"message": "Join the elves, reindeer, Santa and Mrs. Claus on a visit to the Museum of Holiday Cheer!"
+	},
+	"familyguide_card_14_body": {
+		"message": "There's many an elf, reindeer, and pegman to shuttle around the North Pole. Watch how they navigate from place to place."
+	},
+	"familyguide_card_15_body": {
+		"message": "Santa and the reindeer are ready to go but they need a little help from the coding elves before take off."
+	},
+	"familyguide_card_16_body": {
+		"message": "Our Village friends join Ollie the narwhal for a day underwater as they put together the first annual kelp lighting celebration."
+	},
+	"familyguide_card_age": {
+		"message": "All Ages"
+	},
+	"familyguide_doublecard_body": {
+		"message": "After all the eggnog is gone and the presents are through, discover year-round resources for family fun with Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "We all want a healthy planet for today and tomorrow. Learn simple tips from Google to help people and the planet thrive together."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Your Plan, Your Planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "To make the most of the Internet, kids need to be prepared to make smart decisions. Be Internet Awesome teaches kids the fundamentals of digital citizenship and safety so they can explore the online world with confidence."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "More from Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "The elves are always working on their coding skills. Explore games that will teach you the basics. Anyone can try their hand at coding!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Learn to code with Santa’s Elves"
+	},
+	"familyguide_group_02_body": {
+		"message": "The holidays can look quite different from place to place. Learn how the world celebrates the season with games and quizzes galore."
+	},
+	"familyguide_group_02_title": {
+		"message": "Discover holidays around the world"
+	},
+	"familyguide_group_03_body": {
+		"message": "Santa’s Village thrives on the magic of making. Discover games that let you draw, paint, build and create with all your favorite characters."
+	},
+	"familyguide_group_03_title": {
+		"message": "Get inspired and create something"
+	},
+	"familyguide_group_04_body": {
+		"message": "Grab the popcorn and snuggle in under a cozy blanket. You can catch the whole gang on the big screen at the Village theater or read along an interactive storybook as Ollie the Narwhal celebrates the season under the sea."
+	},
+	"familyguide_group_04_title": {
+		"message": "Come together for family time"
+	},
+	"familyguide_nav_link_01": {
+		"message": "code"
+	},
+	"familyguide_nav_link_02": {
+		"message": "celebrate"
+	},
+	"familyguide_nav_link_03": {
+		"message": "create"
+	},
+	"familyguide_nav_link_04": {
+		"message": "family time"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tips \u0026 tricks"
+	},
+	"familyguide_nav_link_06": {
+		"message": "more"
+	},
+	"familyguide_secondary_body": {
+		"message": "On December 24th Santa’s Village transforms into a tracking experience where you can follow Santa and his reindeer as they deliver presents to kids around the world."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Follow along on the Santa Tracker website or Android app"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Did you know, Santa's journey lasts 25 hours?! He makes his first stop just after 10 PM local time in far eastern Russia, when it’s 5 AM in New York and 11 AM in Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Track Santa on the big day"
+	},
+	"familyguide_tips_body": {
+		"message": "Get more magic out of Santa Tracker this season with all your favorite Google products."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, what’s new at the North Pole?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Download the Santa Tracker App for Android on the Play Store. There’s an exclusive Village scene with games you’ll only find in the app."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android App"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Track Santa from your wrist with Android Wear integration."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Search for \"Santa\" on Google to see Santa in 3D. On most iPhones and some advanced Android devices, you can see him in AR, waving right through your camera!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Bring Santa to your living room"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Bring some holiday fun to your messages. Find Santa themed gifs and stickers by searching for “Santa Tracker gifs” (English only) on Google’s Tenor page."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Give the gift of GIFs"
+	},
+	"familyguide_tips_title": {
+		"message": "Tips and Tricks"
+	},
+	"familyguide_title": {
+		"message": "Holiday fun for the whole family"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1082,6 +1277,9 @@
 	"openingtomorrow": {
 		"message": "Grand opening tomorrow"
 	},
+	"opens": {
+		"message": "Opens"
+	},
 	"ornament-print-instructions": {
 		"message": "Fold here and glue sides together"
 	},
@@ -1352,6 +1550,24 @@
 	"scene_airport": {
 		"message": "North Pole Airport"
 	},
+	"scene_android_cityquiz": {
+		"message": "City Quiz"
+	},
+	"scene_android_dancer": {
+		"message": "Dasher Dancer"
+	},
+	"scene_android_penguinswim": {
+		"message": "Penguin Swim"
+	},
+	"scene_android_presenttoss": {
+		"message": "Present Toss"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Rocket Sleigh"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snowball Run"
+	},
 	"scene_app": {
 		"message": "Android App"
 	},
@@ -1363,6 +1579,9 @@
 	},
 	"scene_briefing": {
 		"message": "Mrs. Claus' Briefing"
+	},
+	"scene_build": {
+		"message": "Build \u0026 Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Call from Santa"
@@ -1397,14 +1616,26 @@
 	"scene_factory": {
 		"message": "Candy Factory"
 	},
+	"scene_family": {
+		"message": "Family Guide"
+	},
 	"scene_giftmatch": {
 		"message": "Gift Matcher"
 	},
 	"scene_glider": {
 		"message": "Elf Glider"
 	},
+	"scene_guides": {
+		"message": "Guides for Grownups"
+	},
 	"scene_gumball": {
 		"message": "Gumball Tilt"
+	},
+	"scene_havoc": {
+		"message": "Present Havoc"
+	},
+	"scene_holidayfoods": {
+		"message": "Google Earth Holiday Foods of the World"
 	},
 	"scene_icecave": {
 		"message": "Ice Cave"
@@ -1426,6 +1657,9 @@
 	},
 	"scene_mercator": {
 		"message": "Map Quiz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie Under The Sea"
 	},
 	"scene_playground": {
 		"message": "North Pole Playground"
@@ -1469,17 +1703,26 @@
 	"scene_snowball": {
 		"message": "Snowball Storm"
 	},
+	"scene_snowbox": {
+		"message": "Snowbox"
+	},
 	"scene_snowflake": {
 		"message": "Code a Snowflake"
 	},
 	"scene_speedsketch": {
 		"message": "Speed Sketch"
 	},
+	"scene_storybook": {
+		"message": "Sustainability Storybook"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Holiday Traditions"
+	},
+	"scene_traditionsquiz": {
+		"message": "Holiday Traditions Quiz"
 	},
 	"scene_translations": {
 		"message": "Translations"
@@ -6773,11 +7016,17 @@
 	"uk_tradition": {
 		"message": "In the United Kingdom, merrymakers of all ages enjoy Christmas crackers on the table at dinner. Crackers are tubes wrapped in colorful paper, with pull tabs on each end. When you pull the tabs, the tube bursts with a loud snap! Inside are paper hats, toys, jokes and prizes to enjoy during Christmas night."
 	},
+	"underconstruction": {
+		"message": "Under Construction"
+	},
+	"unlocks": {
+		"message": "Unlocks"
+	},
 	"unmute": {
 		"message": "Unmute"
 	},
 	"upgrade-warning": {
-		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript.\nFor more information, visit: \u003ca href=\"https://whatbrowser.org\"\u003ewhatbrowser.org\u003c/a\u003e."
+		"message": "Oops! Santa Tracker isn't supported in your browser or you have JavaScript disabled. To access Santa Tracker, download a modern browser or enable JavaScript."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -6838,6 +7087,9 @@
 	},
 	"village_santa_install": {
 		"message": "Install"
+	},
+	"village_santa_intall_ios": {
+		"message": "Just tap \u003cspan\u003e\u003c/span\u003e then 'Add to Home Screen'"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"

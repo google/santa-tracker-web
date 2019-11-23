@@ -2,8 +2,8 @@
 import {_static} from './magic.js';
 import {AudioLoader} from './kplay-lib.js';
 import './polyfill/event-target.js';
+import '../third_party/lib/klang/config.js';
 
-const configPath = _static`third_party/lib/klang/config.js`;
 const audioPath = _static`audio`;
 
 const masterContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -469,9 +469,7 @@ class AudioGroup extends EventTarget {
    * @param {number=} index an index to force
    */
   _each(callback, playLike=false, index=-1) {
-    if (playLike && this.playing && !this.stopping) {
-      return false;  // do nothing if still playing
-    }
+
     const c = this._content;
 
     if (!this._type) {
@@ -806,6 +804,10 @@ class AudioSource extends EventTarget {
     return this._playbackRate;
   }
 
+  get playbackRateNode() {
+    return this._sources[0] ? this._sources[0].playbackRate : null;
+  }
+
   curvePlaybackRate(rate, duration, when = masterContext.currentTime) {
     if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
       // only adjust on looping sounds, leave playing instant alone
@@ -895,18 +897,9 @@ class AudioSource extends EventTarget {
 
 
 
-export async function prepare() {
-  // Load the config into the page (dynamically), as it's ~300kb and doesn't need to be loaded
-  // unless the user is actually playing audio. It just creates the `KLANG_CONFIG` global.
+export function prepare() {
 
-  const config = await new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = configPath;
-    script.onload = () => resolve(window['KLANG_CONFIG']);
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-
+  const config = window['KLANG_CONFIG'];
   const globalVars = config['vars'];
 
   // Audio files aren't keyed, they just have an ID field.
