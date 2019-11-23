@@ -7,7 +7,7 @@ import santaStyles from './styles/santa.css';
 import fallbackStyles from './styles/fallback.css';
 document.adoptedStyleSheets = [santaStyles, fallbackStyles];
 
-import * as gameloader from './src/elements/santa-gameloader.js';
+import {createFrame} from './src/elements/santa-gameloader.js';
 import * as messageSource from './src/lib/message-source.js';
 
 
@@ -21,14 +21,19 @@ homeButton.disabled = true;
 document.body.append(homeButton);
 
 
-let activeFrame = gameloader.createFrame();
+const errorElement = document.createElement('div');
+errorElement.className = 'error';
+document.body.append(errorElement);
+
+
+let activeFrame = createFrame();
 let previousFrame = null;
 document.body.append(activeFrame);
 
 
 
 const fallbackLoad = (url, {route, data, locked}) => {
-  const frame = gameloader.createFrame(url);
+  const frame = createFrame(url);
   frame.classList.add('pending');
   document.body.append(frame);
   document.body.classList.add('loading');
@@ -117,7 +122,7 @@ const fallbackLoad = (url, {route, data, locked}) => {
 };
 
 
-const {scope, go} = configureProdRouter(buildLoader(fallbackLoad, true));
+const {scope, go, write} = configureProdRouter(buildLoader(fallbackLoad, true));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 
@@ -125,6 +130,8 @@ homeButton.addEventListener('click', (ev) => go(''));
 
 
 function runner(port) {
+  let recentScore = {};
+
   port.postMessage({type: 'ready'});
   port.postMessage({type: 'resume'});
 
@@ -132,6 +139,15 @@ function runner(port) {
     const {type, payload} = ev.data;
 
     switch (type) {
+      case 'score':
+        recentScore = payload;
+        return;
+
+      case 'gameover':
+        console.warn('got gameover', recentScore);
+        go('');
+        return;
+
       case 'ga':
         ga.apply(null, payload);
         return;
@@ -139,12 +155,16 @@ function runner(port) {
       case 'go':
         go(payload);
         return;
+
+      case 'data':
+        write(payload);
+        return;
     }
   };
 }
 
 
 function failedToLoad() {
-  console.warn('FAILED TO LOAD');
+  // TODO(samthor): Do anything at all?
 }
 

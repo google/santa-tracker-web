@@ -1,15 +1,18 @@
+$button-layer: 1100;
+$frame-layer: 1000;
+$pending-frame-layer: 900;
+$error-layer: 800;
+
 iframe {
   width: 100vw;
   height: 100vh;
   border: 0;
   position: fixed;
-  transition: filter 0.33s, transform 0.33s, opacity 0.125s;
-
-  &:not(.pending) {
-    z-index: 10;
-  }
+  transition: filter 0.33s, transform 0.33s, opacity 0.125s ease-in-out;
+  z-index: $frame-layer;
 
   &.pending {
+    z-index: $pending-frame-layer;
     filter: grayscale(70%) brightness(0.5) blur(4px);
     transform: scale(1.05);
     opacity: 0;
@@ -17,7 +20,6 @@ iframe {
 }
 
 body.loading iframe:not(.pending) {
-  transition: filter 0.33s, transform 0.33s;
   filter: grayscale(70%) brightness(0.5) blur(4px);
   transform: scale(1.05);
 }
@@ -31,7 +33,7 @@ button.home {
   width: 48px;
   height: 48px;
   border: none;
-  z-index: 100;
+  z-index: $button-layer;
   cursor: pointer;
   border: 2px solid transparent;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.125);
@@ -49,5 +51,28 @@ button.home {
 
   &[disabled] {
     transform: translate(-150px);
+  }
+}
+
+.error {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: $error-layer;
+  background: _rel("../img/error.svg") center bottom / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    content: '';
+    position: relative;
+    width: 250px;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.125) 4px 14px 0px;
+    box-sizing: border-box;
+    border-radius: 10000px;
+    background: _rel("../img/snowman.png") center center / contain no-repeat rgb(126, 198, 229);
+    overflow: hidden;
   }
 }
