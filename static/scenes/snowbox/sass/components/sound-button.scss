@@ -2,10 +2,10 @@
   pointer-events: auto;
   position: absolute;
   right: 40px;
-  top: 50px;
+  top: 90px;
 
   @include respond-to(smartphone) {
-    top: 40px;
+    top: 75px;
     right: 20px;
   }
 
