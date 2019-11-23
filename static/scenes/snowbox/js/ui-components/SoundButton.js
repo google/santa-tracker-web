@@ -1,5 +1,6 @@
 import SoundManager from '../managers/SoundManager.js'
 import { RELEASE_BUTTON_TIME } from '../constants/index.js'
+import pushButton from '../utils/pushButton.js'
 
 export default class SoundButton {
   constructor(el) {
@@ -19,21 +20,10 @@ export default class SoundButton {
   }
 
   onMouseDown() {
-    this.pushButton(this.el, this.toogleSound)
+    pushButton(this.el, null, this.toogleSound, true)
   }
 
   toogleSound() {
     console.log(SoundManager) // R.P: do something to turn on and off global sound
-  }
-
-  pushButton(el, callback) {
-    el.classList.add('is-clicked')
-    SoundManager.play('generic_button_click')
-    setTimeout(() => {
-      el.classList.remove('is-clicked')
-      if (callback) {
-        callback()
-      }
-    }, RELEASE_BUTTON_TIME)
   }
 }

@@ -1,6 +1,7 @@
 import SoundManager from '../managers/SoundManager.js'
 import CameraController from '../components/CameraController/index.js'
 import { RELEASE_BUTTON_TIME } from '../constants/index.js'
+import pushButton from '../utils/pushButton.js'
 
 export default class CameraControls {
   constructor(el) {
@@ -40,7 +41,7 @@ export default class CameraControls {
     const { currentZoom, zoomMin, zoomMax } = CameraController
     const disable = currentZoom === zoomMin || currentZoom === zoomMax
     // if last zoom, disable
-    this.pushButton(el, disable)
+    pushButton(el, disable)
   }
 
   onClickRotate(e) {
@@ -64,20 +65,10 @@ export default class CameraControls {
       disable = rotationXZ === rotationXZMin || rotationXZ === rotationXZMax
     }
 
-    this.pushButton(el, disable)
+    pushButton(el, disable)
   }
 
   playHoverSound() {
     SoundManager.play('snowbox_generic_hover')
-  }
-
-  pushButton(el, disable = false) {
-    el.classList.add('is-clicked')
-    setTimeout(() => {
-      el.classList.remove('is-clicked')
-      if (disable) {
-        el.classList.add('is-disabled')
-      }
-    }, RELEASE_BUTTON_TIME)
   }
 }

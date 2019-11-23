@@ -2,6 +2,7 @@ import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import isTouchDevice from '../utils/isTouchDevice.js'
 import { RELEASE_BUTTON_TIME } from '../constants/index.js'
+import pushButton from '../utils/pushButton.js'
 
 export default class Toolbar {
   constructor(el) {
@@ -71,7 +72,7 @@ export default class Toolbar {
     if (this.offsetXSlider > 0) return
 
     const el = e.currentTarget
-    this.pushButton(el)
+    pushButton(el)
     const { toolbarArrow } = el.dataset
     let index = this.currentIndex
     let direction = 1
@@ -95,16 +96,6 @@ export default class Toolbar {
     })
 
     SoundManager.play('generic_button_click')
-  }
-
-  pushButton(el, disable = false) {
-    el.classList.add('is-clicked')
-    setTimeout(() => {
-      el.classList.remove('is-clicked')
-      if (disable) {
-        el.classList.add('is-disabled')
-      }
-    }, RELEASE_BUTTON_TIME)
   }
 
   setUnits() {

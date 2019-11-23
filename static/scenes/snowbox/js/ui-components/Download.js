@@ -3,6 +3,7 @@ import SoundManager from '../managers/SoundManager.js'
 import LoaderManager from '../managers/LoaderManager.js'
 import CameraController from '../components/CameraController/index.js'
 import { RELEASE_BUTTON_TIME } from '../constants/index.js'
+import pushButton from '../utils/pushButton.js'
 
 export default class Download {
   constructor(el) {
@@ -24,7 +25,6 @@ export default class Download {
   }
 
   bind() {
-    this.pushButton = this.pushButton.bind(this)
     this.generateGIF = this.generateGIF.bind(this)
     this.renderFrames = this.renderFrames.bind(this)
     this.onClickOutside = this.onClickOutside.bind(this)
@@ -49,14 +49,14 @@ export default class Download {
   }
 
   open() {
-    this.pushButton(this.el, this.renderFrames)
+    pushButton(this.el, null, this.renderFrames, true)
     this.updateAspectRatio()
     this.ui.popin.classList.add('is-open')
     this.ui.popin.classList.add('is-loading')
   }
 
   exit() {
-    this.pushButton(this.ui.exit)
+    pushButton(this.ui.exit, null, null, true)
     this.ui.popin.classList.remove('is-open')
     this.ui.popin.classList.remove('is-loading')
     SoundManager.play('snowbox_generate_gif_end')
@@ -133,17 +133,6 @@ export default class Download {
     // update image ratio
     const ratio = this.ui.canvas.offsetHeight / this.ui.canvas.offsetWidth * 100
     this.ui.gif.parentNode.style.paddingBottom = `${ratio}%`
-  }
-
-  pushButton(el, callback) {
-    el.classList.add('is-clicked')
-    SoundManager.play('generic_button_click')
-    setTimeout(() => {
-      el.classList.remove('is-clicked')
-      if (callback) {
-        callback()
-      }
-    }, RELEASE_BUTTON_TIME)
   }
 
   onClickOutside() {
