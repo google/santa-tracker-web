@@ -18,6 +18,23 @@ const deepClone = (raw) => JSON.parse(JSON.stringify(raw));
 
 
 /**
+ * Returns the pathname for the given location, always starting with "/".
+ *
+ * This works around an IE11 bug.
+ *
+ * @param {?Location} location
+ * @return {string}
+ */
+function pathnameForLocation(location) {
+  const p = location && location.pathname || '/';
+  if (p.startsWith('/')) {
+    return p;
+  }
+  return '/' + p;
+}
+
+
+/**
  * Normalize the passed route.
  *
  * @param {string} route to normalize
@@ -58,7 +75,7 @@ export function normalizeLang(lang) {
  */
 export function resolveProdURL(location) {
   const data = params.read(location.search);
-  let pathname = location.pathname || '/';
+  let pathname = pathnameForLocation(location);
 
   // Strip secret development URLs.
   const matchDev = pathname.match(/^\/\w+-\w{24,30}\//);
@@ -172,7 +189,7 @@ function nearestComposedLink(ev) {
 function nearestClosestLink(ev) {
   const cand = ev.target.closest('a[href]');
   if (cand) {
-    return new URL(closest.href);
+    return new URL(cand.href);
   }
   return null;
 }
@@ -200,7 +217,8 @@ export function globalClickHandler(scope, go) {
       return false;
     }
 
-    const rest = target.pathname.substr(scope.length - target.origin.length - 1);  // include "/"
+    const pathname = pathnameForLocation(target);
+    const rest = pathname.substr(scope.length - target.origin.length - 1);  // include "/"
     const matchScene = simplePathMatcher.exec(rest);
     if (!matchScene) {
       return false;
