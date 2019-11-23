@@ -1,9 +1,11 @@
 /**
  * @fileoverview Polyfill for the `ParentNode` interface.
+ *
+ * Run in support mode. Use only ES5.
  */
 
 function createFragmentOrNode(nodes) {
-  nodes = nodes.map((node) => {
+  nodes = nodes.map(function(node) {
     if (typeof node === 'string') {
       return document.createTextNode(node);
     }
@@ -14,8 +16,10 @@ function createFragmentOrNode(nodes) {
     return node;
   }
 
-  const frag = document.createDocumentFragment();
-  nodes.forEach((node) => frag.appendChild(node));
+  var frag = document.createDocumentFragment();
+  nodes.forEach(function(node) {
+    frag.appendChild(node);
+  });
   return frag;
 }
 
@@ -24,7 +28,8 @@ if (!('append' in document.body)) {
     configurable: true,
     enumerable: true,
     writable: true,
-    value: function append(...nodes) {
+    value: function append() {
+      var nodes = Array.prototype.slice.call(arguments);
       this.appendChild(createFragmentOrNode(nodes));
     },
   });
@@ -35,7 +40,8 @@ if (!('prepend' in document.body)) {
     configurable: true,
     enumerable: true,
     writable: true,
-    value: function prepend(...nodes) {
+    value: function prepend() {
+      var nodes = Array.prototype.slice.call(arguments);
       this.insertBefore(createFragmentOrNode(nodes), this.firstChild);
     },
   });

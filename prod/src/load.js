@@ -13,6 +13,7 @@ export function script(src, type=null) {
     if (type) {
       script.type = type;
     }
+    script.setAttribute('crossorigin', 'anonymous');
     script.onload = () => resolve();
     script.onerror = reject;
     document.head.append(script);
@@ -35,6 +36,7 @@ export function supportScripts(scripts, callback) {
 
     const script = document.createElement('script');
     script.src = src;
+    script.setAttribute('crossorigin', 'anonymous');
 
     script.onload = next;
     script.onerror = () => {
