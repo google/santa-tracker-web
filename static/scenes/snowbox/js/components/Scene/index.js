@@ -275,10 +275,7 @@ class Scene {
         const hit = this.getNearestObject()
         if (hit) {
           const subject = this.getSubjectfromMesh(hit.object.parent)
-          if (subject !== this.activeSubject) {
-            this.highlightSubject(subject)
-            SoundManager.highlightShape(subject)
-          }
+          this.highlightSubject(subject)
         } else {
           this.highlightSubject(false)
         }
@@ -617,15 +614,15 @@ class Scene {
   }
 
   highlightSubject(subject) {
-    if (this.highlightedSubject) {
-      this.highlightedSubject.unhighlight()
-    }
-
-    if (subject) {
+    if (subject && subject !== this.highlightedSubject) {
       this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
-    } else if (subject === false) {
+      SoundManager.highlightShape(subject)   
+    } else if (!subject) {
+      if (this.highlightedSubject) {
+        this.highlightedSubject.unhighlight()
+      } 
       this.canvas.classList.remove('is-pointing')
       this.highlightedSubject = null
     }
