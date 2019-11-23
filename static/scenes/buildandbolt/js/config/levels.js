@@ -1,5 +1,20 @@
 goog.provide('Levels')
 
+
+/**
+ * Some documentation for each type of entity:
+ *
+ * PITS
+ * Minimum dimensions -  3 x 3
+ *
+ * WALLS
+ * Minimum dimensions - 2 x 4
+ * Width must be even
+ *
+ * TABLES
+ * tableType can be 1, 2, or 3
+ */
+
 Levels = [
   {
     players: [
@@ -64,7 +79,7 @@ Levels = [
         config: {
           height: 5,
           width: 2,
-          x: 13,
+          x: 10,
           y: 1,
         }
       },
@@ -96,7 +111,9 @@ Levels = [
         config: {
           x: 1,
           y: 12,
-          partType: 'wheels'
+          tableType: 1,
+          isSideView: false,
+          partType: 'car_wheels'
         }
       },
       {
@@ -104,7 +121,9 @@ Levels = [
         config: {
           x: 15,
           y: 1,
-          partType: 'car-body'
+          tableType: 2,
+          isSideView: true,
+          partType: 'robot_body'
         }
       },
       {
@@ -113,8 +132,8 @@ Levels = [
           x: 22,
           y: 12,
           parts: [
-            'car-body',
-            'wheels'
+            'robot_body',
+            'car_wheels'
           ]
         }
       },
@@ -169,6 +188,15 @@ Levels = [
         }
       },
       {
+        type: 'wall',
+        config: {
+          height: 6,
+          width: 10,
+          x: 2,
+          y: 8,
+        }
+      },
+      {
         type: 'penguin',
         config: {
           isVertical: true,
@@ -185,7 +213,9 @@ Levels = [
         config: {
           x: 22,
           y: 12,
-          partType: 'wheels'
+          tableType: 3,
+          isSideView: true,
+          partType: 'robot_heads'
         }
       },
       {
@@ -193,7 +223,9 @@ Levels = [
         config: {
           x: 10,
           y: 1,
-          partType: 'car-body'
+          tableType: 1,
+          isSideView: false,
+          partType: 'robot_arms'
         }
       },
       {
@@ -202,8 +234,8 @@ Levels = [
           x: 15,
           y: 12,
           parts: [
-            'car-body',
-            'wheels'
+            'robot_heads',
+            'robot_arms'
           ]
         }
       },

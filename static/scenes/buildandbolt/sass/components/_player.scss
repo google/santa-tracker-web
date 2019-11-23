@@ -18,7 +18,8 @@
     //   }
     // }
 
-    &.toypart--wheels {
+    &.toypart--car_wheels,
+    &.toypart--robot_heads {
       &::after {
         background: red;
         bottom: -20px;
@@ -31,7 +32,8 @@
       }
     }
 
-    &.toypart--car-body {
+    &.toypart--robot_body,
+    &.toypart--robot_arms {
       &::after {
         background: blue;
         bottom: -20px;
@@ -44,7 +46,8 @@
       }
     }
 
-    &.toypart--car-body.toypart--wheels {
+    &.toypart--car_wheels.toypart--robot_body,
+    &.toypart--robot_heads.toypart--robot_arms {
       &::after {
         background: purple;
         bottom: -20px;

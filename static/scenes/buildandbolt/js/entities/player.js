@@ -151,12 +151,11 @@ app.Player = class Player {
       this.position.y = this.blockingPosition.y
       this.velocity.x = 0
       this.velocity.y = 0
-    } else {
-      // move player
-      this.game.board.updateEntityPosition(this,
-            this.prevPosition.x, this.prevPosition.y,
-            this.position.x, this.position.y)
     }
+    // move player
+    this.game.board.updateEntityPosition(this,
+          this.prevPosition.x, this.prevPosition.y,
+          this.position.x, this.position.y)
   }
 
   checkActions(entity, resultingActions) {
@@ -205,30 +204,25 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]
     if (acceptToyEntities && acceptToyEntities.length) {
-      for (const entity of acceptToyEntities) {
-        this.clearToyParts()
+      this.clearToyParts()
 
-        // temporary
-        this.game.registerToyCompletion(this)
-      }
+      // temporary
+      this.game.registerToyCompletion(this)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
     if (platforms && platforms.length) {
-      for (const entity of platforms) {
-        this.platform = entity
-        this.platformOffset = {
-          x: this.position.x - entity.position.x,
-          y: this.position.y - entity.position.y
-        }
+      const entity = platforms[0]
+      this.platform = entity
+      this.platformOffset = {
+        x: this.position.x - entity.position.x,
+        y: this.position.y - entity.position.y
       }
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]
     if (ices && ices.length) {
-      for (const entity of ices) {
-        this.onIce = true
-      }
+      this.onIce = true
     }
   }
 

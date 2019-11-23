@@ -1,0 +1,100 @@
+<svg width="150" height="200" viewBox="0 0 150 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 0H50V50H100V0Z" fill="#587E9C"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="50" y="0" width="50" height="50">
+<rect x="50" width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M50 100H100V0H50V100Z" fill="url(#paint0_linear)"/>
+</g>
+<path d="M100 50H50V100H100V50Z" fill="#587E9C"/>
+<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="50" y="50" width="50" height="50">
+<rect x="50" y="50" width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask1)">
+<path d="M50 100H100V0H50V100Z" fill="url(#paint1_linear)"/>
+</g>
+<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+<path d="M0 27C0 12.0883 12.0883 0 27 0H50V50H0V27Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask2)">
+<path d="M0 50L50 50L50 0L-2.24654e-09 2.24452e-09L0 50Z" fill="#587E9C"/>
+<path d="M25 50V0H0V50H25Z" fill="#496C88"/>
+<mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+<rect width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask3)">
+<path d="M0 100H50V0H0V100Z" fill="url(#paint2_linear)"/>
+</g>
+</g>
+<mask id="mask4" mask-type="alpha" maskUnits="userSpaceOnUse" x="100" y="0" width="50" height="50">
+<path d="M100 0H123C137.912 0 150 12.0883 150 27V50H100V0Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask4)">
+<path d="M150 50L100 50L100 0L150 2.24452e-09L150 50Z" fill="#587E9C"/>
+<path d="M125 50V0H150V50H125Z" fill="#4C94B3"/>
+<mask id="mask5" mask-type="alpha" maskUnits="userSpaceOnUse" x="100" y="0" width="50" height="50">
+<rect x="100" width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask5)">
+<path d="M100 100H150V0H100V100Z" fill="url(#paint3_linear)"/>
+</g>
+</g>
+<path d="M150 100L100 100L100 50L150 50L150 100Z" fill="#587E9C"/>
+<path d="M150 100L125 100L125 50L150 50L150 100Z" fill="#4C94B2"/>
+<mask id="mask6" mask-type="alpha" maskUnits="userSpaceOnUse" x="100" y="50" width="50" height="50">
+<rect x="100" y="50" width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask6)">
+<path d="M100 100H150V0H100V100Z" fill="url(#paint4_linear)"/>
+</g>
+<path d="M0 100L50 100L50 50L-2.24553e-09 50L0 100Z" fill="#587E9C"/>
+<path d="M0 100L25 100L25 50L-2.24553e-09 50L0 100Z" fill="#496C88"/>
+<mask id="mask7" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="50" width="50" height="50">
+<rect y="50" width="50" height="50" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask7)">
+<path d="M0 100H50V0H0V100Z" fill="url(#paint5_linear)"/>
+</g>
+<path d="M0 150L50 150L50 100L-2.24553e-09 100L0 150Z" fill="#010101"/>
+<mask id="mask8" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="150" width="50" height="50">
+<path d="M0 150H50V200H27C12.0883 200 0 187.912 0 173V150Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask8)">
+<path d="M0 200L50 200L50 150L-2.24553e-09 150L0 200Z" fill="#010101"/>
+</g>
+<path d="M50 150L100 150L100 100L50 100L50 150Z" fill="#010101"/>
+<path d="M50 200L100 200L100 150L50 150L50 200Z" fill="#010101"/>
+<path d="M150 150L100 150L100 100L150 100L150 150Z" fill="#010101"/>
+<mask id="mask9" mask-type="alpha" maskUnits="userSpaceOnUse" x="100" y="150" width="50" height="50">
+<path d="M100 150H150V173C150 187.912 137.912 200 123 200H100V150Z" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask9)">
+<path d="M150 200L100 200L100 150L150 150L150 200Z" fill="#010101"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="75" y1="100.023" x2="75" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="75" y1="100.023" x2="75" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="25" y1="100.023" x2="25" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear" x1="125" y1="100.023" x2="125" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear" x1="125" y1="100.023" x2="125" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint5_linear" x1="25" y1="100.023" x2="25" y2="0.0226021" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
