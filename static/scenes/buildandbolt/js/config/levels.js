@@ -91,7 +91,7 @@ Levels = [
           cells: [
             // first line
             [{
-              // left: true,
+              left: true,
               top: true,
             },{
               left: true,

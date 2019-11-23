@@ -71,8 +71,8 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const offset = 1
   //  needs to update entity width so player can go throught 2 right/left side fences
 
-  const rightSide = entity.left ? entity.x + 1 - offset : entity.x + 1
-  const leftSide = entity.x - 1
+  const rightSide = entity.left ? entity.x + 1 - 0.05 - offset : entity.x + 1 - 0.05
+  const leftSide = entity.x - 1 + 0.05
   const bottomSide = entity.top ? entity.y + 1 - offset : entity.y + 1
   const topSide = entity.y - 1
 
