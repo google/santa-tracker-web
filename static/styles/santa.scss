@@ -56,3 +56,12 @@ body:not(.loaded) {
     z-index: $index-interlude-preload;
   }
 }
+
+santa-notice {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 16px;
+  min-width: (320px - 32px);
+  z-index: $index-notice;
+}

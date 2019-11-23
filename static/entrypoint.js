@@ -8,6 +8,7 @@ import styles from './styles/santa.css';
 document.adoptedStyleSheets = [styles];
 
 import './src/elements/santa-chrome.js';
+import './src/elements/santa-notice.js';
 import './src/elements/santa-countdown.js';
 import * as gameloader from './src/elements/santa-gameloader.js';
 import './src/elements/santa-error.js';
@@ -25,6 +26,10 @@ import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
+
+
+const noticeElement = document.createElement('santa-notice');
+document.body.append(noticeElement);
 
 
 const loaderElement = document.createElement('santa-gameloader');
