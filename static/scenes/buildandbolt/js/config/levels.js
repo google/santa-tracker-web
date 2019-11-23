@@ -91,19 +91,26 @@ Levels = [
           cells: [
             // first line
             [{
-              right: true,
-            }, {
-              right: true,
-              top: true,
-            }],
-            // second line
-            [{
-              left: true,
-            }, {
-              left: true,
+              // left: true,
               top: true,
             }]
           ],
+          // cells: [
+          //   // first line
+          //   [{
+          //     right: true,
+          //   }, {
+          //     right: true,
+          //     top: true,
+          //   }],
+          //   // second line
+          //   [{
+          //     left: true,
+          //   }, {
+          //     left: true,
+          //     top: true,
+          //   }]
+          // ],
         }
       },
       {
