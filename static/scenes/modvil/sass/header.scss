@@ -3,7 +3,7 @@ header {
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding-top: 86px;
+  padding-top: 60px;
   box-sizing: border-box;
   position: relative;
   z-index: 0;
@@ -13,6 +13,14 @@ header {
 
   @media (max-width: 768px - 1px) {
     font-size: 44px;
+  }
+
+  svg.google {
+    fill: #fff;
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
+    height: 38px;
+    min-width: 62px;
+    width: 62px;
   }
 
   h1 {
@@ -34,7 +42,7 @@ header {
     padding: 0 4em;
   }
 
-  #ornament {
+  .ornament {
     background: url(img/ornament.svg) 50% 20% no-repeat;
     background-size: contain;
     width: 450px;

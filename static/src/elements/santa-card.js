@@ -107,7 +107,7 @@ export class SantaCardElement extends LitElement {
       let inner = '';
       if (this.locked) {
         inner = html`
-          <h3 data-text=${_msg`decmonth`}></h3>
+          <h3 data-text=${_msg`decmonth_long`}></h3>
           <h2 data-text=${this.locked}></h2>
         `;
       }
