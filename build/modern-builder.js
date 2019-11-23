@@ -6,13 +6,14 @@ const path = require('path');
 const importUtils = require('./import-utils.js');
 
 
-module.exports = async (entrypoints, options, format='esm') => {
+module.exports = async (entrypoints, options) => {
   options = Object.assign({
     loader: () => {},
     external: () => {},
     metaUrlScope: null,
     commonJS: false,
     workDir: null,
+    format: 'esm',
   }, options);
 
   const resolveNodePlugin = {resolveId: resolveNode};
@@ -89,7 +90,7 @@ module.exports = async (entrypoints, options, format='esm') => {
   const bundle = await rollup.rollup({input, plugins});
 
   const generated = await bundle.generate({
-    format,
+    format: options.format,
     entryFileNames: '[name]',  // we expect .js to be provided
     chunkFileNames: path.join(options.workDir || '', '_[hash].js'),
   });

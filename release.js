@@ -6,6 +6,7 @@
 
 const babel = require('@babel/core');
 const generator = require('@babel/generator');
+const traverse = require('@babel/traverse');
 const chalk = require('chalk');
 const fsp = require('./build/fsp.js');
 const globAll = require('./build/glob-all.js');
@@ -117,6 +118,28 @@ const releaseWriter = new Writer({
   allowed: ['static', 'prod'],
   target: 'dist',
 });
+
+const workGroup = WorkGroup();
+async function optionalMinify(code) {
+  if (!yargs.minify) {
+    return code;
+  }
+  await workGroup(async () => {
+    const result = await new Promise((resolve, reject) => {
+      const w = new Worker(__dirname + '/build/terser-worker.js', {
+        workerData: code,
+      });
+      w.on('message', resolve);
+      w.on('error', reject);
+      w.on('exit', reject);
+    });
+    if (result.error) {
+      throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
+    }
+    code = result.code;
+  });
+  return code;
+}
 
 function prodPathForLang(lang) {
   if (lang === DEFAULT_LANG) {
@@ -293,7 +316,6 @@ async function release() {
 
     if (yargs.transpile) {
       fallbackEntrypoints['static/fallback.js'] = undefined;
-      fallbackEntrypoints['static/support.js'] = undefined;
     }
 
     // This isn't guarded by a transpile check, because we want always want to transpile it anyway.
@@ -315,7 +337,6 @@ async function release() {
   };
 
   const bundles = await modernBuilder(staticEntrypoints, builderOptions);
-
   const fallbackBundles = await Promise.all(Object.keys(fallbackEntrypoints).map((fallbackKey) => {
     const localConfig = {[fallbackKey]: fallbackEntrypoints[fallbackKey]};
     const options = Object.assign({commonJS: true}, builderOptions);
@@ -324,6 +345,12 @@ async function release() {
   fallbackBundles.forEach((all) => bundles.push(...all));
 
   log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
+  const transpileDeps = new Set([
+    'whatwg-fetch',
+    './src/polyfill/classlist--toggle.js',
+    './src/polyfill/element--closest.js',
+    './src/polyfill/node.js',
+  ]);
 
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
   const annotatedBundles = {};
@@ -348,6 +375,8 @@ async function release() {
       log(`Early transpiling ${chalk.yellow(bundle.fileName)}...`);
       presets.push(
         ['@babel/preset-env', {
+          useBuiltIns: 'usage',
+          corejs: 3,
           targets: {
             browsers: ['ie >= 11'],
           },
@@ -356,6 +385,7 @@ async function release() {
             '@babel/plugin-transform-modules-commonjs',
             '@babel/plugin-proposal-dynamic-import',
           ],
+          loose: true,
         }],
       );
       plugins.push('@babel/plugin-transform-destructuring');
@@ -365,6 +395,20 @@ async function release() {
 
     const transformOptions = {code: false, ast: true, presets, plugins};
     const transformResult = await babel.transform(bundle.code, transformOptions);
+
+    if (transpile) {
+      // core-js gets included but not bundled: use this to find all deps
+      traverse.default(transformResult.ast, {
+        ImportDeclaration(nodePath) {
+          const path = nodePath.node.source.value;
+          if (importUtils.alreadyResolved(path)) {
+            throw new TypeError(`should only find unresolved additions by core-js, was: ${path}`);
+          }
+          transpileDeps.add(path);
+          nodePath.remove();
+        },
+      });
+    }
 
     annotatedBundles[bundle.fileName] = {
       ast: transformResult.ast,
@@ -376,6 +420,14 @@ async function release() {
     };
   });
   await Promise.all(bundleTasks);
+
+  // Special-case building support.js for static, based on all the core-js deps. We need to build
+  // it as an 'iife' here as we don't wrap it below.
+  const supportCode = Array.from(transpileDeps).map((dep) => `import '${dep}';\n`).join('');
+  const supportOutput = await modernBuilder(
+      {'static/support.js': supportCode}, {commonJS: true, workDir: 'static', format: 'iife'});
+  releaseWriter.file('static/support.js', await optionalMinify(supportOutput[0].code));
+  log(`Released support JS with ${chalk.yellow(transpileDeps.size)} deps...`);
 
   // Determine the transitive properties of each bundle: their import tree (for preload) and if
   // they must be re-compiled for i18n even _without_ messages.
@@ -409,7 +461,6 @@ async function release() {
     };
   };
 
-  const workGroup = WorkGroup();
   const workerTasks = [];
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
@@ -440,23 +491,7 @@ async function release() {
       if (b.transpile) {
         code = `;(function(){${code}\n/**/})();`;  // gross
       }
-      if (yargs.minify) {
-        // Optionally minify with Terser, but use a background worker.
-        await workGroup(async () => {
-          const result = await new Promise((resolve, reject) => {
-            const w = new Worker(__dirname + '/build/terser-worker.js', {
-              workerData: code,
-            });
-            w.on('message', resolve);
-            w.on('error', reject);
-            w.on('exit', reject);
-          });
-          if (result.error) {
-            throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
-          }
-          code = result.code;
-        });
-      }
+      code = await optionalMinify(code);
       releaseWriter.file(langFileName, code);
       ++rewrittenSources;
     }));
