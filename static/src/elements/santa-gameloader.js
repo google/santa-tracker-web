@@ -151,7 +151,7 @@ const rectifyFrame = (iframe, tilt) => {
 };
 
 
-const createFrame = (src) => {
+export const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
   iframe.setAttribute('sandbox', IFRAME_SANDBOX);

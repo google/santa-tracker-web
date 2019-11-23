@@ -20,7 +20,7 @@ function urlFor(sceneName, fallback, route) {
   return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p;
 }
 
-export function buildLoader(loaderElement, fallback=false) {
+export function buildLoader(loadMethod, fallback=false) {
   let activeRoute = undefined;
   let activeSceneName = undefined;
 
@@ -51,7 +51,7 @@ export function buildLoader(loaderElement, fallback=false) {
     ga('send', 'pageview');
 
     const locked = (activeSceneName === null);
-    loaderElement.load(url, {route, data, locked}).then((success) => {
+    loadMethod(url, {route, data, locked}).then((success) => {
       if (success) {
         document.title = scenes[route] || _msg`santatracker`;
       }

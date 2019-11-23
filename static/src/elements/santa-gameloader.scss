@@ -21,6 +21,11 @@ iframe {
   width: 100%;
   height: 100%;
   transition: filter 0.33s, transform 0.33s;
+
+  &.pending {
+    opacity: 0;
+    z-index: -1;
+  }
 }
 
 :host([disabled]) {
@@ -51,11 +56,6 @@ iframe {
 
 .slot-container {
   z-index: $index-gameloader;
-}
-
-iframe.pending {
-  opacity: 0;
-  z-index: -1;
 }
 
 .overlay {

@@ -71,7 +71,8 @@ window.addEventListener('loader-route', (ev) => {
 });
 
 
-const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
+const loadMethod = loaderElement.load.bind(loaderElement);
+const {scope, go, write: writeData} = configureProdRouter(buildLoader(loadMethod));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 const kplayInstance = kplay.prepare();

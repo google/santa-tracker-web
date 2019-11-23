@@ -1,0 +1,49 @@
+iframe {
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  position: fixed;
+  transition: filter 0.33s, transform 0.33s, opacity 0.125s;
+
+  &:not(.pending) {
+    z-index: 10;
+  }
+
+  &.pending {
+    filter: grayscale(70%) brightness(0.5) blur(4px);
+    transform: scale(1.05);
+    opacity: 0;
+  }
+}
+
+body.loading iframe:not(.pending) {
+  transition: filter 0.33s, transform 0.33s;
+  filter: grayscale(70%) brightness(0.5) blur(4px);
+  transform: scale(1.05);
+}
+
+button.home {
+  border-radius: 1000px;
+  background: #ff3333;
+  position: fixed;
+  top: 16px;
+  left: 24px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  z-index: 100;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.125);
+  transition: box-shadow 0.25s;
+  will-change: box-shadow;
+
+  &:hover {
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.09);
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: rgba(0, 0, 0, 0.25);
+  }
+}

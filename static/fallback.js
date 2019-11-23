@@ -1,96 +1,146 @@
 
-import './src/polyfill/css.js';
-import styles from './styles/santa.css';
+import santaStyles from './styles/santa.css';
+import fallbackStyles from './styles/fallback.css';
+document.adoptedStyleSheets = [santaStyles, fallbackStyles];
 
-document.adoptedStyleSheets = [styles];
+import './src/polyfill/css.js';
+import './src/polyfill/node.js';
+import 'custom-event-polyfill';
+
+import * as gameloader from './src/elements/santa-gameloader.js';
+import * as messageSource from './src/lib/message-source.js';
+
 
 import {buildLoader} from './src/core/loader.js';
-
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
-import * as gameloader from './src/elements/santa-gameloader.js';
 
 
-const loaderElement = document.createElement('santa-gameloader');
-document.body.append(loaderElement);
+let activeFrame = gameloader.createFrame();
+let previousFrame = null;
+document.body.append(activeFrame);
 
 
-loaderElement.addEventListener(gameloader.events.error, (ev) => {
-  throw new Error('unhandled load error');
-});
+const fallbackLoad = (url, {route, data, locked}) => {
+  const frame = gameloader.createFrame(url);
+  frame.classList.add('pending');
+  document.body.append(frame);
+  console.debug('adding new frame', url);
+  document.body.classList.add('loading');
 
+  if (previousFrame) {
+    activeFrame.dispatchEvent(new CustomEvent('-removed'));
+    activeFrame.remove();  // new activeFrame hasn't loaded yet
+  } else {
+    previousFrame = activeFrame;
+    previousFrame.setAttribute('tabindex', -1);
+    window.focus();
+  }
 
-loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
-  const {context, resolve, control, ready} = ev.detail;
+  activeFrame = frame;
 
-  const prepare = async (control, data) => {
-    control.send({type: 'data', payload: data});
+  const loaded = (port) => {
+    frame.classList.remove('pending');
+    document.body.classList.remove('loading');
+    document.body.classList.add('loaded');
 
-    for (;;) {
-      const op = await control.next();
-      if (op === null) {
-        break;
-      }
-      const {type, payload} = op;
+    const local = previousFrame;
+    local.classList.add('pending');
+    window.setTimeout(() => {
+      local.remove();
+    }, 250);
+    previousFrame = null;
 
-      switch (type) {
-        case 'preload':
-          // TODO(samthor): This is fragile.
-          const [preloadType, event, port] = payload;
-          port.postMessage(null);
-          break;
-
-        case 'loaded':
-          return payload;
-
-        default:
-          // We ignore progress indicators.
-      }
+    if (port) {
+      runner(port);
+    } else {
+      frame.remove();  // should == activeFrame
+      failedToLoad();
     }
   };
 
-  const call = async () => {
-    const {data, route, error, locked} = context;
-    await prepare(control, data);
+  if (!url) {
+    // successfully loaded nothing!
+    loaded(null);
+    return Promise.resolve(true);
+  }
 
-    if (!ready()) {
+  const portPromise = new Promise((resolve) => {
+    messageSource.add(activeFrame.contentWindow, (ev) => {
+      const port = ev.ports[0];
+      if (!port) {
+        throw new Error(`didn't get port from contentWindow`);
+      }
+      resolve(port);
+    });
+    activeFrame.addEventListener('-removed', (ev) => resolve(null));
+    activeFrame.addEventListener('load', () => {
+      window.setTimeout(() => resolve(null), 100);
+    });
+  });
+
+  return portPromise.then((port) => {
+    if (activeFrame !== frame) {
+      return false;  // preempted, do literally nothing
+    } else if (!port) {
+      loaded(null);
       return false;
     }
-    control.send({type: 'ready'});
-    document.body.classList.remove('loading');
 
-    if (locked) {
-      // TODO(samthor): Do something.
-    }
-    if (!control.hasPort) {
-      return;
-    }
-    
-    for (;;) {
-      const op = await control.next();
-      if (op === null) {
-        break;
-      }
-      const {type, payload} = op;
+    // send ?foo=.. data
+    port.postMessage({type: 'data', payload: data});
 
-      switch (type) {
-        case 'ga':
-          ga.apply(null, payload);
-          continue;
+    return new Promise((resolve) => {
+      port.onmessage = (ev) => {
+        const {type, payload} = ev.data;
+        switch (type) {
+          case 'preload':
+            // TODO(samthor): This is fragile.
+            const [preloadType, event, responsePort] = payload;
+            responsePort.postMessage(null);
+            return;
+  
+          case 'loaded':
+            loaded(port);
+            resolve(true);
+            return;
+        }
+      };
+    });
+  });
+};
 
-        case 'gameover':
-          // TODO: show gameover screen
-          console.info('got gameover from game');
-          continue;
 
-        case 'go':
-          go(payload);
-          continue;
-      }
-    }
-
-  };
-  resolve(call());
-});
-
-const {scope, go} = configureProdRouter(buildLoader(loaderElement, true));
+const {scope, go} = configureProdRouter(buildLoader(fallbackLoad, true));
 document.body.addEventListener('click', globalClickHandler(scope, go));
+
+
+const homeButton = document.createElement('button');
+homeButton.className = 'home';
+homeButton.addEventListener('click', (ev) => go(''));
+document.body.append(homeButton);
+
+
+function runner(port) {
+  port.postMessage({type: 'ready'});
+  port.postMessage({type: 'resume'});
+
+  port.onmessage = (ev) => {
+    const {type, payload} = ev.data;
+
+    switch (type) {
+      case 'ga':
+        ga.apply(null, payload);
+        return;
+
+      case 'go':
+        go(payload);
+        return;
+    }
+  };
+}
+
+
+function failedToLoad() {
+  console.warn('FAILED TO LOAD');
+}
+
