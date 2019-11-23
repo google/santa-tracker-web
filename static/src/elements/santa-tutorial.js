@@ -18,6 +18,10 @@ const tutorialHeight = 270;
  * @return {!Image|!HTMLVideoElement}
  */
 function prepareTutorialAsset(name, callback) {
+  if (name.indexOf('.') === -1) {
+    name = `input/${name}.svg`;
+  }
+
   const {promise, asset} = prepareAsset(_static`img/tutorial/` + name);
 
   promise.then(() => {
@@ -111,6 +115,27 @@ export class SantaTutorialElement extends LitElement {
     this._dismissed = new Set();
   }
 
+  _valid(cand) {
+    if (this._dismissed.has(cand)) {
+      return false;
+    }
+
+    if (cand.indexOf('.') !== -1) {
+      return true;
+    }
+
+    const left = cand.split('-')[0];
+    if (this.filter === left) {
+      return true;
+    }
+
+    if (left === 'device' && this.filter === 'touch') {
+      return true;
+    }
+
+    return false;
+  }
+
   _refreshTutorials() {
     if (this._dismissed.has(this._active)) {
       // ok
@@ -123,7 +148,7 @@ export class SantaTutorialElement extends LitElement {
     try {
       // use forEach and throw because IE11 doesn't have iteration.
       this._tutorials.forEach((cand) => {
-        if (!this._dismissed.has(cand)) {
+        if (this._valid(cand)) {
           found = cand;
           throw null;
         }
@@ -144,7 +169,6 @@ export class SantaTutorialElement extends LitElement {
       // If the load failed, then dismiss the tutorial.
       p.then((hidden) => {
         if (hidden && node == this._activeNode) {
-          console.debug('santa-tutorial dismissing', found);
           this.dismiss(found);
         }
       });
@@ -163,7 +187,6 @@ export class SantaTutorialElement extends LitElement {
   }
 
   dismiss(...tutorials) {
-    console.info('dismissing tutorials', tutorials, new Error);
     const size = this._dismissed.size;
 
     tutorials.forEach((tutorial) => {
@@ -176,7 +199,6 @@ export class SantaTutorialElement extends LitElement {
   }
 
   queue(...tutorials) {
-    console.info('queueing tutorials', tutorials);
     const size = this._tutorials.size;
 
     tutorials.forEach((tutorial) => {

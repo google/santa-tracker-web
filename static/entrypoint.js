@@ -175,7 +175,7 @@ global.subscribe((state) => {
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
   orientationOverlayElement.orientation = orientationChangeNeeded ? state.sceneOrientation : null;
   orientationOverlayElement.hidden = !orientationChangeNeeded;     // show rotate hint
-  tutorialOverlayElement.hidden = orientationChangeNeeded;         // hide tutorial w/rotate hint
+  tutorialOverlayElement.hidden = !playing;                        // hide tutorial w/rotate hint
 
   let hasScore = false;
   const score = {
@@ -397,6 +397,7 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
 
   // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
+  tutorialOverlayElement.reset();
   chromeElement.navOpen = false;
 
   global.setState({

@@ -81,7 +81,7 @@ startup((global) => {
     // assume the user is using a mouse.
     const hasMouse = (pointerMedia.matches && hoverMedia.matches) || !window.Touch;
     global.setState({
-      inputMode: hasMouse ? 'mouse' : 'touch',
+      inputMode: hasMouse ? 'keys' : 'touch',
     });
   };
 
