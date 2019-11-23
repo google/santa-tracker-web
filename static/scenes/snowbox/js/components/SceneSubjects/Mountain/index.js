@@ -53,9 +53,9 @@ class Mountain {
     this.world.addBody(this.mountBody)
 
     LoaderManager.load({name: CONFIG.TREE.NAME, obj: CONFIG.TREE.OBJ}, this.initTrees)
-    LoaderManager.load({name: CONFIG.BOARD.NAME, obj: CONFIG.BOARD.OBJ, map: CONFIG.BOARD.MAP}, this.initBoard)
     LoaderManager.load({name: CONFIG.ROCK_01.NAME, obj: CONFIG.ROCK_01.OBJ}, () => {
       LoaderManager.load({name: CONFIG.ROCK_02.NAME, obj: CONFIG.ROCK_02.OBJ}, this.initRocks)
+      LoaderManager.load({name: CONFIG.BOARD.NAME, obj: CONFIG.BOARD.OBJ, map: CONFIG.BOARD.MAP}, this.initBoard)
     })
   }
 
