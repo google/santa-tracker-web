@@ -1,11 +1,11 @@
 
-import santaStyles from './styles/santa.css';
-import fallbackStyles from './styles/fallback.css';
-document.adoptedStyleSheets = [santaStyles, fallbackStyles];
-
 import './src/polyfill/css.js';
 import './src/polyfill/node.js';
 import 'custom-event-polyfill';
+
+import santaStyles from './styles/santa.css';
+import fallbackStyles from './styles/fallback.css';
+document.adoptedStyleSheets = [santaStyles, fallbackStyles];
 
 import * as gameloader from './src/elements/santa-gameloader.js';
 import * as messageSource from './src/lib/message-source.js';
