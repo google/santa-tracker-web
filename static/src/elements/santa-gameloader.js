@@ -113,6 +113,13 @@ export const events = Object.freeze({
 const internalRemove = '-internal-remove';
 
 
+const removeNode = (el) => {
+  if (el && el.parentNode) {
+    el.parentNode.removeChild(el);
+  }
+};
+
+
 /**
  * Set the explicit w/h of the target iframe. Used to work around Safari issues.
  *
@@ -170,20 +177,21 @@ class SantaGameLoaderElement extends HTMLElement {
     // attributes on the loader itself.
     this._main = document.createElement('main');
     this._main.classList.add('empty');
-    root.append(this._main);
+    root.appendChild(this._main);
 
     // Wrap `<slot>` in a container that can be toggled in an error state. The naked slot contains
     // content which will be displayed if a game fails to load, such as `<santa-error>`.
     const slotContainer = document.createElement('div');
     slotContainer.classList.add('slot-container');
     const slot = document.createElement('slot');
-    slotContainer.append(slot);
+    slotContainer.appendChild(slot);
 
     // Create `.iframe-container` for rotate/etc effects.
     this._container = document.createElement('div');
     this._container.className = 'iframe-container';
 
-    this._main.append(slotContainer, this._container);
+    this._main.appendChild(slotContainer);
+    this._main.appendChild(this._container);
 
     this._onWindowBlur = this._onWindowBlur.bind(this);
     this._onWindowFocus = this._onWindowFocus.bind(this);
@@ -197,7 +205,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._previousFrame = null;
     this._previousFrameClose = null;  // called when _previousFrame is cleared
     this._activeFrame = createFrame();
-    this._container.append(this._activeFrame);
+    this._container.appendChild(this._activeFrame);
 
     // Create DOM that contains overlay elements.
     // TODO(samthor): This isn't really to do with the gameloader, but serves as a convinent place
@@ -213,9 +221,9 @@ class SantaGameLoaderElement extends HTMLElement {
     const slotOverlay = document.createElement('slot');
     slotOverlay.setAttribute('name', 'overlay');
 
-    root.append(overlay);
-    overlay.append(holder);
-    holder.append(slotOverlay);
+    root.appendChild(overlay);
+    overlay.appendChild(holder);
+    holder.appendChild(slotOverlay);
   }
 
   get frameFocus() {
@@ -293,7 +301,7 @@ class SantaGameLoaderElement extends HTMLElement {
    */
   purge() {
     // nb. does not null out the previousFrame, as we use it to indicate in-progress load
-    this._previousFrame && this._previousFrame.remove();
+    removeNode(this._previousFrame);
     this._previousFrameClose && this._previousFrameClose();
   }
 
@@ -318,7 +326,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // and dispatch an internal message: it was never made visible to end-users.
       // TODO: revisit if both frames are visible at the same time for a transition
       this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
-      this._activeFrame.remove();
+      removeNode(this._activeFrame);
       close();  // frame has gone immediately, close port now
     } else {
       // Whatever was active is now ultimately going to meet its demise.
@@ -338,7 +346,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._activeFrame = af;
     this._activeFrame.classList.add('pending');
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
-    this._container.append(af);
+    this._container.appendChild(af);
 
     let portPromise = Promise.resolve(null);
     if (href) {
@@ -417,7 +425,7 @@ class SantaGameLoaderElement extends HTMLElement {
       // If nothing loaded, allow <slot> content and remove itself. This is still "success".
       this._main.classList.toggle('empty', !port);
       if (port === null) {
-        this._activeFrame.remove();
+        removeNode(this._activeFrame);
       }
 
       this.purge();

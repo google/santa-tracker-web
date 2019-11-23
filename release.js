@@ -346,6 +346,7 @@ async function release() {
 
   log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
   const transpileDeps = new Set([
+    'custom-event-polyfill',
     'whatwg-fetch',
     './src/polyfill/classlist--toggle.js',
     './src/polyfill/element--closest.js',
