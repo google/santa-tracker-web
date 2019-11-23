@@ -25,8 +25,8 @@ Utils.isTouchingBorder = function(entity, playerPosition) {
 }
 
 Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
-  const rightSide = entity.x + entity.width
-  const leftSide = entity.x - 1
+  const rightSide = entity.x + entity.width - 0.05
+  const leftSide = entity.x - 1 + 0.05
   const bottomSide = entity.y + entity.height
   const topSide = entity.y - 1
 
@@ -68,7 +68,8 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 }
 
 Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
-  const offset = 0.95
+  const offset = 1
+  //  needs to update entity width so player can go throught 2 right/left side fences
 
   const rightSide = entity.left ? entity.x + 1 - offset : entity.x + 1
   const leftSide = entity.x - 1

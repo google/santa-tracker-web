@@ -151,11 +151,13 @@ app.Player = class Player {
       this.position.y = this.blockingPosition.y
       this.velocity.x = 0
       this.velocity.y = 0
-    }
-    // move player
+    } else {
+       // move player
     this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
+    }
+
   }
 
   checkActions(entity, resultingActions) {
@@ -182,11 +184,14 @@ app.Player = class Player {
       for (const entity of blockEntities) {
         // block player
         if (entity.blockingPosition) {
+          console.log(entity, this.position.x, entity.blockingPosition.x, this.position.y, entity.blockingPosition.y)
           this.blockPlayer = true
           if (entity.blockingPosition.x !== this.position.x) {
+            console.log('x is different')
             this.blockingPosition.x = entity.blockingPosition.x
           }
-          if (entity.blockingPosition.y !== this.position.y) {
+          if (entity.blockingPosition.y !== this.position.y) { // Realized that the player position Y at the very top is 0.01 instead of 0
+            console.log('y is different')
             this.blockingPosition.y = entity.blockingPosition.y
           }
         }

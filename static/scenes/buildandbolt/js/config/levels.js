@@ -77,7 +77,7 @@ Levels = [
       {
         type: 'wall',
         config: {
-          height: 5,
+          height: 3,
           width: 2,
           x: 10,
           y: 1,
@@ -132,7 +132,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 15,
+          x: 13,
           y: 1,
           tableType: 2,
           isSideView: true,
