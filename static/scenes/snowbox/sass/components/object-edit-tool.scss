@@ -41,8 +41,8 @@
 
   .toolbar-ui {
     display: flex;
-    height: 75px;
-    width: 340px;
+    height: 63px;
+    width: 300px;
 
     @include respond-to(tablet) {
       height: 48px;
@@ -82,8 +82,8 @@
         appearance: none;
         background-color: $color-orange;
         border-radius: 50%;
-        height: 21px;
-        width: 21px;
+        height: 18px;
+        width: 18px;
 
         @include respond-to(tablet) {
           height: 15px;
@@ -120,7 +120,7 @@
       opacity: 0;
       pointer-events: none;
       position: absolute;
-      top: -20px;
+      top: -10px;
       transform: translateY(-100%);
       transition: opacity .3s ease;
     }
@@ -131,7 +131,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      width: 130px;
+      width: 100px;
 
       @include respond-to(tablet) {
         width: 76px;
@@ -139,10 +139,10 @@
     }
 
     &__item {
-      height: 26px;
-      padding: 26px;
+      height: 22px;
+      padding: 22px;
       position: relative;
-      width: 26px;
+      width: 22px;
 
       @include respond-to(tablet) {
         height: 15px;
