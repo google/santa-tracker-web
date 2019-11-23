@@ -35,8 +35,8 @@ button.home {
   cursor: pointer;
   border: 2px solid transparent;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.125);
-  transition: box-shadow 0.25s;
-  will-change: box-shadow;
+  transition: box-shadow 0.25s, transform 0.25s ease-in-out;
+  will-change: box-shadow, transform;
 
   &:hover {
     box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.09);
@@ -45,5 +45,9 @@ button.home {
   &:focus {
     outline: 0;
     border-color: rgba(0, 0, 0, 0.25);
+  }
+
+  &[disabled] {
+    transform: translate(-150px);
   }
 }

@@ -15,17 +15,24 @@ import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 
 
+const homeButton = document.createElement('button');
+homeButton.className = 'home';
+homeButton.disabled = true;
+document.body.append(homeButton);
+
+
 let activeFrame = gameloader.createFrame();
 let previousFrame = null;
 document.body.append(activeFrame);
+
 
 
 const fallbackLoad = (url, {route, data, locked}) => {
   const frame = gameloader.createFrame(url);
   frame.classList.add('pending');
   document.body.append(frame);
-  console.debug('adding new frame', url);
   document.body.classList.add('loading');
+  homeButton.disabled = !route;  // show home button on non-"/" pages
 
   if (previousFrame) {
     activeFrame.dispatchEvent(new CustomEvent('-removed'));
@@ -114,10 +121,7 @@ const {scope, go} = configureProdRouter(buildLoader(fallbackLoad, true));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 
-const homeButton = document.createElement('button');
-homeButton.className = 'home';
 homeButton.addEventListener('click', (ev) => go(''));
-document.body.append(homeButton);
 
 
 function runner(port) {
