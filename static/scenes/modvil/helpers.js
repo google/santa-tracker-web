@@ -9,4 +9,5 @@ export function installAdjustHandler(handler) {
   ['scroll', 'resize'].forEach((eventType) => {
     window.addEventListener(eventType, deduped, {passive: true});
   });
+  deduped();
 }

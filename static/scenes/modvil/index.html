@@ -19,6 +19,7 @@ import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
+import './elements/modvil-module.js';
 import {_msg} from '../../src/magic.js';
 
 
@@ -30,61 +31,26 @@ api.config({
   sound: ['music_start_village', 'village_start'],
 });
 
+const allCards = Array.from(document.querySelectorAll('santa-card'));
+
 api.addEventListener('data', (ev) => {
   // TODO: use this state to control card locked/unlocked
-  console.info('got cards snapshot', ev.detail);
+  console.info('got snapshot', ev.detail);
+
+  const {routes} = ev.detail;
+
+  allCards.forEach((card) => {
+    const detail = routes[card.id] || {video: false, locked: undefined};
+    card.locked = detail.locked;
+  });
+
 });
 
-/**
- * Describes each village module and its static/animated parts.
- */
-const moduleDefs = [
-  {
-    id: 'android',
-    parts: ['static', 'loop', 'image', 'loop'],
-  },
-  {
-    id: 'transithub',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'sciencelab',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'toymaking',
-    parts: ['static', 'static', 'scroll', 'static'],
-  },
-  {
-    id: 'kitchen',
-    parts: ['static', 'loop', 'static', 'scroll'],
-  },
-  {
-    id: 'nursery',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'greenhouse',
-    parts: ['static', 'loop', 'scroll', 'static'],
-  },
-  {
-    id: 'wrapping',
-    parts: ['static', 'loop', 'scroll', 'static'],
-  },
-  {
-    id: 'movies',
-    parts: ['image', 'loop'],
-  },
-  {
-    id: 'footer',
-    parts: ['static'],
-  }
-];
 
 /**
  * Finds the ratio of scrolling that this element should display at.
  */
-function ratioForModule(el) {
+function ratioForElement(el) {
   const se = document.scrollingElement;
   const topScroll = se.scrollTop;
 
@@ -102,117 +68,104 @@ function ratioForModule(el) {
   // This creates more of a cubic-bezier style transform (although it's quite subtle).
   return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
 }
-function updateSound(el, ratio) {
-  let name = el.id.indexOf('module') > -1 ?  el.id.split('module--')[1] : el.id;
-  api.play('village_scroll', name, ratio);
-}
-function moduleIsVisible(el) {
-  const se = document.scrollingElement;
-  const top = se.scrollTop;
-  const bottom = se.scrollTop + window.innerHeight;
 
-  if (el.offsetTop + window.innerHeight >= top) {
-    return el.offsetTop < bottom;
-  }
-  return false;
-}
+
+/**
+ * @param {string} id to play for
+ * @param {?number} ratio to play at
+ */
+const updateModuleSoundRatio = (function() {
+  const previous = {};
+
+  return (id, ratio) => {
+    api.play('village_scroll', id, ratio);
+
+  // TODO(samthor): Should we prevent lots of repeat events here?
+  // prevent sending lots of repeat events for [0,1]
+  // Klang's config seems to do nothing in this case anyway; the speed would be Infinity
+
+/*
+    ratio = ratio || 0;
+
+    if ((previous[id] || 0) === ratio) {
+      return;  // already set
+    }
+
+    previous[id] = ratio;
+    api.play('village_scroll', id, ratio);
+*/
+  };
+}());
+
+
 
 async function prepareModules() {
   const main = document.querySelector('main');
-  const scrollables = new Map();
-
-  for (const {id, parts} of moduleDefs) {
-    const container = document.createElement('div');
-    container.className = 'module';
-    container.setAttribute('id', `module--${id}`);
-    main.append(container);
-
-    const animations = parts.map((type, index) => {
-      const base = `img/modules/${id}/${index}`;
-      const zIndex = -(100 - index);
-
-      if (type === 'static' || type === 'image') {
-        const img = document.createElement('img');
-        img.src = `${base}.` + (type === 'static' ? 'svg' : 'png');
-        container.append(img);
-        img.style.zIndex = zIndex;
-        // TODO: preload
-        return null;
-      }
-
-      const options = {
-        container,
-        loop: (type === 'loop'),
-      };
-      const anim = loadAnimation(`${base}.json`, options);
-      anim.renderer.svgElement.style.zIndex = zIndex;
-
-      handleAnimationAudio(anim, id);
-
-      // TODO: preload
-      return anim;
-    }).filter(Boolean);
-
-    scrollables.set(container, animations);
-  }
-
-  scrollables.set(document.getElementById('top'), []);
+  const topModule = document.getElementById('top');
+  const modules = Array.from(main.querySelectorAll('modvil-module'));
 
   helpers.installAdjustHandler(() => {
-    scrollables.forEach((animations, container) => {
-      const visible = moduleIsVisible(container);
-      
-      const ratio = visible ? ratioForModule(container) : -1.0;
+    let mode = '';
+    if (window.innerWidth <= 414) {
+      mode = 'mobile';
+    } else if (window.innerWidth <= 768) {
+      mode = 'small';
+    }
 
-      //send scroll ratio to kplay to update volume of scene audio
-      updateSound(container, visible ? ratio : 0)
+    let visible = undefined;  // undefined=at top, true=visible, false=after visible
 
-      animations.forEach((anim) => {
-        if (anim.loop) {
-          // This should loop, but only if visible.
-          if (visible === anim.isPaused) {
-            visible ? anim.play() : anim.pause();
-          }
-          return;
+    const se = document.scrollingElement;
+    const windowRangeLow = se.scrollTop;
+    const windowRangeHigh = se.scrollTop + window.innerHeight;
+
+    // Top isn't a module, but it has audio cues.
+    const topRatio = ratioForElement(topModule);
+    updateModuleSoundRatio('top', topRatio);
+
+    modules.forEach((m) => {
+      if (visible !== false) {
+        if (m.offsetTop >= windowRangeHigh) {
+          visible = false;
         }
-
-        if (!visible) {
-          return;
+      }
+      if (visible === undefined) {
+        if (m.offsetTop + m.offsetHeight >= windowRangeLow) {
+          visible = true;
         }
+      }
 
-        // Otherwise, this is a scroll target.
-        const frames = anim.getDuration(true);
-        const frame = Math.min(frames, Math.max(0.0, frames * ratio));
-        
-        anim.goToAndStop(frame, true);
+      // Configure the CE. Ratio of null hints that the scene is invisible.
+      const ratio = visible ? ratioForElement(m) : null;
+      m.ratio = ratio;
+      m.mode = mode;
+      m.load = visible || false;  // only display at all when visible
 
-        //play sound on specific frames
-        let scene = anim.path.split('img/modules/')[1].slice(0, -1);
-        let id = anim.fileName;
-        checkAndPlaySound(id, scene, frame);
-      });
+      // Configure ratio of sound.
+      updateModuleSoundRatio(m.id, ratio);
     });
+  });
+
+
+  main.addEventListener('anim', (e) => {
+    const scene = e.target.id;
+    const {index, currentTime} = e.detail;
+    checkAndPlaySound(scene, index, currentTime);
   });
 }
 
-function handleAnimationAudio(anim, scene) {
-  anim.onEnterFrame = (e)=> {
-    let id = anim.fileName;
-    checkAndPlaySound(id, scene, e.currentTime);
-  }
-}
-function checkAndPlaySound(id, scene, time) {
-  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
-      let sounds = animationSoundTriggers[scene][id];
+function checkAndPlaySound(scene, index, time) {
+  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][index]) {
+    const sounds = animationSoundTriggers[scene][index];
 
-      for (let i = 0; i < sounds.length; i++) {
-        if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
-          api.play(sounds[i].sound, time);
-          sounds[i].played = performance.now();
-        }
+    for (let i = 0; i < sounds.length; i++) {
+      if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
+        api.play(sounds[i].sound, time);
+        sounds[i].played = performance.now();
       }
     }
+  }
 }
+
 api.preload.wait(prepareModules());
 
 const playButton = document.getElementById('play');
@@ -262,7 +215,61 @@ api.ready(async () => {
 
 <div id="modules">
   <div class="sidebar left"></div>
-  <main></main>
+  <main>
+<modvil-module id="android" color="#9b643d" parts="static-svg,loop,static-png,loop">
+
+</modvil-module>
+<modvil-module id="transithub" color="#d4f1fe" parts="static-svg,loop,scroll">
+  <santa-card id="jetpack"></santa-card>
+  <santa-card id="elfmaker"></santa-card>
+  <santa-card id="santasearch"></santa-card>
+</modvil-module>
+<modvil-module id="sciencelab" color="#3499ff" parts="static-svg,loop,scroll">
+  <santa-card id="codelab"></santa-card>
+  <santa-card id="gumball"></santa-card>
+  <santa-card id="snowbox"></santa-card>
+</modvil-module>
+<modvil-module id="toymaking" color="#00c1f2" parts="static-svg,static-svg,scroll,static-svg">
+  <santa-card id="presentbounce"></santa-card>
+  <santa-card id="build"></santa-card>
+  <santa-card id="santaselfie"></santa-card>
+</modvil-module>
+<modvil-module id="kitchen" color="#fdb0ca" parts="static-svg,loop,static-svg,scroll">
+  <santa-card id="traditions"></santa-card>
+  <santa-card id="translations"></santa-card>
+  <santa-card id="presentdrop"></santa-card>
+</modvil-module>
+<modvil-module id="nursery" color="#6bb4fd" parts="static-svg,loop,scroll">
+  <santa-card id="speedsketch"></santa-card>
+  <santa-card id="santascanvas"></santa-card>
+  <santa-card id="storybook"></santa-card>
+</modvil-module>
+<modvil-module id="greenhouse" color="#94dae4" parts="static-svg,loop,scroll,static-svg">
+  <santa-card id="snowball"></santa-card>
+  <santa-card id="elfski"></santa-card>
+  <santa-card id="penguindash"></santa-card>
+</modvil-module>
+<modvil-module id="movies" color="#6900ff" parts="static-png,loop">
+  <!-- TODO: movies -->
+</modvil-module>
+<modvil-module id="wrapping" color="#5203c0" parts="static-svg,loop,scroll,static-svg">
+  <santa-card id="boatload"></santa-card>
+  <santa-card id="seasonofgiving"></santa-card>
+  <santa-card id="racer"></santa-card>
+</modvil-module>
+<modvil-module id="disco" color="#e5e5e5">
+  <santa-card id="codeboogie"></santa-card>
+  <santa-card id="jamband"></santa-card>
+  <santa-card id="wrapbattle"></santa-card>
+</modvil-module>
+<modvil-module id="training" color="#e5e5e5">
+  <santa-card id="mercator"></santa-card>
+  <santa-card id="glider"></santa-card>
+  <santa-card id="runner"></santa-card>
+</modvil-module>
+
+<modvil-module id="footer" color="#8ab8d4" parts="static-svg"></modvil-module>
+  </main>
   <div class="sidebar right"></div>
 </div>
 

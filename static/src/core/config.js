@@ -233,15 +233,23 @@ export function isLocked(route) {
 }
 
 
-export function lockedSnapshot() {
+export function routesSnapshot() {
   const {sceneLock, videos} = memoized;
   const out = {};
   for (const route in sceneLock) {
     out[route] = {
       locked: lockedTo(route),
-      video: videos.indexOf(route) !== -1,
+      video: false,
     };
   }
+  videos.forEach((video) => {
+    if (!(video in out)) {
+      out[video] = {
+        locked: false,
+      };
+    }
+    out[video].video = true;
+  });
   return out;
 }
 

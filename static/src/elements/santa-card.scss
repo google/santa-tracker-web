@@ -10,6 +10,12 @@ main {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
   position: relative;
   text-align: center;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-bottom: var(--ratio, 0%);
+  }
 }
 
 a {
@@ -85,9 +91,11 @@ santa-card-player {
     left: 0;
     right: 0;
     bottom: 0;
+    transition: opacity 0.33s ease-in-out;
+    opacity: 1;
 
-    &[hidden] {
-      opacity: 0 !important;
+    &.loading {
+      opacity: 0;
     }
   }
 }

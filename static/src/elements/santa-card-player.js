@@ -17,7 +17,7 @@ function outExpo(n) {
  * Determine point during animation curve.
  *
  * @param {number} v from 0-1 in animation
- * @return {numbe} from 0-1
+ * @return {number} from 0-1
  */
 function invertOutExpo(v) {
   v = (v * -1) + 1;
@@ -91,8 +91,18 @@ export class SantaCardPlayerElement extends HTMLElement {
   connectedCallback() {
     if (!this._introAnim) {
       const src = assetRoot + this.getAttribute('scene') + '.json';
-      this._introAnim = loadAnimation(src, {container: this});
-      // TODO(samthor): fade in animation once it loads
+      this._introAnim = loadAnimation(src, {
+        container: this,
+        rendererSettings: {
+          className: 'loading',
+        },
+      });
+      const el = this._introAnim.renderer.svgElement;
+
+      this._introAnim.addEventListener('DOMLoaded', () => {
+        el.classList.remove('loading');
+        this.dispatchEvent(new CustomEvent('card-appear', {bubbles: true}));
+      });
     }
   }
 }

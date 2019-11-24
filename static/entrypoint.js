@@ -314,7 +314,10 @@ outer:
         firebaseConfig.remove(listener);
         return;
       }
-      control.send({type: 'data', payload: firebaseConfig.lockedSnapshot()});
+      const payload = {
+        routes: firebaseConfig.routesSnapshot(),
+      };
+      control.send({type: 'data', payload});
     };
     firebaseConfig.listen(listener);
     listener();

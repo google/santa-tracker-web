@@ -17,7 +17,7 @@ const sceneColors = {
   codeboogie: '#f8c328',
   codelab: '#2a57ad',
   elfmaker: '#3399ff',
-  elfski: '#93dae4',
+  elfski: '#1b69c1',
   glider: '#7f54fa',
   gumball: '#bf8f68',
   havoc: '#587e9c',
@@ -42,11 +42,22 @@ const sceneColors = {
 };
 
 
+const intersectionObserver = (window.IntersectionObserver ? new window.IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.load = true;
+    }
+  });
+}) : null);
+
+
 export class SantaCardElement extends LitElement {
   static get properties() {
     return {
       locked: {type: Number},
       scene: {type: String},
+      load: {type: Boolean},
+      id: {type: String},
       _active: {type: Boolean},
     };
   }
@@ -61,6 +72,31 @@ export class SantaCardElement extends LitElement {
     this.addEventListener('blur', this._maybeDismiss);
     this.addEventListener('mouseover', this._maybeMakeActive);
     this.addEventListener('mouseout', this._maybeDismiss);
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('load') && this.load && intersectionObserver) {
+      intersectionObserver.unobserve(this);
+    }
+    return true;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (!this.load && intersectionObserver) {
+      intersectionObserver.observe(this);
+    } else {
+      this.load = true;
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    if (intersectionObserver && !this.load) {
+      intersectionObserver.unobserve(this);
+    }
   }
 
   _maybeMakeActive() {
@@ -84,24 +120,27 @@ export class SantaCardElement extends LitElement {
   }
 
   render() {
+    const scene = this.scene || this.id || '';
     let contents = '';
-    let backgroundStyle = `background-color: ${sceneColors[this.scene] || 'default'}`;
+    let backgroundStyle = `background-color: ${sceneColors[scene] || 'default'}`;
     const isLocked = (this.locked >= 0);
 
     if (!isLocked) {
       let inner = html`<img />`;
 
       // FIXME: config.videos() is only available in prod frame.
-      const videos = [];
-      if (videos.indexOf(this.scene) !== -1) {
-        backgroundStyle += `; background-image: url(${assetRoot}/${this.scene}_2x.png)`;
-      } else {
-        inner = html`<santa-card-player .active=${this._active} scene=${this.scene}></santa-card-player>`;
+      if (this.load) {
+        const videos = [];
+        if (videos.indexOf(scene) !== -1) {
+          backgroundStyle += `; background-image: url(${assetRoot}/${scene}_2x.png)`;
+        } else {
+          inner = html`<santa-card-player .active=${this._active} scene=${scene}></santa-card-player>`;
+        }
       }
 
       contents = html`
         ${inner}
-        <h1>${scenes[this.scene] || ''}</h1>
+        <h1>${scenes[scene] || ''}</h1>
       `;
     } else {
       let inner = '';
@@ -121,7 +160,7 @@ export class SantaCardElement extends LitElement {
     }
 
     // TODO: we need an <div class="inner"> to do safe transforms (e.g. bounce anim with mouse focus)
-    const url = isLocked || !this.scene ? undefined : href(`${this.scene}.html`);
+    const url = isLocked || !scene ? undefined : href(`${scene}.html`);
     return html`
 <main class=${this._active ? 'active' : ''}>
   <a href=${ifDefined(url)} style=${backgroundStyle}>${contents}</a>

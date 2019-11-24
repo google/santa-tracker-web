@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent center no-repeat;
+  background-size: contain;
+}
+
+svg,
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.125s ease-in-out;
+  opacity: 1;
+  object-fit: cover;
+}
+
+.loading {
+  opacity: 0;
+}
+
+.cards {
+  z-index: 10;
+}
+
+::slotted(santa-card) {
+  --radius: 20px;
+  font-size: 22px;
+}
+
+@media (min-width: 768px + 1px) {
+  ::slotted(santa-card) {
+    width: 30%;  // 30% of 1440 is about ~420
+    --ratio: 75%;
+    margin: 20px;
+  }
+}
+
+@media (min-width: 1024px + 1px) {
+  ::slotted(santa-card) {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards {
+    max-width: 85vw;
+    width: 420px;
+    min-width: 280px;
+    height: 100%;
+    padding-top: 40px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  ::slotted(santa-card) {
+    padding-bottom: 20px;
+    height: 200px;
+    max-width: 280px;
+    width: 80%;
+  }
+
+  ::slotted(santa-card:nth-child(2n)) {
+    align-self: flex-end;
+  }
+
+  :host(:nth-child(2n)) {
+    ::slotted(santa-card) {
+      align-self: flex-end;
+    }
+    ::slotted(santa-card:nth-child(2n)) {
+      align-self: flex-start;
+    }
+  }
+}
