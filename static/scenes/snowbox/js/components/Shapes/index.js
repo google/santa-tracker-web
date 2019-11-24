@@ -221,6 +221,10 @@ class Shape {
   }
 
   rotate(direction, angle, currentCameraYRotation) {
+    if (!this.ghost) {
+      this.showGhost()
+    }
+
     let axis
     switch (direction) {
       default:
@@ -257,6 +261,10 @@ class Shape {
   }
 
   scale(value) {
+    if (!this.ghost) {
+      this.showGhost()
+    }
+
     const scaleFactor = parseInt(value) / 10
     this.ghost.scale.set(
       this.defaultMeshScale.x * scaleFactor,
