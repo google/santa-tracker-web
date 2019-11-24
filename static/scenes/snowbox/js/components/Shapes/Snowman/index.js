@@ -1,5 +1,6 @@
 import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
+import { darken } from '../../../utils/colors.js'
 
 // Config
 import GLOBAL_CONFIG from '../../Scene/config.js'
@@ -19,6 +20,7 @@ class Snowman extends Obj {
     this.name = CONFIG.NAME
     // this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
+    this.highlightColor = new THREE.Color(darken(CONFIG.MAIN_COLOR_HEXA, 15))
   }
 
   init() {
@@ -32,8 +34,6 @@ class Snowman extends Obj {
       normalMap
     })
     defaultMaterial.needsUpdate = true
-
-    this.highlightColor = CONFIG.HIGHLIGHT_COLOR
 
     for (let i = 0; i < obj.children.length; i++) {
       const geometry = obj.children[i].geometry
