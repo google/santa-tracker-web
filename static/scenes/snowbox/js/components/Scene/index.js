@@ -66,7 +66,7 @@ class Scene {
     this.shapeLoaded = this.shapeLoaded.bind(this)
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
-    this.colorObject = this.colorObject.bind(this)
+    this.colorSubject = this.colorSubject.bind(this)
     this.onTouchMove = this.onTouchMove.bind(this)
   }
 
@@ -418,12 +418,12 @@ class Scene {
   }
 
   // Events from UI
-  colorObject(e) {
+  colorSubject(e) {
     const el = e.currentTarget
-    const { colorObject } = el.dataset
+    const { colorSubject } = el.dataset
     if (this.activeSubject) {
-      const threeColor = new THREE.Color(colorObject)
-      const threeHighlightedColor = new THREE.Color(darken(colorObject, 15))
+      const threeColor = new THREE.Color(colorSubject)
+      const threeHighlightedColor = new THREE.Color(darken(colorSubject, 15))
 
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
@@ -436,6 +436,8 @@ class Scene {
           child.material.color = threeColor
         }
       }
+
+      this.activeSubject.materials.default.color = threeColor
       this.activeSubject.materials.highlight.color = threeHighlightedColor
 
       SHAPE_COLORS[this.activeSubject.name].default = threeColor

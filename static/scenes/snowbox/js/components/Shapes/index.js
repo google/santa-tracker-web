@@ -5,6 +5,7 @@ import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
 import { SHAPE_COLORS } from  '../../constants/index.js'
+import { darken } from '../../utils/colors.js'
 
 class Shape {
   constructor(scene, world) {
@@ -21,7 +22,7 @@ class Shape {
     this.isMoving = false
     this.geoMats = []
     this.centerOffsetY = 0
-    this.highlightColor = GLOBAL_CONFIG.COLORS.HIGHLIGHT
+    this.highlightColor = new THREE.Color(darken(GLOBAL_CONFIG.COLORS.ICE_HEXA, 15))
 
     if (this.init) {
       this.init = this.init.bind(this)
@@ -39,7 +40,7 @@ class Shape {
   setShape(defaultMaterial) {
     // Secondary materials
     const highlightMaterial = defaultMaterial.clone()
-    highlightMaterial.color.setHex(this.highlightColor)
+    highlightMaterial.color = this.highlightColor
     highlightMaterial.needsUpdate = true
 
     const ghostMaterial = defaultMaterial.clone()
@@ -275,10 +276,13 @@ class Shape {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
         if (this.mulipleMaterials) {
-          child.material.transparent = true
-          child.material.opacity = 0.8
+          if (this.name === 'gift' && i === 4) {
+            child.material = this.materials.highlight
+          } else if (this.name === 'tree' && i === 0) {
+            child.material = this.materials.highlight
+          }
         } else {
-          child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+          child.material = this.materials.highlight
         }
       }
     }
@@ -289,10 +293,13 @@ class Shape {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
         if (this.mulipleMaterials) {
-          child.material.transparent = false
-          child.material.opacity = 1
+          if (this.name === 'gift' && i === 4) {
+            child.material = this.materials.default
+          } else if (this.name === 'tree' && i === 0) {
+            child.material = this.materials.default
+          }
         } else {
-          child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+          child.material = this.materials.default
         }
       }
     }
@@ -304,7 +311,7 @@ class Shape {
     this.ghost = new THREE.Object3D()
 
     for (let i = 0; i < this.geoMats.length; i++) {
-      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials.ghost)
       this.ghost.add(mesh)
     }
 

@@ -1,5 +1,6 @@
 import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
+import { darken } from '../../../utils/colors.js'
 
 // Config
 import GLOBAL_CONFIG from '../../Scene/config.js'
@@ -19,6 +20,7 @@ class Gift extends Obj {
     this.normalMap = CONFIG.NORMAL_MAP
     this.obj = CONFIG.OBJ
     this.mulipleMaterials = true
+    this.highlightColor = new THREE.Color(darken(CONFIG.MAIN_COLOR_HEXA, 15))
   }
 
   init() {
@@ -52,7 +54,7 @@ class Gift extends Obj {
       })
     }
 
-    this.setShape(defaultMaterial)
+    this.setShape(secondMaterial)
   }
 
   createShapes(scale = 1) {

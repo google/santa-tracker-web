@@ -1,5 +1,6 @@
 import Obj from '../index.js'
 import LoaderManager from '../../../managers/LoaderManager.js'
+import { darken } from '../../../utils/colors.js'
 
 // Config
 import CONFIG from './config.js'
@@ -22,6 +23,7 @@ class Tree extends Obj {
     this.wrl = CONFIG.WRL
     this.mulipleMaterials = true
     this.centerOffsetY = -1.5
+    this.highlightColor = new THREE.Color(darken(CONFIG.MAIN_COLOR_HEXA, 15))
   }
 
   init() {

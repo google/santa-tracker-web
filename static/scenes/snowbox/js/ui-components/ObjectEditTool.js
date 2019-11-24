@@ -9,7 +9,7 @@ export default class ObjectEditTool {
 
     this.ui = {
       rotateButtons: [...this.el.querySelectorAll('[data-rotate-object]')],
-      colorButtons: [...this.el.querySelectorAll('[data-color-object]')],
+      colorButtons: [...this.el.querySelectorAll('[data-color-subject]')],
       scaleButton: this.el.querySelector('[object-scale-slider]'),
       colorIconButton: this.el.querySelector('[data-open-colors]'),
       toolbar: this.el.querySelector('[object-toolbar-ui]'),
@@ -54,9 +54,9 @@ export default class ObjectEditTool {
 
     this.ui.colorButtons.forEach(button => {
       if (this.isTouchDevice) {
-        button.addEventListener('touchstart', Scene.colorObject)
+        button.addEventListener('touchstart', Scene.colorSubject)
       } else {
-        button.addEventListener('click', Scene.colorObject)
+        button.addEventListener('click', Scene.colorSubject)
       }
     })
 
