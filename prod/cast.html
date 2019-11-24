@@ -3,19 +3,71 @@
 <head>
   <title msgid="meta_title"></title>
   <meta charset="utf-8" />
-  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js" defer></script>
-  <style type="text/css">
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+<style type="text/css">
 html {
-  background: #3ec4f0;
+  background: #18854b;
 }
 body {
   margin: 0;
 }
+.op {
+  transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#wrap {
+  background: black;
+}
+body:not(.loaded) #wrap {
+  opacity: 0;
+}
+#loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.loaded #loader {
+  opacity: 0;
+}
+video {
+  width: 100%;
+  height: 100%;
+}
   </style>
 </head>
 <body>
+  <div class="op" id="loader">
+    <img src="images/icon-512.png" width="256" height="256" />
+  </div>
+  <div class="op" id="wrap">
+    <video id="player" playsinline></video>
+  </div>
+  <script>
+    cast.framework.CastReceiverContext.getInstance().start();
 
-<!-- TODO: cast page -->
+    // TODO(samthor): Just plays a single video for now on loop. Replace with Yule Log + misc.
+
+    const player = /** @type {!HTMLVideoElement} */ (document.getElementById('player'));
+    const videoId = 'comroom';
+    const quality = '1080p';
+    player.src = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/videos%2F${videoId}_${quality}.mp4?alt=media`;
+    player.loop = true;
+
+    player.addEventListener('canplaythrough', () => {
+      document.body.classList.add('loaded');
+      player.play();
+    });
+
+    // for dev
+    document.body.onclick = () => {
+      player.play();
+    };
+
+  </script>
 
 </body>
 </html>
