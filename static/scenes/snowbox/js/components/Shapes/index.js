@@ -388,14 +388,14 @@ class Shape {
         if (this.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
-            child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+            child.material.color = SHAPE_COLORS[this.name].default
           }
         } else {
-          child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+          child.material.color = SHAPE_COLORS[this.name].default
         }
       }
 
-      this.materials.highlight = new THREE.Color(SHAPE_COLORS[this.name].highlight)
+      this.materials.highlight.color = SHAPE_COLORS[this.name].highlight
     }
   }
 

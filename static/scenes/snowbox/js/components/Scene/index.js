@@ -313,7 +313,7 @@ class Scene {
         subject.mesh ? subject.mesh.uuid === hit.object.parent.uuid : false
       )
 
-      this.selectSubject(newSelectedSubject, true)
+      this.selectSubject(newSelectedSubject)
 
     } else {
       this.setMode()
@@ -420,24 +420,25 @@ class Scene {
     const el = e.currentTarget
     const { colorObject } = el.dataset
     if (this.activeSubject) {
+      const threeColor = new THREE.Color(colorObject)
+      const threeHighlightedColor = new THREE.Color(darken(colorObject, 15))
+
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
         if (this.activeSubject.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
-            child.material.color = new THREE.Color(colorObject)
+            child.material.color = threeColor
           }
         } else {
-          child.material.color = new THREE.Color(colorObject)
+          child.material.color = threeColor
         }
       }
+      this.activeSubject.materials.highlight.color = threeHighlightedColor
 
-      this.activeSubject.materials.highlight.color = new THREE.Color(darken(colorObject, 15))
-      this.activeSubject.materials.highlight.needsUpdate = true
+      SHAPE_COLORS[this.activeSubject.name].default = threeColor
+      SHAPE_COLORS[this.activeSubject.name].highlight = threeHighlightedColor
       SoundManager.play('snowbox_pick_color')
-
-      SHAPE_COLORS[this.activeSubject.name].default = colorObject
-      SHAPE_COLORS[this.activeSubject.name].highlight = new THREE.Color(darken(colorObject, 15))
     }
   }
 
@@ -517,7 +518,7 @@ class Scene {
   // others
   shapeLoaded(subject) {
     this.sceneSubjects.push(subject)
-    this.selectSubject(subject)
+    this.selectSubject(subject, true)
     // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
     const box = new THREE.Box3().setFromObject(subject.ghost)
     this.planeHelper.position.y = subject.size / 2 * (box.max.y - box.min.y) // add half Y +
@@ -538,7 +539,7 @@ class Scene {
     SoundManager.play('snowbox_unselect_subject')
   }
 
-  selectSubject(newSelectedSubject, needsOffset = false) {
+  selectSubject(newSelectedSubject, fromToolbar = false) {
     this.setMode('move')
 
     this.selectedSubject = newSelectedSubject
@@ -547,7 +548,15 @@ class Scene {
 
     this.moveOffset.y = 0 // reset y
 
-    if (needsOffset) {
+    if (fromToolbar) {
+      this.moveOffset.x = 0
+      this.moveOffset.z = 0
+      this.mountain.addPositionMarker({
+        x: 100, // hide it
+        y: 100,
+        z: 100,
+      })
+    } else {
       // don't play sound if dragging from toolbar
       SoundManager.play('snowbox_select_subject')
       const box = new THREE.Box3().setFromObject(this.selectedSubject.mesh)
@@ -561,14 +570,6 @@ class Scene {
         x: posPlaneHelper.x + this.moveOffset.x,
         y: this.planeHelper.position.y + this.moveOffset.y,
         z: posPlaneHelper.z + this.moveOffset.z,
-      })
-    } else {
-      this.moveOffset.x = 0
-      this.moveOffset.z = 0
-      this.mountain.addPositionMarker({
-        x: 100, // hide it
-        y: 100,
-        z: 100,
       })
     }
   }
