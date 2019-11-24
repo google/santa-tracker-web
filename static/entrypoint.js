@@ -19,6 +19,7 @@ import './src/elements/santa-cardnav.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
+import maybeLoadCast from './src/deps/cast.js';
 import * as kplay from './src/kplay.js';
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
@@ -27,6 +28,9 @@ import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
 import * as firebaseConfig from './src/core/config.js';
+
+
+maybeLoadCast();
 
 
 const noticeElement = document.createElement('santa-notice');
