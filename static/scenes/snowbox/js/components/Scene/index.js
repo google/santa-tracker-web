@@ -327,7 +327,7 @@ class Scene {
       this.unselectSubject()
     }
 
-    if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down') {
+    if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down' && !this.isAddingShape) {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
     } else if (!this.isTouchDevice) {
@@ -339,6 +339,8 @@ class Scene {
     if (this.isPinchZooming) {
       this.isPinchZooming = false
     }
+
+    this.isAddingShape = false
   }
 
   onWheel(e) {
@@ -471,7 +473,7 @@ class Scene {
   }
 
   addShape(shape, material = 'snow') {
-    if (this.mode !== '') return
+    if (this.mode === 'move') return
     let subject
     switch (shape) {
       case 'cube':
@@ -506,6 +508,8 @@ class Scene {
     }
 
     subject.load(this.shapeLoaded)
+
+    this.isAddingShape = true
 
     // prevent moving camera just after adding a shape
     // this.canDetectMouseInEdge = false
