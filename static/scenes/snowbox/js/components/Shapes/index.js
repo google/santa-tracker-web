@@ -143,17 +143,27 @@ class Shape {
     }
   }
 
-  select() {
+  select(isAddingShape) {
     if (this.selectable && !this.selected) {
       this.selected = true
       this.body.sleep()
 
-      if (this.mesh) {
-        this.unhighlight()
-        this.mesh.visible = false
-      }
+      this.mesh.visible = true
 
-      this.createGhost()
+      if (isAddingShape) {
+        this.showGhost()
+      }
+    }
+  }
+
+  showGhost() {
+    this.createGhost()
+
+    if (this.ghost) {
+      this.ghost.visible = true
+    }
+    if (this.mesh) {
+      this.mesh.visible = false
     }
   }
 

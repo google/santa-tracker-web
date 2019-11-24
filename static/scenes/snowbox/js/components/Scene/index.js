@@ -270,6 +270,10 @@ class Scene {
 
       this.isInCanvas = this.mouse.y > -1 && this.mouse.y < 1
 
+      if (this.selectedSubject && this.isSelectingMouseDown && !this.selectedSubject.ghost) {
+        this.selectedSubject.showGhost()
+      }
+
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move') {
         // if not in drag or ghost mode
         const hit = this.getNearestObject()
@@ -295,7 +299,6 @@ class Scene {
 
   onMouseDown(e) {
     e.preventDefault()
-
     // For touch events only
     if (e.type === 'touchstart') {
       this.detectTouches(e)
@@ -314,7 +317,7 @@ class Scene {
       )
 
       this.selectSubject(newSelectedSubject)
-
+      this.isSelectingMouseDown = true
     } else {
       this.setMode()
     }
@@ -511,8 +514,6 @@ class Scene {
 
     subject.load(this.shapeLoaded)
 
-    this.isAddingShape = true
-
     // prevent moving camera just after adding a shape
     // this.canDetectMouseInEdge = false
     // clearTimeout(this.canDetectMouseInEdgeTimeout)
@@ -523,6 +524,7 @@ class Scene {
 
   // others
   shapeLoaded(subject) {
+    this.isAddingShape = true
     this.sceneSubjects.push(subject)
     this.selectSubject(subject, true)
     // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
@@ -533,7 +535,7 @@ class Scene {
   unselectSubject(unmove) {
     CameraController.resetControls()
 
-    if (!unmove) {
+    if (!unmove && this.selectedSubject.ghost) {
       this.selectedSubject.moveToGhost()
     }
     this.selectedSubject.unselect()
@@ -549,7 +551,7 @@ class Scene {
     this.setMode('move')
 
     this.selectedSubject = newSelectedSubject
-    this.selectedSubject.select()
+    this.selectedSubject.select(this.isAddingShape)
     const { position } = this.selectedSubject.body
 
     this.moveOffset.y = 0 // reset y
@@ -764,6 +766,7 @@ class Scene {
     }
 
     // unselect any object when changing mode
+    console.log('unselect', this.mode)
     if (this.selectedSubject) {
       this.unselectSubject()
     }
