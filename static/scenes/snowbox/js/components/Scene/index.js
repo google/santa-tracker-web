@@ -270,7 +270,7 @@ class Scene {
 
       this.isInCanvas = this.mouse.y > -1 && this.mouse.y < 1
 
-      if (this.selectedSubject && this.isSelectingMouseDown && !this.selectedSubject.ghost) {
+      if (this.selectedSubject && this.isSelectingMouseDown && !this.selectedSubject.ghost && this.mode !== 'edit') {
         this.selectedSubject.showGhost()
       }
 

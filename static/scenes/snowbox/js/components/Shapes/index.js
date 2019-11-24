@@ -156,17 +156,6 @@ class Shape {
     }
   }
 
-  showGhost() {
-    this.createGhost()
-
-    if (this.ghost) {
-      this.ghost.visible = true
-    }
-    if (this.mesh) {
-      this.mesh.visible = false
-    }
-  }
-
   unselect() {
     if (this.selectable && this.selected) {
       this.selected = false
@@ -174,17 +163,7 @@ class Shape {
         this.body.wakeUp()
       }
 
-      if (this.moveToGhost) {
-        if (this.mesh && !this.mesh.visible) {
-          this.mesh.visible = true
-        }
-      }
-
-      if (!this.mesh.visible) {
-        this.mesh.visible = true
-      }
-
-      this.deleteGhost()
+      this.hideGhost()
     }
   }
 
@@ -321,6 +300,31 @@ class Shape {
         }
       }
     }
+  }
+
+  showGhost() {
+    this.createGhost()
+
+    if (this.ghost) {
+      this.ghost.visible = true
+    }
+    if (this.mesh) {
+      this.mesh.visible = false
+    }
+  }
+
+  hideGhost() {
+    if (this.moveToGhost) {
+      if (this.mesh && !this.mesh.visible) {
+        this.mesh.visible = true
+      }
+    }
+
+    if (!this.mesh.visible) {
+      this.mesh.visible = true
+    }
+
+    this.deleteGhost()
   }
 
   createGhost() {
