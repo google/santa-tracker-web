@@ -621,6 +621,12 @@ class Scene {
 
   highlightSubject(subject) {
     if (subject && subject !== this.highlightedSubject) {
+      // clean previous subjects
+      for (let i = 0; i < this.sceneSubjects.length; i++) {
+        if (this.sceneSubjects[i].unhighlight) {
+          this.sceneSubjects[i].unhighlight()
+        }
+      }
       this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
