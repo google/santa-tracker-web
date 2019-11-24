@@ -623,7 +623,7 @@ class Scene {
     if (subject && subject !== this.highlightedSubject) {
       // clean previous subjects
       for (let i = 0; i < this.sceneSubjects.length; i++) {
-        if (this.sceneSubjects[i].unhighlight) {
+        if (this.sceneSubjects[i].unhighlight && this.sceneSubjects[i] !== this.activeSubject) {
           this.sceneSubjects[i].unhighlight()
         }
       }
@@ -632,7 +632,7 @@ class Scene {
       this.highlightedSubject = subject
       SoundManager.highlightShape(subject)   
     } else if (!subject) {
-      if (this.highlightedSubject) {
+      if (this.highlightedSubject && this.highlightedSubject !== this.activeSubject) {
         this.highlightedSubject.unhighlight()
       } 
       this.canvas.classList.remove('is-pointing')
@@ -754,6 +754,13 @@ class Scene {
     this.canvas.classList.remove('is-pointing')
     // console.log('mode', mode)
 
+    // clean any highligthed subjects
+    for (let i = 0; i < this.sceneSubjects.length; i++) {
+      if (this.sceneSubjects[i].unhighlight) {
+        this.sceneSubjects[i].unhighlight()
+      }
+    }
+
     // unselect any object when changing mode
     if (this.selectedSubject) {
       this.unselectSubject()
@@ -783,6 +790,7 @@ class Scene {
         if (this.activeSubject) {
           this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
+          this.activeSubject.highlight()
         }
         controls.enabled = false // disable cameraCtrl.controls
         break
