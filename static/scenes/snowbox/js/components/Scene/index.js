@@ -628,11 +628,7 @@ class Scene {
   highlightSubject(subject) {
     if (subject && subject !== this.highlightedSubject) {
       // clean previous subjects
-      for (let i = 0; i < this.sceneSubjects.length; i++) {
-        if (this.sceneSubjects[i].unhighlight && this.sceneSubjects[i] !== this.activeSubject) {
-          this.sceneSubjects[i].unhighlight()
-        }
-      }
+      this.cleanHighlightedSubjects()
       this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
@@ -643,6 +639,14 @@ class Scene {
       } 
       this.canvas.classList.remove('is-pointing')
       this.highlightedSubject = null
+    }
+  }
+
+  cleanHighlightedSubjects() {
+    for (let i = 0; i < this.sceneSubjects.length; i++) {
+      if (this.sceneSubjects[i].unhighlight && this.sceneSubjects[i] !== this.activeSubject) {
+        this.sceneSubjects[i].unhighlight()
+      }
     }
   }
 
@@ -757,14 +761,6 @@ class Scene {
     const { controls } = CameraController
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
-    // console.log('mode', mode)
-
-    // clean any highligthed subjects
-    for (let i = 0; i < this.sceneSubjects.length; i++) {
-      if (this.sceneSubjects[i].unhighlight) {
-        this.sceneSubjects[i].unhighlight()
-      }
-    }
 
     // unselect any object when changing mode
     if (this.selectedSubject) {
@@ -782,9 +778,11 @@ class Scene {
 
     switch (mode) {
       default:
+        this.cleanHighlightedSubjects()
         controls.enabled = true // reset cameraCtrl.controls
         break
       case 'drag':
+        this.cleanHighlightedSubjects()
         this.canvas.classList.add('is-dragging')
         break
       case 'move':
@@ -792,6 +790,7 @@ class Scene {
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'edit':
+        this.cleanHighlightedSubjects()
         if (this.activeSubject) {
           this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
