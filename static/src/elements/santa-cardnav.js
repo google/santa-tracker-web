@@ -107,6 +107,7 @@ export class SantaCardNavElement extends LitElement {
 </header>
 <main>${cardHtml}${placeholders}</main>
 <footer>
+<div class="inner">
 
 <div class="grow">
 
@@ -184,6 +185,7 @@ export class SantaCardNavElement extends LitElement {
 <path d="M60.6398 59.0274C60.6398 62.9662 56.6993 66.1938 51.8831 66.1938C47.0122 66.1938 43.1265 62.9662 43.1265 59.0274C43.1265 55.0338 47.067 51.8609 51.8831 51.8609C56.6993 51.8062 60.6398 55.0338 60.6398 59.0274Z" fill="#EF9A9A"/>
 </svg>
 
+</div>
 </footer>
 </div>
     `;

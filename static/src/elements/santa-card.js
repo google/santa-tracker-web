@@ -59,6 +59,7 @@ export class SantaCardElement extends LitElement {
       load: {type: Boolean},
       id: {type: String},
       _active: {type: Boolean},
+      featured: {type: Boolean, reflect: true}
     };
   }
 
@@ -163,6 +164,7 @@ export class SantaCardElement extends LitElement {
     const url = isLocked || !scene ? undefined : href(`${scene}.html`);
     return html`
 <main class=${this._active ? 'active' : ''}>
+  <div class="featured">${_msg`newtoday`}</div>
   <a href=${ifDefined(url)} style=${backgroundStyle}>${contents}</a>
 </main>
     `;

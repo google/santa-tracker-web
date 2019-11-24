@@ -78,13 +78,9 @@ const updateModuleSoundRatio = (function() {
   const previous = {};
 
   return (id, ratio) => {
-    api.play('village_scroll', id, ratio);
-
   // TODO(samthor): Should we prevent lots of repeat events here?
   // prevent sending lots of repeat events for [0,1]
   // Klang's config seems to do nothing in this case anyway; the speed would be Infinity
-
-/*
     ratio = ratio || 0;
 
     if ((previous[id] || 0) === ratio) {
@@ -93,7 +89,6 @@ const updateModuleSoundRatio = (function() {
 
     previous[id] = ratio;
     api.play('village_scroll', id, ratio);
-*/
   };
 }());
 
@@ -136,7 +131,13 @@ async function prepareModules() {
 
       // Configure the CE. Ratio of null hints that the scene is invisible.
       const ratio = visible ? ratioForElement(m) : null;
-      m.ratio = ratio;
+      if (ratio === null) {
+        m.ratio = null;
+      } else if (!mode) {
+        m.ratio = ratio;
+      } else {
+        m.ratio = 0.5;  // don't animate scroll in small mode
+      }
       m.mode = mode;
       m.load = visible || false;  // only display at all when visible
 
@@ -208,8 +209,7 @@ api.ready(async () => {
     <button id="play"><span msgid="play"></span></button>
   </header>
   <div id="newtoday">
-    <span msgid="newtoday"></span>
-    <santa-card scene="elfmaker"></santa-card>
+    <santa-card featured scene="elfmaker"></santa-card>
   </div>
 </div>
 

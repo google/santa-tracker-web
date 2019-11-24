@@ -86,39 +86,22 @@ body {
 
   #newtoday {
     position: absolute;
+    max-width: 1440px;
     bottom: 40px;
-    right: 5%;
+    padding-right: 32px;
+    box-sizing: border-box;
     display: flex;
-    width: 0;
+    width: 100%;
     height: 0;
     align-items: flex-end;
     justify-content: flex-end;
     flex-flow: column;
 
-    span {
-      text-transform: uppercase;
-      background: #f9c329;
-      line-height: 2em;
-      letter-spacing: 1px;
-      white-space: nowrap;
-      border-radius: 4px;
-      padding: 0 10px;
-      position: relative;
-      top: 1em;
-      right: 16px;
-      font-size: 12px;
-      font-weight: bold;
-      z-index: 100;
-      box-shadow: 0 2px 0 #e7ad04;
-      pointer-events: none;
-    }
-
     santa-card {
-      width: 240px;
+      width: 280px;
       height: 150px;
+      min-height: 200px;
       --radius: 20px;
-      position: static;
-      margin: 0 !important;
     }
   }
 }
@@ -153,7 +136,8 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
-    width: 1440px;  // acts as max-width
+    width: 1440px;
+    max-width: 1440px;
   }
 }
 
