@@ -32,6 +32,21 @@ window.onunhandledrejection = (event) => {
   }
 };
 
+if ('serviceWorker' in navigator) {
+  // Register the SW in the served language, not the request language (as this isn't available
+  // on the naked domain anyway).
+  if (true || isProd) {
+    window.sw = navigator.serviceWorker.register(`/sw.js?lang=${documentLang}`);
+    window.sw.then((resp) => {
+      console.info('sw registered', resp);
+    }).catch((err) => {
+      console.info('sw failed');
+    });
+  } else {
+    window.sw = null;
+  }
+}
+
 // Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
 // needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
