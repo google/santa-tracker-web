@@ -26,6 +26,7 @@ import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
+import * as firebaseConfig from './src/core/config.js';
 
 
 const noticeElement = document.createElement('santa-notice');
@@ -266,8 +267,6 @@ async function preloadSounds(sc, event, port) {
 async function prepare(control, data) {
   const timeout = promises.timeoutRace(10 * 1000);
 
-  control.send({type: 'data', payload: data});
-
   const preloads = [];
   const config = {};
 outer:
@@ -295,13 +294,32 @@ outer:
         preloads.push(preloadSounds(kplayInstance, event, port));
         continue;
 
+      case 'config':
+        Object.assign(config, payload);
+        continue;
+
       case 'loaded':
         await timeout(Promise.all(preloads));
-        Object.assign(config, payload);
         break outer;
     }
 
     console.warn('got unhandled preload', op);
+  }
+
+  // If the page wants a subscription, they're listening to the Firebase config data (i.e. the
+  // village). Otherwise send them whatever is on the ?foo=... search params.
+  if (config.subscribe) {
+    const listener = () => {
+      if (control.done) {
+        firebaseConfig.remove(listener);
+        return;
+      }
+      control.send({type: 'data', payload: firebaseConfig.lockedSnapshot()});
+    };
+    firebaseConfig.listen(listener);
+    listener();
+  } else {
+    control.send({type: 'data', payload: data});
   }
 
   return config;
@@ -313,8 +331,9 @@ outer:
  *
  * @param {!PortControl} control
  * @param {string} route active
+ * @param {!Object<string, *>} config
  */
-async function runner(control, route) {
+async function runner(control, route, config) {
   const sc = kplayInstance;
 
   // TODO: this should be on global state as the player might restart multiple times
@@ -502,7 +521,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.
-    await runner(control, route);
+    await runner(control, route, config);
 
     // TODO: might be trailing events
   };

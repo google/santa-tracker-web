@@ -232,6 +232,20 @@ export function isLocked(route) {
   return value > today.getDate();
 }
 
+
+export function lockedSnapshot() {
+  const {sceneLock, videos} = memoized;
+  const out = {};
+  for (const route in sceneLock) {
+    out[route] = {
+      locked: lockedTo(route),
+      video: videos.indexOf(route) !== -1,
+    };
+  }
+  return out;
+}
+
+
 /**
  * @param {string} route to return date locked until
  * @return {number|undefined} date within Dec locked until (0 for always)

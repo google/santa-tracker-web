@@ -126,8 +126,8 @@ class SceneApi extends EventTarget {
   constructor() {
     super();
     this._initialData = {};
-    this._config = null;
     this._params = read(window.location.search);
+    this._loaded = false;
 
     // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
     if (channel.withinFrame) {
@@ -157,8 +157,8 @@ class SceneApi extends EventTarget {
           break;
 
         case 'data':
-          // TODO: we could announce this to the game before ready
           this._initialData = payload || {};
+          this.dispatchEvent(new CustomEvent('data', {detail: payload}))
           break;
 
         default:
@@ -176,7 +176,8 @@ class SceneApi extends EventTarget {
     // after preload, do a bunch of setup work
     this._ready = this._preload.done.then(() => {
       // send loaded event (this inaccurately also contains the scene config)
-      this._updateParent({type: 'loaded', payload: this._config || {}});
+      this._updateParent({type: 'loaded'});
+      this._loaded = true;
 
       // wait for frame to tell us to go
       return this._readyPromise;
@@ -195,6 +196,11 @@ class SceneApi extends EventTarget {
 
   _handleHostMessage(type, payload) {
     switch (type) {
+      case 'data':
+        // arrives in subscribe case
+        this.dispatchEvent(new CustomEvent('data', {detail: payload}))
+        break;
+
       case 'pause':
         this.dispatchEvent(new Event(type));
         sceneApi.play("global_pause");
@@ -227,10 +233,10 @@ class SceneApi extends EventTarget {
   }
 
   config(arg) {
-    if (this._config) {
-      throw new Error('config should only be called once');
+    if (this._loaded) {
+      throw new Error('config called after load');
     }
-    this._config = arg;
+    this._updateParent({type: 'config', payload: arg});
     return this;
   }
 

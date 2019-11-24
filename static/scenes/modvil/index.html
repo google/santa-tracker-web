@@ -21,16 +21,19 @@ import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
 import {_msg} from '../../src/magic.js';
 
-console.info(_msg`santatracker`);
-
 
 api.preload.sounds('village_load_sounds');
 api.preload.sounds('generic_load_sounds');
 api.config({
   scroll: true,
+  subscribe: true,  // subscribe to remote config
   sound: ['music_start_village', 'village_start'],
 });
 
+api.addEventListener('data', (ev) => {
+  // TODO: use this state to control card locked/unlocked
+  console.info('got cards snapshot', ev.detail);
+});
 
 /**
  * Describes each village module and its static/animated parts.
