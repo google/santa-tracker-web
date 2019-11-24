@@ -59,7 +59,8 @@ button.home {
   width: 100vw;
   height: 100vh;
   z-index: $error-layer;
-  background: _rel("../img/error.svg") center bottom / cover no-repeat;
+  background: _rel("../img/error.svg") bottom center no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;

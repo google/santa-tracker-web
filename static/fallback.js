@@ -84,7 +84,9 @@ const fallbackLoad = (url, {route, data, locked}) => {
     });
     activeFrame.addEventListener('-removed', (ev) => resolve(null));
     activeFrame.addEventListener('load', () => {
-      window.setTimeout(() => resolve(null), 100);
+      // Unlike modern browsers, Edge/IE seems to not get this for a while.
+      console.warn('load timeout', url);
+      window.setTimeout(() => resolve(null), 10 * 1000);
     });
   });
 
