@@ -67,7 +67,7 @@ class Scene {
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
     this.colorSubject = this.colorSubject.bind(this)
-    this.onTouchMove = this.onTouchMove.bind(this)
+    this.onCanvasTouchMove = this.onCanvasTouchMove.bind(this)
   }
 
   init(canvas) {
@@ -181,10 +181,10 @@ class Scene {
     if (this.isTouchDevice) {
       this.canvas.addEventListener('touchstart', this.onMouseDown)
       document.body.addEventListener('touchend', this.onMouseUp)
-      document.body.addEventListener('touchcancel', this.onMouseUp)
+      // this.canvas.addEventListener('touchcancel', this.onMouseUp)
       document.body.addEventListener('touchmove', this.onMouseMove)
       // only on canvas, not document, and if not edit mode
-      this.canvas.addEventListener('touchmove', this.onTouchMove, false)
+      this.canvas.addEventListener('touchmove', this.onCanvasTouchMove, false)
     } else {
       this.canvas.addEventListener('mousemove', this.onMouseMove)
       this.canvas.addEventListener('mousedown', this.onMouseDown)
@@ -298,10 +298,11 @@ class Scene {
   }
 
   onMouseDown(e) {
-    e.preventDefault()
     // For touch events only
     if (e.type === 'touchstart') {
       this.detectTouches(e)
+    } else {
+      e.preventDefault()
     }
 
     this.mouseState = 'down'
@@ -326,8 +327,9 @@ class Scene {
   onMouseUp(e) {
     if (e.type !== 'touchend') {
       e.preventDefault()
-    } else if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit') {
+    } else if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit' && this.isInCanvas) {
       this.unselectSubject()
+      this.setMode()
     }
 
     if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down' && !this.isAddingShape) {
@@ -378,7 +380,7 @@ class Scene {
     this.yTouchStart = e.touches[0].clientY
   }
 
-  onTouchMove(e) {
+  onCanvasTouchMove(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
 
     if (this.isPinchZooming) { // if 2 fingers
@@ -721,7 +723,6 @@ class Scene {
         const boxItem = new THREE.Box3().setFromObject(objects[index])
 
         if (boxHelper.intersectsBox(boxItem)) {
-          // console.log('collision', boxItem.max.y)
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
@@ -766,7 +767,6 @@ class Scene {
     }
 
     // unselect any object when changing mode
-    console.log('unselect', this.mode)
     if (this.selectedSubject) {
       this.unselectSubject()
     }
