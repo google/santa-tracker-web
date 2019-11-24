@@ -346,11 +346,11 @@ async function release() {
 
   log(`Generated ${chalk.cyan(bundles.length)} bundles via Rollup, rewriting...`);
   const transpileDeps = new Set([
-    'custom-event-polyfill',
     'whatwg-fetch',
     './src/polyfill/classlist--toggle.js',
     './src/polyfill/element--closest.js',
     './src/polyfill/node.js',
+    './src/polyfill/event.js',
   ]);
 
   // Prepare rewriters for all scripts, and determine whether they need i18n at all.
@@ -524,19 +524,26 @@ async function release() {
       const pathToSupport = path.relative(path.dirname(fileName), 'static/support.js');
       const document = dom.window.document;
       const preamble = `
-function createScript(src, type) {
-  var node = document.createElement('script');
-  node.src = src;
-  type && node.setAttribute('type', type);
-  document.head.appendChild(node);
-}
 (function() {
   var fallback = (location.search || '').match(/\\bfallback=1\\b/);
-  fallback && createScript(${JSON.stringify(pathToSupport)});
-  ${JSON.stringify(importIsTranslated)}.forEach(function(i18n, i) {
-    var src = (fallback ? 'fallback-' : '') + i + (i18n ? '_' + document.documentElement.lang : '') + '.js';
-    createScript(src, fallback ? null : 'module');
+  var all = ${JSON.stringify(importIsTranslated)}.map(function(i18n, i) {
+    return (fallback ? 'fallback-' : '') + i + (i18n ? '_' + document.documentElement.lang : '') + '.js';
   });
+  fallback && all.unshift(${JSON.stringify(pathToSupport)});
+  (function next() {
+    var src = all.shift();
+    if (src) {
+      var node = document.createElement('script');
+      node.src = src;
+      if (fallback) {
+        node.onload = node.onerror = next;
+      } else {
+        node.setAttribute('type', 'module');
+        next();
+      }
+      document.head.appendChild(node);
+    }
+  })();
 })();`
       const scriptNode = document.createElement('script');
       scriptNode.textContent = preamble;

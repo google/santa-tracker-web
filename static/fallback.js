@@ -1,7 +1,5 @@
 
 import './src/polyfill/css.js';
-import './src/polyfill/node.js';
-import 'custom-event-polyfill';
 
 import santaStyles from './styles/santa.css';
 import fallbackStyles from './styles/fallback.css';
