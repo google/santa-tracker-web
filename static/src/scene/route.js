@@ -5,39 +5,47 @@
  * TODO: can also be used by prod.
  */
 
-function determineScope() {
+function determine() {
   if (window.top != window && document.referrer) {
-    const u = new URL('./', document.referrer);
-    return u.toString();
+    const scope = new URL('./', document.referrer);
+    return {
+      scope: scope.toString(),
+      page: document.referrer,
+    };
   }
-  return '';
+  const scope = new URL('./', window.location);
+  return {scope: scope.toString(), page: window.location.href};
 }
 
-export const scope = determineScope();
+export const {scope, page} = determine();
 
-const emptyFunc = (a) => a;
+export const internalNavigation = (cand) => {
+  const check = new URL(cand);
+  const derived = new URL(check.hash, page);
+  return check.toString() === derived.toString() ? check.hash : null;
+};
 
 /**
  * @param {string} cand candidate href
  * @return {string} href with scope as appropriate
  */
-export const href = scope ? (cand) => {
-  return cand == null ? cand : new URL(cand, scope);
-} : emptyFunc;
+export const href = (cand) => {
+  return cand == null ? cand : new URL(cand, page);
+};
 
 /**
  * Rectify anything found under the passed element, that has a `[href]`.
  *
  * @param {!Element} el to rectify links under
  */
-export const rectify = scope ? (el) => {
+export const rectify = (el) => {
   const hrefs = el.querySelectorAll('[href]');
   for (let i = 0; i < hrefs.length; ++i) {
     const c = hrefs[i];
     const url = href(c.getAttribute('href'));
     c.setAttribute('href', url.toString());
   }
-} : emptyFunc;
+};
 
 /**
  * @param {string} htmlString raw HTML to resolve containing e.g. <a href="scene.html">

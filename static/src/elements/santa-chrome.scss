@@ -90,6 +90,8 @@ header {
   position: fixed;
   top: 0;
   overflow-y: auto;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
   visibility: hidden;
   width: 100vw;

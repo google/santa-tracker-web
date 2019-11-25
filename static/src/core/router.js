@@ -3,6 +3,7 @@
  */
 
 import * as params from '../lib/params.js';
+import {internalNavigation} from '../scene/route.js';
 import isAndroid from './android.js';
 
 
@@ -233,6 +234,18 @@ export function globalClickHandler(scope, go) {
     const rest = pathname.substr(scope.length - target.origin.length - 1);  // include "/"
     const matchScene = simplePathMatcher.exec(rest);
     if (!matchScene) {
+      return false;
+    }
+
+    const hash = internalNavigation(target);
+    if (hash !== null) {
+      ev.preventDefault();
+
+      // Pretend to actually click on the link.
+      const a = document.createElement('a');
+      a.href = hash;
+      a.click();
+
       return false;
     }
 

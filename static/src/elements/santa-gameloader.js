@@ -361,6 +361,10 @@ class SantaGameLoaderElement extends HTMLElement {
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
     this._container.appendChild(af);
 
+    af.contentWindow.addEventListener('gesturestart', (ev) => {
+      console.info('got gesture on window');
+    });
+
     let portPromise = Promise.resolve(null);
     if (href) {
       portPromise = new Promise((resolve, reject) => {
@@ -386,7 +390,8 @@ class SantaGameLoaderElement extends HTMLElement {
           // loaded a new URL. We should kill it in this case.
           af.addEventListener('load', (ev) => {
             console.warn('got inner load, should kill frame', af);
-          });
+            af.contentWindow.location.replace('about:blank');
+          }, {once: true});
         }, {once: true});
 
       });
