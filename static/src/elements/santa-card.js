@@ -50,11 +50,9 @@ const intersectionObserver = (window.IntersectionObserver ? new window.Intersect
       entry.target.load = true;
       visibleCards.add(entry.target);
     } else {
-      console.warn('got removal', entry.target);
       visibleCards.delete(entry.target);
     }
   });
-  console.info('cards visible', [...visibleCards]);
 }, {rootMargin: '16px', threshold: [0, 1]}) : null);
 
 
