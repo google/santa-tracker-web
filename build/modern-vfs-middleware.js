@@ -25,7 +25,6 @@ module.exports = (vfsLoad, prefix=null) => {
     // nb. Any fetches with "?" for supported file types will disable transforming them.
     const id = path.join(prefix || '.', req.path.substr(1));
     let isModuleMode = Boolean(req.headers['origin'] && req.headers['referer'] && !req.search);
-    console.info(req.search, req.path);
     if (req.search === '?module') {
       isModuleMode = true;
     }
