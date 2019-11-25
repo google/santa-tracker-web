@@ -129,13 +129,19 @@ if (kplayInstance.suspended) {
   global.setState({audioSuspended: false});
 }
 
+
+window.addEventListener('santa-play', (ev) => {
+  kplayInstance.play(ev.detail);
+});
+
+
 interludeElement.addEventListener('transition_in', () => {
   kplayInstance.play('menu_transition_game_in');
 });
 interludeElement.addEventListener('transition_out', () => {
   kplayInstance.play('menu_transition_game_out');
 });
-  
+
 
 
 

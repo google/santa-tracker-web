@@ -116,7 +116,7 @@ export class SantaCardElement extends LitElement {
   }
 
   _maybeMakeActive() {
-    if (this.locked >= 0 && this._active) {
+    if (this.locked >= 0 || this._active) {
       return;
     }
     common.play('village_bubble_appear');

@@ -318,11 +318,12 @@ function installV1Handlers() {
     return args;
   };
 
+  window.addEventListener('santa-play', (ev) => sceneApi.play(ev.detail));
+
   const fire = (eventName, ...args) => {
     switch (eventName) {
       case 'sound-trigger':
       case 'sound-ambient':
-      case 'santa-play':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
         break;
