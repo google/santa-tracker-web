@@ -2,6 +2,7 @@ import { _msg } from '../../../src/magic.js';
 
 const models = [
   {
+    id: 'code',
     heading: {
       title: _msg`familyguide_group_01_title`,
       body: _msg`familyguide_group_01_body`,
@@ -28,6 +29,7 @@ const models = [
     ]
   },
   {
+    id: 'celebrate',
     heading: {
       title: _msg`familyguide_group_02_title`,
       body: _msg`familyguide_group_02_body`,
@@ -68,6 +70,7 @@ const models = [
     ]
   },
   {
+    id: 'create',
     heading: {
       title: _msg`familyguide_group_03_title`,
       body: _msg`familyguide_group_03_body`,
@@ -100,6 +103,7 @@ const models = [
     ]
   },
   {
+    id: 'family',
     heading: {
       title: _msg`familyguide_group_04_title`,
       body: _msg`familyguide_group_04_body`,

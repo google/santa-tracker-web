@@ -14,7 +14,7 @@
     &-block {
       display: flex;
       justify-content: space-between;
-      padding: 100px 100px 70px;
+      padding: 100px 100px 50px;
 
       &:not(:last-of-type) {
         border-bottom: 1px #CFDEEB solid;
@@ -24,7 +24,9 @@
 
   &__title {
     color: #587E9C;
+    font-family: 'Lobster';
     font-size: 46px;
+    font-weight: normal;
     margin: 0 auto;
     text-align: center;
   }
@@ -45,7 +47,6 @@
     &-body {
       color: #7099BA;
       line-height: 24px;
-      max-height: 300px;
     }
   }
 
@@ -62,7 +63,7 @@
     box-shadow: 0;
     cursor: pointer;
     flex-basis: calc(50% - 10px);
-    margin: 0 0 30px;
+    margin: 0 0 50px;
     overflow: hidden;
     transition: box-shadow .25s cubic-bezier(.02, .01, .47, 1);
 

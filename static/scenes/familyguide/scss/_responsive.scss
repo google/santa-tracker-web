@@ -50,7 +50,7 @@ $mobilePortraitBreakpoint: 400px;
 
 @media (max-width: $mobileBreakpoint) {
   .hero {
-    background: url(img/hero_bg--mobile.svg) center bottom/cover no-repeat;
+    background: url(img/family-bg-mobile.png) center bottom/cover no-repeat;
     padding-bottom: 120px;
 
     &__title {
@@ -66,6 +66,10 @@ $mobilePortraitBreakpoint: 400px;
 
   .secondary {
     padding: 80px 20px;
+
+    &__image {
+      border-radius: 20px;
+    }
 
     &__text-title {
       font-size: 32px;
@@ -88,7 +92,12 @@ $mobilePortraitBreakpoint: 400px;
     padding: 0 20px;
 
     &-inner {
+      border-radius: 36px;
       padding: 80px 25px 10px;
+    }
+
+    &__card {
+      border-radius:18px;
     }
 
     &__title {
@@ -101,7 +110,13 @@ $mobilePortraitBreakpoint: 400px;
       margin-bottom: 50px;
 
       &-title {
+        font-size: 24px;
         padding-top: 0;
+        text-align: center;
+      }
+
+      &-body {
+        text-align: center;
       }
     }
 
@@ -122,6 +137,10 @@ $mobilePortraitBreakpoint: 400px;
   .tips {
     padding: 0 20px;
 
+    &-inner {
+      border-radius: 36px;
+    }
+
     &__title {
       font-size: 32px;
     }
@@ -140,7 +159,12 @@ $mobilePortraitBreakpoint: 400px;
     padding: 0 20px;
 
     &-inner {
+      border-radius: 36px;
       padding: 60px 30px;
+    }
+
+    &__image {
+      border-radius: 20px;
     }
 
     &__title {

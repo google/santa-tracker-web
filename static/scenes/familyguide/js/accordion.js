@@ -16,6 +16,9 @@ class Accordion {
     for (let i = 0; i < models.length; i++) {
       const group = document.createElement('div')
       group.className = 'accordion__content-block'
+      if (models[i].id) {
+        group.id = models[i].id
+      }
       group.innerHTML =
       `
       <div class="accordion__info">
