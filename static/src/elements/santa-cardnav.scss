@@ -52,7 +52,7 @@ santa-card {
   --radius: 30px;
   --icon-size: 60%;
 
-  &.wide {
+  &[video] {
     width: 420px;
   }
 }
@@ -70,7 +70,7 @@ santa-card {
     --radius: 20px;
     --icon-size: 50%;
 
-    &.wide {
+    &[video] {
       width: 280px;
     }
   }

@@ -56,6 +56,15 @@ const intersectionObserver = (window.IntersectionObserver ? new window.Intersect
 }, {rootMargin: '16px', threshold: [0, 1]}) : null);
 
 
+(function jiggleRandomCard() {
+  window.setTimeout(() => {
+
+  }, 10 * 1000);
+})();
+
+window.setTim
+
+
 export class SantaCardElement extends LitElement {
   static get properties() {
     return {

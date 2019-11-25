@@ -63,11 +63,10 @@ export class SantaCardNavElement extends LitElement {
     const cardHtml = cards.map((sceneName, i) => {
       const locked = config.lockedTo(sceneName);
 
-      const wide = videos.indexOf(sceneName) !== -1;
-      const clazz = wide ? 'wide' : '';
+      const isVideo = videos.indexOf(sceneName) !== -1;
 
       let order = currentOrder;
-      if (wide) {
+      if (isVideo) {
         currentOrder += 2;
 
         // Make sure that (order + 1) isn't in the next row.
@@ -88,7 +87,7 @@ export class SantaCardNavElement extends LitElement {
       }
 
       const style = `transition-delay: ${0.2 + order * 0.05}s; order: ${order}`;
-      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} class="${clazz}"></santa-card>`;
+      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} .video=${isVideo}></santa-card>`;
     });
 
     const placeholders = [];
