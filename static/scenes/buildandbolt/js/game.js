@@ -52,6 +52,7 @@ app.Game = class Game {
     this.isPlaying = false
     this.lastFrame = +new Date() / 1000
 
+    window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
     this.onFrame()
@@ -98,6 +99,9 @@ app.Game = class Game {
   startLevel() {
     this.initLevel(this.level)
     this.isPlaying = true
+    setTimeout(()=>{
+      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+    }, 800)
   }
 
   onFrame(now) {

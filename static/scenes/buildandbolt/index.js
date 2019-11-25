@@ -15,7 +15,7 @@ api.preload.images(
   'img/tree.svg',
 );
 
-api.preload.sounds('village_load_sounds');
+api.preload.sounds('buildandbolt_load_sounds');
 
 const playerSelectionScreen = document.querySelector('[data-player-selection]')
 const playerSelectionOptions = document.querySelectorAll('[data-player-option]')
@@ -44,7 +44,7 @@ controlsButton.addEventListener('click', (e) => {
 // end debug mode
 
 api.config({
-  sound: ['music_start_village', 'village_start'],
+  sound: ['buildandbolt_tutorial_start'],
 });
 
 api.ready(async () => {
