@@ -12,8 +12,11 @@ app.Player = class Player {
 
     this.elem = document.createElement('div')
     document.getElementById('players').append(this.elem)
-    this.elem.setAttribute('class', 'player')
-    this.elem.setAttribute('id', id)
+    this.elem.setAttribute('class', `player player--${id}`)
+
+    this.spawnElem = document.createElement('div')
+    document.getElementById('players').append(this.spawnElem)
+    this.spawnElem.setAttribute('class', `player-spawn player-spawn--${id}`)
   }
 
   init(config) {
@@ -25,6 +28,7 @@ app.Player = class Player {
 
     this.resetPosition()
 
+    Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y)
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 

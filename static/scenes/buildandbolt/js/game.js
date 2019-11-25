@@ -32,14 +32,11 @@ app.Game = class Game {
     this.players = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE,
-          'player-1')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 1)
       this.multiplayer = false
     } else {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
-          'player-1')
-      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD,
-          'player-2')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 1)
+      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 2)
       this.multiplayer = true
     }
 
