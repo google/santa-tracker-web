@@ -1,5 +1,6 @@
 
 import './src/polyfill/css.js';
+import {_static} from './src/magic.js';
 
 import santaStyles from './styles/santa.css';
 import fallbackStyles from './styles/fallback.css';
@@ -11,6 +12,14 @@ import * as messageSource from './src/lib/message-source.js';
 
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
+
+
+
+const audio = document.createElement('audio');
+audio.src = _static`audio/13642_66fd4cda9ca0524f70349abcafd9c9c8_poseboogie_idle_loop.mp3`;
+audio.loop = true;
+audio.autoplay = true;
+document.body.append(audio);
 
 
 const homeButton = document.createElement('button');
@@ -74,6 +83,8 @@ const fallbackLoad = (url, {route, data, locked}) => {
     return Promise.resolve(true);
   }
 
+  let resolved = false;
+
   const portPromise = new Promise((resolve) => {
     messageSource.add(activeFrame.contentWindow, (ev) => {
       const port = ev.ports[0];
@@ -85,12 +96,16 @@ const fallbackLoad = (url, {route, data, locked}) => {
     activeFrame.addEventListener('-removed', (ev) => resolve(null));
     activeFrame.addEventListener('load', () => {
       // Unlike modern browsers, Edge/IE seems to not get this for a while.
-      console.warn('load timeout', url);
-      window.setTimeout(() => resolve(null), 10 * 1000);
+      window.setTimeout(() => {
+        resolved || console.warn('load timeout', url);
+        resolve(null);
+      }, 10 * 1000);
     });
   });
 
   return portPromise.then((port) => {
+    resolved = true;
+
     if (activeFrame !== frame) {
       return false;  // preempted, do literally nothing
     } else if (!port) {
