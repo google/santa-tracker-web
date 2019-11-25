@@ -29,7 +29,7 @@ body {
 
   const quality = '1080p';
   const videoId = api.param('route') || 'comroom';
-  player.src = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/videos%2F${videoId}_${quality}.mp4?alt=media`;
+  player.src = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/videos%2F${encodeURIComponent(videoId)}_${quality}.mp4?alt=media`;
 
   api.preload.wait(new Promise((resolve) => {
     player.addEventListener('canplay', () => resolve());
