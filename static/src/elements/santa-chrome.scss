@@ -29,14 +29,30 @@ header {
   justify-content: space-between;
   pointer-events: none;
 
-  padding-top: 20px;
+  padding-top: env(safe-area-inset-top, 0);
+  border-top: 20px solid transparent;
   padding-left: 5%;
   padding-right: 5%;
   height: $dim-bar;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  }
 
   @media (max-width: ($dim-small - 1px)) {
-    padding: 10px 10px 0;
+    border-top: 10px solid transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &::before {
+      top: -10px;
+    }
   }
 
   santa-button {
@@ -77,8 +93,8 @@ header {
   height: 100%;
   visibility: hidden;
   width: 100vw;
-  transform: translateY(-100%);
-  transition: transform $duration-sidebar cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  opacity: 0;
+  transition: opacity $duration-sidebar cubic-bezier(0.215, 0.610, 0.355, 1.000);
   animation: santa-app__hide-nav $duration-sidebar step-end forwards;
   pointer-events: none;
   will-change: transform;
@@ -126,7 +142,7 @@ input {
     visibility: visible;
     pointer-events: auto;
     animation: none;
-    transform: translate(0);
+    opacity: 1;
   }
 }
 

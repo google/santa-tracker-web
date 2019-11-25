@@ -46,7 +46,14 @@ main {
 svg {
   fill: var(--color-bar, #ff3333);
   height: 100%;
-  margin: 0 (-$flourish-indent);
+  margin: 0 (-$flourish-indent - 1);  // extra pixel for safari
+  position: relative;
+
+  height: $mobile-height;
+
+  @media (min-width: $mobile-width) {
+    height: $height;
+  }
 }
 
 .inner {

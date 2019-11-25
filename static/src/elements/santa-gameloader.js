@@ -169,6 +169,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
   constructor() {
     super();
+    this._resizeCheckLeft = 0;
 
     const root = this.attachShadow({mode: 'open'});
     root.adoptedStyleSheets = [styles];
@@ -231,6 +232,18 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   _onWindowResize() {
+    if (!this._resizeCheckLeft) {
+      this._resizeCheckLeft = 16;  // check for 16 frames
+      this._checkWindowResize();
+    }
+  }
+
+  _checkWindowResize() {
+    if (this._resizeCheckLeft) {
+      --this._resizeCheckLeft;
+      window.requestAnimationFrame(() => this._checkWindowResize());
+    }
+
     // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
     // then force it via changing CSS properties.
     const tilt = this.hasAttribute('tilt');

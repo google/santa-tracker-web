@@ -82,7 +82,7 @@ export class SantaBadgeElement extends LitElement {
     let maxLevel = 0;
     if (this.maxLevel > 0) {
       maxLevel = this.maxLevel;
-    } else {
+    } else if (this.maxLevel === 0) {
       levelText = _msg`snowball_iced`;
     }
 

@@ -96,6 +96,11 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     flex-flow: column;
+
+    santa-card {
+      min-height: 180px;
+      padding-bottom: 0 !important;
+    }
   }
 }
 

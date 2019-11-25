@@ -67,7 +67,7 @@ export class SantaChromeElement extends LitElement {
   <div class="sidebar-focuser"></div>
   <slot name="sidebar"></slot>
 </div>
-<header @focusin=${this._onMainFocus}>
+<header>
   <santa-button color="theme" @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
   <santa-button color="theme" ?disabled=${!this.action} @click=${this._onActionClick} path=${paths[this.action || this._lastAction] || ''}></santa-button>
   <div class="grow"></div>
@@ -119,17 +119,11 @@ export class SantaChromeElement extends LitElement {
   }
 
   _onMenuClick() {
-    console.info('menuClick', this.navOpen);
     if (this.showHome) {
       window.dispatchEvent(new CustomEvent('go'));  // home
     } else {
       this.navOpen = !this.navOpen;
     }
-  }
-
-  _onMainFocus() {
-    // Handles focus on other parts of the Chrome: the logo and tracker information.
-    this.navOpen = false;
   }
 
   _onSidebarClick(e) {
