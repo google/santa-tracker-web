@@ -28,6 +28,7 @@ import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
 import * as firebaseConfig from './src/core/config.js';
+import isAndroid from './src/core/android.js';
 
 
 maybeLoadCast();
@@ -319,7 +320,7 @@ outer:
         return;
       }
       const payload = {
-        android: document.body.getAttribute('data-mode') === 'android',
+        android: isAndroid(),
         routes: firebaseConfig.routesSnapshot(),
       };
       control.send({type: 'data', payload});

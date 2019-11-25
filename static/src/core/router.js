@@ -3,6 +3,7 @@
  */
 
 import * as params from '../lib/params.js';
+import isAndroid from './android.js';
 
 
 /**
@@ -160,15 +161,14 @@ export function configureProdRouter(callback) {
       this.go(route);
     },
     go(route, data={}) {
-      if (route[0] === '@' || alwaysAndroid.indexOf(route) !== -1) {
+      if (route[0] === '@' || (isAndroid() && alwaysAndroid.indexOf(route) !== -1)) {
         if (route[0] === '@') {
           route = route.substr(1);
         }
-        console.info('got Android route', route);
+        console.info('loading Android route', route);
         window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${route}`;
         return;
       }
-
       internalRoute(normalizeRoute(route), data, true);
     },
   };

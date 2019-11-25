@@ -15,6 +15,7 @@ const memoized = {
   'videos': null,
   'sceneLock': null,
   'sceneRedirect': null,
+  'nav': null,
 };
 
 function refreshMemoized() {
@@ -205,6 +206,14 @@ export function redirectRoute(route) {
  */
 export function videos() {
   return memoized.videos;
+}
+
+
+/**
+ * @return {!Array<string>} nav bar scene contents
+ */
+export function nav() {
+  return memoized.nav;
 }
 
 

@@ -63,12 +63,8 @@ export class SantaChromeElement extends LitElement {
     const sidebarId = `${this._id}sidebar`;  // unique ID even in Shady DOM
     return html`
 <input type="checkbox" id=${sidebarId} @change=${this._onCheckboxChange} .checked=${this.navOpen} />
-<div class="sidebar" @click=${this._onMenuClick}>
+<div class="sidebar">
   <div class="sidebar-focuser"></div>
-  <label for=${sidebarId} tabindex="0" class="closer">
-    <svg class="icon"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
-    <span>${_msg`close`}</span>
-  </label>
   <slot name="sidebar"></slot>
 </div>
 <header @focusin=${this._onMainFocus}>
@@ -123,10 +119,11 @@ export class SantaChromeElement extends LitElement {
   }
 
   _onMenuClick() {
+    console.info('menuClick', this.navOpen);
     if (this.showHome) {
       window.dispatchEvent(new CustomEvent('go'));  // home
     } else {
-      this.navOpen = true;
+      this.navOpen = !this.navOpen;
     }
   }
 

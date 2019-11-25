@@ -78,70 +78,9 @@ santa-card {
 
 header {
   display: flex;
-  min-height: 200px;
+  min-height: 160px;
   align-items: center;
   justify-content: center;
-}
-
-a.linkwrap {
-  pointer-events: auto;
-  text-decoration: none;
-  display: inline-flex;
-  max-width: 100%;
-  min-width: 1%;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  margin-left: 40px;
-  line-height: 44px;  // FIXME: was $dim-bar
-  overflow: hidden;
-
-  border-radius: 100px;
-  padding: 0 16px;
-  padding-right: 36px;
-
-  transition: background 0.25s ease-in-out;
-
-  .home {
-    opacity: 0;
-    margin-right: 12px;
-    transition: opacity 0.25s ease-in-out;
-  }
-
-  &:hover {
-    background: #3a068d;
-
-    .home {
-      opacity: 1;
-    }
-  }
-
-  .logo {
-    width: 62px;
-    height: 38px;
-    min-width: 62px;
-    background-size: contain;
-    fill: white;
-  }
-
-  h1 {
-    .a11y {
-      opacity: 0;
-      font-size: 0;
-      position: absolute;
-    }
-
-    color: white;
-    margin: 0;
-    margin-left: 0.4ch;
-    font-family: 'Lobster', Sans-Serif;
-    font-size: 19px;
-    line-height: inherit;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 }
 
 /** footer and links */
