@@ -417,7 +417,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
       // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
       // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
-      af.style.maxHeight = 'calc(100vh - 1px)';
+      af.style.maxHeight = 'calc(100% - 1px)';
       window.requestAnimationFrame(() => {
         af.style.maxHeight = null;
       });

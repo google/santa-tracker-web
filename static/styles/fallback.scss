@@ -3,11 +3,17 @@ $frame-layer: 1000;
 $pending-frame-layer: 900;
 $error-layer: 800;
 
+body, html {
+  height: 100%;
+}
+
 iframe {
-  width: 100vw;
-  height: 100vh;
-  border: 0;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
   transition: filter 0.33s, transform 0.33s, opacity 0.125s ease-in-out;
   z-index: $frame-layer;
 
@@ -61,8 +67,10 @@ button.home {
 .error {
   visibility: hidden;
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: $error-layer;
   background: _rel("../img/error.svg") bottom center no-repeat;
   background-size: cover;

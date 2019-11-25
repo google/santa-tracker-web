@@ -17,10 +17,14 @@ iframe[tabindex="-1"] {
 
 iframe {
   position: absolute;
-  border: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   transition: filter 0.33s, transform 0.33s;
+  border: 0;
 
   &.pending {
     opacity: 0;
@@ -39,14 +43,19 @@ iframe {
 
 .iframe-container,
 .slot-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 :host([tilt]) {
   .iframe-container,
   .slot-container {
+    // This is wrong, but there's probably nothing we can do about it.
     width: 100vh;
     height: 100vw;
     transform: rotate(90deg) translateY(-100%);
