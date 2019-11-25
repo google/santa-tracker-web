@@ -361,9 +361,10 @@ class SantaGameLoaderElement extends HTMLElement {
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
     this._container.appendChild(af);
 
+    // TODO(samthor): Remove after iOS tests.
     af.contentWindow.addEventListener('gesturestart', (ev) => {
       console.info('got gesture on window');
-    });
+    }, {passive: true});
 
     let portPromise = Promise.resolve(null);
     if (href) {
