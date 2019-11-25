@@ -42,7 +42,7 @@ body {
 
   api.addEventListener('pause', (ev) => player.pause());
   api.addEventListener('resume', (ev) => player.play());
-  api.addEventListener('restart', (ev) => player.play());
+  api.addEventListener('restart', (ev) => player.currentTime = 0.0);
 
   api.config({
     pause: true,
