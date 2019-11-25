@@ -349,6 +349,7 @@ class Scene {
   }
 
   onWheel(e) {
+    if (CameraController.isZooming || CameraController.isRotating) return
     CameraController.isMoving = true
 
     if (e.deltaY < 0) {
@@ -632,11 +633,11 @@ class Scene {
       this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
-      SoundManager.highlightShape(subject)   
+      SoundManager.highlightShape(subject)
     } else if (!subject) {
       if (this.highlightedSubject && this.highlightedSubject !== this.activeSubject) {
         this.highlightedSubject.unhighlight()
-      } 
+      }
       this.canvas.classList.remove('is-pointing')
       this.highlightedSubject = null
     }
@@ -740,7 +741,7 @@ class Scene {
         detectCollision()
       } else {
         // if no more collision, move up the object (update moveOffset)
-        this.moveOffset.y = boxHelper.min.y
+        this.moveOffset.y = boxHelper.min.y - 0.05
         if (isEditing) {
           // move ghost
           this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
