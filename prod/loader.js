@@ -47,6 +47,14 @@ if ('serviceWorker' in navigator) {
   }
 }
 
+function onInteractive(fn) {
+  if (document.readyState === 'interactive') {
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', () => fn());
+  }
+}
+
 // Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
 // needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
@@ -56,10 +64,12 @@ if (fallback && isProd) {
     config.staticScope + 'support.js',
     config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   ], () => {
-    WebComponents.waitFor(startup);
+    WebComponents.waitFor(() => {
+      onInteractive(startup);  // should be past DOMContentLoaded now
+    });
   });
 } else {
-  startup();  // or just continue immediately
+  onInteractive(startup);
 }
 
 function startup() {
