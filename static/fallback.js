@@ -87,6 +87,7 @@ const fallbackLoad = (url, {route, data, locked}) => {
 
   const portPromise = new Promise((resolve) => {
     messageSource.add(activeFrame.contentWindow, (ev) => {
+      console.debug('got port from', activeFrame);
       const port = ev.ports[0];
       if (!port) {
         throw new Error(`didn't get port from contentWindow`);
