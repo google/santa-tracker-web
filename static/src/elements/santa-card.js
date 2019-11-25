@@ -119,7 +119,8 @@ export class SantaCardElement extends LitElement {
     if (this.locked >= 0 || this._active) {
       return;
     }
-    common.play('village_bubble_appear');
+    common.play('menu_over', this.scene || this.id || '');
+    
     this._active = true;
   }
 
@@ -127,7 +128,7 @@ export class SantaCardElement extends LitElement {
     if (!this._active) {
       return;
     }
-    common.play('village_bubble_disappear');
+    common.play('menu_out');
     this._active = false;
   }
 

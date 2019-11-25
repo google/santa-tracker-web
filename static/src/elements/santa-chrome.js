@@ -3,7 +3,7 @@ import styles from './santa-chrome.css';
 import * as prefix from '../lib/prefix.js';
 import './santa-button.js';
 import {_msg} from '../magic.js';
-
+import * as common from '../core/common.js';
 
 const year = new Date().getFullYear();
 const countdownTo = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
@@ -81,9 +81,10 @@ export class SantaChromeElement extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
-
+    let soundEvent = 'nav_close';
     if (changedProperties.has('navOpen')) {
       if (this.navOpen) {
+        soundEvent = 'nav_open';
         // Focus an element at the start of the sidebar, but then immediately disallow focus. This
         // places the browser's "cursor" here, so a keyboard tab will go to the next item.
         const node = this.renderRoot.querySelector('.sidebar-focuser');
@@ -95,6 +96,7 @@ export class SantaChromeElement extends LitElement {
         sidebar.scrollTop = 0;
       }
     }
+    common.play(soundEvent);
   }
 
   shouldUpdate(changedProperties) {
@@ -135,6 +137,7 @@ export class SantaChromeElement extends LitElement {
       }
     }, 0);
   }
+
 
   _onActionClick(e) {
     this.dispatchEvent(new CustomEvent('action', {

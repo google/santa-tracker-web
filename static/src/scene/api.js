@@ -318,8 +318,13 @@ function installV1Handlers() {
     return args;
   };
 
-  window.addEventListener('santa-play', (ev) => sceneApi.play(ev.detail));
+  window.addEventListener('santa-play', (ev) => {
+    let kplayEvent = ev.detail[0];
+    let args = ev.detail.slice(1);
+    sceneApi.play(kplayEvent, args);
+  });
 
+  
   const fire = (eventName, ...args) => {
     switch (eventName) {
       case 'sound-trigger':

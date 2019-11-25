@@ -1065,6 +1065,18 @@ export function prepare() {
 
       triggerNodes = null;
     },
+    stopAll(duration=0.5) {
+      triggerNodes = new Set();
+      activeNodes.forEach((node) => {
+        if (!node.stopping && !triggerNodes.has(node)) {
+          if (node instanceof SimpleProcess) {
+            node.stop();
+          } else {
+            node.fadeOutAndStop(duration);
+          }
+        }
+      });
+    },
 
     reset(duration=0.5) {
       // If we pass a duration, dirtyNodes is actually cleared before these nodes are made entirely

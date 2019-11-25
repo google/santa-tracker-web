@@ -85,16 +85,10 @@ const kplayInstance = kplay.prepare();
 
 chromeElement.addEventListener('nav-open', (ev) => {
   sidebar.hidden = false;
-
-  kplayInstance.play('nav_open');
-
 });
 
 chromeElement.addEventListener('nav-close', (ev) => {
   sidebar.hidden = true;
-
-  kplayInstance.play('nav_close');
-
 });
 
 
@@ -131,7 +125,9 @@ if (kplayInstance.suspended) {
 
 
 window.addEventListener('santa-play', (ev) => {
-  kplayInstance.play(ev.detail);
+  let kplayEvent = ev.detail[0];
+  let args = ev.detail.slice(1);
+  kplayInstance.play(kplayEvent, args);
 });
 
 
@@ -427,7 +423,7 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
 
   // fade out previous scene audio here
   const sc = kplayInstance;
-  sc.transitionTo([], 0.2);
+  sc.stopAll(0.2);
 
   // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
