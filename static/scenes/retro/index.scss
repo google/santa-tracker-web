@@ -9,3 +9,12 @@ body {
   flex-flow: column;
   min-height: 100vh;
 }
+
+main {
+  img {
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+  }
+}

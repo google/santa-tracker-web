@@ -59,6 +59,7 @@ button.home {
 }
 
 .error {
+  visibility: hidden;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -80,4 +81,9 @@ button.home {
     background: _rel("../img/snowman.png") center center / contain no-repeat rgb(126, 198, 229);
     overflow: hidden;
   }
+}
+
+body.loaded .error {
+  transition: visibility 0.25s step-end;
+  visibility: visible;
 }
