@@ -48,13 +48,19 @@ module.exports = async (id, content, onwarn=null) => {
     async resolveId(importee, importer) {
       // Resolve ourselves, and anything that Rollup doesn't need to (./, ../, etc).
       if (importee === id || importUtils.alreadyResolved(importee)) {
-        return importee;
+        if (importUtils.isUrl(importee)) {
+          return importee;
+        }
+        return importee + '?module';
       }
       // Otherwise, use our custom Node resolver. This works around issues in the defacto standard
       // module 'rollup-plugin-node-resolve', such as:
       //  * lets us point to the nearest node_modules/ only (including a symlink)
       //  * resolved IDs that return as an object aren't passed to .external (below)
-      return resolveNode(importee, importer);
+      const result = resolveNode(importee, importer);
+      if (result) {
+        return result + '?module';
+      }
     },
   };
 

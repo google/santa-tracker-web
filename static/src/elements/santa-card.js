@@ -42,13 +42,20 @@ const sceneColors = {
 };
 
 
+const visibleCards = new Set();
+
 const intersectionObserver = (window.IntersectionObserver ? new window.IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.load = true;
+      visibleCards.add(entry.target);
+    } else {
+      console.warn('got removal', entry.target);
+      visibleCards.delete(entry.target);
     }
   });
-}, {rootMargin: '16px'}) : null);
+  console.info('cards visible', [...visibleCards]);
+}, {rootMargin: '16px', threshold: [0, 1]}) : null);
 
 
 export class SantaCardElement extends LitElement {
