@@ -1,7 +1,6 @@
 import Scene from '../components/Scene/index.js'
 import SoundManager from '../managers/SoundManager.js'
 import isTouchDevice from '../utils/isTouchDevice.js'
-import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 import pushButton from '../utils/pushButton.js'
 
 export default class Toolbar {

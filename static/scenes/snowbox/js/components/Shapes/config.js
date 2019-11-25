@@ -1,6 +1,4 @@
-import GLOBAL_CONFIG from '../Scene/config.js'
 import { DEBUG_MODE } from '../../constants/index.js'
-
 
 export default {
   SCALE_FACTOR: 1.1,

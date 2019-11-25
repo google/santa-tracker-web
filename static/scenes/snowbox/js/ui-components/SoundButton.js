@@ -1,5 +1,4 @@
 import SoundManager from '../managers/SoundManager.js'
-import { RELEASE_BUTTON_TIME } from '../constants/index.js'
 import pushButton from '../utils/pushButton.js'
 
 export default class SoundButton {
