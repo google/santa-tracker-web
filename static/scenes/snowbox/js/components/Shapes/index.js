@@ -98,7 +98,9 @@ class Shape {
     this.body = new CANNON.Body({
       mass: this.mass,
       fixedRotation: false,
-      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+      material: GLOBAL_CONFIG.NORMAL_MATERIAL,
+      linearDamping: 0,
+      angularDamping: 0,
     })
 
     this.createShapes(this.scaleFactor)
