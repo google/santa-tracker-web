@@ -68,18 +68,9 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   const call = async () => {
+    // We can't use client.navigate here, as Safari doesn't support it. The 'controllerchange'
+    // event in the foreground handles this.
     await self.clients.claim();
-
-    // Reload all open pages (includeUncontrolled shouldn't be needed as we've _just_ claimed
-    // clients, but include it anyway for sanity).
-    const windowClients = await self.clients.matchAll({
-      includeUncontrolled: true,
-      type: 'window',
-    });
-
-    // It's impossible to 'await' this navigation because this event would literally be blocking
-    // our fetch handlers from running. These navigates must be 'fire-and-forget'.
-    windowClients.map((client) => client.navigate(client.url));
   };
   event.waitUntil(call());
 });

@@ -45,6 +45,8 @@ if ('serviceWorker' in navigator) {
   } else {
     window.sw = null;
   }
+
+  navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
 
 function onInteractive(fn) {
