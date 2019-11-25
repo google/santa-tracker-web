@@ -75,4 +75,10 @@ export default {
   'windtunnel': _msg`scene_windtunnel`,
   'workshop': _msg`scene_videoscene_workshop`,  // 2014
   'wrapbattle': _msg`scene_wrap`,
+  '@cityquiz': _msg`scene_android_cityquiz`,
+  '@dasherdancer': _msg`scene_android_dancer`,
+  '@penguinswim': _msg`scene_android_penguinswim`,
+  '@presenttoss': _msg`scene_android_presenttoss`,
+  '@rocketsleigh': _msg`scene_android_rocketsleigh`,
+  '@snowballrun': _msg`scene_android_snowballrun`,
 };

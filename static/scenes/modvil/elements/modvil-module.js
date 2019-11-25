@@ -28,6 +28,7 @@ class ModvilModuleConstructor extends LitElement {
     this.ratio = null;
     this.load = false;
 
+    this._cardsLayer = -1;
     this._partsCache = [];
   }
 
@@ -38,6 +39,13 @@ class ModvilModuleConstructor extends LitElement {
     const base = _static`scenes/modvil/img/modules/` + id;
 
     switch (type) {
+      case 'cards':
+        const node = document.createElement('div');
+        node.className = 'cards';
+        const slot = document.createElement('slot');
+        node.append(slot);
+        return {node, ratio: noop};
+
       case 'static-png':
       case 'static-svg': {
         const ext = type.split('-')[1];
@@ -133,22 +141,30 @@ class ModvilModuleConstructor extends LitElement {
       return true;
     }
 
-    let parts = [];
-
     // Determine parts to load. This could be empty if not lazy-loaded yet.
-    if (this.load) {
-      parts = this.parts ? this.parts.split(',').map((x) => x.trim()) : [];
+    let parts = this.parts ? this.parts.split(',').map((x) => x.trim()) : [];
 
-      // In small mode, don't load anything but static-... files.
-      if (this.mode === 'small') {
-//        parts = parts.map((x) => x.startsWith('static-') ? x : null);
-      }
+    // In small mode, don't load anything but static-... files.
+    if (this.mode === 'small') {
+//      parts = parts.map((x) => x.startsWith('static-') ? x : null);
+    }
 
-      // In mobile mode, don't load anything, but push the mobile PNG at the end.
-      if (this.mode === 'mobile' && !this.desktop) {
-        parts = parts.map((x) => null);
-        parts.push('mobile');
-      }
+    // In mobile mode, don't load anything, but push the mobile PNG at the end.
+    if (this.mode === 'mobile' && !this.desktop) {
+      parts = parts.map((x) => null);
+      parts.push('mobile');
+    } else {
+      parts.push(null);
+    }
+
+    // Don't load anything yet.
+    if (!this.load) {
+      parts = parts.map((x) => null);
+    }
+
+    // ... but always have cards
+    if (parts.indexOf('cards') === -1) {
+      parts.push('cards');
     }
 
     // Now, reconcile with cache, clearing or loading as needed.
@@ -205,9 +221,6 @@ class ModvilModuleConstructor extends LitElement {
     return html`
 <main style=${mainStyle}>
   ${parts}
-  <div class="cards">
-    <slot></slot>
-  </div>
 </main>
     `;
   }

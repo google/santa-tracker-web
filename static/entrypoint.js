@@ -319,6 +319,7 @@ outer:
         return;
       }
       const payload = {
+        android: document.body.getAttribute('data-mode') === 'android',
         routes: firebaseConfig.routesSnapshot(),
       };
       control.send({type: 'data', payload});

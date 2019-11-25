@@ -8,7 +8,7 @@ import * as params from '../lib/params.js';
 /**
  * Matches "/sceneName.html" or "/".
  */
-const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
+const simplePathMatcher = /^\/?(?:|(@?\w+)\.html)$/;
 
 
 /**
@@ -110,6 +110,9 @@ export function resolveProdURL(location) {
 }
 
 
+const alwaysAndroid = ['jetpack', 'matching'];
+
+
 /**
  * Sets up the prod router, including modifying the initial URL, and installing popstate handlers
  * and friends.
@@ -157,6 +160,15 @@ export function configureProdRouter(callback) {
       this.go(route);
     },
     go(route, data={}) {
+      if (route[0] === '@' || alwaysAndroid.indexOf(route) !== -1) {
+        if (route[0] === '@') {
+          route = route.substr(1);
+        }
+        console.info('got Android route', route);
+        window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${route}`;
+        return;
+      }
+
       internalRoute(normalizeRoute(route), data, true);
     },
   };

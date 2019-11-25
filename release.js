@@ -598,6 +598,12 @@ async function findProdPages() {
   if (!('index' in pages)) {
     pages['index'] = pages[''] || '';
   }
+  for (const key of Object.keys(pages)) {
+    // Remove Android-only scenes.
+    if (key.startsWith('@')) {
+      delete pages[key];
+    }
+  }
   delete pages[''];  // don't explicitly generate blank top-level page
 
   // Find any pages we might be missing.

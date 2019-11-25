@@ -48,7 +48,7 @@ const intersectionObserver = (window.IntersectionObserver ? new window.Intersect
       entry.target.load = true;
     }
   });
-}) : null);
+}, {rootMargin: '16px'}) : null);
 
 
 export class SantaCardElement extends LitElement {
@@ -59,7 +59,8 @@ export class SantaCardElement extends LitElement {
       load: {type: Boolean},
       id: {type: String},
       _active: {type: Boolean},
-      featured: {type: Boolean, reflect: true}
+      featured: {type: Boolean, reflect: true},
+      video: {type: Boolean, reflect: true},
     };
   }
 
@@ -129,10 +130,8 @@ export class SantaCardElement extends LitElement {
     if (!isLocked) {
       let inner = html`<img />`;
 
-      // FIXME: config.videos() is only available in prod frame.
       if (this.load) {
-        const videos = [];
-        if (videos.indexOf(scene) !== -1) {
+        if (this.video) {
           backgroundStyle += `; background-image: url(${assetRoot}/${scene}_2x.png)`;
         } else {
           inner = html`<santa-card-player .active=${this._active} scene=${scene}></santa-card-player>`;

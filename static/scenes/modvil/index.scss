@@ -96,13 +96,56 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     flex-flow: column;
+  }
+}
 
+/** santa-card **/
+
+santa-card {
+  --radius: 20px;
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  modvil-module.android santa-card {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  santa-card {
+    padding-bottom: 20px;
+    height: 200px;
+    max-width: 280px;
+    width: 80%;
+  }
+
+  santa-card:nth-child(2n) {
+    align-self: flex-end;
+  }
+
+  modvil-module:nth-child(2n) {
     santa-card {
-      width: 280px;
-      height: 150px;
-      min-height: 200px;
-      --radius: 20px;
+      align-self: flex-end;
     }
+    santa-card:nth-child(2n) {
+      align-self: flex-start;
+    }
+  }
+}
+
+@media (min-width: 768px + 1px) {
+  santa-card {
+    min-width: 280px;  // matches 800 min-height
+    width: 30%;  // 30% of 1440 is about ~420
+    --ratio: 75%;
+  }
+}
+
+
+@media (min-width: 1024px + 1px) {
+  santa-card {
+    font-size: 26px;
   }
 }
 
@@ -145,6 +188,7 @@ modvil-module {
   box-shadow: inset 0 4px 0 #0003;
   width: 100%;
   min-height: 800px;
+  pointer-events: none;
 
   @media (max-width: 414px) {
     min-width: 414px;

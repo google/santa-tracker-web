@@ -32,17 +32,18 @@ api.config({
 });
 
 const allCards = Array.from(document.querySelectorAll('santa-card'));
+const androidModule = document.getElementById('android');
 
 api.addEventListener('data', (ev) => {
-  // TODO: use this state to control card locked/unlocked
-  console.info('got snapshot', ev.detail);
-
-  const {routes} = ev.detail;
-
+  const {routes, android} = ev.detail;
   allCards.forEach((card) => {
     const detail = routes[card.id] || {video: false, locked: undefined};
     card.locked = detail.locked;
   });
+
+  if (!android && androidModule.parentNode) {
+    androidModule.remove();
+  }
 
 });
 
@@ -109,9 +110,11 @@ async function prepareModules() {
 
     let visible = undefined;  // undefined=at top, true=visible, false=after visible
 
+    const rootMargin = 24;  // include extra space and load early
+
     const se = document.scrollingElement;
-    const windowRangeLow = se.scrollTop;
-    const windowRangeHigh = se.scrollTop + window.innerHeight;
+    const windowRangeLow = se.scrollTop - rootMargin;
+    const windowRangeHigh = se.scrollTop + window.innerHeight + rootMargin;
 
     // Top isn't a module, but it has audio cues.
     const topRatio = ratioForElement(topModule);
@@ -216,59 +219,64 @@ api.ready(async () => {
 <div id="modules">
   <div class="sidebar left"></div>
   <main>
-<modvil-module id="android" color="#9b643d" parts="static-svg,loop,static-png,loop">
-
+<modvil-module id="android" color="#9b643d" parts="static-svg,loop,static-png,loop" class="android">
+  <santa-card id="@cityquiz"></santa-card>
+  <santa-card id="@rocketsleigh"></santa-card>
+  <santa-card id="@dasherdancer"></santa-card>
+  <santa-card id="@snowballrun"></santa-card>
+  <santa-card id="@presenttoss"></santa-card>
+  <santa-card id="@penguinswim"></santa-card>
 </modvil-module>
-<modvil-module id="transithub" color="#d4f1fe" parts="static-svg,loop,scroll">
-  <santa-card id="jetpack"></santa-card>
-  <santa-card id="elfmaker"></santa-card>
-  <santa-card id="santasearch"></santa-card>
+<modvil-module id="transithub" color="#d4f1fe" parts="static-svg,cards,loop,scroll">
+  <santa-card id="jetpack" style="--x: 18.5%; --y: 50%"></santa-card>
+  <santa-card id="elfmaker" style="--x: 50%; --y: 36%"></santa-card>
+  <santa-card id="santasearch" style="--x: 81.5%; --y: 22%"></santa-card>
 </modvil-module>
-<modvil-module id="sciencelab" color="#3499ff" parts="static-svg,loop,scroll">
-  <santa-card id="codelab"></santa-card>
-  <santa-card id="gumball"></santa-card>
-  <santa-card id="snowbox"></santa-card>
+<modvil-module id="sciencelab" color="#3499ff" parts="static-svg,loop,scroll,cards">
+  <santa-card id="codelab" style="--x: 17%; --y: 15%"></santa-card>
+  <santa-card id="gumball" style="--x: 38%; --y: 75%"></santa-card>
+  <santa-card id="snowbox" style="--x: 81%; --y: 31%"></santa-card>
 </modvil-module>
-<modvil-module id="toymaking" color="#00c1f2" parts="static-svg,static-svg,scroll,static-svg">
-  <santa-card id="presentbounce"></santa-card>
-  <santa-card id="build"></santa-card>
-  <santa-card id="santaselfie"></santa-card>
+<modvil-module id="toymaking" color="#00c1f2" parts="static-svg,static-svg,scroll,cards,static-svg">
+  <santa-card id="presentbounce" style="--x: 28%; --y: 17%"></santa-card>
+  <santa-card id="build" style="--x: 18%; --y: 47.5%"></santa-card>
+  <santa-card id="santaselfie" style="--x: 81%; --y: 27%"></santa-card>
 </modvil-module>
-<modvil-module id="kitchen" color="#fdb0ca" parts="static-svg,loop,static-svg,scroll">
-  <santa-card id="traditions"></santa-card>
-  <santa-card id="translations"></santa-card>
-  <santa-card id="presentdrop"></santa-card>
+<modvil-module id="kitchen" color="#fdb0ca" parts="static-svg,loop,static-svg,cards,scroll">
+  <santa-card id="traditions" style="--x: 19.4%; --y: 17.7%"></santa-card>
+  <santa-card id="translations" style="--x: 35.6%; --y: 60.8%"></santa-card>
+  <santa-card id="presentdrop" style="--x: 74.3%; --y: 23.7%"></santa-card>
 </modvil-module>
-<modvil-module id="nursery" color="#6bb4fd" parts="static-svg,loop,scroll">
-  <santa-card id="speedsketch"></santa-card>
-  <santa-card id="santascanvas"></santa-card>
-  <santa-card id="storybook"></santa-card>
+<modvil-module id="nursery" color="#6bb4fd" parts="static-svg,loop,cards,scroll">
+  <santa-card id="speedsketch" style="--x: 26.4%; --y: 42.1%"></santa-card>
+  <santa-card id="santascanvas" style="--x: 72.9%; --y: 23.1%"></santa-card>
+  <santa-card id="storybook" style="--x: 62.5%; --y: 63.8%"></santa-card>
 </modvil-module>
-<modvil-module id="greenhouse" color="#94dae4" parts="static-svg,loop,scroll,static-svg">
-  <santa-card id="snowball"></santa-card>
-  <santa-card id="elfski"></santa-card>
-  <santa-card id="penguindash"></santa-card>
+<modvil-module id="greenhouse" color="#94dae4" parts="static-svg,loop,scroll,static-svg,cards">
+  <santa-card id="snowball" style="--x: 19.2%; --y: 58.9%"></santa-card>
+  <santa-card id="elfski" style="--x: 78.7%; --y: 23.5%"></santa-card>
+  <santa-card id="penguindash" style="--x: 78.7%; --y: 81.5%"></santa-card>
 </modvil-module>
-<modvil-module id="movies" color="#6900ff" parts="static-png,loop">
+<modvil-module id="movies" color="#6900ff" parts="static-png,cards,loop">
   <!-- TODO: movies -->
 </modvil-module>
-<modvil-module id="wrapping" color="#5203c0" parts="static-svg,loop,scroll,static-svg">
-  <santa-card id="boatload"></santa-card>
-  <santa-card id="seasonofgiving"></santa-card>
-  <santa-card id="racer"></santa-card>
+<modvil-module id="wrapping" color="#5203c0" parts="static-svg,loop,scroll,static-svg,cards">
+  <santa-card id="boatload" style="--x: 19.4%; --y: 18.4%"></santa-card>
+  <santa-card id="seasonofgiving" style="--x: 34.3%; --y: 82.5%"></santa-card>
+  <santa-card id="racer" style="--x: 77.6%; --y: 41.9%"></santa-card>
 </modvil-module>
-<modvil-module id="disco" color="#e5e5e5">
-  <santa-card id="codeboogie"></santa-card>
-  <santa-card id="jamband"></santa-card>
-  <santa-card id="wrapbattle"></santa-card>
+<modvil-module id="disco" color="#e5e5e5" parts="cards">
+  <santa-card id="codeboogie" style="--x: 50%; --y: 20%"></santa-card>
+  <santa-card id="jamband" style="--x: 50%; --y: 50%"></santa-card>
+  <santa-card id="wrapbattle" style="--x: 50%; --y: 80%"></santa-card>
 </modvil-module>
-<modvil-module id="training" color="#e5e5e5">
-  <santa-card id="mercator"></santa-card>
-  <santa-card id="glider"></santa-card>
-  <santa-card id="runner"></santa-card>
+<modvil-module id="training" color="#e5e5e5" parts="cards">
+  <santa-card id="mercator" style="--x: 50%; --y: 20%"></santa-card>
+  <santa-card id="glider" style="--x: 50%; --y: 50%"></santa-card>
+  <santa-card id="runner" style="--x: 50%; --y: 80%"></santa-card>
 </modvil-module>
 
-<modvil-module id="footer" color="#8ab8d4" parts="static-svg"></modvil-module>
+<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards"></modvil-module>
   </main>
   <div class="sidebar right"></div>
 </div>

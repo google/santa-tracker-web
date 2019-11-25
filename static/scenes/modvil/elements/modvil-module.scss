@@ -13,6 +13,7 @@ main {
   bottom: 0;
   background: transparent center no-repeat;
   background-size: contain;
+  pointer-events: none;
 }
 
 svg,
@@ -33,62 +34,56 @@ img {
   opacity: 0;
 }
 
-.cards {
-  z-index: 10;
-}
-
 ::slotted(santa-card) {
-  --radius: 20px;
-  font-size: 22px;
+  pointer-events: auto;
 }
 
-@media (min-width: 768px + 1px) {
-  ::slotted(santa-card) {
-    width: 30%;  // 30% of 1440 is about ~420
-    --ratio: 75%;
-    margin: 20px;
+:host(:not(.android)) {
+  @media (max-width: 768px) {
+    main {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cards {
+      max-width: 85vw;
+      width: 420px;
+      min-width: 280px;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 768px + 1px) {
+    ::slotted(santa-card) {
+      position: absolute;
+      top: var(--y, 50%);
+      left: var(--x, 50%);
+      transform: translate(-50%, -50%);
+    }
   }
 }
 
-@media (min-width: 1024px + 1px) {
-  ::slotted(santa-card) {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 768px) {
+:host(.android) {
   main {
     display: flex;
     justify-content: center;
   }
 
   .cards {
-    max-width: 85vw;
-    width: 420px;
-    min-width: 280px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    max-width: 100vw;
+    width: 820px;
     height: 100%;
-    padding-top: 40px;
-    display: flex;
-    flex-flow: column;
   }
 
   ::slotted(santa-card) {
-    padding-bottom: 20px;
-    height: 200px;
-    max-width: 280px;
-    width: 80%;
-  }
-
-  ::slotted(santa-card:nth-child(2n)) {
-    align-self: flex-end;
-  }
-
-  :host(:nth-child(2n)) {
-    ::slotted(santa-card) {
-      align-self: flex-end;
-    }
-    ::slotted(santa-card:nth-child(2n)) {
-      align-self: flex-start;
-    }
+    align-self: center !important;
+    justify-self: center !important;
+    padding: 0 !important;
   }
 }
