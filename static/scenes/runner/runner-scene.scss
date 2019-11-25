@@ -18,6 +18,7 @@ $rotate-bg: $gameover-bg;
 
 body {
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

@@ -5,6 +5,7 @@ body {
   overflow-x: hidden;
   background: #F7FCFB;
   -webkit-font-smoothing: antialiased;
+  touch-action: none;
 
   @media (max-width: 768px - 1px) {
     font-size: 12px;

@@ -38,6 +38,10 @@ $topscreens-animation-breakpoint-height: 550px;
 @import "sass/santa-screen";
 @import "sass/reindeer-screen";
 
+body {
+  touch-action: none;
+}
+
 ##{$name} {
 
   position: absolute;

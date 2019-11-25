@@ -7,6 +7,7 @@ $name: 'module-windtunnel';
 body {
   margin: 0;
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

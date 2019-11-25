@@ -11,6 +11,10 @@ $rotate-bg: $gameover-bg;
 @import "sass/icebergs";
 @import "sass/effects";
 
+body {
+  touch-action: none;
+}
+
 ##{$name} {
   bottom: 0;
   left: 0;

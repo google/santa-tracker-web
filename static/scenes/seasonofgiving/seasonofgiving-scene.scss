@@ -16,6 +16,7 @@ body {
   margin: 0;
   font-family: 'Roboto', 'Arial', sans-serif;
   font-size: 16px;
+  touch-action: pan-y;
 }
 
 ##{$name} {

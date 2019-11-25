@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
   -webkit-user-select: none;
   user-select: none;
+  touch-action: pan-y;
 }
 
 /** village styles */
