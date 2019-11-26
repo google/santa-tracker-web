@@ -22,3 +22,22 @@ canvas {
   image-rendering: -moz-crisp-edges;
   image-rendering: pixelated;
 }
+
+#holder {
+  position: relative;
+}
+
+#games {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: flex-start;
+
+  a {
+    margin: 0 8px 16px;
+  }
+}

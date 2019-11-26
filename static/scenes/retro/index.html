@@ -12,39 +12,69 @@
 <script type="module">
 import api from '../../src/scene/api.js';
 import {_msg} from '../../src/magic.js';
-import {rectify} from '../../src/scene/route.js';
+import {rectify, href} from '../../src/scene/route.js';
 import {Render, renderText, scaleCopy} from './render.js';
 
 rectify(document.body);
 
 const canvasOptions = new Map();
 
-const titleCanvas = document.createElement('canvas');
-titleCanvas.title = _msg`santatracker`;
-document.body.appendChild(titleCanvas);
-canvasOptions.set(titleCanvas, {
+titleSurface.title = _msg`santatracker`;
+canvasOptions.set(titleSurface, {
   color: 'black',
   width: 300,
   font: '40px "Lobster"',
   lineHeight: 60,
 });
 
-const retrocanvas = document.createElement('canvas');
-document.body.appendChild(retrocanvas);
-
-const subtitleCanvas = document.createElement('canvas');
-subtitleCanvas.title = _msg`error-unsupported`;
-document.body.appendChild(subtitleCanvas);
-canvasOptions.set(subtitleCanvas, {
+noticeSurface.title = _msg`error-unsupported`;
+canvasOptions.set(noticeSurface, {
   color: '#ff0060',
   width: 300,
   font: '16px "Fugaz One"',
   lineHeight: 24,
 });
 
-const r = new Render(retrocanvas);
+const r = new Render();
+
+
+function measureFont(fontFamily) {
+  const div = document.createElement('div');
+  div.style.fontFamily = fontFamily;
+  div.style.fontSize = '100px';
+  div.textContent = 'Some test string';
+  document.body.appendChild(div);
+  try {
+    return div.offsetHeight;
+  } finally {
+    document.body.removeChild(div);
+  }
+}
+
+
+
+function delayForFont(fontFamily, timeout = 8 * 1000) {
+  const baseline = measureFont('monospace');
+
+  let interval;
+  const p = new Promise((resolve) => {
+    interval = window.setInterval(() => {
+      if (measureFont(fontFamily + ',monospace') !== baseline) {
+        resolve();
+      }
+    }, 125);
+    window.setTimeout(resolve, timeout);
+  });
+
+  return p.then(() => {
+    window.clearInterval(interval);
+  });
+}
 
 api.preload.wait(r.ready());
+
+api.preload.wait(delayForFont('Fugaz One'));
+api.preload.wait(delayForFont('Lobster'));
 
 function targetSize() {
   const max = 2;
@@ -67,6 +97,15 @@ api.ready(() => {
   let last = 0;
   let previousRatio = -1;
 
+  const houses = r.renderHouses().map(({house, canvas}) => {
+    const node = document.createElement('a');
+    const target = document.createElement('canvas');
+    node.href = href(`${house}.html`);
+    node.appendChild(target);
+    games.appendChild(node);
+    return {canvas, target};
+  });
+
   (function render(now=0) {
     window.requestAnimationFrame(render);
 
@@ -77,24 +116,30 @@ api.ready(() => {
         const canvas = renderText(target.title, options);
         scaleCopy(canvas, target, t.ratio);
       });
+      houses.forEach(({canvas, target}) => {
+        scaleCopy(canvas, target, t.ratio);
+      });
     }
 
     if (now - last > (1000 / fps) || previousRatio !== t.ratio) {
-      r.render(t.width, t.height, t.ratio);
+      const {canvas} = r.render(null, t.width, t.height);
+      scaleCopy(canvas, retroSurface, t.ratio);
       last = now;
-      previousRatio = t.ratio;
     }
+
+    previousRatio = t.ratio;
   }());
 
 });
 
 </script>
 
-<div>
-  <a href="./snowball.html" msgid="scene_snowball"></a>
-  <a href="./boatload.html" msgid="scene_boatload"></a>
-  <a href="./presentdrop.html" msgid="scene_presentdrop"></a>
+<canvas id="titleSurface"></canvas>
+<div id="holder">
+  <canvas id="retroSurface"></canvas>
+  <div id="games"></div>
 </div>
+<canvas id="noticeSurface"></canvas>
 
 </body>
 </html>

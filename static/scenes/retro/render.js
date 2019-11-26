@@ -124,12 +124,30 @@ export function renderText(text, {width, color, font, lineHeight}) {
 }
 
 
-const canvas = document.createElement('canvas');
-const context = canvas.getContext('2d');
+const houses = ['wrapbattle', 'penguindash', 'presentbounce', 'snowball'];
+
+
+/*
+    // Draw houses.
+    const houseRender = houses.map((house, i) => {
+      const x = i % 8;
+      const y = 7 - Math.floor(i / 8);
+      return {house, x, y};
+    }).sort(() => rand() - 0.5);
+
+    const rects = houseRender.map(({house, x, y}, i) => {
+      const range = Math.ceil(wt * 0.66666);
+      const tx = (i % range) * 48 + 16;
+      const ty = ~~(i / range) * 48 + (snowLine+2) * 32;
+
+      context.drawImage(tiles, 32 * x, 32 * y, 32, 32, tx, ~~ty, 32, 32);
+    });
+*/
+
+
 
 export class Render {
-  constructor(target) {
-    this._target = target;
+  constructor() {
     this._ready = [];
     this._assets = {};
     this._randSeed = ~~(Math.random() * 0xFFFFFFF);
@@ -147,6 +165,24 @@ export class Render {
     this._ready.push(p);
   }
 
+  renderHouses() {
+    // This doesn't really belong on render, but it reuses tiles.
+    const tiles = this._assets['img/tiles.png'];
+
+    return houses.map((house, i) => {
+      const x = i % 8;
+      const y = 7 - Math.floor(i / 8);
+  
+      const canvas = document.createElement('canvas');
+      canvas.width = 32;
+      canvas.height = 32;
+  
+      const context = canvas.getContext('2d');
+      context.drawImage(tiles, 32 * x, 32 * y, 32, 32, 0, 0, 32, 32);
+      return {house, canvas};
+    });
+  }
+
   ready() {
     if (this._ready === null) {
       throw new Error('ready twice');
@@ -161,26 +197,10 @@ export class Render {
     // TODO: something
   }
 
-  render(width, height, extra) {
-    const rawRatio = window.devicePixelRatio || 1;
-    const ratio = Math.ceil(rawRatio);
-    const extraRatio = ratio * extra;
+  render(canvas, w, h) {
+    canvas = canvas || document.createElement('canvas');
+    const context = canvas.getContext('2d');
 
-    const t = this._target;
-    t.width = width * extraRatio;
-    t.height = height * extraRatio;
-    t.style.width = `${width * extra}px`;  // dots size
-    t.style.height = `${height * extra}px`;
-
-    // Now, render the real image.
-    this._internalRender(width, height);
-
-    const tc = t.getContext('2d');
-    disableImageSmoothing(tc);
-    tc.drawImage(canvas, 0, 0, canvas.width * extraRatio, canvas.height * extraRatio);
-  }
-
-  _internalRender(w, h) {
     canvas.width = w;
     canvas.height = h;
 
@@ -230,7 +250,7 @@ export class Render {
     context.save();
     context.fillStyle = 'white';
     const draw = () => {
-      const v = [16, 12, 8, 6, 5];
+      const v = [14, 10, 8, 6, 5];
       v.forEach((size, off) => {
         context.rect(off, 0, 1, size);
         context.rect(0, off, size, 1);
@@ -243,6 +263,9 @@ export class Render {
     }
     context.fill();
     context.restore();
+
+    // Done!
+    return {canvas};
   }
 }
 
