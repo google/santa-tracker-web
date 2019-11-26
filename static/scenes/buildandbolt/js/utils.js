@@ -75,6 +75,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const bottomSide = entity.y + 1
 
   // inner sides
+  // need to be reversed rightInnerSide = leftInnerSide
   const rightInnerSide = entity.left ? rightSide - marginInside : rightSide
   const leftInnerSide = entity.right ? leftSide + marginInside : leftSide
   const topInnerSide = entity.bottom ? topSide + marginInside : topSide
@@ -113,12 +114,12 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
         }
       }
 
-      if (entity.bottom) {
-        const playerPositionY = fromBottom || fromTop ? Math.max(playerPosition.y, bottomSide - marginInside) : playerPosition.y
-        if (topInnerSide < playerPositionY) {
-          blockingPosition.x = rightSide
-        }
-      }
+      // if (entity.bottom) {
+      //   const playerPositionY = fromBottom || fromTop ? Math.max(playerPosition.y, bottomSide - marginInside) : playerPosition.y
+      //   if (topInnerSide < playerPositionY) {
+      //     blockingPosition.x = rightSide
+      //   }
+      // }
 
       if (entity.right) { // block at border
         blockingPosition.x = rightSide
@@ -142,7 +143,6 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
 
       if (entity.bottom) {
         const playerPositionY = fromBottom || fromTop ? Math.min(playerPosition.y, topSide + marginInside) : playerPosition.y
-        console.log(playerPosition.y, playerPositionY)
         if (topInnerSide < playerPositionY) {
           blockingPosition.x = leftSide
         }
@@ -163,10 +163,21 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
       }
 
       if (entity.left) {
-        const playerPositionX = fromRight || fromLeft ? Math.min(playerPosition.x, rightSide - marginInside) : playerPosition.x
-        if (rightInnerSide > playerPositionX) {
+        // block top part if after rightInnerSide
+        if (rightInnerSide > playerPosition.x && topSide < playerPosition.y) {
           blockingPosition.y = topSide
         }
+        // if (fromRight && rightInnerSide > playerPosition.x) {
+        //   blockingPosition.x = rightInnerSide
+        //   console.log('rien bolosse')
+        // }
+
+        // const playerPositionX = fromRight || fromLeft ? Math.max(playerPosition.x, rightSide - marginInside) : playerPosition.x
+        // console.log(playerPosition.x, rightSide - marginInside)
+        // if (rightInnerSide > playerPositionX) { // et si t'es au dessus!
+        //   console.log('déclenche!')
+        //   blockingPosition.y = topSide
+        // }
       }
 
       if (entity.right) {
