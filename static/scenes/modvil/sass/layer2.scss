@@ -1,0 +1,47 @@
+.elf-ski1 {
+  position: absolute;
+  top: 130px;
+  left: calc(50% + 1040px);
+  width: 58px;
+  height: 67px;
+  background-image: url(img/village/elfski1.svg);
+  background-repeat: no-repeat;
+}
+
+.elf-ski2 {
+  position: absolute;
+  top: 110px;
+  left: calc(50% + 1050px);
+  width: 58px;
+  height: 67px;
+  background-image: url(img/village/elfski2.svg);
+  background-repeat: no-repeat;
+}
+
+.elf-ski1, .elf-ski2 {
+  transform: rotateX(180deg) rotateY(-180deg);
+  offset-path: path('m0,0 c-184,2 -708,250 -1010,300c-1002,3 -168,1 -1200,10');
+  animation: elfski 5000ms infinite ease-in-out;
+}
+
+.elf-ski2 {
+  animation-delay: 80ms;
+}
+
+@keyframes elfski {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .elf-ski1 {
+    top: 280px;
+  }
+  .elf-ski2 {
+    top: 260px;
+  }
+}
