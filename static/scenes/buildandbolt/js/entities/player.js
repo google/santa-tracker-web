@@ -19,6 +19,7 @@ app.Player = class Player {
     this.innerElem.setAttribute('class', `player__inner`)
     this.elem.appendChild(this.innerElem)
 
+    this.innerElem.appendChild(this.animations['death'].renderer.svgElement)
     this.innerElem.appendChild(this.animations['front'].renderer.svgElement)
     this.innerElem.appendChild(this.animations['back'].renderer.svgElement)
     this.innerElem.appendChild(this.animations['side'].renderer.svgElement)
@@ -45,11 +46,17 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    this.elem.classList.add('is-hidden')
+    // this.elem.classList.add('is-hidden')
     this.dead = true
+    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
+    this.currentAnimationState = Constants.PLAYER_FRAMES.DEATH
+    this.animationQueue = []
+    this.animations['death'].renderer.svgElement.classList.add('is-active')
 
     window.setTimeout(() => {
       this.dead = false
+
+      this.animations['death'].renderer.svgElement.classList.remove('is-active')
 
       this.resetPosition()
 
@@ -60,11 +67,34 @@ app.Player = class Player {
           this.position.x, this.position.y)
 
       this.elem.classList.remove('is-hidden')
-    }, 1000)
+    }, 500)
+  }
+
+  resetPosition() {
+    this.position = {
+      x: this.config.startPos.x,
+      y: this.config.startPos.y,
+      angle: 0
+    }
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.currentAnimationFrame = 1
+    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
+    this.playerState = Constants.PLAYER_STATES.REST
+    this.setDirection('front')
+    this.animationQueue = []
+
+    this.onIce = false
   }
 
   onFrame(delta, now) {
     if (this.dead) {
+      this.updateAnimationFrame(now)
+      this.render()
       return
     }
 
@@ -174,7 +204,11 @@ app.Player = class Player {
   }
 
   render() {
-    this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
+    if (this.dead) {
+      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
+    } else {
+      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
+    }
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
@@ -281,27 +315,6 @@ app.Player = class Player {
 
   registerWin() {
     this.score++
-  }
-
-  resetPosition() {
-    this.position = {
-      x: this.config.startPos.x,
-      y: this.config.startPos.y,
-      angle: 0
-    }
-
-    this.velocity = {
-      x: 0,
-      y: 0
-    }
-
-    this.currentAnimationFrame = 1
-    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
-    this.playerState = Constants.PLAYER_STATES.REST
-    this.setDirection('front')
-    this.animationQueue = []
-
-    this.onIce = false
   }
 
   setDirection(direction) {

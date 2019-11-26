@@ -97,6 +97,10 @@ Constants = {
     HOLD_REST_TO_REST: {
       start: 72,
       end: 80
+    },
+    DEATH: {
+      start: 0,
+      end: 12,
     }
   },
 
