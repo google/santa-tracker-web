@@ -346,17 +346,17 @@ app.Player = class Player {
       case Constants.PLAYER_STATES.WALK:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.REST:
-            this.animationQueue.push(Constants.PLAYER_FRAMES.REST_TO_WALK)
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_WALK)
             // break;
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
-            this.animationQueue.push(Constants.PLAYER_FRAMES.WALK)
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
         }
         break;
       case Constants.PLAYER_STATES.REST:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.WALK:
-            this.animationQueue.push(Constants.PLAYER_FRAMES.WALK_TO_REST)
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK_TO_REST)
             // break;
           default:
             this.playerState = Constants.PLAYER_STATES.REST
@@ -369,6 +369,15 @@ app.Player = class Player {
     // Walk
     // Hold and rest
     // Hold and walk
+  }
+
+  /**
+   * Checks for repeats to make sure the animation is not queued multiple times
+   */
+  addAnimationToQueueOnce(animation) {
+    if (this.animationQueue.indexOf(animation) < 0) {
+      this.animationQueue.push(animation)
+    }
   }
 
   updateAnimationFrame(now) {
