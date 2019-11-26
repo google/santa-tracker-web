@@ -160,7 +160,7 @@ export const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
   iframe.setAttribute('sandbox', IFRAME_SANDBOX);
-//  iframe.setAttribute('allow', IFRAME_ALLOW);
+  iframe.setAttribute('allow', IFRAME_ALLOW);
   iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
   return iframe;
 };
@@ -401,9 +401,6 @@ class SantaGameLoaderElement extends HTMLElement {
         }, {once: true});
 
       });
-
-      const cleanup = () => messageSource.remove(af.contentWindow);
-      portPromise.then(cleanup, cleanup);
     }
 
     // nb. This method should never fail for external reasons; failures here are an internal issue.

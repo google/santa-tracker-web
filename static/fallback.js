@@ -7,7 +7,7 @@ import fallbackStyles from './styles/fallback.css';
 document.adoptedStyleSheets = [santaStyles, fallbackStyles];
 
 import {createFrame} from './src/elements/santa-gameloader.js';
-import * as messageSource from './src/lib/message-source.js';
+import * as messageSource from './src/lib/message-source-fallback.js';
 
 
 import {buildLoader} from './src/core/loader.js';
@@ -105,9 +105,6 @@ const fallbackLoad = (url, {route, data, locked}) => {
       }, 10 * 1000);
     });
   });
-
-  const cleanup = () => messageSource.remove(frame.contentWindow);
-  portPromise.then(cleanup, cleanup);
 
   return portPromise.then((port) => {
     resolved = true;

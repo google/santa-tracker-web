@@ -1,5 +1,5 @@
 
-const registry = new Map();  // IE11/Edge and friends needs Map
+const registry = new WeakMap();
 
 self.addEventListener('message', (ev) => {
   const method = registry.get(ev.source);

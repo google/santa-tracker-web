@@ -9,6 +9,7 @@ import config from './config.json';
 import checkFallback from './src/fallback.js';
 import * as load from './src/load.js';
 import {initialize} from './src/firebase.js';
+import onInteractive from './src/interactive.js';
 import isAndroidTWA from './src/android-twa.js';
 
 // In prod, the documentElement has `lang="en"` or similar.
@@ -49,20 +50,11 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
 
-function onInteractive(fn) {
-  if (document.readyState === 'interactive') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', () => fn());
-  }
-}
 
 // Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
 // needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
   load.supportScripts([
-// FIXME: Removed because Edge-etc should never need these.
-//    config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     config.staticScope + 'support.js',
     config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   ], () => {
