@@ -2,7 +2,7 @@
 let done = (document.readyState === 'interactive' || document.readyState === 'complete');
 let all;
 
-if (!skip) {
+if (!done) {
   all = [];
   window.addEventListener('DOMContentLoaded', () => {
     done = true;
