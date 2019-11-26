@@ -33,6 +33,7 @@ body {
   }
   .layer2 {
     background-image: url(img/village/2.svg);
+    @import "sass/layer2";
   }
   .layer3 {
     background-image: url(img/village/3.svg);
