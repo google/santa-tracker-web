@@ -216,8 +216,9 @@ class SceneApi extends EventTarget {
         if (type === 'restart' && event.defaultPrevented) {
           this._send('reload');
         }
-
         break;
+
+      case 'deviceorientation':
       case 'keyup':
       case 'keydown': {
         // TODO(samthor): This also sends us 'repeat' events, and mixes badly (?) with keyboard

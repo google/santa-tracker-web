@@ -524,6 +524,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     global.setState({
       sceneOrientation: config.orientation || null,
+      sceneTilt: config.tilt || false,
       sceneHasPause: Boolean(config.pause),
       control,
       status: '',

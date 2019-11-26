@@ -15,6 +15,7 @@ const g = createStore({
   status: '',  // '', paused, gameover
 
   sceneOrientation: null,
+  sceneTilt: false,
   sceneHasPause: false,
 
   score: {},
@@ -91,3 +92,4 @@ startup((global) => {
 
   return update;
 });
+
