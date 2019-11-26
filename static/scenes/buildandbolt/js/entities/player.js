@@ -403,28 +403,5 @@ app.Player = class Player {
     if (finished && this.animationQueue.length) {
       this.currentAnimationState = this.animationQueue.shift()
     }
-
-    // const fps = 60
-    // const frameDelta = Math.round(fps / 1000 * (now - this.lastAnimationFrame))
-
-    // if (frameDelta >= 1) {
-    //   // Play the animation in a loop
-    //   if (this.currentAnimationState.loop && !this.animationQueue.length) {
-    //     const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
-    //     const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
-    //     this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + frameDelta) % animationLength)
-    //     this.lastAnimationFrame = now
-    //     return
-    //   }
-
-    //   // Play the animation to the end, then start next animation.
-    //   this.currentAnimationFrame = Math.min(this.currentAnimationFrame + frameDelta, this.currentAnimationState.end)
-    //   this.lastAnimationFrame = now
-    //   if (this.currentAnimationFrame == this.currentAnimationState.end) {
-    //     if (this.animationQueue.length) {
-    //       this.currentAnimationState = this.animationQueue.shift()
-    //     }
-    //   }
-    // }
   }
 }
