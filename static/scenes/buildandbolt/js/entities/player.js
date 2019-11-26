@@ -337,6 +337,9 @@ app.Player = class Player {
     }
   }
 
+  /**
+   * Update animation based on player state
+   */
   setPlayerState(state) {
     if (state == this.playerState) {
       return
@@ -347,7 +350,6 @@ app.Player = class Player {
         switch(this.playerState) {
           case Constants.PLAYER_STATES.REST:
             this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_WALK)
-            // break;
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
@@ -357,18 +359,12 @@ app.Player = class Player {
         switch(this.playerState) {
           case Constants.PLAYER_STATES.WALK:
             this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK_TO_REST)
-            // break;
           default:
             this.playerState = Constants.PLAYER_STATES.REST
             this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
         }
         break;
     }
-    // Add only once. Add transition states. Clear queue if needed.
-    // Rest
-    // Walk
-    // Hold and rest
-    // Hold and walk
   }
 
   /**
@@ -393,29 +389,42 @@ app.Player = class Player {
       this.lastAnimationFrame = now
     }
 
-    // TODO: use utils method
+    let loop = this.currentAnimationState.loop && !this.animationQueue.length
+    const {
+      nextFrame,
+      frameTime,
+      finished
+    } = Utils.nextAnimationFrame(this.currentAnimationState,
+        this.currentAnimationFrame, loop, this.lastAnimationFrame, now)
 
-    const fps = 60
-    const frameDelta = Math.round(fps / 1000 * (now - this.lastAnimationFrame))
+    this.currentAnimationFrame = nextFrame
+    this.lastAnimationFrame = frameTime
 
-    if (frameDelta >= 1) {
-      // Play the animation in a loop
-      if (this.currentAnimationState.loop && !this.animationQueue.length) {
-        const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
-        const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
-        this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + frameDelta) % animationLength)
-        this.lastAnimationFrame = now
-        return
-      }
-
-      // Play the animation to the end, then start next animation.
-      this.currentAnimationFrame = Math.min(this.currentAnimationFrame + frameDelta, this.currentAnimationState.end)
-      this.lastAnimationFrame = now
-      if (this.currentAnimationFrame == this.currentAnimationState.end) {
-        if (this.animationQueue.length) {
-          this.currentAnimationState = this.animationQueue.shift()
-        }
-      }
+    if (finished && this.animationQueue.length) {
+      this.currentAnimationState = this.animationQueue.shift()
     }
+
+    // const fps = 60
+    // const frameDelta = Math.round(fps / 1000 * (now - this.lastAnimationFrame))
+
+    // if (frameDelta >= 1) {
+    //   // Play the animation in a loop
+    //   if (this.currentAnimationState.loop && !this.animationQueue.length) {
+    //     const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
+    //     const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
+    //     this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + frameDelta) % animationLength)
+    //     this.lastAnimationFrame = now
+    //     return
+    //   }
+
+    //   // Play the animation to the end, then start next animation.
+    //   this.currentAnimationFrame = Math.min(this.currentAnimationFrame + frameDelta, this.currentAnimationState.end)
+    //   this.lastAnimationFrame = now
+    //   if (this.currentAnimationFrame == this.currentAnimationState.end) {
+    //     if (this.animationQueue.length) {
+    //       this.currentAnimationState = this.animationQueue.shift()
+    //     }
+    //   }
+    // }
   }
 }
