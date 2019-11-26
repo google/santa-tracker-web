@@ -24,11 +24,8 @@ export function scaleCopy(src, dst, scale) {
 }
 
 
-export function renderText(text, width, color) {
+export function renderText(text, {width, color, font, lineHeight}) {
   const start = performance.now();
-  const font = '100 18px "Fugaz One"';
-  const lineHeight = 24;
-
   const chars = text.split('');
   const holder = document.createElement('div');
   holder.style.font = font;

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fugaz+One|Google+Sans:400,500,700" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Fugaz+One|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
@@ -16,6 +16,31 @@ import {rectify} from '../../src/scene/route.js';
 import {Render, renderText, scaleCopy} from './render.js';
 
 rectify(document.body);
+
+const canvasOptions = new Map();
+
+const titleCanvas = document.createElement('canvas');
+titleCanvas.title = _msg`santatracker`;
+document.body.appendChild(titleCanvas);
+canvasOptions.set(titleCanvas, {
+  color: 'black',
+  width: 300,
+  font: '40px "Lobster"',
+  lineHeight: 60,
+});
+
+const retrocanvas = document.createElement('canvas');
+document.body.appendChild(retrocanvas);
+
+const subtitleCanvas = document.createElement('canvas');
+subtitleCanvas.title = _msg`error-unsupported`;
+document.body.appendChild(subtitleCanvas);
+canvasOptions.set(subtitleCanvas, {
+  color: '#ff0060',
+  width: 300,
+  font: '16px "Fugaz One"',
+  lineHeight: 24,
+});
 
 const r = new Render(retrocanvas);
 
@@ -38,9 +63,6 @@ api.preload.wait(new Promise((r) => {
 
 
 api.ready(() => {
-  message.title = `「サンタを追いかけよう」はこのブラウザに対応していません。ゲームで遊んだり、12 月 24 日にサンタを追いかけたりするには、スマートフォンや他のブラウザを使ってみてください。`;
-  message.title = _msg`error-unsupported`;
-
   const fps = 10;
   let last = 0;
   let previousRatio = -1;
@@ -51,8 +73,10 @@ api.ready(() => {
     const t = targetSize();
 
     if (previousRatio !== t.ratio) {
-      const canvas = renderText(message.title, 300, '#ff0060');
-      scaleCopy(canvas, message, t.ratio);
+      canvasOptions.forEach((options, target) => {
+        const canvas = renderText(target.title, options);
+        scaleCopy(canvas, target, t.ratio);
+      });
     }
 
     if (now - last > (1000 / fps) || previousRatio !== t.ratio) {
@@ -71,9 +95,6 @@ api.ready(() => {
   <a href="./boatload.html" msgid="scene_boatload"></a>
   <a href="./presentdrop.html" msgid="scene_presentdrop"></a>
 </div>
-
-<canvas id="retrocanvas"></canvas>
-<canvas id="message"></canvas>
 
 </body>
 </html>
