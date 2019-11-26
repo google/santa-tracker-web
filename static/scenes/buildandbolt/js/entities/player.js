@@ -63,7 +63,7 @@ app.Player = class Player {
     }, 1000)
   }
 
-  onFrame(delta) {
+  onFrame(delta, now) {
     if (this.dead) {
       return
     }
@@ -164,7 +164,7 @@ app.Player = class Player {
     } else {
       this.setPlayerState(Constants.PLAYER_STATES.WALK)
     }
-    this.updateAnimationFrame()
+    this.updateAnimationFrame(now)
 
     this.render()
   }
@@ -205,8 +205,6 @@ app.Player = class Player {
       this.restart()
       return // ignore all other actions
     }
-
-    let newState
 
     // block player
     const blockEntities = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
@@ -346,27 +344,39 @@ app.Player = class Player {
     // Hold and walk
   }
 
-  updateAnimationFrame(delta) {
+  updateAnimationFrame(now) {
     // Frame is not within range. Set it to start of range.
     if (this.currentAnimationFrame < this.currentAnimationState.start ||
         this.currentAnimationFrame > this.currentAnimationState.end) {
       this.currentAnimationFrame = this.currentAnimationState.start
+      this.lastAnimationFrame = now
       return
     }
 
-    // Play the animation in a loop
-    if (this.currentAnimationState.loop && !this.animationQueue.length) {
-      const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
-      const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
-      this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + 1) % animationLength)
-      return
+    if (!this.lastAnimationFrame) {
+      this.lastAnimationFrame = now
     }
 
-    // Play the animation to the end, then start next animation.
-    this.currentAnimationFrame = Math.min(this.currentAnimationFrame + 1, this.currentAnimationState.end)
-    if (this.currentAnimationFrame == this.currentAnimationState.end) {
-      if (this.animationQueue.length) {
-        this.currentAnimationState = this.animationQueue.shift()
+    const fps = 60
+    const frameDelta = Math.round(fps / 1000 * (now - this.lastAnimationFrame))
+
+    if (frameDelta >= 1) {
+      // Play the animation in a loop
+      if (this.currentAnimationState.loop && !this.animationQueue.length) {
+        const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
+        const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
+        this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + frameDelta) % animationLength)
+        this.lastAnimationFrame = now
+        return
+      }
+
+      // Play the animation to the end, then start next animation.
+      this.currentAnimationFrame = Math.min(this.currentAnimationFrame + frameDelta, this.currentAnimationState.end)
+      this.lastAnimationFrame = now
+      if (this.currentAnimationFrame == this.currentAnimationState.end) {
+        if (this.animationQueue.length) {
+          this.currentAnimationState = this.animationQueue.shift()
+        }
       }
     }
   }

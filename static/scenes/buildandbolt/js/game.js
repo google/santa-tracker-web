@@ -113,7 +113,7 @@ app.Game = class Game {
     }
 
     for (const player of this.players) {
-      player.onFrame(delta)
+      player.onFrame(delta, now)
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
