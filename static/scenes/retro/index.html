@@ -13,8 +13,29 @@
 import api from '../../src/scene/api.js';
 import '../../src/magic.js';
 import {rectify} from '../../src/scene/route.js';
+import {Render} from './render.js';
 
 rectify(document.body);
+
+const r = new Render(retrocanvas);
+
+api.preload.wait(r.ready());
+
+api.ready(() => {
+
+  const fps = 10;
+  let last = 0;
+
+  (function render(now=0) {
+    window.requestAnimationFrame(render);
+
+    if (now - last > (1000 / fps)) {
+      r.render(400, 200, 2);
+      last = now;
+    }
+  }());
+
+});
 
 </script>
 
@@ -24,12 +45,7 @@ rectify(document.body);
   <a href="./presentdrop.html" msgid="scene_presentdrop"></a>
 </div>
 
-<main>
-  <img src="img/placeholder.png" width="320" height="298" />
-</main>
-<main style="transform: scale(2); transform-origin: top center">
-  <img src="img/placeholder.png" width="320" height="298" />
-</main>
+<canvas id="retrocanvas"></canvas>
 
 </body>
 </html>
