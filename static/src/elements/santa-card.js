@@ -53,7 +53,7 @@ const intersectionObserver = (window.IntersectionObserver ? new window.Intersect
       visibleCards.delete(entry.target);
     }
   });
-}, {rootMargin: '16px', threshold: [0, 1]}) : null);
+}, {rootMargin: '128px', threshold: [0, 1]}) : null);
 
 
 (function jiggleRandomCard() {

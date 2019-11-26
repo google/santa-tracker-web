@@ -401,6 +401,9 @@ class SantaGameLoaderElement extends HTMLElement {
         }, {once: true});
 
       });
+
+      const cleanup = () => messageSource.remove(af.contentWindow);
+      portPromise.then(cleanup, cleanup);
     }
 
     // nb. This method should never fail for external reasons; failures here are an internal issue.

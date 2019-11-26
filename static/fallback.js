@@ -95,10 +95,9 @@ const fallbackLoad = (url, {route, data, locked}) => {
       resolve(port);
     };
 
-    messageSource.add(activeFrame, portMessageHandler);
-    messageSource.add(activeFrame.contentWindow, portMessageHandler);
-    activeFrame.addEventListener('-removed', (ev) => resolve(null));
-    activeFrame.addEventListener('load', () => {
+    messageSource.add(frame.contentWindow, portMessageHandler);
+    frame.addEventListener('-removed', (ev) => resolve(null));
+    frame.addEventListener('load', () => {
       // Unlike modern browsers, Edge/IE seems to not get this for a while.
       window.setTimeout(() => {
         resolved || console.warn('load timeout', url);
@@ -106,6 +105,9 @@ const fallbackLoad = (url, {route, data, locked}) => {
       }, 10 * 1000);
     });
   });
+
+  const cleanup = () => messageSource.remove(frame.contentWindow);
+  portPromise.then(cleanup, cleanup);
 
   return portPromise.then((port) => {
     resolved = true;

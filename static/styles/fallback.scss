@@ -16,6 +16,8 @@ iframe {
   border: 0;
   transition: filter 0.33s, transform 0.33s, opacity 0.125s ease-in-out;
   z-index: $frame-layer;
+  width: 100%;
+  height: 100%;
 
   &.pending {
     z-index: $pending-frame-layer;

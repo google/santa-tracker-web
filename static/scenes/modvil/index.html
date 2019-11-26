@@ -32,20 +32,22 @@ api.config({
   sound: ['music_start_village', 'village_start'],
 });
 
-const allCards = Array.from(document.querySelectorAll('santa-card'));
-const androidModule = document.getElementById('android');
+const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
 
 api.addEventListener('data', (ev) => {
   const {routes, android} = ev.detail;
-  allCards.forEach((card) => {
+
+  if (android && androidModuleTemplate.parentNode) {
+    const node = androidModuleTemplate.content.cloneNode(true);
+    androidModule.remove();
+    const main = document.querySelector('main');
+    main.prepend(node);
+  }
+
+  Array.from(document.querySelectorAll('santa-card')).forEach((card) => {
     const detail = routes[card.id] || {video: false, locked: undefined};
     card.locked = detail.locked;
   });
-
-  if (!android && androidModule.parentNode) {
-    androidModule.remove();
-  }
-
 });
 
 
@@ -99,7 +101,6 @@ const updateModuleSoundRatio = (function() {
 async function prepareModules() {
   const main = document.querySelector('main');
   const topModule = document.getElementById('top');
-  const modules = Array.from(main.querySelectorAll('modvil-module'));
 
   helpers.installAdjustHandler(() => {
     let mode = '';
@@ -121,6 +122,7 @@ async function prepareModules() {
     const topRatio = ratioForElement(topModule);
     updateModuleSoundRatio('top', topRatio);
 
+    const modules = Array.from(main.children);
     modules.forEach((m) => {
       if (visible !== false) {
         if (m.offsetTop >= windowRangeHigh) {
@@ -235,18 +237,21 @@ api.ready(async () => {
   </div>
 </div>
 
+<template id="android-module">
+  <modvil-module id="android" color="#9b643d" parts="static-svg,loop,static-png,loop" class="android">
+    <santa-card id="@cityquiz"></santa-card>
+    <santa-card id="@rocketsleigh"></santa-card>
+    <santa-card id="@dasherdancer"></santa-card>
+    <santa-card id="@snowballrun"></santa-card>
+    <santa-card id="@presenttoss"></santa-card>
+    <santa-card id="@penguinswim"></santa-card>
+  </modvil-module>
+</template>
+
 <div id="modules">
   <div class="sidebar left"></div>
   <main>
-<modvil-module id="android" color="#9b643d" parts="static-svg,loop,static-png,loop" class="android">
-  <santa-card id="@cityquiz"></santa-card>
-  <santa-card id="@rocketsleigh"></santa-card>
-  <santa-card id="@dasherdancer"></santa-card>
-  <santa-card id="@snowballrun"></santa-card>
-  <santa-card id="@presenttoss"></santa-card>
-  <santa-card id="@penguinswim"></santa-card>
-</modvil-module>
-<modvil-module id="transithub" color="#d4f1fe" parts="static-svg,cards,loop,scroll">
+<modvil-module id="transithub" color="#d4f1fe" parts="static-png,cards,loop,scroll">
   <santa-card id="jetpack" style="--x: 18.5%; --y: 50%"></santa-card>
   <santa-card id="elfmaker" style="--x: 50%; --y: 36%"></santa-card>
   <santa-card id="santasearch" style="--x: 81.5%; --y: 22%"></santa-card>
@@ -295,12 +300,14 @@ api.ready(async () => {
   <santa-card id="runner" style="--x: 50%; --y: 80%"></santa-card>
 </modvil-module>
 
-<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards"></modvil-module>
+<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards">
+</modvil-module>
   </main>
   <div class="sidebar right"></div>
 </div>
 
 <footer>
+  <a href="#top" slot="low" class="arrow up"></a>
 </footer>
 
 </body>

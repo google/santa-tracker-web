@@ -1,8 +1,10 @@
 @import "sass/play";
 @import "sass/header";
+@import "sass/arrow";
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -73,11 +75,16 @@ body {
   background: linear-gradient(180deg, #00C1F2 0%, #B4E5E6 17.71%, #FFF8BD 41.67%);
   color: white;
   flex-flow: column;
-  box-shadow: 0 4px 0 #0003;
   z-index: 10;
   position: relative;
   max-width: 100vw;
   margin: 0 auto;
+
+  button.arrow {
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+  }
 
   santa-weather {
     position: absolute;
@@ -197,17 +204,20 @@ modvil-module {
   width: 100%;
   min-height: 800px;
   pointer-events: none;
+  margin-top: 72px;
 
   @media (max-width: 414px) {
     min-width: 414px;
   }
 
-  &::after {
-    display: block;
+  &::before {
     content: '';
-    padding-bottom: var(--module-ratio, 90%);
-    box-shadow: inset 0 4px 0 #0003;
-    position: relative;
+    display: block;
+    position: absolute;
+    height: 72px;
+    top: -72px;
+    width: 100%;
+    background: url(img/divider.png) center / cover no-repeat;
   }
 
   &#movies {
@@ -219,11 +229,15 @@ modvil-module {
   }
 }
 
-
-.cards {
-  position: absolute;
-  top: 0;
+footer {
+  position: relative;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: -100px;
+  height: 100px;
+  margin-bottom: -100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
