@@ -147,13 +147,14 @@ app.Player = class Player {
     this.movePlayer()
 
     // TODO: play the correct range
-    this.animationFrame = (this.animationFrame + 1) % 80
+    // this.currentAnimationFrame = (this.currentAnimationFrame + 1) % 80
+    this.updateAnimationFrame()
 
     this.render()
   }
 
   render() {
-    this.animations[this.currentDirection].goToAndStop(this.animationFrame, true)
+    this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
@@ -274,8 +275,10 @@ app.Player = class Player {
       y: 0
     }
 
-    this.animationFrame = 0
+    this.currentAnimationFrame = 1
+    this.currentAnimationState = Constants.PLAYER_FRAMES.HOLD_WALK
     this.setDirection('front')
+    this.animationQueue = []
 
     this.onIce = false
   }
@@ -287,6 +290,38 @@ app.Player = class Player {
       }
       this.animations[direction].renderer.svgElement.classList.add('is-active')
       this.currentDirection = direction
+    }
+  }
+
+  setAnimationState(state) {
+    // Rest
+    // Walk
+    // Hold and rest
+    // Hold and walk
+  }
+
+  updateAnimationFrame(delta) {
+    // Frame is not within range. Set it to start of range.
+    if (this.currentAnimationFrame < this.currentAnimationState.start ||
+        this.currentAnimationFrame > this.currentAnimationState.end) {
+      this.currentAnimationFrame = this.currentAnimationState.start
+      return
+    }
+
+    // Play the animation in a loop
+    if (this.currentAnimationState.loop && !this.animationQueue.length) {
+      const animationLength = this.currentAnimationState.end - this.currentAnimationState.start + 1
+      const currentOffset = this.currentAnimationFrame - this.currentAnimationState.start
+      this.currentAnimationFrame = this.currentAnimationState.start + ((currentOffset + 1) % animationLength)
+      return
+    }
+
+    // Play the animation to the end, then start next animation.
+    this.currentAnimationFrame = Math.min(this.currentAnimationFrame + 1, this.currentAnimationState.end)
+    if (this.currentAnimationFrame == this.currentAnimationState.end) {
+      if (this.animationQueue.length) {
+        this.currentAnimationState = this.animationQueue.shift()
+      }
     }
   }
 }

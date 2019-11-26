@@ -51,6 +51,49 @@ Constants = {
     SLIDE: 'slide'
   },
 
+  PLAYER_FRAMES: {
+    REST: {
+      start: 1,
+      end: 1,
+      loop: true
+    },
+    REST_TO_WALK: {
+      start: 1,
+      end: 8
+    },
+    WALK: {
+      start: 8,
+      end: 24,
+      loop: true
+    },
+    WALK_TO_REST: {
+      start: 24,
+      end: 32
+    },
+    REST_TO_HOLD_WALK: {
+      start: 40,
+      end: 48
+    },
+    HOLD_WALK: {
+      start: 48,
+      end: 64,
+      loop: true
+    },
+    HOLD_WALK_TO_HOLD_REST: {
+      start: 64,
+      end: 72
+    },
+    HOLD_REST: {
+      start: 72,
+      end: 72,
+      loop: true
+    },
+    HOLD_REST_TO_REST: {
+      start: 72,
+      end: 80
+    }
+  },
+
   GRID_DIMENSIONS: {
     HEIGHT: 16.0, // height in grid units
     WIDTH: 28.0, // width in grid units
