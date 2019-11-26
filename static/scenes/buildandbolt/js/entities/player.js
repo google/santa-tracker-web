@@ -15,9 +15,13 @@ app.Player = class Player {
     document.getElementById('players').append(this.elem)
     this.elem.setAttribute('class', `player player--${id}`)
 
-    this.elem.appendChild(this.animations['front'].renderer.svgElement)
-    this.elem.appendChild(this.animations['back'].renderer.svgElement)
-    this.elem.appendChild(this.animations['side'].renderer.svgElement)
+    this.innerElem = document.createElement('div')
+    this.innerElem.setAttribute('class', `player__inner`)
+    this.elem.appendChild(this.innerElem)
+
+    this.innerElem.appendChild(this.animations['front'].renderer.svgElement)
+    this.innerElem.appendChild(this.animations['back'].renderer.svgElement)
+    this.innerElem.appendChild(this.animations['side'].renderer.svgElement)
 
     this.spawnElem = document.createElement('div')
     document.getElementById('players').append(this.spawnElem)
@@ -146,8 +150,12 @@ app.Player = class Player {
 
     this.movePlayer()
 
-    // TODO: play the correct range
-    // this.currentAnimationFrame = (this.currentAnimationFrame + 1) % 80
+    // TODO: play the correct state
+    if (this.velocity.x == 0 && this.velocity.y == 0) {
+      this.setPlayerState(Constants.PLAYER_STATES.REST)
+    } else {
+      this.setPlayerState(Constants.PLAYER_STATES.WALK)
+    }
     this.updateAnimationFrame()
 
     this.render()
@@ -189,6 +197,8 @@ app.Player = class Player {
       this.restart()
       return // ignore all other actions
     }
+
+    let newState
 
     // block player
     const blockEntities = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
@@ -276,7 +286,8 @@ app.Player = class Player {
     }
 
     this.currentAnimationFrame = 1
-    this.currentAnimationState = Constants.PLAYER_FRAMES.HOLD_WALK
+    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
+    this.playerState = Constants.PLAYER_STATES.REST
     this.setDirection('front')
     this.animationQueue = []
 
@@ -293,7 +304,34 @@ app.Player = class Player {
     }
   }
 
-  setAnimationState(state) {
+  setPlayerState(state) {
+    if (state == this.playerState) {
+      return
+    }
+
+    switch(state) {
+      case Constants.PLAYER_STATES.WALK:
+        switch(this.playerState) {
+          case Constants.PLAYER_STATES.REST:
+            this.animationQueue.push(Constants.PLAYER_FRAMES.REST_TO_WALK)
+            // break;
+          default:
+            this.playerState = Constants.PLAYER_STATES.WALK
+            this.animationQueue.push(Constants.PLAYER_FRAMES.WALK)
+        }
+        break;
+      case Constants.PLAYER_STATES.REST:
+        switch(this.playerState) {
+          case Constants.PLAYER_STATES.WALK:
+            this.animationQueue.push(Constants.PLAYER_FRAMES.WALK_TO_REST)
+            // break;
+          default:
+            this.playerState = Constants.PLAYER_STATES.REST
+            this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
+        }
+        break;
+    }
+    // Add only once. Add transition states. Clear queue if needed.
     // Rest
     // Walk
     // Hold and rest

@@ -51,6 +51,13 @@ Constants = {
     SLIDE: 'slide'
   },
 
+  PLAYER_STATES: {
+    REST: 0,
+    WALK: 1,
+    HOLD_REST: 2,
+    HOLD_WALK: 3
+  },
+
   PLAYER_FRAMES: {
     REST: {
       start: 1,

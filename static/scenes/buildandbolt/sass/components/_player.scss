@@ -4,13 +4,20 @@
     width: $grid-unit-size;
     z-index: $player-z-index;
 
-    &--a {
-      background: url(img/players/a/player.svg) center/contain no-repeat;
+    &__inner {
+      height: 100%;
+      transform: scale(2);
+      transform-origin: 50% 100%;
+      width: 100%;
     }
 
-    &--b {
-      background: url(img/players/b/player.svg) center/contain no-repeat;
-    }
+    // &--a {
+    //   background: url(img/players/a/player.svg) center/contain no-repeat;
+    // }
+
+    // &--b {
+    //   background: url(img/players/b/player.svg) center/contain no-repeat;
+    // }
 
     &.is-hidden {
       opacity: 0;
