@@ -1,0 +1,71 @@
+.waterspout {
+  position: absolute;
+  width: 117px;
+  height: 132px;
+  left: calc(50% - 55px);
+  top: 607px;
+  overflow: hidden;
+}
+
+.waterspout-bottom {
+  width: 9px;
+  height: 79px;
+  position: absolute;
+  left: 53px;
+  top: 54px;
+  background-image: url(img/village/waterspout-bottom.svg);
+  background-repeat: no-repeat;
+  animation: waterspout-bottom 5000ms infinite ease-in-out;
+}
+
+.waterspout-top {
+  top: 0;
+  left: 0;
+  width: 116px;
+  height: 82px;
+  background-image: url(img/village/waterspout-top.svg);
+  background-repeat: no-repeat;
+  animation: waterspout-top 5000ms infinite ease-in-out;
+}
+
+@keyframes waterspout-bottom {
+  0% {
+    transform: translate3d(0, 130px, 0) scale(.6);
+  }
+  30% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  80% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 130px, 0) scale(.6);
+  }
+}
+
+@keyframes waterspout-top {
+  0% {
+    transform: translate3d(0, 145px, 0) scale(0, 0) rotateZ(5deg);
+  }
+  33% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  40% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  60% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  70% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  80% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  100% {
+    transform: translate3d(0, 145px, 0) scale(0, 0) rotateZ(5deg);
+  }
+}

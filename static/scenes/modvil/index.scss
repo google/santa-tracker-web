@@ -40,6 +40,7 @@ body {
   }
   .layer4 {
     background-image: url(img/village/4.svg);
+    @import "sass/layer4";
   }
   position: absolute;
   top: 0;
