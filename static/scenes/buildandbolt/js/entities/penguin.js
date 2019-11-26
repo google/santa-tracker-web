@@ -37,10 +37,19 @@ app.Penguin = class Penguin extends app.Slider {
     config.height = Constants.PENGUIN_HEIGHT
     config.width = Constants.PENGUIN_WIDTH
 
+    super.onInit(config)
+
     this.animationFrame = Constants.PENGUIN_FRAMES.start
     this.lastAnimationFrame = null
 
-    super.onInit(config)
+    if (this.config.isVertical) {
+      this.animations['side'].renderer.svgElement.classList.remove('is-active')
+      this.animationDirection = 'front'
+    } else {
+      this.animations['front'].renderer.svgElement.classList.remove('is-active')
+      this.animations['back'].renderer.svgElement.classList.remove('is-active')
+      this.animationDirection = 'side'
+    }
   }
 
   onFrame(delta, now) {
@@ -55,8 +64,6 @@ app.Penguin = class Penguin extends app.Slider {
     } = Utils.nextAnimationFrame(Constants.PENGUIN_FRAMES,
         this.animationFrame, true, this.lastAnimationFrame, now)
 
-    console.log(nextFrame, frameTime)
-
     this.animationFrame = nextFrame
     this.lastAnimationFrame = frameTime
 
@@ -66,11 +73,28 @@ app.Penguin = class Penguin extends app.Slider {
   render() {
     super.render()
 
-    // detect direction
-    this.animations['front'].renderer.svgElement.classList.add('is-active')
+    // handle direction change this frame
+    if (this.flipped) {
+      if (this.config.isVertical) {
+        if (this.reversing) {
+          this.animationDirection = 'back'
+          this.animations['front'].renderer.svgElement.classList.remove('is-active')
+        } else {
+          this.animationDirection = 'front'
+          this.animations['back'].renderer.svgElement.classList.remove('is-active')
+        }
+      } else {
+        if (this.reversing) {
+          this.innerElem.classList.add('is-flipped')
+        } else {
+          this.innerElem.classList.remove('is-flipped')
+        }
+      }
+    }
 
     // render animation
-    this.animations['front'].goToAndStop(this.animationFrame, true)
+    this.animations[this.animationDirection].renderer.svgElement.classList.add('is-active')
+    this.animations[this.animationDirection].goToAndStop(this.animationFrame, true)
   }
 
   onContact(player) {

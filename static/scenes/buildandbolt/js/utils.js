@@ -73,15 +73,11 @@ Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop, lastFra
   const fps = 60
   const frameDelta = Math.round(fps / 1000 * (now - lastFrameTime))
 
-  console.log(animationFrames, currentFrame, loop, lastFrameTime, now)
-  console.log(frameDelta)
-
   if (frameDelta >= 1) {
     if (loop) {
       const animationLength = animationFrames.end - animationFrames.start + 1
       const currentOffset = currentFrame - animationFrames.start
       nextFrame = animationFrames.start + ((currentOffset + frameDelta) % animationLength)
-      console.log(animationLength, currentOffset, nextFrame)
     } else {
       nextFrame = Math.min(currentFrame + frameDelta, animationFrames.end)
     }
