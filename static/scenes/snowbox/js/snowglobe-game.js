@@ -7,7 +7,6 @@ import Toolbar from './ui-components/Toolbar.js'
 import CameraControls from './ui-components/CameraControls.js'
 import ObjectEditTool from './ui-components/ObjectEditTool.js'
 import Download from './ui-components/Download.js'
-import SoundButton from './ui-components/SoundButton.js'
 import isTouchDevice from './utils/isTouchDevice.js'
 import { DEBUG_MODE } from  './constants/index.js'
 
@@ -24,7 +23,6 @@ class SnowglobeGame {
       cameraControls: el.querySelector('[camera-controls]'),
       objectEditTool: el.querySelector('[object-edit-tool]'),
       download: el.querySelector('[data-download]'),
-      soundButton: el.querySelector('[data-sound-button')
     }
 
     this.render = this.render.bind(this)
@@ -40,7 +38,6 @@ class SnowglobeGame {
     new CameraControls(this.ui.cameraControls)
     new ObjectEditTool(this.ui.objectEditTool)
     new Download(this.ui.download)
-    new SoundButton(this.ui.soundButton)
 
     // stats
     if (DEBUG_MODE) {
