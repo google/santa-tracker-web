@@ -4,23 +4,16 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-body {
-  margin: 0;
-  background: black;
-  touch-action: none;
-}
-#player {
-  width: 100vw;
-  height: 100vh;
-  min-width: 320px;
-  min-height: 200px;
-  display: block;
-}
-  </style>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
+<div id="center">
+  <button class="play" disabled id="playButton">
+    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+  </button>
+  <div class="background"></div>
+</div>
 <video id="player" playsinline></video>
 
 <script type="module">
@@ -55,9 +48,27 @@ body {
     api.gameover();
   });
 
+  const safePlay = () => {
+    const p = player.play();
+    if (!p) {
+      // no Promise, assume played
+      playButton.disabled = true;
+      return;
+    }
+    p.then(() => {
+      playButton.disabled = true;
+    }).catch((err) => {
+      // If we can't play (Safari autoplay prevention), then show the button until we can.
+      playButton.disabled = false;
+    });
+  };
+
+  playButton.addEventListener('click', () => {
+    safePlay();
+  });
+
   api.ready(() => {
-    // FIXME: this won't play if there was no previous interaction. Need a giant play button.
-    player.play();
+    safePlay();
   });
 
 </script>

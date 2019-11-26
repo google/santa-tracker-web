@@ -105,7 +105,7 @@ const LOAD_LEEWAY = 250;
 // allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
 const IFRAME_SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
-const IFRAME_ALLOW = 'autoplay';
+const IFRAME_ALLOW = 'autoplay';  // nb. could add 'accelerometer', but only for Chrome
 
 
 export const events = Object.freeze({
@@ -160,7 +160,7 @@ export const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
   iframe.setAttribute('sandbox', IFRAME_SANDBOX);
-  iframe.setAttribute('allow', IFRAME_ALLOW);
+//  iframe.setAttribute('allow', IFRAME_ALLOW);
   iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
   return iframe;
 };
