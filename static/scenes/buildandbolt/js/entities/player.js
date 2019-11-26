@@ -393,6 +393,8 @@ app.Player = class Player {
       this.lastAnimationFrame = now
     }
 
+    // TODO: use utils method
+
     const fps = 60
     const frameDelta = Math.round(fps / 1000 * (now - this.lastAnimationFrame))
 

@@ -12,16 +12,20 @@ app.Penguin = class Penguin extends app.Slider {
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
+
+    this.innerElem = document.createElement('div')
+    this.innerElem.setAttribute('class', `penguin__inner`)
+    this.elem.appendChild(this.innerElem)
+
     this.animations = {}
 
     let sides = ['front', 'back', 'side']
-
     for (const side of sides) {
       this.animations[side] = game.loadAnimation(`img/penguin/${side}.json`, {
         loop: false,
         autoplay: false,
         renderer: 'svg',
-        container: this.elem,
+        container: this.innerElem,
         rendererSettings: {
           className: `animation animation--${side}`
         },
@@ -33,7 +37,40 @@ app.Penguin = class Penguin extends app.Slider {
     config.height = Constants.PENGUIN_HEIGHT
     config.width = Constants.PENGUIN_WIDTH
 
+    this.animationFrame = Constants.PENGUIN_FRAMES.start
+    this.lastAnimationFrame = null
+
     super.onInit(config)
+  }
+
+  onFrame(delta, now) {
+    // update animationframe
+    if (!this.lastAnimationFrame) {
+      this.lastAnimationFrame = now
+    }
+
+    const {
+      nextFrame,
+      frameTime
+    } = Utils.nextAnimationFrame(Constants.PENGUIN_FRAMES,
+        this.animationFrame, true, this.lastAnimationFrame, now)
+
+    console.log(nextFrame, frameTime)
+
+    this.animationFrame = nextFrame
+    this.lastAnimationFrame = frameTime
+
+    super.onFrame()
+  }
+
+  render() {
+    super.render()
+
+    // detect direction
+    this.animations['front'].renderer.svgElement.classList.add('is-active')
+
+    // render animation
+    this.animations['front'].goToAndStop(this.animationFrame, true)
   }
 
   onContact(player) {

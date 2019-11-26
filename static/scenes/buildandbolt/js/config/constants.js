@@ -121,4 +121,10 @@ Constants = {
   PENGUIN_HEIGHT: 1,
   PENGUIN_WIDTH: 1,
 
+  PENGUIN_FRAMES: {
+    start: 0,
+    end: 12,
+    loop: true
+  },
+
 }

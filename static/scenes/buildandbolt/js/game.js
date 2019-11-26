@@ -110,7 +110,7 @@ app.Game = class Game {
     // this.timePassed += delta
 
     for (const entity of this.entities) {
-      entity.onFrame(delta)
+      entity.onFrame(delta, now)
     }
 
     for (const player of this.players) {
