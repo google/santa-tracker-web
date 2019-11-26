@@ -4,6 +4,16 @@ $max-dim: 1400px;
 
 #wrap {
   background: rgba(72, 3, 184, 0.95);
+  height: 100%;
+}
+
+#scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  touch-action: pan-y;
 }
 
 main {

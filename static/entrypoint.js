@@ -376,7 +376,7 @@ async function runner(control, route, config) {
         continue;
 
       case 'gameover':
-        if (payload.share) {
+        if (payload && payload.share) {
           const shareUrl = window.location.pathname + window.location.search;
           global.setState({shareUrl})
         }

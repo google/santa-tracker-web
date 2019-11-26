@@ -86,14 +86,17 @@ const fallbackLoad = (url, {route, data, locked}) => {
   let resolved = false;
 
   const portPromise = new Promise((resolve) => {
-    messageSource.add(activeFrame.contentWindow, (ev) => {
-      console.debug('got port from', activeFrame);
+    const portMessageHandler = (ev) => {
+      console.debug('got port via', ev);
       const port = ev.ports[0];
       if (!port) {
         throw new Error(`didn't get port from contentWindow`);
       }
       resolve(port);
-    });
+    };
+
+    messageSource.add(activeFrame, portMessageHandler);
+    messageSource.add(activeFrame.contentWindow, portMessageHandler);
     activeFrame.addEventListener('-removed', (ev) => resolve(null));
     activeFrame.addEventListener('load', () => {
       // Unlike modern browsers, Edge/IE seems to not get this for a while.

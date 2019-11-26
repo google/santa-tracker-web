@@ -106,6 +106,7 @@ export class SantaCardNavElement extends LitElement {
 
     return html`
 <div id="wrap">
+<div id="scroll">
 <header>
 </header>
 <main>${cardHtml}${placeholders}</main>
@@ -190,6 +191,7 @@ export class SantaCardNavElement extends LitElement {
 
 </div>
 </footer>
+</div>
 </div>
     `;
   }

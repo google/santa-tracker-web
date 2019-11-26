@@ -50,6 +50,12 @@ santa-interlude {
   z-index: $index-interlude;
 }
 
+santa-error {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 body:not(.loaded) {
   santa-interlude {
     z-index: $index-interlude-preload;

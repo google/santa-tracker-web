@@ -67,6 +67,11 @@ class PortControl {
   }
 
   push(arg) {
+    if (typeof arg !== 'object') {
+      console.warn('got unhandled message from client', arg);
+      return;
+    }
+
     if (this._nextResolve) {
       this._nextResolve(arg);
       this._nextResolve = null;
