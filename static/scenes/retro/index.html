@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fugaz+One|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
 <script type="module">
 import api from '../../src/scene/api.js';
-import '../../src/magic.js';
+import {_msg} from '../../src/magic.js';
 import {rectify} from '../../src/scene/route.js';
-import {Render} from './render.js';
+import {Render, renderText, scaleCopy} from './render.js';
 
 rectify(document.body);
 
@@ -21,17 +21,44 @@ const r = new Render(retrocanvas);
 
 api.preload.wait(r.ready());
 
+function targetSize() {
+  const max = 2;
+  const ratio = Math.min(max, Math.floor(window.innerWidth / 320)) || 1;
+
+  return {
+    width: 320,
+    height: 320,
+    ratio,
+  };
+}
+
+api.preload.wait(new Promise((r) => {
+  window.addEventListener('load', r);
+}));
+
+
 api.ready(() => {
+  message.title = `「サンタを追いかけよう」はこのブラウザに対応していません。ゲームで遊んだり、12 月 24 日にサンタを追いかけたりするには、スマートフォンや他のブラウザを使ってみてください。`;
+  message.title = _msg`error-unsupported`;
 
   const fps = 10;
   let last = 0;
+  let previousRatio = -1;
 
   (function render(now=0) {
     window.requestAnimationFrame(render);
 
-    if (now - last > (1000 / fps)) {
-      r.render(400, 200, 2);
+    const t = targetSize();
+
+    if (previousRatio !== t.ratio) {
+      const canvas = renderText(message.title, 300, '#ff0060');
+      scaleCopy(canvas, message, t.ratio);
+    }
+
+    if (now - last > (1000 / fps) || previousRatio !== t.ratio) {
+      r.render(t.width, t.height, t.ratio);
       last = now;
+      previousRatio = t.ratio;
     }
   }());
 
@@ -46,6 +73,7 @@ api.ready(() => {
 </div>
 
 <canvas id="retrocanvas"></canvas>
+<canvas id="message"></canvas>
 
 </body>
 </html>
