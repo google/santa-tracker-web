@@ -7,12 +7,17 @@ app.Player = class Player {
   constructor(game, controls, id) {
     this.game = game
     this.gameControls = game.controls
+    this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
 
     this.elem = document.createElement('div')
     document.getElementById('players').append(this.elem)
     this.elem.setAttribute('class', `player player--${id}`)
+
+    this.elem.appendChild(this.animations['front'].renderer.svgElement)
+    this.elem.appendChild(this.animations['back'].renderer.svgElement)
+    this.elem.appendChild(this.animations['side'].renderer.svgElement)
 
     this.spawnElem = document.createElement('div')
     document.getElementById('players').append(this.spawnElem)
@@ -141,10 +146,14 @@ app.Player = class Player {
 
     this.movePlayer()
 
+    // TODO: play the correct range
+    this.animationFrame = (this.animationFrame + 1) % 80
+
     this.render()
   }
 
   render() {
+    this.animations[this.currentDirection].goToAndStop(this.animationFrame, true)
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
@@ -265,6 +274,19 @@ app.Player = class Player {
       y: 0
     }
 
+    this.animationFrame = 0
+    this.setDirection('front')
+
     this.onIce = false
+  }
+
+  setDirection(direction) {
+    if (direction != this.currentDirection) {
+      if (this.animations[this.currentDirection]) {
+        this.animations[this.currentDirection].renderer.svgElement.classList.remove('is-active')
+      }
+      this.animations[direction].renderer.svgElement.classList.add('is-active')
+      this.currentDirection = direction
+    }
   }
 }

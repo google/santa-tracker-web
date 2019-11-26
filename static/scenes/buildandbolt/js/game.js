@@ -18,13 +18,13 @@ goog.require('app.Wall')
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 
-
 app.Game = class Game {
-  constructor(context, playerOption) {
+  constructor(context, playerOption, animations) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
+    this.animations = animations
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
@@ -32,11 +32,11 @@ app.Game = class Game {
     this.players = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 1)
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')
       this.multiplayer = false
     } else {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 1)
-      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 2)
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a')
+      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
       this.multiplayer = true
     }
 

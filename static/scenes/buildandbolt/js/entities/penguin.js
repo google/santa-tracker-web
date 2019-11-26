@@ -12,6 +12,17 @@ app.Penguin = class Penguin extends app.Slider {
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
+    this.animations = this.game.animations['penguin']
+
+    // let anim = game.loadAnimation('img/players/a/front.json', {
+    //   loop: true,
+    //   autoplay: true,
+    //   clearDefs: true,
+    // })
+
+    // console.log(this.elem, anim.renderer.svgElement)
+
+    // this.elem.appendChild(this.animations['front'].renderer.svgElement)
   }
 
   onInit(config) {

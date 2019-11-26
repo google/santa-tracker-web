@@ -71,6 +71,14 @@ body {
     }
   }
 
+  .animation {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
   .debug-cell {
     border: 2px solid pink;
     font-size: 10px;
