@@ -141,7 +141,6 @@ let activeMove = null;
 let moveTask = Promise.resolve();
 const applyMove = (name) => {
   const localMoveTask = moveTask.then(async () => {
-    window.santaApp.fire('sound-trigger', 'elfmaker_switch_item');
     activeMove = name;
     const steps = moves[name] || [];
     for (let i = 0; i < steps.length; ++i) {

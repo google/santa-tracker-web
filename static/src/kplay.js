@@ -631,7 +631,7 @@ class AudioSource extends EventTarget {
       if (this._loopStart !== undefined) {
         source.loopStart = this._loopStart;
 
-        if (this._loopEnd === undefined) {
+        if (this._loopEnd === undefined && source.buffer) {
           source.loopEnd = source.buffer.duration;
         }
       }
@@ -745,7 +745,12 @@ class AudioSource extends EventTarget {
       // position, then restart the underlying source.
       this._startTime = masterContext.currentTime - delta;
       const position = this.position;  // calculate trick position
-      this._sources.forEach((source) => source.stop());
+      this._sources.forEach((source) => {
+        // safari invalidState fix
+        if ( source.playbackState == undefined || source.playbackState > 0 ) {
+          source.stop();
+        }
+      });
 
       const source = this._createSource();
       source.start(masterContext.currentTime, position);
@@ -833,7 +838,9 @@ class AudioSource extends EventTarget {
     if (sourceToStop === null) {
       return false;
     }
-    sourceToStop.stop();
+    if ( sourceToStop.playbackState == undefined || sourceToStop.playbackState > 0 ) {
+      sourceToStop.stop();
+    }
     this.dispatchEvent(new Event('ended'));
     // nb. 'when' wasn't used in the upstream code, and added tons of complexity.
   }

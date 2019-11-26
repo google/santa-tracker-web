@@ -16,11 +16,10 @@ import {configureProdRouter, globalClickHandler} from './src/core/router.js';
 
 
 const audio = document.createElement('audio');
-audio.src = _static`audio/13642_66fd4cda9ca0524f70349abcafd9c9c8_poseboogie_idle_loop.mp3`;
+audio.src = _static`fallback-audio/village_retro_music_r2.mp3`;
 audio.loop = true;
 audio.autoplay = true;
 document.body.append(audio);
-
 
 const homeButton = document.createElement('button');
 homeButton.className = 'home';
