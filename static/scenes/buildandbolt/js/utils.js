@@ -12,12 +12,10 @@ Utils.renderAtGridLocation = function(element, x, y) {
 }
 
 Utils.isTouchingBorder = function(entity, playerPosition) {
-  const offset = 0.1
-
-  if (entity.x + entity.width > playerPosition.x - offset &&
-    entity.x - 1 < playerPosition.x + offset &&
-    entity.y + entity.height > playerPosition.y - offset &&
-    entity.y - 1 < playerPosition.y + offset) {
+  if (entity.x + entity.width > playerPosition.x &&
+    entity.x - 1 < playerPosition.x &&
+    entity.y + entity.height > playerPosition.y &&
+    entity.y - 1 < playerPosition.y) {
     return true
   }
 
@@ -25,8 +23,8 @@ Utils.isTouchingBorder = function(entity, playerPosition) {
 }
 
 Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
-  const rightSide = entity.x + entity.width - 0.05
-  const leftSide = entity.x - 1 + 0.05
+  const rightSide = entity.x + entity.width - Constants.WALL_EXTRA_SPACE
+  const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
   const bottomSide = entity.y + entity.height
   const topSide = entity.y - 1
 
@@ -71,48 +69,97 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const offset = 1
   //  needs to update entity width so player can go throught 2 right/left side fences
 
-  const rightSide = entity.left ? entity.x + 1 - 0.05 - offset : entity.x + 1 - 0.05
-  const leftSide = entity.x - 1 + 0.05
-  const bottomSide = entity.top ? entity.y + 1 - offset : entity.y + 1
+  const rightSide = entity.x + 1 - Constants.WALL_EXTRA_SPACE
+  const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
+  const bottomSide = entity.y + 1
   const topSide = entity.y - 1
 
-  console.log(bottomSide)
+  // console.log(bottomSide)
   // const leftSide = entity.left ? entity.x - 1 + offset : entity.x - 1
   // const bottomSide = entity.bottom ? entity.y + 1 - offset : entity.y + 1
   // const topSide = entity.top ? entity.y - 1 + offset : entity.y - 1
+  const blockingPosition = {
+    x: playerPosition.x,
+    y: playerPosition.y
+  }
+  let block = false
 
-  if (rightSide > playerPosition.x &&
-    leftSide < playerPosition.x &&
-    bottomSide > playerPosition.y &&
-    topSide < playerPosition.y) {
+  const rightSideExtra = entity.left ? rightSide - offset : rightSide
 
-    const blockingPosition = {
-      x: playerPosition.x,
-      y: playerPosition.y
-    }
-
-    if (playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= rightSide) {
+  if (playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= rightSideExtra) {
+    // coming from right
+    if (rightSideExtra > playerPosition.x &&
+      leftSide < playerPosition.x &&
+      bottomSide > playerPosition.y &&
+      topSide < playerPosition.y) {
       // coming from right
-      blockingPosition.x = rightSide
+      blockingPosition.x = rightSideExtra
+      block = true
     }
+  }
 
-    if (playerPosition.x > prevPlayerPosition.x && prevPlayerPosition.x <= leftSide) {
+
+  if (playerPosition.x > prevPlayerPosition.x && prevPlayerPosition.x <= leftSide) {
+    if (rightSide > playerPosition.x &&
+      leftSide < playerPosition.x &&
+      bottomSide > playerPosition.y &&
+      topSide < playerPosition.y) {
       // coming from left
       blockingPosition.x = leftSide
+      block = true
     }
+  }
 
-    if (playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide) {
+  const bottomSideExtra = entity.top ? bottomSide - offset : bottomSide
+
+  if (playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSideExtra) {
+    if (rightSide > playerPosition.x &&
+      leftSide < playerPosition.x &&
+      bottomSideExtra > playerPosition.y &&
+      topSide < playerPosition.y) {
       // coming from bottom
-      blockingPosition.y = bottomSide
+      blockingPosition.y = bottomSideExtra
+      block = true
     }
+  }
 
-    if (playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= topSide) {
-      // coming from top
+  if (playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= topSide) {
+    if (rightSide > playerPosition.x &&
+      leftSide < playerPosition.x &&
+      bottomSide > playerPosition.y &&
+      topSide < playerPosition.y) {
+          // coming from top
       blockingPosition.y = topSide
     }
+  }
 
+  if (block) {
     return blockingPosition
   }
+
+
+  // if (rightSide > playerPosition.x &&
+  //   leftSide < playerPosition.x &&
+  //   bottomSide > playerPosition.y &&
+  //   topSide < playerPosition.y) {
+
+  //   if (playerPosition.x > prevPlayerPosition.x && prevPlayerPosition.x <= leftSide) {
+  //     // coming from left
+  //     blockingPosition.x = leftSide
+  //   }
+
+  //   if (playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide) {
+  //     // coming from bottom
+  //     blockingPosition.y = bottomSide
+  //   }
+
+  //   if (playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= topSide) {
+  //     // coming from top
+  //     blockingPosition.y = topSide
+  //   }
+
+  //   return blockingPosition
+  // }
 
   return false
 }

@@ -92,12 +92,12 @@ Levels = [
             // first line
             [{
               left: true,
-              top: true,
+              // top: true,
             },{
               left: true,
               // top: true,
             },{
-              // left: true,
+              left: true,
               top: true,
             }]
           ],

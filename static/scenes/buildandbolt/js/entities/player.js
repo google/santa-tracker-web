@@ -184,14 +184,11 @@ app.Player = class Player {
       for (const entity of blockEntities) {
         // block player
         if (entity.blockingPosition) {
-          console.log(entity, this.position.x, entity.blockingPosition.x, this.position.y, entity.blockingPosition.y)
           this.blockPlayer = true
           if (entity.blockingPosition.x !== this.position.x) {
-            console.log('x is different')
             this.blockingPosition.x = entity.blockingPosition.x
           }
           if (entity.blockingPosition.y !== this.position.y) { // Realized that the player position Y at the very top is 0.01 instead of 0
-            console.log('y is different')
             this.blockingPosition.y = entity.blockingPosition.y
           }
         }
