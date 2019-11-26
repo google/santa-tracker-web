@@ -541,6 +541,8 @@ class Scene {
     if (!unmove && this.selectedSubject.ghost) {
       this.selectedSubject.moveToGhost()
     }
+    //wakeupBodies
+    this.wakeUpBodies()
     this.selectedSubject.unselect()
 
     this.mountain.removePositionMarker()
@@ -741,7 +743,7 @@ class Scene {
         detectCollision()
       } else {
         // if no more collision, move up the object (update moveOffset)
-        this.moveOffset.y = boxHelper.min.y - 0.05
+        this.moveOffset.y = boxHelper.min.y - 0.05 * this.selectedSubject.scaleFactor
         if (isEditing) {
           // move ghost
           this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
@@ -821,6 +823,18 @@ class Scene {
     this.activeSubject = null
     this.setMode()
     this.mountain.removePositionMarker()
+  }
+
+  wakeUpBodies() {
+    const bodies = this.sceneSubjects.filter(subject => subject.selectable || subject.collidable)
+      .map(subject => subject.body)
+
+    for (let i = 0; i < bodies.length; i++) {
+      // wake up all bodies
+      if (bodies[i].sleepState > 0) {
+        bodies[i].wakeUp()
+      }
+    }
   }
 
   setUnits() {

@@ -23,12 +23,21 @@ class Shape {
     this.geoMats = []
     this.centerOffsetY = 0
     this.highlightColor = new THREE.Color(darken(GLOBAL_CONFIG.COLORS.ICE_HEXA, 15))
+    this.stableThreshold = 0.01
+    this.stableThrottleTime = 500
+
+    this.lastBodyPosition = {
+      x: 0,
+      y: 0,
+      z: 0,
+    }
 
     if (this.init) {
       this.init = this.init.bind(this)
     }
     this.load = this.load.bind(this)
     this.onCollide = this.onCollide.bind(this)
+    this.isStable = this.isStable.bind(this)
   }
 
   load(callback) {
@@ -86,6 +95,12 @@ class Shape {
     if (this.callback) {
       this.callback(this)
     }
+
+    if (this.name !== 'tree') {
+      this.stable = throttle(this.isStable, this.stableThrottleTime)
+      // listen raf
+      window.addEventListener('RAF', this.stable)
+    }
   }
 
   createBody() {
@@ -98,7 +113,7 @@ class Shape {
     this.body = new CANNON.Body({
       mass: this.mass,
       fixedRotation: false,
-      material: GLOBAL_CONFIG.NORMAL_MATERIAL,
+      // material: GLOBAL_CONFIG.NORMAL_MATERIAL,
       linearDamping: 0,
       angularDamping: 0,
     })
@@ -112,6 +127,25 @@ class Shape {
     // listen collision of shape
     this.collide = throttle(this.onCollide, 50) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
+  }
+
+  isStable() {
+    // This is a fix for bodies always sliding whatever the material used
+    // https://github.com/schteppe/cannon.js/issues/348
+    // Check if the body didn't move a lot since 500ms, if not make it sleep to make it 100% stable
+    if (this.body) {
+      const diffPosition = Math.abs(this.body.position.x - this.lastBodyPosition.x)
+        + Math.abs(this.body.position.y - this.lastBodyPosition.y)
+        + Math.abs(this.body.position.z - this.lastBodyPosition.z)
+
+      if (diffPosition < this.stableThreshold && this.body.sleepState !== 2) {
+        this.body.sleep()
+      }
+
+      this.lastBodyPosition.x = this.body.position.x
+      this.lastBodyPosition.y = this.body.position.y
+      this.lastBodyPosition.z = this.body.position.z
+    }
   }
 
   createShapesFromWRL(models, scale) {
@@ -161,6 +195,7 @@ class Shape {
   unselect() {
     if (this.selectable && this.selected) {
       this.selected = false
+
       if (this.body.sleepState > 0) {
         this.body.wakeUp()
       }
