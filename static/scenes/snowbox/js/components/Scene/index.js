@@ -318,7 +318,12 @@ class Scene {
       )
 
       this.selectSubject(newSelectedSubject)
-      this.isSelectingMouseDown = true
+
+      clearTimeout(this.isSelectingMouseDownTimeOut)
+      this.isSelectingMouseDownTimeOut = setTimeout(() => {
+        this.isSelectingMouseDown = true
+      }, 200) // prevent glitch if mousedown, move and mouseup very fast
+
     } else {
       this.setMode()
     }
@@ -591,7 +596,6 @@ class Scene {
     const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
 
     if (posPlaneHelper) {
-      this.selectedSubject.ghost.visible = true
       const x = posPlaneHelper.x + this.moveOffset.x
       const z = posPlaneHelper.z + this.moveOffset.z
       const y = this.planeHelper.position.y + this.moveOffset.y
