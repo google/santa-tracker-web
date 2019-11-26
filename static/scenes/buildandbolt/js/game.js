@@ -19,12 +19,13 @@ goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 
 app.Game = class Game {
-  constructor(context, playerOption, animations) {
+  constructor(context, playerOption, animations, loadAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
     this.animations = animations
+    this.loadAnimation = loadAnimation
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)

@@ -47,9 +47,9 @@ initAnimation('img/players/b/front.json', 'player-b', 'front')
 initAnimation('img/players/b/back.json', 'player-b', 'back')
 initAnimation('img/players/b/side.json', 'player-b', 'side')
 initAnimation('img/players/death-pow.json', 'player-b', 'death')
-initAnimation('img/penguin/front.json', 'penguin', 'front')
-initAnimation('img/penguin/back.json', 'penguin', 'back')
-initAnimation('img/penguin/side.json', 'penguin', 'side')
+// initAnimation('img/penguin/front.json', 'penguin', 'front')
+// initAnimation('img/penguin/back.json', 'penguin', 'back')
+// initAnimation('img/penguin/side.json', 'penguin', 'side')
 
 playerSelectionOptions.forEach((element) => {
   element.addEventListener('click', (e) => {
@@ -60,7 +60,7 @@ playerSelectionOptions.forEach((element) => {
 })
 
 controlsButton.addEventListener('click', (e) => {
-  const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations)
+  const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations, loadAnimation)
   controlsScreen.classList.add('is-hidden')
 })
 
