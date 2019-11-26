@@ -9,6 +9,10 @@
       transform: scale(2);
       transform-origin: 50% 100%;
       width: 100%;
+
+      &.is-flipped {
+        transform: scale(2) scaleX(-1);
+      }
     }
 
     // &--a {

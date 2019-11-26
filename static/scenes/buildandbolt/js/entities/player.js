@@ -83,6 +83,7 @@ app.Player = class Player {
     if (this.gameControls.isKeyControlActive(this.controls.left)) {
       this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('left')
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
       isDecelerating = true
@@ -91,6 +92,7 @@ app.Player = class Player {
     if (this.gameControls.isKeyControlActive(this.controls.right)) {
       this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('right')
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
       isDecelerating = true
@@ -99,6 +101,7 @@ app.Player = class Player {
     if (this.gameControls.isKeyControlActive(this.controls.up)) {
       this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('back')
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
       isDecelerating = true
@@ -107,6 +110,7 @@ app.Player = class Player {
     if (this.gameControls.isKeyControlActive(this.controls.down)) {
       this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('front')
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
       isDecelerating = true
@@ -301,6 +305,16 @@ app.Player = class Player {
   }
 
   setDirection(direction) {
+    if (direction == 'left') {
+      this.innerElem.classList.add('is-flipped')
+    } else {
+      this.innerElem.classList.remove('is-flipped')
+    }
+
+    if (direction == 'left' || direction == 'right') {
+      direction = 'side'
+    }
+
     if (direction != this.currentDirection) {
       if (this.animations[this.currentDirection]) {
         this.animations[this.currentDirection].renderer.svgElement.classList.remove('is-active')
