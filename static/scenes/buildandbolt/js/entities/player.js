@@ -71,6 +71,7 @@ app.Player = class Player {
     this.blockPlayer = false
     this.prevPosition = Object.assign({}, this.position)
 
+    let isDecelerating = false
     let accelerationFactor = 1
     let decelerationFactor = 1
     if (this.onIce) {
@@ -84,6 +85,7 @@ app.Player = class Player {
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.right)) {
@@ -91,6 +93,7 @@ app.Player = class Player {
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.up)) {
@@ -98,6 +101,7 @@ app.Player = class Player {
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.down)) {
@@ -105,17 +109,18 @@ app.Player = class Player {
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.platform) {
-      this.platformOffset.x += this.velocity.x
-      this.platformOffset.y += this.velocity.y
+      this.platformOffset.x += this.velocity.x * delta
+      this.platformOffset.y += this.velocity.y * delta
     } else {
       this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
-          Math.max(0, this.position.x + this.velocity.x))
+          Math.max(0, this.position.x + this.velocity.x * delta))
 
       this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
-          Math.max(0, this.position.y + this.velocity.y))
+          Math.max(0, this.position.y + this.velocity.y * delta))
     }
 
     // check if you left the platform
@@ -150,8 +155,11 @@ app.Player = class Player {
 
     this.movePlayer()
 
+
     // TODO: play the correct state
-    if (this.velocity.x == 0 && this.velocity.y == 0) {
+    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
+    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
+        (isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
       this.setPlayerState(Constants.PLAYER_STATES.REST)
     } else {
       this.setPlayerState(Constants.PLAYER_STATES.WALK)

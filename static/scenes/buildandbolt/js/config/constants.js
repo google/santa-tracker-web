@@ -35,9 +35,8 @@ Constants = {
       action: ['ShiftRight', 'ShiftLeft']
     }
   },
-  PLAYER_STEP_SIZE: .1,
-  PLAYER_ACCELERATION_STEP: .01,
-  PLAYER_MAX_VELOCITY: .2,
+  PLAYER_ACCELERATION_STEP: .0005,
+  PLAYER_MAX_VELOCITY: .01,
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
