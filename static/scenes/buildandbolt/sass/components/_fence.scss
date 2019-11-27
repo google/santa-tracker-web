@@ -2,23 +2,44 @@
   .fence {
     height: $grid-unit-size;
     width: $grid-unit-size;
+    z-index: $fence-z-index;
 
-    // background: url(img/fence_side_bottom.svg) center/contain no-repeat;
+    &__background {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    &--left {
-      border-left: $fence-border !important;
-    }
+      &--top {
+        transform: translateY(-88%);
+        background-image: url(img/fences/fence_front_middle.svg);
+      }
 
-    &--right {
-      border-right: $fence-border !important;
-    }
+      &--right {
+        background-image: url(img/fences/fence_side_bottom.svg);
+      }
 
-    &--top {
-      border-top: $fence-border !important;
-    }
+      &--bottom {
+        transform: translateY(12%);
+        background-image: url(img/fences/fence_front_middle.svg);
+      }
 
-    &--bottom {
-      border-bottom: $fence-border !important;
+      &--left {
+        transform: scaleX(-1);
+        background-image: url(img/fences/fence_side_bottom.svg);
+      }
+
+      &--start {
+        background-image: url(img/fences/fence_front_left.svg);
+      }
+
+      &--end {
+        background-image: url(img/fences/fence_front_right.svg);
+      }
     }
   }
 }

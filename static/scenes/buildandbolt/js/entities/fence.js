@@ -16,31 +16,39 @@ app.Fence = class Fence extends app.Entity {
   }
 
   onInit(config) {
-    const { top, right, bottom, left } = config
-
-    let classes = 'fence'
+    const { top, right, bottom, left, type } = config
 
     if (top) {
-      classes += ' fence--top'
+      this.addChild('top', type)
     }
 
     if (right) {
-      classes += ' fence--right'
+      this.addChild('right')
     }
 
     if (bottom) {
-      classes += ' fence--bottom'
+      this.addChild('bottom', type)
     }
 
     if (left) {
-      classes += ' fence--left'
+      this.addChild('left')
     }
 
-    this.elem.setAttribute('class', classes)
+    this.elem.setAttribute('class', 'fence')
     super.onInit(config)
 
     this.config.checkCell = true
     this.config.checkBorder = true
+  }
+
+  addChild(side, type = false) {
+    const div = document.createElement('div')
+    div.classList.add('fence__background')
+    div.classList.add(`fence__background--${side}`)
+    if (type) {
+      div.classList.add(`fence__background--${type}`)
+    }
+    this.elem.appendChild(div)
   }
 
   render() {
