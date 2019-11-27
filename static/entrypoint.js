@@ -2,6 +2,7 @@
  * @fileoverview Main entrypoint for Santa Tracker. Runs in the prod domain.
  */
 
+import './src/polyfill/attribute.js';
 import './src/polyfill/css.js';
 import styles from './styles/santa.css';
 
@@ -281,6 +282,10 @@ outer:
     const op = await timeout(control.next());
     if (op === null) {
       break;  // closed or timeout, bail out
+    }
+    if (typeof op !== 'object') {
+      console.warn('got unhanled op from control', op);
+      continue;
     }
 
     const {type, payload} = op;

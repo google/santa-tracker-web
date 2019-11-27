@@ -1,6 +1,7 @@
 import styles from './santa-interlude.css';
 import {_static} from '../../src/magic.js';
 import {prepareAnimation} from '../../src/deps/lottie.js';
+import '../../src/polyfill/attribute.js';
 
 const layerCount = 4;
 

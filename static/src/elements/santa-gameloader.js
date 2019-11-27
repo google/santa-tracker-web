@@ -3,6 +3,7 @@ import styles from './santa-gameloader.css';
 import * as messageSource from '../lib/message-source.js';
 import {resolvable, dedup} from '../lib/promises.js';
 
+import '../../src/polyfill/attribute.js';
 
 
 class PortControl {
@@ -109,8 +110,6 @@ const IFRAME_ALLOW = 'autoplay';  // nb. could add 'accelerometer', but only for
 
 
 export const events = Object.freeze({
-  'focus': '-loader-focus',
-  'blur': '-loader-blur',
   'load': '-loader-load',
   'prepare': '-loader-prepare',
   'error': '-loader-error',
@@ -199,10 +198,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._main.appendChild(slotContainer);
     this._main.appendChild(this._container);
 
-    this._onWindowBlur = this._onWindowBlur.bind(this);
-    this._onWindowFocus = this._onWindowFocus.bind(this);
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
-    this._frameFocus = false;
 
     this._loading = false;
     this._control = new PortControl();
@@ -232,10 +228,6 @@ class SantaGameLoaderElement extends HTMLElement {
     holder.appendChild(slotOverlay);
   }
 
-  get frameFocus() {
-    return this._frameFocus;
-  }
-
   _onWindowResize() {
     if (!this._resizeCheckLeft) {
       this._resizeCheckLeft = 16;  // check for 16 frames
@@ -256,43 +248,11 @@ class SantaGameLoaderElement extends HTMLElement {
     rectifyFrame(this._previousFrame, tilt);
   }
 
-  _onWindowBlur(e) {
-    // Check various types of focus. Since the only focusable thing here is our iframes, be a bit
-    // aggressive for the polyfill case.
-    if (document.activeElement === this || this.contains(document.activeElement)) {
-      if (this._loading) {
-        // Prevent focus if we're in a loading state. The <iframe> needs to exist as-normal on the
-        // page to correctly load, but users should not be able to focus it.
-        throw new Error('iframe got focus during load');
-
-        // TODO(samthor): With `<iframe tabindex=-1>` and `pointer-events: none`, this should never
-        // happen. We can programatically reset focus by blur-ing the iframe in a rAF, however.
-
-      } else if (this._frameFocus) {
-        // already marked focus, do nothing
-      } else {
-        this._frameFocus = true;
-        this.dispatchEvent(new CustomEvent(events.focus));
-      }
-    }
-  }
-
-  _onWindowFocus(e) {
-    if (this._frameFocus) {
-      this._frameFocus = false;
-      this.dispatchEvent(new CustomEvent(events.blur));
-    }
-  }
-
   connectedCallback() {
-    window.addEventListener('blur', this._onWindowBlur);
-    window.addEventListener('focus', this._onWindowFocus);
     window.addEventListener('resize', this._onWindowResize);
   }
 
   disconnectedCallback() {
-    window.removeEventListener('blur', this._onWindowBlur);
-    window.removeEventListener('focus', this._onWindowFocus);
     window.addEventListener('resize', this._onWindowResize);
   }
 
