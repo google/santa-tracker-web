@@ -125,14 +125,15 @@ async function optionalMinify(code) {
     return code;
   }
   await workGroup(async () => {
+    const w = new Worker(__dirname + '/build/terser-worker.js', {
+      workerData: code,
+    });
     const result = await new Promise((resolve, reject) => {
-      const w = new Worker(__dirname + '/build/terser-worker.js', {
-        workerData: code,
-      });
       w.on('message', resolve);
       w.on('error', reject);
       w.on('exit', reject);
     });
+    w.unref();
     if (result.error) {
       throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
     }
