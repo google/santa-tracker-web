@@ -66,12 +66,13 @@ Utils.isTouchingBorder = function(entity, playerPosition) {
   return false
 }
 
-Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop, lastFrameTime, now) {
+Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop,
+    lastFrameTime, now) {
   let nextFrame = currentFrame
   let frameTime = lastFrameTime
   let finished = false
 
-  const fps = 60
+  const fps = animationFrames.fps || 60
   const frameDelta = Math.round(fps / 1000 * (now - lastFrameTime))
 
   if (frameDelta >= 1) {

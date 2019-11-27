@@ -61,46 +61,56 @@ Constants = {
     REST: {
       start: 1,
       end: 1,
-      loop: true
+      loop: true,
+      fps: 60
     },
     REST_TO_WALK: {
       start: 1,
-      end: 8
+      end: 8,
+      fps: 60
     },
     WALK: {
       start: 8,
       end: 24,
-      loop: true
+      loop: true,
+      fps: 60
     },
     WALK_TO_REST: {
       start: 24,
-      end: 32
+      end: 32,
+      fps: 60
     },
     REST_TO_HOLD_WALK: {
       start: 40,
-      end: 48
+      end: 48,
+      fps: 60
     },
     HOLD_WALK: {
       start: 48,
       end: 64,
-      loop: true
+      loop: true,
+      fps: 60
     },
     HOLD_WALK_TO_HOLD_REST: {
       start: 64,
-      end: 72
+      end: 72,
+      fps: 60
     },
     HOLD_REST: {
       start: 72,
       end: 72,
-      loop: true
+      loop: true,
+      fps: 60
     },
     HOLD_REST_TO_REST: {
       start: 72,
-      end: 80
+      end: 80,
+      fps: 60
     },
     DEATH: {
       start: 0,
       end: 12,
+      fps: 24
     }
   },
 
@@ -124,7 +134,8 @@ Constants = {
   PENGUIN_FRAMES: {
     start: 0,
     end: 12,
-    loop: true
+    loop: true,
+    fps: 24
   },
 
 }
