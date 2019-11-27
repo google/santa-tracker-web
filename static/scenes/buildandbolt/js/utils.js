@@ -73,12 +73,13 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 
 Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const marginInside = 1
-  //  needs to update entity width so player can go throught 2 right/left side fences
+  const cellSizeCoef = 0.98
+  // make extra space to make it easier in corridors
   // border sides
-  const rightSide = entity.x + 1 - Constants.WALL_EXTRA_SPACE
-  const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
-  const topSide = entity.y - 1 + Constants.WALL_EXTRA_SPACE
-  const bottomSide = entity.y + 1 - Constants.WALL_EXTRA_SPACE
+  const rightSide = entity.x + cellSizeCoef - Constants.WALL_EXTRA_SPACE
+  const leftSide = entity.x - cellSizeCoef + Constants.WALL_EXTRA_SPACE
+  const topSide = entity.y - cellSizeCoef + Constants.WALL_EXTRA_SPACE
+  const bottomSide = entity.y + cellSizeCoef - Constants.WALL_EXTRA_SPACE
 
   // directions from out of cell
   const fromRight = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= rightSide
