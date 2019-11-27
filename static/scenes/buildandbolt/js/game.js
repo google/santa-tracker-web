@@ -78,38 +78,18 @@ app.Game = class Game {
           break;
         case 'fence':
           // Create an entity for each cell
+          const { cells } = entity.config
           // rows
-          for (let i = 0; i < entity.config.cells.length; i++) {
-            const row = entity.config.cells[i]
-            // cells for that row
-            for (let j = 0; j < row.length; j++) {
-              let type = false
-
-              // if previous
-              // if previous is not top/bottom and this one has top/bottom, make it start
-              if (row[j].top || row[j].bottom) {
-                if (j === 0) {
-                  type = 'start'
-                }
-                if (row[j - 1]) {
-                  if (!row[j - 1].top && !row[j - 1].bottom) {
-                    type = 'start'
-                  }
-                }
-                if (row[j + 1]) {
-                  if (!row[j + 1].top && !row[j + 1].bottom) {
-                    type = 'end'
-                  }
-                }
-                if (j === row.length - 1) {
-                  type = 'end'
-                }
-              }
+          for (let i = 0; i < cells.length; i++) {
+            // columns in row
+            for (let j = 0; j < cells[i].length; j++) {
               const config = {
-                ...row[j],
-                x: entity.config.x + j, // j and i are the offset lines/columns that needs to be added from the leftTop pos
-                y: entity.config.y + i,
-                type
+                ...cells[i][j], // need that for the Entity onInit
+                cells,
+                row: i,
+                column: j,
+                x: entity.config.x + j, // need that for the Entity onInit
+                y: entity.config.y + i
               }
               this.entities.push(app.Fence.pop(this, config))
             }

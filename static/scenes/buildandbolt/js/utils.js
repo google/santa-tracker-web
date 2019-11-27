@@ -73,13 +73,13 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 
 Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   // add an extra space on top inside border to make it matches more with the design
-  const insideTopExtraSpace = 0.15
+  const insideTopExtraSpace = 0.4
 
   // make extra space to make it easier in corridors
   // border sides
   const rightSide = entity.x + 1 - Constants.WALL_EXTRA_SPACE
   const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
-  const topSide = entity.y - 1 + Constants.WALL_EXTRA_SPACE - insideTopExtraSpace
+  const topSide = entity.y - 1  // + Constants.WALL_EXTRA_SPACE // don't need because of extraSpace
   const bottomSide = entity.y + 1 - Constants.WALL_EXTRA_SPACE
 
   // directions from out of cell

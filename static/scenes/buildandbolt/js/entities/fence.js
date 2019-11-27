@@ -16,22 +16,24 @@ app.Fence = class Fence extends app.Entity {
   }
 
   onInit(config) {
-    const { top, right, bottom, left, type } = config
+    const { cells, row, column } = config
+    const cell = cells[row][column]
+    const type = this.defineType(cells, row, column)
 
-    if (top) {
-      this.addChild('top', type)
+    if (cell.top) {
+      this.addChild('top', type.top)
     }
 
-    if (right) {
-      this.addChild('right')
+    if (cell.right) {
+      this.addChild('right', type.right)
     }
 
-    if (bottom) {
-      this.addChild('bottom', type)
+    if (cell.bottom) {
+      this.addChild('bottom', type.bottom)
     }
 
-    if (left) {
-      this.addChild('left')
+    if (cell.left) {
+      this.addChild('left', type.left)
     }
 
     this.elem.setAttribute('class', 'fence')
@@ -67,6 +69,73 @@ app.Fence = class Fence extends app.Entity {
     }
 
     return actions
+  }
+
+  defineType(cells, row, column) {
+    const cell = cells[row][column]
+    const type = {
+      top: false,
+      right: false,
+      bottom: false,
+      left: false,
+    }
+
+    // if previous
+    // if previous is not top/bottom and this one has top/bottom, make it start
+    if (cell.top || cell.bottom) {
+      if (column === 0) {
+        if (cell.top) {
+          type.top = 'start'
+        }
+        if (cell.bottom) {
+          type.bottom = 'start'
+        }
+      }
+      if (cells[row][column - 1]) {
+        if (!cells[row][column - 1].top && !cells[row][column - 1].bottom) {
+          if (cell.top) {
+            type.top = 'start'
+          }
+          if (cell.bottom) {
+            type.bottom = 'start'
+          }
+        }
+      }
+      if (cells[row][column + 1]) {
+        if (!cells[row][column + 1].top && !cells[row][column + 1].bottom) {
+          if (cell.top) {
+            type.top = 'end'
+          }
+          if (cell.bottom) {
+            type.bottom = 'end'
+          }
+        }
+      }
+      if (column === cells[row].length - 1) {
+        if (cell.top) {
+          type.top = 'end'
+        }
+        if (cell.bottom) {
+          type.bottom = 'end'
+        }
+      }
+    }
+
+    // check if previous row has a left/right border or no
+    if (cell.left || cell.right) {
+      // if previous row
+      if (cells[row - 1]) {
+        if (cell.left && !cell.top && cells[row - 1][column] && !cells[row - 1][column].left && !cells[row - 1][column].bottom) {
+          type.left = 'end-side'
+        }
+
+        if (cell.right && !cell.top && cells[row - 1][column] && !cells[row - 1][column].right && !cells[row - 1][column].bottom) {
+          type.right = 'end-side'
+        }
+      }
+    }
+
+    return type
   }
 }
 

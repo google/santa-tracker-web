@@ -15,7 +15,7 @@
       left: 0;
 
       &--top {
-        transform: translateY(-88%);
+        transform: translateY(-100%);
         background-image: url(img/fences/fence_front_middle.svg);
       }
 
@@ -24,7 +24,6 @@
       }
 
       &--bottom {
-        transform: translateY(12%);
         background-image: url(img/fences/fence_front_middle.svg);
       }
 
@@ -39,6 +38,10 @@
 
       &--end {
         background-image: url(img/fences/fence_front_right.svg);
+      }
+
+      &--end-side {
+        background-image: url(img/fences/fence_side_roundtop.svg);
       }
     }
   }
