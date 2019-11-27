@@ -91,10 +91,10 @@ Levels = [
           cells: [
             // first line
             [{
-              // left: true,
+              left: true,
               // top: true,
               right: true,
-              bottom: true,
+              // bottom: true,
             },
             // {
             //   left: true,
