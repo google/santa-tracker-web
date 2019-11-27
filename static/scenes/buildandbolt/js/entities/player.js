@@ -48,7 +48,10 @@ app.Player = class Player {
   restart() {
     this.dead = true
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
-    this.currentAnimationState = Constants.PLAYER_FRAMES.DEATH
+    this.currentAnimationState = {
+      animation: Constants.PLAYER_FRAMES.DEATH,
+      callback: () => console.log('died')
+    }
     this.animationQueue = []
     this.animations['death'].renderer.svgElement.classList.add('is-active')
 
@@ -82,7 +85,9 @@ app.Player = class Player {
     this.onIce = false
 
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.REST.start
-    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
+    this.currentAnimationState = {
+      animation: Constants.PLAYER_FRAMES.REST
+    }
     this.playerState = Constants.PLAYER_STATES.REST
     this.setDirection('front')
     this.animationQueue = []
@@ -377,7 +382,9 @@ app.Player = class Player {
             this.addAnimationToQueueOnce(walkToRest)
           default:
             this.playerState = Constants.PLAYER_STATES.REST
-            this.animationQueue.push(rest)
+            this.animationQueue.push({
+              animation: rest
+            })
         }
         break;
     }
@@ -386,17 +393,22 @@ app.Player = class Player {
   /**
    * Checks for repeats to make sure the animation is not queued multiple times
    */
-  addAnimationToQueueOnce(animation) {
-    if (this.animationQueue.indexOf(animation) < 0) {
-      this.animationQueue.push(animation)
+  addAnimationToQueueOnce(animation, callback) {
+    if (!this.animationQueue.find(item => item.animation == animation)) {
+      this.animationQueue.push({
+        animation,
+        callback
+      })
     }
   }
 
   updateAnimationFrame(now) {
+    let animation = this.currentAnimationState.animation
+
     // Frame is not within range. Set it to start of range.
-    if (this.currentAnimationFrame < this.currentAnimationState.start ||
-        this.currentAnimationFrame > this.currentAnimationState.end) {
-      this.currentAnimationFrame = this.currentAnimationState.start
+    if (this.currentAnimationFrame < animation.start ||
+        this.currentAnimationFrame > animation.end) {
+      this.currentAnimationFrame = animation.start
       this.lastAnimationFrame = now
       return
     }
@@ -405,19 +417,26 @@ app.Player = class Player {
       this.lastAnimationFrame = now
     }
 
-    let loop = this.currentAnimationState.loop && !this.animationQueue.length
+    let loop = animation.loop && !this.animationQueue.length
     const {
       nextFrame,
       frameTime,
       finished
-    } = Utils.nextAnimationFrame(this.currentAnimationState,
+    } = Utils.nextAnimationFrame(animation,
         this.currentAnimationFrame, loop, this.lastAnimationFrame, now)
 
     this.currentAnimationFrame = nextFrame
     this.lastAnimationFrame = frameTime
 
-    if (finished && this.animationQueue.length) {
-      this.currentAnimationState = this.animationQueue.shift()
+    if (finished) {
+      if (this.currentAnimationState.callback) {
+        this.currentAnimationState.callback.call(this)
+        // todo: prevent this from playing more than once
+      }
+
+      if (this.animationQueue.length) {
+        this.currentAnimationState = this.animationQueue.shift()
+      }
     }
   }
 
