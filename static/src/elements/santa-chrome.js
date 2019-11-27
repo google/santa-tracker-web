@@ -2,7 +2,6 @@ import {html, LitElement} from 'lit-element';
 import styles from './santa-chrome.css';
 import * as prefix from '../lib/prefix.js';
 import './santa-button.js';
-import {_msg} from '../magic.js';
 import * as common from '../core/common.js';
 
 const year = new Date().getFullYear();

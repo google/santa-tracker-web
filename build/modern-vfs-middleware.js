@@ -73,7 +73,9 @@ module.exports = (vfsLoad, prefix=null) => {
     // Ask the modern loader to rewrite this single file (virtual or not is moot here).
     let result = null;
     try {
-      result = await modernLoader(id, content);
+      result = await modernLoader(id, content, (warn) => {
+        console.warn(id, warn.toString());
+      });
     } catch (e) {
       // TODO: pass to caller, internal error in loader
       console.warn('loader', e);

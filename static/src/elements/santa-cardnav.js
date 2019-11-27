@@ -3,7 +3,7 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 import * as config from '../core/config.js';
 import styles from './santa-cardnav.css';
-import {_static, _msg} from '../magic.js';
+import {_msg} from '../magic.js';
 import './santa-card.js';
 import isAndroid from '../core/android.js';
 
