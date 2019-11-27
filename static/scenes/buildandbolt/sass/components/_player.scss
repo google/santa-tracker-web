@@ -1,5 +1,6 @@
 ##{$name} {
   .player {
+    @include board-object();
     height: $grid-unit-size;
     width: $grid-unit-size;
     z-index: $player-z-index;
@@ -22,14 +23,6 @@
         top: 0;
       }
     }
-
-    // &--a {
-    //   background: url(img/players/a/player.svg) center/contain no-repeat;
-    // }
-
-    // &--b {
-    //   background: url(img/players/b/player.svg) center/contain no-repeat;
-    // }
 
     &.is-hidden {
       opacity: 0;
@@ -79,8 +72,11 @@
   }
 
   .player-spawn {
-    height: $grid-unit-size;
-    width: $grid-unit-size;
+    @include board-object();
+    height: $grid-unit-size * 2;
+    left: -($grid-unit-size / 2) - 2px;
+    top: -($grid-unit-size / 2);
+    width: $grid-unit-size * 2;
 
     &--a {
       background: url(img/players/a/spawn.svg) center/contain no-repeat;

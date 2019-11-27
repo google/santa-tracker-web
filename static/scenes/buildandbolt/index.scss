@@ -48,29 +48,6 @@ body {
     transform-origin: top left;
   }
 
-  .fence,
-  .ice,
-  .penguin,
-  .pit,
-  .platform,
-  .player,
-  .player-spawn,
-  .present-box,
-  .table,
-  .wall {
-    left: 0;
-    position: absolute;
-    top: 0;
-
-    .debug & {
-      border: 2px solid purple;
-    }
-
-    &.hidden {
-      display: none;
-    }
-  }
-
   .animation {
     display: none;
 

@@ -35,3 +35,17 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@mixin board-object() {
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  .debug & {
+    border: 2px solid purple;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
