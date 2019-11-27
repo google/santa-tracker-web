@@ -96,13 +96,14 @@ Levels = [
               right: true,
               // bottom: true,
             },
-            // {
-            //   left: true,
-            //   // top: true,
-            // },{
-            //   left: true,
-            //   top: true,
-            // }
+            {
+              // left: true,
+              top: true,
+            },{
+              // left: true,
+              top: true,
+              right: true,
+            }
             ]
           ],
           // cells: [

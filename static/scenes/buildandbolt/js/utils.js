@@ -25,8 +25,8 @@ Utils.isTouchingBorder = function(entity, playerPosition) {
 Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
   const rightSide = entity.x + entity.width - Constants.WALL_EXTRA_SPACE
   const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
-  const bottomSide = entity.y + entity.height
-  const topSide = entity.y - 1
+  const topSide = entity.y - 1 + Constants.WALL_EXTRA_SPACE
+  const bottomSide = entity.y + entity.height - Constants.WALL_EXTRA_SPACE
 
   if (rightSide > playerPosition.x &&
     leftSide < playerPosition.x &&
@@ -49,14 +49,14 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
       blockingPosition.x = leftSide
     }
 
-    if (playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide) {
-      // coming from bottom
-      blockingPosition.y = bottomSide
-    }
-
     if (playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= topSide) {
       // coming from top
       blockingPosition.y = topSide
+    }
+
+    if (playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide) {
+      // coming from bottom
+      blockingPosition.y = bottomSide
     }
 
     return blockingPosition
@@ -69,10 +69,10 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const marginInside = 1
   //  needs to update entity width so player can go throught 2 right/left side fences
   // border sides
-  const rightSide = entity.x + 1
-  const leftSide = entity.x - 1
-  const topSide = entity.y - 1
-  const bottomSide = entity.y + 1
+  const rightSide = entity.x + 1 - Constants.WALL_EXTRA_SPACE
+  const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
+  const topSide = entity.y - 1 + Constants.WALL_EXTRA_SPACE
+  const bottomSide = entity.y + 1 - Constants.WALL_EXTRA_SPACE
 
   // directions from out of cell
   const fromRight = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= rightSide
