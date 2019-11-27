@@ -72,14 +72,15 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
 }
 
 Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
-  const marginInside = 1
-  const cellSizeCoef = 0.98
+  // add an extra space on top inside border to make it matches more with the design
+  const insideTopExtraSpace = 0.15
+
   // make extra space to make it easier in corridors
   // border sides
-  const rightSide = entity.x + cellSizeCoef - Constants.WALL_EXTRA_SPACE
-  const leftSide = entity.x - cellSizeCoef + Constants.WALL_EXTRA_SPACE
-  const topSide = entity.y - cellSizeCoef + Constants.WALL_EXTRA_SPACE
-  const bottomSide = entity.y + cellSizeCoef - Constants.WALL_EXTRA_SPACE
+  const rightSide = entity.x + 1 - Constants.WALL_EXTRA_SPACE
+  const leftSide = entity.x - 1 + Constants.WALL_EXTRA_SPACE
+  const topSide = entity.y - 1 + Constants.WALL_EXTRA_SPACE - insideTopExtraSpace
+  const bottomSide = entity.y + 1 - Constants.WALL_EXTRA_SPACE
 
   // directions from out of cell
   const fromRight = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= rightSide
@@ -88,10 +89,10 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const fromBottom = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide
 
   // inner sides
-  const leftInnerSide = entity.x + 1 - marginInside
-  const rightInnerSide = entity.x - 1 + marginInside
-  const bottomInnerSide = entity.y - 1 + marginInside
-  const topInnerSide = entity.y + 1 - marginInside
+  const leftInnerSide = entity.x
+  const rightInnerSide = entity.x
+  const bottomInnerSide = entity.y
+  const topInnerSide = entity.y - insideTopExtraSpace
 
   // directions from inside cell
   const fromRightInside = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= leftInnerSide
@@ -120,8 +121,8 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
       }
 
       if (entity.bottom) {
-        // if there is a bottom border, stop the player from right when his y pos is under the top border
-        if (topInnerSide < playerPosition.y) {
+        // if there is a bottom border, stop the player from right when his y pos is under the bottom border
+        if (bottomInnerSide < playerPosition.y) {
           blockingPosition.x = rightSide
         }
       }
@@ -151,7 +152,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
       }
 
       if (entity.bottom) {
-        if (topInnerSide < playerPosition.y) {
+        if (bottomInnerSide < playerPosition.y) {
           blockingPosition.x = leftSide
         }
       }
