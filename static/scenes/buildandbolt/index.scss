@@ -54,6 +54,7 @@ body {
   .pit,
   .platform,
   .player,
+  .player-spawn,
   .present-box,
   .table,
   .wall {
@@ -67,6 +68,14 @@ body {
 
     &.hidden {
       display: none;
+    }
+  }
+
+  .animation {
+    display: none;
+
+    &.is-active {
+      display: block;
     }
   }
 

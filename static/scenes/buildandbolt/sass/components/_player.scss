@@ -4,19 +4,36 @@
     width: $grid-unit-size;
     z-index: $player-z-index;
 
+    &__inner {
+      height: 100%;
+      transform: scale(2);
+      transform-origin: 50% 100%;
+      width: 100%;
+
+      &.is-flipped {
+        transform: scale(2) scaleX(-1);
+      }
+
+      .animation {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    // &--a {
+    //   background: url(img/players/a/player.svg) center/contain no-repeat;
+    // }
+
+    // &--b {
+    //   background: url(img/players/b/player.svg) center/contain no-repeat;
+    // }
+
     &.is-hidden {
       opacity: 0;
     }
-
-    // &.is-winner {
-    //   &::after {
-    //     font-size: 30px;
-    //     left: 9px;
-    //     top: -13px;
-    //     content: '👑';
-    //     position: absolute;
-    //   }
-    // }
 
     &.toypart--car_wheels,
     &.toypart--robot_heads {
@@ -61,11 +78,16 @@
     }
   }
 
-  #player-1 {
-    background: url(img/players/player-a.svg) center/contain no-repeat;
-  }
+  .player-spawn {
+    height: $grid-unit-size;
+    width: $grid-unit-size;
 
-  #player-2 {
-    background: url(img/players/player-b.svg) center/contain no-repeat;
+    &--a {
+      background: url(img/players/a/spawn.svg) center/contain no-repeat;
+    }
+
+    &--b {
+      background: url(img/players/b/spawn.svg) center/contain no-repeat;
+    }
   }
 }

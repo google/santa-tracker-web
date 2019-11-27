@@ -7,13 +7,26 @@ app.Player = class Player {
   constructor(game, controls, id) {
     this.game = game
     this.gameControls = game.controls
+    this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
 
     this.elem = document.createElement('div')
     document.getElementById('players').append(this.elem)
-    this.elem.setAttribute('class', 'player')
-    this.elem.setAttribute('id', id)
+    this.elem.setAttribute('class', `player player--${id}`)
+
+    this.innerElem = document.createElement('div')
+    this.innerElem.setAttribute('class', `player__inner`)
+    this.elem.appendChild(this.innerElem)
+
+    this.innerElem.appendChild(this.animations['death'].renderer.svgElement)
+    this.innerElem.appendChild(this.animations['front'].renderer.svgElement)
+    this.innerElem.appendChild(this.animations['back'].renderer.svgElement)
+    this.innerElem.appendChild(this.animations['side'].renderer.svgElement)
+
+    this.spawnElem = document.createElement('div')
+    document.getElementById('players').append(this.spawnElem)
+    this.spawnElem.setAttribute('class', `player-spawn player-spawn--${id}`)
   }
 
   init(config) {
@@ -25,6 +38,7 @@ app.Player = class Player {
 
     this.resetPosition()
 
+    Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y)
     this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
@@ -32,11 +46,17 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    this.elem.classList.add('is-hidden')
+    // this.elem.classList.add('is-hidden')
     this.dead = true
+    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
+    this.currentAnimationState = Constants.PLAYER_FRAMES.DEATH
+    this.animationQueue = []
+    this.animations['death'].renderer.svgElement.classList.add('is-active')
 
     window.setTimeout(() => {
       this.dead = false
+
+      this.animations['death'].renderer.svgElement.classList.remove('is-active')
 
       this.resetPosition()
 
@@ -47,17 +67,41 @@ app.Player = class Player {
           this.position.x, this.position.y)
 
       this.elem.classList.remove('is-hidden')
-    }, 1000)
+    }, 500)
   }
 
-  onFrame(delta) {
+  resetPosition() {
+    this.position = {
+      x: this.config.startPos.x,
+      y: this.config.startPos.y,
+      angle: 0
+    }
+
+    this.velocity = {
+      x: 0,
+      y: 0
+    }
+
+    this.currentAnimationFrame = 1
+    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
+    this.playerState = Constants.PLAYER_STATES.REST
+    this.setDirection('front')
+    this.animationQueue = []
+
+    this.onIce = false
+  }
+
+  onFrame(delta, now) {
     if (this.dead) {
+      this.updateAnimationFrame(now)
+      this.render()
       return
     }
 
     this.blockPlayer = false
     this.prevPosition = Object.assign({}, this.position)
 
+    let isDecelerating = false
     let accelerationFactor = 1
     let decelerationFactor = 1
     if (this.onIce) {
@@ -69,40 +113,48 @@ app.Player = class Player {
     if (this.gameControls.isKeyControlActive(this.controls.left)) {
       this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('left')
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.right)) {
       this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('right')
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.up)) {
       this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('back')
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.down)) {
       this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.setDirection('front')
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      isDecelerating = true
     }
 
     if (this.platform) {
-      this.platformOffset.x += this.velocity.x
-      this.platformOffset.y += this.velocity.y
+      this.platformOffset.x += this.velocity.x * delta
+      this.platformOffset.y += this.velocity.y * delta
     } else {
       this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
-          Math.max(0, this.position.x + this.velocity.x))
+          Math.max(0, this.position.x + this.velocity.x * delta))
 
       this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
-          Math.max(0, this.position.y + this.velocity.y))
+          Math.max(0, this.position.y + this.velocity.y * delta))
     }
 
     // check if you left the platform
@@ -137,10 +189,26 @@ app.Player = class Player {
 
     this.movePlayer()
 
+
+    // TODO: play the correct state
+    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
+    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
+        (isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
+      this.setPlayerState(Constants.PLAYER_STATES.REST)
+    } else {
+      this.setPlayerState(Constants.PLAYER_STATES.WALK)
+    }
+    this.updateAnimationFrame(now)
+
     this.render()
   }
 
   render() {
+    if (this.dead) {
+      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
+    } else {
+      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
+    }
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
@@ -249,18 +317,91 @@ app.Player = class Player {
     this.score++
   }
 
-  resetPosition() {
-    this.position = {
-      x: this.config.startPos.x,
-      y: this.config.startPos.y,
-      angle: 0
+  setDirection(direction) {
+    if (direction == 'left') {
+      this.innerElem.classList.add('is-flipped')
+    } else {
+      this.innerElem.classList.remove('is-flipped')
     }
 
-    this.velocity = {
-      x: 0,
-      y: 0
+    if (direction == 'left' || direction == 'right') {
+      direction = 'side'
     }
 
-    this.onIce = false
+    if (direction != this.currentDirection) {
+      if (this.animations[this.currentDirection]) {
+        this.animations[this.currentDirection].renderer.svgElement.classList.remove('is-active')
+      }
+      this.animations[direction].renderer.svgElement.classList.add('is-active')
+      this.currentDirection = direction
+    }
+  }
+
+  /**
+   * Update animation based on player state
+   */
+  setPlayerState(state) {
+    if (state == this.playerState) {
+      return
+    }
+
+    switch(state) {
+      case Constants.PLAYER_STATES.WALK:
+        switch(this.playerState) {
+          case Constants.PLAYER_STATES.REST:
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_WALK)
+          default:
+            this.playerState = Constants.PLAYER_STATES.WALK
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
+        }
+        break;
+      case Constants.PLAYER_STATES.REST:
+        switch(this.playerState) {
+          case Constants.PLAYER_STATES.WALK:
+            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK_TO_REST)
+          default:
+            this.playerState = Constants.PLAYER_STATES.REST
+            this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
+        }
+        break;
+    }
+  }
+
+  /**
+   * Checks for repeats to make sure the animation is not queued multiple times
+   */
+  addAnimationToQueueOnce(animation) {
+    if (this.animationQueue.indexOf(animation) < 0) {
+      this.animationQueue.push(animation)
+    }
+  }
+
+  updateAnimationFrame(now) {
+    // Frame is not within range. Set it to start of range.
+    if (this.currentAnimationFrame < this.currentAnimationState.start ||
+        this.currentAnimationFrame > this.currentAnimationState.end) {
+      this.currentAnimationFrame = this.currentAnimationState.start
+      this.lastAnimationFrame = now
+      return
+    }
+
+    if (!this.lastAnimationFrame) {
+      this.lastAnimationFrame = now
+    }
+
+    let loop = this.currentAnimationState.loop && !this.animationQueue.length
+    const {
+      nextFrame,
+      frameTime,
+      finished
+    } = Utils.nextAnimationFrame(this.currentAnimationState,
+        this.currentAnimationFrame, loop, this.lastAnimationFrame, now)
+
+    this.currentAnimationFrame = nextFrame
+    this.lastAnimationFrame = frameTime
+
+    if (finished && this.animationQueue.length) {
+      this.currentAnimationState = this.animationQueue.shift()
+    }
   }
 }

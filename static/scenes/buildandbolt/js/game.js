@@ -18,13 +18,14 @@ goog.require('app.Wall')
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 
-
 app.Game = class Game {
-  constructor(context, playerOption) {
+  constructor(context, playerOption, animations, loadAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
+    this.animations = animations
+    this.loadAnimation = loadAnimation
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
@@ -32,14 +33,11 @@ app.Game = class Game {
     this.players = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE,
-          'player-1')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')
       this.multiplayer = false
     } else {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
-          'player-1')
-      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD,
-          'player-2')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a')
+      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
       this.multiplayer = true
     }
 
@@ -112,11 +110,11 @@ app.Game = class Game {
     // this.timePassed += delta
 
     for (const entity of this.entities) {
-      entity.onFrame(delta)
+      entity.onFrame(delta, now)
     }
 
     for (const player of this.players) {
-      player.onFrame(delta)
+      player.onFrame(delta, now)
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
