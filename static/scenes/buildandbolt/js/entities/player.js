@@ -151,13 +151,12 @@ app.Player = class Player {
       this.position.y = this.blockingPosition.y
       this.velocity.x = 0
       this.velocity.y = 0
-    } else {
-       // move player
+    }
+
+    // move player
     this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
-    }
-
   }
 
   checkActions(entity, resultingActions) {
