@@ -39,7 +39,8 @@ app.Fence = class Fence extends app.Entity {
     this.elem.setAttribute('class', classes)
     super.onInit(config)
 
-    this.config.triggerAction = 'on-cell-and-border'
+    this.config.checkCell = true
+    this.config.checkBorder = true
   }
 
   render() {

@@ -16,6 +16,11 @@ app.Pit = class Pit extends app.Entity {
     this.elem.setAttribute('class', 'pit')
   }
 
+  onInit(config) {
+    super.onInit(config)
+    this.config.checkCell = true
+  }
+
   render() {
     super.render()
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`

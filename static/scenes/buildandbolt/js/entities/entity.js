@@ -9,7 +9,7 @@ app.Entity = class Entity {
   // for app.shared.pools
   onInit(config) {
     // all entities trigger action on cell by default
-    this.config = { ...config, triggerAction: 'on-cell' }
+    this.config = config
 
     this.elem.classList.remove('hidden')
     this.render()

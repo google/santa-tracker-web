@@ -18,7 +18,7 @@ app.Wall = class Wall extends app.Entity {
 
   onInit(config) {
     super.onInit(config)
-    this.config.triggerAction = 'on-border'
+    this.config.checkBorder = true
   }
 
   render() {

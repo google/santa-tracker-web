@@ -27,7 +27,7 @@ app.Table = class Table extends app.Entity {
     }
 
     super.onInit(config)
-    this.config.triggerAction = 'on-border'
+    this.config.checkBorder = true
 
     let classes = `table table--${this.config.partType} table--${this.config.tableType}${config.isSideView ? ' table--side' : ''}`
     this.elem.setAttribute('class', classes)

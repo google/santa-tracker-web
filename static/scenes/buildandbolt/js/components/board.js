@@ -130,7 +130,7 @@ app.Board = class Board {
             for (let k = 0; k < cell.length; k++) {
               const entity = cell[k]
               // get only entities that trigger an action on the player cell
-              if (entity.config.triggerAction === 'on-cell' || entity.config.triggerAction === 'on-cell-and-border' && entity !== player) {
+              if (entity.config.checkCell && entity !== player) {
                 surroundingEntities.push(entity)
               }
             }
@@ -139,7 +139,7 @@ app.Board = class Board {
             for (let k = 0; k < cell.length; k++) {
               const entity = cell[k]
               // get only entities that trigger an action around the player cell
-              if (entity.config.triggerAction === 'on-border' || entity.config.triggerAction === 'on-cell-and-border') {
+              if (entity.config.checkBorder) {
                 surroundingEntities.push(entity)
               }
             }
