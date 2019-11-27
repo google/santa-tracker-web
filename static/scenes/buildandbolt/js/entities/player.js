@@ -10,6 +10,7 @@ app.Player = class Player {
     this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
+    this.toyParts = []
 
     this.elem = document.createElement('div')
     document.getElementById('players').append(this.elem)
@@ -29,12 +30,11 @@ app.Player = class Player {
     this.spawnElem.setAttribute('class', `player-spawn player-spawn--${id}`)
   }
 
+  /**
+   * Initializes player for the start of each level
+   */
   init(config) {
     this.config = config
-
-    this.toyParts = []
-
-    this.platform = null
 
     this.resetPosition()
 
@@ -46,7 +46,6 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    // this.elem.classList.add('is-hidden')
     this.dead = true
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = Constants.PLAYER_FRAMES.DEATH
@@ -60,13 +59,9 @@ app.Player = class Player {
 
       this.resetPosition()
 
-      this.clearToyParts()
-
       this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
-
-      this.elem.classList.remove('is-hidden')
     }, 500)
   }
 
@@ -82,17 +77,20 @@ app.Player = class Player {
       y: 0
     }
 
-    this.currentAnimationFrame = 1
+    this.clearToyParts()
+    this.platform = null
+    this.onIce = false
+
+    this.currentAnimationFrame = Constants.PLAYER_FRAMES.REST.start
     this.currentAnimationState = Constants.PLAYER_FRAMES.REST
     this.playerState = Constants.PLAYER_STATES.REST
     this.setDirection('front')
     this.animationQueue = []
-
-    this.onIce = false
   }
 
   onFrame(delta, now) {
     if (this.dead) {
+      // Keep updating death animation
       this.updateAnimationFrame(now)
       this.render()
       return
@@ -101,12 +99,45 @@ app.Player = class Player {
     this.blockPlayer = false
     this.prevPosition = Object.assign({}, this.position)
 
-    let isDecelerating = false
-    let accelerationFactor = 1
-    let decelerationFactor = 1
+    this.updatePosition(delta)
+    this.checkActions()
+
+    this.movePlayer()
+
+
+    // TODO: play the correct state
+    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
+    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
+        (this.isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
+      this.setPlayerState(Constants.PLAYER_STATES.REST)
+    } else {
+      this.setPlayerState(Constants.PLAYER_STATES.WALK)
+    }
+    this.updateAnimationFrame(now)
+
+    this.render()
+  }
+
+  render() {
+    if (this.dead) {
+      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
+    } else {
+      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
+    }
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+  }
+
+  /**
+   * Updates player position and velocity based on user controls
+   */
+  updatePosition(delta) {
+    this.isDecelerating = false
+
+    let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
+    let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
     if (this.onIce) {
-      accelerationFactor = 2
-      decelerationFactor = .5
+      accelerationFactor = Constants.PLAYER_ICE_ACCELERATION_FACTOR
+      decelerationFactor = Constants.PLAYER_ICE_DECELERATION_FACTOR
       this.onIce = false // only leave it on for one step
     }
 
@@ -116,7 +147,7 @@ app.Player = class Player {
       this.setDirection('left')
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.right)) {
@@ -125,7 +156,7 @@ app.Player = class Player {
       this.setDirection('right')
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.up)) {
@@ -134,7 +165,7 @@ app.Player = class Player {
       this.setDirection('back')
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
     if (this.gameControls.isKeyControlActive(this.controls.down)) {
@@ -143,7 +174,7 @@ app.Player = class Player {
       this.setDirection('front')
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
     if (this.platform) {
@@ -169,47 +200,6 @@ app.Player = class Player {
         this.platform = null
       }
     }
-
-    this.blockingPosition = {
-      x: this.position.x,
-      y: this.position.y,
-    }
-
-    const surroundingEntities = this.game.board.getSurroundingEntities(this)
-
-    const resultingActions = {}
-
-    if (surroundingEntities.length) {
-      for (const entity of surroundingEntities) {
-        this.checkActions(entity, resultingActions)
-      }
-    }
-
-    this.processActions(resultingActions)
-
-    this.movePlayer()
-
-
-    // TODO: play the correct state
-    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
-    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
-        (isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
-      this.setPlayerState(Constants.PLAYER_STATES.REST)
-    } else {
-      this.setPlayerState(Constants.PLAYER_STATES.WALK)
-    }
-    this.updateAnimationFrame(now)
-
-    this.render()
-  }
-
-  render() {
-    if (this.dead) {
-      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
-    } else {
-      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
-    }
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
   movePlayer() {
@@ -226,18 +216,34 @@ app.Player = class Player {
           this.position.x, this.position.y)
   }
 
-  checkActions(entity, resultingActions) {
-    const actions = entity.onContact(this)
+  /**
+   * Check for any effects other entities have on the player at the
+   * current position
+   */
+  checkActions() {
+    const surroundingEntities = this.game.board.getSurroundingEntities(this)
+    const resultingActions = {}
 
-    for (const action of actions) {
-      if (!resultingActions[action]) { // if this action is not referred yet, create it
-        resultingActions[action] = []
+    for (const entity of surroundingEntities) {
+      const actions = entity.onContact(this)
+
+      for (const action of actions) {
+        if (!resultingActions[action]) { // if this action is not referred yet, create it
+          resultingActions[action] = []
+        }
+        resultingActions[action].push(entity)
       }
-      resultingActions[action].push(entity)
     }
+
+    this.processActions(resultingActions)
   }
 
   processActions(resultingActions) {
+    this.blockingPosition = {
+      x: this.position.x,
+      y: this.position.y,
+    }
+
     const restartEntities = resultingActions[Constants.PLAYER_ACTIONS.RESTART]
     if (restartEntities && restartEntities.length) {
       this.restart()
@@ -294,10 +300,6 @@ app.Player = class Player {
     }
   }
 
-  onContact(player) {
-    return [Constants.PLAYER_ACTIONS.BOUNCE]
-  }
-
   addToyPart(toyPart) {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
@@ -311,10 +313,6 @@ app.Player = class Player {
     }
 
     this.toyParts = []
-  }
-
-  registerWin() {
-    this.score++
   }
 
   setDirection(direction) {
@@ -403,5 +401,13 @@ app.Player = class Player {
     if (finished && this.animationQueue.length) {
       this.currentAnimationState = this.animationQueue.shift()
     }
+  }
+
+  onContact(player) {
+    return [Constants.PLAYER_ACTIONS.BOUNCE]
+  }
+
+  registerWin() {
+    this.score++
   }
 }
