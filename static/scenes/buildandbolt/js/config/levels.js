@@ -87,41 +87,38 @@ Levels = [
         type: 'fence',
         config: {
           x: 20,
-          y: 2,
+          y: 1,
           cells: [
             // first line
             [{
               left: true,
-              // top: true,
-              right: true,
-              // bottom: true,
+              top: true,
             },
             {
-              // left: true,
               top: true,
             },{
-              // left: true,
+              top: true,
+            }],
+            // second line
+            [{
+              left: true,
+              right: true,
+            },
+            {
+              top: true,
+            },{
               top: true,
               right: true,
-            }
-            ]
+            }],
+            [{
+              left: true,
+              bottom: true,
+            },
+            {
+              bottom: true,
+              right: true,
+            }],
           ],
-          // cells: [
-          //   // first line
-          //   [{
-          //     right: true,
-          //   }, {
-          //     right: true,
-          //     top: true,
-          //   }],
-          //   // second line
-          //   [{
-          //     left: true,
-          //   }, {
-          //     left: true,
-          //     top: true,
-          //   }]
-          // ],
         }
       },
       {
