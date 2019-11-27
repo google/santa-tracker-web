@@ -87,10 +87,6 @@ function targetSize() {
   };
 }
 
-api.preload.wait(new Promise((r) => {
-  window.addEventListener('load', r);
-}));
-
 
 api.ready(() => {
   const fps = 10;

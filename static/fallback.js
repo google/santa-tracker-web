@@ -128,6 +128,10 @@ const fallbackLoad = (url, {route, data, locked}) => {
             responsePort.postMessage(null);
             return;
   
+          case 'progress':
+            console.debug('got preload notice', payload);
+            return;
+
           case 'loaded':
             loaded(port);
             resolve(true);

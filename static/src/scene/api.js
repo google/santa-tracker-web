@@ -6,7 +6,8 @@ import {read} from '../lib/params.js';
 import {globalClickHandler} from '../core/router.js';
 import {scope} from './route.js';
 
-const WAIT_TIMEOUT = 20 * 1000;
+const PARENT_PRELOAD_TIMEOUT = 15 * 1000;  // individual preload timeout, e.g., for Klang
+const LOAD_TIMEOUT = 20 * 1000;            // total preload timeout
 
 class PreloadApi {
 
@@ -76,7 +77,7 @@ class PreloadApi {
           resolve();
         }
       };
-      window.setTimeout(reject, WAIT_TIMEOUT);
+      window.setTimeout(reject, PARENT_PRELOAD_TIMEOUT);
     });
 
     this.wait(p);
@@ -147,7 +148,7 @@ class SceneApi extends EventTarget {
       });
     }
 
-    // connect to parent frame: during preload, error on data
+    // connect to parent frame during preload
     this._updateFromHost = (data) => {
       const {type, payload} = data;
 
@@ -173,9 +174,13 @@ class SceneApi extends EventTarget {
     const sendQueue = [];
     this._send = (type, payload) => sendQueue.push({type, payload});
 
-    // after preload, do a bunch of setup work
-    this._ready = this._preload.done.then(() => {
-      // send loaded event (this inaccurately also contains the scene config)
+    // after preload, do a bunch of setup work (with timeout)
+    const race = Promise.race([
+      this._preload.done,
+      new Promise((r) => window.setTimeout(r, LOAD_TIMEOUT))
+    ]);
+    this._ready = race.then(() => {
+      // send loaded event, ignoring future preload notices
       this._updateParent({type: 'loaded'});
       this._loaded = true;
 
