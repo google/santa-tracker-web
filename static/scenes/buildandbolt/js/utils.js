@@ -87,10 +87,10 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const fromBottom = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide
 
   // inner sides
-  const leftInnerSide = rightSide - marginInside
-  const rightInnerSide = leftSide + marginInside
-  const bottomInnerSide = topSide + marginInside
-  const topInnerSide = bottomSide - marginInside
+  const leftInnerSide = entity.x + 1 - marginInside
+  const rightInnerSide = entity.x - 1 + marginInside
+  const bottomInnerSide = entity.y - 1 + marginInside
+  const topInnerSide = entity.y + 1 - marginInside
 
   // directions from inside cell
   const fromInnerRight = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= leftInnerSide
