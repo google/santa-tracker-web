@@ -33,13 +33,12 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
   const fromTop = playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= topSide
   const fromBottom = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= bottomSide
 
-  const isTouchingBorder = rightSide > playerPosition.x &&
+  const isGoingInside = rightSide > playerPosition.x &&
     leftSide < playerPosition.x &&
     bottomSide > playerPosition.y &&
     topSide < playerPosition.y
 
-  if (isTouchingBorder) {
-
+  if (isGoingInside) {
     const blockingPosition = {
       x: playerPosition.x,
       y: playerPosition.y
@@ -71,8 +70,8 @@ Utils.isInBorder = function(entity, playerPosition, prevPlayerPosition) {
   return false
 }
 
-Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
-  // add an extra space on top inside border to make it matches more with the design
+Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
+  // add an extra space on top inside border to match more with the design
   const insideTopExtraSpace = 0.4
 
   // make extra space to make it easier in corridors
@@ -100,7 +99,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const fromTopInside = playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= bottomInnerSide
   const fromBottomInside = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= topInnerSide
 
-  const isTouchingBorder = rightSide > playerPosition.x &&
+  const isGoingInside = rightSide > playerPosition.x &&
     leftSide < playerPosition.x &&
     bottomSide > playerPosition.y &&
     topSide < playerPosition.y
@@ -110,7 +109,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
     y: playerPosition.y
   }
 
-  if (isTouchingBorder) {
+  if (isGoingInside) {
     // from Right and outside
     if (fromRight) {
       if (entity.top) {
@@ -221,6 +220,24 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
           blockingPosition.y = topInnerSide
         }
       }
+    }
+  }
+
+  // z-index detection
+  const offsetTouching = 0.9 // prevent velocity issues
+  if (entity.top) {
+    if (entity.y - offsetTouching <= playerPosition.y) { // + Constants.WALL_EXTRA_SPACE // don't need because of extraSpace
+      elem.classList.add('player-in-front')
+    } else {
+      elem.classList.remove('player-in-front')
+    }
+  }
+
+  if (entity.bottom) {
+    if (entity.y + offsetTouching - Constants.WALL_EXTRA_SPACE <= playerPosition.y) {
+      elem.classList.add('player-in-front')
+    } else {
+      elem.classList.remove('player-in-front')
     }
   }
 

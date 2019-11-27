@@ -4,6 +4,10 @@
     width: $grid-unit-size;
     z-index: $fence-z-index;
 
+    &.player-in-front {
+      z-index: 0;
+    }
+
     &__background {
       width: 100%;
       height: 100%;

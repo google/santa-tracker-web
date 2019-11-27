@@ -61,7 +61,7 @@ app.Fence = class Fence extends app.Entity {
     let actions = []
 
     // if player is in the border, he is blocked
-    this.blockingPosition = Utils.isInFence(this.config, player.position, player.prevPosition)
+    this.blockingPosition = Utils.isInFence(this.config, player.position, player.prevPosition, this.elem)
 
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
