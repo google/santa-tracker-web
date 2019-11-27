@@ -94,10 +94,10 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
   const topInnerSide = entity.y + 1 - marginInside
 
   // directions from inside cell
-  const fromInnerRight = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= leftInnerSide
-  const fromInnerLeft = playerPosition.x > prevPlayerPosition.x && prevPlayerPosition.x <= rightInnerSide
-  const fromInnerTop = playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= bottomInnerSide
-  const fromInnerBottom = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= topInnerSide
+  const fromRightInside = playerPosition.x < prevPlayerPosition.x && prevPlayerPosition.x >= leftInnerSide
+  const fromLeftInside = playerPosition.x > prevPlayerPosition.x && prevPlayerPosition.x <= rightInnerSide
+  const fromTopInside = playerPosition.y > prevPlayerPosition.y && prevPlayerPosition.y <= bottomInnerSide
+  const fromBottomInside = playerPosition.y < prevPlayerPosition.y && prevPlayerPosition.y >= topInnerSide
 
   const isTouchingBorder = rightSide > playerPosition.x &&
     leftSide < playerPosition.x &&
@@ -133,7 +133,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
     }
 
     // inside and from Right
-    if (fromInnerRight) {
+    if (fromRightInside) {
       if (entity.left) {
         // stop at inner border left
         if (leftInnerSide > playerPosition.x) {
@@ -162,7 +162,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
     }
 
     // inside and from Left
-    if (fromInnerLeft) {
+    if (fromLeftInside) {
       if (entity.right) {
         if (rightInnerSide < playerPosition.x) {
           blockingPosition.x = rightInnerSide
@@ -188,7 +188,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
       }
     }
 
-    if (fromInnerTop) {
+    if (fromTopInside) {
       if (entity.bottom) {
         if (bottomInnerSide < playerPosition.y) {
           blockingPosition.y = bottomInnerSide
@@ -214,7 +214,7 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition) {
       }
     }
 
-    if (fromInnerBottom) {
+    if (fromBottomInside) {
       if (entity.top) {
         if (topInnerSide > playerPosition.y) {
           blockingPosition.y = topInnerSide
