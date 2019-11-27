@@ -5,6 +5,7 @@ import { toRadian, clamp } from '../../utils/math.js'
 import { throttle } from '../../utils/time.js'
 import createCustomEvent from '../../utils/createCustomEvent.js'
 import { SHAPE_COLORS } from  '../../constants/index.js'
+import { darken } from '../../utils/colors.js'
 
 class Shape {
   constructor(scene, world) {
@@ -21,13 +22,22 @@ class Shape {
     this.isMoving = false
     this.geoMats = []
     this.centerOffsetY = 0
-    this.highlightColor = GLOBAL_CONFIG.COLORS.HIGHLIGHT
+    this.highlightColor = new THREE.Color(darken(GLOBAL_CONFIG.COLORS.ICE_HEXA, 15))
+    this.stableThreshold = 0.01
+    this.stableThrottleTime = 500
+
+    this.lastBodyPosition = {
+      x: 0,
+      y: 0,
+      z: 0,
+    }
 
     if (this.init) {
       this.init = this.init.bind(this)
     }
     this.load = this.load.bind(this)
     this.onCollide = this.onCollide.bind(this)
+    this.isStable = this.isStable.bind(this)
   }
 
   load(callback) {
@@ -39,7 +49,7 @@ class Shape {
   setShape(defaultMaterial) {
     // Secondary materials
     const highlightMaterial = defaultMaterial.clone()
-    highlightMaterial.color.setHex(this.highlightColor)
+    highlightMaterial.color = this.highlightColor
     highlightMaterial.needsUpdate = true
 
     const ghostMaterial = defaultMaterial.clone()
@@ -85,6 +95,12 @@ class Shape {
     if (this.callback) {
       this.callback(this)
     }
+
+    if (this.name !== 'tree') {
+      this.stable = throttle(this.isStable, this.stableThrottleTime)
+      // listen raf
+      window.addEventListener('RAF', this.stable)
+    }
   }
 
   createBody() {
@@ -97,7 +113,9 @@ class Shape {
     this.body = new CANNON.Body({
       mass: this.mass,
       fixedRotation: false,
-      material: this.material === 'ice' ? GLOBAL_CONFIG.SLIPPERY_MATERIAL : GLOBAL_CONFIG.NORMAL_MATERIAL
+      // material: GLOBAL_CONFIG.NORMAL_MATERIAL,
+      linearDamping: 0,
+      angularDamping: 0,
     })
 
     this.createShapes(this.scaleFactor)
@@ -109,6 +127,25 @@ class Shape {
     // listen collision of shape
     this.collide = throttle(this.onCollide, 50) // replace throttle value here if needed
     this.body.addEventListener('collide', this.collide)
+  }
+
+  isStable() {
+    // This is a fix for bodies always sliding whatever the material used
+    // https://github.com/schteppe/cannon.js/issues/348
+    // Check if the body didn't move a lot since 500ms, if not make it sleep to make it 100% stable
+    if (this.body) {
+      const diffPosition = Math.abs(this.body.position.x - this.lastBodyPosition.x)
+        + Math.abs(this.body.position.y - this.lastBodyPosition.y)
+        + Math.abs(this.body.position.z - this.lastBodyPosition.z)
+
+      if (diffPosition < this.stableThreshold && this.body.sleepState !== 2) {
+        this.body.sleep()
+      }
+
+      this.lastBodyPosition.x = this.body.position.x
+      this.lastBodyPosition.y = this.body.position.y
+      this.lastBodyPosition.z = this.body.position.z
+    }
   }
 
   createShapesFromWRL(models, scale) {
@@ -142,38 +179,28 @@ class Shape {
     }
   }
 
-  select() {
+  select(isAddingShape) {
     if (this.selectable && !this.selected) {
       this.selected = true
       this.body.sleep()
 
-      if (this.mesh) {
-        this.unhighlight()
-        this.mesh.visible = false
-      }
+      this.mesh.visible = true
 
-      this.createGhost()
+      if (isAddingShape) {
+        this.showGhost()
+      }
     }
   }
 
   unselect() {
     if (this.selectable && this.selected) {
       this.selected = false
+
       if (this.body.sleepState > 0) {
         this.body.wakeUp()
       }
 
-      if (this.moveToGhost) {
-        if (this.mesh && !this.mesh.visible) {
-          this.mesh.visible = true
-        }
-      }
-
-      if (!this.mesh.visible) {
-        this.mesh.visible = true
-      }
-
-      this.deleteGhost()
+      this.hideGhost()
     }
   }
 
@@ -210,6 +237,10 @@ class Shape {
   }
 
   rotate(direction, angle, currentCameraYRotation) {
+    if (!this.ghost) {
+      this.showGhost()
+    }
+
     let axis
     switch (direction) {
       default:
@@ -246,6 +277,10 @@ class Shape {
   }
 
   scale(value) {
+    if (!this.ghost) {
+      this.showGhost()
+    }
+
     const scaleFactor = parseInt(value) / 10
     this.ghost.scale.set(
       this.defaultMeshScale.x * scaleFactor,
@@ -275,10 +310,13 @@ class Shape {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
         if (this.mulipleMaterials) {
-          child.material.transparent = true
-          child.material.opacity = 0.8
+          if (this.name === 'gift' && i === 4) {
+            child.material = this.materials.highlight
+          } else if (this.name === 'tree' && i === 0) {
+            child.material = this.materials.highlight
+          }
         } else {
-          child.material = this.materials ? this.materials.highlight : CONFIG.HIGHLIGHT_MATERIAL
+          child.material = this.materials.highlight
         }
       }
     }
@@ -289,13 +327,41 @@ class Shape {
       for (let i = 0; i < this.mesh.children.length; i++) {
         const child = this.mesh.children[i]
         if (this.mulipleMaterials) {
-          child.material.transparent = false
-          child.material.opacity = 1
+          if (this.name === 'gift' && i === 4) {
+            child.material = this.materials.default
+          } else if (this.name === 'tree' && i === 0) {
+            child.material = this.materials.default
+          }
         } else {
-          child.material = this.materials ? this.materials.default : CONFIG.DEFAULT_MATERIAL
+          child.material = this.materials.default
         }
       }
     }
+  }
+
+  showGhost() {
+    this.createGhost()
+
+    if (this.ghost) {
+      this.ghost.visible = true
+    }
+    if (this.mesh) {
+      this.mesh.visible = false
+    }
+  }
+
+  hideGhost() {
+    if (this.moveToGhost) {
+      if (this.mesh && !this.mesh.visible) {
+        this.mesh.visible = true
+      }
+    }
+
+    if (!this.mesh.visible) {
+      this.mesh.visible = true
+    }
+
+    this.deleteGhost()
   }
 
   createGhost() {
@@ -304,7 +370,7 @@ class Shape {
     this.ghost = new THREE.Object3D()
 
     for (let i = 0; i < this.geoMats.length; i++) {
-      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials ? this.materials.ghost : CONFIG.GHOST_MATERIAL)
+      const mesh = new THREE.Mesh(this.geoMats[i].geometry, this.materials.ghost)
       this.ghost.add(mesh)
     }
 
@@ -388,14 +454,14 @@ class Shape {
         if (this.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
-            child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+            child.material.color = SHAPE_COLORS[this.name].default
           }
         } else {
-          child.material.color = new THREE.Color(SHAPE_COLORS[this.name].default)
+          child.material.color = SHAPE_COLORS[this.name].default
         }
       }
 
-      this.materials.highlight = new THREE.Color(SHAPE_COLORS[this.name].highlight)
+      this.materials.highlight.color = SHAPE_COLORS[this.name].highlight
     }
   }
 

@@ -9,7 +9,7 @@ export default class ObjectEditTool {
 
     this.ui = {
       rotateButtons: [...this.el.querySelectorAll('[data-rotate-object]')],
-      colorButtons: [...this.el.querySelectorAll('[data-color-object]')],
+      colorButtons: [...this.el.querySelectorAll('[data-color-subject]')],
       scaleButton: this.el.querySelector('[object-scale-slider]'),
       colorIconButton: this.el.querySelector('[data-open-colors]'),
       toolbar: this.el.querySelector('[object-toolbar-ui]'),
@@ -18,6 +18,8 @@ export default class ObjectEditTool {
       trash: this.el.querySelector('[object-trash-ui]'),
       trashButton: this.el.querySelector('[data-trash-object]'),
     }
+
+    this.state = 'is-hidden'
 
     this.resetRotateTimeout = {}
     this.rotateIntervals = {}
@@ -54,9 +56,9 @@ export default class ObjectEditTool {
 
     this.ui.colorButtons.forEach(button => {
       if (this.isTouchDevice) {
-        button.addEventListener('touchstart', Scene.colorObject)
+        button.addEventListener('touchstart', Scene.colorSubject)
       } else {
-        button.addEventListener('click', Scene.colorObject)
+        button.addEventListener('click', Scene.colorSubject)
       }
     })
 
@@ -88,10 +90,12 @@ export default class ObjectEditTool {
   }
 
   show() {
-    this.el.classList.add('is-showed')
-    this.state = 'is-showed'
-    if (!Scene.activeSubject.editable) {
-      this.el.classList.add('not-editable')
+    if (Scene.activeSubject) {
+      this.el.classList.add('is-showed')
+      this.state = 'is-showed'
+      if (!Scene.activeSubject.editable) {
+        this.el.classList.add('not-editable')
+      }
     }
   }
 
@@ -106,23 +110,31 @@ export default class ObjectEditTool {
   updatePosition() {
     if (this.state === 'is-hidden') return
 
-    if (Scene.activeSubject.editable) {
+    if (Scene.activeSubject && Scene.activeSubject.editable) {
       const xArrowHelper = Scene.scene.getObjectByName('arrow-helper-x') // would be nice if we can store this value somewhere
-      const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
-      this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
+      if (xArrowHelper) {
+        const xArrowHelperPos = Scene.getScreenPosition(xArrowHelper)
+        this.ui.rotateRight.style.transform = `translate(-50%, -50%) translate(${xArrowHelperPos.x}px,${xArrowHelperPos.y}px)`
+      }
 
       const yArrowHelper = Scene.scene.getObjectByName('arrow-helper-y')
-      const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
-      this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+      if (yArrowHelper) {
+        const yArrowHelperPos = Scene.getScreenPosition(yArrowHelper)
+        this.ui.rotateBottom.style.transform = `translate(-50%, -50%) translate(${yArrowHelperPos.x}px,${yArrowHelperPos.y}px)`
+      }
     }
 
     const trashHelper = Scene.scene.getObjectByName('trash-helper')
-    const trashHelperPos = Scene.getScreenPosition(trashHelper)
-    this.ui.trash.style.transform = `translate(-50%, -50%) translate(${trashHelperPos.x}px,${trashHelperPos.y}px)`
+    if (trashHelper) {
+      const trashHelperPos = Scene.getScreenPosition(trashHelper)
+      this.ui.trash.style.transform = `translate(-50%, -50%) translate(${trashHelperPos.x}px,${trashHelperPos.y}px)`
+    }
 
     const toolbarHelper = Scene.scene.getObjectByName('toolbar-helper')
-    const toolbarHelperPos = Scene.getScreenPosition(toolbarHelper)
-    this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
+    if (toolbarHelper) {
+      const toolbarHelperPos = Scene.getScreenPosition(toolbarHelper)
+      this.ui.toolbar.style.transform = `translate(-50%, -50%) translate(${toolbarHelperPos.x}px,${toolbarHelperPos.y}px)`
+    }
   }
 
   onClickColorIcon(e) {

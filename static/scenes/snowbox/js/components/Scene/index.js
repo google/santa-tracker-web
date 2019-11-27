@@ -66,8 +66,8 @@ class Scene {
     this.shapeLoaded = this.shapeLoaded.bind(this)
     this.addShape = this.addShape.bind(this)
     this.onScaleInput = this.onScaleInput.bind(this)
-    this.colorObject = this.colorObject.bind(this)
-    this.onTouchMove = this.onTouchMove.bind(this)
+    this.colorSubject = this.colorSubject.bind(this)
+    this.onCanvasTouchMove = this.onCanvasTouchMove.bind(this)
   }
 
   init(canvas) {
@@ -181,10 +181,10 @@ class Scene {
     if (this.isTouchDevice) {
       this.canvas.addEventListener('touchstart', this.onMouseDown)
       document.body.addEventListener('touchend', this.onMouseUp)
-      document.body.addEventListener('touchcancel', this.onMouseUp)
+      // this.canvas.addEventListener('touchcancel', this.onMouseUp)
       document.body.addEventListener('touchmove', this.onMouseMove)
       // only on canvas, not document, and if not edit mode
-      this.canvas.addEventListener('touchmove', this.onTouchMove, false)
+      this.canvas.addEventListener('touchmove', this.onCanvasTouchMove, false)
     } else {
       this.canvas.addEventListener('mousemove', this.onMouseMove)
       this.canvas.addEventListener('mousedown', this.onMouseDown)
@@ -270,15 +270,16 @@ class Scene {
 
       this.isInCanvas = this.mouse.y > -1 && this.mouse.y < 1
 
+      if (this.selectedSubject && this.isSelectingMouseDown && !this.selectedSubject.ghost && this.mode !== 'edit') {
+        this.selectedSubject.showGhost()
+      }
+
       if (!this.selectedSubject && this.mode !== 'drag' && this.mode !== 'move') {
         // if not in drag or ghost mode
         const hit = this.getNearestObject()
         if (hit) {
           const subject = this.getSubjectfromMesh(hit.object.parent)
-          if (subject !== this.activeSubject) {
-            this.highlightSubject(subject)
-            SoundManager.highlightShape(subject)
-          }
+          this.highlightSubject(subject)
         } else {
           this.highlightSubject(false)
         }
@@ -297,11 +298,11 @@ class Scene {
   }
 
   onMouseDown(e) {
-    e.preventDefault()
-
     // For touch events only
     if (e.type === 'touchstart') {
       this.detectTouches(e)
+    } else {
+      e.preventDefault()
     }
 
     this.mouseState = 'down'
@@ -316,7 +317,12 @@ class Scene {
         subject.mesh ? subject.mesh.uuid === hit.object.parent.uuid : false
       )
 
-      this.selectSubject(newSelectedSubject, true)
+      this.selectSubject(newSelectedSubject)
+
+      clearTimeout(this.isSelectingMouseDownTimeOut)
+      this.isSelectingMouseDownTimeOut = setTimeout(() => {
+        this.isSelectingMouseDown = true
+      }, 200) // prevent glitch if mousedown, move and mouseup very fast
 
     } else {
       this.setMode()
@@ -326,11 +332,12 @@ class Scene {
   onMouseUp(e) {
     if (e.type !== 'touchend') {
       e.preventDefault()
-    } else if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit') {
+    } else if (this.selectedSubject && this.mouseState !== 'down' && this.mode !== 'edit' && this.isInCanvas) {
       this.unselectSubject()
+      this.setMode()
     }
 
-    if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down') {
+    if (this.selectedSubject && this.mode === 'move' && this.mouseState === 'down' && !this.isAddingShape) {
       this.activeSubject = this.selectedSubject
       this.setMode('edit')
     } else if (!this.isTouchDevice) {
@@ -342,9 +349,12 @@ class Scene {
     if (this.isPinchZooming) {
       this.isPinchZooming = false
     }
+
+    this.isAddingShape = false
   }
 
   onWheel(e) {
+    if (CameraController.isZooming || CameraController.isRotating) return
     CameraController.isMoving = true
 
     if (e.deltaY < 0) {
@@ -376,7 +386,7 @@ class Scene {
     this.yTouchStart = e.touches[0].clientY
   }
 
-  onTouchMove(e) {
+  onCanvasTouchMove(e) {
     if (this.mode === 'edit' || this.mode === 'move') return
 
     if (this.isPinchZooming) { // if 2 fingers
@@ -419,28 +429,31 @@ class Scene {
   }
 
   // Events from UI
-  colorObject(e) {
+  colorSubject(e) {
     const el = e.currentTarget
-    const { colorObject } = el.dataset
+    const { colorSubject } = el.dataset
     if (this.activeSubject) {
+      const threeColor = new THREE.Color(colorSubject)
+      const threeHighlightedColor = new THREE.Color(darken(colorSubject, 15))
+
       for (let i = 0; i < this.activeSubject.mesh.children.length; i++) {
         const child = this.activeSubject.mesh.children[i]
         if (this.activeSubject.name === 'gift') {
           // only change the last material color for gifts
           if (i === 4) {
-            child.material.color = new THREE.Color(colorObject)
+            child.material.color = threeColor
           }
         } else {
-          child.material.color = new THREE.Color(colorObject)
+          child.material.color = threeColor
         }
       }
 
-      this.activeSubject.materials.highlight.color = new THREE.Color(darken(colorObject, 15))
-      this.activeSubject.materials.highlight.needsUpdate = true
-      SoundManager.play('snowbox_pick_color')
+      this.activeSubject.materials.default.color = threeColor
+      this.activeSubject.materials.highlight.color = threeHighlightedColor
 
-      SHAPE_COLORS[this.activeSubject.name].default = colorObject
-      SHAPE_COLORS[this.activeSubject.name].highlight = new THREE.Color(darken(colorObject, 15))
+      SHAPE_COLORS[this.activeSubject.name].default = threeColor
+      SHAPE_COLORS[this.activeSubject.name].highlight = threeHighlightedColor
+      SoundManager.play('snowbox_pick_color')
     }
   }
 
@@ -473,6 +486,7 @@ class Scene {
   }
 
   addShape(shape, material = 'snow') {
+    if (this.mode === 'move') return
     let subject
     switch (shape) {
       case 'cube':
@@ -518,8 +532,9 @@ class Scene {
 
   // others
   shapeLoaded(subject) {
+    this.isAddingShape = true
     this.sceneSubjects.push(subject)
-    this.selectSubject(subject)
+    this.selectSubject(subject, true)
     // subject.box.copy(subject.ghost.geometry.boundingBox).applyMatrix4(subject.ghost.matrixWorld)
     const box = new THREE.Box3().setFromObject(subject.ghost)
     this.planeHelper.position.y = subject.size / 2 * (box.max.y - box.min.y) // add half Y +
@@ -528,9 +543,11 @@ class Scene {
   unselectSubject(unmove) {
     CameraController.resetControls()
 
-    if (!unmove) {
+    if (!unmove && this.selectedSubject.ghost) {
       this.selectedSubject.moveToGhost()
     }
+    //wakeupBodies
+    this.wakeUpBodies()
     this.selectedSubject.unselect()
 
     this.mountain.removePositionMarker()
@@ -540,16 +557,24 @@ class Scene {
     SoundManager.play('snowbox_unselect_subject')
   }
 
-  selectSubject(newSelectedSubject, needsOffset = false) {
+  selectSubject(newSelectedSubject, fromToolbar = false) {
     this.setMode('move')
 
     this.selectedSubject = newSelectedSubject
-    this.selectedSubject.select()
+    this.selectedSubject.select(this.isAddingShape)
     const { position } = this.selectedSubject.body
 
     this.moveOffset.y = 0 // reset y
 
-    if (needsOffset) {
+    if (fromToolbar) {
+      this.moveOffset.x = 0
+      this.moveOffset.z = 0
+      this.mountain.addPositionMarker({
+        x: 100, // hide it
+        y: 100,
+        z: 100,
+      })
+    } else {
       // don't play sound if dragging from toolbar
       SoundManager.play('snowbox_select_subject')
       const box = new THREE.Box3().setFromObject(this.selectedSubject.mesh)
@@ -564,14 +589,6 @@ class Scene {
         y: this.planeHelper.position.y + this.moveOffset.y,
         z: posPlaneHelper.z + this.moveOffset.z,
       })
-    } else {
-      this.moveOffset.x = 0
-      this.moveOffset.z = 0
-      this.mountain.addPositionMarker({
-        x: 100, // hide it
-        y: 100,
-        z: 100,
-      })
     }
   }
 
@@ -579,7 +596,6 @@ class Scene {
     const posPlaneHelper = this.getCurrentPosOnPlaneHelper()
 
     if (posPlaneHelper) {
-      this.selectedSubject.ghost.visible = true
       const x = posPlaneHelper.x + this.moveOffset.x
       const z = posPlaneHelper.z + this.moveOffset.z
       const y = this.planeHelper.position.y + this.moveOffset.y
@@ -617,17 +633,27 @@ class Scene {
   }
 
   highlightSubject(subject) {
-    if (this.highlightedSubject) {
-      this.highlightedSubject.unhighlight()
-    }
-
-    if (subject) {
+    if (subject && subject !== this.highlightedSubject) {
+      // clean previous subjects
+      this.cleanHighlightedSubjects()
       this.canvas.classList.add('is-pointing')
       subject.highlight()
       this.highlightedSubject = subject
-    } else if (subject === false) {
+      SoundManager.highlightShape(subject)
+    } else if (!subject) {
+      if (this.highlightedSubject && this.highlightedSubject !== this.activeSubject) {
+        this.highlightedSubject.unhighlight()
+      }
       this.canvas.classList.remove('is-pointing')
       this.highlightedSubject = null
+    }
+  }
+
+  cleanHighlightedSubjects() {
+    for (let i = 0; i < this.sceneSubjects.length; i++) {
+      if (this.sceneSubjects[i].unhighlight && this.sceneSubjects[i] !== this.activeSubject) {
+        this.sceneSubjects[i].unhighlight()
+      }
     }
   }
 
@@ -708,7 +734,6 @@ class Scene {
         const boxItem = new THREE.Box3().setFromObject(objects[index])
 
         if (boxHelper.intersectsBox(boxItem)) {
-          // console.log('collision', boxItem.max.y)
           // get hightest Ypos of collision objects
           elevate = Math.max(elevate, boxItem.max.y)
           collision = true
@@ -722,7 +747,7 @@ class Scene {
         detectCollision()
       } else {
         // if no more collision, move up the object (update moveOffset)
-        this.moveOffset.y = boxHelper.min.y
+        this.moveOffset.y = boxHelper.min.y - 0.05 * this.selectedSubject.scaleFactor
         if (isEditing) {
           // move ghost
           this.selectedSubject.moveTo(null, sizeY / 2 + this.moveOffset.y, null)
@@ -743,7 +768,6 @@ class Scene {
     const { controls } = CameraController
     this.canvas.classList.remove('is-dragging')
     this.canvas.classList.remove('is-pointing')
-    // console.log('mode', mode)
 
     // unselect any object when changing mode
     if (this.selectedSubject) {
@@ -761,9 +785,11 @@ class Scene {
 
     switch (mode) {
       default:
+        this.cleanHighlightedSubjects()
         controls.enabled = true // reset cameraCtrl.controls
         break
       case 'drag':
+        this.cleanHighlightedSubjects()
         this.canvas.classList.add('is-dragging')
         break
       case 'move':
@@ -771,9 +797,11 @@ class Scene {
         controls.enabled = false // disable cameraCtrl.controls
         break
       case 'edit':
+        this.cleanHighlightedSubjects()
         if (this.activeSubject) {
           this.activeSubject.createRotateCircle(CameraController.camera.zoom)
           window.dispatchEvent(createCustomEvent('ENTER_EDIT'))
+          this.activeSubject.highlight()
         }
         controls.enabled = false // disable cameraCtrl.controls
         break
@@ -799,6 +827,18 @@ class Scene {
     this.activeSubject = null
     this.setMode()
     this.mountain.removePositionMarker()
+  }
+
+  wakeUpBodies() {
+    const bodies = this.sceneSubjects.filter(subject => subject.selectable || subject.collidable)
+      .map(subject => subject.body)
+
+    for (let i = 0; i < bodies.length; i++) {
+      // wake up all bodies
+      if (bodies[i].sleepState > 0) {
+        bodies[i].wakeUp()
+      }
+    }
   }
 
   setUnits() {

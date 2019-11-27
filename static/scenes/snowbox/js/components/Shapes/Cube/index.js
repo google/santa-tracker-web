@@ -48,7 +48,7 @@ class Cube extends Obj {
       new CANNON.Vec3((CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale, (CONFIG.SIZE / 2) * scale),
     )
 
-    this.body.addShape(shape)
+    this.body.addShape(shape, new CANNON.Vec3(0,-0.03,0))
   }
 }
 

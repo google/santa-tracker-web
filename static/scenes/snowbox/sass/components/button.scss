@@ -6,6 +6,8 @@
   justify-content: center;
   position: relative;
   width: $button-size;
+  text-rendering: optimizelegibility;
+  will-change: box-shadow, transform;
 
   @include respond-to(tablet) {
     height: $button-size-tablet;
@@ -47,7 +49,7 @@
   &.is-disabled {
     &::before {
       background-color: $color-gray-button;
-      box-shadow: $button-3d-offset  $button-3d-offset .01px $color-gray-button-shadow, .01px $button-3d-offset  .01px $color-gray-button-shadow, $button-shadow-offset $button-3d-offset  $button-shadow;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-gray-button-shadow, .01px $button-3d-offset  .01px $color-gray-button-shadow, $button-shadow-offset $button-3d-offset $button-shadow;
     }
   }
 
@@ -56,7 +58,7 @@
     background-color: $color-yellow;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    box-shadow: $button-3d-offset  $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
+    box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset .01px $color-orange, $button-shadow-offset $button-3d-offset $button-shadow;
     content: '';
     height: 100%;
     left: 0;
@@ -142,7 +144,7 @@
       border-bottom-right-radius: 50%;
       border-top-left-radius: 0;
       border-top-right-radius: 50%;
-      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset  .01px $color-orange, $button-3d-offset  $button-shadow-offset $button-shadow;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px $button-3d-offset .01px $color-orange, $button-3d-offset $button-shadow-offset $button-shadow;
     }
 
     &:not(.is-disabled) {
@@ -166,13 +168,13 @@
       border-bottom-right-radius: 50%;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      box-shadow: $button-3d-offset  1px .01px $color-orange, 1px $button-3d-offset  .01px $color-orange, $button-shadow-offset $button-3d-offset  $button-shadow;
+      box-shadow: $button-3d-offset  1px .01px $color-orange, 1px $button-3d-offset .01px $color-orange, $button-shadow-offset $button-3d-offset $button-shadow;
     }
 
     &:not(.is-disabled) {
       &:hover {
         &::before {
-          box-shadow: $button-3d-offset-hover .01px .01px $color-orange, 2px $button-3d-offset  .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
+          box-shadow: $button-3d-offset-hover .01px .01px $color-orange, 2px $button-3d-offset .01px $color-orange, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
         }
       }
 
@@ -185,7 +187,7 @@
 
     &.is-disabled {
       &::before {
-        box-shadow: $button-3d-offset  1px .01px $color-gray-button-shadow, 1px $button-3d-offset  .01px $color-gray-button-shadow, $button-shadow-offset $button-3d-offset  $button-shadow;
+        box-shadow: $button-3d-offset 1px .01px $color-gray-button-shadow, 1px $button-3d-offset .01px $color-gray-button-shadow, $button-shadow-offset $button-3d-offset $button-shadow;
       }
     }
   }
@@ -194,19 +196,19 @@
     &::before {
       background-color: $color-white;
       border-radius: 50%;
-      box-shadow: $button-3d-offset $button-3d-offset  .01px $color-gray, .01px 1px .01px $color-gray;
+      box-shadow: $button-3d-offset $button-3d-offset .01px $color-gray, .01px 1px .01px $color-gray, $button-shadow-offset $button-3d-offset $button-shadow;
     }
 
     &:not(.is-disabled) {
       &:hover {
         &::before {
-          box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray;
+          box-shadow: 4px 4px $color-gray, .01px 1px .01px $color-gray, $button-shadow-offset-hover $button-3d-offset-hover $button-shadow;
         }
       }
 
       &.is-clicked {
         &::before {
-          box-shadow: 0px 0px .01px $color-gray, 0px 0px .01px $color-gray;
+          box-shadow: 0px 0px .01px $color-gray, 0px 0px .01px $color-gray, .01px 1px $button-shadow;
         }
       }
     }
