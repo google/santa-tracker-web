@@ -85,7 +85,12 @@ Constants = {
       end: 32,
       fps: 60
     },
-    REST_TO_HOLD_WALK: {
+    REST_TO_HOLD_REST: {
+      start: 32,
+      end: 40,
+      fps: 60
+    },
+    HOLD_REST_TO_HOLD_WALK: {
       start: 40,
       end: 48,
       fps: 60

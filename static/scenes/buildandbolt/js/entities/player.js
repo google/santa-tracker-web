@@ -97,12 +97,15 @@ app.Player = class Player {
     }
 
     this.blockPlayer = false
+    this.blockingPosition = {
+      x: this.position.x,
+      y: this.position.y,
+    }
+
     this.prevPosition = Object.assign({}, this.position)
 
     this.updatePosition(delta)
     this.checkActions()
-
-    this.movePlayer()
 
 
     // TODO: play the correct state
@@ -115,6 +118,7 @@ app.Player = class Player {
     }
     this.updateAnimationFrame(now)
 
+    this.movePlayer()
     this.render()
   }
 
@@ -239,11 +243,6 @@ app.Player = class Player {
   }
 
   processActions(resultingActions) {
-    this.blockingPosition = {
-      x: this.position.x,
-      y: this.position.y,
-    }
-
     const restartEntities = resultingActions[Constants.PLAYER_ACTIONS.RESTART]
     if (restartEntities && restartEntities.length) {
       this.restart()
@@ -278,6 +277,7 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]
     if (acceptToyEntities && acceptToyEntities.length) {
+      this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST)
       this.clearToyParts()
 
       // temporary
@@ -303,6 +303,12 @@ app.Player = class Player {
   addToyPart(toyPart) {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
+
+      if (this.toyParts.length == 1) {
+        // transition to holding animation
+        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST)
+      }
+
       this.elem.classList.add(`toypart--${toyPart}`)
     }
   }
@@ -343,23 +349,35 @@ app.Player = class Player {
       return
     }
 
+    let rest = Constants.PLAYER_FRAMES.REST
+    let walk = Constants.PLAYER_FRAMES.WALK
+    let restToWalk = Constants.PLAYER_FRAMES.REST_TO_WALK
+    let walkToRest = Constants.PLAYER_FRAMES.WALK_TO_REST
+
+    if (this.toyParts.length) {
+      rest = Constants.PLAYER_FRAMES.HOLD_REST
+      walk = Constants.PLAYER_FRAMES.HOLD_WALK
+      restToWalk = Constants.PLAYER_FRAMES.HOLD_REST_TO_HOLD_WALK
+      walkToRest = Constants.PLAYER_FRAMES.HOLD_WALK_TO_HOLD_REST
+    }
+
     switch(state) {
       case Constants.PLAYER_STATES.WALK:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.REST:
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_WALK)
+            this.addAnimationToQueueOnce(restToWalk)
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
+            this.addAnimationToQueueOnce(walk)
         }
         break;
       case Constants.PLAYER_STATES.REST:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.WALK:
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK_TO_REST)
+            this.addAnimationToQueueOnce(walkToRest)
           default:
             this.playerState = Constants.PLAYER_STATES.REST
-            this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
+            this.animationQueue.push(rest)
         }
         break;
     }
