@@ -1,6 +1,6 @@
 
 if (!Element.prototype.toggleAttribute) {
-  Element.prototype.toggleAttribute = (name, force) => {
+  Element.prototype.toggleAttribute = function(name, force) {
     force = Boolean(force);
 
     if (this.hasAttribute(name)) {
