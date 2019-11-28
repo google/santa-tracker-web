@@ -903,9 +903,7 @@ class AudioSource extends EventTarget {
 }
 
 
-
 export function prepare() {
-
   const config = window['KLANG_CONFIG'];
   const globalVars = config['vars'];
 
@@ -936,7 +934,14 @@ export function prepare() {
 
   Object.assign(audioConfig, config['busses'], config['sequencers'], config['processes']);
 
-  const nodes = {};
+  // By default, our master output is muted.
+  let masterOutMuted = true;
+  const masterOut = new AudioBus({}, null);
+  masterOut.output.gain.value = 0;
+
+  const nodes = {
+    '$OUT': masterOut,
+  };
 
   const loaderCallback = (key, buffer) => {
     const existing = nodes[key];
@@ -959,7 +964,7 @@ export function prepare() {
    */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
-    if ('destination_name' in config && destination === null && config['destination_name'] !== '$OUT') {
+    if ('destination_name' in config && !destination) {
       throw new Error(`got unprepared destination node ${config['destination_name']} for ${key}`);
     }
     let node;
@@ -1021,7 +1026,7 @@ export function prepare() {
       c['vars'] || [],
       c['content'] || [],
       c['destination_name'] || [],
-    ).filter((x) => !(x === '$OUT' || x in nodes));
+    ).filter((x) => !(x in nodes));
     deps.forEach(internalPrepareKey);
 
     const node = prepareKNode(key, c, nodes);
@@ -1101,7 +1106,20 @@ export function prepare() {
       return masterContext.state === 'suspended';
     },
 
+    get muted() {
+      return masterOutMuted;
+    },
+
+    set muted(v) {
+      if (v === masterOutMuted) {
+        return;
+      }
+      masterOutMuted = v;
+      Util.curveParamLin(masterOut.output.gain, masterOutMuted ? 0 : 1, 0.5);
+    },
+
     resume() {
+      console.error('got RESUME from kplay');
       return masterContext.resume();
     },
 

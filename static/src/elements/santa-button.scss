@@ -64,10 +64,8 @@ button {
   font-feature-settings: 'liga';
 
   will-change: box-shadow, transform;
-  transition: box-shadow $duration-out ease-in, transform $duration-out ease-in;
+  transition: box-shadow $duration-out ease-in, transform $duration-out ease-in, background $duration-out ease-in, color $duration-out ease-in;
   transform: translate(-$offset-x, -$offset-y);
-
-  fill: white;  // for svg
 
   &:active {
     transition-duration: $duration-in;
@@ -111,7 +109,6 @@ button {
   &.orange {
     @include theme(#ff9802);
   }
-
   &[disabled] {
     pointer-events: none;
     cursor: default;

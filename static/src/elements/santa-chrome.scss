@@ -63,8 +63,17 @@ header {
     transition: 0.25s ease-in-out;
     margin-right: 8px;
 
+    &[hidden] {
+      display: none !important;
+    }
+
     &[disabled] {
       transform: translateY(-100px);
+    }
+
+    @media (max-width: 400px) {
+      padding: 0;
+      margin-right: 4px;
     }
   }
 

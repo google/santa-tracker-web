@@ -94,35 +94,49 @@ chromeElement.addEventListener('nav-close', (ev) => {
 
 
 
-let muted = false;
-
-global.subscribe((state) => {
-  const update = state.hidden;
-  if (muted !== update) {
-    muted = update;
-
-    if (muted) {
-      kplayInstance.play('global_sound_off');
-    } else {
-      kplayInstance.play('global_sound_on');
+(function() {
+  if (isAndroid()) {
+    if (kplayInstance.suspended) {
+      kplayInstance.resume();
     }
+    chromeElement.muted = undefined;
+    global.setState({muted: false});
+    kplayInstance.muted = false;
+    return;
   }
 
-  // TODO(samthor): This only shows when the scene is in mini mode.
-  chromeElement.unmute = state.audioSuspended;
-});
-
-if (kplayInstance.suspended) {
-  global.setState({audioSuspended: true});
-  // Show the unmute button while we're suspended. The tab can be unsuspended for a bunch of
-  // really unknown reasons.
-  kplayInstance.resume().then(() => global.setState({audioSuspended: false}));
-  chromeElement.addEventListener('unmute', () => {
-    kplayInstance.resume();
+  // Control `<santa-chrome>` displaying mute or unmute.
+  global.subscribe((state) => {
+    chromeElement.muted = state.muted;
+    kplayInstance.muted = (state.hidden || state.muted);  // mute if in background, or requested
   });
-} else {
-  global.setState({audioSuspended: false});
-}
+
+  // Start "muted" if the browser is disallowing audio.
+  const initialSuspended = kplayInstance.suspended;
+  global.setState({muted: initialSuspended});
+
+  let audioTrigger = 0;
+
+  chromeElement.addEventListener('audio', (ev) => {
+    const wasMuted = ev.detail;
+
+    if (kplayInstance.suspended && wasMuted) {
+      const localAudioTrigger = audioTrigger;
+
+      // unmute only on resume
+      kplayInstance.resume().then(() => {
+        // prevent further actions if we muted again
+        if (localAudioTrigger === audioTrigger) {
+          global.setState({muted: false});
+        }
+      });
+    } else {
+      global.setState({muted: !wasMuted});
+    }
+
+    ++audioTrigger;
+  });
+}());
 
 
 window.addEventListener('santa-play', (ev) => {

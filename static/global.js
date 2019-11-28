@@ -5,6 +5,7 @@ import {dedup} from './src/lib/promises.js';
 const g = createStore({
   mini: false,
   audioSuspended: undefined,  // undefined until we observe it
+  muted: undefined,
 
   orientation: null,
 
