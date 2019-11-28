@@ -10,8 +10,6 @@
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "@tensorflow-models/posenet": "^0.2.3",
-    "@tensorflow/tfjs": "^0.13.0",
     "@webcomponents/webcomponentsjs": "^2.4.0",
     "autoprefixer": "^9.3.0",
     "babel-plugin-func-wrap": "^1.1.0",
@@ -46,7 +44,6 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "sass": "^1.22.9",
-    "tensorflow-models": "git+ssh://git@github.com:tensorflow/tfjs-models.git#6689cf1",
     "terser": "^3.10.11",
     "tmp": "^0.0.33",
     "unistore": "^3.4.1",

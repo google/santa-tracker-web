@@ -5,4 +5,5 @@ node_modules/
 .firebaserc
 .firebase/
 firebase-debug.log
+package-lock.json
 plan8-klang-sync.js
