@@ -903,6 +903,10 @@
     "description": "Nav label. This appears on an information page.",
     "message": "more"
   },
+  "familyguide_nav_link_07": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "assistant"
+  },
   "familyguide_accordion_title": {
     "description": "Title of a section in an information page.",
     "message": "Celebrate all month long"
@@ -1058,6 +1062,42 @@
   "familyguide_tips_tip05_body": {
     "description": "Description of the fifth tip. This appears in an information page.",
     "message": "Bring some holiday fun to your messages. Find Santa themed gifs and stickers by searching for “Santa Tracker gifs” (English only) on Google’s Tenor page."
+  },
+  "familyguide_assistant_title": {
+    "description": "Title of a section heading in an information page.",
+    "message": "Never Miss a North Pole Minute"
+  },
+  "familyguide_assistant_body_01": {
+    "description": "Body text of a section heading in an information page.",
+    "message": "Something fun about how the Google Assistant is also fun, remarking that the features are available in select languages."
+  },
+  "familyguide_assistant_body_02": {
+    "description": "Body text of a section heading in an information page.",
+    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/#\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
+  },
+  "familyguide_assistant_card01_title": {
+    "description": "Title of a card in an information page.",
+    "message": "Call Santa"
+  },
+  "familyguide_assistant_card01_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "Google Assistant connects you with the North Pole, where Santa is busy rehearsing for a musical concert. He only knows one song—can you help him figure out the best way to play it?"
+  },
+  "familyguide_assistant_card02_title": {
+    "description": "Title of a card in an information page.",
+    "message": "North Pole Newscast"
+  },
+  "familyguide_assistant_card02_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "Tune in daily to the North Pole Newscast to find out what Santa and his elves are up to. Just ask the Google Assistant what's new at the North Pole."
+  },
+  "familyguide_assistant_card03_title": {
+    "description": "Title of a card in an information page.",
+    "message": "Santa Jokes"
+  },
+  "familyguide_assistant_card03_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "When Santa's not busy with the elves at the workshop, he spends time sharpening up his comedy skills. Just ask the Google Assistant for a Santa joke to hear his routine."
   },
   "familyguide_doublecard_title": {
     "description": "Title of a section heading in an information page.",

@@ -41,6 +41,12 @@ $mobilePortraitBreakpoint: 400px;
     }
   }
 
+  .assistant {
+    &__wrapper {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+
   .doublecard {
     &__content {
       padding: 0 40px;
@@ -148,6 +154,31 @@ $mobilePortraitBreakpoint: 400px;
     &__tip {
       flex-basis: calc(100% - 20px);
       margin: 80px auto 0;
+
+      &-body {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .assistant {
+    padding: 0 20px;
+
+    &-inner {
+      border-radius: 36px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__wrapper {
+      flex-basis: 100%;
+      margin: 80px auto 0;
+
+      &-image img {
+        max-width: 100%;
+      }
 
       &-body {
         max-width: 100%;
