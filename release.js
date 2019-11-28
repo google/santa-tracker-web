@@ -87,6 +87,7 @@ const yargs = require('yargs')
 
 const assetsToCopy = [
   'static/audio/*',
+  'static/fallback-audio/*',
   'static/img/**/*',
   'static/third_party/**/LICENSE*',
   'static/third_party/lib/klang/**',

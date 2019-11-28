@@ -22,8 +22,8 @@ import {animationSoundTriggers} from './animationSoundTriggers.js'
 import './elements/modvil-module.js';
 import {_msg} from '../../src/magic.js';
 
-//@samthor can we check if on mobile and load 'village_load_mobile_sounds' instead?
-api.preload.sounds('village_load_sounds');
+let villageLoadSounds = helpers.mobileAndTabletcheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
+api.preload.sounds(villageLoadSounds);
 api.preload.sounds('generic_load_sounds');
 
 api.config({
@@ -100,7 +100,6 @@ const updateModuleSoundRatio = (function() {
 
 async function prepareModules() {
   const main = document.querySelector('main');
-  const topModule = document.getElementById('top');
 
   helpers.installAdjustHandler(() => {
     let mode = '';
@@ -118,9 +117,14 @@ async function prepareModules() {
     const windowRangeLow = se.scrollTop - rootMargin;
     const windowRangeHigh = se.scrollTop + window.innerHeight + rootMargin;
 
-    // Top isn't a module, but it has audio cues.
-    const topRatio = ratioForElement(topModule);
-    updateModuleSoundRatio('top', topRatio);
+    // No scroll sounds on mobile and tablet.
+    const isMobileOrTablet = helpers.mobileAndTabletcheck();
+
+    if (!isMobileOrTablet) {
+      // Top isn't a module, but it has audio cues.
+      const topRatio = topModuleRatio();
+      updateModuleSoundRatio('top', topRatio);
+    }
 
     const modules = Array.from(main.children);
     modules.forEach((m) => {
@@ -147,8 +151,10 @@ async function prepareModules() {
       m.mode = mode;
       m.load = visible || false;  // only display at all when visible
 
-      // Configure ratio of sound.
-      updateModuleSoundRatio(m.id, ratio);
+      if (!isMobileOrTablet) {
+        // Configure ratio of sound.
+        updateModuleSoundRatio(m.id, ratio);
+      }
     });
   });
 
@@ -158,8 +164,36 @@ async function prepareModules() {
     const {index, currentTime} = e.detail;
     checkAndPlaySound(scene, index, currentTime);
   });
+  
+  const elfskiEl = document.getElementsByClassName('elf-ski1')[0];
+  if (elfskiEl) {
+    elfskiEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_skier');
+      }
+    });
+  }
+  const peekabooEl = document.getElementsByClassName('peekaboo')[0];
+  if (peekabooEl) {
+    peekabooEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_surprise');
+      }
+    });
+  }
+  const waterspoutEl = document.getElementsByClassName('waterspout')[0];
+  if (waterspoutEl) {
+    waterspoutEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_fountain');
+      }
+    });
+  }
 }
-
+const topModule = document.getElementById('top');
+function topModuleRatio() {
+  return ratioForElement(topModule);
+}
 function checkAndPlaySound(scene, index, time) {
   if (animationSoundTriggers[scene] && animationSoundTriggers[scene][index]) {
     const sounds = animationSoundTriggers[scene][index];
