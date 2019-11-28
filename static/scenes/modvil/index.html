@@ -158,12 +158,13 @@ async function prepareModules() {
     });
   });
 
-
-  main.addEventListener('anim', (e) => {
-    const scene = e.target.id;
-    const {index, currentTime} = e.detail;
-    checkAndPlaySound(scene, index, currentTime);
-  });
+  if (!helpers.mobileAndTabletcheck()) {
+    main.addEventListener('anim', (e) => {
+      const scene = e.target.id;
+      const {index, currentTime} = e.detail;
+      checkAndPlaySound(scene, index, currentTime);
+    });
+  }
   
   const elfskiEl = document.getElementsByClassName('elf-ski1')[0];
   if (elfskiEl) {

@@ -60,6 +60,15 @@ export const animationSoundTriggers = {
       },
     ],
   },
+  gym: {
+    1: [
+      {
+        sound: "village_gym_pushup",
+        time: 1,
+        played: 0
+      },
+    ],
+  },
   kitchen: {
     1: [
       {
@@ -68,7 +77,7 @@ export const animationSoundTriggers = {
         played: 0
       },
     ],
-    3: [
+    4: [
       {
         sound: "village_kitchen_pancake",
         time: 48,
