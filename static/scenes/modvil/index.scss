@@ -1,4 +1,5 @@
 @import "sass/play";
+@import "sass/newtoday";
 @import "sass/header";
 @import "sass/arrow";
 @import "sass/shared";
@@ -13,7 +14,6 @@ body {
   margin: 0;
   font-family: 'Google Sans', 'Arial', sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
   -webkit-user-select: none;
   user-select: none;
   touch-action: pan-y;
@@ -98,25 +98,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-  }
-
-  #newtoday {
-    position: absolute;
-    max-width: $module-max-width;
-    bottom: 40px;
-    padding-right: 32px;
-    box-sizing: border-box;
-    display: flex;
-    width: 100%;
-    height: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-flow: column;
-
-    santa-card {
-      min-height: 180px;
-      padding-bottom: 0 !important;
-    }
   }
 }
 

@@ -26,7 +26,6 @@ async function shortenUrl(raw) {
   });
 
   const body = await response.json();
-  console.info(url.toString(), '=>', body);
   if ('shortLink' in body) {
     return body['shortLink'];
   }

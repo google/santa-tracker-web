@@ -147,18 +147,12 @@ export class SantaCardElement extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-
-    if (intersectionObserver) {
-      intersectionObserver.observe(this);
-    }
+    intersectionObserver && intersectionObserver.observe(this);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-
-    if (intersectionObserver && !this.load) {
-      intersectionObserver.unobserve(this);
-    }
+    intersectionObserver && intersectionObserver.unobserve(this);
   }
 
   _maybeMakeActive() {

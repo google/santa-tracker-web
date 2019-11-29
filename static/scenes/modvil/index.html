@@ -222,22 +222,29 @@ function checkAndPlaySound(scene, index, time) {
 
 api.preload.wait(prepareModules());
 
-const playButton = document.getElementById('play');
+const configureActionButton = (button, callback) => {
+  button.addEventListener('click', (ev) => {
+    button.classList.add('active');
+    callback();
+  });
+  button.addEventListener('mousedown', () => {
+    api.play('generic_button_click');
+  });
+  button.addEventListener('mouseenter', () => {
+    api.play('generic_button_over');
+  });
+  button.addEventListener('touchdown', () => {
+    api.play('generic_button_click');
+  });
+};
 
-playButton.addEventListener('click', (ev) => {
-  playButton.classList.add('active');
+configureActionButton(document.getElementById('play'), () => {
   api.go('codelab');
 });
-playButton.addEventListener('mousedown', () => {
-  api.play('generic_button_click');
-});
-playButton.addEventListener('mouseenter', () => {
-  api.play('generic_button_over');
-});
-playButton.addEventListener('touchdown', () => {
-  api.play('generic_button_click');
-});
 
+configureActionButton(document.getElementById('featured'), () => {
+  api.go('elfmaker');
+});
 
 
 api.ready(async () => {
@@ -289,8 +296,14 @@ api.ready(async () => {
     <p msgid="village_explore"></p>
     <button id="play"><span msgid="play"></span></button>
   </header>
-  <div id="newtoday">
-    <santa-card featured scene="elfmaker"></santa-card>
+
+  <div class="sticky-container">
+    <div class="sticky">
+      <button id="newtoday">
+        <div id="featured" msgid="newtoday"></div>
+        <span msgid="scene_elfmaker"></span>
+      </button>
+    </div>
   </div>
 </div>
 <div id="top-divider">

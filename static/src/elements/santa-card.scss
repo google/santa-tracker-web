@@ -183,31 +183,6 @@ h3 {
   text-shadow: none;
 }
 
-.featured {
-  text-transform: uppercase;
-  background: #f9c329;
-  line-height: 2em;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  border-radius: 4px;
-  padding: 0 10px;
-  position: absolute;
-  top: -1em;
-  right: 16px;
-  font-size: 12px;
-  font-weight: bold;
-  z-index: 100;
-  box-shadow: 0 2px 0 #e7ad04, 0 4px 4px rgba(0, 0, 0, 0.125);
-  pointer-events: none;
-  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-:host(:not([featured])) .featured {
-  display: none;
-}
-
 .locked {
   .text {
     position: absolute;
