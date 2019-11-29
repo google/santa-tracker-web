@@ -112,7 +112,29 @@ export function resolveProdURL(location) {
 }
 
 
-const alwaysAndroid = ['jetpack', 'matching'];
+/**
+ * Route to the corresponding Android scene for the passed route.
+ */
+function routeToAndroid(route) {
+  let androidRoute = undefined;
+  if (route[0] === '@') {
+    androidRoute = route.substr(1);
+  } else if (isAndroid()) {
+    if (route === 'jetpack' || route === 'gumball') {
+      androidRoute = route;
+    } else if (route === 'matching') {
+      // Name mismatch from web/Android.
+      androidRoute = 'memory';
+    }
+  }
+  if (!androidRoute) {
+    return false;
+  }
+
+  console.info('loading Android route', androidRoute);
+  window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${androidRoute}`;
+  return true;
+}
 
 
 /**
@@ -172,13 +194,8 @@ export function configureProdRouter(callback) {
       this.go(route);
     },
     go(route, data={}) {
-      if (route[0] === '@' || (isAndroid() && alwaysAndroid.indexOf(route) !== -1)) {
-        if (route[0] === '@') {
-          route = route.substr(1);
-        }
-        console.info('loading Android route', route);
-        window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${route}`;
-        return;
+      if (routeToAndroid(route)) {
+        return false;
       }
 
       const parts = route.split('#', 1);

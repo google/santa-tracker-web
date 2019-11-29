@@ -38,6 +38,12 @@ const scenesWithColor = {
   traditions: '#93dae4',
   translations: '#32a658',
   wrapbattle: '#2a57ad',
+  '@penguinswim': '#079aad',
+  '@rocketsleigh': '#9d87f5',
+  '@dasherdancer': '#6bb4fd',
+  '@snowballrun': '#93dae4',
+  '@presenttoss': '#6f00ff',
+  '@cityquiz': '#e7ad03',
 };
 
 
