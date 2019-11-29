@@ -77,10 +77,58 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
 }, {once: true});
 
 
-window.addEventListener('loader-route', (ev) => {
-  const route = ev.detail;
-  global.setState({route});
-});
+// Controls the random future games that a user is suggested.
+(function() {
+  const recentBuffer = 6;
+  const displayCardCount = 2;
+  const recentRoutes = new Set();
+
+  window.addEventListener('entrypoint-route', (ev) => {
+    const route = ev.detail;
+    global.setState({route});
+
+    recentRoutes.add(route);
+    while (recentRoutes.size >= recentBuffer) {
+      for (const key of recentRoutes) {
+        recentRoutes.delete(key);
+        break;
+      }
+    }
+    updatePlayNextCards();
+  });
+
+  function updatePlayNextCards() {
+    // array of all possible games
+    const nav = firebaseConfig.nav().filter((x) => x[0] !== '@' && !firebaseConfig.isLocked(x));
+
+    if (nav.length <= displayCardCount) {
+      console.warn('not enough valid nav routes to create cards', nav)
+      return;
+    }
+
+    // choose games biasing towards start
+    const cards = [];
+    const attempts = 10;
+    let i = 0;
+    while (cards.length < displayCardCount) {
+      ++i;
+      const index = ~~(Math.random() * nav.length);
+      const choice = nav[index];
+      if ((recentRoutes.has(choice) || cards.indexOf(choice) !== -1) && i < attempts) {
+        continue;
+      }
+      cards.push(choice);
+    }
+
+    scoreOverlayElement.textContent = '';
+    cards.forEach((scene) => {
+      const card = document.createElement('santa-card');
+      card.scene = scene;
+      scoreOverlayElement.append(card);
+    });
+    global.setState({playNextRoute: cards[0]});
+  }
+}());
 
 
 const loadMethod = loaderElement.load.bind(loaderElement);
@@ -88,7 +136,6 @@ const {scope, go, write: writeData} = configureProdRouter(buildLoader(loadMethod
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 const kplayInstance = kplay.prepare();
-
 
 
 (function() {
@@ -156,15 +203,6 @@ interludeElement.addEventListener('transition_out', () => {
 scoreOverlayElement.addEventListener('restart', () => global.setState({status: 'restart'}));
 scoreOverlayElement.addEventListener('resume', () => global.setState({status: ''}));
 scoreOverlayElement.addEventListener('home', () => go(''));
-
-
-// FIXME(samthor): Demo of "advertising cards" at the end of a game. Choose actual games.
-const cards = ['snowball', 'codeboogie'];
-cards.forEach((scene) => {
-  const card = document.createElement('santa-card');
-  card.scene = scene;
-  scoreOverlayElement.append(card);
-});
 
 
 global.subscribe((state) => {
@@ -335,14 +373,19 @@ outer:
     const listener = () => {
       if (control.done) {
         firebaseConfig.remove(listener);
+        global.unsubscribe(listener);
         return;
       }
+      const {playNextRoute} = global.getState();
       const payload = {
         android: isAndroid(),
         routes: firebaseConfig.routesSnapshot(),
+        featured: firebaseConfig.featuredRoute(),
+        play: playNextRoute,
       };
       control.send({type: 'data', payload});
     };
+    global.subscribe(listener);
     firebaseConfig.listen(listener);
     listener();
   } else {
@@ -510,6 +553,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     }
     document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
+    window.dispatchEvent(new CustomEvent('entrypoint-route', {detail: route}));
 
     // Go into fullscreen mode on Android.
     if (typeof Android !== 'undefined' && Android.fullscreen) {

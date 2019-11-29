@@ -6,21 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
-
-  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 </head>
 <body>
 
 <script type="module">
 import api from '../../src/scene/api.js';
 import '../../src/polyfill/css.js';
-import '../../src/elements/santa-card.js';
+import {scenesWithColor} from '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
 import './elements/modvil-module.js';
-import {_msg} from '../../src/magic.js';
+import {_static, _msg} from '../../src/magic.js';
+import scenes from '../../src/strings/scenes.js';
 
 let villageLoadSounds = helpers.mobileAndTabletCheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
 api.preload.sounds(villageLoadSounds);
@@ -52,12 +51,37 @@ const insertAndroidCards = () => {
   }
 };
 
+let featuredRoute = '';
+let playRoute = '';
+
+const featuredAssets = 'boatload build codeboogie codelab elfmaker elfski glider gumball jamband jetpack mercator penguindash presentbounce santascanvas santaselfie seasonofgiving snowball snowbox snowflake traditions translations wrapbattle'.split(/\s+/g);
+const fallbackFeaturedImageSrc = featuredImage.src;
+
 api.addEventListener('data', (ev) => {
-  const {routes, android} = ev.detail;
+  const {routes, android, featured, play} = ev.detail;
 
   if (android) {
     insertAndroidCards();
   }
+
+  // Optionally display a featured game.
+  if (featured in scenes) {
+    featuredButton.disabled = false;
+    featuredButton.style.background = scenesWithColor[featured] || null;
+    featuredRoute = featured;
+    featuredLabel.textContent = scenes[featured];
+
+    if (featuredAssets.indexOf(featured) !== -1) {
+      featuredImage.src = _static`img/featured/` + featured + '.svg';
+    } else {
+      featuredImage.src = fallbackFeaturedImageSrc;
+    }
+  } else {
+    featuredButton.disabled = true;
+    featuredRoute = '';
+  }
+
+  playRoute = play || '';
 
   Array.from(document.querySelectorAll('santa-card')).forEach((card) => {
     const detail = routes[card.id] || {video: false, locked: undefined};
@@ -250,12 +274,12 @@ const configureActionButton = (button, callback) => {
 
 configureActionButton(document.getElementById('play'), () => {
   ga('send', 'event', 'village', 'click', 'play-round');
-  api.go('codelab');
+  api.go(playRoute);
 });
 
-configureActionButton(document.getElementById('newtoday'), () => {
+configureActionButton(document.getElementById('featuredButton'), () => {
   ga('send', 'event', 'village', 'click', 'featured');
-  api.go('elfmaker');
+  api.go(featuredRoute);
 });
 
 configureActionButton(document.getElementById('familyguide'), () => {
@@ -320,9 +344,10 @@ api.ready(async () => {
         <img src="img/family-icon.png" width="32" height="32" />
         <span msgid="scene_family"></span>
       </button>
-      <button id="newtoday" class="uibutton">
-        <div id="featured" msgid="newtoday"></div>
-        <span msgid="scene_elfmaker"></span>
+      <button id="featuredButton" class="uibutton" disabled>
+        <div class="info" msgid="newtoday"></div>
+        <img id="featuredImage" src="../../img/featured/_video.svg" width="32" height="32" />
+        <span id="featuredLabel"></span>
       </button>
     </div>
   </div>

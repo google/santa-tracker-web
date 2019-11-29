@@ -21,6 +21,8 @@ const g = createStore({
 
   score: {},
 
+  playNextRoute: '',
+
   shareUrl: null,
 });
 

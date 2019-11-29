@@ -12,10 +12,11 @@ const remoteConfig = firebase.remoteConfig();
 const listeners = new Set();
 
 const memoized = {
-  'videos': null,
-  'sceneLock': null,
-  'sceneRedirect': null,
-  'nav': null,
+  'videos': [],
+  'sceneLock': {},
+  'sceneRedirect': {},
+  'nav': [],
+  'featured': {},
 };
 
 function refreshMemoized() {
@@ -172,6 +173,18 @@ export function switchOff() {
 
 
 /**
+ * @return {?string} today's featured route
+ */
+export function featuredRoute() {
+  const today = new Date();
+  if (today.getMonth() !== 11) {
+    return null;
+  }
+  return memoized.featured[`${today.getDate()}`] || null;
+}
+
+
+/**
  * @param {?string} route to check
  * @param {boolean} fallback whether we are fallback mode
  * @return {?string} route to serve
@@ -179,9 +192,9 @@ export function switchOff() {
 export function sceneForRoute(route, fallback) {
   if (!route || route === 'index') {
     return indexScene(fallback);
-  } else if (isLocked(route)) {
-    return null;
   }
+  // nb. We used to lock scenes here by returning null, now, we just fail open.
+
   const v = videos();
   if (v.indexOf(route) !== -1) {
     return 'video';

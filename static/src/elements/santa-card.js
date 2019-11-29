@@ -9,7 +9,7 @@ import * as common from '../core/common.js';
 
 
 // This doubles as the list of assets for which we have Lottie cards.
-const scenesWithColor = {
+export const scenesWithColor = {
   boatload: '#57c4e9',
   build: '#f8c328',
   codeboogie: '#f8c328',
