@@ -1119,7 +1119,6 @@ export function prepare() {
     },
 
     resume() {
-      console.error('got RESUME from kplay');
       return masterContext.resume();
     },
 
