@@ -19,9 +19,7 @@
 }
 
 .elf-ski1, .elf-ski2 {
-  transform: rotateX(180deg) rotateY(-180deg);
-  offset-path: path('m0,0 c-184,2 -708,250 -1010,300c-1002,3 -168,1 -1200,10');
-  animation: elfski 5000ms infinite ease-in-out;
+  animation: elfski 5000ms infinite linear forwards;
 }
 
 .elf-ski2 {
@@ -30,10 +28,19 @@
 
 @keyframes elfski {
   0% {
-    offset-distance: 0%;
+    transform: translate3d(0, 0, 0) rotateZ(10deg);
+  }
+  30% {
+    transform: translate3d(-500px, 20px, 0) rotateZ(0deg);
+  }
+  40% {
+    transform: translate3d(-750px, 190px, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate3d(-1000px, 260px, 0) rotateZ(10deg);
   }
   100% {
-    offset-distance: 100%;
+    transform: translate3d(-2150px, 260px, 0) rotateZ(10deg);
   }
 }
 

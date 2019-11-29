@@ -32,6 +32,7 @@ body {
     bottom: 0;
     background: transparent center bottom no-repeat;
     background-size: 2040px;
+    overflow: hidden;
   }
 
   .layer1 {
@@ -43,6 +44,7 @@ body {
   }
   .layer3 {
     background-image: url(img/village/3.svg);
+    @import "sass/layer3";
   }
   .layer4 {
     background-image: url(img/village/4.svg);
