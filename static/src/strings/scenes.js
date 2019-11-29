@@ -30,6 +30,7 @@ export default {
   'jingle': _msg`scene_videoscene_jingle`,
   'latlong': _msg`scene_latlong`,
   'liftoff': _msg`scene_videoscene_liftoff`,  // 2013
+  'likealight': _msg`scene_videoscene_likealight`,
   'matching': _msg`scene_matching`,
   'mercator': _msg`scene_mercator`,
   'museum': _msg`scene_videoscene_museum`,
@@ -62,6 +63,7 @@ export default {
   'snowflake': _msg`scene_snowflake`,
   'speedsketch': _msg`scene_quickdraw`,
   'streetview': _msg`scene_streetview`,
+  'storybook': _msg`scene_ollieundersea`,
   'takeoff': _msg`scene_videoscene_takeoff`,  // 2015-2018
   'temptation': _msg`scene_videoscene_temptation`,
   'tired': _msg`scene_videoscene_tired`,

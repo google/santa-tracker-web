@@ -96,7 +96,7 @@ export class SantaCardNavElement extends LitElement {
       }
 
       const style = `transition-delay: ${0.2 + order * 0.05}s; order: ${order}`;
-      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} .video=${isVideo}></santa-card>`;
+      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} .video=${isVideo} ?wide=${isVideo}></santa-card>`;
     });
 
     const placeholders = [];

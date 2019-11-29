@@ -34,6 +34,17 @@ export const href = (cand) => {
 };
 
 /**
+ * @param {string} sceneName
+ * @return {string} href with scope as appropriate
+ */
+export const hrefForScene = (sceneName) => {
+  if (sceneName) {
+    return href(sceneName + '.html');
+  }
+  return href('./');
+};
+
+/**
  * Rectify anything found under the passed element, that has a `[href]`.
  *
  * @param {!Element} el to rectify links under

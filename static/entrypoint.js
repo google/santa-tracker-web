@@ -67,9 +67,14 @@ chromeElement.append(badgeElement);
 // nb. This is added only when needed.
 const errorElement = document.createElement('santa-error');
 
-const sidebar = document.createElement('santa-cardnav');
-sidebar.setAttribute('slot', 'sidebar');
-chromeElement.append(sidebar);
+// nb. This is added only when needed.
+const sidebarElement = document.createElement('santa-cardnav');
+sidebarElement.setAttribute('slot', 'sidebar');
+
+// Insert on first open. The load is too heavy otherwise.
+chromeElement.addEventListener('sidebar-open', (ev) => {
+  chromeElement.append(sidebarElement);
+}, {once: true});
 
 
 window.addEventListener('loader-route', (ev) => {
@@ -83,14 +88,6 @@ const {scope, go, write: writeData} = configureProdRouter(buildLoader(loadMethod
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 const kplayInstance = kplay.prepare();
-
-chromeElement.addEventListener('nav-open', (ev) => {
-  sidebar.hidden = false;
-});
-
-chromeElement.addEventListener('nav-close', (ev) => {
-  sidebar.hidden = true;
-});
 
 
 
@@ -294,11 +291,11 @@ async function prepare(control, data) {
 outer:
   for (;;) {
     const op = await timeout(control.next());
-    if (op === null) {
+    if (op === null || op === undefined) {
       break;  // closed or timeout, bail out
     }
     if (typeof op !== 'object') {
-      console.warn('got unhanled op from control', op);
+      console.warn('got unhandled op from control', op);
       continue;
     }
 
@@ -372,7 +369,7 @@ async function runner(control, route, config) {
 
   for (;;) {
     const op = await control.next();
-    if (op === null) {
+    if (op === null || op === undefined) {
       // TODO(samthor): Can't log score here, state is already reset.
       break;
     }

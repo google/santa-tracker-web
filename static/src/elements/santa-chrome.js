@@ -88,6 +88,8 @@ export class SantaChromeElement extends LitElement {
         node.focus();
         node.removeAttribute('tabindex');
 
+        this.dispatchEvent(new CustomEvent('sidebar-open'));
+
         const sidebar = node.parentNode;
         sidebar.scrollTop = 0;
       }

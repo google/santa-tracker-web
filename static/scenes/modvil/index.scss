@@ -146,6 +146,7 @@ santa-card {
     height: 200px;
     max-width: 280px;
     width: 80%;
+    z-index: 10000000;
   }
 
   santa-card:nth-child(2n) {

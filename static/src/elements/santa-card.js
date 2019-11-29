@@ -3,15 +3,13 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import styles from './santa-card.css';
 import scenes from '../strings/scenes.js';
 import {_static, _msg} from '../magic.js';
-import {href} from '../scene/route.js';
-import './santa-card-player.js';
+import {hrefForScene} from '../scene/route.js';
+import {SantaCardPlayerElement} from './santa-card-player.js';
 import * as common from '../core/common.js';
 
 
-const assetRoot = _static`img/scenes/`;
-
-
-const sceneColors = {
+// This doubles as the list of assets for which we have Lottie cards.
+const scenesWithColor = {
   boatload: '#57c4e9',
   build: '#f8c328',
   codeboogie: '#f8c328',
@@ -19,14 +17,15 @@ const sceneColors = {
   elfmaker: '#3399ff',
   elfski: '#1b69c1',
   glider: '#7f54fa',
-  gumball: '#bf8f68',
+  // gumball: '#bf8f68',
   havoc: '#587e9c',
   jamband: '#6bb4fd',
   jetpack: '#9d87f5',
   mercator: '#bf8f68',
   penguindash: '#93dae4',
-  presentbounce: '#29b6f6',
+  // presentbounce: '#29b6f6',
   presentdrop: '#2c84db',
+  racer: '#2a57ad',
   runner: '#d92626',
   santascanvas: '#1b69c1',
   santasearch: '#e7ad03',
@@ -42,45 +41,35 @@ const sceneColors = {
 };
 
 
-const visibleCards = new Set();
-
 const intersectionObserver = (window.IntersectionObserver ? new window.IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.load = true;
-      visibleCards.add(entry.target);
-    } else {
-      visibleCards.delete(entry.target);
-    }
+    entry.target._visible = entry.isIntersecting;
   });
-}, {rootMargin: '128px', threshold: [0, 1]}) : null);
-
-
-(function jiggleRandomCard() {
-  window.setTimeout(() => {
-
-  }, 10 * 1000);
-})();
-
-window.setTim
+}, {rootMargin: '128px'}) : null);
 
 
 export class SantaCardElement extends LitElement {
   static get properties() {
     return {
-      locked: {type: Number},
-      scene: {type: String},
-      load: {type: Boolean},
-      id: {type: String},
-      _active: {type: Boolean},
+      locked: {type: Number, reflect: true},
+      scene: {type: String, reflect: true},
+      id: {type: String, reflect: true},
       featured: {type: Boolean, reflect: true},
-      video: {type: Boolean, reflect: true},
+
+      _visible: {type: Boolean},
+      _active: {type: Boolean},
+      _assetNode: {type: Object},
+      _assetLoaded: {type: Boolean},
     };
   }
 
   constructor() {
     super();
 
+    this._visible = !intersectionObserver;  // always _visible if there's no IntersectionObserver
+    this._assetNode = '';
+    this._assetLoaded = false;
+    this._active = false;
     this._maybeDismiss = this._maybeDismiss.bind(this);
     this._maybeMakeActive = this._maybeMakeActive.bind(this);
 
@@ -90,20 +79,77 @@ export class SantaCardElement extends LitElement {
     this.addEventListener('mouseout', this._maybeDismiss);
   }
 
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('load') && this.load && intersectionObserver) {
-      intersectionObserver.unobserve(this);
+  _buildAsset() {
+    const scene = this.scene || this.id || '';
+
+    // This assets that we have a Lottie card.
+    if (scene in scenesWithColor) {
+      const player = Object.assign(document.createElement('santa-card-player'), {
+        scene,
+        _active: this._active,
+      });
+
+      player.addEventListener('error', () => {
+        player.scene = '_generic';
+      }, {once: true})
+
+      return player;
     }
+
+    const img = document.createElement('img');
+    if (!scene) {
+      // Use a custom icon for "Santa's Village".
+      img.src = _static`img/og.png`;
+    } else {
+      // Otherwise, fallback to our old backgrounds.
+      img.src = _static`img/scenes/` + `${scene}_2x.png`;
+      img.srcset = `${img.src} 2x, ${_static`img/scenes/`}` + `${scene}_1x.png`;
+    }
+
+    img.addEventListener('error', () => {
+      img.src = _static`img/unknown.png`;
+      img.removeAttribute('srcset');
+    }, {once: true});
+
+    return img;
+  }
+
+  _refreshAsset() {
+    const localNode = this._buildAsset();
+    this._assetNode = localNode;
+    this._assetLoaded = false;
+
+    // Install a load handler so it can fade in nicely.
+    localNode.addEventListener('load', () => {
+      if (localNode === this._assetNode) {
+        this._assetLoaded = true;
+      }
+    });
+  }
+
+  shouldUpdate(changedProperties) {
+    const idChanged = changedProperties.has('id') || changedProperties.has('scene');
+    if (idChanged) {
+      this._assetLoaded = false;
+    }
+    if (this._visible && !this._assetLoaded) {
+      this._refreshAsset();
+    }
+
+    if (changedProperties.has('_active')) {
+      if (this._assetNode instanceof SantaCardPlayerElement) {
+        this._assetNode.active = this._active;
+      }
+    }
+
     return true;
   }
 
   connectedCallback() {
     super.connectedCallback();
 
-    if (!this.load && intersectionObserver) {
+    if (intersectionObserver) {
       intersectionObserver.observe(this);
-    } else {
-      this.load = true;
     }
   }
 
@@ -136,52 +182,36 @@ export class SantaCardElement extends LitElement {
     return [styles];
   }
 
+  get isLocked() {
+    return this.locked != null && this.locked >= 0;
+  }
+
   render() {
     const scene = this.scene || this.id || '';
-    let contents = '';
-    let backgroundStyle = `background-color: ${sceneColors[scene] || 'default'}`;
-    const isLocked = (this.locked >= 0);
+    const isLocked = this.isLocked;
+    const background = (this._assetNode instanceof HTMLImageElement);
+    const mainStyle = scene in scenesWithColor ? `--color: ${scenesWithColor[scene]}` : '';
 
-    if (!isLocked) {
-      let inner = html`<img />`;
-
-      if (this.load) {
-        if (this.video) {
-          backgroundStyle += `; background-image: url(${assetRoot}/${scene}_2x.png)`;
-        } else {
-          const active = this._active || false;
-          inner = html`<santa-card-player .active=${active} scene=${scene}></santa-card-player>`;
-        }
-      }
-
-      contents = html`
-        ${inner}
-        <h1>${scenes[scene] || ''}</h1>
+    let text = '';
+    if (isLocked) {
+      text = html`
+<svg width="14" height="20" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 1)" fill="none" fill-rule="evenodd"><rect fill="#FFF" fill-rule="nonzero" y="5" width="14" height="14" rx="2.8825"/><path d="M3 7V3.20903294C3 1.43673686 4.55703723 0 6.47774315 0h1.0444629C9.44287133 0 11 1.43672748 11 3.20903294V7" stroke="#FFF" stroke-width="2"/><circle fill="#C4C4C4" fill-rule="nonzero" cx="7" cy="11" r="1.5"/><path fill="#C4C4C4" fill-rule="nonzero" d="M7.83333333 11.5H6.16666667L5.5 14.5h3z"/></g></svg>
+<h3>${_msg`decmonth_long`}</h3>
+<h2>${this.locked || ''}</h2>
       `;
-    } else {
-      let inner = '';
-      if (this.locked) {
-        inner = html`
-          <h3 data-text=${_msg`decmonth_long`}></h3>
-          <h2 data-text=${this.locked}></h2>
-        `;
-      }
-      const iceIndex = (this.locked || 0) % 3;  // css defines ice-[0-2]
-      contents = html`
-        <div class="ice ice-${iceIndex}" ?hidden=${!isLocked}>
-          <svg width="14" height="20" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 1)" fill="none" fill-rule="evenodd"><rect fill="#FFF" fill-rule="nonzero" y="5" width="14" height="14" rx="2.8825"/><path d="M3 7V3.20903294C3 1.43673686 4.55703723 0 6.47774315 0h1.0444629C9.44287133 0 11 1.43672748 11 3.20903294V7" stroke="#FFF" stroke-width="2"/><circle fill="#C4C4C4" fill-rule="nonzero" cx="7" cy="11" r="1.5"/><path fill="#C4C4C4" fill-rule="nonzero" d="M7.83333333 11.5H6.16666667L5.5 14.5h3z"/></g></svg>
-          ${inner}
-        </div>
-      `;
+    } else if (scenes[scene]) {
+      text = html`<h1>${scenes[scene]}</h1>`;
     }
 
-    // TODO: we need an <div class="inner"> to do safe transforms (e.g. bounce anim with mouse focus)
-    const url = isLocked || !scene ? undefined : href(`${scene}.html`);
     return html`
-<main class=${this._active ? 'active' : ''}>
-  <div class="featured">${_msg`newtoday`}</div>
-  <a href=${ifDefined(url)} style=${backgroundStyle}>${contents}</a>
-</main>
+<a href=${ifDefined(isLocked ? undefined : hrefForScene(scene))} class=${isLocked ? 'locked' : ''}>
+  <main class=${isLocked ? `ice-${(this.locked || 0) % 3}` : ''} style=${mainStyle}>
+    <div class="asset ${background ? 'background': ''} ${this._assetLoaded ? 'loaded' : ''}">
+      ${this._assetNode}
+    </div>
+    <div class="text">${text}</div>
+  </main>
+</a>
     `;
   }
 }

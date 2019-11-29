@@ -138,7 +138,6 @@ export class SantaCardPlayerElement extends HTMLElement {
 
   _updateAnim() {
     this._anim.destroy();
-    this.classList.remove('loading');
 
     if (!this.scene || !this.isConnected) {
       this._anim = emptyAnim;
@@ -152,10 +151,17 @@ export class SantaCardPlayerElement extends HTMLElement {
     });
     this._anim = anim;
 
-    this.classList.add('loading');
     this._anim.addEventListener('DOMLoaded', () => {
+      window.requestAnimationFrame(() => {
+        if (this._anim === anim) {
+          this.dispatchEvent(new CustomEvent('load'));
+        }
+      });
+    });
+    this._anim.addEventListener('data_failed', () => {
       if (this._anim === anim) {
-        this.classList.remove('loading');
+        console.warn('got data_failed', this._anim, anim);
+        this.dispatchEvent(new CustomEvent('error'));
       }
     });
 
