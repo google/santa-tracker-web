@@ -1,10 +1,12 @@
 @import "sass/play";
 @import "sass/header";
 @import "sass/arrow";
+@import "sass/shared";
 
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background: white;
 }
 
 body {
@@ -15,6 +17,8 @@ body {
   -webkit-user-select: none;
   user-select: none;
   touch-action: pan-y;
+  position: relative;
+  background: white;
 }
 
 /** village styles */
@@ -96,7 +100,7 @@ body {
 
   #newtoday {
     position: absolute;
-    max-width: 1440px;
+    max-width: $module-max-width;
     bottom: 40px;
     padding-right: 32px;
     box-sizing: border-box;
@@ -112,6 +116,15 @@ body {
       padding-bottom: 0 !important;
     }
   }
+}
+
+#top-divider {
+  position: relative;
+  height: 72px;
+  background: #eee url(img/village/divider.svg) center repeat-x;
+  background-size: auto 72px;
+  z-index: 1000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);
 }
 
 /** santa-card **/
@@ -176,8 +189,8 @@ santa-card {
     flex-grow: 1;
   }
 
-  // Don't load if <1440px.
-  @media (min-width: 1440px) {
+  // Don't load if not needed.
+  @media (min-width: $module-max-width) {
     .sidebar {
       &.left {
         background: url(img/margin-left.svg);
@@ -194,30 +207,19 @@ santa-card {
     display: flex;
     flex-flow: column;
     align-items: center;
-    width: 1440px;
-    max-width: 1440px;
+    width: $module-max-width;
+    max-width: $module-max-width;
   }
 }
 
 modvil-module {
   box-shadow: inset 0 4px 0 #0003;
   width: 100%;
-  min-height: 800px;
+  min-height: $module-min-height;
   pointer-events: none;
-  margin-top: 72px;
 
   @media (max-width: 414px) {
     min-width: 414px;
-  }
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 72px;
-    top: -72px;
-    width: 100%;
-    background: url(img/divider.svg) center / cover no-repeat;
   }
 
   &#movies {
@@ -230,14 +232,13 @@ modvil-module {
 }
 
 footer {
-  position: relative;
+  position: absolute;
   left: 0;
   right: 0;
-  top: -100px;
+  bottom: 0;
   height: 100px;
-  margin-bottom: -100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 100000000;
 }

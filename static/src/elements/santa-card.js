@@ -149,7 +149,8 @@ export class SantaCardElement extends LitElement {
         if (this.video) {
           backgroundStyle += `; background-image: url(${assetRoot}/${scene}_2x.png)`;
         } else {
-          inner = html`<santa-card-player .active=${this._active} scene=${scene}></santa-card-player>`;
+          const active = this._active || false;
+          inner = html`<santa-card-player .active=${active} scene=${scene}></santa-card-player>`;
         }
       }
 

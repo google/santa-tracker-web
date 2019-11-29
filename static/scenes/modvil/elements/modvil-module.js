@@ -1,7 +1,10 @@
 import {LitElement, html} from "lit-element";
 import styles from './modvil-module.css';
 import {_static} from '../../../src/magic.js';
-import {loadAnimation} from '../../../src/deps/lottie.js';
+import {loadAnimation, buildSafeResize} from '../../../src/deps/lottie.js';
+
+const assetPath = _static`scenes/modvil/img/modules/`;
+
 
 
 const noop = () => {};
@@ -36,7 +39,7 @@ class ModvilModuleConstructor extends LitElement {
     const layer = null; // -(1000 - index);
 
     const id = this.id;
-    const base = _static`scenes/modvil/img/modules/` + id;
+    const base = assetPath + id;
 
     switch (type) {
       case 'cards':
@@ -44,7 +47,7 @@ class ModvilModuleConstructor extends LitElement {
         node.className = 'cards';
         const slot = document.createElement('slot');
         node.append(slot);
-        return {node, ratio: noop};
+        return {node};
 
       case 'static-png':
       case 'static-svg': {
@@ -54,7 +57,7 @@ class ModvilModuleConstructor extends LitElement {
         img.style.zIndex = layer;
         img.className = 'loading';
         img.onload = () => img.classList.remove('loading');
-        return {node: img, ratio: noop};
+        return {node: img};
       }
 
       case 'mobile': {
@@ -64,13 +67,14 @@ class ModvilModuleConstructor extends LitElement {
         img.style.zIndex = layer;
         img.className = 'loading mobile';
         img.onload = () => img.classList.remove('loading');
-        return {node: img, ratio: noop};
+        return {node: img};
       }
 
       case 'loop':
       case 'scroll': {
         // lit-element or Lottie needs this to be wrapped in something, so use unstyled `<div>`.
         const container = document.createElement('div');
+        container.className = 'anim';
         const options = {
           container,
           loop: (type === 'loop'),
@@ -80,10 +84,9 @@ class ModvilModuleConstructor extends LitElement {
           },
         };
         const anim = loadAnimation(`${base}/${index}.json`, options);
-        const node = anim.renderer.svgElement;
-        node.style.zIndex = layer;
-        node.classList.add('loading');
-        anim.addEventListener('DOMLoaded', () => node.classList.remove('loading'));
+        container.style.zIndex = layer;
+        container.classList.add('loading');
+        anim.addEventListener('DOMLoaded', () => container.classList.remove('loading'));
 
         anim.onEnterFrame = (e) => {
           this.dispatchEvent(new CustomEvent('anim', {
@@ -93,6 +96,7 @@ class ModvilModuleConstructor extends LitElement {
         };
 
         let ratio;
+        const resize = buildSafeResize(anim);
 
         if (type === 'scroll') {
           // When scrolling, the ratio being passed sets the actual target frame.
@@ -114,7 +118,7 @@ class ModvilModuleConstructor extends LitElement {
           };
         }
 
-        return {node: container, ratio};
+        return {node: container, ratio, resize};
       }
     }
 
@@ -177,6 +181,7 @@ class ModvilModuleConstructor extends LitElement {
           part: null,
           cache: false,
           node: null,
+          resize: noop,
           ratio: noop,
         };
       }
@@ -203,18 +208,24 @@ class ModvilModuleConstructor extends LitElement {
       }
 
       // We don't have a part, but we want it. Load it! \o/
-      const {node, ratio} = this._loadPart(want, i);
+      const {node, ratio, resize} = this._loadPart(want, i);
       c.node = node;
-      c.ratio = ratio;
+      c.ratio = ratio || noop;
       c.part = want;
+      c.resize = resize || noop;
       c.ratio(this.ratio);
     }
 
     return true;
   }
 
+  resize() {
+    this._partsCache.map(({resize}) => resize());
+  }
+
   render() {
     const mainStyle = `background-color: ${this.color || 'transparent'}`;
+    const dividerStyle = this.hasAttribute('no-divider') ? '' : `background-image: url(${assetPath}${this.id}/divider.svg)`;
 
     // Render real parts that are not cached.
     const parts = this._partsCache.map(({node, cache}) => cache ? null : node).filter(Boolean);
@@ -222,6 +233,7 @@ class ModvilModuleConstructor extends LitElement {
 <main style=${mainStyle}>
   ${parts}
 </main>
+<div class="divider" style=${dividerStyle}></div>
     `;
   }
 }

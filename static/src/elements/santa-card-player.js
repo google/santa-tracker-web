@@ -1,7 +1,43 @@
-import {loadAnimation} from '../deps/lottie.js';
+import {loadAnimation, buildSafeResize} from '../deps/lottie.js';
+import '../polyfill/attribute.js';
 import {_static} from '../magic.js';
 
 const assetRoot = _static`img/card/`;
+
+
+const resizePolyfill = class {
+  constructor(callback) {
+    this._entries = new Set();
+
+    window.addEventListener('resize', () => {
+      const all = Array.from(this._entries).map((target) => {
+        return {target};
+      });
+      callback(all);
+    });
+  }
+
+  observe(target) {
+    this._entries.set(target);
+  }
+
+  unobserve(target) {
+    this._entries.delete(target);
+  }
+}
+
+
+const globalResizeObserver = new (window.ResizeObserver || resizePolyfill)((entries) => {
+  entries.forEach(({target}) => target.resize());
+});
+
+const emptyAnim = {
+  getDuration() {
+    return 0;
+  },
+  goToAndStop() {},
+  destroy() {},
+};
 
 /**
  * Animation curve for intro animation.
@@ -25,14 +61,15 @@ function invertOutExpo(v) {
 }
 
 export class SantaCardPlayerElement extends HTMLElement {
+  static get observedAttributes() { return ['active', 'scene']; }
+
   constructor() {
     super();
 
-    this._active = false;
-    this._introAnimationStart = 0.0;
+    this._anim = emptyAnim;
+    this.resize = () => {};
 
-    this._introAnim = null;
-
+    this._animationStart = 0.0;
     this._animate = this._animate.bind(this);
   }
 
@@ -42,41 +79,52 @@ export class SantaCardPlayerElement extends HTMLElement {
    * @param {!DOMHighResTimeStamp} now
    */
   _animate(now) {
-    const duration = this._introAnim.getDuration(false) * 1000;
-    const ratio = (now - this._introAnimationStart) / duration;
+    const duration = this._anim.getDuration(false) * 1000;
+    const ratio = (now - this._animationStart) / duration;
 
     if (ratio >= 1.0) {
-      this._introAnimationStart = 0.0;
+      this._animationStart = 0.0;
     } else {
       window.requestAnimationFrame(this._animate);
     }
 
     if (duration) {
       const raw = outExpo(ratio);
-      const v = this._active ? raw : 1 - raw;
-      const frame = this._introAnim.getDuration(true) * v;
-      this._introAnim.goToAndStop(Math.max(0, frame), true);
+      const v = this.active ? raw : 1 - raw;
+      const frame = this._anim.getDuration(true) * v;
+      this._anim.goToAndStop(Math.max(0, frame), true);
     }
   }
 
   get active() {
-    return this._active;
+    return this.hasAttribute('active');
   }
 
   set active(active) {
-    active = Boolean(active);
-    if (active === this._active) {
-      return;
-    }
-    this._active = active;
+    this.toggleAttribute('active', active);
+  }
 
-    if (!this._introAnimationStart) {
+  get scene() {
+    return this.getAttribute('scene');
+  }
+
+  set scene(scene) {
+    if (scene) {
+      this.setAttribute('scene', scene);
+    } else {
+      this.removeAttribute('scene');
+    }
+  }
+
+  _updateActive() {
+    // nb. This assumes active has changed.
+    if (!this._animationStart) {
       window.requestAnimationFrame(this._animate);
-      this._introAnimationStart = performance.now();
+      this._animationStart = performance.now();
     } else {
       const now = performance.now();
-      const durationPassed = now - this._introAnimationStart;
-      const duration = this._introAnim.getDuration(false) * 1000;
+      const durationPassed = now - this._animationStart;
+      const duration = this._anim.getDuration(false) * 1000;
 
       // Find where along the curve we were, and invert it for the opposite direction, to find the
       // point along the *inverse* curve to start at.
@@ -84,26 +132,56 @@ export class SantaCardPlayerElement extends HTMLElement {
       const startAt = invertOutExpo(1 - adjustedRatio);
 
       // Move backwards in time by the amount of the animation we've already skipped.
-      this._introAnimationStart = now - (startAt * duration);
+      this._animationStart = now - (startAt * duration);
+    }
+  }
+
+  _updateAnim() {
+    this._anim.destroy();
+    this.classList.remove('loading');
+
+    if (!this.scene || !this.isConnected) {
+      this._anim = emptyAnim;
+      this.resize = () => {};
+      return;
+    }
+
+    const src = assetRoot + this.getAttribute('scene') + '.json';
+    const anim = loadAnimation(src, {
+      container: this,
+    });
+    this._anim = anim;
+
+    this.classList.add('loading');
+    this._anim.addEventListener('DOMLoaded', () => {
+      if (this._anim === anim) {
+        this.classList.remove('loading');
+      }
+    });
+
+    this.resize = buildSafeResize(anim);
+  }
+
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    switch (attrName) {
+      case 'active':
+        this._updateActive();
+        break;
+
+      case 'scene':
+        this._updateAnim();
+        break;
     }
   }
 
   connectedCallback() {
-    if (!this._introAnim) {
-      const src = assetRoot + this.getAttribute('scene') + '.json';
-      this._introAnim = loadAnimation(src, {
-        container: this,
-        rendererSettings: {
-          className: 'loading',
-        },
-      });
-      const el = this._introAnim.renderer.svgElement;
+    this._updateAnim();
+    globalResizeObserver.observe(this);
+  }
 
-      this._introAnim.addEventListener('DOMLoaded', () => {
-        el.classList.remove('loading');
-        this.dispatchEvent(new CustomEvent('card-appear', {bubbles: true}));
-      });
-    }
+  disconnectedCallback() {
+    this._updateAnim();  // destroys animation when removed from DOM
+    globalResizeObserver.unobserve(this);
   }
 }
 

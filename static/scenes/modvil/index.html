@@ -13,7 +13,7 @@
 
 <script type="module">
 import api from '../../src/scene/api.js';
-import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
+import '../../src/polyfill/css.js';
 import '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
@@ -22,7 +22,7 @@ import {animationSoundTriggers} from './animationSoundTriggers.js'
 import './elements/modvil-module.js';
 import {_msg} from '../../src/magic.js';
 
-let villageLoadSounds = helpers.mobileAndTabletcheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
+let villageLoadSounds = helpers.mobileAndTabletCheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
 api.preload.sounds(villageLoadSounds);
 api.preload.sounds('generic_load_sounds');
 
@@ -33,15 +33,20 @@ api.config({
 });
 
 const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
-
-api.addEventListener('data', (ev) => {
-  const {routes, android} = ev.detail;
-
-  if (android && androidModuleTemplate.parentNode) {
+const insertAndroidCards = () => {
+  if (androidModuleTemplate.parentNode) {
     const node = androidModuleTemplate.content.cloneNode(true);
     androidModuleTemplate.remove();
     const main = document.querySelector('main');
     main.prepend(node);
+  }
+};
+
+api.addEventListener('data', (ev) => {
+  const {routes, android} = ev.detail;
+
+  if (android) {
+    insertAndroidCards();
   }
 
   Array.from(document.querySelectorAll('santa-card')).forEach((card) => {
@@ -97,11 +102,13 @@ const updateModuleSoundRatio = (function() {
 }());
 
 
+const santaWeather = document.body.querySelector('santa-weather');
+
 
 async function prepareModules() {
   const main = document.querySelector('main');
 
-  helpers.installAdjustHandler(() => {
+  helpers.installAdjustHandler((resized) => {
     let mode = '';
     if (window.innerWidth <= 414) {
       mode = 'mobile';
@@ -118,15 +125,16 @@ async function prepareModules() {
     const windowRangeHigh = se.scrollTop + window.innerHeight + rootMargin;
 
     // No scroll sounds on mobile and tablet.
-    const isMobileOrTablet = helpers.mobileAndTabletcheck();
+    const isMobileOrTablet = helpers.mobileAndTabletCheck();
 
+    const topRatio = topModuleRatio();
     if (!isMobileOrTablet) {
       // Top isn't a module, but it has audio cues.
-      const topRatio = topModuleRatio();
       updateModuleSoundRatio('top', topRatio);
     }
+    santaWeather.active = topRatio < 1;  // don't render weather if not needed
 
-    const modules = Array.from(main.children);
+    const modules = Array.from(main.children).filter((m) => m.localName === 'modvil-module');
     modules.forEach((m) => {
       if (visible !== false) {
         if (m.offsetTop >= windowRangeHigh) {
@@ -151,6 +159,10 @@ async function prepareModules() {
       m.mode = mode;
       m.load = visible || false;  // only display at all when visible
 
+      // FIXME: only focus single, bring others to stop
+
+      resized && m.resize();
+
       if (!isMobileOrTablet) {
         // Configure ratio of sound.
         updateModuleSoundRatio(m.id, ratio);
@@ -158,7 +170,7 @@ async function prepareModules() {
     });
   });
 
-  if (!helpers.mobileAndTabletcheck()) {
+  if (!helpers.mobileAndTabletCheck()) {
     main.addEventListener('anim', (e) => {
       const scene = e.target.id;
       const {index, currentTime} = e.detail;
@@ -271,6 +283,8 @@ api.ready(async () => {
     <santa-card featured scene="elfmaker"></santa-card>
   </div>
 </div>
+<div id="top-divider">
+</div>
 
 <template id="android-module">
   <modvil-module id="android" color="#9b643d" parts="static-png,loop,static-png,loop" class="android">
@@ -301,7 +315,7 @@ api.ready(async () => {
   <santa-card id="build" style="--x: 18%; --y: 47.5%"></santa-card>
   <santa-card id="santaselfie" style="--x: 81%; --y: 27%"></santa-card>
 </modvil-module>
-<modvil-module id="kitchen" color="#fdb0ca" parts="static-png,loop,static-png,cards,scroll">
+<modvil-module id="kitchen" color="#fdb0ca" parts="static-png,loop,static-png,cards,static-png">
   <santa-card id="traditions" style="--x: 19.4%; --y: 17.7%"></santa-card>
   <santa-card id="translations" style="--x: 35.6%; --y: 60.8%"></santa-card>
   <santa-card id="presentdrop" style="--x: 74.3%; --y: 23.7%"></santa-card>
@@ -311,7 +325,7 @@ api.ready(async () => {
   <santa-card id="santascanvas" style="--x: 72.9%; --y: 23.1%"></santa-card>
   <santa-card id="storybook" style="--x: 62.5%; --y: 63.8%"></santa-card>
 </modvil-module>
-<modvil-module id="greenhouse" color="#94dae4" parts="static-png,loop,scroll,static-png,cards">
+<modvil-module id="greenhouse" color="#94dae4" parts="static-png,loop,static-png,static-png,cards">
   <santa-card id="snowball" style="--x: 19.2%; --y: 58.9%"></santa-card>
   <santa-card id="elfski" style="--x: 78.7%; --y: 23.5%"></santa-card>
   <santa-card id="penguindash" style="--x: 78.7%; --y: 81.5%"></santa-card>
@@ -325,17 +339,17 @@ api.ready(async () => {
   <santa-card id="racer" style="--x: 77.6%; --y: 41.9%"></santa-card>
 </modvil-module>
 <modvil-module id="disco" color="#e5e5e5" parts="static-png,loop,loop,scroll,cards">
-  <santa-card id="codeboogie" style="--x: 50%; --y: 20%"></santa-card>
-  <santa-card id="jamband" style="--x: 50%; --y: 50%"></santa-card>
-  <santa-card id="wrapbattle" style="--x: 50%; --y: 80%"></santa-card>
+  <santa-card id="codeboogie" style="--x: 18%; --y: 17%"></santa-card>
+  <santa-card id="jamband" style="--x: 26%; --y: 80%"></santa-card>
+  <santa-card id="wrapbattle" style="--x: 82%; --y: 50%"></santa-card>
 </modvil-module>
 <modvil-module id="gym" color="#e5e5e5" parts="static-png,loop,loop,cards">
-  <santa-card id="mercator" style="--x: 50%; --y: 20%"></santa-card>
-  <santa-card id="glider" style="--x: 50%; --y: 50%"></santa-card>
-  <santa-card id="runner" style="--x: 50%; --y: 80%"></santa-card>
+  <santa-card id="mercator" style="--x: 21.5%; --y: 25%"></santa-card>
+  <santa-card id="glider" style="--x: 22.5%; --y: 83%"></santa-card>
+  <santa-card id="runner" style="--x: 82%; --y: 50%"></santa-card>
 </modvil-module>
 
-<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards">
+<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards" no-divider>
 </modvil-module>
   </main>
   <div class="sidebar right"></div>
