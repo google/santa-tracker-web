@@ -1,6 +1,7 @@
 
 .sticky-container {
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -17,55 +18,35 @@
     position: -webkit-sticky;
     position: sticky;
     padding: 302px 32px 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
     @media (max-width: 768px) {
-      padding: 302px 16px 16px;
+      padding: 302px 12px 32px;
     }
   }
 }
 
-#newtoday {
-  $duration: 0.2s;
-  $height: 8px;
-  $extra-hover: 4px;
-
-  pointer-events: auto;
-  display: block;
-  max-width: calc(75vw - 16px);
-  min-width: 140px;
-  padding: 8px;
-  border: 0;
-  margin: 0;
-  border-radius: 20px;
-  box-sizing: border-box;
-  font-style: normal;
-  font-weight: normal;
-  color: white;
+.uibutton {
   cursor: pointer;
   position: relative;
   z-index: -1;
+  pointer-events: auto;
+  border: 0;
 
-  background: var(--color, #6bb4fd);
-  transition: transform $duration;
+  --_shadow: var(--shadow, 4px);
+  --_height: var(--height, 8px);
+  --_hover: var(--hover, 4px);
+  --_duration: var(--duration, 0.2s);
+
+  background: #6bb4fd;
+  transition: transform var(--_duration);
   transform: translateY(0);
 
-  span {
-    white-space: nowrap;
-    overflow-x: hidden;
-    display: block;
-    text-overflow: ellipsis;
-
-    font-family: Lobster;
-    font-size: 44px;
-    line-height: 2em;
-
-    @media (max-width: 768px) {
-      font-size: 24px;
-    }
-  }
-
   &:hover {
-    transform: translateY(-$extra-hover);
+    transform: translateY(calc(-1 * var(--_hover)));
   }
 
   &::after,
@@ -88,14 +69,15 @@
 
   &::before {
     background: inherit;
-    transition: box-shadow $duration, transform $duration;
-    transform: translateY($height);
+    transition: box-shadow var(--_duration), transform var(--_duration);
+    transform: translateY(var(--_height));
     z-index: -100;
-    box-shadow: inset 0 -20px 0 rgba(0, 0, 0, 0.3), 4px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 -20px 0 rgba(0, 0, 0, 0.3), var(--_shadow) var(--_shadow) rgba(0, 0, 0, 0.1);
   }
   &:hover::before {
-    transform: translateY($height + $extra-hover);
-    box-shadow: inset 0 -20px 0 rgba(0, 0, 0, 0.3), 6px 6px rgba(0, 0, 0, 0.1);
+    --_shadow-extra: calc(var(--_shadow) + var(--_hover) * 0.5);
+    transform: translateY(var(--_height)) translateY(var(--_hover));
+    box-shadow: inset 0 -20px 0 rgba(0, 0, 0, 0.3), var(--_shadow-extra) var(--_shadow-extra) rgba(0, 0, 0, 0.1);
   }
 
   &:focus {
@@ -107,12 +89,77 @@
   }
 
   &:active,
-  .active {
-    transform: translateY($height);
+  &.active {
+    transform: translateY(var(--_height));
 
     &::before {
       transform: translateY(0px);
       box-shadow: inset 0 -20px 0 rgba(0, 0, 0, 0.3), 0 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+#familyguide {
+  border-radius: 1000px;
+  --shadow: 2px;
+  --hover: 2px;
+  --height: 2px;
+  font-size: 22px;
+  font-family: 'Google Sans', Arial, Helvetica;
+  color: white;
+  font-size: 14px;
+  max-width: 35vw;
+  display: flex;
+  align-items: center;
+  padding: 4px 5px;  // adjust slightly to fit inside border-radius
+
+  img {
+    border: 0;
+  }
+
+  span {
+    white-space: nowrap;
+    overflow-x: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    padding: 0 8px;
+  }
+}
+
+#newtoday {
+  max-width: 40vw;
+
+  max-width: calc(75vw - 16px);
+  min-width: 140px;
+  padding: 8px 16px;
+  border: 0;
+  margin: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: normal;
+  color: white;
+  cursor: pointer;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+
+  span {
+    white-space: nowrap;
+    overflow-x: hidden;
+    display: block;
+    text-overflow: ellipsis;
+
+    font-family: Lobster;
+    font-size: 44px;
+    line-height: 2em;
+    text-shadow: 0 1px 0 #0002;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
     }
   }
 

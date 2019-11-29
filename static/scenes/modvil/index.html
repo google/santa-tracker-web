@@ -32,6 +32,16 @@ api.config({
   sound: ['music_start_village', 'village_start'],
 });
 
+api.preload.images(
+  'img/family-icon.png',
+  'img/ornament.svg',
+  'img/village/1.svg',
+  'img/village/2.svg',
+  'img/village/3.svg',
+  'img/village/4.svg',
+  'img/village/divider.svg',
+);
+
 const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
 const insertAndroidCards = () => {
   if (androidModuleTemplate.parentNode) {
@@ -239,11 +249,18 @@ const configureActionButton = (button, callback) => {
 };
 
 configureActionButton(document.getElementById('play'), () => {
+  ga('send', 'event', 'village', 'click', 'play-round');
   api.go('codelab');
 });
 
-configureActionButton(document.getElementById('featured'), () => {
+configureActionButton(document.getElementById('newtoday'), () => {
+  ga('send', 'event', 'village', 'click', 'featured');
   api.go('elfmaker');
+});
+
+configureActionButton(document.getElementById('familyguide'), () => {
+  ga('send', 'event', 'village', 'click', 'familyguide');
+  api.go('familyguide');
 });
 
 
@@ -299,7 +316,11 @@ api.ready(async () => {
 
   <div class="sticky-container">
     <div class="sticky">
-      <button id="newtoday">
+      <button id="familyguide" class="uibutton">
+        <img src="img/family-icon.png" width="32" height="32" />
+        <span msgid="scene_family"></span>
+      </button>
+      <button id="newtoday" class="uibutton">
         <div id="featured" msgid="newtoday"></div>
         <span msgid="scene_elfmaker"></span>
       </button>

@@ -21,6 +21,7 @@ export default {
   'elfmaker': _msg`scene_elfmaker`,
   'elfski': _msg`scene_elfski`,
   'factory': _msg`scene_factory`,
+  'familyguide': _msg`scene_family`,
   'glider': _msg`scene_glider`,
   'gumball': _msg`scene_gumball`,
   'icecave': _msg`scene_icecave`,
