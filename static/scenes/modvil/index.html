@@ -236,6 +236,16 @@ async function prepareModules() {
       }
     });
   }
+  //elfchair
+  const elfchairtEl = document.getElementsByClassName('elfboard1')[0];
+  if (elfchairtEl) {
+    
+    elfchairtEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_bikeride');
+      }
+    });
+  }
 }
 const topModule = document.getElementById('top');
 function topModuleRatio() {
