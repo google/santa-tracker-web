@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "輕觸"
 	},
+	"copied": {
+		"message": "已複製！"
+	},
 	"copy-me": {
 		"message": "複製此連結即可分享您的訊息"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "探索聖誕老人村"
 	},
+	"familyguide_accordion_title": {
+		"message": "慶祝整個月"
+	},
+	"familyguide_body": {
+		"message": "「聖誕老人村」是一家人慶祝佳節的理想地點。您的最愛角色將與您一起參加適合不同年齡人士的有趣、教育和互動活動。"
+	},
+	"familyguide_card_01_body": {
+		"message": "運用編碼基礎知識，引導小精靈穿過森林，尋找掉下來的禮物。"
+	},
+	"familyguide_card_02_body": {
+		"message": "以程式設計雪花，創作屬於您的佳節賀卡。只需在各式各樣的背景中選擇一個，即可與好友分享。"
+	},
+	"familyguide_card_03_body": {
+		"message": "小精靈回來練習編碼了，更同時加入了舞蹈技巧。運用程式碼替小精靈編舞。但要留意，您編碼編得越好，舞步難度就會提升！"
+	},
+	"familyguide_card_04_body": {
+		"message": "從加拿大人戴冷帽以至澳洲人穿泳褲，按一下地圖圖釘即可瞭解世界各地的佳節傳統。"
+	},
+	"familyguide_card_05_body": {
+		"message": "學習世界各地的佳節用語，包括精靈文的「新年快樂」，到了解「Дед Мороз」的意思等。"
+	},
+	"familyguide_card_06_body": {
+		"message": "聖誕老人有很多地方要去。您要在這個地理遊戲中，將國家/地區的輪廓與地圖配對。"
+	},
+	"familyguide_card_07_body": {
+		"message": "您瞭解佳節的歷史嗎？測試您的冷知識，在 9 條問題的小測驗中展現實力。"
+	},
+	"familyguide_card_07_title": {
+		"message": "節日傳統小測驗"
+	},
+	"familyguide_card_08_body": {
+		"message": "肚餓嗎？探索來自世界各地不同國家和地區的美食。"
+	},
+	"familyguide_card_09_body": {
+		"message": "走進聖誕老人的專屬創意工作室。所有工具、筆刷和貼圖都具有自訂聲效，帶來精彩的視聽體驗。"
+	},
+	"familyguide_card_10_body": {
+		"message": "在您的冬天沙箱盡情實驗和玩耍。使用 3D 材料建造房屋、玩具、雪人、森林或您能想像的任何事物。"
+	},
 	"familyguide_card_11_body": {
 		"message": "從頭到腳製作屬於您的小精靈，以仙氣十足的「精靈」造型迎接北極的節日聚會。"
+	},
+	"familyguide_card_12_body": {
+		"message": "聖誕老人在理髮店，想要一個全新造型。請為他的鬍子染色、為他吹乾頭髮、加上裝飾或用理髮器剃過乾淨。"
+	},
+	"familyguide_card_13_body": {
+		"message": "與小精靈、馴鹿、聖誕老人和其太太一起參觀充滿佳節氣氛的博物館！"
+	},
+	"familyguide_card_14_body": {
+		"message": "眾多小精靈、馴鹿和衣夾人在北極周圍穿梭。看看他們如何到處遊走。"
+	},
+	"familyguide_card_15_body": {
+		"message": "聖誕老人和馴鹿已準備出發，但必須得到編碼小精靈幫忙才能起飛。"
+	},
+	"familyguide_card_16_body": {
+		"message": "「聖誕老人村」的好友與獨角鯨 Ollie 一起在海底共度快樂一天，舉行首個年度海藻燈光慶典。"
+	},
+	"familyguide_card_age": {
+		"message": "任何年齡"
+	},
+	"familyguide_doublecard_body": {
+		"message": "喝光蛋諾飲料，接過禮物，是時候透過 Google 探索可讓一家大小全年同樂的資源。"
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "無論現在或將來，我們都希望地球生態健康。透過 Google 取得簡單提示，幫助人類和地球互利共存。"
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "您的地球，您的計劃"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "必須教導兒童作出明智決定，方可讓他們善用互聯網。「Be Internet Awesome」教導兒童數碼公民和安全的基本知識，讓他們放心探索網絡世界。"
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "成為精明的網絡達人"
 	},
+	"familyguide_doublecard_title": {
+		"message": "其他 Google 服務"
+	},
+	"familyguide_group_01_body": {
+		"message": "小精靈一直在磨練編碼技巧。探索學習基礎技術的遊戲。所有人都可體驗編碼的樂趣！"
+	},
+	"familyguide_group_01_title": {
+		"message": "與聖誕老人的小精靈一起學習編碼"
+	},
+	"familyguide_group_02_body": {
+		"message": "各地的佳節都不太一樣。透過大量的遊戲和小測驗，瞭解世界各地如何慶祝佳節。"
+	},
+	"familyguide_group_02_title": {
+		"message": "探索世界各地的佳節"
+	},
+	"familyguide_group_03_body": {
+		"message": "創造的魔法令聖誕老人村更有生氣。探索讓您與所有最愛角色一起畫畫、填色、建立和創作的不同遊戲。"
+	},
+	"familyguide_group_03_title": {
+		"message": "擷取靈感，發揮創意"
+	},
+	"familyguide_group_04_body": {
+		"message": "準備好爆谷，然後躲進舒適被窩之中。在聖誕老人村的影院大螢幕觀看所有角色，或閲讀互動故事書，陪同獨角鯨 Ollie 在海底慶祝佳節。"
+	},
+	"familyguide_group_04_title": {
+		"message": "一起共享家庭時光"
+	},
+	"familyguide_nav_link_01": {
+		"message": "程式碼"
+	},
+	"familyguide_nav_link_02": {
+		"message": "慶祝"
+	},
+	"familyguide_nav_link_03": {
+		"message": "創造"
+	},
+	"familyguide_nav_link_04": {
+		"message": "合家歡時間"
+	},
+	"familyguide_nav_link_05": {
+		"message": "提示和秘訣"
+	},
+	"familyguide_nav_link_06": {
+		"message": "更多"
+	},
+	"familyguide_secondary_body": {
+		"message": "在 12 月 24 日，「聖誕老人村」將為您帶來追蹤體驗，您可追蹤聖誕老人和馴鹿向全球各地的小朋友派發禮物。"
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "在「聖誕老人追蹤器」網站或 Android 應用程式追蹤"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "提提您！您知道嗎？聖誕老人的旅程會持續 25 小時！他的第一個站是俄羅斯遠東地區，於當地時間晚上 10 時到達，那時紐約正值上午 5 時，而巴黎則是上午 11 時。"
+	},
+	"familyguide_secondary_title": {
+		"message": "在佳節追蹤聖誕老人"
+	},
+	"familyguide_tips_body": {
+		"message": "在今季於所有最愛 Google 產品上，發揮「聖誕老人追蹤器」的神奇力量。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "每天向「Google 助理」查問來自 Dimplesticks 小精靈的最新有趣消息。同時查看聖誕笑話和資料，並看看呼喚聖誕老人時會發生什麽事。"
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "「Hey Google，北極有咩新消息？」"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "在「Play 商店」下載 Android 版「聖誕老人追蹤器應用程式」。應用程式内有以「聖誕老人村」為場景的獨家遊戲。"
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android 應用程式"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "透過 Android Wear 手錶追蹤聖誕老人。"
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "在 Google 搜尋「聖誕老人」，看看立體效果的他。在大部分 iPhone 和部分高階 Android 裝置上，您可透過相機的 AR 功能看到他對您揮手！"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "將聖誕老人帶到您的客廳"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "為您的訊息增添佳節氣息。在 Google 的 Tenor 網頁搜尋「Santa Tracker gifs」(僅限英文)，即可找到聖誕老人主題 GIF 和貼圖。"
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "贈送 GIF 禮物"
+	},
+	"familyguide_tips_title": {
+		"message": "提示和秘訣"
+	},
+	"familyguide_title": {
+		"message": "和一家人享受佳節樂趣"
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "禮物密密製"
 	},
+	"scene_holidayfoods": {
+		"message": "「Google 地球」世界佳節食物"
+	},
 	"scene_icecave": {
 		"message": "冰洞"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "地圖小測驗"
+	},
+	"scene_ollieundersea": {
+		"message": "海底的 Ollie"
 	},
 	"scene_playground": {
 		"message": "北極遊樂場"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "節日傳統"
+	},
+	"scene_traditionsquiz": {
+		"message": "節日傳統小測驗"
 	},
 	"scene_translations": {
 		"message": "翻譯"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "中彈！"
+	},
+	"snowball_iced_count": {
+		"message": "擊中"
 	},
 	"snowball_remaining": {
 		"message": "尚餘 {{remaining}} 隻小精靈，共 {{total}} 隻"

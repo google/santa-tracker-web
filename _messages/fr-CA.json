@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Toucher"
 	},
+	"copied": {
+		"message": "Copiée!"
+	},
 	"copy-me": {
 		"message": "Copiez ce lien pour partager votre message."
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Visiter le village du père Noël"
 	},
+	"familyguide_accordion_title": {
+		"message": "Célébrer tout le mois"
+	},
+	"familyguide_body": {
+		"message": "Le village du père Noël est l'endroit parfait pour célébrer les fêtes en famille. Tu y trouveras tous tes personnages favoris en plus d'activités amusantes, éducatives et interactives pour tous les âges."
+	},
+	"familyguide_card_01_body": {
+		"message": "Utilise les notions de base du codage pour guider le lutin dans la forêt et trouver des cadeaux."
+	},
+	"familyguide_card_02_body": {
+		"message": "Crée ta propre carte des fêtes en programmant ton propre flocon de neige : sélectionne simplement l'un des nombreux arrière-plans, puis partage la carte avec tes amis."
+	},
+	"familyguide_card_03_body": {
+		"message": "Les lutins sont de retour à leur exercice de codage, tout en y mêlant leurs talents de danseurs. Utilise du code pour chorégraphier les danses des lutins. Mais attention : plus tu t'améliores, plus les danses deviennent difficiles!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Du port de la tuque au Canada à celui du maillot de bain en Australie, clique sur les épingles de la carte pour en savoir plus sur les traditions des fêtes autour du monde."
+	},
+	"familyguide_card_05_body": {
+		"message": "De Bonne année en elfique à Дед Мороз, apprends les expressions des fêtes de partout au monde."
+	},
+	"familyguide_card_06_body": {
+		"message": "Le père Noël a de nombreux endroits à visiter. Associe le contour d'un pays avec la carte dans ce jeu de géographie."
+	},
+	"familyguide_card_07_body": {
+		"message": "Connais-tu l'histoire des fêtes? Montre tes connaissances dans un jeu-questionnaire en neuf questions qui mettra tes habiletés à l'épreuve."
+	},
+	"familyguide_card_07_title": {
+		"message": "Jeu-questionnaire sur les traditions des fêtes"
+	},
+	"familyguide_card_08_body": {
+		"message": "Tu as faim? Découvre des friandises de partout dans le monde, et explore la nourriture de pays proches et éloignés."
+	},
+	"familyguide_card_09_body": {
+		"message": "Découvre la propre suite créative du père Noël. Chaque outil, brosse et autocollant est accompagné d'un son personnalisé, ce qui permet de créer une expérience audio et visuelle."
+	},
+	"familyguide_card_10_body": {
+		"message": "Fais des découvertes et joue dans ton propre carré de sable hivernal. Utilise des matériaux en 3D pour construire tout ce qui te chante : des maisons, des jouets, des bonhommes de neige, des forêts ou n'importe quoi d'autre qui te fait rêver."
+	},
 	"familyguide_card_11_body": {
 		"message": "Créez votre propre lutin des pieds à la tête et assurez-lui un look « farfastique » pour les nombreuses soirées des fêtes qui ont lieu au pôle Nord."
+	},
+	"familyguide_card_12_body": {
+		"message": "Le père Noël est chez le coiffeur et il a besoin d'aide pour obtenir une toute nouvelle coupe. Colore sa barbe, sèche-lui les cheveux, ajoute des décorations ou rase-le avec la tondeuse."
+	},
+	"familyguide_card_13_body": {
+		"message": "Joins-toi aux lutins, aux rennes, au père Noël et à la mère Noël pour une visite du Musée de la célébration des fêtes!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Plusieurs lutins et rennes ainsi que Pegman circulent au pôle Nord. Vois comment ils se déplacent d'un endroit à l'autre."
+	},
+	"familyguide_card_15_body": {
+		"message": "Le père Noël et les rennes sont prêts à partir, mais ils ont besoin de l'aide des lutins codeurs avant de s'envoler."
+	},
+	"familyguide_card_16_body": {
+		"message": "Nos amis du village se joignent à Ollie le narval pour une journée sous l'eau alors qu'ils organisent la première célébration d'illumination des algues."
+	},
+	"familyguide_card_age": {
+		"message": "Tous les âges"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Lorsqu'il ne reste plus de lait de poule et que tous les cadeaux ont été distribués, découvre des ressources amusantes pour toute la famille offertes tout au long de l'année par Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Nous souhaitons tous une planète en santé pour aujourd'hui et demain. Découvre des conseils simples de Google pour aider les gens et la planète à prospérer ensemble."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Votre plan, votre planète"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Pour profiter au mieux d'Internet, les enfants doivent être prêts à prendre de bonnes décisions. Le programme Be Internet Awesome enseigne aux enfants les notions de base de la citoyenneté et de la sécurité numériques afin qu'ils puissent explorer le monde en ligne avec confiance."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Être au fait d'Internet"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Autres produits de Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Les lutins travaillent toujours à améliorer leurs habiletés à coder. Explore des jeux qui t'enseigneront les notions de base. Tout le monde peut essayer de coder!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Apprendre à coder avec les lutins du père Noël"
+	},
+	"familyguide_group_02_body": {
+		"message": "Les fêtes peuvent être très différentes d'un endroit à l'autre. Apprends comment le monde célèbre les fêtes avec une foule de jeux et de questionnaires."
+	},
+	"familyguide_group_02_title": {
+		"message": "Découvrir les fêtes autour du monde"
+	},
+	"familyguide_group_03_body": {
+		"message": "Le village du père Noël prospère dans la magie de la création. Découvre des jeux qui te permettent de dessiner, de peindre, de construire et de créer avec tous tes personnages favoris."
+	},
+	"familyguide_group_03_title": {
+		"message": "Trouver l'inspiration et créer quelque chose"
+	},
+	"familyguide_group_04_body": {
+		"message": "Attrape le pop-corn et blottis-toi sous une couverture. Tu peux voir le groupe en entier sur grand écran au cinéma du village ou lire un livre de contes pendant qu'Ollie le narval célèbre les fêtes sous la mer."
+	},
+	"familyguide_group_04_title": {
+		"message": "Se rassembler pour du temps en famille"
+	},
+	"familyguide_nav_link_01": {
+		"message": "code"
+	},
+	"familyguide_nav_link_02": {
+		"message": "célébrer"
+	},
+	"familyguide_nav_link_03": {
+		"message": "créer"
+	},
+	"familyguide_nav_link_04": {
+		"message": "temps en famille"
+	},
+	"familyguide_nav_link_05": {
+		"message": "conseils et astuces"
+	},
+	"familyguide_nav_link_06": {
+		"message": "plus"
+	},
+	"familyguide_secondary_body": {
+		"message": "Le 24 décembre, le village du père Noël se transforme en expérience de suivi, dans laquelle tu peux suivre le père Noël et ses rennes alors qu'ils distribuent des cadeaux aux enfants du monde entier."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Suis-le sur le site Web Sur les traces du père Noël ou dans l'application Android"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psitt! Savais-tu que le périple du père Noël dure 25 heures?! Il fait son premier arrêt juste après 22 h (heure locale) dans l'extrême est de la Russie, lorsqu'il est 5 h du matin à Montréal et 11 h à Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Suivre le père Noël au moment du grand jour"
+	},
+	"familyguide_tips_body": {
+		"message": "Vivez plus de magie avec Sur les traces du père Noël cette saison dans tous vos produits Google favoris."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Demande à l'Assistant Google chaque jour pour des nouveautés amusantes proposées par Dimplesticks le lutin. Découvre également des blagues de Noël et des faits sur Noël, et vois ce qui arrive lorsque tu appelles le père Noël."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "« Ok Google, quoi de neuf au pôle Nord? »"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Télécharge l'application Sur les traces du père Noël pour Android à partir de la boutique Play Store. Elle comprend une scène de village exclusive avec des jeux qui ne se trouvent que dans l'application."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Application pour Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Suis le père Noël sur ton poignet avec l'intégration d'Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Recherche « père Noël » dans Google pour voir le père Noël en 3D. Sur la plupart des iPhone et sur certains appareils Android évolués, tu peux même le voir en RA, alors qu'il te salue dans ta caméra!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Le père Noël dans ton salon"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Ajoute le plaisir des fêtes à tes messages. Trouve des fichiers GIF et des autocollants sur le thème du père Noël en recherchant « Santa Tracker gifs » (en anglais seulement) sur la page Tenor de Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Offrir des GIF en cadeau"
+	},
+	"familyguide_tips_title": {
+		"message": "Conseils et astuces"
+	},
+	"familyguide_title": {
+		"message": "Du plaisir pour toute la famille durant les fêtes"
 	},
 	"fi_country_name": {
 		"message": "Finlande"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "La frénésie des cadeaux"
 	},
+	"scene_holidayfoods": {
+		"message": "Nourritures des fêtes dans le monde avec Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Caverne de glace"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz géo"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie sous la mer"
 	},
 	"scene_playground": {
 		"message": "Terrain de jeu du Pôle Nord"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Traditions des Fêtes"
+	},
+	"scene_traditionsquiz": {
+		"message": "Jeu-questionnaire sur les traditions des fêtes"
 	},
 	"scene_translations": {
 		"message": "Traductions"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Glacé!"
+	},
+	"snowball_iced_count": {
+		"message": "Glacés"
 	},
 	"snowball_remaining": {
 		"message": "Nombre de lutins restants : {{remaining}} sur {{total}}"

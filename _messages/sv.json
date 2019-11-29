@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Pekskärm"
 	},
+	"copied": {
+		"message": "Kopierat"
+	},
 	"copy-me": {
 		"message": "Kopiera den här länken för att dela ditt meddelande"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Utforska tomtebyn"
 	},
+	"familyguide_accordion_title": {
+		"message": "Fira hela månaden"
+	},
+	"familyguide_body": {
+		"message": "Jultomtens by är det perfekta stället för familjer att fira jul. Du hittar alla dina favoritfigurer tillsammans med roliga, pedagogiska och interaktiva aktiviteter för alla åldrar."
+	},
+	"familyguide_card_01_body": {
+		"message": "Använd grundläggande kodning för att leda tomtenissen genom skogen till de tappade julklapparna."
+	},
+	"familyguide_card_02_body": {
+		"message": "Skapa ditt eget julkort genom att programmera din egen snöflinga – välj bara en av många bakgrunder och dela skapelsen med dina vänner."
+	},
+	"familyguide_card_03_body": {
+		"message": "Tomtenissarna fortsätter att öva kodning och finslipar samtidigt på dansfärdigheterna. Använd koden för att koreografera tomtenissarnas dans – men se upp, ju duktigare du blir desto svårare blir danserna!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Klicka på kartnålarna för att lära dig mer om jultraditioner över hela världen, från vintermössor i Kanada till badkläder i Australien."
+	},
+	"familyguide_card_05_body": {
+		"message": "Lär dig julfraser från hela världen, från gott nytt år på alviska till Дед Мороз."
+	},
+	"familyguide_card_06_body": {
+		"message": "Jultomten har många platser att besöka. Passa in ländernas konturer på kartan i det här geografispelet."
+	},
+	"familyguide_card_07_body": {
+		"message": "Kan du din julhistoria? Testa dina kunskaper i en frågesport på nio frågor."
+	},
+	"familyguide_card_07_title": {
+		"message": "Frågesport om jultraditioner"
+	},
+	"familyguide_card_08_body": {
+		"message": "Är du hungrig? Upptäck delikatesser från hela världen och utforska mat från alla möjliga länder."
+	},
+	"familyguide_card_09_body": {
+		"message": "Använd jultomtens kreativa verktyg. Varje verktyg, pensel och dekal har ett eget ljud, så använd både öron och ögon."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimentera och lek i din egen vintersandlåda. Använd 3D-material för att bygga vad som helst: hus, leksaker, snögubbar, skogar eller något annat du kan hitta på."
+	},
 	"familyguide_card_11_body": {
 		"message": "Skapa en egen tomtenisse som är chic från topp till tå och redo för julfirandet i Nordpolen."
+	},
+	"familyguide_card_12_body": {
+		"message": "Jultomten är hos frisören och behöver hjälp med en helt ny frilla. Färga skägget, torka håret, lägg till dekorationer eller raka av alltihop med rakapparaten."
+	},
+	"familyguide_card_13_body": {
+		"message": "Häng med tomtenissarna, renarna, jultomten och tomtemor på ett besök i Julstämningens museum!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Det finns många tomtenissar, renar och smågubbar att skjutsa runt på Nordpolen. Se hur de reser till olika platser."
+	},
+	"familyguide_card_15_body": {
+		"message": "Jultomten och renarna är redo att åka men behöver lite hjälp från kodningsnissarna innan de ger sig iväg."
+	},
+	"familyguide_card_16_body": {
+		"message": "Våra byvänner hänger med narvalen Ollie en dag under havsytan och startar ett årligt firande med alger och ljusslingor."
+	},
+	"familyguide_card_age": {
+		"message": "Alla åldrar"
+	},
+	"familyguide_doublecard_body": {
+		"message": "När julmusten är slut och julklapparna är utdelade hittar du mer skoj för familjen året runt med Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Vi vill alla ha en välmående planet nu och i framtiden. Läs enkla tips från Google för att hjälpa människor och planeten att trivas tillsammans."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Din plan, din planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "För att få ut mesta möjliga av internet måste barnen vara beredda på att fatta smarta beslut. Be Internet Awesome lär barnen grunderna i digitalt medborgarskap och säkerhet så att de kan utforska onlinevärlden på ett tryggt sätt."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Be Internet Awesome"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Mer från Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Tomtenissarna slipar alltid på sina programmeringskunskaper. Lär dig grunderna genom olika spel. Alla kan testa att koda!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Lär dig att koda med jultomtens nissar"
+	},
+	"familyguide_group_02_body": {
+		"message": "Julfirandet kan se helt annorlunda ut på olika platser. Lär dig hur världen firar jul med massor av spel och frågesporter."
+	},
+	"familyguide_group_02_title": {
+		"message": "Upptäck julfirande runt om i världen"
+	},
+	"familyguide_group_03_body": {
+		"message": "Jultomtens by växer med skapandets magi. Upptäck spel där du kan rita, måla, bygga och skapa med alla dina favoritfigurer."
+	},
+	"familyguide_group_03_title": {
+		"message": "Bli inspirerad och skapa något"
+	},
+	"familyguide_group_04_body": {
+		"message": "Poppa lite popcorn och kryp in under en mysig filt. Du kan se hela gänget på storskärmen i byns teater eller läsa en interaktiv sagobok när narvalen Ollie firar jul under havet."
+	},
+	"familyguide_group_04_title": {
+		"message": "Dags för en familjestund"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kod"
+	},
+	"familyguide_nav_link_02": {
+		"message": "fira"
+	},
+	"familyguide_nav_link_03": {
+		"message": "skapa"
+	},
+	"familyguide_nav_link_04": {
+		"message": "familjestund"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tips"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mer"
+	},
+	"familyguide_secondary_body": {
+		"message": "Den 24 december förvandlas jultomtens by till en spårningsfest där du kan följa jultomten och hans renar när de delar ut julklappar till barn runt om i världen."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Följ jultomten på webbplatsen Följ jultomten eller i Android-appen"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Visste du att jultomten reser omkring i 25 timmar?! Han gör sitt första stopp strax efter kl. 22 lokal tid i östra Ryssland, när klockan är fem på morgonen i New York och 11 på förmiddagen i Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Följ jultomten på den stora dagen"
+	},
+	"familyguide_tips_body": {
+		"message": "Upplev julmagi med Följ jultomten med alla dina favoritprodukter från Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Fråga Google-assistenten varje dag och få roliga uppdateringar från tomtenissen Dimplesticks. Kolla också in julskämt, julfakta och se vad som händer när du ringer jultomten."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "”Hey Google, vad händer på Nordpolen?”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Ladda ned appen Följ jultomten till Android på Play Butik. Det finns en exklusiv by med spel som bara finns i appen."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-app"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Följ jultomten från handleden med Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Sök efter ”jultomten” på Google och se jultomten i 3D. På de flesta iPhones och vissa avancerade Android-enheter kan du se jultomten i AR direkt genom din kamera!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Bjud in jultomten till vardagsrummet"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Skapa lite julstämning med dina meddelanden. Hitta GIF-filer och dekaler med tema jultomten genom att söka på ”Santa Tracker gifs” (endast på engelska) på Googles Tenor-sida."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Ge bort en GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Tips"
+	},
+	"familyguide_title": {
+		"message": "Julkul för hela familjen"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Klappkaos"
 	},
+	"scene_holidayfoods": {
+		"message": "Världens julmat på Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Isgrotta"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Karttest"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie under havet"
 	},
 	"scene_playground": {
 		"message": "Nordpolens lekpark"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Jultraditioner"
+	},
+	"scene_traditionsquiz": {
+		"message": "Frågesport om jultraditioner"
 	},
 	"scene_translations": {
 		"message": "Översättningar"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Mulad!"
+	},
+	"snowball_iced_count": {
+		"message": "Fullträffar"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} av {{total}} tomtenissar återstår"

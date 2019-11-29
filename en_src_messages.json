@@ -639,6 +639,10 @@
     "description": "Button label to try the level again after failing or completing with room for improvement. 15char limit.",
     "message": "Try Again"
   },
+  "copied": {
+    "description": "Short message informing the user that they've successfully copied a URL",
+    "message": "Copied!"
+  },
   "copy-me": {
     "description": "Label. Users will see a URL that they can copy to email to a friend, or share on Facebook/G+",
     "message": "Copy this link to share your message"
@@ -904,7 +908,7 @@
     "message": "more"
   },
   "familyguide_nav_link_07": {
-    "description": "Nav label. This appears on an information page.",
+    "description": "Nav label. This appears on an information page and refers to the Google Assistant.",
     "message": "assistant"
   },
   "familyguide_accordion_title": {
@@ -1028,7 +1032,7 @@
     "message": "\"Hey Google, what’s new at the North Pole?\""
   },
   "familyguide_tips_tip01_body": {
-    "description": "Description of the first tip. This appears in an information page.",
+    "description": "Description of the first tip. This appears in an information page. 'Dimplesticks' is the name of an Elf, and it will not be translated (transliteration is fine).",
     "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
   },
   "familyguide_tips_tip02_title": {
@@ -1064,19 +1068,19 @@
     "message": "Bring some holiday fun to your messages. Find Santa themed gifs and stickers by searching for “Santa Tracker gifs” (English only) on Google’s Tenor page."
   },
   "familyguide_assistant_title": {
-    "description": "Title of a section heading in an information page.",
+    "description": "Title of a section heading in an information page. 'North Pole Minute' is a name of a fictional news service provided by Santa.",
     "message": "Never Miss a North Pole Minute"
   },
   "familyguide_assistant_body_01": {
     "description": "Body text of a section heading in an information page.",
-    "message": "Something fun about how the Google Assistant is also fun, remarking that the features are available in select languages."
+    "message": "Use the Google Assistant to find out more about Santa Claus during December! This integration is available in select languages."
   },
   "familyguide_assistant_body_02": {
-    "description": "Body text of a section heading in an information page.",
-    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/#\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
+    "description": "Body text describing a child's use of the Google Assistant with a Family Link account. 'Family Link' is translated, please see the related link in your local language.",
+    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
   },
   "familyguide_assistant_card01_title": {
-    "description": "Title of a card in an information page.",
+    "description": "Title of a card in an information page that tells users they can talk to Santa Claus.",
     "message": "Call Santa"
   },
   "familyguide_assistant_card01_body": {
@@ -1084,7 +1088,7 @@
     "message": "Google Assistant connects you with the North Pole, where Santa is busy rehearsing for a musical concert. He only knows one song—can you help him figure out the best way to play it?"
   },
   "familyguide_assistant_card02_title": {
-    "description": "Title of a card in an information page.",
+    "description": "Title of a card in an information page. Refers to a fictionalized news program that runs on a channel provided by Santa.",
     "message": "North Pole Newscast"
   },
   "familyguide_assistant_card02_body": {
@@ -1092,7 +1096,7 @@
     "message": "Tune in daily to the North Pole Newscast to find out what Santa and his elves are up to. Just ask the Google Assistant what's new at the North Pole."
   },
   "familyguide_assistant_card03_title": {
-    "description": "Title of a card in an information page.",
+    "description": "Title of a card in an information page, refering to an activity you can open on the Google Assistant.",
     "message": "Santa Jokes"
   },
   "familyguide_assistant_card03_body": {
@@ -1122,6 +1126,14 @@
   "familyguide_doublecard_card02_body": {
     "description": "Body text of a card in an information page",
     "message": "To make the most of the Internet, kids need to be prepared to make smart decisions. Be Internet Awesome teaches kids the fundamentals of digital citizenship and safety so they can explore the online world with confidence."
+  },
+  "familylink": {
+    "description": "Notice about using Google Assistant via a child's account configured with Google's Family Link product",
+    "message": "Add your kid's Google account, managed with Family Link"
+  },
+  "featured": {
+    "description": "Label indicating that a game is featured today.",
+    "message": "Featured"
   },
   "fi_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -2351,6 +2363,10 @@
     "description": "Title of a video scene. Santa is taking off, launching etc.",
     "message": "Santa's Takeoff"
   },
+  "scene_videoscene_likealight": {
+    "description": "Title of a video scene. Santa has slept in, and now needs to get ready to go! Elves look after the factory, making sure it's running smoothly and reducing pollution by switching off the lights.",
+    "message": "Out Like A Light"
+  },
   "scene_videoscene_museum": {
     "description": "Title of a video scene. Shows a history of Santa Tracker in a museum, with Santa and the elves as leading stars.",
     "message": "A Day at the Museum"
@@ -2411,6 +2427,10 @@
     "description": "Title of a video scene. Learn about Santa's workshop, where the elves work and presents are made.",
     "message": "Santa's Workshop"
   },
+  "scene_videoscene_yulelog": {
+    "description": "Title of a video scene. Watch a video of a 'Yule Log', a long video of a fireplace burning with holiday-themed ornaments surrounding (see Wikipedia for a good definition).",
+    "message": "Yule Log"
+  },
   "scene_windtunnel": {
     "description": "Title of a scene/game. Watch Rudolph's flying skills be tested in a wind tunnel.",
     "message": "Wind Tunnel"
@@ -2462,6 +2482,10 @@
   "snowball_iced": {
     "description": "A player has been 'iced', hit by a snowball and is out of a game.",
     "message": "Iced!"
+  },
+  "snowball_iced_count": {
+    "description": "The number of other elves that a player has successfully hit with a snowball, used as a score label",
+    "message": "Iced"
   },
   "snowball_spectate": {
     "description": "Label for a button allowing users to keep watching a game",
