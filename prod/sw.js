@@ -2,41 +2,26 @@
  * @fileoverview Service Worker for Santa Tracker.
  */
 
+const debug = true;
+
 const swUrl = new URL(self.location);
-const debug = false;
-
-const isProd = !swUrl.searchParams.get('lang');
-const lang = swUrl.searchParams.get('lang') || 'test';
 const baseurl = swUrl.searchParams.get('baseurl');
-const prodPrefix = `/intl/${lang}`;
 
-console.info('SW', lang, baseurl);
+console.info('SW', baseurl);
 
 const STATIC_VERSION_HEADER = 'X-Santa-Version';
 const IGNORE_PROD = ['cast', 'error', 'upgrade'];
 const IGNORE_STATIC_PREFIX = ['/audio/', '/scenes/'];
-
-const PRECACHE = (function() {
-  const out = {};
-
-  // Cache the "intl" files as top-level files. While the user keeps making requests to this
-  // language, we'll keep serving them. Otherwise, they'll get real files anyway.
-  out['/index.html'] = `${prodPrefix}/index.html`;
-  out['/error.html'] = `${prodPrefix}/error.html`;
-  out['/manifest.json'] = `${prodPrefix}/manifest.json`;
-  out['/loader.js'] = `/loader.js`;
-
-  // cache images from Web App Manifest, top-level is fine
-  const icons = [
-    '/images/favicon-32.png',
-    '/images/icon-192.png',
-    '/images/icon-256.png',
-    '/images/icon-512.png',
-  ];
-  icons.forEach((url) => out[url] = url);
-
-  return out;
-}());
+const PRECACHE = [
+  '/index.html',
+  '/error.html',
+  '/manifest.json',
+  '/loader.json',
+  '/images/favicon-32.png',
+  '/images/icon-192.png',
+  '/images/icon-256.png',
+  '/images/icon-512.png',
+];
 
 let replacingPreviousServiceWorker = false;
 
@@ -51,13 +36,8 @@ self.addEventListener('install', (event) => {
     }
 
     const prodCache = await caches.open('prod');
-    await Promise.all(Object.keys(PRECACHE).map(async (target) => {
-      const url = PRECACHE[target];
-      const response = await fetch(url);
-      await prodCache.put(new Request(target), response.clone());
-      console.info('precached', url);
-      return response;
-    }));
+    await Promise.all(PRECACHE.map((url) => prodCache.add(url)));
+    console.info('precached', PRECACHE.length, 'prod URLs');
 
     await self.skipWaiting();
   };
@@ -75,19 +55,48 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(call());
 });
 
+function staticRequestPath(url) {
+  if (baseurl.startsWith('/')) {
+    // for staging on a single domain
+    const u = new URL(url);
+    if (u.hostname === location.hostname && u.pathname.startsWith(baseurl)) {
+      return u.pathname.substr(baseurl.length);
+    }
+  } else if (url.startsWith(baseurl)) {
+    return url.substr(baseurl.length);
+  }
+}
+
+/**
+ * @param {string} raw pathname
+ * @return {{intl: string, pathname: string}}
+ */
+function splitProdPath(raw) {
+
+  // get prefix, will be blank or e.g. "/intl/foo-BAR"
+  const intlMatch = raw.match(/^(\/intl\/.*?)\//);
+  const intlPrefix = intlMatch ? intlMatch[1] : '';
+
+  let pathname = raw.substr(intlPrefix.length);
+  const routeMatch = pathname.match(/^\/(?:(\w+)\.html|)(\?|$)/);
+  if (routeMatch) {
+    pathname = '/index.html';
+  }
+
+  return {intl: intlPrefix, pathname};
+}
+
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') {
     return;
   }
 
   const url = new URL(event.request.url);
-  const isProdRequest = (location.hostname === url.hostname);
-  if (!isProdRequest) {
-    if (!event.request.url.startsWith(baseurl)) {
-      return;
-    }
 
-    const naked = event.request.url.substr(baseurl.length);
+  // Don't check domain for static requests; in dev, it's the same domain.
+  const naked = staticRequestPath(event.request.url);
+  if (naked) {
+    // read version/rest from "VERSION/REST/PATH/TO/FOO.png"
     const version = naked.split('/', 1)[0] || '';
     const rest = naked.substr(version.length).split('?')[0];  // starts with '/', remove "?-part"
 
@@ -145,11 +154,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  let pathname = url.pathname.replace(/^\/intl\/.*?\//, '/');
-  const routeMatch = pathname.match(/^\/(?:(\w+)\.html|)(\?|$)/);
-  if (routeMatch && IGNORE_PROD.indexOf(routeMatch[1]) === -1) {
-    pathname = '/index.html';
+  const isProdRequest = (location.hostname === url.hostname);
+  if (!isProdRequest) {
+    return;  // static external resource, ignore
   }
+
+  const {intl, pathname} = splitProdPath(url.pathname);
   if (!(pathname in PRECACHE)) {
     return;  // PRECACHE is static, so just do a check early
   }
@@ -157,10 +167,10 @@ self.addEventListener('fetch', (event) => {
   const call = async () => {
     let response;
     try {
-      response = await fetch(pathname);
+      // fetch intl preference but fallback to whatever was last cached.
+      response = await fetch(intl + pathname);
     } catch (e) {
       const prodCache = await caches.open('prod');
-      console.warn('FAILING, response from cache', pathname);
       return prodCache.match(pathname);
     }
 

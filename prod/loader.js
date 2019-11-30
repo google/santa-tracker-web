@@ -44,7 +44,6 @@ if ('serviceWorker' in navigator && (isProd || true)) {
     console.info('got SW with registration', registration);
   };
   const params = new URLSearchParams();
-  params.set('lang', documentLang || '');
   params.set('baseurl', config.baseurl);
   window.sw = navigator.serviceWorker.register(`/sw.js?${params.toString()}`).then(ready).catch((err) => {
     console.warn('sw failed to register', err);

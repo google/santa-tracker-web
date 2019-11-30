@@ -466,6 +466,27 @@ async function release() {
     };
   };
 
+  // Loop over and mark i18n deps.
+  for (const fileName in annotatedBundles) {
+    const b = annotatedBundles[fileName];
+    if (b.i18n) {
+      continue;
+    }
+
+    // Mark all dependencies as _also_ needing i18n versions.
+    // If we're _not_ i18n, then check if one of our imports is (and then we have to be, too).
+    const work = new Set(b.imports);
+    for (const dep of work) {
+      const o = annotatedBundles[dep];
+      if (o.i18n) {
+        b.i18n = true;
+        continue;
+      }
+      o.imports.forEach((i) => work.add(i));
+    }
+  }
+
+  // Run again, to avoid race condition: we mark i18n above.
   const workerTasks = [];
   for (const fileName in annotatedBundles) {
     const b = annotatedBundles[fileName];
@@ -474,17 +495,6 @@ async function release() {
     if (!b.entrypoint && b.transpile) {
       throw new TypeError(`got bad bundle with (!entrypoint && transpile): ${fileName}`);
     }
-
-    // Mark all dependencies as _also_ needing i18n versions.
-    const work = new Set(b.imports);
-    for (const dep of work) {
-      const o = annotatedBundles[dep];
-      if (o.i18n) {
-        b.i18n = true;
-      }
-      o.imports.forEach((i) => work.add(i));
-    }
-    b.allImports = Array.from(work);
 
     const langKeys = b.i18n ? Object.keys(langs) : [null];
     workerTasks.push(...langKeys.map(async (lang) => {
