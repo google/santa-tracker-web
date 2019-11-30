@@ -18,7 +18,7 @@ const resizePolyfill = class {
   }
 
   observe(target) {
-    this._entries.set(target);
+    this._entries.add(target);
   }
 
   unobserve(target) {
