@@ -38,6 +38,9 @@
   api.addEventListener('resume', (ev) => player.play());
   api.addEventListener('restart', (ev) => player.currentTime = 0.0);
 
+  api.addEventListener('muted', (ev) => player.muted = true);
+  api.addEventListener('unmuted', (ev) => player.muted = false);
+
   api.config({
     pause: true,
     orientation: 'landscape',

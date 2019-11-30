@@ -23,7 +23,7 @@ main {
 
 .divider {
   height: 72px;
-  background: #eee;
+  background: #eee center repeat-x;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);
   position: relative;
   z-index: 1000000;
@@ -60,7 +60,7 @@ main > div.anim {
   bottom: 0;
 }
 
-:host(:not(.android)) {
+:host(:not([mode])) {
   @media (max-width: 768px) {
     main {
       display: flex;
@@ -87,7 +87,36 @@ main > div.anim {
   }
 }
 
-:host(.android) {
+:host([mode="movies"]) {
+  main {
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+  }
+
+  .cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    .cards {
+      flex-flow: column;
+    }
+  }
+
+  ::slotted(santa-card) {
+    margin: 0 1em;
+    min-width: 240px;
+    display: inline-block;
+    padding-bottom: 20px;
+  }
+}
+
+:host([mode="android"]) {
   main {
     display: flex;
     justify-content: center;

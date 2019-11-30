@@ -223,6 +223,11 @@ class SceneApi extends EventTarget {
         }
         break;
 
+      case 'muted':
+      case 'unmuted':
+        this.dispatchEvent(new CustomEvent(type));
+        break;
+
       case 'deviceorientation':
       case 'keyup':
       case 'keydown': {

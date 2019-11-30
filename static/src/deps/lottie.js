@@ -55,7 +55,11 @@ export function buildSafeResize(anim) {
     if (rAF === 0 && r.canvasContext) {
       rAF = window.requestAnimationFrame(() => {
         rAF = 0;
-        anim.resize();
+        try {
+          anim.resize();
+        } catch (e) {
+          console.warn('could not resize', anim, e);
+        }
       });
     }
   };

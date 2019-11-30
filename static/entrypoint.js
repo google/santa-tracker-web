@@ -108,12 +108,12 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
 
     // choose games biasing towards start
     const cards = [];
-    const attempts = 10;
+    const attempts = 20;
     let i = 0;
     while (cards.length < displayCardCount) {
       ++i;
-      const index = ~~(Math.random() * nav.length);
-      const choice = nav[index];
+      const index = ~~(Math.pow(Math.random(), 4) * nav.length);
+      const choice = nav.splice(index, 1)[0];
       if ((recentRoutes.has(choice) || cards.indexOf(choice) !== -1) && i < attempts) {
         continue;
       }
@@ -209,6 +209,7 @@ global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
+    ga('send', 'event', 'game', 'start', state.route);
     state.control.send({type: 'restart'});
   }
 
@@ -266,6 +267,9 @@ global.subscribe((state) => {
     const type = pause ? 'pause' : 'resume';
     state.control.send({type});
   }
+
+  const sound = state.muted ? 'muted' : 'unmuted';
+  state.control.send({type: sound});
 
   let action = null;
   if (orientationChangeNeeded) {
@@ -406,9 +410,8 @@ outer:
 async function runner(control, route, config) {
   const sc = kplayInstance;
 
-  // TODO: this should be on global state as the player might restart multiple times
-  // const start = performance.now();
-  // ga('send', 'event', 'game', 'start', route);
+  // nb. we also call this as a result of 'restart'
+  ga('send', 'event', 'game', 'start', route);
 
   for (;;) {
     const op = await control.next();

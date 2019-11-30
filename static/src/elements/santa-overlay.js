@@ -67,15 +67,17 @@ export class SantaOverlayElement extends LitElement {
   }
 
   _copyUrl(ev) {
-    ev.target.select();
-    document.execCommand('copy');
-    ev.target.setSelectionRange(0, 0);
+    const input = ev.target;
 
-    const url = ev.target.parentNode;
-    url.classList.add('copy');
-    window.setTimeout(() => {
-      url.classList.remove('copy');
-    }, 1000);
+    input.select();
+    document.execCommand('copy');
+    input.setSelectionRange(0, 0);
+    window.ga('send', 'event', 'nav', 'click', 'copy-url');
+
+    input.classList.add('copy');
+    window.requestAnimationFrame(() => {
+      input.classList.remove('copy');
+    });
   }
 
   render() {
@@ -106,11 +108,17 @@ export class SantaOverlayElement extends LitElement {
       </div>
     </nav>
   </main>
-  <div class="below">
+  <div class="below" @click=${this._onBelowClick}>
     <slot></slot>
   </div>
 </div>
 `;
+  }
+
+  _onBelowClick(event) {
+    if (event.target && event.target.localName === 'santa-card') {
+      window.ga('send', 'event', 'nav', 'click', 'below-card');
+    }
   }
 }
 

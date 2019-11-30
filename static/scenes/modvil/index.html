@@ -194,7 +194,6 @@ async function prepareModules() {
       m.load = visible || false;  // only display at all when visible
 
       // FIXME: only focus single, bring others to stop
-
       resized && m.resize();
 
       if (!isMobileOrTablet) {
@@ -366,7 +365,7 @@ api.ready(async () => {
 </div>
 
 <template id="android-module">
-  <modvil-module id="android" color="#9b643d" parts="static-png,loop,static-png,loop" class="android">
+  <modvil-module id="android" color="#9b643d" parts="static-png,loop,static-png,loop" class="android" mode="android">
     <santa-card id="@cityquiz"></santa-card>
     <santa-card id="@rocketsleigh"></santa-card>
     <santa-card id="@dasherdancer"></santa-card>
@@ -380,19 +379,19 @@ api.ready(async () => {
   <div class="sidebar left"></div>
   <main>
 <modvil-module id="transithub" color="#d4f1fe" parts="static-png,cards,loop,scroll">
-  <santa-card id="jetpack" style="--x: 18.5%; --y: 50%"></santa-card>
+  <santa-card id="santaselfie" style="--x: 18.5%; --y: 50%"></santa-card>
   <santa-card id="elfmaker" style="--x: 50%; --y: 36%"></santa-card>
-  <santa-card id="santasearch" style="--x: 81.5%; --y: 22%"></santa-card>
+  <santa-card id="snowbox" style="--x: 81.5%; --y: 22%"></santa-card>
 </modvil-module>
 <modvil-module id="sciencelab" color="#3499ff" parts="static-svg,loop,scroll,cards">
   <santa-card id="codelab" style="--x: 17%; --y: 15%"></santa-card>
   <santa-card id="gumball" style="--x: 38%; --y: 75%"></santa-card>
-  <santa-card id="snowbox" style="--x: 81%; --y: 31%"></santa-card>
+  <santa-card id="santasearch" style="--x: 81%; --y: 31%"></santa-card>
 </modvil-module>
 <modvil-module id="toymaking" color="#00c1f2" parts="static-png,static-png,scroll,cards,static-png">
   <santa-card id="presentbounce" style="--x: 28%; --y: 17%"></santa-card>
   <santa-card id="build" style="--x: 18%; --y: 47.5%"></santa-card>
-  <santa-card id="santaselfie" style="--x: 81%; --y: 27%"></santa-card>
+  <santa-card id="jetpack" style="--x: 81%; --y: 27%"></santa-card>
 </modvil-module>
 <modvil-module id="kitchen" color="#fdb0ca" parts="static-png,loop,static-png,cards,static-png">
   <santa-card id="traditions" style="--x: 19.4%; --y: 17.7%"></santa-card>
@@ -404,13 +403,15 @@ api.ready(async () => {
   <santa-card id="santascanvas" style="--x: 72.9%; --y: 23.1%"></santa-card>
   <santa-card id="storybook" style="--x: 62.5%; --y: 63.8%"></santa-card>
 </modvil-module>
-<modvil-module id="greenhouse" color="#94dae4" parts="static-png,loop,static-png,static-png,cards">
+<modvil-module id="greenhouse" color="#94dae4" parts="static-png,loop,scroll,static-png,cards">
   <santa-card id="snowball" style="--x: 19.2%; --y: 58.9%"></santa-card>
   <santa-card id="elfski" style="--x: 78.7%; --y: 23.5%"></santa-card>
   <santa-card id="penguindash" style="--x: 78.7%; --y: 81.5%"></santa-card>
 </modvil-module>
-<modvil-module id="movies" color="#6900ff" parts="static-png,cards,loop">
-  <!-- TODO: movies -->
+<modvil-module id="movies" color="#6900ff" parts="static-png,cards,loop" mode="movies">
+  <santa-card id="carpool"></santa-card>
+  <santa-card id="museum"></santa-card>
+  <santa-card id="reindeerworries"></santa-card>
 </modvil-module>
 <modvil-module id="wrapping" color="#5203c0" parts="static-svg,loop,scroll,static-svg,cards">
   <santa-card id="boatload" style="--x: 19.4%; --y: 18.4%"></santa-card>

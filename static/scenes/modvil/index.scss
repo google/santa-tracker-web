@@ -17,7 +17,7 @@ body {
   user-select: none;
   touch-action: pan-y;
   position: relative;
-  background: white;
+  background: #e9f9fD;
   overflow-x: hidden;
 }
 
@@ -84,7 +84,7 @@ body {
   flex-flow: column;
   z-index: 10;
   position: relative;
-  max-width: 100vw;
+  max-width: $module-max-width;
   margin: 0 auto;
 
   button.arrow {
@@ -109,6 +109,8 @@ body {
   background-size: auto 72px;
   z-index: 1000000;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);
+  max-width: $module-max-width;
+  margin: 0 auto;
 }
 
 /** santa-card **/
@@ -119,7 +121,7 @@ santa-card {
 }
 
 @media (max-width: 600px) {
-  modvil-module.android santa-card {
+  modvil-module[mode] santa-card {
     font-size: 14px;
   }
 }
@@ -133,16 +135,18 @@ santa-card {
     z-index: 10000000;
   }
 
-  santa-card:nth-child(2n) {
-    align-self: flex-end;
-  }
-
-  modvil-module:nth-child(2n) {
-    santa-card {
+  modvil-module:not([mode]) {
+    santa-card:nth-child(2n) {
       align-self: flex-end;
     }
-    santa-card:nth-child(2n) {
-      align-self: flex-start;
+
+    modvil-module:nth-child(2n) {
+      santa-card {
+        align-self: flex-end;
+      }
+      santa-card:nth-child(2n) {
+        align-self: flex-start;
+      }
     }
   }
 }
@@ -192,7 +196,7 @@ santa-card {
     display: flex;
     flex-flow: column;
     align-items: center;
-    width: $module-max-width;
+    width: 100%;
     max-width: $module-max-width;
   }
 }

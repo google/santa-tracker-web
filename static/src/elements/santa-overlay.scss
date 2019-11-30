@@ -100,6 +100,15 @@ nav {
       box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.125);
       box-sizing: border-box;
       margin-bottom: 8px;
+      background: white;
+      color: black;
+
+      transition: background 0.25s, color 0.25s;
+      &.copy {
+        transition: none;
+        background: black;
+        color: white;
+      }
     }
   }
 

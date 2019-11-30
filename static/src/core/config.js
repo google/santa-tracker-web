@@ -267,7 +267,7 @@ export function routesSnapshot() {
   videos.forEach((video) => {
     if (!(video in out)) {
       out[video] = {
-        locked: false,
+        locked: undefined,
       };
     }
     out[video].video = true;
