@@ -21,7 +21,7 @@ class PreloadApi {
     this._callback = callback;
 
     const r = resolvable();
-    this._donePromise = r.promise;
+    this._donePromise = r.promise.catch((err) => console.warn('preload err', err));
     this._doneResolve = r.resolve;
 
     this._donePromise.then(() => {
@@ -96,15 +96,15 @@ class PreloadApi {
    */
   images(...all) {
     return all.map((src) => {
+      const image = new Image();
       const p = new Promise((resolve, reject) => {
-        const image = new Image();
         this._refs.push(image);
         image.src = src;
         image.onload = () => resolve(image);
         image.onerror = reject;
       });
       this.wait(p);
-      return p;
+      return p.catch(() => image);  // return the image anyway
     });
   }
 }

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Fugaz+One|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
+  <style id="extraStyles"></style>
 </head>
 <body>
 
@@ -14,6 +15,7 @@ import api from '../../src/scene/api.js';
 import {_msg} from '../../src/magic.js';
 import {rectify, href} from '../../src/scene/route.js';
 import {Render, renderText, scaleCopy} from './render.js';
+import scenes from '../../src/strings/scenes.js';
 
 rectify(document.body);
 
@@ -21,7 +23,7 @@ const canvasOptions = new Map();
 
 titleSurface.title = _msg`santatracker`;
 canvasOptions.set(titleSurface, {
-  color: 'black',
+  color: 'white',
   width: 300,
   font: '40px "Lobster"',
   lineHeight: 60,
@@ -29,7 +31,7 @@ canvasOptions.set(titleSurface, {
 
 noticeSurface.title = _msg`error-unsupported`;
 canvasOptions.set(noticeSurface, {
-  color: '#ff0060',
+  color: '#99ccff',
   width: 300,
   font: '16px "Fugaz One"',
   lineHeight: 24,
@@ -76,6 +78,18 @@ api.preload.wait(r.ready());
 api.preload.wait(delayForFont('Fugaz One'));
 api.preload.wait(delayForFont('Lobster'));
 
+
+const houses = 'boatload codeboogie codelab penguindash presentbounce presentdrop snowball traditions translations wrapbattle'.split(/\s+/g);
+(function() {
+  let i = 0;
+  houses.sort((a, b) => a.length - b.length + ++i);
+}());
+const houseAssetsPromise = api.preload.images(...houses.map((x) => `img/houses/${x}.gif`));
+
+
+const otherAssetsPromise = api.preload.images('img/background.png', 'img/cave.png');
+
+
 function targetSize() {
   const max = 2;
   const ratio = Math.min(max, Math.floor(window.innerWidth / 320)) || 1;
@@ -88,19 +102,29 @@ function targetSize() {
 }
 
 
-api.ready(() => {
+api.ready(async () => {
   const fps = 10;
   let last = 0;
   let previousRatio = -1;
 
-  const houses = r.renderHouses().map(({house, canvas}) => {
+  // map of raw canvas to render target
+  const scalableAssets = new Map();
+
+  const houseAssets = await Promise.all(houseAssetsPromise);
+  houseAssets.map((img, i) => {
+    const house = houses[i];
     const node = document.createElement('a');
     const target = document.createElement('canvas');
     node.href = href(`${house}.html`);
     node.appendChild(target);
     games.appendChild(node);
-    return {canvas, target};
+
+    node.title = scenes[house];
+
+    scalableAssets.set(img, target);
   });
+
+  const [backgroundAsset, caveAsset] = await Promise.all(otherAssetsPromise);
 
   (function render(now=0) {
     window.requestAnimationFrame(render);
@@ -108,11 +132,28 @@ api.ready(() => {
     const t = targetSize();
 
     if (previousRatio !== t.ratio) {
+      games.style.fontSize = `${32 * t.ratio}px`;
+
+      const backgroundAssetScaled = scaleCopy(backgroundAsset, null, t.ratio * 4);
+      const caveAssetScaled = scaleCopy(caveAsset, null, t.ratio * 4);
+      extraStyles.textContent = `
+body {
+  background-image: url(${backgroundAssetScaled.toDataURL()});
+  background-size: ${60 * t.ratio}px;
+}
+#games a {
+  background-image: url(${caveAssetScaled.toDataURL()});
+  background-size: ${32 * t.ratio}px;
+}
+      `;
+
       canvasOptions.forEach((options, target) => {
         const canvas = renderText(target.title, options);
         scaleCopy(canvas, target, t.ratio);
       });
-      houses.forEach(({canvas, target}) => {
+
+      // Render misc scalable assets, like the houses and text.
+      scalableAssets.forEach((target, canvas) => {
         scaleCopy(canvas, target, t.ratio);
       });
     }

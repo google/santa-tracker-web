@@ -13,12 +13,23 @@ export function scaleCopy(src, dst, scale) {
     dst = document.createElement('canvas');
   }
 
-  dst.width = src.width * scale;
-  dst.height = src.height * scale;
+  const w = src.width * scale;
+  const h = src.height * scale;
+
+  const round = (x) => {
+    if (x % 2) {
+      return x + 1;
+    }
+    return x;
+  };
+
+  // destination must be even
+  dst.width = round(w);
+  dst.height = round(h);
 
   const context = dst.getContext('2d');
   disableImageSmoothing(context);
-  context.drawImage(src, 0, 0, dst.width, dst.height);
+  context.drawImage(src, 0, 0, w, h);
 
   return dst;
 }
@@ -124,28 +135,6 @@ export function renderText(text, {width, color, font, lineHeight}) {
 }
 
 
-const houses = ['wrapbattle', 'penguindash', 'presentbounce', 'snowball'];
-
-
-/*
-    // Draw houses.
-    const houseRender = houses.map((house, i) => {
-      const x = i % 8;
-      const y = 7 - Math.floor(i / 8);
-      return {house, x, y};
-    }).sort(() => rand() - 0.5);
-
-    const rects = houseRender.map(({house, x, y}, i) => {
-      const range = Math.ceil(wt * 0.66666);
-      const tx = (i % range) * 48 + 16;
-      const ty = ~~(i / range) * 48 + (snowLine+2) * 32;
-
-      context.drawImage(tiles, 32 * x, 32 * y, 32, 32, tx, ~~ty, 32, 32);
-    });
-*/
-
-
-
 export class Render {
   constructor() {
     this._ready = [];
@@ -163,24 +152,6 @@ export class Render {
       i.src = src;
     });
     this._ready.push(p);
-  }
-
-  renderHouses() {
-    // This doesn't really belong on render, but it reuses tiles.
-    const tiles = this._assets['img/tiles.png'];
-
-    return houses.map((house, i) => {
-      const x = i % 8;
-      const y = 7 - Math.floor(i / 8);
-  
-      const canvas = document.createElement('canvas');
-      canvas.width = 32;
-      canvas.height = 32;
-  
-      const context = canvas.getContext('2d');
-      context.drawImage(tiles, 32 * x, 32 * y, 32, 32, 0, 0, 32, 32);
-      return {house, canvas};
-    });
   }
 
   ready() {
@@ -261,6 +232,7 @@ export class Render {
       context.translate(w, 0);
       context.rotate(Math.PI / 2);
     }
+    context.globalCompositeOperation = 'destination-out';
     context.fill();
     context.restore();
 
