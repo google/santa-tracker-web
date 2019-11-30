@@ -102,6 +102,8 @@ class PortControl {
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
+const LOAD_TIMEOUT = 2500;
+
 // nb. allow-same-origin is fine, because we're serving on another domain
 // allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
@@ -346,6 +348,9 @@ class SantaGameLoaderElement extends HTMLElement {
 
         // Handle being removed due to being replaced with some other frame before being loaded.
         af.addEventListener(internalRemove, () => resolve(null), {once: true});
+
+        // Needed for non-Chrome to finally reject a load.
+        window.setTimeout(() => resolve(null), LOAD_TIMEOUT);
 
         // Resolves with null after load + delay, indicating that the scene has failed to init. The
         // loader should normally resolve with its MessagePort.
