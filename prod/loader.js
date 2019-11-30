@@ -5,7 +5,7 @@
  * library code, like `Promise`, until the support library is loaded.
  */
 
-import config from './config.json';
+import config from './src/:config.json';
 import checkFallback from './src/fallback.js';
 import * as load from './src/load.js';
 import {initialize} from './src/firebase.js';
@@ -36,19 +36,20 @@ window.onunhandledrejection = (event) => {
   }
 };
 
-if ('serviceWorker' in navigator) {
+window.sw = null;
+if ('serviceWorker' in navigator && (isProd || true)) {
   // Register the SW in the served language, not the request language (as this isn't available
   // on the naked domain anyway).
-  if (true || isProd) {
-    window.sw = navigator.serviceWorker.register(`/sw.js?lang=${documentLang}`);
-    window.sw.then((resp) => {
-      console.info('sw registered', resp);
-    }).catch((err) => {
-      console.info('sw failed');
-    });
-  } else {
-    window.sw = null;
-  }
+  const ready = (registration) => {
+    console.info('got SW with registration', registration);
+  };
+  const params = new URLSearchParams();
+  params.set('lang', documentLang || '');
+  params.set('baseurl', config.baseurl);
+  window.sw = navigator.serviceWorker.register(`/sw.js?${params.toString()}`).then(ready).catch((err) => {
+    console.warn('sw failed to register', err);
+    return null;
+  });
 
   navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
 }
@@ -75,8 +76,9 @@ function startup() {
   // Check Android TWA, but force it if the "?android=1" param is set.
   isAndroidTWA(startParams.has('android'));
 
-  // Wait for the first Firebase Remote config response and then load our entrypoint.
-  initialize().then((remoteConfig) => {
+  // Wait for both Firebase Remote Config and the Service Worker (optional), then load entrypoint.
+  const p = Promise.all([initialize(), window.sw]);
+  p.then(([remoteConfig, registration]) => {
     if (remoteConfig.getBoolean('switchOff')) {
       throw new Error('switchOff');
     }

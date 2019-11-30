@@ -110,6 +110,7 @@ const assetsToCopy = [
 const config = {
   staticScope: importUtils.joinDir(yargs.baseurl, yargs.build),
   version: yargs.build,
+  baseurl: yargs.baseurl,
 };
 
 const vfs = santaVfs(config.staticScope, {config});
@@ -315,6 +316,7 @@ async function release() {
   // Optionally include entrypoints (needed for prod).
   if (yargs.prod) {
     staticEntrypoints['static/entrypoint.js'] = undefined;
+    staticEntrypoints['prod/sw.js'] = undefined;
 
     if (yargs.transpile) {
       fallbackEntrypoints['static/fallback.js'] = undefined;

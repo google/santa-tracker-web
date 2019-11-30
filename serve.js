@@ -62,9 +62,11 @@ log(chalk.red(messages('santatracker')), `[${yargs.lang}]`);
 
 
 // nb. matches config in release.js
+const baseurl = `http://127.0.0.1:${yargs.port + 80}/`;
 const config = {
-  staticScope: `http://127.0.0.1:${yargs.port + 80}/${yargs.prefix}/`,
+  staticScope: `${baseurl}${yargs.prefix}/`,
   version: `dev-${(new Date).toISOString().replace(/[^\d]/g, '')}`,
+  baseurl,
 };
 
 async function serve() {
