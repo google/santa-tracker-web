@@ -596,7 +596,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       errorCode = 'internal';
     } else if (locked) {
       // do nothing
-    } else if (!control.hasPort && route) {
+    } else if (!control.hasPort) {
       errorCode = 'missing';
     }
     if (errorCode || locked) {

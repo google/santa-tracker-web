@@ -163,7 +163,8 @@ class SceneApi extends EventTarget {
           break;
 
         default:
-          throw new Error(`got unexpected early data from host: ${type}`);
+          // can happen if we've given up on preload
+          console.warn(`got unexpected early data from host: ${type}`);
       }
 
     };
