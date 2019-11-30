@@ -12,23 +12,26 @@ import {initialize} from './src/firebase.js';
 import onInteractive from './src/interactive.js';
 import isAndroidTWA from './src/android-twa.js';
 
+window.santaConfig = config;
+
 // In prod, the documentElement has `lang="en"` or similar.
 const documentLang = document.documentElement.lang || null;
 const isProd = (documentLang !== null);
 const fallback = checkFallback() || (location.search || '').match(/\bfallback=.*?\b/);
+const ignoreErrors = (location.search || '').match(/\bignore=.*?\b/);
 console.info('Santa Tracker', config.version, documentLang, fallback ? '(fallback)' : '');
 
 // Global error handler. Redirect if we fail to load the entrypoint.
 let loaded = false;
 window.onerror = (msg, file, line, col, error) => {
   console.error('error (loaded=' + loaded + ')', msg, file, line, col, error);
-  if (location.hostname === 'santatracker.google.com' && !loaded) {
+  if (location.hostname === 'santatracker.google.com' && !loaded && !ignoreErrors) {
     window.location.href = 'error.html';
   }
 };
 window.onunhandledrejection = (event) => {
   console.warn('rejection (loaded=' + loaded + ')', event.reason);
-  if (location.hostname === 'santatracker.google.com' && !loaded) {
+  if (location.hostname === 'santatracker.google.com' && !loaded && !ignoreErrors) {
     window.location.href = 'error.html';
   }
 };

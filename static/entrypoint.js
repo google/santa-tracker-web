@@ -30,14 +30,33 @@ import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
 import * as firebaseConfig from './src/core/config.js';
 import isAndroid from './src/core/android.js';
+import {_msg} from './src/magic.js';
 
 
 maybeLoadCast();
 
 
-const noticeElement = document.createElement('santa-notice');
-document.body.append(noticeElement);
+const noticesElement = document.createElement('div');
+noticesElement.className = 'notices';
+document.body.append(noticesElement);
 
+if (!isAndroid()) {
+  const cookieNoticeElement = document.createElement('santa-notice');
+  cookieNoticeElement.key = 'cookie-ok';
+  cookieNoticeElement.href = 'https://policies.google.com/technologies/cookies';
+  cookieNoticeElement.textContent = _msg`notice_cookies`;
+  noticesElement.append(cookieNoticeElement);
+}
+
+const upgradeNoticeElement = document.createElement('santa-notice');
+upgradeNoticeElement.textContent = _msg`error-out-of-date`;
+upgradeNoticeElement.hidden = !firebaseConfig.siteExpired();
+firebaseConfig.listen(() => {
+  // nb. This has the unfortunate problem of bringing this message back very often, but that's
+  // probably fine, since the user is in a very bad state anyway.
+  upgradeNoticeElement.hidden = !firebaseConfig.siteExpired();
+});
+noticesElement.append(upgradeNoticeElement);
 
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');

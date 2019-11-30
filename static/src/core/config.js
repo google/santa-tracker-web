@@ -19,6 +19,46 @@ const memoized = {
   'featured': {},
 };
 
+const isProd = (window.location.hostname === 'santatracker.google.com');
+const localStorage = window.localStorage || {};
+let isOutOfDate = false;
+
+
+/**
+ * @return {boolean} whether the site is out of date and needs a reload
+ */
+export function siteExpired() {
+  return isOutOfDate;
+}
+
+
+
+function checkUpgrade() {
+  const siteVersion = window.santaConfig.version;
+  const upgradeToVersion = remoteConfig.getString('upgradeToVersion');
+  if (!upgradeToVersion || upgradeToVersion < siteVersion) {
+    isOutOfDate = false;
+    delete localStorage['upgradeToVersion'];
+    return;  // nothing to do
+  }
+
+  // otherwise, reload or complain
+  console.warn('got out-of-date version, have', siteVersion, 'want', upgradeToVersion);
+  if (localStorage['upgradeToVersion'] === upgradeToVersion) {
+    ga('send', 'event', 'site', 'upgrade-warn', upgradeToVersion);
+    isOutOfDate = true;
+    notifyListeners();
+  } else if (isProd) {
+    ga('send', 'event', 'site', 'upgrade-attempt', upgradeToVersion);
+    localStorage['upgradeToVersion'] = upgradeToVersion;
+    window.location.href = window.location.href;
+  }
+
+}
+checkUpgrade();
+window._check = checkUpgrade;
+
+
 function refreshMemoized() {
   for (const key in memoized) {
     let cand;
@@ -31,6 +71,7 @@ function refreshMemoized() {
   }
 }
 refreshMemoized();
+
 
 function expontentialDelay(range, failures = 0) {
   return Math.pow(1.0 + (range * Math.random()), failures + 1) - (range / 2);
@@ -148,6 +189,7 @@ export async function refresh(invalidateNow = false) {
 
   await remoteConfig.fetchAndActivate();
   refreshMemoized();
+  checkUpgrade();
 
   // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
   notifyListeners();
