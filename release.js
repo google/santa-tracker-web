@@ -616,6 +616,8 @@ async function findProdPages() {
     // Remove Android-only scenes.
     if (key.startsWith('@')) {
       delete pages[key];
+    } else if (DISABLED_SCENES.includes(key)) {
+      delete pages[key];
     }
   }
   delete pages[''];  // don't explicitly generate blank top-level page
