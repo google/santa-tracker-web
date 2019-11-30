@@ -75,7 +75,7 @@ const allVideos = [
 ];
 allVideos.sort(() => Math.random() - 0.5);  // shuffle order
 
-cast.framework.CastReceiverContext.getInstance().start();
+cast.framework.CastReceiverContext.getInstance().start({disableIdleTimeout: true});
 
 function urlForVideo(id) {
   let quality = '1080p';
