@@ -16,7 +16,7 @@ const PRECACHE = [
   '/index.html',
   '/error.html',
   '/manifest.json',
-  '/loader.json',
+  '/loader.js',
   '/images/favicon-32.png',
   '/images/icon-192.png',
   '/images/icon-256.png',
@@ -36,7 +36,11 @@ self.addEventListener('install', (event) => {
     }
 
     const prodCache = await caches.open('prod');
-    await Promise.all(PRECACHE.map((url) => prodCache.add(url)));
+    try {
+      await Promise.all(PRECACHE.map((url) => prodCache.add(url)));
+    } catch (e) {
+      console.error('failed to fetch', e);
+    }
     console.info('precached', PRECACHE.length, 'prod URLs');
 
     await self.skipWaiting();
@@ -100,9 +104,10 @@ self.addEventListener('fetch', (event) => {
     const version = naked.split('/', 1)[0] || '';
     const rest = naked.substr(version.length).split('?')[0];  // starts with '/', remove "?-part"
 
-    if (IGNORE_STATIC_PREFIX.some((x) => rest.startsWith(x))) {
-      return;  // we're mostly here for the JS
+    if (rest.startsWith('/scenes/')) {
+      return;  // never cache scene assets (not sure how we got here)
     }
+    const immutableHash = rest.startsWith('/audio/') || rest.startsWith('/fallback-audio/');
 
     // We'll only ever see requests for the "latest" version. Go to network, but fall back to cache.
     // Yes, if different entrypoint JS is cached, this could cause errors, but in theory the
@@ -113,9 +118,9 @@ self.addEventListener('fetch', (event) => {
 
       const response = await staticCache.match(rest);
       if (response) {
-        if (response.headers.get(STATIC_VERSION_HEADER) === version) {
+        if (immutableHash || response.headers.get(STATIC_VERSION_HEADER) === version) {
           // This is a valid match that has our version. Hooray!
-          debug && console.warn('! got OK asset', version, rest);
+          debug && console.warn('! got OK asset', version, rest, 'immutable', immutableHash);
           return response;
         }
         // ... otherwise, try the network (but we have this to fall back to)
@@ -160,7 +165,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   const {intl, pathname} = splitProdPath(url.pathname);
-  if (!(pathname in PRECACHE)) {
+  if (!PRECACHE.includes(pathname)) {
     return;  // PRECACHE is static, so just do a check early
   }
 
