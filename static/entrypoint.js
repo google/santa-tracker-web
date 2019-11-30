@@ -409,9 +409,19 @@ outer:
  */
 async function runner(control, route, config) {
   const sc = kplayInstance;
+  let recentScore = null;
 
   // nb. we also call this as a result of 'restart'
   ga('send', 'event', 'game', 'start', route);
+  const analyticsLogEnd = () => {
+    if (!recentScore) {
+      return;
+    }
+    ga('send', 'event', 'game', 'end', route);
+    recentScore.score && ga('send', 'event', 'game', 'score', route, score.score);
+    recentScore.level && ga('send', 'event', 'game', 'level', route, score.level);
+    recentScore = null;
+  };
 
   for (;;) {
     const op = await control.next();
@@ -448,15 +458,11 @@ async function runner(control, route, config) {
         global.setState({
           status: 'gameover',
         });
-        const {score} = global.getState();
-
-        ga('send', 'event', 'game', 'end', route);
-        score.score && ga('send', 'event', 'game', 'score', route, score.score);
-        score.level && ga('send', 'event', 'game', 'level', route, score.level);
-
+        analyticsLogEnd();
         continue;
 
       case 'score':
+        recentScore = payload;
         global.setState({score: payload});
         continue;
 
@@ -473,8 +479,10 @@ async function runner(control, route, config) {
         continue;
     }
 
-    console.debug('running scene got', op);
+    console.debug('running scene unhandled', op);
   }
+
+  analyticsLogEnd();
 }
 
 
