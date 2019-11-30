@@ -13,7 +13,7 @@ const STATIC_VERSION_HEADER = 'X-Santa-Version';
 const IGNORE_PROD = ['cast', 'error', 'upgrade'];
 const IGNORE_STATIC_PREFIX = ['/audio/', '/scenes/'];
 const PRECACHE = [
-  '/index.html',
+  '/',
   '/error.html',
   '/manifest.json',
   '/loader.js',
@@ -84,7 +84,7 @@ function splitProdPath(raw) {
   let pathname = raw.substr(intlPrefix.length);
   const routeMatch = pathname.match(/^\/(?:(\w+)\.html|)(\?|$)/);
   if (routeMatch) {
-    pathname = '/index.html';
+    pathname = '/';  // don't use /index.html, as our Go server redirects in staging (breaks Safari)
   }
 
   return {intl: intlPrefix, pathname};
