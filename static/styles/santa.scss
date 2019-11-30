@@ -9,6 +9,10 @@ html {
   background: black;
 }
 
+* {
+  touch-action: pan-x pan-y;  // disable pinch zoom
+}
+
 body {
   margin: 0;
   touch-action: pan-x pan-y;  // disable pinch zoom
