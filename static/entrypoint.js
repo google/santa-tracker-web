@@ -437,8 +437,8 @@ async function runner(control, route, config) {
       return;
     }
     ga('send', 'event', 'game', 'end', route);
-    recentScore.score && ga('send', 'event', 'game', 'score', route, score.score);
-    recentScore.level && ga('send', 'event', 'game', 'level', route, score.level);
+    recentScore.score && ga('send', 'event', 'game', 'score', route, recentScore.score);
+    recentScore.level && ga('send', 'event', 'game', 'level', route, recentScore.level);
     recentScore = null;
   };
 
