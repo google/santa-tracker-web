@@ -63,6 +63,7 @@ class SantaInstallElement extends LitElement {
       if (isIos) {
         window.ga('send', 'event', 'nav', 'click', 'install-ios');
       }
+      event.target.focus();  // Safari doesn't focus <button> by default
       return;  // this can happen on iOS, when clicking does nothing
     }
 
