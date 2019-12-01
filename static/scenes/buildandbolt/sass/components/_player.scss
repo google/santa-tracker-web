@@ -1,4 +1,20 @@
 ##{$name} {
+
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   .player {
     @include board-object();
     height: $grid-unit-size;
@@ -13,6 +29,10 @@
 
       &.is-flipped {
         transform: scale(2) scaleX(-1);
+      }
+
+      &.is-dead {
+        animation: .2s blink infinite;
       }
 
       .animation {

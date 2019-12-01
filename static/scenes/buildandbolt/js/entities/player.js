@@ -48,13 +48,17 @@ app.Player = class Player {
   restart() {
     this.dead = true
     this.animationQueue = []
+
+    // initialize death animation
     this.animations['death'].renderer.svgElement.classList.add('is-active')
+    this.innerElem.classList.add('is-dead')
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = {
-      animation: Constants.PLAYER_FRAMES.DEATH,
+      animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
       callback: () => {
         this.dead = false
         this.animations['death'].renderer.svgElement.classList.remove('is-active')
+        this.innerElem.classList.remove('is-dead')
 
         this.resetPosition()
 
@@ -438,6 +442,12 @@ app.Player = class Player {
     this.lastAnimationFrame = frameTime
 
     if (finished) {
+      if (animation.repeat) {
+        animation.repeat--
+        this.currentAnimationFrame = animation.start
+        return
+      }
+
       if (this.currentAnimationState.callback) {
         this.currentAnimationState.callback.call(this)
       }
