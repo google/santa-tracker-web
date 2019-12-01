@@ -68,6 +68,7 @@ controlsButton.addEventListener('click', (e) => {
 // end debug mode
 
 api.config({
+  orientation: 'landscape',
   sound: ['music_start_village', 'village_start'],
 });
 
