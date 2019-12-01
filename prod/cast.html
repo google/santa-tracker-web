@@ -106,6 +106,7 @@ function randomTime() {
 
 function ready() {
   function playNext() {
+    // Videos will always shuffle the same way.
     const id = allVideos.shift();
     allVideos.push(id);
     playerExtra.src = urlForVideo(id);
