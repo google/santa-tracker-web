@@ -1,0 +1,30 @@
+.zoom {
+  flex: 1;
+  margin-left: 40px;
+  margin-top: 1px;
+  pointer-events: auto;
+  position: relative;
+  width: $button-size;
+
+  &__button {
+    .button__icon {
+      width: 52%;
+    }
+
+    &--in {
+      margin-bottom: 1px;
+
+      .button__icon {
+        left: 53%;
+        top: 57%;
+      }
+    }
+
+    &--out {
+      .button__icon {
+        left: 47%;
+        top: 43%;
+      }
+    }
+  }
+}

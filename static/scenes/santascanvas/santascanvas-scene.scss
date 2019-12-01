@@ -23,6 +23,7 @@ $mobile-width: 768px;
 body {
   margin: 0;
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

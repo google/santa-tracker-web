@@ -17,8 +17,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       margin: 0;
+    }
+
+    body, html {
+      height: 100%;
     }
 
     a {
@@ -53,7 +56,10 @@
   <div id="error">
     <div id="error-img"></div>
     <p msgid="error-lost-connection">Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!</p>
-    <p><a class="button" href="./" msgid="error-try-again">Try again</a></p>
+    <p>
+      <a class="button" href="./?ignore=1" msgid="error-try-again">Try again</a>
+      <a class="button" href="./?fallback=1&amp;ignore=1">Unsupported browsers</a>
+    </p>
   </div>
   <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

@@ -24,7 +24,10 @@ module.exports = (vfsLoad, prefix=null) => {
 
     // nb. Any fetches with "?" for supported file types will disable transforming them.
     const id = path.join(prefix || '.', req.path.substr(1));
-    const isModuleMode = Boolean(req.headers['origin'] && req.headers['referer'] && !req.search);
+    let isModuleMode = Boolean(req.headers['origin'] && req.headers['referer'] && !req.search);
+    if (req.search === '?module') {
+      isModuleMode = true;
+    }
 
     const stat = await statOrNull(id);
     if (stat && !stat.isFile()) {
@@ -70,7 +73,9 @@ module.exports = (vfsLoad, prefix=null) => {
     // Ask the modern loader to rewrite this single file (virtual or not is moot here).
     let result = null;
     try {
-      result = await modernLoader(id, content);
+      result = await modernLoader(id, content, (warn) => {
+        console.warn(id, warn.toString());
+      });
     } catch (e) {
       // TODO: pass to caller, internal error in loader
       console.warn('loader', e);

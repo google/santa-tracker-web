@@ -3,35 +3,45 @@ import styles from './santa-notice.css';
 import {_msg} from '../magic.js';
 
 
+const localStorage = window.localStorage || {};
+
+
 export class SantaNoticeElement extends LitElement {
+  static get styles() { return [styles]; }
+
   static get properties() {
     return {
-      _hidden: {
-        type: Boolean,
-        value: false,
-      },
-    };    
+      key: {type: String},
+      hidden: {type: Boolean, reflect: true, value: false},
+      href: {type: String},
+    };
   }
 
-  constructor() {
-    super();   
-    this.shadowRoot.adoptedStyleSheets = [styles]; 
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('key')) {
+      this.hidden = this.key in localStorage;
+    }
+    return true;
   }
 
-  _close() {
-    this._hidden = true;
+  _onClose() {
+    this.hidden = true;
+    if (this.key) {
+      localStorage[this.key] = +new Date();
+    }
   }
 
   render() {
-      return html`
-        <div id="holder" class=${this._hidden ? 'hidden' : ''}>
-            <p>${_msg`notice_cookies`}</p>
-            <div class="buttons">
-            <button class="button" @click=${this._close}>${_msg`okay`}</button>
-            <a class="button" href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank">${_msg`notice_cookies_details`}</a>
-            </div>
-        </div>
-      `;
+    const details = this.href ? html`<a class="button" href=${this.href} target="_blank" rel="noopener">${_msg`notice_cookies_details`}</a>` : '';
+    return html`
+<div id="holder">
+  <p><slot></slot></p>
+  <div class="buttons">
+    ${details}
+    <button class="button" @click=${this._onClose}>${_msg`okay`}</button>
+  </div>
+</div>
+    `;
   }
 }
 

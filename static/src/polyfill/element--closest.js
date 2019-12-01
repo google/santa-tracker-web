@@ -1,5 +1,7 @@
 /**
  * @fileoverview Polyfill for `Element.matches` and `Element.closest`.
+ *
+ * Run in support mode. Use only ES5.
  */
 
 if (!Element.prototype.matches) {
@@ -7,7 +9,7 @@ if (!Element.prototype.matches) {
 }
 if (!Element.prototype.closest) {
   Element.prototype.closest = function(s) {
-    let el = this;
+    var el = this;
     if (!document.documentElement.contains(el)) {
       return null;
     }

@@ -2,3 +2,8 @@ $name: 'module-racer';
 $gameover-bg: #8fd7f7;
 
 @import "sass/game";
+
+body {
+  margin: 0;
+  touch-action: none;
+}

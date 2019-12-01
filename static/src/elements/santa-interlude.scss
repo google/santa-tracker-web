@@ -26,7 +26,7 @@ $progress-after: 3.5s;
   transition-timing-function: cubic-bezier(0.645, 0.000, 0.785, 0.390);
 
   &.layer-0 {
-    background: #c1e8ed;
+    background: #6bb4fd;
     transition-delay: (1 - (0/3)) * $delay;
   }
   &.layer-1 {

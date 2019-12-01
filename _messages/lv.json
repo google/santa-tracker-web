@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Pieskāriens"
 	},
+	"copied": {
+		"message": "Nokopēts."
+	},
 	"copy-me": {
 		"message": "Kopējiet šo saiti, lai kopīgotu savu ziņojumu"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Dec"
+	},
+	"decmonth_long": {
+		"message": "Decembris"
 	},
 	"detected": {
 		"message": "noteikta"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Izpētīt Ziemassvētku vecīša ciematu"
+	},
+	"familyguide_accordion_title": {
+		"message": "Svinības visu mēnesi"
+	},
+	"familyguide_body": {
+		"message": "Ziemassvētku vecīša ciemats ir lieliska vieta, kur ģimenes var svinēt svētkus. Tajā vienuviet atradīsiet savus iecienītos tēlus, kā arī jautras, izglītojošas un interaktīvas nodarbes, kas piemērotas visiem vecumiem."
+	},
+	"familyguide_card_01_body": {
+		"message": "Izmantojiet kodēšanas pamatprincipus, lai virzītu rūķīti cauri mežam un meklētu atstātās dāvanas."
+	},
+	"familyguide_card_02_body": {
+		"message": "Izveidojiet pats savu svētku apsveikuma kartiņu, programmējot sniegpārsliņu. Vienkārši atlasiet kādu no daudziem foniem un kopīgojiet to ar draugiem."
+	},
+	"familyguide_card_03_body": {
+		"message": "Rūķīši atkal trenējas kodēšanā, pievienojot arī savas deju prasmes. Izmantojiet kodu, lai vadītu rūķīšu dejas, taču uzmanieties — jo labāk jums izdosies, jo sarežģītākas kļūs dejas."
+	},
+	"familyguide_card_04_body": {
+		"message": "No īpašajām “toque” cepurēm Kanādā līdz sporta peldēšanas šortiem Austrālijā — noklikšķiniet uz spraudītēm kartē, lai uzzinātu par svētku tradīcijām pasaulē."
+	},
+	"familyguide_card_05_body": {
+		"message": "No frāzes “Laimīgu Jauno gadu!” rūķīšu valodā līdz “Дед Мороз” — iemācieties dažādus svētku izteicienus no visas pasaules."
+	},
+	"familyguide_card_06_body": {
+		"message": "Ziemassvētku vecītim ir jāapmeklē daudz vietu. Šajā ģeogrāfijas spēlē jums ir jāatrod valsts kontūra kartē."
+	},
+	"familyguide_card_07_body": {
+		"message": "Vai pārzināt svētku vēsturi? Parādiet savas zināšanas, piedaloties viktorīnā ar deviņiem jautājumiem."
+	},
+	"familyguide_card_07_title": {
+		"message": "Svētku tradīciju viktorīna"
+	},
+	"familyguide_card_08_body": {
+		"message": "Vai esat izsalcis? Atklājiet delikateses no visas pasaules un izpētiet ēdienus no tuvām un tālām zemēm."
+	},
+	"familyguide_card_09_body": {
+		"message": "Apskatiet Ziemassvētku vecīša radošo studiju. Katram rīkam, otai un uzlīmei ir pielāgota skaņa, radot audiovizuālu pieredzi."
+	},
+	"familyguide_card_10_body": {
+		"message": "Eksperimentējiet un rotaļājieties savā ziemas smilšu kastē. Izmantojiet 3D materiālus, lai uzbūvētu, ko vien vēlaties: mājas, rotaļlietas, sniegavīrus, mežus un jebko citu."
+	},
+	"familyguide_card_11_body": {
+		"message": "Izveidojiet pats savu rūķīti, kurš būs gatavs piedalīties lieliskos svētku pasākumos Ziemeļpolā."
+	},
+	"familyguide_card_12_body": {
+		"message": "Ziemassvētku vecītis ir pie friziera, un viņam ir nepieciešama palīdzība, lai iegūtu jaunu matu sakārtojumu. Krāsojiet viņa bārdu, žāvējiet matus, pievienojiet rotājumus vai noskujiet visu ar matu griežamo mašīnīti."
+	},
+	"familyguide_card_13_body": {
+		"message": "Pievienojieties rūķīšiem, ziemeļbriežiem, Ziemassvētku vecītim un Ziemassvētku vecīša kundzei, lai dotos uz Svētku jautrības muzeju."
+	},
+	"familyguide_card_14_body": {
+		"message": "Ziemeļpolā ir daudz rūķīšu, ziemeļbriežu un cilvēciņu, kuri jāpārvadā. Skatieties, kā viņi pārvietojas."
+	},
+	"familyguide_card_15_body": {
+		"message": "Ziemassvētku vecītis un ziemeļbrieži ir gatavi doties ceļā, taču vispirms viņiem nepieciešama palīdzība no rūķiem-kodētājiem."
+	},
+	"familyguide_card_16_body": {
+		"message": "Draugi no ciemata pievienojas narvalim Olijam, lai kopā baudītu dienu zem ūdens, rīkojot pirmos ikgadējos brūnaļģu izgaismošanas svētkus."
+	},
+	"familyguide_card_age": {
+		"message": "Visiem vecumiem"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Kad izdzerti visi svētku dzērieni un izsaiņotas visas dāvanas, atklājiet ģimenes izklaides, kuras var baudīt visu gadu pakalpojumā Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Mēs visi vēlamies, lai pasaule būtu veselīga. Uzziniet vienkāršus padomus no Google par izaugsmi cilvēkiem un planētai."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Jūsu plāns, jūsu planēta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Lai izmantotu visas interneta iespējas, bērniem ir jābūt gataviem pieņemt pārdomātus lēmumus. Spēlē “Be Internet Awesome” bērniem tiek mācīti digitālās pilsonības un drošības pamatprincipi, ļaujot ar pārliecību izpētīt tiešsaistes pasauli."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Drošība internetā"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Vairāk no pakalpojuma Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Rūķīši vienmēr strādā pie tā, lai uzlabotu savas kodēšanas prasmes. Izpētiet spēles, kuras jums iemācīs pamatzināšanas par kodēšanu. Ikviens var izmēģināt kodēšanu."
+	},
+	"familyguide_group_01_title": {
+		"message": "Kodēšanas apmācība kopā ar Ziemassvētku vecīša rūķīšiem"
+	},
+	"familyguide_group_02_body": {
+		"message": "Dažādās vietās svētki tiek svinēti atšķirīgi. Uzziniet, kā pasaulē svin svētkus, spēlējot spēles un piedaloties viktorīnās."
+	},
+	"familyguide_group_02_title": {
+		"message": "Atklājiet svētkus visā pasaulē"
+	},
+	"familyguide_group_03_body": {
+		"message": "Ziemassvētku vecīša ciematā ir radoša atmosfēra. Atklājiet spēles, kurās varat zīmēt, gleznot, būvēt un radīt kopā ar saviem iemīļotajiem tēliem."
+	},
+	"familyguide_group_03_title": {
+		"message": "Iedvesmojieties un esiet radošs"
+	},
+	"familyguide_group_04_body": {
+		"message": "Paņemiet popkornu un ieritinieties zem omulīgas segas. Varat sastapt visus tēlus uz lielā ekrāna ciemata kinoteātrī vai arī lasīt interaktīvu stāstu grāmatu, kamēr narvalis Olijs svin svētkus jūras dzelmē."
+	},
+	"familyguide_group_04_title": {
+		"message": "Sanāciet kopā un baudiet laiku ar ģimeni"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kods"
+	},
+	"familyguide_nav_link_02": {
+		"message": "svinēt"
+	},
+	"familyguide_nav_link_03": {
+		"message": "izveidot"
+	},
+	"familyguide_nav_link_04": {
+		"message": "laiks ģimenei"
+	},
+	"familyguide_nav_link_05": {
+		"message": "padomi un ieteikumi"
+	},
+	"familyguide_nav_link_06": {
+		"message": "vēl"
+	},
+	"familyguide_secondary_body": {
+		"message": "24. decembrī Ziemassvētku vecīša ciemats pārvērtīsies par izsekošanas pieredzi, kurā varēsiet sekot līdzi Ziemassvētku vecīša un viņa ziemeļbriežu ceļojumam apkārt pasaulei, lai nogādātu bērniem dāvanas."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Sekojiet līdzi Ziemassvētku vecīša ceļojumam tīmekļa vietnē vai Android lietotnē"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Vai zinājāt? Ziemassvētku vecīša ceļojums ilgst 25 stundas. Viņa pirmā pietura ir uzreiz pēc plkst. 22:00 pēc vietējā laika Krievijas tālajos austrumos, kamēr Ņujorkā ir plkst. 5:00 un Parīzē ir 11:00."
+	},
+	"familyguide_secondary_title": {
+		"message": "Sekojiet Ziemassvētku vecītim lielajā dienā"
+	},
+	"familyguide_tips_body": {
+		"message": "Šosezon iegūstiet vēl vairāk burvības Ziemassvētku vecīša ceļojumā ar visiem jūsu iecienītajiem Google produktiem."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Katru dienu jautājiet Google asistentam par jautriem jaunumiem no rūķīša Dimplstika. Apskatiet arī Ziemassvētku jokus, faktus un piezvaniet Ziemassvētku vecītim."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "“Ok Google, kas jauns Ziemeļpolā?”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Play veikalā lejupielādējiet Ziemassvētku vecīša ceļojuma lietotni Android ierīcēm. Tikai lietotnē ir pieejams ekskluzīvs ciemats ar spēlēm."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android lietotne"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Sekojiet Ziemassvētku vecītim, izmantojot Android Wear integrāciju."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Pakalpojumā Google ievadiet meklēšanas vaicājumu “Santa”, lai skatītu Ziemassvētku vecīti 3D formātā. Lielākajā daļā iPhone tālruņu un dažās jaunākajās Android ierīcēs varat skatīt Ziemassvētku vecīti papildinātajā realitātē, sūtot sveicienus tieši no kameras."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Ieaiciniet Ziemassvētku vecīti savā viesistabā"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Piešķiriet ziņojumiem svētku jautrību. Google Tenor lapā varat atrast Ziemassvētku vecīša tematiskos GIF un uzlīmes, izmantojot meklēšanas vaicājumu “Santa Tracker gifs” (tikai angļu valodā)."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Uzdāviniet GIF attēlus"
+	},
+	"familyguide_tips_title": {
+		"message": "Padomi un ieteikumi"
+	},
+	"familyguide_title": {
+		"message": "Svētku jautrība visai ģimenei"
 	},
 	"fi_country_name": {
 		"message": "Somija"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Dāvanu haoss"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth pasaules svētku ēdieni"
+	},
 	"scene_icecave": {
 		"message": "Ledus ala"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kartes viktorīna"
+	},
+	"scene_ollieundersea": {
+		"message": "Olijs jūras dzelmē"
 	},
 	"scene_playground": {
 		"message": "Ziemeļpola rotaļlaukums"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Svētku tradīcijas"
+	},
+	"scene_traditionsquiz": {
+		"message": "Svētku tradīciju viktorīna"
 	},
 	"scene_translations": {
 		"message": "Tulkojumi"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Jums trāpīja ar sniega piku!"
+	},
+	"snowball_iced_count": {
+		"message": "Trāpīts ar sniega piku"
 	},
 	"snowball_remaining": {
 		"message": "Atlikuši {{remaining}} no {{total}} rūķīšiem"

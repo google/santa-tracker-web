@@ -1,0 +1,95 @@
+.doublecard {
+  margin: 80px auto;
+  max-width: 1400px;
+  padding: 0 40px;
+
+  &-inner {
+    background: rgba(#9FCEFF, .2);
+    border-radius: 72px;
+    padding: 80px 0;
+  }
+
+  &__title {
+    color: #587E9C;
+    font-family: 'Lobster';
+    font-size: 46px;
+    font-weight: normal;
+    margin: 0 auto 25px;
+    text-align: center;
+  }
+
+  &__body {
+    color: #587E9C;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding: 0 80px;
+  }
+
+  &__card {
+    width: calc(50% - 10px);
+
+    &:hover {
+      .doublecard__image img {
+        transform: scale(1.01);
+      }
+
+      .doublecard__card-title::after {
+        margin-left: 14px;
+      }
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    &-title {
+      color: #587E9C;
+      font-size: 22px;
+      position: relative;
+      text-align: center;
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5 1a1 1 0 0 0-1-1h-9a1 1 0 1 0 0 2h8v8a1 1 0 1 0 2 0V1zM1.707 18.207l16.5-16.5L16.793.293l-16.5 16.5 1.414 1.414z' fill='%23F33'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        bottom: 0;
+        content: '';
+        height: 16px;
+        margin: auto 0 auto 10px;
+        position: absolute;
+        top: 0;
+        transition: margin-left .2s linear;
+        width: 16px;
+      }
+    }
+
+    &-body {
+      color: #8AB8D4;
+      margin: 0 auto;
+      max-width: 80%;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    border-radius: 40px;
+    overflow: hidden;
+    transform: translateZ(0);
+    width: 100%;
+
+    img {
+      transition: transform .3s linear;
+      vertical-align: bottom;
+      width: 100%;
+      will-change: transform;
+    }
+  }
+}

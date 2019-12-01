@@ -130,15 +130,16 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   randomizeColors() {
-    const material = this.elf.children[0].material;
+    const material = this.elf.children[1].material;
     material.map.image = generateElfTexture(randomElement(majorColors), randomElement(minorColors));
     material.map.needsUpdate = true;
   }
 
   ensureCorrectTextureImage() {
     if (this.elf != null) {
-      this.elf.children[0].material.map.image = this.textureImage;
-      this.elf.children[0].material.map.needsUpdate = true;
+      this.elf.children[1].material.map.image = this.textureImage;
+      this.elf.children[1].material.map.needsUpdate = true;
+      this.elf.children[1].material.needsUpdate = true;
     }
   }
 
@@ -203,7 +204,7 @@ export class Elf extends AllocatableEntityObject3D {
     if (this.elf) {
       // This opacity may have changed depending on how the character departed
       // when it was last used:
-      this.elf.children[0].material.opacity = 1.0;
+      this.elf.children[1].material.opacity = 1.0;
     }
   }
 
@@ -323,7 +324,7 @@ export class Elf extends AllocatableEntityObject3D {
         }
 
         if (this.currentLod === lod.HIGH && this.elf != null) {
-          const material = this.elf.children[0].material;
+          const material = this.elf.children[1].material;
           material.opacity = visibility.opacity;
         }
       }
@@ -356,7 +357,7 @@ export class Elf extends AllocatableEntityObject3D {
         const material = elf.children[1].material.clone();
         const map = material.map.clone();
 
-        elf.children[0].material = material;
+        elf.children[1].material = material;
         material.map = map;
 
         material.transparent = true;

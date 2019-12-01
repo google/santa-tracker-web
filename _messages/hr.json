@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Dodir"
 	},
+	"copied": {
+		"message": "Kopirano!"
+	},
 	"copy-me": {
 		"message": "Kopiraj vezu da podijeliš poruku"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "pro"
+	},
+	"decmonth_long": {
+		"message": "Prosinac"
 	},
 	"detected": {
 		"message": "otkriveno"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Istraži selo Djeda Božićnjaka"
+	},
+	"familyguide_accordion_title": {
+		"message": "Cjelojutarnje slavlje"
+	},
+	"familyguide_body": {
+		"message": "Djedovo je selo savršeno mjesto na kojem obitelj može proslaviti blagdane. U njemu možete pronaći omiljene likove te zabavne, edukativne i interaktivne aktivnosti za sve uzraste."
+	},
+	"familyguide_card_01_body": {
+		"message": "Upregnite osnove pisanja koda da biste vilenjaku pomogli na putovanju kroz šumu i pronalaženju ispuštenih darova."
+	},
+	"familyguide_card_02_body": {
+		"message": "Izradite vlastitu blagdansku čestitku programiranjem snježne pahulje; odaberite jednu od brojnih pozadina i podijelite je s prijateljima."
+	},
+	"familyguide_card_03_body": {
+		"message": "Vilenjaci su se ponovo posvetili vježbama pisanja koda, a ovaj put su odlučili pokazati i svoje plesne vještine. Pisanjem koda osmislite plesne korake za vilenjake. Ali pažljivo, jer što su vaše vještine pisanja koda bolje, plesovi postaju zahtjevniji!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Od nošenja vunene kape u Kanadi do oblačenja kupaćeg kostima u Australiji: klikom na pribadače na karti saznajte više o blagdanskim običajima diljem svijeta."
+	},
+	"familyguide_card_05_body": {
+		"message": "Naučite blagdanske čestitke iz svih dijelova svijeta, od \"Sretna nova godina\" na vilenjačkom do \"Дед Мороз\"."
+	},
+	"familyguide_card_06_body": {
+		"message": "Djeda čeka dugo putovanje. U ovoj zemljopisnoj igri uspoređujte obrise zemalja s kartom."
+	},
+	"familyguide_card_07_body": {
+		"message": "Koliko znate o svojim blagdanskim običajima? Testirajte svoje opće znanje i dokažite se u ovom kvizu od devet pitanja."
+	},
+	"familyguide_card_07_title": {
+		"message": "Kviz o blagdanskim običajima"
+	},
+	"familyguide_card_08_body": {
+		"message": "Jeste li gladni? Otkrivajte poslastice iz svih dijelova svijeta i istražujte hranu iz različitih zemalja."
+	},
+	"familyguide_card_09_body": {
+		"message": "Istražite Djedov paket kreativnih alata. Svaki alat, kist i naljepnica ima vlastiti zvuk, što ovu igru pretvara u zvučno i vizualno iskustvo."
+	},
+	"familyguide_card_10_body": {
+		"message": "Istražujte i igrajte se u vlastitom zimskom igralištu. Upotrebom 3D materijala možete izraditi bilo što: kuće, igračke, snjegoviće, šume i sve drugo što zamislite."
+	},
+	"familyguide_card_11_body": {
+		"message": "Samostalno izradi svojeg vilenjaka i uredi ga od glave do pete, tako da zabljesne svojom pojavom na brojnim blagdanskim domjencima na Sjevernom polu."
+	},
+	"familyguide_card_12_body": {
+		"message": "Djed je kod frizera i potrebna mu je pomoć u oblikovanju frizure. Obojite njegovu bradu, osušite mu kosu, dodajte ukrase ili mu skratite bradu aparatom za podrezivanje."
+	},
+	"familyguide_card_13_body": {
+		"message": "Pridružite se vilenjacima, sobovima, Djedu i Baki Božićnjak u posjetu Muzeju blagdanskog veselja!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Brojni vilenjaci, sobovi i pegmani putuju Sjevernim polom. Gledajte njihovo putovanje od mjesta do mjesta."
+	},
+	"familyguide_card_15_body": {
+		"message": "Djed i sobovi spremni su za putovanje, ali prije polijetanja potrebna im je pomoć od vilenjaka programera."
+	},
+	"familyguide_card_16_body": {
+		"message": "Naši prijatelji iz Djedovog sela provode dan u morskim dubinama s narvalom Olliejem i organiziraju prvu godišnju ceremoniju osvjetljavanja algi."
+	},
+	"familyguide_card_age": {
+		"message": "Svi uzrasti"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Kad popijete božićni liker i otvorite poklone, otkrijte resurse za cjelogodišnju obiteljsku zabavu uz Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Svi želimo da naš planet bude zdrav, za ove i sve buduće blagdane. Saznajte jednostavne savjete iz Googlea koji ljudima i planetu pomažu da postignu zdrav suživot."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Your Plan, Your Planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Da bi iskoristila sve što internet može pružiti, djeca trebaju donositi pametne odluke. U programu Be Internet Awesome djeca mogu naučiti osnove digitalnog državljanstva i sigurnosti koje će im omogućiti samopouzdano istraživanje online svijeta."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Postani stručnjak za internet"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Više od Googlea"
+	},
+	"familyguide_group_01_body": {
+		"message": "Vilenjaci neprekidno rade na svojim vještinama pisanja koda. Istražite igre u kojima ćete naučiti osnove. Svatko se može okušati u pisanju koda!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Naučite pisati kod uz Djedove vilenjake"
+	},
+	"familyguide_group_02_body": {
+		"message": "Blagdani se obilježavaju različito u raznim dijelovima svijeta. Putem igara i kvizova upoznajte se s blagdanskim običajima u cijelom svijetu."
+	},
+	"familyguide_group_02_title": {
+		"message": "Učimo o blagdanima širom svijeta"
+	},
+	"familyguide_group_03_body": {
+		"message": "Djedovo selo obuzeto je čarolijom stvaranja. Otkrivajte igre u kojima možete crtati, slikati, graditi i stvarati zajedno sa svojim omiljenim likovima."
+	},
+	"familyguide_group_03_title": {
+		"message": "Pronađite stvaralačko nadahnuće"
+	},
+	"familyguide_group_04_body": {
+		"message": "Pripremite kokice i udobno se smjestite ispod pokrivača. Možete pogledati cijelu družinu na velikom zaslonu kina u Djedovom selu ili čitanjem interaktivnih priča pratiti narvala Ollieja dok uživa u blagdanima u morskim dubinama."
+	},
+	"familyguide_group_04_title": {
+		"message": "Vrijeme je za obiteljsko okupljanje i zabavu"
+	},
+	"familyguide_nav_link_01": {
+		"message": "pisanje koda"
+	},
+	"familyguide_nav_link_02": {
+		"message": "slavlje"
+	},
+	"familyguide_nav_link_03": {
+		"message": "izrada"
+	},
+	"familyguide_nav_link_04": {
+		"message": "obiteljsko vrijeme"
+	},
+	"familyguide_nav_link_05": {
+		"message": "savjeti i trikovi"
+	},
+	"familyguide_nav_link_06": {
+		"message": "više"
+	},
+	"familyguide_secondary_body": {
+		"message": "Djedovo se selo 24. prosinca pretvara u sučelje za praćenje u kojem možete slijediti Djeda i njegove sobove dok donose darove djeci širom svijeta."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Priključite se na web-lokaciji ili u Android aplikaciji Slijedi Djeda Božićnjaka"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Jeste li znali da Djedovo putovanje traje 25 sati?! Prvi se put zaustavlja malo nakon 22 sata po lokalnom vremenu na dalekom istoku Rusije, kada je u New Yorku 5 sati, a u Parizu 11 sati."
+	},
+	"familyguide_secondary_title": {
+		"message": "Pratite Djeda Božićnjaka tijekom važnog dana"
+	},
+	"familyguide_tips_body": {
+		"message": "Ovih blagdana Slijedi Djeda Božićnjaka donosi više čarolije uz omiljene proizvode iz Googlea."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Svaki dan možete od Google asistenta zatražiti da sazna zabavne novosti od vilenjaka Dimplesticksa. Pročitajte i božićne šale i informacije o Božiću te pogledajte što se događa kad nazovete Djeda Božićnjaka."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, što je novo na Sjevernom polu?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Preuzmite aplikaciju Slijedi Djeda Božićnjaka za Android u Trgovini Play. Ona donosi ekskluzivnu scenu iz Djedovog sela s igrama koje su dostupne samo u aplikaciji."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikacija za Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Integracija s Android Wearom omogućuje praćenje Djeda Božićnjaka na zapešću."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Potražite pojam \"Santa\" na Googleu da bi se Djed Božićnjak prikazao 3D formatu. Na većini iPhonea i na nekim naprednim Android uređajima prikazuje se u proširenoj stvarnosti i maše iz objektiva fotoaparata!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Dovedite Djeda u vlastiti dnevni boravak"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Unesite prazničnu zabavu u svoje poruke. Pronađite GIF-ove na temu Djeda Božićnjaka pretraživanjem pojma \"Santa Tracker gifs\" (samo na engleskom jeziku) na Googleovoj stranici Tenor."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Podarite GIF-ove"
+	},
+	"familyguide_tips_title": {
+		"message": "Savjeti i trikovi"
+	},
+	"familyguide_title": {
+		"message": "Blagdanska zabava za cijelu obitelj"
 	},
 	"fi_country_name": {
 		"message": "Finska"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Kaos u tvornici darova"
 	},
+	"scene_holidayfoods": {
+		"message": "Blagdanske delicije iz svih dijelova svijeta na Google Earthu"
+	},
 	"scene_icecave": {
 		"message": "Ledena spilja"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kviz s kartom"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie u morskim dubinama"
 	},
 	"scene_playground": {
 		"message": "Igralište na Sjevernom polu"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Blagdanski običaji"
+	},
+	"scene_traditionsquiz": {
+		"message": "Kviz o blagdanskim običajima"
 	},
 	"scene_translations": {
 		"message": "Prijevodi"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Pogođen!"
+	},
+	"snowball_iced_count": {
+		"message": "zaleđeno"
 	},
 	"snowball_remaining": {
 		"message": "Preostalo vilenjaka: {{remaining}} od {{total}}"

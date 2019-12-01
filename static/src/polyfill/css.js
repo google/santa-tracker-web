@@ -91,7 +91,8 @@ if (nativeSupport) {
       return this[adopted] || [];
     },
     set(v) {
-      if (adopted in this) {
+      // nb. "adopted in this" is _always_ true where Symbol is polyfilled, so check value
+      if (this[adopted]) {
         throw new DOMException('NotSupportedError', 'can only set adopted once');
       }
       if (!v || !v.length) {
@@ -113,7 +114,13 @@ if (nativeSupport) {
       const call = rectifyAdoptedStyleSheets.bind(this, node);
 
       const o = new MutationObserver(call);
-      o.observe(this, {childList: true});
+
+      try {
+        o.observe(this, {childList: true});
+      } catch (e) {
+        console.warn('failed to observe', this, 'for adoptedStyleSheets', e);
+      }
+
       call();
     }
   };

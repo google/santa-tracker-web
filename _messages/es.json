@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Toque"
 	},
+	"copied": {
+		"message": "Copiado"
+	},
 	"copy-me": {
 		"message": "Copia este enlace y comparte tu mensaje"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Dic"
+	},
+	"decmonth_long": {
+		"message": "Diciembre"
 	},
 	"detected": {
 		"message": "detectado"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Explorar aldea de Papá Noel"
+	},
+	"familyguide_accordion_title": {
+		"message": "Celebra las fiestas durante todo el mes"
+	},
+	"familyguide_body": {
+		"message": "La aldea de Papá Noel es el sitio ideal para que las familias celebren la Navidad. De la mano de tus personajes favoritos, podrás disfrutar de actividades divertidas, educativas e interactivas para todas las edades."
+	},
+	"familyguide_card_01_body": {
+		"message": "Aplica conocimientos básicos de programación y ayuda al elfo a recoger los regalos que se encuentran repartidos por el bosque."
+	},
+	"familyguide_card_02_body": {
+		"message": "Programa un copo de nieve para crear tu propia tarjeta de Navidad. Podrás elegir entre varios fondos distintos y compartirla con tus amigos."
+	},
+	"familyguide_card_03_body": {
+		"message": "Los elfos están combinando sus habilidades de programación con sus aptitudes para el baile. Utiliza el código para coreografiar sus movimientos. ¡Cuanto mejor lo hagas, más complejos serán los bailes!"
+	},
+	"familyguide_card_04_body": {
+		"message": "En Navidad, los canadienses llevan gorros de lana mientras que los australianos lucen sus bañadores. Haz clic en los marcadores del mapa para descubrir cómo se celebra la Navidad en otras partes del mundo."
+	},
+	"familyguide_card_05_body": {
+		"message": "Te enseñamos expresiones navideñas de todo el mundo: desde el significado de \"Дед Мороз\" hasta cómo decir \"¡Feliz Año Nuevo!\" en el idioma de los elfos."
+	},
+	"familyguide_card_06_body": {
+		"message": "La lista de países que visitará Papá Noel es muy larga. En este juego de geografía, tendrás que descubrir dónde encajan las siluetas de cada país dentro del mapa."
+	},
+	"familyguide_card_07_body": {
+		"message": "¿Cuánto sabes de la historia de la Navidad? Pon a prueba tus conocimientos con un cuestionario de nueve preguntas."
+	},
+	"familyguide_card_07_title": {
+		"message": "Cuestionario sobre tradiciones navideñas"
+	},
+	"familyguide_card_08_body": {
+		"message": "¿Te pica el gusanillo? Descubre todo tipo de platos y manjares exquisitos de los distintos rincones del mundo."
+	},
+	"familyguide_card_09_body": {
+		"message": "Te traemos la suite de creatividad del mismísimo Papá Noel. Se trata de una experiencia tanto visual como auditiva, ya que cada herramienta, pincel y pegatina tiene un sonido personalizado."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimenta y juega en tu propia zona de pruebas invernal. Utiliza materiales en 3D para crear casas, juguetes, muñecos de nieve, bosques y cualquier cosa que puedas imaginar."
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea tu propio elfo de pies a cabeza y déjalo hecho un pincel para las veladas navideñas que se celebran en el Polo Norte."
+	},
+	"familyguide_card_12_body": {
+		"message": "Papá Noel ha ido a la barbería y está listo para un cambio de look radical, pero necesita tu ayuda. Puedes secarle el pelo, teñirle la barba de colores, decorársela o incluso afeitársela entera con las tijeras."
+	},
+	"familyguide_card_13_body": {
+		"message": "Visita el Museo del Jolgorio Navideño en compañía de los elfos, los renos, Papá Noel y Mamá Noel."
+	},
+	"familyguide_card_14_body": {
+		"message": "Hay muchos elfos, renos y hombrecitos naranja pululando por el Polo Norte. Observa cómo se mueven de un lado a otro."
+	},
+	"familyguide_card_15_body": {
+		"message": "Papá Noel y los renos ya tienen todo a punto para salir. Sin embargo, antes de despegar, necesitan que los elfos de la programación les echen una mano."
+	},
+	"familyguide_card_16_body": {
+		"message": "Nuestros amigos de la aldea se unen a Oli el Narval para pasar el día bajo el mar y montar la primera fiesta anual de alumbrado navideño con algas."
+	},
+	"familyguide_card_age": {
+		"message": "Todas las edades"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Cuando se acaben los polvorones y hayas abierto todos tus regalos, descubre recursos de Google para divertirte en familia durante el resto del año."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Todos queremos disfrutar de un planeta sano, tanto hoy como en el futuro. Descubre algunos consejos sencillos de Google para que las personas y el planeta prosperen juntos."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Hagamos planes para ayudar al planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Para sacar el máximo partido a Internet, los niños deben estar preparados para tomar decisiones acertadas. La Academia de internautas ejemplares les enseña los conceptos fundamentales de seguridad y ciudadanía digital para que puedan explorar el mundo online con confianza."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Academia de internautas ejemplares"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Más de Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Los elfos están constantemente desarrollando sus habilidades de programación. Con nuestros juegos, podrás aprender los conceptos básicos de este ámbito. ¡La programación está al alcance de todos!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Aprende a programar con los elfos de Papá Noel"
+	},
+	"familyguide_group_02_body": {
+		"message": "La Navidad se celebra de formas distintas en todo el mundo. Descubre cómo se vive la época navideña en otros países mediante montones de juegos y cuestionarios."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descubre cómo se viven las fiestas en todo el mundo"
+	},
+	"familyguide_group_03_body": {
+		"message": "La creatividad es el combustible que mueve la aldea de Papá Noel. Descubre juegos en los que puedes dibujar, pintar y crear con todos tus personajes favoritos."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inspírate y empieza a crear"
+	},
+	"familyguide_group_04_body": {
+		"message": "Pon las palomitas en el microondas y acurrúcate con tu manta más cómoda. ¿Te gustaría celebrar la Navidad bajo el mar con Oli el Narval? En la aldea, podrás seguir las aventuras de toda la tropa en el cine o leer un cuento interactivo."
+	},
+	"familyguide_group_04_title": {
+		"message": "Disfruta del tiempo en familia"
+	},
+	"familyguide_nav_link_01": {
+		"message": "programación"
+	},
+	"familyguide_nav_link_02": {
+		"message": "Celebra la Navidad"
+	},
+	"familyguide_nav_link_03": {
+		"message": "crear"
+	},
+	"familyguide_nav_link_04": {
+		"message": "Tiempo en familia"
+	},
+	"familyguide_nav_link_05": {
+		"message": "Consejos y trucos"
+	},
+	"familyguide_nav_link_06": {
+		"message": "más"
+	},
+	"familyguide_secondary_body": {
+		"message": "El 24 de diciembre, la aldea se transformará para ofrecerte una experiencia en la que podrás seguirle la pista a Papá Noel y sus renos a medida que vayan dejando regalos a los niños de todo el mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Estate al tanto del sitio web o la aplicación Android de Sigue a Papá Noel"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "¡Psst! ¿Sabías que el recorrido de Papá Noel dura nada más y nada menos que 25 horas? Su primera parada es a las 22:00 en el Extremo Oriente ruso. A esa hora, son las 5:00 en Nueva York y las 11:00 en París."
+	},
+	"familyguide_secondary_title": {
+		"message": "Sigue a Papá Noel en el día de Navidad"
+	},
+	"familyguide_tips_body": {
+		"message": "Estas Navidades, disfruta aún más de la magia de Sigue a Papá Noel con todos tus productos favoritos de Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pide cada día al Asistente de Google que te ponga al tanto de las últimas novedades del elfo Hoyuelín. También puedes disfrutar de chistes y datos curiosos sobre la Navidad, e incluso probar a llamar a Papá Noel."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, ¿qué se cuece por el Polo Norte?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Descarga la aplicación Sigue a Papá Noel (Android) en Play Store. En ella, podrás disfrutar de una escena exclusiva de la aldea con juegos que no encontrarás en ningún otro sitio."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicación para Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Gracias a la integración con Android Wear, puedes seguir a Papá Noel desde tu muñeca."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Busca \"Papá Noel\" en Google para verle en 3D. A través de la cámara de la mayoría de los iPhone y algunos dispositivos Android avanzados, puedes incluso verle saludándote en realidad aumentada."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Lleva a Papá Noel hasta tu propio salón"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Empapa tus mensajes de espíritu navideño. Puedes encontrar GIFs y pegatinas de esta temática con tan solo buscar \"Santa Tracker gifs\" en la plataforma Tenor de Google (solo disponible en inglés)."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Estas Navidades, regala GIFs"
+	},
+	"familyguide_tips_title": {
+		"message": "Consejos y trucos"
+	},
+	"familyguide_title": {
+		"message": "Diversión navideña para toda la familia"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Lío de regalos"
 	},
+	"scene_holidayfoods": {
+		"message": "Comidas navideñas del mundo con Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Cueva de hielo"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Test de Geografía"
+	},
+	"scene_ollieundersea": {
+		"message": "Oli bajo el mar"
 	},
 	"scene_playground": {
 		"message": "El parque del Polo Norte"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradiciones navideñas"
+	},
+	"scene_traditionsquiz": {
+		"message": "Cuestionario sobre tradiciones navideñas"
 	},
 	"scene_translations": {
 		"message": "Traducciones"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "¡Te han dado!"
+	},
+	"snowball_iced_count": {
+		"message": "Dianas"
 	},
 	"snowball_remaining": {
 		"message": "Elfos restantes: {{remaining}} de {{total}}"

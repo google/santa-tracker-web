@@ -183,6 +183,9 @@ app.shared.utils = (function() {
      * is a touch device.
      */
     get touchEnabled() {
+      if ('standalone' in navigator) {
+        return true;  // iOS devices
+      }
       const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
       if (hasCoarse) {
         return true;  // true-ish

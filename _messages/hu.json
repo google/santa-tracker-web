@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Megérintés"
 	},
+	"copied": {
+		"message": "Átmásolva!"
+	},
 	"copy-me": {
 		"message": "Másold ki a linket az üzeneted megosztásához"
 	},
@@ -652,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Vissza Mikulásfalvára"
+	},
+	"familyguide_accordion_title": {
+		"message": "Ünneplés egy teljes hónapig"
+	},
+	"familyguide_body": {
+		"message": "Mikulásfalva ideális hely a családi ünnepléshez. Az összes kedvenc karaktered összegyűlt, és minden korosztály tagjait szórakoztató, oktatási és interaktív tevékenységekkel várja."
+	},
+	"familyguide_card_01_body": {
+		"message": "Mozgasd a manót az erdőben a kódolási alapok használatával, és találd meg az elejtett ajándékokat."
+	},
+	"familyguide_card_02_body": {
+		"message": "Készítsd el saját ünnepi képeslapodat saját hópelyhed programozásával: válassz egyet a sokféle háttér közül, és oszd meg barátaiddal."
+	},
+	"familyguide_card_03_body": {
+		"message": "A manók visszatérnek a kódolás gyakorlásához, de a táncról sem feledkeznek meg. Kód használatával készíts koreográfiát a manók táncához, de jól vigyázz: ahogyan fejlődsz, a tánc is egyre nehezebb lesz!"
+	},
+	"familyguide_card_04_body": {
+		"message": "A kanadai bojtos sapkától az ausztrál fürdőnadrágig: a térképen lévő gombostűkre kattintva megismerheted a világ ünnepi hagyományait."
+	},
+	"familyguide_card_05_body": {
+		"message": "Boldog új évet! A tündéktől a Дед Морозig – ismerd meg az ünnep szavait a világ nyelvein."
+	},
+	"familyguide_card_06_body": {
+		"message": "A Mikulásnak rengeteg helyre kell mennie. Ebben a földrajzi játékban el kell helyezned az adott ország körvonalait a térképen."
+	},
+	"familyguide_card_07_body": {
+		"message": "Ismered az ünnep történetét? A kilenc kérdésből álló kvízből megtudhatod, mennyire ismered az érdekességeket."
+	},
+	"familyguide_card_07_title": {
+		"message": "Kvíz az ünnepi hagyományokról"
+	},
+	"familyguide_card_08_body": {
+		"message": "Éhes vagy? Fedezd fel a világszerte népszerű finomságokat, és ismerd meg a közeli és távoli országokban fogyasztott ételeket."
+	},
+	"familyguide_card_09_body": {
+		"message": "Próbáld ki a Mikulás saját kreatív készletét. Minden eszköz, kefe és matrica saját hanggal rendelkezik. Valódi hang- és képélmény!"
+	},
+	"familyguide_card_10_body": {
+		"message": "Kísérletezz és játssz saját téli homokozódban. A 3D-anyagokkal bármit építhetsz: házat, játékot, hóembert, erdőt, vagy bármi mást, amit megálmodsz."
+	},
+	"familyguide_card_11_body": {
+		"message": "Készítsd el saját manódat a feje búbjától a lábujjhegyéig, és gondoskodj fantörpikus kinézetéről a számos északi-sarki vidám estéhez."
+	},
+	"familyguide_card_12_body": {
+		"message": "A Mikulás éppen fodrásznál van, és a külsejével kapcsolatos segítségre szorul. Fesd be a szakállát, szárítsd meg a haját, csinosítsd ki, vagy borotváld le teljesen a vágógéppel."
+	},
+	"familyguide_card_13_body": {
+		"message": "Csatlakozz a manókhoz, a rénszarvasokhoz, a Mikuláshoz és a Mikulásnéhoz, és látogassatok el Az Ünnepi Vidámság Múzeumába!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Sok manó, rénszarvas és emberke utazik az Északi-sark körül. Nézd meg, hogyan jutnak el egyik helyről a másikra."
+	},
+	"familyguide_card_15_body": {
+		"message": "A Mikulás és a rénszarvasok útra készen állnak, de az indulás előtt még egy kis segítségre lenne szükségük a kódolást végző manóktól."
+	},
+	"familyguide_card_16_body": {
+		"message": "Mikulásfalván élő barátaink egy napot a víz alatt töltenek Ollie, a cet társaságában, és megülik az első éves hínárfényünnepet."
+	},
+	"familyguide_card_age": {
+		"message": "Minden korosztály"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Ha az összes tojáslikőr elfogyott, és az ajándékok is mind ki vannak bontva, fedezd fel az egész évre családi szórakozást nyújtó dolgokat a Google-lal."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Mindannyian egészséges Földet szeretnénk most és a jövőben is. A Google egyszerű tippjei elősegíthetik az emberiség és a bolygó közös felvirágzását."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "A te életed, a te Földed"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Az internet lehetőségeinek maradéktalan kihasználása érdekében a gyerekeket fel kell készíteni az intelligens döntéshozatalra. A „Be Internet Awesome” program megtanítja a gyerekeket a digitális állampolgárság és a biztonság alapjaira, hogy magabiztosan fedezhessék fel az online világot."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Még több a Google-tól"
+	},
+	"familyguide_group_01_body": {
+		"message": "A manók folyamatosan tökéletesítik kódolási tudásukat. Fedezd fel az alapokat ismertető játékokat. Bárki kipróbálhatja a kódolást!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Tanulj kódolni a Mikulás manóival"
+	},
+	"familyguide_group_02_body": {
+		"message": "Az ünnepek meglehetősen különböznek egymástól az egyes helyeken. A számos játékból és kvízből megtudhatod, hogyan ünnepelnek a nagyvilágban."
+	},
+	"familyguide_group_02_title": {
+		"message": "Fedezd fel, hogyan ünnepel a világ"
+	},
+	"familyguide_group_03_body": {
+		"message": "Mikulásfalva az alkotás lázában ég. Fedezd fel a játékokat, amelyekkel rajzolhatsz, festhetsz és alkothatsz kedvenc karaktereiddel."
+	},
+	"familyguide_group_03_title": {
+		"message": "Meríts ihletet, és alkoss valamit"
+	},
+	"familyguide_group_04_body": {
+		"message": "Ragadd meg a pattogatott kukoricát, és bújj be egy puha takaró alá. A teljes eseményt megnézheted Mikulásfalva mozijának nagy képernyőjén, vagy elolvashatod az interaktív mesekönyvben, hogyan ünnepel Ollie, a cet a tenger mélyén."
+	},
+	"familyguide_group_04_title": {
+		"message": "Együtt a család"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kód"
+	},
+	"familyguide_nav_link_02": {
+		"message": "ünneplés"
+	},
+	"familyguide_nav_link_03": {
+		"message": "létrehozás"
+	},
+	"familyguide_nav_link_04": {
+		"message": "családi idő"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tippek és trükkök"
+	},
+	"familyguide_nav_link_06": {
+		"message": "továbbiak"
+	},
+	"familyguide_secondary_body": {
+		"message": "December 24-én Mikulásfalva a nyomkövetés élményét kínálja: követheted a Mikulást és a rénszarvasokat, amint elviszik a gyerekek ajándékait a világ összes tájára."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Kövesd végig az utat a Mikuláskövető webhelyen vagy az Android-alkalmazásban"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psszt! Tudtad, hogy a Mikulás útja 25 órán át tart? Először helyi idő szerint este tíz után áll meg Oroszország keleti végében, majd hajnali 5-re ér New York-ba, délelőtt 11-re pedig Párizsba."
+	},
+	"familyguide_secondary_title": {
+		"message": "Kövesd a Mikulást a nagy napon!"
+	},
+	"familyguide_tips_body": {
+		"message": "Idén még több varázslattal vár a Mikuláskövető és a többi kedvenc Google-terméked."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Kérd meg mindennap a Google Segédet, hogy mondja el a Dimplesticks nevű manótól származó újdonságokat. Ne maradj le a karácsonyi viccekről és tényekről se, és nézd meg, mi történik, ha a Mikulást hívod."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„Hey Google, what’s new at the North Pole?” (Ok Google, mi újság az Északi-sarkon?)"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Töltsd le a Mikuláskövető alkalmazást Android-eszközödre a Play Áruházban. Egy különleges Mikulásfalva-jelenet (játékokkal) csak az alkalmazásban áll rendelkezésre."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-alkalmazás"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Kövesd a Mikulást a csuklódról az Android Wear integrálásával."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Keress rá a „Mikulás” kifejezésre a Google-on, és nézd meg a Mikulást 3D-ben. A legtöbb iPhone-on és egyes továbbfejlesztett Android-eszközökön AR-ben (kiterjesztett valóságban) is láthatod, amint a Mikulás egyenesen a kamerába integet!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Hozd el a Mikulást a szobádba"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Adj vicces ünnepi díszítést üzeneteidhez. A Google Tenor-oldalán mikulásos GIF-eket és matricákat találsz, ha rákeresel a „Santa Tracker gifs” (mikuláskövetős GIF-ek) szavakra (csak angolul)."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Küldj ajándékot GIF-ben"
+	},
+	"familyguide_tips_title": {
+		"message": "Tippek és trükkök"
+	},
+	"familyguide_title": {
+		"message": "Ünnepi mulatság az egész családnak"
 	},
 	"fi_country_name": {
 		"message": "Finnország"
@@ -1463,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Kaotikus ajándékgyár"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth – ünnepi ételek a világ minden tájáról"
+	},
 	"scene_icecave": {
 		"message": "Jégbarlang"
 	},
@@ -1483,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Térképkitalálós"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie a tenger mélyén"
 	},
 	"scene_playground": {
 		"message": "Északi-sarki játszótér"
@@ -1543,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Ünnepi hagyományok"
+	},
+	"scene_traditionsquiz": {
+		"message": "Kvíz az ünnepi hagyományokról"
 	},
 	"scene_translations": {
 		"message": "Fordítás"
@@ -1672,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Kiesés!"
+	},
+	"snowball_iced_count": {
+		"message": "Kiesés"
 	},
 	"snowball_remaining": {
 		"message": "{{total}}/{{remaining}} manó maradt játékban"

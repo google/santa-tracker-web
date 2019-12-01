@@ -1,0 +1,172 @@
+.waterspout {
+  position: absolute;
+  width: 117px;
+  height: 132px;
+  left: calc(50% - 55px);
+  top: 607px;
+  overflow: hidden;
+}
+
+.waterspout-bottom {
+  width: 9px;
+  height: 79px;
+  position: absolute;
+  left: 53px;
+  top: 54px;
+  background-image: url(img/village/waterspout-bottom.svg);
+  background-repeat: no-repeat;
+  animation: waterspout-bottom 5000ms infinite ease-in-out;
+}
+
+.waterspout-top {
+  top: 0;
+  left: 0;
+  width: 116px;
+  height: 82px;
+  position: absolute;
+  background-image: url(img/village/waterspout-top.svg);
+  background-repeat: no-repeat;
+  animation: waterspout-top 5000ms infinite ease-in-out;
+}
+
+@keyframes waterspout-bottom {
+  0% {
+    transform: translate3d(0, 130px, 0) scale(.6);
+  }
+  30% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  80% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 130px, 0) scale(.6);
+  }
+}
+
+@keyframes waterspout-top {
+  0% {
+    transform: translate3d(0, 145px, 0) scale(0, 0) rotateZ(5deg);
+  }
+  33% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  40% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  60% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  70% {
+    transform: translate3d(0, 0, 0) scale(1, 1) rotateZ(-5deg);
+  }
+  80% {
+    transform: translate3d(0, 5px, 0) scale(1, 1) rotateZ(5deg);
+  }
+  100% {
+    transform: translate3d(0, 145px, 0) scale(0, 0) rotateZ(5deg);
+  }
+}
+
+.snowman-build {
+  position: absolute;
+  width: 122px;
+  height: 188px;
+  left: calc(50% + 20px);
+  top: 807px;
+}
+
+.snowman-build-bottom {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(img/village/snowman-build-bottom.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.snowman-build-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(img/village/snowman-build-top.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: center center;
+  animation: heavy-snow 7000ms infinite ease-in-out;
+}
+
+@keyframes heavy-snow {
+  0% {
+    transform: translate3d(0, 3px, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate3d(-20px, 11px, 0) rotateZ(-30deg);
+  }
+  100% {
+    transform: translate3d(0, 3px, 0) rotateZ(0deg);
+  }
+}
+
+.peekaboo {
+  position: absolute;
+  top: 619px;
+  left: calc(50% - 506px);
+  width: 108px;
+  height: 161px;
+}
+
+.peekaboo-elf {
+  position: absolute;
+  width: 73px;
+  height: 95px;
+  top: 11px;
+  background-image: url(img/village/tree-elf.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: peekaboo 8000ms infinite ease-in-out;
+}
+
+.peekaboo-tree {
+  position: absolute;
+  background-image: url(img/village/tree.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 98px;
+  height: 161px;
+  left: 12px;
+}
+
+@keyframes peekaboo {
+  0% {
+    transform: translate3d(20px, 28px, 0) rotateZ(39deg);
+  }
+  10% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+  }
+  50% {
+    transform: translate3d(20px, 28px, 0) rotateZ(39deg);
+  }
+  60% {
+    transform: translate3d(53px, 0, 0) rotateZ(40deg);
+  }
+  100% {
+    transform: translate3d(20px, 28px, 0) rotateZ(39deg);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .waterspout,
+  .snowman-build,
+  .peekaboo {
+    transform: translateY(150px);
+  }
+}

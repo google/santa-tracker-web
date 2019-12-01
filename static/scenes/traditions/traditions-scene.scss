@@ -14,6 +14,7 @@ body {
   font-family: 'Roboto', 'Arial', sans-serif;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
+  touch-action: none;
 }
 
 ##{$name} {

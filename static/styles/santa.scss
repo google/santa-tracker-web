@@ -1,18 +1,21 @@
 @import 'shared';
 
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
 html {
   background: black;
-  overflow: hidden;
-  height: 100vh;
+}
+
+* {
+  touch-action: pan-x pan-y;  // disable pinch zoom
 }
 
 body {
   margin: 0;
-  height: 100%;
-  overflow-x: hidden;
-  overflow: auto;
-  touch-action: manipulation;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;  // disable pinch zoom
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-font-smoothing: antialiased;
@@ -20,8 +23,9 @@ body {
   -webkit-user-select: none;
   background: #1a844b;
 
+  --color-bar: #ff3333;
   &[data-mode="android"] {
-    --color-bar: rgb(76, 175, 80);
+    --color-bar: #32a658;
   }
 }
 
@@ -50,8 +54,27 @@ santa-interlude {
   z-index: $index-interlude;
 }
 
+santa-error {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 body:not(.loaded) {
   santa-interlude {
     z-index: $index-interlude-preload;
   }
 }
+
+.notices {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  min-width: (320px - 32px);
+  z-index: $index-notice;
+
+  santa-notice {
+    margin: 16px;
+  }
+}
+

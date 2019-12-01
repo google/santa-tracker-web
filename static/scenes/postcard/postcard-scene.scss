@@ -10,6 +10,7 @@ $name: 'module-postcard';
 body {
   overflow: hidden;
   margin: 0;
+  touch-action: pan-x pan-y;
 }
 
 ##{$name} {

@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Sentuh"
 	},
+	"copied": {
+		"message": "Berhasil menyalin!"
+	},
 	"copy-me": {
 		"message": "Salin link ini untuk membagikan pesan"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Des"
+	},
+	"decmonth_long": {
+		"message": "Desember"
 	},
 	"detected": {
 		"message": "terdeteksi"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Jelajahi Desa Sinterklas"
+	},
+	"familyguide_accordion_title": {
+		"message": "Rayakan sepanjang bulan"
+	},
+	"familyguide_body": {
+		"message": "Desa Sinterklas adalah tempat yang sempurna bagi keluarga untuk merayakan liburan Natal. Anda akan menemukan semua karakter favorit dengan aktivitas yang menyenangkan, mendidik, dan interaktif untuk segala usia."
+	},
+	"familyguide_card_01_body": {
+		"message": "Gunakan dasar-dasar coding untuk menuntun kurcaci melalui hutan dan menemukan hadiah yang dijatuhkan."
+	},
+	"familyguide_card_02_body": {
+		"message": "Buat kartu ucapan selamat Natal dan Tahun Baru dengan memprogram kepingan salju sendiri. Cukup pilih salah satu dari beberapa latar belakang, dan bagikan kepada teman-teman Anda."
+	},
+	"familyguide_card_03_body": {
+		"message": "Para kurcaci kembali berlatih coding, sambil menampilkan kemampuan menari mereka. Gunakan kode untuk mengatur koreografi tarian kurcaci - tetapi bersiaplah, karena makin jago Anda, makin sulit pula tarian mereka."
+	},
+	"familyguide_card_04_body": {
+		"message": "Mulai dari mengenakan toque di Kanada hingga memakai celana renang di Australia, klik pin peta untuk mempelajari tradisi perayaan Natal di seluruh dunia."
+	},
+	"familyguide_card_05_body": {
+		"message": "Mulai dari ucapan Selamat Tahun Baru dalam bahasa Elvish hingga Дед Мороз, pelajari ungkapan seputar perayaan Natal dan Tahun Baru dari seluruh dunia."
+	},
+	"familyguide_card_06_body": {
+		"message": "Ada banyak tempat yang akan dikunjungi Sinterklas. Cocokkan garis negara dengan peta di game geografi ini."
+	},
+	"familyguide_card_07_body": {
+		"message": "Apakah Anda tahu sejarah Natal dan Tahun Baru Anda? Tunjukkan keahlian Anda bermain kuis dengan sembilan pertanyaan yang akan menguji kemampuan Anda bermain tebak-tebakan."
+	},
+	"familyguide_card_07_title": {
+		"message": "Kuis Tradisi Natal"
+	},
+	"familyguide_card_08_body": {
+		"message": "Lapar? Temukan makanan lezat dari seluruh dunia dan jelajahi kekayaan kuliner dari berbagai negara, baik yang dekat maupun yang jauh."
+	},
+	"familyguide_card_09_body": {
+		"message": "Manfaatkan perangkat kreatif milik Sinterklas. Setiap alat, kuas, dan stiker memiliki suara khusus, sehingga memberikan pengalaman audio dan visual."
+	},
+	"familyguide_card_10_body": {
+		"message": "Lakukan eksperimen dan bermainlah dengan sandbox musim dingin Anda sendiri. Gunakan material 3D untuk membangun berbagai hal: rumah, mainan, manusia salju, hutan, atau hal lain yang dapat Anda bayangkan."
+	},
+	"familyguide_card_11_body": {
+		"message": "Buat kurcaci Anda sendiri, dari ujung kepala hingga ujing kaki, dan pastikan dandanannya sudah kuren untuk menghadiri berbagai pesta liburan yang diadakan di Kutub Utara."
+	},
+	"familyguide_card_12_body": {
+		"message": "Sinterklas sedang di salon potong rambut dan ingin merombak gaya rambutnya. Warnai jenggotnya, keringkan rambutnya, tambahkan hiasan, atau cukur bersih semuanya menggunakan alat cukur."
+	},
+	"familyguide_card_13_body": {
+		"message": "Bergabunglah dengan kurcaci, rusa kutub, Sinterklas, dan Nyonya Sinterklas mengunjungi Museum of Holiday Cheer."
+	},
+	"familyguide_card_14_body": {
+		"message": "Ada banyak kurcaci, rusa kutub, dan pegman yang hilir mudik di sekitar Kutub Utara. Lihat cara mereka berpindah dari satu tempat ke tempat lain."
+	},
+	"familyguide_card_15_body": {
+		"message": "Sinterklas dan rusa kutub sudah siap pergi, tetapi mereka memerlukan sedikit bantuan dari kurcaci pembuat kode sebelum berangkat."
+	},
+	"familyguide_card_16_body": {
+		"message": "Teman-teman kita di Desa mencoba hidup sehari di bawah laut bersama Ollie si paus narwhal untuk mengadakan perayaan tahunan \"penerangan hutan rumput laut\" yang pertama."
+	},
+	"familyguide_card_age": {
+		"message": "Semua Usia"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Setelah minuman eggnog dihabiskan dan hadiah diberikan, temukan fasilitas setahun penuh untuk hiburan keluarga dengan Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Kita semua menginginkan planet yang sehat untuk hari ini dan hari esok. Pelajari tips sederhana dari Google agar manusia dan Bumi dapat hidup bersama dalam kesejahteraan."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Rencana Anda, Planet Anda"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Untuk mengoptimalkan manfaat internet, anak-anak harus diajarkan untuk membuat keputusan cerdas. Be Internet Awesome mengajari anak-anak tentang dasar-dasar keamanan dan kewargaan digital agar mereka dapat menjelajahi dunia online dengan percaya diri."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Lainnya dari Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Kurcaci selalu berupaya meningkatkan kemampuan coding mereka. Temukan game yang akan mengajari Anda dasar-dasarnya. Siapa pun bisa mencoba coding!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Belajar membuat kode bersama Kurcaci Sinterklas"
+	},
+	"familyguide_group_02_body": {
+		"message": "Perayaan Natal bisa cukup berbeda dari satu tempat ke tempat lain. Pelajari bagaimana dunia merayakan Natal dengan banyak sekali game dan kuis."
+	},
+	"familyguide_group_02_title": {
+		"message": "Temukan perayaan Natal di seluruh dunia"
+	},
+	"familyguide_group_03_body": {
+		"message": "Desa Sinterklas dipenuhi kreasi-kreasi ajaib. Temukan game yang memungkinkan Anda menggambar, melukis, membangun, dan berkreasi dengan semua karakter favorit Anda."
+	},
+	"familyguide_group_03_title": {
+		"message": "Dapatkan inspirasi dan berkreasilah"
+	},
+	"familyguide_group_04_body": {
+		"message": "Ambil popcorn dan bersantailah di balik selimut yang nyaman. Anda dapat berkumpul dengan seluruh penduduk untuk menikmati film layar lebar di bioskop Desa atau membaca buku cerita interaktif saat Ollie si Paus Narwhal merayakan liburan Natal di bawah laut."
+	},
+	"familyguide_group_04_title": {
+		"message": "Nikmati waktu bersama keluarga"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kode"
+	},
+	"familyguide_nav_link_02": {
+		"message": "rayakan"
+	},
+	"familyguide_nav_link_03": {
+		"message": "buat"
+	},
+	"familyguide_nav_link_04": {
+		"message": "waktu keluarga"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tips \u0026 trik"
+	},
+	"familyguide_nav_link_06": {
+		"message": "lainnya"
+	},
+	"familyguide_secondary_body": {
+		"message": "Pada tanggal 24 Desember, Desa Sinterklas berubah menjadi area pelacakan yang memberi Anda pengalaman untuk mengikuti Sinterklas dan rusa kutubnya saat mengirimkan hadiah ke anak-anak di seluruh dunia."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Ikuti terus kabar terbaru di aplikasi Android atau situs Pelacak Sinterklas."
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Ssst! Tahukah Anda, perjalanan Sinterklas berlangsung selama 25 jam?! Dia berhenti pertama kali di Rusia timur jauh pada pukul 10 malam lebih sedikit waktu setempat, yang sama dengan pukul 5 pagi di New York dan 11 siang di Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Melacak Sinterklas pada hari Natal"
+	},
+	"familyguide_tips_body": {
+		"message": "Dapatkan keajaiban lainnya dari Pelacak Sinterklas musim ini dengan semua produk Google favorit Anda."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Bertanyalah ke Asisten Google setiap hari untuk mendapatkan kabar seru terbaru dari Dimplestick si Kurcaci. Periksa juga lelucon Natal, fakta Natal, dan lihat apa yang terjadi saat Anda memanggil Sinterklas."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, ada berita apa dari Kutub Utara?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Download Aplikasi Pelacak Sinterklas untuk Android di Play Store. Terdapat pemandangan Desa eksklusif dengan game yang hanya dapat Anda temukan di aplikasi tersebut."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplikasi Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Lacak Sinterklas dari pergelangan tangan Anda dengan integrasi Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Telusuri kata \"Sinterklas\" di Google untuk melihat Sinterklas dalam bentuk 3D. Pada sebagian besar perangkat iPhone dan beberapa perangkat Android yang berspesifikasi tinggi, Anda dapat melihat Sinterklas dalam bentuk AR, melambaikan tangan di depan kamera Anda."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Hadirkan Sinterklas ke ruang keluarga Anda"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Hadirkan keseruan liburan Natal ke dalam pesan Anda. Temukan GIF dan stiker bertema Sinterklas dengan menelusuri \"Santa Tracker gifs\" (Hanya dalam bahasa Inggris) di halaman Tenor Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Berikan hadiah GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Tips dan Trik"
+	},
+	"familyguide_title": {
+		"message": "Keseruan liburan Natal untuk seluruh keluarga"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Kekacauan Kado"
 	},
+	"scene_holidayfoods": {
+		"message": "Makanan Natal dari Seluruh Dunia di Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Gua Es"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kuis Peta"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie Penghuni Bawah Laut"
 	},
 	"scene_playground": {
 		"message": "Taman Bermain Kutub Utara"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradisi Liburan"
+	},
+	"scene_traditionsquiz": {
+		"message": "Kuis Tradisi Natal"
 	},
 	"scene_translations": {
 		"message": "Terjemahan"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Kena!"
+	},
+	"snowball_iced_count": {
+		"message": "Kena"
 	},
 	"snowball_remaining": {
 		"message": "Tersisa {{remaining}} dari {{total}} kurcaci"

@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "タップ"
 	},
+	"copied": {
+		"message": "コピーしました"
+	},
 	"copy-me": {
 		"message": "メッセージを共有するにはこのリンクをコピーしてください"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "12 月"
+	},
+	"decmonth_long": {
+		"message": "12月"
 	},
 	"detected": {
 		"message": "検出済み"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "サンタ村を訪れる"
+	},
+	"familyguide_accordion_title": {
+		"message": "1 か月通してお祝いする"
+	},
+	"familyguide_body": {
+		"message": "サンタ村は家族でクリスマスを楽しむのに最適な場所です。すべての年代向けの、楽しく教育的かつインタラクティブなアクティビティを通して、お気に入りのキャラクターすべてを見つけることができます。"
+	},
+	"familyguide_card_01_body": {
+		"message": "コーディングの基礎知識を使って、妖精が落としたプレゼントを見つられるよう森を案内しましょう。"
+	},
+	"familyguide_card_02_body": {
+		"message": "自分だけの雪の結晶をプログラミングして、オリジナルのクリスマス カードを作りましょう。たくさんの背景から 1 つを選択して、簡単に友だちに共有できます。"
+	},
+	"familyguide_card_03_body": {
+		"message": "妖精がダンスのスキルを身に付けてコーディングの練習に戻ってきました。コードを使用して妖精のダンスに振り付けをしましょう。うまくなればなるほど、ダンスは難しくなるのでお気をつけください。"
+	},
+	"familyguide_card_04_body": {
+		"message": "カナダではニット帽をかぶる、オーストラリアで水泳パンツを履くなど、マップのピンをクリックして世界中のクリスマスの習慣について学びましょう。"
+	},
+	"familyguide_card_05_body": {
+		"message": "「Happy New Year」のエルフ語からジェドマロース語に至るまで、世界中の季節のあいさつの言葉学びましょう。"
+	},
+	"familyguide_card_06_body": {
+		"message": "サンタは行く場所がたくさんあります。この地理に関するゲームで、地図上で国の形を合わせてみましょう。"
+	},
+	"familyguide_card_07_body": {
+		"message": "クリスマスの歴史をご存知ですか？9 つのクイズで、自分のトリビアのスキルを試してみましょう。"
+	},
+	"familyguide_card_07_title": {
+		"message": "クリスマスの伝統クイズ"
+	},
+	"familyguide_card_08_body": {
+		"message": "空腹ですか？世界中のごちそうを見つけて、いろいろな国の食べ物について知りましょう。"
+	},
+	"familyguide_card_09_body": {
+		"message": "サンタだけのクリエイティブなお絵かきツールを使ってみましょう。各ツール、ブラシ、ステッカーにはカスタムの音があり、音と画像を楽しめるようになっています。"
+	},
+	"familyguide_card_10_body": {
+		"message": "冬の砂場で試したり遊んだりしましょう。3D 素材を使用して、家、おもちゃ、雪だるまなど、思いつくままになんでも作ることができます。"
+	},
+	"familyguide_card_11_body": {
+		"message": "頭の先からつま先まであなたオリジナルの妖精をデザインしましょう。北極のあちこちで開催されるクリスマス会にふさわしい、幻想的な姿にしてあげてください。"
+	},
+	"familyguide_card_12_body": {
+		"message": "サンタは散髪屋にいて、支度の手伝いが必要です。ひげを染めたり、髪を乾かしたり、飾りを付けたり、大きなはさみで全部を取ったりしてみましょう。"
+	},
+	"familyguide_card_13_body": {
+		"message": "妖精、トナカイ、サンタ夫人に加わって、クリスマス博物館を訪れましょう。"
+	},
+	"familyguide_card_14_body": {
+		"message": "北極ではたくさんの妖精、トナカイ、ペグマンが行ったり来たりしています。彼らがどこからどこへ移動するのか見てみましょう。"
+	},
+	"familyguide_card_15_body": {
+		"message": "サンタとトナカイは出発の準備が整いましたが、出発するにはコーディングの妖精の力が少し必要です。"
+	},
+	"familyguide_card_16_body": {
+		"message": "村の友だちが海中にいるイッカクのオーリーに加わり、初めての昆布のクリスマス イルミネーションを一緒に灯してお祝いします。"
+	},
+	"familyguide_card_age": {
+		"message": "全年齢"
+	},
+	"familyguide_doublecard_body": {
+		"message": "エッグノッグがすべてなくなりプレゼントが渡ったら、Google で一年間家族と楽しめるリソースをご覧ください。"
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "人類は、現在も未来も地球環境が健全であることを望んでいます。人類と地球が共に繁栄するためのシンプルなヒントを Google から学びましょう。"
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "地球のためにあなたができること"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "インターネットを最大限に活用するには、優れた判断力を身につける必要があります。Be Internet Awesome では、オンラインの世界を自信を持って探索できるように、子供たちにデジタル利用の心得とセキュリティの基礎を教えます。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Google でもっと楽しく"
+	},
+	"familyguide_group_01_body": {
+		"message": "妖精はいつもコーディングのスキルを磨いています。コーディングの基礎を学べるゲームをご覧ください。誰でもコーディングに挑戦できます。"
+	},
+	"familyguide_group_01_title": {
+		"message": "サンタの妖精とともにコーディングを学びましょう"
+	},
+	"familyguide_group_02_body": {
+		"message": "クリスマスは場所によってまったく様子が異なるものです。たくさんのゲームとクイズで、世界中のクリスマスの祝い方を学びましょう。"
+	},
+	"familyguide_group_02_title": {
+		"message": "世界の祝日の魅力を発見しよう"
+	},
+	"familyguide_group_03_body": {
+		"message": "サンタの村の活力の元は「作る」魔法です。好きなキャラクターを全部使って、絵を描き、組み立て、作り出すゲームを楽しんでください。"
+	},
+	"familyguide_group_03_title": {
+		"message": "クリエイティブに作ってみよう"
+	},
+	"familyguide_group_04_body": {
+		"message": "ポップコーンを食べながら居心地の良い布団の中で横になりましょう。村のシアターの大画面であらゆるギャングを捕まえたり、イッカクのオーリーが海の中で季節を祝う、インタラクティブな絵本を読んだりできます。"
+	},
+	"familyguide_group_04_title": {
+		"message": "家族の時間を共に過ごす"
+	},
+	"familyguide_nav_link_01": {
+		"message": "コード"
+	},
+	"familyguide_nav_link_02": {
+		"message": "お祝いしよう"
+	},
+	"familyguide_nav_link_03": {
+		"message": "作ってみよう"
+	},
+	"familyguide_nav_link_04": {
+		"message": "ファミリー タイム"
+	},
+	"familyguide_nav_link_05": {
+		"message": "使い方のヒント"
+	},
+	"familyguide_nav_link_06": {
+		"message": "もっと見る"
+	},
+	"familyguide_secondary_body": {
+		"message": "12 月 24 日、サンタ村は世界中の子どもにプレゼントを届けるサンタとトナカイを追跡できる画面に変わります。"
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "「サンタを追いかけよう」ウェブサイトまたは Android アプリで追跡しましょう"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "サンタの旅は 25 時間かかることを知っていましたか？最初に極東のロシアに現地時間午後 10 時過ぎに立ち寄り、ニューヨークには午前 5 時、パリには午前 11 時に立ち寄りました。"
+	},
+	"familyguide_secondary_title": {
+		"message": "クリスマスにサンタを追いかけよう"
+	},
+	"familyguide_tips_body": {
+		"message": "今年は、お気に入りの Google サービスすべてとともに「サンタを追いかけよう」の魔法がパワーアップしました。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Google アシスタントに話しかけて、妖精のディンプルスティックから毎日楽しい情報を手に入れましょう。クリスマスのジョークや豆知識も聞いてみましょう。また、サンタを呼んだら何が起こるのかも試してみてください。"
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "「OK Google、北極の最新情報は？」"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Android 向け「サンタを追いかけよう」アプリを Play ストアでダウンロードしましょう。このアプリだけで見つけられるゲームの村のシーンがあります。"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android アプリ"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Android Wear との統合で、腕時計上でサンタを追いかけられます。"
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Googleで「サンタ」と検索して、3D のサンタを表示します。ほとんどの iPhone と最新の Android デバイスでは、サンタがカメラを通して手を振るのを AR で見ることができます。"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "サンタを自分のリビングルームへ"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "メッセージにクリスマスの楽しい雰囲気を添えませんか。Google の Tenor ページで「Santa Tracker gifs」（英語のみ）と検索して、サンタがテーマの GIF やステッカーを探しましょう。"
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "GIF のギフトを贈りましょう"
+	},
+	"familyguide_tips_title": {
+		"message": "使い方のヒント"
+	},
+	"familyguide_title": {
+		"message": "家族全員でクリスマスを楽しもう"
 	},
 	"fi_country_name": {
 		"message": "フィンランド"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "プレゼントの準備は大混乱"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth: 世界中のクリスマスの食事"
+	},
 	"scene_icecave": {
 		"message": "氷の洞窟"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "地図クイズ"
+	},
+	"scene_ollieundersea": {
+		"message": "海の中のオーリー"
 	},
 	"scene_playground": {
 		"message": "北極の遊び場"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "クリスマスの伝統"
+	},
+	"scene_traditionsquiz": {
+		"message": "クリスマスの伝統クイズ"
 	},
 	"scene_translations": {
 		"message": "翻訳"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "凍った！"
+	},
+	"snowball_iced_count": {
+		"message": "ヒット"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}}/{{total}} 人プレイ中"

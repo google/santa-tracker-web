@@ -5,17 +5,25 @@ import {dedup} from './src/lib/promises.js';
 const g = createStore({
   mini: false,
   audioSuspended: undefined,  // undefined until we observe it
+  muted: undefined,
 
   orientation: null,
 
   hidden: false,
 
+  route: null,
+
   status: '',  // '', paused, gameover
 
   sceneOrientation: null,
+  sceneTilt: false,
   sceneHasPause: false,
 
   score: {},
+
+  playNextRoute: '',
+
+  shareUrl: null,
 });
 
 export default g;
@@ -77,7 +85,7 @@ startup((global) => {
     // assume the user is using a mouse.
     const hasMouse = (pointerMedia.matches && hoverMedia.matches) || !window.Touch;
     global.setState({
-      inputMode: hasMouse ? 'mouse' : 'touch',
+      inputMode: hasMouse ? 'keys' : 'touch',
     });
   };
 
@@ -87,3 +95,4 @@ startup((global) => {
 
   return update;
 });
+
