@@ -47,25 +47,22 @@ app.Player = class Player {
    */
   restart() {
     this.dead = true
+    this.animationQueue = []
+    this.animations['death'].renderer.svgElement.classList.add('is-active')
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = {
       animation: Constants.PLAYER_FRAMES.DEATH,
-      callback: () => console.log('died')
+      callback: () => {
+        this.dead = false
+        this.animations['death'].renderer.svgElement.classList.remove('is-active')
+
+        this.resetPosition()
+
+        this.game.board.updateEntityPosition(this,
+            this.prevPosition.x, this.prevPosition.y,
+            this.position.x, this.position.y)
+      }
     }
-    this.animationQueue = []
-    this.animations['death'].renderer.svgElement.classList.add('is-active')
-
-    window.setTimeout(() => {
-      this.dead = false
-
-      this.animations['death'].renderer.svgElement.classList.remove('is-active')
-
-      this.resetPosition()
-
-      this.game.board.updateEntityPosition(this,
-          this.prevPosition.x, this.prevPosition.y,
-          this.position.x, this.position.y)
-    }, 500)
   }
 
   resetPosition() {
@@ -282,7 +279,7 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]
     if (acceptToyEntities && acceptToyEntities.length) {
-      this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST)
+      this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF)
       this.clearToyParts()
 
       // temporary
@@ -311,7 +308,7 @@ app.Player = class Player {
 
       if (this.toyParts.length == 1) {
         // transition to holding animation
-        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST)
+        this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
       }
 
       this.elem.classList.add(`toypart--${toyPart}`)
@@ -375,7 +372,7 @@ app.Player = class Player {
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
         }
-        break;
+        break
       case Constants.PLAYER_STATES.REST:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.WALK:
@@ -386,7 +383,19 @@ app.Player = class Player {
               animation: rest
             })
         }
-        break;
+        break
+      case Constants.PLAYER_STATES.PICK_UP:
+        this.playerState = Constants.PLAYER_STATES.PICK_UP
+        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST, () => {
+            console.log('add toy part')
+        })
+        break
+      case Constants.PLAYER_STATES.DROP_OFF:
+        this.playerState = Constants.PLAYER_STATES.DROP_OFF
+          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST, () => {
+            console.log('drop toy')
+          })
+        break
     }
   }
 
@@ -431,11 +440,16 @@ app.Player = class Player {
     if (finished) {
       if (this.currentAnimationState.callback) {
         this.currentAnimationState.callback.call(this)
-        // todo: prevent this from playing more than once
       }
 
       if (this.animationQueue.length) {
         this.currentAnimationState = this.animationQueue.shift()
+      } else {
+        // No pending animations, go back to rest state
+        this.setPlayerState(Constants.PLAYER_STATES.REST)
+        if (this.animationQueue.length) {
+          this.currentAnimationState = this.animationQueue.shift()
+        }
       }
     }
   }

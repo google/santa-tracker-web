@@ -58,8 +58,8 @@ Constants = {
   PLAYER_STATES: {
     REST: 0,
     WALK: 1,
-    HOLD_REST: 2,
-    HOLD_WALK: 3
+    PICK_UP: 2,
+    DROP_OFF: 3
   },
 
   PLAYER_FRAMES: {
