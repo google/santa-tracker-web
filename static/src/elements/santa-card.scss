@@ -79,7 +79,7 @@ main {
     opacity: 0;
   }
   &::after {
-    z-index: -1;
+    z-index: 100;
     opacity: 0.9;
     background: transparent no-repeat center / cover;
   }
@@ -144,6 +144,8 @@ main {
 .text {
   text-shadow: 0 1px 0 #0002;
   color: white;
+  z-index: 10000;
+  position: relative;
 }
 
 h1 {

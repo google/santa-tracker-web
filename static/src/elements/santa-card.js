@@ -78,7 +78,6 @@ window.setInterval(() => {
   if (!card) {
     return;
   }
-  console.info('animating card', card);
   card.animate = true;
   window.setTimeout(() => {
     card.animate = false;
