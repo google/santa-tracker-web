@@ -2,10 +2,10 @@
  * @fileoverview Service Worker for Santa Tracker.
  */
 
-const debug = true;
+const debug = false;
 
 const swUrl = new URL(self.location);
-const baseurl = swUrl.searchParams.get('baseurl');
+const baseurl = swUrl.searchParams.get('baseurl') || '';
 
 console.info('SW', baseurl);
 
@@ -60,7 +60,9 @@ self.addEventListener('activate', (event) => {
 });
 
 function staticRequestPath(url) {
-  if (baseurl.startsWith('/')) {
+  if (!baseurl) {
+    // do nothing, not prod
+  } else if (baseurl.startsWith('/')) {
     // for staging on a single domain
     const u = new URL(url);
     if (u.hostname === location.hostname && u.pathname.startsWith(baseurl)) {
