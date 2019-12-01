@@ -17,17 +17,17 @@ export class SantaNoticeElement extends LitElement {
     };
   }
 
-  constructor() {
-    super();
-    if (this.key) {
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('key')) {
       this.hidden = this.key in localStorage;
     }
+    return true;
   }
 
   _onClose() {
     this.hidden = true;
     if (this.key) {
-      localStorage[this.key] = 'yes';
+      localStorage[this.key] = +new Date();
     }
   }
 
