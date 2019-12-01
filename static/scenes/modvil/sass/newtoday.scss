@@ -136,7 +136,7 @@
 }
 
 #featuredButton {
-  max-width: 250px;
+  max-width: 50vw;
   min-width: 140px;
   padding: 8px 16px;
   border: 0;
@@ -150,9 +150,17 @@
   cursor: pointer;
   position: relative;
 
+  font-family: Lobster;
+  font-size: 34px;
+  line-height: 2em;
+  text-shadow: 0 1px 0 #0002;
+
   @media (max-width: 768px) {
     padding: 4px 8px;
     border-radius: 10px;
+    max-width: 250px;
+
+    font-size: 24px;
   }
 
   display: flex;
@@ -160,15 +168,10 @@
 
   img {
     border: 0;
-    width: 48px;
-    height: 48px;
-    margin-right: 8px;
-
-    @media (max-width: 768px) {
-      margin-right: 4px;
-      width: 32px;
-      height: 32px;
-    }
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    margin-right: 0.25em;
   }
 
   span {
@@ -176,16 +179,6 @@
     overflow-x: hidden;
     display: block;
     text-overflow: ellipsis;
-
-    font-family: Lobster;
-    font-size: 44px;
-    line-height: 2em;
-    text-shadow: 0 1px 0 #0002;
-
-    @media (max-width: 768px) {
-      font-size: 24px;
-      line-height: 2.8em;
-    }
   }
 
   .info {
@@ -202,6 +195,8 @@
 
     transform: translateY(-50%);
 
+    // revert from Lobster
+    font-family: 'Google Sans', Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
     z-index: 100;
