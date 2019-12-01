@@ -131,7 +131,7 @@ export class SantaCardNavElement extends LitElement {
     <option value="es-419">Español (América Latina)</option>
     <option value="fr">Français</option>
     <option value="fr-CA">Français (Canada)</option>
-    <option value="hi">Hindi</option>
+    <option value="hi">हिन्दी</option>
     <option value="hr">Hrvatski</option>
     <option value="id">Indonesia</option>
     <option value="it">Italiano</option>
