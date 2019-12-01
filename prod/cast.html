@@ -100,7 +100,7 @@ player.addEventListener('canplaythrough', () => {
 // Pick between 40-90 seconds, on 10-second intervals.
 function randomTime() {
   const raw = 40 + (Math.random() * 50);
-  const seconds = Math.round(seconds / 10) * 10;
+  const seconds = Math.round(raw / 10) * 10;
   return seconds * 1000;
 }
 
@@ -114,7 +114,9 @@ function ready() {
   let timeout = 0;
   const enqueueNext = () => {
     window.clearTimeout(timeout);
-    timeout = window.setTimeout(playNext, randomTime());
+    const time = randomTime();
+    console.info('playing next video in', time);
+    timeout = window.setTimeout(playNext, time);
   };
 
   playerExtra.addEventListener('canplaythrough', () => {

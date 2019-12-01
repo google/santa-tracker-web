@@ -85,7 +85,7 @@ function splitProdPath(raw) {
 
   let pathname = raw.substr(intlPrefix.length);
   const routeMatch = pathname.match(/^\/(?:(\w+)\.html|)(\?|$)/);
-  if (routeMatch) {
+  if (routeMatch && !IGNORE_PROD.includes(routeMatch[1])) {
     pathname = '/';  // don't use /index.html, as our Go server redirects in staging (breaks Safari)
   }
 
