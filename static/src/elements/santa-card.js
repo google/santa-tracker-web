@@ -46,12 +46,45 @@ export const scenesWithColor = {
   '@cityquiz': '#e7ad03',
 };
 
-
+const visibleForRandom = new Set();
 const intersectionObserver = (window.IntersectionObserver ? new window.IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    entry.target._visible = entry.isIntersecting;
+    const card = entry.target;
+
+    card._visible = entry.isIntersecting;
+    if (entry.isIntersecting && card.effectiveId in scenesWithColor) {
+      // Add only if we're a Lottie card.
+      visibleForRandom.add(card);
+    } else {
+      visibleForRandom.delete(card);
+    }
   });
 }, {rootMargin: '128px'}) : null);
+
+
+// every 8s, twiddle a random card
+window.setInterval(() => {
+  let factor = 0.5;
+  let card = null;
+
+  for (const cand of visibleForRandom) {
+    if (Math.random() > factor) {
+      card = cand;
+      break;
+    }
+    factor /= 2;
+  };
+
+  if (!card) {
+    return;
+  }
+  console.info('animating card', card);
+  card.animate = true;
+  window.setTimeout(() => {
+    card.animate = false;
+  }, (Math.random() * 1000) + 1500);  // for 2s +/- 0.5s
+
+}, 8 * 1000);
 
 
 export class SantaCardElement extends LitElement {
@@ -61,6 +94,7 @@ export class SantaCardElement extends LitElement {
       scene: {type: String, reflect: true},
       id: {type: String, reflect: true},
       featured: {type: Boolean, reflect: true},
+      animate: {type: Boolean},
 
       _visible: {type: Boolean},
       _active: {type: Boolean},
@@ -86,7 +120,7 @@ export class SantaCardElement extends LitElement {
   }
 
   _buildAsset() {
-    const scene = this.scene || this.id || '';
+    const scene = this.effectiveId;
 
     // This assets that we have a Lottie card.
     if (scene in scenesWithColor) {
@@ -142,9 +176,9 @@ export class SantaCardElement extends LitElement {
       this._refreshAsset();
     }
 
-    if (changedProperties.has('_active')) {
+    if (changedProperties.has('_active') || changedProperties.has('animate')) {
       if (this._assetNode instanceof SantaCardPlayerElement) {
-        this._assetNode.active = this._active;
+        this._assetNode.active = this._active || this.animate;
       }
     }
 
@@ -165,7 +199,7 @@ export class SantaCardElement extends LitElement {
     if (this.locked >= 0 || this._active) {
       return;
     }
-    common.play('menu_over', this.scene || this.id || '');
+    common.play('menu_over', this.effectiveId);
     
     this._active = true;
   }
@@ -186,8 +220,12 @@ export class SantaCardElement extends LitElement {
     return this.locked != null && this.locked >= 0;
   }
 
+  get effectiveId() {
+    return this.scene || this.id || '';
+  }
+
   render() {
-    const scene = this.scene || this.id || '';
+    const scene = this.effectiveId;
     const isLocked = this.isLocked;
     const background = (this._assetNode instanceof HTMLImageElement);
     const mainStyle = scene in scenesWithColor ? `--color: ${scenesWithColor[scene]}` : '';
