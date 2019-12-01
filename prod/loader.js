@@ -36,6 +36,12 @@ window.onunhandledrejection = (event) => {
   }
 };
 
+// Add this early. We get it very aggressively from Chrome and friends.
+window.installEvent = null;
+window.addEventListener('beforeinstallprompt', (event) => {
+  window.installEvent = event;
+});
+
 window.sw = null;
 if ('serviceWorker' in navigator && (isProd || true)) {
   // Register the SW in the served language, not the request language (as this isn't available

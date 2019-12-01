@@ -8,6 +8,7 @@ $max-dim: 1400px;
 }
 
 #scroll {
+  box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: none;
@@ -86,21 +87,36 @@ santa-card {
   }
 }
 
+footer,
+header {
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  font-size: 24px;
+  color: white;
+
+  @media (max-width: 768px - 1px) {
+    font-size: 16px;
+  }
+}
+
 header {
   display: flex;
-  min-height: 80px;
+  margin-top: 80px;
   align-items: center;
   justify-content: center;
+
+  santa-install {
+    z-index: 100000;
+
+    &:not([ready]) {
+      display: none;
+    }
+  }
 }
 
 /** footer and links */
 
 footer {
   background: #3a068d;
-  color: white;
-  font-family: 'Google Sans', 'Arial', sans-serif;
-  font-size: 24px;
-
   .inner {
     padding: 48px 64px;
     display: flex;
@@ -111,7 +127,6 @@ footer {
   
     @media (max-width: 768px - 1px) {
       padding: 24px 32px;
-      font-size: 16px;
     }
   }
 

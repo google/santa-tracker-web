@@ -109,8 +109,10 @@ export class SantaChromeElement extends LitElement {
     // Handles blue of our window, which means an iframe scene is focused.
     if (document.activeElement === document.body) {
       // .. unless it was a user hiding and showing the tab, which also fires blur
-    } else {
-      this.navOpen = false;
+    } else if (document.activeElement !== null) {
+      if (document.activeElement.localName === 'santa-gameloader') {
+        this.navOpen = false;
+      }
     }
   }
 

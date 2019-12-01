@@ -5,6 +5,7 @@ import * as config from '../core/config.js';
 import styles from './santa-cardnav.css';
 import {_msg} from '../magic.js';
 import './santa-card.js';
+import './santa-install.js';
 import isAndroid from '../core/android.js';
 
 
@@ -108,6 +109,7 @@ export class SantaCardNavElement extends LitElement {
 <div id="wrap">
 <div id="scroll">
 <header>
+  <santa-install></santa-install>
 </header>
 <main>${cardHtml}${placeholders}</main>
 <footer>
