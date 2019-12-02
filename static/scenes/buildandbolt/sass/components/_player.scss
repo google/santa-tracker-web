@@ -28,11 +28,11 @@
 
     &__inner {
       height: 200%;
-      transform: translateX(-25%);
+      transform: translate(-25%, -50%);
       width: 200%;
 
       &.is-flipped {
-        transform: translateX(-25%) scaleX(-1);
+        transform: translate(-25%, -50%) scaleX(-1);
       }
 
       &.is-dead {
