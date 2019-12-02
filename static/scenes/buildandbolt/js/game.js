@@ -15,8 +15,10 @@ goog.require('app.Player')
 goog.require('app.PresentBox')
 goog.require('app.Table')
 goog.require('app.Wall')
-goog.require('app.shared.Gameover');
-goog.require('app.shared.LevelUp');
+goog.require('app.shared.Gameover')
+goog.require('app.shared.LevelUp')
+goog.require('app.shared.Scoreboard')
+
 
 app.Game = class Game {
   constructor(context, playerOption, animations, loadAnimation) {
@@ -45,7 +47,8 @@ app.Game = class Game {
         document.querySelector('.levelup--number'));
     this.level = 0;
 
-    this.gameoverDialog = new app.shared.Gameover(this);
+    this.gameoverDialog = new app.shared.Gameover(this)
+    this.scoreboard = new Scoreboard(this, null, Levels.length)
 
     this.isPlaying = false
     this.lastFrame = +new Date() / 1000
@@ -57,6 +60,7 @@ app.Game = class Game {
 
   initLevel(level) {
     let levelConfig = Levels[level]
+    this.scoreboard.addTime(levelConfig.time)
     this.levelWinner = null
 
     for (let i = 0; i < this.players.length; i++) {
@@ -95,6 +99,7 @@ app.Game = class Game {
 
   startLevel() {
     this.initLevel(this.level)
+    this.scoreboard.setLevel(this.level)
     this.isPlaying = true
   }
 
@@ -116,6 +121,8 @@ app.Game = class Game {
     for (const player of this.players) {
       player.onFrame(delta, now)
     }
+
+    this.scoreboard.onFrame(delta)
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
   }
@@ -172,5 +179,12 @@ app.Game = class Game {
     }
 
     this.entities = []
+  }
+
+  /**
+   * Called by the scoreboard to stop the game when the time is up.
+   */
+  gameover() {
+    console.log('gameover')
   }
 }

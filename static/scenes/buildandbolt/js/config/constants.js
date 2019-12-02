@@ -4,6 +4,7 @@ goog.provide('Constants');
  * Constants for present havoc game.
  */
 Constants = {
+  INITIAL_COUNTDOWN: 52,
   DEBUG: false,
 
   PLAYER_OPTIONS: {

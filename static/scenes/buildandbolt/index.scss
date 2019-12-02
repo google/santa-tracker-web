@@ -2,6 +2,7 @@ $name: 'module-buildandbolt';
 $gameover-bg: #BFC932;
 $rotate-bg: $gameover-bg;
 
+@import '../_shared/sass/board';
 @import '../_shared/sass/button';
 @import '../_shared/sass/levelup';
 
