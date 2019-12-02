@@ -136,10 +136,10 @@ app.Player = class Player {
   updatePosition(delta) {
     this.isDecelerating = false
 
-    const { left, right, up, down } = this.gameControls.getMovementDirections(this.controls,
-        { x: Utils.gridToPixelValue(this.position.x), y: Utils.gridToPixelValue(this.position.y)})
+    const { left, right, up, down } = this.gameControls.getMovementDirections(
+        this.controls, this.position)
 
-    console.log(left, right, up, down)
+    // console.log(left, right, up, down)
 
     let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
     let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
