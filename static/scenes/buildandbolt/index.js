@@ -21,32 +21,34 @@ const controlsButton = document.querySelector('[data-player-controls-skip]')
 let playerOption
 let animations = {}
 
-const initAnimation = (path, entity, side) => {
+const initPlayerAnimation = (path, playerId, side) => {
+
   const p = prepareAnimation(path, {
+    container: document.querySelector(`.player--${playerId} .player__inner`),
     loop: false,
     autoplay: false,
     rendererSettings: {
       className: `animation animation--${side}`
     },
   }).then((anim) => {
-    if (!animations[entity]) {
-      animations[entity] = {}
+    if (!animations[`player-${playerId}`]) {
+      animations[`player-${playerId}`] = {}
     }
 
-    animations[entity][side] = anim
-  });
+    animations[`player-${playerId}`][side] = anim
+  })
 
-  api.preload.wait(p);
+  api.preload.wait(p)
 }
 
-initAnimation('img/players/a/front.json', 'player-a', 'front')
-initAnimation('img/players/a/back.json', 'player-a', 'back')
-initAnimation('img/players/a/side.json', 'player-a', 'side')
-initAnimation('img/players/death-pow.json', 'player-a', 'death')
-initAnimation('img/players/b/front.json', 'player-b', 'front')
-initAnimation('img/players/b/back.json', 'player-b', 'back')
-initAnimation('img/players/b/side.json', 'player-b', 'side')
-initAnimation('img/players/death-pow.json', 'player-b', 'death')
+initPlayerAnimation('img/players/a/front.json', 'a', 'front')
+initPlayerAnimation('img/players/a/back.json', 'a', 'back')
+initPlayerAnimation('img/players/a/side.json', 'a', 'side')
+initPlayerAnimation('img/players/death-pow.json', 'a', 'death')
+initPlayerAnimation('img/players/b/front.json', 'b', 'front')
+initPlayerAnimation('img/players/b/back.json', 'b', 'back')
+initPlayerAnimation('img/players/b/side.json', 'b', 'side')
+initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
 
 playerSelectionOptions.forEach((element) => {
   element.addEventListener('click', (e) => {
@@ -57,7 +59,7 @@ playerSelectionOptions.forEach((element) => {
 })
 
 controlsButton.addEventListener('click', (e) => {
-  const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations, loadAnimation)
+  const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations, prepareAnimation)
   controlsScreen.classList.add('is-hidden')
 })
 
