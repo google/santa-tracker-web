@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Vier die hele maand fees"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Gebruik die Google Assistent om tydens Desember meer oor Kersvader te leer! Hierdie integrasie is in gekose tale beskikbaar."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Met hul ouers se toestemming, kan kinders jonger as 13 ook hul eie gepersonaliseerde Google Assistent-ervaring hê wanneer hulle met hul eie rekening aanmeld, wat met \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e bestuur word."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistent verbind jou aan die Noordpool, waar Kersvader besig is om vir 'n musiekkonsert te oefen. Hy ken net een liedjie — kan jy hom help uitwerk wat die beste manier is om dit te speel?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Bel Kersvader"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Skakel daagliks in vir die Noordpoolnuusversameling om uit te vind waarmee Kersvader en sy elwe besig is. Vra net die Google Assistent wat die nuutste by die Noordpool is."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noordpoolnuusversameling"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Wanneer Kersvader nie saam met sy elwe in die werkswinkel besig is nie, werk hy daaraan om sy komedievaardighede te verbeter. Vra net die Google Assistent vir 'n Kersvader-grappie om sy grappies te hoor."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Kersvadergrappies"
+	},
+	"familyguide_assistant_title": {
+		"message": "Moet nooit 'n Noordpoolminuut misloop nie"
+	},
 	"familyguide_body": {
 		"message": "Kersvader se dorpie is die perfekte plek waar gesinne die feestyd kan vier. Jy sal al jou gunstelingkarakters bymekaar kry met prettige, opvoedkundige en interaktiewe aktiwiteite vir elke ouderdom."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "meer"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "Op 24 Desember verander Santa se dorpie in 'n spoorsny-ervaring waar jy Kersvader en sy rendiere kan volg terwyl hulle presente vir kinders regoor die wêreld aflewer."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Kry hierdie feestyd nog betowering uit Waar is Kersvader met al jou gunsteling-Google-produkte."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Vra die Google Assistent elke dag vir prettige opdaterings vanaf Dompelstompie die Elf."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, wat's nuus by die Noordpool?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Feestydpret vir die hele gesin"
+	},
+	"familylink": {
+		"message": "Voeg jou kind se Google-rekening by, wat met Family Link bestuur word"
+	},
+	"featured": {
+		"message": "Uitstalitem"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Kersvader se opstyg"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Uit soos 'n kers"
+	},
 	"scene_videoscene_museum": {
 		"message": "'n Dag by die museum"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Kersvader se werkswinkel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Joelblok"
 	},
 	"scene_windtunnel": {
 		"message": "Windtonnel"

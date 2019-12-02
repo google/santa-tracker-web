@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Celebra todo el mes"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Usa el Asistente de Google para descubrir más sobre Santa Claus en diciembre. Esta integración solo está disponible en algunos idiomas."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Los niños menores de 13 años pueden tener una experiencia personalizada con el Asistente de Google, siempre que cuenten con el permiso de sus padres y hayan accedido a sus cuentas administradas con \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "El Asistente de Google te conecta con el Polo Norte, donde Santa está ocupado ensayando para su presentación en un concierto. Solo se sabe una canción. ¿Puedes ayudarlo a encontrar la mejor forma de tocarla?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Llama a Santa"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Sintoniza a diario el Noticiero del Polo Norte para conocer las novedades de Santa y sus duendes. Solo pregúntale al Asistente de Google qué hay de nuevo en el Polo Norte."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticiero del Polo Norte"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Cuando Santa no está ocupado con los duendes en el taller, se dedica a perfeccionar sus dotes cómicas. Pídele al Asistente de Google que te cuente un chiste de Santa para escuchar su rutina."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Chistes de Santa"
+	},
+	"familyguide_assistant_title": {
+		"message": "No te pierdas las Noticias del Polo Norte"
+	},
 	"familyguide_body": {
 		"message": "La aldea de Santa es el lugar perfecto para que las familias celebren la temporada navideña. Allí encontrarás a todos tus personajes favoritos, además de actividades divertidas, interactivas y educativas para todas las edades."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "más"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asistente"
+	},
 	"familyguide_secondary_body": {
 		"message": "El 24 de diciembre, la aldea de Santa se transforma en una experiencia de seguimiento en la que puedes seguir a Santa y sus renos mientras llevan regalos a niños de todo el mundo."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Esta temporada navideña, disfruta de la magia de Sigue a Santa en todos tus productos favoritos de Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pídele al Asistente de Google actualizaciones divertidas todos los días sobre el duende Cachetitos."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "“Hey Google, ¿qué novedades hay en el Polo Norte?”"
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Diversión navideña para toda la familia"
+	},
+	"familylink": {
+		"message": "Agrega la Cuenta de Google de tus hijos administrada con Family Link"
+	},
+	"featured": {
+		"message": "Destacado"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Despegue de Santa"
 	},
+	"scene_videoscene_likealight": {
+		"message": "El último apaga la luz"
+	},
 	"scene_videoscene_museum": {
 		"message": "Un día en el museo"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Taller de Santa"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Tronco de Navidad"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de viento"

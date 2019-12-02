@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Den ganzen Monat feiern"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Mit Google Assistant erfährst du den ganzen Dezember über interessante Dinge zum Weihnachtsmann. Nur in ausgewählten Sprachen verfügbar."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Mit Erlaubnis der Eltern können Kinder ab 13 Jahren Google Assistant mit ihrem eigenen über \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e verwalteten Konto nutzen."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Mit Google Assistant gelangst du direkt zum Nordpol – wo der Weihnachtsmann zufällig gerade für ein Konzert probt. Leider kennt er aber nur ein Lied. Kannst du ihm zeigen, wie er es am besten spielen soll?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Weihnachtsmann anrufen"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "In den Nordpol-Nachrichten erfährst du täglich, was der Weihnachtsmann und seine Elfen gerade machen. Frag einfach Google Assistant, was es Neues am Nordpol gibt."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Nordpol-Nachrichten"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Wenn der Weihnachtsmann nicht gerade seinen Elfen in der Geschenkewerkstatt unter die Arme greift, überlegt er sich gern neue Witze. Frag doch mal Google Assistant nach einem Weihnachtswitz, um einen Vorgeschmack davon zu bekommen."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Weihnachtswitze"
+	},
+	"familyguide_assistant_title": {
+		"message": "Immer auf dem neuesten Stand mit dem \"Nordpol-Bericht\""
+	},
 	"familyguide_body": {
 		"message": "Das Weihnachtsdorf ist der ideale Ort, um gemeinsam mit der Familie zu feiern. Hier finden Sie alle Ihre Lieblingscharaktere sowie unterhaltsame, lehrreiche und interaktive Aktivitäten für jedes Alter."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "Mehr"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "Am 24. Dezember können Sie im Weihnachtsdorf live dabei sein, wie der Weihnachtsmann und seine Rentiere Kindern auf der ganzen Welt Geschenke bringen."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Dieses Jahr ist \"Auf den Spuren des Weihnachtsmanns\" dank Ihrer liebsten Google-Produkte noch interessanter."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Frag Google Assistant jeden Tag nach lustigen Neuigkeiten über den Weihnachtself Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, was gibt es Neues am Nordpol?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Schöne Feiertage für die ganze Familie"
+	},
+	"familylink": {
+		"message": "Google-Konto des Kindes hinzufügen (über Familiy Link verwaltet)"
+	},
+	"featured": {
+		"message": "Empfohlen"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Abflug des Weihnachtsmanns"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Knipst die Lichter aus!"
+	},
 	"scene_videoscene_museum": {
 		"message": "Ein Tag im Museum"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "In der Geschenkewerkstatt des Weihnachtsmanns"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Christklotz"
 	},
 	"scene_windtunnel": {
 		"message": "Im Windkanal"

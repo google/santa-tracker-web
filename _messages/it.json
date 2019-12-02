@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Festeggia per tutto il mese"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Per tutto il mese di dicembre, usa l'Assistente Google per scoprire di più su Babbo Natale! Questa integrazione è disponibile per alcune lingue."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Con l'autorizzazione dei genitori, i bambini sotto i 13 anni possono avere un'esperienza Assistente Google personalizzata quando accedono con il loro account, gestito tramite \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "L'Assistente Google ti mette in contatto con il Polo Nord, dove Babbo Natale è indaffarato con le prove per un concerto musicale. Conosce un solo brano, puoi aiutarlo a decidere quale sia il modo migliore per eseguirlo?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Chiama Babbo Natale"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Sintonizzati ogni giorno sul Notiziario del Polo Nord per scoprire cosa stanno facendo Babbo Natale e i suoi elfi. Basta chiedere all'Assistente Google che succede di nuovo al Polo Nord."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Notiziario del Polo Nord"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quando Babbo Natale non è impegnato con gli elfi nel laboratorio, trascorre il suo tempo affinando il suo talento di attore comico. Chiedi all'Assistente Google una barzelletta di Babbo Natale per ascoltare il suo repertorio."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Le barzellette di Babbo Natale"
+	},
+	"familyguide_assistant_title": {
+		"message": "Non perderti un minuto di quello che succede al Polo Nord"
+	},
 	"familyguide_body": {
 		"message": "Il villaggio di Babbo Natale è il posto perfetto in cui festeggiare le feste in famiglia. Troverai tutti i tuoi personaggi preferiti, oltre ad attività interattive istruttive e divertenti per tutte le età."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "altro"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistente"
+	},
 	"familyguide_secondary_body": {
 		"message": "Il 24 dicembre, il villaggio si trasforma in uno strumento di tracciamento che ti permetterà di seguire Babbo Natale e le sue renne mentre portano i regali ai bambini di tutto il mondo."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Segui Babbo Natale sarà ancora più magico quest'anno, con tutti i tuoi prodotti Google preferiti."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Chiedi ogni giorno all'Assistente Google divertenti aggiornamenti dall'elfo Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, che succede di nuovo al Polo Nord?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Divertimento natalizio per tutta la famiglia"
+	},
+	"familylink": {
+		"message": "Aggiungi l'Account Google di tuo figlio, gestito tramite Family Link"
+	},
+	"featured": {
+		"message": "In primo piano"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Il decollo di Babbo Natale"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Ricordati di spegnere la luce!"
+	},
 	"scene_videoscene_museum": {
 		"message": "Una giornata al museo"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "L'officina di Babbo Natale"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Il ciocco natalizio"
 	},
 	"scene_windtunnel": {
 		"message": "Galleria del vento"

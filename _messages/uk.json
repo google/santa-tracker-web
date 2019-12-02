@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Святкуйте весь місяць"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Хочете знати, чим займається Дід Мороз напередодні зимових свят? Google Асистент підкаже! Ця функція доступна лише деякими мовами."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Діти віком до 13 років можуть із дозволу батьків самостійно користуватися Google Асистентом, увійшовши у свій обліковий запис, керований через \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "За допомогою Google Асистента зателефонуйте на Північний полюс, де Дід Мороз готується до музичного виступу. Він знає лише одну пісню. Допоможете йому заспівати її?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Телефонувати Діду Морозу"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Налаштуйтеся на хвилю Північного полюса, щоб отримувати щоденні звістки про плани та роботу Діда Мороза й ельфів. Просто запитайте Google Асистента, що нового на Північному полюсі."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Останні вісті з Північного полюса"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Коли Дід Мороз не працює з ельфами в майстерні, він удосконалює своє вміння жартувати. Просто попросіть Google Асистента про жарт від Діда Мороза."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Жарти від Діда Мороза"
+	},
+	"familyguide_assistant_title": {
+		"message": "Дізнавайтеся про новини з Північного полюса"
+	},
 	"familyguide_body": {
 		"message": "Містечко Діда Мороза – ідеальне місце для сімейних святкових розваг. Тут вас зустрінуть улюблені герої, які пропонують веселі, навчальні й інтерактивні розваги для будь-якого віку."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "більше"
 	},
+	"familyguide_nav_link_07": {
+		"message": "асистент"
+	},
 	"familyguide_secondary_body": {
 		"message": "24 грудня Містечко Діда Мороза перетворюється на Центр керування польотом, у якому можна стежити, як Дід Мороз разом зі своїми оленями доставляє подарунки дітям у всьому світі."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Цьогоріч у сервісі Де Дід Мороз ще більше святкових розваг, пов'язаних із вашими улюбленими продуктами Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Запитуйте в Google Асистента про цікаві щоденні оновлення від ельфа Дімпі."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, що нового на Північному полюсі?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Святкові розваги для всієї сім'ї"
+	},
+	"familylink": {
+		"message": "Додайте обліковий запис Google дитини, керований через Family Link."
+	},
+	"featured": {
+		"message": "Пропоновані"
 	},
 	"fi_country_name": {
 		"message": "Фінляндія"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Злет Діда Мороза"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Відключився, як лампочка"
+	},
 	"scene_videoscene_museum": {
 		"message": "День у музеї"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Майстерня Діда Мороза"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Різдвяне поліно"
 	},
 	"scene_windtunnel": {
 		"message": "Потік вітру"

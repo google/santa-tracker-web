@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Praznujte cel mesec"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Decembra lahko s Pomočnikom Google izveste še več o Božičku. Integracija je na voljo v izbranih jezikih."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Otroci, mlajši od 13 let, lahko z dovoljenjem staršev uživajo v prilagojeni izkušnji Pomočnika Google tako, da se prijavijo s svojim računom, upravljanim z aplikacijo \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Pomočnik Google vas poveže s Severnim tečajem, kjer Božiček pridno vadi za nastop na glasbenem koncertu. Pozna samo eno pesem – pomagajte mu, da jo bo znal zaigrati kot mojster."
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Pokličite Božička"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Vsak dan prisluhnite Novicam s Severnega tečaja. Izvedeli boste, kaj počnejo Božiček in njegovi palčki. Pomočnika Google vprašajte, kaj je novega na Severnem tečaju."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Novice s Severnega tečaja"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Božiček večino časa pridno dela v delavnici s palčki, v prostem času pa brusi svoje komedijantske veščine. Pomočnika Google prosite za Božičkovo šalo in prisluhnite njegovim bistroumnostim."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Božičkove šale"
+	},
+	"familyguide_assistant_title": {
+		"message": "Ne zamudite zadnjih novic s Severnega tečaja"
+	},
 	"familyguide_body": {
 		"message": "Božičkova vas je popolno mesto za preživljanje praznikov za družine. Tu so vsi vaši najljubši liki in zabavne, poučne in interaktivne dejavnosti za vse starosti."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "več"
 	},
+	"familyguide_nav_link_07": {
+		"message": "pomočnik"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. decembra se Božičkova vas spremeni v izkušnjo spremljanja, kjer lahko sledite Božičku in njegovim jelenom med dostavljanjem daril za otroke po vsem svetu."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Naj vam letos Spremljanje Božičkove poti prinese še več čarobnosti v vseh vaših najljubših Googlovih izdelkih."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pomočnika Google lahko vsak dan povprašate o novostih, ki vam jih sporoči palček Jamček."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "»Hey Google, what’s new at the North Pole?« (Hej, Google, kaj je novega na Severnem tečaju?)"
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Praznična zabava za vso družino"
+	},
+	"familylink": {
+		"message": "Dodajte otrokov račun Google, upravljan z aplikacijo Family Link"
+	},
+	"featured": {
+		"message": "Predstavljamo"
 	},
 	"fi_country_name": {
 		"message": "Finska"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Božičkovo vzletišče"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Božiček spi kot top"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dan v muzeju"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Božičkova delavnica"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Ogenj božičnega polena"
 	},
 	"scene_windtunnel": {
 		"message": "Vetrovnik"

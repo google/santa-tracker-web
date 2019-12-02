@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Fira hela månaden"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Använd Google-assistenten och få reda på mer om jultomten i december! Den här integreringen är tillgänglig på utvalda språk."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Barn under 13 år kan med förälders tillstånd få en anpassad Google Assistent-upplevelse när de loggar in med sitt eget konto som hanteras med \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google-assistenten ansluter dig till Nordpolen, där jultomten har fullt upp med att öva inför en musikkonsert. Han kan bara en låt – kan du hjälpa honom att hitta det bästa sättet att spela den?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Ring jultomten"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Titta på Nordpolens nyheter varje dag och se vad jultomten och hans tomtenissar håller på med. Det är bara att fråga Google-assistenten vad som händer på Nordpolen."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Nordpolens nyheter"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "När jultomten inte har fullt upp med nissarna på verkstaden slipar han på sina framträdanden som komiker. Det är bara att be Google-assistenten om en tomtevits så får du höra ett julskämt."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Tomtevitsar"
+	},
+	"familyguide_assistant_title": {
+		"message": "Missa aldrig en nyhet från Nordpolen"
+	},
 	"familyguide_body": {
 		"message": "Jultomtens by är det perfekta stället för familjer att fira jul. Du hittar alla dina favoritfigurer tillsammans med roliga, pedagogiska och interaktiva aktiviteter för alla åldrar."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mer"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistenten"
+	},
 	"familyguide_secondary_body": {
 		"message": "Den 24 december förvandlas jultomtens by till en spårningsfest där du kan följa jultomten och hans renar när de delar ut julklappar till barn runt om i världen."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Upplev julmagi med Följ jultomten med alla dina favoritprodukter från Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Fråga Google-assistenten varje dag och få roliga uppdateringar från tomtenissen Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "”Hey Google, vad händer på Nordpolen?”"
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Julkul för hela familjen"
+	},
+	"familylink": {
+		"message": "Lägg till barnens Google-konto som hanteras med Family Link"
+	},
+	"featured": {
+		"message": "Utvalt"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Jultomten lyfter"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Sjusovare"
+	},
 	"scene_videoscene_museum": {
 		"message": "En dag i museet"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Tomteverkstan"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Julstock"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"
