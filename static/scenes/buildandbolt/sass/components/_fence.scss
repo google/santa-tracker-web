@@ -2,10 +2,10 @@
   .fence {
     height: $grid-unit-size;
     width: $grid-unit-size;
-    z-index: $fence-z-index;
+    z-index: 0;
 
-    &.player-in-front {
-      z-index: 0;
+    &.player-under {
+      z-index: $fence-z-index;
     }
 
     &__background {

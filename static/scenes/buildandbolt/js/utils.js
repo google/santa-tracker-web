@@ -226,18 +226,18 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
   // z-index detection
   const offsetTouching = 0.9 // prevent velocity issues
   if (entity.top) {
-    if (entity.y - offsetTouching <= playerPosition.y) { // + Constants.WALL_EXTRA_SPACE // don't need because of extraSpace
-      elem.classList.add('player-in-front')
+    if (entity.y - offsetTouching > playerPosition.y) { // + Constants.WALL_EXTRA_SPACE // don't need because of extraSpace
+      elem.classList.add('player-under')
     } else {
-      elem.classList.remove('player-in-front')
+      elem.classList.remove('player-under')
     }
   }
 
   if (entity.bottom) {
-    if (entity.y + offsetTouching - Constants.WALL_EXTRA_SPACE <= playerPosition.y) {
-      elem.classList.add('player-in-front')
+    if (entity.y + offsetTouching - Constants.WALL_EXTRA_SPACE > playerPosition.y) {
+      elem.classList.add('player-under')
     } else {
-      elem.classList.remove('player-in-front')
+      elem.classList.remove('player-under')
     }
   }
 
