@@ -43,20 +43,20 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 window.sw = null;
-if ('serviceWorker' in navigator && (isProd || true)) {
+let hasInstalledServiceWorker = false;
+
+if ('serviceWorker' in navigator) {
   // Register the SW in the served language, not the request language (as this isn't available
   // on the naked domain anyway).
-  const ready = (registration) => {
-    console.info('got SW with registration', registration);
-  };
   const params = new URLSearchParams();
   if (isProd) {
     params.set('baseurl', config.baseurl);
   }
-  window.sw = navigator.serviceWorker.register(`/sw.js?${params.toString()}`).then(ready).catch((err) => {
+  window.sw = navigator.serviceWorker.register(`/sw.js?${params.toString()}`).catch((err) => {
     console.warn('sw failed to register', err);
     return null;
   });
+  hasInstalledServiceWorker = Boolean(navigator.serviceWorker.controller);
 
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     loaded = true;  // pretend that we're loaded, so that Safari doesn't send us to an error page
@@ -87,8 +87,9 @@ function startup() {
   isAndroidTWA(startParams.has('android'));
 
   // Wait for both Firebase Remote Config and the Service Worker (optional), then load entrypoint.
-  const p = Promise.all([initialize(), window.sw]);
-  p.then(([remoteConfig, registration]) => {
+  // This is racey in that a Service Worker change might trigger a reload.
+  const ready = Promise.all([initialize(), window.sw]);
+  ready.then(([remoteConfig, registration]) => {
     if (remoteConfig.getBoolean('switchOff')) {
       throw new Error('switchOff');
     }
