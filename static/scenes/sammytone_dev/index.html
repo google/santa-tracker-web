@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+body {
+  background: white;
+  touch-action: pan-y;
+}
+a.video {
+  background: #eee;
+}
+  </style>
+</head>
+<body>
+
+<ul id="listing"></ul>
+<button id="error">Cause Error</button>
+
+<script type="module">
+  import * as route from '../../src/scene/route.js';
+  import api from '../../src/scene/api.js';
+  import strings from '../../src/strings/scenes.js';
+  import scenes from '../../scenes.json';
+
+  const listing = document.getElementById('listing');
+  const keys = Object.keys(scenes).sort();
+
+  const handler = (sceneName, ev) => {
+    // TODO(samthor): We can install a global link handler for this.
+    ev.preventDefault();
+    api.go(sceneName);
+  };
+
+  keys.forEach((sceneName) => {
+    const data = scenes[sceneName];
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    a.href = route.href(sceneName ? `${sceneName}.html` : './');
+    if (sceneName in strings) {
+      a.textContent = strings[sceneName];
+    } else {
+      a.textContent = '?' + (sceneName || 'index');
+    }
+    a.addEventListener('click', handler.bind(null, sceneName));
+
+    li.append(a);
+    a.classList.toggle('video', Boolean(data.video));
+
+    listing.appendChild(li);
+  });
+
+  api.config({scroll: true});
+
+  error.addEventListener('click', (ev) => {
+    api._send('error', 'error from scene');
+  });
+
+  api.ready(async () => {
+    // nothing specific to do here
+  });
+
+</script>
+
+</body>
+</html>

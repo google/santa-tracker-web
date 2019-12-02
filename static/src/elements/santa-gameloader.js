@@ -102,7 +102,7 @@ class PortControl {
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
-const LOAD_TIMEOUT = 2500;
+const LOAD_TIMEOUT = 10 * 1000;  // 10s
 
 // nb. allow-same-origin is fine, because we're serving on another domain
 // allow-top-navigation and friends are allowed for Android
