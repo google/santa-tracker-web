@@ -82,8 +82,6 @@ app.Controls = class Controls {
     this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
         { x: touch.clientX, y: touch.clientY })
 
-    console.log(this.currentTouchPosition)
-
     e.preventDefault()
 
     // Let tutorial know about touch so it can hide the tutorial.
@@ -101,8 +99,6 @@ app.Controls = class Controls {
 
     this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
         { x: touch.clientX, y: touch.clientY })
-
-    console.log(this.currentTouchPosition)
 
     e.preventDefault()
   }
@@ -133,8 +129,6 @@ app.Controls = class Controls {
   getMovementDirections(controls, currentPosition) {
     if (this.isTouch) {
       if (this.currentTouchPosition) {
-        console.log(currentPosition)
-
         return {
           left: this.currentTouchPosition.x < currentPosition.x,
           right: this.currentTouchPosition.x > currentPosition.x,

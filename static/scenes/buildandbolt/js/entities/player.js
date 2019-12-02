@@ -139,8 +139,6 @@ app.Player = class Player {
     const { left, right, up, down } = this.gameControls.getMovementDirections(
         this.controls, this.position)
 
-    // console.log(left, right, up, down)
-
     let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
     let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
     if (this.onIce) {
