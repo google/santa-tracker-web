@@ -12,6 +12,7 @@ app.Fence = class Fence extends app.Entity {
     this.config = config
 
     this.elem = document.createElement('div')
+    this.elem.setAttribute('class', 'fence')
     document.getElementById('fences').append(this.elem)
   }
 
@@ -36,7 +37,6 @@ app.Fence = class Fence extends app.Entity {
       this.addChild('left', type.left)
     }
 
-    this.elem.setAttribute('class', 'fence')
     super.onInit(config)
 
     this.config.checkCell = true
