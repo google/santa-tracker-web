@@ -82,13 +82,23 @@ export class SantaBadgeElement extends LitElement {
     let maxLevel = 0;
     if (this.maxLevel > 0) {
       maxLevel = this.maxLevel;
-    } else {
+    } else if (this.maxLevel === 0) {
       levelText = _msg`snowball_iced`;
     }
 
+    const displayRight = (this.level || this.score);
+
     return html`
 <main>
-  <div class="item ${this.level && (this._levelActive || !displayScore) ? 'alt-active' : ''}">
+  <div class="item ${displayRight ? 'hasAfter' : ''}" ?hidden=${!time}>
+    <div class="data">
+      <span>
+        <span class=${ifDefined(minutes ? undefined : 'dim')}>${minutes}<small>:</small></span>${pad(seconds)}
+      </span>
+      <label>${_msg`time`}</label>
+    </div>
+  </div>
+  <div class="item ${this.level && (this._levelActive || !displayScore) ? 'alt-active' : ''}" ?hidden=${!displayRight}>
     <div class="data">
       <span>${score}<small>${unit}</small></span>
       <label>${_msg`score`}</label>
@@ -96,14 +106,6 @@ export class SantaBadgeElement extends LitElement {
     <div class="data alt" ?hidden=${!this.level}>
       <span>${this.level}<span class="dim" ?hidden=${!maxLevel}><small>&middot;</small>${maxLevel}</span></span>
       <label>${levelText}</label>
-    </div>
-  </div>
-  <div class="item big">
-    <div class="data">
-      <span>
-        <span class=${ifDefined(minutes ? undefined : 'dim')}>${minutes}<small>:</small></span>${pad(seconds)}
-      </span>
-      <label>${_msg`time`}</label>
     </div>
   </div>
 </main>

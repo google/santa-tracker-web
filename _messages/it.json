@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Tocco"
 	},
+	"copied": {
+		"message": "Copiato."
+	},
 	"copy-me": {
 		"message": "Copia questo link per condividere con chi vuoi"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Dic"
+	},
+	"decmonth_long": {
+		"message": "dicembre"
 	},
 	"detected": {
 		"message": "rilevata"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Esplora il villaggio di Babbo Natale"
+	},
+	"familyguide_accordion_title": {
+		"message": "Festeggia per tutto il mese"
+	},
+	"familyguide_body": {
+		"message": "Il Villaggio di Babbo Natale è il posto perfetto in cui festeggiare il Natale in famiglia. Troverai tutti i tuoi personaggi preferiti, oltre ad attività interattive istruttive e divertenti per tutte le età."
+	},
+	"familyguide_card_01_body": {
+		"message": "Usa i concetti di base della programmazione per guidare gli elfi attraverso la foresta alla ricerca dei regali perduti."
+	},
+	"familyguide_card_02_body": {
+		"message": "Crea il tuo bigliettino natalizio programmando il tuo fiocco di neve personalizzato: basta selezionare uno dei tanti sfondi disponibili e condividerlo con i tuoi amici."
+	},
+	"familyguide_card_03_body": {
+		"message": "Gli elfi sono tornati a esercitarsi con la programmazione, e intanto si divertono a ballare. Usa la programmazione per la coreografia delle danze degli elfi, ma attenzione, man mano che la tua bravura cresce, le danze si fanno sempre più difficili!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Dall'indossare un \"toque\" in Canada ai costumi da bagno sportivi in Australia, fai clic sui segnaposto sulla mappa per scoprire le tradizioni natalizie di tutto il mondo."
+	},
+	"familyguide_card_05_body": {
+		"message": "Da \"Felice anno nuovo\" nella lingua degli elfi a \"Дед Мороз\", impara il vocabolario delle feste nelle lingue di tutto il mondo."
+	},
+	"familyguide_card_06_body": {
+		"message": "Babbo Natale deve raggiungere molti luoghi. Collega il contorno dei paesi sulla mappa con il loro nome geografico."
+	},
+	"familyguide_card_07_body": {
+		"message": "Conosci la storia delle festività natalizie? Fai vedere chi sei con questo quiz di nove domande che metterà alla prova le tue capacità."
+	},
+	"familyguide_card_07_title": {
+		"message": "Quiz sulle tradizioni del periodo festivo"
+	},
+	"familyguide_card_08_body": {
+		"message": "hai fame? Scopri manicaretti di tutto il mondo ed esplora le pietanze di paesi vicini e lontani."
+	},
+	"familyguide_card_09_body": {
+		"message": "Tocca ed esplora la suite di creatività di Babbo Natale Un'esperienza audiovisiva, grazie al suono specifico di ogni strumento, pennello e adesivo."
+	},
+	"familyguide_card_10_body": {
+		"message": "Sperimenta e gioca nel tuo recinto invernale personale. Usa materiali in 3D per costruire qualsiasi cosa: case, giocattoli, pupazzi di neve, foreste o qualsiasi altra cosa ti passi per la testa."
+	},
+	"familyguide_card_11_body": {
+		"message": "Crea il tuo folletto personalizzato dalla testa ai piedi, con un look el(f)egante per le serate di gala natalizie al Polo Nord."
+	},
+	"familyguide_card_12_body": {
+		"message": "Babbo Natale è dal barbiere e ha bisogno di aiuto per rifarsi il look. Colora la sua barba, sistemagli i capelli, aggiungi qualche decorazione oppure togli tutto con le forbici."
+	},
+	"familyguide_card_13_body": {
+		"message": "Visita con gli elfi, le renne, Babbo Natale e la signora Natale il Museo dello Spirito Natalizio!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Ci sono molti elfi, renne e Pegman da scarrozzare in giro per il Polo Nord. Guarda come si spostano da un posto all'altro."
+	},
+	"familyguide_card_15_body": {
+		"message": "Babbo Natale e le sue renne sono pronti a partire ma hanno bisogno di un piccolo aiuto dagli elfi programmatori prima di decollare."
+	},
+	"familyguide_card_16_body": {
+		"message": "Gli amici del Villaggio vanno a trovare il narvalo Ollie per trascorrere un giorno in fondo al mare e festeggiare insieme per la prima volta la festa annuale delle decorazioni luminose fatte con le alghe."
+	},
+	"familyguide_card_age": {
+		"message": "Tutte le età"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Quando il torrone finisce e i regali sono stati tutti aperti, scopri le risorse per divertirti in famiglia tutto l'anno con Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Vogliamo tutti un pianeta in buona salute, oggi e in futuro. Google offre alcuni semplici suggerimenti per aiutare le persone e il pianeta a star bene insieme."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Un piano per il pianeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Per usare Internet al meglio, i bambini devono essere preparati a prendere decisioni consapevoli. Il programma \"Vivi Internet, al meglio\" insegna ai bambini i principi base della sicurezza e della cittadinanza digitale affinché possano navigare su Internet in tutta sicurezza."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Vivi Internet, al sicuro"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Altro da Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Gli elfi sono sempre al lavoro per migliorare le loro capacità di programmazione. Esplora i giochi che ti insegneranno le nozioni di base. Tutti possono provare a programmare!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Impara a programmare con gli elfi di Babbo Natale"
+	},
+	"familyguide_group_02_body": {
+		"message": "Le feste possono avere un aspetto molto diverso da un luogo all'altro. Scopri in che modo si festeggia nelle varie parti del mondo con tantissimi quiz e giochi divertenti."
+	},
+	"familyguide_group_02_title": {
+		"message": "Scopri le usanze festive di tutto il mondo"
+	},
+	"familyguide_group_03_body": {
+		"message": "Il villaggio di Babbo Natale vive della magia sprigionata dal fabbricare le cose. Scopri giochi per disegnare, dipingere, costruire e creare tutti i tuoi personaggi preferiti."
+	},
+	"familyguide_group_03_title": {
+		"message": "Lasciati ispirare e crea qualcosa di nuovo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Prendi i popcorn e infilati sotto una coperta al calduccio. Puoi gustarti tutta la banda sul grande schermo del cinema del Villaggio o leggere un libro interattivo mentre il narvalo Ollie festeggia il Natale sotto il mare."
+	},
+	"familyguide_group_04_title": {
+		"message": "Divertimento in famiglia"
+	},
+	"familyguide_nav_link_01": {
+		"message": "programmazione"
+	},
+	"familyguide_nav_link_02": {
+		"message": "festeggiamenti"
+	},
+	"familyguide_nav_link_03": {
+		"message": "crea"
+	},
+	"familyguide_nav_link_04": {
+		"message": "in famiglia"
+	},
+	"familyguide_nav_link_05": {
+		"message": "suggerimenti utili"
+	},
+	"familyguide_nav_link_06": {
+		"message": "altro"
+	},
+	"familyguide_secondary_body": {
+		"message": "Il 24 dicembre il Villaggio di Babbo Natale si trasforma in uno strumento di tracciamento che ti permetterà di seguire Babbo Natale e le sue renne mentre portano i regali ai bambini di tutto il mondo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Segui il viaggio sul sito web o sull'app Android Segui Babbo Natale"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Pss! Lo sapevi che il viaggio di Babbo Natale dura 25 ore?! Si ferma per la prima volta appena dopo le 22:00 ora locale all'estremo orientale della Russia, quando sono le 5:00 a New York e le 11:00 a Parigi."
+	},
+	"familyguide_secondary_title": {
+		"message": "Segui Babbo Natale il 24 dicembre"
+	},
+	"familyguide_tips_body": {
+		"message": "Segui Babbo Natale sarà ancora più magico quest'anno, con tutti i tuoi prodotti Google preferiti."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Chiedi ogni giorno all'Assistente Google divertenti aggiornamenti dall'elfo Dimplesticks. Dai anche un'occhiata alle barzellette natalizie, alle curiosità sul Natale e guarda cosa succede quando chiami Babbo Natale."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, che succede di nuovo al Polo Nord?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Scarica l'app Segui Babbo Natale per Android dal Play Store. C'è una scena esclusiva del Villaggio, con giochi che troverai solo nell'app."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "App Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Segui Babbo Natale dal tuo polso con l'integrazione Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Cerca \"Babbo Natale\" su Google per vedere Babbo Natale in 3D. Sulla maggior parte degli iPhone e sui dispositivi Android più avanzati, puoi vederlo in realtà aumentata, che saluta proprio davanti alla tua fotocamera!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Porta Babbo Natale nel tuo soggiorno"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Rallegra i tuoi messaggi con un tocco natalizio. Per trovare gif e adesivi a tema \"Babbo Natale\" cerca \"Santa Tracker gifs\" (solo in inglese) sulla pagina di Tenor dedicata a Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Dona GIF in allegria"
+	},
+	"familyguide_tips_title": {
+		"message": "Trucchi e suggerimenti"
+	},
+	"familyguide_title": {
+		"message": "Divertimento natalizio per tutta la famiglia"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "La frenetica fabbrica dei regali"
 	},
+	"scene_holidayfoods": {
+		"message": "Le pietanze natalizie di tutto il mondo su Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Cava di ghiaccio"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Quiz sulla mappa"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie in fondo al mare"
 	},
 	"scene_playground": {
 		"message": "Parco giochi al Polo Nord"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradizioni natalizie"
+	},
+	"scene_traditionsquiz": {
+		"message": "Quiz sulle tradizioni del periodo festivo"
 	},
 	"scene_translations": {
 		"message": "Traduzioni"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Congelato."
+	},
+	"snowball_iced_count": {
+		"message": "Congelati"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} di {{total}} elfi rimanenti"

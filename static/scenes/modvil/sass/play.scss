@@ -1,14 +1,14 @@
 #play {
   background-color: transparent;
-  border: none;
+  border: 0;
   pointer-events: auto;
   border-radius: 10000px;
   width: 120px;
   height: 120px;
+  box-sizing: border-box;
   color: #fff;
   font-weight: 400;
   font-family: 'Lobster';
-  margin-top: 30px;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
   font-size: 32px;
   transform: translateZ(0);
@@ -26,6 +26,10 @@
     white-space: nowrap;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &::before,
   &::after {
     content: '';
@@ -39,14 +43,18 @@
 
   &::before {
     background: #ff0160;
+    border: 4px solid transparent;
     box-shadow:
-        inset 0 0 #e70058,
         3px 3px 0 1px #e70058,
         5px 5px #e70058,
         13px 13px rgba(0, 0, 0, 0.1);
     transform: translate(-5px, -5px);
     z-index: -1;
     transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+  }
+
+  &:focus::before {
+    border-color: rgba(0, 0, 0, 0.25);
   }
 
   &::after {
@@ -65,7 +73,6 @@
   &:hover {
     &::before {
       box-shadow:
-          inset 0 0 #e70058,
           3px 3px 0 1px #e70058,
           7px 7px #e70058,
           18px 18px rgba(0, 0, 0, 0.1);
@@ -81,7 +88,6 @@
   &.active {
     &::before {
       box-shadow:
-          inset 0 0 0 2px #e70058,
           0 0 #e70058,
           0 0 #e70058,
           0 0 rgba(0, 0, 0, 0.1);

@@ -1,0 +1,95 @@
+button#install {
+  border: 2px solid #3a068d;
+  color: white;
+  padding: 12px;
+  border-radius: 10000px;
+  font: inherit;
+  font-weight: bold;
+  background: transparent;
+  min-width: 240px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  > span {
+    letter-spacing: 0.165em;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    line-height: 1.28em;
+  }
+
+  cursor: pointer;
+  position: relative;
+
+  &:disabled {
+    display: none !important;
+  }
+
+  &:focus {
+    outline: 0;
+    background: #3a068d77;
+  }
+
+  svg {
+    margin-right: 12px;
+  }
+}
+
+#lower {
+  position: absolute;
+  left: 50%;
+  bottom: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  pointer-events: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease-in;
+
+  main {
+    margin-top: -12px;
+    min-width: 300px;
+    width: 300px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #74797e;
+  }
+}
+
+h2 {
+  color: #41474C;
+}
+
+p.cta {
+  font-weight: 400;
+
+  span {
+    &::before {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      content: '';
+      background: transparent center / contain no-repeat;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxMSAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMC40NzM2ODQiIHk9IjYuOTczNjgiIHdpZHRoPSIxMC4wNTI2IiBoZWlnaHQ9IjEwLjA1MjYiIHN0cm9rZT0iIzMzOTlGRiIgc3Ryb2tlLXdpZHRoPSIwLjk0NzM2OCIvPgo8cGF0aCBkPSJNNS44MzQ5NSAwLjY2NTA1NUM1LjY0OTk2IDAuNDgwMDY5IDUuMzUwMDQgMC40ODAwNjkgNS4xNjUwNSAwLjY2NTA1NUwyLjE1MDU1IDMuNjc5NTZDMS45NjU1NiAzLjg2NDU1IDEuOTY1NTYgNC4xNjQ0NyAyLjE1MDU1IDQuMzQ5NDVDMi4zMzU1MyA0LjUzNDQ0IDIuNjM1NDUgNC41MzQ0NCAyLjgyMDQ0IDQuMzQ5NDVMNS41IDEuNjY5ODlMOC4xNzk1NiA0LjM0OTQ1QzguMzY0NTUgNC41MzQ0NCA4LjY2NDQ3IDQuNTM0NDQgOC44NDk0NSA0LjM0OTQ1QzkuMDM0NDQgNC4xNjQ0NyA5LjAzNDQ0IDMuODY0NTUgOC44NDk0NSAzLjY3OTU2TDUuODM0OTUgMC42NjUwNTVaTTUuMDI2MzIgMVYxMC44NDIxSDUuOTczNjhWMUg1LjAyNjMyWiIgZmlsbD0iIzMzOTlGRiIvPgo8L3N2Zz4K")
+    }
+  }
+}
+
+
+button#install:focus {
+  #lower {
+    opacity: 1;
+    visibility: visible;
+  }
+}

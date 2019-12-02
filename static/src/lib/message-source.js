@@ -5,6 +5,8 @@ self.addEventListener('message', (ev) => {
   const method = registry.get(ev.source);
   if (method) {
     method(ev);
+  } else {
+    console.warn('got message for unknown source', ev.source);
   }
 });
 

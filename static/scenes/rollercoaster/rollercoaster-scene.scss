@@ -13,6 +13,7 @@ $scene-middle: $scene-width / 2;
 
 body {
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

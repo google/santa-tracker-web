@@ -1,4 +1,4 @@
-import messages from '../messages.json';
+import messages from '../messages.json?module';
 import {join} from './lib/url.js';
 
 /**

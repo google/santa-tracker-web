@@ -1,6 +1,7 @@
 import styles from './santa-interlude.css';
 import {_static} from '../../src/magic.js';
-import {prepareAnimation} from '../../src/deps/lottie.js';
+import {loadAnimation, buildSafeResize} from '../../src/deps/lottie.js';
+import '../../src/polyfill/attribute.js';
 
 const layerCount = 4;
 
@@ -12,11 +13,6 @@ class SantaInterludeElement extends HTMLElement {
 
   constructor() {
     super();
-
-    const animationPromise = prepareAnimation(_static`img/interlude/loader.json`, {
-      autoplay: true,
-      loop: true,
-    });
 
     this.attachShadow({mode: 'open'});
     this.shadowRoot.adoptedStyleSheets = [styles];
@@ -36,6 +32,19 @@ class SantaInterludeElement extends HTMLElement {
     this._loadingElement = Object.assign(document.createElement('div'), {className: 'progress'});
     lastLayer.append(this._loadingElement);
 
+    this._playingTransitionSound = false;
+    this._hostElement.addEventListener('transitionstart', (ev) => {
+      if (!this.active) {
+        if (!this._playingTransitionSound) {
+          this._playingTransitionSound = true;
+          this.dispatchEvent(new CustomEvent('transition_out'));
+        }
+        
+        if (ev.target === this._hostElement.firstElementChild) {
+          this._playingTransitionSound = false;
+        }
+      }
+    });
     this._hostElement.addEventListener('transitionend', (ev) => {
       if (this.active) {
         if (ev.target === lastLayer) {
@@ -46,18 +55,22 @@ class SantaInterludeElement extends HTMLElement {
       }
     });
 
-    this._interludeAnimation = null;  // TODO: having a virtual future player would be nice
-    animationPromise.then((anim) => {
-      const svg = anim.renderer.svgElement;
-      lastLayer.append(svg);
-
-      // Fade the SVG in.
+    this._interludeAnimation = loadAnimation(_static`img/interlude/loader.json`, {
+      autoplay: true,
+      loop: true,
+      container: lastLayer,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    });
+    this._interludeAnimation.addEventListener('DOMLoaded', () => {
+      // Fade in the lastLayer when the animation is ready.
       window.requestAnimationFrame(() => lastLayer.classList.remove('load'));
-
-      this._interludeAnimation = anim;
     });
 
     this.shadowRoot.append(this._hostElement);
+
+    this._onWindowResize = buildSafeResize(this._interludeAnimation);
   }
 
   connectedCallback() {
@@ -73,9 +86,11 @@ class SantaInterludeElement extends HTMLElement {
 
   _onStart() {
     this._anyVisible = true;
-    if (this._interludeAnimation) {
-      this._interludeAnimation.play();
-    }
+    this._interludeAnimation.play();
+    this.dispatchEvent(new CustomEvent('transition_in'));
+
+    window.addEventListener('resize', this._onWindowResize);
+    this._onWindowResize();
   }
 
   _onStable() {
@@ -84,16 +99,17 @@ class SantaInterludeElement extends HTMLElement {
   }
 
   _onGone() {
+    window.removeEventListener('resize', this._onWindowResize);
     this._anyVisible = false;
-
-    if (this._interludeAnimation) {
-      this._interludeAnimation.stop();
-    }
+    this._interludeAnimation.stop();
 
     // Reset the direction for next animation.
     this._hostElement.remove();
     this._hostElement.classList.remove('direction');
     this.shadowRoot.append(this._hostElement);
+
+    // Announce that we're gone (useful for first-time cleanups).
+    this.dispatchEvent(new CustomEvent('gone'));
   }
 
   /**

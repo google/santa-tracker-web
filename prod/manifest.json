@@ -9,39 +9,27 @@
   "background_color": "#3ec4f0",
   "icons": [
     {
-      "src": "/images/favicon-16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
       "src": "/images/favicon-32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/images/icon-76.png",
-      "sizes": "76x76",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icon-120.png",
-      "sizes": "120x120",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icon-152.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
       "src": "/images/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     {
       "src": "/images/icon-256.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
   "related_applications": [

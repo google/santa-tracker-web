@@ -8,4 +8,44 @@ body {
   justify-content: center;
   flex-flow: column;
   min-height: 100vh;
+
+  background: transparent center;
+}
+
+canvas {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+}
+
+#holder {
+  position: relative;
+}
+
+#games {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: row wrap;
+
+  a {
+    width: 1em;
+    height: 1em;
+    margin: 0 0.25em 0.5em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: column;
+
+    filter: drop-shadow(2px 4px rgba(0, 0, 0, 0.25));
+  }
+}
+
+canvas#retroSurface {
+  filter: drop-shadow(8px 16px 0 rgba(0, 0, 0, 0.25));
 }

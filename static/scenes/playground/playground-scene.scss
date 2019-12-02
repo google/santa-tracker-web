@@ -7,6 +7,7 @@ $name: 'module-playground';
 
 body {
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

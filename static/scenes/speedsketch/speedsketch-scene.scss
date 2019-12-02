@@ -20,6 +20,7 @@ $mobile-breakpoint: 767px;
 body {
   overflow: hidden;
   font-family: 'Roboto', 'Arial', 'Sans-Serif';
+  touch-action: pan-y;
 }
 
 ##{$name} {

@@ -12,22 +12,10 @@ app.Player = class Player {
     this.score = 0
     this.toyParts = []
 
-    this.elem = document.createElement('div')
-    document.getElementById('players').append(this.elem)
-    this.elem.setAttribute('class', `player player--${id}`)
-
-    this.innerElem = document.createElement('div')
-    this.innerElem.setAttribute('class', `player__inner`)
-    this.elem.appendChild(this.innerElem)
-
-    this.innerElem.appendChild(this.animations['death'].renderer.svgElement)
-    this.innerElem.appendChild(this.animations['front'].renderer.svgElement)
-    this.innerElem.appendChild(this.animations['back'].renderer.svgElement)
-    this.innerElem.appendChild(this.animations['side'].renderer.svgElement)
-
-    this.spawnElem = document.createElement('div')
-    document.getElementById('players').append(this.spawnElem)
-    this.spawnElem.setAttribute('class', `player-spawn player-spawn--${id}`)
+    this.elem = document.querySelector(`.player--${id}`)
+    this.elem.classList.add('is-active')
+    this.spawnElem = document.querySelector(`.player-spawn--${id}`)
+    this.innerElem = this.elem.querySelector('.player__inner')
   }
 
   /**
@@ -50,14 +38,14 @@ app.Player = class Player {
     this.animationQueue = []
 
     // initialize death animation
-    this.animations['death'].renderer.svgElement.classList.add('is-active')
+    this.animations['death'].container.classList.add('is-active')
     this.innerElem.classList.add('is-dead')
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = {
       animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
       callback: () => {
         this.dead = false
-        this.animations['death'].renderer.svgElement.classList.remove('is-active')
+        this.animations['death'].container.classList.remove('is-active')
         this.innerElem.classList.remove('is-dead')
 
         this.resetPosition()
@@ -340,9 +328,9 @@ app.Player = class Player {
 
     if (direction != this.currentDirection) {
       if (this.animations[this.currentDirection]) {
-        this.animations[this.currentDirection].renderer.svgElement.classList.remove('is-active')
+        this.animations[this.currentDirection].container.classList.remove('is-active')
       }
-      this.animations[direction].renderer.svgElement.classList.add('is-active')
+      this.animations[direction].container.classList.add('is-active')
       this.currentDirection = direction
     }
   }

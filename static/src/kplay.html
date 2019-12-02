@@ -12,55 +12,55 @@
 
 import * as sc from './kplay.js';
 
-const prep = sc.prepare();
+const controller = sc.prepare();
 
 const split = (v) => {
   return v.split(/[\,\;\.\s]+/g).filter(Boolean);
 };
 
-prep.then((controller) => {
-  window._controller = window._c = controller;
 
-  // --- preload ----
+window._controller = window._c = controller;
 
-  let preloadPromise = Promise.resolve();
+// --- preload ----
 
-  const preloadInput = document.getElementById('preloadInput');
-  const preloadStatus = document.getElementById('preloadStatus');
-  const updatePreloadStatus = (count, total) => {
-    preloadStatus.textContent = `${count}/${total} preloaded`;
-  };
+let preloadPromise = Promise.resolve();
 
-  document.getElementById('preload').onclick = (ev) => {
-    const toPreload = split(preloadInput.value);
+const preloadInput = document.getElementById('preloadInput');
+const preloadStatus = document.getElementById('preloadStatus');
+const updatePreloadStatus = (count, total) => {
+  preloadStatus.textContent = `${count}/${total} preloaded`;
+};
 
-    preloadPromise = preloadPromise.then(() => {
-      return controller.preload(toPreload, updatePreloadStatus);
-    }).catch((err) => console.err('got err preloading', toPreload));
-  };
+document.getElementById('preload').onclick = (ev) => {
+  const toPreload = split(preloadInput.value);
 
-  updatePreloadStatus(0, 0);
+  preloadPromise = preloadPromise.then(() => {
+    return controller.preload(toPreload, updatePreloadStatus);
+  }).catch((err) => console.err('got err preloading', toPreload));
+};
 
-  // --- play ----
+updatePreloadStatus(0, 0);
 
-  const playInput = document.getElementById('playInput');
-  document.getElementById('play').onclick = (ev) => {
-    const toPlay = split(playInput.value);
+// --- play ----
 
-    toPlay.forEach((p) => {
-      controller.play(p);
-    });
-  };
+const playInput = document.getElementById('playInput');
+document.getElementById('play').onclick = (ev) => {
+  const toPlay = split(playInput.value);
 
-  // --- transition ----
+  toPlay.forEach((p) => {
+    controller.play(p);
+  });
+};
 
-  const transitionInput = document.getElementById('transitionInput');
-  document.getElementById('transition').onclick = (ev) => {
-    const toPlay = split(transitionInput.value);
-    controller.transitionTo(toPlay);
-    controller.reset();
-  };
-});
+// --- transition ----
+
+const transitionInput = document.getElementById('transitionInput');
+document.getElementById('transition').onclick = (ev) => {
+  const toPlay = split(transitionInput.value);
+  controller.transitionTo(toPlay);
+  controller.reset();
+};
+
 
   </script>
 </head>

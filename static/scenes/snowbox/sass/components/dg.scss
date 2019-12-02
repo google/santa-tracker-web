@@ -1,0 +1,9 @@
+.dg.ac {
+  top: 65px !important;
+  z-index: 10000 !important;
+
+  .disabled {
+    opacity: .2;
+    pointer-events: none;
+  }
+}

@@ -34,8 +34,8 @@ export default function() {
       // stops IE11 and browsers without standard niceities
       throw 'arraylike helpers';
     }
-    if (!('append' in document.body)) {
-      // friendly node helpers
+    if (!('append' in document.head)) {
+      // friendly node helpers (nb. do NOT use 'body', doesn't exist yet)
       throw 'append';
     }
   } catch (e) {

@@ -21,14 +21,15 @@ app.Penguin = class Penguin extends app.Slider {
 
     let sides = ['front', 'back', 'side']
     for (const side of sides) {
-      this.animations[side] = game.loadAnimation(`img/penguin/${side}.json`, {
+      game.prepareAnimation(`img/penguin/${side}.json`, {
         loop: false,
         autoplay: false,
-        renderer: 'svg',
         container: this.innerElem,
         rendererSettings: {
           className: `animation animation--${side}`
         },
+      }).then((anim) => {
+        this.animations[side] = anim
       })
     }
   }
@@ -43,11 +44,17 @@ app.Penguin = class Penguin extends app.Slider {
     this.lastAnimationFrame = null
 
     if (this.config.isVertical) {
-      this.animations['side'].renderer.svgElement.classList.remove('is-active')
+      if (this.animations['side']) {
+        this.animations['side'].container.classList.remove('is-active')
+      }
       this.animationDirection = 'front'
     } else {
-      this.animations['front'].renderer.svgElement.classList.remove('is-active')
-      this.animations['back'].renderer.svgElement.classList.remove('is-active')
+      if (this.animations['front']) {
+        this.animations['front'].container.classList.remove('is-active')
+      }
+      if (this.animations['back']) {
+        this.animations['back'].container.classList.remove('is-active')
+      }
       this.animationDirection = 'side'
     }
   }
@@ -78,10 +85,14 @@ app.Penguin = class Penguin extends app.Slider {
       if (this.config.isVertical) {
         if (this.reversing) {
           this.animationDirection = 'back'
-          this.animations['front'].renderer.svgElement.classList.remove('is-active')
+          if (this.animations['front']) {
+            this.animations['front'].container.classList.remove('is-active')
+          }
         } else {
           this.animationDirection = 'front'
-          this.animations['back'].renderer.svgElement.classList.remove('is-active')
+          if (this.animations['back']) {
+            this.animations['back'].container.classList.remove('is-active')
+          }
         }
       } else {
         if (this.reversing) {
@@ -93,8 +104,10 @@ app.Penguin = class Penguin extends app.Slider {
     }
 
     // render animation
-    this.animations[this.animationDirection].renderer.svgElement.classList.add('is-active')
-    this.animations[this.animationDirection].goToAndStop(this.animationFrame, true)
+    if (this.animations[this.animationDirection]) {
+      this.animations[this.animationDirection].container.classList.add('is-active')
+      this.animations[this.animationDirection].goToAndStop(this.animationFrame, true)
+    }
   }
 
   onContact(player) {

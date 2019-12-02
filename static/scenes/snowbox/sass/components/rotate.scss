@@ -1,0 +1,33 @@
+.rotate {
+  pointer-events: auto;
+
+  &__row {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__center {
+    align-items: center;
+    display: flex;
+    height: $button-size;
+    justify-content: center;
+    transform: translate(-3px, 0px);
+    width: $button-size;
+
+    @include respond-to(tablet) {
+      height: $button-size-tablet;
+      width: $button-size-tablet;
+    }
+  }
+
+  &__image {
+    width: 75%;
+  }
+
+  &__button {
+    .button__icon {
+      height: 44%;
+      width: 51%;
+    }
+  }
+}

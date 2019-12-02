@@ -11,10 +11,11 @@ var defaults = {
   videos: [],
   sceneLock: {},
   routeUrl: 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_|LANG|.json?alt=media&2018b',
-  sceneRedirect: {'educators': 'grownup'},
+  sceneRedirect: {},
   upgradeToVersion: '',
   switchOff: false,
-  indexScene: 'index',
+  indexScene: 'modvil',
+  nav: ['snowbox','selfies','codeboogie','jetpack','jamband','snowball','elfmaker','codelab','wrapbattle','penguindash','museum','boatload','takeoff','gumball'],
 };
 
 var now = new Date();

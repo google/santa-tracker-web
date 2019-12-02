@@ -48,12 +48,8 @@ const initAnimation = (key, preserveAspectRatio) => {
       preserveAspectRatio,
     },
     clearDefs: true,
-  }).then((anim) => {
-    const svg = anim.renderer.svgElement;
-    const container = document.querySelector(`.animation--${key}`);
-    container.appendChild(svg);
+    container: document.querySelector(`.animation--${key}`),
   });
-
   api.preload.wait(p);
 };
 
