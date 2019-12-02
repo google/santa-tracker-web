@@ -107,6 +107,74 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Bhutan"
   },
+  "buildandbolt-build-car-multiple" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> cars!"
+  },
+  "buildandbolt-build-car-single" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build 1 car!"
+  },
+  "buildandbolt-build-robot-multiple" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> robots!"
+  },
+  "buildandbolt-build-robot-single" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build 1 robot!"
+  },
+  "buildandbolt-build-teddybear-multiple" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
+  },
+  "buildandbolt-build-teddybear-single" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build 1 teddy bear!"
+  },
+  "buildandbolt-build-rocket-multiple" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> rockets!"
+  },
+  "buildandbolt-build-rocket-single" : {
+    "description": "Message telling the player the quantity and type of toy they need to make.",
+    "raw": "Build 1 rocket!"
+  },
+  "buildandbolt-instructions-label": {
+    "description": "Large title on an intermediary screen explaining game controls.",
+    "message": "Instructions"
+  },
+  "buildandbolt-instructions-move-key": {
+    "description": "Label pointing to a key on a keyboard diagram. Indicates that the key is used to move the player around. Keep short.",
+    "message": "Move"
+  },
+  "buildandbolt-instructions-action-key": {
+    "description": "Label pointing to a key on a keyboard diagram. Indicates that the key is used for interacting with toys. Keep short.",
+    "message": "Pick up & drop toys"
+  },
+  "buildandbolt-player-one-label": {
+    "description": "Label for parts of the UI that are for player one. Can be large, keep short.",
+    "message": "Player 1"
+  },
+  "buildandbolt-player-two-label": {
+    "description": "Label for parts of the UI that are for player two. Can be large, keep short.",
+    "message": "Player 2"
+  },
+  "buildandbolt-players-selection": {
+    "description": "Large label on an intermediary screen for single or multi-player selection.",
+    "message": "How many players?"
+  },
+  "buildandbolt-players-selection-one": {
+    "description": "Label for the one player option of a player selection screen.",
+    "message": "1 Player"
+  },
+  "buildandbolt-players-selection-two": {
+    "description": "Label for the two player option of a player selection screen.",
+    "message": "2 Players"
+  },
+  "buildandbolt-skip": {
+    "description": "Button label to skip to the next step. Keep short.",
+    "message": "Skip"
+  },
   "bw_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Botswana"
@@ -2146,6 +2214,10 @@
   "scene_build": {
     "description": "Title of a scene/game. Work together as elves by moving around in a factory to build presents. 'Bolt' means the verb speedy, or fast.",
     "message": "Build & Bolt"
+  },
+  "scene_buildandbolt": {
+    "description": "Title of a scene/game. You are an elf racing to assemble and wrap toys.",
+    "message": "Build and Bolt"
   },
   "scene_callfromsanta": {
     "description": "Title of a scene/game. This lets Santa call your phone number and give a greeting.",
