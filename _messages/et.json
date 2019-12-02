@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Puudutus"
 	},
+	"copied": {
+		"message": "Kopeeritud!"
+	},
 	"copy-me": {
 		"message": "Sõnumi jagamiseks kopeerige see link"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Dets"
+	},
+	"decmonth_long": {
+		"message": "Detsember"
 	},
 	"detected": {
 		"message": "tuvastatud"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Vaadake jõulukülas ringi"
+	},
+	"familyguide_accordion_title": {
+		"message": "Tähistage terve kuu"
+	},
+	"familyguide_body": {
+		"message": "Jõuluküla on parim koht, kus perega pühi oodata. Olemas on kõik lemmiktegelased ning lõbusad, harivad ja interaktiivsed tegevused igas vanuses lastele."
+	},
+	"familyguide_card_01_body": {
+		"message": "Kasutage kodeerimise põhiteadmisi, et päkapikk metsas kadunud kingituste juurde juhatada."
+	},
+	"familyguide_card_02_body": {
+		"message": "Programmeerige pühadekaardile omaenda lumehelves – valige üks paljudest taustadest ning jagage seda sõpradega."
+	},
+	"familyguide_card_03_body": {
+		"message": "Päkapikud harjutavad tantsutrenniga pooleks kodeerimist. Juhendage kodeerides päkapikkude tantsu, kuid vaadake ette – kui teie oskused paranevad, lähevad tantsud raskemaks."
+	},
+	"familyguide_card_04_body": {
+		"message": "Klõpsake kaardil nööpnõeltel, et tutvuda maailma pühadekommetega – Kanada tutimütsidest Austraalia ujumispüksteni."
+	},
+	"familyguide_card_05_body": {
+		"message": "Head uut aastat päkapikukeeles, Дед Мороз ja palju muid pühadesõnu kõikjalt maailmas."
+	},
+	"familyguide_card_06_body": {
+		"message": "Jõuluvana peab jõudma paljudesse kohtadesse. Selles geograafiamängus tuleb riikide kontuurid kaardil õigesti paigutada."
+	},
+	"familyguide_card_07_body": {
+		"message": "Kas tunnete pühadeajalugu? Need üheksa küsimust panevad igaühe mälumänguoskused proovile."
+	},
+	"familyguide_card_07_title": {
+		"message": "Küsimused pühadekommete kohta"
+	},
+	"familyguide_card_08_body": {
+		"message": "Tahaks süüa? Vaadake, mida veidrat maailmas süüakse ning millised on lähemate ja kaugemate riikide rahvusroad."
+	},
+	"familyguide_card_09_body": {
+		"message": "Proovige jõuluvana käsitöökomplekti. Igal tööriistal, pintslil ja kleebisel on oma heli – tõeliselt audiovisuaalne kogemus."
+	},
+	"familyguide_card_10_body": {
+		"message": "Katsetage ja mängige talvises liivakastis. Kasutage 3D-materjale, et ehitada igasugu huvitavaid asju: maju, mänguasju, lumememmesid, metsasid või muud."
+	},
+	"familyguide_card_11_body": {
+		"message": "Disainige omaenda päkapikk – tehke temast Põhjanaba pühadeballide täht."
+	},
+	"familyguide_card_12_body": {
+		"message": "Jõuluvana tuli juuksurisse ja vajab stiilimuutust. Värvige ta habe, föönitage juuksed, lisage kaunistusi või ajage kääridega kõik maha."
+	},
+	"familyguide_card_13_body": {
+		"message": "Minge koos päkapikkude, põhjapõtrade ja jõulumemmega Pühademuuseumi ekskursioonile!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Jõulukülas sagib hulgaliselt päkapikke, põhjapõtru ja abimehi. Vaadake, kuidas nad ringi liiguvad."
+	},
+	"familyguide_card_15_body": {
+		"message": "Jõuluvana ja põhjapõdrad on lennuks peaaegu valmis ning vajavad vaid veidi koodipäkapikkude abi."
+	},
+	"familyguide_card_16_body": {
+		"message": "Sõbrad jõulukülast lähevad narval Olliele merre külla ning aitavad vetikatest jõulutulesid teha."
+	},
+	"familyguide_card_age": {
+		"message": "Igas vanuses"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Google pakub kogu perele tegemist aasta läbi – ka siis, kui viimased piparkoogid on nahka pandud ja kingitused lahti tehtud."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Me kõik tahame, et meie planeet oleks terve. Need lihtsad nipid Google'ilt aitavad ka teil planeeti säästa."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Teie plaan, teie planeet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Interneti kasutamiseks peavad lapsed teadma, kuidas teha õigeid otsuseid. Imetlusväärse internetikasutaja programm õpetab lastele, kuidas olla vastutustundlik digikodanik ning avastada veebi ohutult ja enesekindlalt."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Seiklused internetis"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Rohkem Google'ist"
+	},
+	"familyguide_group_01_body": {
+		"message": "Päkapikke huvitab kodeerimine väga. Neis mängudes on lihtne põhialustega tutvust teha. Igaühest võib saada kodeerija!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Õppige koos päkapikkudega kodeerima"
+	},
+	"familyguide_group_02_body": {
+		"message": "Pühad on eri kohtades väga erinevad. Need mängud ja testid õpetavad maailma pühadekombeid tundma."
+	},
+	"familyguide_group_02_title": {
+		"message": "Avastage maailma pühadekombeid"
+	},
+	"familyguide_group_03_body": {
+		"message": "Jõuluküla on tegemistuhinas. Aidake mängides lemmiktegelastel joonistada, värvida, ehitada ja luua."
+	},
+	"familyguide_group_03_title": {
+		"message": "Päästke loovus valla"
+	},
+	"familyguide_group_04_body": {
+		"message": "Õdus õhtu popkorniga teki all. Vaadake kogu kamba seiklusi jõuluküla kinos või lugege interaktiivset juturaamatut narval Ollie merejõuludest."
+	},
+	"familyguide_group_04_title": {
+		"message": "Perega koos"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kood"
+	},
+	"familyguide_nav_link_02": {
+		"message": "tähistamine"
+	},
+	"familyguide_nav_link_03": {
+		"message": "loomine"
+	},
+	"familyguide_nav_link_04": {
+		"message": "aeg pere keskel"
+	},
+	"familyguide_nav_link_05": {
+		"message": "nõuanded ja nipid"
+	},
+	"familyguide_nav_link_06": {
+		"message": "rohkem"
+	},
+	"familyguide_secondary_body": {
+		"message": "24. detsembril saab jõulukülast juhtpaneel, kus saate jälgida, kuidas jõuluvana ja põhjapõdrad maailma lastele kingitusi viivad."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Kasutage jõuluvana teekonna jälgimise veebisaiti või Androidi rakendust"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Kas teadsite, et jõuluvana teekond kestab 25 tundi? Esimese peatuse teeb ta veidi pärast 22:00 Venemaa Kaug-Idas, kui New Yorgis on kell 5:00 ja Pariisis 11:00."
+	},
+	"familyguide_secondary_title": {
+		"message": "Jälgige jõuluvana"
+	},
+	"familyguide_tips_body": {
+		"message": "Seekord pakub jõuluvana jälgimise rakendus koos teiste Google'i toodetega veel rohkem võimalusi."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Küsige iga päev Google'i assistendilt, mida päkapikk Dimplesticks teeb. Lugege jõulunalju ja huvitavaid jõulufakte ning vaadake, mis juhtub, kui jõuluvanale helistada."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„Ok Google, mis jõulukülas toimub?”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Laadige jõuluvana teekonna jälgimise Androidi rakendus alla Play poest. Üks jõuluküla stseen ja selles sisalduvad mängud on saadaval ainult rakenduses."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Androidi rakendus"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Kasutage Android Weari integratsiooni, et jõuluvana nutikellas jälgida."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Otsige Google'is sõna „jõuluvana”, et näha 3D-jõuluvana. Enamikus iPhone'ides ja uuemates Android-seadmetes saate vaadata teda liitreaalsuses läbi kaamerasilma lehvitamas."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Jõuluvana elutoas"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Kaunistage sõnumeid pühadekarraga. Jõuluvanateemaliste GIF-ide ja kleebiste leidmiseks otsige Google Tenori lehel terminit „Santa Tracker gifs” (ainult inglise keeles)."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "GIF-id kingituseks"
+	},
+	"familyguide_tips_title": {
+		"message": "Nõuanded ja nipid"
+	},
+	"familyguide_title": {
+		"message": "Pühaderõõm kogu perele"
 	},
 	"fi_country_name": {
 		"message": "Soome"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Kingimöll"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earthi maailma pühadetoidud"
+	},
 	"scene_icecave": {
 		"message": "Jääkoobas"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kaardiviktoriin"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie meremaailm"
 	},
 	"scene_playground": {
 		"message": "Põhjapooluse mänguväljak"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Pühadekombed"
+	},
+	"scene_traditionsquiz": {
+		"message": "Küsimused pühadekommete kohta"
 	},
 	"scene_translations": {
 		"message": "Tõlked"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Väljas!"
+	},
+	"snowball_iced_count": {
+		"message": "Väljas"
 	},
 	"snowball_remaining": {
 		"message": "Päkapikke alles {{remaining}}/{{total}}"

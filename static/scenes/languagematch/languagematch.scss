@@ -4,6 +4,10 @@ $rotate-bg: $gameover-bg;
 
 @import "../_shared/sass/levelup";
 
+body {
+    touch-action: none;
+}
+
 #module-languagematch {
     top: 0;
     bottom: 0;

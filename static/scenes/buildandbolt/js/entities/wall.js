@@ -10,7 +10,7 @@ app.Wall = class Wall extends app.Entity {
   constructor(game, config) {
     super(game)
     this.config = config
-
+    this.lastSoundTime = 0;
     this.elem = document.createElement('div')
     document.getElementById('walls').append(this.elem)
     this.elem.setAttribute('class', 'wall')
@@ -36,9 +36,17 @@ app.Wall = class Wall extends app.Entity {
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
       actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+      this.playSound();
     }
-
+    
     return actions
+  }
+
+  playSound() {
+    if (performance.now() - this.lastSoundTime > 1500) {
+      window.santaApp.fire('sound-trigger', 'buildandboilt_wallstop');
+      this.lastSoundTime = performance.now();
+    }
   }
 }
 

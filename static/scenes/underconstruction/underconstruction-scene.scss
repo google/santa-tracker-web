@@ -6,6 +6,7 @@ $mobile-breakpoint: 1100px;
 
 body {
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

@@ -12,6 +12,10 @@ $rotate-bg: $gameover-bg;
 @import "sass/cards";
 @import "sass/clouds";
 
+body {
+  touch-action: none;
+}
+
 ##{$name} {
   bottom: 0;
   left: 0;

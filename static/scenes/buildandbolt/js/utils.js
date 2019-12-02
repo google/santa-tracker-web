@@ -248,3 +248,31 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
 
   return false
 }
+
+Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop, lastFrameTime, now) {
+  let nextFrame = currentFrame
+  let frameTime = lastFrameTime
+  let finished = false
+
+  const fps = 60
+  const frameDelta = Math.round(fps / 1000 * (now - lastFrameTime))
+
+  if (frameDelta >= 1) {
+    if (loop) {
+      const animationLength = animationFrames.end - animationFrames.start + 1
+      const currentOffset = currentFrame - animationFrames.start
+      nextFrame = animationFrames.start + ((currentOffset + frameDelta) % animationLength)
+    } else {
+      nextFrame = Math.min(currentFrame + frameDelta, animationFrames.end)
+      finished = nextFrame == animationFrames.end
+    }
+
+    frameTime = now
+  }
+
+  return {
+    nextFrame,
+    frameTime,
+    finished
+  }
+}

@@ -1,0 +1,114 @@
+$aspect-ratio: calc(100vw / 100vh);
+
+.download-popin {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: 80px 80px calc(80px + 150px) 80px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity .5s ease;
+  width: 100%;
+  z-index: $z-index-download;
+
+  @include respond-to(smartphone) {
+    padding: 80px 40px calc(80px + 150px) 40px;
+  }
+
+  &.is-loading {
+    .download-popin__loading {
+      opacity: 1;
+    }
+    .download-popin__image-wrapper {
+      opacity: 0;
+    }
+  }
+
+  &.is-open {
+    opacity: 1;
+
+    .download-popin__wrapper {
+      pointer-events: auto;
+      transform: none;
+    }
+  }
+
+  &__wrapper {
+    background-color: $color-white;
+    box-shadow: 14px 10px 35px 0px rgba(0,0,0,0.15);
+    height: auto;
+    max-height: 100%;
+    padding: 40px 40px 30px 40px;
+    position: relative;
+    transform: translateY(50px);
+    transition: transform 1s $easeout-expo;
+    width: auto;
+
+    @include respond-to(smartphone) {
+      padding: 30px 30px 20px 30px;
+    }
+  }
+
+  &__image-wrapper {
+    // padding-bottom: calc(100vh / 100vw * 1%);
+    height: 0;
+    opacity: 1;
+    position: relative;
+    transition: opacity .5s ease;
+    width: 45vw;
+  }
+
+  &__image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &__link {
+    margin: 30px auto 0;
+    transform: translate(3px, 0);
+
+    @include respond-to(smartphone) {
+      margin: 20px auto 0;
+    }
+
+    .button__icon {
+      width: 45%;
+    }
+  }
+
+  &__loading {
+    color: $color-purple;
+    font-size: 48px;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .5s ease;
+    width: 100%;
+    z-index: $z-index-download;
+
+    @include respond-to(smartphone) {
+      font-size: 28px;
+      padding: 10px;
+    }
+  }
+
+  &__exit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%) scale(0.8);
+
+    .button__icon {
+      width: 40%;
+    }
+  }
+}

@@ -18,6 +18,7 @@ $break-tablet: 1025px;
 body {
   overflow: hidden;
   font-weight: bold;
+  touch-action: none;
 }
 
 ##{$name} {

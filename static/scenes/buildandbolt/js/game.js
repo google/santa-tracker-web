@@ -18,13 +18,14 @@ goog.require('app.Wall')
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
 
-
 app.Game = class Game {
-  constructor(context, playerOption) {
+  constructor(context, playerOption, animations, prepareAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
+    this.animations = animations
+    this.prepareAnimation = prepareAnimation
     this.context = context
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
@@ -32,14 +33,11 @@ app.Game = class Game {
     this.players = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE,
-          'player-1')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')
       this.multiplayer = false
     } else {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS,
-          'player-1')
-      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD,
-          'player-2')
+      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a')
+      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
       this.multiplayer = true
     }
 
@@ -52,6 +50,7 @@ app.Game = class Game {
     this.isPlaying = false
     this.lastFrame = +new Date() / 1000
 
+    window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
     this.onFrame()
@@ -114,6 +113,15 @@ app.Game = class Game {
   startLevel() {
     this.initLevel(this.level)
     this.isPlaying = true
+
+    if (this.level === 0) {
+      setTimeout(()=>{
+        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+      }, 800)
+    }else {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+    }
+    
   }
 
   onFrame(now) {
@@ -128,11 +136,11 @@ app.Game = class Game {
     // this.timePassed += delta
 
     for (const entity of this.entities) {
-      entity.onFrame(delta)
+      entity.onFrame(delta, now)
     }
 
     for (const player of this.players) {
-      player.onFrame(delta)
+      player.onFrame(delta, now)
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
@@ -154,6 +162,7 @@ app.Game = class Game {
       } else {
         // end game. display game winner.
         this.gameoverDialog.show()
+        window.santaApp.fire('sound-trigger', 'buildandbolt_win');
         if (this.multiplayer) {
           if (this.players[0].score > this.players[1].score) {
             console.log('player 1 won')

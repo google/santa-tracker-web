@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Cảm ứng"
 	},
+	"copied": {
+		"message": "Đã sao chép!"
+	},
 	"copy-me": {
 		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Tháng 12"
+	},
+	"decmonth_long": {
+		"message": "Tháng 12"
 	},
 	"detected": {
 		"message": "được phát hiện"
@@ -630,7 +636,7 @@
 		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
 	},
 	"error-out-of-date": {
-		"message": "Đây là phiên bản đã lỗi thời. Hiện đã có phiên bản mới là Ngôi làng của Ông già Noel! Hãy thử mở lại trang Theo chân ông già Noel để xem phiên bản mới nhất."
+		"message": "Phiên bản Ngôi làng của Ông già Noel này đã lỗi thời! Hãy thử mở lại trang Theo chân ông già Noel để xem phiên bản mới nhất."
 	},
 	"error-try-again": {
 		"message": "Thử lại"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Khám phá ngôi làng của ông già Noel"
+	},
+	"familyguide_accordion_title": {
+		"message": "Ăn mừng suốt cả tháng"
+	},
+	"familyguide_body": {
+		"message": "Ngôi làng của ông già Noel là một nơi hoàn hảo để các gia đình cùng nhau ăn mừng mùa lễ này. Nơi đây không chỉ có tất cả các nhân vật bạn yêu thích mà còn có các hoạt động thú vị, mang tính giáo dục và tương tác dành cho mọi lứa tuổi."
+	},
+	"familyguide_card_01_body": {
+		"message": "Sử dụng các kỹ năng lập trình cơ bản để hướng dẫn chú lùn băng qua khu rừng và tìm những món quà bị rơi."
+	},
+	"familyguide_card_02_body": {
+		"message": "Sắp xếp các bước để vẽ nên một bông tuyết độc đáo cho tấm thiệp Giáng sinh của riêng bạn — chỉ cần chọn một trong số nhiều ảnh nền rồi chia sẻ tấm thiệp này với bạn bè."
+	},
+	"familyguide_card_03_body": {
+		"message": "Các chú lùn đã trở lại với việc rèn luyện kỹ năng lập trình, đồng thời còn tập nhảy nữa. Hãy dùng những đoạn mã để biên đạo cho các chú lùn, nhưng hãy cẩn thận vì khi bạn càng thành thạo, các điệu nhảy sẽ ngày càng khó hơn!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Hãy nhấp vào những chiếc ghim trên bản đồ để tìm hiểu về những truyền thống trong dịp lễ trên khắp thế giới, từ truyền thống đội mũ len ở Canada cho đến truyền thống mặc quần bơi ở Úc."
+	},
+	"familyguide_card_05_body": {
+		"message": "Hãy tìm hiểu những câu chúc nhau trong ngày lễ ở khắp nơi trên thế giới, từ câu Chúc mừng năm mới bằng ngôn ngữ của những chú lùn đến câu Дед Мороз."
+	},
+	"familyguide_card_06_body": {
+		"message": "Ông già Noel phải đến rất nhiều nơi. Hãy chọn đường viền của quốc gia đúng với vị trí tương ứng trên bản đồ trong trò chơi về địa lý này."
+	},
+	"familyguide_card_07_body": {
+		"message": "Bạn có biết về lịch sử của ngày lễ không? Hãy thể hiện hiểu biết của mình qua chín câu hỏi chắc chắn sẽ khiến bạn vắt óc tìm câu trả lời."
+	},
+	"familyguide_card_07_title": {
+		"message": "Trắc nghiệm về các truyền thống trong dịp lễ"
+	},
+	"familyguide_card_08_body": {
+		"message": "Bạn đói ư? Hãy khám phá những món ăn ngon từ khắp nơi trên thế giới và nền ẩm thực của các nước bạn gần xa."
+	},
+	"familyguide_card_09_body": {
+		"message": "Hãy sử dụng bộ đồ nghề sáng tạo của chính ông già Noel. Từng dụng cụ, từng chiếc cọ vẽ và hình dán đều mang trong mình một thanh âm riêng, cho bạn một trải nghiệm tràn đầy sắc màu và âm thanh."
+	},
+	"familyguide_card_10_body": {
+		"message": "Trải nghiệm và chơi đùa trong hộp cát mùa đông của bạn. Dùng những vật liệu 3D để dựng mọi thứ từ nhà cửa đến đồ chơi, người tuyết, rừng cây và bất cứ thứ gì mà bạn hằng mơ ước."
+	},
+	"familyguide_card_11_body": {
+		"message": "Sáng tạo chú yêu tinh của riêng bạn từ đầu đến chân và chắc chắn rằng chú ta trông thật thu hút cho các buổi dạ tiệc giáng sinh ở Bắc Cực."
+	},
+	"familyguide_card_12_body": {
+		"message": "Ông già Noel đang ở tiệm cắt tóc và cần bạn giúp một tay. Hãy giúp ông \"tân trang diện mạo\" bằng cách nhuộm râu, sấy tóc, trang trí thêm hoặc dùng tông đơ cạo sạch hết."
+	},
+	"familyguide_card_13_body": {
+		"message": "Hãy đến thăm Bảo tàng niềm vui ngày lễ cùng các chú lùn, tuần lộc, ông già Noel và cả bà già Noel nữa!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Quanh Bắc Cực, rất nhiều chú lùn, tuần lộc và người hình mắc áo đang di chuyển với tốc độ chóng mặt. Hãy xem cách họ di chuyển từ nơi này sang nơi khác."
+	},
+	"familyguide_card_15_body": {
+		"message": "Ông già Noel và các chú tuần lộc đã sẵn sàng lên đường nhưng họ cần những chú lùn biết lập trình giúp một tay trước khi khởi hành."
+	},
+	"familyguide_card_16_body": {
+		"message": "Những người bạn trong Ngôi làng của ông già Noel sẽ dành một ngày dưới đại dương cùng chú kỳ lân biển Ollie tổ chức lễ hội treo đèn lên rong biển hằng năm lần đầu tiên."
+	},
+	"familyguide_card_age": {
+		"message": "Mọi lứa tuổi"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Khi đã uống hết món cacao trứng và mở hết các món quà, hãy khám phá những trò chơi đem đến niềm vui quanh năm cho gia đình cùng với Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Chúng ta ai cũng muốn một Trái Đất xanh-sạch-đẹp cho thế hệ hôm nay và mai sau. Cùng tìm hiểu những mẹo đơn giản từ Google để giúp mọi người cùng phát triển với Trái Đất."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Lập kế hoạch hôm nay, bảo vệ thế giới ngày mai"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Để có thể khai thác tối đa lợi ích của mạng Internet, trẻ em cần được trang bị kiến thức nhằm đưa ra những quyết định sáng suốt. Hiểu thật rõ về Internet là trò chơi giúp trẻ học được những kiến thức cơ bản về việc trở thành một công dân kỹ thuật số và cách giữ an toàn để trẻ có thể tự tin khám phá thế giới trực tuyến."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Hiểu thật rõ về Internet"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Sản phẩm khác của Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Các chú lùn luôn nỗ lực rèn luyện kỹ năng lập trình. Hãy khám phá những trò chơi hướng dẫn bạn các kỹ năng cơ bản. Ai cũng có thể thử sức lập trình!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Học cách lập trình cùng những chú lùn của ông già Noel"
+	},
+	"familyguide_group_02_body": {
+		"message": "Các ngày lễ có thể sẽ khác nhau tùy theo từng quốc gia. Tìm hiểu cách người dân các nước trên thế giới ăn mừng mùa lễ bằng một loạt những trò chơi và câu hỏi trắc nghiệm."
+	},
+	"familyguide_group_02_title": {
+		"message": "Khám phá các ngày lễ trên khắp thế giới"
+	},
+	"familyguide_group_03_body": {
+		"message": "Ngôi làng của ông già Noel phát triển mạnh mẽ nhờ vào sự kỳ diệu của việc tạo ra đồ chơi. Khám phá các trò chơi trong đó bạn có thể vẽ, tô màu, xây dựng và sáng tạo cùng tất cả các nhân vật mình yêu thích."
+	},
+	"familyguide_group_03_title": {
+		"message": "Lấy cảm hứng và sáng tạo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Hãy lấy bỏng ngô và chui vào chiếc chăn ấm áp. Bạn có thể bắt gặp cả nhóm trên màn ảnh rộng tại rạp chiếu phim trong Ngôi làng của ông già Noel, hoặc theo dõi từng trang truyện nơi bạn có thể hòa mình vào không khí lễ hội dưới đại dương cùng chú kỳ lân biển Ollie."
+	},
+	"familyguide_group_04_title": {
+		"message": "Cùng quây quần bên nhau dành thời gian cho gia đình"
+	},
+	"familyguide_nav_link_01": {
+		"message": "mã"
+	},
+	"familyguide_nav_link_02": {
+		"message": "ăn mừng"
+	},
+	"familyguide_nav_link_03": {
+		"message": "tạo"
+	},
+	"familyguide_nav_link_04": {
+		"message": "thời gian cho gia đình"
+	},
+	"familyguide_nav_link_05": {
+		"message": "mẹo và bí quyết"
+	},
+	"familyguide_nav_link_06": {
+		"message": "khác"
+	},
+	"familyguide_secondary_body": {
+		"message": "Vào ngày 24 tháng 12, Ngôi làng của ông già Noel sẽ biến thành nơi để bạn theo dõi ông già Noel và các chú tuần lộc khi họ phát quà cho trẻ em trên toàn thế giới."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Cùng theo dõi trên trang web hoặc ứng dụng Theo chân ông già Noel dành cho Android"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Suỵt! Bạn có biết hành trình của ông già Noel kéo dài tận 25 giờ?! Điểm dừng chân đầu tiên là vùng cực Đông nước Nga lúc 10 giờ hơn vào buổi tối theo giờ địa phương, khi đó tại New York là 5 giờ sáng và tại Paris là 11 giờ trưa."
+	},
+	"familyguide_secondary_title": {
+		"message": "Theo dõi ông già Noel vào ngày trọng đại"
+	},
+	"familyguide_tips_body": {
+		"message": "Nhận thêm nhiều điều kỳ diệu từ chiến dịch Theo chân ông già Noel mùa lễ hội năm nay cùng với tất cả các sản phẩm của Google mà bạn yêu thích."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Hãy hỏi Trợ lý Google để biết những thông tin thú vị từ chú lùn Dimplesticks mỗi ngày. Cũng đừng quên xem những câu đùa hay sự thật về dịp Giáng sinh và thử xem điều gì sẽ xảy ra khi bạn gọi cho ông già Noel."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, ở Bắc Cực có gì mới không?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Tải ứng dụng Theo chân ông già Noel dành cho Android trên Cửa hàng Play. Có một cảnh độc quyền trong Ngôi làng của ông già Noel cùng những trò chơi mà bạn chỉ có thể tìm thấy trên ứng dụng này."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Ứng dụng Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Theo chân ông già Noel ngay trên cổ tay bằng thiết bị tích hợp Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Hãy tìm từ \"Santa\" trên Google để thấy được ông già Noel ở dạng 3D. Trên hầu hết các điện thoại iPhone và một vài thiết bị Android đời mới có công nghệ thực tế ảo tăng cường, bạn có thể thấy ông già Noel đang vẫy tay với mình qua máy ảnh!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Hãy mời ông già Noel đến phòng khách nhà bạn"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Hãy đem niềm vui trong dịp lễ vào tin nhắn. Bạn có thể tìm ảnh GIF và hình dán theo chủ đề ông già Noel bằng cách tìm kiếm cụm từ \"Santa Tracker GIF\" (chỉ có thể tìm bằng tiếng Anh) trên trang Tenor của Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Tặng món quà ảnh GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Mẹo và bí quyết"
+	},
+	"familyguide_title": {
+		"message": "Niềm vui trong dịp lễ dành cho cả gia đình"
 	},
 	"fi_country_name": {
 		"message": "Phần Lan"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Biến cố ở nhà máy đồ chơi"
 	},
+	"scene_holidayfoods": {
+		"message": "Món ăn trong dịp lễ khắp thế giới trên Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Động băng"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Câu đố trên bản đồ"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie dưới đại dương"
 	},
 	"scene_playground": {
 		"message": "Sân chơi ở Bắc Cực"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Truyền thống trong ngày lễ"
+	},
+	"scene_traditionsquiz": {
+		"message": "Trắc nghiệm về các truyền thống trong dịp lễ"
 	},
 	"scene_translations": {
 		"message": "Dịch thuật"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Dính tuyết rồi!"
+	},
+	"snowball_iced_count": {
+		"message": "Số chú lùn dính tuyết"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}}/{{total}} chú lùn vẫn đang chơi"

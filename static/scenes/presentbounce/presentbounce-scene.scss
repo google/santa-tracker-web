@@ -12,6 +12,7 @@ body {
   overflow: hidden;
   font-family: 'Roboto', 'Arial', Sans-Serif;
   font-weight: 600;
+  touch-action: none;
 }
 
 @import "../_shared/sass/levelup";

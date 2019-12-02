@@ -13,6 +13,7 @@ export function script(src, type=null) {
     if (type) {
       script.type = type;
     }
+    script.setAttribute('crossorigin', 'anonymous');
     script.onload = () => resolve();
     script.onerror = reject;
     document.head.append(script);
@@ -20,14 +21,32 @@ export function script(src, type=null) {
 }
 
 /**
- * Blocks loading the passed script. Probably only works in non-module mode.
+ * Loads a number of passed scripts, without Promise. These unfortunately load in-order.
  *
- * @param {string} src to block load
+ * @param {!Array<string>} scripts to load
+ * @param {function(): void} callback to call when done
  */
-export function syncScript(src) {
-  const script = document.createElement('script');
-  script.src = src;
-  document.write(script.outerHTML);
+export function supportScripts(scripts, callback) {
+  const next = () => {
+    const src = scripts.shift();
+    if (src === undefined) {
+      callback();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = src;
+    script.setAttribute('crossorigin', 'anonymous');
+
+    script.onload = next;
+    script.onerror = () => {
+      console.warn('cannot load', src);
+      next();
+    };
+    document.head.appendChild(script);
+  };
+
+  next();
 }
 
 /**

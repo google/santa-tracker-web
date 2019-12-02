@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Berühren"
 	},
+	"copied": {
+		"message": "Kopiert"
+	},
 	"copy-me": {
 		"message": "Kopiere diesen Link, um deine Nachricht zu teilen."
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Dez."
+	},
+	"decmonth_long": {
+		"message": "Dezember"
 	},
 	"detected": {
 		"message": "erkannt"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Dorf des Weihnachtsmanns erkunden"
+	},
+	"familyguide_accordion_title": {
+		"message": "Den ganzen Monat feiern"
+	},
+	"familyguide_body": {
+		"message": "Das Weihnachtsdorf ist der ideale Ort, um gemeinsam mit der Familie zu feiern. Hier finden Sie alle Ihre Lieblingscharaktere sowie unterhaltsame, lehrreiche und interaktive Aktivitäten für jedes Alter."
+	},
+	"familyguide_card_01_body": {
+		"message": "Helfen Sie dem Elf mit grundlegenden Programmierkenntnissen, die im Wald verstreuten Geschenke zu finden."
+	},
+	"familyguide_card_02_body": {
+		"message": "Gestalten Sie Ihre eigene Weihnachtskarte. Wählen Sie einen der vielen Hintergründe aus, programmieren Sie eine Schneeflocke und teilen Sie die Karte mit Ihren Freunden."
+	},
+	"familyguide_card_03_body": {
+		"message": "Die Elfen üben gerade wieder das Programmieren und tanzen dabei wild herum. Ihre Aufgabe ist es, die Choreografie des Elfentanzes in Code darzustellen. Aber Achtung: Je besser Sie werden, desto schwieriger werden die Tänze!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Die einen tragen eine Pudelmütze, die anderen einen Badeanzug: Klicken Sie auf die Kartenmarkierungen, um mehr über Weihnachtstraditionen auf der ganzen Welt zu erfahren."
+	},
+	"familyguide_card_05_body": {
+		"message": "Lernen Sie alle wichtigen Redewendungen für die Feiertage in verschiedenen Sprachen – von \"Frohes neues Jahr\" auf Elfisch bis zu Дед Мороз."
+	},
+	"familyguide_card_06_body": {
+		"message": "Der Weihnachtsmann kommt viel herum. Ordnen Sie in diesem Geografiespiel die Umrisse dem richtigen Land auf der Karte zu."
+	},
+	"familyguide_card_07_body": {
+		"message": "Kennen Sie sich mit Weihnachten aus? Beantworten Sie neun Fragen, um Ihr Wissen unter Beweis zu stellen."
+	},
+	"familyguide_card_07_title": {
+		"message": "Quiz über Weihnachtstraditionen"
+	},
+	"familyguide_card_08_body": {
+		"message": "Sind Sie hungrig? Entdecken Sie Köstlichkeiten aus der ganzen Welt."
+	},
+	"familyguide_card_09_body": {
+		"message": "Probieren Sie die Kreativwerkzeuge des Weihnachtsmanns aus. Jedes Tool, jeder Pinsel und jeder Sticker macht ein spezielles Geräusch, was zu einem audiovisuellen Gesamtkunstwerk führt."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimentieren und spielen Sie in Ihrer eigenen winterlichen Sandbox. Mit den verfügbaren 3D-Materialien können Sie alles Mögliche bauen: Häuser, Spielzeug, Schneemenschen, Wälder oder was auch immer Sie sich gerade vorstellen."
+	},
+	"familyguide_card_11_body": {
+		"message": "Du kannst deinen eigenen Wichtel mit dem perfekten wichteligen Look für die Weihnachtspartys am Nordpol entwerfen."
+	},
+	"familyguide_card_12_body": {
+		"message": "Der Weihnachtsmann ist beim Friseur und möchte einen völlig neuen Look. Färben Sie seinen Bart, föhnen Sie ihm die Haare, schmücken Sie ihn oder schneiden Sie kurzerhand alles ab."
+	},
+	"familyguide_card_13_body": {
+		"message": "Besuchen Sie gemeinsam mit den Elfen, den Rentieren, dem Weihnachtsmann und seiner Frau das Weihnachtsmuseum."
+	},
+	"familyguide_card_14_body": {
+		"message": "Viele Weihnachtselfen, Rentiere und natürlich auch Pegman sind am Nordpol unterwegs. Sehen Sie sich an, wie sie von einem Ort zum anderen kommen."
+	},
+	"familyguide_card_15_body": {
+		"message": "Der Weihnachtsmann und die Rentiere sind bereit, aber sie brauchen noch ein wenig Hilfe von den Programmierelfen, bevor es losgehen kann."
+	},
+	"familyguide_card_16_body": {
+		"message": "Unsere Freunde aus dem Weihnachtsdorf besuchen Ollie den Narwal unter Wasser, um gemeinsam alles für die festliche Beleuchtung des Kelpwaldes vorzubereiten."
+	},
+	"familyguide_card_age": {
+		"message": "Jedes Alter"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Auch nachdem alle Plätzchen aufgegessen und die Geschenke ausgepackt sind, bietet Google Ressourcen für schöne Stunden mit der Familie."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Wir alle möchten jetzt und in Zukunft einen gesunden Planeten. Google gibt Ihnen einfache Tipps, wie Sie mithelfen können, dass es den Menschen und der Welt, in der wir leben, gut geht."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Ihr Plan, Ihr Planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Damit Kinder das Internet sinnvoll nutzen können, müssen sie in der Lage sein, intelligente Entscheidungen zu treffen. Im Rahmen von \"Sicher durchs Internet\" lernen Kinder die Grundlagen der verantwortungsvollen Internetnutzung und der Sicherheit im Netz, um selbstbewusst durch das World Wide Web surfen zu können."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Sicher durchs Internet"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Mehr von Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Die Elfen arbeiten immer an der Verbesserung ihrer Programmierkenntnisse. Hier finden Sie Spiele, bei denen Sie die Grundlagen lernen. Jeder kann programmieren."
+	},
+	"familyguide_group_01_title": {
+		"message": "Mit den Weihnachtselfen das Programmieren lernen"
+	},
+	"familyguide_group_02_body": {
+		"message": "Die Feiertage werden von Land zu Land ganz unterschiedlich begangen. In zahlreichen Spielen und Quizzen erfahren Sie, wie weltweit Weihnachten gefeiert wird."
+	},
+	"familyguide_group_02_title": {
+		"message": "Festtage auf der ganzen Welt"
+	},
+	"familyguide_group_03_body": {
+		"message": "Im Dorf des Weihnachtsmanns wird fleißig gearbeitet. Entdecken Sie Spiele, bei denen Sie mit Ihren Lieblingscharakteren zeichnen, malen, bauen und gestalten können."
+	},
+	"familyguide_group_03_title": {
+		"message": "Sich inspirieren lassen und selbst kreativ werden"
+	},
+	"familyguide_group_04_body": {
+		"message": "Schnappen Sie sich das Popcorn und machen Sie es sich auf dem Sofa gemütlich. Sie können den Figuren auf der Leinwand im Kino des Weihnachtsdorfs zusehen oder das interaktive Bilderbuch lesen und dabei sein, wie Ollie der Narwal im Meer Weihnachten feiert."
+	},
+	"familyguide_group_04_title": {
+		"message": "Gemeinsame Zeit mit der Familie"
+	},
+	"familyguide_nav_link_01": {
+		"message": "Code"
+	},
+	"familyguide_nav_link_02": {
+		"message": "Feiern"
+	},
+	"familyguide_nav_link_03": {
+		"message": "Erstellen"
+	},
+	"familyguide_nav_link_04": {
+		"message": "Familienzeit"
+	},
+	"familyguide_nav_link_05": {
+		"message": "Tipps und Tricks"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mehr"
+	},
+	"familyguide_secondary_body": {
+		"message": "Am 24. Dezember können Sie im Weihnachtsdorf live dabei sein, wie der Weihnachtsmann und seine Rentiere Kindern auf der ganzen Welt Geschenke bringen."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Auf der Website \"Auf den Spuren des Weihnachtsmanns\" oder in der Android-App live dabei sein"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Wussten Sie schon, dass der Weihnachtsmann 25 Stunden unterwegs ist? Sein erster Halt ist kurz nach 22:00 Uhr Ortszeit ganz im Osten Russlands. Dann ist es 5:00 Uhr morgens in New York und 11:00 Uhr in Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Den Weihnachtsmann begleiten"
+	},
+	"familyguide_tips_body": {
+		"message": "Dieses Jahr ist \"Auf den Spuren des Weihnachtsmanns\" dank Ihrer liebsten Google-Produkte noch interessanter."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Sie können Google Assistant jeden Tag nach lustigen Neuigkeiten über den Weihnachtself Dimplesticks fragen. Außerdem gibt es Weihnachtswitze, Wissenswertes über Weihnachten und Sie erfahren, was passiert, wenn Sie den Weihnachtsmann anrufen."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, was gibt es Neues am Nordpol?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Laden Sie die App \"Auf den Spuren des Weihnachtsmanns\" für Android aus dem Play Store herunter. Darin gibt es Spiele im Weihnachtsdorf, die nur in der App verfügbar sind."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android-App"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Bleiben Sie dank Android Wear-Integration dem Weihnachtsmann auf der Spur."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Suchen Sie bei Google nach \"Santa\", um den Weihnachtsmann in 3D zu sehen. Auf den meisten iPhones und einigen neuen Android-Geräten können Sie in AR sehen, wie er Ihnen durch die Kamera zuwinkt!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Der Weihnachtsmann in Ihrem Wohnzimmer"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Senden Sie weihnachtliche Grüße. Auf der Tenor-Seite von Google finden Sie GIFs und Sticker zum Thema Weihnachten, wenn Sie nach \"Santa Tracker gifs\" (nur auf Englisch) suchen."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "GIFs zu Weihnachten"
+	},
+	"familyguide_tips_title": {
+		"message": "Tipps und Tricks"
+	},
+	"familyguide_title": {
+		"message": "Schöne Feiertage für die ganze Familie"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Geschenkeschmiede"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth – Festtagsgerichte auf der ganzen Welt"
+	},
 	"scene_icecave": {
 		"message": "Eishöhle"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kartenquiz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie im Meer"
 	},
 	"scene_playground": {
 		"message": "Spielplatz am Nordpol"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Weihnachtstraditionen aus aller Welt"
+	},
+	"scene_traditionsquiz": {
+		"message": "Quiz über Weihnachtstraditionen"
 	},
 	"scene_translations": {
 		"message": "Übersetzungen"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Erwischt!"
+	},
+	"snowball_iced_count": {
+		"message": "Erwischt"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} von {{total}} Wichteln verbleiben"

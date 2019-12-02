@@ -3,12 +3,14 @@
  */
 
 import * as params from '../lib/params.js';
+import {internalNavigation} from '../scene/route.js';
+import isAndroid from './android.js';
 
 
 /**
  * Matches "/sceneName.html" or "/".
  */
-const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
+const simplePathMatcher = /^\/?(?:|(@?\w+)\.html)$/;
 
 
 /**
@@ -18,20 +20,30 @@ const deepClone = (raw) => JSON.parse(JSON.stringify(raw));
 
 
 /**
- * Normalize the passed scene name.
+ * Returns the pathname for the given location, always starting with "/".
  *
- * @param {string} sceneName to normalize
+ * This works around an IE11 bug.
+ *
+ * @param {?Location} location
+ * @return {string}
+ */
+function pathnameForLocation(location) {
+  const p = location && location.pathname || '/';
+  if (p.startsWith('/')) {
+    return p;
+  }
+  return '/' + p;
+}
+
+
+/**
+ * Normalize the passed route.
+ *
+ * @param {string} route to normalize
  * @return {string} normalized name, possibly the blank string
  */
-export function normalizeSceneName(sceneName) {
-  sceneName = String(sceneName || '').toLowerCase().replace(/[^\w]/g, '');
-
-  // These should always map to "".
-  if (sceneName === 'index' || sceneName === 'village') {
-    sceneName = '';
-  }
-
-  return sceneName;
+export function normalizeRoute(route) {
+  return String(route || '').toLowerCase().replace(/[^\w]/g, '');
 }
 
 
@@ -50,6 +62,7 @@ export function normalizeLang(lang) {
   return parts.join('-');
 }
 
+
 /**
  * Finds the canonical URL for sharing and URL changes. Look in /intl/.../ and ?hl=... for user
  * override lang. Send the browser to the correct /intl/ version via History API. e.g.,
@@ -60,11 +73,11 @@ export function normalizeLang(lang) {
  * However, respect the user's wishes, as the code has been served under that path anyway.
  *
  * @param {!Location} location
- * @return {{scope: string, sceneName: string, data: !Object<string, string>}}
+ * @return {{scope: string, route: string, data: !Object<string, string>, hash: string}}
  */
 export function resolveProdURL(location) {
   const data = params.read(location.search);
-  let pathname = location.pathname || '/';
+  let pathname = pathnameForLocation(location);
 
   // Strip secret development URLs.
   const matchDev = pathname.match(/^\/\w+-\w{24,30}\//);
@@ -89,13 +102,38 @@ export function resolveProdURL(location) {
     pathname = '/' + pathname.substr(matchLang[0].length);
   }
   const matchScene = simplePathMatcher.exec(pathname);
-  const sceneName = normalizeSceneName(matchScene && matchScene[1]);
+  const route = normalizeRoute(matchScene && matchScene[1]);
 
   let scope = `${location.origin}/`;
   if (requestLang) {
     scope += `intl/${normalizeLang(requestLang)}/`;
   }
-  return {scope, sceneName, data};
+  return {scope, route, data, hash: location.hash || ''};
+}
+
+
+/**
+ * Route to the corresponding Android scene for the passed route.
+ */
+function routeToAndroid(route) {
+  let androidRoute = undefined;
+  if (route[0] === '@') {
+    androidRoute = route.substr(1);
+  } else if (isAndroid()) {
+    if (route === 'jetpack' || route === 'gumball') {
+      androidRoute = route;
+    } else if (route === 'matching') {
+      // Name mismatch from web/Android.
+      androidRoute = 'memory';
+    }
+  }
+  if (!androidRoute) {
+    return false;
+  }
+
+  console.info('loading Android route', androidRoute);
+  window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${androidRoute}`;
+  return true;
 }
 
 
@@ -105,7 +143,7 @@ export function resolveProdURL(location) {
  *
  * Returns site scope and routing helper.
  *
- * @param {function(string, !Object<string, string>): void} callback to load page
+ * @param {function(string, !Object<string, string>, string): string} callback to load page
  * @return {{scope: string, go: function(string, !Object<string, string>): void}}
  */
 export function configureProdRouter(callback) {
@@ -115,47 +153,70 @@ export function configureProdRouter(callback) {
 
   const load = resolveProdURL(window.location);
   const wh = window.history;
-
-  const updateHistory = (sceneName, data, replace=false) => {
-    const url = load.scope + (sceneName ? sceneName + '.html' : '') + params.build(data);
-    const state = {sceneName, data};  // nb. window.history deep-copies data
-    if (!replace && (!wh.state || wh.state.sceneName !== sceneName)) {
-      wh.pushState(state, null, url);
-    } else if (url !== window.location.href) {
-      replace = true;
-    }
-    replace && wh.replaceState(state, null, url);
-  };
-
-  updateHistory(load.sceneName, load.data, true);
+  let lastState = null;
 
   // Install `popstate` handler and trigger immediately to configure initial state.
-  const refresh = () => {
-    const data = deepClone(wh.state.data);
-    callback(wh.state.sceneName, data);
+  const internalRoute = ({route, data, hash}, navigation=false) => {
+    data = deepClone(data);
+    const updatedRoute = callback(route, data, hash);
+    if (updatedRoute !== undefined) {
+      route = updatedRoute;
+    }
+
+    // Now, update history...
+    const url = load.scope + (route ? route + '.html' : '') + params.build(data) + (hash || '');
+    const state = {route, data, hash};  // nb. window.history deep-copies data
+    if (navigation && (!wh.state || wh.state.route !== route)) {
+      wh.pushState(state, null, url);
+    } else if (url !== window.location.href) {
+      navigation = false;
+    }
+    navigation || wh.replaceState(state, null, url);
+    lastState = state;
   };
-  window.addEventListener('popstate', refresh);
-  refresh();
+  window.addEventListener('popstate', () => {
+    const state = wh.state || lastState;
+    if (!wh.state) {
+      // wh.state can be null/undefined if the user twiddles the hash of the URL
+      // TODO(samthor): This isn't passed down to the child frame.
+      state.hash = window.location.hash || '';
+    }
+    internalRoute(state)
+  });
+  internalRoute(load);
 
   // Provide expected `santaApp` helper.
   window.santaApp = {
     get route() {
-      return wh.state && wh.state.sceneName;
+      return wh.state && wh.state.route;
     },
-    set route(sceneName) {
-      this.go(sceneName);
+    set route(route) {
+      this.go(route);
     },
-    go(sceneName, data={}) {
-      sceneName = normalizeSceneName(sceneName);
-      updateHistory(sceneName, data);
-      refresh();
+    go(route, data={}) {
+      if (routeToAndroid(route)) {
+        return false;
+      }
+
+      const parts = route.split('#', 1);
+      const hash = route.substr(parts[0].length);  // substr all including '#+'
+      route = parts[0];
+
+      internalRoute({route: normalizeRoute(route), data, hash}, true);
     },
   };
+
+  // Add global 'go' event listener.
+  window.addEventListener('go', (ev) => {
+    window.santaApp.go(ev.detail || '');
+  });
 
   return {
     scope: load.scope,
     go: santaApp.go,
-    write: (data) => updateHistory(wh.state.sceneName, data, true),
+    write: (data) => {
+      internalRoute({route: wh.state.route, data}, false);
+    },
   };
 }
 
@@ -175,7 +236,7 @@ function nearestComposedLink(ev) {
 function nearestClosestLink(ev) {
   const cand = ev.target.closest('a[href]');
   if (cand) {
-    return new URL(closest.href);
+    return new URL(cand.href);
   }
   return null;
 }
@@ -203,9 +264,23 @@ export function globalClickHandler(scope, go) {
       return false;
     }
 
-    const rest = target.pathname.substr(scope.length - target.origin.length - 1);  // include "/"
+    const pathname = pathnameForLocation(target);
+    const rest = pathname.substr(scope.length - target.origin.length - 1);  // include "/"
     const matchScene = simplePathMatcher.exec(rest);
     if (!matchScene) {
+      return false;
+    }
+
+    const hash = internalNavigation(target);
+    if (hash !== null) {
+      ev.preventDefault();
+
+      // Pretend to actually click on the link.
+      const a = document.createElement('a');
+      a.href = hash;
+      a.click();
+
+      go((matchScene[1] || '') + hash);
       return false;
     }
 

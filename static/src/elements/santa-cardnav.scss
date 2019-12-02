@@ -1,8 +1,20 @@
 
 $transition-duration: 0.2s;
+$max-dim: 1400px;
 
 #wrap {
   background: rgba(72, 3, 184, 0.95);
+  height: 100%;
+}
+
+#scroll {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  touch-action: pan-y;
 }
 
 main {
@@ -10,7 +22,7 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  max-width: 1400px;
+  max-width: $max-dim;
   padding: 0 0 32px;
   margin: 0 auto;
   // nb. this contains several "placeholder" elements so that the cards always
@@ -51,7 +63,7 @@ santa-card {
   --radius: 30px;
   --icon-size: 60%;
 
-  &.wide {
+  &[wide] {
     width: 420px;
   }
 }
@@ -69,77 +81,35 @@ santa-card {
     --radius: 20px;
     --icon-size: 50%;
 
-    &.wide {
+    &[wide] {
       width: 280px;
     }
   }
 }
 
+footer,
 header {
-  display: flex;
-  min-height: 200px;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  font-size: 24px;
+  color: white;
+
+  @media (max-width: 768px - 1px) {
+    font-size: 16px;
+  }
 }
 
-a.linkwrap {
-  pointer-events: auto;
-  text-decoration: none;
-  display: inline-flex;
-  max-width: 100%;
-  min-width: 1%;
+header {
+  display: flex;
+  margin-top: 80px;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
-  margin-left: 40px;
-  line-height: 44px;  // FIXME: was $dim-bar
-  overflow: hidden;
+  justify-content: center;
 
-  border-radius: 100px;
-  padding: 0 16px;
-  padding-right: 36px;
+  santa-install {
+    z-index: 100000;
 
-  transition: background 0.25s ease-in-out;
-
-  .home {
-    opacity: 0;
-    margin-right: 12px;
-    transition: opacity 0.25s ease-in-out;
-  }
-
-  &:hover {
-    background: #3a068d;
-
-    .home {
-      opacity: 1;
+    &:not([ready]) {
+      display: none;
     }
-  }
-
-  .logo {
-    width: 62px;
-    height: 38px;
-    min-width: 62px;
-    background-size: contain;
-    fill: white;
-  }
-
-  h1 {
-    .a11y {
-      opacity: 0;
-      font-size: 0;
-      position: absolute;
-    }
-
-    color: white;
-    margin: 0;
-    margin-left: 0.4ch;
-    font-family: 'Lobster', Sans-Serif;
-    font-size: 19px;
-    line-height: inherit;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
 
@@ -147,16 +117,17 @@ a.linkwrap {
 
 footer {
   background: #3a068d;
-  color: white;
-  font-family: 'Google Sans', 'Arial', sans-serif;
-  font-size: 24px;
-  padding: 48px 64px;
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 768px - 1px) {
-    padding: 24px 32px;
-    font-size: 16px;
+  .inner {
+    padding: 48px 64px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: $max-dim;
+    box-sizing: border-box;
+  
+    @media (max-width: 768px - 1px) {
+      padding: 24px 32px;
+    }
   }
 
   .grow {

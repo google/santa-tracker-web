@@ -38,18 +38,21 @@ app.Slider = class Slider extends app.Entity {
   onFrame() {
     const prevPosition = Object.assign({}, this.position)
 
+    this.flipped = false
     if (!this.reversing) {
       if (this.config.isVertical) {
         this.position.y = this.position.y + this.config.stepSize
         if (this.position.y >= this.endPos.y) {
           this.reversing = true
           this.position.y = this.endPos.y
+          this.flipped = true
         }
       } else {
         this.position.x = this.position.x + this.config.stepSize
         if (this.position.x >= this.endPos.x) {
           this.reversing = true
           this.position.x = this.endPos.x
+          this.flipped = true
         }
       }
     } else {
@@ -58,12 +61,14 @@ app.Slider = class Slider extends app.Entity {
         if (this.position.y <= this.config.startPos.y) {
           this.reversing = false
           this.position.y = this.config.startPos.y
+          this.flipped = true
         }
       } else {
         this.position.x = this.position.x - this.config.stepSize
         if (this.position.x <= this.config.startPos.x) {
           this.reversing = false
           this.position.x = this.config.startPos.x
+          this.flipped = true
         }
       }
     }

@@ -11,7 +11,7 @@ app.Table = class Table extends app.Entity {
     super(game)
     this.config = config
     this.gameControls = game.controls
-
+    this.lastSoundTime = 0;
     this.elem = document.createElement('div')
     document.getElementById('tables').append(this.elem)
     this.elem.setAttribute('class', 'table')
@@ -57,10 +57,19 @@ app.Table = class Table extends app.Entity {
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
       actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+      this.playSound();
     }
 
     return actions
   }
+
+  playSound() {
+    if (performance.now() - this.lastSoundTime > 700) {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_thud');
+      this.lastSoundTime = performance.now();
+    }
+  }
+
 }
 
 app.shared.pools.mixin(app.Table)

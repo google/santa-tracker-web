@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  background: black;
+  touch-action: none;
+}
+#player {
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 200px;
+  display: block;
+}
+
+#center {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.play {
+  border-radius: 16px;
+  background: #32a658;
+  width: 280px;
+  height: 140px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.125);
+  transition: box-shadow 0.25s, transform 0.25s ease-in-out;
+  will-change: box-shadow, transform;
+  transition: opacity 0.25s ease-in;
+
+  svg {
+    filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, 0.125));
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.09);
+  }
+
+  &:focus {
+    outline: 0;
+    border-color: rgba(0, 0, 0, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTAgMjB2LTZoNHY2aDV2LThoM0wxMiAzIDIgMTJoM3Y4eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.25s ease-in;
+}
+
+button.play:disabled + .background {
+  opacity: 0;
+}

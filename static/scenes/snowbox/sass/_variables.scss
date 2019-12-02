@@ -1,0 +1,42 @@
+// colors
+$color-blue: #019AFF;
+$color-blue-darken: #0169C8;
+$color-deep-blue: #3F50A2;
+$color-deep-blue-darken: #374287;
+$color-orange: #FF8702;
+$color-yellow: #F8C328;
+$color-white: #fff;
+$color-gray: #d8dde2;
+$color-gray-button: #c4c4c4;
+$color-gray-button-shadow: #B9BDC3;
+$color-purple: #AD00AD;
+$color-dark-purple: #8F0093;
+
+// z-index
+$z-index-ui: 100;
+$z-index-objects: 200;
+$z-index-download: 300;
+
+// sizes
+$button-size: 44px;
+$button-size-tablet: 40px;
+$button-3d-offset: 3px;
+// $button-3d-offset-y: 5px;
+$button-3d-offset-hover: 5px;
+$button-shadow-offset: 10px;
+$button-shadow-offset-hover: 13px;
+  // box-shadow: 3px 5px 0 rgba(0,0,0,0.3),3px 5px 0 #ff3333,8px 7px 0 2px rgba(0,0,0,0.24);
+  // transform: translate(-3px, -5px);
+// shadows
+$button-shadow: rgba(0,0,0, 0.15);
+
+// easings
+$ease: cubic-bezier(.25, .1, .25, 1);
+$easeout-expo: cubic-bezier(.19, 1, .22, 1);
+$easeout-quart: cubic-bezier(.165, .84, .44, 1);
+$easeout-quint: cubic-bezier(.23, 1, .32, 1);
+$ease-linear: linear;
+
+// transition
+$transition-button: .4s ease;
+$transition-object-ui: opacity .2s ease;

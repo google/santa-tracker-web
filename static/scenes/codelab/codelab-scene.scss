@@ -17,6 +17,7 @@ html {
 body {
   overflow: hidden;
   margin: 0;
+  touch-action: none;
 }
 
 *[hidden] {

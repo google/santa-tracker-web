@@ -1,53 +1,60 @@
 :host {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-  }
-  #holder {
-    box-sizing: border-box;
-    z-index: 9999;
-    background: rgba(51, 51, 51, 0.95);
-    color: white;
-    padding: 8px 12px;
-    padding-left: 20px;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    min-height: 92px;
-  }
-  #holder.hidden {
-    display: none !important;
-  }
-  p {
-    margin: 0;
-    flex-grow: 1;
-  }
-  .buttons {
-    text-align: center;
-    font-size: 19px;
-    font-weight: 400;
-  }
-  .button {
-    text-decoration: none;
-    min-width: 72px;
-    display: inline-block;
-    margin: 8px;
-    padding: 6px 12px;
-    border-radius: 2px;
-    border: 2px solid transparent;
-    background: rgba(255, 255, 255, 0.25);
-    color: white;
-    font: inherit;
-    cursor: pointer;
-  }
-  .button:focus {
-    border-color: rgba(255, 255, 255, 0.5);
-    outline: none;
-  }
-  @media (min-width: 600px) {
-    .buttons {
-      white-space: nowrap;
-      font-size: 23px;
-    }
-  }
+  display: flex;
+}
+:host([hidden]) {
+  display: none;
+}
+
+#holder {
+  box-sizing: border-box;
+  color: white;
+  padding: 4px;
+  font-size: 14px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  font-family: 'Google Sans', Arial, Helvetica;
+
+  max-width: 400px;
+  background-color: #202124;
+  opacity: 0.97;
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+p {
+  flex-grow: 1;
+  margin: 8px 16px 4px;
+}
+.buttons {
+  display: flex;
+  align-self: flex-end;
+  margin: 4px;
+}
+.button {
+  text-decoration: none;
+  display: inline-block;
+  min-width: 80px;
+  margin: 0 4px;
+  padding: 6px 8px;
+  border-radius: 200px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  background: transparent;
+  transition: background 0.25s;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  color: #3fc4ff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.button:hover {
+  background: rgba(63,196,255,0.25);
+}
+.button:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}

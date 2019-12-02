@@ -10,6 +10,7 @@ $name: 'module-glider';
 
 body {
   overflow: hidden;
+  touch-action: none;
 }
 
 ##{$name} {

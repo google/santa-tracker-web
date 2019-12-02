@@ -1,47 +1,96 @@
 @import "sass/play";
+@import "sass/newtoday";
 @import "sass/header";
+@import "sass/arrow";
+@import "sass/shared";
 
 html {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: white;
 }
 
 body {
   margin: 0;
   font-family: 'Google Sans', 'Arial', sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
   -webkit-user-select: none;
   user-select: none;
-}
-
-santa-card {
-  width: 200px;
-  height: 150px;
-  --radius: 20px;
-}
-
-#top {
-  height: 800px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(180deg, #00C1F2 0%, #B4E5E6 17.71%, #FFF8BD 41.67%);
-  color: white;
-  flex-flow: column;
-  box-shadow: 0 4px 0 #0003;
-  z-index: 10;
+  touch-action: pan-y;
   position: relative;
-  max-width: 100vw;
-  margin: 0 auto;
+  background: #e9f9fD;
+  overflow-x: hidden;
+}
 
-  &::before {
-    content: '';
+/** village styles */
+
+.village {
+  > div {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
-    background: url(img/rear.svg) bottom center repeat-x;
+    background: transparent center bottom no-repeat;
+    background-size: 2040px;
+    overflow: hidden;
+  }
+
+  overflow-x: hidden;
+
+  .layer1 {
+    background-image: url(img/village/1.svg);
+  }
+  .layer2 {
+    background-image: url(img/village/2.svg);
+    @import "sass/layer2";
+  }
+  .layer3 {
+    background-image: url(img/village/3.svg);
+    @import "sass/layer3";
+  }
+  .layer4 {
+    background-image: url(img/village/4.svg);
+    @import "sass/layer4";
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Below 1024, shrink the SVG to 0.6 size.
+  @media (max-width: 1024px) {
+    transform: scale(0.6);
+    height: 1200px;
+    width: (100 / .6) * 1vw;  // this isn't pixel-perfect but it works
+    transform-origin: top left;
+  }
+}
+
+/** top and UI, contains village */
+
+#top {
+  height: 1050px;
+
+  // Shrink by 0.6.
+  @media (max-width: 1024px) {
+    height: 720px;
+  }
+
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #00C1F2 0%, #B4E5E6 17.71%, #FFF8BD 41.67%);
+  color: white;
+  flex-flow: column;
+  z-index: 10;
+  position: relative;
+  max-width: $module-max-width;
+  margin: 0 auto;
+
+  button.arrow {
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
   }
 
   santa-weather {
@@ -51,44 +100,73 @@ santa-card {
     right: 0;
     bottom: 0;
   }
+}
 
-  #newtoday {
-    position: absolute;
-    bottom: 40px;
-    right: 5%;
-    display: flex;
-    width: 0;
-    height: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-flow: column;
+#top-divider {
+  position: relative;
+  height: 72px;
+  background: #eee url(img/village/divider.svg) center repeat-x;
+  background-size: auto 72px;
+  z-index: 1000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);
+  max-width: $module-max-width;
+  margin: 0 auto;
+}
 
-    span {
-      text-transform: uppercase;
-      background: #f9c329;
-      line-height: 2em;
-      letter-spacing: 1px;
-      white-space: nowrap;
-      border-radius: 4px;
-      padding: 0 10px;
-      position: relative;
-      top: 1em;
-      right: 16px;
-      font-size: 12px;
-      font-weight: bold;
-      z-index: 100;
-      box-shadow: 0 2px 0 #e7ad04;
-      pointer-events: none;
+/** santa-card **/
+
+santa-card {
+  --radius: 20px;
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  modvil-module[mode] santa-card {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  santa-card {
+    padding-bottom: 20px;
+    height: 200px;
+    max-width: 280px;
+    width: 80%;
+    z-index: 10000000;
+  }
+
+  modvil-module:not([mode]) {
+    santa-card:nth-child(2n) {
+      align-self: flex-end;
     }
 
-    santa-card {
-      position: static;
-      margin: 0 !important;
+    modvil-module:nth-child(2n) {
+      santa-card {
+        align-self: flex-end;
+      }
+      santa-card:nth-child(2n) {
+        align-self: flex-start;
+      }
     }
   }
 }
 
-/** village modules **/
+@media (min-width: 768px + 1px) {
+  santa-card {
+    min-width: 280px;  // matches 800 min-height
+    width: 30%;  // 30% of 1440 is about ~420
+    --ratio: 75%;
+  }
+}
+
+
+@media (min-width: 1024px + 1px) {
+  santa-card {
+    font-size: 26px;
+  }
+}
+
+/** modules **/
 
 #modules {
   display: flex;
@@ -100,144 +178,56 @@ santa-card {
     flex-grow: 1;
   }
 
-  .sidebar {
-    &.left {
-      background: url(img/margin-left.svg);
-      background-position: top right;
-    }
-    &.right {
-      background: url(img/margin-right.svg);
-      background-position: top left;
+  // Don't load if not needed.
+  @media (min-width: $module-max-width) {
+    .sidebar {
+      &.left {
+        background: url(img/margin-left.svg);
+        background-position: top right;
+      }
+      &.right {
+        background: url(img/margin-right.svg);
+        background-position: top left;
+      }
     }
   }
 
   main {
-    min-width: 414px;
-    max-width: 1440px;
-    width: 100%;
-  }
-}
-
-.module {
-  position: relative;
-  box-shadow: inset 0 4px 0 #0003;
-  overflow: hidden;
-
-  &::after {
-    display: block;
-    content: '';
-    padding-bottom: 90%;  // this is 1296 and we want 1300; this is probably fine
-  }
-
-  background: transparent center no-repeat;
-  background-size: contain;
-
-  svg, img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    width: 100%;
-  }
-
-  // TODO(samthor): We should load or unload these animations based on the screen size, rather
-  // than just hiding them (!).
-  @media (max-width: 768px - 1px) {
-    svg {
-      display: none;
-    }
-  }
-}
-
-.module#module--footer {
-  &::after {
-    padding-bottom: 69.4%;  // ~999.36, we want 1000px
-  }
-}
-
-.cards {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-santa-card {
-  width: 100%;
-  height: 120px;
-  min-height: 120px;
-}
-
-@media (max-width: 768px - 1px) {
-  .cards {
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: space-around;
-  }
-  santa-card {
-    max-width: 240px;
+    width: 100%;
+    max-width: $module-max-width;
   }
 }
 
-@media (min-width: 768px) {
-  santa-card {
-    position: absolute;
-    $w: 240px;
-    $h: 180px;
-    width: $w;
-    height: $h;
-    min-height: $h;
-    margin-left: -($w / 2);
-    margin-top: -($h / 2);
+modvil-module {
+  box-shadow: inset 0 4px 0 #0003;
+  width: 100%;
+  min-height: $module-min-height;
+  pointer-events: none;
+
+  @media (max-width: 414px) {
+    min-width: 414px;
   }
 
-  @media (min-width: 1024px) {
-    santa-card {
-      $w: 320px;
-      $h: 240px;
-      width: $w;
-      height: $h;
-      min-height: $h;
-      margin-left: -($w / 2);
-      margin-top: -($h / 2);
-      font-size: 1.5em;
-    }
+  &#movies {
+    --module-ratio: 55.555555%;  // ~799.99999..., target is 800px
   }
 
-  #module--sciencelab {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 20%;
-      }
-      &:nth-child(2) {
-        left: 80%;
-        top: 15%;
-      }
-      &:nth-child(3) {
-        left: 70%;
-        top: 40%;
-      }
-    }
+  &#footer {
+    --module-ratio: 69.4%;  // ~999.36, we want 1000px
   }
+}
 
-  #module--transport {
-    santa-card {
-      &:nth-child(1) {
-        left: 20%;
-        top: 40%;
-      }
-      &:nth-child(2) {
-        left: 50%;
-        top: 30%;
-      }
-      &:nth-child(3) {
-        left: 80%;
-        top: 20%;
-      }
-    }
-  }
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000000;
 }

@@ -2,8 +2,8 @@
 import {_static} from './magic.js';
 import {AudioLoader} from './kplay-lib.js';
 import './polyfill/event-target.js';
+import '../third_party/lib/klang/config.js';
 
-const configPath = _static`third_party/lib/klang/config.js`;
 const audioPath = _static`audio`;
 
 const masterContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -469,9 +469,7 @@ class AudioGroup extends EventTarget {
    * @param {number=} index an index to force
    */
   _each(callback, playLike=false, index=-1) {
-    if (playLike && this.playing && !this.stopping) {
-      return false;  // do nothing if still playing
-    }
+
     const c = this._content;
 
     if (!this._type) {
@@ -633,7 +631,7 @@ class AudioSource extends EventTarget {
       if (this._loopStart !== undefined) {
         source.loopStart = this._loopStart;
 
-        if (this._loopEnd === undefined) {
+        if (this._loopEnd === undefined && source.buffer) {
           source.loopEnd = source.buffer.duration;
         }
       }
@@ -747,7 +745,12 @@ class AudioSource extends EventTarget {
       // position, then restart the underlying source.
       this._startTime = masterContext.currentTime - delta;
       const position = this.position;  // calculate trick position
-      this._sources.forEach((source) => source.stop());
+      this._sources.forEach((source) => {
+        // safari invalidState fix
+        if ( source.playbackState == undefined || source.playbackState > 0 ) {
+          source.stop();
+        }
+      });
 
       const source = this._createSource();
       source.start(masterContext.currentTime, position);
@@ -806,6 +809,10 @@ class AudioSource extends EventTarget {
     return this._playbackRate;
   }
 
+  get playbackRateNode() {
+    return this._sources[0] ? this._sources[0].playbackRate : null;
+  }
+
   curvePlaybackRate(rate, duration, when = masterContext.currentTime) {
     if (this._internalSetPlaybackRate(rate) && this._loop && this._sources[0]) {
       // only adjust on looping sounds, leave playing instant alone
@@ -831,7 +838,9 @@ class AudioSource extends EventTarget {
     if (sourceToStop === null) {
       return false;
     }
-    sourceToStop.stop();
+    if ( sourceToStop.playbackState == undefined || sourceToStop.playbackState > 0 ) {
+      sourceToStop.stop();
+    }
     this.dispatchEvent(new Event('ended'));
     // nb. 'when' wasn't used in the upstream code, and added tons of complexity.
   }
@@ -894,19 +903,8 @@ class AudioSource extends EventTarget {
 }
 
 
-
-export async function prepare() {
-  // Load the config into the page (dynamically), as it's ~300kb and doesn't need to be loaded
-  // unless the user is actually playing audio. It just creates the `KLANG_CONFIG` global.
-
-  const config = await new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = configPath;
-    script.onload = () => resolve(window['KLANG_CONFIG']);
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-
+export function prepare() {
+  const config = window['KLANG_CONFIG'];
   const globalVars = config['vars'];
 
   // Audio files aren't keyed, they just have an ID field.
@@ -936,7 +934,14 @@ export async function prepare() {
 
   Object.assign(audioConfig, config['busses'], config['sequencers'], config['processes']);
 
-  const nodes = {};
+  // By default, our master output is muted.
+  let masterOutMuted = true;
+  const masterOut = new AudioBus({}, null);
+  masterOut.output.gain.value = 0;
+
+  const nodes = {
+    '$OUT': masterOut,
+  };
 
   const loaderCallback = (key, buffer) => {
     const existing = nodes[key];
@@ -959,7 +964,7 @@ export async function prepare() {
    */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
-    if ('destination_name' in config && destination === null && config['destination_name'] !== '$OUT') {
+    if ('destination_name' in config && !destination) {
       throw new Error(`got unprepared destination node ${config['destination_name']} for ${key}`);
     }
     let node;
@@ -1021,7 +1026,7 @@ export async function prepare() {
       c['vars'] || [],
       c['content'] || [],
       c['destination_name'] || [],
-    ).filter((x) => !(x === '$OUT' || x in nodes));
+    ).filter((x) => !(x in nodes));
     deps.forEach(internalPrepareKey);
 
     const node = prepareKNode(key, c, nodes);
@@ -1072,6 +1077,18 @@ export async function prepare() {
 
       triggerNodes = null;
     },
+    stopAll(duration=0.5) {
+      triggerNodes = new Set();
+      activeNodes.forEach((node) => {
+        if (!node.stopping && !triggerNodes.has(node)) {
+          if (node instanceof SimpleProcess) {
+            node.stop();
+          } else {
+            node.fadeOutAndStop(duration);
+          }
+        }
+      });
+    },
 
     reset(duration=0.5) {
       // If we pass a duration, dirtyNodes is actually cleared before these nodes are made entirely
@@ -1087,6 +1104,18 @@ export async function prepare() {
 
     get suspended() {
       return masterContext.state === 'suspended';
+    },
+
+    get muted() {
+      return masterOutMuted;
+    },
+
+    set muted(v) {
+      if (v === masterOutMuted) {
+        return;
+      }
+      masterOutMuted = v;
+      Util.curveParamLin(masterOut.output.gain, masterOutMuted ? 0 : 1, 0.5);
     },
 
     resume() {

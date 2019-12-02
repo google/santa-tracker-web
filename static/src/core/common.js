@@ -4,9 +4,10 @@
  *
  * @param {string} audio
  */
-export function play(audio) {
+export function play(audio, args) {
+  let array = Array.prototype.slice.call(arguments);
   const ce = new CustomEvent('santa-play', {
-    detail: audio,
+    detail: array,
   });
   window.dispatchEvent(ce);
 }

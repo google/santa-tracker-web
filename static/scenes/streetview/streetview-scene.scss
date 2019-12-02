@@ -15,6 +15,7 @@ $horizon-y-offset: -350;
 body {
   overflow: hidden;
   margin: 0;
+  touch-action: none;
 }
 
 ##{$name} {

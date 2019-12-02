@@ -12,9 +12,52 @@ const remoteConfig = firebase.remoteConfig();
 const listeners = new Set();
 
 const memoized = {
-  'videos': null,
-  'sceneLock': null,
+  'videos': [],
+  'sceneLock': {},
+  'sceneRedirect': {},
+  'nav': [],
+  'featured': {},
 };
+
+const isProd = (window.location.hostname === 'santatracker.google.com');
+const localStorage = window.localStorage || {};
+let isOutOfDate = false;
+
+
+/**
+ * @return {boolean} whether the site is out of date and needs a reload
+ */
+export function siteExpired() {
+  return isOutOfDate;
+}
+
+
+
+function checkUpgrade() {
+  const siteVersion = window.santaConfig.version;
+  const upgradeToVersion = remoteConfig.getString('upgradeToVersion');
+  if (!upgradeToVersion || upgradeToVersion < siteVersion) {
+    isOutOfDate = false;
+    delete localStorage['upgradeToVersion'];
+    return;  // nothing to do
+  }
+
+  // otherwise, reload or complain
+  console.warn('got out-of-date version, have', siteVersion, 'want', upgradeToVersion);
+  if (!isProd || localStorage['upgradeToVersion'] === upgradeToVersion) {
+    ga('send', 'event', 'site', 'upgrade-warn', upgradeToVersion);
+    isOutOfDate = true;
+    notifyListeners();
+  } else {
+    ga('send', 'event', 'site', 'upgrade-attempt', upgradeToVersion);
+    localStorage['upgradeToVersion'] = upgradeToVersion;
+    window.location.href = window.location.href;
+  }
+
+}
+checkUpgrade();
+window._check = checkUpgrade;
+
 
 function refreshMemoized() {
   for (const key in memoized) {
@@ -28,6 +71,7 @@ function refreshMemoized() {
   }
 }
 refreshMemoized();
+
 
 function expontentialDelay(range, failures = 0) {
   return Math.pow(1.0 + (range * Math.random()), failures + 1) - (range / 2);
@@ -145,6 +189,7 @@ export async function refresh(invalidateNow = false) {
 
   await remoteConfig.fetchAndActivate();
   refreshMemoized();
+  checkUpgrade();
 
   // nb. It's not clear RC tells us if it changes or not. Just notify everyone anyway.
   notifyListeners();
@@ -170,6 +215,18 @@ export function switchOff() {
 
 
 /**
+ * @return {?string} today's featured route
+ */
+export function featuredRoute() {
+  const today = new Date();
+  if (today.getMonth() !== 11) {
+    return null;
+  }
+  return memoized.featured[`${today.getDate()}`] || null;
+}
+
+
+/**
  * @param {?string} route to check
  * @param {boolean} fallback whether we are fallback mode
  * @return {?string} route to serve
@@ -177,9 +234,9 @@ export function switchOff() {
 export function sceneForRoute(route, fallback) {
   if (!route || route === 'index') {
     return indexScene(fallback);
-  } else if (isLocked(route)) {
-    return null;
   }
+  // nb. We used to lock scenes here by returning null, now, we just fail open.
+
   const v = videos();
   if (v.indexOf(route) !== -1) {
     return 'video';
@@ -189,10 +246,29 @@ export function sceneForRoute(route, fallback) {
 
 
 /**
+ * @param {string} route to redirect
+ * @return {string|undefined} optional updated route
+ */
+export function redirectRoute(route) {
+  if (route in memoized.sceneRedirect) {
+    return memoized.sceneRedirect[route];
+  }
+}
+
+
+/**
  * @return {!Array<string>} video IDs
  */
 export function videos() {
   return memoized.videos;
+}
+
+
+/**
+ * @return {!Array<string>} nav bar scene contents
+ */
+export function nav() {
+  return memoized.nav;
 }
 
 
@@ -219,6 +295,28 @@ export function isLocked(route) {
   }
   return value > today.getDate();
 }
+
+
+export function routesSnapshot() {
+  const {sceneLock, videos} = memoized;
+  const out = {};
+  for (const route in sceneLock) {
+    out[route] = {
+      locked: lockedTo(route),
+      video: false,
+    };
+  }
+  videos.forEach((video) => {
+    if (!(video in out)) {
+      out[video] = {
+        locked: undefined,
+      };
+    }
+    out[video].video = true;
+  });
+  return out;
+}
+
 
 /**
  * @param {string} route to return date locked until
