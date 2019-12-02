@@ -1,0 +1,50 @@
+.navbar {
+  margin: 0 auto 45px;
+  max-width: 1400px;
+  padding: 0 40px;
+
+  &-inner {
+    background-color: #6BB4FD;
+    padding: 18px 44px;
+    border-radius: 36px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  &__link {
+    cursor: pointer;
+    list-style: none;
+
+    a {
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .3s linear;
+
+      &::after {
+        background: white;
+        bottom: -4px;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s linear;
+        width: 100%;
+      }
+
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}

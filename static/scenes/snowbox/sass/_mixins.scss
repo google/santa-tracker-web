@@ -1,0 +1,66 @@
+/**
+  * SASS Mixins
+  */
+
+
+@mixin respond-to($point) {
+  @if $point == desktop {
+    @media only screen and (min-width: 1081px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (max-width: 1080px) {
+      @content;
+    }
+  } @else if $point == smartphone {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == iphone8-more {
+    @media only screen
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2),
+    only screen
+    and (device-width : 414px)
+    and (device-height : 736px)
+    and (-webkit-device-pixel-ratio : 3) {
+      @content;
+    }
+  } @else if $point == iphoneX-more {
+    @media only screen and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3),
+    only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 2),
+    only screen
+    and (device-width: 375px)
+    and (device-height: 812px)
+    and (-webkit-device-pixel-ratio: 3),
+    only screen
+    and (device-width: 414px)
+    and (device-height: 896px)
+    and (-webkit-device-pixel-ratio: 3) {
+      @content;
+    }
+  }
+}
+
+@mixin center($direction) {
+  @if $direction == x {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  } @else if $direction == y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $direction == xy {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

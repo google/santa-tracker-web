@@ -1,22 +1,35 @@
 ##{$name} {
   .player {
     height: $grid-unit-size;
+    opacity: 0;
     width: $grid-unit-size;
     z-index: $player-z-index;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    &__inner {
+      height: 200%;
+      transform: translate(-25%, -50%);
+      width: 200%;
+
+      &.is-flipped {
+        transform: translate(-25%, -50%) scaleX(-1);
+      }
+
+      .animation {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
 
     &.is-hidden {
       opacity: 0;
     }
-
-    // &.is-winner {
-    //   &::after {
-    //     font-size: 30px;
-    //     left: 9px;
-    //     top: -13px;
-    //     content: '👑';
-    //     position: absolute;
-    //   }
-    // }
 
     &.toypart--car_wheels,
     &.toypart--robot_heads {
@@ -61,11 +74,16 @@
     }
   }
 
-  #player-1 {
-    background: url(img/players/player-a.svg) center/contain no-repeat;
-  }
+  .player-spawn {
+    height: $grid-unit-size;
+    width: $grid-unit-size;
 
-  #player-2 {
-    background: url(img/players/player-b.svg) center/contain no-repeat;
+    &--a {
+      background: url(img/players/a/spawn.svg) center/contain no-repeat;
+    }
+
+    &--b {
+      background: url(img/players/b/spawn.svg) center/contain no-repeat;
+    }
   }
 }

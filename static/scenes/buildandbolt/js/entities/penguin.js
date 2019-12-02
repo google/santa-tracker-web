@@ -12,6 +12,26 @@ app.Penguin = class Penguin extends app.Slider {
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
+
+    this.innerElem = document.createElement('div')
+    this.innerElem.setAttribute('class', `penguin__inner`)
+    this.elem.appendChild(this.innerElem)
+
+    this.animations = {}
+
+    let sides = ['front', 'back', 'side']
+    for (const side of sides) {
+      game.prepareAnimation(`img/penguin/${side}.json`, {
+        loop: false,
+        autoplay: false,
+        container: this.innerElem,
+        rendererSettings: {
+          className: `animation animation--${side}`
+        },
+      }).then((anim) => {
+        this.animations[side] = anim
+      })
+    }
   }
 
   onInit(config) {
@@ -19,6 +39,75 @@ app.Penguin = class Penguin extends app.Slider {
     config.width = Constants.PENGUIN_WIDTH
 
     super.onInit(config)
+
+    this.animationFrame = Constants.PENGUIN_FRAMES.start
+    this.lastAnimationFrame = null
+
+    if (this.config.isVertical) {
+      if (this.animations['side']) {
+        this.animations['side'].container.classList.remove('is-active')
+      }
+      this.animationDirection = 'front'
+    } else {
+      if (this.animations['front']) {
+        this.animations['front'].container.classList.remove('is-active')
+      }
+      if (this.animations['back']) {
+        this.animations['back'].container.classList.remove('is-active')
+      }
+      this.animationDirection = 'side'
+    }
+  }
+
+  onFrame(delta, now) {
+    // update animationframe
+    if (!this.lastAnimationFrame) {
+      this.lastAnimationFrame = now
+    }
+
+    const {
+      nextFrame,
+      frameTime
+    } = Utils.nextAnimationFrame(Constants.PENGUIN_FRAMES,
+        this.animationFrame, true, this.lastAnimationFrame, now)
+
+    this.animationFrame = nextFrame
+    this.lastAnimationFrame = frameTime
+
+    super.onFrame()
+  }
+
+  render() {
+    super.render()
+
+    // handle direction change this frame
+    if (this.flipped) {
+      if (this.config.isVertical) {
+        if (this.reversing) {
+          this.animationDirection = 'back'
+          if (this.animations['front']) {
+            this.animations['front'].container.classList.remove('is-active')
+          }
+        } else {
+          this.animationDirection = 'front'
+          if (this.animations['back']) {
+            this.animations['back'].container.classList.remove('is-active')
+          }
+        }
+      } else {
+        if (this.reversing) {
+          this.innerElem.classList.add('is-flipped')
+        } else {
+          this.innerElem.classList.remove('is-flipped')
+        }
+      }
+    }
+
+    // render animation
+    if (this.animations[this.animationDirection]) {
+      this.animations[this.animationDirection].container.classList.add('is-active')
+      this.animations[this.animationDirection].goToAndStop(this.animationFrame, true)
+    }
   }
 
   onContact(player) {

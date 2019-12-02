@@ -12,8 +12,8 @@ import '../../src/magic.js';
 import {rectify} from '../../src/scene/route.js';
 
 
-const tutorial = document.querySelector('santa-tutorial');
-tutorial.queue('elfski.mp4', 'matching.svg', 'codeboogie.gif');
+// const tutorial = document.querySelector('santa-tutorial');
+// tutorial.queue('elfski.mp4', 'matching.svg', 'codeboogie.gif');
 
 
 const offset = {x: 0, y: 0};

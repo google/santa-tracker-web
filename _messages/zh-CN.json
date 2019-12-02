@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "触摸"
 	},
+	"copied": {
+		"message": "已复制！"
+	},
 	"copy-me": {
 		"message": "复制该链接即可分享您的消息"
 	},
@@ -552,6 +555,9 @@
 		"message": "用圣诞老人 Chrome 扩展程序装饰您的浏览器。"
 	},
 	"decmonth": {
+		"message": "12 月"
+	},
+	"decmonth_long": {
 		"message": "12 月"
 	},
 	"detected": {
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "探索圣诞老人小镇"
+	},
+	"familyguide_accordion_title": {
+		"message": "持续一个月的欢庆"
+	},
+	"familyguide_body": {
+		"message": "圣诞老人小镇是阖家欢庆节日的理想去处。你会找到所有喜爱的角色，并可参加寓教于乐、老少皆宜的互动活动。"
+	},
+	"familyguide_card_01_body": {
+		"message": "使用编码基础知识引导精灵们穿越森林，寻找掉落的礼物。"
+	},
+	"familyguide_card_02_body": {
+		"message": "编程创作自己的专属雪花并制作节日贺卡 - 只需从众多的背景图片中选择一种，然后与好友们分享。"
+	},
+	"familyguide_card_03_body": {
+		"message": "精灵们又回到编码实践中，同时加入了他们的舞蹈技能。使用代码为精灵们的舞蹈编舞，但要留神，随着你的技能提高，舞姿难度也越大！"
+	},
+	"familyguide_card_04_body": {
+		"message": "从戴无沿毛线帽的加拿大，到穿沙滩裤的澳大利亚，点击地图图钉标志，了解世界各地的节日传统。"
+	},
+	"familyguide_card_05_body": {
+		"message": "从用精灵语说“新年快乐”到 Дед Мороз，你可以学习世界各地与节日相关的语言。"
+	},
+	"familyguide_card_06_body": {
+		"message": "圣诞老人要去很多地方。在这个地理游戏中，请将相应国家/地区放到地图上轮廓相符的位置。"
+	},
+	"familyguide_card_07_body": {
+		"message": "你了解自己国家/地区的节日历史吗？在一个包含九道问题的小测验中一展身手，看看自己掌握了多少趣味知识。"
+	},
+	"familyguide_card_07_title": {
+		"message": "节日传统知识测验"
+	},
+	"familyguide_card_08_body": {
+		"message": "饿了吗？了解世界各地的美味佳肴，浏览远近国家的风味食品。"
+	},
+	"familyguide_card_09_body": {
+		"message": "点按进入圣诞老人的专属创作工具包。每种工具、画笔和贴纸都有定制音效，带来美妙视听体验。"
+	},
+	"familyguide_card_10_body": {
+		"message": "在自己的冬景沙盒中做实验，玩游戏。使用三维材料建造所有东西：房子、玩具、雪人、森林或者其他你可以想到的一切。"
+	},
+	"familyguide_card_11_body": {
+		"message": "从头至脚制作您自己的精灵，让它在北极举办的诸多节日晚会上光彩照人，尽显精灵气质。"
+	},
+	"familyguide_card_12_body": {
+		"message": "圣诞老人在理发店里，他需要一个全新的造型。你可以帮他给胡子染染色、吹干头发、加上一些装饰，或者干脆用理发推子全部剃光。"
+	},
+	"familyguide_card_13_body": {
+		"message": "与精灵们、驯鹿、圣诞老人和圣诞婆婆一起造访节日乐趣博物馆！"
+	},
+	"familyguide_card_14_body": {
+		"message": "在北极，有很多精灵、驯鹿和街景小人来来往往。看看他们是如何从一个地方去到另一个地方的。"
+	},
+	"familyguide_card_15_body": {
+		"message": "圣诞老人和驯鹿准备好出发了，但还需要编码精灵们的一些帮助才能启程。"
+	},
+	"familyguide_card_16_body": {
+		"message": "我们的小镇伙伴们和独角鲸奥利一起在大海深处度过一天，共同庆祝首届年度海藻灯光节。"
+	},
+	"familyguide_card_age": {
+		"message": "老少皆宜"
+	},
+	"familyguide_doublecard_body": {
+		"message": "喝光了蛋奶酒、拆过了礼物之后，用 Google 来查找全年可用的家庭娱乐资源。"
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "无论现在还是将来，我们都希望生活在一个健康的地球上。了解 Google 为帮助人类与地球繁荣共存提出的一些小建议。"
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "你的计划，你的地球 (Your Plan, Your Planet)"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "为了充分利用互联网，孩子们需要具备作出明智决定的能力。“合理使用网络”为孩子们讲解数字公民和安全的基础知识，让他们可以充满自信地探索网络世界。"
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "合理使用网络"
+	},
+	"familyguide_doublecard_title": {
+		"message": "来自 Google 的更多内容"
+	},
+	"familyguide_group_01_body": {
+		"message": "精灵们一直都在磨炼他们的编码技能。探索将教给你一些编码基础知识的游戏。人人都可以体验一下编码！"
+	},
+	"familyguide_group_01_title": {
+		"message": "与圣诞老人的小精灵们一起学习编码"
+	},
+	"familyguide_group_02_body": {
+		"message": "不同地方庆祝节日的方式可能大不一样。了解全球各地如何通过多样的娱乐活动和智力游戏来庆祝节日。"
+	},
+	"familyguide_group_02_title": {
+		"message": "探索世界各地的节日活动"
+	},
+	"familyguide_group_03_body": {
+		"message": "创造的魔力让圣诞老人小镇繁荣兴旺。探索丰富有趣的游戏 - 涂画、建造或是创作，全是你喜欢的角色，总有一款让你心动。"
+	},
+	"familyguide_group_03_title": {
+		"message": "获得灵感，进行一些创作"
+	},
+	"familyguide_group_04_body": {
+		"message": "裹在温暖舒适的毛毯里享用爆米花。独角鲸奥利在大海里欢庆佳节的同时，你可以在小镇影院的大银幕上观看所有喜爱的角色上演好戏，或者阅读一本互动故事书。"
+	},
+	"familyguide_group_04_title": {
+		"message": "家人团聚共享美好时光"
+	},
+	"familyguide_nav_link_01": {
+		"message": "代码"
+	},
+	"familyguide_nav_link_02": {
+		"message": "庆祝"
+	},
+	"familyguide_nav_link_03": {
+		"message": "创造"
+	},
+	"familyguide_nav_link_04": {
+		"message": "家庭时间"
+	},
+	"familyguide_nav_link_05": {
+		"message": "提示与技巧"
+	},
+	"familyguide_nav_link_06": {
+		"message": "更多"
+	},
+	"familyguide_secondary_body": {
+		"message": "12 月 24 日这天，圣诞老人小镇游戏将变成一个追踪体验游戏。在圣诞老人和他的驯鹿为世界各地的孩子们送去礼物的过程中，你可以全程追随他们的足迹。"
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "在“追踪圣诞老人”网站或 Android 应用中持续关注"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "嗨！你知道圣诞老人的旅程会持续 25 个小时吗？！他的第一站是俄罗斯远东地区，当地时间刚过晚上 10 点到达，这时候纽约是凌晨 5 点，巴黎是上午 11 点。"
+	},
+	"familyguide_secondary_title": {
+		"message": "在这个重要的日子，追随圣诞老人的足迹"
+	},
+	"familyguide_tips_body": {
+		"message": "通过所有你喜爱的 Google 产品，在今年节日期间的“追踪圣诞老人”活动中见证更多奇迹。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "每天询问 Google 助理，了解小精灵 Dimplesticks 的有趣动态。你还可以查询圣诞笑话，了解圣诞节知识，并试试给圣诞老人打电话会发生什么。"
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "“Ok Google，北极有什么新情况？”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "在 Play 商店下载 Android 版“追踪圣诞老人”应用。该应用中有一个专属的小镇场景，里面有一些别处找不到的游戏。"
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Android 应用"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "通过 Android Wear 集成，只需转转手腕，就可以追踪圣诞老人。"
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "在 Google 上搜索“圣诞老人”，查看三维模式下的圣诞老人。在大多数 iPhone 和部分先进的 Android 设备上，你可以看到 AR 下的圣诞老人在相机的后面向你挥手！"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "把圣诞老人带到你家的客厅"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "为你的消息增添一些节日趣味。在 Google 的 Tenor 页面上搜索“Santa Tracker gifs”（仅支持英文），即可查找以圣诞老人为主题的 GIF 和贴纸。"
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "赠送 GIF 礼物"
+	},
+	"familyguide_tips_title": {
+		"message": "提示和技巧"
+	},
+	"familyguide_title": {
+		"message": "阖家共享的假日乐趣"
 	},
 	"fi_country_name": {
 		"message": "芬兰"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "礼物嗨翻天"
 	},
+	"scene_holidayfoods": {
+		"message": "使用 Google 地球探索世界各地的节日美食"
+	},
 	"scene_icecave": {
 		"message": "冰洞"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "地图小测验"
+	},
+	"scene_ollieundersea": {
+		"message": "大海里的奥利"
 	},
 	"scene_playground": {
 		"message": "北极游乐场"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "节日传统"
+	},
+	"scene_traditionsquiz": {
+		"message": "节日传统知识测验"
 	},
 	"scene_translations": {
 		"message": "翻译"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "冰冻！"
+	},
+	"snowball_iced_count": {
+		"message": "已被冻住"
 	},
 	"snowball_remaining": {
 		"message": "还剩 {{remaining}} 个精灵，共 {{total}} 个"

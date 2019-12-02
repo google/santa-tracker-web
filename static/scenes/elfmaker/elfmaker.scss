@@ -8,6 +8,7 @@ body {
   overflow: hidden;
   user-select: none;
   -webkit-overflow-scrolling: touch;  // otherwise the page refuses to scroll in Mobile Safari
+  touch-action: pan-y;
 }
 
 footer {

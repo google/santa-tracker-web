@@ -1,87 +1,90 @@
+$duration: 0.4s;
+$opacity-duration-out: 0.6s;
+
+@keyframes santa-overlay__hide {
+  from { visibility: visible; pointer-events: none; }
+    to { visibility: hidden; pointer-events: none; }
+}
+
 :host {
   margin: 0;
   padding: 0;
-  position: fixed;
-  z-index: 999;
-  border: 1px solid #fff;
-  width: 100%;
-  height: 100%;
+}
+
+svg.icon {
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
+  z-index: 11;
+  transition: opacity $duration ease-in-out;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  transform: translate(0);
+  transition: transform $duration cubic-bezier(0,1.52,.295,.86);
+
+  font-family: 'Google Sans', 'Arial', Sans-Serif;
 }
 
 :host([hidden]) {
-  display: none !important;
+  display: block;
+  visibility: hidden;
+  animation: santa-overlay__hide $opacity-duration-out step-end forwards;
 }
 
-:host {
-  santa-button {
-    width: 55px;
-    height: 55px;
-    font-size: 18px;
-  }
+:host([hidden]) .backdrop {
+  opacity: 0;
+  transition-duration: $opacity-duration-out;
 }
 
-.shim {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  z-index: 10;
-  position: absolute;
-  background-color: #000;
-  opacity: .6;
+:host([hidden]) main {
+  transform: translateY(-100vh);
+  transition-timing-function: cubic-bezier(.83,.02,1,.01);
 }
 
-.wrap {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  z-index: 11;
-  position: relative;
+nav,
+.hero {
+  min-width: 240px;
 }
 
 nav {
-  padding: 30px;
-  padding-left: 10px;
-  border-radius: 20px;
-  align-items: center;
-  background: currentColor;
+  pointer-events: auto;
+  background: rgba(255,255,255,.25);
+  border-radius: 12px;
+  text-align: center;
   display: flex;
-  flex-flow: column;
-  align-items: stretch;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 12px;
+  position: relative;
+
+  h4 {
+    color: #fff;
+    font-size: .6em;
+    line-height: 2em;
+    font-weight: 800;
+    margin: 0;
+    margin-top: -8px;
+    text-transform: uppercase;
+  }
 
   .url {
-    margin-top: -10px;
-    margin-left: 10px;
-    margin-right: -10px;
-    margin-bottom: 20px;
     position: relative;
-
-    &::after {
-      pointer-events: none;
-      content: 'file_copy';
-      position: absolute;
-      top: 0;
-      right: 2px;
-      line-height: 29px;
-      font-size: 24px;
-      font-family: 'Material Icons';
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      -moz-osx-font-smoothing: grayscale;
-      font-feature-settings: 'liga'
-    }
-
-    &.copy {
-      &::after {
-        content: 'done';
-      }
-    }
 
     input {
       cursor: copy;
@@ -89,26 +92,41 @@ nav {
       border: 0;
       border-radius: 4px;
       font: inherit;
-      font-size: 18px;
+      font-size: 12px;
       text-align: center;
       font-weight: 400;
       letter-spacing: -0.5px;
       padding: 4px;
-      padding-right: calc(4px + 3ch);
       box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.125);
       box-sizing: border-box;
+      margin-bottom: 8px;
+      background: white;
+      color: black;
+
+      transition: background 0.25s, color 0.25s;
+      &.copy {
+        transition: none;
+        background: black;
+        color: white;
+      }
     }
   }
 
   .buttons {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
 
     santa-button {
-      margin-left: 20px;
+      padding: 2px;
+      margin: 0 4px;
+      width: 44px;
+      height: 44px;
 
       svg {
-        width: 1em;
-        height: 1em;
+        position: absolute;
+        margin: auto;  
       }
     }
   }
@@ -116,35 +134,79 @@ nav {
 
 .hero {
   flex-grow: 1;
-  &.gameover {
-    max-height: 285px;
-    width: 250px;
-    height: 300px;
-    background: _rel("../../img/overlay/gameover.png") bottom center / contain no-repeat;
+  min-height: 136px;
+  background: _rel("../../img/overlay/gameover.svg") bottom center / contain no-repeat;
+
+  @media (min-height: 500px) {
+    min-height: 218px;
+  }
+
+  &.share {
+    background-image: _rel("../../img/overlay/share.svg");
   }
   &.pause {
-    max-height: 343px;
-    background: _rel("../../img/overlay/pause.png") bottom center / contain no-repeat;
+    background-image: _rel("../../img/overlay/pause.svg");
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    line-height: 42px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0;
+    text-shadow: 1px 2px 0 rgba(0,0,0,.13);
+    font-family: Lobster;
+  }
+
+  &:not(.gameover) h1 {
+    display: none;
   }
 }
 
-.score {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.16);
-  text-align: center;
-  color: white;
-  h1 {
-    font-size: 12px;
-    line-height: 12px;
-    margin-top: -8px;
-    text-transform: uppercase;
-    margin: 0;
+.below {
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+  margin: 1em;
+  transition: opacity $duration, transform $duration;
+
+  ::slotted(santa-card) {
+    pointer-events: auto;
+    margin: 8px;
+    width: 200px;
+    height: 120px;
+    --radius: 12px;
+
+    @media (max-width: 400px), (max-height: 400px) {
+      font-size: 0.8em;
+      width: 160px;
+      height: 100px;
+      --radius: 10px;
+      margin: 4px;
+    }
   }
-  h2 {
-    color: #fff;
-    line-height: 64px;
-    font-size: 64px;
-    font-weight: 900;
-    margin: 0;
-    text-shadow: 2px 4px 0 rgba(0,0,0,0.34);
+}
+:host([hidden]) .below {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+@media (max-width: 500px) {
+  .below {
+    flex-flow: column;
+  }
+}
+
+@media (max-height: 500px) and (min-width: 500px + 1px) {
+  .backdrop {
+    flex-flow: row;
+  }
+  .below {
+    flex-flow: column;
+  }
+  :host([hidden]) .below {
+    transform: translate(50%);
   }
 }

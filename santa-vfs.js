@@ -133,7 +133,7 @@ module.exports = (staticScope, options) => {
 
   const configPlugin = {
     match(id) {
-      if (id === 'prod/config.json') {
+      if (id === 'prod/src/:config.json') {
         return id;
       }
     },

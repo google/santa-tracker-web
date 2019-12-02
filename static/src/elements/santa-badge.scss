@@ -4,6 +4,7 @@ $size-overflow: 2px;
 $dim-cell-width: 56px;
 $dim-cell: 40px;
 $color-badge: #6f00ff;
+$duration: 0.5s;
 
 // santa-badge will either be:
 //    168px wide (at >=768px, or iPad portrait size)
@@ -16,13 +17,15 @@ $color-badge: #6f00ff;
 }
 
 main {
-  background: $color-badge;
-  border-radius: 8px;
   height: $dim-cell;
-  font-family: 'Roboto', 'Arial', sans-serif;
+  font-family: 'Google Sans', 'Arial', sans-serif;
   display: flex;
   justify-content: stretch;
   color: white;
+  filter: drop-shadow(3px 8px 0 rgba(0, 0, 0, 0.1));
+  font-feature-settings: "tnum";
+  background: $color-badge;
+  border-radius: 4px;
 
   .item {
     overflow: hidden;
@@ -32,16 +35,35 @@ main {
     justify-content: center;
     text-align: center;
     position: relative;
+    transition: opacity $duration ease-in-out, width $duration ease-in-out;
 
-    &.big {
-      background: darken($color-badge, 10%);
-      margin: -$size-overflow 0;
-      padding: $size-overflow 0;
-      border-radius: 4px;
-      box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.05);
+    &.hasAfter {
+      padding-right: 1px;
+
+      &::after {
+        position: absolute;
+        content: '';
+        right: 0;
+        width: 1px;
+        top: 6px;
+        bottom: 6px;
+        background: rgba(0, 0, 0, 0.25);
+        opacity: 1;
+        transition: opacity $duration ease-in-out;
+      }
     }
 
-    // TODO: not happy yet
+    &[hidden] {
+      display: flex;
+      width: 0.0001px;  // safari workaround
+      padding-right: 0;
+      opacity: 0;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
     &.alt-active {
       .data.alt {
         transform: translateY(0);
@@ -56,6 +78,9 @@ main {
 }
 
 .data {
+  // always enforce size, even through transition
+  width: $dim-cell-width;
+  min-width: $dim-cell-width;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -73,6 +98,7 @@ main {
   > span {
     font-size: 17px;
     line-height: 21px;
+    letter-spacing: -1px;
     will-change: transform;
     text-overflow: ellipsis;
     white-space: nowrap;

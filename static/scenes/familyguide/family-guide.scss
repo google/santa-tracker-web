@@ -1,0 +1,24 @@
+$name: 'module-familyguide';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  margin: 0;
+  touch-action: pan-y;
+}
+
+##{$name} {
+  @import "scss/hero";
+  @import "scss/secondary";
+  @import "scss/navbar";
+  @import "scss/accordion";
+  @import "scss/tips";
+  @import "scss/assistant";
+  @import "scss/doublecard";
+
+  @import "scss/responsive";
+}

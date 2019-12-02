@@ -17,6 +17,7 @@ body {
   overflow: hidden;
   font-family: 'Roboto', 'Arial', Sans-Serif;
   font-size: 12px;
+  touch-action: none;
 }
 
 ##{$name} {

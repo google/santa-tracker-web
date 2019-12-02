@@ -639,6 +639,10 @@
     "description": "Button label to try the level again after failing or completing with room for improvement. 15char limit.",
     "message": "Try Again"
   },
+  "copied": {
+    "description": "Short message informing the user that they've successfully copied a URL",
+    "message": "Copied!"
+  },
   "copy-me": {
     "description": "Label. Users will see a URL that they can copy to email to a friend, or share on Facebook/G+",
     "message": "Copy this link to share your message"
@@ -854,6 +858,282 @@
   "explore-village": {
     "description": "Button text. Allows users to return to Santa's Village.",
     "message": "Explore Santa's Village"
+  },
+  "familyguide_title": {
+    "description": "Title of an information page.",
+    "message": "Holiday fun for the whole family"
+  },
+  "familyguide_body": {
+    "description": "Body text of an information page.",
+    "message": "Santa’s Village is the perfect place for families to celebrate the season. You’ll find all your favorite characters together with fun, educational and interactive activities for every age."
+  },
+  "familyguide_secondary_title": {
+    "description": "Title of a section. This appears on an information page.",
+    "message": "Track Santa on the big day"
+  },
+  "familyguide_secondary_body": {
+    "description": "Body text of a section. This appears on an information page.",
+    "message": "On December 24th Santa’s Village transforms into a tracking experience where you can follow Santa and his reindeer as they deliver presents to kids around the world."
+  },
+  "familyguide_secondary_cta_01": {
+    "description": "Call to action label. This appears on an information page.",
+    "message": "Follow along on the Santa Tracker website or Android app"
+  },
+  "familyguide_secondary_cta_02": {
+    "description": "Call to action label. This appears on an information page.",
+    "message": "Psst! Did you know, Santa's journey lasts 25 hours?! He makes his first stop just after 10 PM local time in far eastern Russia, when it’s 5 AM in New York and 11 AM in Paris."
+  },
+  "familyguide_nav_link_01": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "code"
+  },
+  "familyguide_nav_link_02": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "celebrate"
+  },
+  "familyguide_nav_link_03": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "create"
+  },
+  "familyguide_nav_link_04": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "family time"
+  },
+  "familyguide_nav_link_05": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "tips & tricks"
+  },
+  "familyguide_nav_link_06": {
+    "description": "Nav label. This appears on an information page.",
+    "message": "more"
+  },
+  "familyguide_nav_link_07": {
+    "description": "Nav label. This appears on an information page and refers to the Google Assistant.",
+    "message": "assistant"
+  },
+  "familyguide_accordion_title": {
+    "description": "Title of a section in an information page.",
+    "message": "Celebrate all month long"
+  },
+  "familyguide_group_01_title": {
+    "description": "Title of a card group in an information page.",
+    "message": "Learn to code with Santa’s Elves"
+  },
+  "familyguide_group_01_body": {
+    "description": "Description of a card group in an information page.",
+    "message": "The elves are always working on their coding skills. Explore games that will teach you the basics. Anyone can try their hand at coding!"
+  },
+  "familyguide_group_02_title": {
+    "description": "Title of a card group in an information page.",
+    "message": "Discover holidays around the world"
+  },
+  "familyguide_group_02_body": {
+    "description": "Description of a card group in an information page.",
+    "message": "The holidays can look quite different from place to place. Learn how the world celebrates the season with games and quizzes galore."
+  },
+  "familyguide_group_03_title": {
+    "description": "Title of a card group in an information page.",
+    "message": "Get inspired and create something"
+  },
+  "familyguide_group_03_body": {
+    "description": "Description of a card group in an information page.",
+    "message": "Santa’s Village thrives on the magic of making. Discover games that let you draw, paint, build and create with all your favorite characters."
+  },
+  "familyguide_group_04_title": {
+    "description": "Title of a card group in an information page.",
+    "message": "Come together for family time"
+  },
+  "familyguide_group_04_body": {
+    "description": "Description of a card group in an information page.",
+    "message": "Grab the popcorn and snuggle in under a cozy blanket. You can catch the whole gang on the big screen at the Village theater or read along an interactive storybook as Ollie the Narwhal celebrates the season under the sea."
+  },
+  "familyguide_card_age": {
+    "description": "Age label of cards in an information page.",
+    "message": "All Ages"
+  },
+  "familyguide_card_01_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Use coding fundamentals to navigate the elf through the forest to find dropped presents."
+  },
+  "familyguide_card_02_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Create your own holiday card by programming your own snowflake—just select one of many backgrounds, and share it with your friends."
+  },
+  "familyguide_card_03_body": {
+    "description": "Description of a card in an information page.",
+    "message": "The elves are back to coding practice, while mixing in their dancing skills. Use code to choreograph the elves' dances - but watch out, as you get better, the dances get harder!"
+  },
+  "familyguide_card_04_body": {
+    "description": "Description of a card in an information page.",
+    "message": "From wearing a toque in Canada to sporting swim trunks in Australia, click the map pins to learn about holiday traditions around the globe."
+  },
+  "familyguide_card_05_body": {
+    "description": "Description of a card in an information page.",
+    "message": "From Happy New Year in Elvish to Дед Мороз, learn the seasonal lingo from around the world."
+  },
+  "familyguide_card_06_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Santa's got a lot of places to go. Match the outline of a country to the map in this geography game."
+  },
+  "familyguide_card_07_title": {
+    "description": "Title of a card in an information page.",
+    "message": "Holiday Traditions Quiz"
+  },
+  "familyguide_card_07_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Do you know your holiday history? Show your stuff in a nine question quiz that’s sure to test your trivia skills."
+  },
+  "familyguide_card_08_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Hungry? Discover delicacies from around the world and explore food from countries near and far."
+  },
+  "familyguide_card_09_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Tap into Santa's very own creative suite. Each tool, brush, and sticker has a custom sound, making this an audio and visual experience."
+  },
+  "familyguide_card_10_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Experiment and play in your own wintery sandbox. Use 3D materials to build anything: houses, toys, snowpeople, forests, or anything else you can dream up."
+  },
+  "familyguide_card_11_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Build your own elf from head to toe and make sure it looks elftastic for the many holiday soirées happening on the North Pole."
+  },
+  "familyguide_card_12_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Santa is in the barbershop and he needs help getting a whole new ‘do. Color his beard, blow dry his hair, add some decorations or shave it all off with the clippers."
+  },
+  "familyguide_card_13_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Join the elves, reindeer, Santa and Mrs. Claus on a visit to the Museum of Holiday Cheer!"
+  },
+  "familyguide_card_14_body": {
+    "description": "Description of a card in an information page.",
+    "message": "There's many an elf, reindeer, and pegman to shuttle around the North Pole. Watch how they navigate from place to place."
+  },
+  "familyguide_card_15_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Santa and the reindeer are ready to go but they need a little help from the coding elves before take off."
+  },
+  "familyguide_card_16_body": {
+    "description": "Description of a card in an information page.",
+    "message": "Our Village friends join Ollie the narwhal for a day underwater as they put together the first annual kelp lighting celebration."
+  },
+  "familyguide_tips_title": {
+    "description": "Title of a section in an information page.",
+    "message": "Tips and Tricks"
+  },
+  "familyguide_tips_body": {
+    "description": "Description of a section in an information page.",
+    "message": "Get more magic out of Santa Tracker this season with all your favorite Google products."
+  },
+  "familyguide_tips_tip01_title": {
+    "description": "Title of the first tip. This appears in an information page.",
+    "message": "\"Hey Google, what’s new at the North Pole?\""
+  },
+  "familyguide_tips_tip01_body": {
+    "description": "Description of the first tip. This appears in an information page. 'Dimplesticks' is the name of an Elf, and it will not be translated (transliteration is fine).",
+    "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
+  },
+  "familyguide_tips_tip02_title": {
+    "description": "Title of the second tip. This appears in an information page.",
+    "message": "Android App"
+  },
+  "familyguide_tips_tip02_body": {
+    "description": "Description of the second tip. This appears in an information page.",
+    "message": "Download the Santa Tracker App for Android on the Play Store. There’s an exclusive Village scene with games you’ll only find in the app."
+  },
+  "familyguide_tips_tip03_title": {
+    "description": "Title of the third tip. This appears in an information page.",
+    "message": "Android Wear"
+  },
+  "familyguide_tips_tip03_body": {
+    "description": "Description of the third tip. This appears in an information page.",
+    "message": "Track Santa from your wrist with Android Wear integration."
+  },
+  "familyguide_tips_tip04_title": {
+    "description": "Title of the fourth tip. This appears in an information page.",
+    "message": "Bring Santa to your living room"
+  },
+  "familyguide_tips_tip04_body": {
+    "description": "Description of the fourth tip. This appears in an information page.",
+    "message": "Search for \"Santa\" on Google to see Santa in 3D. On most iPhones and some advanced Android devices, you can see him in AR, waving right through your camera!"
+  },
+  "familyguide_tips_tip05_title": {
+    "description": "Title of the fifth tip. This appears in an information page.",
+    "message": "Give the gift of GIFs"
+  },
+  "familyguide_tips_tip05_body": {
+    "description": "Description of the fifth tip. This appears in an information page.",
+    "message": "Bring some holiday fun to your messages. Find Santa themed gifs and stickers by searching for “Santa Tracker gifs” (English only) on Google’s Tenor page."
+  },
+  "familyguide_assistant_title": {
+    "description": "Title of a section heading in an information page. 'North Pole Minute' is a name of a fictional news service provided by Santa.",
+    "message": "Never Miss a North Pole Minute"
+  },
+  "familyguide_assistant_body_01": {
+    "description": "Body text of a section heading in an information page.",
+    "message": "Use the Google Assistant to find out more about Santa Claus during December! This integration is available in select languages."
+  },
+  "familyguide_assistant_body_02": {
+    "description": "Body text describing a child's use of the Google Assistant with a Family Link account. 'Family Link' is translated, please see the related link in your local language.",
+    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
+  },
+  "familyguide_assistant_card01_title": {
+    "description": "Title of a card in an information page that tells users they can talk to Santa Claus.",
+    "message": "Call Santa"
+  },
+  "familyguide_assistant_card01_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "Google Assistant connects you with the North Pole, where Santa is busy rehearsing for a musical concert. He only knows one song—can you help him figure out the best way to play it?"
+  },
+  "familyguide_assistant_card02_title": {
+    "description": "Title of a card in an information page. Refers to a fictionalized news program that runs on a channel provided by Santa.",
+    "message": "North Pole Newscast"
+  },
+  "familyguide_assistant_card02_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "Tune in daily to the North Pole Newscast to find out what Santa and his elves are up to. Just ask the Google Assistant what's new at the North Pole."
+  },
+  "familyguide_assistant_card03_title": {
+    "description": "Title of a card in an information page, refering to an activity you can open on the Google Assistant.",
+    "message": "Santa Jokes"
+  },
+  "familyguide_assistant_card03_body": {
+    "description": "Body text of a card in an information page.",
+    "message": "When Santa's not busy with the elves at the workshop, he spends time sharpening up his comedy skills. Just ask the Google Assistant for a Santa joke to hear his routine."
+  },
+  "familyguide_doublecard_title": {
+    "description": "Title of a section heading in an information page.",
+    "message": "More from Google"
+  },
+  "familyguide_doublecard_body": {
+    "description": "Description of a section heading in an information page.",
+    "message": "After all the eggnog is gone and the presents are through, discover year-round resources for family fun with Google."
+  },
+  "familyguide_doublecard_card01_title": {
+    "description": "Title of a card in an information page",
+    "message": "Your Plan, Your Planet"
+  },
+  "familyguide_doublecard_card01_body": {
+    "description": "Body text of a card in an information page",
+    "message": "We all want a healthy planet for today and tomorrow. Learn simple tips from Google to help people and the planet thrive together."
+  },
+  "familyguide_doublecard_card02_title": {
+    "description": "Title of a card in an information page",
+    "message": "Be Internet Awesome"
+  },
+  "familyguide_doublecard_card02_body": {
+    "description": "Body text of a card in an information page",
+    "message": "To make the most of the Internet, kids need to be prepared to make smart decisions. Be Internet Awesome teaches kids the fundamentals of digital citizenship and safety so they can explore the online world with confidence."
+  },
+  "familylink": {
+    "description": "Notice about using Google Assistant via a child's account configured with Google's Family Link product",
+    "message": "Add your kid's Google account, managed with Family Link"
+  },
+  "featured": {
+    "description": "Label indicating that a game is featured today.",
+    "message": "Featured"
   },
   "fi_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
@@ -1935,6 +2215,10 @@
     "description": "Title of a scene/game. Work together in a frantic/busy/hectic factory environment to build presents.",
     "message": "Present Havoc"
   },
+  "scene_holidayfoods": {
+    "description": "Title of a scene/game. Explore foods from different countries.",
+    "message": "Google Earth Holiday Foods of the World"
+  },
   "scene_icecave": {
     "description": "Title of a scene/game. See Santa deliver presents to a giant snowman who lives in a cave.",
     "message": "Ice Cave"
@@ -1962,6 +2246,10 @@
   "scene_mercator": {
     "description": "Title of a scene/game. Learn about different countries and find their place on the map.",
     "message": "Map Quiz"
+  },
+  "scene_ollieundersea": {
+    "description": "Title of a scene/game. Our Village friends join Ollie the narwhal for a day underwater as they put together the first annual kelp lighting celebration.",
+    "message": "Ollie Under The Sea"
   },
   "scene_playground": {
     "description": "Title of a scene/game. A Santa-themed playground with see-saws, slides and other play equipment.",
@@ -2047,6 +2335,10 @@
     "description": "Title of a scene/game. Learn about different holiday traditions from around the world.",
     "message": "Holiday Traditions"
   },
+  "scene_traditionsquiz": {
+    "description": "Title of a scene/game. Take a nine quastion quiz and learn more about holiday history.",
+    "message": "Holiday Traditions Quiz"
+  },
   "scene_translations": {
     "description": "Title of a scene/game. Translate common holiday phrases to and from different languages.",
     "message": "Translations"
@@ -2074,6 +2366,10 @@
   "scene_videoscene_liftoff": {
     "description": "Title of a video scene. Santa is taking off, launching etc.",
     "message": "Santa's Takeoff"
+  },
+  "scene_videoscene_likealight": {
+    "description": "Title of a video scene. Santa has slept in, and now needs to get ready to go! Elves look after the factory, making sure it's running smoothly and reducing pollution by switching off the lights.",
+    "message": "Out Like A Light"
   },
   "scene_videoscene_museum": {
     "description": "Title of a video scene. Shows a history of Santa Tracker in a museum, with Santa and the elves as leading stars.",
@@ -2135,6 +2431,10 @@
     "description": "Title of a video scene. Learn about Santa's workshop, where the elves work and presents are made.",
     "message": "Santa's Workshop"
   },
+  "scene_videoscene_yulelog": {
+    "description": "Title of a video scene. Watch a video of a 'Yule Log', a long video of a fireplace burning with holiday-themed ornaments surrounding (see Wikipedia for a good definition).",
+    "message": "Yule Log"
+  },
   "scene_windtunnel": {
     "description": "Title of a scene/game. Watch Rudolph's flying skills be tested in a wind tunnel.",
     "message": "Wind Tunnel"
@@ -2186,6 +2486,10 @@
   "snowball_iced": {
     "description": "A player has been 'iced', hit by a snowball and is out of a game.",
     "message": "Iced!"
+  },
+  "snowball_iced_count": {
+    "description": "The number of other elves that a player has successfully hit with a snowball, used as a score label",
+    "message": "Iced"
   },
   "snowball_spectate": {
     "description": "Label for a button allowing users to keep watching a game",

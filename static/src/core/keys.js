@@ -20,6 +20,22 @@ export default function configureCustomKeys(loaderElement) {
     'ArrowDown': 40,
   };
 
+  /**
+   * Listen for deviceorientation events.
+   */
+  window.addEventListener('deviceorientation', (ev) => {
+    const {sceneTilt, control} = global.getState();
+    if (sceneTilt && control) {
+      const payload = {
+        absolute: ev.absolute,
+        alpha: ev.alpha,
+        beta: ev.beta,
+        gamma: ev.gamma,
+      };
+      control.send({type: 'deviceorientation', payload});
+    }
+  });
+
   document.body.addEventListener('keydown', (ev) => {
     // Steal gameplay key events from the host frame and focus on the loader. Dispatch a fake event
     // to the scene so that the keyboard feels fluid.

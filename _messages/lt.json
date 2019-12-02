@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Palietimas"
 	},
+	"copied": {
+		"message": "Nukopijuota!"
+	},
 	"copy-me": {
 		"message": "Kopijuokite šią nuorodą, jei norite bendrinti savo pranešimą"
 	},
@@ -553,6 +556,9 @@
 	},
 	"decmonth": {
 		"message": "Grd"
+	},
+	"decmonth_long": {
+		"message": "Gruodis"
 	},
 	"detected": {
 		"message": "aptikta"
@@ -649,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Naršyti po Kalėdų Senelio kaimą"
+	},
+	"familyguide_accordion_title": {
+		"message": "Švęskite visą mėnesį"
+	},
+	"familyguide_body": {
+		"message": "Kalėdų Senelio kaimelis – puiki vieta šeimoms minėti šventes. Jame rasite visus mėgstamus personažus, taip pat bet kurio amžiaus asmenims skirtos linksmos, edukacinės ir interaktyvios veiklos."
+	},
+	"familyguide_card_01_body": {
+		"message": "Pasitelkę programavimo pagrindus veskite elfą per mišką ir surinkite pamestas dovanas."
+	},
+	"familyguide_card_02_body": {
+		"message": "Susikurkite savo atostogų kortelę suprogramuodami snaigę: tiesiog pasirinkite vieną iš daugybės fonų ir bendrinkite ją su draugais."
+	},
+	"familyguide_card_03_body": {
+		"message": "Elfai grįžo prie programavimo darbų, kartu derindami šokių įgūdžius. Rašydami kodą vadovaukite elfų šokiams, tačiau būkite budrūs: kuo labiau įgusite, tuo labiau sunkės šokiai!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Kanadoje dėvi skrybėlaites, o Australijoje užsideda glaudes – spustelėję žemėlapį sužinosite, kokios švenčių tradicijos visame pasaulyje."
+	},
+	"familyguide_card_05_body": {
+		"message": "Nuo pasveikinimo sulaukus Naujųjų metų elfų kalba iki Дед Мороз (liet. Senis šaltis): susipažinkite su šventiniu įvairių kalbų žargonu."
+	},
+	"familyguide_card_06_body": {
+		"message": "Kalėdų seneliui reikia nuvykti į daugybę vietų. Raskite šalies kontūrų vietą žemėlapyje šiame geografiniame žaidime."
+	},
+	"familyguide_card_07_body": {
+		"message": "Ar žinote savo švenčių istoriją? Pademonstruokite savo išmanymą atsakydami į devynis viktorinos klausimus, kurie tikrai parodys, kuriuos faktus žinote."
+	},
+	"familyguide_card_07_title": {
+		"message": "Viktorina apie švenčių tradicijas"
+	},
+	"familyguide_card_08_body": {
+		"message": "Išalkote? Atraskite viso pasaulio skanėstus ir sužinokite, kas valgoma kaimyninėse ir tolimose šalyse."
+	},
+	"familyguide_card_09_body": {
+		"message": "Įženkite į Kalėdų Senelio dirbtuves. Kiekvienas įrankis, teptukas ir lipdukas skleidžia išskirtinį garsą, tad tai tampa audiovizualine patirtimi."
+	},
+	"familyguide_card_10_body": {
+		"message": "Eksperimentuokite ir žaiskite asmeninėje žiemiškoje smėlio dėžėje. Naudodami 3D medžiagas kurkite viską: namus, žaislus, senius besmegenius, miškus ar bet ką, ką tik galite įsivaizduoti."
+	},
+	"familyguide_card_11_body": {
+		"message": "Sukurkite savo elfą nuo galvos iki kojų ir užtikrinkite, kad jis atrodytų elfiškai fantastiškai, kai dalyvaus daugybėje Šiaurės ašigalyje vykstančių šventinių pobūvių."
+	},
+	"familyguide_card_12_body": {
+		"message": "Kalėdų Senelis apsilankė kirpykloje – padėkite jam visiškai atsinaujinti plaukus. Nudažykite barzdą, išdžiovinkite plaukus, pridėkite keletą papuošimų arba viską nuskuskite mašinėle."
+	},
+	"familyguide_card_13_body": {
+		"message": "Aplankykite Šventinio džiugesio muziejų su elfais, elniais, Kalėdų Seneliu ir jo žmona!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Elfams, elniams ir žmogiukams tenka daug lakstyti po Šiaurės ašigalį. Stebėkite, kaip jie juda šen bei ten."
+	},
+	"familyguide_card_15_body": {
+		"message": "Kalėdų Senelis ir elniai yra pasirengę išvykti, tačiau prieš pakylant jiems reikia šiek tiek elfų programuotojų pagalbos."
+	},
+	"familyguide_card_16_body": {
+		"message": "Kaimelio draugai prisijungia prie narvalo Olio ir pasineria po vandeniu, kur visi kartu rengia pirmąjį rudadumblių šviesų festivalį."
+	},
+	"familyguide_card_age": {
+		"message": "Bet koks amžius"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Kai bus išgertas visas kiaušininis likeris ir pristatytos visos dovanos, atraskite ištisus metus veikiančius pramogų visai šeimai šaltinius, teikiamus „Google“."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Visi norime sveikos planetos sau ir ateities kartoms. „Google“ pateikia paprastų patarimų, padėsiančių žmonėms ir planetai klestėti."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Jūsų planas, jūsų planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Norėdami išnaudoti visas interneto galimybes, vaikai turi būti pasirengę priimti protingus sprendimus. Iniciatyva „Be Internet Awesome“ moko vaikus skaitmeninio pilietiškumo ir saugos pagrindų, kad jie galėtų užtikrintai tyrinėti interneto pasaulį."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Daugiau iš „Google“"
+	},
+	"familyguide_group_01_body": {
+		"message": "Elfai nuolat tobulina savo programavimo įgūdžius. Išbandykite žaidimus, kuriuos žaisdami gausite pagrindus. Bet kas gali pamėginti programuoti!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Mokykitės programuoti su Kalėdų Senelio elfais"
+	},
+	"familyguide_group_02_body": {
+		"message": "Šventės įvairiose šalyse gali atrodyti išties skirtingai. Sužinokite, kaip pasaulis mini šventes, pasirinkę iš daugybės žaidimų ir prizų."
+	},
+	"familyguide_group_02_title": {
+		"message": "Atraskite pasaulio švenčių tradicijas"
+	},
+	"familyguide_group_03_body": {
+		"message": "Kalėdų Senelio kaimelyje kūrimo magija tvyro ore. Žaisdami žaidimus pieškite, dažykite, konstruokite ir kurkite su savo mėgstamais personažais."
+	},
+	"familyguide_group_03_title": {
+		"message": "Įkvėpti kitų darbų kurkite patys"
+	},
+	"familyguide_group_04_body": {
+		"message": "Čiupkite spragėsių ir susisupkite į jaukią antklodę. Galite stebėti visą gaują didžiajame kaimelio kino teatro ekrane arba skaityti interaktyvią pasakojimų knygą, kurioje narvalas Olis šventinį laikotarpį leidžia jūroje."
+	},
+	"familyguide_group_04_title": {
+		"message": "Susiburkite visa šeima"
+	},
+	"familyguide_nav_link_01": {
+		"message": "programuokite"
+	},
+	"familyguide_nav_link_02": {
+		"message": "švęskite"
+	},
+	"familyguide_nav_link_03": {
+		"message": "kurkite"
+	},
+	"familyguide_nav_link_04": {
+		"message": "šeimos laikas"
+	},
+	"familyguide_nav_link_05": {
+		"message": "patarimai ir gudrybės"
+	},
+	"familyguide_nav_link_06": {
+		"message": "daugiau"
+	},
+	"familyguide_secondary_body": {
+		"message": "Gruodžio 24-ąją Kalėdų senelio kaimelis virsta stebėjimo aplinka, kurioje galite stebėti Kalėdų senelį ir jo elnius, jiems dalijant dovanas vaikams iš viso pasaulio."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Stebėkite Kalėdų Senelio kelionės svetainėje arba „Android“ skirtoje programoje"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Ei! Ar žinojote, kad Kalėdų senelio kelionė trunka 25 valandas? Pirmąsyk jis sustoja tik išmušus 22 val. vietos laiku rytų Rusijoje, 5 val. atsiduria Niujorke, o 11 val. – Paryžiuje."
+	},
+	"familyguide_secondary_title": {
+		"message": "Stebėkite Kalėdų Senelį didžiąją dieną"
+	},
+	"familyguide_tips_body": {
+		"message": "Naudodami mėgstamus „Google“ produktus šį sezoną iš Kalėdų Senelio kelionės išgaukite daugiau magijos."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Kasdien prašykite „Google“ padėjėjo pateikti smagių naujienų iš elfo Šiaudelio. Taip pat žr. su Kalėdomis susijusius pokštus bei faktus ir pamatykite, kas nutinka, kai paskambinama Kalėdų Seneliui."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„OK Google, kas naujo Šiaurės ašigalyje?“"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Atsisiųskite „Android“ skirtą Kalėdų Senelio kelionės programą iš „Play“ parduotuvės. Tik programoje rasite išskirtinę kaimelio erdvę su žaidimais."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "„Android“ programa"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Stebėkite Kalėdų senelį ant riešo, naudodami integruotą „Android Wear“ valdiklį."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Norėdami pamatyti Kalėdų Senelį 3D formatu, ieškokite „Google“ pagal „Santa“. Daugelyje įrenginių „iPhone“ ir kai kuriuose „Android“ įrenginiuose galite peržiūrėti jį išplėstojoje realybėje, mojantį tiesiai į jūsų objektyvą!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Pasikvieskite Kalėdų senelį į svetainę"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Suteikite savo pranešimams šventinio džiugesio. Raskite Kalėdų senelio tematikos GIF vaizdų ir animuotųjų paveiksliukų ieškodami pagal „Santa Tracker gifs“ (tik anglų k.) „Google“ puslapyje „Tenor“."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Padovanokite GIF vaizdų"
+	},
+	"familyguide_tips_title": {
+		"message": "Patarimai ir gudrybės"
+	},
+	"familyguide_title": {
+		"message": "Švenčių linksmybės visai šeimai"
 	},
 	"fi_country_name": {
 		"message": "Suomija"
@@ -1460,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Dovanų sumaištis"
 	},
+	"scene_holidayfoods": {
+		"message": "„Google Earth“ pasaulio šventiniai patiekalai"
+	},
 	"scene_icecave": {
 		"message": "Ledo urvas"
 	},
@@ -1480,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Žemėlapių viktorina"
+	},
+	"scene_ollieundersea": {
+		"message": "Olis jūroje"
 	},
 	"scene_playground": {
 		"message": "Šiaurės ašigalio žaidimų aikštelė"
@@ -1540,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Švenčių tradicijos"
+	},
+	"scene_traditionsquiz": {
+		"message": "Viktorina apie švenčių tradicijas"
 	},
 	"scene_translations": {
 		"message": "Vertimai"
@@ -1669,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Apledėjęs!"
+	},
+	"snowball_iced_count": {
+		"message": "Pašauta elfų"
 	},
 	"snowball_remaining": {
 		"message": "Liko {{remaining}} iš {{total}} elfų"

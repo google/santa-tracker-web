@@ -3,17 +3,16 @@ import {ifDefined} from 'lit-html/directives/if-defined';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 import * as config from '../core/config.js';
 import styles from './santa-cardnav.css';
-import {_static, _msg} from '../magic.js';
+import {_msg} from '../magic.js';
 import './santa-card.js';
-
-
-// TODO(samthor): pull from Remote Config
-const cards = 'selfies codeboogie jetpack jamband snowball elfmaker codelab wrapbattle penguindash museum boatload takeoff gumball presentbounce reindeerworries glider speedsketch santascanvas seasonofgiving penguinproof traditions wheressanta santasearch translations runner snowbox snowflake mercator build'.split(/\s+/g);
+import './santa-install.js';
+import isAndroid from '../core/android.js';
 
 
 export class SantaCardNavElement extends LitElement {
   static get properties() {
     return {
+      cards: {type: Array},
       _cols: {type: Number},
       _configNonce: {type: Object},
     };
@@ -25,6 +24,17 @@ export class SantaCardNavElement extends LitElement {
 
   constructor() {
     super();
+
+    const update = () => {
+      this.cards = config.nav().filter((x) => {
+        if (x[0] === '@' && !isAndroid()) {
+          return false;
+        }
+        return true;
+      });
+    };
+    config.listen(update);
+    update();
 
     this._onWindowResize = this._onWindowResize.bind(this);
     this._onConfigUpdate = this._onConfigUpdate.bind(this);
@@ -60,14 +70,13 @@ export class SantaCardNavElement extends LitElement {
     const available = [];
     const videos = config.videos();
 
-    const cardHtml = cards.map((sceneName, i) => {
+    const cardHtml = this.cards.map((sceneName, i) => {
       const locked = config.lockedTo(sceneName);
 
-      const wide = videos.indexOf(sceneName) !== -1;
-      const clazz = wide ? 'wide' : '';
+      const isVideo = videos.indexOf(sceneName) !== -1;
 
       let order = currentOrder;
-      if (wide) {
+      if (isVideo) {
         currentOrder += 2;
 
         // Make sure that (order + 1) isn't in the next row.
@@ -88,7 +97,7 @@ export class SantaCardNavElement extends LitElement {
       }
 
       const style = `transition-delay: ${0.2 + order * 0.05}s; order: ${order}`;
-      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} class="${clazz}"></santa-card>`;
+      return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} .video=${isVideo} ?wide=${isVideo}></santa-card>`;
     });
 
     const placeholders = [];
@@ -98,15 +107,13 @@ export class SantaCardNavElement extends LitElement {
 
     return html`
 <div id="wrap">
+<div id="scroll">
 <header>
-  <a class="linkwrap" href="./">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="home"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-    <svg class="logo"><path d="M7.74363885 18.01859504v2.03305785h4.98714095c-.1526676 1.14049591-.5428181 1.97520661-1.1365254 2.56198351-.7294117.7107438-1.86593703 1.4876033-3.85061555 1.4876033-3.07031464 0-5.47058823-2.4132232-5.47058823-5.40495871 0-2.99173554 2.40027359-5.40495868 5.47058823-5.40495868 1.65389877 0 2.86675785.63636364 3.75731875 1.45454546l1.4673051-1.42975207C11.729959 12.14256198 10.0675787 11.25 7.74363885 11.25 3.53679891 11.25 0 14.58884298 0 18.68801653c0 4.09917357 3.53679891 7.43801657 7.74363885 7.43801657 2.27305065 0 3.98632015-.7272728 5.32640215-2.0826447 1.3740082-1.3388429 1.8065664-3.2314049 1.8065664-4.75206609 0-.47107438-.0339261-.90909091-.1102599-1.27272727H7.74363885zm13.36689465-1.65289256c-2.7225718 0-4.9447332 2.01652892-4.9447332 4.80165292 0 2.7603306 2.2221614 4.8016529 4.9447332 4.8016529s4.9447333-2.0330579 4.9447333-4.8016529c0-2.785124-2.2221615-4.80165292-4.9447333-4.80165292zm0 7.71074382c-1.4927496 0-2.7819425-1.1983471-2.7819425-2.9090909 0-1.72727276 1.2891929-2.90909094 2.7819425-2.90909094 1.4927497 0 2.7819426 1.18181818 2.7819426 2.90909094 0 1.7107438-1.2891929 2.9090909-2.7819426 2.9090909zm24.2402189-6.63636366h-.0763338c-.4834473-.56198347-1.4164159-1.07438016-2.5953488-1.07438016-2.4596444 0-4.605472 2.09090909-4.605472 4.80165292 0 2.6942148 2.1458276 4.8016529 4.605472 4.8016529 1.1789329 0 2.1119015-.5123967 2.5953488-1.0909091h.0763338v.6694215c0 1.8347107-1.0093023 2.8181818-2.629275 2.8181818-1.323119 0-2.1458276-.9256199-2.4850889-1.7107438l-1.8829001.7603306c.542818 1.2727272 1.976197 2.8347107 4.367989 2.8347107 2.5359781 0 4.6818058-1.4545455 4.6818058-5v-8.63636364h-2.0525308v.82644628zm-2.4850889 6.63636366c-1.4927497 0-2.629275-1.2396694-2.629275-2.9090909 0-1.6942149 1.1365253-2.90909094 2.629275-2.90909094 1.4757866 0 2.6292749 1.23966942 2.6292749 2.92561984.0084816 1.6776859-1.1534883 2.892562-2.6292749 2.892562zm-10.7291382-7.71074382c-2.7225718 0-4.9447332 2.01652892-4.9447332 4.80165292 0 2.7603306 2.2221614 4.8016529 4.9447332 4.8016529s4.9447332-2.0330579 4.9447332-4.8016529c0-2.785124-2.2221614-4.80165292-4.9447332-4.80165292zm0 7.71074382c-1.4927497 0-2.7819425-1.1983471-2.7819425-2.9090909 0-1.72727276 1.2891928-2.90909094 2.7819425-2.90909094s2.7819426 1.18181818 2.7819426 2.90909094c0 1.7107438-1.2891929 2.9090909-2.7819426 2.9090909zm16.9630643-12.6280992h2.1288646v14.5206612h-2.1288646V11.4483471zm8.702052 12.6280992c-1.1025992 0-1.8829001-.4876033-2.3917921-1.4545455L62 19.96900826l-.2205198-.54545454c-.4071136-1.07438017-1.6623803-3.05785124-4.2153215-3.05785124-2.5359781 0-4.6478796 1.94214876-4.6478796 4.80165292 0 2.6942148 2.0864569 4.8016529 4.8853625 4.8016529 2.2560875 0 3.5622435-1.3471075 4.1050615-2.123967l-1.6793433-1.0909091c-.5597811.7933885-1.323119 1.3223141-2.4257182 1.3223141zm-.1526676-5.90909093c.8735978 0 1.6199726.43801653 1.8659371 1.05785124L55.0621067 21.018595c0-2.01652888 1.4673051-2.85123963 2.5868673-2.85123963z"/></svg>
-    <h1><span class="a11y">Google</span> ${_msg`santatracker`}</h1>
-  </a>
+  <santa-install></santa-install>
 </header>
 <main>${cardHtml}${placeholders}</main>
 <footer>
+<div class="inner">
 
 <div class="grow">
 
@@ -126,7 +133,7 @@ export class SantaCardNavElement extends LitElement {
     <option value="es-419">Español (América Latina)</option>
     <option value="fr">Français</option>
     <option value="fr-CA">Français (Canada)</option>
-    <option value="hi">Hindi</option>
+    <option value="hi">हिन्दी</option>
     <option value="hr">Hrvatski</option>
     <option value="id">Indonesia</option>
     <option value="it">Italiano</option>
@@ -184,7 +191,9 @@ export class SantaCardNavElement extends LitElement {
 <path d="M60.6398 59.0274C60.6398 62.9662 56.6993 66.1938 51.8831 66.1938C47.0122 66.1938 43.1265 62.9662 43.1265 59.0274C43.1265 55.0338 47.067 51.8609 51.8831 51.8609C56.6993 51.8062 60.6398 55.0338 60.6398 59.0274Z" fill="#EF9A9A"/>
 </svg>
 
+</div>
 </footer>
+</div>
 </div>
     `;
   }

@@ -1,0 +1,165 @@
+.object-edit-tool {
+  opacity: 0;
+  pointer-events: none;
+
+  &.is-showed {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &.not-editable {
+    .arrow-ui,
+    .colors-ui {
+      display: none;
+    }
+  }
+
+  .object-ui {
+    left: 0;
+    position: absolute;
+    top: 0;
+    user-select: none;
+    z-index: $z-index-objects;
+
+    .trash__button img {
+      width: 42%;
+    }
+
+    &[object-edit-ui] {
+      @include respond-to(smartphone) {
+        bottom: 150px;
+        top: initial;
+        transform: none !important;
+        width: 100%;
+      }
+    }
+  }
+
+  .toolbar-ui {
+    display: flex;
+    height: 63px;
+    width: 300px;
+
+    @include respond-to(tablet) {
+      height: 48px;
+      width: 240px;
+    }
+  }
+
+  .scale-ui {
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+
+    &__image {
+      overflow: auto;
+
+      &--small {
+        width: 40%;
+      }
+      &--big {
+        width: 70%;
+      }
+    }
+
+    &__slider {
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: $color-gray;
+      height: 2.4px;
+      margin: 0 8px;
+      width: 171%;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: $color-orange;
+        border-radius: 50%;
+        height: 18px;
+        width: 18px;
+
+        @include respond-to(tablet) {
+          height: 15px;
+          width: 15px;
+        }
+      }
+
+      &::-moz-range-thumb {
+      }
+    }
+  }
+
+  .colors-ui {
+    align-items: center;
+    background-color: $color-white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+
+    &.is-open {
+      .colors-ui__range {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &__image {
+      width: 55%;
+    }
+
+    &__range {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: -10px;
+      transform: translateY(-100%);
+      transition: opacity .3s ease;
+    }
+
+    &__list {
+      background-color: $color-white;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100px;
+
+      @include respond-to(tablet) {
+        width: 76px;
+      }
+    }
+
+    &__item {
+      height: 22px;
+      padding: 22px;
+      position: relative;
+      width: 22px;
+
+      @include respond-to(tablet) {
+        height: 15px;
+        padding: 15px;
+        width: 15px;
+      }
+    }
+
+    &__circle {
+      border-radius: 50%;
+      content: '';
+      height: 50%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+    }
+  }
+}
+
+
+
+

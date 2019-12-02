@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Atingere"
 	},
+	"copied": {
+		"message": "Copiată!"
+	},
 	"copy-me": {
 		"message": "Copiază acest link pentru a trimite mesajul"
 	},
@@ -652,6 +655,177 @@
 	},
 	"explore-village": {
 		"message": "Explorează satul lui Moș Craciun"
+	},
+	"familyguide_accordion_title": {
+		"message": "Sărbătoriți toată luna"
+	},
+	"familyguide_body": {
+		"message": "Satul lui Moș Crăciun este locul perfect unde familiile își pot petrece sărbătorile. Veți găsi toate personajele preferate alături de activități distractive, educative și interactive pentru toate vârstele."
+	},
+	"familyguide_card_01_body": {
+		"message": "Folosiți noțiunile de bază despre codificare pentru a ghida elful prin pădure, pentru a găsi cadourile pierdute."
+	},
+	"familyguide_card_02_body": {
+		"message": "Creați-vă felicitarea de sărbători programându-vă propriul fulg de nea, apoi alegeți unul dintre numeroasele fundale și trimiteți-o prietenilor."
+	},
+	"familyguide_card_03_body": {
+		"message": "Elfii au revenit la exercițiile practice de codificare în pas de dans. Folosiți codificarea pentru a crea coreografii pentru dansurile elfilor, dar atenție, dansurile devin mai dificile pe măsură ce evoluați!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Dați clic pe indicatoarele de pe hartă, pentru a vedea tradiții de sărbători de pe tot globul, precum purtarea de togi în Canada sau de costume de baie în Australia."
+	},
+	"familyguide_card_05_body": {
+		"message": "Învățați urări de sărbători din toată lumea, începând cu „La mulți ani” în limba elfă și până la Дед Мороз."
+	},
+	"familyguide_card_06_body": {
+		"message": "Moș Crăciun trebuie să ajungă în multe locuri. Potriviți conturul unei țări pe hartă în acest joc despre geografie."
+	},
+	"familyguide_card_07_body": {
+		"message": "Cunoașteți istoria sărbătorilor? Arătați ce știți cu un chestionar cu nouă întrebări care vă va testa cunoștințele generale."
+	},
+	"familyguide_card_07_title": {
+		"message": "Test despre tradiții de sărbători"
+	},
+	"familyguide_card_08_body": {
+		"message": "Vă este foame? Descoperiți delicatese din toată lumea și explorați bucătăriile unor țări învecinate și îndepărtate."
+	},
+	"familyguide_card_09_body": {
+		"message": "Descoperiți chiar trusa de creație a lui Moș Crăciun. Fiecare instrument, perie și sticker are un sunet personalizat pentru a oferi o experiență audio și vizuală."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimentați și jucați-vă în propriul mediu de testare hibernal. Folosiți materiale 3D pentru a construi orice: case, jucării, oameni de zăpadă, păduri sau orice altceva vă trece prin cap."
+	},
+	"familyguide_card_11_body": {
+		"message": "Creează-ți propriul elf, din cap până în picioare, și asigură-te că arată spectaculos pentru petrecerile de sărbători de la Polul Nord."
+	},
+	"familyguide_card_12_body": {
+		"message": "Moș Crăciun este la frizerie și are nevoie de ajutor pentru a-și schimba aspectul. Colorați-i barba, uscați-i părul, adăugați decorațiuni sau tăiați tot părul folosind foarfeca."
+	},
+	"familyguide_card_13_body": {
+		"message": "Alăturați-vă elfilor, renului, lui Moș Crăciun și Dnei. Crăciun pentru o vizită la Muzeul Bucuriei de Sărbători!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Sunt mulți elfi, reni și pegman-i care au nevoie de transport la Polul Nord. Urmăriți-i cum navighează dintr-un loc în altul."
+	},
+	"familyguide_card_15_body": {
+		"message": "Moș Crăciun și renul sunt pregătiți, dar înainte de decolare au nevoie de puțin ajutor de la elfii care se ocupă de codificare."
+	},
+	"familyguide_card_16_body": {
+		"message": "Prietenii noștri din sat se alătură narvalului Ollie, petrecând o zi sub apă pentru a organiza împreună prima sărbătoare anuală a luminării algelor."
+	},
+	"familyguide_card_age": {
+		"message": "Toate vârstele"
+	},
+	"familyguide_doublecard_body": {
+		"message": "După ce s-a terminat tot vinul fiert și cadourile au fost deschise, descoperiți resurse disponibile tot anul pentru distracție în familie cu Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Cu toții ne dorim o planetă sănătoasă pentru prezent și viitor. Aflați câteva sfaturi simple de la Google pentru a ajuta oamenii și planeta să evolueze împreună."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Planul și planeta dvs."
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Pentru a se putea bucura de toate beneficiile internetului, copiii trebuie să fie pregătiți să ia decizii inteligente. Be Internet Awesome învață copiii noțiuni de bază despre cetățenia și siguranța digitală, pentru a putea să exploreze lumea online cu încredere."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Mai multe de la Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Elfii își îmbunătățesc constant aptitudinile de codificare. Explorați jocurile care vă vor învăța noțiunile de bază. Orice poate încerca să codeze!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Învățați să codificați cu elfii lui Moș Crăciun"
+	},
+	"familyguide_group_02_body": {
+		"message": "Sărbătorile pot avea un aspect foarte diferit în funcție de locație. Află cum arată sărbătorile pe glob cu multe jocuri și teste."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descoperiți sărbătorile în toată lumea"
+	},
+	"familyguide_group_03_body": {
+		"message": "Satul lui Moș Crăciun este animat de magia fabricării cadourilor. Descoperiți jocuri care vă permit să desenați, să pictați, să construiți și să creați folosind toate personajele preferate."
+	},
+	"familyguide_group_03_title": {
+		"message": "Găsiți inspirație și creați ceva"
+	},
+	"familyguide_group_04_body": {
+		"message": "Luați-vă floricelele și cuibăriți-vă sub o pătură comodă. Puteți vedea toată gașca pe marele ecran în cinematograful din sat sau puteți citi o carte de povești interactivă despre Narvalul Ollie care își petrece sărbătorile în adâncul mării."
+	},
+	"familyguide_group_04_title": {
+		"message": "Întâlniți-vă cu familia pentru a petrece timp împreună"
+	},
+	"familyguide_nav_link_01": {
+		"message": "cod"
+	},
+	"familyguide_nav_link_02": {
+		"message": "sărbătoriți"
+	},
+	"familyguide_nav_link_03": {
+		"message": "creați"
+	},
+	"familyguide_nav_link_04": {
+		"message": "momente în familie"
+	},
+	"familyguide_nav_link_05": {
+		"message": "sfaturi și sugestii"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mai multe"
+	},
+	"familyguide_secondary_body": {
+		"message": "Pe 24 decembrie, satul lui Moș Crăciun se transformă într-o experiență de urmărire prin care îi puteți vedea pe Moș Crăciun și pe renul său cum împart cadouri copiilor din toată lumea."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Urmăriți noutățile în aplicația pentru Android sau pe site-ul Pe urmele lui Moș Crăciun"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Călătoria lui Moș Crăciun durează 25 de ore, știați?! Face prima oprire puțin după 22:00, ora locală din Orientul Îndepărtat Rus, când este 5:00 la New York și 11:00 la Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Urmăriți-l pe Moș Crăciun în ziua cea mare"
+	},
+	"familyguide_tips_body": {
+		"message": "Bucurați-vă de mai multă magie folosind Pe urmele lui Moș Crăciun în acest sezon cu toate produsele Google preferate."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Cereți-i în fiecare zi Asistentului Google să vă dea noutăți distractive despre Elful Dimplesticks. Puteți să aflați și glume despre Crăciun, informații despre această sărbătoare și să vedeți ce se întâmplă când îl sunați pe Moș Crăciun."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„Hei Google, ce mai este nou la Polul Nord?”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Descărcați aplicația Pe urmele lui Moș Crăciun pentru Android din Magazinul Play. Există o zonă exclusivă a satului cu jocuri disponibile doar în aplicație."
+	},
+	"familyguide_tips_tip02_title": {
+		"message": "Aplicație Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Urmăriți-l pe Moș Crăciun de pe încheietura mâinii cu integrarea Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Căutați „Moș Crăciun” pe Google pentru a-l vedea pe Moșul în 3D. Pe majoritatea modelelor de iPhone și pe unele dispozitive Android avansate, îl puteți vedea în RA cum face cu mâna prin cameră!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Aduceți-l pe Moș Crăciun în propria sufragerie"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Adăugați un strop de veselie de sărbători în mesaje. Găsiți animații GIF și stickere cu tema Moș Crăciun căutând „Santa Tracker gifs” (numai în engleză) pe pagina Tenor Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Oferiți cadou animații GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Sfaturi și sugestii"
+	},
+	"familyguide_title": {
+		"message": "Distracție de sărbători pentru toată familia"
 	},
 	"fi_country_name": {
 		"message": "Finlanda"
@@ -1463,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Present Havoc"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth cu preparate de sărbători din toată lumea"
+	},
 	"scene_icecave": {
 		"message": "Peșteră înghețată"
 	},
@@ -1483,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Test la geografie"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie în adâncul mării"
 	},
 	"scene_playground": {
 		"message": "Teren de joacă în Polul Nord"
@@ -1543,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradiții de sărbători"
+	},
+	"scene_traditionsquiz": {
+		"message": "Test despre tradiții de sărbători"
 	},
 	"scene_translations": {
 		"message": "Traduceri"
@@ -1672,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Congelat!"
+	},
+	"snowball_iced_count": {
+		"message": "Înghețați"
 	},
 	"snowball_remaining": {
 		"message": "Au rămas {{remaining}} din {{total}} elfi"

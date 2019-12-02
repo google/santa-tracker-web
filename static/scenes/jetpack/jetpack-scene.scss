@@ -7,6 +7,10 @@ $gameover-bg: #8fd7f7;
 @import "sass/items";
 @import "sass/player";
 
+body {
+  touch-action: none;
+}
+
 ##{$name} {
   height: 100%;
   left: 0;
