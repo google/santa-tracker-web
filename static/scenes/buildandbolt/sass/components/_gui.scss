@@ -17,7 +17,7 @@
     margin: 0 auto;
     text-align: center;
 
-    @media (max-width: $mobile-breakpoint) {
+    @include respond-to(mobile) {
       font-size: 40px;
     }
   }

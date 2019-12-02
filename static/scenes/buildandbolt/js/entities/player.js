@@ -131,6 +131,11 @@ app.Player = class Player {
   updatePosition(delta) {
     this.isDecelerating = false
 
+    const { left, right, up, down } = this.gameControls.getMovementDirections(this.controls,
+        { x: Utils.gridToPixelValue(this.position.x), y: Utils.gridToPixelValue(this.position.y)})
+
+    console.log(left, right, up, down)
+
     let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
     let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
     if (this.onIce) {
@@ -139,7 +144,7 @@ app.Player = class Player {
       this.onIce = false // only leave it on for one step
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.left)) {
+    if (left) {
       this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('left')
@@ -148,7 +153,7 @@ app.Player = class Player {
       this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.right)) {
+    if (right) {
       this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('right')
@@ -157,7 +162,7 @@ app.Player = class Player {
       this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.up)) {
+    if (up) {
       this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('back')
@@ -166,7 +171,7 @@ app.Player = class Player {
       this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.down)) {
+    if (down) {
       this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('front')

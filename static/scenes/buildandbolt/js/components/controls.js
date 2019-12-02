@@ -15,6 +15,7 @@ app.Controls = class Controls {
     // this.tutorial_ = game.tutorial
 
     if (app.shared.utils.touchEnabled) {
+      this.isTouch = true
       this.currentTouchId = null
       this.game_.context.addEventListener(
           'touchstart',
@@ -72,7 +73,8 @@ app.Controls = class Controls {
   }
 
   onTouchStart(e) {
-    var touch = e.originalEvent.changedTouches[0]
+    var touch = e.changedTouches[0]
+
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = {
@@ -89,7 +91,7 @@ app.Controls = class Controls {
   }
 
   onTouchMove(e) {
-    var touch = this.getCurrentTouch(e.originalEvent)
+    var touch = this.getCurrentTouch(e)
     if (!touch) {
       return
     }
@@ -102,7 +104,7 @@ app.Controls = class Controls {
   }
 
   onTouchEnd(e) {
-    var touch = this.getCurrentTouch(e.originalEvent)
+    var touch = this.getCurrentTouch(e)
     if (!touch) {
       return
     }
@@ -120,6 +122,33 @@ app.Controls = class Controls {
     for (let i = 0, touch; touch = e.changedTouches[i]; i++) {
       if (touch.identifier === this.currentTouchId) {
         return touch
+      }
+    }
+  }
+
+  getMovementDirections(controls, currentPosition) {
+    if (this.isTouch) {
+      if (this.currentTouchPosition) {
+        return {
+          left: this.currentTouchPosition.x < currentPosition.x,
+          right: this.currentTouchPosition.x > currentPosition.x,
+          up: this.currentTouchPosition.y < currentPosition.y,
+          down: this.currentTouchPosition.y > currentPosition.y
+        }
+      } else {
+        return {
+          left: false,
+          right: false,
+          up: false,
+          down: false
+        }
+      }
+    } else {
+      return {
+        left: this.isKeyControlActive(controls.left),
+        right: this.isKeyControlActive(controls.right),
+        up: this.isKeyControlActive(controls.up),
+        down: this.isKeyControlActive(controls.down)
       }
     }
   }
