@@ -27,6 +27,21 @@ function lookup(lang, callback=emptyFunc) {
       }
       o = fallback[msgid];
     }
+
+    if (o && o['raw']) {
+      // This is a fallback message, so tease out the actual string. Each <ph...> contains real
+      // text and an optional <ex></ex>.
+      const r = o['raw'];
+      return r.replace(/<ph.*?>(.*?)<\/ph>/g, (match, part) => {
+        // remove <ex></ex> if we find it
+        part = part.replace(/<ex>.*?<\/ex>/g);
+        if (!part) {
+          throw new Error(`got invalid part for raw string: ${r}`);
+        }
+        return part;
+      });
+    }
+
     return o && (o['message'] || o['raw']) || '?';
   };
 }
