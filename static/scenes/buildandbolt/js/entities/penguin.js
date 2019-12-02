@@ -112,6 +112,7 @@ app.Penguin = class Penguin extends app.Slider {
 
   onContact(player) {
     super.onContact(player)
+    window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
     return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }

@@ -10,6 +10,7 @@ app.Player = class Player {
     this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
+    this.id = id;
 
     this.elem = document.querySelector(`.player--${id}`)
     this.elem.classList.add('is-active')
@@ -45,7 +46,8 @@ app.Player = class Player {
       this.dead = false
 
       this.animations['death'].container.classList.remove('is-active')
-
+      window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
       this.resetPosition()
 
       this.clearToyParts()
@@ -77,6 +79,7 @@ app.Player = class Player {
     this.animationQueue = []
 
     this.onIce = false
+    this.playingIceSound = false
   }
 
   onFrame(delta, now) {
@@ -279,6 +282,15 @@ app.Player = class Player {
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]
     if (ices && ices.length) {
       this.onIce = true
+      if (!this.playingIceSound) {
+        this.playingIceSound = true;
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+      }
+    }else {
+      if (this.playingIceSound) {
+        this.playingIceSound = false;
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      }
     }
   }
 
@@ -290,6 +302,7 @@ app.Player = class Player {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
       this.elem.classList.add(`toypart--${toyPart}`)
+      window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
   }
 
@@ -297,12 +310,12 @@ app.Player = class Player {
     for (const toyPart of this.toyParts) {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
-
     this.toyParts = []
   }
 
   registerWin() {
     this.score++
+    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }
 
   setDirection(direction) {
@@ -341,6 +354,7 @@ app.Player = class Player {
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
+            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
         }
         break;
       case Constants.PLAYER_STATES.REST:
@@ -350,6 +364,7 @@ app.Player = class Player {
           default:
             this.playerState = Constants.PLAYER_STATES.REST
             this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
+            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
         }
         break;
     }

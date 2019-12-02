@@ -97,9 +97,15 @@ app.Game = class Game {
   startLevel() {
     this.initLevel(this.level)
     this.isPlaying = true
-    setTimeout(()=>{
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-    }, 800)
+
+    if (this.level === 0) {
+      setTimeout(()=>{
+        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+      }, 800)
+    }else {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+    }
+    
   }
 
   onFrame(now) {
@@ -140,6 +146,7 @@ app.Game = class Game {
       } else {
         // end game. display game winner.
         this.gameoverDialog.show()
+        window.santaApp.fire('sound-trigger', 'buildandbolt_win');
         if (this.multiplayer) {
           if (this.players[0].score > this.players[1].score) {
             console.log('player 1 won')
