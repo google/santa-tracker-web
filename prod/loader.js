@@ -58,7 +58,10 @@ if ('serviceWorker' in navigator && (isProd || true)) {
     return null;
   });
 
-  navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    loaded = true;  // pretend that we're loaded, so that Safari doesn't send us to an error page
+    window.location.reload();
+  });
 }
 
 
