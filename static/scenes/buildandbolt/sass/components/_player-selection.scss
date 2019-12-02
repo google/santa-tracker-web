@@ -44,6 +44,15 @@
         background: url(img/player-selection-two.svg) center/contain no-repeat;
       }
     }
+
+    @media (min-width: $mobile-breakpoint + 1) {
+      &:hover {
+        .player-option__go {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
   }
 
   .player-option__image {
@@ -56,6 +65,12 @@
     text-align: center;
     top: 5%;
     width: 100%;
+
+    @media (min-width: $mobile-breakpoint + 1) {
+      opacity: 0;
+      transform: translateY(-50%);
+      transition: transform 0.3s, opacity 0.3s;
+    }
   }
 
   .player-option__label {
@@ -63,7 +78,11 @@
     font-family: 'Google Sans', sans-serif;
     font-size: 52px;
     font-weight: bold;
-    line-height: 66px;
+    line-height: 1.27;
     text-align: center;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 24px;
+    }
   }
 }

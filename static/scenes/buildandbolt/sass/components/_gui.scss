@@ -13,8 +13,12 @@
     color: $color-green;
     font-family: 'Lobster', sans-serif;
     font-size: 74px;
-    line-height: 92px;
+    line-height: 1.24;
     margin: 0 auto;
     text-align: center;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 40px;
+    }
   }
 }
