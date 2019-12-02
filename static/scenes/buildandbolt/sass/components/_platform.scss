@@ -1,5 +1,6 @@
 ##{$name} {
   .platform {
+    @include board-object();
     border-image: url(img/platform/platform.svg) 33% fill / 25px round;
   }
 }

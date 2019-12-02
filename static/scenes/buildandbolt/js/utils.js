@@ -6,6 +6,18 @@ Utils.gridToPixelValue = function(gridValue) {
   return gridValue * Constants.GRID_DIMENSIONS.UNIT_SIZE
 }
 
+/**
+ * Converts a pixel coordinate on the viewport to a grid value based coordinate
+ */
+Utils.pixelToGridPosition = function(boardElem, pixelPosition) {
+  let x, y
+  let rect = boardElem.getBoundingClientRect()
+  x = (pixelPosition.x - rect.left) / rect.width * Constants.GRID_DIMENSIONS.WIDTH
+  y = (pixelPosition.y - rect.top) / rect.height * Constants.GRID_DIMENSIONS.HEIGHT
+
+  return { x, y }
+}
+
 Utils.renderAtGridLocation = function(element, x, y) {
   element.style.transform =
       `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`
@@ -249,12 +261,13 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
   return false
 }
 
-Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop, lastFrameTime, now) {
+Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop,
+    lastFrameTime, now) {
   let nextFrame = currentFrame
   let frameTime = lastFrameTime
   let finished = false
 
-  const fps = 60
+  const fps = animationFrames.fps || 60
   const frameDelta = Math.round(fps / 1000 * (now - lastFrameTime))
 
   if (frameDelta >= 1) {

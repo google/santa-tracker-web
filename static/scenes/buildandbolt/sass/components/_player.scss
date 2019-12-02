@@ -1,5 +1,22 @@
 ##{$name} {
+
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   .player {
+    @include board-object();
     height: $grid-unit-size;
     opacity: 0;
     width: $grid-unit-size;
@@ -18,12 +35,21 @@
         transform: translate(-25%, -50%) scaleX(-1);
       }
 
+      &.is-dead {
+        animation: .2s blink infinite;
+      }
+
       .animation {
         bottom: 0;
         left: 0;
         position: absolute;
         right: 0;
         top: 0;
+        z-index: 1;
+
+        &--death {
+          z-index: 0;
+        }
       }
     }
 
@@ -75,8 +101,11 @@
   }
 
   .player-spawn {
-    height: $grid-unit-size;
-    width: $grid-unit-size;
+    @include board-object();
+    height: $grid-unit-size * 2;
+    left: -($grid-unit-size / 2) - 2px;
+    top: -($grid-unit-size / 2);
+    width: $grid-unit-size * 2;
 
     &--a {
       background: url(img/players/a/spawn.svg) center/contain no-repeat;

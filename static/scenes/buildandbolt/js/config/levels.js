@@ -17,6 +17,7 @@ goog.provide('Levels')
 
 Levels = [
   {
+    time: 90,
     players: [
       {
         startPos: {
@@ -179,6 +180,7 @@ Levels = [
     ]
   },
   {
+    time: 45,
     players: [
       {
         startPos: {

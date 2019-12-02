@@ -1,5 +1,6 @@
 ##{$name} {
   .fence {
+    @include board-object();
     height: $grid-unit-size;
     width: $grid-unit-size;
     z-index: 0;

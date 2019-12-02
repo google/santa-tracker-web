@@ -1,7 +1,7 @@
 ##{$name} {
   .ice {
+    @include board-object();
     border-image: url(img/ice/ice.svg) 33% fill / 25px round;
-    position: relative;
 
     &::after {
       background: url(img/ice/shine.svg) center/cover no-repeat;

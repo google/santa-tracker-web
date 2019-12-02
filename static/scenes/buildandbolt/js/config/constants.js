@@ -4,6 +4,7 @@ goog.provide('Constants');
  * Constants for present havoc game.
  */
 Constants = {
+  INITIAL_COUNTDOWN: 52,
   DEBUG: false,
 
   PLAYER_OPTIONS: {
@@ -37,6 +38,11 @@ Constants = {
   },
   PLAYER_ACCELERATION_STEP: .0005,
   PLAYER_MAX_VELOCITY: .01,
+  PLAYER_ACCELERATION_FACTOR: 1,
+  PLAYER_DECELERATION_FACTOR: 1,
+  PLAYER_ICE_ACCELERATION_FACTOR: 2,
+  PLAYER_ICE_DECELERATION_FACTOR: .5,
+
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
@@ -53,60 +59,75 @@ Constants = {
   PLAYER_STATES: {
     REST: 0,
     WALK: 1,
-    HOLD_REST: 2,
-    HOLD_WALK: 3
+    PICK_UP: 2,
+    DROP_OFF: 3
   },
 
   PLAYER_FRAMES: {
     REST: {
       start: 1,
       end: 1,
-      loop: true
+      loop: true,
+      fps: 60
     },
     REST_TO_WALK: {
       start: 1,
-      end: 8
+      end: 8,
+      fps: 60
     },
     WALK: {
       start: 8,
       end: 24,
-      loop: true
+      loop: true,
+      fps: 60
     },
     WALK_TO_REST: {
       start: 24,
-      end: 32
+      end: 32,
+      fps: 60
     },
-    REST_TO_HOLD_WALK: {
+    REST_TO_HOLD_REST: {
+      start: 32,
+      end: 40,
+      fps: 60
+    },
+    HOLD_REST_TO_HOLD_WALK: {
       start: 40,
-      end: 48
+      end: 48,
+      fps: 60
     },
     HOLD_WALK: {
       start: 48,
       end: 64,
-      loop: true
+      loop: true,
+      fps: 60
     },
     HOLD_WALK_TO_HOLD_REST: {
       start: 64,
-      end: 72
+      end: 72,
+      fps: 60
     },
     HOLD_REST: {
       start: 72,
       end: 72,
-      loop: true
+      loop: true,
+      fps: 60
     },
     HOLD_REST_TO_REST: {
       start: 72,
-      end: 80
+      end: 80,
+      fps: 60
     },
     DEATH: {
       start: 0,
       end: 12,
+      fps: 24
     }
   },
 
   GRID_DIMENSIONS: {
-    HEIGHT: 16.0, // height in grid units
-    WIDTH: 28.0, // width in grid units
+    HEIGHT: 16, // height in grid units
+    WIDTH: 28, // width in grid units
     UNIT_SIZE: 50 // height and width of one grid unit
   },
 
@@ -126,7 +147,8 @@ Constants = {
   PENGUIN_FRAMES: {
     start: 0,
     end: 12,
-    loop: true
+    loop: true,
+    fps: 24
   },
 
 }

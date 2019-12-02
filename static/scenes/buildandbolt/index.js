@@ -69,7 +69,14 @@ controlsButton.addEventListener('click', (e) => {
 // playerSelectionScreen.classList.add('is-hidden')
 // end debug mode
 
+// Todo: implement these
+// api.addEventListener('pause', (ev) => game.pause());
+// api.addEventListener('resume', (ev) => game.resume());
+// api.addEventListener('restart', (ev) => game.restart());
+
 api.config({
+  pause: true,
+  orientation: 'landscape',
   sound: ['buildandbolt_tutorial_start'],
 });
 

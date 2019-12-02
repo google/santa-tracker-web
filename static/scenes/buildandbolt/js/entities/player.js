@@ -10,6 +10,7 @@ app.Player = class Player {
     this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
+    this.toyParts = []
     this.id = id;
 
     this.elem = document.querySelector(`.player--${id}`)
@@ -18,12 +19,11 @@ app.Player = class Player {
     this.innerElem = this.elem.querySelector('.player__inner')
   }
 
+  /**
+   * Initializes player for the start of each level
+   */
   init(config) {
     this.config = config
-
-    this.toyParts = []
-
-    this.platform = null
 
     this.resetPosition()
 
@@ -35,29 +35,30 @@ app.Player = class Player {
    * Restarts the player to the beginning of the level, progress lost
    */
   restart() {
-    // this.elem.classList.add('is-hidden')
     this.dead = true
-    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
-    this.currentAnimationState = Constants.PLAYER_FRAMES.DEATH
     this.animationQueue = []
+
+    // initialize death animation
     this.animations['death'].container.classList.add('is-active')
+    this.innerElem.classList.add('is-dead')
+    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
+    this.currentAnimationState = {
+      animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
+      callback: () => {
+        this.dead = false
+        this.animations['death'].container.classList.remove('is-active')
+        this.innerElem.classList.remove('is-dead')
 
-    window.setTimeout(() => {
-      this.dead = false
+        window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
 
-      this.animations['death'].container.classList.remove('is-active')
-      window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
-      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
-      this.resetPosition()
+        this.resetPosition()
 
-      this.clearToyParts()
-
-      this.game.board.updateEntityPosition(this,
-          this.prevPosition.x, this.prevPosition.y,
-          this.position.x, this.position.y)
-
-      this.elem.classList.remove('is-hidden')
-    }, 500)
+        this.game.board.updateEntityPosition(this,
+            this.prevPosition.x, this.prevPosition.y,
+            this.position.x, this.position.y)
+      }
+    }
   }
 
   resetPosition() {
@@ -72,69 +73,114 @@ app.Player = class Player {
       y: 0
     }
 
-    this.currentAnimationFrame = 1
-    this.currentAnimationState = Constants.PLAYER_FRAMES.REST
+    this.clearToyParts()
+    this.platform = null
+    this.onIce = false
+    this.playingIceSound = false
+
+    this.currentAnimationFrame = Constants.PLAYER_FRAMES.REST.start
+    this.currentAnimationState = {
+      animation: Constants.PLAYER_FRAMES.REST
+    }
     this.playerState = Constants.PLAYER_STATES.REST
     this.setDirection('front')
     this.animationQueue = []
-
-    this.onIce = false
-    this.playingIceSound = false
   }
 
   onFrame(delta, now) {
     if (this.dead) {
+      // Keep updating death animation
       this.updateAnimationFrame(now)
       this.render()
       return
     }
 
     this.blockPlayer = false
+    this.blockingPosition = {
+      x: this.position.x,
+      y: this.position.y,
+    }
+
     this.prevPosition = Object.assign({}, this.position)
 
-    let isDecelerating = false
-    let accelerationFactor = 1
-    let decelerationFactor = 1
+    this.updatePosition(delta)
+    this.checkActions()
+
+
+    // TODO: play the correct state
+    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
+    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
+        (this.isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
+      this.setPlayerState(Constants.PLAYER_STATES.REST)
+    } else {
+      this.setPlayerState(Constants.PLAYER_STATES.WALK)
+    }
+    this.updateAnimationFrame(now)
+
+    this.movePlayer()
+    this.render()
+  }
+
+  render() {
+    if (this.dead) {
+      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
+    } else {
+      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
+    }
+    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
+  }
+
+  /**
+   * Updates player position and velocity based on user controls
+   */
+  updatePosition(delta) {
+    this.isDecelerating = false
+
+    const { left, right, up, down } = this.gameControls.getMovementDirections(
+        this.controls, this.position)
+
+    let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
+    let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
     if (this.onIce) {
-      accelerationFactor = 2
-      decelerationFactor = .5
+      accelerationFactor = Constants.PLAYER_ICE_ACCELERATION_FACTOR
+      decelerationFactor = Constants.PLAYER_ICE_DECELERATION_FACTOR
       this.onIce = false // only leave it on for one step
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.left)) {
+    if (left) {
       this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('left')
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.right)) {
+    if (right) {
       this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('right')
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.up)) {
+    if (up) {
       this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('back')
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
-    if (this.gameControls.isKeyControlActive(this.controls.down)) {
+    if (down) {
       this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('front')
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
-      isDecelerating = true
+      this.isDecelerating = true
     }
 
     if (this.platform) {
@@ -160,47 +206,6 @@ app.Player = class Player {
         this.platform = null
       }
     }
-
-    this.blockingPosition = {
-      x: this.position.x,
-      y: this.position.y,
-    }
-
-    const surroundingEntities = this.game.board.getSurroundingEntities(this)
-
-    const resultingActions = {}
-
-    if (surroundingEntities.length) {
-      for (const entity of surroundingEntities) {
-        this.checkActions(entity, resultingActions)
-      }
-    }
-
-    this.processActions(resultingActions)
-
-    this.movePlayer()
-
-
-    // TODO: play the correct state
-    const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
-    if ((this.velocity.x == 0 && this.velocity.y == 0) ||
-        (isDecelerating && Math.abs(this.velocity.x) <= restThreshold && Math.abs(this.velocity.y) <= restThreshold)) {
-      this.setPlayerState(Constants.PLAYER_STATES.REST)
-    } else {
-      this.setPlayerState(Constants.PLAYER_STATES.WALK)
-    }
-    this.updateAnimationFrame(now)
-
-    this.render()
-  }
-
-  render() {
-    if (this.dead) {
-      this.animations['death'].goToAndStop(this.currentAnimationFrame, true)
-    } else {
-      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true)
-    }
-    Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y)
   }
 
   movePlayer() {
@@ -218,15 +223,26 @@ app.Player = class Player {
           this.position.x, this.position.y)
   }
 
-  checkActions(entity, resultingActions) {
-    const actions = entity.onContact(this)
+  /**
+   * Check for any effects other entities have on the player at the
+   * current position
+   */
+  checkActions() {
+    const surroundingEntities = this.game.board.getSurroundingEntities(this)
+    const resultingActions = {}
 
-    for (const action of actions) {
-      if (!resultingActions[action]) { // if this action is not referred yet, create it
-        resultingActions[action] = []
+    for (const entity of surroundingEntities) {
+      const actions = entity.onContact(this)
+
+      for (const action of actions) {
+        if (!resultingActions[action]) { // if this action is not referred yet, create it
+          resultingActions[action] = []
+        }
+        resultingActions[action].push(entity)
       }
-      resultingActions[action].push(entity)
     }
+
+    this.processActions(resultingActions)
   }
 
   processActions(resultingActions) {
@@ -264,6 +280,7 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY]
     if (acceptToyEntities && acceptToyEntities.length) {
+      this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF)
       this.clearToyParts()
 
       // temporary
@@ -295,13 +312,15 @@ app.Player = class Player {
     }
   }
 
-  onContact(player) {
-    return [Constants.PLAYER_ACTIONS.BOUNCE]
-  }
-
   addToyPart(toyPart) {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
+
+      if (this.toyParts.length == 1) {
+        // transition to holding animation
+        this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
+      }
+
       this.elem.classList.add(`toypart--${toyPart}`)
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
@@ -312,11 +331,6 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
     this.toyParts = []
-  }
-
-  registerWin() {
-    this.score++
-    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }
 
   setDirection(direction) {
@@ -347,44 +361,75 @@ app.Player = class Player {
       return
     }
 
+    let rest = Constants.PLAYER_FRAMES.REST
+    let walk = Constants.PLAYER_FRAMES.WALK
+    let restToWalk = Constants.PLAYER_FRAMES.REST_TO_WALK
+    let walkToRest = Constants.PLAYER_FRAMES.WALK_TO_REST
+
+    if (this.toyParts.length) {
+      rest = Constants.PLAYER_FRAMES.HOLD_REST
+      walk = Constants.PLAYER_FRAMES.HOLD_WALK
+      restToWalk = Constants.PLAYER_FRAMES.HOLD_REST_TO_HOLD_WALK
+      walkToRest = Constants.PLAYER_FRAMES.HOLD_WALK_TO_HOLD_REST
+    }
+
     switch(state) {
       case Constants.PLAYER_STATES.WALK:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.REST:
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_WALK)
+            this.addAnimationToQueueOnce(restToWalk)
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK)
+            this.addAnimationToQueueOnce(walk)
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
         }
-        break;
+        break
       case Constants.PLAYER_STATES.REST:
         switch(this.playerState) {
           case Constants.PLAYER_STATES.WALK:
-            this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.WALK_TO_REST)
+            this.addAnimationToQueueOnce(walkToRest)
           default:
             this.playerState = Constants.PLAYER_STATES.REST
-            this.animationQueue.push(Constants.PLAYER_FRAMES.REST)
+            this.animationQueue.push({
+              animation: rest
+            })
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
         }
-        break;
+        break
+      case Constants.PLAYER_STATES.PICK_UP:
+        this.playerState = Constants.PLAYER_STATES.PICK_UP
+        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST, () => {
+            console.log('add toy part')
+        })
+        break
+      case Constants.PLAYER_STATES.DROP_OFF:
+        this.playerState = Constants.PLAYER_STATES.DROP_OFF
+          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST, () => {
+            console.log('drop toy')
+          })
+        break
     }
   }
 
   /**
    * Checks for repeats to make sure the animation is not queued multiple times
    */
-  addAnimationToQueueOnce(animation) {
-    if (this.animationQueue.indexOf(animation) < 0) {
-      this.animationQueue.push(animation)
+  addAnimationToQueueOnce(animation, callback) {
+    if (!this.animationQueue.find(item => item.animation == animation)) {
+      this.animationQueue.push({
+        animation,
+        callback
+      })
     }
   }
 
   updateAnimationFrame(now) {
+    let animation = this.currentAnimationState.animation
+
     // Frame is not within range. Set it to start of range.
-    if (this.currentAnimationFrame < this.currentAnimationState.start ||
-        this.currentAnimationFrame > this.currentAnimationState.end) {
-      this.currentAnimationFrame = this.currentAnimationState.start
+    if (this.currentAnimationFrame < animation.start ||
+        this.currentAnimationFrame > animation.end) {
+      this.currentAnimationFrame = animation.start
       this.lastAnimationFrame = now
       return
     }
@@ -393,19 +438,46 @@ app.Player = class Player {
       this.lastAnimationFrame = now
     }
 
-    let loop = this.currentAnimationState.loop && !this.animationQueue.length
+    let loop = animation.loop && !this.animationQueue.length
     const {
       nextFrame,
       frameTime,
       finished
-    } = Utils.nextAnimationFrame(this.currentAnimationState,
+    } = Utils.nextAnimationFrame(animation,
         this.currentAnimationFrame, loop, this.lastAnimationFrame, now)
 
     this.currentAnimationFrame = nextFrame
     this.lastAnimationFrame = frameTime
 
-    if (finished && this.animationQueue.length) {
-      this.currentAnimationState = this.animationQueue.shift()
+    if (finished) {
+      if (animation.repeat) {
+        animation.repeat--
+        this.currentAnimationFrame = animation.start
+        return
+      }
+
+      if (this.currentAnimationState.callback) {
+        this.currentAnimationState.callback.call(this)
+      }
+
+      if (this.animationQueue.length) {
+        this.currentAnimationState = this.animationQueue.shift()
+      } else {
+        // No pending animations, go back to rest state
+        this.setPlayerState(Constants.PLAYER_STATES.REST)
+        if (this.animationQueue.length) {
+          this.currentAnimationState = this.animationQueue.shift()
+        }
+      }
     }
+  }
+
+  onContact(player) {
+    return [Constants.PLAYER_ACTIONS.BOUNCE]
+  }
+
+  registerWin() {
+    this.score++
+    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }
 }

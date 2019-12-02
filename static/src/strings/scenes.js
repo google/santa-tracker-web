@@ -8,6 +8,7 @@ export default {
   'boatload': _msg`scene_boatload`,
   'briefing': _msg`scene_briefing`,
   'build': _msg`scene_build`,
+  'buildandbolt': _msg`scene_buildandbolt`,
   'carpool': _msg`scene_videoscene_carpool`,
   'citylights': _msg`scene_citylights`,
   'codeboogie': _msg`scene_codeboogie`,
@@ -40,7 +41,6 @@ export default {
   'postcard': _msg`scene_postcard`,
   'presentbounce': _msg`scene_presentbounce`,
   'presentdrop': _msg`scene_presentdrop`,
-  'presenthavoc': _msg`scene_presenthavoc`,
   'racer': _msg`scene_racer`,
   'reindeerworries': _msg`scene_videoscene_reindeerworries`,  // 2015
   'reload': _msg`scene_videoscene_reload`,

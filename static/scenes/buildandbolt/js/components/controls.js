@@ -1,6 +1,8 @@
 goog.provide('app.Controls')
 
-// goog.require('Constants')
+goog.require('app.shared.utils')
+goog.require('Utils')
+
 
 /**
  * Handles user input for controlling the game.
@@ -14,22 +16,24 @@ app.Controls = class Controls {
     this.players_ = game.players
     // this.tutorial_ = game.tutorial
 
-    // this.currentTouchId = null
-    // this.currentTouchStartY = null
+    if (app.shared.utils.touchEnabled) {
+      this.isTouch = true
+      this.currentTouchId = null
+      this.game_.context.addEventListener(
+          'touchstart',
+          this.onTouchStart.bind(this))
+      this.game_.context.addEventListener(
+          'touchmove',
+          this.onTouchMove.bind(this))
+      this.game_.context.addEventListener(
+          'touchend',
+          this.onTouchEnd.bind(this))
+    } else {
+      this.trackedKeys = {}
 
-    this.trackedKeys = {}
-
-    // this.game_.context.addEventListener(
-    //     'touchstart',
-    //     handler)
-    // this.game_.context.addEventListener(
-    //     'touchmove',
-    //     handler)
-    // this.game_.context.addEventListener(
-    //     'touchend',
-    //     handler)
-    window.addEventListener('keydown', this.onKeyDown.bind(this))
-    window.addEventListener('keyup', this.onKeyUp.bind(this))
+      window.addEventListener('keydown', this.onKeyDown.bind(this))
+      window.addEventListener('keyup', this.onKeyUp.bind(this))
+    }
   }
 
   /**
@@ -69,83 +73,84 @@ app.Controls = class Controls {
 
     return false
   }
+
+  onTouchStart(e) {
+    var touch = e.changedTouches[0]
+
+
+    this.currentTouchId = touch.identifier
+    this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
+        { x: touch.clientX, y: touch.clientY })
+
+    e.preventDefault()
+
+    // Let tutorial know about touch so it can hide the tutorial.
+    // if (!this.touchStarted) {
+    //   this.tutorial_.off('touch-updown');
+    //   this.touchStarted = true;
+    // }
+  }
+
+  onTouchMove(e) {
+    var touch = this.getCurrentTouch(e)
+    if (!touch) {
+      return
+    }
+
+    this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
+        { x: touch.clientX, y: touch.clientY })
+
+    e.preventDefault()
+  }
+
+  onTouchEnd(e) {
+    var touch = this.getCurrentTouch(e)
+    if (!touch) {
+      return
+    }
+
+    this.currentTouchId = null
+    this.currentTouchPosition = null
+    e.preventDefault()
+  }
+
+  getCurrentTouch(e) {
+    if (this.currentTouchId === null) {
+      return
+    }
+
+    for (let i = 0, touch; touch = e.changedTouches[i]; i++) {
+      if (touch.identifier === this.currentTouchId) {
+        return touch
+      }
+    }
+  }
+
+  getMovementDirections(controls, currentPosition) {
+    if (this.isTouch) {
+      if (this.currentTouchPosition) {
+        return {
+          left: this.currentTouchPosition.x < currentPosition.x,
+          right: this.currentTouchPosition.x > currentPosition.x,
+          up: this.currentTouchPosition.y < currentPosition.y,
+          down: this.currentTouchPosition.y > currentPosition.y
+        }
+      } else {
+        return {
+          left: false,
+          right: false,
+          up: false,
+          down: false
+        }
+      }
+    } else {
+      return {
+        left: this.isKeyControlActive(controls.left),
+        right: this.isKeyControlActive(controls.right),
+        up: this.isKeyControlActive(controls.up),
+        down: this.isKeyControlActive(controls.down)
+      }
+    }
+  }
 }
-
-// /**
-//  * Touch controls
-//  */
-// app.Controls.prototype.touchStartedInGUI = null;
-
-// /**
-//  * Touch started. Ignores gui touches. Called dynamically.
-//  * @param  {Event} e The event object.
-//  */
-// app.Controls.prototype['onTouchstart'] = function(e) {
-//   // Ignore the touch if it starts in GUI
-//   this.touchStartedInGUI = !!$(e.target).closest('.gui').length;
-//   if (this.touchStartedInGUI) {
-//     return;
-//   }
-
-//   var touch = e.originalEvent.changedTouches[0];
-
-//   this.currentTouchId = touch.identifier;
-//   this.currentTouchStartY = touch.pageY;
-//   e.preventDefault();
-
-//   // Let tutorial know about touch so it can hide the tutorial.
-//   if (!this.touchStarted) {
-//     this.tutorial_.off('touch-updown');
-//     this.touchStarted = true;
-//   }
-
-// }
-
-// /**
-//  * Touch moved. Called dynamically.
-//  * @param  {Event} e The event object.
-//  * @this {Controls} The Controls object.
-//  */
-// app.Controls.prototype['onTouchmove'] = function(e) {
-//   e.preventDefault();
-// }
-
-// /**
-//  * Touch ended. Called dynamically.
-//  * @param  {Event} e The event object.
-//  * @this {Controls} The Controls object.
-//  */
-// app.Controls.prototype['onTouchend'] = function(e) {
-//   var touch = this.getCurrentTouch(e.originalEvent);
-//   if (!touch) {
-//     return;
-//   }
-
-//   var touchDiff = this.currentTouchStartY - touch.pageY;
-
-//   if (touchDiff >= 0) {
-//     this.player_.onUp();
-//   } else if (touchDiff < -25) {
-//     this.player_.onDown(2);
-//   }
-
-//   this.currentTouchId = null;
-// }
-
-// /**
-//  * Returns the active touch from a touch event.
-//  * @param  {Event} e A touch event.
-//  * @return {Touch}   The active touch.
-//  */
-// app.Controls.prototype.getCurrentTouch = function(e) {
-//   if (this.currentTouchId === null) {
-//     return;
-//   }
-
-//   for (var i = 0, touch; touch = e.changedTouches[i]; i++) {
-//     if (touch.identifier === this.currentTouchId) {
-//       return touch;
-//     }
-//   }
-// }
 

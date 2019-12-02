@@ -4,16 +4,12 @@
 
 
 @mixin respond-to($point) {
-  @if $point == desktop {
-    @media only screen and (min-width: 1081px) {
+  @if $point == above-mobile {
+    @media only screen and (min-width: $mobile-width + 1), (min-height: $mobile-height + 1) {
       @content;
     }
-  } @else if $point == tablet {
-    @media only screen and (max-width: 1080px) {
-      @content;
-    }
-  } @else if $point == smartphone {
-    @media only screen and (max-width: 768px) {
+  } @else if $point == mobile {
+    @media only screen and (max-width: $mobile-width), (max-height: $mobile-height) {
       @content;
     }
   }
@@ -33,5 +29,19 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+@mixin board-object() {
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  .debug & {
+    border: 2px solid purple;
+  }
+
+  &.hidden {
+    display: none;
   }
 }

@@ -107,6 +107,42 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Bhutan"
   },
+  "buildandbolt-instructions-label": {
+    "description": "Large title on an intermediary screen explaining game controls.",
+    "message": "Instructions"
+  },
+  "buildandbolt-instructions-move-key": {
+    "description": "Label pointing to a key on a keyboard diagram. Indicates that the key is used to move the player around. Keep short.",
+    "message": "Move"
+  },
+  "buildandbolt-instructions-action-key": {
+    "description": "Label pointing to a key on a keyboard diagram. Indicates that the key is used for interacting with toys. Keep short.",
+    "message": "Pick up & drop toys"
+  },
+  "buildandbolt-player-one-label": {
+    "description": "Large label for the half of the screen showing instructions for player one.",
+    "message": "Player 1"
+  },
+  "buildandbolt-player-two-label": {
+    "description": "Large label for the half of the screen showing instructions for player two.",
+    "message": "Player 2"
+  },
+  "buildandbolt-players-selection": {
+    "description": "Large label on an intermediary screen for single or multi-player selection.",
+    "message": "How Many Players?"
+  },
+  "buildandbolt-players-selection-one": {
+    "description": "Label for the one player option of a player selection screen.",
+    "message": "1 Player"
+  },
+  "buildandbolt-players-selection-two": {
+    "description": "Label for the two player option of a player selection screen.",
+    "message": "2 Players"
+  },
+  "buildandbolt-skip": {
+    "description": "Button label to skip to the next step. Keep short.",
+    "message": "Skip"
+  },
   "bw_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Botswana"

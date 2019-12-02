@@ -2,8 +2,8 @@ $toy-types: 'car_wheels', 'robot_arms', 'robot_body', 'robot_heads';
 
 ##{$name} {
   .table {
+    @include board-object();
     height: $grid-unit-size * $table-height;
-    position: relative;
     width: $grid-unit-size * $table-width;
 
     &::before {
