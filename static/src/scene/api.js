@@ -6,7 +6,8 @@ import {read} from '../lib/params.js';
 import {globalClickHandler} from '../core/router.js';
 import {scope} from './route.js';
 
-const WAIT_TIMEOUT = 20 * 1000;
+const PARENT_PRELOAD_TIMEOUT = 15 * 1000;  // individual preload timeout, e.g., for Klang
+const LOAD_TIMEOUT = 20 * 1000;            // total preload timeout
 
 class PreloadApi {
 
@@ -20,7 +21,7 @@ class PreloadApi {
     this._callback = callback;
 
     const r = resolvable();
-    this._donePromise = r.promise;
+    this._donePromise = r.promise.catch((err) => console.warn('preload err', err));
     this._doneResolve = r.resolve;
 
     this._donePromise.then(() => {
@@ -76,7 +77,7 @@ class PreloadApi {
           resolve();
         }
       };
-      window.setTimeout(reject, WAIT_TIMEOUT);
+      window.setTimeout(reject, PARENT_PRELOAD_TIMEOUT);
     });
 
     this.wait(p);
@@ -95,15 +96,15 @@ class PreloadApi {
    */
   images(...all) {
     return all.map((src) => {
+      const image = new Image();
       const p = new Promise((resolve, reject) => {
-        const image = new Image();
         this._refs.push(image);
         image.src = src;
         image.onload = () => resolve(image);
         image.onerror = reject;
       });
       this.wait(p);
-      return p;
+      return p.catch(() => image);  // return the image anyway
     });
   }
 }
@@ -126,8 +127,8 @@ class SceneApi extends EventTarget {
   constructor() {
     super();
     this._initialData = {};
-    this._config = null;
     this._params = read(window.location.search);
+    this._loaded = false;
 
     // FIXME: This Promise is badly named vs. this._ready, which is the prep work.
     if (channel.withinFrame) {
@@ -147,7 +148,7 @@ class SceneApi extends EventTarget {
       });
     }
 
-    // connect to parent frame: during preload, error on data
+    // connect to parent frame during preload
     this._updateFromHost = (data) => {
       const {type, payload} = data;
 
@@ -157,12 +158,13 @@ class SceneApi extends EventTarget {
           break;
 
         case 'data':
-          // TODO: we could announce this to the game before ready
           this._initialData = payload || {};
+          this.dispatchEvent(new CustomEvent('data', {detail: payload}))
           break;
 
         default:
-          throw new Error(`got unexpected early data from host: ${type}`);
+          // can happen if we've given up on preload
+          console.warn(`got unexpected early data from host: ${type}`);
       }
 
     };
@@ -173,10 +175,15 @@ class SceneApi extends EventTarget {
     const sendQueue = [];
     this._send = (type, payload) => sendQueue.push({type, payload});
 
-    // after preload, do a bunch of setup work
-    this._ready = this._preload.done.then(() => {
-      // send loaded event (this inaccurately also contains the scene config)
-      this._updateParent({type: 'loaded', payload: this._config || {}});
+    // after preload, do a bunch of setup work (with timeout)
+    const race = Promise.race([
+      this._preload.done,
+      new Promise((r) => window.setTimeout(r, LOAD_TIMEOUT))
+    ]);
+    this._ready = race.then(() => {
+      // send loaded event, ignoring future preload notices
+      this._updateParent({type: 'loaded'});
+      this._loaded = true;
 
       // wait for frame to tell us to go
       return this._readyPromise;
@@ -195,6 +202,11 @@ class SceneApi extends EventTarget {
 
   _handleHostMessage(type, payload) {
     switch (type) {
+      case 'data':
+        // arrives in subscribe case
+        this.dispatchEvent(new CustomEvent('data', {detail: payload}))
+        break;
+
       case 'pause':
         this.dispatchEvent(new Event(type));
         sceneApi.play("global_pause");
@@ -210,8 +222,14 @@ class SceneApi extends EventTarget {
         if (type === 'restart' && event.defaultPrevented) {
           this._send('reload');
         }
-
         break;
+
+      case 'muted':
+      case 'unmuted':
+        this.dispatchEvent(new CustomEvent(type));
+        break;
+
+      case 'deviceorientation':
       case 'keyup':
       case 'keydown': {
         // TODO(samthor): This also sends us 'repeat' events, and mixes badly (?) with keyboard
@@ -227,10 +245,10 @@ class SceneApi extends EventTarget {
   }
 
   config(arg) {
-    if (this._config) {
-      throw new Error('config should only be called once');
+    if (this._loaded) {
+      throw new Error('config called after load');
     }
-    this._config = arg;
+    this._updateParent({type: 'config', payload: arg});
     return this;
   }
 
@@ -312,11 +330,17 @@ function installV1Handlers() {
     return args;
   };
 
+  window.addEventListener('santa-play', (ev) => {
+    let kplayEvent = ev.detail[0];
+    let args = ev.detail.slice(1);
+    sceneApi.play(kplayEvent, args);
+  });
+
+  
   const fire = (eventName, ...args) => {
     switch (eventName) {
       case 'sound-trigger':
       case 'sound-ambient':
-      case 'santa-play':
         args = sanitizeSoundArgs(args);
         sceneApi.play(...args);
         break;

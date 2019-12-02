@@ -3,85 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,500,700" />
   <link rel="stylesheet" href="index.css" />
-
-  <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 </head>
 <body>
 
 <script type="module">
 import api from '../../src/scene/api.js';
-import '../../src/polyfill/css.js';  // FIXME: should be included centrally?
-import '../../src/elements/santa-card.js';
+import '../../src/polyfill/css.js';
+import {scenesWithColor} from '../../src/elements/santa-card.js';
 import '../../src/elements/santa-weather.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
-import {_msg} from '../../src/magic.js';
+import './elements/modvil-module.js';
+import {_static, _msg} from '../../src/magic.js';
+import scenes from '../../src/strings/scenes.js';
 
-console.info(_msg`santatracker`);
-
-
-api.preload.sounds('village_load_sounds');
+let villageLoadSounds = helpers.mobileAndTabletCheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
+api.preload.sounds(villageLoadSounds);
 api.preload.sounds('generic_load_sounds');
+
 api.config({
   scroll: true,
+  subscribe: true,  // subscribe to remote config
   sound: ['music_start_village', 'village_start'],
+});
+
+api.preload.images(
+  'img/family-icon.png',
+  'img/ornament.svg',
+  'img/village/1.svg',
+  'img/village/2.svg',
+  'img/village/3.svg',
+  'img/village/4.svg',
+  'img/village/divider.svg',
+);
+
+const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
+const insertAndroidCards = () => {
+  if (androidModuleTemplate.parentNode) {
+    const node = androidModuleTemplate.content.cloneNode(true);
+    androidModuleTemplate.remove();
+    const main = document.querySelector('main');
+    main.prepend(node);
+  }
+};
+
+let featuredRoute = '';
+let playRoute = '';
+
+const featuredAssets = 'boatload build codeboogie codelab elfmaker elfski glider gumball jamband jetpack mercator penguindash presentbounce santascanvas santaselfie seasonofgiving snowball snowbox snowflake traditions translations wrapbattle'.split(/\s+/g);
+const fallbackFeaturedImageSrc = featuredImage.src;
+
+api.addEventListener('data', (ev) => {
+  const {routes, android, featured, play} = ev.detail;
+
+  if (android) {
+    insertAndroidCards();
+  }
+
+  // Optionally display a featured game.
+  if (featured in scenes) {
+    featuredButton.disabled = false;
+    featuredButton.style.background = scenesWithColor[featured] || null;
+    featuredRoute = featured;
+    featuredLabel.textContent = scenes[featured];
+
+    if (featuredAssets.indexOf(featured) !== -1) {
+      featuredImage.src = _static`img/featured/` + featured + '.svg';
+    } else {
+      featuredImage.src = fallbackFeaturedImageSrc;
+    }
+  } else {
+    featuredButton.disabled = true;
+    featuredRoute = '';
+  }
+
+  playRoute = play || '';
+
+  Array.from(document.querySelectorAll('santa-card')).forEach((card) => {
+    const detail = routes[card.id] || {video: false, locked: undefined};
+    card.locked = detail.locked;
+  });
 });
 
 
 /**
- * Describes each village module and its static/animated parts.
- */
-const moduleDefs = [
-  {
-    id: 'android',
-    parts: ['static', 'loop', 'image', 'loop'],
-  },
-  {
-    id: 'transithub',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'sciencelab',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'toymaking',
-    parts: ['static', 'static', 'scroll', 'static'],
-  },
-  {
-    id: 'kitchen',
-    parts: ['static', 'loop', 'static', 'scroll'],
-  },
-  {
-    id: 'nursery',
-    parts: ['static', 'loop', 'scroll'],
-  },
-  {
-    id: 'greenhouse',
-    parts: ['static', 'loop', 'scroll', 'static'],
-  },
-  {
-    id: 'wrapping',
-    parts: ['static', 'loop', 'scroll', 'static'],
-  },
-  {
-    id: 'movies',
-    parts: ['image', 'loop'],
-  },
-  {
-    id: 'footer',
-    parts: ['static'],
-  }
-];
-
-/**
  * Finds the ratio of scrolling that this element should display at.
  */
-function ratioForModule(el) {
+function ratioForElement(el) {
   const se = document.scrollingElement;
   const topScroll = se.scrollTop;
 
@@ -99,139 +111,195 @@ function ratioForModule(el) {
   // This creates more of a cubic-bezier style transform (although it's quite subtle).
   return (Math.sin((ratio - 0.5) * Math.PI) + 1) * 0.5;
 }
-function updateSound(el, ratio) {
-  let name = el.id.indexOf('module') > -1 ?  el.id.split('module--')[1] : el.id;
-  api.play('village_scroll', name, ratio);
-}
-function moduleIsVisible(el) {
-  const se = document.scrollingElement;
-  const top = se.scrollTop;
-  const bottom = se.scrollTop + window.innerHeight;
 
-  if (el.offsetTop + window.innerHeight >= top) {
-    return el.offsetTop < bottom;
-  }
-  return false;
-}
+
+/**
+ * @param {string} id to play for
+ * @param {?number} ratio to play at
+ */
+const updateModuleSoundRatio = (function() {
+  const previous = {};
+
+  return (id, ratio) => {
+  // TODO(samthor): Should we prevent lots of repeat events here?
+  // prevent sending lots of repeat events for [0,1]
+  // Klang's config seems to do nothing in this case anyway; the speed would be Infinity
+    ratio = ratio || 0;
+
+    if ((previous[id] || 0) === ratio) {
+      return;  // already set
+    }
+
+    previous[id] = ratio;
+    api.play('village_scroll', id, ratio);
+  };
+}());
+
+
+const santaWeather = document.body.querySelector('santa-weather');
+
 
 async function prepareModules() {
   const main = document.querySelector('main');
-  const scrollables = new Map();
 
-  for (const {id, parts} of moduleDefs) {
-    const container = document.createElement('div');
-    container.className = 'module';
-    container.setAttribute('id', `module--${id}`);
-    main.append(container);
+  helpers.installAdjustHandler((resized) => {
+    let mode = '';
+    if (window.innerWidth <= 414) {
+      mode = 'mobile';
+    } else if (window.innerWidth <= 768) {
+      mode = 'small';
+    }
 
-    const animations = parts.map((type, index) => {
-      const base = `img/modules/${id}/${index}`;
-      const zIndex = -(100 - index);
+    let visible = undefined;  // undefined=at top, true=visible, false=after visible
 
-      if (type === 'static' || type === 'image') {
-        const img = document.createElement('img');
-        img.src = `${base}.` + (type === 'static' ? 'svg' : 'png');
-        container.append(img);
-        img.style.zIndex = zIndex;
-        // TODO: preload
-        return null;
+    const rootMargin = 24;  // include extra space and load early
+
+    const se = document.scrollingElement;
+    const windowRangeLow = se.scrollTop - rootMargin;
+    const windowRangeHigh = se.scrollTop + window.innerHeight + rootMargin;
+
+    // No scroll sounds on mobile and tablet.
+    const isMobileOrTablet = helpers.mobileAndTabletCheck();
+
+    const topRatio = topModuleRatio();
+    if (!isMobileOrTablet) {
+      // Top isn't a module, but it has audio cues.
+      updateModuleSoundRatio('top', topRatio);
+    }
+    santaWeather.active = topRatio < 1;  // don't render weather if not needed
+
+    const modules = Array.from(main.children).filter((m) => m.localName === 'modvil-module');
+    modules.forEach((m) => {
+      if (visible !== false) {
+        if (m.offsetTop >= windowRangeHigh) {
+          visible = false;
+        }
+      }
+      if (visible === undefined) {
+        if (m.offsetTop + m.offsetHeight >= windowRangeLow) {
+          visible = true;
+        }
       }
 
-      const options = {
-        container,
-        loop: (type === 'loop'),
-      };
-      const anim = loadAnimation(`${base}.json`, options);
-      anim.renderer.svgElement.style.zIndex = zIndex;
+      // Configure the CE. Ratio of null hints that the scene is invisible.
+      const ratio = visible ? ratioForElement(m) : null;
+      if (ratio === null) {
+        m.ratio = null;
+      } else if (!mode) {
+        m.ratio = ratio;
+      } else {
+        m.ratio = 0.5;  // don't animate scroll in small mode
+      }
+      m.mode = mode;
+      m.load = visible || false;  // only display at all when visible
 
-      handleAnimationAudio(anim, id);
+      // FIXME: only focus single, bring others to stop
+      resized && m.resize();
 
-      // TODO: preload
-      return anim;
-    }).filter(Boolean);
-
-    scrollables.set(container, animations);
-  }
-
-  scrollables.set(document.getElementById('top'), []);
-
-  helpers.installAdjustHandler(() => {
-    scrollables.forEach((animations, container) => {
-      const visible = moduleIsVisible(container);
-      
-      const ratio = visible ? ratioForModule(container) : -1.0;
-
-      //send scroll ratio to kplay to update volume of scene audio
-      updateSound(container, visible ? ratio : 0)
-
-      animations.forEach((anim) => {
-        if (anim.loop) {
-          // This should loop, but only if visible.
-          if (visible === anim.isPaused) {
-            visible ? anim.play() : anim.pause();
-          }
-          return;
-        }
-
-        if (!visible) {
-          return;
-        }
-
-        // Otherwise, this is a scroll target.
-        const frames = anim.getDuration(true);
-        const frame = Math.min(frames, Math.max(0.0, frames * ratio));
-        
-        anim.goToAndStop(frame, true);
-
-        //play sound on specific frames
-        let scene = anim.path.split('img/modules/')[1].slice(0, -1);
-        let id = anim.fileName;
-        checkAndPlaySound(id, scene, frame);
-      });
+      if (!isMobileOrTablet) {
+        // Configure ratio of sound.
+        updateModuleSoundRatio(m.id, ratio);
+      }
     });
   });
-}
 
-function handleAnimationAudio(anim, scene) {
-  anim.onEnterFrame = (e)=> {
-    let id = anim.fileName;
-    checkAndPlaySound(id, scene, e.currentTime);
+  if (!helpers.mobileAndTabletCheck()) {
+    main.addEventListener('anim', (e) => {
+      const scene = e.target.id;
+      const {index, currentTime} = e.detail;
+      checkAndPlaySound(scene, index, currentTime);
+    });
+  }
+
+  const elfskiEl = document.getElementsByClassName('elf-ski1')[0];
+  if (elfskiEl) {
+    elfskiEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_skier');
+      }
+    });
+  }
+  const peekabooEl = document.getElementsByClassName('peekaboo')[0];
+  if (peekabooEl) {
+    peekabooEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_surprise');
+      }
+    });
+  }
+  const waterspoutEl = document.getElementsByClassName('waterspout')[0];
+  if (waterspoutEl) {
+    waterspoutEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_fountain');
+      }
+    });
+  }
+  //elfchair
+  const elfchairtEl = document.getElementsByClassName('elfboard1')[0];
+  if (elfchairtEl) {
+    
+    elfchairtEl.addEventListener('animationiteration', function(e){
+      if (topModuleRatio() < 1) {
+        api.play('village_top_bikeride');
+      }
+    });
   }
 }
-function checkAndPlaySound(id, scene, time) {
-  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][id]) {
-      let sounds = animationSoundTriggers[scene][id];
+const topModule = document.getElementById('top');
+function topModuleRatio() {
+  return ratioForElement(topModule);
+}
+function checkAndPlaySound(scene, index, time) {
+  if (animationSoundTriggers[scene] && animationSoundTriggers[scene][index]) {
+    const sounds = animationSoundTriggers[scene][index];
 
-      for (let i = 0; i < sounds.length; i++) {
-        if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
-          api.play(sounds[i].sound, time);
-          sounds[i].played = performance.now();
-        }
+    for (let i = 0; i < sounds.length; i++) {
+      if (time > sounds[i].time && time < (sounds[i].time + 5) && (performance.now() - sounds[i].played) > 1000) {
+        api.play(sounds[i].sound, time);
+        sounds[i].played = performance.now();
       }
     }
+  }
 }
+
 api.preload.wait(prepareModules());
 
-const playButton = document.getElementById('play');
+const configureActionButton = (button, callback) => {
+  button.addEventListener('click', (ev) => {
+    button.classList.add('active');
+    callback();
+  });
+  button.addEventListener('mousedown', () => {
+    api.play('generic_button_click');
+  });
+  button.addEventListener('mouseenter', () => {
+    api.play('generic_button_over');
+  });
+  button.addEventListener('touchdown', () => {
+    api.play('generic_button_click');
+  });
+};
 
-playButton.addEventListener('click', (ev) => {
-  playButton.classList.add('active');
-  api.go('codelab');
-});
-playButton.addEventListener('mousedown', () => {
-  api.play('generic_button_click');
-});
-playButton.addEventListener('mouseenter', () => {
-  api.play('generic_button_over');
-});
-playButton.addEventListener('touchdown', () => {
-  api.play('generic_button_click');
+configureActionButton(document.getElementById('play'), () => {
+  ga('send', 'event', 'village', 'click', 'play-round');
+  api.go(playRoute);
 });
 
+configureActionButton(document.getElementById('featuredButton'), () => {
+  ga('send', 'event', 'village', 'click', 'featured');
+  api.go(featuredRoute);
+});
+
+configureActionButton(document.getElementById('familyguide'), () => {
+  ga('send', 'event', 'village', 'click', 'familyguide');
+  api.go('familyguide');
+});
 
 
 api.ready(async () => {
-
+  // force lazy-load
+  window.dispatchEvent(new CustomEvent('resize'));
 });
 
 </script>
@@ -239,10 +307,37 @@ api.ready(async () => {
 <div id="top">
   <santa-weather></santa-weather>
   <div class="village">
-    <div class="layer1"></div>
-    <div class="layer2"></div>
-    <div class="layer3"></div>
-    <div class="layer4"></div>
+    <div class="layer1">
+    </div>
+    <div class="layer2">
+      <div class="elf-ski1"></div>
+      <div class="elf-ski2"></div>
+    </div>
+    <div class="layer3">
+      <div class="elfbike4"></div>
+      <div class="elfbike6"></div>
+      <div class="elfbike2"></div>
+      <div class="elfbike3"></div>
+      <div class="elfbike5"></div>
+      <div class="elfbike1"></div>
+      <div class="elfchair"></div>
+      <div class="elfboard1"></div>
+      <div class="elfboard2"></div>
+    </div>
+    <div class="layer4">
+      <div class="peekaboo">
+        <div class="peekaboo-elf"></div>
+        <div class="peekaboo-tree"></div>
+      </div>
+      <div class="waterspout">
+        <div class="waterspout-bottom"></div>
+        <div class="waterspout-top"></div>
+      </div>
+      <div class="snowman-build">
+        <div class="snowman-build-bottom"></div>
+        <div class="snowman-build-top"></div>
+      </div>
+    </div>
   </div>
   <header>
     <div class="ornament"></div>
@@ -251,19 +346,97 @@ api.ready(async () => {
     <p msgid="village_explore"></p>
     <button id="play"><span msgid="play"></span></button>
   </header>
-  <div id="newtoday">
-    <span msgid="newtoday"></span>
-    <santa-card scene="elfmaker"></santa-card>
+
+  <div class="sticky-container">
+    <div class="sticky">
+      <button id="familyguide" class="uibutton">
+        <img src="img/family-icon.png" width="32" height="32" />
+        <span msgid="scene_family"></span>
+      </button>
+      <button id="featuredButton" class="uibutton" disabled>
+        <div class="info" msgid="newtoday"></div>
+        <img id="featuredImage" src="../../img/featured/_video.svg" width="32" height="32" />
+        <span id="featuredLabel"></span>
+      </button>
+    </div>
   </div>
 </div>
+<div id="top-divider">
+</div>
+
+<template id="android-module">
+  <modvil-module id="android" color="#9b643d" parts="static-png,loop,static-png,loop" class="android" mode="android">
+    <santa-card id="@cityquiz"></santa-card>
+    <santa-card id="@rocketsleigh"></santa-card>
+    <santa-card id="@dasherdancer"></santa-card>
+    <santa-card id="@snowballrun"></santa-card>
+    <santa-card id="@presenttoss"></santa-card>
+    <santa-card id="@penguinswim"></santa-card>
+  </modvil-module>
+</template>
 
 <div id="modules">
   <div class="sidebar left"></div>
-  <main></main>
+  <main>
+<modvil-module id="transithub" color="#d4f1fe" parts="static-png,cards,loop,scroll">
+  <santa-card id="santaselfie" style="--x: 18.5%; --y: 50%"></santa-card>
+  <santa-card id="elfmaker" style="--x: 50%; --y: 36%"></santa-card>
+  <santa-card id="snowbox" style="--x: 81.5%; --y: 22%"></santa-card>
+</modvil-module>
+<modvil-module id="sciencelab" color="#3499ff" parts="static-svg,loop,scroll,cards">
+  <santa-card id="codelab" style="--x: 17%; --y: 15%"></santa-card>
+  <santa-card id="gumball" style="--x: 38%; --y: 75%"></santa-card>
+  <santa-card id="santasearch" style="--x: 81%; --y: 31%"></santa-card>
+</modvil-module>
+<modvil-module id="toymaking" color="#00c1f2" parts="static-png,static-png,scroll,cards,static-png">
+  <santa-card id="presentbounce" style="--x: 28%; --y: 17%"></santa-card>
+  <santa-card id="build" style="--x: 18%; --y: 47.5%"></santa-card>
+  <santa-card id="jetpack" style="--x: 81%; --y: 27%"></santa-card>
+</modvil-module>
+<modvil-module id="kitchen" color="#fdb0ca" parts="static-png,loop,static-png,cards,static-png">
+  <santa-card id="traditions" style="--x: 19.4%; --y: 17.7%"></santa-card>
+  <santa-card id="translations" style="--x: 35.6%; --y: 60.8%"></santa-card>
+  <santa-card id="presentdrop" style="--x: 74.3%; --y: 23.7%"></santa-card>
+</modvil-module>
+<modvil-module id="nursery" color="#6bb4fd" parts="static-png,loop,cards,scroll">
+  <santa-card id="speedsketch" style="--x: 26.4%; --y: 42.1%"></santa-card>
+  <santa-card id="santascanvas" style="--x: 72.9%; --y: 23.1%"></santa-card>
+  <santa-card id="storybook" style="--x: 62.5%; --y: 63.8%"></santa-card>
+</modvil-module>
+<modvil-module id="greenhouse" color="#94dae4" parts="static-png,loop,scroll,static-png,cards">
+  <santa-card id="snowball" style="--x: 19.2%; --y: 58.9%"></santa-card>
+  <santa-card id="elfski" style="--x: 78.7%; --y: 23.5%"></santa-card>
+  <santa-card id="penguindash" style="--x: 78.7%; --y: 81.5%"></santa-card>
+</modvil-module>
+<modvil-module id="movies" color="#6900ff" parts="static-png,cards,loop" mode="movies">
+  <santa-card id="carpool"></santa-card>
+  <santa-card id="museum"></santa-card>
+  <santa-card id="reindeerworries"></santa-card>
+</modvil-module>
+<modvil-module id="wrapping" color="#5203c0" parts="static-svg,loop,scroll,static-svg,cards">
+  <santa-card id="boatload" style="--x: 19.4%; --y: 18.4%"></santa-card>
+  <santa-card id="seasonofgiving" style="--x: 34.3%; --y: 82.5%"></santa-card>
+  <santa-card id="racer" style="--x: 77.6%; --y: 41.9%"></santa-card>
+</modvil-module>
+<modvil-module id="disco" color="#e5e5e5" parts="static-png,loop,scroll,cards">
+  <santa-card id="codeboogie" style="--x: 18%; --y: 17%"></santa-card>
+  <santa-card id="jamband" style="--x: 26%; --y: 80%"></santa-card>
+  <santa-card id="wrapbattle" style="--x: 82%; --y: 50%"></santa-card>
+</modvil-module>
+<modvil-module id="gym" color="#e5e5e5" parts="static-png,loop,loop,cards">
+  <santa-card id="mercator" style="--x: 21.5%; --y: 25%"></santa-card>
+  <santa-card id="glider" style="--x: 22.5%; --y: 83%"></santa-card>
+  <santa-card id="runner" style="--x: 82%; --y: 50%"></santa-card>
+</modvil-module>
+
+<modvil-module id="footer" color="#8ab8d4" parts="static-svg,cards" no-divider>
+</modvil-module>
+  </main>
   <div class="sidebar right"></div>
 </div>
 
 <footer>
+  <a href="#top" slot="low" class="arrow up"></a>
 </footer>
 
 </body>

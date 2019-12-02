@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Kosketus"
 	},
+	"copied": {
+		"message": "Kopioitu!"
+	},
 	"copy-me": {
 		"message": "Jaa viesti kopioimalla tämä linkki"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Tutustu Joulupukin kylään"
 	},
+	"familyguide_accordion_title": {
+		"message": "Koko kuukausi yhtä juhlaa"
+	},
+	"familyguide_body": {
+		"message": "Joulupukin kylä on koko perheen paras paikka valmistautua jouluun. Sieltä löytyy hauskaa, opettavaista ja interaktiivista puuhaa kaikenikäisille suosikkihahmojen parissa."
+	},
+	"familyguide_card_01_body": {
+		"message": "Johdata tonttu metsän halki ja löydä pudonneet lahjat käyttämällä koodauksen perusjuttuja."
+	},
+	"familyguide_card_02_body": {
+		"message": "Tee oma joulukortti! Ohjelmoi lumihiutale, valitse tausta ja lähetä kortti kavereille."
+	},
+	"familyguide_card_03_body": {
+		"message": "Tontut treenaavat taas koodausta ja esittelevät samalla tanssitaitojaan. Koodaa tontuille tanssiliikkeet ja ole valmiina aina vain hankalampiin haasteisiin!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Pipo päässä Kanadassa, uikkareissa Australiassa – tutustu joulunajan perinteisiin eri puolilta maailmaa klikkaamalla kartalla näkyviä merkkejä."
+	},
+	"familyguide_card_05_body": {
+		"message": "Katso, miten toivotetaan hyvää uutta vuotta haltiakielellä, mitä tarkoittaa Дед Мороз ja mitä muualla maailmassa sanotaan joulunaikana."
+	},
+	"familyguide_card_06_body": {
+		"message": "Pukki matkaa ympäri maailmaa. Tässä maantietoa testaavassa pelissä pitää löytää oikeat maat ääriviivojen perusteella."
+	},
+	"familyguide_card_07_body": {
+		"message": "Tunnetko joulun tarinan? Testaa tietosi vastaamalla yhdeksään visaiseen kysymykseen."
+	},
+	"familyguide_card_07_title": {
+		"message": "Joulunajan perinnevisa"
+	},
+	"familyguide_card_08_body": {
+		"message": "Onko nälkä? Tutustu herkkuihin eri puolilta maailmaa ja katso, millaisia ruokia tarjoillaan vaikka naapurimaassa tai meren takana."
+	},
+	"familyguide_card_09_body": {
+		"message": "Käy sisään Pukin omaan taidepajaan. Kokemus on aidosti audiovisuaalinen, sillä jokaisella välineellä, siveltimellä ja tarralla on oma ääni."
+	},
+	"familyguide_card_10_body": {
+		"message": "Kokeile ja leiki omassa talvisessa leikkipaikassa. Tee 3D-materiaaleista mitä vain: taloja, leikkikaluja, lumiukkoja ja ‑akkoja, metsiä tai mitä tahansa mieleesi tulee."
+	},
 	"familyguide_card_11_body": {
 		"message": "Tee päästä varpaisiin oma tonttu, joka on tonttumaisen tyylikkäänä valmis kaikkiin Korvatunturin jouluiltamiin."
+	},
+	"familyguide_card_12_body": {
+		"message": "Pukki on päättänyt pistäytyä parturiin laittamaan tyylinsä uusiksi. Puhalla Pukin parta ja hiukset kuiviksi, värjää tai koristele ne tai aja ne kokonaan pois."
+	},
+	"familyguide_card_13_body": {
+		"message": "Lähde tonttujen, porojen, Pukin ja Joulumuorin kanssa käymään Jouluilon museossa!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Korvatunturilla sukkuloi ympäriinsä koko joukko tonttuja, poroja ja Pegmaneja. Katso, miten ne löytävät paikasta toiseen."
+	},
+	"familyguide_card_15_body": {
+		"message": "Pukki ja porot ovat valmiina lähtöön, mutta sitä ennen tarvitaan vielä hieman apua koodaritontuilta."
+	},
+	"familyguide_card_16_body": {
+		"message": "Ystävämme kylästä lähtevät Samu Sarvivalaan kanssa päiväksi meren alle järjestämään ensimmäistä levävalojuhlaa."
+	},
+	"familyguide_card_age": {
+		"message": "Kaikenikäiset"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Kun glögit on juotu ja lahjat avattu, katso, mitä hauskaa Googlella on tarjolla perheille koko vuodeksi."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Haluamme pitää huolta planeetastamme nyt ja tulevaisuudessa. Googlen avulla saat helppoja vinkkejä siihen, miten voimme elää niin, että sekä ihmiset että ympäristö voivat hyvin."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Your Plan, Your Planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Netti antaa lapsille enemmän, kun he ovat valmiita tekemään fiksuja päätöksiä. Be Internet Awesome opettaa lapsille digikansalaisuuden ja turvallisuuden perusteet, jotta he voivat tutkia netin maailmaa varmoin mielin."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Be Internet Awesome"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Lisää Googlelta"
+	},
+	"familyguide_group_01_body": {
+		"message": "Tontut treenaavat jatkuvasti koodaustaitojaan. Pelaa pelejä, joista opit perusteet. Koodausta voi kokeilla kuka vain!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Opi koodaamaan tonttujen kanssa"
+	},
+	"familyguide_group_02_body": {
+		"message": "Joulunaika voi näyttää eri paikoissa aivan erilaiselta. Pelaa pelejä ja vastaa visoihin, jotka esittelevät jouluisia perinteitä ympäri maailmaa."
+	},
+	"familyguide_group_02_title": {
+		"message": "Joulunaika eri puolilla maailmaa"
+	},
+	"familyguide_group_03_body": {
+		"message": "Joulupukin kylä elää luomisen taiasta. Pelaa pelejä, joissa pääset piirtämään, maalaamaan, rakentamaan ja luomaan suosikkihahmojasi."
+	},
+	"familyguide_group_03_title": {
+		"message": "Löydä idea ja luo jotain"
+	},
+	"familyguide_group_04_body": {
+		"message": "Ota karkkipussi ja käperry lämpimän peiton alle. Näe koko tuttu poppoo kylän leffateatterin valkokankaalla tai lue interaktiivista satua, jossa Samu Sarvivalas seikkailee jouluisissa tunnelmissa meren alla."
+	},
+	"familyguide_group_04_title": {
+		"message": "Yhteistä aikaa koko perheelle"
+	},
+	"familyguide_nav_link_01": {
+		"message": "koodi"
+	},
+	"familyguide_nav_link_02": {
+		"message": "juhlintaa"
+	},
+	"familyguide_nav_link_03": {
+		"message": "luo"
+	},
+	"familyguide_nav_link_04": {
+		"message": "aikaa perheen kanssa"
+	},
+	"familyguide_nav_link_05": {
+		"message": "vinkkejä"
+	},
+	"familyguide_nav_link_06": {
+		"message": "muu"
+	},
+	"familyguide_secondary_body": {
+		"message": "24. joulukuuta Joulupukin kylästä tulee jäljitin, jolla voit seurata Pukkia ja poroja, kun he matkaavat ympäri maailmaa jakamassa lahjoja lapsille."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Seuraa Pukkia jäljittimellä sivuston tai Android-sovelluksen kautta"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Hei, tiesitkö, että Pukin matka kestää 25 tuntia? Pukki tekee ensimmäisen pysähdyksen hieman iltakymmenen jälkeen paikallista aikaa itäisellä Venäjällä. New Yorkissa kello on silloin viisi aamulla ja Pariisissa 11 aamulla."
+	},
+	"familyguide_secondary_title": {
+		"message": "Seuraa Pukkia juhlapäivänä"
+	},
+	"familyguide_tips_body": {
+		"message": "Koe Pukin jäjljittimen taika joulunaikana Googlen suosikkituotteillasi."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pyydä Google Assistantilta hauskoja Lysti-tontun päivän piristyksiä. Katso myös jouluiset vitsit ja faktat ja mitä tapahtuu, jos soitat Pukille."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hei Google, mitä uutta Korvatunturilta?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Lataa Joulupukin jäljitin Android-sovelluksena Play Kaupasta. Sovelluksessa on aivan omanlainen Joulupukin kylä ja omat pelit."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-sovellus"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Android Wearilla voit seurata Joulupukin liikkeitä suoraan ranteestasi."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Hae Googlesta sanalla \"Joulupukki\", niin näet Pukin 3D:nä. Useimmilla iPhoneilla ja joillakin kehittyneillä Android-laitteilla näet hänet lisätyssä todellisuudessa puhelimen kamerassa!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Tuo Pukki omaan olohuoneeseen"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Piristä viestejäsi jouluisilla giffeillä ja tarroilla. Löydät ne hakemalla Googlen Tenor-sivulta sanoilla \"Santa Tracker gifs\" (vain englanniksi)."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "GIFejä lahjaksi"
+	},
+	"familyguide_tips_title": {
+		"message": "Vinkkejä ja niksejä"
+	},
+	"familyguide_title": {
+		"message": "Hauskoja jouluisia hetkiä koko perheelle"
 	},
 	"fi_country_name": {
 		"message": "Suomi"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Lahjakaaos"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth – jouluruokia ympäri maailmaa"
+	},
 	"scene_icecave": {
 		"message": "Jääluola"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Karttavisa"
+	},
+	"scene_ollieundersea": {
+		"message": "Samu meren alla"
 	},
 	"scene_playground": {
 		"message": "Korvatunturin leikkikenttä"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Lomaperinteet"
+	},
+	"scene_traditionsquiz": {
+		"message": "Joulunajan perinnevisa"
 	},
 	"scene_translations": {
 		"message": "Käännökset"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Osuma!"
+	},
+	"snowball_iced_count": {
+		"message": "Osumat"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}}/{{total}} tonttua jäljellä"

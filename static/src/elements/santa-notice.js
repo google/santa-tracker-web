@@ -4,8 +4,6 @@ import {_msg} from '../magic.js';
 
 
 const localStorage = window.localStorage || {};
-const sessionStorage = window.sessionStorage || {};
-const key = 'cookie-ok';
 
 
 export class SantaNoticeElement extends LitElement {
@@ -13,26 +11,33 @@ export class SantaNoticeElement extends LitElement {
 
   static get properties() {
     return {
+      key: {type: String},
       hidden: {type: Boolean, reflect: true, value: false},
+      href: {type: String},
     };
   }
 
-  constructor() {
-    super();
-    this.hidden = key in localStorage || sessionStorage['android-twa'];
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('key')) {
+      this.hidden = this.key in localStorage;
+    }
+    return true;
   }
 
   _onClose() {
     this.hidden = true;
-    localStorage[key] = 'yes';
+    if (this.key) {
+      localStorage[this.key] = +new Date();
+    }
   }
 
   render() {
+    const details = this.href ? html`<a class="button" href=${this.href} target="_blank" rel="noopener">${_msg`notice_cookies_details`}</a>` : '';
     return html`
 <div id="holder">
-  <p>${_msg`notice_cookies`}</p>
+  <p><slot></slot></p>
   <div class="buttons">
-    <a class="button" href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">${_msg`notice_cookies_details`}</a>
+    ${details}
     <button class="button" @click=${this._onClose}>${_msg`okay`}</button>
   </div>
 </div>

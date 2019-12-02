@@ -5,46 +5,79 @@
  * library code, like `Promise`, until the support library is loaded.
  */
 
-import config from './config.json';
+import config from './src/:config.json';
 import checkFallback from './src/fallback.js';
 import * as load from './src/load.js';
 import {initialize} from './src/firebase.js';
+import onInteractive from './src/interactive.js';
 import isAndroidTWA from './src/android-twa.js';
+
+window.santaConfig = config;
 
 // In prod, the documentElement has `lang="en"` or similar.
 const documentLang = document.documentElement.lang || null;
 const isProd = (documentLang !== null);
 const fallback = checkFallback() || (location.search || '').match(/\bfallback=.*?\b/);
+const ignoreErrors = (location.search || '').match(/\bignore=.*?\b/);
 console.info('Santa Tracker', config.version, documentLang, fallback ? '(fallback)' : '');
 
 // Global error handler. Redirect if we fail to load the entrypoint.
 let loaded = false;
 window.onerror = (msg, file, line, col, error) => {
   console.error('error (loaded=' + loaded + ')', msg, file, line, col, error);
-  if (location.hostname === 'santatracker.google.com' && !loaded) {
+  if (location.hostname === 'santatracker.google.com' && !loaded && !ignoreErrors) {
     window.location.href = 'error.html';
   }
 };
 window.onunhandledrejection = (event) => {
   console.warn('rejection (loaded=' + loaded + ')', event.reason);
-  if (location.hostname === 'santatracker.google.com' && !loaded) {
+  if (location.hostname === 'santatracker.google.com' && !loaded && !ignoreErrors) {
     window.location.href = 'error.html';
   }
 };
+
+// Add this early. We get it very aggressively from Chrome and friends.
+window.installEvent = null;
+window.addEventListener('beforeinstallprompt', (event) => {
+  window.installEvent = event;
+});
+
+window.sw = null;
+let hasInstalledServiceWorker = false;
+
+if ('serviceWorker' in navigator) {
+  // Register the SW in the served language, not the request language (as this isn't available
+  // on the naked domain anyway).
+  const params = new URLSearchParams();
+  if (isProd) {
+    params.set('baseurl', config.baseurl);
+  }
+  window.sw = navigator.serviceWorker.register(`/sw.js?${params.toString()}`).catch((err) => {
+    console.warn('sw failed to register', err);
+    return null;
+  });
+  hasInstalledServiceWorker = Boolean(navigator.serviceWorker.controller);
+
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    loaded = true;  // pretend that we're loaded, so that Safari doesn't send us to an error page
+    window.location.reload();
+  });
+}
+
 
 // Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
 // needed before using Firebase, as it requires Promise and fetch.
 if (fallback && isProd) {
   load.supportScripts([
-// FIXME: Removed because Edge-etc should never need these.
-//    config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     config.staticScope + 'support.js',
     config.staticScope + 'node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js',
   ], () => {
-    WebComponents.waitFor(startup);
+    WebComponents.waitFor(() => {
+      onInteractive(startup);  // should be past DOMContentLoaded now
+    });
   });
 } else {
-  startup();  // or just continue immediately
+  onInteractive(startup);
 }
 
 function startup() {
@@ -53,8 +86,10 @@ function startup() {
   // Check Android TWA, but force it if the "?android=1" param is set.
   isAndroidTWA(startParams.has('android'));
 
-  // Wait for the first Firebase Remote config response and then load our entrypoint.
-  initialize().then((remoteConfig) => {
+  // Wait for both Firebase Remote Config and the Service Worker (optional), then load entrypoint.
+  // This is racey in that a Service Worker change might trigger a reload.
+  const ready = Promise.all([initialize(), window.sw]);
+  ready.then(([remoteConfig, registration]) => {
     if (remoteConfig.getBoolean('switchOff')) {
       throw new Error('switchOff');
     }

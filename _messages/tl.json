@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Pindutin"
 	},
+	"copied": {
+		"message": "Nakopya!"
+	},
 	"copy-me": {
 		"message": "Kopyahin ang link na ito upang ibahagi ang iyong mensahe"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "I-explore ang Village ni Santa"
 	},
+	"familyguide_accordion_title": {
+		"message": "Magdiwang buong buwan"
+	},
+	"familyguide_body": {
+		"message": "Perpektong lugar para sa mga pamilya ang Village ni Santa para maipagdiwang ang season. Makikita mong sama-sama ang lahat ng paborito mong character sa masasaya, pang-edukasyon, at interactive na aktibidad para sa bawat edad."
+	},
+	"familyguide_card_01_body": {
+		"message": "Gumamit ng mga pangunahing kasanayan sa pag-code mara ma-navigate ang elf sa kagubatan para mahanap ang mga inilaglag na regalo."
+	},
+	"familyguide_card_02_body": {
+		"message": "Gumawa ng sarili mong holiday card sa pamamagitan ng pag-program ng sarili mong snowflake—pumili lang ng isa sa maraming background, at ibahagi iyon sa iyong mga kaibigan."
+	},
+	"familyguide_card_03_body": {
+		"message": "Nagbabalik ang mga elf sa pagsasanay sa pag-code, habang sinasabayan ng kanilang mga kasanayan sa pagsasayaw. Gumamit ng code para ma-choreograph ang mga sayaw ng mga elf - pero mag-ingat ka, habang gumagaling ka, mas humihirap ang mga sayaw!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Mula sa pagsusuot ng toque sa Canada hanggang sa pagsusuot ng swim trunks sa Australia, i-click ang mga pin sa map para malaman ang tungkol sa mga tradisyon sa kapaskuhan sa buong mundo."
+	},
+	"familyguide_card_05_body": {
+		"message": "Mula sa Happy New Year sa Elvish hanggang sa Дед Мороз, matuto ng seasonal na wika mula sa buong mundo."
+	},
+	"familyguide_card_06_body": {
+		"message": "Maraming lugar na pupuntahan si Santa. Itugma sa mapa ang outline ng isang bansa sa geography game na ito."
+	},
+	"familyguide_card_07_body": {
+		"message": "Alam mo ba ang iyong history ng kapaskuhan? Ipakita ang kakayahan mo sa siyam na tanong na quiz na tiyak na susubok sa iyong mga kasanayan sa trivia."
+	},
+	"familyguide_card_07_title": {
+		"message": "Quiz ukol sa Mga Tradisyon sa Kapaskuhan"
+	},
+	"familyguide_card_08_body": {
+		"message": "Gutom ka ba? Tuklasin ang mga delicacy sa buong mundo at mag-explore ng pagkain mula sa malalapit at malalayong bansa."
+	},
+	"familyguide_card_09_body": {
+		"message": "Mag-tap sa mismong creative suite ni Santa. May custom na tunog ang bawat tool, brush, at sticker, na dahilan para maging audio at visual na karanasan ito."
+	},
+	"familyguide_card_10_body": {
+		"message": "Mag-eksperimento at maglaro sa sarili mong wintery sandbox. Gumamit ng mga 3D na materyales para bumuo ng kahit ano: mga bahay, laruan, snowpeople, gubat, o kahit ano pang maisip mo."
+	},
 	"familyguide_card_11_body": {
 		"message": "Bumuo ng sarili mong elf mula ulo hanggang paa at tiyaking elftastic ito para sa maraming party sa kapaskuhan na nangyayari sa North Pole."
+	},
+	"familyguide_card_12_body": {
+		"message": "Nasa barberya si Santa at kailangan niya ng tulong para sa bagong gupit. Kulayan ang kanyang balbas, i-blower ang kanyang buhok, lagyan ng kaunting palamuti, o ahitin lahat gamit ang clippers."
+	},
+	"familyguide_card_13_body": {
+		"message": "Samahan ang mga elf, reindeer, si Santa, at si Mrs. Claus sa pagbisita sa Museum of Holiday Cheer!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Maraming elf, reindeer, at si pegman para mag-shuttle sa North Pole. Tingnan kung paano sila mag-navigate sa iba't ibang lugar."
+	},
+	"familyguide_card_15_body": {
+		"message": "Handa nang umalis si Santa at ang reindeer pero kailangan nila ng kaunting tulong mula sa mga coding elf bago lumipad."
+	},
+	"familyguide_card_16_body": {
+		"message": "Sinamahan ng ating mga kaibigan sa Village si Ollie the narwhal nang isang araw sa ilalim ng tubig habang binubuo nila ang unang taunang pagdiriwang sa pagpapailaw ng kelp."
+	},
+	"familyguide_card_age": {
+		"message": "Lahat ng Edad"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Matapos maubos ang lahat ng eggnog at mabuksan ang mga regalo, tuklasin ang mga resource sa buong taon para sa kasayahan ng pamilya gamit ang Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Gusto nating lahat ng malusog na planeta para sa ngayon at sa kinabukasan. Matuto ng mga simpleng tip mula sa Google para matulungan ang mga tao at ang planeta na sabay na umunlad."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Plan Mo, Planeta Mo"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Para masulit ang Internet, kailangang maging handa ang mga bata para makagawa ng matatalinong desisyon. Itinuturo ng Be Internet Awesome sa mga bata ang mga pangunahing kasanayan sa digital citizenship at kaligtasan para ma-explore nila ang mundong online na may tiwala sa sarili."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Be Internet Awesome"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Higit pa mula sa Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Laging nagsisikap ang mga elf sa kanilang mga kasanayan sa pag-code. Mag-explore ng mga laro na magtuturo sa iyo ng mga pangunahing kaalaman. Puwedeng subukan ng kahit sino ang pag-code!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Matutong mag-code gamit ang mga Elf ni Santa"
+	},
+	"familyguide_group_02_body": {
+		"message": "Magkakaiba talaga ang hitsura ng kapaskuhan sa iba't ibang lugar. Alamin kung paano ipinagdiriwang ng mundo ang season sa mga laro at iba't ibang quiz."
+	},
+	"familyguide_group_02_title": {
+		"message": "Tuklasin ang kapaskuhan sa buong mundo"
+	},
+	"familyguide_group_03_body": {
+		"message": "Umuunlad ang Village ni Santa sa magic ng paggawa. Tuklasin ang mga laro na nagbibigay-daan sa iyo na gumuhit, magpinta, bumuo, at gumawa kasama ng lahat ng paborito mong character."
+	},
+	"familyguide_group_03_title": {
+		"message": "Magkaroon ng inspirasyon at gumawa ng isang bagay"
+	},
+	"familyguide_group_04_body": {
+		"message": "Sunggaban ang popcorn at sumiksik sa ilalim ng kumportableng kumot. Mapapanood mo ang buong barkada sa big screen sa Village theater o magbasa ng interactive storybook habang ipinagdiriwang ni Ollie the Narwhal ang season sa ilalim ng dagat."
+	},
+	"familyguide_group_04_title": {
+		"message": "Magsama-sama sa oras para sa pamilya"
+	},
+	"familyguide_nav_link_01": {
+		"message": "code"
+	},
+	"familyguide_nav_link_02": {
+		"message": "magdiwang"
+	},
+	"familyguide_nav_link_03": {
+		"message": "gumawa"
+	},
+	"familyguide_nav_link_04": {
+		"message": "oras para sa pamilya"
+	},
+	"familyguide_nav_link_05": {
+		"message": "mga tip at trick"
+	},
+	"familyguide_nav_link_06": {
+		"message": "marami pang iba"
+	},
+	"familyguide_secondary_body": {
+		"message": "Sa ika-24 ng Disyembre magiging karanasan sa pag-track ang Village ni Santa kung saan masusundan mo si Santa at ang kanyang reindeer habang naghahatid sila ng mga regalo sa mga bata sa buong mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Subaybayan sa Santa Tracker website o Android app"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Alam mo ba na tumatagal nang 25 oras ang paglalakbay ni Santa?! Una siyang hihinto makalipas lang ang 10 PM sa lokal na oras sa malayong silangang Russia, kung kailan 5 AM sa New York at 11 AM sa Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "I-track si Santa sa takdang araw"
+	},
+	"familyguide_tips_body": {
+		"message": "Sulitin pa ang magic ng Santa Tracker ngayong season gamit ang lahat ng paborito mong produkto ng Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Tanungin ang Google Assistant araw-araw para sa masasayang update mula kay Dimplesticks the Elf. Tingnan din ang mga joke sa Kapaskuhan, mga katotohanan ukol sa Kapaskuhan, at tingnan kung ano ang mangyayari kapag tinawagan mo si Santa."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, ano ba ang bago sa North Pole?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "I-download ang Santa Tracker App para sa Android sa Play Store. May eksklusibong eksena sa Village sa mga larong makikita mo lang sa app."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android App"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "I-track si Santa mula sa iyong pulsuhan (wrist) sa paggamit ng Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Hanapin si \"Santa\" sa Google para makita si Santa sa 3D. Sa karamihan ng mga iPhone at ilang advanced na Android device, makikita mo siya sa AR, kumakaway mismo sa iyong camera!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Dalhin si Santa sa iyong sala"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Maghatid ng kaunting kasayahan ng kapaskuhan sa iyong mga mensahe. Maghanap ng mga gif at sticker na may tema ni Santa sa pamamagitan ng paghahanap ng “Santa Tracker gifs” (Ingles lang) sa Tenor page ng Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Magregalo ng mga GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Mga Tip at Trick"
+	},
+	"familyguide_title": {
+		"message": "Kasayahan sa kapaskuhan para sa buong pamilya"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Present Havoc"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth Holiday Foods of the World"
+	},
 	"scene_icecave": {
 		"message": "Ice Cave"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Map Quiz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie Under The Sea"
 	},
 	"scene_playground": {
 		"message": "North Pole Playground"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Holiday Traditions"
+	},
+	"scene_traditionsquiz": {
+		"message": "Quiz ukol sa Mga Tradisyon sa Kapaskuhan"
 	},
 	"scene_translations": {
 		"message": "Mga Pagsasalin"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Iced!"
+	},
+	"snowball_iced_count": {
+		"message": "Iced"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} sa {{total}} ang natitirang elf"

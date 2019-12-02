@@ -10,6 +10,7 @@ $rotate-bg: $gameover-bg;
 body {
   overflow: hidden;
   margin: 0;
+  touch-action: none;
 }
 
 ##{$name} {

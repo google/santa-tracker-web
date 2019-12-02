@@ -1,3 +1,5 @@
+import '../polyfill/attribute.js';
+
 const DIRECTIONAL_STRENGTH = 0;
 const SNOWFLAKE_COUNT = 40;
 const CLOUD_COUNT = 6;
@@ -21,6 +23,7 @@ const cloudImages = b64clouds.map((src) => {
  * width and height of this element every rAF.
  */
 export class SantaWeatherElement extends HTMLElement {
+  static get observedAttributes() { return ['active']; }
 
   constructor() {
     super();
@@ -28,6 +31,7 @@ export class SantaWeatherElement extends HTMLElement {
     this._draw = this._draw.bind(this);
     this._canvas = document.createElement('canvas');
     this._ctx = this._canvas.getContext('2d');
+    this._rAF = 0;
 
     // TODO(samthor): better styles for non-lit elements?
     this.style.display = 'block';
@@ -49,8 +53,28 @@ export class SantaWeatherElement extends HTMLElement {
     }
   }
 
+  get active() {
+    return this.hasAttribute('active');
+  }
+
+  set active(active) {
+    this.toggleAttribute('active', active);
+  }
+
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    this._maybeQueueDraw();
+  }
+
+  _maybeQueueDraw() {
+    if (this._rAF || !this.active || !this.isConnected) {
+      return false;
+    }
+    this._rAF = window.requestAnimationFrame(this._draw);
+    return true;
+  }
+
   connectedCallback() {
-    window.requestAnimationFrame(this._draw);
+    this._maybeQueueDraw();
     this._chooseRandomWind();
 
     // nb. we CANNOT do this inside `constructor`, it interacts oddly with page events
@@ -107,15 +131,10 @@ export class SantaWeatherElement extends HTMLElement {
       this._canvas.style.width = `${width}px`;
       this._canvas.style.height = `${height}px`;
     }
-    if (!this.isConnected) {
-      return false;
-    }
 
-    // re-request draw again
-    window.requestAnimationFrame(this._draw);
-    if (width === 0 || height === 0) {
-      // TODO(samthor): use ResizeObserver where it's supported so we don't call rAF while away.
-      return;
+    this._rAF = 0;
+    if (!this._maybeQueueDraw() || width === 0 || height === 0) {
+      return false;
     }
 
     // update or create snowflakes

@@ -7,9 +7,12 @@ import {_msg} from '../magic.js';
 const lang = document.documentElement.lang;
 const trailingIndex = `index${lang ? `_${lang}` : ''}.html`;
 
-function urlFor(sceneName, fallback, route) {
+function urlFor(sceneName, fallback, route, hash) {
   if (!sceneName) {
     return null;
+  }
+  if (hash && hash[0] !== '#') {
+    hash = '#' + hash;
   }
   const params = new URLSearchParams();
   if (fallback) {
@@ -17,14 +20,14 @@ function urlFor(sceneName, fallback, route) {
   }
   params.set('route', route);
   const p = `?${params.toString()}`;
-  return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p;
+  return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p + (hash || '');
 }
 
-export function buildLoader(loaderElement, fallback=false) {
+export function buildLoader(loadMethod, fallback=false) {
   let activeRoute = undefined;
   let activeSceneName = undefined;
 
-  const load = (route, data) => {
+  const load = (route, data, hash) => {
     // Optionally redirect; used to hide press/educators page
     const redirectRoute = config.redirectRoute(route);
     if (redirectRoute !== undefined) {
@@ -42,7 +45,7 @@ export function buildLoader(loaderElement, fallback=false) {
     }
 
     // Load the scene HTML but include the ID of the route. Useful for videos.
-    const url = urlFor(sceneName, fallback, route);
+    const url = urlFor(sceneName, fallback, route, hash);
     activeSceneName = sceneName;
 
     window.dispatchEvent(new CustomEvent('loader-route', {detail: route}));
@@ -51,7 +54,7 @@ export function buildLoader(loaderElement, fallback=false) {
     ga('send', 'pageview');
 
     const locked = (activeSceneName === null);
-    loaderElement.load(url, {route, data, locked}).then((success) => {
+    loadMethod(url, {route, data, locked}).then((success) => {
       if (success) {
         document.title = scenes[route] || _msg`santatracker`;
       }

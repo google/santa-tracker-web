@@ -3,18 +3,37 @@
  */
 
 import * as params from '../lib/params.js';
+import {internalNavigation} from '../scene/route.js';
+import isAndroid from './android.js';
 
 
 /**
  * Matches "/sceneName.html" or "/".
  */
-const simplePathMatcher = /^\/?(?:|(\w+)\.html)$/;
+const simplePathMatcher = /^\/?(?:|(@?\w+)\.html)$/;
 
 
 /**
  * JSON clone helper.
  */
 const deepClone = (raw) => JSON.parse(JSON.stringify(raw));
+
+
+/**
+ * Returns the pathname for the given location, always starting with "/".
+ *
+ * This works around an IE11 bug.
+ *
+ * @param {?Location} location
+ * @return {string}
+ */
+function pathnameForLocation(location) {
+  const p = location && location.pathname || '/';
+  if (p.startsWith('/')) {
+    return p;
+  }
+  return '/' + p;
+}
 
 
 /**
@@ -54,11 +73,11 @@ export function normalizeLang(lang) {
  * However, respect the user's wishes, as the code has been served under that path anyway.
  *
  * @param {!Location} location
- * @return {{scope: string, route: string, data: !Object<string, string>}}
+ * @return {{scope: string, route: string, data: !Object<string, string>, hash: string}}
  */
 export function resolveProdURL(location) {
   const data = params.read(location.search);
-  let pathname = location.pathname || '/';
+  let pathname = pathnameForLocation(location);
 
   // Strip secret development URLs.
   const matchDev = pathname.match(/^\/\w+-\w{24,30}\//);
@@ -89,7 +108,32 @@ export function resolveProdURL(location) {
   if (requestLang) {
     scope += `intl/${normalizeLang(requestLang)}/`;
   }
-  return {scope, route, data};
+  return {scope, route, data, hash: location.hash || ''};
+}
+
+
+/**
+ * Route to the corresponding Android scene for the passed route.
+ */
+function routeToAndroid(route) {
+  let androidRoute = undefined;
+  if (route[0] === '@') {
+    androidRoute = route.substr(1);
+  } else if (isAndroid()) {
+    if (route === 'jetpack' || route === 'gumball') {
+      androidRoute = route;
+    } else if (route === 'matching') {
+      // Name mismatch from web/Android.
+      androidRoute = 'memory';
+    }
+  }
+  if (!androidRoute) {
+    return false;
+  }
+
+  console.info('loading Android route', androidRoute);
+  window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${androidRoute}`;
+  return true;
 }
 
 
@@ -99,7 +143,7 @@ export function resolveProdURL(location) {
  *
  * Returns site scope and routing helper.
  *
- * @param {function(string, !Object<string, string>): string} callback to load page
+ * @param {function(string, !Object<string, string>, string): string} callback to load page
  * @return {{scope: string, go: function(string, !Object<string, string>): void}}
  */
 export function configureProdRouter(callback) {
@@ -109,27 +153,37 @@ export function configureProdRouter(callback) {
 
   const load = resolveProdURL(window.location);
   const wh = window.history;
+  let lastState = null;
 
   // Install `popstate` handler and trigger immediately to configure initial state.
-  const internalRoute = (route, data, navigation=false) => {
+  const internalRoute = ({route, data, hash}, navigation=false) => {
     data = deepClone(data);
-    const updatedRoute = callback(route, data);
+    const updatedRoute = callback(route, data, hash);
     if (updatedRoute !== undefined) {
       route = updatedRoute;
     }
 
     // Now, update history...
-    const url = load.scope + (route ? route + '.html' : '') + params.build(data);
-    const state = {route, data};  // nb. window.history deep-copies data
+    const url = load.scope + (route ? route + '.html' : '') + params.build(data) + (hash || '');
+    const state = {route, data, hash};  // nb. window.history deep-copies data
     if (navigation && (!wh.state || wh.state.route !== route)) {
       wh.pushState(state, null, url);
     } else if (url !== window.location.href) {
       navigation = false;
     }
     navigation || wh.replaceState(state, null, url);
+    lastState = state;
   };
-  window.addEventListener('popstate', () => internalRoute(wh.state.route, wh.state.data));
-  internalRoute(load.route, load.data);
+  window.addEventListener('popstate', () => {
+    const state = wh.state || lastState;
+    if (!wh.state) {
+      // wh.state can be null/undefined if the user twiddles the hash of the URL
+      // TODO(samthor): This isn't passed down to the child frame.
+      state.hash = window.location.hash || '';
+    }
+    internalRoute(state)
+  });
+  internalRoute(load);
 
   // Provide expected `santaApp` helper.
   window.santaApp = {
@@ -140,7 +194,15 @@ export function configureProdRouter(callback) {
       this.go(route);
     },
     go(route, data={}) {
-      internalRoute(normalizeRoute(route), data, true);
+      if (routeToAndroid(route)) {
+        return false;
+      }
+
+      const parts = route.split('#', 1);
+      const hash = route.substr(parts[0].length);  // substr all including '#+'
+      route = parts[0];
+
+      internalRoute({route: normalizeRoute(route), data, hash}, true);
     },
   };
 
@@ -152,7 +214,9 @@ export function configureProdRouter(callback) {
   return {
     scope: load.scope,
     go: santaApp.go,
-    write: (data) => internalRoute(wh.state.route, data, false),
+    write: (data) => {
+      internalRoute({route: wh.state.route, data}, false);
+    },
   };
 }
 
@@ -172,7 +236,7 @@ function nearestComposedLink(ev) {
 function nearestClosestLink(ev) {
   const cand = ev.target.closest('a[href]');
   if (cand) {
-    return new URL(closest.href);
+    return new URL(cand.href);
   }
   return null;
 }
@@ -200,9 +264,23 @@ export function globalClickHandler(scope, go) {
       return false;
     }
 
-    const rest = target.pathname.substr(scope.length - target.origin.length - 1);  // include "/"
+    const pathname = pathnameForLocation(target);
+    const rest = pathname.substr(scope.length - target.origin.length - 1);  // include "/"
     const matchScene = simplePathMatcher.exec(rest);
     if (!matchScene) {
+      return false;
+    }
+
+    const hash = internalNavigation(target);
+    if (hash !== null) {
+      ev.preventDefault();
+
+      // Pretend to actually click on the link.
+      const a = document.createElement('a');
+      a.href = hash;
+      a.click();
+
+      go((matchScene[1] || '') + hash);
       return false;
     }
 

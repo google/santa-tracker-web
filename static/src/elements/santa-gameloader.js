@@ -3,6 +3,7 @@ import styles from './santa-gameloader.css';
 import * as messageSource from '../lib/message-source.js';
 import {resolvable, dedup} from '../lib/promises.js';
 
+import '../../src/polyfill/attribute.js';
 
 
 class PortControl {
@@ -67,6 +68,11 @@ class PortControl {
   }
 
   push(arg) {
+    if (typeof arg !== 'object') {
+      console.warn('got unhandled message from client', arg);
+      return;
+    }
+
     if (this._nextResolve) {
       this._nextResolve(arg);
       this._nextResolve = null;
@@ -96,16 +102,16 @@ class PortControl {
 
 const EMPTY_PAGE = 'data:text/html;base64,';
 const LOAD_LEEWAY = 250;
+const LOAD_TIMEOUT = 10 * 1000;  // 10s
+
 // nb. allow-same-origin is fine, because we're serving on another domain
 // allow-top-navigation and friends are allowed for Android
 // TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
 const IFRAME_SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
-const IFRAME_ALLOW = 'autoplay';
+const IFRAME_ALLOW = 'autoplay';  // nb. could add 'accelerometer', but only for Chrome
 
 
 export const events = Object.freeze({
-  'focus': '-loader-focus',
-  'blur': '-loader-blur',
   'load': '-loader-load',
   'prepare': '-loader-prepare',
   'error': '-loader-error',
@@ -151,7 +157,7 @@ const rectifyFrame = (iframe, tilt) => {
 };
 
 
-const createFrame = (src) => {
+export const createFrame = (src) => {
   const iframe = document.createElement('iframe');
   iframe.src = src || EMPTY_PAGE;
   iframe.setAttribute('sandbox', IFRAME_SANDBOX);
@@ -169,6 +175,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
   constructor() {
     super();
+    this._resizeCheckLeft = 0;
 
     const root = this.attachShadow({mode: 'open'});
     root.adoptedStyleSheets = [styles];
@@ -193,10 +200,7 @@ class SantaGameLoaderElement extends HTMLElement {
     this._main.appendChild(slotContainer);
     this._main.appendChild(this._container);
 
-    this._onWindowBlur = this._onWindowBlur.bind(this);
-    this._onWindowFocus = this._onWindowFocus.bind(this);
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
-    this._frameFocus = false;
 
     this._loading = false;
     this._control = new PortControl();
@@ -226,11 +230,19 @@ class SantaGameLoaderElement extends HTMLElement {
     holder.appendChild(slotOverlay);
   }
 
-  get frameFocus() {
-    return this._frameFocus;
+  _onWindowResize() {
+    if (!this._resizeCheckLeft) {
+      this._resizeCheckLeft = 16;  // check for 16 frames
+      this._checkWindowResize();
+    }
   }
 
-  _onWindowResize() {
+  _checkWindowResize() {
+    if (this._resizeCheckLeft) {
+      --this._resizeCheckLeft;
+      window.requestAnimationFrame(() => this._checkWindowResize());
+    }
+
     // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
     // then force it via changing CSS properties.
     const tilt = this.hasAttribute('tilt');
@@ -238,43 +250,11 @@ class SantaGameLoaderElement extends HTMLElement {
     rectifyFrame(this._previousFrame, tilt);
   }
 
-  _onWindowBlur(e) {
-    // Check various types of focus. Since the only focusable thing here is our iframes, be a bit
-    // aggressive for the polyfill case.
-    if (document.activeElement === this || this.contains(document.activeElement)) {
-      if (this._loading) {
-        // Prevent focus if we're in a loading state. The <iframe> needs to exist as-normal on the
-        // page to correctly load, but users should not be able to focus it.
-        throw new Error('iframe got focus during load');
-
-        // TODO(samthor): With `<iframe tabindex=-1>` and `pointer-events: none`, this should never
-        // happen. We can programatically reset focus by blur-ing the iframe in a rAF, however.
-
-      } else if (this._frameFocus) {
-        // already marked focus, do nothing
-      } else {
-        this._frameFocus = true;
-        this.dispatchEvent(new CustomEvent(events.focus));
-      }
-    }
-  }
-
-  _onWindowFocus(e) {
-    if (this._frameFocus) {
-      this._frameFocus = false;
-      this.dispatchEvent(new CustomEvent(events.blur));
-    }
-  }
-
   connectedCallback() {
-    window.addEventListener('blur', this._onWindowBlur);
-    window.addEventListener('focus', this._onWindowFocus);
     window.addEventListener('resize', this._onWindowResize);
   }
 
   disconnectedCallback() {
-    window.removeEventListener('blur', this._onWindowBlur);
-    window.removeEventListener('focus', this._onWindowFocus);
     window.addEventListener('resize', this._onWindowResize);
   }
 
@@ -348,6 +328,11 @@ class SantaGameLoaderElement extends HTMLElement {
     this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
     this._container.appendChild(af);
 
+    // TODO(samthor): Remove after iOS tests.
+    af.contentWindow.addEventListener('gesturestart', (ev) => {
+      console.info('got gesture on window');
+    }, {passive: true});
+
     let portPromise = Promise.resolve(null);
     if (href) {
       portPromise = new Promise((resolve, reject) => {
@@ -364,6 +349,9 @@ class SantaGameLoaderElement extends HTMLElement {
         // Handle being removed due to being replaced with some other frame before being loaded.
         af.addEventListener(internalRemove, () => resolve(null), {once: true});
 
+        // Needed for non-Chrome to finally reject a load.
+        window.setTimeout(() => resolve(null), LOAD_TIMEOUT);
+
         // Resolves with null after load + delay, indicating that the scene has failed to init. The
         // loader should normally resolve with its MessagePort.
         af.addEventListener('load', () => {
@@ -373,7 +361,8 @@ class SantaGameLoaderElement extends HTMLElement {
           // loaded a new URL. We should kill it in this case.
           af.addEventListener('load', (ev) => {
             console.warn('got inner load, should kill frame', af);
-          });
+            af.contentWindow.location.replace('about:blank');
+          }, {once: true});
         }, {once: true});
 
       });
@@ -404,7 +393,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
       // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
       // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
-      af.style.maxHeight = 'calc(100vh - 1px)';
+      af.style.maxHeight = 'calc(100% - 1px)';
       window.requestAnimationFrame(() => {
         af.style.maxHeight = null;
       });

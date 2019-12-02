@@ -1,9 +1,8 @@
-import {html, svg, LitElement} from 'lit-element';
+import {html, LitElement} from 'lit-element';
 import styles from './santa-chrome.css';
 import * as prefix from '../lib/prefix.js';
 import './santa-button.js';
-import {_msg} from '../magic.js';
-
+import * as common from '../core/common.js';
 
 const year = new Date().getFullYear();
 const countdownTo = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
@@ -15,12 +14,8 @@ const paths = {
   restart: `M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z`,
   menu: `M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z`,
   home: `M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z`,
-};
-
-const actions = {
-  pause: svg`<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`,
-  play: svg`<path d="M8 5v14l11-7z"/>`,
-  restart: svg`<path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>`,
+  unmute: 'M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z',
+  mute: 'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z',
 };
 
 
@@ -31,7 +26,7 @@ export class SantaChromeElement extends LitElement {
       action: {type: String},
       showHome: {type: Boolean},
       hasScore: {type: Boolean},
-      unmute: {type: Boolean},
+      muted: {type: Boolean},
     };
   }
 
@@ -63,17 +58,14 @@ export class SantaChromeElement extends LitElement {
     const sidebarId = `${this._id}sidebar`;  // unique ID even in Shady DOM
     return html`
 <input type="checkbox" id=${sidebarId} @change=${this._onCheckboxChange} .checked=${this.navOpen} />
-<div class="sidebar" @click=${this._onMenuClick}>
+<div class="sidebar">
   <div class="sidebar-focuser"></div>
-  <label for=${sidebarId} tabindex="0" class="closer">
-    <svg class="icon"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
-    <span>${_msg`close`}</span>
-  </label>
   <slot name="sidebar"></slot>
 </div>
-<header @focusin=${this._onMainFocus}>
-  <santa-button color="theme" @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
-  <santa-button color="theme" ?disabled=${!this.action} @click=${this._onActionClick} path=${paths[this.action || this._lastAction] || ''}></santa-button>
+<header>
+  <santa-button @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
+  <santa-button .hidden=${this.muted === undefined} color=${this.muted ? 'purple' : ''} @click=${this._onAudioClick} path=${this.muted ? paths.unmute : paths.mute}></santa-button>
+  <santa-button ?disabled=${!this.action} @click=${this._onActionClick} path=${paths[this.action || this._lastAction] || ''}></santa-button>
   <div class="grow"></div>
   <div><slot name="game"></slot></div>
   <div class="grow"></div>
@@ -85,9 +77,10 @@ export class SantaChromeElement extends LitElement {
 
   update(changedProperties) {
     super.update(changedProperties);
-
+    let soundEvent = 'nav_close';
     if (changedProperties.has('navOpen')) {
       if (this.navOpen) {
+        soundEvent = 'nav_open';
         // Focus an element at the start of the sidebar, but then immediately disallow focus. This
         // places the browser's "cursor" here, so a keyboard tab will go to the next item.
         const node = this.renderRoot.querySelector('.sidebar-focuser');
@@ -95,10 +88,13 @@ export class SantaChromeElement extends LitElement {
         node.focus();
         node.removeAttribute('tabindex');
 
+        this.dispatchEvent(new CustomEvent('sidebar-open'));
+
         const sidebar = node.parentNode;
         sidebar.scrollTop = 0;
       }
     }
+    common.play(soundEvent);
   }
 
   shouldUpdate(changedProperties) {
@@ -113,26 +109,26 @@ export class SantaChromeElement extends LitElement {
     // Handles blue of our window, which means an iframe scene is focused.
     if (document.activeElement === document.body) {
       // .. unless it was a user hiding and showing the tab, which also fires blur
-    } else {
-      this.navOpen = false;
+    } else if (document.activeElement !== null) {
+      if (document.activeElement.localName === 'santa-gameloader') {
+        this.navOpen = false;
+      }
     }
   }
 
-  _onSoundClick() {
-    this.dispatchEvent(new CustomEvent('unmute'));
+  _onAudioClick() {
+    window.ga('send', 'event', 'nav', 'click', this.muted ? 'unmute' : 'mute');
+    this.dispatchEvent(new CustomEvent('audio', {detail: this.muted}));
   }
 
   _onMenuClick() {
     if (this.showHome) {
+      window.ga('send', 'event', 'nav', 'click', 'home');
       window.dispatchEvent(new CustomEvent('go'));  // home
     } else {
-      this.navOpen = true;
+      window.ga('send', 'event', 'nav', 'click', 'menu');
+      this.navOpen = !this.navOpen;
     }
-  }
-
-  _onMainFocus() {
-    // Handles focus on other parts of the Chrome: the logo and tracker information.
-    this.navOpen = false;
   }
 
   _onSidebarClick(e) {
@@ -145,7 +141,9 @@ export class SantaChromeElement extends LitElement {
     }, 0);
   }
 
+
   _onActionClick(e) {
+    window.ga('send', 'event', 'nav', 'click', this.action);
     this.dispatchEvent(new CustomEvent('action', {
       detail: this.action,
       bubbles: true,

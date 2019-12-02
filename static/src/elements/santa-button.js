@@ -1,4 +1,5 @@
 import {html, LitElement} from 'lit-element';
+import * as common from '../../src/core/common.js';
 import styles from './santa-button.css';
 
 
@@ -27,6 +28,16 @@ export class SantaButtonElement extends LitElement {
   constructor() {
     super();
     this.path = '';
+
+    this.addEventListener('mouseenter', () => {
+      common.play('generic_button_over');
+    });
+    this.addEventListener('mousedown', () => {
+      common.play('generic_button_click');
+    });
+    this.addEventListener('touchdown', () => {
+      common.play('generic_button_click');
+    });
   }
 
   shouldUpdate(changedProperties) {

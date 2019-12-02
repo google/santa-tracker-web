@@ -55,7 +55,7 @@ main {
 
     &[hidden] {
       display: flex;
-      width: 0;
+      width: 0.0001px;  // safari workaround
       padding-right: 0;
       opacity: 0;
 

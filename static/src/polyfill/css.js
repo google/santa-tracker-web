@@ -91,7 +91,7 @@ if (nativeSupport) {
       return this[adopted] || [];
     },
     set(v) {
-      // nb. "adopted in this" fails where Symbol is polyfilled
+      // nb. "adopted in this" is _always_ true where Symbol is polyfilled, so check value
       if (this[adopted]) {
         throw new DOMException('NotSupportedError', 'can only set adopted once');
       }

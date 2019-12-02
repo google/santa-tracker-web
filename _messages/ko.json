@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "터치"
 	},
+	"copied": {
+		"message": "복사됨"
+	},
 	"copy-me": {
 		"message": "링크를 복사하여 메시지 공유"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "산타마을 살펴보기"
 	},
+	"familyguide_accordion_title": {
+		"message": "한 달 내내 즐기기"
+	},
+	"familyguide_body": {
+		"message": "산타 마을은 가족이 연말을 즐길 수 있는 최적의 공간입니다. 좋아하는 모든 캐릭터를 찾을 수 있으며 모든 연령에 맞는 재미있고 교육적인 대화형 활동이 제공됩니다."
+	},
+	"familyguide_card_01_body": {
+		"message": "코딩 기본 요소로 숲속에서 엘프를 움직여서 떨어진 선물을 찾아보세요."
+	},
+	"familyguide_card_02_body": {
+		"message": "나만의 눈꽃을 프로그래밍하여 직접 연말 카드를 만들어 보세요. 배경 중 하나를 선택하고 친구에게 공유하면 됩니다."
+	},
+	"familyguide_card_03_body": {
+		"message": "돌아온 엘프들이 이번에는 춤 솜씨를 결합하여 코딩을 알려줍니다. 코드를 사용하여 엘프들의 춤 동작 안무를 만들어 보세요. 익숙해질수록 춤이 더욱 어려워지니 조심하세요."
+	},
+	"familyguide_card_04_body": {
+		"message": "지도의 핀을 클릭하여 캐나다의 털모자 쓰기부터 오스트레일리아의 스포츠용 수영복까지 전 세계의 다양한 크리스마스 전통을 알아보세요."
+	},
+	"familyguide_card_05_body": {
+		"message": "엘프어 새해 인사부터 러시아어로 산타 클로스인 데드 모로스(Дед Мороз)까지 전 세계의 연말 용어를 알아보세요."
+	},
+	"familyguide_card_06_body": {
+		"message": "산타는 많은 지역을 방문합니다. 나라 모양을 지도 게임의 해당 위치에 맞춰 보세요."
+	},
+	"familyguide_card_07_body": {
+		"message": "우리 지역의 연말 전통을 알고 계신가요? 상식을 테스트할 수 있는 9가지 질문으로 구성된 퀴즈에 참여해 지식을 뽐내 보세요."
+	},
+	"familyguide_card_07_title": {
+		"message": "연말 전통에 관한 퀴즈"
+	},
+	"familyguide_card_08_body": {
+		"message": "출출하신가요? 전 세계의 별미를 살펴보고 다양한 국가의 음식을 알아보세요."
+	},
+	"familyguide_card_09_body": {
+		"message": "산타만의 창의적인 도구 모음을 활용해 보세요. 각각의 도구, 브러시, 스티커에 맞춤 사운드가 있으므로 시청각 환경을 이용할 수 있습니다."
+	},
+	"familyguide_card_10_body": {
+		"message": "나만의 겨울용 모래상자로 실험하고 놀아 보세요. 3D 재료를 사용하여 집, 장난감, 눈사람, 숲 등 상상할 수 있는 무엇이나 만들 수 있습니다."
+	},
 	"familyguide_card_11_body": {
 		"message": "머리에서부터 발끝까지 나만의 엘프를 만들고 북극의 연말 파티 분위기에 맞게 꾸며 보세요."
+	},
+	"familyguide_card_12_body": {
+		"message": "산타가 이발소에서 새로운 모습으로 단장하기 위해 도움을 기다리고 있습니다. 수염을 염색하거나, 머리를 모양내어 말리거나, 장식을 추가하거나, 이발기로 완전히 밀어보세요."
+	},
+	"familyguide_card_13_body": {
+		"message": "엘프, 순록, 산타, 산타 부인과 함께 크리스마스 박물관을 방문해 보세요."
+	},
+	"familyguide_card_14_body": {
+		"message": "북극 주변에는 수많은 엘프, 순록, 페그맨이 오갑니다. 북극 주민들이 어떻게 이곳저곳을 돌아다니는지 살펴보세요."
+	},
+	"familyguide_card_15_body": {
+		"message": "산타와 순록이 출발할 준비가 되었지만 이륙하려면 코딩하는 엘프들의 도움이 필요합니다."
+	},
+	"familyguide_card_16_body": {
+		"message": "마을 친구들이 일각고래 올리와 함께 바닷속에서 하루를 보내며 처음으로 새해 해초 점등식을 가집니다."
+	},
+	"familyguide_card_age": {
+		"message": "전체 연령대"
+	},
+	"familyguide_doublecard_body": {
+		"message": "에그노그를 모두 마시고 선물 개봉도 끝나면 Google에서 1년 내내 제공하는 리소스로 가족과 함께 재미있는 시간을 보내 보세요."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "현재는 물론 미래를 위해 지구를 건강하게 만들어야 합니다. Google에서 제공하는 간단한 도움말을 통해 인류와 지구가 함께 번창할 수 있는 방법을 알아보세요."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "지구 보호에 동참하기"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "인터넷을 최대한 활용하려면 어린이가 현명한 결정을 내릴 수 있어야 합니다. 올바른 인터넷 사용은 어린이가 자신 있게 온라인 세상을 탐험할 수 있도록 디지털 시민의식 및 안전의 기초를 마련해 줍니다."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "올바른 인터넷 사용"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Google의 추가 정보"
+	},
+	"familyguide_group_01_body": {
+		"message": "엘프들은 코딩 기술을 익히기 위해 항상 노력합니다. 코딩 기본사항을 알려주는 게임을 살펴보세요. 누구나 직접 코딩해 볼 수 있습니다."
+	},
+	"familyguide_group_01_title": {
+		"message": "산타의 엘프 친구들과 함께 코드 배우기"
+	},
+	"familyguide_group_02_body": {
+		"message": "연말을 보내는 모습은 지역마다 다양할 수 있습니다. 전 세계에서 연말을 즐기는 방법을 다양한 게임과 퀴즈로 알아보세요."
+	},
+	"familyguide_group_02_title": {
+		"message": "전 세계의 연말 모습 알아보기"
+	},
+	"familyguide_group_03_body": {
+		"message": "산타 마을은 마법 같은 제작 기술을 자랑합니다. 좋아하는 캐릭터를 총동원하여 그림을 그리고 색칠하며 제작 및 창작할 수 있는 게임을 살펴보세요."
+	},
+	"familyguide_group_03_title": {
+		"message": "영감을 받아 창작하기"
+	},
+	"familyguide_group_04_body": {
+		"message": "팝콘을 준비해서 따뜻한 이불 속에 몸을 파묻어 보세요. 일각고래 올리가 바닷속에서 연말을 맞이하는 이야기를 마을 영화관의 대형 화면으로 시청하거나 대화형 이야기책으로 읽을 수 있습니다."
+	},
+	"familyguide_group_04_title": {
+		"message": "가족과의 시간을 위해 함께 모이기"
+	},
+	"familyguide_nav_link_01": {
+		"message": "코드"
+	},
+	"familyguide_nav_link_02": {
+		"message": "축하"
+	},
+	"familyguide_nav_link_03": {
+		"message": "만들기"
+	},
+	"familyguide_nav_link_04": {
+		"message": "가족과의 시간"
+	},
+	"familyguide_nav_link_05": {
+		"message": "도움말 및 유용한 정보"
+	},
+	"familyguide_nav_link_06": {
+		"message": "더보기"
+	},
+	"familyguide_secondary_body": {
+		"message": "12월 24일에 산타 마을이 추적 환경으로 변환됩니다. 산타와 순록들이 전 세계 어린이에게 선물을 배달할 때 여기에서 산타를 추적할 수 있습니다."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "산타 추적기 웹사이트 또는 Android 앱에서 따라가기"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "잠깐만요. 산타의 여정이 25시간 동안 지속된다는 걸 알고 계셨나요? 러시아 극동 기준으로 오후 10시(즉, 뉴욕은 오전 5시, 파리는 오전 11시)가 되면 산타가 첫 도착지에 도착합니다."
+	},
+	"familyguide_secondary_title": {
+		"message": "크리스마스 이브에 산타 추적하기"
+	},
+	"familyguide_tips_body": {
+		"message": "좋아하는 모든 Google 제품과 함께 이번 시즌에 산타 추적기를 최대한 활용해 보세요."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Google 어시스턴트에 매일 엘프 딤플스틱스의 재미있는 업데이트를 물어보세요. 또한 크리스마스 농담, 크리스마스에 관한 사실, 산타에게 전화하면 어떻게 되는지 등을 알아보세요."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, 북극의 새로운 소식을 알려줘.\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Play 스토어에서 Android용 산타 추적기 앱을 다운로드하세요. 앱 전용 게임에서만 제공하는 마을 풍경을 즐길 수 있습니다."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android 앱"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Android Wear 통합을 통해 손목에서 산타를 추적해 보세요."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Google에서 '산타'로 검색하여 3D로 산타를 만나 보세요. 대부분의 iPhone과 일부 고급 Android 기기에서는 AR로 카메라를 통해 산타가 손을 흔드는 모습을 볼 수 있습니다."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "거실에서 산타 만나기"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "메시지에 재미있는 연말 테마를 추가해 보세요. Google에서 제공하는 Tenor 페이지에서 'Santa Tracker gifs'(영어로만 제공)로 검색하여 산타 테마의 GIF와 스티커를 찾아보세요."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "GIF 선물 보내기"
+	},
+	"familyguide_tips_title": {
+		"message": "도움말 및 유용한 정보"
+	},
+	"familyguide_title": {
+		"message": "온 가족과 함께 즐기는 연말"
 	},
 	"fi_country_name": {
 		"message": "핀란드"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Present Havoc"
 	},
+	"scene_holidayfoods": {
+		"message": "Google 어스의 전 세계 연말 음식"
+	},
 	"scene_icecave": {
 		"message": "얼음 동굴"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "지도 퀴즈"
+	},
+	"scene_ollieundersea": {
+		"message": "바닷속 올리 이야기"
 	},
 	"scene_playground": {
 		"message": "북극 놀이터"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "크라스마스 전통"
+	},
+	"scene_traditionsquiz": {
+		"message": "연말 전통에 관한 퀴즈"
 	},
 	"scene_translations": {
 		"message": "번역"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "꽁꽁 얼었습니다."
+	},
+	"snowball_iced_count": {
+		"message": "얼어붙음"
 	},
 	"snowball_remaining": {
 		"message": "{{total}}명 중 {{remaining}}명의 엘프가 남아 있습니다."

@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Pantalla táctil"
 	},
+	"copied": {
+		"message": "Se copió la URL"
+	},
 	"copy-me": {
 		"message": "Copiar este vínculo para compartir tu mensaje"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Explorar la aldea de Santa"
 	},
+	"familyguide_accordion_title": {
+		"message": "Celebra todo el mes"
+	},
+	"familyguide_body": {
+		"message": "La aldea de Santa es el lugar perfecto para que las familias celebren la temporada navideña. Allí encontrarás a todos tus personajes favoritos, además de actividades divertidas, interactivas y educativas para todas las edades."
+	},
+	"familyguide_card_01_body": {
+		"message": "Usa los conceptos básicos sobre codificación para guiar al duende por el bosque y encontrar los regalos perdidos."
+	},
+	"familyguide_card_02_body": {
+		"message": "Programa tu propio copo de nieve para crear una tarjeta navideña. Solo debes seleccionar uno de los diferentes fondos y compartir tu creación con amigos."
+	},
+	"familyguide_card_03_body": {
+		"message": "Los duendes están de vuelta para seguir codificando y, al mismo tiempo, mejorar sus técnicas de baile. Usa código para crear la coreografía de los duendes, pero ten cuidado: a medida que mejoras, los bailes serán más complejos."
+	},
+	"familyguide_card_04_body": {
+		"message": "Haz clic en los marcadores del mapa para conocer las tradiciones navideñas de todo el mundo, como usar gorros de lana en Canadá o trajes de baño en Australia."
+	},
+	"familyguide_card_05_body": {
+		"message": "Aprende términos festivos de todo el mundo, como “Feliz Año Nuevo” en el idioma de los duendes y “Дед Мороз” (Ded Moroz)."
+	},
+	"familyguide_card_06_body": {
+		"message": "Santa tiene que ir a muchos lugares. En este juego de geografía, debes unir la silueta de cada país con su ubicación en el mapa."
+	},
+	"familyguide_card_07_body": {
+		"message": "¿Conoces la historia de las fiestas de fin de año? Demuéstralo con un cuestionario de nueve preguntas que pondrá a prueba tus habilidades."
+	},
+	"familyguide_card_07_title": {
+		"message": "Cuestionario sobre tradiciones navideñas"
+	},
+	"familyguide_card_08_body": {
+		"message": "¿Tienes hambre? Descubre delicias de todo el mundo y conoce las comidas de distintos países."
+	},
+	"familyguide_card_09_body": {
+		"message": "Usa el kit creativo de Santa. Cada herramienta, pincel y calcomanía tiene un sonido personalizado, lo que hace que esta sea una experiencia audiovisual."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimenta y juega en tu propia zona de pruebas invernal. Usa materiales en 3D para crear lo que quieras: casas, juguetes, muñecos de nieve, bosques o lo que se te ocurra."
+	},
 	"familyguide_card_11_body": {
 		"message": "Crea tu propio duende, de pies a cabeza, y asegúrate de que se vea fantástico para que asista a las veladas navideñas en el Polo Norte."
+	},
+	"familyguide_card_12_body": {
+		"message": "Santa se encuentra en una barbería y necesita ayuda para cambiar de estilo. Colorea su barba, sécale el cabello, agrega detalles decorativos o aféitalo con la máquina."
+	},
+	"familyguide_card_13_body": {
+		"message": "Únete a los duendes, los renos, Santa y la señora Claus en una visita al museo de la alegría navideña."
+	},
+	"familyguide_card_14_body": {
+		"message": "Hay muchos duendes, renos y hombrecitos naranjas que exploran el Polo Norte. Mira cómo se desplazan de un lugar a otro."
+	},
+	"familyguide_card_15_body": {
+		"message": "Santa y los renos están listos para comenzar su viaje, pero necesitan la ayuda de los duendes codificadores antes de emprender el vuelo."
+	},
+	"familyguide_card_16_body": {
+		"message": "Nuestros amigos de la aldea se unen a Oli, el narval, para pasar un día bajo el agua y preparar la primera celebración anual de luces de algas."
+	},
+	"familyguide_card_age": {
+		"message": "Todas las edades"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Después de que se acabe el ponche y todos hayan abierto sus regalos, descubre recursos de Google con los que puedes divertirte en familia durante todo el año."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Todos queremos un planeta limpio para el presente y el futuro. Aprende sugerencias sencillas de Google para que las personas y el planeta prosperen juntos."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Tu plan, tu planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Para que puedan aprovechar Internet al máximo, los niños deben estar preparados para tomar decisiones acertadas. Sé genial en Internet les enseña los conceptos fundamentales de ciudadanía digital y seguridad para que puedan explorar con confianza el mundo en línea."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Sé genial en Internet"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Más productos de Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Los duendes siempre están trabajando para mejorar sus habilidades de codificación. Explora juegos y descubre los conceptos básicos. ¡Todos podemos aprender a codificar!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Aprende a codificar con los duendes de Santa"
+	},
+	"familyguide_group_02_body": {
+		"message": "Las fiestas de fin de año pueden variar mucho de un lugar a otro. Descubre cómo se celebra la temporada navideña en el mundo con muchos juegos y cuestionarios."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descubre cómo son las fiestas navideñas en todo el mundo"
+	},
+	"familyguide_group_03_body": {
+		"message": "La aldea de Santa florece con la magia de las creaciones. Descubre juegos para dibujar, colorear, construir y crear junto con todos tus personajes favoritos."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inspírate y crea algo nuevo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Prepara unas palomitas y acurrúcate bajo tu manta favorita. Mira a todo el equipo en la pantalla del cine de la aldea o lee un libro de cuentos interactivo mientras Oli, el narval, celebra la temporada navideña bajo el mar."
+	},
+	"familyguide_group_04_title": {
+		"message": "Juntos en familia"
+	},
+	"familyguide_nav_link_01": {
+		"message": "código"
+	},
+	"familyguide_nav_link_02": {
+		"message": "celebrar"
+	},
+	"familyguide_nav_link_03": {
+		"message": "crear"
+	},
+	"familyguide_nav_link_04": {
+		"message": "tiempo en familia"
+	},
+	"familyguide_nav_link_05": {
+		"message": "sugerencias y trucos"
+	},
+	"familyguide_nav_link_06": {
+		"message": "más"
+	},
+	"familyguide_secondary_body": {
+		"message": "El 24 de diciembre, la aldea de Santa se transforma en una experiencia de seguimiento en la que puedes seguir a Santa y sus renos mientras llevan regalos a niños de todo el mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Usa el sitio web de Sigue a Santa o la app para Android"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "¡Oye! ¿Sabías que el viaje de Santa dura 25 horas? Hace su primera parada en el extremo oriental de Rusia pasadas las 10 p.m. (hora local), al mismo tiempo que son las 5 a.m. en Nueva York y las 11 a.m. en París."
+	},
+	"familyguide_secondary_title": {
+		"message": "Sigue a Santa en el día más esperado del año"
+	},
+	"familyguide_tips_body": {
+		"message": "Esta temporada navideña, disfruta de la magia de Sigue a Santa en todos tus productos favoritos de Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pídele al Asistente de Google actualizaciones divertidas todos los días sobre el duende Cachetitos. También puedes aprender datos y chistes navideños, y ver lo que pasa cuando llamas a Santa."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "“Hey Google, ¿qué novedades hay en el Polo Norte?”"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Descarga la app de Sigue a Santa para Android en Play Store. En ella, encontrarás una aldea con juegos exclusivos."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "App para Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Sigue a Santa en tu muñeca con la integración de Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Busca “Santa” en Google para verlo en 3D. En la mayoría de los iPhones y algunos dispositivos Android avanzados, puedes ver su saludo en RA a través de la cámara."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Haz que Santa vaya a tu sala de estar"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Agrega diversión navideña a tus mensajes. Busca “Santa Tracker gifs” (solo en inglés) en la página de Google de Tenor y encontrarás GIF y calcomanías temáticas de Santa."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Regala GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Sugerencias y trucos"
+	},
+	"familyguide_title": {
+		"message": "Diversión navideña para toda la familia"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Fábrica de regalos"
 	},
+	"scene_holidayfoods": {
+		"message": "Comidas navideñas del mundo en Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Cueva de hielo"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Prueba de geografía"
+	},
+	"scene_ollieundersea": {
+		"message": "Oli bajo el mar"
 	},
 	"scene_playground": {
 		"message": "Parque de juegos del Polo Norte"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradiciones navideñas"
+	},
+	"scene_traditionsquiz": {
+		"message": "Cuestionario sobre tradiciones navideñas"
 	},
 	"scene_translations": {
 		"message": "Traducciones"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "¡Congelado!"
+	},
+	"snowball_iced_count": {
+		"message": "Congelados"
 	},
 	"snowball_remaining": {
 		"message": "Quedan {{remaining}} de {{total}} duendes"

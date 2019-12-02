@@ -2,6 +2,7 @@
  * @fileoverview Main entrypoint for Santa Tracker. Runs in the prod domain.
  */
 
+import './src/polyfill/attribute.js';
 import './src/polyfill/css.js';
 import styles from './styles/santa.css';
 
@@ -19,6 +20,7 @@ import './src/elements/santa-cardnav.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
+import maybeLoadCast from './src/deps/cast.js';
 import * as kplay from './src/kplay.js';
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
@@ -26,11 +28,35 @@ import {sceneImage} from './src/core/assets.js';
 import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
+import * as firebaseConfig from './src/core/config.js';
+import isAndroid from './src/core/android.js';
+import {_msg} from './src/magic.js';
 
 
-const noticeElement = document.createElement('santa-notice');
-document.body.append(noticeElement);
+maybeLoadCast();
 
+
+const noticesElement = document.createElement('div');
+noticesElement.className = 'notices';
+document.body.append(noticesElement);
+
+if (!isAndroid()) {
+  const cookieNoticeElement = document.createElement('santa-notice');
+  cookieNoticeElement.key = 'cookie-ok';
+  cookieNoticeElement.href = 'https://policies.google.com/technologies/cookies';
+  cookieNoticeElement.textContent = _msg`notice_cookies`;
+  noticesElement.append(cookieNoticeElement);
+}
+
+const upgradeNoticeElement = document.createElement('santa-notice');
+upgradeNoticeElement.textContent = _msg`error-out-of-date`;
+upgradeNoticeElement.hidden = !firebaseConfig.siteExpired();
+firebaseConfig.listen(() => {
+  // nb. This has the unfortunate problem of bringing this message back very often, but that's
+  // probably fine, since the user is in a very bad state anyway.
+  upgradeNoticeElement.hidden = !firebaseConfig.siteExpired();
+});
+noticesElement.append(upgradeNoticeElement);
 
 const loaderElement = document.createElement('santa-gameloader');
 const interludeElement = document.createElement('santa-interlude');
@@ -60,67 +86,128 @@ chromeElement.append(badgeElement);
 // nb. This is added only when needed.
 const errorElement = document.createElement('santa-error');
 
-const sidebar = document.createElement('santa-cardnav');
-sidebar.setAttribute('slot', 'sidebar');
-chromeElement.append(sidebar);
+// nb. This is added only when needed.
+const sidebarElement = document.createElement('santa-cardnav');
+sidebarElement.setAttribute('slot', 'sidebar');
+
+// Insert on first open. The load is too heavy otherwise.
+chromeElement.addEventListener('sidebar-open', (ev) => {
+  chromeElement.append(sidebarElement);
+}, {once: true});
 
 
-window.addEventListener('loader-route', (ev) => {
-  const route = ev.detail;
-  global.setState({route});
-});
+// Controls the random future games that a user is suggested.
+(function() {
+  const recentBuffer = 6;
+  const displayCardCount = 2;
+  const recentRoutes = new Set();
+
+  window.addEventListener('entrypoint-route', (ev) => {
+    const route = ev.detail;
+    global.setState({route});
+
+    recentRoutes.add(route);
+    while (recentRoutes.size >= recentBuffer) {
+      for (const key of recentRoutes) {
+        recentRoutes.delete(key);
+        break;
+      }
+    }
+    updatePlayNextCards();
+  });
+
+  function updatePlayNextCards() {
+    // array of all possible games
+    const nav = firebaseConfig.nav().filter((x) => x[0] !== '@' && !firebaseConfig.isLocked(x));
+
+    if (nav.length <= displayCardCount) {
+      console.warn('not enough valid nav routes to create cards', nav)
+      return;
+    }
+
+    // choose games biasing towards start
+    const cards = [];
+    const attempts = 20;
+    let i = 0;
+    while (cards.length < displayCardCount) {
+      ++i;
+      const index = ~~(Math.pow(Math.random(), 4) * nav.length);
+      const choice = nav.splice(index, 1)[0];
+      if ((recentRoutes.has(choice) || cards.indexOf(choice) !== -1) && i < attempts) {
+        continue;
+      }
+      cards.push(choice);
+    }
+
+    scoreOverlayElement.textContent = '';
+    cards.forEach((scene) => {
+      const card = document.createElement('santa-card');
+      card.scene = scene;
+      scoreOverlayElement.append(card);
+    });
+    global.setState({playNextRoute: cards[0]});
+  }
+}());
 
 
-const {scope, go, write: writeData} = configureProdRouter(buildLoader(loaderElement));
+const loadMethod = loaderElement.load.bind(loaderElement);
+const {scope, go, write: writeData} = configureProdRouter(buildLoader(loadMethod));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 
 const kplayInstance = kplay.prepare();
 
-chromeElement.addEventListener('nav-open', (ev) => {
-  sidebar.hidden = false;
 
-  kplayInstance.play('nav_open');
-
-});
-
-chromeElement.addEventListener('nav-close', (ev) => {
-  sidebar.hidden = true;
-
-  kplayInstance.play('nav_close');
-
-});
-
-
-
-let muted = false;
-
-global.subscribe((state) => {
-  const update = state.hidden;
-  if (muted !== update) {
-    muted = update;
-
-    if (muted) {
-      kplayInstance.play('global_sound_off');
-    } else {
-      kplayInstance.play('global_sound_on');
+(function() {
+  if (isAndroid()) {
+    if (kplayInstance.suspended) {
+      kplayInstance.resume();
     }
+    chromeElement.muted = undefined;
+    global.setState({muted: false});
+    kplayInstance.muted = false;
+    return;
   }
 
-  // TODO(samthor): This only shows when the scene is in mini mode.
-  chromeElement.unmute = state.audioSuspended;
+  // Control `<santa-chrome>` displaying mute or unmute.
+  global.subscribe((state) => {
+    chromeElement.muted = state.muted;
+    kplayInstance.muted = (state.hidden || state.muted);  // mute if in background, or requested
+  });
+
+  // Start "muted" if the browser is disallowing audio.
+  const initialSuspended = kplayInstance.suspended;
+  global.setState({muted: initialSuspended});
+
+  let audioTrigger = 0;
+
+  chromeElement.addEventListener('audio', (ev) => {
+    const wasMuted = ev.detail;
+
+    if (kplayInstance.suspended && wasMuted) {
+      const localAudioTrigger = audioTrigger;
+
+      // unmute only on resume
+      kplayInstance.resume().then(() => {
+        // prevent further actions if we muted again
+        if (localAudioTrigger === audioTrigger) {
+          global.setState({muted: false});
+        }
+      });
+    } else {
+      global.setState({muted: !wasMuted});
+    }
+
+    ++audioTrigger;
+  });
+}());
+
+
+window.addEventListener('santa-play', (ev) => {
+  let kplayEvent = ev.detail[0];
+  let args = ev.detail.slice(1);
+  kplayInstance.play(kplayEvent, args);
 });
 
-if (kplayInstance.suspended) {
-  global.setState({audioSuspended: true});
-  // Show the unmute button while we're suspended. The tab can be unsuspended for a bunch of
-  // really unknown reasons.
-  kplayInstance.resume().then(() => global.setState({audioSuspended: false}));
-  chromeElement.addEventListener('unmute', () => {
-    kplayInstance.resume();
-  });
-} else {
-  global.setState({audioSuspended: false});
-}
 
 interludeElement.addEventListener('transition_in', () => {
   kplayInstance.play('menu_transition_game_in');
@@ -128,7 +215,7 @@ interludeElement.addEventListener('transition_in', () => {
 interludeElement.addEventListener('transition_out', () => {
   kplayInstance.play('menu_transition_game_out');
 });
-  
+
 
 
 
@@ -137,19 +224,11 @@ scoreOverlayElement.addEventListener('resume', () => global.setState({status: ''
 scoreOverlayElement.addEventListener('home', () => go(''));
 
 
-// FIXME(samthor): Demo of "advertising cards" at the end of a game. Choose actual games.
-const cards = ['snowball', 'codeboogie'];
-cards.forEach((scene) => {
-  const card = document.createElement('santa-card');
-  card.scene = scene;
-  scoreOverlayElement.append(card);
-});
-
-
 global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
+    ga('send', 'event', 'game', 'start', state.route);
     state.control.send({type: 'restart'});
   }
 
@@ -208,6 +287,9 @@ global.subscribe((state) => {
     state.control.send({type});
   }
 
+  const sound = state.muted ? 'muted' : 'unmuted';
+  state.control.send({type: sound});
+
   let action = null;
   if (orientationChangeNeeded) {
     // do nothing
@@ -265,15 +347,17 @@ async function preloadSounds(sc, event, port) {
 async function prepare(control, data) {
   const timeout = promises.timeoutRace(10 * 1000);
 
-  control.send({type: 'data', payload: data});
-
   const preloads = [];
   const config = {};
 outer:
   for (;;) {
     const op = await timeout(control.next());
-    if (op === null) {
+    if (op === null || op === undefined) {
       break;  // closed or timeout, bail out
+    }
+    if (typeof op !== 'object') {
+      console.warn('got unhandled op from control', op);
+      continue;
     }
 
     const {type, payload} = op;
@@ -294,13 +378,41 @@ outer:
         preloads.push(preloadSounds(kplayInstance, event, port));
         continue;
 
+      case 'config':
+        Object.assign(config, payload);
+        continue;
+
       case 'loaded':
         await timeout(Promise.all(preloads));
-        Object.assign(config, payload);
         break outer;
     }
 
     console.warn('got unhandled preload', op);
+  }
+
+  // If the page wants a subscription, they're listening to the Firebase config data (i.e. the
+  // village). Otherwise send them whatever is on the ?foo=... search params.
+  if (config.subscribe) {
+    const listener = () => {
+      if (control.done) {
+        firebaseConfig.remove(listener);
+        global.unsubscribe(listener);
+        return;
+      }
+      const {playNextRoute} = global.getState();
+      const payload = {
+        android: isAndroid(),
+        routes: firebaseConfig.routesSnapshot(),
+        featured: firebaseConfig.featuredRoute(),
+        play: playNextRoute,
+      };
+      control.send({type: 'data', payload});
+    };
+    global.subscribe(listener);
+    firebaseConfig.listen(listener);
+    listener();
+  } else {
+    control.send({type: 'data', payload: data});
   }
 
   return config;
@@ -312,17 +424,27 @@ outer:
  *
  * @param {!PortControl} control
  * @param {string} route active
+ * @param {!Object<string, *>} config
  */
-async function runner(control, route) {
+async function runner(control, route, config) {
   const sc = kplayInstance;
+  let recentScore = null;
 
-  // TODO: this should be on global state as the player might restart multiple times
-  // const start = performance.now();
-  // ga('send', 'event', 'game', 'start', route);
+  // nb. we also call this as a result of 'restart'
+  ga('send', 'event', 'game', 'start', route);
+  const analyticsLogEnd = () => {
+    if (!recentScore) {
+      return;
+    }
+    ga('send', 'event', 'game', 'end', route);
+    recentScore.score && ga('send', 'event', 'game', 'score', route, recentScore.score);
+    recentScore.level && ga('send', 'event', 'game', 'level', route, recentScore.level);
+    recentScore = null;
+  };
 
   for (;;) {
     const op = await control.next();
-    if (op === null) {
+    if (op === null || op === undefined) {
       // TODO(samthor): Can't log score here, state is already reset.
       break;
     }
@@ -345,8 +467,7 @@ async function runner(control, route) {
         continue;
 
       case 'gameover':
-        console.info('got gameover call');
-        if (payload.share) {
+        if (payload && payload.share) {
           const shareUrl = window.location.pathname + window.location.search;
           global.setState({shareUrl})
         }
@@ -356,15 +477,11 @@ async function runner(control, route) {
         global.setState({
           status: 'gameover',
         });
-        const {score} = global.getState();
-
-        ga('send', 'event', 'game', 'end', route);
-        score.score && ga('send', 'event', 'game', 'score', route, score.score);
-        score.level && ga('send', 'event', 'game', 'level', route, score.level);
-
+        analyticsLogEnd();
         continue;
 
       case 'score':
+        recentScore = payload;
         global.setState({score: payload});
         continue;
 
@@ -381,8 +498,10 @@ async function runner(control, route) {
         continue;
     }
 
-    console.debug('running scene got', op);
+    console.debug('running scene unhandled', op);
   }
+
+  analyticsLogEnd();
 }
 
 
@@ -393,7 +512,7 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
 
   // fade out previous scene audio here
   const sc = kplayInstance;
-  sc.transitionTo([], 0.2);
+  sc.stopAll(0.2);
 
   // TODO(samthor): This isn't triggered on initial load.
   interludeElement.show();
@@ -464,6 +583,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     }
     document.body.classList.remove('loading');  // hide dots
     control.send({type: 'ready'});
+    window.dispatchEvent(new CustomEvent('entrypoint-route', {detail: route}));
 
     // Go into fullscreen mode on Android.
     if (typeof Android !== 'undefined' && Android.fullscreen) {
@@ -476,7 +596,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
       errorCode = 'internal';
     } else if (locked) {
       // do nothing
-    } else if (!control.hasPort && route) {
+    } else if (!control.hasPort) {
       errorCode = 'missing';
     }
     if (errorCode || locked) {
@@ -494,6 +614,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     global.setState({
       sceneOrientation: config.orientation || null,
+      sceneTilt: config.tilt || false,
       sceneHasPause: Boolean(config.pause),
       control,
       status: '',
@@ -501,7 +622,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.
-    await runner(control, route);
+    await runner(control, route, config);
 
     // TODO: might be trailing events
   };

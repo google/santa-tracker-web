@@ -631,7 +631,7 @@ class AudioSource extends EventTarget {
       if (this._loopStart !== undefined) {
         source.loopStart = this._loopStart;
 
-        if (this._loopEnd === undefined) {
+        if (this._loopEnd === undefined && source.buffer) {
           source.loopEnd = source.buffer.duration;
         }
       }
@@ -745,7 +745,12 @@ class AudioSource extends EventTarget {
       // position, then restart the underlying source.
       this._startTime = masterContext.currentTime - delta;
       const position = this.position;  // calculate trick position
-      this._sources.forEach((source) => source.stop());
+      this._sources.forEach((source) => {
+        // safari invalidState fix
+        if ( source.playbackState == undefined || source.playbackState > 0 ) {
+          source.stop();
+        }
+      });
 
       const source = this._createSource();
       source.start(masterContext.currentTime, position);
@@ -833,7 +838,9 @@ class AudioSource extends EventTarget {
     if (sourceToStop === null) {
       return false;
     }
-    sourceToStop.stop();
+    if ( sourceToStop.playbackState == undefined || sourceToStop.playbackState > 0 ) {
+      sourceToStop.stop();
+    }
     this.dispatchEvent(new Event('ended'));
     // nb. 'when' wasn't used in the upstream code, and added tons of complexity.
   }
@@ -896,9 +903,7 @@ class AudioSource extends EventTarget {
 }
 
 
-
 export function prepare() {
-
   const config = window['KLANG_CONFIG'];
   const globalVars = config['vars'];
 
@@ -929,7 +934,14 @@ export function prepare() {
 
   Object.assign(audioConfig, config['busses'], config['sequencers'], config['processes']);
 
-  const nodes = {};
+  // By default, our master output is muted.
+  let masterOutMuted = true;
+  const masterOut = new AudioBus({}, null);
+  masterOut.output.gain.value = 0;
+
+  const nodes = {
+    '$OUT': masterOut,
+  };
 
   const loaderCallback = (key, buffer) => {
     const existing = nodes[key];
@@ -952,7 +964,7 @@ export function prepare() {
    */
   const prepareKNode = (key, config) => {
     const destination = nodes[config['destination_name']] || null;
-    if ('destination_name' in config && destination === null && config['destination_name'] !== '$OUT') {
+    if ('destination_name' in config && !destination) {
       throw new Error(`got unprepared destination node ${config['destination_name']} for ${key}`);
     }
     let node;
@@ -1014,7 +1026,7 @@ export function prepare() {
       c['vars'] || [],
       c['content'] || [],
       c['destination_name'] || [],
-    ).filter((x) => !(x === '$OUT' || x in nodes));
+    ).filter((x) => !(x in nodes));
     deps.forEach(internalPrepareKey);
 
     const node = prepareKNode(key, c, nodes);
@@ -1065,6 +1077,18 @@ export function prepare() {
 
       triggerNodes = null;
     },
+    stopAll(duration=0.5) {
+      triggerNodes = new Set();
+      activeNodes.forEach((node) => {
+        if (!node.stopping && !triggerNodes.has(node)) {
+          if (node instanceof SimpleProcess) {
+            node.stop();
+          } else {
+            node.fadeOutAndStop(duration);
+          }
+        }
+      });
+    },
 
     reset(duration=0.5) {
       // If we pass a duration, dirtyNodes is actually cleared before these nodes are made entirely
@@ -1080,6 +1104,18 @@ export function prepare() {
 
     get suspended() {
       return masterContext.state === 'suspended';
+    },
+
+    get muted() {
+      return masterOutMuted;
+    },
+
+    set muted(v) {
+      if (v === masterOutMuted) {
+        return;
+      }
+      masterOutMuted = v;
+      Util.curveParamLin(masterOut.output.gain, masterOutMuted ? 0 : 1, 0.5);
     },
 
     resume() {

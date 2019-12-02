@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Toque"
 	},
+	"copied": {
+		"message": "Copiado!"
+	},
 	"copy-me": {
 		"message": "Copie este link para partilhar a sua mensagem"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Explorar Aldeia do Pai Natal"
 	},
+	"familyguide_accordion_title": {
+		"message": "Celebre durante todo o mês"
+	},
+	"familyguide_body": {
+		"message": "A Aldeia do Pai Natal é o local perfeito para celebrar em família. Vai encontrar todas as suas personagens favoritas, bem como atividades divertidas, educativas e interativas para todas as idades."
+	},
+	"familyguide_card_01_body": {
+		"message": "Utilize os princípios básicos da programação para conduzir o elfo através da floresta e encontre os presentes que aí foram deixados."
+	},
+	"familyguide_card_02_body": {
+		"message": "Crie um cartão de Boas Festas ao programar o seu próprio floco de neve. Só tem de selecionar um dos muitos fundos e partilhá-lo com os amigos."
+	},
+	"familyguide_card_03_body": {
+		"message": "Os elfos estão de volta às aulas de programação e vão dançar ao mesmo tempo também! Utilize código para coreografar a dança dos elfos, mas tenha cuidado. À medida que melhora, as danças ficam mais difíceis!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Desde usar um gorro no Canadá a calções de banho na Austrália, clique nos alfinetes do mapa para conhecer as tradições das Festas em todo o mundo."
+	},
+	"familyguide_card_05_body": {
+		"message": "Desde \"Feliz Ano Novo\" em élfico a Дед Мороз, aprenda as frases típicas desta altura do ano de todo o mundo."
+	},
+	"familyguide_card_06_body": {
+		"message": "O Pai Natal tem de ir a muitos sítios. Faça corresponder o contorno do país ao mapa neste jogo de geografia."
+	},
+	"familyguide_card_07_body": {
+		"message": "Conhece a história do Natal? Este questionário de nove perguntas vai testar os seus conhecimentos de cultura geral."
+	},
+	"familyguide_card_07_title": {
+		"message": "Questionário de tradições natalícias"
+	},
+	"familyguide_card_08_body": {
+		"message": "Tem fome? Descubra petiscos e explore a gastronomia de todo o mundo."
+	},
+	"familyguide_card_09_body": {
+		"message": "Use o pacote criativo do Pai Natal. Cada ferramenta, pincel e autocolante tem um som personalizado, que cria uma experiência sonora e visual."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimente e divirta-se no seu próprio parque de diversões de inverno. Utilize materiais em 3D para construir o que quiser: casas, bonecos de neve, florestas ou tudo o que conseguir imaginar."
+	},
 	"familyguide_card_11_body": {
 		"message": "Crie o seu próprio elfo da cabeça aos pés e certifique-se de que está vestido a rigor para as muitas celebrações natalícias a decorrer no Polo Norte."
+	},
+	"familyguide_card_12_body": {
+		"message": "O Pai Natal está na barbearia e precisa de ajuda para escolher um novo penteado. Pinte a barba do Pai Natal, seque o seu cabelo e adicione decorações ou rape-lhe o cabelo com a máquina zero."
+	},
+	"familyguide_card_13_body": {
+		"message": "Junte-se aos elfos, às renas, ao Pai Natal e à Mãe Natal numa visita ao Museu da Época Festiva!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Existem muitos elfos, renas e Pegman para transportar pelo Pólo Norte. Veja como vão de um lado para o outro."
+	},
+	"familyguide_card_15_body": {
+		"message": "O Pai Natal e as renas estão prontos, mas precisam de alguma ajuda dos elfos da programação antes da descolagem."
+	},
+	"familyguide_card_16_body": {
+		"message": "Os nossos amigos da Aldeia juntam-se a Ollie, o Narval, para um dia debaixo de água, enquanto criam a primeira celebração anual de iluminação com algas."
+	},
+	"familyguide_card_age": {
+		"message": "Todas as idades"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Depois de ter comido todos os doces e de ter aberto todos os presentes, descubra recursos com que se pode divertir em família todo o ano com a Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Todos queremos um planeta saudável para o presente e para o futuro. Aprenda sugestões simples com a Google para ajudar as pessoas e o planeta a prosperarem em conjunto."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "O seu plano, o seu planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Para aproveitar a Internet ao máximo, as crianças têm de estar preparadas para tomarem decisões inteligentes. O Be Internet Awesome ensina os princípios básicos da cidadania e segurança digitais às crianças, para que possam explorar o mundo online com confiança."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Utilizar a Internet de forma fantástica com o Be Internet Awesome"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Mais da Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Os elfos estão sempre a trabalhar nas suas capacidades de programação. Explore jogos que ensinam as noções básicas. Todos podem experimentar a programação!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Aprenda a programar com os elfos do Pai Natal"
+	},
+	"familyguide_group_02_body": {
+		"message": "As Festas variam muito de local para local. Saiba como é que o mundo celebra esta época do ano com vários jogos e questionários."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descubra a época festiva em todo o mundo"
+	},
+	"familyguide_group_03_body": {
+		"message": "A aldeia do Pai Natal prospera com a magia da criação. Descubra jogos que lhe permitem desenhar, pintar, construir e criar com todas as suas personagens favoritas."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inspire-se e crie alguma coisa"
+	},
+	"familyguide_group_04_body": {
+		"message": "Faça as pipocas e tape-se com um cobertor quentinho. Pode ver a equipa completa no grande ecrã no cinema da Aldeia ou ler um livro de histórias interativo enquanto Ollie, o Narval, celebra o Natal debaixo de água."
+	},
+	"familyguide_group_04_title": {
+		"message": "Tempo em família"
+	},
+	"familyguide_nav_link_01": {
+		"message": "código"
+	},
+	"familyguide_nav_link_02": {
+		"message": "celebre"
+	},
+	"familyguide_nav_link_03": {
+		"message": "criar"
+	},
+	"familyguide_nav_link_04": {
+		"message": "tempo em família"
+	},
+	"familyguide_nav_link_05": {
+		"message": "sugestões e truques"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mais"
+	},
+	"familyguide_secondary_body": {
+		"message": "No dia 24 de dezembro, a Aldeia do Pai Natal transforma-se numa experiência de acompanhamento onde pode seguir o Pai Natal e as renas à medida que entregam os presentes a crianças em todo o mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Siga a viagem no Website \"A viagem do Pai Natal\" ou na aplicação para Android."
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Pssiu! Sabia que a viagem do Pai Natal dura 25 horas? Ele faz a primeira paragem mesmo depois das 22:00, hora local, no extremo oriente da Rússia, quando são 05:00 em Nova Iorque e 11:00 em Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Acompanhe o Pai Natal no grande dia"
+	},
+	"familyguide_tips_body": {
+		"message": "Sinta mais a magia de \"A viagem do Pai Natal\" nesta época festiva com todos os seus produtos favoritos da Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Peça ao Assistente Google atualizações divertidas de Dimplesticks, o Elfo. Leia também piadas de Natal, factos sobre o Natal e veja o que acontece quando telefona ao Pai Natal."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, que novidades há do Pólo Norte?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Transfira a aplicação A viagem do Pai Natal para Android na Play Store. Existe uma cena da Aldeia exclusiva com jogos que só vai encontrar na aplicação."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Aplicação para Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Acompanhe o Pai Natal no seu pulso com a integração com Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Procure \"Santa\" no Google para ver o Pai Natal em 3D. Na maioria dos iPhones e em alguns dispositivos Android avançados, pode ver o Pai Natal em realidade aumentada a dizer-lhe adeus através da câmara!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Convide o Pai Natal para a sua sala"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Adicione um toque festivo às suas mensagens. Encontre gifs com o tema do Pai Natal ao procurar \"Santa Tracker gifs\" (apenas em inglês) na página Tenor da Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Ofereça a magia dos GIFs"
+	},
+	"familyguide_tips_title": {
+		"message": "Sugestões e dicas"
+	},
+	"familyguide_title": {
+		"message": "Diversão de Natal para toda a família"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Caos de presentes"
 	},
+	"scene_holidayfoods": {
+		"message": "Google Earth Pratos Festivos de Todo o Mundo"
+	},
 	"scene_icecave": {
 		"message": "Gruta de Gelo"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Questionário do mapa"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie Debaixo do Mar"
 	},
 	"scene_playground": {
 		"message": "Parque infantil no Polo Norte"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradições Festivas"
+	},
+	"scene_traditionsquiz": {
+		"message": "Questionário de tradições natalícias"
 	},
 	"scene_translations": {
 		"message": "Traduções"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Gelado!"
+	},
+	"snowball_iced_count": {
+		"message": "Gelado"
 	},
 	"snowball_remaining": {
 		"message": "Restam {{remaining}} de {{total}} elfos"

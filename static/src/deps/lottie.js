@@ -1,55 +1,29 @@
-import '../../node_modules/lottie-web/build/player/lottie_light.min.js';
+// import './lottie-dep.js';
+// import '../../third_party/lib/lottie-worklet/lottie_canvas.js';
 
-/**
- * Remove redundant clip-paths from the instantiated Lottie element.
- *
- * This speeds up Firefox and Safari because these paths are basically redundant.
- *
- * @param {?SVGElement} svg
- */
-export function simplifyClip(svg) {
-  if (!svg) {
-    return;
-  }
+// const workletSupport = (function workletSupport() {
+//   try {
+//     CSS.paintWorklet;
+//     console.warn('loading Lottie in paintWorklet')
+//     return true;
+//   } catch (e) {
+//     return false;
+//   }
+// }());
 
-  const paths = Array.from(svg.querySelectorAll('clipPath'));
-  const width = svg.getAttribute('width');
-  const height = svg.getAttribute('height');
+const workletSupport = false;
 
-  if (!width || !height) {
-    return;
-  }
-
-  // If this value is in the path, then it's probably a simple rect.
-  const rectPath = `M0,0 L${width},0 L${width},${height} L0,${height}z`;
-
-  paths.forEach((path) => {
-    if (path.children.length !== 1) {
-      return;
-    }
-    const check = path.children[0];
-
-    if (check.localName === 'rect' && check.getAttribute('width') === width && check.getAttribute('height') === height) {
-      // found a bounding rect
-    } else if (check.localName === 'path' && check.getAttribute('d') === rectPath) {
-      // found a full-sized path
-    } else {
-      return;
-    }
-
-    path.remove();
-  });
-}
+import '../../node_modules/lottie-web/build/player/lottie_canvas.min.js';
 
 export function loadAnimation(path, options) {
-  const container = options.container || document.createElement('div');
+  if (!options.container) {
+    throw new TypeError(`need container to load: ${path}`);
+  }
   const anim = lottie.loadAnimation(Object.assign({
     path: path + '?#',  // in dev, this ensures JSON is returned raw
-    renderer: 'svg',
-    container,
+    renderer: workletSupport ? 'paintworklet' : 'canvas',
     autoplay: false,
   }, options));
-  anim.addEventListener('DOMLoaded', () => simplifyClip(anim.renderer.svgElement));
   return anim;
 }
 
@@ -67,4 +41,26 @@ export function promisify(anim) {
  */
 export function prepareAnimation(path, options) {
   return promisify(loadAnimation(path, options));
+}
+
+export function buildSafeResize(anim) {
+  if (anim.renderer.svgElement) {
+    return () => {};
+  }
+
+  let rAF = 0;
+  const r = anim.renderer;
+
+  return () => {
+    if (rAF === 0 && r.canvasContext) {
+      rAF = window.requestAnimationFrame(() => {
+        rAF = 0;
+        try {
+          anim.resize();
+        } catch (e) {
+          console.warn('could not resize', anim, e);
+        }
+      });
+    }
+  };
 }

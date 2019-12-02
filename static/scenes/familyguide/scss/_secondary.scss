@@ -31,6 +31,7 @@
     &-body {
       color: #587E9C;
       font-size: 20px;
+      line-height: 28px;
       margin: 0 auto;
       max-width: 72%;
       text-align: center;
@@ -53,6 +54,8 @@
 
     &-sub {
       color: #7099BA;
+      font-style: italic;
+      line-height: 22px;
       margin: 30px auto 0;
       max-width: 430px;
     }
@@ -60,7 +63,7 @@
 
   &__image {
     border-radius: 40px;
-    background: url(img/secondary.svg) center center/cover no-repeat;
+    background: url(img/secondary.png) center center/cover no-repeat;
     height: 400px;
   }
 }

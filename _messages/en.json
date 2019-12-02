@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Touch"
 	},
+	"copied": {
+		"message": "Copied!"
+	},
 	"copy-me": {
 		"message": "Copy this link to share your message"
 	},
@@ -656,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Celebrate all month long"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Use the Google Assistant to find out more about Santa Claus during December! This integration is available in select languages."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistant connects you with the North Pole, where Santa is busy rehearsing for a musical concert. He only knows one song—can you help him figure out the best way to play it?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Call Santa"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Tune in daily to the North Pole Newscast to find out what Santa and his elves are up to. Just ask the Google Assistant what's new at the North Pole."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "North Pole Newscast"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "When Santa's not busy with the elves at the workshop, he spends time sharpening up his comedy skills. Just ask the Google Assistant for a Santa joke to hear his routine."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Santa Jokes"
+	},
+	"familyguide_assistant_title": {
+		"message": "Never Miss a North Pole Minute"
+	},
 	"familyguide_body": {
 		"message": "Santa’s Village is the perfect place for families to celebrate the season. You’ll find all your favorite characters together with fun, educational and interactive activities for every age."
 	},
@@ -773,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "more"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "On December 24th Santa’s Village transforms into a tracking experience where you can follow Santa and his reindeer as they deliver presents to kids around the world."
 	},
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Holiday fun for the whole family"
+	},
+	"familylink": {
+		"message": "Add your kid's Google account, managed with Family Link"
+	},
+	"featured": {
+		"message": "Featured"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Santa's Takeoff"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Out Like A Light"
+	},
 	"scene_videoscene_museum": {
 		"message": "A Day at the Museum"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Santa's Workshop"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Yule Log"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
@@ -1852,6 +1897,9 @@
 	},
 	"snowball_iced": {
 		"message": "Iced!"
+	},
+	"snowball_iced_count": {
+		"message": "Iced"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} of {{total}} elves remaining"

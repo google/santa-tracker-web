@@ -5,6 +5,10 @@ $name: 'module-factory';
 @import "sass/tetristruck";
 @import "sass/swimmer";
 
+body {
+  touch-action: none;
+}
+
 ##{$name} {
   $view-height: 900px;
 

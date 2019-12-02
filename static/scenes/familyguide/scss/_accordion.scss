@@ -14,7 +14,7 @@
     &-block {
       display: flex;
       justify-content: space-between;
-      padding: 100px 100px 70px;
+      padding: 100px 100px 50px;
 
       &:not(:last-of-type) {
         border-bottom: 1px #CFDEEB solid;
@@ -24,7 +24,9 @@
 
   &__title {
     color: #587E9C;
+    font-family: 'Lobster';
     font-size: 46px;
+    font-weight: normal;
     margin: 0 auto;
     text-align: center;
   }
@@ -45,7 +47,6 @@
     &-body {
       color: #7099BA;
       line-height: 24px;
-      max-height: 300px;
     }
   }
 
@@ -62,7 +63,7 @@
     box-shadow: 0;
     cursor: pointer;
     flex-basis: calc(50% - 10px);
-    margin: 0 0 30px;
+    margin: 0 0 50px;
     overflow: hidden;
     transition: box-shadow .25s cubic-bezier(.02, .01, .47, 1);
 
@@ -75,9 +76,25 @@
     }
 
     .card__upper {
+      // This ensures that the img has the specified ratio. `.card__upper` mostly consists of
+      // the pseudo-element which sets the correct size, then the img appears on-top.
+      $ratio: (564.0 / 950.0);
+      position: relative;
+
       img {
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
+        object-fit: cover;  // just in case our ratio is wrong
         vertical-align: top;
+        position: absolute;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        padding-top: $ratio * 100%;
       }
     }
 

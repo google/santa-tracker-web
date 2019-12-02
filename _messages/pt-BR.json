@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Toque"
 	},
+	"copied": {
+		"message": "Copiado!"
+	},
 	"copy-me": {
 		"message": "Copie este link para compartilhar sua mensagem"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Descubra a Aldeia do Papai Noel"
 	},
+	"familyguide_accordion_title": {
+		"message": "Comemore durante todo o mês"
+	},
+	"familyguide_body": {
+		"message": "A vila do Papai Noel é o lugar perfeito para as famílias comemorarem a época natalina. Você encontrará seus personagens preferidos reunidos e atividades divertidas, educativas e interativas para todas as idades."
+	},
+	"familyguide_card_01_body": {
+		"message": "Use os conceitos básicos sobre programação para guiar o elfo pela floresta e, assim, encontrar presentes perdidos."
+	},
+	"familyguide_card_02_body": {
+		"message": "Programe seu próprio floco de neve para criar seu cartão de natal. Para isso, basta escolher um dos diversos planos de fundo e compartilhar com seus amigos."
+	},
+	"familyguide_card_03_body": {
+		"message": "Os elfos voltaram a praticar programação enquanto aprimoram as habilidades de dança. Use os códigos para criar coreografias para as danças dos elfos, mas lembre-se: quanto melhor você ficar, mais difíceis serão as danças."
+	},
+	"familyguide_card_04_body": {
+		"message": "Enquanto as pessoas do Canadá usam gorro, as da Austrália usam roupa de banho. Clique nos marcadores no mapa para conhecer as tradições de fim de ano ao redor do mundo."
+	},
+	"familyguide_card_05_body": {
+		"message": "De Feliz Ano Novo em Élfico até Дед Мороз, aprenda os jargões sobre esta época do ano de todos os lugares do mundo."
+	},
+	"familyguide_card_06_body": {
+		"message": "O Papai Noel tem muitos lugares para visitar. Corresponda a forma dos países no mapa neste jogo geográfico."
+	},
+	"familyguide_card_07_body": {
+		"message": "Você sabe qual é sua história de natal? Mostre suas habilidades neste teste de nove perguntas que, com certeza, testará seus conhecimentos gerais."
+	},
+	"familyguide_card_07_title": {
+		"message": "Teste sobre tradições de fim de ano"
+	},
+	"familyguide_card_08_body": {
+		"message": "Bateu a fome? Descubra iguarias de todo o mundo e conheça as comidas típicas dos países próximos ou distantes do seu."
+	},
+	"familyguide_card_09_body": {
+		"message": "Toque no pacote de criação do Papai Noel. Cada ferramenta, pincel e adesivo tem um som personalizado, o que torna a experiência audiovisual."
+	},
+	"familyguide_card_10_body": {
+		"message": "Curta e jogue no seu próprio sandbox de inverno. Use os materiais 3D para criar casas, brinquedos, bonecos de neve, florestas ou qualquer outra coisa que você imaginar."
+	},
 	"familyguide_card_11_body": {
 		"message": "Crie seu próprio duende da cabeça aos pés. Não se esqueça de deixá-lo duentástico para que ele arrase nas festas natalinas que acontecem no Polo Norte."
+	},
+	"familyguide_card_12_body": {
+		"message": "O Papai Noel está na barbearia e precisa da sua ajuda para mudar o visual. Pinte a barba dele, seque o cabelo, adicione decorações ou raspe tudo com máquinas de cortar cabelo."
+	},
+	"familyguide_card_13_body": {
+		"message": "Junte-se aos elfos, às renas, ao Papai Noel e à Mamãe Noel em uma visita ao museu do espírito natalino."
+	},
+	"familyguide_card_14_body": {
+		"message": "Há muitos elfos, renas e Pegmans para transportar pelo Polo Norte. Veja como eles viajam de um lugar para o outro."
+	},
+	"familyguide_card_15_body": {
+		"message": "O Papai Noel e as renas já estão preparados para decolar, mas antes disso precisam de uma ajudinha dos elfos programadores."
+	},
+	"familyguide_card_16_body": {
+		"message": "Nossos amigos da vila se juntam à Ollie, a baleia narval, para um dia embaixo d'água enquanto organizam a primeira comemoração anual das algas."
+	},
+	"familyguide_card_age": {
+		"message": "Todas as idades"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Depois que todo o panetone acabar e os presentes estiverem entregues, veja como se divertir em família com recursos do Google que ficam disponíveis durante todo o ano."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Todos nós queremos um planeta saudável no presente e no futuro. Aprenda dicas simples do Google para ajudar as pessoas e o planeta a se desenvolverem juntos."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Seu plano, seu planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Para aproveitarem ao máximo a Internet, as crianças precisam estar preparadas para tomar decisões inteligentes. O Seja Incrível na Internet ensina às crianças os conceitos básicos de segurança e cidadania digital para que elas possam desbravar o mundo on-line com confiança."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Seja Incrível na Internet"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Mais do Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Os elfos estão sempre aprimorando as habilidades de programação deles. Curta jogos que vão ensinar os princípios básicos a você. Todos podem se aventurar na programação."
+	},
+	"familyguide_group_01_title": {
+		"message": "Aprenda a programar com os elfos do Papai Noel"
+	},
+	"familyguide_group_02_body": {
+		"message": "O Natal pode ser diferente dependendo do lugar. Saiba como o mundo comemora a época natalina na galeria de jogos e testes."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descubra como é o Natal ao redor do mundo."
+	},
+	"familyguide_group_03_body": {
+		"message": "A vila do Papai Noel prospera com a mágica de fazer acontecer. Conheça jogos de desenhar, colorir, construir e criar com todos os seus personagens favoritos."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inspire-se e crie algo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Prepare a pipoca e se aconchegue em um cobertor quentinho. Você pode assistir toda a turma nas telonas do cinema da vila ou ler histórias interativas enquanto Ollie, a baleia narval, comemora a época natalina no mar."
+	},
+	"familyguide_group_04_title": {
+		"message": "Reúnam-se para passar tempo com a família"
+	},
+	"familyguide_nav_link_01": {
+		"message": "programar"
+	},
+	"familyguide_nav_link_02": {
+		"message": "comemorar"
+	},
+	"familyguide_nav_link_03": {
+		"message": "criar"
+	},
+	"familyguide_nav_link_04": {
+		"message": "momento em família"
+	},
+	"familyguide_nav_link_05": {
+		"message": "dicas e truques"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mais"
+	},
+	"familyguide_secondary_body": {
+		"message": "No dia 24 de dezembro, a vila do Papai Noel se transforma em uma experiência incrível em que você pode seguir o bom velhinho e as renas dele enquanto eles entregam presentes para as crianças ao redor do mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Acompanhe o trajeto no site ou no app para Android do Siga o Papai Noel"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psiu, Você sabia que a jornada do Papai Noel dura 25 horas? Ele faz a primeira parada logo após às 22h no horário local da parte leste da Rússia. Às 5h ele passa em Nova York e às 11h em Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Acompanhe o Papai Noel no grande dia"
+	},
+	"familyguide_tips_body": {
+		"message": "Aproveite ainda mais a mágica do Siga o Papai Noel nesta época do ano com todos os seus produtos favoritos do Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Peça que o Google Assistente envie atualizações divertidas diariamente sobre Dimplesticks, o elfo. Veja também piadas e curiosidades natalinas e veja o que acontece quando você chama o Papai Noel."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, quais são as novidades no Polo Norte?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Faça o download do app Siga o Papai Noel para Android na Play Store. Aproveite uma cena exclusiva na vila com jogos que você só encontra no app."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "App para Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Tenha o trajeto do Papai Noel na sua mão com a integração com Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Procure por \"Papai Noel\" no Google para ver o bom velhinho em 3D. Na maioria dos iPhones e em alguns dispositivos Android avançados, você pode ver o Papai Noel acenando para sua câmera em RA."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Traga o Papai Noel para sua sala de estar"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Crie um clima natalino nas suas mensagens. Para encontrar GIFs e adesivos do Papai Noel, procure por “Santa Tracker gifs” (apenas em inglês) na página do Tenor do Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Dê GIFs de presente"
+	},
+	"familyguide_tips_title": {
+		"message": "Dicas e truques"
+	},
+	"familyguide_title": {
+		"message": "Diversão de fim de ano para toda a família"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Fábrica de presentes maluca"
 	},
+	"scene_holidayfoods": {
+		"message": "Comidas típicas de natal de todo o mundo no Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Caverna de gelo"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Teste do mapa"
+	},
+	"scene_ollieundersea": {
+		"message": "As aventuras da baleia Ollie"
 	},
 	"scene_playground": {
 		"message": "Parquinho do Polo Norte"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Tradições de fim de ano"
+	},
+	"scene_traditionsquiz": {
+		"message": "Teste sobre tradições de fim de ano"
 	},
 	"scene_translations": {
 		"message": "Traduções"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Fica frio aí!"
+	},
+	"snowball_iced_count": {
+		"message": "Congelados"
 	},
 	"snowball_remaining": {
 		"message": "Faltam {{remaining}} de {{total}} duendes"

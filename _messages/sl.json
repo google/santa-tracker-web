@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Dotik"
 	},
+	"copied": {
+		"message": "Kopirano."
+	},
 	"copy-me": {
 		"message": "Če želite svoje sporočilo deliti z drugimi, kopirajte to povezavo"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Razišči Božičkovo vas"
 	},
+	"familyguide_accordion_title": {
+		"message": "Praznujte cel mesec"
+	},
+	"familyguide_body": {
+		"message": "Božičkova vas je popolno mesto za preživljanje praznikov za družine. Tu so vsi vaši najljubši liki in zabavne, poučne in interaktivne dejavnosti za vse starosti."
+	},
+	"familyguide_card_01_body": {
+		"message": "Z osnovami kodiranja palčka vodite skozi gozd in poiščite izgubljena darila."
+	},
+	"familyguide_card_02_body": {
+		"message": "Programirajte snežinko in ustvarite svojo voščilnico. Izberite ozadje in voščilnico delite s prijatelji."
+	},
+	"familyguide_card_03_body": {
+		"message": "Palčki so se spet lotili kodiranja, poleg tega pa vam pokažejo še svoje plesne korake. S kodiranjem ustvarite plesno koreografijo za palčke, a previdno. Medtem ko izboljšujete svoje veščine, koraki postajajo vse zahtevnejši."
+	},
+	"familyguide_card_04_body": {
+		"message": "V Kanadi si nadenejo kape, v Avstraliji pa kopalke – kliknite žebljičke na zemljevidu in se naučite nekaj novega o tradicionalnih prazničnih običajih po svetu."
+	},
+	"familyguide_card_05_body": {
+		"message": "Od voščila »srečno novo leto« v jeziku palčkov do ruskega »Дед Мороз« – naučite se prazničnih izrazov z vsega sveta."
+	},
+	"familyguide_card_06_body": {
+		"message": "Božiček mora obiskati veliko domov. V tej igri z geografsko tematiko obris države povežite z zemljevidom."
+	},
+	"familyguide_card_07_body": {
+		"message": "Kako dobro poznate praznične običaje? Izkažite se v kvizu z devetimi vprašanji in preizkusite svoje znanje."
+	},
+	"familyguide_card_07_title": {
+		"message": "Kviz o prazničnih običajih"
+	},
+	"familyguide_card_08_body": {
+		"message": "Ste lačni? Odkrijte specialitete z vsega sveta in raziščite jedi iz bližnjih in daljnih dežel."
+	},
+	"familyguide_card_09_body": {
+		"message": "Pokukajte v Božičkovo zbirko ustvarjalnih orodij. Vsako orodje, čopič in nalepka ima poseben zvok, kar zagotavlja zvočno in vizualno izkušnjo."
+	},
+	"familyguide_card_10_body": {
+		"message": "Ustvarjajte in se igrajte v svojem zimskem peskovniku. S 3D-materiali lahko zgradite vse, kar vam srce poželi: hiše, igrače, snežake, gozdove ali karkoli drugega."
+	},
 	"familyguide_card_11_body": {
 		"message": "Ustvarite povsem svojega palčka in poskrbite za njegov palčkastičen videz na vseh prazničnih dogodkih, ki se bodo odvijali na Severnem tečaju."
+	},
+	"familyguide_card_12_body": {
+		"message": "Božiček je pri brivcu, saj želi osvežiti svoj videz. Pobarvajte mu brado, s sušilnikom posušite lase, dodajte nekaj okraskov ali mu s strižnikom obrijte lase in brado."
+	},
+	"familyguide_card_13_body": {
+		"message": "Skupaj s palčki, jeleni, Božičkom in gospo Božiček obiščite Muzej božičnega vzdušja."
+	},
+	"familyguide_card_14_body": {
+		"message": "Po Severnem tečaju se podi veliko palčkov, jelenov in možicev. Oglejte si, kako se premikajo."
+	},
+	"familyguide_card_15_body": {
+		"message": "Božiček in jeleni so pripravljeni, vendar pred vzletom potrebujejo malce pomoči kodirnih palčkov."
+	},
+	"familyguide_card_16_body": {
+		"message": "Naši prijatelji iz Božičkove vasi so obiskali enoroga Ollieja v njegovem podvodnem svetu. Skupaj bodo prvič priredili proslavo z okraševanjem halug."
+	},
+	"familyguide_card_age": {
+		"message": "Vse starosti"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Ko pojeste vso potico in odvijete vsa darila, odkrijte Googlove vire, s katerimi se lahko družina zabava celo leto."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Vsi si želimo, da bi bil naš planet čist in zdrav tako danes kot tudi v prihodnosti. Google ima za vas nekaj preprostih nasvetov, da bomo lahko ljudje in planet obstajali v sožitju."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Vaš načrt, vaš planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Da bi lahko otroci kar najbolje izkoristili internet, morajo znati sprejemati pametne odločitve. V storitvi Be Internet Awesome se otroci naučijo osnov digitalnega državljanstva in varnosti, da lahko samozavestno raziskujejo splet."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Zažigaj v spletu"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Več iz Googla"
+	},
+	"familyguide_group_01_body": {
+		"message": "Palčki nenehno izpopolnjujejo svoje veščine kodiranja. Raziščite igre, s katerimi se boste naučili osnov. Pri kodiranju se lahko preizkusi prav vsak."
+	},
+	"familyguide_group_01_title": {
+		"message": "Naučite se kodirati z Božičkovimi palčki"
+	},
+	"familyguide_group_02_body": {
+		"message": "Praznike lahko v posameznih državah preživljajo zelo različno. Z igrami in kvizi preverite, kako praznujejo po svetu."
+	},
+	"familyguide_group_02_title": {
+		"message": "Odkrijte praznične običaje z vsega sveta"
+	},
+	"familyguide_group_03_body": {
+		"message": "V Božičkovi vasi se godijo čudeži ustvarjanja. Odkrijte igre, kjer lahko rišete, slikate, gradite in ustvarjate s svojimi najljubšimi liki."
+	},
+	"familyguide_group_03_title": {
+		"message": "Poiščite navdih in začnite ustvarjati"
+	},
+	"familyguide_group_04_body": {
+		"message": "Vzemite pokovko in se zavijte v mehko odejo. Spremljajte enoroga Ollieja, ki praznuje božične praznike v podvodnem svetu. V kinodvorani v Božičkovi vasi si lahko na velikem zaslonu ogledate dogodivščine celotne druščine ali preberete interaktivno knjigo."
+	},
+	"familyguide_group_04_title": {
+		"message": "Preživite čas z družino"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kodiranje"
+	},
+	"familyguide_nav_link_02": {
+		"message": "proslavljanje"
+	},
+	"familyguide_nav_link_03": {
+		"message": "ustvarjanje"
+	},
+	"familyguide_nav_link_04": {
+		"message": "čas za družino"
+	},
+	"familyguide_nav_link_05": {
+		"message": "nasveti in namigi"
+	},
+	"familyguide_nav_link_06": {
+		"message": "več"
+	},
+	"familyguide_secondary_body": {
+		"message": "24. decembra se Božičkova vas spremeni v izkušnjo spremljanja, kjer lahko sledite Božičku in njegovim jelenom med dostavljanjem daril za otroke po vsem svetu."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Spremljajte Božička na spletnem mestu ali v aplikaciji Spremljanje Božičkove poti za Android"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst … Ali ste vedeli, da Božiček potuje kar 25 ur? Prvič se ustavi takoj po 22:00 po lokalnem času v daljni vzhodni Rusiji, ko je v New Yorku ura 5:00, v Parizu pa 11:00."
+	},
+	"familyguide_secondary_title": {
+		"message": "Spremljajte Božičkovo potovanje na veliki dan"
+	},
+	"familyguide_tips_body": {
+		"message": "Naj vam letos Spremljanje Božičkove poti prinese še več čarobnosti v vseh vaših najljubših Googlovih izdelkih."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pomočnika Google lahko vsak dan povprašate o novostih, ki vam jih sporoči palček Jamček. Oglejte si tudi božične šale in božična dejstva ter preverite, kaj se zgodi, ko pokličete Božička."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "»Hey Google, what’s new at the North Pole?« (Hej, Google, kaj je novega na Severnem tečaju?)"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Prenesite aplikacijo Spremljanje Božičkove poti za Android v Trgovini Play. Videli boste prizor iz Božičkove vasi z igrami, ki so na voljo samo v aplikaciji."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Aplikacija za Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Z integracijo sistema Android Wear lahko Božičkovo pot spremljate kar na zapestju."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "V Googlu uporabite iskalno poizvedbo »Santa« in spoznajte Božička v načinu 3D. V večini naprav iPhone in v nekaterih naprednih napravah Android si lahko v načinu razširjene resničnosti ogledate, kako vam Božiček maha skozi fotoaparat."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Naj vas Božiček obišče v dnevni sobi"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Svoja sporočila popestrite s prazničnim vzdušjem. Z iskalno poizvedbo »Santa Tracker gifs« (samo v angleščini) na Googlovi strani v storitvi Tenor poiščite Božičkove slike GIF in nalepke."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Slike GIF so odlično darilo"
+	},
+	"familyguide_tips_title": {
+		"message": "Nasveti in namigi"
+	},
+	"familyguide_title": {
+		"message": "Praznična zabava za vso družino"
 	},
 	"fi_country_name": {
 		"message": "Finska"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Kaos v tovarni daril"
 	},
+	"scene_holidayfoods": {
+		"message": "Svetovne praznične jedi v storitvi Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Ledena jama"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Zemljevidni kviz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie v podvodnem svetu"
 	},
 	"scene_playground": {
 		"message": "Igrišče Severni pol"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Praznični običaji"
+	},
+	"scene_traditionsquiz": {
+		"message": "Kviz o prazničnih običajih"
 	},
 	"scene_translations": {
 		"message": "Prevodi"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Zadetek!"
+	},
+	"snowball_iced_count": {
+		"message": "Zadetek"
 	},
 	"snowball_remaining": {
 		"message": "Še {{remaining}} od toliko palčkov: {{total}}"

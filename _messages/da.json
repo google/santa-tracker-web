@@ -491,6 +491,9 @@
 	"controller_touch": {
 		"message": "Tryk"
 	},
+	"copied": {
+		"message": "Kopieret!"
+	},
 	"copy-me": {
 		"message": "Kopiér dette link for at dele din besked"
 	},
@@ -653,14 +656,176 @@
 	"explore-village": {
 		"message": "Udforsk julemandens landsby"
 	},
+	"familyguide_accordion_title": {
+		"message": "Hold fest i hele december"
+	},
+	"familyguide_body": {
+		"message": "Julemandens landsby er det perfekte sted for familiehygge i julen. Du finder alle dine yndlingsfigurer og masser af sjove, oplysende og interaktive aktiviteter for alle aldre."
+	},
+	"familyguide_card_01_body": {
+		"message": "Brug grundlæggende kodning til at hjælpe nissen gennem skoven og finde tabte gaver."
+	},
+	"familyguide_card_02_body": {
+		"message": "Lav selv et julekort ved at programmere dit eget snefnug – bare vælg en af de mange baggrunde, og del kortet med dine venner."
+	},
+	"familyguide_card_03_body": {
+		"message": "Nisserne er igen i gang med at kode, og denne gang danser de også. Brug kode til at koreografere nissernes dans – mens pas på, efterhånden som du bliver bedre, bliver dansene sværere!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Du kan tage en lang hue på i Canada eller gå i badebukser i Australien – klik på markørerne på kortet for at lære om juletraditioner rundt omkring i verden."
+	},
+	"familyguide_card_05_body": {
+		"message": "Frag \"godt nytår\" på nissernes sprog til Дед Мороз – lær udtryk til årstiden fra hele verden."
+	},
+	"familyguide_card_06_body": {
+		"message": "Julemanden har mange steder, han skal besøge. Find det rette sted til omridset af et land på kortet i dette geografispil."
+	},
+	"familyguide_card_07_body": {
+		"message": "Kender du historien om helligdagene? Vis dine evner i en quiz med ni spørgsmål, som helt sikkert vil teste din paratviden."
+	},
+	"familyguide_card_07_title": {
+		"message": "Quiz om juletraditioner"
+	},
+	"familyguide_card_08_body": {
+		"message": "Er du sulten? Se delikatesser fra hele verden, og få mere at vide om mad fra mange forskellige lande."
+	},
+	"familyguide_card_09_body": {
+		"message": "Kig ind i julemandens eget kunstneriske værksted. Hvert stykke værktøj, hver pensel og hver mærkat har en tilpasset lyd, der gør dette til en oplevelse både for øjnene og ørerne."
+	},
+	"familyguide_card_10_body": {
+		"message": "Du kan eksperimentere og lege i din egen vinterlige sandkasse. Brug 3D-materialer til at bygge alt: Huse, legetøj, snemænd og -koner, skove eller alt muligt andet, du kan finde på."
+	},
 	"familyguide_card_11_body": {
 		"message": "Byg din egen nisse fra top til tå, og sørg for, at den ser fantastisk ud til de mange julefester på Nordpolen."
+	},
+	"familyguide_card_12_body": {
+		"message": "Julemanden er hos barberen, og han skal have hjælp til at få en helt ny stil. Farv hans skæg, tør hans hår med føntørreren, brug dekorationerne, eller barbér det hele af med hårklipperen."
+	},
+	"familyguide_card_13_body": {
+		"message": "Tag en tur med nisserne, julemanden og hans kone på Julemuseet!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Der er mange nisser, rensdyr og pegmen, som skal hjælpes rundt på Nordpolen. Se, hvordan de finder vej fra sted til sted."
+	},
+	"familyguide_card_15_body": {
+		"message": "Julemanden og hans rensdyr er klar til at drage afsted, men de har brug for lidt hjælp fra kodenisserne, før de flyver."
+	},
+	"familyguide_card_16_body": {
+		"message": "Vores venner fra landsbyen tager med narhvalen Ollie ned under havet for en dag, når de holder lysfest i tangen for første gang."
+	},
+	"familyguide_card_age": {
+		"message": "Alle aldre"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Når gløggen er drukket, og gaverne er pakket op, er der familiesjov til hele året med Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Vi vil allesammen gerne have en sund planet nu og i fremtiden. Google giver dig nogle simple tips til, hvordan vi mennesker og planeten kan leve godt sammen."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Din plan, din planet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Børn skal lære at tage gode beslutninger, så de kan få mest muligt ud af internettet. Be Internet Awesome lærer børnene de grundlæggende ting om digitalt medborgerskab og sikkerhed, så de kan gå på opdagelse i onlineverdenen på en god og tryg måde."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Bliv en internetekspert"
 	},
+	"familyguide_doublecard_title": {
+		"message": "Mere fra Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Nisserne arbejder altid på at blive bedre til at kode. Prøv nogle spil, der lærer dig de grundlæggende ting. Alle kan prøve at kode!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Lær at kode med julemandens nisser"
+	},
+	"familyguide_group_02_body": {
+		"message": "Juledagene er ret forskellige, alt efter hvor i verden man bor. Se, hvordan andre fejrer jul med masser af spil og quizzer."
+	},
+	"familyguide_group_02_title": {
+		"message": "Få mere at vide om juletraditioner i hele verden"
+	},
+	"familyguide_group_03_body": {
+		"message": "I Julemandens landsby elsker alle magien ved at skabe. Prøv spillene, hvor du kan tegne, male, bygge og skabe sammen med dine yndlingsfigurer."
+	},
+	"familyguide_group_03_title": {
+		"message": "Lad dig inspirere til at skabe noget"
+	},
+	"familyguide_group_04_body": {
+		"message": "Sæt dig godt til rette med popcorn og et tæppe. Du kan se hele slænget på det store lærred i landsbyens biograf, eller du kan læse en interaktiv eventyrbog om narhvalen Ollie, der holder jul under havet."
+	},
+	"familyguide_group_04_title": {
+		"message": "Hyg dig sammen med familien"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kode"
+	},
+	"familyguide_nav_link_02": {
+		"message": "fejring"
+	},
+	"familyguide_nav_link_03": {
+		"message": "skab"
+	},
+	"familyguide_nav_link_04": {
+		"message": "familietid"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tips og tricks"
+	},
+	"familyguide_nav_link_06": {
+		"message": "mere"
+	},
+	"familyguide_secondary_body": {
+		"message": "Den 24. december bliver julemandens landsby forvandlet til en sporingsoplevelse, hvor du kan følge julemanden og hans rensdyr, når de tager rundt med gaver til børn i hele verden."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Kig med på Følg julemanden-websitet eller i Android-appen"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Vidste du, at julemandens rejse varer 25 timer?! Han har sit første stop lige efter kl. 22 lokal tid i det allerøstligste Rusland, når klokken er 5 om morgenen i New York og 11 om formiddagen i Paris."
+	},
+	"familyguide_secondary_title": {
+		"message": "Følg julemanden på den store dag"
+	},
+	"familyguide_tips_body": {
+		"message": "Mærk magien i Følg julemanden denne jul med alle dine yndlingsprodukter fra Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Spørg Google Assistent hver dag for at få sjove opdateringer fra nissen Dimplesticks. Du kan også se julevittigheder, fakta om julen og se, hvad der sker, når du kalder på julemanden."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, hvad sker der på Nordpolen?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Download appen Følg julemanden til Android i Play Butik. Der er en eksklusiv landsbyscene med spil, som du kun finder i appen."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-app"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Følg julemanden på dit ur med Android Wear-integration."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Søg efter \"Santa\" på Google for at se julemanden i 3D. På de fleste iPhones og nogle avancerede Android-enheder kan du se ham i AR, hvor han vinker ud gennem dit kamera!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Inviter julemanden ind i din stue"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Gør dine beskeder mere julede. Find giffer og mærkater med juletema ved at søge efter \"Santa Tracker gifs\" (kun på engelsk) på Googles Tenor-side."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Giv en gif"
+	},
+	"familyguide_tips_title": {
+		"message": "Tips og tricks"
+	},
+	"familyguide_title": {
+		"message": "Julehygge for hele familien"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1472,6 +1637,9 @@
 	"scene_havoc": {
 		"message": "Gaveræs"
 	},
+	"scene_holidayfoods": {
+		"message": "Julemad fra hele verden med Google Earth"
+	},
 	"scene_icecave": {
 		"message": "Ishule"
 	},
@@ -1492,6 +1660,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kortquiz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie under havet"
 	},
 	"scene_playground": {
 		"message": "Legeplads på Nordpolen"
@@ -1552,6 +1723,9 @@
 	},
 	"scene_traditions": {
 		"message": "Juletraditioner"
+	},
+	"scene_traditionsquiz": {
+		"message": "Quiz om juletraditioner"
 	},
 	"scene_translations": {
 		"message": "Oversættelser"
@@ -1681,6 +1855,9 @@
 	},
 	"snowball_iced": {
 		"message": "Lagt på is!"
+	},
+	"snowball_iced_count": {
+		"message": "Kølet ned"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} af {{total}} nisser tilbage"
