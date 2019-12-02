@@ -37,6 +37,7 @@ export const scenesWithColor = {
   speedsketch: '#32a658',
   traditions: '#93dae4',
   translations: '#32a658',
+  windtunnel: '#7f54fa',
   wrapbattle: '#2a57ad',
   '@penguinswim': '#079aad',
   '@rocketsleigh': '#9d87f5',
