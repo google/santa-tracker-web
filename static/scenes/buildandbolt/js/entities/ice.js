@@ -16,6 +16,11 @@ app.Ice = class Ice extends app.Entity {
     this.elem.setAttribute('class', 'ice')
   }
 
+  onInit(config) {
+    super.onInit(config)
+    this.config.checkCell = true
+  }
+
   render() {
     super.render()
     this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`

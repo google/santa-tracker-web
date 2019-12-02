@@ -76,7 +76,23 @@ app.Game = class Game {
           this.entities.push(app.Wall.pop(this, entity.config))
           break;
         case 'fence':
-          this.entities.push(app.Fence.pop(this, entity.config))
+          // Create an entity for each cell
+          const { cells } = entity.config
+          // rows
+          for (let i = 0; i < cells.length; i++) {
+            // columns in row
+            for (let j = 0; j < cells[i].length; j++) {
+              const config = {
+                ...cells[i][j], // need that for the Entity onInit
+                cells,
+                row: i,
+                column: j,
+                x: entity.config.x + j, // need that for the Entity onInit
+                y: entity.config.y + i
+              }
+              this.entities.push(app.Fence.pop(this, config))
+            }
+          }
           break;
         case 'table':
           this.entities.push(app.Table.pop(this, entity.config))

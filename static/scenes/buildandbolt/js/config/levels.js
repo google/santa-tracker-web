@@ -77,7 +77,7 @@ Levels = [
       {
         type: 'wall',
         config: {
-          height: 5,
+          height: 3,
           width: 2,
           x: 10,
           y: 1,
@@ -86,40 +86,40 @@ Levels = [
       {
         type: 'fence',
         config: {
-          x: 25,
-          y: 14,
-          sides: {
-            left: false,
-            right: true,
-            top: true,
-            bottom: true
-          }
-        }
-      },
-      {
-        type: 'fence',
-        config: {
-          x: 24,
-          y: 14,
-          sides: {
-            left: false,
-            right: false,
-            top: true,
-            bottom: true
-          }
-        }
-      },
-      {
-        type: 'fence',
-        config: {
-          x: 26,
-          y: 14,
-          sides: {
-            left: false,
-            right: false,
-            top: true,
-            bottom: false
-          }
+          x: 20,
+          y: 1,
+          cells: [
+            // first line
+            [{
+              left: true,
+              top: true,
+            },
+            {
+              top: true,
+            },{
+              top: true,
+            }],
+            // second line
+            [{
+              left: true,
+              // right: true,
+            },
+            {
+              left: true,
+              top: true,
+            },{
+              top: true,
+              right: true,
+            }],
+            [{
+              left: true,
+              bottom: true,
+            },
+            {
+              bottom: true,
+              right: true,
+            }],
+          ],
         }
       },
       {
@@ -135,7 +135,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 15,
+          x: 13,
           y: 1,
           tableType: 2,
           isSideView: true,

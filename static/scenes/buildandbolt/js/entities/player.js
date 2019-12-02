@@ -211,6 +211,7 @@ app.Player = class Player {
       this.velocity.x = 0
       this.velocity.y = 0
     }
+
     // move player
     this.game.board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
@@ -245,7 +246,7 @@ app.Player = class Player {
           if (entity.blockingPosition.x !== this.position.x) {
             this.blockingPosition.x = entity.blockingPosition.x
           }
-          if (entity.blockingPosition.y !== this.position.y) {
+          if (entity.blockingPosition.y !== this.position.y) { // Realized that the player position Y at the very top is 0.01 instead of 0
             this.blockingPosition.y = entity.blockingPosition.y
           }
         }

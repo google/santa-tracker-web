@@ -110,6 +110,8 @@ Constants = {
     UNIT_SIZE: 50 // height and width of one grid unit
   },
 
+  WALL_EXTRA_SPACE: 0.15,
+
   FENCE_THICKNESS: 2,
 
   TABLE_HEIGHT: 2,
