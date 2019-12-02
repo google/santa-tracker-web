@@ -1101,7 +1101,7 @@
   },
   "familyguide_tips_tip01_body": {
     "description": "Description of the first tip. This appears in an information page. 'Dimplesticks' is the name of an Elf, and it will not be translated (transliteration is fine).",
-    "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
+    "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf."
   },
   "familyguide_tips_tip02_title": {
     "description": "Title of the second tip. This appears in an information page.",
@@ -1145,7 +1145,7 @@
   },
   "familyguide_assistant_body_02": {
     "description": "Body text describing a child's use of the Google Assistant with a Family Link account. 'Family Link' is translated, please see the related link in your local language.",
-    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
+    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;</ph>Family Link<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "familyguide_assistant_card01_title": {
     "description": "Title of a card in an information page that tells users they can talk to Santa Claus.",
