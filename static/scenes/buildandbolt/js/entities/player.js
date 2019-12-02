@@ -11,6 +11,7 @@ app.Player = class Player {
     this.controls = controls
     this.score = 0
     this.toyParts = []
+    this.id = id;
 
     this.elem = document.querySelector(`.player--${id}`)
     this.elem.classList.add('is-active')
@@ -48,6 +49,9 @@ app.Player = class Player {
         this.animations['death'].container.classList.remove('is-active')
         this.innerElem.classList.remove('is-dead')
 
+        window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+
         this.resetPosition()
 
         this.game.board.updateEntityPosition(this,
@@ -72,6 +76,7 @@ app.Player = class Player {
     this.clearToyParts()
     this.platform = null
     this.onIce = false
+    this.playingIceSound = false
 
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.REST.start
     this.currentAnimationState = {
@@ -296,6 +301,15 @@ app.Player = class Player {
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]
     if (ices && ices.length) {
       this.onIce = true
+      if (!this.playingIceSound) {
+        this.playingIceSound = true;
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+      }
+    }else {
+      if (this.playingIceSound) {
+        this.playingIceSound = false;
+        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      }
     }
   }
 
@@ -309,6 +323,7 @@ app.Player = class Player {
       }
 
       this.elem.classList.add(`toypart--${toyPart}`)
+      window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
   }
 
@@ -316,7 +331,6 @@ app.Player = class Player {
     for (const toyPart of this.toyParts) {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
-
     this.toyParts = []
   }
 
@@ -368,6 +382,7 @@ app.Player = class Player {
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
+            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
         }
         break
       case Constants.PLAYER_STATES.REST:
@@ -379,6 +394,7 @@ app.Player = class Player {
             this.animationQueue.push({
               animation: rest
             })
+            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
         }
         break
       case Constants.PLAYER_STATES.PICK_UP:
@@ -463,5 +479,6 @@ app.Player = class Player {
 
   registerWin() {
     this.score++
+    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }
 }
