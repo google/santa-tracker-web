@@ -108,35 +108,35 @@
     "message": "Bhutan"
   },
   "buildandbolt-build-car-multiple" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> cars!"
   },
   "buildandbolt-build-car-single" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 car!"
   },
   "buildandbolt-build-robot-multiple" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> robots!"
   },
   "buildandbolt-build-robot-single" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 robot!"
   },
   "buildandbolt-build-teddybear-multiple" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
   },
   "buildandbolt-build-teddybear-single" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 teddy bear!"
   },
   "buildandbolt-build-rocket-multiple" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> rockets!"
   },
   "buildandbolt-build-rocket-single" : {
-    "description": "Message telling the player the quantity and type toy they need to make.",
+    "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 rocket!"
   },
   "buildandbolt-instructions-label": {
