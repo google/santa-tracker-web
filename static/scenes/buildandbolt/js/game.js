@@ -227,21 +227,21 @@ app.Game = class Game {
   }
 
   /**
-   * Called when global pause button is clieked.
+   * Called when global pause button is clicked.
    */
   pause() {
     this.freezeGame()
   }
 
   /**
-   * Called when resume button is clieked.
+   * Called when resume button is clicked.
    */
   resume() {
     this.unfreezeGame()
   }
 
   /**
-   * Called when global restart button is clieked.
+   * Called when global restart button is clicked.
    */
   restart() {
     this.freezeGame()
