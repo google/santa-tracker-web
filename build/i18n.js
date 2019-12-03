@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-
+const Entities = require('html-entities').AllHtmlEntities;
+ 
+const entities = new Entities();
 const emptyFunc = () => {};
 const fallback = require('../en_src_messages.json');
 
@@ -34,11 +36,12 @@ function lookup(lang, callback=emptyFunc) {
       const r = o['raw'];
       return r.replace(/<ph.*?>(.*?)<\/ph>/g, (match, part) => {
         // remove <ex></ex> if we find it
-        part = part.replace(/<ex>.*?<\/ex>/g);
+        part = part.replace(/<ex>.*?<\/ex>/g, '');
         if (!part) {
           throw new Error(`got invalid part for raw string: ${r}`);
         }
-        return part;
+
+        return entities.decode(part);
       });
     }
 
