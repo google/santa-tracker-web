@@ -166,29 +166,9 @@ app.Game = class Game {
     if (!this.levelWinner) {
       this.levelWinner = player
       player.registerWin()
-      this.isPlaying = false
 
-      // Display level winner screen
-
-      this.reset()
-
-      this.level++
-      if (this.level < Levels.length) {
-        this.levelUp.show(this.level + 1, this.startLevel.bind(this))
-      } else {
-        // end game. display game winner.
-        this.gameoverDialog.show()
-        window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-        if (this.multiplayer) {
-          if (this.players[0].score > this.players[1].score) {
-            console.log('player 1 won')
-          } else if (this.players[0].score < this.players[1].score) {
-            console.log('player 2 won')
-          } else {
-            console.log('tie')
-          }
-        }
-      }
+      // Todo: Display level winner screen
+      this.goToNextLevel()
     }
   }
 
@@ -217,10 +197,32 @@ app.Game = class Game {
     this.entities = []
   }
 
+  goToNextLevel() {
+    this.isPlaying = false
+    this.reset()
+    this.level++
+    if (this.level < Levels.length) {
+      this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    } else {
+      // end game. display game winner.
+      this.gameoverDialog.show()
+      window.santaApp.fire('sound-trigger', 'buildandbolt_win');
+      if (this.multiplayer) {
+        if (this.players[0].score > this.players[1].score) {
+          console.log('player 1 won')
+        } else if (this.players[0].score < this.players[1].score) {
+          console.log('player 2 won')
+        } else {
+          console.log('tie')
+        }
+      }
+    }
+  }
+
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
-    console.log('gameover')
+    this.goToNextLevel()
   }
 }
