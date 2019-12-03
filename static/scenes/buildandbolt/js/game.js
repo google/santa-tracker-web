@@ -58,7 +58,7 @@ app.Game = class Game {
     this.scoreboard = new Scoreboard(this, null, Levels.length)
 
     this.isPlaying = false
-    this.lastFrame = +new Date() / 1000
+    this.lastFrame = null
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
@@ -137,25 +137,26 @@ app.Game = class Game {
   }
 
   onFrame(now) {
-    if (!this.isPlaying) {
-      this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
-      return
+    if (this.isPlaying) {
+      if (!this.lastFrame) {
+        this.lastFrame = now
+      } else {
+        // Calculate delta
+        var delta = now - this.lastFrame
+        this.lastFrame = now
+        // this.timePassed += delta
+
+        for (const entity of this.entities) {
+          entity.onFrame(delta, now)
+        }
+
+        for (const player of this.players) {
+          player.onFrame(delta, now)
+        }
+
+        this.scoreboard.onFrame(delta / 1000)
+      }
     }
-
-    // Calculate delta
-    var delta = now - this.lastFrame
-    this.lastFrame = now
-    // this.timePassed += delta
-
-    for (const entity of this.entities) {
-      entity.onFrame(delta, now)
-    }
-
-    for (const player of this.players) {
-      player.onFrame(delta, now)
-    }
-
-    this.scoreboard.onFrame(delta)
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
   }
