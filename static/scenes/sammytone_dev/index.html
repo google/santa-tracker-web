@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <style>
-body {
-  background: white;
-  touch-action: pan-y;
-}
-a.video {
-  background: #eee;
-}
-  </style>
 </head>
 <body>
-
-<ul id="listing"></ul>
-<button id="error">Cause Error</button>
+<h1>Time set:</h1>
+<input id='time' type="range" min="1545646140000" max="1545735110000" step=10000>
+<p id='timedisp'></p>
+<h1>Current stop:</h1>
+<p id='current'></p>
+<h1>Presents delivered:</h1>
+<p id=presents></p>
+<h1> Stops:</h1>
+<ul id='stops'></ul>
 
 <script type="module">
-  import * as route from '../../src/scene/route.js';
-  import api from '../../src/scene/api.js';
-  import strings from '../../src/strings/scenes.js';
-  import scenes from '../../scenes.json';
+let allstops=[]
 
-  const listing = document.getElementById('listing');
-  const keys = Object.keys(scenes).sort();
 
-  const handler = (sceneName, ev) => {
-    // TODO(samthor): We can install a global link handler for this.
-    ev.preventDefault();
-    api.go(sceneName);
-  };
+// List Element
+const ul = document.querySelector('#stops');
 
-  keys.forEach((sceneName) => {
-    const data = scenes[sceneName];
-    const li = document.createElement('li');
-    const a = document.createElement('a');
+// GitHub API URL
+const url = 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media';
 
-    a.href = route.href(sceneName ? `${sceneName}.html` : './');
-    if (sceneName in strings) {
-      a.textContent = strings[sceneName];
-    } else {
-      a.textContent = '?' + (sceneName || 'index');
+// make the API call
+fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      allstops = data.destinations;
+      //console.log(allstops)
+      // iterate over stops
+      data.destinations.map((stop) => {
+          // create the elements
+          //console.log(stop.arrival, parseInt(time.value), stop.departure);
+          let li = document.createElement('li'),
+              span = document.createElement('span'),
+              span0 = document.createElement('span');
+          span.innerText = stop.city;
+          span0.innerText = ' Arrival:'+new Date(stop.arrival);
+          // append all elements
+          li.append( span);
+          li.append(span0);
+          ul.append( li);
+        });
+    }).catch(err => {
+        console.error('Error: ', err);
+    });
+function timeset(){
+  let timev=parseInt(time.value)
+  timedisp.textContent = new Date(timev);
+  allstops.map((stop) =>{
+    //if(stop.arrival<timev){console.log(stop.city)}
+    //if(stop.departure>timev){console.log(stop.city)}
+    if(stop.arrival <= timev&& timev < stop.departure){
+      current.textContent = stop.city;
+      presents.textContent = stop.presentsDelivered;
     }
-    a.addEventListener('click', handler.bind(null, sceneName));
-
-    li.append(a);
-    a.classList.toggle('video', Boolean(data.video));
-
-    listing.appendChild(li);
-  });
-
-  api.config({scroll: true});
-
-  error.addEventListener('click', (ev) => {
-    api._send('error', 'error from scene');
-  });
-
-  api.ready(async () => {
-    // nothing specific to do here
-  });
-
+  })
+}
+time.oninput = timeset;
 </script>
 
 </body>
