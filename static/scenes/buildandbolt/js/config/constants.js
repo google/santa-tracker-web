@@ -43,7 +43,7 @@ Constants = {
   PLAYER_ICE_ACCELERATION_FACTOR: 2,
   PLAYER_ICE_DECELERATION_FACTOR: .5,
   PLAYER_BUMP_FORCE: 0.1,
-
+  PLAYER_BUMP_MAX: 0.01,
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {

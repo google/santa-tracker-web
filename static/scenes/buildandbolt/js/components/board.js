@@ -116,10 +116,11 @@ app.Board = class Board {
     const roundedY = Math.round(y)
 
     const playerCell = this.cells[roundedX][roundedY]
+    // should check in a biggest radius for detection
     for (let i = 0; i < playerCell.length; i++) {
       const entity = playerCell[i]
-      if (entity.config.type === 'player' && entity.id !== player.id) {
-        return true
+      if (entity.config.bumpPlayer && entity.id !== player.id) {
+        return entity
       }
     }
 
@@ -146,7 +147,7 @@ app.Board = class Board {
             for (let k = 0; k < cell.length; k++) {
               const entity = cell[k]
               // get only entities that trigger an action on the player cell
-              if (entity.config.checkCell && entity !== player) {
+              if (entity.config.checkCell && entity.id !== player.id) {
                 surroundingEntities.push(entity)
               }
             }

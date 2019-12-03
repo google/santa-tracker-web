@@ -23,7 +23,7 @@ app.Player = class Player {
    * Initializes player for the start of each level
    */
   init(config) {
-    this.config = { ...config, type: 'player' }
+    this.config = { ...config, type: 'player', bumpPlayer: true }
 
     this.resetPosition()
 
@@ -237,12 +237,21 @@ app.Player = class Player {
     const bump = this.game.board.checkBump(this)
 
     if (bump) {
-      const { PLAYER_BUMP_FORCE } = Constants
+      // check radius of 2 players
+      const { PLAYER_BUMP_FORCE, PLAYER_BUMP_MAX } = Constants
       const bumpX = this.position.x - this.prevPosition.x
       const bumpY = this.position.y - this.prevPosition.y
 
-      this.velocity.x = -bumpX * PLAYER_BUMP_FORCE
-      this.velocity.y = -bumpY * PLAYER_BUMP_FORCE
+      this.velocity.x = Utils.clamp(-bumpX * PLAYER_BUMP_FORCE, -PLAYER_BUMP_MAX, PLAYER_BUMP_MAX)
+      this.velocity.y = Utils.clamp(-bumpY * PLAYER_BUMP_FORCE, -PLAYER_BUMP_MAX, PLAYER_BUMP_MAX)
+
+      // player drop?
+      if (bump.config.type === 'player') {
+        const playerPushed = bump
+
+        playerPushed.velocity.x = -this.velocity.x
+        playerPushed.velocity.y = -this.velocity.y
+      }
     }
   }
 
