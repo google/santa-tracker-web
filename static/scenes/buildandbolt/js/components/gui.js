@@ -19,7 +19,7 @@ app.Gui = class Gui {
       this.playerSelectionScreen.classList.remove('is-hidden')
       this.playerSelectionOptions.forEach((element) => {
           element.addEventListener('click',
-              this.onPlayerOptionClick.bind(this))
+              this.onPlayerOptionClick.bind(this, element))
       })
     }
 
@@ -27,7 +27,7 @@ app.Gui = class Gui {
         this.onSkipControlsClick.bind(this))
   }
 
-  onPlayerOptionClick() {
+  onPlayerOptionClick(element) {
     this.playerSelectionScreen.classList.add('is-hidden')
     this.controlsScreen.classList.remove('is-hidden')
     this.playerOption = element.getAttribute('data-player-option')
