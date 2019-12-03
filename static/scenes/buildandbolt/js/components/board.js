@@ -110,6 +110,22 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
+  checkBump(player) {
+    const { x, y } = player.position
+    const roundedX = Math.round(x)
+    const roundedY = Math.round(y)
+
+    const playerCell = this.cells[roundedX][roundedY]
+    for (let i = 0; i < playerCell.length; i++) {
+      const entity = playerCell[i]
+      if (entity.config.type === 'player' && entity.id !== player.id) {
+        return true
+      }
+    }
+
+    return false
+  }
+
   getSurroundingEntities(player) {
     const { x, y } = player.position
     const roundedX = Math.round(x)

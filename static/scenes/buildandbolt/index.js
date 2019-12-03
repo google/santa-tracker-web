@@ -36,6 +36,12 @@ const initPlayerAnimation = (path, playerId, side) => {
     }
 
     animations[`player-${playerId}`][side] = anim
+
+    // Debug mode
+    const game = new Game(document.getElementById('module-buildandbolt'), 'multiplayer', animations, prepareAnimation)
+    controlsScreen.classList.add('is-hidden')
+    playerSelectionScreen.classList.add('is-hidden')
+    // end debug mode
   })
 
   api.preload.wait(p)
@@ -62,12 +68,6 @@ controlsButton.addEventListener('click', (e) => {
   const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations, prepareAnimation)
   controlsScreen.classList.add('is-hidden')
 })
-
-// Debug mode
-// const game = new Game(document.getElementById('module-buildandbolt'), 'single')
-// controlsScreen.classList.add('is-hidden')
-// playerSelectionScreen.classList.add('is-hidden')
-// end debug mode
 
 // Todo: implement these
 // api.addEventListener('pause', (ev) => game.pause());

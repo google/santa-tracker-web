@@ -127,7 +127,7 @@ app.Game = class Game {
     }else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     }
-    
+
   }
 
   onFrame(now) {
