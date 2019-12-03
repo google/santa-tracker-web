@@ -328,6 +328,36 @@ app.Player = class Player {
     }
   }
 
+  // bump the player in a specific direction with a specific force
+  bump(angle, force, reverse = 1) {
+    this.velocity.x = Math.cos(angle) * force * reverse
+    this.velocity.y = Math.sin(angle) * force * reverse
+    // check if it's pushing the player outside of the grid, if not, allow push
+    // if (this.position.x + forceX > 0 &&
+    //   this.position.x + forceX < Constants.GRID_DIMENSIONS.WIDTH - 1 &&
+    //   this.position.y + forceY > 0 &&
+    //   this.position.y + forceY < Constants.GRID_DIMENSIONS.HEIGHT - 1) {
+
+    //   // this.velocity.x = forceX
+    //   // this.velocity.y = forceY
+    // }
+    // // else {
+    //   this.velocity.x = forceX
+    //   this.velocity.y = forceY
+    //   console.log('no')
+    // // }
+  }
+
+  // get current angle of player's direction
+  getDirectionAngle() {
+    return Math.atan2(this.position.y - this.prevPosition.y, this.position.x - this.prevPosition.x);
+  }
+
+  // get current speed
+  getSpeed() {
+    return Math.abs(this.position.x - this.prevPosition.x) + Math.abs(this.position.y - this.prevPosition.y)
+  }
+
   addToyPart(toyPart) {
     if (this.toyParts.indexOf(toyPart) == -1) {
       this.toyParts.push(toyPart)
