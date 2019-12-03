@@ -1,21 +1,31 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="main.css" />
 <html>
 <head>
 </head>
 <body>
 <h1>Time set:</h1>
-<input id='time' type="range" min="1545646140000" max="1545735110000" step=10000>
+<input id='time' type="range" min="1545645600000" max="1545735120000" step=10000 value=1545645600000>
 <p id='timedisp'></p>
-<h1>Current stop:</h1>
-<p id='current'></p>
-<h1>Presents delivered:</h1>
-<p id=presents></p>
-<h1> Stops:</h1>
-<ul id='stops'></ul>
+<div id='track'>
+  <div id='currentStopDiv'>
+    <h1>Current Status:</h1>
+    <p id='current'>Stopped at Santa's Village</p>
+  </div>
+  <div id='etaDiv'>
+  <h1 id=eta>ETA:</h1>
+  <p id=etatime>0:00</p>
+  </div>
+  <div id='presentsDiv'>
+  <h1>Presents delivered:</h1>
+  <p id=presents>0</p>
+  </div>
+</div>
+<!--<h1> Stops:</h1>
+<ul id='stops'></ul>-->
 
 <script type="module">
 let allstops=[]
-
 
 // List Element
 const ul = document.querySelector('#stops');
@@ -28,37 +38,61 @@ fetch(url)
     .then(res => res.json())
     .then(data => {
       allstops = data.destinations;
-      //console.log(allstops)
-      // iterate over stops
-      data.destinations.map((stop) => {
-          // create the elements
-          //console.log(stop.arrival, parseInt(time.value), stop.departure);
-          let li = document.createElement('li'),
-              span = document.createElement('span'),
-              span0 = document.createElement('span');
-          span.innerText = stop.city;
-          span0.innerText = ' Arrival:'+new Date(stop.arrival);
-          // append all elements
-          li.append( span);
-          li.append(span0);
-          ul.append( li);
-        });
+      if (false){
+        //console.log(allstops)
+        // iterate over stops
+        data.destinations.map((stop) => {
+            // create the elements
+            //console.log(stop.arrival, parseInt(time.value), stop.departure);
+            let li = document.createElement('li'),
+                span = document.createElement('span'),
+                span0 = document.createElement('span');
+            span.innerText = stop.city;
+            span0.innerText = ' Arrival:'+new Date(stop.arrival);
+            // append all elements
+            li.append( span);
+            li.append(span0);
+            ul.append( li);
+          })};
     }).catch(err => {
         console.error('Error: ', err);
     });
+function formatTime(mili){
+  let out=''
+  out += Math.floor(mili/(60*1000)) + ':' 
+  const seconds = Math.floor(mili/1000)%60
+  if (seconds == 0){
+    out+='00'
+    } else{
+      out+=seconds
+      }
+  return out
+}
 function timeset(){
+  let prev = 0
   let timev=parseInt(time.value)
   timedisp.textContent = new Date(timev);
   allstops.map((stop) =>{
+    
     //if(stop.arrival<timev){console.log(stop.city)}
     //if(stop.departure>timev){console.log(stop.city)}
-    if(stop.arrival <= timev&& timev < stop.departure){
-      current.textContent = stop.city;
+    if(stop.arrival <= timev&& timev <= stop.departure){
+      eta.textContent = 'ETD: ';
+      const mili = stop.departure - timev;
+      etatime.textContent = formatTime(mili);
+      current.textContent = 'Stopped at '+stop.city;
       presents.textContent = stop.presentsDelivered;
+    } else if (prev<timev&&timev<stop.arrival){
+      eta.textContent = 'ETA: ';
+      const mili = stop.arrival - timev
+      etatime.textContent = formatTime(mili);
+      current.textContent = "Flying";
     }
+    prev= stop.departure
   })
 }
 time.oninput = timeset;
+timeset()
 </script>
 
 </body>
