@@ -21,11 +21,6 @@ app.Entity = class Entity {
   // for app.shared.pools
   onDispose() {
     this.elem.classList.add('hidden')
-
-    // remove all children
-    while (this.elem.firstChild) {
-      this.elem.removeChild(this.elem.firstChild)
-    }
   }
 
   onFrame() {

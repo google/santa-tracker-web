@@ -43,6 +43,15 @@ app.Fence = class Fence extends app.Entity {
     this.config.checkBorder = true
   }
 
+  onDispose() {
+    super.onDispose()
+
+    // remove all children
+    while (this.elem.firstChild) {
+      this.elem.removeChild(this.elem.firstChild)
+    }
+  }
+
   addChild(side, type = false) {
     const div = document.createElement('div')
     div.classList.add('fence__background')
