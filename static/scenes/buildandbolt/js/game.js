@@ -145,7 +145,7 @@ app.Game = class Game {
       entity.onFrame(delta, now)
     }
 
-    let playerCollision = false
+    let playerCollision = true
 
     for (const player of this.players) {
       player.onFrame(delta, now)
@@ -165,25 +165,31 @@ app.Game = class Game {
   }
 
   detectPlayerCollision() {
+    if (this.playerCollision) return
     const player1 = this.players[0]
     const player2 = this.players[1]
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
 
-    const collisionDistance = Math.hypot((player1.position.x + player1.velocity.x) - (player2.position.x + player2.velocity.x), (player1.position.y + player1.velocity.y) - (player2.position.y + player2.velocity.y))
+    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
 
     if (collisionDistance < 1) {
-      // prevent having to player on the same cell
+      // this prevent detecting collision issues
+      this.playerCollision = true
+      setTimeout(() => {
+        this.playerCollision = false
+      }, 100)
+
+      // prevent having two players on the same cell
       // e.g. Player 1 is in the starting cell of the player 2. Then player 2 die and restart on his starting cell,
       // both players will be in the same cell and create bugs
       if (collisionDistance <= 0.5) {
-        console.log('BAAAD')
+        console.log('wrong')
         // move both players in the next left/right cell
         player1.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player1.position.x + 1))
         player2.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player2.position.x - 1))
         return
       }
 
-      // the player with the biggest speed push the other one and get a small bounce
       const player1Speed = player1.getSpeed()
       const player2Speed = player2.getSpeed()
 
@@ -197,11 +203,10 @@ app.Game = class Game {
           player.bump(angle, PLAYER_PUSH_FORCE, -1)
         }
       } else {
-        // one player push the other player (and bounce a little bit)
+        // the fastest player will push the other player (and bounce a little bit)
         const fastPlayer = player1Speed > player2Speed ? player1 : player2
         const slowPlayer = player1Speed < player2Speed ? player1 : player2
         const angle = fastPlayer.getDirectionAngle()
-        console.log('push', fastPlayer.id)
         // bump other player
         slowPlayer.bump(angle, PLAYER_PUSH_FORCE, 1)
 

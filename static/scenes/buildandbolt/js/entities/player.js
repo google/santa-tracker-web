@@ -332,20 +332,6 @@ app.Player = class Player {
   bump(angle, force, reverse = 1) {
     this.velocity.x = Math.cos(angle) * force * reverse
     this.velocity.y = Math.sin(angle) * force * reverse
-    // check if it's pushing the player outside of the grid, if not, allow push
-    // if (this.position.x + forceX > 0 &&
-    //   this.position.x + forceX < Constants.GRID_DIMENSIONS.WIDTH - 1 &&
-    //   this.position.y + forceY > 0 &&
-    //   this.position.y + forceY < Constants.GRID_DIMENSIONS.HEIGHT - 1) {
-
-    //   // this.velocity.x = forceX
-    //   // this.velocity.y = forceY
-    // }
-    // // else {
-    //   this.velocity.x = forceX
-    //   this.velocity.y = forceY
-    //   console.log('no')
-    // // }
   }
 
   // get current angle of player's direction
