@@ -1,4 +1,4 @@
-class Slider {
+export default class Slider {
   constructor(el) {
     this.el = el
     this.init()
@@ -8,5 +8,3 @@ class Slider {
     console.log(this.el)
   }
 }
-
-export default Slider

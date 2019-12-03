@@ -1,7 +1,7 @@
 import Nav from './ui/Nav.js'
 import Slider from './ui/Slider.js'
 
-class Storybook {
+export default class Storybook {
   constructor(el) {
     this.el = el
 
@@ -18,5 +18,3 @@ class Storybook {
     console.log('storybook init')
   }
 }
-
-export default Storybook
