@@ -16,6 +16,7 @@ app.Player = class Player {
     this.elem = document.querySelector(`.player--${id}`)
     this.elem.classList.add('is-active')
     this.spawnElem = document.querySelector(`.player-spawn--${id}`)
+    this.spawnElem.classList.add('is-active')
     this.innerElem = this.elem.querySelector('.player__inner')
   }
 

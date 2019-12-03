@@ -16,12 +16,19 @@
   }
 
   .player-selection__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    max-height: 70vw;
+    padding: 30px;
     width: 100%;
   }
 
   .player-options {
     align-items: center;
     display: flex;
+    flex: 0 1 450px;
     margin: 50px auto;
     max-width: 1000px;
     width: 80%;
@@ -30,6 +37,7 @@
   .player-option {
     cursor: pointer;
     flex: 1 1 360px;
+    height: 100%;
     margin: 0 30px;
     position: relative;
 
@@ -56,7 +64,7 @@
   }
 
   .player-option__image {
-    padding-top: 100%;
+    height: 100%;
     width: 100%;
   }
 

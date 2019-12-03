@@ -7,6 +7,7 @@ goog.require('app.Board')
 goog.require('app.Controls')
 goog.require('app.Entity')
 goog.require('app.Fence')
+goog.require('app.Gui')
 goog.require('app.Ice')
 goog.require('app.Penguin')
 goog.require('app.Pit')
@@ -22,14 +23,19 @@ goog.require('app.shared.Scoreboard')
 
 
 app.Game = class Game {
-  constructor(context, playerOption, animations, prepareAnimation) {
+  constructor(context, animations, prepareAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
+    this.context = context
     this.animations = animations
     this.prepareAnimation = prepareAnimation
-    this.context = context
+
+    this.gui = new app.Gui(this)
+  }
+
+  init(playerOption) {
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
     this.entities = []
@@ -127,7 +133,7 @@ app.Game = class Game {
     }else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     }
-    
+
   }
 
   onFrame(now) {

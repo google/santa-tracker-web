@@ -5,7 +5,7 @@
 
 @mixin respond-to($point) {
   @if $point == above-mobile {
-    @media only screen and (min-width: $mobile-width + 1), (min-height: $mobile-height + 1) {
+    @media only screen and (min-width: $mobile-width + 1) and (min-height: $mobile-height + 1) {
       @content;
     }
   } @else if $point == mobile {

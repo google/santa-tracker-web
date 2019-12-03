@@ -1,5 +1,6 @@
 ##{$name} {
   .gui {
+    background: $color-yellow;
     bottom: 0;
     left: 0;
     overflow: hidden;
@@ -7,6 +8,10 @@
     right: 0;
     top: 0;
     z-index: $gui-z-index;
+
+    &.game-started {
+      background: transparent;
+    }
   }
 
   .gui__title {
