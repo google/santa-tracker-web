@@ -68,6 +68,7 @@ app.Game = class Game {
 
   initLevel(level) {
     let levelConfig = Levels[level]
+    this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
     this.levelWinner = null
 
