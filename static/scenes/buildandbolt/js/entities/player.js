@@ -23,7 +23,7 @@ app.Player = class Player {
    * Initializes player for the start of each level
    */
   init(config) {
-    this.config = { ...config, type: 'player', bumpPlayer: true }
+    this.config = { ...config, type: 'player', checkBorder: true, checkCell: true }
 
     this.resetPosition()
 
@@ -105,8 +105,6 @@ app.Player = class Player {
 
     this.updatePosition(delta)
     this.checkActions()
-    this.checkBump()
-
 
     // TODO: play the correct state
     const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
@@ -233,28 +231,6 @@ app.Player = class Player {
           this.position.x, this.position.y)
   }
 
-  checkBump() {
-    const bump = this.game.board.checkBump(this)
-
-    if (bump) {
-      // check radius of 2 players
-      const { PLAYER_BUMP_FORCE, PLAYER_BUMP_MAX } = Constants
-      const bumpX = this.position.x - this.prevPosition.x
-      const bumpY = this.position.y - this.prevPosition.y
-
-      this.velocity.x = Utils.clamp(-bumpX * PLAYER_BUMP_FORCE, -PLAYER_BUMP_MAX, PLAYER_BUMP_MAX)
-      this.velocity.y = Utils.clamp(-bumpY * PLAYER_BUMP_FORCE, -PLAYER_BUMP_MAX, PLAYER_BUMP_MAX)
-
-      // player drop?
-      if (bump.config.type === 'player') {
-        const playerPushed = bump
-
-        playerPushed.velocity.x = -this.velocity.x
-        playerPushed.velocity.y = -this.velocity.y
-      }
-    }
-  }
-
   /**
    * Check for any effects other entities have on the player at the
    * current position
@@ -341,6 +317,14 @@ app.Player = class Player {
         this.playingIceSound = false;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
       }
+    }
+
+    // bounce against other player
+    const playerEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE]
+    if (playerEntities && playerEntities.length) {
+      this.isCloseToOtherPlayer = true
+    } else {
+      this.isCloseToOtherPlayer = false
     }
   }
 

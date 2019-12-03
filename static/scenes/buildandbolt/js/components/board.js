@@ -110,23 +110,6 @@ app.Board = class Board {
     // console.log(this.cells)
   }
 
-  checkBump(player) {
-    const { x, y } = player.position
-    const roundedX = Math.round(x)
-    const roundedY = Math.round(y)
-
-    const playerCell = this.cells[roundedX][roundedY]
-    // should check in a biggest radius for detection
-    for (let i = 0; i < playerCell.length; i++) {
-      const entity = playerCell[i]
-      if (entity.config.bumpPlayer && entity.id !== player.id) {
-        return entity
-      }
-    }
-
-    return false
-  }
-
   getSurroundingEntities(player) {
     const { x, y } = player.position
     const roundedX = Math.round(x)
@@ -156,7 +139,7 @@ app.Board = class Board {
             for (let k = 0; k < cell.length; k++) {
               const entity = cell[k]
               // get only entities that trigger an action around the player cell
-              if (entity.config.checkBorder) {
+              if (entity.config.checkBorder && entity.id !== player.id) {
                 surroundingEntities.push(entity)
               }
             }

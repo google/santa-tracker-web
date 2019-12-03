@@ -145,13 +145,65 @@ app.Game = class Game {
       entity.onFrame(delta, now)
     }
 
+    let playerCollision = false
+
     for (const player of this.players) {
       player.onFrame(delta, now)
+
+      if (player.isCloseToOtherPlayer) {
+        playerCollision = true
+      }
+    }
+
+    if (playerCollision) {
+      this.detectPlayerCollision()
     }
 
     this.scoreboard.onFrame(delta)
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
+  }
+
+  detectPlayerCollision() {
+    const player1 = this.players[0]
+    const player2 = this.players[1]
+
+    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
+    if (collisionDistance < 1) {
+      // the player with the biggest velocity push the other one and get a small bounce
+      const player1Force = Math.abs(player1.velocity.x) + Math.abs(player1.velocity.y)
+      const player2Force = Math.abs(player2.velocity.x) + Math.abs(player2.velocity.y)
+
+      const { PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
+
+      if (player1Force === player2Force) {
+        console.log('tie')
+        // tie, both players are boucing against each other
+        for (let i = 0; i < this.players.length; i++) {
+          const player = this.players[i]
+          // get direction angle
+          const angle = Math.atan2(player.position.y - player.prevPosition.y, player.position.x - player.prevPosition.x);
+
+          // bounce current player (oposite direction)
+          player.velocity.x = -Math.cos(angle) * PLAYER_PUSH_FORCE
+          player.velocity.y = -Math.sin(angle) * PLAYER_PUSH_FORCE
+        }
+      } else {
+        console.log('push')
+        // one player push the other player (and bounce a little bit)
+        const fastPlayer = player1Force > player2Force ? player1 : player2
+        const slowPlayer = player1Force < player2Force ? player1 : player2
+        const angle = Math.atan2(fastPlayer.position.y - fastPlayer.prevPosition.y, fastPlayer.position.x - fastPlayer.prevPosition.x);
+
+        // push other player
+        slowPlayer.velocity.x = Math.cos(angle) * PLAYER_PUSH_FORCE
+        slowPlayer.velocity.y = Math.sin(angle) * PLAYER_PUSH_FORCE
+
+        // bounce current player (oposite direction)
+        fastPlayer.velocity.x = -Math.cos(angle) * PLAYER_BOUNCE_FORCE
+        fastPlayer.velocity.y = -Math.sin(angle) * PLAYER_BOUNCE_FORCE
+      }
+    }
   }
 
   registerToyCompletion(player) {
