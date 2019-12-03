@@ -43,20 +43,25 @@ app.Penguin = class Penguin extends app.Slider {
     this.animationFrame = Constants.PENGUIN_FRAMES.start
     this.lastAnimationFrame = null
 
-    if (this.config.isVertical) {
-      if (this.animations['side']) {
-        this.animations['side'].container.classList.remove('is-active')
-      }
-      this.animationDirection = 'front'
-    } else {
-      if (this.animations['front']) {
-        this.animations['front'].container.classList.remove('is-active')
-      }
-      if (this.animations['back']) {
-        this.animations['back'].container.classList.remove('is-active')
-      }
-      this.animationDirection = 'side'
+    this.animationDirection = this.config.isVertical ? 'front' : 'side'
+  }
+
+  onDispose() {
+    super.onDispose()
+
+    if (this.animations['front']) {
+      this.animations['front'].container.classList.remove('is-active')
     }
+
+    if (this.animations['back']) {
+      this.animations['back'].container.classList.remove('is-active')
+    }
+
+    if (this.animations['side']) {
+      this.animations['side'].container.classList.remove('is-active')
+    }
+
+    this.innerElem.classList.remove('is-flipped')
   }
 
   onFrame(delta, now) {

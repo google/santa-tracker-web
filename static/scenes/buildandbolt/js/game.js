@@ -66,6 +66,21 @@ app.Game = class Game {
     this.onFrame()
   }
 
+  startLevel() {
+    this.initLevel(this.level)
+    this.scoreboard.setLevel(this.level)
+    this.unfreezeGame()
+
+    if (this.level === 0) {
+      setTimeout(()=>{
+        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+      }, 800)
+    } else {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+    }
+  }
+
+
   initLevel(level) {
     let levelConfig = Levels[level]
     this.scoreboard.restart()
@@ -120,21 +135,6 @@ app.Game = class Game {
           break;
       }
     }
-  }
-
-  startLevel() {
-    this.initLevel(this.level)
-    this.scoreboard.setLevel(this.level)
-    this.isPlaying = true
-
-    if (this.level === 0) {
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-      }, 800)
-    }else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
-    }
-
   }
 
   onFrame(now) {
@@ -198,7 +198,7 @@ app.Game = class Game {
   }
 
   goToNextLevel() {
-    this.isPlaying = false
+    this.freezeGame()
     this.reset()
     this.level++
     if (this.level < Levels.length) {
@@ -224,5 +224,44 @@ app.Game = class Game {
    */
   gameover() {
     this.goToNextLevel()
+  }
+
+  /**
+   * Called when global pause button is clieked.
+   */
+  pause() {
+    this.freezeGame()
+  }
+
+  /**
+   * Called when resume button is clieked.
+   */
+  resume() {
+    this.unfreezeGame()
+  }
+
+  /**
+   * Called when global restart button is clieked.
+   */
+  restart() {
+    this.freezeGame()
+    this.reset()
+    this.level = 0
+    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+
+    for (const player of this.players) {
+      player.score = 0
+    }
+  }
+
+  freezeGame() {
+    this.isPlaying = false
+  }
+
+  unfreezeGame() {
+    if (!this.isPlaying) {
+      this.lastFrame = null
+      this.isPlaying = true
+    }
   }
 }
