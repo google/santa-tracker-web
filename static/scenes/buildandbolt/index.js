@@ -13,12 +13,6 @@ api.preload.images(
 
 api.preload.sounds('buildandbolt_load_sounds');
 
-const playerSelectionScreen = document.querySelector('[data-player-selection]')
-const playerSelectionOptions = document.querySelectorAll('[data-player-option]')
-const controlsScreen = document.querySelector('[data-player-controls]')
-const controlsButton = document.querySelector('[data-player-controls-skip]')
-
-let playerOption
 let animations = {}
 
 const initPlayerAnimation = (path, playerId, side) => {
@@ -50,18 +44,7 @@ initPlayerAnimation('img/players/b/back.json', 'b', 'back')
 initPlayerAnimation('img/players/b/side.json', 'b', 'side')
 initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
 
-playerSelectionOptions.forEach((element) => {
-  element.addEventListener('click', (e) => {
-    playerSelectionScreen.classList.add('is-hidden')
-    controlsScreen.classList.remove('is-hidden')
-    playerOption = element.getAttribute('data-player-option')
-  })
-})
-
-controlsButton.addEventListener('click', (e) => {
-  const game = new Game(document.getElementById('module-buildandbolt'), playerOption, animations, prepareAnimation)
-  controlsScreen.classList.add('is-hidden')
-})
+const game = new Game(document.getElementById('module-buildandbolt'), animations, prepareAnimation)
 
 // Debug mode
 // const game = new Game(document.getElementById('module-buildandbolt'), 'single')
