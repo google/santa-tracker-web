@@ -386,6 +386,7 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
 
+    // todo: move this to utils
     while (this.toysElem.firstChild) {
       this.toysElem.removeChild(this.toysElem.firstChild);
     }
