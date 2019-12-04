@@ -11,14 +11,14 @@ app.Penguin = class Penguin extends app.Slider {
   constructor(game) {
     super()
 
-    this.animations = {}
-
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
 
     this.innerElem = document.createElement('div')
     this.innerElem.setAttribute('class', `penguin__inner`)
     this.elem.appendChild(this.innerElem)
+
+    this.animations = {}
 
     const sides = ['front', 'back', 'side']
     for (const side of sides) {
