@@ -1,12 +1,11 @@
-.score-panel {
+.bottom-score-board {
   align-items: center;
   display: flex;
   height: 63px;
   justify-content: space-between;
   left: 50%;
-  padding-top: env(safe-area-inset-top, 0);
   position: fixed;
-  top: 12.5px;
+  bottom: 12.5px;
   transform: translateX(-50%);
 
   &__player {
@@ -21,7 +20,7 @@
       border-bottom-left-radius: 32px;
       border-top-left-radius: 32px;
 
-      .score-panel__head {
+      .bottom-score-board__head {
         background-color: $color-blue;
       }
     }
@@ -32,7 +31,7 @@
       border-top-right-radius: 32px;
       flex-direction: row-reverse;
 
-      .score-panel__head {
+      .bottom-score-board__head {
         background-color: $color-pink;
       }
     }

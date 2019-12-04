@@ -10,33 +10,8 @@
 <body>
   <div id="module-buildandbolt">
     <main id="main">
-      <div id="score-panel" class="score-panel">
-        <div class="score-panel__player">
-          <div class="score-panel__head">
-            <img src="img/players/a/head.svg" alt="">
-          </div>
-          <div class="score-panel__score">
-            <div class="score-panel__toy">
-              <img src="img/toys/robot/full.svg" alt="">
-            </div>
-            <div class="score-panel__cross">x</div>
-            <div class="score-panel__number">2</div>
-          </div>
-        </div>
-        <div class="score-panel__player">
-          <div class="score-panel__head">
-            <img src="img/players/b/head.svg" alt="">
-          </div>
-          <div class="score-panel__score">
-            <div class="score-panel__toy">
-              <img src="img/toys/robot/full.svg" alt="">
-            </div>
-            <div class="score-panel__cross">x</div>
-            <div class="score-panel__number">1</div>
-          </div>
-        </div>
-      </div>
-      <div id="board" class="level">
+      <!-- board -->
+      <section id="board" class="level">
         <div id="players">
           <div class="player player--a">
             <div class="player__inner">
@@ -59,9 +34,38 @@
         <div id="tables"></div>
         <div id="penguins"></div>
         <div id="present-boxes"></div>
-      </div>
+      </section>
 
-      <div class="gui" data-gui>
+      <!-- bottom-score-board -->
+      <section id="bottom-score-board" class="bottom-score-board">
+        <div class="bottom-score-board__player">
+          <div class="bottom-score-board__head">
+            <img src="img/players/a/head.svg" alt="">
+          </div>
+          <div class="bottom-score-board__score">
+            <div class="bottom-score-board__toy">
+              <img src="img/toys/robot/full.svg" alt="">
+            </div>
+            <div class="bottom-score-board__cross">x</div>
+            <div class="bottom-score-board__number">2</div>
+          </div>
+        </div>
+        <div class="bottom-score-board__player">
+          <div class="bottom-score-board__head">
+            <img src="img/players/b/head.svg" alt="">
+          </div>
+          <div class="bottom-score-board__score">
+            <div class="bottom-score-board__toy">
+              <img src="img/toys/robot/full.svg" alt="">
+            </div>
+            <div class="bottom-score-board__cross">x</div>
+            <div class="bottom-score-board__number">1</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- gui -->
+      <section class="gui" data-gui>
         <div class="player-selection is-hidden" data-player-selection>
           <div class="player-selection__inner">
             <div class="gui__title" msgid="buildandbolt-players-selection"></div>
@@ -117,7 +121,7 @@
 
         <div class="levelup"></div>
         <div class="levelup--number"></div>
-      </div>
+      </section>
     </main>
   </div>
 

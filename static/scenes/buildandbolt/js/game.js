@@ -4,6 +4,7 @@ goog.require('Constants')
 goog.require('Levels')
 
 goog.require('app.Board')
+goog.require('app.BottomScoreBoard')
 goog.require('app.Controls')
 goog.require('app.ScoreManager')
 goog.require('app.Entity')
@@ -15,12 +16,12 @@ goog.require('app.Pit')
 goog.require('app.Platform')
 goog.require('app.Player')
 goog.require('app.PresentBox')
-goog.require('app.ScorePanel')
 goog.require('app.Table')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
 goog.require('app.shared.LevelUp')
+goog.require('app.shared.Scoreboard')
 goog.require('app.AnimationManager')
 
 
@@ -53,7 +54,6 @@ app.Game = class Game {
         if (!app.AnimationManager.animations[`player-${playerId}`]) {
           app.AnimationManager.animations[`player-${playerId}`] = {}
         }
-        console.log('players ready')
 
         app.AnimationManager.animations[`player-${playerId}`][side] = anim
       }, apiPreload)
@@ -91,7 +91,8 @@ app.Game = class Game {
     this.level = 0;
 
     this.gameoverDialog = new app.shared.Gameover(this)
-    this.scorepanel = new app.ScorePanel(this, document.querySelector('#score-panel'), Levels.length)
+    this.scoreboard = new Scoreboard(this, null, Levels.length)
+    this.bottomScoreBoard = new app.BottomScoreBoard(document.querySelector('#bottom-score-board'))
 
     this.isPlaying = false
     this.lastFrame = null
@@ -104,14 +105,13 @@ app.Game = class Game {
 
   startLevel() {
     this.initLevel(this.level)
-    this.scorepanel.setLevel(this.level)
+    this.scoreboard.setLevel(this.level)
     this.unfreezeGame()
 
     if (this.level === 0) {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-
       }, 800)
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
@@ -121,8 +121,8 @@ app.Game = class Game {
 
   initLevel(level) {
     let levelConfig = Levels[level]
-    this.scorepanel.restart()
-    this.scorepanel.addTime(levelConfig.time)
+    this.scoreboard.restart()
+    this.scoreboard.addTime(levelConfig.time)
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
     this.levelWinner = null
 
@@ -204,9 +204,9 @@ app.Game = class Game {
           this.detectPlayerCollision()
         }
 
-        this.scorepanel.onFrame(delta / 1000)
+        this.scoreboard.onFrame(delta / 1000)
 
-        if (this.scorepanel.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
+        if (this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
           window.santaApp.fire('sound-trigger', 'buildandbolt_hurryup');
           this.hurryUpPlayed = true;
         }
@@ -323,7 +323,7 @@ app.Game = class Game {
   }
 
   /**
-   * Called by the scorepanel to stop the game when the time is up.
+   * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
     this.goToNextLevel()
