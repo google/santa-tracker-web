@@ -2,11 +2,12 @@ goog.provide('app.Player')
 
 goog.require('Constants')
 goog.require('Utils')
+goog.require('app.Board')
+goog.require('app.Controls')
 
 app.Player = class Player {
   constructor(game, controls, id) {
     this.game = game
-    this.gameControls = game.controls
     this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
@@ -30,7 +31,7 @@ app.Player = class Player {
     this.resetPosition()
 
     Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y)
-    this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
+    app.Board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
   /**
@@ -54,7 +55,7 @@ app.Player = class Player {
 
         this.resetPosition()
 
-        this.game.board.updateEntityPosition(this,
+        app.Board.updateEntityPosition(this,
             this.prevPosition.x, this.prevPosition.y,
             this.position.x, this.position.y)
       }
@@ -144,7 +145,7 @@ app.Player = class Player {
       PLAYER_ACCELERATION_STEP,
       GRID_DIMENSIONS,
     } = Constants
-    const { left, right, up, down } = this.gameControls.getMovementDirections(
+    const { left, right, up, down } = app.Controls.getMovementDirections(
         this.controls, this.position)
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR
@@ -226,7 +227,7 @@ app.Player = class Player {
     }
 
     // move player
-    this.game.board.updateEntityPosition(this,
+    app.Board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
   }
@@ -236,7 +237,7 @@ app.Player = class Player {
    * current position
    */
   checkActions() {
-    const surroundingEntities = this.game.board.getSurroundingEntities(this)
+    const surroundingEntities = app.Board.getSurroundingEntities(this)
     const resultingActions = {}
 
     for (const entity of surroundingEntities) {
@@ -330,6 +331,9 @@ app.Player = class Player {
 
   // bump the player in a specific direction with a specific force
   bump(angle, force, reverse = 1) {
+    if (this.id === 'a') {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_elfbump');
+    }
     this.velocity.x = Math.cos(angle) * force * reverse
     this.velocity.y = Math.sin(angle) * force * reverse
   }
@@ -354,7 +358,7 @@ app.Player = class Player {
         // transition to holding animation
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
       }
-
+      
       const toyElem = document.createElement('img')
 
       if (this.toyParts.length == toyPart.toyType.size) {
@@ -368,6 +372,7 @@ app.Player = class Player {
         toyElem.setAttribute('src',
           `img/toys/${toyType}/full.svg`)
         this.toysElem.appendChild(toyElem)
+        window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
       } else {
         const toyElem = document.createElement('img')
         toyElem.setAttribute('class',

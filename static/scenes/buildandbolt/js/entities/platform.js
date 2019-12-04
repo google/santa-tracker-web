@@ -7,8 +7,8 @@ goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Platform = class Platform extends app.Slider {
-  constructor(game, config) {
-    super(game, config)
+  constructor() {
+    super()
 
     document.getElementById('platforms').append(this.elem)
     this.elem.setAttribute('class', 'platform')
