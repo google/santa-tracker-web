@@ -1,5 +1,3 @@
-$toy-types: ('car': 2, 'robot': 3, 'rocket': 4, 'teddy': 3);
-
 ##{$name} {
   .table {
     @include board-object();

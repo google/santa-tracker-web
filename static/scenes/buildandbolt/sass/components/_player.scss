@@ -1,6 +1,4 @@
 ##{$name} {
-
-
   @keyframes blink {
     0% {
       opacity: 1;
@@ -57,46 +55,13 @@
       opacity: 0;
     }
 
-    &.toypart--car_wheels,
-    &.toypart--robot_heads {
-      &::after {
-        background: red;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
 
-    &.toypart--robot_body,
-    &.toypart--robot_arms {
-      &::after {
-        background: blue;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
-
-    &.toypart--car_wheels.toypart--robot_body,
-    &.toypart--robot_heads.toypart--robot_arms {
-      &::after {
-        background: purple;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
+    .toypart {
+      background: red;
+      height: 20px;
+      opacity: 0.2;
+      position: absolute;
+      width: 20px;
     }
   }
 

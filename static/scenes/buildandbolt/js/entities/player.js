@@ -326,7 +326,7 @@ app.Player = class Player {
 
       const toyElem = document.createElement('div')
       toyElem.setAttribute('class',
-        `toypart toypart--${toyType}--${toyPart}`)
+        `toypart toypart--${toyType}--${partId}`)
       this.innerElem.appendChild(toyElem)
 
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
