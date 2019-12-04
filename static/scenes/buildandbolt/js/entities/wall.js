@@ -7,9 +7,8 @@ goog.require('app.shared.pools')
 goog.require('Utils')
 
 app.Wall = class Wall extends app.Entity {
-  constructor(game, config) {
-    super(game)
-    this.config = config
+  constructor() {
+    super()
     this.lastSoundTime = 0;
     this.elem = document.createElement('div')
     document.getElementById('walls').append(this.elem)
@@ -38,7 +37,7 @@ app.Wall = class Wall extends app.Entity {
       actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
       this.playSound();
     }
-    
+
     return actions
   }
 
