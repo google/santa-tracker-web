@@ -154,8 +154,18 @@ app.Game = class Game {
           entity.onFrame(delta, now)
         }
 
+        let playerCollision = false
+
         for (const player of this.players) {
           player.onFrame(delta, now)
+
+          if (player.isCloseToOtherPlayer) {
+            playerCollision = true
+          }
+        }
+
+        if (playerCollision) {
+          this.detectPlayerCollision()
         }
 
         this.scoreboard.onFrame(delta / 1000)
@@ -163,6 +173,58 @@ app.Game = class Game {
     }
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
+  }
+
+  detectPlayerCollision() {
+    if (this.playerCollision) return
+    const player1 = this.players[0]
+    const player2 = this.players[1]
+    const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
+
+    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
+
+    if (collisionDistance < 1) {
+      // this prevent detecting collision issues
+      this.playerCollision = true
+      setTimeout(() => {
+        this.playerCollision = false
+      }, 100)
+
+      // prevent having two players on the same cell
+      // e.g. Player 1 is in the starting cell of the player 2. Then player 2 die and restart on his starting cell,
+      // both players will be in the same cell and create bugs
+      if (collisionDistance <= 0.5) {
+        // console.log('wrong')
+        // move both players in the next left/right cell
+        player1.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player1.position.x + 1))
+        player2.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player2.position.x - 1))
+        return
+      }
+
+      const player1Speed = player1.getSpeed()
+      const player2Speed = player2.getSpeed()
+
+      if (Math.abs(player1Speed - player2Speed) < PLAYER_BOUNCE_FORCE) { // if speeds are relatively the same
+        // tie, both players are boucing against each other woth the same force
+        for (let i = 0; i < this.players.length; i++) {
+          const player = this.players[i]
+          // get direction angle
+          const angle = player.getDirectionAngle()
+          // bump player (oposite direction)
+          player.bump(angle, PLAYER_PUSH_FORCE, -1)
+        }
+      } else {
+        // the fastest player will push the other player (and bounce a little bit)
+        const fastPlayer = player1Speed > player2Speed ? player1 : player2
+        const slowPlayer = player1Speed < player2Speed ? player1 : player2
+        const angle = fastPlayer.getDirectionAngle()
+        // bump other player
+        slowPlayer.bump(angle, PLAYER_PUSH_FORCE, 1)
+
+        // bump current player (oposite direction)
+        fastPlayer.bump(angle, PLAYER_BOUNCE_FORCE, -1)
+      }
+    }
   }
 
   registerToyCompletion(player) {
