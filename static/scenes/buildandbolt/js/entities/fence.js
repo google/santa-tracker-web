@@ -7,9 +7,8 @@ goog.require('app.shared.pools')
 goog.require('Utils')
 
 app.Fence = class Fence extends app.Entity {
-  constructor(game, config) {
-    super(game)
-    this.config = config
+  constructor() {
+    super()
 
     this.elem = document.createElement('div')
     this.elem.setAttribute('class', 'fence')

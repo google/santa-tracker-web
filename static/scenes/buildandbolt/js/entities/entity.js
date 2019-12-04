@@ -1,11 +1,8 @@
 goog.provide('app.Entity')
 
+goog.require('app.Board')
 
 app.Entity = class Entity {
-  constructor(game) {
-    this.game = game
-  }
-
   // for app.shared.pools
   onInit(config) {
     // all entities trigger action on cell by default
@@ -13,7 +10,7 @@ app.Entity = class Entity {
 
     this.elem.classList.remove('hidden')
     this.render()
-    this.game.board.addEntityToBoard(this,
+    app.Board.addEntityToBoard(this,
         this.config.x, this.config.y,
         this.config.width, this.config.height)
   }

@@ -7,9 +7,8 @@ goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Pit = class Pit extends app.Entity {
-  constructor(game, config) {
-    super(game)
-    this.config = config
+  constructor() {
+    super()
 
     this.elem = document.createElement('div')
     document.getElementById('pits').append(this.elem)
