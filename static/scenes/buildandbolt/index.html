@@ -32,7 +32,7 @@
       </div>
 
       <div class="gui" data-gui>
-        <div class="player-selection" data-player-selection>
+        <div class="player-selection is-hidden" data-player-selection>
           <div class="player-selection__inner">
             <div class="gui__title" msgid="buildandbolt-players-selection"></div>
             <div class="player-options">
@@ -54,38 +54,39 @@
         </div>
 
         <div id="controls" class="player-controls is-hidden" data-player-controls>
-          <div class="player-controls__heading player-controls__label" msgid="buildandbolt-instructions-label"></div>
-          <div class="player-controls__sides">
-            <div class="player-controls__side">
-              <div class="gui__title" msgid="buildandbolt-player-one-label"></div>
-              <img class="player-controls__elf" src="img/instructions/player01_elf.svg" alt="">
-              <div class="player-controls__keyboard player-controls__keyboard--left">
-                <img src="img/instructions/player01_keyboard.svg" alt="">
-                <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
-                <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
+          <div class="player-controls__inner">
+            <div class="player-controls__heading player-controls__label" msgid="buildandbolt-instructions-label"></div>
+            <div class="player-controls__sides">
+              <div class="player-controls__side">
+                <div class="gui__title" msgid="buildandbolt-player-one-label"></div>
+                <img class="player-controls__elf" src="img/instructions/player01_elf.svg" alt="">
+                <div class="player-controls__keyboard player-controls__keyboard--left">
+                  <img src="img/instructions/player01_keyboard.svg" alt="">
+                  <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
+                  <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
+                </div>
+              </div>
+              <div class="player-controls__divider">
+                <img src="img/instructions/hand_instruction.svg" alt="">
+              </div>
+              <div class="player-controls__side">
+                <div class="gui__title" msgid="buildandbolt-player-two-label"></div>
+                <img class="player-controls__elf" src="img/instructions/player02_elf.svg" alt="">
+                <div class="player-controls__keyboard player-controls__keyboard--right">
+                  <img src="img/instructions/player02_keyboard.svg" alt="">
+                  <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
+                  <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
+                </div>
               </div>
             </div>
-            <div class="player-controls__divider">
-              <img src="img/instructions/hand_instruction.svg" alt="">
+            <div class="player-controls__button">
+              <button class="Button" data-player-controls-skip msgid="buildandbolt-skip"></button>
             </div>
-            <div class="player-controls__side">
-              <div class="gui__title" msgid="buildandbolt-player-two-label"></div>
-              <img class="player-controls__elf" src="img/instructions/player02_elf.svg" alt="">
-              <div class="player-controls__keyboard player-controls__keyboard--right">
-                <img src="img/instructions/player02_keyboard.svg" alt="">
-                <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
-                <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
-              </div>
-            </div>
-          </div>
-          <div class="player-controls__button">
-            <button class="Button" data-player-controls-skip msgid="buildandbolt-skip"></button>
           </div>
         </div>
 
         <div class="levelup"></div>
         <div class="levelup--number"></div>
-
       </div>
     </main>
   </div>

@@ -7,6 +7,7 @@ goog.require('app.Board')
 goog.require('app.Controls')
 goog.require('app.Entity')
 goog.require('app.Fence')
+goog.require('app.Gui')
 goog.require('app.Ice')
 goog.require('app.Penguin')
 goog.require('app.Pit')
@@ -22,14 +23,19 @@ goog.require('app.shared.Scoreboard')
 
 
 app.Game = class Game {
-  constructor(context, playerOption, animations, prepareAnimation) {
+  constructor(context, animations, prepareAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
+    this.context = context
     this.animations = animations
     this.prepareAnimation = prepareAnimation
-    this.context = context
+
+    this.gui = new app.Gui(this)
+  }
+
+  init(playerOption) {
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
     this.entities = []
@@ -52,7 +58,7 @@ app.Game = class Game {
     this.scoreboard = new Scoreboard(this, null, Levels.length)
 
     this.isPlaying = false
-    this.lastFrame = +new Date() / 1000
+    this.lastFrame = null
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
@@ -60,8 +66,24 @@ app.Game = class Game {
     this.onFrame()
   }
 
+  startLevel() {
+    this.initLevel(this.level)
+    this.scoreboard.setLevel(this.level)
+    this.unfreezeGame()
+
+    if (this.level === 0) {
+      setTimeout(()=>{
+        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+      }, 800)
+    } else {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+    }
+  }
+
+
   initLevel(level) {
     let levelConfig = Levels[level]
+    this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
     this.levelWinner = null
 
@@ -115,51 +137,37 @@ app.Game = class Game {
     }
   }
 
-  startLevel() {
-    this.initLevel(this.level)
-    this.scoreboard.setLevel(this.level)
-    this.isPlaying = true
-
-    if (this.level === 0) {
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-      }, 800)
-    }else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
-    }
-
-  }
-
   onFrame(now) {
-    if (!this.isPlaying) {
-      this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
-      return
-    }
+    if (this.isPlaying) {
+      if (!this.lastFrame) {
+        this.lastFrame = now
+      } else {
+        // Calculate delta
+        var delta = now - this.lastFrame
+        this.lastFrame = now
+        // this.timePassed += delta
 
-    // Calculate delta
-    var delta = now - this.lastFrame
-    this.lastFrame = now
-    // this.timePassed += delta
+        for (const entity of this.entities) {
+          entity.onFrame(delta, now)
+        }
 
-    for (const entity of this.entities) {
-      entity.onFrame(delta, now)
-    }
+        let playerCollision = true
 
-    let playerCollision = true
+        for (const player of this.players) {
+          player.onFrame(delta, now)
 
-    for (const player of this.players) {
-      player.onFrame(delta, now)
+          if (player.isCloseToOtherPlayer) {
+            playerCollision = true
+          }
+        }
 
-      if (player.isCloseToOtherPlayer) {
-        playerCollision = true
+        if (playerCollision) {
+          this.detectPlayerCollision()
+        }
+
+        this.scoreboard.onFrame(delta / 1000)
       }
     }
-
-    if (playerCollision) {
-      this.detectPlayerCollision()
-    }
-
-    this.scoreboard.onFrame(delta)
 
     this.rafId = window.requestAnimationFrame(this.onFrame.bind(this))
   }
@@ -220,29 +228,9 @@ app.Game = class Game {
     if (!this.levelWinner) {
       this.levelWinner = player
       player.registerWin()
-      this.isPlaying = false
 
-      // Display level winner screen
-
-      this.reset()
-
-      this.level++
-      if (this.level < Levels.length) {
-        this.levelUp.show(this.level + 1, this.startLevel.bind(this))
-      } else {
-        // end game. display game winner.
-        this.gameoverDialog.show()
-        window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-        if (this.multiplayer) {
-          if (this.players[0].score > this.players[1].score) {
-            console.log('player 1 won')
-          } else if (this.players[0].score < this.players[1].score) {
-            console.log('player 2 won')
-          } else {
-            console.log('tie')
-          }
-        }
-      }
+      // Todo: Display level winner screen
+      this.goToNextLevel()
     }
   }
 
@@ -271,10 +259,71 @@ app.Game = class Game {
     this.entities = []
   }
 
+  goToNextLevel() {
+    this.freezeGame()
+    this.reset()
+    this.level++
+    if (this.level < Levels.length) {
+      this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    } else {
+      // end game. display game winner.
+      this.gameoverDialog.show()
+      window.santaApp.fire('sound-trigger', 'buildandbolt_win');
+      if (this.multiplayer) {
+        if (this.players[0].score > this.players[1].score) {
+          console.log('player 1 won')
+        } else if (this.players[0].score < this.players[1].score) {
+          console.log('player 2 won')
+        } else {
+          console.log('tie')
+        }
+      }
+    }
+  }
+
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
-    console.log('gameover')
+    this.goToNextLevel()
+  }
+
+  /**
+   * Called when global pause button is clicked.
+   */
+  pause() {
+    this.freezeGame()
+  }
+
+  /**
+   * Called when resume button is clicked.
+   */
+  resume() {
+    this.unfreezeGame()
+  }
+
+  /**
+   * Called when global restart button is clicked.
+   */
+  restart() {
+    this.freezeGame()
+    this.reset()
+    this.level = 0
+    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+
+    for (const player of this.players) {
+      player.score = 0
+    }
+  }
+
+  freezeGame() {
+    this.isPlaying = false
+  }
+
+  unfreezeGame() {
+    if (!this.isPlaying) {
+      this.lastFrame = null
+      this.isPlaying = true
+    }
   }
 }

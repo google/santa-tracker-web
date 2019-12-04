@@ -102,10 +102,15 @@
 
   .player-spawn {
     @include board-object();
+    opacity: 0;
     height: $grid-unit-size * 2;
     left: -($grid-unit-size / 2) - 2px;
     top: -($grid-unit-size / 2);
     width: $grid-unit-size * 2;
+
+    &.is-active {
+      opacity: 1;
+    }
 
     &--a {
       background: url(img/players/a/spawn.svg) center/contain no-repeat;
