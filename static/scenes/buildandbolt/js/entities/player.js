@@ -19,6 +19,7 @@ app.Player = class Player {
     this.spawnElem = document.querySelector(`.player-spawn--${id}`)
     this.spawnElem.classList.add('is-active')
     this.innerElem = this.elem.querySelector('.player__inner')
+    this.toysElem = this.elem.querySelector('.player__toys')
   }
 
   /**
@@ -41,14 +42,12 @@ app.Player = class Player {
     this.animationQueue = []
 
     // initialize death animation
-    this.animations['death'].container.classList.add('is-active')
     this.innerElem.classList.add('is-dead')
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = {
       animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
       callback: () => {
         this.dead = false
-        this.animations['death'].container.classList.remove('is-active')
         this.innerElem.classList.remove('is-dead')
 
         window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
@@ -350,16 +349,39 @@ app.Player = class Player {
   }
 
   addToyPart(toyPart) {
-    if (this.toyParts.indexOf(toyPart) == -1) {
-      this.toyParts.push(toyPart)
+    let partId = toyPart.part
+    let toyType = toyPart.toyType.key
+    if (this.toyParts.indexOf(partId) == -1) {
+      this.toyParts.push(partId)
 
       if (this.toyParts.length == 1) {
         // transition to holding animation
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
-      }else if (this.toyParts.length == 2) {
-        window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
       }
-      this.elem.classList.add(`toypart--${toyPart}`)
+      
+      const toyElem = document.createElement('img')
+
+      if (this.toyParts.length == toyPart.toyType.size) {
+        // Replace all toy parts with full toy
+        while (this.toysElem.firstChild) {
+          this.toysElem.removeChild(this.toysElem.firstChild);
+        }
+
+        toyElem.setAttribute('class',
+          `toypart toypart--${toyType}--full`)
+        toyElem.setAttribute('src',
+          `img/toys/${toyType}/full.svg`)
+        this.toysElem.appendChild(toyElem)
+        window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
+      } else {
+        const toyElem = document.createElement('img')
+        toyElem.setAttribute('class',
+          `toypart toypart--${toyType}--${partId}`)
+        toyElem.setAttribute('src',
+          `img/toys/${toyType}/${partId}.svg`)
+        this.toysElem.appendChild(toyElem)
+      }
+
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
   }
@@ -368,6 +390,12 @@ app.Player = class Player {
     for (const toyPart of this.toyParts) {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
+
+    // todo: move this to utils
+    while (this.toysElem.firstChild) {
+      this.toysElem.removeChild(this.toysElem.firstChild);
+    }
+
     this.toyParts = []
   }
 
@@ -384,9 +412,9 @@ app.Player = class Player {
 
     if (direction != this.currentDirection) {
       if (this.animations[this.currentDirection]) {
-        this.animations[this.currentDirection].container.classList.remove('is-active')
+        this.innerElem.classList.remove(`direction--${this.currentDirection}`)
       }
-      this.animations[direction].container.classList.add('is-active')
+      this.innerElem.classList.add(`direction--${direction}`)
       this.currentDirection = direction
     }
   }

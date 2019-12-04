@@ -1,5 +1,6 @@
 goog.provide('Levels')
 
+goog.require('Constants')
 
 /**
  * Some documentation for each type of entity:
@@ -131,7 +132,10 @@ Levels = [
           y: 12,
           tableType: 1,
           isSideView: false,
-          partType: 'car_wheels'
+          partType: {
+            toyType: Constants.TOY_TYPES.CAR,
+            part: 1
+          }
         }
       },
       {
@@ -141,7 +145,19 @@ Levels = [
           y: 1,
           tableType: 2,
           isSideView: true,
-          partType: 'robot_body'
+          partType: {
+            toyType: Constants.TOY_TYPES.CAR,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 19,
+          y: 12,
+          toy: Constants.TOY_TYPES.CAR,
+          playerId: 'a'
         }
       },
       {
@@ -149,10 +165,8 @@ Levels = [
         config: {
           x: 22,
           y: 12,
-          parts: [
-            'robot_body',
-            'car_wheels'
-          ]
+          toy: Constants.TOY_TYPES.CAR,
+          playerId: 'b'
         }
       },
       {
@@ -234,7 +248,10 @@ Levels = [
           y: 12,
           tableType: 3,
           isSideView: true,
-          partType: 'robot_heads'
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 1
+          }
         }
       },
       {
@@ -244,18 +261,266 @@ Levels = [
           y: 1,
           tableType: 1,
           isSideView: false,
-          partType: 'robot_arms'
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 12,
+          y: 5,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 3
+          }
         }
       },
       {
         type: 'present-box',
         config: {
-          x: 15,
+          x: 16,
           y: 12,
-          parts: [
-            'robot_heads',
-            'robot_arms'
-          ]
+          toy: Constants.TOY_TYPES.ROBOT,
+          playerId: 'a'
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 13,
+          y: 12,
+          toy: Constants.TOY_TYPES.ROBOT,
+          playerId: 'b'
+        }
+      },
+    ]
+  },
+  {
+    time: 45,
+    players: [
+      {
+        startPos: {
+          x: 27,
+          y: 10
+        }
+      },
+      {
+        startPos: {
+          x: 0,
+          y: 0
+        }
+      }
+    ],
+    entities: [
+      {
+        type: 'pit',
+        config: {
+          height: 5,
+          width: 6,
+          x: 2,
+          y: 1,
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 6,
+          width: 10,
+          x: 2,
+          y: 8,
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 4
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 22,
+          y: 12,
+          tableType: 3,
+          isSideView: true,
+          partType: {
+            toyType: Constants.TOY_TYPES.TEDDY,
+            part: 1
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 10,
+          y: 1,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.TEDDY,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 12,
+          y: 5,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.TEDDY,
+            part: 3
+          }
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 16,
+          y: 12,
+          toy: Constants.TOY_TYPES.TEDDY,
+          playerId: 'a'
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 13,
+          y: 12,
+          toy: Constants.TOY_TYPES.TEDDY,
+          playerId: 'b'
+        }
+      },
+    ]
+  },
+  {
+    time: 45,
+    players: [
+      {
+        startPos: {
+          x: 27,
+          y: 10
+        }
+      },
+      {
+        startPos: {
+          x: 0,
+          y: 0
+        }
+      }
+    ],
+    entities: [
+      {
+        type: 'pit',
+        config: {
+          height: 5,
+          width: 6,
+          x: 2,
+          y: 1,
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 6,
+          width: 10,
+          x: 2,
+          y: 8,
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 4
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 22,
+          y: 12,
+          tableType: 3,
+          isSideView: true,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROCKET,
+            part: 1
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 10,
+          y: 1,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROCKET,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 12,
+          y: 5,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROCKET,
+            part: 3
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 20,
+          y: 1,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROCKET,
+            part: 4
+          }
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 16,
+          y: 12,
+          toy: Constants.TOY_TYPES.ROCKET,
+          playerId: 'a'
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 13,
+          y: 12,
+          toy: Constants.TOY_TYPES.ROCKET,
+          playerId: 'b'
         }
       },
     ]
