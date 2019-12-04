@@ -4,11 +4,12 @@ goog.require('Constants')
 goog.require('Utils')
 goog.require('app.Board')
 goog.require('app.Controls')
+goog.require('app.AnimationManager')
 
 app.Player = class Player {
   constructor(game, controls, id) {
     this.game = game
-    this.animations = this.game.animations[`player-${id}`]
+    this.animations = app.AnimationManager.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
     this.toyParts = []

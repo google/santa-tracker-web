@@ -21,19 +21,48 @@ goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
 goog.require('app.shared.LevelUp')
 goog.require('app.shared.Scoreboard')
+goog.require('app.AnimationManager')
 
 
 app.Game = class Game {
-  constructor(context, animations, prepareAnimation) {
+  constructor(context, api, prepareAnimation) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
     this.context = context
-    this.animations = animations
-    this.prepareAnimation = prepareAnimation
 
     this.gui = new app.Gui(this)
+
+    // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
+    app.AnimationManager.init(api, prepareAnimation)
+
+    // preload players animations
+    this.initPlayersAnimations()
+  }
+
+  initPlayersAnimations() {
+    const apiPreload = true
+
+    const initPlayerAnimation = (path, playerId, side) => {
+      const container = document.querySelector(`.player--${playerId} .player__inner`)
+      app.AnimationManager.prepareAnimation(path, container, side, (anim) => {
+        if (!app.AnimationManager.animations[`player-${playerId}`]) {
+          app.AnimationManager.animations[`player-${playerId}`] = {}
+        }
+
+        app.AnimationManager.animations[`player-${playerId}`][side] = anim
+      }, apiPreload)
+    }
+
+    initPlayerAnimation('img/players/a/front.json', 'a', 'front')
+    initPlayerAnimation('img/players/a/back.json', 'a', 'back')
+    initPlayerAnimation('img/players/a/side.json', 'a', 'side')
+    initPlayerAnimation('img/players/death-pow.json', 'a', 'death')
+    initPlayerAnimation('img/players/b/front.json', 'b', 'front')
+    initPlayerAnimation('img/players/b/back.json', 'b', 'back')
+    initPlayerAnimation('img/players/b/side.json', 'b', 'side')
+    initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
   }
 
   init(playerOption) {
