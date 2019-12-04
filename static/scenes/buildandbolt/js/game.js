@@ -109,9 +109,11 @@ app.Game = class Game {
     if (this.level === 0) {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+        window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
+        
       }, 800)
     } else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
   }
 
@@ -120,6 +122,7 @@ app.Game = class Game {
     let levelConfig = Levels[level]
     this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
+    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
     this.levelWinner = null
 
     for (let i = 0; i < app.ScoreManager.players.length; i++) {
@@ -201,6 +204,11 @@ app.Game = class Game {
         }
 
         this.scoreboard.onFrame(delta / 1000)
+
+        if (this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
+          window.santaApp.fire('sound-trigger', 'buildandbolt_hurryup');
+          this.hurryUpPlayed = true;
+        }
       }
     }
 
@@ -290,10 +298,17 @@ app.Game = class Game {
     this.level++
     if (this.level < Levels.length) {
       this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
       this.gameoverDialog.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
+      
+      //timeout to prevent walk loop to start after game has ended
+      setTimeout(()=>{
+        window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
+      }, 10)
+      
       if (this.multiplayer) {
         if (app.ScoreManager.players[0].score > app.ScoreManager.players[1].score) {
           console.log('player 1 won')

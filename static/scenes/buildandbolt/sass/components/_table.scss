@@ -1,5 +1,3 @@
-$toy-types: 'car_wheels', 'robot_arms', 'robot_body', 'robot_heads';
-
 ##{$name} {
   .table {
     @include board-object();
@@ -38,9 +36,11 @@ $toy-types: 'car_wheels', 'robot_arms', 'robot_body', 'robot_heads';
       background: url(img/tables/table03_front.svg) center/contain no-repeat;
     }
 
-    @each $type in $toy-types {
-      &--#{$type}::after {
-        background: url(img/tables/toys/front_#{$type}.svg) center/contain no-repeat;
+    @each $type, $total in $toy-types {
+      @for $i from 1 through $total {
+        &.table--#{$type}--#{$i}::after {
+          background: url(img/tables/toys/front/#{$type}/#{$i}.svg) center/contain no-repeat;
+        }
       }
     }
 
@@ -60,9 +60,11 @@ $toy-types: 'car_wheels', 'robot_arms', 'robot_body', 'robot_heads';
         background: url(img/tables/table03_side.svg) center/contain no-repeat;
       }
 
-      @each $type in $toy-types {
-        &.table--#{$type}::after {
-          background: url(img/tables/toys/side_#{$type}.svg) center/contain no-repeat;
+      @each $type, $total in $toy-types {
+        @for $i from 1 through $total {
+          &.table--#{$type}--#{$i}::after {
+            background: url(img/tables/toys/side/#{$type}/#{$i}.svg) center/contain no-repeat;
+          }
         }
       }
     }

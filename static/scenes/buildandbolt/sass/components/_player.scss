@@ -1,6 +1,4 @@
 ##{$name} {
-
-
   @keyframes blink {
     0% {
       opacity: 1;
@@ -35,10 +33,6 @@
         transform: translate(-25%, -50%) scaleX(-1);
       }
 
-      &.is-dead {
-        animation: .2s blink infinite;
-      }
-
       .animation {
         bottom: 0;
         left: 0;
@@ -51,52 +45,67 @@
           z-index: 0;
         }
       }
+
+      &.direction--side {
+        .animation--side {
+          display: block;
+        }
+
+        .player__toys,
+        .toypart {
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      &.direction--front {
+        .animation--front {
+          display: block;
+        }
+
+        .player__toys,
+        .toypart {
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &.direction--back {
+        .animation--back {
+          display: block;
+        }
+
+        .player__toys,
+        .toypart {
+          top: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+        }
+      }
+
+      &.is-dead {
+        animation: .2s blink infinite;
+
+        .animation--death {
+          display: block;
+        }
+      }
     }
 
     &.is-hidden {
       opacity: 0;
     }
 
-    &.toypart--car_wheels,
-    &.toypart--robot_heads {
-      &::after {
-        background: red;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
+    &__toys {
+      position: absolute;
+      z-index: 2;
     }
 
-    &.toypart--robot_body,
-    &.toypart--robot_arms {
-      &::after {
-        background: blue;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
-    }
-
-    &.toypart--car_wheels.toypart--robot_body,
-    &.toypart--robot_heads.toypart--robot_arms {
-      &::after {
-        background: purple;
-        bottom: -20px;
-        content: '';
-        height: 15px;
-        left: 18px;
-        position: absolute;
-        top: auto;
-        width: 15px;
-      }
+    .toypart {
+      position: absolute;
     }
   }
 
