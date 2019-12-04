@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Ăn mừng suốt cả tháng"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Tháng 12 này, hãy cùng Trợ lý Google tìm hiểu thêm về ông già Noel! Tính năng tích hợp này hiện đã hỗ trợ một số ngôn ngữ."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Nếu cha mẹ cho phép, các bạn nhỏ dưới 13 tuổi có thể có Trợ lý Google riêng khi đăng nhập bằng tài khoản của chính mình, do cha mẹ quản lý qua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Trợ lý Google kết nối bạn tới Bắc Cực, nơi ông già Noel đang tất bật tập dượt cho một buổi hòa nhạc. Ông chỉ biết mỗi một bản nhạc — bạn có thể giúp ông tìm ra cách trình diễn bản nhạc ấy sao cho hay nhất không?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Gọi cho ông già Noel"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Đón xem Bản tin Bắc Cực mỗi ngày để biết ông già Noel và các chú lùn đang làm gì. Bạn chỉ cần hỏi Trợ lý Google xem ở Bắc Cực có gì mới."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Bản tin Bắc Cực"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Khi không bận rộn với những chú lùn tại xưởng sản xuất đồ chơi, ông già Noel lại dành thời gian tập pha trò. Hãy hỏi Trợ lý Google để nghe một câu chuyện đùa của ông già Noel."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Chuyện đùa của ông già Noel"
+	},
+	"familyguide_assistant_title": {
+		"message": "Không bỏ lỡ tin tức nào ở Bắc Cực"
+	},
 	"familyguide_body": {
 		"message": "Ngôi làng của ông già Noel là một nơi hoàn hảo để các gia đình cùng nhau ăn mừng mùa lễ này. Nơi đây không chỉ có tất cả các nhân vật bạn yêu thích mà còn có các hoạt động thú vị, mang tính giáo dục và tương tác dành cho mọi lứa tuổi."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "khác"
 	},
+	"familyguide_nav_link_07": {
+		"message": "trợ lý"
+	},
 	"familyguide_secondary_body": {
 		"message": "Vào ngày 24 tháng 12, Ngôi làng của ông già Noel sẽ biến thành nơi để bạn theo dõi ông già Noel và các chú tuần lộc khi họ phát quà cho trẻ em trên toàn thế giới."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Nhận thêm nhiều điều kỳ diệu từ chiến dịch Theo chân ông già Noel mùa lễ hội năm nay cùng với tất cả các sản phẩm của Google mà bạn yêu thích."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Mỗi ngày, hãy hỏi Trợ lý Google để xem chú lùn Dimplesticks có thêm thông tin gì thú vị không."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, ở Bắc Cực có gì mới không?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Niềm vui trong dịp lễ dành cho cả gia đình"
+	},
+	"familylink": {
+		"message": "Thêm Tài khoản Google của con bạn, do bạn quản lý qua Family Link"
+	},
+	"featured": {
+		"message": "Nổi bật"
 	},
 	"fi_country_name": {
 		"message": "Phần Lan"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Ông già Noel đang khởi hành"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Tắt đèn là ngủ ngay"
+	},
 	"scene_videoscene_museum": {
 		"message": "Một ngày ở bảo tàng"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Xưởng đồ chơi của ông già Noel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bánh khúc cây"
 	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"

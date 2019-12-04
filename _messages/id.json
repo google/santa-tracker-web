@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Rayakan sepanjang bulan"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Gunakan Asisten Google untuk mencari tahu lebih banyak tentang Sinterklas selama bulan Desember. Integrasi ini tersedia dalam bahasa tertentu."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Atas izin orang tua, anak-anak yang berusia kurang dari 13 tahun juga dapat memiliki pengalaman Asisten Google yang dipersonalisasi saat mereka login dengan akunnya sendiri, yang dikelola dengan \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asisten Google menghubungkan Anda dengan Kutub Utara, tempat Sinterklas sibuk berlatih untuk konser musik. Dia hanya tahu satu lagu. Dapatkah Anda membantunya menemukan cara terbaik untuk memainkan lagu tersebut?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Hubungi Sinterklas"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Tonton Siaran Berita Kutub Utara setiap hari untuk mengetahui apa yang sedang dikerjakan Sinterklas dan para kurcacinya. Cukup tanyakan ke Asisten Google untuk mengetahui ada berita apa dari Kutub Utara."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Siaran Berita Kutub Utara"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Saat Sinterklas tidak sibuk dengan para kurcaci di bengkelnya, dia menghabiskan waktu untuk meningkatkan keterampilan komedinya. Cukup tanyakan ke Asisten Google tentang lelucon Sinterklas untuk mengetahui rutinitasnya."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Lelucon Sinterklas"
+	},
+	"familyguide_assistant_title": {
+		"message": "Jangan Pernah Lewatkan Berita Terbaru dari Kutub Utara"
+	},
 	"familyguide_body": {
 		"message": "Desa Sinterklas adalah tempat yang sempurna bagi keluarga untuk merayakan liburan Natal. Anda akan menemukan semua karakter favorit dengan aktivitas yang menyenangkan, mendidik, dan interaktif untuk segala usia."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "lainnya"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asisten"
+	},
 	"familyguide_secondary_body": {
 		"message": "Pada tanggal 24 Desember, Desa Sinterklas berubah menjadi area pelacakan yang memberi Anda pengalaman untuk mengikuti Sinterklas dan rusa kutubnya saat mengirimkan hadiah ke anak-anak di seluruh dunia."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Dapatkan keajaiban lainnya dari Pelacak Sinterklas musim ini dengan semua produk Google favorit Anda."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Bertanyalah ke Asisten Google setiap hari untuk mendapatkan kabar seru dan terbaru dari Dimplestick si Kurcaci."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, ada berita apa dari Kutub Utara?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Keseruan liburan Natal untuk seluruh keluarga"
+	},
+	"familylink": {
+		"message": "Tambahkan akun Google anak Anda, yang dikelola dengan Family Link"
+	},
+	"featured": {
+		"message": "Unggulan"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Keberangkatan Sinterklas"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Sinterklas Harus Segera Pergi"
+	},
 	"scene_videoscene_museum": {
 		"message": "Sehari di Museum"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Workshop Sinterklas"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Batang Kayu Yule di Perapian"
 	},
 	"scene_windtunnel": {
 		"message": "Terowongan Angin"

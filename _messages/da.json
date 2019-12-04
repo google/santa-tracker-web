@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Hold fest i hele december"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Brug Google Assistent til at få en masse at vide om julemanden i december! Denne integration er tilgængelig på udvalgte sprog."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Med deres forældres tilladelse kan børn under 13 år få deres egen tilpassede oplevelse med Google Assistent, når de logger ind på deres konto, der administreres med \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistent giver dig direkte forbindelse til Nordpolen, hvor julemanden har travlt med at øve sig til en koncert. Han kan kun én sang – kan du hjælpe ham med at finde den bedste måde at spille den på?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Ring til julemanden"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Følg med i Nordpolens nyheder hver dag, og se, hvad julemanden og nisserne går rundt og laver. Du skal bare spørge Google Assistent om, hvad der sker på Nordpolen."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Nordpolens nyheder"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Når julemanden ikke har travlt i værkstedet sammen med nisserne, bruger han tiden på at øve sine vittigheder. Du skal bare spørge Google Assistent om en julemandsvittighed, så kan du høre, hvor god han er blevet."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Julemandsvittigheder"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nordpolen lige nu"
+	},
 	"familyguide_body": {
 		"message": "Julemandens landsby er det perfekte sted for familiehygge i julen. Du finder alle dine yndlingsfigurer og masser af sjove, oplysende og interaktive aktiviteter for alle aldre."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mere"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "Den 24. december bliver julemandens landsby forvandlet til en sporingsoplevelse, hvor du kan følge julemanden og hans rensdyr, når de tager rundt med gaver til børn i hele verden."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Mærk magien i Følg julemanden denne jul med alle dine yndlingsprodukter fra Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Spørg Google Assistent hver dag for at få sjove opdateringer fra nissen Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, hvad sker der på Nordpolen?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Julehygge for hele familien"
+	},
+	"familylink": {
+		"message": "Tilføj dit barns Google-konto, der administreres med Family Link"
+	},
+	"featured": {
+		"message": "Udvalgt"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Julemandens afgang"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Ud som et lys"
+	},
 	"scene_videoscene_museum": {
 		"message": "En dag på museet"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Julemandens værksted"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Julebrændeknude"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnel"

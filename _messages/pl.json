@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Świętuj przez cały miesiąc"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Skorzystaj z pomocy Asystenta Google, by w grudniu dowiedzieć się jak najwięcej o Świętym Mikołaju! Ta integracja jest dostępna w wybranych językach."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Za zgodą rodzica dzieci poniżej 13 roku życia mogą korzystać ze spersonalizowanej wersji Asystenta Google po zalogowaniu się na własne konto, którym rodzice zarządzają w aplikacji \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asystent Google połączy Cię z biegunem północnym, gdzie Święty Mikołaj odbywa próbę przed koncertem. Mikołaj zna tylko jedną piosenkę – pomożesz mu znaleźć najlepszy sposób, żeby ją zagrać?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Zadzwoń do Mikołaja"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Oglądaj codziennie Wiadomości z bieguna północnego, jeśli chcesz wiedzieć, czym zajmuje się Święty Mikołaj z elfami. Wystarczy, że spytasz Asystenta Google, co słychać na biegunie."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Wiadomości z bieguna północnego"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Gdy Święty Mikołaj nie pracuje z elfami w warsztacie, spędza czas, rozwijając swoje umiejętności komediowe. Poproś Asystenta Google, by opowiedział jeden z żartów Mikołaja."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Żarty Świętego Mikołaja"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nie przegap żadnych informacji z bieguna"
+	},
 	"familyguide_body": {
 		"message": "Wioska Świętego Mikołaja to miejsce, w którym całe rodziny mogą świętować Boże Narodzenie. Znajdziesz tu swoich ulubionych bohaterów i interaktywne zajęcia dające rozrywkę i pozwalające zdobyć nowe umiejętności odbiorcom w każdym wieku."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "więcej"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Asystent"
+	},
 	"familyguide_secondary_body": {
 		"message": "24 grudnia wioska Świętego Mikołaja staje się miejscem, w którym możesz obserwować, jak Mikołaj wraz ze swym reniferem dostarczają prezenty dzieciom na całym świecie."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "W te święta wydobądź jeszcze więcej magii z Trasy Świętego Mikołaja dzięki swoim ulubionym usługom Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Codziennie pytaj Asystenta Google o nowe zabawne wieści od elfa Dimplesticksa."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„OK Google, co słychać na biegunie północnym?”"
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Zabawa na święta dla całej rodziny"
+	},
+	"familylink": {
+		"message": "Dodaj konto Google swojego dziecka zarządzane w aplikacji Family Link"
+	},
+	"featured": {
+		"message": "Polecana"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Święty Mikołaj odlatuje"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Czas zgasić światła"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dzień w muzeum"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Warsztat Świętego Mikołaja"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bożonarodzeniowy kominek"
 	},
 	"scene_windtunnel": {
 		"message": "Tunel powietrzny"

@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Celebre durante todo o mês"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Utilize o Assistente Google para saber mais acerca do Pai Natal durante o mês de dezembro! Esta integração está disponível em apenas alguns idiomas."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Com a autorização dos pais, as crianças com menos de 13 anos também podem ter a sua experiência personalizada do Assistente Google quando iniciam sessão com a respetiva conta gerida com o \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "O Assistente Google liga-o ao Polo Norte, onde o Pai Natal está ocupado a ensaiar para um concerto de música. Ele só sabe uma música. Pode ajudá-lo a descobrir a melhor forma de a tocar?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Ligar ao Pai Natal"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Veja o Noticiário do Polo Norte todos os dias para descobrir o que o Pai Natal e os seus elfos estão a fazer. Peça ao Assistente Google novidades do Polo Norte."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticiário do Polo Norte"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quando o Pai Natal não está ocupado com os elfos na oficina, dedica o seu tempo a aperfeiçoar as próprias técnicas de comédia. Peça ao Assistente Google uma piada do Pai Natal para poder ouvir o seu número cómico."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Piadas do Pai Natal"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nunca perca o Notícias ao Minuto do Polo Norte"
+	},
 	"familyguide_body": {
 		"message": "A Aldeia do Pai Natal é o local perfeito para celebrar em família. Vai encontrar todas as suas personagens favoritas, bem como atividades divertidas, educativas e interativas para todas as idades."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mais"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistente"
+	},
 	"familyguide_secondary_body": {
 		"message": "No dia 24 de dezembro, a Aldeia do Pai Natal transforma-se numa experiência de acompanhamento onde pode seguir o Pai Natal e as renas à medida que entregam os presentes a crianças em todo o mundo."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Sinta mais a magia de \"A viagem do Pai Natal\" nesta época festiva com todos os seus produtos favoritos da Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Peça ao Assistente Google atualizações divertidas de Dimplesticks, o Elfo."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, que novidades há do Pólo Norte?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Diversão de Natal para toda a família"
+	},
+	"familylink": {
+		"message": "Adicione a Conta Google da criança, gerida com o Family Link."
+	},
+	"featured": {
+		"message": "Em destaque"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Descolagem do Pai Natal"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Sair à velocidade da luz"
+	},
 	"scene_videoscene_museum": {
 		"message": "Um dia no museu"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Oficina do Pai Natal"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Madeiro"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"

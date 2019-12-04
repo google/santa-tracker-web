@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "पूरे महीने जश्न मनाएं"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "दिसंबर में सैंटा क्लॉज़ के बारे में ज़्यादा जानने के लिए Google Assistant का इस्तेमाल करें! यह सुविधा चुनिंदा भाषाओं में उपलब्ध है."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "\u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e से प्रबंधित किए जा रहे अपने खाते से लॉग इन करने पर, 13 साल से कम उम्र के बच्चे भी Google Assistant का मनमुताबिक अनुभव ले सकते हैं. इसके लिए, बच्चों को अपने अभिभावक की अनुमति लेनी होगी."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistant आपको उत्तरी ध्रुव से जोड़ती है, जहां सैंटा, संगीत कॉन्सर्ट की तैयारी कर रहे हैं. उन्हें सिर्फ़ एक गाना आता है—क्या आप इसे गाने का सबसे अच्छा तरीका बता सकते हैं?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "सैंटा को कॉल करें"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "सैंटा और उनके छोटे जादूगर क्या कर रहे हैं, यह जानने के लिए रोज़ उत्तरी ध्रुव का न्यूज़कास्ट देखते रहें. इसके लिए, सिर्फ़ Google Assistant से पूछें कि उत्तरी ध्रुव पर क्या चल रहा है."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "उत्तरी ध्रुव का न्यूज़कास्ट"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "जब सैंटा, छोटे जादूगरों के साथ वर्कशॉप में नहीं होते, तब वह कॉमेडी के अपने हुनर को बेहतर बनाने में समय बिताते हैं. Google Assistant से सैंटा का चुटकुला सुनाने के लिए कहें और सैंटा के रूटीन को जानें."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "सैंटा के चुटकुले"
+	},
+	"familyguide_assistant_title": {
+		"message": "'नॉर्थ पोल मिनट' से खबरें पाते रहें"
+	},
 	"familyguide_body": {
 		"message": "सैंटा का गांव, छुट्टियों का जश्न मनाने वाले परिवारों के लिए बिल्कुल सही जगह है. आपको हर उम्र के लिए मज़ेदार, शिक्षा से भरी, और इंटरैक्टिव गतिविधियों के साथ आपके सभी पसंदीदा किरदार मिलेंगे."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "ज़्यादा"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "24 दिसंबर को सैंटा का गांव एक ट्रैकिंग का अनुभव लेने की जगह बन जाता है. इसमें आप सैंटा और उसके रेनडियर के साथ घूम सकते हैं और उन्हें दुनिया भर के बच्चों को तोहफ़े देते हुए देख सकते हैं."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "इस सीज़न में अपने सभी पसंदीदा Google उत्पादों के साथ, सैंटा ट्रैकर से और भी बहुत कुछ करें."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "छोटे जादूगर, डिम्पलस्टिक्स से हर दिन मज़ेदार अपडेट पाने के लिए Google Assistant से कहें."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, उत्तरी ध्रुव में नया क्या हो रहा है?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "पूरे परिवार के लिए छुट्टियों का आनंद"
+	},
+	"familylink": {
+		"message": "अपने बच्चे का Google खाता जोड़ें, जिसे Family Link से प्रबंधित किया जा रहा है"
+	},
+	"featured": {
+		"message": "चुनिंदा"
 	},
 	"fi_country_name": {
 		"message": "फ़िनलैंड"
@@ -1635,7 +1674,7 @@
 		"message": "उपहार बनाने का काम"
 	},
 	"scene_holidayfoods": {
-		"message": "Google Earth पर दुनिया भर की, छुट्टियों में खाने-पीने की चीज़ें"
+		"message": "Google Earth पर दुनिया भर की, त्योहारों में खाने-पीने की चीज़ें"
 	},
 	"scene_icecave": {
 		"message": "बर्फ़ की गुफा"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "सैंटा चलने के लिए तैयार है"
 	},
+	"scene_videoscene_likealight": {
+		"message": "चैन की नींद सोते हुए"
+	},
 	"scene_videoscene_museum": {
 		"message": "संग्रहालय में एक दिन"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "सांता की वर्कशॉप"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "यूल लॉग (खास तरह का अलाव)"
 	},
 	"scene_windtunnel": {
 		"message": "विंड टनेल"

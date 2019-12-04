@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "1 か月通してお祝いする"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google アシスタントを使って、12 月のサンタクロースの様子を覗いてみましょう。この統合機能は一部の言語でのみご利用いただけます。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "保護者の許可があれば、13 歳未満のお子様も自身のアカウントでログインして、自分用にカスタマイズされた Google アシスタントをご利用いただけます。アカウントの管理は\u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eファミリー リンク\u003c/a\u003eで行えます。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google アシスタントがあなたを北極につなげてくれます。そこでは、音楽コンサートのリハーサルでサンタさんが大忙し。知っている曲が 1 つしかないサンタさんを手伝って、最高の演奏方法を見つけてあげましょう。"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "サンタさんに電話する"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "北極ニュース放送は、サンタさんと妖精たちの様子を毎日伝えています。Google アシスタントに話しかけて、北極の最新情報をお聞きください。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北極ニュース放送"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "作業場で妖精とおもちゃ作りをしていないとき、サンタさんはお笑いの腕を磨いています。Google アシスタントに話しかけて、サンタさんの定番ジョークを聞きましょう。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "サンタさんのジョーク"
+	},
+	"familyguide_assistant_title": {
+		"message": "北極速報をお見逃しなく"
+	},
 	"familyguide_body": {
 		"message": "サンタ村は家族でクリスマスを楽しむのに最適な場所です。すべての年代向けの、楽しく教育的かつインタラクティブなアクティビティを通して、お気に入りのキャラクターが全部見つかります。"
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "もっと見る"
 	},
+	"familyguide_nav_link_07": {
+		"message": "アシスタント"
+	},
 	"familyguide_secondary_body": {
 		"message": "12 月 24 日、サンタ村は世界中の子どもにプレゼントを届けるサンタとトナカイを追跡できる画面に変わります。"
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "今年は、お気に入りの Google サービスすべてとともに「サンタを追いかけよう」の魔法がパワーアップしました。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Google アシスタントに話しかけて、妖精のディンプルスティックから毎日楽しい情報を手に入れましょう。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "「OK Google、北極の最新情報は？」"
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "家族全員でクリスマスを楽しもう"
+	},
+	"familylink": {
+		"message": "お子様の Google アカウントを追加して、ファミリー リンクで管理"
+	},
+	"featured": {
+		"message": "おすすめ"
 	},
 	"fi_country_name": {
 		"message": "フィンランド"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "サンタさんの出発"
 	},
+	"scene_videoscene_likealight": {
+		"message": "きちんと消灯"
+	},
 	"scene_videoscene_museum": {
 		"message": "思い出記念館"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "サンタの工房"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "ユールログ"
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"

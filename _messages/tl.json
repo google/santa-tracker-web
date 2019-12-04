@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Magdiwang buong buwan"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Gamitin ang Google Assistant para malaman ang iba pa tungkol kay Santa Claus kapag Disyembre! Available ang pagsasama na ito sa mga piling wika."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Sa pahintulot ng kanilang magulang, puwede ring magkaroon ng sarili nilang personalized na karanasan sa Google Assistant ang mga batang wala pang 13 taon kapag nag-log in sila sa sarili nilang account, na pinamamahalaan ng \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Ikinokonekta ka ng Google Assistant sa North Pole, kung saan abala si Santa sa pag-eensayo para sa isang musical concert. Isang kanta lang ang alam niya—matutulungan mo ba siyang alamin ang pinakamainam na paraan para ma-play iyon?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Tawagan si Santa"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Tutukan araw-araw ang North Pole Newscast para malaman kung ano ang ginagawa ni Santa at ng kanyang mga elf. Itanong lang sa Google Assistant kung ano ang bago sa North Pole."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "North Pole Newscast"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kapag hindi abala si Santa sa mga elf sa workshop, ginugugol niya ang oras sa pagsasanay ng kanyang mga kasanayan sa komedya. Humingi lang sa Google Assistant ng joke ni Santa para marinig ang kanyang routine."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Mga Joke ni Santa"
+	},
+	"familyguide_assistant_title": {
+		"message": "Huwag Kailanman Palampasin ang North Pole Minute"
+	},
 	"familyguide_body": {
 		"message": "Perpektong lugar para sa mga pamilya ang Village ni Santa para maipagdiwang ang season. Makikita mong sama-sama ang lahat ng paborito mong character sa masasaya, pang-edukasyon, at interactive na aktibidad para sa bawat edad."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "marami pang iba"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "Sa ika-24 ng Disyembre magiging karanasan sa pag-track ang Village ni Santa kung saan masusundan mo si Santa at ang kanyang reindeer habang naghahatid sila ng mga regalo sa mga bata sa buong mundo."
 	},
@@ -790,6 +820,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Sulitin pa ang magic ng Santa Tracker ngayong season gamit ang lahat ng paborito mong produkto ng Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Tanungin ang Google Assistant araw-araw para sa masasayang update mula kay Dimplesticks the Elf."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, ano ba ang bago sa North Pole?\""
@@ -823,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Kasayahan sa kapaskuhan para sa buong pamilya"
+	},
+	"familylink": {
+		"message": "Idagdag ang Google account ng iyong anak, na pinamamahalaan ng Family Link"
+	},
+	"featured": {
+		"message": "Itinatampok"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Paglipad ni Santa"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Out Like A Light"
+	},
 	"scene_videoscene_museum": {
 		"message": "Isang Araw sa Museo"
 	},
@@ -1789,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Santa's Workshop"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Log ng Kapaskuhan"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
