@@ -10,6 +10,7 @@ app.Fence = class Fence extends app.Entity {
   constructor() {
     super()
 
+    this.lastSoundTime = 0;
     this.elem = document.createElement('div')
     this.elem.setAttribute('class', 'fence')
     document.getElementById('fences').append(this.elem)
@@ -74,11 +75,17 @@ app.Fence = class Fence extends app.Entity {
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
       actions = [Constants.PLAYER_ACTIONS.BLOCK]
+      this.playSound();
     }
 
     return actions
   }
-
+  playSound() {
+    if (performance.now() - this.lastSoundTime > 700) {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_thud');
+      this.lastSoundTime = performance.now();
+    }
+  }
   defineType(cells, row, column) {
     const cell = cells[row][column]
     const type = {
