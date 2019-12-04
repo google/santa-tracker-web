@@ -5,7 +5,7 @@ goog.require('Levels')
 
 goog.require('app.Board')
 goog.require('app.Controls')
-goog.require('app.GameManager')
+goog.require('app.ScoreManager')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
@@ -33,6 +33,9 @@ app.Game = class Game {
     this.context = context
 
     this.gui = new app.Gui(this)
+
+    // this will probably change
+    app.ScoreManager.init(this)
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation)
@@ -72,12 +75,12 @@ app.Game = class Game {
     this.entities = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      app.GameManager.players = [new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')]
+      app.ScoreManager.players = [new app.Player(Constants.PLAYER_CONTROLS.SINGLE, 'a')]
       this.multiplayer = false
     } else {
-      app.GameManager.players = [
-        new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a'),
-        new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
+      app.ScoreManager.players = [
+        new app.Player(Constants.PLAYER_CONTROLS.ARROWS, 'a'),
+        new app.Player(Constants.PLAYER_CONTROLS.WASD, 'b')
       ]
       this.multiplayer = true
     }
@@ -119,8 +122,8 @@ app.Game = class Game {
     this.scoreboard.addTime(levelConfig.time)
     this.levelWinner = null
 
-    for (let i = 0; i < app.GameManager.players.length; i++) {
-      app.GameManager.players[i].init(levelConfig.players[i])
+    for (let i = 0; i < app.ScoreManager.players.length; i++) {
+      app.ScoreManager.players[i].init(levelConfig.players[i])
     }
 
     for (const entity of levelConfig.entities) {
@@ -185,7 +188,7 @@ app.Game = class Game {
 
         let playerCollision = false
 
-        for (const player of app.GameManager.players) {
+        for (const player of app.ScoreManager.players) {
           player.onFrame(delta, now)
 
           if (player.isCloseToOtherPlayer) {
@@ -206,8 +209,8 @@ app.Game = class Game {
 
   detectPlayerCollision() {
     if (this.playerCollision) return
-    const player1 = app.GameManager.players[0]
-    const player2 = app.GameManager.players[1]
+    const player1 = app.ScoreManager.players[0]
+    const player2 = app.ScoreManager.players[1]
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
 
     const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
@@ -235,8 +238,8 @@ app.Game = class Game {
 
       if (Math.abs(player1Speed - player2Speed) < PLAYER_BOUNCE_FORCE) { // if speeds are relatively the same
         // tie, both players are boucing against each other woth the same force
-        for (let i = 0; i < app.GameManager.players.length; i++) {
-          const player = app.GameManager.players[i]
+        for (let i = 0; i < app.ScoreManager.players.length; i++) {
+          const player = app.ScoreManager.players[i]
           // get direction angle
           const angle = player.getDirectionAngle()
           // bump player (oposite direction)
@@ -253,16 +256,6 @@ app.Game = class Game {
         // bump current player (oposite direction)
         fastPlayer.bump(angle, PLAYER_BOUNCE_FORCE, -1)
       }
-    }
-  }
-
-  registerToyCompletion(player) {
-    if (!this.levelWinner) {
-      this.levelWinner = player
-      player.registerWin()
-
-      // Todo: Display level winner screen
-      this.goToNextLevel()
     }
   }
 
@@ -302,9 +295,9 @@ app.Game = class Game {
       this.gameoverDialog.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
       if (this.multiplayer) {
-        if (app.GameManager.players[0].score > app.GameManager.players[1].score) {
+        if (app.ScoreManager.players[0].score > app.ScoreManager.players[1].score) {
           console.log('player 1 won')
-        } else if (app.GameManager.players[0].score < app.GameManager.players[1].score) {
+        } else if (app.ScoreManager.players[0].score < app.ScoreManager.players[1].score) {
           console.log('player 2 won')
         } else {
           console.log('tie')
@@ -343,7 +336,7 @@ app.Game = class Game {
     this.level = 0
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
-    for (const player of app.GameManager.players) {
+    for (const player of app.ScoreManager.players) {
       player.score = 0
     }
   }

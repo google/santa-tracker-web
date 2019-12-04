@@ -7,8 +7,7 @@ goog.require('app.Controls')
 goog.require('app.AnimationManager')
 
 app.Player = class Player {
-  constructor(game, controls, id) {
-    this.game = game
+  constructor(controls, id) {
     this.animations = app.AnimationManager.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
@@ -295,7 +294,7 @@ app.Player = class Player {
       this.clearToyParts()
 
       // temporary
-      this.game.registerToyCompletion(this)
+      app.ScoreManager.registerToyCompletion(this)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
