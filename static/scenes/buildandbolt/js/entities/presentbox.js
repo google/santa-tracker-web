@@ -31,11 +31,14 @@ app.PresentBox = class PresentBox extends app.Entity {
 
   onContact(player) {
     let actions = []
-    let toyCompleted = true
-    // check if all parts are here
-    for (let i = 1; i <= this.config.toy.length; i++) {
-      if (player.toyParts.indexOf(i) == -1) {
-        toyCompleted = false
+    let toyCompleted = player.id == this.config.playerId
+
+    if (toyCompleted) {
+      // check if all parts are here
+      for (let i = 1; i <= this.config.toy.length; i++) {
+        if (player.toyParts.indexOf(i) == -1) {
+          toyCompleted = false
+        }
       }
     }
 
