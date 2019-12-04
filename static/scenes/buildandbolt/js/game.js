@@ -183,7 +183,7 @@ app.Game = class Game {
       // e.g. Player 1 is in the starting cell of the player 2. Then player 2 die and restart on his starting cell,
       // both players will be in the same cell and create bugs
       if (collisionDistance <= 0.5) {
-        console.log('wrong')
+        // console.log('wrong')
         // move both players in the next left/right cell
         player1.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player1.position.x + 1))
         player2.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1, Math.max(0, player2.position.x - 1))
