@@ -10,22 +10,21 @@ goog.require('Utils')
  *
  * @constructor
  */
-app.Controls = class Controls {
-  constructor(game) {
-    this.game_ = game
+class Controls {
+  init(game) {
     // this.players_ = game.players
     // this.tutorial_ = game.tutorial
 
     if (app.shared.utils.touchEnabled) {
       this.isTouch = true
       this.currentTouchId = null
-      this.game_.context.addEventListener(
+      game.context.addEventListener(
           'touchstart',
           this.onTouchStart.bind(this))
-      this.game_.context.addEventListener(
+      game.context.addEventListener(
           'touchmove',
           this.onTouchMove.bind(this))
-      this.game_.context.addEventListener(
+      game.context.addEventListener(
           'touchend',
           this.onTouchEnd.bind(this))
     } else {
@@ -153,4 +152,6 @@ app.Controls = class Controls {
     }
   }
 }
+
+app.Controls = new Controls()
 

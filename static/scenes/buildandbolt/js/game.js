@@ -38,10 +38,9 @@ app.Game = class Game {
 
   init(playerOption) {
     app.Board.init(document.getElementById('board'))
+    app.Controls.init(this)
 
-    this.controls = new app.Controls(this)
     this.entities = []
-
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
       app.GameManager.players = [new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')]

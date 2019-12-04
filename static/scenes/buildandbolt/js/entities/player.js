@@ -3,11 +3,11 @@ goog.provide('app.Player')
 goog.require('Constants')
 goog.require('Utils')
 goog.require('app.Board')
+goog.require('app.Controls')
 
 app.Player = class Player {
   constructor(game, controls, id) {
     this.game = game
-    this.gameControls = game.controls
     this.animations = this.game.animations[`player-${id}`]
     this.controls = controls
     this.score = 0
@@ -146,7 +146,7 @@ app.Player = class Player {
       PLAYER_ACCELERATION_STEP,
       GRID_DIMENSIONS,
     } = Constants
-    const { left, right, up, down } = this.gameControls.getMovementDirections(
+    const { left, right, up, down } = app.Controls.getMovementDirections(
         this.controls, this.position)
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR

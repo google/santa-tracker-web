@@ -3,6 +3,7 @@ goog.provide('app.Table')
 goog.require('Constants')
 
 goog.require('app.Entity')
+goog.require('app.Controls')
 goog.require('app.shared.pools');
 goog.require('Utils')
 
@@ -10,7 +11,6 @@ app.Table = class Table extends app.Entity {
   constructor(game, config) {
     super()
     this.config = config
-    this.gameControls = game.controls
     this.lastSoundTime = 0;
     this.elem = document.createElement('div')
     document.getElementById('tables').append(this.elem)
@@ -42,7 +42,7 @@ app.Table = class Table extends app.Entity {
 
     // if player is close to border, it can do an action
     if (Utils.isTouchingBorder(this.config, player.position)) {
-      if (this.gameControls.isTouch || this.gameControls.isKeyControlActive(player.controls.action)) {
+      if (app.Controls.isTouch || app.Controls.isKeyControlActive(player.controls.action)) {
         actions = [Constants.PLAYER_ACTIONS.ADD_TOY_PART]
       }
       if (Constants.DEBUG) {
