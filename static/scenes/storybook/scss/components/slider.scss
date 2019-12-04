@@ -1,0 +1,11 @@
+.slider {
+  bottom: 0;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  width: 86%;
+
+  input {
+    width: 100%;
+  }
+}

@@ -6,7 +6,8 @@ $name: 'module-storybook';
   @import "scss/_mixins";
 
   // COMPONENTS
-  @import "scss/nav";
+  @import "scss/components/nav";
+  @import "scss/components/slider";
 
   // TODO: RESPONSIVE SCSS
   // @import "scss/responsive";

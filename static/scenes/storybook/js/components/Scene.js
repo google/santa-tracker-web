@@ -1,5 +1,7 @@
 class Scene {
-  constructor() {}
+  constructor() {
+    this.update = this.update.bind(this)
+  }
 
   update(i) {
     console.log(`go to chapter ${i}`)

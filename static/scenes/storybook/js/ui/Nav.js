@@ -1,37 +1,43 @@
 import Scene from '../components/Scene.js'
+import Slider from './Slider.js'
 
-export default class Nav {
-  constructor(el) {
-    this.el = el
-
-    this.activeIndex = 0
-    // TODO: USE CHAPTERS' LENGTH HERE
-    this.pages = 10
-
-    this.prev = this.prev.bind(this)
-    this.next = this.next.bind(this)
-
-    this.ui()
-    this.event()
+class Nav {
+  constructor() {
+    this._prev = this._prev.bind(this)
+    this._next = this._next.bind(this)
   }
 
-  ui() {
+  init(el, index, length) {
+    this.el = el
     this.prevBtn = this.el.querySelector('[data-nav-prev]')
     this.nextBtn = this.el.querySelector('[data-nav-next]')
+
+    this.activeIndex = index
+    this.pages = length
+
+    this._event()
   }
 
-  event() {
-    this.prevBtn.addEventListener('click', this.prev)
-    this.nextBtn.addEventListener('click', this.next)
+  _event() {
+    this.prevBtn.addEventListener('click', this._prev)
+    this.nextBtn.addEventListener('click', this._next)
   }
 
-  prev() {
+  _prev() {
     this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1
-    Scene.update(this.activeIndex)
+    Scene.update(this.activeIndex + 1)
+    Slider.update(this.activeIndex + 1)
   }
 
-  next() {
+  _next() {
     this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0
-    Scene.update(this.activeIndex)
+    Scene.update(this.activeIndex + 1)
+    Slider.update(this.activeIndex + 1)
+  }
+
+  update(i) {
+    this.activeIndex = i
   }
 }
+
+export default new Nav
