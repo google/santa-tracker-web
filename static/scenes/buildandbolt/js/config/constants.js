@@ -151,4 +151,23 @@ Constants = {
     fps: 24
   },
 
+  TOY_TYPES: {
+    CAR: {
+      key: 'car',
+      size: 2
+    },
+    ROBOT: {
+      key: 'robot',
+      size: 3
+    },
+    ROCKET: {
+      key: 'rocket',
+      size: 4
+    },
+    TEDDY: {
+      key: 'teddy',
+      size: 3
+    }
+  }
+
 }

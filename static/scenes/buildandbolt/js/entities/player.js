@@ -314,15 +314,21 @@ app.Player = class Player {
   }
 
   addToyPart(toyPart) {
-    if (this.toyParts.indexOf(toyPart) == -1) {
-      this.toyParts.push(toyPart)
+    let partId = toyPart.part
+    let toyType = toyPart.toyType.key
+    if (this.toyParts.indexOf(partId) == -1) {
+      this.toyParts.push(partId)
 
       if (this.toyParts.length == 1) {
         // transition to holding animation
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
       }
 
-      this.elem.classList.add(`toypart--${toyPart}`)
+      const toyElem = document.createElement('div')
+      toyElem.setAttribute('class',
+        `toypart toypart--${toyType}--${toyPart}`)
+      this.innerElem.appendChild(toyElem)
+
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
   }
@@ -331,6 +337,11 @@ app.Player = class Player {
     for (const toyPart of this.toyParts) {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
+
+    this.innerElem.querySelectorAll('.toypart').forEach((element) => {
+      this.innerElem.removeChild(element)
+    })
+
     this.toyParts = []
   }
 

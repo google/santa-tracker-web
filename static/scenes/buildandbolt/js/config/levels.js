@@ -1,5 +1,6 @@
 goog.provide('Levels')
 
+goog.require('Constants')
 
 /**
  * Some documentation for each type of entity:
@@ -130,7 +131,10 @@ Levels = [
           y: 12,
           tableType: 1,
           isSideView: false,
-          partType: 'car_wheels'
+          partType: {
+            toyType: Constants.TOY_TYPES.CAR,
+            part: 1
+          }
         }
       },
       {
@@ -140,7 +144,19 @@ Levels = [
           y: 1,
           tableType: 2,
           isSideView: true,
-          partType: 'robot_body'
+          partType: {
+            toyType: Constants.TOY_TYPES.CAR,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 19,
+          y: 12,
+          toy: Constants.TOY_TYPES.CAR,
+          playerId: 'a'
         }
       },
       {
@@ -148,10 +164,8 @@ Levels = [
         config: {
           x: 22,
           y: 12,
-          parts: [
-            'robot_body',
-            'car_wheels'
-          ]
+          toy: Constants.TOY_TYPES.CAR,
+          playerId: 'b'
         }
       },
       {
@@ -233,7 +247,10 @@ Levels = [
           y: 12,
           tableType: 3,
           isSideView: true,
-          partType: 'robot_heads'
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 1
+          }
         }
       },
       {
@@ -243,7 +260,23 @@ Levels = [
           y: 1,
           tableType: 1,
           isSideView: false,
-          partType: 'robot_arms'
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 2
+          }
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 5,
+          y: 5,
+          tableType: 1,
+          isSideView: false,
+          partType: {
+            toyType: Constants.TOY_TYPES.ROBOT,
+            part: 3
+          }
         }
       },
       {
@@ -251,10 +284,17 @@ Levels = [
         config: {
           x: 15,
           y: 12,
-          parts: [
-            'robot_heads',
-            'robot_arms'
-          ]
+          toy: Constants.TOY_TYPES.ROBOT,
+          playerId: 'a'
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 13,
+          y: 12,
+          toy: Constants.TOY_TYPES.ROBOT,
+          playerId: 'b'
         }
       },
     ]
