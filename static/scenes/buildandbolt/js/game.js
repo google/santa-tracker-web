@@ -5,6 +5,7 @@ goog.require('Levels')
 
 goog.require('app.Board')
 goog.require('app.Controls')
+goog.require('app.GameManager')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
@@ -40,6 +41,8 @@ app.Game = class Game {
     this.controls = new app.Controls(this)
     this.entities = []
     this.players = []
+
+    console.log(app.GameManager)
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
       this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')
