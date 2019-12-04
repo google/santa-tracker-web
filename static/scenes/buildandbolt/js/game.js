@@ -201,7 +201,7 @@ app.Game = class Game {
       const player1Speed = player1.getSpeed()
       const player2Speed = player2.getSpeed()
 
-      if (Math.abs(player1Speed - player2Speed) < PLAYER_BOUNCE_FORCE) { // if speeds are relatively the same
+      if (player1Speed.toFixed(3) === player2Speed.toFixed(3)) { // if speeds are relatively the same
         // tie, both players are boucing against each other woth the same force
         for (let i = 0; i < this.players.length; i++) {
           const player = this.players[i]
