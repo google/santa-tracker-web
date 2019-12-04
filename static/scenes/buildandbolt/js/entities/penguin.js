@@ -3,6 +3,7 @@ goog.provide('app.Penguin')
 goog.require('Constants')
 
 goog.require('app.Slider')
+goog.require('app.AnimationManager')
 goog.require('app.shared.pools');
 goog.require('Utils')
 
@@ -19,16 +20,9 @@ app.Penguin = class Penguin extends app.Slider {
 
     this.animations = {}
 
-    let sides = ['front', 'back', 'side']
+    const sides = ['front', 'back', 'side']
     for (const side of sides) {
-      game.prepareAnimation(`img/penguin/${side}.json`, {
-        loop: false,
-        autoplay: false,
-        container: this.innerElem,
-        rendererSettings: {
-          className: `animation animation--${side}`
-        },
-      }).then((anim) => {
+      app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
         this.animations[side] = anim
       })
     }
