@@ -3,11 +3,12 @@ goog.provide('app.Slider')
 goog.require('Constants')
 
 goog.require('app.Entity')
+goog.require('app.Board')
 goog.require('Utils')
 
 app.Slider = class Slider extends app.Entity {
   constructor(game, config) {
-    super(game)
+    super()
     this.config = config
 
     this.elem = document.createElement('div')
@@ -32,7 +33,7 @@ app.Slider = class Slider extends app.Entity {
 
     this.reversing = false
 
-    this.game.board.addEntityToBoard(this, this.position.x, this.position.y, this.config.width, this.config.height)
+    app.Board.addEntityToBoard(this, this.position.x, this.position.y, this.config.width, this.config.height)
   }
 
   onFrame() {
@@ -74,7 +75,7 @@ app.Slider = class Slider extends app.Entity {
     }
 
     this.render()
-    this.game.board.updateEntityPosition(this,
+    app.Board.updateEntityPosition(this,
         prevPosition.x, prevPosition.y,
         this.position.x, this.position.y,
         this.config.width, this.config.height)

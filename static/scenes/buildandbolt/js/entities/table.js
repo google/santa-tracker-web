@@ -8,7 +8,7 @@ goog.require('Utils')
 
 app.Table = class Table extends app.Entity {
   constructor(game, config) {
-    super(game)
+    super()
     this.config = config
     this.gameControls = game.controls
     this.lastSoundTime = 0;

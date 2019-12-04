@@ -37,7 +37,8 @@ app.Game = class Game {
   }
 
   init(playerOption) {
-    this.board = new app.Board(document.getElementById('board'))
+    app.Board.init(document.getElementById('board'))
+
     this.controls = new app.Controls(this)
     this.entities = []
 
@@ -238,7 +239,7 @@ app.Game = class Game {
   }
 
   reset() {
-    this.board.reset()
+    app.Board.reset()
     for (const entity of this.entities) {
       if (entity instanceof app.Wall) {
         app.Wall.push(entity)

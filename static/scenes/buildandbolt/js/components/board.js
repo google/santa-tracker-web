@@ -2,17 +2,20 @@ goog.provide('app.Board')
 
 goog.require('Constants')
 
-app.Board = class Board {
+class Board {
   constructor(context) {
-    this.context = context
     this.height = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT
     this.width = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH
     this.ratio = Constants.GRID_DIMENSIONS.WIDTH / Constants.GRID_DIMENSIONS.HEIGHT
-    this.context.style.height = `${this.height}px`
-    this.context.style.width = `${this.width}px`
     this.cells = [...Array(Constants.GRID_DIMENSIONS.WIDTH)].map(
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
             el => []))
+  }
+
+  init(context) {
+    this.context = context
+    this.context.style.height = `${this.height}px`
+    this.context.style.width = `${this.width}px`
 
     if (Constants.DEBUG) {
       this.initDebugView()
@@ -151,3 +154,5 @@ app.Board = class Board {
     return surroundingEntities
   }
 }
+
+app.Board = new Board()

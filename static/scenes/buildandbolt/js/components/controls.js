@@ -1,8 +1,8 @@
 goog.provide('app.Controls')
 
 goog.require('app.shared.utils')
+goog.require('app.Board')
 goog.require('Utils')
-
 
 /**
  * Handles user input for controlling the game.
@@ -79,7 +79,7 @@ app.Controls = class Controls {
 
 
     this.currentTouchId = touch.identifier
-    this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
+    this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY })
 
     e.preventDefault()
@@ -97,7 +97,7 @@ app.Controls = class Controls {
       return
     }
 
-    this.currentTouchPosition = Utils.pixelToGridPosition(this.game_.board.context,
+    this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY })
 
     e.preventDefault()

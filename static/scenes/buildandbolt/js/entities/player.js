@@ -2,6 +2,7 @@ goog.provide('app.Player')
 
 goog.require('Constants')
 goog.require('Utils')
+goog.require('app.Board')
 
 app.Player = class Player {
   constructor(game, controls, id) {
@@ -29,7 +30,7 @@ app.Player = class Player {
     this.resetPosition()
 
     Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y)
-    this.game.board.addEntityToBoard(this, this.position.x, this.position.y)
+    app.Board.addEntityToBoard(this, this.position.x, this.position.y)
   }
 
   /**
@@ -55,7 +56,7 @@ app.Player = class Player {
 
         this.resetPosition()
 
-        this.game.board.updateEntityPosition(this,
+        app.Board.updateEntityPosition(this,
             this.prevPosition.x, this.prevPosition.y,
             this.position.x, this.position.y)
       }
@@ -227,7 +228,7 @@ app.Player = class Player {
     }
 
     // move player
-    this.game.board.updateEntityPosition(this,
+    app.Board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y)
   }
@@ -237,7 +238,7 @@ app.Player = class Player {
    * current position
    */
   checkActions() {
-    const surroundingEntities = this.game.board.getSurroundingEntities(this)
+    const surroundingEntities = app.Board.getSurroundingEntities(this)
     const resultingActions = {}
 
     for (const entity of surroundingEntities) {

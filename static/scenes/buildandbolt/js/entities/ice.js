@@ -8,7 +8,7 @@ goog.require('Utils')
 
 app.Ice = class Ice extends app.Entity {
   constructor(game, config) {
-    super(game)
+    super()
     this.config = config
 
     this.elem = document.createElement('div')
