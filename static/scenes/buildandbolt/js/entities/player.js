@@ -331,6 +331,9 @@ app.Player = class Player {
 
   // bump the player in a specific direction with a specific force
   bump(angle, force, reverse = 1) {
+    if (this.id === 'a') {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_elfbump');
+    }
     this.velocity.x = Math.cos(angle) * force * reverse
     this.velocity.y = Math.sin(angle) * force * reverse
   }
@@ -352,8 +355,9 @@ app.Player = class Player {
       if (this.toyParts.length == 1) {
         // transition to holding animation
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
+      }else if (this.toyParts.length == 2) {
+        window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
       }
-
       this.elem.classList.add(`toypart--${toyPart}`)
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
