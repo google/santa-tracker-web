@@ -25,7 +25,7 @@ app.Player = class Player {
    * Initializes player for the start of each level
    */
   init(config) {
-    this.config = config
+    this.config = { ...config, type: 'player', checkBorder: true, checkCell: true }
 
     this.resetPosition()
 
@@ -106,7 +106,6 @@ app.Player = class Player {
     this.updatePosition(delta)
     this.checkActions()
 
-
     // TODO: play the correct state
     const restThreshold = Constants.PLAYER_ACCELERATION_STEP * 8
     if ((this.velocity.x == 0 && this.velocity.y == 0) ||
@@ -136,50 +135,59 @@ app.Player = class Player {
   updatePosition(delta) {
     this.isDecelerating = false
 
+    const {
+      PLAYER_ACCELERATION_FACTOR,
+      PLAYER_DECELERATION_FACTOR,
+      PLAYER_ICE_ACCELERATION_FACTOR,
+      PLAYER_ICE_DECELERATION_FACTOR,
+      PLAYER_MAX_VELOCITY,
+      PLAYER_ACCELERATION_STEP,
+      GRID_DIMENSIONS,
+    } = Constants
     const { left, right, up, down } = this.gameControls.getMovementDirections(
         this.controls, this.position)
 
-    let accelerationFactor = Constants.PLAYER_ACCELERATION_FACTOR
-    let decelerationFactor = Constants.PLAYER_DECELERATION_FACTOR
+    let accelerationFactor = PLAYER_ACCELERATION_FACTOR
+    let decelerationFactor = PLAYER_DECELERATION_FACTOR
     if (this.onIce) {
-      accelerationFactor = Constants.PLAYER_ICE_ACCELERATION_FACTOR
-      decelerationFactor = Constants.PLAYER_ICE_DECELERATION_FACTOR
+      accelerationFactor = PLAYER_ICE_ACCELERATION_FACTOR
+      decelerationFactor = PLAYER_ICE_DECELERATION_FACTOR
       this.onIce = false // only leave it on for one step
     }
 
     if (left) {
-      this.velocity.x = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.velocity.x = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x - PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('left')
     } else if (this.velocity.x < 0) {
-      this.velocity.x = Math.min(0, this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
     }
 
     if (right) {
-      this.velocity.x = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.x + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.velocity.x = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.x + PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('right')
     } else if (this.velocity.x > 0) {
-      this.velocity.x = Math.max(0, this.velocity.x - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
     }
 
     if (up) {
-      this.velocity.y = Math.max(-Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.velocity.y = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y - PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('back')
     } else if (this.velocity.y < 0) {
-      this.velocity.y = Math.min(0, this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
     }
 
     if (down) {
-      this.velocity.y = Math.min(Constants.PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.y + Constants.PLAYER_ACCELERATION_STEP * accelerationFactor)
+      this.velocity.y = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
+          this.velocity.y + PLAYER_ACCELERATION_STEP * accelerationFactor)
       this.setDirection('front')
     } else if (this.velocity.y > 0) {
-      this.velocity.y = Math.max(0, this.velocity.y - Constants.PLAYER_ACCELERATION_STEP * decelerationFactor)
+      this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
     }
 
@@ -187,10 +195,10 @@ app.Player = class Player {
       this.platformOffset.x += this.velocity.x * delta
       this.platformOffset.y += this.velocity.y * delta
     } else {
-      this.position.x = Math.min(Constants.GRID_DIMENSIONS.WIDTH - 1,
+      this.position.x = Math.min(GRID_DIMENSIONS.WIDTH - 1,
           Math.max(0, this.position.x + this.velocity.x * delta))
 
-      this.position.y = Math.min(Constants.GRID_DIMENSIONS.HEIGHT - 1,
+      this.position.y = Math.min(GRID_DIMENSIONS.HEIGHT - 1,
           Math.max(0, this.position.y + this.velocity.y * delta))
     }
 
@@ -310,6 +318,30 @@ app.Player = class Player {
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
       }
     }
+
+    // bounce against other player
+    const playerEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE]
+    if (playerEntities && playerEntities.length) {
+      this.isCloseToOtherPlayer = true
+    } else {
+      this.isCloseToOtherPlayer = false
+    }
+  }
+
+  // bump the player in a specific direction with a specific force
+  bump(angle, force, reverse = 1) {
+    this.velocity.x = Math.cos(angle) * force * reverse
+    this.velocity.y = Math.sin(angle) * force * reverse
+  }
+
+  // get current angle of player's direction
+  getDirectionAngle() {
+    return Math.atan2(this.position.y - this.prevPosition.y, this.position.x - this.prevPosition.x);
+  }
+
+  // get current speed
+  getSpeed() {
+    return Math.abs(this.position.x - this.prevPosition.x) + Math.abs(this.position.y - this.prevPosition.y)
   }
 
   addToyPart(toyPart) {
