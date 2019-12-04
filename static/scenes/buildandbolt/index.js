@@ -30,6 +30,12 @@ const initPlayerAnimation = (path, playerId, side) => {
     }
 
     animations[`player-${playerId}`][side] = anim
+
+    // Debug mode
+    // const game = new Game(document.getElementById('module-buildandbolt'), 'multiplayer', animations, prepareAnimation)
+    // controlsScreen.classList.add('is-hidden')
+    // playerSelectionScreen.classList.add('is-hidden')
+    // end debug mode
   })
 
   api.preload.wait(p)
@@ -45,12 +51,6 @@ initPlayerAnimation('img/players/b/side.json', 'b', 'side')
 initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
 
 const game = new Game(document.getElementById('module-buildandbolt'), animations, prepareAnimation)
-
-// Debug mode
-// const game = new Game(document.getElementById('module-buildandbolt'), 'single')
-// controlsScreen.classList.add('is-hidden')
-// playerSelectionScreen.classList.add('is-hidden')
-// end debug mode
 
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());
