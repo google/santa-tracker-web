@@ -18,6 +18,7 @@ app.Player = class Player {
     this.spawnElem = document.querySelector(`.player-spawn--${id}`)
     this.spawnElem.classList.add('is-active')
     this.innerElem = this.elem.querySelector('.player__inner')
+    this.toysElem = this.elem.querySelector('.player__toys')
   }
 
   /**
@@ -323,11 +324,26 @@ app.Player = class Player {
       }
 
       const toyElem = document.createElement('img')
-      toyElem.setAttribute('class',
-        `toypart toypart--${toyType}--${partId}`)
-      toyElem.setAttribute('src',
-        `img/toys/${toyType}/${partId}.svg`)
-      this.innerElem.appendChild(toyElem)
+
+      if (this.toyParts.length == toyPart.toyType.size) {
+        // Replace all toy parts with full toy
+        while (this.toysElem.firstChild) {
+          this.toysElem.removeChild(this.toysElem.firstChild);
+        }
+
+        toyElem.setAttribute('class',
+          `toypart toypart--${toyType}--full`)
+        toyElem.setAttribute('src',
+          `img/toys/${toyType}/full.svg`)
+        this.toysElem.appendChild(toyElem)
+      } else {
+        const toyElem = document.createElement('img')
+        toyElem.setAttribute('class',
+          `toypart toypart--${toyType}--${partId}`)
+        toyElem.setAttribute('src',
+          `img/toys/${toyType}/${partId}.svg`)
+        this.toysElem.appendChild(toyElem)
+      }
 
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
     }
@@ -338,9 +354,9 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`)
     }
 
-    this.innerElem.querySelectorAll('.toypart').forEach((element) => {
-      this.innerElem.removeChild(element)
-    })
+    while (this.toysElem.firstChild) {
+      this.toysElem.removeChild(this.toysElem.firstChild);
+    }
 
     this.toyParts = []
   }

@@ -50,17 +50,39 @@
         .animation--side {
           display: block;
         }
+
+        .player__toys,
+        .toypart {
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
 
       &.direction--front {
         .animation--front {
           display: block;
         }
+
+        .player__toys,
+        .toypart {
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
 
       &.direction--back {
         .animation--back {
           display: block;
+        }
+
+        .player__toys,
+        .toypart {
+          top: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
         }
       }
 
@@ -77,6 +99,10 @@
       opacity: 0;
     }
 
+    &__toys {
+      position: absolute;
+      z-index: 2;
+    }
 
     .toypart {
       position: absolute;
