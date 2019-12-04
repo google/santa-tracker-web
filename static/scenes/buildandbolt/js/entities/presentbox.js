@@ -8,9 +8,8 @@ goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.PresentBox = class PresentBox extends app.Entity {
-  constructor(game, config) {
+  constructor() {
     super()
-    this.config = config
 
     this.elem = document.createElement('div')
     document.getElementById('present-boxes').append(this.elem)

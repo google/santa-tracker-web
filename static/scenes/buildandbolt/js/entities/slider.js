@@ -7,9 +7,8 @@ goog.require('app.Board')
 goog.require('Utils')
 
 app.Slider = class Slider extends app.Entity {
-  constructor(game, config) {
+  constructor() {
     super()
-    this.config = config
 
     this.elem = document.createElement('div')
   }

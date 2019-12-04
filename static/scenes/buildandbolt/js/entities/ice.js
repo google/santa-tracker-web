@@ -7,9 +7,8 @@ goog.require('app.shared.pools')
 goog.require('Utils')
 
 app.Ice = class Ice extends app.Entity {
-  constructor(game, config) {
+  constructor() {
     super()
-    this.config = config
 
     this.elem = document.createElement('div')
     document.getElementById('ice').append(this.elem)

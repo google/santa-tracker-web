@@ -7,8 +7,8 @@ goog.require('app.shared.pools');
 goog.require('Utils')
 
 app.Penguin = class Penguin extends app.Slider {
-  constructor(game, config) {
-    super(config)
+  constructor(game) {
+    super()
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')
