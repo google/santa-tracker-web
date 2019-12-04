@@ -13,7 +13,7 @@ goog.require('Utils')
 app.Controls = class Controls {
   constructor(game) {
     this.game_ = game
-    this.players_ = game.players
+    // this.players_ = game.players
     // this.tutorial_ = game.tutorial
 
     if (app.shared.utils.touchEnabled) {

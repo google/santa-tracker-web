@@ -40,16 +40,16 @@ app.Game = class Game {
     this.board = new app.Board(document.getElementById('board'))
     this.controls = new app.Controls(this)
     this.entities = []
-    this.players = []
 
-    console.log(app.GameManager)
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')
+      app.GameManager.players = [new app.Player(this, Constants.PLAYER_CONTROLS.SINGLE, 'a')]
       this.multiplayer = false
     } else {
-      this.players[0] = new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a')
-      this.players[1] = new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
+      app.GameManager.players = [
+        new app.Player(this, Constants.PLAYER_CONTROLS.ARROWS, 'a'),
+        new app.Player(this, Constants.PLAYER_CONTROLS.WASD, 'b')
+      ]
       this.multiplayer = true
     }
 
@@ -90,8 +90,8 @@ app.Game = class Game {
     this.scoreboard.addTime(levelConfig.time)
     this.levelWinner = null
 
-    for (let i = 0; i < this.players.length; i++) {
-      this.players[i].init(levelConfig.players[i])
+    for (let i = 0; i < app.GameManager.players.length; i++) {
+      app.GameManager.players[i].init(levelConfig.players[i])
     }
 
     for (const entity of levelConfig.entities) {
@@ -156,7 +156,7 @@ app.Game = class Game {
 
         let playerCollision = false
 
-        for (const player of this.players) {
+        for (const player of app.GameManager.players) {
           player.onFrame(delta, now)
 
           if (player.isCloseToOtherPlayer) {
@@ -177,8 +177,8 @@ app.Game = class Game {
 
   detectPlayerCollision() {
     if (this.playerCollision) return
-    const player1 = this.players[0]
-    const player2 = this.players[1]
+    const player1 = app.GameManager.players[0]
+    const player2 = app.GameManager.players[1]
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
 
     const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
@@ -206,8 +206,8 @@ app.Game = class Game {
 
       if (Math.abs(player1Speed - player2Speed) < PLAYER_BOUNCE_FORCE) { // if speeds are relatively the same
         // tie, both players are boucing against each other woth the same force
-        for (let i = 0; i < this.players.length; i++) {
-          const player = this.players[i]
+        for (let i = 0; i < app.GameManager.players.length; i++) {
+          const player = app.GameManager.players[i]
           // get direction angle
           const angle = player.getDirectionAngle()
           // bump player (oposite direction)
@@ -273,9 +273,9 @@ app.Game = class Game {
       this.gameoverDialog.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
       if (this.multiplayer) {
-        if (this.players[0].score > this.players[1].score) {
+        if (app.GameManager.players[0].score > app.GameManager.players[1].score) {
           console.log('player 1 won')
-        } else if (this.players[0].score < this.players[1].score) {
+        } else if (app.GameManager.players[0].score < app.GameManager.players[1].score) {
           console.log('player 2 won')
         } else {
           console.log('tie')
@@ -314,7 +314,7 @@ app.Game = class Game {
     this.level = 0
     this.levelUp.show(this.level + 1, this.startLevel.bind(this))
 
-    for (const player of this.players) {
+    for (const player of app.GameManager.players) {
       player.score = 0
     }
   }
