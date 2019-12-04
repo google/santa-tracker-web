@@ -52,11 +52,6 @@ initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
 
 const game = new Game(document.getElementById('module-buildandbolt'), animations, prepareAnimation)
 
-// Todo: implement these
-// api.addEventListener('pause', (ev) => game.pause());
-// api.addEventListener('resume', (ev) => game.resume());
-// api.addEventListener('restart', (ev) => game.restart());
-
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());
 api.addEventListener('restart', (ev) => game.restart());

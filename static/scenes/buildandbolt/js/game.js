@@ -151,7 +151,7 @@ app.Game = class Game {
           entity.onFrame(delta, now)
         }
 
-        let playerCollision = true
+        let playerCollision = false
 
         for (const player of this.players) {
           player.onFrame(delta, now)
