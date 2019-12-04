@@ -40,14 +40,14 @@ app.Player = class Player {
     this.animationQueue = []
 
     // initialize death animation
-    this.animations['death'].container.classList.add('is-active')
+    // this.animations['death'].container.classList.add('is-active')
     this.innerElem.classList.add('is-dead')
     this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start
     this.currentAnimationState = {
       animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
       callback: () => {
         this.dead = false
-        this.animations['death'].container.classList.remove('is-active')
+        // this.animations['death'].container.classList.remove('is-active')
         this.innerElem.classList.remove('is-dead')
 
         window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
@@ -324,9 +324,11 @@ app.Player = class Player {
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
       }
 
-      const toyElem = document.createElement('div')
+      const toyElem = document.createElement('img')
       toyElem.setAttribute('class',
         `toypart toypart--${toyType}--${partId}`)
+      toyElem.setAttribute('src',
+        `img/toys/${toyType}/${partId}.svg`)
       this.innerElem.appendChild(toyElem)
 
       window.santaApp.fire('sound-trigger', 'buildandbolt_pickitem');
@@ -358,9 +360,11 @@ app.Player = class Player {
 
     if (direction != this.currentDirection) {
       if (this.animations[this.currentDirection]) {
-        this.animations[this.currentDirection].container.classList.remove('is-active')
+        // this.animations[this.currentDirection].container.classList.remove('is-active')
+        this.innerElem.classList.remove(`direction--${this.currentDirection}`)
       }
-      this.animations[direction].container.classList.add('is-active')
+      // this.animations[direction].container.classList.add('is-active')
+      this.innerElem.classList.add(`direction--${direction}`)
       this.currentDirection = direction
     }
   }
