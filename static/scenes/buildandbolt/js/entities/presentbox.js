@@ -8,7 +8,7 @@ goog.require('Utils')
 
 app.PresentBox = class PresentBox extends app.Entity {
   constructor(game, config) {
-    super(game)
+    super()
     this.config = config
     this.gameControls = game.controls
 

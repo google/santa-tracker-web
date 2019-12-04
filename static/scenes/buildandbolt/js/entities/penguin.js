@@ -8,7 +8,7 @@ goog.require('Utils')
 
 app.Penguin = class Penguin extends app.Slider {
   constructor(game, config) {
-    super(game, config)
+    super(config)
 
     document.getElementById('penguins').append(this.elem)
     this.elem.setAttribute('class', 'penguin')

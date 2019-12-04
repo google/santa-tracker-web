@@ -8,7 +8,7 @@ goog.require('Utils')
 
 app.Platform = class Platform extends app.Slider {
   constructor(game, config) {
-    super(game, config)
+    super(config)
 
     document.getElementById('platforms').append(this.elem)
     this.elem.setAttribute('class', 'platform')
