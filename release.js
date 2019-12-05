@@ -23,7 +23,7 @@ const JSON5 = require('json5');
 const {Worker} = require('worker_threads');
 const WorkGroup = require('./build/group.js');
 
-const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
+const DISABLED_SCENES = 'sammytone_dev poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
