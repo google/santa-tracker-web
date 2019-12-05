@@ -9,6 +9,7 @@ goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
 goog.require('app.Ice')
+goog.require('app.LevelManager')
 goog.require('app.Penguin')
 goog.require('app.Pit')
 goog.require('app.Platform')
@@ -20,7 +21,6 @@ goog.require('app.ToysBoard')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
-goog.require('app.shared.LevelUp')
 goog.require('app.shared.Scoreboard')
 goog.require('app.AnimationManager')
 
@@ -83,11 +83,9 @@ app.Game = class Game {
     }
 
     app.ScoreManager.init(this)
+    app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
+        document.querySelector('.levelup--number'), this.startLevel.bind(this))
     // app.ToysBoard.init(document.getElementById('toys-board'))
-
-    this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
-        document.querySelector('.levelup--number'));
-    this.level = 0;
 
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new Scoreboard(this, null, Levels.length)
@@ -96,17 +94,17 @@ app.Game = class Game {
     this.lastFrame = null
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    app.LevelManager.show()
 
     this.onFrame()
   }
 
   startLevel() {
-    this.initLevel(this.level)
-    this.scoreboard.setLevel(this.level)
+    this.initLevel()
+    this.scoreboard.setLevel(app.LevelManager.current)
     this.unfreezeGame()
 
-    if (this.level === 0) {
+    if (app.LevelManager.current === 0) {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
@@ -117,8 +115,8 @@ app.Game = class Game {
   }
 
 
-  initLevel(level) {
-    let levelConfig = Levels[level]
+  initLevel() {
+    let levelConfig = Levels[app.LevelManager.current]
     this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
@@ -297,9 +295,9 @@ app.Game = class Game {
   goToNextLevel() {
     this.freezeGame()
     this.reset()
-    this.level++
-    if (this.level < Levels.length) {
-      this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    app.LevelManager.goToNext()
+    if (app.LevelManager.current < Levels.length) {
+      app.LevelManager.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
@@ -350,8 +348,8 @@ app.Game = class Game {
   restart() {
     this.freezeGame()
     this.reset()
-    this.level = 0
-    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    app.LevelManager.reset()
+    app.LevelManager.show()
 
     for (const player of this.players) {
       player.score = 0

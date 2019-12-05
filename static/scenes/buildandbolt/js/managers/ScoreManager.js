@@ -31,6 +31,7 @@ class ScoreManager {
     this.scoresDict[id].toys.push(toy)
 
     console.log(this.scoresDict[id])
+    this.game.goToNextLevel()
   }
 
   // score(id) {
