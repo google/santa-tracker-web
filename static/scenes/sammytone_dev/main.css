@@ -1,17 +1,73 @@
-div{
-    color:white;
-    
+div {
+    color: white;
 }
-#currentStopDiv,#etaDiv,#presentsDiv{
+
+#statusDiv,
+#etaDiv,
+#presentsDiv{
     background-color: #E63A36;
-    width: auto;
+    height: auto;
     display: inline-table;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 1px;
     border-color: black;
     border: 1px;
     border-radius: 15px;
 }
-#time{
+
+#time {
     width: 100%;
+}
+
+span,
+h1,
+img {
+    padding: 10px;
+    display: inline-block;
+}
+
+img {
+    height: 263px;
+}
+
+p {
+    margin: 0;
+    display: inline-block;
+}
+
+#imagep {
+    height: 100px;
+}
+
+#statusImgDiv {
+    background-color: #E63A36;
+    height: auto;
+    display: inline-table;
+    padding: 10px;
+    border-color: black;
+    border: 1px;
+    border-radius: 15px;
+    margin: 10px auto;
+}
+
+body{
+    display: inline-block;
+    margin: 0px;
+}
+
+#etaDiv {
+    width:255px;
+}
+
+#statusDiv {
+    width:440px;
+}
+
+#presentsDiv {
+    width: 400px;
+}
+
+#track {
+    height:120px;
+    width: 1170px;
 }

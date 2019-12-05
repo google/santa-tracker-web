@@ -5,94 +5,138 @@
 </head>
 <body>
 <h1>Time set:</h1>
-<input id='time' type="range" min="1545645600000" max="1545735120000" step=10000 value=1545645600000>
-<p id='timedisp'></p>
-<div id='track'>
-  <div id='currentStopDiv'>
-    <h1>Current Status:</h1>
-    <p id='current'>Stopped at Santa's Village</p>
+<input id="time" type="range" min="1545639600000" max="1577217600000" step=1000 value=1545645600000>
+<p id="timedisp"></p>
+<br>
+
+
+<div id="statusImgDiv">
+  <img src="https://media2.giphy.com/media/iDmjLkpZQr8bK/giphy.gif" alt="Status Image" id="statusImg">
+</div>
+
+
+<div id="track">
+  <div id="statusDiv">
+    <h1>Current status:</h1>
+    <span id="current">Stopped at Santa's Village</span>
   </div>
-  <div id='etaDiv'>
-  <h1 id=eta>ETA:</h1>
-  <p id=etatime>0:00</p>
+  <div id="etaDiv">
+    <h1 id="eta">ETA:</h1>
+    <span id="etatime">0:00</span>
   </div>
-  <div id='presentsDiv'>
-  <h1>Presents delivered:</h1>
-  <p id=presents>0</p>
+  <div id="presentsDiv">
+    <h1>Presents delivered:</h1>
+  <span id="presents">0</span>
   </div>
 </div>
-<!--<h1> Stops:</h1>
-<ul id='stops'></ul>-->
 
 <script type="module">
-let allstops=[]
-
-// List Element
-const ul = document.querySelector('#stops');
-
-// GitHub API URL
+const oneHour = 36*10000
+// API URL
 const url = 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media';
 
-// make the API call
-fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      allstops = data.destinations;
-      if (false){
-        //console.log(allstops)
-        // iterate over stops
-        data.destinations.map((stop) => {
-            // create the elements
-            //console.log(stop.arrival, parseInt(time.value), stop.departure);
-            let li = document.createElement('li'),
-                span = document.createElement('span'),
-                span0 = document.createElement('span');
-            span.innerText = stop.city;
-            span0.innerText = ' Arrival:'+new Date(stop.arrival);
-            // append all elements
-            li.append( span);
-            li.append(span0);
-            ul.append( li);
-          })};
-    }).catch(err => {
-        console.error('Error: ', err);
-    });
-function formatTime(mili){
-  let out=''
-  out += Math.floor(mili/(60*1000)) + ':' 
-  const seconds = Math.floor(mili/1000)%60
-  if (seconds == 0){
-    out+='00'
-    } else{
-      out+=seconds
-      }
-  return out
-}
-function timeset(){
-  let prev = 0
-  let timev=parseInt(time.value)
-  timedisp.textContent = new Date(timev);
-  allstops.map((stop) =>{
-    
-    //if(stop.arrival<timev){console.log(stop.city)}
-    //if(stop.departure>timev){console.log(stop.city)}
-    if(stop.arrival <= timev&& timev <= stop.departure){
-      eta.textContent = 'ETD: ';
-      const mili = stop.departure - timev;
-      etatime.textContent = formatTime(mili);
-      current.textContent = 'Stopped at '+stop.city;
-      presents.textContent = stop.presentsDelivered;
-    } else if (prev<timev&&timev<stop.arrival){
-      eta.textContent = 'ETA: ';
-      const mili = stop.arrival - timev
-      etatime.textContent = formatTime(mili);
-      current.textContent = "Flying";
+//Image urls
+const resting = 'https://i.giphy.com/media/iDmjLkpZQr8bK/giphy.webp'
+const stopped = 'https://cdn.dribbble.com/users/331693/screenshots/3978823/santatracker-chimney-dribbble-loop.gif'
+const flying = 'https://lh3.googleusercontent.com/-O6ZajIjbwW0/Xeg9Wa7uEzI/AAAAAAABteI/SQZxJubQ2fU56ujBaYv9zyqqfAE-llkGgCK8BGAsYHg/s512/2019-12-04.gif'
+
+
+// takes in miliseconds and puts out time in ((d:)h:)m:s    
+function formatTime(mili) {
+  let out='';
+  let minutes = Math.floor(mili/(60*1000));
+  let seconds = Math.floor(mili/1000)%60;
+  if (seconds <10){
+    seconds = '0'+seconds;
+  }
+  if (minutes< 60){
+    out += minutes  + ':' ;
+  } else{
+    let hours = Math.floor(minutes/60);
+    if( 1<hours&&hours<23){
+      minutes %= 60;
+      out+= hours+':'+minutes+':';
+      console.log(Math.floor(hours/24))
+    } else if(hours>24){
+      const days = Math.floor(hours/24)
+      hours %= 24;
+      out+= days + ':' + hours + ':' + minutes + ':';
     }
-    prev= stop.departure
-  })
+  }
+  out+= seconds;
+  
+  return out;
 }
-time.oninput = timeset;
-timeset()
+function updateimage(source){
+  if (statusImg.src != source){
+    statusImg.src = source;
+  }
+}
+
+async function setup() {
+  
+  const res = await fetch(url);
+  const data = await res.json();
+  const allstops = data.destinations;
+  const firstTime = allstops[0].arrival;
+  const lastTime = allstops.slice(-1)[0].arrival;
+  time.min = (firstTime) - oneHour;
+  time.max = (lastTime) + oneHour;
+
+
+
+  function timeset() {
+    let prev = 0;
+    const timev=parseInt(time.value);
+    timedisp.textContent = new Date(timev);
+    allstops.map((stop) =>{
+      
+      if(stop.arrival <= timev&& timev <= stop.departure){
+        eta.textContent = 'ETD: ';
+        const mili = stop.departure - timev;
+        etatime.textContent = formatTime(mili);
+        current.textContent = 'Stopped at '+stop.city;
+        presents.textContent = stop.presentsDelivered;
+        updateimage(stopped)
+      } else if (prev<timev&&timev<stop.arrival&&stop.id!='landing'){
+        eta.textContent = 'ETA: ';
+        const mili = stop.arrival - timev;
+        etatime.textContent = formatTime(mili);
+        current.textContent = 'Flying';
+        updateimage(flying)
+      } else if(timev<firstTime){
+        eta.textContent = 'ETD: ';
+        const mili = firstTime - timev;
+        etatime.textContent = formatTime(mili);
+        current.textContent = 'Pre-takeoff';
+        presents.textContent = 0;
+        updateimage(resting)
+      } else if( timev >= lastTime){
+        eta.textContent = 'ETD: ';
+        const mili = 'Next Year!'
+        etatime.textContent = mili;
+        current.textContent = 'Landed';
+        updateimage(resting);
+      }
+      prev= stop.departure;
+    })
+  }
+  time.oninput = timeset;
+  timeset();
+}
+
+function tick(){
+  if (time.value<time.max){
+    time.value = (parseInt(time.value) + 1000);
+    time.dispatchEvent(new CustomEvent('input'));
+  }
+  setTimeout(tick, 1000);
+
+}
+tick()
+setup().catch(err => {
+  console.warn(err)
+ })
 </script>
 
 </body>
