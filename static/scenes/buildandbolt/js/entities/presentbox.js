@@ -86,6 +86,12 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     return actions
   }
+
+  onDispose() {
+    super.onDispose()
+
+    this.toyAccepted = false // reopen box
+  }
 }
 
 app.shared.pools.mixin(app.PresentBox)
