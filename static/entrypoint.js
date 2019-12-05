@@ -109,7 +109,7 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
   }
   window.addEventListener('resize', refreshInsets);
   refreshInsets();
-}())
+}());
 
 
 // Controls the random future games that a user is suggested.
