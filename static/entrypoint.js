@@ -102,10 +102,11 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
     return;
   }
   function refreshInsets() {
-    const [topInset, rightInset, bottomInset, leftInset] = Android.stableInsets();
+    const padding = JSON.parse(Android.stableInsets());
+    const [topInset, rightInset, bottomInset, leftInset] = padding;
     const sideInset = Math.max(rightInset, leftInset);
     chromeElement.style.setProperty('--padding-top', topInset + 'px');
-    chromeElement.style.setProperty('--padding-side', topInset + 'px');
+    chromeElement.style.setProperty('--padding-side', sideInset + 'px');
   }
   window.addEventListener('resize', refreshInsets);
   refreshInsets();
