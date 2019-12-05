@@ -7,6 +7,8 @@ class Board {
     this.height = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT
     this.width = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH
     this.ratio = Constants.GRID_DIMENSIONS.WIDTH / Constants.GRID_DIMENSIONS.HEIGHT
+    this.paddingTop = Constants.BOARD_PADDING_TOP
+    this.paddingLeft = Constants.BOARD_PADDING_LEFT_PERCENTAGE
     this.cells = [...Array(Constants.GRID_DIMENSIONS.WIDTH)].map(
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
             el => []))
@@ -36,18 +38,15 @@ class Board {
   onResize() {
     let container = document.getElementById('main')
     if (container) {
-      let containerRatio = container.offsetWidth / container.offsetHeight
-      if (containerRatio < this.ratio) {
-        // top bottom letterboxing
-        this.context.style.left = '0'
-        this.context.style.top = '50%'
-        this.context.style.transform = `scale(${container.offsetWidth / this.width}) translateY(-50%)`
-      } else {
-        // left right letterboxing
-        this.context.style.left = '50%'
-        this.context.style.top = '0'
-        this.context.style.transform = `scale(${container.offsetHeight / this.height}) translateX(-50%)`
-      }
+      const maxHeight = window.innerHeight - this.paddingTop * 2
+      const maxWidth = window.innerWidth - window.innerWidth * this.paddingLeft / 100
+      const targetedHeight = Math.min(this.context.offsetHeight * window.innerWidth / this.width, maxHeight)
+      const targetedWidth = Math.min(targetedHeight * this.ratio, maxWidth)
+      const scale = targetedWidth / this.context.offsetWidth
+
+      this.context.style.left = '50%'
+      this.context.style.top = '50%'
+      this.context.style.transform = `scale(${scale}) translate(-50%, -50%)`
     }
   }
 
