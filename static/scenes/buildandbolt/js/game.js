@@ -163,7 +163,9 @@ app.Game = class Game {
           this.entities.push(app.Table.pop(this, entity.config))
           break;
         case 'present-box':
-          this.entities.push(app.PresentBox.pop(this, entity.config))
+          if (this.multiplayer || entity.config.playerId == 'a') {
+            this.entities.push(app.PresentBox.pop(this, entity.config))
+          }
           break;
         case 'platform':
           this.entities.push(app.Platform.pop(this, entity.config))

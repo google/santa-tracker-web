@@ -22,6 +22,24 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     super.onInit(config)
     this.config.checkBorder = true
+
+    // reset to base present box styles
+    this.elem.setAttribute('class', 'present-box')
+
+    this.elem.classList.add(`present-box--${this.config.playerId}`)
+
+    let options = this.config.isMiddle ? 2 : 3
+    const option = Math.floor(Math.random() * options) + 1
+    if (this.config.isSideView && this.config.isMiddle) {
+      this.elem.classList.add(`present-box--middle`)
+      this.elem.classList.add(`present-box--middle-${option}`)
+    } else if (this.config.isSideView && !this.config.isMiddle) {
+      this.elem.classList.add(`present-box--bottom`)
+      this.elem.classList.add(`present-box--bottom-${option}`)
+    } else {
+      this.elem.classList.add(`present-box--front`)
+      this.elem.classList.add(`present-box--front-${option}`)
+    }
   }
 
   render() {
