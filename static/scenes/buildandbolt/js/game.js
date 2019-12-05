@@ -4,7 +4,7 @@ goog.require('Constants')
 goog.require('Levels')
 
 goog.require('app.Board')
-goog.require('app.Controls')
+goog.require('app.ControlsManager')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
@@ -67,9 +67,6 @@ app.Game = class Game {
   }
 
   init(playerOption) {
-    app.Board.init(document.getElementById('board'))
-    app.Controls.init(this)
-
     this.players = []
     this.entities = []
 
@@ -82,13 +79,16 @@ app.Game = class Game {
       this.multiplayer = true
     }
 
+    // init managers and components
     app.ScoreManager.init(this)
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))
-    // app.ToysBoard.init(document.getElementById('toys-board'))
+    app.ControlsManager.init(this)
+    app.ToysBoard.init(document.getElementById('toys-board'))
+    app.Board.init(document.getElementById('board'))
 
     this.gameoverDialog = new app.shared.Gameover(this)
-    this.scoreboard = new Scoreboard(this, null, Levels.length)
+    this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
 
     this.isPlaying = false
     this.lastFrame = null

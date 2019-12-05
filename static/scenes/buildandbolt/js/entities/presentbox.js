@@ -3,7 +3,7 @@ goog.provide('app.PresentBox')
 goog.require('Constants')
 
 goog.require('app.Entity')
-goog.require('app.Controls')
+goog.require('app.ControlsManager')
 goog.require('app.LevelManager')
 goog.require('app.shared.pools');
 goog.require('Utils')
@@ -63,7 +63,7 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     // if player is close to border, it can do an action
     if (toyCompleted && Utils.isTouchingBorder(this.config, player.position)) {
-      if (app.Controls.isTouch || app.Controls.isKeyControlActive(player.controls.action)) {
+      if (app.ControlsManager.isTouch || app.ControlsManager.isKeyControlActive(player.controls.action)) {
         if (!this.toyAccepted) {
           actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
           this.toyAccepted = true

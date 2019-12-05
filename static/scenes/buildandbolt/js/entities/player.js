@@ -5,7 +5,7 @@ goog.require('Utils')
 
 goog.require('app.AnimationManager')
 goog.require('app.Board')
-goog.require('app.Controls')
+goog.require('app.ControlsManager')
 goog.require('app.LevelManager')
 goog.require('app.ToysBoard')
 
@@ -148,7 +148,7 @@ app.Player = class Player {
       PLAYER_ACCELERATION_STEP,
       GRID_DIMENSIONS,
     } = Constants
-    const { left, right, up, down } = app.Controls.getMovementDirections(
+    const { left, right, up, down } = app.ControlsManager.getMovementDirections(
         this.controls, this.position)
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR

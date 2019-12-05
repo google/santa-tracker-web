@@ -18,7 +18,7 @@ goog.require('Constants')
 
 Levels = [
   {
-    time: 900,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
