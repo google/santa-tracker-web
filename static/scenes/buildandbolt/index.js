@@ -3,12 +3,13 @@ import api from '../../src/scene/api.js';
 import { prepareAnimation } from '../../src/deps/lottie.js';
 import Game from './:closure.js';
 
-api.preload.images(
-  'img/car-body.svg',
-  'img/car-wheel.svg',
-  'img/fence.svg',
-  'img/tree.svg',
-);
+// TODO: list out all images
+// api.preload.images(
+//   'img/car-body.svg',
+//   'img/car-wheel.svg',
+//   'img/fence.svg',
+//   'img/tree.svg',
+// );
 
 api.preload.sounds('buildandbolt_load_sounds');
 
