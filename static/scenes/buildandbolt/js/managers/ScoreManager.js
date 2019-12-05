@@ -23,7 +23,6 @@ class ScoreManager {
         total: 0,
         toysInLevel: 0,
         toys: [],
-        index: i,
       }
     }
   }
@@ -38,12 +37,12 @@ class ScoreManager {
 
     if (this.scoresDict[id].toysInLevel === toysCapacity) {
       // reset toysInLevels
-      this.resetCurrentLevelScore()
+      this.resetToysInLevels()
       this.game.goToNextLevel()
     }
   }
 
-  resetCurrentLevelScore() {
+  resetToysInLevels() {
     for (let i = 0; i < this.game.players.length; i++) {
       const player = this.game.players[i]
       this.scoresDict[player.id].toysInLevel = 0

@@ -67,9 +67,6 @@ app.PresentBox = class PresentBox extends app.Entity {
         if (!this.toyAccepted) {
           actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
           this.toyAccepted = true
-          setTimeout(() => {
-            this.toyAccepted = false
-          }, 200) // have to add a timeout because actions are called multiple times in the RAF
         }
       }
       if (Constants.DEBUG) {
