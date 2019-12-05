@@ -191,10 +191,14 @@ async function prepareModules() {
         m.ratio = 0.5;  // don't animate scroll in small mode
       }
       m.mode = mode;
-      m.load = visible || false;  // only display at all when visible
 
-      // FIXME: only focus single, bring others to stop
-      resized && m.resize();
+      const effectiveVisible = visible || false;
+      if (m.load !== effectiveVisible) {
+        m.resize();  // just resize in case Lottie got stuck and didn't render us
+        m.load = effectiveVisible;
+      } else {
+        resized && m.resize();
+      }
 
       if (!isMobileOrTablet) {
         // Configure ratio of sound.
