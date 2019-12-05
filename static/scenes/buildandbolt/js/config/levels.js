@@ -35,7 +35,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.CAR,
-    toysCapacity: 2,
+    toysCapacity: 1,
     entities: [
       {
         type: 'pit',
