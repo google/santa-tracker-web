@@ -4,9 +4,31 @@
     height: $grid-unit-size * $present-height;
     width: $grid-unit-size * $present-width;
 
+    &--front {
+      @for $i from 1 through 3 {
+        &-#{$i} {
+          background: url(img/present-boxes/front/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
 
-    // detect direction and variant and middle
-    background: url(img/present-boxes/front/1.svg) center/contain no-repeat;
+    &--middle {
+      @for $i from 1 through 2 {
+        &-#{$i} {
+          background: url(img/present-boxes/side/middle/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
+
+    &--bottom {
+      z-index: 1;
+
+      @for $i from 1 through 3 {
+        &-#{$i} {
+          background: url(img/present-boxes/side/bottom/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
 
     &::after {
       content: '';
@@ -16,6 +38,15 @@
       transform: translate(-50%, -20%);
       top: 0;
       width: 100%;
+    }
+
+    &--middle,
+    &--bottom {
+      &::after {
+        left: 0;
+        top: 50%;
+        transform: translate(-35%, -66%);
+      }
     }
 
     &--a::after {
