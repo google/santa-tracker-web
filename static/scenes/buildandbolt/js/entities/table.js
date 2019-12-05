@@ -4,6 +4,7 @@ goog.require('Constants')
 
 goog.require('app.Entity')
 goog.require('app.Controls')
+goog.require('app.LevelManager')
 goog.require('app.shared.pools');
 goog.require('Utils')
 
@@ -28,8 +29,9 @@ app.Table = class Table extends app.Entity {
     super.onInit(config)
     this.config.checkBorder = true
 
-    let toyPart = this.config.partType
-    let classes = `table table--${toyPart.toyType.key}--${toyPart.part} table--${this.config.tableType}${config.isSideView ? ' table--side' : ''}`
+    const { toyType } = app.LevelManager
+    const toyPart = this.config.part
+    let classes = `table table--${toyType.key}--${toyPart} table--${this.config.tableType}${config.isSideView ? ' table--side' : ''}`
     this.elem.setAttribute('class', classes)
   }
 

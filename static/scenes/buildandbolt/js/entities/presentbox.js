@@ -4,6 +4,7 @@ goog.require('Constants')
 
 goog.require('app.Entity')
 goog.require('app.Controls')
+goog.require('app.LevelManager')
 goog.require('app.shared.pools');
 goog.require('Utils')
 
@@ -52,7 +53,8 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     if (toyCompleted) {
       // check if all parts are here
-      for (let i = 1; i <= this.config.toy.length; i++) {
+      const { toyType } = app.LevelManager
+      for (let i = 1; i <= toyType.size; i++) {
         if (player.toyParts.indexOf(i) == -1) {
           toyCompleted = false
         }

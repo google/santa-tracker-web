@@ -35,7 +35,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.CAR,
-    nbToys: 2,
+    toysCapacity: 2,
     entities: [
       {
         type: 'pit',
@@ -134,10 +134,7 @@ Levels = [
           y: 12,
           tableType: 1,
           isSideView: false,
-          partType: {
-            toyType: Constants.TOY_TYPES.CAR,
-            part: 1
-          }
+          part: 1
         }
       },
       {
@@ -147,10 +144,7 @@ Levels = [
           y: 1,
           tableType: 2,
           isSideView: true,
-          partType: {
-            toyType: Constants.TOY_TYPES.CAR,
-            part: 2
-          }
+          part: 2
         }
       },
       {
@@ -158,7 +152,6 @@ Levels = [
         config: {
           x: 19,
           y: 12,
-          toy: Constants.TOY_TYPES.CAR,
           playerId: 'a',
           isSideView: true
         }
@@ -168,7 +161,6 @@ Levels = [
         config: {
           x: 19,
           y: 10,
-          toy: Constants.TOY_TYPES.CAR,
           playerId: 'b',
           isSideView: true,
           isMiddle: true
@@ -216,6 +208,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.ROBOT,
+    toysCapacity: 1,
     entities: [
       {
         type: 'pit',
@@ -254,10 +247,7 @@ Levels = [
           y: 12,
           tableType: 3,
           isSideView: true,
-          partType: {
-            toyType: Constants.TOY_TYPES.ROBOT,
-            part: 1
-          }
+          part: 1
         }
       },
       {
@@ -267,10 +257,7 @@ Levels = [
           y: 1,
           tableType: 1,
           isSideView: false,
-          partType: {
-            toyType: Constants.TOY_TYPES.ROBOT,
-            part: 2
-          }
+          part: 2
         }
       },
       {
@@ -280,10 +267,7 @@ Levels = [
           y: 5,
           tableType: 1,
           isSideView: false,
-          partType: {
-            toyType: Constants.TOY_TYPES.ROBOT,
-            part: 3
-          }
+          part: 3
         }
       },
       {

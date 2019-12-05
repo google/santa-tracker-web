@@ -2,9 +2,11 @@ goog.provide('app.Player')
 
 goog.require('Constants')
 goog.require('Utils')
+
 goog.require('app.AnimationManager')
 goog.require('app.Board')
 goog.require('app.Controls')
+goog.require('app.LevelManager')
 goog.require('app.ToysBoard')
 
 
@@ -12,7 +14,6 @@ app.Player = class Player {
   constructor(controls, id) {
     this.animations = app.AnimationManager.animations[`player-${id}`]
     this.controls = controls
-    this.score = 0
     this.toyParts = []
     this.id = id;
 
@@ -284,7 +285,7 @@ app.Player = class Player {
     const toyEntities = resultingActions[Constants.PLAYER_ACTIONS.ADD_TOY_PART]
     if (toyEntities && toyEntities.length) {
       for (const entity of toyEntities) {
-        this.addToyPart(entity.config.partType)
+        this.addToyPart(entity.config.part)
       }
     }
 
@@ -295,7 +296,7 @@ app.Player = class Player {
       this.clearToyParts()
 
       // increment score
-      app.ScoreManager.score(this.id, 'car')
+      app.ScoreManager.score(this.id)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
@@ -350,9 +351,8 @@ app.Player = class Player {
     return Math.abs(this.position.x - this.prevPosition.x) + Math.abs(this.position.y - this.prevPosition.y)
   }
 
-  addToyPart(toyPart) {
-    let partId = toyPart.part
-    let toyType = toyPart.toyType.key
+  addToyPart(partId) {
+    const { toyType } = app.LevelManager
     if (this.toyParts.indexOf(partId) == -1) {
       this.toyParts.push(partId)
 
@@ -363,24 +363,24 @@ app.Player = class Player {
 
       const toyElem = document.createElement('img')
 
-      if (this.toyParts.length == toyPart.toyType.size) {
+      if (this.toyParts.length == toyType.size) {
         // Replace all toy parts with full toy
         while (this.toysElem.firstChild) {
           this.toysElem.removeChild(this.toysElem.firstChild);
         }
 
         toyElem.setAttribute('class',
-          `toypart toypart--${toyType}--full`)
+          `toypart toypart--${toyType.key}--full`)
         toyElem.setAttribute('src',
-          `img/toys/${toyType}/full.svg`)
+          `img/toys/${toyType.key}/full.svg`)
         this.toysElem.appendChild(toyElem)
         window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
       } else {
         const toyElem = document.createElement('img')
         toyElem.setAttribute('class',
-          `toypart toypart--${toyType}--${partId}`)
+          `toypart toypart--${toyType.key}--${partId}`)
         toyElem.setAttribute('src',
-          `img/toys/${toyType}/${partId}.svg`)
+          `img/toys/${toyType.key}/${partId}.svg`)
         this.toysElem.appendChild(toyElem)
       }
 
@@ -542,11 +542,5 @@ app.Player = class Player {
 
   onContact(player) {
     return [Constants.PLAYER_ACTIONS.BOUNCE]
-  }
-
-  registerWin() {
-    app.ToysBoard.score(this.id)
-    this.score++
-    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }
 }
