@@ -29,6 +29,11 @@ app.Gui = class Gui {
         this.onSkipControlsClick.bind(this))
     this.controlsButton.addEventListener('mouseenter',
         this.onSkipControlsOver.bind(this))
+
+    // Debug mode
+    // this.onPlayerOptionClick(this.playerSelectionOptions[1])
+    // this.onSkipControlsClick()
+    // end debug mode
   }
 
   onPlayerOptionClick(element) {

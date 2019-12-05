@@ -4,9 +4,7 @@ goog.require('Constants')
 goog.require('Levels')
 
 goog.require('app.Board')
-goog.require('app.BottomScoreBoard')
 goog.require('app.Controls')
-goog.require('app.ScoreManager')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
@@ -16,7 +14,9 @@ goog.require('app.Pit')
 goog.require('app.Platform')
 goog.require('app.Player')
 goog.require('app.PresentBox')
+goog.require('app.ScoreManager')
 goog.require('app.Table')
+goog.require('app.ToysBoard')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
@@ -92,7 +92,7 @@ app.Game = class Game {
 
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new Scoreboard(this, null, Levels.length)
-    this.bottomScoreBoard = new app.BottomScoreBoard(document.querySelector('#bottom-score-board'))
+    this.bottomScoreBoard = new app.ToysBoard(document.querySelector('#toys-board'))
 
     this.isPlaying = false
     this.lastFrame = null

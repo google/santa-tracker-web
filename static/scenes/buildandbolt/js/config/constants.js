@@ -126,7 +126,7 @@ Constants = {
     }
   },
 
-  BOARD_PADDING_TOP: 90,
+  BOARD_PADDING_TOP: 95,
 
   BOARD_PADDING_LEFT_PERCENTAGE: 3,
 

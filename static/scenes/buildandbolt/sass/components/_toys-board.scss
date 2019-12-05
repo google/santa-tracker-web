@@ -1,39 +1,33 @@
-.bottom-score-board {
+.toys-board {
   align-items: center;
+  border-radius: 32px;
+  bottom: 15px;
   display: flex;
   height: 63px;
   justify-content: space-between;
   left: 50%;
   position: fixed;
-  bottom: 12.5px;
   transform: translateX(-50%);
+  box-shadow: $box-shadow;
 
   &__player {
     align-items: center;
     color: $color-white;
     display: flex;
     height: 100%;
-    width: 230px;
+    width: 190px;
 
     &:first-child {
-      background-color: $color-light-blue;
+      background-color: $color-yellow;
       border-bottom-left-radius: 32px;
       border-top-left-radius: 32px;
-
-      .bottom-score-board__head {
-        background-color: $color-blue;
-      }
     }
 
     &:nth-child(2) {
-      background-color: $color-light-pink;
+      background-color: $color-gold;
       border-bottom-right-radius: 32px;
       border-top-right-radius: 32px;
       flex-direction: row-reverse;
-
-      .bottom-score-board__head {
-        background-color: $color-pink;
-      }
     }
   }
 
@@ -55,7 +49,7 @@
     align-items: center;
     display: flex;
     height: 100%;
-    padding: 0 10px;
+    padding: 0 18px;
   }
 
   &__toy {
