@@ -96,6 +96,22 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
 }, {once: true});
 
 
+// Controls configuring Android insets.
+(function() {
+  if (typeof Android === 'undefined' || !Android.stableInsets) {
+    return;
+  }
+  function refreshInsets() {
+    const [topInset, rightInset, bottomInset, leftInset] = Android.stableInsets();
+    const sideInset = Math.max(rightInset, leftInset);
+    chromeElement.style.setProperty('--padding-top', topInset + 'px');
+    chromeElement.style.setProperty('--padding-side', topInset + 'px');
+  }
+  window.addEventListener('resize', refreshInsets);
+  refreshInsets();
+}())
+
+
 // Controls the random future games that a user is suggested.
 (function() {
   const recentBuffer = 6;
@@ -215,7 +231,6 @@ interludeElement.addEventListener('transition_in', () => {
 interludeElement.addEventListener('transition_out', () => {
   kplayInstance.play('menu_transition_game_out');
 });
-
 
 
 

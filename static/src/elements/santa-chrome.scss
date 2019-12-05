@@ -17,19 +17,24 @@ $transition-toolbar: $duration-toolbar ease-in-out;
   flex-grow: 1;
 }
 
-header {
+#padder {
   z-index: $index-chrome;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  padding-top: var(--padding-top, env(safe-area-inset-top, 0px));
+  padding-left: var(--padding-side, env(safe-area-inset-left, 0px));
+  padding-right: var(--padding-side, env(safe-area-inset-right, 0px));
+}
+
+header {
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
   pointer-events: none;
 
-  padding-top: env(safe-area-inset-top, 0);
   border-top: 20px solid transparent;
   padding-left: 5%;
   padding-right: 5%;
@@ -60,7 +65,7 @@ header {
     width: $dim-bar;
     height: $dim-bar;
     padding: 2px;
-    transition: 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
     margin-right: 8px;
 
     &[hidden] {
@@ -69,6 +74,7 @@ header {
 
     &[disabled] {
       transform: translateY(-100px);
+      opacity: 0;
     }
 
     @media (max-width: 400px) {
