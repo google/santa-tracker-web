@@ -1,0 +1,9 @@
+.scene {
+  &__chapter {
+    font-family: 'Roboto', sans-serif;
+
+    &.is-active {
+      color: white;
+    }
+  }
+}

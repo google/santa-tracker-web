@@ -1,13 +1,14 @@
 import Nav from './ui/Nav.js'
 import Slider from './ui/Slider.js'
 
+import { CHAPTERS } from './model.js'
+
 export default class Storybook {
   constructor(el) {
     this.el = el
 
     this.activeIndex = 0
-    // TODO: USE ACTUAL PAGES LENGTH HERE
-    this.pages = 10
+    this.pages = CHAPTERS.length
 
     this.nav = this.el.querySelector('[data-nav]')
     this.slider = this.el.querySelector('[data-slider]')
