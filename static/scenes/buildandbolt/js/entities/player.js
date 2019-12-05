@@ -294,8 +294,8 @@ app.Player = class Player {
       this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF)
       this.clearToyParts()
 
-      // temporary
-      app.ScoreManager.registerToyCompletion(this)
+      // increment score
+      app.ScoreManager.score(this.id, 'car')
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]

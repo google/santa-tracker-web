@@ -44,7 +44,13 @@ app.PresentBox = class PresentBox extends app.Entity {
     // if player is close to border, it can do an action
     if (toyCompleted && Utils.isTouchingBorder(this.config, player.position)) {
       if (app.Controls.isTouch || app.Controls.isKeyControlActive(player.controls.action)) {
-        actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+        if (!this.toyAccepted) {
+          actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+          this.toyAccepted = true
+          setTimeout(() => {
+            this.toyAccepted = false
+          }, 200) // have to add a timeout because actions are called multiple times in the RAF
+        }
       }
       if (Constants.DEBUG) {
         this.elem.style.opacity = 0.5

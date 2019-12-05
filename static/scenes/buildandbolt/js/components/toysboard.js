@@ -1,5 +1,7 @@
 goog.provide('app.ToysBoard')
 
+goog.require('app.ScoreManager')
+
 class ToysBoard {
   init(elem, players) {
     this.elem = elem
