@@ -86,13 +86,15 @@ app.Game = class Game {
       this.multiplayer = true
     }
 
+    app.ToysBoard.init(document.getElementById('toys-board'), app.ScoreManager.players)
+
+
     this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'));
     this.level = 0;
 
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new Scoreboard(this, null, Levels.length)
-    this.bottomScoreBoard = new app.ToysBoard(document.querySelector('#toys-board'))
 
     this.isPlaying = false
     this.lastFrame = null
@@ -125,6 +127,7 @@ app.Game = class Game {
     this.scoreboard.addTime(levelConfig.time)
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
     this.levelWinner = null
+    app.ToysBoard.initLevel(levelConfig.toyType.key)
 
     for (let i = 0; i < app.ScoreManager.players.length; i++) {
       app.ScoreManager.players[i].init(levelConfig.players[i])

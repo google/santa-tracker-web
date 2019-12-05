@@ -2,9 +2,11 @@ goog.provide('app.Player')
 
 goog.require('Constants')
 goog.require('Utils')
+goog.require('app.AnimationManager')
 goog.require('app.Board')
 goog.require('app.Controls')
-goog.require('app.AnimationManager')
+goog.require('app.ToysBoard')
+
 
 app.Player = class Player {
   constructor(controls, id) {
@@ -358,7 +360,7 @@ app.Player = class Player {
         // transition to holding animation
         this.setPlayerState(Constants.PLAYER_STATES.PICK_UP)
       }
-      
+
       const toyElem = document.createElement('img')
 
       if (this.toyParts.length == toyPart.toyType.size) {
@@ -543,6 +545,7 @@ app.Player = class Player {
   }
 
   registerWin() {
+    app.ToysBoard.score(this.id)
     this.score++
     window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id);
   }

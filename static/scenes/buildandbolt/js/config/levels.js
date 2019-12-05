@@ -18,7 +18,7 @@ goog.require('Constants')
 
 Levels = [
   {
-    time: 9000,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -34,6 +34,7 @@ Levels = [
         }
       }
     ],
+    toyType: Constants.TOY_TYPES.CAR,
     entities: [
       {
         type: 'pit',
@@ -210,6 +211,7 @@ Levels = [
         }
       }
     ],
+    toyType: Constants.TOY_TYPES.ROBOT,
     entities: [
       {
         type: 'pit',
@@ -316,6 +318,7 @@ Levels = [
         }
       }
     ],
+    toyType: Constants.TOY_TYPES.TEDDY,
     entities: [
       {
         type: 'pit',
@@ -422,6 +425,7 @@ Levels = [
         }
       }
     ],
+    toyType: Constants.TOY_TYPES.ROCKET,
     entities: [
       {
         type: 'pit',

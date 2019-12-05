@@ -10,6 +10,13 @@
   transform: translateX(-50%);
   box-shadow: $box-shadow;
 
+  &.single-player {
+    .toys-board__player {
+      border-radius: 32px;
+      width: 180px;
+    }
+  }
+
   &__player {
     align-items: center;
     color: $color-white;
@@ -39,7 +46,7 @@
     justify-content: center;
     width: 63px;
 
-    img {
+    &-img {
       transform: translateY(-18%);
       width: 60%;
     }
@@ -53,9 +60,9 @@
   }
 
   &__toy {
-    height: 90%;
+    height: 85%;
 
-    img {
+    &-img {
       height: 100%;
     }
   }
