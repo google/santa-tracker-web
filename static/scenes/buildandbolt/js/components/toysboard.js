@@ -10,8 +10,8 @@ class ToysBoard {
     this.elem = elem
 
     this.dom = {
-      players: this.elem.querySelectorAll('.toys-board__player'),
-      toyImages: this.elem.querySelectorAll('.toys-board__toy-img')
+      players: this.elem.querySelectorAll('[data-toys-board-player]'),
+      toyImages: this.elem.querySelectorAll('[data-toys-board-toy]')
     }
 
     // if single player

@@ -85,8 +85,8 @@ app.Game = class Game {
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))
     // init components
-    app.ToysBoard.init(document.getElementById('toys-board'), playerOption)
-    app.Board.init(document.getElementById('board'))
+    app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
+    app.Board.init(document.querySelector('[data-board]'))
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
