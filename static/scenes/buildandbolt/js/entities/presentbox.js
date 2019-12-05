@@ -22,6 +22,21 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     super.onInit(config)
     this.config.checkBorder = true
+    this.elem.classList.add(`present-box--${this.config.playerId}`)
+
+    // todo: pick a random table variation
+
+    if (this.config.side) {
+      this.elem.classList.add('present-box--side')
+    }
+
+    if (this.config.middle) {
+      this.elem.classList.add('present-box--middle')
+    }
+  }
+
+  onDispose() {
+    this.elem.setAttribute('class', 'present-box')
   }
 
   render() {
