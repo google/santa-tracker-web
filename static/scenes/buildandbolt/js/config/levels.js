@@ -35,6 +35,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.CAR,
+    nbToys: 2,
     entities: [
       {
         type: 'pit',
