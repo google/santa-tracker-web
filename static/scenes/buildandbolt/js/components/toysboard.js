@@ -1,54 +1,40 @@
 goog.provide('app.ToysBoard')
 
+goog.require('Constants')
+
+goog.require('app.LevelManager')
 goog.require('app.ScoreManager')
 
 class ToysBoard {
-  init(elem, players) {
+  init(elem, playerOption) {
     this.elem = elem
-    this.players = {}
 
-    this.ui = {
+    this.dom = {
       players: this.elem.querySelectorAll('.toys-board__player'),
-      toyImages: this.elem.querySelectorAll('.toys-board__toy-img'),
-      numbers: this.elem.querySelectorAll('.toys-board__number'),
+      toyImages: this.elem.querySelectorAll('.toys-board__toy-img')
     }
 
-    this.initPlayers(players)
-  }
-
-  initPlayers(players) {
-    for (let i = 0; i < players.length; i++) {
-      const player = players[i]
-      this.players[player.id] = {
-        score: 0,
-        index: i,
-      }
-    }
-
-    if (players.length === 1) {
-      this.ui.players[1].remove()
+    // if single player
+    if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
+      this.dom.players[1].remove()
       this.elem.classList.add('single-player')
     }
+
+    this.updateLevel()
   }
 
-  initLevel(toyType) {
-    const keys = Object.keys(this.players)
-    for (const key of keys) {
-      const player = this.players[key]
-      // reset scores to 0
-      player.score = 0
-      this.ui.numbers[player.index].innerHTML = player.score
-
+  updateLevel() {
+    const { toyType } = app.LevelManager
+    for (let i = 0; i < this.dom.players.length; i++) {
       // update toy images
-      this.ui.toyImages[player.index].src = `img/toys/${toyType}/full.svg`
+      this.dom.toyImages[i].src = `img/toys/${toyType.key}/full.svg`
     }
   }
 
-  score(id) {
-    const player = this.players[id]
-    player.score++
-
-    this.ui.numbers[player.index].innerHTML = player.score
+  updateScore(id) {
+    // update score
+    const domNumber = this.elem.querySelector(`.toys-board__player--${id} .toys-board__number`)
+    domNumber.innerHTML = app.ScoreManager.scoresDict[id].toysInLevel
   }
 }
 

@@ -297,6 +297,7 @@ app.Player = class Player {
 
       // increment score
       app.ScoreManager.score(this.id)
+      app.ToysBoard.updateScore(this.id)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]

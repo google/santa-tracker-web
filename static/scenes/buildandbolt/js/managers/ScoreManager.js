@@ -21,8 +21,9 @@ class ScoreManager {
       const player = this.game.players[i]
       this.scoresDict[player.id] = {
         total: 0,
-        currentLevel: 0,
-        toys: []
+        toysInLevel: 0,
+        toys: [],
+        index: i,
       }
     }
   }
@@ -30,13 +31,13 @@ class ScoreManager {
   score(id) {
     const { toyType, toysCapacity } = app.LevelManager
     this.scoresDict[id].total++
-    this.scoresDict[id].currentLevel++
+    this.scoresDict[id].toysInLevel++
     this.scoresDict[id].toys.push(toyType.key)
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id)
 
-    if (this.scoresDict[id].currentLevel === toysCapacity) {
-      // reset currentLevels
+    if (this.scoresDict[id].toysInLevel === toysCapacity) {
+      // reset toysInLevels
       this.resetCurrentLevelScore()
       this.game.goToNextLevel()
     }
@@ -45,7 +46,7 @@ class ScoreManager {
   resetCurrentLevelScore() {
     for (let i = 0; i < this.game.players.length; i++) {
       const player = this.game.players[i]
-      this.scoresDict[player.id].currentLevel = 0
+      this.scoresDict[player.id].toysInLevel = 0
     }
   }
 }

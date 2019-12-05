@@ -80,13 +80,14 @@ app.Game = class Game {
     }
 
     // init managers and components
+    app.ControlsManager.init(this)
     app.ScoreManager.init(this)
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))
-    app.ControlsManager.init(this)
-    app.ToysBoard.init(document.getElementById('toys-board'))
+    // init components
+    app.ToysBoard.init(document.getElementById('toys-board'), playerOption)
     app.Board.init(document.getElementById('board'))
-
+    // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
 
@@ -299,6 +300,7 @@ app.Game = class Game {
     if (app.LevelManager.current < Levels.length) {
       app.LevelManager.goToNext()
       app.LevelManager.show()
+      app.ToysBoard.updateLevel()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
