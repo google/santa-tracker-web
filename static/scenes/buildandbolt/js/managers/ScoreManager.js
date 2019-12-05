@@ -40,7 +40,6 @@ class ScoreManager {
       this.resetCurrentLevelScore()
       this.game.goToNextLevel()
     }
-    console.log(this.scoresDict[id])
   }
 
   resetCurrentLevelScore() {

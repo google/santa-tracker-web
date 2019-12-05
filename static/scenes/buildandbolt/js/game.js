@@ -295,8 +295,9 @@ app.Game = class Game {
   goToNextLevel() {
     this.freezeGame()
     this.reset()
-    app.LevelManager.goToNext()
+
     if (app.LevelManager.current < Levels.length) {
+      app.LevelManager.goToNext()
       app.LevelManager.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
