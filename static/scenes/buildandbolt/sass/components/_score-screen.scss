@@ -5,13 +5,54 @@
   height: 100%;
   justify-content: center;
   left: 0;
+  opacity: 1;
   position: fixed;
   top: 0;
+  transition: opacity $transition-time;
   width: 100%;
   z-index: $gui-z-index;
 
+  .score-screen__title,
+  .score-screen__score,
+  .score-screen__name,
+  .score-screen__toys {
+    transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+    transition-delay: 0.1s;
+  }
+
+  .score-screen__name {
+    transition-delay: 0.2s;
+  }
+
+  .score-screen__toys {
+    transition-delay: 0.3s;
+  }
+
+  .score-screen__character {
+    transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+    transition-delay: 0.4s;
+  }
+
   &.is-hidden {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+
+    .score-screen__score,
+    .score-screen__name,
+    .score-screen__toys {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .score-screen__title {
+      transform: translateY(20px) translateX(-50%);
+      opacity: 0;
+    }
+
+    .score-screen__character {
+      transform: scale(0.7);
+      opacity: 0;
+    }
   }
 
   &.single-player {

@@ -77,7 +77,7 @@
     @include respond-to(above-mobile) {
       opacity: 0;
       transform: translateY(-50%);
-      transition: transform 0.3s, opacity 0.3s;
+      transition: transform $transition-time, opacity $transition-time;
     }
   }
 

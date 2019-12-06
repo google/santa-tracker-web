@@ -23,3 +23,8 @@ $font-google-sans: 'Google Sans', sans-serif;
 $font-lobster: 'Lobster', sans-serif;
 
 $box-shadow: 2px 4px rgba(0,0,0, 0.15);
+
+// transitions
+$transition-time: 0.3s;
+$transition-time-long: 1.2s;
+$transition-expo-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
