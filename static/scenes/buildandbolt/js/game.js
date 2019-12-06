@@ -111,14 +111,16 @@ app.Game = class Game {
     this.unfreezeGame()
 
     if (app.LevelManager.current === 0) {
+      this.gameStarted = true
+
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
       }, 800)
 
-      // if (app.shared.utils.touchEnabled) {
+      if (app.shared.utils.touchEnabled) {
         this.tutorial.start()
-      // }
+      }
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
@@ -351,7 +353,9 @@ app.Game = class Game {
    * Called when resume button is clicked.
    */
   resume() {
-    this.unfreezeGame()
+    if (this.gameStarted) {
+      this.unfreezeGame()
+    }
   }
 
   /**
