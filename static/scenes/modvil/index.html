@@ -302,6 +302,18 @@ configureActionButton(document.getElementById('familyguide'), () => {
 
 
 api.ready(async () => {
+  // jump to target hash (position is often incorrect due to lazy-load)
+  function scrollToHash() {
+    const hash = window.location.hash;
+    console.info('got scrollToHash', hash);
+    if (hash) {
+      const el = document.getElementById(hash.substr(1));
+      el && el.scrollIntoView({block: 'center', behavior: 'auto'});
+    }
+  }
+  window.addEventListener('hashchange', scrollToHash);
+  scrollToHash();
+
   // force lazy-load
   window.dispatchEvent(new CustomEvent('resize'));
 });
