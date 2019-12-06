@@ -1,58 +1,47 @@
 goog.provide('app.ScoreScreen')
 
+goog.require('Constants')
+
 goog.require('app.shared.utils')
 goog.require('Constants')
 
 class ScoreScreen {
-  constructor(game) {
+  init(game, elem, playerOption) {
     this.game = game
-    this.guiElem = this.game.context.querySelector('[data-gui]')
-    this.playerSelectionScreen = this.game.context.querySelector('[data-player-selection]')
-    this.playerSelectionOptions = this.game.context.querySelectorAll('[data-player-option]')
-    this.controlsScreen = this.game.context.querySelector('[data-player-controls]')
-    this.controlsButton = this.game.context.querySelector('[data-player-controls-skip]')
+    this.elem = elem
 
-    if (app.shared.utils.touchEnabled) {
-      this.playerOption = Constants.PLAYER_OPTIONS.SINGLE
-      this.controlsScreen.classList.remove('is-hidden')
-    } else {
-      this.playerSelectionScreen.classList.remove('is-hidden')
-      this.playerSelectionOptions.forEach((element) => {
-          element.addEventListener('click',
-              this.onPlayerOptionClick.bind(this, element))
+    this.skip = this.skip.bind(this)
 
-          element.addEventListener('mouseenter', this.onPlayerOptionOver.bind(this, element))
-      })
+    this.dom = {
+      skipButton: this.elem.querySelector('[data-score-screen-skip]'),
+      players: this.elem.querySelectorAll('[data-score-screen-player]'),
     }
 
-    this.controlsButton.addEventListener('click',
-        this.onSkipControlsClick.bind(this))
-    this.controlsButton.addEventListener('mouseenter',
-        this.onSkipControlsOver.bind(this))
+    // if single player
+    if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
+      this.dom.players[1].remove()
+      this.elem.classList.add('single-player')
+    }
 
-    // Debug mode
-    // this.onPlayerOptionClick(this.playerSelectionOptions[1])
-    // this.onSkipControlsClick()
-    // end debug mode
+    this.dom.skipButton.addEventListener('click', this.skip)
   }
 
-  onPlayerOptionClick(element) {
-    this.playerSelectionScreen.classList.add('is-hidden')
-    this.controlsScreen.classList.remove('is-hidden')
-    this.playerOption = element.getAttribute('data-player-option')
-    window.santaApp.fire('sound-trigger', 'generic_button_click');
+  show() {
+    // update levels
+    this.elem.classList.remove('is-hidden')
   }
-  onPlayerOptionOver(element) {
-    window.santaApp.fire('sound-trigger', 'generic_button_over');
+
+  updateScore(id, score) {
+    // update score
+    const domScore = this.elem.querySelector(`.score-screen__player--${id} .score-screen__score`)
+    domScore.innerHTML = score
+    console.log(score)
   }
-  onSkipControlsClick() {
-    this.game.init(this.playerOption)
-    this.controlsScreen.classList.add('is-hidden')
-    this.guiElem.classList.add('game-started')
-    window.santaApp.fire('sound-trigger', 'generic_button_click');
-  }
-  onSkipControlsOver(element) {
-    window.santaApp.fire('sound-trigger', 'generic_button_over');
+
+  skip() {
+    this.elem.classList.add('is-hidden')
+    window.santaApp.fire('sound-trigger', 'generic_button_click')
+    this.game.goToNextLevel()
   }
 }
 

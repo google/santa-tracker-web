@@ -8,7 +8,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: $gui-z-index;
+
+  &.is-hidden {
+    display: none;
+  }
 
   &::before {
     background-color: $color-green;

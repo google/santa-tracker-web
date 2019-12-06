@@ -3,6 +3,7 @@ goog.provide('app.ScoreManager')
 goog.require('Constants')
 
 goog.require('app.LevelManager')
+goog.require('app.ScoreScreen')
 
 // singleton to manage the game
 class ScoreManager {
@@ -38,7 +39,8 @@ class ScoreManager {
     if (this.scoresDict[id].toysInLevel === toysCapacity) {
       // reset toysInLevels
       this.resetToysInLevels()
-      this.game.goToNextLevel()
+      // show winner screen
+      app.ScoreScreen.show(this.scoresDict)
     }
   }
 

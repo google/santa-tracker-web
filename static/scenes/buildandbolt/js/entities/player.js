@@ -7,7 +7,11 @@ goog.require('app.AnimationManager')
 goog.require('app.Board')
 goog.require('app.ControlsManager')
 goog.require('app.LevelManager')
+goog.require('app.ScoreManager')
+goog.require('app.ScoreScreen')
 goog.require('app.ToysBoard')
+
+
 
 
 app.Player = class Player {
@@ -297,7 +301,11 @@ app.Player = class Player {
 
       // increment score
       app.ScoreManager.score(this.id)
-      app.ToysBoard.updateScore(this.id)
+      const { total, toysInLevel } = app.ScoreManager.scoresDict[this.id]
+      // update toys board
+      app.ToysBoard.updateScore(this.id, toysInLevel)
+      // update score screen
+      app.ScoreScreen.updateScore(this.id, total)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]

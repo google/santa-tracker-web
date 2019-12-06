@@ -16,6 +16,7 @@ goog.require('app.Platform')
 goog.require('app.Player')
 goog.require('app.PresentBox')
 goog.require('app.ScoreManager')
+goog.require('app.ScoreScreen')
 goog.require('app.Table')
 goog.require('app.ToysBoard')
 goog.require('app.Wall')
@@ -87,6 +88,7 @@ app.Game = class Game {
     // init components
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
     app.Board.init(document.querySelector('[data-board]'))
+    app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption)
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
