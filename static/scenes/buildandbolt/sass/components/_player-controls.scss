@@ -64,6 +64,18 @@
     }
   }
 
+  [data-player-controls=single] {
+    .multiplayer-only {
+      display: none;
+    }
+  }
+
+  [data-player-controls=multiplayer] {
+    .single-only {
+      display: none;
+    }
+  }
+
   .player-controls__elf {
     margin: 30px 0;
     max-width: 30%;

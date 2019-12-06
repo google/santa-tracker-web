@@ -61,21 +61,22 @@
           <div class="player-controls__inner">
             <div class="player-controls__heading player-controls__label" msgid="buildandbolt-instructions-label"></div>
             <div class="player-controls__sides">
-              <div class="player-controls__side">
+              <div class="player-controls__side player-controls__side--one">
                 <div class="gui__title" msgid="buildandbolt-player-one-label"></div>
                 <img class="player-controls__elf" src="img/instructions/player01_elf.svg" alt="">
-                <div class="player-controls__keyboard player-controls__keyboard--left">
+                <div class="player-controls__keyboard player-controls__keyboard--left multiplayer-only">
                   <img src="img/instructions/player01_keyboard.svg" alt="">
                   <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
                   <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
                 </div>
               </div>
               <div class="player-controls__divider">
-                <img src="img/instructions/hand_instruction.svg" alt="">
+                <img src="img/instructions/hand_instruction.svg" alt="" class="multiplayer-only">
               </div>
-              <div class="player-controls__side">
-                <div class="gui__title" msgid="buildandbolt-player-two-label"></div>
-                <img class="player-controls__elf" src="img/instructions/player02_elf.svg" alt="">
+              <div class="player-controls__side player-controls__side--two">
+                <div class="gui__title multiplayer-only" msgid="buildandbolt-player-two-label"></div>
+                <img class="player-controls__elf multiplayer-only" src="img/instructions/player02_elf.svg" alt="">
+                <img src="img/instructions/single_hand_instruction.svg" alt="" class="player-controls__hands single-only">
                 <div class="player-controls__keyboard player-controls__keyboard--right">
                   <img src="img/instructions/player02_keyboard.svg" alt="">
                   <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
