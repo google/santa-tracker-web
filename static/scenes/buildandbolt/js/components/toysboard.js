@@ -10,7 +10,8 @@ class ToysBoard {
 
     this.dom = {
       players: this.elem.querySelectorAll('[data-toys-board-player]'),
-      toyImages: this.elem.querySelectorAll('[data-toys-board-toy]')
+      toyImages: this.elem.querySelectorAll('[data-toys-board-toy]'),
+      score: this.elem.querySelectorAll('[data-toys-board-score]'),
     }
 
     // if single player
@@ -23,17 +24,19 @@ class ToysBoard {
   }
 
   updateLevel() {
-    const { toyType } = app.LevelManager
+    const { toyType, toysCapacity } = app.LevelManager
     for (let i = 0; i < this.dom.players.length; i++) {
       // update toy images
       this.dom.toyImages[i].src = `img/toys/${toyType.key}/full.svg`
+      // reset scores
+      this.dom.score[i].innerHTML = toysCapacity
     }
   }
 
   updateScore(id, score) {
     // update score
-    const domNumber = this.elem.querySelector(`.toys-board__player--${id} .toys-board__number`)
-    domNumber.innerHTML = score
+    const domScore = this.elem.querySelector(`.toys-board__player--${id} [data-toys-board-score]`)
+    domScore.innerHTML = score
   }
 }
 
