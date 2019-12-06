@@ -313,9 +313,6 @@ app.Game = class Game {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
       }, 10)
-
-      if (this.multiplayer) {
-      }
     }
   }
 
