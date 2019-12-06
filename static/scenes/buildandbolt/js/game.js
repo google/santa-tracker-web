@@ -315,13 +315,6 @@ app.Game = class Game {
       }, 10)
 
       if (this.multiplayer) {
-        if (this.players[0].score > this.players[1].score) {
-          console.log('player 1 won')
-        } else if (this.players[0].score < this.players[1].score) {
-          console.log('player 2 won')
-        } else {
-          console.log('tie')
-        }
       }
     }
   }

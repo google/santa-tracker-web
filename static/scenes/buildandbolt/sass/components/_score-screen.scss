@@ -11,6 +11,7 @@
   transition: opacity $transition-time;
   width: 100%;
   z-index: $gui-z-index;
+  z-index: 900;
 
   .score-screen__title,
   .score-screen__score,
@@ -67,10 +68,25 @@
     .score-screen__name {
       opacity: 0;
     }
+
+    .score-screen__player.win .score-screen__character--lose {
+      display: none;
+    }
   }
 
   &.game-end {
+    &::before,
+    &::after {
+      display: none;
+    }
 
+    .score-screen__title {
+      display: none;
+
+      &--win {
+        display: block;
+      }
+    }
   }
 
   &::before {
@@ -118,6 +134,10 @@
       font-size: 48px;
       line-height: 60px;
     }
+
+    &--win {
+      display: none;
+    }
   }
 
   &__player {
@@ -133,6 +153,33 @@
     position: relative;
     text-align: center;
     width: 370px;
+
+    &.win {
+      width: 680px;
+
+      .score-screen__character {
+        right: 15%;
+      }
+
+      .score-screen__character--lose {
+        bottom: 0;
+        display: block;
+        right: -83px;
+        top: auto;
+
+        @include respond-to(mobile) {
+          right: -50px;
+        }
+      }
+
+      @include respond-to(mobile) {
+        width: 360px;
+      }
+    }
+
+    &.lose {
+      display: none;
+    }
 
     @include respond-to(mobile) {
       margin: 0 40px;
@@ -211,6 +258,10 @@
       right: -17px;
       top: 36%;
       width: 90px;
+    }
+
+    &--lose {
+      display: none;
     }
   }
 }

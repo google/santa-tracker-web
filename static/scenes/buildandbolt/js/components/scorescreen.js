@@ -32,6 +32,23 @@ class ScoreScreen {
     this.game.pause() // pause game, it's stopping the scoreboard timer
   }
 
+  showEnd(characters, multiplayer) {
+    // show end score screen
+    this.show()
+    this.elem.classList.add('game-end')
+
+    if (multiplayer) {
+      // if multiplayer, set right class to right player
+      for (let i = 0; i < characters.length; i++) {
+        const { id, state } = characters[i]
+        const domPlayer = this.elem.querySelector(`.score-screen__player--${id}`)
+        domPlayer.classList.add(state)
+      }
+    } else {
+      this.dom.players[0].classList.add('win')
+    }
+  }
+
   hide() {
     this.elem.classList.add('is-hidden')
   }
