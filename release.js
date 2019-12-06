@@ -669,7 +669,7 @@ async function releaseProd(langs) {
 
       const image = `prod/images/og/${page}.png`;
       if (await fsp.exists(image)) {
-        const url = `/images/og/${page}.png`;
+        const url = `https://santatracker.google.com/images/og/${page}.png`;
         const all = [
           '[property="og:image"]',
           '[name="twitter:image"]',
