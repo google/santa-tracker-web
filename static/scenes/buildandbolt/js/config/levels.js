@@ -326,7 +326,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.TEDDY,
-    toysCapacity: 2,
+    toysCapacity: 1,
     entities: [
       {
         type: 'pit',
@@ -423,7 +423,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.ROCKET,
-    toysCapacity: 3,
+    toysCapacity: 1,
     entities: [
       {
         type: 'pit',
