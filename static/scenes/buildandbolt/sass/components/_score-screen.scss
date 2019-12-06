@@ -1,0 +1,106 @@
+.score-screen {
+  background-color: $color-yellow;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    background-color: $color-green;
+    content: '';
+    height: 85px;
+    left: 50%;
+    position: absolute;
+    top: 0px;
+    transform: translateX(-50%);
+    width: 2px;
+  }
+
+  &::after {
+    background-color: $color-green;
+    content: '';
+    height: calc(100% - 209px);
+    left: 50%;
+    position: absolute;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 2px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 85px;
+    font-size: 78px;
+    line-height: 97px;
+    font-family: $font-lobster;
+    color: $color-green;
+  }
+
+  &__player {
+    background-color: $color-gold;
+    border: 2px solid $color-brown;
+    border-radius: 14px;
+    width: 370px;
+    text-align: center;
+    margin: 0 56px;
+    height: 80%;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__score {
+    font-family: $font-lobster;
+    font-size: 330px;
+    width: 100%;
+    opacity: 0.7;
+    color: $color-white;
+  }
+
+  &__line {
+    background-color: $color-brown;
+    height: 2px;
+    width: 100%;
+    margin-top: 58px;
+    flex: 0 0 2px;
+  }
+
+  &__name {
+    font-family: $font-google-sans;
+    color: $color-white;
+    margin-top: 15px;
+    font-size: 23px;
+  }
+
+  &__toys {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    flex: 0 0 50px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  &__toy {
+    margin: 6px;
+    height: 100%;
+  }
+
+  &__character {
+    height: 150px;
+    position: absolute;
+    right: 0;
+    top: 54%;
+    width: 105px;
+  }
+}
