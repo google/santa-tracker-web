@@ -26,6 +26,7 @@ api.config({
 });
 
 api.ready(async () => {
-  // do nothing
+  // begin game
+  game.showGui()
 });
 
