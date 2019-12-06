@@ -54,6 +54,14 @@ class ScoreManager {
       this.scoresDict[player.id].toysInLevel = 0
     }
   }
+
+  reset() {
+    for (let i = 0; i < this.game.players.length; i++) {
+      const player = this.game.players[i]
+      this.scoresDict[player.id].toysInLevel = 0
+      this.scoresDict[player.id].toys = []
+    }
+  }
 }
 
 app.ScoreManager = new ScoreManager()

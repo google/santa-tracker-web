@@ -355,10 +355,7 @@ app.Game = class Game {
     this.reset()
     app.LevelManager.reset()
     app.LevelManager.show()
-
-    for (const player of this.players) {
-      player.score = 0
-    }
+    app.ScoreManager.reset()
   }
 
   freezeGame() {
