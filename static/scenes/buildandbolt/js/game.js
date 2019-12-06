@@ -349,7 +349,7 @@ app.Game = class Game {
     app.LevelManager.reset()
     app.LevelManager.show()
     app.ScoreManager.reset()
-    app.ScoreManager.hide()
+    app.ScoreScreen.hide()
   }
 
   freezeGame() {

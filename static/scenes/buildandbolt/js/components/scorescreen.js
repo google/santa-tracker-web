@@ -32,17 +32,23 @@ class ScoreScreen {
     this.game.pause() // pause game, it's stopping the scoreboard timer
   }
 
-  showEnd(characters, multiplayer) {
+  showEnd(scoreResult, multiplayer) {
+    const { playersState, tie } = scoreResult
     // show end score screen
     this.show()
     this.elem.classList.add('game-end')
 
     if (multiplayer) {
-      // if multiplayer, set right class to right player
-      for (let i = 0; i < characters.length; i++) {
-        const { id, state } = characters[i]
-        const domPlayer = this.elem.querySelector(`.score-screen__player--${id}`)
-        domPlayer.classList.add(state)
+      if (tie) {
+        console.log('tiiiee')
+        this.elem.classList.add('tie')
+      } else {
+        // Set right class to right player
+        for (let i = 0; i < playersState.length; i++) {
+          const { id, state } = playersState[i]
+          const domPlayer = this.elem.querySelector(`.score-screen__player--${id}`)
+          domPlayer.classList.add(state)
+        }
       }
     } else {
       this.dom.players[0].classList.add('win')
@@ -66,9 +72,9 @@ class ScoreScreen {
     domToys.appendChild(img)
   }
 
-  updateCharacters(characters) {
-    for (let i = 0; i < characters.length; i++) {
-      const { id, state } = characters[i]
+  updateCharacters(playersState) {
+    for (let i = 0; i < playersState.length; i++) {
+      const { id, state } = playersState[i]
       const domCharacter = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-character]`)
       domCharacter.src = `img/players/${id}/${state}.svg`
     }

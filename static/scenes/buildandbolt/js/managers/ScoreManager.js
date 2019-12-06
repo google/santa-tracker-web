@@ -39,12 +39,12 @@ class ScoreManager {
     window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', id)
 
     if (player.toysInLevel === toysCapacity) { // end of level
-      let characters
+      let scoreResult
       // reset toysInLevels
       this.resetToysInLevels()
 
       if (this.game.multiplayer) {
-        characters = this.setWinner()
+        scoreResult = this.setWinner()
       }
 
       if (current < Levels.length - 1) {
@@ -52,35 +52,40 @@ class ScoreManager {
         app.ScoreScreen.show()
       } else {
         // last level, show end screen
-        app.ScoreScreen.showEnd(characters, this.game.multiplayer)
+        app.ScoreScreen.showEnd(scoreResult, this.game.multiplayer)
       }
     }
   }
 
   setWinner() {
     const { players } = this.game
-    const characters = []
+    const playersState = []
+
     for (let i = 0; i < players.length; i++) {
-      characters.push({
+      playersState.push({
         id: players[i].id,
         state: null
       })
     }
+
+    let tie = false
+
     if (this.scoresDict[players[0].id].toys.length > this.scoresDict[players[1].id].toys.length) {
-      characters[0].state = 'win'
-      characters[1].state = 'lose'
+      playersState[0].state = 'win'
+      playersState[1].state = 'lose'
     } else if (this.scoresDict[players[0].id].toys.length < this.scoresDict[players[1].id].toys.length) {
-      characters[0].state = 'lose'
-      characters[1].state = 'win'
+      playersState[0].state = 'lose'
+      playersState[1].state = 'win'
     } else {
       // tie
-      characters[0].state = 'win'
-      characters[1].state = 'win'
+      playersState[0].state = 'win'
+      playersState[1].state = 'win'
+      tie = true
     }
 
-    app.ScoreScreen.updateCharacters(characters)
+    app.ScoreScreen.updateCharacters(playersState)
 
-    return characters
+    return { playersState, tie }
   }
 
   resetToysInLevels() {
