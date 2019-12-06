@@ -4,7 +4,8 @@ div {
 
 #statusDiv,
 #etaDiv,
-#presentsDiv{
+#presentsDiv,
+#santaArrivalDiv{
     background-color: #E63A36;
     height: auto;
     display: inline-table;
@@ -56,11 +57,11 @@ body{
 }
 
 #etaDiv {
-    width:255px;
+    width: 255px;
 }
 
 #statusDiv {
-    width:440px;
+    width: 440px;
 }
 
 #presentsDiv {
@@ -68,6 +69,6 @@ body{
 }
 
 #track {
-    height:120px;
+    height: 120px;
     width: 1170px;
 }

@@ -28,67 +28,140 @@
     <h1>Presents delivered:</h1>
   <span id="presents">0</span>
   </div>
+  <div id="santaArrivalDiv">
+    <h1 id="santaArrival">
+      Time until santa arrives
+    </h1>
+    <span id="santaArrivalTime">
+      0:00
+    </span>
+  </div>
 </div>
 
 <script type="module">
-const oneHour = 36*10000
+
+const oneHour = 36*10000;
 // API URL
 const url = 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media';
 
 //Image urls
-const resting = 'https://i.giphy.com/media/iDmjLkpZQr8bK/giphy.webp'
-const stopped = 'https://cdn.dribbble.com/users/331693/screenshots/3978823/santatracker-chimney-dribbble-loop.gif'
-const flying = 'https://lh3.googleusercontent.com/-O6ZajIjbwW0/Xeg9Wa7uEzI/AAAAAAABteI/SQZxJubQ2fU56ujBaYv9zyqqfAE-llkGgCK8BGAsYHg/s512/2019-12-04.gif'
+const resting = 'https://i.giphy.com/media/iDmjLkpZQr8bK/giphy.webp';
+const stopped = 'https://cdn.dribbble.com/users/331693/screenshots/3978823/santatracker-chimney-dribbble-loop.gif';
+const flying = 'https://lh3.googleusercontent.com/-O6ZajIjbwW0/Xeg9Wa7uEzI/AAAAAAABteI/SQZxJubQ2fU56ujBaYv9zyqqfAE-llkGgCK8BGAsYHg/s512/2019-12-04.gif';
 
+function pad(number){
+  if (number<10){
+    return '0'+number;
+  } else{
+    return number;
+  }
+}
 
 // takes in miliseconds and puts out time in ((d:)h:)m:s    
 function formatTime(mili) {
   let out='';
   let minutes = Math.floor(mili/(60*1000));
   let seconds = Math.floor(mili/1000)%60;
-  if (seconds <10){
-    seconds = '0'+seconds;
-  }
   if (minutes< 60){
-    out += minutes  + ':' ;
+    out += pad(minutes)  + ':' ;
   } else{
     let hours = Math.floor(minutes/60);
-    if( 1<hours&&hours<23){
+    if( 0<hours&&hours<23){
       minutes %= 60;
-      out+= hours+':'+minutes+':';
-      console.log(Math.floor(hours/24))
+      out+= pad(hours)+':'+pad(minutes)+':';
     } else if(hours>24){
-      const days = Math.floor(hours/24)
+      const days = Math.floor(hours/24);
       hours %= 24;
-      out+= days + ':' + hours + ':' + minutes + ':';
+      out+= pad(days) + ':' + pad(hours) + ':' + pad(minutes) + ':';
     }
   }
-  out+= seconds;
+  out+= pad(seconds);
   
   return out;
 }
+
 function updateimage(source){
   if (statusImg.src != source){
     statusImg.src = source;
   }
 }
 
+function parseLatLng(s) {
+  if (!s) {
+    return null;
+  }
+  const split=s.split(',');
+  const lat = +split[0];
+  const lng = +split[1];
+  return [lat,lng];
+}
+
+function computeAngleBetween(fromLat, fromLng, toLat, toLng){
+  // Haversine's formula
+  const dLat = fromLat - toLat;
+  const dLng = fromLng - toLng;
+  return 2 * Math.asin(Math.sqrt(Math.pow(Math.sin((dLat) / 2), 2) +
+                                 Math.cos(fromLat) * Math.cos(toLat) *
+                                 Math.pow(Math.sin((dLng) / 2), 2)));
+}
+
+function computeDistanceBetween(fromLat, fromLng, toLat, toLng, radius=6378137) {
+  return computeAngleBetween(fromLat, fromLng, toLat, toLng) * radius;
+}
+
+function closestStop(lat, lng, allstops){
+  let lowest = 0;
+  let shortest = 0;
+  for(let i = 0 ;i < allstops.length ; i++){
+    const toLat = allstops[i].location.lat;
+    const toLng = allstops[i].location.lng;
+    const dist = computeDistanceBetween(lat,lng,toLat,toLng);
+    if(i==0){
+      shortest = dist;
+      lowest= allstops[i];
+    } else if(dist<shortest) {
+      shortest = dist;
+      lowest = allstops[i];
+    }
+  }
+  return lowest;
+}
+
 async function setup() {
-  
+  const now = new Date().getTime();
   const res = await fetch(url);
   const data = await res.json();
   const allstops = data.destinations;
   const firstTime = allstops[0].arrival;
   const lastTime = allstops.slice(-1)[0].arrival;
+  //time.min = now;
+  time.value = now;
+  time.dispatchEvent(new CustomEvent('input'));
   time.min = (firstTime) - oneHour;
   time.max = (lastTime) + oneHour;
+  const res0 = await fetch('https://santa-api.appspot.com/info?client=web');
+  const data0 = await res0.json();
+  const latlong = data0.location;
+  const parsed = parseLatLng(latlong);
+  const [lat,long] = parsed;
 
-
-
+  const close = closestStop(lat, long, allstops);
   function timeset() {
     let prev = 0;
     const timev=parseInt(time.value);
     timedisp.textContent = new Date(timev);
+    const timeToStop = parseInt(close.arrival) - timev;
+    const timeFromStop = -(parseInt(close.departure) - timev);
+    if(timeToStop>0){
+      santaArrival.textContent = 'Time until santa arrives:';
+      santaArrivalTime.textContent = formatTime(timeToStop);
+    } else if(timeFromStop>0) {
+      santaArrival.textContent = 'Time since santa came:';
+      santaArrivalTime.textContent = formatTime(timeFromStop);
+    } else {
+      santaArrival.textContent = "Santa's here!";
+      santaArrivalTime.textContent = '';
+    }
     allstops.map((stop) =>{
       
       if(stop.arrival <= timev&& timev <= stop.departure){
@@ -97,29 +170,29 @@ async function setup() {
         etatime.textContent = formatTime(mili);
         current.textContent = 'Stopped at '+stop.city;
         presents.textContent = stop.presentsDelivered;
-        updateimage(stopped)
+        updateimage(stopped);
       } else if (prev<timev&&timev<stop.arrival&&stop.id!='landing'){
         eta.textContent = 'ETA: ';
         const mili = stop.arrival - timev;
         etatime.textContent = formatTime(mili);
         current.textContent = 'Flying';
-        updateimage(flying)
+        updateimage(flying);
       } else if(timev<firstTime){
         eta.textContent = 'ETD: ';
         const mili = firstTime - timev;
         etatime.textContent = formatTime(mili);
         current.textContent = 'Pre-takeoff';
         presents.textContent = 0;
-        updateimage(resting)
+        updateimage(resting);
       } else if( timev >= lastTime){
         eta.textContent = 'ETD: ';
-        const mili = 'Next Year!'
+        const mili = 'Next Year!';
         etatime.textContent = mili;
         current.textContent = 'Landed';
         updateimage(resting);
       }
       prev= stop.departure;
-    })
+    });
   }
   time.oninput = timeset;
   timeset();
@@ -131,12 +204,11 @@ function tick(){
     time.dispatchEvent(new CustomEvent('input'));
   }
   setTimeout(tick, 1000);
-
 }
-tick()
+tick();
 setup().catch(err => {
-  console.warn(err)
- })
+  console.warn(err);
+ });
 </script>
 
 </body>
