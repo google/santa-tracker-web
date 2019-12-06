@@ -96,6 +96,23 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
 }, {once: true});
 
 
+// Controls configuring Android insets.
+(function() {
+  if (typeof Android === 'undefined' || !Android.stableInsets) {
+    return;
+  }
+  function refreshInsets() {
+    const padding = JSON.parse(Android.stableInsets());
+    const [topInset, rightInset, bottomInset, leftInset] = padding;
+    const sideInset = Math.max(rightInset, leftInset);
+    chromeElement.style.setProperty('--padding-top', topInset + 'px');
+    chromeElement.style.setProperty('--padding-side', sideInset + 'px');
+  }
+  window.addEventListener('resize', refreshInsets);
+  refreshInsets();
+}());
+
+
 // Controls the random future games that a user is suggested.
 (function() {
   const recentBuffer = 6;
@@ -215,7 +232,6 @@ interludeElement.addEventListener('transition_in', () => {
 interludeElement.addEventListener('transition_out', () => {
   kplayInstance.play('menu_transition_game_out');
 });
-
 
 
 
@@ -585,9 +601,22 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     control.send({type: 'ready'});
     window.dispatchEvent(new CustomEvent('entrypoint-route', {detail: route}));
 
-    // Go into fullscreen mode on Android.
-    if (typeof Android !== 'undefined' && Android.fullscreen) {
-      Android.fullscreen(!config.scroll);
+    // Go into fullscreen mode on Android, and control orientation lock.
+    if (typeof Android !== 'undefined') {
+      if (Android.fullscreen) {
+        Android.fullscreen(!config.scroll);
+      }
+      try {
+        if (config.orientation === 'portrait') {
+          Android.orientationPortrait();
+        } else if (config.orientation === 'landscape') {
+          Android.orientationLandscape();
+        } else {
+          Android.orientationUnlock();
+        }
+      } catch (err) {
+        console.warn('could not lock orientation', err);
+      }
     }
 
     // Configure the optional error display.

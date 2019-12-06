@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "한 달 내내 즐기기"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google 어시스턴트를 사용하여 12월 내내 산타클로스에 대해 자세히 알아보세요. 이 통합은 일부 언어로만 제공됩니다."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "보호자의 허락이 있다면 만 13세 미만의 아동도 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e로 관리되는 자신의 계정으로 로그인하여 맞춤 Google 어시스턴트 환경을 이용할 수 있습니다."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google 어시스턴트가 음악 연주회 준비에 바쁜 산타가 있는 북극에 연결해 줍니다. 산타는 딱 한 곡만 알고 있습니다. 산타가 잘 연주할 수 있도록 도와주시겠어요?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "산타와 통화하기"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "산타와 엘프 친구들의 최신 소식을 알아보려면 북극 뉴스캐스트를 매일 확인해 보세요. Google 어시스턴트에 북극의 새로운 소식을 물어보면 됩니다."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "북극 뉴스캐스트"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "산타는 작업공방에서 엘프들과 일하다 한가할 때는 코미디 실력을 갈고닦는 데 시간을 보냅니다. 산타의 코미디 시리즈를 들으려면 Google 어시스턴트에 산타 유머를 물어보세요."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "산타 유머"
+	},
+	"familyguide_assistant_title": {
+		"message": "놓칠 수 없는 북극의 순간"
+	},
 	"familyguide_body": {
 		"message": "산타 마을은 가족이 연말을 즐길 수 있는 최적의 공간입니다. 좋아하는 모든 캐릭터를 찾을 수 있으며 모든 연령에 맞는 재미있고 교육적인 대화형 활동이 제공됩니다."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "더보기"
 	},
+	"familyguide_nav_link_07": {
+		"message": "어시스턴트"
+	},
 	"familyguide_secondary_body": {
 		"message": "12월 24일에 산타 마을이 추적 환경으로 변환됩니다. 산타와 순록들이 전 세계 어린이에게 선물을 배달할 때 여기에서 산타를 추적할 수 있습니다."
 	},
@@ -792,7 +822,7 @@
 		"message": "좋아하는 모든 Google 제품과 함께 이번 시즌에 산타 추적기를 최대한 활용해 보세요."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Google 어시스턴트에 매일 엘프 딤플스틱스의 재미있는 업데이트를 물어보세요. 또한 크리스마스 농담, 크리스마스에 관한 사실, 산타에게 전화하면 어떻게 되는지 등을 알아보세요."
+		"message": "Google 어시스턴트에 매일 엘프 딤플스틱스의 재미있는 업데이트를 물어보세요."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, 북극의 새로운 소식을 알려줘.\""
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "온 가족과 함께 즐기는 연말"
+	},
+	"familylink": {
+		"message": "Family Link로 관리되는 아동용 Google 계정 추가"
+	},
+	"featured": {
+		"message": "추천"
 	},
 	"fi_country_name": {
 		"message": "핀란드"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "산타 이륙"
 	},
+	"scene_videoscene_likealight": {
+		"message": "꿀잠에 빠진 산타"
+	},
 	"scene_videoscene_museum": {
 		"message": "박물관에서의 하루"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "산타의 작업공방"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "크리스마스 벽난로"
 	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"

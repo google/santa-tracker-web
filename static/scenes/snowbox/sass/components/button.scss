@@ -74,6 +74,10 @@
     &::before {
       border-radius: 50%;
       box-shadow: $button-3d-offset $button-3d-offset .01px $color-orange, .01px 1px .01px $color-orange;
+
+      @include respond-to(smartphone) {
+        border-top-left-radius: 51%; // Workaround to box-shadows not working with a 50% border-radius on Android Chrome for some reason
+      }
     }
 
     &:not(.is-disabled) {
@@ -96,6 +100,10 @@
         background-color: $color-purple;
         border-radius: 50%;
         box-shadow: $button-3d-offset $button-3d-offset .01px $color-dark-purple, .01px 1px .01px $color-dark-purple;
+
+        @include respond-to(smartphone) {
+          border-top-left-radius: 51%; // Workaround to box-shadows not working with a 50% border-radius on Android Chrome for some reason
+        }
       }
 
       &:not(.is-disabled) {
@@ -197,6 +205,10 @@
       background-color: $color-white;
       border-radius: 50%;
       box-shadow: $button-3d-offset $button-3d-offset .01px $color-gray, .01px 1px .01px $color-gray, $button-shadow-offset $button-3d-offset $button-shadow;
+
+      @include respond-to(smartphone) {
+        border-top-left-radius: 51%; // Workaround to box-shadows not working with a 50% border-radius on Android Chrome for some reason
+      }
     }
 
     &:not(.is-disabled) {

@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Sărbătoriți toată luna"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Folosiți Asistentul Google pentru a afla mai multe despre Moș Crăciun în luna decembrie! Această integrare este disponibilă în anumite limbi."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Folosind \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e, copiii sub 13 ani pot beneficia de propria experiență cu Asistentul Google când se conectează la cont, cu permisiunea părinților."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistant vă trimite la Polul Nord, unde Moș Crăciun repetă pentru un concert. Știe o singură melodie – îl puteți ajuta să o cânte cum trebuie?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Sună-l pe Moș Crăciun"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Consultați zilnic Buletinul de știri de la Polul Nord și aflați ce mai pun la cale Moș Crăciun și elfii. Cereți-i pur și simplu Asistentului Google noutăți de la Polul Nord."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Buletinul de știri de la Polul Nord"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Când nu este ocupat cu elfii în atelier, Moș Crăciun își petrece timpul exersându-și abilitățile de comediant. Cereți-i Asistentului Google să vă spună o glumă cu Moș Crăciun pentru ai asculta numărul."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Glume cu Moș Crăciun"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nu rata niciun număr din Gazeta de Polul Nord"
+	},
 	"familyguide_body": {
 		"message": "Satul lui Moș Crăciun este locul perfect unde familiile își pot petrece sărbătorile. Veți găsi toate personajele preferate alături de activități distractive, educative și interactive pentru toate vârstele."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mai multe"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "Pe 24 decembrie, satul lui Moș Crăciun se transformă într-o experiență de urmărire prin care îi puteți vedea pe Moș Crăciun și pe renul său cum împart cadouri copiilor din toată lumea."
 	},
@@ -792,7 +822,7 @@
 		"message": "Bucurați-vă de mai multă magie folosind Pe urmele lui Moș Crăciun în acest sezon cu toate produsele Google preferate."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Cereți-i în fiecare zi Asistentului Google să vă dea noutăți distractive despre Elful Dimplesticks. Puteți să aflați și glume despre Crăciun, informații despre această sărbătoare și să vedeți ce se întâmplă când îl sunați pe Moș Crăciun."
+		"message": "Cereți-i în fiecare zi Asistentului Google să vă dea noutăți distractive despre Elful Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„Hei Google, ce mai este nou la Polul Nord?”"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Distracție de sărbători pentru toată familia"
+	},
+	"familylink": {
+		"message": "Adăugați Contul Google al copilului, gestionat cu Family Link"
+	},
+	"featured": {
+		"message": "Recomandat"
 	},
 	"fi_country_name": {
 		"message": "Finlanda"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Plecarea lui Moș Crăciun"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Iute ca fulgerul"
+	},
 	"scene_videoscene_museum": {
 		"message": "O zi la muzeu"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Atelierul lui Moș Crăciun"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bușteanul de Crăciun"
 	},
 	"scene_windtunnel": {
 		"message": "Tunel de vânt"

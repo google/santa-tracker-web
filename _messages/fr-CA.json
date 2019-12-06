@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Célébrer tout le mois"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Utilise l'Assistant Google pour en savoir plus sur le père Noël au cours du mois de décembre! Cette intégration est offerte dans certaines langues seulement."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Avec l'autorisation d'un parent, les enfants de moins de 13 ans peuvent aussi faire l'expérience de leur propre Assistant Google personnalisé lorsqu'ils se connectent avec leur propre compte, géré avec \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "L'Assistant Google te met en contact avec le pôle Nord, où le père Noël se prépare pour un concert. Il ne connaît qu'une seule chanson : peux-tu l'aider à trouver le meilleur moyen de la jouer?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Appeler le père Noël"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Regarde le bulletin de nouvelles du pôle Nord tous les jours pour savoir ce que font le père Noël et ses lutins. Demande simplement à l'Assistant Google ce qu'il y a de neuf au pôle Nord."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Bulletin de nouvelles du pôle Nord"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Lorsque le père Noël n'est pas occupé avec les lutins dans l'atelier, il passe son temps à perfectionner ses prouesses humoristiques. Demande d'écouter l'une de ses blagues à l'Assistant Google."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Blagues du père Noël"
+	},
+	"familyguide_assistant_title": {
+		"message": "Ne rate pas une seule minute du pôle Nord"
+	},
 	"familyguide_body": {
 		"message": "Le village du père Noël est l'endroit parfait pour célébrer les fêtes en famille. Tu y trouveras tous tes personnages favoris en plus d'activités amusantes, éducatives et interactives pour tous les âges."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "plus"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "Le 24 décembre, le village du père Noël se transforme en expérience de suivi, dans laquelle tu peux suivre le père Noël et ses rennes alors qu'ils distribuent des cadeaux aux enfants du monde entier."
 	},
@@ -792,7 +822,7 @@
 		"message": "Vivez plus de magie avec Sur les traces du père Noël cette saison dans tous vos produits Google favoris."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Demande à l'Assistant Google chaque jour pour des nouveautés amusantes proposées par Dimplesticks le lutin. Découvre également des blagues de Noël et des faits sur Noël, et vois ce qui arrive lorsque tu appelles le père Noël."
+		"message": "Demande chaque jour à l'Assistant Google les nouveautés amusantes proposées par Dimplesticks le lutin."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "« Ok Google, quoi de neuf au pôle Nord? »"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Du plaisir pour toute la famille durant les fêtes"
+	},
+	"familylink": {
+		"message": "Ajoutez le compte Google de votre enfant, géré avec Family Link"
+	},
+	"featured": {
+		"message": "En vedette"
 	},
 	"fi_country_name": {
 		"message": "Finlande"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Envol du père Noël"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Le père Noël s'en endormi"
+	},
 	"scene_videoscene_museum": {
 		"message": "Une journée au musée"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Atelier du père Noël"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bûche de Noël"
 	},
 	"scene_windtunnel": {
 		"message": "Soufflerie"

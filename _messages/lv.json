@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Svinības visu mēnesi"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Izmantojiet Google asistentu, lai decembrī uzzinātu vairāk par Ziemassvētku vecīti. Šāda integrēšana ir pieejama atsevišķām valodām."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Bērni, kas vēl nav sasnieguši 13 gadu vecumu, ar vecāku atļauju var izveidot savu personalizēto Google asistenta saskarni, piesakoties ar savu kontu, kas tiek pārvaldīts ar \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google asistents izveido savienojumu ar Ziemeļpolu, kur Ziemassvētku vecītis ir aizņemts ar koncerta mēģinājumiem. Viņš zina tikai vienu dziesmu — vai varat viņam palīdzēt noskaidrot, kā to vislabāk nospēlēt?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Zvans Ziemassvētku vecītim"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Pieslēdzieties Ziemeļpola ziņu kolekcijai katru dienu, lai uzzinātu, ko Ziemassvētku vecītis un viņa rūķīši dara. Vienkārši pajautājiet Google asistentam, kas jauns Ziemeļpolā."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Ziemeļpola ziņu kolekcija"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kad Ziemassvētku vecītis nav aizņemts ar rūķīšiem darbnīcā, viņš pavada laiku, uzlabojot savas komiķa prasmes. Lai dzirdētu Ziemassvētku vecīša joku, vienkārši pajautājiet Google asistentam to atskaņot."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Ziemassvētku vecīša joki"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nepalaidiet garām “Ziemeļpola minūtes” ziņas"
+	},
 	"familyguide_body": {
 		"message": "Ziemassvētku vecīša ciemats ir lieliska vieta, kur ģimenes var svinēt svētkus. Tajā vienuviet atradīsiet savus iecienītos tēlus, kā arī jautras, izglītojošas un interaktīvas nodarbes, kas piemērotas visiem vecumiem."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "vēl"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asistents"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. decembrī Ziemassvētku vecīša ciemats pārvērtīsies par izsekošanas pieredzi, kurā varēsiet sekot līdzi Ziemassvētku vecīša un viņa ziemeļbriežu ceļojumam apkārt pasaulei, lai nogādātu bērniem dāvanas."
 	},
@@ -792,7 +822,7 @@
 		"message": "Šosezon iegūstiet vēl vairāk burvības Ziemassvētku vecīša ceļojumā ar visiem jūsu iecienītajiem Google produktiem."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Katru dienu jautājiet Google asistentam par jautriem jaunumiem no rūķīša Dimplstika. Apskatiet arī Ziemassvētku jokus, faktus un piezvaniet Ziemassvētku vecītim."
+		"message": "Katru dienu jautājiet Google asistentam par jautriem jaunumiem no rūķīša Dimplstika."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "“Ok Google, kas jauns Ziemeļpolā?”"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Svētku jautrība visai ģimenei"
+	},
+	"familylink": {
+		"message": "Pievienojiet sava bērna Google kontu, kas tiek pārvaldīts ar Family Link."
+	},
+	"featured": {
+		"message": "Ieteikta"
 	},
 	"fi_country_name": {
 		"message": "Somija"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Ziemassvētku vecīša pacelšanās"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Ārā zibens ātrumā"
+	},
 	"scene_videoscene_museum": {
 		"message": "Muzeja apmeklēšana"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Ziemassvētku vecīša darbnīca"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Ziemassvētku pagale"
 	},
 	"scene_windtunnel": {
 		"message": "Vēja tunelis"

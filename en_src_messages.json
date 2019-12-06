@@ -1101,7 +1101,7 @@
   },
   "familyguide_tips_tip01_body": {
     "description": "Description of the first tip. This appears in an information page. 'Dimplesticks' is the name of an Elf, and it will not be translated (transliteration is fine).",
-    "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
+    "message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf."
   },
   "familyguide_tips_tip02_title": {
     "description": "Title of the second tip. This appears in an information page.",
@@ -1145,7 +1145,7 @@
   },
   "familyguide_assistant_body_02": {
     "description": "Body text describing a child's use of the Google Assistant with a Family Link account. 'Family Link' is translated, please see the related link in your local language.",
-    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"LINK\">&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;Family Link&lt;/a&gt;</ph>."
+    "raw": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://families.google.com/familylink/\" target=\"_blank\"&gt;</ph>Family Link<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "familyguide_assistant_card01_title": {
     "description": "Title of a card in an information page that tells users they can talk to Santa Claus.",
@@ -4426,6 +4426,130 @@
   "sr_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Suriname"
+  },
+  "storybook_paragraph_01": {
+    "description": "Paragraph text that appears on a storytelling game. Aside: Introducing some story background. There are penguins and elves in the story.",
+    "message": "The penguins were sledding. Elves cheered with delight."
+  },
+  "storybook_paragraph_02": {
+    "description": "Paragraph text that appears on a storytelling game. Aside: Describing the environment where the story happens, where the holiday tree in Santa's village is about to be 'lit up' with holiday lights (not fire, LED lights etc)",
+    "message": "The whole town was a-buzz for the village tree light."
+  },
+  "storybook_paragraph_03": {
+    "description": "Paragraph text that appears on a storytelling game. Aside: Introducing the protagonist whose name is Ollie. And he is feeling sad",
+    "message": "Not everyone that day was feeling so jolly. It was a sad day, you see, for a narwhal named Ollie."
+  },
+  "storybook_paragraph_04": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by a character named Ollie who is introduced in the prior line, with a subtle rhyme on 'it' and 'lit' in English.",
+    "message": "“I wish, just this once, I could be there to see it. It seems so amazing to watch that big tree lit.”"
+  },
+  "storybook_paragraph_05": {
+    "description": "Paragraph text that appears on a storytelling game. Replied by another character called Mary.",
+    "message": "“But you love the ocean!” replied sweet Mary Bear. “All the seashells and plankton. It’s awesome down there!”"
+  },
+  "storybook_paragraph_06": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the character called Ollie. “blue” here has a double meaning: the color and also the feeling.",
+    "message": "“I guess so,” said Ollie, “that’s certainly true. But sometimes the big blue makes me feel blue, too!”"
+  },
+  "storybook_paragraph_07": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the character called Mary.",
+    "message": "“Well what if...” said Mary, with an encouraging smile, “I came down there today and we swam for a while?”"
+  },
+  "storybook_paragraph_08": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the character called Mary, inviting Ollie.",
+    "message": "“Go exploring? Surf sea reefs... Or better yet, I know!”"
+  },
+  "storybook_paragraph_09": {
+    "description": "Paragraph text that appears on a storytelling game. Suggestions by the character called Mary.",
+    "message": "“We could hold a tree lighting of our very own.”"
+  },
+  "storybook_paragraph_10": {
+    "description": "Paragraph text that appears on a storytelling game. Aside: Elves, penguins and a few reindeer are joining the party who are planning to visit Ollie under the sea.",
+    "message": "A plan had been hatched. Mary gathered her crew. In jumped elves and then penguins. A few reindeer, too!"
+  },
+  "storybook_paragraph_11": {
+    "description": "Paragraph text that appears on a storytelling game. The character named Mary continue inviting Ollie who is the protagonist.",
+    "message": "Ollie smiled in delight at the friends who had come. “Let’s get to it!” said Mary, “this is going to be fun!”"
+  },
+  "storybook_paragraph_12": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "Now, to throw a great party, the first thing they’d need is a team of great helpers to help them succeed."
+  },
+  "storybook_paragraph_13": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by a charactor named Ollie, asking everybody to join and help.",
+    "message": "“Gather round!” Ollie shouted. “We need all your help, to host our very own undersea lighting of kelp.”"
+  },
+  "storybook_paragraph_14": {
+    "description": "Paragraph text that appears on a storytelling game. Replied by fishes. They are willing to help with the invites.",
+    "message": "The fish sprung into action, spreading word to the guests. “We’ll handle the invites, you handle the rest!”"
+  },
+  "storybook_paragraph_15": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "Now the elves had experience with this sort of event. They’d need time for their tinkering, and so off they went."
+  },
+  "storybook_paragraph_16": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie, asking a male crab and a female lobster for decorations help.",
+    "message": "Decorations were next. They knew just who to see. “Mr. Crab and Ms. Lobster, would you help, pretty please?”"
+  },
+  "storybook_paragraph_17": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by Oysters, they are willing to help.",
+    "message": "The oysters chimed in, “We can help with design! Hang our pearls from the branches. They’ll sparkle and shine.”"
+  },
+  "storybook_paragraph_18": {
+    "description": "Paragraph text that appears on a storytelling game. Aside: saying the party needs music.",
+    "message": "Every party needs music, tunes with just the right beat, to get everyone grooving, and up on their feet."
+  },
+  "storybook_paragraph_19": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie, his uncle named Horatio and his friend named Carl can help with the music.",
+    "message": "“My uncle, Horatio, is the best in the biz. And his good friend Carl is a guitar-playing whiz.”"
+  },
+  "storybook_paragraph_20": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie.",
+    "message": "“It’s almost time for the party, so the last thing we’ll need is the perfect kelp bundle for a ceremonial tree.”"
+  },
+  "storybook_paragraph_21": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie with an exciting voice.",
+    "message": "“This is it! This is it!”"
+  },
+  "storybook_paragraph_22": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "Ollie flip-flopped with glee! What a fabulous party this whole night would be."
+  },
+  "storybook_paragraph_23": {
+    "description": "Paragraph text that appears on a storytelling game. A subtle rhyme is on 'swayed' and 'played'.",
+    "message": "Starfish leapt into place, and the ornaments swayed. The jellyfish danced, and the band members played."
+  },
+  "storybook_paragraph_24": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "It was all so fantastic, the decor and the sounds. But the best part was when everyone gathered ‘round..."
+  },
+  "storybook_paragraph_25": {
+    "description": "Paragraph text that appears on a storytelling game. Emphasizing the best part is when everyone gathered round for the lighting of a tree (lighting up an underwater holiday tree with bioluminescent plankton).",
+    "message": "...for the lighting!"
+  },
+  "storybook_paragraph_26": {
+    "description": "Paragraph text that appears on a storytelling game, describing bioluminescent plankton lighting up an underwater holiday tree.",
+    "message": "The moment was here at long last! The plankton lit up. Ollie let out a gasp!"
+  },
+  "storybook_paragraph_27": {
+    "description": "Paragraph text that appears on a storytelling game. Describing the peaceful environment of the town with a rhyme on 'aglow' and 'show'.",
+    "message": "It was almost like magic, lights shimmered aglow. The whole town fell silent, just watching the show."
+  },
+  "storybook_paragraph_28": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "The most spectacular thing that they’d all ever seen. Lights went yellow, then purple, then bright emerald green."
+  },
+  "storybook_paragraph_29": {
+    "description": "Paragraph text that appears on a storytelling game.",
+    "message": "Mary started to get sleepy, it was past time for bed, But before they all left, Ollie turned and then said,"
+  },
+  "storybook_paragraph_30": {
+    "description": "Paragraph text that appears on a storytelling game. Said by the charactor named Ollie to a charactor named Mary.",
+    "message": "“Thank you so much for bringing this whole town together, for a night that I know we’ll remember forever.”"
+  },
+  "storybook_paragraph_31": {
+    "description": "Paragraph text that appears on a storytelling game. Shown as large text describing the end of a story.",
+    "message": "The End"
   },
   "sv_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
