@@ -2,33 +2,50 @@ goog.provide('app.ScoreManager')
 
 goog.require('Constants')
 
+goog.require('app.LevelManager')
+
 // singleton to manage the game
 class ScoreManager {
   constructor() {
-    this._players = []
+    this.scoresDict = {} // store players' score by player's ids
   }
 
   init(game) {
     this.game = game
+    this.initScoresDict()
   }
 
-  get players() {
-    return this._players
+  initScoresDict() {
+    // create a dictionnary of players with their current scores
+    for (let i = 0; i < this.game.players.length; i++) {
+      const player = this.game.players[i]
+      this.scoresDict[player.id] = {
+        total: 0,
+        toysInLevel: 0,
+        toys: [],
+      }
+    }
   }
 
-  set players(value) {
-    this._players = value
-  }
+  score(id) {
+    const { toyType, toysCapacity } = app.LevelManager
+    this.scoresDict[id].total++
+    this.scoresDict[id].toysInLevel++
+    this.scoresDict[id].toys.push(toyType.key)
 
-  // this will probably change
-  registerToyCompletion(player) {
-    if (!this.game.levelWinner) {
-      this.game.levelWinner = player
-      player.registerWin()
+    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id)
 
-      // Todo: Display level winner screen
-
+    if (this.scoresDict[id].toysInLevel === toysCapacity) {
+      // reset toysInLevels
+      this.resetToysInLevels()
       this.game.goToNextLevel()
+    }
+  }
+
+  resetToysInLevels() {
+    for (let i = 0; i < this.game.players.length; i++) {
+      const player = this.game.players[i]
+      this.scoresDict[player.id].toysInLevel = 0
     }
   }
 }

@@ -126,6 +126,10 @@ Constants = {
     }
   },
 
+  BOARD_PADDING_TOP: 95,
+
+  BOARD_PADDING_LEFT_PERCENTAGE: 3,
+
   GRID_DIMENSIONS: {
     HEIGHT: 16, // height in grid units
     WIDTH: 28, // width in grid units
