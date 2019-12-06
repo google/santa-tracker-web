@@ -21,6 +21,8 @@ class ScoreScreen {
       this.dom.players[1].remove()
       this.elem.classList.add('single-player')
       // put winning image
+      const domCharacter = this.dom.players[0].querySelector(`[data-score-screen-character]`)
+      domCharacter.src = `img/players/a/win.svg`
     }
 
     this.dom.skipButton.addEventListener('click', this.skip)
@@ -29,6 +31,10 @@ class ScoreScreen {
   show() {
     this.elem.classList.remove('is-hidden')
     this.game.pause() // pause game, it's stopping the scoreboard timer
+  }
+
+  hide() {
+    this.elem.classList.add('is-hidden')
   }
 
   updateScore(id, score, toy) {
