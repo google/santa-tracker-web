@@ -601,9 +601,22 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     control.send({type: 'ready'});
     window.dispatchEvent(new CustomEvent('entrypoint-route', {detail: route}));
 
-    // Go into fullscreen mode on Android.
-    if (typeof Android !== 'undefined' && Android.fullscreen) {
-      Android.fullscreen(!config.scroll);
+    // Go into fullscreen mode on Android, and control orientation lock.
+    if (typeof Android !== 'undefined') {
+      if (Android.fullscreen) {
+        Android.fullscreen(!config.scroll);
+      }
+      try {
+        if (config.orientation === 'portrait') {
+          Android.orientationPortrait();
+        } else if (config.orientation === 'landscape') {
+          Android.orientationLandscape();
+        } else {
+          Android.orientationUnlock();
+        }
+      } catch (err) {
+        console.warn('could not lock orientation', err);
+      }
     }
 
     // Configure the optional error display.
