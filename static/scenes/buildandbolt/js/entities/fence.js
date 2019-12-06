@@ -19,7 +19,7 @@ app.Fence = class Fence extends app.Entity {
   onInit(config) {
     const { cells, row, column } = config
     const cell = cells[row][column]
-    const type = this.defineType(cells, row, column)
+    const type = this.setType(cells, row, column)
 
     if (cell.top) {
       this.addChild('top', type.top)
@@ -80,13 +80,15 @@ app.Fence = class Fence extends app.Entity {
 
     return actions
   }
+
   playSound() {
     if (performance.now() - this.lastSoundTime > 700) {
       window.santaApp.fire('sound-trigger', 'buildandbolt_thud');
       this.lastSoundTime = performance.now();
     }
   }
-  defineType(cells, row, column) {
+
+  setType(cells, row, column) {
     const cell = cells[row][column]
     const type = {
       top: false,

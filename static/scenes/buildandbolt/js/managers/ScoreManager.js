@@ -43,7 +43,7 @@ class ScoreManager {
       this.resetToysInLevels()
 
       if (this.game.multiplayer) {
-        this.defineWinner()
+        this.setWinner()
       }
 
       // show winner screen
@@ -51,7 +51,7 @@ class ScoreManager {
     }
   }
 
-  defineWinner() {
+  setWinner() {
     const { players } = this.game
     const characters = []
     for (let i = 0; i < players.length; i++) {
