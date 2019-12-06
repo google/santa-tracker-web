@@ -373,6 +373,7 @@ app.Player = class Player {
           `img/toys/${toyType}/full.svg`)
         this.toysElem.appendChild(toyElem)
         window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
+        window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
       } else {
         const toyElem = document.createElement('img')
         toyElem.setAttribute('class',
