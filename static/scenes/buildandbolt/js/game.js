@@ -296,8 +296,8 @@ app.Game = class Game {
   }
 
   goToNextLevel() {
-    this.freezeGame()
     this.reset()
+    this.resume()
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
@@ -330,7 +330,7 @@ app.Game = class Game {
    * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
-    this.goToNextLevel()
+    app.ScoreScreen.show()
   }
 
   /**

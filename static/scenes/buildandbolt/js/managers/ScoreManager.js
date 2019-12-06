@@ -30,21 +30,21 @@ class ScoreManager {
 
   updateScore(id) {
     const { toyType, toysCapacity } = app.LevelManager
-    const playerScore = this.scoresDict[id]
-    playerScore.toysInLevel++
-    playerScore.toys.push(toyType.key)
+    const player = this.scoresDict[id]
+    player.toysInLevel++
+    player.toys.push(toyType.key)
     // update toys board
-    app.ToysBoard.updateScore(this.id, toysCapacity - playerScore.toysInLevel)
+    app.ToysBoard.updateScore(id, toysCapacity - player.toysInLevel)
     // update score screen
-    app.ScoreScreen.updateScore(this.id, toys.length, toyType.key)
+    app.ScoreScreen.updateScore(id, player.toys.length, toyType.key)
 
-    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', this.id)
+    window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', id)
 
-    if (playerScore.toysInLevel === toysCapacity) {
+    if (player.toysInLevel === toysCapacity) {
       // reset toysInLevels
       this.resetToysInLevels()
       // show winner screen
-      app.ScoreScreen.show(this.scoresDict)
+      app.ScoreScreen.show()
     }
   }
 

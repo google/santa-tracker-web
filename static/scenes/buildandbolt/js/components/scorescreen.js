@@ -27,15 +27,16 @@ class ScoreScreen {
 
   show() {
     this.elem.classList.remove('is-hidden')
+    this.game.pause() // pause game, it's stopping the scoreboard timer
   }
 
   updateScore(id, score, toy) {
     // update score
-    const domScore = this.elem.querySelector(`.score-screen__player--${id} .score-screen__score`)
+    const domScore = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-score]`)
     domScore.innerHTML = score
 
     // add toy image
-    const domToys = this.elem.querySelector(`.score-screen__player--${id} .score-screen__toys`)
+    const domToys = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-toys]`)
     const img = document.createElement('img')
     img.classList.add('score-screen__toy')
     img.src = `img/toys/${toy}/full.svg`
