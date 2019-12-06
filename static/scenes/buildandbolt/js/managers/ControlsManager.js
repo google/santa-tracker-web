@@ -1,4 +1,4 @@
-goog.provide('app.Controls')
+goog.provide('app.ControlsManager')
 
 goog.require('app.shared.utils')
 goog.require('app.Board')
@@ -10,7 +10,7 @@ goog.require('Utils')
  *
  * @constructor
  */
-class Controls {
+class ControlsManager {
   init(game) {
     // this.players_ = game.players
     // this.tutorial_ = game.tutorial
@@ -53,7 +53,7 @@ class Controls {
   /**
    * Handles the key up event. Called dynamically.
    * @param  {Event} e The event object.
-   * @this {Controls} The Controls object.
+   * @this {ControlsManager} The ControlsManager object.
    */
   onKeyUp(e) {
     this.trackedKeys[e.code] = false
@@ -153,5 +153,5 @@ class Controls {
   }
 }
 
-app.Controls = new Controls()
+app.ControlsManager = new ControlsManager()
 

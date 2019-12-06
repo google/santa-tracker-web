@@ -4,22 +4,23 @@ goog.require('Constants')
 goog.require('Levels')
 
 goog.require('app.Board')
-goog.require('app.Controls')
-goog.require('app.ScoreManager')
+goog.require('app.ControlsManager')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
 goog.require('app.Ice')
+goog.require('app.LevelManager')
 goog.require('app.Penguin')
 goog.require('app.Pit')
 goog.require('app.Platform')
 goog.require('app.Player')
 goog.require('app.PresentBox')
+goog.require('app.ScoreManager')
 goog.require('app.Table')
+goog.require('app.ToysBoard')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
-goog.require('app.shared.LevelUp')
 goog.require('app.shared.Scoreboard')
 goog.require('app.AnimationManager')
 
@@ -33,9 +34,6 @@ app.Game = class Game {
     this.context = context
 
     this.gui = new app.Gui(this)
-
-    // this will probably change
-    app.ScoreManager.init(this)
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation)
@@ -69,48 +67,48 @@ app.Game = class Game {
   }
 
   init(playerOption) {
-    app.Board.init(document.getElementById('board'))
-    app.Controls.init(this)
-
+    this.players = []
     this.entities = []
 
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
-      app.ScoreManager.players = [new app.Player(Constants.PLAYER_CONTROLS.SINGLE, 'a')]
+      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.SINGLE, 'a'))
       this.multiplayer = false
     } else {
-      app.ScoreManager.players = [
-        new app.Player(Constants.PLAYER_CONTROLS.ARROWS, 'a'),
-        new app.Player(Constants.PLAYER_CONTROLS.WASD, 'b')
-      ]
+      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.ARROWS, 'a'))
+      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.WASD, 'b'))
       this.multiplayer = true
     }
 
-    this.levelUp = new LevelUp(this, document.getElementsByClassName('levelup')[0],
-        document.querySelector('.levelup--number'));
-    this.level = 0;
-
+    // init managers and components
+    app.ControlsManager.init(this)
+    app.ScoreManager.init(this)
+    app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
+        document.querySelector('.levelup--number'), this.startLevel.bind(this))
+    // init components
+    app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
+    app.Board.init(document.querySelector('[data-board]'))
+    // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
-    this.scoreboard = new Scoreboard(this, null, Levels.length)
+    this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
 
     this.isPlaying = false
     this.lastFrame = null
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    app.LevelManager.show()
 
     this.onFrame()
   }
 
   startLevel() {
-    this.initLevel(this.level)
-    this.scoreboard.setLevel(this.level)
+    this.initLevel()
+    this.scoreboard.setLevel(app.LevelManager.current)
     this.unfreezeGame()
 
-    if (this.level === 0) {
+    if (app.LevelManager.current === 0) {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-
       }, 800)
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
@@ -118,15 +116,16 @@ app.Game = class Game {
   }
 
 
-  initLevel(level) {
-    let levelConfig = Levels[level]
+  initLevel() {
+    let levelConfig = Levels[app.LevelManager.current]
     this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
     this.levelWinner = null
+    // app.ToysBoard.initLevel(levelConfig.toyType.key)
 
-    for (let i = 0; i < app.ScoreManager.players.length; i++) {
-      app.ScoreManager.players[i].init(levelConfig.players[i])
+    for (let i = 0; i < this.players.length; i++) {
+      this.players[i].init(levelConfig.players[i])
     }
 
     for (const entity of levelConfig.entities) {
@@ -193,7 +192,7 @@ app.Game = class Game {
 
         let playerCollision = false
 
-        for (const player of app.ScoreManager.players) {
+        for (const player of this.players) {
           player.onFrame(delta, now)
 
           if (player.isCloseToOtherPlayer) {
@@ -219,8 +218,8 @@ app.Game = class Game {
 
   detectPlayerCollision() {
     if (this.playerCollision) return
-    const player1 = app.ScoreManager.players[0]
-    const player2 = app.ScoreManager.players[1]
+    const player1 = this.players[0]
+    const player2 = this.players[1]
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants
 
     const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y)
@@ -248,8 +247,8 @@ app.Game = class Game {
 
       if (Math.abs(player1Speed - player2Speed) < PLAYER_BOUNCE_FORCE) { // if speeds are relatively the same
         // tie, both players are boucing against each other woth the same force
-        for (let i = 0; i < app.ScoreManager.players.length; i++) {
-          const player = app.ScoreManager.players[i]
+        for (let i = 0; i < this.players.length; i++) {
+          const player = this.players[i]
           // get direction angle
           const angle = player.getDirectionAngle()
           // bump player (oposite direction)
@@ -297,9 +296,11 @@ app.Game = class Game {
   goToNextLevel() {
     this.freezeGame()
     this.reset()
-    this.level++
-    if (this.level < Levels.length) {
-      this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+
+    if (app.LevelManager.current < Levels.length - 1) {
+      app.LevelManager.goToNext()
+      app.LevelManager.show()
+      app.ToysBoard.updateLevel()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
@@ -312,9 +313,9 @@ app.Game = class Game {
       }, 10)
 
       if (this.multiplayer) {
-        if (app.ScoreManager.players[0].score > app.ScoreManager.players[1].score) {
+        if (this.players[0].score > this.players[1].score) {
           console.log('player 1 won')
-        } else if (app.ScoreManager.players[0].score < app.ScoreManager.players[1].score) {
+        } else if (this.players[0].score < this.players[1].score) {
           console.log('player 2 won')
         } else {
           console.log('tie')
@@ -350,10 +351,10 @@ app.Game = class Game {
   restart() {
     this.freezeGame()
     this.reset()
-    this.level = 0
-    this.levelUp.show(this.level + 1, this.startLevel.bind(this))
+    app.LevelManager.reset()
+    app.LevelManager.show()
 
-    for (const player of app.ScoreManager.players) {
+    for (const player of this.players) {
       player.score = 0
     }
   }

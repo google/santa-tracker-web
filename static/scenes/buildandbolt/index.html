@@ -10,7 +10,8 @@
 <body>
   <div id="module-buildandbolt">
     <main id="main">
-      <div id="board" class="level">
+      <!-- board -->
+      <section data-board class="level">
         <div id="players">
           <div class="player player--a">
             <div class="player__inner">
@@ -33,9 +34,38 @@
         <div id="tables"></div>
         <div id="penguins"></div>
         <div id="present-boxes"></div>
-      </div>
+      </section>
 
-      <div class="gui" data-gui>
+      <!-- toys-board -->
+      <section data-toys-board class="toys-board">
+        <div data-toys-board-player class="toys-board__player toys-board__player--a">
+          <div class="toys-board__head">
+            <img src="img/players/a/head.svg" class="toys-board__head-img" alt="">
+          </div>
+          <div class="toys-board__score">
+            <div class="toys-board__toy">
+              <img data-toys-board-toy src="img/toys/robot/full.svg" class="toys-board__toy-img" alt="">
+            </div>
+            <div class="toys-board__cross">x</div>
+            <div data-toys-board-score class="toys-board__number">0</div>
+          </div>
+        </div>
+        <div data-toys-board-player class="toys-board__player toys-board__player--b">
+          <div class="toys-board__head">
+            <img src="img/players/b/head.svg" class="toys-board__head-img" alt="">
+          </div>
+          <div class="toys-board__score">
+            <div class="toys-board__toy">
+              <img data-toys-board-toy src="img/toys/robot/full.svg" class="toys-board__toy-img" alt="">
+            </div>
+            <div class="toys-board__cross">x</div>
+            <div data-toys-board-score class="toys-board__number">0</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- gui -->
+      <section class="gui" data-gui>
         <div class="player-selection is-hidden" data-player-selection>
           <div class="player-selection__inner">
             <div class="gui__title" msgid="buildandbolt-players-selection"></div>
@@ -96,7 +126,7 @@
 
         <div class="levelup"></div>
         <div class="levelup--number"></div>
-      </div>
+      </section>
     </main>
   </div>
 

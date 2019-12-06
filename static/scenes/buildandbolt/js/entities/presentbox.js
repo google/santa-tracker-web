@@ -3,7 +3,8 @@ goog.provide('app.PresentBox')
 goog.require('Constants')
 
 goog.require('app.Entity')
-goog.require('app.Controls')
+goog.require('app.ControlsManager')
+goog.require('app.LevelManager')
 goog.require('app.shared.pools');
 goog.require('Utils')
 
@@ -52,7 +53,8 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     if (toyCompleted) {
       // check if all parts are here
-      for (let i = 1; i <= this.config.toy.length; i++) {
+      const { toyType } = app.LevelManager
+      for (let i = 1; i <= toyType.size; i++) {
         if (player.toyParts.indexOf(i) == -1) {
           toyCompleted = false
         }
@@ -61,8 +63,11 @@ app.PresentBox = class PresentBox extends app.Entity {
 
     // if player is close to border, it can do an action
     if (toyCompleted && Utils.isTouchingBorder(this.config, player.position)) {
-      if (app.Controls.isTouch || app.Controls.isKeyControlActive(player.controls.action)) {
-        actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+      if (app.ControlsManager.isTouch || app.ControlsManager.isKeyControlActive(player.controls.action)) {
+        if (!this.toyAccepted) {
+          actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
+          this.toyAccepted = true
+        }
       }
       if (Constants.DEBUG) {
         this.elem.style.opacity = 0.5
@@ -80,6 +85,12 @@ app.PresentBox = class PresentBox extends app.Entity {
     }
 
     return actions
+  }
+
+  onDispose() {
+    super.onDispose()
+
+    this.toyAccepted = false // reopen box
   }
 }
 
