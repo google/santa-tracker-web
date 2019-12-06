@@ -157,16 +157,19 @@ Levels = [
           x: 19,
           y: 12,
           toy: Constants.TOY_TYPES.CAR,
-          playerId: 'a'
+          playerId: 'a',
+          isSideView: true
         }
       },
       {
         type: 'present-box',
         config: {
-          x: 22,
-          y: 12,
+          x: 19,
+          y: 10,
           toy: Constants.TOY_TYPES.CAR,
-          playerId: 'b'
+          playerId: 'b',
+          isSideView: true,
+          isMiddle: true
         }
       },
       {

@@ -51,11 +51,15 @@
           display: block;
         }
 
-        .player__toys,
-        .toypart {
-          right: 0;
-          top: 50%;
+        .player__toys {
+          right: 15%;
+          top: 60%;
           transform: translateY(-50%);
+        }
+
+        .toypart--car--1,
+        .toypart--car--full {
+          transform: translate(-30%, -50%);
         }
       }
 
@@ -64,9 +68,8 @@
           display: block;
         }
 
-        .player__toys,
-        .toypart {
-          bottom: 0;
+        .player__toys {
+          bottom: 10%;
           left: 50%;
           transform: translateX(-50%);
         }
@@ -77,9 +80,8 @@
           display: block;
         }
 
-        .player__toys,
-        .toypart {
-          top: 10%;
+        .player__toys {
+          top: 35%;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1;
@@ -106,6 +108,7 @@
 
     .toypart {
       position: absolute;
+      transform: translate(-50%, -50%);
     }
   }
 

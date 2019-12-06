@@ -110,7 +110,7 @@ app.Game = class Game {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-        
+
       }, 800)
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
@@ -163,7 +163,9 @@ app.Game = class Game {
           this.entities.push(app.Table.pop(this, entity.config))
           break;
         case 'present-box':
-          this.entities.push(app.PresentBox.pop(this, entity.config))
+          if (this.multiplayer || entity.config.playerId == 'a') {
+            this.entities.push(app.PresentBox.pop(this, entity.config))
+          }
           break;
         case 'platform':
           this.entities.push(app.Platform.pop(this, entity.config))
@@ -303,12 +305,12 @@ app.Game = class Game {
       // end game. display game winner.
       this.gameoverDialog.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-      
+
       //timeout to prevent walk loop to start after game has ended
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
       }, 10)
-      
+
       if (this.multiplayer) {
         if (app.ScoreManager.players[0].score > app.ScoreManager.players[1].score) {
           console.log('player 1 won')
