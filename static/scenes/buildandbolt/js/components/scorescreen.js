@@ -20,6 +20,7 @@ class ScoreScreen {
     if (playerOption == Constants.PLAYER_OPTIONS.SINGLE) {
       this.dom.players[1].remove()
       this.elem.classList.add('single-player')
+      // put winning image
     }
 
     this.dom.skipButton.addEventListener('click', this.skip)
@@ -41,6 +42,14 @@ class ScoreScreen {
     img.classList.add('score-screen__toy')
     img.src = `img/toys/${toy}/full.svg`
     domToys.appendChild(img)
+  }
+
+  updateCharacters(characters) {
+    for (let i = 0; i < characters.length; i++) {
+      const { id, state } = characters[i]
+      const domCharacter = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-character]`)
+      domCharacter.src = `img/players/${id}/${state}.svg`
+    }
   }
 
   skip() {

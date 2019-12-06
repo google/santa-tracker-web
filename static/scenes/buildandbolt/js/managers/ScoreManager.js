@@ -1,7 +1,5 @@
 goog.provide('app.ScoreManager')
 
-goog.require('Constants')
-
 goog.require('app.LevelManager')
 goog.require('app.ScoreScreen')
 goog.require('app.ToysBoard')
@@ -43,9 +41,38 @@ class ScoreManager {
     if (player.toysInLevel === toysCapacity) {
       // reset toysInLevels
       this.resetToysInLevels()
+
+      if (this.game.multiplayer) {
+        this.defineWinner()
+      }
+
       // show winner screen
       app.ScoreScreen.show()
     }
+  }
+
+  defineWinner() {
+    const { players } = this.game
+    const characters = []
+    for (let i = 0; i < players.length; i++) {
+      characters.push({
+        id: players[i].id,
+        state: null
+      })
+    }
+    if (this.scoresDict[players[0].id].toys.length > this.scoresDict[players[1].id].toys.length) {
+      characters[0].state = 'win'
+      characters[1].state = 'lose'
+    } else if (this.scoresDict[players[0].id].toys.length < this.scoresDict[players[1].id].toys.length) {
+      characters[0].state = 'lose'
+      characters[1].state = 'win'
+    } else {
+      // tie
+      characters[0].state = 'win'
+      characters[1].state = 'win'
+    }
+
+    app.ScoreScreen.updateCharacters(characters)
   }
 
   resetToysInLevels() {
