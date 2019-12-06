@@ -3,7 +3,7 @@ goog.provide('app.ScoreScreen')
 goog.require('app.shared.utils')
 goog.require('Constants')
 
-app.ScoreScreen = class ScoreScreen {
+class ScoreScreen {
   constructor(game) {
     this.game = game
     this.guiElem = this.game.context.querySelector('[data-gui]')
@@ -55,3 +55,6 @@ app.ScoreScreen = class ScoreScreen {
     window.santaApp.fire('sound-trigger', 'generic_button_over');
   }
 }
+
+
+app.ScoreScreen = new ScoreScreen()

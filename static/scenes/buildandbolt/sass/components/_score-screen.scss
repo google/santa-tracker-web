@@ -94,7 +94,7 @@
     background-color: $color-brown;
     flex: 0 0 2px;
     height: 2px;
-    margin-top: 58px;
+    margin-top: 30px;
     width: 100%;
 
     @include respond-to(mobile) {
@@ -136,10 +136,17 @@
   }
 
   &__character {
-    height: 150px;
+    height: 200px;
     position: absolute;
-    right: 0;
-    top: 54%;
-    width: 105px;
+    right: -15px;
+    top: 47%;
+    width: 150px;
+
+    @include respond-to(mobile) {
+      height: 75px;
+      right: -17px;
+      top: 40%;
+      width: 90px;
+    }
   }
 }
