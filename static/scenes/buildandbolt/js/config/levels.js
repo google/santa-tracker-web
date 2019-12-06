@@ -35,7 +35,7 @@ Levels = [
       }
     ],
     toyType: Constants.TOY_TYPES.CAR,
-    toysCapacity: 1,
+    toysCapacity: 2,
     entities: [
       {
         type: 'pit',
@@ -145,6 +145,25 @@ Levels = [
           tableType: 2,
           isSideView: true,
           part: 2
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 22,
+          y: 14,
+          playerId: 'a',
+          isSideView: true
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 22,
+          y: 12,
+          playerId: 'b',
+          isSideView: true,
+          isMiddle: true
         }
       },
       {
