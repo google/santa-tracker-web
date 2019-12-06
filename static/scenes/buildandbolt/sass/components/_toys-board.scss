@@ -1,7 +1,7 @@
 .toys-board {
   align-items: center;
   border-radius: 32px;
-  bottom: 15px;
+  bottom: 25px;
   display: flex;
   height: 63px;
   justify-content: space-between;
@@ -10,10 +10,14 @@
   transform: translateX(-50%);
   box-shadow: $box-shadow;
 
+  @include respond-to(mobile) {
+    bottom: 15px;
+    height: 40px;
+  }
+
   &.single-player {
     .toys-board__player {
       border-radius: 32px;
-      width: 180px;
     }
   }
 
@@ -23,6 +27,10 @@
     display: flex;
     height: 100%;
     width: 190px;
+
+    @include respond-to(mobile) {
+      width: 140px;
+    }
 
     &:first-child {
       background-color: $color-yellow;
@@ -46,6 +54,11 @@
     justify-content: center;
     width: 63px;
 
+    @include respond-to(mobile) {
+      height: 40px;
+      width: 40px;
+    }
+
     &-img {
       transform: translateY(-18%);
       width: 60%;
@@ -56,11 +69,20 @@
     align-items: center;
     display: flex;
     height: 100%;
-    padding: 0 18px;
+
+    @include respond-to(mobile) {
+      padding-left: 0px;
+    }
   }
 
   &__toy {
     height: 85%;
+    width: 60px;
+    text-align: center;
+
+    @include respond-to(mobile) {
+      width: 40px;
+    }
 
     &-img {
       height: 100%;

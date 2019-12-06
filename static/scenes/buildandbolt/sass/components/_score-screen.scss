@@ -28,6 +28,10 @@
     }
   }
 
+  &.game-end {
+
+  }
+
   &::before {
     background-color: $color-green;
     content: '';
