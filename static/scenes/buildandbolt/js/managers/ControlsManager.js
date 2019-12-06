@@ -12,8 +12,7 @@ goog.require('Utils')
  */
 class ControlsManager {
   init(game) {
-    // this.players_ = game.players
-    // this.tutorial_ = game.tutorial
+    this.tutorial_ = game.tutorial
 
     if (app.shared.utils.touchEnabled) {
       this.isTouch = true
@@ -41,13 +40,6 @@ class ControlsManager {
    */
   onKeyDown(e) {
     this.trackedKeys[e.code] = true
-
-    // if (!this.arrowPressed && (e.keyCode === 38 || e.keyCode === 40)) {
-    //   // Let tutorial know if arrow has been pressed
-    //   // and hide tutorial when user presses the button
-    //   this.tutorial_.off('keys-updown')
-    //   this.arrowPressed = true
-    // }
   }
 
   /**
@@ -84,10 +76,10 @@ class ControlsManager {
     e.preventDefault()
 
     // Let tutorial know about touch so it can hide the tutorial.
-    // if (!this.touchStarted) {
-    //   this.tutorial_.off('touch-updown');
-    //   this.touchStarted = true;
-    // }
+    if (!this.touchStarted) {
+      this.tutorial_.off('buildandbolt_mobile.mp4');
+      this.touchStarted = true;
+    }
   }
 
   onTouchMove(e) {

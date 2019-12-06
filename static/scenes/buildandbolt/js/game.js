@@ -22,6 +22,7 @@ goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
 goog.require('app.shared.Scoreboard')
+goog.require('app.shared.Tutorial');
 goog.require('app.AnimationManager')
 
 
@@ -32,8 +33,6 @@ app.Game = class Game {
     }
 
     this.context = context
-
-    this.gui = new app.Gui(this)
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation)
@@ -51,7 +50,6 @@ app.Game = class Game {
         if (!app.AnimationManager.animations[`player-${playerId}`]) {
           app.AnimationManager.animations[`player-${playerId}`] = {}
         }
-
         app.AnimationManager.animations[`player-${playerId}`][side] = anim
       }, apiPreload)
     }
@@ -64,6 +62,10 @@ app.Game = class Game {
     initPlayerAnimation('img/players/b/back.json', 'b', 'back')
     initPlayerAnimation('img/players/b/side.json', 'b', 'side')
     initPlayerAnimation('img/players/death-pow.json', 'b', 'death')
+  }
+
+  showGui() {
+    this.gui = new app.Gui(this)
   }
 
   init(playerOption) {
@@ -79,6 +81,8 @@ app.Game = class Game {
       this.multiplayer = true
     }
 
+    this.tutorial = new app.shared.Tutorial('buildandbolt_mobile.mp4')
+
     // init managers and components
     app.ControlsManager.init(this)
     app.ScoreManager.init(this)
@@ -90,6 +94,7 @@ app.Game = class Game {
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
+
 
     this.isPlaying = false
     this.lastFrame = null
@@ -106,10 +111,16 @@ app.Game = class Game {
     this.unfreezeGame()
 
     if (app.LevelManager.current === 0) {
+      this.gameStarted = true
+
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
         window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
       }, 800)
+
+      if (app.shared.utils.touchEnabled) {
+        this.tutorial.start()
+      }
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
@@ -342,7 +353,9 @@ app.Game = class Game {
    * Called when resume button is clicked.
    */
   resume() {
-    this.unfreezeGame()
+    if (this.gameStarted) {
+      this.unfreezeGame()
+    }
   }
 
   /**
