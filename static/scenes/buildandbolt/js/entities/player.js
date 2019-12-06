@@ -301,11 +301,11 @@ app.Player = class Player {
 
       // increment score
       app.ScoreManager.score(this.id)
-      const { total, toysInLevel } = app.ScoreManager.scoresDict[this.id]
+      const { toys, toysInLevel } = app.ScoreManager.scoresDict[this.id]
       // update toys board
       app.ToysBoard.updateScore(this.id, toysInLevel)
       // update score screen
-      app.ScoreScreen.updateScore(this.id, total)
+      app.ScoreScreen.update(this.id, toys)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]

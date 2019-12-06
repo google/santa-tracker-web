@@ -21,7 +21,6 @@ class ScoreManager {
     for (let i = 0; i < this.game.players.length; i++) {
       const player = this.game.players[i]
       this.scoresDict[player.id] = {
-        total: 0,
         toysInLevel: 0,
         toys: [],
       }
@@ -30,7 +29,6 @@ class ScoreManager {
 
   score(id) {
     const { toyType, toysCapacity } = app.LevelManager
-    this.scoresDict[id].total++
     this.scoresDict[id].toysInLevel++
     this.scoresDict[id].toys.push(toyType.key)
 

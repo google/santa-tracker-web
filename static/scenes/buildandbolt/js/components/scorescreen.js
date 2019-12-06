@@ -27,15 +27,20 @@ class ScoreScreen {
   }
 
   show() {
-    // update levels
     this.elem.classList.remove('is-hidden')
   }
 
-  updateScore(id, score) {
+  update(id, toys) {
     // update score
     const domScore = this.elem.querySelector(`.score-screen__player--${id} .score-screen__score`)
-    domScore.innerHTML = score
-    console.log(score)
+    domScore.innerHTML = toys.length
+
+    // add toy image
+    const domToys = this.elem.querySelector(`.score-screen__player--${id} .score-screen__toys`)
+    const img = document.createElement('img')
+    img.classList.add('score-screen__toy')
+    img.src = `img/toys/${toys[i]}/full.svg`
+    domToys.appendChild(img)
   }
 
   skip() {
