@@ -47,13 +47,18 @@
     justify-content: center;
     padding: 0 200px;
 
-    @include respond-to(mobile) {
+    @media only screen and (max-width: 1000px) {
       padding: 0 150px;
+    }
+
+    @include respond-to(mobile) {
+      padding: 0 70px;
     }
   }
 
   .player-controls__side {
     text-align: center;
+    width: 50%;
 
     .gui__title {
       white-space: nowrap;
@@ -67,6 +72,52 @@
   [data-player-controls=single] {
     .multiplayer-only {
       display: none;
+    }
+
+    .player-controls__sides {
+      @media only screen and (max-width: $mobile-width) {
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .player-controls__divider {
+      @media only screen and (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+    .player-controls__side--one {
+      .player-controls__elf {
+        height: auto;
+        margin-top: 50px;
+        max-width: 60%;
+
+        @include respond-to(mobile) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .player-controls__keyboard {
+      img {
+        @media only screen and (max-height: 600px) {
+          height: 150px;
+        }
+      }
+    }
+
+    .player-controls__hands {
+      margin-bottom: 50px;
+      width: 80%;
+
+      @include respond-to(mobile) {
+        margin-bottom: 20px;
+      }
+
+      @media only screen and (max-height: 600px) {
+        height: 100px;
+      }
     }
   }
 
@@ -87,6 +138,7 @@
   }
 
   .player-controls__keyboard {
+    display: inline-block;
     position: relative;
 
     img {
