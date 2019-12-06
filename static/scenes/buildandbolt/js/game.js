@@ -297,7 +297,7 @@ app.Game = class Game {
     this.freezeGame()
     this.reset()
 
-    if (app.LevelManager.current < Levels.length) {
+    if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
       app.LevelManager.show()
       app.ToysBoard.updateLevel()
