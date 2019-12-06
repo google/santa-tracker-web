@@ -81,7 +81,7 @@ app.Game = class Game {
     }
 
     // init managers and components
-    app.ControlsManager.init(this)
+    app.ControlsManager.init( document.querySelector('[data-board-bkg]'))
     app.ScoreManager.init(this)
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))

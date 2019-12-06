@@ -108,7 +108,8 @@
     width: 100%;
 
     @include respond-to(mobile) {
-      font-size: 115px;
+      font-size: 100px;
+      line-height: 115px;
     }
   }
 
@@ -120,7 +121,7 @@
     width: 100%;
 
     @include respond-to(mobile) {
-      margin-top: 17px;
+      margin-top: 0;
     }
   }
 
@@ -167,7 +168,7 @@
     @include respond-to(mobile) {
       height: 75px;
       right: -17px;
-      top: 40%;
+      top: 36%;
       width: 90px;
     }
   }

@@ -11,20 +11,20 @@ goog.require('Utils')
  * @constructor
  */
 class ControlsManager {
-  init(game) {
+  init(boardBkg) {
     // this.players_ = game.players
     // this.tutorial_ = game.tutorial
 
     if (app.shared.utils.touchEnabled) {
       this.isTouch = true
       this.currentTouchId = null
-      game.context.addEventListener(
+      boardBkg.addEventListener(
           'touchstart',
           this.onTouchStart.bind(this))
-      game.context.addEventListener(
+      boardBkg.addEventListener(
           'touchmove',
           this.onTouchMove.bind(this))
-      game.context.addEventListener(
+      boardBkg.addEventListener(
           'touchend',
           this.onTouchEnd.bind(this))
     } else {

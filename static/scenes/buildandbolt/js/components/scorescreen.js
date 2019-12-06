@@ -9,8 +9,6 @@ class ScoreScreen {
     this.game = game
     this.elem = elem
 
-    this.skip = this.skip.bind(this)
-
     this.dom = {
       skipButton: this.elem.querySelector('[data-score-screen-skip]'),
       players: this.elem.querySelectorAll('[data-score-screen-player]'),
@@ -25,7 +23,8 @@ class ScoreScreen {
       domCharacter.src = `img/players/a/win.svg`
     }
 
-    this.dom.skipButton.addEventListener('click', this.skip)
+    this.dom.skipButton.addEventListener('click', this.onSkipControlsClick.bind(this))
+    this.dom.skipButton.addEventListener('mouseenter', this.onSkipControlsOver.bind(this))
   }
 
   show() {
@@ -58,10 +57,14 @@ class ScoreScreen {
     }
   }
 
-  skip() {
+  onSkipControlsClick() {
     this.elem.classList.add('is-hidden')
     window.santaApp.fire('sound-trigger', 'generic_button_click')
     this.game.goToNextLevel()
+  }
+
+  onSkipControlsOver(element) {
+    window.santaApp.fire('sound-trigger', 'generic_button_over');
   }
 }
 
