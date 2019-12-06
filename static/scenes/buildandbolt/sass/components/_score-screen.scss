@@ -14,6 +14,20 @@
     display: none;
   }
 
+  &.single-player {
+    &::after {
+      height: 85px;
+
+      @include respond-to(mobile) {
+        height: 60px;
+      }
+    }
+
+    .score-screen__name {
+      opacity: 0;
+    }
+  }
+
   &::before {
     background-color: $color-green;
     content: '';
