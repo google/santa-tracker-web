@@ -3,7 +3,6 @@ goog.provide('app.ScoreScreen')
 goog.require('Constants')
 
 goog.require('app.shared.utils')
-goog.require('Constants')
 
 class ScoreScreen {
   init(game, elem, playerOption) {
@@ -30,16 +29,16 @@ class ScoreScreen {
     this.elem.classList.remove('is-hidden')
   }
 
-  update(id, toys) {
+  updateScore(id, score, toy) {
     // update score
     const domScore = this.elem.querySelector(`.score-screen__player--${id} .score-screen__score`)
-    domScore.innerHTML = toys.length
+    domScore.innerHTML = score
 
     // add toy image
     const domToys = this.elem.querySelector(`.score-screen__player--${id} .score-screen__toys`)
     const img = document.createElement('img')
     img.classList.add('score-screen__toy')
-    img.src = `img/toys/${toys[i]}/full.svg`
+    img.src = `img/toys/${toy}/full.svg`
     domToys.appendChild(img)
   }
 

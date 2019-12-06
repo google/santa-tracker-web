@@ -300,12 +300,7 @@ app.Player = class Player {
       this.clearToyParts()
 
       // increment score
-      app.ScoreManager.score(this.id)
-      const { toys, toysInLevel } = app.ScoreManager.scoresDict[this.id]
-      // update toys board
-      app.ToysBoard.updateScore(this.id, toysInLevel)
-      // update score screen
-      app.ScoreScreen.update(this.id, toys)
+      app.ScoreManager.updateScore(this.id)
     }
 
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
