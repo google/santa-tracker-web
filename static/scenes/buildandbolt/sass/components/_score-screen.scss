@@ -1,14 +1,14 @@
 .score-screen {
+  align-items: center;
   background-color: $color-yellow;
+  display: flex;
   height: 100%;
+  justify-content: center;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &::before {
     background-color: $color-green;
@@ -19,6 +19,10 @@
     top: 0px;
     transform: translateX(-50%);
     width: 2px;
+
+    @include respond-to(mobile) {
+      height: 60px;
+    }
   }
 
   &::after {
@@ -30,70 +34,105 @@
     bottom: 0px;
     transform: translateX(-50%);
     width: 2px;
+
+    @include respond-to(mobile) {
+      height: calc(100% - 130px);
+    }
   }
 
   &__title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 85px;
-    font-size: 78px;
-    line-height: 97px;
-    font-family: $font-lobster;
     color: $color-green;
+    font-family: $font-lobster;
+    font-size: 78px;
+    left: 50%;
+    line-height: 97px;
+    position: absolute;
+    top: 85px;
+    transform: translateX(-50%);
+
+    @include respond-to(mobile) {
+      top: 60px;
+      font-size: 48px;
+      line-height: 60px;
+    }
   }
 
   &__player {
     background-color: $color-gold;
     border: 2px solid $color-brown;
     border-radius: 14px;
-    width: 370px;
-    text-align: center;
-    margin: 0 56px;
-    height: 80%;
-    max-height: 700px;
     display: flex;
     flex-direction: column;
+    height: 80%;
     justify-content: center;
+    margin: 0 56px;
+    max-height: 700px;
     position: relative;
+    text-align: center;
+    width: 370px;
+
+    @include respond-to(mobile) {
+      margin: 0 40px;
+      max-height: 260px;
+      width: 200px;
+    }
   }
 
   &__score {
+    color: $color-white;
     font-family: $font-lobster;
     font-size: 330px;
-    width: 100%;
     opacity: 0.7;
-    color: $color-white;
+    width: 100%;
+
+    @include respond-to(mobile) {
+      font-size: 115px;
+    }
   }
 
   &__line {
     background-color: $color-brown;
-    height: 2px;
-    width: 100%;
-    margin-top: 58px;
     flex: 0 0 2px;
+    height: 2px;
+    margin-top: 58px;
+    width: 100%;
+
+    @include respond-to(mobile) {
+      margin-top: 17px;
+    }
   }
 
   &__name {
-    font-family: $font-google-sans;
     color: $color-white;
-    margin-top: 15px;
+    font-family: $font-google-sans;
     font-size: 23px;
+    margin-top: 15px;
+
+    @include respond-to(mobile) {
+      font-size: 16px;
+      margin-top: 7px;
+    }
   }
 
   &__toys {
-    margin-top: 30px;
     display: flex;
-    justify-content: center;
-    height: 50px;
-    flex: 0 0 50px;
-    padding: 0 20px;
     flex-wrap: wrap;
+    flex: 0 0 50px;
+    height: 50px;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 0 20px;
+
+    @include respond-to(mobile) {
+      flex: 0 0 30px;
+      height: 30px;
+      margin-top: 10px;
+    }
   }
 
   &__toy {
-    margin: 6px;
     height: 100%;
+    margin: 0 6px;
   }
 
   &__character {
