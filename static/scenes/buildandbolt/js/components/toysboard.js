@@ -25,19 +25,20 @@ class ToysBoard {
   }
 
   updateLevel() {
-    const { toyType } = app.LevelManager
+    const { toyType, toysCapacity } = app.LevelManager
     for (let i = 0; i < this.dom.players.length; i++) {
       // update toy images
       this.dom.toyImages[i].src = `img/toys/${toyType.key}/full.svg`
       // reset scores
-      this.dom.score[i].innerHTML = 0
+      this.dom.score[i].innerHTML = toysCapacity
     }
   }
 
   updateScore(id) {
+    const { toysCapacity } = app.LevelManager
     // update score
     const domScore = this.elem.querySelector(`.toys-board__player--${id} [data-toys-board-score]`)
-    domScore.innerHTML = app.ScoreManager.scoresDict[id].toysInLevel
+    domScore.innerHTML = toysCapacity - app.ScoreManager.scoresDict[id].toysInLevel
   }
 }
 
