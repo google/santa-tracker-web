@@ -40,7 +40,6 @@ class ScoreScreen {
 
     if (multiplayer) {
       if (tie) {
-        console.log('tiiiee')
         this.elem.classList.add('tie')
       } else {
         // Set right class to right player
