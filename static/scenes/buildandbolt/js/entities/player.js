@@ -357,7 +357,7 @@ app.Player = class Player {
 
   // get current angle of player's direction
   getDirectionAngle() {
-    Utils.getAngle(this.position, this.prevPosition)
+    return Utils.getAngle(this.position, this.prevPosition)
   }
 
   // get current speed
