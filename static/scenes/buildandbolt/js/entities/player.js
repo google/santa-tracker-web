@@ -480,15 +480,11 @@ app.Player = class Player {
         break
       case Constants.PLAYER_STATES.PICK_UP:
         this.playerState = Constants.PLAYER_STATES.PICK_UP
-        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST, () => {
-            console.log('add toy part')
-        })
+        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST)
         break
       case Constants.PLAYER_STATES.DROP_OFF:
         this.playerState = Constants.PLAYER_STATES.DROP_OFF
-          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST, () => {
-            console.log('drop toy')
-          })
+          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST)
         break
     }
   }
