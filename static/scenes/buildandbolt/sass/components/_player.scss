@@ -24,6 +24,21 @@
       opacity: 1;
     }
 
+    &__toys {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .toypart {
+      position: absolute;
+      transform: translate(-50%, -50%);
+
+      // Toy part specific positioning
+      &--car--1 {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+
     &__inner {
       height: 200%;
       transform: translate(-25%, -50%);
@@ -57,7 +72,10 @@
           transform: translateY(-50%);
         }
 
-        .toypart--car--1,
+        .toypart--car--1 {
+          transform: translate(-35%, -50%) rotate(180deg);
+        }
+
         .toypart--car--full {
           transform: translate(-30%, -50%);
         }
@@ -99,16 +117,6 @@
 
     &.is-hidden {
       opacity: 0;
-    }
-
-    &__toys {
-      position: absolute;
-      z-index: 2;
-    }
-
-    .toypart {
-      position: absolute;
-      transform: translate(-50%, -50%);
     }
   }
 
