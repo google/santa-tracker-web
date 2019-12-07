@@ -117,29 +117,57 @@ class ControlsManager {
     }
   }
 
+  /**
+   * Returns a magnitude of movement for each direction
+   */
   getMovementDirections(controls, currentPosition) {
     if (this.isTouch) {
-      if (this.currentTouchPosition) {
+      if (this.currentTouchPosition &&
+          Utils.getDistance(this.currentTouchPosition, currentPosition) > 0.1) {
+        const angle = Utils.getAngle(this.currentTouchPosition, currentPosition)
+        let magnitudeX = Math.abs(Math.cos(angle))
+        let magnitudeY = Math.abs(Math.sin(angle))
+
+        // normalize magnitudes - should add up to 1
+        magnitudeX = magnitudeX / (magnitudeX + magnitudeY)
+        magnitudeY = magnitudeY / (magnitudeX + magnitudeY)
+
         return {
-          left: this.currentTouchPosition.x < currentPosition.x,
-          right: this.currentTouchPosition.x > currentPosition.x,
-          up: this.currentTouchPosition.y < currentPosition.y,
-          down: this.currentTouchPosition.y > currentPosition.y
+          left: this.currentTouchPosition.x < currentPosition.x ? magnitudeX : 0,
+          right: this.currentTouchPosition.x > currentPosition.x ? magnitudeX : 0,
+          up: this.currentTouchPosition.y < currentPosition.y ? magnitudeY : 0,
+          down: this.currentTouchPosition.y > currentPosition.y ? magnitudeY : 0
         }
       } else {
         return {
-          left: false,
-          right: false,
-          up: false,
-          down: false
+          left: 0,
+          right: 0,
+          up: 0,
+          down: 0
         }
       }
     } else {
+      const keys = {
+          left: this.isKeyControlActive(controls.left),
+          right: this.isKeyControlActive(controls.right),
+          up: this.isKeyControlActive(controls.up),
+          down: this.isKeyControlActive(controls.down)
+        }
+
+      let totalKeys = 0
+      for (const direction in keys) {
+        if (keys[direction]) {
+          totalKeys++
+        }
+      }
+
+      const magnitude = 1 / totalKeys
+
       return {
-        left: this.isKeyControlActive(controls.left),
-        right: this.isKeyControlActive(controls.right),
-        up: this.isKeyControlActive(controls.up),
-        down: this.isKeyControlActive(controls.down)
+        left: keys.left ? magnitude : 0,
+        right: keys.right ? magnitude : 0,
+        up: keys.up ? magnitude : 0,
+        down: keys.down ? magnitude : 0
       }
     }
   }
