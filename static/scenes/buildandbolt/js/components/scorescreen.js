@@ -33,12 +33,12 @@ class ScoreScreen {
   }
 
   showEnd(scoreResult, multiplayer) {
-    const { playersState, tie } = scoreResult
     // show end score screen
     this.show()
     this.elem.classList.add('game-end')
 
     if (multiplayer) {
+      const { playersState, tie } = scoreResult
       if (tie) {
         this.elem.classList.add('tie')
       } else {
