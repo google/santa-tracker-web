@@ -88,6 +88,15 @@ class ScoreScreen {
   onSkipControlsOver(element) {
     window.santaApp.fire('sound-trigger', 'generic_button_over');
   }
+
+  reset(id, score) {
+    const domScore = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-score]`)
+    domScore.innerHTML = score
+
+    // add toy image
+    const domToys = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-toys]`)
+    domToys.innerHTML = ''
+  }
 }
 
 

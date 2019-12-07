@@ -38,6 +38,10 @@ class ToysBoard {
     const domScore = this.elem.querySelector(`.toys-board__player--${id} [data-toys-board-score]`)
     domScore.innerHTML = score
   }
+
+  reset(id, score) {
+    this.updateScore(id, score)
+  }
 }
 
 
