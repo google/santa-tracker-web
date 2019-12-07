@@ -96,7 +96,6 @@ class ScoreManager {
   }
 
   reset() {
-    console.log('de', this.game.players)
     for (let i = 0; i < this.game.players.length; i++) {
       const player = this.game.players[i]
       this.scoresDict[player.id].toysInLevel = 0

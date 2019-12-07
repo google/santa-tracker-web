@@ -281,7 +281,7 @@ app.Game = class Game {
     }
   }
 
-  reset() {
+  resetEntities() {
     app.Board.reset()
     for (const entity of this.entities) {
       if (entity instanceof app.Wall) {
@@ -303,11 +303,18 @@ app.Game = class Game {
       }
     }
 
-    this.entities = []
+    this.entities = [] 
+  }
+
+  reset() {
+    this.resetEntities()
+    app.LevelManager.reset()
+    app.ScoreManager.reset()
+    app.LevelManager.show()
   }
 
   goToNextLevel() {
-    this.reset()
+    this.resetEntities()
     this.resume()
 
     if (app.LevelManager.current < Levels.length - 1) {
@@ -356,9 +363,6 @@ app.Game = class Game {
   restart() {
     this.freezeGame()
     this.reset()
-    app.LevelManager.reset()
-    app.LevelManager.show()
-    app.ScoreManager.reset()
   }
 
   freezeGame() {
