@@ -23,7 +23,7 @@ const JSON5 = require('json5');
 const {Worker} = require('worker_threads');
 const WorkGroup = require('./build/group.js');
 
-const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
+const DISABLED_SCENES = 'sammytone_dev poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -136,6 +136,7 @@ async function optionalMinify(code) {
       w.on('exit', reject);
     });
     w.unref();
+    w.terminate();
     if (result.error) {
       throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
     }
@@ -668,7 +669,7 @@ async function releaseProd(langs) {
 
       const image = `prod/images/og/${page}.png`;
       if (await fsp.exists(image)) {
-        const url = `/images/og/${page}.png`;
+        const url = `https://santatracker.google.com/images/og/${page}.png`;
         const all = [
           '[property="og:image"]',
           '[name="twitter:image"]',

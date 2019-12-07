@@ -74,7 +74,7 @@ class CameraController {
   }
 
   rotate(direction, noAnimation = false, angle = 1) {
-    if (this.isRotating) return
+    if (this.isZooming || this.isRotating) return
     this.controls.enabled = false
 
     switch (direction) {
@@ -156,7 +156,7 @@ class CameraController {
   }
 
   zoom(direction, noAnimation = false, force = CONFIG.ZOOM.FORCE) {
-    if (this.isZooming) return
+    if (this.isZooming || this.isRotating) return
 
     this.cameraPositionOrigin = this.camera.position.clone()
     this.lookAtVector = new THREE.Vector3()

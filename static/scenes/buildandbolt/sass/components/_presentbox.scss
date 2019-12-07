@@ -47,6 +47,10 @@
         top: 50%;
         transform: translate(-35%, -66%);
       }
+
+      &.present-box--closed::after {
+        transform: translate(-35%, -86%);
+      }
     }
 
     &--a::after {
@@ -55,6 +59,20 @@
 
     &--b::after {
       background: url(img/present-boxes/boxes/b.svg) center/contain no-repeat;
+    }
+
+    &--closed {
+      &::after {
+        height: 55%;
+      }
+
+      &.present-box--a::after {
+        background: url(img/present-boxes/presents/a.svg) center/contain no-repeat;
+      }
+
+      &.present-box--b::after {
+        background: url(img/present-boxes/presents/b.svg) center/contain no-repeat;
+      }
     }
   }
 }

@@ -46,6 +46,19 @@ export class SantaCountdownElement extends LitElement {
     const now = +new Date;
     const s = countdownSplit(this.until - now);
     this._currentSplit = s;
+
+    if (!window.Intl || !window.Intl.RelativeTimeFormat) {
+      return;
+    }
+
+    const key = ['', 'seconds', 'minutes', 'hours', 'days'][s.count] || '';
+    if (!key) {
+      this.removeAttribute('aria-label');
+    } else {
+      const formatter = new Intl.RelativeTimeFormat();
+      const label = formatter.format(s[key], key);
+      this.setAttribute('aria-label', label + '\n' + _msg`countdownlabel`);
+    }
   }
 
   update(changedProperties) {

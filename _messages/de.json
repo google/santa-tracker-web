@@ -659,11 +659,38 @@
 	"familyguide_accordion_title": {
 		"message": "Den ganzen Monat feiern"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Mit Google Assistant erfährst du den ganzen Dezember über interessante Dinge zum Weihnachtsmann. Nur in ausgewählten Sprachen verfügbar."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Mit Erlaubnis der Eltern können Kinder ab 13 Jahren Google Assistant mit ihrem eigenen über \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e verwalteten Konto nutzen."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Mit Google Assistant gelangst du direkt zum Nordpol – wo der Weihnachtsmann zufällig gerade für ein Konzert probt. Leider kennt er aber nur ein Lied. Kannst du ihm zeigen, wie er es am besten spielen soll?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Weihnachtsmann anrufen"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "In den Nordpol-Nachrichten erfährst du täglich, was der Weihnachtsmann und seine Elfen gerade machen. Frag einfach Google Assistant, was es Neues am Nordpol gibt."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Nordpol-Nachrichten"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Wenn der Weihnachtsmann nicht gerade seinen Elfen in der Geschenkewerkstatt unter die Arme greift, überlegt er sich gern neue Witze. Frag doch mal Google Assistant nach einem Weihnachtswitz, um einen Vorgeschmack davon zu bekommen."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Weihnachtswitze"
+	},
+	"familyguide_assistant_title": {
+		"message": "Immer auf dem neuesten Stand mit dem \"Nordpol-Bericht\""
+	},
 	"familyguide_body": {
 		"message": "Das Weihnachtsdorf ist der ideale Ort, um gemeinsam mit der Familie zu feiern. Hier finden Sie alle Ihre Lieblingscharaktere sowie unterhaltsame, lehrreiche und interaktive Aktivitäten für jedes Alter."
 	},
 	"familyguide_card_01_body": {
-		"message": "Helfen Sie dem Elf mit grundlegenden Programmierkenntnissen, die im Wald verstreuten Geschenke zu finden."
+		"message": "Helfen Sie dem Elfen mit grundlegenden Programmierkenntnissen, die im Wald verstreuten Geschenke zu finden."
 	},
 	"familyguide_card_02_body": {
 		"message": "Gestalten Sie Ihre eigene Weihnachtskarte. Wählen Sie einen der vielen Hintergründe aus, programmieren Sie eine Schneeflocke und teilen Sie die Karte mit Ihren Freunden."
@@ -693,7 +720,7 @@
 		"message": "Probieren Sie die Kreativwerkzeuge des Weihnachtsmanns aus. Jedes Tool, jeder Pinsel und jeder Sticker macht ein spezielles Geräusch, was zu einem audiovisuellen Gesamtkunstwerk führt."
 	},
 	"familyguide_card_10_body": {
-		"message": "Experimentieren und spielen Sie in Ihrer eigenen winterlichen Sandbox. Mit den verfügbaren 3D-Materialien können Sie alles Mögliche bauen: Häuser, Spielzeug, Schneemenschen, Wälder oder was auch immer Sie sich gerade vorstellen."
+		"message": "Experimentieren und spielen Sie in Ihrer eigenen winterlichen Schneebox. Mit den verfügbaren 3D-Materialien können Sie alles Mögliche bauen: Häuser, Spielzeug, Schneemenschen, Wälder oder was auch immer Sie sich gerade vorstellen."
 	},
 	"familyguide_card_11_body": {
 		"message": "Du kannst deinen eigenen Wichtel mit dem perfekten wichteligen Look für die Weihnachtspartys am Nordpol entwerfen."
@@ -717,7 +744,7 @@
 		"message": "Jedes Alter"
 	},
 	"familyguide_doublecard_body": {
-		"message": "Auch nachdem alle Plätzchen aufgegessen und die Geschenke ausgepackt sind, bietet Google Ressourcen für schöne Stunden mit der Familie."
+		"message": "Auch nachdem alle Plätzchen aufgegessen und die Geschenke ausgepackt sind, bietet Google Möglichkeiten für schöne Stunden mit der Familie."
 	},
 	"familyguide_doublecard_card01_body": {
 		"message": "Wir alle möchten jetzt und in Zukunft einen gesunden Planeten. Google gibt Ihnen einfache Tipps, wie Sie mithelfen können, dass es den Menschen und der Welt, in der wir leben, gut geht."
@@ -753,7 +780,7 @@
 		"message": "Sich inspirieren lassen und selbst kreativ werden"
 	},
 	"familyguide_group_04_body": {
-		"message": "Schnappen Sie sich das Popcorn und machen Sie es sich auf dem Sofa gemütlich. Sie können den Figuren auf der Leinwand im Kino des Weihnachtsdorfs zusehen oder das interaktive Bilderbuch lesen und dabei sein, wie Ollie der Narwal im Meer Weihnachten feiert."
+		"message": "Schnappen Sie sich Popcorn und machen Sie es sich auf dem Sofa gemütlich. Sie können den Figuren auf der Leinwand im Kino des Weihnachtsdorfs zusehen oder das interaktive Bilderbuch lesen und dabei sein, wie Ollie der Narwal im Meer Weihnachten feiert."
 	},
 	"familyguide_group_04_title": {
 		"message": "Gemeinsame Zeit mit der Familie"
@@ -774,7 +801,10 @@
 		"message": "Tipps und Tricks"
 	},
 	"familyguide_nav_link_06": {
-		"message": "mehr"
+		"message": "Mehr"
+	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
 	},
 	"familyguide_secondary_body": {
 		"message": "Am 24. Dezember können Sie im Weihnachtsdorf live dabei sein, wie der Weihnachtsmann und seine Rentiere Kindern auf der ganzen Welt Geschenke bringen."
@@ -792,7 +822,7 @@
 		"message": "Dieses Jahr ist \"Auf den Spuren des Weihnachtsmanns\" dank Ihrer liebsten Google-Produkte noch interessanter."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Sie können Google Assistant jeden Tag nach lustigen Neuigkeiten über den Weihnachtself Dimplesticks fragen. Außerdem gibt es Weihnachtswitze, Wissenswertes über Weihnachten und Sie erfahren, was passiert, wenn Sie den Weihnachtsmann anrufen."
+		"message": "Frag Google Assistant jeden Tag nach lustigen Neuigkeiten über den Weihnachtself Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, was gibt es Neues am Nordpol?\""
@@ -810,7 +840,7 @@
 		"message": "Android Wear"
 	},
 	"familyguide_tips_tip04_body": {
-		"message": "Suchen Sie bei Google nach \"Santa\", um den Weihnachtsmann in 3D zu sehen. Auf den meisten iPhones und einigen neuen Android-Geräten können Sie in AR sehen, wie er Ihnen durch die Kamera zuwinkt!"
+		"message": "Suchen Sie bei Google nach \"Santa\", um den Weihnachtsmann in 3D zu sehen. Auf den meisten iPhones und einigen neuen Android-Geräten können Sie in AR sehen, wie er Ihnen durch die Kamera zuwinkt."
 	},
 	"familyguide_tips_tip04_title": {
 		"message": "Der Weihnachtsmann in Ihrem Wohnzimmer"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Schöne Feiertage für die ganze Familie"
+	},
+	"familylink": {
+		"message": "Google-Konto des Kindes hinzufügen (über Familiy Link verwaltet)"
+	},
+	"featured": {
+		"message": "Empfohlen"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Abflug des Weihnachtsmanns"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Knipst die Lichter aus!"
+	},
 	"scene_videoscene_museum": {
 		"message": "Ein Tag im Museum"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "In der Geschenkewerkstatt des Weihnachtsmanns"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Christklotz"
 	},
 	"scene_windtunnel": {
 		"message": "Im Windkanal"

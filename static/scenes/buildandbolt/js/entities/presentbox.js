@@ -67,6 +67,7 @@ app.PresentBox = class PresentBox extends app.Entity {
         if (!this.toyAccepted) {
           actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY]
           this.toyAccepted = true
+          this.elem.classList.add('present-box--closed')
         }
       }
       if (Constants.DEBUG) {

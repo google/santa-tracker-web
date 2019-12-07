@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Ünneplés egy teljes hónapig"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "A Google Segéd használatával december folyamán többet is megtudhatsz a Mikulásról. Az integrált szolgáltatás nem minden nyelven áll rendelkezésre."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "A \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e szolgáltatás révén szülői engedéllyel a 13 éven aluliaknak is lehet saját, személyre szabott Google Segédjük, amikor bejelentkeznek a fiókjukba."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "A Google Segéd összeköt az Északi-sarkkal, ahol a Mikulás buzgón próbál egy koncertre. Sajnos csak egy dalt tud – segítenél neki kitalálni, hogyan tudná a legjobban előadni?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Hívd a Mikulást"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Nézd mindennap az Északi-sarki Híradót, hogy megtudd, miben mesterkedik éppen a Mikulás a manókkal. Kérdezd meg a Google Segédtől, hogy mi újság az Északi-sarkon."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Északi-sarki Híradó"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Amikor a Mikulás nem a manókkal tevékenykedik a műhelyben, akkor humoristaképességeit csiszolgatja. Ha érdekel, hogy min gyakorol éppen, kérd meg a Google Segédet, hogy megismerhess egy Mikulás-viccet."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Mikulásviccek"
+	},
+	"familyguide_assistant_title": {
+		"message": "Ne hagyj ki egyetlen Északi-sarki Hírlevelet se!"
+	},
 	"familyguide_body": {
 		"message": "Mikulásfalva ideális hely a családi ünnepléshez. Az összes kedvenc karaktered összegyűlt, és minden korosztály tagjait szórakoztató, oktatási és interaktív tevékenységekkel várja."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "továbbiak"
 	},
+	"familyguide_nav_link_07": {
+		"message": "segéd"
+	},
 	"familyguide_secondary_body": {
 		"message": "December 24-én Mikulásfalva a nyomkövetés élményét kínálja: követheted a Mikulást és a rénszarvasokat, amint elviszik a gyerekek ajándékait a világ összes tájára."
 	},
@@ -792,7 +822,7 @@
 		"message": "Idén még több varázslattal vár a Mikuláskövető és a többi kedvenc Google-terméked."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Kérd meg mindennap a Google Segédet, hogy mondja el a Dimplesticks nevű manótól származó újdonságokat. Ne maradj le a karácsonyi viccekről és tényekről se, és nézd meg, mi történik, ha a Mikulást hívod."
+		"message": "Kérd meg mindennap a Google Segédet, hogy mondja el a Dimplesticks nevű manótól származó újdonságokat."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„Hey Google, what’s new at the North Pole?” (Ok Google, mi újság az Északi-sarkon?)"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Ünnepi mulatság az egész családnak"
+	},
+	"familylink": {
+		"message": "A gyermek Google-fiókjának hozzáadása a Family Link szolgáltatás használatával"
+	},
+	"featured": {
+		"message": "Kiemelt"
 	},
 	"fi_country_name": {
 		"message": "Finnország"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Indul a Mikulás"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Elalszik a fény is"
+	},
 	"scene_videoscene_museum": {
 		"message": "Egy nap a múzeumban"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "A Mikulás műhelye"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Hasábégetés"
 	},
 	"scene_windtunnel": {
 		"message": "Szélcsatorna"

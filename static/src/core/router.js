@@ -132,7 +132,8 @@ function routeToAndroid(route) {
   }
 
   console.info('loading Android route', androidRoute);
-  window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${androidRoute}`;
+  const hostname = window.location.hostname;
+  window.location = `com.google.android.apps.santatracker://${hostname}/android/${androidRoute}`;
   return true;
 }
 

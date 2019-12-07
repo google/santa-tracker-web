@@ -657,13 +657,40 @@
 		"message": "Zobacz wioskę Świętego Mikołaja"
 	},
 	"familyguide_accordion_title": {
-		"message": "Świętowanie przez cały miesiąc"
+		"message": "Świętuj przez cały miesiąc"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Skorzystaj z pomocy Asystenta Google, by w grudniu dowiedzieć się jak najwięcej o Świętym Mikołaju! Ta integracja jest dostępna w wybranych językach."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Za zgodą rodzica dzieci poniżej 13 roku życia mogą korzystać ze spersonalizowanej wersji Asystenta Google po zalogowaniu się na własne konto, którym rodzice zarządzają w aplikacji \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asystent Google połączy Cię z biegunem północnym, gdzie Święty Mikołaj odbywa próbę przed koncertem. Mikołaj zna tylko jedną piosenkę – pomożesz mu znaleźć najlepszy sposób, żeby ją zagrać?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Zadzwoń do Mikołaja"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Oglądaj codziennie Wiadomości z bieguna północnego, jeśli chcesz wiedzieć, czym zajmuje się Święty Mikołaj z elfami. Wystarczy, że spytasz Asystenta Google, co słychać na biegunie."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Wiadomości z bieguna północnego"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Gdy Święty Mikołaj nie pracuje z elfami w warsztacie, spędza czas, rozwijając swoje umiejętności komediowe. Poproś Asystenta Google, by opowiedział jeden z żartów Mikołaja."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Żarty Świętego Mikołaja"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nie przegap żadnych informacji z bieguna"
 	},
 	"familyguide_body": {
 		"message": "Wioska Świętego Mikołaja to miejsce, w którym całe rodziny mogą świętować Boże Narodzenie. Znajdziesz tu swoich ulubionych bohaterów i interaktywne zajęcia dające rozrywkę i pozwalające zdobyć nowe umiejętności odbiorcom w każdym wieku."
 	},
 	"familyguide_card_01_body": {
-		"message": "Wykorzystaj podstawową wiedzę z dziedziny programowania, by przeprowadzić elfa przez las i pomóc mu znaleźć rozrzucone prezenty."
+		"message": "Wykorzystaj podstawową wiedzę z programowania, by przeprowadzić elfa przez las i pomóc mu znaleźć rozrzucone prezenty."
 	},
 	"familyguide_card_02_body": {
 		"message": "Zaprogramuj własny płatek śniegu, by stworzyć swoją kartkę świąteczną. Wybierz tło i udostępnij ją znajomym."
@@ -675,7 +702,7 @@
 		"message": "Klikaj pinezki na mapie, by poznać świąteczne tradycje z całego świata – od noszenia czapek w Kanadzie po przechadzanie się w kąpielówkach w Australii."
 	},
 	"familyguide_card_05_body": {
-		"message": "Naucz się świątecznych zwrotów z całego świata – od „Szczęśliwego Nowego Roku” w języku elfów po „Дед Мороз”,"
+		"message": "Naucz się świątecznych zwrotów z całego świata – od „Szczęśliwego Nowego Roku” w języku elfów po „Дед Мороз”."
 	},
 	"familyguide_card_06_body": {
 		"message": "Święty Mikołaj musi odwiedzić wiele miejsc. Ta gra geograficzna polega na dopasowywaniu konturów krajów do odpowiednich miejsc na mapie."
@@ -693,7 +720,7 @@
 		"message": "Użyj tego samego pakietu kreatywnego, z którego korzysta Święty Mikołaj. Każdy przybór, pędzel i każda naklejka wydaje własny dźwięk, dodając doznania dźwiękowe do wizualnych."
 	},
 	"familyguide_card_10_body": {
-		"message": "Eksperymentuj i baw się we własnej zimowej piaskownicy Używaj trójwymiarowych materiałów, by tworzyć, co tylko zechcesz: domy, zabawki, bałwany, lasy i inne rzeczy, jakie Ci przyjdą do głowy."
+		"message": "Eksperymentuj i baw się we własnej zimowej piaskownicy. Używaj trójwymiarowych materiałów, by tworzyć, co tylko zechcesz: domy, zabawki, bałwany, lasy i inne rzeczy, jakie Ci przyjdą do głowy."
 	},
 	"familyguide_card_11_body": {
 		"message": "stwórz własnego elfa od stóp do głów i zadbaj, by wyglądał elfiastycznie podczas wszystkich wieczorków towarzyskich organizowanych na biegunie."
@@ -708,7 +735,7 @@
 		"message": "W okolicach bieguna północnego kręci się wiele elfów, reniferów i Pegmanów. Obserwuj, jak przemieszczają się z miejsca na miejsce."
 	},
 	"familyguide_card_15_body": {
-		"message": "Święty Mikołaj i renifer są gotowi do drogi, ale zanim wyruszą, potrzebują pomocy ze strony kodujących elfów."
+		"message": "Święty Mikołaj i renifer są gotowi do drogi, ale zanim wyruszą, potrzebują pomocy kodujących elfów."
 	},
 	"familyguide_card_16_body": {
 		"message": "Nasi przyjaciele z wioski przyłączają się do narwala Olliego, by wspólnie spędzić dzień pod wodą i przygotować doroczne uroczyste zapalanie światełek wśród wodorostów."
@@ -717,7 +744,7 @@
 		"message": "Bez ograniczeń wiekowych"
 	},
 	"familyguide_doublecard_body": {
-		"message": "Gdy skończy się makowiec, a każdy już rozpakuje swój prezent, nadchodzi czas, by odkrywać zasoby Google pozwalające na rodzinną zabawę przez cały rok."
+		"message": "Gdy skończy się makowiec i wszyscy już rozpakują swoje prezenty, nadchodzi czas, by odkrywać zasoby Google pozwalające na rodzinną zabawę przez cały rok."
 	},
 	"familyguide_doublecard_card01_body": {
 		"message": "Wszyscy pragniemy, by nasza planeta była w dobrym stanie teraz i w przyszłości. Zapoznaj się z przygotowanymi przez Google prostymi wskazówkami, dzięki którym ludziom i planecie będzie żyło się lepiej."
@@ -735,19 +762,19 @@
 		"message": "Więcej od Google"
 	},
 	"familyguide_group_01_body": {
-		"message": "Elfy nieustannie rozwijają swoje umiejętności pisania programów. Odkryj gry, które nauczą Cię podstaw. Każdy może spróbować swoich sił w kodowaniu!"
+		"message": "Elfy nieustannie rozwijają swoje umiejętności programowania. Odkryj gry, które nauczą Cię podstaw. Każdy może spróbować swoich sił w kodowaniu!"
 	},
 	"familyguide_group_01_title": {
 		"message": "Naucz się programowania z elfami Świętego Mikołaja"
 	},
 	"familyguide_group_02_body": {
-		"message": "Święta mogą wyglądać bardzo różnie w różnych miejscach. Z tego zbioru gier i quizów dowiesz się, jak na świecie obchodzi się te dni."
+		"message": "Święta mogą wyglądać bardzo różnie w różnych miejscach. Z tego zbioru gier i quizów dowiesz się, jak obchodzi się te dni na całym świecie."
 	},
 	"familyguide_group_02_title": {
 		"message": "Poznaj święta na całym świecie"
 	},
 	"familyguide_group_03_body": {
-		"message": "Dzięki magii związanej z tworzeniem nowych rzeczy wioska Świętego Mikołaja może się rozwijać. Odkryj gry, w których razem z ulubionymi postaciami możesz rysować, malować, budować i tworzyć różne rzeczy."
+		"message": "Magia tworzenia sprawia, że wioska Świętego Mikołaja rozkwita. Odkryj gry, w których razem z ulubionymi postaciami możesz rysować, malować, budować i tworzyć różne rzeczy."
 	},
 	"familyguide_group_03_title": {
 		"message": "Poszukaj w sobie natchnienia i stwórz coś ciekawego"
@@ -756,7 +783,7 @@
 		"message": "Złap popcorn i ułóż się wygodnie pod ciepłym kocem. Możesz oglądać całą bandę na dużym ekranie w wioskowym kinie lub czytać z interaktywnej książeczki opowieść o tym, jak narwal Ollie obchodzi święta w morskich głębinach."
 	},
 	"familyguide_group_04_title": {
-		"message": "Weź udział w rodzinnym spotkaniu"
+		"message": "Cała rodzina razem"
 	},
 	"familyguide_nav_link_01": {
 		"message": "koduj"
@@ -768,13 +795,16 @@
 		"message": "twórz"
 	},
 	"familyguide_nav_link_04": {
-		"message": "spędzanie czasu z rodziną"
+		"message": "czas dla rodziny"
 	},
 	"familyguide_nav_link_05": {
 		"message": "porady i wskazówki"
 	},
 	"familyguide_nav_link_06": {
 		"message": "więcej"
+	},
+	"familyguide_nav_link_07": {
+		"message": "Asystent"
 	},
 	"familyguide_secondary_body": {
 		"message": "24 grudnia wioska Świętego Mikołaja staje się miejscem, w którym możesz obserwować, jak Mikołaj wraz ze swym reniferem dostarczają prezenty dzieciom na całym świecie."
@@ -783,22 +813,22 @@
 		"message": "Obserwuj Trasę Świętego Mikołaja na stronie internetowej lub w aplikacji na Androida"
 	},
 	"familyguide_secondary_cta_02": {
-		"message": "Psst! Czy wiesz, że podróż Świętego Mikołaja trwa 25 godzin? Swój pierwszy przystanek ma krótko po dziesiątej wieczorem lokalnego czasu daleko na wschodzie Rosji. W Nowym Jorku jest wtedy piąta rano, a jedenasta rano w Paryżu."
+		"message": "Psst! Czy wiesz, że podróż Świętego Mikołaja trwa 25 godzin? Swój pierwszy przystanek ma krótko po dziesiątej wieczorem czasu lokalnego daleko na wschodzie Rosji. W Nowym Jorku jest wtedy piąta rano, a w Paryżu – jedenasta przed południem."
 	},
 	"familyguide_secondary_title": {
-		"message": "Śledź Świętego Mikołaja podczas najważniejszego dnia"
+		"message": "Śledź Świętego Mikołaja w najważniejszym dniu"
 	},
 	"familyguide_tips_body": {
 		"message": "W te święta wydobądź jeszcze więcej magii z Trasy Świętego Mikołaja dzięki swoim ulubionym usługom Google."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Codziennie pytaj Asystenta Google o nowe zabawne wieści od elfa Dimplesticksa. Sprawdzaj też nasze świąteczne żarty i fakty związane z Bożym Narodzeniem oraz zobacz, co się stanie, gdy zadzwonisz do Świętego Mikołaja."
+		"message": "Codziennie pytaj Asystenta Google o nowe zabawne wieści od elfa Dimplesticksa."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„OK Google, co słychać na biegunie północnym?”"
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Pobierz z Play Store aplikację Trasa Świętego Mikołaja na Androida. Zawiera dodatkową scenę w wiosce dostępną tylko w aplikacji."
+		"message": "Pobierz ze Sklepu Play aplikację Trasa Świętego Mikołaja na Androida. Zawiera ona dodatkową scenę w wiosce dostępną tylko w aplikacji."
 	},
 	"familyguide_tips_tip02_title": {
 		"message": "Aplikacja na Androida"
@@ -816,7 +846,7 @@
 		"message": "Zaproś Świętego Mikołaja do dużego pokoju"
 	},
 	"familyguide_tips_tip05_body": {
-		"message": "Wprowadź świąteczne urozmaicenia do swoich wiadomości. Znajdź GIF-y związane ze Świętym Mikołajem, wpisując w wyszukiwarce na stronie usługi Google Tenor frazę „Santa Tracker gifs” (działa tylko po angielsku)."
+		"message": "Wprowadź świąteczne urozmaicenia do swoich wiadomości. Znajdź GIF-y i naklejki związane ze Świętym Mikołajem, wpisując w wyszukiwarce na stronie usługi Google Tenor frazę „Santa Tracker gifs” (działa tylko po angielsku)."
 	},
 	"familyguide_tips_tip05_title": {
 		"message": "Daj GIF-a w prezencie"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Zabawa na święta dla całej rodziny"
+	},
+	"familylink": {
+		"message": "Dodaj konto Google swojego dziecka zarządzane w aplikacji Family Link"
+	},
+	"featured": {
+		"message": "Polecana"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Święty Mikołaj odlatuje"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Czas zgasić światła"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dzień w muzeum"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Warsztat Świętego Mikołaja"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bożonarodzeniowy kominek"
 	},
 	"scene_windtunnel": {
 		"message": "Tunel powietrzny"

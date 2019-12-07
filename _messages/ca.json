@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Celebra les festes durant tot el mes"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Utilitza l'Assistent de Google per descobrir més sobre el Pare Noel al desembre. Aquesta integració només està disponible en determinats idiomes."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Amb el permís dels pares, els menors de 13 anys també poden gaudir d'una experiència de l'Assistent de Google personalitzada iniciant la sessió amb el seu compte, gestionat amb \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "L'Assistent de Google et connecta amb el pol nord, on es troba el Pare Noel assajant per a un concert. Només coneix una cançó, pots ajudar-lo a trobar la millor manera de tocar-la?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Truca al Pare Noel"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Consulta el Noticiari del pol nord cada dia per conèixer què fan el Pare Noel i els seus elfs. Pregunta a l'Assistent de Google quines novetats hi ha al pol nord."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticiari del pol nord"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quan el Pare Noel no està ocupat amb els elfs al taller, es dedica a millorar les seves habilitats humorístiques. Demana a l'Assistent de Google escoltar una broma del Pare Noel per conèixer el seu repertori."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Bromes del Pare Noel"
+	},
+	"familyguide_assistant_title": {
+		"message": "No et perdis les notícies d'última hora al pol nord"
+	},
 	"familyguide_body": {
 		"message": "El llogaret del Pare Noel és el lloc perfecte per celebrar el Nadal en família. Trobaràs tots els teus personatges preferits junts amb activitats interactives, educatives i divertides per a totes les edats."
 	},
@@ -672,10 +699,10 @@
 		"message": "Els elfs tornen a programar i alhora demostren les seves habilitats de ball. Fes servir codi per crear coreografies per als elfs. Però ves amb compte: a mesura que vagis millorant, els balls seran més difícils."
 	},
 	"familyguide_card_04_body": {
-		"message": "Fes clic als marcadors del mapa per descobrir les tradicions nadalenques de tot el món, des de dur un casquet de llana al Canadà fins a vestir un banyador esportiu a Austràlia."
+		"message": "Els canadencs porten un casquet de llana mentre que els australians llueixen un banyador. Fes clic als marcadors del mapa per descobrir les tradicions festives de tot el món."
 	},
 	"familyguide_card_05_body": {
-		"message": "Des de \"feliç any nou\" en èlfic fins a \"Дед Мороз\": aprèn expressions nadalenques en idiomes de tot el món."
+		"message": "Des de \"feliç any nou\" en èlfic fins a \"Дед Мороз\": aprèn expressions típiques d'aquestes festes en idiomes de tot el món."
 	},
 	"familyguide_card_06_body": {
 		"message": "El Pare Noel ha d'anar a molts llocs. Encaixa les siluetes dels països al mapa en aquest joc de geografia."
@@ -684,7 +711,7 @@
 		"message": "Coneixes la història del Nadal? Demostra-ho amb un joc de nou preguntes que posarà a prova els teus coneixements."
 	},
 	"familyguide_card_07_title": {
-		"message": "Joc de preguntes i respostes sobre tradicions nadalenques"
+		"message": "Joc de preguntes i respostes sobre tradicions típiques d'aquestes festes"
 	},
 	"familyguide_card_08_body": {
 		"message": "Tens gana? Descobreix exquisideses de tot el món i explora els plats típics de països ben diversos."
@@ -699,13 +726,13 @@
 		"message": "Dissenya el teu propi elf de cap a peus i assegura't que quedi el(f)egant per a totes les festes nadalenques que se celebren al pol Nord."
 	},
 	"familyguide_card_12_body": {
-		"message": "El Pare Noel és a la barberia i necessita ajuda per canviar d'estil. Canvia-li el color de la barba, asseca-li el cabell, afegeix-li unes decoracions o afaita'l del tot amb un retallabarbes."
+		"message": "El Pare Noel és a la barberia i necessita ajuda per canviar d'estil. Canvia-li el color de la barba, decora-li-la, eixuga-li els cabells o afaita'l del tot amb una maquineta d'afaitar."
 	},
 	"familyguide_card_13_body": {
-		"message": "Uneix-te als elfs, als rens i al Pare i a la Mare Noel en una visita al Museu de l'esperit nadalenc!"
+		"message": "Visita el Museu de l'esperit festiu en companyia dels elfs, rens i del Pare i de la Mare Noel!"
 	},
 	"familyguide_card_14_body": {
-		"message": "Hi ha diversos elfs, rens i homenets que exploren el pol nord. Mira com van d'un lloc a un altre."
+		"message": "Hi ha diversos elfs, rens i homenets taronja que exploren el pol nord. Mira com van d'un lloc a un altre."
 	},
 	"familyguide_card_15_body": {
 		"message": "El Pare Noel i els seus rens ja ho tenen tot llest; només necessiten l'ajuda dels elfs programadors abans d'emprendre el vol."
@@ -741,10 +768,10 @@
 		"message": "Aprèn a programar amb els elfs del Pare Noel"
 	},
 	"familyguide_group_02_body": {
-		"message": "El Nadal és molt diferent segons el lloc. Descobreix com se celebren les festes arreu del món amb moltíssims jocs i activitats de preguntes i respostes."
+		"message": "Aquestes festes són molt diferents segons el lloc. Descobreix com se celebren arreu del món amb moltíssims jocs i activitats de preguntes i respostes."
 	},
 	"familyguide_group_02_title": {
-		"message": "Descobreix el Nadal arreu del món"
+		"message": "Descobreix com es viuen les festes arreu del món"
 	},
 	"familyguide_group_03_body": {
 		"message": "El llogaret del Pare Noel brilla amb la màgia de la creativitat. Descobreix jocs per dibuixar, pintar, construir i crear amb tots els teus personatges preferits."
@@ -753,7 +780,7 @@
 		"message": "Inspira't i crea alguna cosa"
 	},
 	"familyguide_group_04_body": {
-		"message": "Prepara crispetes i tapa't amb una manta ben calentona. Pots veure tota la colla a la gran pantalla del cinema del llogaret o llegir un llibre interactiu sobre com el narval Ollie celebra el Nadal sota el mar."
+		"message": "Prepara crispetes i tapa't amb una manta ben calenteta. Pots veure tota la colla a la gran pantalla del cinema del llogaret o llegir un llibre interactiu sobre com el narval Ollie celebra el Nadal sota el mar."
 	},
 	"familyguide_group_04_title": {
 		"message": "Passa temps en família"
@@ -776,8 +803,11 @@
 	"familyguide_nav_link_06": {
 		"message": "més"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
 	"familyguide_secondary_body": {
-		"message": "El 24 de desembre, el llogaret del Pare Noel es transforma en una experiència de seguiment on pots seguir el Pare Noel i els seus rens mentre entreguen regals a nens de tot el món."
+		"message": "El 24 de desembre, el llogaret del Pare Noel es transforma en una experiència de seguiment en què pots seguir el Pare Noel i els seus rens mentre entreguen regals a nens de tot el món."
 	},
 	"familyguide_secondary_cta_01": {
 		"message": "Visita el lloc web o utilitza l'aplicació d'Android Segueix el Pare Noel per saber on és en tot moment"
@@ -789,10 +819,10 @@
 		"message": "Segueix el Pare Noel en el seu gran dia"
 	},
 	"familyguide_tips_body": {
-		"message": "Aquest Nadal gaudeix de més moments màgics a Segueix el Pare Noel amb tots els teus productes de Google preferits."
+		"message": "Aquestes festes gaudeix de més moments màgics a Segueix el Pare Noel amb tots els teus productes de Google preferits."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Demana cada dia a l'Assistent de Google que t'informi de les novetats més divertides de l'elf Dimplesticks, descobreix bromes nadalenques i curiositats sobre les festes, i mira què passa si crides el Pare Noel."
+		"message": "Demana cada dia a l'Assistent de Google que t'informi de les novetats més divertides de l'elf Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, quines novetats hi ha al pol nord?\""
@@ -816,7 +846,7 @@
 		"message": "Porta el Pare Noel a la teva sala d'estar"
 	},
 	"familyguide_tips_tip05_body": {
-		"message": "Dona un toc divertit i nadalenc als teus missatges. Troba GIF i adhesius temàtics del Pare Noel cercant \"Santa Tracker gifs” (només en anglès) a la pàgina de Tenor, de Google."
+		"message": "Dona un toc divertit i festiu als teus missatges. Troba GIF i adhesius temàtics del Pare Noel cercant \"Santa Tracker gifs” (només en anglès) a la pàgina de Tenor, de Google."
 	},
 	"familyguide_tips_tip05_title": {
 		"message": "Regala GIF"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Diversió nadalenca per a tota la família"
+	},
+	"familylink": {
+		"message": "Afegeix el Compte de Google del teu fill gestionat amb Family Link"
+	},
+	"featured": {
+		"message": "Destacat"
 	},
 	"fi_country_name": {
 		"message": "Finlàndia"
@@ -1638,7 +1674,7 @@
 		"message": "Caos de regals"
 	},
 	"scene_holidayfoods": {
-		"message": "Plats nadalencs arreu del món amb Google Earth"
+		"message": "Plats típics d'aquestes festes arreu del món amb Google Earth"
 	},
 	"scene_icecave": {
 		"message": "Cova de gel"
@@ -1725,7 +1761,7 @@
 		"message": "Tradicions nadalenques"
 	},
 	"scene_traditionsquiz": {
-		"message": "Joc de preguntes i respostes sobre tradicions nadalenques"
+		"message": "Joc de preguntes i respostes sobre tradicions típiques d'aquestes festes"
 	},
 	"scene_translations": {
 		"message": "Traduccions"
@@ -1747,6 +1783,9 @@
 	},
 	"scene_videoscene_liftoff": {
 		"message": "L'enlairament del Pare Noel"
+	},
+	"scene_videoscene_likealight": {
+		"message": "Llums apagades"
 	},
 	"scene_videoscene_museum": {
 		"message": "Un dia al museu"
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "El taller del Pare Noel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Llar de foc de Nadal"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vent"
@@ -1857,7 +1899,7 @@
 		"message": "Congelat!"
 	},
 	"snowball_iced_count": {
-		"message": "Congelat"
+		"message": "Congelats"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} elfs restants de {{total}}"
