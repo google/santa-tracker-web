@@ -85,7 +85,7 @@ app.Game = class Game {
     this.tutorial = new app.shared.Tutorial('buildandbolt_mobile.mp4')
 
     // init managers and components
-    app.ControlsManager.init( document.querySelector('[data-board-bkg]'))
+    app.ControlsManager.init(this, document.querySelector('[data-board-bkg]'))
     app.ScoreManager.init(this)
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))

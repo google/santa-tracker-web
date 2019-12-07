@@ -27,19 +27,19 @@
 
     .score-screen__score,
     .score-screen__title {
-      transition-delay: 0.3s;
+      transition-delay: 0.2s;
     }
 
     .score-screen__name {
-      transition-delay: 0.4s;
+      transition-delay: 0.3s;
     }
 
     .score-screen__toys {
-      transition-delay: 0.5s;
+      transition-delay: 0.4s;
     }
 
     .score-screen__character {
-      transition-delay: 0.6s;
+      transition-delay: 0.5s;
     }
 
     &:nth-child(2) {
@@ -47,19 +47,19 @@
 
       .score-screen__score,
       .score-screen__title {
-        transition-delay: 0.4s;
+        transition-delay: 0.3s;
       }
 
       .score-screen__name {
-        transition-delay: 0.5s;
+        transition-delay: 0.4s;
       }
 
       .score-screen__toys {
-        transition-delay: 0.6s;
+        transition-delay: 0.5s;
       }
 
       .score-screen__character {
-        transition-delay: 0.7s;
+        transition-delay: 0.6s;
       }
     }
   }
