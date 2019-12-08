@@ -387,6 +387,212 @@ Levels = [
   // },
 
   // LEVEL 3
+  // {
+  //   time: 120,
+  //   hurryUpMusicTime: 25,
+  //   players: [
+  //     {
+  //       startPos: {
+  //         x: 14,
+  //         y: 1
+  //       }
+  //     },
+  //     {
+  //       startPos: {
+  //         x: 14,
+  //         y: 14
+  //       }
+  //     }
+  //   ],
+  //   toyType: Constants.TOY_TYPES.CAR,
+  //   toysCapacity: 3,
+  //   entities: [
+  //     // LEVEL 3 - WALLS
+  //     {
+  //       type: 'wall',
+  //       config: {
+  //         height: 4,
+  //         width: 6,
+  //         x: 18,
+  //         y: 2,
+  //       }
+  //     },
+  //     {
+  //       type: 'wall',
+  //       config: {
+  //         height: 4,
+  //         width: 6,
+  //         x: 4,
+  //         y: 10,
+  //       }
+  //     },
+
+  //     // LEVEL 3 - TABLES
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 6,
+  //         y: 7,
+  //         tableType: 3,
+  //         isSideView: false,
+  //         part: 1
+  //       }
+  //     },
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 19,
+  //         y: 7,
+  //         tableType: 2,
+  //         isSideView: false,
+  //         part: 2
+  //       }
+  //     },
+
+  //     // LEVEL 3 - PRESENT BOXES
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 0,
+  //         y: 5,
+  //         playerId: 'b',
+  //         isSideView: true,
+  //         isMiddle: true
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 0,
+  //         y: 7,
+  //         playerId: 'a',
+  //         isSideView: true,
+  //         isMiddle: true
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 0,
+  //         y: 9,
+  //         playerId: 'b',
+  //         isSideView: true,
+  //         isMiddle: false
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 26,
+  //         y: 5,
+  //         playerId: 'b',
+  //         isSideView: true,
+  //         isMiddle: true
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 26,
+  //         y: 7,
+  //         playerId: 'a',
+  //         isSideView: true,
+  //         isMiddle: true
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 26,
+  //         y: 9,
+  //         playerId: 'b',
+  //         isSideView: true,
+  //         isMiddle: false
+  //       }
+  //     },
+
+
+  //     // LEVEL 3 - PITS
+  //     {
+  //       type: 'pit',
+  //       config: {
+  //         height: 12,
+  //         width: 8,
+  //         x: 10,
+  //         y: 2,
+  //       }
+  //     },
+
+
+  //     // LEVEL 3 - PENGUINS
+  //     {
+  //       type: 'penguin',
+  //       config: {
+  //         isVertical: false,
+  //         startPos: {
+  //           x: 2,
+  //           y: 14
+  //         },
+  //         movementLength: 7,
+  //         stepSize: .05
+  //       }
+  //     },
+  //     {
+  //       type: 'penguin',
+  //       config: {
+  //         isVertical: false,
+  //         startPos: {
+  //           x: 18,
+  //           y: 1
+  //         },
+  //         movementLength: 7,
+  //         stepSize: .05
+  //       }
+  //     },
+  //     {
+  //       type: 'penguin',
+  //       config: {
+  //         isVertical: false,
+  //         startPos: {
+  //           x: 2,
+  //           y: 2
+  //         },
+  //         movementLength: 7,
+  //         stepSize: .07
+  //       }
+  //     },
+  //     {
+  //       type: 'penguin',
+  //       config: {
+  //         isVertical: false,
+  //         startPos: {
+  //           x: 18,
+  //           y: 13
+  //         },
+  //         movementLength: 7,
+  //         stepSize: .07
+  //       }
+  //     },
+
+  //     // LEVEL 3 - PLATFORMS
+  //     {
+  //       type: 'platform',
+  //       config: {
+  //         isVertical: false,
+  //         startPos: {
+  //           x: 10,
+  //           y: 7
+  //         },
+  //         height: 2,
+  //         width: 2,
+  //         movementLength: 6,
+  //         stepSize: .07
+  //       }
+  //     },
+  //   ]
+  // },
+
+  // LEVEL 4
   {
     time: 90,
     hurryUpMusicTime: 25,
@@ -407,191 +613,15 @@ Levels = [
     toyType: Constants.TOY_TYPES.CAR,
     toysCapacity: 3,
     entities: [
-      // LEVEL 3 - WALLS
-      {
-        type: 'wall',
-        config: {
-          height: 4,
-          width: 6,
-          x: 18,
-          y: 2,
-        }
-      },
-      {
-        type: 'wall',
-        config: {
-          height: 4,
-          width: 6,
-          x: 4,
-          y: 10,
-        }
-      },
-
-      // LEVEL 3 - TABLES
-      {
-        type: 'table',
-        config: {
-          x: 6,
-          y: 7,
-          tableType: 3,
-          isSideView: false,
-          part: 1
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 19,
-          y: 7,
-          tableType: 2,
-          isSideView: false,
-          part: 2
-        }
-      },
-
-      // LEVEL 3 - PRESENT BOXES
-      {
-        type: 'present-box',
-        config: {
-          x: 0,
-          y: 5,
-          playerId: 'b',
-          isSideView: true,
-          isMiddle: true
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 0,
-          y: 7,
-          playerId: 'a',
-          isSideView: true,
-          isMiddle: true
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 0,
-          y: 9,
-          playerId: 'b',
-          isSideView: true,
-          isMiddle: false
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 26,
-          y: 5,
-          playerId: 'b',
-          isSideView: true,
-          isMiddle: true
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 26,
-          y: 7,
-          playerId: 'a',
-          isSideView: true,
-          isMiddle: true
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 26,
-          y: 9,
-          playerId: 'b',
-          isSideView: true,
-          isMiddle: false
-        }
-      },
-
-
-      // LEVEL 3 - PITS
-      {
-        type: 'pit',
-        config: {
-          height: 12,
-          width: 8,
-          x: 10,
-          y: 2,
-        }
-      },
-
-
-      // LEVEL 3 - PENGUINS
-      {
-        type: 'penguin',
-        config: {
-          isVertical: false,
-          startPos: {
-            x: 2,
-            y: 14
-          },
-          movementLength: 7,
-          stepSize: .05
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: false,
-          startPos: {
-            x: 18,
-            y: 1
-          },
-          movementLength: 7,
-          stepSize: .05
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: false,
-          startPos: {
-            x: 2,
-            y: 2
-          },
-          movementLength: 7,
-          stepSize: .07
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: false,
-          startPos: {
-            x: 18,
-            y: 13
-          },
-          movementLength: 7,
-          stepSize: .07
-        }
-      },
-
-      // LEVEL 3 - PLATFORMS
-      {
-        type: 'platform',
-        config: {
-          isVertical: false,
-          startPos: {
-            x: 10,
-            y: 7
-          },
-          height: 2,
-          width: 2,
-          movementLength: 6,
-          stepSize: .07
-        }
-      },
+      // LEVEL 4 - WALLS
+      // LEVEL 4 - TABLES
+      // LEVEL 4 - PRESENT BOXES
+      // LEVEL 4 - PITS
+      // LEVEL 4 - PENGUINS
+      // LEVEL 4 - PLATFORMS
+      // LEVEL 4 - FENCES
     ]
   },
-
 
 
   {
@@ -1088,6 +1118,39 @@ Levels = [
           playerId: 'b'
         }
       },
+    ]
+  },
+
+
+  // LEVEL STARTER
+  {
+    time: 90,
+    hurryUpMusicTime: 25,
+    players: [
+      {
+        startPos: {
+          x: 14,
+          y: 1
+        }
+      },
+      {
+        startPos: {
+          x: 14,
+          y: 14
+        }
+      }
+    ],
+    toyType: Constants.TOY_TYPES.CAR,
+    toysCapacity: 3,
+    entities: [
+      // LEVEL X - WALLS
+      // LEVEL X - TABLES
+      // LEVEL X - PRESENT BOXES
+      // LEVEL X - ICE
+      // LEVEL X - PITS
+      // LEVEL X - PENGUINS
+      // LEVEL X - PLATFORMS
+      // LEVEL X - FENCES
     ]
   },
 ]
