@@ -338,7 +338,9 @@ app.Game = class Game {
    * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
-    app.ScoreScreen.show()
+    if (app.ScoreScreen.state !== 'show') {
+      app.ScoreManager.endLevel()
+    }
   }
 
   /**

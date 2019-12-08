@@ -27,7 +27,7 @@ class ScoreManager {
   }
 
   updateScore(id) {
-    const { toyType, toysCapacity, current } = app.LevelManager
+    const { toyType, toysCapacity } = app.LevelManager
     const player = this.scoresDict[id]
     player.toysInLevel++
     player.toys.push(toyType.key)
@@ -39,22 +39,30 @@ class ScoreManager {
     window.santaApp.fire('sound-trigger', 'buildandbolt_yay_2', id)
 
     if (player.toysInLevel === toysCapacity) { // end of level
-      let scoreResult
-      // reset toysInLevels
-      this.resetToysInLevels()
-
-      if (this.game.multiplayer) {
-        scoreResult = this.setWinner()
-      }
-
-      if (current < Levels.length - 1) {
-        // show winner screen
-        app.ScoreScreen.show()
-      } else {
-        // last level, show end screen
-        app.ScoreScreen.showEnd(scoreResult, this.game.multiplayer)
-      }
+      this.endLevel()
     }
+  }
+
+  endLevel() {
+    let scoreResult
+    if (this.game.multiplayer) {
+      scoreResult = this.setWinner()
+    } else {
+      scoreResult = this.setWinnerSinglePlayer()
+    }
+
+    // reset toysInLevels
+    this.resetToysInLevels()
+
+    if (app.LevelManager.current < Levels.length - 1) {
+      // show winner screen
+      app.ScoreScreen.show()
+    } else {
+      // last level, show end screen
+      app.ScoreScreen.showEnd(scoreResult, this.game.multiplayer)
+    }
+
+    this.game.pause() // pause game, it's stopping the scoreboard timer
   }
 
   setWinner() {
@@ -81,6 +89,27 @@ class ScoreManager {
       playersState[0].state = 'win'
       playersState[1].state = 'win'
       tie = true
+    }
+
+    app.ScoreScreen.updateCharacters(playersState)
+
+    return { playersState, tie }
+  }
+
+  setWinnerSinglePlayer() {
+    const { players } = this.game
+    const { toysCapacity } = app.LevelManager
+    const playersState = [{
+      id: players[0].id,
+      state: null
+    }]
+
+    const tie = false
+
+    if (this.scoresDict[players[0].id].toysInLevel === toysCapacity) {
+      playersState[0].state = 'win'
+    } else {
+      playersState[0].state = 'lose'
     }
 
     app.ScoreScreen.updateCharacters(playersState)

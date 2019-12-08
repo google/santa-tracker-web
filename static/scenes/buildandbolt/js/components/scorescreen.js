@@ -29,7 +29,7 @@ class ScoreScreen {
 
   show() {
     this.elem.classList.remove('is-hidden')
-    this.game.pause() // pause game, it's stopping the scoreboard timer
+    this.state = 'show'
   }
 
   showEnd(scoreResult, multiplayer) {
@@ -56,6 +56,9 @@ class ScoreScreen {
 
   hide() {
     this.elem.classList.add('is-hidden')
+    setTimeout(() => {
+      this.state = 'hidden'
+    }, 1000) // temporary prevent bug, game.gameover() is called twice after countdown is === 0
   }
 
   updateScore(id, score, toy) {
@@ -80,7 +83,7 @@ class ScoreScreen {
   }
 
   onSkipControlsClick() {
-    this.elem.classList.add('is-hidden')
+    this.hide()
     window.santaApp.fire('sound-trigger', 'generic_button_click')
     this.game.goToNextLevel()
   }
