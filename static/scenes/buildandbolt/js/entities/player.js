@@ -277,6 +277,23 @@ app.Player = class Player {
       return // ignore all other actions
     }
 
+    const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
+    if (platforms && platforms.length) {
+      const entity = platforms[0]
+      this.platform = entity
+      this.platformOffset = {
+        x: this.position.x - entity.position.x,
+        y: this.position.y - entity.position.y
+      }
+    }
+
+    const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL]
+    if (!this.platform && pitEntities && pitEntities.length) {
+      // TODO: pit falling animation
+      this.restart()
+      return // ignore all other actions
+    }
+
     // block player
     const blockEntities = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
     if (blockEntities && blockEntities.length) {
@@ -311,16 +328,6 @@ app.Player = class Player {
       // increment score
       app.ScoreManager.score(this.id)
       app.ToysBoard.updateScore(this.id)
-    }
-
-    const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
-    if (platforms && platforms.length) {
-      const entity = platforms[0]
-      this.platform = entity
-      this.platformOffset = {
-        x: this.position.x - entity.position.x,
-        y: this.position.y - entity.position.y
-      }
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]

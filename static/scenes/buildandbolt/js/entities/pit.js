@@ -31,7 +31,7 @@ app.Pit = class Pit extends app.Entity {
     super.onContact(player)
     window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
     window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', player.id);
-    return [Constants.PLAYER_ACTIONS.RESTART]
+    return [Constants.PLAYER_ACTIONS.PIT_FALL]
   }
 }
 

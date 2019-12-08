@@ -55,7 +55,8 @@ Constants = {
     DROP_ITEM: 'drop',
     ADD_TOY_PART: 'addtoy',
     ACCEPT_TOY: 'accept',
-    SLIDE: 'slide'
+    SLIDE: 'slide',
+    PIT_FALL: 'pitfall'
   },
 
   PLAYER_STATES: {
