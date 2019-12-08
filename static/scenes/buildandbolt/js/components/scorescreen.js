@@ -93,12 +93,19 @@ class ScoreScreen {
   }
 
   reset(id, score) {
+    const domPlayer = this.elem.querySelector(`.score-screen__player--${id}`)
+    domPlayer.classList.remove('win')
+    domPlayer.classList.remove('lose')
+
     const domScore = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-score]`)
     domScore.innerHTML = score
 
     // add toy image
     const domToys = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-toys]`)
     domToys.innerHTML = ''
+
+    this.elem.classList.remove('game-end')
+    this.elem.classList.remove('tie')
   }
 }
 
