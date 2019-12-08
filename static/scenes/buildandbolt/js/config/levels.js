@@ -594,32 +594,352 @@ Levels = [
 
   // LEVEL 4
   {
-    time: 90,
+    time: 120,
     hurryUpMusicTime: 25,
     players: [
       {
         startPos: {
-          x: 14,
-          y: 1
+          x: 20,
+          y: 6
         }
       },
       {
         startPos: {
-          x: 14,
-          y: 14
+          x: 20,
+          y: 9
         }
       }
     ],
-    toyType: Constants.TOY_TYPES.CAR,
+    toyType: Constants.TOY_TYPES.TEDDY,
     toysCapacity: 3,
     entities: [
       // LEVEL 4 - WALLS
+      {
+        type: 'wall',
+        config: {
+          height: 4,
+          width: 5,
+          x: 12,
+          y: 0,
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 4,
+          width: 5,
+          x: 12,
+          y: 12,
+        }
+      },
+
       // LEVEL 4 - TABLES
+      {
+        type: 'table',
+        config: {
+          x: 19,
+          y: 1,
+          tableType: 1,
+          isSideView: false,
+          part: 1
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 19,
+          y: 13,
+          tableType: 2,
+          isSideView: false,
+          part: 3
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 25,
+          y: 6,
+          tableType: 1,
+          isSideView: true,
+          part: 2
+        }
+      },
+
       // LEVEL 4 - PRESENT BOXES
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 1,
+          playerId: 'a',
+          isSideView: true,
+          isMiddle: true
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 3,
+          playerId: 'b',
+          isSideView: true,
+          isMiddle: true
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 5,
+          playerId: 'a',
+          isSideView: true,
+          isMiddle: false
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 9,
+          playerId: 'b',
+          isSideView: true,
+          isMiddle: true
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 11,
+          playerId: 'a',
+          isSideView: true,
+          isMiddle: true
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 0,
+          y: 13,
+          playerId: 'b',
+          isSideView: true,
+          isMiddle: false
+        }
+      },
+
       // LEVEL 4 - PITS
+      {
+        type: 'pit',
+        config: {
+          height: 8,
+          width: 3,
+          x: 13,
+          y: 4,
+        }
+      },
+
       // LEVEL 4 - PENGUINS
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 0,
+            y: 7
+          },
+          movementLength: 12,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 0,
+            y: 8
+          },
+          movementLength: 12,
+          stepSize: .07
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 17,
+            y: 3
+          },
+          movementLength: 9,
+          stepSize: .07
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 24,
+            y: 3
+          },
+          movementLength: 9,
+          stepSize: .06
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 17,
+            y: 12
+          },
+          movementLength: 7,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 17,
+            y: 3
+          },
+          movementLength: 7,
+          stepSize: .04
+        }
+      },
+
+
       // LEVEL 4 - PLATFORMS
+      {
+        type: 'platform',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 13,
+            y: 4
+          },
+          height: 4,
+          width: 3,
+          movementLength: 4,
+          stepSize: .05
+        }
+      },
+
       // LEVEL 4 - FENCES
+      {
+        type: 'fence',
+        config: {
+          x: 5,
+          y: 1,
+          cells: [
+            [
+              {
+                left: true,
+              },
+            ],
+            [
+              {
+                left: true,
+              },
+            ],
+            [
+              {
+                left: true,
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {
+                right: true,
+              }
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {
+                right: true,
+              }
+            ],
+          ],
+        }
+      },
+      {
+        type: 'fence',
+        config: {
+          x: 5,
+          y: 10,
+          cells: [
+            [
+              {},
+              {},
+              {},
+              {},
+              {
+                right: true,
+              }
+            ],
+            [
+              {},
+              {},
+              {},
+              {},
+              {
+                right: true,
+              }
+            ],
+            [
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+              },
+              {
+                bottom: true,
+                right: true,
+              },
+            ],
+            [
+              {
+                left: true,
+              },
+            ],
+            [
+              {
+                left: true,
+              },
+            ],
+          ],
+        }
+      },
     ]
   },
 
