@@ -431,7 +431,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 6,
+          x: 5,
           y: 7,
           tableType: 3,
           isSideView: false,
@@ -441,7 +441,7 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 19,
+          x: 20,
           y: 7,
           tableType: 2,
           isSideView: false,
@@ -586,7 +586,7 @@ Levels = [
           height: 2,
           width: 2,
           movementLength: 6,
-          stepSize: .07
+          stepSize: .03
         }
       },
     ]

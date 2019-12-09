@@ -290,6 +290,8 @@ app.Player = class Player {
     const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL]
     if (!this.platform && pitEntities && pitEntities.length) {
       // TODO: pit falling animation
+      window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', player.id);
       this.restart()
       return // ignore all other actions
     }
