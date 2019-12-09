@@ -4,8 +4,8 @@ goog.require('Constants')
 
 goog.require('app.LevelManager')
 
-class	Walkthrough {
- 	init(game, elem) {
+class Walkthrough {
+  init(game, elem) {
     this.elem = elem
     this.game = game
 
@@ -19,9 +19,9 @@ class	Walkthrough {
     setTimeout(() => {
       this.show()
     }, Constants.LEVEL_TRANSITION_TIMING)
- 	}
+  }
 
- 	show() {
+  show() {
     this.game.pause()
     this.elem.classList.remove('is-hidden')
     // To do: start countdown
@@ -31,13 +31,13 @@ class	Walkthrough {
       this.game.resume()
       this.hide()
     }, 3000)
- 	}
+  }
 
- 	hide() {
+  hide() {
     this.elem.classList.add('is-hidden')
- 	}
+  }
 
- 	updateLevel() {
+  updateLevel() {
     const { toyType, nbToyParts } = app.LevelManager
     // update text
     const currentText = this.elem.querySelector(`[data-walkthrough-text-hidden="${toyType.key}"]`).innerHTML
@@ -77,7 +77,7 @@ class	Walkthrough {
     domToyfull.appendChild(img)
 
     this.dom.toys.appendChild(domToyfull)
- 	}
+  }
 }
 
 app.Walkthrough = new Walkthrough()
