@@ -291,7 +291,7 @@ app.Player = class Player {
     if (!this.platform && pitEntities && pitEntities.length) {
       // TODO: pit falling animation
       window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
-      window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', player.id);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
       this.restart()
       return // ignore all other actions
     }
@@ -339,7 +339,7 @@ app.Player = class Player {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
       }
-    }else {
+    } else {
       if (this.playingIceSound) {
         this.playingIceSound = false;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
