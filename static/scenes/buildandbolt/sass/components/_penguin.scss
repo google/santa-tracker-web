@@ -3,6 +3,7 @@
     @include board-object();
     height: $grid-unit-size;
     width: $grid-unit-size;
+    z-index: 2; // To go over present boxes
 
     &__inner {
       height: 100%;

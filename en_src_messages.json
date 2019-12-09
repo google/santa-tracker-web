@@ -171,6 +171,14 @@
     "description": "Label for the two player option of a player selection screen.",
     "message": "2 Players"
   },
+  "buildandbolt-result-win": {
+    "description": "Title for the results screen of a level, telling the player that they won.",
+    "message": "You win"
+  },
+  "buildandbolt-result-tie": {
+    "description": "Title for the results screen of a level, telling the players that they got the same score and tied.",
+    "message": "Tie"
+  },
   "buildandbolt-skip": {
     "description": "Button label to skip to the next step. Keep short.",
     "message": "Skip"
