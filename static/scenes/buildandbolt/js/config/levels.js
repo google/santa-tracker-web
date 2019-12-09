@@ -2094,36 +2094,246 @@ Levels = [
   // },
 
   // LEVEL 9
-  // {
-  //   time: 90,
-  //   hurryUpMusicTime: 25,
-  //   players: [
-  //     {
-  //       startPos: {
-  //         x: 14,
-  //         y: 1
-  //       }
-  //     },
-  //     {
-  //       startPos: {
-  //         x: 14,
-  //         y: 14
-  //       }
-  //     }
-  //   ],
-  //   toyType: Constants.TOY_TYPES.CAR,
-  //   toysCapacity: 3,
-  //   entities: [
-  //     // LEVEL X - WALLS
-  //     // LEVEL X - TABLES
-  //     // LEVEL X - PRESENT BOXES
-  //     // LEVEL X - ICE
-  //     // LEVEL X - PITS
-  //     // LEVEL X - PENGUINS
-  //     // LEVEL X - PLATFORMS
-  //     // LEVEL X - FENCES
-  //   ]
-  // },
+  {
+    time: 90,
+    hurryUpMusicTime: 25,
+    players: [
+      {
+        startPos: {
+          x: 14,
+          y: 2
+        }
+      },
+      {
+        startPos: {
+          x: 12,
+          y: 14
+        }
+      }
+    ],
+    toyType: Constants.TOY_TYPES.ROCKET,
+    toysCapacity: 1,
+    entities: [
+      // LEVEL 9 - TABLES
+      {
+        type: 'table',
+        config: {
+          x: 1,
+          y: 7,
+          tableType: 2,
+          isSideView: false,
+          part: 1
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 24,
+          y: 7,
+          tableType: 1,
+          isSideView: false,
+          part: 2
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 2,
+          y: 1,
+          tableType: 3,
+          isSideView: false,
+          part: 3
+        }
+      },
+      {
+        type: 'table',
+        config: {
+          x: 25,
+          y: 12,
+          tableType: 2,
+          isSideView: true,
+          part: 4
+        }
+      },
+
+      // LEVEL 9 - PRESENT BOXES
+      {
+        type: 'present-box',
+        config: {
+          x: 12,
+          y: 0,
+          playerId: 'a',
+          isSideView: false,
+          isMiddle: false
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 14,
+          y: 14,
+          playerId: 'b',
+          isSideView: false,
+          isMiddle: false
+        }
+      },
+
+      // LEVEL 9 - ICE
+      {
+        type: 'ice',
+        config: {
+          height: 5,
+          width: 8,
+          x: 0,
+          y: 0,
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 5,
+          width: 8,
+          x: 20,
+          y: 11,
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 6,
+          width: 3,
+          x: 5,
+          y: 10,
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 6,
+          width: 3,
+          x: 20,
+          y: 0,
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 3,
+          width: 6,
+          x: 11,
+          y: 0,
+        }
+      },
+      {
+        type: 'ice',
+        config: {
+          height: 3,
+          width: 6,
+          x: 11,
+          y: 13,
+        }
+      },
+
+      // LEVEL 9 - PITS
+      {
+        type: 'pit',
+        config: {
+          height: 5,
+          width: 5,
+          x: 0,
+          y: 11,
+        }
+      },
+      {
+        type: 'pit',
+        config: {
+          height: 5,
+          width: 5,
+          x: 23,
+          y: 0,
+        }
+      },
+      {
+        type: 'pit',
+        config: {
+          height: 3,
+          width: 12,
+          x: 8,
+          y: 3,
+        }
+      },
+      {
+        type: 'pit',
+        config: {
+          height: 3,
+          width: 12,
+          x: 8,
+          y: 10,
+        }
+      },
+
+      // LEVEL 9 - FENCES
+      {
+        type: 'fence',
+        config: {
+          x: 0,
+          y: 5,
+          cells: [
+            [
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+            ],
+
+          ],
+        }
+      },
+      {
+        type: 'fence',
+        config: {
+          x: 22,
+          y: 11,
+          cells: [
+            [
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+              {
+                top: true,
+              },
+            ],
+          ],
+        }
+      },
+    ]
+  },
 
   // LEVEL 10
   {
