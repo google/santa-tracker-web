@@ -4,6 +4,8 @@ goog.require('Constants')
 
 goog.require('app.LevelManager')
 
+goog.require('app.shared.utils')
+
 class Walkthrough {
   init(game, elem) {
     this.elem = elem
@@ -34,10 +36,9 @@ class Walkthrough {
   }
 
   updateLevelAndShow() {
-    const { toyType } = app.LevelManager
+    const { toyType, toysCapacity } = app.LevelManager
     // update text
-    const currentText = this.elem.querySelector(`[data-walkthrough-text-hidden="${toyType.key}"]`).innerHTML
-    this.dom.text.innerHTML = currentText
+    this.dom.text.innerHTML = this.getMessage(toyType, toysCapacity)
 
     // update toys
     this.dom.toys.innerHTML = ''
@@ -78,6 +79,22 @@ class Walkthrough {
     setTimeout(() => {
       this.show()
     }, Constants.LEVEL_TRANSITION_TIMING)
+  }
+
+  getMessage(toyType, toysCapacity) {
+    let message = ''
+
+    if (toysCapacity > 1) {
+      const msgId = `buildandbolt-build-${toyType.key}-multiple`
+      const messageRaw = this.game._msg(msgId)
+      message = messageRaw.replace('{{count}}', `<span class="walkthrough__number">${toysCapacity}</span>`)
+    } else {
+      const msgId = `buildandbolt-build-${toyType.key}-single`
+      const messageRaw = this.game._msg(msgId)
+      message = messageRaw.replace('1', `<span class="walkthrough__number">${toysCapacity}</span>`)
+    }
+
+    return message
   }
 }
 

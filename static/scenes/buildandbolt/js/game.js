@@ -29,12 +29,13 @@ goog.require('app.AnimationManager')
 
 
 app.Game = class Game {
-  constructor(context, api, prepareAnimation) {
+  constructor(context, api, prepareAnimation, _msg) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
     this.context = context
+    this._msg = _msg
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation)
@@ -321,11 +322,7 @@ app.Game = class Game {
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
       app.ToysBoard.updateLevel()
-      app.Walkthrough.updateLevel()
-      // wait level transition before showing the walkthrough
-      setTimeout(() => {
-        app.Walkthrough.show()
-      }, Constants.LEVEL_TRANSITION_TIMING)
+      app.Walkthrough.updateLevelAndShow()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
