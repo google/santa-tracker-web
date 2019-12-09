@@ -179,18 +179,6 @@
     "description": "Title for the results screen of a level, telling the players that they got the same score and tied.",
     "message": "Tie"
   },
-  "buildandbolt-score": {
-    "description": "Title for the results screen of a level, score title.",
-    "message": "Score"
-  },
-  "buildandbolt-player-one": {
-    "description": "Title for the results screen of a level, title for player 1.",
-    "message": "Player 1"
-  },
-  "buildandbolt-player-two": {
-    "description": "Title for the results screen of a level, title for player 2.",
-    "message": "Player 2"
-  },
   "buildandbolt-skip": {
     "description": "Button label to skip to the next step. Keep short.",
     "message": "Skip"
