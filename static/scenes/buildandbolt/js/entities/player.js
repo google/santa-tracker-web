@@ -294,6 +294,7 @@ app.Player = class Player {
     if (acceptToyEntities && acceptToyEntities.length) {
       this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF)
       this.clearToyParts()
+      window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
 
       // increment score
       app.ScoreManager.score(this.id)
@@ -376,7 +377,7 @@ app.Player = class Player {
           `img/toys/${toyType.key}/full.svg`)
         this.toysElem.appendChild(toyElem)
         window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
-        window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
+        
       } else {
         const toyElem = document.createElement('img')
         toyElem.setAttribute('class',
