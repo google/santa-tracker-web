@@ -131,7 +131,7 @@ class ScoreManager {
       this.scoresDict[player.id].toys = []
 
       // update toys board
-      app.ToysBoard.reset(player.id, 0)
+      app.ToysBoard.updateScore(player.id, 0)
       // update score screen
       app.ScoreScreen.reset(player.id, 0)
     }
