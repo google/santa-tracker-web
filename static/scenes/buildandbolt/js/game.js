@@ -317,13 +317,15 @@ app.Game = class Game {
 
   goToNextLevel() {
     this.resetEntities()
-    this.resume()
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
-      app.LevelManager.show()
       app.ToysBoard.updateLevel()
       app.Walkthrough.updateLevel()
+      // wait level transition before showing the walkthrough
+      setTimeout(() => {
+        app.Walkthrough.show()
+      }, 1000)
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.

@@ -6,10 +6,16 @@
   bottom: 125px;
   border-radius: 35px;
   background-color: $color-purple;
+  opacity: 1;
   padding: 8px 32px 36px;
   text-align: center;
+  transition: opacity $transition-time;
   z-index: $gui-z-index;
-  z-index: 900;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   &__text {
     font-family: $font-google-sans;

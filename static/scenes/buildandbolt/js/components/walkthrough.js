@@ -13,14 +13,26 @@ class	Walkthrough {
     }
 
     this.updateLevel()
+    // wait level transition before showing the walkthrough
+    setTimeout(() => {
+      this.show()
+    }, 1000)
  	}
 
  	show() {
+    this.game.pause()
+    this.elem.classList.remove('is-hidden')
+    // To do: start countdown
 
+    setTimeout(() => {
+      // unfreeze game
+      this.game.resume()
+      this.hide()
+    }, 3000)
  	}
 
  	hide() {
-
+    this.elem.classList.add('is-hidden')
  	}
 
  	updateLevel() {
