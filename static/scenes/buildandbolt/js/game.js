@@ -19,6 +19,7 @@ goog.require('app.ScoreManager')
 goog.require('app.ScoreScreen')
 goog.require('app.Table')
 goog.require('app.ToysBoard')
+goog.require('app.Walkthrough')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
@@ -93,6 +94,7 @@ app.Game = class Game {
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
     app.Board.init(document.querySelector('[data-board]'))
     app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption)
+    app.Walkthrough.init(this, document.querySelector('[data-walkthrough]'))
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
@@ -303,7 +305,7 @@ app.Game = class Game {
       }
     }
 
-    this.entities = [] 
+    this.entities = []
   }
 
   reset() {
@@ -321,6 +323,7 @@ app.Game = class Game {
       app.LevelManager.goToNext()
       app.LevelManager.show()
       app.ToysBoard.updateLevel()
+      app.Walkthrough.updateLevel()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.

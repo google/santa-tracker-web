@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|family=Lobster" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
@@ -41,13 +41,13 @@
       <!-- walkthrough -->
       <section data-walkthrough class="walkthrough">
         <!-- texts for translation -->
-        <div msgid="" class="walkthrough__text-hidden">Help build a car!</div>
-        <div msgid="" class="walkthrough__text-hidden">Help build a robot!</div>
-        <div msgid="" class="walkthrough__text-hidden">Help build a teddy!</div>
-        <div msgid="" class="walkthrough__text-hidden">Help build a rocket!</div>
+        <div data-walkthrough-text-hidden="car" msgid="buildandbolt-help-build-car" class="walkthrough__text-hidden"></div>
+        <div data-walkthrough-text-hidden="robot" msgid="buildandbolt-help-build-robot" class="walkthrough__text-hidden"></div>
+        <div data-walkthrough-text-hidden="teddy" msgid="buildandbolt-help-build-teddy" class="walkthrough__text-hidden"></div>
+        <div data-walkthrough-text-hidden="rocket" msgid="buildandbolt-help-build-rocket" class="walkthrough__text-hidden"></div>
 
-        <div class="walkthrough__text">Help build a robot!</div>
-        <div class="walkthrough__toys">
+        <div data-walkthrough-text class="walkthrough__text"></div>
+        <div data-walkthrough-toys class="walkthrough__toys">
           <div class="walkthrough__toypart">
             <img class="walkthrough__toypart-img" src="img/toys/robot/1.svg" alt="">
           </div>

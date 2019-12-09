@@ -6,7 +6,7 @@
   bottom: 125px;
   border-radius: 35px;
   background-color: $color-purple;
-  padding: 8px 37px 40px;
+  padding: 8px 32px 36px;
   text-align: center;
   z-index: $gui-z-index;
   z-index: 900;
@@ -17,6 +17,7 @@
     font-weight: bold;
     letter-spacing: -0.03em;
     line-height: 32px;
+    margin-bottom: 2px;
 
     &-hidden {
       display: none;
@@ -70,9 +71,10 @@
   }
 
   &__operator {
-    font-family: $font-lobster-two;
-    font-size: 100px;
-    line-height: 125px;
+    font-family: $font-google-sans;
+    font-size: 67px;
+    font-weight: bold;
+    line-height: 86px;
     margin: 0 12px;
   }
 }

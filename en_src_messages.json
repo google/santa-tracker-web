@@ -139,6 +139,22 @@
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 rocket!"
   },
+  "buildandbolt-help-build-car" : {
+    "description": "Message telling the player he has a tutorial to build a car.",
+    "message": "Help build a car!"
+  },
+  "buildandbolt-help-build-robot" : {
+    "description": "Message telling the player he has a tutorial to build a robot.",
+    "message": "Help build a robot!"
+  },
+  "buildandbolt-help-build-teddy" : {
+    "description": "Message telling the player he has a tutorial to build a teddy.",
+    "message": "Help build a teddy!"
+  },
+  "buildandbolt-help-build-rocket" : {
+    "description": "Message telling the player he has a tutorial to build a rocket.",
+    "message": "Help build a rocket!"
+  },
   "buildandbolt-instructions-label": {
     "description": "Large title on an intermediary screen explaining game controls.",
     "message": "Instructions"

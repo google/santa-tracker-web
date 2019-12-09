@@ -1,8 +1,18 @@
 goog.provide('app.Walkthrough')
 
-class	Walkthrough {
- 	init(elem, game) {
+goog.require('app.LevelManager')
 
+class	Walkthrough {
+ 	init(game, elem) {
+    this.elem = elem
+    this.game = game
+
+    this.dom = {
+      text: this.elem.querySelector('[data-walkthrough-text]'),
+      toys: this.elem.querySelector('[data-walkthrough-toys]')
+    }
+
+    this.updateLevel()
  	}
 
  	show() {
@@ -13,8 +23,43 @@ class	Walkthrough {
 
  	}
 
- 	update() {
+ 	updateLevel() {
+    const { toyType, nbToyParts } = app.LevelManager
+    // update text
+    const currentText = this.elem.querySelector(`[data-walkthrough-text-hidden="${toyType.key}"]`).innerHTML
+    this.dom.text.innerHTML = currentText
 
+    // update toys
+    this.dom.toys.innerHTML = ''
+
+    for (let i = 0; i < nbToyParts; i++) {
+      const domToypart = document.createElement('div')
+      domToypart.classList.add('walkthrough__toypart')
+
+      const img = document.createElement('img')
+      img.classList.add('walkthrough__toypart-img')
+      img.src = `img/toys/${toyType.key}/${i + 1}.svg`
+
+      const domOperator = document.createElement('div')
+      domOperator.classList.add('walkthrough__operator')
+      domOperator.innerHTML = i === nbToyParts - 1 ? '=' : '+'
+
+      domToypart.appendChild(img)
+
+      this.dom.toys.appendChild(domToypart)
+      this.dom.toys.appendChild(domOperator)
+    }
+
+    const domToyfull = document.createElement('div')
+    domToyfull.classList.add('walkthrough__toyfull')
+
+    const img = document.createElement('img')
+    img.classList.add('walkthrough__toyfull-img')
+    img.src = `img/toys/${toyType.key}/full.svg`
+
+    domToyfull.appendChild(img)
+
+    this.dom.toys.appendChild(domToyfull)
  	}
 }
 
