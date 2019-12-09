@@ -1,14 +1,14 @@
 .walkthrough {
-  color: $color-white;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 125px;
-  border-radius: 35px;
   background-color: $color-purple;
+  border-radius: 35px;
+  bottom: 125px;
+  color: $color-white;
+  left: 50%;
   opacity: 1;
   padding: 8px 32px 36px;
+  position: absolute;
   text-align: center;
+  transform: translateX(-50%);
   transition: opacity $transition-time;
   z-index: $gui-z-index;
 
@@ -43,18 +43,18 @@
   }
 
   &__toys {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   &__toypart {
-    width: 110px;
-    height: 110px;
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    position: relative;
+    width: 110px;
 
     &-img {
       height: 50%;
@@ -75,12 +75,12 @@
   }
 
   &__toyfull {
-    width: 110px;
-    height: 110px;
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    position: relative;
+    width: 110px;
 
     &-img {
       height: 100%;
