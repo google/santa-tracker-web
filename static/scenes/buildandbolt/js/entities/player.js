@@ -150,6 +150,7 @@ app.Player = class Player {
       PLAYER_ICE_DECELERATION_FACTOR,
       PLAYER_MAX_VELOCITY,
       PLAYER_ACCELERATION_STEP,
+      PLAYER_DIRECTION_CHANGE_THRESHOLD,
       GRID_DIMENSIONS,
     } = Constants
     const { left, right, up, down } = app.ControlsManager.getMovementDirections(
@@ -165,8 +166,11 @@ app.Player = class Player {
 
     if (left) {
       this.velocity.x = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.x - PLAYER_ACCELERATION_STEP * accelerationFactor)
-      this.setDirection('left')
+          this.velocity.x - PLAYER_ACCELERATION_STEP * left * accelerationFactor)
+
+      if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+        this.setDirection('left')
+      }
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
@@ -174,8 +178,11 @@ app.Player = class Player {
 
     if (right) {
       this.velocity.x = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.x + PLAYER_ACCELERATION_STEP * accelerationFactor)
-      this.setDirection('right')
+          this.velocity.x + PLAYER_ACCELERATION_STEP * right * accelerationFactor)
+
+      if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+        this.setDirection('right')
+      }
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
@@ -183,8 +190,11 @@ app.Player = class Player {
 
     if (up) {
       this.velocity.y = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.y - PLAYER_ACCELERATION_STEP * accelerationFactor)
-      this.setDirection('back')
+          this.velocity.y - PLAYER_ACCELERATION_STEP * up * accelerationFactor)
+
+      if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+        this.setDirection('back')
+      }
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
@@ -192,8 +202,11 @@ app.Player = class Player {
 
     if (down) {
       this.velocity.y = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
-          this.velocity.y + PLAYER_ACCELERATION_STEP * accelerationFactor)
-      this.setDirection('front')
+          this.velocity.y + PLAYER_ACCELERATION_STEP * down * accelerationFactor)
+
+      if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+        this.setDirection('front')
+      }
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor)
       this.isDecelerating = true
@@ -348,7 +361,7 @@ app.Player = class Player {
 
   // get current angle of player's direction
   getDirectionAngle() {
-    return Math.atan2(this.position.y - this.prevPosition.y, this.position.x - this.prevPosition.x);
+    return Utils.getAngle(this.position, this.prevPosition)
   }
 
   // get current speed
@@ -476,15 +489,11 @@ app.Player = class Player {
         break
       case Constants.PLAYER_STATES.PICK_UP:
         this.playerState = Constants.PLAYER_STATES.PICK_UP
-        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST, () => {
-            console.log('add toy part')
-        })
+        this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.REST_TO_HOLD_REST)
         break
       case Constants.PLAYER_STATES.DROP_OFF:
         this.playerState = Constants.PLAYER_STATES.DROP_OFF
-          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST, () => {
-            console.log('drop toy')
-          })
+          this.addAnimationToQueueOnce(Constants.PLAYER_FRAMES.HOLD_REST_TO_REST)
         break
     }
   }

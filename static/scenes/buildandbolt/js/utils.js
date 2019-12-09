@@ -289,3 +289,17 @@ Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop,
     finished
   }
 }
+
+/**
+ * Get angle between two positions
+ */
+Utils.getAngle =  function(pos1, pos2) {
+  return Math.atan2(pos1.y - pos2.y, pos1.x - pos2.x)
+}
+
+/**
+ * Get distance between two positions
+ */
+Utils.getDistance =  function(pos1, pos2) {
+  return Math.sqrt(Math.pow(pos1.y - pos2.y, 2), Math.pow(pos1.x - pos2.x, 2))
+}

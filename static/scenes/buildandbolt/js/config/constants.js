@@ -44,6 +44,7 @@ Constants = {
   PLAYER_ICE_DECELERATION_FACTOR: .5,
   PLAYER_PUSH_FORCE: 0.01,
   PLAYER_BOUNCE_FORCE: 0.005,
+  PLAYER_DIRECTION_CHANGE_THRESHOLD: 0.05,
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
