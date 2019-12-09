@@ -19,6 +19,9 @@
     .walkthrough__appear,
     .walkthrough__text {
       opacity: 0;
+    }
+
+    .walkthrough__appear {
       transform: translateY($translate-appear-small);
     }
   }
