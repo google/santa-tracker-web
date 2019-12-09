@@ -15,6 +15,16 @@
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
+
+    .walkthrough__appear,
+    .walkthrough__text {
+      opacity: 0;
+      transform: translateY($translate-appear-small);
+    }
+  }
+
+  &__appear {
+    @include stagger-animation-children(0.2, $delay-appear-fast);
   }
 
   &__text {
@@ -24,6 +34,8 @@
     letter-spacing: -0.03em;
     line-height: 32px;
     margin-bottom: 2px;
+    transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+    transition-delay: $delay-appear;
 
     &-hidden {
       display: none;

@@ -175,6 +175,8 @@ Constants = {
       key: 'teddy',
       size: 3
     }
-  }
+  },
+
+  LEVEL_TRANSITION_TIMING: 1400,
 
 }

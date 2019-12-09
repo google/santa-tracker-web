@@ -325,7 +325,7 @@ app.Game = class Game {
       // wait level transition before showing the walkthrough
       setTimeout(() => {
         app.Walkthrough.show()
-      }, 1000)
+      }, Constants.LEVEL_TRANSITION_TIMING)
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.

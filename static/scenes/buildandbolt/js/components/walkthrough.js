@@ -1,5 +1,7 @@
 goog.provide('app.Walkthrough')
 
+goog.require('Constants')
+
 goog.require('app.LevelManager')
 
 class	Walkthrough {
@@ -16,7 +18,7 @@ class	Walkthrough {
     // wait level transition before showing the walkthrough
     setTimeout(() => {
       this.show()
-    }, 1000)
+    }, Constants.LEVEL_TRANSITION_TIMING)
  	}
 
  	show() {
@@ -47,6 +49,7 @@ class	Walkthrough {
     for (let i = 0; i < nbToyParts; i++) {
       const domToypart = document.createElement('div')
       domToypart.classList.add('walkthrough__toypart')
+      domToypart.classList.add('walkthrough__appear')
 
       const img = document.createElement('img')
       img.classList.add('walkthrough__toypart-img')
@@ -54,6 +57,7 @@ class	Walkthrough {
 
       const domOperator = document.createElement('div')
       domOperator.classList.add('walkthrough__operator')
+      domOperator.classList.add('walkthrough__appear')
       domOperator.innerHTML = i === nbToyParts - 1 ? '=' : '+'
 
       domToypart.appendChild(img)
@@ -64,6 +68,7 @@ class	Walkthrough {
 
     const domToyfull = document.createElement('div')
     domToyfull.classList.add('walkthrough__toyfull')
+    domToyfull.classList.add('walkthrough__appear')
 
     const img = document.createElement('img')
     img.classList.add('walkthrough__toyfull-img')
