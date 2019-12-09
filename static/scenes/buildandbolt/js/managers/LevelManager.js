@@ -32,23 +32,6 @@ class LevelManager {
   update() {
     this.toyType = Levels[this.current].toyType
     this.toysCapacity = Levels[this.current].toysCapacity
-
-    switch (this.toyType.key) {
-      default:
-        break
-      case 'car':
-        this.nbToyParts = 2
-        break
-      case 'robot':
-        this.nbToyParts = 3
-        break
-      case 'teddy':
-        this.nbToyParts = 3
-        break
-      case 'rocket':
-        this.nbToyParts = 4
-        break
-    }
   }
 }
 

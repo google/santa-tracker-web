@@ -38,7 +38,7 @@ class Walkthrough {
   }
 
   updateLevel() {
-    const { toyType, nbToyParts } = app.LevelManager
+    const { toyType } = app.LevelManager
     // update text
     const currentText = this.elem.querySelector(`[data-walkthrough-text-hidden="${toyType.key}"]`).innerHTML
     this.dom.text.innerHTML = currentText
@@ -46,7 +46,7 @@ class Walkthrough {
     // update toys
     this.dom.toys.innerHTML = ''
 
-    for (let i = 0; i < nbToyParts; i++) {
+    for (let i = 0; i < toyType.size; i++) {
       const domToypart = document.createElement('div')
       domToypart.classList.add('walkthrough__toypart')
       domToypart.classList.add('walkthrough__appear')
@@ -58,7 +58,7 @@ class Walkthrough {
       const domOperator = document.createElement('div')
       domOperator.classList.add('walkthrough__operator')
       domOperator.classList.add('walkthrough__appear')
-      domOperator.innerHTML = i === nbToyParts - 1 ? '=' : '+'
+      domOperator.innerHTML = i === toyType.size - 1 ? '=' : '+'
 
       domToypart.appendChild(img)
 
