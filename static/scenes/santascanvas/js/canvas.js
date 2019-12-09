@@ -413,7 +413,9 @@ app.Canvas.prototype.saveToFile = function(e) {
   }
 
   var data = this.saveCanvas.toDataURL('image/jpeg');
-  if (app.shared.utils.touchEnabled) {
+  if (false && app.shared.utils.touchEnabled) {
+    // nb. Mobile used to load another page, for some reason. But all our supported mobile browsers
+    // allow for download, so remove for now.
     var windowContent = '<!DOCTYPE html>';
     windowContent += '<html>';
     windowContent += '<head><title>' + window.document.title + '</title></head>';

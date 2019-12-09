@@ -1,13 +1,20 @@
 
+
 .sticky-container {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   pointer-events: none;
   position: absolute;
   display: flex;
   justify-content: flex-end;
+  z-index: 10000;
+
+  // Matches modvil-village, but is not part of it. Sticky seems to fail inside Shadow DOM.
+  height: 1050px;
+  @media (max-width: 1024px) {
+    height: 720px;
+  }
 
   .sticky {
     border: 0;
