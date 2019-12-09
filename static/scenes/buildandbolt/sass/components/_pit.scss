@@ -1,6 +1,7 @@
 ##{$name} {
   .pit {
     @include board-object();
+    // background-color: #010101;
     border-image: url(img/pit/pit.svg) 65% 33% 25% 33% fill / 130px 50px 50px 50px round;
   }
 }

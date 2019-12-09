@@ -77,6 +77,11 @@ app.Player = class Player {
       y: 0
     }
 
+    if (this.playingIceSound) {
+      this.playingIceSound = false;
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+    }
+
     this.clearToyParts()
     this.platform = null
     this.onIce = false
@@ -277,6 +282,25 @@ app.Player = class Player {
       return // ignore all other actions
     }
 
+    const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
+    if (platforms && platforms.length) {
+      const entity = platforms[0]
+      this.platform = entity
+      this.platformOffset = {
+        x: this.position.x - entity.position.x,
+        y: this.position.y - entity.position.y
+      }
+    }
+
+    const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL]
+    if (!this.platform && pitEntities && pitEntities.length) {
+      // TODO: pit falling animation
+      window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
+      this.restart()
+      return // ignore all other actions
+    }
+
     // block player
     const blockEntities = resultingActions[Constants.PLAYER_ACTIONS.BLOCK]
     if (blockEntities && blockEntities.length) {
@@ -313,16 +337,6 @@ app.Player = class Player {
       app.ToysBoard.updateScore(this.id)
     }
 
-    const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM]
-    if (platforms && platforms.length) {
-      const entity = platforms[0]
-      this.platform = entity
-      this.platformOffset = {
-        x: this.position.x - entity.position.x,
-        y: this.position.y - entity.position.y
-      }
-    }
-
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE]
     if (ices && ices.length) {
       this.onIce = true
@@ -330,7 +344,7 @@ app.Player = class Player {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
       }
-    }else {
+    } else {
       if (this.playingIceSound) {
         this.playingIceSound = false;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
