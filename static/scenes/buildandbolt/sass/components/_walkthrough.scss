@@ -11,6 +11,13 @@
   transform: translateX(-50%);
   transition: opacity $transition-time;
   z-index: $gui-z-index;
+  z-index: 900;
+
+  @include respond-to(mobile) {
+    border-radius: 22px;
+    bottom: 30px;
+    padding: 8px 19px 20px;
+  }
 
   &.is-hidden {
     opacity: 0;
@@ -40,6 +47,12 @@
     transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
     transition-delay: $delay-appear;
 
+    @include respond-to(mobile) {
+      font-size: 16px;
+      line-height: 15px;
+      margin-bottom: 6px;
+    }
+
     &-hidden {
       display: none;
     }
@@ -59,6 +72,11 @@
     position: relative;
     width: 110px;
 
+    @include respond-to(mobile) {
+      height: 50px;
+      width: 50px;
+    }
+
     &-img {
       height: 50%;
       position: relative;
@@ -74,6 +92,10 @@
       position: absolute;
       top: 0;
       width: 100%;
+
+      @include respond-to(mobile) {
+        border-radius: 20px;
+      }
     }
   }
 
@@ -84,6 +106,11 @@
     justify-content: center;
     position: relative;
     width: 110px;
+
+    @include respond-to(mobile) {
+      height: 50px;
+      width: 50px;
+    }
 
     &-img {
       height: 100%;
@@ -97,5 +124,11 @@
     font-weight: bold;
     line-height: 86px;
     margin: 0 12px;
+
+    @include respond-to(mobile) {
+      font-size: 28px;
+      line-height: 36px;
+      margin: 0 8px;
+    }
   }
 }
