@@ -453,6 +453,9 @@ app.Player = class Player {
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
+            if (this.onIce) {
+              window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+            }
         }
         break
       case Constants.PLAYER_STATES.REST:
@@ -465,6 +468,7 @@ app.Player = class Player {
               animation: rest
             })
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
+            window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
         }
         break
       case Constants.PLAYER_STATES.PICK_UP:
