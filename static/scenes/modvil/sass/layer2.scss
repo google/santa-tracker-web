@@ -1,32 +1,33 @@
-.elf-ski1 {
+.elfski1 {
   position: absolute;
   top: 130px;
   left: calc(50% + 1040px);
   width: 58px;
   height: 67px;
-  background-image: url(img/village/elfski1.svg);
+  background-image: _rel("../img/village/elfski1.svg");
   background-repeat: no-repeat;
 }
 
-.elf-ski2 {
+.elfski2 {
   position: absolute;
   top: 110px;
   left: calc(50% + 1050px);
   width: 58px;
   height: 67px;
-  background-image: url(img/village/elfski2.svg);
+  background-image: _rel("../img/village/elfski2.svg");
   background-repeat: no-repeat;
 }
 
-.elf-ski1, .elf-ski2 {
-  animation: elfski 5000ms infinite linear forwards;
+.elfski1,
+.elfski2 {
+  animation: modvil-village__elfski 5000ms infinite linear forwards;
 }
 
-.elf-ski2 {
+.elfski2 {
   animation-delay: 80ms;
 }
 
-@keyframes elfski {
+@keyframes modvil-village__elfski {
   0% {
     transform: translate3d(0, 0, 0) rotateZ(10deg);
   }
@@ -45,10 +46,10 @@
 }
 
 @media (max-width: 1024px) {
-  .elf-ski1 {
+  .elfski1 {
     top: 280px;
   }
-  .elf-ski2 {
+  .elfski2 {
     top: 260px;
   }
 }

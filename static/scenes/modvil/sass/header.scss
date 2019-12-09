@@ -1,13 +1,4 @@
-header {
-  text-align: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding-top: 60px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 0;
-
+modvil-village {
   font-size: 72px;
   line-height: 0.75em;
 
@@ -41,15 +32,5 @@ header {
     font-family: 'Google Sans', Arial, sans-serif;
     max-width: 400px;
     padding: 0 4em 0.5em;
-  }
-
-  .ornament {
-    background: url(img/ornament.svg) 50% 20% no-repeat;
-    background-size: contain;
-    width: 450px;
-    height: 250px;
-    margin-top: -60px;
-    position: absolute;
-    z-index: -1;
   }
 }
