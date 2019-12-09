@@ -55,7 +55,6 @@ export class SantaButtonElement extends LitElement {
 
   render() {
     let inner;
-    let className = this.color || 'yellow';
 
     if (this.path) {
       // TODO: transition to last path

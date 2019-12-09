@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Build {{count}} cars!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Build 1 car!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Build {{count}} robots!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Build 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Build {{count}} rockets!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Build 1 rocket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Build {{count}} teddy bears!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Build 1 teddy bear!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Pick up \u0026 drop toys"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instructions"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Move"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Player 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Player 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "How many players?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Player"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Players"
+	},
+	"buildandbolt-skip": {
+		"message": "Skip"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -822,7 +873,7 @@
 		"message": "Get more magic out of Santa Tracker this season with all your favorite Google products."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf. Also check out Christmas jokes, Christmas facts, and see what happens when you call Santa."
+		"message": "Ask the Google Assistant every day for fun updates from Dimplesticks the Elf."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, what’s new at the North Pole?\""
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "The penguins were sledding. Elves cheered with delight."
+	},
+	"storybook_paragraph_02": {
+		"message": "The whole town was a-buzz for the village tree light."
+	},
+	"storybook_paragraph_03": {
+		"message": "Not everyone that day was feeling so jolly. It was a sad day, you see, for a narwhal named Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“I wish, just this once, I could be there to see it. It seems so amazing to watch that big tree lit.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“But you love the ocean!” replied sweet Mary Bear. “All the seashells and plankton. It’s awesome down there!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“I guess so,” said Ollie, “that’s certainly true. But sometimes the big blue makes me feel blue, too!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Well what if...” said Mary, with an encouraging smile, “I came down there today and we swam for a while?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Go exploring? Surf sea reefs... Or better yet, I know!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“We could hold a tree lighting of our very own.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "A plan had been hatched. Mary gathered her crew. In jumped elves and then penguins. A few reindeer, too!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie smiled in delight at the friends who had come. “Let’s get to it!” said Mary, “this is going to be fun!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Now, to throw a great party, the first thing they’d need is a team of great helpers to help them succeed."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Gather round!” Ollie shouted. “We need all your help, to host our very own undersea lighting of kelp.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "The fish sprung into action, spreading word to the guests. “We’ll handle the invites, you handle the rest!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Now the elves had experience with this sort of event. They’d need time for their tinkering, and so off they went."
+	},
+	"storybook_paragraph_16": {
+		"message": "Decorations were next. They knew just who to see. “Mr. Crab and Ms. Lobster, would you help, pretty please?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "The oysters chimed in, “We can help with design! Hang our pearls from the branches. They’ll sparkle and shine.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Every party needs music, tunes with just the right beat, to get everyone grooving, and up on their feet."
+	},
+	"storybook_paragraph_19": {
+		"message": "“My uncle, Horatio, is the best in the biz. And his good friend Carl is a guitar-playing whiz.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“It’s almost time for the party, so the last thing we’ll need is the perfect kelp bundle for a ceremonial tree.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“This is it! This is it!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie flip-flopped with glee! What a fabulous party this whole night would be."
+	},
+	"storybook_paragraph_23": {
+		"message": "Starfish leapt into place, and the ornaments swayed. The jellyfish danced, and the band members played."
+	},
+	"storybook_paragraph_24": {
+		"message": "It was all so fantastic, the decor and the sounds. But the best part was when everyone gathered ‘round..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...for the lighting!"
+	},
+	"storybook_paragraph_26": {
+		"message": "The moment was here at long last! The plankton lit up. Ollie let out a gasp!"
+	},
+	"storybook_paragraph_27": {
+		"message": "It was almost like magic, lights shimmered aglow. The whole town fell silent, just watching the show."
+	},
+	"storybook_paragraph_28": {
+		"message": "The most spectacular thing that they’d all ever seen. Lights went yellow, then purple, then bright emerald green."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary started to get sleepy, it was past time for bed, But before they all left, Ollie turned and then said,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Thank you so much for bringing this whole town together, for a night that I know we’ll remember forever.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "The End"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

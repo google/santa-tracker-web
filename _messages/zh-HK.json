@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "慶祝整個月"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "您可在 12 月時使用「Google 助理」瞭解更多有關聖誕老人的資料！此項整合功能只適用於指定語言。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "未滿 13 歲的兒童如獲得家長許可，在使用透過 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 管理的個人帳戶登入時亦可自訂「Google 助理」體驗。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "「Google 助理」會為您報導北極的大小事情。聖誕老人在北極忙於排練演奏會，但他只會一首歌曲，您能幫他找出最佳的演奏方式嗎？"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "打電話給聖誕老人"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "每日收看《北極新聞報導》，緊貼聖誕老人及小精靈的最新動態。只要問問「Google 助理」就可以掌握北極的最新消息。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北極新聞報導"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "除了在工作坊與小精靈一起工作之外，聖誕老人閒時亦會磨練自己的喜劇技巧。只要問問「Google 助理」就可以聽聽聖誕老人的笑話，瞭解他的日常。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "聖誕老人的笑話"
+	},
+	"familyguide_assistant_title": {
+		"message": "不要錯過《北極快訊》"
+	},
 	"familyguide_body": {
 		"message": "「聖誕老人村」是一家人慶祝佳節的理想地點。您的最愛角色將與您一起參加適合不同年齡人士的有趣、教育和互動活動。"
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "更多"
 	},
+	"familyguide_nav_link_07": {
+		"message": "助理"
+	},
 	"familyguide_secondary_body": {
 		"message": "在 12 月 24 日，「聖誕老人村」將為您帶來追蹤體驗，您可追蹤聖誕老人和馴鹿向全球各地的小朋友派發禮物。"
 	},
@@ -792,7 +822,7 @@
 		"message": "在今季於所有最愛 Google 產品上，發揮「聖誕老人追蹤器」的神奇力量。"
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "每天向「Google 助理」查問來自 Dimplesticks 小精靈的最新有趣消息。同時查看聖誕笑話和資料，並看看呼喚聖誕老人時會發生什麽事。"
+		"message": "每天向「Google 助理」查問來自 Dimplesticks 小精靈的最新有趣消息。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "「Hey Google，北極有咩新消息？」"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "和一家人享受佳節樂趣"
+	},
+	"familylink": {
+		"message": "新增透過 Family Link 管理的兒童 Google 帳戶"
+	},
+	"featured": {
+		"message": "精選"
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "聖誕老人出發"
 	},
+	"scene_videoscene_likealight": {
+		"message": "安然入睡"
+	},
 	"scene_videoscene_museum": {
 		"message": "博物館一日遊"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "聖誕老人工作坊"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "聖誕壁爐"
 	},
 	"scene_windtunnel": {
 		"message": "馳騁風洞"

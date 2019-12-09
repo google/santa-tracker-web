@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Koko kuukausi yhtä juhlaa"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google Assistant auttaa tutustumaan Pukkiin paremmin koko joulukuun! Saatavilla tietyillä kielillä."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Myös alle 13-vuotiaat voivat vanhempien luvalla käyttää personoitua Google Assistantia kirjautumalla sisään omalla \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linkin\u003c/a\u003e kautta hoidetulla tilillään."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistantilla saat yhteyden Korvatunturille, jossa Pukki harjoittelee kuumeisesti konserttia varten. Hän tosin osaa vain yhden kappaleen – auta häntä keksimään, mikä on paras tapa soittaa se."
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Soita Pukille"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Kuulumisia Korvatunturilta kertoo joka päivä, mitä Pukki ja tontut puuhaavat. Se selviää kysymällä Google Assistantilta, mitä Korvatunturille kuuluu."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Kuulumisia Korvatunturilta"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kun Pukilla ei ole kiire auttaa tonttuja työpajalla, hän hioo hauskoja juttuja. Kuulet ne pyytämällä Google Assistantilta, että Pukki kertoo sinulle vitsin."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Pukin parhaat vitsit"
+	},
+	"familyguide_assistant_title": {
+		"message": "Kuuntele kaikki katsaukset Korvatunturilta"
+	},
 	"familyguide_body": {
 		"message": "Joulupukin kylä on koko perheen paras paikka valmistautua jouluun. Sieltä löytyy hauskaa, opettavaista ja interaktiivista puuhaa kaikenikäisille suosikkihahmojen parissa."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "muu"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. joulukuuta Joulupukin kylästä tulee jäljitin, jolla voit seurata Pukkia ja poroja, kun he matkaavat ympäri maailmaa jakamassa lahjoja lapsille."
 	},
@@ -792,7 +822,7 @@
 		"message": "Koe Pukin jäjljittimen taika joulunaikana Googlen suosikkituotteillasi."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Pyydä Google Assistantilta hauskoja Lysti-tontun päivän piristyksiä. Katso myös jouluiset vitsit ja faktat ja mitä tapahtuu, jos soitat Pukille."
+		"message": "Pyydä Google Assistantilta Dimplesticks-tontun keksimiä päivän piristyksiä."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hei Google, mitä uutta Korvatunturilta?\""
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Hauskoja jouluisia hetkiä koko perheelle"
+	},
+	"familylink": {
+		"message": "Lisää lapsesi Family Linkin kautta hoidettu Google-tili"
+	},
+	"featured": {
+		"message": "Päivän pelisuositus"
 	},
 	"fi_country_name": {
 		"message": "Suomi"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Pukin lähtö"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Lamput sammuu"
+	},
 	"scene_videoscene_museum": {
 		"message": "Päivä museossa"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Pukin paja"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Jouluinen takkatuli"
 	},
 	"scene_windtunnel": {
 		"message": "Tuulitunneli"

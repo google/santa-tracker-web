@@ -14,7 +14,8 @@ app.Gui = class Gui {
 
     if (app.shared.utils.touchEnabled) {
       this.playerOption = Constants.PLAYER_OPTIONS.SINGLE
-      this.controlsScreen.classList.remove('is-hidden')
+      this.startGame()
+      return
     } else {
       this.playerSelectionScreen.classList.remove('is-hidden')
       this.playerSelectionOptions.forEach((element) => {
@@ -29,24 +30,37 @@ app.Gui = class Gui {
         this.onSkipControlsClick.bind(this))
     this.controlsButton.addEventListener('mouseenter',
         this.onSkipControlsOver.bind(this))
+
+    // Debug mode
+    // this.onPlayerOptionClick(this.playerSelectionOptions[1])
+    // this.onSkipControlsClick()
+    // end debug mode
   }
 
   onPlayerOptionClick(element) {
     this.playerSelectionScreen.classList.add('is-hidden')
-    this.controlsScreen.classList.remove('is-hidden')
     this.playerOption = element.getAttribute('data-player-option')
-    window.santaApp.fire('sound-trigger', 'generic_button_click');
+    this.controlsScreen.classList.remove('is-hidden')
+    this.controlsScreen.setAttribute('data-player-controls', this.playerOption)
+    window.santaApp.fire('sound-trigger', 'generic_button_click')
   }
+
   onPlayerOptionOver(element) {
-    window.santaApp.fire('sound-trigger', 'generic_button_over');
+    window.santaApp.fire('sound-trigger', 'generic_button_over')
   }
+
   onSkipControlsClick() {
-    this.game.init(this.playerOption)
     this.controlsScreen.classList.add('is-hidden')
-    this.guiElem.classList.add('game-started')
-    window.santaApp.fire('sound-trigger', 'generic_button_click');
+    this.startGame()
+    window.santaApp.fire('sound-trigger', 'generic_button_click')
   }
+
   onSkipControlsOver(element) {
-    window.santaApp.fire('sound-trigger', 'generic_button_over');
+    window.santaApp.fire('sound-trigger', 'generic_button_over')
+  }
+
+  startGame() {
+    this.game.init(this.playerOption)
+    this.guiElem.classList.add('game-started')
   }
 }

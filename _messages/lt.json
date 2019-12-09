@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Švęskite visą mėnesį"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Naudodami „Google“ padėjėją gruodžio mėnesį sužinokite daugiau apie Kalėdų Senelį! Ši integruota funkcija galima tam tikromis kalbomis."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Turėdami tėvų leidimą, jaunesni nei 13 metų amžiaus vaikai irgi gali naudotis suasmeninta „Google“ padėjėjo funkcija, prisijungę prie savo paskyros, tvarkomos per \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003e„Family Link“\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "„Google“ padėjėjas sujungia jus su Šiaurės ašigaliu, kur Kalėdų Senelis įtemptai repetuoja miuziklui. Jis temoka vieną dainą – ar padėsi jam išsiaiškinti, kaip geriausia ją sugroti?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Paskambinkite Kalėdų Seneliui"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Kasdien įsijunkite Šiaurės ašigalio žinias ir išsiaiškinkite, kuo užsiėmęs Kalėdų Senelis ir jo elfai. Tiesiog paklauskite „Google“ padėjėjo, kas naujo Šiaurės ašigalyje."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Šiaurės ašigalio žinios"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kai Kalėdų Senelis nedirba su elfais dirbtuvėse, jis tobulina savo komedijos įgūdžius. Norėdami išgirsti Kalėdų Senelio numerį, tiesiog paprašykite „Google“ padėjėjo pateikti Kalėdų Senelio pokštą."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Kalėdų Senelio pokštai"
+	},
+	"familyguide_assistant_title": {
+		"message": "Niekada nepraleiskite laidos „Šiaurės ašigalio minutė“"
+	},
 	"familyguide_body": {
 		"message": "Kalėdų Senelio kaimelis – puiki vieta šeimoms minėti šventes. Jame rasite visus mėgstamus personažus, taip pat bet kurio amžiaus asmenims skirtos linksmos, edukacinės ir interaktyvios veiklos."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "daugiau"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Padėjėjas"
+	},
 	"familyguide_secondary_body": {
 		"message": "Gruodžio 24-ąją Kalėdų senelio kaimelis virsta stebėjimo aplinka, kurioje galite stebėti Kalėdų senelį ir jo elnius, jiems dalijant dovanas vaikams iš viso pasaulio."
 	},
@@ -792,7 +822,7 @@
 		"message": "Naudodami mėgstamus „Google“ produktus šį sezoną iš Kalėdų Senelio kelionės išgaukite daugiau magijos."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Kasdien prašykite „Google“ padėjėjo pateikti smagių naujienų iš elfo Šiaudelio. Taip pat žr. su Kalėdomis susijusius pokštus bei faktus ir pamatykite, kas nutinka, kai paskambinama Kalėdų Seneliui."
+		"message": "Kasdien prašykite „Google“ padėjėjo pateikti smagių naujienų iš elfo Šiaudelio."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„OK Google, kas naujo Šiaurės ašigalyje?“"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Švenčių linksmybės visai šeimai"
+	},
+	"familylink": {
+		"message": "Pridėkite savo vaiko „Google“ paskyrą, tvarkomą naudojant „Family Link“"
+	},
+	"featured": {
+		"message": "Siūloma"
 	},
 	"fi_country_name": {
 		"message": "Suomija"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Kalėdų Senelio išvykimas"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Kristi į miegą"
+	},
 	"scene_videoscene_museum": {
 		"message": "Diena muziejuje"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Kalėdų Senelio dirbtuvės"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Kalėdų pliauska"
 	},
 	"scene_windtunnel": {
 		"message": "Vėjo tunelis"

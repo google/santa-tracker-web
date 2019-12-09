@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "เฉลิมฉลองตลอดทั้งเดือน"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "ใช้ Google Assistant เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับซานตาคลอสในเดือนธันวาคม โดยการผสานรวมนี้พร้อมให้ใช้งานในบางภาษา"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "หากได้รับการยินยอมจากผู้ปกครองแล้ว เด็กที่มีอายุต่ำกว่า 13 ปีจะรับประสบการณ์การใช้งาน Google Assistant ที่ปรับเปลี่ยนให้เหมาะกับตนเองได้เมื่อลงชื่อเข้าสู่ระบบด้วยบัญชีของตนเองที่ได้รับการจัดการผ่าน \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistant ให้คุณได้ติดต่อไปยังขั้วโลกเหนือที่มีซานต้ากำลังฝึกซ้อมดนตรีสำหรับการแสดงคอนเสิร์ต เขาเล่นเพลงได้แค่เพลงเดียวเท่านั้น มาช่วยหาวิธีให้ซานต้าถ่ายทอดเสียงเพลงได้ไพเราะที่สุดกันเถอะ"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "โทรหาซานต้า"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "ติดตามข่าวสารจากขั้วโลกเหนือได้ทุกวันเพื่อดูว่าซานต้าและเหล่าเอลฟ์ทำอะไรกันอยู่ เพียงถาม Google Assistant ว่ามีอะไรใหม่ๆ ที่ขั้วโลกเหนือบ้างไหม"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "ข่าวสารจากขั้วโลกเหนือ"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "เมื่อซานต้าไม่ได้ทำงานในโรงงานกับเหล่าเอลฟ์ เขาก็จะใช้เวลาว่างในการฝึกฝนทักษะการเล่ามุกตลก ลองขอมุกตลกของซานต้าจาก Google Assistant เพื่อฟังมุกตลกสุดฮาได้เลย"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "มุกตลกของซานต้า"
+	},
+	"familyguide_assistant_title": {
+		"message": "อย่าลืมติดตาม North Pole Minute"
+	},
 	"familyguide_body": {
 		"message": "หมู่บ้านซานต้าคือที่ที่เหมาะที่สุดสำหรับครอบครัวในการฉลองช่วงเทศกาล คุณจะพบตัวละครโปรดของคุณอยู่พร้อมหน้าพร้อมตาและกิจกรรมแบบเล่นตามไปด้วยได้ที่ทั้งสนุกและให้ความรู้สำหรับทุกวัย"
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "เพิ่มเติม"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "ในวันที่ 24 ธันวาคม หมู่บ้านซานต้าจะเปลี่ยนเป็นช่องทางการติดตามเพื่อให้คุณได้ติดตามซานต้าและกวางเรนเดียร์ขณะที่กำลังแจกของขวัญให้กับเด็กๆ ทั่วโลกได้"
 	},
@@ -792,7 +822,7 @@
 		"message": "ในช่วงเทศกาลนี้ เตรียมรับสิ่งดีๆ จากการติดตามซานตาคลอสได้มากกว่าที่เคยด้วยผลิตภัณฑ์ Google ที่คุณชื่นชอบ"
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "ถาม Google Assistant เพื่อติดตามข้อมูลอัปเดตแสนสนุกจากเอลฟ์ Dimplesticks ได้ทุกวัน รวมถึงลองดูมุกตลกและข้อมูลน่ารู้เกี่ยวกับคริสต์มาส และดูว่าอะไรจะเกิดขึ้นเมื่อคุณโทรหาซานต้า"
+		"message": "ถาม Google Assistant เพื่อติดตามข้อมูลอัปเดตแสนสนุกจากเอลฟ์ Dimplesticks ได้ทุกวัน"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google มีอะไรใหม่ๆ ที่ขั้วโลกเหนือบ้างหรือเปล่า\""
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "ความสนุกช่วงวันหยุดสำหรับทั้งครอบครัว"
+	},
+	"familylink": {
+		"message": "เพิ่มบัญชี Google ของบุตรหลานที่จัดการผ่าน Family Link"
+	},
+	"featured": {
+		"message": "แนะนำ"
 	},
 	"fi_country_name": {
 		"message": "ฟินแลนด์"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "ซานต้าจะออกเดินทางแล้ว"
 	},
+	"scene_videoscene_likealight": {
+		"message": "ปิดไฟด้วยนะ"
+	},
 	"scene_videoscene_museum": {
 		"message": "วันวานที่พิพิธภัณฑ์"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "เวิร์กชอปของซานตา"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "ท่อนฟืนพิเศษสำหรับช่วงวันหยุด"
 	},
 	"scene_windtunnel": {
 		"message": "อุโมงค์ลม"

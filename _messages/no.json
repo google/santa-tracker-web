@@ -659,8 +659,35 @@
 	"familyguide_accordion_title": {
 		"message": "Feir hele måneden"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Bruk Google-assistenten til å finne ut mer om julenissen i desember. Denne integreringen er tilgjengelig på utvalgte språk."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Med tillatelse fra en forelder kan barn under 13 år også få en personlig tilpasset Google Assistent-opplevelse når de logger på sin egen konto – administrert via \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google-assistenten gir deg direkte forbindelse med Nordpolen, der julenissen er travelt opptatt med å øve til konsert. Han kan bare én sang. Kan du hjelpe ham med å finne ut hvordan han bør spille den?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Ring julenissen"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Få med deg nyhetene fra Nordpolen hver dag, og hold deg oppdatert på hva nissen og alvene driver med. Spør Google-assistenten om hva som skjer på Nordpolen."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Nyheter fra Nordpolen"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Når nissen ikke jobber i verkstedet sammen med alvene, bruker han tiden på å skjerpe komikerferdighetene sine. Be Google-assistenten om en nissevits for å høre nummeret hans."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Nissevitser"
+	},
+	"familyguide_assistant_title": {
+		"message": "Gå aldri glipp av nyheter fra Nordpolen"
+	},
 	"familyguide_body": {
-		"message": "Julenissens landsby er det perfekte stedet å feire jul med familien. Her finner du alle favorittfigurene dine og morsomme, lærerike og interaktive aktiviteter for alle aldersgrupper."
+		"message": "Julenissens landsby er det perfekte stedet å feire jul med familien. Her finner du alle favorittfigurene dine pluss morsomme, lærerike og interaktive aktiviteter for alle aldersgrupper."
 	},
 	"familyguide_card_01_body": {
 		"message": "Bruk enkel koding til å hjelpe alvene med å finne presanger som er sluppet over skogen."
@@ -672,10 +699,10 @@
 		"message": "Alvene er i gang med å øve seg på koding igjen, og de blander gjerne inn litt dans. Bruk kode til å koreografere alvenes danser – men pass på! Jo bedre du blir, desto vanskeligere blir dansene!"
 	},
 	"familyguide_card_04_body": {
-		"message": "Fra toppluer i Canada til badebukser i Australia – klikk på knappenålene på kartet for å lære om juletradisjoner verden rundt."
+		"message": "Klikk på knappenålene på kartet for å lære om juletradisjoner verden rundt – fra toppluer i Canada til badebukser i Australia."
 	},
 	"familyguide_card_05_body": {
-		"message": "Fra «Godt nyttår» på alvisk til «Дед Мороз» – lær deg julehilsener fra alle verdenshjørner."
+		"message": "Lær deg julehilsener fra alle verdenshjørner – fra «Godt nyttår» på alvisk til «Дед Мороз»."
 	},
 	"familyguide_card_06_body": {
 		"message": "Nissen har mange steder å besøke. I dette geografispillet skal du finne ut hvor på kartet de forskjellige omrissene av land hører hjemme."
@@ -711,7 +738,7 @@
 		"message": "Nissen og reinsdyrene er klare til å dra, men de trenger litt hjelp fra kodealvene før avgang."
 	},
 	"familyguide_card_16_body": {
-		"message": "Landsbyvennene tilbringer en dag under vann med narhvalen Ollie for å forberede den første årlige algelysfesten."
+		"message": "Landsbyvennene tilbringer en dag under vann med narhvalen Ollie for å forberede den første årlige tanglysfesten."
 	},
 	"familyguide_card_age": {
 		"message": "Alle aldre"
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mer"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. desember forvandles Julenissens landsby til en sporingsside der du kan følge nissen og reinsdyrene mens de leverer gaver til barn over hele verden."
 	},
@@ -792,7 +822,7 @@
 		"message": "I år kan du få en enda mer magisk Følg julenissen-opplevelse med favorittproduktene dine fra Google."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Spør Google-assistenten om morsomme oppdateringer om alven Krøllekvist hver dag. Du kan også be om julevitser, julefakta – og finne ut hva som skjer når du ringer nissen."
+		"message": "Spør Google-assistenten om morsomme oppdateringer om alven Krøllekvist hver dag."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "«Hey Google, hva skjer på Nordpolen?»"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Julemoro for hele familien"
+	},
+	"familylink": {
+		"message": "Legg til barnas Google-kontoer – administrert via Family Link"
+	},
+	"featured": {
+		"message": "Fremhevet"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Julenissens avreise"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Syvsover"
+	},
 	"scene_videoscene_museum": {
 		"message": "En dag på museet"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Julenissens verksted"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Julepeiskos"
 	},
 	"scene_windtunnel": {
 		"message": "Vindtunnelen"

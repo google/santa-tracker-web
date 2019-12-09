@@ -659,8 +659,35 @@
 	"familyguide_accordion_title": {
 		"message": "Festeggia per tutto il mese"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Per tutto il mese di dicembre, usa l'Assistente Google per scoprire di più su Babbo Natale! Questa integrazione è disponibile per alcune lingue."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Con l'autorizzazione dei genitori, i bambini sotto i 13 anni possono avere un'esperienza con l'Assistente Google personalizzata quando accedono con il loro account, gestito tramite \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "L'Assistente Google ti mette in contatto con il Polo Nord, dove Babbo Natale è indaffarato con le prove per un concerto musicale. Conosce un solo brano, puoi aiutarlo a decidere quale sia il modo migliore per eseguirlo?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Chiama Babbo Natale"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Sintonizzati ogni giorno sul Notiziario del Polo Nord per scoprire cosa stanno facendo Babbo Natale e i suoi elfi. Basta chiedere all'Assistente Google che succede di nuovo al Polo Nord."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Notiziario del Polo Nord"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quando Babbo Natale non è impegnato con gli elfi nel laboratorio, trascorre il suo tempo affinando il suo talento di attore comico. Chiedi all'Assistente Google una barzelletta di Babbo Natale per ascoltare il suo repertorio."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Le barzellette di Babbo Natale"
+	},
+	"familyguide_assistant_title": {
+		"message": "Non perderti un minuto di quello che succede al Polo Nord"
+	},
 	"familyguide_body": {
-		"message": "Il Villaggio di Babbo Natale è il posto perfetto in cui festeggiare il Natale in famiglia. Troverai tutti i tuoi personaggi preferiti, oltre ad attività interattive istruttive e divertenti per tutte le età."
+		"message": "Il villaggio di Babbo Natale è il posto perfetto in cui festeggiare le feste in famiglia. Troverai tutti i tuoi personaggi preferiti, oltre ad attività interattive istruttive e divertenti per tutte le età."
 	},
 	"familyguide_card_01_body": {
 		"message": "Usa i concetti di base della programmazione per guidare gli elfi attraverso la foresta alla ricerca dei regali perduti."
@@ -669,7 +696,7 @@
 		"message": "Crea il tuo bigliettino natalizio programmando il tuo fiocco di neve personalizzato: basta selezionare uno dei tanti sfondi disponibili e condividerlo con i tuoi amici."
 	},
 	"familyguide_card_03_body": {
-		"message": "Gli elfi sono tornati a esercitarsi con la programmazione, e intanto si divertono a ballare. Usa la programmazione per la coreografia delle danze degli elfi, ma attenzione, man mano che la tua bravura cresce, le danze si fanno sempre più difficili!"
+		"message": "Gli elfi sono tornati a esercitarsi con la programmazione e intanto si divertono a ballare. Usa la programmazione per la coreografia delle danze degli elfi, ma attenzione, man mano che la tua bravura cresce, le danze si fanno sempre più difficili!"
 	},
 	"familyguide_card_04_body": {
 		"message": "Dall'indossare un \"toque\" in Canada ai costumi da bagno sportivi in Australia, fai clic sui segnaposto sulla mappa per scoprire le tradizioni natalizie di tutto il mondo."
@@ -687,19 +714,19 @@
 		"message": "Quiz sulle tradizioni del periodo festivo"
 	},
 	"familyguide_card_08_body": {
-		"message": "hai fame? Scopri manicaretti di tutto il mondo ed esplora le pietanze di paesi vicini e lontani."
+		"message": "Hai fame? Scopri le prelibatezze di tutto il mondo ed esplora le specialità di paesi vicini e lontani."
 	},
 	"familyguide_card_09_body": {
 		"message": "Tocca ed esplora la suite di creatività di Babbo Natale Un'esperienza audiovisiva, grazie al suono specifico di ogni strumento, pennello e adesivo."
 	},
 	"familyguide_card_10_body": {
-		"message": "Sperimenta e gioca nel tuo recinto invernale personale. Usa materiali in 3D per costruire qualsiasi cosa: case, giocattoli, pupazzi di neve, foreste o qualsiasi altra cosa ti passi per la testa."
+		"message": "Sperimenta e gioca nel tuo parco giochi invernale personale. Usa materiali in 3D per costruire qualsiasi cosa: case, giocattoli, pupazzi di neve, foreste o qualsiasi altra cosa ti passi per la testa."
 	},
 	"familyguide_card_11_body": {
 		"message": "Crea il tuo folletto personalizzato dalla testa ai piedi, con un look el(f)egante per le serate di gala natalizie al Polo Nord."
 	},
 	"familyguide_card_12_body": {
-		"message": "Babbo Natale è dal barbiere e ha bisogno di aiuto per rifarsi il look. Colora la sua barba, sistemagli i capelli, aggiungi qualche decorazione oppure togli tutto con le forbici."
+		"message": "Babbo Natale è dal barbiere e ha bisogno di aiuto per rifarsi il look. Colora la sua barba, asciugagli i capelli, aggiungi qualche decorazione oppure rasa tutto con il regolabarba."
 	},
 	"familyguide_card_13_body": {
 		"message": "Visita con gli elfi, le renne, Babbo Natale e la signora Natale il Museo dello Spirito Natalizio!"
@@ -711,7 +738,7 @@
 		"message": "Babbo Natale e le sue renne sono pronti a partire ma hanno bisogno di un piccolo aiuto dagli elfi programmatori prima di decollare."
 	},
 	"familyguide_card_16_body": {
-		"message": "Gli amici del Villaggio vanno a trovare il narvalo Ollie per trascorrere un giorno in fondo al mare e festeggiare insieme per la prima volta la festa annuale delle decorazioni luminose fatte con le alghe."
+		"message": "Gli amici del villaggio vanno a trovare il narvalo Ollie per trascorrere un giorno in fondo al mare e festeggiare insieme per la prima volta la festa annuale delle decorazioni luminose fatte con le alghe."
 	},
 	"familyguide_card_age": {
 		"message": "Tutte le età"
@@ -747,13 +774,13 @@
 		"message": "Scopri le usanze festive di tutto il mondo"
 	},
 	"familyguide_group_03_body": {
-		"message": "Il villaggio di Babbo Natale vive della magia sprigionata dal fabbricare le cose. Scopri giochi per disegnare, dipingere, costruire e creare tutti i tuoi personaggi preferiti."
+		"message": "Il villaggio di Babbo Natale vive della magia dei preparativi. Scopri giochi per disegnare, dipingere, costruire e creare tutti i tuoi personaggi preferiti."
 	},
 	"familyguide_group_03_title": {
 		"message": "Lasciati ispirare e crea qualcosa di nuovo"
 	},
 	"familyguide_group_04_body": {
-		"message": "Prendi i popcorn e infilati sotto una coperta al calduccio. Puoi gustarti tutta la banda sul grande schermo del cinema del Villaggio o leggere un libro interattivo mentre il narvalo Ollie festeggia il Natale sotto il mare."
+		"message": "Prendi i popcorn e infilati sotto una coperta al calduccio. Puoi gustarti tutta la banda sul grande schermo del cinema del villaggio o leggere un libro interattivo, mentre il narvalo Ollie festeggia il Natale in fondo al mare."
 	},
 	"familyguide_group_04_title": {
 		"message": "Divertimento in famiglia"
@@ -765,7 +792,7 @@
 		"message": "festeggiamenti"
 	},
 	"familyguide_nav_link_03": {
-		"message": "crea"
+		"message": "creazioni"
 	},
 	"familyguide_nav_link_04": {
 		"message": "in famiglia"
@@ -776,14 +803,17 @@
 	"familyguide_nav_link_06": {
 		"message": "altro"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistente"
+	},
 	"familyguide_secondary_body": {
-		"message": "Il 24 dicembre il Villaggio di Babbo Natale si trasforma in uno strumento di tracciamento che ti permetterà di seguire Babbo Natale e le sue renne mentre portano i regali ai bambini di tutto il mondo."
+		"message": "Il 24 dicembre, il villaggio si trasforma in uno strumento di tracciamento che ti permetterà di seguire Babbo Natale e le sue renne mentre portano i regali ai bambini di tutto il mondo."
 	},
 	"familyguide_secondary_cta_01": {
 		"message": "Segui il viaggio sul sito web o sull'app Android Segui Babbo Natale"
 	},
 	"familyguide_secondary_cta_02": {
-		"message": "Pss! Lo sapevi che il viaggio di Babbo Natale dura 25 ore?! Si ferma per la prima volta appena dopo le 22:00 ora locale all'estremo orientale della Russia, quando sono le 5:00 a New York e le 11:00 a Parigi."
+		"message": "Pss! Lo sapevi che il viaggio di Babbo Natale dura 25 ore?! Si ferma per la prima volta appena dopo le 22:00, ora locale dell'Estremo Oriente russo, quando sono le 5:00 a New York e le 11:00 a Parigi."
 	},
 	"familyguide_secondary_title": {
 		"message": "Segui Babbo Natale il 24 dicembre"
@@ -792,13 +822,13 @@
 		"message": "Segui Babbo Natale sarà ancora più magico quest'anno, con tutti i tuoi prodotti Google preferiti."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Chiedi ogni giorno all'Assistente Google divertenti aggiornamenti dall'elfo Dimplesticks. Dai anche un'occhiata alle barzellette natalizie, alle curiosità sul Natale e guarda cosa succede quando chiami Babbo Natale."
+		"message": "Chiedi ogni giorno all'Assistente Google divertenti aggiornamenti dall'elfo Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
-		"message": "\"Hey Google, che succede di nuovo al Polo Nord?\""
+		"message": "\"Ok Google, che succede di nuovo al Polo Nord?\""
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Scarica l'app Segui Babbo Natale per Android dal Play Store. C'è una scena esclusiva del Villaggio, con giochi che troverai solo nell'app."
+		"message": "Scarica l'app Segui Babbo Natale per Android dal Play Store. C'è una scena esclusiva del villaggio, con giochi che troverai solo nell'app."
 	},
 	"familyguide_tips_tip02_title": {
 		"message": "App Android"
@@ -822,10 +852,16 @@
 		"message": "Dona GIF in allegria"
 	},
 	"familyguide_tips_title": {
-		"message": "Trucchi e suggerimenti"
+		"message": "Suggerimenti utili"
 	},
 	"familyguide_title": {
 		"message": "Divertimento natalizio per tutta la famiglia"
+	},
+	"familylink": {
+		"message": "Aggiungi l'Account Google di tuo figlio, gestito tramite Family Link"
+	},
+	"featured": {
+		"message": "In primo piano"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Il decollo di Babbo Natale"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Ricordati di spegnere la luce!"
+	},
 	"scene_videoscene_museum": {
 		"message": "Una giornata al museo"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "L'officina di Babbo Natale"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Il ciocco natalizio"
 	},
 	"scene_windtunnel": {
 		"message": "Galleria del vento"

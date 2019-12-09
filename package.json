@@ -26,6 +26,7 @@
     "firebase": "^7.5.0",
     "google-closure-compiler": "^20190909.0.0",
     "google-closure-library": "^20190909.0.0",
+    "html-entities": "^1.2.1",
     "html-minifier": "^4.0.0",
     "html-modules-polyfill": "^0.1.0",
     "jquery": "^3.3.1",

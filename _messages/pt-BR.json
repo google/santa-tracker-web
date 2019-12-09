@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Comemore durante todo o mês"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Saiba mais sobre o Papai Noel em dezembro com o Google Assistente. Esta integração está disponível nos idiomas selecionados."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Com a permissão dos pais ou responsáveis, as crianças menores de 13 anos que fizerem login em uma conta gerenciada com o \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e também poderão ter uma experiência personalizada com o Google Assistente."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "O Google Assistente conecta você ao Polo Norte, onde o Papai Noel está ocupado ensaiando para um musical. Ele quer saber a melhor maneira de tocar a única música que conhece. Você pode ajudar o bom velhinho?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Chamar o Papai Noel"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Sintonize todos os dias no Noticiário do Polo Norte para saber o que o Papai Noel e os elfos estão fazendo. Pergunte quais são as novidades do Polo Norte ao Google Assistente."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticiário do Polo Norte"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quando o Papai Noel não está ocupado na oficina com os elfos, ele passa o tempo aprimorando as habilidades humorísticas dele. Peça para o Google Assistente contar uma das piadas do Papai Noel."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Piadas do Papai Noel"
+	},
+	"familyguide_assistant_title": {
+		"message": "Não perca nenhuma novidade do Polo Norte"
+	},
 	"familyguide_body": {
 		"message": "A vila do Papai Noel é o lugar perfeito para as famílias comemorarem a época natalina. Você encontrará seus personagens preferidos reunidos e atividades divertidas, educativas e interativas para todas as idades."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mais"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistente"
+	},
 	"familyguide_secondary_body": {
 		"message": "No dia 24 de dezembro, a vila do Papai Noel se transforma em uma experiência incrível em que você pode seguir o bom velhinho e as renas dele enquanto eles entregam presentes para as crianças ao redor do mundo."
 	},
@@ -792,7 +822,7 @@
 		"message": "Aproveite ainda mais a mágica do Siga o Papai Noel nesta época do ano com todos os seus produtos favoritos do Google."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Peça que o Google Assistente envie atualizações divertidas diariamente sobre Dimplesticks, o elfo. Veja também piadas e curiosidades natalinas e veja o que acontece quando você chama o Papai Noel."
+		"message": "Peça que o Google Assistente envie atualizações divertidas diariamente sobre o elfo Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, quais são as novidades no Polo Norte?\""
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Diversão de fim de ano para toda a família"
+	},
+	"familylink": {
+		"message": "Adicione a conta do Google de seus filhos gerenciada com o Family Link"
+	},
+	"featured": {
+		"message": "Em destaque"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Decolagem do Papai Noel"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Apagado como uma luz"
+	},
 	"scene_videoscene_museum": {
 		"message": "Um dia no museu"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Oficina do Papai Noel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Lenha de natal"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"

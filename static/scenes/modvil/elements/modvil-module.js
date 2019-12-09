@@ -85,8 +85,6 @@ class ModvilModuleConstructor extends LitElement {
         };
         const anim = loadAnimation(`${base}/${index}.json`, options);
         container.style.zIndex = layer;
-        container.classList.add('loading');
-        anim.addEventListener('DOMLoaded', () => container.classList.remove('loading'));
 
         anim.onEnterFrame = (e) => {
           this.dispatchEvent(new CustomEvent('anim', {
@@ -95,8 +93,14 @@ class ModvilModuleConstructor extends LitElement {
           }));
         };
 
-        let ratio;
         const resize = buildSafeResize(anim);
+        let ratio;
+
+        container.classList.add('loading');
+        anim.addEventListener('DOMLoaded', () => {
+          container.classList.remove('loading');
+          resize();  // resize to ensure Lottie renders us
+        });
 
         if (type === 'scroll') {
           // When scrolling, the ratio being passed sets the actual target frame.
@@ -150,7 +154,7 @@ class ModvilModuleConstructor extends LitElement {
 
     // In small mode, don't load anything but static-... files.
     if (this.mode === 'small') {
-//      parts = parts.map((x) => x.startsWith('static-') ? x : null);
+      parts = parts.map((x) => x.startsWith('static-') ? x : null);
     }
 
     // In mobile mode, don't load anything, but push the mobile PNG at the end.

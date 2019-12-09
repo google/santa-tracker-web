@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "Tähistage terve kuu"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Õppige detsembrikuus Google'i assistendilt jõuluvana kohta uut ja huvitavat! See integratsioon on saadaval valitud keeltes."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Lapsevanema loaga võivad ka alla 13-aastased lapsed logida Google'i assistendis isikupärastatud kasutuskogemuse saamiseks sisse omaenda kontoga, mida hallatakse \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linkis\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google'i assistent viib teid jõulukülla, kus jõuluvana harjutab kontserdiks. Ta oskab ainult ühte lugu – aidake tal harjutada!"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Helistage jõuluvanale"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Kuulake iga päev jõuluküla uudistesaadet, milles kajastatakse jõuluvana ja päkapike tegemisi. Lihtsalt küsige Google'i assistendilt, mis jõulukülas toimub."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Jõuluküla uudised"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kui jõuluvana parajasti töökojas päkapikke ei kamanda, harjutab ta komöödiakunsti. Paluge Google'i assistendi abil jõuluvanal mõni nali rääkida."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Jõuluvana anekdoodid"
+	},
+	"familyguide_assistant_title": {
+		"message": "Jõuluküla uudised"
+	},
 	"familyguide_body": {
 		"message": "Jõuluküla on parim koht, kus perega pühi oodata. Olemas on kõik lemmiktegelased ning lõbusad, harivad ja interaktiivsed tegevused igas vanuses lastele."
 	},
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "rohkem"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. detsembril saab jõulukülast juhtpaneel, kus saate jälgida, kuidas jõuluvana ja põhjapõdrad maailma lastele kingitusi viivad."
 	},
@@ -792,7 +822,7 @@
 		"message": "Seekord pakub jõuluvana jälgimise rakendus koos teiste Google'i toodetega veel rohkem võimalusi."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Küsige iga päev Google'i assistendilt, mida päkapikk Dimplesticks teeb. Lugege jõulunalju ja huvitavaid jõulufakte ning vaadake, mis juhtub, kui jõuluvanale helistada."
+		"message": "Küsige iga päev Google'i assistendilt, mida päkapikk Dimplesticks teeb."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„Ok Google, mis jõulukülas toimub?”"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "Pühaderõõm kogu perele"
+	},
+	"familylink": {
+		"message": "Lisage Family Linkiga hallatav lapse Google'i konto"
+	},
+	"featured": {
+		"message": "Esiletoodud"
 	},
 	"fi_country_name": {
 		"message": "Soome"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Jõuluvana asub teele"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Tuled kustu"
+	},
 	"scene_videoscene_museum": {
 		"message": "Päev muuseumis"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Jõuluvana töökoda"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Jõulukamin"
 	},
 	"scene_windtunnel": {
 		"message": "Tuuletunnel"

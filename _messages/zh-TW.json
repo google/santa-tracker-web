@@ -659,6 +659,33 @@
 	"familyguide_accordion_title": {
 		"message": "歡慶整個月"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "12 月時，你可以透過 Google 助理完整掌握聖誕老人的消息！請注意，這項整合功能僅適用於特定語言。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "只要取得家長的同意，未滿 13 歲的兒童使用透過 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 管理的個人帳戶登入時，也能享有專屬的 Google 助理服務。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google 助理可讓你輕鬆掌握北極發生的大小事。聖誕老人正忙著綵排音樂會表演，但他只知道一首歌，你能幫他找出最棒的表演方式嗎？"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "呼叫聖誕老人"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "每天準時收看「北極系列報導」，即可瞭解聖誕老人和精靈的最新動態。你只要問問 Google 助理，就能掌握北極的新鮮事。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北極系列報導"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "沒有和精靈在工作坊中忙來忙去時，聖誕老人會抽空磨練自己的喜劇表演技巧。你只要問問 Google 助理，就能聽到聖誕老人最常說的笑話。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "聖誕老人的笑話"
+	},
+	"familyguide_assistant_title": {
+		"message": "千萬別錯過「北極快報」"
+	},
 	"familyguide_body": {
 		"message": "想要闔家歡度聖誕，來聖誕老人村就對了。不僅有各種令人喜愛的角色，還有適合所有年齡層、寓教於樂的互動式活動。"
 	},
@@ -666,10 +693,10 @@
 		"message": "運用程式設計的基礎知識，引導小精靈穿越森林尋找掉落的禮物。"
 	},
 	"familyguide_card_02_body": {
-		"message": "使用程式碼設計雪花，製作自己專屬的聖誕賀卡。只要從各式各樣的背景中挑選一種，然後將卡片分享給朋友，就能送上滿滿祝福。"
+		"message": "使用程式碼設計出雪花效果，製作自己專屬的聖誕賀卡。只要從各式各樣的背景中挑選一種，然後將卡片分享給朋友，就能送上滿滿祝福。"
 	},
 	"familyguide_card_03_body": {
-		"message": "小精靈們回到程式設計的工作崗位後，一邊磨練自己的舞蹈技巧。運用程式碼為精靈編排舞蹈 - 但要注意，當你編得越來越好，他們就會跳得越來越起勁！"
+		"message": "小精靈們回到程式設計的工作崗位後，一邊磨練自己的舞蹈技巧。運用程式碼為精靈編排舞蹈，你的技巧變得越好，他們也會跳得越起勁，很期待吧！"
 	},
 	"familyguide_card_04_body": {
 		"message": "聖誕節來臨時，加拿大人會戴上無邊帽，而澳洲人則會瘋玩水上活動，世界各地都有不同的慶祝方式，按一下地圖上的圖釘就能瞭解這些習俗。"
@@ -726,7 +753,7 @@
 		"message": "你的星球你規劃"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "孩子必須做好準備，懂得如何做出聰明的決定，才能充分運用網際網路。「Be Internet Awesome」教導孩子認識數位公民和安全的基礎概念，幫助他們安心探索網路世界。"
+		"message": "孩子必須做好準備，懂得如何做出聰明的決定，才能真正善用網際網路的優勢。「Be Internet Awesome」教導孩子認識數位公民和安全的基礎概念，幫助他們安心探索網路世界。"
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "成為優質網路公民"
@@ -776,6 +803,9 @@
 	"familyguide_nav_link_06": {
 		"message": "更多"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Google 助理"
+	},
 	"familyguide_secondary_body": {
 		"message": "12 月 24 日，聖誕老人村將搖身一變，開放追蹤功能。你可以跟著聖誕老人和他的馴鹿，到世界各地向孩子發送禮物。"
 	},
@@ -786,13 +816,13 @@
 		"message": "嘿！你知道聖誕老人的旅程持續 25 個小時嗎？！當地時間晚上 10 點多，聖誕老人就趕到他的第一站：位在遠東的俄羅斯；然後陸續在凌晨 5 點來到紐約，在上午 11 點抵達巴黎。"
 	},
 	"familyguide_secondary_title": {
-		"message": "在這個重要日子追蹤聖誕老人"
+		"message": "在這個重要日子追蹤聖誕老人的行蹤"
 	},
 	"familyguide_tips_body": {
 		"message": "透過你喜愛的各項 Google 產品，在這個佳節中充分感受「聖誕老人追蹤器」的歡樂魔力。"
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "每天問問 Google 助理，小精靈阿丁那裡有沒有什麼新鮮趣事。另外，你還可以搜尋聖誕節笑話和聖誕節相關資訊，或是看看呼叫聖誕老人時會發生什麼事。"
+		"message": "你只要每天問問 Google 助理，就能聽到精靈 Dimplesticks 報導北極的最新趣聞。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "「Hey Google，北極有什麼新鮮事？」"
@@ -804,7 +834,7 @@
 		"message": "Android 應用程式"
 	},
 	"familyguide_tips_tip03_body": {
-		"message": "透過 Android Wear 整合功能用手錶追蹤聖誕老人。"
+		"message": "有了 Android Wear 整合功能，你就能用自己的手錶追蹤聖誕老人的行蹤。"
 	},
 	"familyguide_tips_tip03_title": {
 		"message": "Android Wear"
@@ -826,6 +856,12 @@
 	},
 	"familyguide_title": {
 		"message": "和全家人共度美好的佳節時光"
+	},
+	"familylink": {
+		"message": "新增子女的 Google 帳戶 (透過 Family Link 管理)"
+	},
+	"featured": {
+		"message": "精選遊戲"
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
@@ -1748,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "聖誕老人出發了"
 	},
+	"scene_videoscene_likealight": {
+		"message": "夜班精靈上工囉"
+	},
 	"scene_videoscene_museum": {
 		"message": "博物館一日遊"
 	},
@@ -1792,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "聖誕老人工作坊"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "聖誕節原木"
 	},
 	"scene_windtunnel": {
 		"message": "風洞"
@@ -7062,7 +7104,7 @@
 		"message": "24 號平安夜，別忘了和我們一起追蹤聖誕老人的行蹤！"
 	},
 	"village_explore": {
-		"message": "在溫馨的 12 月裡，與聖誕老人的助手小精靈四處探索、玩遊戲和學習新知"
+		"message": "在溫馨的 12 月，與聖誕老人的助手小精靈四處探索、玩遊戲和學習新知識"
 	},
 	"village_get_the_app": {
 		"message": "取得聖誕老人追蹤器應用程式 Android 版"
