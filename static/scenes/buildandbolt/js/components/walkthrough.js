@@ -14,11 +14,7 @@ class Walkthrough {
       toys: this.elem.querySelector('[data-walkthrough-toys]')
     }
 
-    this.updateLevel()
-    // wait level transition before showing the walkthrough
-    setTimeout(() => {
-      this.show()
-    }, Constants.LEVEL_TRANSITION_TIMING)
+    this.updateLevelAndShow()
   }
 
   show() {
@@ -37,7 +33,7 @@ class Walkthrough {
     this.elem.classList.add('is-hidden')
   }
 
-  updateLevel() {
+  updateLevelAndShow() {
     const { toyType } = app.LevelManager
     // update text
     const currentText = this.elem.querySelector(`[data-walkthrough-text-hidden="${toyType.key}"]`).innerHTML
@@ -77,6 +73,11 @@ class Walkthrough {
     domToyfull.appendChild(img)
 
     this.dom.toys.appendChild(domToyfull)
+
+    // wait level transition before showing the walkthrough
+    setTimeout(() => {
+      this.show()
+    }, Constants.LEVEL_TRANSITION_TIMING)
   }
 }
 
