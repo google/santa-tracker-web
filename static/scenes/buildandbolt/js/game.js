@@ -16,6 +16,7 @@ goog.require('app.Platform')
 goog.require('app.Player')
 goog.require('app.PresentBox')
 goog.require('app.ScoreManager')
+goog.require('app.ScoreScreen')
 goog.require('app.Table')
 goog.require('app.ToysBoard')
 goog.require('app.Wall')
@@ -84,13 +85,14 @@ app.Game = class Game {
     this.tutorial = new app.shared.Tutorial('buildandbolt_mobile.mp4')
 
     // init managers and components
-    app.ControlsManager.init(this)
+    app.ControlsManager.init(this, document.querySelector('[data-board-bkg]'))
     app.ScoreManager.init(this)
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
         document.querySelector('.levelup--number'), this.startLevel.bind(this))
     // init components
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
     app.Board.init(document.querySelector('[data-board]'))
+    app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption)
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
@@ -279,7 +281,7 @@ app.Game = class Game {
     }
   }
 
-  reset() {
+  resetEntities() {
     app.Board.reset()
     for (const entity of this.entities) {
       if (entity instanceof app.Wall) {
@@ -301,12 +303,19 @@ app.Game = class Game {
       }
     }
 
-    this.entities = []
+    this.entities = [] 
+  }
+
+  reset() {
+    this.resetEntities()
+    app.LevelManager.reset()
+    app.ScoreManager.reset()
+    app.LevelManager.show()
   }
 
   goToNextLevel() {
-    this.freezeGame()
-    this.reset()
+    this.resetEntities()
+    this.resume()
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
@@ -322,16 +331,6 @@ app.Game = class Game {
       setTimeout(()=>{
         window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
       }, 10)
-
-      if (this.multiplayer) {
-        if (this.players[0].score > this.players[1].score) {
-          console.log('player 1 won')
-        } else if (this.players[0].score < this.players[1].score) {
-          console.log('player 2 won')
-        } else {
-          console.log('tie')
-        }
-      }
     }
   }
 
@@ -339,7 +338,9 @@ app.Game = class Game {
    * Called by the scoreboard to stop the game when the time is up.
    */
   gameover() {
-    this.goToNextLevel()
+    if (app.ScoreScreen.state !== 'show') {
+      app.ScoreManager.endLevel()
+    }
   }
 
   /**
@@ -364,12 +365,6 @@ app.Game = class Game {
   restart() {
     this.freezeGame()
     this.reset()
-    app.LevelManager.reset()
-    app.LevelManager.show()
-
-    for (const player of this.players) {
-      player.score = 0
-    }
   }
 
   freezeGame() {

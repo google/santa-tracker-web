@@ -3,7 +3,6 @@ goog.provide('app.ToysBoard')
 goog.require('Constants')
 
 goog.require('app.LevelManager')
-goog.require('app.ScoreManager')
 
 class ToysBoard {
   init(elem, playerOption) {
@@ -34,11 +33,10 @@ class ToysBoard {
     }
   }
 
-  updateScore(id) {
-    const { toysCapacity } = app.LevelManager
+  updateScore(id, score) {
     // update score
     const domScore = this.elem.querySelector(`.toys-board__player--${id} [data-toys-board-score]`)
-    domScore.innerHTML = toysCapacity - app.ScoreManager.scoresDict[id].toysInLevel
+    domScore.innerHTML = score
   }
 }
 

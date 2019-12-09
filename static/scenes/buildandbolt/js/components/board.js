@@ -2,12 +2,14 @@ goog.provide('app.Board')
 
 goog.require('Constants')
 
+goog.require('app.shared.utils')
+
 class Board {
   constructor() {
     this.height = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.HEIGHT
     this.width = Constants.GRID_DIMENSIONS.UNIT_SIZE * Constants.GRID_DIMENSIONS.WIDTH
     this.ratio = Constants.GRID_DIMENSIONS.WIDTH / Constants.GRID_DIMENSIONS.HEIGHT
-    this.paddingTop = Constants.BOARD_PADDING_TOP
+    this.paddingTop = app.shared.utils.touchEnabled ? Constants.BOARD_PADDING_TOP_MOBILE : Constants.BOARD_PADDING_TOP
     this.paddingLeft = Constants.BOARD_PADDING_LEFT_PERCENTAGE
     this.cells = [...Array(Constants.GRID_DIMENSIONS.WIDTH)].map(
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
