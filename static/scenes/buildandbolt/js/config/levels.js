@@ -485,16 +485,6 @@ Levels = [
   //       config: {
   //         x: 26,
   //         y: 5,
-  //         playerId: 'b',
-  //         isSideView: true,
-  //         isMiddle: true
-  //       }
-  //     },
-  //     {
-  //       type: 'present-box',
-  //       config: {
-  //         x: 26,
-  //         y: 7,
   //         playerId: 'a',
   //         isSideView: true,
   //         isMiddle: true
@@ -504,8 +494,18 @@ Levels = [
   //       type: 'present-box',
   //       config: {
   //         x: 26,
-  //         y: 9,
+  //         y: 7,
   //         playerId: 'b',
+  //         isSideView: true,
+  //         isMiddle: true
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 26,
+  //         y: 9,
+  //         playerId: 'a',
   //         isSideView: true,
   //         isMiddle: false
   //       }
@@ -1185,7 +1185,7 @@ Levels = [
   //   toyType: Constants.TOY_TYPES.ROBOT,
   //   toysCapacity: 2,
   //   entities: [
-  //     // LEVEL X - TABLES
+  //     // LEVEL 6 - TABLES
   //     {
   //       type: 'table',
   //       config: {
@@ -1210,14 +1210,14 @@ Levels = [
   //       type: 'table',
   //       config: {
   //         x: 21,
-  //         y: 13,
+  //         y: 14,
   //         tableType: 3,
   //         isSideView: false,
   //         part: 3
   //       }
   //     },
 
-  //     // LEVEL X - PRESENT BOXES
+  //     // LEVEL 6 - PRESENT BOXES
   //     {
   //       type: 'present-box',
   //       config: {
@@ -1259,7 +1259,7 @@ Levels = [
   //       }
   //     },
 
-  //     // LEVEL X - PITS
+  //     // LEVEL 6 - PITS
   //     {
   //       type: 'pit',
   //       config: {
@@ -1279,7 +1279,7 @@ Levels = [
   //       }
   //     },
 
-  //     // LEVEL X - PLATFORMS
+  //     // LEVEL 6 - PLATFORMS
   //     {
   //       type: 'platform',
   //       config: {
@@ -1309,7 +1309,7 @@ Levels = [
   //       }
   //     },
 
-  //     // LEVEL X - FENCES
+  //     // LEVEL 6 - FENCES
   //     {
   //       type: 'fence',
   //       config: {
@@ -1905,34 +1905,254 @@ Levels = [
   //   ]
   // },
 
-  // LEVEL 8
+  // // LEVEL 8
+  // {
+  //   time: 90,
+  //   hurryUpMusicTime: 25,
+  //   players: [
+  //     {
+  //       startPos: {
+  //         x: 12,
+  //         y: 7
+  //       }
+  //     },
+  //     {
+  //       startPos: {
+  //         x: 16,
+  //         y: 6
+  //       }
+  //     }
+  //   ],
+  //   toyType: Constants.TOY_TYPES.ROCKET,
+  //   toysCapacity: 2,
+  //   entities: [
+  //     // LEVEL 8 - TABLES
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 10,
+  //         y: 3,
+  //         tableType: 1,
+  //         isSideView: false,
+  //         part: 1
+  //       }
+  //     },
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 16,
+  //         y: 3,
+  //         tableType: 2,
+  //         isSideView: false,
+  //         part: 2
+  //       }
+  //     },
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 10,
+  //         y: 9,
+  //         tableType: 2,
+  //         isSideView: false,
+  //         part: 3
+  //       }
+  //     },
+  //     {
+  //       type: 'table',
+  //       config: {
+  //         x: 16,
+  //         y: 9,
+  //         tableType: 3,
+  //         isSideView: false,
+  //         part: 4
+  //       }
+  //     },
+
+  //     // LEVEL 8 - PRESENT BOXES
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 2,
+  //         y: 14,
+  //         playerId: 'a',
+  //         isSideView: false,
+  //         isMiddle: false
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 4,
+  //         y: 14,
+  //         playerId: 'b',
+  //         isSideView: false,
+  //         isMiddle: false
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 23,
+  //         y: 14,
+  //         playerId: 'a',
+  //         isSideView: false,
+  //         isMiddle: false
+  //       }
+  //     },
+  //     {
+  //       type: 'present-box',
+  //       config: {
+  //         x: 25,
+  //         y: 14,
+  //         playerId: 'b',
+  //         isSideView: false,
+  //         isMiddle: false
+  //       }
+  //     },
+
+  //     // LEVEL 8 - ICE
+  //     {
+  //       type: 'ice',
+  //       config: {
+  //         height: 3,
+  //         width: 8,
+  //         x: 0,
+  //         y: 0,
+  //       }
+  //     },
+  //     {
+  //       type: 'ice',
+  //       config: {
+  //         height: 3,
+  //         width: 7,
+  //         x: 21,
+  //         y: 0,
+  //       }
+  //     },
+
+  //     // LEVEL 8 - PITS
+  //     {
+  //       type: 'pit',
+  //       config: {
+  //         height: 9,
+  //         width: 8,
+  //         x: 0,
+  //         y: 3,
+  //       }
+  //     },
+  //     {
+  //       type: 'pit',
+  //       config: {
+  //         height: 9,
+  //         width: 7,
+  //         x: 21,
+  //         y: 3,
+  //       }
+  //     },
+  //     {
+  //       type: 'pit',
+  //       config: {
+  //         height: 4,
+  //         width: 13,
+  //         x: 8,
+  //         y: 12,
+  //       }
+  //     },
+
+  //     // LEVEL 8 - PENGUINS
+
+  //     // LEVEL 8 - PLATFORMS
+  //     {
+  //       type: 'platform',
+  //       config: {
+  //         isVertical: true,
+  //         startPos: {
+  //           x: 2,
+  //           y: 3
+  //         },
+  //         height: 5,
+  //         width: 3,
+  //         movementLength: 4,
+  //         stepSize: .03
+  //       }
+  //     },
+  //     {
+  //       type: 'platform',
+  //       config: {
+  //         isVertical: true,
+  //         startPos: {
+  //           x: 23,
+  //           y: 3
+  //         },
+  //         height: 5,
+  //         width: 3,
+  //         movementLength: 4,
+  //         stepSize: .03
+  //       }
+  //     },
+  //   ]
+  // },
+
+  // LEVEL 9
+  // {
+  //   time: 90,
+  //   hurryUpMusicTime: 25,
+  //   players: [
+  //     {
+  //       startPos: {
+  //         x: 14,
+  //         y: 1
+  //       }
+  //     },
+  //     {
+  //       startPos: {
+  //         x: 14,
+  //         y: 14
+  //       }
+  //     }
+  //   ],
+  //   toyType: Constants.TOY_TYPES.CAR,
+  //   toysCapacity: 3,
+  //   entities: [
+  //     // LEVEL X - WALLS
+  //     // LEVEL X - TABLES
+  //     // LEVEL X - PRESENT BOXES
+  //     // LEVEL X - ICE
+  //     // LEVEL X - PITS
+  //     // LEVEL X - PENGUINS
+  //     // LEVEL X - PLATFORMS
+  //     // LEVEL X - FENCES
+  //   ]
+  // },
+
+  // LEVEL 10
   {
     time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
         startPos: {
-          x: 12,
-          y: 7
+          x: 25,
+          y: 6
         }
       },
       {
         startPos: {
-          x: 16,
+          x: 2,
           y: 6
         }
-      }
+      },
     ],
-    toyType: Constants.TOY_TYPES.ROCKET,
-    toysCapacity: 2,
+    toyType: Constants.TOY_TYPES.TEDDY,
+    toysCapacity: 3,
     entities: [
-      // LEVEL 8 - TABLES
+      // LEVEL 10 - TABLES
       {
         type: 'table',
         config: {
-          x: 10,
-          y: 3,
-          tableType: 1,
+          x: 13,
+          y: 13,
+          tableType: 3,
           isSideView: false,
           part: 1
         }
@@ -1940,39 +2160,39 @@ Levels = [
       {
         type: 'table',
         config: {
-          x: 16,
-          y: 3,
-          tableType: 2,
-          isSideView: false,
+          x: 21,
+          y: 5,
+          tableType: 3,
+          isSideView: true,
           part: 2
         }
       },
       {
         type: 'table',
         config: {
-          x: 10,
-          y: 9,
-          tableType: 2,
-          isSideView: false,
+          x: 6,
+          y: 5,
+          tableType: 1,
+          isSideView: true,
           part: 3
         }
       },
-      {
-        type: 'table',
-        config: {
-          x: 16,
-          y: 9,
-          tableType: 3,
-          isSideView: false,
-          part: 4
-        }
-      },
 
-      // LEVEL 8 - PRESENT BOXES
+      // LEVEL 10 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
-          x: 2,
+          x: 3,
+          y: 14,
+          playerId: 'b',
+          isSideView: false,
+          isMiddle: false
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 5,
           y: 14,
           playerId: 'a',
           isSideView: false,
@@ -1982,7 +2202,27 @@ Levels = [
       {
         type: 'present-box',
         config: {
-          x: 4,
+          x: 7,
+          y: 14,
+          playerId: 'b',
+          isSideView: false,
+          isMiddle: false
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 19,
+          y: 14,
+          playerId: 'a',
+          isSideView: false,
+          isMiddle: false
+        }
+      },
+      {
+        type: 'present-box',
+        config: {
+          x: 21,
           y: 14,
           playerId: 'b',
           isSideView: false,
@@ -1999,161 +2239,224 @@ Levels = [
           isMiddle: false
         }
       },
-      {
-        type: 'present-box',
-        config: {
-          x: 25,
-          y: 14,
-          playerId: 'b',
-          isSideView: false,
-          isMiddle: false
-        }
-      },
 
-      // LEVEL 8 - ICE
+      // LEVEL 10 - PENGUINS
       {
-        type: 'ice',
-        config: {
-          height: 3,
-          width: 8,
-          x: 0,
-          y: 0,
-        }
-      },
-      {
-        type: 'ice',
-        config: {
-          height: 3,
-          width: 7,
-          x: 21,
-          y: 0,
-        }
-      },
-
-      // LEVEL 8 - PITS
-      {
-        type: 'pit',
-        config: {
-          height: 9,
-          width: 8,
-          x: 0,
-          y: 3,
-        }
-      },
-      {
-        type: 'pit',
-        config: {
-          height: 9,
-          width: 7,
-          x: 21,
-          y: 3,
-        }
-      },
-      {
-        type: 'pit',
-        config: {
-          height: 4,
-          width: 13,
-          x: 8,
-          y: 12,
-        }
-      },
-
-      // LEVEL 8 - PENGUINS
-
-      // LEVEL 8 - PLATFORMS
-      {
-        type: 'platform',
+        type: 'penguin',
         config: {
           isVertical: true,
+          startPos: {
+            x: 1,
+            y: 2
+          },
+          movementLength: 5,
+          stepSize: .03
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 1,
+            y: 8
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 14,
+            y: 2
+          },
+          movementLength: 5,
+          stepSize: .03
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 14,
+            y: 8
+          },
+          movementLength: 4,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 2
+          },
+          movementLength: 5,
+          stepSize: .03
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 26,
+            y: 8
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 6,
+            y: 1
+          },
+          movementLength: 4,
+          stepSize: .04
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
           startPos: {
             x: 2,
-            y: 3
+            y: 12
           },
-          height: 5,
-          width: 3,
+          movementLength: 4,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 20,
+            y: 1
+          },
+          movementLength: 4,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 16,
+            y: 12
+          },
           movementLength: 4,
           stepSize: .03
         }
       },
       {
-        type: 'platform',
+        type: 'penguin',
         config: {
           isVertical: true,
           startPos: {
-            x: 23,
-            y: 3
+            x: 4,
+            y: 4
           },
-          height: 5,
-          width: 3,
+          movementLength: 4,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 9,
+            y: 4
+          },
           movementLength: 4,
           stepSize: .03
         }
       },
-    ]
-  },
-
-  // LEVEL 9
-  {
-    time: 90,
-    hurryUpMusicTime: 25,
-    players: [
       {
-        startPos: {
-          x: 14,
-          y: 1
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 4,
+            y: 9
+          },
+          movementLength: 5,
+          stepSize: .05
         }
       },
       {
-        startPos: {
-          x: 14,
-          y: 14
-        }
-      }
-    ],
-    toyType: Constants.TOY_TYPES.CAR,
-    toysCapacity: 3,
-    entities: [
-      // LEVEL X - WALLS
-      // LEVEL X - TABLES
-      // LEVEL X - PRESENT BOXES
-      // LEVEL X - ICE
-      // LEVEL X - PITS
-      // LEVEL X - PENGUINS
-      // LEVEL X - PLATFORMS
-      // LEVEL X - FENCES
-    ]
-  },
-
-  // LEVEL 10
-  {
-    time: 90,
-    hurryUpMusicTime: 25,
-    players: [
-      {
-        startPos: {
-          x: 14,
-          y: 1
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 6,
+            y: 3
+          },
+          movementLength: 4,
+          stepSize: .03
         }
       },
       {
-        startPos: {
-          x: 14,
-          y: 14
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 19,
+            y: 4
+          },
+          movementLength: 4,
+          stepSize: .05
         }
-      }
-    ],
-    toyType: Constants.TOY_TYPES.CAR,
-    toysCapacity: 3,
-    entities: [
-      // LEVEL X - WALLS
-      // LEVEL X - TABLES
-      // LEVEL X - PRESENT BOXES
-      // LEVEL X - ICE
-      // LEVEL X - PITS
-      // LEVEL X - PENGUINS
-      // LEVEL X - PLATFORMS
-      // LEVEL X - FENCES
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: true,
+          startPos: {
+            x: 24,
+            y: 4
+          },
+          movementLength: 4,
+          stepSize: .03
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 19,
+            y: 9
+          },
+          movementLength: 5,
+          stepSize: .05
+        }
+      },
+      {
+        type: 'penguin',
+        config: {
+          isVertical: false,
+          startPos: {
+            x: 19,
+            y: 3
+          },
+          movementLength: 4,
+          stepSize: .03
+        }
+      },
     ]
   },
 
@@ -2354,309 +2657,6 @@ Levels = [
           width: 7,
           x: 14,
           y: 5,
-        }
-      },
-    ]
-  },
-  {
-    time: 45,
-    players: [
-      {
-        startPos: {
-          x: 27,
-          y: 10
-        }
-      },
-      {
-        startPos: {
-          x: 0,
-          y: 0
-        }
-      }
-    ],
-    toyType: Constants.TOY_TYPES.ROBOT,
-    toysCapacity: 1,
-    entities: [
-      {
-        type: 'pit',
-        config: {
-          height: 5,
-          width: 6,
-          x: 2,
-          y: 1,
-        }
-      },
-      {
-        type: 'wall',
-        config: {
-          height: 6,
-          width: 10,
-          x: 2,
-          y: 8,
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: true,
-          startPos: {
-            x: 26,
-            y: 4
-          },
-          movementLength: 5,
-          stepSize: .05
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 22,
-          y: 12,
-          tableType: 3,
-          isSideView: true,
-          part: 1
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 10,
-          y: 1,
-          tableType: 1,
-          isSideView: false,
-          part: 2
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 12,
-          y: 5,
-          tableType: 1,
-          isSideView: false,
-          part: 3
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 16,
-          y: 12,
-          toy: Constants.TOY_TYPES.ROBOT,
-          playerId: 'a'
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 13,
-          y: 12,
-          toy: Constants.TOY_TYPES.ROBOT,
-          playerId: 'b'
-        }
-      },
-    ]
-  },
-  {
-    time: 45,
-    players: [
-      {
-        startPos: {
-          x: 27,
-          y: 10
-        }
-      },
-      {
-        startPos: {
-          x: 0,
-          y: 0
-        }
-      }
-    ],
-    toyType: Constants.TOY_TYPES.TEDDY,
-    toysCapacity: 1,
-    entities: [
-      {
-        type: 'pit',
-        config: {
-          height: 5,
-          width: 6,
-          x: 2,
-          y: 1,
-        }
-      },
-      {
-        type: 'wall',
-        config: {
-          height: 6,
-          width: 10,
-          x: 2,
-          y: 8,
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: true,
-          startPos: {
-            x: 26,
-            y: 4
-          },
-          movementLength: 5,
-          stepSize: .05
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 22,
-          y: 12,
-          tableType: 3,
-          isSideView: true,
-          part: 1
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 10,
-          y: 1,
-          tableType: 1,
-          isSideView: false,
-          part: 2
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 12,
-          y: 5,
-          tableType: 1,
-          isSideView: false,
-          part: 3
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 16,
-          y: 12,
-          playerId: 'a'
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 13,
-          y: 12,
-          playerId: 'b'
-        }
-      },
-    ]
-  },
-  {
-    time: 45,
-    players: [
-      {
-        startPos: {
-          x: 27,
-          y: 10
-        }
-      },
-      {
-        startPos: {
-          x: 0,
-          y: 0
-        }
-      }
-    ],
-    toyType: Constants.TOY_TYPES.ROCKET,
-    toysCapacity: 1,
-    entities: [
-      {
-        type: 'pit',
-        config: {
-          height: 5,
-          width: 6,
-          x: 2,
-          y: 1,
-        }
-      },
-      {
-        type: 'wall',
-        config: {
-          height: 6,
-          width: 10,
-          x: 2,
-          y: 8,
-        }
-      },
-      {
-        type: 'penguin',
-        config: {
-          isVertical: true,
-          startPos: {
-            x: 26,
-            y: 4
-          },
-          movementLength: 5,
-          stepSize: .05
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 22,
-          y: 12,
-          tableType: 3,
-          isSideView: true,
-          part: 1
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 10,
-          y: 1,
-          tableType: 1,
-          isSideView: false,
-          part: 2
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 12,
-          y: 5,
-          tableType: 1,
-          isSideView: false,
-          part: 3
-        }
-      },
-      {
-        type: 'table',
-        config: {
-          x: 20,
-          y: 1,
-          tableType: 1,
-          isSideView: false,
-          part: 4
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 16,
-          y: 12,
-          playerId: 'a'
-        }
-      },
-      {
-        type: 'present-box',
-        config: {
-          x: 13,
-          y: 12,
-          playerId: 'b'
         }
       },
     ]
