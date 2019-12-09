@@ -1,0 +1,78 @@
+.walkthrough {
+  color: $color-white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 125px;
+  border-radius: 35px;
+  background-color: $color-purple;
+  padding: 8px 37px 40px;
+  text-align: center;
+  z-index: $gui-z-index;
+  z-index: 900;
+
+  &__text {
+    font-family: $font-google-sans;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+    line-height: 32px;
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &__toys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__toypart {
+    width: 110px;
+    height: 110px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-img {
+      height: 50%;
+      position: relative;
+    }
+
+    &::before {
+      background-color: white;
+      border-radius: 42px;
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: 0.3;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &__toyfull {
+    width: 110px;
+    height: 110px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-img {
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  &__operator {
+    font-family: $font-lobster-two;
+    font-size: 100px;
+    line-height: 125px;
+    margin: 0 12px;
+  }
+}
