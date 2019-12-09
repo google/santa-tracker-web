@@ -77,6 +77,11 @@ app.Player = class Player {
       y: 0
     }
 
+    if (this.playingIceSound) {
+      this.playingIceSound = false;
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+    }
+
     this.clearToyParts()
     this.platform = null
     this.onIce = false
