@@ -298,6 +298,7 @@ app.Player = class Player {
     if (acceptToyEntities && acceptToyEntities.length) {
       this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF)
       this.clearToyParts()
+      window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
 
       // increment score
       app.ScoreManager.updateScore(this.id)
@@ -379,6 +380,7 @@ app.Player = class Player {
           `img/toys/${toyType.key}/full.svg`)
         this.toysElem.appendChild(toyElem)
         window.santaApp.fire('sound-trigger', 'buildandbolt_yay_1', this.id);
+        
       } else {
         const toyElem = document.createElement('img')
         toyElem.setAttribute('class',
@@ -454,6 +456,9 @@ app.Player = class Player {
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
+            if (this.onIce) {
+              window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+            }
         }
         break
       case Constants.PLAYER_STATES.REST:
@@ -466,6 +471,7 @@ app.Player = class Player {
               animation: rest
             })
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
+            window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
         }
         break
       case Constants.PLAYER_STATES.PICK_UP:
