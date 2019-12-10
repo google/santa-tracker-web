@@ -123,11 +123,11 @@
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 robot!"
   },
-  "buildandbolt-build-teddybear-multiple" : {
+  "buildandbolt-build-teddy-multiple" : {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
   },
-  "buildandbolt-build-teddybear-single" : {
+  "buildandbolt-build-teddy-single" : {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 teddy bear!"
   },
