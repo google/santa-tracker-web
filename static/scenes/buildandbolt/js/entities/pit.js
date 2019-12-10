@@ -7,14 +7,6 @@ goog.require('app.Entity');
 goog.require('app.shared.pools');
 
 app.Pit = class Pit extends app.Entity {
-  constructor() {
-    super();
-
-    this.elem = document.createElement('div');
-    document.getElementById('pits').append(this.elem);
-    this.elem.setAttribute('class', 'pit');
-  }
-
   onInit(config) {
     super.onInit(config);
     this.config.checkCell = true;
@@ -32,5 +24,8 @@ app.Pit = class Pit extends app.Entity {
     return [Constants.PLAYER_ACTIONS.PIT_FALL];
   }
 }
+
+app.Pit.targetHolderId = 'pits';
+app.Pit.elemClass = 'pit';
 
 app.shared.pools.mixin(app.Pit);

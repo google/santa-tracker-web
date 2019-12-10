@@ -11,9 +11,6 @@ app.Fence = class Fence extends app.Entity {
     super();
 
     this.lastSoundTime = 0;
-    this.elem = document.createElement('div');
-    this.elem.setAttribute('class', 'fence');
-    document.getElementById('fences').append(this.elem);
   }
 
   onInit(config) {
@@ -155,5 +152,8 @@ app.Fence = class Fence extends app.Entity {
     return type;
   }
 }
+
+app.Fence.targetHolderId = 'fences';
+app.Fence.elemClass = 'fence';
 
 app.shared.pools.mixin(app.Fence);

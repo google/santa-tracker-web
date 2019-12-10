@@ -3,6 +3,12 @@ goog.provide('app.Entity');
 goog.require('app.Board');
 
 app.Entity = class Entity {
+  constructor() {
+    this.elem = document.createElement('div');
+    document.getElementById(this.constructor.targetHolderId).append(this.elem);
+    this.elem.setAttribute('class', this.constructor.elemClass);
+  }
+
   // for app.shared.pools
   onInit(config) {
     // all entities trigger action on cell by default

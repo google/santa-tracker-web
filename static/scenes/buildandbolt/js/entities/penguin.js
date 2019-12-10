@@ -11,9 +11,6 @@ app.Penguin = class Penguin extends app.Slider {
   constructor(game) {
     super();
 
-    document.getElementById('penguins').append(this.elem);
-    this.elem.setAttribute('class', 'penguin');
-
     this.innerElem = document.createElement('div');
     this.innerElem.setAttribute('class', `penguin__inner`);
     this.elem.appendChild(this.innerElem);
@@ -115,5 +112,8 @@ app.Penguin = class Penguin extends app.Slider {
     return [Constants.PLAYER_ACTIONS.RESTART];
   }
 }
+
+app.Penguin.targetHolderId = 'penguins';
+app.Penguin.elemClass = 'penguin';
 
 app.shared.pools.mixin(app.Penguin);
