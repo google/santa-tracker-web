@@ -8,7 +8,7 @@ class Countdown {
     this.game = game
 
     this.dom = {
-      numbers: this.elem.querySelectorAll('[data-countdown-number]'),
+      numbers: this.elem.querySelectorAll('[data-countdown-numbers]'),
     }
 
     setTimeout(() => {

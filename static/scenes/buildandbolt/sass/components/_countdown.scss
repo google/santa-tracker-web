@@ -27,7 +27,7 @@
     transform: translate(-50%, -50%) scale(0.7);
     opacity: 0;
 
-    @for $i from 1 through $total {
+    @for $i from 1 through 3 {
       &:nth-child(#{$i}) {
         transition-delay: 0.3s * $i;
       }
