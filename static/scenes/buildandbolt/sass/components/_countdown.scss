@@ -1,3 +1,36 @@
 .countdown {
+  color: $color-white;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $gui-z-index;
 
+  &__numbers {
+    font-family: $font-lobster;
+    font-size: 32vh;
+
+    &.animate {
+      .countdown__number {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__number {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+
+    @for $i from 1 through $total {
+      &:nth-child(#{$i}) {
+        transition-delay: 0.3s * $i;
+      }
+    }
+  }
 }

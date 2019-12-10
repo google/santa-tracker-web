@@ -5,6 +5,7 @@ goog.require('Levels')
 
 goog.require('app.Board')
 goog.require('app.ControlsManager')
+goog.require('app.Countdown')
 goog.require('app.Entity')
 goog.require('app.Fence')
 goog.require('app.Gui')
@@ -96,6 +97,7 @@ app.Game = class Game {
     app.Board.init(document.querySelector('[data-board]'))
     app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption)
     app.Walkthrough.init(this, document.querySelector('[data-walkthrough]'))
+    app.Countdown.init(this, document.querySelector('[data-countdown]'))
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
@@ -323,6 +325,10 @@ app.Game = class Game {
       app.LevelManager.goToNext()
       app.ToysBoard.updateLevel()
       app.Walkthrough.updateLevelAndShow()
+      // wait level transition before showing the walkthrough
+      setTimeout(() => {
+        app.Countdown.start()
+      }, Constants.LEVEL_TRANSITION_TIMING)
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
