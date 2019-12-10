@@ -14,9 +14,9 @@
 
     &.animate {
       .countdown__number {
-        transition: opacity 1s ease-out, transform 1.2s $transition-power4-out;
-        transform: translate(-50%, -50%) scale(1);
         opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        transition: opacity 1s ease-out, transform 1.2s $transition-power4-out;
 
         @for $i from 0 through 2 {
           &:nth-child(#{$i + 1}) {
@@ -29,28 +29,28 @@
 
   &__number {
     left: 50%;
+    opacity: 0;
     position: absolute;
     top: 50%;
     transform: translate(-70%, -70%) scale(0.7);
-    opacity: 0;
     transition: opacity 0.3s ease, transform 0s ease 0.3s;
   }
 
   &__go {
     font-family: $font-google-sans;
     font-size: 37vh;
-    letter-spacing: -0.05em;
     font-weight: bold;
     left: 50%;
+    letter-spacing: -0.05em;
+    opacity: 0;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.6);
-    opacity: 0;
     transition: opacity 0.3s ease, transform 0s ease 0.3s;
 
     &.animate {
-      transform: translate(-50%, -50%) scale(1);
       opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
       transition: opacity 1s ease-out, transform 1.5s $transition-power4-out;
     }
   }
