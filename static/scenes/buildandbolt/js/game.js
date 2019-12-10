@@ -29,13 +29,13 @@ goog.require('app.AnimationManager');
 
 
 app.Game = class Game {
-  constructor(context, api, prepareAnimation, _msg) {
+  constructor(context, api, prepareAnimation, msg) {
     if (Constants.DEBUG) {
       document.body.classList.add('debug');
     }
 
     this.context = context;
-    this._msg = _msg;
+    this.msg = msg;
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation);

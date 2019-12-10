@@ -97,7 +97,19 @@ api.preload.images(
 
 api.preload.sounds('buildandbolt_load_sounds');
 
-const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, _msg);
+// Get translated strings for toy prompts
+const msg = {
+  'car-multiple': _msg`buildandbolt-build-car-multiple`,
+  'car-single': _msg`buildandbolt-build-car-single`,
+  'robot-multiple': _msg`buildandbolt-build-robot-multiple`,
+  'robot-single': _msg`buildandbolt-build-robot-single`,
+  'rocket-multiple': _msg`buildandbolt-build-rocket-multiple`,
+  'rocket-single': _msg`buildandbolt-build-rocket-single`,
+  'teddy-multiple': _msg`buildandbolt-build-teddybear-multiple`,
+  'teddy-single': _msg`buildandbolt-build-teddybear-single`,
+}
+
+const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, msg);
 
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());

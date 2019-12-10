@@ -81,15 +81,14 @@ class Walkthrough {
 
   getMessage(toyType, toysCapacity) {
     let message = '';
-    let key = toyType.key == 'teddy' ? 'teddybear' : toyType.key;
 
     if (toysCapacity > 1) {
-      const msgId = `buildandbolt-build-${key}-multiple`;
-      const messageRaw = this.game._msg(msgId);
+      const msgId = `${toyType.key}-multiple`;
+      const messageRaw = this.game.msg[msgId];
       message = messageRaw.replace('{{count}}', `<span class="walkthrough__number">${toysCapacity}</span>`);
     } else {
-      const msgId = `buildandbolt-build-${key}-single`;
-      const messageRaw = this.game._msg(msgId);
+      const msgId = `${toyType.key}-single`;
+      const messageRaw = this.game.msg[msgId];
       message = messageRaw.replace('1', `<span class="walkthrough__number">${toysCapacity}</span>`);
     }
 
