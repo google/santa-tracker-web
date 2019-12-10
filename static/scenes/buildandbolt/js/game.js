@@ -149,8 +149,12 @@ app.Game = class Game {
 
   startCountdown() {
     app.ScoreScreen.hide();
-    app.Walkthrough.show();
-    app.Countdown.start();
+    setTimeout(() => {
+      app.Walkthrough.show();
+    }, Constants.LEVEL_TRANSITION_TIMING * 1.5);
+    setTimeout(() => {
+      app.Countdown.start();
+    }, Constants.LEVEL_TRANSITION_TIMING * 3); // added a little delay so you can see what you have to do before the countdown begins
   }
 
   initLevel() {
@@ -215,7 +219,6 @@ app.Game = class Game {
 
   onFrame(now) {
     if (this.isPlaying) {
-      console.log('on F')
       if (!this.lastFrame) {
         this.lastFrame = now;
       } else {

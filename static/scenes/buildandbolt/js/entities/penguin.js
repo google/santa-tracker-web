@@ -21,6 +21,7 @@ app.Penguin = class Penguin extends app.Slider {
     for (const side of sides) {
       app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
         this.animations[side] = anim;
+        this.render(); // render for the first time
       });
     }
   }
@@ -35,7 +36,6 @@ app.Penguin = class Penguin extends app.Slider {
     this.lastAnimationFrame = null;
 
     this.animationDirection = this.config.isVertical ? 'front' : 'side';
-    this.render();
   }
 
   onDispose() {
