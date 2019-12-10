@@ -4,8 +4,6 @@ goog.require('Constants')
 
 goog.require('app.LevelManager')
 
-goog.require('app.shared.utils')
-
 class Walkthrough {
   init(game, elem) {
     this.elem = elem
