@@ -80,8 +80,8 @@ app.Game = class Game {
       this.players.push(new app.Player(Constants.PLAYER_CONTROLS.SINGLE, 'a'))
       this.multiplayer = false
     } else {
-      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.ARROWS, 'a'))
-      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.WASD, 'b'))
+      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.WASD, 'a'))
+      this.players.push(new app.Player(Constants.PLAYER_CONTROLS.ARROWS, 'b'))
       this.multiplayer = true
     }
 
