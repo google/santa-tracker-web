@@ -1,10 +1,10 @@
 goog.provide('app.Ice')
 
 goog.require('Constants')
+goog.require('Utils')
 
 goog.require('app.Entity')
 goog.require('app.shared.pools')
-goog.require('Utils')
 
 app.Ice = class Ice extends app.Entity {
   constructor() {
