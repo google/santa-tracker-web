@@ -179,4 +179,4 @@ Constants = {
 
   LEVEL_TRANSITION_TIMING: 800,
 
-}
+};

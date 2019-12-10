@@ -1,20 +1,12 @@
 goog.provide('app.Ice')
 
 goog.require('Constants')
+goog.require('Utils')
 
 goog.require('app.Entity')
 goog.require('app.shared.pools')
-goog.require('Utils')
 
 app.Ice = class Ice extends app.Entity {
-  constructor() {
-    super()
-
-    this.elem = document.createElement('div')
-    document.getElementById('ice').append(this.elem)
-    this.elem.setAttribute('class', 'ice')
-  }
-
   onInit(config) {
     super.onInit(config)
     this.config.checkCell = true
@@ -32,5 +24,8 @@ app.Ice = class Ice extends app.Entity {
     return [Constants.PLAYER_ACTIONS.ICE]
   }
 }
+
+app.Ice.targetHolderId = 'ice';
+app.Ice.elemClass = 'ice';
 
 app.shared.pools.mixin(app.Ice)

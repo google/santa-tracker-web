@@ -1,23 +1,29 @@
-goog.provide('app.Entity')
+goog.provide('app.Entity');
 
-goog.require('app.Board')
+goog.require('app.Board');
 
 app.Entity = class Entity {
+  constructor() {
+    this.elem = document.createElement('div');
+    document.getElementById(this.constructor.targetHolderId).append(this.elem);
+    this.elem.setAttribute('class', this.constructor.elemClass);
+  }
+
   // for app.shared.pools
   onInit(config) {
     // all entities trigger action on cell by default
-    this.config = config
+    this.config = config;
 
-    this.elem.classList.remove('hidden')
-    this.render()
+    this.elem.classList.remove('hidden');
+    this.render();
     app.Board.addEntityToBoard(this,
         this.config.x, this.config.y,
-        this.config.width, this.config.height)
+        this.config.width, this.config.height);
   }
 
   // for app.shared.pools
   onDispose() {
-    this.elem.classList.add('hidden')
+    this.elem.classList.add('hidden');
   }
 
   onFrame() {
@@ -33,6 +39,6 @@ app.Entity = class Entity {
    * or null if no effect.
    */
   onContact(player) {
-    return null
+    return null;
   }
 }

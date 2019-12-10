@@ -1,15 +1,15 @@
-goog.provide('app.AnimationManager')
+goog.provide('app.AnimationManager');
 
 // singleton to manage the game
 class AnimationManager {
   constructor() {
-    this.animations = {}
+    this.animations = {};
   }
 
   init(api, lottiePrepareAnimation) {
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
-    this.api = api
-    this.lottiePrepareAnimation = lottiePrepareAnimation
+    this.api = api;
+    this.lottiePrepareAnimation = lottiePrepareAnimation;
   }
 
   prepareAnimation(path, container, side, callback, apiPreload) {
@@ -22,12 +22,12 @@ class AnimationManager {
       },
     }).then((anim) => {
       callback(anim)
-    })
+    });
 
     if (apiPreload) {
-      this.api.preload.wait(p)
+      this.api.preload.wait(p);
     }
   }
 }
 
-app.AnimationManager = new AnimationManager()
+app.AnimationManager = new AnimationManager();
