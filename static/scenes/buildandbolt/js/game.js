@@ -316,6 +316,7 @@ app.Game = class Game {
     app.LevelManager.reset()
     app.ScoreManager.reset()
     app.LevelManager.show()
+    app.Walkthrough.updateLevelAndShow()
   }
 
   goToNextLevel() {
