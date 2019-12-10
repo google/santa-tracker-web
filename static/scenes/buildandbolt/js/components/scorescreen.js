@@ -85,7 +85,7 @@ class ScoreScreen {
 
   onSkipControlsClick(e) {
     window.santaApp.fire('sound-trigger', 'generic_button_click');
-    this.game.goToNextLevel()
+    this.game.goToNextLevel();
 
     e.currentTarget.blur();
   }

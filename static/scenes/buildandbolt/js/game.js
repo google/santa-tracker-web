@@ -39,9 +39,9 @@ app.Game = class Game {
     this.msg = msg;
 
     // bind
-    this.updateLevel = this.updateLevel.bind(this)
-    this.startCountdown = this.startCountdown.bind(this)
-    this.goToNextLevel = this.goToNextLevel.bind(this)
+    this.updateLevel = this.updateLevel.bind(this);
+    this.startCountdown = this.startCountdown.bind(this);
+    this.goToNextLevel = this.goToNextLevel.bind(this);
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation);
