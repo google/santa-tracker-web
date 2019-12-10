@@ -1,10 +1,10 @@
 goog.provide('app.Wall');
 
 goog.require('Constants');
+goog.require('Utils');
 
 goog.require('app.Entity');
 goog.require('app.shared.pools');
-goog.require('Utils');
 
 app.Wall = class Wall extends app.Entity {
   constructor() {

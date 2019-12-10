@@ -97,7 +97,7 @@ api.preload.images(
 
 api.preload.sounds('buildandbolt_load_sounds');
 
-const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, _msg)
+const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, _msg);
 
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());
@@ -111,6 +111,6 @@ api.config({
 
 api.ready(async () => {
   // begin game
-  game.showGui()
+  game.showGui();
 });
 
