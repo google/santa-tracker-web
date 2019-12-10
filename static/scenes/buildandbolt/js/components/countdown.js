@@ -1,13 +1,13 @@
-goog.provide('app.Countdown')
+goog.provide('app.Countdown');
 
-goog.require('Constants')
+goog.require('Constants');
 
-goog.require('app.Walkthrough')
+goog.require('app.Walkthrough');
 
 class Countdown {
   init(game, elem) {
-    this.elem = elem
-    this.game = game
+    this.elem = elem;
+    this.game = game;
 
     this.dom = {
       numbers: this.elem.querySelectorAll('[data-countdown-numbers]'),
@@ -16,35 +16,35 @@ class Countdown {
   }
 
   start() {
-    this.game.pause()
+    this.game.pause();
 
-    const second = 1000
+    const second = 1000;
     // animate
     for (let i = 0; i < this.dom.numbers.length; i++) {
-      const start = i * second
+      const start = i * second;
       setTimeout(() => {
-        this.dom.numbers[i].classList.add('animate')
-      }, start)
+        this.dom.numbers[i].classList.add('animate');
+      }, start);
 
       setTimeout(() => {
-        this.dom.numbers[i].classList.remove('animate')
-      }, start + second)
+        this.dom.numbers[i].classList.remove('animate');
+      }, start + second);
 
       if (i === this.dom.numbers.length - 1) {
         setTimeout(() => {
-          this.dom.go.classList.add('animate')
-        }, start + second + 200)
+          this.dom.go.classList.add('animate');
+        }, start + second + 200);
 
         setTimeout(() => {
-          this.dom.go.classList.remove('animate')
+          this.dom.go.classList.remove('animate');
           // resume game
-          this.game.resume()
+          this.game.resume();
           // hide walkthrough
-          app.Walkthrough.hide()
-        }, start + second + 1500)
+          app.Walkthrough.hide();
+        }, start + second + 1500);
       }
     }
   }
 }
 
-app.Countdown = new Countdown()
+app.Countdown = new Countdown();
