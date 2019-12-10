@@ -120,6 +120,8 @@
         z-index: 1;
 
         &--death {
+          transform-origin: 50% 50% !important;
+          transform: scale(1.75);
           z-index: 0;
         }
       }
