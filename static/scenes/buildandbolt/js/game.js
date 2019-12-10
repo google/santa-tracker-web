@@ -38,6 +38,11 @@ app.Game = class Game {
     this.context = context;
     this.msg = msg;
 
+    // bind
+    this.updateLevel = this.updateLevel.bind(this)
+    this.startCountdown = this.startCountdown.bind(this)
+    this.goToNextLevel = this.goToNextLevel.bind(this)
+
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation);
 
@@ -91,7 +96,7 @@ app.Game = class Game {
     app.ControlsManager.init(this, document.querySelector('[data-board-bkg]'));
     app.ScoreManager.init(this);
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
-        document.querySelector('.levelup--number'), this.startLevel.bind(this));
+        document.querySelector('.levelup--number'));
     // init components
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption);
     app.Board.init(document.querySelector('[data-board]'));
@@ -102,22 +107,28 @@ app.Game = class Game {
     this.gameoverDialog = new app.shared.Gameover(this);
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length);
 
-
     this.isPlaying = false;
     this.lastFrame = null;
+    this.canResume = true; // this is preventing a bug for the first level,
+      // for some reason, after the scoreboard is set up, game.resume() is called and start the scoreboard countdown.
+      // This variable let us have control when we can resume or no.
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-    app.LevelManager.show();
 
-    this.onFrame();
+    app.LevelManager.transition(this.updateLevel, this.startCountdown);
+
+    this.onFrame(0);
   }
 
-  startLevel() {
+  updateLevel() {
+    app.LevelManager.updateLevel();
+    app.ToysBoard.updateLevel();
+    app.Walkthrough.updateLevel();
     this.initLevel();
-    this.scoreboard.setLevel(app.LevelManager.current);
-    this.unfreezeGame();
 
     if (app.LevelManager.current === 0) {
+      this.gui.controlsScreen.classList.add('is-hidden');
+      this.gui.guiElem.classList.add('game-started');
       this.gameStarted = true;
 
       setTimeout(()=>{
@@ -132,21 +143,23 @@ app.Game = class Game {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
 
-    // wait level transition before showing the walkthrough
-    setTimeout(() => {
-      app.Walkthrough.show()
-      app.Countdown.start()
-    }, Constants.LEVEL_TRANSITION_TIMING)
+    this.canResume = false;
+    this.pause();
   }
 
+  startCountdown() {
+    app.ScoreScreen.hide();
+    app.Walkthrough.show();
+    app.Countdown.start();
+  }
 
   initLevel() {
     let levelConfig = Levels[app.LevelManager.current];
+    this.scoreboard.setLevel(app.LevelManager.current);
     this.scoreboard.restart();
     this.scoreboard.addTime(levelConfig.time);
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
     this.levelWinner = null;
-    // app.ToysBoard.initLevel(levelConfig.toyType.key)
 
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].init(levelConfig.players[i]);
@@ -202,6 +215,7 @@ app.Game = class Game {
 
   onFrame(now) {
     if (this.isPlaying) {
+      console.log('on F')
       if (!this.lastFrame) {
         this.lastFrame = now;
       } else {
@@ -304,19 +318,15 @@ app.Game = class Game {
 
   reset() {
     this.resetEntities();
-    app.LevelManager.reset();
+    app.LevelManager.reset(this.updateLevel, this.startCountdown);
     app.ScoreManager.reset();
-    app.LevelManager.show();
-    app.Walkthrough.updateLevel();
   }
 
   goToNextLevel() {
     this.resetEntities();
 
     if (app.LevelManager.current < Levels.length - 1) {
-      app.LevelManager.goToNext();
-      app.ToysBoard.updateLevel();
-      app.Walkthrough.updateLevel();
+      app.LevelManager.goToNextLevel(this.updateLevel, this.startCountdown);
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
@@ -350,7 +360,7 @@ app.Game = class Game {
    * Called when resume button is clicked.
    */
   resume() {
-    if (this.gameStarted) {
+    if (this.gameStarted && this.canResume) {
       this.unfreezeGame();
     }
   }

@@ -1,35 +1,38 @@
 goog.provide('app.LevelManager');
 
 goog.require('Levels');
+goog.require('Constants');
 
 goog.require('app.shared.LevelUp');
 
 // singleton to manage the levels
 class LevelManager {
-  init(_, bgElem, numberElem, startLevel) {
+  init(_, bgElem, numberElem) {
     this.levelUp = new LevelUp(_, bgElem, numberElem);
     this.current = 0; // current level
-    this.startLevel = startLevel;
-
-    this.update();
   }
 
-  show() {
-    this.levelUp.show(this.current + 1, this.startLevel);
+  transition(transitionInEnd, transitionOutEnd) {
+    // startLevel is called after end of levelup transition OUT
+    this.levelUp.show(this.current + 1, transitionOutEnd);
+
+    // end of levelup transition IN
+    setTimeout(() => {
+      transitionInEnd();
+    }, Constants.LEVEL_TRANSITION_TIMING);
   }
 
-  goToNext() {
+  goToNextLevel(updateLevel, startCountdown) {
     this.current++;
-    this.update();
-    this.show();
+    this.transition(updateLevel, startCountdown);
   }
 
-  reset() {
+  reset(updateLevel, startCountdown) {
     this.current = 0;
-    this.update();
+    this.transition(updateLevel, startCountdown);
   }
 
-  update() {
+  updateLevel() {
     this.toyType = Levels[this.current].toyType;
     this.toysCapacity = Levels[this.current].toysCapacity;
   }

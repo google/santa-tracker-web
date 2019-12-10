@@ -39,6 +39,7 @@ app.Player = class Player {
 
     Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y);
     app.Board.addEntityToBoard(this, this.position.x, this.position.y);
+    this.render();
   }
 
   /**

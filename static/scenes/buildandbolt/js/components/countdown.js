@@ -16,8 +16,6 @@ class Countdown {
   }
 
   start() {
-    this.game.pause()
-
     const second = 1000
     // animate
     for (let i = 0; i < this.dom.numbers.length; i++) {
@@ -38,6 +36,7 @@ class Countdown {
         setTimeout(() => {
           this.dom.go.classList.remove('animate')
           // resume game
+          this.game.canResume = true;
           this.game.resume()
           // hide walkthrough
           app.Walkthrough.hide()

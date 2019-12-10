@@ -35,6 +35,7 @@ app.Penguin = class Penguin extends app.Slider {
     this.lastAnimationFrame = null;
 
     this.animationDirection = this.config.isVertical ? 'front' : 'side';
+    this.render();
   }
 
   onDispose() {

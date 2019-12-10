@@ -135,9 +135,6 @@ class ScoreManager {
       // update score screen
       app.ScoreScreen.reset(player.id, 0);
     }
-
-    app.ToysBoard.updateLevel();
-    app.ScoreScreen.hide();
   }
 }
 
