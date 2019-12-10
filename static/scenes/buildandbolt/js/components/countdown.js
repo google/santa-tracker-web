@@ -9,6 +9,7 @@ class Countdown {
 
     this.dom = {
       numbers: this.elem.querySelectorAll('[data-countdown-numbers]'),
+      go: this.elem.querySelector('[data-countdown-go]')
     }
 
     setTimeout(() => {
@@ -27,13 +28,28 @@ class Countdown {
   }
 
   start() {
+    const second = 1000
     // animate
     for (let i = 0; i < this.dom.numbers.length; i++) {
+      const start = i * second
       setTimeout(() => {
         this.dom.numbers[i].classList.add('animate')
-      }, i * 1000)
-    }
+      }, start)
 
+      setTimeout(() => {
+        this.dom.numbers[i].classList.remove('animate')
+      }, start + second)
+
+      if (i === this.dom.numbers.length - 1) {
+        setTimeout(() => {
+          this.dom.go.classList.add('animate')
+        }, start + second + 200)
+
+        setTimeout(() => {
+          this.dom.go.classList.remove('animate')
+        }, start + second + 1500)
+      }
+    }
   }
 }
 
