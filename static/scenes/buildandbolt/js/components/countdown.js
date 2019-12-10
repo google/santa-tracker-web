@@ -2,6 +2,8 @@ goog.provide('app.Countdown')
 
 goog.require('Constants')
 
+goog.require('app.Walkthrough')
+
 class Countdown {
   init(game, elem) {
     this.elem = elem
@@ -11,23 +13,11 @@ class Countdown {
       numbers: this.elem.querySelectorAll('[data-countdown-numbers]'),
       go: this.elem.querySelector('[data-countdown-go]')
     }
-
-    setTimeout(() => {
-      this.start()
-    }, Constants.LEVEL_TRANSITION_TIMING)
-  }
-
-  show() {
-    this.game.pause()
-    this.elem.classList.remove('is-hidden')
-    // To do: start countdown
-  }
-
-  hide() {
-    this.elem.classList.add('is-hidden')
   }
 
   start() {
+    this.game.pause()
+
     const second = 1000
     // animate
     for (let i = 0; i < this.dom.numbers.length; i++) {
@@ -47,6 +37,10 @@ class Countdown {
 
         setTimeout(() => {
           this.dom.go.classList.remove('animate')
+          // resume game
+          this.game.resume()
+          // hide walkthrough
+          app.Walkthrough.hide()
         }, start + second + 1500)
       }
     }

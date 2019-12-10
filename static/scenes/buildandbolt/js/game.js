@@ -102,7 +102,6 @@ app.Game = class Game {
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
 
-
     this.isPlaying = false
     this.lastFrame = null
 
@@ -131,6 +130,12 @@ app.Game = class Game {
     } else {
       window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
+
+    // wait level transition before showing the walkthrough
+    setTimeout(() => {
+      app.Walkthrough.show()
+      app.Countdown.start()
+    }, Constants.LEVEL_TRANSITION_TIMING)
   }
 
 
@@ -316,7 +321,7 @@ app.Game = class Game {
     app.LevelManager.reset()
     app.ScoreManager.reset()
     app.LevelManager.show()
-    app.Walkthrough.updateLevelAndShow()
+    app.Walkthrough.updateLevel()
   }
 
   goToNextLevel() {
@@ -325,11 +330,7 @@ app.Game = class Game {
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
       app.ToysBoard.updateLevel()
-      app.Walkthrough.updateLevelAndShow()
-      // wait level transition before showing the walkthrough
-      setTimeout(() => {
-        app.Countdown.start()
-      }, Constants.LEVEL_TRANSITION_TIMING)
+      app.Walkthrough.updateLevel()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
