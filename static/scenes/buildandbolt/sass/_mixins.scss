@@ -45,3 +45,13 @@
     display: none;
   }
 }
+
+@mixin stagger-animation-children($offset: 0, $delay: $delay-appear, $total: 10) {
+  transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+
+  @for $i from 1 through $total {
+    &:nth-child(#{$i}) {
+      transition-delay: ($delay * $i) + $offset;
+    }
+  }
+}

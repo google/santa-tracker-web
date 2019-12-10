@@ -21,6 +21,7 @@ class LevelManager {
   goToNext() {
     this.current++
     this.update()
+    this.show()
   }
 
   reset() {

@@ -1,6 +1,7 @@
 import '../../src/magic.js';
 import api from '../../src/scene/api.js';
 import { prepareAnimation } from '../../src/deps/lottie.js';
+import { _msg } from '../../src/magic.js';
 import Game from './:closure.js';
 
 // TODO: list out all images
@@ -13,7 +14,7 @@ import Game from './:closure.js';
 
 api.preload.sounds('buildandbolt_load_sounds');
 
-const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation)
+const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, _msg)
 
 api.addEventListener('pause', (ev) => game.pause());
 api.addEventListener('resume', (ev) => game.resume());

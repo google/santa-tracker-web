@@ -1,0 +1,172 @@
+.walkthrough {
+  background-color: $color-purple;
+  border-radius: 35px;
+  bottom: 125px;
+  color: $color-white;
+  left: 50%;
+  opacity: 1;
+  padding: 17px 32px 36px;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  transition: opacity $transition-time;
+  z-index: $gui-z-index;
+
+  @include respond-to(mobile) {
+    border-radius: 22px;
+    bottom: 30px;
+    padding: 8px 19px 20px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    .walkthrough__text,
+    .walkthrough__appear {
+      opacity: 0;
+      transform: translateY($translate-appear-small);
+    }
+
+    .walkthrough__number {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  &__appear {
+    @include stagger-animation-children(0.2, $delay-appear-fast);
+  }
+
+  &__text {
+    font-family: $font-google-sans;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+    line-height: 29px;
+    margin-bottom: 12px;
+    transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+    transition-delay: $delay-appear + 0.1;
+
+    @include respond-to(mobile) {
+      font-size: 16px;
+      line-height: 15px;
+      margin-bottom: 6px;
+    }
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &__number {
+    display: inline-block;
+    font-family: $font-lobster;
+    font-size: 36px;
+    margin: -2px 5px 0;
+    position: relative;
+    transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+    transition-delay: $delay-appear + 0.1;
+    vertical-align: middle;
+    transform: scale(1);
+
+    @include respond-to(mobile) {
+      font-size: 20px;
+      margin: -2px 3px 0;
+    }
+
+    &::before {
+      background-color: white;
+      border-radius: 50%;
+      content: '';
+      height: 18px;
+      left: 50%;
+      opacity: 0.3;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      z-index: 0;
+
+      @include respond-to(mobile) {
+        height: 10px;
+        width: 10px;
+      }
+    }
+  }
+
+  &__toys {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toypart {
+    align-items: center;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    position: relative;
+    width: 110px;
+
+    @include respond-to(mobile) {
+      height: 50px;
+      width: 50px;
+    }
+
+    &-img {
+      height: 50%;
+      position: relative;
+    }
+
+    &::before {
+      background-color: white;
+      border-radius: 42px;
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: 0.3;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+
+      @include respond-to(mobile) {
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__toyfull {
+    align-items: center;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    position: relative;
+    width: 110px;
+
+    @include respond-to(mobile) {
+      height: 50px;
+      width: 50px;
+    }
+
+    &-img {
+      height: 100%;
+      position: relative;
+    }
+  }
+
+  &__operator {
+    font-family: $font-google-sans;
+    font-size: 67px;
+    font-weight: bold;
+    line-height: 86px;
+    margin: 0 12px;
+
+    @include respond-to(mobile) {
+      font-size: 28px;
+      line-height: 36px;
+      margin: 0 8px;
+    }
+  }
+}

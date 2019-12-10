@@ -21,44 +21,46 @@
     transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
   }
 
-  .score-screen__player {
-    transition-delay: 0.1s;
+  .score-screen__title {
+    transition-delay: $delay-appear + 0.1;
+  }
 
-    .score-screen__score,
-    .score-screen__title {
-      transition-delay: 0.2s;
+  .score-screen__player {
+    transition-delay: $delay-appear;
+
+    .score-screen__score {
+      transition-delay: $delay-appear + 0.1;
     }
 
     .score-screen__name {
-      transition-delay: 0.3s;
+      transition-delay: $delay-appear + 0.2;
     }
 
     .score-screen__toys {
-      transition-delay: 0.4s;
+      transition-delay: $delay-appear + 0.3;
     }
 
     .score-screen__character {
-      transition-delay: 0.5s;
+      transition-delay: $delay-appear + 0.4;
     }
 
     &:nth-child(2) {
-      transition-delay: 0.2s;
+      transition-delay: $delay-appear + 0.1;
 
-      .score-screen__score,
-      .score-screen__title {
-        transition-delay: 0.3s;
+      .score-screen__score {
+        transition-delay: $delay-appear + 0.2;
       }
 
       .score-screen__name {
-        transition-delay: 0.4s;
+        transition-delay: $delay-appear + 0.3;
       }
 
       .score-screen__toys {
-        transition-delay: 0.5s;
+        transition-delay: $delay-appear + 0.4;
       }
 
       .score-screen__character {
-        transition-delay: 0.6s;
+        transition-delay: $delay-appear + 0.5;
       }
     }
   }
@@ -71,12 +73,12 @@
     .score-screen__score,
     .score-screen__name,
     .score-screen__toys {
-      transform: translateY(20px);
+      transform: translateY($translate-appear);
       opacity: 0;
     }
 
     .score-screen__title {
-      transform: translateY(20px) translateX(-50%);
+      transform: translateY($translate-appear) translateX(-50%);
       opacity: 0;
     }
 

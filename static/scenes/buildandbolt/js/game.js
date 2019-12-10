@@ -19,6 +19,7 @@ goog.require('app.ScoreManager')
 goog.require('app.ScoreScreen')
 goog.require('app.Table')
 goog.require('app.ToysBoard')
+goog.require('app.Walkthrough')
 goog.require('app.Wall')
 goog.require('app.shared.utils')
 goog.require('app.shared.Gameover')
@@ -28,12 +29,13 @@ goog.require('app.AnimationManager')
 
 
 app.Game = class Game {
-  constructor(context, api, prepareAnimation) {
+  constructor(context, api, prepareAnimation, _msg) {
     if (Constants.DEBUG) {
       document.getElementsByTagName('body')[0].classList.add('debug')
     }
 
     this.context = context
+    this._msg = _msg
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation)
@@ -93,6 +95,7 @@ app.Game = class Game {
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption)
     app.Board.init(document.querySelector('[data-board]'))
     app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption)
+    app.Walkthrough.init(this, document.querySelector('[data-walkthrough]'))
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this)
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length)
@@ -311,16 +314,16 @@ app.Game = class Game {
     app.LevelManager.reset()
     app.ScoreManager.reset()
     app.LevelManager.show()
+    app.Walkthrough.updateLevelAndShow()
   }
 
   goToNextLevel() {
     this.resetEntities()
-    this.resume()
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNext()
-      app.LevelManager.show()
       app.ToysBoard.updateLevel()
+      app.Walkthrough.updateLevelAndShow()
       window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
     } else {
       // end game. display game winner.
