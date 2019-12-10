@@ -10,7 +10,7 @@
   text-align: center;
   transform: translateX(-50%);
   transition: opacity $transition-time;
-  z-index: $gui-z-index;
+  z-index: $walkthrough-z-index;
 
   @include respond-to(mobile) {
     border-radius: 22px;
