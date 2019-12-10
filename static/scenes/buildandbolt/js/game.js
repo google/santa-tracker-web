@@ -118,16 +118,13 @@ app.Game = class Game {
     if (app.LevelManager.current === 0) {
       this.gameStarted = true
 
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-      }, 800)
+      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.8);ß
 
       if (app.shared.utils.touchEnabled) {
         this.tutorial.start()
       }
     } else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.8);
     }
   }
 
@@ -136,7 +133,7 @@ app.Game = class Game {
     let levelConfig = Levels[app.LevelManager.current]
     this.scoreboard.restart()
     this.scoreboard.addTime(levelConfig.time)
-    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
+    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 25;
     this.levelWinner = null
     // app.ToysBoard.initLevel(levelConfig.toyType.key)
 
@@ -307,6 +304,7 @@ app.Game = class Game {
     }
 
     this.entities = []
+    this.hurryUpPlayed = false;
   }
 
   reset() {
@@ -324,19 +322,16 @@ app.Game = class Game {
       app.LevelManager.goToNext()
       app.ToysBoard.updateLevel()
       app.Walkthrough.updateLevelAndShow()
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
     } else {
       // end game. display game winner.
       this.gameoverDialog.show()
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
 
-      //timeout to prevent walk loop to start after game has ended
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
-      }, 10)
+      
     }
   }
-
+ 
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */
