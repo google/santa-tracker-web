@@ -3,7 +3,6 @@ import api from '../../src/scene/api.js';
 import { prepareAnimation } from '../../src/deps/lottie.js';
 import Game from './:closure.js';
 
-// TODO: list out all images
 api.preload.images(
   'img/player-selection-one.svg',
   'img/player-selection-two.svg',
