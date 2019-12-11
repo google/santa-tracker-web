@@ -50,12 +50,6 @@ body {
     top: 0;
   }
 
-  .level {
-    background: $color-yellow url(img/floor/floor_tile.svg) top left/100px 100px repeat;
-    position: absolute;
-    transform-origin: top left;
-  }
-
   .animation {
     display: none;
 

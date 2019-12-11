@@ -36,10 +36,13 @@ app.Penguin = class Penguin extends app.Slider {
   }
 
   onInit(config) {
-    config.height = Constants.PENGUIN_HEIGHT;
-    config.width = Constants.PENGUIN_WIDTH;
-
-    super.onInit(config);
+    super.onInit({
+      ...config,
+      type: 'penguin',
+      checkBorder: true,
+      height: Constants.PENGUIN_HEIGHT,
+      width: Constants.PENGUIN_WIDTH
+    });
 
     this.animationFrame = Constants.PENGUIN_FRAMES.start;
     this.lastAnimationFrame = null;
@@ -120,12 +123,14 @@ app.Penguin = class Penguin extends app.Slider {
     }
   }
 
+  // get current angle
+  getDirectionAngle() {
+    return Utils.getAngle(this.position, this.prevPosition);
+  }
+
   onContact(player) {
     super.onContact(player);
-    window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
-    window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', player.id);
-    window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', player.id);
-    return [Constants.PLAYER_ACTIONS.RESTART]
+    return [Constants.PLAYER_ACTIONS.BOUNCE];
   }
 }
 

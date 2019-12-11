@@ -200,6 +200,12 @@ app.Game = class Game {
           break;
         case 'present-box':
           if (this.multiplayer || entity.config.playerId == 'a') {
+            // Don't allow floating middle present boxes in single player mode
+            // Currently no levels have a need for middle boxes in single player
+            if (!this.multiplayer) {
+              entity.config.isMiddle = false
+            }
+
             this.entities.push(app.PresentBox.pop(this, entity.config));
           }
           break;
@@ -261,7 +267,7 @@ app.Game = class Game {
     const player2 = this.players[1];
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants;
 
-    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y);
+    const collisionDistance = Utils.getDistance(player1.position, player2.position);
 
     if (collisionDistance < 1) {
       // this prevent detecting collision issues
@@ -334,7 +340,7 @@ app.Game = class Game {
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
     }
   }
- 
+
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */

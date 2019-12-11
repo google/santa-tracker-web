@@ -10,11 +10,12 @@ goog.require('app.shared.pools');
 
 app.PresentBox = class PresentBox extends app.Entity {
   onInit(config) {
-    config.width = Constants.PRESENT_WIDTH;
-    config.height = Constants.PRESENT_HEIGHT;
-
-    super.onInit(config);
-    this.config.checkBorder = true;
+    super.onInit({
+      ...config,
+      width: Constants.PRESENT_WIDTH,
+      height: Constants.PRESENT_HEIGHT,
+      checkBorder: true
+    });
 
     // reset to base present box styles
     this.elem.setAttribute('class', 'present-box');

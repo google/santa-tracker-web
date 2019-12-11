@@ -1,7 +1,25 @@
 .board-bkg {
+  background-color: $color-wall;
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+
+  .level {
+    background: $color-yellow url(img/floor/floor_tile.svg) top left/100px 100px repeat;
+    position: absolute;
+    transform-origin: top left;
+
+    &::before {
+      background: url(img/world-edges.svg) center/100% no-repeat;
+      content: '';
+      height: 251%;
+      left: -33.7%;
+      top: -73.7%;
+      position: absolute;
+      width: 167%;
+
+    }
+  }
 }
