@@ -2,6 +2,7 @@ goog.provide('app.ScoreScreen');
 
 goog.require('Constants');
 
+goog.require('app.LevelManager');
 goog.require('app.shared.utils');
 
 class ScoreScreen {
@@ -82,10 +83,11 @@ class ScoreScreen {
     }
   }
 
-  onSkipControlsClick() {
-    this.hide();
+  onSkipControlsClick(e) {
     window.santaApp.fire('sound-trigger', 'generic_button_click');
     this.game.goToNextLevel();
+
+    e.currentTarget.blur();
   }
 
   onSkipControlsOver(element) {

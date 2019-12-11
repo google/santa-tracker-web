@@ -19,8 +19,6 @@ class ToysBoard {
       this.dom.players[1].remove();
       this.elem.classList.add('single-player');
     }
-
-    this.updateLevel();
   }
 
   updateLevel() {

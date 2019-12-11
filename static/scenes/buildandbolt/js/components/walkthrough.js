@@ -13,8 +13,6 @@ class Walkthrough {
       text: this.elem.querySelector('[data-walkthrough-text]'),
       toys: this.elem.querySelector('[data-walkthrough-toys]')
     };
-
-    this.updateLevel();
   }
 
   show() {

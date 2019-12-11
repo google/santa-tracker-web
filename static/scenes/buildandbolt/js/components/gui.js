@@ -50,10 +50,11 @@ app.Gui = class Gui {
     window.santaApp.fire('sound-trigger', 'generic_button_over');
   }
 
-  onSkipControlsClick() {
-    this.controlsScreen.classList.add('is-hidden');
+  onSkipControlsClick(e) {
     this.startGame();
     window.santaApp.fire('sound-trigger', 'generic_button_click');
+
+    e.currentTarget.blur();
   }
 
   onSkipControlsOver(element) {
@@ -62,6 +63,5 @@ app.Gui = class Gui {
 
   startGame() {
     this.game.init(this.playerOption);
-    this.guiElem.classList.add('game-started');
   }
 }
