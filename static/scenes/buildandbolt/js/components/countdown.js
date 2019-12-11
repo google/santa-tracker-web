@@ -16,8 +16,6 @@ class Countdown {
   }
 
   start() {
-    this.game.canResume = true;
-    this.game.resume();
     const second = 1000;
     // animate
     for (let i = 0; i < this.dom.numbers.length; i++) {

@@ -361,7 +361,7 @@ app.Player = class Player {
       for (const entity of bouncingEntities) {
         // penguin bounce
         if (entity.config.type === 'penguin') {
-          this.bouncedByPenguin(entity)
+          this.bouncedByPenguin(entity);
         }
 
         // other player bounce
@@ -372,8 +372,6 @@ app.Player = class Player {
         }
       }
     }
-
-    // console.log(this.getSpeed())
   }
 
   // bump the player in a specific direction with a specific force
@@ -399,9 +397,9 @@ app.Player = class Player {
     const collisionDistance = Utils.getDistance(this.position, penguin.position);
 
     if (collisionDistance < 1) {
-      const speed = this.getSpeed()
-      const dectectionTime = 200
-      let angle, direction
+      const speed = this.getSpeed();
+      const dectectionTime = 200;
+      let angle, direction;
 
       if (speed === 0) {
         // if player is not moving,
@@ -415,10 +413,10 @@ app.Player = class Player {
         if (this.recentlyBumped) {
           // if recently bumped,
           // keep pushing the player in the same direction as before to prevent back-and-force movements
-          direction = 1
+          direction = 1;
         }
-        clearTimeout(this.recentlyBumpedTimeout)
-        this.recentlyBumped = true
+        clearTimeout(this.recentlyBumpedTimeout);
+        this.recentlyBumped = true;
         this.recentlyBumpedTimeout = setTimeout(() => {
           this.recentlyBumped = false;
         }, dectectionTime);
@@ -428,8 +426,8 @@ app.Player = class Player {
       if (collisionDistance <= 0.5 && !this.recentlyCrushed) {
         // move player in 90degrees angle from penguin's direction
         angle = penguin.getDirectionAngle();
-        angle += Math.PI / 2
-        clearTimeout(this.recentlyCrushedTimeout)
+        angle += Math.PI / 2;
+        clearTimeout(this.recentlyCrushedTimeout);
         this.recentlyCrushed = true;
         this.recentlyCrushedTimeout = setTimeout(() => {
           this.recentlyCrushed = false;
