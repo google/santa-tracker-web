@@ -16,16 +16,12 @@ app.Table = class Table extends app.Entity {
   }
 
   onInit(config) {
-    if (config.isSideView) {
-      config.width = Constants.TABLE_HEIGHT;
-      config.height = Constants.TABLE_WIDTH;
-    } else {
-      config.width = Constants.TABLE_WIDTH;
-      config.height = Constants.TABLE_HEIGHT;
-    }
-
-    super.onInit(config);
-    this.config.checkBorder = true;
+    super.onInit({
+      ...config,
+      width: config.isSideView ? Constants.TABLE_HEIGHT : Constants.TABLE_WIDTH,
+      height: config.isSideView ? Constants.TABLE_WIDTH : Constants.TABLE_HEIGHT,
+      checkBorder: true
+    });
 
     const { toyType } = app.LevelManager;
     const toyPart = this.config.part;

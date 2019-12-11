@@ -14,6 +14,8 @@ app.Fence = class Fence extends app.Entity {
   }
 
   onInit(config) {
+    super.onInit({...config, checkCell: true, checkBorder: true});
+
     const { cells, row, column } = config;
     const cell = cells[row][column];
     const type = this.setType(cells, row, column);
@@ -33,11 +35,6 @@ app.Fence = class Fence extends app.Entity {
     if (cell.left) {
       this.addChild('left', type.left);
     }
-
-    super.onInit(config);
-
-    this.config.checkCell = true;
-    this.config.checkBorder = true;
   }
 
   onDispose() {
