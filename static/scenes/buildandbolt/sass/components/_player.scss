@@ -1,18 +1,4 @@
 ##{$name} {
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
   @keyframes fall {
     0% {
       opacity: 1;
@@ -142,12 +128,6 @@
         right: 0;
         top: 0;
         z-index: 1;
-
-        &--death {
-          transform-origin: 50% 50% !important;
-          transform: scale(1.75);
-          z-index: 0;
-        }
       }
 
       &.direction--side {
@@ -199,14 +179,6 @@
           left: 50%;
           transform: translateX(-50%) rotate(180deg);
           z-index: 1;
-        }
-      }
-
-      &.is-dead {
-        animation: .2s blink infinite;
-
-        .animation--death {
-          display: block;
         }
       }
 

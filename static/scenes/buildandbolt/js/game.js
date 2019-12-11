@@ -66,11 +66,9 @@ app.Game = class Game {
     initPlayerAnimation('img/players/a/front.json', 'a', 'front');
     initPlayerAnimation('img/players/a/back.json', 'a', 'back');
     initPlayerAnimation('img/players/a/side.json', 'a', 'side');
-    initPlayerAnimation('img/players/death-pow.json', 'a', 'death');
     initPlayerAnimation('img/players/b/front.json', 'b', 'front');
     initPlayerAnimation('img/players/b/back.json', 'b', 'back');
     initPlayerAnimation('img/players/b/side.json', 'b', 'side');
-    initPlayerAnimation('img/players/death-pow.json', 'b', 'death');
   }
 
   showGui() {
