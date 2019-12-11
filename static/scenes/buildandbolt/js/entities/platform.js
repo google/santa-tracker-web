@@ -13,8 +13,8 @@ app.Platform = class Platform extends app.Slider {
   }
 
   onInit(config) {
-    super.onInit(config)
-    super.render() // render once
+    super.onInit(config);
+    super.render(); // render once
   }
 }
 
