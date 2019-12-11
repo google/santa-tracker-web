@@ -154,12 +154,12 @@ app.Game = class Game {
   }
 
   initLevel() {
-    let levelConfig = Levels[app.LevelManager.current]
-    this.scoreboard.restart()
-    this.scoreboard.addTime(levelConfig.time)
+    let levelConfig = Levels[app.LevelManager.current];
+    this.scoreboard.setLevel(app.LevelManager.current);
+    this.scoreboard.restart();
+    this.scoreboard.addTime(levelConfig.time);
     this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 25;
-    this.levelWinner = null
-    // app.ToysBoard.initLevel(levelConfig.toyType.key)
+    this.levelWinner = null;
 
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].init(levelConfig.players[i]);
@@ -203,7 +203,7 @@ app.Game = class Game {
             // Don't allow floating middle present boxes in single player mode
             // Currently no levels have a need for middle boxes in single player
             if (!this.multiplayer) {
-              entity.config.isMiddle = false
+              entity.config.isMiddle = false;
             }
 
             this.entities.push(app.PresentBox.pop(this, entity.config));

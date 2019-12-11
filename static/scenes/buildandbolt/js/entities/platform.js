@@ -11,6 +11,11 @@ app.Platform = class Platform extends app.Slider {
     super.onContact(player);
     return [Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM];
   }
+
+  onInit(config) {
+    super.onInit(config);
+    super.render(); // render once
+  }
 }
 
 app.Platform.targetHolderId = 'platforms';

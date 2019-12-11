@@ -8,7 +8,7 @@ goog.require('app.Slider');
 goog.require('app.shared.pools');
 
 app.Penguin = class Penguin extends app.Slider {
-  constructor(game) {
+  constructor() {
     super();
 
     this.innerElem = document.createElement('div');
@@ -18,12 +18,27 @@ app.Penguin = class Penguin extends app.Slider {
     this.animations = {};
 
     const sides = ['front', 'back', 'side'];
+    const promises = [];
+
     for (const side of sides) {
-      app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
-        this.animations[side] = anim;
-        this.render(); // render for the first time
+      const promise = new Promise(resolve => {
+        app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
+          this.animations[side] = anim;
+          resolve();
+        });
       });
+      promises.push(promise);
     }
+
+    // we have to wait the penguin animation to be loaded before rendering it once
+    // after all sides are loaded, render it once
+    Promise.all(promises).then(() => {
+      this.render();
+      if (!app.AnimationManager.penguinLoaded) {
+        // penguin animation has been loaded once
+        app.AnimationManager.penguinLoaded = true;
+      }
+    })
   }
 
   onInit(config) {
@@ -39,6 +54,10 @@ app.Penguin = class Penguin extends app.Slider {
     this.lastAnimationFrame = null;
 
     this.animationDirection = this.config.isVertical ? 'front' : 'side';
+
+    if (app.AnimationManager.penguinLoaded) {
+      this.render();
+    }
   }
 
   onDispose() {
