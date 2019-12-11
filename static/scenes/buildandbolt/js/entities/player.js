@@ -435,7 +435,7 @@ app.Player = class Player {
           this.recentlyCrushed = false;
         }, dectectionTime);
       }
-      this.bump(angle, Constants.PLAYER_PUSH_FORCE * 1, direction);
+      this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction);
     }
   }
 
