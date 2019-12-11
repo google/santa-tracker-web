@@ -109,9 +109,10 @@ app.Game = class Game {
 
     this.isPlaying = false;
     this.lastFrame = null;
-    this.canResume = true; // this is preventing a bug for the first level,
-      // for some reason, after the scoreboard is set up, game.resume() is called and start the scoreboard countdown.
-      // This variable let us have control when we can resume or no.
+    // this is preventing a bug for the first level,
+    // for some reason, after the scoreboard is set up, game.resume() is called and start the scoreboard countdown.
+    // This variable let us have control when we can resume or no.
+    this.canResume = true;
 
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
 

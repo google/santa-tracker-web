@@ -1,7 +1,7 @@
 goog.provide('app.LevelManager');
 
-goog.require('Levels');
 goog.require('Constants');
+goog.require('Levels');
 
 goog.require('app.shared.LevelUp');
 
