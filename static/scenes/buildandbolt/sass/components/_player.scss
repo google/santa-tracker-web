@@ -13,6 +13,30 @@
     }
   }
 
+  @keyframes fall {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 10;
+      transform: translate(-25%, -50%) scale(0);
+    }
+  }
+
+  @keyframes fall-flipped {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1) scale(1);
+    }
+
+    100% {
+      opacity: 10;
+      transform: translate(-25%, -50%) scaleX(-1) scale(0);
+    }
+  }
+
   .player {
     @include board-object();
     height: $grid-unit-size;
@@ -183,6 +207,14 @@
 
         .animation--death {
           display: block;
+        }
+      }
+
+      &.is-falling {
+        animation: .5s fall forwards;
+
+        &.is-flipped {
+          animation: .5s fall-flipped forwards;
         }
       }
     }

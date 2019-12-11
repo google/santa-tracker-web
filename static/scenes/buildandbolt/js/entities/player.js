@@ -45,29 +45,37 @@ app.Player = class Player {
   /**
    * Restarts the player to the beginning of the level, progress lost
    */
-  restart() {
+  restart(playPitAnimation) {
     this.dead = true;
     this.animationQueue = [];
 
-    // initialize death animation
-    this.innerElem.classList.add('is-dead');
-    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start;
-    this.currentAnimationState = {
-      animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
-      callback: () => {
-        this.dead = false;
-        this.innerElem.classList.remove('is-dead');
+    if (playPitAnimation) {
+      this.innerElem.classList.add('is-falling');
+      setTimeout(this.postDeathAnimation.bind(this), 500);
+    } else {
+      // initialize death animation
+      this.innerElem.classList.add('is-dead');
+      this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start;
+      this.currentAnimationState = {
+        animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
+        callback: this.postDeathAnimation.bind(this)
+      };
+    }
+  }
 
-        window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+  postDeathAnimation() {
+    this.dead = false;
+    this.innerElem.classList.remove('is-dead');
+    this.innerElem.classList.remove('is-falling');
 
-        this.resetPosition();
+    window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+    // window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
 
-        app.Board.updateEntityPosition(this,
-            this.prevPosition.x, this.prevPosition.y,
-            this.position.x, this.position.y);
-      }
-    };
+    this.resetPosition();
+
+    app.Board.updateEntityPosition(this,
+        this.prevPosition.x, this.prevPosition.y,
+        this.position.x, this.position.y);
   }
 
   resetPosition() {
@@ -298,11 +306,10 @@ app.Player = class Player {
 
     const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL];
     if (!this.platform && pitEntities && pitEntities.length) {
-      // TODO: pit falling animation
       window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
       window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
       window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
-      this.restart()
+      this.restart(true)
       return // ignore all other actions
     }
 
@@ -484,7 +491,7 @@ app.Player = class Player {
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
-            
+
             if (this.onIce) {
               window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
             }else {
