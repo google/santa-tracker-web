@@ -33,10 +33,10 @@ app.Penguin = class Penguin extends app.Slider {
     // we have to wait the penguin animation to be loaded before rendering it once
     // after all sides are loaded, render it once
     Promise.all(promises).then(() => {
-      this.render()
+      this.render();
       if (!app.AnimationManager.penguinLoaded) {
         // penguin animation has been loaded once
-        app.AnimationManager.penguinLoaded = true
+        app.AnimationManager.penguinLoaded = true;
       }
     })
   }
@@ -56,7 +56,7 @@ app.Penguin = class Penguin extends app.Slider {
     this.animationDirection = this.config.isVertical ? 'front' : 'side';
 
     if (app.AnimationManager.penguinLoaded) {
-      this.render()
+      this.render();
     }
   }
 
