@@ -1,0 +1,37 @@
+$mobile-height: 500px;
+$mobile-width: 768px;
+
+$grid-unit-size: 50px;
+$present-width: 2;
+$present-height: 2;
+$table-width: 3;
+$table-height: 2;
+
+$gui-z-index: 100;
+$player-z-index: 10;
+$fence-z-index: 20;
+
+$color-white: #ffffff;
+$color-green: #1a844b;
+$color-yellow: #f9d231;
+$color-gold: #f8c328;
+$color-brown: #e7ad05;
+$color-purple: #6f00ff;
+
+$toy-types: ('car': 2, 'robot': 3, 'rocket': 4, 'teddy': 3);
+
+$font-google-sans: 'Google Sans', sans-serif;
+$font-lobster: 'Lobster', sans-serif;
+
+$box-shadow: 2px 4px rgba(0,0,0, 0.15);
+
+// transitions
+$transition-time: 0.3s;
+$transition-time-long: 1.5s;
+$transition-expo-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+$delay-appear: 0.1s;
+$delay-appear-fast: 0.05s;
+
+$translate-appear: 20px;
+$translate-appear-small: 3px;

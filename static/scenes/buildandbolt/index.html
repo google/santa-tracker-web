@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,700" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div id="module-buildandbolt">
+    <main id="main">
+      <!-- board -->
+      <section data-board-bkg class="board-bkg">
+        <section data-board class="level">
+          <div id="pits"></div>
+          <div id="ice"></div>
+          <div id="walls"></div>
+          <div id="fences"></div>
+          <div id="platforms"></div>
+          <div id="tables"></div>
+          <div id="present-boxes"></div>
+          <div id="penguins"></div>
+          <div id="players">
+            <div class="player player--a">
+              <div class="player__inner">
+                <div class="player__toys"></div>
+              </div>
+            </div>
+            <div class="player-spawn player-spawn--a"></div>
+            <div class="player player--b">
+              <div class="player__inner">
+                <div class="player__toys"></div>
+              </div>
+            </div>
+            <div class="player-spawn player-spawn--b"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- walkthrough -->
+      <section data-walkthrough class="walkthrough is-hidden">
+        <div data-walkthrough-text class="walkthrough__text"></div>
+        <div data-walkthrough-toys class="walkthrough__toys"></div>
+      </section>
+
+      <!-- toys-board -->
+      <section data-toys-board class="toys-board">
+        <div data-toys-board-player class="toys-board__player toys-board__player--a">
+          <div class="toys-board__head">
+            <img src="img/players/a/head.svg" class="toys-board__head-img" alt="">
+          </div>
+          <div class="toys-board__score">
+            <div class="toys-board__toy">
+              <img data-toys-board-toy src="img/toys/robot/full.svg" class="toys-board__toy-img" alt="">
+            </div>
+            <div class="toys-board__cross">x</div>
+            <div data-toys-board-score class="toys-board__number">0</div>
+          </div>
+        </div>
+        <div data-toys-board-player class="toys-board__player toys-board__player--b">
+          <div class="toys-board__head">
+            <img src="img/players/b/head.svg" class="toys-board__head-img" alt="">
+          </div>
+          <div class="toys-board__score">
+            <div class="toys-board__toy">
+              <img data-toys-board-toy src="img/toys/robot/full.svg" class="toys-board__toy-img" alt="">
+            </div>
+            <div class="toys-board__cross">x</div>
+            <div data-toys-board-score class="toys-board__number">0</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- score screen -->
+      <section class="score-screen is-hidden" data-score-screen>
+        <div data-score-screen-player class="score-screen__player score-screen__player--a">
+          <div data-score-screen-score class="score-screen__score">0</div>
+          <img data-score-screen-character class="score-screen__character" src="img/players/a/win.svg" alt="">
+          <div class="score-screen__line"></div>
+          <div class="score-screen__name" msgid="buildandbolt-player-one-label"></div>
+          <div data-score-screen-toys class="score-screen__toys">
+          </div>
+          <img class="score-screen__character score-screen__character--lose" src="img/players/b/lose.svg" alt="">
+        </div>
+        <div data-score-screen-player class="score-screen__player score-screen__player--b">
+          <div data-score-screen-score class="score-screen__score">0</div>
+          <img data-score-screen-character class="score-screen__character" src="img/players/b/lose.svg" alt="">
+          <div class="score-screen__line"></div>
+          <div class="score-screen__name" msgid="buildandbolt-player-two-label"></div>
+          <div data-score-screen-toys class="score-screen__toys">
+          </div>
+          <img class="score-screen__character score-screen__character--lose" src="img/players/a/lose.svg" alt="">
+        </div>
+        <div class="score-screen__title" msgid="score"></div>
+        <div class="score-screen__title score-screen__title--win" msgid="buildandbolt-result-win"></div>
+        <div class="score-screen__title score-screen__title--tie" msgid="buildandbolt-result-tie"></div>
+        <div class="player-controls__button">
+          <button class="Button" data-score-screen-skip msgid="buildandbolt-skip"></button>
+        </div>
+      </section>
+
+      <!-- gui -->
+      <section class="gui" data-gui>
+        <div class="player-selection is-hidden" data-player-selection>
+          <div class="player-selection__inner">
+            <div class="gui__title" msgid="buildandbolt-players-selection"></div>
+            <div class="player-options">
+              <div class="player-option player-option--1" data-player-option="single">
+                <div class="player-option__image">
+                  <div class="player-option__go gui__title" msgid="codeboogie-go"></div>
+                </div>
+                <div class="player-option__label" msgid="buildandbolt-players-selection-one"></div>
+              </div>
+
+              <div class="player-option player-option--2" data-player-option="multiplayer">
+                <div class="player-option__image">
+                  <div class="player-option__go gui__title" msgid="codeboogie-go"></div>
+                </div>
+                <div class="player-option__label" msgid="buildandbolt-players-selection-two"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="controls" class="player-controls is-hidden" data-player-controls>
+          <div class="player-controls__inner">
+            <div class="player-controls__heading player-controls__label" msgid="buildandbolt-instructions-label"></div>
+            <div class="player-controls__sides">
+              <div class="player-controls__side player-controls__side--one">
+                <div class="gui__title" msgid="buildandbolt-player-one-label"></div>
+                <img class="player-controls__elf" src="img/instructions/player01_elf.svg" alt="">
+                <div class="player-controls__keyboard-wrapper">
+                  <div class="player-controls__keyboard player-controls__keyboard--left multiplayer-only">
+                    <img src="img/instructions/player01_keyboard.svg" alt="">
+                    <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
+                    <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="player-controls__divider">
+                <img src="img/instructions/hand_instruction.svg" alt="" class="multiplayer-only">
+              </div>
+              <div class="player-controls__side player-controls__side--two">
+                <div class="gui__title multiplayer-only" msgid="buildandbolt-player-two-label"></div>
+                <img class="player-controls__elf multiplayer-only" src="img/instructions/player02_elf.svg" alt="">
+                <img src="img/instructions/single_hand_instruction.svg" alt="" class="player-controls__hands single-only">
+                <div class="player-controls__keyboard-wrapper">
+                  <div class="player-controls__keyboard player-controls__keyboard--right">
+                    <img src="img/instructions/player02_keyboard.svg" alt="">
+                    <div class="player-controls__label player-controls__label--action" msgid="buildandbolt-instructions-action-key"></div>
+                    <div class="player-controls__label player-controls__label--move" msgid="buildandbolt-instructions-move-key"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="player-controls__button">
+              <button class="Button" data-player-controls-skip msgid="buildandbolt-skip"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="levelup"></div>
+        <div class="levelup--number"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="index.js" type="module"></script>
+</body>
+</html>

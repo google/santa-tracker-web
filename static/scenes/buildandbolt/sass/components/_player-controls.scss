@@ -1,0 +1,278 @@
+##{$name} {
+  .player-controls {
+    background: $color-yellow;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  .player-controls__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+  }
+
+  .player-controls__heading {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @media only screen and (max-height: 600px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  .player-controls__label {
+    font-family: $font-google-sans;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 1.26;
+
+    @include respond-to(mobile) {
+      font-size: 15px;
+    }
+  }
+
+  .player-controls__sides {
+    display: flex;
+    justify-content: center;
+    padding: 0 200px;
+
+    @media only screen and (max-width: 1000px) {
+      padding: 0 150px;
+    }
+
+    @include respond-to(mobile) {
+      padding: 0 70px;
+    }
+  }
+
+  .player-controls__side {
+    text-align: center;
+    width: 50%;
+
+    .gui__title {
+      white-space: nowrap;
+
+      @include respond-to(above-mobile) {
+        font-size: 64px;
+      }
+    }
+  }
+
+  [data-player-controls=single] {
+    .multiplayer-only {
+      display: none;
+    }
+
+    .player-controls__sides {
+      @media only screen and (max-width: $mobile-width) {
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .player-controls__divider {
+      @media only screen and (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+    .player-controls__side--one {
+      .player-controls__elf {
+        height: auto;
+        margin-top: 50px;
+        max-width: 60%;
+
+        @include respond-to(mobile) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .player-controls__keyboard {
+      img {
+        @media only screen and (max-height: 600px) {
+          height: 150px;
+        }
+      }
+    }
+
+    .player-controls__hands {
+      margin-bottom: 50px;
+      width: 80%;
+
+      @include respond-to(mobile) {
+        margin-bottom: 20px;
+      }
+
+      @media only screen and (max-height: 600px) {
+        height: 100px;
+      }
+    }
+  }
+
+  [data-player-controls=multiplayer] {
+    .single-only {
+      display: none;
+    }
+  }
+
+  .player-controls__elf {
+    margin: 30px 0;
+    max-width: 30%;
+
+    @media only screen and (max-height: 600px) {
+      height: 80px;
+      margin: 0;
+    }
+  }
+
+  .player-controls__keyboard {
+    display: inline-block;
+    position: relative;
+
+    img {
+      max-width: 100%;
+
+      @media only screen and (max-height: 600px) {
+        height: 100px;
+      }
+    }
+
+    &::before,
+    &::after {
+      background: $color-green;
+      content: '';
+      height: 2px;
+      position: absolute;
+      width: 2px;
+      z-index: 1;
+    }
+
+    .player-controls__label {
+      position: absolute;
+      text-align: center;
+
+      &--action {
+        width: 150px;
+
+        @include respond-to(mobile) {
+          width: 75px;
+        }
+      }
+    }
+
+    &--left {
+      .player-controls__label--action {
+        left: -170px;
+        top: 75%;
+
+        @include respond-to(mobile) {
+          left: -95px;
+        }
+      }
+
+      &::before {
+        left: -34px;
+        top: 87%;
+        width: 14%;
+
+        @include respond-to(mobile) {
+          left: -21px;
+        }
+      }
+
+      .player-controls__label--move {
+        bottom: -25%;
+        left: 42.5%;
+      }
+
+      &::after {
+        bottom: -11%;
+        height: 45%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &--right {
+      .player-controls__label--action {
+        right: -170px;
+        top: 48%;
+
+        @include respond-to(mobile) {
+          right: -95px;
+        }
+      }
+
+      &::before {
+        right: -38px;
+        top: 59%;
+        width: 14%;
+
+        @include respond-to(mobile) {
+          right: -21px;
+        }
+      }
+
+      .player-controls__label--move {
+        bottom: -25%;
+        left: 73.25%;
+      }
+
+      &::after {
+        bottom: -8%;
+        height: 15%;
+        left: 80%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .player-controls__divider {
+    background: $color-green;
+    margin: 0 10vw;
+    position: relative;
+    width: 2px;
+
+    @include respond-to(mobile) {
+      margin: 0 5vw;
+    }
+
+    img {
+      left: 50%;
+      max-width: 25vw;
+      position: absolute;
+      transform: translateX(-50%);
+      top: 10%;
+
+      @media only screen and (max-height: 600px) {
+        width: 200px;
+      }
+
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+  }
+
+  .player-controls__button {
+    bottom: 25px;
+    position: absolute;
+    right: 25px;
+
+    .Button {
+      @include ButtonColor(green);
+    }
+  }
+}

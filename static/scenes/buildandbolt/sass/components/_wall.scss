@@ -1,0 +1,6 @@
+##{$name} {
+  .wall {
+    @include board-object();
+    border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
+  }
+}

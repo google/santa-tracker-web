@@ -1,0 +1,27 @@
+##{$name} {
+  .penguin {
+    @include board-object();
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+    z-index: 2; // To go over present boxes
+
+    &__inner {
+      height: 100%;
+      transform: scale(1.5);
+      transform-origin: 50% 100%;
+      width: 100%;
+
+      &.is-flipped {
+        transform: scale(1.5) scaleX(-1);
+      }
+
+      .animation {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ export default {
   'blimp': _msg`scene_blimp`,
   'boatload': _msg`scene_boatload`,
   'briefing': _msg`scene_briefing`,
-  'build': _msg`scene_build`,
+  'buildandbolt': _msg`scene_build`,
   'carpool': _msg`scene_videoscene_carpool`,
   'citylights': _msg`scene_citylights`,
   'codeboogie': _msg`scene_codeboogie`,

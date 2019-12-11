@@ -1,0 +1,75 @@
+$name: 'module-buildandbolt';
+$gameover-bg: #BFC932;
+$rotate-bg: $gameover-bg;
+
+@import '../_shared/sass/board';
+@import '../_shared/sass/button';
+@import '../_shared/sass/levelup';
+
+@import 'sass/_meyer-reset';
+@import 'sass/_mixins';
+@import 'sass/_variables';
+
+@import 'sass/components/_board-bkg';
+@import 'sass/components/_fence';
+@import 'sass/components/_gui';
+@import 'sass/components/_ice';
+@import 'sass/components/_penguin';
+@import 'sass/components/_pit';
+@import 'sass/components/_platform';
+@import 'sass/components/_player-controls';
+@import 'sass/components/_player-selection';
+@import 'sass/components/_player';
+@import 'sass/components/_presentbox';
+@import 'sass/components/_score-screen';
+@import 'sass/components/_toys-board';
+@import 'sass/components/_table';
+@import 'sass/components/_walkthrough';
+@import 'sass/components/_wall';
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow: hidden;
+}
+
+##{$name} {
+  main {
+    background: #ccc;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .level {
+    background: $color-yellow url(img/floor/floor_tile.svg) top left/100px 100px repeat;
+    position: absolute;
+    transform-origin: top left;
+  }
+
+  .animation {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .debug-cell {
+    border: 2px solid pink;
+    font-size: 10px;
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}

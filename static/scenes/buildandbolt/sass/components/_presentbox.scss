@@ -1,0 +1,78 @@
+##{$name} {
+  .present-box {
+    @include board-object();
+    height: $grid-unit-size * $present-height;
+    width: $grid-unit-size * $present-width;
+
+    &--front {
+      @for $i from 1 through 3 {
+        &-#{$i} {
+          background: url(img/present-boxes/front/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
+
+    &--middle {
+      @for $i from 1 through 2 {
+        &-#{$i} {
+          background: url(img/present-boxes/side/middle/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
+
+    &--bottom {
+      z-index: 1;
+
+      @for $i from 1 through 3 {
+        &-#{$i} {
+          background: url(img/present-boxes/side/bottom/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
+
+    &::after {
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -20%);
+      top: 0;
+      width: 100%;
+    }
+
+    &--middle,
+    &--bottom {
+      &::after {
+        left: 0;
+        top: 50%;
+        transform: translate(-35%, -66%);
+      }
+
+      &.present-box--closed::after {
+        transform: translate(-35%, -86%);
+      }
+    }
+
+    &--a::after {
+      background: url(img/present-boxes/boxes/a.svg) center/contain no-repeat;
+    }
+
+    &--b::after {
+      background: url(img/present-boxes/boxes/b.svg) center/contain no-repeat;
+    }
+
+    &--closed {
+      &::after {
+        height: 55%;
+      }
+
+      &.present-box--a::after {
+        background: url(img/present-boxes/presents/a.svg) center/contain no-repeat;
+      }
+
+      &.present-box--b::after {
+        background: url(img/present-boxes/presents/b.svg) center/contain no-repeat;
+      }
+    }
+  }
+}

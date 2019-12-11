@@ -1,0 +1,57 @@
+/**
+  * SASS Mixins
+  */
+
+
+@mixin respond-to($point) {
+  @if $point == above-mobile {
+    @media only screen and (min-width: $mobile-width + 1) and (min-height: $mobile-height + 1) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media only screen and (max-width: $mobile-width), (max-height: $mobile-height) {
+      @content;
+    }
+  }
+}
+
+@mixin center($direction) {
+  @if $direction == x {
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  } @else if $direction == y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $direction == xy {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin board-object() {
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  .debug & {
+    border: 2px solid purple;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+@mixin stagger-animation-children($offset: 0, $delay: $delay-appear, $total: 10) {
+  transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
+
+  @for $i from 1 through $total {
+    &:nth-child(#{$i}) {
+      transition-delay: ($delay * $i) + $offset;
+    }
+  }
+}

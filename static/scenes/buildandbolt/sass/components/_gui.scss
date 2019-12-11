@@ -1,0 +1,30 @@
+##{$name} {
+  .gui {
+    background: $color-yellow;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $gui-z-index;
+
+    &.game-started {
+      background: transparent;
+      pointer-events: none;
+    }
+  }
+
+  .gui__title {
+    color: $color-green;
+    font-family: $font-lobster;
+    font-size: 74px;
+    line-height: 1.24;
+    margin: 0 auto;
+    text-align: center;
+
+    @include respond-to(mobile) {
+      font-size: 40px;
+    }
+  }
+}

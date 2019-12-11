@@ -1,0 +1,215 @@
+##{$name} {
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .player {
+    @include board-object();
+    height: $grid-unit-size;
+    opacity: 0;
+    width: $grid-unit-size;
+    z-index: $player-z-index;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    &__toys {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .toypart {
+      position: absolute;
+      transform: translate(-50%, -50%);
+
+      // Toy part specific positioning
+      &--car--1 {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+
+      &--robot--1 {
+        transform: translate(-50%, -50%) rotate(90deg);
+        z-index: 1;
+      }
+
+      &--robot--2 {
+        transform: translate(-80%, -80%) rotate(45deg);
+        z-index: 2;
+      }
+
+      &--robot--3 {
+        transform: translate(-50%, -50%) rotate(-65deg);
+      }
+
+      &--robot--full {
+        transform: translate(-50%, -50%) rotate(125deg);
+      }
+
+      &--teddy--1 {
+        transform: translate(-60%, -50%) rotate(240deg);
+        z-index: 1;
+      }
+
+      &--teddy--2 {
+        transform: translate(-10%, -40%) rotate(-50deg);
+        z-index: 1;
+      }
+
+      &--teddy--3 {
+        transform: translate(-50%, -50%) rotate(200deg);
+      }
+
+      &--teddy--full {
+        transform: translate(-50%, -60%) rotate(-65deg);
+      }
+
+      &--rocket--1 {
+        transform: translate(-20%, -60%) rotate(45deg);
+        z-index: 2;
+      }
+
+      &--rocket--2 {
+        transform: translate(-110%, -40%) rotate(-70deg);
+      }
+
+      &--rocket--3 {
+        transform: translate(-80%, -70%);
+        z-index: 3;
+      }
+
+      &--rocket--4 {
+        transform: translate(-80%, -110%) rotate(-120deg);
+        z-index: 1;
+      }
+
+      &--rocket--full {
+        transform: translate(-50%, -50%) rotate(120deg);
+      }
+    }
+
+    &__inner {
+      height: 200%;
+      transform: translate(-25%, -50%);
+      width: 200%;
+
+      &.is-flipped {
+        transform: translate(-25%, -50%) scaleX(-1);
+
+        &.direction--side .player__toys {
+          transform: translateY(-50%) rotate(-90deg) scaleX(-1);
+        }
+      }
+
+      .animation {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        &--death {
+          transform-origin: 50% 50% !important;
+          transform: scale(1.75);
+          z-index: 0;
+        }
+      }
+
+      &.direction--side {
+        .animation--side {
+          display: block;
+        }
+
+        .player__toys {
+          right: 15%;
+          top: 60%;
+          transform: translateY(-50%) rotate(-90deg);
+        }
+
+        // Toy part specific positioning - side view
+        .toypart {
+          &--car--1 {
+            transform: translate(-35%, -50%) rotate(180deg);
+          }
+
+          &--car--full {
+            transform: translate(-30%, -50%);
+          }
+
+          &--robot--2 {
+            transform: translate(-30%, -80%) rotate(45deg);
+          }
+        }
+      }
+
+      &.direction--front {
+        .animation--front {
+          display: block;
+        }
+
+        .player__toys {
+          bottom: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &.direction--back {
+        .animation--back {
+          display: block;
+        }
+
+        .player__toys {
+          top: 35%;
+          left: 50%;
+          transform: translateX(-50%) rotate(180deg);
+          z-index: 1;
+        }
+      }
+
+      &.is-dead {
+        animation: .2s blink infinite;
+
+        .animation--death {
+          display: block;
+        }
+      }
+    }
+
+    &.is-hidden {
+      opacity: 0;
+    }
+  }
+
+  .player-spawn {
+    @include board-object();
+    opacity: 0;
+    height: $grid-unit-size * 2;
+    left: -($grid-unit-size / 2) - 2px;
+    top: -($grid-unit-size / 2);
+    width: $grid-unit-size * 2;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    &--a {
+      background: url(img/players/a/spawn.svg) center/contain no-repeat;
+    }
+
+    &--b {
+      background: url(img/players/b/spawn.svg) center/contain no-repeat;
+    }
+  }
+}
