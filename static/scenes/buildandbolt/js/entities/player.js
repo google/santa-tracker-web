@@ -355,13 +355,25 @@ app.Player = class Player {
       }
     }
 
-    // bounce against other player
-    const playerEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE];
-    if (playerEntities && playerEntities.length) {
-      this.isCloseToOtherPlayer = true;
-    } else {
-      this.isCloseToOtherPlayer = false;
+    // bounce by another unit
+    const bouncingEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE];
+    if (bouncingEntities && bouncingEntities.length) {
+      for (const entity of bouncingEntities) {
+        // penguin bounce
+        if (entity.config.type === 'penguin') {
+          this.bouncedByPenguin(entity)
+        }
+
+        // other player bounce
+        if (entity.config.type === 'player') {
+          this.isCloseToOtherPlayer = true;
+        } else {
+          this.isCloseToOtherPlayer = false;
+        }
+      }
     }
+
+    // console.log(this.getSpeed())
   }
 
   // bump the player in a specific direction with a specific force
@@ -381,6 +393,50 @@ app.Player = class Player {
   // get current speed
   getSpeed() {
     return Math.abs(this.position.x - this.prevPosition.x) + Math.abs(this.position.y - this.prevPosition.y);
+  }
+
+  bouncedByPenguin(penguin) {
+    const collisionDistance = Math.hypot(this.position.x - penguin.position.x, this.position.y - penguin.position.y);
+
+    if (collisionDistance < 1) {
+      const speed = this.getSpeed()
+      const dectectionTime = 200
+      let angle, direction
+
+      if (speed === 0) {
+        // if player is not moving,
+        // bump in the direction of the penguin movement
+        angle = penguin.getDirectionAngle();
+        direction = 1;
+      } else {
+        // else, bump in the opposite direction of the player
+        angle = this.getDirectionAngle();
+        direction = -1;
+        if (this.recentlyBumped) {
+          // if recently bumped,
+          // keep pushing the player in the same direction as before to prevent back-and-force movements
+          direction = 1
+        }
+        clearTimeout(this.recentlyBumpedTimeout)
+        this.recentlyBumped = true
+        this.recentlyBumpedTimeout = setTimeout(() => {
+          this.recentlyBumped = false;
+        }, dectectionTime);
+      }
+
+      // cases when player get crushed against the wall
+      if (collisionDistance <= 0.5 && !this.recentlyCrushed) {
+        // move player in 90degrees angle from penguin's direction
+        angle = penguin.getDirectionAngle();
+        angle += Math.PI / 2
+        clearTimeout(this.recentlyCrushedTimeout)
+        this.recentlyCrushed = true;
+        this.recentlyCrushedTimeout = setTimeout(() => {
+          this.recentlyCrushed = false;
+        }, dectectionTime);
+      }
+      this.bump(angle, Constants.PLAYER_PUSH_FORCE * 1, direction);
+    }
   }
 
   addToyPart(partId) {
