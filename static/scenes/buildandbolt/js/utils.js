@@ -26,7 +26,7 @@ Utils.renderAtGridLocation = function(element, x, y) {
 /**
  * offset allows some overlap before triggering. one value for each side.
  */
-Utils.isTouchingBorder = function(entity, playerPosition, offset) {
+Utils.isTouchingBorder = function(entity, playerPosition, offset = {}) {
   const { top, bottom, left, right } = offset;
 
   if (entity.x + entity.width - (right || 0) > playerPosition.x &&

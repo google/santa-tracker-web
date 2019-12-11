@@ -20,10 +20,10 @@ app.Pit = class Pit extends app.Entity {
 
   onContact(player) {
     const offset = {
-      top: 1.5,
-      bottom: 1,
-      left: 1,
-      right: 1
+      top: 1,
+      bottom: .5,
+      left: .5,
+      right: .5
     };
 
     if (Utils.isTouchingBorder(this.config, player.position, offset)) {
