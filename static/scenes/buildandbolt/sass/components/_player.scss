@@ -6,7 +6,7 @@
     }
 
     100% {
-      opacity: 10;
+      opacity: 0;
       transform: translate(-25%, -50%) scale(0);
     }
   }
@@ -18,7 +18,7 @@
     }
 
     100% {
-      opacity: 10;
+      opacity: 0;
       transform: translate(-25%, -50%) scaleX(-1) scale(0);
     }
   }
