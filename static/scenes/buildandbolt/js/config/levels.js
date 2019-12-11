@@ -1747,38 +1747,38 @@ Levels = [
       {
         type: 'fence',
         config: {
-          x: 10,
+          x: 9,
           y: 0,
           cells: [
             // first line
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
           ],
@@ -1787,38 +1787,38 @@ Levels = [
       {
         type: 'fence',
         config: {
-          x: 10,
+          x: 9,
           y: 10,
           cells: [
             // first line
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
             [
               {
-                left: true,
+                right: true,
               },
             ],
           ],

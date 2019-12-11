@@ -22,6 +22,7 @@ class Countdown {
       const start = i * second;
       setTimeout(() => {
         this.dom.numbers[i].classList.add('animate');
+        window.santaApp.fire('sound-trigger', 'buildandbolt_game_count');
       }, start);
 
       setTimeout(() => {
@@ -31,6 +32,8 @@ class Countdown {
       if (i === this.dom.numbers.length - 1) {
         setTimeout(() => {
           this.dom.go.classList.add('animate');
+          window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
+          window.santaApp.fire('sound-trigger', 'buildandbolt_game_count_go');
         }, start + second + 200);
 
         setTimeout(() => {
@@ -38,6 +41,7 @@ class Countdown {
           // resume game
           this.game.canResume = true;
           this.game.resume();
+          this.game.startMusic();
           // hide walkthrough
           app.Walkthrough.hide();
         }, start + second + 1500);

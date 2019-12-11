@@ -867,7 +867,7 @@ class AudioSource extends EventTarget {
     }
 
     Util.curveParamLin(g, this._volume, duration, when);
-    return this._internalPlay(when);
+    return this._internalPlay(when, offset);
   }
 
   fadeOutAndStop(duration, when) {

@@ -7,6 +7,7 @@ import Game from './:closure.js';
 api.preload.images(
   'img/player-selection-one.svg',
   'img/player-selection-two.svg',
+  'img/world-edges.svg',
   'img/fences/fence_front_left.svg',
   'img/fences/fence_front_middle.svg',
   'img/fences/fence_front_right.svg',
