@@ -24,13 +24,15 @@ Utils.renderAtGridLocation = function(element, x, y) {
 }
 
 /**
- * offset allows some overlap before triggering
+ * offset allows some overlap before triggering. one value for each side.
  */
-Utils.isTouchingBorder = function(entity, playerPosition, offset = 0) {
-  if (entity.x + entity.width - offset > playerPosition.x &&
-    entity.x - 1 + offset < playerPosition.x &&
-    entity.y + entity.height - offset > playerPosition.y &&
-    entity.y - 1 + offset < playerPosition.y) {
+Utils.isTouchingBorder = function(entity, playerPosition, offset) {
+  const { top, bottom, left, right } = offset;
+
+  if (entity.x + entity.width - (right || 0) > playerPosition.x &&
+    entity.x - 1 + (left || 0) < playerPosition.x &&
+    entity.y + entity.height - (bottom || 0) > playerPosition.y &&
+    entity.y - 1 + (top || 0) < playerPosition.y) {
     return true;
   }
 
