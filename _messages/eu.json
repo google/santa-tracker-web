@@ -479,6 +479,21 @@
 	"codelab-try-again": {
 		"message": "Saiatu berriro"
 	},
+	"controller_gamepad": {
+		"message": "Agintea"
+	},
+	"controller_keyboard": {
+		"message": "Teklatua"
+	},
+	"controller_mouse": {
+		"message": "Sagua"
+	},
+	"controller_touch": {
+		"message": "Ukimena"
+	},
+	"copied": {
+		"message": "Kopiatu da"
+	},
 	"copy-me": {
 		"message": "Kopiatu esteka hau zure mezua partekatzeko"
 	},
@@ -539,6 +554,12 @@
 	"deckdescription": {
 		"message": "Apaindu arakatzailea Bizarzuriren Chrome luzapenarekin."
 	},
+	"decmonth": {
+		"message": "Abe."
+	},
+	"decmonth_long": {
+		"message": "Abendua"
+	},
 	"detected": {
 		"message": "hautemanda"
 	},
@@ -587,6 +608,9 @@
 	"elf_choose_body": {
 		"message": "Aukeratu iratxo-gorputz bat"
 	},
+	"elves": {
+		"message": "Iratxoak"
+	},
 	"elvish_language_name": {
 		"message": "Iratxoera"
 	},
@@ -611,8 +635,14 @@
 	"error-not-found": {
 		"message": "Ai ene, Bizarzuriren iratxoek ezin dute orrialde hau aurkitu. \u003ca href=\"./\"\u003eBizarzuriren herrixkara\u003c/a\u003e bazoaz, hurrengoan hobeto atera daiteke."
 	},
+	"error-out-of-date": {
+		"message": "Bizarzuriren herriaren bertsio zaharkitua da hau. Saiatu berriro Bizarzuriren lorratzak aplikazioa irekitzen, azken bertsioa ikusteko."
+	},
 	"error-try-again": {
 		"message": "Saiatu berriro"
+	},
+	"error-unsupported": {
+		"message": "Arakatzaile honekin ezin diezu jarraitu Bizarzuriren lorratzei. Joko gehiagotan aritzeko eta abenduaren 24an Bizarzuriren lorratzei jarraitzeko, erabili telefonoa edo beste arakatzaile bat."
 	},
 	"es_language_name": {
 		"message": "Espainiera"
@@ -626,11 +656,212 @@
 	"explore-village": {
 		"message": "Ezagutu Bizarzuriren herria"
 	},
+	"familyguide_accordion_title": {
+		"message": "Ospatu hilabete osoan zehar"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Erabili Google-ren Laguntzailea abenduan Bizarzuriri buruzko informazio gehiago lortzeko. Integrazio hori hizkuntza batzuetan bakarrik dago erabilgarri."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Gurasoen baimenarekin, 13 urtetik beherako haurrek esperientzia pertsonalizatua izango dute Google-ren Laguntzailea eginbidean, kontuan saioa hasten dutenean, kontua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e bidez kudeatuta egonez gero."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google-ren Laguntzailea eginbideak Ipar Poloarekin konektatuko zaitu; bertan, Bizarzuri kontzertu bat emateko entseatzen ari da. Abesti bat baino ez daki; lagunduko diozu hori jotzeko modurik onena zein den aurkitzen?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Deitu Bizarzuriri"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Sartu egunero Ipar Poloko artikulu-bilduman Bizarzuri eta ipotxak zertan ari diren jakiteko. Eskatu Google-ren Laguntzailea eginbideari Ipar Poloko azken albisteen berri emateko."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Ipar Poloko artikulu-bilduma"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Bizarzuri tailerrean iratxoekin lanean ari ez denean, bere alde umoretsua lantzen aritzen da. Eskatu Bizarzuriren txisteak Google-ren Laguntzailea eginbideari, haren bakarrizketa entzuteko."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Bizarzuriri buruzko txisteak"
+	},
+	"familyguide_assistant_title": {
+		"message": "Jarraitu Ipar Poloan gertatzen denari minutuz minutu"
+	},
+	"familyguide_body": {
+		"message": "Bizarzuriren herria da tokirik egokiena familiek Gabonak ospatzeko. Zure pertsonaiarik gogokoenez gain, adin guztietarako egokiak diren jarduera dibertigarri, hezigarri eta interaktiboak aurkituko dituzu bertan."
+	},
+	"familyguide_card_01_body": {
+		"message": "Erabili oinarrizko kodetzea iratxoa basoan zehar eramateko, erori diren opariak jaso ditzan."
+	},
+	"familyguide_card_02_body": {
+		"message": "Sortu Gabonetako txartel bat: programatu elur malutak, hautatu atzeko plano bat eta partekatu lagunekin."
+	},
+	"familyguide_card_03_body": {
+		"message": "Iratxoak berriro ari dira kodetzea praktikatzen, dantzan dabiltzan bitartean. Erabili kodetzea iratxoek nola dantzatu behar duten esateko, baina, kontuz: kodea idazteko duzun gaitasuna hobetu ahala, dantzak gero eta zailagoak izango dira."
+	},
+	"familyguide_card_04_body": {
+		"message": "Kanadan artilezko txanoa janzten dute; Australian, berriz, bainujantzia. Egin klik mapako txintxetetan mundu osoko Gabonetako ohiturak ezagutzeko."
+	},
+	"familyguide_card_05_body": {
+		"message": "Ikasi iratxoen hizkuntzan \"Urteberri on\" esaten, \"Дед Мороз\" ahoskatzen eta Gabonei buruzko mundu osoko esamoldeak."
+	},
+	"familyguide_card_06_body": {
+		"message": "Bizarzurik toki askotara joan behar du. Lotu herrialdeen profila eta mapa geografiari buruzko joko honetan."
+	},
+	"familyguide_card_07_body": {
+		"message": "Ezagutzen al duzu ospakizun hauen historia? Erakutsi zenbat dakizun bederatzi galderako azterketa honetan; dituzun ezagutza guztiak erabili beharko dituzu."
+	},
+	"familyguide_card_07_title": {
+		"message": "Gabonetako ohiturei buruzko jokoa"
+	},
+	"familyguide_card_08_body": {
+		"message": "Goseak zaude? Ezagutu mundu osoko gutiziak eta herrialde hurbil eta urrunetako jakiak."
+	},
+	"familyguide_card_09_body": {
+		"message": "Sar zaitez Bizarzuriren sorkuntza-suitean. Tresna, pintzel eta eranskailu bakoitzak soinu berezi bat dauka, begiekin eta belarriekin goza dezazun."
+	},
+	"familyguide_card_10_body": {
+		"message": "Egin esperimentuak eta jolastu zeure neguko proben eremuan. Erabili 3Dko materialak eta eraiki etxeak, jostailuak, elurretako panpinak, basoak edo bururatzen zaizun beste edozer."
+	},
 	"familyguide_card_11_body": {
 		"message": "Sortu iratxo bat oso-osorik eta ziurtatu dotore-dotore dagoela Ipar Poloan ospatzen ari diren gau-ekitaldi guztietarako."
 	},
+	"familyguide_card_12_body": {
+		"message": "Bizarzuri bizarginarenean dago eta laguntza behar du. Tindatu bizarra, lehortu ilea, gehitu apaingarriak edo kendu bizarra oso-osorik bizarra egitekoarekin."
+	},
+	"familyguide_card_13_body": {
+		"message": "Joan Gabonetako espirituaren museora ipotxekin, elur-oreinekin, Bizarzurirekin eta Bizarzuriren emaztearekin."
+	},
+	"familyguide_card_14_body": {
+		"message": "Iratxo, elur-orein eta gizontxo laranja ugari dabiltza Ipar Poloan gora eta behera. Ikusi nola mugitzen diren batetik bestera."
+	},
+	"familyguide_card_15_body": {
+		"message": "Bizarzuri eta elur-oreinak prest daude, baina, aireratu baino lehen, iratxo kodetzaileen laguntza behar dute."
+	},
+	"familyguide_card_16_body": {
+		"message": "Bizarzuriren herriko lagunek narbalarekin bat egingo dute ur azpian, algak argiz apaintzeko urteroko ekitaldiaren lehen edizioa antolatzeko."
+	},
+	"familyguide_card_age": {
+		"message": "Adin guztiak"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Turroia bukatu denean eta opariez aspertu zaretenean, baliatu urte osoan zehar familian ondo pasatzeko Google-k eskaintzen dituen baliabideak."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Guztiok nahi dugu planeta osasuntsu bat, bai gaur eta bai bihar. Google-k aholku errazak emango dizkizu planetaren eta bertako biztanleen arteko elkarbizitza hobetzeko."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Zure plana, zure planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Interneti etekin handiagoa ateratzeko, haurrek erabaki egokiak hartzeko gai izan behar dute. Be Internet Awesome programak hiritartasun digitalaren eta segurtasunaren oinarriak irakasten dizkie haurrei, konfiantza osoz ibili ahal izan daitezen mundu digitalean."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Google-ko gehiago"
+	},
+	"familyguide_group_01_body": {
+		"message": "Iratxoak kodetze-gaitasunak lantzen ari dira. Probatu oinarrizkoena ikasteko balioko dizuten jokoak. Edonor saia daiteke kodetzen."
+	},
+	"familyguide_group_01_title": {
+		"message": "Ikasi kodetzen Bizarzuriren iratxoekin"
+	},
+	"familyguide_group_02_body": {
+		"message": "Gabonak desberdinak dira munduko txoko bakoitzean. Ikasi nola ospatzen diren munduan zehar, jokoen eta galderen bidez."
+	},
+	"familyguide_group_02_title": {
+		"message": "Ezagutu mundu osoko ospakizunak"
+	},
+	"familyguide_group_03_body": {
+		"message": "Bizarzuriren herria ekintzaren bidez loratzen da. Bertako jokoetan marraztu, margotu, eraiki eta sortu egin ahalko duzu, zure pertsonaiarik gogokoenekin batera."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inspira zaitez eta sortu zerbait"
+	},
+	"familyguide_group_04_body": {
+		"message": "Hartu krispetak eta jarri goxo tapaki bero baten azpian. Koadrila osoa zertan dabilen ikus dezakezu Bizarzuriren herriko antzokiko pantaila handian. Bestela, istorio-liburu interaktiboa irakur dezakezu, Ollie narbalak ur azpian Gabonak nola ospatzen dituen ikusteko."
+	},
+	"familyguide_group_04_title": {
+		"message": "Elkar zaitezte familia-giroan"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kodetu"
+	},
+	"familyguide_nav_link_02": {
+		"message": "ospatu"
+	},
+	"familyguide_nav_link_03": {
+		"message": "sortu"
+	},
+	"familyguide_nav_link_04": {
+		"message": "familia-giroa"
+	},
+	"familyguide_nav_link_05": {
+		"message": "aholkuak eta trikimailuak"
+	},
+	"familyguide_nav_link_06": {
+		"message": "gehiago"
+	},
+	"familyguide_nav_link_07": {
+		"message": "laguntzailea"
+	},
+	"familyguide_secondary_body": {
+		"message": "Abenduaren 24an, Bizarzuriren herria aldatu egingo da Bizarzuri eta haren elur-oreinen jarraipena egin dezazun, mundu osoko haurren artean opariak nola banatzen dituen ikusteko."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Egin jarraipena Bizarzuriren lorratzak webgunean edo aplikazioan"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Aizu! Ba al zenekien Bizarzuriren bidaiak 25 ordu irauten dituela? Lehen geldialdia 22:00etan egiten du, Errusiako ekialde urrunean (tokiko ordua); une horretan goizeko 05:00ak dira New Yorken, eta goizeko 11:00ak, berriz, Parisen."
+	},
+	"familyguide_secondary_title": {
+		"message": "Ikusi non dabilen Bizarzuri egun garrantzitsu honetan"
+	},
+	"familyguide_tips_body": {
+		"message": "Bizarzuriren lorratzak are magikoagoa izango da egun hauetan, Google-ren zure produktu gogokoenekin."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Eskatu Google-ren Laguntzailea eginbideari Dimplesticks iratxoaren eguneroko berri dibertigarriak emateko."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, zer berri Ipar Poloan?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Deskargatu Android-erako Bizarzuriren lorratzak aplikazioa Play Store-n. Herriaren eszena esklusibo bat aurkituko duzu, aplikazioan bakarrik erabilgarri dauden jokoekin."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-erako aplikazioa"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Ikusi Bizarzuri non dabilen, zure eskumuturrean, Android Wear-ekiko integrazioarekin."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Bilatu Bizarzuri (\"Santa\") Google-n, Bizarzuri 3Dn ikusteko. Errealitate areagotuan ikusi ahalko duzu iPhone gehienetan eta Android-eko gailu berrienetan, kamerari agur egiten."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Ekarri Bizarzuri zure egongelara"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Eman Gabonetako ukitua mezuei. Idatzi \"Santa Tracker gifs\" (ingelesez bakarrik) Google-ren Tenor webgunean, Bizarzuriri buruzko GIFak eta eranskailuak aurkitzeko."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Oparitu GIFak"
+	},
+	"familyguide_tips_title": {
+		"message": "Aholkuak"
+	},
+	"familyguide_title": {
+		"message": "Gabon dibertigarriak familia osoarentzat"
+	},
+	"familylink": {
+		"message": "Gehitu Family Link bidez kudeatutako haurraren Google-ko kontua"
+	},
+	"featured": {
+		"message": "Aipagarria"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -905,6 +1136,12 @@
 	"next_game": {
 		"message": "Hurrengo jokoa"
 	},
+	"nextdecember": {
+		"message": "Abendura arte!"
+	},
+	"nextyear": {
+		"message": "Datorren urtera arte!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1078,6 +1315,9 @@
 	},
 	"openingtomorrow": {
 		"message": "Bihar irekiko da lehen aldiz"
+	},
+	"opens": {
+		"message": "Irekitze-ordua"
 	},
 	"ornament-print-instructions": {
 		"message": "Tolestu hemendik eta itsatsi aldeak bata besteari"
@@ -1349,6 +1589,24 @@
 	"scene_airport": {
 		"message": "Ipar poloko aireportua"
 	},
+	"scene_android_cityquiz": {
+		"message": "Hirien jokoa"
+	},
+	"scene_android_dancer": {
+		"message": "Eguberrian dantzan"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pinguino-igeriketa"
+	},
+	"scene_android_presenttoss": {
+		"message": "Opari-jaurtiketa"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Lera propultsatua"
+	},
+	"scene_android_snowballrun": {
+		"message": "Elur-bolari ihes"
+	},
 	"scene_app": {
 		"message": "Android-erako aplikazioa"
 	},
@@ -1360,6 +1618,9 @@
 	},
 	"scene_briefing": {
 		"message": "Bizarzuriren emaztearen mezua"
+	},
+	"scene_build": {
+		"message": "Eraiki ziztu bizian"
 	},
 	"scene_callfromsanta": {
 		"message": "Bizarzuriren deia"
@@ -1394,14 +1655,26 @@
 	"scene_factory": {
 		"message": "Gozoki-fabrika"
 	},
+	"scene_family": {
+		"message": "Familia-gida"
+	},
 	"scene_giftmatch": {
 		"message": "Parekatu opariak"
 	},
 	"scene_glider": {
 		"message": "Iratxoen planeagailua"
 	},
+	"scene_guides": {
+		"message": "Helduentzako gida"
+	},
 	"scene_gumball": {
 		"message": "Gozokiak balantzan"
+	},
+	"scene_havoc": {
+		"message": "Opari-nahasmena"
+	},
+	"scene_holidayfoods": {
+		"message": "Google Earth: mundu osoko Gabonetako platerak"
 	},
 	"scene_icecave": {
 		"message": "Izotz-leizea"
@@ -1423,6 +1696,9 @@
 	},
 	"scene_mercator": {
 		"message": "Mapen jokoa"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie itsaspean"
 	},
 	"scene_playground": {
 		"message": "Ipar Poloko Jolastokia"
@@ -1466,17 +1742,26 @@
 	"scene_snowball": {
 		"message": "Elur-borroka"
 	},
+	"scene_snowbox": {
+		"message": "Elurretako proben eremua"
+	},
 	"scene_snowflake": {
 		"message": "Kodetu elur-maluta bat"
 	},
 	"scene_speedsketch": {
 		"message": "Marrazki bizkorrak"
 	},
+	"scene_storybook": {
+		"message": "Jasangarritasunari buruzko istorio-liburua"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Gabonetako tradizioak"
+	},
+	"scene_traditionsquiz": {
+		"message": "Gabonetako ohiturei buruzko jokoa"
 	},
 	"scene_translations": {
 		"message": "Itzulpenak"
@@ -1499,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Bizarzuriren aireratzea"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Azkar batean"
+	},
 	"scene_videoscene_museum": {
 		"message": "Egun-pasa museoan"
 	},
@@ -1507,6 +1795,9 @@
 	},
 	"scene_videoscene_onvacation": {
 		"message": "Oraindik oporretan"
+	},
+	"scene_videoscene_penguinproof": {
+		"message": "Pinguinoen kontrako babesa"
 	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Elur-oreinen kezkak"
@@ -1540,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Bizarzuriren lantegia"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Gabonetako enborra"
 	},
 	"scene_windtunnel": {
 		"message": "Haize-tunela"
@@ -1603,6 +1897,9 @@
 	},
 	"snowball_iced": {
 		"message": "Izoztuta!"
+	},
+	"snowball_iced_count": {
+		"message": "Izoztuta"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}}/{{total}} iratxo geratzen dira."
@@ -3022,6 +3319,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turkiera"
+	},
+	"tracker-game_awesome": {
+		"message": "Aritu Tower of Treasure jokoan"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Iritsiera"
@@ -6761,8 +7064,17 @@
 	"uk_tradition": {
 		"message": "Erresuma Batuan, adin guztietako pertsonek Gabonetako \"cracker\" direlakoez gozatzen dute mahai inguruan. Cracker-ak kolorezko paperetan bilduta dauden tutuak dira eta muturretan erlaitzak dauzkate. Haietatik tiratzean, soinu ozen bat sortzen da. Barruan paperezko kapelak, jostailuak, txantxak eta sariak daude."
 	},
+	"underconstruction": {
+		"message": "Eraikitze-lanetan"
+	},
+	"unlocks": {
+		"message": "Egun honetan desblokeatuko da:"
+	},
 	"unmute": {
 		"message": "Aktibatu audioa"
+	},
+	"upgrade-warning": {
+		"message": "Arazo bat dago. Bizarzuriren lorratzak webgunea ez dabil arakatzailean, edo JavaScript desgaituta daukazu. Bizarzuriren lorratzak ikusteko, deskargatu arakatzaile modernoago bat edo gaitu JavaScript."
 	},
 	"us_country_name": {
 		"message": "AEB"
@@ -6823,6 +7135,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalatu"
+	},
+	"village_santa_intall_ios": {
+		"message": "Sakatu \u003cspan\u003e\u003c/span\u003e eta \"Gehitu hasierako pantailan\""
 	},
 	"village_takesoff": {
 		"message": "Bizarzuri aireratzeko gelditzen dena:"

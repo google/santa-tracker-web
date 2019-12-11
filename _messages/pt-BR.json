@@ -660,7 +660,7 @@
 		"message": "Comemore durante todo o mês"
 	},
 	"familyguide_assistant_body_01": {
-		"message": "Saiba mais sobre o Papai Noel em dezembro com o Google Assistente. Esta integração está disponível nos idiomas selecionados."
+		"message": "Saiba mais sobre o Papai Noel em dezembro com o Google Assistente. Esta integração está disponível apenas em alguns idiomas."
 	},
 	"familyguide_assistant_body_02": {
 		"message": "Com a permissão dos pais ou responsáveis, as crianças menores de 13 anos que fizerem login em uma conta gerenciada com o \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e também poderão ter uma experiência personalizada com o Google Assistente."
@@ -672,13 +672,13 @@
 		"message": "Chamar o Papai Noel"
 	},
 	"familyguide_assistant_card02_body": {
-		"message": "Sintonize todos os dias no Noticiário do Polo Norte para saber o que o Papai Noel e os elfos estão fazendo. Pergunte quais são as novidades do Polo Norte ao Google Assistente."
+		"message": "Sintonize todos os dias no Noticiário do Polo Norte para saber o que o Papai Noel e os duendes estão fazendo. Pergunte quais são as novidades do Polo Norte ao Google Assistente."
 	},
 	"familyguide_assistant_card02_title": {
 		"message": "Noticiário do Polo Norte"
 	},
 	"familyguide_assistant_card03_body": {
-		"message": "Quando o Papai Noel não está ocupado na oficina com os elfos, ele passa o tempo aprimorando as habilidades humorísticas dele. Peça para o Google Assistente contar uma das piadas do Papai Noel."
+		"message": "Quando o Papai Noel não está ocupado na oficina com os duendes, ele passa o tempo aprimorando as habilidades humorísticas dele. Peça para o Google Assistente contar uma das piadas do Papai Noel."
 	},
 	"familyguide_assistant_card03_title": {
 		"message": "Piadas do Papai Noel"
@@ -822,7 +822,7 @@
 		"message": "Aproveite ainda mais a mágica do Siga o Papai Noel nesta época do ano com todos os seus produtos favoritos do Google."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Peça que o Google Assistente envie atualizações divertidas diariamente sobre o elfo Dimplesticks."
+		"message": "Peça que o Google Assistente envie atualizações divertidas diariamente sobre o duende Dimplesticks."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, quais são as novidades no Polo Norte?\""
@@ -858,7 +858,7 @@
 		"message": "Diversão de fim de ano para toda a família"
 	},
 	"familylink": {
-		"message": "Adicione a conta do Google de seus filhos gerenciada com o Family Link"
+		"message": "Adicione a Conta do Google de seus filhos gerenciada com o Family Link"
 	},
 	"featured": {
 		"message": "Em destaque"
@@ -1833,7 +1833,7 @@
 		"message": "Oficina do Papai Noel"
 	},
 	"scene_videoscene_yulelog": {
-		"message": "Lenha de natal"
+		"message": "Lenha de Natal"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"

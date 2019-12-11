@@ -479,6 +479,21 @@
 	"codelab-try-again": {
 		"message": "Opnieuw"
 	},
+	"controller_gamepad": {
+		"message": "Controller"
+	},
+	"controller_keyboard": {
+		"message": "Toetsenbord"
+	},
+	"controller_mouse": {
+		"message": "Muis"
+	},
+	"controller_touch": {
+		"message": "Tikken"
+	},
+	"copied": {
+		"message": "Gekopieerd."
+	},
 	"copy-me": {
 		"message": "Kopieer deze link om je bericht te delen"
 	},
@@ -539,6 +554,12 @@
 	"deckdescription": {
 		"message": "Versier je browser met een Chrome-extensie van de Kerstman."
 	},
+	"decmonth": {
+		"message": "dec"
+	},
+	"decmonth_long": {
+		"message": "december"
+	},
 	"detected": {
 		"message": "gedetecteerd"
 	},
@@ -587,6 +608,9 @@
 	"elf_choose_body": {
 		"message": "Kies een elfenlichaam"
 	},
+	"elves": {
+		"message": "Elfen"
+	},
 	"elvish_language_name": {
 		"message": "Elfs"
 	},
@@ -611,8 +635,14 @@
 	"error-not-found": {
 		"message": "Oeps, de elfen kunnen deze pagina niet vinden. Ga terug naar het \u003ca href=\"./\"\u003edorp van de Kerstman\u003c/a\u003e en probeer het opnieuw."
 	},
+	"error-out-of-date": {
+		"message": "Dit is een verouderde versie van het kerstdorp. Open 'Kerstman vinden' opnieuw voor de nieuwste versie."
+	},
 	"error-try-again": {
 		"message": "Opnieuw"
+	},
+	"error-unsupported": {
+		"message": "'Kerstman vinden' wordt niet ondersteund door je browser. Gebruik je telefoon of een andere browser om meer games te spelen en de Kerstman te volgen op 24 december."
 	},
 	"es_language_name": {
 		"message": "Spaans"
@@ -626,11 +656,212 @@
 	"explore-village": {
 		"message": "Dorp van de Kerstman verkennen"
 	},
+	"familyguide_accordion_title": {
+		"message": "De hele maand feest"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Gebruik de Google Assistent voor meer informatie over de Kerstman in december. Deze integratie is beschikbaar in bepaalde talen."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Als ze toestemming van hun ouders hebben, mogen kinderen onder de dertien jaar ook hun eigen gepersonaliseerde Google Assistent gebruiken. Ze loggen dan in met hun eigen account dat wordt beheerd met \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistent verbindt je met de Noordpool, waar de Kerstman aan het oefenen is voor een concert. Hij kent maar één liedje. Help jij hem te leren hoe hij dat het beste kan spelen?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "De Kerstman bellen"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Kom dagelijks terug naar het Noordpoolnieuws en ontdek wat de Kerstman en zijn elfen aan het doen zijn. Vraag de Google Assistent wat er op de Noordpool gebeurt."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noordpoolnieuws"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Als de Kerstman niet te druk is met de elfen in zijn werkplaats, werkt hij graag aan zijn grappen. Vraag de Google Assistent een mop van de Kerstman te vertellen."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Grappen met de Kerstman"
+	},
+	"familyguide_assistant_title": {
+		"message": "Mis geen enkel bericht uit de Noordpool"
+	},
+	"familyguide_body": {
+		"message": "Het kerstdorp is dé plek waar gezinnen kerst vieren. Al je favoriete personages komen samen in leuke, educatieve en interactieve activiteiten voor elke leeftijd."
+	},
+	"familyguide_card_01_body": {
+		"message": "Gebruik de basisprincipes van coderen en beweeg de elf door het bos om de achtergelaten cadeautjes te zoeken."
+	},
+	"familyguide_card_02_body": {
+		"message": "Maak je eigen kerstkaart door je eigen sneeuwvlok te programmeren. Kies een van de vele achtergronden en deel de kaart met je vrienden."
+	},
+	"familyguide_card_03_body": {
+		"message": "De elfen zijn al dansend aan het oefenen met coderen. Gebruik code om de danspasjes van de elfen te bepalen. Let op: Hoe beter je wordt, hoe moeilijker de danspassen worden."
+	},
+	"familyguide_card_04_body": {
+		"message": "In Canada dragen ze een speciale kerstmuts en in Australië een zwembroek. Klik op de spelden op de kaart en leer meer over de verschillende kersttradities wereldwijd."
+	},
+	"familyguide_card_05_body": {
+		"message": "Van 'Gelukkig nieuwjaar' in het Elfs tot Дед Мороз, leer de kerstgroeten van over de hele wereld."
+	},
+	"familyguide_card_06_body": {
+		"message": "De Kerstman moet naar veel plekken gaan. Leg de omtrek van een land op de kaart in deze aardrijkskundige game."
+	},
+	"familyguide_card_07_body": {
+		"message": "Ken jij de geschiedenis van kerst? Stel je kennis op de proef in deze quiz met negen vragen."
+	},
+	"familyguide_card_07_title": {
+		"message": "Quiz over tradities rondom de feestdagen"
+	},
+	"familyguide_card_08_body": {
+		"message": "Lekkere trek? Ontdek gerechten en lekkernijen uit landen over de hele wereld."
+	},
+	"familyguide_card_09_body": {
+		"message": "Gebruik de creatieve ruimte van de Kerstman zelf. Elke tool, kwast en sticker heeft een ander geluid. Maak er een spektakel van beeld en geluid van."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimenteer en speel met je eigen winterse sandbox. Gebruik 3D-materialen om van alles te maken: huizen, speelgoed, sneeuwpoppen, bossen of wat je maar kunt bedenken."
+	},
 	"familyguide_card_11_body": {
 		"message": "Maak je eigen elf die de show steelt tijdens de vele feestjes die tijdens de feestdagen op de Noordpool worden gehouden."
 	},
+	"familyguide_card_12_body": {
+		"message": "De Kerstman is bij de kapper voor een nieuwe look. Verf zijn baard, föhn zijn haar en voeg wat haaraccessoires toe of scheer juist alles eraf."
+	},
+	"familyguide_card_13_body": {
+		"message": "Ga met de elfen, de rendieren, de Kerstman en zijn vrouw mee naar het Kerstmuseum!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Er zwerven elfen, rendieren en pegmannen rond op de Noordpool. Kijk hoe ze van de ene naar de andere plek gaan."
+	},
+	"familyguide_card_15_body": {
+		"message": "De Kerstman en zijn rendieren staan klaar om op pad te gaan, maar ze hebben wat hulp van de codeerelfen nodig voordat ze kunnen vertrekken."
+	},
+	"familyguide_card_16_body": {
+		"message": "Onze dorpsvrienden brengen met Ollie de dolfijn een dagje onderwater door en brengen de eerste jaarlijkse feestverlichting in het zeewier aan."
+	},
+	"familyguide_card_age": {
+		"message": "Alle leeftijden"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Als de glühwein op is en de cadeautjes uitgepakt zijn, kun je de rest van het jaar nog allerlei leuke gezinsactiviteiten vinden met Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "We willen allemaal een gezonde aarde, nu en in de toekomst. Google geeft eenvoudige tips waarmee mens en planeet samen tot bloei komen."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Jouw plan, jouw planeet"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Kinderen moeten goed voorbereid zijn om slimme beslissingen te nemen en het meeste uit het internet te halen. Be Internet Awesome leert kinderen de basis van digitaal burgerschap en veiligheid, zodat zij vol vertrouwen de online wereld kunnen ontdekken."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Meer van Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "De elfen willen hun codeervaardigheden altijd verbeteren. Ontdek games waarin je de basis leert. Iedereen kan leren coderen!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Leer coderen met de elfen van de Kerstman"
+	},
+	"familyguide_group_02_body": {
+		"message": "Kerst kan er op verschillende plekken ter wereld heel anders uitzien. Ontdek hoe de wereld het feest viert met allerlei games en quizzen."
+	},
+	"familyguide_group_02_title": {
+		"message": "Ontdek kerst over de hele wereld"
+	},
+	"familyguide_group_03_body": {
+		"message": "Het kerstdorp leeft van de magie van creatie. Ontdek games waarmee je al je favoriete personages tekent, schildert, ontwerpt en maakt."
+	},
+	"familyguide_group_03_title": {
+		"message": "Doe inspiratie op en maak iets"
+	},
+	"familyguide_group_04_body": {
+		"message": "Pak de popcorn erbij en kruip lekker onder een dekentje. Zie de hele groep op het grote scherm in de dorpsbioscoop of lees in het interactieve verhalenboek hoe Ollie de dolfijn diep in de zee kerst viert."
+	},
+	"familyguide_group_04_title": {
+		"message": "Kom met het hele gezin samen"
+	},
+	"familyguide_nav_link_01": {
+		"message": "coderen"
+	},
+	"familyguide_nav_link_02": {
+		"message": "vieren"
+	},
+	"familyguide_nav_link_03": {
+		"message": "maken"
+	},
+	"familyguide_nav_link_04": {
+		"message": "familietijd"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tips en trucs"
+	},
+	"familyguide_nav_link_06": {
+		"message": "meer"
+	},
+	"familyguide_nav_link_07": {
+		"message": "assistent"
+	},
+	"familyguide_secondary_body": {
+		"message": "Op 24 december verandert het kerstdorp in een trackingsysteem en kun je de Kerstman en zijn rendieren volgen als zij over de hele wereld cadeautjes rondbrengen."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Volg de Kerstman op de website 'Kerstman vinden' of in de Android-app"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Wist je dat de reis van de Kerstman 25 uur duurt? Zijn eerste stop is net na 22:00 uur lokale tijd in het oostelijke puntje van Rusland, als het 5:00 uur in New York is en 11:00 uur in Parijs."
+	},
+	"familyguide_secondary_title": {
+		"message": "Volg de Kerstman op de grote dag"
+	},
+	"familyguide_tips_body": {
+		"message": "Beleef deze kerst magische momenten met 'Kerstman vinden' met al je favoriete Google-producten."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Vraag elke dag aan de Google Assistent om leuke updates van Dimplesticks de Elf."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Hey Google, wat gebeurt er op de Noordpool?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Download de app 'Kerstman vinden' voor Android in de Play Store. Er is een exclusieve locatie in het kerstdorp met games die je alleen in de app vindt."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-app"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Volg de Kerstman op je pols door de integratie met Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Zoek in Google naar 'Santa' om de Kerstman in 3D te zien. Op de meeste iPhones en sommige geavanceerde Android-apparaten zie je hem zelfs in AR naar je zwaaien!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Haal de Kerstman in huis"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Voeg wat kerstplezier toe aan je berichten. Vind gif's en stickers met de Kerstman erop door te zoeken naar 'Santa Tracker gifs' (alleen in het Engels) op de Google Tenor-pagina."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Geef eens een gif cadeau"
+	},
+	"familyguide_tips_title": {
+		"message": "Tips en trucs"
+	},
+	"familyguide_title": {
+		"message": "Feest voor het hele gezin"
+	},
+	"familylink": {
+		"message": "Het Google-account van uw kind toevoegen en beheren met Family Link"
+	},
+	"featured": {
+		"message": "Aanbevolen"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -905,6 +1136,12 @@
 	"next_game": {
 		"message": "Volgende game"
 	},
+	"nextdecember": {
+		"message": "Tot ziens in december!"
+	},
+	"nextyear": {
+		"message": "Tot volgend jaar!"
+	},
 	"ng_country_name": {
 		"message": "Nigeria"
 	},
@@ -1078,6 +1315,9 @@
 	},
 	"openingtomorrow": {
 		"message": "Vanaf morgen geopend"
+	},
+	"opens": {
+		"message": "Opent op"
 	},
 	"ornament-print-instructions": {
 		"message": "Hier vouwen en de randen aan elkaar lijmen"
@@ -1349,6 +1589,24 @@
 	"scene_airport": {
 		"message": "Luchthaven Noordpool"
 	},
+	"scene_android_cityquiz": {
+		"message": "Stadsquiz"
+	},
+	"scene_android_dancer": {
+		"message": "Danser Dasher"
+	},
+	"scene_android_penguinswim": {
+		"message": "Zwemmen met pinguïns"
+	},
+	"scene_android_presenttoss": {
+		"message": "Zakken vullen"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketslee"
+	},
+	"scene_android_snowballrun": {
+		"message": "Sneeuwballoop"
+	},
 	"scene_app": {
 		"message": "Android-app"
 	},
@@ -1360,6 +1618,9 @@
 	},
 	"scene_briefing": {
 		"message": "De vrouw van de Kerstman geeft een briefing"
+	},
+	"scene_build": {
+		"message": "Cadeaus in een flits"
 	},
 	"scene_callfromsanta": {
 		"message": "Telefoon van de Kerstman"
@@ -1394,14 +1655,26 @@
 	"scene_factory": {
 		"message": "De snoepfabriek"
 	},
+	"scene_family": {
+		"message": "Gids voor gezinnen"
+	},
 	"scene_giftmatch": {
 		"message": "Het passende cadeau"
 	},
 	"scene_glider": {
 		"message": "De elfenvlucht"
 	},
+	"scene_guides": {
+		"message": "Handleidingen voor volwassenen"
+	},
 	"scene_gumball": {
 		"message": "Kauwgomballen kantelen"
+	},
+	"scene_havoc": {
+		"message": "Cadeaugekte"
+	},
+	"scene_holidayfoods": {
+		"message": "Wereldse kerstgerechten in Google Earth"
 	},
 	"scene_icecave": {
 		"message": "IJsgrot"
@@ -1423,6 +1696,9 @@
 	},
 	"scene_mercator": {
 		"message": "Landkaartquiz"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie diep in de zee"
 	},
 	"scene_playground": {
 		"message": "Speelpret op de Noordpool"
@@ -1466,17 +1742,26 @@
 	"scene_snowball": {
 		"message": "Sneeuwbalgevecht"
 	},
+	"scene_snowbox": {
+		"message": "Sneeuwbox"
+	},
 	"scene_snowflake": {
 		"message": "Sneeuwvlokken coderen"
 	},
 	"scene_speedsketch": {
 		"message": "Snelschets"
 	},
+	"scene_storybook": {
+		"message": "Duurzaam verhalenboek"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Kersttradities"
+	},
+	"scene_traditionsquiz": {
+		"message": "Quiz over tradities rondom de feestdagen"
 	},
 	"scene_translations": {
 		"message": "Vertalingen"
@@ -1499,6 +1784,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "De Kerstman vertrekt"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Lichten uit"
+	},
 	"scene_videoscene_museum": {
 		"message": "Een dagje naar het museum"
 	},
@@ -1507,6 +1795,9 @@
 	},
 	"scene_videoscene_onvacation": {
 		"message": "Hij is nog steeds op vakantie"
+	},
+	"scene_videoscene_penguinproof": {
+		"message": "Bestand tegen pinguïns"
 	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Bezorgde rendieren"
@@ -1540,6 +1831,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "De werkplaats van de Kerstman"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Haardvuur"
 	},
 	"scene_windtunnel": {
 		"message": "Windtunnel"
@@ -1603,6 +1897,9 @@
 	},
 	"snowball_iced": {
 		"message": "IJskoud geraakt!"
+	},
+	"snowball_iced_count": {
+		"message": "IJskoud geraakt"
 	},
 	"snowball_remaining": {
 		"message": "Nog {{remaining}} van {{total}} elfen resterend"
@@ -3022,6 +3319,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turks"
+	},
+	"tracker-game_awesome": {
+		"message": "Schattoren spelen"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Aankomst"
@@ -6761,8 +7064,17 @@
 	"uk_tradition": {
 		"message": "In het Verenigd Koninkrijk zie je overal Christmas crackers op tafel tijdens het eten. Dit zijn vrolijk gekleurde kokers met een treklipje aan elk uiteinde. Als je daaraan trekt, barst de koker met een knal open. Binnenin zit een feesthoedje, speeltje of ander klein cadeautje speciaal voor Kerstavond."
 	},
+	"underconstruction": {
+		"message": "In aanbouw"
+	},
+	"unlocks": {
+		"message": "Ontgrendelt op"
+	},
 	"unmute": {
 		"message": "Dempen opheffen"
+	},
+	"upgrade-warning": {
+		"message": "Oeps! 'Kerstman vinden' wordt niet ondersteund door je browser of JavaScript is niet ingeschakeld. Download een nieuwere browserversie of schakel JavaScript in."
 	},
 	"us_country_name": {
 		"message": "United States"
@@ -6823,6 +7135,9 @@
 	},
 	"village_santa_install": {
 		"message": "Installeren"
+	},
+	"village_santa_intall_ios": {
+		"message": "Tik gewoon op \u003cspan\u003e\u003c/span\u003e en dan op 'Toevoegen aan startscherm'"
 	},
 	"village_takesoff": {
 		"message": "De Kerstman vertrekt over"
