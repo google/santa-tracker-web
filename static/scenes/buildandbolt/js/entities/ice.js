@@ -8,8 +8,7 @@ goog.require('app.shared.pools')
 
 app.Ice = class Ice extends app.Entity {
   onInit(config) {
-    super.onInit(config)
-    this.config.checkCell = true
+    super.onInit({...config, checkCell: true});
   }
 
   render() {

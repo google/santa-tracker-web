@@ -14,8 +14,7 @@ app.Wall = class Wall extends app.Entity {
   }
 
   onInit(config) {
-    super.onInit(config);
-    this.config.checkBorder = true;
+    super.onInit({...config, checkBorder: true});
   }
 
   render() {
