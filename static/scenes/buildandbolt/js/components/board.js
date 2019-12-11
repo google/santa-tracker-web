@@ -48,7 +48,7 @@ class Board {
 
       this.context.style.left = '50%';
       this.context.style.top = '50%';
-      this.context.style.transform = `scale(${scale.toFixed(1)}) translate(-50%, -50%)`;
+      this.context.style.transform = `scale(${scale.toFixed(2)}) translate(-50%, -50%)`;
     }
   }
 
