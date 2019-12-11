@@ -49,8 +49,8 @@
 @mixin stagger-animation-children($offset: 0, $delay: $delay-appear, $total: 10) {
   transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
 
-  @for $i from 1 through $total {
-    &:nth-child(#{$i}) {
+  @for $i from 0 through $total - 1 {
+    &:nth-child(#{$i - 1}) {
       transition-delay: ($delay * $i) + $offset;
     }
   }

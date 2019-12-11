@@ -21,6 +21,7 @@ app.Penguin = class Penguin extends app.Slider {
     for (const side of sides) {
       app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
         this.animations[side] = anim;
+        this.render(); // render for the first time
       });
     }
   }
@@ -109,7 +110,9 @@ app.Penguin = class Penguin extends app.Slider {
   onContact(player) {
     super.onContact(player);
     window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
-    return [Constants.PLAYER_ACTIONS.RESTART];
+    window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', player.id);
+    window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', player.id);
+    return [Constants.PLAYER_ACTIONS.RESTART]
   }
 }
 

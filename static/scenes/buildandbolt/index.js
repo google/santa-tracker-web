@@ -107,7 +107,7 @@ const msg = {
   'rocket-single': _msg`buildandbolt-build-rocket-single`,
   'teddy-multiple': _msg`buildandbolt-build-teddybear-multiple`,
   'teddy-single': _msg`buildandbolt-build-teddybear-single`,
-}
+};
 
 const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, msg);
 
