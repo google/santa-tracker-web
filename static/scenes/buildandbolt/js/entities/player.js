@@ -396,7 +396,7 @@ app.Player = class Player {
   }
 
   bouncedByPenguin(penguin) {
-    const collisionDistance = Math.hypot(this.position.x - penguin.position.x, this.position.y - penguin.position.y);
+    const collisionDistance = Utils.getDistance(this.position, penguin.position);
 
     if (collisionDistance < 1) {
       const speed = this.getSpeed()

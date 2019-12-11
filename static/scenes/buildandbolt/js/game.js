@@ -266,7 +266,7 @@ app.Game = class Game {
     const player2 = this.players[1];
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants;
 
-    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y);
+    const collisionDistance = Utils.getDistance(player1.position, player2.position);
 
     if (collisionDistance < 1) {
       // this prevent detecting collision issues
