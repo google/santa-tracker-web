@@ -1,6 +1,6 @@
-goog.provide('Levels')
+goog.provide('Levels');
 
-goog.require('Constants')
+goog.require('Constants');
 
 /**
  * Some documentation for each type of entity:
@@ -2872,4 +2872,4 @@ Levels = [
   //     },
   //   ]
   // },
-]
+];

@@ -123,11 +123,11 @@
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 robot!"
   },
-  "buildandbolt-build-teddy-multiple" : {
+  "buildandbolt-build-teddybear-multiple" : {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
   },
-  "buildandbolt-build-teddy-single" : {
+  "buildandbolt-build-teddybear-single" : {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 teddy bear!"
   },
@@ -2222,10 +2222,6 @@
   "scene_build": {
     "description": "Title of a scene/game. Work together as elves by moving around in a factory to build presents. 'Bolt' means the verb speedy, or fast.",
     "message": "Build & Bolt"
-  },
-  "scene_buildandbolt": {
-    "description": "Title of a scene/game. You are an elf racing to assemble and wrap toys.",
-    "message": "Build and Bolt"
   },
   "scene_callfromsanta": {
     "description": "Title of a scene/game. This lets Santa call your phone number and give a greeting.",

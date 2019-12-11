@@ -1,44 +1,42 @@
-goog.provide('app.Wall')
+goog.provide('app.Wall');
 
-goog.require('Constants')
+goog.require('Constants');
+goog.require('Utils');
 
-goog.require('app.Entity')
-goog.require('app.shared.pools')
-goog.require('Utils')
+goog.require('app.Entity');
+goog.require('app.shared.pools');
 
 app.Wall = class Wall extends app.Entity {
   constructor() {
-    super()
+    super();
+
     this.lastSoundTime = 0;
-    this.elem = document.createElement('div')
-    document.getElementById('walls').append(this.elem)
-    this.elem.setAttribute('class', 'wall')
   }
 
   onInit(config) {
-    super.onInit(config)
-    this.config.checkBorder = true
+    super.onInit(config);
+    this.config.checkBorder = true;
   }
 
   render() {
-    this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`
-    this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`
-    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y)
+    this.elem.style.height = `${Utils.gridToPixelValue(this.config.height)}px`;
+    this.elem.style.width = `${Utils.gridToPixelValue(this.config.width)}px`;
+    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y);
   }
 
   onContact(player) {
-    let actions = []
+    let actions = [];
 
     // if player is in the border, he is blocked
-    this.blockingPosition = Utils.isInBorder(this.config, player.position, player.prevPosition)
+    this.blockingPosition = Utils.isInBorder(this.config, player.position, player.prevPosition);
 
     // if player is in the border, he is blocked
     if (this.blockingPosition) {
-      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK]
+      actions = [...actions, Constants.PLAYER_ACTIONS.BLOCK];
       this.playSound();
     }
 
-    return actions
+    return actions;
   }
 
   playSound() {
@@ -48,5 +46,8 @@ app.Wall = class Wall extends app.Entity {
     }
   }
 }
+
+app.Wall.targetHolderId = 'walls';
+app.Wall.elemClass = 'wall';
 
 app.shared.pools.mixin(app.Wall);

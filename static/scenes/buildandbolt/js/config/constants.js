@@ -177,6 +177,6 @@ Constants = {
     }
   },
 
-  LEVEL_TRANSITION_TIMING: 1400,
+  LEVEL_TRANSITION_TIMING: 500, // from static/scenes/_shared/sass/_levelup.scss
 
-}
+};
