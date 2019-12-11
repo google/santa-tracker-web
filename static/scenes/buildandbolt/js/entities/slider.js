@@ -8,7 +8,6 @@ goog.require('app.Entity');
 
 app.Slider = class Slider extends app.Entity {
   onInit(config) {
-    console.log(config)
     this.config = { ...config, checkCell: true };
     this.elem.classList.remove('hidden');
 
