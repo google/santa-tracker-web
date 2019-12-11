@@ -18,21 +18,27 @@ app.Penguin = class Penguin extends app.Slider {
     this.animations = {};
 
     const sides = ['front', 'back', 'side'];
+    const promises = [];
 
     for (const side of sides) {
-      app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
-        this.animations[side] = anim;
-        // we have to wait the penguin animation to be loaded before rendering it once
-        if (side === 'side') {
-          // after all sides are loaded, render it once
-          this.render()
-          if (!app.AnimationManager.penguinLoaded) {
-            // penguin animation has been loaded once
-            app.AnimationManager.penguinLoaded = true
-          }
-        }
+      const promise = new Promise(resolve => {
+        app.AnimationManager.prepareAnimation(`img/penguin/${side}.json`, this.innerElem, side, (anim) => {
+          this.animations[side] = anim;
+          resolve();
+        });
       });
+      promises.push(promise);
     }
+
+    // we have to wait the penguin animation to be loaded before rendering it once
+    // after all sides are loaded, render it once
+    Promise.all(promises).then(() => {
+      this.render()
+      if (!app.AnimationManager.penguinLoaded) {
+        // penguin animation has been loaded once
+        app.AnimationManager.penguinLoaded = true
+      }
+    })
   }
 
   onInit(config) {
