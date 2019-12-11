@@ -200,6 +200,12 @@ app.Game = class Game {
           break;
         case 'present-box':
           if (this.multiplayer || entity.config.playerId == 'a') {
+            // Don't allow floating middle present boxes in single player mode
+            // Currently no levels have a need for middle boxes in single player
+            if (!this.multiplayer) {
+              entity.config.isMiddle = false
+            }
+
             this.entities.push(app.PresentBox.pop(this, entity.config));
           }
           break;
@@ -334,7 +340,7 @@ app.Game = class Game {
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
     }
   }
- 
+
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */
