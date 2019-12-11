@@ -11,8 +11,13 @@
   box-shadow: $box-shadow;
 
   @include respond-to(mobile) {
-    bottom: 15px;
-    height: 40px;
+    bottom: auto;
+    height: auto;
+    left: auto;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
   }
 
   &.single-player {
@@ -29,7 +34,9 @@
     width: 190px;
 
     @include respond-to(mobile) {
-      width: 140px;
+      flex-direction: column;
+      height: 140px;
+      justify-content: center;
     }
 
     &:first-child {
@@ -62,6 +69,10 @@
     &-img {
       transform: translateY(-18%);
       width: 60%;
+
+      @include respond-to(mobile) {
+        width: 75%;
+      }
     }
   }
 
@@ -71,6 +82,8 @@
     height: 100%;
 
     @include respond-to(mobile) {
+      flex-direction: column-reverse;
+      height: auto;
       padding-left: 0px;
     }
   }
@@ -81,11 +94,17 @@
     text-align: center;
 
     @include respond-to(mobile) {
-      width: 40px;
+      height: 40px;
+      width: 75%;
     }
 
     &-img {
       height: 100%;
+
+      @include respond-to(mobile) {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 
@@ -100,6 +119,11 @@
     font-size: 30px;
     text-align: center;
     width: 20px;
+
+    @include respond-to(mobile) {
+      height: 30px;
+      width: auto;
+    }
   }
 }
 
