@@ -332,8 +332,6 @@ app.Game = class Game {
       // end game. display game winner.
       this.gameoverDialog.show();
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-
-      
     }
   }
  
