@@ -114,8 +114,6 @@ app.Game = class Game {
     // This variable let us have control when we can resume or no.
     this.canResume = true;
 
-    window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-
     app.LevelManager.transition(this.updateLevel, this.startCountdown);
 
     this.onFrame(0);
@@ -132,22 +130,19 @@ app.Game = class Game {
       this.gui.guiElem.classList.add('game-started');
       this.gameStarted = true;
 
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-      }, 800);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
 
       if (app.shared.utils.touchEnabled) {
         this.tutorial.start();
       }
-    } else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
 
     this.canResume = false;
     this.pause();
   }
-
+  startMusic() {
+    window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.0);
+  }
   startCountdown() {
     app.ScoreScreen.hide();
     setTimeout(() => {
@@ -159,12 +154,12 @@ app.Game = class Game {
   }
 
   initLevel() {
-    let levelConfig = Levels[app.LevelManager.current];
-    this.scoreboard.setLevel(app.LevelManager.current);
-    this.scoreboard.restart();
-    this.scoreboard.addTime(levelConfig.time);
-    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
-    this.levelWinner = null;
+    let levelConfig = Levels[app.LevelManager.current]
+    this.scoreboard.restart()
+    this.scoreboard.addTime(levelConfig.time)
+    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 25;
+    this.levelWinner = null
+    // app.ToysBoard.initLevel(levelConfig.toyType.key)
 
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].init(levelConfig.players[i]);
@@ -317,7 +312,8 @@ app.Game = class Game {
       entity.constructor.push(entity);
     }
 
-    this.entities = [];
+    this.entities = []
+    this.hurryUpPlayed = false;
   }
 
   reset() {
@@ -331,19 +327,14 @@ app.Game = class Game {
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNextLevel(this.updateLevel, this.startCountdown);
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
     } else {
       // end game. display game winner.
       this.gameoverDialog.show();
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-
-      //timeout to prevent walk loop to start after game has ended
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
-      }, 10);
     }
   }
-
+ 
   /**
    * Called by the scoreboard to stop the game when the time is up.
    */

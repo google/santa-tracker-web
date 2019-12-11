@@ -301,8 +301,9 @@ app.Player = class Player {
       // TODO: pit falling animation
       window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
       window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
-      this.restart();
-      return; // ignore all other actions
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      this.restart()
+      return // ignore all other actions
     }
 
     // block player
@@ -343,8 +344,8 @@ app.Player = class Player {
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
-      this.onIce = true;
-      if (!this.playingIceSound) {
+      this.onIce = true
+      if (!this.playingIceSound && this.playerState === Constants.PLAYER_STATES.WALK) {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
       }
@@ -481,11 +482,13 @@ app.Player = class Player {
             this.addAnimationToQueueOnce(restToWalk);
             // fall-through
           default:
-            this.playerState = Constants.PLAYER_STATES.WALK;
-            this.addAnimationToQueueOnce(walk);
-            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
+            this.playerState = Constants.PLAYER_STATES.WALK
+            this.addAnimationToQueueOnce(walk)
+            
             if (this.onIce) {
               window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+            }else {
+              window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
             }
         }
         break;
