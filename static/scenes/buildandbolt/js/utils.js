@@ -23,11 +23,14 @@ Utils.renderAtGridLocation = function(element, x, y) {
       `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`;
 }
 
-Utils.isTouchingBorder = function(entity, playerPosition) {
-  if (entity.x + entity.width > playerPosition.x &&
-    entity.x - 1 < playerPosition.x &&
-    entity.y + entity.height > playerPosition.y &&
-    entity.y - 1 < playerPosition.y) {
+/**
+ * offset allows some overlap before triggering
+ */
+Utils.isTouchingBorder = function(entity, playerPosition, offset = 0) {
+  if (entity.x + entity.width - offset > playerPosition.x &&
+    entity.x - 1 + offset < playerPosition.x &&
+    entity.y + entity.height - offset > playerPosition.y &&
+    entity.y - 1 + offset < playerPosition.y) {
     return true;
   }
 

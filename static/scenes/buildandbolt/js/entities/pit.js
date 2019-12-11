@@ -19,8 +19,11 @@ app.Pit = class Pit extends app.Entity {
   }
 
   onContact(player) {
-    super.onContact(player);
-    return [Constants.PLAYER_ACTIONS.PIT_FALL];
+    if (Utils.isTouchingBorder(this.config, player.position, 1)) {
+      return [Constants.PLAYER_ACTIONS.PIT_FALL];
+    }
+
+    return []
   }
 }
 
