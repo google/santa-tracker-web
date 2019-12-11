@@ -399,7 +399,7 @@ app.Player = class Player {
 
     if (collisionDistance < 1) {
       const speed = this.getSpeed();
-      const dectectionTime = 200;
+      const detectionTime = 200;
       let angle, direction;
 
       if (speed === 0) {
@@ -420,7 +420,7 @@ app.Player = class Player {
         this.recentlyBumped = true;
         this.recentlyBumpedTimeout = setTimeout(() => {
           this.recentlyBumped = false;
-        }, dectectionTime);
+        }, detectionTime);
       }
 
       // cases when player get crushed against the wall
@@ -432,7 +432,7 @@ app.Player = class Player {
         this.recentlyCrushed = true;
         this.recentlyCrushedTimeout = setTimeout(() => {
           this.recentlyCrushed = false;
-        }, dectectionTime);
+        }, detectionTime);
       }
       this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction);
     }
@@ -538,7 +538,7 @@ app.Player = class Player {
           default:
             this.playerState = Constants.PLAYER_STATES.WALK
             this.addAnimationToQueueOnce(walk)
-            
+
             if (this.onIce) {
               window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
             }else {
