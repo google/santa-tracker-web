@@ -21,7 +21,7 @@ import './elements/modvil-village.js';
 import {_static, _msg} from '../../src/magic.js';
 import scenes from '../../src/strings/scenes.js';
 
-let villageLoadSounds = helpers.mobileAndTabletCheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
+const villageLoadSounds = helpers.mobileAndTabletCheck() ? 'village_load_mobile_sounds' : 'village_load_sounds';
 api.preload.sounds(villageLoadSounds);
 api.preload.sounds('generic_load_sounds');
 
@@ -41,13 +41,15 @@ api.preload.images(
   'img/village/divider.svg',
 );
 
+const fauxVillageModule = document.getElementById('village');
 const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
 const insertAndroidCards = () => {
   if (androidModuleTemplate.parentNode) {
     const node = androidModuleTemplate.content.cloneNode(true);
     androidModuleTemplate.remove();
     const main = document.querySelector('main');
-    main.prepend(node);
+    // TODO(samthor): If the Village doesn't exist because it's instead a Tracker map, check for this.
+    main.insertBefore(node, fauxVillageModule.nextElementSibling);  // insert after village itself
   }
 };
 
@@ -138,7 +140,6 @@ const updateModuleSoundRatio = (function() {
 
 async function prepareModules() {
   const main = document.querySelector('main');
-  const fauxVillageModule = document.getElementById('village');
 
   helpers.installAdjustHandler((resized) => {
     let mode = '';
