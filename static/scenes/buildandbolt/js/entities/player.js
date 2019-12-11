@@ -434,6 +434,8 @@ app.Player = class Player {
           this.recentlyCrushed = false;
         }, detectionTime);
       }
+
+      window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
       this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction);
     }
   }
