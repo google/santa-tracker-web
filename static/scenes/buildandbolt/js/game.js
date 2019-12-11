@@ -114,8 +114,6 @@ app.Game = class Game {
     // This variable let us have control when we can resume or no.
     this.canResume = true;
 
-    window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-
     app.LevelManager.transition(this.updateLevel, this.startCountdown);
 
     this.onFrame(0);
@@ -132,19 +130,19 @@ app.Game = class Game {
       this.gui.guiElem.classList.add('game-started');
       this.gameStarted = true;
 
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.8);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
 
       if (app.shared.utils.touchEnabled) {
         this.tutorial.start();
       }
-    } else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.8);
     }
 
     this.canResume = false;
     this.pause();
   }
-
+  startMusic() {
+    window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.0);
+  }
   startCountdown() {
     app.ScoreScreen.hide();
     setTimeout(() => {
@@ -329,7 +327,7 @@ app.Game = class Game {
 
     if (app.LevelManager.current < Levels.length - 1) {
       app.LevelManager.goToNextLevel(this.updateLevel, this.startCountdown);
-      window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
     } else {
       // end game. display game winner.
       this.gameoverDialog.show();

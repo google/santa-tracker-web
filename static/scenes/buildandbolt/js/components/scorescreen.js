@@ -32,7 +32,7 @@ class ScoreScreen {
     this.elem.classList.remove('is-hidden')
     this.state = 'show'
     window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-    window.santaApp.fire('sound-trigger', 'buildandbolt_level_complete');
+    window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
     this.stopWalkSounds();
   }
 
