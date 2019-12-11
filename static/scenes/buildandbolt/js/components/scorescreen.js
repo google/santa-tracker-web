@@ -2,6 +2,7 @@ goog.provide('app.ScoreScreen');
 
 goog.require('Constants');
 
+goog.require('app.LevelManager');
 goog.require('app.shared.utils');
 
 class ScoreScreen {
@@ -28,8 +29,21 @@ class ScoreScreen {
   }
 
   show() {
-    this.elem.classList.remove('is-hidden');
-    this.state = 'show';
+    this.elem.classList.remove('is-hidden')
+    this.state = 'show'
+    window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
+    window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
+    this.stopWalkSounds();
+  }
+
+   /**
+   * Timeout to prevent walk loop to start after game has ended
+   */
+  stopWalkSounds() {
+    setTimeout(()=>{
+      window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', 'all');
+    }, 10)
   }
 
   showEnd(scoreResult, multiplayer) {
@@ -82,10 +96,11 @@ class ScoreScreen {
     }
   }
 
-  onSkipControlsClick() {
-    this.hide();
+  onSkipControlsClick(e) {
     window.santaApp.fire('sound-trigger', 'generic_button_click');
     this.game.goToNextLevel();
+
+    e.currentTarget.blur();
   }
 
   onSkipControlsOver(element) {

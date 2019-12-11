@@ -7,6 +7,7 @@ import Game from './:closure.js';
 api.preload.images(
   'img/player-selection-one.svg',
   'img/player-selection-two.svg',
+  'img/world-edges.svg',
   'img/fences/fence_front_left.svg',
   'img/fences/fence_front_middle.svg',
   'img/fences/fence_front_right.svg',
@@ -107,7 +108,7 @@ const msg = {
   'rocket-single': _msg`buildandbolt-build-rocket-single`,
   'teddy-multiple': _msg`buildandbolt-build-teddybear-multiple`,
   'teddy-single': _msg`buildandbolt-build-teddybear-single`,
-}
+};
 
 const game = new Game(document.getElementById('module-buildandbolt'), api, prepareAnimation, msg);
 
