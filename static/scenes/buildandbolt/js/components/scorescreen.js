@@ -85,13 +85,13 @@ class ScoreScreen {
     const domToy = document.createElement('div');
     domToy.classList.add('score-screen__toy');
     const img = document.createElement('img');
-    img.classList.add(`.score-screen__toy-img score-screen__toy-img--${toy}`);
+    img.classList.add('score-screen__toy-img');
+    img.classList.add(`score-screen__toy-img--${toy}`);
     img.src = `img/toys/${toy}/full.svg`;
     domToy.appendChild(img);
     domToys.appendChild(domToy);
 
-    console.log(score);
-    if (domToy.offsetWidth * score > domToys.offsetWidth) {
+    if (domToy.offsetWidth * score > domToys.offsetWidth && !domToys.classList.contains('left-aligned')) {
       domToys.classList.add('left-aligned');
     }
   }
