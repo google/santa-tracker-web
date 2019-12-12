@@ -82,10 +82,18 @@ class ScoreScreen {
 
     // add toy image
     const domToys = this.elem.querySelector(`.score-screen__player--${id} [data-score-screen-toys]`);
+    const domToy = document.createElement('div');
+    domToy.classList.add('score-screen__toy');
     const img = document.createElement('img');
-    img.classList.add('score-screen__toy');
+    img.classList.add('score-screen__toy-img');
+    img.classList.add(`score-screen__toy-img--${toy}`);
     img.src = `img/toys/${toy}/full.svg`;
-    domToys.appendChild(img);
+    domToy.appendChild(img);
+    domToys.appendChild(domToy);
+
+    if (domToy.offsetWidth * score > domToys.offsetWidth && !domToys.classList.contains('left-aligned')) {
+      domToys.classList.add('left-aligned');
+    }
   }
 
   updateCharacters(playersState) {
