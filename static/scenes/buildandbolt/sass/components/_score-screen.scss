@@ -279,23 +279,33 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 10px;
-    padding: 0 20px;
+    padding: 0 33px;
 
     @include respond-to(mobile) {
       margin-top: 6px;
-      padding: 0 15px;
+      padding: 0 20px;
     }
   }
 
   &__toy {
-    flex: 0 0 50px;
-    margin: 5px;
     height: 50px;
+    margin: 5px;
+    width: 50px;
 
     @include respond-to(mobile) {
-      flex: 0 0 22px;
-      margin: 2px;
       height: 22px;
+      margin: 2px;
+      width: 22px;
+    }
+
+    &-img {
+      height: 100%;
+
+      &--car,
+      &--teddy {
+        height: auto;
+        width: 100%;
+      }
     }
   }
 
