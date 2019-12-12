@@ -11,6 +11,7 @@
   transition: opacity $transition-time;
   width: 100%;
   z-index: $gui-z-index;
+  z-index: 900;
 
   .score-screen__player,
   .score-screen__title,
@@ -93,12 +94,12 @@
       height: 85px;
 
       @include respond-to(mobile) {
-        height: 60px;
+        height: 50px;
       }
     }
 
     .score-screen__name {
-      opacity: 0;
+      display: none;
     }
 
     .score-screen__player.win .score-screen__character--lose {
@@ -150,7 +151,7 @@
     width: 2px;
 
     @include respond-to(mobile) {
-      height: 60px;
+      height: 20px;
     }
   }
 
@@ -163,10 +164,6 @@
     bottom: 0px;
     transform: translateX(-50%);
     width: 2px;
-
-    @include respond-to(mobile) {
-      height: calc(100% - 130px);
-    }
   }
 
   &__title {
@@ -178,11 +175,12 @@
     position: absolute;
     top: 85px;
     transform: translateX(-50%);
+    z-index: $player-z-index;
 
     @include respond-to(mobile) {
-      top: 60px;
-      font-size: 48px;
-      line-height: 60px;
+      top: 20px;
+      font-size: 30px;
+      line-height: 37px;
     }
 
     &--win,
@@ -197,13 +195,13 @@
     border-radius: 14px;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    justify-content: center;
+    height: 690px;
+    justify-content: flex-start;
     margin: 0 56px;
-    max-height: 700px;
     position: relative;
     text-align: center;
     width: 370px;
+    z-index: $player-z-index;
 
     &.win {
       width: 680px;
@@ -234,7 +232,7 @@
 
     @include respond-to(mobile) {
       margin: 0 40px;
-      max-height: 260px;
+      height: 245px;
       width: 200px;
     }
   }
@@ -242,13 +240,13 @@
   &__score {
     color: $color-white;
     font-family: $font-lobster;
-    font-size: 330px;
+    font-size: 290px;
     opacity: 0.7;
     width: 100%;
 
     @include respond-to(mobile) {
-      font-size: 100px;
-      line-height: 115px;
+      font-size: 110px;
+      line-height: 120px;
     }
   }
 
@@ -279,35 +277,39 @@
   &__toys {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 50px;
-    height: 50px;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: flex-start;
+    margin-top: 10px;
     padding: 0 20px;
 
     @include respond-to(mobile) {
-      flex: 0 0 30px;
-      height: 30px;
-      margin-top: 10px;
+      margin-top: 6px;
+      padding: 0 15px;
     }
   }
 
   &__toy {
-    height: 100%;
-    margin: 0 6px;
+    flex: 0 0 50px;
+    margin: 5px;
+    height: 50px;
+
+    @include respond-to(mobile) {
+      flex: 0 0 22px;
+      margin: 2px;
+      height: 22px;
+    }
   }
 
   &__character {
     height: 200px;
     position: absolute;
     right: -15px;
-    top: 47%;
+    top: 26%;
     width: 150px;
 
     @include respond-to(mobile) {
       height: 75px;
       right: -17px;
-      top: 36%;
+      top: 24%;
       width: 90px;
     }
 
