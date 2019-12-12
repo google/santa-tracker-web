@@ -24,15 +24,13 @@ Utils.renderAtGridLocation = function(element, x, y) {
 }
 
 /**
- * offset allows some overlap before triggering. one value for each side.
+ * offset allows some overlap before triggering
  */
-Utils.isTouchingBorder = function(entity, playerPosition, offset) {
-  const { top, bottom, left, right } = offset;
-
-  if (entity.x + entity.width - (right || 0) > playerPosition.x &&
-    entity.x - 1 + (left || 0) < playerPosition.x &&
-    entity.y + entity.height - (bottom || 0) > playerPosition.y &&
-    entity.y - 1 + (top || 0) < playerPosition.y) {
+Utils.isTouchingBorder = function(entity, playerPosition, offset = 0) {
+  if (entity.x + entity.width - offset > playerPosition.x &&
+    entity.x - 1 + offset < playerPosition.x &&
+    entity.y + entity.height - offset > playerPosition.y &&
+    entity.y - 1 + offset < playerPosition.y) {
     return true;
   }
 
@@ -262,6 +260,24 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
     return blockingPosition;
   }
 
+
+  return false;
+}
+
+/**
+ * offset allows some overlap before triggering. one value for each side.
+ */
+Utils.isFallingInPit = function(entity, playerPosition, offset) {
+  const { top, bottom, left, right } = offset;
+
+  if (entity.x + entity.width - (right || 0) > playerPosition.x &&
+    entity.x - 1 + (left || 0) < playerPosition.x &&
+    entity.y + entity.height - (bottom || 0) > playerPosition.y &&
+    entity.y - 1 + (top || 0) < playerPosition.y) {
+    const isAbovePit = playerPosition.y < entity.y;
+
+    return { inside: true, isAbovePit};
+  }
 
   return false;
 }
