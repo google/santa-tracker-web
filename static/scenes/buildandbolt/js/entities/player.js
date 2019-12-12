@@ -78,6 +78,8 @@ app.Player = class Player {
       y: 0
     };
 
+    app.ControlsManager.clearPosition();
+
     if (this.playingIceSound) {
       this.playingIceSound = false;
       window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
@@ -148,7 +150,7 @@ app.Player = class Player {
       GRID_DIMENSIONS,
     } = Constants;
     const { left, right, up, down } = app.ControlsManager.getMovementDirections(
-        this.controls, this.position);
+        this.controls, this.position, this.platform, this.platformOffset);
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR;
     let decelerationFactor = PLAYER_DECELERATION_FACTOR;
@@ -272,11 +274,13 @@ app.Player = class Player {
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM];
     if (platforms && platforms.length) {
       const entity = platforms[0];
-      this.platform = entity;
-      this.platformOffset = {
-        x: this.position.x - entity.position.x,
-        y: this.position.y - entity.position.y
-      };
+      if (this.platform != entity) {
+        this.platform = entity;
+        this.platformOffset = {
+          x: this.position.x - entity.position.x,
+          y: this.position.y - entity.position.y
+        };
+      }
     }
 
     const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL];
@@ -295,6 +299,8 @@ app.Player = class Player {
         // block player
         if (entity.blockingPosition) {
           this.blockPlayer = true;
+          app.ControlsManager.clearPosition();
+
           if (entity.blockingPosition.x !== this.position.x) {
             this.blockingPosition.x = entity.blockingPosition.x;
           }
