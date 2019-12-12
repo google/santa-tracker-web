@@ -132,6 +132,7 @@
       .score-screen__title {
         display: block;
       }
+
       .score-screen__title--win,
       .score-screen__title--tie {
         display: none;
@@ -277,16 +278,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10px;
-    margin: 0 33px;
+    margin: 10px 33px 0 33px;
 
     &.left-aligned {
       justify-content: flex-start;
     }
 
     @include respond-to(mobile) {
-      margin-top: 6px;
-      margin: 0 20px;
+      margin: 6px 20px 0 20px;
     }
   }
 
