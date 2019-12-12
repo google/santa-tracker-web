@@ -127,6 +127,16 @@
         display: block;
       }
     }
+
+    &.single-player {
+      .score-screen__title {
+        display: block;
+      }
+      .score-screen__title--win,
+      .score-screen__title--tie {
+        display: none;
+      }
+    }
   }
 
   &::before {
