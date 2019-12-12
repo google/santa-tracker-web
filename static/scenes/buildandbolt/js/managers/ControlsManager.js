@@ -102,30 +102,36 @@ class ControlsManager {
   /**
    * Returns a magnitude of movement for each direction
    */
-  getMovementDirections(controls, currentPosition, blocked) {
+  getMovementDirections(controls, currentPosition, platform, platformOffset) {
     if (this.isTouch) {
       if (this.currentTouchPosition) {
-        if (Utils.getDistance(this.currentTouchPosition, currentPosition) > 1 &&
-            !blocked) {
-          const angle = Utils.getAngle(this.currentTouchPosition, currentPosition);
+        let goalPosition = this.currentTouchPosition;
+        let startPosition = currentPosition;
+
+        if (platform && platformOffset) {
+          goalPosition =  {
+            x: this.currentTouchPosition.x - platform.position.x,
+            y: this.currentTouchPosition.y - platform.position.y
+          };
+
+          startPosition = platformOffset;
+        }
+
+        if (Utils.getDistance(goalPosition, startPosition) > 1) {
+          const angle = Utils.getAngle(goalPosition, startPosition);
           let magnitudeX = Math.abs(Math.cos(angle));
           let magnitudeY = Math.abs(Math.sin(angle));
 
-          // normalize magnitudes - should add up to 1
-          // magnitudeX = magnitudeX / (magnitudeX + magnitudeY);
-          // magnitudeY = magnitudeY / (magnitudeX + magnitudeY);
-
           return {
-            left: this.currentTouchPosition.x < currentPosition.x ? magnitudeX : 0,
-            right: this.currentTouchPosition.x > currentPosition.x ? magnitudeX : 0,
-            up: this.currentTouchPosition.y < currentPosition.y ? magnitudeY : 0,
-            down: this.currentTouchPosition.y > currentPosition.y ? magnitudeY : 0
+            left: goalPosition.x < startPosition.x ? magnitudeX : 0,
+            right: goalPosition.x > startPosition.x ? magnitudeX : 0,
+            up: goalPosition.y < startPosition.y ? magnitudeY : 0,
+            down: goalPosition.y > startPosition.y ? magnitudeY : 0
           };
         }
 
         // If no more movement needed, clear touch position
-        this.currentTouchId = null;
-        this.currentTouchPosition = null;
+        this.clearPosition();
       }
 
       return {
@@ -158,6 +164,14 @@ class ControlsManager {
       up: keys.up ? magnitude : 0,
       down: keys.down ? magnitude : 0
     };
+  }
+
+  /**
+   * Forget last goal position
+   */
+  clearPosition() {
+    this.currentTouchId = null;
+    this.currentTouchPosition = null;
   }
 }
 
