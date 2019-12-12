@@ -47,6 +47,54 @@
     }
   }
 
+  @keyframes fall-left-front {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, 50%) scale(0);
+    }
+  }
+
+  @keyframes fall-left-back {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -75%) scale(0);
+    }
+  }
+
+  @keyframes fall-right-front {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(0%, 50%) scale(0);
+    }
+  }
+
+  @keyframes fall-right-back {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(0%, -75%) scale(0);
+    }
+  }
+
   .player {
     @include board-object();
     height: $grid-unit-size;
@@ -221,6 +269,22 @@
           &.is-flipped {
             animation: .5s fall-left forwards;
           }
+        }
+
+        &.diagonal--left-front {
+          animation: .5s fall-left-front forwards;
+        }
+
+        &.diagonal--left-back {
+          animation: .5s fall-left-back forwards;
+        }
+
+        &.diagonal--right-front {
+          animation: .5s fall-right-front forwards;
+        }
+
+        &.diagonal--right-back {
+          animation: .5s fall-right-back forwards;
         }
       }
     }

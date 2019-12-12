@@ -306,3 +306,14 @@ Utils.getAngle =  function(pos1, pos2) {
 Utils.getDistance =  function(pos1, pos2) {
   return Math.hypot(pos1.x - pos2.x, pos1.y - pos2.y);
 }
+
+/**
+ * Remove classes of an element starting with a specific string
+ */
+
+Utils.removeClassesStartWith = function(elem, string) {
+  let cn = elem.className;
+  const regex = new RegExp(`(^|\\s)${string}\\S+`, 'g');
+  cn = cn.replace(regex, '');
+  elem.className = cn;
+}

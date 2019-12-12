@@ -160,12 +160,15 @@ app.Player = class Player {
       this.onIce = false; // only leave it on for one step
     }
 
+    const diagonalDirections = [];
+
     if (left) {
       this.velocity.x = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - PLAYER_ACCELERATION_STEP * left * accelerationFactor);
 
       if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
         this.setDirection('left');
+        diagonalDirections.push('left');
       }
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -178,6 +181,7 @@ app.Player = class Player {
 
       if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
         this.setDirection('right');
+        diagonalDirections.push('right');
       }
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -190,6 +194,7 @@ app.Player = class Player {
 
       if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
         this.setDirection('back');
+        diagonalDirections.push('back');
       }
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -202,11 +207,14 @@ app.Player = class Player {
 
       if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
         this.setDirection('front');
+        diagonalDirections.push('front');
       }
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
     }
+
+    this.setDiagonalDirections(diagonalDirections);
 
     if (this.platform) {
       this.platformOffset.x += this.velocity.x * delta;
@@ -496,6 +504,19 @@ app.Player = class Player {
       }
       this.innerElem.classList.add(`direction--${direction}`);
       this.currentDirection = direction;
+    }
+  }
+
+  setDiagonalDirections(directions) {
+    Utils.removeClassesStartWith(this.innerElem, 'diagonal--');
+
+    if (directions.length > 1) {
+      let className = '';
+      for (let i = 0; i < directions.length; i++) {
+        className = `${className}-${directions[i]}`;
+      }
+
+      this.innerElem.classList.add(`diagonal-${className}`);
     }
   }
 
