@@ -19,24 +19,11 @@ app.Pit = class Pit extends app.Entity {
   }
 
   onContact(player) {
-    const offset = {
-      top: 0,
-      bottom: 1,
-      left: 1,
-      right: 1
-    };
-
-    const position = Utils.isFallingInPit(this.config, player.position, offset)
-
-    if (position.inside) {
-      if (position.isAbovePit) {
-        player.position.y++
-        player.prevPosition.y++
-      }
+    if (Utils.isTouchingBorder(this.config, player.position)) {
       return [Constants.PLAYER_ACTIONS.PIT_FALL];
     }
 
-    return []
+    return [];
   }
 }
 

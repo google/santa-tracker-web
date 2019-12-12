@@ -26,11 +26,11 @@ Utils.renderAtGridLocation = function(element, x, y) {
 /**
  * offset allows some overlap before triggering
  */
-Utils.isTouchingBorder = function(entity, playerPosition, offset = 0) {
-  if (entity.x + entity.width - offset > playerPosition.x &&
-    entity.x - 1 + offset < playerPosition.x &&
-    entity.y + entity.height - offset > playerPosition.y &&
-    entity.y - 1 + offset < playerPosition.y) {
+Utils.isTouchingBorder = function(entity, playerPosition) {
+  if (entity.x + entity.width > playerPosition.x &&
+    entity.x - 1 < playerPosition.x &&
+    entity.y + entity.height > playerPosition.y &&
+    entity.y - 1 < playerPosition.y) {
     return true;
   }
 
@@ -264,24 +264,6 @@ Utils.isInFence = function(entity, playerPosition, prevPlayerPosition, elem) {
   return false;
 }
 
-/**
- * offset allows some overlap before triggering. one value for each side.
- */
-Utils.isFallingInPit = function(entity, playerPosition, offset) {
-  const { top, bottom, left, right } = offset;
-
-  if (entity.x + entity.width - (right || 0) > playerPosition.x &&
-    entity.x - 1 + (left || 0) < playerPosition.x &&
-    entity.y + entity.height - (bottom || 0) > playerPosition.y &&
-    entity.y - 1 + (top || 0) < playerPosition.y) {
-    const isAbovePit = playerPosition.y < entity.y;
-
-    return { inside: true, isAbovePit};
-  }
-
-  return false;
-}
-
 Utils.nextAnimationFrame = function(animationFrames, currentFrame, loop,
     lastFrameTime, now) {
   let nextFrame = currentFrame;
@@ -323,4 +305,15 @@ Utils.getAngle =  function(pos1, pos2) {
  */
 Utils.getDistance =  function(pos1, pos2) {
   return Math.hypot(pos1.x - pos2.x, pos1.y - pos2.y);
+}
+
+/**
+ * Remove classes of an element starting with a specific string
+ */
+
+Utils.removeClassesStartWith = function(elem, string) {
+  let cn = elem.className;
+  const regex = new RegExp(`(^|\\s)${string}\\S+`, 'g');
+  cn = cn.replace(regex, '');
+  elem.className = cn;
 }

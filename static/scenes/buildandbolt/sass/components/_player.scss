@@ -1,5 +1,5 @@
 ##{$name} {
-  @keyframes fall {
+  @keyframes fall-front {
     0% {
       opacity: 1;
       transform: translate(-25%, -50%) scale(1);
@@ -7,19 +7,91 @@
 
     100% {
       opacity: 0;
-      transform: translate(-25%, -50%) scale(0);
+      transform: translate(-25%, 50%) scale(0);
     }
   }
 
-  @keyframes fall-flipped {
+  @keyframes fall-back {
     0% {
       opacity: 1;
-      transform: translate(-25%, -50%) scaleX(-1) scale(1);
+      transform: translate(-25%, -50%) scale(1);
     }
 
     100% {
       opacity: 0;
-      transform: translate(-25%, -50%) scaleX(-1) scale(0);
+      transform: translate(-25%, -75%) scale(0);
+    }
+  }
+
+  @keyframes fall-left {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+
+  @keyframes fall-right {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(0%, -50%) scale(0);
+    }
+  }
+
+  @keyframes fall-left-front {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, 50%) scale(0);
+    }
+  }
+
+  @keyframes fall-left-back {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -75%) scale(0);
+    }
+  }
+
+  @keyframes fall-right-front {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(0%, 50%) scale(0);
+    }
+  }
+
+  @keyframes fall-right-back {
+    0% {
+      opacity: 1;
+      transform: translate(-25%, -50%) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(0%, -75%) scale(0);
     }
   }
 
@@ -183,10 +255,36 @@
       }
 
       &.is-falling {
-        animation: .5s fall forwards;
+        &.direction--front {
+          animation: .5s fall-front forwards;
+        }
 
-        &.is-flipped {
-          animation: .5s fall-flipped forwards;
+        &.direction--back {
+          animation: .5s fall-back forwards;
+        }
+
+        &.direction--side {
+          animation: .5s fall-right forwards;
+
+          &.is-flipped {
+            animation: .5s fall-left forwards;
+          }
+        }
+
+        &.diagonal--left-front {
+          animation: .5s fall-left-front forwards;
+        }
+
+        &.diagonal--left-back {
+          animation: .5s fall-left-back forwards;
+        }
+
+        &.diagonal--right-front {
+          animation: .5s fall-right-front forwards;
+        }
+
+        &.diagonal--right-back {
+          animation: .5s fall-right-back forwards;
         }
       }
     }
