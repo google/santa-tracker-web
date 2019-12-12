@@ -1,15 +1,25 @@
 ##{$name} {
-  @keyframes blink {
+  @keyframes fall {
     0% {
       opacity: 1;
-    }
-
-    50% {
-      opacity: 0;
+      transform: translate(-25%, -50%) scale(1);
     }
 
     100% {
+      opacity: 0;
+      transform: translate(-25%, -50%) scale(0);
+    }
+  }
+
+  @keyframes fall-flipped {
+    0% {
       opacity: 1;
+      transform: translate(-25%, -50%) scaleX(-1) scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-25%, -50%) scaleX(-1) scale(0);
     }
   }
 
@@ -118,12 +128,6 @@
         right: 0;
         top: 0;
         z-index: 1;
-
-        &--death {
-          transform-origin: 50% 50% !important;
-          transform: scale(1.75);
-          z-index: 0;
-        }
       }
 
       &.direction--side {
@@ -178,11 +182,11 @@
         }
       }
 
-      &.is-dead {
-        animation: .2s blink infinite;
+      &.is-falling {
+        animation: .5s fall forwards;
 
-        .animation--death {
-          display: block;
+        &.is-flipped {
+          animation: .5s fall-flipped forwards;
         }
       }
     }

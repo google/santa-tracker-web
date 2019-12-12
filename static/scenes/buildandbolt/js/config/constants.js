@@ -48,7 +48,6 @@ Constants = {
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
-    RESTART: 'restart',
     STICK_TO_PLATFORM: 'stick',
     BOUNCE: 'bounce',
     BLOCK: 'block',
@@ -121,11 +120,6 @@ Constants = {
       end: 80,
       fps: 60
     },
-    DEATH: {
-      start: 0,
-      end: 12,
-      fps: 24
-    }
   },
 
   BOARD_PADDING_TOP: 95,

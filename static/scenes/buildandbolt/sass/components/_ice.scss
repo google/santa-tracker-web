@@ -1,6 +1,7 @@
 ##{$name} {
   .ice {
     @include board-object();
+    -webkit-border-image: url(img/ice/ice.svg) 33% fill / 25px round;
     border-image: url(img/ice/ice.svg) 33% fill / 25px round;
 
     &::after {

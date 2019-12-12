@@ -45,29 +45,25 @@ app.Player = class Player {
   /**
    * Restarts the player to the beginning of the level, progress lost
    */
-  restart() {
+  pitFall() {
     this.dead = true;
     this.animationQueue = [];
 
-    // initialize death animation
-    this.innerElem.classList.add('is-dead');
-    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start;
-    this.currentAnimationState = {
-      animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
-      callback: () => {
-        this.dead = false;
-        this.innerElem.classList.remove('is-dead');
+    this.innerElem.classList.add('is-falling');
+    setTimeout(() => {
+      this.dead = false;
+      this.innerElem.classList.remove('is-falling');
 
-        window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+      // window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
 
-        this.resetPosition();
+      this.resetPosition();
 
-        app.Board.updateEntityPosition(this,
-            this.prevPosition.x, this.prevPosition.y,
-            this.position.x, this.position.y);
-      }
-    };
+      app.Board.updateEntityPosition(this,
+          this.prevPosition.x, this.prevPosition.y,
+          this.position.x, this.position.y);
+
+    }, 500);
   }
 
   resetPosition() {
@@ -103,9 +99,6 @@ app.Player = class Player {
 
   onFrame(delta, now) {
     if (this.dead) {
-      // Keep updating death animation
-      this.updateAnimationFrame(now);
-      this.render();
       return;
     }
 
@@ -134,11 +127,7 @@ app.Player = class Player {
   }
 
   render() {
-    if (this.dead) {
-      this.animations['death'].goToAndStop(this.currentAnimationFrame, true);
-    } else {
-      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true);
-    }
+    this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true);
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y);
   }
 
@@ -280,12 +269,6 @@ app.Player = class Player {
   }
 
   processActions(resultingActions) {
-    const restartEntities = resultingActions[Constants.PLAYER_ACTIONS.RESTART];
-    if (restartEntities && restartEntities.length) {
-      this.restart();
-      return; // ignore all other actions
-    }
-
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM];
     if (platforms && platforms.length) {
       const entity = platforms[0];
@@ -298,11 +281,10 @@ app.Player = class Player {
 
     const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL];
     if (!this.platform && pitEntities && pitEntities.length) {
-      // TODO: pit falling animation
       window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
       window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
       window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
-      this.restart()
+      this.pitFall()
       return // ignore all other actions
     }
 
