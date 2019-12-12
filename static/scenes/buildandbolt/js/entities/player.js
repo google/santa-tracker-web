@@ -102,6 +102,7 @@ app.Player = class Player {
       return;
     }
 
+    this.previouslyBlocked = this.blockPlayer;
     this.blockPlayer = false;
     this.blockingPosition = {
       x: this.position.x,
@@ -148,7 +149,7 @@ app.Player = class Player {
       GRID_DIMENSIONS,
     } = Constants;
     const { left, right, up, down } = app.ControlsManager.getMovementDirections(
-        this.controls, this.position);
+        this.controls, this.position, this.previouslyBlocked);
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR;
     let decelerationFactor = PLAYER_DECELERATION_FACTOR;

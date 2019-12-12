@@ -102,10 +102,11 @@ class ControlsManager {
   /**
    * Returns a magnitude of movement for each direction
    */
-  getMovementDirections(controls, currentPosition) {
+  getMovementDirections(controls, currentPosition, blocked) {
     if (this.isTouch) {
       if (this.currentTouchPosition) {
-        if (Utils.getDistance(this.currentTouchPosition, currentPosition) > 1) {
+        if (Utils.getDistance(this.currentTouchPosition, currentPosition) > 1 &&
+            !blocked) {
           const angle = Utils.getAngle(this.currentTouchPosition, currentPosition);
           let magnitudeX = Math.abs(Math.cos(angle));
           let magnitudeY = Math.abs(Math.sin(angle));
