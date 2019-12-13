@@ -109,6 +109,16 @@ santa-card {
   }
 }
 
+modvil-tracker {
+  width: 100%;
+  height: 1050px;
+
+  // Shrink by 0.6.
+  @media (max-width: 1024px) {
+    height: 720px;
+  }
+}
+
 modvil-module {
   box-shadow: inset 0 4px 0 #0003;
   width: 100%;
