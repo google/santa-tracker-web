@@ -11,8 +11,8 @@
     position: absolute;
     transform-origin: top left;
 
-    &::before {
-      background: url(img/world_edges-1400x800.svg) center/100% no-repeat;
+    &::before,
+    &::after {
       content: '';
       height: 100%;
       left: 50%;
@@ -20,6 +20,15 @@
       top: 36.5%;
       transform: translate(-50%, -50%) scale(1.43);
       width: 100%;
+    }
+
+    &::before {
+      background: url(img/world_edges-1400x800-top.svg) center/100% no-repeat;
+      z-index: 0;
+    }
+
+    &::after {
+      background: url(img/world_edges-1400x800-bottom.svg) center/100% no-repeat;
       z-index: $background-z-index;
     }
   }
