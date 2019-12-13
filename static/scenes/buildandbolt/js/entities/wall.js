@@ -19,7 +19,6 @@ app.Wall = class Wall extends app.Entity {
     // Assumes a min size of 2 x 4
     const tileDim = 1;
     const lastRowHeight = 3;
-    const lastRowMiddleWidth = 2;
     for (let j = 0; j < config.height - lastRowHeight; j += tileDim) {
       for (let i = 0; i < config.width; i += tileDim) {
         let position;
@@ -44,7 +43,7 @@ app.Wall = class Wall extends app.Entity {
 
     // construct last row
     this.addTile('bottom-left');
-    for (let i = tileDim; i < config.width - tileDim; i += lastRowMiddleWidth) {
+    for (let i = tileDim; i < config.width - tileDim; i += tileDim) {
       this.addTile('bottom-middle');
     }
     this.addTile('bottom-right');

@@ -44,9 +44,15 @@
     }
 
     &--bottom-middle {
-      background: url(img/wall/wall_bottom_middle.svg) center/contain no-repeat;
       height: 150px;
-      width: 100px;
+
+      &:nth-child(even) {
+        background: url(img/wall/wall_bottom_middle_1.svg) center/contain no-repeat;
+      }
+
+      &:nth-child(odd) {
+        background: url(img/wall/wall_bottom_middle_2.svg) center/contain no-repeat;
+      }
     }
 
     &--bottom-right {

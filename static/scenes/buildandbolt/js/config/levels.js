@@ -10,7 +10,6 @@ goog.require('Constants');
  *
  * WALLS
  * Minimum dimensions - 2 x 4
- * Width must be even
  *
  * TABLES
  * tableType can be 1, 2, or 3
