@@ -15,7 +15,6 @@ api.preload.images(
   'img/fences/fence_side_bottom.svg',
   'img/fences/fence_side_roundtop.svg',
   'img/floor/floor_tile.svg',
-  'img/ice/ice.svg',
   'img/ice/shine.svg',
   'img/instructions/hand_instruction.svg',
   'img/instructions/player01_elf.svg',
