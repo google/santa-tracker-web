@@ -381,7 +381,7 @@ app.Player = class Player {
     }
   }
   playErrorSound() {
-    if (performance.now() - this.lastErrorSoundTime > 700) {
+    if (performance.now() - this.lastErrorSoundTime > 200) {
       window.santaApp.fire('sound-trigger', 'generic_fail');
       this.lastErrorSoundTime = performance.now();
     }
