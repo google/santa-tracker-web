@@ -340,10 +340,10 @@ class SantaGameLoaderElement extends HTMLElement {
         // Resolves with a MessagePort from the frame.
         // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
         messageSource.add(af.contentWindow, (ev) => {
-          if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
+          if (!(ev.data instanceof MessagePort)) {
             return reject(new Error(`unexpected from preload: ${ev.data}`));
           }
-          resolve(ev.ports[0]);
+          resolve(ev.data);
         });
 
         // Handle being removed due to being replaced with some other frame before being loaded.

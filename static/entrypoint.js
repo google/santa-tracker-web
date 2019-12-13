@@ -29,6 +29,7 @@ import * as promises from './src/lib/promises.js';
 import global from './global.js';
 import configureCustomKeys from './src/core/keys.js';
 import * as firebaseConfig from './src/core/config.js';
+import * as common from './src/core/common.js';
 import isAndroid from './src/core/android.js';
 import {_msg} from './src/magic.js';
 
@@ -219,11 +220,7 @@ const kplayInstance = kplay.prepare();
 }());
 
 
-window.addEventListener('santa-play', (ev) => {
-  let kplayEvent = ev.detail[0];
-  let args = ev.detail.slice(1);
-  kplayInstance.play(kplayEvent, args);
-});
+window.addEventListener(common.playEvent, (ev) => kplayInstance.play(...ev.detail));
 
 
 interludeElement.addEventListener('transition_in', () => {
@@ -301,6 +298,13 @@ global.subscribe((state) => {
     pause = pause || orientationChangeNeeded || state.hidden || state.status === 'paused';
     const type = pause ? 'pause' : 'resume';
     state.control.send({type});
+
+    // TODO(samthor): Cache what we played before.
+    if (pause) {
+      kplayInstance.play('global_pause');
+    } else {
+      kplayInstance.play('global_unpause');
+    }
   }
 
   const sound = state.muted ? 'muted' : 'unmuted';
@@ -345,93 +349,127 @@ chromeElement.addEventListener('action', (ev) => {
 });
 
 
-async function preloadSounds(sc, event, port) {
-  await sc.preload(event, (done, total) => {
-    port.postMessage({done, total});
-  });
-  port.postMessage(null);
-}
-
-
 /**
  * Handle preload events from the contained scene. Should not effect global state.
  *
  * @param {!PortControl} control
- * @param {!Object<string, string>} data
+ * @param {!Object<string, *>} data
  * @return {!Promise<Object<string, *>>}
  */
 async function prepare(control, data) {
-  const timeout = promises.timeoutRace(10 * 1000);
+  const timeoutSymbol = Symbol('timeout');
+  const timeoutPromise = promises.timeout(10 * 1000).then(() => timeoutSymbol);
 
-  const preloads = [];
-  const config = {};
-outer:
+  // nb. This relies on the scene having at least one task, which is enforced in `api.js`.
+  const {
+    loadedPromise,
+    handleTasks,
+  } = (function() {
+    const {resolve, promise} = promises.resolvable();
+    let tasks = 0;
+
+    return {
+      loadedPromise: promise,
+      handleTasks(delta) {
+        tasks += delta;
+        if (tasks <= 0) {
+          resolve();
+        }
+      },
+    };
+  }());
+
+  const {
+    configPromise,
+    handleConfig,
+  } = (function() {
+    const {resolve, promise} = promises.resolvable();
+    let resolved = false;
+
+    return {
+      configPromise: promise,
+      handleConfig(config) {
+        if (resolved) {
+          throw new TypeError('got dup config event');
+        }
+        resolved = true;
+
+        if (!config.subscribe) {
+          // The normal case: the scene just wants params and no subscription.
+          control.send({type: 'data', payload: data});
+          return resolve(config);
+        }
+
+        // If the page wants a subscription, they're listening to the Firebase config data.
+        const listener = () => {
+          if (control.done) {
+            firebaseConfig.remove(listener);
+            global.unsubscribe(listener);
+            return;
+          }
+          const {playNextRoute} = global.getState();
+          const payload = {
+            android: isAndroid(),
+            routes: firebaseConfig.routesSnapshot(),
+            featured: firebaseConfig.featuredRoute(),
+            play: playNextRoute,
+          };
+          control.send({type: 'data', payload});
+        };
+        global.subscribe(listener);
+        firebaseConfig.listen(listener);
+        listener();
+        return resolve(config);
+      },
+    };
+  }());
+
+  const readySymbol = Symbol('ready');
+  const readyPromise = Promise.all([
+    loadedPromise,
+    configPromise,
+  ]).then(() => readySymbol);
+
   for (;;) {
-    const op = await timeout(control.next());
-    if (op === null || op === undefined) {
-      break;  // closed or timeout, bail out
+    const op = await Promise.race([
+      timeoutPromise,
+      readyPromise,
+      control.next(),
+    ]);
+    if (op === readySymbol) {
+      return await configPromise;  // we know config is done
     }
-    if (typeof op !== 'object') {
-      console.warn('got unhandled op from control', op);
-      continue;
+    if (op === timeoutSymbol || op === null) {
+      return null;  // generic failure case
     }
 
     const {type, payload} = op;
     switch (type) {
-      case 'error':
-        return Promise.reject(payload);
-
-      case 'progress':
-        interludeElement.progress = payload;
+      case 'tasks':
+        handleTasks(payload);
         continue;
 
-      case 'preload':
-        const [preloadType, event, port] = payload;
-        if (preloadType !== 'sounds') {
-          throw new TypeError(`unsupported preload: ${payload[0]}`);
-        }
-        // TODO: don't preload sounds if the AudioContext is suspended, queue for later.
-        preloads.push(preloadSounds(kplayInstance, event, port));
+      case 'sounds': {
+        let previousDone = 0;
+        kplayInstance.preload(payload, (done, total) => {
+          if (done === 0) {
+            handleTasks(total);
+          } else {
+            handleTasks(previousDone - done);  // -ve tasks
+            previousDone = done;
+          }
+        });
         continue;
+      }
 
       case 'config':
-        Object.assign(config, payload);
+        handleConfig(payload);
         continue;
 
-      case 'loaded':
-        await timeout(Promise.all(preloads));
-        break outer;
+      default:
+        console.warn('got unhandled preload', op);
     }
-
-    console.warn('got unhandled preload', op);
   }
-
-  // If the page wants a subscription, they're listening to the Firebase config data (i.e. the
-  // village). Otherwise send them whatever is on the ?foo=... search params.
-  if (config.subscribe) {
-    const listener = () => {
-      if (control.done) {
-        firebaseConfig.remove(listener);
-        global.unsubscribe(listener);
-        return;
-      }
-      const {playNextRoute} = global.getState();
-      const payload = {
-        android: isAndroid(),
-        routes: firebaseConfig.routesSnapshot(),
-        featured: firebaseConfig.featuredRoute(),
-        play: playNextRoute,
-      };
-      control.send({type: 'data', payload});
-    };
-    global.subscribe(listener);
-    firebaseConfig.listen(listener);
-    listener();
-  } else {
-    control.send({type: 'data', payload: data});
-  }
-
-  return config;
 }
 
 
@@ -440,9 +478,8 @@ outer:
  *
  * @param {!PortControl} control
  * @param {string} route active
- * @param {!Object<string, *>} config
  */
-async function runner(control, route, config) {
+async function runner(control, route) {
   const sc = kplayInstance;
   let recentScore = null;
 
@@ -651,7 +688,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     sc.transitionTo(config.sound || [], 1.0);
 
     // Kick off runner.
-    await runner(control, route, config);
+    await runner(control, route);
 
     // TODO: might be trailing events
   };
