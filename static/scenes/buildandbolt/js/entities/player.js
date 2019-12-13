@@ -168,7 +168,7 @@ app.Player = class Player {
       this.velocity.x = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - PLAYER_ACCELERATION_STEP * left * accelerationFactor);
 
-      if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.x < 0) {
         this.setDirection('left');
         diagonalDirections.push('left');
       }
@@ -181,7 +181,7 @@ app.Player = class Player {
       this.velocity.x = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + PLAYER_ACCELERATION_STEP * right * accelerationFactor);
 
-      if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.x > 0) {
         this.setDirection('right');
         diagonalDirections.push('right');
       }
@@ -194,7 +194,7 @@ app.Player = class Player {
       this.velocity.y = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - PLAYER_ACCELERATION_STEP * up * accelerationFactor);
 
-      if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.y < 0) {
         this.setDirection('back');
         diagonalDirections.push('back');
       }
@@ -207,7 +207,7 @@ app.Player = class Player {
       this.velocity.y = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + PLAYER_ACCELERATION_STEP * down * accelerationFactor);
 
-      if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.y > 0) {
         this.setDirection('front');
         diagonalDirections.push('front');
       }
@@ -335,9 +335,9 @@ app.Player = class Player {
       this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
       this.clearToyParts();
       window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
-
       // increment score
       app.ScoreManager.updateScore(this.id);
+      acceptToyEntities[0].closeBox();
     }
 
     // if player hits action key but isn't near a toy or present table,
@@ -351,7 +351,7 @@ app.Player = class Player {
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
-      this.onIce = true
+      this.onIce = true;
       if (!this.playingIceSound && this.playerState === Constants.PLAYER_STATES.WALK) {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);

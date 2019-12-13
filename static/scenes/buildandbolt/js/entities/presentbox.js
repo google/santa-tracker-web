@@ -37,7 +37,7 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   render() {
-    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y);
+    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y, this.config.flipped);
   }
 
   onContact(player) {
@@ -59,15 +59,8 @@ app.PresentBox = class PresentBox extends app.Entity {
       if (app.ControlsManager.isTouch || app.ControlsManager.isKeyControlActive(player.controls.action)) {
         if (!this.toyAccepted) {
           actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY];
-          this.toyAccepted = true;
-          this.elem.classList.add('present-box--closed');
         }
       }
-      if (Constants.DEBUG) {
-        this.elem.style.opacity = 0.5;
-      }
-    } else if (Constants.DEBUG) {
-      this.elem.style.opacity = 1;
     }
 
     // if player is in the border, he is blocked
@@ -79,6 +72,11 @@ app.PresentBox = class PresentBox extends app.Entity {
     }
 
     return actions;
+  }
+
+  closeBox() {
+    this.toyAccepted = true;
+    this.elem.classList.add('present-box--closed');
   }
 
   onDispose() {

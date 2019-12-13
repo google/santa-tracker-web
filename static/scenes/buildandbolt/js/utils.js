@@ -18,9 +18,14 @@ Utils.pixelToGridPosition = function(boardElem, pixelPosition) {
   return { x, y };
 }
 
-Utils.renderAtGridLocation = function(element, x, y) {
-  element.style.transform =
-      `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`;
+Utils.renderAtGridLocation = function(element, x, y, flipped = false) {
+  if (flipped) {
+    element.style.transform =
+        `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0) scaleX(-1)`;
+  } else {
+    element.style.transform =
+        `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`;
+  }
 }
 
 /**
