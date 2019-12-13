@@ -20,6 +20,8 @@ app.Player = class Player {
     this.controls = controls;
     this.toyParts = [];
     this.id = id;
+    this.lastErrorSoundTime = 0;
+    this.lastPenguinSoundTime = 0;
 
     this.elem = document.querySelector(`.player--${id}`);
     this.elem.classList.add('is-active');
@@ -338,6 +340,14 @@ app.Player = class Player {
       app.ScoreManager.updateScore(this.id);
     }
 
+    // if player hits action key but isn't near a toy or present table,
+    // play an error sound
+    if (!(toyEntities && toyEntities.length) &&
+        !(acceptToyEntities && acceptToyEntities.length) &&
+        app.ControlsManager.isKeyControlActive(this.controls.action)) {
+      this.playErrorSound();
+    }
+
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
       this.onIce = true
@@ -370,10 +380,15 @@ app.Player = class Player {
       }
     }
   }
-
+  playErrorSound() {
+    if (performance.now() - this.lastErrorSoundTime > 200) {
+      window.santaApp.fire('sound-trigger', 'generic_fail');
+      this.lastErrorSoundTime = performance.now();
+    }
+  }
   // bump the player in a specific direction with a specific force
-  bump(angle, force, reverse = 1) {
-    if (this.id === 'a') {
+  bump(angle, force, reverse = 1, playSound = true) {
+    if (this.id === 'a' && playSound) {
       window.santaApp.fire('sound-trigger', 'buildandbolt_elfbump');
     }
     this.velocity.x = Math.cos(angle) * force * reverse;
@@ -431,11 +446,16 @@ app.Player = class Player {
         }, detectionTime);
       }
 
-      window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
-      this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction);
+      this.playPenguinSound();
+      this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction, false);
     }
   }
-
+  playPenguinSound() {
+    if (performance.now() - this.lastPenguinSoundTime > 150) {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
+      this.lastPenguinSoundTime = performance.now();
+    }
+  }
   addToyPart(partId) {
     const { toyType } = app.LevelManager;
     if (this.toyParts.indexOf(partId) == -1) {

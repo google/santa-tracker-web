@@ -245,8 +245,7 @@ app.Game = class Game {
         }
 
         this.scoreboard.onFrame(delta / 1000);
-
-        if (this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
+        if (this.scoreboard.countdown > 0 && this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
           window.santaApp.fire('sound-trigger', 'buildandbolt_hurryup');
           this.hurryUpPlayed = true;
         }
