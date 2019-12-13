@@ -101,7 +101,7 @@ Controls.prototype.onKeydown = function(e) {
     // Let tutorial know if space or right has been pressed
     // and hide tutorial when user presses the button
     if (!this.spacePressed) {
-      this.tutorial.off('keys-space.svg');
+      this.tutorial.off('keys-space');
       this.spacePressed = true;
     }
     this.isSpaceDown_ = true;
@@ -112,7 +112,7 @@ Controls.prototype.onKeydown = function(e) {
   if (!this.arrowPressed && (e.keyCode === 38 || e.keyCode === 40)) {
     // Let tutorial know if arrow has been pressed
     // and hide tutorial when user presses the button
-    this.tutorial.off('keys-updown.svg');
+    this.tutorial.off('keys-updown');
     this.arrowPressed = true;
   }
 
@@ -199,7 +199,7 @@ Controls.prototype.onTouchstart = function(e) {
 
   // Let tutorial know about touch so it can hide the tutorial.
   if (!this.touchStarted) {
-    this.tutorial.off('touch-updown.svg');
+    this.tutorial.off('touch-updown');
     this.touchStarted = true;
   }
 };
