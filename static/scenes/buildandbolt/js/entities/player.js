@@ -330,17 +330,20 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY];
     if (acceptToyEntities && acceptToyEntities.length) {
-      this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
-      this.clearToyParts();
-      window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
-
-      // increment score
-      app.ScoreManager.updateScore(this.id);
+      for (const entity of acceptToyEntities) {
+        this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
+        this.clearToyParts();
+        window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
+        // increment score
+        app.ScoreManager.updateScore(this.id);
+        entity.closeBox();
+        break; // allow only one box to close at a time
+      }
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
-      this.onIce = true
+      this.onIce = true;
       if (!this.playingIceSound && this.playerState === Constants.PLAYER_STATES.WALK) {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
