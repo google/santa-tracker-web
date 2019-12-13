@@ -317,3 +317,13 @@ Utils.removeClassesStartWith = function(elem, string) {
   cn = cn.replace(regex, '');
   elem.className = cn;
 }
+
+
+/**
+ * Removee all children in an element
+ */
+Utils.removeAllChildren = function(elem) {
+  while (elem.firstChild) {
+    elem.removeChild(elem.firstChild);
+  }
+}
