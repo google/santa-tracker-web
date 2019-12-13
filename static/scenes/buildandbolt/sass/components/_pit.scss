@@ -1,9 +1,53 @@
 ##{$name} {
   .pit {
     @include board-object();
-    // background-color: #010101;
-    -webkit-border-image: url(img/pit/pit.svg) 65% 33% 25% 33% fill / 130px 50px 50px 50px round;
-    border-image: url(img/pit/pit.svg) 65% 33% 25% 33% fill / 130px 50px 50px 50px round;
+    // -webkit-border-image: url(img/pit/pit.svg) 65% 33% 25% 33% fill / 130px 50px 50px 50px round;
+    // border-image: url(img/pit/pit.svg) 65% 33% 25% 33% fill / 130px 50px 50px 50px round;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .pit__tile {
+    // default - for middle middle tiles
+    background: url(img/pit/pit_middle_middle.svg) center/contain no-repeat;
+    height: 50px;
+    transform-origin: center center;
+    width: 50px;
+
+    &--top-left {
+      background: url(img/pit/pit_top_left.svg) center/contain no-repeat;
+      height: 100px;
+    }
+
+    &--top-middle {
+      background: url(img/pit/pit_top_middle.svg) center/contain no-repeat;
+      height: 100px;
+    }
+
+    &--top-right {
+      background: url(img/pit/pit_top_right.svg) center/contain no-repeat;
+      height: 100px;
+    }
+
+    &--middle-left {
+      background: url(img/pit/pit_middle_left.svg) center/contain no-repeat;
+    }
+
+    &--middle-right {
+      background: url(img/pit/pit_middle_right.svg) center/contain no-repeat;
+    }
+
+    &--bottom-left {
+      background: url(img/pit/pit_bottom_left.svg) center/contain no-repeat;
+    }
+
+    &--bottom-middle {
+      background: url(img/pit/pit_bottom_middle.svg) center/contain no-repeat;
+    }
+
+    &--bottom-right {
+      background: url(img/pit/pit_bottom_right.svg) center/contain no-repeat;
+    }
   }
 }
 

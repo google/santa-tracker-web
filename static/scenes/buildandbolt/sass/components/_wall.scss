@@ -1,8 +1,6 @@
 ##{$name} {
   .wall {
     @include board-object();
-    // -webkit-border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
-    // border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
     display: flex;
     flex-wrap: wrap;
   }
@@ -11,7 +9,6 @@
     // default - for middle middle tiles
     background: url(img/wall/wall_middle.svg) center/contain no-repeat;
     height: 50px;
-    transform: scale(1.05);
     transform-origin: center center;
     width: 50px;
 
@@ -21,12 +18,11 @@
 
     &--top-middle {
       background: url(img/wall/wall_top_middle.svg) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
     }
 
     &--top-right {
       background: url(img/wall/wall_top_side.svg) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
+      transform: scaleX(-1);
     }
 
     &--middle-left {
@@ -35,7 +31,7 @@
 
     &--middle-right {
       background: url(img/wall/wall_middle_side.svg) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
+      transform: scaleX(-1);
     }
 
     &--bottom-left {
@@ -57,7 +53,7 @@
 
     &--bottom-right {
       background: url(img/wall/wall_bottom_side.svg) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
+      transform: scaleX(-1);
       height: 150px;
     }
   }
