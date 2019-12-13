@@ -1722,7 +1722,7 @@ Levels = [
         type: 'table',
         config: {
           x: 12,
-          y: 7,
+          y: 6,
           tableType: 1,
           isSideView: false,
           part: 2
