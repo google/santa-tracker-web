@@ -61,11 +61,6 @@ app.PresentBox = class PresentBox extends app.Entity {
           actions = [Constants.PLAYER_ACTIONS.ACCEPT_TOY];
         }
       }
-      if (Constants.DEBUG) {
-        this.elem.style.opacity = 0.5;
-      }
-    } else if (Constants.DEBUG) {
-      this.elem.style.opacity = 1;
     }
 
     // if player is in the border, he is blocked
