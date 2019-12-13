@@ -381,12 +381,14 @@ app.Player = class Player {
       }
     }
   }
+
   playErrorSound() {
     if (performance.now() - this.lastErrorSoundTime > 200) {
       window.santaApp.fire('sound-trigger', 'generic_fail');
       this.lastErrorSoundTime = performance.now();
     }
   }
+
   // bump the player in a specific direction with a specific force
   bump(angle, force, reverse = 1, playSound = true) {
     if (this.id === 'a' && playSound) {
