@@ -1184,7 +1184,7 @@ Levels = [
     toyType: Constants.TOY_TYPES.ROCKET,
     toysCapacity: 2,
     entities: [
-      // LEVEL 8 - TABLES
+      // LEVEL 6 - TABLES
       {
         type: 'table',
         config: {
@@ -1226,7 +1226,7 @@ Levels = [
         }
       },
 
-      // LEVEL 8 - PRESENT BOXES
+      // LEVEL 6 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
@@ -1268,7 +1268,7 @@ Levels = [
         }
       },
 
-      // LEVEL 8 - ICE
+      // LEVEL 6 - ICE
       {
         type: 'ice',
         config: {
@@ -1288,7 +1288,7 @@ Levels = [
         }
       },
 
-      // LEVEL 8 - PITS
+      // LEVEL 6 - PITS
       {
         type: 'pit',
         config: {
@@ -1317,9 +1317,9 @@ Levels = [
         }
       },
 
-      // LEVEL 8 - PENGUINS
+      // LEVEL 6 - PENGUINS
 
-      // LEVEL 8 - PLATFORMS
+      // LEVEL 6 - PLATFORMS
       {
         type: 'platform',
         config: {
@@ -1372,7 +1372,7 @@ Levels = [
     toyType: Constants.TOY_TYPES.TEDDY,
     toysCapacity: 3,
     entities: [
-      // LEVEL 10 - TABLES
+      // LEVEL 7 - TABLES
       {
         type: 'table',
         config: {
@@ -1404,7 +1404,7 @@ Levels = [
         }
       },
 
-      // LEVEL 10 - PRESENT BOXES
+      // LEVEL 7 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
@@ -1466,7 +1466,7 @@ Levels = [
         }
       },
 
-      // LEVEL 10 - PENGUINS
+      // LEVEL 7 - PENGUINS
       {
         type: 'penguin',
         config: {
@@ -1707,7 +1707,7 @@ Levels = [
     toyType: Constants.TOY_TYPES.ROBOT,
     toysCapacity: 2,
     entities: [
-      // LEVEL 6 - TABLES
+      // LEVEL 8 - TABLES
       {
         type: 'table',
         config: {
@@ -1739,7 +1739,7 @@ Levels = [
         }
       },
 
-      // LEVEL 6 - PRESENT BOXES
+      // LEVEL 8 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
@@ -1781,7 +1781,7 @@ Levels = [
         }
       },
 
-      // LEVEL 6 - PITS
+      // LEVEL 8 - PITS
       {
         type: 'pit',
         config: {
@@ -1801,7 +1801,7 @@ Levels = [
         }
       },
 
-      // LEVEL 6 - PLATFORMS
+      // LEVEL 8 - PLATFORMS
       {
         type: 'platform',
         config: {
@@ -1831,7 +1831,7 @@ Levels = [
         }
       },
 
-      // LEVEL 6 - FENCES
+      // LEVEL 8 - FENCES
       {
         type: 'fence',
         config: {
@@ -2000,7 +2000,7 @@ Levels = [
     toyType: Constants.TOY_TYPES.ROCKET,
     toysCapacity: 1,
     entities: [
-      // LEVEL 7 - TABLES
+      // LEVEL 9 - TABLES
       {
         type: 'table',
         config: {
@@ -2042,7 +2042,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - PRESENT BOXES
+      // LEVEL 9 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
@@ -2064,7 +2064,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - ICE
+      // LEVEL 9 - ICE
       {
         type: 'ice',
         config: {
@@ -2075,7 +2075,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - PITS
+      // LEVEL 9 - PITS
       {
         type: 'pit',
         config: {
@@ -2095,7 +2095,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - PENGUINS
+      // LEVEL 9 - PENGUINS
       {
         type: 'penguin',
         config: {
@@ -2109,7 +2109,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - PLATFORMS
+      // LEVEL 9 - PLATFORMS
       {
         type: 'platform',
         config: {
@@ -2195,7 +2195,7 @@ Levels = [
         }
       },
 
-      // LEVEL 7 - FENCES
+      // LEVEL 9 - FENCES
       {
         type: 'fence',
         config: {
@@ -2448,7 +2448,7 @@ Levels = [
     toyType: Constants.TOY_TYPES.ROCKET,
     toysCapacity: 1,
     entities: [
-      // LEVEL 9 - TABLES
+      // LEVEL 10 - TABLES
       {
         type: 'table',
         config: {
@@ -2490,7 +2490,7 @@ Levels = [
         }
       },
 
-      // LEVEL 9 - PRESENT BOXES
+      // LEVEL 10 - PRESENT BOXES
       {
         type: 'present-box',
         config: {
@@ -2512,7 +2512,7 @@ Levels = [
         }
       },
 
-      // LEVEL 9 - ICE
+      // LEVEL 10 - ICE
       {
         type: 'ice',
         config: {
@@ -2568,7 +2568,7 @@ Levels = [
         }
       },
 
-      // LEVEL 9 - PITS
+      // LEVEL 10 - PITS
       {
         type: 'pit',
         config: {
@@ -2606,7 +2606,7 @@ Levels = [
         }
       },
 
-      // LEVEL 9 - FENCES
+      // LEVEL 10 - FENCES
       {
         type: 'fence',
         config: {
