@@ -15,32 +15,30 @@ app.Platform = class Platform extends app.Slider {
   onInit(config) {
     super.onInit(config);
 
-    const cellDim = .5;
-    for (let j = 0; j < config.height; j += cellDim) {
-      for (let i = 0; i < config.width; i += cellDim) {
-        let cell = document.createElement('div');
-        cell.classList.add('platform__tile');
+    const tileDim = .5;
+    for (let j = 0; j < config.height; j += tileDim) {
+      for (let i = 0; i < config.width; i += tileDim) {
+        let tile = document.createElement('div');
+        tile.classList.add('platform__tile');
 
         if (i == 0 && j == 0) {
-          cell.classList.add('platform__tile--top-left');
-        } else if (i == config.width - cellDim && j == 0) {
-          cell.classList.add('platform__tile--top-right');
-        } else if (i == config.width - cellDim && j == 0) {
-          cell.classList.add('platform__tile--top-right');
-        } else if (i == 0 && j == config.height - cellDim) {
-          cell.classList.add('platform__tile--bottom-left');
-        } else if (i == config.width - cellDim &&
-            j == config.height - cellDim) {
-          cell.classList.add('platform__tile--bottom-right');
+          tile.classList.add('platform__tile--top-left');
+        } else if (i == config.width - tileDim && j == 0) {
+          tile.classList.add('platform__tile--top-right');
+        } else if (i == 0 && j == config.height - tileDim) {
+          tile.classList.add('platform__tile--bottom-left');
+        } else if (i == config.width - tileDim &&
+            j == config.height - tileDim) {
+          tile.classList.add('platform__tile--bottom-right');
         } else if (i == 0) {
-          cell.classList.add('platform__tile--middle-left');
-        } else if (i == config.width - cellDim) {
-          cell.classList.add('platform__tile--middle-right');
-        } else if (j == config.height - cellDim) {
-          cell.classList.add('platform__tile--bottom-middle');
+          tile.classList.add('platform__tile--middle-left');
+        } else if (i == config.width - tileDim) {
+          tile.classList.add('platform__tile--middle-right');
+        } else if (j == config.height - tileDim) {
+          tile.classList.add('platform__tile--bottom-middle');
         }
 
-        this.elem.appendChild(cell);
+        this.elem.appendChild(tile);
       }
     }
 

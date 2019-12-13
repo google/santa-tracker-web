@@ -98,7 +98,12 @@ api.preload.images(
   'img/toys/teddy/2.svg',
   'img/toys/teddy/3.svg',
   'img/toys/teddy/full.svg',
-  'img/wall/wall.svg',
+  'img/wall/wall_bottom_middle.svg',
+  'img/wall/wall_bottom_side.svg',
+  'img/wall/wall_middle_side.svg',
+  'img/wall/wall_middle.svg',
+  'img/wall/wall_top_middle.svg',
+  'img/wall/wall_top_side.svg',
 );
 
 api.preload.sounds('buildandbolt_load_sounds');

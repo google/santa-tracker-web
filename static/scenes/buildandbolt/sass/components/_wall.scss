@@ -1,7 +1,58 @@
 ##{$name} {
   .wall {
     @include board-object();
-    -webkit-border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
-    border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
+    // -webkit-border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
+    // border-image: url(img/wall/wall.svg) 20% 25% 60% 25% fill / 50px 50px 150px 50px round;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .wall__tile {
+    // default - for middle middle tiles
+    background: url(img/wall/wall_middle.svg) center/contain no-repeat;
+    height: 50px;
+    transform: scale(1.05);
+    transform-origin: center center;
+    width: 50px;
+
+    &--top-left {
+      background: url(img/wall/wall_top_side.svg) center/contain no-repeat;
+    }
+
+    &--top-middle {
+      background: url(img/wall/wall_top_middle.svg) center/contain no-repeat;
+      transform: scaleX(-1) scale(1.05);
+    }
+
+    &--top-right {
+      background: url(img/wall/wall_top_side.svg) center/contain no-repeat;
+      transform: scaleX(-1) scale(1.05);
+    }
+
+    &--middle-left {
+      background: url(img/wall/wall_middle_side.svg) center/contain no-repeat;
+    }
+
+    &--middle-right {
+      background: url(img/wall/wall_middle_side.svg) center/contain no-repeat;
+      transform: scaleX(-1) scale(1.05);
+    }
+
+    &--bottom-left {
+      background: url(img/wall/wall_bottom_side.svg) center/contain no-repeat;
+      height: 150px;
+    }
+
+    &--bottom-middle {
+      background: url(img/wall/wall_bottom_middle.svg) center/contain no-repeat;
+      height: 150px;
+      width: 100px;
+    }
+
+    &--bottom-right {
+      background: url(img/wall/wall_bottom_side.svg) center/contain no-repeat;
+      transform: scaleX(-1) scale(1.05);
+      height: 150px;
+    }
   }
 }
