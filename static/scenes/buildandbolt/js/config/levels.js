@@ -213,7 +213,7 @@ Levels = [
 
   // LEVEL 2
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -387,7 +387,7 @@ Levels = [
 
   // LEVEL 3
   {
-    time: 120,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -593,7 +593,7 @@ Levels = [
 
   // LEVEL 4
   {
-    time: 120,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -944,7 +944,7 @@ Levels = [
 
   // LEVEL 5
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1165,7 +1165,7 @@ Levels = [
 
   // LEVEL 6
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1353,7 +1353,7 @@ Levels = [
 
   // LEVEL 7
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1688,7 +1688,7 @@ Levels = [
 
   // LEVEL 8
   {
-    time: 180,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1981,7 +1981,7 @@ Levels = [
 
   // LEVEL 9
   {
-    time: 180,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -2429,7 +2429,7 @@ Levels = [
 
   // LEVEL 10
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
