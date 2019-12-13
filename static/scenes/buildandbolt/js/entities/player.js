@@ -20,6 +20,7 @@ app.Player = class Player {
     this.controls = controls;
     this.toyParts = [];
     this.id = id;
+    this.lastErrorSoundTime = 0;
 
     this.elem = document.querySelector(`.player--${id}`);
     this.elem.classList.add('is-active');
@@ -343,7 +344,7 @@ app.Player = class Player {
     if (!(toyEntities && toyEntities.length) &&
         !(acceptToyEntities && acceptToyEntities.length) &&
         app.ControlsManager.isKeyControlActive(this.controls.action)) {
-      console.log('play bmmp sound')
+      this.playErrorSound();
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
@@ -378,7 +379,12 @@ app.Player = class Player {
       }
     }
   }
-
+  playErrorSound() {
+    if (performance.now() - this.lastErrorSoundTime > 700) {
+      window.santaApp.fire('sound-trigger', 'generic_fail');
+      this.lastErrorSoundTime = performance.now();
+    }
+  }
   // bump the player in a specific direction with a specific force
   bump(angle, force, reverse = 1) {
     if (this.id === 'a') {
