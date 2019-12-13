@@ -37,7 +37,7 @@ app.PresentBox = class PresentBox extends app.Entity {
   }
 
   render() {
-    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y);
+    Utils.renderAtGridLocation(this.elem, this.config.x, this.config.y, this.config.flipped);
   }
 
   onContact(player) {
