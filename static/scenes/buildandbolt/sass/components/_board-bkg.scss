@@ -23,12 +23,12 @@
     }
 
     &::before {
-      background: url(img/world_edges-1400x800-top.svg) center/100% no-repeat;
+      background: url(img/world-edges-top.svg) center/100% no-repeat;
       z-index: 0;
     }
 
     &::after {
-      background: url(img/world_edges-1400x800-bottom.svg) center/100% no-repeat;
+      background: url(img/world-edges-bottom.svg) center/100% no-repeat;
       z-index: $background-z-index;
     }
   }
