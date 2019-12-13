@@ -260,7 +260,7 @@ Levels = [
           y: 8,
           tableType: 1,
           isSideView: true,
-          part: 1
+          part: 1,
         }
       },
       {
@@ -282,7 +282,8 @@ Levels = [
           y: 0,
           playerId: 'b',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -292,7 +293,8 @@ Levels = [
           y: 2,
           playerId: 'a',
           isSideView: true,
-          isMiddle: false
+          isMiddle: false,
+          flipped: true
         }
       },
       {
@@ -302,7 +304,8 @@ Levels = [
           y: 12,
           playerId: 'b',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -312,7 +315,8 @@ Levels = [
           y: 14,
           playerId: 'a',
           isSideView: true,
-          isMiddle: false
+          isMiddle: false,
+          flipped: true
         }
       },
 
@@ -456,7 +460,8 @@ Levels = [
           y: 5,
           playerId: 'b',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -466,7 +471,8 @@ Levels = [
           y: 7,
           playerId: 'a',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -476,7 +482,8 @@ Levels = [
           y: 9,
           playerId: 'b',
           isSideView: true,
-          isMiddle: false
+          isMiddle: false,
+          flipped: true
         }
       },
       {
@@ -585,7 +592,7 @@ Levels = [
           height: 2,
           width: 2,
           movementLength: 6,
-          stepSize: .03
+          stepSize: .04
         }
       },
     ]
@@ -672,7 +679,8 @@ Levels = [
           y: 1,
           playerId: 'a',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -682,7 +690,8 @@ Levels = [
           y: 3,
           playerId: 'b',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -692,7 +701,8 @@ Levels = [
           y: 5,
           playerId: 'a',
           isSideView: true,
-          isMiddle: false
+          isMiddle: false,
+          flipped: true
         }
       },
       {
@@ -702,7 +712,8 @@ Levels = [
           y: 9,
           playerId: 'b',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -712,7 +723,8 @@ Levels = [
           y: 11,
           playerId: 'a',
           isSideView: true,
-          isMiddle: true
+          isMiddle: true,
+          flipped: true
         }
       },
       {
@@ -722,7 +734,8 @@ Levels = [
           y: 13,
           playerId: 'b',
           isSideView: true,
-          isMiddle: false
+          isMiddle: false,
+          flipped: true
         }
       },
 
