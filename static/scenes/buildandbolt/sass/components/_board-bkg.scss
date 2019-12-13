@@ -12,14 +12,14 @@
     transform-origin: top left;
 
     &::before {
-      background: url(img/world-edges.svg) center/100% no-repeat;
+      background: url(img/world_edges-1400x800.svg) center/100% no-repeat;
       content: '';
-      height: 251%;
-      left: -33.7%;
-      top: -73.7%;
+      height: 100%;
+      left: 50%;
       position: absolute;
-      width: 167%;
-
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1.73);
+      width: 100%;
     }
   }
 }
