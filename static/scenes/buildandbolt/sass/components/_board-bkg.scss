@@ -17,9 +17,10 @@
       height: 100%;
       left: 50%;
       position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%) scale(1.73);
+      top: 36.5%;
+      transform: translate(-50%, -50%) scale(1.43);
       width: 100%;
+      z-index: $background-z-index;
     }
   }
 }
