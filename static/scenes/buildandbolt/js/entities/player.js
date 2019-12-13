@@ -342,7 +342,7 @@ app.Player = class Player {
     // play an error sound
     if (!(toyEntities && toyEntities.length) &&
         !(acceptToyEntities && acceptToyEntities.length) &&
-        app.ControlsManager.isKeyControlActive(player.controls.action)) {
+        app.ControlsManager.isKeyControlActive(this.controls.action)) {
       console.log('play bmmp sound')
     }
 
