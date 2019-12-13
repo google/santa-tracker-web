@@ -471,9 +471,7 @@ app.Player = class Player {
 
       if (this.toyParts.length == toyType.size) {
         // Replace all toy parts with full toy
-        while (this.toysElem.firstChild) {
-          this.toysElem.removeChild(this.toysElem.firstChild);
-        }
+        Utils.removeAllChildren(this.toysElem)
 
         toyElem.setAttribute('class',
           `toypart toypart--${toyType.key}--full`);
@@ -500,11 +498,7 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`);
     }
 
-    // todo: move this to utils
-    while (this.toysElem.firstChild) {
-      this.toysElem.removeChild(this.toysElem.firstChild);
-    }
-
+    Utils.removeAllChildren(this.toysElem)
     this.toyParts = [];
   }
 
