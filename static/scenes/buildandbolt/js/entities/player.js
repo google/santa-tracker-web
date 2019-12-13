@@ -330,15 +330,12 @@ app.Player = class Player {
     // drop off toy
     const acceptToyEntities = resultingActions[Constants.PLAYER_ACTIONS.ACCEPT_TOY];
     if (acceptToyEntities && acceptToyEntities.length) {
-      for (const entity of acceptToyEntities) {
-        this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
-        this.clearToyParts();
-        window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
-        // increment score
-        app.ScoreManager.updateScore(this.id);
-        entity.closeBox();
-        break; // allow only one box to close at a time
-      }
+      this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
+      this.clearToyParts();
+      window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
+      // increment score
+      app.ScoreManager.updateScore(this.id);
+      acceptToyEntities[0].closeBox();
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
