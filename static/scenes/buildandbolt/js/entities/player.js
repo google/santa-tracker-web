@@ -338,6 +338,14 @@ app.Player = class Player {
       app.ScoreManager.updateScore(this.id);
     }
 
+    // if player hits action key but isn't near a toy or present table,
+    // play an error sound
+    if (!(toyEntities && toyEntities.length) &&
+        !(acceptToyEntities && acceptToyEntities.length) &&
+        app.ControlsManager.isKeyControlActive(player.controls.action)) {
+      console.log('play bmmp sound')
+    }
+
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
       this.onIce = true
