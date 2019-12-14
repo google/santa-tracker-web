@@ -47,7 +47,7 @@ const sceneApi = (function() {
   window.addEventListener(common.preloadEvent, (ev) => {
     const tasks = /** @type {!Array<!Promise>} */ (ev.detail);
     talkback({type: 'tasks', payload: tasks.length});
-    tasks.forEach((t) => t.catch(null).then(resolveTask));
+    tasks.forEach((t) => t.catch(() => null).then(resolveTask));
   });
 
   // Just let the parent there's sounds to preload. This is ignored by the fallback host.

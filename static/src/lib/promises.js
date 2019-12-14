@@ -33,7 +33,7 @@ export const dedup = (method) => {
 
   return (...args) => {
     if (lastArguments === undefined) {
-      p = p.catch(null).then(() => frame()).then(() => {
+      p = p.catch(() => null).then(() => frame()).then(() => {
         const localArguments = lastArguments;
         lastArguments = undefined;
         return wrap(method, localArguments);
