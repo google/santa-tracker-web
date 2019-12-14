@@ -463,7 +463,7 @@ async function prepare(control, data) {
       }
 
       case 'config':
-        handleConfig(payload);
+        handleConfig(payload || {});
         continue;
 
       default:
@@ -625,8 +625,8 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Wait for preload (and other tasks) to complete. None of these have effect on global state so
     // only check if we're still the active scene once done.
-    const config = await configPromise;
-    const lockedImage = await (locked ? sceneImage(route).catch(null) : null);
+    const config = (await configPromise) || {};  // null if locked
+    const lockedImage = await (locked ? sceneImage(route).catch(() => null) : null);
     const sc = kplayInstance;
 
     // Everything is ready, so inform `santa-gameloader` that we're happy to be swapped in if we

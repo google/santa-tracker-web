@@ -2,7 +2,7 @@
 import {_msg} from '../magic.js';
 
 export default {
-  '': _msg`santasvillage`,
+  '': _msg`meta_title`,
   'airport': _msg`scene_airport`,
   'blimp': _msg`scene_blimp`,
   'boatload': _msg`scene_boatload`,

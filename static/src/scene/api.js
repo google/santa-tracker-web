@@ -46,7 +46,6 @@ const sceneApi = (function() {
   const resolveTask = () => talkback({type: 'tasks', payload: -1});
   window.addEventListener(common.preloadEvent, (ev) => {
     const tasks = /** @type {!Array<!Promise>} */ (ev.detail);
-    console.info('preload event', tasks);
     talkback({type: 'tasks', payload: tasks.length});
     tasks.forEach((t) => t.catch(null).then(resolveTask));
   });
