@@ -659,6 +659,8 @@ async function releaseProd(langs) {
 
   // Fanout prod index.html to all scenes and langs.
   for (const page in prodPages) {
+    const isIndex = (page === 'index');
+
     // TODO(samthor): This loads and minifies the prod HTML ~scenes times, but it is destructive.
     const documentForLang = await releaseHtml.load('prod/index.html', async (document) => {
       const head = document.head;
@@ -677,11 +679,19 @@ async function releaseProd(langs) {
         releaseHtml.applyAttributeToAll(head, all, 'content', url);
       }
 
+      // Clear or remove nodes that are [data-page-index].
+      const indexOnly = Array.from(document.querySelectorAll('[data-page-index]'));
+      if (isIndex) {
+        indexOnly.forEach((n) => n.removeAttribute('data-page-index'));
+      } else {
+        indexOnly.forEach((n) => n.remove());
+      }
+
       // nb. In 2019, titles are just e.g. "Santa's Canvas", not "Santa's Canvas - Google Santa
       // Tracker".
-      const msgid = prodPages[page] || 'santatracker';
-      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
-      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+      const msgid = prodPages[page] || 'meta_title';
+      const matched = releaseHtml.applyAttributeToAll(head, ['[data-title]'], 'msgid', msgid);
+      matched.forEach((n) => n.removeAttribute('data-title'));
     });
 
     for (const lang in langs) {
