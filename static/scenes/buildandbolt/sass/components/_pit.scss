@@ -10,6 +10,7 @@
     background: url(img/pit/pit_middle_middle.svg) center/contain no-repeat;
     height: 50px;
     transform-origin: center center;
+    transform: scale(1.01) translateZ(0);
     width: 50px;
 
     &--top-left {

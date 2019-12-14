@@ -10,6 +10,7 @@
     background: url(img/wall/wall_middle.svg) center/contain no-repeat;
     height: 50px;
     transform-origin: center center;
+    transform: scale(1.01) translateZ(0);
     width: 50px;
 
     &--top-left {
@@ -22,7 +23,7 @@
 
     &--top-right {
       background: url(img/wall/wall_top_side.svg) center/contain no-repeat;
-      transform: scaleX(-1);
+      transform: scale(-1.01, 1.01) translateZ(0);
     }
 
     &--middle-left {
@@ -31,7 +32,7 @@
 
     &--middle-right {
       background: url(img/wall/wall_middle_side.svg) center/contain no-repeat;
-      transform: scaleX(-1);
+      transform: scale(-1.01, 1.01) translateZ(0);
     }
 
     &--bottom-left {
@@ -53,7 +54,7 @@
 
     &--bottom-right {
       background: url(img/wall/wall_bottom_side.svg) center/contain no-repeat;
-      transform: scaleX(-1);
+      transform: scale(-1.01, 1.01) translateZ(0);
       height: 150px;
     }
   }
