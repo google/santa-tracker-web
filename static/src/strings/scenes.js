@@ -67,7 +67,7 @@ export default {
   'tracker': _msg`tracker_track`,
   'traditions': _msg`scene_traditions`,
   'translations': _msg`scene_translations`,
-  'underconstruction': _msg`scene_underconstruction`,
+  'underconstruction': _msg`underconstruction`,
   'undersea': _msg`scene_undersea`,
   'village':  _msg`santasvillage`,
   'wheressanta': _msg`scene_videoscene_wheressanta`,  // 2013
