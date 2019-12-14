@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Crea {{count}} coches."
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Crea 1 coche."
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Crea {{count}} robots."
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Crea 1 robot."
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Crea {{count}} cohetes."
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Crea 1 cohete."
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Crea {{count}} ositos de peluche."
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Crea 1 osito de peluche."
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Recoger y soltar juguetes"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrucciones"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Jugador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Jugador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "¿Cuántos jugadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 jugador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 jugadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Saltar"
+	},
 	"bw_country_name": {
 		"message": "Botsuana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "En trineo se lanzaban los pingüinos. Los elfos celebraban entre amigos."
+	},
+	"storybook_paragraph_02": {
+		"message": "Toda la ciudad ansiaba ver el gran árbol encendido."
+	},
+	"storybook_paragraph_03": {
+		"message": "Pero, ese día, la alegría no se repartió por igual. Un narval llamado Oli no hallaba la felicidad."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Aunque sea por una vez, me gustaría disfrutarlo: Cuando el enorme árbol se ilumine, debe ser increíble verlo\"."
+	},
+	"storybook_paragraph_05": {
+		"message": "\"¡Pero si te encanta el océano!\", contestó María la Osa. \"Las conchas, el plancton... ¡Las profundidades son maravillosas!\"."
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Supongo ―dijo Oli―, ahí llevas razón. Pero a veces el mar inunda de tristeza mi corazón\"."
+	},
+	"storybook_paragraph_07": {
+		"message": "\"¿Qué te parece si ―dijo Mary, con una sonrisa alentadora― me paso hoy por allí y nadamos durante unas horas?\"."
+	},
+	"storybook_paragraph_08": {
+		"message": "\"¿Vamos a explorar? ¿A surfear en arrecifes de coral? Espera, ¡se me ha ocurrido algo!\"."
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Podemos celebrar nuestra propia iluminación del árbol\"."
+	},
+	"storybook_paragraph_10": {
+		"message": "Habían ideado un plan. María reunió a su pandilla. Elfos, pingüinos y renos se apuntaron: ¡nadie se perdería lo que se cocía en la villa!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Habían venido tantos amigos que Oli no contenía su emoción. \"Manos a la obra —dijo María—, que empiece la diversión\"."
+	},
+	"storybook_paragraph_12": {
+		"message": "Bien, la clave de toda preciada celebración es tener unos ayudantes que aseguren un brillante colofón."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"¡Acercaos, acercaos!\", gritó Oli. \"Nos tendréis que ayudar: este año queremos iluminar las algas bajo el mar\"."
+	},
+	"storybook_paragraph_14": {
+		"message": "Los peces pasaron a la acción: ellos informarían a los invitados. \"Mientras mandamos las invitaciones, dejad lo demás preparado\"."
+	},
+	"storybook_paragraph_15": {
+		"message": "Los elfos se conocían este tipo de evento de sobra. Así pues, se marcharon para ponerse manos a la obra."
+	},
+	"storybook_paragraph_16": {
+		"message": "Después tocaba la decoración. Estaba claro a quién acudir. \"Sr. Cangrejo y Sra. Langosta, ¿nos echáis una mano por aquí?\"."
+	},
+	"storybook_paragraph_17": {
+		"message": "Las ostras se unieron: \"Podemos ayudar con el diseño. Colgaremos nuestras perlas de las ramas. Será un árbol de ensueño\"."
+	},
+	"storybook_paragraph_18": {
+		"message": "Toda buena fiesta pide música para mover el esqueleto, así todos se animan y nadie se queda quieto."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Mi tío Horacio es un pez gordo en la industria musical y conoce a un gran guitarrista: su mejor amigo Carl\"."
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Se acerca la hora de la fiesta; solo queda el broche final: busquemos el mejor fajo de algas para nuestro árbol ceremonial\"."
+	},
+	"storybook_paragraph_21": {
+		"message": "\"¡Ya está! ¡Ya está!\"."
+	},
+	"storybook_paragraph_22": {
+		"message": "Oli no cabía en sí de la emoción. ¡Esta noche aguardaba una fiesta del copón!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Las estrellas de mar se pusieron en posición, los adornos se mecían, las medusas bailaban y los músicos tocaban con alegría."
+	},
+	"storybook_paragraph_24": {
+		"message": "Todo había salido de perlas: la música y la decoración. Pero lo mejor, sin duda, fue reunir a todos para la ocasión…"
+	},
+	"storybook_paragraph_25": {
+		"message": "... ¡para conseguir tal iluminación!"
+	},
+	"storybook_paragraph_26": {
+		"message": "¡Por fin había llegado el momento esperado! El plancton se había iluminado. Y Oli, por su parte, se quedó anonadado."
+	},
+	"storybook_paragraph_27": {
+		"message": "Parecía arte de magia; las luces brillaban en la oscuridad. Todos estaban expectantes; se hizo el silencio en la ciudad."
+	},
+	"storybook_paragraph_28": {
+		"message": "Nadie había visto antes una cosa parecida. Las luces cambiaban de amarillo a verde y a lila."
+	},
+	"storybook_paragraph_29": {
+		"message": "María se estaba quedando dormida, era hora de irse a la cama, pero antes de que todos marcharan, Oli exclamó con ganas:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Muchas gracias por haber reunido a todos los habitantes. ¡Una noche como esta jamás se había visto antes!\"."
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

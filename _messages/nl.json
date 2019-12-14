@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Bouw {{count}} auto's!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Bouw 1 auto!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Bouw {{count}} robots!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Bouw 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Bouw {{count}} raketten!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Bouw 1 raket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Bouw {{count}} teddyberen!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Bouw 1 teddybeer!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Speelgoed oppakken en loslaten"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instructies"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Verplaatsen"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Speler 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Speler 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hoeveel spelers?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 speler"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 spelers"
+	},
+	"buildandbolt-skip": {
+		"message": "Overslaan"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -492,7 +543,7 @@
 		"message": "Tikken"
 	},
 	"copied": {
-		"message": "Gekopieerd."
+		"message": "Gekopieerd!"
 	},
 	"copy-me": {
 		"message": "Kopieer deze link om je bericht te delen"
@@ -690,7 +741,7 @@
 		"message": "Het kerstdorp is dé plek waar gezinnen kerst vieren. Al je favoriete personages komen samen in leuke, educatieve en interactieve activiteiten voor elke leeftijd."
 	},
 	"familyguide_card_01_body": {
-		"message": "Gebruik de basisprincipes van coderen en beweeg de elf door het bos om de achtergelaten cadeautjes te zoeken."
+		"message": "Beweeg de elf door het bos met de basisprincipes van coderen om de achtergelaten cadeautjes te zoeken."
 	},
 	"familyguide_card_02_body": {
 		"message": "Maak je eigen kerstkaart door je eigen sneeuwvlok te programmeren. Kies een van de vele achtergronden en deel de kaart met je vrienden."
@@ -702,7 +753,7 @@
 		"message": "In Canada dragen ze een speciale kerstmuts en in Australië een zwembroek. Klik op de spelden op de kaart en leer meer over de verschillende kersttradities wereldwijd."
 	},
 	"familyguide_card_05_body": {
-		"message": "Van 'Gelukkig nieuwjaar' in het Elfs tot Дед Мороз, leer de kerstgroeten van over de hele wereld."
+		"message": "Van 'Gelukkig nieuwjaar' in het Elfs tot Дед Мороз: leer de kerstgroeten van over de hele wereld."
 	},
 	"familyguide_card_06_body": {
 		"message": "De Kerstman moet naar veel plekken gaan. Leg de omtrek van een land op de kaart in deze aardrijkskundige game."
@@ -753,7 +804,7 @@
 		"message": "Jouw plan, jouw planeet"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Kinderen moeten goed voorbereid zijn om slimme beslissingen te nemen en het meeste uit het internet te halen. Be Internet Awesome leert kinderen de basis van digitaal burgerschap en veiligheid, zodat zij vol vertrouwen de online wereld kunnen ontdekken."
+		"message": "Kinderen moeten goed voorbereid zijn om slimme beslissingen te nemen en het meeste uit het internet te halen. Be Internet Awesome leert kinderen de basis van digitaal burgerschap en veiligheid, zodat ze vol vertrouwen de online wereld kunnen ontdekken."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Be Internet Awesome"
@@ -780,7 +831,7 @@
 		"message": "Doe inspiratie op en maak iets"
 	},
 	"familyguide_group_04_body": {
-		"message": "Pak de popcorn erbij en kruip lekker onder een dekentje. Zie de hele groep op het grote scherm in de dorpsbioscoop of lees in het interactieve verhalenboek hoe Ollie de dolfijn diep in de zee kerst viert."
+		"message": "Pak wat popcorn erbij en kruip lekker onder een dekentje. Zie de hele groep op het grote scherm in de dorpsbioscoop of lees in het interactieve verhalenboek hoe Ollie de narwal diep in de zee kerst viert."
 	},
 	"familyguide_group_04_title": {
 		"message": "Kom met het hele gezin samen"
@@ -834,7 +885,7 @@
 		"message": "Android-app"
 	},
 	"familyguide_tips_tip03_body": {
-		"message": "Volg de Kerstman op je pols door de integratie met Android Wear."
+		"message": "Volg de Kerstman vanaf je pols door de integratie met Android Wear."
 	},
 	"familyguide_tips_tip03_title": {
 		"message": "Android Wear"
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "De pinguïns waren aan het sleeën. De elfen juichten van plezier."
+	},
+	"storybook_paragraph_02": {
+		"message": "Het dorp kon niet wachten tot het licht de takken versiert."
+	},
+	"storybook_paragraph_03": {
+		"message": "Maar niet iedereen kon die dag vrolijk zijn. Het was geen leuke dag voor Ollie de dolfijn."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Ik zou zo graag, al was het maar even, die grote boom licht willen zien geven.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Maar je bent dol op de zee\", zei beertje Marie. \"Alle schelpen en plankton zijn zo mooi om te zien!\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Nou\", zei Ollie, \"dat is wel waar. Maar die grote blauwe zee valt me soms wel zwaar.\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"Wat nou...\" zei Marie met een lach om haar mond,\n\"als ik vandaag meega? Dan zwemmen we samen rond.\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Op ontdekkingstocht? Wacht, ik heb een idee!"
+	},
+	"storybook_paragraph_09": {
+		"message": "Waarom versieren we niet onze eigen boom in zee?\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Het plan lag op tafel. Marie verzamelde haar team. De elfen en pinguïns hielpen mee. En de rendieren bovendien."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie lachte blij toen hij al zijn vrienden zag. \"Dit wordt leuk!\" zei Marie. \"Kom, aan de slag.\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Als ze het feest wilden laten slagen,\nhadden ze iedereen nodig die kon bijdragen."
+	},
+	"storybook_paragraph_13": {
+		"message": "Ollie riep: \"Kom allemaal helpen het zeewier te versieren, zodat wij ook feest kunnen vieren.\""
+	},
+	"storybook_paragraph_14": {
+		"message": "De vissen zwommen snel van oost naar west. \"Wij zorgen voor de gasten, jullie voor de rest!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "De elfen wisten precies wat ze moesten doen voor deze dag. Er was veel te doen, dus gingen ze snel aan de slag."
+	},
+	"storybook_paragraph_16": {
+		"message": "Voor de versieringen wisten ze precies bij wie ze moesten zijn. \"Meneer Krab en mevrouw Kreeft, als jullie ons kunnen helpen, vinden wij dat heel fijn!\""
+	},
+	"storybook_paragraph_17": {
+		"message": "En dan de oesters, zo vrijgevig zijn zij. Ze droegen hun mooie pareltjes bij."
+	},
+	"storybook_paragraph_18": {
+		"message": "Zonder muziek is een feest natuurlijk niets.\nVoor de grote dag wilden ze de juiste beats."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Mijn oom Harry is de beste die er is. En zijn goede vriend Karel is een meestergitarist.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Het feest gaat bijna beginnen. We hebben alleen maar\nhet perfecte bosje zeewier nodig, en dan zijn we klaar.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Dat is het! Dat is het!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie danste van geluk. Wat een geweldige avond zou het worden.\nHet feest kan niet meer stuk."
+	},
+	"storybook_paragraph_23": {
+		"message": "De zeesterren deinden mee en heel energiek dansten de kwallen op de maat van de muziek."
+	},
+	"storybook_paragraph_24": {
+		"message": "Alles klonk en oogde prachtig. Maar het mooiste moment was toen iedereen eraan kwam gerend..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...om de lichtjes aan te steken."
+	},
+	"storybook_paragraph_26": {
+		"message": "Het moment was eindelijk aangebroken! Het plankton lichtte op. Ollies mond viel open."
+	},
+	"storybook_paragraph_27": {
+		"message": "Het was bijna als magie, al die mooie lichtjes. De aanblik bracht een lach op alle gezichtjes."
+	},
+	"storybook_paragraph_28": {
+		"message": "Het was het spectaculairste wat ze ooit hadden beleefd. Hoe die boom gele, paarse en groene lichten afgeeft."
+	},
+	"storybook_paragraph_29": {
+		"message": "Het werd al laat en Marie begon te gapen.\nMaar Ollie wilde nog zeggen voordat ze gingen slapen:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Heel erg bedankt dat jullie allemaal meebouwden\naan een avond die we altijd zullen onthouden.\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Einde"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

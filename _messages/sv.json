@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Bygg {{count}} bilar!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Bygg en bil!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Bygg {{count}} robotar!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Bygg en robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Bygg {{count}} raketer!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Bygg en raket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Bygg {{count}} nallebjörnar!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Bygg en nallebjörn!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Plocka upp och släpp leksaker"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Anvisningar"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Gå"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Spelare 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Spelare 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hur många spelare?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 spelare"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 spelare"
+	},
+	"buildandbolt-skip": {
+		"message": "Hoppa över"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvinerna åkte kälke. Tomtenissarna jublade glatt."
+	},
+	"storybook_paragraph_02": {
+		"message": "Hela staden var full av förväntan inför det stora ögonblicket."
+	},
+	"storybook_paragraph_03": {
+		"message": "Men alla var inte lika muntra den dagen. Det var nämligen en sorgsen dag för narvalen Olle."
+	},
+	"storybook_paragraph_04": {
+		"message": "”Jag önskar att jag fick se det med mina egna ögon. Det verkar så underbart att se när den stora granen tänds.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "”Men du älskar ju havet!” svarade den snälla björnen Maria. ”Alla fina snäckor och plankton. Det är fantastiskt där nere!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "”Det går väl bra” sa Olle. Men ibland blir jag dyster av havets djup.”"
+	},
+	"storybook_paragraph_07": {
+		"message": "”Vad sägs om att ta en simtur med mig där nere i dag?” sa Maria med ett uppmuntrande leende."
+	},
+	"storybook_paragraph_08": {
+		"message": "”Ska vi ge oss ut på äventyr? Kanske bland korallreven … eller nu vet jag, ännu bättre!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "”Vi kan pynta på vårt eget sätt.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "En plan började ta form. Maria samlade gänget. Både tomtenissar och pingviner dök upp. Några renar också!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Olle log varmt åt alla vänner som hade kommit. ”Nu sätter vi igång!” sa Maria, ”det här blir skoj!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "För att få till en bra fest krävdes först och främst bra medhjälpare."
+	},
+	"storybook_paragraph_13": {
+		"message": "”Kom allihopa!” ropade Olle. ”Vi behöver hjälp med att fixa algbelysning under havet.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Fiskarna agerade kvickt och meddelade gästerna. ”Vi tar hand om inbjudningskorten, ni får ta hand om resten!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Tomtenissarna var duktiga på sånt här. De behövde tid för att pyssla och gav sig genast iväg."
+	},
+	"storybook_paragraph_16": {
+		"message": "Nu var det dags att börja pynta. De visste precis vem de skulle fråga. ”Herr Krabba och Fru Hummer, skulle ni vilja hjälpa till?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "”Vi kan hjälpa till med design!” sa ostronen. Häng våra pärlor på grenarna. De blänker och lyser så fint.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Alla bra fester behöver en skön rytm för att få upp alla på dansgolvet."
+	},
+	"storybook_paragraph_19": {
+		"message": "”Min farbror Hasse är bäst i branschen. Och hans goda vän Kalle är en riktig hejare på gitarr.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "”Snart är det dags att fira! Till sist behöver vi en algbunt som blir perfekt för en julgran.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "”Nu är det dags! Nu är det dags!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Olle skuttade av glädje! Vilken fantastisk fest de skulle få."
+	},
+	"storybook_paragraph_23": {
+		"message": "Sjöstjärnan hoppade på plats och pynten skakade till. Maneten dansade och bandet fortsatte att spela."
+	},
+	"storybook_paragraph_24": {
+		"message": "Det var helt fantastiskt med allt pynt och den underbara stämningen. Men det bästa av allt var när alla samlades …"
+	},
+	"storybook_paragraph_25": {
+		"message": "… och tände belysningen!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Stunden var äntligen kommen! All plankton började lysa. Olle häpnade!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Det lyste på ett nästan magiskt sätt. Hela staden tystnade och tittade på showen."
+	},
+	"storybook_paragraph_28": {
+		"message": "Det mest spektakulära de någonsin sett. Belysningen skiftade från gul till lila till smaragdgrön."
+	},
+	"storybook_paragraph_29": {
+		"message": "Det var redan sängdags och Maria började bli sömnig, men innan de gick vände sig Olle om och sa:"
+	},
+	"storybook_paragraph_30": {
+		"message": "”Tack så mycket för att du fick hela staden att hjälpas åt, det var en oförglömlig kväll.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Slut"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

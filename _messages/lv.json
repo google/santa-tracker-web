@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butāna"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Izveidojiet {{count}} automašīnas."
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Izveidojiet vienu automašīnu."
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Izveidojiet {{count}} robotus."
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Izveidojiet vienu robotu."
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Izveidojiet {{count}} raķetes."
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Izveidojiet vienu raķeti."
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Izveidojiet {{count}} spēļu lācīšus."
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Izveidojiet vienu spēļu lācīti."
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Dāvanu saņemšana un piegāde"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Norādījumi"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Pārvietošana"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1. spēlētājs"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2. spēlētājs"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Cik daudz spēlētāju?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "Viens spēlētājs"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "Divi spēlētāji"
+	},
+	"buildandbolt-skip": {
+		"message": "Izlaist"
+	},
 	"bw_country_name": {
 		"message": "Botsvana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinama"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvīni brauca ar kamanām. Rūķīši gavilēja."
+	},
+	"storybook_paragraph_02": {
+		"message": "Visa pilsēta gatavojās eglītes iedegšanai."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ne visi todien bija tik priecīgi. Narvalim Olijam tā bija bēdīga diena."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Es vēlētos būt tur, lai visu redzētu. Tik lieliski būtu skatīties, kā tiek iedegta eglīte.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“Bet tev patīk okeāns,” lācene Mērija atbildēja, “visi gliemežvāki un planktons. Zem ūdens ir tik lieliski!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Jā,” teica Olijs, “tā tiešām ir. Bet dažkārt lielais okeāns man liek justies skumīgi.”"
+	},
+	"storybook_paragraph_07": {
+		"message": "Ar uzmundrinošu smaidu Mērija teica: “Kā būtu, ja mēs šodien nedaudz papeldētu?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Vai iesim izpētīt? Pasērfot pa jūras rifiem... Un man ir vēl labāka ideja!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“Mēs varētu iedegt paši savu svētku eglīti.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "Plāns bija izveidots. Mērija sapulcināja draugus. Pieteicās rūķīši un arī pingvīni. Viņiem pievienojās arī daži ziemeļbrieži."
+	},
+	"storybook_paragraph_11": {
+		"message": "Olijs priecīgs uzsmaidīja draugiem, kuri bija ieradušies. “Sāksim!” teica Mērija. “Tas tik būs jautri!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Lai sarīkotu lielisku ballīti, vispirms ir nepieciešama komanda ar labiem palīgiem, kas palīdz visu īstenot."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Sapulcējieties!” Olijs sauca. “Mums nepieciešama jūsu palīdzība, lai sarīkotu savu zemūdens brūnaļģu iedegšanu.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Arī zivis pievienojās, informējot viesus par pasākumu. “Mēs parūpēsimies par ielūgumiem, jūs parūpējieties par visu pārējo.”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Rūķīšiem bija pieredze ar šādiem pasākumiem. Viņiem bija nepieciešams laiks dažādiem darbiņiem, un viņi sāka rosīties."
+	},
+	"storybook_paragraph_16": {
+		"message": "Nepieciešami arī rotājumi. Viņi zināja, kurš tos var sagādāt. “Krabja kungs un Omāra kundze, vai jūs, lūdzu, varētu palīdzēt?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Austeres piebalsoja: “Mēs varam palīdzēt ar dekorēšanu. Iekariet zaros mūsu pērles. Tās mirdzēs un spīguļos.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Katrai ballītei ir nepieciešama mūzika — dziesmas ar pareizo ritmu, kas visiem liek mesties dejā."
+	},
+	"storybook_paragraph_19": {
+		"message": "“Mans tēvocis Horācijs ir labākais šajā jomā. Un viņa draugs Karls ir ģitārspēles eksperts.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“Gandrīz jau pienācis laiks ballītei, vēl atlicis atrast vislabākās brūnaļģes, ko izmantot kā svētku eglīti.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“Tieši tā! Tieši tā!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Olijs priekā lēkāja apkārt. Cik lieliska ballīte būs šajā vakarā!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Jūraszvaigzne ieleca savā vietā, un rotājumi sašūpojās. Medūza dejoja, un grupas dalībnieki spēlēja."
+	},
+	"storybook_paragraph_24": {
+		"message": "Viss bija lieliski — rotājumi un mūzika. Tomēr vislabākais bija brīdis, kad visi sanāca kopā..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...uz gaismiņu iedegšanu!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Beidzot bija pienācis šis brīdis. Planktona gaismiņas iedegās. Olijam aizrāvās elpa."
+	},
+	"storybook_paragraph_27": {
+		"message": "Sajūtas bija brīnumainas, un gaismiņas skaisti mirdzēja. Pilsētā iestājās klusums, jo visi skatījās notiekošo."
+	},
+	"storybook_paragraph_28": {
+		"message": "Iespaidīgākais skats, ko viņi jebkad bija redzējuši. Gaismiņas iekrāsojās dzeltenā, pēc tam violetā un smaragda zaļā krāsā."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mērijai sāka kļūt miegaina, jo sen jau bija gulētiešanas laiks. Bet pirms visi devās prom, Olijs pagriezās un teica:"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Paldies, ka sapulcināji visu pilsētu šajā vakarā, kuru vienmēr atcerēsimies.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Beigas"
 	},
 	"sv_country_name": {
 		"message": "Salvadora"

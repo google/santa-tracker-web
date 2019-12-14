@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Byg {{count}} biler!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Byg 1 bil!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Byg {{count}} robotter!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Byg 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Byg {{count}} raketter!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Byg 1 raket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Byg {{count}} bamser!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Byg 1 bamse!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Løft og slip-legetøj"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Vejledning"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Flyt"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Spiller 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Spiller 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hvor mange spillere?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 spiller"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 spillere"
+	},
+	"buildandbolt-skip": {
+		"message": "Spring over"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvinerne kælkede. Nisserne var glade."
+	},
+	"storybook_paragraph_02": {
+		"message": "Træet skulle tændes på byens gade."
+	},
+	"storybook_paragraph_03": {
+		"message": "Men ikke alle var glade og fro på den dag. For narhvalen Ollie var det lidt en sørgelig sag."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Jeg ville ønske, at jeg kunne se træet blive tændt. Det må være så fantastisk og med lysene så pænt.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“Men du elsker jo havet!”, svarede søde Mary Bjørn. “Med skaller og plankton. Der er jo skønt, for Søren!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Jo, du har ret”, sagde Ollie, “det er faktisk sandt. Men havet er nu ikke altid særlig interessant!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Hvad nu …”, sagde Mary med et muntert smil, \"hvis jeg kom ned til dig i dag, og vi svømmede med stil?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Vi kan tage på opdagelse? Surfe … Eller, her er en idé!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Vi kan tænde vores helt eget juletræ.\""
+	},
+	"storybook_paragraph_10": {
+		"message": "En plan tog form. Mary samlede sit slæng. Der var nisser og pingviner. Ja, selv rensdyr gik i gang!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie smilede glad over alle sine venner. “Lad os komme i gang!” sagde Mary, “nu skaber vi minder!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Når der skal holdes fest, er det vigtigt at vælge et hold, der kan gøre det rigtigt."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Kom herover”, råbte Ollie. “Vi skal alle hjælpe til med at tænde lys i tangen, det håber jeg, I vil.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Fiskene sendte straks invitationerne ud. “Alle skal komme i deres fineste skrud!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Nisserne havde styr på denne slags fest. De gik hen for at bygge, som nisser gør bedst."
+	},
+	"storybook_paragraph_16": {
+		"message": "Til dekorationerne var valget helt klart. “Hr. Krabbe og Fru Hummer, I må hjælpe os snart!”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Østerserne meldte sig: \"Vi kan hjælpe med design! Hænge perler på grene. De vil skinne på vejen.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Enhver fest har brug for musik og grooves, så alle kan danse med deres seje moves."
+	},
+	"storybook_paragraph_19": {
+		"message": "“Min onkel Horatio er bare den bedste. Og hans ven Carl kan spille guitar og feste.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“Snart starter festen, nu behøver vi blot det perfekte bundt tang til et træ, der er flot.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“Hurra! Vi er klar!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie slog flikflak af lykke! Sikke en fest, det kommer til at rykke."
+	},
+	"storybook_paragraph_23": {
+		"message": "Søstjerner sprang på plads, og pynten svingede. Vandmænd dansede, mens musikken klingede."
+	},
+	"storybook_paragraph_24": {
+		"message": "Det var så fantastisk med lys og dekorationer. Men det bedste var, da alle samledes til julens toner…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… til lystændingen!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Endelig var det blevet tid! Planktonen lyste. Ollie, han udstødte \"ih!\""
+	},
+	"storybook_paragraph_27": {
+		"message": "Stemningen var magisk i lysenes skær. Hele byen blev stille, mens festen kom nær."
+	},
+	"storybook_paragraph_28": {
+		"message": "Aldrig før havde de set noget så skønt. Lysene lyste først gult, så lilla, så ganske klart grønt."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary blev lidt søvnig og trængte til dvale, men Ollie tog ordet og holdt en lille tale:"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Tak, fordi I samlede hele byen om en sag, vi vil alle for evigt huske denne dag.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Slut"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

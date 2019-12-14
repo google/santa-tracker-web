@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butão"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Construa {{count}} carros!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Construa 1 carro!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Construa {{count}} robôs!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Construa 1 robô!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Construa {{count}} foguetes!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Construa 1 foguete!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Construa {{count}} ursinhos de pelúcia!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Construa 1 ursinho de pelúcia!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Pegar e soltar brinquedos"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instruções"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Jogador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Jogador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Quantos jogadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Jogador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Jogadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Pular"
+	},
 	"bw_country_name": {
 		"message": "Botsuana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Os pinguins andavam de trenó. Os duendes aplaudiram com alegria."
+	},
+	"storybook_paragraph_02": {
+		"message": "Toda a cidade estava agitada pela luz da árvore da vila."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nem todo mundo estava tão feliz naquele dia. Era um dia bem triste para uma baleia chamada Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Eu queria, pelo menos desta vez, estar lá para ver. Parece ser tão incrível ver aquela grande árvore acender”."
+	},
+	"storybook_paragraph_05": {
+		"message": "“Mas você ama o mar”, respondeu a ursa Mary. “Todas as conchas e os plânctons. Tudo é lindo lá embaixo”."
+	},
+	"storybook_paragraph_06": {
+		"message": "“Acho que sim”, disse Ollie, “isso é verdade. Mas o oceano me deixa triste às vezes”."
+	},
+	"storybook_paragraph_07": {
+		"message": "“Bom, e se…”, disse Mary, com um sorriso animador, “O que acha de nadar um pouco comigo hoje?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Vamos dar um passeio? Nadar nos recifes de corais ou… Tenho uma opção ainda melhor”."
+	},
+	"storybook_paragraph_09": {
+		"message": "“Nós mesmas poderíamos iluminar a árvore do nosso jeito”."
+	},
+	"storybook_paragraph_10": {
+		"message": "Um plano foi traçado. Mary reuniu sua turma. Junto com duendes e pinguins. E renas também."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sorriu com entusiasmo para os amigos que vieram ajudar. “Vamos”, disse Mary, “vai ser divertido”."
+	},
+	"storybook_paragraph_12": {
+		"message": "Agora, para dar uma festança, a primeira coisa que eles precisam é de uma equipe de ótimos ajudantes para fazer tudo dar certo."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Aproximem-se”, disse Ollie. “Precisamos de ajuda para organizar nossa própria iluminação de algas no fundo do mar”."
+	},
+	"storybook_paragraph_14": {
+		"message": "Os peixes entraram em ação, espalhando a notícia para os convidados. “Nós cuidaremos dos convites e vocês cuidam do resto”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Agora que os duendes conheceram esse tipo de evento. Eles precisavam de tempo para os preparativos e então começaram."
+	},
+	"storybook_paragraph_16": {
+		"message": "Depois foi a vez das decorações. Elas sabiam exatamente quem chamar. “Seu Caranguejo e Dona Lagosta, vocês poderiam ajudar?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "As ostras disseram \"Podemos ajudar com o planejamento. Pendure nossas pérolas nos galhos. Elas vão reluzir e brilhar”."
+	},
+	"storybook_paragraph_18": {
+		"message": "Toda festa precisa de músicas com a batida certa para todo mundo dançar e se divertir."
+	},
+	"storybook_paragraph_19": {
+		"message": "“Meu tio Horácio é o melhor dos melhores. E o amigo dele, Carl, é o mestre da guitarra”."
+	},
+	"storybook_paragraph_20": {
+		"message": "“Está quase na hora da festa, então a última coisa que precisaremos são as algas perfeitas para a árvore”."
+	},
+	"storybook_paragraph_21": {
+		"message": "“Chegou a hora. Chegou a hora”."
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie pulou de alegria. Que festa fantástica aconteceria nesta noite."
+	},
+	"storybook_paragraph_23": {
+		"message": "A estrela do mar deu um pulo e as decorações balançaram. A água-viva dançou, e a banda inteira tocou."
+	},
+	"storybook_paragraph_24": {
+		"message": "A decoração, a música… Tudo era fantástico. Mas a melhor parte foi quando todo mundo se juntou…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…para ver a iluminação."
+	},
+	"storybook_paragraph_26": {
+		"message": "Finalmente o momento chegou. Os plânctons se iluminaram. Ollie suspirou."
+	},
+	"storybook_paragraph_27": {
+		"message": "As luzes brilhavam quase como uma mágica. Com a beleza do espetáculo, a cidade inteira ficou paralisada."
+	},
+	"storybook_paragraph_28": {
+		"message": "A coisa mais espetacular que eles já viram. As luzes ficaram amarelas, depois roxas e depois mudaram para verde-esmeralda."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary começou a ficar com sono, já havia passado da hora de dormir. Mas, antes que todos saíssem, Ollie disse:"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Muito obrigada por juntar toda a cidade para uma noite que jamais será esquecida”."
+	},
+	"storybook_paragraph_31": {
+		"message": "Fim"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

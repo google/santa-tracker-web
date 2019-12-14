@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Ustvarite toliko avtomobilov: {{count}}."
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Ustvarite 1 avtomobil."
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Ustvarite toliko robotov: {{count}}."
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Ustvarite 1 robota."
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Ustvarite toliko raket: {{count}}."
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Ustvarite 1 raketo."
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Ustvarite toliko medvedkov: {{count}}."
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Ustvarite 1 medvedka."
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Pobiranje in spuščanje igrač"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Navodila"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Premikanje"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Igralec 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Igralec 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Koliko igralcev?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 igralec"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 igralca"
+	},
+	"buildandbolt-skip": {
+		"message": "Preskok"
+	},
 	"bw_country_name": {
 		"message": "Bocvana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvini na saneh so drseli, palčki pa so vzklikali in peli."
+	},
+	"storybook_paragraph_02": {
+		"message": "Celo mesto v pričakovanju čaka prižig lučk na drevescu."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ta dan pa niso vsi poplesavali veselo. Enoroga Ollieja že cel dan je pri srcu bolelo."
+	},
+	"storybook_paragraph_04": {
+		"message": "»Želim si, da bi lahko videl, kako vsi ob drevescu vreščijo. Gotovo je lepo, ko vse tiste lučke zažarijo.«"
+	},
+	"storybook_paragraph_05": {
+		"message": "Medvedka Mary se čudi: »Saj vendar rad živiš v morju. Vse te školjke in plankton … Zvečer pa te obsije sonce na obzorju.«"
+	},
+	"storybook_paragraph_06": {
+		"message": "Ollie odgovori: »Najbrž je res, saj imaš prav. A včasih v tej modri globini sem prav žalosten postal.«"
+	},
+	"storybook_paragraph_07": {
+		"message": "Mary predlaga spodbudno: »Greva skupaj malo plavat okrog nadobudno!«"
+	},
+	"storybook_paragraph_08": {
+		"message": "»Lahko greva raziskovat, deskat po morskih grebenih ... Aha, že vem!"
+	},
+	"storybook_paragraph_09": {
+		"message": "Kaj če skupaj prižgemo lučke? Počakaj, da vsem povem!«"
+	},
+	"storybook_paragraph_10": {
+		"message": "Mary načrt je naredila, vse prijatelje povabila, tu so pingvini in palčki, tudi jeleni bodo pomagalčki."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie veselo je gledal prijatelje, ki so se zbrali. »Pa začnimo,« oznani Mary. »Da ne boste prej zaspali!«"
+	},
+	"storybook_paragraph_12": {
+		"message": "Vendar ne bo šlo brez dobre ekipe, pokličimo vse, tudi morske polipe!"
+	},
+	"storybook_paragraph_13": {
+		"message": "Ollie zakliče: »Zberite se, potrebujemo vaše usluge, vsi pomagajte, z lučkami bomo okrasili haluge.«"
+	},
+	"storybook_paragraph_14": {
+		"message": "Ribe so zaplavale in razširile besedo. »Me skrbimo za vabila, povabit gremo še sosedo!«"
+	},
+	"storybook_paragraph_15": {
+		"message": "Palčki že vedo, kako se tem stvarem streže. S svojimi veščinami poskrbijo, da se vse v celoto poveže."
+	},
+	"storybook_paragraph_16": {
+		"message": "Da pa ne pozabimo na okrasitev … »Gospod Rakovica in gospa Jastog prava sta rešitev!«"
+	},
+	"storybook_paragraph_17": {
+		"message": "Bisere po vejah bodo obesile ostrige. Kako se bodo bleščale te verige!"
+	},
+	"storybook_paragraph_18": {
+		"message": "Zabava ni zabava brez glasbe, vsi se vrtimo v ritmu sambe, valčka, salse …"
+	},
+	"storybook_paragraph_19": {
+		"message": "»Moj stric Horacij je pravi muzikant, njegov prijatelj Karl kitaro igra, res zabaven je fant.«"
+	},
+	"storybook_paragraph_20": {
+		"message": "»Zabava se bo kmalu začela, vse je pripravljeno lepo, haluge pa bodo predstavljale naše božično drevo.«"
+	},
+	"storybook_paragraph_21": {
+		"message": "»To je to! To je to!«"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie ploska veselo! Tej božični zabavi manjka samo še omelo."
+	},
+	"storybook_paragraph_23": {
+		"message": "Morske zvezde že plešejo, svetleči okraski se zibajo, meduze pojejo veselo, muzikanti v ritmu migajo."
+	},
+	"storybook_paragraph_24": {
+		"message": "Vse je lepo, bleščice in glasba in petje. A ko lučke zasvetijo ..."
+	},
+	"storybook_paragraph_25": {
+		"message": "To je pravo doživetje!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Plankton blešči se, trenutek je končno napočil. Ollie od pričakovanja se je skoraj razpočil!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Bilo je čarobno, lučke so sijale žareče. Mestece je onemelo, odelo se je v barve svetleče."
+	},
+	"storybook_paragraph_28": {
+		"message": "Takšne predstave daleč okrog bilo ni nobene, lučke so se prelivale od rumene, vijolične do svetlo zelene."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary je zaspana, na posteljo nas spomni. Na koncu še Ollie veselo pripomni:"
+	},
+	"storybook_paragraph_30": {
+		"message": "»Upam, da to praznovanje postalo bo redno, te noči se bomo gotovo spominjali za vedno!«"
+	},
+	"storybook_paragraph_31": {
+		"message": "Konec"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

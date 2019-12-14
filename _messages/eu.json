@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Sortu {{count}} auto!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Sortu auto bat!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Sortu {{count}} robot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Sortu robot bat!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Sortu {{count}} suziri!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Sortu suziri bat!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Sortu peluxezko {{count}} hartz!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Sortu peluxezko hartz bat!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Jostailuak hartu eta utzi"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Argibideak"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Eraman"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1. jokalaria"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2. jokalaria"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Zenbat jokalari arituko dira?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 jokalari"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 jokalari"
+	},
+	"buildandbolt-skip": {
+		"message": "Saltatu"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -552,7 +603,7 @@
 		"message": "Apaindu"
 	},
 	"deckdescription": {
-		"message": "Apaindu arakatzailea Bizarzuriren Chrome luzapenarekin."
+		"message": "Apaindu arakatzailea Bizarzuriren Chrome-rako luzapenarekin."
 	},
 	"decmonth": {
 		"message": "Abe."
@@ -609,7 +660,7 @@
 		"message": "Aukeratu iratxo-gorputz bat"
 	},
 	"elves": {
-		"message": "Iratxoak"
+		"message": "Laguntzaileak"
 	},
 	"elvish_language_name": {
 		"message": "Iratxoera"
@@ -636,7 +687,7 @@
 		"message": "Ai ene, Bizarzuriren iratxoek ezin dute orrialde hau aurkitu. \u003ca href=\"./\"\u003eBizarzuriren herrixkara\u003c/a\u003e bazoaz, hurrengoan hobeto atera daiteke."
 	},
 	"error-out-of-date": {
-		"message": "Bizarzuriren herriaren bertsio zaharkitua da hau. Saiatu berriro Bizarzuriren lorratzak aplikazioa irekitzen, azken bertsioa ikusteko."
+		"message": "Bizarzuriren herrixkaren bertsio zaharkitua da hau. Saiatu berriro Bizarzuriren lorratzak aplikazioa irekitzen, azken bertsioa ikusteko."
 	},
 	"error-try-again": {
 		"message": "Saiatu berriro"
@@ -666,19 +717,19 @@
 		"message": "Gurasoen baimenarekin, 13 urtetik beherako haurrek esperientzia pertsonalizatua izango dute Google-ren Laguntzailea eginbidean, kontuan saioa hasten dutenean, kontua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e bidez kudeatuta egonez gero."
 	},
 	"familyguide_assistant_card01_body": {
-		"message": "Google-ren Laguntzailea eginbideak Ipar Poloarekin konektatuko zaitu; bertan, Bizarzuri kontzertu bat emateko entseatzen ari da. Abesti bat baino ez daki; lagunduko diozu hori jotzeko modurik onena zein den aurkitzen?"
+		"message": "Google-ren Laguntzailea eginbideak Ipar Poloarekin konektatuko zaitu; bertan, Bizarzuri kontzertu bat emateko entseatzen ari da. Abesti bat baino ez daki; lagunduko diozu hura jotzeko modurik onena zein den aurkitzen?"
 	},
 	"familyguide_assistant_card01_title": {
 		"message": "Deitu Bizarzuriri"
 	},
 	"familyguide_assistant_card02_body": {
-		"message": "Sartu egunero Ipar Poloko artikulu-bilduman Bizarzuri eta ipotxak zertan ari diren jakiteko. Eskatu Google-ren Laguntzailea eginbideari Ipar Poloko azken albisteen berri emateko."
+		"message": "Sartu egunero Ipar Poloko artikulu-bilduman Bizarzuri eta laguntzaileak zertan ari diren jakiteko. Eskatu Google-ren Laguntzailea eginbideari Ipar Poloko azken albisteen berri emateko."
 	},
 	"familyguide_assistant_card02_title": {
 		"message": "Ipar Poloko artikulu-bilduma"
 	},
 	"familyguide_assistant_card03_body": {
-		"message": "Bizarzuri tailerrean iratxoekin lanean ari ez denean, bere alde umoretsua lantzen aritzen da. Eskatu Bizarzuriren txisteak Google-ren Laguntzailea eginbideari, haren bakarrizketa entzuteko."
+		"message": "Bizarzuri tailerrean laguntzaileekin lanean ari ez denean, bere alde umoretsua lantzen aritzen da. Eskatu Bizarzuriren txisteak Google-ren Laguntzailea eginbideari, haren bakarrizketa entzuteko."
 	},
 	"familyguide_assistant_card03_title": {
 		"message": "Bizarzuriri buruzko txisteak"
@@ -687,22 +738,22 @@
 		"message": "Jarraitu Ipar Poloan gertatzen denari minutuz minutu"
 	},
 	"familyguide_body": {
-		"message": "Bizarzuriren herria da tokirik egokiena familiek Gabonak ospatzeko. Zure pertsonaiarik gogokoenez gain, adin guztietarako egokiak diren jarduera dibertigarri, hezigarri eta interaktiboak aurkituko dituzu bertan."
+		"message": "Bizarzuriren herrixka da tokirik egokiena familiek Gabonak ospatzeko. Zure pertsonaiarik gogokoenez gain, adin guztietarako egokiak diren jarduera dibertigarri, hezigarri eta interaktiboak aurkituko dituzu bertan."
 	},
 	"familyguide_card_01_body": {
-		"message": "Erabili oinarrizko kodetzea iratxoa basoan zehar eramateko, erori diren opariak jaso ditzan."
+		"message": "Erabili oinarrizko kodetzea laguntzailea basoan zehar eramateko, erori diren opariak jaso ditzan."
 	},
 	"familyguide_card_02_body": {
 		"message": "Sortu Gabonetako txartel bat: programatu elur malutak, hautatu atzeko plano bat eta partekatu lagunekin."
 	},
 	"familyguide_card_03_body": {
-		"message": "Iratxoak berriro ari dira kodetzea praktikatzen, dantzan dabiltzan bitartean. Erabili kodetzea iratxoek nola dantzatu behar duten esateko, baina, kontuz: kodea idazteko duzun gaitasuna hobetu ahala, dantzak gero eta zailagoak izango dira."
+		"message": "Laguntzaileak berriro ari dira kodetzea praktikatzen, dantzan dabiltzan bitartean. Erabili kodetzea laguntzaileek nola dantzatu behar duten esateko, baina kontuz: kodea idazteko duzun gaitasuna hobetu ahala, dantzak gero eta zailagoak izango dira."
 	},
 	"familyguide_card_04_body": {
 		"message": "Kanadan artilezko txanoa janzten dute; Australian, berriz, bainujantzia. Egin klik mapako txintxetetan mundu osoko Gabonetako ohiturak ezagutzeko."
 	},
 	"familyguide_card_05_body": {
-		"message": "Ikasi iratxoen hizkuntzan \"Urteberri on\" esaten, \"Дед Мороз\" ahoskatzen eta Gabonei buruzko mundu osoko esamoldeak."
+		"message": "Ikasi laguntzaileen hizkuntzan \"Urteberri on\" esaten, \"Дед Мороз\" ahoskatzen eta Gabonei buruzko mundu osoko esamoldeak."
 	},
 	"familyguide_card_06_body": {
 		"message": "Bizarzurik toki askotara joan behar du. Lotu herrialdeen profila eta mapa geografiari buruzko joko honetan."
@@ -729,16 +780,16 @@
 		"message": "Bizarzuri bizarginarenean dago eta laguntza behar du. Tindatu bizarra, lehortu ilea, gehitu apaingarriak edo kendu bizarra oso-osorik bizarra egitekoarekin."
 	},
 	"familyguide_card_13_body": {
-		"message": "Joan Gabonetako espirituaren museora ipotxekin, elur-oreinekin, Bizarzurirekin eta Bizarzuriren emaztearekin."
+		"message": "Joan Gabon-espirituaren museora laguntzaileekin, elur-oreinekin, Bizarzurirekin eta Bizarzuriren emaztearekin."
 	},
 	"familyguide_card_14_body": {
-		"message": "Iratxo, elur-orein eta gizontxo laranja ugari dabiltza Ipar Poloan gora eta behera. Ikusi nola mugitzen diren batetik bestera."
+		"message": "Laguntzaile, elur-orein eta Pegman ugari dabiltza Ipar Poloan gora eta behera. Ikusi nola mugitzen diren batetik bestera."
 	},
 	"familyguide_card_15_body": {
-		"message": "Bizarzuri eta elur-oreinak prest daude, baina, aireratu baino lehen, iratxo kodetzaileen laguntza behar dute."
+		"message": "Bizarzuri eta elur-oreinak prest daude, baina, aireratu baino lehen, laguntzaile kodetzaileen laguntza behar dute."
 	},
 	"familyguide_card_16_body": {
-		"message": "Bizarzuriren herriko lagunek narbalarekin bat egingo dute ur azpian, algak argiz apaintzeko urteroko ekitaldiaren lehen edizioa antolatzeko."
+		"message": "Bizarzuriren herrixkako lagunek narbalarekin bat egingo dute ur azpian, algak argiz apaintzeko urteroko ekitaldiaren lehen edizioa antolatzeko."
 	},
 	"familyguide_card_age": {
 		"message": "Adin guztiak"
@@ -753,19 +804,19 @@
 		"message": "Zure plana, zure planeta"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Interneti etekin handiagoa ateratzeko, haurrek erabaki egokiak hartzeko gai izan behar dute. Be Internet Awesome programak hiritartasun digitalaren eta segurtasunaren oinarriak irakasten dizkie haurrei, konfiantza osoz ibili ahal izan daitezen mundu digitalean."
+		"message": "Interneti etekin handiagoa ateratzeko, haurrek erabaki egokiak hartzeko gai izan behar dute. \"Internauta-eskola\" jokoak hiritartasun digitalaren eta segurtasunaren oinarriak irakasten dizkie haurrei, konfiantza osoz ibili ahal izan daitezen mundu digitalean."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Be Internet Awesome"
+		"message": "Internauta-eskola"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Google-ko gehiago"
 	},
 	"familyguide_group_01_body": {
-		"message": "Iratxoak kodetze-gaitasunak lantzen ari dira. Probatu oinarrizkoena ikasteko balioko dizuten jokoak. Edonor saia daiteke kodetzen."
+		"message": "Laguntzaileak kodetze-gaitasunak lantzen ari dira. Probatu oinarrizkoena ikasteko balioko dizuten jokoak. Edonor saia daiteke kodetzen."
 	},
 	"familyguide_group_01_title": {
-		"message": "Ikasi kodetzen Bizarzuriren iratxoekin"
+		"message": "Ikasi kodetzen Bizarzuriren laguntzaileekin"
 	},
 	"familyguide_group_02_body": {
 		"message": "Gabonak desberdinak dira munduko txoko bakoitzean. Ikasi nola ospatzen diren munduan zehar, jokoen eta galderen bidez."
@@ -774,13 +825,13 @@
 		"message": "Ezagutu mundu osoko ospakizunak"
 	},
 	"familyguide_group_03_body": {
-		"message": "Bizarzuriren herria ekintzaren bidez loratzen da. Bertako jokoetan marraztu, margotu, eraiki eta sortu egin ahalko duzu, zure pertsonaiarik gogokoenekin batera."
+		"message": "Bizarzuriren herrixka ekintzaren bidez loratzen da. Bertako jokoetan marraztu, margotu, eraiki eta sortu egin ahalko duzu, zure pertsonaiarik gogokoenekin batera."
 	},
 	"familyguide_group_03_title": {
 		"message": "Inspira zaitez eta sortu zerbait"
 	},
 	"familyguide_group_04_body": {
-		"message": "Hartu krispetak eta jarri goxo tapaki bero baten azpian. Koadrila osoa zertan dabilen ikus dezakezu Bizarzuriren herriko antzokiko pantaila handian. Bestela, istorio-liburu interaktiboa irakur dezakezu, Ollie narbalak ur azpian Gabonak nola ospatzen dituen ikusteko."
+		"message": "Hartu krispetak eta jarri goxo tapaki bero baten azpian. Kuadrilla osoa zertan dabilen ikus dezakezu Bizarzuriren herrixkako antzokiko pantaila handian. Bestela, istorio-liburu interaktiboa irakur dezakezu, Ollie narbalak ur azpian Gabonak nola ospatzen dituen ikusteko."
 	},
 	"familyguide_group_04_title": {
 		"message": "Elkar zaitezte familia-giroan"
@@ -807,7 +858,7 @@
 		"message": "laguntzailea"
 	},
 	"familyguide_secondary_body": {
-		"message": "Abenduaren 24an, Bizarzuriren herria aldatu egingo da Bizarzuri eta haren elur-oreinen jarraipena egin dezazun, mundu osoko haurren artean opariak nola banatzen dituen ikusteko."
+		"message": "Abenduaren 24an, Bizarzuriren herrixka aldatu egingo da Bizarzuri eta haren elur-oreinen jarraipena egin dezazun, mundu osoko haurren artean opariak nola banatzen dituen ikusteko."
 	},
 	"familyguide_secondary_cta_01": {
 		"message": "Egin jarraipena Bizarzuriren lorratzak webgunean edo aplikazioan"
@@ -822,13 +873,13 @@
 		"message": "Bizarzuriren lorratzak are magikoagoa izango da egun hauetan, Google-ren zure produktu gogokoenekin."
 	},
 	"familyguide_tips_tip01_body": {
-		"message": "Eskatu Google-ren Laguntzailea eginbideari Dimplesticks iratxoaren eguneroko berri dibertigarriak emateko."
+		"message": "Eskatu Google-ren Laguntzailea eginbideari Dimplesticks laguntzailearen eguneroko berri dibertigarriak emateko."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, zer berri Ipar Poloan?\""
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Deskargatu Android-erako Bizarzuriren lorratzak aplikazioa Play Store-n. Herriaren eszena esklusibo bat aurkituko duzu, aplikazioan bakarrik erabilgarri dauden jokoekin."
+		"message": "Deskargatu Android-erako Bizarzuriren lorratzak aplikazioa Play Store-n. Herrixkaren eszena esklusibo bat aurkituko duzu, aplikazioan bakarrik erabilgarri dauden jokoekin."
 	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-erako aplikazioa"
@@ -852,7 +903,7 @@
 		"message": "Oparitu GIFak"
 	},
 	"familyguide_tips_title": {
-		"message": "Aholkuak"
+		"message": "Aholkuak eta trikimailuak"
 	},
 	"familyguide_title": {
 		"message": "Gabon dibertigarriak familia osoarentzat"
@@ -1833,7 +1884,7 @@
 		"message": "Bizarzuriren lantegia"
 	},
 	"scene_videoscene_yulelog": {
-		"message": "Gabonetako enborra"
+		"message": "Gabon-sua"
 	},
 	"scene_windtunnel": {
 		"message": "Haize-tunela"
@@ -3278,6 +3329,99 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_paragraph_01": {
+		"message": "Pinguinoak leran zebiltzan. Iratxoak abesten, bikain."
+	},
+	"storybook_paragraph_02": {
+		"message": "Herria poz-pozik zegoen, zuhaitzeko argiak pizteko zain."
+	},
+	"storybook_paragraph_03": {
+		"message": "Baina ez zen festa eguna guztientzat. Egun goibela zen Ollie narbalarentzat."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Behin bakarrik bada ere, pozik joango nintzateke argiak ikustera. Sekulakoa izango litzateke zuhaitza nola pizten duten mirestea\"."
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Baina zuk itsasoa maite duzu!\", erantzun zion Mary hartzak. \"Nahi beste oskola eta plankton duzu bertan. Ez al dira apartak?\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Bai, badakit\", esan zuen Olliek. \"Egia da diozuna. Baina batzuetan itsasoak ere badu alderdi iluna.\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"Tira, zer diozu…\", hasi zen Mary, irribarre batekin, \"uretan sartu eta igerian ibiltzen bazara, nirekin?\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Esploratzera joan? Arrezifeetan igeri egin… Ez, badakit! Zer deritzozu…\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Eta guk ere zuhaitza argitzeko festa bat egingo bagenu?\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Plana abian zen. Maryk taldea sortu zuen; guztiak langile finak. Iratxoak eta pinguinoak batu ziren, eta, azkenerako, elur-oreinak!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Olliek irribarre egin zuen, hainbeste lagun ikusita. \"Has gaitezen!\", esan zuen Maryk. \"Hau bai izango dela ikuskizun polita!\"."
+	},
+	"storybook_paragraph_12": {
+		"message": "Lehenik eta behin, aparteko festa bat antolatzeko, laguntzaile talde onena behar zuten, ikusleak liluratzeko."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Etor zaitezte hona!\", oihukatu zuen Olliek. \"Zuen laguntzaren beharrean gaude, zuhaitza piztu nahi baitugu ur azpian ere\"."
+	},
+	"storybook_paragraph_14": {
+		"message": "Arrainak lanean hasi ziren, berri ona zabaltzeko. \"Utzi gonbidapenak guri, baduzu zer egiteko!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "Iratxoek bazuten eskarmentua horrelako festak prestatzen. Beraz, berehala hasi ziren behar ziren gauzak batzen."
+	},
+	"storybook_paragraph_16": {
+		"message": "Zuhaitza apaintzea zen hurrena. Eta bazekiten laguntza nori eskatu. \"Karramarro jauna eta Otarrain andrea, lagunduko al diguzue apaintzen, arren?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Ostrak ere bertaratu ziren: \"Diseinua gure kontu! Gure perlak jarriko ditugu adarretan. Distirarekin, liluratuta geratuko dira denak\"."
+	},
+	"storybook_paragraph_18": {
+		"message": "Festa guztiek behar dute musika, erritmo egokiarekin, denek egin dezaten dantza, hanka zein besoekin."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Nire osaba Horatio da musikarekin onena, sekulako artista. Eta Carl bere lagunarekin, hobeto; hori da hori gitarrista.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Festa hastear da eta hona hemen falta zaigun azkena: alga-sorta eder-ederra, zuhaitzarentzat onena\"."
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Lortu dugu! Lortu dugu!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Olliek salto egin zuen, poz-pozik. Primerako festa izango zen, ez zegoen zalantzarik."
+	},
+	"storybook_paragraph_23": {
+		"message": "Itsas izarra tokian jarri zen, apaingarri kulunkari artean. Marmoka dantzan zebilen bandak musika jo bitartean."
+	},
+	"storybook_paragraph_24": {
+		"message": "Apaingarriak eta soinuak apartekoak ziren. Baina bertaratu zen taldea izan zen onena…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…argiak pizten ikusteko!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Iritsi zen unea, azkenean! Planktona argitu eta Ollie aho zabalik geratu zen argitasunean."
+	},
+	"storybook_paragraph_27": {
+		"message": "Magia zirudien, argien distirarekin apainduta. Herritar guztiak isildu ziren, edertasunarekin liluratuta."
+	},
+	"storybook_paragraph_28": {
+		"message": "Inoiz ikusi zuten gauzarik ikusgarriena zen. Argi hori, more eta berdeak, zuhaitza apaintzen."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary lokartzen hasia zen; aspaldi pasea zen ohera joateko ordua. Guztiak joan baino lehen, Olliek biratu egin zuen burua:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Mila esker herri guztia biltzeagatik, ez dut uste gau hau inoiz ahaztuko dugunik\"."
+	},
+	"storybook_paragraph_31": {
+		"message": "Amaiera"
+	},
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
@@ -3321,10 +3465,10 @@
 		"message": "Turkiera"
 	},
 	"tracker-game_awesome": {
-		"message": "Aritu Tower of Treasure jokoan"
+		"message": "Aritu \"Altxorraren dorrea\" jokoan"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Be Internet Awesome"
+		"message": "Internauta-eskola"
 	},
 	"tracker_arrival": {
 		"message": "Iritsiera"
@@ -7128,7 +7272,7 @@
 		"message": "Bizarzuri Google Cast plataforman"
 	},
 	"village_santa_crx": {
-		"message": "Gehitu Bizarzuriren Chrome luzapena"
+		"message": "Gehitu Bizarzuriren Chrome-rako luzapena"
 	},
 	"village_santa_earth_quiz": {
 		"message": "Bizarzuriren Lurrari buruzko galde-erantzunak"

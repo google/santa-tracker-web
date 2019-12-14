@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Ehitage {{count}} autot!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Ehitage 1 auto!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Ehitage {{count}} robotit!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Ehitage 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Ehitage {{count}} raketti!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Ehitage 1 rakett!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Tehke {{count}} mängukaru!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Tehke 1 mängukaru!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Haarake ja kukutage lelusid"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Juhised"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Liikumine"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Mängija 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Mängija 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Mitu mängijat?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 mängija"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 mängijat"
+	},
+	"buildandbolt-skip": {
+		"message": "Jäta vahele"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingviinid liugu lasid. Päkapikud hõiskasid."
+	},
+	"storybook_paragraph_02": {
+		"message": "Kogu linn jõulupuu tulesid ootas."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ei toonud kõigile see päev rõõmurõkkeid. Narval Olliele oli see päev päris nukker."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Tahaksin kordki oma silmaga näha, kuis ehitud jõulupuu tuledes särab.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "„Aga ookean sulle meeldib ju” vastas karu Mari. „Maitsvad merikarbid, plankton. Lumehelbeks lainehari!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Eks ta ole,” arvas Ollie, „et õigus sul on. Kuid vahel üksildaseks teeb suur ookean.”"
+	},
+	"storybook_paragraph_07": {
+		"message": "„Mis oleks,” ütles Mari naeruhoos „kui ma tuleksin külla ja me ujuksime koos?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Lähme avastama? Riffidele surfama … või parem veel, nüüd tean!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Võiksime ise jõulupuu kaunistada.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "Plaan tehtud sai hea, Mari kokku sai tiimi – päkapikud, pingviinid, põhjapõdradki reas."
+	},
+	"storybook_paragraph_11": {
+		"message": "Olli naeratades tervitas appi tulnud sõpru. „Hakkame pihta,” Mari kiirustas – „teeme ruttu!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Kui tahta pidu pidada, peab pidu keegi vedama."
+	},
+	"storybook_paragraph_13": {
+		"message": "„,Kuulake kõik!” Ollie hüüdis. „Nüüd kokku tuleme, et särama siin saaks kõik vetikatest tuledes.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Kalad oma osa täitsid, kõik said kutsutud. „Küll meie teame, kuhu panna kuulutus!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Päkapikkude jaoks on lihtne see töö. Meisterdada võivad kas või terve öö."
+	},
+	"storybook_paragraph_16": {
+		"message": "Järgmiseks kaunistused. Kelle juurde minna? „Härra krabi, proua vähk, kas lõikate välja?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Austrid sõna sekka said: „Stiiliga aitame! Me pärlid võtke, seadke särama okstele.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Iga pidu õiget muusikat vajab, et tantsu saaks lüüa noored ja vanad."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Mu onu Horatio muusikast teab kõike. Ja ta hea sõber Carl kitarril oskab käike.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "„Pidu pea algab, mõelda nüüd prooviks – puudu veel vetikapundar jõulupuu krooniks.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Just nii! Just nii!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie rõõmust lainetes kukerpallitas. Oh, mis lõbus õhtu sellest veel saab!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Meritäht paika hüppas ja kard tegi ruumi. Millimallikad tantsisid, bänd mängis buugit."
+	},
+	"storybook_paragraph_24": {
+		"message": "Mis kaunis pilt ja rõõmsad helid. Kuid parim see, et kõik ju tulid."
+	},
+	"storybook_paragraph_25": {
+		"message": "…valgustuseks!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Kõik pikisilmi ootasid, aeg paras sai! Plankton loitvele lõi. Ning Olli vaid ahhetas!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Kui nõiutud sai laotus, täis veiklust-võlusära. Linn tõmbas peo ootuses hinge, vaikis kära."
+	},
+	"storybook_paragraph_28": {
+		"message": "Vaatepilt kaunim kui keegi neist ootas. Tuled kollased, lillad – tundub, see töötas!"
+	},
+	"storybook_paragraph_29": {
+		"message": "Mari väsima hakkas, uni jalust ta niitis. Kõigi lahkuma sättides Ollie pöördus ning kiitis,"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Aitäh, et tõite jõulurõõmu meie linna – ei see õhtu saa meil meelest minna.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Lõpp"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

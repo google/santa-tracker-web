@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Constrúe {{count}} coches!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Constrúe 1 coche!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Constrúe {{count}} robots!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Constrúe 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Constrúe {{count}} foguetes!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Constrúe 1 foguete!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Constrúe {{count}} osos de peluche!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Constrúe 1 oso de peluche!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Recollida e entrega de xoguetes"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrucións"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Xogador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Xogador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Cantos xogadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 xogador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 xogadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Omitir"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -687,7 +738,7 @@
 		"message": "Mantente ao tanto do que ocorre no Polo Norte"
 	},
 	"familyguide_body": {
-		"message": "A aldea de Papá Noel é o lugar perfecto para que as familias celebren estas festas. Poderás atopar todos os teus personaxes favoritos, así como divertirte con actividades interactivas e educativas en todas as páxinas."
+		"message": "A aldea de Papá Noel é o lugar perfecto para que as familias celebren estas festas. Poderás atopar todos os teus personaxes favoritos, así como divertirte con actividades interactivas e educativas para todas as idades."
 	},
 	"familyguide_card_01_body": {
 		"message": "Utiliza os conceptos básicos de programación para conseguir que o elfo atope os regalos que hai estrados polo bosque."
@@ -774,7 +825,7 @@
 		"message": "Descubre como son estas festas en todo o mundo"
 	},
 	"familyguide_group_03_body": {
-		"message": "A creatividade é o que move a aldea de Papá Noel. Descubre xogos cos que poderás pintar, construír e crear elementos con todos os teus personaxes favoritos."
+		"message": "A creatividade é o que move a aldea de Papá Noel. Descubre xogos cos que poderás debuxar, pintar, construír e crear elementos con todos os teus personaxes favoritos."
 	},
 	"familyguide_group_03_title": {
 		"message": "Déixate levar pola inspiración e crea algo"
@@ -810,7 +861,7 @@
 		"message": "O 24 de decembro, a aldea de Papá Noel transformarase para ofrecerche unha experiencia na que poderás seguir a Papá Noel e os seu renos mentres lles van deixando regalos aos nenos de todo o mundo."
 	},
 	"familyguide_secondary_cta_01": {
-		"message": "Utiliza o sitio web ou a aplicación Android Sigue a Papá Noel"
+		"message": "Utiliza o sitio web, ou a aplicación Android, Sigue a Papá Noel"
 	},
 	"familyguide_secondary_cta_02": {
 		"message": "Sabías que a viaxe de Papá Noel dura 25 horas? A súa primeira parada é na Rusia oriental ás 22:00 (hora local), cando en Nova York son as 5:00 e en París son as 11:00."
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Os pingüíns andaban en zorra. Os elfos aclamaban con emoción."
+	},
+	"storybook_paragraph_02": {
+		"message": "Había unha grande axitación en toda a cidade debido á iluminación da árbore da aldea."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ese día non todo o mundo se sentía tan feliz. Foi un día triste para un narval chamado Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Oxalá puidese estar alí para contemplala aínda que só fose esta vez. Resulta impresionante ver esa árbore tan grande iluminada”."
+	},
+	"storybook_paragraph_05": {
+		"message": "“Pero encántache o océano!”, respondeu a adorable Mary Bear. “Todas as cunchas de mar e o plancto. As profundidades do océano son impresionantes!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Supoño que si”, dixo Ollie, “iso é verdade. Pero ás veces o océano faime sentir triste”."
+	},
+	"storybook_paragraph_07": {
+		"message": "“Ben, que tal se…”, comentou Mary cun sorriso alentador, “baixase ata alí hoxe e nadásemos durante un anaco?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Queres ir de exploración? Adéntrate nos arrecifes mariños… Ou incluso mellor, xa sei!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“Podiamos soster unha iluminación de árbore propia”."
+	},
+	"storybook_paragraph_10": {
+		"message": "Elaborárase un plan. Mary reuniu o seu equipo. Acudiron primeiro os elfos e despois os pingüíns. Tamén viñeron algúns renos."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sorriu encantado aos amigos que acudiran. “Poñámonos en marcha!”, dixo Mary, “isto vai ser divertido!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Agora, para organizar unha boa festa, o primeiro que precisarían sería un equipo de bos colaboradores para axudarlles a triunfar."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Achegádevos!”, berrou Ollie. “Precisamos toda a vosa axuda para conseguir a nosa propia iluminación submarina con algas”."
+	},
+	"storybook_paragraph_14": {
+		"message": "O peixe púxose en marcha correndo a voz entre os convidados. “Nós encargámonos dos convidados, ti do resto!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Agora os elfos teñen experiencia con este tipo de evento. Necesitan tempo para os traballos, así que puxéronse mans á obra."
+	},
+	"storybook_paragraph_16": {
+		"message": "As decoracións viñan a continuación. Sabían a quen recorrer exactamente. “Señor Cangrexo e señora Lagosta, poden axudar, por favor e grazas?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "As ostras interviñeron dicindo: “Podemos axudar co deseño! Colga as nosas perlas das ramas para que brillen e resplandezan”."
+	},
+	"storybook_paragraph_18": {
+		"message": "Toda festa precisa música, cancións co ritmo axeitado para que todo o mundo baile e estea animado."
+	},
+	"storybook_paragraph_19": {
+		"message": "“O meu tío, Horatio, é o mellor do sector, e o seu gran amigo Carl é un xenio tocando a guitarra”."
+	},
+	"storybook_paragraph_20": {
+		"message": "“Xa case chegou a hora da festa, polo que o último que necesitaremos é reunir un conxunto de algas perfecto para formar unha árbore cerimonial”."
+	},
+	"storybook_paragraph_21": {
+		"message": "“Iso é! Iso é!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie encheuse de alegría! Que festa tan fabulosa sería a desta noite."
+	},
+	"storybook_paragraph_23": {
+		"message": "A estrela de mar colocouse no seu sitio e os adornos balanceáronse. A medusa bailou e os membros da banda tocaron."
+	},
+	"storybook_paragraph_24": {
+		"message": "Todo resultou fantástico, a decoración e os sons. Pero a mellor parte foi cando todo o mundo se reuniu…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… para a iluminación!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Chegou o momento por fin! O plancto iluminouse. Ollie botou un suspiro."
+	},
+	"storybook_paragraph_27": {
+		"message": "Era case maxia, as luces brillaban resplandecentes. A cidade estaba en silencio, observando o espectáculo."
+	},
+	"storybook_paragraph_28": {
+		"message": "A cousa máis espectacular que viran nunca. As luces volvéronse primeiro de cor amarela, despois púrpura e finalmente verde esmeralda brillante."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary empezou a ter sono, xa pasaba a hora de deitarse, pero antes de que todos marchasen, Ollie xirouse e dixo:"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Moitas grazas por reunir toda esta cidade nunha noite que estou seguro que lembraremos para sempre”."
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
 	},
 	"sv_country_name": {
 		"message": "O Salvador"
@@ -7068,7 +7212,7 @@
 		"message": "En construción"
 	},
 	"unlocks": {
-		"message": "Data de finalización"
+		"message": "Data de desbloqueo"
 	},
 	"unmute": {
 		"message": "Activar o son"

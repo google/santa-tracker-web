@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhoutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Fabriquez {{count}} voitures !"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Fabriquez 1 voiture !"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Fabriquez {{count}} robots !"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Fabriquez 1 robot !"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Fabriquez {{count}} fusées !"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Fabriquez 1 fusée !"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Fabriquez {{count}} ours en peluche !"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Fabriquez 1 ours en peluche !"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Ramassez et déposez les jouets."
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instructions"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Déplacer"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Joueur 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Joueur 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Combien de joueurs ?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 joueur"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 joueurs"
+	},
+	"buildandbolt-skip": {
+		"message": "Passer"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Les manchots faisaient de la luge et les elfes poussaient des cris de joie."
+	},
+	"storybook_paragraph_02": {
+		"message": "Le sapin resplendissait. Tout le village était en émoi."
+	},
+	"storybook_paragraph_03": {
+		"message": "Mais quelqu'un était en proie à la mélancolie. C'était un triste jour, voyez-vous, pour le narval prénommé Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"J'aimerais voir de mes yeux, juste cette fois, ce grand sapin briller de mille feux.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "Marie l'ourse s'exclama : \"Mais tu adores l'océan ! Les algues chamarrées, les coquillages colorés ! Cela te rend si joyeux, pourtant !\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Je suppose…\", soupira Ollie. Mais parfois, toute cette immensité bleue m'effraie un peu…\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"Et si aujourd'hui…\" murmura Marie en souriant, \"je venais nager un peu avec toi ?\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"On part explorer ? Surfer sur les coraux ? Oh non, j'ai une meilleure idée !\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Nous pourrions organiser notre propre fête !\""
+	},
+	"storybook_paragraph_10": {
+		"message": "L'idée d'une fête venait de germer. Alors Marie réunit tous ses amis. Les elfes et les manchots étaient très enthousiastes ! Et quelques rennes se joignirent aux préparatifs, eux aussi !"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie laissa éclater sa joie en voyant tous ses amis rassemblés. \"Commençons !\" a dit Marie, \"On va bien s'amuser !\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Maintenant, pour réussir les festivités, ils ont besoin de réunir une équipe d'amis motivés."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Venez, venez !\" cria Ollie. \"Nous avons besoin de votre aide pour illuminer l'océan !\""
+	},
+	"storybook_paragraph_14": {
+		"message": "Les poissons sautèrent sur l'occasion : \"Nous, on s'occupe des invitations !\""
+	},
+	"storybook_paragraph_15": {
+		"message": "Les elfes sont habitués à ce genre d'événements. Les préparatifs prendraient du temps, ils se mirent donc au travail rapidement."
+	},
+	"storybook_paragraph_16": {
+		"message": "Il fallait maintenant tout décorer. Et ils savaient exactement à qui s'adresser. \"Messieurs Crabe et Homard, voulez-vous bien nous aider ?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Les huîtres eurent alors une idée : \"Accrochez nos perles aux branches. Elles répandront partout une douce lumière blanche !\""
+	},
+	"storybook_paragraph_18": {
+		"message": "Pour qu'il y ait de l'ambiance, il faut de la musique, et que tout le monde danse en cadence."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Mon oncle Horace est une vraie rockstar ! Et son ami Carl se débrouille pas mal avec une guitare.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"C'est presque l'heure de commencer, il ne reste plus qu'à trouver les algues parfaites pour notre arbre…\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Ça y est ! On a réussi !\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie faisait des saltos de joie ! Ils allaient vivre la plus belle nuit qui soit !"
+	},
+	"storybook_paragraph_23": {
+		"message": "Les étoiles de mer et les méduses dansaient en rythme sur la musique."
+	},
+	"storybook_paragraph_24": {
+		"message": "Tout était fantastique, la musique autant que les décorations. Mais le meilleur moment fut lorsque tout le monde forma un cercle..."
+	},
+	"storybook_paragraph_25": {
+		"message": "... les lumières, les lumières !"
+	},
+	"storybook_paragraph_26": {
+		"message": "Le moment tant espéré était arrivé ! D'un coup, le plancton s'illumina. Ollie en eut le souffle coupé !"
+	},
+	"storybook_paragraph_27": {
+		"message": "La nuit tout entière s'emplit de lumières féériques. Et tous profitèrent en silence de ce moment magique."
+	},
+	"storybook_paragraph_28": {
+		"message": "Le spectacle le plus extraordinaire eut alors lieu. Les lumières devinrent jaunes, puis violettes, puis vert émeraude."
+	},
+	"storybook_paragraph_29": {
+		"message": "Les paupières de Marie se fermaient, il était temps qu'elle aille au lit. Mais, avant que tous ne se disent bonne nuit, Ollie se tourna et dit :"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Mille mercis pour ce moment épatant ! C'est une nuit dont nous nous souviendrons longtemps !\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

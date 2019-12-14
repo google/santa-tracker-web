@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Buat {{count}} mobil!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Buat 1 mobil!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Buat {{count}} robot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Buat 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Buat {{count}} roket!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Buat 1 roket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Buat {{count}} beruang teddy!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Buat 1 beruang teddy!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Ambil \u0026 jatuhkan mainan"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Petunjuk"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Pindahkan"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Pemain 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Pemain 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Berapa pemain?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Pemain"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Pemain"
+	},
+	"buildandbolt-skip": {
+		"message": "Lewati"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Penguin meluncur. Kurcaci menyambut dengan gembira."
+	},
+	"storybook_paragraph_02": {
+		"message": "Seluruh warga tidak sabar ingin menyaksikan gemerlapnya cahaya."
+	},
+	"storybook_paragraph_03": {
+		"message": "Tak semua orang merasa gembira hari ini. Ini hari yang suram bagi si narwhal bernama Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Semoga kali ini, kali ini saja, aku bisa menyaksikannya. Sepertinya sangat indah melihat pohon besar menyala dengan gemerlapnya.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“Tapi kamu suka lautan!” jawab Mary Bear yang manis. “Dengan semua kerang dan plankton. Di bawah laut sangat indah!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Memang,” ujar Ollie, “kamu benar. Tapi kadang laut membuatku merasa kalut!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Nah, bagaimana kalau...” kata Mary, dengan senyum lebar, “aku datang ke situ dan kita berenang sebentar?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Kita berkeliling? Menyusuri karang-karang laut... Ah, aku punya ide bagus!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Kita bisa mengadakan perayaan penyalaan lampu natal sendiri.\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Rencana sudah dibuat. Mary mengumpulkan teman-temannya. Kurcaci datang, penguin juga mendekat. Begitu juga rusa!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie tersenyum bahagia melihat teman-temannya yang datang. “Mari kita mulai!” kata Mary, “ini pasti bakal seru!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Untuk membuat pesta yang seru, mereka butuh orang-orang yang mau membantu mewujudkannya."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Ayo kumpul!\" ujar Ollie. “Kami butuh bantuan kalian semua untuk mengadakan penyalaan lampu natal yang menghiasi rumput laut di dasar laut ini.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Ikan mulai beraksi, membantu menyebarkan undangan. “Undangan biar kami yang urus, ada banyak hal yang harus kalian selesaikan!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Kurcaci berpengalaman menggarap acara seperti ini. Mereka perlu waktu berpikir, lalu segera mulai."
+	},
+	"storybook_paragraph_16": {
+		"message": "Masalah selanjutnya adalah dekorasi. Namun, mereka tahu kepada siapa mereka harus meminta bantuan. “Tuan Kepiting dan Nyonya Lobster, bersediakah Anda membantu kami?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Kerang pun berujar, “Kami bisa menambah dekorasi! Gantung mutiara kami di ranting. Kilaunya sangat gemerlap dan menarik hati.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Pesta takkan seru tanpa musik dan irama yang nendang, karena semua orang ingin bergoyang dan berdendang."
+	},
+	"storybook_paragraph_19": {
+		"message": "“Pamanku, Horatio, adalah orang yang pas buat urusan musik. Temannya, Carl, adalah pemain gitar paling ciamik.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“Pesta akan segera dimulai. Kita hanya perlu setumpuk rumput laut sebagai pohon perayaan.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Inilah saatnya! Sekaranglah saatnya!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie mulai menari dengan tawa tergambar di wajahnya! Pesta ini akan jadi pesta paling keren selamanya."
+	},
+	"storybook_paragraph_23": {
+		"message": "Bintang laut melompat, ornamen-ornamen lain bergoyang. Ubur-ubur mulai menari, dan pemain musik memainkan lagu dendang."
+	},
+	"storybook_paragraph_24": {
+		"message": "Sungguh cantik semua dekorasi dan musik yang berirama. Tapi yang paling penting adalah semua berkumpul bersama..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...untuk perayaan penyalaan lampu!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Akhirnya, mula acaranya kian dekat! Tubuh plankton menyala gemerlap. Ollie pun terkesiap!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Layaknya sihir, indahnya cahaya berkilauan. Kota menjadi sunyi, semua mata menikmati pertunjukan."
+	},
+	"storybook_paragraph_28": {
+		"message": "Momen paling mengagumkan sepanjang hayat mereka untuk dikenang. Cahaya berkelap-kelip. Dari kuning, ke ungu, lalu hijau zamrud terang."
+	},
+	"storybook_paragraph_29": {
+		"message": "Rasa kantuk menyerang Mary. Tidak biasanya ia tidur selarut ini. Namun, sebelum mereka pergi, Ollie membalikkan badanya, lalu berkata,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Terima kasih sudah membuat warga kota menyingsingkan lengan demi perayaan yang akan selamanya meninggalkan kesan.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Tamat"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

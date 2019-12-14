@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butanas"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Sukonstruokite {{count}} mašin.!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Sukonstruokite vieną mašinytę!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Sukonstruokite {{count}} robot.!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Sukonstruokite vieną robotą!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Sukonstruokite {{count}} raket.!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Sukonstruokite vieną raketą!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Sukurkite {{count}} meškiuk.!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Sukurkite vieną meškiuką!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Paimti ir numesti žaislus"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrukcijos"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Perkelti"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1 žaidėjas"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2 žaidėjas"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Kiek žaidėjų?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 žaidėjas"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 žaidėjai"
+	},
+	"buildandbolt-skip": {
+		"message": "Praleisti"
+	},
 	"bw_country_name": {
 		"message": "Botsvana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinamas"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvinai važinėjosi rogutėmis. Elfai džiaugsmingai šūkavo."
+	},
+	"storybook_paragraph_02": {
+		"message": "Visas miestelis nekantriai laukė, kol bus įžiebta kaimo eglutė."
+	},
+	"storybook_paragraph_03": {
+		"message": "Tą dieną džiūgavo ne visi. Matote, narvalui vardu Olis diena pasitaikė nekokia."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Trokštu nors sykį tai išvysti. Stebėti to didelio medžio įžiebimą turėtų būti nuostabu.“"
+	},
+	"storybook_paragraph_05": {
+		"message": "„Juk tau patinka vandenynas!“, atsakė mieloji meškutė Merė. „Tos kriauklelės ir planktonas. Ten, žemai, tiesiog nuostabu!“"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Manau“, tarė Olis, „tai tikra tiesa. Visgi kartais didysis mėlynasis vandenynas kelia man melancholiją!“"
+	},
+	"storybook_paragraph_07": {
+		"message": "„O jeigu…“, pasakė Merė, drąsinančiai šypsodamasi, „nunerčiau ten šiandien ir šiek tiek paplaukiotume?“"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Leki tyrinėti? Nardyk tarp koralų rifų… Arba dar geriau, sugalvojau!“"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Galėtume sukurti savo šventinį eglutės apšvietimą.“"
+	},
+	"storybook_paragraph_10": {
+		"message": "Planas parengtas. Merė surinko komandą. Prisijungė elfai beigi pingvinai. Taip pat – keli šiaurės elniai!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Olis džiugiai nusišypsojo atėjusiems draugams. „Pradėkime“, tarė Merė. „Bus smagu!“"
+	},
+	"storybook_paragraph_12": {
+		"message": "Dabar norint sėkmingai surengti šaunų vakarėlį jiems pirmiausia reikia puikių padėjėjų komandos."
+	},
+	"storybook_paragraph_13": {
+		"message": "„Susirinkite!“, – sušuko Olis. „Mums reikia visų jūsų pagalbos, kad sukurtume savo originalų povandeninį rudadumblių apšvietimą.“"
+	},
+	"storybook_paragraph_14": {
+		"message": "Žuvys griebėsi veiksmų, pasiryžusios pakviesti svečius. „Paruošime kvietimus, o jūs pasirūpinkite kitkuo!“"
+	},
+	"storybook_paragraph_15": {
+		"message": "Šįkart elfai jau turėjo patirties organizuojant tokį renginį. Jiems reikėjo laiko pataisymams ir pasiruošti."
+	},
+	"storybook_paragraph_16": {
+		"message": "Toliau reikėjo imtis dekoracijų. Jie žinojo, į ką kreiptis. „Pone Krabe ir ponia Omare, prašome jūsų pagalbos!“"
+	},
+	"storybook_paragraph_17": {
+		"message": "Įsiterpė austrės: „Galime padėti dizaino klausimais! Ant šakelių pakabinkite mūsų perlus. Jie žaižaruos ir blizgės.“"
+	},
+	"storybook_paragraph_18": {
+		"message": "Kiekvienam vakarėliui reikia muzikos – tinkamo ritmo melodijų, kad visi pultų šėlti ir linksmintis."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Mano dėdė Horacijus – tikras muzikos žinovas. O jo geras draugas Karlas yra gitaros virtuozas.“"
+	},
+	"storybook_paragraph_20": {
+		"message": "„Vakarėlis tuoj prasidės, mums tetrūksta tobulo rudadumblių gniutulo šventiniam medeliui.“"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Pagaliau! Pagaliau!“"
+	},
+	"storybook_paragraph_22": {
+		"message": "Olis džiugiai suplojo pelekais! Nusimato nuostabus vakarėlis pernakt."
+	},
+	"storybook_paragraph_23": {
+		"message": "Jūros žvaigždės liuoktelėjo į vietą ir ornamentai susiūbavo. Medūzos šoko, o grupės muzikantai džiazavo."
+	},
+	"storybook_paragraph_24": {
+		"message": "Tos dekoracijos ir garsai kūrė fantastinę nuotaiką. Visgi geriausia dalis laukė visiems susibūrus…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… įžiebti medelio!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Galų gale ta akimirka atėjo! Planktonas įsižiebė. Olis aiktelėjo!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Tai buvo kone magiška – mirgėjo žibintų liepsnelės. Visas miestelis užgniaužęs kvapą stebėjo pasirodymą."
+	},
+	"storybook_paragraph_28": {
+		"message": "Tai buvo įspūdingiausias jų kada nors matytas dalykas. Lemputės užsidegė geltona, tada violetine, o galiausiai –žalia it smaragdas spalva."
+	},
+	"storybook_paragraph_29": {
+		"message": "Merė pradėjo snūduriuoti, jau seniai laikas miegoti, bet prieš visiems išeinant Olis atsigręžė ir tarė:"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Širdingai dėkoju, kad subūrei visus šio miestelio gyventojus! Esu tikras, kad šio vakaro nepamiršime niekad.“"
+	},
+	"storybook_paragraph_31": {
+		"message": "Pabaiga"
 	},
 	"sv_country_name": {
 		"message": "Salvadoras"
