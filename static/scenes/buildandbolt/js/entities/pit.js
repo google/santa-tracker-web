@@ -25,7 +25,12 @@ app.Pit = class Pit extends app.Entity {
       for (let i = 0; i < config.width; i += tileDim) {
         let position;
 
-        if (i == 0 && j == config.height - tileDim) {
+        if (config.height > 3 && j == firstRowHeight && i == 0) {
+          position = 'middle-1-left';
+        } else if (config.height > 3 && j == firstRowHeight &&
+            i == config.width - tileDim) {
+          position = 'middle-1-right';
+        } else if (i == 0 && j == config.height - tileDim) {
           position = 'bottom-left';
         } else if (i == config.width - tileDim &&
             j == config.height - tileDim) {

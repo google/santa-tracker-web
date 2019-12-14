@@ -27,6 +27,15 @@
       height: 100px;
     }
 
+    // middle-1 is the topmost middle row
+    &--middle-1-left {
+      background: url(img/pit/pit_middle1_left.svg) center/contain no-repeat;
+    }
+
+    &--middle-1-right {
+      background: url(img/pit/pit_middle1_right.svg) center/contain no-repeat;
+    }
+
     &--middle-left {
       background: url(img/pit/pit_middle_left.svg) center/contain no-repeat;
     }
