@@ -381,12 +381,14 @@ app.Player = class Player {
       }
     }
   }
+
   playErrorSound() {
     if (performance.now() - this.lastErrorSoundTime > 200) {
       window.santaApp.fire('sound-trigger', 'generic_fail');
       this.lastErrorSoundTime = performance.now();
     }
   }
+
   // bump the player in a specific direction with a specific force
   bump(angle, force, reverse = 1, playSound = true) {
     if (this.id === 'a' && playSound) {
@@ -471,9 +473,7 @@ app.Player = class Player {
 
       if (this.toyParts.length == toyType.size) {
         // Replace all toy parts with full toy
-        while (this.toysElem.firstChild) {
-          this.toysElem.removeChild(this.toysElem.firstChild);
-        }
+        Utils.removeAllChildren(this.toysElem)
 
         toyElem.setAttribute('class',
           `toypart toypart--${toyType.key}--full`);
@@ -500,11 +500,7 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`);
     }
 
-    // todo: move this to utils
-    while (this.toysElem.firstChild) {
-      this.toysElem.removeChild(this.toysElem.firstChild);
-    }
-
+    Utils.removeAllChildren(this.toysElem)
     this.toyParts = [];
   }
 

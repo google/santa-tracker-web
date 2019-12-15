@@ -30,6 +30,7 @@ class ScoreScreen {
 
   show() {
     this.elem.classList.remove('is-hidden')
+    this.dom.skipButton.focus();
     this.state = 'show'
     window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
     window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
