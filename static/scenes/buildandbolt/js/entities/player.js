@@ -338,11 +338,18 @@ app.Player = class Player {
       // increment score
       app.ScoreManager.updateScore(this.id);
       acceptToyEntities[0].closeBox();
+
+      clearTimeout(this.recentlyCompletedToyTimeout);
+      this.recentlyCompletedToy = true;
+      this.recentlyCompletedToyTimeout = setTimeout(() => {
+        this.recentlyCompletedToy = false;
+      }, 1000);
     }
 
     // if player hits action key but isn't near a toy or present table,
     // play an error sound
-    if (!(toyEntities && toyEntities.length) &&
+    if (!this.recentlyCompletedToy &&
+        !(toyEntities && toyEntities.length) &&
         !(acceptToyEntities && acceptToyEntities.length) &&
         !app.ControlsManager.isTouch &&
         app.ControlsManager.isKeyControlActive(this.controls.action)) {
