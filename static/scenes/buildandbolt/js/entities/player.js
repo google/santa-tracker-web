@@ -460,12 +460,14 @@ app.Player = class Player {
       this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction, false);
     }
   }
+
   playPenguinSound() {
     if (performance.now() - this.lastPenguinSoundTime > 150) {
       window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
       this.lastPenguinSoundTime = performance.now();
     }
   }
+
   addToyPart(partId) {
     const { toyType } = app.LevelManager;
     if (this.toyParts.indexOf(partId) == -1) {
@@ -588,9 +590,7 @@ app.Player = class Player {
             // fall-through
           default:
             this.playerState = Constants.PLAYER_STATES.REST;
-            this.animationQueue.push({
-              animation: rest
-            });
+            this.addAnimationToQueueOnce(rest);
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
             window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
         }
@@ -610,7 +610,8 @@ app.Player = class Player {
    * Checks for repeats to make sure the animation is not queued multiple times
    */
   addAnimationToQueueOnce(animation, callback) {
-    if (!this.animationQueue.find(item => item.animation == animation)) {
+    if (!(this.animationQueue.find(item => item.animation == animation) ||
+      (!this.animationQueue.length && animation == this.currentAnimationState.animation))) {
       this.animationQueue.push({
         animation,
         callback
