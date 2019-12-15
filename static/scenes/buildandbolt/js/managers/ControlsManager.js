@@ -76,7 +76,7 @@ class ControlsManager {
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY });
+        { x: touch.clientX, y: touch.clientY }, true);
 
     // e.preventDefault();
 
