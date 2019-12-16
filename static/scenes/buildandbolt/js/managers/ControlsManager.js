@@ -143,7 +143,13 @@ class ControlsManager {
   getMovementDirections(controls, currentPosition, platform, platformOffset) {
     if (this.isTouch) {
       if (this.currentTouchPosition) {
-        let goalPosition = this.currentTouchPosition;
+        // here we need to subsract half of the character size
+
+        let goalPosition = {
+          x: this.currentTouchPosition.x - 0.5,
+          y: this.currentTouchPosition.y - 0.5
+        };
+
         let startPosition = currentPosition;
 
         if (platform && platformOffset) {
