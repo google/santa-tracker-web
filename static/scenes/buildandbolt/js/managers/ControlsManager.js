@@ -14,7 +14,11 @@ class ControlsManager {
   init(game, boardBkg) {
     this.tutorial_ = game.tutorial;
 
+
     if (app.shared.utils.touchEnabled) {
+      this.domCursorTouch = document.querySelector('[data-cursor-touch]');
+      this.domCursorTouch.classList.add('touch-device');
+
       this.isTouch = true;
       this.currentTouchId = null;
       boardBkg.addEventListener(
@@ -66,13 +70,28 @@ class ControlsManager {
     var touch = e.changedTouches[0];
 
     this.currentTouchId = touch.identifier
+
+    const pos = Utils.pixelToGridPosition(app.Board.context,
+        { x: touch.clientX, y: touch.clientY });
   }
 
   onTouchEnd(e) {
     var touch = this.getCurrentTouch(e);
+
     if (!touch) {
       return;
     }
+
+    this.domCursorTouch.classList.remove('transition');
+    this.hideCursorTouch(touch);
+    setTimeout(() => {
+      this.domCursorTouch.classList.add('transition');
+      this.showCursorTouch(touch);
+    }, 0);
+    clearTimeout(this.cursorFadeOutTimeout);
+    this.cursorFadeOutTimeout = setTimeout(() => {
+      this.hideCursorTouch(touch)
+    }, 500);
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
@@ -85,6 +104,16 @@ class ControlsManager {
       this.tutorial_.off('buildandbolt_mobile.mp4');
       this.touchStarted = true;
     }
+  }
+
+  showCursorTouch(touch) {
+    this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${touch.clientX}px, ${touch.clientY}px) scale(1)`;
+    this.domCursorTouch.style.opacity = 1
+  }
+
+  hideCursorTouch(touch) {
+    this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${touch.clientX}px, ${touch.clientY}px) scale(0.6)`;
+    this.domCursorTouch.style.opacity = 0
   }
 
   getCurrentTouch(e) {
