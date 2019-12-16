@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Constrúe {{count}} coches!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Constrúe 1 coche!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Constrúe {{count}} robots!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Constrúe 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Constrúe {{count}} foguetes!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Constrúe 1 foguete!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Constrúe {{count}} osos de peluche!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Constrúe 1 oso de peluche!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Recollida e entrega de xoguetes"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrucións"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Xogador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Xogador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Cantos xogadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 xogador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 xogadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Omitir"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -479,6 +530,21 @@
 	"codelab-try-again": {
 		"message": "Tentar de novo"
 	},
+	"controller_gamepad": {
+		"message": "Mando"
+	},
+	"controller_keyboard": {
+		"message": "Teclado"
+	},
+	"controller_mouse": {
+		"message": "Rato"
+	},
+	"controller_touch": {
+		"message": "Toque"
+	},
+	"copied": {
+		"message": "Copiouse!"
+	},
 	"copy-me": {
 		"message": "Copia esta ligazón e comparte a túa mensaxe"
 	},
@@ -539,6 +605,12 @@
 	"deckdescription": {
 		"message": "Decora o teu navegador coa extensión de Chrome Sigue a Papá Noel."
 	},
+	"decmonth": {
+		"message": "Dec."
+	},
+	"decmonth_long": {
+		"message": "Decembro"
+	},
 	"detected": {
 		"message": "detectado"
 	},
@@ -587,6 +659,9 @@
 	"elf_choose_body": {
 		"message": "Escolle un corpo para o teu elfo"
 	},
+	"elves": {
+		"message": "Elfos"
+	},
 	"elvish_language_name": {
 		"message": "Élfico"
 	},
@@ -611,8 +686,14 @@
 	"error-not-found": {
 		"message": "Vaia, os elfos de Papá Noel non atoparon a páxina! Quizais teñas máis sorte se volves á súa \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Esta versión da aldea de Papá Noel quedou obsoleta. Para ver a última versión, proba a abrir de novo Sigue a Papá Noel."
+	},
 	"error-try-again": {
 		"message": "Tentar de novo"
+	},
+	"error-unsupported": {
+		"message": "Sigue a Papá Noel non é compatible co teu navegador. Para gozar de máis xogos e seguir a Papá Noel o 24 de decembro, proba a utilizar o teu teléfono ou un navegador distinto."
 	},
 	"es_language_name": {
 		"message": "Español"
@@ -626,11 +707,212 @@
 	"explore-village": {
 		"message": "Explorar aldea de Papá Noel"
 	},
+	"familyguide_accordion_title": {
+		"message": "Celebración durante todo o mes"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Utiliza o Asistente de Google para aprender máis sobre Papá Noel durante decembro. Esta integración só está dispoñible nalgúns idiomas."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Co permiso de seus pais, os nenos menores de 13 anos tamén poden ter unha experiencia personalizada co Asistente de Google ao iniciar sesión coas súas contas xestionadas mediante \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Grazas ao Asistente de Google, podes conectar co Polo Norte, onde Papá Noel está ensaiando para un concerto. O caso é que só sabe unha canción… Podes axudarlle a dar coa mellor forma de tocala?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Chamar a Papá Noel"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Consulta cada día Noticias sobre o Polo Norte para descubrir a que andan Papá Noel e os seus elfos. Só tes que preguntarlle ao Asistente de Google que novidades hai no Polo Norte."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticias sobre o Polo Norte"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Cando Papá Noel non está ocupado cos elfos no seu obradoiro, dedícase a perfeccionar os seus chistes. Para escoitar esta rutina, pídelle ao Asistente de Google que che conte un chiste relacionado con Papá Noel."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Chistes relativos a Papá Noel"
+	},
+	"familyguide_assistant_title": {
+		"message": "Mantente ao tanto do que ocorre no Polo Norte"
+	},
+	"familyguide_body": {
+		"message": "A aldea de Papá Noel é o lugar perfecto para que as familias celebren estas festas. Poderás atopar todos os teus personaxes favoritos, así como divertirte con actividades interactivas e educativas para todas as idades."
+	},
+	"familyguide_card_01_body": {
+		"message": "Utiliza os conceptos básicos de programación para conseguir que o elfo atope os regalos que hai estrados polo bosque."
+	},
+	"familyguide_card_02_body": {
+		"message": "Crea a túa propia tarxeta para estas festas programando a túa propia folerpa de neve: só tes que seleccionar un dos moitos fondos dispoñibles e compartilo cos teus amigos."
+	},
+	"familyguide_card_03_body": {
+		"message": "Os elfos volveron ás clases de codificación, pero non perden de bailar. Escribe código para crear as coreografías dos bailes dos elfos. Ten en conta que os bailes serán máis difíciles a medida que vaias progresando."
+	},
+	"familyguide_card_04_body": {
+		"message": "No Canadá lévanse gorros de la, mentres que en Australia imperan os traxes de baño. Fai clic nos alfinetes do mapa para descubrir as tradicións que hai nestas festas en todo o mundo."
+	},
+	"familyguide_card_05_body": {
+		"message": "Ensinámosche as expresións típicas destas festas en todo o mundo: desde \"Дед Мороз\" ata como dicir \"Feliz Aninovo\" no idioma dos elfos."
+	},
+	"familyguide_card_06_body": {
+		"message": "Papá Noel ten que ir a unha morea de lugares. Neste xogo de xeografía, terás que colocar a silueta de cada país no mapa."
+	},
+	"familyguide_card_07_body": {
+		"message": "Coñeces a historia destas festas? Demostra o que sabes con este test de nove preguntas que poñerá a proba os teus coñecementos."
+	},
+	"familyguide_card_07_title": {
+		"message": "Xogo de preguntas sobre as tradicións do Nadal"
+	},
+	"familyguide_card_08_body": {
+		"message": "Tes fame? Descubre delicias de todo o mundo e a comida dos países próximos e afastados."
+	},
+	"familyguide_card_09_body": {
+		"message": "Descubre a suite creativa de Papá Noel. Cada ferramenta, pincel e adhesivo ten un son propio, polo que podes gozar de toda unha experiencia audiovisual."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimenta e xoga na túa propia zona de probas invernal. Utiliza materiais en 3D para construír casas, xoguetes, bonecos de neve, bosques ou calquera outra cousa que se che ocorra."
+	},
 	"familyguide_card_11_body": {
 		"message": "Crea o teu propio elfo dos pés á cabeza e déixao feito un pincel para as festas do Nadal que se celebran no Polo Norte."
 	},
+	"familyguide_card_12_body": {
+		"message": "Papá Noel está na barbaría e necesita axuda para cambiar de look. Píntalle a barba, sécalle o pelo, engádelle decoración ou aféitao totalmente coas tesoiras."
+	},
+	"familyguide_card_13_body": {
+		"message": "Visita cos elfos, os renos, Papá Noel e Mamá Noel o Museo da Diversión das Festas."
+	},
+	"familyguide_card_14_body": {
+		"message": "Hai moitos elfos, renos e homiños laranxas no Polo Norte. Mira como van dun lugar a outro."
+	},
+	"familyguide_card_15_body": {
+		"message": "Papá Noel e os renos están listos para saír, pero necesitan a axuda dos elfos programadores antes de despegar."
+	},
+	"familyguide_card_16_body": {
+		"message": "Os nosos amigos da aldea únense ao narval Ollie para pasar o día baixo o mar e montar a primeira festa anual de alumeamento festivo con algas."
+	},
+	"familyguide_card_age": {
+		"message": "Todas as idades"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Cando se acabe o turrón e abras todos os regalos, descubre recursos de Google para divertirte en familia durante todo o ano."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Todos queremos un planeta máis san para o presente e o futuro. Descubre sinxelos consellos de Google para que a humanidade e o planeta prosperen xuntos."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Fagamos plans para axudarlle ao planeta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Os nenos poderán sacar o máximo proveito de Internet se se preparan para tomar decisións de forma intelixente. Be Internet Awesome ensínalles os conceptos básicos da cidadanía dixital e de seguranza para que poidan explorar con confianza o mundo en liña."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Máis de Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Os elfos sempre están mellorando as súas habilidades de programación. Explora xogos cos que poderás aprender os conceptos básicos. Todo o mundo pode probar a crear código!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Aprende a crear código cos elfos de Papá Noel"
+	},
+	"familyguide_group_02_body": {
+		"message": "As festas poden ter un aspecto distinto en cada lugar. Descubre como se celebran en todo o mundo cos nosos xogos e tests."
+	},
+	"familyguide_group_02_title": {
+		"message": "Descubre como son estas festas en todo o mundo"
+	},
+	"familyguide_group_03_body": {
+		"message": "A creatividade é o que move a aldea de Papá Noel. Descubre xogos cos que poderás debuxar, pintar, construír e crear elementos con todos os teus personaxes favoritos."
+	},
+	"familyguide_group_03_title": {
+		"message": "Déixate levar pola inspiración e crea algo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Prepara uns flocos de millo e tápate cunha manta ben abrigosiña. Podes ver todo o equipo no cine da aldea ou ler un libro interactivo mentres o narval Ollie celebra estas festas baixo o mar."
+	},
+	"familyguide_group_04_title": {
+		"message": "Goza do tempo en familia"
+	},
+	"familyguide_nav_link_01": {
+		"message": "código"
+	},
+	"familyguide_nav_link_02": {
+		"message": "celebrar"
+	},
+	"familyguide_nav_link_03": {
+		"message": "crear"
+	},
+	"familyguide_nav_link_04": {
+		"message": "tempo en familia"
+	},
+	"familyguide_nav_link_05": {
+		"message": "consellos e trucos"
+	},
+	"familyguide_nav_link_06": {
+		"message": "máis"
+	},
+	"familyguide_nav_link_07": {
+		"message": "asistente"
+	},
+	"familyguide_secondary_body": {
+		"message": "O 24 de decembro, a aldea de Papá Noel transformarase para ofrecerche unha experiencia na que poderás seguir a Papá Noel e os seu renos mentres lles van deixando regalos aos nenos de todo o mundo."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Utiliza o sitio web, ou a aplicación Android, Sigue a Papá Noel"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Sabías que a viaxe de Papá Noel dura 25 horas? A súa primeira parada é na Rusia oriental ás 22:00 (hora local), cando en Nova York son as 5:00 e en París son as 11:00."
+	},
+	"familyguide_secondary_title": {
+		"message": "Sigue a Papá Noel durante o gran día"
+	},
+	"familyguide_tips_body": {
+		"message": "Estas festas saca o máximo partido de Sigue a Papá Noel con todos os teus produtos de Google favoritos."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pídelle ao Asistente de Google información actualizada sobre o elfo Dimplesticks todos os días."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "\"Ok Google, que novidades hai no Polo Norte?\""
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Descarga a aplicación Android Sigue a Papá Noel desde Play Store. Na aldea atoparás unha escena con xogos exclusivos para esta aplicación."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Aplicación de Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Sigue a Papá Noel desde o teu pulso grazas á integración con Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Busca \"Papá Noel\" en Google para velo en 3D. Na maioría dos iPhones e nalgúns dispositivos Android avanzados, podes velo saudándote a través da cámara grazas á realidade aumentada."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Trae a Papá Noel ao teu salón"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Dálles un toque festivo ás túas mensaxes. Se buscas \"Santa Tracker gifs\" (só funciona en inglés) na páxina de Tenor de Google, atoparás GIF e adhesivos relacionados con Papá Noel."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Regala GIF"
+	},
+	"familyguide_tips_title": {
+		"message": "Consellos e trucos"
+	},
+	"familyguide_title": {
+		"message": "Diversión para toda a familia durante estas festas"
+	},
+	"familylink": {
+		"message": "Engade a conta de Google do teu fillo xestionada mediante Family Link"
+	},
+	"featured": {
+		"message": "Destacado"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -905,6 +1187,12 @@
 	"next_game": {
 		"message": "Próximo xogo"
 	},
+	"nextdecember": {
+		"message": "Vémonos en decembro!"
+	},
+	"nextyear": {
+		"message": "Vémonos o próximo ano"
+	},
 	"ng_country_name": {
 		"message": "Nixeria"
 	},
@@ -1078,6 +1366,9 @@
 	},
 	"openingtomorrow": {
 		"message": "Mañá grande inauguración"
+	},
+	"opens": {
+		"message": "Data de inicio"
 	},
 	"ornament-print-instructions": {
 		"message": "Dobra aquí e e pega os lados xuntos."
@@ -1349,6 +1640,24 @@
 	"scene_airport": {
 		"message": "Aeroporto do Polo Norte"
 	},
+	"scene_android_cityquiz": {
+		"message": "Xogo das cidades"
+	},
+	"scene_android_dancer": {
+		"message": "Renos bailaríns"
+	},
+	"scene_android_penguinswim": {
+		"message": "Pingüín nadador"
+	},
+	"scene_android_presenttoss": {
+		"message": "Lanzamento de regalos"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Zorra motorizada"
+	},
+	"scene_android_snowballrun": {
+		"message": "Escapar da bóla de neve"
+	},
 	"scene_app": {
 		"message": "Aplicación de Android"
 	},
@@ -1360,6 +1669,9 @@
 	},
 	"scene_briefing": {
 		"message": "Charla de Mamá Noel"
+	},
+	"scene_build": {
+		"message": "Regalos e présas"
 	},
 	"scene_callfromsanta": {
 		"message": "Chamada de Papá Noel"
@@ -1394,14 +1706,26 @@
 	"scene_factory": {
 		"message": "Fábrica de caramelos"
 	},
+	"scene_family": {
+		"message": "Guía familiar"
+	},
 	"scene_giftmatch": {
 		"message": "Emparella os regalos"
 	},
 	"scene_glider": {
 		"message": "Elfo de altos voos"
 	},
+	"scene_guides": {
+		"message": "Guías para adultos"
+	},
 	"scene_gumball": {
 		"message": "Guía os caramelos"
+	},
+	"scene_havoc": {
+		"message": "Maraña de regalos"
+	},
+	"scene_holidayfoods": {
+		"message": "Descubre as comidas típicas destas festas en todo o mundo con Google Earth"
 	},
 	"scene_icecave": {
 		"message": "Cova de xeo"
@@ -1423,6 +1747,9 @@
 	},
 	"scene_mercator": {
 		"message": "Test de xeografía"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie baixo o mar"
 	},
 	"scene_playground": {
 		"message": "O parque do Polo Norte"
@@ -1466,17 +1793,26 @@
 	"scene_snowball": {
 		"message": "Pelexa de bólas de neve"
 	},
+	"scene_snowbox": {
+		"message": "Zona de probas nevada"
+	},
 	"scene_snowflake": {
 		"message": "Codifica unha folerpa"
 	},
 	"scene_speedsketch": {
 		"message": "Bosquexo rápido"
 	},
+	"scene_storybook": {
+		"message": "Libro sobre sostibilidade"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Tradicións de Nadal"
+	},
+	"scene_traditionsquiz": {
+		"message": "Xogo de preguntas sobre as tradicións do Nadal"
 	},
 	"scene_translations": {
 		"message": "Traducións"
@@ -1499,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Despegue de Papá Noel"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Luces apagadas"
+	},
 	"scene_videoscene_museum": {
 		"message": "Un día no museo"
 	},
@@ -1507,6 +1846,9 @@
 	},
 	"scene_videoscene_onvacation": {
 		"message": "Segue de vacacións"
+	},
+	"scene_videoscene_penguinproof": {
+		"message": "A proba de pingüíns"
 	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Os renos están preocupados"
@@ -1540,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Obradoiro de Papá Noel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Fogueira de Nadal"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
@@ -1603,6 +1948,9 @@
 	},
 	"snowball_iced": {
 		"message": "Déronte!"
+	},
+	"snowball_iced_count": {
+		"message": "Dianas"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} de {{total}} elfos restantes"
@@ -2981,6 +3329,99 @@
 	"sr_country_name": {
 		"message": "Suriname"
 	},
+	"storybook_paragraph_01": {
+		"message": "Os pingüíns andaban en zorra. Os elfos aclamaban con emoción."
+	},
+	"storybook_paragraph_02": {
+		"message": "Había unha grande axitación en toda a cidade debido á iluminación da árbore da aldea."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ese día non todo o mundo se sentía tan feliz. Foi un día triste para un narval chamado Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Oxalá puidese estar alí para contemplala aínda que só fose esta vez. Resulta impresionante ver esa árbore tan grande iluminada”."
+	},
+	"storybook_paragraph_05": {
+		"message": "“Pero encántache o océano!”, respondeu a adorable Mary Bear. “Todas as cunchas de mar e o plancto. As profundidades do océano son impresionantes!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Supoño que si”, dixo Ollie, “iso é verdade. Pero ás veces o océano faime sentir triste”."
+	},
+	"storybook_paragraph_07": {
+		"message": "“Ben, que tal se…”, comentou Mary cun sorriso alentador, “baixase ata alí hoxe e nadásemos durante un anaco?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Queres ir de exploración? Adéntrate nos arrecifes mariños… Ou incluso mellor, xa sei!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“Podiamos soster unha iluminación de árbore propia”."
+	},
+	"storybook_paragraph_10": {
+		"message": "Elaborárase un plan. Mary reuniu o seu equipo. Acudiron primeiro os elfos e despois os pingüíns. Tamén viñeron algúns renos."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sorriu encantado aos amigos que acudiran. “Poñámonos en marcha!”, dixo Mary, “isto vai ser divertido!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Agora, para organizar unha boa festa, o primeiro que precisarían sería un equipo de bos colaboradores para axudarlles a triunfar."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Achegádevos!”, berrou Ollie. “Precisamos toda a vosa axuda para conseguir a nosa propia iluminación submarina con algas”."
+	},
+	"storybook_paragraph_14": {
+		"message": "O peixe púxose en marcha correndo a voz entre os convidados. “Nós encargámonos dos convidados, ti do resto!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Agora os elfos teñen experiencia con este tipo de evento. Necesitan tempo para os traballos, así que puxéronse mans á obra."
+	},
+	"storybook_paragraph_16": {
+		"message": "As decoracións viñan a continuación. Sabían a quen recorrer exactamente. “Señor Cangrexo e señora Lagosta, poden axudar, por favor e grazas?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "As ostras interviñeron dicindo: “Podemos axudar co deseño! Colga as nosas perlas das ramas para que brillen e resplandezan”."
+	},
+	"storybook_paragraph_18": {
+		"message": "Toda festa precisa música, cancións co ritmo axeitado para que todo o mundo baile e estea animado."
+	},
+	"storybook_paragraph_19": {
+		"message": "“O meu tío, Horatio, é o mellor do sector, e o seu gran amigo Carl é un xenio tocando a guitarra”."
+	},
+	"storybook_paragraph_20": {
+		"message": "“Xa case chegou a hora da festa, polo que o último que necesitaremos é reunir un conxunto de algas perfecto para formar unha árbore cerimonial”."
+	},
+	"storybook_paragraph_21": {
+		"message": "“Iso é! Iso é!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie encheuse de alegría! Que festa tan fabulosa sería a desta noite."
+	},
+	"storybook_paragraph_23": {
+		"message": "A estrela de mar colocouse no seu sitio e os adornos balanceáronse. A medusa bailou e os membros da banda tocaron."
+	},
+	"storybook_paragraph_24": {
+		"message": "Todo resultou fantástico, a decoración e os sons. Pero a mellor parte foi cando todo o mundo se reuniu…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… para a iluminación!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Chegou o momento por fin! O plancto iluminouse. Ollie botou un suspiro."
+	},
+	"storybook_paragraph_27": {
+		"message": "Era case maxia, as luces brillaban resplandecentes. A cidade estaba en silencio, observando o espectáculo."
+	},
+	"storybook_paragraph_28": {
+		"message": "A cousa máis espectacular que viran nunca. As luces volvéronse primeiro de cor amarela, despois púrpura e finalmente verde esmeralda brillante."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary empezou a ter sono, xa pasaba a hora de deitarse, pero antes de que todos marchasen, Ollie xirouse e dixo:"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Moitas grazas por reunir toda esta cidade nunha noite que estou seguro que lembraremos para sempre”."
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
+	},
 	"sv_country_name": {
 		"message": "O Salvador"
 	},
@@ -3022,6 +3463,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turco"
+	},
+	"tracker-game_awesome": {
+		"message": "Xogar á Torre do tesouro"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Chegada"
@@ -6761,8 +7208,17 @@
 	"uk_tradition": {
 		"message": "No Reino Unido, festeiros de todas as idades desfrutan dos \"crackers\" no día de Nadal. Son tubos envoltos en papel de cores con pestanas en cada extremo. Cando tiran delas, estoupan cun forte estralo. Dentro deles hai sombreiros de papel, xoguetes, chistes e premios para gozar do Nadal."
 	},
+	"underconstruction": {
+		"message": "En construción"
+	},
+	"unlocks": {
+		"message": "Data de desbloqueo"
+	},
 	"unmute": {
 		"message": "Activar o son"
+	},
+	"upgrade-warning": {
+		"message": "Ai! Parece que o teu navegador non é compatible con Sigue a Papá Noel ou que tes JavaScript desactivado. Para acceder ao sitio web, descarga un navegador máis recente ou activa JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -6823,6 +7279,9 @@
 	},
 	"village_santa_install": {
 		"message": "Instalar"
+	},
+	"village_santa_intall_ios": {
+		"message": "Toca \u003cspan\u003e\u003c/span\u003e e despois Engadir á pantalla de inicio"
 	},
 	"village_takesoff": {
 		"message": "Papá Noel despega en"

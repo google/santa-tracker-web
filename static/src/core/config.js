@@ -235,7 +235,14 @@ export function sceneForRoute(route, fallback) {
   if (!route || route === 'index') {
     return indexScene(fallback);
   }
-  // nb. We used to lock scenes here by returning null, now, we just fail open.
+
+  // Actually lock scenes in prod.
+  if (isLocked(route)) {
+    if (isProd) {
+      return null;
+    }
+    console.debug('failing open for scene locked in prod', route);
+  }
 
   const v = videos();
   if (v.indexOf(route) !== -1) {
@@ -252,6 +259,9 @@ export function sceneForRoute(route, fallback) {
 export function redirectRoute(route) {
   if (route in memoized.sceneRedirect) {
     return memoized.sceneRedirect[route];
+  }
+  if (route === 'index') {
+    return '';
   }
 }
 

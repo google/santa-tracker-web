@@ -17,13 +17,13 @@
       left: 0;
       position: absolute;
       top: 0;
-      transform: scale(1.05);
+      transform: scale(1.01) translateZ(0);
       transform-origin: center center;
       width: 100%;
 
       &--top {
         background-image: url(img/fences/fence_front_middle.svg);
-        transform: scale(1.05) translateY(-100%);
+        transform: scale(1.01) translateY(-100%) translateZ(0);
         transform-origin: center top;
       }
 
@@ -37,7 +37,7 @@
 
       &--left {
         background-image: url(img/fences/fence_side_bottom.svg);
-        transform: scale(-1.05, 1.05);
+        transform: scale(-1.01, 1.01) translateZ(0);
       }
 
       &--start {

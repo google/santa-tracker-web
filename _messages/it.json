@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Costruisci {{count}} automobiline!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Costruisci 1 automobilina!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Costruisci {{count}} robot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Costruisci 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Costruisci {{count}} razzi!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Costruisci 1 razzo!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Costruisci {{count}} orsacchiotti!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Costruisci 1 orsacchiotto!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Raccogli e rilascia i giocattoli"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Istruzioni"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Sposta"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Giocatore 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Giocatore 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Quanti giocatori?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 giocatore"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 giocatori"
+	},
+	"buildandbolt-skip": {
+		"message": "Ignora"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "I pinguini andavano in slitta, gli elfi vociavano al loro passaggio."
+	},
+	"storybook_paragraph_02": {
+		"message": "Tutti erano in fermento per l'albero illuminato del villaggio."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ma non tutti vivevano quel giorno in allegria. Un narvalo di nome Ollie era in preda alla malinconia."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Almeno per questa volta, vorrei essere su quel prato. Sembra meraviglioso quel grande albero illuminato.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Ma tu ami l'oceano!\" disse Mary l'orsetta. \"Con le conchiglie e il plancton. Ogni cosa è perfetta!\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Penso di sì\", disse Ollie, \"certo è come dici tu. Ma a volte mi mette malinconia tutto questo blu!\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"Bene, e se…\" disse Mary, con un sorriso solare, \"venissi giù da te oggi e andassimo a nuotare?\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Potremmo esplorare, fare un giro nella barriera corallina... Anzi, so io cosa fare!\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Organizziamo una festa, con un albero tutto da illuminare!\"."
+	},
+	"storybook_paragraph_10": {
+		"message": "Avevano ormai un piano. Mary radunò i suoi aiutanti. Si aggiunsero elfi e pinguini. E anche alcune renne zelanti!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sorrise felice a ogni amico arrivato. \"Dai andiamo!\" disse Mary, \"il divertimento è assicurato!\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Ora, per organizzare una festa da ricordare, ci volevano assistenti eccezionali disposti ad aiutare."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Venite tutti qui!\" gridò Ollie. \"Veniteci ad aiutare, con le alghe e le luci decoriamo il fondo del mare\"."
+	},
+	"storybook_paragraph_14": {
+		"message": "Per invitare gli ospiti, i pesci partirono con piglio lesto. \"Ci occuperemo noi degli inviti, tu pensa al resto!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "E gli elfi, che di festeggiamenti erano esperti, per dare inizio ai preparativi si allontanarono solerti."
+	},
+	"storybook_paragraph_16": {
+		"message": "Le decorazioni erano il passo successivo. Sapevano esattamente chi chiamare. \"Signor Granchio, Signora Aragosta! Per favore, ci potete aiutare?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Le ostriche soggiunsero: \"Possiamo aiutarvi a decorare! Appendete ai rami le nostre perle. Le vedrete luccicare e scintillare.\""
+	},
+	"storybook_paragraph_18": {
+		"message": "Per una festa che si rispetti ci vuole il ritmo giusto,\nuna musica da ballare, adatta a ogni gusto."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Mio zio, Orazio, è affermato in questo settore. E il suo amico Carl con la chitarra è il migliore.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"È quasi ora della festa e l'ultima cosa da procurare\nè un festone d'alghe per il nostro albero da addobbare.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Che bello! Che bello!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie, dalla gioia, fece una piroetta. La festa, quella notte, sarebbe stata davvero perfetta!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Le stelle marine saltarono ai loro posti e gli ornamenti oscillarono. La medusa si mise a ballare e i componenti della band suonarono."
+	},
+	"storybook_paragraph_24": {
+		"message": "Era tutto fantastico, le decorazioni e gli spartiti. Ma il momento migliore fu quando tutti furono riuniti…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…per le luminarie!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Finalmente era giunto il momento tanto atteso! Il plancton si accese. Ollie rimase sorpreso!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Fu come una magia, le luci scintillavano. Gli abitanti del villaggio, incantati, ammiravano."
+	},
+	"storybook_paragraph_28": {
+		"message": "Davanti ai loro occhi uno spettacolo emozionante. Lucine gialle, poi viola, poi verde brillante."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary iniziava ad aver sonno, da tempo era passato l'imbrunire.\nPrima di andare, Ollie si voltò per dire:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Grazie per aver radunato tutta la città. Questa notte la ricorderemo da qui all'eternità!\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Fine"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

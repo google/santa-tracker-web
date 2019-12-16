@@ -8,12 +8,19 @@ Utils.gridToPixelValue = function(gridValue) {
 
 /**
  * Converts a pixel coordinate on the viewport to a grid value based coordinate
+ *
  */
-Utils.pixelToGridPosition = function(boardElem, pixelPosition) {
+Utils.pixelToGridPosition = function(boardElem, pixelPosition, limit) {
   let x, y;
   let rect = boardElem.getBoundingClientRect();
   x = (pixelPosition.x - rect.left) / rect.width * Constants.GRID_DIMENSIONS.WIDTH;
   y = (pixelPosition.y - rect.top) / rect.height * Constants.GRID_DIMENSIONS.HEIGHT;
+
+  if (limit) {
+    const { GRID_DIMENSIONS } = Constants;
+    x = Math.max(0, Math.min(GRID_DIMENSIONS.WIDTH - 1, x));
+    y = Math.max(0, Math.min(GRID_DIMENSIONS.HEIGHT - 1, y));
+  }
 
   return { x, y };
 }
@@ -317,8 +324,13 @@ Utils.getDistance =  function(pos1, pos2) {
  */
 
 Utils.removeClassesStartWith = function(elem, string) {
-  let cn = elem.className;
-  const regex = new RegExp(`(^|\\s)${string}\\S+`, 'g');
-  cn = cn.replace(regex, '');
-  elem.className = cn;
+  Array.from(elem.classList).forEach((x) => x.startsWith(string) && elem.classList.remove(x));
+}
+
+
+/**
+ * Remove all children in an element
+ */
+Utils.removeAllChildren = function(elem) {
+  elem.textContent = '';
 }

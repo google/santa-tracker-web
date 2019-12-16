@@ -68,4 +68,10 @@ body {
     position: absolute;
     top: 0;
   }
+
+
+  [data-tile-canvas],
+  [data-tile-slices] {
+    display: none;
+  }
 }

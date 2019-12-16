@@ -10,7 +10,6 @@ goog.require('Constants');
  *
  * WALLS
  * Minimum dimensions - 2 x 4
- * Width must be even
  *
  * TABLES
  * tableType can be 1, 2, or 3
@@ -211,6 +210,47 @@ Levels = [
   //   ]
   // },
 
+  // LEVEL 2
+  {
+    time: 60,
+    hurryUpMusicTime: 25,
+    players: [
+      {
+        startPos: {
+          x: 1,
+          y: 7
+        }
+      },
+      {
+        startPos: {
+          x: 1,
+          y: 9
+        }
+      }
+    ],
+    toyType: Constants.TOY_TYPES.CAR,
+    toysCapacity: 2,
+    entities: [
+      // LEVEL 2 - WALLS
+      {
+        type: 'wall',
+        config: {
+          height: 4,
+          width: 23,
+          x: 5,
+          y: 0,
+        }
+      },
+      {
+        type: 'wall',
+        config: {
+          height: 4,
+          width: 23,
+          x: 5,
+          y: 12,
+        }
+      },
+
   // // LEVEL 2
   // {
   //   time: 90,
@@ -391,7 +431,7 @@ Levels = [
 
   // LEVEL 3
   {
-    time: 120,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -600,7 +640,7 @@ Levels = [
 
   // LEVEL 4
   {
-    time: 120,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -957,7 +997,7 @@ Levels = [
 
   // LEVEL 5
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1178,7 +1218,7 @@ Levels = [
 
   // LEVEL 6
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1366,7 +1406,7 @@ Levels = [
 
   // LEVEL 7
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1701,7 +1741,7 @@ Levels = [
 
   // LEVEL 8
   {
-    time: 180,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -1994,7 +2034,7 @@ Levels = [
 
   // LEVEL 9
   {
-    time: 180,
+    time: 90,
     hurryUpMusicTime: 25,
     players: [
       {
@@ -2442,7 +2482,7 @@ Levels = [
 
   // LEVEL 10
   {
-    time: 90,
+    time: 60,
     hurryUpMusicTime: 25,
     players: [
       {

@@ -22,3 +22,9 @@ body {
 
   @import "scss/responsive";
 }
+
+// For French language users, we show a different string in the Family Guide.
+.no-fr:lang(fr),
+.fr:not(:lang(fr)) {
+  display: none !important;
+}

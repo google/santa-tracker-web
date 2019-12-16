@@ -53,17 +53,16 @@ function applyAttribute(node, attrName, value=true) {
  * @param {!Array<string>} qs
  * @param {string} attrName
  * @param {(string|number|boolean|null)=} value
- * @return {!Array<string>} qs that did not match any
+ * @return {!Array<!Element>} matched nodes
  */
 function applyAttributeToAll(node, qs, attrName, value=true) {
   const out = [];
   qs.forEach((q) => {
     const nodes = node.querySelectorAll(qs);
-    if (nodes.length === 0) {
-      out.push(q);
-    }
     nodes.forEach((node) => applyAttribute(node, attrName, value));
+    out.push(...nodes);
   });
+  return out;
 }
 
 

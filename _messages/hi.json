@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "भूटान"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "{{count}} कार बनाएं!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "एक कार बनाएं!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "{{count}} रोबोट बनाएं!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "एक रोबोट बनाएं!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "{{count}} रॉकेट बनाएं!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "एक रॉकेट बनाएं!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "{{count}} टेडी बियर बनाएं!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "एक टेडी बियर बनाएं!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "खिलौने उठाएं और गिराएं"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "निर्देश"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "ले जाएं"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "खिलाड़ी एक"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "खिलाड़ी दो"
+	},
+	"buildandbolt-players-selection": {
+		"message": "कितने खिलाड़ी हैं?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "एक खिलाड़ी"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "दो खिलाड़ी"
+	},
+	"buildandbolt-skip": {
+		"message": "अभी नहीं"
+	},
 	"bw_country_name": {
 		"message": "बोत्सवाना"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "सूरीनाम"
+	},
+	"storybook_paragraph_01": {
+		"message": "पेंगुइन बर्फ़ पर फिसल रहे थे. बौने जादूगर खुशी मना रहे थे."
+	},
+	"storybook_paragraph_02": {
+		"message": "गांव के पेड़ की रोशनी की चर्चा पूरे शहर में थी."
+	},
+	"storybook_paragraph_03": {
+		"message": "लेकिन हर कोई नहीं था उस दिन इतना खुश. क्योंकि, ऑली नाम का नारवल था गम में डूबा हुआ."
+	},
+	"storybook_paragraph_04": {
+		"message": "“काश, बस एक बार, मैं वह देखने के लिए वहां होता. बड़ा चमकता पेड़ रोशनी में कितना सुंदर होता.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "प्यारी मेरी बीयर ने कहा, “लेकिन, तुम्हें तो सागर से प्यार है न!” “इतनी सारी कौड़ियां और प्लवक. यहां सब कुछ कितना अच्छा है!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“हां शायद,” ऑली ने कहा, “यह बिल्कुल सच है. लेकिन कभी-कभी, इस विशाल समुद्र को देखकर मेरा भी मन भर आता है!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“लेकिन अगर...” मेरी ने मुस्कुराते और शर्माते हुए कहा, “मैं आज वहां नीचे आऊं और हम कुछ देर तैरने चलें?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“क्या आप और जानना चाहते हैं? समुद्री रीफ़ में सर्फ़ करें... या उससे भी कुछ बेहतर, मुझे पता है!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“हम अपनी खुद की एक ट्री लाइट पकड़ सकते थे.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "योजना तैयार हो गई थी. मेरी अपने दोस्त लाई साथ. साथ आए बौने जादूगर और पेंगुइन. बारहसिंहों ने भी मिलाया हाथ!"
+	},
+	"storybook_paragraph_11": {
+		"message": "ऑली अपने दोस्तों को देखकर बहुत खुश हो गया. “चलो, शुरू करते हैं!”, मेरी बोली. “बहुत मज़ा आने वाला है!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "एक शानदार पार्टी के लिए, उन्हें सबसे पहले सहायकों की एक अच्छी टीम की ज़रूरत पड़ेगी जो कामयाब होने में उनकी मदद करेगी."
+	},
+	"storybook_paragraph_13": {
+		"message": "“सब इकट्ठा हो जाओ!” ऑली चिल्लाया. “सबको बँटाना होगा हाथ, ताकि समुद्र के नीचे खूबसूरत रोशनी कर सकें हम साथ.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "मछली में भी फ़ुर्ती आई, मेहमानों में मचा शोर. “बुलावे हम देख लेंगे, तुम कुछ और देखो!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "अब बौने जादूगरों को इस तरह के इवेंट का अनुभव हो गया था. उन्हें अपने छोटे-मोटे काम पूरे करने के लिए वक्त चाहिए था, इसलिए वे चले गए."
+	},
+	"storybook_paragraph_16": {
+		"message": "अब बारी थी सजावट करने की. वे जानते थे कि किसके पास जाना है. \"श्रीमान केकड़ा और श्रीमती झींगा, क्या आप हमारी मदद करेंगे?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "सब घोंघे साथ में बोले, \"हम डिज़ाइन में मदद कर सकते हैं! हमारे मोतियों को टहनियों से लटका दो. ये चमकने लगेंगे.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "हर पार्टी में ज़रूरी है संगीत, सही बीट वाली ऐसी धुनें जिन पर हर कोई झूम उठे. कोई भी बैठा न रहे."
+	},
+	"storybook_paragraph_19": {
+		"message": "“मेरे अंकल, होराशियो चलाते हैं सबसे अच्छा कारोबार. और उनके अच्छे दोस्त बजाते हैं ज़बरदस्त गिटार.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "“पार्टी का टाइम हो ही गया है, इसलिए हमें जो आखिरी चीज़ चाहिए वह है पारंपरिक पेड़ के लिए समुद्री घास का एक बढ़िया गुच्छा.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“हो गया! हो गया!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "ऑली खुशी के मारे गुलाटियां खाने लगा! पूरी रात कितनी शानदार पार्टी होने वाली है."
+	},
+	"storybook_paragraph_23": {
+		"message": "स्टारफ़िश एक जगह से दूसरी जगह पर उछली और सभी ज़ेवर लहराने लगे. जेलीफ़िश ने कमर हिलाई और बैंड के सभी सदस्य संगीत बजाने लगे."
+	},
+	"storybook_paragraph_24": {
+		"message": "सब कुछ बहुत शानदार था, सजावट और सभी आवाज़ें. लेकिन सबसे अच्छी बात थी कि सब एक साथ इकट्ठा हुए..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...रोशनी के लिए!"
+	},
+	"storybook_paragraph_26": {
+		"message": "आखिर वह समय आ ही गया! सभी प्लवक चमकने लगे. ऑली हैरान रह गया!"
+	},
+	"storybook_paragraph_27": {
+		"message": "चमकती रोशनी में खोया हुआ यह एहसास जादुई था. खामोशी थी शहर में, मंज़र दिलनशीं था."
+	},
+	"storybook_paragraph_28": {
+		"message": "सबसे खूबसूरत चीज़ जो उन्होंने शायद कभी न देखी हो. लाइटें हुईं पीली, फिर बैंगनी, फिर चटख हरे रंग में खो गईं."
+	},
+	"storybook_paragraph_29": {
+		"message": "मेरी को नींद आ रही थी, बहुत रात हो चली थी. लेकिन सबके जाने से पहले ऑली मुड़ा और फिर बोला,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“पूरे शहर को एक साथ लेकर आने के लिए बहुत शुक्रिया. मुझे लगता है कि आज की रात सबको हमेशा याद रहेगी.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "खत्म"
 	},
 	"sv_country_name": {
 		"message": "एल साल्वाडोर"

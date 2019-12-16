@@ -97,7 +97,7 @@ class ControlsManager {
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY });
+        { x: touch.clientX, y: touch.clientY }, true);
 
     // e.preventDefault();
 
@@ -148,10 +148,13 @@ class ControlsManager {
           startPosition = platformOffset;
         }
 
-        if (Utils.getDistance(goalPosition, startPosition) > 1) {
+        const distance = Utils.getDistance(goalPosition, startPosition);
+        if (distance > .2) {
+          // Slows player down as it gets close to the goal point
+          const magnitudeMultiplier = Math.pow(Math.min(1, distance / 3), 2);
           const angle = Utils.getAngle(goalPosition, startPosition);
-          let magnitudeX = Math.abs(Math.cos(angle));
-          let magnitudeY = Math.abs(Math.sin(angle));
+          const magnitudeX = Math.abs(Math.cos(angle)) * magnitudeMultiplier;
+          const magnitudeY = Math.abs(Math.sin(angle)) * magnitudeMultiplier;
 
           return {
             left: goalPosition.x < startPosition.x ? magnitudeX : 0,

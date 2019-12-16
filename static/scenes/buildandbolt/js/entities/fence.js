@@ -40,10 +40,7 @@ app.Fence = class Fence extends app.Entity {
   onDispose() {
     super.onDispose();
 
-    // remove all children
-    while (this.elem.firstChild) {
-      this.elem.removeChild(this.elem.firstChild);
-    }
+    Utils.removeAllChildren(this.elem);
   }
 
   addChild(side, type = false) {

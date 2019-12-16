@@ -23,7 +23,7 @@ const JSON5 = require('json5');
 const {Worker} = require('worker_threads');
 const WorkGroup = require('./build/group.js');
 
-const DISABLED_SCENES = 'sammytone_dev poseboogie languagematch'.split(/\s+/);
+const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
 
 // Generates a version like `vYYYYMMDDHHMM`, in UTC time.
 const DEFAULT_STATIC_VERSION = 'v' + (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
@@ -677,11 +677,22 @@ async function releaseProd(langs) {
         releaseHtml.applyAttributeToAll(head, all, 'content', url);
       }
 
+      // Optionally include nodes which match data-page.
+      const pageFilterSet = new Set(document.querySelectorAll('[data-page]'));
+      const allowedSet = new Set(document.querySelectorAll(`[data-page~="${page}"]`))
+      pageFilterSet.forEach((node) => {
+        if (allowedSet.has(node)) {
+          node.removeAttribute('data-page');
+        } else {
+          node.remove();
+        }
+      });
+
       // nb. In 2019, titles are just e.g. "Santa's Canvas", not "Santa's Canvas - Google Santa
       // Tracker".
-      const msgid = prodPages[page] || 'santatracker';
-      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
-      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+      const msgid = prodPages[page] || 'meta_title';
+      const matched = releaseHtml.applyAttributeToAll(head, ['[data-title]'], 'msgid', msgid);
+      matched.forEach((n) => n.removeAttribute('data-title'));
     });
 
     for (const lang in langs) {

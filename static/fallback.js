@@ -12,6 +12,7 @@ import * as messageSource from './src/lib/message-source-fallback.js';
 
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
+import { preload } from './src/core/common.js';
 
 
 
@@ -86,9 +87,8 @@ const fallbackLoad = (url, {route, data, locked}) => {
 
   const portPromise = new Promise((resolve) => {
     const portMessageHandler = (ev) => {
-      console.debug('got port via', ev);
-      const port = ev.ports[0];
-      if (!port) {
+      const port = ev.data;
+      if (!(port instanceof MessagePort)) {
         throw new Error(`didn't get port from contentWindow`);
       }
       resolve(port);
@@ -118,24 +118,25 @@ const fallbackLoad = (url, {route, data, locked}) => {
     // send ?foo=.. data
     port.postMessage({type: 'data', payload: data});
 
+    let tasks = 1;  // pretend that 'config' is a single task
+
     return new Promise((resolve) => {
       port.onmessage = (ev) => {
         const {type, payload} = ev.data;
         switch (type) {
-          case 'preload':
-            // TODO(samthor): This is fragile.
-            const [preloadType, event, responsePort] = payload;
-            responsePort.postMessage(null);
-            return;
-  
-          case 'progress':
-            console.debug('got preload notice', payload);
-            return;
+          case 'config':
+            --tasks;
+            break;
+          case 'tasks':
+            tasks += payload;
+            break;
+          default:
+            return;  // ignore, don't run tasks check below
+        }
 
-          case 'loaded':
-            loaded(port);
-            resolve(true);
-            return;
+        if (tasks <= 0) {
+          loaded(port);
+          resolve(true);
         }
       };
     });

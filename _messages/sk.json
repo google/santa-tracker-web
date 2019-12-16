@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Postavte auto (počet: {{count}})!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Postavte 1 auto!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Postavte robota (počet: {{count}})!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Postavte 1 robota!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Postavte raketu (počet: {{count}})!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Postavte 1 raketu!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Postavte plyšových medvedíkov (počet: {{count}})!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Postavte 1 plyšového medvedíka!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Zdvíhanie a zhadzovanie hračiek"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Pokyny"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Presunúť sa"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1. hráč"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2. hráč"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Koľko hráčov?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 hráč"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 hráči"
+	},
+	"buildandbolt-skip": {
+		"message": "Preskočiť"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -479,6 +530,21 @@
 	"codelab-try-again": {
 		"message": "Skúsiť znova"
 	},
+	"controller_gamepad": {
+		"message": "Ovládač"
+	},
+	"controller_keyboard": {
+		"message": "Klávesnica"
+	},
+	"controller_mouse": {
+		"message": "Myš"
+	},
+	"controller_touch": {
+		"message": "Klepnutie"
+	},
+	"copied": {
+		"message": "Skopírované"
+	},
 	"copy-me": {
 		"message": "Správu môžete zdieľať skopírovaním tohto odkazu"
 	},
@@ -539,6 +605,12 @@
 	"deckdescription": {
 		"message": "So Santovym rozšírením si môžete vyzdobiť prehliadač Chrome."
 	},
+	"decmonth": {
+		"message": "dec."
+	},
+	"decmonth_long": {
+		"message": "december"
+	},
 	"detected": {
 		"message": "rozpoznané"
 	},
@@ -587,6 +659,9 @@
 	"elf_choose_body": {
 		"message": "Vyberte telo škriatka"
 	},
+	"elves": {
+		"message": "Elfovia"
+	},
 	"elvish_language_name": {
 		"message": "Škriatkovčina"
 	},
@@ -611,8 +686,14 @@
 	"error-not-found": {
 		"message": "Ale nie! Santovým škriatkom sa nepodarilo nájsť túto stránku. Možno budete mať viac šťastia, ak sa vrátite späť do \u003ca href=\"./\"\u003eSantovej dediny\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Toto je zastaraná verzia Santovej dediny. Skúste znova otvoriť aplikáciu „Kde je Santa“, aby ste našli najnovšiu verziu."
+	},
 	"error-try-again": {
 		"message": "Skúsiť znova"
+	},
+	"error-unsupported": {
+		"message": "Váš prehliadač nepodporuje aplikáciu „Kde je Santa“. Ak sa chcete zahrať ďalšie hry a na Štedrý deň sledovať Santu, skúste to v telefóne alebo inom prehliadači."
 	},
 	"es_language_name": {
 		"message": "Španielčina"
@@ -626,11 +707,212 @@
 	"explore-village": {
 		"message": "Preskúmať Santovu dedinu"
 	},
+	"familyguide_accordion_title": {
+		"message": "Oslavujte celý mesiac"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Zistite počas decembra vďaka Asistentovi Google viac o Santa Clausovi! Táto integrácia je k dispozícii vo vybraných jazykoch."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Po prihlásení do svojho účtu spravovaného pomocou aplikácie \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e si deti do 13 rokov môžu s povolením rodiča prispôsobiť Asistenta Google."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asistent Google vás spojí so severným pólom, kde má Santa plné ruky práce s nacvičovaním na hudobný koncert. Pozná len jednu skladbu. Pomôžete mu objaviť najlepší spôsob, ako ju zahrať?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Volanie Santovi"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Každý deň si nalaďte Spravodajstvo zo severného pólu, aby ste sa dozvedeli, čo chystá Santa a jeho škriatkovia. Spýtajte sa Asistenta Google, čo sa deje na severnom póle."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Spravodajstvo zo severného pólu"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Keď Santa nemusí so škriatkami pracovať v dielni, venuje sa zdokonaľovaniu svojich zabávačských schopností. Požiadajte Asistenta Google o vtip od Santu a vypočujte si jeho scénku."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Santove vtipy"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nenechajte si ujsť Správy zo severného pólu"
+	},
+	"familyguide_body": {
+		"message": "Santova dedina je dokonalé miesto, kde môžu rodiny sláviť sviatky. Nájdete tu všetky svoje obľúbené postavy spolu so zábavnými, náučnými a interaktívnymi aktivitami pre ľudí v každom veku."
+	},
+	"familyguide_card_01_body": {
+		"message": "Využite základy programovania a pomôžte škriatkovi prejsť cez les, aby našiel stratené darčeky."
+	},
+	"familyguide_card_02_body": {
+		"message": "Vytvorte si vlastný sviatočný pozdrav naprogramovaním snehovej vločky. Stačí si vybrať z množstva pozadí a zdieľať pozdrav s priateľmi."
+	},
+	"familyguide_card_03_body": {
+		"message": "Škriatkovia znova programujú a zároveň tancujú. Naprogramujte tanečné choreografie škriatkov. Majte sa však na pozore, čím viac sa zlepšujete, tým sú tance náročnejšie."
+	},
+	"familyguide_card_04_body": {
+		"message": "Kliknite na špendlíky na mapách, aby ste spoznali sviatočné tradície na celom svete, či už ide o nosenie pletenej čiapky v Kanade, alebo športových plaviek v Austrálii."
+	},
+	"familyguide_card_05_body": {
+		"message": "Naučte sa slávnostnú hantírku z celého sveta, napríklad ako sa povie „Šťastný nový rok“ v škriatkovčine alebo „Dedo Mráz“ v ruštine."
+	},
+	"familyguide_card_06_body": {
+		"message": "Santa musí navštíviť veľa miest. V tejto zemepisnej hre treba priradiť obrys krajiny k príslušnej mape."
+	},
+	"familyguide_card_07_body": {
+		"message": "Poznáte históriu týchto sviatkov? Ukážte svoje vedomosti v deviatich kvízových otázkach, ktoré vás určite otestujú."
+	},
+	"familyguide_card_07_title": {
+		"message": "Kvíz o sviatočných tradíciách"
+	},
+	"familyguide_card_08_body": {
+		"message": "Máte hlad? Spoznajte pochúťky z celého sveta a objavujte jedlo z blízkych aj vzdialených krajín."
+	},
+	"familyguide_card_09_body": {
+		"message": "Klepnite na Santov veľmi originálny balík. Každý nástroj, štetec a nálepka vydáva vlastný zvuk, preto ide o zvukový aj vizuálny zážitok."
+	},
+	"familyguide_card_10_body": {
+		"message": "Experimentujte a hrajte sa na svojom zimnom stavenisku. Stavajte z trojrozmerných materiálov domy, hračky, snehuliakov, lesy a čokoľvek vám len napadne."
+	},
 	"familyguide_card_11_body": {
 		"message": "Vytvorte si svojho vlastného škriatka od hlavy až po päty a snažte sa, aby na množstve sviatočných večierkov, ktoré sa na severnom póle budú konať, vyzeral škriatkasticky."
 	},
+	"familyguide_card_12_body": {
+		"message": "Santa je v holičstve a potrebuje pomoc s úplnou úpravou svojho zovňajška. Prefarbite mu bradu, usušte vlasy, pridajte nejaké ozdoby alebo ho celého ohoľte strojčekom."
+	},
+	"familyguide_card_13_body": {
+		"message": "Pridajte sa k škriatkom, sobom, Santa Clausovi a pani Clausovej na návšteve Múzea sviatočnej radosti."
+	},
+	"familyguide_card_14_body": {
+		"message": "Škriatkovia, soby a panáčikovia sa potulujú po severnom póle. Pozerajte, ako prechádzajú z miesta na miesto."
+	},
+	"familyguide_card_15_body": {
+		"message": "Santa a soby sú pripravení na cestu. Pred odchodom však budú potrebovať pomoc od škriatkov programátorov."
+	},
+	"familyguide_card_16_body": {
+		"message": "Naši kamaráti z dediny na jeden deň navštívili pod hladinou veľrybu Ollieho, aby usporiadali prvý ročník slávnosti svetielkujúcich rias."
+	},
+	"familyguide_card_age": {
+		"message": "Všetky vekové skupiny"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Vaječný likér je fuč, darčeky sú hotové. Objavte celoročné zdroje rodinnej zábavy na Googli."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Všetci chceme zdravú planétu dnes aj v budúcnosti. Prečítajte si jednoduché tipy od Googlu, vďaka ktorým budú ľudia aj planéta spoločne prekvitať."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Váš plán, vaša planéta"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Ak chcú deti vyťažiť z internetu maximum, musia robiť múdre rozhodnutia. Be Internet Awesome učí deti základom digitálneho občianstva a bezpečnosti, aby mohli sebavedomo objavovať online svet."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Be Internet Awesome"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Viac od Googlu"
+	},
+	"familyguide_group_01_body": {
+		"message": "Škriatkovia neustále zdokonaľujú svoje programátorské zručnosti. Objavujte hry, ktoré vás naučia základy. Programovanie si môže vyskúšať ktokoľvek."
+	},
+	"familyguide_group_01_title": {
+		"message": "Naučte sa programovať so Santovými škriatkami"
+	},
+	"familyguide_group_02_body": {
+		"message": "Sviatky sa môžu na rôznych miestach výrazne líšiť. Vďaka početným hrám a kvízom zistíte, ako sviatky slávia v rôznych kútoch sveta."
+	},
+	"familyguide_group_02_title": {
+		"message": "Objavujte sviatky na celom svete"
+	},
+	"familyguide_group_03_body": {
+		"message": "Santova dedina prekvitá vďaka svojej tvorivosti. Objavte hry, ktoré vám umožnia kresliť, maľovať, stavať a tvoriť s pomocou všetkých vašich obľúbených postáv."
+	},
+	"familyguide_group_03_title": {
+		"message": "Inšpirujte sa a vytvorte niečo"
+	},
+	"familyguide_group_04_body": {
+		"message": "Schmatnite pukance a schúľte sa pod útulnou dekou. Celú partiu môžete sledovať na plátne kina v Santovej dedine. Alebo si môžete čítať interaktívnu rozprávkovú knihu o tom, ako veľryba Ollie oslavuje pod hladinou mora."
+	},
+	"familyguide_group_04_title": {
+		"message": "Spoločné chvíle s rodinou"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kód"
+	},
+	"familyguide_nav_link_02": {
+		"message": "osláviť"
+	},
+	"familyguide_nav_link_03": {
+		"message": "vytvoriť"
+	},
+	"familyguide_nav_link_04": {
+		"message": "chvíle s rodinou"
+	},
+	"familyguide_nav_link_05": {
+		"message": "tipy a triky"
+	},
+	"familyguide_nav_link_06": {
+		"message": "viac"
+	},
+	"familyguide_nav_link_07": {
+		"message": "Asistent"
+	},
+	"familyguide_secondary_body": {
+		"message": "Na Štedrý deň môžete v Santovej dedine sledovať Santu a jeho soby, ako roznášajú darčeky deťom na celom svete."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Sledujte nás na webe alebo v aplikácii „Kde je Santa“ pre Android"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Vedeli ste, že Santova cesta trvá 25 hodín?! Prvú zastávku si urobí o 22:00 miestneho času na Ďalekom východe v Rusku, keď je v New Yorku 5:00 a v Paríži 11:00."
+	},
+	"familyguide_secondary_title": {
+		"message": "Sledujte Santu na Štedrý deň"
+	},
+	"familyguide_tips_body": {
+		"message": "Vyťažte z aplikácie „Kde je Santa“ vďaka všetkým svojim obľúbeným službám od Googlu v tomto roku ešte viac."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Každý deň žiadajte v Asistentovi Google zábavné novinky od škriatka Dimplesticksa."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„Hej Google, čo sa deje na severnom póle?“"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Stiahnite si aplikáciu „Kde je Santa“ pre Android v Obchode Play. Iba v tejto aplikácii nájdete exkluzívnu scénu dediny s hrami."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Aplikácia pre Android"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Sledujte Santu na zápästí vďaka integrácii so systémom Android Wear."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Vyhľadajte na Googli výraz „Santa“ a pozrite si trojrozmerného Santu. Vo väčšine iPhonov a niektorých modernejších zariadeniach s Androidom ho môžete vidieť v rozšírenej realite mávať priamo cez kameru."
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Zaveďte Santu do svojej obývačky"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Dodajte svojim správam atmosféru sviatočnej zábavy. Nájdite gify a nálepky s motívom Santu. Hľadajte výraz „Santa Tracker gifs“ (iba v angličtine) na stránke Googlu v službe Tenor."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Darujte gify"
+	},
+	"familyguide_tips_title": {
+		"message": "Tipy a triky"
+	},
+	"familyguide_title": {
+		"message": "Sviatočná zábava pre celú rodinu"
+	},
+	"familylink": {
+		"message": "Pridajte účet Google svojho dieťaťa, ktorý je spravovaný pomocou aplikácie Family Link"
+	},
+	"featured": {
+		"message": "Vybrané"
 	},
 	"fi_country_name": {
 		"message": "Fínsko"
@@ -905,6 +1187,12 @@
 	"next_game": {
 		"message": "Ďalšia hra"
 	},
+	"nextdecember": {
+		"message": "Uvidíme sa v decembri!"
+	},
+	"nextyear": {
+		"message": "Uvidíme sa budúci rok."
+	},
 	"ng_country_name": {
 		"message": "Nigéria"
 	},
@@ -1078,6 +1366,9 @@
 	},
 	"openingtomorrow": {
 		"message": "Veľké otvorenie už zajtra"
+	},
+	"opens": {
+		"message": "Otvára sa"
 	},
 	"ornament-print-instructions": {
 		"message": "Tu preložte a zlepte strany"
@@ -1349,6 +1640,24 @@
 	"scene_airport": {
 		"message": "Letisko na severnom póle"
 	},
+	"scene_android_cityquiz": {
+		"message": "Kvíz o mestách"
+	},
+	"scene_android_dancer": {
+		"message": "Sob tanečník"
+	},
+	"scene_android_penguinswim": {
+		"message": "Plávanie s tučniakom"
+	},
+	"scene_android_presenttoss": {
+		"message": "Hádzanie darčekov"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Raketové sane"
+	},
+	"scene_android_snowballrun": {
+		"message": "Útek pred snehovou guľou"
+	},
 	"scene_app": {
 		"message": "Aplikácia pre Android"
 	},
@@ -1360,6 +1669,9 @@
 	},
 	"scene_briefing": {
 		"message": "Inštruktáž pani Clausovej"
+	},
+	"scene_build": {
+		"message": "Blesková výroba darčekov"
 	},
 	"scene_callfromsanta": {
 		"message": "Volá Santa"
@@ -1394,14 +1706,26 @@
 	"scene_factory": {
 		"message": "Továreň na sladkosti"
 	},
+	"scene_family": {
+		"message": "Sprievodca pre rodiny"
+	},
 	"scene_giftmatch": {
 		"message": "Priraďovanie darčekov"
 	},
 	"scene_glider": {
 		"message": "Plachtiaci škriatok"
 	},
+	"scene_guides": {
+		"message": "Sprievodca pre dospelých"
+	},
 	"scene_gumball": {
 		"message": "Naklonenie pre guľkové žuvačky"
+	},
+	"scene_havoc": {
+		"message": "Chaos s darčekmi"
+	},
+	"scene_holidayfoods": {
+		"message": "Sviatočné jedlá sveta v službe Google Earth"
 	},
 	"scene_icecave": {
 		"message": "Ľadová jaskyňa"
@@ -1423,6 +1747,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kvíz s mapou"
+	},
+	"scene_ollieundersea": {
+		"message": "Ollie pod hladinou mora"
 	},
 	"scene_playground": {
 		"message": "Ihrisko na severnom póle"
@@ -1466,17 +1793,26 @@
 	"scene_snowball": {
 		"message": "Guľovačka so škriatkami"
 	},
+	"scene_snowbox": {
+		"message": "Snežné stavenisko"
+	},
 	"scene_snowflake": {
 		"message": "Kódovanie snehovej vločky"
 	},
 	"scene_speedsketch": {
 		"message": "Rýchly náčrt"
 	},
+	"scene_storybook": {
+		"message": "Kniha rozprávok o udržateľnosti"
+	},
 	"scene_streetview": {
 		"message": "Street View"
 	},
 	"scene_traditions": {
 		"message": "Sviatočné tradície"
+	},
+	"scene_traditionsquiz": {
+		"message": "Kvíz o sviatočných tradíciách"
 	},
 	"scene_translations": {
 		"message": "Preklady"
@@ -1499,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Santa vzlieta"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Santa spí ako drevo"
+	},
 	"scene_videoscene_museum": {
 		"message": "Deň v múzeu"
 	},
@@ -1507,6 +1846,9 @@
 	},
 	"scene_videoscene_onvacation": {
 		"message": "Stále na dovolenke"
+	},
+	"scene_videoscene_penguinproof": {
+		"message": "Odolné voči tučniakom"
 	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Sob má obavy"
@@ -1540,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Santova dielňa"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Vianočné poleno"
 	},
 	"scene_windtunnel": {
 		"message": "Aerodynamický tunel"
@@ -1581,7 +1926,7 @@
 		"message": "Mapy Google: Santova poloha"
 	},
 	"sidebar_trends": {
-		"message": "Trendy Google: vyhľadávania súvisiace so sviatkami"
+		"message": "Google Trends: vyhľadávania súvisiace so sviatkami"
 	},
 	"sk_country_name": {
 		"message": "Slovensko"
@@ -1603,6 +1948,9 @@
 	},
 	"snowball_iced": {
 		"message": "Zamrzli ste!"
+	},
+	"snowball_iced_count": {
+		"message": "Zamrznutí škriatkovia"
 	},
 	"snowball_remaining": {
 		"message": "Zostáva {{remaining}} z {{total}} škriatkov"
@@ -2981,6 +3329,99 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_paragraph_01": {
+		"message": "Tučniaci sa sánkovali. Škriatkovia ich natešene povzbudzovali."
+	},
+	"storybook_paragraph_02": {
+		"message": "Celé mesto netrpezlivo očakávalo rozsvietenie stromčeka."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nie každý mal však v ten deň dobrú náladu. Pre veľrybu Ollie to bol smutný deň."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Veľmi by som tam chcela byť a vidieť to, aspoň raz. Sledovať, ako sa ten veľký strom rozsvieti, musí byť nádherné.“"
+	},
+	"storybook_paragraph_05": {
+		"message": "„Ale tebe sa v oceáne páči!“ povedala Mary. „Všetky tie lastúry a planktón. Je to tu super!“"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Asi áno,“ povedala Ollie, „to je pravda. No modrá nie je vždy dobrá.“"
+	},
+	"storybook_paragraph_07": {
+		"message": "„Čo keby…“ povedala Mary s povzbudzujúcim úsmevom „som dnes prišla za tebou a trochu by sme si poplávali?“"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Skúmali by sme… Plávali by sme okolo útesov… Alebo niečo ešte lepšie!“"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Aj my by sme si mohli rozsvietiť stromček, hoci po svojom.“"
+	},
+	"storybook_paragraph_10": {
+		"message": "Všetko bolo naplánované. Mary dala dokopy skupinu. Pripojili sa aj škriatkovia a tučniaci. A dokonca aj zopár sobov!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sa šťastne usmievala na priateľov, ktorí prišli. „Poďme na to!\" povedala Mary, „bude to zábava!“"
+	},
+	"storybook_paragraph_12": {
+		"message": "Na usporiadanie úžasného večierka treba v prvom rade tím skvelých pomocníkov."
+	},
+	"storybook_paragraph_13": {
+		"message": "„Všetci poďte sem!“ zakričala Ollie. „Usporiadame prvý ročník slávnosti svetielkujúcich rias a zíde sa nám každá pomoc.“"
+	},
+	"storybook_paragraph_14": {
+		"message": "Ryby sa chopili činu a hosťom zvestovali novinky. „My sa postaráme o pozvánky, vy zariaďte zvyšok!“"
+	},
+	"storybook_paragraph_15": {
+		"message": "Škriatkovia už s takýmto podujatím mali skúsenosti. Potrebovali čas, aby sa s tým mohli vyhrať, tak si odbehli."
+	},
+	"storybook_paragraph_16": {
+		"message": "Na rad prišli dekorácie. Presne vedeli, za kým ísť. „Pán Krab, slečna Račica, mohli by ste nám pomôcť?“"
+	},
+	"storybook_paragraph_17": {
+		"message": "Prišli aj ustrice: „Pomôžeme s výzdobou!“ Rozvešajte naše perly po vetvách. Budú sa ligotať a žiariť.“"
+	},
+	"storybook_paragraph_18": {
+		"message": "Na žiadnom večierku nesmie chýbať hudba a skladby s tým správnym rytmom, ktoré každého zdvihnú zo stoličky a zaplnia parket."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Môj strýko Horatio je najlepší v brandži. A jeho dobrý priateľ Carl vie s gitarou hotové zázraky.“"
+	},
+	"storybook_paragraph_20": {
+		"message": "„Večierok by sa mal pomaly začať. Už potrebujeme len dokonalý zväzok rias, ktorý bude slúžiť ako slávnostný stromček.“"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Už je to tu! Už je to tu!“"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie natešene plieskala plutvami. Celá táto noc bude jeden úžasný večierok."
+	},
+	"storybook_paragraph_23": {
+		"message": "Hviezdice skočili na miesto a ozdoby sa kolísali. Medúzy tancovali a členovia kapely hrali."
+	},
+	"storybook_paragraph_24": {
+		"message": "Všetko bolo úžasné, výzdoba aj zvuk. Najlepšia chvíľa však nastala, keď sa všetci zhromaždili…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… na rozsvietenie svetiel!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Konečne nastala očakávaná chvíľa! Planktón sa rozsvietil. Ollie si vydýchla!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Bolo to čarovné, planúce svetlá sa trblietali. Celé mesto utíchlo a sledovalo predstavenie."
+	},
+	"storybook_paragraph_28": {
+		"message": "Bola to tá najúchvatnejšia vec, akú kedy videli. Svetlá boli žlté, potom fialové, potom svetlé smaragdovozelené."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary už začínala byť unavená, o tomto čase zvyčajne spí. No skôr, než všetci odišli, sa Ollie otočila a povedala:"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Ďakujem! Dnes sa ti podarilo spojiť celé mesto. Na túto noc určite nikdy nezabudneme.“"
+	},
+	"storybook_paragraph_31": {
+		"message": "Koniec"
+	},
 	"sv_country_name": {
 		"message": "Salvádor"
 	},
@@ -3022,6 +3463,12 @@
 	},
 	"tr_language_name": {
 		"message": "Turečtina"
+	},
+	"tracker-game_awesome": {
+		"message": "Hrať Tower of Treasure"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Be Internet Awesome"
 	},
 	"tracker_arrival": {
 		"message": "Prílet"
@@ -6761,8 +7208,17 @@
 	"uk_tradition": {
 		"message": "V Spojenom kráľovstve sa pôžitkári všetkých vekových kategórií tešia z vianočných „crackerov“ na večernom stole. „Crackery“ sú trubičky zabalené vo farebnom papieri, ktoré majú na oboch koncoch časti na potiahnutie. Keď tieto časti potiahnete, trubička nahlas praskne. Vnútri sú papierové klobúky, hračky, vtipy a drobné darčeky, ktoré si potom ľudia vychutnávajú počas vianočného večera."
 	},
+	"underconstruction": {
+		"message": "Vo výstavbe"
+	},
+	"unlocks": {
+		"message": "Odomkne sa"
+	},
 	"unmute": {
 		"message": "Zapnúť zvuk"
+	},
+	"upgrade-warning": {
+		"message": "Ojoj! Prehliadač nepodporuje aplikáciu „Kde je Santa“ alebo je zakázaný JavaScript. Na prístup k aplikácii „Kde je Santa“ treba stiahnuť novší prehliadač alebo povoliť JavaScript."
 	},
 	"us_country_name": {
 		"message": "USA"
@@ -6823,6 +7279,9 @@
 	},
 	"village_santa_install": {
 		"message": "Inštalovať"
+	},
+	"village_santa_intall_ios": {
+		"message": "Klepnite na \u003cspan\u003e\u003c/span\u003e a potom vyberte Pridať na plochu"
 	},
 	"village_takesoff": {
 		"message": "Santa štartuje o"

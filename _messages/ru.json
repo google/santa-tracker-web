@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Бутан"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Нужно собрать машинки – {{count}}!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Нужно собрать машинку!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Нужно собрать роботов – {{count}}!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Нужно собрать робота!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Нужно собрать ракеты – {{count}}!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Нужно собрать ракету!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Нужно собрать плюшевых медведей – {{count}}!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Нужно собрать плюшевого мишку!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Поднимать и бросать игрушки"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Инструкции"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Переместить"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Игрок 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Игрок 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Сколько игроков?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 игрок"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 игрока"
+	},
+	"buildandbolt-skip": {
+		"message": "Пропустить"
+	},
 	"bw_country_name": {
 		"message": "Ботсвана"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Суринам"
+	},
+	"storybook_paragraph_01": {
+		"message": "Пингвины и эльфы были в восторге."
+	},
+	"storybook_paragraph_02": {
+		"message": "Город бурлил от нетерпения. Жителям хотелось поскорее увидеть, как зажгутся огни на рождественской елке."
+	},
+	"storybook_paragraph_03": {
+		"message": "Все веселились, но неподалеку, в океане, грустил нарвал Олли."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Вот бы мне хоть разок увидеть, как загораются праздничные огни!\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Но тебе же нравится жить в океане\", – ответила медведица Мэри. \"Здесь так красиво: везде ракушки и планктон\"."
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Да, нравится, – протянул Олли. – Только иногда все равно бывает грустно\"."
+	},
+	"storybook_paragraph_07": {
+		"message": "\"А что если я приду поиграть к тебе в подводный мир?\", – сказала Мэри с ободряющей улыбкой."
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Отправимся в приключение, будем изучать коралловые рифы. Хотя у меня есть идея получше!\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"А давайте нарядим какое-нибудь растение здесь\"."
+	},
+	"storybook_paragraph_10": {
+		"message": "План был готов. Мэри собрала всех друзей. К компании присоединились эльфы, пингвины и даже олени!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Олли счастлив – пришло столько гостей! \"Заходите же, – сказала Мэри. – Пора начинать подготовку к празднику!\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Чтобы устроить отличную рождественскую вечеринку, героям нужна была команда помощников."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Я хочу украсить наши водоросли гирляндой, – сказал Олли. – Без вашей помощи мне не обойтись\"."
+	},
+	"storybook_paragraph_14": {
+		"message": "Рыбы сразу бросились в дело. \"Мы берем приглашения на себя, а вы занимайтесь остальным\"."
+	},
+	"storybook_paragraph_15": {
+		"message": "Эльфам к такому заданию не привыкать. Они рассчитали нужное время и принялись за работу."
+	},
+	"storybook_paragraph_16": {
+		"message": "Пришла пора подумать об украшениях. Кто поможет героям все украсить? \"Мистер Краб и мисс Лобстер, без вас нам не справиться\"."
+	},
+	"storybook_paragraph_17": {
+		"message": "Устрицы сказали: \"Мы вам поможем. Возьмите наши жемчужины, украсьте ими ветки, и всё засверкает\"."
+	},
+	"storybook_paragraph_18": {
+		"message": "На празднике никак не обойтись без музыки!"
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Не сыскать музыканта лучше моего дяди Горацио. А его друг Карл просто виртуозно играет на гитаре!\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Скоро начнется праздник! Нам осталось только найти водоросли, которые можно украсить, словно елку\"."
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Да вот же они! Какие красивые!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Олли запрыгал от радости. Праздник получится просто чудесный!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Медузы кружились в танце, играла музыка, а на водорослях сияли жемчужины и светилась от радости морская звезда – сегодня она исполняла роль рождественской."
+	},
+	"storybook_paragraph_24": {
+		"message": "Украшения и музыка были просто замечательные. Однако самое интересное началось, когда все собрались вокруг…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…украшенных огнями водорослей!"
+	},
+	"storybook_paragraph_26": {
+		"message": "И наконец всё засверкало! Олли не мог сдержать восторга."
+	},
+	"storybook_paragraph_27": {
+		"message": "Замерцали огни, и все замерли в ожидании волшебства."
+	},
+	"storybook_paragraph_28": {
+		"message": "Это было потрясающе. Огни переливались всеми цветами: от желтого до изумрудно-зеленого и фиолетового!"
+	},
+	"storybook_paragraph_29": {
+		"message": "Было уже поздно, и Мэри начала засыпать. И тогда Олли взглянул на всех и сказал:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Спасибо, что собрала нас всех вместе! Этот вечер я запомню навсегда!\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Конец"
 	},
 	"sv_country_name": {
 		"message": "Сальвадор"

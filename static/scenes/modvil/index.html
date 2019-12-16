@@ -18,6 +18,7 @@ import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
 import './elements/modvil-module.js';
 import './elements/modvil-village.js';
+import './elements/modvil-tracker.js';
 import {_static, _msg} from '../../src/magic.js';
 import scenes from '../../src/strings/scenes.js';
 
@@ -266,7 +267,6 @@ api.ready(async () => {
   // jump to target hash (position is often incorrect due to lazy-load)
   function scrollToHash() {
     const hash = window.location.hash;
-    console.info('got scrollToHash', hash);
     if (hash) {
       const el = document.getElementById(hash.substr(1));
       el && el.scrollIntoView({block: 'center', behavior: 'auto'});

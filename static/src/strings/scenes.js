@@ -2,11 +2,12 @@
 import {_msg} from '../magic.js';
 
 export default {
-  '': _msg`santasvillage`,
+  '': _msg`meta_title`,
   'airport': _msg`scene_airport`,
   'blimp': _msg`scene_blimp`,
   'boatload': _msg`scene_boatload`,
   'briefing': _msg`scene_briefing`,
+  'build': _msg`scene_build`,  // left to provide redirect to /buildandbolt.html
   'buildandbolt': _msg`scene_build`,
   'carpool': _msg`scene_videoscene_carpool`,
   'citylights': _msg`scene_citylights`,
@@ -66,7 +67,7 @@ export default {
   'tracker': _msg`tracker_track`,
   'traditions': _msg`scene_traditions`,
   'translations': _msg`scene_translations`,
-  'underconstruction': _msg`scene_underconstruction`,
+  'underconstruction': _msg`underconstruction`,
   'undersea': _msg`scene_undersea`,
   'village':  _msg`santasvillage`,
   'wheressanta': _msg`scene_videoscene_wheressanta`,  // 2013

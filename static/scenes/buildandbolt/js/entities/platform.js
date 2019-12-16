@@ -4,6 +4,7 @@ goog.require('Constants');
 goog.require('Utils');
 
 goog.require('app.Slider');
+goog.require('app.TileManager');
 goog.require('app.shared.pools');
 
 app.Platform = class Platform extends app.Slider {
@@ -14,7 +15,14 @@ app.Platform = class Platform extends app.Slider {
 
   onInit(config) {
     super.onInit(config);
+    app.TileManager.renderEntity('platform', config.width, config.height,
+        this.elem);
     super.render(); // render once
+  }
+
+  onDispose() {
+    super.onDispose();
+    Utils.removeAllChildren(this.elem);
   }
 }
 
