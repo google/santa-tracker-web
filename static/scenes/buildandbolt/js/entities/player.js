@@ -179,7 +179,7 @@ app.Player = class Player {
       this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
       if (app.ControlsManager.isTouch && !this.recentlyBumped) {
-        this.velocity.x = 0
+        this.velocity.x = 0;
       }
     }
 
@@ -195,7 +195,7 @@ app.Player = class Player {
       this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
       if (app.ControlsManager.isTouch && !this.recentlyBumped) {
-        this.velocity.x = 0
+        this.velocity.x = 0;
       }
     }
 
@@ -211,7 +211,7 @@ app.Player = class Player {
       this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
       if (app.ControlsManager.isTouch && !this.recentlyBumped) {
-        this.velocity.y = 0
+        this.velocity.y = 0;
       }
     }
 
@@ -227,7 +227,7 @@ app.Player = class Player {
       this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
       if (app.ControlsManager.isTouch && !this.recentlyBumped) {
-        this.velocity.y = 0
+        this.velocity.y = 0;
       }
     }
 
@@ -258,7 +258,7 @@ app.Player = class Player {
     }
 
     if (app.ControlsManager.isTouch) {
-      app.Board.updateBoardPosition(this.position)
+      app.Board.updateBoardPosition(this.position);
     }
   }
 
