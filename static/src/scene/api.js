@@ -66,6 +66,16 @@ const sceneApi = (function() {
       return common.preload;
     }
  
+    /**
+     * Returns the value of a param passed to this frame. Used for route.
+     *
+     * @param {string} key to return
+     * @return {string}
+     */
+    param(key) {
+      return params[key] || '';
+    }
+
     config(data = {}) {
       this._config = data;
     }
