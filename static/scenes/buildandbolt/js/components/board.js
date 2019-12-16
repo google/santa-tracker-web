@@ -39,22 +39,19 @@ class Board {
   }
 
   onResize() {
-    let container = document.getElementById('main');
-    if (container) {
-      const maxHeight = window.innerHeight - this.paddingTop * 2;
-      const maxWidth = window.innerWidth - window.innerWidth * this.paddingLeft / 100;
-      const targetedHeight = Math.min(this.context.offsetHeight * window.innerWidth / this.width, maxHeight);
-      const targetedWidth = Math.min(targetedHeight * this.ratio, maxWidth);
-      this.scale = targetedWidth / this.context.offsetWidth;
+    const maxHeight = window.innerHeight - this.paddingTop * 2;
+    const maxWidth = window.innerWidth - window.innerWidth * this.paddingLeft / 100;
+    const targetedHeight = Math.min(this.context.offsetHeight * window.innerWidth / this.width, maxHeight);
+    const targetedWidth = Math.min(targetedHeight * this.ratio, maxWidth);
+    this.scale = targetedWidth / this.context.offsetWidth;
 
-      this.context.style.left = '50%';
-      this.context.style.top = '50%';
-      if (!app.shared.utils.touchEnabled) {
-        this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%)`;
-      } else {
-        this.scale += Constants.ZOOM_TOUCH_DEVICE
-        this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%) translateY(${this.paddingTop}px)`;
-      }
+    this.context.style.left = '50%';
+    this.context.style.top = '50%';
+    if (!app.shared.utils.touchEnabled) {
+      this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%)`;
+    } else {
+      this.scale += Constants.ZOOM_TOUCH_DEVICE
+      this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%) translateY(${this.paddingTop}px)`;
     }
   }
 
