@@ -14,6 +14,7 @@ class Board {
     this.cells = [...Array(Constants.GRID_DIMENSIONS.WIDTH)].map(
         e => [...Array(Constants.GRID_DIMENSIONS.HEIGHT)].map(
             el => []));
+    this.scale = 1;
   }
 
   init(context) {
