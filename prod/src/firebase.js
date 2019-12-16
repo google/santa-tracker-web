@@ -43,6 +43,7 @@ export function initialize() {
   window.firebase = firebase;  // side-effect
 
   return remoteConfig.fetchAndActivate().catch((err) => {
+    ga('send', 'event', 'config', 'failure', 'firebase', {nonInteraction: true});
     console.warn('could not fetch remoteConfig, using defaults', err);
   }).then(() => {
     return remoteConfig;
