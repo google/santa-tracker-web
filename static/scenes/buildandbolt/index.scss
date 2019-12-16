@@ -72,7 +72,13 @@ body {
   [data-tile-canvas] {
     background: white;
     position: absolute;
-    visibility: hidden;
+    // visibility: hidden;
     z-index: 1;
+  }
+
+  [data-tile-slices] {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
   }
 }

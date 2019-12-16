@@ -5,19 +5,20 @@ goog.require('Utils');
 // singleton to render tiled entities (walls, pits, and platforms)
 class TileManager {
   init(context) {
+    this.tileImages = context.querySelector('[data-tile-slices]');
     this.canvas = context.querySelector('[data-tile-canvas]');
     this.ctx = this.canvas.getContext('2d');
   }
 
   renderEntity(type, width, height, elem) {
-    // draw
     const config = TileManager.ASSETS[type];
     if (!config) {
       return;
     }
 
-    this.canvas.width = Utils.gridToPixelValue(width);
-    this.canvas.height = Utils.gridToPixelValue(height);
+    const scaleFactor = 2;
+    this.canvas.width = Utils.gridToPixelValue(width) * scaleFactor;
+    this.canvas.height = Utils.gridToPixelValue(height) * scaleFactor;
 
     const {tileSize} = config;
     let j = 0;
@@ -49,12 +50,21 @@ class TileManager {
           imgSrc = tileConfig.path_alt;
         }
 
-        const img = new Image(Utils.gridToPixelValue(tileSize),
-            Utils.gridToPixelValue(rowConfig.height || tileSize));
-        img.src = imgSrc;
+        const imgElem = this.tileImages.querySelector(`[src="${tileConfig.path}"]`);
+        const x = Utils.gridToPixelValue(i) * scaleFactor;
+        const y = Utils.gridToPixelValue(j) * scaleFactor;
+        const tileHeight = Utils.gridToPixelValue(rowConfig.height || tileSize) * scaleFactor;
+        const tileWidth = Utils.gridToPixelValue(tileSize) * scaleFactor;
+        this.ctx.save();
+        this.ctx.translate(x, y);
+        if (tileConfig.flipped) {
+          this.ctx.scale(-1, 1);
+          this.ctx.drawImage(imgElem, -tileWidth, 0, tileWidth, tileHeight);
+        } else {
+          this.ctx.drawImage(imgElem, 0, 0, tileWidth, tileHeight);
+        }
+        this.ctx.restore();
 
-        this.ctx.drawImage(img, Utils.gridToPixelValue(i),
-            Utils.gridToPixelValue(j));
         i += tileSize;
       }
 
@@ -66,7 +76,7 @@ class TileManager {
     img.src = this.canvas.toDataURL("image/png");
     elem.appendChild(img);
 
-    // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 }
 
@@ -167,7 +177,7 @@ TileManager.ASSETS = {
         path: 'img/platform/platform_top_side.png'
       },
       middle: {
-        path: 'img/platform/platform_top_middle.png'
+        path: 'img/platform/platform_middle.png'
       },
       right: {
         path: 'img/platform/platform_top_side.png',
