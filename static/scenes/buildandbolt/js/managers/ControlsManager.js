@@ -86,6 +86,12 @@ class ControlsManager {
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY }, true);
 
+    if (this.platform) {
+      this.currentTouchPositionPlatform = {
+        x: this.currentTouchPosition.x - this.platform.position.x,
+        y: this.currentTouchPosition.y - this.platform.position.y,
+      }
+    }
 
     this.domCursorTouch.classList.remove('transition');
     this.hideCursorTouch();
@@ -97,8 +103,6 @@ class ControlsManager {
     this.cursorFadeOutTimeout = setTimeout(() => {
       this.hideCursorTouch()
     }, 500);
-
-    // e.preventDefault();
 
     // Let tutorial know about touch so it can hide the tutorial.
     if (!this.touchStarted) {
@@ -142,6 +146,18 @@ class ControlsManager {
    */
   getMovementDirections(controls, currentPosition, platform, platformOffset) {
     if (this.isTouch) {
+      if (platform && platform != this.platform) {
+        this.platform = platform;
+        if (this.currentTouchPosition) {
+          this.currentTouchPositionPlatform = {
+            x: this.currentTouchPosition.x - this.platform.position.x,
+            y: this.currentTouchPosition.y - this.platform.position.y,
+          }
+        }
+      } else if (!platform) {
+        this.platform = null;
+      }
+
       if (this.currentTouchPosition) {
         // here we need to subsract half of the character size
 
@@ -153,11 +169,7 @@ class ControlsManager {
         let startPosition = currentPosition;
 
         if (platform && platformOffset) {
-          goalPosition =  {
-            x: this.currentTouchPosition.x - platform.position.x,
-            y: this.currentTouchPosition.y - platform.position.y
-          };
-
+          goalPosition =  this.currentTouchPositionPlatform;
           startPosition = platformOffset;
         }
 
@@ -219,6 +231,7 @@ class ControlsManager {
   clearPosition() {
     this.currentTouchId = null;
     this.currentTouchPosition = null;
+    this.currentTouchPositionPlatform = null;
   }
 }
 
