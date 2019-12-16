@@ -173,4 +173,6 @@ Constants = {
 
   LEVEL_TRANSITION_TIMING: 500, // from static/scenes/_shared/sass/_levelup.scss
 
+  ZOOM_TOUCH_DEVICE: 0.25,
+
 };

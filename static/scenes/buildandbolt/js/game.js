@@ -144,6 +144,9 @@ app.Game = class Game {
     window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.0);
   }
   startCountdown() {
+    if (app.shared.utils.touchEnabled) {
+      app.Board.updateBoardPosition(this.players[0].position);
+    }
     app.ScoreScreen.hide();
     setTimeout(() => {
       app.Walkthrough.show();
