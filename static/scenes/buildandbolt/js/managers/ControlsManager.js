@@ -73,15 +73,6 @@ class ControlsManager {
 
     const pos = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY });
-
-    this.domCursorTouch.classList.remove('transition');
-    this.hideCursorTouch(touch);
-
-    setTimeout(() => {
-      this.domCursorTouch.classList.add('transition');
-      this.showCursorTouch(touch);
-    }, 0);
-    clearTimeout(this.cursorFadeOutTimeout);
   }
 
   onTouchEnd(e) {
@@ -91,6 +82,13 @@ class ControlsManager {
       return;
     }
 
+    this.domCursorTouch.classList.remove('transition');
+    this.hideCursorTouch(touch);
+    setTimeout(() => {
+      this.domCursorTouch.classList.add('transition');
+      this.showCursorTouch(touch);
+    }, 0);
+    clearTimeout(this.cursorFadeOutTimeout);
     this.cursorFadeOutTimeout = setTimeout(() => {
       this.hideCursorTouch(touch)
     }, 1500);
