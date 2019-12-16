@@ -71,7 +71,6 @@ class TileManager {
       j += rowConfig.height || tileSize;
     }
 
-
     const img = new Image(Utils.gridToPixelValue(width), Utils.gridToPixelValue(height));
     img.src = this.canvas.toDataURL("image/png");
     elem.appendChild(img);
