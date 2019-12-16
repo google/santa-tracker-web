@@ -82,20 +82,21 @@ class ControlsManager {
       return;
     }
 
-    this.domCursorTouch.classList.remove('transition');
-    this.hideCursorTouch(touch);
-    setTimeout(() => {
-      this.domCursorTouch.classList.add('transition');
-      this.showCursorTouch(touch);
-    }, 0);
-    clearTimeout(this.cursorFadeOutTimeout);
-    this.cursorFadeOutTimeout = setTimeout(() => {
-      this.hideCursorTouch(touch)
-    }, 500);
-
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY }, true);
+
+
+    this.domCursorTouch.classList.remove('transition');
+    this.hideCursorTouch();
+    setTimeout(() => {
+      this.domCursorTouch.classList.add('transition');
+      this.showCursorTouch();
+    }, 0);
+    clearTimeout(this.cursorFadeOutTimeout);
+    this.cursorFadeOutTimeout = setTimeout(() => {
+      this.hideCursorTouch()
+    }, 500);
 
     // e.preventDefault();
 
@@ -106,14 +107,22 @@ class ControlsManager {
     }
   }
 
-  showCursorTouch(touch) {
-    this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${touch.clientX}px, ${touch.clientY}px) scale(1)`;
-    this.domCursorTouch.style.opacity = 1
+  showCursorTouch() {
+    if (this.currentTouchPosition) {
+      const x = this.currentTouchPosition.x * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      const y = this.currentTouchPosition.y * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1)`;
+      this.domCursorTouch.style.opacity = 1
+    }
   }
 
-  hideCursorTouch(touch) {
-    this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${touch.clientX}px, ${touch.clientY}px) scale(0.6)`;
-    this.domCursorTouch.style.opacity = 0
+  hideCursorTouch() {
+    if (this.currentTouchPosition) {
+      const x = this.currentTouchPosition.x * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      const y = this.currentTouchPosition.y * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(0.6)`;
+      this.domCursorTouch.style.opacity = 0
+    }
   }
 
   getCurrentTouch(e) {

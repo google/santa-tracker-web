@@ -44,16 +44,27 @@ class Board {
       const maxWidth = window.innerWidth - window.innerWidth * this.paddingLeft / 100;
       const targetedHeight = Math.min(this.context.offsetHeight * window.innerWidth / this.width, maxHeight);
       const targetedWidth = Math.min(targetedHeight * this.ratio, maxWidth);
-      const scale = targetedWidth / this.context.offsetWidth;
+      this.scale = targetedWidth / this.context.offsetWidth;
 
       this.context.style.left = '50%';
       this.context.style.top = '50%';
       if (!app.shared.utils.touchEnabled) {
-        this.context.style.transform = `scale(${scale.toFixed(2)}) translate(-50%, -50%)`;
+        this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%)`;
       } else {
-        this.context.style.transform = `scale(${scale.toFixed(2)}) translate(-50%, -50%) translateY(${this.paddingTop * 2.3}px)`;
+        this.scale += Constants.ZOOM_TOUCH_DEVICE
+        this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%) translateY(${this.paddingTop}px)`;
       }
     }
+  }
+
+  updateBoardPosition(position) {
+    const gridPosX = (position.x - this.context.offsetWidth / 2 / Constants.GRID_DIMENSIONS.UNIT_SIZE);
+    const gridPosY = (position.y - this.context.offsetHeight / 2 / Constants.GRID_DIMENSIONS.UNIT_SIZE);
+
+    const offsetX = -gridPosX * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+    const offsetY = -gridPosY * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+
+    this.context.style.transform = `scale(${this.scale.toFixed(2)}) translate(-50%, -50%) translateY(${this.paddingTop}px) translate(${offsetX}px, ${offsetY}px)`;
   }
 
   initDebugView() {

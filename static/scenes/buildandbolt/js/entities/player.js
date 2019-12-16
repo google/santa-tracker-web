@@ -256,6 +256,10 @@ app.Player = class Player {
         this.platform = null;
       }
     }
+
+    if (app.ControlsManager.isTouch) {
+      app.Board.updateBoardPosition(this.position)
+    }
   }
 
   movePlayer() {
