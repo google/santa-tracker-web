@@ -4,6 +4,7 @@ goog.require('Constants');
 goog.require('Utils');
 
 goog.require('app.Entity');
+goog.require('app.TileManager');
 goog.require('app.shared.pools');
 
 app.Pit = class Pit extends app.Entity {

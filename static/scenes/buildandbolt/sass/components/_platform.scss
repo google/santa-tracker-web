@@ -1,47 +1,47 @@
 ##{$name} {
   .platform {
     @include board-object();
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
   }
 
-  .platform__tile {
-    // default - for top middle and middle middle tiles
-    background: url(img/platform/platform_middle.png) center/contain no-repeat;
-    height: 25px;
-    transform: scale(1.05);
-    transform-origin: center center;
-    width: 25px;
+  // .platform__tile {
+  //   // default - for top middle and middle middle tiles
+  //   background: url(img/platform/platform_middle.png) center/contain no-repeat;
+  //   height: 25px;
+  //   transform: scale(1.05);
+  //   transform-origin: center center;
+  //   width: 25px;
 
-    &--top-left {
-      background: url(img/platform/platform_top_side.png) center/contain no-repeat;
-    }
+  //   &--top-left {
+  //     background: url(img/platform/platform_top_side.png) center/contain no-repeat;
+  //   }
 
-    &--top-right {
-      background: url(img/platform/platform_top_side.png) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
-    }
+  //   &--top-right {
+  //     background: url(img/platform/platform_top_side.png) center/contain no-repeat;
+  //     transform: scaleX(-1) scale(1.05);
+  //   }
 
-    &--middle-left {
-      background: url(img/platform/platform_middle_side.png) center/contain no-repeat;
-    }
+  //   &--middle-left {
+  //     background: url(img/platform/platform_middle_side.png) center/contain no-repeat;
+  //   }
 
-    &--middle-right {
-      background: url(img/platform/platform_middle_side.png) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
-    }
+  //   &--middle-right {
+  //     background: url(img/platform/platform_middle_side.png) center/contain no-repeat;
+  //     transform: scaleX(-1) scale(1.05);
+  //   }
 
-    &--bottom-left {
-      background: url(img/platform/platform_bottom_side.png) center/contain no-repeat;
-    }
+  //   &--bottom-left {
+  //     background: url(img/platform/platform_bottom_side.png) center/contain no-repeat;
+  //   }
 
-    &--bottom-middle {
-      background: url(img/platform/platform_bottom_middle.png) center/contain no-repeat;
-    }
+  //   &--bottom-middle {
+  //     background: url(img/platform/platform_bottom_middle.png) center/contain no-repeat;
+  //   }
 
-    &--bottom-right {
-      background: url(img/platform/platform_bottom_side.png) center/contain no-repeat;
-      transform: scaleX(-1) scale(1.05);
-    }
-  }
+  //   &--bottom-right {
+  //     background: url(img/platform/platform_bottom_side.png) center/contain no-repeat;
+  //     transform: scaleX(-1) scale(1.05);
+  //   }
+  // }
 }

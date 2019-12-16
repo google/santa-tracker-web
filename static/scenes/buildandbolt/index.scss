@@ -67,4 +67,12 @@ body {
     position: absolute;
     top: 0;
   }
+
+
+  [data-tile-canvas] {
+    background: white;
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+  }
 }

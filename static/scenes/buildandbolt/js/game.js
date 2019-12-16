@@ -3,6 +3,7 @@ goog.provide('app.Game');
 goog.require('Constants');
 goog.require('Levels');
 
+goog.require('app.AnimationManager');
 goog.require('app.Board');
 goog.require('app.ControlsManager');
 goog.require('app.Countdown');
@@ -19,6 +20,7 @@ goog.require('app.PresentBox');
 goog.require('app.ScoreManager');
 goog.require('app.ScoreScreen');
 goog.require('app.Table');
+goog.require('app.TileManager');
 goog.require('app.ToysBoard');
 goog.require('app.Walkthrough');
 goog.require('app.Wall');
@@ -26,7 +28,6 @@ goog.require('app.shared.utils');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
-goog.require('app.AnimationManager');
 
 
 app.Game = class Game {
@@ -45,6 +46,7 @@ app.Game = class Game {
 
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation);
+    app.TileManager.init(context);
 
     // preload players animations
     this.initPlayersAnimations();
