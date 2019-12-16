@@ -8,21 +8,36 @@ Utils.gridToPixelValue = function(gridValue) {
 
 /**
  * Converts a pixel coordinate on the viewport to a grid value based coordinate
+ *
  */
-Utils.pixelToGridPosition = function(boardElem, pixelPosition) {
+Utils.pixelToGridPosition = function(boardElem, pixelPosition, limit) {
   let x, y;
   let rect = boardElem.getBoundingClientRect();
   x = (pixelPosition.x - rect.left) / rect.width * Constants.GRID_DIMENSIONS.WIDTH;
   y = (pixelPosition.y - rect.top) / rect.height * Constants.GRID_DIMENSIONS.HEIGHT;
 
+  if (limit) {
+    const { GRID_DIMENSIONS } = Constants;
+    x = Math.max(0, Math.min(GRID_DIMENSIONS.WIDTH - 1, x));
+    y = Math.max(0, Math.min(GRID_DIMENSIONS.HEIGHT - 1, y));
+  }
+
   return { x, y };
 }
 
-Utils.renderAtGridLocation = function(element, x, y) {
-  element.style.transform =
-      `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`;
+Utils.renderAtGridLocation = function(element, x, y, flipped = false) {
+  if (flipped) {
+    element.style.transform =
+        `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0) scaleX(-1)`;
+  } else {
+    element.style.transform =
+        `translate3d(${Utils.gridToPixelValue(x)}px, ${Utils.gridToPixelValue(y)}px, 0)`;
+  }
 }
 
+/**
+ * offset allows some overlap before triggering
+ */
 Utils.isTouchingBorder = function(entity, playerPosition) {
   if (entity.x + entity.width > playerPosition.x &&
     entity.x - 1 < playerPosition.x &&
@@ -301,5 +316,21 @@ Utils.getAngle =  function(pos1, pos2) {
  * Get distance between two positions
  */
 Utils.getDistance =  function(pos1, pos2) {
-  return Math.sqrt(Math.pow(pos1.y - pos2.y, 2) + Math.pow(pos1.x - pos2.x, 2));
+  return Math.hypot(pos1.x - pos2.x, pos1.y - pos2.y);
+}
+
+/**
+ * Remove classes of an element starting with a specific string
+ */
+
+Utils.removeClassesStartWith = function(elem, string) {
+  Array.from(elem.classList).forEach((x) => x.startsWith(string) && elem.classList.remove(x));
+}
+
+
+/**
+ * Remove all children in an element
+ */
+Utils.removeAllChildren = function(elem) {
+  elem.textContent = '';
 }

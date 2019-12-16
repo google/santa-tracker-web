@@ -20,6 +20,8 @@ app.Player = class Player {
     this.controls = controls;
     this.toyParts = [];
     this.id = id;
+    this.lastErrorSoundTime = 0;
+    this.lastPenguinSoundTime = 0;
 
     this.elem = document.querySelector(`.player--${id}`);
     this.elem.classList.add('is-active');
@@ -39,34 +41,31 @@ app.Player = class Player {
 
     Utils.renderAtGridLocation(this.spawnElem, this.position.x, this.position.y);
     app.Board.addEntityToBoard(this, this.position.x, this.position.y);
+    this.render();
   }
 
   /**
    * Restarts the player to the beginning of the level, progress lost
    */
-  restart() {
+  pitFall() {
     this.dead = true;
     this.animationQueue = [];
 
-    // initialize death animation
-    this.innerElem.classList.add('is-dead');
-    this.currentAnimationFrame = Constants.PLAYER_FRAMES.DEATH.start;
-    this.currentAnimationState = {
-      animation: Object.assign({repeat: 2}, Constants.PLAYER_FRAMES.DEATH),
-      callback: () => {
-        this.dead = false;
-        this.innerElem.classList.remove('is-dead');
+    this.innerElem.classList.add('is-falling');
+    setTimeout(() => {
+      this.dead = false;
+      this.innerElem.classList.remove('is-falling');
 
-        window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
+      // window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
 
-        this.resetPosition();
+      this.resetPosition();
 
-        app.Board.updateEntityPosition(this,
-            this.prevPosition.x, this.prevPosition.y,
-            this.position.x, this.position.y);
-      }
-    };
+      app.Board.updateEntityPosition(this,
+          this.prevPosition.x, this.prevPosition.y,
+          this.position.x, this.position.y);
+
+    }, 500);
   }
 
   resetPosition() {
@@ -80,6 +79,8 @@ app.Player = class Player {
       x: 0,
       y: 0
     };
+
+    app.ControlsManager.clearPosition();
 
     if (this.playingIceSound) {
       this.playingIceSound = false;
@@ -102,9 +103,6 @@ app.Player = class Player {
 
   onFrame(delta, now) {
     if (this.dead) {
-      // Keep updating death animation
-      this.updateAnimationFrame(now);
-      this.render();
       return;
     }
 
@@ -133,11 +131,7 @@ app.Player = class Player {
   }
 
   render() {
-    if (this.dead) {
-      this.animations['death'].goToAndStop(this.currentAnimationFrame, true);
-    } else {
-      this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true);
-    }
+    this.animations[this.currentDirection].goToAndStop(this.currentAnimationFrame, true);
     Utils.renderAtGridLocation(this.elem, this.position.x, this.position.y);
   }
 
@@ -158,7 +152,7 @@ app.Player = class Player {
       GRID_DIMENSIONS,
     } = Constants;
     const { left, right, up, down } = app.ControlsManager.getMovementDirections(
-        this.controls, this.position);
+        this.controls, this.position, this.platform, this.platformOffset);
 
     let accelerationFactor = PLAYER_ACCELERATION_FACTOR;
     let decelerationFactor = PLAYER_DECELERATION_FACTOR;
@@ -168,12 +162,15 @@ app.Player = class Player {
       this.onIce = false; // only leave it on for one step
     }
 
+    const diagonalDirections = [];
+
     if (left) {
       this.velocity.x = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x - PLAYER_ACCELERATION_STEP * left * accelerationFactor);
 
-      if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (left > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.x < 0) {
         this.setDirection('left');
+        diagonalDirections.push('left');
       }
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -184,8 +181,9 @@ app.Player = class Player {
       this.velocity.x = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.x + PLAYER_ACCELERATION_STEP * right * accelerationFactor);
 
-      if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (right > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.x > 0) {
         this.setDirection('right');
+        diagonalDirections.push('right');
       }
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -196,8 +194,9 @@ app.Player = class Player {
       this.velocity.y = Math.max(-PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y - PLAYER_ACCELERATION_STEP * up * accelerationFactor);
 
-      if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (up > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.y < 0) {
         this.setDirection('back');
+        diagonalDirections.push('back');
       }
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor);
@@ -208,13 +207,16 @@ app.Player = class Player {
       this.velocity.y = Math.min(PLAYER_MAX_VELOCITY * accelerationFactor,
           this.velocity.y + PLAYER_ACCELERATION_STEP * down * accelerationFactor);
 
-      if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD) {
+      if (down > PLAYER_DIRECTION_CHANGE_THRESHOLD && this.velocity.y > 0) {
         this.setDirection('front');
+        diagonalDirections.push('front');
       }
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
     }
+
+    this.setDiagonalDirections(diagonalDirections);
 
     if (this.platform) {
       this.platformOffset.x += this.velocity.x * delta;
@@ -279,29 +281,25 @@ app.Player = class Player {
   }
 
   processActions(resultingActions) {
-    const restartEntities = resultingActions[Constants.PLAYER_ACTIONS.RESTART];
-    if (restartEntities && restartEntities.length) {
-      this.restart();
-      return; // ignore all other actions
-    }
-
     const platforms = resultingActions[Constants.PLAYER_ACTIONS.STICK_TO_PLATFORM];
     if (platforms && platforms.length) {
       const entity = platforms[0];
-      this.platform = entity;
-      this.platformOffset = {
-        x: this.position.x - entity.position.x,
-        y: this.position.y - entity.position.y
-      };
+      if (this.platform != entity) {
+        this.platform = entity;
+        this.platformOffset = {
+          x: this.position.x - entity.position.x,
+          y: this.position.y - entity.position.y
+        };
+      }
     }
 
     const pitEntities = resultingActions[Constants.PLAYER_ACTIONS.PIT_FALL];
     if (!this.platform && pitEntities && pitEntities.length) {
-      // TODO: pit falling animation
       window.santaApp.fire('sound-trigger', 'buildandbolt_pit');
       window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
-      this.restart();
-      return; // ignore all other actions
+      window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
+      this.pitFall()
+      return // ignore all other actions
     }
 
     // block player
@@ -311,6 +309,8 @@ app.Player = class Player {
         // block player
         if (entity.blockingPosition) {
           this.blockPlayer = true;
+          app.ControlsManager.clearPosition();
+
           if (entity.blockingPosition.x !== this.position.x) {
             this.blockingPosition.x = entity.blockingPosition.x;
           }
@@ -335,15 +335,31 @@ app.Player = class Player {
       this.setPlayerState(Constants.PLAYER_STATES.DROP_OFF);
       this.clearToyParts();
       window.santaApp.fire('sound-trigger', 'buildandbolt_toymaking');
-
       // increment score
       app.ScoreManager.updateScore(this.id);
+      acceptToyEntities[0].closeBox();
+
+      clearTimeout(this.recentlyCompletedToyTimeout);
+      this.recentlyCompletedToy = true;
+      this.recentlyCompletedToyTimeout = setTimeout(() => {
+        this.recentlyCompletedToy = false;
+      }, 1000);
+    }
+
+    // if player hits action key but isn't near a toy or present table,
+    // play an error sound
+    if (!this.recentlyCompletedToy &&
+        !(toyEntities && toyEntities.length) &&
+        !(acceptToyEntities && acceptToyEntities.length) &&
+        !app.ControlsManager.isTouch &&
+        app.ControlsManager.isKeyControlActive(this.controls.action)) {
+      this.playErrorSound();
     }
 
     const ices = resultingActions[Constants.PLAYER_ACTIONS.ICE];
     if (ices && ices.length) {
       this.onIce = true;
-      if (!this.playingIceSound) {
+      if (!this.playingIceSound && this.playerState === Constants.PLAYER_STATES.WALK) {
         this.playingIceSound = true;
         window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
       }
@@ -354,18 +370,35 @@ app.Player = class Player {
       }
     }
 
-    // bounce against other player
-    const playerEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE];
-    if (playerEntities && playerEntities.length) {
-      this.isCloseToOtherPlayer = true;
-    } else {
-      this.isCloseToOtherPlayer = false;
+    // bounce by another unit
+    const bouncingEntities = resultingActions[Constants.PLAYER_ACTIONS.BOUNCE];
+    if (bouncingEntities && bouncingEntities.length) {
+      for (const entity of bouncingEntities) {
+        // penguin bounce
+        if (entity.config.type === 'penguin') {
+          this.bouncedByPenguin(entity);
+        }
+
+        // other player bounce
+        if (entity.config.type === 'player') {
+          this.isCloseToOtherPlayer = true;
+        } else {
+          this.isCloseToOtherPlayer = false;
+        }
+      }
+    }
+  }
+
+  playErrorSound() {
+    if (performance.now() - this.lastErrorSoundTime > 200) {
+      window.santaApp.fire('sound-trigger', 'generic_fail');
+      this.lastErrorSoundTime = performance.now();
     }
   }
 
   // bump the player in a specific direction with a specific force
-  bump(angle, force, reverse = 1) {
-    if (this.id === 'a') {
+  bump(angle, force, reverse = 1, playSound = true) {
+    if (this.id === 'a' && playSound) {
       window.santaApp.fire('sound-trigger', 'buildandbolt_elfbump');
     }
     this.velocity.x = Math.cos(angle) * force * reverse;
@@ -382,6 +415,59 @@ app.Player = class Player {
     return Math.abs(this.position.x - this.prevPosition.x) + Math.abs(this.position.y - this.prevPosition.y);
   }
 
+  bouncedByPenguin(penguin) {
+    const collisionDistance = Utils.getDistance(this.position, penguin.position);
+
+    if (collisionDistance < 1) {
+      const speed = this.getSpeed();
+      const detectionTime = 200;
+      let angle, direction;
+
+      if (speed === 0) {
+        // if player is not moving,
+        // bump in the direction of the penguin movement
+        angle = penguin.getDirectionAngle();
+        direction = 1;
+      } else {
+        // else, bump in the opposite direction of the player
+        angle = this.getDirectionAngle();
+        direction = -1;
+        if (this.recentlyBumped) {
+          // if recently bumped,
+          // keep pushing the player in the same direction as before to prevent back-and-force movements
+          direction = 1;
+        }
+        clearTimeout(this.recentlyBumpedTimeout);
+        this.recentlyBumped = true;
+        this.recentlyBumpedTimeout = setTimeout(() => {
+          this.recentlyBumped = false;
+        }, detectionTime);
+      }
+
+      // cases when player get crushed against the wall
+      if (collisionDistance <= 0.5 && !this.recentlyCrushed) {
+        // move player in 90degrees angle from penguin's direction
+        angle = penguin.getDirectionAngle();
+        angle += Math.PI / 2;
+        clearTimeout(this.recentlyCrushedTimeout);
+        this.recentlyCrushed = true;
+        this.recentlyCrushedTimeout = setTimeout(() => {
+          this.recentlyCrushed = false;
+        }, detectionTime);
+      }
+
+      this.playPenguinSound();
+      this.bump(angle, Constants.PLAYER_PUSH_FORCE, direction, false);
+    }
+  }
+
+  playPenguinSound() {
+    if (performance.now() - this.lastPenguinSoundTime > 150) {
+      window.santaApp.fire('sound-trigger', 'buildandbolt_penguinbump');
+      this.lastPenguinSoundTime = performance.now();
+    }
+  }
+
   addToyPart(partId) {
     const { toyType } = app.LevelManager;
     if (this.toyParts.indexOf(partId) == -1) {
@@ -396,9 +482,7 @@ app.Player = class Player {
 
       if (this.toyParts.length == toyType.size) {
         // Replace all toy parts with full toy
-        while (this.toysElem.firstChild) {
-          this.toysElem.removeChild(this.toysElem.firstChild);
-        }
+        Utils.removeAllChildren(this.toysElem)
 
         toyElem.setAttribute('class',
           `toypart toypart--${toyType.key}--full`);
@@ -425,11 +509,7 @@ app.Player = class Player {
       this.elem.classList.remove(`toypart--${toyPart}`);
     }
 
-    // todo: move this to utils
-    while (this.toysElem.firstChild) {
-      this.toysElem.removeChild(this.toysElem.firstChild);
-    }
-
+    Utils.removeAllChildren(this.toysElem)
     this.toyParts = [];
   }
 
@@ -450,6 +530,19 @@ app.Player = class Player {
       }
       this.innerElem.classList.add(`direction--${direction}`);
       this.currentDirection = direction;
+    }
+  }
+
+  setDiagonalDirections(directions) {
+    Utils.removeClassesStartWith(this.innerElem, 'diagonal--');
+
+    if (directions.length > 1) {
+      let className = '';
+      for (let i = 0; i < directions.length; i++) {
+        className = `${className}-${directions[i]}`;
+      }
+
+      this.innerElem.classList.add(`diagonal-${className}`);
     }
   }
 
@@ -480,11 +573,13 @@ app.Player = class Player {
             this.addAnimationToQueueOnce(restToWalk);
             // fall-through
           default:
-            this.playerState = Constants.PLAYER_STATES.WALK;
-            this.addAnimationToQueueOnce(walk);
-            window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
+            this.playerState = Constants.PLAYER_STATES.WALK
+            this.addAnimationToQueueOnce(walk)
+
             if (this.onIce) {
               window.santaApp.fire('sound-trigger', 'buildandbolt_ice_start', this.id);
+            }else {
+              window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_start', this.id);
             }
         }
         break;
@@ -495,9 +590,7 @@ app.Player = class Player {
             // fall-through
           default:
             this.playerState = Constants.PLAYER_STATES.REST;
-            this.animationQueue.push({
-              animation: rest
-            });
+            this.addAnimationToQueueOnce(rest);
             window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', this.id);
             window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
         }
@@ -517,7 +610,8 @@ app.Player = class Player {
    * Checks for repeats to make sure the animation is not queued multiple times
    */
   addAnimationToQueueOnce(animation, callback) {
-    if (!this.animationQueue.find(item => item.animation == animation)) {
+    if (!(this.animationQueue.find(item => item.animation == animation) ||
+      (!this.animationQueue.length && animation == this.currentAnimationState.animation))) {
       this.animationQueue.push({
         animation,
         callback

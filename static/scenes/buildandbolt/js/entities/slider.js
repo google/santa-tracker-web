@@ -30,7 +30,7 @@ app.Slider = class Slider extends app.Entity {
   }
 
   onFrame() {
-    const prevPosition = Object.assign({}, this.position);
+    this.prevPosition = Object.assign({}, this.position);
 
     this.flipped = false;
     if (!this.reversing) {
@@ -69,7 +69,7 @@ app.Slider = class Slider extends app.Entity {
 
     this.render();
     app.Board.updateEntityPosition(this,
-        prevPosition.x, prevPosition.y,
+        this.prevPosition.x, this.prevPosition.y,
         this.position.x, this.position.y,
         this.config.width, this.config.height);
   }

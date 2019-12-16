@@ -21,9 +21,6 @@ class ControlsManager {
           'touchstart',
           this.onTouchStart.bind(this));
       boardBkg.addEventListener(
-          'touchmove',
-          this.onTouchMove.bind(this));
-      boardBkg.addEventListener(
           'touchend',
           this.onTouchEnd.bind(this));
     } else {
@@ -68,30 +65,7 @@ class ControlsManager {
   onTouchStart(e) {
     var touch = e.changedTouches[0];
 
-
     this.currentTouchId = touch.identifier
-    this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY });
-
-    e.preventDefault();
-
-    // Let tutorial know about touch so it can hide the tutorial.
-    if (!this.touchStarted) {
-      this.tutorial_.off('buildandbolt_mobile.mp4');
-      this.touchStarted = true;
-    }
-  }
-
-  onTouchMove(e) {
-    var touch = this.getCurrentTouch(e);
-    if (!touch) {
-      return;
-    }
-
-    this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY });
-
-    e.preventDefault();
   }
 
   onTouchEnd(e) {
@@ -100,9 +74,17 @@ class ControlsManager {
       return;
     }
 
-    this.currentTouchId = null;
-    this.currentTouchPosition = null;
-    e.preventDefault();
+    this.currentTouchId = touch.identifier
+    this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
+        { x: touch.clientX, y: touch.clientY }, true);
+
+    // e.preventDefault();
+
+    // Let tutorial know about touch so it can hide the tutorial.
+    if (!this.touchStarted) {
+      this.tutorial_.off('buildandbolt_mobile.mp4');
+      this.touchStarted = true;
+    }
   }
 
   getCurrentTouch(e) {
@@ -120,24 +102,39 @@ class ControlsManager {
   /**
    * Returns a magnitude of movement for each direction
    */
-  getMovementDirections(controls, currentPosition) {
+  getMovementDirections(controls, currentPosition, platform, platformOffset) {
     if (this.isTouch) {
-      if (this.currentTouchPosition &&
-          Utils.getDistance(this.currentTouchPosition, currentPosition) > 0.1) {
-        const angle = Utils.getAngle(this.currentTouchPosition, currentPosition);
-        let magnitudeX = Math.abs(Math.cos(angle));
-        let magnitudeY = Math.abs(Math.sin(angle));
+      if (this.currentTouchPosition) {
+        let goalPosition = this.currentTouchPosition;
+        let startPosition = currentPosition;
 
-        // normalize magnitudes - should add up to 1
-        magnitudeX = magnitudeX / (magnitudeX + magnitudeY);
-        magnitudeY = magnitudeY / (magnitudeX + magnitudeY);
+        if (platform && platformOffset) {
+          goalPosition =  {
+            x: this.currentTouchPosition.x - platform.position.x,
+            y: this.currentTouchPosition.y - platform.position.y
+          };
 
-        return {
-          left: this.currentTouchPosition.x < currentPosition.x ? magnitudeX : 0,
-          right: this.currentTouchPosition.x > currentPosition.x ? magnitudeX : 0,
-          up: this.currentTouchPosition.y < currentPosition.y ? magnitudeY : 0,
-          down: this.currentTouchPosition.y > currentPosition.y ? magnitudeY : 0
-        };
+          startPosition = platformOffset;
+        }
+
+        const distance = Utils.getDistance(goalPosition, startPosition);
+        if (distance > .2) {
+          // Slows player down as it gets close to the goal point
+          const magnitudeMultiplier = Math.pow(Math.min(1, distance / 3), 2);
+          const angle = Utils.getAngle(goalPosition, startPosition);
+          const magnitudeX = Math.abs(Math.cos(angle)) * magnitudeMultiplier;
+          const magnitudeY = Math.abs(Math.sin(angle)) * magnitudeMultiplier;
+
+          return {
+            left: goalPosition.x < startPosition.x ? magnitudeX : 0,
+            right: goalPosition.x > startPosition.x ? magnitudeX : 0,
+            up: goalPosition.y < startPosition.y ? magnitudeY : 0,
+            down: goalPosition.y > startPosition.y ? magnitudeY : 0
+          };
+        }
+
+        // If no more movement needed, clear touch position
+        this.clearPosition();
       }
 
       return {
@@ -170,6 +167,14 @@ class ControlsManager {
       up: keys.up ? magnitude : 0,
       down: keys.down ? magnitude : 0
     };
+  }
+
+  /**
+   * Forget last goal position
+   */
+  clearPosition() {
+    this.currentTouchId = null;
+    this.currentTouchPosition = null;
   }
 }
 

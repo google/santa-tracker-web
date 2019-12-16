@@ -11,6 +11,7 @@ $rotate-bg: $gameover-bg;
 @import 'sass/_variables';
 
 @import 'sass/components/_board-bkg';
+@import 'sass/components/_countdown';
 @import 'sass/components/_fence';
 @import 'sass/components/_gui';
 @import 'sass/components/_ice';
@@ -49,12 +50,6 @@ body {
     top: 0;
   }
 
-  .level {
-    background: $color-yellow url(img/floor/floor_tile.svg) top left/100px 100px repeat;
-    position: absolute;
-    transform-origin: top left;
-  }
-
   .animation {
     display: none;
 
@@ -71,5 +66,11 @@ body {
     left: 0;
     position: absolute;
     top: 0;
+  }
+
+
+  [data-tile-canvas],
+  [data-tile-slices] {
+    display: none;
   }
 }

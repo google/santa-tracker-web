@@ -4,6 +4,7 @@ goog.require('Constants');
 goog.require('Utils');
 
 goog.require('app.Entity');
+goog.require('app.TileManager');
 goog.require('app.shared.pools');
 
 app.Wall = class Wall extends app.Entity {
@@ -14,8 +15,25 @@ app.Wall = class Wall extends app.Entity {
   }
 
   onInit(config) {
-    super.onInit(config);
-    this.config.checkBorder = true;
+    super.onInit({...config, checkBorder: true});
+    app.TileManager.renderEntity('wall', config.width, config.height,
+        this.elem);
+  }
+
+  onDispose() {
+    super.onDispose();
+    Utils.removeAllChildren(this.elem);
+  }
+
+  addTile(position) {
+    let tile = document.createElement('div');
+    tile.classList.add('wall__tile');
+
+    if (position) {
+      tile.classList.add(`wall__tile--${position}`);
+    }
+
+    this.elem.appendChild(tile);
   }
 
   render() {

@@ -10,7 +10,7 @@
   text-align: center;
   transform: translateX(-50%);
   transition: opacity $transition-time;
-  z-index: $gui-z-index;
+  z-index: $walkthrough-z-index;
 
   @include respond-to(mobile) {
     border-radius: 22px;
@@ -46,7 +46,7 @@
     line-height: 29px;
     margin-bottom: 12px;
     transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
-    transition-delay: $delay-appear + 0.1;
+    transition-delay: $delay-appear;
 
     @include respond-to(mobile) {
       font-size: 16px;
@@ -66,7 +66,7 @@
     margin: -2px 5px 0;
     position: relative;
     transition: opacity $transition-time ease, transform $transition-time-long $transition-expo-out;
-    transition-delay: $delay-appear + 0.1;
+    transition-delay: $delay-appear;
     vertical-align: middle;
     transform: scale(1);
 

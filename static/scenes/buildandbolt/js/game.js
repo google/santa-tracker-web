@@ -3,8 +3,10 @@ goog.provide('app.Game');
 goog.require('Constants');
 goog.require('Levels');
 
+goog.require('app.AnimationManager');
 goog.require('app.Board');
 goog.require('app.ControlsManager');
+goog.require('app.Countdown');
 goog.require('app.Entity');
 goog.require('app.Fence');
 goog.require('app.Gui');
@@ -18,6 +20,7 @@ goog.require('app.PresentBox');
 goog.require('app.ScoreManager');
 goog.require('app.ScoreScreen');
 goog.require('app.Table');
+goog.require('app.TileManager');
 goog.require('app.ToysBoard');
 goog.require('app.Walkthrough');
 goog.require('app.Wall');
@@ -25,7 +28,6 @@ goog.require('app.shared.utils');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.Scoreboard');
 goog.require('app.shared.Tutorial');
-goog.require('app.AnimationManager');
 
 
 app.Game = class Game {
@@ -37,8 +39,14 @@ app.Game = class Game {
     this.context = context;
     this.msg = msg;
 
+    // bind
+    this.updateLevel = this.updateLevel.bind(this);
+    this.startCountdown = this.startCountdown.bind(this);
+    this.goToNextLevel = this.goToNextLevel.bind(this);
+
     // we have to do that because we can't mix an `import api from '../../src/scene/api.js'` and goog.provide()
     app.AnimationManager.init(api, prepareAnimation);
+    app.TileManager.init(context);
 
     // preload players animations
     this.initPlayersAnimations();
@@ -60,11 +68,9 @@ app.Game = class Game {
     initPlayerAnimation('img/players/a/front.json', 'a', 'front');
     initPlayerAnimation('img/players/a/back.json', 'a', 'back');
     initPlayerAnimation('img/players/a/side.json', 'a', 'side');
-    initPlayerAnimation('img/players/death-pow.json', 'a', 'death');
     initPlayerAnimation('img/players/b/front.json', 'b', 'front');
     initPlayerAnimation('img/players/b/back.json', 'b', 'back');
     initPlayerAnimation('img/players/b/side.json', 'b', 'side');
-    initPlayerAnimation('img/players/death-pow.json', 'b', 'death');
   }
 
   showGui() {
@@ -90,55 +96,70 @@ app.Game = class Game {
     app.ControlsManager.init(this, document.querySelector('[data-board-bkg]'));
     app.ScoreManager.init(this);
     app.LevelManager.init(this, document.getElementsByClassName('levelup')[0],
-        document.querySelector('.levelup--number'), this.startLevel.bind(this));
+        document.querySelector('.levelup--number'));
     // init components
     app.ToysBoard.init(document.querySelector('[data-toys-board]'), playerOption);
     app.Board.init(document.querySelector('[data-board]'));
     app.ScoreScreen.init(this, document.querySelector('[data-score-screen]'), playerOption);
     app.Walkthrough.init(this, document.querySelector('[data-walkthrough]'));
+    app.Countdown.init(this, document.querySelector('[data-countdown]'));
     // init sharedComponents
     this.gameoverDialog = new app.shared.Gameover(this);
     this.scoreboard = new app.shared.Scoreboard(this, null, Levels.length);
 
-
     this.isPlaying = false;
     this.lastFrame = null;
+    // this is preventing a bug for the first level,
+    // for some reason, after the scoreboard is set up, game.resume() is called and start the scoreboard countdown.
+    // This variable let us have control when we can resume or no.
+    this.canResume = true;
 
-    window.santaApp.fire('sound-trigger', 'buildandbolt_level_end');
-    app.LevelManager.show();
+    app.LevelManager.transition(this.updateLevel, this.startCountdown);
 
-    this.onFrame();
+    this.onFrame(0);
   }
 
-  startLevel() {
+  updateLevel() {
+    app.LevelManager.updateLevel();
+    app.ToysBoard.updateLevel();
+    app.Walkthrough.updateLevel();
     this.initLevel();
-    this.scoreboard.setLevel(app.LevelManager.current);
-    this.unfreezeGame();
 
     if (app.LevelManager.current === 0) {
+      this.gui.controlsScreen.classList.add('is-hidden');
+      this.gui.guiElem.classList.add('game-started');
       this.gameStarted = true;
 
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
-        window.santaApp.fire('sound-trigger', 'buildandbolt_chord');
-      }, 800);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
 
       if (app.shared.utils.touchEnabled) {
         this.tutorial.start();
       }
-    } else {
-      window.santaApp.fire('sound-trigger', 'buildandbolt_game_start');
     }
-  }
 
+    this.canResume = false;
+    this.pause();
+  }
+  startMusic() {
+    window.santaApp.fire('sound-trigger', 'buildandbolt_game_start', 0.0);
+  }
+  startCountdown() {
+    app.ScoreScreen.hide();
+    setTimeout(() => {
+      app.Walkthrough.show();
+    }, Constants.LEVEL_TRANSITION_TIMING * 1.5);
+    setTimeout(() => {
+      app.Countdown.start();
+    }, Constants.LEVEL_TRANSITION_TIMING * 3); // added a little delay so you can see what you have to do before the countdown begins
+  }
 
   initLevel() {
     let levelConfig = Levels[app.LevelManager.current];
+    this.scoreboard.setLevel(app.LevelManager.current);
     this.scoreboard.restart();
     this.scoreboard.addTime(levelConfig.time);
-    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 15;
+    this.hurryupMusicTime = levelConfig.hurryUpMusicTime || 25;
     this.levelWinner = null;
-    // app.ToysBoard.initLevel(levelConfig.toyType.key)
 
     for (let i = 0; i < this.players.length; i++) {
       this.players[i].init(levelConfig.players[i]);
@@ -179,6 +200,12 @@ app.Game = class Game {
           break;
         case 'present-box':
           if (this.multiplayer || entity.config.playerId == 'a') {
+            // Don't allow floating middle present boxes in single player mode
+            // Currently no levels have a need for middle boxes in single player
+            if (!this.multiplayer) {
+              entity.config.isMiddle = false;
+            }
+
             this.entities.push(app.PresentBox.pop(this, entity.config));
           }
           break;
@@ -220,8 +247,7 @@ app.Game = class Game {
         }
 
         this.scoreboard.onFrame(delta / 1000);
-
-        if (this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
+        if (this.scoreboard.countdown > 0 && this.scoreboard.countdown < this.hurryupMusicTime && !this.hurryUpPlayed) {
           window.santaApp.fire('sound-trigger', 'buildandbolt_hurryup');
           this.hurryUpPlayed = true;
         }
@@ -240,7 +266,7 @@ app.Game = class Game {
     const player2 = this.players[1];
     const { GRID_DIMENSIONS, PLAYER_PUSH_FORCE, PLAYER_BOUNCE_FORCE } = Constants;
 
-    const collisionDistance = Math.hypot(player1.position.x - player2.position.x, player1.position.y - player2.position.y);
+    const collisionDistance = Utils.getDistance(player1.position, player2.position);
 
     if (collisionDistance < 1) {
       // this prevent detecting collision issues
@@ -291,34 +317,26 @@ app.Game = class Game {
       entity.constructor.push(entity);
     }
 
-    this.entities = [];
+    this.entities = []
+    this.hurryUpPlayed = false;
   }
 
   reset() {
     this.resetEntities();
-    app.LevelManager.reset();
+    app.LevelManager.reset(this.updateLevel, this.startCountdown);
     app.ScoreManager.reset();
-    app.LevelManager.show();
-    app.Walkthrough.updateLevelAndShow();
   }
 
   goToNextLevel() {
     this.resetEntities();
 
     if (app.LevelManager.current < Levels.length - 1) {
-      app.LevelManager.goToNext();
-      app.ToysBoard.updateLevel();
-      app.Walkthrough.updateLevelAndShow();
-      window.santaApp.fire('sound-trigger', 'buildandbolt_levelup');
+      app.LevelManager.goToNextLevel(this.updateLevel, this.startCountdown);
+      window.santaApp.fire('sound-trigger', 'buildandbolt_level_transition');
     } else {
       // end game. display game winner.
       this.gameoverDialog.show();
       window.santaApp.fire('sound-trigger', 'buildandbolt_win');
-
-      //timeout to prevent walk loop to start after game has ended
-      setTimeout(()=>{
-        window.santaApp.fire('sound-trigger', 'buildandbolt_player_walk_stop', 'all');
-      }, 10);
     }
   }
 
@@ -342,7 +360,7 @@ app.Game = class Game {
    * Called when resume button is clicked.
    */
   resume() {
-    if (this.gameStarted) {
+    if (this.gameStarted && this.canResume) {
       this.unfreezeGame();
     }
   }

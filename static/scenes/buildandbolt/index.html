@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,700" />
   <link rel="stylesheet" href="index.css" />
 </head>
@@ -35,7 +35,53 @@
             </div>
             <div class="player-spawn player-spawn--b"></div>
           </div>
+          <canvas data-tile-canvas></canvas>
+          <div data-tile-slices>
+            <img src="img/pit/pit_bottom_left.svg">
+            <img src="img/pit/pit_bottom_middle.svg">
+            <img src="img/pit/pit_bottom_right.svg">
+            <img src="img/pit/pit_middle_left.svg">
+            <img src="img/pit/pit_middle_middle.svg">
+            <img src="img/pit/pit_middle_right.svg">
+            <img src="img/pit/pit_middle1_left.svg">
+            <img src="img/pit/pit_middle1_right.svg">
+            <img src="img/pit/pit_top_left.svg">
+            <img src="img/pit/pit_top_middle.svg">
+            <img src="img/pit/pit_top_right.svg">
+            <img src="img/platform/platform_bottom_middle.png">
+            <img src="img/platform/platform_bottom_side.png">
+            <img src="img/platform/platform_middle_side.png">
+            <img src="img/platform/platform_middle.png">
+            <img src="img/platform/platform_top_side.png">
+            <img src="img/wall/wall_bottom_middle_1.svg">
+            <img src="img/wall/wall_bottom_middle_2.svg">
+            <img src="img/wall/wall_bottom_side.svg">
+            <img src="img/wall/wall_middle_side.svg">
+            <img src="img/wall/wall_middle.svg">
+            <img src="img/wall/wall_top_middle.svg">
+            <img src="img/wall/wall_top_side.svg">
+          </div>
         </section>
+      </section>
+
+      <!-- countdown -->
+      <section data-countdown class="countdown">
+        <div data-countdown-numbers class="countdown__numbers">
+          <span class="countdown__number">3</span>
+          <span class="countdown__number">3</span>
+          <span class="countdown__number">3</span>
+        </div>
+        <div data-countdown-numbers class="countdown__numbers">
+          <span class="countdown__number">2</span>
+          <span class="countdown__number">2</span>
+          <span class="countdown__number">2</span>
+        </div>
+        <div data-countdown-numbers class="countdown__numbers">
+          <span class="countdown__number">1</span>
+          <span class="countdown__number">1</span>
+          <span class="countdown__number">1</span>
+        </div>
+        <div data-countdown-go msgid="codeboogie-go" class="countdown__go"></div>
       </section>
 
       <!-- walkthrough -->
@@ -96,7 +142,7 @@
         <div class="score-screen__title score-screen__title--win" msgid="buildandbolt-result-win"></div>
         <div class="score-screen__title score-screen__title--tie" msgid="buildandbolt-result-tie"></div>
         <div class="player-controls__button">
-          <button class="Button" data-score-screen-skip msgid="buildandbolt-skip"></button>
+          <button class="Button" data-score-screen-skip msgid="next"></button>
         </div>
       </section>
 
@@ -155,7 +201,7 @@
               </div>
             </div>
             <div class="player-controls__button">
-              <button class="Button" data-player-controls-skip msgid="buildandbolt-skip"></button>
+              <button class="Button" data-player-controls-skip msgid="next"></button>
             </div>
           </div>
         </div>

@@ -48,7 +48,6 @@ Constants = {
 
   // Actions as a result of hitting other entities on the board
   PLAYER_ACTIONS: {
-    RESTART: 'restart',
     STICK_TO_PLATFORM: 'stick',
     BOUNCE: 'bounce',
     BLOCK: 'block',
@@ -121,15 +120,10 @@ Constants = {
       end: 80,
       fps: 60
     },
-    DEATH: {
-      start: 0,
-      end: 12,
-      fps: 24
-    }
   },
 
   BOARD_PADDING_TOP: 95,
-  BOARD_PADDING_TOP_MOBILE: 60,
+  BOARD_PADDING_TOP_MOBILE: 35,
   BOARD_PADDING_LEFT_PERCENTAGE: 3,
 
   GRID_DIMENSIONS: {
@@ -177,6 +171,6 @@ Constants = {
     }
   },
 
-  LEVEL_TRANSITION_TIMING: 1400,
+  LEVEL_TRANSITION_TIMING: 500, // from static/scenes/_shared/sass/_levelup.scss
 
 };

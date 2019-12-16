@@ -93,12 +93,12 @@
       height: 85px;
 
       @include respond-to(mobile) {
-        height: 60px;
+        height: 50px;
       }
     }
 
     .score-screen__name {
-      opacity: 0;
+      display: none;
     }
 
     .score-screen__player.win .score-screen__character--lose {
@@ -127,6 +127,17 @@
         display: block;
       }
     }
+
+    &.single-player {
+      .score-screen__title {
+        display: block;
+      }
+
+      .score-screen__title--win,
+      .score-screen__title--tie {
+        display: none;
+      }
+    }
   }
 
   &::before {
@@ -153,10 +164,6 @@
     bottom: 0px;
     transform: translateX(-50%);
     width: 2px;
-
-    @include respond-to(mobile) {
-      height: calc(100% - 130px);
-    }
   }
 
   &__title {
@@ -168,11 +175,12 @@
     position: absolute;
     top: 85px;
     transform: translateX(-50%);
+    z-index: $player-z-index;
 
     @include respond-to(mobile) {
       top: 60px;
-      font-size: 48px;
-      line-height: 60px;
+      font-size: 30px;
+      line-height: 37px;
     }
 
     &--win,
@@ -187,13 +195,13 @@
     border-radius: 14px;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    justify-content: center;
+    height: 690px;
+    justify-content: flex-start;
     margin: 0 56px;
-    max-height: 700px;
     position: relative;
     text-align: center;
     width: 370px;
+    z-index: $player-z-index;
 
     &.win {
       width: 680px;
@@ -223,8 +231,8 @@
     }
 
     @include respond-to(mobile) {
-      margin: 0 40px;
-      max-height: 260px;
+      margin: 80px 40px 0 40px;
+      height: 245px;
       width: 200px;
     }
   }
@@ -232,13 +240,13 @@
   &__score {
     color: $color-white;
     font-family: $font-lobster;
-    font-size: 330px;
+    font-size: 290px;
     opacity: 0.7;
     width: 100%;
 
     @include respond-to(mobile) {
-      font-size: 100px;
-      line-height: 115px;
+      font-size: 110px;
+      line-height: 120px;
     }
   }
 
@@ -269,35 +277,52 @@
   &__toys {
     display: flex;
     flex-wrap: wrap;
-    flex: 0 0 50px;
-    height: 50px;
     justify-content: center;
-    margin-top: 30px;
-    padding: 0 20px;
+    margin: 10px 33px 0 33px;
+
+    &.left-aligned {
+      justify-content: flex-start;
+    }
 
     @include respond-to(mobile) {
-      flex: 0 0 30px;
-      height: 30px;
-      margin-top: 10px;
+      margin: 6px 20px 0 20px;
     }
   }
 
   &__toy {
-    height: 100%;
-    margin: 0 6px;
+    box-sizing: content-box;
+    height: 50px;
+    padding: 5px;
+    width: 50px;
+
+    @include respond-to(mobile) {
+      height: 22px;
+      padding: 2px;
+      width: 22px;
+    }
+
+    &-img {
+      height: 100%;
+
+      &--car,
+      &--teddy {
+        height: auto;
+        width: 100%;
+      }
+    }
   }
 
   &__character {
     height: 200px;
     position: absolute;
     right: -15px;
-    top: 47%;
+    top: 26%;
     width: 150px;
 
     @include respond-to(mobile) {
       height: 75px;
       right: -17px;
-      top: 36%;
+      top: 24%;
       width: 90px;
     }
 
