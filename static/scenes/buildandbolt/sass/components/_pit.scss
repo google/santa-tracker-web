@@ -1,61 +1,61 @@
 ##{$name} {
   .pit {
     @include board-object();
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
   }
 
-  .pit__tile {
-    // default - for middle middle tiles
-    background: url(img/pit/pit_middle_middle.svg) center/contain no-repeat;
-    height: 50px;
-    transform-origin: center center;
-    transform: scale(1.01) translateZ(0);
-    width: 50px;
+  // .pit__tile {
+  //   // default - for middle middle tiles
+  //   background: url(img/pit/pit_middle_middle.svg) center/contain no-repeat;
+  //   height: 50px;
+  //   transform-origin: center center;
+  //   transform: scale(1.01) translateZ(0);
+  //   width: 50px;
 
-    &--top-left {
-      background: url(img/pit/pit_top_left.svg) center/contain no-repeat;
-      height: 100px;
-    }
+  //   &--top-left {
+  //     background: url(img/pit/pit_top_left.svg) center/contain no-repeat;
+  //     height: 100px;
+  //   }
 
-    &--top-middle {
-      background: url(img/pit/pit_top_middle.svg) center/contain no-repeat;
-      height: 100px;
-    }
+  //   &--top-middle {
+  //     background: url(img/pit/pit_top_middle.svg) center/contain no-repeat;
+  //     height: 100px;
+  //   }
 
-    &--top-right {
-      background: url(img/pit/pit_top_right.svg) center/contain no-repeat;
-      height: 100px;
-    }
+  //   &--top-right {
+  //     background: url(img/pit/pit_top_right.svg) center/contain no-repeat;
+  //     height: 100px;
+  //   }
 
-    // middle-1 is the topmost middle row
-    &--middle-1-left {
-      background: url(img/pit/pit_middle1_left.svg) center/contain no-repeat;
-    }
+  //   // middle-1 is the topmost middle row
+  //   &--middle-1-left {
+  //     background: url(img/pit/pit_middle1_left.svg) center/contain no-repeat;
+  //   }
 
-    &--middle-1-right {
-      background: url(img/pit/pit_middle1_right.svg) center/contain no-repeat;
-    }
+  //   &--middle-1-right {
+  //     background: url(img/pit/pit_middle1_right.svg) center/contain no-repeat;
+  //   }
 
-    &--middle-left {
-      background: url(img/pit/pit_middle_left.svg) center/contain no-repeat;
-    }
+  //   &--middle-left {
+  //     background: url(img/pit/pit_middle_left.svg) center/contain no-repeat;
+  //   }
 
-    &--middle-right {
-      background: url(img/pit/pit_middle_right.svg) center/contain no-repeat;
-    }
+  //   &--middle-right {
+  //     background: url(img/pit/pit_middle_right.svg) center/contain no-repeat;
+  //   }
 
-    &--bottom-left {
-      background: url(img/pit/pit_bottom_left.svg) center/contain no-repeat;
-    }
+  //   &--bottom-left {
+  //     background: url(img/pit/pit_bottom_left.svg) center/contain no-repeat;
+  //   }
 
-    &--bottom-middle {
-      background: url(img/pit/pit_bottom_middle.svg) center/contain no-repeat;
-    }
+  //   &--bottom-middle {
+  //     background: url(img/pit/pit_bottom_middle.svg) center/contain no-repeat;
+  //   }
 
-    &--bottom-right {
-      background: url(img/pit/pit_bottom_right.svg) center/contain no-repeat;
-    }
-  }
+  //   &--bottom-right {
+  //     background: url(img/pit/pit_bottom_right.svg) center/contain no-repeat;
+  //   }
+  // }
 }
 

@@ -26,9 +26,9 @@ class TileManager {
       let rowConfig;
       if (j == 0) {
         rowConfig = config.top;
-      } else if (j == height - tileSize) {
+      } else if (j == height - (config.bottom.height || tileSize)) {
         rowConfig = config.bottom;
-      } else if (j == 1 && config.middle1) {
+      } else if (j == (config.top.height || 1) && config.middle1) {
         rowConfig = config.middle1;
       } else {
         rowConfig = config.middle;

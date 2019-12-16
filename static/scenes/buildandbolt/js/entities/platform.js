@@ -15,10 +15,8 @@ app.Platform = class Platform extends app.Slider {
 
   onInit(config) {
     super.onInit(config);
-
     app.TileManager.renderEntity('platform', config.width, config.height,
         this.elem);
-
     super.render(); // render once
   }
 
