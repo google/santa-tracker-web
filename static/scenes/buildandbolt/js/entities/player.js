@@ -53,6 +53,7 @@ app.Player = class Player {
 
     this.innerElem.classList.add('is-falling');
     setTimeout(() => {
+      this.elem.classList.add('is-hidden');
       this.dead = false;
       window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
       this.resetPosition();
@@ -64,6 +65,7 @@ app.Player = class Player {
       // prevent flashing in safari
       setTimeout(() => {
         this.innerElem.classList.remove('is-falling');
+        this.elem.classList.remove('is-hidden');
       }, 100);
     }, 500);
   }
