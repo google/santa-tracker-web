@@ -169,7 +169,10 @@ class ControlsManager {
         let startPosition = currentPosition;
 
         if (platform && platformOffset) {
-          goalPosition =  this.currentTouchPositionPlatform;
+          goalPosition = {
+            x: this.currentTouchPositionPlatform.x - 0.5,
+            y: this.currentTouchPositionPlatform.y - 0.5
+          }
           startPosition = platformOffset;
         }
 
