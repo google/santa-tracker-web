@@ -151,6 +151,7 @@ app.Player = class Player {
       PLAYER_DIRECTION_CHANGE_THRESHOLD,
       GRID_DIMENSIONS,
     } = Constants;
+
     const { left, right, up, down } = app.ControlsManager.getMovementDirections(
         this.controls, this.position, this.platform, this.platformOffset);
 
@@ -175,6 +176,9 @@ app.Player = class Player {
     } else if (this.velocity.x < 0) {
       this.velocity.x = Math.min(0, this.velocity.x + PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
+      if (app.ControlsManager.isTouch && !this.recentlyBumped) {
+        this.velocity.x = 0
+      }
     }
 
     if (right) {
@@ -188,6 +192,9 @@ app.Player = class Player {
     } else if (this.velocity.x > 0) {
       this.velocity.x = Math.max(0, this.velocity.x - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
+      if (app.ControlsManager.isTouch && !this.recentlyBumped) {
+        this.velocity.x = 0
+      }
     }
 
     if (up) {
@@ -201,6 +208,9 @@ app.Player = class Player {
     } else if (this.velocity.y < 0) {
       this.velocity.y = Math.min(0, this.velocity.y + PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
+      if (app.ControlsManager.isTouch && !this.recentlyBumped) {
+        this.velocity.y = 0
+      }
     }
 
     if (down) {
@@ -214,6 +224,9 @@ app.Player = class Player {
     } else if (this.velocity.y > 0) {
       this.velocity.y = Math.max(0, this.velocity.y - PLAYER_ACCELERATION_STEP * decelerationFactor);
       this.isDecelerating = true;
+      if (app.ControlsManager.isTouch && !this.recentlyBumped) {
+        this.velocity.y = 0
+      }
     }
 
     this.setDiagonalDirections(diagonalDirections);
@@ -428,6 +441,14 @@ app.Player = class Player {
         // bump in the direction of the penguin movement
         angle = penguin.getDirectionAngle();
         direction = 1;
+
+        if (app.ControlsManager.isTouch) {
+          clearTimeout(this.recentlyBumpedTimeout);
+          this.recentlyBumped = true;
+          this.recentlyBumpedTimeout = setTimeout(() => {
+            this.recentlyBumped = false;
+          }, detectionTime);
+        }
       } else {
         // else, bump in the opposite direction of the player
         angle = this.getDirectionAngle();
