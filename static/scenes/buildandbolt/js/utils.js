@@ -324,18 +324,13 @@ Utils.getDistance =  function(pos1, pos2) {
  */
 
 Utils.removeClassesStartWith = function(elem, string) {
-  let cn = elem.className;
-  const regex = new RegExp(`(^|\\s)${string}\\S+`, 'g');
-  cn = cn.replace(regex, '');
-  elem.className = cn;
+  Array.from(elem.classList).forEach((x) => x.startsWith(string) && elem.classList.remove(x));
 }
 
 
 /**
- * Removee all children in an element
+ * Remove all children in an element
  */
 Utils.removeAllChildren = function(elem) {
-  while (elem.firstChild) {
-    elem.removeChild(elem.firstChild);
-  }
+  elem.textContent = '';
 }
