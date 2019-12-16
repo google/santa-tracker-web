@@ -54,17 +54,17 @@ app.Player = class Player {
     this.innerElem.classList.add('is-falling');
     setTimeout(() => {
       this.dead = false;
-      this.innerElem.classList.remove('is-falling');
-
       window.santaApp.fire('sound-trigger', 'buildandbolt_respawn');
-      // window.santaApp.fire('sound-trigger', 'buildandbolt_ice_stop', this.id);
-
       this.resetPosition();
 
       app.Board.updateEntityPosition(this,
           this.prevPosition.x, this.prevPosition.y,
           this.position.x, this.position.y);
 
+      // prevent flashing in safari
+      setTimeout(() => {
+        this.innerElem.classList.remove('is-falling');
+      }, 100);
     }, 500);
   }
 
