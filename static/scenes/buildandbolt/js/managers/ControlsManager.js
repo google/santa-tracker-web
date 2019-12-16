@@ -91,7 +91,7 @@ class ControlsManager {
     clearTimeout(this.cursorFadeOutTimeout);
     this.cursorFadeOutTimeout = setTimeout(() => {
       this.hideCursorTouch(touch)
-    }, 1500);
+    }, 500);
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
