@@ -23,7 +23,13 @@ const yargs = require('yargs')
       default: process.env.PORT || 8000,
       describe: 'Static port',
     })
-    .options('prefix', {
+    .option('all', {
+      alias: 'a',
+      type: 'boolean',
+      default: false,
+      describe: 'Serve static on network address'
+    })
+    .option('prefix', {
       type: 'string',
       default: 'st',
       describe: 'Static prefix',
@@ -44,8 +50,14 @@ const yargs = require('yargs')
     })
     .argv;
 
-function listen(server, port) {
-  return new Promise((r) => server.listen(port, 'localhost', r));
+function listen(server, port, all) {
+  return new Promise((resolve) => {
+    if (all) {
+      server.listen(port, resolve);
+    } else {
+      server.listen(port, 'localhost', resolve);
+    }
+  });
 }
 
 function clipboardCopy(v) {
@@ -84,8 +96,8 @@ async function serve() {
   const staticServer = polka();
   staticServer.use(yargs.prefix, vfsMiddleware(vfs, 'static'), staticHost);
 
-  await listen(staticServer, yargs.port + 80);
-  log('Static', chalk.green(config.staticScope));
+  await listen(staticServer, yargs.port + 80, yargs.all);
+  log('Static', chalk.green(config.staticScope), yargs.all ? chalk.red('(on all interfaces)') : '');
 
   const prodServer = polka();
 
