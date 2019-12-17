@@ -5,6 +5,7 @@
 
 export const preloadEvent = '__santa-preload';
 export const playEvent = '__santa-play';
+export const goEvent = '__santa-go';
 export const internalSoundPreload = '__santa-klang-preload';
 
 
@@ -15,6 +16,17 @@ export const internalSoundPreload = '__santa-klang-preload';
  */
 export function play(...args) {
   const ce = new CustomEvent(playEvent, {detail: args});
+  window.dispatchEvent(ce);
+}
+
+
+/**
+ * Route to the specified page.
+ *
+ * @param {string} route
+ */
+export function go(route) {
+  const ce = new CustomEvent(goEvent, {detail: route});
   window.dispatchEvent(ce);
 }
 

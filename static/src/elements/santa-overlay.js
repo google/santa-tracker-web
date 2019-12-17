@@ -1,6 +1,7 @@
 import {html, LitElement} from 'lit-element';
 import {until} from 'lit-html/directives/until.js';
 import styles from './santa-overlay.css';
+import * as common from '../core/common.js';
 import {_msg} from '../magic.js';
 import './santa-button.js';
 
@@ -56,7 +57,7 @@ export class SantaOverlayElement extends LitElement {
   }
 
   _dispatchHome() {
-    window.dispatchEvent(new CustomEvent('go'));  // home
+    window.dispatchEvent(new CustomEvent(common.goEvent));  // home
   }
 
   update(changedProperties) {

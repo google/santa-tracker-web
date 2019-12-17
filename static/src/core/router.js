@@ -3,6 +3,7 @@
  */
 
 import * as params from '../lib/params.js';
+import {goEvent} from './common.js';
 import {internalNavigation} from '../scene/route.js';
 import isAndroid from './android.js';
 
@@ -208,7 +209,7 @@ export function configureProdRouter(callback) {
   };
 
   // Add global 'go' event listener.
-  window.addEventListener('go', (ev) => {
+  window.addEventListener(goEvent, (ev) => {
     window.santaApp.go(ev.detail || '');
   });
 

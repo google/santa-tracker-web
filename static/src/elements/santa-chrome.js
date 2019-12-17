@@ -144,7 +144,7 @@ export class SantaChromeElement extends LitElement {
   _onMenuClick() {
     if (this.showHome) {
       window.ga('send', 'event', 'nav', 'click', 'home');
-      window.dispatchEvent(new CustomEvent('go'));  // home
+      window.dispatchEvent(new CustomEvent(common.goEvent));  // home
     } else {
       window.ga('send', 'event', 'nav', 'click', 'menu');
       this.navOpen = !this.navOpen;

@@ -160,6 +160,9 @@ const sceneApi = (function() {
   // Handle common sound playback code. This is buffered just like `api.play()`.
   window.addEventListener(common.playEvent, (ev) => target.play(...ev.detail));
 
+  // Handle common routing code.
+  window.addEventListener(common.goEvent, (ev) => target.go(ev.detail));
+
   // Force at least one preload task.
   common.preload.wait(Promise.resolve());
 
