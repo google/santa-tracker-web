@@ -14,6 +14,24 @@ class ModvilVillageConstructor extends LitElement {
     };
   }
 
+  firstUpdated() {
+    this._glitch();
+  }
+
+  _glitch() {
+    const elfGlitch = this.renderRoot.querySelector('.elf-glitch');
+    let timeout = 10000;
+    if (elfGlitch.classList.contains('glitch')) {
+      elfGlitch.classList.remove('glitch');
+    } else {
+      timeout = 5000;
+      elfGlitch.classList.add('glitch');
+    }
+
+    window.setTimeout(() => this._glitch(), timeout);
+  }
+
+
   render() {
     return html`
 <div id="top">

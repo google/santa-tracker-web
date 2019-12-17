@@ -32,28 +32,30 @@
     &:nth-child(3) {
       background-color: rgba(255,255,255,0.2);
       background-blend-mode: overlay;
+      opacity: 0;
     }
   }
 }
 
 $glitchTime: 3s;
 
-.elf-glitch *:nth-child(2) {
+.elf-glitch.glitch *:nth-child(2) {
   transform: translate3d(3px,0,0);
   animation: glitch-anim-1-horizontal $glitchTime infinite linear alternate;
 }
 
-.elf-glitch *:nth-child(3) {
+.elf-glitch.glitch *:nth-child(3) {
+  opacity: 1;
   transform: translate3d(calc(-1 * 3px),0,0);
   animation: glitch-anim-2-horizontal $glitchTime infinite linear alternate;
 }
 
-.elf-glitch *:nth-child(4) {
+.elf-glitch.glitch *:nth-child(4) {
   transform: translate3d(0, calc(-1 * 7px), 0) scale3d(-1,-1,1);
   animation: glitch-anim-3-horizontal $glitchTime infinite linear alternate;
 }
 
-.elf-glitch *:nth-child(5) {
+.elf-glitch.glitch *:nth-child(5) {
   animation: glitch-anim-flash 0.5s steps(1,end) infinite;
 }
 
