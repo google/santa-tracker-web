@@ -30,8 +30,8 @@
     background-blend-mode: transparent;
 
     &:nth-child(3) {
-      //background-color: rgba(255,255,255,0.2);
-      //background-blend-mode: overlay;
+      background-color: rgba(255,255,255,0.2);
+      background-blend-mode: overlay;
     }
   }
 }
@@ -547,4 +547,7 @@ $animationTime: 14s;
     top: 744px;
   }
 
+  .elf-glitch {
+    top: 644px;
+  }
 }
