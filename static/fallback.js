@@ -6,13 +6,11 @@ import santaStyles from './styles/santa.css';
 import fallbackStyles from './styles/fallback.css';
 document.adoptedStyleSheets = [santaStyles, fallbackStyles];
 
-import {createFrame} from './src/elements/santa-gameloader.js';
-import * as messageSource from './src/lib/message-source-fallback.js';
-
+import {Loader, LoaderHandler} from 'iframe-load';
+import {prepareMessage} from './src/lib/iframe.js';
 
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
-import { preload } from './src/core/common.js';
 
 
 
@@ -21,6 +19,7 @@ audio.src = _static`fallback-audio/village_retro_music_r2.mp3`;
 audio.loop = true;
 audio.autoplay = true;
 document.body.append(audio);
+
 
 const homeButton = document.createElement('button');
 homeButton.className = 'home';
@@ -33,99 +32,51 @@ errorElement.className = 'error';
 document.body.append(errorElement);
 
 
-let activeFrame = createFrame();
-let previousFrame = null;
-document.body.append(activeFrame);
+// Extend the timeout, especially for dev, where we're compiling.
+class TimeoutLoader extends Loader {
+  static timeout() {
+    return 10 * 1000;
+  }
+}
 
 
-
-const fallbackLoad = (url, {route, data, locked}) => {
-  const frame = createFrame(url);
-  frame.classList.add('pending');
-  document.body.append(frame);
-  document.body.classList.add('loading');
-  homeButton.disabled = !route;  // show home button on non-"/" pages
-
-  if (previousFrame) {
-    activeFrame.dispatchEvent(new CustomEvent('-removed'));
-    activeFrame.remove();  // new activeFrame hasn't loaded yet
-  } else {
-    previousFrame = activeFrame;
-    previousFrame.setAttribute('tabindex', -1);
-    window.focus();
+const loader = new TimeoutLoader(document.body, new (class extends LoaderHandler {
+  constructor() {
+    super();
+    this._resolveUnload = () => {};
   }
 
-  activeFrame = frame;
+  unload(frame, href) {
+    // Unload only when the new frame is ready. This is unlike the regular codebase, which can
+    // remove the old frame early behind the loading screen.
+    frame.classList.add('unload');
+    this._resolveUnload();  // resolve any unfinished
 
-  const loaded = (port) => {
-    frame.classList.remove('pending');
-    document.body.classList.remove('loading');
-    document.body.classList.add('loaded');
-
-    const local = previousFrame;
-    local.classList.add('pending');
-    window.setTimeout(() => {
-      local.remove();
-    }, 250);
-    previousFrame = null;
-
-    if (port) {
-      runner(port);
-    } else {
-      frame.remove();  // should == activeFrame
-      failedToLoad();
-    }
-  };
-
-  if (!url) {
-    // successfully loaded nothing!
-    loaded(null);
-    return Promise.resolve(true);
-  }
-
-  let resolved = false;
-
-  const portPromise = new Promise((resolve) => {
-    const portMessageHandler = (ev) => {
-      const port = ev.data;
-      if (!(port instanceof MessagePort)) {
-        throw new Error(`didn't get port from contentWindow`);
-      }
-      resolve(port);
-    };
-
-    messageSource.add(frame.contentWindow, portMessageHandler);
-    frame.addEventListener('-removed', (ev) => resolve(null));
-    frame.addEventListener('load', () => {
-      // Unlike modern browsers, Edge/IE seems to not get this for a while.
-      window.setTimeout(() => {
-        resolved || console.warn('load timeout', url);
-        resolve(null);
-      }, 10 * 1000);
+    const p = new Promise((r) => this._resolveUnload = r);
+    return p.then(() => {
+      frame.classList.add('gone');
+      return new Promise((r) => window.setTimeout(r, 125));
     });
-  });
+  }
 
-  return portPromise.then((port) => {
-    resolved = true;
-
-    if (activeFrame !== frame) {
-      return false;  // preempted, do literally nothing
-    } else if (!port) {
-      loaded(null);
-      return false;
+  async prepare(frame, href, context) {
+    const port = await prepareMessage(frame);
+    if (!(port instanceof MessagePort)) {
+      this._resolveUnload();  // kick unloaded frame
+      return null;
     }
 
     // send ?foo=.. data
-    port.postMessage({type: 'data', payload: data});
+    port.postMessage({type: 'data', payload: context});
 
-    let tasks = 1;  // pretend that 'config' is a single task
-
-    return new Promise((resolve) => {
+    // Do basic setup for tasks
+    await new Promise((resolve) => {
+      let tasks = 1;  // pretend that 'config' is a single task
       port.onmessage = (ev) => {
         const {type, payload} = ev.data;
         switch (type) {
           case 'config':
-            --tasks;
+            --tasks;  // we ignore the config in fallback
             break;
           case 'tasks':
             tasks += payload;
@@ -133,17 +84,34 @@ const fallbackLoad = (url, {route, data, locked}) => {
           default:
             return;  // ignore, don't run tasks check below
         }
-
         if (tasks <= 0) {
-          loaded(port);
-          resolve(true);
+          resolve();
         }
       };
     });
-  });
+
+    this._resolveUnload();  // kick unloaded frame
+    return port;
+  }
+
+  ready(frame, href, port) {
+    document.body.classList.add('loaded');
+
+    if (port === null) {
+      failedToLoad();
+    } else {
+      runner(port);
+    }
+
+    return true;  // indicate 'success'
+  }
+}));
+
+
+const fallbackLoad = (url, {route, data, locked}) => {
+  homeButton.disabled = !route;  // show home button on non-"/" pages
+  return loader.load(url, data);
 };
-
-
 const {scope, go, write} = configureProdRouter(buildLoader(fallbackLoad, true));
 document.body.addEventListener('click', globalClickHandler(scope, go));
 

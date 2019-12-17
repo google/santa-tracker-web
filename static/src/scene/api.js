@@ -145,6 +145,7 @@ const sceneApi = (function() {
     'score': false,
     'gameover': false,
     'go': false,
+    'error': false,
   };
   for (const key in bufferNames) {
     const listType = bufferNames[key];

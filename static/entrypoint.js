@@ -498,7 +498,6 @@ async function runner(control, route) {
   for (;;) {
     const op = await control.next();
     if (op === null || op === undefined) {
-      // TODO(samthor): Can't log score here, state is already reset.
       break;
     }
 
@@ -524,8 +523,6 @@ async function runner(control, route) {
           const shareUrl = window.location.pathname + window.location.search;
           global.setState({shareUrl})
         }
-
-        // TODO: log score?
 
         global.setState({
           status: 'gameover',
@@ -580,25 +577,14 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
 });
 
 
-loaderElement.addEventListener(gameloader.events.error, (ev) => {
-  // TODO(samthor): Internal errors could cause an infinite loop here.
-  const {error, context} = ev.detail;
-  const {route} = context;
-  loaderElement.load(null, {error, route});
-});
-
-
 loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
   // A new frame is being loaded. It's not yet visible (although its onload event has fired by now),
   // but the prior frame is now deprecated and is inevitably going to be removed.
   // It's possible that the new frame is null (missing/404/empty): in this case, control is null.
 
-  const {context, resolve, control, ready} = ev.detail;
+  const {context, control, ready} = ev.detail;
   const call = async () => {
     const {data, route, error, locked} = context;
-    if (error) {
-      console.error('error', error);
-    }
 
     // Kick off the preload for this scene and wait for the interlude to appear.
     const configPromise = prepare(control, data);
@@ -689,11 +675,22 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
     // Kick off runner.
     await runner(control, route);
-
     // TODO: might be trailing events
   };
 
-  resolve(call());
+  // Run in a safe block that shows an error if something fails.
+  (async function() {
+    try {
+      await call();
+    } catch (e) {
+      const active = ready();  // nb. call ready() for side-effects, we should finish gameloader
+      console.error('error active?', active, e);
+      if (!active) {
+        return false;  // ... preempted scenes don't show errors
+      }
+      loaderElement.load(null, {...context, error: e});
+    }
+  }());
 });
 
 

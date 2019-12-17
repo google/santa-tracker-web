@@ -75,9 +75,6 @@ function delayForFont(fontFamily, timeout = 8 * 1000) {
 
 api.preload.wait(r.ready());
 
-api.preload.wait(delayForFont('Fugaz One'));
-api.preload.wait(delayForFont('Lobster'));
-
 
 const houses = 'boatload codeboogie codelab penguindash presentbounce presentdrop snowball traditions translations wrapbattle'.split(/\s+/g);
 (function() {
@@ -102,7 +99,7 @@ function targetSize() {
 }
 
 
-api.ready(async () => {
+async function start() {
   const fps = 10;
   let last = 0;
   let previousRatio = -1;
@@ -166,7 +163,14 @@ body {
 
     previousRatio = t.ratio;
   }());
+};
 
+// Delay for fonts/rendering.
+const fontDelay = Promise.all(['Fugaz One', 'Lobster'].map((name) => delayForFont(name)));
+api.preload.wait(fontDelay.then(() => start()));
+
+api.ready(async () => {
+  // nothing to do, already rendering by now
 });
 
 </script>
