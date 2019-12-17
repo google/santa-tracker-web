@@ -29,7 +29,8 @@ canvasOptions.set(titleSurface, {
   lineHeight: 60,
 });
 
-noticeSurface.title = _msg`error-unsupported`;
+// Only show the unsupported message if it's needed.
+noticeSurface.title = api.param('fallback') ? _msg`error-unsupported` : _msg`village_explore`;
 canvasOptions.set(noticeSurface, {
   color: '#99ccff',
   width: 300,
@@ -169,7 +170,23 @@ body {
 const fontDelay = Promise.all(['Fugaz One', 'Lobster'].map((name) => delayForFont(name)));
 api.preload.wait(fontDelay.then(() => start()));
 
+api.config({
+  sound: [],
+});
+
 api.ready(async () => {
+  // FIXME: Plays a fixed audio file every ~120s (it's ~118s long).
+  // This is ignored in the actual retro scene as it does not use kplay. It's also not buffered
+  // in case audio is disabled and /retro.html is the initial load.
+  function playAudio() {
+    api.play('@', 'https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/village_retro_music_r2.mp3?alt=media&token=c5c14d97-c174-49a0-a362-353f124821cd');
+  }
+  window.setTimeout(() => {
+    // start after 1s
+    playAudio();
+    window.setInterval(playAudio, 120 * 1000);
+  }, 1000);
+
   // nothing to do, already rendering by now
 });
 
