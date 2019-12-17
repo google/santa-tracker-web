@@ -14,7 +14,11 @@ class ControlsManager {
   init(game, boardBkg) {
     this.tutorial_ = game.tutorial;
 
+
     if (app.shared.utils.touchEnabled) {
+      this.domCursorTouch = document.querySelector('[data-cursor-touch]');
+      this.domCursorTouch.classList.add('touch-device');
+
       this.isTouch = true;
       this.currentTouchId = null;
       boardBkg.addEventListener(
@@ -66,10 +70,14 @@ class ControlsManager {
     var touch = e.changedTouches[0];
 
     this.currentTouchId = touch.identifier
+
+    const pos = Utils.pixelToGridPosition(app.Board.context,
+        { x: touch.clientX, y: touch.clientY });
   }
 
   onTouchEnd(e) {
     var touch = this.getCurrentTouch(e);
+
     if (!touch) {
       return;
     }
@@ -78,12 +86,46 @@ class ControlsManager {
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
         { x: touch.clientX, y: touch.clientY }, true);
 
-    // e.preventDefault();
+    if (this.platform) {
+      this.currentTouchPositionPlatform = {
+        x: this.currentTouchPosition.x - this.platform.position.x,
+        y: this.currentTouchPosition.y - this.platform.position.y,
+      }
+    }
+
+    this.domCursorTouch.classList.remove('transition');
+    this.hideCursorTouch();
+    setTimeout(() => {
+      this.domCursorTouch.classList.add('transition');
+      this.showCursorTouch();
+    }, 0);
+    clearTimeout(this.cursorFadeOutTimeout);
+    this.cursorFadeOutTimeout = setTimeout(() => {
+      this.hideCursorTouch()
+    }, 500);
 
     // Let tutorial know about touch so it can hide the tutorial.
     if (!this.touchStarted) {
       this.tutorial_.off('buildandbolt_mobile.mp4');
       this.touchStarted = true;
+    }
+  }
+
+  showCursorTouch() {
+    if (this.currentTouchPosition) {
+      const x = this.currentTouchPosition.x * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      const y = this.currentTouchPosition.y * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1)`;
+      this.domCursorTouch.style.opacity = 1
+    }
+  }
+
+  hideCursorTouch() {
+    if (this.currentTouchPosition) {
+      const x = this.currentTouchPosition.x * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      const y = this.currentTouchPosition.y * Constants.GRID_DIMENSIONS.UNIT_SIZE;
+      this.domCursorTouch.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(0.6)`;
+      this.domCursorTouch.style.opacity = 0
     }
   }
 
@@ -104,16 +146,33 @@ class ControlsManager {
    */
   getMovementDirections(controls, currentPosition, platform, platformOffset) {
     if (this.isTouch) {
+      if (platform && platform != this.platform) {
+        this.platform = platform;
+        if (this.currentTouchPosition) {
+          this.currentTouchPositionPlatform = {
+            x: this.currentTouchPosition.x - this.platform.position.x,
+            y: this.currentTouchPosition.y - this.platform.position.y,
+          }
+        }
+      } else if (!platform) {
+        this.platform = null;
+      }
+
       if (this.currentTouchPosition) {
-        let goalPosition = this.currentTouchPosition;
+        // here we need to subsract half of the character size
+
+        let goalPosition = {
+          x: this.currentTouchPosition.x - 0.5,
+          y: this.currentTouchPosition.y - 0.5
+        };
+
         let startPosition = currentPosition;
 
         if (platform && platformOffset) {
-          goalPosition =  {
-            x: this.currentTouchPosition.x - platform.position.x,
-            y: this.currentTouchPosition.y - platform.position.y
-          };
-
+          goalPosition = {
+            x: this.currentTouchPositionPlatform.x - 0.5,
+            y: this.currentTouchPositionPlatform.y - 0.5
+          }
           startPosition = platformOffset;
         }
 
@@ -175,6 +234,7 @@ class ControlsManager {
   clearPosition() {
     this.currentTouchId = null;
     this.currentTouchPosition = null;
+    this.currentTouchPositionPlatform = null;
   }
 }
 

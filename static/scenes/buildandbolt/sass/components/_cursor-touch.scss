@@ -1,0 +1,21 @@
+.cursor-touch {
+  border-radius: 50%;
+  border: 5px solid $color-white;
+  display: none;
+  height: 80px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 80px;
+  z-index: $gui-z-index;
+
+  &.touch-device {
+    display: block;
+  }
+
+  &.transition {
+    transition: opacity $transition-time ease, transform 1s $transition-expo-out;
+  }
+}

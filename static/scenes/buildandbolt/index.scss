@@ -12,6 +12,7 @@ $rotate-bg: $gameover-bg;
 
 @import 'sass/components/_board-bkg';
 @import 'sass/components/_countdown';
+@import 'sass/components/_cursor-touch';
 @import 'sass/components/_fence';
 @import 'sass/components/_gui';
 @import 'sass/components/_ice';
@@ -45,6 +46,7 @@ body {
     background: #ccc;
     bottom: 0;
     left: 0;
+    overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;
