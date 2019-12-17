@@ -26,6 +26,13 @@ class ModvilVillageConstructor extends LitElement {
       <div class="elfski2"></div>
     </div>
     <div class="layer3">
+      <div class="elf-glitch">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div class="elfbike4"></div>
       <div class="elfbike6"></div>
       <div class="elfbike2"></div>
