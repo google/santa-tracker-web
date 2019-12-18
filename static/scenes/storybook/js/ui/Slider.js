@@ -1,5 +1,6 @@
 import Scene from '../components/Scene.js';
 import Nav from './Nav.js';
+import Transition from '../components/Transition.js';
 
 class Slider {
   constructor() {
@@ -18,6 +19,7 @@ class Slider {
 
   event() {
     this.slider.addEventListener('mouseup', () => {
+      Transition.trigger();
       Scene.update(this.slider.value);
       Nav.update(this.slider.value - 1);
       Nav.handleBtnVisibility();
