@@ -1,3 +1,15 @@
+.retro {
+  position: absolute;
+  width: 83px;
+  height: 96px;
+  top: 500px;
+  left: calc(50% - 476px);
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
 .waterspout {
   position: absolute;
   width: 117px;
@@ -166,7 +178,8 @@
 @media (max-width: 1024px) {
   .waterspout,
   .snowman-build,
-  .peekaboo {
+  .peekaboo,
+  .retro {
     transform: translateY(150px);
   }
 }

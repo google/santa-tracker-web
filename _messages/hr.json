@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Izradi {{count}} autića!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Izradi jedan autić!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Izradi {{count}} robota!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Izradi jednog robota!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Izradi {{count}} raketa!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Izradi jednu raketu!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Izradi {{count}} medvjedića!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Izradi jednog medvjedića!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Podizanje i ispuštanje igračaka"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Upute"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Pomicanje"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Igrač br. 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Igrač br. 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Koliko igrača?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 igrač"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 igrača"
+	},
+	"buildandbolt-skip": {
+		"message": "Preskoči"
+	},
 	"bw_country_name": {
 		"message": "Bocvana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Cjelojutarnje slavlje"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Pomoću Google asistenta možeš saznati više o Djedu Božićnjaku tijekom prosinca! Ta je integracija dostupna na odabranim jezicima."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Ako imaju dopuštenje roditelja, djeca mlađa od 13 godina mogu pristupati vlastitom prilagođenom doživljaju Google asistenta kad se prijave na svoj račun kojim se upravlja putem \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linka\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google asistent povezuje te sa Sjevernim polom, gdje Djed vježba za nastup na koncertu. Zna samo jednu pjesmu – možeš li mu pomoći da shvati kako je najbolje odsvirati?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Nazovi Djeda Božićnjaka"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Svakoga dana prati vijesti sa Sjevernog pola i saznaj što rade Djed i njegovi vilenjaci. Jednostavno pitaj Google asistenta što je novo na Sjevernom polu."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Vijesti sa Sjevernog pola"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kad ne radi s vilenjacima u radionici, Djed provodi vrijeme usavršavajući svoje komičarske vještine. Ako želiš poslušati kako mu ide, zatraži Djedov vic od Google asistenta."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Djedovi vicevi"
+	},
+	"familyguide_assistant_title": {
+		"message": "Ne propusti Minutu sa Sjevernog pola"
+	},
 	"familyguide_body": {
 		"message": "Djedovo je selo savršeno mjesto na kojem obitelj može proslaviti blagdane. U njemu možete pronaći omiljene likove te zabavne, edukativne i interaktivne aktivnosti za sve uzraste."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "više"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asistent"
+	},
 	"familyguide_secondary_body": {
 		"message": "Djedovo se selo 24. prosinca pretvara u sučelje za praćenje u kojem možete slijediti Djeda i njegove sobove dok donose darove djeci širom svijeta."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Ovih blagdana Slijedi Djeda Božićnjaka donosi više čarolije uz omiljene proizvode iz Googlea."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Svaki dan možeš od Google asistenta zatražiti da sazna zabavne novosti od vilenjaka Dimplesticksa."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, što je novo na Sjevernom polu?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Blagdanska zabava za cijelu obitelj"
+	},
+	"familylink": {
+		"message": "Dodajte djetetov Google račun kojim upravljate putem Family Linka"
+	},
+	"featured": {
+		"message": "Istaknuto"
 	},
 	"fi_country_name": {
 		"message": "Finska"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Polazak Djeda Božićnjaka"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Svjetla se gase"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dan u muzeju"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Djedova radionica"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Božićna cjepanica"
 	},
 	"scene_windtunnel": {
 		"message": "Vjetrotunel"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingvini su se sanjkali. Vilenjaci su ih radosno bodrili."
+	},
+	"storybook_paragraph_02": {
+		"message": "U cijelom je gradu zavladalo uzbuđenje zbog osvijetljenog drvca."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nije svatko toga dana bio radostan. Za narvala Ollieja to je bio tužan dan."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Volio bih barem jednom to vidjeti. To se veliko osvijetljeno stablo čini toliko čudesnim.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Ali ti voliš ocean!\", odvratila je draga medvjedica Mary. \"Sve njegove školjke i plankton. U podmorju je odlično!\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"To je točno, pretpostavljam\", reče Ollie. No ponekad me ovo plavo prostranstvo rastuži!\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"A kako bi bilo...\", reče Mary uz ohrabrujući osmijeh, \"da ti se danas pridružim u plivanju?\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Da krenemo u istraživanje? Plivamo oko morskih grebena... Imam ja i bolju ideju!\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Mogli bismo održati vlastito paljenje svjetala na drvcu.\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Skovan je plan. Mary je okupila družinu. Uskočili su vilenjaci, a za njima i pingvini. A i nekoliko sobova!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie se radosno osmjehnuo prijateljima koji su mu se pridružili. \"Započnimo\", reče Mary. \"Ovo će biti zabavno!\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Kad se organizira zabava, najvažniji su pomagači koji će osigurati njezin uspjeh."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Okupite se!\", viknuo je Ollie. \"Potrebna nam je pomoć sviju vas da bismo postavili podmorske svjetleće alge.\""
+	},
+	"storybook_paragraph_14": {
+		"message": "Ribe su požurile prenijeti vijest uzvanicima. \"Nama prepustite pozivnice, a vi obavite ostalo!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "Vilenjaci imaju iskustva s takvim stvarima. Trebalo im je vrijeme za dovršenje zadatka i bacili su se na posao."
+	},
+	"storybook_paragraph_16": {
+		"message": "Sljedeći su na redu bili ukrasi. Znali su kome se trebaju obratiti. \"G. Rak i gđo Jastog, hoćete li nam pomoći?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Oglasile su se i školjke: \"I mi možemo pomoći s dizajnom! Objesite naše bisere o grane. Blještat će i sjati.\""
+	},
+	"storybook_paragraph_18": {
+		"message": "Za svaku je zabavu potrebna glazba čijim će se ritmovima svi prepustiti."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Moj ujak Horatio najbolji je na estradi. A njegov prijatelj Carl virtuoz je na gitari.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Približilo se vrijeme zabave. Potreban nam je još samo savršeni svežanj algi za svečano drvce.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"To je to! To je to!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie je cupkao od radosti! Ova će noć doista biti čarobna."
+	},
+	"storybook_paragraph_23": {
+		"message": "Morske zvijezde požurile su zauzeti svoja mjesta, a ukrasi su se zanjihali. Meduze su zaplesale, a glazbenici zasvirali."
+	},
+	"storybook_paragraph_24": {
+		"message": "Ukrasi i zvukovi bili su predivni. No najljepše je bilo kad su se svi okupili..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...u trenutku kad su zasjala svjetla!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Važni trenutak napokon je stigao! Plankton je zasjao. Ollie je ostao bez daha!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Svjetla su zasjala kao čarolijom. Cijeli je grad utihnuo gledajući predstavu."
+	},
+	"storybook_paragraph_28": {
+		"message": "Najspektakularniji prizor koji su ikada vidjeli. Svjetla su iz žute boje prešla u ljubičastu, a zatim u smaragdno zelenu."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary se umorila, vrijeme za odlazak na počinak već je prošlo. No prije nego što su se razišli, Ollie se okrenuo i rekao:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Hvala vam što ste okupili cijeli grad i priredili večer koje ćemo se svi zauvijek sjećati.\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Kraj"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

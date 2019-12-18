@@ -54,7 +54,7 @@ a.video {
   api.config({scroll: true});
 
   error.addEventListener('click', (ev) => {
-    api._send('error', 'error from scene');
+    api.error('error from scene');
   });
 
   api.ready(async () => {

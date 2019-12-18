@@ -7,21 +7,24 @@
  */
 
 var defaults = {
-  refreshEvery: 60,  // this is low, _because_ we're offline
-  videos: [],
-  sceneLock: {},
-  routeUrl: 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_|LANG|.json?alt=media&2018b',
-  sceneRedirect: {},
-  upgradeToVersion: '',
-  switchOff: false,
+  featured: {},
+  nav: ['@cityquiz','@rocketsleigh','@dasherdancer','@snowballrun','@presenttoss','@penguinswim','santaselfie','codeboogie','jetpack','jamband','snowball','elfmaker','codelab','wrapbattle','penguindash','build','matching','museum','boatload','takeoff','gumball','presentbounce','glider','speedsketch','santascanvas','seasonofgiving','penguinproof','traditions','wheressanta','santasearch','translations','runner','snowbox','mercator','windtunnel'],
+  fallbackIndexScene: 'retro',
   indexScene: 'modvil',
-  nav: ['snowbox','selfies','codeboogie','jetpack','jamband','snowball','elfmaker','codelab','wrapbattle','penguindash','museum','boatload','takeoff','gumball'],
+  switchOff: false,
+  upgradeToVersion: '',
+  sceneRedirect: {'educators':'familyguide','press':'familyguide','tracker':'','village':''},
+  routeUrl: 'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_|LANG|.json?alt=media&2018b',
+  sceneLock: {},
+  videos: ['carpool','comroom','jingle','liftoff','museum','office','onvacation','penguinproof','reindeerworries','reload','santasback','satellite','selfies','slackingoff','takeoff','temptation','tired','wheressanta','workshop','likealight','yulelog'],
+  refreshEvery: 60,  // this is low, _because_ we're offline
+  useGeoIP: true,
+  routeJitter: 10,
 };
 
 var now = new Date();
 if (now.getMonth() === 9 || now.getMonth() === 10) {
   // Oct-Nov
-  defaults.indexScene = 'underconstruction';
 
 } else if (now.getMonth() !== 11) {
   // Jan-Sep

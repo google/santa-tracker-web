@@ -669,7 +669,7 @@ async function releaseProd(langs) {
 
       const image = `prod/images/og/${page}.png`;
       if (await fsp.exists(image)) {
-        const url = `/images/og/${page}.png`;
+        const url = `https://santatracker.google.com/images/og/${page}.png`;
         const all = [
           '[property="og:image"]',
           '[name="twitter:image"]',
@@ -677,11 +677,22 @@ async function releaseProd(langs) {
         releaseHtml.applyAttributeToAll(head, all, 'content', url);
       }
 
+      // Optionally include nodes which match data-page.
+      const pageFilterSet = new Set(document.querySelectorAll('[data-page]'));
+      const allowedSet = new Set(document.querySelectorAll(`[data-page~="${page}"]`))
+      pageFilterSet.forEach((node) => {
+        if (allowedSet.has(node)) {
+          node.removeAttribute('data-page');
+        } else {
+          node.remove();
+        }
+      });
+
       // nb. In 2019, titles are just e.g. "Santa's Canvas", not "Santa's Canvas - Google Santa
       // Tracker".
-      const msgid = prodPages[page] || 'santatracker';
-      const all = ['title', '[property="og:title"]', '[name="twitter:title"]'];
-      releaseHtml.applyAttributeToAll(head, all, 'msgid', msgid);
+      const msgid = prodPages[page] || 'meta_title';
+      const matched = releaseHtml.applyAttributeToAll(head, ['[data-title]'], 'msgid', msgid);
+      matched.forEach((n) => n.removeAttribute('data-title'));
     });
 
     for (const lang in langs) {

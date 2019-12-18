@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "不丹"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "建造 {{count}} 辆车！"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "建造 1 辆车！"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "建造 {{count}} 个机器人！"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "建造 1 个机器人！"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "建造 {{count}} 枚火箭！"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "建造 1 枚火箭！"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "做 {{count}} 只泰迪熊！"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "做 1 只泰迪熊！"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "捡起/掉下玩具"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "操作说明"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "移动"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "玩家 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "玩家 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "几位玩家？"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 位玩家"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 位玩家"
+	},
+	"buildandbolt-skip": {
+		"message": "跳过"
+	},
 	"bw_country_name": {
 		"message": "博茨瓦纳"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "持续一个月的欢庆"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "在 12 月，您可以通过 Google 助理了解有关圣诞老人的更多动态！此集成功能仅适用于部分语言。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "在经过家长许可的情况下，不满 13 周岁的孩子也可以登录其通过 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 进行管理的帐号，获得个性化的 Google 助理体验。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google 助理将为您连线北极，圣诞老人正在那里忙着排练音乐会。他只会一首歌曲，您能帮助他找到演奏这首歌曲的最佳方式吗？"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "呼叫圣诞老人"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "每天收看北极专题新闻，了解圣诞老人和他的小精灵们在做些什么。您只需询问 Google 助理北极有什么最新动态即可。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北极专题新闻"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "当圣诞老人不在工作室和小精灵们一起忙于工作的时候，他会花时间磨炼自己的喜剧技巧。不如让 Google 助理讲个关于圣诞老人的笑话，来了解下圣诞老人的日常吧。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "关于圣诞老人的笑话"
+	},
+	"familyguide_assistant_title": {
+		"message": "北极最新动态绝不错过"
+	},
 	"familyguide_body": {
 		"message": "圣诞老人小镇是阖家欢庆节日的理想去处。你会找到所有喜爱的角色，并可参加寓教于乐、老少皆宜的互动活动。"
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "更多"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Google 助理"
+	},
 	"familyguide_secondary_body": {
 		"message": "12 月 24 日这天，圣诞老人小镇游戏将变成一个追踪体验游戏。在圣诞老人和他的驯鹿为世界各地的孩子们送去礼物的过程中，你可以全程追随他们的足迹。"
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "通过所有你喜爱的 Google 产品，在今年节日期间的“追踪圣诞老人”活动中见证更多奇迹。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "每天询问 Google 助理，了解小精灵 Dimplesticks 的有趣动态。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "“Ok Google，北极有什么新情况？”"
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "阖家共享的假日乐趣"
+	},
+	"familylink": {
+		"message": "添加您孩子的通过 Family Link 管理的 Google 帐号"
+	},
+	"featured": {
+		"message": "精选"
 	},
 	"fi_country_name": {
 		"message": "芬兰"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "圣诞老人出发"
 	},
+	"scene_videoscene_likealight": {
+		"message": "安然入睡"
+	},
 	"scene_videoscene_museum": {
 		"message": "博物馆一日游"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "圣诞老人的魔法小屋"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "圣诞节原木"
 	},
 	"scene_windtunnel": {
 		"message": "风洞"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "苏里南"
+	},
+	"storybook_paragraph_01": {
+		"message": "企鹅们划着雪橇。精灵们欢呼喝彩。"
+	},
+	"storybook_paragraph_02": {
+		"message": "村子里的树灯秀让整个小镇沸腾起来。"
+	},
+	"storybook_paragraph_03": {
+		"message": "那天，并不是每个人都那么快乐。比如对独角鲸奥利来说，就是个伤心的日子。"
+	},
+	"storybook_paragraph_04": {
+		"message": "“我希望能到那里去看看，哪怕只有一次。若能去看看那棵大树熠熠生辉，该有多好啊！”"
+	},
+	"storybook_paragraph_05": {
+		"message": "和蔼可亲的小熊玛丽回答道：“但你热爱大海！那里有贝壳，还有浮游生物。游在它们旁边多惬意啊！”"
+	},
+	"storybook_paragraph_06": {
+		"message": "奥利说：“我想是吧！的确如此。但有时候，茫茫大海也会让我感到忧伤！”"
+	},
+	"storybook_paragraph_07": {
+		"message": "玛丽笑着鼓励道：“要不今天我和你一起游一会儿？”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“去探险？在海礁上冲浪...或许还有更好玩的。我知道！”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“我们可以自己办一场树灯秀。”"
+	},
+	"storybook_paragraph_10": {
+		"message": "他们酝酿了一项计划。玛丽召集来她的小伙伴们。精灵们蹦蹦跳跳地赶来了，随后企鹅们也来了。还来了几只驯鹿！"
+	},
+	"storybook_paragraph_11": {
+		"message": "奥利高兴地对赶来的朋友们微笑。玛丽说：“我们开始吧！一定会非常有趣！”"
+	},
+	"storybook_paragraph_12": {
+		"message": "现在，要举办一场精彩的派对，首先需要有一群好帮手同心协力。"
+	},
+	"storybook_paragraph_13": {
+		"message": "奥利大声喊道：“来集合啦！“我们需要大家的帮助，举办一场我们自己的水下海藻灯光秀。”"
+	},
+	"storybook_paragraph_14": {
+		"message": "鱼儿们马上行动起来，向宾客传达消息。“我们负责邀请，你们来处理其他事情！”"
+	},
+	"storybook_paragraph_15": {
+		"message": "现在，精灵们有了这类活动的体验。他们需要时间来修炼内功，所以离开了。"
+	},
+	"storybook_paragraph_16": {
+		"message": "接下来是装饰。他们知道找谁帮忙。“螃蟹先生，龙虾女士，请您二位帮帮忙，好不好？”"
+	},
+	"storybook_paragraph_17": {
+		"message": "牡蛎附和道：“我们可以帮忙设计！把我们的珍珠挂上枝头。它们会闪闪发光。”"
+	},
+	"storybook_paragraph_18": {
+		"message": "所有派对都离不开音乐，奏响美妙的音符，让大家情不自禁地起身翩翩起舞。"
+	},
+	"storybook_paragraph_19": {
+		"message": "“我的叔叔霍雷肖是音乐圈的佼佼者，他的朋友卡尔是一位吉他奇才。”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“派对时间快到了，我们需要的最后一样东西是完美的海藻丛，用来做庆典树。”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“找到了！找到了！”"
+	},
+	"storybook_paragraph_22": {
+		"message": "奥利高兴地翻了个跟斗！今晚的派对会是多么精彩啊。"
+	},
+	"storybook_paragraph_23": {
+		"message": "海星一跃就位，饰品晃了起来。水母翩翩起舞，乐队成员开始演奏。"
+	},
+	"storybook_paragraph_24": {
+		"message": "从装饰到音乐，一切都如此美妙。但最美好的时刻是当大家齐聚一处..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...观赏灯光之时！"
+	},
+	"storybook_paragraph_26": {
+		"message": "这一刻终于来了!浮游生物亮了起来。奥利发出了惊叹声！"
+	},
+	"storybook_paragraph_27": {
+		"message": "犹如施了魔法一般，瞬间灯光闪耀、熠熠生辉。整个小镇一片寂然，大家都在静静地观赏这场灯光秀。"
+	},
+	"storybook_paragraph_28": {
+		"message": "这是他们有生以来见过的最壮观的场面。灯光不断变换着颜色，黄色、紫色，然后是明亮的翡翠绿色。"
+	},
+	"storybook_paragraph_29": {
+		"message": "玛丽有点困了，已经过了睡觉的时间。但在他们离开之前，奥利转身说道："
+	},
+	"storybook_paragraph_30": {
+		"message": "“非常感谢你让整个小镇欢聚一堂，我们一定会永远记住这个美妙的夜晚。”"
+	},
+	"storybook_paragraph_31": {
+		"message": "完"
 	},
 	"sv_country_name": {
 		"message": "萨尔瓦多"

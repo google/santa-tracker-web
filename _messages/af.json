@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhoetan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Bou {{count}} karre!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Bou 1 kar!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Bou {{count}} robotte!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Bou 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Bou {{count}} vuurpyle!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Bou 1 vuurpyl!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Bou {{count}} teddiebere!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Bou 1 teddiebeer!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Tel speelgoed op en laat los"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instruksies"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Skuif"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Speler 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Speler 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hoeveel spelers?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 speler"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 spelers"
+	},
+	"buildandbolt-skip": {
+		"message": "Slaan oor"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Die pikkewyne ry slee. Elwe juig uitbundig."
+	},
+	"storybook_paragraph_02": {
+		"message": "Die hele dorp was aan die gons vir die dorp se boomliggies."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nie almal voel daardie dag so vrolik nie. Julle sien, dit is 'n hartseer dag vir 'n eenhoringvis genaamd Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Ek wens ek kon, net hierdie een keer, daar wees om dit te sien. Dit klink fantasties om te kan sien hoe daardie groot boom se liggies aangeskakel word.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“Maar jy's dol oor die oseaan!” antwoord Marie Beer. “Al die seeskulpies en plankton. Dis fantasties daar onder!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Ek reken so,” sê Ollie, “dis beslis waar. Maar soms laat die grote oseaan my voel of ek verdrink!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Of wat as …” sê Marie met ’n aansporende glimlag, “ek vandag soontoe kom en ons bietjie daar onder rondswem?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Wil jy bietjie gaan verken? Branderry oor koraalriwwe … Of nog beter, dink ek!"
+	},
+	"storybook_paragraph_09": {
+		"message": "“Ons kan ons eie boombeligting hou.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "'n Plan het uitgebroei. Marie kry haar span bymekaar. Elwe spring in en toe pikkewyne. En ook 'n paar rendiere!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie glimlag genotvol vir die vriende wat gekom het. “Kom ons spring aan die werk!” sê Marie. “Dit gaan pret wees!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Om 'n lekker partytjie te hou, is 'n span uitstekende helpers die eerste ding wat hulle nodig het om hulle suksesvol te help wees."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Staan nader!” roep Ollie. “Ons kort al jul hulp om ons eie onderseebeligting van seegras aan te bied.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Die visse gaan tot aksie oor en versprei die nuus aan die gaste. “Ons sal die uitnodigings hanteer; julle moet die res hanteer!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Die elwe het nogal ervaring met hierdie soort geleentheid. Hulle het tyd nodig om bietjie rond te peuter, en kry dus koers."
+	},
+	"storybook_paragraph_16": {
+		"message": "Versierings is volgende. Hulle weet net wie om te gaan sien. “Mnr. Krap en mev. Kreef, sal julle help, mooi 'seblief?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Die oesters merk op, “Ons kan help ontwerp! Hang ons pêrels aan die takke. Dit sal skitter en skyn.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Elke partytjie het musiek, wysies nodig met net die regte ritme om almal op hul voete te kry en te laat uitkap."
+	},
+	"storybook_paragraph_19": {
+		"message": "“My oom Horatio is die beste in die bedryf. En sy goeie vriend Karel doen wondere met 'n kitaar.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“Dis amper tyd vir die partytjie. Die laaste ding wat ons dus nodig het, is die perfekte bondel seegras vir 'n seremoniële boom.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“Dis dit! Dis dit!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie slaan sommer bolmakiesie van genot! Wat 'n wonderlike partytjie gaan hierdie hele nag net nie wees nie."
+	},
+	"storybook_paragraph_23": {
+		"message": "Seester spring in posisie en die ornamente wieg rond. Die jellievis dans en die orkeslede speel."
+	},
+	"storybook_paragraph_24": {
+		"message": "Dis als so fantasties, die dekor en die klanke. Maar die beste deel is toe almal nader staan …"
+	},
+	"storybook_paragraph_25": {
+		"message": "… vir die aanskakel van die liggies!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Uiteindelik breek die oomblik aan! Die plankton word verlig. Ollie snak na sy asem!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Dis amper soos towerkuns, met die liggies wat glinster. Die hele dorp raak stil en kyk net na die vertoning."
+	},
+	"storybook_paragraph_28": {
+		"message": "Die skouspelagtigste ding wat hulle almal al ooit gesien het. Liggies het geel geraak, toe pers en toe heldersmaraggroen"
+	},
+	"storybook_paragraph_29": {
+		"message": "Marie begin vaak raak, dit is verby slapenstyd. Maar voor hulle almal vertrek, draai Ollie en sê,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Baie dankie dat jy hierdie hele dorpie bymekaar gebring het vir 'n nag wat ek weet ons vir ewig sal onthou.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Die einde"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

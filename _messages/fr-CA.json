@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhoutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Fabrique {{count}} voitures!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Fabrique une voiture!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Fabrique {{count}} robots!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Fabrique un robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Fabrique {{count}} fusées!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Fabrique une fusée!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Fabrique {{count}} oursons!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Fabrique un ourson!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Prendre et laisser tomber des jouets"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instructions"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Déplacer"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Joueur 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Joueur 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Combien de joueurs?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 joueur"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 joueurs"
+	},
+	"buildandbolt-skip": {
+		"message": "Ignorer"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Les pingouins faisaient de la luge. Les lutins criaient de joie."
+	},
+	"storybook_paragraph_02": {
+		"message": "La ville entière était en liesse pour l'arbre illuminé."
+	},
+	"storybook_paragraph_03": {
+		"message": "Tous n'étaient pas aussi joyeux en cette journée. C'était un jour triste, voyez-vous, pour un narval nommé Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "« J'aimerais, juste cette fois, pouvoir y assister. Il doit être merveilleux de voir ce grand arbre illuminé. »"
+	},
+	"storybook_paragraph_05": {
+		"message": "« Mais tu adores l'océan! », répondit la douce Mary l'ourse. « Tous les coquillages et le plancton. C'est formidable là-bas! »"
+	},
+	"storybook_paragraph_06": {
+		"message": "« J'imagine » dit Ollie, « c'est sûrement vrai. Mais parfois, le grand bleu me donne aussi les bleus! »"
+	},
+	"storybook_paragraph_07": {
+		"message": "« Et si… » dit Mary, avec un sourire encourageant. « J'y suis descendue aujourd'hui et nous avons nagé pendant quelque temps? »"
+	},
+	"storybook_paragraph_08": {
+		"message": "« Tu vas explorer? Surfer sur les récifs… Ou encore mieux, je le sais! »"
+	},
+	"storybook_paragraph_09": {
+		"message": "« Nous pourrions illuminer notre propre arbre. »"
+	},
+	"storybook_paragraph_10": {
+		"message": "Un plan avait été mis au point. Mary rassembla son équipe. Les lutins se joignirent au groupe, puis les pingouins. Et aussi quelques rennes!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie sourit avec délice aux amis qui étaient venus. « Allons-y! », dit Mary. « Nous allons nous amuser! »"
+	},
+	"storybook_paragraph_12": {
+		"message": "Maintenant, pour organiser une grande fête, ils ont d'abord besoin d'une équipe pour les aider à réussir."
+	},
+	"storybook_paragraph_13": {
+		"message": "« Tous ici! », cria Ollie. “ Nous avons besoin de votre aide pour organiser notre propre cérémonie sous-marine d'illumination des algues. »"
+	},
+	"storybook_paragraph_14": {
+		"message": "Les poissons se mirent à l'action, passant le mot à l'assistance. « Nous nous occupons des invitations, occupez-vous de la danse! »"
+	},
+	"storybook_paragraph_15": {
+		"message": "Les lutins connaissaient bien ce genre d'événement. Ils avaient besoin de temps pour leur bricolage, alors ils se mirent en route."
+	},
+	"storybook_paragraph_16": {
+		"message": "Ensuite, les décorations. Ils savaient à qui s'adresser. « M. Crabe et Mme Homard, pourriez-vous m'aider, s'il vous plaît? »"
+	},
+	"storybook_paragraph_17": {
+		"message": "Les huîtres poursuivirent en chœur : « Nous pouvons aider avec la conception! Suspendons nos perles aux branches. Elles brilleront et scintilleront. »"
+	},
+	"storybook_paragraph_18": {
+		"message": "Chaque fête requiert de la musique, les bonnes chansons qui feront danser toute l'assistance."
+	},
+	"storybook_paragraph_19": {
+		"message": "« Mon oncle, Horatio, est une vraie star. Et son bon ami Carl et un as de la guitare. »"
+	},
+	"storybook_paragraph_20": {
+		"message": "« Il est presque l'heure de la fête. La dernière chose dont nous aurons besoin, c'est un bouquet d'algues pour faire un arbre cérémoniel. »"
+	},
+	"storybook_paragraph_21": {
+		"message": "« Ça y est! Ça y est! »"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie sautillait de joie! Quelle fabuleuse fête aurait lieu ce soir-là."
+	},
+	"storybook_paragraph_23": {
+		"message": "L'étoile de mer se glissa en place, et les ornements oscillaient. La méduse se mit à danser, et les musiciens jouaient."
+	},
+	"storybook_paragraph_24": {
+		"message": "Tout était si fantastique, le décor et les sons. Mais le plus merveilleux moment, ce fut lorsque tous se rassemblèrent…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…pour l'illumination!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Le moment était enfin arrivé! Le plancton s'illumina. Ollie laissa échapper un soupir!"
+	},
+	"storybook_paragraph_27": {
+		"message": "C'était comme magique, toutes les lumières allumées. Tous les habitants de la ville s'étaient tus, regardant la neige tomber."
+	},
+	"storybook_paragraph_28": {
+		"message": "La chose la plus spectaculaire qu'ils aient jamais vue. Les lumières s'allumèrent en jaune, puis en mauve, puis en vif vert émeraude."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary commençait à s'endormir, l'heure du dodo était passée. Mais avant qu'ils partent tous, Ollie se retourna et dit"
+	},
+	"storybook_paragraph_30": {
+		"message": "« Merci d'avoir rassemblé la ville entière pour une soirée dont nous nous souviendrons toujours, j'en suis sûr. »"
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

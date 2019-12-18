@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Construye {{count}} automóviles"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Construye 1 auto"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Construye {{count}} robots"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Construye 1 robot"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Construye {{count}} cohetes"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Construye 1 cohete"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Crea {{count}} ositos de peluche"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Crea 1 osito de peluche"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Recoge y suelta juguetes"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrucciones"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Jugador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Jugador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "¿Cuántos jugadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 jugador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 jugadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Omitir"
+	},
 	"bw_country_name": {
 		"message": "Botsuana"
 	},
@@ -1668,7 +1719,7 @@
 		"message": "Guías para adultos"
 	},
 	"scene_gumball": {
-		"message": "Inclinación de Gumball"
+		"message": "Guía bolas de chicle"
 	},
 	"scene_havoc": {
 		"message": "Fábrica de regalos"
@@ -3278,6 +3329,99 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_paragraph_01": {
+		"message": "Los pingüinos andaban en trineo. Los duendes aplaudían con alegría."
+	},
+	"storybook_paragraph_02": {
+		"message": "Todo el mundo estaba emocionado por el árbol de luces ese día."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ese día no todos estaban de festival. Era un día triste para Oli, el narval."
+	},
+	"storybook_paragraph_04": {
+		"message": "—Ojalá, solo por esta vez, pudiera verlo encendido. Sería increíble tener luces y un gran árbol —dijo Oli conmovido."
+	},
+	"storybook_paragraph_05": {
+		"message": "—¡Pero tú adoras el océano! —respondió María, la osa. —Con los moluscos y el plancton… ¡Es una experiencia asombrosa!"
+	},
+	"storybook_paragraph_06": {
+		"message": "—Es verdad —dijo Oli—, tienes toda la razón. Pero, a veces, el mar azul entristece mi corazón."
+	},
+	"storybook_paragraph_07": {
+		"message": "—¿Qué tal si —dijo María sonriendo— nadamos mar adentro? Porque afuera hace frío y, además, está lloviendo."
+	},
+	"storybook_paragraph_08": {
+		"message": "—Vamos a explorar, nademos por el arrecife de coral. ¡Espera, se me ocurrió una idea genial!"
+	},
+	"storybook_paragraph_09": {
+		"message": "—Podríamos tener nuestro propio árbol con luces por primera vez."
+	},
+	"storybook_paragraph_10": {
+		"message": "Ya hay un plan definido y María reunió a su equipo. Duendes, pingüinos y renos se aprestaron a poner empeño."
+	},
+	"storybook_paragraph_11": {
+		"message": "Oli sonrió a los amigos reunidos. —¡Comencemos! —dijo María— ¡Será muy divertido!"
+	},
+	"storybook_paragraph_12": {
+		"message": "Para organizar la celebración, lo primero que necesitaban eran amigos y motivación."
+	},
+	"storybook_paragraph_13": {
+		"message": "—¡Acérquense! —gritó Oli. —Necesitamos su ayuda para crear luces acuáticas con algas melenudas."
+	},
+	"storybook_paragraph_14": {
+		"message": "Los peces despertaron y dijeron a los invitados: —Enviaremos las invitaciones, ustedes sigan con el alumbrado."
+	},
+	"storybook_paragraph_15": {
+		"message": "Los duendes tienen experiencia en estos temas, así que comenzaron a diseñar una estratagema."
+	},
+	"storybook_paragraph_16": {
+		"message": "Era el momento de las decoraciones, y necesitaban apoyo a toda costa. —¿Pueden ayudarnos, señor Cangrejo y señora Langosta?"
+	},
+	"storybook_paragraph_17": {
+		"message": "Las ostras repicaron:\n—¡Nosotras ayudaremos con el diseño! Cuelguen nuestras perlas en las ramas para que brillen en el árbol navideño."
+	},
+	"storybook_paragraph_18": {
+		"message": "Una fiesta necesita música y canciones con el ritmo preciso para que todos se diviertan sin pedir permiso."
+	},
+	"storybook_paragraph_19": {
+		"message": "—En el negocio de la música, mi tío Horacio es el mejor, y su buen amigo Carlos cantará como tenor."
+	},
+	"storybook_paragraph_20": {
+		"message": "—Ya casi es hora de la fiesta, solo nos faltan las algas para el árbol y una maravillosa orquesta."
+	},
+	"storybook_paragraph_21": {
+		"message": "—¡Falta poco, falta poco!"
+	},
+	"storybook_paragraph_22": {
+		"message": "Oli brincaba de alegría. ¡Qué fiesta tan asombrosa la que esta noche viviría!"
+	},
+	"storybook_paragraph_23": {
+		"message": "La estrella de mar y los adornos engalanaron el lugar. Las medusas bailaron y la banda tocó hasta el sol despuntar."
+	},
+	"storybook_paragraph_24": {
+		"message": "Todo estuvo fantástico, la decoración y los sonidos. Pero la mejor parte fue que todos estaban unidos…"
+	},
+	"storybook_paragraph_25": {
+		"message": "¡Por las luces!"
+	},
+	"storybook_paragraph_26": {
+		"message": "El momento por fin llegó. El plancton se iluminó y Oli de sorpresa gritó."
+	},
+	"storybook_paragraph_27": {
+		"message": "Parecía cosa de magia cómo las luces fulguraban. Todo el pueblo estaba en silencio mientras las contemplaban."
+	},
+	"storybook_paragraph_28": {
+		"message": "Era árbol más espectacular que habían visto, con adornos y guirnaldas. Luces amarillas, púrpura y verde esmeralda."
+	},
+	"storybook_paragraph_29": {
+		"message": "María se estaba quedando dormida, pues ya era hora de ir a la cama, pero antes de ponerse el pijama, Oli le dijo a la dama:"
+	},
+	"storybook_paragraph_30": {
+		"message": "—Gracias por unir al pueblo en este momento. Jamás olvidaré este maravilloso acontecimiento."
+	},
+	"storybook_paragraph_31": {
+		"message": "Fin"
+	},
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
@@ -3300,7 +3444,7 @@
 		"message": "Inclina tu teléfono."
 	},
 	"time": {
-		"message": "Hora"
+		"message": "Tiempo"
 	},
 	"tj_country_name": {
 		"message": "Tayikistán"

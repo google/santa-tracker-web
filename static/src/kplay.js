@@ -867,7 +867,7 @@ class AudioSource extends EventTarget {
     }
 
     Util.curveParamLin(g, this._volume, duration, when);
-    return this._internalPlay(when);
+    return this._internalPlay(when, offset);
   }
 
   fadeOutAndStop(duration, when) {
@@ -954,6 +954,7 @@ export function prepare() {
   const busNodes = new Set();
   const activeNodes = new Set();
   const dirtyNodes = new Set();
+  const transientAudioElements = new Set();
   let triggerNodes = null;
 
   /**
@@ -1076,7 +1077,10 @@ export function prepare() {
       });
 
       triggerNodes = null;
+      transientAudioElements.forEach((node) => node.pause());
+      transientAudioElements.clear();
     },
+
     stopAll(duration=0.5) {
       triggerNodes = new Set();
       activeNodes.forEach((node) => {
@@ -1088,6 +1092,9 @@ export function prepare() {
           }
         }
       });
+
+      transientAudioElements.forEach((node) => node.pause());
+      transientAudioElements.clear();
     },
 
     reset(duration=0.5) {
@@ -1182,11 +1189,14 @@ export function prepare() {
 
     play(event, ...args) {
       if (event === '@') {
+        // Play transient audio from any HTTP URL if queued up with '@'. Used for translations.
         if (args.length !== 1) {
           throw new Error('expected URL arg for @ command');
         }
         const audio = new Audio(args[0]);
         audio.play();
+        transientAudioElements.add(audio);
+        audio.addEventListener('ended', () => transientAudioElements.delete(audio));
         return true;
       }
 
@@ -1209,6 +1219,7 @@ export function prepare() {
 
       if (typeof event === 'string') {
         console.debug('audio missing', event);
+        ga('send', 'event', 'site', 'audio-failure', event)
         return false;
       }
       console.warn('got invalid arg for kplay lookup', event);

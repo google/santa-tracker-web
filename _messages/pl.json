@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Zbuduj {{count}} samochodów."
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Zbuduj 1 samochód."
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Zbuduj {{count}} robotów."
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Zbuduj 1 robota."
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Zbuduj rakiety ({{count}})."
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Zbuduj 1 rakietę"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Stwórz misie ({{count}})."
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Stwórz 1 misia"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Podnieś i upuść zabawki"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrukcje"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Przenieś"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Gracz 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Gracz 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Podaj liczbę graczy"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Gracz"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Graczy"
+	},
+	"buildandbolt-skip": {
+		"message": "Pomiń"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Świętuj przez cały miesiąc"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Skorzystaj z pomocy Asystenta Google, by w grudniu dowiedzieć się jak najwięcej o Świętym Mikołaju! Ta integracja jest dostępna w wybranych językach."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Za zgodą rodzica dzieci poniżej 13 roku życia mogą korzystać ze spersonalizowanej wersji Asystenta Google po zalogowaniu się na własne konto, którym rodzice zarządzają w aplikacji \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asystent Google połączy Cię z biegunem północnym, gdzie Święty Mikołaj odbywa próbę przed koncertem. Mikołaj zna tylko jedną piosenkę – pomożesz mu znaleźć najlepszy sposób, żeby ją zagrać?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Zadzwoń do Mikołaja"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Oglądaj codziennie Wiadomości z bieguna północnego, jeśli chcesz wiedzieć, czym zajmuje się Święty Mikołaj z elfami. Wystarczy, że spytasz Asystenta Google, co słychać na biegunie."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Wiadomości z bieguna północnego"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Gdy Święty Mikołaj nie pracuje z elfami w warsztacie, spędza czas, rozwijając swoje umiejętności komediowe. Poproś Asystenta Google, by opowiedział jeden z żartów Mikołaja."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Żarty Świętego Mikołaja"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nie przegap żadnych informacji z bieguna"
+	},
 	"familyguide_body": {
 		"message": "Wioska Świętego Mikołaja to miejsce, w którym całe rodziny mogą świętować Boże Narodzenie. Znajdziesz tu swoich ulubionych bohaterów i interaktywne zajęcia dające rozrywkę i pozwalające zdobyć nowe umiejętności odbiorcom w każdym wieku."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "więcej"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Asystent"
+	},
 	"familyguide_secondary_body": {
 		"message": "24 grudnia wioska Świętego Mikołaja staje się miejscem, w którym możesz obserwować, jak Mikołaj wraz ze swym reniferem dostarczają prezenty dzieciom na całym świecie."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "W te święta wydobądź jeszcze więcej magii z Trasy Świętego Mikołaja dzięki swoim ulubionym usługom Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Codziennie pytaj Asystenta Google o nowe zabawne wieści od elfa Dimplesticksa."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "„OK Google, co słychać na biegunie północnym?”"
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Zabawa na święta dla całej rodziny"
+	},
+	"familylink": {
+		"message": "Dodaj konto Google swojego dziecka zarządzane w aplikacji Family Link"
+	},
+	"featured": {
+		"message": "Polecana"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Święty Mikołaj odlatuje"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Czas zgasić światła"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dzień w muzeum"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Warsztat Świętego Mikołaja"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bożonarodzeniowy kominek"
 	},
 	"scene_windtunnel": {
 		"message": "Tunel powietrzny"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Saneczkują pingwiny. Wesołe elfy świętują."
+	},
+	"storybook_paragraph_02": {
+		"message": "Dziś wszyscy mieszkańcy choinki wypatrują."
+	},
+	"storybook_paragraph_03": {
+		"message": "Niektórzy w ten wieczór są jednak w niedoli. A zwłaszcza nasz narwal imieniem Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Chciałbym tam być i zobaczyć raz jeden, jak wielka choinka pod nocnym lśni niebem”."
+	},
+	"storybook_paragraph_05": {
+		"message": "„Przecież kochasz ocean” rzekła miła Mary. „Jego muszle i plankton. Bądź ze mną szczery.”"
+	},
+	"storybook_paragraph_06": {
+		"message": "„To prawda” rzekł Ollie. „Nie powiem, że nie. Lecz czasem mi ciężko żyć tutaj na dnie”."
+	},
+	"storybook_paragraph_07": {
+		"message": "Niedźwiedzica odparła „No dobrze, kochany, może dziś cię odwiedzę? Razem popływamy?”."
+	},
+	"storybook_paragraph_08": {
+		"message": "„Popływamy wśród raf? Pogadamy z rybami… Już wiem!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Świąteczny bal wyprawimy sami”."
+	},
+	"storybook_paragraph_10": {
+		"message": "Plan w mig był gotowy. Mary zebrała drużynę. Renifery, elfy, pingwiny – i każdy już płynie."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie z radością rzucił spojrzenie wszystkim. Mary na to: „świętujmy! Na to czekaliśmy!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "By urządzić przyjęcie z tak ważnej okazji, potrzeba pomocy, więc ruszyli do akcji."
+	},
+	"storybook_paragraph_13": {
+		"message": "„Do mnie!” rzekł Ollie. „Pomóżcie nam dziś sprawić, by w święta nasz ocean lśnił”."
+	},
+	"storybook_paragraph_14": {
+		"message": "Wnet ryby ruszyły, by zapraszać gości. „Zostaw to nam, widzimy się na uroczystości”."
+	},
+	"storybook_paragraph_15": {
+		"message": "Dla elfów przyjęcia to sprawa znana. Od razu zaczęły przygotowania."
+	},
+	"storybook_paragraph_16": {
+		"message": "Przyszedł czas na ozdoby. Tu wybór był prosty. Pan Krab i Pani Homar to w tych sprawach fachowcy."
+	},
+	"storybook_paragraph_17": {
+		"message": "Na to ostrygi: „pomożemy i my” „Nasze perły wśród wód będą świecić i lśnić”."
+	},
+	"storybook_paragraph_18": {
+		"message": "Trzeba jeszcze muzyki, bez niej bal się nie uda. Przy niej każdy zapomni, że istnieje nuda."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Mój wujek Horatio to wspaniały muzyk. Gdy grają z Carlem tańczą nawet meduzy”."
+	},
+	"storybook_paragraph_20": {
+		"message": "„Już pora świętować, więc w ostatnią chwilkę poszukajmy glonów, by rozświetlić choinkę”."
+	},
+	"storybook_paragraph_21": {
+		"message": "„Wspaniale!” „Wspaniale!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Radował się Ollie. Tej nocy będziemy się bawić do woli."
+	},
+	"storybook_paragraph_23": {
+		"message": "Rozgwiazdy zajęły miejsca. Ozdoby się zakołysały. Meduzy ruszyły do tańca. Instrumenty grały, grały…"
+	},
+	"storybook_paragraph_24": {
+		"message": "Wszyscy przybyli balem się zachwycali. Aż nadszedł ten moment, na który wszyscy czekali…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…świąteczne lampki!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Warto było czekać, by spełnić marzenia. Plankton rozbłysnął, a Ollie oniemiał z wrażenia."
+	},
+	"storybook_paragraph_27": {
+		"message": "Światła migały bajecznie, jakby ktoś rzucił czar. Całe miasto ucichło, wpatrując się w żar."
+	},
+	"storybook_paragraph_28": {
+		"message": "Nigdy nie widzieli czegoś równie pięknego. Odcieni złota, fioletu i szmaragdowego."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary ziewała, bo była już pora spania, lecz Ollie jeszcze chciał złożyć podziękowania:"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Całe miasto tu było. To dla mnie tak wiele... Dziękuję wam za tę noc, kochani przyjaciele”."
+	},
+	"storybook_paragraph_31": {
+		"message": "Koniec"
 	},
 	"sv_country_name": {
 		"message": "Salwador"

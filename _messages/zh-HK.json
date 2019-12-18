@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "不丹"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "製作 {{count}} 部汽車！"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "製作 1 部汽車！"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "製作 {{count}} 個機械人！"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "製作 1 個機械人！"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "製作 {{count}} 枝火箭！"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "製作 1 枝火箭！"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "製作 {{count}} 隻玩具熊！"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "製作 1 隻玩具熊！"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "撿起及放下玩具"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "說明"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "移動"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "玩家 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "玩家 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "有幾位玩家？"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "玩家 1"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "玩家 2"
+	},
+	"buildandbolt-skip": {
+		"message": "略過"
+	},
 	"bw_country_name": {
 		"message": "博茨瓦納"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "慶祝整個月"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "您可在 12 月時使用「Google 助理」瞭解更多有關聖誕老人的資料！此項整合功能只適用於指定語言。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "未滿 13 歲的兒童如獲得家長許可，在使用透過 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 管理的個人帳戶登入時亦可自訂「Google 助理」體驗。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "「Google 助理」會為您報導北極的大小事情。聖誕老人在北極忙於排練演奏會，但他只會一首歌曲，您能幫他找出最佳的演奏方式嗎？"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "打電話給聖誕老人"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "每日收看《北極新聞報導》，緊貼聖誕老人及小精靈的最新動態。只要問問「Google 助理」就可以掌握北極的最新消息。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北極新聞報導"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "除了在工作坊與小精靈一起工作之外，聖誕老人閒時亦會磨練自己的喜劇技巧。只要問問「Google 助理」就可以聽聽聖誕老人的笑話，瞭解他的日常。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "聖誕老人的笑話"
+	},
+	"familyguide_assistant_title": {
+		"message": "不要錯過《北極快訊》"
+	},
 	"familyguide_body": {
 		"message": "「聖誕老人村」是一家人慶祝佳節的理想地點。您的最愛角色將與您一起參加適合不同年齡人士的有趣、教育和互動活動。"
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "更多"
 	},
+	"familyguide_nav_link_07": {
+		"message": "助理"
+	},
 	"familyguide_secondary_body": {
 		"message": "在 12 月 24 日，「聖誕老人村」將為您帶來追蹤體驗，您可追蹤聖誕老人和馴鹿向全球各地的小朋友派發禮物。"
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "在今季於所有最愛 Google 產品上，發揮「聖誕老人追蹤器」的神奇力量。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "每天向「Google 助理」查問來自 Dimplesticks 小精靈的最新有趣消息。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "「Hey Google，北極有咩新消息？」"
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "和一家人享受佳節樂趣"
+	},
+	"familylink": {
+		"message": "新增透過 Family Link 管理的兒童 Google 帳戶"
+	},
+	"featured": {
+		"message": "精選"
 	},
 	"fi_country_name": {
 		"message": "芬蘭"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "聖誕老人出發"
 	},
+	"scene_videoscene_likealight": {
+		"message": "安然入睡"
+	},
 	"scene_videoscene_museum": {
 		"message": "博物館一日遊"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "聖誕老人工作坊"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "聖誕壁爐"
 	},
 	"scene_windtunnel": {
 		"message": "馳騁風洞"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "蘇里南"
+	},
+	"storybook_paragraph_01": {
+		"message": "企鵝在玩雪橇，精靈們愉悅地歡呼。"
+	},
+	"storybook_paragraph_02": {
+		"message": "老人村的聖誕樹燈飾即將亮起，整個城鎮都在歡騰。"
+	},
+	"storybook_paragraph_03": {
+		"message": "不過，並非所有人都能感受愉悅的氣氛。對獨角鯨 Ollie 來說，今日是悲傷的一日。"
+	},
+	"storybook_paragraph_04": {
+		"message": "「哪怕只有這一次也好，我也希望能親眼看看大樹燈光，感受儀式的絢麗動人、閃閃生輝。」"
+	},
+	"storybook_paragraph_05": {
+		"message": "熊熊 Mary 說：「但你亦喜歡海洋啊！」「海裡充滿著貝殼和浮游生物，令人著迷！」"
+	},
+	"storybook_paragraph_06": {
+		"message": "Ollie 回答：「可能是吧，你說得沒有錯，但大海有時都會令我感到憂鬱！」"
+	},
+	"storybook_paragraph_07": {
+		"message": "Mary 溫柔地笑著說：「這樣不如我今天陪你在海裡游一回，好不好？」"
+	},
+	"storybook_paragraph_08": {
+		"message": "「我們可以到處探索、看看海裡的珊瑚礁，又或者......我知道了！」"
+	},
+	"storybook_paragraph_09": {
+		"message": "「我們可以舉辦一個屬於我們的聖誕樹亮燈儀式。」"
+	},
+	"storybook_paragraph_10": {
+		"message": "說罷它們開始籌備大計。Mary 召集了夥伴，有小精靈、企鵝，就連一些馴鹿都加入隊伍！"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie 以微笑愉快地歡迎著到來的朋友。Mary 說：「我們開始吧，一定會很好玩！」"
+	},
+	"storybook_paragraph_12": {
+		"message": "要舉辦一個精彩的派對，它們首先要找到一班好幫手。"
+	},
+	"storybook_paragraph_13": {
+		"message": "Ollie 喊道：「各位請過來，我們需要你們幫忙，舉辦一個屬於我們的海帶林水底亮燈儀式。」"
+	},
+	"storybook_paragraph_14": {
+		"message": "魚群立即展開行動，向來賓宣揚這個消息。「邀請的工作就讓我們效勞，其他的就拜託你們了！」"
+	},
+	"storybook_paragraph_15": {
+		"message": "小精靈有舉辦這類活動的經驗，但它們需要時間令一切更臻完美，所以先離開了。"
+	},
+	"storybook_paragraph_16": {
+		"message": "下一步就是裝飾，他們心目中已有合適的人選。「蟹先生、龍蝦小姐，請問你們能幫忙嗎？」"
+	},
+	"storybook_paragraph_17": {
+		"message": "生蠔此時說道：「我們可以幫手設計！將我們的珍珠掛於樹枝上，效果會閃閃生輝。」"
+	},
+	"storybook_paragraph_18": {
+		"message": "派對又怎能少了音樂？找到合適的音樂就能讓大家盡情載歌載舞。"
+	},
+	"storybook_paragraph_19": {
+		"message": "「我叔叔 Horatio 無疑是這方面的最佳人選，它的好友 Carl 也是一位吉他達人。」"
+	},
+	"storybook_paragraph_20": {
+		"message": "「派對快要開始了，不過我們還需要最後一樣東西，就是儀式要用上的海帶林。」"
+	},
+	"storybook_paragraph_21": {
+		"message": "「就是這個，就是這個了！」"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie 愉快地扭動身體！今夜的派對一定會精彩一整晚。"
+	},
+	"storybook_paragraph_23": {
+		"message": "海星們各就各位，裝飾隨著海浪摇曳；水母舞動著身體，樂隊奏出動人樂章。"
+	},
+	"storybook_paragraph_24": {
+		"message": "裝飾和音樂，一切都來得如此精彩，最重要的是，大家能聚首一堂，"
+	},
+	"storybook_paragraph_25": {
+		"message": "參加亮燈儀式！"
+	},
+	"storybook_paragraph_26": {
+		"message": "令人期待的一刻終於到來！浮游生物發出光芒，Ollie 噴出氣泡！"
+	},
+	"storybook_paragraph_27": {
+		"message": "燈光閃爍耀眼，就如魔法一樣。整個城鎮都安靜下來，欣賞燈光儀式。"
+	},
+	"storybook_paragraph_28": {
+		"message": "這是他們看過最壯觀的畫面。黃色、紫色、淺綠色的燈光不停變幻。"
+	},
+	"storybook_paragraph_29": {
+		"message": "現在已過了睡覺的時間，Mary 開始有倦意了，但在來賓離開前，Ollie 轉身說道："
+	},
+	"storybook_paragraph_30": {
+		"message": "「多謝你令我們聚在一起，渡過永誌難忘的晚上。」"
+	},
+	"storybook_paragraph_31": {
+		"message": "完結"
 	},
 	"sv_country_name": {
 		"message": "薩爾瓦多"

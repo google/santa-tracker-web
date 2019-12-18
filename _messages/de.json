@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Baue {{count}} Autos!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Baue 1 Auto!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Baue {{count}} Roboter!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Baue 1 Roboter!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Baue {{count}} Raketen!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Baue 1 Rakete!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Baue {{count}} Teddybären!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Baue 1 Teddybär!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Spielzeug nehmen \u0026 ablegen"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Anleitung"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Verschieben"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Spieler 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Spieler 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Wie viele Spieler?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Spieler"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Spieler"
+	},
+	"buildandbolt-skip": {
+		"message": "Überspringen"
+	},
 	"bw_country_name": {
 		"message": "Botsuana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Die Pinguine und die Elfen hatten strahlende Gesichter."
+	},
+	"storybook_paragraph_02": {
+		"message": "Alle freuten sich schon auf die weihnachtlichen Lichter."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nicht allen gefiel dieser Tag so sehr. Der Narwal Ollie schwamm traurig durchs Meer."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Es wäre wirklich mein größter Traum – ihn einmal zu sehen, den glitzernden Baum.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Du liebst doch den Ozean!\", meinte Mary Bär. \"All die Muscheln und das Plankton. Das gefällt dir doch sehr!\""
+	},
+	"storybook_paragraph_06": {
+		"message": "Ollie sagte: \"Das ist wirklich wahr. Aber manchmal fühle ich mich im Wasser auch sonderbar!\""
+	},
+	"storybook_paragraph_07": {
+		"message": "Mary sprach: \"Lass uns gemeinsam den Ozean erkunden, wir schwimmen dort unten viele fröhliche Runden.\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Wir stürzen uns in die Wellen, ins Meer... Nein, noch besser, das wird dich entzücken!\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Lass uns gemeinsam einen Weihnachtsbaum schmücken.\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Ein Plan wurde gemacht, alle wollten Mary helfen: die Rentiere, die Pinguine und auch noch die Elfen."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie strahlte seine Freunde begeistert an. \"Los gehts!\", sprach Mary, \"wir machen uns dran!\""
+	},
+	"storybook_paragraph_12": {
+		"message": "Für eine Feier, die keiner so schnell vergaß, brauchten sie jede Menge Helfer mit ganz viel Spaß."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Kommt her!\", rief Ollie. \"Sputet euch schnell, dann wird unser Kelpwald ganz festlich und hell.\""
+	},
+	"storybook_paragraph_14": {
+		"message": "Die Fische informierten sofort alle Gäste: \"Wir laden euch ein zum großen Feste!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "Die Elfen waren im Schmücken ganz groß. Sie brauchten dafür Zeit und stürzten gleich los."
+	},
+	"storybook_paragraph_16": {
+		"message": "Als Nächstes der Weihnachtsschmuck, wen sollten sie fragen? \"Herr Krebs und Frau Hummer, würden Sie es denn wagen?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Die Austern riefen dazwischen: \"Wir helfen gerne! Hängt unsere Perlen in die Äste, sie werden funkeln wie Sterne.\""
+	},
+	"storybook_paragraph_18": {
+		"message": "Eine Party braucht Musik mit dem passenden Takt, die jeden, der sie hört, gleich richtig packt."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Mein Onkel Horatio, der hat's wirklich drauf. Mit Carl an der Gitarre, da spielen sie auf.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Es ist schon fast Zeit, es fehlt nur noch der Baum für unseren festlichen Weihnachtskelptraum.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "Ollie rief voll Begeisterung:"
+	},
+	"storybook_paragraph_22": {
+		"message": "\"Hurra, hurra! Diese Nacht wird ganz wunderbar!\""
+	},
+	"storybook_paragraph_23": {
+		"message": "Die Seesterne eilten herbei im Nu. Die Quallen tanzten, die Musik spielte dazu."
+	},
+	"storybook_paragraph_24": {
+		"message": "Der Schmuck, die Musik begeisterten alle sehr. Es fehlte nur noch…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…das weihnachtliche Lichtermeer!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Endlich war der ersehnte Augenblick da! Das Plankton leuchtete auf, Ollie seufzte: \"Oh ja!\""
+	},
+	"storybook_paragraph_27": {
+		"message": "Es war beinah magisch, die Lichter hell und klar. Alle wurden ganz still – einfach wunderbar."
+	},
+	"storybook_paragraph_28": {
+		"message": "So schön war es noch nie gewesen im Kelp. Die Lichter erst grün, dann lila und gelb."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary war müde, zu End' war das Feste, da wandte sich Ollie nochmals an die Gäste:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Vielen Dank, liebe Freunde, für diese unvergessliche Nacht. Wir haben es alle zusammen vollbracht.\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Ende"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

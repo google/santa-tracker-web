@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Butão"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Construa {{count}} carrinhos!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Construa 1 carrinho!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Construa {{count}} robôs!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Construa um robô!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Construa {{count}} foguetes!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Construa 1 foguete!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Construa {{count}} ursinhos de peluche!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Construa 1 ursinho de peluche!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Apanhar e largar brinquedos"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instruções"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mover"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Jogador 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Jogador 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Quantos jogadores?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 jogador"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 jogadores"
+	},
+	"buildandbolt-skip": {
+		"message": "Ignorar"
+	},
 	"bw_country_name": {
 		"message": "Botsuana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Celebre durante todo o mês"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Utilize o Assistente Google para saber mais acerca do Pai Natal durante o mês de dezembro! Esta integração está disponível em apenas alguns idiomas."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Com a autorização dos pais, as crianças com menos de 13 anos também podem ter a sua experiência personalizada do Assistente Google quando iniciam sessão com a respetiva conta gerida com o \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "O Assistente Google liga-o ao Polo Norte, onde o Pai Natal está ocupado a ensaiar para um concerto de música. Ele só sabe uma música. Pode ajudá-lo a descobrir a melhor forma de a tocar?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Ligar ao Pai Natal"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Veja o Noticiário do Polo Norte todos os dias para descobrir o que o Pai Natal e os seus elfos estão a fazer. Peça ao Assistente Google novidades do Polo Norte."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Noticiário do Polo Norte"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Quando o Pai Natal não está ocupado com os elfos na oficina, dedica o seu tempo a aperfeiçoar as próprias técnicas de comédia. Peça ao Assistente Google uma piada do Pai Natal para poder ouvir o seu número cómico."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Piadas do Pai Natal"
+	},
+	"familyguide_assistant_title": {
+		"message": "Nunca perca o Notícias ao Minuto do Polo Norte"
+	},
 	"familyguide_body": {
 		"message": "A Aldeia do Pai Natal é o local perfeito para celebrar em família. Vai encontrar todas as suas personagens favoritas, bem como atividades divertidas, educativas e interativas para todas as idades."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "mais"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistente"
+	},
 	"familyguide_secondary_body": {
 		"message": "No dia 24 de dezembro, a Aldeia do Pai Natal transforma-se numa experiência de acompanhamento onde pode seguir o Pai Natal e as renas à medida que entregam os presentes a crianças em todo o mundo."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Sinta mais a magia de \"A viagem do Pai Natal\" nesta época festiva com todos os seus produtos favoritos da Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Peça ao Assistente Google atualizações divertidas de Dimplesticks, o Elfo."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, que novidades há do Pólo Norte?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Diversão de Natal para toda a família"
+	},
+	"familylink": {
+		"message": "Adicione a Conta Google da criança, gerida com o Family Link."
+	},
+	"featured": {
+		"message": "Em destaque"
 	},
 	"fi_country_name": {
 		"message": "Finlândia"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Descolagem do Pai Natal"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Sair à velocidade da luz"
+	},
 	"scene_videoscene_museum": {
 		"message": "Um dia no museu"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Oficina do Pai Natal"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Madeiro"
 	},
 	"scene_windtunnel": {
 		"message": "Túnel de vento"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Os pinguins andavam de trenó. Os elfos festejavam com alegria."
+	},
+	"storybook_paragraph_02": {
+		"message": "Toda a aldeia ansiava pelas luzes da árvore com alegria."
+	},
+	"storybook_paragraph_03": {
+		"message": "Mas nem todos se sentiam contentes naquele dia jovial. Era um dia infeliz para o Ollie, o pobre narval."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Quem me dera lá estar, só desta vez. Poder ver a grande árvore que brilha com altivez.\""
+	},
+	"storybook_paragraph_05": {
+		"message": "A Mary Bear respondeu, “Mas tu adoras o mar!” “Todas as conchas e o plâncton… e passas o dia a nadar!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Suponho que sim,” disse o Ollie, “nisso tens razão. Mas não me faz esquecer a minha situação!\""
+	},
+	"storybook_paragraph_07": {
+		"message": "“E se…” sugeriu a Mary com um sorriso animado, \"nadássemos juntos durante um bocado?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Vamos explorar?” Nadar pelos recifes… … ou que tal"
+	},
+	"storybook_paragraph_09": {
+		"message": "fazermos a nossa própria árvore de Natal?\""
+	},
+	"storybook_paragraph_10": {
+		"message": "A Mary reuniu a sua equipa para o que advém Juntaram-se os elfos, os pinguins, e as renas também!"
+	},
+	"storybook_paragraph_11": {
+		"message": "O Ollie sorriu maravilhado ao ver os amigos que tinham aparecido. “Vamos começar!\" disse a Mary, “Isto vai ser divertido!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Para fazer uma grande festa eles iriam precisar de uma equipa de assistentes com vontade de ajudar."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Juntem-se todos!” gritou o Ollie. “Precisamos da vossa ajuda, para fazermos uma árvore de algas que não desiluda.\""
+	},
+	"storybook_paragraph_14": {
+		"message": "Os peixes entraram em ação para avisar os convidados. \"Nós tratamos dos convites, fiquem descansados!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Os elfos tinham experiência com este tipo de evento. Então puseram mãos à obra sem qualquer impedimento."
+	},
+	"storybook_paragraph_16": {
+		"message": "Seguiram-se as decorações. Sabiam a quem perguntar. \"Por favor, Sr. Crab e Sra. Lobster, podem-nos auxiliar?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "As ostras aclamaram em uníssono “Do design podemos nós cuidar! Penduraremos pérolas nos ramos, para a árvore poder cintilar e brilhar.\""
+	},
+	"storybook_paragraph_18": {
+		"message": "Toda a festa precisa de música com os ritmos certos, para pôr todos a dançar muito bem despertos."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"O meu tio Horatio é o melhor especialista. E o seu amigo Carl é um grande guitarrista.\""
+	},
+	"storybook_paragraph_20": {
+		"message": "“Está quase na hora da festa, e só falta arranjar um conjunto de algas perfeito para a árvore criar.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "“É agora! É agora!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "exclamou o Ollie cheio de emoção! Que festa fantástica se realizaria naquela ocasião."
+	},
+	"storybook_paragraph_23": {
+		"message": "As estrelas-do-mar puseram-se nas respetivas posições. As medusas dançaram e a banda tocou as suas composições"
+	},
+	"storybook_paragraph_24": {
+		"message": "Era fantástico, tudo aquilo que contemplaram. Mas a melhor parte foi quando todos se juntaram…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…para ver as luzes!"
+	},
+	"storybook_paragraph_26": {
+		"message": "O momento tinha finalmente chegado! O plâncton acendeu-se e o Ollie suspirou espantado!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Parecia quase magia, as luzes brilhavam de forma radiante. Todos ficaram a assistir ao espetáculo, sem perder nenhum instante."
+	},
+	"storybook_paragraph_28": {
+		"message": "O maior espetáculo que alguma vez assistiram. Amarelos, roxos e verdes. Magníficas cores reluziram."
+	},
+	"storybook_paragraph_29": {
+		"message": "A Mary começou a ficar sonoleta, estava na hora de dormir. Mas o Ollie declarou, antes de todos começarem a partir,"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Agradeço-te imenso por teres juntado toda a gente, nesta noite que irei recordar eternamente.\""
+	},
+	"storybook_paragraph_31": {
+		"message": "Fim"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

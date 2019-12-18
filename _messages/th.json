@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "ภูฏาน"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "ผลิตรถ {{count}} คัน"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "ผลิตรถ 1 คัน"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "ผลิตหุ่นยนต์ {{count}} ตัว"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "ผลิตหุ่นยนต์ 1 ตัว"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "ผลิตจรวด {{count}} ลำ"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "ผลิตจรวด 1 ลำ"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "ผลิตตุ๊กตาหมี {{count}} ตัว"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "ผลิตตุ๊กตาหมี 1 ตัว"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "หยิบและวางของเล่น"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "วิธีเล่น"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "เคลื่อนที่"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "ผู้เล่นคนที่ 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "ผู้เล่นคนที่ 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "มีผู้เล่นกี่คน"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 คน"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 คน"
+	},
+	"buildandbolt-skip": {
+		"message": "ข้าม"
+	},
 	"bw_country_name": {
 		"message": "บอตสวานา"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "เฉลิมฉลองตลอดทั้งเดือน"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "ใช้ Google Assistant เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับซานตาคลอสในเดือนธันวาคม โดยการผสานรวมนี้พร้อมให้ใช้งานในบางภาษา"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "หากได้รับการยินยอมจากผู้ปกครองแล้ว เด็กที่มีอายุต่ำกว่า 13 ปีจะรับประสบการณ์การใช้งาน Google Assistant ที่ปรับเปลี่ยนให้เหมาะกับตนเองได้เมื่อลงชื่อเข้าสู่ระบบด้วยบัญชีของตนเองที่ได้รับการจัดการผ่าน \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistant ให้คุณได้ติดต่อไปยังขั้วโลกเหนือที่มีซานต้ากำลังฝึกซ้อมดนตรีสำหรับการแสดงคอนเสิร์ต เขาเล่นเพลงได้แค่เพลงเดียวเท่านั้น มาช่วยหาวิธีให้ซานต้าถ่ายทอดเสียงเพลงได้ไพเราะที่สุดกันเถอะ"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "โทรหาซานต้า"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "ติดตามข่าวสารจากขั้วโลกเหนือได้ทุกวันเพื่อดูว่าซานต้าและเหล่าเอลฟ์ทำอะไรกันอยู่ เพียงถาม Google Assistant ว่ามีอะไรใหม่ๆ ที่ขั้วโลกเหนือบ้างไหม"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "ข่าวสารจากขั้วโลกเหนือ"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "เมื่อซานต้าไม่ได้ทำงานในโรงงานกับเหล่าเอลฟ์ เขาก็จะใช้เวลาว่างในการฝึกฝนทักษะการเล่ามุกตลก ลองขอมุกตลกของซานต้าจาก Google Assistant เพื่อฟังมุกตลกสุดฮาได้เลย"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "มุกตลกของซานต้า"
+	},
+	"familyguide_assistant_title": {
+		"message": "อย่าลืมติดตาม North Pole Minute"
+	},
 	"familyguide_body": {
 		"message": "หมู่บ้านซานต้าคือที่ที่เหมาะที่สุดสำหรับครอบครัวในการฉลองช่วงเทศกาล คุณจะพบตัวละครโปรดของคุณอยู่พร้อมหน้าพร้อมตาและกิจกรรมแบบเล่นตามไปด้วยได้ที่ทั้งสนุกและให้ความรู้สำหรับทุกวัย"
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "เพิ่มเติม"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "ในวันที่ 24 ธันวาคม หมู่บ้านซานต้าจะเปลี่ยนเป็นช่องทางการติดตามเพื่อให้คุณได้ติดตามซานต้าและกวางเรนเดียร์ขณะที่กำลังแจกของขวัญให้กับเด็กๆ ทั่วโลกได้"
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "ในช่วงเทศกาลนี้ เตรียมรับสิ่งดีๆ จากการติดตามซานตาคลอสได้มากกว่าที่เคยด้วยผลิตภัณฑ์ Google ที่คุณชื่นชอบ"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "ถาม Google Assistant เพื่อติดตามข้อมูลอัปเดตแสนสนุกจากเอลฟ์ Dimplesticks ได้ทุกวัน"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google มีอะไรใหม่ๆ ที่ขั้วโลกเหนือบ้างหรือเปล่า\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "ความสนุกช่วงวันหยุดสำหรับทั้งครอบครัว"
+	},
+	"familylink": {
+		"message": "เพิ่มบัญชี Google ของบุตรหลานที่จัดการผ่าน Family Link"
+	},
+	"featured": {
+		"message": "แนะนำ"
 	},
 	"fi_country_name": {
 		"message": "ฟินแลนด์"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "ซานต้าจะออกเดินทางแล้ว"
 	},
+	"scene_videoscene_likealight": {
+		"message": "ปิดไฟด้วยนะ"
+	},
 	"scene_videoscene_museum": {
 		"message": "วันวานที่พิพิธภัณฑ์"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "เวิร์กชอปของซานตา"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "ท่อนฟืนพิเศษสำหรับช่วงวันหยุด"
 	},
 	"scene_windtunnel": {
 		"message": "อุโมงค์ลม"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "ซูรินาเม"
+	},
+	"storybook_paragraph_01": {
+		"message": "ขณะที่เพนกวินเล่นสไลด์เลื่อนหิมะ เหล่าเอลฟ์ก็ต่างส่งเสียงเชียร์ด้วยความปิติยินดี"
+	},
+	"storybook_paragraph_02": {
+		"message": "ผู้คนทั้งเมืองต่างฮือฮากับแสงไฟจากต้นไม้ในหมู่บ้าน"
+	},
+	"storybook_paragraph_03": {
+		"message": "แต่ไม่ใช่ทุกคนที่จะสนุกสนานกับงานในวันนี้ ช่างเป็นวันอันแสนเศร้าสำหรับวาฬนาร์วาลนามว่า Ollie"
+	},
+	"storybook_paragraph_04": {
+		"message": "\"ฉันอยากไปร่วมงานด้วย เพียงครั้งนี้ครั้งเดียวก็ได้ ต้นไม่ใหญ่ที่ประดับประดาด้วยแสงไฟ ถ้าได้ไปเห็นคงจะวิเศษน่าดู\""
+	},
+	"storybook_paragraph_05": {
+		"message": "\"แต่เธอชอบมหาสมุทรไม่ใช่เหรอ\" หมีน้อย Mary ตอบ \"มีทั้งเปลือกหอยและแพลงก์ตอนมากมาย ใต้มหาสมุทรนั้นออกจะวิเศษ\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"คงงั้น\" Ollie กล่าว \"ก็จริงอย่างที่ว่า แต่บางครั้งมหาสมุทรสีครามอันกว้างใหญ่ก็ทำให้ฉันเศร้าใจได้เหมือนกัน\""
+	},
+	"storybook_paragraph_07": {
+		"message": "\"งั้น ถ้า...\" Mary กล่าวด้วยรอยยิ้มให้กำลังใจ \"วันนี้ฉันจะลงไปว่ายน้ำเล่นกับเธอดีไหม\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"ออกไปสำรวจท้องทะเลดีไหม หรือจะไปโต้คลื่นดูแนวปะการังกันดี ฉันคิดออกแล้ว มีอะไรที่เจ๋งกว่านั้นอีก\""
+	},
+	"storybook_paragraph_09": {
+		"message": "\"เรามาประดับไฟต้นไม้ของเราเองกันดีกว่า\""
+	},
+	"storybook_paragraph_10": {
+		"message": "เมื่อวางแผนกันแล้ว Mary ก็เรียกรวมทีมของเธอมา ซึ่งมีทั้งเหล่าเอลฟ์ บรรดาเพนกวิน รวมถึงกวางเรนเดียร์ด้วย"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie ยิ้มด้วยความปิติให้กับเพื่อนๆ ที่มาร่วมทีม \"มาเริ่มกันเลยดีกว่า\" Mary กล่าว \"งานนี้ต้องสนุกแน่ๆ\""
+	},
+	"storybook_paragraph_12": {
+		"message": "สิ่งแรกที่จำเป็นต้องมีในการจัดงานเลี้ยงอันยอดเยี่ยมให้สำเร็จก็คือเหล่าผู้ช่วยคนเก่ง"
+	},
+	"storybook_paragraph_13": {
+		"message": "\"พวกเรา มารวมตัวกันหน่อย\" Ollie ตะโกนเรียก \"เราต้องการความช่วยเหลือของทุกคนในการจัดงานประดับไฟสาหร่ายใต้ท้องทะเลของเราเอง\""
+	},
+	"storybook_paragraph_14": {
+		"message": "เหล่าปลาน้อยใหญ่อาสาช่วยบอกต่อคำเชิญแก่แขกอย่างทันควัน \"เรื่องเชิญชวนไว้ให้เป็นหน้าที่ของพวกเราเอง พวกเธอจัดการส่วนที่เหลือเถอะ\""
+	},
+	"storybook_paragraph_15": {
+		"message": "เหล่าเอลฟ์มีประสบการณ์เกี่ยวกับการจัดงานแบบนี้มาก่อนแล้ว และรู้ว่างานนี้ต้องใช้เวลา พวกเขาจึงรีบออกไปจัดการสิ่งต่างๆ ให้เรียบร้อย"
+	},
+	"storybook_paragraph_16": {
+		"message": "ลำดับต่อไปก็ถึงเวลาของการตกแต่ง พวกเขารู้ดีว่าต้องมอบงานนี้ให้ใคร \"คุณ Crab และคุณนาย Lobster ได้โปรดช่วยพวกเราหน่อยได้ไหม\""
+	},
+	"storybook_paragraph_17": {
+		"message": "เหล่าหอยนางรมพูดขึ้นมาว่า \"เราช่วยออกแบบได้นะ ลองนำไข่มุกมาห้อยประดับกิ่งก้านสิ จะได้มีแสงเจิดจรัสและระยิบระยับ\""
+	},
+	"storybook_paragraph_18": {
+		"message": "ทุกงานเลี้ยงต้องมีเสียงเพลงในท่วงทำนองที่ใช่เพื่อให้ทุกคนได้ร่วมสนุกและลุกขึ้นมาเต้นไปด้วยกัน"
+	},
+	"storybook_paragraph_19": {
+		"message": "\"ลุง Horatio ของฉันเป็นที่หนึ่งในวงการเพลง ส่วนคุณ Carl เพื่อนของเขาก็เป็นมือกีตาร์มากฝีมือ\""
+	},
+	"storybook_paragraph_20": {
+		"message": "\"ใกล้ถึงเวลาเริ่มงานแล้ว สิ่งสุดท้ายที่เราต้องมีคือกลุ่มสาหร่ายทะเลสุดสวยสำหรับต้นไม้ในพิธี\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"เสร็จแล้ว สำเร็จแล้ว\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie กระโดดโลดเต้นด้วยความดีใจ ค่ำคืนนี้จะต้องเป็นงานเลี้ยงที่วิเศษอย่างแน่นอน"
+	},
+	"storybook_paragraph_23": {
+		"message": "ปลาดาวแหวกว่ายมาเข้าที่กลายเป็นของตกแต่งที่แกว่งซ้ายทีขวาที ส่วนแมงกะพรุนก็เต้นระบำไปพร้อมกับเสียงเพลงจากวงดนตรี"
+	},
+	"storybook_paragraph_24": {
+		"message": "ทุกอย่างช่างยอดเยี่ยมทั้งของตกแต่งและเสียงเพลง แต่ช่วงที่ดีที่สุดคือช่วงเวลาที่ทุกคนมารวมตัวกัน..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...เพื่อชมแสงไฟ"
+	},
+	"storybook_paragraph_26": {
+		"message": "ในที่สุดช่วงเวลานี้ก็มาถึง เมื่อแพลงก์ตอนส่องสว่าง Ollie ถึงกับอ้าปากค้าง"
+	},
+	"storybook_paragraph_27": {
+		"message": "เมืองสวยดั่งต้องมนตร์ ทุกแห่งหนแพรวพราวสว่าง ทั่วทั้งเมืองต่างเงียบสงัดเพราะทุกคนพร้อมหน้ามาชมการแสดง"
+	},
+	"storybook_paragraph_28": {
+		"message": "เป็นสิ่งที่น่าตื่นตาตื่นใจที่สุดเท่าที่พวกเขาเคยเห็นมา แสงเปลี่ยนจากสีเหลืองเป็นสีม่วง แล้วเปลี่ยนจากสีม่วงเป็นสีเขียวมรกตสดใส"
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary เริ่มรู้สึกง่วงเพราะเลยเวลานอนมาแล้ว ก่อนจากกันนั้น Ollie หันกลับมาพร้อมพูดว่า"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"ขอบคุณเธอมากที่ทำให้ทุกคนมารวมตัวกันและขอบคุณสำหรับค่ำคืนที่ฉันจะจดจำตลอดไปไม่รู้ลืม\""
+	},
+	"storybook_paragraph_31": {
+		"message": "จบบริบูรณ์"
 	},
 	"sv_country_name": {
 		"message": "เอลซัลวาดอร์"

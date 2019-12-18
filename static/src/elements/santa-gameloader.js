@@ -1,9 +1,10 @@
 import styles from './santa-gameloader.css';
 
-import * as messageSource from '../lib/message-source.js';
-import {resolvable, dedup} from '../lib/promises.js';
+import {dedup, resolvable} from '../lib/promises.js';
 
-import '../../src/polyfill/attribute.js';
+import {Loader, LoaderHandler} from 'iframe-load';
+import {prepareMessage} from '../lib/iframe.js';
+
 
 
 class PortControl {
@@ -99,44 +100,19 @@ class PortControl {
 }
 
 
-
-const EMPTY_PAGE = 'data:text/html;base64,';
-const LOAD_LEEWAY = 250;
-const LOAD_TIMEOUT = 10 * 1000;  // 10s
-
-// nb. allow-same-origin is fine, because we're serving on another domain
-// allow-top-navigation and friends are allowed for Android
-// TODO(samthor): We only need this for dev to play nice, don't even add it in prod.
-const IFRAME_SANDBOX = 'allow-forms allow-same-origin allow-scripts allow-popups allow-top-navigation allow-top-navigation-by-user-activation';
-const IFRAME_ALLOW = 'autoplay';  // nb. could add 'accelerometer', but only for Chrome
-
-
 export const events = Object.freeze({
   'load': '-loader-load',
   'prepare': '-loader-prepare',
-  'error': '-loader-error',
 });
-const internalRemove = '-internal-remove';
-
-
-const removeNode = (el) => {
-  if (el && el.parentNode) {
-    el.parentNode.removeChild(el);
-  }
-};
 
 
 /**
  * Set the explicit w/h of the target iframe. Used to work around Safari issues.
  *
- * @param {?HTMLIFrameElement} iframe to rectify
+ * @param {!HTMLIFrameElement} iframe to rectify
  * @param {boolean} tilt whether the screen is rotated
  */
 const rectifyFrame = (iframe, tilt) => {
-  if (!iframe) {
-    return;
-  }
-
   let targetWidth = window.innerWidth;
   let targetHeight = window.innerHeight;
 
@@ -156,15 +132,6 @@ const rectifyFrame = (iframe, tilt) => {
   }
 };
 
-
-export const createFrame = (src) => {
-  const iframe = document.createElement('iframe');
-  iframe.src = src || EMPTY_PAGE;
-  iframe.setAttribute('sandbox', IFRAME_SANDBOX);
-  iframe.setAttribute('allow', IFRAME_ALLOW);
-  iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-  return iframe;
-};
 
 
 /**
@@ -202,14 +169,25 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
 
-    this._loading = false;
-    this._control = new PortControl();
+    const el = this;  // reference for LoaderHandler subclass
+    this._loader = new Loader(this._container, new (class extends LoaderHandler {
+      unload(frame, href) {
+        return el._unload(frame, href);
+      }
 
-    this._href = null;
-    this._previousFrame = null;
-    this._previousFrameClose = null;  // called when _previousFrame is cleared
-    this._activeFrame = createFrame();
-    this._container.appendChild(this._activeFrame);
+      prepare(frame, href, context) {
+        return el._prepare(frame, href, context);
+      }
+
+      ready(frame, href, payload) {
+        return el._ready(frame, href, payload);
+      }
+    }));
+
+    this._activeFrame = null;  // stores most recent active frame
+    this._previousFrameClose = () => {};  // shutdown handler for frame
+    this.purge = () => {};
+    this._control = new PortControl();
 
     // Create DOM that contains overlay elements.
     // TODO(samthor): This isn't really to do with the gameloader, but serves as a convinent place
@@ -246,8 +224,7 @@ class SantaGameLoaderElement extends HTMLElement {
     // Safari (and others) won't resize an iframe correctly. If we find that their size is invalid,
     // then force it via changing CSS properties.
     const tilt = this.hasAttribute('tilt');
-    rectifyFrame(this._activeFrame, tilt);
-    rectifyFrame(this._previousFrame, tilt);
+    Array.from(this._container.children).forEach((frame) => rectifyFrame(frame, tilt));
   }
 
   connectedCallback() {
@@ -261,12 +238,7 @@ class SantaGameLoaderElement extends HTMLElement {
   attributeChangedCallback(attrName, oldValue, newValue) {
     switch (attrName) {
       case 'disabled':
-        if (newValue !== null) {
-          window.focus();  // move focus from activeFrame
-          this._activeFrame.setAttribute('tabindex', -1);
-        } else if (!this._loading) {
-          this._activeFrame.removeAttribute('tabindex');
-        }
+        this._loader.disabled = this.hasAttribute('disabled');
         break;
 
       case 'tilt':
@@ -276,183 +248,86 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   /**
-   * Optionally purge any `previousFrame` that is being held during a load. Called by transition
-   * code to clear content once we're done with it.
-   */
-  purge() {
-    // nb. does not null out the previousFrame, as we use it to indicate in-progress load
-    removeNode(this._previousFrame);
-    this._previousFrameClose && this._previousFrameClose();
-  }
-
-  /**
    * Load a new scene.
    *
    * @param {?string} href
    * @param {?*} context to pass via .load event
    */
-  load(href, context=null) {
-    this._href = href || null;
-
-    this._loading = true;
-    this._main.classList.add('loading');
-
-    // Inform any open control (for the activeFrame) that it is to be closed, by sending null.
+  load(href, context) {
     const close = this._control.shutdown();
     this._control = new PortControl();
 
-    if (this._previousFrame) {
-      // If there's still a previousFrame set, then the previous activeFrame never loaded. Clear it
-      // and dispatch an internal message: it was never made visible to end-users.
-      // TODO: revisit if both frames are visible at the same time for a transition
-      this._activeFrame.dispatchEvent(new CustomEvent(internalRemove));
-      removeNode(this._activeFrame);
-      close();  // frame has gone immediately, close port now
+    if (this._loader.isLoading) {
+      close();  // close immediately, the loader never finished
     } else {
-      // Whatever was active is now ultimately going to meet its demise.
-      this._previousFrame = this._activeFrame;
-      this._previousFrame.setAttribute('tabindex', -1);  // prevent tab during clear
-      window.focus();  // move focus from previousFrame
-
-      // Configure a final close helper for when the previousFrame is actually removed.
       this._previousFrameClose = close;
     }
 
-    // Inform listeners that there's a new load occuring. This will likely start the display of a
-    // loading interstitial or similar (although can fire multiple times).
-    this.dispatchEvent(new CustomEvent(events.load, {detail: {context}}));
-
-    const af = createFrame(this._href);
-    this._activeFrame = af;
-    this._activeFrame.classList.add('pending');
-    this._activeFrame.setAttribute('tabindex', -1);  // prevent tab during load
-    this._container.appendChild(af);
-
-    // TODO(samthor): Remove after iOS tests.
-    af.contentWindow.addEventListener('gesturestart', (ev) => {
-      console.info('got gesture on window');
-    }, {passive: true});
-
-    let portPromise = Promise.resolve(null);
-    if (href) {
-      portPromise = new Promise((resolve, reject) => {
-
-        // Resolves with a MessagePort from the frame.
-        // nb. This needs to happen _after_ being added to the DOM, otherwise .contentWindow is null.
-        messageSource.add(af.contentWindow, (ev) => {
-          if (ev.data !== 'init' || !(ev.ports[0] instanceof MessagePort)) {
-            return reject(new Error(`unexpected from preload: ${ev.data}`));
-          }
-          resolve(ev.ports[0]);
-        });
-
-        // Handle being removed due to being replaced with some other frame before being loaded.
-        af.addEventListener(internalRemove, () => resolve(null), {once: true});
-
-        // Needed for non-Chrome to finally reject a load.
-        window.setTimeout(() => resolve(null), LOAD_TIMEOUT);
-
-        // Resolves with null after load + delay, indicating that the scene has failed to init. The
-        // loader should normally resolve with its MessagePort.
-        af.addEventListener('load', () => {
-          window.setTimeout(() => resolve(null), href ? LOAD_LEEWAY : 0);
-
-          // TODO(samthor): If another load event arrives, this is because the internal <iframe>
-          // loaded a new URL. We should kill it in this case.
-          af.addEventListener('load', (ev) => {
-            console.warn('got inner load, should kill frame', af);
-            af.contentWindow.location.replace('about:blank');
-          }, {once: true});
-        }, {once: true});
-
-      });
-    }
-
-    // nb. This method should never fail for external reasons; failures here are an internal issue.
-    return this._prepareFrame(portPromise, af, context);
+    this.dispatchEvent(new CustomEvent(events.load));
+    return this._loader.load(href, context);
   }
 
-  async _prepareFrame(portPromise, af, context) {
-    const port = await portPromise;
-    if (af !== this._activeFrame) {
-      return false;  // another frame was requested before initial init message
+  _unload(frame, href) {
+    this._main.classList.add('loading');
+
+    const r = resolvable();
+    this.purge = r.resolve;
+    return r.promise;
+  }
+
+  async _prepare(frame, href, context) {
+    frame.classList.add('pending');
+    this._activeFrame = frame;  // store most recent active frame
+
+    const port = await prepareMessage(frame, 250);
+    if (frame !== this._activeFrame) {
+      return null;  // check for preempt
     }
-    this._control.attach(port);
 
-    let readyResolve;
-    const readyPromise = new Promise((resolve) => {
-      readyResolve = resolve;
-    });
-    const ready = () => {
-      if (af !== this._activeFrame) {
-        readyResolve(false);
-        return false;
-      } else if (!this._loading) {
-        return true;  // ready was called twice
-      }
-
-      // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
-      // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
-      af.style.maxHeight = 'calc(100% - 1px)';
-      window.requestAnimationFrame(() => {
-        af.style.maxHeight = null;
-      });
-
-      // Success: the frame has reported ready. The following code is entirely non-async, and just
-      // cleans up state as the scene is now active and happy.
-
-      if (this.disabled) {
-        // Retain `tabindex=-1`, which prevents use of the iframe.
-      } else {
-        this._activeFrame.removeAttribute('tabindex');
-      }
-
-      this._loading = false;
-      this._activeFrame.classList.remove('pending');
-      this._main.classList.remove('loading');
-
-      // If nothing loaded, allow <slot> content and remove itself. This is still "success".
-      this._main.classList.toggle('empty', !port);
-      if (port === null) {
-        removeNode(this._activeFrame);
-      }
-
-      this.purge();
-      this._previousFrame = null;
-      this._previousFrameClose = null;
-
-      readyResolve(true);
-      return true;
-    };
-
-    const {promise: scenePromise, resolve: sceneResolve} = resolvable();
-
-    // Ensure that `ready` is always called. And, that if the scene runner has an uncaught error,
-    // it is announced.
-    scenePromise.then(ready, (error) => {
-      if (af === this._activeFrame) {
-        const detail = {error, context};
-        this.dispatchEvent(new CustomEvent(events.error, {detail}));
-      } else {
-        console.warn('error from closed scene', af.src, error)
-      }
+    // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
+    // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
+    frame.style.maxHeight = 'calc(100% - 1px)';
+    window.requestAnimationFrame(() => {
+      frame.style.maxHeight = null;
     });
 
-    // Announce to the caller that it can now prepare a new frame, listening to control events and
-    // doing work. Control can also be null if the scene failed to load or is the blank page.
-    const detail = {
-      context,
-      control: this._control,
-      resolve: sceneResolve,
-      ready,  // "call me when done"
-      href: this._href,
-    };
-    this.dispatchEvent(new CustomEvent(events.prepare, {detail}));
-    return readyPromise;
+    const control = this._control;
+    control.attach(port);
+
+    return new Promise((resolve) => {
+      // Announce to the caller that it can now prepare a new frame, listening to control events and
+      // doing work. Control can also be null if the scene failed to load or is the blank page.
+      const detail = {
+        context,
+        control,
+        ready: () => {
+          resolve(port ? control : null);  // resolve with null if there's no scene here
+          if (frame !== this._activeFrame) {
+            return false;  // no longer active
+          }
+          this.purge();
+          return true;
+        },
+      };
+      this.dispatchEvent(new CustomEvent(events.prepare, {detail}));
+    });
+  }
+
+  _ready(frame, href, payload) {
+    // Success: the frame has reported ready. The following code is entirely non-async, and just
+    // cleans up state as the scene is now active and happy.
+    this._previousFrameClose();
+
+    // Clean up CSS classes set during load.
+    frame.classList.remove('pending');
+    this._main.classList.remove('loading');
+
+    // If nothing loaded, allow <slot> content and remove itself. This is still "success".
+    this._main.classList.toggle('empty', !payload);
   }
 
   get href() {
-    return this._href;
+    return this._loader.href;
   }
 
   get disabled() {
@@ -460,13 +335,10 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   set disabled(v) {
-    this.toggleAttribute('disabled', v);
-  }
-
-  focus() {
-    // TODO: should we overload focus?
-    if (!this._activeFrame.hasAttribute('tabindex')) {
-      this._activeFrame.focus();
+    if (v) {
+      this.setAttribute('disabled', '');
+    } else {
+      this.removeAttribute('disabled');
     }
   }
 }

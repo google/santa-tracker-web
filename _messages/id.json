@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Buat {{count}} mobil!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Buat 1 mobil!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Buat {{count}} robot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Buat 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Buat {{count}} roket!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Buat 1 roket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Buat {{count}} beruang teddy!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Buat 1 beruang teddy!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Ambil \u0026 jatuhkan mainan"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Petunjuk"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Pindahkan"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Pemain 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Pemain 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Berapa pemain?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Pemain"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Pemain"
+	},
+	"buildandbolt-skip": {
+		"message": "Lewati"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Rayakan sepanjang bulan"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Gunakan Asisten Google untuk mencari tahu lebih banyak tentang Sinterklas selama bulan Desember. Integrasi ini tersedia dalam bahasa tertentu."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Atas izin orang tua, anak-anak yang berusia kurang dari 13 tahun juga dapat memiliki pengalaman Asisten Google yang dipersonalisasi saat mereka login dengan akunnya sendiri, yang dikelola dengan \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Asisten Google menghubungkan Anda dengan Kutub Utara, tempat Sinterklas sibuk berlatih untuk konser musik. Dia hanya tahu satu lagu. Dapatkah Anda membantunya menemukan cara terbaik untuk memainkan lagu tersebut?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Hubungi Sinterklas"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Tonton Siaran Berita Kutub Utara setiap hari untuk mengetahui apa yang sedang dikerjakan Sinterklas dan para kurcacinya. Cukup tanyakan ke Asisten Google untuk mengetahui ada berita apa dari Kutub Utara."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Siaran Berita Kutub Utara"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Saat Sinterklas tidak sibuk dengan para kurcaci di bengkelnya, dia menghabiskan waktu untuk meningkatkan keterampilan komedinya. Cukup tanyakan ke Asisten Google tentang lelucon Sinterklas untuk mengetahui rutinitasnya."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Lelucon Sinterklas"
+	},
+	"familyguide_assistant_title": {
+		"message": "Jangan Pernah Lewatkan Berita Terbaru dari Kutub Utara"
+	},
 	"familyguide_body": {
 		"message": "Desa Sinterklas adalah tempat yang sempurna bagi keluarga untuk merayakan liburan Natal. Anda akan menemukan semua karakter favorit dengan aktivitas yang menyenangkan, mendidik, dan interaktif untuk segala usia."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "lainnya"
 	},
+	"familyguide_nav_link_07": {
+		"message": "asisten"
+	},
 	"familyguide_secondary_body": {
 		"message": "Pada tanggal 24 Desember, Desa Sinterklas berubah menjadi area pelacakan yang memberi Anda pengalaman untuk mengikuti Sinterklas dan rusa kutubnya saat mengirimkan hadiah ke anak-anak di seluruh dunia."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Dapatkan keajaiban lainnya dari Pelacak Sinterklas musim ini dengan semua produk Google favorit Anda."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Bertanyalah ke Asisten Google setiap hari untuk mendapatkan kabar seru dan terbaru dari Dimplestick si Kurcaci."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, ada berita apa dari Kutub Utara?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Keseruan liburan Natal untuk seluruh keluarga"
+	},
+	"familylink": {
+		"message": "Tambahkan akun Google anak Anda, yang dikelola dengan Family Link"
+	},
+	"featured": {
+		"message": "Unggulan"
 	},
 	"fi_country_name": {
 		"message": "Finlandia"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Keberangkatan Sinterklas"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Sinterklas Harus Segera Pergi"
+	},
 	"scene_videoscene_museum": {
 		"message": "Sehari di Museum"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Workshop Sinterklas"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Batang Kayu Yule di Perapian"
 	},
 	"scene_windtunnel": {
 		"message": "Terowongan Angin"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Penguin meluncur. Kurcaci menyambut dengan gembira."
+	},
+	"storybook_paragraph_02": {
+		"message": "Seluruh warga tidak sabar ingin menyaksikan gemerlapnya cahaya."
+	},
+	"storybook_paragraph_03": {
+		"message": "Tak semua orang merasa gembira hari ini. Ini hari yang suram bagi si narwhal bernama Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Semoga kali ini, kali ini saja, aku bisa menyaksikannya. Sepertinya sangat indah melihat pohon besar menyala dengan gemerlapnya.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“Tapi kamu suka lautan!” jawab Mary Bear yang manis. “Dengan semua kerang dan plankton. Di bawah laut sangat indah!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Memang,” ujar Ollie, “kamu benar. Tapi kadang laut membuatku merasa kalut!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Nah, bagaimana kalau...” kata Mary, dengan senyum lebar, “aku datang ke situ dan kita berenang sebentar?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Kita berkeliling? Menyusuri karang-karang laut... Ah, aku punya ide bagus!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Kita bisa mengadakan perayaan penyalaan lampu natal sendiri.\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Rencana sudah dibuat. Mary mengumpulkan teman-temannya. Kurcaci datang, penguin juga mendekat. Begitu juga rusa!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie tersenyum bahagia melihat teman-temannya yang datang. “Mari kita mulai!” kata Mary, “ini pasti bakal seru!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Untuk membuat pesta yang seru, mereka butuh orang-orang yang mau membantu mewujudkannya."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Ayo kumpul!\" ujar Ollie. “Kami butuh bantuan kalian semua untuk mengadakan penyalaan lampu natal yang menghiasi rumput laut di dasar laut ini.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Ikan mulai beraksi, membantu menyebarkan undangan. “Undangan biar kami yang urus, ada banyak hal yang harus kalian selesaikan!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Kurcaci berpengalaman menggarap acara seperti ini. Mereka perlu waktu berpikir, lalu segera mulai."
+	},
+	"storybook_paragraph_16": {
+		"message": "Masalah selanjutnya adalah dekorasi. Namun, mereka tahu kepada siapa mereka harus meminta bantuan. “Tuan Kepiting dan Nyonya Lobster, bersediakah Anda membantu kami?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Kerang pun berujar, “Kami bisa menambah dekorasi! Gantung mutiara kami di ranting. Kilaunya sangat gemerlap dan menarik hati.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Pesta takkan seru tanpa musik dan irama yang nendang, karena semua orang ingin bergoyang dan berdendang."
+	},
+	"storybook_paragraph_19": {
+		"message": "“Pamanku, Horatio, adalah orang yang pas buat urusan musik. Temannya, Carl, adalah pemain gitar paling ciamik.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“Pesta akan segera dimulai. Kita hanya perlu setumpuk rumput laut sebagai pohon perayaan.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Inilah saatnya! Sekaranglah saatnya!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie mulai menari dengan tawa tergambar di wajahnya! Pesta ini akan jadi pesta paling keren selamanya."
+	},
+	"storybook_paragraph_23": {
+		"message": "Bintang laut melompat, ornamen-ornamen lain bergoyang. Ubur-ubur mulai menari, dan pemain musik memainkan lagu dendang."
+	},
+	"storybook_paragraph_24": {
+		"message": "Sungguh cantik semua dekorasi dan musik yang berirama. Tapi yang paling penting adalah semua berkumpul bersama..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...untuk perayaan penyalaan lampu!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Akhirnya, mula acaranya kian dekat! Tubuh plankton menyala gemerlap. Ollie pun terkesiap!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Layaknya sihir, indahnya cahaya berkilauan. Kota menjadi sunyi, semua mata menikmati pertunjukan."
+	},
+	"storybook_paragraph_28": {
+		"message": "Momen paling mengagumkan sepanjang hayat mereka untuk dikenang. Cahaya berkelap-kelip. Dari kuning, ke ungu, lalu hijau zamrud terang."
+	},
+	"storybook_paragraph_29": {
+		"message": "Rasa kantuk menyerang Mary. Tidak biasanya ia tidur selarut ini. Namun, sebelum mereka pergi, Ollie membalikkan badanya, lalu berkata,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Terima kasih sudah membuat warga kota menyingsingkan lengan demi perayaan yang akan selamanya meninggalkan kesan.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Tamat"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

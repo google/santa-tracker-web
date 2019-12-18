@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "부탄"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "자동차를 {{count}}개 만드세요."
+	},
+	"buildandbolt-build-car-single": {
+		"message": "자동차를 1개 만드세요."
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "로봇을 {{count}}개 만드세요."
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "로봇을 1개 만드세요."
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "로켓 {{count}}개를 만드세요."
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "로켓 1개를 만드세요."
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "곰 인형을 {{count}}개 만드세요."
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "곰 인형 1개를 만드세요."
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "장난감 집어 떨구기"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "안내"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "이동"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "플레이어 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "플레이어 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "플레이어가 몇 명인가요?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "플레이어 1명"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "플레이어 2명"
+	},
+	"buildandbolt-skip": {
+		"message": "건너뛰기"
+	},
 	"bw_country_name": {
 		"message": "보츠와나"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "한 달 내내 즐기기"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google 어시스턴트를 사용하여 12월 내내 산타클로스에 대해 자세히 알아보세요. 이 통합은 일부 언어로만 제공됩니다."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "보호자의 허락이 있다면 만 13세 미만의 아동도 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e로 관리되는 자신의 계정으로 로그인하여 맞춤 Google 어시스턴트 환경을 이용할 수 있습니다."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google 어시스턴트가 음악 연주회 준비에 바쁜 산타가 있는 북극에 연결해 줍니다. 산타는 딱 한 곡만 알고 있습니다. 산타가 잘 연주할 수 있도록 도와주시겠어요?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "산타와 통화하기"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "산타와 엘프 친구들의 최신 소식을 알아보려면 북극 뉴스캐스트를 매일 확인해 보세요. Google 어시스턴트에 북극의 새로운 소식을 물어보면 됩니다."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "북극 뉴스캐스트"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "산타는 작업공방에서 엘프들과 일하다 한가할 때는 코미디 실력을 갈고닦는 데 시간을 보냅니다. 산타의 코미디 시리즈를 들으려면 Google 어시스턴트에 산타 유머를 물어보세요."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "산타 유머"
+	},
+	"familyguide_assistant_title": {
+		"message": "놓칠 수 없는 북극의 순간"
+	},
 	"familyguide_body": {
 		"message": "산타 마을은 가족이 연말을 즐길 수 있는 최적의 공간입니다. 좋아하는 모든 캐릭터를 찾을 수 있으며 모든 연령에 맞는 재미있고 교육적인 대화형 활동이 제공됩니다."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "더보기"
 	},
+	"familyguide_nav_link_07": {
+		"message": "어시스턴트"
+	},
 	"familyguide_secondary_body": {
 		"message": "12월 24일에 산타 마을이 추적 환경으로 변환됩니다. 산타와 순록들이 전 세계 어린이에게 선물을 배달할 때 여기에서 산타를 추적할 수 있습니다."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "좋아하는 모든 Google 제품과 함께 이번 시즌에 산타 추적기를 최대한 활용해 보세요."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Google 어시스턴트에 매일 엘프 딤플스틱스의 재미있는 업데이트를 물어보세요."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, 북극의 새로운 소식을 알려줘.\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "온 가족과 함께 즐기는 연말"
+	},
+	"familylink": {
+		"message": "Family Link로 관리되는 아동용 Google 계정 추가"
+	},
+	"featured": {
+		"message": "추천"
 	},
 	"fi_country_name": {
 		"message": "핀란드"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "산타 이륙"
 	},
+	"scene_videoscene_likealight": {
+		"message": "꿀잠에 빠진 산타"
+	},
 	"scene_videoscene_museum": {
 		"message": "박물관에서의 하루"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "산타의 작업공방"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "크리스마스 벽난로"
 	},
 	"scene_windtunnel": {
 		"message": "바람 부는 터널 통과하기"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "수리남"
+	},
+	"storybook_paragraph_01": {
+		"message": "펭귄들은 썰매를 타고 있었습니다. 엘프들은 신나게 응원하고 있었습니다."
+	},
+	"storybook_paragraph_02": {
+		"message": "크리스마스 트리의 불빛에 마을 전체가 떠들썩해졌습니다."
+	},
+	"storybook_paragraph_03": {
+		"message": "그날 모두가 그렇게 즐거웠던 것은 아니었습니다. 일각고래 올리에게는 슬픈 날이었습니다."
+	},
+	"storybook_paragraph_04": {
+		"message": "“한 번만이라도 볼 수 있으면 좋겠어. 거대한 나무에 환한 불빛이 들어오면 정말 멋질 거야.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“하지만 넌 바다를 사랑하잖아!” 다정한 메리 베어가 대답했습니다. “조개, 플랑크톤 등 바다는 정말 멋진 것으로 가득해!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“나도 그렇게 생각해.” 올리가 말했습니다. “확실히 맞는 말이야. 하지만 가끔 이 넓고 푸른 바다는 나를 우울하게 만들어!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“있잖아...” 메리는 격려하는 미소를 지으며 “오늘 내려왔으니 잠깐만 수영을 즐기면 어떨까?”라고 말했습니다."
+	},
+	"storybook_paragraph_08": {
+		"message": "“함께 둘러볼까? 파도 바다 암초... 더 좋은 것도 분명 있을 거야!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“우리만의 크리스마스 트리를 만들면 되지.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "계획이 완성되었습니다. 메리는 함께할 동료를 모았습니다. 엘프와 펭귄이 동참했고 순록 몇 마리도 함께했습니다."
+	},
+	"storybook_paragraph_11": {
+		"message": "올리는 찾아와 준 친구들을 보며 환하게 웃었습니다. “시작하자!” 메리가 말했습니다. “재미있을 거야!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "멋진 파티를 열려면 무엇보다도 파티 준비를 도와줄 도우미가 필요합니다."
+	},
+	"storybook_paragraph_13": {
+		"message": "“모두 모여봐!” 올리가 소리쳤습니다. “바닷속에서 해초 점등식을 열려면 너희들 모두의 도움이 필요해.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "물고기들이 소식을 전하기 위해 나섰습니다. “초대는 우리가 맡을게. 나머지를 부탁해!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "이제 엘프들은 이러한 일에 익숙해졌습니다. 엘프들은 준비할 시간이 필요했기 때문에 자리를 떴습니다."
+	},
+	"storybook_paragraph_16": {
+		"message": "다음은 장식 차례였습니다. 누가 적임자인지 모두가 알고 있었습니다. “크랩 아저씨와 랍스터 아줌마께서 장식을 좀 도와주시겠어요?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "굴이 말했습니다. \"장식을 도와줄게. 나뭇가지에 진주를 걸자. 반짝거리며 빛날 거야.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "파티에 음악은 필수입니다. 모두가 일어나 리듬을 탈 만큼 신나는 음악이 필요합니다."
+	},
+	"storybook_paragraph_19": {
+		"message": "“호레이쇼 삼촌은 최고의 음악가야. 그리고 삼촌의 친구인 칼 아저씨는 기타 연주의 달인이지.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“파티 시간이 거의 다 되었어. 마지막으로 크리스마스 트리에 얹을 해초가 필요해.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "\"그래, 바로 이거야!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "올리는 신이 나 공중제비를 돌았습니다. 밤새 정말 멋진 파티가 될 것입니다."
+	},
+	"storybook_paragraph_23": {
+		"message": "불가사리가 제자리에서 뛰자 장식이 흔들렸습니다. 해파리는 춤을 추었고 밴드는 음악을 연주했습니다."
+	},
+	"storybook_paragraph_24": {
+		"message": "장식과 노래까지 모든 것이 정말 환상적이었습니다. 하지만 가장 좋았던 것은 모두가 모여..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...점등식을 함께 한 것이었습니다."
+	},
+	"storybook_paragraph_26": {
+		"message": "드디어 기다리던 시간이 되었습니다. 플랑크톤이 불을 밝혔습니다. 올리는 숨이 턱 막혔습니다."
+	},
+	"storybook_paragraph_27": {
+		"message": "환한 불빛이 일렁거리는 마법 같은 풍경이었습니다. 마을 주민 모두가 아무 말도 없이 불빛만 바라봤습니다."
+	},
+	"storybook_paragraph_28": {
+		"message": "생전 처음 보는 정말 대단한 광경이었습니다. 불빛이 노란색, 보라색으로 변한 후 에메랄드빛으로 반짝였습니다."
+	},
+	"storybook_paragraph_29": {
+		"message": "메리는 자야 할 시간이 지났기 때문에 졸음이 오기 시작했습니다. 모두가 자리를 뜨기 전, 올리는 모두에게 말했습니다."
+	},
+	"storybook_paragraph_30": {
+		"message": "“평생 잊지 못할 밤을 위해 마을 주민들을 모두 모아줘서 고마워.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "끝"
 	},
 	"sv_country_name": {
 		"message": "엘살바도르"

@@ -1,0 +1,57 @@
+##{$name} {
+  .fence {
+    @include board-object();
+    height: $grid-unit-size;
+    width: $grid-unit-size;
+    z-index: 0;
+
+    &.player-under {
+      z-index: $fence-z-index;
+    }
+
+    &__background {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transform: scale(1.01) translateZ(0);
+      transform-origin: center center;
+      width: 100%;
+
+      &--top {
+        background-image: url(img/fences/fence_front_middle.svg);
+        transform: scale(1.01) translateY(-100%) translateZ(0);
+        transform-origin: center top;
+      }
+
+      &--right {
+        background-image: url(img/fences/fence_side_bottom.svg);
+      }
+
+      &--bottom {
+        background-image: url(img/fences/fence_front_middle.svg);
+      }
+
+      &--left {
+        background-image: url(img/fences/fence_side_bottom.svg);
+        transform: scale(-1.01, 1.01) translateZ(0);
+      }
+
+      &--start {
+        background-image: url(img/fences/fence_front_left.svg);
+      }
+
+      &--end {
+        background-image: url(img/fences/fence_front_right.svg);
+      }
+
+      &--end-side {
+        background-image: url(img/fences/fence_side_roundtop.svg);
+      }
+    }
+  }
+}
+

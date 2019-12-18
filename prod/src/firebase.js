@@ -33,16 +33,23 @@ export function initialize() {
 
   // Fetch RC, with a fetch timeout of 30s and a key expiry of ~1 minute. This is reset later via
   // the config itself.
+  let minimumFetchIntervalMillis = 1000 * 60;
+  if (!navigator.onLine) {
+    // If the browser thinks we're offline, then allow a much larger range of cached keys (~12
+    // hours, the default).
+    minimumFetchIntervalMillis *= (12 * 60);
+  }
   const remoteConfig = firebase.remoteConfig();
   remoteConfig.settings = {
     fetchTimeoutMillis: 30 * 1000,
-    minimumFetchIntervalMillis: 1000 * 60,
+    minimumFetchIntervalMillis,
   };
 
   remoteConfig.defaultConfig = defaults;
   window.firebase = firebase;  // side-effect
 
   return remoteConfig.fetchAndActivate().catch((err) => {
+    ga('send', 'event', 'config', 'failure', 'firebase', {nonInteraction: true});
     console.warn('could not fetch remoteConfig, using defaults', err);
   }).then(() => {
     return remoteConfig;

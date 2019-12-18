@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bútan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Smíðaðu {{count}} bíla!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Smíðaðu einn bíl!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Smíðaðu {{count}} vélmenni!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Smíðaðu eitt vélmenni!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Smíðaðu {{count}} eldflaugar!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Smíðaðu eina eldflaug!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Búðu til {{count}} bangsa!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Búðu til einn bangsa!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Sækja og afhenda leikföng"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Leiðbeiningar"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Færa"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Spilari 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Spilari 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hversu margir spilarar?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "Einn spilari"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "Tveir spilarar"
+	},
+	"buildandbolt-skip": {
+		"message": "Sleppa"
+	},
 	"bw_country_name": {
 		"message": "Botsvana"
 	},
@@ -479,6 +530,21 @@
 	"codelab-try-again": {
 		"message": "Reyna aftur"
 	},
+	"controller_gamepad": {
+		"message": "Fjarstýring"
+	},
+	"controller_keyboard": {
+		"message": "Lyklaborð"
+	},
+	"controller_mouse": {
+		"message": "Mús"
+	},
+	"controller_touch": {
+		"message": "Snerting"
+	},
+	"copied": {
+		"message": "Afritað!"
+	},
 	"copy-me": {
 		"message": "Afritaðu tengilinn til að deila skilaboðunum"
 	},
@@ -539,6 +605,12 @@
 	"deckdescription": {
 		"message": "Skreyttu vafrann þinn með Sveinkaviðbót i Chrome."
 	},
+	"decmonth": {
+		"message": "des"
+	},
+	"decmonth_long": {
+		"message": "Desember"
+	},
 	"detected": {
 		"message": "greint"
 	},
@@ -587,6 +659,9 @@
 	"elf_choose_body": {
 		"message": "Veldu líkamsgerð álfs"
 	},
+	"elves": {
+		"message": "Álfar"
+	},
 	"elvish_language_name": {
 		"message": "Álfneska"
 	},
@@ -611,8 +686,14 @@
 	"error-not-found": {
 		"message": "Æ nei, álfarnir hans Sveinka finna ekki síðuna! Þér gæti verið betur ágengt ef þú ferð aftur í \u003ca href=\"./\"\u003ejólasveinaþorpið\u003c/a\u003e."
 	},
+	"error-out-of-date": {
+		"message": "Þetta er úrelt útgáfa af þorpi jólasveinsins! Prófaðu að opna Hvar er jólasveinninn aftur til að skoða nýjustu útgáfuna."
+	},
 	"error-try-again": {
 		"message": "Reyna aftur"
+	},
+	"error-unsupported": {
+		"message": "Hvar er jólasveinninn styður ekki við vafrann þinn. Ef þú vilt spila fleiri leiki og fylgjast með Sveinka þann 24. desember skaltu prófa að nota símann eða annan vafra."
 	},
 	"es_language_name": {
 		"message": "spænska"
@@ -626,11 +707,212 @@
 	"explore-village": {
 		"message": "Skoða þorp jólasveinsins"
 	},
+	"familyguide_accordion_title": {
+		"message": "Fagnaðu allan liðlangan mánuðinn"
+	},
+	"familyguide_assistant_body_01": {
+		"message": "Notaðu Google hjálparann til að fá frekari upplýsingar um jólasveininn í desember! Þessi samþætting er í boði á völdum tungumálum."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Með leyfi foreldra geta börn undir þrettán ára aldri einnig fengið sérsniðið viðmót fyrir Google hjálparann þegar þau skrá sig inn á eigin reikning. Umsjón með reikningnum er í gegnum \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google hjálparinn tengir þig við Norðurpólinn en þar er Sveinki á fullu að undirbúa tónleika. Hann kann bara eitt lag – getur þú hjálpað honum að finna út hvernig best er að spila það?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Hringdu í jólasveininn"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Fylgstu með fréttum frá Norðurpólnum daglega og fáðu að vita hvað Sveinki og álfarnir hans eru að bralla. Spurðu Google hjálparann bara hvað sé að frétta frá Norðurpólnum."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Fréttir frá Norðurpólnum"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Þegar Sveinki er ekki önnum kafinn með álfunum á vinnustofunni finnst honum gaman að spreyta sig á gríninu. Spurðu Google hjálparann um Sveinkagrín og þá færðu brandara frá jólasveininum."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Sveinkagrín"
+	},
+	"familyguide_assistant_title": {
+		"message": "Ekki missa af mínútu á Norðurpólnum"
+	},
+	"familyguide_body": {
+		"message": "Þorp jólasveinsins er frábær staður fyrir fjölskyldur til að fagna hátíðinni. Þar finnurðu allar uppáhalds persónurnar þínar og eitthvað skemmtilegt, fræðandi og gagnvirkt fyrir fólk á öllum aldri."
+	},
+	"familyguide_card_01_body": {
+		"message": "Notaðu grunnatriði í kóðun til að færa álfinn gegnum skóginn og finna gjafir sem þar hafa verið settar."
+	},
+	"familyguide_card_02_body": {
+		"message": "Búðu til þitt eigið kort fyrir hátíðarnar með því að forrita þitt eigið snjókorn – veldu bara einhvern bakgrunn af mörgum og deildu þessu með vinum þínum."
+	},
+	"familyguide_card_03_body": {
+		"message": "Álfarnir eru aftur byrjaðir að kóða en gleyma ekki dansinum. Notaðu kóða til að stýra álfadansinum – en passaðu þig því þegar þér gengur betur verða dansarnir erfiðari!"
+	},
+	"familyguide_card_04_body": {
+		"message": "Lærðu um hátíðarsiði víðs vegar um heim – um Kanadabúa sem ganga með húfur og Ástrala á sundskýlum – smelltu bara á prjóna á kortinu til að fá upplýsingar um hvert land."
+	},
+	"familyguide_card_05_body": {
+		"message": "Þú getur lært hvaða orð fólk notar um hátíðarnar víðs vegar um heim, hvort sem það er gleðilegt nýtt ár á álfamáli eða Дед Мороз."
+	},
+	"familyguide_card_06_body": {
+		"message": "Sveinki þarf víða að fara. Reyndu að finna hvaða útlínur lands passa við hvaða landaheiti í þessum landafræðileik."
+	},
+	"familyguide_card_07_body": {
+		"message": "Þekkirðu sögu hátíðanna? Sýndu hvað í þér býr í níu spurninga leik sem reynir á þekkingu þína."
+	},
+	"familyguide_card_07_title": {
+		"message": "Spurningakeppni um hátíðarhefðir"
+	},
+	"familyguide_card_08_body": {
+		"message": "Er maginn að kalla? Uppgötvaðu kræsingar alls staðar að úr heiminum og sjáðu hvaða mat lönd nær og fjær bjóða upp á."
+	},
+	"familyguide_card_09_body": {
+		"message": "Nýttu þér verkfærin hans Sveinka. Hvert tól, pensill og límmiði eru með eigið hljóð svo að þetta verður í senn sjón- og hljóðupplifun."
+	},
+	"familyguide_card_10_body": {
+		"message": "Gerðu tilraunir og leiktu þér í þínum eigin vetrarsandkassa. Notaðu þrívíddarefni til að byggja hvað sem er: hús, leikföng, snjókarla, skóga eða annað sem þér dettur í hug."
+	},
 	"familyguide_card_11_body": {
 		"message": "Smíðaðu þinn eigin álf frá toppi til táar og passaðu að hann sé alveg álfslegur því að það eru margar skemmtanir í gangi um hátíðarnar á Norðurpólnum."
 	},
+	"familyguide_card_12_body": {
+		"message": "Sveinki er á rakarastofunni og hann þarf þína hjálp við að fá alveg nýtt útlit. Litaðu skeggið hans, þurrkaðu hárið, bættu við skreytingum eða rakaðu allt skeggið af með skærum."
+	},
+	"familyguide_card_13_body": {
+		"message": "Slástu í hópinn með hreindýrum, álfum, Sveinka og konu hans er þau fara á Hátíðarskapssafnið!"
+	},
+	"familyguide_card_14_body": {
+		"message": "Það þarf að hjálpa mörgum álfum, hreindýrum og þrándum að þeytast um Norðurpólinn. Sjáðu hvernig allir komast frá einum stað til annars."
+	},
+	"familyguide_card_15_body": {
+		"message": "Sveinki og hreindýrin eru tilbúin til ferðar en þurfa á smá aðstoð að halda frá kóðunarálfunum áður en haldið er af stað."
+	},
+	"familyguide_card_16_body": {
+		"message": "Vinir okkar í þorpinu eyða einum degi neðansjávar með Nalla náhval og fagna saman fyrsta þangskreytingardeginum."
+	},
+	"familyguide_card_age": {
+		"message": "Allir aldurshópar"
+	},
+	"familyguide_doublecard_body": {
+		"message": "Eftir að búið er að drekka maltið og appelsínið og taka upp gjafirnar geturðu skoðað skemmtun fyrir fjölskylduna allt árið um kring með Google."
+	},
+	"familyguide_doublecard_card01_body": {
+		"message": "Við viljum öll búa á lífvænlegri jörð nú og um alla framtíð. Lærðu einföld ráð frá Google um hvernig hægt er að hjálpa fólki og jörðinni að dafna saman."
+	},
+	"familyguide_doublecard_card01_title": {
+		"message": "Þín áætlun, þinn heimur"
+	},
+	"familyguide_doublecard_card02_body": {
+		"message": "Til að fá sem mest úr netinu þurfa krakkar að vera tilbúnir að vera snjallir í ákvörðunum sínum. Náðu tökum á netinu kennir krökkum grunnatriði sem netverjar þurfa að hafa í huga og hvernig unnt er að tryggja að börn geti skoðað netið á öruggan hátt."
+	},
+	"familyguide_doublecard_card02_title": {
+		"message": "Náðu tökum á netinu"
+	},
+	"familyguide_doublecard_title": {
+		"message": "Meira frá Google"
+	},
+	"familyguide_group_01_body": {
+		"message": "Álfarnir eru alltaf að reyna að bæta kóðunarhæfileika sína. Skoðaðu leiki sem kenna þér grunnatriðin. Allir geta spreytt sig á kóðun!"
+	},
+	"familyguide_group_01_title": {
+		"message": "Lærðu að kóða með álfunum hans Sveinka"
+	},
+	"familyguide_group_02_body": {
+		"message": "Hátíðarnar geta verið mjög mismunandi frá einum stað til annars. Sjáðu hvernig heimsbyggðin fagnar hátíðinni með fullt af leikjum og spurningaleikjum."
+	},
+	"familyguide_group_02_title": {
+		"message": "Kynntu þér hátíðir víðs vegar um heim"
+	},
+	"familyguide_group_03_body": {
+		"message": "Þorpið hans Sveinka blómstrar við alla iðju. Uppgötvaðu leiki sem gera þér kleift að teikna, mála, byggja og búa til með öllum uppáhalds persónunum þínum."
+	},
+	"familyguide_group_03_title": {
+		"message": "Fáðu innblástur og búðu eitthvað til"
+	},
+	"familyguide_group_04_body": {
+		"message": "Náðu þér í popp og hjúfraðu þig undir værðarvoðinni. Þú getur fylgst með öllu liðinu í þorpsleikhúsinu í sjónvarpinu eða lesið gagnvirka sögubók þar sem Nalli náhvalur tekur hátíðina með trompi neðansjávar."
+	},
+	"familyguide_group_04_title": {
+		"message": "Komið saman sem fjölskylda"
+	},
+	"familyguide_nav_link_01": {
+		"message": "kóði"
+	},
+	"familyguide_nav_link_02": {
+		"message": "fagnað"
+	},
+	"familyguide_nav_link_03": {
+		"message": "búa til"
+	},
+	"familyguide_nav_link_04": {
+		"message": "fjölskyldustund"
+	},
+	"familyguide_nav_link_05": {
+		"message": "ábendingar og ráð"
+	},
+	"familyguide_nav_link_06": {
+		"message": "meira"
+	},
+	"familyguide_nav_link_07": {
+		"message": "hjálpari"
+	},
+	"familyguide_secondary_body": {
+		"message": "Þann 24. desember breytist þorp jólasveinsins þannig að þú getur vaktað ferðir Sveinka og hreindýranna hans þegar þau ferðast um heim allan með gjafir fyrir börnin."
+	},
+	"familyguide_secondary_cta_01": {
+		"message": "Fylgstu með á vefsvæði eða í Android forritinu Hvar er jólasveinninn"
+	},
+	"familyguide_secondary_cta_02": {
+		"message": "Psst! Vissirðu að ferðin hans Sveinka tekur 25 klukkustundir? Hann fer fyrstu ferðina rétt eftir klukkan 10 að kvöldi að staðartíma austast í Rússlandi, þegar klukkan er 5 að morgni í New York og 11 að morgni í París."
+	},
+	"familyguide_secondary_title": {
+		"message": "Fylgstu með Sveinka á hátíðardeginum sjálfum"
+	},
+	"familyguide_tips_body": {
+		"message": "Fáðu meira úr Hvar er jólasveinninn þessi jólin með öllum uppáhalds Google vörunum þínum."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Biddu Google hjálparann um skemmtilegar fréttir á hverjum degi frá Spékoppi álfi."
+	},
+	"familyguide_tips_tip01_title": {
+		"message": "„OK Google, hvað er að frétta frá Norðurpólnum?“"
+	},
+	"familyguide_tips_tip02_body": {
+		"message": "Sæktu forritið Hvar er jólasveinninn fyrir Android í Play Store. Það er ein sviðsmynd með leikjum úr þorpinu sem einungis er að finna í forritinu."
+	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android forrit"
+	},
+	"familyguide_tips_tip03_body": {
+		"message": "Fylgstu með ferðum Sveinka á úlnliðnum með Android Wear samþættingu."
+	},
+	"familyguide_tips_tip03_title": {
+		"message": "Android Wear"
+	},
+	"familyguide_tips_tip04_body": {
+		"message": "Leitaðu að „Santa“ á Google til að sjá Sveinka í þrívídd. Hægt er að skoða hann í AR á flestum iPhone símum og sumum nýrri Android tækjum og hann veifar til þín gegnum myndavélina!"
+	},
+	"familyguide_tips_tip04_title": {
+		"message": "Fáðu Sveinka inn í stofuna"
+	},
+	"familyguide_tips_tip05_body": {
+		"message": "Gefðu skilaboðunum þínum hátíðarblæ. Þú getur fundið gif-myndir og límmiða með jólaþema með því að leita að „Santa Tracker gifs“ (á ensku eingöngu) á Tenor síðu Google."
+	},
+	"familyguide_tips_tip05_title": {
+		"message": "Gefðu GIF að gjöf"
+	},
+	"familyguide_tips_title": {
+		"message": "Ábendingar og ráð"
+	},
+	"familyguide_title": {
+		"message": "Fjör fyrir alla fjölskylduna um hátíðarnar"
+	},
+	"familylink": {
+		"message": "Bæta Google reikningi barnsins þíns við sem stjórnað er með Family Link"
+	},
+	"featured": {
+		"message": "Valið efni"
 	},
 	"fi_country_name": {
 		"message": "Finnland"
@@ -905,6 +1187,12 @@
 	"next_game": {
 		"message": "Næsti leikur"
 	},
+	"nextdecember": {
+		"message": "Sjáumst í desember!"
+	},
+	"nextyear": {
+		"message": "Sjáumst á næsta ári!"
+	},
 	"ng_country_name": {
 		"message": "Nígería"
 	},
@@ -1078,6 +1366,9 @@
 	},
 	"openingtomorrow": {
 		"message": "Opnun á morgun"
+	},
+	"opens": {
+		"message": "Opnar"
 	},
 	"ornament-print-instructions": {
 		"message": "Brjóttu saman hér og límdu hliðar saman"
@@ -1349,6 +1640,24 @@
 	"scene_airport": {
 		"message": "Flugvöllurinn á Norðurpólnum"
 	},
+	"scene_android_cityquiz": {
+		"message": "Borgaþraut"
+	},
+	"scene_android_dancer": {
+		"message": "Hreindýradans"
+	},
+	"scene_android_penguinswim": {
+		"message": "Mörgæsasund"
+	},
+	"scene_android_presenttoss": {
+		"message": "Gjafakast"
+	},
+	"scene_android_rocketsleigh": {
+		"message": "Þotusleði"
+	},
+	"scene_android_snowballrun": {
+		"message": "Snjólboltaferð"
+	},
 	"scene_app": {
 		"message": "Android forrit"
 	},
@@ -1360,6 +1669,9 @@
 	},
 	"scene_briefing": {
 		"message": "Sveinkafrú veitir tilsögn"
+	},
+	"scene_build": {
+		"message": "Byggja og flýta sér"
 	},
 	"scene_callfromsanta": {
 		"message": "Símtal frá Sveinka"
@@ -1394,14 +1706,26 @@
 	"scene_factory": {
 		"message": "Sælgætisverksmiðja"
 	},
+	"scene_family": {
+		"message": "Fjölskylduleiðbeiningar"
+	},
 	"scene_giftmatch": {
 		"message": "Gjafaval"
 	},
 	"scene_glider": {
 		"message": "Álfasvif"
 	},
+	"scene_guides": {
+		"message": "Leiðbeiningar fyrir fullorðna"
+	},
 	"scene_gumball": {
 		"message": "Tyggjóleikur"
+	},
+	"scene_havoc": {
+		"message": "Gjafahasar"
+	},
+	"scene_holidayfoods": {
+		"message": "Hátíðarmatur víðs vegar um heim í boði Google Earth"
 	},
 	"scene_icecave": {
 		"message": "Íshellir"
@@ -1423,6 +1747,9 @@
 	},
 	"scene_mercator": {
 		"message": "Kortaþraut"
+	},
+	"scene_ollieundersea": {
+		"message": "Nalli neðansjávar"
 	},
 	"scene_playground": {
 		"message": "Leiksvæði á Norðurpólnum"
@@ -1466,17 +1793,26 @@
 	"scene_snowball": {
 		"message": "Snjóboltaslagur"
 	},
+	"scene_snowbox": {
+		"message": "Snjókassi"
+	},
 	"scene_snowflake": {
 		"message": "Kóðaðu snjókorn"
 	},
 	"scene_speedsketch": {
 		"message": "Hraðteikning"
 	},
+	"scene_storybook": {
+		"message": "Sögubók um sjálfbærni"
+	},
 	"scene_streetview": {
 		"message": "Strætissýn"
 	},
 	"scene_traditions": {
 		"message": "Jólahefðir"
+	},
+	"scene_traditionsquiz": {
+		"message": "Spurningakeppni um hátíðarhefðir"
 	},
 	"scene_translations": {
 		"message": "Þýðingar"
@@ -1499,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Sveinki heldur af stað"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Út á örskotsstundu"
+	},
 	"scene_videoscene_museum": {
 		"message": "Dagur á safninu"
 	},
@@ -1507,6 +1846,9 @@
 	},
 	"scene_videoscene_onvacation": {
 		"message": "Enn í fríi"
+	},
+	"scene_videoscene_penguinproof": {
+		"message": "Mörgæsahelt"
 	},
 	"scene_videoscene_reindeerworries": {
 		"message": "Hreindýraáhyggjur"
@@ -1540,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Verkstæði Sveinka"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Jólalogi"
 	},
 	"scene_windtunnel": {
 		"message": "Vindgöng"
@@ -1603,6 +1948,9 @@
 	},
 	"snowball_iced": {
 		"message": "Hélaður!"
+	},
+	"snowball_iced_count": {
+		"message": "Hélaður"
 	},
 	"snowball_remaining": {
 		"message": "{{remaining}} af {{total}} álfum eftir"
@@ -2981,6 +3329,99 @@
 	"sr_country_name": {
 		"message": "Súrínam"
 	},
+	"storybook_paragraph_01": {
+		"message": "Mörgæsirnar renndu sér á sleðum. Álfar skríktu af gleði."
+	},
+	"storybook_paragraph_02": {
+		"message": "Bærinn allur var á iði því nú átti að kveikja á trénu."
+	},
+	"storybook_paragraph_03": {
+		"message": "Ekki voru allir í jafngóðu skapi þennan daginn. Sjáðu til, náhvalurinn Nalli var ósköp dapur."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Ég vildi að ég gæti komið og skoðað, bara einu sinni. Það virðist vera svo ótrúlega gaman þegar stóra tréð er lýst upp.“"
+	},
+	"storybook_paragraph_05": {
+		"message": "„En þú elskar hafið!“ svaraði María Birna ljúfum rómi. „Allar skeljarnar og þangið. Það er alveg dásamlega gaman neðansjávar!“"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Ég býst við því,“ sagði Nalli, „það er vissulega satt. En stundum gerir hafið stóra mig dálítið niðurdreginn!“"
+	},
+	"storybook_paragraph_07": {
+		"message": "„Sko, hvað ef...“ sagði María hvetjandi, „ég kem til þín í dag og við syndum um dálitla stund?“"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Viltu fara í könnunarleiðangur? Bruna um á brimbretti við sjávarrifin... Eða, enn betra, ég veit!“"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Við gætum kveikt á tré hjá okkur líka.“"
+	},
+	"storybook_paragraph_10": {
+		"message": "Áætlun fór að taka á sig mynd. María safnaði liðinu sínu kringum sig. Álfarnir hópuðust að og svo mörgæsirnar. Nokkur hreindýr komu líka!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Nalli brosti himinglaður þegar hann sá að allir vinirnir voru komnir. „Jæja, hefjumst handa!“ sagði María, „þetta verður gaman!“"
+	},
+	"storybook_paragraph_12": {
+		"message": "Nú, ef þau ætluðu að halda góða veislu þurftu þau fyrst á frábæru aðstoðarfólki að halda til að allt gengi vel."
+	},
+	"storybook_paragraph_13": {
+		"message": "„Allir í einn hring!“ hrópaði Nalli. „Við þurfum á hjálp ykkar að halda, við viljum halda þaraljósahátíð neðansjávar.“"
+	},
+	"storybook_paragraph_14": {
+		"message": "Fiskarnir hófust handa og breiddu út boðskapinn til gesta. „Við skulum sjá um að bjóða öllum, þið sjáið um hitt!“"
+	},
+	"storybook_paragraph_15": {
+		"message": "En álfarnir höfðu reynslu af svona viðburðum. Þeir þurftu nægan tíma fyrir allan undirbúninginn og héldu af stað."
+	},
+	"storybook_paragraph_16": {
+		"message": "Þá var komið að skreytingunum. Það vissu allir hvert ætti að leita. Herra Krabbi og frú Humar, vilduð þið vera svo ósköp væn að hjálpa okkur?“"
+	},
+	"storybook_paragraph_17": {
+		"message": "Ostrurnar tóku undir og sögðu: „Við getum hjálpað til við hönnunina! Hengið perlurnar okkar á greinarnar. Þær glitra svo fallega.“"
+	},
+	"storybook_paragraph_18": {
+		"message": "Í öllum veislum þarf að vera tónlist sem hentar stað og stund og fær alla til að standa upp og dansa."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Hemmi frændi minn er sá besti í bransanum. Og Kalli, góðvinur hans, er alger snillingur á gítarinn.“"
+	},
+	"storybook_paragraph_20": {
+		"message": "„Jæja, veislan er alveg að byrja og nú þurfum við bara eitt þaraknippi fyrir hátíðartré.“"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Þetta er málið! Þetta er málið!“"
+	},
+	"storybook_paragraph_22": {
+		"message": "Nalli tók heljarstökk aftur á bak! Hvað þetta yrði nú frábær veisla."
+	},
+	"storybook_paragraph_23": {
+		"message": "Krossfiskur hoppaði á sinn stað og skreytingarnar allar svignuðu. Marglytturnar dönsuðu og hljómsveitin spilaði."
+	},
+	"storybook_paragraph_24": {
+		"message": "Allt var svo ótrúlega fallegt, skreytingarnar og tónarnir. En best var að allir komu saman..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...fyrir ljósin!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Nú var stundin loks runnin upp! Þarinn stóð allur í ljóma. Nalli tók andköf af undrun!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Töfrum var það líkast, ljósið fagurt skein. Litli bærinn hljóður, er sýning var þar ein."
+	},
+	"storybook_paragraph_28": {
+		"message": "Þetta var það ótrúlegasta sem þau öll höfðu séð. Ljósin urðu gul, svo fjólublá og svo loks smaragðsgræn."
+	},
+	"storybook_paragraph_29": {
+		"message": "María fór að verða syfjuð, komið var fram yfir háttatíma, en áður en þau öll fóru snéri Nalli sér að þeim og sagði,"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Takk kærlega fyrir að fá alla í bænum til að koma saman. Ég bara veit að við munum eftir þessu alla ævi.“"
+	},
+	"storybook_paragraph_31": {
+		"message": "Endir"
+	},
 	"sv_country_name": {
 		"message": "El Salvador"
 	},
@@ -3022,6 +3463,12 @@
 	},
 	"tr_language_name": {
 		"message": "tyrkneska"
+	},
+	"tracker-game_awesome": {
+		"message": "Spila Fjársjóðsturn"
+	},
+	"tracker-game_be-internet-awesome": {
+		"message": "Náðu tökum á netinu"
 	},
 	"tracker_arrival": {
 		"message": "Koma"
@@ -6761,8 +7208,17 @@
 	"uk_tradition": {
 		"message": "Í Bretlandi kemur kátt fólk á öllum aldri saman og nýtur þess að opna jólaknöll við kvöldverðarborðið. Knöll eru sívalningar sem vafið er í litríkan pappír og hægt er að opna. Þegar þú opnar springur sívalningurinn með háum hvelli! Inni eru pappírshattar, leikföng og annað fyrir jólakvöldið."
 	},
+	"underconstruction": {
+		"message": "Framkvæmdir í gangi"
+	},
+	"unlocks": {
+		"message": "Opnast"
+	},
 	"unmute": {
 		"message": "Kveikja"
+	},
+	"upgrade-warning": {
+		"message": "Úbbs! Ekki er stutt við Hvar er jólasveinninn í vafranum þínum eða þú ert með slökkt á JavaScript. Ef þú vilt fá Hvar er jólasveinninn skaltu sækja nýjan vafra eða kveikja á JavaScript."
 	},
 	"us_country_name": {
 		"message": "Bandaríkin"
@@ -6823,6 +7279,9 @@
 	},
 	"village_santa_install": {
 		"message": "Setja upp"
+	},
+	"village_santa_intall_ios": {
+		"message": "Ýttu bara á \u003cspan\u003e\u003c/span\u003e og síðan á „Bæta við heimaskjá“"
 	},
 	"village_takesoff": {
 		"message": "Sveinki hefur för sína eftir"

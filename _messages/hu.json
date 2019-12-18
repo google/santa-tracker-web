@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhután"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Építs {{count}} autót!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Építs 1 autót!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Építs {{count}} robotot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Építs egy robotot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Építs {{count}} rakétát!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Építs egy rakétát!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Építs {{count}} macit!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Építs egy macit!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Felvétel és leejtés"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Útmutató"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Áthelyezés"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1. játékos"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2. játékos"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Hány játékos van?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 játékos"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 játékos"
+	},
+	"buildandbolt-skip": {
+		"message": "Kihagyás"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "A pingvinek szánkóztak. A manók ujjongtak."
+	},
+	"storybook_paragraph_02": {
+		"message": "Az egész város izgatott volt a kivilágított fa miatt."
+	},
+	"storybook_paragraph_03": {
+		"message": "De nem mindenki volt vidám azon a napon. Ollie, a cet számára szomorú nap volt ez."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Annyira szeretném, ha csak most az egyszer ott lehetnék. Káprázatos lehet az a hatalmas fa kivilágítva."
+	},
+	"storybook_paragraph_05": {
+		"message": "„De hiszen szereted az óceánt!” – válaszolt kedvesen Mari Maci. „Sok itt a szép kagyló és a plankton. Csodálatos a világ itt lent!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Igen” – mondta Ollie, „biztosan így van. De néha a mély tengerben mélypontra kerülök én is.”"
+	},
+	"storybook_paragraph_07": {
+		"message": "„Hmmm, mi lenne, ha…” – mondta Mari bátorító mosollyal, „…ma lejönnék, és úsznánk egy kicsit?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Kalandokra vágysz? Korallszörfözés… És sok más csoda vár!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Mi magunk is meg tudjuk csinálni a karácsonyfa kivilágítását.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "Kész a terv. Mari összegyűjtötte a csapatot. Manók, majd pingvinek érkeztek. Sőt néhány rénszarvas is!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie boldogan mosolygott barátaira. „Vágjunk bele” – mondta Mari, „jól fogunk mulatni!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "A nagyszerű buli rendezéséhez először is rengeteg kiváló segítő kell."
+	},
+	"storybook_paragraph_13": {
+		"message": "„Gyertek csak ide!” – kiáltotta Ollie. „A tengermélyi hínárfényhez mindenkire szükség van!”"
+	},
+	"storybook_paragraph_14": {
+		"message": "A halak akcióba lendültek: övék a meghívók gondja. „Mi vállaljuk a meghívókat, a többi a ti dolgotok!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Most már volt némi fogalmuk a manóknak az ilyen eseményekről. Mivel a barkácsolás időbe telik, el is mentek."
+	},
+	"storybook_paragraph_16": {
+		"message": "Ezután következett a díszítés. Tudták, kihez kell fordulniuk. „Rák úr és Homár hölgy! Segítenének, kérem?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Az osztrigák közbeszóltak: „Segíthetünk a díszítésben! Akasszátok fel gyöngyeinket az ágakra. Szépen csillognak majd.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Minden bulin kell lennie zenének, mégpedig jó ritmusosnak, hogy mindenkinek megjöjjön a kedve a tánchoz."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Nagybátyám, Horatio, a legjobb az üzletben. Jó barátja, Carl, pedig gitárvarázsló.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "„Lassan itt a bulizás ideje! Már csak a tökéletes hínárgirland hiányzik az ünnepi fáról.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Ez az! Ez az!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie vidáman riszál! Mesés lesz az egész éjszakán át tartó buli."
+	},
+	"storybook_paragraph_23": {
+		"message": "A tengeri csillag a helyére ugrott, a karácsonyfadíszek himbálózni kezdtek. A medúzák táncoltak, a banda pedig játszott."
+	},
+	"storybook_paragraph_24": {
+		"message": "Minden fantasztikus volt, a díszek és a hangok is. De a legjobb az volt, amikor mindenki összegyűlt…"
+	},
+	"storybook_paragraph_25": {
+		"message": "… a fényekért!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Itt van végre a nagy pillanat! A planktonok fénye kigyúlt. Ollie-nak elállt a lélegzete!"
+	},
+	"storybook_paragraph_27": {
+		"message": "A fények varázslatosan ragyogtak. A város lélegzetvisszafojtva figyelt."
+	},
+	"storybook_paragraph_28": {
+		"message": "A leglátványosabb dolog, amit valaha láttak. A fények először sárgák, majd lilák, végül fényes smaragdzöldek lettek."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mari kezdett álmos lenni, hiszen már ideje volt ágyba bújni! De mielőtt mind elmentek, Ollie megfordult, és ezt mondta:"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Nagyon köszönöm, hogy az egész város összegyűlt erre a feledhetetlen éjszakára.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Vége"
 	},
 	"sv_country_name": {
 		"message": "Salvador"

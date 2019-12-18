@@ -1,0 +1,5 @@
+##{$name} {
+  .wall {
+    @include board-object();
+  }
+}

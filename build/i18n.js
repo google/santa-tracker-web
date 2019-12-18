@@ -14,6 +14,17 @@ const fallback = require('../en_src_messages.json');
 function lookup(lang, callback=emptyFunc) {
   const data = require(`../_messages/${lang}.json`);
 
+  // Support e.g. "fr" for "fr-CA", or "es" for "es-419".
+  let similarLangData = null;
+  const similarLang = lang.split('-')[0];
+  if (similarLang !== lang) {
+    try {
+      similarLangData = require(`../_messages/${similarLang}.json`)
+    } catch (e) {
+      similarLangData = null;
+    }
+  }
+
   return (msgid) => {
     if (msgid === null) {
       return lang;
@@ -27,7 +38,7 @@ function lookup(lang, callback=emptyFunc) {
       } else if (out !== undefined) {
         return '?';
       }
-      o = fallback[msgid];
+      o = (similarLangData ? similarLangData[msgid] : null) || fallback[msgid] || null;
     }
 
     if (o && o['raw']) {

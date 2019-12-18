@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Rakenna {{count}} autoa!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Tee 1 auto!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Tee {{count}} robottia!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Tee 1 robotti!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Tee {{count}} rakettia!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Tee 1 raketti!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Tee {{count}} nallea!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Tee 1 nalle!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Poimi ja pudottele leluja"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Ohjeet"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Siirrä"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Pelaaja 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Pelaaja 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Montako pelaajaa?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "Yksinpeli"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "Kaksinpeli"
+	},
+	"buildandbolt-skip": {
+		"message": "Ohita"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Koko kuukausi yhtä juhlaa"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google Assistant auttaa tutustumaan Pukkiin paremmin koko joulukuun! Saatavilla tietyillä kielillä."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Myös alle 13-vuotiaat voivat vanhempien luvalla käyttää personoitua Google Assistantia kirjautumalla sisään omalla \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linkin\u003c/a\u003e kautta hoidetulla tilillään."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google Assistantilla saat yhteyden Korvatunturille, jossa Pukki harjoittelee kuumeisesti konserttia varten. Hän tosin osaa vain yhden kappaleen – auta häntä keksimään, mikä on paras tapa soittaa se."
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Soita Pukille"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Kuulumisia Korvatunturilta kertoo joka päivä, mitä Pukki ja tontut puuhaavat. Se selviää kysymällä Google Assistantilta, mitä Korvatunturille kuuluu."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Kuulumisia Korvatunturilta"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kun Pukilla ei ole kiire auttaa tonttuja työpajalla, hän hioo hauskoja juttuja. Kuulet ne pyytämällä Google Assistantilta, että Pukki kertoo sinulle vitsin."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Pukin parhaat vitsit"
+	},
+	"familyguide_assistant_title": {
+		"message": "Kuuntele kaikki katsaukset Korvatunturilta"
+	},
 	"familyguide_body": {
 		"message": "Joulupukin kylä on koko perheen paras paikka valmistautua jouluun. Sieltä löytyy hauskaa, opettavaista ja interaktiivista puuhaa kaikenikäisille suosikkihahmojen parissa."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "muu"
 	},
+	"familyguide_nav_link_07": {
+		"message": "Assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "24. joulukuuta Joulupukin kylästä tulee jäljitin, jolla voit seurata Pukkia ja poroja, kun he matkaavat ympäri maailmaa jakamassa lahjoja lapsille."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Koe Pukin jäjljittimen taika joulunaikana Googlen suosikkituotteillasi."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Pyydä Google Assistantilta Dimplesticks-tontun keksimiä päivän piristyksiä."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hei Google, mitä uutta Korvatunturilta?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Hauskoja jouluisia hetkiä koko perheelle"
+	},
+	"familylink": {
+		"message": "Lisää lapsesi Family Linkin kautta hoidettu Google-tili"
+	},
+	"featured": {
+		"message": "Päivän pelisuositus"
 	},
 	"fi_country_name": {
 		"message": "Suomi"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Pukin lähtö"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Lamput sammuu"
+	},
 	"scene_videoscene_museum": {
 		"message": "Päivä museossa"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Pukin paja"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Jouluinen takkatuli"
 	},
 	"scene_windtunnel": {
 		"message": "Tuulitunneli"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pingviinit laskivat pulkalla, tontut ne huusivat hurraata."
+	},
+	"storybook_paragraph_02": {
+		"message": "Kaikki odottivat innolla kylän kuusen valoja."
+	},
+	"storybook_paragraph_03": {
+		"message": "Mut' kaikilla ei ollut mieli aivan huoleton. Sarvivalas Ollie näet oli onneton."
+	},
+	"storybook_paragraph_04": {
+		"message": "\"Kun vain yhden kerran edes saisin nähdä sen. Sen upean ja suuren puun ja loisteen valojen.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "\"Sinähän rakastat merta!\" Mary Bear vastasi. \"Simpukoita, planktonia, se on lempipaikkasi!\""
+	},
+	"storybook_paragraph_06": {
+		"message": "\"Voi olla\", sanoi Ollie, \"niin, tottahan se on. Vaan joskus meressä myös mieli syvis' vesis' on!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "\"Entäpä jos sitten…\" sanoi Mary hymyillen, \"tulisinkin käymään ja hetken uisimme?\""
+	},
+	"storybook_paragraph_08": {
+		"message": "\"Matka halki meren? Nyt keksin vielä parempaa!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Jospa viettäisimme valojuhlaa ihan omaa?\""
+	},
+	"storybook_paragraph_10": {
+		"message": "Apuun kutsui Mary kaverin jos toisenkin. Tontut sekä pingviinit ja vielä porotkin!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ystävien apu sai hymyn Ollien kasvoille. Mary sanoi: \"Hauskaa työtä riittää kaikille!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Ennen kuin juhlaa viettää voitaisiin, paikalle taitavaa apua tarvittiin."
+	},
+	"storybook_paragraph_13": {
+		"message": "\"Tulkaa!\" Ollie pyysi. \"Tarvitaan kaikkien apua, jotta saamme tuikkimaan meren alle valoja.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Kalat ne tahtoivat lähteä vieraille kertomaan. \"Me huolehdimme kutsuista, te loput hoitakaa!\""
+	},
+	"storybook_paragraph_15": {
+		"message": "Tontut toki tiesivät, mitä tarvittiin. Niin ne työhön tarttuivat, ja hihat käärittiin."
+	},
+	"storybook_paragraph_16": {
+		"message": "Koristelussa luotettiin hummeriin ja rapuun. \"Mr. Crab ja Ms. Lobster, tulisitteko te apuun?\""
+	},
+	"storybook_paragraph_17": {
+		"message": "Osterit säestivät: \"Mekin tahdomme auttaa! Hohtavat helmet kohta oksilla kimaltaa.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Musiikki tekee juhlan kuin juhlan, saa nousemaan jalan ja tanssimaan kansan."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Setäni Horatio on todellinen musiikin mestari. Ja hänen kaverinsa Carl on oikea kitarataituri.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "\"Kohta juhlan aika on, mut' vielä puuttuu puu. Kerätään meren kasveja, niistähän se valmistuu.\""
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Hip hei!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie ei iloisempi olla voisi! Niin ihmeellisen juhlan ilta mukanansa toisi."
+	},
+	"storybook_paragraph_23": {
+		"message": "Meritähti pomppas' paikalleen ja keinui koristeet. Bändi soitti tahtia meduusan tanssille."
+	},
+	"storybook_paragraph_24": {
+		"message": "Kaikki näytti ja kuulosti kauniilta niin. Mutta parasta oli hetki, kun yhteen kokoonnuttiin…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…ja valojen syttyvän nähtiin!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Vihdoin koitti se hetki, kaiken valaisi plankton. Oli ihmeissään Ollie ja kerrassaan sanaton!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Valojen loiste, se oli kuin taikaa. Koko kaupunki ihaili niiden kauneutta hiljaa."
+	},
+	"storybook_paragraph_28": {
+		"message": "Ihmeissään he katselivat valon leikkiä: vaihtui keltainen, violetti, kirkkaanvihreä."
+	},
+	"storybook_paragraph_29": {
+		"message": "Maryn silmiin hiipi uni, ilta oli myöhäinen, mut' vielä ennen lähtöä sanoi Ollie sanasen:"
+	},
+	"storybook_paragraph_30": {
+		"message": "\"Kiitos, että toitte yhteen koko kaupungin, tästä tuli meille ilta ikimuistoisin.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Sen pituinen se"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

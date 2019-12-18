@@ -1,0 +1,129 @@
+.toys-board {
+  align-items: center;
+  border-radius: 32px;
+  bottom: 25px;
+  display: flex;
+  height: 63px;
+  justify-content: space-between;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  box-shadow: $box-shadow;
+
+  @include respond-to(mobile) {
+    bottom: auto;
+    height: auto;
+    left: auto;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+  }
+
+  &.single-player {
+    .toys-board__player {
+      border-radius: 32px;
+    }
+  }
+
+  &__player {
+    align-items: center;
+    color: $color-white;
+    display: flex;
+    height: 100%;
+    width: 190px;
+
+    @include respond-to(mobile) {
+      flex-direction: column;
+      height: 140px;
+      justify-content: center;
+    }
+
+    &:first-child {
+      background-color: $color-yellow;
+      border-bottom-left-radius: 32px;
+      border-top-left-radius: 32px;
+    }
+
+    &:nth-child(2) {
+      background-color: $color-gold;
+      border-bottom-right-radius: 32px;
+      border-top-right-radius: 32px;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__head {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 63px;
+    justify-content: center;
+    width: 63px;
+
+    @include respond-to(mobile) {
+      height: 40px;
+      width: 40px;
+    }
+
+    &-img {
+      transform: translateY(-18%);
+      width: 60%;
+
+      @include respond-to(mobile) {
+        width: 75%;
+      }
+    }
+  }
+
+  &__score {
+    align-items: center;
+    display: flex;
+    height: 100%;
+
+    @include respond-to(mobile) {
+      flex-direction: column-reverse;
+      height: auto;
+      padding-left: 0px;
+    }
+  }
+
+  &__toy {
+    height: 85%;
+    width: 60px;
+    text-align: center;
+
+    @include respond-to(mobile) {
+      height: 40px;
+      width: 75%;
+    }
+
+    &-img {
+      height: 100%;
+
+      @include respond-to(mobile) {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  &__cross {
+    font-family: $font-google-sans;
+    font-size: 14px;
+    margin: 0 8px;
+  }
+
+  &__number {
+    font-family: $font-lobster;
+    font-size: 30px;
+    text-align: center;
+    width: 20px;
+
+    @include respond-to(mobile) {
+      height: 30px;
+      width: auto;
+    }
+  }
+}
+

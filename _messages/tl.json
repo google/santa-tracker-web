@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Bumuo ng {{count}} (na) kotse!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Bumuo ng 1 kotse!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Bumuo ng {{count}} (na) robot!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Bumuo ng 1 robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Bumuo ng {{count}} (na) rocket!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Bumuo ng 1 rocket!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Bumuo ng {{count}} (na) teddy bear!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Bumuo ng 1 teddy bear!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Kumuha at maghatid ng mga laruan"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Mga Tagubilin"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Ilipat"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Player 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Player 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Ilan ang player?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 Player"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 Player"
+	},
+	"buildandbolt-skip": {
+		"message": "Laktawan"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Magdiwang buong buwan"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Gamitin ang Google Assistant para malaman ang iba pa tungkol kay Santa Claus kapag Disyembre! Available ang pagsasama na ito sa mga piling wika."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Sa pahintulot ng kanilang magulang, puwede ring magkaroon ng sarili nilang personalized na karanasan sa Google Assistant ang mga batang wala pang 13 taon kapag nag-log in sila sa sarili nilang account, na pinamamahalaan ng \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Ikinokonekta ka ng Google Assistant sa North Pole, kung saan abala si Santa sa pag-eensayo para sa isang musical concert. Isang kanta lang ang alam niya—matutulungan mo ba siyang alamin ang pinakamainam na paraan para ma-play iyon?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Tawagan si Santa"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Tutukan araw-araw ang North Pole Newscast para malaman kung ano ang ginagawa ni Santa at ng kanyang mga elf. Itanong lang sa Google Assistant kung ano ang bago sa North Pole."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "North Pole Newscast"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Kapag hindi abala si Santa sa mga elf sa workshop, ginugugol niya ang oras sa pagsasanay ng kanyang mga kasanayan sa komedya. Humingi lang sa Google Assistant ng joke ni Santa para marinig ang kanyang routine."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Mga Joke ni Santa"
+	},
+	"familyguide_assistant_title": {
+		"message": "Huwag Kailanman Palampasin ang North Pole Minute"
+	},
 	"familyguide_body": {
 		"message": "Perpektong lugar para sa mga pamilya ang Village ni Santa para maipagdiwang ang season. Makikita mong sama-sama ang lahat ng paborito mong character sa masasaya, pang-edukasyon, at interactive na aktibidad para sa bawat edad."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "marami pang iba"
 	},
+	"familyguide_nav_link_07": {
+		"message": "assistant"
+	},
 	"familyguide_secondary_body": {
 		"message": "Sa ika-24 ng Disyembre magiging karanasan sa pag-track ang Village ni Santa kung saan masusundan mo si Santa at ang kanyang reindeer habang naghahatid sila ng mga regalo sa mga bata sa buong mundo."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Sulitin pa ang magic ng Santa Tracker ngayong season gamit ang lahat ng paborito mong produkto ng Google."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Tanungin ang Google Assistant araw-araw para sa masasayang update mula kay Dimplesticks the Elf."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Hey Google, ano ba ang bago sa North Pole?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Kasayahan sa kapaskuhan para sa buong pamilya"
+	},
+	"familylink": {
+		"message": "Idagdag ang Google account ng iyong anak, na pinamamahalaan ng Family Link"
+	},
+	"featured": {
+		"message": "Itinatampok"
 	},
 	"fi_country_name": {
 		"message": "Finland"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Paglipad ni Santa"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Out Like A Light"
+	},
 	"scene_videoscene_museum": {
 		"message": "Isang Araw sa Museo"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Santa's Workshop"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Log ng Kapaskuhan"
 	},
 	"scene_windtunnel": {
 		"message": "Wind Tunnel"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "The penguins were sledding. Elves cheered with delight."
+	},
+	"storybook_paragraph_02": {
+		"message": "The whole town was a-buzz for the village tree light."
+	},
+	"storybook_paragraph_03": {
+		"message": "Not everyone that day was feeling so jolly. It was a sad day, you see, for a narwhal named Ollie."
+	},
+	"storybook_paragraph_04": {
+		"message": "“I wish, just this once, I could be there to see it. It seems so amazing to watch that big tree lit.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "“But you love the ocean!” replied sweet Mary Bear. “All the seashells and plankton. It’s awesome down there!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“I guess so,” said Ollie, “that’s certainly true. But sometimes the big blue makes me feel blue, too!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "“Well what if...” said Mary, with an encouraging smile, “I came down there today and we swam for a while?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Go exploring? Surf sea reefs... Or better yet, I know!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "“We could hold a tree lighting of our very own.”"
+	},
+	"storybook_paragraph_10": {
+		"message": "A plan had been hatched. Mary gathered her crew. In jumped elves and then penguins. A few reindeer, too!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie smiled in delight at the friends who had come. “Let’s get to it!” said Mary, “this is going to be fun!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Now, to throw a great party, the first thing they’d need is a team of great helpers to help them succeed."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Gather round!” Ollie shouted. “We need all your help, to host our very own undersea lighting of kelp.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "The fish sprung into action, spreading word to the guests. “We’ll handle the invites, you handle the rest!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Now the elves had experience with this sort of event. They’d need time for their tinkering, and so off they went."
+	},
+	"storybook_paragraph_16": {
+		"message": "Decorations were next. They knew just who to see. “Mr. Crab and Ms. Lobster, would you help, pretty please?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "The oysters chimed in, “We can help with design! Hang our pearls from the branches. They’ll sparkle and shine.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Every party needs music, tunes with just the right beat, to get everyone grooving, and up on their feet."
+	},
+	"storybook_paragraph_19": {
+		"message": "“My uncle, Horatio, is the best in the biz. And his good friend Carl is a guitar-playing whiz.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "“It’s almost time for the party, so the last thing we’ll need is the perfect kelp bundle for a ceremonial tree.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "“This is it! This is it!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie flip-flopped with glee! What a fabulous party this whole night would be."
+	},
+	"storybook_paragraph_23": {
+		"message": "Starfish leapt into place, and the ornaments swayed. The jellyfish danced, and the band members played."
+	},
+	"storybook_paragraph_24": {
+		"message": "It was all so fantastic, the decor and the sounds. But the best part was when everyone gathered ‘round..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...for the lighting!"
+	},
+	"storybook_paragraph_26": {
+		"message": "The moment was here at long last! The plankton lit up. Ollie let out a gasp!"
+	},
+	"storybook_paragraph_27": {
+		"message": "It was almost like magic, lights shimmered aglow. The whole town fell silent, just watching the show."
+	},
+	"storybook_paragraph_28": {
+		"message": "The most spectacular thing that they’d all ever seen. Lights went yellow, then purple, then bright emerald green."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary started to get sleepy, it was past time for bed, But before they all left, Ollie turned and then said,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Thank you so much for bringing this whole town together, for a night that I know we’ll remember forever.”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Wakas"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

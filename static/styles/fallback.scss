@@ -1,6 +1,6 @@
 $button-layer: 1100;
+$unload-frame-layer: 1010;
 $frame-layer: 1000;
-$pending-frame-layer: 900;
 $error-layer: 800;
 
 body, html {
@@ -14,22 +14,36 @@ iframe {
   right: 0;
   bottom: 0;
   border: 0;
-  transition: filter 0.33s, transform 0.33s, opacity 0.125s ease-in-out;
+  transition: filter 0.33s, transform 0.33s;
   z-index: $frame-layer;
   width: 100%;
   height: 100%;
 
-  &.pending {
-    z-index: $pending-frame-layer;
+  &[tabindex] {
     filter: grayscale(70%) brightness(0.5) blur(4px);
     transform: scale(1.05);
     opacity: 0;
   }
+
+  // nb. this needs to be below [tabindex] to win CSS ordering for `opacity`
+  &.unload {
+    z-index: $unload-frame-layer;  // unloading frames are on top
+    opacity: 1;
+
+    &.gone {
+      transition: opacity 0.125s ease-out;
+      opacity: 0;  // ... until they're gone
+
+      // This makes the upcoming frame visible
+      + iframe[tabindex] {
+        opacity: 1;
+      }
+    }
+  }
 }
 
-body.loading iframe:not(.pending) {
-  filter: grayscale(70%) brightness(0.5) blur(4px);
-  transform: scale(1.05);
+body:not(.loaded) iframe[tabindex] {
+  opacity: 0 !important;
 }
 
 button.home {

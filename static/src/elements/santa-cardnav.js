@@ -151,7 +151,7 @@ export class SantaCardNavElement extends LitElement {
     <option value="sv">Svenska</option>
     <option value="tl">Tagalog</option>
     <option value="vi">Tiếng Việt</option>
-    <option value="fi">Viimeistely</option>
+    <option value="fi">Suomi</option>
     <option value="bg">Български</option>
     <option value="uk">Український</option>
     <option value="ta">தமிழ்</option>

@@ -29,7 +29,8 @@ canvasOptions.set(titleSurface, {
   lineHeight: 60,
 });
 
-noticeSurface.title = _msg`error-unsupported`;
+// Only show the unsupported message if it's needed.
+noticeSurface.title = api.param('fallback') ? _msg`error-unsupported` : _msg`village_explore`;
 canvasOptions.set(noticeSurface, {
   color: '#99ccff',
   width: 300,
@@ -75,9 +76,6 @@ function delayForFont(fontFamily, timeout = 8 * 1000) {
 
 api.preload.wait(r.ready());
 
-api.preload.wait(delayForFont('Fugaz One'));
-api.preload.wait(delayForFont('Lobster'));
-
 
 const houses = 'boatload codeboogie codelab penguindash presentbounce presentdrop snowball traditions translations wrapbattle'.split(/\s+/g);
 (function() {
@@ -102,7 +100,7 @@ function targetSize() {
 }
 
 
-api.ready(async () => {
+async function start() {
   const fps = 10;
   let last = 0;
   let previousRatio = -1;
@@ -166,7 +164,15 @@ body {
 
     previousRatio = t.ratio;
   }());
+};
 
+// Delay for fonts/rendering.
+const fontDelay = Promise.all(['Fugaz One', 'Lobster'].map((name) => delayForFont(name)));
+api.preload.wait(fontDelay.then(() => start()));
+
+api.preload.sounds('retro_load_sounds');
+api.config({
+  sound: ['retro_music_start'],
 });
 
 </script>

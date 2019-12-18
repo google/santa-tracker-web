@@ -1,0 +1,18 @@
+##{$name} {
+  .ice {
+    @include board-object();
+    background: #55befd;
+    border-bottom: 3px inset #607e99;
+    border-right: 3px inset #607e99;
+
+    &::after {
+      background: url(img/ice/shine.svg) center/cover no-repeat;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}

@@ -3,6 +3,7 @@
  */
 
 import * as params from '../lib/params.js';
+import {goEvent} from './common.js';
 import {internalNavigation} from '../scene/route.js';
 import isAndroid from './android.js';
 
@@ -132,7 +133,8 @@ function routeToAndroid(route) {
   }
 
   console.info('loading Android route', androidRoute);
-  window.location = `com.google.android.apps.santatracker://santa-staging.appspot.com/android/${androidRoute}`;
+  const hostname = window.location.hostname;
+  window.location = `com.google.android.apps.santatracker://${hostname}/android/${androidRoute}`;
   return true;
 }
 
@@ -207,7 +209,7 @@ export function configureProdRouter(callback) {
   };
 
   // Add global 'go' event listener.
-  window.addEventListener('go', (ev) => {
+  window.addEventListener(goEvent, (ev) => {
     window.santaApp.go(ev.detail || '');
   });
 

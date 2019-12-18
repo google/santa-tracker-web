@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "ブータン"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "車を {{count}} 台作ってください！"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "車を 1 台作ってください！"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "ロボットを {{count}} 台作ってください！"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "ロボットを 1 台作ってください！"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "ロケットを {{count}} 台作ってください！"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "ロケットを 1 台作ってください！"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "テディベアを {{count}} 匹作ってください！"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "テディベアを 1 匹作ってください！"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "おもちゃを取って落とす"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "遊び方"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "移動"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "プレーヤー 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "プレーヤー 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "何人で遊びますか？"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 人で遊ぶ"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 人で遊ぶ"
+	},
+	"buildandbolt-skip": {
+		"message": "スキップ"
+	},
 	"bw_country_name": {
 		"message": "ボツワナ"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "1 か月通してお祝いする"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Google アシスタントを使って、12 月のサンタクロースの様子を覗いてみましょう。この統合機能は一部の言語でのみご利用いただけます。"
+	},
+	"familyguide_assistant_body_02": {
+		"message": "保護者の許可があれば、13 歳未満のお子様も自身のアカウントでログインして、自分用にカスタマイズされた Google アシスタントをご利用いただけます。アカウントの管理は\u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eファミリー リンク\u003c/a\u003eで行えます。"
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Google アシスタントがあなたを北極につなげてくれます。そこでは、音楽コンサートのリハーサルでサンタさんが大忙し。知っている曲が 1 つしかないサンタさんを手伝って、最高の演奏方法を見つけてあげましょう。"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "サンタさんに電話する"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "北極ニュース放送は、サンタさんと妖精たちの様子を毎日伝えています。Google アシスタントに話しかけて、北極の最新情報をお聞きください。"
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "北極ニュース放送"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "作業場で妖精とおもちゃ作りをしていないとき、サンタさんはお笑いの腕を磨いています。Google アシスタントに話しかけて、サンタさんの定番ジョークを聞きましょう。"
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "サンタさんのジョーク"
+	},
+	"familyguide_assistant_title": {
+		"message": "北極速報をお見逃しなく"
+	},
 	"familyguide_body": {
 		"message": "サンタ村は家族でクリスマスを楽しむのに最適な場所です。すべての年代向けの、楽しく教育的かつインタラクティブなアクティビティを通して、お気に入りのキャラクターが全部見つかります。"
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "もっと見る"
 	},
+	"familyguide_nav_link_07": {
+		"message": "アシスタント"
+	},
 	"familyguide_secondary_body": {
 		"message": "12 月 24 日、サンタ村は世界中の子どもにプレゼントを届けるサンタとトナカイを追跡できる画面に変わります。"
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "今年は、お気に入りの Google サービスすべてとともに「サンタを追いかけよう」の魔法がパワーアップしました。"
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Google アシスタントに話しかけて、妖精のディンプルスティックから毎日楽しい情報を手に入れましょう。"
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "「OK Google、北極の最新情報は？」"
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "家族全員でクリスマスを楽しもう"
+	},
+	"familylink": {
+		"message": "お子様の Google アカウントを追加して、ファミリー リンクで管理"
+	},
+	"featured": {
+		"message": "おすすめ"
 	},
 	"fi_country_name": {
 		"message": "フィンランド"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "サンタさんの出発"
 	},
+	"scene_videoscene_likealight": {
+		"message": "きちんと消灯"
+	},
 	"scene_videoscene_museum": {
 		"message": "思い出記念館"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "サンタの工房"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "ユールログ"
 	},
 	"scene_windtunnel": {
 		"message": "風のトンネル"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "スリナム"
+	},
+	"storybook_paragraph_01": {
+		"message": "ペンギンたちはそり滑りをしています。エルフたちは楽しそうな声をあげています。"
+	},
+	"storybook_paragraph_02": {
+		"message": "町じゅうが、村のツリーの点灯式のことを楽しそうに話しています。"
+	},
+	"storybook_paragraph_03": {
+		"message": "でもその日、誰もがわくわくしていたわけではありません。このイッカクのオーリーにとっては、悲しい日でした。"
+	},
+	"storybook_paragraph_04": {
+		"message": "「一度だけでいいから、見に行ってみたいなあ。大きなツリーの点灯式を見るのは、すごく素敵なんだろうなあ。」"
+	},
+	"storybook_paragraph_05": {
+		"message": "「でもあなたは海が大好きなんでしょう」と、優しいクマのメアリーが答えました。「貝やプランクトンがたくさんいて、海ってとっても素敵よね！」"
+	},
+	"storybook_paragraph_06": {
+		"message": "「そうだね」とオーリーは言いました。「確かにそうなんだけど、ときどき、青い海のせいで、ブルーな気持ちになることもあるんだ。」"
+	},
+	"storybook_paragraph_07": {
+		"message": "「じゃあ、たとえば...」元気づけるようにほほ笑みながら、メアリーが言いました。「今日は私が海に入るから、ちょっとの間一緒に泳ぐのはどう？」"
+	},
+	"storybook_paragraph_08": {
+		"message": "「探検に行きましょうか？海辺で波乗りもいいわね...でももっと楽しいことがあるわ！」"
+	},
+	"storybook_paragraph_09": {
+		"message": "「私たちオリジナルのツリー点灯式をするのはどうかしら。」"
+	},
+	"storybook_paragraph_10": {
+		"message": "計画はできました。メアリーは仲間を呼び集めました。エルフたちが加わり、ペンギンたちも加わりました。トナカイも数匹、仲間に入りました！"
+	},
+	"storybook_paragraph_11": {
+		"message": "オーリーは集まってくれた仲間たちを見て、嬉しそうににっこり笑いました。「さあ、始めましょう！」メアリーが言いました。「これは楽しくなりそうね！」"
+	},
+	"storybook_paragraph_12": {
+		"message": "さあ、素敵なパーティーを成功させるには、まずは頼りになる仲間を集めなくてはなりません。"
+	},
+	"storybook_paragraph_13": {
+		"message": "「みんな集まって！」と、オーリーが大きな声で呼びました。「海の中で、僕らの昆布ツリーの点灯式をやるにはみんなの助けが必要なんだ。」"
+	},
+	"storybook_paragraph_14": {
+		"message": "魚たちはすぐに動き出し、パーティーの話を広め始めました。「お客さん集めは私たちに任せて。あとのことをお願いね！」"
+	},
+	"storybook_paragraph_15": {
+		"message": "エルフたちはこういうイベントに慣れていたので、あれこれ支度をするために出発しました。"
+	},
+	"storybook_paragraph_16": {
+		"message": "次は飾り付けです。誰にお願いすればいいかは、わかっています。「カニさん、エビさん、きれいに飾ってもらえるかな？」"
+	},
+	"storybook_paragraph_17": {
+		"message": "カキたちも話に加わります。「デザインを手伝うよ！私たちの真珠を枝から吊るしたら、きっとキラキラ光ってきれいだよ。」"
+	},
+	"storybook_paragraph_18": {
+		"message": "パーティーには、みんなが立ったままゆったり楽しめるような、ちょうどいいノリの音楽も必要です。"
+	},
+	"storybook_paragraph_19": {
+		"message": "「音楽のことなら僕のおじさんのホレーショに任せて。おじさんの友だちのカールもギターの名人なんだ。」"
+	},
+	"storybook_paragraph_20": {
+		"message": "「あと少しでパーティーの時間だよ。最後の仕上げに、点灯式のツリーになる昆布をきれいに束ねなくちゃ。」"
+	},
+	"storybook_paragraph_21": {
+		"message": "「これこれ！これだよ！」"
+	},
+	"storybook_paragraph_22": {
+		"message": "オーリーは大喜びで宙返りしました！今晩はとびきり素敵なパーティーになりそうです。"
+	},
+	"storybook_paragraph_23": {
+		"message": "ヒトデが星を飾る場所に飛び乗り、ツリーの飾りがゆらゆらと揺れました。クラゲたちは踊り、バンドのメンバーは音楽を演奏しています。"
+	},
+	"storybook_paragraph_24": {
+		"message": "飾り付けも音楽も、何もかもがうっとりするほど素敵でした。でも一番盛り上がったのは、みんなが周りに集まって..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...いよいよツリーを点灯したときです！"
+	},
+	"storybook_paragraph_26": {
+		"message": "待ちに待ったときが、ついにやってきました！プランクトンたちが光りはじめました。オーリーは思わず息をのみました。"
+	},
+	"storybook_paragraph_27": {
+		"message": "まるで魔法のように、灯りがキラキラと輝いています。町じゅうのみんなが静まりかえり、光のショーを見つめていました。"
+	},
+	"storybook_paragraph_28": {
+		"message": "みんな、こんな見事なものは見たことがありません。光は、黄色、紫色、明るいエメラルド グリーンに色を変えながら輝いています。"
+	},
+	"storybook_paragraph_29": {
+		"message": "メアリーは眠くなってきました。もう寝る時間を過ぎています。みんなが帰ってしまう前に、オーリーは振り向いて言いました。"
+	},
+	"storybook_paragraph_30": {
+		"message": "「町のみんなを連れてきてくれてありがとう。みんな、この夜のことをいつまでも忘れないよ。」"
+	},
+	"storybook_paragraph_31": {
+		"message": "おしまい"
 	},
 	"sv_country_name": {
 		"message": "エルサルバドル"

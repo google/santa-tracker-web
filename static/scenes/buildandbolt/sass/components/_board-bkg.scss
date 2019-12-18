@@ -1,0 +1,36 @@
+.board-bkg {
+  background-color: $color-wall;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .level {
+    background: $color-yellow url(img/floor/floor_tile.svg) top left/100px 100px repeat;
+    position: absolute;
+    transform-origin: top left;
+
+    &::before,
+    &::after {
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 36.5%;
+      transform: translate(-50%, -50%) scale(1.43);
+      width: 100%;
+    }
+
+    &::before {
+      background: url(img/world-edges-top.svg) center/100% no-repeat;
+      z-index: 0;
+    }
+
+    &::after {
+      background: url(img/world-edges-bottom.svg) center/100% no-repeat;
+      z-index: $background-z-index;
+    }
+  }
+}

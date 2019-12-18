@@ -1,0 +1,72 @@
+##{$name} {
+  .table {
+    @include board-object();
+    height: $grid-unit-size * $table-height;
+    width: $grid-unit-size * $table-width;
+
+    &::before {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: scale(2);
+    }
+
+    &::after {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: scale(2);
+    }
+
+    &--1::before {
+      background: url(img/tables/table01_front.svg) center/contain no-repeat;
+    }
+
+    &--2::before {
+      background: url(img/tables/table02_front.svg) center/contain no-repeat;
+    }
+
+    &--3::before {
+      background: url(img/tables/table03_front.svg) center/contain no-repeat;
+    }
+
+    @each $type, $total in $toy-types {
+      @for $i from 1 through $total {
+        &.table--#{$type}--#{$i}::after {
+          background: url(img/tables/toys/front/#{$type}/#{$i}.svg) center/contain no-repeat;
+        }
+      }
+    }
+
+    &--side {
+      height: $grid-unit-size * $table-width;
+      width: $grid-unit-size * $table-height;
+
+      &.table--1::before {
+        background: url(img/tables/table01_side.svg) center/contain no-repeat;
+      }
+
+      &.table--2::before {
+        background: url(img/tables/table02_side.svg) center/contain no-repeat;
+      }
+
+      &.table--3::before {
+        background: url(img/tables/table03_side.svg) center/contain no-repeat;
+      }
+
+      @each $type, $total in $toy-types {
+        @for $i from 1 through $total {
+          &.table--#{$type}--#{$i}::after {
+            background: url(img/tables/toys/side/#{$type}/#{$i}.svg) center/contain no-repeat;
+          }
+        }
+      }
+    }
+  }
+}

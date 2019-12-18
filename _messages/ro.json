@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Construiți {{count}} mașini!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Construiește o mașină!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Construiți {{count}} roboți!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Construiți un robot!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Construiți {{count}} rachete!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Construiți o rachetă!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Construiți {{count}} ursuleți de pluș!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Construiți un ursuleț de pluș!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Ridică și aruncă jucăriile"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Instrucțiuni"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Mutați"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Jucătorul 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Jucătorul 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Câți jucători?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 jucător"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 jucători"
+	},
+	"buildandbolt-skip": {
+		"message": "Omiteți"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -3277,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_paragraph_01": {
+		"message": "Pinguinii alunecau pe săniuțe, spiridușii chiuiau de încântare."
+	},
+	"storybook_paragraph_02": {
+		"message": "Tot orașul aștepta aprinderea luminițelor bradului cu nerăbdare."
+	},
+	"storybook_paragraph_03": {
+		"message": "Nu toată lumea era binedispusă. Pentru narvalul Ollie era o zi tristă."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Mi-aș dori să fiu acolo măcar acum. Să văd cum se aprind luminițele din bradul de Crăciun.”"
+	},
+	"storybook_paragraph_05": {
+		"message": "„Dar tu iubești oceanul!” spuse ursoaica Mary afectuos. „Cu scoicile și planctonul, e așa frumos acolo jos!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Mda”, zise Ollie, „asta-i adevărat. Dar de la atâta albastru mă simt uneori deprimat!”"
+	},
+	"storybook_paragraph_07": {
+		"message": "Mary zâmbi încurajator și continuă: „Dar dacă aș veni azi în ocean să înotăm împreună?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "„Să explorăm? Să facem surfing pe recifurile de corali? Stai!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Gata, știu! Aprindem și noi luminițe de Crăciun! Hai!”"
+	},
+	"storybook_paragraph_10": {
+		"message": "Planul era făcut. Mary își adună echipa de zor. Spiridușii, pinguinii și câțiva reni au sărit și ei în ajutor."
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie zâmbi bucuros către prietenii sosiți. „Hai să începem!” spuse Mary, „o să fie uimiți!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Prima cerință pentru orice petrecere grozavă este să găsești numaidecât o echipă de ispravă!"
+	},
+	"storybook_paragraph_13": {
+		"message": "„Haideți cu toții! strigă Ollie. „Avem nevoie de ajutor pentru propria noastră petrecere de aprindere a luminițelor.”"
+	},
+	"storybook_paragraph_14": {
+		"message": "Peștii săritori au dat oaspeților de veste. „Ne ocupăm noi de invitații, voi rezolvați ce mai este!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Spiridușii aveau experiență cu un astfel de eveniment. Improvizațiile necesită timp, așa că n-au mai pierdut niciun moment."
+	},
+	"storybook_paragraph_16": {
+		"message": "Urmau decorațiunile. Știau exact pe cine vor ruga. „Domnule Crab și doamnă Homar, ne puteți ajuta?”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Stridiile voioase strigară în cor „Noi putem ajuta cu designul!” Ne vom agăța perlele de ramuri și vor străluci în tot oceanul.”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Orice petrecere trebuie să aibă muzică în ritmuri adecvate pentru ca toți să danseze și nimeni să nu stea în spate."
+	},
+	"storybook_paragraph_19": {
+		"message": "„Unchiul meu, Horațiu, e cel mai tare din domeniu. Iar prietenul lui, Carl, cântă la chitară ca un geniu.”"
+	},
+	"storybook_paragraph_20": {
+		"message": "E aproape ora de începere, așa că ne mai trebuie încă ceva. O grămadă de alge, să facem un brad din ea.”"
+	},
+	"storybook_paragraph_21": {
+		"message": "„Am reușit! Am reușit!”"
+	},
+	"storybook_paragraph_22": {
+		"message": "țopăi Ollie de bucurie! Ce petrecere extraordinară o să fie!"
+	},
+	"storybook_paragraph_23": {
+		"message": "Steluțele de mare au sărit la locul lor și ornamentele au fost agățate. Formația a început să cânte, iar meduzele au dansat toate."
+	},
+	"storybook_paragraph_24": {
+		"message": "Totul era fantastic, și decorul și acordurile muzicale. Dar cel mai frumos a fost când s-au adunat cu mic, cu mare..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...pentru aprinderea luminițelor!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Momentul cel mare sosise în sfârșit! Planctonul se aprinse, iar Ollie privi uluit."
+	},
+	"storybook_paragraph_27": {
+		"message": "Parcă era ceva magic, luminițele sclipeau. Întregul oraș amuțise și spectacolul îl urmăreau."
+	},
+	"storybook_paragraph_28": {
+		"message": "Urmăreau spectacolul cel mai impresionant. Luminițele sclipeau galbene, apoi violet, apoi verde smarald."
+	},
+	"storybook_paragraph_29": {
+		"message": "Ora de culcare trecuse de mult, Mary se simțea tot mai somnoroasă, dar înainte ca toți să plece, Ollie spuse cu o voce duioasă:"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Mulțumesc pentru eforturile voastre toate. Ne vom aminti mereu de această noapte!”"
+	},
+	"storybook_paragraph_31": {
+		"message": "Sfârșit"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"

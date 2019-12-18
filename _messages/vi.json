@@ -80,6 +80,57 @@
 	"bt_country_name": {
 		"message": "Bhutan"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Hãy lắp {{count}} chiếc xe hơi!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Hãy lắp 1 chiếc xe hơi!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Hãy lắp {{count}} chú người máy!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Hãy lắp 1 chú người máy!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Hãy lắp {{count}} chiếc tên lửa!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Hãy lắp 1 chiếc tên lửa!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Hãy may {{count}} chú gấu bông!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Hãy may 1 chú gấu bông!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Nhặt và thả đồ chơi"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Hướng dẫn"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Di chuyển"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "Người chơi 1"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "Người chơi 2"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Có bao nhiêu người chơi?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 người chơi"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 người chơi"
+	},
+	"buildandbolt-skip": {
+		"message": "Bỏ qua"
+	},
 	"bw_country_name": {
 		"message": "Botswana"
 	},
@@ -659,6 +710,33 @@
 	"familyguide_accordion_title": {
 		"message": "Ăn mừng suốt cả tháng"
 	},
+	"familyguide_assistant_body_01": {
+		"message": "Tháng 12 này, hãy cùng Trợ lý Google tìm hiểu thêm về ông già Noel! Tính năng tích hợp này hiện đã hỗ trợ một số ngôn ngữ."
+	},
+	"familyguide_assistant_body_02": {
+		"message": "Nếu cha mẹ cho phép, các bạn nhỏ dưới 13 tuổi có thể có Trợ lý Google riêng khi đăng nhập bằng tài khoản của chính mình, do cha mẹ quản lý qua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+	},
+	"familyguide_assistant_card01_body": {
+		"message": "Trợ lý Google kết nối bạn tới Bắc Cực, nơi ông già Noel đang tất bật tập dượt cho một buổi hòa nhạc. Ông chỉ biết mỗi một bản nhạc — bạn có thể giúp ông tìm ra cách trình diễn bản nhạc ấy sao cho hay nhất không?"
+	},
+	"familyguide_assistant_card01_title": {
+		"message": "Gọi cho ông già Noel"
+	},
+	"familyguide_assistant_card02_body": {
+		"message": "Đón xem Bản tin Bắc Cực mỗi ngày để biết ông già Noel và các chú lùn đang làm gì. Bạn chỉ cần hỏi Trợ lý Google xem ở Bắc Cực có gì mới."
+	},
+	"familyguide_assistant_card02_title": {
+		"message": "Bản tin Bắc Cực"
+	},
+	"familyguide_assistant_card03_body": {
+		"message": "Khi không bận rộn với những chú lùn tại xưởng sản xuất đồ chơi, ông già Noel lại dành thời gian tập pha trò. Hãy hỏi Trợ lý Google để nghe một câu chuyện đùa của ông già Noel."
+	},
+	"familyguide_assistant_card03_title": {
+		"message": "Chuyện đùa của ông già Noel"
+	},
+	"familyguide_assistant_title": {
+		"message": "Không bỏ lỡ tin tức nào ở Bắc Cực"
+	},
 	"familyguide_body": {
 		"message": "Ngôi làng của ông già Noel là một nơi hoàn hảo để các gia đình cùng nhau ăn mừng mùa lễ này. Nơi đây không chỉ có tất cả các nhân vật bạn yêu thích mà còn có các hoạt động thú vị, mang tính giáo dục và tương tác dành cho mọi lứa tuổi."
 	},
@@ -776,6 +854,9 @@
 	"familyguide_nav_link_06": {
 		"message": "khác"
 	},
+	"familyguide_nav_link_07": {
+		"message": "trợ lý"
+	},
 	"familyguide_secondary_body": {
 		"message": "Vào ngày 24 tháng 12, Ngôi làng của ông già Noel sẽ biến thành nơi để bạn theo dõi ông già Noel và các chú tuần lộc khi họ phát quà cho trẻ em trên toàn thế giới."
 	},
@@ -790,6 +871,9 @@
 	},
 	"familyguide_tips_body": {
 		"message": "Nhận thêm nhiều điều kỳ diệu từ chiến dịch Theo chân ông già Noel mùa lễ hội năm nay cùng với tất cả các sản phẩm của Google mà bạn yêu thích."
+	},
+	"familyguide_tips_tip01_body": {
+		"message": "Mỗi ngày, hãy hỏi Trợ lý Google để xem chú lùn Dimplesticks có thêm thông tin gì thú vị không."
 	},
 	"familyguide_tips_tip01_title": {
 		"message": "\"Ok Google, ở Bắc Cực có gì mới không?\""
@@ -823,6 +907,12 @@
 	},
 	"familyguide_title": {
 		"message": "Niềm vui trong dịp lễ dành cho cả gia đình"
+	},
+	"familylink": {
+		"message": "Thêm Tài khoản Google của con bạn, do bạn quản lý qua Family Link"
+	},
+	"featured": {
+		"message": "Nổi bật"
 	},
 	"fi_country_name": {
 		"message": "Phần Lan"
@@ -1745,6 +1835,9 @@
 	"scene_videoscene_liftoff": {
 		"message": "Ông già Noel đang khởi hành"
 	},
+	"scene_videoscene_likealight": {
+		"message": "Tắt đèn là ngủ ngay"
+	},
 	"scene_videoscene_museum": {
 		"message": "Một ngày ở bảo tàng"
 	},
@@ -1789,6 +1882,9 @@
 	},
 	"scene_videoscene_workshop": {
 		"message": "Xưởng đồ chơi của ông già Noel"
+	},
+	"scene_videoscene_yulelog": {
+		"message": "Bánh khúc cây"
 	},
 	"scene_windtunnel": {
 		"message": "Hầm gió"
@@ -3232,6 +3328,99 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_paragraph_01": {
+		"message": "Chim cánh cụt đang trượt tuyết. Các chú lùn thì reo vui."
+	},
+	"storybook_paragraph_02": {
+		"message": "Cả thị trấn xôn xao, ánh đèn rực sáng trên cây thông cao."
+	},
+	"storybook_paragraph_03": {
+		"message": "Vậy mà đâu phải ai cũng vui vào hôm ấy. Với chú kỳ lân biển Ollie, ngày đó buồn biết mấy."
+	},
+	"storybook_paragraph_04": {
+		"message": "“Ước gì chỉ một lần thôi, mình được đến tận nơi xem cảnh này. Được ngắm nhìn cây thông sáng rực rỡ, chắc sẽ vui lắm đấy”."
+	},
+	"storybook_paragraph_05": {
+		"message": "“Nhưng bạn yêu đại dương mà!” Gấu Mary nhẹ nhàng đáp lời. “Nào vỏ sò, nào sinh vật phù du. Ở đó hẳn là thích lắm chứ!”"
+	},
+	"storybook_paragraph_06": {
+		"message": "“Chắc là vậy nhỉ”, Ollie đáp, “bạn nói đúng lắm. Nhưng màu xanh của biển cả đôi khi lại khiến lòng mình trống vắng”."
+	},
+	"storybook_paragraph_07": {
+		"message": "“Hay là thế này...” Mary mỉm cười khích lệ và nói, “Chúng mình cùng xuống đại dương và cùng nhau bơi lội?”"
+	},
+	"storybook_paragraph_08": {
+		"message": "“Cùng nhau khám phá? Lướt sóng qua rặng san hô... Hay thế này còn tuyệt hơn nữa, mình nghĩ ra rồi!”"
+	},
+	"storybook_paragraph_09": {
+		"message": "\"Sao không tổ chức buổi lễ thắp đèn lên cây cho riêng chúng mình thôi?”"
+	},
+	"storybook_paragraph_10": {
+		"message": "Kế hoạch đã chuẩn bị. Đội của Mary đã sẵn sàng. Rồi thêm những chú lùn và chim cánh cụt. Cả tuần lộc cũng tham gia!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Ollie mỉm cười vui vẻ với những người bạn đã đến tham dự. “Bắt tay vào việc nào!” Mary nói, “Sẽ vui lắm đây!”"
+	},
+	"storybook_paragraph_12": {
+		"message": "Muốn tổ chức một lễ hội hoành tráng, thì đầu tiên họ cần một nhóm phụ tá tài ba để giúp buổi lễ thành công."
+	},
+	"storybook_paragraph_13": {
+		"message": "“Mọi người lại đây nào!” Ollie cất cao giọng. “Chúng mình cần mọi người cùng giúp tổ chức buổi lễ thắp đèn rong biển dưới đại dương”."
+	},
+	"storybook_paragraph_14": {
+		"message": "Đàn cá lao ngay vào việc, gửi lời đến các vị khách quý. \"Chúng tôi lo phần thiệp mời, còn lại các bạn sẽ xử lý!”"
+	},
+	"storybook_paragraph_15": {
+		"message": "Còn các chú lùn đã có kinh nghiệm với những lễ hội kiểu này. Họ cần thời gian để làm công việc của mình, nên họ đã khởi hành ngay."
+	},
+	"storybook_paragraph_16": {
+		"message": "Tiếp theo là phần trang trí. Họ biết cần tìm đến ai rồi. “Ngài Cua và cô Tôm Hùm ơi, xin hãy giúp chúng tôi.”"
+	},
+	"storybook_paragraph_17": {
+		"message": "Hàu nhanh nhảu lên tiếng, \"Chúng tôi giúp được về phần thiết kế! Ngọc của chúng tôi mà treo lên những cành cây, sẽ sáng lấp lánh và lung linh lắm đấy!”"
+	},
+	"storybook_paragraph_18": {
+		"message": "Lễ hội nào cũng cần âm nhạc, những bản nhạc có nhịp điệu sôi động, để mọi người hào hứng và cùng đứng lên nhảy múa."
+	},
+	"storybook_paragraph_19": {
+		"message": "\"Chú Horatio của tôi là người giỏi nhất trong lĩnh vực này. Còn chơi đàn guitar thì bạn chí cốt Carl của chú ấy là bậc thầy”."
+	},
+	"storybook_paragraph_20": {
+		"message": "“Đã gần đến thời khắc của buổi lễ, việc cuối cùng cần làm là tìm bó rong biển đẹp nhất để trang trí”."
+	},
+	"storybook_paragraph_21": {
+		"message": "\"Đây rồi! Đây rồi!\""
+	},
+	"storybook_paragraph_22": {
+		"message": "Ollie nhún nhảy vui mừng! Đêm nay sẽ là một buổi lễ náo nhiệt và tưng bừng."
+	},
+	"storybook_paragraph_23": {
+		"message": "Sao biển nhảy vào vị trí và những quả châu lắc lư. Đàn sứa thì nhảy múa còn ban nhạc bắt đầu chơi."
+	},
+	"storybook_paragraph_24": {
+		"message": "Mọi thứ đều hoàn hảo, từ phần trang trí đến phần âm thanh. Nhưng tuyệt vời nhất là khi mọi người cùng quây quần chung quanh..."
+	},
+	"storybook_paragraph_25": {
+		"message": "...và chuẩn bị đón xem phần ánh sáng!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Cuối cùng, thời khắc đó cũng đến! Sinh vật phù du cùng nhau phát sáng. Ollie tròn mắt ngỡ ngàng!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Tựa như là phép thuật, ánh đèn lung linh sáng chói. Cả thị trấn lặng nhìn, màn diễn trong đêm tối."
+	},
+	"storybook_paragraph_28": {
+		"message": "Lần đầu tiên họ thấy, khung cảnh thật kỳ ảo. Đèn từ vàng sang tím, rồi sang màu lục bảo."
+	},
+	"storybook_paragraph_29": {
+		"message": "Mary bắt đầu díp mắt lại vì đã quá giờ đi ngủ. Thế nhưng, trước khi mọi người cùng rời đi, Ollie quay lại nhìn và nói,"
+	},
+	"storybook_paragraph_30": {
+		"message": "“Cảm ơn các bạn rất nhiều vì đã đưa thị trấn này lại gần bên nhau, và tôi biết chắc chúng ta đều sẽ nhớ rõ đêm nay mãi mãi về sau”."
+	},
+	"storybook_paragraph_31": {
+		"message": "Hết"
 	},
 	"sv_country_name": {
 		"message": "El Salvador"
