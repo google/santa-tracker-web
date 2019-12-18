@@ -3,8 +3,7 @@ $transition-time: 0.3s;
 $transition-time-long: 1.5s;
 $transition-expo-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
 $transition-power4-out: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-$delay-appear: 0.1s;
-$delay-appear-fast: 0.05s;
+$delay-appear: 0.7s;
 $translate-appear: 20px;
 $translate-appear-small: 10px;
 
@@ -21,7 +20,7 @@ $translate-appear-small: 10px;
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity .8s ease;
+    transition: opacity .4s ease .4s;
     width: 100%;
     will-change: opacity;
 
@@ -33,7 +32,7 @@ $translate-appear-small: 10px;
       line-height: 1.4;
       opacity: 0;
       transform: translateY($translate-appear);
-      transition: transform $transition-time-long $transition-expo-out, opacity $transition-time ease;
+      transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
     }
 
     @for $i from 1 through 21 {

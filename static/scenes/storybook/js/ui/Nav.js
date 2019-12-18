@@ -1,5 +1,6 @@
 import Scene from '../components/Scene.js';
 import Slider from './Slider.js';
+import Transition from '../components/Transition.js';
 
 class Nav {
   constructor() {
@@ -36,6 +37,7 @@ class Nav {
   }
 
   moveToChapter() {
+    Transition.trigger();
     Scene.update(this.activeIndex + 1);
     Slider.update(this.activeIndex + 1);
     window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex + 1}));

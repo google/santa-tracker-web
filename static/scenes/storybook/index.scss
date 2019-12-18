@@ -19,7 +19,5 @@ body {
   @import "scss/components/nav";
   @import "scss/components/slider";
   @import "scss/components/scene";
-
-  // TODO: RESPONSIVE SCSS
-  // @import "scss/responsive";
+  @import "scss/components/transition";
 }

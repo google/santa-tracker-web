@@ -1,0 +1,20 @@
+.transition {
+  display: inline-block;
+  height: 100%;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+
+  svg {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  &.is-active {
+    pointer-events: visible;
+  }
+}
