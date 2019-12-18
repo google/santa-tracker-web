@@ -2277,10 +2277,10 @@ idb@3.0.2:
   resolved "https://registry.yarnpkg.com/idb/-/idb-3.0.2.tgz#c8e9122d5ddd40f13b60ae665e4862f8b13fa384"
   integrity sha512-+FLa/0sTXqyux0o6C+i2lOR0VoS60LU/jzUo5xjfY6+7sEEgy4Gz1O7yFBXvjd7N0NyIGWIRg8DcQSLEG+VSPw==
 
-iframe-load@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/iframe-load/-/iframe-load-0.1.1.tgz#50b2fe92f40af19309d923b4fc5ef6f97d3b808e"
-  integrity sha512-pMYsfjc6wv6CwqECtJgxG3i7as2LYfWax+4ulhtS1V4u4sYCHlAc8I931kLFlM8bYHrfSHhST/2eErsZiTDnsw==
+iframe-load@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/iframe-load/-/iframe-load-0.1.2.tgz#be3c30fdbac2805b4d1fc880bbf565a8a8588926"
+  integrity sha512-wV2fnIQvdzXkdytUbOxQ1v5e4obA92hOwUtWqu1JS88H35LoA9r2LzJbg+l6H+YTpRzzqIiFPZrBnAO59DTAZQ==
 
 ignore-walk@^3.0.1:
   version "3.0.3"
