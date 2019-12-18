@@ -10,17 +10,15 @@ Utils.gridToPixelValue = function(gridValue) {
  * Converts a pixel coordinate on the viewport to a grid value based coordinate
  *
  */
-Utils.pixelToGridPosition = function(boardElem, pixelPosition, limit) {
+Utils.pixelToGridPosition = function(boardElem, pixelPosition) {
   let x, y;
   let rect = boardElem.getBoundingClientRect();
   x = (pixelPosition.x - rect.left) / rect.width * Constants.GRID_DIMENSIONS.WIDTH;
   y = (pixelPosition.y - rect.top) / rect.height * Constants.GRID_DIMENSIONS.HEIGHT;
 
-  if (limit) {
-    const { GRID_DIMENSIONS } = Constants;
-    x = Math.max(0, Math.min(GRID_DIMENSIONS.WIDTH - 1, x));
-    y = Math.max(0, Math.min(GRID_DIMENSIONS.HEIGHT - 1, y));
-  }
+  const { GRID_DIMENSIONS } = Constants;
+  x = Math.max(0, Math.min(GRID_DIMENSIONS.WIDTH, x));
+  y = Math.max(0, Math.min(GRID_DIMENSIONS.HEIGHT, y));
 
   return { x, y };
 }
