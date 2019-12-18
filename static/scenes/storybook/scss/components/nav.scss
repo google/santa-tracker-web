@@ -18,6 +18,11 @@
     transition: transform .1s ease, box-shadow .1s linear, opacity .3s linear;
     width: 110px;
 
+    @include respond-to(smartphone) {
+      height: 58px;
+      width: 82px;
+    }
+
     &:active {
       box-shadow: none;
       transform: translateY(4px);

@@ -42,5 +42,9 @@
       position: relative;
       width: 75px;
     }
+
+    @include respond-to(smartphone) {
+      display: none;
+    }
   }
 }
