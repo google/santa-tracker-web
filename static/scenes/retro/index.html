@@ -170,24 +170,9 @@ body {
 const fontDelay = Promise.all(['Fugaz One', 'Lobster'].map((name) => delayForFont(name)));
 api.preload.wait(fontDelay.then(() => start()));
 
+api.preload.sounds('retro_load_sounds');
 api.config({
-  sound: [],
-});
-
-api.ready(async () => {
-  // FIXME: Plays a fixed audio file every ~120s (it's ~118s long).
-  // This is ignored in the actual retro scene as it does not use kplay. It's also not buffered
-  // in case audio is disabled and /retro.html is the initial load.
-  function playAudio() {
-    api.play('@', 'https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/village_retro_music_r2.mp3?alt=media&token=c5c14d97-c174-49a0-a362-353f124821cd');
-  }
-  window.setTimeout(() => {
-    // start after 1s
-    playAudio();
-    window.setInterval(playAudio, 120 * 1000);
-  }, 1000);
-
-  // nothing to do, already rendering by now
+  sound: ['retro_music_start'],
 });
 
 </script>
