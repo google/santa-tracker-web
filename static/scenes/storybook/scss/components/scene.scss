@@ -1,12 +1,3 @@
-// transitions
-$transition-time: 0.3s;
-$transition-time-long: 1.5s;
-$transition-expo-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
-$transition-power4-out: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-$delay-appear: 0.7s;
-$translate-appear: 20px;
-$translate-appear-small: 10px;
-
 .scene {
   &__chapter {
     background-position: center center;
@@ -206,8 +197,19 @@ $translate-appear-small: 10px;
 
         @include respond-to(smartphone) {
           font-size: 5vw;
-          margin: 13vh auto auto;
+          margin: 12vh auto auto;
           width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(9),
+    &:nth-of-type(10),
+    &:nth-of-type(11),
+    &:nth-of-type(12) {
+      .scene__chapter-inner {
+        @include respond-to(smartphone) {
+          margin: 28vh auto auto;
         }
       }
     }
@@ -217,6 +219,16 @@ $translate-appear-small: 10px;
         margin: 68vh auto auto 10vw;
         text-align: center;
         width: 27vw;
+
+        @include respond-to(tablet) {
+          width: 35vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 13vh auto auto;
+          width: 70vw;
+        }
       }
     }
 
@@ -244,6 +256,13 @@ $translate-appear-small: 10px;
         @include respond-to(tablet) {
           width: 46vw;
         }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          text-align: center;
+          width: 70vw;
+        }
       }
     }
 
@@ -262,6 +281,13 @@ $translate-appear-small: 10px;
 
         @include respond-to(tablet) {
           width: 48vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 33vh auto auto;
+          transform: none;
+          width: 70vw;
         }
       }
     }
@@ -291,6 +317,13 @@ $translate-appear-small: 10px;
         @include respond-to(tablet) {
           width: 52vw;
         }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          transform: none;
+          width: 70vw;
+        }
       }
     }
 
@@ -302,6 +335,12 @@ $translate-appear-small: 10px;
 
         @include respond-to(tablet) {
           width: 32vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
         }
       }
     }
@@ -315,6 +354,12 @@ $translate-appear-small: 10px;
         @include respond-to(tablet) {
           width: 37vw;
         }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
       }
     }
 
@@ -327,6 +372,12 @@ $translate-appear-small: 10px;
         @include respond-to(tablet) {
           width: 33vw;
         }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
       }
     }
 
@@ -338,6 +389,12 @@ $translate-appear-small: 10px;
 
         @include respond-to(tablet) {
           width: 37vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
         }
       }
     }
