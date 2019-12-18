@@ -112,7 +112,7 @@ app.Game = class Game {
     // this is preventing a bug for the first level,
     // for some reason, after the scoreboard is set up, game.resume() is called and start the scoreboard countdown.
     // This variable let us have control when we can resume or no.
-    this.canResume = true;
+    this.canResume = false;
 
     app.LevelManager.transition(this.updateLevel, this.startCountdown);
 
@@ -137,7 +137,6 @@ app.Game = class Game {
       }
     }
 
-    this.canResume = false;
     this.pause();
   }
   startMusic() {

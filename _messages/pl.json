@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 Graczy"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Remis"
+	},
+	"buildandbolt-result-win": {
+		"message": "Wygrywasz"
+	},
 	"buildandbolt-skip": {
 		"message": "Pomiń"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "By urządzić przyjęcie z tak ważnej okazji, potrzeba pomocy, więc ruszyli do akcji."
 	},
 	"storybook_paragraph_13": {
-		"message": "„Do mnie!” rzekł Ollie. „Pomóżcie nam dziś sprawić, by w święta nasz ocean lśnił”."
+		"message": "„Do mnie!” rzekła Mary. „Pomóżcie nam dziś sprawić, by w święta nasz ocean lśnił”."
 	},
 	"storybook_paragraph_14": {
 		"message": "Wnet ryby ruszyły, by zapraszać gości. „Zostaw to nam, widzimy się na uroczystości”."
@@ -3384,6 +3390,9 @@
 		"message": "Trzeba jeszcze muzyki, bez niej bal się nie uda. Przy niej każdy zapomni, że istnieje nuda."
 	},
 	"storybook_paragraph_19": {
+		"message": "„Mój wujek Horatio to wspaniały muzyk. Gdy grają z Carlą, tańczą nawet meduzy”."
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "„Mój wujek Horatio to wspaniały muzyk. Gdy grają z Carlem tańczą nawet meduzy”."
 	},
 	"storybook_paragraph_20": {

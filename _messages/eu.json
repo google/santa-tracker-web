@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 jokalari"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Berdinketa"
+	},
+	"buildandbolt-result-win": {
+		"message": "Irabazi duzu!"
+	},
 	"buildandbolt-skip": {
 		"message": "Saltatu"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Lehenik eta behin, aparteko festa bat antolatzeko, laguntzaile talde onena behar zuten, ikusleak liluratzeko."
 	},
 	"storybook_paragraph_13": {
-		"message": "\"Etor zaitezte hona!\", oihukatu zuen Olliek. \"Zuen laguntzaren beharrean gaude, zuhaitza piztu nahi baitugu ur azpian ere\"."
+		"message": "\"Etor zaitezte hona!\", oihukatu zuen Maryk. \"Zuen laguntza beharko dugu; itsaspea algekin argiztatu nahi dugu\"."
 	},
 	"storybook_paragraph_14": {
 		"message": "Arrainak lanean hasi ziren, berri ona zabaltzeko. \"Utzi gonbidapenak guri, baduzu zer egiteko!\""
@@ -3384,6 +3390,9 @@
 		"message": "Festa guztiek behar dute musika, erritmo egokiarekin, denek egin dezaten dantza, hanka zein besoekin."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"Osaba Horatio da musikarekin onena, sekulako artista. Eta Carla lagun badu, hobeto; hura da hura gitarrista\"."
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"Nire osaba Horatio da musikarekin onena, sekulako artista. Eta Carl bere lagunarekin, hobeto; hori da hori gitarrista.\""
 	},
 	"storybook_paragraph_20": {

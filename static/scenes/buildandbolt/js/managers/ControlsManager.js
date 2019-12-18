@@ -32,6 +32,7 @@ class ControlsManager {
 
       window.addEventListener('keydown', this.onKeyDown.bind(this));
       window.addEventListener('keyup', this.onKeyUp.bind(this));
+      window.addEventListener('blur', this.onBlur.bind(this));
     }
   }
 
@@ -53,6 +54,13 @@ class ControlsManager {
   }
 
   /**
+   * If user leaves this window, assume all keys are not pressed anymore.
+   */
+  onBlur() {
+    this.trackedKeys = {};
+  }
+
+  /**
    * @param  {[type]}  keys List of keys to check for
    * @return {Boolean} true if any of the given keys are pressed
    */
@@ -70,9 +78,6 @@ class ControlsManager {
     var touch = e.changedTouches[0];
 
     this.currentTouchId = touch.identifier
-
-    const pos = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY });
   }
 
   onTouchEnd(e) {
@@ -84,7 +89,7 @@ class ControlsManager {
 
     this.currentTouchId = touch.identifier
     this.currentTouchPosition = Utils.pixelToGridPosition(app.Board.context,
-        { x: touch.clientX, y: touch.clientY }, true);
+        { x: touch.clientX, y: touch.clientY });
 
     if (this.platform) {
       this.currentTouchPositionPlatform = {
@@ -162,21 +167,27 @@ class ControlsManager {
         // here we need to subsract half of the character size
 
         let goalPosition = {
-          x: this.currentTouchPosition.x - 0.5,
-          y: this.currentTouchPosition.y - 0.5
+          x: this.currentTouchPosition.x,
+          y: this.currentTouchPosition.y
         };
 
         let startPosition = currentPosition;
 
         if (platform && platformOffset) {
           goalPosition = {
-            x: this.currentTouchPositionPlatform.x - 0.5,
-            y: this.currentTouchPositionPlatform.y - 0.5
+            x: this.currentTouchPositionPlatform.x,
+            y: this.currentTouchPositionPlatform.y
           }
           startPosition = platformOffset;
+        } else {
+          // Cannot be less than 0 (for left and top boards)
+          goalPosition.x = Math.min(Math.max(0, goalPosition.x - 0.5), Constants.GRID_DIMENSIONS.WIDTH - 1);
+          goalPosition.y = Math.min(Math.max(0, goalPosition.y - 0.5), Constants.GRID_DIMENSIONS.HEIGHT - 1);
         }
 
+
         const distance = Utils.getDistance(goalPosition, startPosition);
+
         if (distance > .2) {
           // Slows player down as it gets close to the goal point
           const magnitudeMultiplier = Math.pow(Math.min(1, distance / 3), 2);

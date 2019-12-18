@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 joueurs"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Ex æquo"
+	},
+	"buildandbolt-result-win": {
+		"message": "Victoire"
+	},
 	"buildandbolt-skip": {
 		"message": "Passer"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Maintenant, pour réussir les festivités, ils ont besoin de réunir une équipe d'amis motivés."
 	},
 	"storybook_paragraph_13": {
-		"message": "\"Venez, venez !\" cria Ollie. \"Nous avons besoin de votre aide pour illuminer l'océan !\""
+		"message": "\"Venez, venez !\" cria Marie. \"Nous avons besoin de votre aide pour illuminer l'océan !\""
 	},
 	"storybook_paragraph_14": {
 		"message": "Les poissons sautèrent sur l'occasion : \"Nous, on s'occupe des invitations !\""
@@ -3384,6 +3390,9 @@
 		"message": "Pour qu'il y ait de l'ambiance, il faut de la musique, et que tout le monde danse en cadence."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"Mon oncle Horace est une vraie rockstar ! Et son amie Carla se débrouille pas mal avec une guitare.\""
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"Mon oncle Horace est une vraie rockstar ! Et son ami Carl se débrouille pas mal avec une guitare.\""
 	},
 	"storybook_paragraph_20": {

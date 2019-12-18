@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 Players"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Tie"
+	},
+	"buildandbolt-result-win": {
+		"message": "You win"
+	},
 	"buildandbolt-skip": {
 		"message": "Skip"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Now, to throw a great party, the first thing they'd need is a team of great helpers to help them succeed."
 	},
 	"storybook_paragraph_13": {
-		"message": "'Gather round!', Ollie shouted. 'We need all your help, to host our very own undersea lighting of kelp'."
+		"message": "'Gather around!' Mary shouted. 'We need all your help, to host our very own undersea lighting of kelp'."
 	},
 	"storybook_paragraph_14": {
 		"message": "The fish sprung into action, spreading word to the guests. 'We'll handle the invites, you handle the rest!'."
@@ -3384,6 +3390,9 @@
 		"message": "Every party needs music, tunes with just the right beat, to get everyone grooving and up on their feet."
 	},
 	"storybook_paragraph_19": {
+		"message": "'My uncle Horatio is the best in the biz. And his good friend Carla is a guitar-playing whiz'."
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "'My uncle Horatio is the best in the biz. And his good friend Carl is a guitar-playing whiz'."
 	},
 	"storybook_paragraph_20": {
