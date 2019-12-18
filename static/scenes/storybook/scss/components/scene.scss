@@ -407,6 +407,11 @@
         text-align: center;
         transform: translateY(-50%);
         width: 26vw;
+
+        @include respond-to(smartphone) {
+          font-size: 12vw;
+          width: 36vw;
+        }
       }
     }
 
