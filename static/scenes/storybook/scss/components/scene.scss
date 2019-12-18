@@ -19,17 +19,17 @@
       font-size: 2.6vw;
     }
 
+    @for $i from 1 through 21 {
+      &:nth-child(#{$i}) {
+        @include backgroundImage("img/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
+      }
+    }
+
     .scene__chapter-text {
       line-height: 1.4;
       opacity: 0;
       transform: translateY($translate-appear);
       transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
-    }
-
-    @for $i from 1 through 21 {
-      &:nth-child(#{$i}) {
-        @include backgroundImage("img/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
-      }
     }
 
     &:nth-of-type(1) {
