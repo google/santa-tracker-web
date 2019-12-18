@@ -1,43 +1,54 @@
-import Scene from '../components/Scene.js'
-import Slider from './Slider.js'
+import Scene from '../components/Scene.js';
+import Slider from './Slider.js';
 
 class Nav {
   constructor() {
-    this._prev = this._prev.bind(this)
-    this._next = this._next.bind(this)
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
   }
 
   init(el, index, length) {
-    this.el = el
-    this.prevBtn = this.el.querySelector('[data-nav-prev]')
-    this.nextBtn = this.el.querySelector('[data-nav-next]')
+    this.el = el;
+    this.prevBtn = this.el.querySelector('[data-nav-prev]');
+    this.nextBtn = this.el.querySelector('[data-nav-next]');
 
-    this.activeIndex = index
-    this.pages = length
+    this.activeIndex = index;
+    this.pages = length;
 
-    this._event()
+    this.event();
   }
 
-  _event() {
-    this.prevBtn.addEventListener('click', this._prev)
-    this.nextBtn.addEventListener('click', this._next)
+  event() {
+    this.prevBtn.addEventListener('click', this.prev);
+    this.nextBtn.addEventListener('click', this.next);
   }
 
-  _prev() {
-    this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1
-    Scene.update(this.activeIndex + 1)
-    Slider.update(this.activeIndex + 1)
+  prev() {
+    this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1;
+    this.moveToChapter();
+    this.handleBtnVisibility();
   }
 
-  _next() {
-    this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0
-    Scene.update(this.activeIndex + 1)
-    Slider.update(this.activeIndex + 1)
+  next() {
+    this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0;
+    this.moveToChapter();
+    this.handleBtnVisibility();
+  }
+
+  moveToChapter() {
+    Scene.update(this.activeIndex + 1);
+    Slider.update(this.activeIndex + 1);
+    window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex + 1}));
+  }
+
+  handleBtnVisibility() {
+    this.activeIndex == 0 ? this.prevBtn.classList.add('is-hidden') : this.prevBtn.classList.remove('is-hidden');
   }
 
   update(i) {
-    this.activeIndex = i
+    this.activeIndex = i;
+    window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex}));
   }
 }
 
-export default new Nav
+export default new Nav;

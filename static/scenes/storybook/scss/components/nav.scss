@@ -15,12 +15,18 @@
     height: 300px;
     height: 75px;
     outline: none;
-    transition: transform .1s ease, box-shadow .1s linear;
+    transition: transform .1s ease, box-shadow .1s linear, opacity .3s linear;
     width: 110px;
 
     &:active {
       box-shadow: none;
       transform: translateY(4px);
+    }
+
+    &.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: transitionY(-4px);
     }
   }
 

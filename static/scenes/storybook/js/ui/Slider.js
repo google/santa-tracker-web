@@ -1,39 +1,40 @@
-import Scene from '../components/Scene.js'
-import Nav from './Nav.js'
+import Scene from '../components/Scene.js';
+import Nav from './Nav.js';
 
 class Slider {
   constructor() {
-    this.update = this.update.bind(this)
+    this.update = this.update.bind(this);
   }
 
   init(el, index, length) {
-    this.container = el
+    this.container = el;
 
-    this.activeIndex = index
-    this.pages = length
+    this.activeIndex = index;
+    this.pages = length;
 
-    this._render()
-    this._event()
+    this.render();
+    this.event();
   }
 
-  _event() {
+  event() {
     this.slider.addEventListener('mouseup', () => {
-      Scene.update(this.slider.value)
-      Nav.update(this.slider.value - 1)
+      Scene.update(this.slider.value);
+      Nav.update(this.slider.value - 1);
+      Nav.handleBtnVisibility();
     })
   }
 
-  _render() {
+  render() {
     this.container.innerHTML =
     `
     <input data-slider type="range" min="1" max="${this.pages}" steps="1" value="${this.activeIndex}">
     `
-    this.slider = this.container.querySelector('[data-slider]')
+    this.slider = this.container.querySelector('[data-slider]');
   }
 
   update(i) {
-    this.slider.value = i
+    this.slider.value = i;
   }
 }
 
-export default new Slider
+export default new Slider;

@@ -1,5 +1,15 @@
 $name: 'module-storybook';
 
+html,
+body {
+  background-color: #7000FF;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
 ##{$name} {
   // CONFIGS
   @import "scss/_variables";

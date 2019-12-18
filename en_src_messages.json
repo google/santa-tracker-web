@@ -4555,6 +4555,10 @@
     "description": "Paragraph text that appears on a storytelling game. Shown as large text describing the end of a story.",
     "message": "The End"
   },
+  "storybook_paragraph_32": {
+    "description": "Ending text that appears on a storytelling game.",
+    "message": "Love reading about Ollie's adventures? Try following along in a new language."
+  },
   "sv_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "El Salvador"

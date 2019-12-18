@@ -13,3 +13,11 @@
     }
   }
 }
+
+@mixin backgroundImage($desktoppath, $mobilepath) {
+  background-image: url($desktoppath);
+
+  @include respond-to(smartphone) {
+    background-image: url($mobilepath);
+  }
+}

@@ -1,66 +1,68 @@
+import { _msg } from '../../../src/magic.js';
+
 const CHAPTERS = [
   {
-    text: 'content-1',
+    text: [_msg`storybook_paragraph_01`, _msg`storybook_paragraph_02`],
   },
   {
-    text: 'content-2',
+    text: [_msg`storybook_paragraph_03`, _msg`storybook_paragraph_04`],
   },
   {
-    text: 'content-3',
+    text: [_msg`storybook_paragraph_05`, _msg`storybook_paragraph_06`, _msg`storybook_paragraph_07`],
   },
   {
-    text: 'content-4',
+    text: [_msg`storybook_paragraph_08`, _msg`storybook_paragraph_09`],
   },
   {
-    text: 'content-5',
+    text: [_msg`storybook_paragraph_10`, _msg`storybook_paragraph_11`],
   },
   {
-    text: 'content-6',
+    text: [_msg`storybook_paragraph_12`, _msg`storybook_paragraph_13`],
   },
   {
-    text: 'content-7',
+    text: [_msg`storybook_paragraph_14`],
   },
   {
-    text: 'content-8',
+    text: [_msg`storybook_paragraph_15`],
   },
   {
-    text: 'content-9',
+    text: [_msg`storybook_paragraph_16`],
   },
   {
-    text: 'content-10',
+    text: [_msg`storybook_paragraph_17`],
   },
   {
-    text: 'content-11',
+    text: [_msg`storybook_paragraph_18`],
   },
   {
-    text: 'content-12',
+    text: [_msg`storybook_paragraph_19`],
   },
   {
-    text: 'content-13',
+    text: [_msg`storybook_paragraph_20`],
   },
   {
-    text: 'content-14',
+    text: [_msg`storybook_paragraph_21`, _msg`storybook_paragraph_22`],
   },
   {
-    text: 'content-15',
+    text: [_msg`storybook_paragraph_23`, _msg`storybook_paragraph_24`],
   },
   {
-    text: 'content-16',
+    text: [_msg`storybook_paragraph_25`, _msg`storybook_paragraph_26`],
   },
   {
-    text: 'content-17',
+    text: [_msg`storybook_paragraph_27`],
   },
   {
-    text: 'content-18',
+    text: [_msg`storybook_paragraph_28`],
   },
   {
-    text: 'content-19',
+    text: [_msg`storybook_paragraph_29`],
   },
   {
-    text: 'content-20',
+    text: [_msg`storybook_paragraph_30`],
   },
   {
-    text: 'content-21',
+    text: [_msg`storybook_paragraph_31`],
   },
 ]
 
