@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 giocatori"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Parità"
+	},
+	"buildandbolt-result-win": {
+		"message": "Hai vinto"
+	},
 	"buildandbolt-skip": {
 		"message": "Ignora"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Ora, per organizzare una festa da ricordare, ci volevano assistenti eccezionali disposti ad aiutare."
 	},
 	"storybook_paragraph_13": {
-		"message": "\"Venite tutti qui!\" gridò Ollie. \"Veniteci ad aiutare, con le alghe e le luci decoriamo il fondo del mare\"."
+		"message": "\"Venite tutti qui!\" gridò Mary. \"Abbiamo bisogno delle forze di tutti combinate, per allestire il nostro spettacolo sottomarino di alghe illuminate.\""
 	},
 	"storybook_paragraph_14": {
 		"message": "Per invitare gli ospiti, i pesci partirono con piglio lesto. \"Ci occuperemo noi degli inviti, tu pensa al resto!\""
@@ -3384,6 +3390,9 @@
 		"message": "Per una festa che si rispetti ci vuole il ritmo giusto,\nuna musica da ballare, adatta a ogni gusto."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"Mio zio, Orazio, è affermato in questo settore. E la sua amica Carla con la chitarra è la migliore.\""
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"Mio zio, Orazio, è affermato in questo settore. E il suo amico Carl con la chitarra è il migliore.\""
 	},
 	"storybook_paragraph_20": {

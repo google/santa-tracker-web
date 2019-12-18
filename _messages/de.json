@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 Spieler"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Unentschieden"
+	},
+	"buildandbolt-result-win": {
+		"message": "Gewonnen!"
+	},
 	"buildandbolt-skip": {
 		"message": "Überspringen"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Für eine Feier, die keiner so schnell vergaß, brauchten sie jede Menge Helfer mit ganz viel Spaß."
 	},
 	"storybook_paragraph_13": {
-		"message": "\"Kommt her!\", rief Ollie. \"Sputet euch schnell, dann wird unser Kelpwald ganz festlich und hell.\""
+		"message": "\"Kommt her!\", rief Mary. \"Jede helfende Hand ist willkommen, dann wird unser Kelpwald ganz festlich und hell.\""
 	},
 	"storybook_paragraph_14": {
 		"message": "Die Fische informierten sofort alle Gäste: \"Wir laden euch ein zum großen Feste!\""
@@ -3384,6 +3390,9 @@
 		"message": "Eine Party braucht Musik mit dem passenden Takt, die jeden, der sie hört, gleich richtig packt."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"Mein Onkel Horatio, der hat's wirklich drauf. Mit Carla an der Gitarre spielen sie richtig auf.\""
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"Mein Onkel Horatio, der hat's wirklich drauf. Mit Carl an der Gitarre, da spielen sie auf.\""
 	},
 	"storybook_paragraph_20": {

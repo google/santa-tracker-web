@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 spelers"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Gelijkspel"
+	},
+	"buildandbolt-result-win": {
+		"message": "U wint"
+	},
 	"buildandbolt-skip": {
 		"message": "Overslaan"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Als ze het feest wilden laten slagen,\nhadden ze iedereen nodig die kon bijdragen."
 	},
 	"storybook_paragraph_13": {
-		"message": "Ollie riep: \"Kom allemaal helpen het zeewier te versieren, zodat wij ook feest kunnen vieren.\""
+		"message": "Marie riep: \"Kom allemaal helpen het zeewier te versieren, zodat wij ook feest kunnen vieren.\""
 	},
 	"storybook_paragraph_14": {
 		"message": "De vissen zwommen snel van oost naar west. \"Wij zorgen voor de gasten, jullie voor de rest!\""
@@ -3384,6 +3390,9 @@
 		"message": "Zonder muziek is een feest natuurlijk niets.\nVoor de grote dag wilden ze de juiste beats."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"Mijn oom Harry is de beste die er is. En het gitaarspel van zijn goede vriendin Carla is ook niet mis.\""
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"Mijn oom Harry is de beste die er is. En zijn goede vriend Karel is een meestergitarist.\""
 	},
 	"storybook_paragraph_20": {

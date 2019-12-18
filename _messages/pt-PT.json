@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 jogadores"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Empate"
+	},
+	"buildandbolt-result-win": {
+		"message": "Ganhou"
+	},
 	"buildandbolt-skip": {
 		"message": "Ignorar"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "Para fazer uma grande festa eles iriam precisar de uma equipa de assistentes com vontade de ajudar."
 	},
 	"storybook_paragraph_13": {
-		"message": "\"Juntem-se todos!” gritou o Ollie. “Precisamos da vossa ajuda, para fazermos uma árvore de algas que não desiluda.\""
+		"message": "\"Juntem-se todos!” gritou a Mary. “Precisamos da vossa ajuda, para fazermos uma árvore de algas que não desiluda.\""
 	},
 	"storybook_paragraph_14": {
 		"message": "Os peixes entraram em ação para avisar os convidados. \"Nós tratamos dos convites, fiquem descansados!”"
@@ -3384,6 +3390,9 @@
 		"message": "Toda a festa precisa de música com os ritmos certos, para pôr todos a dançar muito bem despertos."
 	},
 	"storybook_paragraph_19": {
+		"message": "\"O meu tio Horatio é o melhor especialista. E a sua amiga Carla é uma grande guitarrista.\""
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "\"O meu tio Horatio é o melhor especialista. E o seu amigo Carl é um grande guitarrista.\""
 	},
 	"storybook_paragraph_20": {
