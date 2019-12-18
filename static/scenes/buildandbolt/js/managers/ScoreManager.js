@@ -62,7 +62,8 @@ class ScoreManager {
       app.ScoreScreen.showEnd(scoreResult, this.game.multiplayer);
     }
 
-    this.game.pause(); // pause game, it's stopping the scoreboard timer
+    this.game.pause(); // pause game
+    this.game.canResume = false; // prevent scoreboard to resume the game when changing windows
   }
 
   setWinner() {

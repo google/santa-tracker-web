@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 人で遊ぶ"
 	},
+	"buildandbolt-result-tie": {
+		"message": "引き分け"
+	},
+	"buildandbolt-result-win": {
+		"message": "あなたの勝ち"
+	},
 	"buildandbolt-skip": {
 		"message": "スキップ"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "さあ、素敵なパーティーを成功させるには、まずは頼りになる仲間を集めなくてはなりません。"
 	},
 	"storybook_paragraph_13": {
-		"message": "「みんな集まって！」と、オーリーが大きな声で呼びました。「海の中で、僕らの昆布ツリーの点灯式をやるにはみんなの助けが必要なんだ。」"
+		"message": "メアリーが大声で言いました。「みんな集まって！海の中で、私たちの昆布ツリーの点灯式をやるにはみんなの助けが必要なの。」"
 	},
 	"storybook_paragraph_14": {
 		"message": "魚たちはすぐに動き出し、パーティーの話を広め始めました。「お客さん集めは私たちに任せて。あとのことをお願いね！」"
@@ -3384,6 +3390,9 @@
 		"message": "パーティーには、みんなが立ったままゆったり楽しめるような、ちょうどいいノリの音楽も必要です。"
 	},
 	"storybook_paragraph_19": {
+		"message": "「音楽のことなら僕のおじさんのホレーショに任せて。おじさんの友だちのカーラもギターの名人なんだ。」"
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "「音楽のことなら僕のおじさんのホレーショに任せて。おじさんの友だちのカールもギターの名人なんだ。」"
 	},
 	"storybook_paragraph_20": {

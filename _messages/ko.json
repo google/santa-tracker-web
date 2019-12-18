@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "플레이어 2명"
 	},
+	"buildandbolt-result-tie": {
+		"message": "무승부"
+	},
+	"buildandbolt-result-win": {
+		"message": "이겼습니다"
+	},
 	"buildandbolt-skip": {
 		"message": "건너뛰기"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "멋진 파티를 열려면 무엇보다도 파티 준비를 도와줄 도우미가 필요합니다."
 	},
 	"storybook_paragraph_13": {
-		"message": "“모두 모여봐!” 올리가 소리쳤습니다. “바닷속에서 해초 점등식을 열려면 너희들 모두의 도움이 필요해.”"
+		"message": "“모두 모여봐!” 메리가 소리쳤습니다. “바닷속에서 해초 점등식을 열려면 너희들 모두의 도움이 필요해.”"
 	},
 	"storybook_paragraph_14": {
 		"message": "물고기들이 소식을 전하기 위해 나섰습니다. “초대는 우리가 맡을게. 나머지를 부탁해!”"
@@ -3384,6 +3390,9 @@
 		"message": "파티에 음악은 필수입니다. 모두가 일어나 리듬을 탈 만큼 신나는 음악이 필요합니다."
 	},
 	"storybook_paragraph_19": {
+		"message": "“허레이쇼 삼촌은 최고의 음악가야. 그리고 삼촌의 친구인 칼라 아저씨는 기타 연주의 달인이지.”"
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "“호레이쇼 삼촌은 최고의 음악가야. 그리고 삼촌의 친구인 칼 아저씨는 기타 연주의 달인이지.”"
 	},
 	"storybook_paragraph_20": {

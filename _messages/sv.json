@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 spelare"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Oavgjort"
+	},
+	"buildandbolt-result-win": {
+		"message": "Du vann"
+	},
 	"buildandbolt-skip": {
 		"message": "Hoppa över"
 	},
@@ -3366,7 +3372,7 @@
 		"message": "För att få till en bra fest krävdes först och främst bra medhjälpare."
 	},
 	"storybook_paragraph_13": {
-		"message": "”Kom allihopa!” ropade Olle. ”Vi behöver hjälp med att fixa algbelysning under havet.”"
+		"message": "”Kom allihopa!” ropade Maria. ”Vi behöver hjälp med att fixa algbelysning under havet.”"
 	},
 	"storybook_paragraph_14": {
 		"message": "Fiskarna agerade kvickt och meddelade gästerna. ”Vi tar hand om inbjudningskorten, ni får ta hand om resten!”"
@@ -3384,6 +3390,9 @@
 		"message": "Alla bra fester behöver en skön rytm för att få upp alla på dansgolvet."
 	},
 	"storybook_paragraph_19": {
+		"message": "”Min farbror Hasse är bäst i branschen. Och hans goda vän Kajsa är en riktig hejare på gitarr.”"
+	},
+	"storybook_paragraph_19_disused": {
 		"message": "”Min farbror Hasse är bäst i branschen. Och hans goda vän Kalle är en riktig hejare på gitarr.”"
 	},
 	"storybook_paragraph_20": {
