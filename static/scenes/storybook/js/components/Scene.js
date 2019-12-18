@@ -15,6 +15,7 @@ class Scene {
     for (let i = 0; i < CHAPTERS.length; i++) {
       const chapter = document.createElement('div')
       chapter.className = 'scene__chapter'
+      chapter.style.backgroundImage = `url(img/svg/chapter-${i+1}.svg)`
       chapter.innerHTML = `
 <h5 class="scene__chapter-title">${CHAPTERS[i].text}</h5>
       `
