@@ -7,10 +7,13 @@ class Nav {
     this.xDown = null;
     this.yDown = null;
 
+    this.animating = false;
+
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
     this.handleTouchStart = this.handleTouchStart.bind(this);
     this.handleTouchMove = this.handleTouchMove.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   init(el, index, length) {
@@ -29,14 +32,15 @@ class Nav {
     this.nextBtn.addEventListener('click', this.next);
     this.prevBtn.addEventListener('touchstart', this.prev);
     this.nextBtn.addEventListener('touchstart', this.next);
-    document.addEventListener('touchstart', this.handleTouchStart, false);
-    document.addEventListener('touchmove', this.handleTouchMove, false);
+    document.addEventListener('touchstart', this.handleTouchStart);
+    document.addEventListener('touchmove', this.handleTouchMove);
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
   handleTouchStart(evt) {
     this.xDown = evt.touches[0].clientX;
     this.yDown = evt.touches[0].clientY;
-  };
+  }
 
   handleTouchMove(evt) {
     if ( !this.xDown || !this.yDown ) { return; }
@@ -52,18 +56,30 @@ class Nav {
 
     this.xDown = null;
     this.yDown = null;
-  };
+  }
+
+  handleKeyDown(evt) {
+    if (this.animating) { return; }
+
+    if (evt.key == 'ArrowRight') {
+      this.next();
+    } else if(evt.key == 'ArrowLeft' && this.activeIndex !== 0) {
+      this.prev();
+    }
+  }
 
   prev() {
     this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1;
     this.moveToChapter();
     this.handleBtnVisibility();
+    this.animating = true;
   }
 
   next() {
     this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0;
     this.moveToChapter();
     this.handleBtnVisibility();
+    this.animating = true;
   }
 
   moveToChapter() {

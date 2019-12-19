@@ -1,4 +1,5 @@
 import '../../../../node_modules/lottie-web/build/player/lottie.js';
+import Nav from '../ui/Nav.js';
 
 class Transition {
   constructor() {
@@ -65,6 +66,7 @@ class Transition {
 
   destroy() {
     this.container.classList.remove('is-active');
+    Nav.animating = false;
   }
 
   handleResize() {
