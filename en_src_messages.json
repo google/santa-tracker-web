@@ -4480,8 +4480,8 @@
     "message": "Now, to throw a great party, the first thing they’d need is a team of great helpers to help them succeed."
   },
   "storybook_paragraph_13": {
-    "description": "Paragraph text that appears on a storytelling game. Spoken by a charactor named Ollie, asking everybody to join and help.",
-    "message": "“Gather round!” Ollie shouted. “We need all your help, to host our very own undersea lighting of kelp.”"
+    "description": "Paragraph text that appears on a storytelling game. Spoken by a charactor named Mary the bear (female), asking everybody to join and help.",
+    "message": "“Gather round!” Mary shouted. “We need all your help, to host our very own undersea lighting of kelp.”"
   },
   "storybook_paragraph_14": {
     "description": "Paragraph text that appears on a storytelling game. Replied by fishes. They are willing to help with the invites.",
@@ -4503,9 +4503,13 @@
     "description": "Paragraph text that appears on a storytelling game. Aside: saying the party needs music.",
     "message": "Every party needs music, tunes with just the right beat, to get everyone grooving, and up on their feet."
   },
-  "storybook_paragraph_19": {
+  "storybook_paragraph_19_disused": {
     "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie, his uncle named Horatio and his friend named Carl can help with the music.",
     "message": "“My uncle, Horatio, is the best in the biz. And his good friend Carl is a guitar-playing whiz.”"
+  },
+  "storybook_paragraph_19": {
+    "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie (male), his uncle named Horatio (male) and his friend named Carla (female) can help with the music.",
+    "message": "“My uncle, Horatio, is the best in the biz. And his good friend Carla is a guitar-playing whiz.”"
   },
   "storybook_paragraph_20": {
     "description": "Paragraph text that appears on a storytelling game. Spoken by the charactor named Ollie.",
@@ -4554,6 +4558,10 @@
   "storybook_paragraph_31": {
     "description": "Paragraph text that appears on a storytelling game. Shown as large text describing the end of a story.",
     "message": "The End"
+  },
+  "storybook_new_language": {
+    "description": "Paragraph text that appears at the end of a storytelling game. Prompts the user to select a new language to read the story in.",
+    "message": "Love reading about Ollie's adventure? Try exploring in a new language."
   },
   "sv_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
