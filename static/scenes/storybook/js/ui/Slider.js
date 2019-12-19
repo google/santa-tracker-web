@@ -49,6 +49,7 @@ class Slider {
 
   update(i) {
     this.slider.value = i;
+    this.activeIndex = this.slider.value - 1;
     this.handleSliderProgress();
   }
 }
