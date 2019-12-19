@@ -41,6 +41,7 @@
         margin: 0 auto;
         max-width: 80%;
         padding-top: 12vh;
+        text-align: center;
 
         .scene__chapter-text {
           flex-basis: 32%;
@@ -244,6 +245,11 @@
 
             @include respond-to(tablet) {
               font-size: 4.5vw;
+            }
+
+            @include respond-to(smartphone) {
+              font-size: 8.5vw;
+              width: 74vw;
             }
           }
 

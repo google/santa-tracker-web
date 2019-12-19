@@ -32,7 +32,7 @@ class Slider {
   }
 
   handleSliderProgress() {
-    this.slider.style.background = `linear-gradient(to right, #FFE14D 0%, #FFE14D ${this.slider.value / 22 * 100}%, #9FCEFF ${this.slider.value / 22 * 100}%, #9FCEFF 100%)`;
+    this.slider.style.background = `linear-gradient(to right, #FFE14D 0%, #FFE14D ${this.slider.value / 22 * 100 - 1}%, #9FCEFF ${this.slider.value / 22 * 100 - 1}%, #9FCEFF 100%)`;
   }
 
   render() {
