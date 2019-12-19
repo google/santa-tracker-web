@@ -22,6 +22,8 @@ class Nav {
   event() {
     this.prevBtn.addEventListener('click', this.prev);
     this.nextBtn.addEventListener('click', this.next);
+    this.prevBtn.addEventListener('touchstart', this.prev);
+    this.nextBtn.addEventListener('touchstart', this.next);
   }
 
   prev() {
