@@ -25,10 +25,14 @@ class Slider {
   }
 
   handleSliderMouseUp() {
+    if(this.slider.value == this.activeIndex + 1) { return; }
+
     Transition.trigger();
     Scene.update(this.slider.value);
     Nav.update(this.slider.value - 1);
     Nav.handleBtnVisibility();
+
+    this.activeIndex = this.slider.value - 1;
   }
 
   handleSliderProgress() {
@@ -45,7 +49,7 @@ class Slider {
 
   update(i) {
     this.slider.value = i;
-    this.handleSliderProgress()
+    this.handleSliderProgress();
   }
 }
 
