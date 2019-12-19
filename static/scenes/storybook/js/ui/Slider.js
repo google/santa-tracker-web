@@ -4,6 +4,8 @@ import Transition from '../components/Transition.js';
 
 class Slider {
   constructor() {
+    this.handleSliderMouseUp = this.handleSliderMouseUp.bind(this);
+    this.handleSliderProgress = this.handleSliderProgress.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -18,12 +20,19 @@ class Slider {
   }
 
   event() {
-    this.slider.addEventListener('mouseup', () => {
-      Transition.trigger();
-      Scene.update(this.slider.value);
-      Nav.update(this.slider.value - 1);
-      Nav.handleBtnVisibility();
-    })
+    this.slider.addEventListener('mouseup', this.handleSliderMouseUp)
+    this.slider.addEventListener('input', this.handleSliderProgress)
+  }
+
+  handleSliderMouseUp() {
+    Transition.trigger();
+    Scene.update(this.slider.value);
+    Nav.update(this.slider.value - 1);
+    Nav.handleBtnVisibility();
+  }
+
+  handleSliderProgress() {
+    this.slider.style.background = `linear-gradient(to right, #FFE14D 0%, #FFE14D ${this.slider.value / 22 * 100}%, #9FCEFF ${this.slider.value / 22 * 100}%, #9FCEFF 100%)`;
   }
 
   render() {
@@ -36,6 +45,7 @@ class Slider {
 
   update(i) {
     this.slider.value = i;
+    this.handleSliderProgress()
   }
 }
 
