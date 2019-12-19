@@ -11,7 +11,7 @@
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity .4s ease .4s;
+    transition: opacity .2s ease .8s;
     width: 100%;
     will-change: opacity;
 
@@ -19,9 +19,9 @@
       font-size: 2.6vw;
     }
 
-    @for $i from 1 through 21 {
+    @for $i from 1 through 22 {
       &:nth-child(#{$i}) {
-        @include backgroundImage("img/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
+        @include backgroundImage("img/desktop/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
       }
     }
 
@@ -32,7 +32,7 @@
       transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
     }
 
-    &:nth-of-type(1) {
+    &:nth-of-type(2) {
       background-position: top center;
 
       .scene__chapter-inner {
@@ -59,7 +59,7 @@
       }
     }
 
-    &:nth-of-type(2) {
+    &:nth-of-type(3) {
       .scene__chapter-inner {
         margin: 10vh auto auto 14vw;
         text-align: center;
@@ -83,7 +83,7 @@
       }
     }
 
-    &:nth-of-type(3) {
+    &:nth-of-type(4) {
       .scene__chapter-inner {
         margin: 10vh auto auto 14vw;
         text-align: center;
@@ -120,7 +120,7 @@
       }
     }
 
-    &:nth-of-type(4) {
+    &:nth-of-type(5) {
       .scene__chapter-inner {
         margin: 10vh auto auto 14vw;
         text-align: center;
@@ -156,8 +156,8 @@
       }
     }
 
-    &:nth-of-type(5),
-    &:nth-of-type(6) {
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
       .scene__chapter-inner {
         margin: 9vh auto;
         text-align: center;
@@ -180,12 +180,12 @@
       }
     }
 
-    &:nth-of-type(7),
     &:nth-of-type(8),
     &:nth-of-type(9),
     &:nth-of-type(10),
     &:nth-of-type(11),
-    &:nth-of-type(12) {
+    &:nth-of-type(12),
+    &:nth-of-type(13) {
       .scene__chapter-inner {
         margin: 26vh auto auto;
         text-align: center;
@@ -203,10 +203,10 @@
       }
     }
 
-    &:nth-of-type(9),
     &:nth-of-type(10),
     &:nth-of-type(11),
-    &:nth-of-type(12) {
+    &:nth-of-type(12),
+    &:nth-of-type(13) {
       .scene__chapter-inner {
         @include respond-to(smartphone) {
           margin: 28vh auto auto;
@@ -214,7 +214,7 @@
       }
     }
 
-    &:nth-of-type(13) {
+    &:nth-of-type(14) {
       .scene__chapter-inner {
         margin: 68vh auto auto 10vw;
         text-align: center;
@@ -232,7 +232,7 @@
       }
     }
 
-    &:nth-of-type(14) {
+    &:nth-of-type(15) {
       .scene__chapter-inner {
         margin: 55vh 10vw auto auto;
         text-align: center;
@@ -266,7 +266,7 @@
       }
     }
 
-    &:nth-of-type(15) {
+    &:nth-of-type(16) {
       .scene__chapter-inner {
         margin: 50vh auto;
         text-align: center;
@@ -292,7 +292,7 @@
       }
     }
 
-    &:nth-of-type(16) {
+    &:nth-of-type(17) {
       .scene__chapter-inner {
         margin: 46vh auto;
         text-align: center;
@@ -327,7 +327,7 @@
       }
     }
 
-    &:nth-of-type(17) {
+    &:nth-of-type(18) {
       .scene__chapter-inner {
         margin: 13vh auto;
         text-align: center;
@@ -345,7 +345,7 @@
       }
     }
 
-    &:nth-of-type(18) {
+    &:nth-of-type(19) {
       .scene__chapter-inner {
         margin: 15vh auto auto 10vw;
         text-align: center;
@@ -363,7 +363,7 @@
       }
     }
 
-    &:nth-of-type(19) {
+    &:nth-of-type(20) {
       .scene__chapter-inner {
         margin: 24vh auto auto 10vw;
         text-align: center;
@@ -381,7 +381,7 @@
       }
     }
 
-    &:nth-of-type(20) {
+    &:nth-of-type(21) {
       .scene__chapter-inner {
         margin: 11vh auto;
         text-align: center;
@@ -399,7 +399,7 @@
       }
     }
 
-    &:nth-of-type(21) {
+    &:nth-of-type(22) {
       .scene__chapter-inner {
         font-family: $font-lobster;
         font-size: 8vw;

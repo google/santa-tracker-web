@@ -19,6 +19,7 @@ class Transition {
       },
     })
 
+    this.anim.setSpeed(.6);
     this.anim.addEventListener('complete', () => {
       this.destroy();
     });
