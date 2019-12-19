@@ -4,6 +4,8 @@ import Transition from '../components/Transition.js';
 
 class Slider {
   constructor() {
+    this.handleSliderMouseUp = this.handleSliderMouseUp.bind(this);
+    this.handleSliderProgress = this.handleSliderProgress.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -21,13 +23,25 @@ class Slider {
     this.slider.addEventListener('mousedown', () => {
       this.container.classList.add('is-grabbing');
     });
-    this.slider.addEventListener('mouseup', () => {
-      this.container.classList.remove('is-grabbing');
-      Transition.trigger();
-      Scene.update(this.slider.value);
-      Nav.update(this.slider.value - 1);
-      Nav.handleBtnVisibility();
-    })
+
+    this.slider.addEventListener('mouseup', this.handleSliderMouseUp)
+    this.slider.addEventListener('input', this.handleSliderProgress)
+  }
+
+  handleSliderMouseUp() {
+    if(this.slider.value == this.activeIndex + 1) { return; }
+
+    this.container.classList.remove('is-grabbing');
+    Transition.trigger();
+    Scene.update(this.slider.value);
+    Nav.update(this.slider.value - 1);
+    Nav.handleBtnVisibility();
+
+    this.activeIndex = this.slider.value - 1;
+  }
+
+  handleSliderProgress() {
+    this.slider.style.background = `linear-gradient(to right, #FFE14D 0%, #FFE14D ${this.slider.value / 22 * 100 - 1}%, #9FCEFF ${this.slider.value / 22 * 100 - 1}%, #9FCEFF 100%)`;
   }
 
   render() {
@@ -40,6 +54,8 @@ class Slider {
 
   update(i) {
     this.slider.value = i;
+    this.activeIndex = this.slider.value - 1;
+    this.handleSliderProgress();
   }
 }
 

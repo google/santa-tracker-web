@@ -8,6 +8,12 @@
   transform: translateY(-50%);
   width: 100vw;
 
+  @include respond-to(smartphone) {
+    bottom: 40px;
+    top: auto;
+    transform: none;
+  }
+
   &-prev,
   &-next {
     border: none;
