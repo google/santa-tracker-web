@@ -32,6 +32,27 @@
       transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
     }
 
+    &:nth-of-type(1) {
+      .scene__chapter-inner {
+        bottom: 11vh;
+        font-family: $font-lobster;
+        font-size: 8vw;
+        left: 50%;
+        position: absolute;
+        text-align: center;
+        transform: translateX(-50%);
+        width: 100vw;
+
+        .scene__chapter-text {
+          margin: 0;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 10.5vw;
+        }
+      }
+    }
+
     &:nth-of-type(2) {
       background-position: top center;
 
