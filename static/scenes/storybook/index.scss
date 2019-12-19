@@ -8,6 +8,7 @@ body {
   overflow: hidden;
   padding: 0;
   width: 100vw;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 ##{$name} {
