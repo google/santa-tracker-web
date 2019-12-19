@@ -3,26 +3,8 @@ import styles from './modvil-tracker.css';
 import {_static} from '../../../src/magic.js';
 import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
-import * as common from '../../../src/core/common.js';
-
-
-const scenePath = _static`scenes/modvil`;
-
-
-const urls = [
-  // 'img/chimney1.gif',
-  // 'img/chimney2.gif',
-  // 'img/marker.png',
-  // 'img/northpole.png',
-  'img/sleigh/effects.svg',
-];
-'n ne e se s sw w nw'.split(/\s+/g).forEach((dir) => {
-  urls.push(`img/sleigh/sleigh-${dir}-back.svg`);
-  urls.push(`img/sleigh/sleigh-${dir}-front.svg`);
-  urls.push(`img/sleigh/sleigh-${dir}-santa.svg`);
-});
-
-common.preload.assets(...urls.map((raw) => `${scenePath}/${raw}`));
+import '../../../src/elements/santa-santa.js';
+import {elementMapsOverlay} from './maputils.js';
 
 
 class ModvilTracker extends LitElement {
@@ -32,8 +14,12 @@ class ModvilTracker extends LitElement {
     super();
 
     this._map = null;
+
     this._mapNode = document.createElement('div');
     this._mapNode.classList.add('map');
+
+    this._santaNode = document.createElement('santa-santa');
+
     this._preparePromise = this.prepareMaps();
   }
 
@@ -64,6 +50,13 @@ class ModvilTracker extends LitElement {
       }
     });
 
+    this._santaOverlay = elementMapsOverlay();
+    this._santaOverlay.setMap(this._map);
+    this._santaOverlay.container.append(this._santaNode);
+
+    this._santaOverlay.position = new google.maps.LatLng(-33.85, 151.2);
+    this._santaNode.heading = -78.2;
+
     this._map.addListener('center_changed', () => {
       // If it's not a map change or resize, reset focusOnSanta.
       // if (!this._duringMapChange && !this._duringResize) {
@@ -77,7 +70,7 @@ class ModvilTracker extends LitElement {
   render() {
     return html`
 ${this._mapNode}
-    `;
+`;
   }
 }
 
