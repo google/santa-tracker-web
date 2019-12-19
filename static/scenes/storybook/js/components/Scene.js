@@ -9,7 +9,7 @@ class Scene {
     this.appendChapters();
     setTimeout(() => {
       this.update(this.active);
-    }, 1000)
+    }, 1000);
   }
 
   appendChapters() {
