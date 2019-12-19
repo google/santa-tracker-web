@@ -70,20 +70,20 @@ class Nav {
 
   prev() {
     this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1;
-    this.moveToChapter();
+    this.moveToChapter('prev');
     this.handleBtnVisibility();
     this.animating = true;
   }
 
   next() {
     this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0;
-    this.moveToChapter();
+    this.moveToChapter('next');
     this.handleBtnVisibility();
     this.animating = true;
   }
 
-  moveToChapter() {
-    Transition.trigger();
+  moveToChapter(dir) {
+    Transition.trigger(dir);
     Scene.update(this.activeIndex + 1);
     Slider.update(this.activeIndex + 1);
     window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex + 1}));

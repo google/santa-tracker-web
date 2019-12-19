@@ -57,11 +57,18 @@ class Transition {
     });
   }
 
-  trigger() {
+  trigger(dir) {
     this.container.classList.add('is-active');
 
     const anim = this.IS_MOBILE ? this.anims[1] : this.anims[0];
-    anim.goToAndPlay(0);
+
+    if (dir == 'next') {
+      anim.setDirection(1);
+      anim.goToAndPlay(0);
+    } else if (dir == 'prev') {
+      anim.setDirection(-1);
+      anim.play();
+    }
   }
 
   destroy() {
