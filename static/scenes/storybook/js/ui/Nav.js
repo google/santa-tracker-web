@@ -63,27 +63,27 @@ class Nav {
 
     if (evt.key == 'ArrowRight') {
       this.next();
+      this.animating = true;
     } else if(evt.key == 'ArrowLeft' && this.activeIndex !== 0) {
       this.prev();
+      this.animating = true;
     }
   }
 
   prev() {
     this.activeIndex = this.activeIndex > 0 ? this.activeIndex - 1 : this.pages - 1;
-    this.moveToChapter('prev');
+    this.moveToChapter();
     this.handleBtnVisibility();
-    this.animating = true;
   }
 
   next() {
     this.activeIndex = this.activeIndex < this.pages - 1 ? this.activeIndex + 1 : 0;
-    this.moveToChapter('next');
+    this.moveToChapter();
     this.handleBtnVisibility();
-    this.animating = true;
   }
 
-  moveToChapter(dir) {
-    Transition.trigger(dir);
+  moveToChapter() {
+    Transition.trigger();
     Scene.update(this.activeIndex + 1);
     Slider.update(this.activeIndex + 1);
     window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex + 1}));
