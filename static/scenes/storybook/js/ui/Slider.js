@@ -18,7 +18,11 @@ class Slider {
   }
 
   event() {
+    this.slider.addEventListener('mousedown', () => {
+      this.container.classList.add('is-grabbing');
+    });
     this.slider.addEventListener('mouseup', () => {
+      this.container.classList.remove('is-grabbing');
       Transition.trigger();
       Scene.update(this.slider.value);
       Nav.update(this.slider.value - 1);
