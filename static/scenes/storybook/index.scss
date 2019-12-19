@@ -1,0 +1,23 @@
+$name: 'module-storybook';
+
+html,
+body {
+  background-color: #7000FF;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
+##{$name} {
+  // CONFIGS
+  @import "scss/_variables";
+  @import "scss/_mixins";
+
+  // COMPONENTS
+  @import "scss/components/nav";
+  @import "scss/components/slider";
+  @import "scss/components/scene";
+  @import "scss/components/transition";
+}

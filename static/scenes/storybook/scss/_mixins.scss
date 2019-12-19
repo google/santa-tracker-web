@@ -1,0 +1,23 @@
+@mixin respond-to($point) {
+  @if $point == desktop {
+    @media only screen and (min-width: 1240px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (max-width: 1239px) {
+      @content;
+    }
+  } @else if $point == smartphone {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+
+@mixin backgroundImage($desktoppath, $mobilepath) {
+  background-image: url($desktoppath);
+
+  @include respond-to(smartphone) {
+    background-image: url($mobilepath);
+  }
+}

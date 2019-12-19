@@ -1,0 +1,21 @@
+// COLORS
+$color-black: #000;
+$color-dark-orange: #F0922B;
+$color-light-blue: #9FCEFF;
+$color-orange: #FFC100;
+$color-red: #EB483F;
+$color-red-dark: #D92626;
+$color-white: #FFF;
+
+// FONTS
+$font-google-sans: 'Google Sans', sans-serif;
+$font-lobster: 'Lobster', sans-serif;
+
+// TRANSITIONS
+$transition-time: .3s;
+$transition-time-long: 1.5s;
+$transition-expo-out: cubic-bezier(.190, 1.000, .220, 1.000);
+$transition-power4-out: cubic-bezier(.230, 1.000, .320, 1.000);
+$delay-appear: .6s;
+$translate-appear: 20px;
+$translate-appear-small: 10px;

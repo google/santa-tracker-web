@@ -1,0 +1,427 @@
+.scene {
+  &__chapter {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color-white;
+    font-family: $font-google-sans;
+    font-size: 1.9vw;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .4s ease .4s;
+    width: 100%;
+    will-change: opacity;
+
+    @include respond-to(tablet) {
+      font-size: 2.6vw;
+    }
+
+    @for $i from 1 through 21 {
+      &:nth-child(#{$i}) {
+        @include backgroundImage("img/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
+      }
+    }
+
+    .scene__chapter-text {
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY($translate-appear);
+      transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
+    }
+
+    &:nth-of-type(1) {
+      background-position: top center;
+
+      .scene__chapter-inner {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 80%;
+        padding-top: 12vh;
+
+        .scene__chapter-text {
+          flex-basis: 32%;
+
+          @include respond-to(tablet) {
+            flex-basis: 42%;
+          }
+        }
+
+        @include respond-to(smartphone) {
+          display: block;
+          font-size: 5vw;
+          max-width: 68%;
+          text-align: center;
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      .scene__chapter-inner {
+        margin: 10vh auto auto 14vw;
+        text-align: center;
+        width: 22vw;
+
+        .scene__chapter-text {
+          &:not(:first-of-type) {
+            margin-top: 3vw;
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 30vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 10vh auto auto;
+          width: 60vw;
+        }
+      }
+    }
+
+    &:nth-of-type(3) {
+      .scene__chapter-inner {
+        margin: 10vh auto auto 14vw;
+        text-align: center;
+        width: 25vw;
+
+        .scene__chapter-text {
+          &:not(:first-of-type) {
+            margin-top: 3vw;
+          }
+
+          &:nth-of-type(3) {
+            bottom: 12vh;
+            position: fixed;
+            right: 14vw;
+            width: 23vw;
+
+            @include respond-to(smartphone) {
+              position: static;
+              width: 100%;
+            }
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 33vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 10vh auto auto;
+          text-align: center;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(4) {
+      .scene__chapter-inner {
+        margin: 10vh auto auto 14vw;
+        text-align: center;
+        width: 27vw;
+
+        .scene__chapter-text {
+          &:not(:first-of-type) {
+            margin-top: 3vw;
+          }
+
+          &:nth-of-type(1) {
+            @include respond-to(smartphone) {
+              margin: auto auto 8vw;
+              width: 70%;
+            }
+          }
+
+          &:nth-of-type(2) {
+            line-height: 1.2;
+            font-size: 3.2vw;
+
+            @include respond-to(smartphone) {
+              font-size: 8vw;
+            }
+          }
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 10vh auto;
+          width: 95vw;
+        }
+      }
+    }
+
+    &:nth-of-type(5),
+    &:nth-of-type(6) {
+      .scene__chapter-inner {
+        margin: 9vh auto;
+        text-align: center;
+        width: 25vw;
+
+        .scene__chapter-text {
+          &:not(:first-of-type) {
+            margin-top: 3vw;
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 35vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          width: 68vw;
+        }
+      }
+    }
+
+    &:nth-of-type(7),
+    &:nth-of-type(8),
+    &:nth-of-type(9),
+    &:nth-of-type(10),
+    &:nth-of-type(11),
+    &:nth-of-type(12) {
+      .scene__chapter-inner {
+        margin: 26vh auto auto;
+        text-align: center;
+        width: 26vw;
+
+        @include respond-to(tablet) {
+          width: 35vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(9),
+    &:nth-of-type(10),
+    &:nth-of-type(11),
+    &:nth-of-type(12) {
+      .scene__chapter-inner {
+        @include respond-to(smartphone) {
+          margin: 28vh auto auto;
+        }
+      }
+    }
+
+    &:nth-of-type(13) {
+      .scene__chapter-inner {
+        margin: 68vh auto auto 10vw;
+        text-align: center;
+        width: 27vw;
+
+        @include respond-to(tablet) {
+          width: 35vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 13vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(14) {
+      .scene__chapter-inner {
+        margin: 55vh 10vw auto auto;
+        text-align: center;
+        width: 35vw;
+
+        .scene__chapter-text {
+          &:nth-of-type(1) {
+            font-size: 3.6vw;
+
+            @include respond-to(tablet) {
+              font-size: 4.5vw;
+            }
+          }
+
+          &:nth-of-type(2) {
+            margin: auto;
+            width: 72%;
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 46vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          text-align: center;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(15) {
+      .scene__chapter-inner {
+        margin: 50vh auto;
+        text-align: center;
+        transform: translateY(-50%);
+        width: 24vw;
+
+        .scene__chapter-text {
+          &:not(:first-of-type) {
+            margin-top: 3vw;
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 48vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 33vh auto auto;
+          transform: none;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(16) {
+      .scene__chapter-inner {
+        margin: 46vh auto;
+        text-align: center;
+        transform: translateY(-50%);
+        width: 35vw;
+
+        .scene__chapter-text {
+          &:nth-of-type(1) {
+            font-size: 4.6vw;
+
+            @include respond-to(tablet) {
+              font-size: 6.4vw;
+            }
+          }
+
+          &:not(:first-of-type) {
+            width: 69%;
+            margin: 8vw auto auto;
+          }
+        }
+
+        @include respond-to(tablet) {
+          width: 52vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          transform: none;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(17) {
+      .scene__chapter-inner {
+        margin: 13vh auto;
+        text-align: center;
+        width: 22vw;
+
+        @include respond-to(tablet) {
+          width: 32vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(18) {
+      .scene__chapter-inner {
+        margin: 15vh auto auto 10vw;
+        text-align: center;
+        width: 27vw;
+
+        @include respond-to(tablet) {
+          width: 37vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(19) {
+      .scene__chapter-inner {
+        margin: 24vh auto auto 10vw;
+        text-align: center;
+        width: 23vw;
+
+        @include respond-to(tablet) {
+          width: 33vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(20) {
+      .scene__chapter-inner {
+        margin: 11vh auto;
+        text-align: center;
+        width: 26vw;
+
+        @include respond-to(tablet) {
+          width: 37vw;
+        }
+
+        @include respond-to(smartphone) {
+          font-size: 5vw;
+          margin: 12vh auto auto;
+          width: 70vw;
+        }
+      }
+    }
+
+    &:nth-of-type(21) {
+      .scene__chapter-inner {
+        font-family: $font-lobster;
+        font-size: 8vw;
+        margin: 50vh auto;
+        text-align: center;
+        transform: translateY(-50%);
+        width: 26vw;
+
+        @include respond-to(smartphone) {
+          font-size: 12vw;
+          width: 36vw;
+        }
+      }
+    }
+
+    &.is-active {
+      opacity: 1;
+
+      .scene__chapter-text {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
