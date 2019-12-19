@@ -29,7 +29,7 @@
       line-height: 1.4;
       opacity: 0;
       transform: translateY($translate-appear);
-      transition: transform $transition-time-long $transition-expo-out $delay-appear, opacity $transition-time ease $delay-appear;
+      transition: transform 0 ease $transition-time, opacity $transition-time ease;
     }
 
     &:nth-of-type(1) {
@@ -419,8 +419,19 @@
       opacity: 1;
 
       .scene__chapter-text {
-        transform: none;
         opacity: 1;
+        transform: none;
+        transition: transform $transition-time-long $transition-expo-out, opacity $transition-time ease;
+
+        &:nth-child(1) {
+          transition-delay: 0.7s;
+        }
+
+        @for $i from 2 through 5 {
+          &:nth-child(#{$i}) {
+            transition-delay: 0.7 + $delay-appear * ($i - 1);
+          }
+        }
       }
     }
   }
