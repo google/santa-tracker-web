@@ -27,7 +27,8 @@ class Slider {
   handleSliderMouseUp() {
     if(this.slider.value == this.activeIndex + 1) { return; }
 
-    Transition.trigger();
+    const direction = this.slider.value > this.activeIndex + 1 ? 'next' : 'prev';
+    Transition.trigger(direction);
     Scene.update(this.slider.value);
     Nav.update(this.slider.value - 1);
     Nav.handleBtnVisibility();
