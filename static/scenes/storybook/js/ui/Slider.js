@@ -33,6 +33,7 @@ class Slider {
 
     this.container.classList.remove('is-grabbing');
     Transition.trigger();
+    Transition.trigger();
     Scene.update(this.slider.value);
     Nav.update(this.slider.value - 1);
     Nav.handleBtnVisibility();

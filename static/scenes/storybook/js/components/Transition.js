@@ -1,4 +1,5 @@
 import '../../../../node_modules/lottie-web/build/player/lottie.js';
+import Nav from '../ui/Nav.js';
 
 class Transition {
   constructor() {
@@ -58,13 +59,13 @@ class Transition {
 
   trigger() {
     this.container.classList.add('is-active');
-
     const anim = this.IS_MOBILE ? this.anims[1] : this.anims[0];
     anim.goToAndPlay(0);
   }
 
   destroy() {
     this.container.classList.remove('is-active');
+    Nav.animating = false;
   }
 
   handleResize() {
