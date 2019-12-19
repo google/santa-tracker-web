@@ -4,6 +4,8 @@ import * as prefix from '../lib/prefix.js';
 import './santa-button.js';
 import * as common from '../core/common.js';
 import {_msg} from '../magic.js';
+import isAndroid from '../core/android.js';
+
 
 const year = new Date().getFullYear();
 const countdownTo = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
@@ -83,7 +85,7 @@ export class SantaChromeElement extends LitElement {
 <div id="padder">
   <header>
     <santa-button aria-label=${labelForMenu} @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
-    <santa-button aria-label=${labelForAudio} color=${this.muted ? 'purple' : ''} @click=${this._onAudioClick} path=${this.muted ? paths.unmute : paths.mute}></santa-button>
+    <santa-button .hidden=${isAndroid()} aria-label=${labelForAudio} color=${this.muted ? 'purple' : ''} @click=${this._onAudioClick} path=${this.muted ? paths.unmute : paths.mute}></santa-button>
     <santa-button aria-label=${labelForAction} ?disabled=${!this.action} @click=${this._onActionClick} path=${paths[this.action || this._lastAction] || ''}></santa-button>
     <div class="grow"></div>
     <div><slot name="game"></slot></div>
