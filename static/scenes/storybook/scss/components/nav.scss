@@ -8,11 +8,16 @@
   transform: translateY(-50%);
   width: 100vw;
 
+  @include respond-to(smartphone) {
+    top: auto;
+    bottom: 0;
+  }
+
   &-prev,
   &-next {
     border: none;
     cursor: pointer;
-    height: 300px;
+    // height: 300px;
     height: 75px;
     outline: none;
     transition: transform .1s ease, box-shadow .1s linear, opacity .3s linear;
