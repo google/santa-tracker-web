@@ -1,15 +1,13 @@
 import { CHAPTERS } from '../model.js';
 
-class Scene {
+class TextManager {
   constructor() {
     this.container = document.querySelector('[data-scene]');
     this.active = 1;
     this.update = this.update.bind(this);
 
     this.appendChapters();
-    setTimeout(() => {
-      this.update(this.active);
-    }, 1000);
+    this.update(this.active);
   }
 
   appendChapters() {
@@ -41,4 +39,4 @@ class Scene {
   }
 }
 
-export default new Scene();
+export default new TextManager();

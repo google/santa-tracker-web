@@ -2,62 +2,55 @@ import api from '../../src/scene/api.js';
 import Storybook from './js/storybook.js';
 
 api.preload.sounds('storybook_load_sounds');
-if (window.innerWidth > 768) {
-	api.preload.images(
-		'img/desktop/chapter-1.svg',
-		'img/desktop/chapter-2.svg',
-		'img/desktop/chapter-3.svg',
-		'img/desktop/chapter-4.svg',
-		'img/desktop/chapter-5.svg',
-		'img/desktop/chapter-6.svg',
-		'img/desktop/chapter-7.svg',
-		'img/desktop/chapter-8.svg',
-		'img/desktop/chapter-9.svg',
-		'img/desktop/chapter-10.svg',
-		'img/desktop/chapter-11.svg',
-		'img/desktop/chapter-12.svg',
-		'img/desktop/chapter-13.svg',
-		'img/desktop/chapter-14.svg',
-		'img/desktop/chapter-15.svg',
-		'img/desktop/chapter-16.svg',
-		'img/desktop/chapter-17.svg',
-		'img/desktop/chapter-18.svg',
-		'img/desktop/chapter-19.svg',
-		'img/desktop/chapter-20.svg',
-		'img/desktop/chapter-21.svg',
-		'img/desktop/chapter-22.svg',
-	);
-} else {
-	api.preload.images(
-		'img/mobile/chapter-1.svg',
-		'img/mobile/chapter-2.svg',
-		'img/mobile/chapter-3.svg',
-		'img/mobile/chapter-4.svg',
-		'img/mobile/chapter-5.svg',
-		'img/mobile/chapter-6.svg',
-		'img/mobile/chapter-7.svg',
-		'img/mobile/chapter-8.svg',
-		'img/mobile/chapter-9.svg',
-		'img/mobile/chapter-10.svg',
-		'img/mobile/chapter-11.svg',
-		'img/mobile/chapter-12.svg',
-		'img/mobile/chapter-13.svg',
-		'img/mobile/chapter-14.svg',
-		'img/mobile/chapter-15.svg',
-		'img/mobile/chapter-16.svg',
-		'img/mobile/chapter-17.svg',
-		'img/mobile/chapter-18.svg',
-		'img/mobile/chapter-19.svg',
-		'img/mobile/chapter-20.svg',
-		'img/mobile/chapter-21.svg',
-		'img/mobile/chapter-22.svg',
-	);
+
+const touchEnabled = function() {
+  if ('standalone' in navigator) {
+    return true;  // iOS devices
+  }
+  const hasCoarse = window.matchMedia('(pointer: coarse)').matches;
+  if (hasCoarse) {
+    return true;  // true-ish
+  }
+  const hasPointer = window.matchMedia('(pointer: fine)').matches;
+  if (hasPointer) {
+    return false;  // prioritize mouse control
+  }
+
+  // Otherwise, fall-back to older style mechanisms.
+  return ('ontouchstart' in window) ||
+      window.DocumentTouch && document instanceof window.DocumentTouch;
 }
 
+const generateImages = function(device, ext, size) {
+  const images = [];
+
+  for (let i = 1; i < size + 1; i++) {
+    images.push(`img/${device}/chapter-${i}.${ext}`);
+  }
+
+  return images;
+}
+
+let images
+
+if (touchEnabled()) {
+  // preload svgs
+  if (window.innerWidth > 768) {
+    images = generateImages('desktop', 'svg', 22);
+  } else {
+    images = generateImages('mobile', 'svg', 22);
+  }
+} else {
+  // preload images for canvas
+  images = generateImages('desktop', 'jpg', 22);
+}
+
+api.preload.images(...images);
+
 api.config({
-	sound: ['storybook_start'],
+  sound: ['storybook_start'],
 });
 
 api.ready(async () => {
-  new Storybook(document.getElementById('module-storybook'));
-})
+  new Storybook(document.getElementById('module-storybook'), touchEnabled);
+});

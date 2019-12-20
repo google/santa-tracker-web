@@ -1,4 +1,5 @@
-import Scene from '../components/Scene.js';
+import TextManager from '../components/TextManager.js';
+import Sketch from '../components/Sketch/Sketch.js'
 import Slider from './Slider.js';
 import Transition from '../components/Transition.js';
 
@@ -16,8 +17,9 @@ class Nav {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  init(el, index, length) {
+  init(el, index, length, useGLCanvas) {
     this.el = el;
+    this.useGLCanvas = useGLCanvas;
     this.prevBtn = this.el.querySelector('[data-nav-prev]');
     this.nextBtn = this.el.querySelector('[data-nav-next]');
 
@@ -83,7 +85,10 @@ class Nav {
   moveToChapter() {
     this.animating = true;
     Transition.trigger();
-    Scene.update(this.activeIndex + 1);
+    TextManager.update(this.activeIndex + 1);
+    if (this.useGLCanvas) {
+      Sketch.updateChapter(this.activeIndex);
+    }
     Slider.update(this.activeIndex + 1);
     window.dispatchEvent(new CustomEvent('storybook_update', {detail: this.activeIndex + 1}));
   }

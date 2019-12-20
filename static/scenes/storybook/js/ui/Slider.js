@@ -1,6 +1,8 @@
-import Scene from '../components/Scene.js';
+import TextManager from '../components/TextManager.js';
+import Sketch from '../components/Sketch/Sketch.js';
 import Nav from './Nav.js';
 import Transition from '../components/Transition.js';
+// console.log(Sketch)
 
 class Slider {
   constructor() {
@@ -9,8 +11,9 @@ class Slider {
     this.update = this.update.bind(this);
   }
 
-  init(el, index, length) {
+  init(el, index, length, useGLCanvas) {
     this.container = el;
+    this.useGLCanvas = useGLCanvas;
 
     this.activeIndex = index;
     this.pages = length;
@@ -40,7 +43,10 @@ class Slider {
 
     this.container.classList.remove('is-grabbing');
     Transition.trigger();
-    Scene.update(this.slider.value);
+    TextManager.update(this.slider.value);
+    if (this.useGLCanvas) {
+      Sketch.updateChapter(this.slider.value - 1);
+    }
     Nav.update(this.slider.value - 1);
     Nav.handleBtnVisibility();
 

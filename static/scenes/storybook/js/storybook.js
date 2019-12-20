@@ -1,11 +1,14 @@
 import Nav from './ui/Nav.js'
 import Slider from './ui/Slider.js'
+import Sketch from './components/Sketch/Sketch.js'
 
 import { CHAPTERS } from './model.js'
 
 export default class Storybook {
-  constructor(el) {
+  constructor(el, touchEnabled) {
     this.el = el;
+    this.touchEnabled = touchEnabled;
+    this.useGLCanvas = !this.touchEnabled();
 
     this.activeIndex = 0;
     this.pages = CHAPTERS.length;
@@ -16,12 +19,18 @@ export default class Storybook {
     this.lullabyPlaying = false;
     this.musicSwitchPage = 19; // page on which to switch to lullaby music
 
+    if (this.useGLCanvas) {
+      Sketch.start();
+    } else {
+      this.el.classList.add('is-touch-device');
+    }
+
     this.init();
   }
 
   init() {
-    Nav.init(this.nav, this.activeIndex, this.pages);
-    Slider.init(this.slider, this.activeIndex, this.pages);
+    Nav.init(this.nav, this.activeIndex, this.pages, this.useGLCanvas);
+    Slider.init(this.slider, this.activeIndex, this.pages, this.useGLCanvas);
 
     window.addEventListener('storybook_update', this.onUpdate.bind(this));
   }
